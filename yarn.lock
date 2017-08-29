@@ -2327,7 +2327,7 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/ncp/download/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-next@latest:
+next@3.0.6:
   version "3.0.6"
   resolved "http://r.cnpmjs.org/next/download/next-3.0.6.tgz#14d9330b1f4eab60fdb84523034a3016f16fe414"
   dependencies:
