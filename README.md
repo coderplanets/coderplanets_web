@@ -5,7 +5,7 @@
 - [ ] CI system
 - [ ] add intl
 - [ ] add Preact
-- [ ] styled-component example
+- [ ] styled-component example / polish 
 - [ ] flow checking
 
 ## Roadmap

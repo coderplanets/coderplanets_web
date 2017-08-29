@@ -397,6 +397,12 @@ babel-plugin-react-require@3.0.0:
   version "3.0.0"
   resolved "http://r.cnpmjs.org/babel-plugin-react-require/download/babel-plugin-react-require-3.0.0.tgz#2e4e7b4496b93a654a1c80042276de4e4eeb20e3"
 
+babel-plugin-styled-components@^1.1.7:
+  version "1.1.7"
+  resolved "http://r.cnpmjs.org/babel-plugin-styled-components/download/babel-plugin-styled-components-1.1.7.tgz#a92c239779cc80e7838b645c12865c61c4ca71ce"
+  dependencies:
+    stylis "^3.2.1"
+
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "http://r.cnpmjs.org/babel-plugin-syntax-async-functions/download/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -765,21 +771,21 @@ babel-register@^6.24.1, babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.23.0:
+babel-runtime@6.23.0, babel-runtime@^6.2.0, babel-runtime@^6.22.0:
   version "6.23.0"
   resolved "http://r.cnpmjs.org/babel-runtime/download/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.18.0, babel-runtime@^6.2.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "http://r.cnpmjs.org/babel-runtime/download/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
-babel-template@6.25.0:
+babel-template@6.25.0, babel-template@^6.24.1, babel-template@^6.25.0, babel-template@^6.3.0, babel-template@^6.7.0:
   version "6.25.0"
   resolved "http://r.cnpmjs.org/babel-template/download/babel-template-6.25.0.tgz#665241166b7c2aa4c619d71e192969552b10c071"
   dependencies:
@@ -789,7 +795,7 @@ babel-template@6.25.0:
     babylon "^6.17.2"
     lodash "^4.2.0"
 
-babel-template@^6.24.1, babel-template@^6.25.0, babel-template@^6.26.0, babel-template@^6.3.0, babel-template@^6.7.0:
+babel-template@^6.26.0:
   version "6.26.0"
   resolved "http://r.cnpmjs.org/babel-template/download/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
   dependencies:
@@ -979,6 +985,13 @@ buffer@^4.3.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
     isarray "^1.0.0"
+
+buffer@^5.0.3:
+  version "5.0.7"
+  resolved "http://r.cnpmjs.org/buffer/download/buffer-5.0.7.tgz#570a290b625cf2603290c1149223d27ccf04db97"
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -1182,6 +1195,18 @@ crypto-browserify@^3.11.0:
     pbkdf2 "^3.0.3"
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
+
+css-color-keywords@^1.0.0:
+  version "1.0.0"
+  resolved "http://r.cnpmjs.org/css-color-keywords/download/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
+
+css-to-react-native@^2.0.3:
+  version "2.0.4"
+  resolved "http://r.cnpmjs.org/css-to-react-native/download/css-to-react-native-2.0.4.tgz#cf4cc407558b3474d4ba8be1a2cd3b6ce713101b"
+  dependencies:
+    css-color-keywords "^1.0.0"
+    fbjs "^0.8.5"
+    postcss-value-parser "^3.3.0"
 
 css-tree@1.0.0-alpha17:
   version "1.0.0-alpha17"
@@ -1507,7 +1532,7 @@ fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "http://r.cnpmjs.org/fast-deep-equal/download/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
 
-fbjs@^0.8.9:
+fbjs@^0.8.5, fbjs@^0.8.9:
   version "0.8.14"
   resolved "http://r.cnpmjs.org/fbjs/download/fbjs-0.8.14.tgz#d1dbe2be254c35a91e09f31f9cd50a40b2a0ed1c"
   dependencies:
@@ -1958,6 +1983,10 @@ is-fullwidth-code-point@^1.0.0:
   dependencies:
     number-is-nan "^1.0.0"
 
+is-function@^1.0.1:
+  version "1.0.1"
+  resolved "http://r.cnpmjs.org/is-function/download/is-function-1.0.1.tgz#12cfb98b65b57dd3d193a3121f5f6e2f437602b5"
+
 is-glob@^2.0.0, is-glob@^2.0.1:
   version "2.0.1"
   resolved "http://r.cnpmjs.org/is-glob/download/is-glob-2.0.1.tgz#d096f926a3ded5600f3fdfd91198cb0888c2d863"
@@ -1991,6 +2020,12 @@ is-path-inside@^1.0.0:
   resolved "http://r.cnpmjs.org/is-path-inside/download/is-path-inside-1.0.0.tgz#fc06e5a1683fbda13de667aff717bbc10a48f37f"
   dependencies:
     path-is-inside "^1.0.1"
+
+is-plain-object@^2.0.1:
+  version "2.0.4"
+  resolved "http://r.cnpmjs.org/is-plain-object/download/is-plain-object-2.0.4.tgz#2c163b3fafb1b606d9d17928f05c2a1c38e07677"
+  dependencies:
+    isobject "^3.0.1"
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
@@ -2029,6 +2064,10 @@ isobject@^2.0.0:
   resolved "http://r.cnpmjs.org/isobject/download/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
   dependencies:
     isarray "1.0.0"
+
+isobject@^3.0.1:
+  version "3.0.1"
+  resolved "http://r.cnpmjs.org/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
 isomorphic-fetch@^2.1.1:
   version "2.2.1"
@@ -2674,6 +2713,10 @@ pkg-up@2.0.0:
   dependencies:
     find-up "^2.1.0"
 
+postcss-value-parser@^3.3.0:
+  version "3.3.0"
+  resolved "http://r.cnpmjs.org/postcss-value-parser/download/postcss-value-parser-3.3.0.tgz#87f38f9f18f774a4ab4c8a232f5c5ce8872a9d15"
+
 preserve@^0.2.0:
   version "0.2.0"
   resolved "http://r.cnpmjs.org/preserve/download/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
@@ -3220,6 +3263,20 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://r.cnpmjs.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
+styled-components@^2.1.2:
+  version "2.1.2"
+  resolved "http://r.cnpmjs.org/styled-components/download/styled-components-2.1.2.tgz#bb419978e1287c5d0d88fa9106b2dd75f66a324c"
+  dependencies:
+    buffer "^5.0.3"
+    css-to-react-native "^2.0.3"
+    fbjs "^0.8.9"
+    hoist-non-react-statics "^1.2.0"
+    is-function "^1.0.1"
+    is-plain-object "^2.0.1"
+    prop-types "^15.5.4"
+    stylis "^3.2.1"
+    supports-color "^3.2.3"
+
 styled-jsx@^1.0.8:
   version "1.0.10"
   resolved "http://r.cnpmjs.org/styled-jsx/download/styled-jsx-1.0.10.tgz#114eea6ff5ae8f54bc2bcda86d2861085d5c99dd"
@@ -3235,7 +3292,7 @@ styled-jsx@^1.0.8:
     string-hash "1.1.1"
     stylis "3.2.8"
 
-stylis@3.2.8:
+stylis@3.2.8, stylis@^3.2.1:
   version "3.2.8"
   resolved "http://r.cnpmjs.org/stylis/download/stylis-3.2.8.tgz#9b23a3e06597f7944a3d9ae880d5796248b8784f"
 
@@ -3243,7 +3300,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/supports-color/download/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.1.0:
+supports-color@^3.1.0, supports-color@^3.2.3:
   version "3.2.3"
   resolved "http://r.cnpmjs.org/supports-color/download/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
