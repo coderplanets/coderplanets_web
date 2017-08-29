@@ -4,21 +4,21 @@ import { initStore } from '../store'
 import Page from '../components/Page'
 
 export default class Counter extends React.Component {
-  static getInitialProps ({ req }) {
+  static getInitialProps({ req }) {
     const isServer = !!req
     const store = initStore(isServer)
     return { lastUpdate: store.lastUpdate, isServer }
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.store = initStore(props.isServer, props.lastUpdate)
   }
 
-  render () {
+  render() {
     return (
       <Provider store={this.store}>
-        <Page title='Other Page' linkTo='/' />
+        <Page title="Other Page" linkTo="/" />
       </Provider>
     )
   }
