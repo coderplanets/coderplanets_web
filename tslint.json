@@ -1,7 +1,11 @@
 {
-  "extends": "tslint-config-airbnb",
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
   "rules": {
-    "semicolon": [false, "always"]
+    "no-submodule-imports": [true, "next"],
+    "semicolon": [false, "always"],
+    "member-access": false
   }
-
 }

@@ -1,17 +1,16 @@
-import * as React from 'react'
-
-import Link from 'next/link'
-/* const Link = require('next/link').default*/
 import { inject, observer } from 'mobx-react'
-import Clock from './Clock'
+import Link from 'next/link'
+import * as React from 'react'
 import styled from 'styled-components'
+
+import Clock from './Clock'
 
 const Title = styled.h1`
   color: yellowgreen;
   font-size: 50px;
 `
 
-interface Props {
+interface Iprops {
   store?: any
   title: any
   linkTo: any
@@ -19,16 +18,16 @@ interface Props {
 
 @inject('store')
 @observer
-class Page extends React.Component<Props, {}> {
-  public componentDidMount() {
+class Page extends React.Component<Iprops, {}> {
+  componentDidMount() {
     this.props.store.start()
   }
 
-  public componentWillUnmount() {
+  componentWillUnmount() {
     this.props.store.stop()
   }
 
-  public render() {
+  render() {
     return (
       <div>
         <Title>{this.props.title}</Title>

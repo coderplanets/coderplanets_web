@@ -15,7 +15,7 @@ const Clock = styled.div`
   }
 `
 
-export default props => {
+export default (props) => {
   return (
     <div className={props.light ? 'light' : ''}>
       <Clock>{format(new Date(props.lastUpdate))}</Clock>
