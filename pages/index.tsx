@@ -8,7 +8,7 @@ export default class Index extends React.Component {
   static getInitialProps({ req }) {
     const isServer = !!req
     const store = initStore(isServer)
-    return { lastUpdate: store.lastUpdate, isServer }
+    return { isServer, lastUpdate: store.lastUpdate }
   }
 
   store: any = null
