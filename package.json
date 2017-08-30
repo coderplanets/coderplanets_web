@@ -11,7 +11,7 @@
     "dist": "next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
     "lint": "tslint pages/* components/**/*",
-    "clean": "shjs ./hepler/clean.js",
+    "clean": "shjs ./helper/clean.js",
     "precommit": "lint-staged"
   },
 
