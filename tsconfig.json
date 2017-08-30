@@ -5,12 +5,12 @@
     "jsx": "react",
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "allowJs": true,
-    "outDir": "./bin"
+    "allowJs": true
   },
+
   "include": [
     "./pages/**/*",
     "./components/**/*"
   ],
-  "exclude": ["node_modules", "next.config.js", "out", "server.js"]
+  "exclude": ["node_modules", "store.js"]
 }

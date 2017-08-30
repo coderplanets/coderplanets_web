@@ -1,5 +1,9 @@
 
 yarn.lock
-./out
+./build
 ./bin
 ./npm-debug.log
+
+./components/*.js
+./stores/*.js
+./pages/*.js

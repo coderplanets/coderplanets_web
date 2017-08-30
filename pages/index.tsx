@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Page from '../components/Page'
-import { initStore } from '../store'
+import { initStore } from '../stores/store'
 
 import { Provider } from 'mobx-react'
 
