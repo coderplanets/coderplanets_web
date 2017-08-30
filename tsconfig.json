@@ -12,5 +12,5 @@
     "./pages/**/*",
     "./components/**/*"
   ],
-  "exclude": ["node_modules", "store.js"]
+  "exclude": ["node_modules"]
 }

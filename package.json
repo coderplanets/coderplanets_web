@@ -11,8 +11,14 @@
     "dist": "next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
     "lint": "tslint pages/* components/**/*",
-    "clean": "shjs ./hepler/clean.js"
+    "clean": "shjs ./hepler/clean.js",
+    "precommit": "lint-staged"
   },
+
+  "lint-staged": {
+    "*.tsx": ["prettier", "tslint"]
+  },
+
   "babel": {
     "presets": [
       "next/babel"
@@ -52,6 +58,8 @@
     "chalk": "^2.1.0",
     "concurrently": "3.5.0",
     "eslint-config-airbnb": "15.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
     "shelljs": "^0.7.8",
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.4.0",

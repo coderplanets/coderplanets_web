@@ -5,7 +5,8 @@
   ],
   "rules": {
     "no-submodule-imports": [true, "next"],
-    "semicolon": [false, "always"],
-    "member-access": false
+    "semicolon": [true, "never"],
+    "member-access": false,
+    "ordered-imports": true
   }
 }

@@ -5,7 +5,7 @@ import { Provider } from 'mobx-react'
 import Page from '../components/Page'
 import { initStore } from '../stores/store'
 
-export default class Other extends React.Component {
+export default class Other extends React.Component<any> {
   static getInitialProps({ req }) {
     const isServer = !!req
     const store = initStore(isServer)
