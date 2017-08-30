@@ -4,11 +4,14 @@
 - [x] add GreenKeeper
 - [x] add TypeScript
 - [x] add prettier config
+- [x] styled-component example / polish 
+- [ ] add Jest
+- [ ] change dir stucture for more easy test/code
 - [ ] CI system
+- [ ] prettier/lint before commit
+- [ ] add scanfold
 - [ ] add intl
 - [ ] add Preact
-- [x] styled-component example / polish 
-
 
 ## Roadmap
 

@@ -2,3 +2,4 @@
 yarn.lock
 ./out
 ./bin
+./npm-debug.log
