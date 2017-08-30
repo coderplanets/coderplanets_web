@@ -2,11 +2,13 @@
 ## Todo
 
 - [x] add GreenKeeper
+- [x] add TypeScript
+- [x] add prettier config
 - [ ] CI system
 - [ ] add intl
 - [ ] add Preact
-- [ ] styled-component example / polish 
-- [ ] flow checking
+- [x] styled-component example / polish 
+
 
 ## Roadmap
 
