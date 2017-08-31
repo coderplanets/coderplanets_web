@@ -1,15 +1,15 @@
-require('shelljs/global')
+const shell = require('shelljs')
 const addCheckMark = require('./utils/checkmark.js')
 
 process.stdout.write('Cleanup js file compiled by Typescript')
 
-rm('-rf', 'components/**/*.js')
-rm('-rf', 'pages/**/*.js')
-rm('-rf', 'stores/**/*.js')
+shell.rm('-rf', 'components/**/*.js')
+shell.rm('-rf', 'pages/**/*.js')
+shell.rm('-rf', 'stores/**/*.js')
 
-if (test('-e', 'bin/')) {
-  rm('-rf', 'bin/*')
+if (shell.test('-e', 'bin/')) {
+  shell.rm('-rf', 'bin/*')
 }
 
 addCheckMark()
-echo('\n')
+shell.echo('\n')
