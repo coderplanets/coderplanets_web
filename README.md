@@ -14,8 +14,9 @@
 - [ ] change dir stucture for more easy test/code
 - [ ] CI system
 - [ ] add scanfold
-- [ ] add intl
-- [ ] react-loadable  https://github.com/thejameskyle/react-loadable
+- [ ] add intl: rename messages file to lang
+- [ ] add Ramada example
+- [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] add Preact
 
 ## Roadmap
@@ -27,3 +28,12 @@
 ## issue
 
 1. next export 不支持从特定目录导出，所以不能将 ts 的代码集中到一个目录
+
+
+## Resources
+
+0. [mobx-share (mobx 知识结构)](https://ckinmind.github.io/mobx-share/)
+1. [react-typescript-samples](https://github.com/Lemoncode/react-typescript-samples)
+2. [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
+3. [styled-component](https://www.styled-components.com/docs)
+
