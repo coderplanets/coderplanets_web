@@ -6,13 +6,13 @@
     "dev": "concurrently --kill-others \"npm run server\"  \"npm run watch:ts\" ",
     "server": "npm run clean && node server.js",
     "watch:ts": "tsc --watch",
-    "build": "npm run build:ts && npm run dist && npm run clean",
-    "build:ts": "concurrently \"tsc \"",
+    "build": "concurrently \"tsc \" && npm run dist && npm run clean",
     "dist": "next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
-    "lint": "tslint pages/* components/**/*",
+    "lint": "tslint pages/* components/**/* stores/*",
     "clean": "shjs ./helper/clean.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "gen": "plop --plopfile ./helper/generators/index.js"
   },
   "lint-staged": {
     "*.tsx": [
@@ -61,6 +61,7 @@
     "eslint-config-airbnb": "15.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
+    "plop": "^1.8.1",
     "shelljs": "^0.7.8",
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.4.0",

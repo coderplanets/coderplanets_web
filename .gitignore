@@ -3,3 +3,7 @@ node_modules/
 npm-debug.log
 build
 bin
+
+components/**/*.js
+pages/**/*.js
+stores/**/*.js

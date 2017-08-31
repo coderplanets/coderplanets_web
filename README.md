@@ -1,5 +1,5 @@
 
-## Todo
+## TODO
 
 - [x] add GreenKeeper
 - [x] add TypeScript
@@ -8,16 +8,19 @@
 - [x] prettier/lint before commit
 - [x] gzip: use a CDN to serve statics 
 - [ ] template with/without etc...
+- [ ] add mobx-state-tree by move the shop example
 - [ ] debug pkg
 - [ ] add Jest
 - [ ] change dir stucture for more easy test/code
 - [ ] CI system
 - [ ] add scanfold
 - [ ] add intl
+- [ ] react-loadable  https://github.com/thejameskyle/react-loadable
 - [ ] add Preact
 
 ## Roadmap
 
+- [ ] shop example
 - [ ] Menu
 
 
