@@ -6,8 +6,9 @@
 - [x] add prettier config
 - [x] styled-component example / polish 
 - [x] prettier/lint before commit
-- [x] template with/without etc...
-- [x] debug pkg
+- [x] gzip: use a CDN to serve statics 
+- [ ] template with/without etc...
+- [ ] debug pkg
 - [ ] add Jest
 - [ ] change dir stucture for more easy test/code
 - [ ] CI system

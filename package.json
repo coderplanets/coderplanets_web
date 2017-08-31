@@ -14,11 +14,12 @@
     "clean": "shjs ./helper/clean.js",
     "precommit": "lint-staged"
   },
-
   "lint-staged": {
-    "*.tsx": ["prettier", "tslint"]
+    "*.tsx": [
+      "prettier",
+      "tslint"
+    ]
   },
-
   "babel": {
     "presets": [
       "next/babel"
@@ -45,7 +46,7 @@
   "dependencies": {
     "mobx": "3.2.2",
     "mobx-react": "4.2.2",
-    "next": "3.0.6",
+    "next": "^3.2.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "styled-components": "2.1.2"
