@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import styled from 'styled-components'
 
-const Clock = styled.div`
+const StyledClock = styled.div`
   padding: 15px;
   color: #82fa58;
   display: inline-block;
@@ -15,10 +15,15 @@ const Clock = styled.div`
   }
 `
 
-export default (props) => {
+interface IProps {
+  light: string
+  lastUpdate: number
+}
+
+export const Clock: React.StatelessComponent<IProps> = props => {
   return (
     <div className={props.light ? 'light' : ''}>
-      <Clock>{format(new Date(props.lastUpdate))}</Clock>
+      <StyledClock>{format(new Date(props.lastUpdate))}</StyledClock>
     </div>
   )
 }
