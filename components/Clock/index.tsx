@@ -15,12 +15,12 @@ const StyledClock = styled.div`
   }
 `
 
-interface IProps {
+interface Iprops {
   light: string
   lastUpdate: number
 }
 
-export const Clock: React.StatelessComponent<IProps> = props => {
+export const Clock: React.StatelessComponent<Iprops> = props => {
   return (
     <div className={props.light ? 'light' : ''}>
       <StyledClock>{format(new Date(props.lastUpdate))}</StyledClock>

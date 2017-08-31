@@ -1,29 +1,26 @@
-/**
-*
-* {{ properCase name }}
-*
-*/
+ /**
+ *
+ * {{ properCase name }}
+ *
+ */
 
-import React from 'react';
-// import styled from 'styled-components';
+import * as React from 'react'
+
+//import styled from 'styled-components'
 
 {{#if wantMessages}}
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import { FormattedMessage } from 'react-intl'
+import messages from './messages'
 {{/if}}
 
-function {{ properCase name }}() {
+interface Iprops {}
+
+export const {{ properCase name }}: React.StatelessComponent<Iprops> = props => {
   return (
     <div>
     {{#if wantMessages}}
       <FormattedMessage {...messages.header} />
     {{/if}}
     </div>
-  );
+  )
 }
-
-{{ properCase name }}.propTypes = {
-
-};
-
-export default {{ properCase name }};
