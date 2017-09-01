@@ -9,7 +9,7 @@
     "build": "concurrently \"tsc \" && npm run dist && npm run clean",
     "dist": "next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
-    "lint": "tslint pages/* components/**/* stores/*",
+    "lint": "tslint pages/* components/**/* stores/*  -e \"**/*.js\"",
     "clean": "shjs ./helper/clean.js",
     "precommit": "lint-staged",
     "gen": "plop --plopfile ./helper/generators/index.js"

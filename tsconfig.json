@@ -10,7 +10,8 @@
 
   "include": [
     "./pages/**/*",
-    "./components/**/*"
+    "./components/**/*",
+    "./stores/**/*"
   ],
   "exclude": ["node_modules"]
 }
