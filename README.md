@@ -19,6 +19,15 @@
 - [ ] test Preact
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
 
+
+### i18n 
+
+0. 修改创建组件的模板
+1. 初始加载使用浏览器默认语言
+2. 后续过程中如果前端 locale 手动改变，则单独请求 locale 文件 (server.js 需要单
+   独的 locale 路由)
+3. 逻辑合并到数据流
+
 ## Roadmap
 
 - [ ] shop example
