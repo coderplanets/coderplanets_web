@@ -7,17 +7,17 @@
 - [x] styled-component example / polish 
 - [x] prettier/lint before commit
 - [x] gzip: use a CDN to serve statics 
-- [ ] template with/without etc...
-- [ ] add mobx-state-tree by move the shop example
-- [ ] debug pkg
-- [ ] add Jest
-- [ ] change dir stucture for more easy test/code
+- [x] plop template 
+- [x] change dir stucture for more easy test/code
+- [ ] add Jest && Jest as 'cover tool'
+- [ ] intl: rename messages file to lang
 - [ ] CI system
-- [ ] add scanfold
-- [ ] add intl: rename messages file to lang
+- [ ] mobx-state-tree by move the shop example
+- [ ] debug pkg
 - [ ] add Ramada example
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
-- [ ] add Preact
+- [ ] test Preact
+- [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
 
 ## Roadmap
 
