@@ -3,6 +3,9 @@ import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
 
+import { FormattedMessage as I18n } from 'react-intl'
+import lang from './lang'
+
 import { Clock } from '../Clock'
 
 const Title = styled.h1`
@@ -31,6 +34,8 @@ class Page extends React.Component<Iprops, {}> {
     return (
       <div>
         <Title>{this.props.title}</Title>
+
+        <I18n {...lang.header} />
         <Clock
           lastUpdate={this.props.store.lastUpdate}
           light={this.props.store.light}

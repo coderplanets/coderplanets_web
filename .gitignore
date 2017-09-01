@@ -7,3 +7,4 @@ bin
 components/**/*.js
 pages/**/*.js
 stores/**/*.js
+lang/.messages/

@@ -7,7 +7,7 @@
     "server": "npm run clean && node server.js",
     "watch:ts": "tsc --watch",
     "build": "concurrently \"tsc \" && npm run dist && npm run clean",
-    "dist": "next build && next export -o \"build\"",
+    "dist": "shjs ./helper/create_default_lang.js && next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
     "lint": "tslint pages/* components/**/* stores/*  -e \"**/*.js\"",
     "clean": "shjs ./helper/clean.js",
@@ -33,7 +33,10 @@
           "displayName": true,
           "preprocess": false
         }
-      ]
+      ],
+      ["react-intl", {
+        "messagesDir": "lang/.messages/"
+      }]
     ]
   },
   "prettier": {

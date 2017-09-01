@@ -5,6 +5,8 @@ import { Provider } from 'mobx-react'
 import Page from '../components/Page'
 import { initStore } from '../stores/store'
 
+import { IntlProvider } from 'react-intl'
+
 export default class Other extends React.Component<any> {
   static getInitialProps({ req }) {
     const isServer = !!req
@@ -20,9 +22,14 @@ export default class Other extends React.Component<any> {
   }
 
   render() {
+    const locale = 'en'
+    const messages = {}
+
     return (
       <Provider store={this.store}>
-        <Page title="Other Page" linkTo="/" />
+        <IntlProvider locale={locale} messages={messages}>
+          <Page title="Other Page" linkTo="/" />
+        </IntlProvider>
       </Provider>
     )
   }

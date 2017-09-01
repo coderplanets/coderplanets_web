@@ -6,6 +6,7 @@ process.stdout.write('Cleanup js file compiled by Typescript')
 shell.rm('-rf', 'components/**/*.js')
 shell.rm('-rf', 'pages/**/*.js')
 shell.rm('-rf', 'stores/**/*.js')
+shell.rm('-rf', 'lang/.messages/*')
 
 if (shell.test('-e', 'bin/')) {
   shell.rm('-rf', 'bin/*')

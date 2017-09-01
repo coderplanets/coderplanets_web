@@ -8,6 +8,6 @@
     "object-literal-sort-keys": false,
     "semicolon": [true, "never"],
     "member-access": false,
-    "ordered-imports": true
+    "ordered-imports": false
   }
 }

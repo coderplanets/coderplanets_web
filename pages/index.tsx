@@ -8,7 +8,7 @@ import { defineMessages, FormattedMessage, IntlProvider } from 'react-intl'
 const { description } = defineMessages({
   description: {
     id: 'page.index.title',
-    defaultMessage: 'i am index fuckig header',
+    defaultMessage: 'i am index fuckig header bbb',
   },
 })
 

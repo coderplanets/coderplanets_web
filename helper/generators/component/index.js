@@ -35,7 +35,7 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'wantMessages',
+      name: 'wantI18n',
       default: true,
       message: 'Do you want i18n messages (i.e. will this component use text)?',
     },
@@ -76,11 +76,11 @@ module.exports = {
     ]
 
     // If they want a i18n messages file
-    if (data.wantMessages) {
+    if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../components/{{properCase name}}/messages.tsx',
-        templateFile: './component/messages.js.hbs',
+        path: '../../components/{{properCase name}}/lang.tsx',
+        templateFile: './component/lang.js.hbs',
         abortOnFail: true,
       })
     }
