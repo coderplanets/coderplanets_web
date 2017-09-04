@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "license": "TODO",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run server\"  \"npm run watch:ts\" ",
+    "dev": "run-p server compile:watch",
     "server": "npm run clean && node server.js",
-    "watch:ts": "tsc --watch",
-    "build": "concurrently \"tsc \" && npm run dist && npm run clean",
+    "compile": "tsc",
+    "compile:watch": "npm run compile -- --watch",
+    "build": "run-s compile dist clean",
     "dist": "shjs ./helper/create_default_lang.js && next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
-    "lint": "tslint pages/* components/**/* stores/*  -e \"**/*.js\"",
+    "lint": "tslint pages/* components/**/* stores/**/*  -e \"**/*.js\"",
     "clean": "shjs ./helper/clean.js",
     "precommit": "lint-staged",
     "gen": "plop --plopfile ./helper/generators/index.js"
@@ -34,9 +35,12 @@
           "preprocess": false
         }
       ],
-      ["react-intl", {
-        "messagesDir": "lang/.messages/"
-      }]
+      [
+        "react-intl",
+        {
+          "messagesDir": "lang/.messages/"
+        }
+      ]
     ]
   },
   "prettier": {
@@ -62,10 +66,10 @@
     "babel-plugin-styled-components": "1.1.7",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "chalk": "^2.1.0",
-    "concurrently": "3.5.0",
     "eslint-config-airbnb": "15.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
+    "npm-run-all": "^4.1.1",
     "plop": "^1.8.1",
     "shelljs": "^0.7.8",
     "tslint": "^5.7.0",
