@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import Link from 'next/link'
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { FormattedMessage as I18n } from 'react-intl'

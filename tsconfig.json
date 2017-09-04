@@ -5,7 +5,10 @@
     "jsx": "react",
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "allowJs": true
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "alwaysStrict": true
   },
 
   "include": [
