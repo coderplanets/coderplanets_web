@@ -11,6 +11,7 @@
 - [x] change dir stucture for more easy test/code
 - [x] intl: rename messages file to lang
 - [ ] add Jest && Jest as 'cover tool'
+- [ ] make test a individual dir
 - [ ] CI system
 - [ ] mobx-state-tree by move the shop example with i18n support
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
@@ -44,6 +45,7 @@
 ## issue
 
 1. next export 不支持从特定目录导出，所以不能将 ts 的代码集中到一个目录
+2. stores 不使用 typescript , see [this issue](https://github.com/mobxjs/mobx-state-tree/issues/276)
 
 
 ## Resources

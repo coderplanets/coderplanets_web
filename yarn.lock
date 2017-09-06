@@ -2953,11 +2953,23 @@ mkdirp-then@1.2.0:
   dependencies:
     minimist "0.0.8"
 
-mobx-react@4.2.2:
+mobx-react-devtools@^4.2.15:
+  version "4.2.15"
+  resolved "http://r.cnpmjs.org/mobx-react-devtools/download/mobx-react-devtools-4.2.15.tgz#881c038fb83db4dffd1e72bbaf5374d26b2fdebb"
+
+mobx-react@^4.2.2:
   version "4.2.2"
   resolved "http://r.cnpmjs.org/mobx-react/download/mobx-react-4.2.2.tgz#db9cc3cafefbd830d0584c1149af5aae67829201"
   dependencies:
     hoist-non-react-statics "^1.2.0"
+
+mobx-state-tree@^0.11.0:
+  version "0.11.0"
+  resolved "http://r.cnpmjs.org/mobx-state-tree/download/mobx-state-tree-0.11.0.tgz#456ce0520a680caf6c9a7fdd10bd3277d75b4ac7"
+
+mobx-utils@^3.1.1:
+  version "3.1.1"
+  resolved "http://r.cnpmjs.org/mobx-utils/download/mobx-utils-3.1.1.tgz#a44d63489bea114ac02c9cb8a16d8633e2fb88e0"
 
 mobx@3.2.2:
   version "3.2.2"

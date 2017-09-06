@@ -6,15 +6,13 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "allowJs": true,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
-    "alwaysStrict": true
+    "alwaysStrict": true,
+    "noImplicitThis": true
   },
 
-  "include": [
-    "./pages/**/*",
-    "./components/**/*",
-    "./stores/**/*"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["./pages/**/*", "./components/**/*"],
+  "exclude": ["node_modules", "./stores"]
 }

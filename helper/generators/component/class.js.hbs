@@ -1,4 +1,4 @@
-/**
+/*
 *
 * {{ properCase name }}
 *
@@ -15,10 +15,12 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-interface Iprops {}
+interface Iprops {
+  any?: any
+}
 
-//@inject('')
-//@observer
+// @inject('')
+// @observer
 class {{ properCase name }} extends React.Component<Iprops, {}> {
   componentDidMount() {}
 

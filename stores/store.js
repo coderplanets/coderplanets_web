@@ -6,7 +6,7 @@ class Store {
   @observable lastUpdate = 0
   @observable light = false
 
-  timer: any = null
+  timer = null
 
   constructor(isServer, lastUpdate) {
     this.lastUpdate = lastUpdate

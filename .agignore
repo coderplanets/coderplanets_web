@@ -5,5 +5,4 @@ yarn.lock
 ./npm-debug.log
 
 ./components/*.js
-./stores/*.js
 ./pages/*.js
