@@ -9,10 +9,12 @@
 - [x] gzip: use a CDN to serve statics 
 - [x] plop template 
 - [x] change dir stucture for more easy test/code
+- [x] intl: rename messages file to lang
 - [ ] add Jest && Jest as 'cover tool'
-- [ ] intl: rename messages file to lang
 - [ ] CI system
-- [ ] mobx-state-tree by move the shop example
+- [ ] mobx-state-tree by move the shop example with i18n support
+- [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
+- [ ] launch first version with changeLog staff
 - [ ] debug pkg
 - [ ] add Ramada example
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
@@ -29,10 +31,14 @@
 3. build 的时候用 default-lang.js 脚本生成en/zh.json文件， messages 导出后 key/id 不能重复
 4. 逻辑合并到数据流
 
+## ui
+  [点击 page 隐藏菜单的思路](https://stackoverflow.com/questions/152975/how-do-i-detect-a-click-outside-an-element)
+
 ## Roadmap
 
 - [ ] shop example
 - [ ] Menu
+- [ ] animate, [animate-components](https://github.com/nitin42/animate-components/tree/master/packages/animate-keyframes)
 
 
 ## issue
@@ -42,8 +48,31 @@
 
 ## Resources
 
-0. [mobx-share (mobx 知识结构)](https://ckinmind.github.io/mobx-share/)
-1. [react-typescript-samples](https://github.com/Lemoncode/react-typescript-samples)
-2. [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
-3. [styled-component](https://www.styled-components.com/docs)
+### rx.js
+  [interactive Rx](http://rxmarbles.com/)
+  [categories-of-operators](http://reactivex.io/rxjs/manual/overview.html#categories-of-operators)
+  [使用 RxJS 构造复杂单页应用的数据逻辑](https://github.com/xufei/blog/issues/38)
+  [RxJS 入门指引和初步应用](https://github.com/xufei/blog/issues/44)
+  [单页应用的数据流方案探索](https://github.com/xufei/blog/issues/47)
+  [复杂单页应用的数据层设计](https://github.com/xufei/blog/issues/42)
+
+### mobx
+  [mobx-share (mobx 知识结构)](https://ckinmind.github.io/mobx-share/)
+  [mobx-utils](https://github.com/mobxjs/mobx-utils)
+  
+### jest
+  [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
+
+### styled-component
+  [styled-component](https://www.styled-components.com/docs)
+
+### example
+  [react-typescript-samples](https://github.com/Lemoncode/react-typescript-samples)
+  [typescript-react-mobx-template](https://github.com/dimafeng/typescript-react-mobx-template)
+
+
+## talk idea
+  0. 就像混泥土 -- 盖小房子随便配比 --- 但是改三峡大坝可就不行了
+
+  
 
