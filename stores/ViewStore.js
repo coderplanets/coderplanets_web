@@ -1,6 +1,6 @@
 import { types, getParent } from 'mobx-state-tree'
 
-export const ViewStore = types
+const ViewStore = types
   .model({
     page: 'books',
     selectedBookId: '',
@@ -9,6 +9,10 @@ export const ViewStore = types
     get shop() {
       return getParent(self)
     },
+    get pigeon() {
+      return self.shop.fetch
+    },
+
     get isLoading() {
       return self.shop.isLoading
     },
@@ -17,7 +21,7 @@ export const ViewStore = types
         case 'books':
           return '/'
         case 'book':
-          return '/book/' + self.selectedBookId
+          return `/book/${self.selectedBookId}`
         case 'cart':
           return '/cart'
         default:
@@ -31,6 +35,14 @@ export const ViewStore = types
     },
   }))
   .actions(self => ({
+    setPage(key, val) {
+      self[key] = val
+    },
+
+    getPage() {
+      console.log('get Page: ', self.page)
+    },
+
     openBooksPage() {
       self.page = 'books'
       self.selectedBookId = ''
@@ -48,3 +60,5 @@ export const ViewStore = types
       self.selectedBookId = ''
     },
   }))
+
+export default ViewStore

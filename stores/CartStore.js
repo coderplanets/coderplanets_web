@@ -1,5 +1,6 @@
 import { when, reaction } from 'mobx'
-import { types, getParent, getSnapshot, applySnapshot } from 'mobx-state-tree'
+/* import { types, getParent, getSnapshot, applySnapshot } from 'mobx-state-tree' */
+import { types, getParent, getSnapshot } from 'mobx-state-tree'
 import { Book } from './BookStore'
 
 const CartEntry = types
@@ -24,8 +25,7 @@ const CartEntry = types
     },
   }))
 
-/* type ICartStore = typeof CartStore.Type*/
-export const CartStore = types
+const CartStore = types
   .model('CartStore', {
     entries: types.array(CartEntry),
   })
@@ -54,6 +54,10 @@ export const CartStore = types
   }))
   .actions(self => ({
     afterAttach() {
+      const window = {}
+
+      window.localStorage = undefined
+
       if (typeof window.localStorage !== 'undefined') {
         when(
           () => !self.shop.isLoading,
@@ -87,8 +91,11 @@ export const CartStore = types
       self.entries.clear()
     },
     readFromLocalStorage() {
-      const cartData = window.localStorage.getItem('cart')
-      if (cartData) applySnapshot(self, JSON.parse(cartData))
+      /*
+         const cartData = window.localStorage.getItem('cart')
+         if (cartData) applySnapshot(self, JSON.parse(cartData))
+       */
     },
   }))
-/* type ICartStore = typeof CartStore.Type*/
+
+export default CartStore

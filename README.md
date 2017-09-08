@@ -10,6 +10,7 @@
 - [x] plop template 
 - [x] change dir stucture for more easy test/code
 - [x] intl: rename messages file to lang
+- [x] remove the typescript support
 - [ ] add Jest && Jest as 'cover tool'
 - [ ] make test a individual dir
 - [ ] CI system

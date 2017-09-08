@@ -14,10 +14,10 @@ export const BookStore = types
     books: types.map(Book),
   })
   .views(self => ({
-    get shop() {
+    get shop(): any {
       return getParent(self)
     },
-    get sortedAvailableBooks() {
+    get sortedAvailableBooks(): any {
       return sortBooks(self.books.values())
     },
   }))

@@ -5,6 +5,7 @@
 */
 
 import  React from 'react'
+import PropTypes from 'prop-types'
 
 // import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
@@ -15,13 +16,9 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-interface Iprops {
-  any?: any
-}
-
 // @inject('')
 // @observer
-class {{ properCase name }} extends React.Component<Iprops, {}> {
+class {{ properCase name }} extends React.Component {
   componentDidMount() {}
 
   componentWillUnmount() {}
@@ -38,3 +35,9 @@ class {{ properCase name }} extends React.Component<Iprops, {}> {
 }
 
 export default {{ properCase name }}
+
+Index.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+}
+
+Index.defaultProps = {}

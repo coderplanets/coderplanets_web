@@ -1,26 +1,34 @@
+import fetch from 'isomorphic-fetch'
 import { ShopStore } from './ShopStore'
 
 let rootStore = null
 
-const fetcher = url => window.fetch(url).then(response => response.json())
+/* const fetcher = url => window.fetch(url).then(response => response.json()) */
+const fetcher = url => fetch(url).then(response => response.json())
 
-const createRootStore = function() {
+const createRootStore = isServer => {
   return ShopStore.create(
     {},
     {
       fetch: fetcher,
       alert: m => console.log(m), // Noop for demo: window.alert(m)
+      isServer,
     }
   )
 }
 
-export function initStore(isServer) {
+function initStore(isServer) {
+  let ret
+
   if (isServer) {
-    return createRootStore()
+    ret = createRootStore(isServer)
   } else {
     if (rootStore === null) {
-      rootStore = createRootStore()
+      rootStore = createRootStore(isServer)
     }
-    return rootStore
+    ret = rootStore
   }
+  return ret
 }
+
+export default initStore

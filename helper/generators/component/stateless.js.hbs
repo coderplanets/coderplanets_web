@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 //import styled from 'styled-components'
 
@@ -13,9 +14,7 @@ import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 {{/if}}
 
-interface Iprops {}
-
-export const {{ properCase name }}: React.StatelessComponent<Iprops> = props => {
+export const {{ properCase name }}(props) => {
   return (
     <div>
     {{#if wantI18n}}
@@ -24,3 +23,10 @@ export const {{ properCase name }}: React.StatelessComponent<Iprops> = props => 
     </div>
   )
 }
+
+
+{{ properCase name }}.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+};
+
+{{ properCase name }}.defaultProps = {};

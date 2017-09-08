@@ -3,7 +3,7 @@ import { BookStore } from './BookStore'
 import { CartStore } from './CartStore'
 import { ViewStore } from './ViewStore'
 
-export const ShopStore = types
+const ShopStore = types
   .model('ShopStore', {
     bookStore: types.optional(BookStore, {
       books: {},
@@ -35,3 +35,5 @@ export const ShopStore = types
       self.bookStore.loadBooks()
     },
   }))
+
+export default ShopStore

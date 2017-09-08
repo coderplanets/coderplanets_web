@@ -5,6 +5,7 @@ let store = null
 class Store {
   @observable lastUpdate = 0
   @observable light = false
+  @observable who = 'me...iii'
 
   timer = null
 
@@ -23,13 +24,18 @@ class Store {
   stop = () => clearInterval(this.timer)
 }
 
-export function initStore(isServer, lastUpdate = Date.now()) {
+function initStore(isServer, lastUpdate = Date.now()) {
+  let ret
   if (isServer) {
-    return new Store(isServer, lastUpdate)
+    ret = new Store(isServer, lastUpdate)
   } else {
     if (store === null) {
       store = new Store(isServer, lastUpdate)
     }
-    return store
+    ret = store
   }
+
+  return ret
 }
+
+export default initStore
