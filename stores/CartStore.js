@@ -3,7 +3,7 @@ import { when, reaction } from 'mobx'
 import { types, getParent, getSnapshot } from 'mobx-state-tree'
 import { Book } from './BookStore'
 
-const CartEntry = types
+export const CartEntry = types
   .model('CartEntry', {
     quantity: 0,
     book: types.reference(Book),
@@ -91,6 +91,7 @@ const CartStore = types
       self.entries.clear()
     },
     readFromLocalStorage() {
+      console.log('readFromLocalStorage')
       /*
          const cartData = window.localStorage.getItem('cart')
          if (cartData) applySnapshot(self, JSON.parse(cartData))

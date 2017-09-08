@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Provider } from 'mobx-react'
 
 import Shop from '../components/Shop'
-import { initStore } from '../stores/rootStore'
+import initStore from '../stores/rootStore'
 
 export default class ShopPage extends React.Component {
   static getInitialProps({ req }) {

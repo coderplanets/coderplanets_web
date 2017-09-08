@@ -4,7 +4,7 @@ let store = null
 
 class Store {
   @observable lastUpdate = 0
-  @observable light = false
+  @observable light = true
   @observable who = 'me...iii'
 
   timer = null

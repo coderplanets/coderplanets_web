@@ -8,7 +8,7 @@ export const Book = types.model('Book', {
   isAvailable: true,
 })
 
-export const BookStore = types
+const BookStore = types
   .model('BookStore', {
     isLoading: true,
     books: types.map(Book),
@@ -36,7 +36,9 @@ export const BookStore = types
 
     const loadBooks = process(function* loadBooks() {
       try {
-        const json = yield self.shop.fetch('/books.json')
+        const json = yield self.shop.fetch(
+          'http://localhost:3000/static/books.json'
+        )
         updateBooks(json)
         markLoading(false)
       } catch (err) {
@@ -55,3 +57,5 @@ function sortBooks(books) {
     .filter(b => b.isAvailable)
     .sort((a, b) => (a.name > b.name ? 1 : a.name === b.name ? 0 : -1))
 }
+
+export default BookStore
