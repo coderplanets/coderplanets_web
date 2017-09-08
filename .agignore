@@ -3,6 +3,3 @@ yarn.lock
 ./build
 ./bin
 ./npm-debug.log
-
-./components/*.js
-./pages/*.js

@@ -51,6 +51,12 @@
 
 ## Resources
 
+### Ramada
+   [Ramda 中文网](http://ramda.cn/) (简介部分有很多文章)
+   [Ramda 函数库参考教程 -- 阮一峰](http://www.ruanyifeng.com/blog/2017/03/ramda.html)
+   [Pointfree 编程风格指南](http://www.ruanyifeng.com/blog/2017/03/pointfree.html)
+
+
 ### rx.js
   [interactive Rx](http://rxmarbles.com/)
   [categories-of-operators](http://reactivex.io/rxjs/manual/overview.html#categories-of-operators)
@@ -76,6 +82,7 @@
 
 ## talk idea
   0. 就像混泥土 -- 盖小房子随便配比 --- 但是改三峡大坝可就不行了
+  1. 香港笼屋 vs 现代化厨房
 
   
 

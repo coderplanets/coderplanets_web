@@ -4,6 +4,4 @@ npm-debug.log
 build
 bin
 
-components/**/*.js
-pages/**/*.js
 lang/.messages/
