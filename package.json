@@ -5,16 +5,15 @@
   "scripts": {
     "dev": "run-p server ",
     "flow-check": "todo",
-    "eslint-check": "eslint --print-config eslintrc.json | eslint-config-prettier-check",
     "lint": "eslint pages/**/*.js components/**/* stores/**/*",
     "lint2": "tslint pages/* components/**/* stores/**/*  -e \"**/*.js\"",
     "server": "npm run clean && node server.js",
     "build": "run-s dist clean",
-    "dist": "shjs ./helper/create_default_lang.js && next build && next export -o \"build\"",
+    "dist": "shjs ./utils/scripts/create_default_lang.js && next build && next export -o \"build\"",
     "start": "NODE_ENV=production node server.js",
-    "clean": "shjs ./helper/clean.js",
+    "clean": "shjs ./utils/scripts/clean.js",
     "precommit": "lint-staged",
-    "gen": "plop --plopfile ./helper/generators/index.js"
+    "gen": "plop --plopfile ./utils/scripts/generators/index.js"
   },
   "lint-staged": {
     "*.tsx": [
@@ -77,6 +76,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
+    "glob": "^7.1.2",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
     "mobx-react-devtools": "^4.2.15",

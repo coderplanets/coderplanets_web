@@ -1,5 +1,5 @@
 const shell = require('shelljs')
-const addCheckMark = require('./utils/checkmark.js')
+const addCheckMark = require('./checkmark.js')
 
 // shell.rm('-rf', 'components/**/*.js')
 // shell.rm('-rf', 'pages/**/*.js')

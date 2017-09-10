@@ -6,7 +6,7 @@
 
 'use strict'
 
-const componentExists = require('../../utils/component_exists.js')
+const componentExists = require('../../component_exists.js')
 
 module.exports = {
   description: 'Add an unconnected component',
@@ -63,13 +63,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../components/{{properCase name}}/index.js',
+        path: '../../../../components/{{properCase name}}/index.js',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../components/{{properCase name}}/index.test.js',
+        path: '../../../../components/{{properCase name}}/index.test.js',
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
@@ -79,7 +79,7 @@ module.exports = {
     if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../components/{{properCase name}}/lang.js',
+        path: '../../../../components/{{properCase name}}/lang.js',
         templateFile: './component/lang.js.hbs',
         abortOnFail: true,
       })
@@ -89,7 +89,7 @@ module.exports = {
     if (data.wantLoadable) {
       actions.push({
         type: 'add',
-        path: '../../app/components/{{properCase name}}/Loadable.js',
+        path: '../../../../app/components/{{properCase name}}/Loadable.js',
         templateFile: './component/loadable.js.hbs',
         abortOnFail: true,
       })
