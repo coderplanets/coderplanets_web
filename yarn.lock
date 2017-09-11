@@ -3311,10 +3311,6 @@ mobx-state-tree@^0.11.0:
   version "0.11.0"
   resolved "http://r.cnpmjs.org/mobx-state-tree/download/mobx-state-tree-0.11.0.tgz#456ce0520a680caf6c9a7fdd10bd3277d75b4ac7"
 
-mobx-utils@^3.1.1:
-  version "3.1.1"
-  resolved "http://r.cnpmjs.org/mobx-utils/download/mobx-utils-3.1.1.tgz#a44d63489bea114ac02c9cb8a16d8633e2fb88e0"
-
 mobx@3.2.2:
   version "3.2.2"
   resolved "http://r.cnpmjs.org/mobx/download/mobx-3.2.2.tgz#aa671459bededfd9880c948889a3f62bce09279c"
@@ -3363,9 +3359,9 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/ncp/download/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-next@^3.2.1:
-  version "3.2.1"
-  resolved "http://r.cnpmjs.org/next/download/next-3.2.1.tgz#6d694823ac6e74e9be4553117144a6402220490f"
+next@3.2.2:
+  version "3.2.2"
+  resolved "http://r.cnpmjs.org/next/download/next-3.2.2.tgz#f89473a15595a06d5ab25fae3351e440d305159a"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.25.0"

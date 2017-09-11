@@ -1,7 +1,7 @@
 import { when, reaction } from 'mobx'
 /* import { types, getParent, getSnapshot, applySnapshot } from 'mobx-state-tree' */
 import { types, getParent, getSnapshot } from 'mobx-state-tree'
-import { Book } from './BookStore'
+import { Book } from '../BookStore'
 
 export const CartEntry = types
   .model('CartEntry', {

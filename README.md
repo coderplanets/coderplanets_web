@@ -12,6 +12,7 @@
 - [x] intl: rename messages file to lang
 - [x] remove the typescript support
 - [x] mobx-state-tree by move the shop example
+- [ ] add generator for container and store/
 - [ ] add Jest && Jest as 'cover tool'
 - [ ] make test a individual dir
 - [ ] CI system
@@ -22,6 +23,10 @@
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] test Preact
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
+
+
+### plugin
+  #### [lozad.js](https://github.com/ApoorvSaxena/lozad.jsfd)
 
 
 ### i18n 
@@ -35,6 +40,7 @@
 
 ## ui
   [点击 page 隐藏菜单的思路](https://stackoverflow.com/questions/152975/how-do-i-detect-a-click-outside-an-element)
+  [rx + fetch](https://github.com/Cmdv/React-RxJS/blob/836d20a09f66f94db4c3e2206b14b203bf8836a1/src/intent/json-intent.js)
 
 ## Roadmap
 
@@ -81,7 +87,6 @@
 
 ### mobx
   [mobx-share (mobx 知识结构)](https://ckinmind.github.io/mobx-share/)
-  [mobx-utils](https://github.com/mobxjs/mobx-utils)
   
 ### jest
   [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
