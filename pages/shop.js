@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Provider } from 'mobx-react'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 import Shop from '../components/Shop'
 import initStore from '../stores/rootStore'
@@ -21,7 +22,14 @@ export default class ShopPage extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <Shop />
+        <div>
+          <Shop />
+          <style jsx global>{`
+            body {
+              margin: 0px;
+            }
+          `}</style>
+        </div>
       </Provider>
     )
   }

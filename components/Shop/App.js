@@ -1,7 +1,6 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
 import logo from '../../static/shopLogo.svg'
-import './App.css'
 
 import Books from './Books'
 import BookDetails from './BookDetails'

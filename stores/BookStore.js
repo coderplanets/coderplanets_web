@@ -36,9 +36,11 @@ const BookStore = types
 
     const loadBooks = process(function* loadBooks() {
       try {
+        // const json = yield self.shop.fetch('/static/books.json')
         const json = yield self.shop.fetch(
           'http://localhost:3000/static/books.json'
         )
+
         updateBooks(json)
         markLoading(false)
       } catch (err) {

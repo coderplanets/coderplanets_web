@@ -11,14 +11,14 @@
 - [x] change dir stucture for more easy test/code
 - [x] intl: rename messages file to lang
 - [x] remove the typescript support
+- [x] mobx-state-tree by move the shop example
 - [ ] add Jest && Jest as 'cover tool'
 - [ ] make test a individual dir
 - [ ] CI system
-- [ ] mobx-state-tree by move the shop example with i18n support
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] launch first version with changeLog staff
 - [ ] debug pkg
-- [ ] add Ramada example
+- [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] test Preact
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
@@ -55,6 +55,20 @@
    [Ramda 中文网](http://ramda.cn/) (简介部分有很多文章)
    [Ramda 函数库参考教程 -- 阮一峰](http://www.ruanyifeng.com/blog/2017/03/ramda.html)
    [Pointfree 编程风格指南](http://www.ruanyifeng.com/blog/2017/03/pointfree.html)
+   [Thinking in Ramda: 函数组合 -> 投票的例子不错](https://adispring.coding.me/2017/06/10/Thinking-in-Ramda-Combining-Functions/) --
+   R.and / R.or / R.complement 分别是函数版本的 and / or / !
+   [Thinking in Ramda: 控制流](https://adispring.coding.me/2017/06/11/Thinking-in-Ramda-Declarative-Programming/)
+
+   [Thinking in Ramda: 重构的例子，涉及很多对象的操作例子](https://adispring.coding.me/2017/06/16/Thinking-in-Ramda-Immutability-and-Objects/) --
+   evolve 太酷了.. 数组对应的是 adjust , 以及更通用的 lens 系列
+   [Thinking in Ramda: Lens](https://adispring.coding.me/2017/06/18/Thinking-in-Ramda-Lenses/)
+
+   
+   ```js
+   const lineWidth = settings.lineWidth || 80
+   const lineWidth = defaultTo(80, settings.lineWidth)
+   ```
+
 
 
 ### rx.js

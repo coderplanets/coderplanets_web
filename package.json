@@ -4,7 +4,6 @@
   "license": "TODO",
   "scripts": {
     "dev": "run-p server ",
-    "flow-check": "todo",
     "lint": "eslint pages/**/*.js components/**/* stores/**/*",
     "lint2": "tslint pages/* components/**/* stores/**/*  -e \"**/*.js\"",
     "server": "npm run clean && node server.js",

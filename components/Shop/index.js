@@ -86,7 +86,7 @@ const StyledUl = styled.ul`
 
 const Shop = inject('store')(
   observer(({ store }) => {
-    console.log('fuck store', store.isServer)
+    /* console.log('fuck store', store.isServer) */
     return (
       <StyledWrapper>
         <StyledApp>
@@ -110,13 +110,14 @@ function renderPage(viewStore) {
   switch (viewStore.page) {
     case 'books':
       return <Books />
-    case 'book':
+    case 'book': {
       const book = viewStore.selectedBook
       return book ? (
         <BookDetails book={book} />
       ) : (
         <h1>Book ${viewStore.selectedBookId} not found!</h1>
       )
+    }
     case 'cart':
       return <Cart />
     default:
@@ -141,7 +142,7 @@ const AppMenuItem = ({ onClick, children }) => (
 )
 
 AppMenu.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired,
 }
 
 Shop.propTypes = {

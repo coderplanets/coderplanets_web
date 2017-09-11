@@ -4,7 +4,7 @@ import { Provider } from 'mobx-react'
 import { IntlProvider } from 'react-intl'
 
 import Page from '../components/Page'
-import { initStore } from '../stores/store'
+import initStore from '../stores/store'
 
 export default class Other extends React.Component {
   static getInitialProps({ req }) {
