@@ -25,9 +25,9 @@
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
 
 
-### plugin
-  #### [lozad.js](https://github.com/ApoorvSaxena/lozad.jsfd)
-
+### tools
+  #### [git commit emoji](https://github.com/liuchengxu/git-commit-emoji-cn)
+  #### [lozad.js](https://github.com/ApoorvSaxena/lozad.js)
 
 ### i18n 
 
