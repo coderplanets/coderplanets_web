@@ -1,12 +1,13 @@
 ## Feature
-  [x] server-side-render out of the box, power by next.js
-  [x] elegant front-end ORM layer powered by mobx && mobx-state-tree
-  [x] awesome state manage use the full power of Ramada.js && Rx.js
-  [x] styled-component as the css solution
-  [x] multi language support
-  [x] well tested by use jest
-  [x] handy generators for quick development
-  [x] enjoyable dev experience by using modern web tools
+
+- [x] server-side-render out of the box, power by next.js
+- [x] elegant front-end ORM layer powered by mobx && mobx-state-tree
+- [x] awesome state manage use the full power of Ramada.js && Rx.js
+- [x] styled-component as the css solution
+- [x] multi language support
+- [x] well tested by use jest
+- [x] handy generators for quick development
+- [x] enjoyable dev experience by using modern web tools
 
 ## TODO
 
