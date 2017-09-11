@@ -15,7 +15,7 @@ import BookDetails from './BookDetails'
 import Cart from './Cart'
 // import DevTools from './DevTools'
 
-import Img from '../Img'
+import Img from '../../components/Img'
 
 const StyledWrapper = styled.div`
   a,

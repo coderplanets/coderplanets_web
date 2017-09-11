@@ -1,10 +1,12 @@
+/*
+ *  shop page
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { Provider } from 'mobx-react'
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
-import Shop from '../components/Shop'
+import Shop from '../containers/Shop'
 import initStore from '../stores/rootStore'
 
 export default class ShopPage extends React.Component {
