@@ -1,11 +1,7 @@
-// const { readFileSync, writeFileSync } = require('fs')
-// const { resolve } = require('path')
+const { readFileSync, writeFileSync } = require('fs')
+const { resolve } = require('path')
 
 /* eslint-disable */
-const readFileSync = require('fs').readFileSync
-const writeFileSync = require('fs').writeFileSync
-
-const resolve = require('path').resolve
 const glob = require('glob')
 const addCheckMark = require('./checkmark')
 
