@@ -1,5 +1,5 @@
 /**
- * Component Generator
+ * Container Generator
  */
 
 /* eslint strict: ["off"] */
@@ -9,12 +9,12 @@
 const componentExists = require('../../component_exists.js')
 
 module.exports = {
-  description: 'Add an unconnected component',
+  description: 'Add an connected container',
   prompts: [
     {
       type: 'list',
       name: 'type',
-      message: 'Select the type of component',
+      message: 'Select the type of container',
       default: 'Stateless',
       choices: () => ['Stateless', 'React Class'],
     },
@@ -22,7 +22,7 @@ module.exports = {
       type: 'input',
       name: 'name',
       message: 'What should it be called?',
-      default: 'Button',
+      default: 'Oven',
       validate: value => {
         if (/.+/.test(value)) {
           return componentExists(value)
@@ -37,13 +37,13 @@ module.exports = {
       type: 'confirm',
       name: 'wantI18n',
       default: true,
-      message: 'Do you want i18n messages (i.e. will this component use text)?',
+      message: 'Do you want i18n messages (i.e. will this container use text)?',
     },
     {
       type: 'confirm',
       name: 'wantLoadable',
       default: false,
-      message: 'Do you want to load the component asynchronously?',
+      message: 'Do you want to load the container asynchronously?',
     },
   ],
   actions: data => {
@@ -52,25 +52,25 @@ module.exports = {
 
     switch (data.type) {
       case 'Stateless': {
-        componentTemplate = './component/stateless.js.hbs'
+        componentTemplate = './container/stateless.js.hbs'
         break
       }
       default: {
-        componentTemplate = './component/class.js.hbs'
+        componentTemplate = './container/class.js.hbs'
       }
     }
 
     const actions = [
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/index.js',
+        path: '../../../containers/{{properCase name}}/index.js',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/tests/index.test.js',
-        templateFile: './component/test.js.hbs',
+        path: '../../../containers/{{properCase name}}/tests/index.test.js',
+        templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
     ]
@@ -79,8 +79,8 @@ module.exports = {
     if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/lang.js',
-        templateFile: './component/lang.js.hbs',
+        path: '../../../containers/{{properCase name}}/lang.js',
+        templateFile: './container/lang.js.hbs',
         abortOnFail: true,
       })
     }
@@ -89,8 +89,8 @@ module.exports = {
     if (data.wantLoadable) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/Loadable.js',
-        templateFile: './component/loadable.js.hbs',
+        path: '../../../containers/{{properCase name}}/Loadable.js',
+        templateFile: './container/loadable.js.hbs',
         abortOnFail: true,
       })
     }

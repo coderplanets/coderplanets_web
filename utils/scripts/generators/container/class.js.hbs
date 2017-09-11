@@ -1,0 +1,43 @@
+/*
+*
+* {{ properCase name }}
+*
+*/
+
+import  React from 'react'
+import PropTypes from 'prop-types'
+
+// import { inject, observer } from 'mobx-react'
+// import Link from 'next/link'
+// import styled from 'styled-components'
+
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+import messages from './messages'
+{{/if}}
+
+// @inject('')
+// @observer
+class {{ properCase name }} extends React.Component {
+  componentDidMount() {}
+
+  componentWillUnmount() {}
+
+  render() {
+    return (
+      <div>
+      {{#if wantMessages}}
+        <FormattedMessage {...messages.header} />
+      {{/if}}
+      </div>
+    )
+  }
+}
+
+export default {{ properCase name }}
+
+Index.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+}
+
+Index.defaultProps = {}
