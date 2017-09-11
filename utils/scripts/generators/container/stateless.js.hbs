@@ -13,6 +13,9 @@ import lang from './lang'
 {{/if}}
 
 import observer from '../../utils/mobx_utils'
+import { makeDebugger } from '../../utils/debug'
+
+const debug = makeDebugger('C:{{ properCase name }}:index')
 
 const selector = ({ store }) => ({
   xx: store.xx,

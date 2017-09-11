@@ -125,28 +125,31 @@ function renderPage(viewStore) {
   }
 }
 
-const AppHeader = () => (
-  <StyledAppHeader>
-    <StyledAppLogo src={'/static/shopLogo.svg'} alt="logo" />
+const AppHeader = () => {
+  return (
+    <StyledAppHeader>
+      <StyledAppLogo src={'/static/shopLogo.svg'} alt="logo" />
 
-    <h2>Welcome to the React MobX Book shop!</h2>
-  </StyledAppHeader>
-)
+      <h2>Welcome to the React MobX Book shop?</h2>
+    </StyledAppHeader>
+  )
+}
 
 const AppMenu = ({ children }) => <StyledUl>{children}</StyledUl>
 
+/* eslint-disable react/prop-types */
 const AppMenuItem = ({ onClick, children }) => (
   <li>
     <a onClick={onClick}>{children}</a>
   </li>
 )
+/* eslint-enable react/prop-types */
 
 AppMenu.propTypes = {
   children: PropTypes.array.isRequired,
 }
 
 Shop.propTypes = {
-  /* eslint-disable react/require-default-props */
   store: PropTypes.any,
 }
 

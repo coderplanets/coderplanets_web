@@ -14,6 +14,9 @@ import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 {{/if}}
 
+import { makeDebugger } from '../../utils/debug'
+const debug = makeDebugger('c:{{ properCase name }}:index')
+
 export const {{ properCase name }}(props) => {
   return (
     <div>
