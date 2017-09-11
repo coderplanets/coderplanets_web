@@ -1,8 +1,16 @@
+## Feature
+  [x] server-side-render out of the box, power by next.js
+  [x] elegant front-end ORM layer powered by mobx && mobx-state-tree
+  [x] awesome state manage use the full power of Ramada.js && Rx.js
+  [x] styled-component as the css solution
+  [x] multi language support
+  [x] well tested by use jest
+  [x] handy generators for quick development
+  [x] enjoyable dev experience by using modern web tools
 
 ## TODO
 
 - [x] add GreenKeeper
-- [x] add TypeScript
 - [x] add prettier config
 - [x] styled-component example / polish 
 - [x] prettier/lint before commit
@@ -12,14 +20,15 @@
 - [x] intl: rename messages file to lang
 - [x] remove the typescript support
 - [x] mobx-state-tree by move the shop example
-- [ ] add generator for container and store/
-- [ ] add Jest && Jest as 'cover tool'
-- [ ] make test a individual dir
-- [ ] CI system
+- [x] add generator for container and store/
+- [x] add Jest && Jest as 'cover tool'
+- [x] make test a individual dir
+- [x] CI system
+- [x] debug pkg
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
-- [ ] launch first version with changeLog staff
-- [ ] debug pkg
+- [ ] logic.js generator (only for containers)
 - [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
+- [ ] launch first version with changeLog staff
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] test Preact
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
