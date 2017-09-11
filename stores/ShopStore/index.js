@@ -1,7 +1,8 @@
 import { types, getEnv } from 'mobx-state-tree'
-import { BookStore } from './BookStore'
-import { CartStore } from './CartStore'
-import { ViewStore } from './ViewStore'
+
+import BookStore from '../BookStore'
+import CartStore from '../CartStore'
+import ViewStore from '../ViewStore'
 
 const ShopStore = types
   .model('ShopStore', {
@@ -16,6 +17,9 @@ const ShopStore = types
   .views(self => ({
     get fetch() {
       return getEnv(self).fetch
+    },
+    get isServer() {
+      return getEnv(self).isServer
     },
     get alert() {
       return getEnv(self).alert

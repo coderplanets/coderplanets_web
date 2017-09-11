@@ -19,7 +19,7 @@ Img.propTypes = {
 }
 
 Img.defaultProps = {
-  className: '',
+  className: undefined,
 }
 
 export default Img
