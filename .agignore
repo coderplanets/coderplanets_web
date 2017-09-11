@@ -1,5 +1,6 @@
 
 yarn.lock
+coverage
 ./build
 ./bin
 ./npm-debug.log

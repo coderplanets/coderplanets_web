@@ -5,3 +5,4 @@ build
 bin
 
 lang/.messages/
+coverage/

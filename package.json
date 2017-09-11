@@ -7,6 +7,7 @@
     "lint": "eslint pages/**/*.js components/**/* stores/**/*",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "npm run test -- --watch",
+    "test:cover": "npm run test -- --coverage",
     "server": "npm run clean && node server.js",
     "build": "run-s dist clean",
     "dist": "shjs ./utils/scripts/create_default_lang.js && next build && next export -o \"build\"",
