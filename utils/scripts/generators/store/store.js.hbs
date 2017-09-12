@@ -5,6 +5,9 @@
 
 
 import { types, getParent } from 'mobx-state-tree'
+import { makeDebugger } from '../../utils/debug'
+
+const debug = makeDebugger('S:{{ properCase name }}')
 
 const {{ properCase name }} = types
   .model({

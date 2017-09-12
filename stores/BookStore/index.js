@@ -1,4 +1,9 @@
-import { types, getParent, process } from 'mobx-state-tree'
+import { types, getParent } from 'mobx-state-tree'
+import bookMockJson from '../ShopStore/books.mock'
+
+import { makeDebugger } from '../../utils/debug'
+
+const debug = makeDebugger('S:bookStore')
 
 export const Book = types.model('Book', {
   id: types.identifier(),
@@ -21,38 +26,26 @@ const BookStore = types
       return sortBooks(self.books.values())
     },
   }))
-  .actions(self => {
-    function markLoading(loading) {
+  .actions(self => ({
+    markLoading(loading) {
       self.isLoading = loading
-    }
+    },
 
-    function updateBooks(json) {
+    updateBooks(json) {
       self.books.values().forEach(book => (book.isAvailable = false))
+      debug('load book json: ', json)
       json.forEach(bookJson => {
         self.books.put(bookJson)
         self.books.get(bookJson.id).isAvailable = true
       })
-    }
+    },
 
-    const loadBooks = process(function* loadBooks() {
-      try {
-        // const json = yield self.shop.fetch('/static/books.json')
-        const json = yield self.shop.fetch(
-          'http://localhost:3000/static/books.json'
-        )
-
-        updateBooks(json)
-        markLoading(false)
-      } catch (err) {
-        console.error('Failed to load books ', err)
-      }
-    })
-
-    return {
-      updateBooks,
-      loadBooks,
-    }
-  })
+    loadBooks() {
+      /* debug('load book: ', bookMockJson) */
+      self.updateBooks(bookMockJson)
+      self.markLoading(false)
+    },
+  }))
 
 function sortBooks(books) {
   return books
