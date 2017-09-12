@@ -30,6 +30,7 @@ trigger greenkeeper
 - [x] make test a individual dir
 - [x] CI system
 - [x] debug pkg
+- [x] add test before push hook
 - [ ] logic.js generator (only for containers)
 - [ ] remove the clock page
 - [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
