@@ -26,13 +26,15 @@
 - [x] make test a individual dir
 - [x] CI system
 - [x] debug pkg
-- [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] logic.js generator (only for containers)
+- [ ] remove the clock page
 - [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
+- [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] launch first version with changeLog staff
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] test Preact
 - [ ] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
+- [ ] add Menu
 
 
 ### tools
