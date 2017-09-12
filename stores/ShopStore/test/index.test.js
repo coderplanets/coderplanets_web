@@ -1,15 +1,10 @@
-import * as fs from 'fs'
+// import * as fs from 'fs'
 import { when } from 'mobx'
 import ShopStore from '../index'
 
-const testJsonFile = './static/books.json'
-
-const bookFetcher = () =>
-  Promise.resolve(JSON.parse(fs.readFileSync(testJsonFile)))
-
 it('as a user I can buy books', done => {
   const alertSpy = jest.fn()
-  const shop = ShopStore.create({}, { fetch: bookFetcher, alert: alertSpy })
+  const shop = ShopStore.create({}, { alert: alertSpy })
 
   shop.view.openBooksPage()
   expect(shop.view.page).toBe('books')

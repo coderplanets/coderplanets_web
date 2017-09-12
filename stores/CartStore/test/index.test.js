@@ -1,11 +1,7 @@
-import * as fs from 'fs'
 // import { when } from 'mobx'
 import ShopStore from '../../ShopStore'
 
-const testJsonFile = './static/books.json'
-
 const testEnvironment = {
-  fetch: () => Promise.resolve(JSON.parse(fs.readFileSync(testJsonFile))),
   alert: m => console.log(m),
 }
 
@@ -48,7 +44,7 @@ it('cart store can clear entries', () => {
   expect(shop.cart.canCheckout).toBe(false)
 })
 
-it('cart store can clear entries', () => {
+it('cart store can clear entries 2', () => {
   const shop = ShopStore.create({}, testEnvironment)
   shop.bookStore.updateBooks([testBook])
 
@@ -61,6 +57,6 @@ it('cart store can clear entries', () => {
   expect(shop.cart.total).toBe(3)
   expect(shop.cart.canCheckout).toBe(false)
   expect(shop.books.get(1).isAvailable).toBe(false)
-  expect(shop.books.size).toBe(1)
+  expect(shop.books.size).toBe(5)
   expect(shop.sortedAvailableBooks.length).toBe(0)
 })

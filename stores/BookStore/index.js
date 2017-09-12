@@ -43,7 +43,9 @@ const BookStore = types
     loadBooks() {
       /* debug('load book: ', bookMockJson) */
       self.updateBooks(bookMockJson)
-      self.markLoading(false)
+      setTimeout(() => {
+        self.markLoading(false)
+      }, 100)
     },
   }))
 
