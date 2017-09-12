@@ -21,8 +21,10 @@ module.exports = {
     'no-nested-ternary': 0, // TODO
     'no-shadow': 0, //TODO: currently just for entry
     'no-return-assign': 0, //TODO currently only for BookStore
+    'react/jsx-no-bind': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/forbid-prop-types': 0,
+    'react/prop-types': [1, { skipUndeclared: true }],
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/no-static-element-interactions': 0,
     'import/no-named-as-default': 0,

@@ -40,7 +40,7 @@ const ViewStore = types
     },
 
     getPage() {
-      console.log('get Page: ', self.page)
+      // console.log('get Page: ', self.page)
     },
 
     openBooksPage() {

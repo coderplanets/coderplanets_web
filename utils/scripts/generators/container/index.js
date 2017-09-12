@@ -12,13 +12,6 @@ module.exports = {
   description: 'Add an connected container',
   prompts: [
     {
-      type: 'list',
-      name: 'type',
-      message: 'Select the type of container',
-      default: 'Stateless',
-      choices: () => ['Stateless', 'React Class'],
-    },
-    {
       type: 'input',
       name: 'name',
       message: 'What should it be called?',
@@ -48,23 +41,17 @@ module.exports = {
   ],
   actions: data => {
     // Generate index.js and index.test.js
-    let componentTemplate
-
-    switch (data.type) {
-      case 'Stateless': {
-        componentTemplate = './container/stateless.js.hbs'
-        break
-      }
-      default: {
-        componentTemplate = './container/class.js.hbs'
-      }
-    }
-
     const actions = [
       {
         type: 'add',
         path: '../../../containers/{{properCase name}}/index.js',
-        templateFile: componentTemplate,
+        templateFile: './container/class.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../../../containers/{{properCase name}}/logic.js',
+        templateFile: './container/logic.js.hbs',
         abortOnFail: true,
       },
       {

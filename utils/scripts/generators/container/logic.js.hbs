@@ -1,0 +1,9 @@
+import { makeDebugger } from '../../utils/debug'
+
+const debug = makeDebugger('L:{{ properCase name }}')
+
+let sidebar = null
+
+export function init(xxxStore) {
+  sidebar = xxxStore
+}

@@ -9,6 +9,8 @@ import { Provider } from 'mobx-react'
 import Shop from '../containers/Shop'
 import initStore from '../stores/rootStore'
 
+import globalStyles from '../utils/global_styles'
+
 export default class ShopPage extends React.Component {
   static getInitialProps({ req }) {
     const isServer = !!req
@@ -25,12 +27,11 @@ export default class ShopPage extends React.Component {
     return (
       <Provider store={this.store}>
         <div>
+          <style jsx global>
+            {globalStyles}
+          </style>
+
           <Shop />
-          <style jsx global>{`
-            body {
-              margin: 0px;
-            }
-          `}</style>
         </div>
       </Provider>
     )

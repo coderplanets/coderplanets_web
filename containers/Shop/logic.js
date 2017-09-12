@@ -1,7 +1,11 @@
+import { makeDebugger } from '../../utils/debug'
+
+const debug = makeDebugger('L:shop')
+
 export function hello() {
-  console.log('hello 2?')
+  debug('hello 2?: ')
 }
 
 export function helloFuck() {
-  console.log('hello fuck?')
+  debug('hello fuck??')
 }

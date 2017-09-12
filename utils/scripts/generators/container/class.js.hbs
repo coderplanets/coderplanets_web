@@ -4,10 +4,9 @@
 *
 */
 
-import  React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import { inject, observer } from 'mobx-react'
 
-// import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
@@ -16,28 +15,28 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-// @inject('')
-// @observer
-class {{ properCase name }} extends React.Component {
-  componentDidMount() {}
+import { makeDebugger } from '../../utils/debug'
+import * as logic from './logic'
 
-  componentWillUnmount() {}
+const debug = makeDebugger('C:{{ properCase name }}')
+
+const selector = ({ store }) => ({
+  store: store,
+})
+
+class {{ properCase name }} extends React.Component {
+  componentDidMount() {
+    logic.init(this.props.store)
+  }
 
   render() {
     return (
-      <div>
+      {{ properCase name }} container!
       {{#if wantMessages}}
-        <FormattedMessage {...messages.header} />
+      <FormattedMessage {...messages.header} />
       {{/if}}
-      </div>
     )
   }
 }
 
-export default {{ properCase name }}
-
-Index.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-}
-
-Index.defaultProps = {}
+export default inject(selector)(observer({{ properCase name }}))

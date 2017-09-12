@@ -1,55 +1,45 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Provider } from 'mobx-react'
-import { defineMessages, FormattedMessage, IntlProvider } from 'react-intl'
+import { IntlProvider } from 'react-intl'
 
-import Page from '../components/Page'
-import initStore from '../stores/store'
-
-const { description } = defineMessages({
-  description: {
-    id: 'page.index.title',
-    defaultMessage: 'i am index fuckig header bbb',
-  },
-})
+import { initAppStore } from '../stores'
+import Sidebar from '../containers/Sidebar'
+import Decrator from '../containers/Decrator'
 
 export default class Index extends React.Component {
   static getInitialProps({ req }) {
     const isServer = !!req
-    const store = initStore(isServer)
+    const store = initAppStore(isServer)
     // todo: get locale
-    return { isServer, lastUpdate: store.lastUpdate }
+    return { isServer, version: store.version }
   }
 
   constructor(props) {
     super(props)
-    this.store = initStore(props.isServer, props.lastUpdate)
+    this.store = initAppStore(props.isServer)
   }
 
   render() {
     const locale = 'en'
     const messages = {}
 
+    const globalStatus = {
+      route: this.props.url,
+    }
+
     return (
       <Provider store={this.store}>
-        <IntlProvider locale={locale} messages={messages}>
-          <div>
-            <h1>
-              <FormattedMessage {...description} />
-            </h1>
-            <Page title="Index Page" linkTo="/other" />
-          </div>
-        </IntlProvider>
+        <Decrator>
+          <IntlProvider locale={locale} messages={messages}>
+            <div>
+              <Sidebar {...globalStatus} />
+              <div style={{ textAlign: 'center' }}>
+                <h2>Index page</h2>
+              </div>
+            </div>
+          </IntlProvider>
+        </Decrator>
       </Provider>
     )
   }
-}
-
-Index.propTypes = {
-  isServer: PropTypes.bool.isRequired,
-  lastUpdate: PropTypes.number,
-}
-
-Index.defaultProps = {
-  lastUpdate: 0,
 }

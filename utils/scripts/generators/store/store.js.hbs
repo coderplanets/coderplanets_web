@@ -4,13 +4,13 @@
  */
 
 
-import { types, getParent } from 'mobx-state-tree'
+import { types as t, getParent } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/debug'
 
 const debug = makeDebugger('S:{{ properCase name }}')
 
-const {{ properCase name }} = types
-  .model({
+const {{ properCase name }} = t
+  .model('{{ properCase name }}', {
 
   })
   .views(self => ({

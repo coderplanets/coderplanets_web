@@ -86,7 +86,6 @@ const StyledUl = styled.ul`
 
 const Shop = inject('store')(
   observer(({ store }) => {
-    /* console.log('fuck store', store.isServer) */
     return (
       <StyledWrapper>
         <StyledApp>

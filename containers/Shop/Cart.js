@@ -55,6 +55,7 @@ const Cart = inject('store')(
   ))
 )
 
+/* eslint-disable */
 const CartEntry = inject('store')(
   observer(({ store, entry }) => (
     <StyleCartItem>

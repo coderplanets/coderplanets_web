@@ -1,17 +1,12 @@
 import React from 'react'
 import observer from '../../utils/mobx_utils'
 
-import { makeDebugger } from '../../utils/debug'
-
-const debug = makeDebugger('C:shop:BookDetails')
-
 // obly select part of the store by need
 const selector = ({ store }) => ({
   cart: store.cart,
 })
 
 const BookDetails = observer(selector, ({ book, cart }) => {
-  debug('cart:', cart)
   return (
     <section className="Page-book">
       <h2>{book.name}</h2>
@@ -21,8 +16,6 @@ const BookDetails = observer(selector, ({ book, cart }) => {
       <p>Price: ${book.price}€</p>
       <button
         onClick={() => {
-          // console.log('hello book: ', book)
-          // console.log('hello cart: ', cart)
           cart.addBook(book)
         }}
       >

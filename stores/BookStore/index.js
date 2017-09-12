@@ -19,10 +19,10 @@ const BookStore = types
     books: types.map(Book),
   })
   .views(self => ({
-    get shop(): any {
+    get shop() {
       return getParent(self)
     },
-    get sortedAvailableBooks(): any {
+    get sortedAvailableBooks() {
       return sortBooks(self.books.values())
     },
   }))
