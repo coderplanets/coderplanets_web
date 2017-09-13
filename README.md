@@ -1,5 +1,9 @@
 
 <div align="center">
+  <a href="https://travis-ci.org/mydearxym/mastani">
+    <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
+  </a>
+
   <a href="https://greenkeeper.io">
     <img src="https://badges.greenkeeper.io/mydearxym/mastani.svg" alt="greenkeeper enabled" />
   </a>
