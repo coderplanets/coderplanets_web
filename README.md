@@ -4,6 +4,12 @@
     <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
   </a>
 
+  <a href='https://coveralls.io/github/mydearxym/mastani?branch=dev' target="_blank">
+    <img
+    src='https://coveralls.io/repos/github/mydearxym/mastani/badge.svg?branch=dev'
+    alt='Coverage Status' />
+  </a>
+
   <a href="https://greenkeeper.io" target="_blank">
     <img src="https://badges.greenkeeper.io/mydearxym/mastani.svg" alt="greenkeeper enabled" />
   </a>

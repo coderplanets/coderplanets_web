@@ -14,7 +14,8 @@
     "start": "NODE_ENV=production node server.js",
     "clean": "shjs ./utils/scripts/clean.js",
     "precommit": "lint-staged",
-    "gen": "plop --plopfile ./utils/scripts/generators/index.js"
+    "gen": "plop --plopfile ./utils/scripts/generators/index.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
     "*.js": [
@@ -93,6 +94,7 @@
     "babel-plugin-styled-components": "1.2.0",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "chalk": "^2.1.0",
+    "coveralls": "^2.13.1",
     "enzyme": "^2.9.1",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
