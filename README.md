@@ -1,18 +1,18 @@
 
 <div align="center">
-  <a href="https://travis-ci.org/mydearxym/mastani">
+  <a href="https://travis-ci.org/mydearxym/mastani" target="_blank">
     <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
   </a>
 
-  <a href="https://greenkeeper.io">
+  <a href="https://greenkeeper.io" target="_blank">
     <img src="https://badges.greenkeeper.io/mydearxym/mastani.svg" alt="greenkeeper enabled" />
   </a>
 
-  <a href="https://david-dm.org/mydearxym/mastani?type=dev">
+  <a href="https://david-dm.org/mydearxym/mastani?type=dev" target="_blank">
     <img src="https://david-dm.org/mydearxym/mastani/dev-status.svg" alt="devDependency Status" />
   </a>
 
-  <a href="https://david-dm.org/mydearxym/mastani">
+  <a href="https://david-dm.org/mydearxym/mastani" target="_blank">
     <img src="https://david-dm.org/mydearxym/mastani.svg" alt="Dependency Status" />
   </a>
 </div>
