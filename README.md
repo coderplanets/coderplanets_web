@@ -1,6 +1,8 @@
 
 <div align="center">
-  [![Greenkeeper badge](https://badges.greenkeeper.io/mydearxym/mastani.svg)](https://greenkeeper.io/)
+  <a href="https://greenkeeper.io">
+    <img src="https://badges.greenkeeper.io/mydearxym/mastani.svg" alt="greenkeeper enabled" />
+  </a>
 
   <a href="https://david-dm.org/mydearxym/mastani?type=dev">
     <img src="https://david-dm.org/mydearxym/mastani/dev-status.svg" alt="devDependency Status" />
