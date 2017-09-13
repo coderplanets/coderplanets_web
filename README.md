@@ -1,8 +1,17 @@
-trigger greenkeeper
+
+<div align="center">
+  [![Greenkeeper badge](https://badges.greenkeeper.io/mydearxym/mastani.svg)](https://greenkeeper.io/)
+
+  <a href="https://david-dm.org/mydearxym/mastani?type=dev">
+    <img src="https://david-dm.org/mydearxym/mastani/dev-status.svg" alt="devDependency Status" />
+  </a>
+
+  <a href="https://david-dm.org/mydearxym/mastani">
+    <img src="https://david-dm.org/mydearxym/mastani.svg" alt="Dependency Status" />
+  </a>
+</div>
 
 ## Feature
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/mydearxym/mastani.svg)](https://greenkeeper.io/)
 
 - [x] server-side-render out of the box, power by next.js
 - [x] elegant front-end ORM layer powered by mobx && mobx-state-tree
@@ -30,7 +39,7 @@ trigger greenkeeper
 - [x] make test a individual dir
 - [x] CI system
 - [x] debug pkg
-- [x] add test before push hook
+- [x] run test before push hook
 - [ ] logic.js generator (only for containers)
 - [ ] remove the clock page
 - [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
