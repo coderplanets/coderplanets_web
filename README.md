@@ -67,10 +67,12 @@
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] launch first version with changeLog staff
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
-
+- [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/)
+ 
 
 ### MindStorm
 
+- [ ] [参考构建桌面版本](https://github.com/egoist/devdocs-desktop)
 - [ ] 同色系的彩虹标签？
 - [ ] [桌面效果的网站, 有新意](http://jasonpark.me/)
 - [ ] [用 monaco-editor实现一个 postman](https://github.com/Microsoft/monaco-editor)
