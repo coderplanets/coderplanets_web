@@ -14,7 +14,9 @@ const {{ properCase name }} = t
 
   })
   .views(self => ({
-
+    get app() {
+      return getParent(self)
+    },
   }))
   .actions(self => ({
 

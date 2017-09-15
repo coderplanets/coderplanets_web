@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl'
 import { initAppStore } from '../stores'
 import Decrator from '../containers/Decrator'
 import Sidebar from '../containers/Sidebar'
-import Content from '../containers/Content'
+import Body from '../containers/Body'
 
 export default class Index extends React.Component {
   static getInitialProps({ req }) {
@@ -34,7 +34,7 @@ export default class Index extends React.Component {
           <IntlProvider locale={locale} messages={messages}>
             <div>
               <Sidebar {...globalStatus} />
-              <Content />
+              <Body />
             </div>
           </IntlProvider>
         </Decrator>

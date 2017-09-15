@@ -26,13 +26,8 @@ const SidebarStore = t
     get app() {
       return getParent(self)
     },
-
     get theme() {
       return self.app.theme
-    },
-
-    get curVersion() {
-      return self.app.version
     },
     get menuItems() {
       return self.allMenuItems.toJSON()

@@ -1,6 +1,6 @@
 /*
 *
-* Content
+* Body
 *
 */
 
@@ -13,11 +13,11 @@ import { inject, observer } from 'mobx-react'
 // import { makeDebugger } from '../../utils/debug'
 import * as logic from './logic'
 
-import Content from './Content'
+import Body from './Body'
 import Button from './Button'
 import { HorizontalCenter } from '../../components/BaseStyled'
 
-// const debug = makeDebugger('C:Content')
+// const debug = makeDebugger('C:Body')
 
 const ThemeSelector = () => {
   return (
@@ -29,21 +29,20 @@ const ThemeSelector = () => {
 }
 
 const selector = ({ store }) => ({
-  theme: store.sidebar, // TODO
+  body: store.body, // TODO
 })
 
 class ContentContainer extends React.Component {
   componentDidMount() {
-    logic.init(this.props.theme)
+    logic.init(this.props.body)
   }
 
   render() {
     return (
       <div>
-        <Content>
+        <Body>
           <ThemeSelector />
-          hello?
-        </Content>
+        </Body>
       </div>
     )
   }

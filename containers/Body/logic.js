@@ -1,6 +1,6 @@
 import { makeDebugger } from '../../utils/debug'
 
-const debug = makeDebugger('L:Content')
+const debug = makeDebugger('L:Body')
 
 let store = null
 

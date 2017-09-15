@@ -8,13 +8,16 @@ import { makeDebugger } from '../../utils/debug'
 import globalThemes from '../../utils/themes'
 
 import SidebarStore from '../SidebarStore'
+import BodyStore from '../BodyStore'
 
 const debug = makeDebugger('S:AppStore')
 
 const AppStore = t
   .model({
     sidebar: t.optional(SidebarStore, { allMenuItems: [] }),
-    // appTheme: t.optional(t.string, 'default2'),
+    // header: t....,
+    body: t.optional(BodyStore, {}),
+    /* account: t..., */
     appTheme: t.optional(
       t.enumeration('theme', ['default', 'cyan', 'dark', 'dark_purple']),
       'default'
