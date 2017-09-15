@@ -26,7 +26,7 @@ const SideBar = styled.ul`
   }
 
   > li > span > a {
-    color: ${props => props.theme.front};
+    color: ${props => props.theme.sidebar.menuLink};
   }
 `
 

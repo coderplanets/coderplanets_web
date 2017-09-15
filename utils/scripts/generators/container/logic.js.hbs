@@ -2,8 +2,8 @@ import { makeDebugger } from '../../utils/debug'
 
 const debug = makeDebugger('L:{{ properCase name }}')
 
-let sidebar = null
+let store = null
 
-export function init(xxxStore) {
-  sidebar = xxxStore
+export function init(selectedStore) {
+  store = selectedStore
 }

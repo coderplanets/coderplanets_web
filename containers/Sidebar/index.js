@@ -53,7 +53,6 @@ class SidebarContainer extends React.Component {
         <div>
           <div>{sidebar.one}</div>
           <button onClick={logic.addOne}>add</button>
-          <button onClick={logic.changeTheme.bind(this, 'cyan')}>theme</button>
           <MenuList items={sidebar.menuItems} />
         </div>
       </Sidebar>

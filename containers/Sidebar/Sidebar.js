@@ -5,9 +5,9 @@ const SideBar = styled.div`
   position: fixed;
   height: 100vh;
   top: 0;
-  width: 265px;
-  background: #222029;
-  color: white;
+  width: 65px;
+  background: ${props => props.theme.sidebar.bg};
+  border-color: ${props => props.theme.sidebar.borderColor};
   z-index: 1000;
   overflow-y: scroll;
   overflow-x: hidden;

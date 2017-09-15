@@ -24,14 +24,14 @@ const selector = ({ store }) => ({
   store: store,
 })
 
-class {{ properCase name }} extends React.Component {
+class {{ properCase name }}Container extends React.Component {
   componentDidMount() {
     logic.init(this.props.store)
   }
 
   render() {
     return (
-      {{ properCase name }} container!
+      <div>{{ properCase name }} container!</div>
       {{#if wantMessages}}
       <FormattedMessage {...messages.header} />
       {{/if}}
@@ -39,4 +39,4 @@ class {{ properCase name }} extends React.Component {
   }
 }
 
-export default inject(selector)(observer({{ properCase name }}))
+export default inject(selector)(observer({{ properCase name }}Container))

@@ -3,8 +3,9 @@ import { Provider } from 'mobx-react'
 import { IntlProvider } from 'react-intl'
 
 import { initAppStore } from '../stores'
-import Sidebar from '../containers/Sidebar'
 import Decrator from '../containers/Decrator'
+import Sidebar from '../containers/Sidebar'
+import Content from '../containers/Content'
 
 export default class Index extends React.Component {
   static getInitialProps({ req }) {
@@ -33,9 +34,7 @@ export default class Index extends React.Component {
           <IntlProvider locale={locale} messages={messages}>
             <div>
               <Sidebar {...globalStatus} />
-              <div style={{ textAlign: 'center' }}>
-                <h2>Index page</h2>
-              </div>
+              <Content />
             </div>
           </IntlProvider>
         </Decrator>
