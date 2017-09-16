@@ -10,8 +10,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 export const StyledA = styled.a`
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: bold;
+
   color: ${props => props.theme.link};
   transition: color 0.3s;
 `

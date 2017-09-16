@@ -16,6 +16,7 @@ import * as logic from './logic'
 import Body from './Body'
 import Theme from './Theme'
 import Home from './Home'
+import Feature from './Feature'
 import { HorizontalCenter } from '../../components/BaseStyled'
 
 const debug = makeDebugger('C:Body')
@@ -28,7 +29,7 @@ const IntroPage = props => {
     case 'index':
       return <Home />
     case 'feature':
-      return <HorizontalCenter>feature</HorizontalCenter>
+      return <Feature />
     case 'theme':
       return <Theme />
     case 'i18n':
