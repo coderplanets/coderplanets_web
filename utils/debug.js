@@ -1,5 +1,5 @@
 import _debug from 'debug'
-import isBrowser from './isBrowser'
+import isBrowser from './is_browser'
 
 if (
   isBrowser &&

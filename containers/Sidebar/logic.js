@@ -1,16 +1,35 @@
+// import debounce from '../../utils/debounce'
 import { makeDebugger } from '../../utils/debug'
 
 const debug = makeDebugger('L:sidebar')
 
 let sidebar = null
 
+/*
+export const enterSidebar2 = debounce(() => {
+  debug('enterSidebar  <--<: ')
+  sidebar.toggleOpen()
+}, 200)
+
+export const leaveSidebar2 = debounce(() => {
+  debug('leaveSidebar  >-->: ')
+  sidebar.toggleOpen()
+}, 100)
+*/
+
+export function pin() {
+  debug('pin: ', !sidebar.isPin)
+  sidebar.markState('pin', !sidebar.isPin)
+}
+
 export function enterSidebar() {
-  // debug('enterSidebar  <<: ', store.sidebar.menuItems.toJSON())
+  sidebar.markState('open', true)
 }
 
 export function leaveSidebar() {
-  // debug('leaveSidebar >>', store.sidebar.menuItems.toJSON())
-  // store.sidebar.setMenuItems([])
+  if (!sidebar.isPin) {
+    sidebar.markState('open', false)
+  }
 }
 
 export function markLoading() {

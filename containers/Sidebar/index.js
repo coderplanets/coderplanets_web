@@ -16,20 +16,54 @@ import { inject, observer } from 'mobx-react'
 
 import Sidebar from './Sidebar'
 import MenuItem from './MenuItem'
+import PinButton from './PinButton'
 
+import {
+  HomeIcon,
+  FeatureIcon,
+  ThemeIcon,
+  I18nIcon,
+  ExampleIcon,
+} from './MenuIcon'
 import { makeDebugger } from '../../utils/debug'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
 
-const MenuList = ({ items }) => {
+const MenuIcon = ({ name }) => {
+  switch (name) {
+    case 'home':
+      return <HomeIcon />
+    case 'feature':
+      return <FeatureIcon />
+    case 'theme':
+      return <ThemeIcon />
+    case 'i18n':
+      return <I18nIcon />
+    case 'example':
+      return <ExampleIcon />
+    default:
+      return <HomeIcon />
+  }
+}
+
+const MenuList = ({ items, isOpen }) => {
   const listItems = items.map(item => (
     <li key={item.id}>
-      <span>
-        <Link href={item.target.href} as={item.target.as}>
-          <a>{item.name}</a>
-        </Link>
-      </span>
+      {isOpen ? (
+        <span>
+          <Link href={item.target.href} as={item.target.as}>
+            <span>
+              <MenuIcon name={item.name} />
+              <a>{item.name}</a>
+            </span>
+          </Link>
+        </span>
+      ) : (
+        <span>
+          <MenuIcon name={item.name} />
+        </span>
+      )}
     </li>
   ))
   return <MenuItem>{listItems}</MenuItem>
@@ -45,15 +79,25 @@ class SidebarContainer extends React.Component {
   }
 
   render() {
-    const { sidebar, theme } = this.props
-    debug('verson ---> : ', theme)
+    const { sidebar } = this.props
+    debug('isPin ---> : ', sidebar.isPin)
 
     return (
-      <Sidebar>
+      <Sidebar
+        isOpen={sidebar.isOpen}
+        onMouseEnter={logic.enterSidebar}
+        onMouseLeave={logic.leaveSidebar}
+      >
         <div>
-          <div>{sidebar.one}</div>
-          <button onClick={logic.addOne}>add</button>
-          <MenuList items={sidebar.menuItems} />
+          <PinButton
+            isOpen={sidebar.isOpen}
+            isPin={sidebar.isPin}
+            onClick={logic.pin}
+          />
+          <br />
+          <br />
+          <br />
+          <MenuList items={sidebar.menuItems} isOpen={sidebar.isOpen} />
         </div>
       </Sidebar>
     )

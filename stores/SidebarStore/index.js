@@ -15,6 +15,8 @@ const debug = makeDebugger('S:SidebarStore')
 const SidebarStore = t
   .model('SidebarStore', {
     allMenuItems: t.optional(t.array(MenuItem), []), // complex data
+    open: t.optional(t.boolean, false),
+    pin: t.optional(t.boolean, false),
     // isPin: t.boolean, // should be in view
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
@@ -28,6 +30,12 @@ const SidebarStore = t
     },
     get theme() {
       return self.app.theme
+    },
+    get isOpen() {
+      return self.open
+    },
+    get isPin() {
+      return self.pin
     },
     get menuItems() {
       return self.allMenuItems.toJSON()
@@ -45,6 +53,10 @@ const SidebarStore = t
     markLoading() {
       debug('markLoading: ', self.loading)
       self.loading = !self.loading
+    },
+
+    markState(key, val) {
+      self[key] = val
     },
 
     addOne() {

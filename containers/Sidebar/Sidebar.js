@@ -5,7 +5,7 @@ const SideBar = styled.div`
   position: fixed;
   height: 100vh;
   top: 0;
-  width: 65px;
+  width: ${props => (props.isOpen ? '256px' : '56px')};
   background: ${props => props.theme.sidebar.bg};
   border-color: ${props => props.theme.sidebar.borderColor};
   z-index: 1000;
@@ -14,11 +14,6 @@ const SideBar = styled.div`
 
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
     background-color 0.3s;
-
-  :hover {
-    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
-    width: 260px;
-  }
 `
 
 export default SideBar
