@@ -24,6 +24,7 @@ export default class Index extends React.Component {
     const locale = 'en'
     const messages = {}
 
+    const route = this.props.url
     const globalStatus = {
       route: this.props.url,
     }
@@ -34,7 +35,7 @@ export default class Index extends React.Component {
           <IntlProvider locale={locale} messages={messages}>
             <div>
               <Sidebar {...globalStatus} />
-              <Body />
+              <Body route={route} />
             </div>
           </IntlProvider>
         </Decrator>

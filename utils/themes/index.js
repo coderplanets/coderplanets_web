@@ -5,8 +5,9 @@
 
 const globalTheme = {
   default: {
+    font: '#BDBDBF',
+    link: '#B762B7',
     main: '#B0AEB3',
-    front: 'tomato',
     contentBg: '#222029',
     sidebar: {
       bg: '#222029',
@@ -16,8 +17,9 @@ const globalTheme = {
   },
 
   cyan: {
+    font: '#69a7ad',
+    link: 'orange',
     main: '#7DC0C5',
-    front: 'cyan',
     contentBg: '#E4EEED',
     sidebar: {
       bg: '#1C4752',
