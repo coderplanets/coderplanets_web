@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/jquery@^2.0.40":
+  version "2.0.48"
+  resolved "http://r.cnpmjs.org/@types/jquery/download/@types/jquery-2.0.48.tgz#3e90d8cde2d29015e5583017f7830cb3975b2eef"
+
 abab@^1.0.3:
   version "1.0.3"
   resolved "http://r.cnpmjs.org/abab/download/abab-1.0.3.tgz#b81de5f7274ec4e756d797cd834f303642724e5d"
@@ -9,6 +13,13 @@ abab@^1.0.3:
 abbrev@1:
   version "1.1.0"
   resolved "http://r.cnpmjs.org/abbrev/download/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
+
+accepts@^1.3.4:
+  version "1.3.4"
+  resolved "http://r.cnpmjs.org/accepts/download/accepts-1.3.4.tgz#86246758c7dd6d21a6474ff084a4740ec05eb21f"
+  dependencies:
+    mime-types "~2.1.16"
+    negotiator "0.6.1"
 
 acorn-dynamic-import@^2.0.0:
   version "2.0.2"
@@ -4075,11 +4086,21 @@ mime-db@~1.29.0:
   version "1.29.0"
   resolved "http://r.cnpmjs.org/mime-db/download/mime-db-1.29.0.tgz#48d26d235589651704ac5916ca06001914266878"
 
+mime-db@~1.30.0:
+  version "1.30.0"
+  resolved "http://r.cnpmjs.org/mime-db/download/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
+
 mime-types@^2.1.12, mime-types@~2.1.7:
   version "2.1.16"
   resolved "http://r.cnpmjs.org/mime-types/download/mime-types-2.1.16.tgz#2b858a52e5ecd516db897ac2be87487830698e23"
   dependencies:
     mime-db "~1.29.0"
+
+mime-types@~2.1.16:
+  version "2.1.17"
+  resolved "http://r.cnpmjs.org/mime-types/download/mime-types-2.1.17.tgz#09d7a393f03e995a79f8af857b70a9e0ab16557a"
+  dependencies:
+    mime-db "~1.30.0"
 
 mime@1.3.4, mime@^1.3.4:
   version "1.3.4"
@@ -4191,6 +4212,10 @@ natural-compare@^1.4.0:
 ncp@~2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/ncp/download/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
+
+negotiator@0.6.1:
+  version "0.6.1"
+  resolved "http://r.cnpmjs.org/negotiator/download/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
 next@3.2.2:
   version "3.2.2"
@@ -4999,6 +5024,13 @@ react-test-renderer@^15.6.1:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
+react-world-flags@^0.0.3:
+  version "0.0.3"
+  resolved "http://r.cnpmjs.org/react-world-flags/download/react-world-flags-0.0.3.tgz#cb5c834fca5b0957c4e5d4c2ea1f3916e47b6e0b"
+  dependencies:
+    svg-country-flags "^1.0.0"
+    world-countries "^1.8.1"
+
 react@15.6.1:
   version "15.6.1"
   resolved "http://r.cnpmjs.org/react/download/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
@@ -5701,6 +5733,10 @@ supports-color@^4.0.0:
   dependencies:
     has-flag "^2.0.0"
 
+svg-country-flags@^1.0.0:
+  version "1.1.2"
+  resolved "http://r.cnpmjs.org/svg-country-flags/download/svg-country-flags-1.1.2.tgz#30d6de950b788bc6dc959c41dfdd7a90434d6592"
+
 swap-case@^1.1.0:
   version "1.1.2"
   resolved "http://r.cnpmjs.org/swap-case/download/swap-case-1.1.2.tgz#c39203a4587385fad3c850a0bd1bcafa081974e3"
@@ -5785,6 +5821,18 @@ throat@^4.0.0:
 through@2, through@^2.3.6, through@~2.3, through@~2.3.1:
   version "2.3.8"
   resolved "http://r.cnpmjs.org/through/download/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
+
+timeago-react@^1.2.2:
+  version "1.2.2"
+  resolved "http://r.cnpmjs.org/timeago-react/download/timeago-react-1.2.2.tgz#249b475dcf4c44284284541c600f8cf04674bf5b"
+  dependencies:
+    timeago.js "^3.0.1"
+
+timeago.js@^3.0.1:
+  version "3.0.2"
+  resolved "http://r.cnpmjs.org/timeago.js/download/timeago.js-3.0.2.tgz#32a67e7c0d887ea42ca588d3aae26f77de5e76cc"
+  dependencies:
+    "@types/jquery" "^2.0.40"
 
 timers-browserify@^2.0.2:
   version "2.0.4"
@@ -6117,6 +6165,10 @@ worker-farm@^1.3.1:
   dependencies:
     errno "^0.1.4"
     xtend "^4.0.1"
+
+world-countries@^1.8.1:
+  version "1.8.1"
+  resolved "http://r.cnpmjs.org/world-countries/download/world-countries-1.8.1.tgz#14ba7d735d422d63de70deb6e35ec5e49341b209"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"

@@ -19,10 +19,22 @@ const BodyStore = t
     get theme() {
       return self.app.theme
     },
+    get langMessages() {
+      return self.app.langMessages
+    },
   }))
   .actions(self => ({
     changeTheme(name) {
       self.app.changeTheme(name)
+    },
+    changeLocale(locale) {
+      self.app.changeLocale(locale)
+    },
+    isLocaleExist(locale) {
+      return self.app.isLocaleExist(locale)
+    },
+    setLangMessages(key, val) {
+      self.app.setLangMessages(key, val)
     },
   }))
 

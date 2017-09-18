@@ -6,8 +6,13 @@
 import { defineMessages } from 'react-intl'
 
 export default defineMessages({
-  header: {
-    id: 'components.Sidebar.header',
-    defaultMessage: 'This is the Sidebar component !',
+  title: {
+    id: 'components.Sidebar.title',
+    defaultMessage: 'Mastani',
+  },
+
+  text: {
+    id: 'components.Sidebar.text',
+    defaultMessage: 'text',
   },
 })

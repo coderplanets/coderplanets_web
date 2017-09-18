@@ -60,7 +60,7 @@ app.prepare().then(() => {
     req.messages = getMessages(locale)
 
     if (homeMatch) {
-      // console.log('homeMatch: ', homeMatch)
+      console.log('getMessages(locale) : ', getMessages(locale))
       return app.render(req, res, '/', homeMatch)
     }
     // now index page go this way

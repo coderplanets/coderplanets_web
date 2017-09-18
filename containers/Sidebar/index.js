@@ -6,13 +6,13 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { inject, observer } from 'mobx-react'
 
 // import styled from 'styled-components'
-// import { FormattedMessage as I18n } from 'react-intl'
-// import lang from './lang'
+import { FormattedMessage as I18n } from 'react-intl'
+import lang from './lang'
 
 // import observer from '../../utils/mobx_utils'
-import { inject, observer } from 'mobx-react'
 
 import Sidebar from './Sidebar'
 import MenuItem from './MenuItem'
@@ -80,7 +80,7 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    debug('isPin ---> : ', sidebar.isPin)
+    debug('-----> langs --------> : ', sidebar.langMessages)
 
     return (
       <Sidebar
@@ -94,6 +94,10 @@ class SidebarContainer extends React.Component {
             isPin={sidebar.isPin}
             onClick={logic.pin}
           />
+          <I18n {...lang.title} />
+          <div>
+            <I18n {...lang.text} />
+          </div>
           <br />
           <br />
           <br />

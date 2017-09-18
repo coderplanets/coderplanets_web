@@ -31,6 +31,9 @@ const SidebarStore = t
     get theme() {
       return self.app.theme
     },
+    get langs() {
+      return self.app.langs
+    },
     get isOpen() {
       return self.open
     },
@@ -42,6 +45,9 @@ const SidebarStore = t
     },
     get getLoading() {
       return self.loading
+    },
+    get langMessages() {
+      return self.app.langMessages
     },
   }))
   .actions(self => ({

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { FormattedMessage as I18n } from 'react-intl'
+import lang from './lang'
 // import * as logic from './logic'
 import A from '../../components/A'
 import Img from '../../components/Img'
@@ -28,7 +30,9 @@ const Home = () => {
 
         <br />
         <br />
-        <Desc>可能是你能找到的最好的 react 项目模板</Desc>
+        <Desc>
+          <I18n {...lang.homeDesc} />{' '}
+        </Desc>
         <br />
 
         <A href="https://travis-ci.org/mydearxym/mastani">

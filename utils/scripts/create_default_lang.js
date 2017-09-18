@@ -19,6 +19,6 @@ const defaultMessages = glob
     return messages
   }, {})
 
-writeFileSync('./lang/en.json', JSON.stringify(defaultMessages, null, 2))
-console.log(`> Wrote default messages to: "${resolve('./lang/en.json')}"`)
+writeFileSync('./lang/zh.json', JSON.stringify(defaultMessages, null, 2))
+console.log(`> Wrote default messages to: "${resolve('./lang/zh.json')}"`)
 addCheckMark()

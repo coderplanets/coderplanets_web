@@ -17,13 +17,13 @@ import Body from './Body'
 import Theme from './Theme'
 import Home from './Home'
 import Feature from './Feature'
+import I18n from './I18n'
 import { HorizontalCenter } from '../../components/BaseStyled'
 
 const debug = makeDebugger('C:Body')
 
 const IntroPage = props => {
   const { route } = props
-  console.log('this.props', route.query.name)
 
   switch (route.query.name) {
     case 'index':
@@ -33,7 +33,7 @@ const IntroPage = props => {
     case 'theme':
       return <Theme />
     case 'i18n':
-      return <HorizontalCenter>i18n</HorizontalCenter>
+      return <I18n />
     case 'example':
       return <HorizontalCenter>example</HorizontalCenter>
     default:

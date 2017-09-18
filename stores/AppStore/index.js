@@ -22,6 +22,8 @@ const AppStore = t
       t.enumeration('theme', ['default', 'cyan', 'dark', 'dark_purple']),
       'default'
     ),
+    appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
+    appLangs: t.map(t.frozen),
   })
   .views(self => ({
     get version() {
@@ -29,6 +31,19 @@ const AppStore = t
     },
     get theme() {
       return globalThemes[self.appTheme]
+    },
+    get locale() {
+      return self.appLocale
+    },
+    get langs() {
+      return self.appLangs
+    },
+    get langMessages() {
+      // TODO: try - catch
+      // console.log('self.locale: ', self.locale)
+      // console.log('self.langs.toJSON: ', self.langs.toJSON())
+      // return self.langs.toJSON()[self.appLocale]
+      return self.langs.get(self.locale)
     },
   }))
   .actions(self => ({
@@ -38,6 +53,17 @@ const AppStore = t
     },
     changeTheme(name) {
       self.appTheme = name
+    },
+    changeLocale(locale) {
+      self.appLocale = locale
+    },
+    setLangMessages(key, val) {
+      // console.log('cur self.appLangs: ', self.appLangs.toJSON())
+      // self.appLangs.set({ en: { fic: 2 } })
+      self.appLangs.set(key, val)
+    },
+    isLocaleExist(locale) {
+      return !!self.langs.get(locale)
     },
   }))
 

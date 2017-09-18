@@ -29,6 +29,9 @@
 ## resouces
   [polished](https://polished.js.org/docs/#installation)
 
+## issues
+  next.config.js 如果导出不存在的页面可能会使 build 过程出现奇怪的错误, 如
+  polished 报错. 只导出需要的页面
 
 ## Feature
 
@@ -44,6 +47,20 @@
 
 ## TODO
 
+- [ ] test --> tests
+- [ ] add page generator
+- [ ] logic.js generator (only for containers)
+- [ ] remove the clock page
+- [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
+- [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
+- [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
+- [ ] *test Preact in production*
+- [ ] add Menu
+- [ ] add github example using Rx.js as request lib, GraphQL if time free
+- [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
+- [ ] launch first version with changeLog staff
+- [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
+- [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/)
 - [x] Badges ( CI build / deps / coveralls / greenkeeper)
 - [x] prettier config
 - [x] styled-component example / polish 
@@ -60,19 +77,6 @@
 - [x] debug pkg
 - [x] add global-css ([normalize.css](https://github.com/necolas/normalize.css))
 - [x] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
-- [ ] add page generator
-- [ ] logic.js generator (only for containers)
-- [ ] remove the clock page
-- [ ] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
-- [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
-- [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
-- [ ] *test Preact in production*
-- [ ] add Menu
-- [ ] add github example using Rx.js as request lib, GraphQL if time free
-- [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
-- [ ] launch first version with changeLog staff
-- [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
-- [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/)
  
 
 ### MindStorm
@@ -160,8 +164,6 @@
   [小 tip:CSS vw让overflow:auto页面滚动条出现时不跳动](http://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/)
   [基于vw等viewport视区单位配合rem响应式排版和布局](http://www.zhangxinxu.com/wordpress/2016/08/vw-viewport-responsive-layout-typography/)
   [小tip:JS前端创建html或json文件并浏览器导出下载](http://www.zhangxinxu.com/wordpress/2017/07/js-text-string-download-as-html-json-file/)
-
-  
 
 
 ## talk idea

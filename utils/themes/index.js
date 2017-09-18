@@ -9,11 +9,9 @@ const globalTheme = {
     link: '#B762B7',
     main: '#B0AEB3',
     contentBg: '#222029',
-    sidebar: {
-      bg: '#222029',
-      menuLink: 'lightgrey',
-      borderColor: '#100F13',
-    },
+    sidebar__bg: '#222029',
+    sidebar__menuLink: 'lightgrey',
+    sidebar__borderColor: '#100F13',
   },
 
   cyan: {
@@ -21,11 +19,9 @@ const globalTheme = {
     link: 'orange',
     main: '#7DC0C5',
     contentBg: '#E4EEED',
-    sidebar: {
-      bg: '#1C4752',
-      menuLink: '#D9E6E5',
-      borderColor: '#14363E',
-    },
+    sidebar__bg: '#1C4752',
+    sidebar__menuLink: '#D9E6E5',
+    sidebar__borderColor: '#14363E',
   },
 }
 

@@ -7,27 +7,23 @@ import AppStore from './AppStore'
 
 let appStore = null
 
-const createRootStore = isServer => {
-  return AppStore.create(
-    {},
-    {
-      isServer,
-    }
-  )
+const createRootStore = (isServer, langSetup) => {
+  console.log('before create: ', langSetup)
+  return AppStore.create({ appLangs: langSetup })
 }
 
-export function initAppStore(isServer = false) {
+export function initAppStore(isServer = false, langSetup) {
   let ret
 
   if (isServer) {
     if (appStore === null) {
-      ret = createRootStore(isServer)
+      ret = createRootStore(isServer, langSetup)
     } else {
       ret = appStore
     }
   } else {
     if (appStore === null) {
-      appStore = createRootStore(isServer)
+      appStore = createRootStore(isServer, langSetup)
     }
     ret = appStore
   }

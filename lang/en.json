@@ -1,1 +1,6 @@
-{}
+{
+  "containers.Body.home.desc": "maybe the best react boilerplate you can find",
+  "containers.Body.theme.title": "Theme",
+  "containers.Body.theme.btnDefault": "Default",
+  "containers.Body.theme.btnCyan": "Cyan"
+}

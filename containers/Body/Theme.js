@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import TimeAgo from 'timeago-react'
+
+import { FormattedMessage as I18n } from 'react-intl'
+import lang from './lang'
 
 import * as logic from './logic'
 import Button from './Button'
@@ -15,7 +19,10 @@ const Theme = () => {
   return (
     <HorizontalCenter>
       <Center>
-        <Title>主题</Title>
+        <Title>
+          <I18n {...lang.themeTitle} />
+        </Title>
+        <TimeAgo datetime={'2016-08-08 08:08:08'} locale="en" />
         <br />
         <Desc>
           得益于{' '}
@@ -30,9 +37,27 @@ const Theme = () => {
         </Desc>
         <br />
         <Button onClick={logic.changeTheme.bind(this, 'default')}>
-          default
+          <I18n {...lang.themeBtnDefault} />
         </Button>
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>Cyan</Button>
+        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+          <I18n {...lang.themeBtnCyan} />
+        </Button>
+
+        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+          Solarize-light
+        </Button>
+
+        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+          Solarize-dark
+        </Button>
+
+        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+          Markdown 黄
+        </Button>
+
+        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+          unbuntu 紫色
+        </Button>
       </Center>
     </HorizontalCenter>
   )
