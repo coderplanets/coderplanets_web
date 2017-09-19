@@ -75,12 +75,13 @@ const selector = ({ store }) => ({
 
 class SidebarContainer extends React.Component {
   componentDidMount() {
+    debug('init')
     logic.init(this.props.sidebar)
   }
 
   render() {
     const { sidebar } = this.props
-    debug('-----> langs --------> : ', sidebar.langMessages)
+    // debug('-----> langs --------> : ', sidebar.langMessages)
 
     return (
       <Sidebar

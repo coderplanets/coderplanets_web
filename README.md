@@ -47,7 +47,10 @@
 
 ## TODO
 
+- [ ] 使用各国标志性的建筑作为 i18n 切换图标
+- [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
 - [ ] test --> tests
+- [ ] add theme checker
 - [ ] add page generator
 - [ ] logic.js generator (only for containers)
 - [ ] remove the clock page
@@ -60,7 +63,7 @@
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] launch first version with changeLog staff
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
-- [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/)
+- [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
 - [x] Badges ( CI build / deps / coveralls / greenkeeper)
 - [x] prettier config
 - [x] styled-component example / polish 
@@ -91,6 +94,8 @@
 ### tools
   #### [git commit emoji](https://github.com/liuchengxu/git-commit-emoji-cn)
   #### [lozad.js](https://github.com/ApoorvSaxena/lozad.js)
+  #### [一键分享](https://github.com/overtrue/share.js)
+  #### [https://github.com/jawil/blog/issues/10](https://github.com/jawil/blog/issues/10)
 
 ### i18n 
 

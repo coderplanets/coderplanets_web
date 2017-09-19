@@ -20,9 +20,11 @@ export function changeLocale(lang) {
       .then(vals => {
         console.log('vals: ', vals)
         store.setLangMessages(lang, vals)
+        store.changeLocale(lang)
       })
+  } else {
+    store.changeLocale(lang)
   }
-  store.changeLocale(lang)
 }
 
 export function init(selectStore) {

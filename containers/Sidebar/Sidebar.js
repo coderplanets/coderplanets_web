@@ -6,8 +6,8 @@ const SideBar = styled.div`
   height: 100vh;
   top: 0;
   width: ${props => (props.isOpen ? '256px' : '56px')};
-  background: ${props => props.theme.sidebar__bg};
-  border-color: ${props => props.theme.sidebar__borderColor};
+  background: ${props => props.theme.sidebar.bg};
+  border-color: ${props => props.theme.sidebar.border_color};
   z-index: 1000;
   overflow-y: scroll;
   overflow-x: hidden;

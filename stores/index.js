@@ -8,7 +8,6 @@ import AppStore from './AppStore'
 let appStore = null
 
 const createRootStore = (isServer, langSetup) => {
-  console.log('before create: ', langSetup)
   return AppStore.create({ appLangs: langSetup })
 }
 

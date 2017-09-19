@@ -18,7 +18,8 @@ const IntlObserver = observer(selector, ({ children, locale, messages }) => {
   console.log('observer messages: ', messages)
 
   return (
-    <IntlProvider locale={locale} messages={messages}>
+    // key is important, see https://github.com/yahoo/react-intl/issues/234
+    <IntlProvider key={locale} locale={locale} messages={messages}>
       <div>{children}</div>
     </IntlProvider>
   )

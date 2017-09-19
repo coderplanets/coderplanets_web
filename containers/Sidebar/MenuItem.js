@@ -11,7 +11,7 @@ const SideBar = styled.ul`
   > li {
     display: block;
     &:hover {
-      background: ${props => darken(0.05, props.theme.sidebar__bg)};
+      background: ${props => darken(0.05, props.theme.sidebar.bg)};
     }
   }
   > li > span {
@@ -29,7 +29,7 @@ const SideBar = styled.ul`
   }
 
   > li > span > a {
-    color: ${props => props.theme.sidebar__menuLink};
+    color: ${props => props.theme.sidebar.menu_link};
     text-decoration: none;
   }
 `

@@ -48,10 +48,11 @@ const selector = ({ store }) => ({
 class ContentContainer extends React.Component {
   componentDidMount() {
     logic.init(this.props.body)
+    debug('init')
   }
 
   render() {
-    debug('cur route:', this.props.route)
+    // debug('cur route:', this.props.route)
 
     return (
       <Body>

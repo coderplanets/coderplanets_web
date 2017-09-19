@@ -22,6 +22,10 @@ export default defineMessages({
     id: 'containers.Body.theme.btnCyan',
     defaultMessage: '青色',
   },
+  i18nTitle: {
+    id: 'containers.Body.i18n.title',
+    defaultMessage: '国际化',
+  },
   i18nEn: {
     id: 'containers.Body.i18n.en',
     defaultMessage: 'English',
