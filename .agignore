@@ -4,3 +4,4 @@ coverage
 ./build
 ./bin
 ./npm-debug.log
+.next

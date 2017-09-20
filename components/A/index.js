@@ -11,8 +11,7 @@ import styled from 'styled-components'
 
 export const StyledA = styled.a`
   text-decoration: underline;
-  font-weight: bold;
-
+  font-weight: bolder;
   color: ${props => props.theme.link};
   transition: color 0.3s;
 `

@@ -17,49 +17,38 @@ const Desc = styled.div`
 `
 const Theme = () => {
   return (
-    <HorizontalCenter>
-      <Center>
+    <Center>
+      <HorizontalCenter>
         <Title>
           <I18n {...lang.themeTitle} />
         </Title>
         <TimeAgo datetime={'2016-08-08 08:08:08'} locale="en" />
-        <br />
-        <Desc>
-          得益于{' '}
-          <A href="https://github.com/MicheleBertoli/css-in-js">
-            css-in-js
-          </A>{' '}
-          的先进理念以及{' '}
-          <A href="https://www.styled-components.com/">
-            styled-components
-          </A>{' '}
-          的优雅实现, 主题可在几乎不增加项目复杂度的情况下按需求轻松扩展。 内置四套主题如下：
-        </Desc>
-        <br />
-        <Button onClick={logic.changeTheme.bind(this, 'default')}>
-          <I18n {...lang.themeBtnDefault} />
-        </Button>
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          <I18n {...lang.themeBtnCyan} />
-        </Button>
+      </HorizontalCenter>
+      <br />
+      <Desc>
+        得益于 <A href="https://github.com/MicheleBertoli/css-in-js">
+          css-in-js
+        </A>{' '}
+        的先进理念以及{' '}
+        <A href="https://www.styled-components.com/">styled-components</A>{' '}
+        的优雅实现, 主题可在几乎不增加项目复杂度的情况下按需求轻松扩展。 内置四套主题如下：
+      </Desc>
+      <br />
+      <Button onClick={logic.changeTheme.bind(this, 'default')}>
+        <I18n {...lang.themeBtnDefault} />
+      </Button>
+      <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
+        <I18n {...lang.themeBtnCyan} />
+      </Button>
 
-        <Button onClick={logic.changeTheme.bind(this, 'solarizedDark')}>
-          solarized-dark
-        </Button>
-
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          Solarize-light
-        </Button>
-
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          Markdown 黄
-        </Button>
-
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          unbuntu 紫色
-        </Button>
-      </Center>
-    </HorizontalCenter>
+      <Button onClick={logic.changeTheme.bind(this, 'solarizedDark')}>
+        solarized-dark
+      </Button>
+      <Button onClick={logic.changeTheme.bind(this, 'muzli')}>Muzli</Button>
+      <Button onClick={logic.changeTheme.bind(this, 'yellow')}>yellow</Button>
+      <Button onClick={logic.changeTheme.bind(this, 'slack')}>slack</Button>
+      <Button onClick={logic.changeTheme.bind(this, 'brown')}>brown</Button>
+    </Center>
   )
 }
 

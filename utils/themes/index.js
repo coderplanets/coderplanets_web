@@ -17,16 +17,21 @@ import { keys } from 'ramda'
 import Cyan from './Cyan'
 import Muzli from './Muzli'
 import SolarizedDark from './SolarizedDark'
+import Yellow from './Yellow'
+import Slack from './Slack'
+import Brown from './Brown'
 
 export const globalThemes = {
-  default: { ...SolarizedDark },
+  default: { ...Brown },
   cyan: { ...Cyan },
   solarizedDark: { ...SolarizedDark },
   muzli: { ...Muzli },
+  yellow: { ...Yellow },
   // purpleDark: {...PurpleDark},
   // solarizedDark: {...SolarizedDark},
   // solarizedLight: {...SolarizedLight},
-  // slackUI: { ...SlackUI },
+  slack: { ...Slack },
+  brown: { ...Brown },
 }
 
 export const themeNames = keys(globalThemes)

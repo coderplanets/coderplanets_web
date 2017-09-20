@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const SideBar = styled.div`
-  border-right: 1px solid #ebebeb;
+  border-right: 1px solid;
   position: fixed;
   height: 100vh;
   top: 0;

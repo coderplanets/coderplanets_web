@@ -25,11 +25,10 @@ const SideBar = styled.ul`
     height: 50px;
     width: 100%;
     box-sizing: border-box;
-    color: lightgrey;
+    color: ${props => props.theme.sidebar.menu_link};
   }
 
   > li > span > a {
-    color: ${props => props.theme.sidebar.menu_link};
     text-decoration: none;
   }
 `
