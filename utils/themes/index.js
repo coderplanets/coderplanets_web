@@ -1,32 +1,32 @@
 /*
 * theme desc
-*
+* TODO: add README in this folder to show some snapshot
+* 参考: http://enrmarc.github.io/atom-theme-gallery/
+* Muzli-light
+* slackUI: https://atom.io/themes/slack-ui
+* Github: ...
+* gruvbox: https://atom.io/themes/gruvbox-syntax
+* Spacegray: https://atom.io/themes/spacegray-dark-neue-syntax
+* DuoTone Dark: https://atom.io/themes/duotone-dark-forest-syntax
+* DuoTone Dark2: https://atom.io/themes/duotone-dark-earth-syntax
+* Earthsung https://atom.io/themes/earthsung-by-jackson-syntax
 */
 
-const globalTheme = {
-  default: {
-    font: '#BDBDBF',
-    link: '#B762B7',
-    main: '#B0AEB3',
-    contentBg: '#222029',
-    sidebar: {
-      bg: '#222029',
-      menu_link: 'lightgrey',
-      border_color: '#100F13',
-    },
-  },
+import { keys } from 'ramda'
 
-  cyan: {
-    font: '#69a7ad',
-    link: 'orange',
-    main: '#7DC0C5',
-    contentBg: '#E4EEED',
-    sidebar: {
-      bg: '#1C4752',
-      menu_link: '#D9E6E5',
-      border_color: '#14363E',
-    },
-  },
+import Cyan from './Cyan'
+import Muzli from './Muzli'
+import SolarizedDark from './SolarizedDark'
+
+export const globalThemes = {
+  default: { ...SolarizedDark },
+  cyan: { ...Cyan },
+  solarizedDark: { ...SolarizedDark },
+  muzli: { ...Muzli },
+  // purpleDark: {...PurpleDark},
+  // solarizedDark: {...SolarizedDark},
+  // solarizedLight: {...SolarizedLight},
+  // slackUI: { ...SlackUI },
 }
 
-export default globalTheme
+export const themeNames = keys(globalThemes)

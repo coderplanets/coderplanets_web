@@ -5,7 +5,7 @@
 
 import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/debug'
-import globalThemes from '../../utils/themes'
+import { globalThemes, themeNames } from '../../utils/themes'
 
 import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
@@ -18,10 +18,7 @@ const AppStore = t
     // header: t....,
     body: t.optional(BodyStore, {}),
     /* account: t..., */
-    appTheme: t.optional(
-      t.enumeration('theme', ['default', 'cyan', 'dark', 'dark_purple']),
-      'default'
-    ),
+    appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
   })

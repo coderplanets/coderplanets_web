@@ -47,10 +47,11 @@
 
 ## TODO
 
-- [ ] 使用各国标志性的建筑作为 i18n 切换图标
+- [ ] phoenix [新文档地址](https://github.com/phoenixframework/phoenix/tree/master/guides/docs)
+- [ ] [主页弄给](https://github.com/Sly777/ran)
 - [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
 - [ ] test --> tests
-- [ ] add theme checker
+- [ ] add theme checker maybe? -> https://github.com/styled-components/stylelint-processor-styled-components
 - [ ] add page generator
 - [ ] logic.js generator (only for containers)
 - [ ] remove the clock page
@@ -58,10 +59,10 @@
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] *test Preact in production*
-- [ ] add Menu
 - [ ] add github example using Rx.js as request lib, GraphQL if time free
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] launch first version with changeLog staff
+- [ ] and answer [this issue](https://github.com/samuelalvin/react-mobx-mobxstatetree)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
 - [x] Badges ( CI build / deps / coveralls / greenkeeper)
@@ -80,7 +81,9 @@
 - [x] debug pkg
 - [x] add global-css ([normalize.css](https://github.com/necolas/normalize.css))
 - [x] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
- 
+- [x] add Menu
+- [x] 使用各国标志性的建筑作为 i18n 切换图标
+
 
 ### MindStorm
 
@@ -89,6 +92,7 @@
 - [ ] [桌面效果的网站, 有新意](http://jasonpark.me/)
 - [ ] [用 monaco-editor实现一个 postman](https://github.com/Microsoft/monaco-editor)
 - [ ] [monaco-editor 的 diff-editor 实现协作编辑？ 文档的 wiki 化？](https://github.com/Microsoft/monaco-editor)
+- [ ] [react-diagrams](https://github.com/projectstorm/react-diagrams) 
 
 
 ### tools

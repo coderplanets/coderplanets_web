@@ -43,12 +43,12 @@ const Theme = () => {
           <I18n {...lang.themeBtnCyan} />
         </Button>
 
-        <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          Solarize-light
+        <Button onClick={logic.changeTheme.bind(this, 'solarizedDark')}>
+          solarized-dark
         </Button>
 
         <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-          Solarize-dark
+          Solarize-light
         </Button>
 
         <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
