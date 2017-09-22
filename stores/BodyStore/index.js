@@ -19,6 +19,9 @@ const BodyStore = t
     get theme() {
       return self.app.theme
     },
+    get themeName() {
+      return self.app.themeName
+    },
     get langMessages() {
       return self.app.langMessages
     },

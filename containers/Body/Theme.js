@@ -6,16 +6,21 @@ import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 
 import * as logic from './logic'
-import Button from './Button'
+import { ThemeSelectorWraper, ThemeSelector } from './ThemeSelector'
 import A from '../../components/A'
 import { Center, HorizontalCenter, Title } from '../../components/BaseStyled'
+import { themeNames } from '../../utils/themes'
 
 const Desc = styled.div`
   color: ${props => props.theme.font};
   font-size: 2vh;
   transition: color 0.3s;
 `
-const Theme = () => {
+
+const Theme = ({ curTheme }) => {
+  console.log('curTheme', curTheme)
+  // console.log('curTheme === name ? ', curTheme === name)
+
   return (
     <Center>
       <HorizontalCenter>
@@ -34,20 +39,16 @@ const Theme = () => {
         的优雅实现, 主题可在几乎不增加项目复杂度的情况下按需求轻松扩展。 内置四套主题如下：
       </Desc>
       <br />
-      <Button onClick={logic.changeTheme.bind(this, 'default')}>
-        <I18n {...lang.themeBtnDefault} />
-      </Button>
-      <Button onClick={logic.changeTheme.bind(this, 'cyan')}>
-        <I18n {...lang.themeBtnCyan} />
-      </Button>
-
-      <Button onClick={logic.changeTheme.bind(this, 'solarizedDark')}>
-        solarized-dark
-      </Button>
-      <Button onClick={logic.changeTheme.bind(this, 'muzli')}>Muzli</Button>
-      <Button onClick={logic.changeTheme.bind(this, 'yellow')}>yellow</Button>
-      <Button onClick={logic.changeTheme.bind(this, 'slack')}>slack</Button>
-      <Button onClick={logic.changeTheme.bind(this, 'brown')}>brown</Button>
+      <ThemeSelectorWraper>
+        {themeNames.map(name => (
+          <ThemeSelector
+            key={name}
+            active={curTheme === name}
+            type={name}
+            onClick={logic.changeTheme.bind(this, name)}
+          />
+        ))}
+      </ThemeSelectorWraper>
     </Center>
   )
 }

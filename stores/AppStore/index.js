@@ -15,7 +15,8 @@ const debug = makeDebugger('S:AppStore')
 const AppStore = t
   .model({
     sidebar: t.optional(SidebarStore, { allMenuItems: [] }),
-    // header: t....,
+    // header: t...,
+    // banner: t...,
     body: t.optional(BodyStore, {}),
     /* account: t..., */
     appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
@@ -28,6 +29,9 @@ const AppStore = t
     },
     get theme() {
       return globalThemes[self.appTheme]
+    },
+    get themeName() {
+      return self.appTheme
     },
     get locale() {
       return self.appLocale

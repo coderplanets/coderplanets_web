@@ -12,7 +12,7 @@
 * Earthsung https://atom.io/themes/earthsung-by-jackson-syntax
 */
 
-import { keys } from 'ramda'
+import R from 'ramda'
 
 import Cyan from './Cyan'
 import Muzli from './Muzli'
@@ -20,9 +20,10 @@ import SolarizedDark from './SolarizedDark'
 import Yellow from './Yellow'
 import Slack from './Slack'
 import Brown from './Brown'
+import CyanGreen from './CyanGreen'
 
 export const globalThemes = {
-  default: { ...Brown },
+  default: { ...CyanGreen },
   cyan: { ...Cyan },
   solarizedDark: { ...SolarizedDark },
   muzli: { ...Muzli },
@@ -32,6 +33,10 @@ export const globalThemes = {
   // solarizedLight: {...SolarizedLight},
   slack: { ...Slack },
   brown: { ...Brown },
+  cyanGreen: { ...CyanGreen },
 }
 
-export const themeNames = keys(globalThemes)
+export const themeNames = R.keys(globalThemes)
+
+// const getBodyBg = R.compose(R.head, R.path(['sidebar', 'bg']))
+export const selectorColors = R.map(R.path(['sidebar', 'bg']), globalThemes)
