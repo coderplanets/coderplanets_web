@@ -37,9 +37,9 @@
   [查询客户端 franchise](https://github.com/HVF/franchise)
 
 ## packages
+   [markjs](https://markjs.io/)
    [markdown-it](https://markdown-it.github.io/)
    [Autolinker](https://github.com/gregjacobs/Autolinker.js)
-
 
 ## issues
   next.config.js 如果导出不存在的页面可能会使 build 过程出现奇怪的错误, 如
@@ -61,7 +61,8 @@
 
 - [ ] phoenix [新文档地址](https://github.com/phoenixframework/phoenix/tree/master/guides/docs)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
-- [ ] Search panel && login panel
+- [ ] Search panel && login panel ----> 或许应该叫 UnverisalPanel ? --> 可以呼出
+  debug 设置等等
 - [ ] [主页弄给](https://github.com/Sly777/ran)
 - [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
 - [ ] test --> tests

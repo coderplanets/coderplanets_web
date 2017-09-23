@@ -23,7 +23,7 @@ import Brown from './Brown'
 import CyanGreen from './CyanGreen'
 
 export const globalThemes = {
-  default: { ...CyanGreen },
+  default: { ...SolarizedDark },
   cyan: { ...Cyan },
   solarizedDark: { ...SolarizedDark },
   muzli: { ...Muzli },

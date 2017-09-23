@@ -18,14 +18,14 @@ import Theme from './Theme'
 import Home from './Home'
 import Feature from './Feature'
 import I18n from './I18n'
-import { HorizontalCenter } from '../../components/BaseStyled'
+import GithubRestExample from './GithubRestExample'
 
 const debug = makeDebugger('C:Body')
 
 const IntroPage = props => {
   const { route } = props
-  console.log('route: ', route)
-  console.log('props.body.theme --> : ', props.body.themeName)
+  // console.log('route: ', route)
+  // console.log('props.body.theme --> : ', props.body.themeName)
 
   switch (route.query.name) {
     case 'index':
@@ -37,7 +37,7 @@ const IntroPage = props => {
     case 'i18n':
       return <I18n />
     case 'example':
-      return <HorizontalCenter>example</HorizontalCenter>
+      return <GithubRestExample />
     default:
       return <Home />
   }
