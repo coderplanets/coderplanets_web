@@ -26,13 +26,15 @@ const Repo = t.model('Repo', {
 const GithubEampleStore = t
   .model('GithubEampleStore', {
     repos: t.optional(t.array(Repo), []),
+    inputValue: t.optional(t.string, ''),
+    searching: t.optional(t.boolean, false),
   })
   .views(self => ({
     get app() {
       return getParent(self)
     },
-    get githubRepos() {
-      return self.repos
+    get reposData() {
+      return self.repos.toJSON()
     },
   }))
   .actions(self => ({
@@ -42,6 +44,9 @@ const GithubEampleStore = t
     },
     clearRepos() {
       self.repos = []
+    },
+    markState(key, val) {
+      self[key] = val
     },
   }))
 

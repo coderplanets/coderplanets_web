@@ -35,6 +35,18 @@ export const EditorBar = styled(BaseBar)`
   position: relative;
   left: -50%;
 `
+export const AlertBar = styled(BaseBar)`
+  position: relative;
+  padding: 18px;
+  left: -50%;
+  color: #365760;
+  &:before {
+    content: '⚠ ';
+    margin-right: 10px;
+    color: tomato;
+  }
+`
+
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 100px;

@@ -20,6 +20,7 @@ import {
   EditorBar,
   Wraper,
   InputBar,
+  AlertBar,
   AddOn,
   AvatarImg,
   AvatarWrapper,
@@ -33,11 +34,11 @@ import {
 
 const debug = makeDebugger('C:UniversePanel')
 
-function inputChange(e) {
-  logic.search(e.target.value)
-}
+// R.isEmpty(repos.toJSON()) && !isSearching && !R.isEmpty(inputValue)
 
-const SearchEditor = () => (
+// const repoNotFound = R.and()
+
+const SearchEditor = ({ value }) => (
   <EditorBar>
     <AddOn>&#9906;</AddOn>
     <InputBar
@@ -45,7 +46,8 @@ const SearchEditor = () => (
       autoCapitalize={false}
       autoCorrect="off"
       autoComplete="off"
-      onChange={inputChange}
+      value={value}
+      onChange={logic.search}
     />
   </EditorBar>
 )
@@ -62,14 +64,21 @@ class UniversePanelContainer extends React.Component {
   }
 
   render() {
-    const repos = this.props.store.githubRepos
-    debug('repos: ', repos.toJSON())
+    const store = this.props.store
+    const { reposData, inputValue } = store
+
+    // debug('repos: ', repos)
+    // debug('searching: ', searching)
+    // debug('logic.repoNotFound2(store): ', logic.repoNotFound2(store))
 
     return (
       <PanelContainer>
-        <SearchEditor />
+        <SearchEditor value={inputValue} />
+
+        {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
+
         <Wraper>
-          {repos.map(repo => (
+          {reposData.map(repo => (
             <InfoBar key={repo.id}>
               <AvatarWrapper onClick={logic.watshData}>
                 <AvatarImg src={repo.owner.avatar_url} alt="repo avatar" />
