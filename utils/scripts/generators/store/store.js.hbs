@@ -3,7 +3,6 @@
  *
  */
 
-
 import { types as t, getParent } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/debug'
 
@@ -19,7 +18,9 @@ const {{ properCase name }} = t
     },
   }))
   .actions(self => ({
-
+     biteMe() {
+       debug('bite me ', self)
+     },
   }))
 
 export default {{ properCase name }}

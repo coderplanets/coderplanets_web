@@ -48,7 +48,7 @@ const selector = ({ store }) => ({
 })
 
 class ContentContainer extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     logic.init(this.props.body)
     debug('init')
   }

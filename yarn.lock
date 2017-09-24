@@ -5400,7 +5400,7 @@ rx@^4.1.0:
   version "4.1.0"
   resolved "http://r.cnpmjs.org/rx/download/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
-rxjs@^5.0.0-beta.11:
+rxjs@^5.0.0-beta.11, rxjs@^5.4.3:
   version "5.4.3"
   resolved "http://r.cnpmjs.org/rxjs/download/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
   dependencies:

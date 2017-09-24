@@ -25,7 +25,7 @@ const selector = ({ store }) => ({
 })
 
 class {{ properCase name }}Container extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     debug('mount')
     logic.init(this.props.store)
   }
