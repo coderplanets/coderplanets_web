@@ -4,8 +4,9 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
+import R from 'ramda'
 import { makeDebugger } from '../../utils/debug'
-
+import { isObject } from '../../utils'
 import MenuItem from './MenuItemStore'
 import fakeMenuItems from './fake_menu_items'
 
@@ -44,8 +45,8 @@ const SidebarStore = t
     },
   }))
   .actions(self => ({
-    loadAllMenuItem() {
-      debug('loadAllMenuItem ...')
+    loadMenuItem() {
+      debug('loadMenuItem ...')
       self.menuItems = fakeMenuItems
     },
 
@@ -54,8 +55,13 @@ const SidebarStore = t
       self.loading = !self.loading
     },
 
-    markState(key, val) {
-      self[key] = val
+    markState(sobj) {
+      if (!isObject(sobj)) {
+        throw new Error('markState get no object params')
+      }
+      R.forEachObjIndexed((val, key) => {
+        self[key] = val
+      }, sobj)
     },
 
     addOne() {

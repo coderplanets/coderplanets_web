@@ -4,6 +4,9 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
+import R from 'ramda'
+
+import { isObject } from '../../utils'
 // import { makeDebugger } from '../../utils/debug'
 
 // const debug = makeDebugger('S:GithubEampleStore')
@@ -45,7 +48,17 @@ const GithubEampleStore = t
     clearRepos() {
       self.repos = []
     },
-    markState(key, val) {
+
+    markState(sobj) {
+      if (!isObject(sobj)) {
+        throw new Error('markState get no object params')
+      }
+      R.forEachObjIndexed((val, key) => {
+        self[key] = val
+      }, sobj)
+    },
+
+    markState2(key, val) {
       self[key] = val
     },
   }))

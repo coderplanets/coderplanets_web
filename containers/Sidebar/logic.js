@@ -5,30 +5,18 @@ const debug = makeDebugger('L:sidebar')
 
 let sidebar = null
 
-/*
-export const enterSidebar2 = debounce(() => {
-  debug('enterSidebar  <--<: ')
-  sidebar.toggleOpen()
-}, 200)
-
-export const leaveSidebar2 = debounce(() => {
-  debug('leaveSidebar  >-->: ')
-  sidebar.toggleOpen()
-}, 100)
-*/
-
 export function pin() {
   debug('pin: ', !sidebar.pin)
-  sidebar.markState('pin', !sidebar.pin)
+  sidebar.markState({ pin: !sidebar.pin })
 }
 
 export function enterSidebar() {
-  sidebar.markState('open', true)
+  sidebar.markState({ open: true })
 }
 
 export function leaveSidebar() {
   if (!sidebar.pin) {
-    sidebar.markState('open', false)
+    sidebar.markState({ open: false })
   }
 }
 

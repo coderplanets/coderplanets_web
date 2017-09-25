@@ -24,22 +24,15 @@ export const repoNotFound = R.allPass([
   isNotSearching,
 ])
 
-/*
-export function repoNotFound() {
-  return (
-    R.isEmpty(store.reposData) &&
-    !store.searching &&
-    !R.isEmpty(store.inputValue)
-  )
-}
-*/
-
 export function search(e) {
   // console.log('search: ', val)
-  const value = e.target.value
-  store.markState('inputValue', value)
-  store.markState('searching', true)
-  Pigeon.search(value)
+  const inputValue = e.target.value
+  // store.markState('inputValue', value)
+  store.markState({
+    inputValue,
+    searching: true,
+  })
+  Pigeon.search(inputValue)
 }
 
 export function init(selectedStore) {
@@ -50,13 +43,17 @@ export function init(selectedStore) {
   Pigeon.get().subscribe(res => {
     debug('Pigeon get: ', res)
     // debug('washed: ', repoData(res.items))
-    store.markState('searching', false)
+    store.markState({
+      searching: false,
+    })
     store.replaceRepos(repoData(res.items))
   })
 
   Pigeon.emptyInput().subscribe(() => {
     debug('Pigeon get emptyInput!')
-    store.markState('searching', false)
+    store.markState({
+      searching: false,
+    })
     store.clearRepos()
   })
 }
