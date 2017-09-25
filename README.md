@@ -36,5 +36,9 @@
 - [x] well tested by use jest
 - [x] handy generators for quick development
 - [x] enjoyable dev experience by using modern web tools
-- [ ] email subscribe like [FE/Weekly](http://www.feweekly.com/) for each language?
 
+
+## TODO
+
+- [x] more doc
+- [x] more test
