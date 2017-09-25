@@ -57,10 +57,6 @@ const GithubEampleStore = t
         self[key] = val
       }, sobj)
     },
-
-    markState2(key, val) {
-      self[key] = val
-    },
   }))
 
 export default GithubEampleStore

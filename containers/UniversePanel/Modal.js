@@ -1,6 +1,40 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Img from '../../components/Img'
+
+import searchIcon from '../../static/search.svg'
+import loadingIcon from '../../static/loading.svg'
+
+const rotate360 = keyframes`
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+`
+
+export const SearchIcon = styled(searchIcon)`
+  fill: #014354;
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+`
+
+export const LoadingIcon = styled(loadingIcon)`
+  fill: #014354;
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  animation: ${rotate360} 2s linear;
+`
+
+export const AddOn = styled.div`
+  margin-left: 15px;
+  color: white;
+  width: 25px;
+`
 
 // center css see: https://stackoverflow.com/questions/1776915/how-to-center-absolutely-positioned-element-in-div
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
@@ -51,17 +85,6 @@ export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 100px;
 `
-
-export const AddOn = styled.div`
-  transform: rotate(-45deg);
-  font-size: 5vh;
-  margin-left: 15px;
-  color: #365760;
-  margin-top: 5px;
-  margin-top: 3px;
-  width: 20px;
-`
-
 export const InputBar = styled.input`
   caret-color: #365760; /*cursor color*/
   flex-grow: 1;

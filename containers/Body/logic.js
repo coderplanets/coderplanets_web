@@ -15,10 +15,14 @@ export function changeLocale(lang) {
   // console.log('store.isLocaleExist: ', store.isLocaleExist(lang))
 
   if (!store.isLocaleExist(lang)) {
-    fetch(`/locale/${lang}`)
+    debug('process.env.NODE_ENV:', process.env.NODE_ENV)
+    const localeUrl =
+      process.env.NODE_ENV === 'development'
+        ? `/locale/${lang}`
+        : `/static/locales/${lang}.json`
+    fetch(localeUrl)
       .then(res => res.json())
       .then(vals => {
-        console.log('vals: ', vals)
         store.setLangMessages(lang, vals)
         store.changeLocale(lang)
       })

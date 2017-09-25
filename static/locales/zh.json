@@ -1,0 +1,11 @@
+{
+  "containers.Body.home.desc": "可能是你能找到的最好的 react 项目模板",
+  "containers.Body.theme.title": "主题",
+  "containers.Body.theme.btnDefault": "默认",
+  "containers.Body.theme.btnCyan": "青色",
+  "containers.Body.i18n.title": "国际化",
+  "containers.Body.i18n.en": "English",
+  "containers.Body.i18n.zh": "中文",
+  "components.Sidebar.title": "Mastani",
+  "components.Sidebar.text": "text"
+}

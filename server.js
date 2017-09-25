@@ -51,7 +51,7 @@ app.prepare().then(() => {
     const locale = accept.language(supportLanguages) // 'zh'
 
     if (localeMatch) {
-      console.log('localeMatch: ', localeMatch)
+      //      console.log('localeMatch: ', localeMatch)
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
       return res.end(JSON.stringify(getMessages(localeMatch.lang)))
     }

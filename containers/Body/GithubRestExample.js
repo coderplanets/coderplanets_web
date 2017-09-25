@@ -8,7 +8,6 @@ import { HorizontalCenter } from '../../components/BaseStyled'
 const Home = () => {
   return (
     <HorizontalCenter>
-      <div>Huck</div>
       <UniversePanel />
     </HorizontalCenter>
   )

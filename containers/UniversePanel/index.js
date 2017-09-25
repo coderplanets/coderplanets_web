@@ -26,6 +26,8 @@ import {
   AvatarWrapper,
   ContentWraper,
   Title,
+  SearchIcon,
+  LoadingIcon,
   Desc,
   RepoLang,
   RepoStar,
@@ -38,14 +40,15 @@ const debug = makeDebugger('C:UniversePanel')
 
 // const repoNotFound = R.and()
 
-const SearchEditor = ({ value }) => (
+const SearchEditor = ({ value, searching }) => (
   <EditorBar>
-    <AddOn>&#9906;</AddOn>
+    <AddOn>{searching ? <LoadingIcon /> : <SearchIcon />}</AddOn>
     <InputBar
       spellCheck={false}
       autoCapitalize={false}
       autoCorrect="off"
       autoComplete="off"
+      placeholder="Github repo search"
       value={value}
       onChange={logic.search}
     />
@@ -65,7 +68,7 @@ class UniversePanelContainer extends React.Component {
 
   render() {
     const store = this.props.store
-    const { reposData, inputValue } = store
+    const { reposData, inputValue, searching } = store
 
     // debug('repos: ', repos)
     // debug('searching: ', searching)
@@ -73,7 +76,7 @@ class UniversePanelContainer extends React.Component {
 
     return (
       <PanelContainer>
-        <SearchEditor value={inputValue} />
+        <SearchEditor value={inputValue} searching={searching} />
 
         {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
 

@@ -51,8 +51,8 @@ const AppStore = t
   }))
   .actions(self => ({
     afterCreate() {
-      debug('after create loadAllMenuItem')
-      self.sidebar.loadAllMenuItem()
+      debug('after create loadMenuItem')
+      self.sidebar.loadMenuItem()
     },
     changeTheme(name) {
       self.appTheme = name

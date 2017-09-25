@@ -10,6 +10,6 @@ it('sidebar store create', () => {
 
   expect(sidebar.menuItemsData.length).toBe(0)
 
-  sidebar.loadAllMenuItem()
+  sidebar.loadMenuItem()
   expect(sidebar.menuItemsData.length).toBe(5)
 })

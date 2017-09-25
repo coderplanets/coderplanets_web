@@ -9,8 +9,8 @@ import Link from 'next/link'
 import { inject, observer } from 'mobx-react'
 
 // import styled from 'styled-components'
-import { FormattedMessage as I18n } from 'react-intl'
-import lang from './lang'
+// import { FormattedMessage as I18n } from 'react-intl'
+// import lang from './lang'
 
 // import observer from '../../utils/mobx_utils'
 
@@ -95,10 +95,6 @@ class SidebarContainer extends React.Component {
             pin={sidebar.pin}
             onClick={logic.pin}
           />
-          <I18n {...lang.title} />
-          <div>
-            <I18n {...lang.text} />
-          </div>
           <br />
           <br />
           <br />
