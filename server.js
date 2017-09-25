@@ -13,6 +13,14 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const route = pathMatch()
 
+const moduleAlias = require('module-alias')
+// For the development version, we'll use React.
+// Because, it support react hot loading and so on.
+if (!dev) {
+  moduleAlias.addAlias('react', 'preact-compat')
+  moduleAlias.addAlias('react-dom', 'preact-compat')
+}
+
 // const langMatch = route('/lang/:name')
 mobxReact.useStaticRendering(true)
 
