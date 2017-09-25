@@ -18,8 +18,8 @@ export const leaveSidebar2 = debounce(() => {
 */
 
 export function pin() {
-  debug('pin: ', !sidebar.isPin)
-  sidebar.markState('pin', !sidebar.isPin)
+  debug('pin: ', !sidebar.pin)
+  sidebar.markState('pin', !sidebar.pin)
 }
 
 export function enterSidebar() {
@@ -27,13 +27,12 @@ export function enterSidebar() {
 }
 
 export function leaveSidebar() {
-  if (!sidebar.isPin) {
+  if (!sidebar.pin) {
     sidebar.markState('open', false)
   }
 }
 
 export function markLoading() {
-  /* debug('leaveSidebar >>', store.sidebar.menuItems.toJSON()) */
   /* sidebar.markLoading() */
   debug('markLoading')
   sidebar.markLoading()

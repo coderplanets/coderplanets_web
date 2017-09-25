@@ -47,10 +47,10 @@ const MenuIcon = ({ name }) => {
   }
 }
 
-const MenuList = ({ items, isOpen }) => {
+const MenuList = ({ items, open }) => {
   const listItems = items.map(item => (
     <li key={item.id}>
-      {isOpen ? (
+      {open ? (
         <span>
           <Link href={item.target.href} as={item.target.as}>
             <span>
@@ -85,14 +85,14 @@ class SidebarContainer extends React.Component {
 
     return (
       <Sidebar
-        isOpen={sidebar.isOpen}
+        open={sidebar.open}
         onMouseEnter={logic.enterSidebar}
         onMouseLeave={logic.leaveSidebar}
       >
         <div>
           <PinButton
-            isOpen={sidebar.isOpen}
-            isPin={sidebar.isPin}
+            open={sidebar.open}
+            pin={sidebar.pin}
             onClick={logic.pin}
           />
           <I18n {...lang.title} />
@@ -102,7 +102,7 @@ class SidebarContainer extends React.Component {
           <br />
           <br />
           <br />
-          <MenuList items={sidebar.menuItems} isOpen={sidebar.isOpen} />
+          <MenuList items={sidebar.menuItemsData} open={sidebar.open} />
         </div>
       </Sidebar>
     )

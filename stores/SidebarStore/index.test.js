@@ -8,8 +8,8 @@ import SidebarStore from './index'
 it('sidebar store create', () => {
   const sidebar = SidebarStore.create({}, {})
 
-  expect(sidebar.menuItems.length).toBe(0)
+  expect(sidebar.menuItemsData.length).toBe(0)
 
   sidebar.loadAllMenuItem()
-  expect(sidebar.menuItems.length).toBe(5)
+  expect(sidebar.menuItemsData.length).toBe(5)
 })

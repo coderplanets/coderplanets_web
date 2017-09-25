@@ -14,10 +14,9 @@ const debug = makeDebugger('S:SidebarStore')
 // TODO: test/include sidebarStore and MenuItem
 const SidebarStore = t
   .model('SidebarStore', {
-    allMenuItems: t.optional(t.array(MenuItem), []), // complex data
+    menuItems: t.optional(t.array(MenuItem), []), // complex data
     open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
-    // isPin: t.boolean, // should be in view
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
     // searchBox: t.string, // complex data
@@ -34,14 +33,8 @@ const SidebarStore = t
     get langs() {
       return self.app.langs
     },
-    get isOpen() {
-      return self.open
-    },
-    get isPin() {
-      return self.pin
-    },
-    get menuItems() {
-      return self.allMenuItems.toJSON()
+    get menuItemsData() {
+      return self.menuItems.toJSON()
     },
     get getLoading() {
       return self.loading
@@ -53,7 +46,7 @@ const SidebarStore = t
   .actions(self => ({
     loadAllMenuItem() {
       debug('loadAllMenuItem ...')
-      self.allMenuItems = fakeMenuItems
+      self.menuItems = fakeMenuItems
     },
 
     markLoading() {

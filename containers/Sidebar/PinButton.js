@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { PinIcon } from '../../components/Icons'
 
 const StyledPin = styled.div`
-  color: ${props => (props.isPin ? props.theme.sidebar.pin_active : 'grey')};
-  visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
-  opacity: ${props => (props.isOpen ? 1 : 0)};
+  color: ${props => (props.pin ? props.theme.sidebar.pin_active : 'grey')};
+  visibility: ${props => (props.open ? 'visible' : 'hidden')};
+  opacity: ${props => (props.open ? 1 : 0)};
   position: absolute;
   font-size: 25px;
   right: 10px;

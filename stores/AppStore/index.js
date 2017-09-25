@@ -15,7 +15,7 @@ const debug = makeDebugger('S:AppStore')
 
 const AppStore = t
   .model({
-    sidebar: t.optional(SidebarStore, { allMenuItems: [] }),
+    sidebar: t.optional(SidebarStore, { menuItems: [] }),
     // header: t...,
     // banner: t...,
     body: t.optional(BodyStore, {}),
