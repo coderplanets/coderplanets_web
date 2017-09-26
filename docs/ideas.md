@@ -32,12 +32,12 @@
 - [ ] remove the clock page
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
-- [ ] *test Preact in production*
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] launch first version with changeLog staff
 - [ ] and answer [this issue](https://github.com/samuelalvin/react-mobx-mobxstatetree)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] *test Preact in production*
 - [x] logic.js generator (only for containers)
 - [x] add github example using Rx.js as request lib, GraphQL if time free
 - [x] add Ramada example && [bebel-plugin](https://github.com/megawac/babel-plugin-ramda)
