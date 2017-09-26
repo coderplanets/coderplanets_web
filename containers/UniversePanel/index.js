@@ -36,10 +36,6 @@ import {
 
 const debug = makeDebugger('C:UniversePanel')
 
-// R.isEmpty(repos.toJSON()) && !isSearching && !R.isEmpty(inputValue)
-
-// const repoNotFound = R.and()
-
 const SearchEditor = ({ value, searching }) => (
   <EditorBar>
     <AddOn>{searching ? <LoadingIcon /> : <SearchIcon />}</AddOn>
@@ -79,7 +75,6 @@ class UniversePanelContainer extends React.Component {
         <SearchEditor value={inputValue} searching={searching} />
 
         {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
-
         <Wraper>
           {reposData.map(repo => (
             <InfoBar key={repo.id}>

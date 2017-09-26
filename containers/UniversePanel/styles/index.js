@@ -16,14 +16,14 @@ const rotate360 = keyframes`
 `
 
 export const SearchIcon = styled(searchIcon)`
-  fill: #014354;
+  fill: ${props => props.theme.u_panel.search_icon};
   width: 30px;
   height: 30px;
   margin-top: 20px;
 `
 
 export const LoadingIcon = styled(loadingIcon)`
-  fill: #014354;
+  fill: ${props => props.theme.u_panel.search_icon};
   width: 30px;
   height: 30px;
   margin-top: 20px;
@@ -32,7 +32,6 @@ export const LoadingIcon = styled(loadingIcon)`
 
 export const AddOn = styled.div`
   margin-left: 15px;
-  color: white;
   width: 25px;
 `
 
@@ -53,14 +52,14 @@ export const Wraper = styled.div`
   overflow: scroll;
 `
 
+// #001b21;
 export const BaseBar = styled.div`
-  border: 1px solid white;
   box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.4);
-  border: 1px solid #014354;
+  border: 1px solid ${props => props.theme.u_panel.border};
   width: 50vw;
   max-width: 600px;
   height: 70px;
-  background: #001b21;
+  background: ${props => props.theme.u_panel.bar_bg};
   color: white;
   display: flex;
   flex-direction: row;
@@ -86,7 +85,7 @@ export const InfoBar = styled(BaseBar)`
   min-height: 100px;
 `
 export const InputBar = styled.input`
-  caret-color: #365760; /*cursor color*/
+  caret-color: ${props => props.theme.u_panel.search_input};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
     'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
@@ -94,7 +93,7 @@ export const InputBar = styled.input`
   width: auto;
   outline: none;
   font-weight: 200;
-  color: #365760;
+  color: ${props => props.theme.u_panel.search_input};
   font-size: 24px;
   line-height: 70px;
   max-height: none;
@@ -119,9 +118,14 @@ export const ContentWraper = styled.div`
   text-align: left;
   flex-grow: 1;
 `
-export const Title = styled.div`color: white;`
+export const Title = styled.div`
+  display: block;
+  > a {
+    color: ${props => props.theme.u_panel.link};
+  }
+`
 export const Desc = styled.div`
-  color: #4c7c8a;
+  color: ${props => props.theme.u_panel.text};
   text-overflow: ellipsis;
   width: 400px;
   white-space: nowrap;
@@ -135,19 +139,12 @@ export const SubInfoWraper = styled.div`
 `
 
 export const RepoLang = styled.div`
-  color: #4c7c8a;
+  color: ${props => props.theme.u_panel.text};
   font-style: italic;
 `
 
 export const RepoStar = styled.div`
-  color: #4c7c8a;
+  color: ${props => props.theme.u_panel.text};
   font-style: italic;
   margin-right: 10px;
 `
-
-/*
-   text-overflow: ellipsis;
-   width: 400px;
-   white-space: nowrap;
-   overflow: hidden;
- */

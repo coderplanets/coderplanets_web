@@ -4,20 +4,29 @@
 
 import { darken } from 'polished'
 
-const fronColor = '#FBF9FC'
+const fontColor = '#dcd9cf'
 const sidebarBg = '#53B5B0'
+const mainBg = '#60848B'
 
 const CyanGreen = {
-  font: fronColor,
+  font: fontColor,
   link: '#99CFAF',
   main: '#7DC0C5',
-  body_bg: '#60848B',
+  body_bg: mainBg,
   selection_bg: '#FDDBA8',
   sidebar: {
     bg: sidebarBg,
     pin_active: '#B1EFBD',
     menu_link: '#CAE5E5',
     border_color: darken(0.1, sidebarBg),
+  },
+  u_panel: {
+    link: darken(0.25, sidebarBg),
+    search_input: darken(0.2, sidebarBg),
+    search_icon: darken(0.2, sidebarBg),
+    bar_bg: darken(0.01, sidebarBg),
+    border: darken(0.1, sidebarBg),
+    text: darken(0.15, sidebarBg),
   },
 }
 
