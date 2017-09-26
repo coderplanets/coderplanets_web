@@ -1,9 +1,0 @@
-{
-  "containers.Body.home.desc": "maybe the best react boilerplate you can find",
-  "containers.Body.theme.title": "Theme",
-  "containers.Body.theme.btnDefault": "Default",
-  "containers.Body.theme.btnCyan": "Cyan",
-  "containers.Body.i18n.title": "international",
-  "containers.Body.i18n.en": "English",
-  "containers.Body.i18n.zh": "中文"
-}

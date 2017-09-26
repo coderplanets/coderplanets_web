@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import TimeAgo from 'timeago-react'
+// import TimeAgo from 'timeago-react'
 
 import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
@@ -27,17 +27,13 @@ const Theme = ({ curTheme }) => {
         <Title>
           <I18n {...lang.themeTitle} />
         </Title>
-        <TimeAgo datetime={'2016-08-08 08:08:08'} locale="en" />
       </HorizontalCenter>
       <br />
       <Desc>
-        得益于 <A href="https://github.com/MicheleBertoli/css-in-js">
-          css-in-js
-        </A>{' '}
-        的先进理念以及{' '}
-        <A href="https://www.styled-components.com/">styled-components</A>{' '}
-        的优雅实现, 主题可在几乎不增加项目复杂度的情况下按需求轻松扩展。 内置四套主题如下：
+        <I18n {...lang.themeDesc} />
+        <A href="https://www.styled-components.com/">styled-components</A>
       </Desc>
+      <br />
       <br />
       <ThemeSelectorWraper>
         {themeNames.map(name => (
