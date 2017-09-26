@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components'
 
-import Img from '../../components/Img'
+import Img from '../../../components/Img'
 
-import searchIcon from '../../static/search.svg'
-import loadingIcon from '../../static/loading.svg'
+import searchIcon from '../../../static/search.svg'
+import loadingIcon from '../../../static/loading.svg'
 
 const rotate360 = keyframes`
 	from {
@@ -146,8 +146,8 @@ export const RepoStar = styled.div`
 `
 
 /*
-  text-overflow: ellipsis;
-  width: 400px;
-  white-space: nowrap;
-  overflow: hidden;
-*/
+   text-overflow: ellipsis;
+   width: 400px;
+   white-space: nowrap;
+   overflow: hidden;
+ */

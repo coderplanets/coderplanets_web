@@ -60,6 +60,12 @@ module.exports = {
         templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
+      {
+        type: 'add',
+        path: '../../../containers/{{properCase name}}/styles/index.js',
+        templateFile: './container/styles.js.hbs',
+        abortOnFail: true,
+      },
     ]
 
     // If they want a i18n messages file
