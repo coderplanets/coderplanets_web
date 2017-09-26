@@ -39,9 +39,7 @@ const ViewStore = types
       self[key] = val
     },
 
-    getPage() {
-      // console.log('get Page: ', self.page)
-    },
+    getPage() {},
 
     openBooksPage() {
       self.page = 'books'

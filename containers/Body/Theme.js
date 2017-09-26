@@ -18,9 +18,6 @@ const Desc = styled.div`
 `
 
 const Theme = ({ curTheme }) => {
-  console.log('curTheme', curTheme)
-  // console.log('curTheme === name ? ', curTheme === name)
-
   return (
     <Center>
       <HorizontalCenter>

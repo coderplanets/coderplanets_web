@@ -12,7 +12,6 @@ export function changeTheme(name) {
 
 export function changeLocale(lang) {
   // debug('changeLocale', lang)
-  // console.log('store.isLocaleExist: ', store.isLocaleExist(lang))
 
   if (!store.isLocaleExist(lang)) {
     debug('process.env.NODE_ENV:', process.env.NODE_ENV)

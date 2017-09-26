@@ -14,9 +14,6 @@ const selector = ({ store }) => ({
 })
 
 const IntlObserver = observer(selector, ({ children, locale, messages }) => {
-  console.log('observer locale: ', locale)
-  console.log('observer messages: ', messages)
-
   return (
     // key is important, see https://github.com/yahoo/react-intl/issues/234
     <IntlProvider key={locale} locale={locale} messages={messages}>

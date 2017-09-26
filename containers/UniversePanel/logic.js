@@ -38,7 +38,6 @@ export const repoNotFound = R.allPass([
 ])
 
 export function search(e) {
-  // console.log('search: ', val)
   const inputValue = e.target.value
   // store.markState('inputValue', value)
   store.markState({
