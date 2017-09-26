@@ -43,8 +43,6 @@ const AppStore = t
     },
     get langMessages() {
       // TODO: try - catch
-      // console.log('self.locale: ', self.locale)
-      // console.log('self.langs.toJSON: ', self.langs.toJSON())
       // return self.langs.toJSON()[self.appLocale]
       return self.langs.get(self.locale)
     },
@@ -61,7 +59,6 @@ const AppStore = t
       self.appLocale = locale
     },
     setLangMessages(key, val) {
-      // console.log('cur self.appLangs: ', self.appLangs.toJSON())
       // self.appLangs.set({ en: { fic: 2 } })
       self.appLangs.set(key, val)
     },

@@ -24,8 +24,6 @@ const debug = makeDebugger('C:Body')
 
 const IntroPage = props => {
   const { route } = props
-  // console.log('route: ', route)
-  // console.log('props.body.theme --> : ', props.body.themeName)
 
   switch (route.query.name) {
     case 'index':
@@ -56,7 +54,6 @@ class ContentContainer extends React.Component {
   render() {
     // debug('cur route:', this.props.route)
 
-    //    console.log('>> props.body.theme --> : ', this.props.body.themeName)
     return (
       <Body>
         <IntroPage {...this.props} key={this.props.body.themeName} />

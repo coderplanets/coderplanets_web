@@ -7,3 +7,4 @@ bin
 lang/.messages/
 coverage/
 .coveralls.yml
+yarn-error.log

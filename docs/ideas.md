@@ -20,6 +20,7 @@
 
 ## TODO
 
+- [ ] [answer](https://github.com/mobxjs/mobx-state-tree/issues/27)
 - [ ] phoenix [新文档地址](https://github.com/phoenixframework/phoenix/tree/master/guides/docs)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
 - [ ] Search panel && login panel ----> 或许应该叫 UnverisalPanel ? --> 可以呼出
@@ -34,7 +35,6 @@
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] launch first version with changeLog staff
-- [ ] and answer [this issue](https://github.com/samuelalvin/react-mobx-mobxstatetree)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
 - [x] *test Preact in production*
@@ -106,6 +106,7 @@
 ## Resources
 
 ### Ramada
+   [invoker 的例子](https://stackoverflow.com/questions/28896800/how-can-i-do-this-better-with-ramda-js)
    [Ramda 中文网](http://ramda.cn/) (简介部分有很多文章)
    [Ramda 函数库参考教程 -- 阮一峰](http://www.ruanyifeng.com/blog/2017/03/ramda.html)
    [Pointfree 编程风格指南](http://www.ruanyifeng.com/blog/2017/03/pointfree.html)

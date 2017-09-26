@@ -37,7 +37,6 @@ const getMessages = locale => {
 
     try {
       langData = require(`./lang/${locale}.json`)
-      // console.log('langData: ', langData)
       messageCache.set(locale, langData)
     } catch (e) {
       return { error: 'this lang is not supported' }
@@ -59,7 +58,6 @@ app.prepare().then(() => {
     const locale = accept.language(supportLanguages) // 'zh'
 
     if (localeMatch) {
-      //      console.log('localeMatch: ', localeMatch)
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
       return res.end(JSON.stringify(getMessages(localeMatch.lang)))
     }
@@ -68,7 +66,6 @@ app.prepare().then(() => {
     req.messages = getMessages(locale)
 
     if (homeMatch) {
-      // console.log('getMessages(locale) : ', getMessages(locale))
       return app.render(req, res, '/', homeMatch)
     }
     // now index page go this way

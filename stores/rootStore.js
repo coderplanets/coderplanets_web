@@ -8,7 +8,6 @@ let rootStore = null
 const fetcher = url => fetch(url).then(response => response.json())
 
 const createRootStore = isServer => {
-  console.log('createRootStore isServer: ', isServer)
   return ShopStore.create(
     {},
     {

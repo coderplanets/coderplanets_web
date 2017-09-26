@@ -13,15 +13,11 @@ export default class Index extends React.Component {
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
     const { locale, messages } = req || window.__NEXT_DATA__.props
-    // console.log('the fuck messages: ', messages)
     const langSetup = {}
     langSetup[locale] = messages
-    // console.log('langSetup: ', langSetup)
     const store = initAppStore(isServer, langSetup)
     /* eslint-enable no-undef */
 
-    console.log('getInitialProps locale: ', locale)
-    console.log('getInitialProps messages: ', messages)
     return { isServer, version: store.version, messages, locale, langSetup }
   }
 
@@ -38,7 +34,6 @@ export default class Index extends React.Component {
     const globalStatus = {
       route: this.props.url,
     }
-    console.log('this.store: ', this.store.locale)
 
     return (
       <Provider store={this.store}>
