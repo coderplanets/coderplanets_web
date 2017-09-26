@@ -3108,6 +3108,10 @@ intl-relativeformat@^1.3.0:
   dependencies:
     intl-messageformat "1.3.0"
 
+intl@^1.2.5:
+  version "1.2.5"
+  resolved "http://r.cnpmjs.org/intl/download/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+
 invariant@^2.1.1, invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
   resolved "http://r.cnpmjs.org/invariant/download/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -5120,9 +5124,9 @@ react-world-flags@^0.0.3:
     svg-country-flags "^1.0.0"
     world-countries "^1.8.1"
 
-react@15.6.1:
-  version "15.6.1"
-  resolved "http://r.cnpmjs.org/react/download/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+react@15.6.2:
+  version "15.6.2"
+  resolved "http://r.cnpmjs.org/react/download/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
   dependencies:
     create-react-class "^15.6.0"
     fbjs "^0.8.9"
