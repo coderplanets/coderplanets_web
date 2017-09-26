@@ -7,6 +7,10 @@ import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
 import Body from '../containers/Body'
 
+// try to fix safari bug
+// see https://github.com/yahoo/react-intl/issues/422
+global.Intl = require('intl')
+
 export default class Index extends React.Component {
   static getInitialProps({ req }) {
     const isServer = !!req
