@@ -3,6 +3,8 @@
  *
  */
 
+// import { getSnapshot, applySnapshot } from 'mobx-state-tree'
+
 import AppStore from './AppStore'
 
 let appStore = null
@@ -12,25 +14,25 @@ const createRootStore = (isServer, langSetup) => {
 }
 
 export function initAppStore(isServer = false, langSetup) {
-  let ret
-
-  if (isServer) {
-    if (appStore === null) {
-      ret = createRootStore(isServer, langSetup)
-    } else {
-      ret = appStore
-    }
-  } else {
-    if (appStore === null) {
-      appStore = createRootStore(isServer, langSetup)
-    }
-    ret = appStore
+  if (appStore === null) {
+    appStore = createRootStore(isServer, langSetup)
   }
-  return ret
-}
-
-export function getStoreInstance() {
   return appStore
 }
 
+export const other = false
 // export default initAppStore
+
+/*
+if (module.hot) {
+  if (module.hot.data && module.hot.data.appStore) {
+    console.log('applySnapshot appStore: ', appStore)
+    console.log('applySnapshot: ', module.hot.data.appStore)
+    // applySnapshot(appStore, module.hot.data.appStore)
+  }
+  module.hot.dispose(data => {
+    console.log('dispose: data: ', getSnapshot(appStore))
+    data.appStore = getSnapshot(appStore)
+  })
+}
+*/
