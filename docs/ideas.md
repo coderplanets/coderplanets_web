@@ -27,7 +27,6 @@
   debug 设置等等
 - [ ] [主页弄给](https://github.com/Sly777/ran)
 - [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
-- [ ] test --> tests
 - [ ] add theme checker maybe? -> https://github.com/styled-components/stylelint-processor-styled-components
 - [ ] add page generator
 - [ ] remove the clock page
@@ -37,6 +36,7 @@
 - [ ] launch first version with changeLog staff
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] test --> tests
 - [x] *test Preact in production*
 - [x] logic.js generator (only for containers)
 - [x] add github example using Rx.js as request lib, GraphQL if time free
@@ -117,13 +117,11 @@
    [Thinking in Ramda: 重构的例子，涉及很多对象的操作例子](https://adispring.coding.me/2017/06/16/Thinking-in-Ramda-Immutability-and-Objects/) --
    evolve 太酷了.. 数组对应的是 adjust , 以及更通用的 lens 系列
    [Thinking in Ramda: Lens](https://adispring.coding.me/2017/06/18/Thinking-in-Ramda-Lenses/)
-
    
    ```js
    const lineWidth = settings.lineWidth || 80
    const lineWidth = defaultTo(80, settings.lineWidth)
    ```
-
 
 ### rx.js
   [interactive Rx](http://rxmarbles.com/)

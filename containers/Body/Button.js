@@ -6,6 +6,7 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border-radius: 3px;
   background: transparent;
+  cursor: pointer;
 
   /* Color the border and text with theme.main */
   color: ${props => props.theme.main};
