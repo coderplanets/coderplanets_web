@@ -32,7 +32,7 @@ import {
   RepoLang,
   RepoStar,
   SubInfoWraper,
-} from './Modal'
+} from './styles'
 
 const debug = makeDebugger('C:UniversePanel')
 
