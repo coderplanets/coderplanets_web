@@ -25,7 +25,7 @@ import CyanGreen from './CyanGreen'
 export const globalThemes = {
   default: { ...SolarizedDark },
   cyan: { ...Cyan },
-  solarizedDark: { ...SolarizedDark },
+  // solarizedDark: { ...SolarizedDark },
   muzli: { ...Muzli },
   yellow: { ...Yellow },
   // purpleDark: {...PurpleDark},

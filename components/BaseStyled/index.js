@@ -24,6 +24,7 @@ export const Ul = styled.ul`
 `
 export const Li = styled.li`
   padding-left: 16px;
+  margin-bottom: 8px;
   &:before {
     content: '•'; /* Insert content that looks like bullets */
     padding-right: 8px;
@@ -32,3 +33,10 @@ export const Li = styled.li`
 `
 
 export const Mark = styled.span`backgroun: lightgrey;`
+
+export const Margin = styled.div`
+  margin-top: ${props => (props.top ? props.top : 0)};
+  margin-bottom: ${props => (props.bottom ? props.bottom : 0)};
+  margin-left: ${props => (props.left ? props.left : 0)};
+  margin-right: ${props => (props.right ? props.right : 0)};
+`
