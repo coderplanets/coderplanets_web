@@ -1,5 +1,5 @@
 {
-  "containers.Body.home.desc": "maybe the best react boilerplate you can find",
+  "containers.Body.home.desc": "maybe the best react boilerplate you can find on earth",
   "containers.Body.feature.title": "Features",
   "containers.Body.feature.1": "Server-Side-Render out of the box, power by ",
   "containers.Body.feature.2": "State management and front-end ORM layer powered by ",
@@ -10,6 +10,7 @@
   "containers.Body.feature.8": "Handy generators for quick development",
   "containers.Body.feature.9": "and lots more ... ",
   "containers.Body.theme.title": "Theme",
+  "containers.Body.theme.desc": "elegent css-in-js solution, realtime theme switch without refresh the page, powerby：",
   "containers.Body.theme.btnDefault": "Default",
   "containers.Body.theme.btnCyan": "Cyan",
   "containers.Body.i18n.title": "international",
