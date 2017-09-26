@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Img from '../../../components/Img'
 
 import searchIcon from '../../../static/search.svg'
-import loadingIcon from '../../../static/loading.svg'
+import loadingIcon from '../../../static/searchLoading.svg'
 
 const rotate360 = keyframes`
 	from {

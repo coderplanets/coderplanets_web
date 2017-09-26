@@ -60,6 +60,6 @@ export class SearchService {
   }
 
   emptyInput() {
-    return this.searchTerm.debounceTime(600).filter(isEmptyValue)
+    return this.searchTerm.filter(isEmptyValue)
   }
 }

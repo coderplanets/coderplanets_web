@@ -8,11 +8,24 @@ const debug = makeDebugger('L:UniversePanel')
 let store = null
 let Pigeon = null
 
-const repoData = R.map(
-  R.pick(['id', 'name', 'description', 'language', 'owner', 'stargazers_count'])
+const RLog = x => debug('R log: ', x)
+
+const washItems = R.compose(
+  R.map(
+    R.pick([
+      'id',
+      'name',
+      'description',
+      'language',
+      'owner',
+      'stargazers_count',
+    ])
+  ),
+  R.prop('items')
 )
 
-// const RLog = x => debug('R log: ', x)
+// TODO: network error or something
+const repoData = R.ifElse(R.has('items'), washItems, R.tap(RLog))
 
 const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
 const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
@@ -46,7 +59,8 @@ export function init(selectedStore) {
     store.markState({
       searching: false,
     })
-    store.replaceRepos(repoData(res.items))
+    store.replaceRepos(repoData(res))
+    // store.replaceRepos([])
   })
 
   Pigeon.emptyInput().subscribe(() => {
