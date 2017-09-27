@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import { initAppStore } from '../stores'
+import initAppStore from '../stores'
 import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
