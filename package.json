@@ -1,7 +1,7 @@
 {
   "name": "mastani",
   "version": "0.0.1",
-  "license": "TODO",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev run-p server ",
     "lint": "eslint pages/**/*.js components/**/* containers/**/* stores/**/*",
@@ -100,7 +100,7 @@
     "react-intl": "^2.3.0",
     "react-world-flags": "^0.0.3",
     "rxjs": "^5.4.3",
-    "styled-components": "2.2.0",
+    "styled-components": "2.1.2",
     "timeago-react": "^1.2.2"
   },
   "devDependencies": {
