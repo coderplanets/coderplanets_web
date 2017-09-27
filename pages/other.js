@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { IntlProvider } from 'react-intl'
 import Link from 'next/link'
 
-import { initAppStore } from '../stores'
+import initAppStore from '../stores'
 
 import globalStyles from '../utils/global_styles'
 import Sidebar from '../containers/Sidebar'
