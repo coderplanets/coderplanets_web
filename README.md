@@ -37,8 +37,8 @@
 - [x] No local state, Logic process layer build with Ramada.js && Rx.js
 - [x] styled-componentas the css solution
 - [x] Multi Themes switch on the fly
-- [x] Multi language support, scale easliy
-- [x] Handy generators for quick development
+- [x] Pre-baked i18n support, scale easliy
+- [x] Scaffolding tools for quick development
 - [x] and lots more ...
 
 ## TODO

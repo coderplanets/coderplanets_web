@@ -1,7 +1,7 @@
 {
   "name": "mastani",
   "version": "0.0.1",
-  "license": "TODO",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev run-p server ",
     "lint": "eslint pages/**/*.js components/**/* containers/**/* stores/**/*",
