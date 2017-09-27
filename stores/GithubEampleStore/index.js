@@ -19,7 +19,7 @@ const RepoOwner = t.model('RepoOwner', {
 
 const Repo = t.model('Repo', {
   id: t.number,
-  description: t.string,
+  description: t.maybe(t.string),
   language: t.maybe(t.string), // language maybe null, like awesome-react
   stargazers_count: t.number,
   name: t.string,
