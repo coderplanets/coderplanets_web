@@ -43,5 +43,9 @@
 
 ## TODO
 
-- [x] more doc
-- [x] more test
+- [ ] more doc
+- [ ] more test
+- [ ] offline plugin
+- [ ] GraphQl support
+- [ ] Github login
+- [ ] user sidebar / page
