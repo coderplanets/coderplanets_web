@@ -38,26 +38,25 @@ export const AddOn = styled.div`
 // center css see: https://stackoverflow.com/questions/1776915/how-to-center-absolutely-positioned-element-in-div
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
-  position: absolute;
-  top: 10vh;
-  left: 50%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  margin: auto;
+  width: 45vw;
+  position: relative;
+  top: 15vh;
 `
 
 export const Wraper = styled.div`
   position: relative;
-  left: -50%;
   display: flex;
   flex-direction: column;
-  height: 65vh;
+  max-height: 65vh;
   overflow: scroll;
 `
 
 // #001b21;
 export const BaseBar = styled.div`
-  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.4);
   border: 1px solid ${props => props.theme.u_panel.border};
-  width: 50vw;
-  max-width: 600px;
+  width: 100%;
   height: 70px;
   background: ${props => props.theme.u_panel.bar_bg};
   color: white;
@@ -66,12 +65,12 @@ export const BaseBar = styled.div`
 `
 export const EditorBar = styled(BaseBar)`
   position: relative;
-  left: -50%;
+  //left: -50%;
 `
 export const AlertBar = styled(BaseBar)`
   position: relative;
   padding: 18px;
-  left: -50%;
+  // left: -50%;
   color: #365760;
   &:before {
     content: '⚠ ';
