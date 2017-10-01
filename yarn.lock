@@ -5154,9 +5154,9 @@ react-world-flags@^0.0.3:
     svg-country-flags "^1.0.0"
     world-countries "^1.8.1"
 
-react@15.6.2:
-  version "15.6.2"
-  resolved "http://r.cnpmjs.org/react/download/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
+react@15.6.1:
+  version "15.6.1"
+  resolved "http://r.cnpmjs.org/react/download/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
     create-react-class "^15.6.0"
     fbjs "^0.8.9"
