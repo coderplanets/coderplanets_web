@@ -24,6 +24,8 @@ import {
   ThemeIcon,
   I18nIcon,
   ExampleIcon,
+  CmdIcon,
+  GraphQLIcon,
 } from './MenuIcon'
 import { makeDebugger } from '../../utils/debug'
 import * as logic from './logic'
@@ -42,6 +44,10 @@ const MenuIcon = ({ name }) => {
       return <I18nIcon />
     case 'example':
       return <ExampleIcon />
+    case 'cmdpanel':
+      return <CmdIcon />
+    case 'graphql':
+      return <GraphQLIcon />
     default:
       return <HomeIcon />
   }

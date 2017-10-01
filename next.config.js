@@ -6,6 +6,8 @@ module.exports = {
     '/home/theme': { page: '/', query: { name: 'theme' } },
     '/home/i18n': { page: '/', query: { name: 'i18n' } },
     '/home/example': { page: '/', query: { name: 'example' } },
+    '/home/cmdpanel': { page: '/', query: { name: 'cmdpanel' } },
+    '/home/graphql': { page: '/', query: { name: 'graphql' } },
     '/shop': { page: '/shop' },
   }),
 

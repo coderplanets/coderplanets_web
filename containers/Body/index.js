@@ -36,6 +36,10 @@ const IntroPage = props => {
       return <I18n />
     case 'example':
       return <GithubRestExample />
+    case 'cmdpanel':
+      return <h2>cmdpanel</h2>
+    case 'graphql':
+      return <h2>graphql</h2>
     default:
       return <Home />
   }

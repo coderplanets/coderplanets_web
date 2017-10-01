@@ -6,6 +6,8 @@ import Feature from 'react-icons/lib/fa/black-tie'
 import Theme from 'react-icons/lib/fa/dashboard'
 import I18n from 'react-icons/lib/fa/language'
 import Example from 'react-icons/lib/fa/github-square'
+import Cmd from 'react-icons/lib/fa/cogs'
+import GraphQL from 'react-icons/lib/fa/crosshairs'
 
 const StyleIcon = styled.span`
   color: ${props => props.theme.font};
@@ -40,5 +42,17 @@ export const I18nIcon = props => (
 export const ExampleIcon = props => (
   <StyleIcon {...props}>
     <Example />
+  </StyleIcon>
+)
+
+export const CmdIcon = props => (
+  <StyleIcon {...props}>
+    <Cmd />
+  </StyleIcon>
+)
+
+export const GraphQLIcon = props => (
+  <StyleIcon {...props}>
+    <GraphQL />
   </StyleIcon>
 )

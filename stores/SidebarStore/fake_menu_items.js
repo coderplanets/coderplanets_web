@@ -67,6 +67,32 @@ const fakeMenuItems = [
       },
     },
   },
+  {
+    id: 6,
+    name: 'cmdpanel',
+    target: {
+      href: {
+        pathname: '/',
+        query: { name: 'cmdpanel' },
+      },
+      as: {
+        pathname: '/home/cmdpanel',
+      },
+    },
+  },
+  {
+    id: 7,
+    name: 'graphql',
+    target: {
+      href: {
+        pathname: '/',
+        query: { name: 'graphql' },
+      },
+      as: {
+        pathname: '/home/graphql',
+      },
+    },
+  },
 ]
 
 export default fakeMenuItems
