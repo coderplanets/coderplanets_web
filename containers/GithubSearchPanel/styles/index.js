@@ -35,17 +35,6 @@ export const AddOn = styled.div`
   width: 25px;
 `
 
-export const PageOverlay = styled.div`
-  //  background-color: rgba(0, 0, 0, 0.4);
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  overflow: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 502;
-`
 // center css see: https://stackoverflow.com/questions/1776915/how-to-center-absolutely-positioned-element-in-div
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`

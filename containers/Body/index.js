@@ -19,6 +19,7 @@ import Home from './Home'
 import Feature from './Feature'
 import I18n from './I18n'
 import GithubRestExample from './GithubRestExample'
+import CmdExample from './CmdExample'
 
 const debug = makeDebugger('C:Body')
 
@@ -37,7 +38,7 @@ const IntroPage = props => {
     case 'example':
       return <GithubRestExample />
     case 'cmdpanel':
-      return <h2>cmdpanel</h2>
+      return <CmdExample />
     case 'graphql':
       return <h2>graphql</h2>
     default:

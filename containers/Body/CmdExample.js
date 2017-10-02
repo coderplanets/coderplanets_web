@@ -2,13 +2,13 @@ import React from 'react'
 
 // import lang from './lang'
 
-import GithubSearchPanel from '../GithubSearchPanel'
+import UniversePanel from '../UniversePanel'
 import { HorizontalCenter } from '../../components/BaseStyled'
 
 const Home = () => {
   return (
     <HorizontalCenter>
-      <GithubSearchPanel />
+      <UniversePanel />
     </HorizontalCenter>
   )
 }

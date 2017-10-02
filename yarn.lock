@@ -5134,6 +5134,12 @@ react-intl@^2.3.0:
     intl-relativeformat "^1.3.0"
     invariant "^2.1.1"
 
+react-keydown@^1.9.4:
+  version "1.9.4"
+  resolved "http://r.cnpmjs.org/react-keydown/download/react-keydown-1.9.4.tgz#22718ac95edb64dd840dfc4350abf7e693ea0b7f"
+  dependencies:
+    core-js "^2.5.0"
+
 react-proxy@^3.0.0-alpha.0:
   version "3.0.0-alpha.1"
   resolved "http://r.cnpmjs.org/react-proxy/download/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
