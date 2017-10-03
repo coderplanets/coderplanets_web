@@ -21,6 +21,10 @@ const isEmptyValue = R.compose(R.isEmpty, R.trim)
 const isNotEmptyValue = R.complement(isEmptyValue)
 
 const hasValueExceptSlash = R.compose(R.lte(2), R.length)
+
+// TODO: use and
+const startWithSlash = R.allPass([R.startsWith('/'), isNotEmptyValue])
+
 const slashAndNotEmpty = R.allPass([
   R.startsWith('/'),
   isNotEmptyValue,
@@ -41,7 +45,11 @@ const getRelatedOptions = R.compose(
 export default class Doraemon {
   constructor() {
     this.input$ = new Subject()
-    //     this.doSearch = R.curry(this.githubQuery)
+
+    this.slashInput$ = this.input$
+      .debounceTime(200)
+      .filter(startWithSlash)
+      .distinctUntilChanged()
   }
 
   search(term) {
@@ -63,6 +71,10 @@ export default class Doraemon {
           return Observable.of([])
         })
     )
+  }
+
+  cmd() {
+    return this.slashInput$.map(getRelatedOptions)
   }
 
   emptyInput() {

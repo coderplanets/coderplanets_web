@@ -6,16 +6,16 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
+// import R from 'ramda'
 
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
 import { makeDebugger } from '../../utils/debug'
-import * as logic from './logic'
 
 import InputEditor from './InputEditor'
-import * as SuggestionIcons from './styles/suggestionIcons'
+import NodeIcon from './NodeIcon'
+import * as logic from './logic'
 
 import {
   PageOverlay,
@@ -34,25 +34,6 @@ import {
 } from './styles'
 
 const debug = makeDebugger('C:UniversePanel')
-
-const NodeIcons = ({ title }) => {
-  // const title = 'Javascript'
-  const lowerTitle = R.toLower(title)
-  // debug('title: ', lowerTitle)
-  if (R.contains(lowerTitle, SuggestionIcons.imgIcons)) {
-    return (
-      <SuggestionIcons.IconImg
-        src={`/static/nodeIcons/${lowerTitle}.png`}
-        alt={lowerTitle}
-      />
-    )
-  }
-  const defaultIcon = SuggestionIcons.javascript
-  const allIcons = { ...SuggestionIcons }
-  const Icon = allIcons[lowerTitle] ? allIcons[lowerTitle] : defaultIcon
-
-  return <Icon />
-}
 
 const selector = ({ store }) => ({
   store: store.universePanel,
@@ -85,7 +66,7 @@ class UniversePanelContainer extends React.Component {
                 onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
               >
                 <AvatarWrapper onClick={logic.watshData}>
-                  <NodeIcons title={suggestion.title} />
+                  <NodeIcon title={suggestion.title} />
                 </AvatarWrapper>
                 <ContentWraper>
                   <Title>{suggestion.title}</Title>

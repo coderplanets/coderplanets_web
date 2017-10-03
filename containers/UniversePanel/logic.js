@@ -4,7 +4,7 @@ import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import { makeDebugger } from '../../utils/debug'
 import Doraemon from './Doraemon'
 
-import { langs } from './suggestions'
+// import { langs } from './suggestions/index'
 
 const debug = makeDebugger('L:UniversePanel')
 
@@ -106,6 +106,8 @@ export function panelClick(e) {
   e.stopPropagation()
 }
 
+/*
+
 R.map(
   name => ({
     title: name,
@@ -113,29 +115,37 @@ R.map(
   }),
   R.keys(langs)
 )
+*/
 
+/*
 const formater = name => ({
   title: name,
   desc: '帖子: 233, 用户: 344',
 })
-const formatSuggestions = R.compose(R.map(formater), R.keys)
 
+const formatSuggestions = R.compose(R.map(formater), R.keys)
 function loadSuggestions() {
   const data = formatSuggestions(langs)
-
-  store.loadSuggestions(data)
+   store.loadSuggestions(data)
 }
+*/
 
 export function init(selectedStore) {
   store = selectedStore
-  loadSuggestions()
+  // loadSuggestions()
   debug('store', store)
   Doraemon$ = new Doraemon()
 
+  /*
   Doraemon$.get().subscribe(res => {
     const formatRes = R.map(formater, res)
     debug('Doraemon get: ', formatRes)
     store.loadSuggestions(formatRes)
+  })
+  */
+
+  Doraemon$.cmd().subscribe(res => {
+    debug('Doraemon cmd: ', res)
   })
 
   Doraemon$.emptyInput().subscribe(() => {

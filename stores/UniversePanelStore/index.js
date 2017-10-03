@@ -23,7 +23,23 @@ const Suggestion = t.model('Suggestion', {
 const UniversePanelStore = t
   .model('UniversePanelStore', {
     inputValue: t.optional(t.string, ''),
+    curSuggestionType: t.optional(
+      t.enumeration('curSuggestionType', [
+        'pl',
+        'search',
+        'theme',
+        'account',
+        'debug',
+      ]),
+      'pl'
+    ),
+    // program-languages, frameworks ...
     suggestions: t.optional(t.array(Suggestion), []),
+    // plSuggestions ... // include frameworks
+    // searchSuggestions ...
+    // themeSuggestions ...
+    // accountSuggestions ...
+    // debugSuggestions ...
     activeTitle: t.optional(t.string, ''),
   })
   .views(self => ({
