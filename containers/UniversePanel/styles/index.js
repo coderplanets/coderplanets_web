@@ -4,6 +4,10 @@ import Img from '../../../components/Img'
 
 import searchIcon from '../../../static/search.svg'
 import loadingIcon from '../../../static/searchLoading.svg'
+// import javascriptIcon from '../../../static/nodeIcons/javascript.svg'
+
+// import * as SuggestionIcons from './suggestionIcons'
+export * from './suggestionIcons'
 
 const rotate360 = keyframes`
 	from {
@@ -21,6 +25,12 @@ export const SearchIcon = styled(searchIcon)`
   height: 30px;
   margin-top: 20px;
 `
+
+// const svgIconStyle = 'width: 100%;height: 100%;'
+
+// export const JavascriptIcon = styled(javascriptIcon)`${svgIconStyle};`
+
+// export * as SuggestionIcons from './suggestionIcons'
 
 export const LoadingIcon = styled(loadingIcon)`
   fill: ${props => props.theme.u_panel.search_icon};
@@ -74,14 +84,10 @@ export const BaseBar = styled.div`
   display: flex;
   flex-direction: row;
 `
-export const EditorBar = styled(BaseBar)`
-  position: relative;
-  //left: -50%;
-`
+export const EditorBar = styled(BaseBar)`position: relative;`
 export const AlertBar = styled(BaseBar)`
   position: relative;
   padding: 18px;
-  // left: -50%;
   color: #365760;
   &:before {
     content: '⚠ ';
@@ -92,7 +98,8 @@ export const AlertBar = styled(BaseBar)`
 
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
-  min-height: 100px;
+  min-height: 70px;
+  background: ${props => (props.active ? props.theme.u_panel.active_bg : '')};
 `
 export const InputBar = styled.input`
   caret-color: ${props => props.theme.u_panel.search_input};
@@ -130,6 +137,7 @@ export const ContentWraper = styled.div`
 `
 export const Title = styled.div`
   display: block;
+  color: white;
   > a {
     color: ${props => props.theme.u_panel.link};
   }

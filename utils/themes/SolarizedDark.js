@@ -27,6 +27,7 @@ const SolarizedDark = {
     bar_bg: darken(0.03, mainBg),
     border: lighten(0.05, mainBg),
     text: lighten(0.1, mainBg),
+    active_bg: lighten(0.1, mainBg),
   },
 }
 

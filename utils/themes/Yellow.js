@@ -27,6 +27,7 @@ const Yellow = {
     bar_bg: darken(0.15, sidebarBg),
     border: darken(0.3, sidebarBg),
     text: darken(0.35, sidebarBg),
+    active_bg: darken(0.1, fontColor),
   },
 }
 

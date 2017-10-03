@@ -27,6 +27,7 @@ const CyanGreen = {
     bar_bg: darken(0.01, sidebarBg),
     border: darken(0.1, sidebarBg),
     text: darken(0.15, sidebarBg),
+    active_bg: darken(0.1, fontColor),
   },
 }
 

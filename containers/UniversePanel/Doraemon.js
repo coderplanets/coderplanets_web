@@ -52,7 +52,7 @@ export default class Doraemon {
   get() {
     return (
       this.input$
-        .debounceTime(400)
+        .debounceTime(200)
         .filter(slashAndNotEmpty)
         //       .do(value => console.log('after:', value))
         .distinctUntilChanged()

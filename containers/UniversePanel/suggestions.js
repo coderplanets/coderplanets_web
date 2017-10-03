@@ -33,6 +33,10 @@ export const cheatsheets = {
   // R.keys(langs)
 }
 
+export const databases = {
+  mysql: {},
+}
+
 export const langs = {
   BlackeScript: {},
   Js: {},
@@ -43,6 +47,7 @@ export const langs = {
   Ruby: {},
   Rust: {},
   Red: {},
+  React: {},
   Python: {},
   Php: {},
   Perl: {},
@@ -60,6 +65,8 @@ export const langs = {
   Delphi: {},
   Django: {},
   Elixir: {},
+  Phoenix: {},
+  Erlang: {},
   Elm: {},
   Go: {},
   Groovy: {},

@@ -26,6 +26,7 @@ const Cyan = {
     bar_bg: darken(0.03, fontColor),
     border: darken(0.05, fontColor),
     text: lighten(0.2, fontColor),
+    active_bg: darken(0.1, fontColor),
   },
 }
 

@@ -18,9 +18,14 @@ const {{ properCase name }} = t
     },
   }))
   .actions(self => ({
-     biteMe() {
-       debug('bite me ', self)
-     },
+    markState(sobj) {
+      if (!isObject(sobj)) {
+        throw new Error('S:{{ properCase name }} markState get no object params')
+      }
+      R.forEachObjIndexed((val, key) => {
+        self[key] = val
+      }, sobj)
+    },
   }))
 
 export default {{ properCase name }}

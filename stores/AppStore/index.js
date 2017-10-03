@@ -10,6 +10,7 @@ import { globalThemes, themeNames } from '../../utils/themes'
 import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
 import GithubEampleStore from '../GithubEampleStore'
+import UniversePanelStore from '../UniversePanelStore'
 
 const debug = makeDebugger('S:AppStore')
 
@@ -20,6 +21,7 @@ const AppStore = t
     // banner: t...,
     body: t.optional(BodyStore, {}),
     github: t.optional(GithubEampleStore, {}),
+    universePanel: t.optional(UniversePanelStore, {}),
     /* account: t..., */
     appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),

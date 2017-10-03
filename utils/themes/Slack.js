@@ -27,6 +27,7 @@ const Slack = {
     bar_bg: lighten(0.03, sidebarBg),
     border: darken(0.05, fontColor),
     text: lighten(0.15, sidebarBg),
+    active_bg: darken(0.1, sidebarBg),
   },
 }
 
