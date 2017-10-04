@@ -112,26 +112,20 @@ export function panelClick(e) {
   e.stopPropagation()
 }
 
-const formater = name => ({
-  title: name,
-  desc: '帖子: 233, 用户: 344',
-})
-
 export function init(selectedStore) {
   store = selectedStore
   // loadSuggestions()
   debug('store', store)
-  pockect$ = new Pockect()
+  pockect$ = new Pockect(store)
 
   pockect$.suggestion().subscribe(res => {
-    const formatRes = R.map(formater, res)
-    store.loadSuggestions(formatRes)
+    store.loadSuggestions(res)
 
-    debug('Doraemon cmd: ', res)
+    debug('pockect: ', res)
   })
 
   pockect$.emptyInput().subscribe(() => {
-    debug('Doraemon get emptyInput!')
+    debug('get emptyInput!')
     store.clearSuggestions()
   })
 }

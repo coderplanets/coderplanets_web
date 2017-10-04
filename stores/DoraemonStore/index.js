@@ -46,6 +46,9 @@ const DoraemonStore = t
     get app() {
       return getParent(self)
     },
+    get themeName() {
+      return self.app.themeName
+    },
     get suggestionCount() {
       return self.suggestions.length
     },
