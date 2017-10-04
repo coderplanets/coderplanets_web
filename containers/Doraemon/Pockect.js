@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import R from 'ramda'
+// import R from 'ramda'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/do'
@@ -14,17 +14,9 @@ import 'rxjs/add/operator/filter'
 // import 'rxjs/add/operator/merge'
 
 import { makeDebugger } from '../../utils/debug'
-import { getSuggestions$ } from './workers'
+import { getSuggestions$, startWithCmdPrefix, isEmptyValue } from './workers'
 
 const debug = makeDebugger('L:Doraemon:pocket')
-const isEmptyValue = R.compose(R.isEmpty, R.trim)
-
-const startWithCmdOpt = R.anyPass([
-  R.startsWith('>'),
-  R.startsWith('<'),
-  R.startsWith('/'),
-  R.startsWith('?'),
-])
 
 export default class Pockect {
   constructor(store) {
@@ -32,13 +24,13 @@ export default class Pockect {
     this.stop$ = new Subject()
 
     this.store = store
-    // this.fuck$ = this.input$.merge(this.stop$)
-    //  enter cmd
 
+    //  enter cmd
     debug('themeName', store.themeName)
+
     this.cmdInput$ = this.input$
       .debounceTime(200)
-      .filter(startWithCmdOpt)
+      .filter(startWithCmdPrefix)
       .distinctUntilChanged()
   }
 

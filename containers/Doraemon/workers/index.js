@@ -41,8 +41,14 @@ export const getSuggestions$ = query => {
   return Observable.fromPromise(promise).map(formatSuggestion)
 }
 
-export const fuck = 1
+export const startWithCmdPrefix = R.anyPass([
+  R.startsWith('>'),
+  R.startsWith('<'),
+  R.startsWith('/'),
+  R.startsWith('?'),
+])
 
+export const isEmptyValue = R.compose(R.isEmpty, R.trim)
 /*
    const hasValueExceptSlash = R.compose(R.lte(2), R.length)
    const slashAndNotEmpty = R.allPass([
