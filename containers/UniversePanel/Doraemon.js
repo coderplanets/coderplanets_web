@@ -8,31 +8,38 @@ import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/takeUntil'
 import 'rxjs/add/operator/distinctUntilChanged'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
 
 import R from 'ramda'
 
-import { langs } from './suggestions'
+import { makeDebugger } from '../../utils/debug'
+import { pl, framework, cmd } from './suggestions'
 // import fetch from 'isomorphic-fetch'
+
+const debug = makeDebugger('L:UniversePanel:Doraemon')
 
 const isEmptyValue = R.compose(R.isEmpty, R.trim)
 const isNotEmptyValue = R.complement(isEmptyValue)
 
+// const startWithSlash = R.allPass([R.startsWith('/'), isNotEmptyValue])
+const startWithSlash = R.and(R.startsWith('/'), isNotEmptyValue)
+
+/*
 const hasValueExceptSlash = R.compose(R.lte(2), R.length)
-
-// TODO: use and
-const startWithSlash = R.allPass([R.startsWith('/'), isNotEmptyValue])
-
 const slashAndNotEmpty = R.allPass([
   R.startsWith('/'),
   isNotEmptyValue,
   hasValueExceptSlash,
 ])
+ */
+
+const ALL_SUGGESTIONS = R.mergeAll([pl, framework, cmd])
 
 const lowerStartWith = R.compose(R.startsWith, R.toLower)
-const LowerKeys = R.keys(langs).map(R.toLower)
+const LowerKeys = R.keys(ALL_SUGGESTIONS).map(R.toLower)
 
 const startWithFilter = (val, ...source) =>
   R.filter(lowerStartWith(val), source)
@@ -42,9 +49,23 @@ const getRelatedOptions = R.compose(
   R.slice(1, Infinity)
 )
 
+const getSuggestionPromise = query => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      return resolve(getRelatedOptions(query))
+    })
+  })
+}
+
+const getSuggestions$ = query => {
+  const promise = getSuggestionPromise(query)
+  return Observable.fromPromise(promise)
+}
+
 export default class Doraemon {
   constructor() {
     this.input$ = new Subject()
+    this.stop$ = new Subject()
 
     this.slashInput$ = this.input$
       .debounceTime(200)
@@ -53,28 +74,23 @@ export default class Doraemon {
   }
 
   search(term) {
-    console.log('Doraemons search: ', term)
+    debug('Doraemons search: ', term)
     this.input$.next(term)
   }
 
-  get() {
-    return (
-      this.input$
-        .debounceTime(200)
-        .filter(slashAndNotEmpty)
-        //       .do(value => console.log('after:', value))
-        .distinctUntilChanged()
-        .map(getRelatedOptions)
-        .do(x => console.log('after:', x))
-        .catch(error => {
-          console.error(error)
-          return Observable.of([])
-        })
-    )
+  stop() {
+    console.log('stop ...')
+    this.stop$.next()
   }
 
   cmd() {
-    return this.slashInput$.map(getRelatedOptions)
+    // return this.slashInput$.switchMap(getSuggestions)
+    return this.slashInput$
+      .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
+      .catch(e => {
+        debug(e)
+        return Observable.of([])
+      })
   }
 
   emptyInput() {

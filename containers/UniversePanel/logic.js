@@ -72,6 +72,7 @@ export function navToSuggestion(suggestion) {
 
 export function hidePanel() {
   debug('hidePanel')
+  Doraemon$.stop()
 }
 
 export function onKeyPress(e) {
@@ -81,7 +82,11 @@ export function onKeyPress(e) {
       e.preventDefault()
       break
     }
-
+    case 'Enter': {
+      debug('Enter')
+      e.preventDefault()
+      break
+    }
     // Prevent default behavior in text input while pressing arrow up
     // https://stackoverflow.com/questions/1080532/prevent-default-behavior-in-text-input-while-pressing-arrow-up
     case 'ArrowUp': {
@@ -106,29 +111,10 @@ export function panelClick(e) {
   e.stopPropagation()
 }
 
-/*
-
-R.map(
-  name => ({
-    title: name,
-    desc: '帖子: 233, 用户: 344',
-  }),
-  R.keys(langs)
-)
-*/
-
-/*
 const formater = name => ({
   title: name,
   desc: '帖子: 233, 用户: 344',
 })
-
-const formatSuggestions = R.compose(R.map(formater), R.keys)
-function loadSuggestions() {
-  const data = formatSuggestions(langs)
-   store.loadSuggestions(data)
-}
-*/
 
 export function init(selectedStore) {
   store = selectedStore
@@ -136,15 +122,10 @@ export function init(selectedStore) {
   debug('store', store)
   Doraemon$ = new Doraemon()
 
-  /*
-  Doraemon$.get().subscribe(res => {
-    const formatRes = R.map(formater, res)
-    debug('Doraemon get: ', formatRes)
-    store.loadSuggestions(formatRes)
-  })
-  */
-
   Doraemon$.cmd().subscribe(res => {
+    const formatRes = R.map(formater, res)
+    store.loadSuggestions(formatRes)
+
     debug('Doraemon cmd: ', res)
   })
 
