@@ -11,6 +11,7 @@ import * as SuggestionIcons from './styles/suggestionIcons'
 
 // const debug = makeDebugger('C:UniversePanel:NodeIcon')
 
+// sucks need refactor
 const NodeIcon = ({ title }) => {
   // const title = 'Javascript'
   const lowerTitle = R.toLower(title)
@@ -25,8 +26,17 @@ const NodeIcon = ({ title }) => {
   }
   const defaultIcon = SuggestionIcons.javascript
   const allIcons = { ...SuggestionIcons }
-  const Icon = allIcons[lowerTitle] ? allIcons[lowerTitle] : defaultIcon
+  let Icon
 
+  if (lowerTitle === '>') {
+    Icon = allIcons.forward
+  } else if (lowerTitle === '<') {
+    Icon = allIcons.backward
+  } else if (lowerTitle === '?') {
+    Icon = allIcons.question
+  } else {
+    Icon = allIcons[lowerTitle] ? allIcons[lowerTitle] : defaultIcon
+  }
   return <Icon />
 }
 

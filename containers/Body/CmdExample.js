@@ -2,7 +2,7 @@ import React from 'react'
 
 // import lang from './lang'
 
-import UniversePanel from '../UniversePanel'
+import UniversePanel from '../Doraemon'
 import { HorizontalCenter } from '../../components/BaseStyled'
 
 const Home = () => {

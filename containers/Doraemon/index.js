@@ -17,6 +17,8 @@ import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'
 import * as logic from './logic'
 
+import * as SuggestionIcons from './styles/suggestionIcons'
+
 import {
   PageOverlay,
   PanelContainer,
@@ -28,12 +30,23 @@ import {
   ContentWraper,
   Title,
   Desc,
+  Hint,
   // RepoLang,
   // RepoStar,
   // SubInfoWraper,
 } from './styles'
 
 const debug = makeDebugger('C:UniversePanel')
+
+const HintIcon = ({ index, active, cur }) => {
+  return active === cur ? (
+    <Hint>
+      <SuggestionIcons.enter />
+    </Hint>
+  ) : (
+    <Hint>^ {index}</Hint>
+  )
+}
 
 const selector = ({ store }) => ({
   store: store.universePanel,
@@ -55,10 +68,9 @@ class UniversePanelContainer extends React.Component {
       <PageOverlay onClick={logic.hidePanel}>
         <PanelContainer onClick={logic.panelClick}>
           <InputEditor value={inputValue} searching={false} />
-
           {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
           <Wraper>
-            {suggestions.map(suggestion => (
+            {suggestions.map((suggestion, i) => (
               <InfoBar
                 active={activeTitle === suggestion.title}
                 key={suggestion.title}
@@ -72,6 +84,11 @@ class UniversePanelContainer extends React.Component {
                   <Title>{suggestion.title}</Title>
                   <Desc>{suggestion.desc}</Desc>
                 </ContentWraper>
+                <HintIcon
+                  index={i}
+                  active={activeTitle}
+                  cur={suggestion.title}
+                />
               </InfoBar>
             ))}
           </Wraper>

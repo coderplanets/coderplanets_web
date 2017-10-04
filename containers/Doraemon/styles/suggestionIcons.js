@@ -28,8 +28,9 @@ import dockerIcon from '../../../static/nodeIcons/programmingF/go/docker.svg'
 // cmds
 import themeIcon from '../../../static/nodeIcons/cmd/theme.svg'
 import debugIcon from '../../../static/nodeIcons/cmd/debug.svg'
-
-// import elixirIcon from '../../../static/nodeIcons/elixir.png'
+import forwardIcon from '../../../static/nodeIcons/cmd/forward.svg'
+import questionIcon from '../../../static/nodeIcons/cmd/question.svg'
+import enterIcon from '../../../static/nodeIcons/cmd/enter.svg'
 
 export const langImgIcons = ['elixir', 'r', 'julia', 'red', 'rust']
 export const frameworkImgIcons = ['django']
@@ -62,6 +63,18 @@ export const phoenix = styled(phoenixIcon)`${iconStyle};`
 export const react = styled(reactIcon)`${iconStyle};`
 export const docker = styled(dockerIcon)`${iconStyle};`
 
-// cms
+// cmd
 export const theme = styled(themeIcon)`${iconStyle};`
 export const debug = styled(debugIcon)`${iconStyle};`
+export const forward = styled(forwardIcon)`${iconStyle};`
+export const backward = styled(forwardIcon)`
+  ${iconStyle};
+  transform: rotate(180deg);
+`
+export const question = styled(questionIcon)`${iconStyle};`
+export const enter = styled(enterIcon)`
+  width: 50px;
+  height: 70%;
+  transform: rotateX(180deg);
+  fill: ${props => props.theme.u_panel.text};
+`

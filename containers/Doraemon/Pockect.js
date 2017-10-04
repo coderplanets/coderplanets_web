@@ -12,6 +12,7 @@ import 'rxjs/add/operator/takeUntil'
 import 'rxjs/add/operator/distinctUntilChanged'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
+import 'rxjs/add/operator/merge'
 
 import R from 'ramda'
 
@@ -22,10 +23,16 @@ import { pl, framework, cmd } from './suggestions'
 const debug = makeDebugger('L:UniversePanel:Doraemon')
 
 const isEmptyValue = R.compose(R.isEmpty, R.trim)
-const isNotEmptyValue = R.complement(isEmptyValue)
+// const isNotEmptyValue = R.complement(isEmptyValue)
 
 // const startWithSlash = R.allPass([R.startsWith('/'), isNotEmptyValue])
-const startWithSlash = R.and(R.startsWith('/'), isNotEmptyValue)
+
+const startWithCmdOpt = R.anyPass([
+  R.startsWith('>'),
+  R.startsWith('<'),
+  R.startsWith('/'),
+  R.startsWith('?'),
+])
 
 /*
 const hasValueExceptSlash = R.compose(R.lte(2), R.length)
@@ -41,12 +48,14 @@ const ALL_SUGGESTIONS = R.mergeAll([pl, framework, cmd])
 const lowerStartWith = R.compose(R.startsWith, R.toLower)
 const LowerKeys = R.keys(ALL_SUGGESTIONS).map(R.toLower)
 
-const startWithFilter = (val, ...source) =>
+const suggestionStartWith = (val, ...source) =>
   R.filter(lowerStartWith(val), source)
 
+const stripInput = R.ifElse(R.startsWith('/'), R.slice(1, Infinity), R.identity)
+
 const getRelatedOptions = R.compose(
-  R.partialRight(startWithFilter, LowerKeys),
-  R.slice(1, Infinity)
+  R.partialRight(suggestionStartWith, LowerKeys),
+  stripInput
 )
 
 const getSuggestionPromise = query => {
@@ -62,14 +71,17 @@ const getSuggestions$ = query => {
   return Observable.fromPromise(promise)
 }
 
-export default class Doraemon {
+export default class Pockect {
   constructor() {
     this.input$ = new Subject()
     this.stop$ = new Subject()
 
-    this.slashInput$ = this.input$
+    this.fuck$ = this.input$.merge(this.stop$)
+    // this.fuck$ = merge(this.input$, this.stop$)
+
+    this.cmdInput$ = this.input$
       .debounceTime(200)
-      .filter(startWithSlash)
+      .filter(startWithCmdOpt)
       .distinctUntilChanged()
   }
 
@@ -84,8 +96,7 @@ export default class Doraemon {
   }
 
   cmd() {
-    // return this.slashInput$.switchMap(getSuggestions)
-    return this.slashInput$
+    return this.cmdInput$
       .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
       .catch(e => {
         debug(e)

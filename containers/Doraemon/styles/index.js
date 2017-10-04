@@ -145,10 +145,14 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${props => props.theme.u_panel.text};
   text-overflow: ellipsis;
-  width: 400px;
+  width: 90%;
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 7px;
+`
+export const Hint = styled.div`
+  color: ${props => props.theme.u_panel.text};
+  margin-top: 10px;
 `
 
 export const SubInfoWraper = styled.div`

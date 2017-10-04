@@ -2,14 +2,14 @@ import R from 'ramda'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
 import { makeDebugger } from '../../utils/debug'
-import Doraemon from './Doraemon'
+import Pockect from './Pockect'
 
 // import { langs } from './suggestions/index'
 
 const debug = makeDebugger('L:UniversePanel')
 
 let store = null
-let Doraemon$ = null
+let pockect$ = null
 
 // const RLog = x => debug('R log: ', x)
 
@@ -31,7 +31,7 @@ export function search(e) {
     inputValue,
     // searching: true,
   })
-  Doraemon$.search(inputValue)
+  pockect$.search(inputValue)
 }
 
 export function navUpSuggestion() {
@@ -72,7 +72,7 @@ export function navToSuggestion(suggestion) {
 
 export function hidePanel() {
   debug('hidePanel')
-  Doraemon$.stop()
+  pockect$.stop()
 }
 
 export function onKeyPress(e) {
@@ -120,16 +120,16 @@ export function init(selectedStore) {
   store = selectedStore
   // loadSuggestions()
   debug('store', store)
-  Doraemon$ = new Doraemon()
+  pockect$ = new Pockect()
 
-  Doraemon$.cmd().subscribe(res => {
+  pockect$.cmd().subscribe(res => {
     const formatRes = R.map(formater, res)
     store.loadSuggestions(formatRes)
 
     debug('Doraemon cmd: ', res)
   })
 
-  Doraemon$.emptyInput().subscribe(() => {
+  pockect$.emptyInput().subscribe(() => {
     debug('Doraemon get emptyInput!')
     store.clearSuggestions()
   })
