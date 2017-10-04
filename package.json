@@ -100,7 +100,7 @@
     "react-intl": "^2.3.0",
     "react-world-flags": "^0.0.3",
     "rxjs": "^5.4.3",
-    "styled-components": "2.2.0",
+    "styled-components": "2.2.1",
     "timeago-react": "^1.2.2"
   },
   "devDependencies": {
