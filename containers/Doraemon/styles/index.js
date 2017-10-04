@@ -153,6 +153,10 @@ export const Desc = styled.div`
 export const Hint = styled.div`
   color: ${props => props.theme.u_panel.text};
   margin-top: 10px;
+
+  > svg {
+    margin-right: -8px;
+  }
 `
 
 export const SubInfoWraper = styled.div`

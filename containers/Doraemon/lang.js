@@ -1,13 +1,13 @@
 /*
- * UniversePanel Langs
+ * Doraemon Langs
  *
- * This contains all the text for the UniversePanel component.
+ * This contains all the text for the Doraemon component.
  */
 import { defineMessages } from 'react-intl'
 
 export default defineMessages({
   header: {
-    id: 'containers.UniversePanel.header',
-    defaultMessage: 'This is the UniversePanel component !',
+    id: 'containers.Doraemon.header',
+    defaultMessage: 'This is the Doraemon component !',
   },
 })

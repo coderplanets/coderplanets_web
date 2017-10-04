@@ -9,7 +9,7 @@ import R from 'ramda'
 import * as SuggestionIcons from './styles/suggestionIcons'
 // import { makeDebugger } from '../../utils/debug'
 
-// const debug = makeDebugger('C:UniversePanel:NodeIcon')
+// const debug = makeDebugger('C:Doraemon:NodeIcon')
 
 // sucks need refactor
 const NodeIcon = ({ title }) => {

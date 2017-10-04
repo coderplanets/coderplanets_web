@@ -20,7 +20,7 @@ import { makeDebugger } from '../../utils/debug'
 import { pl, framework, cmd } from './suggestions'
 // import fetch from 'isomorphic-fetch'
 
-const debug = makeDebugger('L:UniversePanel:Doraemon')
+const debug = makeDebugger('L:Doraemon:pocket')
 
 const isEmptyValue = R.compose(R.isEmpty, R.trim)
 // const isNotEmptyValue = R.complement(isEmptyValue)
@@ -77,7 +77,7 @@ export default class Pockect {
     this.stop$ = new Subject()
 
     this.fuck$ = this.input$.merge(this.stop$)
-    // this.fuck$ = merge(this.input$, this.stop$)
+    //  enter cmd
 
     this.cmdInput$ = this.input$
       .debounceTime(200)
@@ -95,7 +95,7 @@ export default class Pockect {
     this.stop$.next()
   }
 
-  cmd() {
+  suggestion() {
     return this.cmdInput$
       .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
       .catch(e => {
@@ -107,4 +107,8 @@ export default class Pockect {
   emptyInput() {
     return this.input$.filter(isEmptyValue)
   }
+
+  /* doCmd(store) { */
+  /* */
+  /* } */
 }

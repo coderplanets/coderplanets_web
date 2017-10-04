@@ -1,6 +1,6 @@
 /*
 *
-* UniversePanel
+* Magic Doraemon
 *
 */
 
@@ -36,7 +36,7 @@ import {
   // SubInfoWraper,
 } from './styles'
 
-const debug = makeDebugger('C:UniversePanel')
+const debug = makeDebugger('C:Doraemon')
 
 const HintIcon = ({ index, active, cur }) => {
   return active === cur ? (
@@ -49,10 +49,10 @@ const HintIcon = ({ index, active, cur }) => {
 }
 
 const selector = ({ store }) => ({
-  store: store.universePanel,
+  store: store.doraemon,
 })
 
-class UniversePanelContainer extends React.Component {
+class DoraemonContainer extends React.Component {
   componentWillMount() {
     debug('mount')
     logic.init(this.props.store)
@@ -98,4 +98,4 @@ class UniversePanelContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(UniversePanelContainer))
+export default inject(selector)(observer(DoraemonContainer))

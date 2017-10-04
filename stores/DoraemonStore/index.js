@@ -1,5 +1,5 @@
 /*
- * UniversePanelStore store
+ * DoraemonStore store
  *
  */
 
@@ -9,7 +9,7 @@ import R from 'ramda'
 import { isObject } from '../../utils'
 import { makeDebugger } from '../../utils/debug'
 
-const debug = makeDebugger('S:UniversePanelStore')
+const debug = makeDebugger('S:DoraemonStore')
 
 const Suggestion = t.model('Suggestion', {
   title: t.string,
@@ -20,8 +20,8 @@ const Suggestion = t.model('Suggestion', {
   ),
 })
 
-const UniversePanelStore = t
-  .model('UniversePanelStore', {
+const DoraemonStore = t
+  .model('DoraemonStore', {
     inputValue: t.optional(t.string, ''),
     curSuggestionType: t.optional(
       t.enumeration('curSuggestionType', [
@@ -114,4 +114,4 @@ const UniversePanelStore = t
     },
   }))
 
-export default UniversePanelStore
+export default DoraemonStore

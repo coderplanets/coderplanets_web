@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import UniversePanel from '../index'
+// import Doraemon from '../index'
 
-describe('<UniversePanel />', () => {
+describe('<Doraemon />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

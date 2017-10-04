@@ -1,6 +1,6 @@
 /*
 *
-* UniversePanel
+* GithubSearchPanel
 *
 */
 

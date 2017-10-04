@@ -6,7 +6,7 @@ import Pockect from './Pockect'
 
 // import { langs } from './suggestions/index'
 
-const debug = makeDebugger('L:UniversePanel')
+const debug = makeDebugger('L:Doraemon')
 
 let store = null
 let pockect$ = null
@@ -84,6 +84,7 @@ export function onKeyPress(e) {
     }
     case 'Enter': {
       debug('Enter')
+      // pockect$.doCmd()
       e.preventDefault()
       break
     }
@@ -122,7 +123,7 @@ export function init(selectedStore) {
   debug('store', store)
   pockect$ = new Pockect()
 
-  pockect$.cmd().subscribe(res => {
+  pockect$.suggestion().subscribe(res => {
     const formatRes = R.map(formater, res)
     store.loadSuggestions(formatRes)
 

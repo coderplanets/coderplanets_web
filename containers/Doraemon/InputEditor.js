@@ -1,6 +1,6 @@
 /*
  *
- * UniversePanel:InputEditor
+ * Doraemon:InputEditor
  *
  */
 
@@ -12,7 +12,7 @@ import * as logic from './logic'
 
 import { EditorBar, InputBar, AddOn, SearchIcon, LoadingIcon } from './styles'
 
-// const debug = makeDebugger('C:UniversePanel:InputEditor')
+// const debug = makeDebugger('C:Doraemon:InputEditor')
 
 export default class InputEditor extends React.Component {
   /* eslint-disable class-methods-use-this */
