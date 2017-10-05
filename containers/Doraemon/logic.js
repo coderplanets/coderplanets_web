@@ -114,18 +114,22 @@ export function panelClick(e) {
 
 export function init(selectedStore) {
   store = selectedStore
-  // loadSuggestions()
   debug('store', store)
   pockect$ = new Pockect(store)
 
   pockect$.suggestion().subscribe(res => {
+    debug('suggestion: ', res)
     store.loadSuggestions(res)
+  })
 
-    debug('pockect: ', res)
+  pockect$.suggestion2().subscribe(res => {
+    //     console.log(R.values(res))
+    console.log('suggestion2: ', res)
+    store.loadSuggestions(res)
   })
 
   pockect$.emptyInput().subscribe(() => {
-    debug('get emptyInput!')
+    //     debug('get emptyInput!')
     store.clearSuggestions()
   })
 }

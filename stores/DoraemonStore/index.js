@@ -41,6 +41,7 @@ const DoraemonStore = t
     // accountSuggestions ...
     // debugSuggestions ...
     activeTitle: t.optional(t.string, ''),
+    prefix: t.optional(t.string, ''),
   })
   .views(self => ({
     get app() {
@@ -60,15 +61,20 @@ const DoraemonStore = t
     afterCreate() {
       debug('load suggesttions')
     },
-    loadSuggestions(data) {
-      self.suggestions = data
+
+    loadSuggestions(suggestion) {
+      self.suggestions = suggestion.data
+      self.prefix = suggestion.prefix
       // if (data)R.isEmpty()
-      if (!R.isEmpty(data)) {
-        self.activeTitle = data[0].title
+      if (!R.isEmpty(suggestion.data)) {
+        self.activeTitle = suggestion.data[0].title
       }
     },
+
     clearSuggestions() {
       self.suggestions = []
+      self.prefix = ''
+      self.activeTitle = ''
     },
 
     activeUp() {

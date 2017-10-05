@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-// import R from 'ramda'
+import R from 'ramda'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/do'
@@ -11,46 +11,101 @@ import 'rxjs/add/operator/takeUntil'
 import 'rxjs/add/operator/distinctUntilChanged'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
-// import 'rxjs/add/operator/merge'
+import 'rxjs/add/operator/merge'
 
 import { makeDebugger } from '../../utils/debug'
-import { getSuggestions$, startWithCmdPrefix, isEmptyValue } from './workers'
+import {
+  getSuggestions$,
+  startWithCmdPrefix,
+  firstLevelSuggest,
+  isEmptyValue,
+  accessPath,
+  allSuggestions,
+} from './workers'
 
 const debug = makeDebugger('L:Doraemon:pocket')
+
+/*
+
+/theme/
+/th -- [tab]
+/th -- [enter]
+/theme -- [enter]
+
+/theme/cyan [enter]
+
+ key: endWith
+
+ */
+
+// const RLog = x => debug('child : ', x)
 
 export default class Pockect {
   constructor(store) {
     this.input$ = new Subject()
-    this.stop$ = new Subject()
+    this.stop$ = new Subject() // esc, pageClick  ...
+    this.firstLevelSuggestStop$ = new Subject()
+
+    this.suggestionStop$ = this.stop$.merge(this.firstLevelSuggestStop$)
 
     this.store = store
 
     //  enter cmd
-    debug('themeName', store.themeName)
+    // debug('themeName', store.themeName)
 
-    this.cmdInput$ = this.input$
-      .debounceTime(200)
+    this.cmdInput$ = this.input$.debounceTime(200).distinctUntilChanged()
+    // .filter(startWithCmdPrefix)
+
+    /*
+     this.suggestionChildren$ = this.cmdInput$.switchMap(q =>
+       getSuggestions$(q).takeUntil(this.stop$)
+     )
+     */
+
+    this.suggestionChildren$ = this.cmdInput$
+      .filter(firstLevelSuggest)
+      .map(accessPath)
+      .do(val => console.log('hello: ', val))
+      .do(() => this.firstLevelSuggestStop$.next())
+      .map(val => ({
+        prefix: val,
+        data: R.values(R.path([val], allSuggestions)),
+      }))
+
+    this.suggestion$ = this.cmdInput$
+      // .takeUntil(this.suggestionChildren$)
       .filter(startWithCmdPrefix)
-      .distinctUntilChanged()
+      .do(q => console.log('see ', q)) // now is /theme/c
+      .switchMap(q => getSuggestions$(q).takeUntil(this.suggestionStop$))
+    // .map(R.forEach(formatSuggestion), R.prop('data'))
+    // .do(res => console.log('after: ', res))
+    // .switchMap(q => getSuggestions$(q).takeUntil(this.suggestionChildren$)) // TODO
   }
 
   search(term) {
-    debug('Doraemons search: ', term)
+    // debug('Doraemons search: ', term)
     this.input$.next(term)
   }
 
   stop() {
-    debug('stop ...')
+    //    debug('stop ...')
     this.stop$.next()
   }
 
   suggestion() {
-    return this.cmdInput$
-      .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
-      .catch(e => {
-        debug(e)
-        return Observable.of([])
-      })
+    return (
+      this.suggestion$
+        // .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
+        .catch(e => {
+          debug(e)
+          return Observable.of([])
+        })
+    )
+  }
+
+  suggestion2() {
+    return this.suggestionChildren$
+    //     return this.suggestion2$
   }
 
   emptyInput() {
