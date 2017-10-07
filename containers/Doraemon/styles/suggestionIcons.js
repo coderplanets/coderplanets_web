@@ -31,6 +31,17 @@ import debugIcon from '../../../static/nodeIcons/cmd/debug.svg'
 import forwardIcon from '../../../static/nodeIcons/cmd/forward.svg'
 import questionIcon from '../../../static/nodeIcons/cmd/question.svg'
 import enterIcon from '../../../static/nodeIcons/cmd/enter.svg'
+import searchIcon from '../../../static/nodeIcons/cmd/search.svg'
+import magicIcon from '../../../static/nodeIcons/cmd/magic.svg'
+// ----
+import postsIcon from '../../../static/nodeIcons/cmd/posts.svg'
+import tutsIcon from '../../../static/nodeIcons/cmd/tuts.svg'
+import usersIcon from '../../../static/nodeIcons/cmd/users.svg'
+import mapIcon from '../../../static/nodeIcons/cmd/map.svg'
+import videoIcon from '../../../static/nodeIcons/cmd/video.svg'
+import newsIcon from '../../../static/nodeIcons/cmd/news.svg'
+import meetupsIcon from '../../../static/nodeIcons/cmd/meetups.svg'
+import jobsIcon from '../../../static/nodeIcons/cmd/jobs.svg'
 
 export const langImgIcons = ['elixir', 'r', 'julia', 'red', 'rust']
 export const frameworkImgIcons = ['django']
@@ -64,6 +75,19 @@ export const react = styled(reactIcon)`${iconStyle};`
 export const docker = styled(dockerIcon)`${iconStyle};`
 
 // cmd
+export const search = styled(searchIcon)`
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  fill: ${props => props.theme.u_panel.search_icon};
+`
+export const magic = styled(magicIcon)`
+  width: 30px;
+  height: 25px;
+  margin-top: 20px;
+  transform: rotate(-30deg);
+`
+
 export const theme = styled(themeIcon)`${iconStyle};`
 export const debug = styled(debugIcon)`${iconStyle};`
 export const forward = styled(forwardIcon)`${iconStyle};`
@@ -78,3 +102,12 @@ export const enter = styled(enterIcon)`
   transform: rotateX(180deg);
   fill: ${props => props.theme.u_panel.text};
 `
+
+export const posts = styled(postsIcon)`${iconStyle};`
+export const tuts = styled(tutsIcon)`${iconStyle};`
+export const users = styled(usersIcon)`${iconStyle};`
+export const map = styled(mapIcon)`${iconStyle};`
+export const news = styled(newsIcon)`${iconStyle};`
+export const video = styled(videoIcon)`${iconStyle};`
+export const meetups = styled(meetupsIcon)`${iconStyle};`
+export const jobs = styled(jobsIcon)`${iconStyle};`

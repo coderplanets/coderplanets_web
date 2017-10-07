@@ -46,7 +46,7 @@ export default class Pockect {
     this.stop$ = new Subject() // esc, pageClick  ...
     this.firstLevelSuggestStop$ = new Subject()
 
-    this.suggestionStop$ = this.stop$.merge(this.firstLevelSuggestStop$)
+    this.firstGuessStop$ = this.stop$.merge(this.firstLevelSuggestStop$)
 
     this.store = store
 
@@ -57,29 +57,30 @@ export default class Pockect {
     // .filter(startWithCmdPrefix)
 
     /*
-     this.suggestionChildren$ = this.cmdInput$.switchMap(q =>
+     this.secondGuess$ = this.cmdInput$.switchMap(q =>
        getSuggestions$(q).takeUntil(this.stop$)
      )
      */
 
-    this.suggestionChildren$ = this.cmdInput$
+    this.secondGuess$ = this.cmdInput$
       .filter(firstLevelSuggest)
-      .map(accessPath)
-      .do(val => console.log('hello: ', val))
+      .map(accessPath) // TODO: rename
+      //       .do(val => console.log('hello: ', val))
       .do(() => this.firstLevelSuggestStop$.next())
+      //    .do(val => console.log('path val: ', R.path([val], allSuggestions)))
       .map(val => ({
         prefix: val,
         data: R.values(R.path([val], allSuggestions)),
       }))
 
-    this.suggestion$ = this.cmdInput$
-      // .takeUntil(this.suggestionChildren$)
+    this.firstGuess$ = this.cmdInput$
+      // .takeUntil(this.secondGuess$)
       .filter(startWithCmdPrefix)
-      .do(q => console.log('see ', q)) // now is /theme/c
-      .switchMap(q => getSuggestions$(q).takeUntil(this.suggestionStop$))
+      //      .do(q => console.log('see ', q)) // now is /theme/c
+      .switchMap(q => getSuggestions$(q).takeUntil(this.firstGuessStop$))
     // .map(R.forEach(formatSuggestion), R.prop('data'))
     // .do(res => console.log('after: ', res))
-    // .switchMap(q => getSuggestions$(q).takeUntil(this.suggestionChildren$)) // TODO
+    // .switchMap(q => getSuggestions$(q).takeUntil(this.secondGuess$)) // TODO
   }
 
   search(term) {
@@ -94,7 +95,7 @@ export default class Pockect {
 
   suggestion() {
     return (
-      this.suggestion$
+      this.firstGuess$
         // .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
         .catch(e => {
           debug(e)
@@ -104,7 +105,7 @@ export default class Pockect {
   }
 
   suggestion2() {
-    return this.suggestionChildren$
+    return this.secondGuess$
     //     return this.suggestion2$
   }
 

@@ -2,9 +2,6 @@ import styled, { keyframes } from 'styled-components'
 
 import Img from '../../../components/Img'
 
-import searchIcon from '../../../static/nodeIcons/cmd/search.svg'
-import magicIcon from '../../../static/nodeIcons/cmd/magic.svg'
-import themeIcon from '../../../static/nodeIcons/cmd/theme.svg'
 import loadingIcon from '../../../static/searchLoading.svg'
 
 // import javascriptIcon from '../../../static/nodeIcons/javascript.svg'
@@ -20,26 +17,6 @@ const rotate360 = keyframes`
 	to {
 		transform: rotate(360deg);
 	}
-`
-
-export const SearchIcon = styled(searchIcon)`
-  fill: ${props => props.theme.u_panel.search_icon};
-  width: 30px;
-  height: 30px;
-  margin-top: 20px;
-`
-
-export const ThemeIcon = styled(themeIcon)`
-  width: 30px;
-  height: 30px;
-  margin-top: 20px;
-`
-
-export const MagicIcon = styled(magicIcon)`
-  width: 30px;
-  height: 25px;
-  margin-top: 20px;
-  transform: rotate(-30deg);
 `
 
 export const LoadingIcon = styled(loadingIcon)`

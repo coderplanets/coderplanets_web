@@ -64,7 +64,8 @@ class DoraemonContainer extends React.Component {
     const store = this.props.store
     const { inputValue, suggestions, activeTitle, prefix } = store
 
-    // debug('activeTitle', activeTitle)
+    // debug('suggestions', suggestions.toJSON())
+
     return (
       <PageOverlay onClick={logic.hidePanel}>
         <PanelContainer onClick={logic.panelClick}>

@@ -16,28 +16,37 @@ import {
   EditorBar,
   InputBar,
   AddOn,
-  SearchIcon,
+  // SearchIcon,
   LoadingIcon,
-  ThemeIcon,
-  MagicIcon,
+  // ThemeIcon,
+  // MagicIcon,
 } from './styles'
 
+import * as SuggestionIcons from './styles/suggestionIcons'
+
+const allIcons = { ...SuggestionIcons }
+const defaultIcon = SuggestionIcons.search
+
+// import { theme, magic, search } from './styles/suggestionIcons'
 // const debug = makeDebugger('C:Doraemon:InputEditor')
 
 const PrefixIcon = ({ prefix }) => {
-  switch (getStartPrefix(prefix)) {
-    case '/': {
-      return <MagicIcon />
-    }
-    case 'theme': {
-      return <ThemeIcon />
-    }
-    // need refactor ... js/ruby/....
-
-    default: {
-      return <SearchIcon />
-    }
+  let Icon
+  const prefixName = getStartPrefix(prefix)
+  if (prefixName === '/') {
+    Icon = SuggestionIcons.magic
+  } else {
+    Icon = allIcons[prefixName] ? allIcons[prefixName] : defaultIcon
   }
+
+  /*
+  else if (prefixName === 'theme') {
+    Icon = theme
+  } else {
+    Icon = search
+  }
+  */
+  return <Icon />
 }
 
 export default class InputEditor extends React.Component {
@@ -67,7 +76,6 @@ export default class InputEditor extends React.Component {
   render() {
     const { searching, value, prefix } = this.props
 
-    console.log('prefix: ', prefix)
     // if you want to use innerRef
     // see https://github.com/styled-components/styled-components/issues/102
     // innerRef={input => (this.doraemonInput = input)}

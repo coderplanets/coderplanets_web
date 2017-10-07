@@ -4,16 +4,20 @@
  *
  */
 
-const plMeta = {
-  type: 'pl',
-  children: {
-    users: {},
-    maps: {},
-    video: {},
-    github: {},
-    meetups: {},
-  },
-}
+// import R from 'ramda' // cause babel build error, don't kown way
+import map from 'ramda/src/map'
+
+const plMetaData = [
+  'posts',
+  'tuts',
+  'users',
+  'map',
+  'news',
+  'video',
+  'meetups',
+  'jobs',
+]
+const plMeta = map(v => ({ title: v, desc: v }))(plMetaData)
 
 const languages = {
   BlackeScript: { ...plMeta },
