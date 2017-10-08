@@ -62,7 +62,7 @@ class DoraemonContainer extends React.Component {
 
   render() {
     const store = this.props.store
-    const { inputValue, suggestions, activeTitle, prefix } = store
+    const { inputValue, suggestions, activeRaw, prefix } = store
 
     // debug('suggestions', suggestions.toJSON())
 
@@ -74,23 +74,19 @@ class DoraemonContainer extends React.Component {
           <Wraper>
             {suggestions.map((suggestion, i) => (
               <InfoBar
-                active={activeTitle === suggestion.title}
-                key={suggestion.title}
-                id={suggestion.title}
+                active={activeRaw === suggestion.raw}
+                key={suggestion.raw}
+                id={suggestion.raw}
                 onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
               >
                 <AvatarWrapper onClick={logic.watshData}>
-                  <NodeIcon title={suggestion.title} />
+                  <NodeIcon title={suggestion.raw} />
                 </AvatarWrapper>
                 <ContentWraper>
                   <Title>{suggestion.title}</Title>
                   <Desc>{suggestion.desc}</Desc>
                 </ContentWraper>
-                <HintIcon
-                  index={i}
-                  active={activeTitle}
-                  cur={suggestion.title}
-                />
+                <HintIcon index={i} active={activeRaw} cur={suggestion.raw} />
               </InfoBar>
             ))}
           </Wraper>

@@ -41,7 +41,7 @@ const DoraemonStore = t
     // themeSuggestions ...
     // accountSuggestions ...
     // debugSuggestions ...
-    activeTitle: t.optional(t.string, ''),
+    activeRaw: t.optional(t.string, ''),
     prefix: t.optional(t.string, ''),
   })
   .views(self => ({
@@ -55,7 +55,7 @@ const DoraemonStore = t
       return self.suggestions.length
     },
     get activeSuggestionIndex() {
-      return R.findIndex(R.propEq('title', self.activeTitle))(self.suggestions)
+      return R.findIndex(R.propEq('raw', self.activeRaw))(self.suggestions)
     },
   }))
   .actions(self => ({
@@ -68,50 +68,50 @@ const DoraemonStore = t
       self.prefix = suggestion.prefix
       // if (data)R.isEmpty()
       if (!R.isEmpty(suggestion.data)) {
-        self.activeTitle = suggestion.data[0].title
+        self.activeRaw = suggestion.data[0].raw
       }
     },
 
     clearSuggestions() {
       self.suggestions = []
       self.prefix = ''
-      self.activeTitle = ''
+      self.activeRaw = ''
     },
 
     activeUp() {
       // debug('activeUp activeIndex hehe: ', self.activeSuggestionIndex)
       // if (self.activeSuggestionIndex < self.suggestionCount) {
-      let nextActiveTitle = ''
+      let nextActiveRaw = ''
       const curIndex = self.activeSuggestionIndex
 
       if (curIndex > 0 && curIndex <= self.suggestionCount) {
-        nextActiveTitle = self.suggestions[curIndex - 1].title
+        nextActiveRaw = self.suggestions[curIndex - 1].raw
       } else {
-        nextActiveTitle = self.suggestions[self.suggestionCount - 1].title
+        nextActiveRaw = self.suggestions[self.suggestionCount - 1].raw
       }
 
       self.markState({
-        activeTitle: nextActiveTitle,
+        activeRaw: nextActiveRaw,
       })
     },
 
     activeDown() {
-      let nextActiveTitle = ''
+      let nextActiveRaw = ''
       const curIndex = self.activeSuggestionIndex
 
       if (curIndex >= 0 && curIndex < self.suggestionCount - 1) {
-        nextActiveTitle = self.suggestions[curIndex + 1].title
+        nextActiveRaw = self.suggestions[curIndex + 1].raw
       } else {
-        nextActiveTitle = self.suggestions[0].title
+        nextActiveRaw = self.suggestions[0].raw
       }
 
       self.markState({
-        activeTitle: nextActiveTitle,
+        activeRaw: nextActiveRaw,
       })
     },
-    activeTo(title) {
+    activeTo(raw) {
       self.markState({
-        activeTitle: title,
+        activeRaw: raw,
       })
     },
     markState(sobj) {

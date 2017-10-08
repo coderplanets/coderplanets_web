@@ -43,15 +43,17 @@ export function navUpSuggestion() {
 function scrollIfNeeded() {
   try {
     /* eslint-disable no-undef */
-    const theFuck = document.querySelector(`#${store.activeTitle}`)
-    /* eslint-enable no-undef */
-
     // console.log('theFuck: ', theFuck)
-    scrollIntoViewIfNeeded(theFuck, true, {
-      duration: 80,
-    })
+    scrollIntoViewIfNeeded(
+      document.querySelector(`#${store.activeRaw}`),
+      true,
+      {
+        duration: 80,
+      }
+    )
+    /* eslint-enable no-undef */
   } catch (e) {
-    debug('bad selector in scrollIntoViewIfNeeded')
+    debug('bad selector in scrollIntoViewIfNeeded', e)
   }
 }
 
@@ -63,11 +65,12 @@ export function navDownSuggestion() {
   scrollIfNeeded()
 }
 
+// seems unused ?
 export function navToSuggestion(suggestion) {
   const activeSuggestion = suggestion.toJSON()
   // TODO: has to scroll when in button
   //  debug('navToSuggestion .?.', activeSuggestion.title)
-  store.activeTo(activeSuggestion.title)
+  store.activeTo(activeSuggestion.raw)
 }
 
 export function hidePanel() {
