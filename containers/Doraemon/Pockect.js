@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-// import R from 'ramda'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/do'
@@ -15,12 +14,12 @@ import 'rxjs/add/operator/merge'
 
 import { makeDebugger } from '../../utils/debug'
 import {
-  getSuggestions$,
-  startWithCmdPrefix,
-  isEmptyValue,
-  relateSuggestions,
+  //   startWithCmdPrefix,
+  relateSuggestions$,
   startWithSlash,
 } from './workers'
+
+import { isEmptyValue } from '../../utils/functions'
 
 const debug = makeDebugger('L:Doraemon:pocket')
 // const RLog = x => debug('child : ', x)
@@ -33,16 +32,20 @@ export default class Pockect {
     this.stop$ = new Subject() // esc, pageClick  ...
     this.cmdInput$ = this.input$.debounceTime(200).distinctUntilChanged()
 
-    this.thiredGuess$ = this.cmdInput$
+    // TODO: 1. support > < ? history
+    //       2. cmd chian for trace
+    //       3. promise style to cancle             ... done
+    //       4. Icon display refactor
+    //       5. optimise code in worker             ... done
+    //       6. tab completion -- need cmd-china    ... done
+    //       7. shortcuts  esc / c-p ...
+
+    this.suggesttion$ = this.cmdInput$
       .filter(startWithSlash)
-      .map(relateSuggestions)
+      // .map(relateSuggestions)
+      .switchMap(q => relateSuggestions$(q).takeUntil(this.stop$))
     // .do(val => debug('refactor haha: ', val))
     // .catch(() => Observable.of([]))
-
-    this.firstGuess$ = this.cmdInput$
-      // .takeUntil(this.secondGuess$)
-      .filter(startWithCmdPrefix)
-      .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
   }
 
   search(term) {
@@ -56,18 +59,10 @@ export default class Pockect {
   }
 
   suggestion() {
-    return (
-      this.firstGuess$
-        // .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
-        .catch(e => {
-          debug(e)
-          return Observable.of([])
-        })
-    )
-  }
-
-  accessPathTest() {
-    return this.thiredGuess$
+    return this.suggesttion$.catch(e => {
+      debug(e)
+      return Observable.of([])
+    })
   }
 
   emptyInput() {

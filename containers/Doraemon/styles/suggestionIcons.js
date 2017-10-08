@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 
-// import { javascriptIcon } from '../../../static/nodeIcons'
 import javascriptIcon from '../../../static/nodeIcons/programmingL/javascript.svg'
 
 import javaIcon from '../../../static/nodeIcons/programmingL/java.svg'
@@ -42,6 +41,7 @@ import videoIcon from '../../../static/nodeIcons/cmd/video.svg'
 import newsIcon from '../../../static/nodeIcons/cmd/news.svg'
 import meetupsIcon from '../../../static/nodeIcons/cmd/meetups.svg'
 import jobsIcon from '../../../static/nodeIcons/cmd/jobs.svg'
+import historyIcon from '../../../static/nodeIcons/cmd/history.svg'
 
 export const langImgIcons = ['elixir', 'r', 'julia', 'red', 'rust']
 export const frameworkImgIcons = ['django']
@@ -54,6 +54,7 @@ export const IconImg = styled(Img)`
 
 // languages
 export const javascript = styled(javascriptIcon)`${iconStyle};`
+export const js = styled(javascriptIcon)`${iconStyle};` // for shortcuts
 export const java = styled(javaIcon)`${iconStyle};`
 export const php = styled(phpIcon)`${iconStyle};`
 export const gradle = styled(gradleIcon)`${iconStyle};`
@@ -111,3 +112,4 @@ export const news = styled(newsIcon)`${iconStyle};`
 export const video = styled(videoIcon)`${iconStyle};`
 export const meetups = styled(meetupsIcon)`${iconStyle};`
 export const jobs = styled(jobsIcon)`${iconStyle};`
+export const history = styled(historyIcon)`${iconStyle};`

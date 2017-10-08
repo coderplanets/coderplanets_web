@@ -7,7 +7,7 @@
 // import R from 'ramda' // cause babel build error, don't kown way
 import forEachObjIndexed from 'ramda/src/forEachObjIndexed'
 
-const plMeta = {
+const meta = {
   posts: {},
   tuts: {},
   users: {},
@@ -19,52 +19,52 @@ const plMeta = {
 }
 
 forEachObjIndexed((v, k) => {
-  plMeta[k].title = k
-  plMeta[k].desc = `${k} desc`
-  plMeta[k].raw = k
-}, plMeta)
+  meta[k].title = k
+  meta[k].desc = `${k} desc`
+  meta[k].raw = k
+}, meta)
 
 const languages = {
-  BlackeScript: { ...plMeta },
-  Js: { ...plMeta },
-  Javascript: { ...plMeta },
-  Java: { ...plMeta },
-  Nodejs: { ...plMeta },
-  Julia: { ...plMeta },
-  R: { ...plMeta },
-  Ruby: { ...plMeta },
-  Rust: { ...plMeta },
-  Red: { ...plMeta },
-  Python: { ...plMeta },
-  Php: { ...plMeta },
-  Perl: { ...plMeta },
-  Prolog: { ...plMeta },
-  C: { ...plMeta },
-  'C++': { ...plMeta },
-  'C#': { ...plMeta },
-  Clojure: { ...plMeta },
-  Crystal: { ...plMeta },
-  Lisp: { ...plMeta },
-  Lua: { ...plMeta },
-  Fortran: { ...plMeta },
-  'F#': { ...plMeta },
-  Dart: { ...plMeta },
-  Delphi: { ...plMeta },
-  Elixir: { ...plMeta },
-  Erlang: { ...plMeta },
-  Elm: { ...plMeta },
-  Go: { ...plMeta },
-  Groovy: { ...plMeta },
-  Gradle: { ...plMeta },
-  Haskell: { ...plMeta },
-  Kotlin: { ...plMeta },
-  'Objectivc-C': { ...plMeta },
-  OCaml: { ...plMeta },
-  Swift: { ...plMeta },
-  Scala: { ...plMeta },
-  Scheme: { ...plMeta },
-  Typescript: { ...plMeta },
-  Tcl: { ...plMeta },
+  BlackeScript: { ...meta },
+  Js: { ...meta },
+  Javascript: { ...meta },
+  Java: { ...meta },
+  Nodejs: { ...meta },
+  Julia: { ...meta },
+  R: { ...meta },
+  Ruby: { ...meta },
+  Rust: { ...meta },
+  Red: { ...meta },
+  Python: { ...meta },
+  Php: { ...meta },
+  Perl: { ...meta },
+  Prolog: { ...meta },
+  C: { ...meta },
+  'C++': { ...meta },
+  'C#': { ...meta },
+  Clojure: { ...meta },
+  Crystal: { ...meta },
+  Lisp: { ...meta },
+  Lua: { ...meta },
+  Fortran: { ...meta },
+  'F#': { ...meta },
+  Dart: { ...meta },
+  Delphi: { ...meta },
+  Elixir: { ...meta },
+  Erlang: { ...meta },
+  Elm: { ...meta },
+  Go: { ...meta },
+  Groovy: { ...meta },
+  Gradle: { ...meta },
+  Haskell: { ...meta },
+  Kotlin: { ...meta },
+  'Objectivc-C': { ...meta },
+  OCaml: { ...meta },
+  Swift: { ...meta },
+  Scala: { ...meta },
+  Scheme: { ...meta },
+  Typescript: { ...meta },
+  Tcl: { ...meta },
 }
 
 forEachObjIndexed((v, k) => {

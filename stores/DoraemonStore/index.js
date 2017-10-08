@@ -57,6 +57,13 @@ const DoraemonStore = t
     get activeSuggestionIndex() {
       return R.findIndex(R.propEq('raw', self.activeRaw))(self.suggestions)
     },
+    get activeTitle() {
+      if (self.activeSuggestionIndex === -1) {
+        return undefined
+      }
+      // console.log('self.activeSuggestionIndex: ', self.activeSuggestionIndex)
+      return self.suggestions[self.activeSuggestionIndex].title
+    },
   }))
   .actions(self => ({
     afterCreate() {

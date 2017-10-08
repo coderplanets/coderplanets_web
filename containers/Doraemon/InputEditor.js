@@ -7,8 +7,6 @@
 import React from 'react'
 import keydown from 'react-keydown'
 
-import { getStartPrefix } from './workers'
-
 // import { makeDebugger } from '../../utils/debug'
 import * as logic from './logic'
 
@@ -32,20 +30,12 @@ const defaultIcon = SuggestionIcons.search
 
 const PrefixIcon = ({ prefix }) => {
   let Icon
-  const prefixName = getStartPrefix(prefix)
-  if (prefixName === '/') {
+  if (prefix === '/') {
     Icon = SuggestionIcons.magic
   } else {
-    Icon = allIcons[prefixName] ? allIcons[prefixName] : defaultIcon
+    Icon = allIcons[prefix] ? allIcons[prefix] : defaultIcon
   }
 
-  /*
-  else if (prefixName === 'theme') {
-    Icon = theme
-  } else {
-    Icon = search
-  }
-  */
   return <Icon />
 }
 

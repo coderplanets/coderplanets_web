@@ -3,6 +3,7 @@ import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
 import { makeDebugger } from '../../utils/debug'
 import Pockect from './Pockect'
+import { anyNil } from '../../utils/functions'
 
 // import { langs } from './suggestions/index'
 
@@ -57,6 +58,22 @@ function scrollIfNeeded() {
   }
 }
 
+function completeCmd() {
+  if (anyNil([store.prefix, store.activeTitle])) return
+
+  const prefix = R.toLower(store.prefix)
+  const activeTitle = R.toLower(store.activeTitle)
+
+  let inputValue = ''
+  if (store.prefix === '/') {
+    inputValue = `${prefix}${activeTitle}`
+  } else {
+    inputValue = `/${prefix}/${activeTitle}`
+  }
+  // debug('new input: ', newInput)
+  store.markState({ inputValue })
+}
+
 export function navDownSuggestion() {
   // debug('navDownSuggestion')
   // debug('navDownSuggestion store.activeTitle: ', store.activeTitle)
@@ -65,11 +82,9 @@ export function navDownSuggestion() {
   scrollIfNeeded()
 }
 
-// seems unused ?
+// mounseEnter
 export function navToSuggestion(suggestion) {
   const activeSuggestion = suggestion.toJSON()
-  // TODO: has to scroll when in button
-  //  debug('navToSuggestion .?.', activeSuggestion.title)
   store.activeTo(activeSuggestion.raw)
 }
 
@@ -82,6 +97,7 @@ export function onKeyPress(e) {
   //  debug('onKeyPress ..', e.key)
   switch (e.key) {
     case 'Tab': {
+      completeCmd()
       e.preventDefault()
       break
     }
@@ -120,18 +136,12 @@ export function init(selectedStore) {
   debug('store', store)
   pockect$ = new Pockect(store)
 
-  //   pockect$.suggestion().subscribe(res => {
-  //  debug('suggestion: ', res)
-  // store.loadSuggestions(res)
-  //  })
-
-  pockect$.accessPathTest().subscribe(res => {
-    //    console.log('--> res: ', res)
+  pockect$.suggestion().subscribe(res => {
+    //    debug('--> res: ', res)
     store.loadSuggestions(res)
   })
 
   pockect$.emptyInput().subscribe(() => {
-    //     debug('get emptyInput!')
     store.clearSuggestions()
   })
 }
