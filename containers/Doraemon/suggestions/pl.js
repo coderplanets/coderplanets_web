@@ -5,19 +5,24 @@
  */
 
 // import R from 'ramda' // cause babel build error, don't kown way
-import map from 'ramda/src/map'
+import forEachObjIndexed from 'ramda/src/forEachObjIndexed'
 
-const plMetaData = [
-  'posts',
-  'tuts',
-  'users',
-  'map',
-  'news',
-  'video',
-  'meetups',
-  'jobs',
-]
-const plMeta = map(v => ({ title: v, desc: v }))(plMetaData)
+const plMeta = {
+  posts: {},
+  tuts: {},
+  users: {},
+  map: {},
+  news: {},
+  video: {},
+  meetups: {},
+  jobs: {},
+}
+
+forEachObjIndexed((v, k) => {
+  plMeta[k].title = k
+  plMeta[k].desc = `${k} desc`
+  plMeta[k].raw = k
+}, plMeta)
 
 const languages = {
   BlackeScript: { ...plMeta },
@@ -60,8 +65,17 @@ const languages = {
   Scheme: { ...plMeta },
   Typescript: { ...plMeta },
   Tcl: { ...plMeta },
-
-  // Github: { ...plMeta },
 }
+
+forEachObjIndexed((v, k) => {
+  languages[k].title = k
+  languages[k].desc = `${k} deault desc?`
+  languages[k].raw = k
+}, languages)
+
+languages['C++'].raw = 'Cpp'
+languages['C#'].raw = 'CSharp'
+languages['F#'].raw = 'FSharp'
+languages['Objectivc-C'].raw = 'objectiveC'
 
 export default languages

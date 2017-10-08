@@ -3,11 +3,14 @@ import { Observable } from 'rxjs/Observable'
 // import fetch from 'isomorphic-fetch'
 
 import { pl, framework, cmd } from '../suggestions'
+
 // import { makeDebugger } from '../../../utils/debug'
 
 // const debug = makeDebugger('L:Doraemon:worker')
 
 const ALL_SUGGESTIONS = R.mergeAll([pl, framework, cmd])
+
+const ALL_SUGGESTIONS2 = R.mergeAll([pl, cmd])
 
 // see https://github.com/ramda/ramda/issues/1361
 const mapKeys = R.curry((fn, obj) => {
@@ -23,6 +26,7 @@ const mapKeys = R.curry((fn, obj) => {
 
 // TODO not expose
 export const allSuggestions = mapKeys(R.toLower, ALL_SUGGESTIONS)
+export const allSuggestions2 = mapKeys(R.toLower, ALL_SUGGESTIONS2)
 
 const lowerStartWith = R.compose(R.startsWith, R.toLower)
 const allSuggestionKeys = R.keys(allSuggestions)
@@ -94,4 +98,73 @@ export const firstLevelSuggest = R.allPass([
 // convert /theme/  ->  theme
 export const accessPath = R.compose(R.slice(0, -1), R.slice(1, Infinity))
 
-// ALL_SUGGESTIONS
+// big fdrefactor start
+export const startWithSlash = R.startsWith('/')
+
+/*
+R.anyPass([
+  R.startsWith('>'),
+  R.startsWith('<'),
+  R.startsWith('/'),
+  R.startsWith('?'),
+])
+ */
+
+const notEmpty = R.compose(R.not, R.isEmpty)
+
+const splitInput = R.compose(R.split('/'), R.slice(1, Infinity))
+
+const cmdInPathFormat = R.compose(R.filter(notEmpty), splitInput)
+
+const cmdLast = R.compose(R.last, cmdInPathFormat)
+
+const getSuggestionPath = R.curry(p => R.path(p, allSuggestions2))
+
+const cleanMetaInfo = R.omit(['desc', 'title', 'raw'])
+
+const suggestionPathInit = R.compose(
+  cleanMetaInfo,
+  getSuggestionPath,
+  R.init,
+  cmdInPathFormat
+)
+
+const cmdStartsWith = val =>
+  R.pickBy((_, k) => R.startsWith(cmdLast(val), k), suggestionPathInit(val))
+
+const suggestionPath = R.compose(
+  cleanMetaInfo,
+  getSuggestionPath,
+  cmdInPathFormat
+)
+const suggestionPathThenStartsWith = R.curry(cmdStartsWith)
+
+// const endWithCmdOpt = R.anyPass([R.endsWith('/'), R.endsWith('>')])
+export const giveSuggestion = R.ifElse(
+  // endWithCmdOpt,
+  R.endsWith('/'),
+  suggestionPath,
+  suggestionPathThenStartsWith
+)
+
+const suggestionMetas = R.compose(
+  R.map(R.pick(['title', 'desc', 'raw'])),
+  giveSuggestion
+)
+
+const getPrefix = R.compose(R.head, splitInput)
+
+export const wrappedSuggestion = R.curry(val => ({
+  prefix: splitInput(val).length > 1 ? getPrefix(val) : '/',
+  data: suggestionMetas(val),
+}))
+
+const transfromSuggestion = R.evolve({
+  prefix: R.identity,
+  data: R.values,
+})
+
+export const relateSuggestions = R.compose(
+  transfromSuggestion,
+  wrappedSuggestion
+)

@@ -14,6 +14,7 @@ const debug = makeDebugger('S:DoraemonStore')
 const Suggestion = t.model('Suggestion', {
   title: t.string,
   desc: t.maybe(t.string),
+  raw: t.string,
   descType: t.optional(
     t.enumeration('descType', ['text', 'component']),
     'text'

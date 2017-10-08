@@ -117,14 +117,13 @@ export function init(selectedStore) {
   debug('store', store)
   pockect$ = new Pockect(store)
 
-  pockect$.suggestion().subscribe(res => {
-    debug('suggestion: ', res)
-    store.loadSuggestions(res)
-  })
+  //   pockect$.suggestion().subscribe(res => {
+  //  debug('suggestion: ', res)
+  // store.loadSuggestions(res)
+  //  })
 
-  pockect$.suggestion2().subscribe(res => {
-    //     console.log(R.values(res))
-    console.log('suggestion2: ', res)
+  pockect$.accessPathTest().subscribe(res => {
+    //    console.log('--> res: ', res)
     store.loadSuggestions(res)
   })
 

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import R from 'ramda'
+// import R from 'ramda'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/do'
@@ -17,70 +17,32 @@ import { makeDebugger } from '../../utils/debug'
 import {
   getSuggestions$,
   startWithCmdPrefix,
-  firstLevelSuggest,
   isEmptyValue,
-  accessPath,
-  allSuggestions,
+  relateSuggestions,
+  startWithSlash,
 } from './workers'
 
 const debug = makeDebugger('L:Doraemon:pocket')
-
-/*
-
-/theme/
-/th -- [tab]
-/th -- [enter]
-/theme -- [enter]
-
-/theme/cyan [enter]
-
- key: endWith
-
- */
-
 // const RLog = x => debug('child : ', x)
 
 export default class Pockect {
   constructor(store) {
-    this.input$ = new Subject()
-    this.stop$ = new Subject() // esc, pageClick  ...
-    this.firstLevelSuggestStop$ = new Subject()
-
-    this.firstGuessStop$ = this.stop$.merge(this.firstLevelSuggestStop$)
-
     this.store = store
 
-    //  enter cmd
-    // debug('themeName', store.themeName)
-
+    this.input$ = new Subject()
+    this.stop$ = new Subject() // esc, pageClick  ...
     this.cmdInput$ = this.input$.debounceTime(200).distinctUntilChanged()
-    // .filter(startWithCmdPrefix)
 
-    /*
-     this.secondGuess$ = this.cmdInput$.switchMap(q =>
-       getSuggestions$(q).takeUntil(this.stop$)
-     )
-     */
-
-    this.secondGuess$ = this.cmdInput$
-      .filter(firstLevelSuggest)
-      .map(accessPath) // TODO: rename
-      //       .do(val => console.log('hello: ', val))
-      .do(() => this.firstLevelSuggestStop$.next())
-      //    .do(val => console.log('path val: ', R.path([val], allSuggestions)))
-      .map(val => ({
-        prefix: val,
-        data: R.values(R.path([val], allSuggestions)),
-      }))
+    this.thiredGuess$ = this.cmdInput$
+      .filter(startWithSlash)
+      .map(relateSuggestions)
+    // .do(val => debug('refactor haha: ', val))
+    // .catch(() => Observable.of([]))
 
     this.firstGuess$ = this.cmdInput$
       // .takeUntil(this.secondGuess$)
       .filter(startWithCmdPrefix)
-      //      .do(q => console.log('see ', q)) // now is /theme/c
-      .switchMap(q => getSuggestions$(q).takeUntil(this.firstGuessStop$))
-    // .map(R.forEach(formatSuggestion), R.prop('data'))
-    // .do(res => console.log('after: ', res))
-    // .switchMap(q => getSuggestions$(q).takeUntil(this.secondGuess$)) // TODO
+      .switchMap(q => getSuggestions$(q).takeUntil(this.stop$))
   }
 
   search(term) {
@@ -104,16 +66,11 @@ export default class Pockect {
     )
   }
 
-  suggestion2() {
-    return this.secondGuess$
-    //     return this.suggestion2$
+  accessPathTest() {
+    return this.thiredGuess$
   }
 
   emptyInput() {
     return this.input$.filter(isEmptyValue)
   }
-
-  /* doCmd(store) { */
-  /* */
-  /* } */
 }
