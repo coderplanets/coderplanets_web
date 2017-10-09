@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { isObject } from '../../utils'
+import { isObject } from '../../utils/functions'
 // import { makeDebugger } from '../../utils/debug'
 
 // const debug = makeDebugger('S:GithubEampleStore')

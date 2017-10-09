@@ -30,6 +30,10 @@ export function changeLocale(lang) {
   }
 }
 
+export function showDoraemon() {
+  store.showDoraemon()
+}
+
 export function init(selectStore) {
   store = selectStore
 }

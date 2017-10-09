@@ -1,25 +1,28 @@
 import React from 'react'
-import keydown from 'react-keydown'
+import styled from 'styled-components'
+import { FormattedMessage as I18n } from 'react-intl'
 
+import lang from './lang'
 import { HorizontalCenter } from '../../components/BaseStyled'
 import Doraemon from '../../containers/Doraemon'
 
-export default class CmdPanelExample extends React.Component {
-  /* eslint-disable class-methods-use-this */
-  @keydown(['ctrl+p'])
-  up(e) {
-    // logic.navUpSuggestion()
-    console.log('show the fuck panel')
-    e.preventDefault()
-  }
+const Hinter = styled.div`
+  padding-top: 18%;
+  color: ${props => props.theme.font};
+`
 
-  /* eslint-enable class-methods-use-this */
+const CmdPanelExample = ({ doraemonVisable }) => (
+  <HorizontalCenter>
+    {doraemonVisable ? (
+      <div />
+    ) : (
+      <Hinter>
+        <I18n {...lang.doraemonHint} />
+      </Hinter>
+    )}
 
-  render() {
-    return (
-      <HorizontalCenter>
-        <Doraemon />
-      </HorizontalCenter>
-    )
-  }
-}
+    <Doraemon />
+  </HorizontalCenter>
+)
+
+export default CmdPanelExample

@@ -77,4 +77,9 @@ export default defineMessages({
     id: 'containers.Body.i18n.zh',
     defaultMessage: '中文',
   },
+
+  doraemonHint: {
+    id: 'containers.Body.doraemonHint',
+    defaultMessage: 'Ctrl+p 调出命令行， Esc / Ctrl+g / Ctrl+c 隐藏',
+  },
 })

@@ -6,7 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { isObject } from '../../utils'
+import {
+  isObject,
+  focusDoraemonBar,
+  hideDoraemonBarRecover,
+} from '../../utils/functions'
 import { makeDebugger } from '../../utils/debug'
 
 const debug = makeDebugger('S:DoraemonStore')
@@ -23,6 +27,7 @@ const Suggestion = t.model('Suggestion', {
 
 const DoraemonStore = t
   .model('DoraemonStore', {
+    visiable: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
     curSuggestionType: t.optional(
       t.enumeration('curSuggestionType', [
@@ -36,11 +41,6 @@ const DoraemonStore = t
     ),
     // program-languages, frameworks ...
     suggestions: t.optional(t.array(Suggestion), []),
-    // plSuggestions ... // include frameworks
-    // searchSuggestions ...
-    // themeSuggestions ...
-    // accountSuggestions ...
-    // debugSuggestions ...
     activeRaw: t.optional(t.string, ''),
     prefix: t.optional(t.string, ''),
   })
@@ -61,8 +61,11 @@ const DoraemonStore = t
       if (self.activeSuggestionIndex === -1) {
         return undefined
       }
-      // console.log('self.activeSuggestionIndex: ', self.activeSuggestionIndex)
       return self.suggestions[self.activeSuggestionIndex].title
+    },
+
+    get doraemonVisable() {
+      return self.visiable
     },
   }))
   .actions(self => ({
@@ -120,6 +123,16 @@ const DoraemonStore = t
       self.markState({
         activeRaw: raw,
       })
+    },
+    showDoraemon() {
+      self.visiable = true
+      focusDoraemonBar()
+    },
+    hideDoraemon() {
+      self.visiable = false
+      self.inputValue = ''
+      self.clearSuggestions()
+      hideDoraemonBarRecover()
     },
     markState(sobj) {
       if (!isObject(sobj)) {

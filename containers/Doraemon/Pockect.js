@@ -41,7 +41,7 @@ export default class Pockect {
     //       4. Icon display refactor                               ... doing
     //       5. optimise code in worker                             ... done
     //       6. tab completion -- need cmd-china                    ... done
-    //       7. shortcuts  esc / c-p ...
+    //       7. shortcuts  esc / c-p ...                            ... done
     //       8. upgrade to react v6
 
     this.cmdSuggestionCommon = this.cmdInput$

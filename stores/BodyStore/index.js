@@ -25,10 +25,16 @@ const BodyStore = t
     get langMessages() {
       return self.app.langMessages
     },
+    get doraemonVisable() {
+      return self.app.doraemonVisable
+    },
   }))
   .actions(self => ({
     changeTheme(name) {
       self.app.changeTheme(name)
+    },
+    showDoraemon() {
+      self.app.showDoraemon()
     },
     changeLocale(locale) {
       self.app.changeLocale(locale)

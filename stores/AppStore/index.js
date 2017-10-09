@@ -48,11 +48,17 @@ const AppStore = t
       // return self.langs.toJSON()[self.appLocale]
       return self.langs.get(self.locale)
     },
+    get doraemonVisable() {
+      return self.doraemon.doraemonVisable
+    },
   }))
   .actions(self => ({
     afterCreate() {
       debug('after create loadMenuItem')
       self.sidebar.loadMenuItem()
+    },
+    showDoraemon() {
+      self.doraemon.showDoraemon()
     },
     changeTheme(name) {
       self.appTheme = name

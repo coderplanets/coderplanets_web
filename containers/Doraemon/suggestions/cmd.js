@@ -30,6 +30,5 @@ R.map(
 cmds.Theme.title = 'theme title'
 cmds.Theme.desc = 'theme desc'
 cmds.Theme.raw = 'Theme'
-// console.log('love: ', cmds)
 
 export default cmds

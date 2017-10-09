@@ -35,16 +35,9 @@ export function search(e) {
   pockect$.search(inputValue)
 }
 
-export function navUpSuggestion() {
-  // debug('navUpSuggestion', store.suggestionCount)
-  store.activeUp()
-  scrollIfNeeded()
-}
-
 function scrollIfNeeded() {
   try {
     /* eslint-disable no-undef */
-    // console.log('theFuck: ', theFuck)
     scrollIntoViewIfNeeded(
       document.querySelector(`#${store.activeRaw}`),
       true,
@@ -74,10 +67,15 @@ function completeCmd() {
   store.markState({ inputValue })
 }
 
+export function navUpSuggestion() {
+  if (anyNil([store.prefix, store.activeTitle])) return
+  // debug('navUpSuggestion', store.suggestionCount)
+  store.activeUp()
+  scrollIfNeeded()
+}
+
 export function navDownSuggestion() {
-  // debug('navDownSuggestion')
-  // debug('navDownSuggestion store.activeTitle: ', store.activeTitle)
-  // store.activeTitle
+  if (anyNil([store.prefix, store.activeTitle])) return
   store.activeDown()
   scrollIfNeeded()
 }
@@ -89,8 +87,9 @@ export function navToSuggestion(suggestion) {
 }
 
 export function hidePanel() {
-  debug('hidePanel')
+  // debug('hidePanel ....')
   pockect$.stop()
+  store.hideDoraemon()
 }
 
 export function onKeyPress(e) {
@@ -127,7 +126,7 @@ export function onKeyPress(e) {
 }
 
 export function panelClick(e) {
-  debug('panelClick ...')
+  debug('---> panelClick ...')
   e.stopPropagation()
 }
 

@@ -42,8 +42,8 @@ export const PageOverlay = styled.div`
   right: 0;
   top: 0;
   z-index: 1001;
+  display: ${props => (props.visiable ? 'block' : 'none')};
 `
-// center css see: https://stackoverflow.com/questions/1776915/how-to-center-absolutely-positioned-element-in-div
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -52,6 +52,8 @@ export const PanelContainer = styled.div`
   max-width: 550px;
   position: relative;
   top: 15vh;
+  z-index: 1002;
+  display: ${props => (props.visiable ? 'block' : 'none')};
 `
 
 export const Wraper = styled.div`

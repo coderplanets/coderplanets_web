@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import keydown from 'react-keydown'
 
 // import Link from 'next/link'
 // import styled from 'styled-components'
@@ -23,22 +24,20 @@ import CmdExample from './CmdExample'
 
 const debug = makeDebugger('C:Body')
 
-const IntroPage = props => {
-  const { route } = props
-
+const IntroPage = ({ route, doraemonVisable, themeName }) => {
   switch (route.query.name) {
     case 'index':
       return <Home />
     case 'feature':
       return <Feature />
     case 'theme':
-      return <Theme curTheme={props.body.themeName} />
+      return <Theme curTheme={themeName} />
     case 'i18n':
       return <I18n />
     case 'example':
       return <GithubRestExample />
     case 'cmdpanel':
-      return <CmdExample />
+      return <CmdExample doraemonVisable={doraemonVisable} />
     case 'graphql':
       return <h2>graphql</h2>
     default:
@@ -56,12 +55,27 @@ class ContentContainer extends React.Component {
     debug('init')
   }
 
+  /* eslint-disable class-methods-use-this */
+  @keydown(['ctrl+p'])
+  showDoraemon() {
+    // logic.navUpSuggestion()
+    logic.showDoraemon()
+    // e.preventDefault()
+  }
+  /* eslint-enable class-methods-use-this */
+
   render() {
     // debug('cur route:', this.props.route)
+    const { route } = this.props
+    const { themeName, doraemonVisable } = this.props.body
 
     return (
-      <Body>
-        <IntroPage {...this.props} key={this.props.body.themeName} />
+      <Body id="whereCallShowDoraemon">
+        <IntroPage
+          themeName={themeName}
+          doraemonVisable={doraemonVisable}
+          route={route}
+        />
       </Body>
     )
   }

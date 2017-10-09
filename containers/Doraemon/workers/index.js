@@ -3,9 +3,6 @@ import { Observable } from 'rxjs/Observable'
 import { mapKeys, notEmpty } from '../../../utils/functions'
 import { pl, framework, cmd } from '../suggestions'
 
-// import { makeDebugger } from '../../../utils/debug'
-// const debug = makeDebugger('L:Doraemon:worker')
-
 const allSuggestions = mapKeys(R.toLower, R.mergeAll([pl, framework, cmd]))
 const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
 
@@ -22,7 +19,6 @@ const suggestionPath = R.compose(cleanMetaInfo, getSuggestionPath, cmdFull)
 const suggestionPathThenStartsWith = R.curry(val =>
   R.pickBy((_, k) => R.startsWith(cmdLast(val), k), suggestionPathInit(val))
 )
-
 // ... export ...
 export const startWithSlash = R.startsWith('/')
 

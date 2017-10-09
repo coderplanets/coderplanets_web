@@ -45,18 +45,15 @@ export class SearchService {
   }
 
   get() {
-    return (
-      this.searchTerm
-        .debounceTime(400)
-        .filter(isNotEmptyValue)
-        //       .do(value => console.log('after:', value))
-        .distinctUntilChanged()
-        .switchMap(getGithubRepos)
-        .catch(error => {
-          console.error(error)
-          return Observable.of([])
-        })
-    )
+    return this.searchTerm
+      .debounceTime(400)
+      .filter(isNotEmptyValue)
+      .distinctUntilChanged()
+      .switchMap(getGithubRepos)
+      .catch(error => {
+        console.error(error)
+        return Observable.of([])
+      })
   }
 
   emptyInput() {

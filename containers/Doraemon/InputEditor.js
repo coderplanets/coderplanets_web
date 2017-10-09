@@ -75,6 +75,7 @@ export default class InputEditor extends React.Component {
           {searching ? <LoadingIcon /> : <PrefixIcon prefix={prefix} />}
         </AddOn>
         <InputBar
+          id="doraemonInputbar"
           spellCheck={false}
           autoCapitalize={false}
           autoCorrect="off"
