@@ -23,8 +23,9 @@ import {
 
 import { isEmptyValue } from '../../utils/functions'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Doraemon:pocket')
-// const RLog = x => debug('child : ', x)
+/* eslint-enable no-unused-vars */
 
 export default class Pockect {
   constructor(store) {
@@ -46,7 +47,6 @@ export default class Pockect {
     this.cmdSuggestionCommon = this.cmdInput$
       .filter(startWithSlash)
       .switchMap(q => relateSuggestions$(q).takeUntil(this.stop$))
-      .do(val => debug('refactor haha: ', val))
       .catch(() => Observable.of([]))
 
     this.cmdSuggestionSpecial = this.cmdInput$

@@ -41,7 +41,7 @@ export const PageOverlay = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 502;
+  z-index: 1001;
 `
 // center css see: https://stackoverflow.com/questions/1776915/how-to-center-absolutely-positioned-element-in-div
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html

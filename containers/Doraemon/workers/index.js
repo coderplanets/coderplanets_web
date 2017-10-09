@@ -24,7 +24,7 @@ const suggestionPathThenStartsWith = R.curry(val =>
 )
 
 // ... export ...
-export const startWithSlash = opt => R.startsWith(opt)
+export const startWithSlash = R.startsWith('/')
 
 export const startWithSpecialPrefix = R.anyPass([
   R.startsWith('?'),
