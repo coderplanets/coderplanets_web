@@ -20,6 +20,8 @@
 
 ## TODO
 
+- [ ] https://svbtle.com/about
+- [ ] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
 - [ ] [answer](https://github.com/mobxjs/mobx-state-tree/issues/27)
 - [ ] phoenix [新文档地址](https://github.com/phoenixframework/phoenix/tree/master/guides/docs)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案

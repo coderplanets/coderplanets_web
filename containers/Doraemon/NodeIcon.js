@@ -16,28 +16,28 @@ const defaultIcon = SuggestionIcons.javascript
 // const debug = makeDebugger('C:Doraemon:NodeIcon')
 
 // sucks need refactor
-const NodeIcon = ({ title }) => {
-  // const title = 'Javascript'
-  const lowerTitle = R.toLower(title)
-  // debug('title: ', lowerTitle)
-  if (R.contains(lowerTitle, SuggestionIcons.langImgIcons)) {
+const NodeIcon = ({ raw }) => {
+  // const raw = 'Javascript'
+  const lowerRaw = R.toLower(raw)
+  // debug('raw: ', lowerRaw)
+  if (R.contains(lowerRaw, SuggestionIcons.langImgIcons)) {
     return (
       <SuggestionIcons.IconImg
-        src={`/static/nodeIcons/programmingL/${lowerTitle}.png`}
-        alt={lowerTitle}
+        src={`/static/nodeIcons/programmingL/${lowerRaw}.png`}
+        alt={lowerRaw}
       />
     )
   }
   let Icon
 
-  if (lowerTitle === '>') {
+  if (lowerRaw === 'hforward') {
     Icon = allIcons.forward
-  } else if (lowerTitle === '<') {
+  } else if (lowerRaw === 'hback') {
     Icon = allIcons.backward
-  } else if (lowerTitle === '?') {
+  } else if (lowerRaw === 'question') {
     Icon = allIcons.question
   } else {
-    Icon = allIcons[lowerTitle] ? allIcons[lowerTitle] : defaultIcon
+    Icon = allIcons[lowerRaw] ? allIcons[lowerRaw] : defaultIcon
   }
   return <Icon />
 }

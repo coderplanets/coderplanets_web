@@ -24,7 +24,13 @@ const suggestionPathThenStartsWith = R.curry(val =>
 )
 
 // ... export ...
-export const startWithSlash = R.startsWith('/')
+export const startWithSlash = opt => R.startsWith(opt)
+
+export const startWithSpecialPrefix = R.anyPass([
+  R.startsWith('?'),
+  R.startsWith('>'),
+  R.startsWith('<'),
+])
 
 export const walkSuggestion = R.ifElse(
   R.endsWith('/'),
@@ -44,3 +50,8 @@ export const relateSuggestions = R.curry(val => ({
 
 export const relateSuggestions$ = q =>
   Observable.fromPromise(new Promise(resolve => resolve(relateSuggestions(q))))
+
+export const specialSuggestions = R.curry(val => ({
+  prefix: '/',
+  data: [getSuggestionPath(val)],
+}))

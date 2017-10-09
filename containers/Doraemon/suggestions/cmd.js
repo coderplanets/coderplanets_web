@@ -13,9 +13,9 @@ import { themeNames } from '../../../utils/themes'
 const cmds = {
   Debug: { title: 'debug', desc: 'debug desc', raw: 'Debug' },
   History: { title: 'history', desc: 'me desc', raw: 'History' },
-  // '<': {},
-  // '>': {},
-  // '?': {},
+  '>': { title: 'history go forward', desc: 'goforward desc', raw: 'hforward' },
+  '<': { title: 'history go back', desc: 'goback desc', raw: 'hback' },
+  '?': { title: 'question', desc: 'question desc', raw: 'question' },
   Me: { title: 'me', desc: 'me desc', raw: 'Me' },
   User: { title: 'user', desc: 'user desc', raw: 'User' },
   Theme: {},

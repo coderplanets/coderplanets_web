@@ -80,7 +80,7 @@ class DoraemonContainer extends React.Component {
                 onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
               >
                 <AvatarWrapper onClick={logic.watshData}>
-                  <NodeIcon title={suggestion.raw} />
+                  <NodeIcon raw={suggestion.raw} />
                 </AvatarWrapper>
                 <ContentWraper>
                   <Title>{suggestion.title}</Title>

@@ -16,7 +16,9 @@ import { makeDebugger } from '../../utils/debug'
 import {
   //   startWithCmdPrefix,
   relateSuggestions$,
+  startWithSpecialPrefix,
   startWithSlash,
+  specialSuggestions,
 } from './workers'
 
 import { isEmptyValue } from '../../utils/functions'
@@ -32,20 +34,28 @@ export default class Pockect {
     this.stop$ = new Subject() // esc, pageClick  ...
     this.cmdInput$ = this.input$.debounceTime(200).distinctUntilChanged()
 
-    // TODO: 1. support > < ? history
-    //       2. cmd chian for trace
-    //       3. promise style to cancle             ... done
-    //       4. Icon display refactor
-    //       5. optimise code in worker             ... done
-    //       6. tab completion -- need cmd-china    ... done
+    // TODO: 1. support > < ? history                               ... done
+    //       2. cmd chian for trace and may use in header
+    //       3. promise style to cancle                             ... done
+    //       4. Icon display refactor                               ... doing
+    //       5. optimise code in worker                             ... done
+    //       6. tab completion -- need cmd-china                    ... done
     //       7. shortcuts  esc / c-p ...
+    //       8. upgrade to react v6
 
-    this.suggesttion$ = this.cmdInput$
+    this.cmdSuggestionCommon = this.cmdInput$
       .filter(startWithSlash)
-      // .map(relateSuggestions)
       .switchMap(q => relateSuggestions$(q).takeUntil(this.stop$))
-    // .do(val => debug('refactor haha: ', val))
-    // .catch(() => Observable.of([]))
+      .do(val => debug('refactor haha: ', val))
+      .catch(() => Observable.of([]))
+
+    this.cmdSuggestionSpecial = this.cmdInput$
+      .filter(startWithSpecialPrefix) // > < ?
+      .map(specialSuggestions)
+
+    this.cmdSuggesttion$ = this.cmdSuggestionCommon.merge(
+      this.cmdSuggestionSpecial
+    )
   }
 
   search(term) {
@@ -58,11 +68,8 @@ export default class Pockect {
     this.stop$.next()
   }
 
-  suggestion() {
-    return this.suggesttion$.catch(e => {
-      debug(e)
-      return Observable.of([])
-    })
+  cmdSuggesttion() {
+    return this.cmdSuggesttion$
   }
 
   emptyInput() {

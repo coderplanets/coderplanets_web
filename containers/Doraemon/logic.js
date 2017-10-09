@@ -136,7 +136,7 @@ export function init(selectedStore) {
   debug('store', store)
   pockect$ = new Pockect(store)
 
-  pockect$.suggestion().subscribe(res => {
+  pockect$.cmdSuggesttion().subscribe(res => {
     //    debug('--> res: ', res)
     store.loadSuggestions(res)
   })
