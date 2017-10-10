@@ -35,13 +35,14 @@ export const walkSuggestion = R.ifElse(
 )
 
 const suggestionBreif = R.compose(
+  R.values,
   R.map(R.pick(['title', 'desc', 'raw'])),
   walkSuggestion
 )
 
 export const relateSuggestions = R.curry(val => ({
   prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-  data: R.values(suggestionBreif(val)),
+  data: suggestionBreif(val),
 }))
 
 export const relateSuggestions$ = q =>

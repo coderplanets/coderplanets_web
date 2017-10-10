@@ -33,7 +33,7 @@ export default class Pockect {
 
     this.input$ = new Subject()
     this.stop$ = new Subject() // esc, pageClick  ...
-    this.cmdInput$ = this.input$.debounceTime(200).distinctUntilChanged()
+    this.cmdInput$ = this.input$.debounceTime(200) // .distinctUntilChanged()
 
     // TODO: 1. support > < ? history                               ... done
     //       2. cmd chian for trace and may use in header
