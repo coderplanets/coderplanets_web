@@ -6,29 +6,30 @@
 
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { theme } from '../../utils/functions'
 
 import globalStyles from '../../utils/global_styles'
 import observer from '../../utils/mobx_utils'
 
 const Container = styled.div`
   *::selection {
-    background-color: ${props => props.theme.selection_bg};
+    background-color: ${theme('selection_bg')};
   }
 
   ::-moz-selection {
-    background-color: ${props => props.theme.selection_bg};
+    background-color: ${theme('selection_bg')};
   }
 
   ::-o-selection {
-    background-color: ${props => props.theme.selection_bg};
+    background-color: ${theme('selection_bg')};
   }
 
   ::-ms-selection {
-    background-color: ${props => props.theme.selection_bg};
+    background-color: ${theme('selection_bg')};
   }
 
   *::-webkit-selection {
-    background-color: ${props => props.theme.selection_bg};
+    background-color: ${theme('selection_bg')};
   }
 `
 

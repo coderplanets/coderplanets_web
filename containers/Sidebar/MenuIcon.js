@@ -9,8 +9,10 @@ import Example from 'react-icons/lib/fa/github-square'
 import Cmd from 'react-icons/lib/fa/cogs'
 import GraphQL from 'react-icons/lib/fa/crosshairs'
 
+import { theme } from '../../utils/functions'
+
 const StyleIcon = styled.span`
-  color: ${props => props.theme.font};
+  color: ${theme('font')};
   font-size: 20px;
   margin-right: 10px;
 `

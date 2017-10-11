@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { theme } from '../../../utils/functions'
 
 import Img from '../../../components/Img'
 
@@ -80,7 +81,7 @@ export const search = styled(searchIcon)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  fill: ${props => props.theme.u_panel.search_icon};
+  fill: ${theme('u_panel.search_icon')};
 `
 export const magic = styled(magicIcon)`
   width: 30px;
@@ -89,7 +90,7 @@ export const magic = styled(magicIcon)`
   transform: rotate(-30deg);
 `
 
-export const theme = styled(themeIcon)`${iconStyle};`
+export const themes = styled(themeIcon)`${iconStyle};`
 export const debug = styled(debugIcon)`${iconStyle};`
 export const forward = styled(forwardIcon)`${iconStyle};`
 export const backward = styled(forwardIcon)`
@@ -101,7 +102,7 @@ export const enter = styled(enterIcon)`
   width: 50px;
   height: 70%;
   transform: rotateX(180deg);
-  fill: ${props => props.theme.u_panel.text};
+  fill: ${theme('u_panel.text')};
 `
 
 export const posts = styled(postsIcon)`${iconStyle};`

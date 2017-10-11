@@ -18,17 +18,17 @@ const cmds = {
   '?': { title: 'question', desc: 'question desc', raw: 'question' },
   Me: { title: 'me', desc: 'me desc', raw: 'Me' },
   User: { title: 'user', desc: 'user desc', raw: 'User' },
-  Theme: {},
+  Themes: {},
   Jobs: { title: 'jobs', desc: 'jobs desc', raw: 'Jobs' },
   // ClubOverflow: {},
 }
 
 R.map(
-  v => (cmds.Theme[v] = { title: v, desc: v, raw: v, detail: {} }),
+  v => (cmds.Themes[v] = { title: v, desc: v, raw: v, detail: {} }),
   themeNames
 )
-cmds.Theme.title = 'theme title'
-cmds.Theme.desc = 'theme desc'
-cmds.Theme.raw = 'Theme'
+cmds.Themes.title = 'theme title'
+cmds.Themes.desc = 'theme desc'
+cmds.Themes.raw = 'Themes'
 
 export default cmds

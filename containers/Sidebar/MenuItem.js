@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { darken } from 'polished'
+import { theme } from '../../utils/functions'
 
 const SideBar = styled.ul`
   margin-top: 0px;
@@ -25,7 +26,7 @@ const SideBar = styled.ul`
     height: 50px;
     width: 100%;
     box-sizing: border-box;
-    color: ${props => props.theme.sidebar.menu_link};
+    color: ${theme('sidebar.menu_link')};
   }
 
   > li > span > a {

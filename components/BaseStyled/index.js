@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { theme } from '../../utils/functions'
 
 export const Center = styled.div`
   /* display: flex;*/
@@ -13,14 +14,14 @@ export const HorizontalCenter = styled.div`text-align: center;`
 
 export const Title = styled.div`
   font-size: 3vh;
-  color: ${props => props.theme.font};
+  color: ${theme('font')};
   transition: color 0.3s;
 `
 export const Ul = styled.ul`
   list-style: none; /* Remove list bullets */
   padding: 0;
   margin: 0;
-  color: ${props => props.theme.font};
+  color: ${theme('font')};
 `
 export const Li = styled.li`
   padding-left: 16px;
@@ -28,7 +29,7 @@ export const Li = styled.li`
   &:before {
     content: '•'; /* Insert content that looks like bullets */
     padding-right: 8px;
-    color: ${props => props.theme.font};
+    color: ${theme('font')};
   }
 `
 

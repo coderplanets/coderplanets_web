@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { theme } from '../../../utils/functions'
 
 import Img from '../../../components/Img'
 
@@ -16,14 +17,14 @@ const rotate360 = keyframes`
 `
 
 export const SearchIcon = styled(searchIcon)`
-  fill: ${props => props.theme.u_panel.search_icon};
+  fill: ${theme('u_panel.search_icon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
 `
 
 export const LoadingIcon = styled(loadingIcon)`
-  fill: ${props => props.theme.u_panel.search_icon};
+  fill: ${theme('u_panel.search_icon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
@@ -54,11 +55,13 @@ export const Wraper = styled.div`
 `
 
 // #001b21;
+// ${theme('u_panel.bar_bg')};
+
 export const BaseBar = styled.div`
-  border: 1px solid ${props => props.theme.u_panel.border};
+  border: 1px solid ${theme('u_panel.border')};
   width: 100%;
   height: 70px;
-  background: ${props => props.theme.u_panel.bar_bg};
+  background: ${theme('u_panel.bar_bg')};
   color: white;
   display: flex;
   flex-direction: row;
@@ -84,7 +87,7 @@ export const InfoBar = styled(BaseBar)`
   min-height: 100px;
 `
 export const InputBar = styled.input`
-  caret-color: ${props => props.theme.u_panel.search_input};
+  caret-color: ${theme('u_panel.search_input')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
     'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
@@ -92,7 +95,7 @@ export const InputBar = styled.input`
   width: auto;
   outline: none;
   font-weight: 200;
-  color: ${props => props.theme.u_panel.search_input};
+  color: ${theme('u_panel.search_input')};
   font-size: 24px;
   line-height: 70px;
   max-height: none;
@@ -120,11 +123,11 @@ export const ContentWraper = styled.div`
 export const Title = styled.div`
   display: block;
   > a {
-    color: ${props => props.theme.u_panel.link};
+    color: ${theme('u_panel.link')};
   }
 `
 export const Desc = styled.div`
-  color: ${props => props.theme.u_panel.text};
+  color: ${theme('u_panel.text')};
   text-overflow: ellipsis;
   width: 400px;
   white-space: nowrap;
@@ -138,12 +141,12 @@ export const SubInfoWraper = styled.div`
 `
 
 export const RepoLang = styled.div`
-  color: ${props => props.theme.u_panel.text};
+  color: ${theme('u_panel.text')};
   font-style: italic;
 `
 
 export const RepoStar = styled.div`
-  color: ${props => props.theme.u_panel.text};
+  color: ${theme('u_panel.text')};
   font-style: italic;
   margin-right: 10px;
 `
