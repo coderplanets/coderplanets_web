@@ -20,10 +20,14 @@
 
 ## TODO
 
-- [ ] https://svbtle.com/about
+- [ ] complete debug and theme switch
+- [ ] cmd chian for trace and may use in header
 - [ ] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
+- [ ] upgrade to next@4 which only support react v16
+- [ ] upgrade mobx-state-tree
+- [ ] use [rambda](https://selfrefactor.github.io/rambda/#/?id=tree-shaking)
+  for small size -- not need, pickby is missing, a option though
 - [ ] [answer](https://github.com/mobxjs/mobx-state-tree/issues/27)
-- [ ] phoenix [新文档地址](https://github.com/phoenixframework/phoenix/tree/master/guides/docs)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
 - [ ] Search panel && login panel ----> 或许应该叫 UnverisalPanel ? --> 可以呼出
   debug 设置等等

@@ -18,6 +18,7 @@ const cmds = {
   '?': { title: 'question', desc: 'question desc', raw: 'question' },
   Me: { title: 'me', desc: 'me desc', raw: 'Me' },
   User: { title: 'user', desc: 'user desc', raw: 'User' },
+  // name theme will confilct styled/helper theme in 'utils/functions'
   Themes: {},
   Jobs: { title: 'jobs', desc: 'jobs desc', raw: 'Jobs' },
   // ClubOverflow: {},

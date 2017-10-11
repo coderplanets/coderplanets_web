@@ -87,9 +87,8 @@ export function navToSuggestion(suggestion) {
 }
 
 export function hidePanel() {
-  // debug('hidePanel ....')
-  pockect$.stop()
   store.hideDoraemon()
+  pockect$.stop()
 }
 
 export function onKeyPress(e) {
