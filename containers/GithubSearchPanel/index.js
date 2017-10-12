@@ -41,7 +41,7 @@ const SearchEditor = ({ value, searching }) => (
     <AddOn>{searching ? <LoadingIcon /> : <SearchIcon />}</AddOn>
     <InputBar
       spellCheck={false}
-      autoCapitalize={false}
+      autoCapitalize="off"
       autoCorrect="off"
       autoComplete="off"
       placeholder="Github repo search"
@@ -63,7 +63,7 @@ class UniversePanelContainer extends React.Component {
   }
 
   render() {
-    const store = this.props.store
+    const { store } = this.props
     const { reposData, inputValue, searching } = store
 
     // debug('repos: ', repos)

@@ -86,7 +86,7 @@ const CartStore = types
       if (notify) self.shop.alert('Added to cart')
     },
     checkout() {
-      const total = self.total
+      const { total } = self
       self.clear()
       self.shop.alert(`Bought books for ${total} € !`)
     },

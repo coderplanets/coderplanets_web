@@ -44,6 +44,7 @@ export default class Page extends React.Component {
         />
         <nav>
           <Link href={this.props.linkTo}>
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
             <a>Navigate</a>
           </Link>
         </nav>

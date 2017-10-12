@@ -127,7 +127,7 @@ function renderPage(viewStore) {
 const AppHeader = () => {
   return (
     <StyledAppHeader>
-      <StyledAppLogo src={'/static/shopLogo.svg'} alt="logo" />
+      <StyledAppLogo src="/static/shopLogo.svg" alt="logo" />
 
       <h2>Welcome to the React MobX Book shop?</h2>
     </StyledAppHeader>
@@ -136,7 +136,7 @@ const AppHeader = () => {
 
 const AppMenu = ({ children }) => <StyledUl>{children}</StyledUl>
 
-/* eslint-disable react/prop-types */
+/* eslint-disable */
 const AppMenuItem = ({ onClick, children }) => (
   <li>
     <a onClick={onClick}>{children}</a>

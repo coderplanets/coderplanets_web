@@ -35,7 +35,8 @@ export default class Other extends React.Component {
             <Sidebar />
             <div style={{ textAlign: 'center' }}>
               <h2>Other page</h2>
-              <Link href={'/index'}>
+              <Link href="/index">
+                {/* eslint-disable jsx-a11y/anchor-is-valid */}
                 <a>Navigate</a>
               </Link>
             </div>

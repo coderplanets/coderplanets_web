@@ -61,7 +61,7 @@ class DoraemonContainer extends React.Component {
   // ref={wraper => (this.wraper = wraper)}
 
   render() {
-    const store = this.props.store
+    const { store } = this.props
     const { inputValue, suggestions, activeRaw, prefix, visiable } = store
 
     // debug('suggestions', suggestions.toJSON())

@@ -77,7 +77,7 @@ export default class InputEditor extends React.Component {
         <InputBar
           id="doraemonInputbar"
           spellCheck={false}
-          autoCapitalize={false}
+          autoCapitalize="off"
           autoCorrect="off"
           autoComplete="off"
           onKeyDown={logic.onKeyPress}

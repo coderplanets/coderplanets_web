@@ -61,6 +61,7 @@ const MenuList = ({ items, open }) => {
           <Link href={item.target.href} as={item.target.as}>
             <span>
               <MenuIcon name={item.name} />
+              {/* eslint-disable jsx-a11y/anchor-is-valid */}
               <a>{item.name}</a>
             </span>
           </Link>
