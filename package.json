@@ -17,6 +17,7 @@
     "clean": "shjs ./utils/scripts/clean.js",
     "precommit": "lint-staged",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
+    "analyze": "cross-env ANALYZE=1 next build",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
@@ -137,6 +138,7 @@
     "plop": "^1.8.1",
     "prettier": "^1.6.1",
     "react-test-renderer": "16.0.0",
-    "shelljs": "^0.7.8"
+    "shelljs": "^0.7.8",
+    "webpack-bundle-analyzer": "^2.9.0"
   }
 }

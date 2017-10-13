@@ -1,3 +1,9 @@
+/* eslint-disable */
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+/* eslint-enable */
+
+const { ANALYZE } = process.env
+
 module.exports = {
   exportPathMap: () => ({
     '/': { page: '/' },
@@ -15,6 +21,17 @@ module.exports = {
     // For the development version, we'll use React.
     // Because, it supports react hot loading and so on.
     if (dev) {
+      return config
+    }
+
+    if (ANALYZE) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          analyzerPort: 8888,
+          openAnalyzer: true,
+        })
+      )
       return config
     }
 
