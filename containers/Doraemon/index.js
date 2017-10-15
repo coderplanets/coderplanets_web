@@ -64,7 +64,9 @@ class DoraemonContainer extends React.Component {
     const { store } = this.props
     const { inputValue, suggestions, activeRaw, prefix, visiable } = store
 
-    // debug('suggestions', suggestions.toJSON())
+    // debug('activeRaw: ', activeRaw)
+    // debug('suggestion.raw: ', suggestions.toJSON())
+
     return (
       <PageOverlay visiable={visiable} onClick={logic.hidePanel}>
         <PanelContainer visiable={visiable} onClick={logic.panelClick}>
@@ -78,7 +80,7 @@ class DoraemonContainer extends React.Component {
                 id={suggestion.raw}
                 onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
               >
-                <AvatarWrapper onClick={logic.watshData}>
+                <AvatarWrapper>
                   <NodeIcon raw={suggestion.raw} />
                 </AvatarWrapper>
                 <ContentWraper>

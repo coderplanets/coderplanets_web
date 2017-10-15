@@ -38,7 +38,7 @@ import postsIcon from '../../../static/nodeIcons/cmd/posts.svg'
 import tutsIcon from '../../../static/nodeIcons/cmd/tuts.svg'
 import usersIcon from '../../../static/nodeIcons/cmd/users.svg'
 import mapIcon from '../../../static/nodeIcons/cmd/map.svg'
-import videoIcon from '../../../static/nodeIcons/cmd/video.svg'
+import videosIcon from '../../../static/nodeIcons/cmd/video.svg'
 import newsIcon from '../../../static/nodeIcons/cmd/news.svg'
 import meetupsIcon from '../../../static/nodeIcons/cmd/meetups.svg'
 import jobsIcon from '../../../static/nodeIcons/cmd/jobs.svg'
@@ -110,7 +110,15 @@ export const tuts = styled(tutsIcon)`${iconStyle};`
 export const users = styled(usersIcon)`${iconStyle};`
 export const map = styled(mapIcon)`${iconStyle};`
 export const news = styled(newsIcon)`${iconStyle};`
-export const video = styled(videoIcon)`${iconStyle};`
+export const videos = styled(videosIcon)`${iconStyle};`
 export const meetups = styled(meetupsIcon)`${iconStyle};`
 export const jobs = styled(jobsIcon)`${iconStyle};`
 export const history = styled(historyIcon)`${iconStyle};`
+
+export const themeDot = styled.div`
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  background: ${props => props.bg};
+  border-radius: 50%;
+`

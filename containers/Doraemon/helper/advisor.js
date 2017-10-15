@@ -1,9 +1,12 @@
+/*
+* provide advise to Pocket
+ */
+
 import R from 'ramda'
 import { Observable } from 'rxjs/Observable'
-import { mapKeys, notEmpty } from '../../../utils/functions'
-import { pl, framework, cmd } from '../suggestions'
+import { notEmpty } from '../../../utils/functions'
+import { allSuggestions } from '../suggestions'
 
-const allSuggestions = mapKeys(R.toLower, R.mergeAll([pl, framework, cmd]))
 const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
 
 const cmdSplit = R.compose(R.split('/'), R.slice(1, Infinity))

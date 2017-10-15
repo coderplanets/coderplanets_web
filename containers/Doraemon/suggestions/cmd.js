@@ -25,10 +25,16 @@ const cmds = {
 }
 
 R.map(
-  v => (cmds.Themes[v] = { title: v, desc: v, raw: v, detail: {} }),
+  v =>
+    (cmds.Themes[v] = {
+      title: v,
+      desc: `${v} theme`,
+      raw: `themes--${v}`,
+      detail: {},
+    }),
   themeNames
 )
-cmds.Themes.title = 'theme title'
+cmds.Themes.title = 'themes'
 cmds.Themes.desc = 'theme desc'
 cmds.Themes.raw = 'Themes'
 

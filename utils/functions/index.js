@@ -27,6 +27,9 @@ export const mapKeys = R.curry((fn, obj) => {
 export const notEmpty = R.compose(R.not, R.isEmpty)
 export const isEmptyValue = R.compose(R.isEmpty, R.trim)
 
+export const lengthE1 = R.compose(R.equals(1), R.length)
+export const lengthE2 = R.compose(R.equals(2), R.length)
+
 export const allNil = R.all(R.isNil)
 export const anyNil = R.any(R.isNil)
 

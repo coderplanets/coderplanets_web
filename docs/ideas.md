@@ -20,10 +20,17 @@
 
 ## TODO
 
+- [ ] make Doraemon ^x could cycle
+- [ ] remove Doraemon panel's scrollbar
+- [ ] let lang icon not use svg, cause big size in bundle
+- [ ] head for every page, [example](https://github.com/zeit/next.js/blob/master/examples/head-elements/pages/index.js)
+- [ ] a layout [example](https://github.com/zeit/next.js/blob/master/examples/layout-component/components/layout.js)
+- [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)
 - [ ] complete debug and theme switch
 - [ ] cmd chian for trace and may use in header
-- [ ] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
-- [ ] upgrade to next@4 which only support react v16
+- [ ] use Rxdb to store state in browser, [see](https://github.com/mobxjs/mobx-state-tree/blob/a0916791768637665a56bc2720ec0a081d4d148f/packages/mst-example-todomvc/src/index.js) 
+- [x] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
+- [x] upgrade to next@4 which only support react v16
 - [ ] upgrade mobx-state-tree
 - [ ] use [rambda](https://selfrefactor.github.io/rambda/#/?id=tree-shaking)
   for small size -- not need, pickby is missing, a option though

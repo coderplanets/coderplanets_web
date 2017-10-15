@@ -51,13 +51,13 @@ export default class InputEditor extends React.Component {
   // https://stackoverflow.com/questions/1080532/prevent-default-behavior-in-text-input-while-pressing-arrow-up
   @keydown(['ctrl+p'])
   up(e) {
-    logic.navUpSuggestion()
+    logic.navSuggestion('up')
     e.preventDefault()
   }
 
   @keydown(['ctrl+n'])
   down(e) {
-    logic.navDownSuggestion()
+    logic.navSuggestion('down')
     e.preventDefault()
   }
 
@@ -82,7 +82,7 @@ export default class InputEditor extends React.Component {
           autoComplete="off"
           onKeyDown={logic.onKeyPress}
           onBlur={logic.hidePanel}
-          onChange={logic.search}
+          onChange={logic.inputOnChange}
           value={value}
         />
       </EditorBar>

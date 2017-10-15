@@ -6,6 +6,9 @@
 
 // import R from 'ramda' // cause babel build error, don't kown way
 import forEachObjIndexed from 'ramda/src/forEachObjIndexed'
+import forEach from 'ramda/src/forEach'
+import keys from 'ramda/src/keys'
+import clone from 'ramda/src/clone'
 
 const meta = {
   posts: {},
@@ -13,7 +16,7 @@ const meta = {
   users: {},
   map: {},
   news: {},
-  video: {},
+  videos: {},
   meetups: {},
   jobs: {},
 }
@@ -25,57 +28,63 @@ forEachObjIndexed((v, k) => {
 }, meta)
 
 const languages = {
-  BlackeScript: { ...meta },
-  Js: { ...meta },
-  Javascript: { ...meta },
-  Java: { ...meta },
-  Nodejs: { ...meta },
-  Julia: { ...meta },
-  R: { ...meta },
-  Ruby: { ...meta },
-  Rust: { ...meta },
-  Red: { ...meta },
-  Python: { ...meta },
-  Php: { ...meta },
-  Perl: { ...meta },
-  Prolog: { ...meta },
-  C: { ...meta },
-  'C++': { ...meta },
-  'C#': { ...meta },
-  Clojure: { ...meta },
-  Crystal: { ...meta },
-  Lisp: { ...meta },
-  Lua: { ...meta },
-  Fortran: { ...meta },
-  'F#': { ...meta },
-  Dart: { ...meta },
-  Delphi: { ...meta },
-  Elixir: { ...meta },
-  Erlang: { ...meta },
-  Elm: { ...meta },
-  Go: { ...meta },
-  Groovy: { ...meta },
-  Gradle: { ...meta },
-  Haskell: { ...meta },
-  Kotlin: { ...meta },
-  'Objectivc-C': { ...meta },
-  OCaml: { ...meta },
-  Swift: { ...meta },
-  Scala: { ...meta },
-  Scheme: { ...meta },
-  Typescript: { ...meta },
-  Tcl: { ...meta },
+  BlackeScript: { ...clone(meta) },
+  Js: { ...clone(meta) },
+  Javascript: { ...clone(meta) },
+  Java: { ...clone(meta) },
+  Nodejs: { ...clone(meta) },
+  Julia: { ...clone(meta) },
+  R: { ...clone(meta) },
+  Ruby: { ...clone(meta) },
+  Rust: { ...clone(meta) },
+  Red: { ...clone(meta) },
+  Python: { ...clone(meta) },
+  Php: { ...clone(meta) },
+  Perl: { ...clone(meta) },
+  Prolog: { ...clone(meta) },
+  C: { ...clone(meta) },
+  'C++': { ...clone(meta) },
+  'C#': { ...clone(meta) },
+  Clojure: { ...clone(meta) },
+  Crystal: { ...clone(meta) },
+  Lisp: { ...clone(meta) },
+  Lua: { ...clone(meta) },
+  Fortran: { ...clone(meta) },
+  'F#': { ...clone(meta) },
+  Dart: { ...clone(meta) },
+  Delphi: { ...clone(meta) },
+  Elixir: { ...clone(meta) },
+  Erlang: { ...clone(meta) },
+  Elm: { ...clone(meta) },
+  Go: { ...clone(meta) },
+  Groovy: { ...clone(meta) },
+  Gradle: { ...clone(meta) },
+  Haskell: { ...clone(meta) },
+  Kotlin: { ...clone(meta) },
+  'Objectivc-C': { ...clone(meta) },
+  OCaml: { ...clone(meta) },
+  Swift: { ...clone(meta) },
+  Scala: { ...clone(meta) },
+  Scheme: { ...clone(meta) },
+  Typescript: { ...clone(meta) },
+  Tcl: { ...clone(meta) },
 }
-
-forEachObjIndexed((v, k) => {
-  languages[k].title = k
-  languages[k].desc = `${k} deault desc?`
-  languages[k].raw = k
-}, languages)
 
 languages['C++'].raw = 'Cpp'
 languages['C#'].raw = 'CSharp'
 languages['F#'].raw = 'FSharp'
 languages['Objectivc-C'].raw = 'objectiveC'
+
+forEachObjIndexed((v, k) => {
+  languages[k].title = k
+  languages[k].desc = `${k} deault desc`
+  languages[k].raw = k
+
+  forEach(metaKey => {
+    languages[k][metaKey].raw = `${k}--${metaKey}`
+  }, keys(meta))
+}, languages)
+
+// console.log('after the fuck: ', languages)
 
 export default languages

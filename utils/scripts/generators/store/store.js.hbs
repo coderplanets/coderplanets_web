@@ -4,9 +4,13 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import { makeDebugger } from '../../utils/debug'
+import R from 'ramda'
 
-const debug = makeDebugger('S:{{ properCase name }}')
+// import { makeDebugger } from '../../utils/debug'
+import { isObject } from '../../utils/functions'
+
+
+// const debug = makeDebugger('S:{{ properCase name }}')
 
 const {{ properCase name }} = t
   .model('{{ properCase name }}', {

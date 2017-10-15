@@ -19,7 +19,7 @@ import {
   startWithSpecialPrefix,
   startWithSlash,
   specialSuggestions,
-} from './workers'
+} from './helper/advisor'
 
 import { isEmptyValue } from '../../utils/functions'
 
@@ -32,6 +32,7 @@ export default class Pockect {
     this.store = store
 
     this.input$ = new Subject()
+    // this.advanceCmd$ = new Subject()
     this.stop$ = new Subject() // esc, pageClick  ...
     this.cmdInput$ = this.input$.debounceTime(200) // .distinctUntilChanged()
 

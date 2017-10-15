@@ -30,10 +30,11 @@ export const globalThemes = {
   yellow: { ...Yellow },
   slack: { ...Slack },
   brown: { ...Brown },
-  cyanGreen: { ...CyanGreen },
+  cyan_green: { ...CyanGreen },
 }
 
 export const themeNames = R.keys(globalThemes)
 
 // const getBodyBg = R.compose(R.head, R.path(['sidebar', 'bg']))
 export const selectorColors = R.map(R.path(['sidebar', 'bg']), globalThemes)
+export const themeColorMap = R.map(R.path(['sidebar', 'bg']), globalThemes)

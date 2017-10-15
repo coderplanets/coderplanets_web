@@ -90,7 +90,8 @@ export const AlertBar = styled(BaseBar)`
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 70px;
-  background: ${props => (props.active ? theme('u_panel.active_bg') : '')};
+  background: ${props =>
+    props.active ? theme('u_panel.active_bg', props) : ''};
 `
 export const InputBar = styled.input`
   caret-color: ${theme('u_panel.search_input')};

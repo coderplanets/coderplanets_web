@@ -43,6 +43,16 @@ const DoraemonStore = t
     suggestions: t.optional(t.array(Suggestion), []),
     activeRaw: t.optional(t.string, ''),
     prefix: t.optional(t.string, ''),
+    /*
+   advancePrefix: t.optional(
+        t.enumeration('cmdprefix', [
+          'search',
+          'debug',
+          'login...',
+        ]),
+        'search'
+      )
+    */
   })
   .views(self => ({
     get app() {
@@ -69,6 +79,10 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    changeTheme(name) {
+      self.app.changeTheme(name)
+    },
+
     afterCreate() {
       debug('load suggesttions')
     },

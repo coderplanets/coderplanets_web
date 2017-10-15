@@ -11,11 +11,28 @@ import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
 import GithubEampleStore from '../GithubEampleStore'
 import DoraemonStore from '../DoraemonStore'
+import CommunitiesStore from '../CommunitiesStore'
 
 const debug = makeDebugger('S:AppStore')
 
 const AppStore = t
   .model({
+    // domain modal
+    // community
+    communities: t.optional(CommunitiesStore, {
+      languages: {},
+      frameworks: {},
+      cmds: {},
+    }),
+    // subscriptions: ...
+    // mySubscriptions: ...
+    // posts: ...
+    // account: ...{ config } ..
+    appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
+    appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
+    appLangs: t.map(t.frozen),
+    // domain end
+
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
     // header: t...,
     // banner: t...,
@@ -23,9 +40,6 @@ const AppStore = t
     github: t.optional(GithubEampleStore, {}),
     doraemon: t.optional(DoraemonStore, {}),
     /* account: t..., */
-    appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
-    appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
-    appLangs: t.map(t.frozen),
   })
   .views(self => ({
     get version() {
@@ -56,6 +70,7 @@ const AppStore = t
     afterCreate() {
       debug('after create loadMenuItem')
       self.sidebar.loadMenuItem()
+      self.communities.load()
     },
     showDoraemon() {
       self.doraemon.showDoraemon()
