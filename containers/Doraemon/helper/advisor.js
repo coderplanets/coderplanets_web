@@ -1,11 +1,9 @@
 /*
-* provide advise to Pocket
+ * provide advise to Pocket
  */
-
 import R from 'ramda'
 import { Observable } from 'rxjs/Observable'
 import { notEmpty } from '../../../utils/functions'
-import { allSuggestions } from '../suggestions'
 
 const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
 
@@ -15,14 +13,6 @@ const cmdHead = R.compose(R.head, cmdSplit)
 const cmdLast = R.compose(R.last, cmdFull)
 const cmdInit = R.compose(R.init, cmdFull)
 
-const getSuggestionPath = R.curry(p => R.path(p, allSuggestions))
-const suggestionPathInit = R.compose(cleanMetaInfo, getSuggestionPath, cmdInit)
-
-const suggestionPath = R.compose(cleanMetaInfo, getSuggestionPath, cmdFull)
-const suggestionPathThenStartsWith = R.curry(val =>
-  R.pickBy((_, k) => R.startsWith(cmdLast(val), k), suggestionPathInit(val))
-)
-// ... export ...
 export const startWithSlash = R.startsWith('/')
 
 export const startWithSpecialPrefix = R.anyPass([
@@ -31,27 +21,46 @@ export const startWithSpecialPrefix = R.anyPass([
   R.startsWith('<'),
 ])
 
-export const walkSuggestion = R.ifElse(
-  R.endsWith('/'),
-  suggestionPath,
-  suggestionPathThenStartsWith
-)
+export class Advisor {
+  constructor(allSuggestions) {
+    this.allSuggestions = allSuggestions
+  }
 
-const suggestionBreif = R.compose(
-  R.values,
-  R.map(R.pick(['title', 'desc', 'raw'])),
-  walkSuggestion
-)
+  getSuggestionPath = R.curry(p => R.path(p, this.allSuggestions))
+  suggestionPathInit = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdInit)
+  suggestionPath = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdFull)
 
-export const relateSuggestions = R.curry(val => ({
-  prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-  data: suggestionBreif(val),
-}))
+  suggestionPathThenStartsWith = R.curry(val =>
+    R.pickBy(
+      (_, k) => R.startsWith(cmdLast(val), k),
+      this.suggestionPathInit(val)
+    )
+  )
 
-export const relateSuggestions$ = q =>
-  Observable.fromPromise(new Promise(resolve => resolve(relateSuggestions(q))))
+  walkSuggestion = R.ifElse(
+    R.endsWith('/'),
+    this.suggestionPath,
+    this.suggestionPathThenStartsWith
+  )
 
-export const specialSuggestions = R.curry(val => ({
-  prefix: '/',
-  data: [getSuggestionPath(val)],
-}))
+  suggestionBreif = R.compose(
+    R.values,
+    R.map(R.pick(['title', 'desc', 'raw'])),
+    this.walkSuggestion
+  )
+
+  relateSuggestions = R.curry(val => ({
+    prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
+    data: this.suggestionBreif(val),
+  }))
+
+  relateSuggestions$ = q =>
+    Observable.fromPromise(
+      new Promise(resolve => resolve(this.relateSuggestions(q)))
+    )
+
+  specialSuggestions = R.curry(val => ({
+    prefix: '/',
+    data: [this.getSuggestionPath(val)],
+  }))
+}

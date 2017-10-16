@@ -14,6 +14,7 @@ import {
 const PlModel = t.model('PlModel', {
   title: t.string,
   desc: t.string,
+  raw: t.string,
   map: Map,
   posts: Posts,
   news: News,

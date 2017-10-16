@@ -14,11 +14,9 @@ import 'rxjs/add/operator/merge'
 
 import { makeDebugger } from '../../utils/debug'
 import {
-  //   startWithCmdPrefix,
-  relateSuggestions$,
   startWithSpecialPrefix,
   startWithSlash,
-  specialSuggestions,
+  Advisor,
 } from './helper/advisor'
 
 import { isEmptyValue } from '../../utils/functions'
@@ -30,6 +28,7 @@ const debug = makeDebugger('L:Doraemon:pocket')
 export default class Pockect {
   constructor(store) {
     this.store = store
+    this.advisor = new Advisor(store.allSuggestions)
 
     this.input$ = new Subject()
     // this.advanceCmd$ = new Subject()
@@ -38,12 +37,12 @@ export default class Pockect {
 
     this.cmdSuggestionCommon = this.cmdInput$
       .filter(startWithSlash)
-      .switchMap(q => relateSuggestions$(q).takeUntil(this.stop$))
+      .switchMap(q => this.advisor.relateSuggestions$(q).takeUntil(this.stop$))
       .catch(() => Observable.of([]))
 
     this.cmdSuggestionSpecial = this.cmdInput$
       .filter(startWithSpecialPrefix) // > < ?
-      .map(specialSuggestions)
+      .map(this.advisor.specialSuggestions)
 
     this.cmdSuggesttion$ = this.cmdSuggestionCommon.merge(
       this.cmdSuggestionSpecial
@@ -51,7 +50,6 @@ export default class Pockect {
   }
 
   search(term) {
-    // debug('Doraemons search: ', term)
     this.input$.next(term)
   }
 

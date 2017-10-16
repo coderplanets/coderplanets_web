@@ -7,9 +7,9 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { makeDebugger } from '../../utils/debug'
-import { isObject } from '../../utils/functions'
+import { isObject, mapKeys } from '../../utils/functions'
 
-import { allSuggestions } from '../../containers/Doraemon/suggestions'
+// import { allSuggestions } from '../../containers/Doraemon/suggestions'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 import pl from '../../containers/Doraemon/suggestions/pl'
@@ -29,6 +29,7 @@ export const CommunitiesDefaults = {
 
 export const CommunitiesStore = t
   .model('CommunitiesStore', {
+    // id: t.identifier(),
     languages: t.map(PlModel),
     frameworks: t.map(FrameworkModel),
     // jobs: ...
@@ -41,8 +42,20 @@ export const CommunitiesStore = t
     get app() {
       return getParent(self)
     },
-    get allCommunities() {
-      return R.mergeAll([self.languages.toJSON(), self.frameworks.toJSON()])
+    get all() {
+      return mapKeys(
+        R.toLower,
+        R.mergeAll([self.languages.toJSON(), self.frameworks.toJSON()])
+      )
+    },
+
+    get oneForTest() {
+      // const one = self.frameworks.toJSON()
+      // return one.React
+      const one = self.languages.toJSON()
+      // return one.Javascript
+      // console.log('fuck one: ', one)
+      return R.pick(['Javascript'], one)
     },
   }))
   .actions(self => ({
@@ -56,8 +69,8 @@ export const CommunitiesStore = t
       }, framework)
 
       //  self.communities.put(suggestion)
-      debug('after communities: ', self.allCommunities)
-      debug('the real allSuggestions: ', allSuggestions)
+      debug('after communities: ', self.all)
+      debug('the real allSuggestions: ', self.all)
     },
 
     markState(sobj) {

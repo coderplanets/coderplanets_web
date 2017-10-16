@@ -14,6 +14,7 @@ import {
 const FrameworkModel = t.model('FrameworkModel', {
   title: t.string,
   desc: t.string,
+  raw: t.string,
   parent: t.string,
   posts: Posts,
   map: Map,

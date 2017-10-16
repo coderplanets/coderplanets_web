@@ -11,6 +11,7 @@ import {
   focusDoraemonBar,
   hideDoraemonBarRecover,
 } from '../../utils/functions'
+
 import { makeDebugger } from '../../utils/debug'
 
 const debug = makeDebugger('S:DoraemonStore')
@@ -64,8 +65,9 @@ const DoraemonStore = t
     get app() {
       return getParent(self)
     },
-    get themeName() {
-      return self.app.themeName
+    get allSuggestions() {
+      // return self.app.communities.oneForTest
+      return self.app.communities.all
     },
     get suggestionCount() {
       return self.suggestions.length
@@ -79,7 +81,6 @@ const DoraemonStore = t
       }
       return self.suggestions[self.activeSuggestionIndex].title
     },
-
     get doraemonVisable() {
       return self.visiable
     },
@@ -89,8 +90,10 @@ const DoraemonStore = t
       self.app.changeTheme(name)
     },
 
-    afterCreate() {
-      debug('load suggesttions')
+    load() {
+      debug('before load: ', self.app.communities.oneForTest)
+      // self.curSuggestions = self.app.communities.all
+      // debug('after curSuggestions: ', self.curSuggestions)
     },
 
     loadSuggestions(suggestion) {

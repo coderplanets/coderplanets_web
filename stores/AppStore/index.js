@@ -62,6 +62,7 @@ const AppStore = t
       debug('after create loadMenuItem')
       self.sidebar.loadMenuItem()
       self.communities.load()
+      self.doraemon.load()
     },
     showDoraemon() {
       self.doraemon.showDoraemon()
