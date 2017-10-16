@@ -91,7 +91,7 @@
     "mobx-react": "4.3.3",
     "mobx-state-tree": "^1.0.0",
     "module-alias": "^2.0.1",
-    "next": "4.0.5",
+    "next": "4.1.0",
     "path-match": "^1.2.4",
     "polished": "1.8.0",
     "preact": "^8.2.5",
