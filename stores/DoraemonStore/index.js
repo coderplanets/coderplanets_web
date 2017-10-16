@@ -8,13 +8,16 @@ import R from 'ramda'
 
 import {
   isObject,
+  mapKeys,
   focusDoraemonBar,
   hideDoraemonBarRecover,
 } from '../../utils/functions'
 
-import { makeDebugger } from '../../utils/debug'
+import cmds from './suggestions/cmd'
 
-const debug = makeDebugger('S:DoraemonStore')
+// import { makeDebugger } from '../../utils/debug'
+
+// const debug = makeDebugger('S:DoraemonStore')
 
 const Suggestion = t.model('Suggestion', {
   title: t.string,
@@ -66,8 +69,8 @@ const DoraemonStore = t
       return getParent(self)
     },
     get allSuggestions() {
-      // return self.app.communities.oneForTest
-      return self.app.communities.all
+      // console.log('fuck cmds: ', cmds)
+      return R.mergeAll([self.app.communities.all, mapKeys(R.toLower, cmds)])
     },
     get suggestionCount() {
       return self.suggestions.length
@@ -88,12 +91,6 @@ const DoraemonStore = t
   .actions(self => ({
     changeTheme(name) {
       self.app.changeTheme(name)
-    },
-
-    load() {
-      debug('before load: ', self.app.communities.oneForTest)
-      // self.curSuggestions = self.app.communities.all
-      // debug('after curSuggestions: ', self.curSuggestions)
     },
 
     loadSuggestions(suggestion) {

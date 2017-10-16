@@ -70,11 +70,6 @@ const languages = {
   Tcl: { ...clone(meta) },
 }
 
-languages['C++'].raw = 'Cpp'
-languages['C#'].raw = 'CSharp'
-languages['F#'].raw = 'FSharp'
-languages['Objectivc-C'].raw = 'objectiveC'
-
 forEachObjIndexed((v, k) => {
   languages[k].title = k
   languages[k].desc = `${k} deault desc`
@@ -85,6 +80,9 @@ forEachObjIndexed((v, k) => {
   }, keys(meta))
 }, languages)
 
-// console.log('after the fuck: ', languages)
+languages['C++'].raw = 'Cpp'
+languages['C#'].raw = 'CSharp'
+languages['F#'].raw = 'FSharp'
+languages['Objectivc-C'].raw = 'objectiveC'
 
 export default languages

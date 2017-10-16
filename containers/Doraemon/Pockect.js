@@ -28,6 +28,9 @@ const debug = makeDebugger('L:Doraemon:pocket')
 export default class Pockect {
   constructor(store) {
     this.store = store
+    // store here and inside Advisor is still reactive, but it act not
+    // because constructor only run once, so you can setup a trigger$ using Rx.js if needed
+    //     debug('fuck init allSuggestions: ', this.store.allSuggestions)
     this.advisor = new Advisor(store.allSuggestions)
 
     this.input$ = new Subject()
