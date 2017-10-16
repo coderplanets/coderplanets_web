@@ -93,7 +93,7 @@
     "module-alias": "^2.0.1",
     "next": "4.0.5",
     "path-match": "^1.2.4",
-    "polished": "1.8.0",
+    "polished": "1.8.1",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "prop-types": "^15.5.10",
