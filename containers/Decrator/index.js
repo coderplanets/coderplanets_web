@@ -5,11 +5,12 @@
 */
 
 import React from 'react'
+import { inject, observer } from 'mobx-react'
 import styled, { ThemeProvider } from 'styled-components'
-import { theme } from '../../utils/functions'
 
+import { theme } from '../../utils/functions'
 import globalStyles from '../../utils/global_styles'
-import observer from '../../utils/mobx_utils'
+// import observer from '../../utils/mobx_utils'
 
 const Container = styled.div`
   *::selection {
@@ -37,8 +38,8 @@ const selector = ({ store }) => ({
   theme: store.theme,
 })
 
-const ThemeObserver = observer(selector, ({ children, theme }) => (
-  <ThemeProvider theme={theme}>
+const ThemeObserver = ({ children, theme }) => (
+  <ThemeProvider theme={theme.themeData}>
     <Container className="fuck">
       <style jsx global>
         {globalStyles}
@@ -46,6 +47,6 @@ const ThemeObserver = observer(selector, ({ children, theme }) => (
       <div>{children}</div>
     </Container>
   </ThemeProvider>
-))
+)
 
-export default ThemeObserver
+export default inject(selector)(observer(ThemeObserver))

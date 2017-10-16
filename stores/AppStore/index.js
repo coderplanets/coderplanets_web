@@ -5,52 +5,43 @@
 
 import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/debug'
-import { globalThemes, themeNames } from '../../utils/themes'
 
 import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
 import GithubEampleStore from '../GithubEampleStore'
 import DoraemonStore from '../DoraemonStore'
-import CommunitiesStore from '../CommunitiesStore'
+import { ThemeStore, ThemeDefaults } from '../ThemeStore'
+import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 
 const debug = makeDebugger('S:AppStore')
 
 const AppStore = t
   .model({
     // domain modal
-    // community
-    communities: t.optional(CommunitiesStore, {
-      languages: {},
-      frameworks: {},
-      cmds: {},
-    }),
+    communities: t.optional(CommunitiesStore, CommunitiesDefaults),
+
+    /* settings ?
+        |- themes
+        |- debug
+        |- users
+        |- jobs
+     */
+
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
     // account: ...{ config } ..
-    appTheme: t.optional(t.enumeration('theme', themeNames), 'default'),
+    theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
     // domain end
 
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
-    // header: t...,
-    // banner: t...,
     body: t.optional(BodyStore, {}),
     github: t.optional(GithubEampleStore, {}),
     doraemon: t.optional(DoraemonStore, {}),
-    /* account: t..., */
   })
   .views(self => ({
-    get version() {
-      return '0.0.1'
-    },
-    get theme() {
-      return globalThemes[self.appTheme]
-    },
-    get themeName() {
-      return self.appTheme
-    },
     get locale() {
       return self.appLocale
     },
@@ -76,7 +67,7 @@ const AppStore = t
       self.doraemon.showDoraemon()
     },
     changeTheme(name) {
-      self.appTheme = name
+      self.theme.changeTheme(name)
     },
     changeLocale(locale) {
       self.appLocale = locale

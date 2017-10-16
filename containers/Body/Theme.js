@@ -9,7 +9,6 @@ import * as logic from './logic'
 import { ThemeSelectorWraper, ThemeSelector } from './ThemeSelector'
 import A from '../../components/A'
 import { Center, HorizontalCenter, Title } from '../../components/BaseStyled'
-import { themeNames } from '../../utils/themes'
 
 const Desc = styled.div`
   color: ${props => props.theme.font};
@@ -17,7 +16,7 @@ const Desc = styled.div`
   transition: color 0.3s;
 `
 
-const Theme = ({ curTheme }) => {
+const Theme = ({ curTheme, themeKeys }) => {
   return (
     <Center>
       <HorizontalCenter>
@@ -33,7 +32,7 @@ const Theme = ({ curTheme }) => {
       <br />
       <br />
       <ThemeSelectorWraper>
-        {themeNames.map(name => (
+        {themeKeys.map(name => (
           <ThemeSelector
             key={name}
             active={curTheme === name}

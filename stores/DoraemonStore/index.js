@@ -39,8 +39,14 @@ const DoraemonStore = t
       ]),
       'pl'
     ),
-    // program-languages, frameworks ...
+    // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
+    /* allSuggestions
+       |- Communities   -- outside
+       |- Themes        -- outside
+       |- Jobs          -- cmd
+       |- Debug         -- cmd
+     */
     activeRaw: t.optional(t.string, ''),
     prefix: t.optional(t.string, ''),
     /*

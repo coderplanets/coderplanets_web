@@ -6,9 +6,9 @@
 
 import R from 'ramda'
 
-import { themeNames } from '../../../utils/themes'
+import { themeKeys } from '../../../utils/themes'
 
-// const theme = R.map(v => ({ [v]: { title: v, desc: v, new: {} } }))(themeNames)
+// const theme = R.map(v => ({ [v]: { title: v, desc: v, new: {} } }))(themeKeys)
 
 const cmds = {
   Debug: { title: 'debug', desc: 'debug desc', raw: 'Debug' },
@@ -32,7 +32,7 @@ R.map(
       raw: `themes--${v}`,
       detail: {},
     }),
-  themeNames
+  themeKeys
 )
 cmds.Themes.title = 'themes'
 cmds.Themes.desc = 'theme desc'

@@ -22,7 +22,7 @@ import Slack from './Slack'
 import Brown from './Brown'
 import CyanGreen from './CyanGreen'
 
-export const globalThemes = {
+export const themeDict = {
   default: { ...Cyan },
   cyan: { ...Cyan },
   // solarizedDark: { ...SolarizedDark },
@@ -33,8 +33,8 @@ export const globalThemes = {
   cyan_green: { ...CyanGreen },
 }
 
-export const themeNames = R.keys(globalThemes)
+export const themeKeys = R.keys(themeDict)
 
 // const getBodyBg = R.compose(R.head, R.path(['sidebar', 'bg']))
-export const selectorColors = R.map(R.path(['sidebar', 'bg']), globalThemes)
-export const themeColorMap = R.map(R.path(['sidebar', 'bg']), globalThemes)
+export const selectorColors = R.map(R.path(['sidebar', 'bg']), themeDict)
+export const themeColorMap = R.map(R.path(['sidebar', 'bg']), themeDict)

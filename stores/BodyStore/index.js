@@ -16,11 +16,11 @@ const BodyStore = t
     get app() {
       return getParent(self)
     },
-    get theme() {
-      return self.app.theme
+    get curTheme() {
+      return self.app.theme.curTheme
     },
-    get themeName() {
-      return self.app.themeName
+    get themeKeys() {
+      return self.app.theme.themeKeys
     },
     get langMessages() {
       return self.app.langMessages

@@ -22,26 +22,27 @@ import FrameworkModel from './FrameworkModel'
 
 const debug = makeDebugger('S:CommunitiesStore')
 
-const CommunitiesStore = t
+export const CommunitiesDefaults = {
+  languages: {},
+  frameworks: {},
+}
+
+export const CommunitiesStore = t
   .model('CommunitiesStore', {
     languages: t.map(PlModel),
     frameworks: t.map(FrameworkModel),
+    // jobs: ...
     // themes: ...
     // debug: ...
     // user: ...
-    // jobs: ...
-    //  cmds: t.map(CmdModel),
+    // cmds: t.map(CmdModel),
   })
   .views(self => ({
     get app() {
       return getParent(self)
     },
     get allCommunities() {
-      return R.mergeAll([
-        self.languages.toJSON(),
-        self.frameworks.toJSON(),
-        //   self.cmds.toJSON(),
-      ])
+      return R.mergeAll([self.languages.toJSON(), self.frameworks.toJSON()])
     },
   }))
   .actions(self => ({
@@ -53,12 +54,6 @@ const CommunitiesStore = t
       R.forEachObjIndexed((v, k) => {
         self.frameworks.set(k, v)
       }, framework)
-
-      /*
-      R.forEachObjIndexed((v, k) => {
-        self.cmds.set(k, v)
-      }, cmd)
-      */
 
       //  self.communities.put(suggestion)
       debug('after communities: ', self.allCommunities)
@@ -74,5 +69,3 @@ const CommunitiesStore = t
       }, sobj)
     },
   }))
-
-export default CommunitiesStore

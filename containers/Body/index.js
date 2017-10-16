@@ -24,14 +24,14 @@ import CmdExample from './CmdExample'
 
 const debug = makeDebugger('C:Body')
 
-const IntroPage = ({ route, doraemonVisable, themeName }) => {
+const IntroPage = ({ route, doraemonVisable, curTheme, themeKeys }) => {
   switch (route.query.name) {
     case 'index':
       return <Home />
     case 'feature':
       return <Feature />
     case 'theme':
-      return <Theme curTheme={themeName} />
+      return <Theme curTheme={curTheme} themeKeys={themeKeys} />
     case 'i18n':
       return <I18n />
     case 'example':
@@ -66,12 +66,13 @@ class ContentContainer extends React.Component {
   render() {
     // debug('cur route:', this.props.route)
     const { route } = this.props
-    const { themeName, doraemonVisable } = this.props.body
+    const { curTheme, doraemonVisable, themeKeys } = this.props.body
 
     return (
       <Body id="whereCallShowDoraemon">
         <IntroPage
-          themeName={themeName}
+          curTheme={curTheme}
+          themeKeys={themeKeys}
           doraemonVisable={doraemonVisable}
           route={route}
         />
