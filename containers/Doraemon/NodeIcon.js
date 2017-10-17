@@ -37,7 +37,7 @@ const NodeIcon = ({ raw }) => {
     return <Icons.themeDot bg={themeColorMap[iconKey]} />
   } else if (iconKey === 'hforward') {
     return <Icons.forward />
-  } else if (iconKey === 'hback') {
+  } else if (iconKey === 'hbackward') {
     return <Icons.backward />
   } else if (iconKey === 'question') {
     return <Icons.question />

@@ -24,9 +24,24 @@ const initCmdResolver = () => {
     {
       match: SAK.stepOneCmd('themes'),
       action: () => {
-        console.log('SAK.stepOneCmd')
         SAK.completeInput(true)
         queryPocket()
+      },
+    },
+    {
+      match: SAK.stepOneCmd('hforward'),
+      action: () => {
+        console.log('SAK.stepOneCmd hforward')
+        //   SAK.completeInput(true)
+        //   queryPocket()
+      },
+    },
+    {
+      match: SAK.stepOneCmd('hbackward'),
+      action: () => {
+        console.log('SAK.stepOneCmd hbackward')
+        //   SAK.completeInput(true)
+        // queryPocket()
       },
     },
     {
@@ -52,14 +67,15 @@ const initCmdResolver = () => {
   ]
 }
 
+const clearfyCmd = R.compose(R.split('--'), R.toLower)
+
 const doCmd = () => {
-  const lowerRaw = R.toLower(store.activeRaw)
-  const splitRaw = R.split('--', lowerRaw)
+  const cmd = clearfyCmd(store.activeRaw)
 
   // Do not use forEach, cause forEach will not break
   for (let i = 0; i < cmdResolver.length; i += 1) {
-    if (cmdResolver[i].match(splitRaw)) {
-      return cmdResolver[i].action(splitRaw)
+    if (cmdResolver[i].match(cmd)) {
+      return cmdResolver[i].action(cmd)
     }
   }
   return false
@@ -141,9 +157,8 @@ export function init(selectedStore) {
 
   pockect$ = new Pockect(store)
   SAK = new SwissArmyKnife(store)
-  console.log('SAK: ', SAK)
+
   initCmdResolver()
-  console.log('after cmdResolver: ', cmdResolver)
 
   pockect$.cmdSuggesttion().subscribe(res => {
     store.loadSuggestions(res)
