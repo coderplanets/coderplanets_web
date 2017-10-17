@@ -1,5 +1,5 @@
 /*
- * AppStore store
+ * rootStore store
  *
  */
 
@@ -13,9 +13,9 @@ import DoraemonStore from '../DoraemonStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 
-const debug = makeDebugger('S:AppStore')
+const debug = makeDebugger('S:rootStore')
 
-const AppStore = t
+const rootStore = t
   .model({
     // domain modal
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
@@ -81,4 +81,4 @@ const AppStore = t
     },
   }))
 
-export default AppStore
+export default rootStore

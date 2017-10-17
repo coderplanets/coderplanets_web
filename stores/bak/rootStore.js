@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-import ShopStore from './ShopStore'
+import ShopStore from '../ShopStore'
 
 let rootStore = null
 

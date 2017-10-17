@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import { IntlProvider } from 'react-intl'
 import Link from 'next/link'
 
-import initAppStore from '../stores'
+import initRootStore from '../stores'
 
 import globalStyles from '../utils/global_styles'
 import Sidebar from '../containers/Sidebar'
@@ -11,14 +11,14 @@ import Sidebar from '../containers/Sidebar'
 export default class Other extends React.Component {
   static getInitialProps({ req }) {
     const isServer = !!req
-    const store = initAppStore(isServer)
+    const store = initRootStore(isServer)
     // todo: get locale
     return { isServer, version: store.version }
   }
 
   constructor(props) {
     super(props)
-    this.store = initAppStore(props.isServer)
+    this.store = initRootStore(props.isServer)
   }
 
   render() {

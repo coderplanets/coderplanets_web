@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { Provider } from 'mobx-react'
 
 import Shop from '../containers/Shop'
-import initStore from '../stores/rootStore'
+import initStore from '../stores/bak/rootStore'
 
 import globalStyles from '../utils/global_styles'
 

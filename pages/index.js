@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import initAppStore from '../stores'
+import initRootStore from '../stores'
 import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
@@ -19,7 +19,7 @@ export default class Index extends React.Component {
     const { locale, messages } = req || window.__NEXT_DATA__.props
     const langSetup = {}
     langSetup[locale] = messages
-    const store = initAppStore(isServer, langSetup)
+    const store = initRootStore(isServer, langSetup)
     /* eslint-enable no-undef */
 
     return { isServer, version: store.version, messages, locale, langSetup }
@@ -27,7 +27,7 @@ export default class Index extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initAppStore(props.isServer, props.langSetup)
+    this.store = initRootStore(props.isServer, props.langSetup)
   }
 
   render() {

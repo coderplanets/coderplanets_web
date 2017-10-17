@@ -5,36 +5,34 @@
 
 // import { onAction } from 'mobx-state-tree'
 
-import AppStore from './AppStore'
+import RootStore from './RootStore'
 
-// export const appStore =
-
-let appStore = null
+let rootStore = null
 
 const createRootStore = (isServer, langSetup) => {
-  return AppStore.create({ appLangs: langSetup })
+  return RootStore.create({ appLangs: langSetup })
 }
 
-function initAppStore(isServer = false, langSetup) {
-  if (appStore === null) {
-    appStore = createRootStore(isServer, langSetup)
+function initRootStore(isServer = false, langSetup) {
+  if (rootStore === null) {
+    rootStore = createRootStore(isServer, langSetup)
   }
 
   /*
-  onAction(appStore, data => {
+  onAction(rootStore, data => {
     console.log('onSnapshot: ', data)
   })
   */
 
-  return appStore
+  return rootStore
 }
 
-export default initAppStore
+export default initRootStore
 // not work, TODO
 /*
 if (module.hot) {
-  if (module.hot.data && module.hot.data.appStore) {
-    // applySnapshot(module.hot.data.old, module.hot.data.appStore)
+  if (module.hot.data && module.hot.data.rootStore) {
+    // applySnapshot(module.hot.data.old, module.hot.data.rootStore)
   }
   module.hot.dispose(data => {
    // getSnapshot ...
