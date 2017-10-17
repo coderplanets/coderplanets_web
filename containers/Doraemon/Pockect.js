@@ -53,7 +53,10 @@ export default class Pockect {
   }
 
   query(term) {
-    this.input$.next(term)
+    // debug('inputForOtherUse: ', this.store.inputForOtherUse)
+    if (!this.store.inputForOtherUse) {
+      this.input$.next(term)
+    }
   }
 
   stop() {

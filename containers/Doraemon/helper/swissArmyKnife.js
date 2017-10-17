@@ -3,7 +3,7 @@ import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
 import { lengthE1, lengthE2, anyNil } from '../../../utils/functions'
 
-export const fuck = 1
+export const clearfyCmd = R.compose(R.split('--'), R.toLower)
 
 export class SwissArmyKnife {
   constructor(store) {
@@ -62,11 +62,11 @@ export class SwissArmyKnife {
   }
 
   // TODO rename to linker
-  stepOneLink = R.curry(cmdpath =>
+  communityLinker = R.curry(cmdpath =>
     R.and(R.contains(R.head(cmdpath), this.communities), lengthE1(cmdpath))
   )
 
-  stepTwoLink = R.curry(cmdpath =>
+  communityInsideLinker = R.curry(cmdpath =>
     R.and(R.contains(R.head(cmdpath), this.communities), lengthE2(cmdpath))
   )
 

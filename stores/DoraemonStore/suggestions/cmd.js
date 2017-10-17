@@ -11,7 +11,7 @@ import { themeKeys } from '../../../utils/themes'
 // const theme = R.map(v => ({ [v]: { title: v, desc: v, new: {} } }))(themeKeys)
 
 const cmds = {
-  Debug: { title: 'debug', desc: 'debug desc', raw: 'Debug' },
+  Debug: {},
   History: { title: 'history', desc: 'me desc', raw: 'History' },
   '>': { title: 'history go forward', desc: 'goforward desc', raw: 'hforward' },
   '<': { title: 'history go back', desc: 'goback desc', raw: 'hbackward' },
@@ -37,5 +37,19 @@ R.map(
 cmds.Themes.title = 'themes'
 cmds.Themes.desc = 'theme desc'
 cmds.Themes.raw = 'Themes'
+
+cmds.Debug.title = 'debug'
+cmds.Debug.desc = 'set debug'
+cmds.Debug.raw = 'Debug'
+cmds.Debug.debug = {
+  title: '设置完成',
+  desc: '生效需要重新刷新页面',
+  raw: 'debug--write',
+}
+cmds.Debug.github = {
+  title: 'Readme on github',
+  desc: 'debug github page',
+  raw: 'debug--github',
+}
 
 export default cmds

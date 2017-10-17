@@ -1,8 +1,8 @@
 import R from 'ramda'
 
-import { makeDebugger } from '../../utils/debug'
 import Pockect from './Pockect'
-import { SwissArmyKnife } from './helper/swissArmyKnife'
+import { makeDebugger, Global } from '../../utils/functions'
+import { SwissArmyKnife, clearfyCmd } from './helper/swissArmyKnife'
 
 const debug = makeDebugger('L:Doraemon')
 
@@ -29,49 +29,65 @@ const initCmdResolver = () => {
       },
     },
     {
+      match: SAK.stepOneCmd('debug'),
+      action: () => {
+        SAK.completeInput(true)
+        queryPocket()
+        store.markState({
+          inputForOtherUse: true,
+          inputValue: Global.localStorage.getItem('debug'),
+        })
+      },
+    },
+    {
       match: SAK.stepOneCmd('hforward'),
       action: () => {
         console.log('SAK.stepOneCmd hforward')
-        //   SAK.completeInput(true)
-        //   queryPocket()
       },
     },
     {
       match: SAK.stepOneCmd('hbackward'),
       action: () => {
         console.log('SAK.stepOneCmd hbackward')
-        //   SAK.completeInput(true)
-        // queryPocket()
       },
     },
     {
       match: SAK.stepTwoCmd('themes'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
-        console.log('SAK.stepTwoCmd')
         store.changeTheme(theme)
       },
     },
     {
-      match: SAK.stepOneLink,
+      match: SAK.stepTwoCmd('debug'),
       action: cmdpath => {
-        console.log('stepOneLink: ', cmdpath)
+        const cmd = R.last(cmdpath)
+        if (cmd === 'github') {
+          Global.window.open('https://github.com/visionmedia/debug', '_blank')
+        } else if (cmd === 'write') {
+          Global.localStorage.setItem('debug', store.inputValue)
+          hidePanel()
+        }
       },
     },
     {
-      match: SAK.stepTwoLink,
+      match: SAK.communityLinker,
       action: cmdpath => {
-        console.log('stepTwoLink: ', cmdpath)
+        debug('communityLinker: ', cmdpath)
+      },
+    },
+    {
+      match: SAK.communityInsideLinker,
+      action: cmdpath => {
+        debug('communityInsideLinker: ', cmdpath)
       },
     },
   ]
 }
 
-const clearfyCmd = R.compose(R.split('--'), R.toLower)
-
 const doCmd = () => {
   const cmd = clearfyCmd(store.activeRaw)
-
+  //  debug('clearfyCmd: ', cmd)
   // Do not use forEach, cause forEach will not break
   for (let i = 0; i < cmdResolver.length; i += 1) {
     if (cmdResolver[i].match(cmd)) {

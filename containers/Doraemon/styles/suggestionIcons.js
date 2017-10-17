@@ -33,6 +33,8 @@ import questionIcon from '../../../static/nodeIcons/cmd/question.svg'
 import enterIcon from '../../../static/nodeIcons/cmd/enter.svg'
 import searchIcon from '../../../static/nodeIcons/cmd/search.svg'
 import magicIcon from '../../../static/nodeIcons/cmd/magic.svg'
+import githubIcon from '../../../static/nodeIcons/github.svg'
+import writeIcon from '../../../static/nodeIcons/cmd/write.svg'
 // ----
 import postsIcon from '../../../static/nodeIcons/cmd/posts.svg'
 import tutsIcon from '../../../static/nodeIcons/cmd/tuts.svg'
@@ -114,6 +116,12 @@ export const videos = styled(videosIcon)`${iconStyle};`
 export const meetups = styled(meetupsIcon)`${iconStyle};`
 export const jobs = styled(jobsIcon)`${iconStyle};`
 export const history = styled(historyIcon)`${iconStyle};`
+
+export const github = styled(githubIcon)`${iconStyle};`
+export const write = styled(writeIcon)`
+  ${iconStyle};
+  width: 80%;
+`
 
 export const themeDot = styled.div`
   width: 35px;

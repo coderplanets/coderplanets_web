@@ -32,7 +32,6 @@ const NodeIcon = ({ raw }) => {
   }
 
   const iconKey = getIconKey(lowerRaw)
-
   if (R.startsWith('themes--', lowerRaw)) {
     return <Icons.themeDot bg={themeColorMap[iconKey]} />
   } else if (iconKey === 'hforward') {

@@ -6,34 +6,39 @@
 
 
 ## PostgreSQL
-  [查询客户端 franchise](https://github.com/HVF/franchise)
+  [pgweb](https://github.com/sosedoff/pgweb)
+  [查询客户端 franchise](https://github.com/HVF/franchise) run sql in browser
 
 ## packages
    [mobx-react-form](https://github.com/foxhound87/mobx-react-form)
    [markjs](https://markjs.io/)
    [markdown-it](https://markdown-it.github.io/)
    [Autolinker](https://github.com/gregjacobs/Autolinker.js)
+   [dbeaver](https://dbeaver.jkiss.org/) based-on java
 
 ## issues
   next.config.js 如果导出不存在的页面可能会使 build 过程出现奇怪的错误, 如
   polished 报错. 只导出需要的页面
 
+## TODO-server
+
+- [ ] return raw sql query to browser for copy / paste
+
+
 ## TODO
 
+- [x] support < > ... cmd
+- [ ] common suggestion error display
+- [ ] complete debug feature
+- [ ] header
+- [ ] navbar
 - [ ] make Doraemon ^x could cycle
 - [ ] remove Doraemon panel's scrollbar
 - [ ] let lang icon not use svg, cause big size in bundle
 - [ ] head for every page, [example](https://github.com/zeit/next.js/blob/master/examples/head-elements/pages/index.js)
 - [ ] a layout [example](https://github.com/zeit/next.js/blob/master/examples/layout-component/components/layout.js)
 - [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)
-- [ ] complete debug and theme switch
-- [ ] cmd chian for trace and may use in header
 - [ ] use Rxdb to store state in browser, [see](https://github.com/mobxjs/mobx-state-tree/blob/a0916791768637665a56bc2720ec0a081d4d148f/packages/mst-example-todomvc/src/index.js) 
-- [x] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
-- [x] upgrade to next@4 which only support react v16
-- [ ] upgrade mobx-state-tree
-- [ ] use [rambda](https://selfrefactor.github.io/rambda/#/?id=tree-shaking)
-  for small size -- not need, pickby is missing, a option though
 - [ ] [answer](https://github.com/mobxjs/mobx-state-tree/issues/27)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
 - [ ] Search panel && login panel ----> 或许应该叫 UnverisalPanel ? --> 可以呼出
@@ -46,9 +51,13 @@
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
-- [ ] launch first version with changeLog staff
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] launch first version with changeLog staff
+- [x] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
+- [x] upgrade to next@4 which only support react v16
+- [x] upgrade mobx-state-tree
+- [x] cmd chian for trace and may use in header
 - [x] test --> tests
 - [x] *test Preact in production*
 - [x] logic.js generator (only for containers)
@@ -72,7 +81,6 @@
 - [x] *design data layer*: [基于 RxJs 的前端数据层实践](https://juejin.im/post/59a7d6d06fb9a0247804f2aa)
 - [x] add Menu
 - [x] 使用各国标志性的建筑作为 i18n 切换图标
-
 
 ### MindStorm
 

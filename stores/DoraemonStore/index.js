@@ -33,34 +33,22 @@ const DoraemonStore = t
   .model('DoraemonStore', {
     visiable: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
-    curSuggestionType: t.optional(
-      t.enumeration('curSuggestionType', [
-        'pl',
-        'search',
-        'theme',
-        'account',
-        'debug',
-      ]),
-      'pl'
-    ),
     // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
-    /* allSuggestions
-       |- Communities   -- outside
-       |- Themes        -- outside
-       |- Jobs          -- cmd
-       |- Debug         -- cmd
-     */
     activeRaw: t.optional(t.string, ''),
+    // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
+
+    // for debug config, input login/password ... etc
+    inputForOtherUse: t.optional(t.boolean, false),
     /*
-   advancePrefix: t.optional(
-        t.enumeration('cmdprefix', [
-          'search',
+    configPrefix: t.optional(
+        t.enumeration('configPrefix', [
+           ''
           'debug',
           'login...',
         ]),
-        'search'
+        ''
       )
     */
   })
@@ -154,6 +142,7 @@ const DoraemonStore = t
     hideDoraemon() {
       self.visiable = false
       self.inputValue = ''
+      self.inputForOtherUse = false
       self.clearSuggestions()
       hideDoraemonBarRecover()
     },
