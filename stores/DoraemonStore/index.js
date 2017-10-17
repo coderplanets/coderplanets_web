@@ -72,6 +72,9 @@ const DoraemonStore = t
       // console.log('fuck cmds: ', cmds)
       return R.mergeAll([self.app.communities.all, mapKeys(R.toLower, cmds)])
     },
+    get communities() {
+      return self.app.communities.all
+    },
     get suggestionCount() {
       return self.suggestions.length
     },

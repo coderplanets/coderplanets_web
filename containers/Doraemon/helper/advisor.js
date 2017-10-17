@@ -22,8 +22,9 @@ export const startWithSpecialPrefix = R.anyPass([
 ])
 
 export class Advisor {
-  constructor(allSuggestions) {
-    this.allSuggestions = allSuggestions
+  constructor(store) {
+    this.store = store
+    this.allSuggestions = store.allSuggestions
   }
 
   getSuggestionPath = R.curry(p => R.path(p, this.allSuggestions))

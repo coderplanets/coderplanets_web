@@ -1,99 +1,57 @@
 import R from 'ramda'
-import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
 import { makeDebugger } from '../../utils/debug'
 import Pockect from './Pockect'
-import { anyNil } from '../../utils/functions'
-import {
-  stepOneCmd,
-  stepTwoCmd,
-  stepOneLink,
-  stepTwoLink,
-} from './helper/cmder'
+import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 const debug = makeDebugger('L:Doraemon')
 
 let store = null
 let pockect$ = null
-
-// const RLog = x => debug('R log: ', x)
+let SAK = null
+let cmdResolver = []
 
 const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
 const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
 const isNotSearching = R.compose(R.not, R.prop('searching'))
 
-function scrollIfNeeded() {
-  try {
-    /* eslint-disable no-undef */
-    scrollIntoViewIfNeeded(
-      document.querySelector(`#${store.activeRaw}`),
-      true,
-      {
-        duration: 80,
-      }
-    )
-    /* eslint-enable no-undef */
-  } catch (e) {
-    debug('bad selector in scrollIntoViewIfNeeded', e)
-  }
+function queryPocket() {
+  pockect$.query(store.inputValue)
 }
 
-function query(inputValue) {
-  store.markState({
-    inputValue,
-    // searching: true,
-  })
-  pockect$.search(inputValue)
+const initCmdResolver = () => {
+  cmdResolver = [
+    {
+      match: SAK.stepOneCmd('themes'),
+      action: () => {
+        console.log('SAK.stepOneCmd')
+        SAK.completeInput(true)
+        queryPocket()
+      },
+    },
+    {
+      match: SAK.stepTwoCmd('themes'),
+      action: cmdpath => {
+        const theme = R.last(cmdpath)
+        console.log('SAK.stepTwoCmd')
+        store.changeTheme(theme)
+      },
+    },
+    {
+      match: SAK.stepOneLink,
+      action: cmdpath => {
+        console.log('stepOneLink: ', cmdpath)
+      },
+    },
+    {
+      match: SAK.stepTwoLink,
+      action: cmdpath => {
+        console.log('stepTwoLink: ', cmdpath)
+      },
+    },
+  ]
 }
 
-function completeInput(into = false) {
-  if (anyNil([store.prefix, store.activeTitle])) return
-
-  const prefix = R.toLower(store.prefix)
-  const activeTitle = R.toLower(store.activeTitle)
-
-  let inputValue = ''
-  // TODO: support ? opt
-  if (store.prefix === '/') {
-    inputValue = `${prefix}${activeTitle}`
-  } else {
-    inputValue = `/${prefix}/${activeTitle}`
-  }
-
-  if (into) inputValue = `${inputValue}/`
-  // debug('new input: ', newInput)
-  query(inputValue)
-}
-
-const cmdResolver = [
-  {
-    match: stepOneCmd('themes'),
-    action: () => {
-      completeInput(true)
-    },
-  },
-  {
-    match: stepTwoCmd('themes'),
-    action: cmdpath => {
-      const theme = R.last(cmdpath)
-      store.changeTheme(theme)
-    },
-  },
-  {
-    match: stepOneLink,
-    action: cmdpath => {
-      console.log('stepOneLink: ', cmdpath)
-    },
-  },
-  {
-    match: stepTwoLink,
-    action: cmdpath => {
-      console.log('stepTwoLink: ', cmdpath)
-    },
-  },
-]
-
-// TODO: move to cmdLogic.js
 const doCmd = () => {
   const lowerRaw = R.toLower(store.activeRaw)
   const splitRaw = R.split('--', lowerRaw)
@@ -107,16 +65,18 @@ const doCmd = () => {
   return false
 }
 
-export function onKeyPress(e) {
+export function handleShortCuts(e) {
   //  debug('onKeyPress ..', e.key)
   switch (e.key) {
     case 'Tab': {
-      completeInput()
+      SAK.completeInput()
+      queryPocket()
       e.preventDefault()
       break
     }
     case 'Enter': {
       doCmd()
+      // Cmder.doCmd()
       // pockect$.doCmd()
       e.preventDefault()
       break
@@ -140,6 +100,7 @@ export function onKeyPress(e) {
   }
 }
 
+// TODO: not found hinter logic ..
 export const repoNotFound = R.allPass([
   reposIsEmpty,
   inputValueIsNotEmpty,
@@ -147,19 +108,12 @@ export const repoNotFound = R.allPass([
 ])
 
 export function navSuggestion(direction) {
-  if (anyNil([store.prefix, store.activeTitle])) return
-  if (direction === 'up') {
-    store.activeUp()
-  } else {
-    store.activeDown()
-  }
-  scrollIfNeeded()
+  SAK.navSuggestion(direction)
 }
 
 // mounseEnter
 export function navToSuggestion(suggestion) {
-  const activeSuggestion = suggestion.toJSON()
-  store.activeTo(activeSuggestion.raw)
+  SAK.navToSuggestion(suggestion)
 }
 
 export function hidePanel() {
@@ -174,16 +128,24 @@ export function panelClick(e) {
 
 export function inputOnChange(e) {
   const inputValue = e.target.value
-  query(inputValue)
+  store.markState({
+    inputValue,
+    // searching: true,
+  })
+  queryPocket()
 }
 
 export function init(selectedStore) {
   store = selectedStore
   debug('store', store)
+
   pockect$ = new Pockect(store)
+  SAK = new SwissArmyKnife(store)
+  console.log('SAK: ', SAK)
+  initCmdResolver()
+  console.log('after cmdResolver: ', cmdResolver)
 
   pockect$.cmdSuggesttion().subscribe(res => {
-    //    debug('--> res: ', res)
     store.loadSuggestions(res)
   })
 

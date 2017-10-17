@@ -55,6 +55,7 @@ const selector = ({ store }) => ({
 class DoraemonContainer extends React.Component {
   componentWillMount() {
     debug('mount')
+    // TODO? maybe: this.logic = new Logic(this.props.store)
     logic.init(this.props.store)
   }
   // ref={infobar => (this[`infobar${suggestion.title}`] = infobar)}
