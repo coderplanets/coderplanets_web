@@ -29,6 +29,13 @@ const initCmdResolver = () => {
       },
     },
     {
+      match: SAK.stepOneCmd('login'),
+      action: () => {
+        SAK.completeInput(true)
+        queryPocket()
+      },
+    },
+    {
       match: SAK.stepOneCmd('debug'),
       action: () => {
         SAK.completeInput(true)
@@ -56,6 +63,14 @@ const initCmdResolver = () => {
       action: cmdpath => {
         const theme = R.last(cmdpath)
         store.changeTheme(theme)
+      },
+    },
+    {
+      match: SAK.stepTwoCmd('login'),
+      action: cmdpath => {
+        debug('stepTwoCmd login: ', cmdpath)
+        SAK.completeInput(true)
+        queryPocket()
       },
     },
     {

@@ -26,6 +26,11 @@ import phoenixIcon from '../../../static/nodeIcons/programmingF/js/phoenix.svg'
 import dockerIcon from '../../../static/nodeIcons/programmingF/go/docker.svg'
 
 // cmds
+import forgotIcon from '../../../static/nodeIcons/cmd/forget.svg'
+import registerIcon from '../../../static/nodeIcons/cmd/register.svg'
+import emailIcon from '../../../static/nodeIcons/cmd/mail.svg'
+import coderclubIcon from '../../../static/nodeIcons/coderclub.svg'
+import loginIcon from '../../../static/nodeIcons/cmd/login.svg'
 import themeIcon from '../../../static/nodeIcons/cmd/theme.svg'
 import debugIcon from '../../../static/nodeIcons/cmd/debug.svg'
 import forwardIcon from '../../../static/nodeIcons/cmd/forward.svg'
@@ -92,6 +97,16 @@ export const magic = styled(magicIcon)`
   transform: rotate(-30deg);
 `
 
+export const coderclub = styled(coderclubIcon)`${iconStyle};`
+export const login = styled(loginIcon)`
+  ${iconStyle};
+  width: 80%;
+  margin-top: -3px;
+`
+
+export const forgot = styled(forgotIcon)`${iconStyle};`
+export const register = styled(registerIcon)`${iconStyle};`
+export const email = styled(emailIcon)`${iconStyle};`
 export const themes = styled(themeIcon)`${iconStyle};`
 export const debug = styled(debugIcon)`${iconStyle};`
 export const forward = styled(forwardIcon)`${iconStyle};`

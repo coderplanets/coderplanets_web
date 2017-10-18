@@ -12,17 +12,18 @@ export class SwissArmyKnife {
   }
 
   completeInput = (into = false) => {
-    if (anyNil([this.store.prefix, this.store.activeTitle])) return
+    if (anyNil([this.store.prefix, this.store.activeRaw])) return
 
     const prefix = R.toLower(this.store.prefix)
-    const activeTitle = R.toLower(this.store.activeTitle)
+    const activeRawLast = R.last(clearfyCmd(this.store.activeRaw))
+    //     console.log('completeInput activeRawLast: ', activeRawLast)
 
     let inputValue = ''
     // TODO: support ? opt
     if (this.store.prefix === '/') {
-      inputValue = `${prefix}${activeTitle}`
+      inputValue = `${prefix}${activeRawLast}`
     } else {
-      inputValue = `/${prefix}/${activeTitle}`
+      inputValue = `/${prefix}/${activeRawLast}`
     }
 
     if (into) inputValue = `${inputValue}/`
@@ -46,8 +47,8 @@ export class SwissArmyKnife {
   }
 
   navSuggestion = direction => {
-    const { prefix, activeTitle } = this.store
-    if (anyNil([prefix, activeTitle])) return
+    const { prefix, activeRaw } = this.store
+    if (anyNil([prefix, activeRaw])) return
     if (direction === 'up') {
       this.store.activeUp()
     } else {
