@@ -7,7 +7,7 @@
 import React from 'react'
 import keydown from 'react-keydown'
 
-// import { makeDebugger } from '../../utils/debug'
+// import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
 
 import {

@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'

@@ -1,7 +1,7 @@
 import { types, getParent } from 'mobx-state-tree'
 import bookMockJson from '../ShopStore/books.mock'
 
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('S:bookStore')
 

@@ -4,7 +4,7 @@
  */
 
 import { types as t } from 'mobx-state-tree'
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'

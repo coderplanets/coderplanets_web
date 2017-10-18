@@ -27,7 +27,7 @@ import {
   CmdIcon,
   GraphQLIcon,
 } from './MenuIcon'
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')

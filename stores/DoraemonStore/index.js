@@ -15,7 +15,7 @@ import {
 
 import cmds from './suggestions/cmd'
 
-// import { makeDebugger } from '../../utils/debug'
+// import { makeDebugger } from '../../utils/functions'
 
 // const debug = makeDebugger('S:DoraemonStore')
 

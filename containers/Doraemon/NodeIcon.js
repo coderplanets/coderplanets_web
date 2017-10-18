@@ -7,7 +7,7 @@ import React from 'react'
 import R from 'ramda'
 
 import * as SuggestionIcons from './styles/suggestionIcons'
-// import { makeDebugger } from '../../utils/debug'
+// import { makeDebugger } from '../../utils/functions'
 
 import { themeColorMap } from '../../utils/themes/'
 

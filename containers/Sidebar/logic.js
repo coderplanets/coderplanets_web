@@ -1,5 +1,5 @@
 // import debounce from '../../utils/debounce'
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('L:sidebar')
 

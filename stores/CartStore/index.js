@@ -2,7 +2,7 @@ import { when, reaction } from 'mobx'
 /* import { types, getParent, getSnapshot, applySnapshot } from 'mobx-state-tree' */
 import { types, getParent, getSnapshot } from 'mobx-state-tree'
 import { Book } from '../BookStore'
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('store:CartStore')
 

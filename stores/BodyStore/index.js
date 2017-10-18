@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import { makeDebugger } from '../../utils/debug'
+// import { makeDebugger } from '../../utils/functions'
 
 // const debug = makeDebugger('S:BodyStore')
 

@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('L:Body')
 

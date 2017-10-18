@@ -12,14 +12,12 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/merge'
 
-import { makeDebugger } from '../../utils/debug'
+import { makeDebugger, isEmptyValue } from '../../utils/functions'
 import {
   startWithSpecialPrefix,
   startWithSlash,
   Advisor,
 } from './helper/advisor'
-
-import { isEmptyValue } from '../../utils/functions'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Doraemon:pocket')

@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-// import { makeDebugger } from '../../utils/debug'
+// import { makeDebugger } from '../../utils/functions'
 import { isObject } from '../../utils/functions'
 import { themeDict } from '../../utils/themes'
 

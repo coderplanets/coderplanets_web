@@ -1,6 +1,11 @@
 import R from 'ramda'
 
+export { makeDebugger } from './debug'
+
 /* eslint-disable */
+// TODO: document ?
+export const Global = typeof window !== 'undefined' ? window : global
+
 export const isObject = value => {
   const type = typeof value
   return value != null && (type == 'object' || type == 'function')
