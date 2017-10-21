@@ -5,6 +5,10 @@ const debug = makeDebugger('L:Body')
 
 let store = null
 
+export function openDrawer() {
+  store.openDrawer()
+}
+
 export function changeTheme(name) {
   debug('changeTheme', name)
   store.changeTheme(name)

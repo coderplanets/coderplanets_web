@@ -6,6 +6,7 @@ import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
 import Body from '../containers/Body'
+import Drawer from '../containers/Drawer'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -35,6 +36,7 @@ export default class Index extends React.Component {
     /* const messages = this.props.messages */
 
     const route = this.props.url
+    // TODO: move the route info to store
     const globalStatus = {
       route: this.props.url,
     }
@@ -43,8 +45,10 @@ export default class Index extends React.Component {
       <Provider store={this.store}>
         <Decrator>
           <MultiLanguage>
+            {/* <App/> */}
             <div>
               <Sidebar {...globalStatus} />
+              <Drawer />
               <Body route={route} />
             </div>
           </MultiLanguage>

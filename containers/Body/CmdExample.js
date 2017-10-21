@@ -6,6 +6,8 @@ import lang from './lang'
 import { HorizontalCenter } from '../../components/BaseStyled'
 import Doraemon from '../../containers/Doraemon'
 
+import { openDrawer } from './logic'
+
 const Hinter = styled.div`
   padding-top: 18%;
   color: ${props => props.theme.font};
@@ -20,7 +22,7 @@ const CmdPanelExample = ({ doraemonVisable }) => (
         <I18n {...lang.doraemonHint} />
       </Hinter>
     )}
-
+    <button onClick={openDrawer}>Drawer</button>
     <Doraemon />
   </HorizontalCenter>
 )
