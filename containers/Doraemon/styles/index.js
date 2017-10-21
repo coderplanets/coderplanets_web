@@ -51,7 +51,7 @@ export const PanelContainer = styled.div`
   width: 45vw;
   max-width: 550px;
   position: absolute;
-  top: 15vh;
+  top: 12vh;
   z-index: 1002;
   display: ${props => (props.visible ? 'block' : 'none')};
   left: 50%;
@@ -62,7 +62,7 @@ export const Wraper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  max-height: 65vh;
+  max-height: 60vh;
   overflow: scroll;
 `
 
