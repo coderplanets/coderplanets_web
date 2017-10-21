@@ -24,12 +24,21 @@
 
 - [ ] return raw sql query to browser for copy / paste
 
+## Mobile
+
+- [ ] [bootsnote-mobile](https://github.com/BoostIO/boostnote-mobile/blob/master/package.json)
+
 
 ## TODO
 
-- [x] support < > ... cmd
+- [ ] pages
+       |-index.js
+       |-admin.js
+       |-intro.js
+
+- [ ] [字体问题参考](http://element.eleme.io/2.0/#/zh-CN/component/typography)
+- [ ] [字体](https://github.com/ethantw/Han)
 - [ ] common suggestion error display
-- [ ] complete debug feature
 - [ ] header
 - [ ] navbar
 - [ ] make Doraemon ^x could cycle
@@ -41,8 +50,6 @@
 - [ ] use Rxdb to store state in browser, [see](https://github.com/mobxjs/mobx-state-tree/blob/a0916791768637665a56bc2720ec0a081d4d148f/packages/mst-example-todomvc/src/index.js) 
 - [ ] [answer](https://github.com/mobxjs/mobx-state-tree/issues/27)
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
-- [ ] Search panel && login panel ----> 或许应该叫 UnverisalPanel ? --> 可以呼出
-  debug 设置等等
 - [ ] [主页弄给](https://github.com/Sly777/ran)
 - [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
 - [ ] add theme checker maybe? -> https://github.com/styled-components/stylelint-processor-styled-components
@@ -53,6 +60,8 @@
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] support < > ... cmd
+- [x] complete debug feature
 - [x] launch first version with changeLog staff
 - [x] upgrade to react v16 [check](https://github.com/react-boilerplate/react-boilerplate/pull/1969/files)
 - [x] upgrade to next@4 which only support react v16
