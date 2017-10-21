@@ -44,6 +44,9 @@ const rootStore = t
     doraemon: t.optional(DoraemonStore, {}),
   })
   .views(self => ({
+    get version() {
+      return '0.0.1'
+    },
     get locale() {
       return self.appLocale
     },
