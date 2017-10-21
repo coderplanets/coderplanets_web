@@ -27,7 +27,7 @@ class DrawerContainer extends React.Component {
 
   render() {
     const { visible } = this.props.store
-    debug('visible: ', visible)
+    debug('visiblei: ', visible)
     return (
       <div>
         <DrawerOverlay visible={visible} onClick={logic.closeDrawer} />

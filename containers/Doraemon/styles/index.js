@@ -43,7 +43,7 @@ export const PageOverlay = styled.div`
   right: 0;
   top: 0;
   z-index: 1001;
-  display: ${props => (props.visiable ? 'block' : 'none')};
+  display: ${props => (props.visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
@@ -54,7 +54,7 @@ export const PanelContainer = styled.div`
   position: relative;
   top: 15vh;
   z-index: 1002;
-  display: ${props => (props.visiable ? 'block' : 'none')};
+  display: ${props => (props.visible ? 'block' : 'none')};
 `
 
 export const Wraper = styled.div`

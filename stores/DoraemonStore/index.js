@@ -31,7 +31,7 @@ const Suggestion = t.model('Suggestion', {
 
 const DoraemonStore = t
   .model('DoraemonStore', {
-    visiable: t.optional(t.boolean, false),
+    visible: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
     // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
@@ -76,7 +76,7 @@ const DoraemonStore = t
       return self.suggestions[self.activeSuggestionIndex].title
     },
     get doraemonVisable() {
-      return self.visiable
+      return self.visible
     },
   }))
   .actions(self => ({
@@ -136,11 +136,11 @@ const DoraemonStore = t
       })
     },
     showDoraemon() {
-      self.visiable = true
+      self.visible = true
       focusDoraemonBar()
     },
     hideDoraemon() {
-      self.visiable = false
+      self.visible = false
       self.inputValue = ''
       self.inputForOtherUse = false
       self.clearSuggestions()

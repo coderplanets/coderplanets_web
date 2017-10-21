@@ -63,14 +63,14 @@ class DoraemonContainer extends React.Component {
 
   render() {
     const { store } = this.props
-    const { inputValue, suggestions, activeRaw, prefix, visiable } = store
+    const { inputValue, suggestions, activeRaw, prefix, visible } = store
 
     // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
 
     return (
-      <PageOverlay visiable={visiable} onClick={logic.hidePanel}>
-        <PanelContainer visiable={visiable} onClick={logic.panelClick}>
+      <PageOverlay visible={visible} onClick={logic.hidePanel}>
+        <PanelContainer visible={visible} onClick={logic.panelClick}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
           {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
           <Wraper>
