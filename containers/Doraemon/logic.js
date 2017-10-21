@@ -168,11 +168,6 @@ export function hidePanel() {
   pockect$.stop()
 }
 
-export function panelClick(e) {
-  debug('---> panelClick ...')
-  e.stopPropagation()
-}
-
 export function inputOnChange(e) {
   const inputValue = e.target.value
   store.markState({

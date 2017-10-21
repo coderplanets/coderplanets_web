@@ -69,8 +69,9 @@ class DoraemonContainer extends React.Component {
     // debug('suggestion.raw: ', suggestions.toJSON())
 
     return (
-      <PageOverlay visible={visible} onClick={logic.hidePanel}>
-        <PanelContainer visible={visible} onClick={logic.panelClick}>
+      <div>
+        <PageOverlay visible={visible} onClick={logic.hidePanel} />
+        <PanelContainer visible={visible}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
           {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
           <Wraper>
@@ -93,7 +94,7 @@ class DoraemonContainer extends React.Component {
             ))}
           </Wraper>
         </PanelContainer>
-      </PageOverlay>
+      </div>
     )
   }
 }
