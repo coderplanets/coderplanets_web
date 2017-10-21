@@ -29,6 +29,10 @@ const SolarizedDark = {
     text: lighten(0.1, mainBg),
     active_bg: lighten(0.1, mainBg),
   },
+  drawer: {
+    font: fontColor,
+    bg: mainBg,
+  },
 }
 
 export default SolarizedDark

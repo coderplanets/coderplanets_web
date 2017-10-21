@@ -28,6 +28,10 @@ const Cyan = {
     text: lighten(0.2, fontColor),
     active_bg: darken(0.1, fontColor),
   },
+  drawer: {
+    font: fontColor,
+    bg: mainBg,
+  },
 }
 
 export default Cyan

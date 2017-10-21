@@ -29,6 +29,10 @@ const Yellow = {
     text: darken(0.35, sidebarBg),
     active_bg: darken(0.1, fontColor),
   },
+  drawer: {
+    font: fontColor,
+    bg: mainBg,
+  },
 }
 
 export default Yellow
