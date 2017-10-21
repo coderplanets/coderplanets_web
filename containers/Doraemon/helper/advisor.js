@@ -50,9 +50,15 @@ export class Advisor {
     this.walkSuggestion
   )
 
+  getSuggestion = R.ifElse(
+    R.compose(R.startsWith('/'), R.tail), // avoid multi /, like /////
+    R.curry(() => R.identity([])),
+    this.suggestionBreif
+  )
+
   relateSuggestions = R.curry(val => ({
     prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-    data: this.suggestionBreif(val),
+    data: this.getSuggestion(val),
   }))
 
   relateSuggestions$ = q =>
