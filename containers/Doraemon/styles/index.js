@@ -48,13 +48,14 @@ export const PageOverlay = styled.div`
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
-  margin: auto;
   width: 45vw;
   max-width: 550px;
-  position: relative;
+  position: absolute;
   top: 15vh;
   z-index: 1002;
   display: ${props => (props.visible ? 'block' : 'none')};
+  left: 50%;
+  margin-left: -19vw;
 `
 
 export const Wraper = styled.div`
