@@ -6,16 +6,13 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-// import { makeDebugger } from '../../utils/functions'
+// import { isObject, makeDebugger } from '../../utils/functions'
 import { isObject } from '../../utils/functions'
-
 
 // const debug = makeDebugger('S:{{ properCase name }}')
 
 const {{ properCase name }} = t
-  .model('{{ properCase name }}', {
-
-  })
+  .model('{{ properCase name }}', {})
   .views(self => ({
     get app() {
       return getParent(self)
