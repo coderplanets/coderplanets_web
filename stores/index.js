@@ -28,6 +28,7 @@ function initRootStore(isServer = false, langSetup) {
 }
 
 export default initRootStore
+
 // not work, TODO
 /*
 if (module.hot) {

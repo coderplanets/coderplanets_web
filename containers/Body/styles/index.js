@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-const Button = styled.button`
+import { theme } from '../../../utils/functions'
+
+export const Body = styled.div`
+  padding-left: 65px;
+  position: relative;
+  height: 100vh;
+  background: ${theme('body_bg')};
+  transition: background-color 0.3s;
+`
+
+export const Button = styled.button`
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
@@ -15,4 +25,3 @@ const Button = styled.button`
     outline: 0;
   }
 `
-export default Button

@@ -4,11 +4,11 @@ const fakeMenuItems = [
     name: 'intro',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'index' },
       },
       as: {
-        pathname: '/home/i',
+        pathname: '/intro/i',
       },
     },
   },
@@ -17,11 +17,11 @@ const fakeMenuItems = [
     name: 'feature',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'feature' },
       },
       as: {
-        pathname: '/home/feature',
+        pathname: '/intro/feature',
       },
     },
   },
@@ -31,11 +31,11 @@ const fakeMenuItems = [
     name: 'theme',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'theme' },
       },
       as: {
-        pathname: '/home/theme',
+        pathname: '/intro/theme',
       },
     },
   },
@@ -45,11 +45,11 @@ const fakeMenuItems = [
     name: 'i18n',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'i18n' },
       },
       as: {
-        pathname: '/home/i18n',
+        pathname: '/intro/i18n',
       },
     },
   },
@@ -59,11 +59,11 @@ const fakeMenuItems = [
     name: 'example',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'example' },
       },
       as: {
-        pathname: '/home/example',
+        pathname: '/intro/example',
       },
     },
   },
@@ -72,11 +72,24 @@ const fakeMenuItems = [
     name: 'cmdpanel',
     target: {
       href: {
-        pathname: '/',
+        pathname: '/intro',
         query: { name: 'cmdpanel' },
       },
       as: {
-        pathname: '/home/cmdpanel',
+        pathname: '/intro/cmdpanel',
+      },
+    },
+  },
+  {
+    id: 7,
+    name: 'graphql',
+    target: {
+      href: {
+        pathname: '/intro',
+        query: { name: 'graphql' },
+      },
+      as: {
+        pathname: '/intro/graphql',
       },
     },
   },

@@ -1,6 +1,6 @@
 /*
  *
- * Sidebar
+ * IntroSidebar
  *
  */
 
@@ -29,7 +29,7 @@ import {
 import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
 
-const debug = makeDebugger('C:Sidebar:index')
+const debug = makeDebugger('C:IntroSidebar:index')
 
 const MenuIcon = ({ name }) => {
   switch (name) {
@@ -79,7 +79,7 @@ const selector = ({ store }) => ({
   sidebar: store.sidebar,
 })
 
-class SidebarContainer extends React.Component {
+class IntroSidebarContainer extends React.Component {
   componentDidMount() {
     debug('init')
     logic.init(this.props.sidebar)
@@ -111,4 +111,4 @@ class SidebarContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(SidebarContainer))
+export default inject(selector)(observer(IntroSidebarContainer))

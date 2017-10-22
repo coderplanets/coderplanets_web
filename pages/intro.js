@@ -1,11 +1,13 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import initRootStore from '../stores'
+// import initRootStore from '../stores'
+import initIntroStore from '../stores/initIntroStore'
+
 import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
-import Sidebar from '../containers/Sidebar'
-import Body from '../containers/Body'
+import IntroSidebar from '../containers/IntroSidebar'
+import IntroBody from '../containers/IntroBody'
 import Drawer from '../containers/Drawer'
 
 // try to fix safari bug
@@ -20,7 +22,7 @@ export default class Index extends React.Component {
     const { locale, messages } = req || window.__NEXT_DATA__.props
     const langSetup = {}
     langSetup[locale] = messages
-    const store = initRootStore(isServer, langSetup)
+    const store = initIntroStore(isServer, langSetup)
     /* eslint-enable no-undef */
 
     return { isServer, version: store.version, messages, locale, langSetup }
@@ -28,7 +30,7 @@ export default class Index extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore(props.isServer, props.langSetup)
+    this.store = initIntroStore(props.isServer, props.langSetup)
   }
 
   render() {
@@ -47,9 +49,9 @@ export default class Index extends React.Component {
           <MultiLanguage>
             {/* <App/> */}
             <div>
-              <Sidebar {...globalStatus} />
+              <IntroSidebar {...globalStatus} />
               <Drawer />
-              <Body route={route} />
+              <IntroBody route={route} />
             </div>
           </MultiLanguage>
         </Decrator>

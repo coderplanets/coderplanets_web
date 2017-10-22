@@ -39,14 +39,14 @@ const IntroPage = ({ route, doraemonVisable, curTheme, themeKeys }) => {
     case 'cmdpanel':
       return <CmdExample doraemonVisable={doraemonVisable} />
     case 'graphql':
-      return <h2>graphql</h2>
+      return <h2>todo</h2>
     default:
       return <Home />
   }
 }
 
 const selector = ({ store }) => ({
-  body: store.body, // TODO
+  body: store.body,
 })
 
 class ContentContainer extends React.Component {
