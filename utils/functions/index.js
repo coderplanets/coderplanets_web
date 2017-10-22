@@ -56,7 +56,7 @@ export const focusDoraemonBar = () => {
 export const hideDoraemonBarRecover = () => {
   // side effect
   // onBlur will on focus the whole page, if not use this
-  // showDoraemon will not work until you click the page
+  // openDoraemon will not work until you click the page
   /* eslint-disable no-undef */
   document.getElementById('whereCallShowDoraemon').click()
   /* eslint-enable no-undef */

@@ -57,8 +57,8 @@ class ContentContainer extends React.Component {
 
   /* eslint-disable class-methods-use-this */
   @keydown(['ctrl+p'])
-  showDoraemon() {
-    logic.showDoraemon()
+  openDoraemon() {
+    logic.openDoraemon()
     // e.preventDefault()
   }
   /* eslint-enable class-methods-use-this */

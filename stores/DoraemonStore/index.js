@@ -135,7 +135,7 @@ const DoraemonStore = t
         activeRaw: raw,
       })
     },
-    showDoraemon() {
+    open() {
       self.visible = true
       focusDoraemonBar()
     },

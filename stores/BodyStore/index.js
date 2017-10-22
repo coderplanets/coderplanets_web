@@ -33,8 +33,8 @@ const BodyStore = t
     changeTheme(name) {
       self.app.changeTheme(name)
     },
-    showDoraemon() {
-      self.app.showDoraemon()
+    openDoraemon() {
+      self.app.openDoraemon()
     },
     openDrawer() {
       self.app.openDrawer()

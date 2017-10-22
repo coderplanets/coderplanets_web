@@ -34,8 +34,8 @@ export function changeLocale(lang) {
   }
 }
 
-export function showDoraemon() {
-  store.showDoraemon()
+export function openDoraemon() {
+  store.openDoraemon()
 }
 
 export function init(selectStore) {

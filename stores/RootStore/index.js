@@ -68,10 +68,8 @@ const rootStore = t
       self.sidebar.loadMenuItem()
       self.communities.load()
     },
-    // TODO: rename to open
-    showDoraemon() {
-      // TODO: rename to self.doraemon.open()
-      self.doraemon.showDoraemon()
+    openDoraemon() {
+      self.doraemon.open()
     },
 
     openDrawer() {
