@@ -42,7 +42,7 @@
 - [x] and lots more ...
 
 ## online code viewer
-  [check it out](hhttps://insight.io/github.com/mydearxym/mastani/tree/dev/)
+  [check it out](https://insight.io/github.com/mydearxym/mastani/tree/dev/)
 
 
 ## TODO
