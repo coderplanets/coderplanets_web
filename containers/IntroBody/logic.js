@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import { makeDebugger } from '../../utils/functions'
 
-const debug = makeDebugger('L:Body')
+const debug = makeDebugger('L:IntroBody')
 
 let store = null
 

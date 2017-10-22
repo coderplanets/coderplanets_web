@@ -2,7 +2,10 @@
  * provide advise to Pocket
  */
 import R from 'ramda'
+
 import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/observable/fromPromise'
+
 import { notEmpty } from '../../../utils/functions'
 
 const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
@@ -56,10 +59,12 @@ export class Advisor {
     this.suggestionBreif
   )
 
-  relateSuggestions = R.curry(val => ({
-    prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-    data: this.getSuggestion(val),
-  }))
+  relateSuggestions = R.curry(val => {
+    return {
+      prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
+      data: this.getSuggestion(val),
+    }
+  })
 
   relateSuggestions$ = q =>
     Observable.fromPromise(

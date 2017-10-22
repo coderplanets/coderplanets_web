@@ -187,6 +187,7 @@ export function init(selectedStore) {
   initCmdResolver()
 
   pockect$.cmdSuggesttion().subscribe(res => {
+    debug('--> loadSuggestions res: ', res)
     store.loadSuggestions(res)
   })
 

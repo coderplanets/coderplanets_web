@@ -12,41 +12,48 @@ import keydown from 'react-keydown'
 // import styled from 'styled-components'
 
 import { makeDebugger } from '../../utils/functions'
+
 import * as logic from './logic'
 
-import { Body } from './styles'
-import Theme from './Theme'
-import Home from './Home'
-import Feature from './Feature'
-import I18n from './I18n'
-import GithubRestExample from './GithubRestExample'
-import CmdExample from './CmdExample'
+import {
+  Body,
+  Header,
+  Banner,
+  Router,
+  Admin,
+  Search,
+  SearchIcon,
+  Notification,
+  NotificationIcon,
+  User,
+  UserIcon,
+} from './styles'
 
 const debug = makeDebugger('C:Body')
 
-const IntroPage = ({ route, doraemonVisable, curTheme, themeKeys }) => {
-  switch (route.query.name) {
-    case 'index':
-      return <Home />
-    case 'feature':
-      return <Feature />
-    case 'theme':
-      return <Theme curTheme={curTheme} themeKeys={themeKeys} />
-    case 'i18n':
-      return <I18n />
-    case 'example':
-      return <GithubRestExample />
-    case 'cmdpanel':
-      return <CmdExample doraemonVisable={doraemonVisable} />
-    case 'graphql':
-      return <h2>graphql</h2>
-    default:
-      return <Home />
-  }
+const AppHeader = () => {
+  return (
+    <Header>
+      <Router>Javascript / post / hello</Router>
+      <Admin>管理页</Admin>
+      <Search onClick={logic.openDoraemon}>
+        <SearchIcon />
+      </Search>
+      <Notification>
+        <NotificationIcon />
+      </Notification>
+      <User onClick={logic.openDrawer}>
+        <UserIcon />
+      </User>
+    </Header>
+  )
+}
+const AppBanner = () => {
+  return <Banner>Banner</Banner>
 }
 
 const selector = ({ store }) => ({
-  body: store.body, // TODO
+  body: store.body,
 })
 
 class ContentContainer extends React.Component {
@@ -64,18 +71,11 @@ class ContentContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    // debug('cur route:', this.props.route)
-    const { route } = this.props
-    const { curTheme, doraemonVisable, themeKeys } = this.props.body
-
     return (
       <Body id="whereCallShowDoraemon">
-        <IntroPage
-          curTheme={curTheme}
-          themeKeys={themeKeys}
-          doraemonVisable={doraemonVisable}
-          route={route}
-        />
+        <AppHeader />
+        <AppBanner />
+        <div>content</div>
       </Body>
     )
   }

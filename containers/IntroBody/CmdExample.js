@@ -4,7 +4,7 @@ import { FormattedMessage as I18n } from 'react-intl'
 
 import lang from './lang'
 import { HorizontalCenter } from '../../components/BaseStyled'
-import Doraemon from '../../containers/Doraemon'
+// import Doraemon from '../../containers/Doraemon'
 
 const Hinter = styled.div`
   padding-top: 18%;
@@ -20,7 +20,6 @@ const CmdPanelExample = ({ doraemonVisable }) => (
         <I18n {...lang.doraemonHint} />
       </Hinter>
     )}
-    <Doraemon />
   </HorizontalCenter>
 )
 
