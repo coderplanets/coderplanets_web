@@ -3,7 +3,7 @@
 *
 */
 
-import RootStore from './index'
+import RootStore from '../index'
 
 const langSetup = {
   testid: 'test',
