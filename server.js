@@ -45,13 +45,15 @@ const getMessages = locale => {
   return messageCache.get(locale)
 }
 
-const homeQuery = route('/home/:name')
+// const homeQuery = route('/home/:name')
+const introQuery = route('/intro/:name')
 const localeQuery = route('/locale/:lang')
 
 app.prepare().then(() => {
   createServer((req, res) => {
     const { pathname } = parse(req.url)
-    const homeMatch = homeQuery(pathname)
+    // const homeMatch = homeQuery(pathname)
+    const introMatch = introQuery(pathname)
     const localeMatch = localeQuery(pathname)
 
     const accept = accepts(req)
@@ -65,8 +67,13 @@ app.prepare().then(() => {
     req.locale = locale
     req.messages = getMessages(locale)
 
-    if (homeMatch) {
-      return app.render(req, res, '/', homeMatch)
+    /*
+      if (homeMatch) {
+        return app.render(req, res, '/', homeMatch)
+      }
+     */
+    if (introMatch) {
+      return app.render(req, res, '/intro', introMatch)
     }
     // now index page go this way
     return handle(req, res)

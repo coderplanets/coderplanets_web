@@ -7,13 +7,13 @@ const { ANALYZE } = process.env
 module.exports = {
   exportPathMap: () => ({
     '/': { page: '/' },
-    '/home/i': { page: '/', query: { name: 'index' } },
-    '/home/feature': { page: '/', query: { name: 'feature' } },
-    '/home/theme': { page: '/', query: { name: 'theme' } },
-    '/home/i18n': { page: '/', query: { name: 'i18n' } },
-    '/home/example': { page: '/', query: { name: 'example' } },
-    '/home/cmdpanel': { page: '/', query: { name: 'cmdpanel' } },
-    '/home/graphql': { page: '/', query: { name: 'graphql' } },
+    '/intro/i': { page: '/intro', query: { name: 'index' } },
+    '/intro/feature': { page: '/intro', query: { name: 'feature' } },
+    '/intro/theme': { page: '/intro', query: { name: 'theme' } },
+    '/intro/i18n': { page: '/intro', query: { name: 'i18n' } },
+    '/intro/example': { page: '/intro', query: { name: 'example' } },
+    '/intro/cmdpanel': { page: '/intro', query: { name: 'cmdpanel' } },
+    '/intro/graphql': { page: '/intro', query: { name: 'graphql' } },
     '/shop': { page: '/shop' },
   }),
 

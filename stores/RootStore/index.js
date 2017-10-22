@@ -20,14 +20,6 @@ const rootStore = t
   .model({
     // domain modal
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
-
-    /* settings ?
-        |- themes
-        |- debug
-        |- users
-        |- jobs
-     */
-
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
@@ -71,11 +63,9 @@ const rootStore = t
     openDoraemon() {
       self.doraemon.open()
     },
-
     openDrawer() {
       self.drawer.open()
     },
-
     changeTheme(name) {
       self.theme.changeTheme(name)
     },
