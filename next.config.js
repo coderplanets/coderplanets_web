@@ -14,7 +14,6 @@ module.exports = {
     '/intro/example': { page: '/intro', query: { name: 'example' } },
     '/intro/cmdpanel': { page: '/intro', query: { name: 'cmdpanel' } },
     '/intro/graphql': { page: '/intro', query: { name: 'graphql' } },
-    '/shop': { page: '/shop' },
   }),
 
   webpack: (config, { dev }) => {
