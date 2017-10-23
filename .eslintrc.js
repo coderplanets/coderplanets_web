@@ -18,6 +18,7 @@ module.exports = {
     'arrow-body-style': 0,
     'no-param-reassign': 0, // heavilly used in store.actions
     'no-use-before-define': 0, // heavilly used in store.views
+    'consistent-return': 0,
     'no-nested-ternary': 0, // TODO
     'no-shadow': 0, //TODO: currently just for entry
     'no-return-assign': 0, //TODO currently only for BookStore
