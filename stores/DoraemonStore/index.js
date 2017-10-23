@@ -100,8 +100,7 @@ const DoraemonStore = t
     },
 
     activeUp() {
-      // debug('activeUp activeIndex hehe: ', self.activeSuggestionIndex)
-      // if (self.activeSuggestionIndex < self.suggestionCount) {
+      if (self.suggestionCount === 0) return false
       let nextActiveRaw = ''
       const curIndex = self.activeSuggestionIndex
 
@@ -115,8 +114,8 @@ const DoraemonStore = t
         activeRaw: nextActiveRaw,
       })
     },
-
     activeDown() {
+      if (self.suggestionCount === 0) return false
       let nextActiveRaw = ''
       const curIndex = self.activeSuggestionIndex
 

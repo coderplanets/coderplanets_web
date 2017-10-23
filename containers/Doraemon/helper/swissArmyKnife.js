@@ -48,7 +48,8 @@ export class SwissArmyKnife {
 
   navSuggestion = direction => {
     const { prefix, activeRaw } = this.store
-    if (anyNil([prefix, activeRaw])) return
+    if (anyNil([prefix, activeRaw]) || R.isEmpty(activeRaw)) return false
+
     if (direction === 'up') {
       this.store.activeUp()
     } else {
