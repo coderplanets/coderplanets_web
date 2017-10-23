@@ -14,6 +14,7 @@ import { isObject } from '../../utils/functions'
 const DrawerStore = t
   .model('DrawerStore', {
     visible: t.optional(t.boolean, false),
+    type: t.optional(t.enumeration('visibleType', ['post', 'user']), 'post'),
     // header:
     // body:
   })
@@ -23,9 +24,9 @@ const DrawerStore = t
     },
   }))
   .actions(self => ({
-    open() {
+    open(type) {
       self.visible = !self.visible
-      // true
+      self.type = type === 'user' ? 'user' : 'post'
     },
 
     close() {

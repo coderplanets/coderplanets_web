@@ -36,8 +36,8 @@ const BodyStore = t
     openDoraemon() {
       self.app.openDoraemon()
     },
-    openDrawer() {
-      self.app.openDrawer()
+    openDrawer(type) {
+      self.app.openDrawer(type)
     },
     changeLocale(locale) {
       self.app.changeLocale(locale)

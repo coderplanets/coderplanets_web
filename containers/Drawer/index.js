@@ -24,9 +24,9 @@ import {
 
 const debug = makeDebugger('C:Drawer')
 
-const CloseBtn = () => (
+const CloseBtn = ({ type }) => (
   <DrawerCloser onClick={logic.closeDrawer}>
-    <Closer>
+    <Closer type={type}>
       <CloserInner />
     </Closer>
   </DrawerCloser>
@@ -43,13 +43,13 @@ class DrawerContainer extends React.Component {
   }
 
   render() {
-    const { visible } = this.props.store
+    const { visible, type } = this.props.store
     //     debug('visiblei: ', visible)
     return (
       <div>
         <DrawerOverlay visible={visible} onClick={logic.closeDrawer} />
-        <DrawerWrapper visible={visible}>
-          <CloseBtn />
+        <DrawerWrapper visible={visible} type={type}>
+          <CloseBtn type={type} />
           <DrawerContent>
             <DrawerHeader>Drawer header</DrawerHeader>
             <DrawerBody>Drawer body</DrawerBody>

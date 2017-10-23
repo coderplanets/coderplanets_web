@@ -63,8 +63,8 @@ const rootStore = t
     openDoraemon() {
       self.doraemon.open()
     },
-    openDrawer() {
-      self.drawer.open()
+    openDrawer(type) {
+      self.drawer.open(type)
     },
     changeTheme(name) {
       self.theme.changeTheme(name)

@@ -31,7 +31,7 @@ export const DrawerWrapper = styled.div`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
   height: 100%;
-  width: 70%;
+  width: ${props => (props.type === 'user' ? '40%' : '70%')};
   right: 0;
   position: fixed;
   transform: ${props => doTransform(props.visible)};
@@ -68,16 +68,17 @@ export const CloserInner = styled.div`
   background-color: ${theme('drawer.bg')};
   transform-origin: right center 0;
   transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
+  box-shadow: -7px 4px 19px 0px rgba(50, 50, 50, 0.2);
 `
+// box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
 
 export const Closer = styled.div`
   float: right;
-  margin-right: -2px;
   width: ${closeWith};
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
+  display: ${props => (props.type === 'user' ? 'none' : 'block')};
 
   &:after {
     content: '✕';

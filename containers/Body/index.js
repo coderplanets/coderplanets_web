@@ -39,10 +39,10 @@ const AppHeader = () => {
       <Search onClick={logic.openDoraemon}>
         <SearchIcon />
       </Search>
-      <Notification>
+      <Notification onClick={logic.openDrawer}>
         <NotificationIcon />
       </Notification>
-      <User onClick={logic.openDrawer}>
+      <User onClick={logic.openDrawer.bind(this, 'user')}>
         <UserIcon />
       </User>
     </Header>
