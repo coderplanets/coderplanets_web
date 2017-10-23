@@ -12,15 +12,18 @@ import { isObject, mapKeys } from '../../utils/functions'
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 import pl from '../DoraemonStore/suggestions/pl'
 import framework from '../DoraemonStore/suggestions/framework'
+import database from '../DoraemonStore/suggestions/database'
 
 import PlModel from './PlModel'
 import FrameworkModel from './FrameworkModel'
+import DatabaseModel from './DatabaseModel'
 
 // const debug = makeDebugger('S:CommunitiesStore')
 
 export const CommunitiesDefaults = {
   languages: {},
   frameworks: {},
+  databases: {},
 }
 
 export const CommunitiesStore = t
@@ -28,6 +31,7 @@ export const CommunitiesStore = t
     // id: t.identifier(),
     languages: t.map(PlModel),
     frameworks: t.map(FrameworkModel),
+    databases: t.map(DatabaseModel),
     // jobs: ...
     // themes: ...
     // debug: ...
@@ -41,7 +45,11 @@ export const CommunitiesStore = t
     get all() {
       return mapKeys(
         R.toLower,
-        R.mergeAll([self.languages.toJSON(), self.frameworks.toJSON()])
+        R.mergeAll([
+          self.languages.toJSON(),
+          self.frameworks.toJSON(),
+          self.databases.toJSON(),
+        ])
       )
     },
   }))
@@ -54,6 +62,10 @@ export const CommunitiesStore = t
       R.forEachObjIndexed((v, k) => {
         self.frameworks.set(k, v)
       }, framework)
+
+      R.forEachObjIndexed((v, k) => {
+        self.databases.set(k, v)
+      }, database)
     },
 
     markState(sobj) {

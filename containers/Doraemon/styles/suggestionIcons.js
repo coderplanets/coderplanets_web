@@ -4,8 +4,12 @@ import { theme } from '../../../utils/functions'
 import Img from '../../../components/Img'
 
 import javascriptIcon from '../../../static/nodeIcons/programmingL/javascript.svg'
+import typescriptIcon from '../../../static/nodeIcons/programmingL/typescript.svg'
 
 import javaIcon from '../../../static/nodeIcons/programmingL/java.svg'
+import cIcon from '../../../static/nodeIcons/programmingL/c.svg'
+import cppIcon from '../../../static/nodeIcons/programmingL/cpp.svg'
+import csharpIcon from '../../../static/nodeIcons/programmingL/csharp.svg'
 import phpIcon from '../../../static/nodeIcons/programmingL/php.svg'
 import gradleIcon from '../../../static/nodeIcons/programmingL/gradle.svg'
 import erlangIcon from '../../../static/nodeIcons/programmingL/erlang.svg'
@@ -14,16 +18,35 @@ import rubyIcon from '../../../static/nodeIcons/programmingL/ruby.svg'
 import goIcon from '../../../static/nodeIcons/programmingL/go.svg'
 import elmIcon from '../../../static/nodeIcons/programmingL/elm.svg'
 import clojureIcon from '../../../static/nodeIcons/programmingL/clojure.svg'
-import nodejsIcon from '../../../static/nodeIcons/programmingL/nodejs.svg'
+import nodejsIcon from '../../../static/nodeIcons/programmingF/js/nodejs.svg'
 import dartIcon from '../../../static/nodeIcons/programmingL/dart.svg'
 import scalaIcon from '../../../static/nodeIcons/programmingL/scala.svg'
 import swiftIcon from '../../../static/nodeIcons/programmingL/swift.svg'
 import perlIcon from '../../../static/nodeIcons/programmingL/perl.svg'
+import kotlinIcon from '../../../static/nodeIcons/programmingL/kotlin.svg'
 
 // frameworks
-import reactIcon from '../../../static/nodeIcons/programmingL/react.svg'
-import phoenixIcon from '../../../static/nodeIcons/programmingF/js/phoenix.svg'
+import reactIcon from '../../../static/nodeIcons/programmingF/js/react.svg'
+import angularIcon from '../../../static/nodeIcons/programmingF/js/angular.svg'
+import d3Icon from '../../../static/nodeIcons/programmingF/js/d3.svg'
+import electronIcon from '../../../static/nodeIcons/programmingF/js/electron.svg'
+import vueIcon from '../../../static/nodeIcons/programmingF/js/vue.svg'
+import webpackIcon from '../../../static/nodeIcons/programmingF/js/webpack.svg'
+import meteorIcon from '../../../static/nodeIcons/programmingF/js/meteor.svg'
+import phoenixIcon from '../../../static/nodeIcons/programmingF/elixir/phoenix.svg'
 import dockerIcon from '../../../static/nodeIcons/programmingF/go/docker.svg'
+import djangoIcon from '../../../static/nodeIcons/programmingF/python/django.svg'
+import railsIcon from '../../../static/nodeIcons/programmingF/ruby/rails.svg'
+import laravelIcon from '../../../static/nodeIcons/programmingF/php/laravel.svg'
+import drupalIcon from '../../../static/nodeIcons/programmingF/php/drupal.svg'
+import wordpressIcon from '../../../static/nodeIcons/programmingF/php/wordpress.svg'
+import zendIcon from '../../../static/nodeIcons/programmingF/php/zend.svg'
+
+// database
+import mysqlIcon from '../../../static/nodeIcons/database/mysql.svg'
+import postgresqlIcon from '../../../static/nodeIcons/database/postgresql.svg'
+import mongodbIcon from '../../../static/nodeIcons/database/mongodb.svg'
+import redisIcon from '../../../static/nodeIcons/database/redis.svg'
 
 // cmds
 import forgotIcon from '../../../static/nodeIcons/cmd/forget.svg'
@@ -63,8 +86,12 @@ export const IconImg = styled(Img)`
 
 // languages
 export const javascript = styled(javascriptIcon)`${iconStyle};`
+export const typescript = styled(typescriptIcon)`${iconStyle};`
 export const js = styled(javascriptIcon)`${iconStyle};` // for shortcuts
 export const java = styled(javaIcon)`${iconStyle};`
+export const c = styled(cIcon)`${iconStyle};`
+export const cpp = styled(cppIcon)`${iconStyle};`
+export const csharp = styled(csharpIcon)`${iconStyle};`
 export const php = styled(phpIcon)`${iconStyle};`
 export const gradle = styled(gradleIcon)`${iconStyle};`
 export const python = styled(pythonIcon)`${iconStyle};`
@@ -78,11 +105,30 @@ export const dart = styled(dartIcon)`${iconStyle};`
 export const scala = styled(scalaIcon)`${iconStyle};`
 export const swift = styled(swiftIcon)`${iconStyle};`
 export const perl = styled(perlIcon)`${iconStyle};`
+export const kotlin = styled(kotlinIcon)`${iconStyle};`
 
 // frameworks
 export const phoenix = styled(phoenixIcon)`${iconStyle};`
 export const react = styled(reactIcon)`${iconStyle};`
+export const angular = styled(angularIcon)`${iconStyle};`
+export const d3 = styled(d3Icon)`${iconStyle};`
+export const electron = styled(electronIcon)`${iconStyle};`
+export const vue = styled(vueIcon)`${iconStyle};`
+export const webpack = styled(webpackIcon)`${iconStyle};`
+export const meteor = styled(meteorIcon)`${iconStyle};`
 export const docker = styled(dockerIcon)`${iconStyle};`
+export const django = styled(djangoIcon)`${iconStyle};`
+export const rails = styled(railsIcon)`${iconStyle};`
+export const laravel = styled(laravelIcon)`${iconStyle};`
+export const drupal = styled(drupalIcon)`${iconStyle};`
+export const wordpress = styled(wordpressIcon)`${iconStyle};`
+export const zend = styled(zendIcon)`${iconStyle};`
+
+// database
+export const mysql = styled(mysqlIcon)`${iconStyle};`
+export const postgresql = styled(postgresqlIcon)`${iconStyle};`
+export const mongodb = styled(mongodbIcon)`${iconStyle};`
+export const redis = styled(redisIcon)`${iconStyle};`
 
 // cmd
 export const search = styled(searchIcon)`
