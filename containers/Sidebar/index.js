@@ -12,7 +12,7 @@ import { inject, observer } from 'mobx-react'
 import * as SuggestionIcons from '../../containers/Doraemon/styles/suggestionIcons'
 // import { makeDebugger } from '../../utils/functions'
 
-import { Sidebar, MenuItem, Row } from './styles'
+import { Sidebar, MenuItem, Row, SVGIconWrapper } from './styles'
 import PinButton from './PinButton'
 import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
@@ -44,9 +44,9 @@ const NodeIcon = ({ raw }) => {
 
   const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
   return (
-    <div style={{ width: '30px', borderRadius: '50%' }}>
+    <SVGIconWrapper>
       <Icon />
-    </div>
+    </SVGIconWrapper>
   )
 }
 

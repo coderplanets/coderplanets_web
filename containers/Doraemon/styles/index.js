@@ -167,3 +167,23 @@ export const RepoStar = styled.div`
   font-style: italic;
   margin-right: 10px;
 `
+
+export const ImgIconWrapper = styled(Img)`
+  width: 40px;
+  height: 40px;
+`
+
+export const SVGIconWrapper = styled.div`
+  > svg {
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+  }
+`
+export const AddonSVGIconWrapper = styled.div`
+  > svg {
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+  }
+`

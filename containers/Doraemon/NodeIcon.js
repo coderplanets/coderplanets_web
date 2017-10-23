@@ -6,6 +6,7 @@
 import React from 'react'
 import R from 'ramda'
 
+import { SVGIconWrapper, ImgIconWrapper } from './styles'
 import * as SuggestionIcons from './styles/suggestionIcons'
 // import { makeDebugger } from '../../utils/functions'
 
@@ -24,7 +25,7 @@ const NodeIcon = ({ raw }) => {
   // debug('raw: ', themeColorMap)
   if (R.contains(lowerRaw, SuggestionIcons.langImgIcons)) {
     return (
-      <SuggestionIcons.IconImg
+      <ImgIconWrapper
         src={`/static/nodeIcons/programmingL/${lowerRaw}.png`}
         alt={lowerRaw}
       />
@@ -42,7 +43,11 @@ const NodeIcon = ({ raw }) => {
     return <Icons.question />
   }
   const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
-  return <Icon />
+  return (
+    <SVGIconWrapper>
+      <Icon />
+    </SVGIconWrapper>
+  )
 }
 
 export default NodeIcon

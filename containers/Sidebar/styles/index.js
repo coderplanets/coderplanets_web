@@ -54,3 +54,11 @@ export const Row = styled.div`
   display: flex;
   justify-content: left;
 `
+
+export const SVGIconWrapper = styled.div`
+  margin-top: 5px;
+  > svg {
+    width: 22px;
+    height: 22px;
+  }
+`

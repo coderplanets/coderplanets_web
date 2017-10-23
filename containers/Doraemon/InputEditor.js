@@ -14,10 +14,8 @@ import {
   EditorBar,
   InputBar,
   AddOn,
-  // SearchIcon,
   LoadingIcon,
-  // ThemeIcon,
-  // MagicIcon,
+  AddonSVGIconWrapper,
 } from './styles'
 
 import * as SuggestionIcons from './styles/suggestionIcons'
@@ -36,7 +34,11 @@ const PrefixIcon = ({ prefix }) => {
     Icon = allIcons[prefix] ? allIcons[prefix] : defaultIcon
   }
 
-  return <Icon />
+  return (
+    <AddonSVGIconWrapper>
+      <Icon />
+    </AddonSVGIconWrapper>
+  )
 }
 
 export default class InputEditor extends React.Component {

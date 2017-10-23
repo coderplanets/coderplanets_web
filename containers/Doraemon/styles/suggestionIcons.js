@@ -5,7 +5,6 @@ import Img from '../../../components/Img'
 
 import javascriptIcon from '../../../static/nodeIcons/programmingL/javascript.svg'
 import typescriptIcon from '../../../static/nodeIcons/programmingL/typescript.svg'
-
 import javaIcon from '../../../static/nodeIcons/programmingL/java.svg'
 import cIcon from '../../../static/nodeIcons/programmingL/c.svg'
 import cppIcon from '../../../static/nodeIcons/programmingL/cpp.svg'
@@ -78,59 +77,61 @@ export const langImgIcons = ['elixir', 'r', 'julia', 'red', 'rust']
 export const frameworkImgIcons = ['django']
 
 const iconStyle = 'width:100%; height: 100%;'
+
 export const IconImg = styled(Img)`
   ${iconStyle};
-
   width: auto;
 `
 
 // languages
-export const javascript = styled(javascriptIcon)`${iconStyle};`
-export const typescript = styled(typescriptIcon)`${iconStyle};`
-export const js = styled(javascriptIcon)`${iconStyle};` // for shortcuts
-export const java = styled(javaIcon)`${iconStyle};`
-export const c = styled(cIcon)`${iconStyle};`
-export const cpp = styled(cppIcon)`${iconStyle};`
-export const csharp = styled(csharpIcon)`${iconStyle};`
-export const php = styled(phpIcon)`${iconStyle};`
-export const gradle = styled(gradleIcon)`${iconStyle};`
-export const python = styled(pythonIcon)`${iconStyle};`
-export const ruby = styled(rubyIcon)`${iconStyle};`
-export const go = styled(goIcon)`${iconStyle};`
-export const elm = styled(elmIcon)`${iconStyle};`
-export const erlang = styled(erlangIcon)`${iconStyle};`
-export const clojure = styled(clojureIcon)`${iconStyle};`
-export const nodejs = styled(nodejsIcon)`${iconStyle};`
-export const dart = styled(dartIcon)`${iconStyle};`
-export const scala = styled(scalaIcon)`${iconStyle};`
-export const swift = styled(swiftIcon)`${iconStyle};`
-export const perl = styled(perlIcon)`${iconStyle};`
-export const kotlin = styled(kotlinIcon)`${iconStyle};`
+
+export const javascript = javascriptIcon
+export const js = javascriptIcon
+export const typescript = typescriptIcon
+export const java = javaIcon
+export const c = cIcon
+export const cpp = cppIcon
+export const csharp = csharpIcon
+export const php = phpIcon
+export const gradle = gradleIcon
+export const python = pythonIcon
+export const ruby = rubyIcon
+export const go = goIcon
+export const elm = elmIcon
+export const erlang = erlangIcon
+export const clojure = clojureIcon
+export const nodejs = nodejsIcon
+export const dart = dartIcon
+export const scala = scalaIcon
+export const swift = swiftIcon
+export const perl = perlIcon
+export const kotlin = kotlinIcon
 
 // frameworks
-export const phoenix = styled(phoenixIcon)`${iconStyle};`
-export const react = styled(reactIcon)`${iconStyle};`
-export const angular = styled(angularIcon)`${iconStyle};`
-export const d3 = styled(d3Icon)`${iconStyle};`
-export const electron = styled(electronIcon)`${iconStyle};`
-export const vue = styled(vueIcon)`${iconStyle};`
-export const webpack = styled(webpackIcon)`${iconStyle};`
-export const meteor = styled(meteorIcon)`${iconStyle};`
-export const docker = styled(dockerIcon)`${iconStyle};`
-export const django = styled(djangoIcon)`${iconStyle};`
-export const rails = styled(railsIcon)`${iconStyle};`
-export const laravel = styled(laravelIcon)`${iconStyle};`
-export const drupal = styled(drupalIcon)`${iconStyle};`
-export const wordpress = styled(wordpressIcon)`${iconStyle};`
-export const zend = styled(zendIcon)`${iconStyle};`
+export const phoenix = phoenixIcon
+export const react = reactIcon
+export const angular = angularIcon
+export const d3 = d3Icon
+export const electron = electronIcon
+export const vue = vueIcon
+export const webpack = webpackIcon
+export const meteor = meteorIcon
+export const docker = dockerIcon
+export const django = djangoIcon
+export const rails = railsIcon
+export const laravel = laravelIcon
+export const drupal = drupalIcon
+export const wordpress = wordpressIcon
+export const zend = zendIcon
 
 // database
-export const mysql = styled(mysqlIcon)`${iconStyle};`
-export const postgresql = styled(postgresqlIcon)`${iconStyle};`
-export const mongodb = styled(mongodbIcon)`${iconStyle};`
-export const redis = styled(redisIcon)`${iconStyle};`
+export const mysql = mysqlIcon
+export const postgresql = postgresqlIcon
+export const mongodb = mongodbIcon
+export const redis = redisIcon
 
 // cmd
+export const user = loginIcon
 export const search = styled(searchIcon)`
   width: 30px;
   height: 30px;
@@ -144,24 +145,24 @@ export const magic = styled(magicIcon)`
   transform: rotate(-30deg);
 `
 
-export const coderclub = styled(coderclubIcon)`${iconStyle};`
+export const coderclub = coderclubIcon
 export const login = styled(loginIcon)`
   ${iconStyle};
   width: 80%;
   margin-top: -3px;
 `
 
-export const forgot = styled(forgotIcon)`${iconStyle};`
-export const register = styled(registerIcon)`${iconStyle};`
-export const email = styled(emailIcon)`${iconStyle};`
-export const themes = styled(themeIcon)`${iconStyle};`
-export const debug = styled(debugIcon)`${iconStyle};`
-export const forward = styled(forwardIcon)`${iconStyle};`
+export const forgot = forgotIcon
+export const register = registerIcon
+export const email = emailIcon
+export const themes = themeIcon
+export const debug = debugIcon
+export const forward = forwardIcon
 export const backward = styled(forwardIcon)`
   ${iconStyle};
   transform: rotate(180deg);
 `
-export const question = styled(questionIcon)`${iconStyle};`
+export const question = questionIcon
 export const enter = styled(enterIcon)`
   width: 50px;
   height: 70%;
@@ -169,17 +170,17 @@ export const enter = styled(enterIcon)`
   fill: ${theme('u_panel.text')};
 `
 
-export const posts = styled(postsIcon)`${iconStyle};`
-export const tuts = styled(tutsIcon)`${iconStyle};`
-export const users = styled(usersIcon)`${iconStyle};`
-export const map = styled(mapIcon)`${iconStyle};`
-export const news = styled(newsIcon)`${iconStyle};`
-export const videos = styled(videosIcon)`${iconStyle};`
-export const meetups = styled(meetupsIcon)`${iconStyle};`
-export const jobs = styled(jobsIcon)`${iconStyle};`
-export const history = styled(historyIcon)`${iconStyle};`
+export const posts = postsIcon
+export const tuts = tutsIcon
+export const users = usersIcon
+export const map = mapIcon
+export const news = newsIcon
+export const videos = videosIcon
+export const meetups = meetupsIcon
+export const jobs = jobsIcon
+export const history = historyIcon
 
-export const github = styled(githubIcon)`${iconStyle};`
+export const github = githubIcon
 export const write = styled(writeIcon)`
   ${iconStyle};
   width: 80%;
