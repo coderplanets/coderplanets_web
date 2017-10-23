@@ -9,9 +9,26 @@ import { makeDebugger, isObject } from '../../utils/functions'
 import MenuItem from './MenuItemStore'
 import fakeMenuItems from './fake_menu_items'
 
+const menuItemConveter = R.compose(
+  R.map(item => ({
+    name: item.raw,
+    target: {
+      href: {
+        pathname: '/',
+        query: { name: R.toLower(item.raw) },
+      },
+      as: {
+        pathname: `/${R.toLower(item.raw)}`,
+      },
+    },
+  })),
+  R.values,
+  R.mergeAll,
+  R.values
+)
+
 const debug = makeDebugger('S:SidebarStore')
 
-// TODO: test/include sidebarStore and MenuItem
 const SidebarStore = t
   .model('SidebarStore', {
     menuItems: t.optional(t.array(MenuItem), []), // complex data
@@ -35,6 +52,10 @@ const SidebarStore = t
     },
     get menuItemsData() {
       return self.menuItems.toJSON()
+    },
+    get newMenuData() {
+      const communities = self.app.communities.toJSON()
+      return menuItemConveter(communities)
     },
     get getLoading() {
       return self.loading

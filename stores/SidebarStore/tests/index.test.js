@@ -3,7 +3,7 @@
 *
 */
 
-import SidebarStore from './index'
+import SidebarStore from '../index'
 
 it('sidebar store create', () => {
   const sidebar = SidebarStore.create({}, {})

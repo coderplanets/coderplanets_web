@@ -6,69 +6,68 @@
 
 import React from 'react'
 import Link from 'next/link'
+import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
-// import styled from 'styled-components'
-// import { FormattedMessage as I18n } from 'react-intl'
-// import lang from './lang'
+import * as SuggestionIcons from '../../containers/Doraemon/styles/suggestionIcons'
+// import { makeDebugger } from '../../utils/functions'
 
-// import observer from '../../utils/mobx_utils'
-
-import { Sidebar, MenuItem } from './styles'
+import { Sidebar, MenuItem, Row } from './styles'
 import PinButton from './PinButton'
-
-import {
-  HomeIcon,
-  FeatureIcon,
-  ThemeIcon,
-  I18nIcon,
-  ExampleIcon,
-  CmdIcon,
-  GraphQLIcon,
-} from './MenuIcon'
 import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
 
-const MenuIcon = ({ name }) => {
-  switch (name) {
-    case 'home':
-      return <HomeIcon />
-    case 'feature':
-      return <FeatureIcon />
-    case 'theme':
-      return <ThemeIcon />
-    case 'i18n':
-      return <I18nIcon />
-    case 'example':
-      return <ExampleIcon />
-    case 'cmdpanel':
-      return <CmdIcon />
-    case 'graphql':
-      return <GraphQLIcon />
-    default:
-      return <HomeIcon />
+const Icons = { ...SuggestionIcons }
+const DefaultIcon = SuggestionIcons.javascript
+
+const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
+
+const NodeIcon = ({ raw }) => {
+  const lowerRaw = R.toLower(raw)
+  // debug('raw: ', themeColorMap)
+  /*
+  if (R.contains(lowerRaw, SuggestionIcons.langImgIcons)) {
+    return (
+      <div style={{ width: '30px' }}>
+        <SuggestionIcons.IconImg
+          src={`/static/nodeIcons/programmingL/${lowerRaw}.png`}
+          alt={lowerRaw}
+        />
+      </div>
+    )
   }
+  */
+
+  const iconKey = getIconKey(lowerRaw)
+
+  const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
+  return (
+    <div style={{ width: '30px', borderRadius: '50%' }}>
+      <Icon />
+    </div>
+  )
 }
 
 const MenuList = ({ items, open }) => {
   const listItems = items.map(item => (
-    <li key={item.id}>
+    <li key={item.name}>
       {open ? (
-        <span>
+        <div>
           <Link href={item.target.href} as={item.target.as}>
-            <span>
-              <MenuIcon name={item.name} />
+            <Row>
+              <NodeIcon raw={item.name} />
               {/* eslint-disable jsx-a11y/anchor-is-valid */}
+              <div style={{ marginRight: 10 }} />
               <a>{item.name}</a>
-            </span>
+            </Row>
           </Link>
-        </span>
+        </div>
       ) : (
-        <span>
-          <MenuIcon name={item.name} />
-        </span>
+        <Row>
+          <NodeIcon raw={item.name} />
+        </Row>
       )}
     </li>
   ))
@@ -87,7 +86,9 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    // debug('-----> langs --------> : ', sidebar.langMessages)
+
+    // debug('-----> newMenuData --------> : ', sidebar.newMenuData)
+    // <MenuList items={sidebar.menuItemsData} open={sidebar.open} />
 
     return (
       <Sidebar
@@ -95,17 +96,11 @@ class SidebarContainer extends React.Component {
         onMouseEnter={logic.enterSidebar}
         onMouseLeave={logic.leaveSidebar}
       >
-        <div>
-          <PinButton
-            open={sidebar.open}
-            pin={sidebar.pin}
-            onClick={logic.pin}
-          />
-          <br />
-          <br />
-          <br />
-          <MenuList items={sidebar.menuItemsData} open={sidebar.open} />
-        </div>
+        <PinButton open={sidebar.open} pin={sidebar.pin} onClick={logic.pin} />
+        <br />
+        <br />
+
+        <MenuList items={sidebar.newMenuData} open={sidebar.open} />
       </Sidebar>
     )
   }

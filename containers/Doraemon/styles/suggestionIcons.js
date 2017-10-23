@@ -57,6 +57,7 @@ export const frameworkImgIcons = ['django']
 const iconStyle = 'width:100%; height: 100%;'
 export const IconImg = styled(Img)`
   ${iconStyle};
+
   width: auto;
 `
 

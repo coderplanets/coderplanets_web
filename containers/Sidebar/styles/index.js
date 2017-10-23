@@ -31,12 +31,12 @@ export const MenuItem = styled.ul`
       background: ${props => darken(0.05, props.theme.sidebar.bg)};
     }
   }
-  > li > span {
+  > li > div {
     cursor: pointer;
     opacity: 1;
     //    border: 1px solid grey;
     transition: color 0.2s;
-    padding-left: 20px;
+    padding-left: 15px;
     font-size: 15px;
     line-height: 50px;
     height: 50px;
@@ -45,7 +45,12 @@ export const MenuItem = styled.ul`
     color: ${theme('sidebar.menu_link')};
   }
 
-  > li > span > a {
+  > li > div > a {
     text-decoration: none;
   }
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: left;
 `
