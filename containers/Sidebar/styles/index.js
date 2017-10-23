@@ -2,17 +2,18 @@ import styled from 'styled-components'
 import { darken } from 'polished'
 import { theme } from '../../../utils/functions'
 
+// 纯css，div隐藏滚动条，保留鼠标滚动效果。
+// http://blog.csdn.net/liusaint1992/article/details/51277751
 export const Sidebar = styled.div`
   border-right: 1px solid;
   position: fixed;
   height: 100vh;
   top: 0;
-  width: ${props => (props.open ? '256px' : '56px')};
+  width: ${props => (props.open ? '250px' : '56px')};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.border_color')};
   z-index: 1000;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
     background-color 0.3s;
@@ -23,6 +24,8 @@ export const MenuItem = styled.ul`
   left: 0;
   position: relative;
   width: 260px;
+  height: 100vh;
+  overflow-y: scroll;
   transition: left 0.2s;
 
   > li {
