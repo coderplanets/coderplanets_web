@@ -24,7 +24,9 @@ const menuItemConveter = R.compose(
   R.values
 )
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:SidebarStore')
+/* eslint-enable no-unused-vars */
 
 const SidebarStore = t
   .model('SidebarStore', {
