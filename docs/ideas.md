@@ -108,6 +108,7 @@
   #### [lozad.js](https://github.com/ApoorvSaxena/lozad.js)
   #### [一键分享](https://github.com/overtrue/share.js)
   #### [https://github.com/jawil/blog/issues/10](https://github.com/jawil/blog/issues/10)
+  #### [SVG优化](https://github.com/svg/svgo)
 
 ### i18n 
 
