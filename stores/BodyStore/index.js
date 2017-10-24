@@ -13,40 +13,40 @@ const BodyStore = t
     loading: t.optional(t.boolean, false),
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
     get curTheme() {
-      return self.app.theme.curTheme
+      return self.root.theme.curTheme
     },
     get themeKeys() {
-      return self.app.theme.themeKeys
+      return self.root.theme.themeKeys
     },
     get langMessages() {
-      return self.app.langMessages
+      return self.root.langMessages
     },
     get doraemonVisable() {
-      return self.app.doraemonVisable
+      return self.root.doraemonVisable
     },
   }))
   .actions(self => ({
     changeTheme(name) {
-      self.app.changeTheme(name)
+      self.root.changeTheme(name)
     },
     openDoraemon() {
-      self.app.openDoraemon()
+      self.root.openDoraemon()
     },
     openDrawer(type) {
-      self.app.openDrawer(type)
+      self.root.openDrawer(type)
     },
     changeLocale(locale) {
-      self.app.changeLocale(locale)
+      self.root.changeLocale(locale)
     },
     isLocaleExist(locale) {
-      return self.app.isLocaleExist(locale)
+      return self.root.isLocaleExist(locale)
     },
     setLangMessages(key, val) {
-      self.app.setLangMessages(key, val)
+      self.root.setLangMessages(key, val)
     },
   }))
 

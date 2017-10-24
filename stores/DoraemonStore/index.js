@@ -53,15 +53,15 @@ const DoraemonStore = t
     */
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
     get allSuggestions() {
       // console.log('fuck cmds: ', cmds)
-      return R.mergeAll([self.app.communities.all, mapKeys(R.toLower, cmds)])
+      return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)])
     },
     get communities() {
-      return self.app.communities.all
+      return self.root.communities.all
     },
     get suggestionCount() {
       return self.suggestions.length
@@ -81,7 +81,7 @@ const DoraemonStore = t
   }))
   .actions(self => ({
     changeTheme(name) {
-      self.app.changeTheme(name)
+      self.root.changeTheme(name)
     },
 
     loadSuggestions(suggestion) {

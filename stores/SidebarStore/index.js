@@ -39,14 +39,14 @@ const SidebarStore = t
     //     loading: t.optional(t.boolean, false),
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
     get theme() {
-      return self.app.theme
+      return self.root.theme
     },
     get langs() {
-      return self.app.langs
+      return self.root.langs
     },
     get menuItemsData() {
       return self.menuItems.toJSON()
@@ -55,12 +55,12 @@ const SidebarStore = t
       return self.loading
     },
     get langMessages() {
-      return self.app.langMessages
+      return self.root.langMessages
     },
   }))
   .actions(self => ({
     load() {
-      const communities = self.app.communities.all
+      const communities = self.root.communities.all
       self.menuItems = menuItemConveter(communities)
     },
 
@@ -73,7 +73,7 @@ const SidebarStore = t
       }, sobj)
     },
     changeTheme(name) {
-      self.app.changeTheme(name)
+      self.root.changeTheme(name)
     },
   }))
 

@@ -19,7 +19,7 @@ const DrawerStore = t
     // body:
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
   }))

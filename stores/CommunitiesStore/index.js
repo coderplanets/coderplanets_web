@@ -39,7 +39,7 @@ export const CommunitiesStore = t
     // cmds: t.map(CmdModel),
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
     get all() {

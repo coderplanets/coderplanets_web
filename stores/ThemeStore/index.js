@@ -21,7 +21,7 @@ export const ThemeStore = t
     curTheme: t.optional(t.enumeration('theme', R.keys(themeDict)), 'default'),
   })
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
     get themeData() {

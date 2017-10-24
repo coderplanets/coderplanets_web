@@ -15,7 +15,7 @@ const debug = makeDebugger('S:{{ properCase name }}')
 const {{ properCase name }} = t
   .model('{{ properCase name }}', {})
   .views(self => ({
-    get app() {
+    get root() {
       return getParent(self)
     },
   }))
