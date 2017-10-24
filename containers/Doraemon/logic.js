@@ -1,4 +1,5 @@
 import R from 'ramda'
+import Router from 'next/router'
 
 import Pockect from './Pockect'
 import { makeDebugger, Global } from '../../utils/functions'
@@ -89,6 +90,16 @@ const initCmdResolver = () => {
       match: SAK.communityLinker,
       action: cmdpath => {
         debug('communityLinker: ', cmdpath)
+
+        // Router.push(url, as)
+        Router.push(
+          {
+            pathname: '/',
+            query: { name: cmdpath[0] },
+          },
+          cmdpath[0]
+        )
+        hidePanel()
       },
     },
     {

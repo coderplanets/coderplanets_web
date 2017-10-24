@@ -7,12 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
+import R from 'ramda'
 
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
 import { makeDebugger } from '../../utils/functions'
 
+import * as SuggestionIcons from '../Doraemon/styles/suggestionIcons'
 import * as logic from './logic'
 
 import {
@@ -27,9 +29,13 @@ import {
   NotificationIcon,
   User,
   UserIcon,
+  AddonSVGIconWrapper,
 } from './styles'
 
 const debug = makeDebugger('C:Body')
+
+const Icons = { ...SuggestionIcons }
+const DefaultIcon = SuggestionIcons.js
 
 const AppHeader = () => {
   return (
@@ -48,8 +54,26 @@ const AppHeader = () => {
     </Header>
   )
 }
-const AppBanner = () => {
-  return <Banner>Banner</Banner>
+
+const AppBanner = ({ route }) => {
+  let iconKey
+  // console.log('AppBanner route: ', route.query)
+
+  if (R.isEmpty(route.query)) {
+    iconKey = 'js'
+  } else {
+    // getPath(route.asPath)
+    iconKey = route.query.name
+  }
+
+  const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
+  return (
+    <Banner>
+      <AddonSVGIconWrapper>
+        <Icon />
+      </AddonSVGIconWrapper>
+    </Banner>
+  )
 }
 
 const selector = ({ store }) => ({
@@ -71,10 +95,12 @@ class ContentContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
+    const { route } = this.props
+    console.log('route: ', route)
     return (
       <Body id="whereCallShowDoraemon">
         <AppHeader />
-        <AppBanner />
+        <AppBanner route={route} />
         <div>content</div>
       </Body>
     )

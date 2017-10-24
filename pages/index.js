@@ -37,9 +37,6 @@ export default class Index extends React.Component {
 
   render() {
     const route = this.props.url
-    const globalStatus = {
-      route: this.props.url,
-    }
     /*
         <Body route={route} />
         <Sidebar {...globalStatus} />
@@ -51,7 +48,7 @@ export default class Index extends React.Component {
           <MultiLanguage>
             <Drawer />
             <Body route={route} />
-            <Sidebar {...globalStatus} />
+            <Sidebar route={route} />
             <Doraemon />
           </MultiLanguage>
         </Decrator>

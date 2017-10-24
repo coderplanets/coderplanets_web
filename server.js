@@ -70,7 +70,7 @@ app.prepare().then(() => {
     req.messages = getMessages(locale)
 
     if (communityMatch) {
-      return app.render(req, res, '/', introMatch)
+      return app.render(req, res, '/', communityMatch)
     }
     /*
       if (homeMatch) {

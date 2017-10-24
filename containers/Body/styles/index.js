@@ -70,7 +70,8 @@ export const UserIcon = styled(userIcon)`
 `
 export const Banner = styled.div`
   padding: 5px;
-  line-height: 15vh;
+  padding-left: 80px;
+  height: 15vh;
   border-bottom: 1px solid tomato;
 `
 
@@ -87,5 +88,13 @@ export const Button = styled.button`
   border: 2px solid ${props => props.theme.main};
   &:focus {
     outline: 0;
+  }
+`
+
+export const AddonSVGIconWrapper = styled.div`
+  > svg {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
   }
 `
