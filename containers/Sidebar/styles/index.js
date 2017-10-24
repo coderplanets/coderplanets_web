@@ -37,7 +37,6 @@ export const MenuItem = styled.ul`
   > li > div {
     cursor: pointer;
     opacity: 1;
-    //    border: 1px solid grey;
     transition: color 0.2s;
     padding-left: 15px;
     font-size: 15px;

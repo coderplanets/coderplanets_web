@@ -86,9 +86,7 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-
-    // debug('-----> newMenuData --------> : ', sidebar.newMenuData)
-    // <MenuList items={sidebar.menuItemsData} open={sidebar.open} />
+    /* debug('-----> menuItems2 --------> : ', sidebar.menuItems.toJSON()) */
 
     return (
       <Sidebar
@@ -100,7 +98,7 @@ class SidebarContainer extends React.Component {
         <br />
         <br />
 
-        <MenuList items={sidebar.newMenuData} open={sidebar.open} />
+        <MenuList items={sidebar.menuItems} open={sidebar.open} />
       </Sidebar>
     )
   }

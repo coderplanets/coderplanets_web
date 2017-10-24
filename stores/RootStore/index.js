@@ -57,8 +57,8 @@ const rootStore = t
   .actions(self => ({
     afterCreate() {
       debug('after create loadMenuItem')
-      self.sidebar.loadMenuItem()
       self.communities.load()
+      self.sidebar.load()
     },
     openDoraemon() {
       self.doraemon.open()

@@ -20,17 +20,6 @@ export function leaveSidebar() {
   }
 }
 
-export function markLoading() {
-  /* sidebar.markLoading() */
-  debug('markLoading')
-  sidebar.markLoading()
-}
-
-export function addOne() {
-  debug('addOne')
-  sidebar.addOne()
-}
-
 export function changeTheme(name) {
   debug('changeTheme: ', name)
   sidebar.changeTheme(name)

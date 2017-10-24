@@ -7,7 +7,6 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import { makeDebugger, isObject } from '../../utils/functions'
 import MenuItem from './MenuItemStore'
-import fakeMenuItems from './fake_menu_items'
 
 const menuItemConveter = R.compose(
   R.map(item => ({
@@ -22,8 +21,6 @@ const menuItemConveter = R.compose(
       },
     },
   })),
-  R.values,
-  R.mergeAll,
   R.values
 )
 
@@ -37,8 +34,7 @@ const SidebarStore = t
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
     // searchBox: t.string, // complex data
-    loading: t.optional(t.boolean, false),
-    one: t.optional(t.number, 1),
+    //     loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get app() {
@@ -53,10 +49,6 @@ const SidebarStore = t
     get menuItemsData() {
       return self.menuItems.toJSON()
     },
-    get newMenuData() {
-      const communities = self.app.communities.toJSON()
-      return menuItemConveter(communities)
-    },
     get getLoading() {
       return self.loading
     },
@@ -65,14 +57,9 @@ const SidebarStore = t
     },
   }))
   .actions(self => ({
-    loadMenuItem() {
-      debug('loadMenuItem ...')
-      self.menuItems = fakeMenuItems
-    },
-
-    markLoading() {
-      debug('markLoading: ', self.loading)
-      self.loading = !self.loading
+    load() {
+      const communities = self.app.communities.all
+      self.menuItems = menuItemConveter(communities)
     },
 
     markState(sobj) {
@@ -82,10 +69,6 @@ const SidebarStore = t
       R.forEachObjIndexed((val, key) => {
         self[key] = val
       }, sobj)
-    },
-
-    addOne() {
-      self.one += 1
     },
     changeTheme(name) {
       self.app.changeTheme(name)

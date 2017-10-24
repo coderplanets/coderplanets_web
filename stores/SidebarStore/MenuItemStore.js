@@ -24,15 +24,9 @@ const ItemTarget = t.model('ItemTarget', {
 })
 
 const MenuItem = t.model('MenuItem', {
-  id: t.number, // identifier(),
+  //  id: t.number, // identifier(),
   name: t.string,
   target: ItemTarget,
-  //  target: t.frozen,
-
-  // desc: t.string,
-  // tag: t.string,
-  // github: t.string,
-  // subscribeCount: t.number,
 })
 
 export default MenuItem
