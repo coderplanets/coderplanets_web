@@ -105,7 +105,7 @@
     "react-world-flags": "^0.0.3",
     "rxjs": "^5.4.3",
     "scroll-into-view-if-needed": "^1.2.1",
-    "styled-components": "2.2.1",
+    "styled-components": "2.2.2",
     "timeago-react": "^1.2.2"
   },
   "devDependencies": {
