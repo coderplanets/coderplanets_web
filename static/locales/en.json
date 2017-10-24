@@ -15,5 +15,6 @@
   "containers.Body.theme.btnCyan": "Cyan",
   "containers.Body.i18n.title": "international",
   "containers.Body.i18n.en": "English",
-  "containers.Body.i18n.zh": "中文"
+  "containers.Body.i18n.zh": "中文",
+  'containers.Body.doraemonHint': 'Press Ctrl+p to show the panel, Esc / Ctrl+g / Ctrl+c to hide',
 }

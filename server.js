@@ -46,6 +46,7 @@ const getMessages = locale => {
 }
 
 // const homeQuery = route('/home/:name')
+const communityQuery = route('/:name')
 const introQuery = route('/intro/:name')
 const localeQuery = route('/locale/:lang')
 
@@ -55,6 +56,7 @@ app.prepare().then(() => {
     // const homeMatch = homeQuery(pathname)
     const introMatch = introQuery(pathname)
     const localeMatch = localeQuery(pathname)
+    const communityMatch = communityQuery(pathname)
 
     const accept = accepts(req)
     const locale = accept.language(supportLanguages) // 'zh'
@@ -67,6 +69,9 @@ app.prepare().then(() => {
     req.locale = locale
     req.messages = getMessages(locale)
 
+    if (communityMatch) {
+      return app.render(req, res, '/', introMatch)
+    }
     /*
       if (homeMatch) {
         return app.render(req, res, '/', homeMatch)
