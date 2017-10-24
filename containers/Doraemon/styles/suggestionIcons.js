@@ -23,6 +23,15 @@ import scalaIcon from '../../../static/nodeIcons/programmingL/scala.svg'
 import swiftIcon from '../../../static/nodeIcons/programmingL/swift.svg'
 import perlIcon from '../../../static/nodeIcons/programmingL/perl.svg'
 import kotlinIcon from '../../../static/nodeIcons/programmingL/kotlin.svg'
+import luaIcon from '../../../static/nodeIcons/programmingL/lua.svg'
+import elixirIcon from '../../../static/nodeIcons/programmingL/elixir.svg'
+import haskellIcon from '../../../static/nodeIcons/programmingL/haskell.svg'
+import delphiIcon from '../../../static/nodeIcons/programmingL/delphi.svg'
+import groovyIcon from '../../../static/nodeIcons/programmingL/groovy.svg'
+import rIcon from '../../../static/nodeIcons/programmingL/r.svg'
+import rustIcon from '../../../static/nodeIcons/programmingL/rust.svg'
+import juliaIcon from '../../../static/nodeIcons/programmingL/julia.svg'
+import ocamlIcon from '../../../static/nodeIcons/programmingL/ocaml.svg'
 
 // frameworks
 import reactIcon from '../../../static/nodeIcons/programmingF/js/react.svg'
@@ -73,9 +82,6 @@ import meetupsIcon from '../../../static/nodeIcons/cmd/meetups.svg'
 import jobsIcon from '../../../static/nodeIcons/cmd/jobs.svg'
 import historyIcon from '../../../static/nodeIcons/cmd/history.svg'
 
-export const langImgIcons = ['elixir', 'r', 'julia', 'red', 'rust']
-export const frameworkImgIcons = ['django']
-
 const iconStyle = 'width:100%; height: 100%;'
 
 export const IconImg = styled(Img)`
@@ -106,6 +112,15 @@ export const scala = scalaIcon
 export const swift = swiftIcon
 export const perl = perlIcon
 export const kotlin = kotlinIcon
+export const lua = luaIcon
+export const elixir = elixirIcon
+export const haskell = haskellIcon
+export const delphi = delphiIcon
+export const groovy = groovyIcon
+export const r = rIcon
+export const rust = styled(rustIcon)`fill: #93613d;`
+export const julia = juliaIcon
+export const ocaml = ocamlIcon
 
 // frameworks
 export const phoenix = phoenixIcon

@@ -6,7 +6,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { SVGIconWrapper, ImgIconWrapper } from './styles'
+import { SVGIconWrapper } from './styles'
 import * as SuggestionIcons from './styles/suggestionIcons'
 // import { makeDebugger } from '../../utils/functions'
 
@@ -22,15 +22,6 @@ const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
 // sucks need refactor
 const NodeIcon = ({ raw }) => {
   const lowerRaw = R.toLower(raw)
-  // debug('raw: ', themeColorMap)
-  if (R.contains(lowerRaw, SuggestionIcons.langImgIcons)) {
-    return (
-      <ImgIconWrapper
-        src={`/static/nodeIcons/programmingL/${lowerRaw}.png`}
-        alt={lowerRaw}
-      />
-    )
-  }
 
   const iconKey = getIconKey(lowerRaw)
   if (R.startsWith('themes--', lowerRaw)) {

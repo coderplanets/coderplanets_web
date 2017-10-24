@@ -26,20 +26,6 @@ const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
 
 const NodeIcon = ({ raw }) => {
   const lowerRaw = R.toLower(raw)
-  // debug('raw: ', themeColorMap)
-  /*
-  if (R.contains(lowerRaw, SuggestionIcons.langImgIcons)) {
-    return (
-      <div style={{ width: '30px' }}>
-        <SuggestionIcons.IconImg
-          src={`/static/nodeIcons/programmingL/${lowerRaw}.png`}
-          alt={lowerRaw}
-        />
-      </div>
-    )
-  }
-  */
-
   const iconKey = getIconKey(lowerRaw)
 
   const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon

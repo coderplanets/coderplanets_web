@@ -28,7 +28,7 @@ forEachObjIndexed((v, k) => {
 }, meta)
 
 const languages = {
-  BlackeScript: { ...clone(meta) },
+  // BlackeScript: { ...clone(meta) },
   Js: { ...clone(meta) },
   Javascript: { ...clone(meta) },
   Java: { ...clone(meta) },
@@ -37,20 +37,20 @@ const languages = {
   R: { ...clone(meta) },
   Ruby: { ...clone(meta) },
   Rust: { ...clone(meta) },
-  Red: { ...clone(meta) },
+  // Red: { ...clone(meta) },
   Python: { ...clone(meta) },
   Php: { ...clone(meta) },
   Perl: { ...clone(meta) },
-  Prolog: { ...clone(meta) },
+  // Prolog: { ...clone(meta) },
   C: { ...clone(meta) },
   'C++': { ...clone(meta) },
   'C#': { ...clone(meta) },
   Clojure: { ...clone(meta) },
-  Crystal: { ...clone(meta) },
-  Lisp: { ...clone(meta) },
+  // Crystal: { ...clone(meta) },
+  // Lisp: { ...clone(meta) },
   Lua: { ...clone(meta) },
-  Fortran: { ...clone(meta) },
-  'F#': { ...clone(meta) },
+  // Fortran: { ...clone(meta) },
+  // 'F#': { ...clone(meta) },
   Dart: { ...clone(meta) },
   Delphi: { ...clone(meta) },
   Elixir: { ...clone(meta) },
@@ -61,13 +61,13 @@ const languages = {
   Gradle: { ...clone(meta) },
   Haskell: { ...clone(meta) },
   Kotlin: { ...clone(meta) },
-  'Objectivc-C': { ...clone(meta) },
+  // 'Objectivc-C': { ...clone(meta) },
   OCaml: { ...clone(meta) },
   Swift: { ...clone(meta) },
   Scala: { ...clone(meta) },
-  Scheme: { ...clone(meta) },
+  //  Scheme: { ...clone(meta) },
   Typescript: { ...clone(meta) },
-  Tcl: { ...clone(meta) },
+  //   Tcl: { ...clone(meta) },
 }
 
 forEachObjIndexed((v, k) => {
@@ -82,7 +82,7 @@ forEachObjIndexed((v, k) => {
 
 languages['C++'].raw = 'Cpp'
 languages['C#'].raw = 'CSharp'
-languages['F#'].raw = 'FSharp'
-languages['Objectivc-C'].raw = 'objectiveC'
+// languages['F#'].raw = 'FSharp'
+// languages['Objectivc-C'].raw = 'objectiveC'
 
 export default languages
