@@ -16,7 +16,7 @@ import R from 'ramda'
 
 import Cyan from './Cyan'
 import Muzli from './Muzli'
-// import SolarizedDark from './SolarizedDark'
+import SolarizedDark from './SolarizedDark'
 import Yellow from './Yellow'
 import Slack from './Slack'
 import Brown from './Brown'
@@ -25,7 +25,7 @@ import CyanGreen from './CyanGreen'
 export const themeDict = {
   default: { ...Cyan },
   cyan: { ...Cyan },
-  // solarizedDark: { ...SolarizedDark },
+  solarized: { ...SolarizedDark },
   muzli: { ...Muzli },
   yellow: { ...Yellow },
   slack: { ...Slack },

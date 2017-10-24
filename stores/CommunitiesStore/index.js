@@ -10,9 +10,7 @@ import R from 'ramda'
 import { isObject, mapKeys } from '../../utils/functions'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
-import pl from '../DoraemonStore/suggestions/pl'
-import framework from '../DoraemonStore/suggestions/framework'
-import database from '../DoraemonStore/suggestions/database'
+import { pl, framework, database } from '../DoraemonStore/suggestions'
 
 import PlModel from './PlModel'
 import FrameworkModel from './FrameworkModel'

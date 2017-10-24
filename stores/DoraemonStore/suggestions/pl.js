@@ -30,7 +30,7 @@ forEachObjIndexed((v, k) => {
 const languages = {
   // BlackeScript: { ...clone(meta) },
   Js: { ...clone(meta) },
-  Javascript: { ...clone(meta) },
+  //  Javascript: { ...clone(meta) },
   Java: { ...clone(meta) },
   Nodejs: { ...clone(meta) },
   Julia: { ...clone(meta) },
