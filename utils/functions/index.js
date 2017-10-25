@@ -21,11 +21,6 @@ export const markStates = (sobj, self) => {
   }, sobj)
 }
 
-// for styled
-export const theme = R.curry(
-  themepath => R.path(['theme', ...R.split('.', themepath)]) || 'white'
-)
-
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = R.curry((fn, obj) => {
   return R.reduce(

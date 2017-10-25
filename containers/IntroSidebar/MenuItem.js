@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { darken } from 'polished'
-import { theme } from '../../utils/functions'
+import { theme } from '../../utils/themes'
 
 const SideBar = styled.ul`
   margin-top: 0px;

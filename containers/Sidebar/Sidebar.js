@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../utils/functions'
+import { theme } from '../../utils/themes'
 
 const SideBar = styled.div`
   border-right: 1px solid;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils/functions'
+import { theme } from '../../../utils/themes'
 
 function doTransform(visible) {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'

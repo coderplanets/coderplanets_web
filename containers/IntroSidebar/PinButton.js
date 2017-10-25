@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { PinIcon } from '../../components/Icons'
 
-import { theme } from '../../utils/functions'
+import { theme } from '../../utils/themes'
 
 const StyledPin = styled.div`
   color: ${props => (props.pin ? theme('sidebar.pin_active') : 'grey')};

@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import styled, { ThemeProvider } from 'styled-components'
 
-import { theme } from '../../utils/functions'
+import { theme } from '../../utils/themes'
 import globalStyles from '../../utils/global_styles'
 // import observer from '../../utils/mobx_utils'
 

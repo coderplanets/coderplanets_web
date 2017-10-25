@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { theme } from '../../../utils/functions'
+import { theme } from '../../../utils/themes'
 
 import Img from '../../../components/Img'
 

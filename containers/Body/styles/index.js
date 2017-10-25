@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils/functions'
+import { theme } from '../../../utils/themes'
 
 import searchIcon from '../../../static/search.svg'
 import userIcon from '../../../static/user.svg'

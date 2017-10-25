@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { darken } from 'polished'
-import { theme } from '../../../utils/functions'
+import { theme } from '../../../utils/themes'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751

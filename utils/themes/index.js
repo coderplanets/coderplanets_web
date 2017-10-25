@@ -35,6 +35,10 @@ export const themeDict = {
 
 export const themeKeys = R.keys(themeDict)
 
-// const getBodyBg = R.compose(R.head, R.path(['sidebar', 'bg']))
 export const selectorColors = R.map(R.path(['sidebar', 'bg']), themeDict)
 export const themeColorMap = R.map(R.path(['sidebar', 'bg']), themeDict)
+
+// shorthand for style-components
+export const theme = R.curry(
+  themepath => R.path(['theme', ...R.split('.', themepath)]) || 'white'
+)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../utils/functions'
+import { theme } from '../../utils/themes'
 
 export const Center = styled.div`
   /* display: flex;*/
