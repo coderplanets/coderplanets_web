@@ -103,8 +103,7 @@ export const InputBar = styled.input`
   outline: none;
   font-weight: 200;
   color: ${theme('u_panel.search_input')};
-  font-size: 24px;
-  line-height: 70px;
+  font-size: 1.6rem;
   max-height: none;
   background-color: transparent;
   padding: 0 20px 0px 20px;
@@ -145,9 +144,10 @@ export const Desc = styled.div`
 export const Hint = styled.div`
   color: ${theme('u_panel.text')};
   margin-top: 10px;
+  width: 30px;
 
   > svg {
-    margin-right: -8px;
+    padding-right: 20px;
   }
 `
 
