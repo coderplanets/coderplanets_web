@@ -28,11 +28,8 @@ export const Header = styled.div`
 export const Router = styled.div`flex-grow: 1;`
 
 export const Admin = styled.div`
-  border: 1px solid grey;
   margin-right: 10px;
   font-size: xx-small;
-  padding: 2px 6px;
-  cursor: pointer;
 `
 
 export const Search = styled.div`

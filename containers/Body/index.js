@@ -10,7 +10,7 @@ import keydown from 'react-keydown'
 import R from 'ramda'
 
 // import Link from 'next/link'
-// import styled from 'styled-components'
+import { Button } from 'antd'
 
 import { makeDebugger } from '../../utils/functions'
 
@@ -41,7 +41,9 @@ const AppHeader = () => {
   return (
     <Header>
       <Router>Javascript / post / hello</Router>
-      <Admin>管理页</Admin>
+      <Admin>
+        <Button>管理页</Button>
+      </Admin>
       <Search onClick={logic.openDoraemon}>
         <SearchIcon />
       </Search>
