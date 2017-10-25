@@ -40,10 +40,12 @@ module.exports = {
       return config
     }
 
+    /* not compatible with react 16x
     config.resolve.alias = {
       react: 'preact-compat/dist/preact-compat',
       'react-dom': 'preact-compat/dist/preact-compat',
     }
+    */
 
     return config
   },
