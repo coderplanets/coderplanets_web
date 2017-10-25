@@ -74,7 +74,7 @@ class DoraemonContainer extends React.Component {
         <PanelContainer visible={visible}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
           {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
-          <Wraper>
+          <Wraper empty={suggestions.length === 0}>
             {suggestions.map((suggestion, i) => (
               <InfoBar
                 active={activeRaw === suggestion.raw}

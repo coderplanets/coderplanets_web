@@ -57,10 +57,9 @@ export const PanelContainer = styled.div`
   left: 50%;
   margin-left: -19vw;
 `
-
 export const Wraper = styled.div`
   position: relative;
-  display: flex;
+  display: ${props => (props.empty ? 'none' : 'flex')};
   flex-direction: column;
   max-height: 60vh;
   overflow: scroll;
