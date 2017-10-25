@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { makeDebugger, isObject } from '../../utils/functions'
+import { makeDebugger, markStates } from '../../utils/functions'
 import MenuItem from './MenuItemStore'
 
 const menuItemConveter = R.compose(
@@ -65,12 +65,7 @@ const SidebarStore = t
     },
 
     markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
+      markStates(sobj, self)
     },
     changeTheme(name) {
       self.root.changeTheme(name)

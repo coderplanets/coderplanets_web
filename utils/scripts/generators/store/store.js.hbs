@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { isObject, makeDebugger } from '../../utils/functions'
+import { markStates, makeDebugger } from '../../utils/functions'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:{{ properCase name }}')
@@ -21,12 +21,7 @@ const {{ properCase name }} = t
   }))
   .actions(self => ({
     markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('S:{{ properCase name }} markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
+      markStates(sobj, self)
     },
   }))
 

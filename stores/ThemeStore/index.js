@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 // import { makeDebugger } from '../../utils/functions'
-import { isObject } from '../../utils/functions'
+import { markStates } from '../../utils/functions'
 import { themeDict } from '../../utils/themes'
 
 // const debug = makeDebugger('S:ThemeStore')
@@ -36,11 +36,6 @@ export const ThemeStore = t
       self.curTheme = name
     },
     markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('S:ThemeStore markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
+      markStates(sobj, self)
     },
   }))

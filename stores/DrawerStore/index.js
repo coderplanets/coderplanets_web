@@ -4,10 +4,8 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import R from 'ramda'
 
-// import { isObject, makeDebugger } from '../../utils/functions'
-import { isObject } from '../../utils/functions'
+// import { makeDebugger } from '../../utils/functions'
 
 // const debug = makeDebugger('S:DrawerStore')
 
@@ -31,16 +29,6 @@ const DrawerStore = t
 
     close() {
       self.visible = false
-    },
-
-    // TODO: not need?
-    markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('S:DrawerStore markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
     },
   }))
 

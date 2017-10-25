@@ -12,6 +12,15 @@ export const isObject = value => {
 }
 /* eslint-enable */
 
+export const markStates = (sobj, self) => {
+  if (!isObject(sobj)) {
+    throw new Error('markState get no object params')
+  }
+  R.forEachObjIndexed((val, key) => {
+    self[key] = val
+  }, sobj)
+}
+
 // for styled
 export const theme = R.curry(
   themepath => R.path(['theme', ...R.split('.', themepath)]) || 'white'

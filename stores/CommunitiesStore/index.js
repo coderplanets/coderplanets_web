@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 // import { makeDebugger } from '../../utils/functions'
-import { isObject, mapKeys } from '../../utils/functions'
+import { mapKeys } from '../../utils/functions'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 import { pl, framework, database } from '../DoraemonStore/suggestions'
@@ -64,14 +64,5 @@ export const CommunitiesStore = t
       R.forEachObjIndexed((v, k) => {
         self.databases.set(k, v)
       }, database)
-    },
-
-    markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('S:CommunitiesStore markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
     },
   }))

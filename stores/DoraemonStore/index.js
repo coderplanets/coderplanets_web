@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import {
-  isObject,
+  markStates,
   mapKeys,
   focusDoraemonBar,
   hideDoraemonBarRecover,
@@ -146,12 +146,7 @@ const DoraemonStore = t
       hideDoraemonBarRecover()
     },
     markState(sobj) {
-      if (!isObject(sobj)) {
-        throw new Error('markState get no object params')
-      }
-      R.forEachObjIndexed((val, key) => {
-        self[key] = val
-      }, sobj)
+      markStates(sobj, self)
     },
   }))
 
