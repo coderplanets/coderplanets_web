@@ -8,7 +8,6 @@ function doTransform(visible) {
 
 export const DrawerOverlay = styled.div`
   bottom: 0;
-  cursor: pointer;
   left: 0;
   overflow: auto;
   position: absolute;
@@ -58,7 +57,7 @@ export const DrawerBody = styled.div`
   margin-top: 20%;
 `
 
-export const DrawerCloser = styled.div`width: '10%';`
+export const DrawerCloser = styled.div`width: 10%;`
 
 const closeWith = '40px'
 
