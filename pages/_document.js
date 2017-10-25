@@ -12,6 +12,10 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>mastani</title>
+          <link
+            href="https://cdn.bootcss.com/antd/2.13.5/antd.min.css"
+            rel="stylesheet"
+          />
           {styleTags}
         </Head>
         <body>

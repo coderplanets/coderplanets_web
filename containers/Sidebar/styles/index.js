@@ -55,6 +55,9 @@ export const MenuItem = styled.ul`
 export const Row = styled.div`
   display: flex;
   justify-content: left;
+  > a {
+    color: ${theme('sidebar.menu_link')};
+  }
 `
 
 export const SVGIconWrapper = styled.div`

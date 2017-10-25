@@ -1,7 +1,6 @@
 /* eslint-disable */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 /* eslint-enable */
-
 const { ANALYZE } = process.env
 
 // export example
@@ -23,11 +22,7 @@ module.exports = {
   },
 
   webpack: (config, { dev }) => {
-    // For the development version, we'll use React.
-    // Because, it supports react hot loading and so on.
-    if (dev) {
-      return config
-    }
+    console.log('config dev: ', dev)
 
     if (ANALYZE) {
       config.plugins.push(
@@ -39,13 +34,6 @@ module.exports = {
       )
       return config
     }
-
-    /* not compatible with react 16x
-    config.resolve.alias = {
-      react: 'preact-compat/dist/preact-compat',
-      'react-dom': 'preact-compat/dist/preact-compat',
-    }
-    */
 
     return config
   },
