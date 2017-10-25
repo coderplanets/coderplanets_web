@@ -46,11 +46,11 @@ const languages = {
   'C++': { ...clone(meta) },
   'C#': { ...clone(meta) },
   Clojure: { ...clone(meta) },
-  // Crystal: { ...clone(meta) },
-  // Lisp: { ...clone(meta) },
+  //  Crystal: { ...clone(meta) },
+  Lisp: { ...clone(meta) },
   Lua: { ...clone(meta) },
   // Fortran: { ...clone(meta) },
-  // 'F#': { ...clone(meta) },
+  'F#': { ...clone(meta) },
   Dart: { ...clone(meta) },
   Delphi: { ...clone(meta) },
   Elixir: { ...clone(meta) },
@@ -65,8 +65,9 @@ const languages = {
   OCaml: { ...clone(meta) },
   Swift: { ...clone(meta) },
   Scala: { ...clone(meta) },
-  //  Scheme: { ...clone(meta) },
+  // Scheme: { ...clone(meta) },
   Typescript: { ...clone(meta) },
+  Racket: { ...clone(meta) },
   //   Tcl: { ...clone(meta) },
 }
 
@@ -82,7 +83,7 @@ forEachObjIndexed((v, k) => {
 
 languages['C++'].raw = 'Cpp'
 languages['C#'].raw = 'CSharp'
-// languages['F#'].raw = 'FSharp'
-// languages['Objectivc-C'].raw = 'objectiveC'
+languages['F#'].raw = 'FSharp'
+/* languages['Objectivc-C'].raw = 'objectiveC' */
 
 export default languages

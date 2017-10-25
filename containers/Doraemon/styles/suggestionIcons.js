@@ -32,6 +32,9 @@ import rIcon from '../../../static/nodeIcons/programmingL/r.svg'
 import rustIcon from '../../../static/nodeIcons/programmingL/rust.svg'
 import juliaIcon from '../../../static/nodeIcons/programmingL/julia.svg'
 import ocamlIcon from '../../../static/nodeIcons/programmingL/ocaml.svg'
+import lispIcon from '../../../static/nodeIcons/programmingL/lisp.svg'
+import fsharpIcon from '../../../static/nodeIcons/programmingL/fsharp.svg'
+import racketIcon from '../../../static/nodeIcons/programmingL/racket.svg'
 
 // frameworks
 import reactIcon from '../../../static/nodeIcons/programmingF/js/react.svg'
@@ -118,9 +121,12 @@ export const haskell = haskellIcon
 export const delphi = delphiIcon
 export const groovy = groovyIcon
 export const r = rIcon
-export const rust = styled(rustIcon)`fill: #93613d;`
 export const julia = juliaIcon
 export const ocaml = ocamlIcon
+export const lisp = lispIcon
+export const fsharp = fsharpIcon
+export const racket = racketIcon
+export const rust = styled(rustIcon)`fill: #d1914b;`
 
 // frameworks
 export const phoenix = phoenixIcon
