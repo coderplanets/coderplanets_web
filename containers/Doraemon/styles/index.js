@@ -57,12 +57,19 @@ export const PanelContainer = styled.div`
   left: 50%;
   margin-left: -19vw;
 `
-export const Wraper = styled.div`
+export const Wrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
+`
+
+export const SuggestionWrapper = styled.div`
   position: relative;
   display: ${props => (props.empty ? 'none' : 'flex')};
   flex-direction: column;
   max-height: 60vh;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 102%;
 `
 
 // #001b21;
@@ -146,11 +153,13 @@ export const Desc = styled.div`
 export const Hint = styled.div`
   color: ${theme('u_panel.text')};
   margin-top: 10px;
+  margin-right: 15px;
   width: 30px;
-
-  > svg {
-    padding-right: 20px;
-  }
+`
+export const HintEnter = styled.div`
+  color: ${theme('u_panel.text')};
+  margin-top: 10px;
+  margin-right: 10px;
 `
 
 export const SubInfoWraper = styled.div`

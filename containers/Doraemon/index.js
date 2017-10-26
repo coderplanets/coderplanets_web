@@ -23,26 +23,24 @@ import {
   PageOverlay,
   PanelContainer,
   InfoBar,
-  Wraper,
+  Wrapper,
+  SuggestionWrapper,
   AlertBar,
-  // AvatarImg,
   AvatarWrapper,
   ContentWraper,
   Title,
   Desc,
   Hint,
-  // RepoLang,
-  // RepoStar,
-  // SubInfoWraper,
+  HintEnter,
 } from './styles'
 
 const debug = makeDebugger('C:Doraemon')
 
 const HintIcon = ({ index, active, cur }) => {
   return active === cur ? (
-    <Hint>
+    <HintEnter>
       <SuggestionIcons.enter />
-    </Hint>
+    </HintEnter>
   ) : (
     <Hint>^ {index}</Hint>
   )
@@ -74,25 +72,27 @@ class DoraemonContainer extends React.Component {
         <PanelContainer visible={visible}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
           {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
-          <Wraper empty={suggestions.length === 0}>
-            {suggestions.map((suggestion, i) => (
-              <InfoBar
-                active={activeRaw === suggestion.raw}
-                key={suggestion.raw}
-                id={suggestion.raw}
-                onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
-              >
-                <AvatarWrapper>
-                  <NodeIcon raw={suggestion.raw} />
-                </AvatarWrapper>
-                <ContentWraper>
-                  <Title>{suggestion.title}</Title>
-                  <Desc>{suggestion.desc}</Desc>
-                </ContentWraper>
-                <HintIcon index={i} active={activeRaw} cur={suggestion.raw} />
-              </InfoBar>
-            ))}
-          </Wraper>
+          <Wrapper>
+            <SuggestionWrapper empty={suggestions.length === 0}>
+              {suggestions.map((suggestion, i) => (
+                <InfoBar
+                  active={activeRaw === suggestion.raw}
+                  key={suggestion.raw}
+                  id={suggestion.raw}
+                  onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
+                >
+                  <AvatarWrapper>
+                    <NodeIcon raw={suggestion.raw} />
+                  </AvatarWrapper>
+                  <ContentWraper>
+                    <Title>{suggestion.title}</Title>
+                    <Desc>{suggestion.desc}</Desc>
+                  </ContentWraper>
+                  <HintIcon index={i} active={activeRaw} cur={suggestion.raw} />
+                </InfoBar>
+              ))}
+            </SuggestionWrapper>
+          </Wrapper>
         </PanelContainer>
       </div>
     )
