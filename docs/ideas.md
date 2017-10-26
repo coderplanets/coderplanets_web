@@ -31,11 +31,7 @@
 
 ## TODO
 
-- [ ] pages
-       |-index.js
-       |-admin.js
-       |-intro.js
-
+- [ ] use header section footer main ... html tags
 - [ ] [字体问题参考](http://element.eleme.io/2.0/#/zh-CN/component/typography)
 - [ ] [字体](https://github.com/ethantw/Han)
 - [ ] common suggestion error display
