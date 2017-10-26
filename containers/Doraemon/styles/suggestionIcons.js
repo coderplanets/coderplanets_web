@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../../utils/themes'
 
-import Img from '../../../components/Img'
-
 import javascriptIcon from '../../../static/nodeIcons/programmingL/javascript.svg'
 import typescriptIcon from '../../../static/nodeIcons/programmingL/typescript.svg'
 import javaIcon from '../../../static/nodeIcons/programmingL/java.svg'
@@ -86,11 +84,6 @@ import jobsIcon from '../../../static/nodeIcons/cmd/jobs.svg'
 import historyIcon from '../../../static/nodeIcons/cmd/history.svg'
 
 const iconStyle = 'width:100%; height: 100%;'
-
-export const IconImg = styled(Img)`
-  ${iconStyle};
-  width: auto;
-`
 
 // languages
 

@@ -7,17 +7,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Button } from 'antd'
+import MButton from './styles'
 
 // import styled from 'styled-components'
 
 import { makeDebugger } from '../../utils/functions'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('c:MButton:index')
+const debug = makeDebugger('c:Button:index')
 /* eslint-enable no-unused-vars */
 
-const MButton = ({ children }) => {
-  return <Button>{children}</Button>
+const Button = ({ children }) => {
+  return <MButton>{children}</MButton>
 }
 
 MButton.propTypes = {
@@ -28,4 +28,4 @@ MButton.defaultProps = {
   children: '..?..',
 }
 
-export default MButton
+export default Button

@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 // import * as logic from './logic'
-import A from '../../components/A'
-import Img from '../../components/Img'
+import { A, Img } from '../../components/'
 
 import { Center, HorizontalCenter, Title } from '../../components/BaseStyled'
 

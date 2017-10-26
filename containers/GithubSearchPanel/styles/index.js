@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { theme } from '../../../utils/themes'
 
-import Img from '../../../components/Img'
+import { Img } from '../../../components'
 
 import searchIcon from '../../../static/search.svg'
 import loadingIcon from '../../../static/searchLoading.svg'
