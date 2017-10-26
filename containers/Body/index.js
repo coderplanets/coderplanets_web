@@ -10,7 +10,7 @@ import keydown from 'react-keydown'
 import R from 'ramda'
 
 // import Link from 'next/link'
-import { Button } from 'antd'
+import { Button } from '../../components/AntUI'
 
 import { makeDebugger } from '../../utils/functions'
 

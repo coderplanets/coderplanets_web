@@ -15,9 +15,11 @@ import lang from './lang'
 {{/if}}
 
 import { makeDebugger } from '../../utils/functions'
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:{{ properCase name }}:index')
+/* eslint-enable no-unused-vars */
 
-export const {{ properCase name }}(props) => {
+const {{ properCase name }} = (props) => {
   return (
     <div>
     {{#if wantI18n}}
@@ -27,9 +29,10 @@ export const {{ properCase name }}(props) => {
   )
 }
 
-
 {{ properCase name }}.propTypes = {
   // https://www.npmjs.com/package/prop-types
 };
 
 {{ properCase name }}.defaultProps = {};
+
+export default {{ properCase name }}
