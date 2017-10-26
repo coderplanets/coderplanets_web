@@ -128,6 +128,7 @@ export const ContentWraper = styled.div`
 `
 export const Title = styled.div`
   display: block;
+  font-size: 1.5em;
   color: white;
   > a {
     color: ${theme('u_panel.link')};
@@ -136,6 +137,7 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('u_panel.text')};
   text-overflow: ellipsis;
+  font-size: 1.1em;
   width: 90%;
   white-space: nowrap;
   overflow: hidden;

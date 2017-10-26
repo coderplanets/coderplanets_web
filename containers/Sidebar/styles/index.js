@@ -24,7 +24,7 @@ export const MenuItem = styled.ul`
   left: 0;
   position: relative;
   width: 260px;
-  height: 100vh;
+  height: 95vh;
   overflow-y: scroll;
   transition: left 0.2s;
 
