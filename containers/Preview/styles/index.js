@@ -6,7 +6,7 @@ function doTransform(visible) {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
 }
 
-export const DrawerOverlay = styled.div`
+export const PreviewOverlay = styled.div`
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -22,7 +22,7 @@ export const DrawerOverlay = styled.div`
 // display: ${props => (props.visible ? 'block' : 'none')};
 // visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 
-export const DrawerWrapper = styled.div`
+export const PreviewWrapper = styled.div`
   color: ${theme('drawer.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -40,24 +40,24 @@ export const DrawerWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `
-export const DrawerContent = styled.div`
+export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('drawer.bg')};
   height: 100%;
   box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
   padding: 20px;
 `
-export const DrawerHeader = styled.div`
+export const PreviewHeader = styled.div`
   border-bottom: 1px solid tomato;
   text-align: center;
   line-height: 30px;
 `
-export const DrawerBody = styled.div`
+export const PreviewBody = styled.div`
   text-align: center;
   margin-top: 20%;
 `
 
-export const DrawerCloser = styled.div`width: 10%;`
+export const PreviewCloser = styled.div`width: 10%;`
 
 const closeWith = '40px'
 

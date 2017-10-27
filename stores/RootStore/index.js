@@ -10,7 +10,7 @@ import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
 import GithubEampleStore from '../GithubEampleStore'
 import DoraemonStore from '../DoraemonStore'
-import DrawerStore from '../DrawerStore'
+import PreviewStore from '../PreviewStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 
@@ -30,7 +30,7 @@ const rootStore = t
     // domain end
 
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
-    drawer: t.optional(DrawerStore, { visible: false }),
+    preview: t.optional(PreviewStore, { visible: false }),
     body: t.optional(BodyStore, {}),
     github: t.optional(GithubEampleStore, {}),
     doraemon: t.optional(DoraemonStore, {}),
@@ -63,8 +63,8 @@ const rootStore = t
     openDoraemon() {
       self.doraemon.open()
     },
-    openDrawer(type) {
-      self.drawer.open(type)
+    openPreview(type) {
+      self.preview.open(type)
     },
     changeTheme(name) {
       self.theme.changeTheme(name)

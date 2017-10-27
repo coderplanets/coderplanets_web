@@ -7,7 +7,7 @@ import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
 import IntroSidebar from '../containers/IntroSidebar'
 import IntroBody from '../containers/IntroBody'
-import Drawer from '../containers/Drawer'
+import Preview from '../containers/Preview'
 import Doraemon from '../containers/Doraemon'
 
 // try to fix safari bug
@@ -47,7 +47,7 @@ export default class Index extends React.Component {
         <Decrator>
           <MultiLanguage>
             <IntroSidebar {...globalStatus} />
-            <Drawer />
+            <Preview />
             <Doraemon />
             <IntroBody route={route} />
           </MultiLanguage>

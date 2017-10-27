@@ -5,8 +5,8 @@ const debug = makeDebugger('L:IntroBody')
 
 let store = null
 
-export function openDrawer() {
-  store.openDrawer()
+export function openPreview() {
+  store.openPreview()
 }
 
 export function changeTheme(name) {

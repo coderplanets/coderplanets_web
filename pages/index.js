@@ -9,7 +9,7 @@ import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
 import Body from '../containers/Body'
 
-import Drawer from '../containers/Drawer'
+import Preview from '../containers/Preview'
 import Doraemon from '../containers/Doraemon'
 
 // try to fix safari bug
@@ -46,7 +46,7 @@ export default class Index extends React.Component {
       <Provider store={this.store}>
         <Decrator>
           <MultiLanguage>
-            <Drawer />
+            <Preview />
             <Body route={route} />
             <Sidebar route={route} />
             <Doraemon />

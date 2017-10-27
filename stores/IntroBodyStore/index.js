@@ -36,8 +36,8 @@ const IntroBodyStore = t
     openDoraemon() {
       self.app.openDoraemon()
     },
-    openDrawer() {
-      self.app.openDrawer()
+    openPreview() {
+      self.app.openPreview()
     },
     changeLocale(locale) {
       self.app.changeLocale(locale)

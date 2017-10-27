@@ -1,5 +1,5 @@
 /*
- * DrawerStore store
+ * PreviewStore store
  *
  */
 
@@ -7,10 +7,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 // import { makeDebugger } from '../../utils/functions'
 
-// const debug = makeDebugger('S:DrawerStore')
+// const debug = makeDebugger('S:PreviewStore')
 
-const DrawerStore = t
-  .model('DrawerStore', {
+const PreviewStore = t
+  .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
     type: t.optional(t.enumeration('visibleType', ['post', 'user']), 'post'),
     // header:
@@ -32,4 +32,4 @@ const DrawerStore = t
     },
   }))
 
-export default DrawerStore
+export default PreviewStore
