@@ -50,7 +50,9 @@ export default class SearchService {
       .distinctUntilChanged()
       .switchMap(getGithubRepos)
       .catch(error => {
+        /* eslint-disable no-console */
         console.error(error)
+        /* eslint-enable no-console */
         return Observable.of([])
       })
   }

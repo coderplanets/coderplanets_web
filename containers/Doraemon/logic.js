@@ -50,13 +50,13 @@ const initCmdResolver = () => {
     {
       match: SAK.stepOneCmd('hforward'),
       action: () => {
-        console.log('SAK.stepOneCmd hforward')
+        debug('SAK.stepOneCmd hforward')
       },
     },
     {
       match: SAK.stepOneCmd('hbackward'),
       action: () => {
-        console.log('SAK.stepOneCmd hbackward')
+        debug('SAK.stepOneCmd hbackward')
       },
     },
     {

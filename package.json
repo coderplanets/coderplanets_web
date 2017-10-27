@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev run-p server ",
+    "dev": "cross-env NODE_ENV=dev run-p server lint:watch",
     "lint": "eslint pages/**/*.js components/**/* containers/**/* stores/**/*",
+    "lint:watch": "esw -w pages/**/*.js components/**/* containers/**/* stores/**/*",
     "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "npm run test -- --watch",
@@ -136,6 +137,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "7.4.0",
+    "eslint-watch": "^3.1.3",
     "husky": "^0.14.3",
     "jest": "^21.0.2",
     "lint-staged": "^4.0.4",

@@ -98,7 +98,7 @@ class ContentContainer extends React.Component {
 
   render() {
     const { route } = this.props
-    console.log('route: ', route)
+    debug('route: ', route)
     return (
       <Body id="whereCallShowDoraemon">
         <AppHeader />

@@ -42,7 +42,9 @@ export class SwissArmyKnife {
       })
       /* eslint-enable no-undef */
     } catch (e) {
+      /* eslint-disable no-console */
       console.error('bad selector in scrollIntoViewIfNeeded', e)
+      /* eslint-enable no-console */
     }
   }
 
