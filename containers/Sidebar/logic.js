@@ -25,6 +25,6 @@ export function changeTheme(name) {
   sidebar.changeTheme(name)
 }
 
-export function init(sidebarStore) {
-  sidebar = sidebarStore
+export function init(selectedStore) {
+  sidebar = selectedStore
 }

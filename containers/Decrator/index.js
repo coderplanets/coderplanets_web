@@ -46,7 +46,7 @@ const Container = styled.div`
   }
 `
 
-const selector = ({ store }) => ({
+const storeSelector = ({ store }) => ({
   theme: store.theme,
 })
 
@@ -61,4 +61,4 @@ const ThemeObserver = ({ children, theme }) => (
   </ThemeProvider>
 )
 
-export default inject(selector)(observer(ThemeObserver))
+export default inject(storeSelector)(observer(ThemeObserver))

@@ -3,21 +3,21 @@ import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('L:IntroBody')
 
-let store = null
+let body = null
 
 export function openPreview() {
-  store.openPreview()
+  body.openPreview()
 }
 
 export function changeTheme(name) {
   debug('changeTheme', name)
-  store.changeTheme(name)
+  body.changeTheme(name)
 }
 
 export function changeLocale(lang) {
   // debug('changeLocale', lang)
 
-  if (!store.isLocaleExist(lang)) {
+  if (!body.isLocaleExist(lang)) {
     debug('process.env.NODE_ENV:', process.env.NODE_ENV)
     const localeUrl =
       process.env.NODE_ENV === 'development'
@@ -26,18 +26,18 @@ export function changeLocale(lang) {
     fetch(localeUrl)
       .then(res => res.json())
       .then(vals => {
-        store.setLangMessages(lang, vals)
-        store.changeLocale(lang)
+        body.setLangMessages(lang, vals)
+        body.changeLocale(lang)
       })
   } else {
-    store.changeLocale(lang)
+    body.changeLocale(lang)
   }
 }
 
 export function openDoraemon() {
-  store.openDoraemon()
+  body.openDoraemon()
 }
 
-export function init(selectStore) {
-  store = selectStore
+export function init(selectedStore) {
+  body = selectedStore
 }

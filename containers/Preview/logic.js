@@ -2,13 +2,13 @@ import { makeDebugger } from '../../utils/functions'
 
 const debug = makeDebugger('L:Preview')
 
-let store = null
+let preview = null
 
 export function init(selectedStore) {
-  store = selectedStore
+  preview = selectedStore
 }
 
 export function closePreview() {
   debug('closePreview')
-  store.close()
+  preview.close()
 }

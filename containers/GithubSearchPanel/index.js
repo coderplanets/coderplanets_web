@@ -51,30 +51,30 @@ const SearchEditor = ({ value, searching }) => (
   </EditorBar>
 )
 
-const selector = ({ store }) => ({
-  store: store.github,
+const storeSelector = ({ store }) => ({
+  github: store.github,
 })
 
 class UniversePanelContainer extends React.Component {
   // TODO use componentWillMount?
   componentWillMount() {
     debug('mount')
-    logic.init(this.props.store)
+    logic.init(this.props.github)
   }
 
   render() {
-    const { store } = this.props
-    const { reposData, inputValue, searching } = store
+    const { github } = this.props
+    const { reposData, inputValue, searching } = github
 
     // debug('repos: ', repos)
     // debug('searching: ', searching)
-    // debug('logic.repoNotFound2(store): ', logic.repoNotFound2(store))
+    // debug('logic.repoNotFound2(github): ', logic.repoNotFound2(github))
 
     return (
       <PanelContainer>
         <SearchEditor value={inputValue} searching={searching} />
 
-        {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
+        {logic.repoNotFound(github) && <AlertBar>Repo not found</AlertBar>}
         <Wraper>
           {reposData.map(repo => (
             <InfoBar key={repo.id}>
@@ -101,4 +101,4 @@ class UniversePanelContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(UniversePanelContainer))
+export default inject(storeSelector)(observer(UniversePanelContainer))

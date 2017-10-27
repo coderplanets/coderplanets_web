@@ -75,7 +75,7 @@ const MenuList = ({ items, open }) => {
   return <MenuItem>{listItems}</MenuItem>
 }
 
-const selector = ({ store }) => ({
+const storeSelector = ({ store }) => ({
   sidebar: store.sidebar,
 })
 
@@ -111,4 +111,4 @@ class IntroSidebarContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(IntroSidebarContainer))
+export default inject(storeSelector)(observer(IntroSidebarContainer))

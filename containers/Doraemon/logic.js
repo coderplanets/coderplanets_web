@@ -7,7 +7,7 @@ import { SwissArmyKnife, clearfyCmd } from './helper/swissArmyKnife'
 
 const debug = makeDebugger('L:Doraemon')
 
-let store = null
+let doraemon = null
 let pockect$ = null
 let SAK = null
 let cmdResolver = []
@@ -17,7 +17,7 @@ const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
 const isNotSearching = R.compose(R.not, R.prop('searching'))
 
 function queryPocket() {
-  pockect$.query(store.inputValue)
+  pockect$.query(doraemon.inputValue)
 }
 
 const initCmdResolver = () => {
@@ -41,7 +41,7 @@ const initCmdResolver = () => {
       action: () => {
         SAK.completeInput(true)
         queryPocket()
-        store.markState({
+        doraemon.markState({
           inputForOtherUse: true,
           inputValue: Global.localStorage.getItem('debug'),
         })
@@ -63,7 +63,7 @@ const initCmdResolver = () => {
       match: SAK.stepTwoCmd('themes'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
-        store.changeTheme(theme)
+        doraemon.changeTheme(theme)
       },
     },
     {
@@ -81,7 +81,7 @@ const initCmdResolver = () => {
         if (cmd === 'github') {
           Global.window.open('https://github.com/visionmedia/debug', '_blank')
         } else if (cmd === 'write') {
-          Global.localStorage.setItem('debug', store.inputValue)
+          Global.localStorage.setItem('debug', doraemon.inputValue)
           hidePanel()
         }
       },
@@ -112,7 +112,7 @@ const initCmdResolver = () => {
 }
 
 const doCmd = () => {
-  const cmd = clearfyCmd(store.activeRaw)
+  const cmd = clearfyCmd(doraemon.activeRaw)
   //  debug('clearfyCmd: ', cmd)
   // Do not use forEach, cause forEach will not break
   for (let i = 0; i < cmdResolver.length; i += 1) {
@@ -175,13 +175,13 @@ export function navToSuggestion(suggestion) {
 }
 
 export function hidePanel() {
-  store.hideDoraemon()
+  // doraemon.hideDoraemon()
   pockect$.stop()
 }
 
 export function inputOnChange(e) {
   const inputValue = e.target.value
-  store.markState({
+  doraemon.markState({
     inputValue,
     // searching: true,
   })
@@ -189,20 +189,20 @@ export function inputOnChange(e) {
 }
 
 export function init(selectedStore) {
-  store = selectedStore
-  debug('store', store)
+  doraemon = selectedStore
+  debug('doraemon', doraemon)
 
-  pockect$ = new Pockect(store)
-  SAK = new SwissArmyKnife(store)
+  pockect$ = new Pockect(doraemon)
+  SAK = new SwissArmyKnife(doraemon)
 
   initCmdResolver()
 
   pockect$.cmdSuggesttion().subscribe(res => {
     // debug('--> loadSuggestions res: ', res)
-    store.loadSuggestions(res)
+    doraemon.loadSuggestions(res)
   })
 
   pockect$.emptyInput().subscribe(() => {
-    store.clearSuggestions()
+    doraemon.clearSuggestions()
   })
 }

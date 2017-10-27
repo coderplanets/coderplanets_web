@@ -6,7 +6,6 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-// import R from 'ramda'
 
 // import Link from 'next/link'
 // import styled from 'styled-components'
@@ -46,22 +45,22 @@ const HintIcon = ({ index, active, cur }) => {
   )
 }
 
-const selector = ({ store }) => ({
-  store: store.doraemon,
+const storeSelector = ({ store }) => ({
+  doraemon: store.doraemon,
 })
 
 class DoraemonContainer extends React.Component {
   componentWillMount() {
     debug('mount')
-    // TODO? maybe: this.logic = new Logic(this.props.store)
-    logic.init(this.props.store)
+    // TODO? maybe: this.logic = new Logic(this.props.doraemon)
+    logic.init(this.props.doraemon)
   }
   // ref={infobar => (this[`infobar${suggestion.title}`] = infobar)}
   // ref={wraper => (this.wraper = wraper)}
 
   render() {
-    const { store } = this.props
-    const { inputValue, suggestions, activeRaw, prefix, visible } = store
+    const { doraemon } = this.props
+    const { inputValue, suggestions, activeRaw, prefix, visible } = doraemon
 
     // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
@@ -71,7 +70,7 @@ class DoraemonContainer extends React.Component {
         <PageOverlay visible={visible} onClick={logic.hidePanel} />
         <PanelContainer visible={visible}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
-          {logic.repoNotFound(store) && <AlertBar>Repo not found</AlertBar>}
+          {logic.repoNotFound(doraemon) && <AlertBar>Repo not found</AlertBar>}
           <Wrapper>
             <SuggestionWrapper empty={suggestions.length === 0}>
               {suggestions.map((suggestion, i) => (
@@ -99,4 +98,4 @@ class DoraemonContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(DoraemonContainer))
+export default inject(storeSelector)(observer(DoraemonContainer))

@@ -5,7 +5,7 @@ import SearchService from './Pigeon'
 
 const debug = makeDebugger('L:UniversePanel')
 
-let store = null
+let github = null
 let Pigeon = null
 
 const RLog = x => debug('R log: ', x)
@@ -39,8 +39,8 @@ export const repoNotFound = R.allPass([
 
 export function search(e) {
   const inputValue = e.target.value
-  // store.markState('inputValue', value)
-  store.markState({
+  // github.markState('inputValue', value)
+  github.markState({
     inputValue,
     searching: true,
   })
@@ -48,25 +48,25 @@ export function search(e) {
 }
 
 export function init(selectedStore) {
-  store = selectedStore
-  debug('store', store)
+  github = selectedStore
+  debug('github', github)
   Pigeon = new SearchService()
 
   Pigeon.get().subscribe(res => {
     debug('Pigeon get: ', res)
     // debug('washed: ', repoData(res.items))
-    store.markState({
+    github.markState({
       searching: false,
     })
-    store.replaceRepos(repoData(res))
-    // store.replaceRepos([])
+    github.replaceRepos(repoData(res))
+    // github.replaceRepos([])
   })
 
   Pigeon.emptyInput().subscribe(() => {
     debug('Pigeon get emptyInput!')
-    store.markState({
+    github.markState({
       searching: false,
     })
-    store.clearRepos()
+    github.clearRepos()
   })
 }

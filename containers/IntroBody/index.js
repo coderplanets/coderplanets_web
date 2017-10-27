@@ -45,7 +45,7 @@ const IntroPage = ({ route, doraemonVisable, curTheme, themeKeys }) => {
   }
 }
 
-const selector = ({ store }) => ({
+const storeSelector = ({ store }) => ({
   body: store.body,
 })
 
@@ -81,4 +81,4 @@ class ContentContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(ContentContainer))
+export default inject(storeSelector)(observer(ContentContainer))

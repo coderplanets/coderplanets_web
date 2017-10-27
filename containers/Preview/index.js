@@ -32,18 +32,18 @@ const CloseBtn = ({ type }) => (
   </PreviewCloser>
 )
 
-const selector = ({ store }) => ({
-  store: store.preview,
+const storeSelector = ({ store }) => ({
+  preview: store.preview,
 })
 
 class PreviewContainer extends React.Component {
   componentWillMount() {
     debug('mount')
-    logic.init(this.props.store)
+    logic.init(this.props.preview)
   }
 
   render() {
-    const { visible, type } = this.props.store
+    const { visible, type } = this.props.preview
     //     debug('visiblei: ', visible)
     return (
       <div>
@@ -60,4 +60,4 @@ class PreviewContainer extends React.Component {
   }
 }
 
-export default inject(selector)(observer(PreviewContainer))
+export default inject(storeSelector)(observer(PreviewContainer))

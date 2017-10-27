@@ -18,14 +18,14 @@ import * as logic from './logic'
 
 const debug = makeDebugger('C:{{ properCase name }}')
 
-const selector = ({ store }) => ({
-  store: store,
+const storeSelector = ({ store }) => ({
+  {{ lowerCase name }}: store.{{ lowerCase name }},
 })
 
 class {{ properCase name }}Container extends React.Component {
   componentWillMount() {
     debug('mount')
-    logic.init(this.props.store)
+    logic.init(this.props.{{ lowerCase name }})
   }
 
   render() {
@@ -38,4 +38,4 @@ class {{ properCase name }}Container extends React.Component {
   }
 }
 
-export default inject(selector)(observer({{ properCase name }}Container))
+export default inject(storeSelector)(observer({{ properCase name }}Container))
