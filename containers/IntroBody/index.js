@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 import * as logic from './logic'
 
 import { Body } from './styles'
@@ -45,10 +45,6 @@ const IntroPage = ({ route, doraemonVisable, curTheme, themeKeys }) => {
   }
 }
 
-const storeSelector = ({ store }) => ({
-  body: store.body,
-})
-
 class ContentContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.body)
@@ -81,4 +77,4 @@ class ContentContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(ContentContainer))
+export default inject(storeSelector('body'))(observer(ContentContainer))

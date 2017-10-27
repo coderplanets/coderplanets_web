@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 // import styled from 'styled-components'
 
 import A from '../../components/A'
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 import * as logic from './logic'
 
 import {
@@ -50,10 +50,6 @@ const SearchEditor = ({ value, searching }) => (
     />
   </EditorBar>
 )
-
-const storeSelector = ({ store }) => ({
-  github: store.github,
-})
 
 class UniversePanelContainer extends React.Component {
   // TODO use componentWillMount?
@@ -101,4 +97,4 @@ class UniversePanelContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(UniversePanelContainer))
+export default inject(storeSelector('github'))(observer(UniversePanelContainer))

@@ -14,6 +14,7 @@ import { inject, observer } from 'mobx-react'
 
 // import observer from '../../utils/mobx_utils'
 
+import { makeDebugger, storeSelector } from '../../utils/functions'
 import { Sidebar, MenuItem } from './styles'
 import PinButton from './PinButton'
 
@@ -26,7 +27,6 @@ import {
   CmdIcon,
   GraphQLIcon,
 } from './MenuIcon'
-import { makeDebugger } from '../../utils/functions'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:IntroSidebar:index')
@@ -75,10 +75,6 @@ const MenuList = ({ items, open }) => {
   return <MenuItem>{listItems}</MenuItem>
 }
 
-const storeSelector = ({ store }) => ({
-  sidebar: store.sidebar,
-})
-
 class IntroSidebarContainer extends React.Component {
   componentDidMount() {
     debug('init')
@@ -111,4 +107,4 @@ class IntroSidebarContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(IntroSidebarContainer))
+export default inject(storeSelector('sidebar'))(observer(IntroSidebarContainer))

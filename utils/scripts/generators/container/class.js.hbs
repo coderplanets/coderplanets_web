@@ -18,10 +18,6 @@ import * as logic from './logic'
 
 const debug = makeDebugger('C:{{ properCase name }}')
 
-const storeSelector = ({ store }) => ({
-  {{ lowerCase name }}: store.{{ lowerCase name }},
-})
-
 class {{ properCase name }}Container extends React.Component {
   componentWillMount() {
     debug('mount')
@@ -38,4 +34,4 @@ class {{ properCase name }}Container extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer({{ properCase name }}Container))
+export default inject(storeSelector('{{ lowerCase name }}'))(observer({{ properCase name }}Container))

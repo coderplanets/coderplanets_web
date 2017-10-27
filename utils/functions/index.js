@@ -12,6 +12,10 @@ export const isObject = value => {
 }
 /* eslint-enable */
 
+export const storeSelector = R.curry((wantedStore, props) => ({
+  [wantedStore]: R.path(['store', wantedStore], props),
+}))
+
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
     throw new Error('markState get no object params')

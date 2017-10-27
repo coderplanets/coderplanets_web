@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'
@@ -44,10 +44,6 @@ const HintIcon = ({ index, active, cur }) => {
     <Hint>^ {index}</Hint>
   )
 }
-
-const storeSelector = ({ store }) => ({
-  doraemon: store.doraemon,
-})
 
 class DoraemonContainer extends React.Component {
   componentWillMount() {
@@ -98,4 +94,4 @@ class DoraemonContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(DoraemonContainer))
+export default inject(storeSelector('doraemon'))(observer(DoraemonContainer))

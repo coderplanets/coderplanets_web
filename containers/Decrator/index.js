@@ -7,8 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import styled, { ThemeProvider } from 'styled-components'
+
 // import { selection } from 'polished'
 
+import { storeSelector } from '../../utils/functions'
 import { theme } from '../../utils/themes'
 import globalStyles from '../../utils/global_styles'
 // import observer from '../../utils/mobx_utils'
@@ -45,11 +47,6 @@ const Container = styled.div`
     background-color: ${theme('selection_bg')};
   }
 `
-
-const storeSelector = ({ store }) => ({
-  theme: store.theme,
-})
-
 const ThemeObserver = ({ children, theme }) => (
   <ThemeProvider theme={theme.themeData}>
     <Container>
@@ -61,4 +58,4 @@ const ThemeObserver = ({ children, theme }) => (
   </ThemeProvider>
 )
 
-export default inject(storeSelector)(observer(ThemeObserver))
+export default inject(storeSelector('theme'))(observer(ThemeObserver))

@@ -12,7 +12,7 @@ import R from 'ramda'
 // import Link from 'next/link'
 import { Button } from '../../components'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 
 import * as SuggestionIcons from '../Doraemon/styles/suggestionIcons'
 import * as logic from './logic'
@@ -78,10 +78,6 @@ const AppBanner = ({ route }) => {
   )
 }
 
-const storeSelector = ({ store }) => ({
-  body: store.body,
-})
-
 class ContentContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.body)
@@ -109,4 +105,4 @@ class ContentContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(ContentContainer))
+export default inject(storeSelector('body'))(observer(ContentContainer))

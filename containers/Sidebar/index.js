@@ -12,9 +12,9 @@ import { inject, observer } from 'mobx-react'
 import * as SuggestionIcons from '../../containers/Doraemon/styles/suggestionIcons'
 // import { makeDebugger } from '../../utils/functions'
 
-import { Sidebar, MenuItem, Row, SVGIconWrapper } from './styles'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 import PinButton from './PinButton'
-import { makeDebugger } from '../../utils/functions'
+import { Sidebar, MenuItem, Row, SVGIconWrapper } from './styles'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
@@ -60,10 +60,6 @@ const MenuList = ({ items, open }) => {
   return <MenuItem>{listItems}</MenuItem>
 }
 
-const storeSelector = ({ store }) => ({
-  sidebar: store.sidebar,
-})
-
 class SidebarContainer extends React.Component {
   componentDidMount() {
     debug('init')
@@ -90,4 +86,4 @@ class SidebarContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(SidebarContainer))
+export default inject(storeSelector('sidebar'))(observer(SidebarContainer))

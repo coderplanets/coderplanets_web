@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 // import Link from 'next/link'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils/functions'
 import * as logic from './logic'
 import {
   PreviewOverlay,
@@ -31,10 +31,6 @@ const CloseBtn = ({ type }) => (
     </Closer>
   </PreviewCloser>
 )
-
-const storeSelector = ({ store }) => ({
-  preview: store.preview,
-})
 
 class PreviewContainer extends React.Component {
   componentWillMount() {
@@ -60,4 +56,4 @@ class PreviewContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector)(observer(PreviewContainer))
+export default inject(storeSelector('preview'))(observer(PreviewContainer))
