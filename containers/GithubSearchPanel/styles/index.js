@@ -1,4 +1,6 @@
 import styled, { keyframes } from 'styled-components'
+import { placeholder } from 'polished'
+
 import { theme } from '../../../utils/themes'
 
 import { Img } from '../../../components'
@@ -89,8 +91,7 @@ export const InfoBar = styled(BaseBar)`
 export const InputBar = styled.input`
   caret-color: ${theme('u_panel.search_input')};
   flex-grow: 1;
-  font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
-    'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
+  ${placeholder({ color: 'wheat' })};
   height: 100%;
   width: auto;
   outline: none;
