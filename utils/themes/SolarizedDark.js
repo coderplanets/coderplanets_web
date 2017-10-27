@@ -7,6 +7,7 @@ import { lighten, darken } from 'polished'
 
 const fontColor = '#839491'
 const mainBg = '#002A35'
+const buttonBase = '#217FBE'
 
 const SolarizedDark = {
   font: fontColor,
@@ -32,6 +33,14 @@ const SolarizedDark = {
   drawer: {
     font: fontColor,
     bg: mainBg,
+  },
+  button: {
+    fg: '#F8FCFC',
+    bg: buttonBase,
+    hover: lighten(0.1, buttonBase),
+    focus: buttonBase,
+    active: darken(0.05, buttonBase),
+    border: buttonBase,
   },
 }
 

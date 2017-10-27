@@ -40,7 +40,7 @@ const selector = ({ store }) => ({
 
 const ThemeObserver = ({ children, theme }) => (
   <ThemeProvider theme={theme.themeData}>
-    <Container className="fuck">
+    <Container>
       <style jsx global>
         {globalStyles}
       </style>

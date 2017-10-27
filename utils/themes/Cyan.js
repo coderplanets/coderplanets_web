@@ -6,6 +6,7 @@ import { lighten, darken } from 'polished'
 
 const fontColor = '#69a7ad'
 const mainBg = '#E4EEED'
+const buttonBase = '#38ABB2'
 
 const Cyan = {
   font: fontColor,
@@ -31,6 +32,14 @@ const Cyan = {
   drawer: {
     font: fontColor,
     bg: mainBg,
+  },
+  button: {
+    fg: '#F8FCFC',
+    bg: buttonBase,
+    hover: lighten(0.1, buttonBase),
+    focus: buttonBase,
+    active: darken(0.05, buttonBase),
+    border: buttonBase,
   },
 }
 

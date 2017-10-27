@@ -16,16 +16,18 @@ import { makeDebugger } from '../../utils/functions'
 const debug = makeDebugger('c:Button:index')
 /* eslint-enable no-unused-vars */
 
-const Button = ({ children }) => {
-  return <MButton>{children}</MButton>
+const Button = ({ children, size }) => {
+  return <MButton size={size}>{children}</MButton>
 }
 
 MButton.propTypes = {
   children: PropTypes.string,
+  size: PropTypes.oneOf(['default', 'large', 'small']),
 }
 
 MButton.defaultProps = {
   children: '..?..',
+  size: 'default',
 }
 
 export default Button

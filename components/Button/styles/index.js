@@ -1,30 +1,35 @@
-import styled, { injectGlobal } from 'styled-components'
-
+import styled from 'styled-components'
 import { Button } from 'antd'
 
+import { theme } from '../../../utils/themes'
+
 const MButton = styled(Button)`
-  color: tomato;
+  color: ${theme('button.fg')};
+  background: ${theme('button.bg')};
+  border-color: ${theme('button.border')};
   &:hover {
-    color: tomato;
-    border-color: tomato;
+    color: ${theme('button.fg')};
+    border-color: ${theme('button.border')};
+    background: ${theme('button.hover')};
   }
   &:focus {
-    color: tomato;
-    border-color: tomato;
+    color: ${theme('button.fg')};
+    border-color: ${theme('button.border')};
+    background: ${theme('button.focus')};
   }
   &:active {
-    color: tomato;
-    border-color: tomato;
+    color: ${theme('button.fg')};
+    border-color: ${theme('button.border')};
+    background: ${theme('button.active')};
   }
 `
 
 /* eslint-disable no-unused-expressions */
-// TODO: move to global
-injectGlobal`
- .ant-btn-clicked:after {
-  border: 0 solid tomato;
- }
-`
+// injectGlobal`
+//  .ant-btn-clicked:after {
+//   border: 0 solid ${color})};
+//   }
+// `
 /* eslint-enable no-unused-expressions */
 
 export default MButton

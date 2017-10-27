@@ -1,7 +1,7 @@
 import R from 'ramda'
 
 import { makeDebugger } from '../../utils/functions'
-import { SearchService } from './Pigeon'
+import SearchService from './Pigeon'
 
 const debug = makeDebugger('L:UniversePanel')
 

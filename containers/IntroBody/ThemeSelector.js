@@ -37,4 +37,3 @@ export const ThemeSelector = styled.div`
 
 // ${props => 'x')}
 // ${props => (props.active ? '✓' : 'x')}
-// const Fuck = <Flex><ThemeSelector></Flex>

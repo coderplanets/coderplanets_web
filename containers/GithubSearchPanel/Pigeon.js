@@ -15,7 +15,6 @@ import 'rxjs/add/operator/filter'
 import R from 'ramda'
 import fetch from 'isomorphic-fetch'
 
-export const fuck = 1
 const QUERY_REPOS =
   'https://api.github.com/search/repositories?sort=stars&order=desc&q='
 
@@ -34,7 +33,7 @@ const getGithubRepos = R.curry(getRepos)
 const isEmptyValue = R.compose(R.isEmpty, R.trim)
 const isNotEmptyValue = R.compose(R.not, isEmptyValue)
 
-export class SearchService {
+export default class SearchService {
   constructor() {
     this.searchTerm = new Subject()
     //     this.doSearch = R.curry(this.githubQuery)

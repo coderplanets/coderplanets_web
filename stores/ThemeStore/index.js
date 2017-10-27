@@ -6,11 +6,12 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-// import { makeDebugger } from '../../utils/functions'
-import { markStates } from '../../utils/functions'
+import { makeDebugger, markStates } from '../../utils/functions'
 import { themeDict } from '../../utils/themes'
 
-// const debug = makeDebugger('S:ThemeStore')
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('S:ThemeStore')
+/* eslint-enable no-unused-vars */
 
 export const ThemeDefaults = {
   curTheme: 'default',
