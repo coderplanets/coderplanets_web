@@ -41,7 +41,7 @@ cmds.Themes.raw = 'Themes'
 
 cmds.Debug = {
   title: 'debug',
-  desc: 'set debug',
+  desc: 'multi split with "," | L-logic, S-store, C-container',
   raw: 'Debug',
   debug: {
     title: '设置完成',
