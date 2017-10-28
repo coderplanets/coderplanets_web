@@ -2,15 +2,13 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import initRootStore from '../stores'
-
 import Decrator from '../containers/Decrator'
 import MultiLanguage from '../containers/MultiLanguage'
-
 import Sidebar from '../containers/Sidebar'
 import Body from '../containers/Body'
-
 import Preview from '../containers/Preview'
 import Doraemon from '../containers/Doraemon'
+import Route from '../containers/Route'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -36,19 +34,14 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const route = this.props.url
-    /*
-        <Body route={route} />
-        <Sidebar {...globalStatus} />
-    */
-
     return (
       <Provider store={this.store}>
         <Decrator>
+          <Route />
           <MultiLanguage>
             <Preview />
-            <Body route={route} />
-            <Sidebar route={route} />
+            <Body />
+            <Sidebar />
             <Doraemon />
           </MultiLanguage>
         </Decrator>

@@ -57,6 +57,9 @@ const SidebarStore = t
     get langMessages() {
       return self.root.langMessages
     },
+    get curUrlPath() {
+      return self.root.curUrlPath
+    },
   }))
   .actions(self => ({
     load() {

@@ -6,11 +6,11 @@
 
 import React from 'react'
 import Link from 'next/link'
+// import Router, { withRouter } from 'next/router'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import * as SuggestionIcons from '../../containers/Doraemon/styles/suggestionIcons'
-// import { makeDebugger } from '../../utils/functions'
 
 import { makeDebugger, storeSelector } from '../../utils/functions'
 import PinButton from './PinButton'
@@ -24,26 +24,29 @@ const DefaultIcon = SuggestionIcons.javascript
 
 const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
 
-const NodeIcon = ({ raw }) => {
+const NodeIcon = ({ raw, active }) => {
   const lowerRaw = R.toLower(raw)
   const iconKey = getIconKey(lowerRaw)
 
   const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
   return (
-    <SVGIconWrapper>
+    <SVGIconWrapper active={active}>
       <Icon />
     </SVGIconWrapper>
   )
 }
 
-const MenuList = ({ items, open }) => {
+const MenuList = ({ items, open, curUrlPath }) => {
   const listItems = items.map(item => (
     <li key={item.name}>
       {open ? (
         <div>
           <Link href={item.target.href} as={item.target.as}>
-            <Row>
-              <NodeIcon raw={item.name} />
+            <Row active={curUrlPath === R.toLower(item.name)}>
+              <NodeIcon
+                raw={item.name}
+                active={curUrlPath === R.toLower(item.name)}
+              />
               {/* eslint-disable jsx-a11y/anchor-is-valid */}
               <div style={{ marginRight: 10 }} />
               <a>{item.name}</a>
@@ -52,7 +55,10 @@ const MenuList = ({ items, open }) => {
         </div>
       ) : (
         <Row>
-          <NodeIcon raw={item.name} />
+          <NodeIcon
+            raw={item.name}
+            active={curUrlPath === R.toLower(item.name)}
+          />
         </Row>
       )}
     </li>
@@ -68,7 +74,8 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    /* debug('-----> menuItems2 --------> : ', sidebar.menuItems.toJSON()) */
+    const { curUrlPath, menuItems, open, pin } = sidebar
+    //    debug('-----> sidebar route --------> : ', this.props.router)
 
     return (
       <Sidebar
@@ -76,11 +83,11 @@ class SidebarContainer extends React.Component {
         onMouseEnter={logic.enterSidebar}
         onMouseLeave={logic.leaveSidebar}
       >
-        <PinButton open={sidebar.open} pin={sidebar.pin} onClick={logic.pin} />
+        <PinButton open={open} pin={pin} onClick={logic.pin} />
         <br />
         <br />
 
-        <MenuList items={sidebar.menuItems} open={sidebar.open} />
+        <MenuList items={menuItems} open={open} curUrlPath={curUrlPath} />
       </Sidebar>
     )
   }

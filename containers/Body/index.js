@@ -7,12 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
-import R from 'ramda'
 
 // import Link from 'next/link'
 import { Button } from '../../components'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { storeSelector } from '../../utils/functions'
 
 import * as SuggestionIcons from '../Doraemon/styles/suggestionIcons'
 import * as logic from './logic'
@@ -32,10 +31,7 @@ import {
   AddonSVGIconWrapper,
 } from './styles'
 
-const debug = makeDebugger('C:Body')
-
 const Icons = { ...SuggestionIcons }
-const DefaultIcon = SuggestionIcons.js
 
 const AppHeader = () => {
   return (
@@ -57,18 +53,14 @@ const AppHeader = () => {
   )
 }
 
-const AppBanner = ({ route }) => {
-  let iconKey
-  // console.log('AppBanner route: ', route.query)
+const AppBanner = ({ curUrlPath }) => {
+  const defaultIcon = 'js'
+  const iconKey = curUrlPath === '/' ? defaultIcon : curUrlPath
 
-  if (R.isEmpty(route.query)) {
-    iconKey = 'js'
-  } else {
-    // getPath(route.asPath)
-    iconKey = route.query.name
-  }
+  // debug('AppBanner curUrlPath: ', curUrlPath)
+  // debug('iconKey: ', iconKey)
 
-  const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
+  const Icon = Icons[iconKey]
   return (
     <Banner>
       <AddonSVGIconWrapper>
@@ -81,7 +73,6 @@ const AppBanner = ({ route }) => {
 class ContentContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.body)
-    debug('init')
   }
 
   /* eslint-disable class-methods-use-this */
@@ -93,12 +84,12 @@ class ContentContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { route } = this.props
-    debug('route: ', route)
+    const { body } = this.props
+    //    debug('route: ', route)
     return (
       <Body id="whereCallShowDoraemon">
         <AppHeader />
-        <AppBanner route={route} />
+        <AppBanner curUrlPath={body.curUrlPath} />
         <div>content</div>
       </Body>
     )

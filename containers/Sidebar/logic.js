@@ -6,7 +6,6 @@ const debug = makeDebugger('L:sidebar')
 let sidebar = null
 
 export function pin() {
-  debug('pin: ', !sidebar.pin)
   sidebar.markState({ pin: !sidebar.pin })
 }
 

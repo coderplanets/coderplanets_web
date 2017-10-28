@@ -28,6 +28,9 @@ const BodyStore = t
     get doraemonVisable() {
       return self.root.doraemonVisable
     },
+    get curUrlPath() {
+      return self.root.curUrlPath
+    },
   }))
   .actions(self => ({
     changeTheme(name) {

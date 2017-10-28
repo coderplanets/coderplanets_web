@@ -57,11 +57,13 @@ export const Row = styled.div`
   justify-content: left;
   > a {
     color: ${theme('sidebar.menu_link')};
+    opacity: ${props => (props.active ? 1 : 0.5)};
   }
 `
 
 export const SVGIconWrapper = styled.div`
   margin-top: 5px;
+  opacity: ${props => (props.active ? 1 : 0.5)};
   > svg {
     width: 22px;
     height: 22px;

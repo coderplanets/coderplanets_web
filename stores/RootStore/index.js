@@ -6,6 +6,7 @@
 import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/functions'
 
+import RouteStore from '../RouteStore'
 import SidebarStore from '../SidebarStore'
 import BodyStore from '../BodyStore'
 import GithubEampleStore from '../GithubEampleStore'
@@ -19,6 +20,7 @@ const debug = makeDebugger('S:rootStore')
 const rootStore = t
   .model({
     // domain modal
+    route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
     // subscriptions: ...
     // mySubscriptions: ...
@@ -51,7 +53,11 @@ const rootStore = t
       return self.langs.get(self.locale)
     },
     get doraemonVisable() {
+      // TODO self.doraemon.visible
       return self.doraemon.doraemonVisable
+    },
+    get curUrlPath() {
+      return self.route.curUrlPath
     },
   }))
   .actions(self => ({
