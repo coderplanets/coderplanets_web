@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ReactSVG from 'react-svg'
 
 import { theme } from '../../../utils/themes'
 
@@ -71,7 +72,6 @@ export const Banner = styled.div`
   height: 15vh;
   border-bottom: 1px solid tomato;
 `
-
 export const Button = styled.button`
   font-size: 1em;
   margin: 1em;
@@ -87,11 +87,8 @@ export const Button = styled.button`
     outline: 0;
   }
 `
-
-export const AddonSVGIconWrapper = styled.div`
-  > svg {
-    width: 80px;
-    height: 80px;
-    margin-top: 20px;
-  }
+export const BannerLogo = styled(ReactSVG)`
+  margin-top: 2em;
+  width: 100px;
+  height: 100px;
 `

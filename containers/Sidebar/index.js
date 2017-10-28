@@ -6,35 +6,19 @@
 
 import React from 'react'
 import Link from 'next/link'
-// import Router, { withRouter } from 'next/router'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
-import * as SuggestionIcons from '../../containers/Doraemon/styles/suggestionIcons'
-
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import {
+  makeDebugger,
+  storeSelector,
+  getSVGIconPath,
+} from '../../utils/functions'
 import PinButton from './PinButton'
-import { Sidebar, MenuItem, Row, SVGIconWrapper } from './styles'
+import { Sidebar, MenuItem, Row, MenuItemIcon } from './styles'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
-
-const Icons = { ...SuggestionIcons }
-const DefaultIcon = SuggestionIcons.javascript
-
-const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
-
-const NodeIcon = ({ raw, active }) => {
-  const lowerRaw = R.toLower(raw)
-  const iconKey = getIconKey(lowerRaw)
-
-  const Icon = Icons[iconKey] ? Icons[iconKey] : DefaultIcon
-  return (
-    <SVGIconWrapper active={active}>
-      <Icon />
-    </SVGIconWrapper>
-  )
-}
 
 const MenuList = ({ items, open, curUrlPath }) => {
   const listItems = items.map(item => (
@@ -43,9 +27,9 @@ const MenuList = ({ items, open, curUrlPath }) => {
         <div>
           <Link href={item.target.href} as={item.target.as}>
             <Row active={curUrlPath === R.toLower(item.name)}>
-              <NodeIcon
-                raw={item.name}
+              <MenuItemIcon
                 active={curUrlPath === R.toLower(item.name)}
+                path={getSVGIconPath(item.name)}
               />
               {/* eslint-disable jsx-a11y/anchor-is-valid */}
               <div style={{ marginRight: 10 }} />
@@ -55,9 +39,9 @@ const MenuList = ({ items, open, curUrlPath }) => {
         </div>
       ) : (
         <Row>
-          <NodeIcon
-            raw={item.name}
+          <MenuItemIcon
             active={curUrlPath === R.toLower(item.name)}
+            path={getSVGIconPath(item.name)}
           />
         </Row>
       )}

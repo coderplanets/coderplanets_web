@@ -1,14 +1,9 @@
 import styled, { keyframes } from 'styled-components'
+import ReactSVG from 'react-svg'
+
 import { theme } from '../../../utils/themes'
-
 import { Img } from '../../../components'
-
 import loadingIcon from '../../../static/searchLoading.svg'
-
-// import javascriptIcon from '../../../static/nodeIcons/javascript.svg'
-
-// import * as SuggestionIcons from './suggestionIcons'
-export * from './suggestionIcons'
 
 const rotate360 = keyframes`
 	from {
@@ -155,11 +150,16 @@ export const Hint = styled.div`
   margin-top: 10px;
   margin-right: 15px;
   width: 30px;
+  font-size: 1.1rem;
 `
-export const HintEnter = styled.div`
+export const HintEnter = styled(ReactSVG)`
   color: ${theme('u_panel.text')};
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 1.5em;
+  width: 30px;
+  height: 30px;
+  transform: rotateX(180deg);
+  fill: ${theme('u_panel.text')};
 `
 
 export const SubInfoWraper = styled.div`
@@ -178,22 +178,38 @@ export const RepoStar = styled.div`
   margin-right: 10px;
 `
 
-export const ImgIconWrapper = styled(Img)`
+export const NodeSVGIcon = styled(ReactSVG)`
   width: 40px;
   height: 40px;
+  margin-top: 3px;
+  transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
 `
 
-export const SVGIconWrapper = styled.div`
-  > svg {
-    width: 40px;
-    height: 40px;
-    margin-top: 3px;
-  }
+export const ThemeDot = styled.div`
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  background: ${props => props.bg};
+  border-radius: 50%;
 `
-export const AddonSVGIconWrapper = styled.div`
-  > svg {
-    width: 30px;
-    height: 30px;
-    margin-top: 20px;
-  }
+
+// TODO: rename -> PrefixIcon
+export const PrefixSVGIcon = styled(ReactSVG)`
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+`
+
+export const PrefixSearchIcon = styled(ReactSVG)`
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+  fill: ${theme('u_panel.search_icon')};
+`
+
+export const PrefixMagicIcon = styled(ReactSVG)`
+  width: 30px;
+  height: 25px;
+  margin-top: 20px;
+  transform: rotate(-30deg);
 `

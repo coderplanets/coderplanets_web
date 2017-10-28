@@ -10,13 +10,15 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import {
+  makeDebugger,
+  storeSelector,
+  getSVGIconPath,
+} from '../../utils/functions'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'
 import * as logic from './logic'
-
-import * as SuggestionIcons from './styles/suggestionIcons'
 
 import {
   PageOverlay,
@@ -37,9 +39,7 @@ const debug = makeDebugger('C:Doraemon')
 
 const HintIcon = ({ index, active, cur }) => {
   return active === cur ? (
-    <HintEnter>
-      <SuggestionIcons.enter />
-    </HintEnter>
+    <HintEnter path={getSVGIconPath('enter')} />
   ) : (
     <Hint>^ {index}</Hint>
   )

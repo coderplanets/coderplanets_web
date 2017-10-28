@@ -1,4 +1,15 @@
 import R from 'ramda'
+import {
+  pl,
+  framework,
+  database,
+  //  cmds,
+} from '../../stores/DoraemonStore/suggestions'
+
+const plKeys = R.map(R.toLower, R.keys(pl))
+const frameworkKeys = R.map(R.toLower, R.keys(framework))
+const databaseKeys = R.map(R.toLower, R.keys(database))
+// const cmdsKeys = R.map(R.toLower, R.keys(cmds))
 
 export { makeDebugger } from './debug'
 
@@ -15,6 +26,22 @@ export const isObject = value => {
 export const storeSelector = R.curry((wantedStore, props) => ({
   [wantedStore]: R.path(['store', wantedStore], props),
 }))
+
+export const getSVGIconPath = key => {
+  const iconKey = R.toLower(key)
+  let path = 'langs'
+  if (R.contains(iconKey, plKeys)) {
+    path = 'langs'
+  } else if (R.contains(iconKey, frameworkKeys)) {
+    path = 'frameworks'
+  } else if (R.contains(iconKey, databaseKeys)) {
+    path = 'database'
+  } else {
+    path = 'cmd'
+  }
+
+  return `/static/nodeIcons/${path}/${iconKey}.svg`
+}
 
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {

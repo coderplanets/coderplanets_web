@@ -92,6 +92,7 @@ const initCmdResolver = () => {
         debug('communityLinker: ', cmdpath)
 
         // Router.push(url, as)
+        // TODO: use route store  method
         Router.push(
           {
             pathname: '/',
@@ -113,8 +114,7 @@ const initCmdResolver = () => {
 
 const doCmd = () => {
   const cmd = clearfyCmd(doraemon.activeRaw)
-  //  debug('clearfyCmd: ', cmd)
-  // Do not use forEach, cause forEach will not break
+  /* Do not use forEach, cause forEach will not break */
   for (let i = 0; i < cmdResolver.length; i += 1) {
     if (cmdResolver[i].match(cmd)) {
       return cmdResolver[i].action(cmd)

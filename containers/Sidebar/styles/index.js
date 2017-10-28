@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import ReactSVG from 'react-svg'
+
 import { darken } from 'polished'
 import { theme } from '../../../utils/themes'
 
@@ -68,4 +70,11 @@ export const SVGIconWrapper = styled.div`
     width: 22px;
     height: 22px;
   }
+`
+
+export const MenuItemIcon = styled(ReactSVG)`
+  opacity: ${props => (props.active ? 1 : 0.5)};
+  margin-top: 0.9em;
+  width: 22px;
+  height: 22px;
 `

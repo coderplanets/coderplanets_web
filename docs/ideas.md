@@ -10,6 +10,7 @@
   [查询客户端 franchise](https://github.com/HVF/franchise) run sql in browser
 
 ## packages
+   [react-content-loader](https://github.com/danilowoz/react-content-loader)cool !
    [mobx-react-form](https://github.com/foxhound87/mobx-react-form)
    [markjs](https://markjs.io/)
    [markdown-it](https://markdown-it.github.io/)

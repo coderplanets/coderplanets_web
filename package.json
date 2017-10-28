@@ -53,7 +53,23 @@
           "libraryName": "antd"
         }
       ],
-      "inline-react-svg",
+      [
+        "inline-react-svg",
+        {
+          "svgo": {
+            "plugins": [
+              {
+                "removeAttrs": {
+                  "attrs": "(data-name)"
+                }
+              },
+              {
+                "cleanupIDs": true
+              }
+            ]
+          }
+        }
+      ],
       "ramda"
     ],
     "env": {
@@ -110,6 +126,7 @@
     "react-icons": "^2.2.5",
     "react-intl": "2.4.0",
     "react-keydown": "^1.9.4",
+    "react-svg": "^2.1.22",
     "react-world-flags": "^0.0.3",
     "rxjs": "^5.4.3",
     "scroll-into-view-if-needed": "^1.2.1",

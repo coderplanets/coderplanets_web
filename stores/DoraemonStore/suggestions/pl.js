@@ -43,14 +43,14 @@ const languages = {
   Perl: { ...clone(meta) },
   // Prolog: { ...clone(meta) },
   C: { ...clone(meta) },
-  'C++': { ...clone(meta) },
-  'C#': { ...clone(meta) },
+  cpp: { ...clone(meta) },
+  csharp: { ...clone(meta) },
   Clojure: { ...clone(meta) },
   //  Crystal: { ...clone(meta) },
   Lisp: { ...clone(meta) },
   Lua: { ...clone(meta) },
   // Fortran: { ...clone(meta) },
-  'F#': { ...clone(meta) },
+  fsharp: { ...clone(meta) },
   Dart: { ...clone(meta) },
   Delphi: { ...clone(meta) },
   Elixir: { ...clone(meta) },
@@ -81,9 +81,9 @@ forEachObjIndexed((v, k) => {
   }, keys(meta))
 }, languages)
 
-languages['C++'].raw = 'Cpp'
-languages['C#'].raw = 'CSharp'
-languages['F#'].raw = 'FSharp'
+// languages['C++'].raw = 'Cpp'
+// languages['C#'].raw = 'CSharp'
+// languages['F#'].raw = 'FSharp'
 /* languages['Objectivc-C'].raw = 'objectiveC' */
 
 export default languages

@@ -11,9 +11,7 @@ import keydown from 'react-keydown'
 // import Link from 'next/link'
 import { Button } from '../../components'
 
-import { storeSelector } from '../../utils/functions'
-
-import * as SuggestionIcons from '../Doraemon/styles/suggestionIcons'
+import { storeSelector, getSVGIconPath } from '../../utils/functions'
 import * as logic from './logic'
 
 import {
@@ -28,10 +26,8 @@ import {
   NotificationIcon,
   User,
   UserIcon,
-  AddonSVGIconWrapper,
+  BannerLogo,
 } from './styles'
-
-const Icons = { ...SuggestionIcons }
 
 const AppHeader = () => {
   return (
@@ -56,16 +52,12 @@ const AppHeader = () => {
 const AppBanner = ({ curUrlPath }) => {
   const defaultIcon = 'js'
   const iconKey = curUrlPath === '/' ? defaultIcon : curUrlPath
-
   // debug('AppBanner curUrlPath: ', curUrlPath)
   // debug('iconKey: ', iconKey)
 
-  const Icon = Icons[iconKey]
   return (
     <Banner>
-      <AddonSVGIconWrapper>
-        <Icon />
-      </AddonSVGIconWrapper>
+      <BannerLogo path={getSVGIconPath(iconKey)} />
     </Banner>
   )
 }

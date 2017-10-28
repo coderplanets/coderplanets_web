@@ -7,7 +7,7 @@
 import React from 'react'
 import keydown from 'react-keydown'
 
-// import { makeDebugger } from '../../utils/functions'
+import { getSVGIconPath } from '../../utils/functions'
 import * as logic from './logic'
 
 import {
@@ -15,30 +15,25 @@ import {
   InputBar,
   AddOn,
   LoadingIcon,
-  AddonSVGIconWrapper,
+  PrefixSVGIcon,
+  PrefixSearchIcon,
+  PrefixMagicIcon,
 } from './styles'
 
-import * as SuggestionIcons from './styles/suggestionIcons'
-
-const allIcons = { ...SuggestionIcons }
-const defaultIcon = SuggestionIcons.search
-
-// import { theme, magic, search } from './styles/suggestionIcons'
 // const debug = makeDebugger('C:Doraemon:InputEditor')
 
 const PrefixIcon = ({ prefix }) => {
-  let Icon
-  if (prefix === '/') {
-    Icon = SuggestionIcons.magic
-  } else {
-    Icon = allIcons[prefix] ? allIcons[prefix] : defaultIcon
+  switch (prefix) {
+    case '': {
+      return <PrefixSearchIcon path={getSVGIconPath('search')} />
+    }
+    case '/': {
+      return <PrefixMagicIcon path={getSVGIconPath('magic')} />
+    }
+    default: {
+      return <PrefixSVGIcon path={getSVGIconPath(prefix)} />
+    }
   }
-
-  return (
-    <AddonSVGIconWrapper>
-      <Icon />
-    </AddonSVGIconWrapper>
-  )
 }
 
 export default class InputEditor extends React.Component {
