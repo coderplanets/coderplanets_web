@@ -52,9 +52,9 @@ const rootStore = t
       // return self.langs.toJSON()[self.appLocale]
       return self.langs.get(self.locale)
     },
-    get doraemonVisable() {
+    get doraemonVisible() {
       // TODO self.doraemon.visible
-      return self.doraemon.doraemonVisable
+      return self.doraemon.visible
     },
     get curUrlPath() {
       return self.route.curUrlPath

@@ -25,8 +25,8 @@ const BodyStore = t
     get langMessages() {
       return self.root.langMessages
     },
-    get doraemonVisable() {
-      return self.root.doraemonVisable
+    get doraemonVisible() {
+      return self.root.doraemonVisible
     },
     get curUrlPath() {
       return self.root.curUrlPath

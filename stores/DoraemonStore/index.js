@@ -74,9 +74,6 @@ const DoraemonStore = t
       }
       return self.suggestions[self.activeSuggestionIndex].title
     },
-    get doraemonVisable() {
-      return self.visible
-    },
   }))
   .actions(self => ({
     changeTheme(name) {
