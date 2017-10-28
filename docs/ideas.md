@@ -31,12 +31,13 @@
 
 ## TODO
 
+- [ ] Big Bug ---> svg switch
+- [ ] Component -> PureComponent
 - [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)
 - [ ] use header section footer main ... html tags
 - [ ] common suggestion error display
 - [ ] make Doraemon ^x could cycle
 - [ ] header
-- [ ] navbar
 - [ ] head for every page, [example](https://github.com/zeit/next.js/blob/master/examples/head-elements/pages/index.js)
 - [ ] a layout [example](https://github.com/zeit/next.js/blob/master/examples/layout-component/components/layout.js)
 - [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)
@@ -50,6 +51,8 @@
 - [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] navbar
+- [x] *sync route info to store*
 - [x] remove the clock page
 - [x] remove Doraemon panel's scrollbar
 - [x] [字体问题参考](http://element.eleme.io/2.0/#/zh-CN/component/typography)
