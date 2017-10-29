@@ -32,7 +32,9 @@
 
 ## TODO
 
-- [ ] Big Bug ---> svg switch
+- [ ] Docrator -> ThemeWrapper
+- [ ] u_panel -> shell
+- [x] Big Bug ---> svg switch
 - [ ] Component -> PureComponent
 - [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)
 - [ ] use header section footer main ... html tags
