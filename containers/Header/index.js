@@ -58,7 +58,7 @@ class HeaderContainer extends React.Component {
         <Notification onClick={logic.openPreview}>
           <HeaderIcon path={getSVGIconPath('notification')} />
         </Notification>
-        <User onClick={logic.openPreview.bind(this, 'user')}>
+        <User onClick={logic.openPreview.bind(this, 'account')}>
           <HeaderIcon path={getSVGIconPath('header_user')} />
         </User>
       </Header>

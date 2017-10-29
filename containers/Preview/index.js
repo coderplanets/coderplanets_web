@@ -11,6 +11,9 @@ import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storeSelector } from '../../utils/functions'
 import * as logic from './logic'
+
+import ThemeSelector from '../../components/ThemeSelector'
+
 import {
   PreviewOverlay,
   PreviewWrapper,
@@ -39,8 +42,8 @@ class PreviewContainer extends React.Component {
   }
 
   render() {
-    const { visible, type } = this.props.preview
-    //     debug('visiblei: ', visible)
+    const { visible, type, themeKeys, curTheme } = this.props.preview
+
     return (
       <div>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />
@@ -48,7 +51,18 @@ class PreviewContainer extends React.Component {
           <CloseBtn type={type} />
           <PreviewContent>
             <PreviewHeader>Preview header</PreviewHeader>
-            <PreviewBody>Preview body</PreviewBody>
+            <PreviewBody>
+              <h2>Preview body</h2>
+              {type === 'account' ? (
+                <ThemeSelector
+                  themeKeys={themeKeys}
+                  curTheme={curTheme}
+                  changeTheme={logic.changeTheme}
+                />
+              ) : (
+                <div>post previewer</div>
+              )}
+            </PreviewBody>
           </PreviewContent>
         </PreviewWrapper>
       </div>

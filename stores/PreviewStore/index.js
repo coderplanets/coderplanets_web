@@ -12,7 +12,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
-    type: t.optional(t.enumeration('visibleType', ['post', 'user']), 'post'),
+    type: t.optional(t.enumeration('visibleType', ['post', 'account']), 'post'),
     // header:
     // body:
   })
@@ -20,15 +20,26 @@ const PreviewStore = t
     get root() {
       return getParent(self)
     },
+
+    get themeKeys() {
+      return self.root.theme.themeKeys
+    },
+    get curTheme() {
+      return self.root.theme.curTheme
+    },
   }))
   .actions(self => ({
     open(type) {
       self.visible = !self.visible
-      self.type = type === 'user' ? 'user' : 'post'
+      self.type = type === 'account' ? 'account' : 'post'
     },
 
     close() {
       self.visible = false
+    },
+
+    changeTheme(name) {
+      self.root.changeTheme(name)
     },
   }))
 

@@ -29,7 +29,7 @@ const CyanGreen = {
     text: darken(0.15, sidebarBg),
     active_bg: darken(0.1, fontColor),
   },
-  drawer: {
+  preview: {
     font: fontColor,
     bg: mainBg,
   },

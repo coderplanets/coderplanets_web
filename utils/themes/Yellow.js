@@ -29,7 +29,7 @@ const Yellow = {
     text: darken(0.35, sidebarBg),
     active_bg: darken(0.1, fontColor),
   },
-  drawer: {
+  preview: {
     font: fontColor,
     bg: mainBg,
   },

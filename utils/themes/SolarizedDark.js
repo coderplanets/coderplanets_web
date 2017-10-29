@@ -30,7 +30,7 @@ const SolarizedDark = {
     text: lighten(0.1, mainBg),
     active_bg: lighten(0.1, mainBg),
   },
-  drawer: {
+  preview: {
     font: fontColor,
     bg: mainBg,
   },

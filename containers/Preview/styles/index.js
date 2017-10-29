@@ -23,14 +23,14 @@ export const PreviewOverlay = styled.div`
 // visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 
 export const PreviewWrapper = styled.div`
-  color: ${theme('drawer.font')};
+  color: ${theme('preview.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   font-family: Roboto, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
   height: 100%;
-  width: ${props => (props.type === 'user' ? '40%' : '70%')};
+  width: ${props => (props.type === 'account' ? '40%' : '70%')};
   right: 0;
   position: fixed;
   transform: ${props => doTransform(props.visible)};
@@ -42,7 +42,7 @@ export const PreviewWrapper = styled.div`
 `
 export const PreviewContent = styled.div`
   width: 90%;
-  background-color: ${theme('drawer.bg')};
+  background-color: ${theme('preview.bg')};
   height: 100%;
   box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
   padding: 20px;
@@ -64,7 +64,7 @@ const closeWith = '40px'
 export const CloserInner = styled.div`
   width: ${closeWith};
   height: 45px;
-  background-color: ${theme('drawer.bg')};
+  background-color: ${theme('preview.bg')};
   transform-origin: right center 0;
   transform: rotate3d(0, 1, 0, -30deg);
   box-shadow: -7px 4px 19px 0px rgba(50, 50, 50, 0.2);
@@ -77,7 +77,7 @@ export const Closer = styled.div`
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
-  display: ${props => (props.type === 'user' ? 'none' : 'block')};
+  display: ${props => (props.type === 'account' ? 'none' : 'block')};
 
   &:after {
     content: '✕';
@@ -85,7 +85,7 @@ export const Closer = styled.div`
     top: 9px;
     right: 6px;
     font-size: large;
-    color: ${theme('drawer.font')};
+    color: ${theme('preview.font')};
     font-weight: lighter;
   }
 `
