@@ -1,10 +1,10 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import Content from '../index'
+// import Banner from '../index'
 
-describe('<Content />', () => {
+describe('<Banner />', () => {
   it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(true)
+    expect(true).toEqual(false)
   })
 })

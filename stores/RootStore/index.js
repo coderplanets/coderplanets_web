@@ -7,14 +7,16 @@ import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/functions'
 
 import RouteStore from '../RouteStore'
-import SidebarStore from '../SidebarStore'
-import BodyStore from '../BodyStore'
-import GithubEampleStore from '../GithubEampleStore'
-import DoraemonStore from '../DoraemonStore'
-import PreviewStore from '../PreviewStore'
-import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
+import { ThemeStore, ThemeDefaults } from '../ThemeStore'
+
+import BodylayoutStore from '../BodylayoutStore'
 import HeaderStore from '../HeaderStore'
+import BannerStore from '../BannerStore'
+import SidebarStore from '../SidebarStore'
+import PreviewStore from '../PreviewStore'
+import DoraemonStore from '../DoraemonStore'
+import GithubEampleStore from '../GithubEampleStore'
 
 const debug = makeDebugger('S:rootStore')
 
@@ -32,12 +34,12 @@ const rootStore = t
     appLangs: t.map(t.frozen),
     // domain end
 
+    bodylayout: t.optional(BodylayoutStore, {}),
     header: t.optional(HeaderStore, {}),
-    // banner: ...
+    banner: t.optional(BannerStore, {}),
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),
-    body: t.optional(BodyStore, {}),
     github: t.optional(GithubEampleStore, {}),
   })
   .views(self => ({
