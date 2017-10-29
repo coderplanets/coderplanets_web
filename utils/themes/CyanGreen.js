@@ -20,7 +20,7 @@ const CyanGreen = {
     menu_link: '#CAE5E5',
     border_color: darken(0.1, sidebarBg),
   },
-  u_panel: {
+  shell: {
     link: darken(0.25, sidebarBg),
     search_input: darken(0.2, sidebarBg),
     search_icon: darken(0.2, sidebarBg),

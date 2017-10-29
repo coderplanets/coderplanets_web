@@ -20,7 +20,7 @@ const Slack = {
     menu_link: '#B1A89D',
     border_color: darken(0.1, sidebarBg),
   },
-  u_panel: {
+  shell: {
     link: lighten(0.2, fontColor),
     search_input: lighten(0.1, fontColor),
     search_icon: lighten(0.1, fontColor),

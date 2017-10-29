@@ -20,7 +20,7 @@ const Yellow = {
     menu_link: '#000',
     border_color: darken(0.1, sidebarBg),
   },
-  u_panel: {
+  shell: {
     link: darken(0.45, sidebarBg),
     search_input: darken(0.5, sidebarBg),
     search_icon: darken(0.4, sidebarBg),

@@ -21,7 +21,7 @@ const SolarizedDark = {
     menu_link: '#93A1A1',
     border_color: '#14363E',
   },
-  u_panel: {
+  shell: {
     link: lighten(0.2, mainBg),
     search_input: lighten(0.1, mainBg),
     search_icon: lighten(0.1, mainBg),

@@ -18,7 +18,7 @@ const Muzli = {
     menu_link: 'lightgrey',
     border_color: '#100F13',
   },
-  u_panel: {
+  shell: {
     link: lighten(0.25, mainBg),
     search_input: lighten(0.1, mainBg),
     search_icon: lighten(0.1, mainBg),

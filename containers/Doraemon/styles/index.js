@@ -16,7 +16,7 @@ const rotate360 = keyframes`
 `
 
 export const LoadingIcon = styled(loadingIcon)`
-  fill: ${theme('u_panel.search_icon')};
+  fill: ${theme('shell.search_icon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
@@ -69,10 +69,10 @@ export const SuggestionWrapper = styled.div`
 
 // #001b21;
 export const BaseBar = styled.div`
-  border: 1px solid ${theme('u_panel.border')};
+  border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 70px;
-  background: ${theme('u_panel.bar_bg')};
+  background: ${theme('shell.bar_bg')};
   color: white;
   display: flex;
   flex-direction: row;
@@ -92,11 +92,10 @@ export const AlertBar = styled(BaseBar)`
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 70px;
-  background: ${props =>
-    props.active ? theme('u_panel.active_bg', props) : ''};
+  background: ${props => (props.active ? theme('shell.active_bg', props) : '')};
 `
 export const InputBar = styled.input`
-  caret-color: ${theme('u_panel.search_input')};
+  caret-color: ${theme('shell.search_input')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
     'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
@@ -104,7 +103,7 @@ export const InputBar = styled.input`
   width: auto;
   outline: none;
   font-weight: 200;
-  color: ${theme('u_panel.search_input')};
+  color: ${theme('shell.search_input')};
   font-size: 1.6rem;
   max-height: none;
   background-color: transparent;
@@ -133,11 +132,11 @@ export const Title = styled.div`
   font-size: 1.5em;
   color: white;
   > a {
-    color: ${theme('u_panel.link')};
+    color: ${theme('shell.link')};
   }
 `
 export const Desc = styled.div`
-  color: ${theme('u_panel.text')};
+  color: ${theme('shell.text')};
   text-overflow: ellipsis;
   font-size: 1.1em;
   width: 90%;
@@ -146,20 +145,20 @@ export const Desc = styled.div`
   margin-bottom: 7px;
 `
 export const Hint = styled.div`
-  color: ${theme('u_panel.text')};
+  color: ${theme('shell.text')};
   margin-top: 10px;
   margin-right: 15px;
   width: 30px;
   font-size: 1.1rem;
 `
 export const HintEnter = styled(ReactSVG)`
-  color: ${theme('u_panel.text')};
+  color: ${theme('shell.text')};
   margin-top: 10px;
   margin-right: 1.5em;
   width: 30px;
   height: 30px;
   transform: rotateX(180deg);
-  fill: ${theme('u_panel.text')};
+  fill: ${theme('shell.text')};
 `
 
 export const SubInfoWraper = styled.div`
@@ -168,12 +167,12 @@ export const SubInfoWraper = styled.div`
 `
 
 export const RepoLang = styled.div`
-  color: ${theme('u_panel.text')};
+  color: ${theme('shell.text')};
   font-style: italic;
 `
 
 export const RepoStar = styled.div`
-  color: ${theme('u_panel.text')};
+  color: ${theme('shell.text')};
   font-style: italic;
   margin-right: 10px;
 `
@@ -204,7 +203,7 @@ export const PrefixSearchIcon = styled(ReactSVG)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  fill: ${theme('u_panel.search_icon')};
+  fill: ${theme('shell.search_icon')};
 `
 
 export const PrefixMagicIcon = styled(ReactSVG)`

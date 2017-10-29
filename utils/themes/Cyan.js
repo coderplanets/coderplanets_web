@@ -20,7 +20,7 @@ const Cyan = {
     menu_link: '#D9E6E5',
     border_color: '#14363E',
   },
-  u_panel: {
+  shell: {
     link: lighten(0.3, fontColor),
     search_input: lighten(0.3, fontColor),
     search_icon: lighten(0.3, fontColor),
