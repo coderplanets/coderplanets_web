@@ -3,7 +3,6 @@ import ReactSVG from 'react-svg'
 
 import { theme } from '../../../utils/themes'
 import { Img } from '../../../components'
-import loadingIcon from '../../../static/searchLoading.svg'
 
 const rotate360 = keyframes`
 	from {
@@ -15,7 +14,7 @@ const rotate360 = keyframes`
 	}
 `
 
-export const LoadingIcon = styled(loadingIcon)`
+export const LoadingIcon = styled(ReactSVG)`
   fill: ${theme('shell.search_icon')};
   width: 30px;
   height: 30px;

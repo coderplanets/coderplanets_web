@@ -69,7 +69,11 @@ export default class InputEditor extends React.Component {
     return (
       <EditorBar>
         <AddOn>
-          {searching ? <LoadingIcon /> : <PrefixIcon prefix={prefix} />}
+          {searching ? (
+            <LoadingIcon path={getSVGIconPath('search_loading')} />
+          ) : (
+            <PrefixIcon prefix={prefix} />
+          )}
         </AddOn>
         <InputBar
           id="doraemonInputbar"

@@ -3,10 +3,6 @@ import ReactSVG from 'react-svg'
 
 import { theme } from '../../../utils/themes'
 
-import searchIcon from '../../../static/search.svg'
-import userIcon from '../../../static/user.svg'
-import notificationIcon from '../../../static/notification.svg'
-
 export const Body = styled.div`
   padding-left: 56px;
   position: relative;
@@ -38,18 +34,11 @@ export const Search = styled.div`
   margin-right: 10px;
 `
 
-export const SearchIcon = styled(searchIcon)`
-  fill: grey;
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-`
-
 export const Notification = styled.div`
   color: grey;
   margin-right: 10px;
 `
-export const NotificationIcon = styled(notificationIcon)`
+export const HeaderIcon = styled(ReactSVG)`
   fill: grey;
   width: 22px;
   height: 22px;
@@ -60,12 +49,6 @@ export const User = styled.div`
   margin-right: 20px;
 `
 
-export const UserIcon = styled(userIcon)`
-  fill: grey;
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-`
 export const Banner = styled.div`
   padding: 5px;
   padding-left: 80px;

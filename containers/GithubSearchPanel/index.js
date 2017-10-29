@@ -11,7 +11,11 @@ import { inject, observer } from 'mobx-react'
 // import styled from 'styled-components'
 
 import A from '../../components/A'
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import {
+  makeDebugger,
+  storeSelector,
+  getSVGIconPath,
+} from '../../utils/functions'
 import * as logic from './logic'
 
 import {
@@ -38,7 +42,13 @@ const debug = makeDebugger('C:UniversePanel')
 
 const SearchEditor = ({ value, searching }) => (
   <EditorBar>
-    <AddOn>{searching ? <LoadingIcon /> : <SearchIcon />}</AddOn>
+    <AddOn>
+      {searching ? (
+        <LoadingIcon path={getSVGIconPath('search_loading')} />
+      ) : (
+        <SearchIcon path={getSVGIconPath('search')} />
+      )}
+    </AddOn>
     <InputBar
       spellCheck={false}
       autoCapitalize="off"

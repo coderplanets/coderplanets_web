@@ -1,12 +1,10 @@
 import styled, { keyframes } from 'styled-components'
+import ReactSVG from 'react-svg'
 import { placeholder } from 'polished'
 
 import { theme } from '../../../utils/themes'
 
 import { Img } from '../../../components'
-
-import searchIcon from '../../../static/search.svg'
-import loadingIcon from '../../../static/searchLoading.svg'
 
 const rotate360 = keyframes`
 	from {
@@ -18,14 +16,14 @@ const rotate360 = keyframes`
 	}
 `
 
-export const SearchIcon = styled(searchIcon)`
+export const SearchIcon = styled(ReactSVG)`
   fill: ${theme('shell.search_icon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
 `
 
-export const LoadingIcon = styled(loadingIcon)`
+export const LoadingIcon = styled(ReactSVG)`
   fill: ${theme('shell.search_icon')};
   width: 30px;
   height: 30px;

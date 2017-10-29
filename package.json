@@ -53,23 +53,6 @@
           "libraryName": "antd"
         }
       ],
-      [
-        "inline-react-svg",
-        {
-          "svgo": {
-            "plugins": [
-              {
-                "removeAttrs": {
-                  "attrs": "(data-name)"
-                }
-              },
-              {
-                "cleanupIDs": true
-              }
-            ]
-          }
-        }
-      ],
       "ramda"
     ],
     "env": {
@@ -137,7 +120,6 @@
     "babel-eslint": "^8.0.0",
     "babel-jest": "^21.0.2",
     "babel-plugin-import": "^1.6.2",
-    "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-ramda": "^1.4.3",
     "babel-plugin-react-intl": "^2.3.1",
     "babel-plugin-styled-components": "1.3.0",

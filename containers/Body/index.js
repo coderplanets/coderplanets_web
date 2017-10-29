@@ -21,11 +21,9 @@ import {
   Router,
   Admin,
   Search,
-  SearchIcon,
   Notification,
-  NotificationIcon,
+  HeaderIcon,
   User,
-  UserIcon,
   BannerLogo,
 } from './styles'
 
@@ -37,13 +35,13 @@ const AppHeader = () => {
         <Button>管理页</Button>
       </Admin>
       <Search onClick={logic.openDoraemon}>
-        <SearchIcon />
+        <HeaderIcon path={getSVGIconPath('header_search')} />
       </Search>
       <Notification onClick={logic.openPreview}>
-        <NotificationIcon />
+        <HeaderIcon path={getSVGIconPath('notification')} />
       </Notification>
       <User onClick={logic.openPreview.bind(this, 'user')}>
-        <UserIcon />
+        <HeaderIcon path={getSVGIconPath('header_user')} />
       </User>
     </Header>
   )
