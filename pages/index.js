@@ -5,10 +5,12 @@ import initRootStore from '../stores'
 import ThemeWrapper from '../containers/ThemeWrapper'
 import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
-import Body from '../containers/Body'
+// import Body from '../containers/Body'
 import Preview from '../containers/Preview'
 import Doraemon from '../containers/Doraemon'
+import Header from '../containers/Header'
 import Route from '../containers/Route'
+import BodyLayout from '../components/BodyLayout'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -39,13 +41,25 @@ export default class Index extends React.Component {
         <ThemeWrapper>
           <Route />
           <MultiLanguage>
-            <Preview />
-            <Body />
             <Sidebar />
+            <Preview />
             <Doraemon />
+            <BodyLayout>
+              <Header />
+              <h2>hehe</h2>
+              <h2>hehe</h2>
+            </BodyLayout>
           </MultiLanguage>
         </ThemeWrapper>
       </Provider>
     )
   }
 }
+
+/*
+<Preview />
+<Doraemon />
+
+<Body />
+<Sidebar />
+ */

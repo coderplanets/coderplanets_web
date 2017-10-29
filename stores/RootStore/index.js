@@ -14,6 +14,7 @@ import DoraemonStore from '../DoraemonStore'
 import PreviewStore from '../PreviewStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
+import HeaderStore from '../HeaderStore'
 
 const debug = makeDebugger('S:rootStore')
 
@@ -25,17 +26,19 @@ const rootStore = t
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
-    // account: ...{ config } ..
+    // TODO: account: ...{ config } ..
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
     // domain end
 
+    header: t.optional(HeaderStore, {}),
+    // banner: ...
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
     preview: t.optional(PreviewStore, { visible: false }),
+    doraemon: t.optional(DoraemonStore, {}),
     body: t.optional(BodyStore, {}),
     github: t.optional(GithubEampleStore, {}),
-    doraemon: t.optional(DoraemonStore, {}),
   })
   .views(self => ({
     get version() {
