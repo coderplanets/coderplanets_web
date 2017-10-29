@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 
 import initIntroStore from '../stores/initIntroStore'
 
-import Decrator from '../containers/Decrator'
+import ThemeWrapper from '../containers/ThemeWrapper'
 import MultiLanguage from '../containers/MultiLanguage'
 import IntroSidebar from '../containers/IntroSidebar'
 import IntroBody from '../containers/IntroBody'
@@ -44,14 +44,14 @@ export default class Index extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <Decrator>
+        <ThemeWrapper>
           <MultiLanguage>
             <IntroSidebar {...globalStatus} />
             <Preview />
             <Doraemon />
             <IntroBody route={route} />
           </MultiLanguage>
-        </Decrator>
+        </ThemeWrapper>
       </Provider>
     )
   }

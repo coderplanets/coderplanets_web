@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import initRootStore from '../stores'
-import Decrator from '../containers/Decrator'
+import ThemeWrapper from '../containers/ThemeWrapper'
 import MultiLanguage from '../containers/MultiLanguage'
 import Sidebar from '../containers/Sidebar'
 import Body from '../containers/Body'
@@ -36,7 +36,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <Decrator>
+        <ThemeWrapper>
           <Route />
           <MultiLanguage>
             <Preview />
@@ -44,7 +44,7 @@ export default class Index extends React.Component {
             <Sidebar />
             <Doraemon />
           </MultiLanguage>
-        </Decrator>
+        </ThemeWrapper>
       </Provider>
     )
   }
