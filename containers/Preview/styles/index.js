@@ -44,7 +44,7 @@ export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('preview.bg')};
   height: 100%;
-  box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
+  box-shadow: ${theme('preview.shadow')};
   padding: 20px;
 `
 export const PreviewHeader = styled.div`
@@ -52,10 +52,7 @@ export const PreviewHeader = styled.div`
   text-align: center;
   line-height: 30px;
 `
-export const PreviewBody = styled.div`
-  text-align: center;
-  margin-top: 20%;
-`
+export const PreviewBody = styled.div`margin-top: 20%;`
 
 export const PreviewCloser = styled.div`width: 10%;`
 
@@ -90,4 +87,21 @@ export const Closer = styled.div`
   }
 `
 
-// right: ${props => (props.visible ? '0' : '40%')};
+// TODO: move to
+export const ColorBottom = styled.span`
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+  bottom: 0;
+  background: tomato;
+  z-index: 1;
+`
+
+export const TheTitle = styled.span`
+  font-size: 1.5rem;
+  padding: 0.2em;
+  color: black;
+  position: relative;
+  display: inline-block;
+`

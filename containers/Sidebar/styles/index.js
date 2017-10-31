@@ -12,6 +12,7 @@ export const Sidebar = styled.div`
   height: 100vh;
   top: 0;
   width: ${props => (props.open ? '250px' : '56px')};
+  box-shadow: ${props => (props.open ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.border_color')};
   z-index: 1000;

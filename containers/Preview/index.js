@@ -15,6 +15,8 @@ import * as logic from './logic'
 import ThemeSelector from '../../components/ThemeSelector'
 
 import {
+  TheTitle,
+  ColorBottom,
   PreviewOverlay,
   PreviewWrapper,
   PreviewCloser,
@@ -35,6 +37,22 @@ const CloseBtn = ({ type }) => (
   </PreviewCloser>
 )
 
+const AccountViewer = ({ themeKeys, curTheme }) => {
+  return (
+    <div>
+      <TheTitle>
+        <ColorBottom />
+        <span>--主题---</span>
+      </TheTitle>
+      <ThemeSelector
+        themeKeys={themeKeys}
+        curTheme={curTheme}
+        changeTheme={logic.changeTheme}
+      />
+    </div>
+  )
+}
+
 class PreviewContainer extends React.Component {
   componentWillMount() {
     debug('mount')
@@ -54,11 +72,7 @@ class PreviewContainer extends React.Component {
             <PreviewBody>
               <h2>Preview body</h2>
               {type === 'account' ? (
-                <ThemeSelector
-                  themeKeys={themeKeys}
-                  curTheme={curTheme}
-                  changeTheme={logic.changeTheme}
-                />
+                <AccountViewer themeKeys={themeKeys} curTheme={curTheme} />
               ) : (
                 <div>post previewer</div>
               )}

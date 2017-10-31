@@ -38,6 +38,7 @@ import globalStyles from '../../utils/global_styles'
  */
 
 // ${selection({ backgroundColor: 'tomato' }, '*')};
+
 const Container = styled.div`
   *::-moz-selection {
     background-color: ${theme('selection_bg')};
@@ -45,6 +46,43 @@ const Container = styled.div`
 
   *::selection {
     background-color: ${theme('selection_bg')};
+  }
+
+  .ant-btn-background-ghost.ant-btn-primary {
+    color: ${theme('button.primary')};
+    border-color: ${theme('button.primary')};
+  }
+
+  .ant-btn:focus,
+  .ant-btn:hover {
+    background-color: ${theme('button.hoverBg')};
+  }
+  .ant-btn:active {
+    background-color: ${theme('button.activeBg')};
+  }
+
+  .ant-btn-primary {
+    color: ${theme('button.fg')};
+    background-color: ${theme('button.primary')};
+    border-color: ${theme('button.primary')};
+  }
+
+  .ant-btn-clicked:after {
+    border: ${theme('button.clicked')};
+  }
+
+  .ant-tabs-bar {
+    border-bottom: ${theme('taber.baseline')};
+  }
+  .ant-tabs-ink-bar {
+    background-color: ${theme('taber.bottom_bar')};
+  }
+  .ant-tabs-nav .ant-tabs-tab {
+    color: ${theme('taber.normalText')};
+  }
+  .ant-tabs-nav .ant-tabs-tab-active {
+    color: ${theme('taber.activeText')};
+    font-weight: bold;
   }
 `
 const ThemeObserver = ({ children, theme }) => (

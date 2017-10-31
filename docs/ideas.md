@@ -32,6 +32,7 @@
 
 ## TODO
 
+- [ ] use styled-component extend to refator
 - [ ] Component -> PureComponent
 - [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)
 - [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)

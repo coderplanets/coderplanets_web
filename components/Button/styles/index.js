@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Button } from 'antd'
 
 import { theme } from '../../../utils/themes'
@@ -7,6 +8,10 @@ const MButton = styled(Button)`
   color: ${theme('button.fg')};
   background: ${theme('button.bg')};
   border-color: ${theme('button.border')};
+  color: ${props =>
+    props.hollow ? theme('button.border') : theme('button.fg')};
+  background: ${props => (props.hollow ? 'transparent' : theme('button.bg'))};
+
   &:hover {
     color: ${theme('button.fg')};
     border-color: ${theme('button.border')};

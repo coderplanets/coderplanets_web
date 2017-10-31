@@ -1,15 +1,16 @@
 import styled from 'styled-components'
-
 import ReactSVG from 'react-svg'
 
-// import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils/themes'
+
 export const Header = styled.div`
   padding: 5px;
   padding-top: 8px;
   line-height: 2vh;
-  border-bottom: 1px solid tomato;
   display: flex;
   flex-direction: row;
+  background: ${theme('header.bg')};
+  border-bottom: ${theme('header.spliter')};
 `
 
 export const Router = styled.div`flex-grow: 1;`
@@ -17,22 +18,24 @@ export const Router = styled.div`flex-grow: 1;`
 export const Admin = styled.div`
   margin-right: 10px;
   font-size: xx-small;
+  &:after {
+    content: '⁝';
+    color: ${theme('header.fg')};
+    margin-left: 5px;
+  }
 `
 
-export const Search = styled.div`
-  color: grey;
-  margin-right: 10px;
-`
+export const Search = styled.div`color: ${theme('header.fg')};`
 
-export const Notification = styled.div`
-  color: grey;
-  margin-right: 10px;
-`
+export const Notification = styled.div``
+
 export const HeaderIcon = styled(ReactSVG)`
-  fill: grey;
-  width: 22px;
-  height: 22px;
+  fill: ${theme('header.fg')};
+  width: 20px;
+  height: 20px;
   cursor: pointer;
+  margin-top: 2px;
+  margin-right: 12px;
 `
 export const User = styled.div`
   color: grey;

@@ -50,7 +50,9 @@ class HeaderContainer extends React.Component {
       <Header id="whereCallShowDoraemon">
         <Router>Javascript / Elixir / go</Router>
         <Admin>
-          <Button>管理页</Button>
+          <Button size="small" type="primary">
+            管理页
+          </Button>
         </Admin>
         <Search onClick={logic.openDoraemon}>
           <HeaderIcon path={getSVGIconPath('header_search')} />

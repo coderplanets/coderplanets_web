@@ -40,5 +40,5 @@ export const themeColorMap = R.map(R.path(['sidebar', 'bg']), themeDict)
 
 // shorthand for style-components
 export const theme = R.curry(
-  themepath => R.path(['theme', ...R.split('.', themepath)]) || 'white'
+  themepath => R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
 )

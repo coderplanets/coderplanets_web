@@ -1,15 +1,21 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { theme } from '../../../utils/themes'
+
 export const Banner = styled.div`
-  padding: 5px;
+  position: relative;
   padding-left: 80px;
-  height: 15vh;
+  height: 16vh;
   border-bottom: 1px solid tomato;
+  display: flex;
+  flex-direction: column;
+  background: ${theme('banner.bg')};
+  border-bottom: ${theme('banner.spliter')};
 `
 
 export const BannerLogo = styled(ReactSVG)`
   margin-top: 2em;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 `
