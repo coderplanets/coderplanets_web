@@ -23,7 +23,7 @@ import Brown from './Brown'
 import CyanGreen from './CyanGreen'
 
 export const themeDict = {
-  default: { ...Cyan },
+  default: { ...SolarizedDark },
   cyan: { ...Cyan },
   solarized: { ...SolarizedDark },
   muzli: { ...Muzli },

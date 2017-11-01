@@ -53,6 +53,13 @@ const Container = styled.div`
     border-color: ${theme('button.primary')};
   }
 
+  a:hover {
+    color: ${theme('a.hover')};
+  }
+  a:active {
+    color: ${theme('a.active')};
+  }
+
   .ant-btn:focus,
   .ant-btn:hover {
     background-color: ${theme('button.hoverBg')};

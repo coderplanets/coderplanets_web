@@ -50,6 +50,9 @@ export const CommunitiesStore = t
         ])
       )
     },
+    get curCommunity() {
+      return R.omit(['desc', 'title', 'raw', 'parent'], self.all.js)
+    },
   }))
   .actions(self => ({
     load() {

@@ -11,12 +11,13 @@ import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import BodylayoutStore from '../BodylayoutStore'
-import HeaderStore from '../HeaderStore'
-import BannerStore from '../BannerStore'
 import SidebarStore from '../SidebarStore'
 import PreviewStore from '../PreviewStore'
 import DoraemonStore from '../DoraemonStore'
 import GithubEampleStore from '../GithubEampleStore'
+import HeaderStore from '../HeaderStore'
+import BannerStore from '../BannerStore'
+import ContentStore from '../ContentStore'
 
 const debug = makeDebugger('S:rootStore')
 
@@ -37,6 +38,7 @@ const rootStore = t
     bodylayout: t.optional(BodylayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     banner: t.optional(BannerStore, {}),
+    content: t.optional(ContentStore, {}),
     sidebar: t.optional(SidebarStore, { menuItems: [] }),
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),

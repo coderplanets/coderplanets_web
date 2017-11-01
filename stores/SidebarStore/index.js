@@ -33,6 +33,7 @@ const SidebarStore = t
     menuItems: t.optional(t.array(MenuItem), []), // complex data
     open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
+    windowBlured: t.optional(t.boolean, false),
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
     // searchBox: t.string, // complex data

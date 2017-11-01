@@ -5,7 +5,8 @@
 import { lighten, darken } from 'polished'
 
 const primaryColor = '#5EABB3'
-const subPrimaryColor = '#DAE6E5' // header, banner ...
+const topHalfBg = '#DAE6E5' // header, banner ...
+const secondHalfBg = '#f9fcfc' // main content
 const mainBg = '#E4EEED'
 
 const fontColor = primaryColor
@@ -19,8 +20,37 @@ const Cyan = {
   selection_bg: 'tomato',
   header: {
     fg: primaryColor,
-    bg: subPrimaryColor,
-    spliter: `1px solid ${darken(0.04, subPrimaryColor)}`,
+    bg: topHalfBg,
+    spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+  },
+  banner: {
+    fg: primaryColor,
+    bg: topHalfBg,
+    spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+  },
+  content: {
+    bg: secondHalfBg,
+  },
+  sidebar: {
+    bg: sidebarBg,
+    pin_active: primaryColor,
+    menu_link: '#D9E6E5',
+    border_color: '#14363E',
+  },
+  preview: {
+    font: primaryColor,
+    bg: mainBg,
+    shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
+  },
+  shell: {
+    link: lighten(0.3, primaryColor),
+    search_input: lighten(0.3, primaryColor),
+    search_icon: lighten(0.3, primaryColor),
+    bar_bg: darken(0.03, primaryColor),
+    border: darken(0.05, primaryColor),
+    title: lighten(0.3, topHalfBg),
+    desc: lighten(0.2, primaryColor),
+    active_bg: darken(0.1, primaryColor),
   },
   button: {
     primary: primaryColor,
@@ -29,36 +59,20 @@ const Cyan = {
     activeBg: darken(0.01, primaryColor),
     clicked: `0px solid ${primaryColor}`,
   },
-  preview: {
-    font: primaryColor,
-    bg: mainBg,
-    shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
-  },
   taber: {
     activeText: primaryColor,
-    normalText: lighten(0.2, primaryColor),
+    normalText: lighten(0.1, primaryColor),
     bottom_bar: primaryColor,
-    baseline: `1px solid ${subPrimaryColor}`,
+    baseline: `1px solid ${topHalfBg}`,
   },
-  banner: {
-    fg: primaryColor,
-    bg: subPrimaryColor,
-    spliter: `1px solid ${darken(0.04, subPrimaryColor)}`,
+  navigator: {
+    activeBottom: `1.1px solid ${primaryColor}`,
+    borderRight: `1px solid ${darken(0.05, topHalfBg)}`,
+    hoverBg: '#eee',
   },
-  sidebar: {
-    bg: sidebarBg,
-    pin_active: primaryColor,
-    menu_link: '#D9E6E5',
-    border_color: '#14363E',
-  },
-  shell: {
-    link: lighten(0.3, primaryColor),
-    search_input: lighten(0.3, primaryColor),
-    search_icon: lighten(0.3, primaryColor),
-    bar_bg: darken(0.03, primaryColor),
-    border: darken(0.05, primaryColor),
-    text: lighten(0.2, primaryColor),
-    active_bg: darken(0.1, primaryColor),
+  a: {
+    hover: primaryColor,
+    active: darken(0.1, primaryColor),
   },
 }
 

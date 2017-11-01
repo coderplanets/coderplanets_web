@@ -5,12 +5,19 @@ const debug = makeDebugger('L:sidebar')
 
 let sidebar = null
 
+export function windowBlur(windowBlured) {
+  sidebar.markState({ windowBlured })
+}
+
 export function pin() {
   sidebar.markState({ pin: !sidebar.pin })
 }
 
 export function enterSidebar() {
-  sidebar.markState({ open: true })
+  const { windowBlured } = sidebar
+  if (!windowBlured) {
+    sidebar.markState({ open: true })
+  }
 }
 
 export function leaveSidebar() {

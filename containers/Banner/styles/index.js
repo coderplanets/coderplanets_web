@@ -15,7 +15,13 @@ export const Banner = styled.div`
 `
 
 export const BannerLogo = styled(ReactSVG)`
-  margin-top: 2em;
+  margin-top: 1em;
   width: 80px;
   height: 80px;
+`
+
+export const TabberWrapper = styled.div`
+  position: absolute;
+  bottom: -17px;
+  width: 80vw;
 `

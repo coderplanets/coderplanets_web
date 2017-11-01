@@ -10,6 +10,7 @@ import keydown from 'react-keydown'
 
 // import Link from 'next/link'
 import { Button } from '../../components'
+import Navigator from '../../components/Navigator'
 
 import {
   makeDebugger,
@@ -48,9 +49,11 @@ class HeaderContainer extends React.Component {
   render() {
     return (
       <Header id="whereCallShowDoraemon">
-        <Router>Javascript / Elixir / go</Router>
+        <Router>
+          <Navigator />
+        </Router>
         <Admin>
-          <Button size="small" type="primary">
+          <Button size="small" type="primary" ghost>
             管理页
           </Button>
         </Admin>

@@ -8,9 +8,10 @@ import Sidebar from '../containers/Sidebar'
 import Preview from '../containers/Preview'
 import Doraemon from '../containers/Doraemon'
 import Route from '../containers/Route'
+import BodyLayout from '../containers/BodyLayout'
 import Header from '../containers/Header'
 import Banner from '../containers/Banner'
-import BodyLayout from '../containers/BodyLayout'
+import Content from '../containers/Content'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -47,6 +48,7 @@ export default class Index extends React.Component {
             <BodyLayout>
               <Header />
               <Banner />
+              <Content />
             </BodyLayout>
           </MultiLanguage>
         </ThemeWrapper>

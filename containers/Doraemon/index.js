@@ -37,12 +37,13 @@ import {
 
 const debug = makeDebugger('C:Doraemon')
 
-const HintIcon = ({ index, active, cur }) => {
-  return active === cur ? (
-    <HintEnter path={getSVGIconPath('enter')} />
-  ) : (
-    <Hint>^ {index}</Hint>
-  )
+const HintIcon = ({ index, active, cur, length }) => {
+  if (active === cur) {
+    return <HintEnter path={getSVGIconPath('enter')} />
+  } else if (length <= 9) {
+    return <Hint>^ {index}</Hint>
+  }
+  return <span />
 }
 
 class DoraemonContainer extends React.Component {
@@ -83,7 +84,12 @@ class DoraemonContainer extends React.Component {
                     <Title>{suggestion.title}</Title>
                     <Desc>{suggestion.desc}</Desc>
                   </ContentWraper>
-                  <HintIcon index={i} active={activeRaw} cur={suggestion.raw} />
+                  <HintIcon
+                    index={i}
+                    active={activeRaw}
+                    cur={suggestion.raw}
+                    length={suggestions.length}
+                  />
                 </InfoBar>
               ))}
             </SuggestionWrapper>

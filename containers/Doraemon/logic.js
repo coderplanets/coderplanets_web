@@ -175,7 +175,7 @@ export function navToSuggestion(suggestion) {
 }
 
 export function hidePanel() {
-  doraemon.hideDoraemon()
+  // doraemon.hideDoraemon()
   pockect$.stop()
 }
 

@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
         <Head>
           <title>mastani</title>
           <link
-            href="https://cdn.bootcss.com/antd/2.13.5/antd.min.css"
+            href="http://image.mzliaoba.com/lib/antd.css"
             rel="stylesheet"
           />
           {styleTags}

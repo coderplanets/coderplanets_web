@@ -22,6 +22,9 @@ const BannerStore = t
     get curUrlPath() {
       return self.root.curUrlPath
     },
+    get curCommunity() {
+      return self.root.communities.curCommunity
+    },
   }))
   .actions(self => ({
     markState(sobj) {

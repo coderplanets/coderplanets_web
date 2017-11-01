@@ -87,17 +87,6 @@ export const Closer = styled.div`
   }
 `
 
-// TODO: move to
-export const ColorBottom = styled.span`
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  left: 0;
-  bottom: 0;
-  background: tomato;
-  z-index: 1;
-`
-
 export const TheTitle = styled.span`
   font-size: 1.5rem;
   padding: 0.2em;

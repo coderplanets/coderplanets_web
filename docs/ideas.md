@@ -32,6 +32,7 @@
 
 ## TODO
 
+- [ ] [lint css](https://github.com/styled-components/stylelint-processor-styled-components)
 - [ ] use styled-component extend to refator
 - [ ] Component -> PureComponent
 - [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)

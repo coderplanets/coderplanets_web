@@ -129,13 +129,13 @@ export const ContentWraper = styled.div`
 export const Title = styled.div`
   display: block;
   font-size: 1.5em;
-  color: white;
+  color: ${theme('shell.title')};
   > a {
     color: ${theme('shell.link')};
   }
 `
 export const Desc = styled.div`
-  color: ${theme('shell.text')};
+  color: ${theme('shell.desc')};
   text-overflow: ellipsis;
   font-size: 1.1em;
   width: 90%;
@@ -144,20 +144,20 @@ export const Desc = styled.div`
   margin-bottom: 7px;
 `
 export const Hint = styled.div`
-  color: ${theme('shell.text')};
+  color: ${theme('shell.desc')};
   margin-top: 10px;
   margin-right: 15px;
   width: 30px;
   font-size: 1.1rem;
 `
 export const HintEnter = styled(ReactSVG)`
-  color: ${theme('shell.text')};
+  color: ${theme('shell.desc')};
   margin-top: 10px;
   margin-right: 1.5em;
   width: 30px;
   height: 30px;
   transform: rotateX(180deg);
-  fill: ${theme('shell.text')};
+  fill: ${theme('shell.desc')};
 `
 
 export const SubInfoWraper = styled.div`
@@ -166,12 +166,12 @@ export const SubInfoWraper = styled.div`
 `
 
 export const RepoLang = styled.div`
-  color: ${theme('shell.text')};
+  color: ${theme('shell.desc')};
   font-style: italic;
 `
 
 export const RepoStar = styled.div`
-  color: ${theme('shell.text')};
+  color: ${theme('shell.desc')};
   font-style: italic;
   margin-right: 10px;
 `

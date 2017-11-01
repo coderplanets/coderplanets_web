@@ -4,9 +4,7 @@ import ReactSVG from 'react-svg'
 import { theme } from '../../../utils/themes'
 
 export const Header = styled.div`
-  padding: 5px;
-  padding-top: 8px;
-  line-height: 2vh;
+  line-height: 1.6vh;
   display: flex;
   flex-direction: row;
   background: ${theme('header.bg')};
@@ -18,6 +16,7 @@ export const Router = styled.div`flex-grow: 1;`
 export const Admin = styled.div`
   margin-right: 10px;
   font-size: xx-small;
+  margin-top: 0.8vh;
   &:after {
     content: '⁝';
     color: ${theme('header.fg')};
@@ -25,9 +24,12 @@ export const Admin = styled.div`
   }
 `
 
-export const Search = styled.div`color: ${theme('header.fg')};`
+export const Search = styled.div`
+  margin-top: 0.8vh;
+  color: ${theme('header.fg')};
+`
 
-export const Notification = styled.div``
+export const Notification = styled.div`margin-top: 0.8vh;`
 
 export const HeaderIcon = styled(ReactSVG)`
   fill: ${theme('header.fg')};
@@ -38,8 +40,8 @@ export const HeaderIcon = styled(ReactSVG)`
   margin-right: 12px;
 `
 export const User = styled.div`
-  color: grey;
   margin-right: 20px;
+  margin-top: 0.8vh;
 `
 
 export const Button = styled.button`

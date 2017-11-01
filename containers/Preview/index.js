@@ -16,7 +16,6 @@ import ThemeSelector from '../../components/ThemeSelector'
 
 import {
   TheTitle,
-  ColorBottom,
   PreviewOverlay,
   PreviewWrapper,
   PreviewCloser,
@@ -41,8 +40,7 @@ const AccountViewer = ({ themeKeys, curTheme }) => {
   return (
     <div>
       <TheTitle>
-        <ColorBottom />
-        <span>--主题---</span>
+        <span>主题</span>
       </TheTitle>
       <ThemeSelector
         themeKeys={themeKeys}

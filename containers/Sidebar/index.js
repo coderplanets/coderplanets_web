@@ -10,6 +10,7 @@ import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import {
+  Global,
   makeDebugger,
   storeSelector,
   getSVGIconPath,
@@ -54,12 +55,20 @@ class SidebarContainer extends React.Component {
   componentDidMount() {
     debug('init')
     logic.init(this.props.sidebar)
+
+    Global.addEventListener('blur', () => {
+      logic.windowBlur(true)
+    })
+    Global.addEventListener('focus', () => {
+      logic.windowBlur(false)
+    })
   }
 
   render() {
     const { sidebar } = this.props
     const { curUrlPath, menuItems, open, pin } = sidebar
     //    debug('-----> sidebar route --------> : ', this.props.router)
+    //    onMouseLeave={logic.leaveSidebar}
 
     return (
       <Sidebar

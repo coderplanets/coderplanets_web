@@ -29,6 +29,8 @@ const globalStyles = `
   *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    margin:0;
+    padding:0;
     box-sizing: border-box;
   }
 
@@ -172,6 +174,11 @@ const globalStyles = `
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
     margin: 0;
     padding: 0;
+  }
+  abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
   }
 `
 
