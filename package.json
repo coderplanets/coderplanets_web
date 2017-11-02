@@ -96,7 +96,7 @@
     "intl": "^1.2.5",
     "isomorphic-fetch": "^2.2.1",
     "mobx": "3.3.1",
-    "mobx-react": "4.3.3",
+    "mobx-react": "4.3.4",
     "mobx-state-tree": "^1.0.0",
     "module-alias": "^2.0.1",
     "next": "4.1.3",
