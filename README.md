@@ -4,6 +4,7 @@
     <img src="https://raw.githubusercontent.com/mydearxym/mastani/dev/static/waji.png" alt="building ..." />
   </div>
   <div> work in progress ...</div>
+  <br/><br/>
   
   <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
     <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
