@@ -1,5 +1,10 @@
 
 <div align="center">
+  <div>
+    <img src="https://raw.githubusercontent.com/mydearxym/mastani/dev/static/waji.png" alt="building ..." />
+  </div>
+  <div> work in progress ...</div>
+  
   <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
     <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
   </a>
@@ -25,8 +30,6 @@
   <a href="https://david-dm.org/mydearxym/mastani" target="_blank">
     <img src="https://david-dm.org/mydearxym/mastani.svg" alt="Dependency Status" />
   </a>
-  
-  <div> work in progress ...</div>
 </div>
 
 
