@@ -1,5 +1,9 @@
 
 <div align="center">
+  <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
+    <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
+  </a>
+
   <a href="https://travis-ci.org/mydearxym/mastani" target="_blank">
     <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
   </a>
