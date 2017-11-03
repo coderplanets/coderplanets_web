@@ -32,7 +32,7 @@
 - [ ] community post list layout prototype
 - [ ] community tuts list layout prototype
 - [ ] community jobs list layout prototype
-- [ ] make Doraemon ^x could cycle
+- [ ] make Doraemon ^x work
 - [ ] [lint css](https://github.com/styled-components/stylelint-processor-styled-components)
 
 
