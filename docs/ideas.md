@@ -29,28 +29,16 @@
 
 - [ ] [bootsnote-mobile](https://github.com/BoostIO/boostnote-mobile/blob/master/package.json)
 
-
 ## TODO
 
-- [ ] [lint css](https://github.com/styled-components/stylelint-processor-styled-components)
 - [ ] use styled-component extend to refator
-- [ ] Component -> PureComponent
-- [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)
-- [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)
 - [ ] use header section footer main ... html tags
-- [ ] common suggestion error display
-- [ ] make Doraemon ^x could cycle
-- [ ] header
 - [ ] head for every page, [example](https://github.com/zeit/next.js/blob/master/examples/head-elements/pages/index.js)
-- [ ] a layout [example](https://github.com/zeit/next.js/blob/master/examples/layout-component/components/layout.js)
 - [ ] use Rxdb to store state in browser, [see](https://github.com/mobxjs/mobx-state-tree/blob/a0916791768637665a56bc2720ec0a081d4d148f/packages/mst-example-todomvc/src/index.js) 
 - [ ] 使用 Github Rest/GraphQl api 摸索数据层方案
 - [ ] [主页弄给](https://github.com/Sly777/ran)
-- [ ] add export config docs [see this](https://zhuanlan.zhihu.com/p/27847307)
-- [ ] add theme checker maybe? -> https://github.com/styled-components/stylelint-processor-styled-components
 - [ ] use bundlesize in Ci . [here](https://github.com/siddharthkp/bundlesize)
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
-- [ ] docs introduction / file-structure / theme / debug / generator / testing ... see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
 - [x] Docrator -> ThemeWrapper
