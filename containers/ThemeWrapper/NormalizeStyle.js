@@ -4,7 +4,7 @@
  *
  */
 
-const globalStyles = `
+const NormalizeStyle = `
   html {
     line-height: 1.15; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
@@ -182,4 +182,4 @@ const globalStyles = `
   }
 `
 
-export default globalStyles
+export default NormalizeStyle
