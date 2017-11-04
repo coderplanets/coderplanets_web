@@ -17,9 +17,10 @@ const debug = makeDebugger('c:Tabber:index')
 const { TabPane } = Tabs
 
 const translator = {
-  map: '地图',
   posts: '帖子',
+  map: '地图',
   news: '动态',
+  cheatsheet: 'cheatsheet',
   meetups: 'meetups',
   users: '用户',
   videos: '视频',
@@ -29,6 +30,8 @@ const translator = {
 
 const Tabber = ({ source, onChange }) => {
   const tabitems = R.values(source)
+  //   debug('tabitems: ', tabitems)
+  //   <Tabs onChange={onChange} activeKey={'Js--jobs'}>
   return (
     <Tabs onChange={onChange}>
       {tabitems.map(item => (

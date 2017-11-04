@@ -6,7 +6,8 @@
 import { types as t } from 'mobx-state-tree'
 
 const Query = t.model('Query', {
-  name: t.string,
+  main: t.string,
+  sub: t.string,
 })
 
 const Href = t.model('Href', {

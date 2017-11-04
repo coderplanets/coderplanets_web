@@ -1,21 +1,45 @@
 
+## Eelectron
+  [基础文档](https://electron.org.cn/doc/index.html)
+  [weweChat](https://github.com/trazyn/weweChat)
+  [weweSource](https://insight.io/github.com/trazyn/weweChat/blob/master/package.json?source=0)
+
+## React Native
+  [react-native-guide](https://github.com/reactnativecn/react-native-guide)
+  [lottie-android](https://github.com/airbnb/lottie-android)
+  [掘金客户端](https://github.com/wangdicoder/JueJinClient)    *
+  [kittenTricks](https://github.com/akveo/kittenTricks)       *
+  [ireading](https://github.com/attentiveness/reading)        * 比较新，但用的是 redux
+
 ## GraphQL tools
   [apollo-fetch](https://github.com/apollographql/apollo-fetch)
   [graphql-request](https://github.com/graphcool/graphql-request)
   [组织结构参考](https://github.com/apollographql/GitHunt-React/blob/4bbba0416c666768b375e65221236a736e50e942/ui/graphql/Comment.graphql)
 
+## Phoenix
+  [firestrom](https://insight.io/github.com/dailydrip/firestorm?source=0)
 
 ## PostgreSQL
   [pgweb](https://github.com/sosedoff/pgweb)
   [查询客户端 franchise](https://github.com/HVF/franchise) run sql in browser
+  [dbeaver](https://dbeaver.jkiss.org/) sql client based-on java
 
 ## packages
+   [store2](https://github.com/nbubna/store) --> 结合 Porsche cache， *important*
+   [react-loadable](https://github.com/thejameskyle/react-loadable)
+   [adobe cc](https://color.adobe.com)
+   [random color](https://randomcolor.llllll.li/) --> too slow
    [react-content-loader](https://github.com/danilowoz/react-content-loader)cool !
    [mobx-react-form](https://github.com/foxhound87/mobx-react-form)
-   [markjs](https://markjs.io/)
-   [markdown-it](https://markdown-it.github.io/)
+   [markjs](https://markjs.io/) --> search highlight
+   [masonry-layout](https://github.com/eiriklv/react-masonry-component)
    [Autolinker](https://github.com/gregjacobs/Autolinker.js)
-   [dbeaver](https://dbeaver.jkiss.org/) based-on java
+   [react-diagrams](https://github.com/projectstorm/react-diagrams) 
+
+
+## 内容填充
+  [svgtrick](http://svgtrick.com/)
+  [svgontheweb](https://svgontheweb.com/zh/)
 
 ## issues
   next.config.js 如果导出不存在的页面可能会使 build 过程出现奇怪的错误, 如
@@ -31,6 +55,7 @@
 
 ## TODO
 
+- [ ] update to prism [latestest](https://github.com/PrismJS/prism/releases)
 - [ ] use styled-component extend to refator
 - [ ] use header section footer main ... html tags
 - [ ] head for every page, [example](https://github.com/zeit/next.js/blob/master/examples/head-elements/pages/index.js)
@@ -41,6 +66,7 @@
 - [ ] [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] [防嵌套网页](https://segmentfault.com/a/1190000004502619)
 - [ ] [devdocs 的离线缓存怎么做的?](https://devdocs.io/) 弄一个呗
+- [x] publish a custom prism npm pkg on npm
 - [x] Docrator -> ThemeWrapper
 - [x] u_panel -> shell
 - [x] Big Bug ---> svg switch
@@ -85,15 +111,6 @@
 - [x] add Menu
 - [x] 使用各国标志性的建筑作为 i18n 切换图标
 
-### MindStorm
-
-- [ ] [参考构建桌面版本](https://github.com/egoist/devdocs-desktop)
-- [ ] 同色系的彩虹标签？
-- [ ] [桌面效果的网站, 有新意](http://jasonpark.me/)
-- [ ] [用 monaco-editor实现一个 postman](https://github.com/Microsoft/monaco-editor)
-- [ ] [monaco-editor 的 diff-editor 实现协作编辑？ 文档的 wiki 化？](https://github.com/Microsoft/monaco-editor)
-- [ ] [react-diagrams](https://github.com/projectstorm/react-diagrams) 
-
 
 ### tools
   #### [git commit emoji](https://github.com/liuchengxu/git-commit-emoji-cn)
@@ -114,13 +131,6 @@
 ## ui
   [点击 page 隐藏菜单的思路](https://stackoverflow.com/questions/152975/how-do-i-detect-a-click-outside-an-element)
   [rx + fetch](https://github.com/Cmdv/React-RxJS/blob/836d20a09f66f94db4c3e2206b14b203bf8836a1/src/intent/json-intent.js)
-
-## Roadmap
-
-- [ ] shop example
-- [ ] Menu
-- [ ] animate, [animate-components](https://github.com/nitin42/animate-components/tree/master/packages/animate-keyframes)
-
 
 ## issue
 
@@ -164,9 +174,6 @@
   
 ### jest
   [Running Jest Tests Before Each Git Commit](https://benmccormick.org/2017/02/26/running-jest-tests-before-each-git-commit/)
-
-### styled-component
-  [styled-component](https://www.styled-components.com/docs)
 
 ### example
   [react-typescript-samples](https://github.com/Lemoncode/react-typescript-samples)

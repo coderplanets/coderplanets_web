@@ -1,9 +1,9 @@
 import { types as t } from 'mobx-state-tree'
 
-const CmdModel = t.model('Community', {
+const CheatSheetModel = t.model('CheatSheetModel', {
   title: t.string,
   desc: t.string,
   raw: t.string,
 })
 
-export default CmdModel
+export default CheatSheetModel

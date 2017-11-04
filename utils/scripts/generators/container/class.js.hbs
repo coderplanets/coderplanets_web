@@ -21,7 +21,7 @@ const debug = makeDebugger('C:{{ properCase name }}')
 class {{ properCase name }}Container extends React.Component {
   componentWillMount() {
     debug('mount')
-    logic.init(this.props.{{ lowerCase name }})
+    logic.init(this.props.{{ camelCase name }})
   }
 
   render() {
@@ -34,4 +34,4 @@ class {{ properCase name }}Container extends React.Component {
   }
 }
 
-export default inject(storeSelector('{{ lowerCase name }}'))(observer({{ properCase name }}Container))
+export default inject(storeSelector('{{ camelCase name }}'))(observer({{ properCase name }}Container))

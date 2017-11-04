@@ -4,7 +4,8 @@ import { theme } from '../../../utils/themes'
 const Body = styled.div`
   padding-left: 56px;
   position: relative;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background: ${theme('body_bg')};
   transition: background-color 0.3s;
   display: flex;

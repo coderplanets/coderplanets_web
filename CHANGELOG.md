@@ -4,28 +4,33 @@
 - [ ] admin page design in depth
 
 
-## v0.1.0 , Early than 11-28, 2017
+## v0.1.0 , Early than 11-30, 2017
 
 - [ ] admin page design
 - [ ] more doc, see [this](https://github.com/react-boilerplate/react-boilerplate/tree/master/docs)
 - [ ] Offline Plugin [example](https://insight.io/github.com/Sly777/ran/blob/master/next.config.js?source=0)
 - [ ] Cache SSR pages in [server.js](https://github.com/zeit/next.js/blob/master/examples/ssr-caching/server.js)
 
-## v0.0.6
+##  v0.0.7
+
+- [ ] Electron boilerplate start
+- [ ] RN boilerplate start
+
+## v0.0.6 , Early than 11-22, 2017
 
 - [ ] request layer design
 - [ ] explore login / github flow
 - [ ] integrate with Phoenix Server
 
 
-## v0.0.5
+## v0.0.5 , Early than 11-18, 2017
 
 - [ ] integrate eidt info with navigator
 - [ ] edit page
 - [ ] learn and use Draft.js
 
 
-## v0.0.4
+## v0.0.4 , Early than 11-15, 2017
 
 - [ ] *dynamic component* base on route [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] community map layout prototype
@@ -38,10 +43,10 @@
 
 ## v0.0.3 
 
-- [ ] theme complete and refactor in depth
-- [ ] switch between deferrent community && inside community sections
-- [ ] nested route example
-- [ ] *full feactured cheatsheets*, use [cheatcheets](https://github.com/rstacruz/cheatsheets)
+- [x] theme complete and refactor in depth
+- [x] switch between deferrent community && inside community sections
+- [x] nested route example
+- [x] *full feactured cheatsheets*, use [cheatcheets](https://github.com/rstacruz/cheatsheets)
     
 
 ## v0.0.2

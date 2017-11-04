@@ -23,7 +23,7 @@ import Brown from './Brown'
 import CyanGreen from './CyanGreen'
 
 export const themeDict = {
-  default: { ...SolarizedDark },
+  default: { ...Cyan },
   cyan: { ...Cyan },
   solarized: { ...SolarizedDark },
   muzli: { ...Muzli },
@@ -39,6 +39,5 @@ export const selectorColors = R.map(R.path(['sidebar', 'bg']), themeDict)
 export const themeColorMap = R.map(R.path(['sidebar', 'bg']), themeDict)
 
 // shorthand for style-components
-export const theme = R.curry(
-  themepath => R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
-)
+export const theme = themepath =>
+  R.path(['theme', ...R.split('.', themepath)]) || 'wheat'

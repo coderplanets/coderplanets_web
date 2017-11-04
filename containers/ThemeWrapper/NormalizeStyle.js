@@ -4,6 +4,7 @@
  *
  */
 
+// TODO' html background-color
 const NormalizeStyle = `
   html {
     line-height: 1.15; /* 1 */

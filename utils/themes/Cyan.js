@@ -12,7 +12,20 @@ const mainBg = '#E4EEED'
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
 
+const markdownFont = '#839496'
+
 const Cyan = {
+  htmlBg: topHalfBg,
+  loading: {
+    basic: topHalfBg,
+    animate: lighten(0.03, topHalfBg),
+  },
+  error: {
+    title: primaryColor,
+    desc: darken(0.1, primaryColor),
+    bg: lighten(0.02, secondHalfBg),
+  },
+
   font: fontColor,
   link: 'orange',
   main: '#7DC0C5',
@@ -41,6 +54,25 @@ const Cyan = {
     font: primaryColor,
     bg: mainBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
+  },
+  markdown: {
+    title: primaryColor,
+    fg: markdownFont,
+    titleBottom: `1px solid ${lighten(0.3, primaryColor)}`,
+    hrColor: '#154452',
+    blockquoteBorder: '0.25em solid #34535C',
+    blockquoteFg: darken(0.09, markdownFont),
+    strongFg: lighten(0.2, markdownFont),
+    strongBg: '#34535C',
+    link: 'orange',
+    tableBg: darken(0.01, secondHalfBg),
+    tableBg2n: darken(0.05, secondHalfBg),
+    tableborder: `1px solid ${darken(0.1, secondHalfBg)}`,
+    taskDone: '#528416',
+    taskPeding: darken(0.1, secondHalfBg),
+  },
+  code: {
+    bg: darken(0.05, secondHalfBg),
   },
   shell: {
     link: lighten(0.3, primaryColor),

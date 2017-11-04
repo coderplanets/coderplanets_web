@@ -15,6 +15,7 @@ import { pl, framework, database } from '../DoraemonStore/suggestions'
 import PlModel from './PlModel'
 import FrameworkModel from './FrameworkModel'
 import DatabaseModel from './DatabaseModel'
+import CheatSheetModal from './CheatSheetModal'
 
 // const debug = makeDebugger('S:CommunitiesStore')
 
@@ -30,6 +31,7 @@ export const CommunitiesStore = t
     languages: t.map(PlModel),
     frameworks: t.map(FrameworkModel),
     databases: t.map(DatabaseModel),
+    cheatsheet: t.optional(CheatSheetModal, { title: '', desc: '', raw: '' }),
     // jobs: ...
     // themes: ...
     // debug: ...
@@ -41,17 +43,29 @@ export const CommunitiesStore = t
       return getParent(self)
     },
     get all() {
-      return mapKeys(
-        R.toLower,
-        R.mergeAll([
-          self.languages.toJSON(),
-          self.frameworks.toJSON(),
-          self.databases.toJSON(),
-        ])
-      )
+      return R.mergeAll([
+        self.getLanguageLike(),
+        { cheatsheet: self.cheatsheet.toJSON() },
+      ])
+      // return self.getLanguageLike()
     },
     get curCommunity() {
-      return R.omit(['desc', 'title', 'raw', 'parent'], self.all.js)
+      const { curRoute } = self.root
+      const defaultCommunity = 'js'
+
+      let { mainQuery } = curRoute
+      mainQuery = R.isEmpty(mainQuery) ? defaultCommunity : mainQuery
+      try {
+        return {
+          header: R.pick(['title', 'desc', 'raw'], self.all[mainQuery]),
+          body: R.omit(['desc', 'title', 'raw', 'parent'], self.all[mainQuery]),
+        }
+      } catch (e) {
+        return {
+          header: {},
+          body: {},
+        }
+      }
     },
   }))
   .actions(self => ({
@@ -67,5 +81,21 @@ export const CommunitiesStore = t
       R.forEachObjIndexed((v, k) => {
         self.databases.set(k, v)
       }, database)
+
+      self.cheatsheet = {
+        title: 'cheatsheet',
+        desc: 'cheatsheet desc',
+        raw: 'cheatsheet',
+      }
+    },
+    getLanguageLike() {
+      return mapKeys(
+        R.toLower,
+        R.mergeAll([
+          self.languages.toJSON(),
+          self.frameworks.toJSON(),
+          self.databases.toJSON(),
+        ])
+      )
     },
   }))

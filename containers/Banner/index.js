@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Row, Col } from 'antd'
 
 import Tabber from '../../components/Tabber'
 
@@ -17,12 +18,44 @@ import {
 
 import * as logic from './logic'
 
-import { Banner, BannerLogo, TabberWrapper } from './styles'
+import { Banner, Title, Desc, BannerLogo, TabberWrapper } from './styles'
 
 const debug = makeDebugger('C:Banner')
 
 const onChange = e => {
-  console.log('callback: ', e)
+  logic.tabberChange(e)
+}
+
+const renderTabber = (mainQuery, curCommunity) => {
+  if (mainQuery === 'cheatsheet') {
+    return <div />
+  }
+  return (
+    <TabberWrapper>
+      <Tabber source={curCommunity.body} onChange={onChange} />
+    </TabberWrapper>
+  )
+}
+
+const BannerBrief = ({ curCommunity, curRoute }) => {
+  const defaultIcon = 'js'
+  const { header } = curCommunity
+  const { title, desc } = header
+  const { mainQuery } = curRoute
+  // TODO: move logic to logic
+  const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
+
+  return (
+    <Row>
+      <Col span={2}>
+        <BannerLogo path={getSVGIconPath(iconKey)} />
+      </Col>
+      <Col span={4}>
+        <Title>{title}</Title>
+        <Desc>{desc}</Desc>
+      </Col>
+    </Row>
+  )
 }
 
 class BannerContainer extends React.Component {
@@ -33,17 +66,17 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curUrlPath, curCommunity } = banner
+    const { curRoute, curCommunity } = banner
+    const { mainQuery } = curRoute
 
-    const defaultIcon = 'js'
-    const iconKey = curUrlPath === '/' ? defaultIcon : curUrlPath
+    // debug('curPath: ', curPath)
+    // debug('curRoute: ', curRoute)
+    // debug('curCommunity2: ', curCommunity)
 
     return (
       <Banner>
-        <BannerLogo path={getSVGIconPath(iconKey)} />
-        <TabberWrapper>
-          <Tabber source={curCommunity} onChange={onChange} />
-        </TabberWrapper>
+        <BannerBrief curCommunity={curCommunity} curRoute={curRoute} />
+        {renderTabber(mainQuery, curCommunity)}
       </Banner>
     )
   }

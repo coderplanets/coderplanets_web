@@ -23,12 +23,10 @@ const getReposPromise = query => {
   return fetch(url).then(res => res.json())
 }
 
-const getRepos = query => {
+const getGithubRepos = query => {
   const promise = getReposPromise(query)
   return Observable.fromPromise(promise)
 }
-
-const getGithubRepos = R.curry(getRepos)
 
 const isEmptyValue = R.compose(R.isEmpty, R.trim)
 const isNotEmptyValue = R.compose(R.not, isEmptyValue)
@@ -36,7 +34,6 @@ const isNotEmptyValue = R.compose(R.not, isEmptyValue)
 export default class SearchService {
   constructor() {
     this.searchTerm = new Subject()
-    //     this.doSearch = R.curry(this.githubQuery)
   }
 
   search(term) {

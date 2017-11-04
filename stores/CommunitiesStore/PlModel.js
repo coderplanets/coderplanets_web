@@ -1,13 +1,14 @@
 import { types as t } from 'mobx-state-tree'
 
 import {
-  Map,
   Posts,
+  Map,
   News,
   Meetups,
   Users,
   Videos,
   Tuts,
+  CheatSheet,
   Jobs,
 } from './CommonModels'
 
@@ -15,13 +16,14 @@ const PlModel = t.model('PlModel', {
   title: t.string,
   desc: t.string,
   raw: t.string,
-  map: Map,
   posts: Posts,
   news: News,
+  tuts: Tuts,
+  map: Map,
   meetups: Meetups,
   users: Users,
   videos: Videos,
-  tuts: Tuts,
+  cheatsheet: CheatSheet,
   jobs: Jobs,
 })
 

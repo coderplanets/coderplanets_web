@@ -14,7 +14,7 @@ const menuItemConveter = R.compose(
     target: {
       href: {
         pathname: '/',
-        query: { name: R.toLower(item.raw) },
+        query: { main: R.toLower(item.raw), sub: R.toLower(item.raw) },
       },
       as: {
         pathname: `/${R.toLower(item.raw)}`,
@@ -58,8 +58,8 @@ const SidebarStore = t
     get langMessages() {
       return self.root.langMessages
     },
-    get curUrlPath() {
-      return self.root.curUrlPath
+    get curPath() {
+      return self.root.curPath
     },
   }))
   .actions(self => ({

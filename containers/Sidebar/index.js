@@ -21,15 +21,15 @@ import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
 
-const MenuList = ({ items, open, curUrlPath }) => {
+const MenuList = ({ items, open, curPath }) => {
   const listItems = items.map(item => (
     <li key={item.name}>
       {open ? (
         <div>
           <Link href={item.target.href} as={item.target.as}>
-            <Row active={curUrlPath === R.toLower(item.name)}>
+            <Row active={curPath === R.toLower(item.name)}>
               <MenuItemIcon
-                active={curUrlPath === R.toLower(item.name)}
+                active={curPath === R.toLower(item.name)}
                 path={getSVGIconPath(item.name)}
               />
               {/* eslint-disable jsx-a11y/anchor-is-valid */}
@@ -41,7 +41,7 @@ const MenuList = ({ items, open, curUrlPath }) => {
       ) : (
         <Row>
           <MenuItemIcon
-            active={curUrlPath === R.toLower(item.name)}
+            active={curPath === R.toLower(item.name)}
             path={getSVGIconPath(item.name)}
           />
         </Row>
@@ -66,7 +66,7 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    const { curUrlPath, menuItems, open, pin } = sidebar
+    const { curPath, menuItems, open, pin } = sidebar
     //    debug('-----> sidebar route --------> : ', this.props.router)
     //    onMouseLeave={logic.leaveSidebar}
 
@@ -80,7 +80,7 @@ class SidebarContainer extends React.Component {
         <br />
         <br />
 
-        <MenuList items={menuItems} open={open} curUrlPath={curUrlPath} />
+        <MenuList items={menuItems} open={open} curPath={curPath} />
       </Sidebar>
     )
   }

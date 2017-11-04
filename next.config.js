@@ -2,7 +2,6 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 /* eslint-enable */
 const { ANALYZE } = process.env
-
 // export example
 // https://github.com/zeit/next.js/blob/canary/examples/with-static-export/next.config.js
 
@@ -24,6 +23,13 @@ module.exports = {
   webpack: (config, { dev }) => {
     console.log('config dev: ', dev)
 
+    /*
+    config.module.rules.push({
+      test: /\.md$/,
+      loader: 'raw-loader',
+    })
+    */
+
     if (ANALYZE) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
@@ -35,6 +41,7 @@ module.exports = {
       return config
     }
 
+    // console.log('webpack config: ', config.module.rules)
     return config
   },
 }

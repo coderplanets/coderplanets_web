@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t } from 'mobx-state-tree'
+import { types as t, getEnv } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/functions'
 
 import RouteStore from '../RouteStore'
@@ -18,6 +18,12 @@ import GithubEampleStore from '../GithubEampleStore'
 import HeaderStore from '../HeaderStore'
 import BannerStore from '../BannerStore'
 import ContentStore from '../ContentStore'
+
+import PostsViewerStore from '../PostsViewerStore'
+import TutsViewerStore from '../TutsViewerStore'
+import MapViewerStore from '../MapViewerStore'
+import JobsViewerStore from '../JobsViewerStore'
+import CheatSheetViewerStore from '../CheatSheetViewerStore'
 
 const debug = makeDebugger('S:rootStore')
 
@@ -43,8 +49,24 @@ const rootStore = t
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),
     github: t.optional(GithubEampleStore, {}),
+
+    postsViewer: t.optional(PostsViewerStore, {}),
+    tutsViewer: t.optional(TutsViewerStore, {}),
+    mapViewer: t.optional(MapViewerStore, {}),
+    jobsViewer: t.optional(JobsViewerStore, {}),
+    cheatsheetViewer: t.optional(CheatSheetViewerStore, {}),
+    /*
+       cheatsheets ...
+       posts ...
+       videos ...
+       jobs ...
+       meetups ...
+     */
   })
   .views(self => ({
+    get SR17$() {
+      return getEnv(self).SR17$
+    },
     get version() {
       return '0.0.1'
     },
@@ -63,8 +85,12 @@ const rootStore = t
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    get curUrlPath() {
-      return self.route.curUrlPath
+    // TODO: remove it
+    get curPath() {
+      return self.route.curPath
+    },
+    get curRoute() {
+      return self.route.curRoute
     },
   }))
   .actions(self => ({

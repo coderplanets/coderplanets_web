@@ -30,16 +30,15 @@ export class Advisor {
     this.allSuggestions = store.allSuggestions
   }
 
-  getSuggestionPath = R.curry(p => R.path(p, this.allSuggestions))
+  getSuggestionPath = p => R.path(p, this.allSuggestions)
   suggestionPathInit = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdInit)
   suggestionPath = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdFull)
 
-  suggestionPathThenStartsWith = R.curry(val =>
+  suggestionPathThenStartsWith = val =>
     R.pickBy(
       (_, k) => R.startsWith(cmdLast(val), k),
       this.suggestionPathInit(val)
     )
-  )
 
   walkSuggestion = R.ifElse(
     R.endsWith('/'),
@@ -55,15 +54,13 @@ export class Advisor {
 
   getSuggestion = R.ifElse(
     R.compose(R.startsWith('/'), R.tail), // avoid multi /, like /////
-    R.curry(() => R.identity([])),
+    () => R.identity([]),
     this.suggestionBreif
   )
 
-  relateSuggestions = R.curry(val => {
-    return {
-      prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-      data: this.getSuggestion(val),
-    }
+  relateSuggestions = val => ({
+    prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
+    data: this.getSuggestion(val),
   })
 
   relateSuggestions$ = q =>
@@ -71,8 +68,8 @@ export class Advisor {
       new Promise(resolve => resolve(this.relateSuggestions(q)))
     )
 
-  specialSuggestions = R.curry(val => ({
+  specialSuggestions = val => ({
     prefix: '/',
     data: [this.getSuggestionPath(val)],
-  }))
+  })
 }

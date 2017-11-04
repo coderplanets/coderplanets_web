@@ -17,6 +17,12 @@ const ContentStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
+    get SR17$() {
+      return self.root.SR17$
+    },
   }))
   .actions(self => ({
     markState(sobj) {

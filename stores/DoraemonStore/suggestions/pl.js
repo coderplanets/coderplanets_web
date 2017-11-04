@@ -18,6 +18,7 @@ const meta = {
   news: {},
   videos: {},
   meetups: {},
+  cheatsheet: {},
   jobs: {},
 }
 

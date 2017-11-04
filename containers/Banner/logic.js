@@ -1,4 +1,5 @@
-// import R from 'ramda'
+import R from 'ramda'
+import Router from 'next/router'
 
 import { makeDebugger } from '../../utils/functions'
 
@@ -8,10 +9,26 @@ const debug = makeDebugger('L:Banner')
 
 let banner = null
 
-export function someMethod() {
-  debug(banner)
+const fmt = R.compose(R.map(R.toLower), R.split('--'))
+
+export function tabberChange(target) {
+  debug('fmt: ', fmt(target))
+
+  const main = fmt(target)[0]
+  const sub = fmt(target)[1]
+
+  debug('push to: ', `${main}/${sub}`)
+
+  Router.push(
+    {
+      pathname: '/',
+      query: { main, sub },
+    },
+    `/${main}/${sub}`
+  )
 }
 
 export function init(selectedStore) {
   banner = selectedStore
+  debug(banner)
 }

@@ -7,10 +7,12 @@
 
 import RootStore from './RootStore'
 
+import SR17$ from '../utils/SR17'
+
 let rootStore = null
 
 const createRootStore = (isServer, langSetup) => {
-  return RootStore.create({ appLangs: langSetup })
+  return RootStore.create({ appLangs: langSetup }, { SR17$ })
 }
 
 function initRootStore(isServer = false, langSetup) {

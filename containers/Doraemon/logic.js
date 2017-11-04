@@ -60,6 +60,20 @@ const initCmdResolver = () => {
       },
     },
     {
+      match: SAK.stepOneCmd('cheatsheet'),
+      action: () => {
+        debug('SAK.stepOneCmd cheatsheet')
+        Router.push(
+          {
+            pathname: '/',
+            query: { main: 'cheatsheet' },
+          },
+          '/cheatsheet'
+        )
+        hidePanel()
+      },
+    },
+    {
       match: SAK.stepTwoCmd('themes'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
@@ -96,7 +110,7 @@ const initCmdResolver = () => {
         Router.push(
           {
             pathname: '/',
-            query: { name: cmdpath[0] },
+            query: { main: cmdpath[0] },
           },
           cmdpath[0]
         )
@@ -175,7 +189,7 @@ export function navToSuggestion(suggestion) {
 }
 
 export function hidePanel() {
-  // doraemon.hideDoraemon()
+  doraemon.hideDoraemon()
   pockect$.stop()
 }
 

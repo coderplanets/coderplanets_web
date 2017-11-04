@@ -22,6 +22,22 @@ const cmds = {
   User: { title: 'user', desc: 'user desc', raw: 'User' },
   // name theme will confilct styled/helper theme in 'utils/functions'
   Jobs: { title: 'jobs', desc: 'jobs desc', raw: 'Jobs' },
+  Cheatsheet: {
+    title: 'Cheatsheet',
+    desc: 'Cheatsheet desc',
+    raw: 'Cheatsheet',
+    js: { title: 'js', desc: 'javascript cheatsheet', raw: 'cheatsheet--js' },
+    react: {
+      title: 'react',
+      desc: 'react cheatsheet',
+      raw: 'cheatsheet--react',
+    },
+    elixir: {
+      title: 'elixir',
+      desc: 'elixir cheatsheet',
+      raw: 'cheatsheet--elixir',
+    },
+  },
   // ClubOverflow: {},
 }
 

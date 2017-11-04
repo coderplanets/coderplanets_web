@@ -33,6 +33,10 @@ export const Tuts = t.model('Tuts', {
   ...baseInfo,
 })
 
+export const CheatSheet = t.model('CheatSheet', {
+  ...baseInfo,
+})
+
 export const Jobs = t.model('Jobs', {
   ...baseInfo,
 })

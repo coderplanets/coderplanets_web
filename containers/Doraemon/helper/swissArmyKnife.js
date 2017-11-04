@@ -38,7 +38,7 @@ export class SwissArmyKnife {
       /* eslint-disable no-undef */
       const { activeRaw } = this.store
       scrollIntoViewIfNeeded(document.querySelector(`#${activeRaw}`), true, {
-        duration: 80,
+        duration: 120,
       })
       /* eslint-enable no-undef */
     } catch (e) {
@@ -66,13 +66,11 @@ export class SwissArmyKnife {
   }
 
   // TODO rename to linker
-  communityLinker = R.curry(cmdpath =>
+  communityLinker = cmdpath =>
     R.and(R.contains(R.head(cmdpath), this.communities), lengthE1(cmdpath))
-  )
 
-  communityInsideLinker = R.curry(cmdpath =>
+  communityInsideLinker = cmdpath =>
     R.and(R.contains(R.head(cmdpath), this.communities), lengthE2(cmdpath))
-  )
 
   stepTwoCmd = R.curry((name, cmdpath) =>
     R.and(R.equals(name, R.head(cmdpath)), lengthE2(cmdpath))

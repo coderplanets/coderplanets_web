@@ -5,14 +5,29 @@
 import { lighten, darken } from 'polished'
 
 const primaryColor = '#2d7eb1'
-const topHalfBg = '#014354' // header, banner ...
+const topHalfBg = '#003B4A' // header, banner ...
 const mainBg = '#002A35'
 const secondHalfBg = mainBg // main content
 
 const fontColor = primaryColor
 const sidebarBg = '#001B21'
 
+const markdownFont = '#839496'
+
 const SolarizedDark = {
+  htmlBg: secondHalfBg,
+  loading: {
+    basic: topHalfBg,
+    animate: lighten(0.03, topHalfBg),
+    // basic: '#113B4A',
+    // animate: '#02495a',
+  },
+  error: {
+    title: primaryColor,
+    desc: darken(0.1, primaryColor),
+    bg: lighten(0.02, secondHalfBg),
+  },
+
   font: fontColor,
   link: '#269A95',
   main: '#7DC0C5',
@@ -41,6 +56,25 @@ const SolarizedDark = {
     font: fontColor,
     bg: mainBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
+  },
+  markdown: {
+    title: darken(0.05, '#DBE0E1'),
+    fg: markdownFont,
+    titleBottom: '1px solid #154452',
+    hrColor: '#154452',
+    blockquoteBorder: '0.25em solid #34535C',
+    blockquoteFg: darken(0.09, markdownFont),
+    strongFg: lighten(0.2, markdownFont),
+    strongBg: '#34535C',
+    link: '#2382C4',
+    tableBg: lighten(0.01, secondHalfBg),
+    tableBg2n: lighten(0.05, secondHalfBg),
+    tableborder: `1px solid ${lighten(0.07, secondHalfBg)}`,
+    taskDone: '#528416',
+    taskPeding: lighten(0.1, secondHalfBg),
+  },
+  code: {
+    bg: lighten(0.03, secondHalfBg),
   },
   shell: {
     link: lighten(0.2, mainBg),
