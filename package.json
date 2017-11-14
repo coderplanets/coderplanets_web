@@ -120,7 +120,7 @@
     "scroll-into-view-if-needed": "v1.2.8",
     "shortid": "^2.2.8",
     "styled-components": "2.2.3",
-    "timeago-react": "^1.2.2"
+    "timeago-react": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
