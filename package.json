@@ -117,7 +117,7 @@
     "react-world-flags": "^0.0.3",
     "remarkable": "^1.7.1",
     "rxjs": "^5.4.3",
-    "scroll-into-view-if-needed": "v1.2.8",
+    "scroll-into-view-if-needed": "1.4.0",
     "shortid": "^2.2.8",
     "styled-components": "2.2.3",
     "timeago-react": "^1.2.2"
