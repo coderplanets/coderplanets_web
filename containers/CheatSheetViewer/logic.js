@@ -39,7 +39,7 @@ export const convertTaskTag = R.compose(
 
 export function getData(which) {
   setTimeout(() => {
-    cheatsheetViewer.SR17$.getCheatsheet(which)
+    cheatsheetViewer.SR71$.getCheatsheet(which)
   }, 2000)
   cheatsheetViewer.markState({
     state: 'loading',
@@ -77,7 +77,7 @@ export function init(selectedStore) {
   cheatsheetViewer = selectedStore
   //   debug('cheatsheetviewer current: ', cheatsheetViewer.current)
 
-  cheatsheetViewer.SR17$.cheatsheet().subscribe(res => {
+  cheatsheetViewer.SR71$.cheatsheet().subscribe(res => {
     // console.info('res: ', res)
     if (is404(res)) {
       handle404()

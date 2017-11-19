@@ -39,8 +39,8 @@ const CheatSheetViewerStore = t
       return getParent(self)
     },
 
-    get SR17$() {
-      return self.root.SR17$
+    get SR71$() {
+      return self.root.SR71$
     },
   }))
   .actions(self => ({
