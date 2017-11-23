@@ -97,7 +97,7 @@
     "isomorphic-fetch": "^2.2.1",
     "mastani-codehighlight": "0.0.5",
     "mobx": "3.3.1",
-    "mobx-react": "4.3.4",
+    "mobx-react": "4.3.5",
     "mobx-state-tree": "^1.0.0",
     "module-alias": "^2.0.1",
     "next": "4.1.3",
