@@ -19,6 +19,8 @@
     "precommit": "lint-staged",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
     "analyze": "cross-env ANALYZE=1 next build",
+    "api:play": "GRAPHQL_CONFIG_ENDPOINT_NAME=mastani graphql playground",
+    "api:graph": "graphql voyager",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {
@@ -144,6 +146,8 @@
     "eslint-plugin-react": "7.5.0",
     "eslint-watch": "^3.1.3",
     "graphiql": "^0.11.10",
+    "graphql-cli": "^2.0.2",
+    "graphql-cli-voyager": "^0.1.2",
     "husky": "^0.14.3",
     "jest": "^22.0.0",
     "lint-staged": "^4.0.4",

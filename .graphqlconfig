@@ -1,0 +1,13 @@
+{
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "test": {
+        "url": "https://api.graph.cool/simple/v1/swapi"
+      },
+      "mastani": {
+        "url": "http://localhost:4001/graphiql"
+      }
+    }
+  }
+}
