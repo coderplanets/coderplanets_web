@@ -9,6 +9,7 @@ import { makeDebugger } from '../../utils/functions'
 import RouteStore from '../RouteStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
+import { PostsStore, PostsDefaults } from '../PostsStore'
 
 import BodylayoutStore from '../BodylayoutStore'
 import SidebarStore from '../SidebarStore'
@@ -32,6 +33,7 @@ const rootStore = t
     // domain modal
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
+    posts: t.optional(PostsStore, PostsDefaults),
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
@@ -64,8 +66,8 @@ const rootStore = t
      */
   })
   .views(self => ({
-    get SR17$() {
-      return getEnv(self).SR17$
+    get SR71$() {
+      return getEnv(self).SR71$
     },
     get version() {
       return '0.0.1'
@@ -98,6 +100,7 @@ const rootStore = t
       debug('after create loadMenuItem')
       self.communities.load()
       self.sidebar.load()
+      self.posts.load()
     },
     openDoraemon() {
       self.doraemon.open()

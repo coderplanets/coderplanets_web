@@ -17,6 +17,10 @@ const PostsViewerStore = t
     get root() {
       return getParent(self)
     },
+
+    get data() {
+      return self.root.posts.current
+    },
   }))
   .actions(self => ({
     markState(sobj) {

@@ -27,6 +27,7 @@
 ## packages
    [store2](https://github.com/nbubna/store) --> 结合 Porsche cache， *important*
    [react-loadable](https://github.com/thejameskyle/react-loadable)
+   [高德地图组件](https://github.com/ElemeFE/react-amap)
    [adobe cc](https://color.adobe.com)
    [random color](https://randomcolor.llllll.li/) --> too slow
    [react-content-loader](https://github.com/danilowoz/react-content-loader)cool !

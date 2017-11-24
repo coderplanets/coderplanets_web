@@ -5,7 +5,7 @@ import { theme } from '../../../utils/themes'
 
 export const Wrapper = styled.div`
   margin: 30px;
-  width: 97%;
+  width: 95.5%;
   height: 70%;
   min-height: 70vh;
   background: ${theme('content.bg')};

@@ -22,6 +22,7 @@ class PostsViewerContainer extends React.Component {
   }
 
   render() {
+    debug('postsViewer: ', this.props.postsViewer.data)
     return <Wrapper>PostsViewer container!</Wrapper>
   }
 }

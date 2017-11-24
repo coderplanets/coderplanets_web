@@ -32,9 +32,10 @@
 
 ## v0.0.4 , Early than 11-15, 2017
 
+- [ ] add Faker layer to SR71$
 - [ ] *dynamic component* base on route [react-loadable](https://github.com/thejameskyle/react-loadable)
 - [ ] community map layout prototype
-- [ ] community post list layout prototype
+- [ ] community *post list* layout prototype
 - [ ] community tuts list layout prototype
 - [ ] community jobs list layout prototype
 - [ ] make Doraemon ^x work
