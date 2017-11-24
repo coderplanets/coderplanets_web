@@ -12,6 +12,7 @@ import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 import { PostsStore, PostsDefaults } from '../PostsStore'
 
 import BodylayoutStore from '../BodylayoutStore'
+import ApiLayoutStore from '../ApiLayoutStore'
 import SidebarStore from '../SidebarStore'
 import PreviewStore from '../PreviewStore'
 import DoraemonStore from '../DoraemonStore'
@@ -44,6 +45,7 @@ const rootStore = t
     // domain end
 
     bodylayout: t.optional(BodylayoutStore, {}),
+    apiLayout: t.optional(ApiLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     banner: t.optional(BannerStore, {}),
     content: t.optional(ContentStore, {}),

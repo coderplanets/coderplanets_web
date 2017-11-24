@@ -46,9 +46,10 @@ const getMessages = locale => {
 }
 
 // const homeQuery = route('/home/:name')
+const introQuery = route('/intro')
+const apiQuery = route('/api')
 const communityQuery = route('/:main')
 const communitySubQuery = route('/:main/:sub')
-const introQuery = route('/intro/:name')
 const localeQuery = route('/locale/:lang')
 
 app.prepare().then(() => {
@@ -56,6 +57,7 @@ app.prepare().then(() => {
     const { pathname } = parse(req.url)
     // const homeMatch = homeQuery(pathname)
     const introMatch = introQuery(pathname)
+    const apiMatch = apiQuery(pathname)
     const localeMatch = localeQuery(pathname)
     const communityMatch = communityQuery(pathname)
     const communitySubMatch = communitySubQuery(pathname)
@@ -71,6 +73,14 @@ app.prepare().then(() => {
     req.locale = locale
     req.messages = getMessages(locale)
 
+    if (introMatch) {
+      return app.render(req, res, '/intro', introMatch)
+    }
+
+    if (apiMatch) {
+      return app.render(req, res, '/api', apiMatch)
+    }
+
     if (communityMatch) {
       return app.render(req, res, '/', communityMatch)
     }
@@ -82,9 +92,6 @@ app.prepare().then(() => {
         return app.render(req, res, '/', homeMatch)
       }
      */
-    if (introMatch) {
-      return app.render(req, res, '/intro', introMatch)
-    }
     // now index page go this way
     return handle(req, res)
   }).listen(3000, err => {
