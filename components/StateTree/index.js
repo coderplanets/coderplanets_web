@@ -14,10 +14,19 @@ import { makeDebugger } from '../../utils/functions'
 const debug = makeDebugger('c:StateTree:index')
 /* eslint-enable no-unused-vars */
 
+/* apathy flat ocean tube */
 const StateTree = ({ json }) => {
   return (
     <div>
-      <ReactJson src={json} collapsed={1} />
+      <ReactJson
+        src={json}
+        theme="rjv-default"
+        name="rootStore"
+        collapsed={1}
+        iconStyle="circle"
+        displayDataTypes={false}
+        enableClipboard={false}
+      />
     </div>
   )
 }

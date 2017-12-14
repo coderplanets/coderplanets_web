@@ -30,7 +30,7 @@ export const PreviewWrapper = styled.div`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
   height: 100%;
-  width: ${props => (props.type === 'account' ? '40%' : '70%')};
+  width: ${props => (props.type === 'post' ? '70%' : '40%')};
   right: 0;
   position: fixed;
   transform: ${props => doTransform(props.visible)};
@@ -44,6 +44,7 @@ export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('preview.bg')};
   height: 100%;
+  overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
   padding: 20px;
 `
@@ -52,9 +53,21 @@ export const PreviewHeader = styled.div`
   text-align: center;
   line-height: 30px;
 `
-export const PreviewBody = styled.div`margin-top: 20%;`
+export const PreviewBody = styled.div`
+  margin-top: 20%;
+  padding: 10px;
+`
 
-export const PreviewCloser = styled.div`width: 10%;`
+export const PreviewCloser = styled.div`
+  width: 10%;
+`
+
+export const StateTreeHeader = styled.div`
+  border-bottom: 1px dashed ${theme('font')};
+  margin-left: 5px;
+  margin-bottom: 5%;
+  padding-bottom: 10px;
+`
 
 const closeWith = '40px'
 

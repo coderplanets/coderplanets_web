@@ -46,7 +46,9 @@ export const Icon404 = styled(ReactSVG)`
 `
 
 export const Icon = styled.div``
-export const Text = styled.div`margin-left: 1.5em;`
+export const Text = styled.div`
+  margin-left: 1.5em;
+`
 export const Title = styled.div`
   color: ${theme('error.title')};
   font-size: 2em;

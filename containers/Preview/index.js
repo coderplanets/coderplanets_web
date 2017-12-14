@@ -24,6 +24,7 @@ import {
   PreviewContent,
   PreviewHeader,
   PreviewBody,
+  StateTreeHeader,
   Closer,
   CloserInner,
 } from './styles'
@@ -58,6 +59,32 @@ const AccountViewer = ({ themeKeys, curTheme }) => {
   )
 }
 
+const Viewer = ({ type, root, themeKeys, curTheme }) => {
+  switch (type) {
+    case 'account': {
+      return <AccountViewer themeKeys={themeKeys} curTheme={curTheme} />
+    }
+    case 'post': {
+      return (
+        <div>
+          <PreviewHeader>Preview header</PreviewHeader>post
+        </div>
+      )
+    }
+    default: {
+      return (
+        <div>
+          <StateTreeHeader>
+            这里显示的是 Mobx 的 store, &nbsp;&nbsp;Apollo Client 的状态请使用
+            Apollo devtools 查看
+          </StateTreeHeader>
+          <StateTreeWithNoSSR json={root.toJSON()} />
+        </div>
+      )
+    }
+  }
+}
+
 class PreviewContainer extends React.Component {
   componentWillMount() {
     debug('mount')
@@ -65,7 +92,7 @@ class PreviewContainer extends React.Component {
   }
 
   render() {
-    const { visible, type, themeKeys, curTheme } = this.props.preview
+    const { visible, type, themeKeys, curTheme, root } = this.props.preview
 
     /* debug('this.props.preview: ', this.props.preview.root.toJSON()) */
 
@@ -75,15 +102,14 @@ class PreviewContainer extends React.Component {
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
           <PreviewContent>
-            <PreviewHeader>Preview header</PreviewHeader>
-            <StateTreeWithNoSSR json={this.props.preview.root.toJSON()} />
+            <Viewer
+              type={type}
+              root={root}
+              themeKeys={themeKeys}
+              curTheme={curTheme}
+            />
             <PreviewBody>
               <h2>Preview body</h2>
-              {type === 'account' ? (
-                <AccountViewer themeKeys={themeKeys} curTheme={curTheme} />
-              ) : (
-                <div>post previewer</div>
-              )}
             </PreviewBody>
           </PreviewContent>
         </PreviewWrapper>

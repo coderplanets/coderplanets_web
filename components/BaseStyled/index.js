@@ -10,7 +10,9 @@ export const Center = styled.div`
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 `
-export const HorizontalCenter = styled.div`text-align: center;`
+export const HorizontalCenter = styled.div`
+  text-align: center;
+`
 
 export const Title = styled.div`
   font-size: 3vh;
@@ -33,7 +35,9 @@ export const Li = styled.li`
   }
 `
 
-export const Mark = styled.span`backgroun: lightgrey;`
+export const Mark = styled.span`
+  backgroun: lightgrey;
+`
 
 export const Margin = styled.div`
   margin-top: ${props => (props.top ? props.top : 0)};

@@ -53,14 +53,19 @@ class HeaderContainer extends React.Component {
           <Navigator />
         </Router>
         <Admin>
-          <Button size="small" type="primary" ghost>
-            管理页
+          <Button
+            size="small"
+            type="primary"
+            ghost
+            onClick={logic.openPreview.bind(this, 'mst-state')}
+          >
+            state
           </Button>
         </Admin>
         <Search onClick={logic.openDoraemon}>
           <HeaderIcon path={getSVGIconPath('header_search')} />
         </Search>
-        <Notification onClick={logic.openPreview}>
+        <Notification onClick={logic.openPreview.bind(this, 'post')}>
           <HeaderIcon path={getSVGIconPath('notification')} />
         </Notification>
         <User onClick={logic.openPreview.bind(this, 'account')}>

@@ -11,7 +11,9 @@ export const Header = styled.div`
   border-bottom: ${theme('header.spliter')};
 `
 
-export const Router = styled.div`flex-grow: 1;`
+export const Router = styled.div`
+  flex-grow: 1;
+`
 
 export const Admin = styled.div`
   margin-right: 10px;
@@ -29,7 +31,9 @@ export const Search = styled.div`
   color: ${theme('header.fg')};
 `
 
-export const Notification = styled.div`margin-top: 0.8vh;`
+export const Notification = styled.div`
+  margin-top: 0.8vh;
+`
 
 export const HeaderIcon = styled(ReactSVG)`
   fill: ${theme('header.fg')};
@@ -43,7 +47,6 @@ export const User = styled.div`
   margin-right: 20px;
   margin-top: 0.8vh;
 `
-
 export const Button = styled.button`
   font-size: 1em;
   margin: 1em;

@@ -34,7 +34,7 @@ const PreviewStore = t
   .actions(self => ({
     open(type) {
       self.visible = !self.visible
-      self.type = type === 'account' ? 'account' : 'post'
+      self.type = type
     },
 
     close() {

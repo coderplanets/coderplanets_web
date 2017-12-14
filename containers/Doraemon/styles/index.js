@@ -76,7 +76,9 @@ export const BaseBar = styled.div`
   display: flex;
   flex-direction: row;
 `
-export const EditorBar = styled(BaseBar)`position: relative;`
+export const EditorBar = styled(BaseBar)`
+  position: relative;
+`
 export const AlertBar = styled(BaseBar)`
   position: relative;
   padding: 18px;

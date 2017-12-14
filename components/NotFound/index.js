@@ -34,6 +34,9 @@ NotFound.propTypes = {
   desc: PropTypes.string,
 }
 
-NotFound.defaultProps = { msg: '哦豁! 你所请求的资源并不存在', desc: '请检查你的请求参数' }
+NotFound.defaultProps = {
+  msg: '哦豁! 你所请求的资源并不存在',
+  desc: '请检查你的请求参数',
+}
 
 export default NotFound
