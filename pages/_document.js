@@ -16,6 +16,15 @@ export default class MyDocument extends Document {
             href="http://image.mzliaoba.com/lib/antd.css"
             rel="stylesheet"
           />
+          {/* <link */}
+          {/* href="https://cdn.bootcss.com/graphiql/0.11.10/graphiql.min.css" */}
+          {/* rel="stylesheet" */}
+          {/* /> */}
+          {/* <link */}
+          {/* href="https://raw.githubusercontent.com/mydearxym/cdn/master/voyager.css" */}
+          {/* rel="stylesheet" */}
+          {/* /> */}
+
           {styleTags}
         </Head>
         <body>

@@ -1,22 +1,16 @@
-# source: http://localhost:4001/graphiql
-# timestamp: Fri Nov 24 2017 23:04:58 GMT+0800 (CST)
+# source: http://localhost:5000/graphiql
+# timestamp: Mon Dec 11 2017 11:46:04 GMT+0800 (CST)
 
 schema {
   query: RootQueryType
-  mutation: RootMutationType
 }
 
-type Link {
-  description: String!
-  id: ID!
-  url: String!
-}
-
-type RootMutationType {
-  createLink(description: String!, url: String!): Link
+type MenuItem {
+  description: String
+  id: ID
+  name: String
 }
 
 type RootQueryType {
-  # hehehef: Get all links
-  allLinks: [Link!]!
+  menuItems: [MenuItem]
 }

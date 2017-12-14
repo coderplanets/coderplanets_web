@@ -21,6 +21,8 @@
     "analyze": "cross-env ANALYZE=1 next build",
     "api:play": "GRAPHQL_CONFIG_ENDPOINT_NAME=mastani graphql playground",
     "api:graph": "graphql voyager",
+    "graph:mastani": "graphql get-schema -e mastani && head ./schema.graphql",
+    "graph:example": "graphql get-schema -e example && graphql voyager",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "lint-staged": {

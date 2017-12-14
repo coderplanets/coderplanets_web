@@ -2,6 +2,12 @@
   "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
+      "example": {
+        "url": "http://localhost:4000/api/graphiql"
+      },
+      "book": {
+        "url": "http://localhost:5000/graphiql"
+      },
       "test": {
         "url": "https://api.graph.cool/simple/v1/swapi"
       },

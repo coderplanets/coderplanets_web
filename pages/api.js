@@ -36,6 +36,8 @@ export default class Index extends React.Component {
     this.store = initRootStore(props.isServer, props.langSetup)
   }
 
+  //   <Playground endpoint="https://api.graph.cool/simple/v1/swapi" />
+
   render() {
     return (
       <Provider store={this.store}>
@@ -45,7 +47,7 @@ export default class Index extends React.Component {
             <Doraemon />
             <ApiLayout>
               <Header />
-              <div>hallo?</div>
+              <div style={{ marginTop: '2vh' }}>api</div>
             </ApiLayout>
           </MultiLanguage>
         </ThemeWrapper>

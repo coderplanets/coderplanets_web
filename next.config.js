@@ -29,6 +29,18 @@ module.exports = {
       loader: 'raw-loader',
     })
     */
+    /*
+    config.module.rules.push(
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(svg|eot|ttf|woff|woff2)$/,
+        use: 'url-loader',
+      }
+    )
+    */
 
     if (ANALYZE) {
       config.plugins.push(
