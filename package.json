@@ -115,6 +115,7 @@
     "react-dom": "16.0.0",
     "react-icons": "^2.2.5",
     "react-intl": "2.4.0",
+    "react-json-view": "^1.14.0",
     "react-keydown": "^1.9.4",
     "react-masonry-component": "^6.0.1",
     "react-svg": "^2.1.22",

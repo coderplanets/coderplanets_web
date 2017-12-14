@@ -19,21 +19,21 @@ global.Intl = require('intl')
 
 export default class Index extends React.Component {
   static getInitialProps({ req }) {
-    const isServer = !!req
+    /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
     const { locale, messages } = req || window.__NEXT_DATA__.props
     const langSetup = {}
     langSetup[locale] = messages
-    const store = initRootStore(isServer, langSetup)
+    const store = initRootStore(langSetup)
     /* eslint-enable no-undef */
 
-    return { isServer, version: store.version, messages, locale, langSetup }
+    return { version: store.version, messages, locale, langSetup }
   }
 
   constructor(props) {
     super(props)
-    this.store = initRootStore(props.isServer, props.langSetup)
+    this.store = initRootStore(props.langSetup)
   }
 
   render() {

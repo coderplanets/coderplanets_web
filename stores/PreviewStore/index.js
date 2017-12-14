@@ -12,7 +12,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
-    type: t.optional(t.enumeration('visibleType', ['post', 'account']), 'post'),
+    type: t.optional(
+      t.enumeration('previewType', ['post', 'account', 'mst-state']),
+      'post'
+    ),
     // header:
     // body:
   })

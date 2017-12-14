@@ -31,6 +31,7 @@ const debug = makeDebugger('S:rootStore')
 
 const rootStore = t
   .model({
+    version: t.optional(t.string, 'old'),
     // domain modal
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
@@ -70,9 +71,6 @@ const rootStore = t
   .views(self => ({
     get SR71$() {
       return getEnv(self).SR71$
-    },
-    get version() {
-      return '0.0.1'
     },
     get locale() {
       return self.appLocale

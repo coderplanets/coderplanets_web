@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import dynamic from 'next/dynamic'
 
 // import Link from 'next/link'
 
@@ -13,6 +14,7 @@ import { makeDebugger, storeSelector } from '../../utils/functions'
 import * as logic from './logic'
 
 import ThemeSelector from '../../components/ThemeSelector'
+/* import StateTree from '../../components/StateTree' */
 
 import {
   TheTitle,
@@ -25,6 +27,10 @@ import {
   Closer,
   CloserInner,
 } from './styles'
+
+const StateTreeWithNoSSR = dynamic(import('../../components/StateTree'), {
+  ssr: false,
+})
 
 const debug = makeDebugger('C:Preview')
 
@@ -42,6 +48,7 @@ const AccountViewer = ({ themeKeys, curTheme }) => {
       <TheTitle>
         <span>主题</span>
       </TheTitle>
+
       <ThemeSelector
         themeKeys={themeKeys}
         curTheme={curTheme}
@@ -60,6 +67,8 @@ class PreviewContainer extends React.Component {
   render() {
     const { visible, type, themeKeys, curTheme } = this.props.preview
 
+    /* debug('this.props.preview: ', this.props.preview.root.toJSON()) */
+
     return (
       <div>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />
@@ -67,6 +76,7 @@ class PreviewContainer extends React.Component {
           <CloseBtn type={type} />
           <PreviewContent>
             <PreviewHeader>Preview header</PreviewHeader>
+            <StateTreeWithNoSSR json={this.props.preview.root.toJSON()} />
             <PreviewBody>
               <h2>Preview body</h2>
               {type === 'account' ? (
