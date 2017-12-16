@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
+import { Row, Col } from 'antd'
 
 // import Link from 'next/link'
 import { Button } from '../../components'
@@ -25,6 +26,7 @@ import {
   Search,
   Notification,
   HeaderIcon,
+  StateIcon,
   User,
 } from './styles'
 
@@ -59,7 +61,12 @@ class HeaderContainer extends React.Component {
             ghost
             onClick={logic.openPreview.bind(this, 'mst-state')}
           >
-            state
+            <Row>
+              <Col span={9}>
+                <StateIcon path={getSVGIconPath('header_state')} />
+              </Col>
+              <Col span={12}>State</Col>
+            </Row>
           </Button>
         </Admin>
         <Search onClick={logic.openDoraemon}>

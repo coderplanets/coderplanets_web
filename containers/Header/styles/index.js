@@ -16,11 +16,15 @@ export const Router = styled.div`
 `
 
 export const Admin = styled.div`
-  margin-right: 10px;
+  margin-right: 25px;
   font-size: xx-small;
-  margin-top: 0.8vh;
+  position: relative;
+  margin-top: 1px;
   &:after {
     content: '⁝';
+    position: absolute;
+    top: 12px;
+    font-size: large;
     color: ${theme('header.fg')};
     margin-left: 5px;
   }
@@ -33,6 +37,14 @@ export const Search = styled.div`
 
 export const Notification = styled.div`
   margin-top: 0.8vh;
+`
+
+export const StateIcon = styled(ReactSVG)`
+  width: 12px;
+  height: 100%;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 1px;
 `
 
 export const HeaderIcon = styled(ReactSVG)`
