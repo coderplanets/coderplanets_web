@@ -124,7 +124,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
-    "babel-jest": "^21.0.2",
+    "babel-jest": "^22.0.0",
     "babel-plugin-import": "^1.6.2",
     "babel-plugin-ramda": "^1.4.3",
     "babel-plugin-react-intl": "^2.3.1",
