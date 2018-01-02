@@ -25,6 +25,7 @@
   [dbeaver](https://dbeaver.jkiss.org/) sql client based-on java
 
 ## packages
+   [uppy 文件上传](https://uppy.io/examples/dashboard/)
    [store2](https://github.com/nbubna/store) --> 结合 Porsche cache， *important*
    [react-loadable](https://github.com/thejameskyle/react-loadable)
    [高德地图组件](https://github.com/ElemeFE/react-amap)
