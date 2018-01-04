@@ -79,6 +79,10 @@
     lodash "^4.17.4"
     pify "^3.0.0"
 
+"@types/async@2.0.45":
+  version "2.0.45"
+  resolved "https://registry.npmjs.org/@types/async/-/async-2.0.45.tgz#0cfe971d7ed5542695740338e0455c91078a0e83"
+
 "@types/chalk@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@types/chalk/-/chalk-2.2.0.tgz#b7f6e446f4511029ee8e3f43075fb5b73fbaa0ba"
@@ -92,6 +96,10 @@
 "@types/node@^6.0.46":
   version "6.0.89"
   resolved "http://r.cnpmjs.org/@types/node/download/@types/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
+
+"@types/zen-observable@0.5.3", "@types/zen-observable@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.npmjs.org/@types/zen-observable/-/zen-observable-0.5.3.tgz#91b728599544efbb7386d8b6633693a3c2e7ade5"
 
 JSONStream@^1.0.4:
   version "1.3.1"
@@ -316,6 +324,71 @@ anymatch@^1.3.0:
   dependencies:
     micromatch "^2.1.5"
     normalize-path "^2.0.0"
+
+apollo-cache-inmemory@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npmjs.org/apollo-cache-inmemory/-/apollo-cache-inmemory-1.1.4.tgz#63485b18f56f9ceb912df235b42959e890c89747"
+  dependencies:
+    apollo-cache "^1.0.2"
+    apollo-utilities "^1.0.3"
+    graphql-anywhere "^4.0.1"
+
+apollo-cache@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/apollo-cache/-/apollo-cache-1.0.2.tgz#e3df98696c648649d16a6c3ca9c19e90a556effa"
+  dependencies:
+    apollo-utilities "^1.0.3"
+
+apollo-client@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/apollo-client/-/apollo-client-2.0.4.tgz#425c2944e068602b4e002b3f1ad08ddd893f1a0c"
+  dependencies:
+    "@types/zen-observable" "^0.5.3"
+    apollo-cache "^1.0.2"
+    apollo-link "^1.0.0"
+    apollo-link-dedup "^1.0.0"
+    apollo-utilities "^1.0.3"
+    symbol-observable "^1.0.2"
+    zen-observable "^0.6.0"
+  optionalDependencies:
+    "@types/async" "2.0.45"
+
+apollo-link-dedup@^1.0.0:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/apollo-link-dedup/-/apollo-link-dedup-1.0.5.tgz#1c213d7ebbe48e74b016fffacd7e6a53dc309e32"
+  dependencies:
+    apollo-link "^1.0.7"
+
+apollo-link-error@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/apollo-link-error/-/apollo-link-error-1.0.3.tgz#2c679d2e6a2df09a9ae3f70d23c64af922a801a2"
+  dependencies:
+    apollo-link "^1.0.6"
+
+apollo-link-http@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.npmjs.org/apollo-link-http/-/apollo-link-http-1.3.2.tgz#63537ee5ecf9c004efb0317f1222b7dbc6f21559"
+  dependencies:
+    apollo-link "^1.0.7"
+
+apollo-link-retry@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/apollo-link-retry/-/apollo-link-retry-2.1.1.tgz#3f537968465a6b772e2bf1b7c6d5af454b9e7eef"
+  dependencies:
+    "@types/zen-observable" "0.5.3"
+    apollo-link "^1.0.7"
+
+apollo-link@^1.0.0, apollo-link@^1.0.6, apollo-link@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/apollo-link/-/apollo-link-1.0.7.tgz#42cd38a7378332fc3e41a214ff6a6e5e703a556f"
+  dependencies:
+    "@types/zen-observable" "0.5.3"
+    apollo-utilities "^1.0.0"
+    zen-observable "^0.6.0"
+
+apollo-utilities@^1.0.0, apollo-utilities@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/apollo-utilities/-/apollo-utilities-1.0.3.tgz#bf435277609850dd442cf1d5c2e8bc6655eaa943"
 
 app-root-path@^2.0.0:
   version "2.0.1"
@@ -3652,6 +3725,12 @@ graphiql@^0.11.10:
     codemirror-graphql "^0.6.11"
     marked "0.3.6"
 
+graphql-anywhere@^4.0.1:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/graphql-anywhere/-/graphql-anywhere-4.1.0.tgz#87c12f488e7c4c357f0045cb5208a35d12171d36"
+  dependencies:
+    apollo-utilities "^1.0.3"
+
 graphql-cli-voyager@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/graphql-cli-voyager/-/graphql-cli-voyager-0.1.2.tgz#8e0c43ca7133a9fdff20ac7ca427cddc4288b79f"
@@ -3771,6 +3850,10 @@ graphql-schema-linter@^0.0.18:
     glob "^7.1.2"
     graphql "^0.10.1"
     graphql-config "^1.0.0"
+
+graphql-tag@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/graphql-tag/-/graphql-tag-2.6.1.tgz#4788d509f6e29607d947fc47a40c4e18f736d34a"
 
 graphql-voyager@^1.0.0-rc.7:
   version "1.0.0-rc.10"
@@ -6410,6 +6493,10 @@ progress@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/progress/download/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
+promise-timeout@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/promise-timeout/-/promise-timeout-1.1.1.tgz#9d3f0c834411a17ea81786e0355f7cdf1ecf5597"
+
 promise@^7.0.1, promise@^7.1.1:
   version "7.3.1"
   resolved "https://registry.npmjs.org/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
@@ -8142,6 +8229,10 @@ symbol-observable@^1.0.1, symbol-observable@^1.0.3:
   version "1.0.4"
   resolved "http://r.cnpmjs.org/symbol-observable/download/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
+symbol-observable@^1.0.2:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.1.0.tgz#5c68fd8d54115d9dfb72a84720549222e8db9b32"
+
 symbol-tree@^3.2.1:
   version "3.2.2"
   resolved "http://r.cnpmjs.org/symbol-tree/download/symbol-tree-3.2.2.tgz#ae27db38f660a7ae2e1c3b7d1bc290819b8519e6"
@@ -8838,3 +8929,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+zen-observable@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.npmjs.org/zen-observable/-/zen-observable-0.6.1.tgz#01dbed3bc8d02cbe9ee1112c83e04c807f647244"

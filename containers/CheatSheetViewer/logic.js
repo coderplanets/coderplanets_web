@@ -2,6 +2,7 @@ import R from 'ramda'
 
 import Prism from 'mastani-codehighlight'
 import { makeDebugger } from '../../utils/functions'
+import network from '../../utils/network'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:cheatsheetViewer')
@@ -37,13 +38,40 @@ export const convertTaskTag = R.compose(
   R.replace(/<li>\[x\] /g, '<li class="task-done">')
 )
 
+const CheatsheetCDN =
+  'https://raw.githubusercontent.com/mydearxym/mastani-cheatsheets/master'
+
 export function getData(which) {
   setTimeout(() => {
-    cheatsheetViewer.SR71$.getCheatsheet(which)
+    const url = `${CheatsheetCDN}/${which}.md`
+    network.GET(url).then(res => {
+      /* debug('GET ', res) */
+      if (res.error) return handleError(res)
+
+      let source = ''
+      try {
+        source = transMarkDownforRender(res)
+      } catch (err) {
+        return handleError({ error: 'parse_error' })
+      }
+      handleLoaded(source)
+    })
+    /* cheatsheetViewer.SR71$.getCheatsheet(which) */
   }, 2000)
   cheatsheetViewer.markState({
     state: 'loading',
   })
+}
+
+function handleError(res) {
+  switch (res.error) {
+    case 404:
+      return handle404Error()
+    case 'parse_error':
+      return handleParseError()
+    default:
+      debug(res)
+  }
 }
 
 function handleParseError(errMsg) {
@@ -55,8 +83,7 @@ function handleParseError(errMsg) {
   Prism.highlightAll()
 }
 
-const is404 = v => R.trim(v) === '404: Not Found'
-function handle404() {
+function handle404Error() {
   cheatsheetViewer.markState({
     current: '',
     state: '404',
@@ -75,22 +102,5 @@ function handleLoaded(source) {
 
 export function init(selectedStore) {
   cheatsheetViewer = selectedStore
-  //   debug('cheatsheetviewer current: ', cheatsheetViewer.current)
-
-  cheatsheetViewer.SR71$.cheatsheet().subscribe(res => {
-    // console.info('res: ', res)
-    if (is404(res)) {
-      handle404()
-    } else {
-      let source = ''
-
-      try {
-        source = transMarkDownforRender(res)
-      } catch (err) {
-        handleParseError(err)
-        return false
-      }
-      handleLoaded(source)
-    }
-  })
+  debug(cheatsheetViewer)
 }
