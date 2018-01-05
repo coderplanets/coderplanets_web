@@ -2,13 +2,14 @@ import R from 'ramda'
 
 import Prism from 'mastani-codehighlight'
 import { makeDebugger } from '../../utils/functions'
-import network from '../../utils/network'
+import sr71$ from '../../utils/network/sr71'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:cheatsheetViewer')
 /* eslint-enable no-unused-vars */
 
 let cheatsheetViewer = null
+let sub$ = null
 
 /* cheatsheetViewer logic */
 const groupSpliter = '{{ ::group:: }}'
@@ -42,36 +43,11 @@ const CheatsheetCDN =
   'https://raw.githubusercontent.com/mydearxym/mastani-cheatsheets/master'
 
 export function getData(which) {
-  setTimeout(() => {
-    const url = `${CheatsheetCDN}/${which}.md`
-    network.GET(url).then(res => {
-      /* debug('GET ', res) */
-      if (res.error) return handleError(res)
-
-      let source = ''
-      try {
-        source = transMarkDownforRender(res)
-      } catch (err) {
-        return handleError({ error: 'parse_error' })
-      }
-      handleLoaded(source)
-    })
-    /* cheatsheetViewer.SR71$.getCheatsheet(which) */
-  }, 2000)
+  const url = `${CheatsheetCDN}/${which}.md`
   cheatsheetViewer.markState({
     state: 'loading',
   })
-}
-
-function handleError(res) {
-  switch (res.error) {
-    case 404:
-      return handle404Error()
-    case 'parse_error':
-      return handleParseError()
-    default:
-      debug(res)
-  }
+  sr71$.restGet(url)
 }
 
 function handleParseError(errMsg) {
@@ -100,7 +76,42 @@ function handleLoaded(source) {
   Prism.highlightAll()
 }
 
+function handleError(res) {
+  switch (res.error) {
+    case 'ParseError':
+      return handleParseError()
+    case 'NetworkError':
+      debug(`${res.error}: ${res.details}`)
+      return false
+    case 'NotFound':
+      return handle404Error()
+    case 'TimeoutError':
+      debug(`${res.error}: ${res.details}`)
+      // sr71$.stop()
+      return false
+
+    default:
+      debug('un handleError in ', cheatsheetViewer)
+      debug('un handleError: ', res)
+  }
+}
+
 export function init(selectedStore) {
   cheatsheetViewer = selectedStore
-  debug(cheatsheetViewer)
+
+  sub$ = sr71$.data().subscribe(res => {
+    if (res.error) return handleError(res)
+    let source = ''
+    try {
+      source = transMarkDownforRender(res)
+    } catch (err) {
+      return handleError({ error: 'ParseError' })
+    }
+    handleLoaded(source)
+  })
+}
+
+export function unInit() {
+  // avoid the duplicate subscribe caused by HMR
+  sub$.unsubscribe()
 }

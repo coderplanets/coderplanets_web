@@ -12,7 +12,9 @@ const debug = makeDebugger('S:PostsViewerStore')
 /* eslint-enable no-unused-vars */
 
 const PostsViewerStore = t
-  .model('PostsViewerStore', {})
+  .model('PostsViewerStore', {
+    networkInited: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)

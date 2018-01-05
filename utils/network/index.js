@@ -4,11 +4,13 @@ import fetch from 'isomorphic-fetch'
 import { makeDebugger } from '../functions'
 import {
   client,
-  formatGraphErrors,
   context,
   MUTIATION_TIMEOUT,
   QUERY_TIMEOUT,
+  USE_CACHE,
 } from './setup'
+
+import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('Network')
@@ -22,8 +24,11 @@ const query = query =>
     }),
     QUERY_TIMEOUT
   )
-    .then(res => res.data)
-    .catch(err => formatGraphErrors(err))
+    .then(res => {
+      if (!USE_CACHE) client.resetStore()
+      return res.data
+    })
+    .catch(formatGraphErrors)
 
 const mutate = (mutation, variables) =>
   timeout(
@@ -35,31 +40,13 @@ const mutate = (mutation, variables) =>
     MUTIATION_TIMEOUT
   )
     .then(res => res.data)
-    .catch(err => formatGraphErrors(err))
+    .catch(formatGraphErrors)
 
 // TODO: add timeout feature
 const GET = url =>
-  fetch(`${url}`)
-    .then(res => {
-      debug('raw res: ', res)
-      switch (true) {
-        case res.status >= 200 && res.status < 300:
-          return Promise.resolve(res.text())
-        case res.status === 404:
-          return Promise.reject(404)
-        default:
-          debug('unhandle error: ', res)
-          return Promise.reject(new Error(res.status))
-      }
-    })
-    .catch(err => {
-      switch (err) {
-        case 404:
-          return { error: err, details: 'not found' }
-        default:
-          return { error: err, details: err }
-      }
-    })
+  timeout(fetch(`${url}`), MUTIATION_TIMEOUT)
+    .then(getThenHandler)
+    .catch(getCatchHandler)
 
 const network = { query, mutate, GET }
 

@@ -6,7 +6,6 @@ const allUser2 = gql`
       entries {
         username
         id
-        nickname
       }
       totalCount
       pageSize
@@ -28,7 +27,6 @@ const createUser = gql`
       company: $company
     ) {
       username
-      bio
     }
   }
 `

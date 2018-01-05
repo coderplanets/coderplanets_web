@@ -5,16 +5,17 @@ import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { onError } from 'apollo-link-error'
 
-import { TimeoutError } from 'promise-timeout'
-
-import { makeDebugger, notEmpty } from '../functions'
+import { makeDebugger } from '../functions'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('Network')
 /* eslint-enable no-unused-vars */
 
+export const USE_CACHE = false
+
 const graphLink = new HttpLink({ uri: 'http://localhost:4001/graphiql' })
 
+export const GRAPHQL_TIMEOUT = 5000
 export const MUTIATION_TIMEOUT = 5000
 export const QUERY_TIMEOUT = 5000
 
@@ -39,40 +40,12 @@ const errorLink = onError(({ graphQLErrors }) => {
           : debug(`[GraphQL error]: ${message}`)
     )
   }
-
   /*
   if (networkError) {
     debug(`[Network error]: ${networkError}`)
   }
   */
 })
-
-const link = ApolloLink.from([errorLink, retryLink, graphLink])
-
-export const formatGraphErrors = error => {
-  if (error instanceof TimeoutError) {
-    return {
-      error: 'TimeoutError',
-      message: `TimeoutError in ${MUTIATION_TIMEOUT / 1000} secs`,
-    }
-  }
-  const { graphQLErrors } = error
-  // graphQLErrors may not catch in graph query (wrang sytax etc ...)
-  // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-  if (notEmpty(graphQLErrors)) {
-    let details = ''
-    graphQLErrors.map(
-      ({ message, path, detail }) =>
-        path
-          ? (details = `${path} ${message} ${detail}`)
-          : (details = `${message}`)
-    )
-    return { error: 'GraphQLError', details }
-  }
-
-  /* debug('maybe a network error') */
-  return { error: 'NetworkError', details: 'checkout your server or network' }
-}
 
 export const context = {
   headers: {
@@ -81,10 +54,12 @@ export const context = {
   },
 }
 
+const link = ApolloLink.from([errorLink, retryLink, graphLink])
 // single-instance-pattern
 // see: https://k94n.com/es6-modules-single-instance-pattern
 export const client = new ApolloClient({
   link,
+  /* cache: new InMemoryCache(), */
   cache: new InMemoryCache(),
   connectToDevTools: true,
 })

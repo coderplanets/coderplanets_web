@@ -113,6 +113,10 @@ class CheatSheetViewerContainer extends React.Component {
     Prism.highlightAll()
   }
 
+  componentWillUnmount() {
+    logic.unInit()
+  }
+
   render() {
     //    const data = logic.transMarkDownforRender(code)
     const { cheatsheetViewer } = this.props
