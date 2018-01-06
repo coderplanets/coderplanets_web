@@ -20,10 +20,6 @@ const PostsViewerStore = t
       return getParent(self)
     },
 
-    get SR71$() {
-      return self.root.SR71$
-    },
-
     get data() {
       return self.root.posts.current
     },

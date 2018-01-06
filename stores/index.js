@@ -7,14 +7,12 @@
 
 import RootStore from './RootStore'
 
-import SR71$ from '../utils/SR71'
-
 let rootStore = null
 
 const createRootStore = langSetup => {
   return RootStore.create(
     { version: 'fake from the server', appLangs: langSetup },
-    { SR71$ }
+    {}
   )
 }
 

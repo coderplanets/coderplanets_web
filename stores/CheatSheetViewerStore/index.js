@@ -38,10 +38,6 @@ const CheatSheetViewerStore = t
     get root() {
       return getParent(self)
     },
-
-    get SR71$() {
-      return self.root.SR71$
-    },
   }))
   .actions(self => ({
     markState(sobj) {

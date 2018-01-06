@@ -18,7 +18,6 @@ export function cheatsheet() {
   const which = 'whatever6' // not found
   const url = `${CheatsheetCDN}/${which}.md`
   sr71$.restGet(url)
-  postList()
 }
 
 export function createPost() {

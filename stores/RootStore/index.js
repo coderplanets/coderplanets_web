@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getEnv } from 'mobx-state-tree'
+import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils/functions'
 
 import RouteStore from '../RouteStore'
@@ -69,9 +69,6 @@ const rootStore = t
      */
   })
   .views(self => ({
-    get SR71$() {
-      return getEnv(self).SR71$
-    },
     get locale() {
       return self.appLocale
     },

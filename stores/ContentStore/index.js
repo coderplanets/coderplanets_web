@@ -20,9 +20,6 @@ const ContentStore = t
     get curRoute() {
       return self.root.curRoute
     },
-    get SR71$() {
-      return self.root.SR71$
-    },
   }))
   .actions(self => ({
     markState(sobj) {

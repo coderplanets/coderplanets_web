@@ -45,11 +45,6 @@ class PostsViewerContainer extends React.Component {
             cheatsheeti
           </Button>
         </div>
-        <div>
-          <Button type="primary" ghost onClick={logic.sr71get}>
-            SR71-get
-          </Button>
-        </div>
       </Wrapper>
     )
   }
