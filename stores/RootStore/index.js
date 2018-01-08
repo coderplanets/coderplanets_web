@@ -31,7 +31,7 @@ const debug = makeDebugger('S:rootStore')
 
 const rootStore = t
   .model({
-    version: t.optional(t.string, 'old'),
+    version: t.optional(t.string, '0.0.4'),
     // domain modal
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),

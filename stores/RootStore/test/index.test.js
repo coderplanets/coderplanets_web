@@ -11,5 +11,5 @@ const langSetup = {
 
 it('mini test', () => {
   const app = RootStore.create({ menuItems: [], appLangs: langSetup })
-  expect(app.version).toBe('0.0.1')
+  expect(app.version).toBe('0.0.4')
 })
