@@ -165,7 +165,7 @@
     "mobx-react-devtools": "^4.2.15",
     "npm-run-all": "^4.1.1",
     "plop": "^1.8.1",
-    "prettier": "1.9.1",
+    "prettier": "1.10.0",
     "react-test-renderer": "16.0.0",
     "shelljs": "^0.7.8",
     "webpack-bundle-analyzer": "^2.9.0"
