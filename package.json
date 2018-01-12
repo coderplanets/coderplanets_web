@@ -167,7 +167,7 @@
     "plop": "^1.8.1",
     "prettier": "1.9.1",
     "react-test-renderer": "16.0.0",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.0",
     "webpack-bundle-analyzer": "^2.9.0"
   }
 }
