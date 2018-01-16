@@ -119,7 +119,7 @@
     "ramda": "0.25.0",
     "randomcolor": "^0.5.3",
     "react": "16.2.0",
-    "react-content-loader": "^1.5.1",
+    "react-content-loader": "^2.0.1",
     "react-dom": "16.2.0",
     "react-icons": "^2.2.5",
     "react-intl": "2.4.0",
