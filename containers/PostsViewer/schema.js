@@ -2,13 +2,12 @@ import gql from 'graphql-tag'
 
 const allUser2 = gql`
   {
-    allUsers2 {
-      entries {
-        username
-        id
+    content(id: 21) {
+      title
+      body
+      ... on Post {
+        views
       }
-      totalCount
-      pageSize
     }
   }
 `
