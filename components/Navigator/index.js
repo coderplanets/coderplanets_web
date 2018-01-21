@@ -19,7 +19,7 @@ const Navigator = () => {
       <UL>
         <LI>
           <A>
-            <span>Coder-Club</span>
+            <span>coderplants</span>
           </A>
         </LI>
         <LI>

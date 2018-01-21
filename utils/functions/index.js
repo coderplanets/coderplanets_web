@@ -96,3 +96,9 @@ export const hideDoraemonBarRecover = () => {
   document.getElementById('whereCallShowDoraemon').click()
   /* eslint-enable no-undef */
 }
+
+export const getRandomInt = (min, max) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
+}

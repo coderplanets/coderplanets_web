@@ -38,6 +38,19 @@ const AntOverWrite = styled.div`
     color: ${theme('taber.activeText')};
     font-weight: bold;
   }
+  ul {
+    margin-bottom: 0;
+  }
+
+  .ant-tag,
+  .ant-tag a,
+  .ant-tag a:hover {
+    color: #d2a05f;
+  }
+  .ant-tag {
+    border: 1px solid #fff2b3;
+    background: #fff2b3;
+  }
 `
 
 export default AntOverWrite

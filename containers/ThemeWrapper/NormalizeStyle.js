@@ -24,7 +24,7 @@ const NormalizeStyle = `
  }
 
   ol, ul {
-      list-style: none;
+    list-style: none;
   }
 
   *, *:before, *:after {

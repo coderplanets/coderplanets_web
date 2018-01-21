@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   color: ${theme('font')};
   border-radius: 10px;
   padding: 3em 6em;
+  padding-top: 1.5em;
 `
 
 export const CategoryWrapper = styled.div`

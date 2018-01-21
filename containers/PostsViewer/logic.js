@@ -31,6 +31,11 @@ export function createPost() {
   sr71$.mutate(S.createUser, variables)
 }
 
+export function filterOnSelect(key, val) {
+  debug('filterOnSelect key: ', key)
+  debug('filterOnSelect val: ', val)
+}
+
 export const postList = () => sr71$.query(S.allUser2)
 
 function handleError(res) {
