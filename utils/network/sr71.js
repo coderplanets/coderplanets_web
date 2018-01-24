@@ -1,23 +1,21 @@
 /* cool version */
 
 import { Subject } from 'rxjs/Subject'
-import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/fromPromise'
+/* import 'rxjs/add/observable/fromPromise' */
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/merge'
+import 'rxjs/add/operator/timeoutWith'
 
-import network from './index'
+import { TimoutObservable } from './handler'
+import { TIMEOUT_THRESHOLD } from './setup'
 
-const queryPromise = query => Observable.fromPromise(network.query(query))
+// import network from './index'
 
-const mutatePromise = ({ mutation, variables }) =>
-  Observable.fromPromise(network.mutate(mutation, variables))
-
-const restGetPromise = url => Observable.fromPromise(network.GET(url))
+import { queryPromise, mutatePromise, restGetPromise } from './index'
 
 class SR71 {
   constructor() {
@@ -26,12 +24,23 @@ class SR71 {
     this.mutateInput$ = new Subject()
     this.stop$ = new Subject()
 
-    this.query$ = this.queryInput$.debounceTime(300).switchMap(queryPromise)
-
-    this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(mutatePromise)
-    this.restGet$ = this.getInput$
+    this.query$ = this.queryInput$
       .debounceTime(300)
-      .switchMap(q => restGetPromise(q).takeUntil(this.stop$))
+      .switchMap(q =>
+        queryPromise(q).timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
+      )
+
+    this.mutate$ = this.mutateInput$
+      .debounceTime(300)
+      .switchMap(q =>
+        mutatePromise(q).timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
+      )
+
+    this.restGet$ = this.getInput$.debounceTime(300).switchMap(q =>
+      restGetPromise(q)
+        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
+        .takeUntil(this.stop$)
+    )
 
     // this.gql$ = this.query$.merge(this.mutate$)
     // this.data$ = this.gql$.merge(this.restGet$)

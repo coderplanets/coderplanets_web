@@ -110,14 +110,14 @@ const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
         <SelectItem
           item="most_words"
           active={activeLength}
-          onClick={onSelect.bind(this, 'length', 'most_words')}
+          onClick={onSelect.bind(this, 'wordLength', 'most_words')}
         >
           字数最多
         </SelectItem>
         <SelectItem
           item="least_words"
           active={activeLength}
-          onClick={onSelect.bind(this, 'length', 'least_words')}
+          onClick={onSelect.bind(this, 'wordLength', 'least_words')}
         >
           字数最少
         </SelectItem>
@@ -127,7 +127,7 @@ const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
 )
 
 const FilterTag = ({ onSelect, active, type }) =>
-  isEmptyValue(active) === '' ? (
+  isEmptyValue(active) ? (
     <span />
   ) : (
     <Tag closable onClose={onSelect.bind(this, type, '')}>
@@ -160,7 +160,7 @@ const ContentFilter = ({ onSelect, activeTime, activeSort, activeLength }) => (
 
     <FilterTag onSelect={onSelect} active={activeTime} type="time" />
     <FilterTag onSelect={onSelect} active={activeSort} type="sort" />
-    <FilterTag onSelect={onSelect} active={activeLength} type="length" />
+    <FilterTag onSelect={onSelect} active={activeLength} type="wordLength" />
   </Wrapper>
 )
 

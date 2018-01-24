@@ -7,6 +7,7 @@ export const Wrapper = styled.div``
 
 /* fill: ${theme('shell.search_icon')}; */
 export const WritePostBtn = styled(Button)`
+  margin-top: 20px;
   width: 80%;
   margin-left: 8%;
 `

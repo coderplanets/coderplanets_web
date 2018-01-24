@@ -15,7 +15,8 @@ let sub$ = null
 
 export function cheatsheet() {
   //  const which = 'elixir'
-  const which = 'whatever6' // not found
+  // const which = 'whatever6' // not found
+  const which = 'widjfie'
   const url = `${CheatsheetCDN}/${which}.md`
   sr71$.restGet(url)
 }
@@ -32,8 +33,12 @@ export function createPost() {
 }
 
 export function filterOnSelect(key, val) {
-  debug('filterOnSelect key: ', key)
-  debug('filterOnSelect val: ', val)
+  postsViewer.selectFilter(key, val)
+}
+
+export function tagOnSelect(obj) {
+  debug('tagOnSelect: ', obj)
+  postsViewer.selectTag(obj)
 }
 
 export const postList = () => sr71$.query(S.allUser2)

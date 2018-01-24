@@ -15,13 +15,16 @@ import { makeDebugger } from '../../utils/functions'
 const debug = makeDebugger('c:TagList:index')
 /* eslint-enable no-unused-vars */
 
-const TagList = ({ tags, active }) => {
+const TagList = ({ tags, active, onSelect }) => {
   return (
     <Wrapper>
       {tags.map(tag => (
-        <TagItem key={shortid.generate()}>
-          <TagDot color={tag.color} active={active} title={tag.title} />
-          <TagTitle active={active} title={tag.title} color={tag.color}>
+        <TagItem
+          key={shortid.generate()}
+          onClick={onSelect.bind(this, { title: tag.title, color: tag.color })}
+        >
+          <TagDot color={tag.color} active={active.title} title={tag.title} />
+          <TagTitle active={active.title} title={tag.title} color={tag.color}>
             {tag.title}
           </TagTitle>
         </TagItem>
@@ -37,12 +40,16 @@ TagList.propTypes = {
       title: PropTypes.string,
     })
   ).isRequired,
-  active: PropTypes.string,
+  active: PropTypes.shape({
+    color: PropTypes.string,
+    title: PropTypes.string,
+  }),
+  onSelect: PropTypes.func.isRequired,
   // https://www.npmjs.com/package/prop-types
 }
 
 TagList.defaultProps = {
-  active: '',
+  active: { title: '', color: '' },
 }
 
 export default TagList

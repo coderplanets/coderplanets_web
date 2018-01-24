@@ -1,14 +1,10 @@
-import { timeout } from 'promise-timeout'
 import fetch from 'isomorphic-fetch'
+import { Observable } from 'rxjs/Observable'
+
+import 'rxjs/add/observable/fromPromise'
 
 import { makeDebugger } from '../functions'
-import {
-  client,
-  context,
-  MUTIATION_TIMEOUT,
-  QUERY_TIMEOUT,
-  USE_CACHE,
-} from './setup'
+import { client, context, USE_CACHE } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
@@ -17,13 +13,11 @@ const debug = makeDebugger('Network')
 /* eslint-enable no-unused-vars */
 
 const query = query =>
-  timeout(
-    client.query({
+  client
+    .query({
       query,
       context,
-    }),
-    QUERY_TIMEOUT
-  )
+    })
     .then(res => {
       if (!USE_CACHE) client.resetStore()
       return res.data
@@ -31,23 +25,34 @@ const query = query =>
     .catch(formatGraphErrors)
 
 const mutate = (mutation, variables) =>
-  timeout(
-    client.mutate({
+  client
+    .mutate({
       mutation,
       variables,
       context,
-    }),
-    MUTIATION_TIMEOUT
-  )
+    })
     .then(res => res.data)
     .catch(formatGraphErrors)
 
-// TODO: add timeout feature
 const GET = url =>
-  timeout(fetch(`${url}`), MUTIATION_TIMEOUT)
+  fetch(`${url}`)
     .then(getThenHandler)
     .catch(getCatchHandler)
 
-const network = { query, mutate, GET }
+export const queryPromise = q => Observable.fromPromise(query(q))
+
+export const mutatePromise = ({ mutation, variables }) =>
+  Observable.fromPromise(mutate(mutation, variables))
+
+export const restGetPromise = url => Observable.fromPromise(GET(url))
+
+/*
+
+const network = {
+  query,
+  mutate,
+  GET,
+}
 
 export default network
+*/

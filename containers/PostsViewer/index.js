@@ -252,7 +252,11 @@ class PostsViewerContainer extends React.Component {
   }
 
   render() {
-    /* debug('postsViewer: ', this.props.postsViewer.data) */
+    const {
+      curFilter: { time, sort, wordLength },
+      curTag,
+    } = this.props.postsViewer
+
     return (
       <Wrapper>
         <Row>
@@ -260,9 +264,9 @@ class PostsViewerContainer extends React.Component {
             <FilterWrapper>
               <ContentFilter
                 onSelect={logic.filterOnSelect}
-                activeTime="this_month"
-                activeSort="most_views"
-                activeLength="least_words"
+                activeTime={time}
+                activeSort={sort}
+                activeLength={wordLength}
               />
               <FilterResultHint>结果约 1000 条</FilterResultHint>
             </FilterWrapper>
@@ -281,7 +285,7 @@ class PostsViewerContainer extends React.Component {
 
             <TagDivider />
 
-            <TagList tags={tags} active="ask" />
+            <TagList tags={tags} active={curTag} onSelect={logic.tagOnSelect} />
           </Col>
         </Row>
 
@@ -290,7 +294,7 @@ class PostsViewerContainer extends React.Component {
         <br />
         <div>
           <Button type="primary" onClick={logic.createPost}>
-            createPost (mutate.)
+            createPost (mutate)
           </Button>
           &nbsp;&nbsp;
           <Button type="primary" onClick={logic.postList}>

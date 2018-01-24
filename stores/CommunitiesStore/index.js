@@ -27,6 +27,7 @@ export const CommunitiesDefaults = {
 
 export const CommunitiesStore = t
   .model('CommunitiesStore', {
+    // TODO: refactor:  subscribed-communities, all-communities
     // id: t.identifier(),
     languages: t.map(PlModel),
     frameworks: t.map(FrameworkModel),
