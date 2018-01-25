@@ -1,13 +1,11 @@
 import gql from 'graphql-tag'
 
-const allUser2 = gql`
-  {
-    content(id: 21) {
+const posts = gql`
+  query posts($filter: ArticleFilter) {
+    posts(filter: $filter) {
       title
-      body
-      ... on Post {
-        views
-      }
+      id
+      starCount
     }
   }
 `
@@ -31,8 +29,8 @@ const createUser = gql`
 `
 
 const schema = {
-  allUser2,
   createUser,
+  posts,
 }
 
 export default schema

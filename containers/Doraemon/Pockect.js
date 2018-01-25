@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/merge'
 
-import { makeDebugger, isEmptyValue } from '../../utils/functions'
+import { makeDebugger, isEmptyValue } from '../../utils'
 import {
   startWithSpecialPrefix,
   startWithSlash,

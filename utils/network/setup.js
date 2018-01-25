@@ -3,6 +3,7 @@ import { RetryLink } from 'apollo-link-retry'
 import { HttpLink } from 'apollo-link-http'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import fetch from 'isomorphic-fetch'
 import { onError } from 'apollo-link-error'
 
 import { makeDebugger } from '../functions'
@@ -13,7 +14,7 @@ const debug = makeDebugger('Network')
 
 export const USE_CACHE = false
 
-const graphLink = new HttpLink({ uri: 'http://localhost:4001/graphiql' })
+const graphLink = new HttpLink({ uri: 'http://localhost:4001/graphiql', fetch })
 
 export const TIMEOUT_THRESHOLD = 5000 // 5 sec
 export const GRAPHQL_TIMEOUT = 5000

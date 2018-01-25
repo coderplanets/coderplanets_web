@@ -5,7 +5,7 @@
 
 import { types as t } from 'mobx-state-tree'
 
-import { markStates, makeDebugger } from '../../utils/functions'
+import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:RouteStore')
 /* eslint-enable no-unused-vars */

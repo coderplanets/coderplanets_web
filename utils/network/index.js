@@ -12,10 +12,11 @@ import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 const debug = makeDebugger('Network')
 /* eslint-enable no-unused-vars */
 
-const query = query =>
+const doQuery = (query, variables) =>
   client
     .query({
       query,
+      variables,
       context,
     })
     .then(res => {
@@ -24,7 +25,7 @@ const query = query =>
     })
     .catch(formatGraphErrors)
 
-const mutate = (mutation, variables) =>
+const doMutate = (mutation, variables) =>
   client
     .mutate({
       mutation,
@@ -39,10 +40,11 @@ const GET = url =>
     .then(getThenHandler)
     .catch(getCatchHandler)
 
-export const queryPromise = q => Observable.fromPromise(query(q))
+export const queryPromise = ({ query, variables }) =>
+  Observable.fromPromise(doQuery(query, variables))
 
 export const mutatePromise = ({ mutation, variables }) =>
-  Observable.fromPromise(mutate(mutation, variables))
+  Observable.fromPromise(doMutate(mutation, variables))
 
 export const restGetPromise = url => Observable.fromPromise(GET(url))
 

@@ -28,16 +28,16 @@ const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */
 
 const filterDict = {
-  today: '今天',
-  this_week: '本周',
-  this_month: '本月',
-  this_year: '今年',
-  most_favorites: '最多浏览',
-  most_stars: '最多点赞',
-  most_views: '最多收藏',
-  most_comments: '最多评论',
-  most_words: '字数最多',
-  least_words: '字数最少',
+  TODAY: '今天',
+  THIS_WEEK: '本周',
+  THIS_MONTH: '本月',
+  THIS_YEAR: '今年',
+  MOST_FAVORITES: '最多浏览',
+  MOST_STARS: '最多点赞',
+  MOST_VIEWS: '最多收藏',
+  MOST_COMMENTS: '最多评论',
+  MOST_WORDS: '字数最多',
+  LEAST_WORDS: '字数最少',
 }
 
 const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
@@ -46,30 +46,30 @@ const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
       <Col span={8}>
         <SelectTitle>时间</SelectTitle>
         <SelectItem
-          item="today"
+          item="TODAY"
           active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'today')}
+          onClick={onSelect.bind(this, 'time', 'TODAY')}
         >
           今天
         </SelectItem>
         <SelectItem
-          item="this_week"
+          item="THIS_WEEK"
           active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'this_week')}
+          onClick={onSelect.bind(this, 'time', 'THIS_WEEK')}
         >
           本周
         </SelectItem>
         <SelectItem
-          item="this_month"
+          item="THIS_MONTH"
           active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'this_month')}
+          onClick={onSelect.bind(this, 'time', 'THIS_MONTH')}
         >
           本月
         </SelectItem>
         <SelectItem
-          item="this_year"
+          item="THIS_YEAR"
           active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'this_year')}
+          onClick={onSelect.bind(this, 'time', 'THIS_YEAR')}
         >
           今年
         </SelectItem>
@@ -77,30 +77,30 @@ const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
       <Col span={8}>
         <SelectTitle>排序</SelectTitle>
         <SelectItem
-          item="most_views"
+          item="MOST_VIEWS"
           active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'most_views')}
+          onClick={onSelect.bind(this, 'sort', 'MOST_VIEWS')}
         >
           最多浏览
         </SelectItem>
         <SelectItem
-          item="most_stars"
+          item="MOST_STARS"
           active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'most_stars')}
+          onClick={onSelect.bind(this, 'sort', 'MOST_STARS')}
         >
           最多点赞
         </SelectItem>
         <SelectItem
-          item="most_favorites"
+          item="MOST_FAVORITES"
           active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'most_favorites')}
+          onClick={onSelect.bind(this, 'sort', 'MOST_FAVORITES')}
         >
           最多收藏
         </SelectItem>
         <SelectItem
-          item="most_comments"
+          item="MOST_COMMENTS"
           active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'most_comments')}
+          onClick={onSelect.bind(this, 'sort', 'MOST_COMMENTS')}
         >
           最多评论
         </SelectItem>
@@ -108,16 +108,16 @@ const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
       <Col span={8}>
         <SelectTitle>长度</SelectTitle>
         <SelectItem
-          item="most_words"
+          item="MOST_WORDS"
           active={activeLength}
-          onClick={onSelect.bind(this, 'wordLength', 'most_words')}
+          onClick={onSelect.bind(this, 'wordLength', 'MOST_WORDS')}
         >
           字数最多
         </SelectItem>
         <SelectItem
-          item="least_words"
+          item="LEAST_WORDS"
           active={activeLength}
-          onClick={onSelect.bind(this, 'wordLength', 'least_words')}
+          onClick={onSelect.bind(this, 'wordLength', 'LEAST_WORDS')}
         >
           字数最少
         </SelectItem>

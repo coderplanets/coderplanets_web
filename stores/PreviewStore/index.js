@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-// import { makeDebugger } from '../../utils/functions'
+// import { makeDebugger } from '../../utils'
 
 // const debug = makeDebugger('S:PreviewStore')
 
@@ -32,7 +32,7 @@ const PreviewStore = t
     },
   }))
   .actions(self => ({
-    open(type) {
+    open(type = 'post') {
       self.visible = !self.visible
       self.type = type
     },

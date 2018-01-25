@@ -1,9 +1,10 @@
 import R from 'ramda'
+import PubSub from 'pubsub-js'
+
 import {
   pl,
   framework,
-  database,
-  //  cmds,
+  database, //  cmds,
 } from '../../stores/DoraemonStore/suggestions'
 
 const plKeys = R.map(R.toLower, R.keys(pl))
@@ -101,4 +102,9 @@ export const getRandomInt = (min, max) => {
   min = Math.ceil(min)
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min)) + min
+}
+
+export const sendEvent = (msg, data = {}) => {
+  // TODO: check the msg is valid
+  PubSub.publishSync(msg, data)
 }

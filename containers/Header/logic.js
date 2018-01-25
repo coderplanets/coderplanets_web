@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Header')

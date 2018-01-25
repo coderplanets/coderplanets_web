@@ -11,7 +11,7 @@ import Router, { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import { init, syncRoute } from './logic'
 
 const debug = makeDebugger('C:Route')

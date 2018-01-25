@@ -7,7 +7,7 @@
 import React from 'react'
 import keydown from 'react-keydown'
 
-import { getSVGIconPath } from '../../utils/functions'
+import { getSVGIconPath } from '../../utils'
 import * as logic from './logic'
 
 import {

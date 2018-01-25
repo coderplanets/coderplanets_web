@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { ThemeProvider } from 'styled-components'
 
-import { storeSelector } from '../../utils/functions'
+import { storeSelector } from '../../utils'
 
 import AntOverWrite from './AntOverWrite'
 import NormalizeStyle from './NormalizeStyle'

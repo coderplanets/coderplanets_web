@@ -3,6 +3,12 @@ import { setLightness, setSaturation } from 'polished'
 
 import { theme } from '../../../utils/themes'
 
+// visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
+
+export const Hidder = styled.div`
+  display: ${props => (props.active === props.name ? 'block' : 'none')};
+`
+
 export const Wrapper = styled.div`
   margin: 30px;
   width: 95.5%;

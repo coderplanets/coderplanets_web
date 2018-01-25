@@ -4,7 +4,7 @@
  */
 
 import { types as t } from 'mobx-state-tree'
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 
 import RouteStore from '../RouteStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'

@@ -1,9 +1,13 @@
 /* cool version */
 
+// import R from 'ramda'
+import PubSub from 'pubsub-js'
 import { Subject } from 'rxjs/Subject'
+// import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/of'
 /* import 'rxjs/add/observable/fromPromise' */
+import 'rxjs/add/observable/fromEventPattern'
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/switchMap'
@@ -12,17 +16,34 @@ import 'rxjs/add/operator/timeoutWith'
 
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
+import { isEmptyValue } from '../../utils'
 
 // import network from './index'
 
 import { queryPromise, mutatePromise, restGetPromise } from './index'
 
 class SR71 {
-  constructor() {
+  constructor(opts = { resv_event: '' }) {
     this.getInput$ = new Subject()
     this.queryInput$ = new Subject()
     this.mutateInput$ = new Subject()
     this.stop$ = new Subject()
+    this.eventInput$ = new Subject()
+
+    if (!isEmptyValue(opts.resv_event)) {
+      // this hack is mainly prevent multi subscrib caused by HMR
+      PubSub.unsubscribe(opts.resv_event)
+      /* PubSub.clearSubscriptions(opts.resv_event) */
+      PubSub.subscribe(opts.resv_event, (event, data) =>
+        this.eventInput$.next({ [event]: data })
+      )
+      // use subscribeOnce in Production
+      /*
+      PubSub.subscribeOnce(opts.resv_event, (_, data) =>
+        this.eventInput$.next(data)
+      )
+      */
+    }
 
     this.query$ = this.queryInput$
       .debounceTime(300)
@@ -42,9 +63,10 @@ class SR71 {
         .takeUntil(this.stop$)
     )
 
-    // this.gql$ = this.query$.merge(this.mutate$)
-    // this.data$ = this.gql$.merge(this.restGet$)
-    this.data$ = this.query$.merge(this.restGet$, this.mutate$)
+    this.event$ = this.eventInput$.debounceTime(300)
+
+    this.graphql$ = this.query$.merge(this.mutate$)
+    this.data$ = this.graphql$.merge(this.restGet$, this.event$)
   }
 
   stop() {
@@ -56,8 +78,8 @@ class SR71 {
     this.getInput$.next(url)
   }
 
-  query(query) {
-    this.queryInput$.next(query)
+  query(query, variables = {}) {
+    this.queryInput$.next({ query, variables })
   }
 
   mutate(mutation, variables) {
@@ -69,6 +91,8 @@ class SR71 {
   }
 }
 
-const sr71$ = new SR71()
+/* const sr71$ = new SR71() */
+/* export default sr71$ */
 
-export default sr71$
+export default SR71
+// export default new SR71()

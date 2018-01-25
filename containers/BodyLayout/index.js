@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 
 // import Link from 'next/link'
 
-import { storeSelector } from '../../utils/functions'
+import { storeSelector } from '../../utils'
 
 import Body from './styles'
 import * as logic from './logic'

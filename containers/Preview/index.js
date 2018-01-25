@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
 import ThemeSelector from '../../components/ThemeSelector'
@@ -89,6 +89,9 @@ class PreviewContainer extends React.Component {
   componentWillMount() {
     debug('mount')
     logic.init(this.props.preview)
+  }
+  componentWillUnmount() {
+    logic.unInit()
   }
 
   render() {

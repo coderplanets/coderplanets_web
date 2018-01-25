@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 
 import { Icon404, Wrapper, Icon, Text, Title, Desc } from './styles'
 /* eslint-disable no-unused-vars */

@@ -7,7 +7,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 import { Breadcrumbs, UL, LI, A } from './style'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Navigator:index')

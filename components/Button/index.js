@@ -16,7 +16,7 @@ export default MButton
 /*
 // import styled from 'styled-components'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:Button:index')
 
 const Button = ({ children, size }) => {

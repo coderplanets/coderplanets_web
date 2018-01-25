@@ -10,7 +10,7 @@ import shortid from 'shortid'
 
 import { Wrapper, TagItem, TagDot, TagTitle } from './styles'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:TagList:index')
 /* eslint-enable no-unused-vars */
@@ -21,7 +21,11 @@ const TagList = ({ tags, active, onSelect }) => {
       {tags.map(tag => (
         <TagItem
           key={shortid.generate()}
-          onClick={onSelect.bind(this, { title: tag.title, color: tag.color })}
+          onClick={onSelect.bind(this, {
+            title: tag.title,
+            color: tag.color,
+            ext: 'helli',
+          })}
         >
           <TagDot color={tag.color} active={active.title} title={tag.title} />
           <TagTitle active={active.title} title={tag.title} color={tag.color}>

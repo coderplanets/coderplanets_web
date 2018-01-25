@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:BodylayoutStore')
 /* eslint-enable no-unused-vars */

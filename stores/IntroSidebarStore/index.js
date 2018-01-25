@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import { makeDebugger, markStates } from '../../utils/functions'
+import { makeDebugger, markStates } from '../../utils'
 import MenuItem from './MenuItemStore'
 import fakeMenuItems from './fake_menu_items'
 

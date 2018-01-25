@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils/functions'
+import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsViewerStore')
 /* eslint-enable no-unused-vars */
@@ -27,10 +27,10 @@ const FilterModel = t.model('FilterModel', {
   time: t.optional(
     t.enumeration('time', [
       '',
-      'today',
-      'this_week',
-      'this_month',
-      'this_year',
+      'TODAY',
+      'THIS_WEEK',
+      'THIS_MONTH',
+      'THIS_YEAR',
     ]),
     ''
   ),
@@ -38,15 +38,15 @@ const FilterModel = t.model('FilterModel', {
   sort: t.optional(
     t.enumeration('sort', [
       '',
-      'most_views',
-      'most_favorites',
-      'most_stars',
-      'most_comments',
+      'MOST_VIEWS',
+      'MOST_FAVORITES',
+      'MOST_STARS',
+      'MOST_COMMENTS',
     ]),
     ''
   ),
   wordLength: t.optional(
-    t.enumeration('length', ['', 'most_words', 'least_words']),
+    t.enumeration('length', ['', 'MOST_WORDS', 'LEAST_WORDS']),
     ''
   ),
 })
@@ -58,9 +58,7 @@ const TagModel = t.model('TagModel', {
 
 const PostsViewerStore = t
   .model('PostsViewerStore', {
-    // TODO: rename to activeFilter
     filters: t.optional(t.map(FilterModel), {}),
-    // TODO: rename to activeTag
     tags: t.optional(t.map(TagModel), {}),
     // runtime: ..
     // data: ...

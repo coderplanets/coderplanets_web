@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import Wrapper from './styles'
 import * as logic from './logic'
 

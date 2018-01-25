@@ -6,8 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-// import { makeDebugger } from '../../utils/functions'
-import { mapKeys } from '../../utils/functions'
+import { mapKeys } from '../../utils'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 import { pl, framework, database } from '../DoraemonStore/suggestions'

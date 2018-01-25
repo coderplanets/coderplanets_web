@@ -1,7 +1,7 @@
 import R from 'ramda'
 import Router from 'next/router'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Banner')
@@ -12,12 +12,8 @@ let banner = null
 const fmt = R.compose(R.map(R.toLower), R.split('--'))
 
 export function tabberChange(target) {
-  debug('fmt: ', fmt(target))
-
   const main = fmt(target)[0]
   const sub = fmt(target)[1]
-
-  debug('push to: ', `${main}/${sub}`)
 
   Router.push(
     {

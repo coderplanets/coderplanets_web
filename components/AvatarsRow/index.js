@@ -10,7 +10,7 @@ import shortid from 'shortid'
 import { Tooltip } from 'antd'
 import R from 'ramda'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './style'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:AvatarsRow:index')

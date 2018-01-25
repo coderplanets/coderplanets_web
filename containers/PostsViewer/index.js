@@ -210,7 +210,7 @@ const PostItem = ({ post }) => {
         <Col span={22}>
           <Row>
             <Col span={20}>
-              <PostTitle>
+              <PostTitle onClick={logic.onContentSelect.bind(this, post)}>
                 {post.title}
                 <PostTitleLink>
                   <LinkIcon path={getSVGIconPath('link')} />
@@ -246,9 +246,6 @@ const PostItem = ({ post }) => {
 class PostsViewerContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.postsViewer)
-  }
-  componentWillUnmount() {
-    logic.unInit()
   }
 
   render() {

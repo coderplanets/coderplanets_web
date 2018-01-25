@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { FlexWrapper, ThemeDot } from './style'
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */

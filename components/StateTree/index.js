@@ -10,7 +10,7 @@ import ReactJson from 'react-json-view'
 
 /* import PropTypes from 'prop-types' */
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:StateTree:index')
 /* eslint-enable no-unused-vars */

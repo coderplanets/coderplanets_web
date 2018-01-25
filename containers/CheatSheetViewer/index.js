@@ -16,7 +16,7 @@ import { CheatSheetLoading } from '../../components/LoadingEffects'
 
 import { Button, NotFound } from '../../components'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
 import { CheatSheetStyle, CardWrapper } from './styles'

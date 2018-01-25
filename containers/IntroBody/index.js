@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
 import { Body } from './styles'

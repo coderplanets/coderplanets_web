@@ -14,7 +14,7 @@ import { inject, observer } from 'mobx-react'
 
 // import observer from '../../utils/mobx_utils'
 
-import { makeDebugger, storeSelector } from '../../utils/functions'
+import { makeDebugger, storeSelector } from '../../utils'
 import { Sidebar, MenuItem } from './styles'
 import PinButton from './PinButton'
 

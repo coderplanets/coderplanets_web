@@ -1,13 +1,14 @@
 import R from 'ramda'
 
 import Prism from 'mastani-codehighlight'
-import { makeDebugger } from '../../utils/functions'
-import sr71$ from '../../utils/network/sr71'
+import { makeDebugger, ERR } from '../../utils'
+import SR71 from '../../utils/network/sr71'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:cheatsheetViewer')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71()
 let cheatsheetViewer = null
 let sub$ = null
 
@@ -78,14 +79,14 @@ function handleLoaded(source) {
 
 function handleError(res) {
   switch (res.error) {
-    case 'ParseError':
+    case ERR.PARSE_CHEATSHEET_MD:
       return handleParseError()
-    case 'NetworkError':
+    case ERR.NETWORK:
       debug(`${res.error}: ${res.details}`)
       return false
-    case 'NotFound':
+    case ERR.NOT_FOUND:
       return handle404Error()
-    case 'TimeoutError':
+    case ERR.TIMEOUT:
       debug(`${res.error}: ${res.details}`)
       // sr71$.stop()
       return false
@@ -105,7 +106,7 @@ export function init(selectedStore) {
     try {
       source = transMarkDownforRender(res)
     } catch (err) {
-      return handleError({ error: 'ParseError' })
+      return handleError({ error: ERR.PARSE_CHEATSHEET_MD })
     }
     handleLoaded(source)
   })

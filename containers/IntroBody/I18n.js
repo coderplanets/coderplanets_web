@@ -4,7 +4,7 @@ import ReactSVG from 'react-svg'
 import { FormattedMessage as I18n } from 'react-intl'
 
 import lang from './lang'
-import { getSVGIconPath } from '../../utils/functions'
+import { getSVGIconPath } from '../../utils'
 
 import { Button } from './styles'
 import { Center, HorizontalCenter, Title } from '../../components/BaseStyled'

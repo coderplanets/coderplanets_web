@@ -6,9 +6,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { getSVGIconPath } from '../../utils/functions'
+import { getSVGIconPath, themeColorMap } from '../../utils'
 import { NodeSVGIcon, ThemeDot } from './styles'
-import { themeColorMap } from '../../utils/themes/'
 
 // const debug = makeDebugger('C:Doraemon:NodeIcon')
 

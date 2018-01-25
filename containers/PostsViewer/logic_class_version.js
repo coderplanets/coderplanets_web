@@ -1,6 +1,6 @@
 import R from 'ramda'
 
-import { makeDebugger } from '../../utils/functions'
+import { makeDebugger } from '../../utils'
 import network from '../../utils/network'
 import sr71$ from '../../utils/network/sr71'
 import S from './schema'

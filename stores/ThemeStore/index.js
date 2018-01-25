@@ -6,8 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { makeDebugger, markStates } from '../../utils/functions'
-import { themeDict } from '../../utils/themes'
+import { makeDebugger, markStates, themeDict } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ThemeStore')
