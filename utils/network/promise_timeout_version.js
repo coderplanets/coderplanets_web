@@ -2,7 +2,7 @@
 import { timeout } from 'promise-timeout'
 import fetch from 'isomorphic-fetch'
 
-import { makeDebugger } from '../functions'
+import { makeDebugger } from '../'
 import {
   client,
   context,

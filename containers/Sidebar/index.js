@@ -14,7 +14,7 @@ import {
   makeDebugger,
   storeSelector,
   getSVGIconPath,
-} from '../../utils/functions'
+} from '../../utils'
 import PinButton from './PinButton'
 import { Sidebar, MenuItem, Row, MenuItemIcon } from './styles'
 import * as logic from './logic'

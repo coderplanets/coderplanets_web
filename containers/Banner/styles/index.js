@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 export const Banner = styled.div`
   position: relative;

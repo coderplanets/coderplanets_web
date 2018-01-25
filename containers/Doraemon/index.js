@@ -10,11 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-} from '../../utils/functions'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'

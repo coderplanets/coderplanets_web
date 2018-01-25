@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 export const Header = styled.div`
   line-height: 1.6vh;

@@ -29,12 +29,18 @@ class SR71 {
     this.mutateInput$ = new Subject()
     this.stop$ = new Subject()
     this.eventInput$ = new Subject()
+    this.resv_event = opts.resv_event
 
-    if (!isEmptyValue(opts.resv_event)) {
+    console.log('************  init SR71 ********************')
+    if (!isEmptyValue(this.resv_event)) {
       // this hack is mainly prevent multi subscrib caused by HMR
-      PubSub.unsubscribe(opts.resv_event)
-      /* PubSub.clearSubscriptions(opts.resv_event) */
-      PubSub.subscribe(opts.resv_event, (event, data) =>
+      // PubSub.unsubscribe(opts.resv_event)
+      console.log('-------------------------------------')
+      console.log('clearSiubscriptionsk', this.resv_event)
+      console.log('-------------------------------------')
+      // PubSub.clearSubscriptions(this.resv_event)
+      // PubSub.unsubscribe(this.resv_event)
+      PubSub.subscribe(this.resv_event, (event, data) =>
         this.eventInput$.next({ [event]: data })
       )
       // use subscribeOnce in Production
@@ -63,7 +69,7 @@ class SR71 {
         .takeUntil(this.stop$)
     )
 
-    this.event$ = this.eventInput$.debounceTime(300)
+    this.event$ = this.eventInput$.debounceTime(100)
 
     this.graphql$ = this.query$.merge(this.mutate$)
     this.data$ = this.graphql$.merge(this.restGet$, this.event$)
@@ -92,7 +98,5 @@ class SR71 {
 }
 
 /* const sr71$ = new SR71() */
-/* export default sr71$ */
-
 export default SR71
 // export default new SR71()

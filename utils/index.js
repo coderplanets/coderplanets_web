@@ -1,5 +1,12 @@
+/*
+ * constants used cross the site
+ */
+
 export { EVENT, ERR } from './constants'
-// TODO: move all to utils
+
+/*
+* utils functiosn
+*/
 export {
   storeSelector,
   makeDebugger,
@@ -8,6 +15,19 @@ export {
   getSVGIconPath,
   mapKeys,
   isObject,
+  notEmpty,
+  getRandomInt,
   isEmptyValue,
+  Global,
 } from './functions'
-export { themeDict, themeColorMap } from './themes'
+
+/*
+ * theme related
+ */
+export {
+  theme,
+  themeDict,
+  themeKeys,
+  themeColorMap,
+  selectorColors,
+} from './themes'

@@ -6,7 +6,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-fetch'
 import { onError } from 'apollo-link-error'
 
-import { makeDebugger } from '../functions'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('Network')

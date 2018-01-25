@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 const rotate360 = keyframes`
@@ -44,7 +44,7 @@ export const PanelContainer = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   width: 45vw;
   max-width: 550px;
-  position: absolute;
+  position: fixed;
   top: 12vh;
   z-index: 1002;
   display: ${props => (props.visible ? 'block' : 'none')};

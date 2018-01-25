@@ -6,7 +6,7 @@ import R from 'ramda'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/fromPromise'
 
-import { notEmpty } from '../../../utils/functions'
+import { notEmpty } from '../../../utils'
 
 const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
 

@@ -10,11 +10,7 @@ import { Row, Col } from 'antd'
 
 import Tabber from '../../components/Tabber'
 
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-} from '../../utils/functions'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import * as logic from './logic'
 

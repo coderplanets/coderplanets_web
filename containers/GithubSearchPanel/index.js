@@ -11,11 +11,7 @@ import { inject, observer } from 'mobx-react'
 // import styled from 'styled-components'
 
 import A from '../../components/A'
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-} from '../../utils/functions'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import * as logic from './logic'
 
 import {

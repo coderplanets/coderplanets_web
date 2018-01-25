@@ -33,7 +33,7 @@ const PreviewStore = t
   }))
   .actions(self => ({
     open(type = 'post') {
-      self.visible = !self.visible
+      self.visible = true
       self.type = type
     },
 

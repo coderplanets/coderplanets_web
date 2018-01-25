@@ -6,6 +6,7 @@ const sr71$ = new SR71({ resv_event: EVENT.PREVIEW_IT })
 const debug = makeDebugger('L:Preview')
 
 let preview = null
+let sub$ = null
 
 export function changeTheme(name) {
   preview.changeTheme(name)
@@ -18,10 +19,14 @@ export function closePreview() {
 
 export function init(selectedStore) {
   preview = selectedStore
-  debug('init')
-  sr71$.data().subscribe(res => {
+  debug('@@@ init @@@')
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe(res => {
     // if (res.error) return handleError(res)
     debug('Logic ret:8', res)
+    if (res[EVENT.PREVIEW_IT]) {
+      preview.open('post')
+    }
   })
   /*
   PubSub.unsubscribe('hello')
@@ -30,8 +35,4 @@ export function init(selectedStore) {
     preview.open('post')
   })
   */
-}
-
-export function unInit() {
-  debug('un - init ')
 }

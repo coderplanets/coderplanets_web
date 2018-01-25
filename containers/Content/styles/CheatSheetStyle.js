@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 const CheatSheetStyle = styled.div`
   @font-face {

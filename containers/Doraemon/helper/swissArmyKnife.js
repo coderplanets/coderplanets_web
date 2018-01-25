@@ -1,7 +1,9 @@
 import R from 'ramda'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
-import { lengthE1, lengthE2, anyNil } from '../../../utils/functions'
+export const lengthE1 = R.compose(R.equals(1), R.length)
+export const lengthE2 = R.compose(R.equals(2), R.length)
+export const anyNil = R.any(R.isNil)
 
 export const clearfyCmd = R.compose(R.split('--'), R.toLower)
 

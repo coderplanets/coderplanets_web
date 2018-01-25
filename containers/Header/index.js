@@ -13,11 +13,7 @@ import { Row, Col } from 'antd'
 import { Button } from '../../components'
 import Navigator from '../../components/Navigator'
 
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-} from '../../utils/functions'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import {
   Header,

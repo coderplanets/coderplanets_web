@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { darken } from 'polished'
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 export const Sidebar = styled.div`
   border-right: 1px solid;

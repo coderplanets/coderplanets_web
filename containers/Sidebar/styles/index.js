@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
 import { darken } from 'polished'
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751

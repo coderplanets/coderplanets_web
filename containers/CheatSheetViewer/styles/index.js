@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 export const CardWrapper = styled.div`
   width: 450px;

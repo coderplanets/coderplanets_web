@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { lighten, darken } from 'polished'
-import { selectorColors } from '../../../utils/themes'
+import { selectorColors } from '../../../utils'
 
 const getBackground = props => {
   const themeName = props.type

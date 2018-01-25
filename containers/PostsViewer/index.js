@@ -18,7 +18,7 @@ import {
   storeSelector,
   getSVGIconPath,
   getRandomInt,
-} from '../../utils/functions'
+} from '../../utils'
 
 import AvatarsRow from '../../components/AvatarsRow'
 import TagList from '../../components/TagList'

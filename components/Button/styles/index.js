@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Button } from 'antd'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 const MButton = styled(Button)`
   color: ${theme('button.fg')};

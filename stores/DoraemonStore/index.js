@@ -6,18 +6,36 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  mapKeys,
-  focusDoraemonBar,
-  hideDoraemonBarRecover,
-} from '../../utils/functions'
+import { markStates, mapKeys } from '../../utils'
 
 import cmds from './suggestions/cmd'
 
 // import { makeDebugger } from '../../utils'
-
 // const debug = makeDebugger('S:DoraemonStore')
+
+const focusDoraemonBar = () => {
+  setTimeout(() => {
+    // side effect
+    /* eslint-disable no-undef */
+    // has to use setTimeout
+    // see: https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
+    try {
+      document.getElementById('doraemonInputbar').focus()
+    } catch (e) {
+      console.error(e)
+    }
+    /* eslint-enable no-undef */
+  }, 0)
+}
+
+const hideDoraemonBarRecover = () => {
+  // side effect
+  // onBlur will on focus the whole page, if not use this
+  // openDoraemon will not work until you click the page
+  /* eslint-disable no-undef */
+  document.getElementById('whereCallShowDoraemon').click()
+  /* eslint-enable no-undef */
+}
 
 const Suggestion = t.model('Suggestion', {
   title: t.string,

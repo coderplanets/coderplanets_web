@@ -2,7 +2,7 @@ import R from 'ramda'
 import Router from 'next/router'
 
 import Pockect from './Pockect'
-import { makeDebugger, Global } from '../../utils/functions'
+import { makeDebugger, Global } from '../../utils'
 import { SwissArmyKnife, clearfyCmd } from './helper/swissArmyKnife'
 
 const debug = makeDebugger('L:Doraemon')

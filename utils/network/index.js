@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/fromPromise'
 
-import { makeDebugger } from '../functions'
+import { makeDebugger } from '../../utils'
 import { client, context, USE_CACHE } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'

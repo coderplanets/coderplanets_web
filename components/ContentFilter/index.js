@@ -18,11 +18,8 @@ import {
   SelectTitle,
   SelectItem,
 } from './styles'
-import {
-  makeDebugger,
-  getSVGIconPath,
-  isEmptyValue,
-} from '../../utils/functions'
+
+import { makeDebugger, getSVGIconPath, isEmptyValue } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   border-radius: 5px;

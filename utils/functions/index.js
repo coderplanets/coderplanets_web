@@ -68,36 +68,6 @@ export const mapKeys = R.curry((fn, obj) => {
 export const notEmpty = R.compose(R.not, R.isEmpty)
 export const isEmptyValue = R.compose(R.isEmpty, R.trim)
 
-export const lengthE1 = R.compose(R.equals(1), R.length)
-export const lengthE2 = R.compose(R.equals(2), R.length)
-
-export const allNil = R.all(R.isNil)
-export const anyNil = R.any(R.isNil)
-
-export const focusDoraemonBar = () => {
-  setTimeout(() => {
-    // side effect
-    /* eslint-disable no-undef */
-    // has to use setTimeout
-    // see: https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
-    try {
-      document.getElementById('doraemonInputbar').focus()
-    } catch (e) {
-      console.error(e)
-    }
-    /* eslint-enable no-undef */
-  }, 0)
-}
-
-export const hideDoraemonBarRecover = () => {
-  // side effect
-  // onBlur will on focus the whole page, if not use this
-  // openDoraemon will not work until you click the page
-  /* eslint-disable no-undef */
-  document.getElementById('whereCallShowDoraemon').click()
-  /* eslint-enable no-undef */
-}
-
 export const getRandomInt = (min, max) => {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -106,5 +76,6 @@ export const getRandomInt = (min, max) => {
 
 export const sendEvent = (msg, data = {}) => {
   // TODO: check the msg is valid
-  PubSub.publishSync(msg, data)
+  // PubSub.publishSync(msg, data)
+  PubSub.publish(msg, data)
 }

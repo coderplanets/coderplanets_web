@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../utils/themes'
+import { theme } from '../../utils'
 
 const AntOverWrite = styled.div`
   .ant-btn-background-ghost.ant-btn-primary {

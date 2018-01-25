@@ -14,6 +14,7 @@ import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
 import ThemeSelector from '../../components/ThemeSelector'
+import PostViewer from './PostViewer'
 /* import StateTree from '../../components/StateTree' */
 
 import {
@@ -22,8 +23,7 @@ import {
   PreviewWrapper,
   PreviewCloser,
   PreviewContent,
-  PreviewHeader,
-  PreviewBody,
+  //  PreviewBody,
   StateTreeHeader,
   Closer,
   CloserInner,
@@ -65,11 +65,7 @@ const Viewer = ({ type, root, themeKeys, curTheme }) => {
       return <AccountViewer themeKeys={themeKeys} curTheme={curTheme} />
     }
     case 'post': {
-      return (
-        <div>
-          <PreviewHeader>Preview header</PreviewHeader>post
-        </div>
-      )
+      return <PostViewer />
     }
     default: {
       return (
@@ -90,15 +86,18 @@ class PreviewContainer extends React.Component {
     debug('mount')
     logic.init(this.props.preview)
   }
-  componentWillUnmount() {
-    logic.unInit()
-  }
 
   render() {
     const { visible, type, themeKeys, curTheme, root } = this.props.preview
 
-    /* debug('this.props.preview: ', this.props.preview.root.toJSON()) */
+    /*
 
+    <PreviewBody>
+      <h2>Preview body</h2>
+    </PreviewBody>
+     */
+
+    /* debug('this.props.preview: ', this.props.preview.root.toJSON()) */
     return (
       <div>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />
@@ -111,9 +110,6 @@ class PreviewContainer extends React.Component {
               themeKeys={themeKeys}
               curTheme={curTheme}
             />
-            <PreviewBody>
-              <h2>Preview body</h2>
-            </PreviewBody>
           </PreviewContent>
         </PreviewWrapper>
       </div>

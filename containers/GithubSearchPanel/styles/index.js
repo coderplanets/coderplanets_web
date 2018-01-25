@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import ReactSVG from 'react-svg'
 import { placeholder } from 'polished'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 import { Img } from '../../../components'
 

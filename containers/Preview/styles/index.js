@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils/themes'
+import { theme } from '../../../utils'
 
 function doTransform(visible) {
   return visible ? 'translate(0px, 0px)' : 'translate(105%, 0px)'
@@ -46,12 +46,11 @@ export const PreviewContent = styled.div`
   height: 100%;
   overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
-  padding: 20px;
 `
 export const PreviewHeader = styled.div`
-  border-bottom: 1px solid tomato;
-  text-align: center;
+  border-bottom: 1px solid grey;
   line-height: 30px;
+  display: flex;
 `
 export const PreviewBody = styled.div`
   margin-top: 20%;
