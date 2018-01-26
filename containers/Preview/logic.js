@@ -1,4 +1,4 @@
-import { makeDebugger, EVENT } from '../../utils'
+import { makeDebugger, EVENT, holdPage, unholdPage } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({ resv_event: EVENT.PREVIEW_IT })
@@ -14,6 +14,7 @@ export function changeTheme(name) {
 
 export function closePreview() {
   debug('closePreview')
+  unholdPage()
   preview.close()
 }
 
@@ -25,6 +26,7 @@ export function init(selectedStore) {
     // if (res.error) return handleError(res)
     debug('Logic ret:8', res)
     if (res[EVENT.PREVIEW_IT]) {
+      holdPage()
       preview.open('post')
     }
   })

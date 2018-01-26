@@ -19,6 +19,8 @@ export {
   getRandomInt,
   isEmptyValue,
   Global,
+  holdPage,
+  unholdPage,
 } from './functions'
 
 /*

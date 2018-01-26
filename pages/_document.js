@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
 
           {styleTags}
         </Head>
-        <body>
+        <body id="body">
           <div className="root">{main}</div>
           <NextScript />
         </body>

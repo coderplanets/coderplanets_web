@@ -11,7 +11,7 @@ import shortid from 'shortid'
 import { Row, Col } from 'antd'
 
 import { makeDebugger, storeSelector } from '../../utils'
-import PostsViewer from '../PostsViewer'
+import PostsPaper from '../PostsPaper'
 /*
 import TutsViewer from '../TutsViewer'
 import MapViewer from '../MapViewer'
@@ -135,7 +135,7 @@ const CommonComunity = ({ curRoute }) => {
   return (
     <div>
       <Hidder name="posts" active={subQuery}>
-        <PostsViewer />
+        <PostsPaper />
       </Hidder>
       <Hidder name="cheatsheet" active={subQuery}>
         <CheatSheetViewer />
@@ -145,7 +145,7 @@ const CommonComunity = ({ curRoute }) => {
   /*
   switch (subQuery) {
     case 'posts': {
-      return <PostsViewer />
+      return <PostsPaper />
     }
     case 'news': {
       return <div>news</div>

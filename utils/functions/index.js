@@ -79,3 +79,18 @@ export const sendEvent = (msg, data = {}) => {
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
 }
+
+export const holdPage = () => {
+  /* eslint-disable no-undef */
+  const el = document.getElementById('body')
+  /* eslint-enable no-undef */
+  el.style.overflowY = 'hidden'
+}
+
+export const unholdPage = () => {
+  /* eslint-disable no-undef */
+  const el = document.getElementById('body')
+  /* eslint-enable no-undef */
+
+  el.style.overflowY = 'auto'
+}

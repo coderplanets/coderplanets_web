@@ -6,13 +6,13 @@ import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71()
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:PostsViewer')
+const debug = makeDebugger('L:PostsPaper')
 /* eslint-enable no-unused-vars */
 
 const CheatsheetCDN =
   'https://raw.githubusercontent.com/mydearxym/mastani-cheatsheets/master'
 
-let postsViewer = null
+let postsPaper = null
 
 export function cheatsheet() {
   //  const which = 'elixir'
@@ -34,12 +34,12 @@ export function createPost() {
 }
 
 export function filterOnSelect(key, val) {
-  postsViewer.selectFilter(key, val)
+  postsPaper.selectFilter(key, val)
 }
 
 export function tagOnSelect(obj) {
   debug('tagOnSelect: ', obj)
-  postsViewer.selectTag(obj)
+  postsPaper.selectTag(obj)
 }
 
 export const postList = () => {
@@ -76,7 +76,7 @@ function handleError(res) {
       return false
 
     default:
-      debug('un handleError in ', postsViewer)
+      debug('un handleError in ', postsPaper)
       debug('un handleError: ', res)
   }
 }
@@ -88,7 +88,7 @@ export function onContentSelect(post) {
 }
 
 export function init(selectedStore) {
-  postsViewer = selectedStore
+  postsPaper = selectedStore
   debug('@@@ init @@@i')
   sr71$.data().subscribe(res => {
     if (res.error) return handleError(res)

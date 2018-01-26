@@ -49,6 +49,15 @@ const AccountViewer = ({ themeKeys, curTheme }) => {
       <TheTitle>
         <span>主题</span>
       </TheTitle>
+      <h3>mydearxym 登录信息</h3>
+      <h3>个人介绍</h3>
+      <h3>订阅的社区</h3>
+      <h3>我的收藏</h3>
+      <h3>我的帖子</h3>
+      <h3>我的关注</h3>
+      <h3>关注我的人</h3>
+      <h3>主题切换</h3>
+      <h3>最近七天日历活动表</h3>
 
       <ThemeSelector
         themeKeys={themeKeys}

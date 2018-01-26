@@ -1,6 +1,6 @@
 /*
 *
-* PostsViewer
+* PostsPaper
 *
 */
 
@@ -44,7 +44,7 @@ import {
 } from './styles'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:PostsViewer')
+const debug = makeDebugger('C:PostsPaper')
 /* eslint-enable no-unused-vars */
 
 const posts = [
@@ -243,16 +243,16 @@ const PostItem = ({ post }) => {
   )
 }
 
-class PostsViewerContainer extends React.Component {
+class PostsPaperContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.postsViewer)
+    logic.init(this.props.postsPaper)
   }
 
   render() {
     const {
       curFilter: { time, sort, wordLength },
       curTag,
-    } = this.props.postsViewer
+    } = this.props.postsPaper
 
     return (
       <Wrapper>
@@ -307,6 +307,6 @@ class PostsViewerContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('postsViewer'))(
-  observer(PostsViewerContainer)
+export default inject(storeSelector('postsPaper'))(
+  observer(PostsPaperContainer)
 )

@@ -21,7 +21,7 @@ import HeaderStore from '../HeaderStore'
 import BannerStore from '../BannerStore'
 import ContentStore from '../ContentStore'
 
-import PostsViewerStore from '../PostsViewerStore'
+import PostsPaperStore from '../PostsPaperStore'
 import TutsViewerStore from '../TutsViewerStore'
 import MapViewerStore from '../MapViewerStore'
 import JobsViewerStore from '../JobsViewerStore'
@@ -55,7 +55,7 @@ const rootStore = t
     doraemon: t.optional(DoraemonStore, {}),
     github: t.optional(GithubEampleStore, {}),
 
-    postsViewer: t.optional(PostsViewerStore, {}),
+    postsPaper: t.optional(PostsPaperStore, {}),
     tutsViewer: t.optional(TutsViewerStore, {}),
     mapViewer: t.optional(MapViewerStore, {}),
     jobsViewer: t.optional(JobsViewerStore, {}),

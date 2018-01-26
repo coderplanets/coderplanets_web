@@ -1,5 +1,5 @@
 /*
- * PostsViewerStore store
+ * PostsPaperStore store
  *
  */
 
@@ -8,7 +8,7 @@ import R from 'ramda'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:PostsViewerStore')
+const debug = makeDebugger('S:PostsPaperStore')
 /* eslint-enable no-unused-vars */
 
 /* const filters = { */
@@ -56,8 +56,8 @@ const TagModel = t.model('TagModel', {
   color: t.optional(t.string, ''),
 })
 
-const PostsViewerStore = t
-  .model('PostsViewerStore', {
+const PostsPaperStore = t
+  .model('PostsPaperStore', {
     filters: t.optional(t.map(FilterModel), {}),
     tags: t.optional(t.map(TagModel), {}),
     // runtime: ..
@@ -107,4 +107,4 @@ const PostsViewerStore = t
     },
   }))
 
-export default PostsViewerStore
+export default PostsPaperStore
