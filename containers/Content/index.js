@@ -12,18 +12,16 @@ import { Row, Col } from 'antd'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import PostsPaper from '../PostsPaper'
-/*
 import TutsViewer from '../TutsViewer'
 import MapViewer from '../MapViewer'
 import JobsViewer from '../JobsViewer'
- */
 
 import CheatSheetViewer from '../CheatSheetViewer'
 import * as logic from './logic'
 
 import {
   Wrapper,
-  Hidder,
+  //   Hidder,
   //  CategoryWrapper,
   //  Category,
   Entry,
@@ -132,6 +130,8 @@ const CheatSheetBody = () => {
 const CommonComunity = ({ curRoute }) => {
   const { subQuery } = curRoute
 
+  /*
+
   return (
     <div>
       <Hidder name="posts" active={subQuery}>
@@ -142,7 +142,8 @@ const CommonComunity = ({ curRoute }) => {
       </Hidder>
     </div>
   )
-  /*
+  */
+
   switch (subQuery) {
     case 'posts': {
       return <PostsPaper />
@@ -175,7 +176,6 @@ const CommonComunity = ({ curRoute }) => {
       return <div>posts</div>
     }
   }
-  */
 }
 
 const renderContent = curRoute => {

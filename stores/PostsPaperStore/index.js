@@ -60,6 +60,15 @@ const PostsPaperStore = t
   .model('PostsPaperStore', {
     filters: t.optional(t.map(FilterModel), {}),
     tags: t.optional(t.map(TagModel), {}),
+    curView: t.optional(
+      t.enumeration('curView', [
+        'TIMEOUT_PAGE',
+        'RESULT',
+        'RESULT_WITH_LOADING',
+        'LOADING',
+      ]),
+      'RESULT'
+    ),
     // runtime: ..
     // data: ...
   })
@@ -68,8 +77,8 @@ const PostsPaperStore = t
       return getParent(self)
     },
 
-    get data() {
-      return self.root.posts.current
+    get postsData() {
+      return self.root.posts.postsData
     },
     get curCommunity() {
       return self.root.communities.curCommunity

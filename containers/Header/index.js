@@ -7,10 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
-import { Row, Col } from 'antd'
-
 // import Link from 'next/link'
-import { Button } from '../../components'
 import Navigator from '../../components/Navigator'
 
 import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
@@ -23,6 +20,9 @@ import {
   Notification,
   HeaderIcon,
   StateIcon,
+  StateButton,
+  DividerIcon,
+  Operations,
   User,
 } from './styles'
 
@@ -51,29 +51,32 @@ class HeaderContainer extends React.Component {
           <Navigator />
         </Router>
         <Admin>
-          <Button
-            size="small"
-            type="primary"
-            ghost
-            onClick={logic.openPreview.bind(this, 'mst-state')}
-          >
-            <Row>
-              <Col span={9}>
-                <StateIcon path={getSVGIconPath('header_state')} />
-              </Col>
-              <Col span={12}>State</Col>
-            </Row>
-          </Button>
+          <div style={{ display: 'flex' }}>
+            <StateButton
+              size="small"
+              type="primary"
+              ghost
+              onClick={logic.previewState.bind(this, 'mst-state')}
+            >
+              <StateIcon path={getSVGIconPath('header_state')} />
+              <div>STATE</div>
+            </StateButton>
+
+            <DividerIcon path={getSVGIconPath('more')} />
+          </div>
         </Admin>
-        <Search onClick={logic.openDoraemon}>
-          <HeaderIcon path={getSVGIconPath('header_search')} />
-        </Search>
-        <Notification onClick={logic.openPreview.bind(this, 'post')}>
-          <HeaderIcon path={getSVGIconPath('notification')} />
-        </Notification>
-        <User onClick={logic.openPreview.bind(this, 'account')}>
-          <HeaderIcon path={getSVGIconPath('header_user')} />
-        </User>
+
+        <Operations>
+          <Search onClick={logic.openDoraemon}>
+            <HeaderIcon path={getSVGIconPath('header_search')} />
+          </Search>
+          <Notification onClick={logic.openPreview.bind(this, 'post')}>
+            <HeaderIcon path={getSVGIconPath('notification')} />
+          </Notification>
+          <User onClick={logic.previewAccount.bind(this, 'account')}>
+            <HeaderIcon path={getSVGIconPath('header_user')} />
+          </User>
+        </Operations>
       </Header>
     )
   }

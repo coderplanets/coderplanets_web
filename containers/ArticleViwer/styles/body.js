@@ -52,7 +52,7 @@ export const LinkSource = styled.div`
 `
 export const ArticleTitle = styled.div`
   color: #66868b;
-  font-size: 1.7em;
+  font-size: 1.5em;
   align-self: center;
   padding-top: 10px;
   padding-bottom: 5px;
@@ -61,7 +61,7 @@ export const ArticleTitle = styled.div`
 `
 export const ArticleBody = styled.div`
   padding: 20px;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: #aaabbf;
   line-height: 2em;
 `

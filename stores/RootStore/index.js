@@ -9,7 +9,7 @@ import { makeDebugger } from '../../utils'
 import RouteStore from '../RouteStore'
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
-import { PostsStore, PostsDefaults } from '../PostsStore'
+import PostsStore from '../PostsStore'
 
 import BodylayoutStore from '../BodylayoutStore'
 import ApiLayoutStore from '../ApiLayoutStore'
@@ -20,6 +20,10 @@ import GithubEampleStore from '../GithubEampleStore'
 import HeaderStore from '../HeaderStore'
 import BannerStore from '../BannerStore'
 import ContentStore from '../ContentStore'
+
+import ArticleViwerStore from '../ArticleViwerStore'
+import AccountViewerStore from '../AccountViewerStore'
+import TypeWriterStore from '../TypeWriterStore'
 
 import PostsPaperStore from '../PostsPaperStore'
 import TutsViewerStore from '../TutsViewerStore'
@@ -35,7 +39,7 @@ const rootStore = t
     // domain modal
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
-    posts: t.optional(PostsStore, PostsDefaults),
+    posts: t.optional(PostsStore, {}),
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
@@ -54,6 +58,10 @@ const rootStore = t
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),
     github: t.optional(GithubEampleStore, {}),
+
+    articleViwer: t.optional(ArticleViwerStore, {}),
+    accountViewer: t.optional(AccountViewerStore, {}),
+    typeWriter: t.optional(TypeWriterStore, {}),
 
     postsPaper: t.optional(PostsPaperStore, {}),
     tutsViewer: t.optional(TutsViewerStore, {}),

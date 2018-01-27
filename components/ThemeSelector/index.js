@@ -8,12 +8,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { FlexWrapper, ThemeDot } from './style'
-import { makeDebugger } from '../../utils'
+import { makeDebugger, themeKeys } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
 
-const ThemeSelector = ({ themeKeys, curTheme, changeTheme }) => {
+const ThemeSelector = ({ curTheme, changeTheme }) => {
   return (
     <FlexWrapper>
       {themeKeys.map(name => (
@@ -29,14 +29,12 @@ const ThemeSelector = ({ themeKeys, curTheme, changeTheme }) => {
 }
 
 ThemeSelector.propTypes = {
-  themeKeys: PropTypes.array,
   curTheme: PropTypes.string,
   changeTheme: PropTypes.func.isRequired,
   // https://www.npmjs.com/package/prop-types
 }
 
 ThemeSelector.defaultProps = {
-  themeKeys: [],
   curTheme: '',
 }
 

@@ -2,7 +2,7 @@
  * constants used cross the site
  */
 
-export { EVENT, ERR } from './constants'
+export { EVENT, ERR, TYPE } from './constants'
 
 /*
 * utils functiosn
@@ -11,7 +11,7 @@ export {
   storeSelector,
   makeDebugger,
   markStates,
-  sendEvent,
+  dispatchEvent,
   getSVGIconPath,
   mapKeys,
   isObject,

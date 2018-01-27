@@ -6,7 +6,6 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Row, Col } from 'antd'
 
 import Tabber from '../../components/Tabber'
 
@@ -14,7 +13,18 @@ import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import * as logic from './logic'
 
-import { Banner, Title, Desc, BannerLogo, TabberWrapper } from './styles'
+import {
+  Banner,
+  TopHalf,
+  Title,
+  Desc,
+  LeftPadding,
+  RightPadding,
+  CommunityLogo,
+  CommunityInfo,
+  TabberWrapper,
+  CommunityWrapper,
+} from './styles'
 
 const debug = makeDebugger('C:Banner')
 
@@ -28,12 +38,13 @@ const renderTabber = (mainQuery, curCommunity) => {
   }
   return (
     <TabberWrapper>
+      <LeftPadding />
       <Tabber source={curCommunity.body} onChange={onChange} />
     </TabberWrapper>
   )
 }
 
-const BannerBrief = ({ curCommunity, curRoute }) => {
+const CommunityBrief = ({ curCommunity, curRoute }) => {
   const defaultIcon = 'js'
   const { header } = curCommunity
   const { title, desc } = header
@@ -42,15 +53,13 @@ const BannerBrief = ({ curCommunity, curRoute }) => {
   const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
 
   return (
-    <Row>
-      <Col span={2}>
-        <BannerLogo path={getSVGIconPath(iconKey)} />
-      </Col>
-      <Col span={4}>
+    <CommunityWrapper>
+      <CommunityLogo path={getSVGIconPath(iconKey)} />
+      <CommunityInfo>
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
-      </Col>
-    </Row>
+      </CommunityInfo>
+    </CommunityWrapper>
   )
 }
 
@@ -71,7 +80,12 @@ class BannerContainer extends React.Component {
 
     return (
       <Banner>
-        <BannerBrief curCommunity={curCommunity} curRoute={curRoute} />
+        <TopHalf>
+          <LeftPadding />
+          <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
+          <RightPadding />
+        </TopHalf>
+
         {renderTabber(mainQuery, curCommunity)}
       </Banner>
     )

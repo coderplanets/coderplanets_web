@@ -1,5 +1,5 @@
 // import R from 'ramda'
-import { makeDebugger, sendEvent, EVENT, ERR } from '../../utils'
+import { makeDebugger, dispatchEvent, EVENT, ERR, TYPE } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
@@ -40,6 +40,15 @@ export function filterOnSelect(key, val) {
 export function tagOnSelect(obj) {
   debug('tagOnSelect: ', obj)
   postsPaper.selectTag(obj)
+
+  postsPaper.markState({
+    curView: 'LOADING',
+  })
+  setTimeout(() => {
+    postsPaper.markState({
+      curView: 'RESULT',
+    })
+  }, 2000)
 }
 
 export const postList = () => {
@@ -84,7 +93,13 @@ function handleError(res) {
 export function onContentSelect(post) {
   debug('onContentSelect publish ')
   // PubSub.publish('hello', post)
-  sendEvent(EVENT.PREVIEW_IT, post)
+  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.PREVIEW_POST, data: post })
+  dispatchEvent(EVENT.NAV_EDIT, { type: TYPE.PREVIEW_POST, data: post })
+}
+
+export function createContent() {
+  debug('onContentSelect createContent ')
+  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
 }
 
 export function init(selectedStore) {

@@ -16,10 +16,10 @@ export const USE_CACHE = false
 
 const graphLink = new HttpLink({ uri: 'http://localhost:4001/graphiql', fetch })
 
-export const TIMEOUT_THRESHOLD = 5000 // 5 sec
-export const GRAPHQL_TIMEOUT = 5000
-export const MUTIATION_TIMEOUT = 5000
-export const QUERY_TIMEOUT = 5000
+export const TIMEOUT_THRESHOLD = 15000 // 5 sec
+export const GRAPHQL_TIMEOUT = 15000
+export const MUTIATION_TIMEOUT = 15000
+export const QUERY_TIMEOUT = 15000
 
 const retryLink = new RetryLink({
   delay: {

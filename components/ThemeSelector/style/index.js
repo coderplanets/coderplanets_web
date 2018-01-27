@@ -10,8 +10,8 @@ const getBackground = props => {
 }
 
 export const ThemeDot = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 100%;
   margin-right: 10px;
   background: ${props => getBackground(props)};
@@ -21,9 +21,10 @@ export const ThemeDot = styled.div`
     props.active ? lighten(0.4, props.theme.body_bg) : getBackground(props)};
 
   &:after {
-    content: '✓';
+    content: 'c';
     position: absolute;
-    top: 15%;
+    color: ${props => (props.active ? '#ff9f8e' : '')};
+    top: 14%;
     left: 35%;
   }
 `
