@@ -1,5 +1,6 @@
 /* eslint-disable */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const Dotenv = require('dotenv-webpack')
 /* eslint-enable */
 const { ANALYZE } = process.env
 // export example
@@ -53,7 +54,12 @@ module.exports = {
       return config
     }
 
-    // console.log('webpack config: ', config.module.rules)
+    config.plugins.push(
+      new Dotenv({
+        path: './.env',
+      })
+    )
+
     return config
   },
 }

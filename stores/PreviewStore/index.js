@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-// import { makeDebugger } from '../../utils'
+import { markStates, TYPE } from '../../utils'
 
 // const debug = makeDebugger('S:PreviewStore')
 
@@ -13,8 +13,13 @@ const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
     type: t.optional(
-      t.enumeration('previewType', ['post', 'account', 'mst-state']),
-      'post'
+      t.enumeration('previewType', [
+        TYPE.PREVIEW_POST,
+        TYPE.PREVIEW_ACCOUNT,
+        TYPE.PREVIEW_ROOT_STORE,
+        TYPE.PREVIEW_CREATE_POST,
+      ]),
+      TYPE.PREVIEW_POST
     ),
     // header:
     // body:
@@ -32,7 +37,7 @@ const PreviewStore = t
     },
   }))
   .actions(self => ({
-    open(type = 'post') {
+    open(type = TYPE.PREVIEW_POST) {
       self.visible = true
       self.type = type
     },
@@ -40,9 +45,8 @@ const PreviewStore = t
     close() {
       self.visible = false
     },
-
-    changeTheme(name) {
-      self.root.changeTheme(name)
+    markState(sobj) {
+      markStates(sobj, self)
     },
   }))
 

@@ -8,6 +8,8 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Remarkable from 'remarkable'
+import mentions from 'remarkable-mentions'
+import remarkableemoj from 'remarkable-emoji'
 import Masonry from 'react-masonry-component'
 import Prism from 'mastani-codehighlight'
 import shortid from 'shortid'
@@ -26,6 +28,8 @@ import { CheatSheetStyle, CardWrapper } from './styles'
 const debug = makeDebugger('C:CheatSheetViewer')
 
 const md = new Remarkable()
+md.use(mentions({ url: 'http:coderplanets.com/users/' }))
+md.use(remarkableemoj)
 
 const Cards = ({ cards }) =>
   cards.map(item => (
@@ -62,7 +66,9 @@ const ParseError = ({ msg }) => {
     ${msg}
  \`\`\`
 
-* 常见原因可嫩是\`分隔符\`错误使用了
+@hello
+
+* 常见原因可嫩是\`分隔符\`错误使用了?
 * 请修改后重新尝试, 或查看范例 [示范文档](https://github.com/mydearxym/mastani-cheatsheets/blob/master/react.md)
     `
   return (

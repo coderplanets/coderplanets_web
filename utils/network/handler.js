@@ -52,6 +52,12 @@ export const getThenHandler = res => {
 }
 
 export const getCatchHandler = err => {
+  /*
+  if (!navigator.onLine) {
+    return { error: 'NET_OFFLINE', details: 'NET_OFFLINE' }
+  }
+  */
+
   switch (true) {
     case err.error === ERR.NOT_FOUND:
       return { error: err.error, details: err.details }

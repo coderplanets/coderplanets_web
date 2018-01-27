@@ -100,9 +100,11 @@ function handleError(res) {
 export function init(selectedStore) {
   cheatsheetViewer = selectedStore
 
+  if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe(res => {
     if (res.error) return handleError(res)
     let source = ''
+    debug('sr71 res: ', res)
     try {
       source = transMarkDownforRender(res)
     } catch (err) {
@@ -113,6 +115,7 @@ export function init(selectedStore) {
 }
 
 export function unInit() {
+  // TODO
   // avoid the duplicate subscribe caused by HMR
-  sub$.unsubscribe()
+  // sub$.unsubscribe()
 }

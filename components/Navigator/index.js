@@ -29,7 +29,7 @@ const Navigator = () => {
         </LI>
         <LI active>
           <A>
-            <span>帖子：我是一个人哈哈</span>
+            <span>帖子：我是一个人</span>
           </A>
         </LI>
         <LI>

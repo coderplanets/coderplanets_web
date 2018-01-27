@@ -1,6 +1,6 @@
 /* cool version */
 
-// import R from 'ramda'
+import R from 'ramda'
 import PubSub from 'pubsub-js'
 import { Subject } from 'rxjs/Subject'
 // import { Observable } from 'rxjs/Observable'
@@ -31,26 +31,7 @@ class SR71 {
     this.eventInput$ = new Subject()
     this.resv_event = opts.resv_event
 
-    console.log('************  init SR71 ********************')
-    if (!isEmptyValue(this.resv_event)) {
-      // this hack is mainly prevent multi subscrib caused by HMR
-      // PubSub.unsubscribe(opts.resv_event)
-      console.log('-------------------------------------')
-      console.log('clearSiubscriptionsk', this.resv_event)
-      console.log('-------------------------------------')
-      // PubSub.clearSubscriptions(this.resv_event)
-      // PubSub.unsubscribe(this.resv_event)
-      PubSub.subscribe(this.resv_event, (event, data) =>
-        this.eventInput$.next({ [event]: data })
-      )
-      // use subscribeOnce in Production
-      /*
-      PubSub.subscribeOnce(opts.resv_event, (_, data) =>
-        this.eventInput$.next(data)
-      )
-      */
-    }
-
+    this.initEventSubscription()
     this.query$ = this.queryInput$
       .debounceTime(300)
       .switchMap(q =>
@@ -75,8 +56,28 @@ class SR71 {
     this.data$ = this.graphql$.merge(this.restGet$, this.event$)
   }
 
+  // Private
+  initEventSubscription() {
+    if (Array.isArray(this.resv_event)) {
+      R.forEach(event => {
+        this.subscriptEvent(event)
+      }, this.resv_event)
+    } else {
+      this.subscriptEvent(this.resv_event)
+    }
+  }
+
+  // Private
+  subscriptEvent(event) {
+    if (isEmptyValue(event)) return false
+    PubSub.unsubscribe(event) // avoid duplicate subscribe caused by HMR
+    //    console.log('init event: ', event)
+    PubSub.subscribe(event, (event, data) =>
+      this.eventInput$.next({ [event]: data })
+    )
+  }
+
   stop() {
-    console.log('should stop')
     this.stop$.next()
   }
 

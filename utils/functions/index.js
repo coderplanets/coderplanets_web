@@ -67,6 +67,13 @@ export const mapKeys = R.curry((fn, obj) => {
 
 export const notEmpty = R.compose(R.not, R.isEmpty)
 export const isEmptyValue = R.compose(R.isEmpty, R.trim)
+// export const notEmptyValue = R.compose(R.not, isEmptyValue)
+
+/*
+export const notEmptyArray = (value) => {
+  return Array.isArray(this.resv_event) && this.resv_event.length > 0
+}
+*/
 
 export const getRandomInt = (min, max) => {
   min = Math.ceil(min)
@@ -74,7 +81,7 @@ export const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export const sendEvent = (msg, data = {}) => {
+export const dispatchEvent = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
