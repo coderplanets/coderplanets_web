@@ -48,7 +48,8 @@ const getMessages = locale => {
 // const homeQuery = route('/home/:name')
 const introQuery = route('/intro')
 const apiQuery = route('/api')
-const communityQuery = route('/:main')
+// const communityQuery = route('/:main')
+const communityQuery = route('/:community')
 const communitySubQuery = route('/:main/:sub')
 const localeQuery = route('/locale/:lang')
 

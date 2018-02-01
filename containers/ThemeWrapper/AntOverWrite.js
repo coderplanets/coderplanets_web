@@ -205,6 +205,16 @@ const AntOverWrite = styled.div`
     color: white;
   }
 
+  .ant-btn-red {
+    color: ${theme('button.fg')};
+    background-color: tomato;
+    border-color: tomato;
+  }
+  .ant-btn-background-ghost.ant-btn-red {
+    color: tomato;
+    border-color: tomato;
+  }
+
   .ant-btn-clicked:after {
     border: ${theme('button.clicked')};
   }

@@ -129,6 +129,7 @@ const CheatSheetBody = () => {
 
 const CommonComunity = ({ curRoute }) => {
   const { subQuery } = curRoute
+  debug('subQuery: ', subQuery)
 
   /*
 
