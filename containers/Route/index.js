@@ -20,7 +20,7 @@ class RouteContainer extends React.Component {
   componentWillMount() {
     debug('mount')
     init(this.props.route)
-    //  syncRoute(this.props.router)
+    syncRoute(this.props.router)
     Router.onRouteChangeComplete = () => {
       // Router.onRouteChangeStart = url => {
       syncRoute(this.props.router)

@@ -11,6 +11,7 @@ module.exports = {
     return {
       '/': { page: '/' },
       // '/ruby': { page: '/', query: { name: 'ruby' } },
+      '/js/posts': { page: '/', query: { main: 'js', sub: 'posts' } },
       '/intro/i': { page: '/intro', query: { name: 'index' } },
       '/intro/feature': { page: '/intro', query: { name: 'feature' } },
       '/intro/theme': { page: '/intro', query: { name: 'theme' } },

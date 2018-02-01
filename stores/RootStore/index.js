@@ -24,6 +24,7 @@ import ContentStore from '../ContentStore'
 import ArticleViwerStore from '../ArticleViwerStore'
 import AccountViewerStore from '../AccountViewerStore'
 import TypeWriterStore from '../TypeWriterStore'
+import CommentsStore from '../CommentsStore'
 
 import PostsPaperStore from '../PostsPaperStore'
 import TutsViewerStore from '../TutsViewerStore'
@@ -62,6 +63,7 @@ const rootStore = t
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
     typeWriter: t.optional(TypeWriterStore, {}),
+    comments: t.optional(CommentsStore, {}),
 
     postsPaper: t.optional(PostsPaperStore, {}),
     tutsViewer: t.optional(TutsViewerStore, {}),

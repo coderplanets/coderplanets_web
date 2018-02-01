@@ -12,6 +12,16 @@ export const BodyWrapper = styled.div`
   flex-direction: column;
   display: flex;
 `
+export const CommentsWrapper = styled.div`
+  border-bottom: 1px solid tomato;
+  min-height: 600px;
+  margin-top: 20px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-bottom: 10%;
+  border-radius: 5px;
+`
+
 export const ArticleHeader = styled.div`
   display: flex;
   justify-content: space-between;

@@ -189,7 +189,6 @@ class PostsPaperContainer extends React.Component {
 
   componentDidMount() {
     // Affix hack
-    debug('-----------> componentDidMount')
     Global.scrollTo(0, 1)
   }
 
@@ -200,8 +199,6 @@ class PostsPaperContainer extends React.Component {
       curFilter: { time, sort, wordLength },
       curTag,
     } = this.props.postsPaper
-
-    debug('data: ', postsData)
 
     return (
       <Wrapper>

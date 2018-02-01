@@ -1,5 +1,8 @@
 import React from 'react'
 
+// import CommentsList from '../../components/CommentsList'
+import Comments from '../../containers/Comments'
+
 import {
   PreviewHeaderWrapper,
   UserInfo,
@@ -26,6 +29,7 @@ import {
   ArticleHeader,
   ArticleTitle,
   ArticleBody,
+  CommentsWrapper,
 } from './styles/body'
 
 import { getSVGIconPath } from '../../utils'
@@ -87,7 +91,7 @@ const PreviewHeader = () => {
               path={getSVGIconPath('comment')}
               style={{ marginTop: 6 }}
             />
-            <ReactionName>评论&nbsp;</ReactionName>
+            <ReactionName>浏览&nbsp;</ReactionName>
           </ReactionAction>
           <ReactionUserNum>66</ReactionUserNum>
         </Reaction>
@@ -115,6 +119,9 @@ const PostViewer = () => {
         <ArticleTitle>Mastani 是基于 Phoenix 开发的论坛框架</ArticleTitle>
         <ArticleBody>{fakeData}</ArticleBody>
       </BodyWrapper>
+      <CommentsWrapper>
+        <Comments />
+      </CommentsWrapper>
     </div>
   )
 }

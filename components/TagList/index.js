@@ -8,6 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import shortid from 'shortid'
 
+// import TagsLoading from '../../components/LoadingEffects/TagsLoading'
 import { Wrapper, TagItem, TagDot, TagTitle } from './styles'
 
 import { makeDebugger } from '../../utils'
@@ -16,6 +17,9 @@ const debug = makeDebugger('c:TagList:index')
 /* eslint-enable no-unused-vars */
 
 const TagList = ({ tags, active, onSelect }) => {
+  // const loading= true
+  //   <TagsLoading num={7} />
+
   return (
     <Wrapper>
       {tags.map(tag => (
