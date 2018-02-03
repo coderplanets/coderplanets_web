@@ -27,14 +27,12 @@ const mentions = [
   {
     name: 'Matthew Russell',
     link: 'https://twitter.com/mrussell247',
-    avatar:
-      'https://pbs.twimg.com/profile_images/517863945/mattsailing_400x400.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar7.png',
   },
   {
     name: 'Julian Krispel-Samsel',
     link: 'https://twitter.com/juliandoesstuff',
-    avatar:
-      'https://pbs.twimg.com/profile_images/517863945/mattsailing_400x400.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
   },
 ]
 
@@ -52,7 +50,13 @@ class MastaniEditor extends React.Component {
     suggestions: mentions,
   }
 
+  componentWillMount() {
+    this.loadDraft()
+  }
+
   componentDidMount() {
+    /* DONT use loadDraft in componentDidMount, it will cause strange bug of mentions */
+    /* also onCHange empty issue in Draft.js */
     /*
        see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
        import {  ContentState } from 'draft-js'
@@ -61,7 +65,10 @@ class MastaniEditor extends React.Component {
        ContentState.createFromText('fuck')
        )}
      */
-    this.loadDraft()
+    /* TODO: has to use setTimeout otherwise the mention not work */
+    setTimeout(() => {
+      this.focus()
+    }, 100)
   }
 
   onChange = editorState => {
@@ -90,24 +97,28 @@ class MastaniEditor extends React.Component {
     // get the mention object selected
   }
 
-  loadDraft = () => {
-    const editorState = EditorState.createWithContent(
-      ContentState.createFromText(this.props.bodyContent)
-    )
-    // console.log('loadDraft: ', this.props.bodyContent)
-    // somehow the onCHange behave strange
-    // see issue: https://github.com/facebook/draft-js/issues/1198
-    setTimeout(() => {
-      this.focus()
-      // this.editor.focusAtEnd()
-    }, 100)
-    this.setState({
-      editorState,
-    })
+  onBlur = () => {
+    if (this.props.onBlur) this.props.onBlur()
   }
 
   focus = () => {
     this.editor.focus()
+  }
+
+  loadDraft = () => {
+    const editorState = EditorState.createWithContent(
+      ContentState.createFromText(this.props.bodyContent)
+    )
+    // somehow the onCHange behave strange
+    // see issue: https://github.com/facebook/draft-js/issues/1198
+
+    //     setTimeout(() => {
+    //   this.focus()
+    //    }, 150)
+
+    this.setState({
+      editorState,
+    })
   }
 
   render() {
@@ -119,6 +130,7 @@ class MastaniEditor extends React.Component {
         <Editor
           editorState={this.state.editorState}
           onChange={this.onChange}
+          onBlur={this.props.onBlur}
           plugins={plugins}
           ref={element => {
             this.editor = element

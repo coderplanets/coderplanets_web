@@ -44,7 +44,7 @@ const PreviewHeader = () => {
     <PreviewHeaderWrapper>
       <UserInfo>
         <Avatar
-          src="https://s3.amazonaws.com/uifaces/faces/twitter/bryan_topham/128.jpg"
+          src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar13.png"
           alt="user_avatar"
         />
         <div>

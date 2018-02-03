@@ -12,7 +12,9 @@ const debug = makeDebugger('S:CommentsStore')
 /* eslint-enable no-unused-vars */
 
 const CommentsStore = t
-  .model('CommentsStore', {})
+  .model('CommentsStore', {
+    showInputEditor: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)

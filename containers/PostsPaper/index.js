@@ -57,33 +57,31 @@ const debug = makeDebugger('C:PostsPaper')
 
 const commentsUsers = [
   {
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ssiskind/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar10.png',
     nickname: 'mydearxym',
   },
   {
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/juamperro/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar11.png',
     nickname: 'messi',
   },
   {
-    avatar:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/noufalibrahim/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar12.png',
     nickname: 'iniesta',
   },
   {
-    avatar:
-      'https://s3.amazonaws.com/uifaces/faces/twitter/artem_kostenko/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar13.png',
     nickname: 'montu',
   },
   {
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/dnirmal/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar14.png',
     nickname: 'fjiek',
   },
   {
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/gaborenton/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar15.png',
     nickname: 'noone',
   },
   {
-    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/malykhinv/128.jpg',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar17.png',
     nickname: 'jacke',
   },
 ]

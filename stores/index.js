@@ -23,7 +23,6 @@ function initRootStore(langSetup) {
 
   /*
   onAction(rootStore, data => {
-    console.log('onSnapshot: ', data)
   })
   */
 

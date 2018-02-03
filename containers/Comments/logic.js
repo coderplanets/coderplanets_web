@@ -12,7 +12,22 @@ const debug = makeDebugger('L:Comments')
 let comments = null
 let sub$ = null
 
-export function someMethod() {}
+export function onCommentInput() {
+  // debug('onCommentInput')
+  comments.markState({
+    showInputEditor: !comments.showInputEditor,
+  })
+}
+
+export function onCommentInputBlur() {
+  comments.markState({
+    showInputEditor: false,
+  })
+}
+
+export function onCommentInputChange(value) {
+  debug('onCommentInputChange: ', value)
+}
 
 const dataResolver = [
   {

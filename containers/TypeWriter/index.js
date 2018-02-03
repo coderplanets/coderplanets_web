@@ -20,6 +20,8 @@ import * as logic from './logic'
 
 import {
   Wrapper,
+  EditorBlock,
+  PreviewBlock,
   Header,
   UsageText,
   MarkdownIcon,
@@ -58,6 +60,32 @@ const View = ({
 }) => {
   // const curView = 'create' // markdown_help
 
+  if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
+    return (
+      <div>
+        <EditorBlock name="CREATE_VIEW" curView={curView}>
+          <Editor
+            articleType={articleType}
+            copyrightChange={copyrightChange}
+            bodyContent={bodyContent}
+            onChange={logic.editorOnChange}
+            onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
+          />
+        </EditorBlock>
+        <PreviewBlock name="PREVIEW_VIEW" curView={curView}>
+          <Preview
+            bodyContent={bodyContent}
+            onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
+          />
+        </PreviewBlock>
+        <PublishFooter onPublish={onPublish} publishing={publishing} />
+      </div>
+    )
+  }
+  return <MarkDownHelper />
+  /*
+
+
   switch (curView) {
     case 'CREATE_VIEW': {
       return (
@@ -85,9 +113,9 @@ const View = ({
       )
     }
     default:
-      // 'MARKDOWN_HELP_VIEW'
       return <MarkDownHelper />
   }
+  */
 }
 
 const TopHeader = ({ curView }) => {

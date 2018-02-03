@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import ReactSVG from 'react-svg'
 
 export const Wrapper = styled.div``
@@ -9,12 +9,47 @@ export const ListTitle = styled.div`
 
 export const InputWrapper = styled.div`
   background: #f9fcfc;
-  height: 70px;
+  min-height: ${props => (props.showInputEditor ? '100px' : '70px')};
+  height: auto;
   border: 1px solid #cadbdc;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+`
+export const InputHeaderWrapper = styled.div`
+  height: 70px;
   border-radius: 3px;
   display: flex;
   align-items: center;
 `
+
+// display: ${props => (props.showInputEditor ? 'block' : 'none')};
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+export const InputEditorWrapper = styled.div`
+  height: auto;
+  margin: 0 30px;
+  max-height: 150px;
+  display: ${props => (props.showInputEditor ? 'block' : 'none')};
+  animation: ${fadeIn} 0.5s;
+  font-size: 0.9em;
+`
+
+export const InputSubmit = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 32px;
+`
+
 export const UserAvatar = styled.img`
   width: 40px;
   height: 40px;
@@ -25,6 +60,11 @@ export const LeaveResponseText = styled.div`
   font-size: 1.3em;
   margin-left: 15px;
   color: lightgrey;
+`
+export const LeaveResponseUsername = styled.div`
+  font-size: 1.3em;
+  margin-left: 12px;
+  color: #96b3b5;
 `
 
 export const ListsWrapper = styled.div`
