@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import dynamic from 'next/dynamic'
 
 // import Link from 'next/link'
 
@@ -13,7 +14,7 @@ import { makeDebugger, storeSelector, TYPE } from '../../utils'
 import * as logic from './logic'
 
 import ArticleViwer from '../ArticleViwer'
-import TypeWriter from '../TypeWriter'
+// import TypeWriter from '../TypeWriter'
 import AccountViewer from '../AccountViewer'
 import StateViwer from './StateViwer'
 /* import StateTree from '../../components/StateTree' */
@@ -27,6 +28,7 @@ import {
   CloserInner,
 } from './styles'
 
+const DynamicTypeWriter = dynamic(import('../TypeWriter'))
 const debug = makeDebugger('C:Preview')
 
 const CloseBtn = ({ type }) => (
@@ -52,7 +54,7 @@ const Viewer = ({ type, root }) => {
       return <ArticleViwer />
     }
     case TYPE.PREVIEW_CREATE_POST: {
-      return <TypeWriter onClose={logic.closePreview} />
+      return <DynamicTypeWriter onClose={logic.closePreview} />
     }
 
     default: {

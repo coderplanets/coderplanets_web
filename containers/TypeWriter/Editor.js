@@ -78,9 +78,13 @@ const OriginalSelector = ({ active, onSelect }) => {
 const Editor = ({
   articleType,
   copyrightChange,
-  onChange,
+  title,
+  titleOnChange,
+  body,
+  bodyOnChange,
+  linkAddr,
+  linkSourceOnChange,
   onPreview,
-  bodyContent,
 }) => (
   <BodyWrapper>
     <BodyHeader>
@@ -103,7 +107,11 @@ const Editor = ({
       {articleType !== 'original' ? (
         <SourceLink>
           <LinkLabel>原地址:</LinkLabel>
-          <LinkInput placeholder="请填写url地址, 比如 https://www.mastani.com/intro" />
+          <LinkInput
+            placeholder="请填写url地址, 比如: https://coderplanets/js/posts/..."
+            value={linkAddr}
+            onChange={linkSourceOnChange}
+          />
         </SourceLink>
       ) : (
         <div />
@@ -114,9 +122,14 @@ const Editor = ({
         </Button>
       </PreviewBtn>
     </BodyHeader>
-    <TitleInput placeholder="文章标题." />
+    <TitleInput
+      placeholder="文章标题."
+      defaultValue=""
+      value={title}
+      onChange={titleOnChange}
+    />
     <br />
-    <BodyEditor onChange={onChange} bodyContent={bodyContent} />
+    <BodyEditor onChange={bodyOnChange} body={body} />
   </BodyWrapper>
 )
 
@@ -124,13 +137,19 @@ Editor.propTypes = {
   // https://www.npmjs.com/package/prop-types
   articleType: PropTypes.string.isRequired,
   copyrightChange: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
+  bodyOnChange: PropTypes.func.isRequired,
+  titleOnChange: PropTypes.func.isRequired,
   onPreview: PropTypes.func.isRequired,
-  bodyContent: PropTypes.string,
+  body: PropTypes.string,
+  title: PropTypes.string,
+  linkAddr: PropTypes.string,
+  linkSourceOnChange: PropTypes.func.isRequired,
 }
 
 Editor.defaultProps = {
-  bodyContent: '',
+  body: '',
+  title: '',
+  linkAddr: '',
 }
 
 export default Editor

@@ -109,18 +109,22 @@ const pagedPosts = {
   totalPages: 1,
 }
 
+/*
 const Author = t.model('Author', {
   avatar: t.string,
 })
+*/
 
 const PostItem = t.model('PostItem', {
   title: t.string,
   body: t.optional(t.string, ''),
-  digets: t.optional(t.string, ''),
+  digest: t.optional(t.string, ''),
   views: t.optional(t.number, 0),
-  author: Author,
+  // author: Author,
   tags: t.optional(t.string, ''), // TODO: ArrayOf Tag
   comments: t.optional(t.string, ''), // TODO: ArrayOf comments
+  insertedAt: t.optional(t.string, ''),
+  updatedAt: t.optional(t.string, ''),
 })
 
 const Posts = t.model('Posts', {
@@ -152,6 +156,11 @@ const PostsStore = t
     },
   }))
   .actions(self => ({
+    loadData(data) {
+      const curCommunity = 'js'
+      self.data.set(curCommunity, data)
+    },
+
     load() {
       const curCommunity = 'js'
       self.data.set(curCommunity, pagedPosts)

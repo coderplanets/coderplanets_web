@@ -107,7 +107,7 @@ class MastaniEditor extends React.Component {
 
   loadDraft = () => {
     const editorState = EditorState.createWithContent(
-      ContentState.createFromText(this.props.bodyContent)
+      ContentState.createFromText(this.props.body)
     )
     // somehow the onCHange behave strange
     // see issue: https://github.com/facebook/draft-js/issues/1198

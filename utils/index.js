@@ -21,6 +21,7 @@ export {
   Global,
   holdPage,
   unholdPage,
+  cutFrom,
 } from './functions'
 
 /*

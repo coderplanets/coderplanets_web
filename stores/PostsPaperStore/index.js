@@ -103,6 +103,9 @@ const PostsPaperStore = t
 
       self.filters.set(community, newFilter)
     },
+    loadData(data) {
+      self.root.posts.loadData(data)
+    },
     selectTag(tag) {
       // TODO
       const community = 'js'

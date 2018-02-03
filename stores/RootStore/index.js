@@ -107,7 +107,7 @@ const rootStore = t
       debug('after create loadMenuItem')
       self.communities.load()
       self.sidebar.load()
-      self.posts.load()
+      // self.posts.load()
     },
     openDoraemon() {
       self.doraemon.open()

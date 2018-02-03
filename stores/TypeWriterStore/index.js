@@ -13,6 +13,11 @@ const debug = makeDebugger('S:TypeWriterStore')
 
 const TypeWriterStore = t
   .model('TypeWriterStore', {
+    title: t.optional(t.string, ''),
+    linkAddr: t.optional(t.string, ''),
+    body: t.optional(t.string, ''),
+    publishing: t.optional(t.boolean, false),
+
     isOriginal: t.optional(t.boolean, true),
     articleType: t.optional(
       t.enumeration('articleType', ['original', 'reprint', 'translate']),
@@ -27,8 +32,6 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
-    bodyContent: t.optional(t.string, ''),
-    publishing: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

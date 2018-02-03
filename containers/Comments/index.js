@@ -65,7 +65,7 @@ const InputEditor = ({ showInputEditor, onBlur }) => {
         <InputEditorWrapper showInputEditor={showInputEditor}>
           <BodyEditor
             onChange={logic.onCommentInputChange}
-            bodyContent=""
+            body=""
             onBlur={onBlur}
           />
         </InputEditorWrapper>

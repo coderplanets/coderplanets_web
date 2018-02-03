@@ -7,8 +7,8 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-import { makeDebugger } from '../../utils'
-import { Breadcrumbs, UL, LI, A } from './style'
+import { makeDebugger, getSVGIconPath } from '../../utils'
+import { Breadcrumbs, Logo, LogoText, BetaText } from './style'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Navigator:index')
 /* eslint-enable no-unused-vars */
@@ -16,28 +16,9 @@ const debug = makeDebugger('c:Navigator:index')
 const Navigator = () => {
   return (
     <Breadcrumbs>
-      <UL>
-        <LI>
-          <A>
-            <span>coderplants</span>
-          </A>
-        </LI>
-        <LI>
-          <A>
-            <span>Js</span>
-          </A>
-        </LI>
-        <LI active>
-          <A>
-            <span>帖子：我是一个人</span>
-          </A>
-        </LI>
-        <LI>
-          <A>
-            <span>Checkout</span>
-          </A>
-        </LI>
-      </UL>
+      <Logo path={getSVGIconPath('site_logo')} />
+      <LogoText>Coderplanets</LogoText>
+      <BetaText>working in progess</BetaText>
     </Breadcrumbs>
   )
 }
@@ -51,3 +32,28 @@ Navigator.defaultProps = {}
 */
 
 export default Navigator
+
+/*
+<UL>
+<LI>
+<A>
+<span>coderplants</span>
+</A>
+</LI>
+<LI>
+<A>
+<span>working in progress</span>
+</A>
+</LI>
+<LI active>
+<A>
+<span>帖子：我是一个人</span>
+</A>
+</LI>
+<LI>
+<A>
+<span>Checkout</span>
+</A>
+</LI>
+</UL>
+ */

@@ -54,7 +54,9 @@ const View = ({
   curView,
   articleType,
   copyrightChange,
-  bodyContent,
+  title,
+  body,
+  linkAddr,
   onPublish,
   publishing,
 }) => {
@@ -67,14 +69,18 @@ const View = ({
           <Editor
             articleType={articleType}
             copyrightChange={copyrightChange}
-            bodyContent={bodyContent}
-            onChange={logic.editorOnChange}
+            title={title}
+            titleOnChange={logic.titleOnChange}
+            linkAddr={linkAddr}
+            linkSourceOnChange={logic.linkSourceOnChange}
+            body={body}
+            bodyOnChange={logic.bodyOnChange}
             onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
           />
         </EditorBlock>
         <PreviewBlock name="PREVIEW_VIEW" curView={curView}>
           <Preview
-            bodyContent={bodyContent}
+            body={body}
             onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
           />
         </PreviewBlock>
@@ -93,7 +99,7 @@ const View = ({
           <Editor
             articleType={articleType}
             copyrightChange={copyrightChange}
-            bodyContent={bodyContent}
+            body={body}
             onChange={logic.editorOnChange}
             onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
           />
@@ -105,7 +111,7 @@ const View = ({
       return (
         <div>
           <Preview
-            bodyContent={bodyContent}
+            body={body}
             onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
           />
           <PublishFooter onPublish={onPublish} publishing={publishing} />
@@ -161,7 +167,9 @@ class TypeWriterContainer extends React.Component {
     const {
       articleType,
       curView,
-      bodyContent,
+      linkAddr,
+      title,
+      body,
       publishing,
     } = this.props.typeWriter
 
@@ -170,7 +178,9 @@ class TypeWriterContainer extends React.Component {
         <TopHeader curView={curView} />
         <View
           curView={curView}
-          bodyContent={bodyContent}
+          linkAddr={linkAddr}
+          title={title}
+          body={body}
           articleType={articleType}
           copyrightChange={logic.copyrightChange}
           onPublish={logic.onPublish}

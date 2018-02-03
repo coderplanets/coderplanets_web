@@ -1,36 +1,27 @@
 import gql from 'graphql-tag'
 
-const posts = gql`
-  query posts($filter: ArticleFilter) {
-    posts(filter: $filter) {
-      title
-      id
-      starCount
-    }
-  }
-`
-
-const createUser = gql`
-  mutation(
-    $username: String
-    $nickname: String
-    $bio: String
-    $company: String
-  ) {
-    createUser(
-      username: $username
-      nickname: $nickname
-      bio: $bio
-      company: $company
-    ) {
-      username
+const pagedPostsRes = 'pagedPosts'
+const pagedPosts = gql`
+  query pagedPosts($filter: PagedArticleFilter) {
+    pagedPosts(filter: $filter) {
+      entries {
+        id
+        title
+        digest
+        insertedAt
+        updatedAt
+        views
+      }
+      totalEntries
+      pageSize
+      pageNumber
     }
   }
 `
 
 const schema = {
-  createUser,
-  posts,
+  pagedPosts,
+  pagedPostsRes,
 }
 
 export default schema
