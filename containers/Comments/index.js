@@ -23,6 +23,9 @@ import * as logic from './logic'
 import {
   Wrapper,
   InputWrapper,
+  InputHeaderWrapper,
+  InputEditorWrapper,
+  InputSubmit,
   UserAvatar,
   ListTitle,
   ListsWrapper,
@@ -44,18 +47,67 @@ import {
   FooterExtra,
   LikeIcon,
   LeaveResponseText,
+  LeaveResponseUsername,
 } from './styles'
+
+import BodyEditor from '../TypeWriter/BodyEditor'
 
 const debug = makeDebugger('C:Comments')
 
 const fakeUser = {
-  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/bryan_topham/128.jpg',
+  avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar20.png',
 }
 
-const InputBox = () => (
-  <InputWrapper>
-    <UserAvatar src={fakeUser.avatar} />
-    <LeaveResponseText>留条评论...</LeaveResponseText>
+const InputEditor = ({ showInputEditor, onBlur }) => {
+  if (showInputEditor) {
+    return (
+      <div>
+        <InputEditorWrapper showInputEditor={showInputEditor}>
+          <BodyEditor
+            onChange={logic.onCommentInputChange}
+            bodyContent=""
+            onBlur={onBlur}
+          />
+        </InputEditorWrapper>
+        <InputSubmit>
+          <Button type="primary" ghost>
+            提&nbsp;&nbsp;交
+          </Button>
+        </InputSubmit>
+      </div>
+    )
+  }
+
+  return <div />
+}
+
+const InputHeader = ({ showInputEditor, onInput }) => {
+  if (showInputEditor) {
+    return (
+      <InputHeaderWrapper>
+        <UserAvatar src={fakeUser.avatar} />
+        <LeaveResponseUsername onClick={onInput}>
+          mydearxym
+        </LeaveResponseUsername>
+      </InputHeaderWrapper>
+    )
+  }
+
+  return (
+    <InputHeaderWrapper>
+      <UserAvatar src={fakeUser.avatar} />
+      <LeaveResponseText onClick={onInput}>留条评论...</LeaveResponseText>
+    </InputHeaderWrapper>
+  )
+}
+
+const InputBox = ({ onInput, showInputEditor }) => (
+  <InputWrapper showInputEditor={showInputEditor}>
+    <InputHeader showInputEditor={showInputEditor} onInput={onInput} />
+    <InputEditor
+      showInputEditor={showInputEditor}
+      onBlur={logic.onCommentInputBlur}
+    />
   </InputWrapper>
 )
 
@@ -131,10 +183,15 @@ class CommentsContainer extends React.Component {
   }
 
   render() {
+    const { showInputEditor } = this.props.comments
+    debug('showInputEditor', showInputEditor)
     return (
       <Wrapper>
         <ListTitle>评论列表:</ListTitle>
-        <InputBox />
+        <InputBox
+          onInput={logic.onCommentInput}
+          showInputEditor={showInputEditor}
+        />
         <Lists />
       </Wrapper>
     )

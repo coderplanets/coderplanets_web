@@ -19,7 +19,8 @@ const posts = [
     starCount: 25,
     favoriteCount: 25,
     author: {
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/anaami/128.jpg',
+      avatar:
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar1.png',
     },
   },
   {
@@ -30,7 +31,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/javorszky/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar0.png',
     },
   },
   {
@@ -40,7 +41,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/longlivemyword/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar2.png',
     },
   },
   {
@@ -51,7 +52,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/funwatercat/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar3.png',
     },
   },
   {
@@ -62,7 +63,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/bryan_topham/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
     },
   },
   {
@@ -73,7 +74,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/davidcazalis/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar5.png',
     },
   },
   {
@@ -83,7 +84,8 @@ const posts = [
     starCount: 25,
     favoriteCount: 25,
     author: {
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/dhrubo/128.jpg',
+      avatar:
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar6.png',
     },
   },
   {
@@ -94,7 +96,7 @@ const posts = [
     favoriteCount: 25,
     author: {
       avatar:
-        'https://s3.amazonaws.com/uifaces/faces/twitter/vikashpathak18/128.jpg',
+        'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar7.png',
     },
   },
 ]

@@ -82,47 +82,42 @@ const Editor = ({
   onPreview,
   bodyContent,
 }) => (
-  <div>
-    <BodyWrapper>
-      <BodyHeader>
-        <CopyRightCheck>
-          <ReprintIcon path={getSVGIconPath(articleType)} />
-          &nbsp;&nbsp;
-          <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
-          <Popover
-            content={
-              <OriginalSelector
-                active={articleType}
-                onSelect={copyrightChange}
-              />
-            }
-            placement="right"
-            trigger="hover"
-          >
-            <div>
-              <MoreIcon path={getSVGIconPath('more')} />
-            </div>
-          </Popover>
-        </CopyRightCheck>
-        {articleType !== 'original' ? (
-          <SourceLink>
-            <LinkLabel>原地址:</LinkLabel>
-            <LinkInput placeholder="请填写url地址, 比如 https://www.mastani.com/intro" />
-          </SourceLink>
-        ) : (
-          <div />
-        )}
-        <PreviewBtn>
-          <Button size="small" type="primary" ghost onClick={onPreview}>
-            预览
-          </Button>
-        </PreviewBtn>
-      </BodyHeader>
-      <TitleInput placeholder="文章标题." />
-      <br />
-      <BodyEditor onChange={onChange} bodyContent={bodyContent} />
-    </BodyWrapper>
-  </div>
+  <BodyWrapper>
+    <BodyHeader>
+      <CopyRightCheck>
+        <ReprintIcon path={getSVGIconPath(articleType)} />
+        &nbsp;&nbsp;
+        <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
+        <Popover
+          content={
+            <OriginalSelector active={articleType} onSelect={copyrightChange} />
+          }
+          placement="right"
+          trigger="hover"
+        >
+          <div>
+            <MoreIcon path={getSVGIconPath('more')} />
+          </div>
+        </Popover>
+      </CopyRightCheck>
+      {articleType !== 'original' ? (
+        <SourceLink>
+          <LinkLabel>原地址:</LinkLabel>
+          <LinkInput placeholder="请填写url地址, 比如 https://www.mastani.com/intro" />
+        </SourceLink>
+      ) : (
+        <div />
+      )}
+      <PreviewBtn>
+        <Button size="small" type="primary" ghost onClick={onPreview}>
+          预览
+        </Button>
+      </PreviewBtn>
+    </BodyHeader>
+    <TitleInput placeholder="文章标题." />
+    <br />
+    <BodyEditor onChange={onChange} bodyContent={bodyContent} />
+  </BodyWrapper>
 )
 
 Editor.propTypes = {

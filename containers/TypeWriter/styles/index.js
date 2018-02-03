@@ -2,6 +2,13 @@ import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 import { Input, Mention } from 'antd'
 
+export const EditorBlock = styled.div`
+  display: ${props => (props.name === props.curView ? 'block' : 'none')};
+`
+export const PreviewBlock = styled.div`
+  display: ${props => (props.name === props.curView ? 'block' : 'none')};
+`
+
 export const TitleInput = styled(Input)`
   border: 1px solid #f9fcfc;
   border-bottom: 1px solid #e2eaea;

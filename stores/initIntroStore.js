@@ -21,7 +21,6 @@ function initIntroStore(isServer = false, langSetup) {
 
   /*
      onAction(rootStore, data => {
-     console.log('onSnapshot: ', data)
      })
    */
 
