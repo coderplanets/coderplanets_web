@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import { Pagination, Affix } from 'antd'
+import TimeAgo from 'timeago-react'
 // import Link from 'next/link'
 
 // import { Button } from '../../components'
@@ -17,7 +18,8 @@ import {
   storeSelector,
   getSVGIconPath,
   getRandomInt,
-  Global,
+  cutFrom,
+  // Global,
 } from '../../utils'
 
 import AvatarsRow from '../../components/AvatarsRow'
@@ -132,7 +134,10 @@ function itemRender(current, type, originalElement) {
 const PostItem = ({ post }) => (
   <PostWrapper>
     <div>
-      <PostAvatar src={post.author.avatar} alt="avatar" />
+      <PostAvatar
+        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar7.png"
+        alt="avatar"
+      />
     </div>
     <PostMain>
       <PostTopHalf>
@@ -159,8 +164,12 @@ const PostItem = ({ post }) => (
       </PostTopHalf>
 
       <PostSecondHalf>
-        <PostExtra>mydearxym 发布于: 3天前 ⁝ 浏览: 8374</PostExtra>
-        <PostBodyBreif>{post.body}</PostBodyBreif>
+        <PostExtra>
+          mydearxym 发布于:{' '}
+          <TimeAgo datetime={post.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
+          {post.views}
+        </PostExtra>
+        <PostBodyBreif>{cutFrom(post.digest, 100)}</PostBodyBreif>
       </PostSecondHalf>
     </PostMain>
   </PostWrapper>
@@ -187,7 +196,7 @@ class PostsPaperContainer extends React.Component {
 
   componentDidMount() {
     // Affix hack
-    Global.scrollTo(0, 1)
+    // Global.scrollTo(0, 1)
   }
 
   render() {
@@ -209,13 +218,21 @@ class PostsPaperContainer extends React.Component {
               activeSort={sort}
               activeLength={wordLength}
             />
-            <FilterResultHint>结果约 1000 条</FilterResultHint>
+            <FilterResultHint>
+              结果约 {postsData.totalEntries} 条
+            </FilterResultHint>
           </FilterWrapper>
 
           <View posts={postsData.entries} curView={curView} />
 
           <Pagi>
-            <Pagination total={500} itemRender={itemRender} />
+            <Pagination
+              current={postsData.pageNumber}
+              pageSize={postsData.pageSize}
+              total={postsData.totalEntries}
+              itemRender={itemRender}
+              onChange={logic.pageChange}
+            />
           </Pagi>
         </LeftPart>
 
@@ -239,19 +256,3 @@ class PostsPaperContainer extends React.Component {
 export default inject(storeSelector('postsPaper'))(
   observer(PostsPaperContainer)
 )
-
-/*
-<div>
-<Button type="primary" onClick={logic.createPost}>
-createPost (mutate)
-</Button>
-                              &nbsp;&nbsp;
-<Button type="primary" onClick={logic.postList}>
-postList (query)
-</Button>
-                              &nbsp;&nbsp;
-<Button type="primary" onClick={logic.cheatsheet}>
-cheatsheeti
-</Button>
-</div>
-*/

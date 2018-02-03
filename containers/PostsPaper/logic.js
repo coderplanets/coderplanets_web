@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 import { makeDebugger, dispatchEvent, EVENT, ERR, TYPE } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -9,28 +9,27 @@ const sr71$ = new SR71()
 const debug = makeDebugger('L:PostsPaper')
 /* eslint-enable no-unused-vars */
 
-const CheatsheetCDN =
-  'https://raw.githubusercontent.com/mydearxym/mastani-cheatsheets/master'
-
 let postsPaper = null
+let sub$ = null
 
-export function cheatsheet() {
-  //  const which = 'elixir'
-  // const which = 'whatever6' // not found
-  const which = 'elixir'
-  const url = `${CheatsheetCDN}/${which}.md`
-  sr71$.restGet(url)
+export function pageChange(page) {
+  debug('pageChange page: ', page)
+  loadPosts(page)
 }
 
-export function createPost() {
-  const variables = {
-    username: 'udx2',
-    nickname: 'xi2edjiej',
-    bio: 'fuckman',
-    company: 'infomedia',
-  }
+export function loadPosts(page = 1) {
+  postsPaper.markState({
+    curView: 'LOADING',
+  })
 
-  sr71$.mutate(S.createUser, variables)
+  const variables = {
+    /* first: 4, */
+    filter: {
+      page,
+      size: 20,
+    },
+  }
+  sr71$.query(S.pagedPosts, variables)
 }
 
 export function filterOnSelect(key, val) {
@@ -62,8 +61,6 @@ export const postList = () => {
   sr71$.query(S.posts, variables)
 }
 
-// 'GraphQLError':
-// 'NetworkError'
 function handleError(res) {
   switch (res.error) {
     case ERR.PARSE_CRAPHQL:
@@ -85,9 +82,33 @@ function handleError(res) {
       return false
 
     default:
-      debug('un handleError in ', postsPaper)
+      //      debug('un handleError in ', postsPaper)
       debug('un handleError: ', res)
   }
+}
+
+const dataResolver = [
+  {
+    match: R.has(S.pagedPostsRes),
+    action: res => {
+      debug('action res', res[S.pagedPostsRes][0])
+      const data = res[S.pagedPostsRes][0]
+      postsPaper.loadData(data)
+      postsPaper.markState({
+        curView: 'RESULT',
+      })
+    },
+  },
+]
+
+const handleData = res => {
+  if (res.error) return handleError(res)
+  for (let i = 0; i < dataResolver.length; i += 1) {
+    if (dataResolver[i].match(res)) {
+      return dataResolver[i].action(res)
+    }
+  }
+  // debug('handleData unhandle: ', res)
 }
 
 export function onContentSelect(post) {
@@ -105,8 +126,14 @@ export function createContent() {
 export function init(selectedStore) {
   postsPaper = selectedStore
   debug('@@@ init @@@i')
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe(handleData)
+
+  /*
   sr71$.data().subscribe(res => {
     if (res.error) return handleError(res)
     debug('Logic ret: ', res)
   })
+  */
+  loadPosts()
 }

@@ -16,7 +16,7 @@ const md = new Remarkable()
 md.use(mentions({ url: 'http:coderplanets.com/users/' }))
 md.use(remarkableemoj)
 
-const Preview = ({ onBack, bodyContent }) => {
+const Preview = ({ onBack, body }) => {
   return (
     <BodyWrapper>
       <BodyHeader>
@@ -30,8 +30,9 @@ const Preview = ({ onBack, bodyContent }) => {
       <MarkDownStyle>
         <div className="markdown-body">
           <div
+            id="typewriter-preview-container"
             dangerouslySetInnerHTML={{
-              __html: md.render(bodyContent),
+              __html: md.render(body),
             }}
           />
         </div>

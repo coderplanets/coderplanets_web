@@ -74,6 +74,14 @@ export const notEmptyArray = (value) => {
   return Array.isArray(this.resv_event) && this.resv_event.length > 0
 }
 */
+export const cutFrom = (val, cutnumber = 20) => {
+  if (isEmptyValue(val)) {
+    return ''
+  } else if (val.length <= cutnumber) {
+    return val
+  }
+  return `${R.slice(0, cutnumber, val)} ...`
+}
 
 export const getRandomInt = (min, max) => {
   min = Math.ceil(min)

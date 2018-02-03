@@ -14,7 +14,7 @@ import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import {
   Header,
-  Router,
+  RouterWrapper,
   Admin,
   Search,
   Notification,
@@ -47,9 +47,9 @@ class HeaderContainer extends React.Component {
   render() {
     return (
       <Header id="whereCallShowDoraemon">
-        <Router>
+        <RouterWrapper>
           <Navigator />
-        </Router>
+        </RouterWrapper>
         <Admin>
           <div style={{ display: 'flex' }}>
             <StateButton

@@ -18,7 +18,7 @@ export const PreviewOverlay = styled.div`
   position: absolute;
   height: 100%;
   right: 0;
-  z-index: 1001;
+  z-index: 998;
   top: 0;
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 `
@@ -43,7 +43,7 @@ export const PreviewWrapper = styled.div`
   transform: ${props => doTransform(props.visible)};
   top: 0px;
   overflow: auto;
-  z-index: 1002;
+  z-index: 1000;
   display: flex;
   justify-content: flex-end;
 `

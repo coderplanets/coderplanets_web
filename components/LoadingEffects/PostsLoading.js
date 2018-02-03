@@ -33,11 +33,11 @@ const LoadingItem = () => (
 )
 
 const PostsLoading = ({ num }) => {
-  const ukey = shortid.generate()
+  // const ukey = shortid.generate()
   const range = R.range(0, num)
   return range.map(() => (
-    <LoadingWrapper key={ukey}>
-      <LoadingItem uniquekey={ukey} />
+    <LoadingWrapper key={shortid.generate()}>
+      <LoadingItem uniquekey={shortid.generate()} />
     </LoadingWrapper>
   ))
 }

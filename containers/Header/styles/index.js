@@ -5,14 +5,15 @@ import { theme } from '../../../utils'
 import { Button } from '../../../components'
 
 export const Header = styled.div`
-  line-height: 1.6vh;
+  height: 33px;
   display: flex;
   flex-direction: row;
   background: ${theme('header.bg')};
   border-bottom: ${theme('header.spliter')};
+  align-items: center;
 `
 
-export const Router = styled.div`
+export const RouterWrapper = styled.div`
   flex-grow: 1;
 `
 
@@ -55,7 +56,6 @@ export const HeaderIcon = styled(ReactSVG)`
 
 export const Operations = styled.div`
   display: flex;
-  align-items: center;
 `
 
 export const Search = styled.div`
