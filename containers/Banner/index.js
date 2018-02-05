@@ -24,6 +24,11 @@ import {
   CommunityInfo,
   TabberWrapper,
   CommunityWrapper,
+  NumbersWrapper,
+  NumberSection,
+  NumberDivider,
+  NumberTitle,
+  NumberItem,
 } from './styles'
 
 const debug = makeDebugger('C:Banner')
@@ -63,6 +68,27 @@ const CommunityBrief = ({ curCommunity, curRoute }) => {
   )
 }
 
+const NumbersInfo = () => {
+  return (
+    <NumbersWrapper>
+      <NumberSection>
+        <NumberTitle>成员</NumberTitle>
+        <NumberItem>2018</NumberItem>
+      </NumberSection>
+      <NumberDivider />
+      <NumberSection>
+        <NumberTitle>内容</NumberTitle>
+        <NumberItem>184</NumberItem>
+      </NumberSection>
+      <NumberDivider />
+      <NumberSection>
+        <NumberTitle>编辑</NumberTitle>
+        <NumberItem>5</NumberItem>
+      </NumberSection>
+    </NumbersWrapper>
+  )
+}
+
 class BannerContainer extends React.Component {
   componentWillMount() {
     debug('mount')
@@ -83,6 +109,7 @@ class BannerContainer extends React.Component {
         <TopHalf>
           <LeftPadding />
           <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
+          <NumbersInfo />
           <RightPadding />
         </TopHalf>
 

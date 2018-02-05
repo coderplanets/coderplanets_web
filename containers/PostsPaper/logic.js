@@ -12,6 +12,8 @@ const debug = makeDebugger('L:PostsPaper')
 let postsPaper = null
 let sub$ = null
 
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
+
 export function pageChange(page) {
   debug('pageChange page: ', page)
   loadPosts(page)
@@ -22,32 +24,33 @@ export function loadPosts(page = 1) {
     curView: 'LOADING',
   })
 
-  const variables = {
+  // debug('loadPosts curFilter: ', postsPaper.curFilter)
+  // debug('loadPosts curTag: ', postsPaper.curTag)
+  const args = {
     /* first: 4, */
     filter: {
       page,
       size: 20,
+      ...postsPaper.curFilter,
+      tag: postsPaper.curTag.title,
     },
   }
-  sr71$.query(S.pagedPosts, variables)
+
+  args.filter = validFilter(args.filter)
+  debug('args: ', args)
+
+  sr71$.query(S.pagedPosts, args)
 }
 
 export function filterOnSelect(key, val) {
   postsPaper.selectFilter(key, val)
+  loadPosts()
 }
 
 export function tagOnSelect(obj) {
-  debug('tagOnSelect: ', obj)
+  // debug('tagOnSelect: ', obj)
   postsPaper.selectTag(obj)
-
-  postsPaper.markState({
-    curView: 'LOADING',
-  })
-  setTimeout(() => {
-    postsPaper.markState({
-      curView: 'RESULT',
-    })
-  }, 2000)
+  loadPosts()
 }
 
 export const postList = () => {

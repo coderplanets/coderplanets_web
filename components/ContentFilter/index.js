@@ -37,36 +37,36 @@ const filterDict = {
   LEAST_WORDS: '字数最少',
 }
 
-const SelectPanel = ({ onSelect, activeTime, activeSort, activeLength }) => (
+const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
   <SelectPanelWrapper>
     <Row>
       <Col span={8}>
         <SelectTitle>时间</SelectTitle>
         <SelectItem
           item="TODAY"
-          active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'TODAY')}
+          active={activeWhen}
+          onClick={onSelect.bind(this, 'when', 'TODAY')}
         >
           今天
         </SelectItem>
         <SelectItem
           item="THIS_WEEK"
-          active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'THIS_WEEK')}
+          active={activeWhen}
+          onClick={onSelect.bind(this, 'when', 'THIS_WEEK')}
         >
           本周
         </SelectItem>
         <SelectItem
           item="THIS_MONTH"
-          active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'THIS_MONTH')}
+          active={activeWhen}
+          onClick={onSelect.bind(this, 'when', 'THIS_MONTH')}
         >
           本月
         </SelectItem>
         <SelectItem
           item="THIS_YEAR"
-          active={activeTime}
-          onClick={onSelect.bind(this, 'time', 'THIS_YEAR')}
+          active={activeWhen}
+          onClick={onSelect.bind(this, 'when', 'THIS_YEAR')}
         >
           今年
         </SelectItem>
@@ -132,7 +132,7 @@ const FilterTag = ({ onSelect, active, type }) =>
     </Tag>
   )
 
-const ContentFilter = ({ onSelect, activeTime, activeSort, activeLength }) => (
+const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
@@ -140,7 +140,7 @@ const ContentFilter = ({ onSelect, activeTime, activeSort, activeLength }) => (
       content={
         <SelectPanel
           onSelect={onSelect}
-          activeTime={activeTime}
+          activeWhen={activeWhen}
           activeSort={activeSort}
           activeLength={activeLength}
         />
@@ -155,7 +155,7 @@ const ContentFilter = ({ onSelect, activeTime, activeSort, activeLength }) => (
       &nbsp;&nbsp;&nbsp;&nbsp;
     </Popover>
 
-    <FilterTag onSelect={onSelect} active={activeTime} type="time" />
+    <FilterTag onSelect={onSelect} active={activeWhen} type="when" />
     <FilterTag onSelect={onSelect} active={activeSort} type="sort" />
     <FilterTag onSelect={onSelect} active={activeLength} type="wordLength" />
   </Wrapper>
@@ -163,7 +163,7 @@ const ContentFilter = ({ onSelect, activeTime, activeSort, activeLength }) => (
 
 ContentFilter.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  activeTime: PropTypes.string,
+  activeWhen: PropTypes.string,
   activeSort: PropTypes.string,
   activeLength: PropTypes.string,
 
@@ -171,7 +171,7 @@ ContentFilter.propTypes = {
 }
 
 ContentFilter.defaultProps = {
-  activeTime: '',
+  activeWhen: '',
   activeSort: '',
   activeLength: '',
 }

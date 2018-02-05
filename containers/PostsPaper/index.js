@@ -203,7 +203,7 @@ class PostsPaperContainer extends React.Component {
     const {
       postsData,
       curView,
-      curFilter: { time, sort, wordLength },
+      curFilter: { when, sort, wordLength },
       curTag,
     } = this.props.postsPaper
 
@@ -214,7 +214,7 @@ class PostsPaperContainer extends React.Component {
           <FilterWrapper>
             <ContentFilter
               onSelect={logic.filterOnSelect}
-              activeTime={time}
+              activeWhen={when}
               activeSort={sort}
               activeLength={wordLength}
             />

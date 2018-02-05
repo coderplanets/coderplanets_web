@@ -24,8 +24,8 @@ const debug = makeDebugger('S:PostsPaperStore')
 /* } */
 
 const FilterModel = t.model('FilterModel', {
-  time: t.optional(
-    t.enumeration('time', [
+  when: t.optional(
+    t.enumeration('when', [
       '',
       'TODAY',
       'THIS_WEEK',
@@ -109,10 +109,13 @@ const PostsPaperStore = t
     selectTag(tag) {
       // TODO
       const community = 'js'
-      // TODO: click to unselect
       // const curTag = self.tags.get(community)
 
-      self.tags.set(community, tag)
+      if (self.curTag.title === tag.title) {
+        self.tags.set(community, { title: '', color: '' })
+      } else {
+        self.tags.set(community, tag)
+      }
     },
     markState(sobj) {
       markStates(sobj, self)
