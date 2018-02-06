@@ -14,12 +14,12 @@ const PreviewStore = t
     visible: t.optional(t.boolean, false),
     type: t.optional(
       t.enumeration('previewType', [
-        TYPE.PREVIEW_POST,
-        TYPE.PREVIEW_ACCOUNT,
+        TYPE.POST_PREVIEW_VIEW,
+        TYPE.ACCOUNT_PREVIEW_VIEW,
         TYPE.PREVIEW_ROOT_STORE,
         TYPE.PREVIEW_CREATE_POST,
       ]),
-      TYPE.PREVIEW_POST
+      TYPE.POST_PREVIEW_VIEW
     ),
     // header:
     // body:
@@ -37,11 +37,10 @@ const PreviewStore = t
     },
   }))
   .actions(self => ({
-    open(type = TYPE.PREVIEW_POST) {
+    open(type = TYPE.POST_PREVIEW_VIEW) {
       self.visible = true
       self.type = type
     },
-
     close() {
       self.visible = false
     },

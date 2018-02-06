@@ -47,10 +47,10 @@ const CloseBtn = ({ type }) => (
 // TODO:  sub viewers
 const Viewer = ({ type, root }) => {
   switch (type) {
-    case TYPE.PREVIEW_ACCOUNT: {
+    case TYPE.ACCOUNT_PREVIEW_VIEW: {
       return <AccountViewer />
     }
-    case TYPE.PREVIEW_POST: {
+    case TYPE.POST_PREVIEW_VIEW: {
       return <ArticleViwer />
     }
     case TYPE.PREVIEW_CREATE_POST: {

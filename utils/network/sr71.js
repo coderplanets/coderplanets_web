@@ -32,25 +32,29 @@ class SR71 {
     this.resv_event = opts.resv_event
 
     this.initEventSubscription()
-    this.query$ = this.queryInput$
-      .debounceTime(300)
-      .switchMap(q =>
-        queryPromise(q).timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
-      )
+    this.query$ = this.queryInput$.debounceTime(300).switchMap(q =>
+      /* this.query$ = this.queryInput$.switchMap(q => */
+      queryPromise(q)
+        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
+        .takeUntil(this.stop$)
+    )
 
-    this.mutate$ = this.mutateInput$
-      .debounceTime(300)
-      .switchMap(q =>
-        mutatePromise(q).timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
-      )
+    this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(q =>
+      /* this.mutate$ = this.mutateInput$.switchMap(q => */
+      mutatePromise(q)
+        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
+        .takeUntil(this.stop$)
+    )
 
     this.restGet$ = this.getInput$.debounceTime(300).switchMap(q =>
+      /* this.restGet$ = this.getInput$.switchMap(q => */
       restGetPromise(q)
         .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
         .takeUntil(this.stop$)
     )
 
     this.event$ = this.eventInput$.debounceTime(100)
+    /* this.event$ = this.eventInput$ */
 
     this.graphql$ = this.query$.merge(this.mutate$)
     this.data$ = this.graphql$.merge(this.restGet$, this.event$)

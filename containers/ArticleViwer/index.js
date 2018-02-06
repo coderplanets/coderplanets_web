@@ -17,10 +17,13 @@ import * as logic from './logic'
 
 const debug = makeDebugger('C:ArticleViwer')
 
-const Viwer = ({ type }) => {
+const Viwer = ({ type, data, loading, onReaction }) => {
+  // debug('Viwer data: ', data)
   switch (type) {
     case 'post': {
-      return <PostViewer />
+      return (
+        <PostViewer data={data} loading={loading} onReaction={onReaction} />
+      )
     }
     case 'job': {
       return <div>job</div>
@@ -41,10 +44,15 @@ class ArticleViwerContainer extends React.Component {
   }
 
   render() {
-    const { type } = this.props
+    const { type, articleViwer: { curPost, postLoading } } = this.props
     return (
       <div>
-        <Viwer type={type} />
+        <Viwer
+          type={type}
+          data={curPost}
+          loading={postLoading}
+          onReaction={logic.onReaction}
+        />
       </div>
     )
   }
@@ -54,7 +62,7 @@ ArticleViwerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
   type: PropTypes.oneOf(['post', 'tut', 'job']),
-  // onSelect: PropTypes.func.isRequired,
+  // onReaction: PropTypes.func.isRequired,
 }
 
 ArticleViwerContainer.defaultProps = {

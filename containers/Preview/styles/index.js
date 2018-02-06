@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import R from 'ramda'
 import { theme, TYPE } from '../../../utils'
 
-const WIDE_CASE = [TYPE.PREVIEW_POST, TYPE.PREVIEW_CREATE_POST]
+const WIDE_CASE = [TYPE.POST_PREVIEW_VIEW, TYPE.PREVIEW_CREATE_POST]
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 
@@ -92,7 +92,8 @@ export const Closer = styled.div`
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
-  display: ${props => (props.type === TYPE.PREVIEW_ACCOUNT ? 'none' : 'block')};
+  display: ${props =>
+    props.type === TYPE.ACCOUNT_PREVIEW_VIEW ? 'none' : 'block'};
 
   &:hover:after {
     animation: ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);

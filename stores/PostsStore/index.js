@@ -116,6 +116,7 @@ const Author = t.model('Author', {
 */
 
 const PostItem = t.model('PostItem', {
+  id: t.string,
   title: t.string,
   body: t.optional(t.string, ''),
   digest: t.optional(t.string, ''),

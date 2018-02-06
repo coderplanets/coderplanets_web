@@ -135,7 +135,7 @@ const PostItem = ({ post }) => (
   <PostWrapper>
     <div>
       <PostAvatar
-        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar7.png"
+        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
         alt="avatar"
       />
     </div>

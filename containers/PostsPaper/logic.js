@@ -37,8 +37,7 @@ export function loadPosts(page = 1) {
   }
 
   args.filter = validFilter(args.filter)
-  debug('args: ', args)
-
+  // debug('args: ', args)
   sr71$.query(S.pagedPosts, args)
 }
 
@@ -117,8 +116,8 @@ const handleData = res => {
 export function onContentSelect(post) {
   debug('onContentSelect publish ')
   // PubSub.publish('hello', post)
-  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.PREVIEW_POST, data: post })
-  dispatchEvent(EVENT.NAV_EDIT, { type: TYPE.PREVIEW_POST, data: post })
+  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
+  dispatchEvent(EVENT.NAV_EDIT, { type: TYPE.POST_PREVIEW_VIEW, data: post })
 }
 
 export function createContent() {

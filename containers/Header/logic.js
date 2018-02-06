@@ -18,7 +18,7 @@ export function previewState() {
 export function previewAccount() {
   // header.openPreview(type)
   dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.PREVIEW_ACCOUNT,
+    type: TYPE.ACCOUNT_PREVIEW_VIEW,
     data: { hello: 'world' },
   })
 }
@@ -26,7 +26,7 @@ export function previewAccount() {
 export function openPreview() {
   // header.openPreview(type)
   dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.PREVIEW_ACCOUNT,
+    type: TYPE.ACCOUNT_PREVIEW_VIEW,
     data: { hello: 'world' },
   })
 }
