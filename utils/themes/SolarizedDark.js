@@ -74,7 +74,24 @@ const SolarizedDark = {
     font: fontColor,
     bg: mainBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
+    editor_container_bg: '#0e3444',
+    editor_header_bg: '#0e3444',
+    editor_border: '#0e3444',
+    editor_border_active: primaryColor,
+    editor_border_normal: '#506562',
+    editor_title: '#4E7E95',
+    footer_text: '#2B597B',
+    markdown_helper_bg: lighten(0.04, mainBg),
+    account_bg: lighten(0.04, mainBg),
+    account_divider: '#184a5d',
+    article_bg: lighten(0.04, mainBg),
+    reaction_hover_bg: lighten(0.04, mainBg),
   },
+
+  heatmap: {
+    empty: '#2D5664',
+  },
+
   markdown: {
     title: darken(0.05, '#DBE0E1'),
     fg: markdownFont,

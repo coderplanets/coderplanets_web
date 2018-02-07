@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { theme } from '../../../utils'
+
 export const BodyWrapper = styled.div`
   padding: 20px;
-  background: #f9fcfc;
+  background: ${theme('preview.article_bg')};
   min-height: 600px;
   margin-top: 5px;
   margin-left: 4%;
@@ -13,7 +15,6 @@ export const BodyWrapper = styled.div`
   display: flex;
 `
 export const CommentsWrapper = styled.div`
-  border-bottom: 1px solid tomato;
   min-height: 600px;
   margin-top: 20px;
   margin-left: 4%;
@@ -67,7 +68,8 @@ export const ArticleTitle = styled.div`
   padding-top: 10px;
   padding-bottom: 5px;
   // width: 93%;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('preview.account_divider')};
 `
 export const ArticleBody = styled.div`
   padding: 20px;

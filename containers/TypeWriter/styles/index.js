@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 import { Input, Mention } from 'antd'
+import { theme } from '../../../utils'
 
 export const EditorBlock = styled.div`
   display: ${props => (props.name === props.curView ? 'block' : 'none')};
@@ -10,24 +11,27 @@ export const PreviewBlock = styled.div`
 `
 
 export const TitleInput = styled(Input)`
-  border: 1px solid #f9fcfc;
-  border-bottom: 1px solid #e2eaea;
+  border-color: ${theme('preview.editor_border')};
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('preview.editor_border_normal')};
 
   text-align: center;
   height: 45px;
   font-size: 1.6em;
-  color: #5b8c91;
-  background: #f9fcfc;
+  color: ${theme('preview.editor_title')};
+  background: ${theme('preview.editor_header_bg')};
   align-self: center;
   width: 85%;
   &:hover {
-    border-color: #f9fcfc;
-    border-bottom: 1px solid #b3cacb;
+    border-color: ${theme('preview.editor_border')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('preview.editor_border_active')};
   }
   &:focus {
-    border-color: #f9fcfc;
+    border-color: ${theme('preview.editor_border')};
     box-shadow: none;
-    border-bottom: 1px solid #b3cacb;
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('preview.editor_border_active')};
   }
 `
 
@@ -89,7 +93,7 @@ export const BackToEditHint = styled.div`
 
 export const BodyWrapper = styled.div`
   padding: 20px;
-  background: #f9fcfc;
+  background-color: ${theme('preview.editor_container_bg')};
   min-height: 600px;
   margin-top: 5px;
   margin-left: 4%;

@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-// import { theme } from '../../../utils'
+import { theme } from '../../../utils'
 
 export const Divider = styled.span`
   margin: 0 8px;
   display: inline-block;
   height: 0.9em;
   align-self: center;
-  border-right: 1px solid #d1d1d2;
+  border-right: 1px solid;
+  border-right-color: ${theme('preview.account_divider')};
 `
 
 // border-bottom: 1px solid #e0e0e0;
@@ -50,7 +51,7 @@ export const ReactionAction = styled.div`
   &:hover {
     cursor: pointer;
     font-weight: bold;
-    background: #ebf5f5;
+    background: ${theme('preview.reaction_hover_bg')};
     border-radius: 6px;
   }
 `

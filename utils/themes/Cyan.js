@@ -72,7 +72,24 @@ const Cyan = {
     font: primaryColor,
     bg: mainBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
+    editor_container_bg: '#F9FCFC',
+    editor_header_bg: '#F9FCFC',
+    editor_border: '#F9FCFC',
+    editor_border_active: '#b3cacb',
+    editor_border_normal: '#e2eaea',
+    editor_title: '#5b8c91',
+    footer_text: '#a5c8ca',
+    markdown_helper_bg: '#F9FCFC',
+    account_bg: '#F9FCFC',
+    account_divider: '#f4f4f5',
+    article_bg: '#F9FCFC',
+    reaction_hover_bg: '#F9FCFC',
   },
+
+  heatmap: {
+    empty: '#E4EEED',
+  },
+
   markdown: {
     title: primaryColor,
     fg: markdownFont,

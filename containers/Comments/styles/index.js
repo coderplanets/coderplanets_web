@@ -1,6 +1,8 @@
 import styled, { keyframes } from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { theme } from '../../../utils'
+
 export const Wrapper = styled.div``
 export const ListTitle = styled.div`
   color: #62868a;
@@ -8,10 +10,11 @@ export const ListTitle = styled.div`
 `
 
 export const InputWrapper = styled.div`
-  background: #f9fcfc;
+  background: ${theme('preview.article_bg')};
   min-height: ${props => (props.showInputEditor ? '100px' : '70px')};
   height: auto;
-  border: 1px solid #cadbdc;
+  border: 1px solid;
+  border-color: ${theme('preview.article_bg')};
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -68,7 +71,7 @@ export const LeaveResponseUsername = styled.div`
 `
 
 export const ListsWrapper = styled.div`
-  background: #f9fcfc;
+  background: ${theme('preview.article_bg')};
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -101,7 +104,8 @@ export const DeleteOverlay = styled.div`
   visibility: ${props => (props.show ? 'visible' : 'hidden')};
 `
 export const CommentDivider = styled.div`
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid;
+  border-color: ${theme('preview.account_divider')};
 `
 export const CommentUserInfo = styled.div`
   margin-right: 15px;

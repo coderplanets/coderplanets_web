@@ -27,7 +27,7 @@ const AntOverWrite = styled.div`
     fill: #37642c;
   }
   .react-calendar-heatmap .color-empty {
-    fill: #e3eeed;
+    fill: ${theme('heatmap.empty')};
   }
 
   .public-DraftEditor-content {
@@ -111,6 +111,15 @@ const AntOverWrite = styled.div`
   }
 
   // ----
+  // popover
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+  .ant-popover .ant-popover-content .ant-popover-inner {
+    background: tomato;
+  }
+
+  // popover end
 
   .ant-checkbox-wrapper {
     color: #87c5ca;

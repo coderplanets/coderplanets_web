@@ -11,6 +11,7 @@ export const Header = styled.div`
   background: ${theme('header.bg')};
   border-bottom: ${theme('header.spliter')};
   align-items: center;
+  padding: 0 4vw;
 `
 
 export const RouterWrapper = styled.div`

@@ -1,25 +1,25 @@
 import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 import shortid from 'shortid'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
   width: 100%;
-  height: 80px;
+  height: 85px;
   margin-bottom: 30px;
   overflow: hidden;
 `
 
-const LoadingItem = () => (
+const LoadingItem = ({ theme }) => (
   <ContentLoader
     height={560}
     width={500}
     speed={2}
-    primaryColor="#f3f3f3"
-    secondaryColor="#ecebeb"
+    primaryColor={theme.loading.basic}
+    secondaryColor={theme.loading.animate}
   >
     <rect x="38" y="5.58" rx="4" ry="4" width="195.55" height="8.69" />
     <rect x="38" y="19.93" rx="3" ry="3" width="130.05" height="5.36" />
@@ -32,12 +32,13 @@ const LoadingItem = () => (
   </ContentLoader>
 )
 
-const PostsLoading = ({ num }) => {
+const PostsLoading = ({ num, theme }) => {
+  // console.log('theme: ', theme)
   // const ukey = shortid.generate()
   const range = R.range(0, num)
   return range.map(() => (
     <LoadingWrapper key={shortid.generate()}>
-      <LoadingItem uniquekey={shortid.generate()} />
+      <LoadingItem uniquekey={shortid.generate()} theme={theme} />
     </LoadingWrapper>
   ))
 }
@@ -50,4 +51,4 @@ PostsLoading.defaultProps = {
   num: 1,
 }
 
-export default PostsLoading
+export default withTheme(PostsLoading)

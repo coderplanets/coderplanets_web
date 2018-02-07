@@ -10,10 +10,10 @@ export const Wrapper = styled.div`
 `
 
 export const LeftPadding = styled.div`
-  width: 5vw;
+  width: 4vw;
 `
 export const RightPadding = styled.div`
-  width: 5vw;
+  width: 4vw;
 `
 export const LeftPart = styled.div`
   flex-grow: 1;

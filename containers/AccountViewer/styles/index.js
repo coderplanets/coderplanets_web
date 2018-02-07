@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
+
 export const AccountWrapper = styled.div`
   height: 100%;
-  background: #f9fcfc;
+  background: ${theme('preview.account_bg')};
   padding: 22px;
   padding-top: 30px;
   border-radius: 8px;
@@ -17,7 +19,8 @@ export const AccountContent = styled.div`
 export const Divider = styled.div`
   margin-top: ${props => (props.top ? props.top : '10px')};
   margin-bottom: ${props => (props.bottom ? props.bottom : '10px')};
-  border-bottom: 1px solid #f4f4f5;
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('preview.account_divider')};
 `
 
 export const ThemeWrapper = styled.div`
