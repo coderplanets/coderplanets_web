@@ -37,8 +37,24 @@ const TypeWriterStore = t
     get root() {
       return getParent(self)
     },
+    get curCommunityName() {
+      return self.root.communities.curCommunityName
+    },
   }))
   .actions(self => ({
+    closePreview() {
+      self.root.closePreview()
+    },
+    reset() {
+      self.markState({
+        title: '',
+        linkAddr: '',
+        body: '',
+        isOriginal: true,
+        articleType: 'original',
+        // curView:
+      })
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

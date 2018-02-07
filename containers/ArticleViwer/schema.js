@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 const post = gql`
-  query post($id: ID!) {
+  query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
       id
       title
@@ -12,9 +12,12 @@ const post = gql`
       updatedAt
       favoritedCount
       starredCount
+      viewerHasFavorited @include(if: $userHasLogin)
+      viewerHasStarred @include(if: $userHasLogin)
     }
   }
 `
+/*
 const viewerReactions = gql`
   query post($id: ID!) {
     post(id: $id) {
@@ -23,6 +26,8 @@ const viewerReactions = gql`
     }
   }
 `
+ */
+
 const reactionResult = gql`
   query post($id: ID!) {
     post(id: $id) {
@@ -54,7 +59,7 @@ const undoReaction = gql`
 
 const schema = {
   post,
-  viewerReactions,
+  // viewerReactions,
   reaction,
   undoReaction,
   reactionResult,

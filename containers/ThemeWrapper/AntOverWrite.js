@@ -151,17 +151,37 @@ const AntOverWrite = styled.div`
     background-color: ${theme('button.primary')} !important;
   }
 
-  //--------
+  // pagination overides
   .ant-pagination-item:focus,
   .ant-pagination-item:hover {
     border-color: ${theme('button.primary')};
   }
   .ant-pagination-item {
     border-radius: 50%;
-    background-color: white;
+    background-color: ${theme('pagination.item_bg')};
+    border-color: ${theme('pagination.item_border_color')};
   }
   .ant-pagination-item a {
     color: #618c8b;
+  }
+
+  .ant-pagination-prev a,
+  .ant-pagination-next a {
+    color: ${theme('pagination.text')};
+  }
+
+  .ant-pagination-prev a:hover,
+  .ant-pagination-next a:hover {
+    font-weight: bold;
+  }
+
+  .ant-pagination-disabled a,
+  .ant-pagination-disabled:hover a,
+  .ant-pagination-disabled:focus a,
+  .ant-pagination-disabled .ant-pagination-item-link,
+  .ant-pagination-disabled:hover .ant-pagination-item-link,
+  .ant-pagination-disabled:focus .ant-pagination-item-link {
+    color: ${theme('pagination.disable_text')};
   }
 
   .ant-pagination-item-active {
@@ -173,6 +193,7 @@ const AntOverWrite = styled.div`
     color: white;
     font-size: 1.1em;
   }
+  // pagination end
 
   .ant-btn-background-ghost.ant-btn-primary {
     color: ${theme('button.primary')};

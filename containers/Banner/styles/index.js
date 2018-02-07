@@ -57,7 +57,7 @@ export const Title = styled.div`
 // color: ${theme('font')};
 export const Desc = styled.div`
   font-size: 1.2em;
-  color: #a3bbbd;
+  color: ${theme('banner.desc')};
   @media (max-height: 800px) {
     font-size: 1.1em;
   }
@@ -81,19 +81,19 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: #e4ecec;
+    background: ${theme('banner.number_hover_bg')};
     cursor: pointer;
   }
 `
 export const NumberTitle = styled.div`
-  color: #a3bbbd;
+  color: ${theme('banner.number_desc')};
 `
 export const NumberItem = styled.div`
   font-size: 1.5em;
-  color: #5c868b;
+  color: ${theme('banner.number')}; #5c868b;
 `
 export const NumberDivider = styled.div`
-  border: 1px solid #ccdcde;
+  border: ${theme('banner.number_divider')};
   height: 70%;
   align-self: center;
   margin-left: 10px;

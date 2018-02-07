@@ -1,12 +1,5 @@
 import R from 'ramda'
-import {
-  makeDebugger,
-  EVENT,
-  holdPage,
-  unholdPage,
-  TYPE,
-  dispatchEvent,
-} from '../../utils'
+import { makeDebugger, EVENT, holdPage, TYPE, dispatchEvent } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // const sr71$ = new SR71({ resv_event: EVENT.PREVIEW })
@@ -21,15 +14,16 @@ let sub$ = null
 
 export function closePreview() {
   debug('closePreview')
-  unholdPage()
   preview.close()
   // force call Typewriter's componentWillUnmount to store the draft
   dispatchEvent(EVENT.PREVIEW_CLOSE)
+  /*
   setTimeout(() => {
     preview.markState({
       type: TYPE.PREVIEW_ROOT_STORE,
     })
   }, 1000)
+  */
 }
 
 function loadDataForPreview(info) {

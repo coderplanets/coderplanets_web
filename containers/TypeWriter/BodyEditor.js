@@ -51,6 +51,7 @@ class MastaniEditor extends React.Component {
   }
 
   componentWillMount() {
+    // console.log('will this.props.body: ', this.props.body)
     this.loadDraft()
   }
 
@@ -71,14 +72,11 @@ class MastaniEditor extends React.Component {
     }, 100)
   }
 
-  onChange = editorState => {
-    /*
-    console.log(
-      'editorState raw: ',
-      toRawString(editorState.getCurrentContent())
-    )
-    */
+  componentWillUnmount() {
+    // console.log('i am leaving')
+  }
 
+  onChange = editorState => {
     this.props.onChange(toRawString(editorState.getCurrentContent()))
     this.setState({
       editorState,
@@ -102,7 +100,9 @@ class MastaniEditor extends React.Component {
   }
 
   focus = () => {
-    this.editor.focus()
+    if (this.editor) {
+      this.editor.focus()
+    }
   }
 
   loadDraft = () => {

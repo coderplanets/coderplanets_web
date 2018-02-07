@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { markStates, TYPE } from '../../utils'
+import { markStates, TYPE, unholdPage } from '../../utils'
 
 // const debug = makeDebugger('S:PreviewStore')
 
@@ -43,6 +43,8 @@ const PreviewStore = t
     },
     close() {
       self.visible = false
+      self.type = TYPE.PREVIEW_ROOT_STORE
+      unholdPage()
     },
     markState(sobj) {
       markStates(sobj, self)

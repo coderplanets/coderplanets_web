@@ -115,6 +115,9 @@ const rootStore = t
     openPreview(type) {
       self.preview.open(type)
     },
+    closePreview() {
+      self.preview.close()
+    },
     changeTheme(name) {
       self.theme.changeTheme(name)
     },

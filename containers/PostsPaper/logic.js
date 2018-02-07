@@ -4,7 +4,9 @@ import S from './schema'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_POSTS],
+})
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:PostsPaper')
 /* eslint-enable no-unused-vars */
@@ -37,7 +39,7 @@ export function loadPosts(page = 1) {
   }
 
   args.filter = validFilter(args.filter)
-  // debug('args: ', args)
+  debug('args: ', args)
   sr71$.query(S.pagedPosts, args)
 }
 
@@ -52,16 +54,26 @@ export function tagOnSelect(obj) {
   loadPosts()
 }
 
-export const postList = () => {
-  const variables = {
-    /* first: 4, */
-    filter: {
-      first: 5,
-      sort: 'MOST_STARS',
+const dataResolver = [
+  {
+    match: R.has(S.pagedPostsRes),
+    action: res => {
+      debug('action res-->', res[S.pagedPostsRes][0])
+      const data = res[S.pagedPostsRes][0]
+      postsPaper.loadData(data)
+      postsPaper.markState({
+        curView: 'RESULT',
+      })
     },
-  }
-  sr71$.query(S.posts, variables)
-}
+  },
+  {
+    match: R.has(EVENT.REFRESH_POSTS),
+    action: res => {
+      debug('EVENT.REFRESH_POSTS: ', res)
+      loadPosts()
+    },
+  },
+]
 
 function handleError(res) {
   switch (res.error) {
@@ -88,20 +100,6 @@ function handleError(res) {
       debug('un handleError: ', res)
   }
 }
-
-const dataResolver = [
-  {
-    match: R.has(S.pagedPostsRes),
-    action: res => {
-      debug('action res', res[S.pagedPostsRes][0])
-      const data = res[S.pagedPostsRes][0]
-      postsPaper.loadData(data)
-      postsPaper.markState({
-        curView: 'RESULT',
-      })
-    },
-  },
-]
 
 const handleData = res => {
   if (res.error) return handleError(res)

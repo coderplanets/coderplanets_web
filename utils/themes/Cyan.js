@@ -39,7 +39,25 @@ const Cyan = {
   banner: {
     fg: primaryColor,
     bg: topHalfBg,
+    desc: '#a3bbbd',
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+    number_desc: '#a3bbbd',
+    number: '#5c868b',
+    number_divider: '1px solid #ccdcde',
+    number_hover_bg: '#e4ecec',
+  },
+  paper: {
+    bg: secondHalfBg,
+    filter_result_hint: '#edc48a',
+    article_title: '#61868c',
+    article_hover: '#f3f6f9',
+    article_brief: '#849ca0',
+  },
+  pagination: {
+    item_bg: '#cbe7ea',
+    item_border_color: '#cbe7ea',
+    disable_text: '#BCD9DC',
+    text: '#6d7f7b',
   },
   content: {
     bg: secondHalfBg,

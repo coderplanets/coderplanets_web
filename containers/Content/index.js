@@ -12,9 +12,9 @@ import { Row, Col } from 'antd'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import PostsPaper from '../PostsPaper'
-import TutsViewer from '../TutsViewer'
+// import TutsViewer from '../TutsViewer'
 import MapViewer from '../MapViewer'
-import JobsViewer from '../JobsViewer'
+// import JobsViewer from '../JobsViewer'
 
 import CheatSheetViewer from '../CheatSheetViewer'
 import * as logic from './logic'
@@ -150,25 +150,25 @@ const CommonComunity = ({ curRoute }) => {
       return <PostsPaper />
     }
     case 'news': {
-      return <div>news</div>
+      return <PostsPaper />
     }
     case 'tuts': {
-      return <TutsViewer />
+      return <PostsPaper />
     }
     case 'map': {
       return <MapViewer />
     }
     case 'meetups': {
-      return <div>meetups</div>
+      return <PostsPaper />
     }
     case 'users': {
       return <div>users</div>
     }
     case 'videos': {
-      return <div>videos</div>
+      return <PostsPaper />
     }
     case 'jobs': {
-      return <JobsViewer />
+      return <PostsPaper />
     }
     case 'cheatsheet': {
       return <CheatSheetViewer />

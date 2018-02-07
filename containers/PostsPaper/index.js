@@ -67,7 +67,7 @@ const commentsUsers = [
     nickname: 'messi',
   },
   {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar12.png',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar6.png',
     nickname: 'iniesta',
   },
   {

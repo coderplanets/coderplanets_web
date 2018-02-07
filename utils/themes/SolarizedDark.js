@@ -41,7 +41,25 @@ const SolarizedDark = {
   banner: {
     fg: primaryColor,
     bg: topHalfBg,
+    desc: '#436b90',
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+    number_desc: '#436b90',
+    number: '#377788',
+    number_divider: '1px solid #1b475d',
+    number_hover_bg: '#0d475a',
+  },
+  paper: {
+    bg: secondHalfBg,
+    filter_result_hint: '#556d23',
+    article_title: '#427f98',
+    article_hover: '#113744',
+    article_brief: '#6B7F83',
+  },
+  pagination: {
+    item_bg: '#103440',
+    item_border_color: '#103440',
+    disable_text: '#1d5365',
+    text: primaryColor,
   },
   content: {
     bg: secondHalfBg,

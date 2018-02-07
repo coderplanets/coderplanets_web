@@ -7,7 +7,8 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { Button, Message } from 'antd'
+// import { Button, Message } from 'antd'
+import { Button } from 'antd'
 
 // import dynamic from 'next/dynamic'
 
@@ -160,7 +161,7 @@ class TypeWriterContainer extends React.Component {
   }
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
-    Message.success('草稿已经保存')
+    // Message.success('草稿已经保存')
   }
 
   render() {

@@ -1,7 +1,13 @@
 import R from 'ramda'
-import { notification } from 'antd'
+import { notification, message } from 'antd'
 
-import { makeDebugger, isEmptyValue, EVENT } from '../../utils'
+import {
+  makeDebugger,
+  isEmptyValue,
+  dispatchEvent,
+  EVENT,
+  ERR,
+} from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -55,9 +61,7 @@ export function onPublish() {
   // debug('onPublish: ', typeWriter.body)
   const { body, title, articleType } = typeWriter
   if (checkValid()) {
-    typeWriter.markState({
-      publishing: true,
-    })
+    publishing()
 
     /* eslint-disable no-undef */
     const digestContainer = document.getElementById(
@@ -73,11 +77,11 @@ export function onPublish() {
       body,
       digest,
       length,
+      community: typeWriter.curCommunityName,
     }
     if (articleType !== 'original') variables.linkAddr = typeWriter.linkAddr
-
-    debug('variables: ', variables)
-    //     return false
+    // debug('curCommunity: ', typeWriter.curCommunityName)
+    // debug('variables-: ', variables)
     sr71$.mutate(S.createPost, variables)
   }
 }
@@ -101,14 +105,24 @@ export function linkSourceOnChange(e) {
   })
 }
 
+function publishing(maybe = true) {
+  typeWriter.markState({
+    publishing: maybe,
+  })
+}
+
 const dataResolver = [
   {
     match: R.has(S.createPostRes),
     action: res => {
       debug('action res', res)
-      typeWriter.markState({
-        publishing: false,
-      })
+      publishing(false)
+      typeWriter.reset()
+      typeWriter.closePreview()
+      dispatchEvent(EVENT.REFRESH_POSTS)
+      // 1. empty the store
+      // 2. close the preview
+      // 3. notify the xxxPaper
     },
   },
   {
@@ -117,7 +131,39 @@ const dataResolver = [
   },
 ]
 
+function handleError(res) {
+  switch (res.error) {
+    case ERR.PARSE_CRAPHQL:
+      res.details.map(error => {
+        debug(`path: ${error.path} : detail: ${error.detail}`)
+        return false
+      })
+      publishing(false)
+      return false
+    case ERR.NETWORK:
+      publishing(false)
+      debug(`${res.error}: ${res.details}`)
+      message.error(`${res.error}: ${res.details}`)
+      return false
+    case ERR.NOT_FOUND:
+      debug(`${res.error}: ${res.details}`)
+      publishing(false)
+      return false
+
+    case ERR.TIMEOUT:
+      debug(`${res.error}: ${res.details}`)
+      // sr71$.stop()
+      publishing(false)
+      return false
+
+    default:
+      //      debug('un handleError in ', postsPaper)
+      debug('un handleError: ', res)
+  }
+}
+
 const handleData = res => {
+  if (res.error) return handleError(res)
   for (let i = 0; i < dataResolver.length; i += 1) {
     if (dataResolver[i].match(res)) {
       return dataResolver[i].action(res)

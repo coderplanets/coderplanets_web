@@ -22,4 +22,5 @@ export const Divider = styled.div`
 
 export const ThemeWrapper = styled.div`
   margin-bottom: 5px;
+  margin-top: 30%;
 `

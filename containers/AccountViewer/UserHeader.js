@@ -18,7 +18,7 @@ const UserHeaderSection = () => {
       <UserHeader>
         <UserInfo>
           <Avatar
-            src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar12.png"
+            src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
             alt="user_avatar"
           />
           <UserBrief>

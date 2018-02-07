@@ -67,6 +67,13 @@ export const CommunitiesStore = t
         }
       }
     },
+    get curCommunityName() {
+      const { curRoute } = self.root
+      const { mainQuery } = curRoute
+      const defaultCommunity = 'js'
+
+      return R.isEmpty(mainQuery) ? defaultCommunity : mainQuery
+    },
   }))
   .actions(self => ({
     load() {

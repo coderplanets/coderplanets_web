@@ -13,7 +13,6 @@ import remarkableemoj from 'remarkable-emoji'
 import Masonry from 'react-masonry-component'
 import Prism from 'mastani-codehighlight'
 import shortid from 'shortid'
-import { Row, Col } from 'antd'
 import { CheatSheetLoading } from '../../components/LoadingEffects'
 
 import { Button, NotFound } from '../../components'
@@ -21,7 +20,7 @@ import { Button, NotFound } from '../../components'
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
-import { CheatSheetStyle, CardWrapper } from './styles'
+import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
 
 // import code from './es7'
 
@@ -85,6 +84,7 @@ const ParseError = ({ msg }) => {
 }
 
 const renderContent = (source, state, errMsg) => {
+  // state = 'loading'
   switch (state) {
     case 'init': {
       return <div>init la</div>
@@ -129,8 +129,8 @@ class CheatSheetViewerContainer extends React.Component {
     const { source, state, errMsg } = cheatsheetViewer
 
     return (
-      <Row>
-        <Row>
+      <div>
+        <div style={{ display: 'none' }}>
           <Button type="primary" onClick={logic.getData.bind(this, 'elixir')}>
             Elixir
           </Button>
@@ -150,15 +150,12 @@ class CheatSheetViewerContainer extends React.Component {
           >
             not found
           </Button>
-        </Row>
-        <Row>
-          <Col span={1} />
-          <Col span={22}>
-            <div>{renderContent(source, state, errMsg)}</div>
-          </Col>
-          <Col span={1} />
-        </Row>
-      </Row>
+        </div>
+
+        <Wrapper>
+          <div>{renderContent(source, state, errMsg)}</div>
+        </Wrapper>
+      </div>
     )
   }
 }

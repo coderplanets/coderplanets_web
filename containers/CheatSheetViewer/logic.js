@@ -74,7 +74,12 @@ function handleLoaded(source) {
     state: maybeEmptyState(source),
   })
 
-  Prism.highlightAll()
+  try {
+    // in case document is undefined
+    Prism.highlightAll()
+  } catch (e) {
+    debug(e)
+  }
 }
 
 function handleError(res) {
@@ -112,6 +117,7 @@ export function init(selectedStore) {
     }
     handleLoaded(source)
   })
+  getData('elixir')
 }
 
 export function unInit() {

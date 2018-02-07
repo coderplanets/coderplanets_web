@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { theme } from '../../../utils'
 import { Button } from '../../../components'
 
 export const Wrapper = styled.div`
@@ -38,13 +39,13 @@ export const FilterWrapper = styled.div`
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;
-  margin-right: 15px;
-  color: #edc48a;
+  margin-right: 10px;
+  color: ${theme('paper.filter_result_hint')};
 `
 
+/* border-bottom: 1px solid #ececec; */
 export const TagDivider = styled.div`
   width: 80%;
-  /* border-bottom: 1px solid #ececec; */
   margin-top: 50px;
   margin-bottom: 30px;
   margin-left: 8%;
@@ -59,7 +60,7 @@ export const PostWrapper = styled.div`
   border-radius: 4px;
   &:hover {
     cursor: pointer;
-    background: #f3f6f9;
+    background: ${theme('paper.article_hover')};
   }
 `
 export const PostMain = styled.div`
@@ -83,7 +84,7 @@ export const PostTitle = styled.div`
   flex-grow: 1;
   font-size: 1.2em;
   margin-left: 10px;
-  color: #61868c;
+  color: ${theme('paper.article_title')};
 `
 
 export const PostTitleTag = styled.span`
@@ -128,7 +129,7 @@ export const PostExtra = styled.li`
 
 export const PostBodyBreif = styled.li`
   margin-top: 5px;
-  color: #aaa;
+  color: ${theme('paper.article_brief')};
   margin-right: 20px;
   white-space: normal;
   display: block;

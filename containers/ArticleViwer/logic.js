@@ -35,6 +35,7 @@ function loading(maybe = true) {
 function queryPost(data) {
   const variables = {
     id: data.id,
+    userHasLogin: false,
   }
   debug('--> queryPost make loading')
   loading()
@@ -47,16 +48,6 @@ function reloadReactions(data) {
   }
   sr71$.query(S.reactionResult, variables)
 }
-function queryViewerReactions(data) {
-  // TODO: check if user login
-  const variables = {
-    id: data.id,
-  }
-  // debug('queryViewerReactions: ', variables)
-  setTimeout(() => {
-    sr71$.query(S.viewerReactions, variables)
-  }, 500)
-}
 
 const dataResolver = [
   {
@@ -68,14 +59,13 @@ const dataResolver = [
         articleViwer.load(TYPE.POST, res[EVENT.PREVIEW_POST].data)
         loading()
         queryPost(info.data)
-        // TODO: sr71 itself has a debounce
-        queryViewerReactions(info.data)
       }
     },
   },
   {
     match: R.has(TYPE.REACTION),
     action: res => {
+      // TODO: should be trigger
       debug('reaction ', res)
       const info = res[TYPE.REACTION]
       debug('hello? queryPost', info)
@@ -88,7 +78,6 @@ const dataResolver = [
     action: res => {
       debug('undoReaction ', res)
       const info = res[TYPE.UNDO_REACTION]
-      debug('hello? queryPost', info)
       reloadReactions(info)
     },
   },
@@ -104,7 +93,7 @@ const dataResolver = [
   {
     match: R.has(R.toLower(TYPE.POST)), // GraphQL return
     action: res => {
-      //      debug('match post: ', res[R.toLower(TYPE.POST)])
+      debug('match post: ', res[R.toLower(TYPE.POST)])
       articleViwer.load(TYPE.POST, res[R.toLower(TYPE.POST)])
       loading(false)
     },
