@@ -127,7 +127,7 @@
     "react-dom": "16.2.0",
     "react-icons": "^2.2.5",
     "react-intl": "2.4.0",
-    "react-json-view": "1.16.0",
+    "react-json-view": "1.16.1",
     "react-keydown": "^1.9.4",
     "react-map-gl": "^3.2.1",
     "react-masonry-component": "^6.0.1",
