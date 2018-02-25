@@ -88,20 +88,28 @@ export const CommentBlock = styled.div`
 `
 export const CommentWrapper = styled.div`
   display: flex;
-  // filter: blur(3px);
+  filter: blur(3px);
 `
-
+export const DeleteHintText = styled.div`
+  color: tomato;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+`
 export const DeleteOverlay = styled.div`
   position: absolute;
   width: 97%;
   height: 100%;
-  border: 1px dashed tomato;
+  //  border: 1px dashed tomato;
   border-radius: 5px;
   z-index: 10;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   visibility: ${props => (props.show ? 'visible' : 'hidden')};
+`
+export const DeleteBtnGroup = styled.div`
+  display: flex;
 `
 export const CommentDivider = styled.div`
   border-bottom: 1px solid;

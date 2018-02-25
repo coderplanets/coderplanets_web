@@ -73,7 +73,7 @@ const NumbersInfo = () => {
     <NumbersWrapper>
       <NumberSection>
         <NumberTitle>成员</NumberTitle>
-        <NumberItem>2018</NumberItem>
+        <NumberItem>18</NumberItem>
       </NumberSection>
       <NumberDivider />
       <NumberSection>

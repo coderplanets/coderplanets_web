@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Affix } from 'antd'
 import keydown from 'react-keydown'
 // import Link from 'next/link'
 import Navigator from '../../components/Navigator'
@@ -45,39 +46,43 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
+    const { fixed } = this.props.header
+    debug('fixed: ', fixed)
     return (
-      <Header id="whereCallShowDoraemon">
-        <RouterWrapper>
-          <Navigator />
-        </RouterWrapper>
-        <Admin>
-          <div style={{ display: 'flex' }}>
-            <StateButton
-              size="small"
-              type="primary"
-              ghost
-              onClick={logic.previewState.bind(this, 'mst-state')}
-            >
-              <StateIcon path={getSVGIconPath('header_state')} />
-              <div>STATE</div>
-            </StateButton>
+      <Affix>
+        <Header id="whereCallShowDoraemon" fixed={fixed}>
+          <RouterWrapper>
+            <Navigator />
+          </RouterWrapper>
+          <Admin>
+            <div style={{ display: 'flex' }}>
+              <StateButton
+                size="small"
+                type="primary"
+                ghost
+                onClick={logic.previewState.bind(this, 'mst-state')}
+              >
+                <StateIcon path={getSVGIconPath('header_state')} />
+                <div>STATE</div>
+              </StateButton>
 
-            <DividerIcon path={getSVGIconPath('more')} />
-          </div>
-        </Admin>
+              <DividerIcon path={getSVGIconPath('more')} />
+            </div>
+          </Admin>
 
-        <Operations>
-          <Search onClick={logic.openDoraemon}>
-            <HeaderIcon path={getSVGIconPath('header_search')} />
-          </Search>
-          <Notification onClick={logic.openPreview.bind(this, 'post')}>
-            <HeaderIcon path={getSVGIconPath('notification')} />
-          </Notification>
-          <User onClick={logic.previewAccount.bind(this, 'account')}>
-            <HeaderIcon path={getSVGIconPath('header_user')} />
-          </User>
-        </Operations>
-      </Header>
+          <Operations>
+            <Search onClick={logic.openDoraemon}>
+              <HeaderIcon path={getSVGIconPath('header_search')} />
+            </Search>
+            <Notification onClick={logic.openPreview.bind(this, 'post')}>
+              <HeaderIcon path={getSVGIconPath('notification')} />
+            </Notification>
+            <User onClick={logic.previewAccount.bind(this, 'account')}>
+              <HeaderIcon path={getSVGIconPath('header_user')} />
+            </User>
+          </Operations>
+        </Header>
+      </Affix>
     )
   }
 }

@@ -123,36 +123,34 @@ const PreviewHeader = ({ data, onReaction }) => (
   </PreviewHeaderWrapper>
 )
 
-const PostViewer = ({ data, loading, onReaction }) => {
-  return (
-    <div>
-      <PreviewHeader data={data} onReaction={onReaction} />
-      <BodyWrapper>
-        <ArticleHeader>
-          <MoreWrapper>
-            <MoreIcon path={getSVGIconPath('more')} />
-            <MoreOption>文章页</MoreOption>
-          </MoreWrapper>
-          <LinkFrom>
-            <div>转载自:&nbsp;</div>
-            <LinkSource>github.com/mydearxym/...</LinkSource>
-          </LinkFrom>
-          <RefinedLabel>精华帖</RefinedLabel>
-        </ArticleHeader>
-        <ArticleTitle>{data.title}</ArticleTitle>
-        {loading ? (
-          <div>
-            <PostLoading num={2} />
-          </div>
-        ) : (
-          <ArticleBody>{data.body}</ArticleBody>
-        )}
-      </BodyWrapper>
-      <CommentsWrapper>
-        <Comments />
-      </CommentsWrapper>
-    </div>
-  )
-}
+const PostViewer = ({ data, loading, onReaction }) => (
+  <div>
+    <PreviewHeader data={data} onReaction={onReaction} />
+    <BodyWrapper>
+      <ArticleHeader>
+        <MoreWrapper>
+          <MoreIcon path={getSVGIconPath('more')} />
+          <MoreOption>文章页</MoreOption>
+        </MoreWrapper>
+        <LinkFrom>
+          <div>转载自:&nbsp;</div>
+          <LinkSource>github.com/mydearxym/...</LinkSource>
+        </LinkFrom>
+        <RefinedLabel>精华帖</RefinedLabel>
+      </ArticleHeader>
+      <ArticleTitle>{data.title}</ArticleTitle>
+      {loading ? (
+        <div>
+          <PostLoading num={2} />
+        </div>
+      ) : (
+        <ArticleBody>{data.body}</ArticleBody>
+      )}
+    </BodyWrapper>
+    <CommentsWrapper>
+      <Comments />
+    </CommentsWrapper>
+  </div>
+)
 
 export default PostViewer

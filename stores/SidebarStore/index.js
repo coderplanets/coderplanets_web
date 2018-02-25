@@ -31,13 +31,13 @@ const debug = makeDebugger('S:SidebarStore')
 const SidebarStore = t
   .model('SidebarStore', {
     menuItems: t.optional(t.array(MenuItem), []), // complex data
-    open: t.optional(t.boolean, false),
+    // open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
     windowBlured: t.optional(t.boolean, false),
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
     // searchBox: t.string, // complex data
-    //     loading: t.optional(t.boolean, false),
+    // loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

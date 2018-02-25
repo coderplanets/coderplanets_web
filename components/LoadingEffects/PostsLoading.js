@@ -8,7 +8,7 @@ import shortid from 'shortid'
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
   width: 100%;
-  height: 85px;
+  height: 90px;
   margin-bottom: 30px;
   overflow: hidden;
 `

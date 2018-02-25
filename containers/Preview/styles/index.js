@@ -15,7 +15,7 @@ export const PreviewOverlay = styled.div`
   bottom: 0;
   left: 0;
   overflow: auto;
-  position: absolute;
+  position: fixed;
   height: 100%;
   right: 0;
   z-index: 998;

@@ -34,6 +34,8 @@ export default class Pockect {
     this.input$ = new Subject()
     // this.advanceCmd$ = new Subject()
     this.stop$ = new Subject() // esc, pageClick  ...
+    // TODO: netfix search use throttle
+    // see: https://www.youtube.com/watch?v=XRYN2xt11Ek
     this.cmdInput$ = this.input$.debounceTime(200) // .distinctUntilChanged()
 
     this.cmdSuggestionCommon = this.cmdInput$

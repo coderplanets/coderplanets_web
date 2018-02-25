@@ -1,16 +1,221 @@
-# source: http://localhost:5000/graphiql
-# timestamp: Mon Dec 11 2017 11:46:04 GMT+0800 (CST)
+# source: http://0.0.0.0:4001/graphiql
+# timestamp: Wed Feb 07 2018 20:30:50 GMT+0800 (CST)
 
 schema {
   query: RootQueryType
+  mutation: RootMutationType
 }
 
-type MenuItem {
-  description: String
+interface Article {
   id: ID
-  name: String
+  title: String
+}
+
+# article_filter doc
+input ArticleFilter {
+  # limit of records (default 20), if first > 30, only return 30 at most
+  first: Int = 20
+  sort: SortEnum
+
+  # Matching a tag
+  tag: String = "all"
+  when: WhenEnum
+}
+
+enum CmsAction {
+  FAVORITE
+  STAR
+  WATCH
+}
+
+enum CmsPart {
+  JOB
+  MEETUP
+  POST
+}
+
+type Comment {
+  author: User!
+  body: String!
+  id: ID!
+  insertedAt: DateTime
+  updatedAt: DateTime
+}
+
+enum CommentAction {
+  COMMENT
+}
+
+type Community {
+  desc: String
+  insertedAt: DateTime
+  title: String
+  updatedAt: DateTime
+}
+
+enum CommunityPartEnum {
+  JOB
+  POST
+  VIDEO
+}
+
+# The `Date` scalar type represents a date. The Date appears in a JSON
+# response as an ISO8601 formatted string.
+scalar Date
+
+# The `DateTime` scalar type represents a date and time in the UTC
+# timezone. The DateTime appears in a JSON response as an ISO8601 formatted
+# string, including UTC timezone ("Z"). The parsed date and time string will
+# be converted to UTC and any UTC offset other than 0 will be rejected.
+scalar DateTime
+
+enum FavoriteAction {
+  FAVORITE
+}
+
+# article_filter doc
+input PagedArticleFilter {
+  community: String
+
+  # limit of records (default 20), if first > 30, only return 30 at most
+  page: Int = 1
+  size: Int = 20
+  sort: SortEnum
+  tag: String = "all"
+  when: WhenEnum
+}
+
+type PagedPosts {
+  entries: [Post!]!
+  pageNumber: Int
+  pageSize: Int
+  totalEntries: Int
+  totalPages: Int
+}
+
+type PagedUsers {
+  entries: [User!]!
+  pageNumber: Int
+  pageSize: Int
+  totalCount: Int
+  totalPages: Int
+}
+
+type Post implements Article {
+  author: User
+  body: String
+  comments(action: CommentAction = COMMENT, filter: ArticleFilter, type: PostType = POST): [Comment]
+  digest: String
+  favoritedCount(action: FavoriteAction = FAVORITE, type: PostType = POST): Int
+  favoritedUsers(action: FavoriteAction = FAVORITE, filter: ArticleFilter, type: PostType = POST): [User]
+  id: ID
+  insertedAt: DateTime
+  length: Int
+  linkAddr: String
+  starredCount(action: StarAction = STAR, type: PostType = POST): Int
+  starredUsers(action: StarAction = STAR, filter: ArticleFilter, type: PostType = POST): [User]
+  tags: [Tag]
+  title: String
+  updatedAt: DateTime
+  viewerHasFavorited(action: FavoriteAction = FAVORITE, type: PostType = POST): Boolean
+  viewerHasStarred(action: StarAction = STAR, type: PostType = POST): Boolean
+  views: Int
+}
+
+enum PostType {
+  POST
+}
+
+enum RainbowColorEnum {
+  BLUE
+  CYAN
+  GREEN
+  ORANGE
+  PURPLE
+  RED
+  YELLOW
+}
+
+type RootMutationType {
+  # create a comment
+  createComment(body: String!, id: ID!, type: CmsPart! = POST): Comment
+  createCommunity(desc: String!, title: String!): Community
+
+  # hehehef: create a user
+  createPost(body: String!, community: String!, digest: String!, length: Int!, linkAddr: String, title: String!): Post
+
+  # create a tag by part
+  createTag(color: RainbowColorEnum!, community: String!, title: String!, type: CmsPart = POST): Tag
+
+  # hehehef: create a user
+  createUser(bio: String!, company: String!, nickname: String!, username: String!): User
+
+  # create a comment
+  deleteComment(id: ID!, type: CmsPart = POST): Comment
+  deleteCommunity(id: ID!): Community
+
+  # delete a cms/post
+  deletePost(postId: ID!): Post
+  reaction(action: CmsAction!, id: ID!, type: CmsPart!): Article
+  setTag(date: Date, datetime: DateTime, id: ID!, tagId: ID!, type: CmsPart = POST): Tag
+  undoReaction(action: CmsAction!, id: ID!, type: CmsPart!): Article
 }
 
 type RootQueryType {
-  menuItems: [MenuItem]
+  # get all users
+  allUsers: PagedUsers!
+  favoriteUsers(filter: PagedArticleFilter, id: ID!, type: CmsPart = POST): [PagedUsers!]!
+  pagedPosts(filter: PagedArticleFilter): [PagedPosts!]!
+
+  # get one post
+  post(id: ID!): Post!
+
+  # get all posts
+  posts(filter: ArticleFilter): [Post!]!
+  tags(community: String!, type: CommunityPartEnum!): [Tag!]!
+}
+
+enum SortEnum {
+  LEAST_COMMENTS
+  LEAST_FAVORITES
+  LEAST_STARS
+  LEAST_UPDATED
+  LEAST_VIEWS
+  LEAST_WATCHED
+  MOST_COMMENTS
+  MOST_FAVORITES
+  MOST_STARS
+  MOST_UPDATED
+  MOST_VIEWS
+  MOST_WATCHED
+  RECENT_UPDATED
+}
+
+enum StarAction {
+  STAR
+}
+
+type Tag {
+  color: String
+  insertedAt: DateTime
+  part: String
+  title: String
+  updatedAt: DateTime
+}
+
+type User {
+  bio: String!
+  company: String!
+  id: ID!
+  insertedAt: DateTime
+  nickname: String!
+  updatedAt: DateTime
+  username: String!
+}
+
+enum WhenEnum {
+  THIS_MONTH
+  THIS_WEEK
+  THIS_YEAR
+  TODAY
 }

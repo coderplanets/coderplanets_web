@@ -109,6 +109,9 @@ const rootStore = t
       self.sidebar.load()
       // self.posts.load()
     },
+    setHeaderFix(fix) {
+      self.header.setFix(fix)
+    },
     openDoraemon() {
       self.doraemon.open()
     },

@@ -33,21 +33,18 @@ class SR71 {
 
     this.initEventSubscription()
     this.query$ = this.queryInput$.debounceTime(300).switchMap(q =>
-      /* this.query$ = this.queryInput$.switchMap(q => */
       queryPromise(q)
         .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
         .takeUntil(this.stop$)
     )
 
     this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(q =>
-      /* this.mutate$ = this.mutateInput$.switchMap(q => */
       mutatePromise(q)
         .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
         .takeUntil(this.stop$)
     )
 
     this.restGet$ = this.getInput$.debounceTime(300).switchMap(q =>
-      /* this.restGet$ = this.getInput$.switchMap(q => */
       restGetPromise(q)
         .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
         .takeUntil(this.stop$)

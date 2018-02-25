@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import { Pagination, Affix } from 'antd'
 import TimeAgo from 'timeago-react'
+import Waypoint from 'react-waypoint'
 // import Link from 'next/link'
 
 // import { Button } from '../../components'
@@ -223,6 +224,7 @@ class PostsPaperContainer extends React.Component {
             </FilterResultHint>
           </FilterWrapper>
 
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <View posts={postsData.entries} curView={curView} />
 
           <Pagi>

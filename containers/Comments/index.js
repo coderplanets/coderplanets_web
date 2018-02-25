@@ -32,6 +32,8 @@ import {
   CommentBlock,
   CommentWrapper,
   DeleteOverlay,
+  DeleteHintText,
+  DeleteBtnGroup,
   CommentDivider,
   CommentUserInfo,
   CommentAvatar,
@@ -120,14 +122,17 @@ const getSelection = () => {
 }
 
 const DeleteMask = () => (
-  <DeleteOverlay>
-    <Button size="small" type="red" ghost>
-      取消
-    </Button>
-    &nbsp;&nbsp;
-    <Button size="small" type="red">
-      确定删除
-    </Button>
+  <DeleteOverlay show>
+    <DeleteHintText>删除后该内容将不可恢复</DeleteHintText>
+    <DeleteBtnGroup>
+      <Button size="small" type="red" ghost>
+        取消
+      </Button>
+      &nbsp;&nbsp;
+      <Button size="small" type="red">
+        确定删除
+      </Button>
+    </DeleteBtnGroup>
   </DeleteOverlay>
 )
 

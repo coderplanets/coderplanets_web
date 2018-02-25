@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { lighten } from 'polished'
+
 import { theme } from '../../utils'
 
 const AntOverWrite = styled.div`
@@ -119,6 +121,10 @@ const AntOverWrite = styled.div`
     background: tomato;
   }
 
+  .ant-popover-inner {
+    background: tomato !important;
+  }
+
   // popover end
 
   .ant-checkbox-wrapper {
@@ -171,7 +177,7 @@ const AntOverWrite = styled.div`
     border-color: ${theme('pagination.item_border_color')};
   }
   .ant-pagination-item a {
-    color: #618c8b;
+    color: ${theme('pagination.inactive_num')};
   }
 
   .ant-pagination-prev a,
@@ -232,6 +238,12 @@ const AntOverWrite = styled.div`
   .ant-btn-primary[disabled]:active,
   .ant-btn-primary.disabled.active,
   .ant-btn-primary[disabled].active {
+    color: white;
+  }
+
+  .ant-btn-red:hover {
+    background-color: ${lighten(0.1, 'tomato')};
+    border-color: ${lighten(0.1, 'tomato')};
     color: white;
   }
 

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
+
 export const Avatars = styled.ul`
   display: flex;
   list-style-type: none;
@@ -18,7 +20,8 @@ export const AvatarsItem = styled.li`
 `
 
 export const AvatarsImg = styled.img`
-  border: 3px solid #f9fcfc;
+  border: 3px solid;
+  border-color: ${theme('paper.comments_user_border')};
   border-radius: 100px 100px 100px 100px;
   color: #ffffff;
   display: block;

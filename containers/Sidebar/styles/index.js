@@ -11,8 +11,8 @@ export const Sidebar = styled.div`
   position: fixed;
   height: 100vh;
   top: 0;
-  width: ${props => (props.open ? '250px' : '56px')};
-  box-shadow: ${props => (props.open ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
+  width: ${props => (props.pin ? '250px' : '56px')};
+  box-shadow: ${props => (props.pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.border_color')};
   z-index: 1000;
@@ -20,6 +20,28 @@ export const Sidebar = styled.div`
 
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,
     background-color 0.3s;
+
+  &:hover {
+    width: 250px;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
+  }
+`
+
+export const StyledPin = styled.div`
+  color: ${props => (props.pin ? props.theme.sidebar.pin_active : 'grey')};
+  visibility: ${props => (props.pin ? 'visible' : 'hidden')};
+  opacity: ${props => (props.pin ? 1 : 0)};
+  position: absolute;
+  font-size: 25px;
+  right: 10px;
+  top: 5px;
+  transition: visibility 0s, opacity 0.3s linear;
+  cursor: pointer;
+
+  ${Sidebar}:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
 `
 
 export const MenuItem = styled.ul`
@@ -55,12 +77,19 @@ export const MenuItem = styled.ul`
   }
 `
 
-export const Row = styled.div`
+export const MenuRow = styled.div`
   display: flex;
   justify-content: left;
   > a {
+    display: ${props => (props.pin ? 'block' : 'none')};
     color: ${theme('sidebar.menu_link')};
     opacity: ${props => (props.active ? 1 : 0.5)};
+  }
+
+  ${Sidebar}:hover & {
+    a {
+      display: block;
+    }
   }
 `
 

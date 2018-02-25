@@ -14,6 +14,7 @@ const debug = makeDebugger('S:CommentsStore')
 const CommentsStore = t
   .model('CommentsStore', {
     showInputEditor: t.optional(t.boolean, false),
+    deletingID: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {

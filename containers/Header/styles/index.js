@@ -4,11 +4,14 @@ import ReactSVG from 'react-svg'
 import { theme } from '../../../utils'
 import { Button } from '../../../components'
 
+// background: ${theme('header.bg')};
 export const Header = styled.div`
   height: 33px;
   display: flex;
   flex-direction: row;
-  background: ${theme('header.bg')};
+  background: ${props =>
+    props.fixed ? theme('header.fixed') : theme('header.bg')};
+
   border-bottom: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;

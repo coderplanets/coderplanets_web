@@ -37,6 +37,7 @@ const SolarizedDark = {
     fg: primaryColor,
     bg: topHalfBg,
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+    fixed: secondHalfBg,
   },
   banner: {
     fg: primaryColor,
@@ -45,7 +46,7 @@ const SolarizedDark = {
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
     number_desc: '#436b90',
     number: '#377788',
-    number_divider: '1px solid #1b475d',
+    number_divider: '#1b475d',
     number_hover_bg: '#0d475a',
   },
   paper: {
@@ -54,12 +55,14 @@ const SolarizedDark = {
     article_title: '#427f98',
     article_hover: '#113744',
     article_brief: '#6B7F83',
+    comments_user_border: secondHalfBg,
   },
   pagination: {
     item_bg: '#103440',
     item_border_color: '#103440',
     disable_text: '#1d5365',
     text: primaryColor,
+    inactive_num: primaryColor,
   },
   content: {
     bg: secondHalfBg,
@@ -87,11 +90,9 @@ const SolarizedDark = {
     article_bg: lighten(0.04, mainBg),
     reaction_hover_bg: lighten(0.04, mainBg),
   },
-
   heatmap: {
     empty: '#2D5664',
   },
-
   markdown: {
     title: darken(0.05, '#DBE0E1'),
     fg: markdownFont,

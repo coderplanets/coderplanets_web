@@ -13,7 +13,7 @@ const debug = makeDebugger('S:HeaderStore')
 
 const HeaderStore = t
   .model('HeaderStore', {
-    hehe: t.optional(t.string, ''),
+    fixed: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
@@ -21,13 +21,15 @@ const HeaderStore = t
     },
   }))
   .actions(self => ({
+    setFix(fixed = false) {
+      self.fixed = fixed
+    },
     openDoraemon() {
       self.root.openDoraemon()
     },
     openPreview(type) {
       self.root.openPreview(type)
     },
-
     markState(sobj) {
       markStates(sobj, self)
     },

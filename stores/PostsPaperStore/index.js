@@ -117,6 +117,9 @@ const PostsPaperStore = t
         self.tags.set(community, tag)
       }
     },
+    setHeaderFix(fix) {
+      self.root.setHeaderFix(fix)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

@@ -152,5 +152,5 @@ function throttle(func, wait, options) {
   })
 }
 
-// export default throttle
+/* export default throttle*/
 export default debounce

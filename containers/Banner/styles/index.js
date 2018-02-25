@@ -93,7 +93,8 @@ export const NumberItem = styled.div`
   color: ${theme('banner.number')}; #5c868b;
 `
 export const NumberDivider = styled.div`
-  border: ${theme('banner.number_divider')};
+  border: 1px solid;
+  border-color: ${theme('banner.number_divider')};
   height: 70%;
   align-self: center;
   margin-left: 10px;

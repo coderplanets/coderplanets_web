@@ -9,43 +9,29 @@ import Link from 'next/link'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
-import {
-  Global,
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-} from '../../utils'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import PinButton from './PinButton'
-import { Sidebar, MenuItem, Row, MenuItemIcon } from './styles'
+import { Sidebar, MenuItem, MenuRow, MenuItemIcon } from './styles'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
 
-const MenuList = ({ items, open, curPath }) => {
+const MenuList = ({ items, pin, curPath }) => {
   const listItems = items.map(item => (
     <li key={item.name}>
-      {open ? (
-        <div>
-          <Link href={item.target.href} as={item.target.as}>
-            <Row active={curPath === R.toLower(item.name)}>
-              <MenuItemIcon
-                active={curPath === R.toLower(item.name)}
-                path={getSVGIconPath(item.name)}
-              />
-              {/* eslint-disable jsx-a11y/anchor-is-valid */}
-              <div style={{ marginRight: 10 }} />
-              <a>{item.name}</a>
-            </Row>
-          </Link>
-        </div>
-      ) : (
-        <Row>
-          <MenuItemIcon
-            active={curPath === R.toLower(item.name)}
-            path={getSVGIconPath(item.name)}
-          />
-        </Row>
-      )}
+      <div>
+        <Link href={item.target.href} as={item.target.as}>
+          <MenuRow pin={pin} active={curPath === R.toLower(item.name)}>
+            <MenuItemIcon
+              active={curPath === R.toLower(item.name)}
+              path={getSVGIconPath(item.name)}
+            />
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
+            <div style={{ marginRight: 10 }} />
+            <a>{item.name}</a>
+          </MenuRow>
+        </Link>
+      </div>
     </li>
   ))
   return <MenuItem>{listItems}</MenuItem>
@@ -55,32 +41,21 @@ class SidebarContainer extends React.Component {
   componentDidMount() {
     debug('init')
     logic.init(this.props.sidebar)
-
-    Global.addEventListener('blur', () => {
-      logic.windowBlur(true)
-    })
-    Global.addEventListener('focus', () => {
-      logic.windowBlur(false)
-    })
   }
 
   render() {
     const { sidebar } = this.props
-    const { curPath, menuItems, open, pin } = sidebar
-    //    debug('-----> sidebar route --------> : ', this.props.router)
+    const { curPath, menuItems, pin } = sidebar
     //    onMouseLeave={logic.leaveSidebar}
 
+    // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
     return (
-      <Sidebar
-        open={sidebar.open}
-        onMouseEnter={logic.enterSidebar}
-        onMouseLeave={logic.leaveSidebar}
-      >
-        <PinButton open={open} pin={pin} onClick={logic.pin} />
+      <Sidebar pin={pin}>
+        <PinButton pin={pin} onClick={logic.pin} />
         <br />
         <br />
 
-        <MenuList items={menuItems} open={open} curPath={curPath} />
+        <MenuList items={menuItems} pin={pin} curPath={curPath} />
       </Sidebar>
     )
   }

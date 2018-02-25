@@ -6,7 +6,7 @@
 
 import R from 'ramda'
 
-import { themeDict } from '../../../utils'
+import { themeKeys } from '../../../utils/themes'
 
 // const theme = R.map(v => ({ [v]: { title: v, desc: v, new: {} } }))(themeKeys)
 
@@ -49,7 +49,7 @@ R.map(
       raw: `themes--${v}`,
       detail: {},
     }),
-  R.keys(themeDict)
+  themeKeys
 )
 cmds.Themes.title = 'themes'
 cmds.Themes.desc = 'theme desc'

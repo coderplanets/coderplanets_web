@@ -16,6 +16,14 @@ let sub$ = null
 
 const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
+export function inAnchor() {
+  postsPaper.setHeaderFix(false)
+}
+
+export function outAnchor() {
+  postsPaper.setHeaderFix(true)
+}
+
 export function pageChange(page) {
   debug('pageChange page: ', page)
   loadPosts(page)

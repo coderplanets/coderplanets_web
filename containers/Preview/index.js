@@ -17,6 +17,7 @@ import ArticleViwer from '../ArticleViwer'
 // import TypeWriter from '../TypeWriter'
 import AccountViewer from '../AccountViewer'
 import StateViwer from './StateViwer'
+import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
 /* import StateTree from '../../components/StateTree' */
 
 import {
@@ -28,7 +29,11 @@ import {
   CloserInner,
 } from './styles'
 
-const DynamicTypeWriter = dynamic(import('../TypeWriter'))
+const DynamicTypeWriter = dynamic(import('../TypeWriter'), {
+  /* eslint-disable */
+  loading: () => <TypeWriterLoading />,
+  /* eslint-enable */
+})
 const debug = makeDebugger('C:Preview')
 
 const CloseBtn = ({ type }) => (

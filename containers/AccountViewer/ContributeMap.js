@@ -24,15 +24,39 @@ const customTooltipDataAttrs = value => ({
   'data-tip':
     value.date === null ? '' : `${value.date} 贡献内容 ${value.count} 次`,
 })
-const monthLabels = ['1月', '2月', '3月', '4月', '5月', '6月']
-const startDate = '2018-01-01'
-const endDate = '2018-06-30'
+
+// const monthLabels = ['8月', '9月', '10月', '11月', '12月', '1月']
+const monthLabels = [
+  '1月',
+  '2月',
+  '3月',
+  '4月',
+  '5月',
+  '6月',
+  '7月',
+  '8月',
+  '9月',
+  '10月',
+  '11月',
+  '12月',
+]
+const startDate = '2017-08-01'
+const endDate = '2018-01-30'
 const actives = [
+  { date: '2017-08-04', count: 1 },
+  { date: '2017-08-05', count: 1 },
+  { date: '2017-08-11', count: 2 },
+  { date: '2017-09-05', count: 3 },
+  { date: '2017-09-12', count: 9 },
+  { date: '2017-10-06', count: 8 },
+  { date: '2017-11-20', count: 10 },
+  { date: '2017-11-24', count: 10 },
+  { date: '2018-01-01', count: 1 },
+  { date: '2018-01-02', count: 1 },
+  { date: '2018-01-03', count: 1 },
   { date: '2018-01-04', count: 1 },
-  { date: '2018-01-05', count: 3 },
-  { date: '2018-01-06', count: 8 },
-  { date: '2018-02-20', count: 10 },
-  { date: '2018-03-21', count: 17 },
+  { date: '2018-01-20', count: 1 },
+  { date: '2018-01-21', count: 17 },
 ]
 
 // TODO
