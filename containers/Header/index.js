@@ -16,6 +16,9 @@ import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import {
   Header,
   RouterWrapper,
+  MiniMapWrapper,
+  CommunityLogo,
+  MiniTab,
   Admin,
   Search,
   Notification,
@@ -30,6 +33,25 @@ import {
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Header')
+
+const MiniMap = ({ curRoute }) => {
+  const defaultIcon = 'js'
+  const { mainQuery } = curRoute
+  const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
+
+  debug('route: ', iconKey)
+  return (
+    <MiniMapWrapper>
+      <CommunityLogo path={getSVGIconPath(iconKey)} />
+      <MiniTab active>帖子</MiniTab>
+      <MiniTab>教程</MiniTab>
+      <MiniTab>动态</MiniTab>
+      <MiniTab>视频</MiniTab>
+      <MiniTab>地图</MiniTab>
+      <MiniTab>cheatsheet</MiniTab>
+    </MiniMapWrapper>
+  )
+}
 
 class HeaderContainer extends React.Component {
   componentWillMount() {
@@ -46,13 +68,13 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { fixed } = this.props.header
-    debug('fixed: ', fixed)
+    const { fixed, curRoute } = this.props.header
+
     return (
       <Affix>
         <Header id="whereCallShowDoraemon" fixed={fixed}>
           <RouterWrapper>
-            <Navigator />
+            {fixed ? <MiniMap curRoute={curRoute} /> : <Navigator />}
           </RouterWrapper>
           <Admin>
             <div style={{ display: 'flex' }}>

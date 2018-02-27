@@ -8,10 +8,12 @@ export const Breadcrumbs = styled.div`
   margin-left: 3vw;
   height: 100%;
   display: flex;
+  align-items: center;
 `
 export const Logo = styled(ReactSVG)`
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
+  margin-top: 4px;
 `
 export const LogoText = styled.div`
   margin-left: 6px;

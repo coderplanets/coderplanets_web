@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
+import { Button } from 'antd'
 
 import { theme } from '../../../utils'
-import { Button } from '../../../components'
 
 export const Wrapper = styled.div`
   display: flex;

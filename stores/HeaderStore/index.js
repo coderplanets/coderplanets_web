@@ -19,6 +19,12 @@ const HeaderStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
+    get curCommunity() {
+      return self.root.communities.curCommunity
+    },
   }))
   .actions(self => ({
     setFix(fixed = false) {

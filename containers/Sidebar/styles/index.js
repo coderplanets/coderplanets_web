@@ -80,16 +80,53 @@ export const MenuItem = styled.ul`
 export const MenuRow = styled.div`
   display: flex;
   justify-content: left;
+
   > a {
     display: ${props => (props.pin ? 'block' : 'none')};
     color: ${theme('sidebar.menu_link')};
     opacity: ${props => (props.active ? 1 : 0.5)};
+    flex-grow: 1;
+    max-width: 50%;
   }
 
   ${Sidebar}:hover & {
     a {
       display: block;
+      flex-grow: 1;
+      max-width: 50%;
     }
+  }
+`
+// TODO: hover
+export const MiniChartWrapper = styled.div`
+  width: 10vh;
+  margin-right: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+
+  display: ${props => (props.pin ? 'flex' : 'none')};
+  ${Sidebar}:hover & {
+    display: flex;
+  }
+`
+
+export const MiniChartBar = styled.div`
+  height: 8px;
+  width: 60px;
+  background-color: #285763;
+  border-radius: 2px;
+`
+
+export const MiniChartText = styled.div`
+  position: absolute;
+  font-size: 1.1em;
+  top: -2px;
+  color: #5396a7;
+  right: 2px;
+
+  ${MenuRow}:hover & {
+    font-weight: bold;
   }
 `
 

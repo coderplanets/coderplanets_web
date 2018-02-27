@@ -17,7 +17,7 @@ const Navigator = () => {
   return (
     <Breadcrumbs>
       <Logo path={getSVGIconPath('site_logo')} />
-      <LogoText>Coderplanets</LogoText>
+      <LogoText>coderplanets</LogoText>
       <BetaText>working in progess</BetaText>
     </Breadcrumbs>
   )

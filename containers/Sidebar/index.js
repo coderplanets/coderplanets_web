@@ -11,7 +11,15 @@ import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import PinButton from './PinButton'
-import { Sidebar, MenuItem, MenuRow, MenuItemIcon } from './styles'
+import {
+  Sidebar,
+  MenuItem,
+  MenuRow,
+  MenuItemIcon,
+  MiniChartWrapper,
+  MiniChartBar,
+  MiniChartText,
+} from './styles'
 import * as logic from './logic'
 
 const debug = makeDebugger('C:Sidebar:index')
@@ -29,6 +37,10 @@ const MenuList = ({ items, pin, curPath }) => {
             {/* eslint-disable jsx-a11y/anchor-is-valid */}
             <div style={{ marginRight: 10 }} />
             <a>{item.name}</a>
+            <MiniChartWrapper pin={pin}>
+              <MiniChartBar />
+              <MiniChartText>247</MiniChartText>
+            </MiniChartWrapper>
           </MenuRow>
         </Link>
       </div>

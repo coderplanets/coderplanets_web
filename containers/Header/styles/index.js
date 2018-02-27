@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
+import { Button } from 'antd'
 
 import { theme } from '../../../utils'
-import { Button } from '../../../components'
 
 // background: ${theme('header.bg')};
 export const Header = styled.div`
@@ -15,11 +15,52 @@ export const Header = styled.div`
   border-bottom: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;
+  transition: background 0.2s;
 `
 
 export const RouterWrapper = styled.div`
   flex-grow: 1;
+  display: flex;
+  height: 100%;
+  margin-top: 1px;
 `
+
+export const MiniMapWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-left: 4vw;
+`
+
+export const CommunityLogo = styled(ReactSVG)`
+  width: 26px;
+  height: 26px;
+  margin-right: 25px;
+  display: block;
+  margin-bottom: 2px;
+`
+
+/*
+border-bottom: 2px solid;
+border-bottom-color: ${props =>
+  props.active ? theme('paper.article_title') : theme('header.fixed')};
+*/
+
+// ${theme('paper.article_title', props)}
+// border-bottom: ${props => (props.active ? '2px solid tomato' : '')};
+
+export const MiniTab = styled.div`
+  border-bottom: ${props => (props.active ? '3px solid' : '')};
+  border-bottom-color: ${props =>
+    props.active ? theme('paper.article_title') : ''};
+  padding-bottom: ${props => (props.active ? '2px' : '5px')};
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right: 6px;
+  color: ${props =>
+    props.active ? theme('header.tab_active') : theme('header.tab_others')};
+  cursor: pointer;
+`
+// color: ${theme('paper.article_brief')};
 
 // color: ${theme('header.fg')};
 // margin-right: 25px;

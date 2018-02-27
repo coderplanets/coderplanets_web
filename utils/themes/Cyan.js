@@ -36,6 +36,8 @@ const Cyan = {
     bg: topHalfBg,
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
     fixed: secondHalfBg,
+    tab_active: '#61868c', // article_title
+    tab_others: lighten(0.1, '#849ca0'), // article_brief
   },
   banner: {
     fg: primaryColor,

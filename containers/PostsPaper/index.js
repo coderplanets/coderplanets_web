@@ -212,6 +212,7 @@ class PostsPaperContainer extends React.Component {
       <Wrapper>
         <LeftPadding />
         <LeftPart>
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <FilterWrapper>
             <ContentFilter
               onSelect={logic.filterOnSelect}
@@ -224,7 +225,6 @@ class PostsPaperContainer extends React.Component {
             </FilterResultHint>
           </FilterWrapper>
 
-          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <View posts={postsData.entries} curView={curView} />
 
           <Pagi>

@@ -6,9 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Row, Col, Popover, Tag } from 'antd'
-
-import { Button } from '../../components'
+import { Button, Row, Col, Popover, Tag } from 'antd'
 
 import {
   Wrapper,

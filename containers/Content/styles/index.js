@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   min-height: 70vh;
   background: ${theme('content.bg')};
   color: ${theme('font')};
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 1em 6em;
   padding-top: 1.5em;
   @media (max-width: 1400px) {

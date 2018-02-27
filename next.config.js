@@ -22,9 +22,7 @@ module.exports = {
     }
   },
 
-  webpack: (config, { dev }) => {
-    console.log('config dev: ', dev)
-
+  webpack: (config, { isServer }) => {
     /*
     config.module.rules.push({
       test: /\.md$/,
@@ -48,7 +46,7 @@ module.exports = {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'server',
-          analyzerPort: 8888,
+          analyzerPort: isServer ? 8888 : 8889,
           openAnalyzer: true,
         })
       )

@@ -13,9 +13,10 @@ import remarkableemoj from 'remarkable-emoji'
 import Masonry from 'react-masonry-component'
 import Prism from 'mastani-codehighlight'
 import shortid from 'shortid'
+import { Button } from 'antd'
 import { CheatSheetLoading } from '../../components/LoadingEffects'
 
-import { Button, NotFound } from '../../components'
+import { NotFound } from '../../components'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
