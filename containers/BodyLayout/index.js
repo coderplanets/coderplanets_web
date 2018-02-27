@@ -30,7 +30,8 @@ class BodyLayoutContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    return <Body>{this.props.children}</Body>
+    const { sidebarPin } = this.props.bodylayout
+    return <Body sidebarPin={sidebarPin}>{this.props.children}</Body>
   }
 }
 

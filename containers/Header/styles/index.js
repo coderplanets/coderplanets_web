@@ -4,7 +4,6 @@ import { Button } from 'antd'
 
 import { theme } from '../../../utils'
 
-// background: ${theme('header.bg')};
 export const Header = styled.div`
   height: 33px;
   display: flex;
@@ -15,8 +14,10 @@ export const Header = styled.div`
   border-bottom: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;
-  transition: background 0.2s;
+  margin-left: ${props => props.leftOffset};
+  transition: all 0.2s;
 `
+// margin-left: ${props => (props.offsetLeft ? '180px' : '0')};
 
 export const RouterWrapper = styled.div`
   flex-grow: 1;

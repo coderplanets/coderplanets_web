@@ -39,7 +39,6 @@ const MiniMap = ({ curRoute }) => {
   const { mainQuery } = curRoute
   const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
 
-  debug('route: ', iconKey)
   return (
     <MiniMapWrapper>
       <CommunityLogo path={getSVGIconPath(iconKey)} />
@@ -68,11 +67,15 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { fixed, curRoute } = this.props.header
+    const { fixed, curRoute, leftOffset } = this.props.header
 
     return (
       <Affix>
-        <Header id="whereCallShowDoraemon" fixed={fixed}>
+        <Header
+          id="whereCallShowDoraemon"
+          leftOffset={leftOffset}
+          fixed={fixed}
+        >
           <RouterWrapper>
             {fixed ? <MiniMap curRoute={curRoute} /> : <Navigator />}
           </RouterWrapper>

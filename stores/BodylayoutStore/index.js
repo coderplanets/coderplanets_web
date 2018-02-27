@@ -16,6 +16,10 @@ const BodylayoutStore = t
     get root() {
       return getParent(self)
     },
+
+    get sidebarPin() {
+      return self.root.sidebar.pin
+    },
   }))
   .actions(self => ({
     openDoraemon() {
