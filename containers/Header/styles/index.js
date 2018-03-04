@@ -16,6 +16,7 @@ export const Header = styled.div`
   padding: 0 4vw;
   margin-left: ${props => props.leftOffset};
   transition: all 0.2s;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(234, 234, 234, 0.28);
 `
 // margin-left: ${props => (props.offsetLeft ? '180px' : '0')};
 

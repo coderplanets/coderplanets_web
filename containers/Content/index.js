@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import randomColor from 'randomcolor'
 import shortid from 'shortid'
-import { Row, Col } from 'antd'
+import { Row, Col, Divider } from 'antd'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import PostsPaper from '../PostsPaper'
@@ -19,15 +19,7 @@ import MapViewer from '../MapViewer'
 import CheatSheetViewer from '../CheatSheetViewer'
 import * as logic from './logic'
 
-import {
-  Wrapper,
-  //   Hidder,
-  //  CategoryWrapper,
-  //  Category,
-  Entry,
-  Divider,
-  Desc,
-} from './styles'
+import { Wrapper, Entry, CheatsheetItem } from './styles'
 
 const debug = makeDebugger('C:Content')
 
@@ -76,18 +68,18 @@ const Langs = ({ base }) => {
   })
 
   return (
-    <div>
-      <Row>
-        {langs.map((item, i) => (
-          <Col span={5} key={shortid.generate()}>
-            <Entry fg={colors[i]}>
-              {item.title}
-              <Desc>{item.title}</Desc>
-            </Entry>
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Row>
+      <Col span={1} />
+      <Col span={22}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {langs.map((item, i) => (
+            <CheatsheetItem key={shortid.generate()} fg={colors[i]}>
+              <Entry fg={colors[i]}>{item.title}</Entry>
+            </CheatsheetItem>
+          ))}
+        </div>
+      </Col>
+    </Row>
   )
 }
 
@@ -103,47 +95,27 @@ const CheatSheetBody = () => {
  */
 
   return (
-    <Row>
-      <Col span={1} />
-      <Col span={22}>
-        <div>
-          <Langs base="green" />
-          <Divider />
-          <Langs base="yellow" />
-          <Divider />
-          <Langs base="orange" />
-          <Divider />
-          <Langs base="red" />
-          <Divider />
-          <Langs base="pink" />
-          <Divider />
-          <Langs base="blue" />
-          <Divider />
-          <Langs base="purple" />
-        </div>
-      </Col>
-      <Col span={1} />
-    </Row>
+    <div>
+      <Langs base="green" />
+      <Divider>前端</Divider>
+      <Langs base="yellow" />
+      <Divider>后端</Divider>
+      <Langs base="orange" />
+      <Divider>后端</Divider>
+      <Langs base="red" />
+      <Divider>后端</Divider>
+      <Langs base="pink" />
+      <Divider>后端</Divider>
+      <Langs base="blue" />
+      <Divider>后端</Divider>
+      <Langs base="purple" />
+    </div>
   )
 }
 
 const CommonComunity = ({ curRoute }) => {
   const { subQuery } = curRoute
   debug('subQuery: ', subQuery)
-
-  /*
-
-  return (
-    <div>
-      <Hidder name="posts" active={subQuery}>
-        <PostsPaper />
-      </Hidder>
-      <Hidder name="cheatsheet" active={subQuery}>
-        <CheatSheetViewer />
-      </Hidder>
-    </div>
-  )
-  */
 
   switch (subQuery) {
     case 'posts': {
@@ -182,9 +154,13 @@ const CommonComunity = ({ curRoute }) => {
 const renderContent = curRoute => {
   const { mainQuery } = curRoute
 
+  console.log('curRoute: ', curRoute)
   switch (mainQuery) {
     case 'cheatsheet': {
       return <CheatSheetBody />
+    }
+    case 'communities': {
+      return <div>communities</div>
     }
     default: {
       return <CommonComunity curRoute={curRoute} />

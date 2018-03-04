@@ -14,15 +14,17 @@ import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import * as logic from './logic'
 
 import {
-  Banner,
-  TopHalf,
+  CommunityBanner,
+  CheatsheetBanner,
   Title,
   Desc,
-  LeftPadding,
-  RightPadding,
   CommunityLogo,
   CommunityInfo,
   TabberWrapper,
+  CheatsheetWrapper,
+  CheatsheetTitle,
+  CheatsheetDesc,
+  CommonCommunityWrapper,
   CommunityWrapper,
   NumbersWrapper,
   NumberSection,
@@ -35,18 +37,6 @@ const debug = makeDebugger('C:Banner')
 
 const onChange = e => {
   logic.tabberChange(e)
-}
-
-const renderTabber = (mainQuery, curCommunity) => {
-  if (mainQuery === 'cheatsheet') {
-    return <div />
-  }
-  return (
-    <TabberWrapper>
-      <LeftPadding />
-      <Tabber source={curCommunity.body} onChange={onChange} />
-    </TabberWrapper>
-  )
 }
 
 const CommunityBrief = ({ curCommunity, curRoute }) => {
@@ -68,24 +58,59 @@ const CommunityBrief = ({ curCommunity, curRoute }) => {
   )
 }
 
-const NumbersInfo = () => {
+const NumbersInfo = () => (
+  <NumbersWrapper>
+    <NumberSection>
+      <NumberTitle>成员</NumberTitle>
+      <NumberItem>18</NumberItem>
+    </NumberSection>
+    <NumberDivider />
+    <NumberSection>
+      <NumberTitle>内容</NumberTitle>
+      <NumberItem>184</NumberItem>
+    </NumberSection>
+    <NumberDivider />
+    <NumberSection>
+      <NumberTitle>编辑</NumberTitle>
+      <NumberItem>5</NumberItem>
+    </NumberSection>
+  </NumbersWrapper>
+)
+
+const BannerContent = ({ banner, curRoute }) => {
+  const { mainQuery } = curRoute
+  // console.log('mainQuery --> ', mainQuery)
+  switch (mainQuery) {
+    case 'cheatsheet': {
+      return (
+        <CheatsheetBanner>
+          <CheatsheetWrapper>
+            <CheatsheetTitle>cheatsheet</CheatsheetTitle>
+            <CheatsheetDesc>所有的cheeatsheet都在这里了</CheatsheetDesc>
+          </CheatsheetWrapper>
+        </CheatsheetBanner>
+      )
+    }
+    default:
+      return (
+        <CommunityBanner>
+          <CommonCommunity banner={banner} />
+        </CommunityBanner>
+      )
+  }
+}
+
+const CommonCommunity = ({ banner }) => {
+  const { curRoute, curCommunity } = banner
+
   return (
-    <NumbersWrapper>
-      <NumberSection>
-        <NumberTitle>成员</NumberTitle>
-        <NumberItem>18</NumberItem>
-      </NumberSection>
-      <NumberDivider />
-      <NumberSection>
-        <NumberTitle>内容</NumberTitle>
-        <NumberItem>184</NumberItem>
-      </NumberSection>
-      <NumberDivider />
-      <NumberSection>
-        <NumberTitle>编辑</NumberTitle>
-        <NumberItem>5</NumberItem>
-      </NumberSection>
-    </NumbersWrapper>
+    <CommonCommunityWrapper>
+      <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
+      <NumbersInfo />
+      <TabberWrapper>
+        <Tabber source={curCommunity.body} onChange={onChange} />
+      </TabberWrapper>
+    </CommonCommunityWrapper>
   )
 }
 
@@ -97,25 +122,10 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curRoute, curCommunity } = banner
-    const { mainQuery } = curRoute
+    const { curRoute } = banner
+    //     const { mainQuery } = curRoute
 
-    // debug('curPath: ', curPath)
-    // debug('curRoute: ', curRoute)
-    // debug('curCommunity2: ', curCommunity)
-
-    return (
-      <Banner>
-        <TopHalf>
-          <LeftPadding />
-          <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
-          <NumbersInfo />
-          <RightPadding />
-        </TopHalf>
-
-        {renderTabber(mainQuery, curCommunity)}
-      </Banner>
-    )
+    return <BannerContent curRoute={curRoute} banner={banner} />
   }
 }
 

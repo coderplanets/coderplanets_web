@@ -38,7 +38,11 @@ const cmds = {
       raw: 'cheatsheet--elixir',
     },
   },
-  // ClubOverflow: {},
+  Communities: {
+    title: 'Coderplanets 社区',
+    desc: 'Coderplanets 社区的描述',
+    raw: 'Communities',
+  },
 }
 
 R.map(

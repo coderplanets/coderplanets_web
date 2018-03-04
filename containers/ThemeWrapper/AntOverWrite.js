@@ -146,8 +146,8 @@ const AntOverWrite = styled.div`
     transition: all 0.2s;
   }
 
-  .fucking .ant-radio-group {
-    margin-top: 50px;
+  .ant-divider-horizontal.ant-divider-with-text {
+    color: lightgrey;
   }
 
   .ant-radio-wrapper {

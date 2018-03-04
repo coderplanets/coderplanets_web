@@ -74,6 +74,20 @@ const initCmdResolver = () => {
       },
     },
     {
+      match: SAK.stepOneCmd('communities'),
+      action: () => {
+        debug('SAK.stepOneCmd communities')
+        Router.push(
+          {
+            pathname: '/',
+            query: { main: 'communities' },
+          },
+          '/communities'
+        )
+        hidePanel()
+      },
+    },
+    {
       match: SAK.stepTwoCmd('themes'),
       action: cmdpath => {
         const theme = R.last(cmdpath)

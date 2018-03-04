@@ -16,21 +16,70 @@ export const Banner = styled.div`
     min-height: 130px;
   }
 `
-export const TopHalf = styled.div`
+
+export const CommunityBanner = styled.div`
+  position: relative;
+  min-height: 140px;
+  border-bottom: 1px solid tomato;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${theme('banner.bg')};
+  border-bottom: ${theme('banner.spliter')};
+  @media (max-height: 800px) {
+    min-height: 130px;
+  }
 `
+
+export const CheatsheetBanner = styled.div`
+  position: relative;
+  min-height: 140px;
+  border-bottom: 1px solid tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${theme('banner.bg')};
+  border-bottom: ${theme('banner.spliter')};
+  @media (max-height: 800px) {
+    min-height: 130px;
+  }
+  background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+`
+
 export const CommunityWrapper = styled.div`
   display: flex;
   flex-grow: 1;
   margin-top: -2em;
 `
 
-export const LeftPadding = styled.div`
-  width: 11vw;
+export const CommonCommunityWrapper = styled.div`
+  display: flex;
+  margin-left: 8%;
+  margin-right: 8%;
 `
-export const RightPadding = styled.div`
-  width: 10vw;
+
+export const CheatsheetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
+
+export const CheatsheetTitle = styled.div`
+  font-size: 2em;
+  font-weight: bold;
+  color: ${theme('paper.article_title')};
+`
+export const CheatsheetDesc = styled.div`
+  font-size: 1.3em;
+  margin-top: 5px;
+  color: ${theme('paper.article_brief')};
+`
+
 export const CommunityLogo = styled(ReactSVG)`
   width: 70px;
   height: 70px;
