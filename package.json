@@ -173,7 +173,7 @@
     "lint-staged": "6.0.0",
     "mobx-react-devtools": "^4.2.15",
     "npm-run-all": "^4.1.1",
-    "plop": "^1.8.1",
+    "plop": "^2.0.0",
     "prettier": "1.10.0",
     "react-test-renderer": "16.0.0",
     "shelljs": "^0.7.8",
