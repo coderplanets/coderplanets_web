@@ -54,13 +54,3 @@
 
 ## online code viewer
   [check it out](https://insight.io/github.com/mydearxym/mastani/tree/dev/)
-
-
-## TODO
-
-- [ ] more doc
-- [ ] more test
-- [ ] offline plugin
-- [ ] GraphQl support
-- [ ] Github login
-- [ ] user sidebar / page
