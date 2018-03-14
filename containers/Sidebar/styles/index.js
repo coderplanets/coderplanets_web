@@ -52,34 +52,29 @@ export const MenuItem = styled.ul`
   height: 95vh;
   overflow-y: scroll;
   transition: left 0.2s;
-
-  > li {
-    display: block;
-    &:hover {
-      background: ${props => darken(0.05, props.theme.sidebar.bg)};
-    }
-  }
-  > li > div {
-    cursor: pointer;
-    opacity: 1;
-    transition: color 0.2s;
-    padding-left: 15px;
-    font-size: 15px;
-    line-height: 50px;
-    height: 50px;
-    width: 100%;
-    box-sizing: border-box;
-    color: ${theme('sidebar.menu_link')};
-  }
-
-  > li > div > a {
-    text-decoration: none;
+`
+export const MenuItemWrapper = styled.li`
+  display: block;
+  &:hover {
+    background: ${props => darken(0.05, props.theme.sidebar.bg)};
   }
 `
-
+export const MenuItemEach = styled.div`
+  cursor: pointer;
+  opacity: 1;
+  transition: color 0.2s;
+  padding-left: 15px;
+  font-size: 15px;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  color: ${theme('sidebar.menu_link')};
+`
 export const MenuRow = styled.div`
   display: flex;
   justify-content: left;
+  font-size: 1em;
 
   > a {
     display: ${props => (props.pin ? 'block' : 'none')};
@@ -141,7 +136,7 @@ export const SVGIconWrapper = styled.div`
 
 export const MenuItemIcon = styled(ReactSVG)`
   opacity: ${props => (props.active ? 1 : 0.5)};
-  margin-top: 0.9em;
+  margin-top: 1em;
   width: 22px;
   height: 22px;
 `

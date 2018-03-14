@@ -66,8 +66,8 @@ const dataResolver = [
   {
     match: R.has(S.pagedPostsRes),
     action: res => {
-      debug('action res-->', res[S.pagedPostsRes][0])
-      const data = res[S.pagedPostsRes][0]
+      debug('action res-->', res[S.pagedPostsRes])
+      const data = res[S.pagedPostsRes]
       postsPaper.loadData(data)
       postsPaper.markState({
         curView: 'RESULT',

@@ -122,6 +122,7 @@
     "ramda": "0.25.0",
     "randomcolor": "^0.5.3",
     "react": "16.2.0",
+    "react-beautiful-dnd": "^5.0.0",
     "react-calendar-heatmap": "^1.6.3",
     "react-content-loader": "3.0.1",
     "react-dom": "16.2.0",

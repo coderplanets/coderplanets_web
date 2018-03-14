@@ -14,9 +14,13 @@ const menuItemConveter = R.compose(
     target: {
       href: {
         pathname: '/',
-        query: { main: R.toLower(item.raw), sub: R.toLower(item.raw) },
+        query: {
+          main: R.toLower(item.raw),
+          sub: 'posts', // default to posts
+        },
       },
       as: {
+        // pathname: `/${R.toLower(item.raw)}/posts`,
         pathname: `/${R.toLower(item.raw)}`,
       },
     },
