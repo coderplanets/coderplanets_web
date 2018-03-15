@@ -12,7 +12,7 @@ const pagedPosts = gql`
         updatedAt
         views
       }
-      totalEntries
+      totalCount
       pageSize
       pageNumber
     }
