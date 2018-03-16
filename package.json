@@ -114,7 +114,7 @@
     "mobx-react": "4.4.3",
     "mobx-state-tree": "1.4.0",
     "module-alias": "^2.0.1",
-    "next": "5.0.1-canary.7",
+    "next": "5.0.1-canary.16",
     "path-match": "^1.2.4",
     "polished": "1.9.2",
     "prop-types": "^15.5.10",
