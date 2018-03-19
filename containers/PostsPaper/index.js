@@ -221,7 +221,7 @@ class PostsPaperContainer extends React.Component {
               activeLength={wordLength}
             />
             <FilterResultHint>
-              结果约 {postsData.totalEntries} 条
+              结果约 {postsData.totalCount} 条
             </FilterResultHint>
           </FilterWrapper>
 
@@ -231,7 +231,7 @@ class PostsPaperContainer extends React.Component {
             <Pagination
               current={postsData.pageNumber}
               pageSize={postsData.pageSize}
-              total={postsData.totalEntries}
+              total={postsData.totalCount}
               itemRender={itemRender}
               onChange={logic.pageChange}
             />
