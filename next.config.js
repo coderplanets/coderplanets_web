@@ -12,13 +12,13 @@ module.exports = {
       '/': { page: '/' },
       // '/ruby': { page: '/', query: { name: 'ruby' } },
       '/js/posts': { page: '/', query: { main: 'js', sub: 'posts' } },
-      '/intro/i': { page: '/intro', query: { name: 'index' } },
-      '/intro/feature': { page: '/intro', query: { name: 'feature' } },
-      '/intro/theme': { page: '/intro', query: { name: 'theme' } },
-      '/intro/i18n': { page: '/intro', query: { name: 'i18n' } },
-      '/intro/example': { page: '/intro', query: { name: 'example' } },
-      '/intro/cmdpanel': { page: '/intro', query: { name: 'cmdpanel' } },
-      '/intro/graphql': { page: '/intro', query: { name: 'graphql' } },
+      /* '/intro/i': { page: '/intro', query: { name: 'index' } }, */
+      /* '/intro/feature': { page: '/intro', query: { name: 'feature' } }, */
+      /* '/intro/theme': { page: '/intro', query: { name: 'theme' } }, */
+      /* '/intro/i18n': { page: '/intro', query: { name: 'i18n' } }, */
+      /* '/intro/example': { page: '/intro', query: { name: 'example' } }, */
+      /* '/intro/cmdpanel': { page: '/intro', query: { name: 'cmdpanel' } }, */
+      /* '/intro/graphql': { page: '/intro', query: { name: 'graphql' } }, */
     }
   },
 
