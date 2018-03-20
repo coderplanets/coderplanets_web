@@ -6941,19 +6941,21 @@ mobx-react-devtools@^4.2.15:
   version "4.2.15"
   resolved "http://r.cnpmjs.org/mobx-react-devtools/download/mobx-react-devtools-4.2.15.tgz#881c038fb83db4dffd1e72bbaf5374d26b2fdebb"
 
-mobx-react@4.4.3:
-  version "4.4.3"
-  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-4.4.3.tgz#baa9ec41165ee35ae7b9df19bca10190f36f117e"
+mobx-react@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-5.0.0.tgz#8d5a33be376fa22b184a6f555d40a6a3a8459a16"
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
-mobx-state-tree@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/mobx-state-tree/-/mobx-state-tree-1.4.0.tgz#c914c855d5ec5c1c16e4ba6d6925679df42c8110"
+mobx-state-tree@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/mobx-state-tree/-/mobx-state-tree-2.0.1.tgz#7594b0836bc0c92d93788c7edc999855205ed43b"
+  dependencies:
+    mobx "^4.0.2"
 
-mobx@3.6.2:
-  version "3.6.2"
-  resolved "https://registry.npmjs.org/mobx/-/mobx-3.6.2.tgz#fb9f5ff5090539a1ad54e75dc4c098b602693320"
+mobx@4.1.0, mobx@^4.0.2:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/mobx/-/mobx-4.1.0.tgz#e4a9679cdafbe215b20e32ef93a7031845b3f1af"
 
 module-alias@^2.0.1:
   version "2.0.1"
