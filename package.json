@@ -1,6 +1,6 @@
 {
-  "name": "mastani",
-  "version": "0.0.1",
+  "name": "mastani_web",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev run-p server lint:watch",
