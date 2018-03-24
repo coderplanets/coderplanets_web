@@ -14,9 +14,9 @@
     <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
   </a>
 
-  <a href='https://coveralls.io/github/mydearxym/mastani?branch=dev' target="_blank">
+  <a href='https://coveralls.io/github/mydearxym/mastani_web?branch=master' target="_blank">
     <img
-    src='https://coveralls.io/repos/github/mydearxym/mastani/badge.svg?branch=dev'
+    src='https://coveralls.io/repos/github/mydearxym/mastani_web/badge.svg?branch=master'
     alt='Coverage Status' />
   </a>
 
