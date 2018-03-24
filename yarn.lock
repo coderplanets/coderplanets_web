@@ -6893,10 +6893,6 @@ mkdirp-then@1.2.0:
   dependencies:
     minimist "0.0.8"
 
-mobx-react-devtools@^4.2.15:
-  version "4.2.15"
-  resolved "http://r.cnpmjs.org/mobx-react-devtools/download/mobx-react-devtools-4.2.15.tgz#881c038fb83db4dffd1e72bbaf5374d26b2fdebb"
-
 mobx-react@5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-5.0.0.tgz#8d5a33be376fa22b184a6f555d40a6a3a8459a16"
