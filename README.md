@@ -20,6 +20,12 @@
     alt='Coverage Status' />
   </a>
 
+  <a href='https://github.com/facebook/jest' target="_blank">
+    <img
+    src='https://facebook.github.io/jest/img/jest-badge.svg'
+    alt='test with jest' />
+  </a>
+
   <a href="https://greenkeeper.io" target="_blank">
     <img src="https://badges.greenkeeper.io/mydearxym/mastani.svg" alt="greenkeeper enabled" />
   </a>
@@ -31,6 +37,7 @@
   <a href="https://david-dm.org/mydearxym/mastani" target="_blank">
     <img src="https://david-dm.org/mydearxym/mastani.svg" alt="Dependency Status" />
   </a>
+
   <a href="https://github.com/styled-components/styled-components" target="_blank">
     <img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e" alt="Dependency Status" />
   </a>
