@@ -133,7 +133,7 @@ const dataResolver = [
 
 function handleError(res) {
   switch (res.error) {
-    case ERR.PARSE_CRAPHQL:
+    case ERR.CRAPHQL:
       res.details.map(error => {
         debug(`path: ${error.path} : detail: ${error.detail}`)
         return false

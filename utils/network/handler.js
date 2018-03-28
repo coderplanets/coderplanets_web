@@ -26,7 +26,7 @@ export const formatGraphErrors = error => {
         path: path ? R.join(' |> ', path) : '',
       })
     })
-    return { error: ERR.PARSE_CRAPHQL, details }
+    return { error: ERR.CRAPHQL, details }
   }
 
   /* debug('maybe a network error') */

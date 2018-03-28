@@ -33,7 +33,6 @@ const LoadingItem = ({ theme }) => (
 )
 
 const PostsLoading = ({ num, theme }) => {
-  // console.log('theme: ', theme)
   // const ukey = shortid.generate()
   const range = R.range(0, num)
   return range.map(() => (

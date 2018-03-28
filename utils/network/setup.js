@@ -4,7 +4,7 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-fetch'
-import { onError } from 'apollo-link-error'
+/* import { onError } from 'apollo-link-error' */
 
 import { makeDebugger } from '../../utils'
 
@@ -33,6 +33,7 @@ const retryLink = new RetryLink({
   },
 })
 
+/*
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
     graphQLErrors.map(
@@ -42,12 +43,11 @@ const errorLink = onError(({ graphQLErrors }) => {
           : debug(`[GraphQL error]: ${message}`)
     )
   }
-  /*
-  if (networkError) {
-    debug(`[Network error]: ${networkError}`)
-  }
-  */
+  // if (networkError) {
+    // debug(`[Network error]: ${networkError}`)
+  // }
 })
+*/
 
 export const context = {
   headers: {
@@ -56,7 +56,9 @@ export const context = {
   },
 }
 
-const link = ApolloLink.from([errorLink, retryLink, graphLink])
+/* const link = ApolloLink.from([errorLink, retryLink, graphLink]) */
+const link = ApolloLink.from([retryLink, graphLink])
+
 // single-instance-pattern
 // see: https://k94n.com/es6-modules-single-instance-pattern
 export const client = new ApolloClient({

@@ -22,6 +22,8 @@ export {
   holdPage,
   unholdPage,
   cutFrom,
+  getParameterByName,
+  $solver,
 } from './functions'
 
 /*

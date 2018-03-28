@@ -29,12 +29,6 @@ const HeaderStore = t
 
     get leftOffset() {
       const curSidebarPin = self.root.sidebar.pin
-
-      /*
-      console.log('curSidebarPin: ', curSidebarPin)
-      console.log('preSidebarPin: ', self.preSidebarPin)
-      console.log('self.fixed: ', self.fixed)
-       */
       if (
         (!curSidebarPin && !self.preSidebarPin && !self.fixed) ||
         (!curSidebarPin && !self.preSidebarPin) ||

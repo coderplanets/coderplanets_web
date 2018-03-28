@@ -3,13 +3,13 @@ import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/fromPromise'
 
-import { makeDebugger } from '../../utils'
+/* import { makeDebugger } from '../../utils' */
 import { client, context, USE_CACHE } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('Network')
+/* const debug = makeDebugger('Network') */
 /* eslint-enable no-unused-vars */
 
 const doQuery = (query, variables) =>

@@ -51,7 +51,6 @@ class MastaniEditor extends React.Component {
   }
 
   componentWillMount() {
-    // console.log('will this.props.body: ', this.props.body)
     this.loadDraft()
   }
 

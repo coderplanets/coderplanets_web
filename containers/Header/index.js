@@ -11,7 +11,12 @@ import keydown from 'react-keydown'
 // import Link from 'next/link'
 import Navigator from '../../components/Navigator'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import {
+  makeDebugger,
+  storeSelector,
+  getSVGIconPath,
+  getParameterByName,
+} from '../../utils'
 
 import {
   Header,
@@ -56,6 +61,17 @@ class HeaderContainer extends React.Component {
   componentWillMount() {
     debug('mount')
     logic.init(this.props.header)
+  }
+
+  componentDidMount() {
+    const code = getParameterByName('code')
+    const state = getParameterByName('state')
+
+    if (code && state === 'from_github') {
+      console.log('-----> componentDidMount code: ', code)
+      logic.signinGithub(code)
+      /* query_for_token? */
+    }
   }
 
   /* eslint-disable class-methods-use-this */
