@@ -16,6 +16,7 @@ import {
   storeSelector,
   getSVGIconPath,
   getParameterByName,
+  Global,
 } from '../../utils'
 
 import {
@@ -64,12 +65,13 @@ class HeaderContainer extends React.Component {
   }
 
   componentDidMount() {
-    const code = getParameterByName('code')
-    const state = getParameterByName('state')
+    const fuck = getParameterByName('fuck')
 
-    if (code && state === 'from_github') {
-      console.log('-----> componentDidMount code: ', code)
-      logic.signinGithub(code)
+    if (fuck) {
+      console.log('i am here to fuck you')
+      Global.postMessage('love you', Global.location.href)
+      /* console.log('-----> componentDidMount code: ', code) */
+      /* logic.signinGithub(code) */
       /* query_for_token? */
     }
   }

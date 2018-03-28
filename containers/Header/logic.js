@@ -5,7 +5,7 @@ import {
   dispatchEvent,
   EVENT,
   TYPE,
-  //  Global,
+  Global,
   ERR,
   $solver,
   // getParameterByName,
@@ -55,7 +55,17 @@ export function previewAccount() {
 
   /* Global.location.href = url */
   /* console.log('getParameterByName:', getParameterByName('recoe')) */
-  popup(url)
+  popup('http://localhost:3000?code=djfiekdjfie')
+  /* popup(url) */
+
+  Global.addEventListener('message', e => {
+    if (e.origin === Global.location.origin) {
+      if (e.data.from_child) {
+        debug('收到合法消息: ', e.data)
+        Global.postMessage({ from_parent: true }, Global.location.href)
+      }
+    }
+  })
 
   /*
   dispatchEvent(EVENT.PREVIEW, {

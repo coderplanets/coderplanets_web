@@ -1,22 +1,27 @@
+// From https://gist.github.com/gauravtiwari/2ae9f44aee281c759fe5a66d5c2721a2
+// By https://gist.github.com/gauravtiwari
+
 /* global window */
+
+// import {getParameterByName} from '../../utils'
 
 const popup = myUrl => {
   const windowArea = {
-    width: Math.floor(window.outerWidth * 0.8),
+    width: Math.floor(window.outerWidth * 0.6),
     height: Math.floor(window.outerHeight * 0.5),
   }
 
   if (windowArea.width < 1000) {
-    windowArea.width = 1000
+    windowArea.width = 600
   }
   if (windowArea.height < 630) {
-    windowArea.height = 630
+    windowArea.height = 550
   }
   windowArea.left = Math.floor(
     window.screenX + (window.outerWidth - windowArea.width) / 2
   )
   windowArea.top = Math.floor(
-    window.screenY + (window.outerHeight - windowArea.height) / 8
+    window.screenY + (window.outerHeight - windowArea.height) / 3
   )
 
   const sep = myUrl.indexOf('?') !== -1 ? '&' : '?'
@@ -32,6 +37,24 @@ const popup = myUrl => {
     : 'attachEvent'
   const eventer = window[eventMethod]
   const messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message'
+
+  /* const Timer = setInterval(() => { */
+  // detect code here
+  const Timer = setTimeout(() => {
+    console.log('authWindow.location.search: ', authWindow.location.search)
+    window.postMessage(
+      { from_child: authWindow.location.search },
+      window.location.href
+    )
+  }, 1000)
+
+  // authWindow[eventMethod]
+  authWindow.addEventListener('load', () => {})
+
+  // user close authWindow
+  authWindow[eventMethod]('beforeunload', () => {
+    clearInterval(Timer)
+  })
 
   // Listen to message from child window
   const authPromise = new Promise((resolve, reject) => {
@@ -49,21 +72,18 @@ const popup = myUrl => {
           )
           /* eslint-enable */
         ) {
+          clearInterval(Timer)
           authWindow.close()
           reject('Not allowed')
         }
 
-        if (msg.data.payload) {
-          try {
-            resolve(JSON.parse(msg.data.payload))
-          } catch (e) {
-            resolve(msg.data.payload)
-          } finally {
-            authWindow.close()
-          }
-        } else {
+        if (msg.data.from_parent) {
+          clearInterval(Timer)
           authWindow.close()
-          reject('Unauthorised')
+        } else {
+          // clearInterval(Timer)
+          // authWindow.close()
+          // reject('Unauthorised')
         }
       },
       false
