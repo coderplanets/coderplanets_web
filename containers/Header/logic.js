@@ -55,8 +55,8 @@ export function previewAccount() {
 
   /* Global.location.href = url */
   /* console.log('getParameterByName:', getParameterByName('recoe')) */
-  popup('http://localhost:3000?code=djfiekdjfie')
-  /* popup(url) */
+  // popup('http://localhost:3000?code=djfiekdjfie')
+  popup(url)
 
   Global.addEventListener('message', e => {
     if (e.origin === Global.location.origin) {
