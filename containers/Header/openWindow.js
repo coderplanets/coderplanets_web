@@ -5,7 +5,7 @@
 
 // import {getParameterByName} from '../../utils'
 
-const popup = myUrl => {
+const popup = authUrl => {
   const windowArea = {
     width: Math.floor(window.outerWidth * 0.6),
     height: Math.floor(window.outerHeight * 0.5),
@@ -24,8 +24,8 @@ const popup = myUrl => {
     window.screenY + (window.outerHeight - windowArea.height) / 3
   )
 
-  const sep = myUrl.indexOf('?') !== -1 ? '&' : '?'
-  const url = `${myUrl}${sep}`
+  const sep = authUrl.indexOf('?') !== -1 ? '&' : '?'
+  const url = `${authUrl}${sep}`
   const windowOpts = `toolbar=0,scrollbars=1,status=1,resizable=1,location=1,menuBar=0,
     width=${windowArea.width},height=${windowArea.height},
     left=${windowArea.left},top=${windowArea.top}`

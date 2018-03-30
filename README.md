@@ -6,12 +6,8 @@
   <div> work in progress ...</div>
   <br/><br/>
   
-  <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
-    <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
-  </a>
-
-  <a href="https://travis-ci.org/mydearxym/mastani" target="_blank">
-    <img src="https://travis-ci.org/mydearxym/mastani.svg" alt="Build Status" />
+  <a href="https://travis-ci.org/mydearxym/mastani_web" target="_blank">
+    <img src="https://api.travis-ci.org/mydearxym/mastani_web.svg?branch=dev" alt="Build Status" />
   </a>
 
   <a href='https://coveralls.io/github/mydearxym/mastani_web?branch=master' target="_blank">
@@ -24,6 +20,10 @@
     <img
     src='https://facebook.github.io/jest/img/jest-badge.svg'
     alt='test with jest' />
+  </a>
+  
+  <a href="https://github.com/prettier/prettier" target="_blank">
+    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier" />
   </a>
 
   <a href="https://greenkeeper.io" target="_blank">
@@ -41,9 +41,9 @@
   <a href="https://github.com/styled-components/styled-components" target="_blank">
     <img src="https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e" alt="Dependency Status" />
   </a>
-  
-  <a href="https://github.com/prettier/prettier" target="_blank">
-    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier" />
+    
+  <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
+    <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
   </a>
 </div>
 
