@@ -1,5 +1,5 @@
 const dev = process.env.NODE_ENV !== 'production'
-const goal = process.env.GOAL
+// const goal = process.env.GOAL
 
 const { createServer } = require('http')
 const { parse } = require('url')
@@ -24,7 +24,6 @@ const route = pathMatch()
    }
  */
 
-console.log('i am server goal: ', goal)
 // const langMatch = route('/lang/:name')
 mobxReact.useStaticRendering(true)
 
