@@ -56,6 +56,7 @@ module.exports = {
     config.plugins.push(
       new Dotenv({
         path: './.env',
+        systemvars: true,
       })
     )
 

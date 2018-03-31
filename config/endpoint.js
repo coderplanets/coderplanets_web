@@ -1,20 +1,21 @@
 /* config for different envs */
-export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
 
-export const others = 1
+export const otherAPI = '....'
 
 const getGraphQLEndpoint = () => {
-  switch (process.env.NODE_ENV) {
+  switch (process.env.GOAL) {
     case 'production':
       return 'http://api.coderplanets.com/graphiql'
 
-    case 'development':
+    case 'dev':
       return 'http://devapi.coderplanets.com/graphiql'
 
-    case 'mock':
+    case 'local':
       return 'http://localhost:4001/graphiql'
 
     default:
       return 'http://localhost:4001/graphiql'
   }
 }
+
+export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
