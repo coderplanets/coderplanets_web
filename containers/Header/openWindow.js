@@ -40,21 +40,30 @@ const popup = authUrl => {
 
   /* const Timer = setInterval(() => { */
   // detect code here
-  const Timer = setTimeout(() => {
-    console.log('authWindow.location.search: ', authWindow.location.search)
+  const scanTimer = setInterval(() => {
+    /* const scanTimer = setTimeout(() => { */
+    // console.log('authWindow.location.search: ', authWindow.location.search)
+    // console.log('authWindow.location.location href: ', authWindow.location.href)
+    if (
+      authWindow.location.search === undefined &&
+      authWindow.location.href === undefined
+    ) {
+      console.log('close for user close')
+      clearInterval(scanTimer)
+    }
     window.postMessage(
       { from_child: authWindow.location.search },
       window.location.href
     )
   }, 1000)
 
-  // authWindow[eventMethod]
-  authWindow.addEventListener('load', () => {})
-
-  // user close authWindow
-  authWindow[eventMethod]('beforeunload', () => {
-    clearInterval(Timer)
+  // beforeunload not work here casue there is a redirect
+  /*
+  window[eventMethod]('beforeunload', () => {
+    console.log('user close authWindow 2 ??')
+     clearInterval(scanTimer)
   })
+  */
 
   // Listen to message from child window
   const authPromise = new Promise((resolve, reject) => {
@@ -72,15 +81,16 @@ const popup = authUrl => {
           )
           /* eslint-enable */
         ) {
-          clearInterval(Timer)
+          clearInterval(scanTimer)
           authWindow.close()
           reject('Not allowed')
         }
 
         if (msg.data.from_parent) {
-          clearInterval(Timer)
+          clearInterval(scanTimer)
           authWindow.close()
         } else {
+          // clearInterval(Timer)
           // clearInterval(Timer)
           // authWindow.close()
           // reject('Unauthorised')

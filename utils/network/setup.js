@@ -7,6 +7,7 @@ import fetch from 'isomorphic-fetch'
 /* import { onError } from 'apollo-link-error' */
 
 import { makeDebugger } from '../../utils'
+import { GRAPHQL_ENDPOINT } from '../../utils/config'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('Network')
@@ -14,7 +15,7 @@ const debug = makeDebugger('Network')
 
 export const USE_CACHE = false
 
-const graphLink = new HttpLink({ uri: 'http://localhost:4001/graphiql', fetch })
+const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
 export const TIMEOUT_THRESHOLD = 15000 // 5 sec
 export const GRAPHQL_TIMEOUT = 15000
