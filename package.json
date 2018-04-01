@@ -172,7 +172,7 @@
     "graphql-cli-voyager": "^0.1.2",
     "husky": "^0.14.3",
     "jest": "22.4.2",
-    "lint-staged": "7.0.0",
+    "lint-staged": "7.0.2",
     "npm-run-all": "^4.1.1",
     "plop": "^1.8.1",
     "prettier": "1.11.1",
