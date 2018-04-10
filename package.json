@@ -137,6 +137,7 @@
     "react-masonry-component": "^6.0.1",
     "react-svg": "2.2.14",
     "react-tooltip": "^3.4.0",
+    "react-trend": "^1.2.4",
     "react-waypoint": "^8.0.0",
     "remarkable": "^1.7.1",
     "remarkable-emoji": "^0.1.3",

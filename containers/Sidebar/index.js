@@ -9,6 +9,7 @@ import Link from 'next/link'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import Trend from 'react-trend'
 
 import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 import PinButton from './PinButton'
@@ -20,8 +21,8 @@ import {
   MenuItemEach,
   MenuItemIcon,
   MiniChartWrapper,
-  MiniChartBar,
-  MiniChartText,
+  /* MiniChartBar, */
+  /* MiniChartText, */
 } from './styles'
 import * as logic from './logic'
 
@@ -33,6 +34,8 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 })
 
 const MenuList = ({ items, pin, curPath }) => {
+  const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]
+
   const listItems = (
     <DragDropContext onDragEnd={console.log}>
       <Droppable droppableId="droppable">
@@ -66,9 +69,21 @@ const MenuList = ({ items, pin, curPath }) => {
                             <a style={{ textDecoration: 'none' }}>
                               {item.name}
                             </a>
+
                             <MiniChartWrapper pin={pin}>
-                              <MiniChartBar />
-                              <MiniChartText>247</MiniChartText>
+                              {/* <MiniChartBar /> */}
+                              <Trend
+                                smooth
+                                autoDraw
+                                autoDrawDuration={1000}
+                                autoDrawEasing="ease-out"
+                                data={sparkData}
+                                gradient={['#51ABB2', 'violet']}
+                                radius={15}
+                                strokeWidth={7}
+                                strokeLinecap="round"
+                              />
+                              {/* <MiniChartText>247</MiniChartText> */}
                             </MiniChartWrapper>
                           </MenuRow>
                         </Link>
@@ -86,45 +101,45 @@ const MenuList = ({ items, pin, curPath }) => {
     </DragDropContext>
   )
   /*
-  const listItems2 = items.map(item => (
-    <li key={item.name}>
-      <div>
-        <Link href={item.target.href} as={item.target.as}>
-          <MenuRow pin={pin} active={curPath === R.toLower(item.name)}>
-            <MenuItemIcon
-              active={curPath === R.toLower(item.name)}
-              path={getSVGIconPath(item.name)}
-            />
-            <div style={{ marginRight: 10 }} />
-            <a>{item.name}</a>
-            <MiniChartWrapper pin={pin}>
-              <MiniChartBar />
-              <MiniChartText>247</MiniChartText>
-            </MiniChartWrapper>
-          </MenuRow>
-        </Link>
-      </div>
-    </li>
-  ))
-  */
+     const listItems2 = items.map(item => (
+     <li key={item.name}>
+     <div>
+     <Link href={item.target.href} as={item.target.as}>
+     <MenuRow pin={pin} active={curPath === R.toLower(item.name)}>
+     <MenuItemIcon
+     active={curPath === R.toLower(item.name)}
+     path={getSVGIconPath(item.name)}
+     />
+     <div style={{ marginRight: 10 }} />
+     <a>{item.name}</a>
+     <MiniChartWrapper pin={pin}>
+     <MiniChartBar />
+     <MiniChartText>247</MiniChartText>
+     </MiniChartWrapper>
+     </MenuRow>
+     </Link>
+     </div>
+     </li>
+     ))
+   */
   return <MenuItem>{listItems}</MenuItem>
 
   /*
   return (
-    <div>
-      <Droppable
-        type="fuck"
-        droppableId="fuck"
-        ignoreContainerClipping
-        isDropDisabled
-      >
-        {(provided, snapshot) => (
-          <ScrollContainer>
-            <MenuItem>{listItems}</MenuItem>
-          </ScrollContainer>
-        )}
-      </Droppable>
-    </div>
+  <div>
+    <Droppable
+      type="fuck"
+      droppableId="fuck"
+      ignoreContainerClipping
+      isDropDisabled
+    >
+      {(provided, snapshot) => (
+        <ScrollContainer>
+          <MenuItem>{listItems}</MenuItem>
+        </ScrollContainer>
+      )}
+    </Droppable>
+  </div>
   )
   */
 }
