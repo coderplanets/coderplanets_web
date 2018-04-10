@@ -18,7 +18,7 @@ export const formatGraphErrors = error => {
   const { graphQLErrors } = error
   // graphQLErrors may not catch in graph query (wrang sytax etc ...)
   // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-  if (notEmpty(graphQLErrors)) {
+  if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
     const details = []
     graphQLErrors.map(({ message, path, detail }) => {
       return details.push({
@@ -29,6 +29,7 @@ export const formatGraphErrors = error => {
     return { error: ERR.CRAPHQL, details }
   }
 
+  debug('--> error: ', error)
   /* debug('maybe a network error') */
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }

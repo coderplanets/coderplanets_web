@@ -7,30 +7,32 @@ import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils'
 
 import RouteStore from '../RouteStore'
+
 import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
-import PostsStore from '../PostsStore'
 
-import BodylayoutStore from '../BodylayoutStore'
-import ApiLayoutStore from '../ApiLayoutStore'
-import SidebarStore from '../SidebarStore'
-import PreviewStore from '../PreviewStore'
-import DoraemonStore from '../DoraemonStore'
-import GithubEampleStore from '../GithubEampleStore'
-import HeaderStore from '../HeaderStore'
-import BannerStore from '../BannerStore'
-import ContentStore from '../ContentStore'
-
-import ArticleViwerStore from '../ArticleViwerStore'
-import AccountViewerStore from '../AccountViewerStore'
-import TypeWriterStore from '../TypeWriterStore'
-import CommentsStore from '../CommentsStore'
-
-import PostsPaperStore from '../PostsPaperStore'
-import TutsViewerStore from '../TutsViewerStore'
-import MapViewerStore from '../MapViewerStore'
-import JobsViewerStore from '../JobsViewerStore'
-import CheatSheetViewerStore from '../CheatSheetViewerStore'
+import {
+  AccountStore,
+  BodylayoutStore,
+  PostsStore,
+  ApiLayoutStore,
+  SidebarStore,
+  PreviewStore,
+  DoraemonStore,
+  GithubEampleStore,
+  HeaderStore,
+  BannerStore,
+  ContentStore,
+  ArticleViwerStore,
+  AccountViewerStore,
+  TypeWriterStore,
+  CommentsStore,
+  PostsPaperStore,
+  TutsViewerStore,
+  MapViewerStore,
+  JobsViewerStore,
+  CheatSheetViewerStore,
+} from '../storeIndex'
 
 const debug = makeDebugger('S:rootStore')
 
@@ -38,13 +40,13 @@ const rootStore = t
   .model({
     version: t.optional(t.string, '0.0.4'),
     // domain modal
+    account: t.optional(AccountStore, {}),
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
     posts: t.optional(PostsStore, {}),
     // subscriptions: ...
     // mySubscriptions: ...
     // posts: ...
-    // TODO: account: ...{ config } ..
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
@@ -98,8 +100,12 @@ const rootStore = t
     get curPath() {
       return self.route.curPath
     },
+    // TODO: rename to routeInfo
     get curRoute() {
       return self.route.curRoute
+    },
+    get accountInfo() {
+      return self.account.accountInfo
     },
   }))
   .actions(self => ({
@@ -108,6 +114,10 @@ const rootStore = t
       self.communities.load()
       self.sidebar.load()
       // self.posts.load()
+    },
+
+    updateAccount(sobj) {
+      self.account.updateAccount(sobj)
     },
     setHeaderFix(fix) {
       self.header.setFix(fix)

@@ -42,10 +42,10 @@ export const CommunityLogo = styled(ReactSVG)`
 `
 
 /*
-border-bottom: 2px solid;
-border-bottom-color: ${props =>
-  props.active ? theme('paper.article_title') : theme('header.fixed')};
-*/
+   border-bottom: 2px solid;
+   border-bottom-color: ${props =>
+   props.active ? theme('paper.article_title') : theme('header.fixed')};
+ */
 
 // ${theme('paper.article_title', props)}
 // border-bottom: ${props => (props.active ? '2px solid tomato' : '')};
@@ -99,6 +99,14 @@ export const HeaderIcon = styled(ReactSVG)`
   cursor: pointer;
   margin-top: 2px;
   margin-right: 12px;
+`
+
+export const UserAvatar = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 12px;
+  border-radius: 3px;
 `
 
 export const Operations = styled.div`

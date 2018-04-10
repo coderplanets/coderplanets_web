@@ -12,20 +12,16 @@ import {
   UserHeader,
 } from './styles/userheader'
 
-const UserHeaderSection = () => {
+const UserHeaderSection = ({ accountInfo }) => {
   return (
     <UserWrapper>
       <UserHeader>
         <UserInfo>
-          <Avatar
-            src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
-            alt="user_avatar"
-          />
+          <Avatar src={accountInfo.avatar} alt="user_avatar" />
           <UserBrief>
-            <UserName>mydearxym</UserName>
+            <UserName>{accountInfo.nickname}</UserName>
             <BriefInfo>教育经历:&nbsp; 成都信息工程学院</BriefInfo>
-            <BriefInfo>所在公司:&nbsp; 英夫美迪</BriefInfo>
-            <BriefInfo>个人简介:&nbsp; coderplanets.com 作者</BriefInfo>
+            <BriefInfo>bio:&nbsp; {accountInfo.bio}</BriefInfo>
             <BriefInfo>所在地区:&nbsp; 成都</BriefInfo>
           </UserBrief>
         </UserInfo>

@@ -13,7 +13,19 @@ const githubSignin = gql`
   }
 `
 
+const user = gql`
+  query user($id: ID!) {
+    user(id: $id) {
+      nickname
+      avatar
+      bio
+      fromGithub
+    }
+  }
+`
+
 const schema = {
+  user,
   githubSignin,
   githubSigninRes,
 }

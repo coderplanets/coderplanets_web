@@ -64,7 +64,6 @@ export function filterOnSelect(key, val) {
 }
 
 export function tagOnSelect(obj) {
-  // debug('tagOnSelect: ', obj)
   postsPaper.selectTag(obj)
   loadPosts()
 }
@@ -124,14 +123,14 @@ const ErrSolver = [
   {
     match: R.pathEq(['error'], ERR.NOT_FOUND),
     action: ({ details }) => {
-      debug('ERR.NOT_FOUND', details)
+      debug('ERR..NOT_FOUND', details)
     },
   },
 ]
 
 export function init(selectedStore) {
   postsPaper = selectedStore
-  debug('@@@ init @@@i')
+  debug('@@@ init @@@ --')
   if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

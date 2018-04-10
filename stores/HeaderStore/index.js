@@ -23,6 +23,9 @@ const HeaderStore = t
     get curRoute() {
       return self.root.curRoute
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get curCommunity() {
       return self.root.communities.curCommunity
     },
@@ -53,6 +56,9 @@ const HeaderStore = t
     setFix(fixed = false) {
       self.preSidebarPin = self.root.sidebar.pin
       self.fixed = fixed
+    },
+    updateAccount(sobj) {
+      self.root.updateAccount(sobj)
     },
     openDoraemon() {
       self.root.openDoraemon()

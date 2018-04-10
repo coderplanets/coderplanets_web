@@ -38,12 +38,13 @@ class AccountViewerContainer extends React.Component {
   }
 
   render() {
-    const { themeKeys, curTheme } = this.props.accountViewer
+    const { themeKeys, curTheme, accountInfo } = this.props.accountViewer
 
+    debug('accountInfo:', accountInfo)
     return (
       <AccountWrapper>
         <AccountContent>
-          <UserHeader />
+          <UserHeader accountInfo={accountInfo} />
           <Divider top="10px" bottom="20px" />
           <Planets />
           <Divider top="10px" bottom="20px" />

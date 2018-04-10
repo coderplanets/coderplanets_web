@@ -15,8 +15,7 @@ import {
   makeDebugger,
   storeSelector,
   getSVGIconPath,
-  getParameterByName,
-  Global,
+  notEmpty,
 } from '../../utils'
 
 import {
@@ -29,6 +28,7 @@ import {
   Search,
   Notification,
   HeaderIcon,
+  UserAvatar,
   StateIcon,
   StateButton,
   DividerIcon,
@@ -64,18 +64,6 @@ class HeaderContainer extends React.Component {
     logic.init(this.props.header)
   }
 
-  componentDidMount() {
-    const fuck = getParameterByName('fuck')
-
-    if (fuck) {
-      console.log('i am here to fuck you')
-      Global.postMessage('love you', Global.location.href)
-      /* console.log('-----> componentDidMount code: ', code) */
-      /* logic.signinGithub(code) */
-      /* query_for_token? */
-    }
-  }
-
   /* eslint-disable class-methods-use-this */
   @keydown(['ctrl+p'])
   openDoraemon() {
@@ -85,7 +73,7 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { fixed, curRoute, leftOffset } = this.props.header
+    const { fixed, curRoute, leftOffset, accountInfo } = this.props.header
 
     return (
       <Affix>
@@ -121,7 +109,11 @@ class HeaderContainer extends React.Component {
               <HeaderIcon path={getSVGIconPath('notification')} />
             </Notification>
             <User onClick={logic.previewAccount.bind(this, 'account')}>
-              <HeaderIcon path={getSVGIconPath('header_user')} />
+              {notEmpty(accountInfo.nickname) ? (
+                <UserAvatar src={accountInfo.avatar} />
+              ) : (
+                <HeaderIcon path={getSVGIconPath('header_user')} />
+              )}
             </User>
           </Operations>
         </Header>

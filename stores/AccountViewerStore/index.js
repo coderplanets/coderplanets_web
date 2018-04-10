@@ -20,6 +20,9 @@ const AccountViewerStore = t
     get themeKeys() {
       return self.root.theme.themeKeys
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get curTheme() {
       return self.root.theme.curTheme
     },
