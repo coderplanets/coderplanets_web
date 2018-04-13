@@ -145,7 +145,7 @@
     "timeago-react": "2.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "8.2.2",
+    "babel-eslint": "8.2.3",
     "babel-jest": "22.4.1",
     "babel-plugin-import": "1.6.7",
     "babel-plugin-ramda": "1.5.0",
