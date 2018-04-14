@@ -29,6 +29,7 @@ class ApiLayoutContainer extends React.Component {
 
 ApiLayoutContainer.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
+  apiLayout: PropTypes.object.isRequired,
 }
 
 ApiLayoutContainer.defaultProps = {

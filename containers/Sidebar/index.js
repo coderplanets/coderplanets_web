@@ -37,7 +37,7 @@ const MenuList = ({ items, pin, curPath }) => {
   const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]
 
   const listItems = (
-    <DragDropContext onDragEnd={console.log}>
+    <DragDropContext onDragEnd={debug}>
       <Droppable droppableId="droppable">
         {provided => (
           <div ref={provided.innerRef}>
@@ -76,7 +76,7 @@ const MenuList = ({ items, pin, curPath }) => {
                                 smooth
                                 autoDraw
                                 autoDrawDuration={1000}
-                                autoDrawEasing="ease-out"
+                                autoDrawEasing="ease-in"
                                 data={sparkData}
                                 gradient={['#51ABB2', 'violet']}
                                 radius={15}

@@ -3,8 +3,7 @@
 
 /* global window */
 
-// import {getParameterByName} from '../../utils'
-
+/* eslint-disable */
 const popup = authUrl => {
   const windowArea = {
     width: Math.floor(window.outerWidth * 0.6),
@@ -102,5 +101,6 @@ const popup = authUrl => {
 
   return authPromise
 }
+/* eslint-enable */
 
 export default popup

@@ -19,15 +19,18 @@ import {
   SidebarStore,
   PreviewStore,
   DoraemonStore,
-  GithubEampleStore,
   HeaderStore,
   BannerStore,
   ContentStore,
+  // papers
+  PostsPaperStore,
+  CommunitiesContentStore,
+  CheatSheetContentStore,
+  // viewers
   ArticleViwerStore,
   AccountViewerStore,
   TypeWriterStore,
   CommentsStore,
-  PostsPaperStore,
   TutsViewerStore,
   MapViewerStore,
   JobsViewerStore,
@@ -38,47 +41,51 @@ const debug = makeDebugger('S:rootStore')
 
 const rootStore = t
   .model({
+    // domain stores
     version: t.optional(t.string, '0.0.4'),
-    // domain modal
     account: t.optional(AccountStore, {}),
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
     posts: t.optional(PostsStore, {}),
-    // subscriptions: ...
-    // mySubscriptions: ...
-    // posts: ...
+    comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
     // domain end
 
+    // toolbox
+    sidebar: t.optional(SidebarStore, { menuItems: [] }),
+    preview: t.optional(PreviewStore, { visible: false }),
+    doraemon: t.optional(DoraemonStore, {}),
+    typeWriter: t.optional(TypeWriterStore, {}),
+    // toolbox end
+
+    // layouts > xxx > papers
+    // layouts
     bodylayout: t.optional(BodylayoutStore, {}),
     apiLayout: t.optional(ApiLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     banner: t.optional(BannerStore, {}),
     content: t.optional(ContentStore, {}),
-    sidebar: t.optional(SidebarStore, { menuItems: [] }),
-    preview: t.optional(PreviewStore, { visible: false }),
-    doraemon: t.optional(DoraemonStore, {}),
-    github: t.optional(GithubEampleStore, {}),
+    // layouts end
 
+    // content
+    communitiesContent: t.optional(CommunitiesContentStore, {}),
+    cheatSheatContent: t.optional(CheatSheetContentStore, {}),
+    // content end
+
+    // papers
+    postsPaper: t.optional(PostsPaperStore, {}),
+
+    // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
-    typeWriter: t.optional(TypeWriterStore, {}),
-    comments: t.optional(CommentsStore, {}),
 
-    postsPaper: t.optional(PostsPaperStore, {}),
+    // TODO rename to xxPaper
     tutsViewer: t.optional(TutsViewerStore, {}),
     mapViewer: t.optional(MapViewerStore, {}),
     jobsViewer: t.optional(JobsViewerStore, {}),
     cheatsheetViewer: t.optional(CheatSheetViewerStore, {}),
-    /*
-       cheatsheets ...
-       posts ...
-       videos ...
-       jobs ...
-       meetups ...
-     */
   })
   .views(self => ({
     get locale() {

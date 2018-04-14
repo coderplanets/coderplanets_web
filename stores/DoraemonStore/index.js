@@ -16,7 +16,7 @@ import cmds from './suggestions/cmd'
 const focusDoraemonBar = () => {
   setTimeout(() => {
     // side effect
-    /* eslint-disable no-undef */
+    /* eslint-disable */
     // has to use setTimeout
     // see: https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
     try {
@@ -24,7 +24,7 @@ const focusDoraemonBar = () => {
     } catch (e) {
       console.error(e)
     }
-    /* eslint-enable no-undef */
+    /* eslint-enable */
   }, 0)
 }
 

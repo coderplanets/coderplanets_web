@@ -1,8 +1,8 @@
 /*
-*
-* CheatSheetViewer
-*
-*/
+ *
+ * CheatSheetViewer
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -31,6 +31,7 @@ const md = new Remarkable()
 md.use(mentions({ url: 'http:coderplanets.com/users/' }))
 md.use(remarkableemoj)
 
+/* eslint-disable react/no-danger */
 const Cards = ({ cards }) =>
   cards.map(item => (
     <CardWrapper key={shortid.generate()}>
@@ -160,6 +161,7 @@ class CheatSheetViewerContainer extends React.Component {
     )
   }
 }
+/* eslint-enable react/no-danger */
 
 export default inject(storeSelector('cheatsheetViewer'))(
   observer(CheatSheetViewerContainer)
