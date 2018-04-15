@@ -5,14 +5,14 @@ import { makeDebugger, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:cheatsheetViewer')
+const debug = makeDebugger('L:cheatSheetPaper')
 /* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71()
-let cheatsheetViewer = null
+let cheatSheetPaper = null
 let sub$ = null
 
-/* cheatsheetViewer logic */
+/* cheatSheetPaper logic */
 const groupSpliter = '{{ ::group:: }}'
 const cardsHeaderSpliter = '{{ ::cards-header:: }}'
 const cardItemSpliter = '{{ ::card-item:: }}'
@@ -45,14 +45,14 @@ const CheatsheetCDN =
 
 export function getData(which) {
   const url = `${CheatsheetCDN}/${which}.md`
-  cheatsheetViewer.markState({
+  cheatSheetPaper.markState({
     state: 'loading',
   })
   sr71$.restGet(url)
 }
 
 function handleParseError(errMsg) {
-  cheatsheetViewer.markState({
+  cheatSheetPaper.markState({
     current: '',
     state: 'parse_error',
     errMsg: String(errMsg),
@@ -61,7 +61,7 @@ function handleParseError(errMsg) {
 }
 
 function handle404Error() {
-  cheatsheetViewer.markState({
+  cheatSheetPaper.markState({
     current: '',
     state: '404',
   })
@@ -69,7 +69,7 @@ function handle404Error() {
 
 const maybeEmptyState = v => (R.isEmpty(v) ? 'empty' : 'loaded')
 function handleLoaded(source) {
-  cheatsheetViewer.markState({
+  cheatSheetPaper.markState({
     source,
     state: maybeEmptyState(source),
   })
@@ -97,13 +97,13 @@ function handleError(res) {
       return false
 
     default:
-      debug('un handleError in ', cheatsheetViewer)
+      debug('un handleError in ', cheatSheetPaper)
       debug('un handleError: ', res)
   }
 }
 
 export function init(selectedStore) {
-  cheatsheetViewer = selectedStore
+  cheatSheetPaper = selectedStore
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe(res => {

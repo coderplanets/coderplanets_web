@@ -26,12 +26,14 @@ export default class MyDocument extends Document {
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-39874160-2"
           />
-          <script>
-            window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(
-              arguments
-            )}
-            gtag('js', new Date()); gtag('config', 'UA-39874160-2');
-          </script>
+          {/*
+               <script>
+               window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(
+               arguments
+               )}
+               gtag('js', new Date()); gtag('config', 'UA-39874160-2');
+               </script>
+             */}
 
           {styleTags}
         </Head>

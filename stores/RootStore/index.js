@@ -34,7 +34,7 @@ import {
   TutsViewerStore,
   MapViewerStore,
   JobsViewerStore,
-  CheatSheetViewerStore,
+  CheatSheetPaperStore,
 } from '../storeIndex'
 
 const debug = makeDebugger('S:rootStore')
@@ -76,6 +76,7 @@ const rootStore = t
 
     // papers
     postsPaper: t.optional(PostsPaperStore, {}),
+    cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
@@ -85,7 +86,6 @@ const rootStore = t
     tutsViewer: t.optional(TutsViewerStore, {}),
     mapViewer: t.optional(MapViewerStore, {}),
     jobsViewer: t.optional(JobsViewerStore, {}),
-    cheatsheetViewer: t.optional(CheatSheetViewerStore, {}),
   })
   .views(self => ({
     get locale() {

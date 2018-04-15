@@ -114,7 +114,7 @@ const renderContent = (source, state, errMsg) => {
 class CheatSheetViewerContainer extends React.Component {
   componentWillMount() {
     debug('mount')
-    logic.init(this.props.cheatsheetViewer)
+    logic.init(this.props.cheatSheetPaper)
   }
 
   componentDidMount() {
@@ -127,8 +127,8 @@ class CheatSheetViewerContainer extends React.Component {
 
   render() {
     //    const data = logic.transMarkDownforRender(code)
-    const { cheatsheetViewer } = this.props
-    const { source, state, errMsg } = cheatsheetViewer
+    const { cheatSheetPaper } = this.props
+    const { source, state, errMsg } = cheatSheetPaper
 
     return (
       <div>
@@ -163,6 +163,6 @@ class CheatSheetViewerContainer extends React.Component {
 }
 /* eslint-enable react/no-danger */
 
-export default inject(storeSelector('cheatsheetViewer'))(
+export default inject(storeSelector('cheatSheetPaper'))(
   observer(CheatSheetViewerContainer)
 )

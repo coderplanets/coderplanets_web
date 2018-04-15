@@ -1,5 +1,5 @@
 /*
- * CheatSheetViewerStore store
+ * CheatSheetPaperStore store
  *
  */
 
@@ -8,7 +8,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:CheatSheetViewerStore')
+const debug = makeDebugger('S:CheatSheetPaperStore')
 /* eslint-enable no-unused-vars */
 
 const MarkDownBlock = t.model('Suggestion', {
@@ -16,8 +16,8 @@ const MarkDownBlock = t.model('Suggestion', {
   cards: t.array(t.string),
 })
 
-const CheatSheetViewerStore = t
-  .model('CheatSheetViewerStore', {
+const CheatSheetPaperStore = t
+  .model('CheatSheetPaperStore', {
     current: t.optional(t.string, ''),
     source: t.optional(t.array(MarkDownBlock), []),
     errMsg: t.optional(t.string, ''),
@@ -45,4 +45,4 @@ const CheatSheetViewerStore = t
     },
   }))
 
-export default CheatSheetViewerStore
+export default CheatSheetPaperStore
