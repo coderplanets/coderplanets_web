@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import PostsPaper from '../../containers/PostsPaper'
 // TODO: rename to CheatSheetPapser
-import CheatSheetViewer from '../../containers/CheatSheetViewer'
+import CheatSheetPaper from '../../containers/CheatSheetPaper'
 import MapViewer from '../../containers/MapViewer'
 // import TutsViewer from '../TutsViewer'
 // import JobsViewer from '../JobsViewer'
@@ -28,28 +28,28 @@ const ComunityContent = ({ curRoute }) => {
       return <PostsPaper />
     }
     case 'news': {
-      return <PostsPaper />
+      return <h2>NesPaper</h2>
     }
     case 'tuts': {
-      return <PostsPaper />
+      return <h2>TutsPaper</h2>
     }
     case 'map': {
       return <MapViewer />
     }
     case 'meetups': {
-      return <PostsPaper />
+      return <h2>MeetupPaper</h2>
     }
     case 'users': {
-      return <div>users</div>
+      return <h2>UsersPaper</h2>
     }
     case 'videos': {
-      return <PostsPaper />
+      return <h2>VideosPaper</h2>
     }
     case 'jobs': {
       return <PostsPaper />
     }
     case 'cheatsheet': {
-      return <CheatSheetViewer />
+      return <CheatSheetPaper />
     }
     default: {
       return <div>posts</div>
