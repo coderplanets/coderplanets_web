@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
+import GAWraper from '../components/GAWraper'
 import initRootStore from '../stores'
 import ThemeWrapper from '../containers/ThemeWrapper'
 import MultiLanguage from '../containers/MultiLanguage'
@@ -39,19 +40,21 @@ export default class Index extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <ThemeWrapper>
-          <Route />
-          <MultiLanguage>
-            <Sidebar />
-            <Preview />
-            <Doraemon />
-            <BodyLayout>
-              <Header />
-              <Banner />
-              <Content />
-            </BodyLayout>
-          </MultiLanguage>
-        </ThemeWrapper>
+        <GAWraper>
+          <ThemeWrapper>
+            <Route />
+            <MultiLanguage>
+              <Sidebar />
+              <Preview />
+              <Doraemon />
+              <BodyLayout>
+                <Header />
+                <Banner />
+                <Content />
+              </BodyLayout>
+            </MultiLanguage>
+          </ThemeWrapper>
+        </GAWraper>
       </Provider>
     )
   }
