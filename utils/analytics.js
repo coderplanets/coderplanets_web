@@ -12,7 +12,7 @@ export const pageview = url => {
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 /*
   report event like this:
-  gtag.event({
+  GA.event({
     action: 'submit_form',
     category: 'Contact',
     label: this.state.message
