@@ -110,7 +110,7 @@
     "intl": "^1.2.5",
     "isomorphic-fetch": "^2.2.1",
     "mastani-codehighlight": "0.0.5",
-    "mobx": "4.1.0",
+    "mobx": "4.2.0",
     "mobx-react": "5.0.0",
     "mobx-state-tree": "2.0.1",
     "module-alias": "^2.0.1",
