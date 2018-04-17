@@ -33,7 +33,7 @@ const Tabber = ({ source, onChange }) => {
   return (
     <Tabs onChange={onChange}>
       {tabitems.map(item => (
-        <TabPane tab={translator[item.title] || item.title} key={item.raw} />
+        <TabPane tab={translator[item.title] || item.title} key={item.title} />
       ))}
     </Tabs>
   )
@@ -42,7 +42,7 @@ const Tabber = ({ source, onChange }) => {
 Tabber.propTypes = {
   // https://www.npmjs.com/package/prop-types
   onChange: PropTypes.func.isRequired,
-  source: PropTypes.object.isRequired,
+  source: PropTypes.array.isRequired,
 }
 
 Tabber.defaultProps = {}

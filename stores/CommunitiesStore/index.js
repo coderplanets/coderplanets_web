@@ -9,12 +9,14 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { mapKeys, makeDebugger } from '../../utils'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
-import { pl, framework, database } from '../DoraemonStore/suggestions'
+/* import { pl, framework, database } from '../DoraemonStore/suggestions' */
+import { pl } from '../DoraemonStore/suggestions'
 
 import PlModel from './PlModel'
-import FrameworkModel from './FrameworkModel'
-import DatabaseModel from './DatabaseModel'
-import CheatSheetModal from './CheatSheetModal'
+
+// import FrameworkModel from './FrameworkModel'
+// / import DatabaseModel from './DatabaseModel'
+// import CheatSheetModal from './CheatSheetModal'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:communities')
@@ -32,9 +34,9 @@ export const CommunitiesStore = t
     // TODO: refactor:  subscribed-communities, all-communities
     // id: t.identifier(),
     languages: t.map(PlModel),
-    frameworks: t.map(FrameworkModel),
-    databases: t.map(DatabaseModel),
-    cheatsheet: t.optional(CheatSheetModal, { title: '', desc: '', raw: '' }),
+    // frameworks: t.map(FrameworkModel),
+    // databases: t.map(DatabaseModel),
+    // cheatsheet: t.optional(CheatSheetModal, { title: '', desc: '', raw: '' }),
     // jobs: ...
     // themes: ...
     // debug: ...
@@ -48,25 +50,31 @@ export const CommunitiesStore = t
     get all() {
       return R.mergeAll([
         self.getLanguageLike(),
-        { cheatsheet: self.cheatsheet.toJSON() },
+        // { cheatsheet: self.cheatsheet.toJSON() },
       ])
       // return self.getLanguageLike()
     },
     get curCommunity() {
       const { curRoute } = self.root
-      const defaultCommunity = 'js'
+      const defaultCommunity = {
+        title: 'js',
+      }
 
       let { mainQuery } = curRoute
-      mainQuery = R.isEmpty(mainQuery) ? defaultCommunity : mainQuery
+      mainQuery = R.isEmpty(mainQuery) ? defaultCommunity.title : mainQuery
       try {
         return {
           header: R.pick(['title', 'desc', 'raw'], self.all[mainQuery]),
           body: R.omit(['desc', 'title', 'raw', 'parent'], self.all[mainQuery]),
+          threads: R.path(['threads'], self.all[mainQuery]),
+          title: R.path(['title'], self.all[mainQuery]),
         }
       } catch (e) {
         return {
           header: {},
           body: {},
+          threads: [],
+          title: defaultCommunity.title,
         }
       }
     },
@@ -80,11 +88,11 @@ export const CommunitiesStore = t
   }))
   .actions(self => ({
     load() {
-      debug('hehe pl', pl)
       R.forEachObjIndexed((v, k) => {
         self.languages.set(k, v)
       }, pl)
 
+      /*
       R.forEachObjIndexed((v, k) => {
         self.frameworks.set(k, v)
       }, framework)
@@ -92,20 +100,23 @@ export const CommunitiesStore = t
       R.forEachObjIndexed((v, k) => {
         self.databases.set(k, v)
       }, database)
+      */
 
+      /*
       self.cheatsheet = {
         title: 'cheatsheet',
         desc: 'cheatsheet desc',
         raw: 'cheatsheet',
       }
+      */
     },
     getLanguageLike() {
       return mapKeys(
         R.toLower,
         R.mergeAll([
           self.languages.toJSON(),
-          self.frameworks.toJSON(),
-          self.databases.toJSON(),
+          /* self.frameworks.toJSON(), */
+          /* self.databases.toJSON(), */
         ])
       )
     },

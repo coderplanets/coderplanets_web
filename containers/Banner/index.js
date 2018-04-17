@@ -145,12 +145,14 @@ const BannerContent = ({ banner, curRoute }) => {
 const CommonCommunity = ({ banner }) => {
   const { curRoute, curCommunity } = banner
 
+  debug('CommonCommunity banner', banner.curCommunity)
+
   return (
     <BannerContentWrapper>
       <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
       <NumbersInfo />
       <TabberWrapper>
-        <Tabber source={curCommunity.body} onChange={onChange} />
+        <Tabber source={curCommunity.threads} onChange={onChange} />
       </TabberWrapper>
     </BannerContentWrapper>
   )

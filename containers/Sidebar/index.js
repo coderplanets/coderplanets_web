@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import Trend from 'react-trend'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { makeDebugger, storeSelector } from '../../utils'
 import PinButton from './PinButton'
 import {
   Sidebar,
@@ -62,7 +62,7 @@ const MenuList = ({ items, pin, curPath }) => {
                           >
                             <MenuItemIcon
                               active={curPath === R.toLower(item.name)}
-                              path={getSVGIconPath(item.name)}
+                              path={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
                             <div style={{ marginRight: 10 }} />
@@ -181,6 +181,7 @@ class SidebarContainer extends React.Component {
     //    onMouseLeave={logic.leaveSidebar}
 
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
+    debug('menuItems', menuItems)
     return (
       <Sidebar pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />

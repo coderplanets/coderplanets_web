@@ -27,6 +27,7 @@ const ItemTarget = t.model('ItemTarget', {
 const MenuItem = t.model('MenuItem', {
   //  id: t.number, // identifier(),
   name: t.string,
+  logo: t.string,
   target: ItemTarget,
 })
 

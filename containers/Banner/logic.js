@@ -9,11 +9,10 @@ const debug = makeDebugger('L:Banner')
 
 let banner = null
 
-const fmt = R.compose(R.map(R.toLower), R.split('--'))
-
 export function tabberChange(target) {
-  const main = fmt(target)[0]
-  const sub = fmt(target)[1]
+  // main should be current community title
+  const main = R.toLower(banner.curCommunity.title)
+  const sub = target
 
   Router.push(
     {

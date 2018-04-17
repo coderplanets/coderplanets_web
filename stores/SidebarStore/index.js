@@ -11,6 +11,7 @@ import MenuItem from './MenuItemStore'
 const menuItemConveter = R.compose(
   R.map(item => ({
     name: item.raw,
+    logo: item.logo,
     target: {
       href: {
         pathname: '/',
