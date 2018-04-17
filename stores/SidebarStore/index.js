@@ -6,11 +6,13 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import { makeDebugger, markStates } from '../../utils'
-import MenuItem from './MenuItemStore'
+/* import MenuItem from './MenuItemStore' */
 
 const menuItemConveter = R.compose(
   R.map(item => ({
-    name: item.raw,
+    id: item.id,
+    title: item.title,
+    raw: item.raw,
     logo: item.logo,
     target: {
       href: {
@@ -35,10 +37,8 @@ const debug = makeDebugger('S:SidebarStore')
 
 const SidebarStore = t
   .model('SidebarStore', {
-    menuItems: t.optional(t.array(MenuItem), []), // complex data
     // open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
-    windowBlured: t.optional(t.boolean, false),
     // theme: t.string, // view staff
     // curSelectItem: t.string, // view staff
     // searchBox: t.string, // complex data
@@ -54,9 +54,6 @@ const SidebarStore = t
     get langs() {
       return self.root.langs
     },
-    get menuItemsData() {
-      return self.menuItems.toJSON()
-    },
     get getLoading() {
       return self.loading
     },
@@ -66,11 +63,18 @@ const SidebarStore = t
     get curPath() {
       return self.root.curPath
     },
+    get subscribedCommunities() {
+      const { entries } = self.root.subscribedCommunities.all
+      return menuItemConveter(entries.toJSON())
+    },
   }))
   .actions(self => ({
     load() {
-      const communities = self.root.communities.all
-      self.menuItems = menuItemConveter(communities)
+      // const communities = self.root.communities.all
+    },
+
+    loadSubscribedCommunities(data) {
+      self.root.subscribedCommunities.load(data)
     },
 
     markState(sobj) {

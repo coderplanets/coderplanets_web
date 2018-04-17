@@ -33,6 +33,7 @@ const DataSolver = [
     action: res => {
       const data = res.communities
       debug('----> dataResolver  --->', data)
+      sidebar.loadSubscribedCommunities(data)
     },
   },
 ]

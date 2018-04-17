@@ -23,6 +23,7 @@ export default class Index extends React.Component {
     /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
+    // console.log(' getInitialProps ------> ', req.url)
     const { locale, messages } = req || window.__NEXT_DATA__.props
     const langSetup = {}
     langSetup[locale] = messages

@@ -22,6 +22,7 @@ import {
   HeaderStore,
   BannerStore,
   ContentStore,
+  SubscribedCommunitiesStore,
   // papers
   PostsPaperStore,
   CommunitiesContentStore,
@@ -48,6 +49,7 @@ const rootStore = t
     account: t.optional(AccountStore, {}),
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, CommunitiesDefaults),
+    subscribedCommunities: t.optional(SubscribedCommunitiesStore, {}),
     posts: t.optional(PostsStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
