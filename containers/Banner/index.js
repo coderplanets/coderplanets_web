@@ -24,7 +24,7 @@ import {
   CheatsheetWrapper,
   CheatsheetTitle,
   CheatsheetDesc,
-  CommonCommunityWrapper,
+  BannerContentWrapper,
   CommunityWrapper,
   NumbersWrapper,
   NumberSection,
@@ -77,6 +77,36 @@ const NumbersInfo = () => (
   </NumbersWrapper>
 )
 
+const communitiesTaber = [
+  {
+    title: '编程语言',
+    raw: 'languages',
+  },
+  {
+    title: 'web 框架',
+    raw: 'web frameworks',
+  },
+  {
+    title: '后端框架',
+    raw: 'web frameworks',
+  },
+  {
+    title: '移动端',
+    raw: 'phone frameworks',
+  },
+  {
+    title: '设计',
+    raw: 'design',
+  },
+  {
+    title: '人工智能',
+    raw: 'ai frameworks',
+  },
+  {
+    title: '其他',
+    raw: 'others',
+  },
+]
 const BannerContent = ({ banner, curRoute }) => {
   const { mainQuery } = curRoute
   // console.log('mainQuery --> ', mainQuery)
@@ -89,6 +119,18 @@ const BannerContent = ({ banner, curRoute }) => {
             <CheatsheetDesc>所有的cheeatsheet都在这里了</CheatsheetDesc>
           </CheatsheetWrapper>
         </CheatsheetBanner>
+      )
+    }
+    case 'communities': {
+      return (
+        <CommunityBanner>
+          <BannerContentWrapper>
+            <h2>this is all communities</h2>
+            <TabberWrapper>
+              <Tabber source={communitiesTaber} onChange={onChange} />
+            </TabberWrapper>
+          </BannerContentWrapper>
+        </CommunityBanner>
       )
     }
     default:
@@ -104,13 +146,13 @@ const CommonCommunity = ({ banner }) => {
   const { curRoute, curCommunity } = banner
 
   return (
-    <CommonCommunityWrapper>
+    <BannerContentWrapper>
       <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
       <NumbersInfo />
       <TabberWrapper>
         <Tabber source={curCommunity.body} onChange={onChange} />
       </TabberWrapper>
-    </CommonCommunityWrapper>
+    </BannerContentWrapper>
   )
 }
 
@@ -124,6 +166,7 @@ class BannerContainer extends React.Component {
     const { banner } = this.props
     const { curRoute } = banner
     //     const { mainQuery } = curRoute
+    debug('curCommunity', banner.curCommunity)
 
     return <BannerContent curRoute={curRoute} banner={banner} />
   }

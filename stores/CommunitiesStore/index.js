@@ -3,10 +3,10 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
+import { types as t, getParent } from 'mobx-state-tree'
 
-import { mapKeys } from '../../utils'
+import { mapKeys, makeDebugger } from '../../utils'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 import { pl, framework, database } from '../DoraemonStore/suggestions'
@@ -16,6 +16,9 @@ import FrameworkModel from './FrameworkModel'
 import DatabaseModel from './DatabaseModel'
 import CheatSheetModal from './CheatSheetModal'
 
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('S:communities')
+/* eslint-enable no-unused-vars */
 // const debug = makeDebugger('S:CommunitiesStore')
 
 export const CommunitiesDefaults = {
@@ -77,6 +80,7 @@ export const CommunitiesStore = t
   }))
   .actions(self => ({
     load() {
+      debug('hehe pl', pl)
       R.forEachObjIndexed((v, k) => {
         self.languages.set(k, v)
       }, pl)

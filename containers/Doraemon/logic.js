@@ -80,9 +80,9 @@ const initCmdResolver = () => {
         Router.push(
           {
             pathname: '/',
-            query: { main: 'communities' },
+            query: { main: 'communities', sub: 'all' },
           },
-          '/communities'
+          '/communities/all'
         )
         hidePanel()
       },
@@ -99,15 +99,6 @@ const initCmdResolver = () => {
       action: cmdpath => {
         debug('stepTwoCmd login->: ', cmdpath)
         hidePanel()
-
-        /*
-        const clientId = '3b4281c5e54ffd801f85'
-        const state = 'previous_page_location'
-        const callback = 'http://www.coderplanets.com/auth_callback'
-        const githubUrl = 'https://github.com/login/oauth/authorize'
-        const url = `${githubUrl}?client_id=${clientId}&state=${state}&redirect_uri=${callback}`
-        */
-
         /* reference */
         /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
         /* SAK.completeInput(true) */

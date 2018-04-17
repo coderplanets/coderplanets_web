@@ -29,7 +29,7 @@ const debug = makeDebugger('C:CommunitiesContent')
 
 const fakeData = [
   {
-    title: 'js',
+    title: 'javascript',
     desc: 'the only language that works on every device on earth',
     raw: 'js',
   },

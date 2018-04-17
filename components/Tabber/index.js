@@ -1,7 +1,5 @@
 /*
- *
  * Tabber
- *
  */
 
 import React from 'react'
@@ -35,7 +33,7 @@ const Tabber = ({ source, onChange }) => {
   return (
     <Tabs onChange={onChange}>
       {tabitems.map(item => (
-        <TabPane tab={translator[item.title] || '??'} key={item.raw} />
+        <TabPane tab={translator[item.title] || item.title} key={item.raw} />
       ))}
     </Tabs>
   )

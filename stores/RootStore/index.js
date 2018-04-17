@@ -37,7 +37,9 @@ import {
   CheatSheetPaperStore,
 } from '../storeIndex'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:rootStore')
+/* eslint-enable no-unused-vars */
 
 const rootStore = t
   .model({
@@ -117,7 +119,6 @@ const rootStore = t
   }))
   .actions(self => ({
     afterCreate() {
-      debug('after create loadMenuItem')
       self.communities.load()
       self.sidebar.load()
       // self.posts.load()
