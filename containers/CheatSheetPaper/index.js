@@ -25,7 +25,9 @@ import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
 
 // import code from './es7'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CheatSheetViewer')
+/* eslint-enable no-unused-vars */
 
 const md = new Remarkable()
 md.use(mentions({ url: 'http:coderplanets.com/users/' }))
@@ -113,7 +115,6 @@ const renderContent = (source, state, errMsg) => {
 
 class CheatSheetViewerContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.cheatSheetPaper)
   }
 

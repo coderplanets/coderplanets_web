@@ -33,7 +33,9 @@ import {
   NumberItem,
 } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Banner')
+/* eslint-enable no-unused-vars */
 
 const onChange = e => {
   logic.tabberChange(e)
@@ -160,7 +162,6 @@ const CommonCommunity = ({ banner }) => {
 
 class BannerContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.banner)
   }
 

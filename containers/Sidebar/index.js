@@ -181,7 +181,7 @@ class SidebarContainer extends React.Component {
     //    onMouseLeave={logic.leaveSidebar}
 
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
-    debug('menuItems', menuItems)
+    /* debug('menuItems --> ', menuItems.toJSON()) */
     return (
       <Sidebar pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />

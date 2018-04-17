@@ -1,8 +1,8 @@
 /*
-*
-* ArticleViwer
-*
-*/
+ *
+ * ArticleViwer
+ *
+ */
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -15,7 +15,9 @@ import PostViewer from './PostViewer'
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ArticleViwer')
+/* eslint-enable no-unused-vars */
 
 const Viwer = ({ type, data, loading, onReaction }) => {
   // debug('Viwer data: ', data)
@@ -39,7 +41,6 @@ const Viwer = ({ type, data, loading, onReaction }) => {
 
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.articleViwer)
   }
 

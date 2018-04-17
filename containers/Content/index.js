@@ -17,7 +17,9 @@ import * as logic from './logic'
 
 import { Wrapper } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Content')
+/* eslint-enable no-unused-vars */
 
 const renderContent = curRoute => {
   const { mainQuery } = curRoute
@@ -38,7 +40,6 @@ const renderContent = curRoute => {
 
 class ContentContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.content)
   }
 

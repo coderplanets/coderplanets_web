@@ -1,8 +1,8 @@
 /*
-*
-* ApiLayout
-*
-*/
+ *
+ * ApiLayout
+ *
+ */
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -14,11 +14,12 @@ import { makeDebugger, storeSelector } from '../../utils'
 import Wrapper from './styles'
 import * as logic from './logic'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ApiLayout')
+/* eslint-enable no-unused-vars */
 
 class ApiLayoutContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.apiLayout)
   }
 

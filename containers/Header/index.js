@@ -38,7 +38,9 @@ import {
 
 import * as logic from './logic'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Header')
+/* eslint-enable no-unused-vars */
 
 const MiniMap = ({ curRoute }) => {
   const defaultIcon = 'js'
@@ -60,7 +62,6 @@ const MiniMap = ({ curRoute }) => {
 
 class HeaderContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.header)
   }
 

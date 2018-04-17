@@ -1,8 +1,8 @@
 /*
-*
-* AccountViewer
-*
-*/
+ *
+ * AccountViewer
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -17,7 +17,9 @@ import ContributeMap from './ContributeMap'
 import ThemeSelector from '../../components/ThemeSelector'
 import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountViewer')
+/* eslint-enable no-unused-vars */
 
 const ThemeSection = ({ themeKeys, curTheme }) => {
   return (
@@ -33,7 +35,6 @@ const ThemeSection = ({ themeKeys, curTheme }) => {
 
 class AccountViewerContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.accountViewer)
   }
 

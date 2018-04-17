@@ -25,7 +25,9 @@ import {
   CardFooter,
 } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CommunitiesContent')
+/* eslint-enable no-unused-vars */
 
 const fakeData = [
   {
@@ -97,7 +99,6 @@ const CommunitiesGrid = () => (
 
 class CommunitiesContentContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.communitiesContent)
   }
 

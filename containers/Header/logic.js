@@ -15,7 +15,7 @@ import {
 import popup from './openWindow'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
-import S from './scheme'
+import S from './schema'
 
 const sr71$ = new SR71()
 

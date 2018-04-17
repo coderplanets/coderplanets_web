@@ -32,7 +32,9 @@ import {
   RespectText,
 } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TypeWriter')
+/* eslint-enable no-unused-vars */
 
 const PublishFooter = ({ onPublish, publishing }) => (
   <Footer>
@@ -156,7 +158,6 @@ const TopHeader = ({ curView }) => {
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.typeWriter)
   }
   componentWillUnmount() {

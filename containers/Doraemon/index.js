@@ -31,7 +31,9 @@ import {
   HintEnter,
 } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Doraemon')
+/* eslint-enable no-unused-vars */
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
@@ -44,7 +46,6 @@ const HintIcon = ({ index, active, cur, length }) => {
 
 class DoraemonContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     // TODO? maybe: this.logic = new Logic(this.props.doraemon)
     logic.init(this.props.doraemon)
   }
