@@ -25,13 +25,15 @@ const debug = makeDebugger('S:communities')
 // const debug = makeDebugger('S:CommunitiesStore')
 
 export const Community = t.model('Community', {
-  id: t.string,
+  id: t.identifier(),
+  /* id: t.string, */
   title: t.string,
   desc: t.string,
   raw: t.string,
   logo: t.string,
   recentContributesDigest: t.optional(t.array(t.number), []),
   subscribersCount: t.optional(t.number, 0),
+  viewerHasSubscribed: t.maybe(t.boolean),
 })
 
 const CommunitiesStore = t

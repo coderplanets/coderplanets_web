@@ -15,6 +15,7 @@ export const TimoutObservable = Observable.of({
 })
 
 export const formatGraphErrors = error => {
+  /* console.log('formatGraphErrors error: ', error) */
   const { graphQLErrors } = error
   // graphQLErrors may not catch in graph query (wrang sytax etc ...)
   // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
@@ -29,7 +30,6 @@ export const formatGraphErrors = error => {
     return { error: ERR.CRAPHQL, details }
   }
 
-  debug('--> error: ', error)
   /* debug('maybe a network error') */
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }

@@ -16,9 +16,16 @@ let communitiesContent = null
 export function loadCommunities() {
   const args = {
     filter: { page: 1, size: 20 },
+    userHasLogin: true,
   }
 
   sr71$.query(S.communities, args)
+
+  const args2 = {
+    communityId: 123,
+  }
+
+  sr71$.mutate(S.subscribeCommunity, args2)
 }
 
 const DataSolver = [
@@ -26,7 +33,7 @@ const DataSolver = [
     match: R.has('communities'),
     action: res => {
       const data = res.communities
-      debug('----> dataResolver  --->', data)
+      debug('----> dataResolver  --->', res)
       communitiesContent.loadCommunities(data)
       /* sidebar.loadSubscribedCommunities(data) */
     },
