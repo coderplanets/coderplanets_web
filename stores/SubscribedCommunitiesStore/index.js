@@ -5,19 +5,12 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
+import { Community } from '../SharedModel'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:SubscribedCommunitiesStore')
 /* eslint-enable no-unused-vars */
-
-const Community = t.model('Community', {
-  id: t.string,
-  title: t.string,
-  raw: t.string,
-  logo: t.string,
-  // TODO: activities
-})
 
 const SubscribedCommunitiesStore = t
   .model('SubscribedCommunitiesStore', {

@@ -35,4 +35,5 @@ export {
   themeKeys,
   themeColorMap,
   selectorColors,
+  pagiCustomRender,
 } from './themes'

@@ -3,16 +3,17 @@
  *
  */
 
-import R from 'ramda'
+// import R from 'ramda'
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { mapKeys, makeDebugger } from '../../utils'
+import { makeDebugger } from '../../utils'
+// import { Community } from '../SharedModel'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 /* import { pl, framework, database } from '../DoraemonStore/suggestions' */
-import { pl } from '../DoraemonStore/suggestions'
+// import { pl } from '../DoraemonStore/suggestions'
 
-import PlModel from './PlModel'
+// import PlModel from './PlModel'
 
 // import FrameworkModel from './FrameworkModel'
 // / import DatabaseModel from './DatabaseModel'
@@ -23,17 +24,26 @@ const debug = makeDebugger('S:communities')
 /* eslint-enable no-unused-vars */
 // const debug = makeDebugger('S:CommunitiesStore')
 
-export const CommunitiesDefaults = {
-  languages: {},
-  frameworks: {},
-  databases: {},
-}
+export const Community = t.model('Community', {
+  id: t.string,
+  title: t.string,
+  desc: t.string,
+  raw: t.string,
+  logo: t.string,
+  recentContributesDigest: t.optional(t.array(t.number), []),
+  subscribersCount: t.optional(t.number, 0),
+})
 
-export const CommunitiesStore = t
+const CommunitiesStore = t
   .model('CommunitiesStore', {
-    // TODO: refactor:  subscribed-communities, all-communities
+    entries: t.optional(t.array(Community), []),
+    pageNumber: t.optional(t.number, 1),
+    pageSize: t.optional(t.number, 20), // TODO: USE CONSTANTS
+    totalCount: t.optional(t.number, 1),
+    totalPages: t.optional(t.number, 1),
+
     // id: t.identifier(),
-    languages: t.map(PlModel),
+    // languages: t.map(PlModel),
     // frameworks: t.map(FrameworkModel),
     // databases: t.map(DatabaseModel),
     // cheatsheet: t.optional(CheatSheetModal, { title: '', desc: '', raw: '' }),
@@ -48,18 +58,33 @@ export const CommunitiesStore = t
       return getParent(self)
     },
     get all() {
-      return R.mergeAll([
-        self.getLanguageLike(),
-        // { cheatsheet: self.cheatsheet.toJSON() },
-      ])
+      return {
+        entries: self.entries,
+        pageNumber: self.pageNumber,
+        pageSize: self.pageSize,
+        totalCount: self.totalCount,
+        totalPages: self.totalPages,
+      }
+      // return R.mergeAll([
+      // self.getLanguageLike(),
+      // { cheatsheet: self.cheatsheet.toJSON() },
+      // ])
       // return self.getLanguageLike()
     },
     get curCommunity() {
-      const { curRoute } = self.root
+      // const { curRoute } = self.root
       const defaultCommunity = {
         title: 'js',
       }
 
+      return {
+        header: {},
+        body: {},
+        threads: [],
+        title: defaultCommunity.title,
+      }
+
+      /*
       let { mainQuery } = curRoute
       mainQuery = R.isEmpty(mainQuery) ? defaultCommunity.title : mainQuery
       try {
@@ -77,47 +102,49 @@ export const CommunitiesStore = t
           title: defaultCommunity.title,
         }
       }
+      */
     },
     get curCommunityName() {
-      const { curRoute } = self.root
-      const { mainQuery } = curRoute
-      const defaultCommunity = 'js'
+      return 'js'
+      /*
 
-      return R.isEmpty(mainQuery) ? defaultCommunity : mainQuery
+         const { curRoute } = self.root
+         const { mainQuery } = curRoute
+         const defaultCommunity = 'js'
+
+         return R.isEmpty(mainQuery) ? defaultCommunity : mainQuery
+       */
     },
   }))
   .actions(self => ({
-    load() {
-      R.forEachObjIndexed((v, k) => {
-        self.languages.set(k, v)
-      }, pl)
-
+    load(data) {
+      self.entries = data.entries
+      self.pageNumber = data.pageNumber
+      self.pageSize = data.pageSize
+      self.totalCount = data.totalCount
+      self.totalPages = data.totalPages
       /*
-      R.forEachObjIndexed((v, k) => {
-        self.frameworks.set(k, v)
-      }, framework)
-
-      R.forEachObjIndexed((v, k) => {
-        self.databases.set(k, v)
-      }, database)
-      */
-
+         R.forEachObjIndexed((v, k) => {
+         self.languages.set(k, v)
+         }, pl)
+       */
       /*
-      self.cheatsheet = {
-        title: 'cheatsheet',
-        desc: 'cheatsheet desc',
-        raw: 'cheatsheet',
-      }
-      */
-    },
-    getLanguageLike() {
-      return mapKeys(
-        R.toLower,
-        R.mergeAll([
-          self.languages.toJSON(),
-          /* self.frameworks.toJSON(), */
-          /* self.databases.toJSON(), */
-        ])
-      )
+         R.forEachObjIndexed((v, k) => {
+         self.frameworks.set(k, v)
+         }, framework)
+
+         R.forEachObjIndexed((v, k) => {
+         self.databases.set(k, v)
+         }, database)
+       */
+      /*
+         self.cheatsheet = {
+         title: 'cheatsheet',
+         desc: 'cheatsheet desc',
+         raw: 'cheatsheet',
+         }
+       */
     },
   }))
+
+export default CommunitiesStore

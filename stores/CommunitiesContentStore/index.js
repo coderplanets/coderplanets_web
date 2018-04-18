@@ -12,13 +12,27 @@ const debug = makeDebugger('S:CommunitiesContentStore')
 /* eslint-enable no-unused-vars */
 
 const CommunitiesContentStore = t
-  .model('CommunitiesContentStore', {})
+  .model('CommunitiesContentStore', {
+    category: t.optional(t.string, ''),
+  })
   .views(self => ({
     get root() {
       return getParent(self)
     },
+
+    get communities() {
+      const { entries } = self.root.communities.all
+
+      return {
+        ...self.root.communities.all,
+        entries: entries.toJSON(),
+      }
+    },
   }))
   .actions(self => ({
+    loadCommunities(data) {
+      self.root.communities.load(data)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

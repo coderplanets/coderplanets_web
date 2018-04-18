@@ -8,7 +8,7 @@ import { makeDebugger } from '../../utils'
 
 import RouteStore from '../RouteStore'
 
-import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
+import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import {
@@ -48,7 +48,7 @@ const rootStore = t
     version: t.optional(t.string, '0.0.4'),
     account: t.optional(AccountStore, {}),
     route: t.optional(RouteStore, {}),
-    communities: t.optional(CommunitiesStore, CommunitiesDefaults),
+    communities: t.optional(CommunitiesStore, {}),
     subscribedCommunities: t.optional(SubscribedCommunitiesStore, {}),
     posts: t.optional(PostsStore, {}),
     comments: t.optional(CommentsStore, {}),
@@ -121,7 +121,7 @@ const rootStore = t
   }))
   .actions(self => ({
     afterCreate() {
-      self.communities.load()
+      // self.communities.load()
       self.sidebar.load()
       // self.posts.load()
     },

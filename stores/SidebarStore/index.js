@@ -14,6 +14,7 @@ const menuItemConveter = R.compose(
     title: item.title,
     raw: item.raw,
     logo: item.logo,
+    recentContributesDigest: item.recentContributesDigest,
     target: {
       href: {
         pathname: '/',

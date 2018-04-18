@@ -34,7 +34,8 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 })
 
 const MenuList = ({ items, pin, curPath }) => {
-  const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]
+  /* const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0] */
+  // const sparkData = [0, 0, 0, 1, 0, 0, 1]
 
   const listItems = (
     <DragDropContext onDragEnd={debug}>
@@ -75,9 +76,9 @@ const MenuList = ({ items, pin, curPath }) => {
                               <Trend
                                 smooth
                                 autoDraw
-                                autoDrawDuration={1000}
+                                autoDrawDuration={300}
                                 autoDrawEasing="ease-in"
-                                data={sparkData}
+                                data={item.recentContributesDigest}
                                 gradient={['#51ABB2', 'violet']}
                                 radius={15}
                                 strokeWidth={7}
@@ -140,7 +141,6 @@ class SidebarContainer extends React.Component {
     //    onMouseLeave={logic.leaveSidebar}
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
 
-    debug('subscribedCommunities --> ', subscribedCommunities)
     return (
       <Sidebar pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />

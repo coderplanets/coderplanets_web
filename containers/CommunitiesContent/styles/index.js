@@ -68,3 +68,9 @@ export const Wrapper = styled.div`
   margin-top: 40px;
   display: block;
 `
+
+export const Pagi = styled.div`
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+`
