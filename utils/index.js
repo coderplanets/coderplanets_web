@@ -23,6 +23,7 @@ export {
   unholdPage,
   cutFrom,
   getParameterByName,
+  prettyNum,
   $solver,
 } from './functions'
 

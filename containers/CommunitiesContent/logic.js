@@ -11,7 +11,6 @@ const debug = makeDebugger('L:CommunitiesContent')
 /* eslint-enable no-unused-vars */
 
 let communitiesContent = null
-/* let sub$ = null */
 
 export function loadCommunities() {
   const args = {
@@ -20,14 +19,15 @@ export function loadCommunities() {
   }
 
   sr71$.query(S.communities, args)
+}
 
-  /*
-     const args2 = {
-     communityId: 123,
-     }
+export function pageChange(page) {
+  const args = {
+    filter: { page, size: 20 },
+    userHasLogin: true,
+  }
 
-     sr71$.mutate(S.subscribeCommunity, args2)
-   */
+  sr71$.query(S.communities, args)
 }
 
 export function subscribe(id) {

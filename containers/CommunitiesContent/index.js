@@ -10,7 +10,12 @@ import Trend from 'react-trend'
 import { Button, Icon, Pagination, Tooltip } from 'antd'
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector, pagiCustomRender } from '../../utils'
+import {
+  makeDebugger,
+  storeSelector,
+  pagiCustomRender,
+  prettyNum,
+} from '../../utils'
 import * as logic from './logic'
 import {
   Wrapper,
@@ -88,7 +93,11 @@ const CommunityCard = ({ community, restProps }) => (
     </ActivitySpark>
     <Divider />
     <CardFooter>
-      <div>{community.subscribersCount} &nbsp;人关注</div>
+      <div>
+        {/* TODO: number color should be different when number grow large */}
+        {prettyNum(community.subscribersCount)}{' '}
+        {community.subscribersCount < 1000 ? '人关注' : '关注'}
+      </div>
 
       <SubscribeBtn community={community} restProps={restProps} />
     </CardFooter>
@@ -128,7 +137,7 @@ class CommunitiesContentContainer extends React.Component {
             pageSize={communities.pageSize}
             total={communities.totalCount}
             itemRender={pagiCustomRender}
-            onChange={debug}
+            onChange={logic.pageChange}
           />
         </Pagi>
       </Wrapper>

@@ -79,7 +79,7 @@ const MenuList = ({ items, pin, curPath }) => {
                                 autoDrawDuration={300}
                                 autoDrawEasing="ease-in"
                                 data={item.recentContributesDigest}
-                                gradient={['#51ABB2', 'violet']}
+                                gradient={['#D6ECB2', '#4F966E']}
                                 radius={15}
                                 strokeWidth={7}
                                 strokeLinecap="round"
