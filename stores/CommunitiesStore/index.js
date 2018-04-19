@@ -3,10 +3,10 @@
  *
  */
 
-// import R from 'ramda'
+import R from 'ramda'
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { makeDebugger } from '../../utils'
+import { markStates, makeDebugger } from '../../utils'
 // import { Community } from '../SharedModel'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
@@ -119,12 +119,20 @@ const CommunitiesStore = t
     },
   }))
   .actions(self => ({
-    load(data) {
-      self.entries = data.entries
-      self.pageNumber = data.pageNumber
-      self.pageSize = data.pageSize
-      self.totalCount = data.totalCount
-      self.totalPages = data.totalPages
+    toggleSubscribe(community) {
+      const index = R.findIndex(R.propEq('id', community.id), self.entries)
+      if (index === -1) return false
+
+      if (self.entries[index].viewerHasSubscribed) {
+        self.entries[index].viewerHasSubscribed = false
+        self.entries[index].subscribersCount -= 1
+      } else {
+        self.entries[index].viewerHasSubscribed = true
+        self.entries[index].subscribersCount += 1
+      }
+    },
+    load(sobj) {
+      self.markState(sobj)
       /*
          R.forEachObjIndexed((v, k) => {
          self.languages.set(k, v)
@@ -146,6 +154,9 @@ const CommunitiesStore = t
          raw: 'cheatsheet',
          }
        */
+    },
+    markState(sobj) {
+      markStates(sobj, self)
     },
   }))
 

@@ -19,21 +19,23 @@ export function pin() {
 }
 
 export function loadCommunities() {
-  debug('loadCommunities --')
+  debug('loadCommunities -- accountInfo', sidebar.accountInfo)
+  const account = sidebar.accountInfo
   const args = {
-    filter: { page: 1, size: 20 },
+    userId: account.id,
+    filter: { page: 1, size: 30 },
   }
 
-  sr71$.query(S.communities, args)
+  sr71$.query(S.subscribedCommunities, args)
 }
 
 const DataSolver = [
   {
-    match: R.has('communities'),
+    match: R.has('subscribedCommunities'),
     action: res => {
-      const data = res.communities
+      const data = res.subscribedCommunities
       debug('----> dataResolver  --->', data)
-      sidebar.loadSubscribedCommunities(data)
+      sidebar.loadSubscribedCommunities({ ...data })
     },
   },
 ]

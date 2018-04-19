@@ -14,6 +14,8 @@ const debug = makeDebugger('S:CommunitiesContentStore')
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
     category: t.optional(t.string, ''),
+    subscribing: t.optional(t.boolean, false),
+    subscribingId: t.maybe(t.string),
   })
   .views(self => ({
     get root() {
@@ -32,6 +34,12 @@ const CommunitiesContentStore = t
   .actions(self => ({
     loadCommunities(data) {
       self.root.communities.load(data)
+    },
+    addSubscribedCommunity(community) {
+      self.root.subscribedCommunities.add(community)
+    },
+    removeSubscribedCommunity(community) {
+      self.root.subscribedCommunities.remove(community)
     },
     markState(sobj) {
       markStates(sobj, self)

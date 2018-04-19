@@ -21,11 +21,40 @@ export function loadCommunities() {
 
   sr71$.query(S.communities, args)
 
-  const args2 = {
-    communityId: 123,
-  }
+  /*
+     const args2 = {
+     communityId: 123,
+     }
 
-  sr71$.mutate(S.subscribeCommunity, args2)
+     sr71$.mutate(S.subscribeCommunity, args2)
+   */
+}
+
+export function subscribe(id) {
+  debug('subscribe', id)
+
+  sr71$.mutate(S.subscribeCommunity, { communityId: id })
+  communitiesContent.markState({
+    subscribing: true,
+    subscribingId: id,
+  })
+}
+
+export function unSubscribe(id) {
+  debug('unSubscribe', id)
+
+  sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
+  communitiesContent.markState({
+    subscribing: true,
+    subscribingId: id,
+  })
+}
+
+/* when error occured cancle all the loading state */
+const cancleLoading = () => {
+  communitiesContent.markState({
+    subscribing: false,
+  })
 }
 
 const DataSolver = [
@@ -33,9 +62,28 @@ const DataSolver = [
     match: R.has('communities'),
     action: res => {
       const data = res.communities
-      debug('----> dataResolver  --->', res)
       communitiesContent.loadCommunities(data)
-      /* sidebar.loadSubscribedCommunities(data) */
+    },
+  },
+  {
+    match: R.has('subscribeCommunity'),
+    action: res => {
+      const data = res.subscribeCommunity
+      communitiesContent.addSubscribedCommunity(data)
+      communitiesContent.markState({
+        subscribing: false,
+      })
+    },
+  },
+  {
+    match: R.has('unsubscribeCommunity'),
+    action: res => {
+      const data = res.unsubscribeCommunity
+      debug('unsubscribeCommunity: ', data)
+      communitiesContent.removeSubscribedCommunity(data)
+      communitiesContent.markState({
+        subscribing: false,
+      })
     },
   },
 ]
@@ -45,18 +93,21 @@ const ErrSolver = [
     match: R.pathEq(['error'], ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      cancleLoading()
     },
   },
   {
     match: R.pathEq(['error'], ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      cancleLoading()
     },
   },
   {
     match: R.pathEq(['error'], ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      cancleLoading()
     },
   },
 ]

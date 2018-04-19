@@ -49,6 +49,9 @@ const SidebarStore = t
     get root() {
       return getParent(self)
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get theme() {
       return self.root.theme
     },
@@ -77,7 +80,6 @@ const SidebarStore = t
     loadSubscribedCommunities(data) {
       self.root.subscribedCommunities.load(data)
     },
-
     markState(sobj) {
       markStates(sobj, self)
     },

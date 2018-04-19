@@ -1,5 +1,5 @@
 import R from 'ramda'
-/* import store from 'store' */
+import store from 'store'
 
 import {
   makeDebugger,
@@ -26,7 +26,6 @@ const debug = makeDebugger('L:Header')
 let header = null
 /* const sub$ = null */
 /* const user_token = */
-/* 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYXN0YW5pX3NlcnZlciIsImV4cCI6MTUyMzg0NDc2NSwiaWF0IjoxNTIyNjM1MTY1LCJpc3MiOiJtYXN0YW5pX3NlcnZlciIsImp0aSI6IjJkMTNlOTgxLTYyOTktNDVkMS1iZjY5LTQ5ZDJkNzBkNGUzZiIsIm5iZiI6MTUyMjYzNTE2NCwic3ViIjoiMTEyIiwidHlwIjoiYWNjZXNzIn0.a96dYAThewvIHNFoYZwUJoc0iolt6bGcgLhUW0ym8ngSMP7CXz09Zg9oJRej-uM-YjAzyxh8AhdmfUzlY29OYw' */
 
 export function previewState() {
   // header.openPreview(type)
@@ -45,14 +44,20 @@ export function signinGithub(code) {
 
 export function checkUserAccount() {
   // debug('checkUserAccount: to get user breif')
-  // debug('the token: ', store.get('user').token)
-
+  const user = store.get('user')
+  if (user) {
+    // NOTICE: if store is not valid json, user will be typeof string
+    header.updateAccount({ ...user })
+  } else {
+    // not shoe
+    debug('do nothing')
+  }
+  /*
   const args = {
     id: '112',
   }
-
   sr71$.query(S.user, args)
-  /* store.get('user').token */
+  */
 }
 
 export function previewAccount() {
@@ -124,6 +129,7 @@ const DataSolver = [
     action: res => {
       const data = res.user
       debug('dataResolver userRes  --->', data)
+      /* store.set('user', { ...data }) */
       header.updateAccount(data)
     },
   },

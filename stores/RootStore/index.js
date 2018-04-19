@@ -126,9 +126,6 @@ const rootStore = t
       // self.posts.load()
     },
 
-    updateAccount(sobj) {
-      self.account.updateAccount(sobj)
-    },
     setHeaderFix(fix) {
       self.header.setFix(fix)
     },

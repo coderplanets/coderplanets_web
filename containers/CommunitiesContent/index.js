@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Trend from 'react-trend'
-import { Button, Icon, Pagination } from 'antd'
+import { Button, Icon, Pagination, Tooltip } from 'antd'
 // import Link from 'next/link'
 
 import { makeDebugger, storeSelector, pagiCustomRender } from '../../utils'
@@ -29,7 +29,46 @@ import {
 const debug = makeDebugger('C:CommunitiesContent')
 /* eslint-enable no-unused-vars */
 
-const CommunityCard = ({ community }) => (
+const SubscribeBtn = ({
+  community,
+  restProps: { subscribing, subscribingId },
+}) => {
+  if (subscribing && community.id === subscribingId) {
+    return (
+      <div>
+        <Button size="small" type="primary">
+          <Icon type="loading" /> 关注
+        </Button>
+      </div>
+    )
+  }
+  return (
+    <div>
+      {community.viewerHasSubscribed ? (
+        <Tooltip title="取消关注" mouseEnterDelay={1} placement="bottom">
+          <Button
+            size="small"
+            type="primary"
+            ghost
+            onClick={logic.unSubscribe.bind(this, community.id)}
+          >
+            <Icon type="check" />已关注
+          </Button>
+        </Tooltip>
+      ) : (
+        <Button
+          size="small"
+          type="primary"
+          onClick={logic.subscribe.bind(this, community.id)}
+        >
+          <Icon type="plus" />关注
+        </Button>
+      )}
+    </div>
+  )
+}
+
+const CommunityCard = ({ community, restProps }) => (
   <Card>
     <CommunityIcon path={community.logo} />
     <CardTitle>{community.title}</CardTitle>
@@ -51,19 +90,19 @@ const CommunityCard = ({ community }) => (
     <CardFooter>
       <div>{community.subscribersCount} &nbsp;人关注</div>
 
-      <div>
-        <Button size="small" type="primary">
-          <Icon type="plus" />关注
-        </Button>
-      </div>
+      <SubscribeBtn community={community} restProps={restProps} />
     </CardFooter>
   </Card>
 )
 
-const CommunitiesGrid = ({ entries }) => (
+const CommunitiesGrid = ({ entries, restProps }) => (
   <GridWrapper>
     {entries.map(community => (
-      <CommunityCard key={community.raw} community={community} />
+      <CommunityCard
+        key={community.raw}
+        community={community}
+        restProps={restProps}
+      />
     ))}
   </GridWrapper>
 )
@@ -75,10 +114,13 @@ class CommunitiesContentContainer extends React.Component {
 
   render() {
     const { communities } = this.props.communitiesContent
-    debug('@--> communities ------> ', communities)
+
     return (
       <Wrapper>
-        <CommunitiesGrid entries={communities.entries} />
+        <CommunitiesGrid
+          entries={communities.entries}
+          restProps={{ ...this.props.communitiesContent }}
+        />
 
         <Pagi>
           <Pagination

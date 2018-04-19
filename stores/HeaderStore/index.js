@@ -58,7 +58,7 @@ const HeaderStore = t
       self.fixed = fixed
     },
     updateAccount(sobj) {
-      self.root.updateAccount(sobj)
+      self.root.account.updateAccount(sobj)
     },
     openDoraemon() {
       self.root.openDoraemon()

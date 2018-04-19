@@ -1,6 +1,8 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
+import { makeDebugger } from './debug'
+
 import {
   pl,
   framework,
@@ -13,6 +15,10 @@ const databaseKeys = R.map(R.toLower, R.keys(database))
 // const cmdsKeys = R.map(R.toLower, R.keys(cmds))
 
 export { makeDebugger } from './debug'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('U:functions')
+/* eslint-enable no-unused-vars */
 
 /* eslint-disable */
 // TODO: document ?
@@ -75,12 +81,29 @@ export const getSVGIconPath = key => {
   return `/static/nodeIcons/${path}/${iconKey}.svg`
 }
 
-export const markStates = (sobj, self) => {
+export const markStates2 = (sobj, self) => {
   if (!isObject(sobj)) {
     throw new Error('markState get no object params')
   }
+  const selfKeys = R.keys(self)
+  debug('selfKeys', selfKeys)
+  debug('sobj', sobj)
   R.forEachObjIndexed((val, key) => {
-    self[key] = val
+    if (R.contains(key, selfKeys)) {
+      self[key] = val
+    }
+  }, sobj)
+}
+
+export const markStates = (sobj, self) => {
+  if (!isObject(sobj)) {
+    throw new Error('markState get invalid object, exepect a object')
+  }
+  const selfKeys = R.keys(self)
+  R.forEachObjIndexed((val, key) => {
+    if (R.contains(key, selfKeys)) {
+      self[key] = val
+    }
   }, sobj)
 }
 

@@ -25,6 +25,18 @@ const subscribeCommunity = gql`
   mutation($communityId: ID!) {
     subscribeCommunity(communityId: $communityId) {
       id
+      title
+      raw
+      logo
+      recentContributesDigest
+    }
+  }
+`
+
+const unsubscribeCommunity = gql`
+  mutation($communityId: ID!) {
+    unsubscribeCommunity(communityId: $communityId) {
+      id
     }
   }
 `
@@ -32,6 +44,7 @@ const subscribeCommunity = gql`
 const schema = {
   communities,
   subscribeCommunity,
+  unsubscribeCommunity,
 }
 
 export default schema
