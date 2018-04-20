@@ -84,7 +84,7 @@ const CommunityCard = ({ community, restProps }) => (
         autoDraw
         autoDrawDuration={200}
         autoDrawEasing="ease-in"
-        data={community.recentContributesDigest}
+        data={community.contributesDigest}
         gradient={['#D6ECB2', '#4F966E']}
         radius={15}
         strokeWidth={3}

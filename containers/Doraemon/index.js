@@ -74,7 +74,7 @@ class DoraemonContainer extends React.Component {
                   onMouseEnter={logic.navToSuggestion.bind(this, suggestion)}
                 >
                   <AvatarWrapper>
-                    <NodeIcon raw={suggestion.raw} />
+                    <NodeIcon raw={suggestion.raw} suggestion={suggestion} />
                   </AvatarWrapper>
                   <ContentWraper>
                     <Title>{suggestion.title}</Title>

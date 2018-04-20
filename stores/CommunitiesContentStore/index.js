@@ -36,10 +36,10 @@ const CommunitiesContentStore = t
       self.root.communities.load(data)
     },
     addSubscribedCommunity(community) {
-      self.root.subscribedCommunities.add(community)
+      self.root.account.addSubscribedCommunity(community)
     },
     removeSubscribedCommunity(community) {
-      self.root.subscribedCommunities.remove(community)
+      self.root.account.removeSubscribedCommunity(community)
     },
     markState(sobj) {
       markStates(sobj, self)

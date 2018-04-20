@@ -1,7 +1,5 @@
 /* config for different envs */
 
-export const otherAPI = '....'
-
 const getGraphQLEndpoint = () => {
   switch (process.env.GOAL) {
     case 'production':
@@ -19,3 +17,4 @@ const getGraphQLEndpoint = () => {
 }
 
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
+export const HOLDER = 1

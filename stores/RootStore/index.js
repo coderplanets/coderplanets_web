@@ -12,6 +12,7 @@ import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import {
+  UsersStore,
   AccountStore,
   BodylayoutStore,
   PostsStore,
@@ -22,7 +23,6 @@ import {
   HeaderStore,
   BannerStore,
   ContentStore,
-  SubscribedCommunitiesStore,
   // papers
   PostsPaperStore,
   CommunitiesContentStore,
@@ -46,10 +46,10 @@ const rootStore = t
   .model({
     // domain stores
     version: t.optional(t.string, '0.0.4'),
-    account: t.optional(AccountStore, {}),
+    account: t.optional(AccountStore, { user: {} }),
+    users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
     communities: t.optional(CommunitiesStore, {}),
-    subscribedCommunities: t.optional(SubscribedCommunitiesStore, {}),
     posts: t.optional(PostsStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),

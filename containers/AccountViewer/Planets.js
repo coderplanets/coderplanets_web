@@ -1,6 +1,7 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
 
-import { getSVGIconPath } from '../../utils'
+// import { getSVGIconPath } from '../../utils'
 import {
   Wrapper,
   HeaderWrapper,
@@ -10,29 +11,27 @@ import {
   PlanetsIcon,
 } from './styles/planets'
 
-const Planets = () => {
+const tooltipOffset = JSON.stringify({ top: 10, left: 5 })
+const Planets = ({ subscribedCommunities }) => {
   return (
     <Wrapper>
       <HeaderWrapper>
-        <Title>Live in 星球</Title>
-        <HelpText>星球是什么？</HelpText>
+        <Title>我/Ta的关注</Title>
+        <HelpText>共&nbsp;{subscribedCommunities.totalCount}&nbsp;个</HelpText>
       </HeaderWrapper>
       <IconList>
-        <PlanetsIcon path={getSVGIconPath('js')} />
-        <PlanetsIcon path={getSVGIconPath('elixir')} />
-        <PlanetsIcon path={getSVGIconPath('go')} />
-        <PlanetsIcon path={getSVGIconPath('php')} />
-        <PlanetsIcon path={getSVGIconPath('perl')} />
-        <PlanetsIcon path={getSVGIconPath('java')} />
-        <PlanetsIcon path={getSVGIconPath('react')} />
-        <PlanetsIcon path={getSVGIconPath('vue')} />
-        <PlanetsIcon path={getSVGIconPath('angular')} />
-        <PlanetsIcon path={getSVGIconPath('perl')} />
-        <PlanetsIcon path={getSVGIconPath('java')} />
-        <PlanetsIcon path={getSVGIconPath('ruby')} />
-        <PlanetsIcon path={getSVGIconPath('typescript')} />
-        <PlanetsIcon path={getSVGIconPath('python')} />
+        {subscribedCommunities.entries.map(community => (
+          <div
+            key={community.raw}
+            data-tip={community.title}
+            data-for="planet_icon"
+            data-offset={tooltipOffset}
+          >
+            <PlanetsIcon path={community.logo} />
+          </div>
+        ))}
       </IconList>
+      <ReactTooltip effect="solid" place="bottom" id="planet_icon" />
     </Wrapper>
   )
 }

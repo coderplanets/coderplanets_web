@@ -9,7 +9,7 @@ const subscribedCommunities = gql`
         desc
         raw
         logo
-        recentContributesDigest
+        contributesDigest
       }
       pageNumber
       pageSize
@@ -29,7 +29,7 @@ const communities = gql`
         desc
         raw
         logo
-        recentContributesDigest
+        contributesDigest
       }
       pageNumber
       pageSize

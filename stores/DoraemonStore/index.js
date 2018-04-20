@@ -41,6 +41,8 @@ const Suggestion = t.model('Suggestion', {
   title: t.string,
   desc: t.maybe(t.string),
   raw: t.string,
+  logo: t.maybe(t.string),
+  cmd: t.maybe(t.enumeration('cmd', ['theme', 'debug'])),
   descType: t.optional(
     t.enumeration('descType', ['text', 'component']),
     'text'

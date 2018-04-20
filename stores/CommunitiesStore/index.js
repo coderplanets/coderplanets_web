@@ -7,7 +7,7 @@ import R from 'ramda'
 import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from '../../utils'
-// import { Community } from '../SharedModel'
+import { Community } from '../SharedModel'
 
 // TODO; pl framework cmd -> plLanguages frameworks cmds
 /* import { pl, framework, database } from '../DoraemonStore/suggestions' */
@@ -24,18 +24,6 @@ const debug = makeDebugger('S:communities')
 /* eslint-enable no-unused-vars */
 // const debug = makeDebugger('S:CommunitiesStore')
 
-export const Community = t.model('Community', {
-  id: t.identifier(),
-  /* id: t.string, */
-  title: t.string,
-  desc: t.string,
-  raw: t.string,
-  logo: t.string,
-  recentContributesDigest: t.optional(t.array(t.number), []),
-  subscribersCount: t.optional(t.number, 0),
-  viewerHasSubscribed: t.maybe(t.boolean),
-})
-
 const CommunitiesStore = t
   .model('CommunitiesStore', {
     entries: t.optional(t.array(Community), []),
@@ -43,6 +31,8 @@ const CommunitiesStore = t
     pageSize: t.optional(t.number, 20), // TODO: USE CONSTANTS
     totalCount: t.optional(t.number, 1),
     totalPages: t.optional(t.number, 1),
+
+    // filter: {catalogry ... }
 
     // id: t.identifier(),
     // languages: t.map(PlModel),

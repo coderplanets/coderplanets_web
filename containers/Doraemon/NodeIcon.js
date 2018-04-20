@@ -4,32 +4,33 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 
-import { getSVGIconPath, themeColorMap } from '../../utils'
+import { themeColorMap } from '../../utils'
 import { NodeSVGIcon, ThemeDot } from './styles'
+import { DEFAULT_ICON } from '../../config/assets'
 
 // const debug = makeDebugger('C:Doraemon:NodeIcon')
 
-const getIconKey = R.compose(R.last, R.split('--'), R.toLower)
-
-// sucks need refactor
-const NodeIcon = ({ raw }) => {
-  const lowerRaw = R.toLower(raw)
-  const iconKey = getIconKey(lowerRaw)
-  let specialStyle = {}
-
-  if (R.startsWith('themes--', lowerRaw)) {
-    return <ThemeDot bg={themeColorMap[iconKey]} />
-  } else if (iconKey === 'hbackward') {
-    return <NodeSVGIcon reverse path={getSVGIconPath('forward')} />
-  } else if (iconKey === 'write') {
-    specialStyle = { width: '70%', marginLeft: 5 }
-  } else if (iconKey === 'login') {
-    specialStyle = { width: '70%', marginLeft: 5 }
+const NodeIcon = ({ suggestion: { raw, logo, cmd } }) => {
+  /* const lowerRaw = R.toLower(raw) */
+  if (cmd === 'theme') {
+    return <ThemeDot bg={themeColorMap[raw]} />
   }
+  return <NodeSVGIcon path={logo || DEFAULT_ICON} />
 
-  return <NodeSVGIcon path={getSVGIconPath(iconKey)} style={specialStyle} />
+  /*
+     if (R.startsWith('theme--', raw)) {
+     return <ThemeDot bg={themeColorMap[iconKey]} />
+     } else if (iconKey === 'hbackward') {
+     return <NodeSVGIcon reverse path={getSVGIconPath('forward')} />
+     } else if (iconKey === 'write') {
+     specialStyle = { width: '70%', marginLeft: 5 }
+     } else if (iconKey === 'login') {
+     specialStyle = { width: '70%', marginLeft: 5 }
+     }
+
+     return <NodeSVGIcon path={suggestion.logo} style={specialStyle} />
+   */
 }
 
 export default NodeIcon

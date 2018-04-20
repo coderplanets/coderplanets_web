@@ -14,7 +14,7 @@ const menuItemConveter = R.compose(
     title: item.title,
     raw: item.raw,
     logo: item.logo,
-    recentContributesDigest: item.recentContributesDigest,
+    contributesDigest: item.contributesDigest,
     target: {
       href: {
         pathname: '/',
@@ -68,7 +68,10 @@ const SidebarStore = t
       return self.root.curPath
     },
     get subscribedCommunities() {
-      const { entries } = self.root.subscribedCommunities.all
+      /* const { entries } = self.root.subscribedCommunities.all */
+      /* return menuItemConveter(entries.toJSON()) */
+
+      const { entries } = self.root.account.subscribedCommunities
       return menuItemConveter(entries.toJSON())
     },
   }))
@@ -78,7 +81,7 @@ const SidebarStore = t
     },
 
     loadSubscribedCommunities(data) {
-      self.root.subscribedCommunities.load(data)
+      self.root.account.loadSubscribedCommunities(data)
     },
     markState(sobj) {
       markStates(sobj, self)

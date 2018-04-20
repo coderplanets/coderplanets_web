@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
 `
 export const Title = styled.div`
-  font-size: 1.2em;
+  font-size: 1em;
   color: #5c868b;
   margin-bottom: 10px;
   flex-grow: 1;

@@ -1,8 +1,8 @@
 /*
-*
-* Header
-*
-*/
+ *
+ * Header
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -10,6 +10,8 @@ import { Affix } from 'antd'
 import keydown from 'react-keydown'
 // import Link from 'next/link'
 import Navigator from '../../components/Navigator'
+
+import { ICON_ASSETS } from '../../config/assets'
 
 import {
   makeDebugger,
@@ -94,26 +96,26 @@ class HeaderContainer extends React.Component {
                 ghost
                 onClick={logic.previewState.bind(this, 'mst-state')}
               >
-                <StateIcon path={getSVGIconPath('header_state')} />
+                <StateIcon path={`${ICON_ASSETS}/cmd/header_state.svg`} />
                 <div>STATE</div>
               </StateButton>
 
-              <DividerIcon path={getSVGIconPath('more')} />
+              <DividerIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
             </div>
           </Admin>
 
           <Operations>
             <Search onClick={logic.openDoraemon}>
-              <HeaderIcon path={getSVGIconPath('header_search')} />
+              <HeaderIcon path={`${ICON_ASSETS}/cmd/header_search.svg`} />
             </Search>
             <Notification onClick={logic.openPreview.bind(this, 'post')}>
-              <HeaderIcon path={getSVGIconPath('notification')} />
+              <HeaderIcon path={`${ICON_ASSETS}/cmd/notification_none.svg`} />
             </Notification>
             <User onClick={logic.previewAccount.bind(this, 'account')}>
               {notEmpty(accountInfo.nickname) ? (
                 <UserAvatar src={accountInfo.avatar} />
               ) : (
-                <HeaderIcon path={getSVGIconPath('header_user')} />
+                <HeaderIcon path={`${ICON_ASSETS}/cmd/header_user.svg`} />
               )}
             </User>
           </Operations>

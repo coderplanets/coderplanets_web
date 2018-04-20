@@ -9,7 +9,7 @@ const communities = gql`
         desc
         raw
         logo
-        recentContributesDigest
+        contributesDigest
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
@@ -28,7 +28,7 @@ const subscribeCommunity = gql`
       title
       raw
       logo
-      recentContributesDigest
+      contributesDigest
     }
   }
 `

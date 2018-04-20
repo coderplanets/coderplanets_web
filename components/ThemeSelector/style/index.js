@@ -21,7 +21,7 @@ export const ThemeDot = styled.div`
     props.active ? lighten(0.4, props.theme.body_bg) : getBackground(props)};
 
   &:after {
-    content: 'c';
+    content: 'T';
     position: absolute;
     color: ${props => (props.active ? '#ff9f8e' : '')};
     top: 14%;

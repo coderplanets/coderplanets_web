@@ -61,8 +61,16 @@ export function checkUserAccount() {
 }
 
 export function previewAccount() {
+  dispatchEvent(EVENT.PREVIEW, {
+    type: TYPE.ACCOUNT_PREVIEW_VIEW,
+    data: { hello: 'world --- fuck' },
+  })
+}
+
+export function previewAccount2() {
   // header.openPreview(type)
-  debug('previewAccount ..')
+  // TODO tell Doraemon to show login
+  debug('just previewAccount ..')
 
   const clientId = '3b4281c5e54ffd801f85'
   const info = 'from_github'
@@ -96,11 +104,6 @@ export function previewAccount() {
      }
      })
    */
-
-  dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.ACCOUNT_PREVIEW_VIEW,
-    data: { hello: 'world' },
-  })
 }
 
 export function openPreview() {

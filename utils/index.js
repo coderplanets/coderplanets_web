@@ -26,6 +26,7 @@ export {
   prettyNum,
   $solver,
   Rlog,
+  stripMobx,
 } from './functions'
 
 /*

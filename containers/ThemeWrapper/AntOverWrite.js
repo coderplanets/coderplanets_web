@@ -274,6 +274,12 @@ const AntOverWrite = styled.div`
     color: ${theme('taber.activeText')};
     font-weight: bold;
   }
+
+  .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active {
+    color: ${theme('taber.activeText')};
+    font-weight: bold;
+  }
+
   ul {
     margin-bottom: 0;
   }

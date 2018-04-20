@@ -24,6 +24,20 @@ const debug = makeDebugger('U:functions')
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
 
+/*
+   mobx 中的 object 是封装过后的 observable 结构, 如果 obsered-object 被用于 containers 中的子组件,
+   data 不会及时响应,需要处理成 toJSON 的 raw 结构
+   需要在 store 的"端点"去除 mobx 的数据结构
+   注意！ 该函数只应用户 store -> UI 的最后一个环节， store 内部之间的数据关联需要这种 obserable data
+ */
+export const stripMobx = obj =>
+  R.map(v => {
+    if (isObject(v) && R.has('$mobx')) {
+      return v.toJSON()
+    }
+    return v
+  }, obj)
+
 export const getParameterByName = name => {
   /* if (!url) url = window.location.href;*/
   const url = Global.location.href

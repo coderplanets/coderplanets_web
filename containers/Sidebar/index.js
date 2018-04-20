@@ -78,7 +78,7 @@ const MenuList = ({ items, pin, curPath }) => {
                                 autoDraw
                                 autoDrawDuration={300}
                                 autoDrawEasing="ease-in"
-                                data={item.recentContributesDigest}
+                                data={item.contributesDigest}
                                 gradient={['#D6ECB2', '#4F966E']}
                                 radius={15}
                                 strokeWidth={7}

@@ -20,8 +20,15 @@ const AccountViewerStore = t
     get themeKeys() {
       return self.root.theme.themeKeys
     },
+    get subscribedCommunities() {
+      const { entries, totalCount } = self.root.account.subscribedCommunities
+      return {
+        entries: entries.toJSON(),
+        totalCount,
+      }
+    },
     get accountInfo() {
-      return self.root.accountInfo
+      return self.root.account.accountInfo
     },
     get curTheme() {
       return self.root.theme.curTheme
@@ -30,6 +37,9 @@ const AccountViewerStore = t
   .actions(self => ({
     changeTheme(name) {
       self.root.changeTheme(name)
+    },
+    updateAccount(data) {
+      self.root.account.updateAccount(data)
     },
     markState(sobj) {
       markStates(sobj, self)
