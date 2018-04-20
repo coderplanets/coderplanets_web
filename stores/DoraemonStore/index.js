@@ -53,29 +53,32 @@ const DoraemonStore = t
     inputValue: t.optional(t.string, ''),
     // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
-    activeRaw: t.optional(t.string, ''),
+    activeRaw: t.maybe(t.string),
     // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
 
     // for debug config, input login/password ... etc
     inputForOtherUse: t.optional(t.boolean, false),
-    /*
-    configPrefix: t.optional(
-        t.enumeration('configPrefix', [
-           ''
-          'debug',
-          'login...',
-        ]),
-        ''
-      )
-    */
+    cmdChain: t.maybe(t.array(t.string)),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
+    get curCmdChain() {
+      if (!self.cmdChain && self.activeRaw) {
+        return [self.activeRaw]
+      } else if (self.cmdChain && self.activeRaw) {
+        return R.append(
+          self.activeRaw,
+          R.filter(el => el !== 'threads', R.map(R.toLower, self.cmdChain))
+        )
+      }
+      return null
+    },
     get allSuggestions() {
-      return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)])
+      // fdjreturn R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)])
+      return mapKeys(R.toLower, cmds) // R.mergeAll([self.root.communities.entries, mapKeys(R.toLower, cmds)])
     },
     get communities() {
       return self.root.communities.all
@@ -105,12 +108,15 @@ const DoraemonStore = t
       if (!R.isEmpty(suggestion.data)) {
         self.activeRaw = suggestion.data[0].raw
       }
+      if (self.suggestionCount === 0) {
+        self.activeRaw = null
+      }
     },
 
     clearSuggestions() {
       self.suggestions = []
       self.prefix = ''
-      self.activeRaw = ''
+      self.activeRaw = null
     },
 
     activeUp() {
@@ -156,6 +162,7 @@ const DoraemonStore = t
       self.visible = false
       self.inputValue = ''
       self.inputForOtherUse = false
+      self.cmdChain = null
       self.clearSuggestions()
       hideDoraemonBarRecover()
     },

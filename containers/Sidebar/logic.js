@@ -19,7 +19,7 @@ export function pin() {
 }
 
 export function loadCommunities() {
-  debug('loadCommunities -- accountInfo', sidebar.accountInfo)
+  // debug('loadCommunities -- accountInfo', sidebar.accountInfo)
   const account = sidebar.accountInfo
   const args = {
     userId: account.id,
@@ -34,7 +34,7 @@ const DataSolver = [
     match: R.has('subscribedCommunities'),
     action: res => {
       const data = res.subscribedCommunities
-      debug('----> dataResolver  --->', data)
+      // debug('----> dataResolver  --->', data)
       sidebar.loadSubscribedCommunities({ ...data })
     },
   },

@@ -107,13 +107,16 @@ export const mapKeys = R.curry((fn, obj) => {
 
 export const notEmpty = R.compose(R.not, R.isEmpty)
 export const isEmptyValue = R.compose(R.isEmpty, R.trim)
-// export const notEmptyValue = R.compose(R.not, isEmptyValue)
-
-/*
-export const notEmptyArray = (value) => {
-  return Array.isArray(this.resv_event) && this.resv_event.length > 0
+/* eslint-disable */
+const log = (...args) => data => {
+  console.log.apply(null, args.concat([data]))
+  return data
 }
-*/
+/* eslint-enable */
+
+// reference: https://blog.carbonfive.com/2017/12/20/easy-pipeline-debugging-with-curried-console-log/
+export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
+
 export const cutFrom = (val, cutnumber = 20) => {
   if (isEmptyValue(val)) {
     return ''

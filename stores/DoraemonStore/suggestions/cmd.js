@@ -9,6 +9,7 @@ import R from 'ramda'
 import { themeKeys } from '../../../utils/themes'
 
 // const theme = R.map(v => ({ [v]: { title: v, desc: v, new: {} } }))(themeKeys)
+// TODO: logo
 
 const cmds = {
   Debug: {},

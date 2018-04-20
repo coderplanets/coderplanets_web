@@ -3,7 +3,7 @@ import Router from 'next/router'
 
 import Pockect from './Pockect'
 import { makeDebugger, Global } from '../../utils'
-import { SwissArmyKnife, clearfyCmd } from './helper/swissArmyKnife'
+import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 const debug = makeDebugger('L:Doraemon')
 
@@ -23,7 +23,7 @@ function queryPocket() {
 const initCmdResolver = () => {
   cmdResolver = [
     {
-      match: SAK.stepOneCmd('themes'),
+      match: SAK.stepOneCmd('theme'),
       action: () => {
         SAK.completeInput(true)
         queryPocket()
@@ -88,7 +88,7 @@ const initCmdResolver = () => {
       },
     },
     {
-      match: SAK.stepTwoCmd('themes'),
+      match: SAK.stepTwoCmd('theme'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
         doraemon.changeTheme(theme)
@@ -144,7 +144,12 @@ const initCmdResolver = () => {
 }
 
 const doCmd = () => {
-  const cmd = clearfyCmd(doraemon.activeRaw)
+  /* console.log('doraemon.activeRaw: ', doraemon.activeRaw) */
+  /* console.log('doraemon.curCmdChain: ', doraemon.curCmdChain) */
+  const cmd = doraemon.curCmdChain
+  if (!cmd) return
+
+  console.log('clearfyCmd cms: ', cmd)
   /* Do not use forEach, cause forEach will not break */
   for (let i = 0; i < cmdResolver.length; i += 1) {
     if (cmdResolver[i].match(cmd)) {
@@ -214,6 +219,7 @@ export function inputOnChange(e) {
   const inputValue = e.target.value
   doraemon.markState({
     inputValue,
+    cmdChain: null,
     // searching: true,
   })
   queryPocket()

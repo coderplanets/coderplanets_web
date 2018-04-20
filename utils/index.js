@@ -25,6 +25,7 @@ export {
   getParameterByName,
   prettyNum,
   $solver,
+  Rlog,
 } from './functions'
 
 /*
