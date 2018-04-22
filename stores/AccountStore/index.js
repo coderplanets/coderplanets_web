@@ -30,8 +30,10 @@ const AccountStore = t
     get subscribedCommunities() {
       const { user: { subscribedCommunities } } = self
       return {
-        entries: subscribedCommunities.entries,
-        totalCount: subscribedCommunities.totalCount,
+        // ...subscribedCommunities,
+        ...stripMobx(subscribedCommunities),
+        // entries: fuck.entries,
+        // totalCount: fuck.totalCount,
       }
     },
     get isLogin() {

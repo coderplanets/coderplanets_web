@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 import { Tabs } from 'antd'
+import ReactTooltip from 'react-tooltip'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
@@ -41,6 +42,14 @@ class AccountViewerContainer extends React.Component {
     logic.init(this.props.accountViewer)
     logic.loadAccount()
   }
+  componentDidMount() {
+    /* force rebuild the tooltip, otherwise it won't work in some async cases */
+    /* if you want to custom see: */
+    /* https://github.com/wwayne/react-tooltip/blob/2364dc61332aa947b106dd4bbdd1f2b0e4b1e51d/src/index.scss */
+    setTimeout(() => {
+      ReactTooltip.rebuild()
+    }, 2000)
+  }
 
   render() {
     const {
@@ -54,6 +63,7 @@ class AccountViewerContainer extends React.Component {
 
     return (
       <AccountWrapper>
+        <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
           <UserHeader accountInfo={accountInfo} />
           <Divider top="10px" bottom="20px" />

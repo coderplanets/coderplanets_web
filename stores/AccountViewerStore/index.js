@@ -21,11 +21,7 @@ const AccountViewerStore = t
       return self.root.theme.themeKeys
     },
     get subscribedCommunities() {
-      const { entries, totalCount } = self.root.account.subscribedCommunities
-      return {
-        entries: entries.toJSON(),
-        totalCount,
-      }
+      return self.root.account.subscribedCommunities
     },
     get accountInfo() {
       return self.root.account.accountInfo

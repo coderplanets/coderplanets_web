@@ -68,11 +68,8 @@ const SidebarStore = t
       return self.root.curPath
     },
     get subscribedCommunities() {
-      /* const { entries } = self.root.subscribedCommunities.all */
-      /* return menuItemConveter(entries.toJSON()) */
-
       const { entries } = self.root.account.subscribedCommunities
-      return menuItemConveter(entries.toJSON())
+      return menuItemConveter(entries)
     },
   }))
   .actions(self => ({

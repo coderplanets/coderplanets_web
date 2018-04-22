@@ -6,9 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, mapKeys } from '../../utils'
-
-import cmds from './suggestions/cmd'
+import { markStates } from '../../utils'
+import cmds from './default_suggestion'
 
 // import { makeDebugger } from '../../utils'
 // const debug = makeDebugger('S:DoraemonStore')
@@ -37,6 +36,25 @@ const hideDoraemonBarRecover = () => {
   /* eslint-enable no-undef */
 }
 
+const convertThreadsToMaps = com => {
+  const { title, desc, logo, raw } = com
+  const threads = {}
+  R.forEach(t => {
+    threads[t.title] = {
+      title: t.title,
+      raw: t.raw,
+    }
+  }, com.threads)
+
+  return {
+    title,
+    desc,
+    logo,
+    raw,
+    threads,
+  }
+}
+
 const Suggestion = t.model('Suggestion', {
   title: t.string,
   desc: t.maybe(t.string),
@@ -53,12 +71,10 @@ const DoraemonStore = t
   .model('DoraemonStore', {
     visible: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
-    // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
     activeRaw: t.maybe(t.string),
     // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
-
     // for debug config, input login/password ... etc
     inputForOtherUse: t.optional(t.boolean, false),
     cmdChain: t.maybe(t.array(t.string)),
@@ -79,8 +95,18 @@ const DoraemonStore = t
       return null
     },
     get allSuggestions() {
-      // fdjreturn R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)])
-      return mapKeys(R.toLower, cmds) // R.mergeAll([self.root.communities.entries, mapKeys(R.toLower, cmds)])
+      const { entries } = self.root.account.subscribedCommunities
+
+      const subscribedCommunitiesMaps = {}
+
+      R.forEach(com => {
+        subscribedCommunitiesMaps[com.title] = {
+          ...com,
+        }
+      }, R.map(convertThreadsToMaps, entries))
+
+      return R.merge(subscribedCommunitiesMaps, cmds)
+      /* return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)]) */
     },
     get communities() {
       return self.root.communities.all

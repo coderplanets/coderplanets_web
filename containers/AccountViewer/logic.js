@@ -29,8 +29,6 @@ const DataSolver = [
     action: res => {
       const data = res.account
       accountViewer.updateAccount(data)
-      /* store.set('user', { ...data }) */
-      //   header.updateAccount(data)
     },
   },
 ]

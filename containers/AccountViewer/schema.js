@@ -7,6 +7,10 @@ const user = gql`
       avatar
       bio
       fromGithub
+      githubProfile {
+        htmlUrl
+        login
+      }
       contributes {
         date
         count
@@ -18,6 +22,10 @@ const user = gql`
 const account = gql`
   query account {
     account {
+      githubProfile {
+        htmlUrl
+        login
+      }
       contributes {
         records {
           count

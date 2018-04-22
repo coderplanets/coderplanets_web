@@ -144,8 +144,6 @@ const initCmdResolver = () => {
 }
 
 const doCmd = () => {
-  /* console.log('doraemon.activeRaw: ', doraemon.activeRaw) */
-  /* console.log('doraemon.curCmdChain: ', doraemon.curCmdChain) */
   const cmd = doraemon.curCmdChain
   if (!cmd) return
 

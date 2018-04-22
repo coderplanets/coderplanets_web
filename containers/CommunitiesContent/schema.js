@@ -29,6 +29,10 @@ const subscribeCommunity = gql`
       raw
       logo
       contributesDigest
+      threads {
+        title
+        raw
+      }
     }
   }
 `

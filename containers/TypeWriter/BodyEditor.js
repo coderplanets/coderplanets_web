@@ -71,9 +71,7 @@ class MastaniEditor extends React.Component {
     }, 100)
   }
 
-  componentWillUnmount() {
-    // console.log('i am leaving')
-  }
+  componentWillUnmount() {}
 
   onChange = editorState => {
     this.props.onChange(toRawString(editorState.getCurrentContent()))
@@ -83,7 +81,6 @@ class MastaniEditor extends React.Component {
   }
 
   onSearchChange = ({ value }) => {
-    // console.log('on onSearchChange: ', value)
     this.setState({
       suggestions: defaultSuggestionsFilter(value, mentions),
     })

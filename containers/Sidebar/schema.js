@@ -10,6 +10,10 @@ const subscribedCommunities = gql`
         raw
         logo
         contributesDigest
+        threads {
+          title
+          raw
+        }
       }
       pageNumber
       pageSize
