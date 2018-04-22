@@ -20,6 +20,7 @@ import {
   getSVGIconPath,
   getRandomInt,
   cutFrom,
+  pagiCustomRender,
   // Global,
 } from '../../utils'
 
@@ -121,17 +122,6 @@ const tags = [
   },
 ]
 
-function itemRender(current, type, originalElement) {
-  /* eslint-disable */
-  if (type === 'prev') {
-    return <a>上一页</a>
-  } else if (type === 'next') {
-    return <a>下一页</a>
-  }
-  /* eslint-enable */
-  return originalElement
-}
-
 const PostItem = ({ post }) => (
   <PostWrapper>
     <div>
@@ -232,7 +222,7 @@ class PostsPaperContainer extends React.Component {
               current={postsData.pageNumber}
               pageSize={postsData.pageSize}
               total={postsData.totalCount}
-              itemRender={itemRender}
+              itemRender={pagiCustomRender}
               onChange={logic.pageChange}
             />
           </Pagi>

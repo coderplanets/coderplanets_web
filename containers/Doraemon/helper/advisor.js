@@ -8,8 +8,6 @@ import 'rxjs/add/observable/fromPromise'
 
 import { notEmpty } from '../../../utils'
 
-const cleanMetaInfo = R.omit(['desc', 'title', 'raw', 'parent'])
-
 const cmdSplit = R.compose(R.split('/'), R.slice(1, Infinity))
 const cmdFull = R.compose(R.filter(notEmpty), cmdSplit)
 const cmdHead = R.compose(R.head, cmdSplit)
@@ -24,21 +22,40 @@ export const startWithSpecialPrefix = R.anyPass([
   R.startsWith('<'),
 ])
 
+// TODO need refactor
+export const insertBetweenPath = (path, word = 'threads') => {
+  switch (path.length) {
+    case 2:
+      return R.append(word, R.insert(1, word, path))
+    // case 3:
+    //  return R.append(word, R.insert(1, word, path))
+    default:
+      return R.append(word, path)
+  }
+}
+
 export class Advisor {
   constructor(store) {
     this.store = store
-    this.allSuggestions = store.allSuggestions
+    this.curSuggestions = store.allSuggestions
   }
 
-  getSuggestionPath = p => R.path(p, this.allSuggestions)
-  suggestionPathInit = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdInit)
-  suggestionPath = R.compose(cleanMetaInfo, this.getSuggestionPath, cmdFull)
+  getSuggestionPath = p => {
+    if (R.isEmpty(p)) {
+      return R.path(p, this.curSuggestions)
+    }
+    const cmdChain = insertBetweenPath(p)
+    this.store.markState({ cmdChain })
+    return R.path(cmdChain, this.curSuggestions) || {}
+  }
 
-  suggestionPathThenStartsWith = val =>
-    R.pickBy(
-      (_, k) => R.startsWith(cmdLast(val), k),
-      this.suggestionPathInit(val)
-    )
+  suggestionPathInit = R.compose(this.getSuggestionPath, cmdInit)
+  suggestionPath = R.compose(this.getSuggestionPath, cmdFull)
+
+  suggestionPathThenStartsWith = val => {
+    const init = this.suggestionPathInit(val)
+    return R.pickBy((_, k) => R.startsWith(cmdLast(val), k), init)
+  }
 
   walkSuggestion = R.ifElse(
     R.endsWith('/'),
@@ -48,7 +65,7 @@ export class Advisor {
 
   suggestionBreif = R.compose(
     R.values,
-    R.map(R.pick(['title', 'desc', 'raw'])),
+    R.map(R.pick(['title', 'desc', 'raw', 'logo', 'cmd'])),
     this.walkSuggestion
   )
 
@@ -58,10 +75,15 @@ export class Advisor {
     this.suggestionBreif
   )
 
-  relateSuggestions = val => ({
-    prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
-    data: this.getSuggestion(val),
-  })
+  relateSuggestions = val => {
+    // sync with store allSuggestions
+    this.curSuggestions = this.store.allSuggestions
+
+    return {
+      prefix: cmdSplit(val).length > 1 ? cmdHead(val) : '/',
+      data: this.getSuggestion(val),
+    }
+  }
 
   relateSuggestions$ = q =>
     Observable.fromPromise(

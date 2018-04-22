@@ -1,8 +1,8 @@
 /*
-*
-* Header
-*
-*/
+ *
+ * Header
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -11,12 +11,9 @@ import keydown from 'react-keydown'
 // import Link from 'next/link'
 import Navigator from '../../components/Navigator'
 
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-  getParameterByName,
-} from '../../utils'
+import { ICON_ASSETS } from '../../config/assets'
+
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import {
   Header,
@@ -28,6 +25,7 @@ import {
   Search,
   Notification,
   HeaderIcon,
+  UserAvatar,
   StateIcon,
   StateButton,
   DividerIcon,
@@ -37,7 +35,9 @@ import {
 
 import * as logic from './logic'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Header')
+/* eslint-enable no-unused-vars */
 
 const MiniMap = ({ curRoute }) => {
   const defaultIcon = 'js'
@@ -59,19 +59,7 @@ const MiniMap = ({ curRoute }) => {
 
 class HeaderContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.header)
-  }
-
-  componentDidMount() {
-    const code = getParameterByName('code')
-    const state = getParameterByName('state')
-
-    if (code && state === 'from_github') {
-      console.log('-----> componentDidMount code: ', code)
-      logic.signinGithub(code)
-      /* query_for_token? */
-    }
   }
 
   /* eslint-disable class-methods-use-this */
@@ -83,7 +71,13 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { fixed, curRoute, leftOffset } = this.props.header
+    const {
+      fixed,
+      curRoute,
+      leftOffset,
+      accountInfo,
+      isLogin,
+    } = this.props.header
 
     return (
       <Affix>
@@ -103,24 +97,31 @@ class HeaderContainer extends React.Component {
                 ghost
                 onClick={logic.previewState.bind(this, 'mst-state')}
               >
-                <StateIcon path={getSVGIconPath('header_state')} />
+                <StateIcon path={`${ICON_ASSETS}/cmd/header_state.svg`} />
                 <div>STATE</div>
               </StateButton>
 
-              <DividerIcon path={getSVGIconPath('more')} />
+              <DividerIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
             </div>
           </Admin>
 
           <Operations>
             <Search onClick={logic.openDoraemon}>
-              <HeaderIcon path={getSVGIconPath('header_search')} />
+              <HeaderIcon path={`${ICON_ASSETS}/cmd/header_search.svg`} />
             </Search>
             <Notification onClick={logic.openPreview.bind(this, 'post')}>
-              <HeaderIcon path={getSVGIconPath('notification')} />
+              <HeaderIcon path={`${ICON_ASSETS}/cmd/notification_none.svg`} />
             </Notification>
-            <User onClick={logic.previewAccount.bind(this, 'account')}>
-              <HeaderIcon path={getSVGIconPath('header_user')} />
-            </User>
+
+            {isLogin ? (
+              <User onClick={logic.previewAccount.bind(this, 'account')}>
+                <UserAvatar src={accountInfo.avatar} />
+              </User>
+            ) : (
+              <User onClick={logic.login}>
+                <HeaderIcon path={`${ICON_ASSETS}/cmd/header_user.svg`} />
+              </User>
+            )}
           </Operations>
         </Header>
       </Affix>

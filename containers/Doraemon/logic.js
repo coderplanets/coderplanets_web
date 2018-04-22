@@ -1,9 +1,12 @@
 import R from 'ramda'
 import Router from 'next/router'
+import store from 'store'
 
 import Pockect from './Pockect'
-import { makeDebugger, Global } from '../../utils'
-import { SwissArmyKnife, clearfyCmd } from './helper/swissArmyKnife'
+import { makeDebugger, Global, dispatchEvent, EVENT } from '../../utils'
+import { SwissArmyKnife } from './helper/swissArmyKnife'
+
+import oauthPopup from './oauth_window'
 
 const debug = makeDebugger('L:Doraemon')
 
@@ -20,10 +23,73 @@ function queryPocket() {
   pockect$.query(doraemon.inputValue)
 }
 
+function simuUserLogin() {
+  const data = {
+    id: '112',
+    token:
+      'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYXN0YW5pX3NlcnZlciIsImV4cCI6MTUyNTI2Nzc3NCwiaWF0IjoxNTI0MDU4MTc0LCJpc3MiOiJtYXN0YW5pX3NlcnZlciIsImp0aSI6IjdiNjdhYzJmLTIwMjYtNDMzNy04MjcyLTVmYjY0ZDMxMGVjNyIsIm5iZiI6MTUyNDA1ODE3Mywic3ViIjoiMTEyIiwidHlwIjoiYWNjZXNzIn0.mm0GuOhzs8UYikPZGnIKQpnGYJQiwzEtCx2xeRn1qcT3sOT6Yg3GvM303OxDoGHnrNf72HSjwVxiCO6mXkq8mg',
+    nickname: 'mydearxym',
+    avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
+    bio:
+      "everyday is the opportunity you can't get back,so live life to the fullest",
+    fromGithub: true,
+  }
+
+  store.set('user', data)
+
+  doraemon.updateAccount(data)
+}
+
+export function githubLoginHandler() {
+  // header.openPreview(type)
+  // TODO tell Doraemon to show login
+  debug('just previewAccount ..')
+
+  const clientId = '3b4281c5e54ffd801f85'
+  const info = 'from_github'
+  const cb = 'http://www.coderplanets.com'
+  const github = 'https://github.com/login/oauth/authorize'
+  const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
+
+  // debug(url)
+  // sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  // checkUserAccount()
+  // return false
+  // store.set('user', { token: user_token })
+  // signinGithub('71b0c5169ebbb7a124b9')
+  /* reference */
+  /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
+
+  /* Global.location.href = url */
+  /* console.log('getParameterByName:', getParameterByName('recoe')) */
+  // popup('http://localhost:3000?code=djfiekdjfie')
+
+  oauthPopup(url)
+  simuUserLogin()
+
+  setTimeout(() => {
+    // use normal-http to signinGithub
+    // sync userinfo to store
+    // finally:
+    dispatchEvent(EVENT.LOGIN)
+  }, 5000)
+  /*
+
+     Global.addEventListener('message', e => {
+     if (e.origin === Global.location.origin) {
+     if (e.data.from_child) {
+     debug('收到合法消息: ', e.data)
+     Global.postMessage({ from_parent: true }, Global.location.href)
+     }
+     }
+     })
+   */
+}
+
 const initCmdResolver = () => {
   cmdResolver = [
     {
-      match: SAK.stepOneCmd('themes'),
+      match: SAK.stepOneCmd('theme'),
       action: () => {
         SAK.completeInput(true)
         queryPocket()
@@ -80,15 +146,15 @@ const initCmdResolver = () => {
         Router.push(
           {
             pathname: '/',
-            query: { main: 'communities' },
+            query: { main: 'communities', sub: 'all' },
           },
-          '/communities'
+          '/communities/all'
         )
         hidePanel()
       },
     },
     {
-      match: SAK.stepTwoCmd('themes'),
+      match: SAK.stepTwoCmd('theme'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
         doraemon.changeTheme(theme)
@@ -98,16 +164,8 @@ const initCmdResolver = () => {
       match: SAK.stepTwoCmd('login'),
       action: cmdpath => {
         debug('stepTwoCmd login->: ', cmdpath)
+        githubLoginHandler()
         hidePanel()
-
-        /*
-        const clientId = '3b4281c5e54ffd801f85'
-        const state = 'previous_page_location'
-        const callback = 'http://www.coderplanets.com/auth_callback'
-        const githubUrl = 'https://github.com/login/oauth/authorize'
-        const url = `${githubUrl}?client_id=${clientId}&state=${state}&redirect_uri=${callback}`
-        */
-
         /* reference */
         /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
         /* SAK.completeInput(true) */
@@ -153,7 +211,9 @@ const initCmdResolver = () => {
 }
 
 const doCmd = () => {
-  const cmd = clearfyCmd(doraemon.activeRaw)
+  const cmd = doraemon.curCmdChain
+  if (!cmd) return
+
   /* Do not use forEach, cause forEach will not break */
   for (let i = 0; i < cmdResolver.length; i += 1) {
     if (cmdResolver[i].match(cmd)) {
@@ -223,6 +283,7 @@ export function inputOnChange(e) {
   const inputValue = e.target.value
   doraemon.markState({
     inputValue,
+    cmdChain: null,
     // searching: true,
   })
   queryPocket()

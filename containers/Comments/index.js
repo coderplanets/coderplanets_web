@@ -54,7 +54,9 @@ import {
 
 import BodyEditor from '../TypeWriter/BodyEditor'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Comments')
+/* eslint-enable no-unused-vars */
 
 const fakeUser = {
   avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar20.png',
@@ -116,7 +118,7 @@ const InputBox = ({ onInput, showInputEditor }) => (
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
   if (!R.isEmpty(selectText)) {
-    console.log('getSelection', selectText)
+    debug('getSelection', selectText)
     // TODO: then use window.getSelection().getRangeAt(0).getBoundingClientRect() to draw a button
   }
 }
@@ -183,7 +185,6 @@ const Lists = () => (
 
 class CommentsContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.comments)
   }
 

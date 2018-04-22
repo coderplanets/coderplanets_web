@@ -6,9 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, mapKeys } from '../../utils'
-
-import cmds from './suggestions/cmd'
+import { markStates } from '../../utils'
+import cmds from './default_suggestion'
 
 // import { makeDebugger } from '../../utils'
 // const debug = makeDebugger('S:DoraemonStore')
@@ -16,7 +15,7 @@ import cmds from './suggestions/cmd'
 const focusDoraemonBar = () => {
   setTimeout(() => {
     // side effect
-    /* eslint-disable no-undef */
+    /* eslint-disable */
     // has to use setTimeout
     // see: https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
     try {
@@ -24,7 +23,7 @@ const focusDoraemonBar = () => {
     } catch (e) {
       console.error(e)
     }
-    /* eslint-enable no-undef */
+    /* eslint-enable */
   }, 0)
 }
 
@@ -37,10 +36,31 @@ const hideDoraemonBarRecover = () => {
   /* eslint-enable no-undef */
 }
 
+const convertThreadsToMaps = com => {
+  const { title, desc, logo, raw } = com
+  const threads = {}
+  R.forEach(t => {
+    threads[t.title] = {
+      title: t.title,
+      raw: t.raw,
+    }
+  }, com.threads)
+
+  return {
+    title,
+    desc,
+    logo,
+    raw,
+    threads,
+  }
+}
+
 const Suggestion = t.model('Suggestion', {
   title: t.string,
   desc: t.maybe(t.string),
   raw: t.string,
+  logo: t.maybe(t.string),
+  cmd: t.maybe(t.enumeration('cmd', ['theme', 'debug'])),
   descType: t.optional(
     t.enumeration('descType', ['text', 'component']),
     'text'
@@ -51,31 +71,42 @@ const DoraemonStore = t
   .model('DoraemonStore', {
     visible: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
-    // TODO: curSuggestions
     suggestions: t.optional(t.array(Suggestion), []),
-    activeRaw: t.optional(t.string, ''),
+    activeRaw: t.maybe(t.string),
     // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
-
     // for debug config, input login/password ... etc
     inputForOtherUse: t.optional(t.boolean, false),
-    /*
-    configPrefix: t.optional(
-        t.enumeration('configPrefix', [
-           ''
-          'debug',
-          'login...',
-        ]),
-        ''
-      )
-    */
+    cmdChain: t.maybe(t.array(t.string)),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
+    get curCmdChain() {
+      if (!self.cmdChain && self.activeRaw) {
+        return [self.activeRaw]
+      } else if (self.cmdChain && self.activeRaw) {
+        return R.append(
+          self.activeRaw,
+          R.filter(el => el !== 'threads', R.map(R.toLower, self.cmdChain))
+        )
+      }
+      return null
+    },
     get allSuggestions() {
-      return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)])
+      const { entries } = self.root.account.subscribedCommunities
+
+      const subscribedCommunitiesMaps = {}
+
+      R.forEach(com => {
+        subscribedCommunitiesMaps[com.title] = {
+          ...com,
+        }
+      }, R.map(convertThreadsToMaps, entries))
+
+      return R.merge(subscribedCommunitiesMaps, cmds)
+      /* return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)]) */
     },
     get communities() {
       return self.root.communities.all
@@ -94,6 +125,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    updateAccount(data) {
+      self.root.account.updateAccount(data)
+    },
     changeTheme(name) {
       self.root.changeTheme(name)
     },
@@ -105,12 +139,15 @@ const DoraemonStore = t
       if (!R.isEmpty(suggestion.data)) {
         self.activeRaw = suggestion.data[0].raw
       }
+      if (self.suggestionCount === 0) {
+        self.activeRaw = null
+      }
     },
 
     clearSuggestions() {
       self.suggestions = []
       self.prefix = ''
-      self.activeRaw = ''
+      self.activeRaw = null
     },
 
     activeUp() {
@@ -152,10 +189,15 @@ const DoraemonStore = t
       self.visible = true
       focusDoraemonBar()
     },
+    handleLogin() {
+      self.open()
+      self.inputValue = '/login/'
+    },
     hideDoraemon() {
       self.visible = false
       self.inputValue = ''
       self.inputForOtherUse = false
+      self.cmdChain = null
       self.clearSuggestions()
       hideDoraemonBarRecover()
     },

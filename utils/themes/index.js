@@ -41,3 +41,14 @@ export const themeColorMap = R.map(R.path(['sidebar', 'bg']), themeDict)
 // shorthand for style-components
 export const theme = themepath =>
   R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
+
+export const pagiCustomRender = (current, type, originalElement) => {
+  /* eslint-disable */
+  if (type === 'prev') {
+    return <a>上一页</a>
+  } else if (type === 'next') {
+    return <a>下一页</a>
+  }
+  /* eslint-enable */
+  return originalElement
+}

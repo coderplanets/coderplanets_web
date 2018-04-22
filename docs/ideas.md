@@ -1,4 +1,17 @@
 
+## pwa
+  [介绍](https://lavas.baidu.com/pwa)
+  [next Offline First Support](https://github.com/zeit/next.js/issues/861)
+
+## Nano id
+  [git](https://github.com/ai/nanoid)
+  need IE >= 11 
+
+  nanoid          375,840 ops/sec
+  nanoid/generate 268,747 ops/sec
+  uuid/v4         374,767 ops/sec
+  shortid          41,260 ops/sec
+
 ## Eelectron
   [基础文档](https://electron.org.cn/doc/index.html)
   [weweChat](https://github.com/trazyn/weweChat)

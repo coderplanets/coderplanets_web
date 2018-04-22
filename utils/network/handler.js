@@ -15,10 +15,11 @@ export const TimoutObservable = Observable.of({
 })
 
 export const formatGraphErrors = error => {
+  /* console.log('formatGraphErrors error: ', error) */
   const { graphQLErrors } = error
   // graphQLErrors may not catch in graph query (wrang sytax etc ...)
   // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-  if (notEmpty(graphQLErrors)) {
+  if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
     const details = []
     graphQLErrors.map(({ message, path, detail }) => {
       return details.push({

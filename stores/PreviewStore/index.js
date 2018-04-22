@@ -12,14 +12,13 @@ import { markStates, TYPE, unholdPage } from '../../utils'
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
-    type: t.optional(
+    type: t.maybe(
       t.enumeration('previewType', [
         TYPE.POST_PREVIEW_VIEW,
         TYPE.ACCOUNT_PREVIEW_VIEW,
         TYPE.PREVIEW_ROOT_STORE,
         TYPE.PREVIEW_CREATE_POST,
-      ]),
-      TYPE.POST_PREVIEW_VIEW
+      ])
     ),
     // header:
     // body:
@@ -43,7 +42,7 @@ const PreviewStore = t
     },
     close() {
       self.visible = false
-      self.type = TYPE.PREVIEW_ROOT_STORE
+      // self.type = TYPE.PREVIEW_ROOT_STORE
       unholdPage()
     },
     markState(sobj) {

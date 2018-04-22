@@ -1,12 +1,14 @@
 /*
-*
-* AccountViewer
-*
-*/
+ *
+ * AccountViewer
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
+import { Tabs } from 'antd'
+import ReactTooltip from 'react-tooltip'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
@@ -17,7 +19,11 @@ import ContributeMap from './ContributeMap'
 import ThemeSelector from '../../components/ThemeSelector'
 import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountViewer')
+/* eslint-enable no-unused-vars */
+
+const { TabPane } = Tabs
 
 const ThemeSection = ({ themeKeys, curTheme }) => {
   return (
@@ -33,37 +39,59 @@ const ThemeSection = ({ themeKeys, curTheme }) => {
 
 class AccountViewerContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.accountViewer)
+    logic.loadAccount()
+  }
+  componentDidMount() {
+    /* force rebuild the tooltip, otherwise it won't work in some async cases */
+    /* if you want to custom see: */
+    /* https://github.com/wwayne/react-tooltip/blob/2364dc61332aa947b106dd4bbdd1f2b0e4b1e51d/src/index.scss */
+    setTimeout(() => {
+      ReactTooltip.rebuild()
+    }, 2000)
   }
 
   render() {
-    const { themeKeys, curTheme } = this.props.accountViewer
+    const {
+      themeKeys,
+      curTheme,
+      accountInfo,
+      subscribedCommunities,
+    } = this.props.accountViewer
+
+    const { contributes } = accountInfo
 
     return (
       <AccountWrapper>
+        <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
-          <UserHeader />
+          <UserHeader
+            accountInfo={accountInfo}
+            logout={logic.logout}
+            editProfile={logic.editProfile}
+          />
           <Divider top="10px" bottom="20px" />
-          <Planets />
+          <Planets subscribedCommunities={subscribedCommunities} />
           <Divider top="10px" bottom="20px" />
-          <ContributeMap />
+          <ContributeMap data={contributes} />
           <Divider top="18px" />
-          <div style={{ display: 'none' }}>
-            <h2>This is Header</h2>
-            <div>
-              <h3>mydearxym 登录信息</h3>
-              <h3>个人介绍</h3>
-              <h3>订阅的社区</h3>
-              <h3>我的收藏</h3>
-              <h3>我的帖子</h3>
-              <h3>我的关注</h3>
-              <h3>关注我的人</h3>
-              <h3>主题切换</h3>
-              <h3>最近七天日历活动表</h3>
-            </div>
-          </div>
+          <Tabs onChange={console.log} type="card">
+            <TabPane tab="最近" key="1">
+              Content of Tab Pane 1
+            </TabPane>
+            <TabPane tab="收藏 456" key="2">
+              Content of Tab Pane 2
+            </TabPane>
+            <TabPane tab="关注中 34" key="4">
+              Content of Tab Pane 3
+            </TabPane>
+            <TabPane tab="关注者 28" key="5">
+              Content of Tab Pane 3
+            </TabPane>
+          </Tabs>
         </AccountContent>
+
+        {/* TODO if is others preview, then not show this */}
         <Divider top="10px" bottom="12px" />
         <ThemeSection themeKeys={themeKeys} curTheme={curTheme} />
       </AccountWrapper>

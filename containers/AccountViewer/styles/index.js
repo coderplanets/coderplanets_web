@@ -4,12 +4,14 @@ import { theme } from '../../../utils'
 
 export const AccountWrapper = styled.div`
   height: 100%;
+  min-height: 100vh;
   background: ${theme('preview.account_bg')};
   padding: 22px;
   padding-top: 30px;
-  border-radius: 8px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
+  border-top: 2px solid orange;
 `
 
 export const AccountContent = styled.div`

@@ -13,6 +13,23 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>mastani</title>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${
+              process.env.GA_TRACING_ID
+            }`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.GA_TRACING_ID}');
+              `,
+            }}
+          />
           <link
             href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
             rel="stylesheet"
@@ -21,7 +38,6 @@ export default class MyDocument extends Document {
             href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css"
             rel="stylesheet"
           />
-
           {styleTags}
         </Head>
         <body id="body">

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/fromPromise'
 
 /* import { makeDebugger } from '../../utils' */
-import { client, context, USE_CACHE } from './setup'
+import { client, context } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
@@ -20,7 +20,6 @@ const doQuery = (query, variables) =>
       context,
     })
     .then(res => {
-      if (!USE_CACHE) client.resetStore()
       return res.data
     })
     .catch(formatGraphErrors)

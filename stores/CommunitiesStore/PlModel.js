@@ -1,30 +1,16 @@
 import { types as t } from 'mobx-state-tree'
 
-import {
-  Posts,
-  Map,
-  News,
-  Meetups,
-  Users,
-  Videos,
-  Tuts,
-  CheatSheet,
-  Jobs,
-} from './CommonModels'
+const Thread = t.model('Thread', {
+  title: t.string,
+})
 
 const PlModel = t.model('PlModel', {
   title: t.string,
   desc: t.string,
   raw: t.string,
-  posts: Posts,
-  news: News,
-  tuts: Tuts,
-  map: Map,
-  meetups: Meetups,
-  users: Users,
-  videos: Videos,
-  cheatsheet: CheatSheet,
-  jobs: Jobs,
+  logo: t.string,
+
+  threads: t.optional(t.array(Thread), []),
 })
 
 export default PlModel

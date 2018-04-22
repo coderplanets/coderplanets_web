@@ -29,12 +29,15 @@ import {
   CloserInner,
 } from './styles'
 
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('C:Preview')
+/* eslint-enable no-unused-vars */
+
 const DynamicTypeWriter = dynamic(import('../TypeWriter'), {
   /* eslint-disable */
   loading: () => <TypeWriterLoading />,
   /* eslint-enable */
 })
-const debug = makeDebugger('C:Preview')
 
 const CloseBtn = ({ type }) => (
   <PreviewCloser onClick={logic.closePreview}>
@@ -70,7 +73,6 @@ const Viewer = ({ type, root }) => {
 
 class PreviewContainer extends React.Component {
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.preview)
   }
 

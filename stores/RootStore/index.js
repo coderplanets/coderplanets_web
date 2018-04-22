@@ -7,76 +7,89 @@ import { types as t } from 'mobx-state-tree'
 import { makeDebugger } from '../../utils'
 
 import RouteStore from '../RouteStore'
-import { CommunitiesStore, CommunitiesDefaults } from '../CommunitiesStore'
+
+import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
-import PostsStore from '../PostsStore'
 
-import BodylayoutStore from '../BodylayoutStore'
-import ApiLayoutStore from '../ApiLayoutStore'
-import SidebarStore from '../SidebarStore'
-import PreviewStore from '../PreviewStore'
-import DoraemonStore from '../DoraemonStore'
-import GithubEampleStore from '../GithubEampleStore'
-import HeaderStore from '../HeaderStore'
-import BannerStore from '../BannerStore'
-import ContentStore from '../ContentStore'
+import {
+  UsersStore,
+  AccountStore,
+  BodylayoutStore,
+  PostsStore,
+  ApiLayoutStore,
+  SidebarStore,
+  PreviewStore,
+  DoraemonStore,
+  HeaderStore,
+  BannerStore,
+  ContentStore,
+  // papers
+  PostsPaperStore,
+  CommunitiesContentStore,
+  CheatSheetContentStore,
+  // viewers
+  ArticleViwerStore,
+  AccountViewerStore,
+  TypeWriterStore,
+  CommentsStore,
+  TutsViewerStore,
+  MapViewerStore,
+  JobsViewerStore,
+  CheatSheetPaperStore,
+} from '../storeIndex'
 
-import ArticleViwerStore from '../ArticleViwerStore'
-import AccountViewerStore from '../AccountViewerStore'
-import TypeWriterStore from '../TypeWriterStore'
-import CommentsStore from '../CommentsStore'
-
-import PostsPaperStore from '../PostsPaperStore'
-import TutsViewerStore from '../TutsViewerStore'
-import MapViewerStore from '../MapViewerStore'
-import JobsViewerStore from '../JobsViewerStore'
-import CheatSheetViewerStore from '../CheatSheetViewerStore'
-
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:rootStore')
+/* eslint-enable no-unused-vars */
 
 const rootStore = t
   .model({
+    // domain stores
     version: t.optional(t.string, '0.0.4'),
-    // domain modal
+    account: t.optional(AccountStore, { user: {} }),
+    users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
-    communities: t.optional(CommunitiesStore, CommunitiesDefaults),
+    communities: t.optional(CommunitiesStore, {}),
     posts: t.optional(PostsStore, {}),
-    // subscriptions: ...
-    // mySubscriptions: ...
-    // posts: ...
-    // TODO: account: ...{ config } ..
+    comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
     // domain end
 
+    // toolbox
+    sidebar: t.optional(SidebarStore, { menuItems: [] }),
+    preview: t.optional(PreviewStore, { visible: false }),
+    doraemon: t.optional(DoraemonStore, {}),
+    typeWriter: t.optional(TypeWriterStore, {}),
+    // toolbox end
+
+    // layouts > xxx > papers
+    // layouts
     bodylayout: t.optional(BodylayoutStore, {}),
     apiLayout: t.optional(ApiLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     banner: t.optional(BannerStore, {}),
     content: t.optional(ContentStore, {}),
-    sidebar: t.optional(SidebarStore, { menuItems: [] }),
-    preview: t.optional(PreviewStore, { visible: false }),
-    doraemon: t.optional(DoraemonStore, {}),
-    github: t.optional(GithubEampleStore, {}),
+    // layouts end
 
+    // content
+    communitiesContent: t.optional(CommunitiesContentStore, {}),
+    cheatSheatContent: t.optional(CheatSheetContentStore, {}),
+    // content end
+
+    // papers
+    postsPaper: t.optional(PostsPaperStore, {}),
+    cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
+
+    // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
-    typeWriter: t.optional(TypeWriterStore, {}),
-    comments: t.optional(CommentsStore, {}),
 
-    postsPaper: t.optional(PostsPaperStore, {}),
+    // TODO rename to xxPaper
     tutsViewer: t.optional(TutsViewerStore, {}),
     mapViewer: t.optional(MapViewerStore, {}),
     jobsViewer: t.optional(JobsViewerStore, {}),
-    cheatsheetViewer: t.optional(CheatSheetViewerStore, {}),
-    /*
-       cheatsheets ...
-       posts ...
-       videos ...
-       jobs ...
-       meetups ...
-     */
   })
   .views(self => ({
     get locale() {
@@ -98,17 +111,21 @@ const rootStore = t
     get curPath() {
       return self.route.curPath
     },
+    // TODO: rename to routeInfo
     get curRoute() {
       return self.route.curRoute
+    },
+    get accountInfo() {
+      return self.account.accountInfo
     },
   }))
   .actions(self => ({
     afterCreate() {
-      debug('after create loadMenuItem')
-      self.communities.load()
+      // self.communities.load()
       self.sidebar.load()
       // self.posts.load()
     },
+
     setHeaderFix(fix) {
       self.header.setFix(fix)
     },

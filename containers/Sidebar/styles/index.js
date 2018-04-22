@@ -94,11 +94,11 @@ export const MenuRow = styled.div`
 `
 // TODO: hover
 export const MiniChartWrapper = styled.div`
-  width: 10vh;
-  margin-right: 20px;
+  width: 12vh;
   justify-content: flex-end;
   align-items: center;
   position: relative;
+  margin-top: -2px;
 
   display: ${props => (props.pin ? 'flex' : 'none')};
   ${Sidebar}:hover & {

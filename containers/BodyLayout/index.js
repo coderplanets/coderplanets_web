@@ -37,6 +37,7 @@ class BodyLayoutContainer extends React.Component {
 
 BodyLayoutContainer.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
+  bodylayout: PropTypes.object.isRequired,
 }
 
 BodyLayoutContainer.defaultProps = {

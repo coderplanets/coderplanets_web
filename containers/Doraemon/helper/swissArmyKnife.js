@@ -5,8 +5,6 @@ export const lengthE1 = R.compose(R.equals(1), R.length)
 export const lengthE2 = R.compose(R.equals(2), R.length)
 export const anyNil = R.any(R.isNil)
 
-export const clearfyCmd = R.compose(R.split('--'), R.toLower)
-
 export class SwissArmyKnife {
   constructor(store) {
     this.store = store
@@ -17,8 +15,7 @@ export class SwissArmyKnife {
     if (anyNil([this.store.prefix, this.store.activeRaw])) return
 
     const prefix = R.toLower(this.store.prefix)
-    const activeRawLast = R.last(clearfyCmd(this.store.activeRaw))
-    //     console.log('completeInput activeRawLast: ', activeRawLast)
+    const activeRawLast = R.last(this.store.curCmdChain)
 
     let inputValue = ''
     // TODO: support ? opt

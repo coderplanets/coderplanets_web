@@ -15,15 +15,13 @@ let sub$ = null
 export function closePreview() {
   debug('closePreview')
   preview.close()
+
   // force call Typewriter's componentWillUnmount to store the draft
   dispatchEvent(EVENT.PREVIEW_CLOSE)
-  /*
+  // wait until preview move out of the screean
   setTimeout(() => {
-    preview.markState({
-      type: TYPE.PREVIEW_ROOT_STORE,
-    })
-  }, 1000)
-  */
+    preview.markState({ type: null })
+  }, 500)
 }
 
 function loadDataForPreview(info) {

@@ -7,6 +7,9 @@ export const ERR = {
 }
 
 export const EVENT = {
+  LOGIN_PANEL: 'LOGIN_PANEL',
+  LOGIN: 'LOGIN',
+  LOGOUT: 'LOGOUT',
   PREVIEW: 'PREVIEW',
   PREVIEW_CLOSE: 'PREVIEW_CLOSE',
   PREVIEW_POST: 'PREVIEW_POST',

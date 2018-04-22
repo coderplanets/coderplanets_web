@@ -15,6 +15,8 @@ md.use(mentions({ url: 'http:coderplanets.com/users/' }))
 md.use(remarkableemoj)
 
 const notTooLong = l => l.length < 20
+
+/* eslint-disable react/no-danger */
 const Emojis = () => {
   const source = R.filter(notTooLong, R.keys(fullEmojis))
 
@@ -115,6 +117,7 @@ At 某个用户: @mydearxym
   )
 }
 
+/* eslint-enable react/no-danger */
 class MarkDownHelper extends React.Component {
   componentDidMount() {
     Prism.highlightAll()

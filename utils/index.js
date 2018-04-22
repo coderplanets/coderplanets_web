@@ -23,7 +23,10 @@ export {
   unholdPage,
   cutFrom,
   getParameterByName,
+  prettyNum,
   $solver,
+  Rlog,
+  stripMobx,
 } from './functions'
 
 /*
@@ -35,4 +38,5 @@ export {
   themeKeys,
   themeColorMap,
   selectorColors,
+  pagiCustomRender,
 } from './themes'

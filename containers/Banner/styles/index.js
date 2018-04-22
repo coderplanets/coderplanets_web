@@ -57,7 +57,7 @@ export const CommunityWrapper = styled.div`
   margin-top: -2em;
 `
 
-export const CommonCommunityWrapper = styled.div`
+export const BannerContentWrapper = styled.div`
   display: flex;
   margin-left: 8%;
   margin-right: 8%;

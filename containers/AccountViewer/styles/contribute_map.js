@@ -19,7 +19,7 @@ export const HelpText = styled.div`
   transition: color 0.2s;
 `
 export const Title = styled.div`
-  font-size: 1.2em;
+  font-size: 1em;
   color: #5c868b;
   margin-bottom: 7px;
   flex-grow: 1;

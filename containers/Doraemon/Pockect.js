@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
+import PubSub from 'pubsub-js'
 
 // import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/do'
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/merge'
 
-import { makeDebugger, isEmptyValue } from '../../utils'
+import { makeDebugger, isEmptyValue, EVENT } from '../../utils'
 import {
   startWithSpecialPrefix,
   startWithSlash,
@@ -32,11 +33,16 @@ export default class Pockect {
     this.advisor = new Advisor(store)
 
     this.input$ = new Subject()
-    // this.advanceCmd$ = new Subject()
+
     this.stop$ = new Subject() // esc, pageClick  ...
     // TODO: netfix search use throttle
     // see: https://www.youtube.com/watch?v=XRYN2xt11Ek
     this.cmdInput$ = this.input$.debounceTime(200) // .distinctUntilChanged()
+
+    PubSub.subscribe(EVENT.LOGIN_PANEL, () => {
+      this.store.handleLogin()
+      this.input$.next('/login/')
+    })
 
     this.cmdSuggestionCommon = this.cmdInput$
       .filter(startWithSlash)

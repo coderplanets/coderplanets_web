@@ -9,8 +9,9 @@ import Link from 'next/link'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import Trend from 'react-trend'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { makeDebugger, storeSelector } from '../../utils'
 import PinButton from './PinButton'
 import {
   Sidebar,
@@ -20,8 +21,8 @@ import {
   MenuItemEach,
   MenuItemIcon,
   MiniChartWrapper,
-  MiniChartBar,
-  MiniChartText,
+  /* MiniChartBar, */
+  /* MiniChartText, */
 } from './styles'
 import * as logic from './logic'
 
@@ -33,13 +34,16 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 })
 
 const MenuList = ({ items, pin, curPath }) => {
+  /* const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0] */
+  // const sparkData = [0, 0, 0, 1, 0, 0, 1]
+
   const listItems = (
-    <DragDropContext onDragEnd={console.log}>
+    <DragDropContext onDragEnd={debug}>
       <Droppable droppableId="droppable">
         {provided => (
           <div ref={provided.innerRef}>
             {items.map((item, index) => (
-              <Draggable key={item.name} draggableId={item.name} index={index}>
+              <Draggable key={item.raw} draggableId={item.raw} index={index}>
                 {(provided, snapshot) => (
                   <MenuItemWrapper>
                     <div
@@ -55,20 +59,32 @@ const MenuList = ({ items, pin, curPath }) => {
                         <Link href={item.target.href} as={item.target.as}>
                           <MenuRow
                             pin={pin}
-                            active={curPath === R.toLower(item.name)}
+                            active={curPath === R.toLower(item.raw)}
                           >
                             <MenuItemIcon
-                              active={curPath === R.toLower(item.name)}
-                              path={getSVGIconPath(item.name)}
+                              active={curPath === R.toLower(item.raw)}
+                              path={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
                             <div style={{ marginRight: 10 }} />
                             <a style={{ textDecoration: 'none' }}>
-                              {item.name}
+                              {item.title}
                             </a>
+
                             <MiniChartWrapper pin={pin}>
-                              <MiniChartBar />
-                              <MiniChartText>247</MiniChartText>
+                              {/* <MiniChartBar /> */}
+                              <Trend
+                                smooth
+                                autoDraw
+                                autoDrawDuration={300}
+                                autoDrawEasing="ease-in"
+                                data={item.contributesDigest}
+                                gradient={['#D6ECB2', '#4F966E']}
+                                radius={15}
+                                strokeWidth={7}
+                                strokeLinecap="round"
+                              />
+                              {/* <MiniChartText>247</MiniChartText> */}
                             </MiniChartWrapper>
                           </MenuRow>
                         </Link>
@@ -85,48 +101,7 @@ const MenuList = ({ items, pin, curPath }) => {
       </Droppable>
     </DragDropContext>
   )
-  /*
-  const listItems2 = items.map(item => (
-    <li key={item.name}>
-      <div>
-        <Link href={item.target.href} as={item.target.as}>
-          <MenuRow pin={pin} active={curPath === R.toLower(item.name)}>
-            <MenuItemIcon
-              active={curPath === R.toLower(item.name)}
-              path={getSVGIconPath(item.name)}
-            />
-            <div style={{ marginRight: 10 }} />
-            <a>{item.name}</a>
-            <MiniChartWrapper pin={pin}>
-              <MiniChartBar />
-              <MiniChartText>247</MiniChartText>
-            </MiniChartWrapper>
-          </MenuRow>
-        </Link>
-      </div>
-    </li>
-  ))
-  */
   return <MenuItem>{listItems}</MenuItem>
-
-  /*
-  return (
-    <div>
-      <Droppable
-        type="fuck"
-        droppableId="fuck"
-        ignoreContainerClipping
-        isDropDisabled
-      >
-        {(provided, snapshot) => (
-          <ScrollContainer>
-            <MenuItem>{listItems}</MenuItem>
-          </ScrollContainer>
-        )}
-      </Droppable>
-    </div>
-  )
-  */
 }
 
 const reorder = (list, startIndex, endIndex) => {
@@ -162,16 +137,16 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    const { curPath, menuItems, pin } = sidebar
+    const { curPath, pin, subscribedCommunities } = sidebar
     //    onMouseLeave={logic.leaveSidebar}
-
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
+
     return (
       <Sidebar pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />
         <br />
         <br />
-        <MenuList items={menuItems} pin={pin} curPath={curPath} />
+        <MenuList items={subscribedCommunities} pin={pin} curPath={curPath} />
       </Sidebar>
     )
   }

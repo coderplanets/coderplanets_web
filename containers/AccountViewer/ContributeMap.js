@@ -8,6 +8,7 @@
 import React from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
+import R from 'ramda'
 
 import {
   Wrapper,
@@ -20,9 +21,14 @@ import {
   DotList,
 } from './styles/contribute_map'
 
+import { makeDebugger } from '../../utils'
+
+const debug = makeDebugger('C:Comments')
+
 const customTooltipDataAttrs = value => ({
-  'data-tip':
-    value.date === null ? '' : `${value.date} 贡献内容 ${value.count} 次`,
+  'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,
+  'data-for': 'user_comtribute_map',
+  'data-offset': JSON.stringify({ right: 7 }),
 })
 
 // const monthLabels = ['8月', '9月', '10月', '11月', '12月', '1月']
@@ -40,24 +46,16 @@ const monthLabels = [
   '11月',
   '12月',
 ]
-const startDate = '2017-08-01'
-const endDate = '2018-01-30'
-const actives = [
-  { date: '2017-08-04', count: 1 },
-  { date: '2017-08-05', count: 1 },
-  { date: '2017-08-11', count: 2 },
-  { date: '2017-09-05', count: 3 },
-  { date: '2017-09-12', count: 9 },
-  { date: '2017-10-06', count: 8 },
-  { date: '2017-11-20', count: 10 },
-  { date: '2017-11-24', count: 10 },
-  { date: '2018-01-01', count: 1 },
-  { date: '2018-01-02', count: 1 },
-  { date: '2018-01-03', count: 1 },
-  { date: '2018-01-04', count: 1 },
-  { date: '2018-01-20', count: 1 },
-  { date: '2018-01-21', count: 17 },
-]
+/*
+   const startDate = '2017-10-21'
+   const endDate = '2018-04-21'
+   const records = [
+   { date: '2018-01-03', count: 1 },
+   { date: '2018-01-04', count: 1 },
+   { date: '2018-01-20', count: 1 },
+   { date: '2018-01-21', count: 17 },
+   ]
+ */
 
 // TODO
 const getClass = value => {
@@ -78,39 +76,49 @@ const getClass = value => {
   }
 }
 
-const ContributeMap = () => (
-  <Wrapper>
-    <TitleWrapper>
-      <Title>过去6个月共创作 123 次</Title>
-      <HelpText>记录规则？</HelpText>
-    </TitleWrapper>
-    <CalendarHeatmap
-      startDate={startDate}
-      endDate={endDate}
-      showMonthLabels
-      onClick={value => {
-        console.log(value)
-      }}
-      gutterSize={3}
-      tooltipDataAttrs={customTooltipDataAttrs}
-      monthLabels={monthLabels}
-      values={actives}
-      classForValue={getClass}
-    />
-    <ReactTooltip type="error" effect="float" place="top" />
-    <DotWrapper>
-      <DotList>
-        <DotText>潜水&nbsp;&nbsp;</DotText>
-        <ColorDot color="#E2EEED" />
-        <ColorDot color="#DBE290" />
-        <ColorDot color="#99C06F" />
-        <ColorDot color="#609D4C" />
-        <ColorDot color="#61793E" />
-        <ColorDot color="#37642C" />
-        <DotText>&nbsp;高产</DotText>
-      </DotList>
-    </DotWrapper>
-  </Wrapper>
-)
-
+const ContributeMap = ({ data }) => {
+  /* if don't jadge empty(first load), the tool tip will not work */
+  if (R.isEmpty(data.records)) {
+    return <div />
+  }
+  return (
+    <Wrapper>
+      <TitleWrapper>
+        <Title>6个月内贡献 {data.totalCount} 次内容</Title>
+        <HelpText>记录规则？</HelpText>
+      </TitleWrapper>
+      <CalendarHeatmap
+        startDate={data.startDate}
+        endDate={data.endDate}
+        showMonthLabels
+        onClick={value => {
+          debug(value)
+        }}
+        gutterSize={3}
+        tooltipDataAttrs={customTooltipDataAttrs}
+        monthLabels={monthLabels}
+        values={data.records}
+        classForValue={getClass}
+      />
+      <ReactTooltip
+        type="error"
+        effect="solid"
+        place="top"
+        id="user_comtribute_map"
+      />
+      <DotWrapper>
+        <DotList>
+          <DotText>潜水&nbsp;&nbsp;</DotText>
+          <ColorDot color="#E2EEED" />
+          <ColorDot color="#DBE290" />
+          <ColorDot color="#99C06F" />
+          <ColorDot color="#609D4C" />
+          <ColorDot color="#61793E" />
+          <ColorDot color="#37642C" />
+          <DotText>&nbsp;高产</DotText>
+        </DotList>
+      </DotWrapper>
+    </Wrapper>
+  )
+}
 export default ContributeMap

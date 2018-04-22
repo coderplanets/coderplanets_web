@@ -1,8 +1,8 @@
 /*
-*
-* MapViewer
-*
-*/
+ *
+ * MapViewer
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -15,7 +15,9 @@ import { makeDebugger, storeSelector } from '../../utils'
 import { Wrapper } from './styles'
 import * as logic from './logic'
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:MapViewer')
+/* eslint-enable no-unused-vars */
 
 class MapViewerContainer extends React.Component {
   state = {
@@ -54,7 +56,6 @@ class MapViewerContainer extends React.Component {
   }
 
   componentWillMount() {
-    debug('mount')
     logic.init(this.props.mapViewer)
   }
 

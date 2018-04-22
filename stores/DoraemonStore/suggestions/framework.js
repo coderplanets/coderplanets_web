@@ -1,32 +1,50 @@
 /*
-*
-* frameworks
-*
-*/
+ *
+ * frameworks
+ *
+ */
 
 import forEachObjIndexed from 'ramda/src/forEachObjIndexed'
-import forEach from 'ramda/src/forEach'
-import keys from 'ramda/src/keys'
+// import forEach from 'ramda/src/forEach'
+// import keys from 'ramda/src/keys'
 import clone from 'ramda/src/clone'
 
 const meta = {
-  // users: {},
-  map: {},
-  videos: {},
-  github: {},
-  meetups: {},
-  posts: {},
-  news: {},
-  jobs: {},
-  tuts: {},
-  users: {},
+  threads: [
+    {
+      title: 'posts',
+      desc: 'posts desc',
+    },
+    {
+      title: 'tuts',
+      desc: 'tuts desc',
+    },
+    {
+      title: 'users',
+      desc: 'users desc',
+    },
+    {
+      title: 'map',
+      desc: 'map desc',
+    },
+    {
+      title: 'videos',
+      desc: 'videos desc',
+    },
+    {
+      title: 'news',
+      desc: 'news desc',
+    },
+    {
+      title: 'cheatsheet',
+      desc: 'cheatsheet desc',
+    },
+    {
+      title: 'jobs',
+      desc: 'jobs desc',
+    },
+  ],
 }
-
-forEachObjIndexed((v, k) => {
-  meta[k].title = k
-  meta[k].desc = `${k} desc`
-  meta[k].raw = k
-}, meta)
 
 const frameworks = {
   React: { ...clone(meta), parent: 'javascript' },
@@ -50,10 +68,8 @@ forEachObjIndexed((v, k) => {
   frameworks[k].title = k
   frameworks[k].desc = `${k} deault desc`
   frameworks[k].raw = k
-
-  forEach(metaKey => {
-    frameworks[k][metaKey].raw = `${k}--${metaKey}`
-  }, keys(meta))
+  frameworks[k].logo =
+    'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/pl/c.svg'
 }, frameworks)
 
 export default frameworks

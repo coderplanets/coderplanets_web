@@ -11,6 +11,8 @@ module.exports = {
     return {
       '/': { page: '/' },
       // '/ruby': { page: '/', query: { name: 'ruby' } },
+      '/cheatsheet': { page: '/', query: { main: 'cheatsheet', sub: '' } },
+      '/communities': { page: '/', query: { main: 'communities', sub: '' } },
       '/js/posts': { page: '/', query: { main: 'js', sub: 'posts' } },
       /* '/intro/i': { page: '/intro', query: { name: 'index' } }, */
       /* '/intro/feature': { page: '/intro', query: { name: 'feature' } }, */
@@ -56,6 +58,7 @@ module.exports = {
     config.plugins.push(
       new Dotenv({
         path: './.env',
+        systemvars: true,
       })
     )
 
