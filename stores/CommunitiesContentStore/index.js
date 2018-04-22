@@ -22,6 +22,10 @@ const CommunitiesContentStore = t
       return getParent(self)
     },
 
+    get isLogin() {
+      return self.root.account.isLogin
+    },
+
     get communities() {
       const { entries } = self.root.communities.all
 

@@ -13,12 +13,7 @@ import Navigator from '../../components/Navigator'
 
 import { ICON_ASSETS } from '../../config/assets'
 
-import {
-  makeDebugger,
-  storeSelector,
-  getSVGIconPath,
-  notEmpty,
-} from '../../utils'
+import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
 
 import {
   Header,
@@ -76,7 +71,13 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { fixed, curRoute, leftOffset, accountInfo } = this.props.header
+    const {
+      fixed,
+      curRoute,
+      leftOffset,
+      accountInfo,
+      isLogin,
+    } = this.props.header
 
     return (
       <Affix>
@@ -111,13 +112,16 @@ class HeaderContainer extends React.Component {
             <Notification onClick={logic.openPreview.bind(this, 'post')}>
               <HeaderIcon path={`${ICON_ASSETS}/cmd/notification_none.svg`} />
             </Notification>
-            <User onClick={logic.previewAccount.bind(this, 'account')}>
-              {notEmpty(accountInfo.nickname) ? (
+
+            {isLogin ? (
+              <User onClick={logic.previewAccount.bind(this, 'account')}>
                 <UserAvatar src={accountInfo.avatar} />
-              ) : (
+              </User>
+            ) : (
+              <User onClick={logic.login}>
                 <HeaderIcon path={`${ICON_ASSETS}/cmd/header_user.svg`} />
-              )}
-            </User>
+              </User>
+            )}
           </Operations>
         </Header>
       </Affix>

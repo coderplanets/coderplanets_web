@@ -125,6 +125,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    updateAccount(data) {
+      self.root.account.updateAccount(data)
+    },
     changeTheme(name) {
       self.root.changeTheme(name)
     },
@@ -185,6 +188,10 @@ const DoraemonStore = t
     open() {
       self.visible = true
       focusDoraemonBar()
+    },
+    handleLogin() {
+      self.open()
+      self.inputValue = '/login/'
     },
     hideDoraemon() {
       self.visible = false

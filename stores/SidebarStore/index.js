@@ -52,6 +52,9 @@ const SidebarStore = t
     get accountInfo() {
       return self.root.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get theme() {
       return self.root.theme
     },

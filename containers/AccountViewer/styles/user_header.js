@@ -36,9 +36,26 @@ export const UserName = styled.div`
   margin-bottom: 3px;
   font-size: 1.3em;
   color: #5c868b;
+  display: flex;
+`
+
+export const EditIcon = styled(ReactSVG)`
+  fill: tomato;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.4;
+  margin-left: 5px;
+  margin-top: 4px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  transition: opacity 0.2s;
 `
 
 export const SocalIcon = styled(ReactSVG)`
+  fill: tomato;
   margin-top: 10px;
   margin-right: 7px;
   width: 22px;

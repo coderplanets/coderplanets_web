@@ -23,7 +23,7 @@ const GithubProfile = t.model('GithubProfile', {
   htmlUrl: t.string,
 })
 
-const User = t.model('User', {
+export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   id: t.optional(t.string, ''),
   nickname: t.optional(t.string, ''),
@@ -36,4 +36,14 @@ const User = t.model('User', {
   githubProfile: t.maybe(GithubProfile),
 })
 
-export default User
+export const EmptyUser = {
+  id: '',
+  nickname: '',
+  bio: '',
+  avatar: '',
+  fromGithub: false,
+  fromWeixin: false,
+  subscribedCommunities: {},
+  contributes: {},
+  githubProfile: null,
+}

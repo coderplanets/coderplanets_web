@@ -1,10 +1,12 @@
 import R from 'ramda'
 
-import { $solver, ERR, makeDebugger } from '../../utils'
-import SR71 from '../../utils/network/sr71'
+import { $solver, ERR, makeDebugger, EVENT } from '../../utils'
 import S from './schema'
+import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.LOGOUT, EVENT.LOGIN],
+})
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:CommunitiesContent')
@@ -15,16 +17,15 @@ let communitiesContent = null
 export function loadCommunities() {
   const args = {
     filter: { page: 1, size: 20 },
-    userHasLogin: true,
+    userHasLogin: communitiesContent.isLogin,
   }
-
   sr71$.query(S.communities, args)
 }
 
 export function pageChange(page) {
   const args = {
     filter: { page, size: 20 },
-    userHasLogin: true,
+    userHasLogin: communitiesContent.isLogin,
   }
 
   sr71$.query(S.communities, args)
@@ -85,6 +86,14 @@ const DataSolver = [
         subscribing: false,
       })
     },
+  },
+  {
+    match: R.has(EVENT.LOGOUT),
+    action: () => loadCommunities(),
+  },
+  {
+    match: R.has(EVENT.LOGIN),
+    action: () => loadCommunities(),
   },
 ]
 

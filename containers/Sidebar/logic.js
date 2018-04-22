@@ -1,12 +1,14 @@
 import R from 'ramda'
 
 // const debug = makeDebugger('L:sidebar')
-import { $solver, ERR, makeDebugger } from '../../utils'
+import { $solver, ERR, makeDebugger, EVENT } from '../../utils'
 import S from './schema'
 
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.LOGOUT, EVENT.LOGIN],
+})
 
 let sidebar = null
 
@@ -18,14 +20,15 @@ export function pin() {
   sidebar.markState({ pin: !sidebar.pin })
 }
 
-export function loadCommunities() {
-  // debug('loadCommunities -- accountInfo', sidebar.accountInfo)
-  const account = sidebar.accountInfo
+export function loadSubscribedCommunities() {
+  const { accountInfo, isLogin } = sidebar
   const args = {
-    userId: account.id,
     filter: { page: 1, size: 30 },
   }
-
+  if (isLogin) {
+    args.userId = accountInfo.id
+    args.filter.size = 10
+  }
   sr71$.query(S.subscribedCommunities, args)
 }
 
@@ -37,6 +40,14 @@ const DataSolver = [
       // debug('----> dataResolver  --->', data)
       sidebar.loadSubscribedCommunities({ ...data })
     },
+  },
+  {
+    match: R.has(EVENT.LOGOUT),
+    action: () => loadSubscribedCommunities(),
+  },
+  {
+    match: R.has(EVENT.LOGIN),
+    action: () => loadSubscribedCommunities(),
   },
 ]
 
@@ -64,5 +75,5 @@ const ErrSolver = [
 export function init(selectedStore) {
   sidebar = selectedStore
   sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadCommunities()
+  loadSubscribedCommunities()
 }

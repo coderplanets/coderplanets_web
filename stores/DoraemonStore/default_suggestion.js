@@ -67,7 +67,7 @@ const cmds = {
       github: {
         title: 'github 登陆',
         desc: '使用 github open id 登陆',
-        raw: 'login--github',
+        raw: 'github',
         logo: `${ICON_ASSETS}/cmd/github.svg`,
       },
     },

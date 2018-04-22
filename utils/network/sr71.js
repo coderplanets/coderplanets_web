@@ -16,7 +16,7 @@ import 'rxjs/add/operator/timeoutWith'
 
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
-import { isEmptyValue } from '../../utils'
+// import { isEmptyValue } from '../../utils'
 
 // import network from './index'
 
@@ -70,9 +70,9 @@ class SR71 {
 
   // Private
   subscriptEvent(event) {
-    if (isEmptyValue(event)) return false
-    PubSub.unsubscribe(event) // avoid duplicate subscribe caused by HMR
-    //    console.log('init event: ', event)
+    // if (isEmptyValue(event)) return false
+    // PubSub.unsubscribe(event)
+    // avoid duplicate subscribe caused by HMR
     PubSub.subscribe(event, (event, data) =>
       this.eventInput$.next({ [event]: data })
     )

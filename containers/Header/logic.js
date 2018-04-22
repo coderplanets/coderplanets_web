@@ -12,7 +12,6 @@ import {
   // getParameterByName,
 } from '../../utils'
 
-import popup from './openWindow'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 import S from './schema'
@@ -52,12 +51,6 @@ export function checkUserAccount() {
     // not shoe
     debug('do nothing')
   }
-  /*
-  const args = {
-    id: '112',
-  }
-  sr71$.query(S.user, args)
-  */
 }
 
 export function previewAccount() {
@@ -67,43 +60,9 @@ export function previewAccount() {
   })
 }
 
-export function previewAccount2() {
-  // header.openPreview(type)
-  // TODO tell Doraemon to show login
-  debug('just previewAccount ..')
-
-  const clientId = '3b4281c5e54ffd801f85'
-  const info = 'from_github'
-  const cb = 'http://www.coderplanets.com'
-  const github = 'https://github.com/login/oauth/authorize'
-  const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
-
-  // debug(url)
-  // sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  // checkUserAccount()
-  // return false
-  // store.set('user', { token: user_token })
-  // signinGithub('71b0c5169ebbb7a124b9')
-  /* reference */
-  /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
-
-  /* Global.location.href = url */
-  /* console.log('getParameterByName:', getParameterByName('recoe')) */
-  // popup('http://localhost:3000?code=djfiekdjfie')
-
-  popup(url)
-
-  /*
-
-  Global.addEventListener('message', e => {
-    if (e.origin === Global.location.origin) {
-     if (e.data.from_child) {
-     debug('收到合法消息: ', e.data)
-     Global.postMessage({ from_parent: true }, Global.location.href)
-     }
-     }
-     })
-   */
+export function login() {
+  debug('do login')
+  dispatchEvent(EVENT.LOGIN_PANEL)
 }
 
 export function openPreview() {

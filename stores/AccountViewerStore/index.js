@@ -31,6 +31,9 @@ const AccountViewerStore = t
     },
   }))
   .actions(self => ({
+    logout() {
+      self.root.account.logout()
+    },
     changeTheme(name) {
       self.root.changeTheme(name)
     },

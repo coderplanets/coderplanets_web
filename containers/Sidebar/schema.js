@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 const subscribedCommunities = gql`
-  query subscribedCommunities($userId: ID!, $filter: PagedFilter!) {
+  query subscribedCommunities($userId: ID, $filter: PagedFilter!) {
     subscribedCommunities(userId: $userId, filter: $filter) {
       entries {
         id

@@ -72,7 +72,7 @@ cmds.Debug = {
   github: {
     title: 'Readme on github',
     desc: 'debug github page',
-    raw: 'debug--github',
+    raw: 'github',
   },
 }
 
@@ -88,7 +88,7 @@ cmds.Login = {
   github: {
     title: 'github 登陆',
     desc: '使用 github open id 登陆',
-    raw: 'login--github',
+    raw: 'github',
   },
   forgot: {
     title: '忘记密码',

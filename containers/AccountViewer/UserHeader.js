@@ -1,7 +1,7 @@
 import React from 'react'
 
 import shortid from 'shortid'
-import { Button } from 'antd'
+import { Button, Icon } from 'antd'
 
 import A from '../../components/A'
 
@@ -16,7 +16,8 @@ import {
   Avatar,
   UserHeader,
   SocalIcon,
-} from './styles/userheader'
+  EditIcon,
+} from './styles/user_header'
 
 const tooltipOffset = JSON.stringify({ top: 5, left: 3 })
 const SocalIcons = ({ accountInfo: { githubProfile } }) => (
@@ -47,13 +48,21 @@ const SocalIcons = ({ accountInfo: { githubProfile } }) => (
   </BriefInfo>
 )
 
-const UserHeaderSection = ({ accountInfo }) => (
+const UserHeaderSection = ({ accountInfo, logout, editProfile }) => (
   <UserWrapper>
     <UserHeader>
       <UserInfo>
+        {/* Avatar should be a link to accout's home */}
         <Avatar src={accountInfo.avatar} alt="user_avatar" />
         <UserBrief>
-          <UserName>{accountInfo.nickname}</UserName>
+          <UserName>
+            {accountInfo.nickname}
+            {/* eslint-disable */}
+            <div onClick={editProfile}>
+              <EditIcon path={`${ICON_ASSETS}/cmd/edit.svg`} />
+            </div>
+            {/* eslint-enable */}
+          </UserName>
           <BriefInfo>教育经历:&nbsp; 成都信息工程学院</BriefInfo>
           <BriefInfo>bio:&nbsp; {accountInfo.bio}</BriefInfo>
           <BriefInfo>所在地区:&nbsp; 成都</BriefInfo>
@@ -62,8 +71,9 @@ const UserHeaderSection = ({ accountInfo }) => (
       </UserInfo>
 
       <div>
-        <Button size="small" type="primary" ghost>
-          已/关注/编辑/登出
+        <Button size="small" type="primary" ghost onClick={logout}>
+          <Icon type="logout" />
+          登&nbsp;出
         </Button>
       </div>
     </UserHeader>

@@ -1,13 +1,15 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, ERR } from '../../utils'
+import { makeDebugger, $solver, ERR, dispatchEvent, EVENT } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:AccountViewer')
 /* eslint-enable no-unused-vars */
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.LOGIN],
+})
 
 let accountViewer = null
 
@@ -23,6 +25,15 @@ export function changeTheme(name) {
   accountViewer.changeTheme(name)
 }
 
+export function logout() {
+  accountViewer.logout()
+  dispatchEvent(EVENT.LOGOUT)
+}
+
+export function editProfile() {
+  console.log('do the editProfile logic')
+}
+
 const DataSolver = [
   {
     match: R.has('account'),
@@ -30,6 +41,10 @@ const DataSolver = [
       const data = res.account
       accountViewer.updateAccount(data)
     },
+  },
+  {
+    match: R.has(EVENT.LOGIN),
+    action: () => loadAccount(),
   },
 ]
 

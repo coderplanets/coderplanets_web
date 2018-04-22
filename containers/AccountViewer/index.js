@@ -65,7 +65,11 @@ class AccountViewerContainer extends React.Component {
       <AccountWrapper>
         <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
-          <UserHeader accountInfo={accountInfo} />
+          <UserHeader
+            accountInfo={accountInfo}
+            logout={logic.logout}
+            editProfile={logic.editProfile}
+          />
           <Divider top="10px" bottom="20px" />
           <Planets subscribedCommunities={subscribedCommunities} />
           <Divider top="10px" bottom="20px" />

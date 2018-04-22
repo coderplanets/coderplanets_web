@@ -6,8 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import store from 'store'
 import { markStates, makeDebugger, stripMobx } from '../../utils'
-import { User } from '../SharedModel'
+import { User, EmptyUser } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountStore')
 /* eslint-enable no-unused-vars */
@@ -30,17 +31,19 @@ const AccountStore = t
     get subscribedCommunities() {
       const { user: { subscribedCommunities } } = self
       return {
-        // ...subscribedCommunities,
         ...stripMobx(subscribedCommunities),
-        // entries: fuck.entries,
-        // totalCount: fuck.totalCount,
       }
     },
     get isLogin() {
-      return self.user.nickname === ''
+      return self.user.nickname !== ''
     },
   }))
   .actions(self => ({
+    logout() {
+      self.user = EmptyUser
+      self.root.preview.close()
+      store.remove('user')
+    },
     updateAccount(sobj) {
       const user = R.merge(self.user, { ...sobj })
       self.markState({ user })
