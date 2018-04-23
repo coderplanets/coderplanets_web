@@ -1,40 +1,22 @@
-/*
- *
- * StateTree
- *
- */
-
 import React from 'react'
-import PropTypes from 'prop-types'
-import ReactJson from 'react-json-view'
+import dynamic from 'next/dynamic'
 
-/* import PropTypes from 'prop-types' */
+import { StateViewerWrapper, StateTreeHeader } from './styles'
 
-import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
-const debug = makeDebugger('c:StateTree:index')
-/* eslint-enable no-unused-vars */
+const StateTreeWithNoSSR = dynamic(import('./StateTree'), {
+  ssr: false,
+})
 
-/* apathy flat ocean tube */
-const StateTree = ({ json }) => (
-  <div>
-    <ReactJson
-      src={json}
-      theme="rjv-default"
-      name="rootStore"
-      collapsed={1}
-      iconStyle="circle"
-      displayDataTypes={false}
-      enableClipboard={false}
-    />
-  </div>
-)
-
-StateTree.propTypes = {
-  json: PropTypes.object.isRequired,
-  // https://www.npmjs.com/package/prop-types
+const StateViewer = ({ json }) => {
+  return (
+    <StateViewerWrapper>
+      <StateTreeHeader>
+        这里显示的是 Mobx 的 store, &nbsp;&nbsp;Apollo Client 的状态请使用
+        Apollo devtools 查看
+      </StateTreeHeader>
+      <StateTreeWithNoSSR json={json} />
+    </StateViewerWrapper>
+  )
 }
 
-StateTree.defaultProps = {}
-
-export default StateTree
+export default StateViewer

@@ -1,8 +1,8 @@
 /*
-*
-* Preview
-*
-*/
+ *
+ * Preview
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -13,12 +13,10 @@ import dynamic from 'next/dynamic'
 import { makeDebugger, storeSelector, TYPE } from '../../utils'
 import * as logic from './logic'
 
-import ArticleViwer from '../ArticleViwer'
-// import TypeWriter from '../TypeWriter'
-import AccountViewer from '../AccountViewer'
-import StateViwer from './StateViwer'
+// TODO: move it to component
+import { StateTree } from '../../components/'
 import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
-/* import StateTree from '../../components/StateTree' */
+import { ArticleViwer, AccountViewer, AccountEditor } from '../../containers'
 
 import {
   PreviewOverlay,
@@ -51,12 +49,13 @@ const CloseBtn = ({ type }) => (
 // <AccountViewer2 themeKeys={themeKeys} curTheme={curTheme} />
 
 // TODO: post edit viewer
-// TODO: account edit viewer
-// TODO:  sub viewers
 const Viewer = ({ type, root }) => {
   switch (type) {
-    case TYPE.ACCOUNT_PREVIEW_VIEW: {
+    case TYPE.PREVIEW_ACCOUNT_VIEW: {
       return <AccountViewer />
+    }
+    case TYPE.PREVIEW_ACCOUNT_EDIT: {
+      return <AccountEditor />
     }
     case TYPE.POST_PREVIEW_VIEW: {
       return <ArticleViwer />
@@ -66,7 +65,7 @@ const Viewer = ({ type, root }) => {
     }
 
     default: {
-      return <StateViwer json={root.toJSON()} />
+      return <StateTree json={root.toJSON()} />
     }
   }
 }

@@ -2,3 +2,5 @@
 export { default as A } from './A'
 export { default as Img } from './Img'
 export { default as NotFound } from './NotFound'
+
+export { default as StateTree } from './StateTree'

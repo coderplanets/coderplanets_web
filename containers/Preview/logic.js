@@ -1,5 +1,12 @@
 import R from 'ramda'
-import { makeDebugger, EVENT, holdPage, TYPE, dispatchEvent } from '../../utils'
+import {
+  $solver,
+  makeDebugger,
+  EVENT,
+  holdPage,
+  TYPE,
+  dispatchEvent,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // const sr71$ = new SR71({ resv_event: EVENT.PREVIEW })
@@ -25,7 +32,7 @@ export function closePreview() {
 }
 
 function loadDataForPreview(info) {
-  debug('loadDataForPreview: ', info)
+  debug('loadDataForPreview --> : ', info)
   if (info.type === TYPE.POST_PREVIEW_VIEW) {
     // debug('load fucking post: ', info.data)
     dispatchEvent(EVENT.PREVIEW_POST, { type: TYPE.POST, data: info.data })
@@ -33,7 +40,7 @@ function loadDataForPreview(info) {
   }
 }
 
-const dataResolver = [
+const DataResolver = [
   {
     match: R.has(EVENT.PREVIEW),
     action: res => {
@@ -63,20 +70,11 @@ const dataResolver = [
   },
 ]
 
-const handleData = res => {
-  // TODO: handle Error
-  for (let i = 0; i < dataResolver.length; i += 1) {
-    if (dataResolver[i].match(res)) {
-      return dataResolver[i].action(res)
-    }
-  }
-  debug('handleData unhandle: ', res)
-}
-
 export function init(selectedStore) {
   preview = selectedStore
   debug('@@@ init @@0')
   if (sub$) sub$.unsubscribe()
 
-  sub$ = sr71$.data().subscribe(handleData)
+  // sub$ = sr71$.data().subscribe(handleData)
+  sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 }

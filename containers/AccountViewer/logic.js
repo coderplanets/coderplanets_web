@@ -1,6 +1,13 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, ERR, dispatchEvent, EVENT } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  ERR,
+  dispatchEvent,
+  EVENT,
+  TYPE,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 /* eslint-disable no-unused-vars */
@@ -32,6 +39,10 @@ export function logout() {
 
 export function editProfile() {
   console.log('do the editProfile logic')
+  dispatchEvent(EVENT.NAV_EDIT, {
+    type: TYPE.PREVIEW_ACCOUNT_EDIT,
+    data: { user: 'fuck' },
+  })
 }
 
 const DataSolver = [

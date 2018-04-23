@@ -12,14 +12,12 @@ import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import {
+  // domain
   UsersStore,
   AccountStore,
   BodylayoutStore,
   PostsStore,
   ApiLayoutStore,
-  SidebarStore,
-  PreviewStore,
-  DoraemonStore,
   HeaderStore,
   BannerStore,
   ContentStore,
@@ -30,12 +28,17 @@ import {
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
-  TypeWriterStore,
   CommentsStore,
   TutsViewerStore,
   MapViewerStore,
   JobsViewerStore,
   CheatSheetPaperStore,
+  // toolbox
+  DoraemonStore,
+  PreviewStore,
+  SidebarStore,
+  TypeWriterStore,
+  AccountEditorStore,
 } from '../storeIndex'
 
 /* eslint-disable no-unused-vars */
@@ -62,6 +65,7 @@ const rootStore = t
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),
     typeWriter: t.optional(TypeWriterStore, {}),
+    accountEditor: t.optional(AccountEditorStore, {}),
     // toolbox end
 
     // layouts > xxx > papers

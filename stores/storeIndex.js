@@ -19,8 +19,10 @@ export { default as CheatSheetContentStore } from './CheatSheetContentStore'
 // papers store
 export { default as PostsPaperStore } from './PostsPaperStore'
 
+// toolbox
 export { default as TypeWriterStore } from './TypeWriterStore'
 export { default as CommentsStore } from './CommentsStore'
+export { default as AccountEditorStore } from './AccountEditorStore'
 
 // viewers store
 export { default as TutsViewerStore } from './TutsViewerStore'

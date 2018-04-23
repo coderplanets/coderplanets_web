@@ -55,7 +55,7 @@ export function checkUserAccount() {
 
 export function previewAccount() {
   dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.ACCOUNT_PREVIEW_VIEW,
+    type: TYPE.PREVIEW_ACCOUNT_VIEW,
     data: { hello: 'world --- fuck' },
   })
 }
@@ -68,7 +68,7 @@ export function login() {
 export function openPreview() {
   // header.openPreview(type)
   dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.ACCOUNT_PREVIEW_VIEW,
+    type: TYPE.PREVIEW_ACCOUNT_VIEW,
     data: { hello: 'world' },
   })
 }

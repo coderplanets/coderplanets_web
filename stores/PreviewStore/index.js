@@ -15,7 +15,8 @@ const PreviewStore = t
     type: t.maybe(
       t.enumeration('previewType', [
         TYPE.POST_PREVIEW_VIEW,
-        TYPE.ACCOUNT_PREVIEW_VIEW,
+        TYPE.PREVIEW_ACCOUNT_VIEW,
+        TYPE.PREVIEW_ACCOUNT_EDIT,
         TYPE.PREVIEW_ROOT_STORE,
         TYPE.PREVIEW_CREATE_POST,
       ])

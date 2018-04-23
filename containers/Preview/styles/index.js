@@ -93,7 +93,7 @@ export const Closer = styled.div`
   perspective: ${closeWith};
   cursor: pointer;
   display: ${props =>
-    props.type === TYPE.ACCOUNT_PREVIEW_VIEW ? 'none' : 'block'};
+    props.type === TYPE.PREVIEW_ACCOUNT_VIEW ? 'none' : 'block'};
 
   &:hover:after {
     animation: ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
