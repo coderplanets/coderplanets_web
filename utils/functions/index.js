@@ -107,6 +107,31 @@ export const markStates = (sobj, self) => {
   }, sobj)
 }
 
+/*
+   can't put this in store, because this method is async
+   only boolean now
+ */
+export const meteorState = (store, state, secs, statusMsg = '') => {
+  if (!R.has(state, store)) {
+    /* eslint-disable */
+    console.error(`Error: meteorState not found ${state}`)
+    /* eslint-enable */
+    return false
+  }
+
+  store.markState({
+    [state]: true,
+    statusMsg,
+  })
+
+  setTimeout(() => {
+    store.markState({
+      [state]: false,
+      statusMsg: '',
+    })
+  }, secs * 1000)
+}
+
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = R.curry((fn, obj) => {
   return R.reduce(

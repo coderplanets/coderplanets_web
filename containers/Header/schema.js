@@ -20,6 +20,17 @@ const user = gql`
       avatar
       bio
       fromGithub
+      company
+      education
+      location
+      qq
+      weibo
+      weichat
+      sex
+      githubProfile {
+        htmlUrl
+        login
+      }
     }
   }
 `

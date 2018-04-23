@@ -11,6 +11,7 @@ export {
   storeSelector,
   makeDebugger,
   markStates,
+  meteorState,
   dispatchEvent,
   getSVGIconPath,
   mapKeys,

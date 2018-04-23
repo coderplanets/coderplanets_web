@@ -3,7 +3,7 @@ import ReactSVG from 'react-svg'
 
 export const Wrapper = styled.div`
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   height: 100%;
   min-height: 80vh;
   margin-top: 15px;
@@ -86,9 +86,8 @@ export const FormInput = styled.div`
 
 export const Divider = styled.div`
   border-top: 1px solid #e3eeed;
-  margin-top: 30px;
+  margin-top: 15px;
   width: 75%;
   margin-bottom: 20px;
 `
-
 export const ActionBtns = styled.div``

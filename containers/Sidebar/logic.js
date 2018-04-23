@@ -1,4 +1,5 @@
 import R from 'ramda'
+import store from 'store'
 
 // const debug = makeDebugger('L:sidebar')
 import { $solver, ERR, makeDebugger, EVENT } from '../../utils'
@@ -21,12 +22,14 @@ export function pin() {
 }
 
 export function loadSubscribedCommunities() {
-  const { accountInfo, isLogin } = sidebar
+  // const { accountInfo, isLogin } = sidebar
+  const user = store.get('user')
+
   const args = {
     filter: { page: 1, size: 30 },
   }
-  if (isLogin) {
-    args.userId = accountInfo.id
+  if (user) {
+    args.userId = user.id
     args.filter.size = 10
   }
   sr71$.query(S.subscribedCommunities, args)
@@ -35,11 +38,8 @@ export function loadSubscribedCommunities() {
 const DataSolver = [
   {
     match: R.has('subscribedCommunities'),
-    action: res => {
-      const data = res.subscribedCommunities
-      // debug('----> dataResolver  --->', data)
-      sidebar.loadSubscribedCommunities({ ...data })
-    },
+    action: ({ subscribedCommunities }) =>
+      sidebar.loadSubscribedCommunities(subscribedCommunities),
   },
   {
     match: R.has(EVENT.LOGOUT),

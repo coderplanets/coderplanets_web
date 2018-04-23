@@ -46,7 +46,8 @@ export function checkUserAccount() {
   const user = store.get('user')
   if (user) {
     // NOTICE: if store is not valid json, user will be typeof string
-    header.updateAccount({ ...user })
+    // header.updateAccount({ ...user })
+    sr71$.query(S.user, { id: user.id })
   } else {
     // not shoe
     debug('do nothing')
@@ -78,6 +79,11 @@ export function openDoraemon() {
 }
 
 const DataSolver = [
+  /* header.updateAccount({ ...user }) */
+  {
+    match: R.has('user'),
+    action: ({ user }) => header.updateAccount(user),
+  },
   {
     // TODO move it to user side view
     match: R.has(S.githubSigninRes),

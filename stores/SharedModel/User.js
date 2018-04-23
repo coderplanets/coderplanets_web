@@ -29,8 +29,17 @@ export const User = t.model('User', {
   nickname: t.optional(t.string, ''),
   bio: t.optional(t.string, ''),
   avatar: t.optional(t.string, ''),
+  email: t.maybe(t.string),
+  location: t.maybe(t.string),
+  company: t.maybe(t.string),
+  education: t.maybe(t.string),
+  sex: t.maybe(t.string),
+  qq: t.maybe(t.string),
+  weichat: t.maybe(t.string),
+  weibo: t.maybe(t.string),
+
   fromGithub: t.optional(t.boolean, false),
-  fromWeixin: t.optional(t.boolean, false),
+  /* fromWeixin: t.optional(t.boolean, false), */
   subscribedCommunities: t.optional(SubscribedCommunities, {}),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybe(GithubProfile),

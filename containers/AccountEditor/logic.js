@@ -1,6 +1,15 @@
-// import R from 'ramda'
+import R from 'ramda'
 
-import { makeDebugger, $solver, dispatchEvent, EVENT, TYPE } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  dispatchEvent,
+  EVENT,
+  ERR,
+  TYPE,
+  meteorState,
+} from '../../utils'
+import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71()
@@ -17,12 +26,107 @@ export function goBack() {
   })
 }
 
+export const profileChange = R.curry((part, e) => {
+  accountEditor.updateUser({
+    [part]: e.target.value,
+  })
+})
+
+const updatableAttrs = [
+  'nickname',
+  'email',
+  'location',
+  'company',
+  'education',
+  'qq',
+  'weibo',
+  'weichat',
+  'bio',
+]
+
+const nilOrEmpty = R.either(R.isNil, R.isEmpty)
+const hasValue = R.compose(R.not, nilOrEmpty)
+const pickUpdatable = R.compose(R.pickBy(hasValue), R.pick(updatableAttrs))
+
+export const updateConfirm = () => {
+  const editing = pickUpdatable(accountEditor.accountInfo)
+  const origin = pickUpdatable(accountEditor.accountOrigin)
+  debug('editing: ', editing)
+  debug('origin: ', origin)
+
+  if (R.equals(editing, origin)) {
+    meteorState(accountEditor, 'warn', 3)
+    return false
+  }
+
+  accountEditor.markState({
+    updating: true,
+  })
+
+  sr71$.mutate(S.updateProfile, { profile: editing })
+
+  /*
+  setTimeout(() => {
+    accountEditor.markState({
+      updating: false,
+    })
+    meteorState(accountEditor, 'error', 5, '自定义错误')
+  }, 3000)
+  */
+}
+
 export function cancleEdit() {
   dispatchEvent(EVENT.PREVIEW_CLOSE)
 }
 
-const DataSolver = []
-const ErrSolver = []
+export function updateDone() {
+  const editing = pickUpdatable(accountEditor.accountInfo)
+  accountEditor.updateOrign(editing)
+}
+
+const DataSolver = [
+  {
+    match: R.has('updateProfile'),
+    action: res => {
+      const data = res.updateProfile
+      console.log('updated: ', data)
+      meteorState(accountEditor, 'success', 3)
+      updateDone()
+      cancleLoading()
+      // communitiesContent.loadCommunities(data)
+    },
+  },
+]
+
+const cancleLoading = () => {
+  accountEditor.markState({
+    updating: false,
+  })
+}
+
+const ErrSolver = [
+  {
+    match: R.pathEq(['error'], ERR.CRAPHQL),
+    action: ({ details }) => {
+      debug('ERR.CRAPHQL -->', details)
+      cancleLoading()
+    },
+  },
+  {
+    match: R.pathEq(['error'], ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+      cancleLoading()
+    },
+  },
+  {
+    match: R.pathEq(['error'], ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+      cancleLoading()
+    },
+  },
+]
 
 export function init(selectedStore) {
   accountEditor = selectedStore
