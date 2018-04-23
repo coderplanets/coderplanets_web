@@ -11,7 +11,12 @@ import SR71 from '../../utils/network/sr71'
 
 // const sr71$ = new SR71({ resv_event: EVENT.PREVIEW })
 const sr71$ = new SR71({
-  resv_event: [EVENT.NAV_EDIT, EVENT.PREVIEW, EVENT.NAV_CREATE_POST],
+  resv_event: [
+    EVENT.NAV_EDIT,
+    EVENT.PREVIEW,
+    EVENT.NAV_CREATE_POST,
+    EVENT.PREVIEW_CLOSE,
+  ],
 })
 
 const debug = makeDebugger('L:Preview')
@@ -24,7 +29,7 @@ export function closePreview() {
   preview.close()
 
   // force call Typewriter's componentWillUnmount to store the draft
-  dispatchEvent(EVENT.PREVIEW_CLOSE)
+  dispatchEvent(EVENT.PREVIEW_CLOSED)
   // wait until preview move out of the screean
   setTimeout(() => {
     preview.markState({ type: null })
@@ -48,6 +53,10 @@ const DataResolver = [
       holdPage()
       preview.open(event.type)
     },
+  },
+  {
+    match: R.has(EVENT.PREVIEW_CLOSE),
+    action: () => closePreview(),
   },
   {
     match: R.has(EVENT.NAV_EDIT),

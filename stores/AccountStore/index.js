@@ -15,7 +15,7 @@ const debug = makeDebugger('S:AccountStore')
 
 const AccountStore = t
   .model('AccountStore', {
-    user: User,
+    user: t.optional(User, {}),
     // subscribedCommunites: ...
   })
   .views(self => ({

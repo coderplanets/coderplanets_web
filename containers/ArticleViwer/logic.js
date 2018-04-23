@@ -5,7 +5,7 @@ import S from './schema'
 import { makeDebugger, EVENT, TYPE } from '../../utils'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_POST, EVENT.PREVIEW_CLOSE],
+  resv_event: [EVENT.PREVIEW_POST, EVENT.PREVIEW_CLOSED],
 })
 
 /* eslint-disable no-unused-vars */
@@ -82,7 +82,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(EVENT.PREVIEW_CLOSE),
+    match: R.has(EVENT.PREVIEW_CLOSED),
     action: () => {
       // TODO: test
       sr71$.stop()
