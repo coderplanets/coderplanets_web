@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { Animate } from '../../../utils'
+
 export const Wrapper = styled.div`
   padding-top: 20px;
   padding-bottom: 50px;
@@ -15,6 +17,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  animation: ${Animate.fakeInRight} 0.2s linear;
 `
 
 export const AvatarPic = styled.img`

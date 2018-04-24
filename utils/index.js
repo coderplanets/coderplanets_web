@@ -30,6 +30,7 @@ export {
   stripMobx,
 } from './functions'
 
+export { default as Animate } from './animations'
 /*
  * theme related
  */
