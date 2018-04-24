@@ -20,10 +20,13 @@ export const formatGraphErrors = error => {
   // graphQLErrors may not catch in graph query (wrang sytax etc ...)
   // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
   if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
+    // console.log('-- graphQLErrors --> ', graphQLErrors)
+    // console.log('-- error --> ', error)
+
     const details = []
-    graphQLErrors.map(({ message, path, detail }) => {
+    graphQLErrors.map(({ message, path, key }) => {
       return details.push({
-        detail: `${message} ${detail}`,
+        detail: `${key}:${message}`,
         path: path ? R.join(' |> ', path) : '',
       })
     })

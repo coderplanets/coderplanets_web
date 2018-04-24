@@ -7,6 +7,7 @@ import {
   ERR,
   TYPE,
   $solver,
+  pageGoTop,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -56,6 +57,7 @@ export function loadPosts(page = 1) {
 
   args.filter = validFilter(args.filter)
   debug('args: ', args)
+  pageGoTop()
   sr71$.query(S.pagedPosts, args)
 }
 

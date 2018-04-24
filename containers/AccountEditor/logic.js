@@ -50,11 +50,13 @@ const hasValue = R.compose(R.not, nilOrEmpty)
 const pickUpdatable = R.compose(R.pickBy(hasValue), R.pick(updatableAttrs))
 
 export const updateConfirm = () => {
+  // TODO: 只去除 null 的即可，如果为空也是合法的
   const editing = pickUpdatable(accountEditor.accountInfo)
   const origin = pickUpdatable(accountEditor.accountOrigin)
-  debug('editing: ', editing)
-  debug('origin: ', origin)
+  // debug('editing: ', editing)
+  // debug('origin: ', origin)
 
+  // TODO: 唯一的限制是 昵称不能为空
   if (R.equals(editing, origin)) {
     meteorState(accountEditor, 'warn', 3)
     return false

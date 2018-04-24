@@ -107,7 +107,7 @@ class HeaderContainer extends React.Component {
 
           <Operations>
             <Search onClick={logic.openDoraemon}>
-              <HeaderIcon path={`${ICON_ASSETS}/cmd/header_search.svg`} />
+              <HeaderIcon path={`${ICON_ASSETS}/cmd/search2.svg`} />
             </Search>
             <Notification onClick={logic.openPreview.bind(this, 'post')}>
               <HeaderIcon path={`${ICON_ASSETS}/cmd/notification_none.svg`} />

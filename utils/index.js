@@ -34,6 +34,7 @@ export {
 } from './mobx_helper'
 
 export {
+  pageGoTop,
   holdPage,
   unholdPage,
   focusDoraemonBar,
