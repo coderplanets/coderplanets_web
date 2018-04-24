@@ -2,6 +2,7 @@ import R from 'ramda'
 import store from 'store'
 
 import {
+  gqRes,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -79,26 +80,23 @@ export function openDoraemon() {
 }
 
 const DataSolver = [
-  /* header.updateAccount({ ...user }) */
   {
-    match: R.has('user'),
+    match: gqRes('user'),
     action: ({ user }) => header.updateAccount(user),
   },
   {
     // TODO move it to user side view
-    match: R.has(S.githubSigninRes),
-    action: res => {
-      const data = res[S.githubSigninRes]
-      debug('dataResolver  --->', data)
+    match: gqRes('githubSigninRes'),
+    action: ({ githubSigninRes }) => {
+      debug('dataResolver  --->', githubSigninRes)
     },
   },
   {
-    match: R.has('user'),
-    action: res => {
-      const data = res.user
-      debug('dataResolver userRes  --->', data)
+    match: gqRes('user'),
+    action: ({ user }) => {
+      debug('dataResolver userRes  --->', user)
       /* store.set('user', { ...data }) */
-      header.updateAccount(data)
+      header.updateAccount(user)
     },
   },
 ]

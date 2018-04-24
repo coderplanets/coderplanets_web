@@ -24,19 +24,12 @@ const debug = makeDebugger('U:functions')
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
 
-/*
-   mobx 中的 object 是封装过后的 observable 结构, 如果 obsered-object 被用于 containers 中的子组件,
-   data 不会及时响应,需要处理成 toJSON 的 raw 结构
-   需要在 store 的"端点"去除 mobx 的数据结构
-   注意！ 该函数只应用户 store -> UI 的最后一个环节， store 内部之间的数据关联需要这种 obserable data
- */
-export const stripMobx = obj =>
-  R.map(v => {
-    if (isObject(v) && R.has('$mobx')) {
-      return v.toJSON()
-    }
-    return v
-  }, obj)
+export const gqRes = R.curry((key, obj) => {
+  if (R.and(obj[key], R.has(key, obj))) {
+    return true
+  }
+  return false
+})
 
 export const getParameterByName = name => {
   /* if (!url) url = window.location.href;*/
@@ -55,30 +48,6 @@ export const isObject = value => {
 }
 /* eslint-enable */
 
-export const storeSelector = R.curry((wantedStore, props) => ({
-  [wantedStore]: R.path(['store', wantedStore], props),
-}))
-
-const matchResolver = (resolveArray, data) => {
-  for (let i = 0; i < resolveArray.length; i += 1) {
-    if (resolveArray[i].match(data)) {
-      return resolveArray[i].action(data)
-    }
-  }
-  console.log('unMatched resovle data: ', data)
-}
-
-/*
- * a helper to easly deal with sr71$ return data/error
- * example: sub$ = sr71$.data().subscribe($solve(dataResolver, errResovler))
-*/
-export const $solver = R.curry((dataResolver, errResolver, data) => {
-  if (data.error) {
-    return matchResolver(errResolver, data)
-  }
-  return matchResolver(dataResolver, data)
-})
-
 export const getSVGIconPath = key => {
   const iconKey = R.toLower(key)
   let path = 'langs'
@@ -93,43 +62,6 @@ export const getSVGIconPath = key => {
   }
 
   return `/static/nodeIcons/${path}/${iconKey}.svg`
-}
-
-export const markStates = (sobj, self) => {
-  if (!isObject(sobj)) {
-    throw new Error('markState get invalid object, exepect a object')
-  }
-  const selfKeys = R.keys(self)
-  R.forEachObjIndexed((val, key) => {
-    if (R.contains(key, selfKeys)) {
-      self[key] = val
-    }
-  }, sobj)
-}
-
-/*
-   can't put this in store, because this method is async
-   only boolean now
- */
-export const meteorState = (store, state, secs, statusMsg = '') => {
-  if (!R.has(state, store)) {
-    /* eslint-disable */
-    console.error(`Error: meteorState not found ${state}`)
-    /* eslint-enable */
-    return false
-  }
-
-  store.markState({
-    [state]: true,
-    statusMsg,
-  })
-
-  setTimeout(() => {
-    store.markState({
-      [state]: false,
-      statusMsg: '',
-    })
-  }, secs * 1000)
 }
 
 // see https://github.com/ramda/ramda/issues/1361
@@ -204,19 +136,4 @@ export const dispatchEvent = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
-}
-
-export const holdPage = () => {
-  /* eslint-disable no-undef */
-  const el = document.getElementById('body')
-  /* eslint-enable no-undef */
-  el.style.overflowY = 'hidden'
-}
-
-export const unholdPage = () => {
-  /* eslint-disable no-undef */
-  const el = document.getElementById('body')
-  /* eslint-enable no-undef */
-
-  el.style.overflowY = 'auto'
 }

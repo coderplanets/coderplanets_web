@@ -1,5 +1,6 @@
 import R from 'ramda'
 import {
+  gqRes,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -82,18 +83,16 @@ export function createContent() {
 
 const DataSolver = [
   {
-    match: R.has(S.pagedPostsRes),
-    action: res => {
-      debug('pagedPostsRes', res[S.pagedPostsRes])
-      const data = res[S.pagedPostsRes]
-      postsPaper.loadData(data)
+    match: gqRes('pagedPosts'),
+    action: ({ pagedPosts }) => {
+      postsPaper.loadData(pagedPosts)
       postsPaper.markState({
         curView: 'RESULT',
       })
     },
   },
   {
-    match: R.has(EVENT.REFRESH_POSTS),
+    match: gqRes(EVENT.REFRESH_POSTS),
     action: res => {
       debug('EVENT.REFRESH_POSTS: ', res)
       loadPosts()

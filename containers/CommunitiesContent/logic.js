@@ -1,6 +1,6 @@
 import R from 'ramda'
 
-import { $solver, ERR, makeDebugger, EVENT } from '../../utils'
+import { gqRes, $solver, ERR, makeDebugger, EVENT } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -60,39 +60,36 @@ const cancleLoading = () => {
 
 const DataSolver = [
   {
-    match: R.has('communities'),
-    action: res => {
-      const data = res.communities
-      communitiesContent.loadCommunities(data)
+    match: gqRes('communities'),
+    action: ({ communities }) => {
+      communitiesContent.loadCommunities(communities)
     },
   },
   {
-    match: R.has('subscribeCommunity'),
-    action: res => {
-      const data = res.subscribeCommunity
-      communitiesContent.addSubscribedCommunity(data)
+    match: gqRes('subscribeCommunity'),
+    action: ({ subscribeCommunity }) => {
+      communitiesContent.addSubscribedCommunity(subscribeCommunity)
       communitiesContent.markState({
         subscribing: false,
       })
     },
   },
   {
-    match: R.has('unsubscribeCommunity'),
-    action: res => {
-      const data = res.unsubscribeCommunity
-      debug('unsubscribeCommunity: ', data)
-      communitiesContent.removeSubscribedCommunity(data)
+    match: gqRes('unsubscribeCommunity'),
+    action: ({ unsubscribeCommunity }) => {
+      debug('unsubscribeCommunity: ', unsubscribeCommunity)
+      communitiesContent.removeSubscribedCommunity(unsubscribeCommunity)
       communitiesContent.markState({
         subscribing: false,
       })
     },
   },
   {
-    match: R.has(EVENT.LOGOUT),
+    match: gqRes(EVENT.LOGOUT),
     action: () => loadCommunities(),
   },
   {
-    match: R.has(EVENT.LOGIN),
+    match: gqRes(EVENT.LOGIN),
     action: () => loadCommunities(),
   },
 ]

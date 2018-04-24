@@ -8,10 +8,8 @@ export { EVENT, ERR, TYPE } from './constants'
 * utils functiosn
 */
 export {
-  storeSelector,
+  gqRes,
   makeDebugger,
-  markStates,
-  meteorState,
   dispatchEvent,
   getSVGIconPath,
   mapKeys,
@@ -20,15 +18,27 @@ export {
   getRandomInt,
   isEmptyValue,
   Global,
-  holdPage,
-  unholdPage,
   cutFrom,
   getParameterByName,
   prettyNum,
-  $solver,
   Rlog,
-  stripMobx,
 } from './functions'
+
+export {
+  storeSelector,
+  markStates,
+  meteorState,
+  stripMobx,
+  $solver,
+  observerHoc,
+} from './mobx_helper'
+
+export {
+  holdPage,
+  unholdPage,
+  focusDoraemonBar,
+  hideDoraemonBarRecover,
+} from './dom_operator'
 
 export { default as Animate } from './animations'
 /*

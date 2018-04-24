@@ -105,10 +105,10 @@ export const Title = styled.div`
 `
 // color: ${theme('font')};
 export const Desc = styled.div`
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: ${theme('banner.desc')};
   @media (max-height: 800px) {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 `
 

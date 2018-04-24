@@ -1,6 +1,7 @@
 import R from 'ramda'
 
 import {
+  gqRes,
   makeDebugger,
   $solver,
   dispatchEvent,
@@ -86,10 +87,8 @@ export function updateDone() {
 
 const DataSolver = [
   {
-    match: R.has('updateProfile'),
-    action: res => {
-      const data = res.updateProfile
-      console.log('updated: ', data)
+    match: gqRes('updateProfile'),
+    action: () => {
       meteorState(accountEditor, 'success', 3)
       updateDone()
       cancleLoading()

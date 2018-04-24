@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
 
-const createPostRes = 'createPost'
 const createPost = gql`
   mutation(
     $title: String!
@@ -27,7 +26,6 @@ const createPost = gql`
 
 const schema = {
   createPost,
-  createPostRes,
 }
 
 export default schema

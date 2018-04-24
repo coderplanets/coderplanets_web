@@ -2,7 +2,7 @@ import R from 'ramda'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
-import { makeDebugger, EVENT, TYPE } from '../../utils'
+import { gqRes, makeDebugger, EVENT, TYPE } from '../../utils'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_POST, EVENT.PREVIEW_CLOSED],
@@ -51,7 +51,7 @@ function reloadReactions(data) {
 
 const dataResolver = [
   {
-    match: R.has(EVENT.PREVIEW_POST),
+    match: gqRes(EVENT.PREVIEW_POST),
     action: res => {
       const info = res[EVENT.PREVIEW_POST]
       /* debug('EVENT.PREVIEW_POST: ', res[EVENT.PREVIEW_POST]) */
@@ -63,7 +63,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(TYPE.REACTION),
+    match: gqRes(TYPE.REACTION),
     action: res => {
       // TODO: should be trigger
       debug('reaction ', res)
@@ -74,7 +74,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(TYPE.UNDO_REACTION),
+    match: gqRes(TYPE.UNDO_REACTION),
     action: res => {
       debug('undoReaction ', res)
       const info = res[TYPE.UNDO_REACTION]
@@ -82,7 +82,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(EVENT.PREVIEW_CLOSED),
+    match: gqRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       // TODO: test
       sr71$.stop()
@@ -91,7 +91,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(R.toLower(TYPE.POST)), // GraphQL return
+    match: gqRes(R.toLower(TYPE.POST)), // GraphQL return
     action: res => {
       debug('match post: ', res[R.toLower(TYPE.POST)])
       articleViwer.load(TYPE.POST, res[R.toLower(TYPE.POST)])

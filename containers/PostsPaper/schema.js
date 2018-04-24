@@ -1,6 +1,5 @@
 import gql from 'graphql-tag'
 
-const pagedPostsRes = 'pagedPosts'
 const pagedPosts = gql`
   query pagedPosts($filter: PagedArticleFilter) {
     pagedPosts(filter: $filter) {
@@ -21,7 +20,6 @@ const pagedPosts = gql`
 
 const schema = {
   pagedPosts,
-  pagedPostsRes,
 }
 
 export default schema

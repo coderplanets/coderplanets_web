@@ -25,10 +25,23 @@ const BannerStore = t
     get curCommunity() {
       return self.root.communities.curCommunity
     },
+    get detail() {
+      // type depands on main_query
+      return {
+        type: 'community',
+        content: self.root.curCommunity.data,
+      }
+    },
+    get curCommunity2() {
+      return self.root.curCommunity.data
+    },
   }))
   .actions(self => ({
     markState(sobj) {
       markStates(sobj, self)
+    },
+    loadCurCommunity(data) {
+      self.root.curCommunity.load(data)
     },
   }))
 

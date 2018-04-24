@@ -2,6 +2,7 @@ import R from 'ramda'
 import { notification, message } from 'antd'
 
 import {
+  gqRes,
   makeDebugger,
   isEmptyValue,
   dispatchEvent,
@@ -113,9 +114,8 @@ function publishing(maybe = true) {
 
 const dataResolver = [
   {
-    match: R.has(S.createPostRes),
-    action: res => {
-      debug('action res', res)
+    match: gqRes('createPost'),
+    action: () => {
       publishing(false)
       typeWriter.reset()
       typeWriter.closePreview()
@@ -126,7 +126,7 @@ const dataResolver = [
     },
   },
   {
-    match: R.has(EVENT.PREVIEW),
+    match: gqRes(EVENT.PREVIEW),
     action: () => {},
   },
 ]

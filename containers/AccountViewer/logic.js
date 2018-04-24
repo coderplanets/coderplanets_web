@@ -1,6 +1,7 @@
 import R from 'ramda'
 
 import {
+  gqRes,
   makeDebugger,
   $solver,
   ERR,
@@ -47,14 +48,14 @@ export function editProfile() {
 
 const DataSolver = [
   {
-    match: R.has('account'),
+    match: gqRes('account'),
     action: res => {
       const data = res.account
       accountViewer.updateAccount(data)
     },
   },
   {
-    match: R.has(EVENT.LOGIN),
+    match: gqRes(EVENT.LOGIN),
     action: () => loadAccount(),
   },
 ]

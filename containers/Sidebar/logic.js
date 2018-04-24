@@ -2,7 +2,7 @@ import R from 'ramda'
 import store from 'store'
 
 // const debug = makeDebugger('L:sidebar')
-import { $solver, ERR, makeDebugger, EVENT } from '../../utils'
+import { gqRes, $solver, ERR, makeDebugger, EVENT } from '../../utils'
 import S from './schema'
 
 import SR71 from '../../utils/network/sr71'
@@ -37,16 +37,16 @@ export function loadSubscribedCommunities() {
 
 const DataSolver = [
   {
-    match: R.has('subscribedCommunities'),
+    match: gqRes('subscribedCommunities'),
     action: ({ subscribedCommunities }) =>
       sidebar.loadSubscribedCommunities(subscribedCommunities),
   },
   {
-    match: R.has(EVENT.LOGOUT),
+    match: gqRes(EVENT.LOGOUT),
     action: () => loadSubscribedCommunities(),
   },
   {
-    match: R.has(EVENT.LOGIN),
+    match: gqRes(EVENT.LOGIN),
     action: () => loadSubscribedCommunities(),
   },
 ]

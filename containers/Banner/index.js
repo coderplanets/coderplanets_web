@@ -1,15 +1,16 @@
 /*
-*
-* Banner
-*
-*/
+ *
+ * Banner
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Tabber from '../../components/Tabber'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { DEFAULT_ICON } from '../../config/assets'
+import { makeDebugger, storeSelector, prettyNum } from '../../utils'
 
 import * as logic from './logic'
 
@@ -41,40 +42,39 @@ const onChange = e => {
   logic.tabberChange(e)
 }
 
-const CommunityBrief = ({ curCommunity, curRoute }) => {
-  const defaultIcon = 'js'
-  const { header } = curCommunity
-  const { title, desc } = header
-  const { mainQuery } = curRoute
-  // TODO: move logic to logic
-  const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
-
+const CommunityBrief = ({ content }) => {
   return (
     <CommunityWrapper>
-      <CommunityLogo path={getSVGIconPath(iconKey)} />
+      {content.logo ? (
+        <CommunityLogo path={content.logo || DEFAULT_ICON} />
+      ) : (
+        <div />
+      )}
       <CommunityInfo>
-        <Title>{title}</Title>
-        <Desc>{desc}</Desc>
+        <Title>{content.title}</Title>
+        <Desc>{content.desc}</Desc>
       </CommunityInfo>
     </CommunityWrapper>
   )
 }
 
-const NumbersInfo = () => (
+const NumbersInfo = ({
+  content: { subscribersCount, editorsCount, postsCount },
+}) => (
   <NumbersWrapper>
     <NumberSection>
-      <NumberTitle>成员</NumberTitle>
-      <NumberItem>18</NumberItem>
+      <NumberTitle>关注</NumberTitle>
+      <NumberItem>{prettyNum(subscribersCount)}</NumberItem>
     </NumberSection>
     <NumberDivider />
     <NumberSection>
       <NumberTitle>内容</NumberTitle>
-      <NumberItem>184</NumberItem>
+      <NumberItem>{prettyNum(postsCount)}</NumberItem>
     </NumberSection>
     <NumberDivider />
     <NumberSection>
       <NumberTitle>编辑</NumberTitle>
-      <NumberItem>5</NumberItem>
+      <NumberItem>{prettyNum(editorsCount)}</NumberItem>
     </NumberSection>
   </NumbersWrapper>
 )
@@ -109,10 +109,11 @@ const communitiesTaber = [
     raw: 'others',
   },
 ]
-const BannerContent = ({ banner, curRoute }) => {
-  const { mainQuery } = curRoute
-  // console.log('mainQuery --> ', mainQuery)
-  switch (mainQuery) {
+
+const BannerContent = ({ detail: { type, content } }) => {
+  console.log('BannerContent --> ', content)
+  console.log('BannerContent --> ', type)
+  switch (type) {
     case 'cheatsheet': {
       return (
         <CheatsheetBanner>
@@ -138,23 +139,19 @@ const BannerContent = ({ banner, curRoute }) => {
     default:
       return (
         <CommunityBanner>
-          <CommonCommunity banner={banner} />
+          <CommonCommunity content={content} />
         </CommunityBanner>
       )
   }
 }
 
-const CommonCommunity = ({ banner }) => {
-  const { curRoute, curCommunity } = banner
-
-  debug('CommonCommunity banner', banner.curCommunity)
-
+const CommonCommunity = ({ content }) => {
   return (
     <BannerContentWrapper>
-      <CommunityBrief curCommunity={curCommunity} curRoute={curRoute} />
-      <NumbersInfo />
+      <CommunityBrief content={content} />
+      <NumbersInfo content={content} />
       <TabberWrapper>
-        <Tabber source={curCommunity.threads} onChange={onChange} />
+        <Tabber source={content.threads} onChange={onChange} />
       </TabberWrapper>
     </BannerContentWrapper>
   )
@@ -167,11 +164,11 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curRoute } = banner
+    const { curRoute, detail } = banner
     //     const { mainQuery } = curRoute
-    debug('curCommunity', banner.curCommunity)
+    debug('detail ---> ', detail)
 
-    return <BannerContent curRoute={curRoute} banner={banner} />
+    return <BannerContent curRoute={curRoute} banner={banner} detail={detail} />
   }
 }
 

@@ -1,5 +1,5 @@
-import R from 'ramda'
 import {
+  gqRes,
   $solver,
   makeDebugger,
   EVENT,
@@ -47,7 +47,7 @@ function loadDataForPreview(info) {
 
 const DataResolver = [
   {
-    match: R.has(EVENT.PREVIEW),
+    match: gqRes(EVENT.PREVIEW),
     action: res => {
       const event = res[EVENT.PREVIEW]
       holdPage()
@@ -55,11 +55,11 @@ const DataResolver = [
     },
   },
   {
-    match: R.has(EVENT.PREVIEW_CLOSE),
+    match: gqRes(EVENT.PREVIEW_CLOSE),
     action: () => closePreview(),
   },
   {
-    match: R.has(EVENT.NAV_EDIT),
+    match: gqRes(EVENT.NAV_EDIT),
     action: res => {
       const event = res[EVENT.NAV_EDIT]
       holdPage()
@@ -70,7 +70,7 @@ const DataResolver = [
     },
   },
   {
-    match: R.has(EVENT.NAV_CREATE_POST),
+    match: gqRes(EVENT.NAV_CREATE_POST),
     action: res => {
       const event = res[EVENT.NAV_CREATE_POST]
       holdPage()

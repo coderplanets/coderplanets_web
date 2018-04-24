@@ -21,6 +21,7 @@ import {
   HeaderStore,
   BannerStore,
   ContentStore,
+  CurCommunity,
   // papers
   PostsPaperStore,
   CommunitiesContentStore,
@@ -52,6 +53,7 @@ const rootStore = t
     account: t.optional(AccountStore, {}),
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
+    curCommunity: t.optional(CurCommunity, {}),
     communities: t.optional(CommunitiesStore, {}),
     posts: t.optional(PostsStore, {}),
     comments: t.optional(CommentsStore, {}),

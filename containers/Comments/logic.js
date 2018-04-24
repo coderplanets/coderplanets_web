@@ -1,6 +1,5 @@
-import R from 'ramda'
-
-import { makeDebugger, EVENT } from '../../utils'
+// import R from 'ramda'
+import { gqRes, makeDebugger, EVENT } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71()
@@ -31,7 +30,7 @@ export function onCommentInputChange(value) {
 
 const dataResolver = [
   {
-    match: R.has(EVENT.PREVIEW),
+    match: gqRes(EVENT.PREVIEW),
     action: () => {},
   },
 ]
