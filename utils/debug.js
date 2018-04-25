@@ -1,5 +1,5 @@
 import _debug from 'debug'
-import isBrowser from './is_browser'
+import { isBrowser } from './dom_operator'
 
 if (
   isBrowser &&

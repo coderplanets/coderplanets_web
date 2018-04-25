@@ -4,12 +4,13 @@
 
 export { EVENT, ERR, TYPE } from './constants'
 
+export { makeDebugger } from './debug'
 /*
-* utils functiosn
-*/
+ * utils functiosn
+ */
 export {
   gqRes,
-  makeDebugger,
+  /* makeDebugger, */
   dispatchEvent,
   getSVGIconPath,
   mapKeys,

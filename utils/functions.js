@@ -1,24 +1,16 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import { makeDebugger } from './debug'
-
 import {
   pl,
   framework,
   database, //  cmds,
-} from '../../stores/DoraemonStore/suggestions'
+} from '../stores/DoraemonStore/suggestions'
 
 const plKeys = R.map(R.toLower, R.keys(pl))
 const frameworkKeys = R.map(R.toLower, R.keys(framework))
 const databaseKeys = R.map(R.toLower, R.keys(database))
 // const cmdsKeys = R.map(R.toLower, R.keys(cmds))
-
-export { makeDebugger } from './debug'
-
-/* eslint-disable no-unused-vars */
-const debug = makeDebugger('U:functions')
-/* eslint-enable no-unused-vars */
 
 /* eslint-disable */
 // TODO: document ?
