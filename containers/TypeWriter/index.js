@@ -1,8 +1,8 @@
 /*
-*
-* TypeWriter
-*
-*/
+ *
+ * TypeWriter
+ *
+ */
 
 import React from 'react'
 // import PropTypes from 'prop-types'
@@ -13,10 +13,12 @@ import { Button } from 'antd'
 // import dynamic from 'next/dynamic'
 
 // import ContentInput from './ContentInput'
+import { ICON_ASSETS } from '../../config'
+
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
 import {
@@ -135,7 +137,7 @@ const TopHeader = ({ curView }) => {
         <Header>
           <UsageText>Github Flavor Markdown</UsageText>
           <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
-            <MarkdownIcon path={getSVGIconPath('original')} />
+            <MarkdownIcon path={`${ICON_ASSETS}/cmd/original.svg`} />
             返回编辑
           </BackToEditHint>
         </Header>
@@ -148,7 +150,7 @@ const TopHeader = ({ curView }) => {
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
           >
-            <MarkdownIcon path={getSVGIconPath('markdown')} />
+            <MarkdownIcon path={`${ICON_ASSETS}/cmd/markdown.svg`} />
             markdown 语法 / emojj 速查
           </MarkDownHint>
         </Header>

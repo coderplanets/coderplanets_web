@@ -7,7 +7,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-import { makeDebugger, getSVGIconPath } from '../../utils'
+import { makeDebugger } from '../../utils'
 import { ICON_ASSETS } from '../../config'
 
 import { Breadcrumbs, Logo, LogoText, BetaLogo } from './style'
@@ -19,7 +19,7 @@ const debug = makeDebugger('c:Navigator:index')
 const Navigator = () => {
   return (
     <Breadcrumbs>
-      <Logo path={getSVGIconPath('site_logo')} />
+      <Logo path={`${ICON_ASSETS}/cmd/rainbow_logo.svg`} />
       <LogoText>coderplanets</LogoText>
       <BetaLogo path={`${ICON_ASSETS}/cmd/beta.svg`} />
     </Breadcrumbs>

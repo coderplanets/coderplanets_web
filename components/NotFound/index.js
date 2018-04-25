@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { ICON_ASSETS } from '../../config'
 import { makeDebugger } from '../../utils'
 
 import { Icon404, Wrapper, Icon, Text, Title, Desc } from './styles'
@@ -18,7 +19,7 @@ const NotFound = ({ msg, desc }) => {
   return (
     <Wrapper>
       <Icon>
-        <Icon404 path="/static/alarm.svg" />
+        <Icon404 path={`${ICON_ASSETS}/cmd/alarm.svg`} />
       </Icon>
       <Text>
         <Title>{msg}</Title>

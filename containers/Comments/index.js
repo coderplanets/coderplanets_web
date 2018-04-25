@@ -1,8 +1,8 @@
 /*
-*
-* Comments
-*
-*/
+ *
+ * Comments
+ *
+ */
 
 import React from 'react'
 // import PropTypes from 'prop-types'
@@ -10,14 +10,10 @@ import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { Button } from 'antd'
 
+import { ICON_ASSETS } from '../../config'
 // import Link from 'next/link'
 
-import {
-  makeDebugger,
-  getSVGIconPath,
-  storeSelector,
-  Global,
-} from '../../utils'
+import { makeDebugger, storeSelector, Global } from '../../utils'
 import * as logic from './logic'
 
 import {
@@ -157,15 +153,15 @@ const Comment = () => (
         </CommentContent>
         <CommentFooter>
           <LikeAction>
-            <LikeIcon path={getSVGIconPath('like')} />
+            <LikeIcon path={`${ICON_ASSETS}/cmd/like.svg`} />
             赞
           </LikeAction>
           <ReplyAction>
-            <ReplyIcon path={getSVGIconPath('comment')} />
+            <ReplyIcon path={`${ICON_ASSETS}/cmd/comment.svg`} />
             回复
           </ReplyAction>
           <ReplyAction>
-            <ReplyIcon path={getSVGIconPath('delete')} />
+            <ReplyIcon path={`${ICON_ASSETS}/cmd/delete.svg`} />
             删除
           </ReplyAction>
           <FooterExtra />

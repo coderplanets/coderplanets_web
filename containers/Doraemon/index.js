@@ -1,8 +1,8 @@
 /*
-*
-* Magic Doraemon
-*
-*/
+ *
+ * Magic Doraemon
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -10,7 +10,8 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { ICON_ASSETS } from '../../config'
+import { makeDebugger, storeSelector } from '../../utils'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'
@@ -37,7 +38,7 @@ const debug = makeDebugger('C:Doraemon')
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
-    return <HintEnter path={getSVGIconPath('enter')} />
+    return <HintEnter path={`${ICON_ASSETS}/cmd/enter.svg`} />
   } else if (length <= 9) {
     return <Hint>^ {index}</Hint>
   }

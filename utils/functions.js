@@ -1,17 +1,6 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import {
-  pl,
-  framework,
-  database, //  cmds,
-} from '../stores/DoraemonStore/suggestions'
-
-const plKeys = R.map(R.toLower, R.keys(pl))
-const frameworkKeys = R.map(R.toLower, R.keys(framework))
-const databaseKeys = R.map(R.toLower, R.keys(database))
-// const cmdsKeys = R.map(R.toLower, R.keys(cmds))
-
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
@@ -32,22 +21,6 @@ export const isObject = value => {
   return value != null && (type == 'object' || type == 'function')
 }
 /* eslint-enable */
-
-export const getSVGIconPath = key => {
-  const iconKey = R.toLower(key)
-  let path = 'langs'
-  if (R.contains(iconKey, plKeys)) {
-    path = 'langs'
-  } else if (R.contains(iconKey, frameworkKeys)) {
-    path = 'frameworks'
-  } else if (R.contains(iconKey, databaseKeys)) {
-    path = 'database'
-  } else {
-    path = 'cmd'
-  }
-
-  return `/static/nodeIcons/${path}/${iconKey}.svg`
-}
 
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = R.curry((fn, obj) => {

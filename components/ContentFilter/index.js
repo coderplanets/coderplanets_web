@@ -8,6 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Row, Col, Popover, Tag } from 'antd'
 
+import { ICON_ASSETS } from '../../config'
+
 import {
   Wrapper,
   InnerBtnWrapper,
@@ -17,7 +19,7 @@ import {
   SelectItem,
 } from './styles'
 
-import { makeDebugger, getSVGIconPath, isEmptyValue } from '../../utils'
+import { makeDebugger, isEmptyValue } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */
@@ -147,7 +149,7 @@ const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
           综合排序
-          <FilterIcon path={getSVGIconPath('filter')} />
+          <FilterIcon path={`${ICON_ASSETS}/cmd/filter.svg`} />
         </InnerBtnWrapper>
       </Button>
       &nbsp;&nbsp;&nbsp;&nbsp;

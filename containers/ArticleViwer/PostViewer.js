@@ -4,6 +4,8 @@ import TimeAgo from 'timeago-react'
 import Comments from '../../containers/Comments'
 import PostLoading from '../../components/LoadingEffects/PostLoading'
 
+import { ICON_ASSETS } from '../../config'
+
 import {
   PreviewHeaderWrapper,
   UserInfo,
@@ -33,19 +35,19 @@ import {
   CommentsWrapper,
 } from './styles/body'
 
-import { getSVGIconPath, TYPE } from '../../utils'
+import { TYPE } from '../../utils'
 
 // <PreviewHeader>Preview header</PreviewHeader>post
 // TODO: extract a Avatar component
 /*
-<Reaction>
-  <ReactionAction>
-    <ReactionIcon path={getSVGIconPath('watch')} />
-    <ReactionName>关注&nbsp;</ReactionName>
-  </ReactionAction>
-  <ReactionUserNum>22</ReactionUserNum>
-  <Divider />
-</Reaction>
+   <Reaction>
+   <ReactionAction>
+   <ReactionIcon path={`${ICON_ASSETS}/cmd/uncollect.svg`} />
+   <ReactionName>关注&nbsp;</ReactionName>
+   </ReactionAction>
+   <ReactionUserNum>22</ReactionUserNum>
+   <Divider />
+   </Reaction>
  */
 
 const PreviewHeader = ({ data, onReaction }) => (
@@ -73,7 +75,7 @@ const PreviewHeader = ({ data, onReaction }) => (
             data
           )}
         >
-          <ReactionIcon path={getSVGIconPath('uncollect')} />
+          <ReactionIcon path={`${ICON_ASSETS}/cmd/uncollect.svg`} />
           <ReactionName>
             {data.viewerHasFavorited ? (
               <span>已收藏&nbsp;</span>
@@ -96,7 +98,7 @@ const PreviewHeader = ({ data, onReaction }) => (
           )}
         >
           <ReactionIcon
-            path={getSVGIconPath('like')}
+            path={`${ICON_ASSETS}/cmd/like.svg`}
             style={{
               width: '1.2em',
               height: '1.2em',
@@ -112,7 +114,7 @@ const PreviewHeader = ({ data, onReaction }) => (
       <Reaction>
         <ReactionAction>
           <ReactionIcon
-            path={getSVGIconPath('watch')}
+            path={`${ICON_ASSETS}/cmd/watch.svg`}
             style={{ marginTop: 6 }}
           />
           <ReactionName>浏览&nbsp;</ReactionName>
@@ -129,7 +131,7 @@ const PostViewer = ({ data, loading, onReaction }) => (
     <BodyWrapper>
       <ArticleHeader>
         <MoreWrapper>
-          <MoreIcon path={getSVGIconPath('more')} />
+          <MoreIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
           <MoreOption>文章页</MoreOption>
         </MoreWrapper>
         <LinkFrom>

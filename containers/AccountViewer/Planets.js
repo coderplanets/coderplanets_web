@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
 
-// import { getSVGIconPath } from '../../utils'
 import {
   Wrapper,
   HeaderWrapper,

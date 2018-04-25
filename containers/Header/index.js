@@ -13,7 +13,7 @@ import Navigator from '../../components/Navigator'
 
 import { ICON_ASSETS } from '../../config/assets'
 
-import { makeDebugger, storeSelector, getSVGIconPath } from '../../utils'
+import { makeDebugger, storeSelector } from '../../utils'
 
 import {
   Header,
@@ -46,7 +46,7 @@ const MiniMap = ({ curRoute }) => {
 
   return (
     <MiniMapWrapper>
-      <CommunityLogo path={getSVGIconPath(iconKey)} />
+      <CommunityLogo path={`${ICON_ASSETS}/pl/${iconKey}.svg`} />
       <MiniTab active>帖子</MiniTab>
       <MiniTab>教程</MiniTab>
       <MiniTab>动态</MiniTab>

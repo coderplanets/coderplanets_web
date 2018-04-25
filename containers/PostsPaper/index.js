@@ -1,8 +1,8 @@
 /*
-*
-* PostsPaper
-*
-*/
+ *
+ * PostsPaper
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -12,12 +12,13 @@ import TimeAgo from 'timeago-react'
 import Waypoint from 'react-waypoint'
 // import Link from 'next/link'
 
+import { ICON_ASSETS } from '../../config'
+
 // import { Button } from '../../components'
 import ContentFilter from '../../components/ContentFilter'
 import {
   makeDebugger,
   storeSelector,
-  getSVGIconPath,
   getRandomInt,
   cutFrom,
   pagiCustomRender,
@@ -135,7 +136,7 @@ const PostItem = ({ post }) => (
         <PostTitle onClick={logic.onContentSelect.bind(this, post)}>
           {post.title}
           <PostTitleLink>
-            <LinkIcon path={getSVGIconPath('link')} />
+            <LinkIcon path={`${ICON_ASSETS}/cmd/like.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </PostTitleLink>
           <PostTitleTag>

@@ -1,12 +1,13 @@
 /*
  * Editor based on Draft
-*/
+ */
 
 import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Popover, Button } from 'antd'
 
+import { ICON_ASSETS } from '../../config'
 import BodyEditor from './BodyEditor'
 
 import {
@@ -28,8 +29,6 @@ import {
   CheckText,
 } from './styles'
 
-import { getSVGIconPath } from '../../utils'
-
 const articleTypeDic = {
   original: '原创',
   reprint: '转载',
@@ -43,7 +42,7 @@ const OriginalSelector = ({ active, onSelect }) => {
 
       <Selector onClick={onSelect.bind(this, 'original')}>
         <CheckIcon
-          path={getSVGIconPath('check2')}
+          path={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="original"
         />
@@ -53,7 +52,7 @@ const OriginalSelector = ({ active, onSelect }) => {
       </Selector>
       <Selector onClick={onSelect.bind(this, 'reprint')}>
         <CheckIcon
-          path={getSVGIconPath('check2')}
+          path={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="reprint"
         />
@@ -63,7 +62,7 @@ const OriginalSelector = ({ active, onSelect }) => {
       </Selector>
       <Selector onClick={onSelect.bind(this, 'translate')}>
         <CheckIcon
-          path={getSVGIconPath('check2')}
+          path={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="translate"
         />
@@ -89,7 +88,7 @@ const Editor = ({
   <BodyWrapper>
     <BodyHeader>
       <CopyRightCheck>
-        <ReprintIcon path={getSVGIconPath(articleType)} />
+        <ReprintIcon path={`${ICON_ASSETS}/cmd/${articleType}.svg`} />
         &nbsp;&nbsp;
         <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
         <Popover
@@ -100,7 +99,7 @@ const Editor = ({
           trigger="hover"
         >
           <div>
-            <MoreIcon path={getSVGIconPath('more')} />
+            <MoreIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
           </div>
         </Popover>
       </CopyRightCheck>

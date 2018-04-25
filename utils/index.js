@@ -10,7 +10,6 @@ export { makeDebugger } from './debug'
  */
 export {
   dispatchEvent,
-  getSVGIconPath,
   mapKeys,
   isObject,
   notEmpty,

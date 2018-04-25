@@ -14,6 +14,7 @@ export const Logo = styled(ReactSVG)`
   height: 22px;
   width: 22px;
   margin-top: 4px;
+  opacity: 0.6;
 `
 export const LogoText = styled.div`
   margin-left: 6px;
