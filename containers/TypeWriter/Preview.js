@@ -10,7 +10,12 @@ import mentions from 'remarkable-mentions'
 import { Button } from 'antd'
 
 import MarkDownStyle from '../../containers/ThemeWrapper/MarkDownStyle'
-import { BodyWrapper, BodyHeader, BackToEditBtn, PreviewHeader } from './styles'
+import {
+  BodyWrapper,
+  BodyHeader,
+  BackToEditBtn,
+  PreviewHeader,
+} from './styles/preview'
 
 const md = new Remarkable()
 md.use(mentions({ url: 'http:coderplanets.com/users/' }))

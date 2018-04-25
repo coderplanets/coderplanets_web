@@ -8,8 +8,6 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 // import { Button, Message } from 'antd'
-import { Button } from 'antd'
-
 // import dynamic from 'next/dynamic'
 
 // import ContentInput from './ContentInput'
@@ -21,6 +19,8 @@ import MarkDownHelper from './MarkDownHelper'
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
+import Footer from './Footer'
+
 import {
   Wrapper,
   EditorBlock,
@@ -30,30 +30,11 @@ import {
   MarkdownIcon,
   MarkDownHint,
   BackToEditHint,
-  Footer,
-  RespectText,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
-
-const PublishFooter = ({ onPublish, publishing }) => (
-  <Footer>
-    <RespectText>请尊重自己和他人的时间，不要发布无意义的内容。</RespectText>
-    <div>
-      {publishing ? (
-        <Button size="default" type="primary" disabled>
-          正在发布...
-        </Button>
-      ) : (
-        <Button size="default" type="primary" onClick={onPublish}>
-          发&nbsp;&nbsp;&nbsp;&nbsp;布
-        </Button>
-      )}
-    </div>
-  </Footer>
-)
 
 const View = ({
   curView,
@@ -62,8 +43,6 @@ const View = ({
   title,
   body,
   linkAddr,
-  onPublish,
-  publishing,
 }) => {
   // const curView = 'create' // markdown_help
 
@@ -90,7 +69,6 @@ const View = ({
             onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
           />
         </PreviewBlock>
-        <PublishFooter onPublish={onPublish} publishing={publishing} />
       </div>
     )
   }
@@ -176,6 +154,10 @@ class TypeWriterContainer extends React.Component {
       title,
       body,
       publishing,
+      success,
+      error,
+      warn,
+      statusMsg,
     } = this.props.typeWriter
 
     return (
@@ -188,8 +170,14 @@ class TypeWriterContainer extends React.Component {
           body={body}
           articleType={articleType}
           copyrightChange={logic.copyrightChange}
+        />
+        <Footer
           onPublish={logic.onPublish}
           publishing={publishing}
+          success={success}
+          error={error}
+          warn={warn}
+          statusMsg={statusMsg}
         />
       </Wrapper>
     )

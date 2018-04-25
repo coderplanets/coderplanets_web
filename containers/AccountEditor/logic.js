@@ -94,6 +94,11 @@ export function updateDone() {
   accountEditor.updateOrign(editing)
 }
 
+const cancleLoading = () => {
+  accountEditor.markState({
+    updating: false,
+  })
+}
 const DataSolver = [
   {
     match: gqRes('updateProfile'),
@@ -105,12 +110,6 @@ const DataSolver = [
     },
   },
 ]
-
-const cancleLoading = () => {
-  accountEditor.markState({
-    updating: false,
-  })
-}
 
 const ErrSolver = [
   {

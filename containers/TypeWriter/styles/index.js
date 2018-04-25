@@ -64,7 +64,7 @@ export const UsageText = styled.div`
   flex-grow: 1;
 `
 export const MarkdownIcon = styled(ReactSVG)`
-  fill: #6bb7bd;
+  fill: #51abb2;
   width: 20px;
   height: 18px;
   margin-right: 5px;
@@ -75,7 +75,7 @@ export const MarkdownIcon = styled(ReactSVG)`
 `
 export const MarkDownHint = styled.div`
   display: flex;
-  color: lightgrey;
+  color: #b5cfd0;
   &:hover {
     color: #618c92;
     cursor: pointer;
@@ -83,7 +83,6 @@ export const MarkDownHint = styled.div`
   transition: color 0.3s;
 `
 
-export const BackToEditBtn = styled.div``
 // this is from top
 export const BackToEditHint = styled.div`
   display: flex;
@@ -115,11 +114,17 @@ export const CopyRightText = styled.div`
   font-size: 1.1em;
 `
 
+export const ReprintWrapper = styled.div`
+  display: flex;
+  cursor: pointer;
+`
+
 export const ReprintIcon = styled(ReactSVG)`
+  fill: #61abb1;
   width: 14px;
   height: 14px;
   margin-top: 3px;
-  fill: #61abb1;
+  margin-right: 5px;
 `
 
 export const MoreIcon = styled(ReactSVG)`
@@ -174,28 +179,6 @@ export const LinkLabel = styled.div`
 export const PreviewBtn = styled.div`
   margin-top: -3px;
 `
-export const PreviewHeader = styled.div`
-  color: #548c90;
-  text-align: center;
-  font-size: 1.5em;
-  align-self: center;
-  border-bottom: 1px solid #e1eaea;
-  width: 80%;
-`
-
-export const Footer = styled.div`
-  display: flex;
-  color: #a5c8ca;
-  margin-top: 10px;
-  margin-left: 35px;
-  margin-right: 40px;
-`
-
-export const RespectText = styled.div`
-  flex-grow: 1;
-  margin-top: 5px;
-`
-
 export const Selector = styled.div`
   display: flex;
   &:hover {

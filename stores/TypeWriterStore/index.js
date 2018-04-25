@@ -32,13 +32,22 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
+    /* for StatusBox */
+    success: t.optional(t.boolean, false),
+    error: t.optional(t.boolean, false),
+    warn: t.optional(t.boolean, false),
+    statusMsg: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
-    get curCommunityName() {
-      return self.root.communities.curCommunityName
+    get statusClean() {
+      const { success, error, warn } = self
+      return !success && !error && !warn
+    },
+    get curCommunity() {
+      return self.root.curCommunity.data
     },
   }))
   .actions(self => ({

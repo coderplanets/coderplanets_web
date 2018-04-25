@@ -1,13 +1,15 @@
 import R from 'ramda'
-import { notification, message } from 'antd'
 
 import {
   gqRes,
+  gqErr,
+  $solver,
   makeDebugger,
   isEmptyValue,
   dispatchEvent,
   EVENT,
   ERR,
+  meteorState,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -19,7 +21,6 @@ const debug = makeDebugger('L:TypeWriter')
 /* eslint-enable no-unused-vars */
 
 let typeWriter = null
-let sub$ = null
 
 export function copyrightChange(articleType) {
   typeWriter.markState({
@@ -33,26 +34,19 @@ export function changeView(curView) {
   })
 }
 
-function shootMsg(title, body) {
-  notification.error({
-    message: title,
-    description: body,
-    duration: 3,
-    style: {
-      color: '#619095',
-      background: '#F9FCFC',
-    },
-  })
-}
-
 function checkValid() {
   const { body, title, articleType, linkAddr } = typeWriter
   if (isEmptyValue(body) || isEmptyValue(title)) {
-    shootMsg('出问题了', '文章标题 或 文章内容 不能为空')
+    meteorState(typeWriter, 'error', 5, '文章标题 或 文章内容 不能为空')
     return false
   }
   if (articleType !== 'original' && isEmptyValue(linkAddr)) {
-    shootMsg('请填写原始文章地址', '请填写完整地址以方便跳转, http(s)://...')
+    meteorState(
+      typeWriter,
+      'error',
+      5,
+      '请填写完整地址以方便跳转, http(s)://...'
+    )
     return false
   }
   return true
@@ -78,7 +72,7 @@ export function onPublish() {
       body,
       digest,
       length,
-      community: typeWriter.curCommunityName,
+      community: typeWriter.curCommunity.title,
     }
     if (articleType !== 'original') variables.linkAddr = typeWriter.linkAddr
     // debug('curCommunity: ', typeWriter.curCommunityName)
@@ -112,7 +106,7 @@ function publishing(maybe = true) {
   })
 }
 
-const dataResolver = [
+const DataSolver = [
   {
     match: gqRes('createPost'),
     action: () => {
@@ -131,50 +125,39 @@ const dataResolver = [
   },
 ]
 
-function handleError(res) {
-  switch (res.error) {
-    case ERR.CRAPHQL:
-      res.details.map(error => {
-        debug(`path: ${error.path} : detail: ${error.detail}`)
-        return false
-      })
-      publishing(false)
-      return false
-    case ERR.NETWORK:
-      publishing(false)
-      debug(`${res.error}: ${res.details}`)
-      message.error(`${res.error}: ${res.details}`)
-      return false
-    case ERR.NOT_FOUND:
-      debug(`${res.error}: ${res.details}`)
-      publishing(false)
-      return false
-
-    case ERR.TIMEOUT:
-      debug(`${res.error}: ${res.details}`)
-      // sr71$.stop()
-      publishing(false)
-      return false
-
-    default:
-      //      debug('un handleError in ', postsPaper)
-      debug('un handleError: ', res)
-  }
+const cancleLoading = () => {
+  typeWriter.markState({
+    publishing: false,
+  })
 }
 
-const handleData = res => {
-  if (res.error) return handleError(res)
-  for (let i = 0; i < dataResolver.length; i += 1) {
-    if (dataResolver[i].match(res)) {
-      return dataResolver[i].action(res)
-    }
-  }
-  debug('handleData unhandle: ', res)
-}
+const ErrSolver = [
+  {
+    match: gqErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      const errMsg = details[0].detail
+      debug('ERR.CRAPHQL -->', details)
+      meteorState(typeWriter, 'error', 5, errMsg)
+      cancleLoading()
+    },
+  },
+  {
+    match: gqErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+      cancleLoading()
+    },
+  },
+  {
+    match: gqErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+      cancleLoading()
+    },
+  },
+]
 
 export function init(selectedStore) {
   typeWriter = selectedStore
-  debug(typeWriter)
-  if (sub$) sub$.unsubscribe()
-  sub$ = sr71$.data().subscribe(handleData)
+  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

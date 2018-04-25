@@ -136,7 +136,7 @@ const PostItem = ({ post }) => (
         <PostTitle onClick={logic.onContentSelect.bind(this, post)}>
           {post.title}
           <PostTitleLink>
-            <LinkIcon path={`${ICON_ASSETS}/cmd/like.svg`} />
+            <LinkIcon path={`${ICON_ASSETS}/cmd/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </PostTitleLink>
           <PostTitleTag>

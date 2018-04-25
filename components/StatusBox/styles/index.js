@@ -2,6 +2,7 @@ import styled from 'styled-components' //
 
 import { Animate } from '../../../utils'
 
+// height: 1em;
 export const Wrapper = styled.div`
   height: 1em;
 `

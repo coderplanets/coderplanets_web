@@ -26,7 +26,7 @@ export const formatGraphErrors = error => {
     const details = []
     graphQLErrors.map(({ message, path, key }) => {
       return details.push({
-        detail: `${key}:${message}`,
+        detail: key ? `${key}:${message}` : `${message}`,
         path: path ? R.join(' |> ', path) : '',
       })
     })

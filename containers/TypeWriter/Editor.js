@@ -17,6 +17,7 @@ import {
   TitleInput,
   BodyHeader,
   ReprintIcon,
+  ReprintWrapper,
   CopyRightCheck,
   CopyRightText,
   MoreIcon,
@@ -28,6 +29,13 @@ import {
   CheckIcon,
   CheckText,
 } from './styles'
+import {
+  ExtraWrapper,
+  ExtraItem,
+  ExtraItemTitle,
+  ExtraItemIcon,
+  ExtraDivider,
+} from './styles/editor'
 
 const articleTypeDic = {
   original: '原创',
@@ -88,9 +96,6 @@ const Editor = ({
   <BodyWrapper>
     <BodyHeader>
       <CopyRightCheck>
-        <ReprintIcon path={`${ICON_ASSETS}/cmd/${articleType}.svg`} />
-        &nbsp;&nbsp;
-        <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
         <Popover
           content={
             <OriginalSelector active={articleType} onSelect={copyrightChange} />
@@ -98,9 +103,11 @@ const Editor = ({
           placement="right"
           trigger="hover"
         >
-          <div>
+          <ReprintWrapper>
+            <ReprintIcon path={`${ICON_ASSETS}/cmd/${articleType}.svg`} />
+            <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
             <MoreIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
-          </div>
+          </ReprintWrapper>
         </Popover>
       </CopyRightCheck>
       {articleType !== 'original' ? (
@@ -129,6 +136,22 @@ const Editor = ({
     />
     <br />
     <BodyEditor onChange={bodyOnChange} body={body} />
+    <ExtraWrapper>
+      <ExtraItem>
+        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_tag.svg`} />
+        <ExtraItemTitle>标签</ExtraItemTitle>
+      </ExtraItem>
+      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraItem>
+        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_vote.svg`} />
+        <ExtraItemTitle>投票</ExtraItemTitle>
+      </ExtraItem>
+      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraItem>
+        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_setting.svg`} />
+        <ExtraItemTitle>设置</ExtraItemTitle>
+      </ExtraItem>
+    </ExtraWrapper>
   </BodyWrapper>
 )
 
