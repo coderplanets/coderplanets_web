@@ -23,6 +23,6 @@ export const WarningMsgBox = styled.div`
 
 export const ErrorMsgBox = styled.div`
   color: tomato;
-  animation: ${Animate.wobble} 0.6s linear;
+  animation: ${Animate.shake} 0.3s linear;
   display: ${props => (props.error ? 'block' : 'none')};
 `

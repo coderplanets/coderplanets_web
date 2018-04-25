@@ -1,8 +1,8 @@
-import R from 'ramda'
+// import R from 'ramda'
 import store from 'store'
 
 // const debug = makeDebugger('L:sidebar')
-import { gqRes, $solver, ERR, makeDebugger, EVENT } from '../../utils'
+import { gqRes, gqErr, $solver, ERR, makeDebugger, EVENT } from '../../utils'
 import S from './schema'
 
 import SR71 from '../../utils/network/sr71'
@@ -53,19 +53,19 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: R.pathEq(['error'], ERR.CRAPHQL),
+    match: gqErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.TIMEOUT),
+    match: gqErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.NETWORK),
+    match: gqErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

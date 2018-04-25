@@ -9,8 +9,6 @@ export { makeDebugger } from './debug'
  * utils functiosn
  */
 export {
-  gqRes,
-  /* makeDebugger, */
   dispatchEvent,
   getSVGIconPath,
   mapKeys,
@@ -24,6 +22,8 @@ export {
   prettyNum,
   Rlog,
 } from './functions'
+
+export { gqErr, gqRes } from './graphql_helper'
 
 export {
   storeSelector,

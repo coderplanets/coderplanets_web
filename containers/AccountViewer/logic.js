@@ -1,7 +1,7 @@
-import R from 'ramda'
-
+// import R from 'ramda'
 import {
   gqRes,
+  gqErr,
   makeDebugger,
   $solver,
   ERR,
@@ -62,24 +62,25 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: R.pathEq(['error'], ERR.CRAPHQL),
+    match: gqErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.TIMEOUT),
+    match: gqErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.NETWORK),
+    match: gqErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },
   },
 ]
+
 export function init(selectedStore) {
   accountViewer = selectedStore
   sr71$.data().subscribe($solver(DataSolver, ErrSolver))

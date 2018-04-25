@@ -1,6 +1,7 @@
 import R from 'ramda'
 import {
   gqRes,
+  gqErr,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -104,27 +105,21 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: R.pathEq(['error'], ERR.CRAPHQL),
+    match: gqErr(ERR.CRAPHQL),
     action: ({ details }) => {
-      debug('ERR.CRAPHQL', details)
+      debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.TIMEOUT),
+    match: gqErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT', details)
+      debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: R.pathEq(['error'], ERR.NETWORK),
+    match: gqErr(ERR.NETWORK),
     action: ({ details }) => {
-      debug('ERR.NETWORK', details)
-    },
-  },
-  {
-    match: R.pathEq(['error'], ERR.NOT_FOUND),
-    action: ({ details }) => {
-      debug('ERR..NOT_FOUND', details)
+      debug('ERR.NETWORK -->', details)
     },
   },
 ]

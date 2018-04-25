@@ -2,6 +2,7 @@ import R from 'ramda'
 
 import {
   gqRes,
+  gqErr,
   makeDebugger,
   $solver,
   dispatchEvent,
@@ -55,6 +56,7 @@ const hasValue = R.compose(R.not, nilOrEmpty)
 const pickUpdatable = R.compose(R.pickBy(hasValue), R.pick(updatableAttrs))
 
 export const updateConfirm = () => {
+  if (!accountEditor.statusClean) return false
   // TODO: 只去除 null 的即可，如果为空也是合法的
   const editing = pickUpdatable(accountEditor.accountInfo)
   const origin = pickUpdatable(accountEditor.accountOrigin)
@@ -112,21 +114,22 @@ const cancleLoading = () => {
 
 const ErrSolver = [
   {
-    match: R.pathEq(['error'], ERR.CRAPHQL),
+    match: gqErr(ERR.CRAPHQL),
     action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
+      const errMsg = details[0].detail
+      meteorState(accountEditor, 'error', 5, errMsg)
       cancleLoading()
     },
   },
   {
-    match: R.pathEq(['error'], ERR.TIMEOUT),
+    match: gqErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
       cancleLoading()
     },
   },
   {
-    match: R.pathEq(['error'], ERR.NETWORK),
+    match: gqErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
       cancleLoading()

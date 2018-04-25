@@ -16,13 +16,6 @@ const databaseKeys = R.map(R.toLower, R.keys(database))
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
 
-export const gqRes = R.curry((key, obj) => {
-  if (R.and(obj[key], R.has(key, obj))) {
-    return true
-  }
-  return false
-})
-
 export const getParameterByName = name => {
   /* if (!url) url = window.location.href;*/
   const url = Global.location.href

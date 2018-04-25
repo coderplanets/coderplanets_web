@@ -26,6 +26,10 @@ const AccountEditorStore = t
     get root() {
       return getParent(self)
     },
+    get statusClean() {
+      const { success, error, warn } = self
+      return !success && !error && !warn
+    },
     get accountInfo() {
       return {
         ...stripMobx(self.user),

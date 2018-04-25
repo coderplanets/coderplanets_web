@@ -1,8 +1,33 @@
 import { keyframes } from 'styled-components'
 
+const shake = keyframes`
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+`
+
 const fadeInUp = keyframes`
- from {
-    opacity: 0;
+from {
+  opacity: 0;
     transform: translate3d(0, 90%, 0);
   }
 
@@ -81,6 +106,7 @@ const Animate = {
   pulse,
   fadeInUp,
   wobble,
+  shake,
 }
 
 export default Animate
