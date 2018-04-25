@@ -73,6 +73,10 @@ const DoraemonStore = t
       }
       return null
     },
+    get subscribedCommunities() {
+      const { entries } = self.root.account.subscribedCommunities
+      return entries
+    },
     get allSuggestions() {
       const { entries } = self.root.account.subscribedCommunities
 

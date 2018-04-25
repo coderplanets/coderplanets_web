@@ -2,6 +2,8 @@ import R from 'ramda'
 import Router from 'next/router'
 import store from 'store'
 
+import { DEFAULT_ICON } from '../../config/assets'
+
 import Pockect from './Pockect'
 import { makeDebugger, Global, dispatchEvent, EVENT } from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
@@ -272,6 +274,21 @@ export function navSuggestion(direction) {
 // mounseEnter
 export function navToSuggestion(suggestion) {
   SAK.navToSuggestion(suggestion)
+}
+
+export function getPrefixLogo(prefix) {
+  const { subscribedCommunities } = doraemon
+  if (R.isEmpty(subscribedCommunities) || R.isEmpty(prefix)) {
+    return DEFAULT_ICON
+  }
+
+  const index = R.findIndex(e => {
+    return e.raw === prefix
+  }, subscribedCommunities)
+  if (index === -1) return DEFAULT_ICON
+
+  const { logo } = subscribedCommunities[index]
+  return logo
 }
 
 export function hidePanel() {

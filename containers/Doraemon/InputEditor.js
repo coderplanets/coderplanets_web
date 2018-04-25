@@ -24,7 +24,6 @@ import {
 // const debug = makeDebugger('C:Doraemon:InputEditor')
 
 const PrefixIcon = ({ prefix }) => {
-  /* console.log('prefix --> ', prefix) */
   switch (prefix) {
     case '': {
       return <PrefixSearchIcon path={`${ICON_ASSETS}/cmd/search.svg`} />
@@ -33,7 +32,7 @@ const PrefixIcon = ({ prefix }) => {
       return <PrefixMagicIcon path={`${ICON_ASSETS}/cmd/magic.svg`} />
     }
     default: {
-      return <PrefixSVGIcon path={`${ICON_ASSETS}/pl/${prefix}.svg`} />
+      return <PrefixSVGIcon path={logic.getPrefixLogo(prefix)} />
     }
   }
 }

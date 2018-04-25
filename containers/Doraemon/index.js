@@ -54,7 +54,14 @@ class DoraemonContainer extends React.Component {
 
   render() {
     const { doraemon } = this.props
-    const { inputValue, suggestions, activeRaw, prefix, visible } = doraemon
+    const {
+      inputValue,
+      suggestions,
+      activeRaw,
+      prefix,
+      visible,
+      subscribedCommunities,
+    } = doraemon
 
     // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
@@ -63,7 +70,12 @@ class DoraemonContainer extends React.Component {
       <div>
         <PageOverlay visible={visible} onClick={logic.hidePanel} />
         <PanelContainer visible={visible}>
-          <InputEditor value={inputValue} searching={false} prefix={prefix} />
+          <InputEditor
+            value={inputValue}
+            searching={false}
+            prefix={prefix}
+            subscribedCommunities={subscribedCommunities}
+          />
           {logic.repoNotFound(doraemon) && <AlertBar>Repo not found</AlertBar>}
           <Wrapper>
             <SuggestionWrapper empty={suggestions.length === 0}>
