@@ -174,6 +174,14 @@ export const LinkLabel = styled.div`
 export const PreviewBtn = styled.div`
   margin-top: -3px;
 `
+export const PreviewHeader = styled.div`
+  color: #548c90;
+  text-align: center;
+  font-size: 1.5em;
+  align-self: center;
+  border-bottom: 1px solid #e1eaea;
+  width: 80%;
+`
 
 export const Footer = styled.div`
   display: flex;

@@ -83,6 +83,7 @@ const View = ({
         </EditorBlock>
         <PreviewBlock name="PREVIEW_VIEW" curView={curView}>
           <Preview
+            title={title}
             body={body}
             onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
           />
