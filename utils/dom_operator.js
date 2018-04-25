@@ -4,8 +4,8 @@ const hasDocument = typeof document === 'object' && document !== null
 const hasWindow =
   typeof window === 'object' && window !== null && window.self === window
 
-export const isBrower = () => hasDocument && hasWindow
-const getDocument = () => (isBrower() ? document : null)
+export const isBrowser = () => hasDocument && hasWindow
+const getDocument = () => (isBrowser() ? document : null)
 
 export const pageGoTop = () => {
   const safeDocument = getDocument()

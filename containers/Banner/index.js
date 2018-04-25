@@ -111,8 +111,6 @@ const communitiesTaber = [
 ]
 
 const BannerContent = ({ detail: { type, content } }) => {
-  console.log('BannerContent --> ', content)
-  console.log('BannerContent --> ', type)
   switch (type) {
     case 'cheatsheet': {
       return (
@@ -166,7 +164,7 @@ class BannerContainer extends React.Component {
     const { banner } = this.props
     const { curRoute, detail } = banner
     //     const { mainQuery } = curRoute
-    debug('detail ---> ', detail)
+    // debug('detail ---> ', detail)
 
     return <BannerContent curRoute={curRoute} banner={banner} detail={detail} />
   }

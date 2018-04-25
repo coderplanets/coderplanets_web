@@ -37,10 +37,7 @@ export function tabberChange(target) {
 const DataSolver = [
   {
     match: gqRes('community'),
-    action: ({ community }) => {
-      console.log('community data ----> : ', community)
-      banner.loadCurCommunity(community)
-    },
+    action: ({ community }) => banner.loadCurCommunity(community),
   },
 ]
 
