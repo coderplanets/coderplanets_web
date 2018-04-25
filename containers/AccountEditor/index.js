@@ -27,6 +27,8 @@ import {
   SexInput,
   Divider,
   ActionBtns,
+  Dude,
+  Girl,
   DudeIcon,
   GirlIcon,
 } from './styles'
@@ -37,46 +39,44 @@ const debug = makeDebugger('C:AccountEditor')
 
 const { TextArea } = Input
 
-const Avatar = ({ src }) => {
-  return (
-    <div>
-      <AvatarPic src={src} />
-    </div>
-  )
-}
+const Avatar = ({ src }) => (
+  <div>
+    <AvatarPic src={src} />
+  </div>
+)
 
-const SexItem = ({ label }) => {
-  return (
-    <FormItemWrapper>
-      <SexLable>{label}</SexLable>
-      <SexInput>
-        <DudeIcon path={`${ICON_ASSETS}/cmd/dude.svg`} />
-        <GirlIcon path={`${ICON_ASSETS}/cmd/girl.svg`} />
-      </SexInput>
-    </FormItemWrapper>
-  )
-}
+const SexItem = ({ label, value }) => (
+  <FormItemWrapper>
+    <SexLable>{label}</SexLable>
+    <SexInput>
+      <Dude onClick={logic.sexChange.bind(this, 'dude')}>
+        <DudeIcon path={`${ICON_ASSETS}/cmd/dude.svg`} value={value} />
+      </Dude>
+      <Girl onClick={logic.sexChange.bind(this, 'girl')}>
+        <GirlIcon path={`${ICON_ASSETS}/cmd/girl.svg`} value={value} />
+      </Girl>
+    </SexInput>
+  </FormItemWrapper>
+)
 
-const FormItem = ({ label, textarea, value, onChange }) => {
-  return (
-    <FormItemWrapper>
-      <FormLable>{label}</FormLable>
+const FormItem = ({ label, textarea, value, onChange }) => (
+  <FormItemWrapper>
+    <FormLable>{label}</FormLable>
 
-      <FormInput>
-        {textarea ? (
-          <TextArea
-            value={value}
-            placeholder={value}
-            autosize={{ minRows: 3, maxRows: 6 }}
-            onChange={onChange}
-          />
-        ) : (
-          <Input size="default" value={value} onChange={onChange} />
-        )}
-      </FormInput>
-    </FormItemWrapper>
-  )
-}
+    <FormInput>
+      {textarea ? (
+        <TextArea
+          value={value}
+          placeholder={value}
+          autosize={{ minRows: 3, maxRows: 6 }}
+          onChange={onChange}
+        />
+      ) : (
+        <Input size="default" value={value} onChange={onChange} />
+      )}
+    </FormInput>
+  </FormItemWrapper>
+)
 
 class AccountEditorContainer extends React.Component {
   componentWillMount() {
@@ -84,7 +84,6 @@ class AccountEditorContainer extends React.Component {
   }
 
   render() {
-    // TODO: should be accountInfo Copy
     const {
       accountInfo,
       updating,
@@ -93,6 +92,8 @@ class AccountEditorContainer extends React.Component {
       warn,
       statusMsg,
     } = this.props.accountEditor
+
+    /* debug('accountInfo editing->: ', accountInfo) */
 
     return (
       <Wrapper>
@@ -142,7 +143,7 @@ class AccountEditorContainer extends React.Component {
           value={accountInfo.weichat}
           onChange={logic.profileChange('weichat')}
         />
-        <SexItem label="性别:" value={accountInfo.sex} onChange={console.log} />
+        <SexItem label="性别:" value={accountInfo.sex} />
         <FormItem
           label="简介:"
           textarea

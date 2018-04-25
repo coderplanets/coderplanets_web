@@ -33,6 +33,10 @@ export const profileChange = R.curry((part, e) => {
   })
 })
 
+export function sexChange(sex) {
+  accountEditor.updateUser({ sex })
+}
+
 const updatableAttrs = [
   'nickname',
   'email',
@@ -43,6 +47,7 @@ const updatableAttrs = [
   'weibo',
   'weichat',
   'bio',
+  'sex',
 ]
 
 const nilOrEmpty = R.either(R.isNil, R.isEmpty)
@@ -53,8 +58,8 @@ export const updateConfirm = () => {
   // TODO: 只去除 null 的即可，如果为空也是合法的
   const editing = pickUpdatable(accountEditor.accountInfo)
   const origin = pickUpdatable(accountEditor.accountOrigin)
-  // debug('editing: ', editing)
-  // debug('origin: ', origin)
+  /* debug('editing: ', editing) */
+  /* debug('origin: ', origin) */
 
   // TODO: 唯一的限制是 昵称不能为空
   if (R.equals(editing, origin)) {

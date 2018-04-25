@@ -53,12 +53,14 @@ const SexIcon = styled(ReactSVG)`
 
 /* fill: ${props => */
 /* props.active === props.item ? theme('font', props) : 'grey'}; */
+export const Dude = styled.div``
+export const Girl = styled.div``
 export const DudeIcon = SexIcon.extend`
-  fill: #869eec;
+  fill: ${props => (props.value === 'dude' ? '#869eec' : 'lightgrey')};
 `
 
 export const GirlIcon = SexIcon.extend`
-  fill: pink;
+  fill: ${props => (props.value === 'girl' ? 'pink' : 'lightgrey')};
   margin-top: 1px;
 `
 export const SexLable = styled.div`
