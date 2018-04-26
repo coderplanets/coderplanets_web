@@ -20,6 +20,7 @@ export {
   getParameterByName,
   prettyNum,
   Rlog,
+  countWords,
 } from './functions'
 
 export { gqErr, gqRes } from './graphql_helper'

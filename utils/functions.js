@@ -83,6 +83,13 @@ export const prettyNum = (num, digits = 1) => {
   /* eslint-enable  */
 }
 
+// from https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
+// count both chinese-word and english-words
+export function countWords(str) {
+  const matches = str.match(/[\u00ff-\uffff]|\S+/g)
+  return matches ? matches.length : 0
+}
+
 // TODO remove
 export const getRandomInt = (min, max) => {
   min = Math.ceil(min)

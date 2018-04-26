@@ -10,6 +10,7 @@ import {
   EVENT,
   ERR,
   meteorState,
+  countWords,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -65,7 +66,8 @@ export function onPublish() {
     /* eslint-enable no-undef */
 
     const digest = R.slice(0, 65, R.trim(digestContainer.innerText))
-    const { length } = body
+    /* const { length } = body */
+    const length = countWords(body)
 
     const variables = {
       title,
