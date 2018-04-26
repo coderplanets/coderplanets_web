@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils'
+import { theme, Animate } from '../../../utils'
 
 export const BaseBanner = styled.div`
   position: relative;
@@ -35,6 +35,7 @@ export const NumbersWrapper = styled.div`
   text-align: center;
   margin-top: -2.1em;
 `
+// background: ${theme('banner.number_hover_bg')};
 export const NumberSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,16 +44,26 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: ${theme('banner.number_hover_bg')};
-    cursor: pointer;
+    background: ${props => (props.dead ? '' : theme('banner.number_hover_bg'))};
+    cursor: ${props => (props.dead ? '' : 'pointer')};
   }
 `
 export const NumberTitle = styled.div`
   color: ${theme('banner.number_desc')};
+  &:hover {
+    color: ${props => (props.dead ? '' : '#f1c48f')};
+    text-decoration: ${props => (props.dead ? '' : 'underline')};
+    animation: ${Animate.pulse} 0.4s linear;
+  }
 `
 export const NumberItem = styled.div`
   font-size: 1.5em;
-  color: ${theme('banner.number')}; #5c868b;
+  color: ${theme('banner.number')};
+  &:hover {
+    color: ${props => (props.dead ? '' : '#f1c48f')};
+    text-decoration: ${props => (props.dead ? '' : 'underline')};
+    animation: ${Animate.pulse} 0.4s linear;
+  }
 `
 export const NumberDivider = styled.div`
   border: 1px solid;

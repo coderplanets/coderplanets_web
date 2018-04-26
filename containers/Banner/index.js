@@ -12,6 +12,7 @@ import { TYPE, makeDebugger, storeSelector } from '../../utils'
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import CommunitiesRootBanner from './CommunitiesRootBanner'
 import CommunityBanner from './CommunityBanner'
+import PostBanner from './PostBanner'
 
 import * as logic from './logic'
 
@@ -32,7 +33,7 @@ const BannerContent = ({ detail: { type, content } }) => {
       return <CommunitiesRootBanner onChange={onChange} />
     }
     case TYPE.POST_PAGE: {
-      return <h2>should be post staff</h2>
+      return <PostBanner />
     }
     default:
       return <CommunityBanner content={content} />
@@ -47,7 +48,7 @@ class BannerContainer extends React.Component {
   render() {
     const { banner } = this.props
     const { curRoute, detail } = banner
-    //     const { mainQuery } = curRoute
+    // const { mainQuery } = curRoute
     // debug('detail ---> ', detail)
 
     return <BannerContent curRoute={curRoute} banner={banner} detail={detail} />
