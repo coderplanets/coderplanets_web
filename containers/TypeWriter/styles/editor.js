@@ -33,6 +33,7 @@ export const ExtraItemIcon = styled(ReactSVG)`
   width: 17px;
   height: 17px;
   margin-right: 3px;
+  margin-top: 2px;
 
   ${ExtraItem}:hover & {
     fill: #51abb2;

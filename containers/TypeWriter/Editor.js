@@ -148,6 +148,16 @@ const Editor = ({
       </ExtraItem>
       <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
+        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
+        <ExtraItemTitle>代码</ExtraItemTitle>
+      </ExtraItem>
+      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraItem>
+        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
+        <ExtraItemTitle>图片</ExtraItemTitle>
+      </ExtraItem>
+      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraItem>
         <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_setting.svg`} />
         <ExtraItemTitle>设置</ExtraItemTitle>
       </ExtraItem>

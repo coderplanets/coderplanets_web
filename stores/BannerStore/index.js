@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, TYPE } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:BannerStore')
 /* eslint-enable no-unused-vars */
@@ -26,9 +26,11 @@ const BannerStore = t
       return self.root.communities.curCommunity
     },
     get detail() {
-      // type depands on main_query
+      // type depands on route main_query
       return {
-        type: 'community',
+        type: TYPE.COMMUNITY_PAGE,
+        /* type: TYPE.CHEATSHEET_ROOT_PAGE, */
+        /* type: TYPE.COMMUNITIES_ROOT_PAGE, */
         content: self.root.curCommunity.data,
       }
     },

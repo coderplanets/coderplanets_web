@@ -7,32 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Tabber from '../../components/Tabber'
+import { TYPE, makeDebugger, storeSelector } from '../../utils'
 
-import { DEFAULT_ICON } from '../../config/assets'
-import { makeDebugger, storeSelector, prettyNum } from '../../utils'
+import CheatsheetRootBanner from './CheatsheetRootBanner'
+import CommunitiesRootBanner from './CommunitiesRootBanner'
+import CommunityBanner from './CommunityBanner'
 
 import * as logic from './logic'
-
-import {
-  CommunityBanner,
-  CheatsheetBanner,
-  Title,
-  Desc,
-  CommunityLogo,
-  CommunityInfo,
-  TabberWrapper,
-  CheatsheetWrapper,
-  CheatsheetTitle,
-  CheatsheetDesc,
-  BannerContentWrapper,
-  CommunityWrapper,
-  NumbersWrapper,
-  NumberSection,
-  NumberDivider,
-  NumberTitle,
-  NumberItem,
-} from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Banner')
@@ -42,117 +23,20 @@ const onChange = e => {
   logic.tabberChange(e)
 }
 
-const CommunityBrief = ({ content }) => {
-  return (
-    <CommunityWrapper>
-      {content.logo ? (
-        <CommunityLogo path={content.logo || DEFAULT_ICON} />
-      ) : (
-        <div />
-      )}
-      <CommunityInfo>
-        <Title>{content.title}</Title>
-        <Desc>{content.desc}</Desc>
-      </CommunityInfo>
-    </CommunityWrapper>
-  )
-}
-
-const NumbersInfo = ({
-  content: { subscribersCount, editorsCount, postsCount },
-}) => (
-  <NumbersWrapper>
-    <NumberSection>
-      <NumberTitle>关注</NumberTitle>
-      <NumberItem>{prettyNum(subscribersCount)}</NumberItem>
-    </NumberSection>
-    <NumberDivider />
-    <NumberSection>
-      <NumberTitle>内容</NumberTitle>
-      <NumberItem>{prettyNum(postsCount)}</NumberItem>
-    </NumberSection>
-    <NumberDivider />
-    <NumberSection>
-      <NumberTitle>编辑</NumberTitle>
-      <NumberItem>{prettyNum(editorsCount)}</NumberItem>
-    </NumberSection>
-  </NumbersWrapper>
-)
-
-const communitiesTaber = [
-  {
-    title: '编程语言',
-    raw: 'languages',
-  },
-  {
-    title: 'web 框架',
-    raw: 'web frameworks',
-  },
-  {
-    title: '后端框架',
-    raw: 'web frameworks',
-  },
-  {
-    title: '移动端',
-    raw: 'phone frameworks',
-  },
-  {
-    title: '设计',
-    raw: 'design',
-  },
-  {
-    title: '人工智能',
-    raw: 'ai frameworks',
-  },
-  {
-    title: '其他',
-    raw: 'others',
-  },
-]
-
 const BannerContent = ({ detail: { type, content } }) => {
   switch (type) {
-    case 'cheatsheet': {
-      return (
-        <CheatsheetBanner>
-          <CheatsheetWrapper>
-            <CheatsheetTitle>cheatsheet</CheatsheetTitle>
-            <CheatsheetDesc>所有的cheeatsheet都在这里了</CheatsheetDesc>
-          </CheatsheetWrapper>
-        </CheatsheetBanner>
-      )
+    case TYPE.CHEATSHEET_ROOT_PAGE: {
+      return <CheatsheetRootBanner />
     }
-    case 'communities': {
-      return (
-        <CommunityBanner>
-          <BannerContentWrapper>
-            <h2>this is all communities</h2>
-            <TabberWrapper>
-              <Tabber source={communitiesTaber} onChange={onChange} />
-            </TabberWrapper>
-          </BannerContentWrapper>
-        </CommunityBanner>
-      )
+    case TYPE.COMMUNITIES_ROOT_PAGE: {
+      return <CommunitiesRootBanner onChange={onChange} />
+    }
+    case TYPE.POST_PAGE: {
+      return <h2>should be post staff</h2>
     }
     default:
-      return (
-        <CommunityBanner>
-          <CommonCommunity content={content} />
-        </CommunityBanner>
-      )
+      return <CommunityBanner content={content} />
   }
-}
-
-const CommonCommunity = ({ content }) => {
-  return (
-    <BannerContentWrapper>
-      <CommunityBrief content={content} />
-      <NumbersInfo content={content} />
-      <TabberWrapper>
-        <Tabber source={content.threads} onChange={onChange} />
-      </TabberWrapper>
-    </BannerContentWrapper>
-  )
 }
 
 class BannerContainer extends React.Component {
