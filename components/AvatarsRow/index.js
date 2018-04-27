@@ -10,19 +10,19 @@ import shortid from 'shortid'
 import { Tooltip } from 'antd'
 import R from 'ramda'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, prettyNum } from '../../utils'
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './style'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
-const AvatarsRow = ({ users, total }) => (
-  <Avatars>
+const AvatarsRow = ({ users, total, height }) => (
+  <Avatars height={height}>
     {total >= users.length ? (
       <span />
     ) : (
       <AvatarsItem>
-        <AvatarsMore>{total}</AvatarsMore>
+        <AvatarsMore>{prettyNum(total)}</AvatarsMore>
       </AvatarsItem>
     )}
 
@@ -44,9 +44,11 @@ AvatarsRow.propTypes = {
     })
   ).isRequired,
   total: PropTypes.number.isRequired,
-  // https://www.npmjs.com/package/prop-types
+  height: PropTypes.string,
 }
 
-AvatarsRow.defaultProps = {}
+AvatarsRow.defaultProps = {
+  height: '32px',
+}
 
 export default AvatarsRow

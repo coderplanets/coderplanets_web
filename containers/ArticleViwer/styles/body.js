@@ -10,9 +10,10 @@ export const BodyWrapper = styled.div`
   margin-top: 5px;
   margin-left: 4%;
   margin-right: 4%;
-  border-radius: 5px;
+  border-radius: 3px;
   flex-direction: column;
   display: flex;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 export const CommentsWrapper = styled.div`
   min-height: 600px;

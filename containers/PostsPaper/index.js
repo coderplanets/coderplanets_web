@@ -22,12 +22,11 @@ import {
   getRandomInt,
   cutFrom,
   pagiCustomRender,
+  fakeUsers,
   // Global,
 } from '../../utils'
 
-import AvatarsRow from '../../components/AvatarsRow'
-import TagList from '../../components/TagList'
-import PostsLoading from '../../components/LoadingEffects/PostsLoading'
+import { AvatarsRow, TagList, PostsLoading } from '../../components'
 
 // import logic from './logic'
 import * as logic from './logic'
@@ -59,37 +58,6 @@ import {
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsPaper')
 /* eslint-enable no-unused-vars */
-
-const commentsUsers = [
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar10.png',
-    nickname: 'mydearxym',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar11.png',
-    nickname: 'messi',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar6.png',
-    nickname: 'iniesta',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar13.png',
-    nickname: 'montu',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar14.png',
-    nickname: 'fjiek',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar15.png',
-    nickname: 'noone',
-  },
-  {
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar17.png',
-    nickname: 'jacke',
-  },
-]
 
 const tags = [
   {
@@ -146,10 +114,7 @@ const PostItem = ({ post }) => (
         </PostTitle>
         <div>
           <AvatarsRow
-            users={commentsUsers.slice(
-              1,
-              getRandomInt(2, commentsUsers.length)
-            )}
+            users={fakeUsers.slice(1, getRandomInt(2, 6))}
             total={3}
           />
         </div>
