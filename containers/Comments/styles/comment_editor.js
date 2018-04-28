@@ -75,10 +75,11 @@ export const LeaveResponseUsername = styled.div`
 
 export const ReplyHint = styled.div`
   color: #b5cfd0;
-  margin-top: 2px;
+  margin-top: 4px;
 `
 export const ReplyAvatars = styled.div`
   margin-left: 5px;
+  margin-top: -8px;
 `
 
 export const CounterWrapper = styled.div`

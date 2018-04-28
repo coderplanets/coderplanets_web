@@ -30,7 +30,8 @@ import {
 } from './styles/comment_editor'
 
 const fakeUser = {
-  avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar20.png',
+  avatar:
+    'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/10.jpg',
 }
 
 const WordsCounter = () => (

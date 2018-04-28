@@ -127,7 +127,7 @@ export const ReplyUsers = styled.div`
   margin-top: -4px;
 `
 export const ReplyTitle = styled.div`
-  color: #cacaca;
+  color: #c5dadb;
   margin-top: 4px;
   margin-right: 5px;
 `
