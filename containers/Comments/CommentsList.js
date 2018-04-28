@@ -5,7 +5,7 @@ import { Button } from 'antd'
 import { ICON_ASSETS } from '../../config'
 import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils'
 
-import { AvatarsRow } from '../../components'
+import { AvatarsRow, SpaceGrow } from '../../components'
 
 import {
   ListsContainer,
@@ -30,9 +30,9 @@ import {
   VisiableAction,
   ReplyIcon,
   ReplyAction,
-  FooterExtra,
   CommentHeaderFirst,
   ReplyUsers,
+  ReplyTitle,
   ActionNumber,
   UpIcon,
   DownIcon,
@@ -81,10 +81,10 @@ const Comment = () => (
               <FloorNum>#3</FloorNum>
             </CommentUserName>
             <ReplyUsers>
+              <ReplyTitle>回复:</ReplyTitle>
               <AvatarsRow
                 users={fakeUsers.slice(1, getRandomInt(3, fakeUsers.length))}
                 total={3}
-                height="20px"
               />
             </ReplyUsers>
           </CommentHeaderFirst>
@@ -103,6 +103,7 @@ const Comment = () => (
               <DownIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
               <ActionNumber>{prettyNum(22)}</ActionNumber>
             </VisiableAction>
+            <SpaceGrow />
             <ReplyAction>
               <ReplyIcon path={`${ICON_ASSETS}/cmd/nest_comment.svg`} />
               回复
@@ -111,7 +112,6 @@ const Comment = () => (
               <ReplyIcon path={`${ICON_ASSETS}/cmd/delete.svg`} />
               删除
             </ReplyAction>
-            <FooterExtra />
           </Actions>
         </CommentFooter>
       </CommentBody>

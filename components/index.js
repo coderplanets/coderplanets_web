@@ -5,7 +5,7 @@ export { default as NotFound } from './NotFound'
 
 export { default as StateTree } from './StateTree'
 export { default as StatusBox } from './StatusBox'
-export { Space } from './BaseStyled'
+export { Space, SpaceGrow } from './BaseStyled'
 export { default as AvatarsRow } from './AvatarsRow'
 export { default as TagList } from './TagList'
 

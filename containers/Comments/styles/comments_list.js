@@ -122,7 +122,15 @@ export const Actions = styled.div`
   margin-left: -4px;
 `
 
-export const ReplyUsers = styled.div``
+export const ReplyUsers = styled.div`
+  display: flex;
+  margin-top: -4px;
+`
+export const ReplyTitle = styled.div`
+  color: #cacaca;
+  margin-top: 4px;
+  margin-right: 5px;
+`
 
 export const VisiableAction = styled.div`
   display: flex;
@@ -165,25 +173,23 @@ export const DownIcon = styled(ReactSVG)`
 
 export const ReplyIcon = styled(ReactSVG)`
   fill: #6b8688;
-  margin-right: 3px;
-  margin-top: 2px;
-  width: 20px;
-  height: 20px;
+  margin-right: 5px;
+  margin-top: 1px;
+  width: 18px;
+  height: 18px;
 `
 
 export const ReplyAction = styled.div`
   display: flex;
   color: #90a5a6;
-  margin-left: 10px;
-  opacity: 0;
-
+  margin-right: 12px;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 2px;
+  opacity: 0;
+
   ${CommentBody}:hover & {
     opacity: 1;
   }
   transition: opacity 0.3s;
-`
-export const FooterExtra = styled.div`
-  flex-grow: 1;
 `

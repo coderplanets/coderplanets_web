@@ -70,13 +70,35 @@ export const LeaveResponseUsername = styled.div`
   font-size: 1.3em;
   margin-left: 12px;
   color: #96b3b5;
-  flex-grow: 1;
+  margin-right: 10px;
 `
 
 export const ReplyHint = styled.div`
   color: #b5cfd0;
+  margin-top: 2px;
 `
 export const ReplyAvatars = styled.div`
-  margin-top: -10px;
   margin-left: 5px;
+`
+
+export const CounterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: #c2d9da;
+`
+export const CounterSpliter = styled.div`
+  font-size: 1.5em;
+  font-weight: lighter;
+`
+
+export const CounterCur = styled.div`
+  margin-right: 5px;
+  font-size: 1em;
+  color: yellowgreen;
+`
+
+export const CounterTotal = styled.div`
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 1em;
 `

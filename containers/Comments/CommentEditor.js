@@ -2,12 +2,13 @@ import React from 'react'
 
 import { Button } from 'antd'
 import BodyEditor from '../TypeWriter/BodyEditor'
-import { AvatarsRow, Space } from '../../components'
 
 import { ICON_ASSETS } from '../../config'
 
 import { fakeUsers, getRandomInt } from '../../utils'
 import * as logic from './logic'
+
+import { AvatarsRow, Space, SpaceGrow } from '../../components'
 
 import {
   InputFooter,
@@ -22,11 +23,23 @@ import {
   LeaveResponseUsername,
   ReplyAvatars,
   ReplyHint,
+  CounterWrapper,
+  CounterSpliter,
+  CounterCur,
+  CounterTotal,
 } from './styles/comment_editor'
 
 const fakeUser = {
   avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar20.png',
 }
+
+const WordsCounter = () => (
+  <CounterWrapper>
+    <CounterCur>22</CounterCur>
+    <CounterSpliter>/</CounterSpliter>
+    <CounterTotal>500</CounterTotal>
+  </CounterWrapper>
+)
 
 const Header = ({ showInputEditor, onInput }) => {
   if (showInputEditor) {
@@ -36,7 +49,7 @@ const Header = ({ showInputEditor, onInput }) => {
         <LeaveResponseUsername onClick={onInput}>
           mydearxym
         </LeaveResponseUsername>
-        <ReplyHint>回复给:</ReplyHint>
+        <ReplyHint>回复:</ReplyHint>
         <ReplyAvatars>
           <AvatarsRow
             users={fakeUsers.slice(1, getRandomInt(3, fakeUsers.length))}
@@ -44,6 +57,8 @@ const Header = ({ showInputEditor, onInput }) => {
             height="20px"
           />
         </ReplyAvatars>
+        <SpaceGrow />
+        <WordsCounter />
       </InputHeaderWrapper>
     )
   }

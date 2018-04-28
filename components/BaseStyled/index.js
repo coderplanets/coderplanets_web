@@ -50,3 +50,6 @@ export const Space = styled.span`
   margin-left: ${props => (props.left ? props.left : 0)};
   margin-right: ${props => (props.right ? props.right : 0)};
 `
+export const SpaceGrow = styled.div`
+  flex-grow: 1;
+`
