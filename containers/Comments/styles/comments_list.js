@@ -45,6 +45,7 @@ export const CommentBlock = styled.div`
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
   display: flex;
+  flex-grow: 1;
 `
 export const DeleteHintText = styled.div`
   color: tomato;
@@ -102,8 +103,8 @@ export const TimeStamps = styled.div`
   color: #9a9a9a;
 `
 
-export const CommentBody = styled.div`
-  flex-glow: 1;
+export const CommentBodyInfo = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `
@@ -188,7 +189,7 @@ export const ReplyAction = styled.div`
   margin-top: 2px;
   opacity: 0;
 
-  ${CommentBody}:hover & {
+  ${CommentBodyInfo}:hover & {
     opacity: 1;
   }
   transition: opacity 0.3s;

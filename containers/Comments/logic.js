@@ -1,6 +1,7 @@
 // import R from 'ramda'
-import { gqRes, makeDebugger, EVENT } from '../../utils'
+import { gqRes, gqErr, makeDebugger, EVENT, ERR, $solver } from '../../utils'
 import SR71 from '../../utils/network/sr71'
+import S from './schema'
 
 const sr71$ = new SR71()
 
@@ -9,7 +10,7 @@ const debug = makeDebugger('L:Comments')
 /* eslint-enable no-unused-vars */
 
 let comments = null
-let sub$ = null
+let commentsConflict = null
 
 export function onCommentInput() {
   // debug('onCommentInput')
@@ -24,29 +25,60 @@ export function onCommentInputBlur() {
   })
 }
 
+const loadComents = () => {
+  const args = {
+    id: '105',
+    filter: { page: 1, size: 30 },
+  }
+
+  sr71$.query(S.comments, args)
+}
+
 export function onCommentInputChange(value) {
   debug('onCommentInputChange: ', value)
 }
 
-const dataResolver = [
+const DataSolver = [
   {
     match: gqRes(EVENT.PREVIEW),
     action: () => {},
   },
+  {
+    match: gqRes('comments'),
+    action: ({ comments }) => {
+      debug('----> load comments: ', comments)
+      commentsConflict.markState({
+        ...comments,
+      })
+    },
+  },
 ]
 
-const handleData = res => {
-  for (let i = 0; i < dataResolver.length; i += 1) {
-    if (dataResolver[i].match(res)) {
-      return dataResolver[i].action(res)
-    }
-  }
-  debug('handleData unhandle: ', res)
-}
+const ErrSolver = [
+  {
+    match: gqErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      debug('ERR.CRAPHQL -->', details)
+    },
+  },
+  {
+    match: gqErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+    },
+  },
+  {
+    match: gqErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+    },
+  },
+]
 
 export function init(selectedStore) {
   comments = selectedStore
-  debug(comments)
-  if (sub$) sub$.unsubscribe()
-  sub$ = sr71$.data().subscribe(handleData)
+  commentsConflict = comments
+
+  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadComents()
 }
