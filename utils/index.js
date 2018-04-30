@@ -43,6 +43,7 @@ export {
 } from './dom_operator'
 
 export { default as Animate } from './animations'
+export { smokey, column, columnCenter } from './common_styles'
 /*
  * theme related
  */

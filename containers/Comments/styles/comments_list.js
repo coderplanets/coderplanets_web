@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils'
+import { theme, column } from '../../../utils'
 
 export const ListsContainer = styled.div`
+  ${column};
   min-height: 300px;
-  display: flex;
-  flex-direction: column;
   border-radius: 4px;
 `
 
@@ -84,8 +83,7 @@ export const CommentAvatar = styled.img`
 
 export const CommentHeader = styled.div`
   margin-bottom: 12px;
-  display: flex;
-  flex-direction: column;
+  ${column};
 `
 
 export const CommentHeaderFirst = styled.div`
@@ -105,8 +103,7 @@ export const TimeStamps = styled.div`
 
 export const CommentBodyInfo = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  ${column};
 `
 export const CommentContent = styled.div`
   color: #888894;

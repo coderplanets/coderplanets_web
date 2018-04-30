@@ -12,6 +12,7 @@ import { TYPE, makeDebugger, storeSelector } from '../../utils'
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import CommunitiesRootBanner from './CommunitiesRootBanner'
 import CommunityBanner from './CommunityBanner'
+import ActivitiesRootBanner from './ActivitiesRootBanner'
 import PostBanner from './PostBanner'
 
 import * as logic from './logic'
@@ -31,6 +32,9 @@ const BannerContent = ({ detail: { type, content } }) => {
     }
     case TYPE.COMMUNITIES_ROOT_PAGE: {
       return <CommunitiesRootBanner onChange={onChange} />
+    }
+    case TYPE.ACTIVITIES_ROOT_PAGE: {
+      return <ActivitiesRootBanner />
     }
     case TYPE.POST_PAGE: {
       return <PostBanner />
