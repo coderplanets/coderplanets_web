@@ -7,6 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger } from '../../utils'
+import { Article } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsPaperStore')
 /* eslint-enable no-unused-vars */
@@ -71,6 +72,7 @@ const PostsPaperStore = t
     ),
     // runtime: ..
     // data: ...
+    activePost: t.optional(Article, {}),
   })
   .views(self => ({
     get root() {
@@ -89,6 +91,9 @@ const PostsPaperStore = t
 
     get curTag() {
       return R.pathOr({ title: '', color: '' }, ['js'], self.tags.toJSON())
+    },
+    get active() {
+      return self.activePost
     },
   }))
   .actions(self => ({
@@ -116,6 +121,9 @@ const PostsPaperStore = t
       } else {
         self.tags.set(community, tag)
       }
+    },
+    setActive(data) {
+      self.activePost = data
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)

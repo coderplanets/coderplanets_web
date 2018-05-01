@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  animation: ${Animate.fakeInRight} 0.2s linear;
+  animation: ${Animate.fadeInRight} 0.2s linear;
 `
 
 export const AvatarPic = styled.img`

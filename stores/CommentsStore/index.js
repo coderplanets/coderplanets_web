@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { User } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -37,10 +37,17 @@ const CommentsStore = t
     pageNumber: t.optional(t.number, 0),
     totalPages: t.optional(t.number, 0),
     pageSize: t.optional(t.number, 0),
+
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+
+    get activeArticle() {
+      // TODO: based on tab
+      return stripMobx(self.root.postsPaper.active)
     },
   }))
   .actions(self => ({

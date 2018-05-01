@@ -11,3 +11,4 @@ export { default as TagList } from './TagList'
 
 export { default as Pagi } from './Pagi'
 export { default as PostsLoading } from './LoadingEffects/PostsLoading'
+export { default as CommentLoading } from './LoadingEffects/CommentLoading'

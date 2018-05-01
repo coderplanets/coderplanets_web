@@ -10,6 +10,8 @@ import {
   $solver,
   pageGoTop,
 } from '../../utils'
+
+import { PAGE_SIZE } from '../../config'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
@@ -50,7 +52,7 @@ export function loadPosts(page = 1) {
     /* first: 4, */
     filter: {
       page,
-      size: 20,
+      size: PAGE_SIZE.POSTSPAPER_POSTS,
       ...postsPaper.curFilter,
       tag: postsPaper.curTag.title,
     },
@@ -72,15 +74,16 @@ export function tagOnSelect(obj) {
   loadPosts()
 }
 
-export function onContentSelect(post) {
-  debug('onContentSelect publish ')
+export function onTitleSelect(post) {
+  postsPaper.setActive(post)
+  debug('onTitleSelect publish post: ', post)
   // PubSub.publish('hello', post)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
   dispatchEvent(EVENT.NAV_EDIT, { type: TYPE.POST_PREVIEW_VIEW, data: post })
 }
 
 export function createContent() {
-  debug('onContentSelect createContent ')
+  debug('onTitleSelect createContent ')
   dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
 }
 

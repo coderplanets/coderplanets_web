@@ -93,7 +93,6 @@ const dataResolver = [
   {
     match: gqRes(R.toLower(TYPE.POST)), // GraphQL return
     action: res => {
-      debug('match post: ', res[R.toLower(TYPE.POST)])
       articleViwer.load(TYPE.POST, res[R.toLower(TYPE.POST)])
       loading(false)
     },

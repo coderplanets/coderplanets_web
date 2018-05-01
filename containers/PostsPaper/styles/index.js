@@ -80,19 +80,29 @@ export const PostAvatar = styled.img`
   height: 42px;
   border-radius: 100%;
 `
-export const PostTitle = styled.div`
+
+export const PostBreif = styled.div`
+  display: flex;
   flex-grow: 1;
   font-size: 1.2em;
   margin-left: 10px;
   color: ${theme('paper.article_title')};
 `
 
-export const PostTitleTag = styled.span`
-  display: inline-block;
-  font-size: 0.8em;
-  color: #a8b8c6;
-  margin-left: 10px;
-  opacity: 0.7;
+export const PostTitle = styled.div`
+  line-height: 1.2em;
+  margin-bottom: 10px;
+  margin-top: 2px;
+
+  @media (max-width: 1450px) {
+    max-width: 500px;
+  }
+  @media (max-width: 1250px) {
+    max-width: 450px;
+  }
+  @media (max-width: 1100px) {
+    max-width: 350px;
+  }
 `
 export const PostTitleTagDot = styled.span`
   width: 10px;
@@ -103,15 +113,19 @@ export const PostTitleTagDot = styled.span`
   display: inline-block;
 `
 
-export const PostTitleLink = styled.span`
+export const PostTitleLink = styled.div`
   position: relative;
-  display: inline-block;
   font-size: 0.8em;
   color: #a8b8c6;
   margin-left: 10px;
   opacity: 0.7;
 `
-
+export const PostTitleTag = styled.div`
+  font-size: 0.8em;
+  color: #a8b8c6;
+  margin-left: 10px;
+  opacity: 0.7;
+`
 export const LinkIcon = styled(ReactSVG)`
   position: absolute;
   top: 6px;

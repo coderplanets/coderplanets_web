@@ -4,7 +4,7 @@ import { Button } from 'antd'
 
 import { theme } from '../../../utils'
 
-export const Header = styled.div`
+export const HeaderWrapper = styled.div`
   height: 33px;
   display: flex;
   flex-direction: row;
@@ -121,3 +121,11 @@ export const Notification = styled.div``
 export const User = styled.div`
   margin-right: 20px;
 `
+export const AffixHeader = styled.div`
+  display: ${props => (props.fixed ? 'block' : 'none')};
+`
+
+export const RawHeader = styled.div`
+  display: ${props => (!props.fixed ? 'block' : 'none')};
+`
+// animation: ${Animate.fadeInRight} 0.2s linear;

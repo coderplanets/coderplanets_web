@@ -15,6 +15,16 @@ export const pageGoTop = () => {
   }
 }
 
+// https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+export const scrollIntoEle = eleID => {
+  const safeDocument = getDocument()
+
+  const e = safeDocument.getElementById(eleID)
+  if (!!e && e.scrollIntoView) {
+    e.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 export const holdPage = () => {
   const safeDocument = getDocument()
 

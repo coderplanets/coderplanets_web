@@ -1,5 +1,15 @@
 // import R from 'ramda'
-import { gqRes, gqErr, makeDebugger, EVENT, ERR, $solver } from '../../utils'
+import {
+  gqRes,
+  gqErr,
+  makeDebugger,
+  EVENT,
+  ERR,
+  $solver,
+  scrollIntoEle,
+} from '../../utils'
+
+import { PAGE_SIZE } from '../../config'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
@@ -25,11 +35,18 @@ export function onCommentInputBlur() {
   })
 }
 
-const loadComents = () => {
+export function pageChange(page = 1) {
+  scrollIntoEle('lists-info')
+  loadComents(page)
+}
+
+export const loadComents = (page = 1) => {
   const args = {
-    id: '105',
-    filter: { page: 1, size: 30 },
+    id: comments.activeArticle.id,
+    filter: { page, size: PAGE_SIZE.COMMENTS },
   }
+
+  comments.markState({ loading: true })
 
   sr71$.query(S.comments, args)
 }
@@ -49,6 +66,7 @@ const DataSolver = [
       debug('----> load comments: ', comments)
       commentsConflict.markState({
         ...comments,
+        loading: false,
       })
     },
   },

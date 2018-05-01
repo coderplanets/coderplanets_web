@@ -3,9 +3,9 @@ import ReactSVG from 'react-svg'
 
 import { theme, column } from '../../../utils'
 
+// min-height: 300px;
 export const ListsContainer = styled.div`
   ${column};
-  min-height: 300px;
   border-radius: 4px;
 `
 

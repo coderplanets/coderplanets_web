@@ -6,7 +6,9 @@ import shortid from 'shortid'
 import { ICON_ASSETS } from '../../config'
 import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils'
 
-import { AvatarsRow, SpaceGrow, Pagi } from '../../components'
+import { AvatarsRow, SpaceGrow, Pagi, CommentLoading } from '../../components'
+
+import * as logic from './logic'
 
 import {
   ListsContainer,
@@ -124,23 +126,32 @@ const Comment = ({ data, floorNum }) => (
 const getFloorNum = (index, pageNumber, pageSize) =>
   index + 1 + (pageNumber - 1) * pageSize
 
+const Lists = ({ entries, pageNumber, pageSize }) => (
+  <div>
+    {entries.map((c, index) => (
+      <div key={shortid.generate()}>
+        <Comment data={c} floorNum={getFloorNum(index, pageNumber, pageSize)} />
+      </div>
+    ))}
+  </div>
+)
+
 const CommentsList = ({
   entries,
-  restProps: { totalCount, pageSize, pageNumber },
+  restProps: { totalCount, pageSize, pageNumber, loading },
 }) => (
   <div>
-    <ListTitle>
+    <ListTitle id="lists-info">
       收到 <TotalNum>{totalCount}</TotalNum> 条评论:
     </ListTitle>
     <ListsContainer>
-      {entries.map((c, index) => (
-        <div key={shortid.generate()}>
-          <Comment
-            data={c}
-            floorNum={getFloorNum(index, pageNumber, pageSize)}
-          />
-        </div>
-      ))}
+      {loading ? (
+        <CommentBlock>
+          <CommentLoading />
+        </CommentBlock>
+      ) : (
+        <Lists entries={entries} pageSize={pageSize} pageNumber={pageNumber} />
+      )}
     </ListsContainer>
 
     <Pagi
@@ -148,7 +159,7 @@ const CommentsList = ({
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}
-      onChange={console.log}
+      onChange={logic.pageChange}
     />
   </div>
 )

@@ -36,6 +36,7 @@ export {
 
 export {
   pageGoTop,
+  scrollIntoEle,
   holdPage,
   unholdPage,
   focusDoraemonBar,

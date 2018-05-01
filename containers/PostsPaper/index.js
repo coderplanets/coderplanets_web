@@ -43,6 +43,7 @@ import {
   LinkIcon,
   PostMain,
   PostTopHalf,
+  PostBreif,
   PostTitle,
   PostTitleTag,
   PostSecondHalf,
@@ -99,8 +100,8 @@ const PostItem = ({ post }) => (
     </div>
     <PostMain>
       <PostTopHalf>
-        <PostTitle onClick={logic.onContentSelect.bind(this, post)}>
-          {post.title}
+        <PostBreif onClick={logic.onTitleSelect.bind(this, post)}>
+          <PostTitle>{post.title}</PostTitle>
           <PostTitleLink>
             <LinkIcon path={`${ICON_ASSETS}/cmd/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
@@ -109,7 +110,7 @@ const PostItem = ({ post }) => (
             <PostTitleTagDot />
             react
           </PostTitleTag>
-        </PostTitle>
+        </PostBreif>
         <div>
           <AvatarsRow
             users={fakeUsers.slice(1, getRandomInt(2, 6))}
