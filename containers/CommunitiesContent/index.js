@@ -7,16 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Trend from 'react-trend'
-import { Button, Icon, Pagination, Tooltip } from 'antd'
+import { Button, Icon, Tooltip } from 'antd'
 // import Link from 'next/link'
 
-import {
-  makeDebugger,
-  storeSelector,
-  pagiCustomRender,
-  prettyNum,
-} from '../../utils'
-import * as logic from './logic'
+import { Pagi } from '../../components'
+
+import { makeDebugger, storeSelector, prettyNum } from '../../utils'
+
 import {
   Wrapper,
   GridWrapper,
@@ -27,8 +24,9 @@ import {
   ActivitySpark,
   Divider,
   CardFooter,
-  Pagi,
 } from './styles'
+
+import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CommunitiesContent')
@@ -131,15 +129,13 @@ class CommunitiesContentContainer extends React.Component {
           restProps={{ ...this.props.communitiesContent }}
         />
 
-        <Pagi>
-          <Pagination
-            current={communities.pageNumber}
-            pageSize={communities.pageSize}
-            total={communities.totalCount}
-            itemRender={pagiCustomRender}
-            onChange={logic.pageChange}
-          />
-        </Pagi>
+        <Pagi
+          left="-10px"
+          pageNumber={communities.pageNumber}
+          pageSize={communities.pageSize}
+          totalCount={communities.totalCount}
+          onChange={logic.pageChange}
+        />
       </Wrapper>
     )
   }

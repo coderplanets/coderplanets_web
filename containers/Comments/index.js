@@ -26,15 +26,18 @@ class CommentsContainer extends React.Component {
   }
 
   render() {
-    const { showInputEditor, entries, totalCount } = this.props.comments
-    debug('showInputEditor', showInputEditor)
+    const { showInputEditor, entries } = this.props.comments
+    debug('showInputEditor ->', this.props.comments)
     return (
       <Wrapper>
         <CommentEditor
           onInput={logic.onCommentInput}
           showInputEditor={showInputEditor}
         />
-        <CommentsList entries={entries} totalCount={totalCount} />
+        <CommentsList
+          entries={entries}
+          restProps={{ ...this.props.comments }}
+        />
       </Wrapper>
     )
   }

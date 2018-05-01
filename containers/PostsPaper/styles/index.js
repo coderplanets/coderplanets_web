@@ -135,9 +135,3 @@ export const PostBodyBreif = styled.li`
   display: block;
   font-size: 0.9em;
 `
-
-export const Pagi = styled.div`
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
-`

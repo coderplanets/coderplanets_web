@@ -23,10 +23,10 @@ export const TotalNum = styled.span`
 `
 
 export const FloorNum = styled.div`
-  color: orange;
-  font-size: 0.8em;
+  color: #b5ddb3;
+  font-size: 0.9em;
+  align-self: center;
   margin-left: 5px;
-  margin-top: 5px;
   flex-grow: 1;
 `
 
@@ -67,10 +67,7 @@ export const DeleteOverlay = styled.div`
 export const DeleteBtnGroup = styled.div`
   display: flex;
 `
-export const CommentDivider = styled.div`
-  border-bottom: 1px solid;
-  border-color: ${theme('preview.account_divider')};
-`
+
 export const CommentUserInfo = styled.div`
   margin-right: 15px;
 `
@@ -190,4 +187,10 @@ export const ReplyAction = styled.div`
     opacity: 1;
   }
   transition: opacity 0.3s;
+`
+
+export const Pagi = styled.div`
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
 `

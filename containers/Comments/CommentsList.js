@@ -6,7 +6,7 @@ import shortid from 'shortid'
 import { ICON_ASSETS } from '../../config'
 import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils'
 
-import { AvatarsRow, SpaceGrow } from '../../components'
+import { AvatarsRow, SpaceGrow, Pagi } from '../../components'
 
 import {
   ListsContainer,
@@ -18,7 +18,6 @@ import {
   DeleteOverlay,
   DeleteHintText,
   DeleteBtnGroup,
-  CommentDivider,
   CommentUserInfo,
   CommentAvatar,
   CommentHeader,
@@ -63,13 +62,13 @@ const DeleteMask = () => (
 )
 
 /*
-const fakeUser = {
-  avatar:
-    'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/6.jpg',
-}
-*/
+   const fakeUser = {
+   avatar:
+   'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/6.jpg',
+   }
+ */
 
-const Comment = ({ data }) => (
+const Comment = ({ data, floorNum }) => (
   <CommentBlock>
     <DeleteMask />
     <CommentWrapper>
@@ -82,7 +81,7 @@ const Comment = ({ data }) => (
           <CommentHeaderFirst>
             <CommentUserName>
               {data.author.nickname}
-              <FloorNum>#3</FloorNum>
+              <FloorNum>#{floorNum}</FloorNum>
             </CommentUserName>
             <ReplyUsers>
               <ReplyTitle>回复:</ReplyTitle>
@@ -121,19 +120,36 @@ const Comment = ({ data }) => (
   </CommentBlock>
 )
 
-const CommentsList = ({ entries, totalCount }) => (
+// TODO: movit to utils
+const getFloorNum = (index, pageNumber, pageSize) =>
+  index + 1 + (pageNumber - 1) * pageSize
+
+const CommentsList = ({
+  entries,
+  restProps: { totalCount, pageSize, pageNumber },
+}) => (
   <div>
     <ListTitle>
       收到 <TotalNum>{totalCount}</TotalNum> 条评论:
     </ListTitle>
     <ListsContainer>
-      {entries.map(c => (
+      {entries.map((c, index) => (
         <div key={shortid.generate()}>
-          <Comment data={c} />
-          <CommentDivider />
+          <Comment
+            data={c}
+            floorNum={getFloorNum(index, pageNumber, pageSize)}
+          />
         </div>
       ))}
     </ListsContainer>
+
+    <Pagi
+      left="-10px"
+      pageNumber={pageNumber}
+      pageSize={pageSize}
+      totalCount={totalCount}
+      onChange={console.log}
+    />
   </div>
 )
 

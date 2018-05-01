@@ -34,6 +34,9 @@ const CommentsStore = t
 
     entries: t.optional(t.array(Comment), []),
     totalCount: t.optional(t.number, 0),
+    pageNumber: t.optional(t.number, 0),
+    totalPages: t.optional(t.number, 0),
+    pageSize: t.optional(t.number, 0),
   })
   .views(self => ({
     get root() {

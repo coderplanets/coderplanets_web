@@ -53,7 +53,6 @@ export {
   themeKeys,
   themeColorMap,
   selectorColors,
-  pagiCustomRender,
 } from './themes'
 
 export { default as fakeUsers } from './fake_user'

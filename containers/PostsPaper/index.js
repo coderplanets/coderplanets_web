@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
-import { Pagination, Affix } from 'antd'
+import { Affix } from 'antd'
 import TimeAgo from 'timeago-react'
 import Waypoint from 'react-waypoint'
 // import Link from 'next/link'
@@ -21,12 +21,11 @@ import {
   storeSelector,
   getRandomInt,
   cutFrom,
-  pagiCustomRender,
   fakeUsers,
   // Global,
 } from '../../utils'
 
-import { AvatarsRow, TagList, PostsLoading } from '../../components'
+import { AvatarsRow, TagList, PostsLoading, Pagi } from '../../components'
 
 // import logic from './logic'
 import * as logic from './logic'
@@ -52,7 +51,6 @@ import {
   PostTitleTagDot,
   TagDivider,
   WritePostBtn,
-  Pagi,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
@@ -183,15 +181,13 @@ class PostsPaperContainer extends React.Component {
 
           <View posts={postsData.entries} curView={curView} />
 
-          <Pagi>
-            <Pagination
-              current={postsData.pageNumber}
-              pageSize={postsData.pageSize}
-              total={postsData.totalCount}
-              itemRender={pagiCustomRender}
-              onChange={logic.pageChange}
-            />
-          </Pagi>
+          <Pagi
+            left="-10px"
+            pageNumber={postsData.pageNumber}
+            pageSize={postsData.pageSize}
+            totalCount={postsData.totalCount}
+            onChange={logic.pageChange}
+          />
         </LeftPart>
 
         <RightPart>

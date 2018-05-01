@@ -132,8 +132,8 @@ const Posts = t.model('Posts', {
   entries: t.optional(t.array(PostItem), []),
   pageNumber: t.optional(t.number, 1),
   pageSize: t.optional(t.number, 20), // TODO: USE CONSTANTS
-  totalCount: t.optional(t.number, 1),
-  totalPages: t.optional(t.number, 1),
+  totalCount: t.optional(t.number, 0),
+  totalPages: t.optional(t.number, 0),
 })
 
 const PostsStore = t

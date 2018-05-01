@@ -28,9 +28,9 @@ const BannerStore = t
     get detail() {
       // type depands on route main_query
       return {
-        type: TYPE.ACTIVITIES_ROOT_PAGE,
+        // type: TYPE.ACTIVITIES_ROOT_PAGE,
         // type: TYPE.POST_PAGE,
-        // type: TYPE.COMMUNITY_PAGE,
+        type: TYPE.COMMUNITY_PAGE,
         /* type: TYPE.CHEATSHEET_ROOT_PAGE, */
         /* type: TYPE.COMMUNITIES_ROOT_PAGE, */
         content: self.root.curCommunity.data,
