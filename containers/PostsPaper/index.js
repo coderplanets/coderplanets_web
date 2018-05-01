@@ -90,8 +90,8 @@ const tags = [
   },
 ]
 
-const PostItem = ({ post }) => (
-  <PostWrapper>
+const PostItem = ({ post, active }) => (
+  <PostWrapper current={post} active={active}>
     <div>
       <PostAvatar
         src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
@@ -131,12 +131,14 @@ const PostItem = ({ post }) => (
   </PostWrapper>
 )
 
-const View = ({ posts, curView }) => {
+const View = ({ posts, curView, active }) => {
   switch (curView) {
     case 'RESULT': {
       return (
         <div>
-          {posts.map(post => <PostItem post={post} key={shortid.generate()} />)}
+          {posts.map(post => (
+            <PostItem post={post} key={shortid.generate()} active={active} />
+          ))}
         </div>
       )
     }
@@ -161,6 +163,7 @@ class PostsPaperContainer extends React.Component {
       curView,
       curFilter: { when, sort, wordLength },
       curTag,
+      active,
     } = this.props.postsPaper
 
     return (
@@ -180,7 +183,7 @@ class PostsPaperContainer extends React.Component {
             </FilterResultHint>
           </FilterWrapper>
 
-          <View posts={postsData.entries} curView={curView} />
+          <View posts={postsData.entries} curView={curView} active={active} />
 
           <Pagi
             left="-10px"

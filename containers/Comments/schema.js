@@ -17,10 +17,7 @@ const comments = gql`
         }
         repliesCount
         likesCount
-        likes {
-          id
-          nickname
-        }
+        dislikesCount
       }
       pageNumber
       pageSize
@@ -30,7 +27,7 @@ const comments = gql`
   }
 `
 
-export const comments2 = 1
+export const holder = 1
 
 const schema = {
   comments,

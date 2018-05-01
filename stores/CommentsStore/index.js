@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger } from '../../utils'
 import { User } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -23,8 +23,9 @@ const Comment = t.model('Comment', {
   contributesDigest: t.optional(t.array(t.number), []),
   repliesCount: t.optional(t.number, 0),
   likesCount: t.optional(t.number, 0),
-  /* disLikesCount: t.optional(t.number, 0), */
+  dislikesCount: t.optional(t.number, 0),
   /* viewerHasLiked: t.maybe(t.boolean), */
+  /* viewerHasdisliked: t.maybe(t.boolean), */
 })
 
 const CommentsStore = t
@@ -47,7 +48,7 @@ const CommentsStore = t
 
     get activeArticle() {
       // TODO: based on tab
-      return stripMobx(self.root.postsPaper.active)
+      return self.root.postsPaper.active
     },
   }))
   .actions(self => ({

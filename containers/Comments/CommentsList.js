@@ -104,7 +104,7 @@ const Comment = ({ data, floorNum }) => (
             </VisiableAction>
             <VisiableAction>
               <DownIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
-              <ActionNumber>{prettyNum(22)}</ActionNumber>
+              <ActionNumber>{prettyNum(data.dislikesCount)}</ActionNumber>
             </VisiableAction>
             <SpaceGrow />
             <ReplyAction>
@@ -141,9 +141,13 @@ const CommentsList = ({
   restProps: { totalCount, pageSize, pageNumber, loading },
 }) => (
   <div>
-    <ListTitle id="lists-info">
-      收到 <TotalNum>{totalCount}</TotalNum> 条评论:
-    </ListTitle>
+    {totalCount > 0 ? (
+      <ListTitle id="lists-info">
+        收到 <TotalNum>{totalCount}</TotalNum> 条评论:
+      </ListTitle>
+    ) : (
+      <div />
+    )}
     <ListsContainer>
       {loading ? (
         <CommentBlock>

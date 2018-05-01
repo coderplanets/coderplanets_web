@@ -58,6 +58,13 @@ export const PostWrapper = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 4px;
+  background: ${props =>
+    props.current.id === props.active.id
+      ? props.theme.paper.article_hover
+      : ''};
+  opacity: ${props =>
+    props.active.id && props.current.id !== props.active.id ? 0.6 : 1};
+
   &:hover {
     cursor: pointer;
     background: ${theme('paper.article_hover')};

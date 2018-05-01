@@ -14,6 +14,7 @@ import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
+let sub$ = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Comments')
@@ -48,6 +49,7 @@ export const loadComents = (page = 1) => {
 
   comments.markState({ loading: true })
 
+  console.log('---.> query: ', args)
   sr71$.query(S.comments, args)
 }
 
@@ -63,7 +65,7 @@ const DataSolver = [
   {
     match: gqRes('comments'),
     action: ({ comments }) => {
-      debug('----> load comments: ', comments)
+      debug('--- bbb -> load comments: ', comments)
       commentsConflict.markState({
         ...comments,
         loading: false,
@@ -97,6 +99,8 @@ export function init(selectedStore) {
   comments = selectedStore
   commentsConflict = comments
 
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  if (sub$) sub$.unsubscribe()
+
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadComents()
 }

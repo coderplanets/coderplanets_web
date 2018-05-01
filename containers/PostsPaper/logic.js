@@ -17,7 +17,7 @@ import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_POSTS],
+  resv_event: [EVENT.REFRESH_POSTS, EVENT.PREVIEW_CLOSED],
 })
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:PostsPaper')
@@ -74,12 +74,16 @@ export function tagOnSelect(obj) {
   loadPosts()
 }
 
-export function onTitleSelect(post) {
-  postsPaper.setActive(post)
-  debug('onTitleSelect publish post: ', post)
+export function onTitleSelect(activePost) {
+  postsPaper.markState({ activePost })
+  /* postsPaper.setActive(post) */
+  /* debug('onTitleSelect publish post: ', activePost) */
   // PubSub.publish('hello', post)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
-  dispatchEvent(EVENT.NAV_EDIT, { type: TYPE.POST_PREVIEW_VIEW, data: post })
+  dispatchEvent(EVENT.NAV_EDIT, {
+    type: TYPE.POST_PREVIEW_VIEW,
+    data: activePost,
+  })
 }
 
 export function createContent() {
@@ -91,6 +95,7 @@ const DataSolver = [
   {
     match: gqRes('pagedPosts'),
     action: ({ pagedPosts }) => {
+      debug(' ---> pagedPosts: ', pagedPosts)
       postsPaper.loadData(pagedPosts)
       postsPaper.markState({
         curView: 'RESULT',
@@ -103,6 +108,10 @@ const DataSolver = [
       debug('EVENT.REFRESH_POSTS: ', res)
       loadPosts()
     },
+  },
+  {
+    match: gqRes(EVENT.PREVIEW_CLOSED),
+    action: () => postsPaper.markState({ activePost: {} }),
   },
 ]
 
