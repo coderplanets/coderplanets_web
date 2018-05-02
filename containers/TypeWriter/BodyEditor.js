@@ -1,11 +1,12 @@
 /*
  * Editor based on Draft
-*/
+ */
 
 import React from 'react'
 
-import { EditorState, ContentState } from 'draft-js'
+import { EditorState, ContentState, Modifier } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
+import PubSub from 'pubsub-js'
 
 import createMentionPlugin, {
   defaultSuggestionsFilter,
@@ -13,6 +14,7 @@ import createMentionPlugin, {
 
 import toRawString from './exportContent'
 import { Wrapper } from './styles/editorStyle'
+import { EVENT } from '../../utils'
 
 const themeClass = {
   mention: 'typewriter-mention',
@@ -22,19 +24,6 @@ const themeClass = {
   mentionSuggestionsEntryAvatar: 'typewriter-mentionSuggestionsEntryAvatar',
   mentionSuggestionsEntryText: 'typewriter-mentionSuggestionsEntryText',
 }
-
-const mentions = [
-  {
-    name: 'Matthew Russell',
-    link: 'https://twitter.com/mrussell247',
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar7.png',
-  },
-  {
-    name: 'Julian Krispel-Samsel',
-    link: 'https://twitter.com/juliandoesstuff',
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
-  },
-]
 
 class MastaniEditor extends React.Component {
   constructor(props) {
@@ -47,11 +36,13 @@ class MastaniEditor extends React.Component {
 
   state = {
     editorState: EditorState.createEmpty(),
-    suggestions: mentions,
+    suggestions: [],
+    pub: null,
   }
 
   componentWillMount() {
     this.loadDraft()
+    this.loadUserSuggestions()
   }
 
   componentDidMount() {
@@ -69,12 +60,72 @@ class MastaniEditor extends React.Component {
     setTimeout(() => {
       this.focus()
     }, 100)
+
+    this.initPubSub()
+  }
+  componentWillUnmount() {
+    const { pub } = this.state
+    PubSub.unsubscribe(pub)
   }
 
-  componentWillUnmount() {}
+  initPubSub() {
+    const pub = PubSub.subscribe(EVENT.DRAFT_INSERT_SNIPPET, (event, data) => {
+      this.insertSnippet(data.data)
+      console.log('INSERT_FUCK: ', data)
+    })
+    this.setState({
+      pub,
+    })
+  }
+
+  insertSnippet = data => {
+    /*
+       const curString = toRawString(this.state.editorState.getCurrentContent())
+       const contentState = ContentState.createFromText(
+       `${curString}\n\n${data}\n\n`
+       )
+       const editorState = EditorState.push(this.state.editorState, contentState)
+
+       this.setState({ editorState })
+     */
+
+    const { editorState } = this.state
+    /* const contentState = ContentState.createFromText('ni ma') */
+    const contentState = editorState.getCurrentContent()
+    const selection = editorState.getSelection()
+    const nextContentState = Modifier.insertText(
+      contentState,
+      selection,
+      `\n${data}\n`
+    )
+
+    const nextEditorState = EditorState.push(editorState, nextContentState)
+    this.setState({ editorState: nextEditorState })
+  }
+
+  onBlur = () => {
+    /*
+    const selectionState = this.state.editorState.getSelection()
+    const { editorState } = this.state
+    const fuck = Modifier.splitBlock(
+      editorState.getCurrentContent(),
+      selectionState,
+      'this-is-me'
+    )
+
+    const fff = toRawString(fuck)
+    console.log('fffff: ', fff.split('\n'))
+    */
+  }
 
   onChange = editorState => {
-    this.props.onChange(toRawString(editorState.getCurrentContent()))
+    // const oldString = toRawString(this.state.editorState.getCurrentContent())
+    const newString = toRawString(editorState.getCurrentContent())
+    // console.log('onChange raw: ', newString)
+
+    // if (oldString === newString) return false
+    // console.log('onChange: ', newString)
+    this.props.onChange(newString)
     this.setState({
       editorState,
     })
@@ -82,23 +133,34 @@ class MastaniEditor extends React.Component {
 
   onSearchChange = ({ value }) => {
     this.setState({
-      suggestions: defaultSuggestionsFilter(value, mentions),
+      suggestions: defaultSuggestionsFilter(value, this.state.mentions),
     })
   }
 
-  onAddMention = () => {
-    // console.log('onAddMention: ')
+  onAddMention = user => {
+    // console.log('onAddMention: ', user)
+    this.props.onMention(user)
     // get the mention object selected
   }
 
-  onBlur = () => {
-    if (this.props.onBlur) this.props.onBlur()
-  }
+  /*
+     onBlur = () => {
+     if (this.props.onBlur) this.props.onBlur()
+     }
+   */
 
   focus = () => {
     if (this.editor) {
       this.editor.focus()
     }
+  }
+
+  loadUserSuggestions = () => {
+    const { mentions } = this.props
+    this.setState({
+      suggestions: mentions,
+      mentions,
+    })
   }
 
   loadDraft = () => {
@@ -126,7 +188,7 @@ class MastaniEditor extends React.Component {
         <Editor
           editorState={this.state.editorState}
           onChange={this.onChange}
-          onBlur={this.props.onBlur}
+          onBlur={this.onBlur}
           plugins={plugins}
           ref={element => {
             this.editor = element

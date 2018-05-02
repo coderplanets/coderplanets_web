@@ -31,12 +31,20 @@ const AntOverWrite = styled.div`
   .react-calendar-heatmap .color-empty {
     fill: ${theme('heatmap.empty')};
   }
+  .comment-editor {
+    .public-DraftEditor-content {
+      min-height: 150px;
+      font-size: 1.3em;
+      color: #acadad;
+    }
+  }
 
   .public-DraftEditor-content {
     min-height: 500px;
     font-size: 1.3em;
     color: #acadad;
   }
+
   .typewriter-mention {
     color: #575f67;
     cursor: pointer;
@@ -56,7 +64,7 @@ const AntOverWrite = styled.div`
 
   .typewriter-suggestions {
     border: 1px solid #eee;
-    margin-top: 1.75em;
+    margin-top: 10px;
     position: absolute;
     min-width: 220px;
     max-width: 440px;

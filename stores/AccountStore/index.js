@@ -29,7 +29,9 @@ const AccountStore = t
     },
 
     get subscribedCommunities() {
-      const { user: { subscribedCommunities } } = self
+      const {
+        user: { subscribedCommunities },
+      } = self
       return {
         ...stripMobx(subscribedCommunities),
       }
@@ -54,7 +56,11 @@ const AccountStore = t
     },
 
     addSubscribedCommunity(community) {
-      const { user: { subscribedCommunities: { entries } } } = self
+      const {
+        user: {
+          subscribedCommunities: { entries },
+        },
+      } = self
 
       self.user.subscribedCommunities.entries = R.insert(0, community, entries)
       self.user.subscribedCommunities.totalCount += 1
@@ -63,7 +69,11 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const { user: { subscribedCommunities: { entries } } } = self
+      const {
+        user: {
+          subscribedCommunities: { entries },
+        },
+      } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.user.subscribedCommunities.entries = R.remove(index, 1, entries)

@@ -26,9 +26,11 @@ module.exports = {
     'react/jsx-no-bind': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/forbid-prop-types': 0,
+    'react/sort-comp': 0,
     'react/prop-types': [1, { skipUndeclared: true }],
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
     'import/no-named-as-default': 0,
     'import/no-named-as-default-member': 0,
 

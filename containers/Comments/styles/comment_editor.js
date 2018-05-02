@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
+import { WORD_LIMIT } from '../../../config'
 import { theme } from '../../../utils'
 
 export const Container = styled.div`
@@ -24,7 +25,7 @@ export const InputHeaderWrapper = styled.div`
 export const InputEditorWrapper = styled.div`
   height: auto;
   margin: 0 30px;
-  max-height: 150px;
+  margin-bottom: 30px;
   display: ${props => (props.showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
 `
@@ -73,14 +74,15 @@ export const LeaveResponseUsername = styled.div`
   margin-right: 10px;
 `
 
-export const ReplyHint = styled.div`
-  color: #b5cfd0;
-  margin-top: 4px;
+export const ReferToIcon = styled(ReactSVG)`
+  fill: #b7cfd0;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
 `
-export const ReplyAvatars = styled.div`
-  margin-left: 5px;
-  margin-top: -8px;
-`
+
+export const ReplyAvatars = styled.div``
 
 export const CounterWrapper = styled.div`
   display: flex;
@@ -92,10 +94,19 @@ export const CounterSpliter = styled.div`
   font-weight: lighter;
 `
 
+const getColor = num => {
+  if (num > WORD_LIMIT.COMMENT) {
+    return 'tomato'
+  } else if (num >= WORD_LIMIT.COMMENT - 50 && num <= WORD_LIMIT.COMMENT) {
+    return 'orange'
+  }
+  return 'yellowgreen'
+}
+
 export const CounterCur = styled.div`
   margin-right: 5px;
   font-size: 1em;
-  color: yellowgreen;
+  color: ${props => getColor(props.num)};
 `
 
 export const CounterTotal = styled.div`

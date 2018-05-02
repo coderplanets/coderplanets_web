@@ -21,6 +21,7 @@ export {
   prettyNum,
   Rlog,
   countWords,
+  debounce,
 } from './functions'
 
 export { gqErr, gqRes } from './graphql_helper'

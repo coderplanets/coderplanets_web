@@ -59,7 +59,6 @@ export function loadPosts(page = 1) {
   }
 
   args.filter = validFilter(args.filter)
-  debug('args: ', args)
   pageGoTop()
   sr71$.query(S.pagedPosts, args)
 }
@@ -95,7 +94,6 @@ const DataSolver = [
   {
     match: gqRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      debug(' ---> pagedPosts: ', pagedPosts)
       postsPaper.loadData(pagedPosts)
       postsPaper.markState({
         curView: 'RESULT',

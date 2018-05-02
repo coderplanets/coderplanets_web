@@ -16,25 +16,31 @@ import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './style'
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
-const AvatarsRow = ({ users, total, height }) => (
-  <Avatars height={height}>
-    {total >= users.length ? (
-      <span />
-    ) : (
-      <AvatarsItem>
-        <AvatarsMore>{prettyNum(total)}</AvatarsMore>
-      </AvatarsItem>
-    )}
+const AvatarsRow = ({ users, total, height }) => {
+  if (users.length === 0) {
+    return <span />
+  }
 
-    {R.reverse(users).map(user => (
-      <AvatarsItem key={shortid.generate()}>
-        <Tooltip title={user.nickname}>
-          <AvatarsImg src={user.avatar} />
-        </Tooltip>
-      </AvatarsItem>
-    ))}
-  </Avatars>
-)
+  return (
+    <Avatars height={height}>
+      {total >= users.length ? (
+        <span />
+      ) : (
+        <AvatarsItem>
+          <AvatarsMore>{prettyNum(total)}</AvatarsMore>
+        </AvatarsItem>
+      )}
+
+      {R.reverse(users).map(user => (
+        <AvatarsItem key={shortid.generate()}>
+          <Tooltip title={user.nickname}>
+            <AvatarsImg src={user.avatar} />
+          </Tooltip>
+        </AvatarsItem>
+      ))}
+    </Avatars>
+  )
+}
 
 AvatarsRow.propTypes = {
   users: PropTypes.arrayOf(
@@ -42,13 +48,14 @@ AvatarsRow.propTypes = {
       avatar: PropTypes.string,
       nickname: PropTypes.string,
     })
-  ).isRequired,
+  ),
   total: PropTypes.number.isRequired,
   height: PropTypes.string,
 }
 
 AvatarsRow.defaultProps = {
   height: '32px',
+  users: [],
 }
 
 export default AvatarsRow

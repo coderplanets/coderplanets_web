@@ -554,12 +554,12 @@ apollo-link-http@1.5.3:
     apollo-link "^1.2.1"
     apollo-link-http-common "^0.2.3"
 
-apollo-link-retry@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/apollo-link-retry/-/apollo-link-retry-2.2.0.tgz#22bb476bfc5d6ae9ff8888de17a763e65ee2c945"
+apollo-link-retry@2.2.3:
+  version "2.2.3"
+  resolved "https://registry.npmjs.org/apollo-link-retry/-/apollo-link-retry-2.2.3.tgz#5bdfabb719edae8faf7340c36ae6b9c13e1ddabb"
   dependencies:
     "@types/zen-observable" "0.5.3"
-    apollo-link "^1.2.1"
+    apollo-link "^1.2.2"
 
 apollo-link@1.2.1, apollo-link@^1.2.1:
   version "1.2.1"
@@ -1375,14 +1375,6 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-polyfill@6.23.0:
-  version "6.23.0"
-  resolved "https://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.23.0.tgz#8364ca62df8eafb830499f699177466c3b03499d"
-  dependencies:
-    babel-runtime "^6.22.0"
-    core-js "^2.4.0"
-    regenerator-runtime "^0.10.0"
-
 babel-polyfill@^6.20.0:
   version "6.26.0"
   resolved "http://r.cnpmjs.org/babel-polyfill/download/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
@@ -1964,16 +1956,6 @@ chalk@*, chalk@^2.3.0:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
-chalk@1.1.3, chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
-  version "1.1.3"
-  resolved "http://r.cnpmjs.org/chalk/download/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
-  dependencies:
-    ansi-styles "^2.2.1"
-    escape-string-regexp "^1.0.2"
-    has-ansi "^2.0.0"
-    strip-ansi "^3.0.0"
-    supports-color "^2.0.0"
-
 chalk@2.3.1, chalk@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.3.1.tgz#523fe2678aec7b04e8041909292fe8b17059b796"
@@ -1989,6 +1971,16 @@ chalk@2.3.2:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
+
+chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
+  version "1.1.3"
+  resolved "http://r.cnpmjs.org/chalk/download/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+  dependencies:
+    ansi-styles "^2.2.1"
+    escape-string-regexp "^1.0.2"
+    has-ansi "^2.0.0"
+    strip-ansi "^3.0.0"
+    supports-color "^2.0.0"
 
 chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0:
   version "2.1.0"
@@ -2902,12 +2894,12 @@ dotenv@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-5.0.0.tgz#0206eb5b336639bf377618a2a304ff00c6a1fddb"
 
-draft-js-mention-plugin@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/draft-js-mention-plugin/-/draft-js-mention-plugin-2.0.1.tgz#388e39861df25d61c3de577799a69c92374e206a"
+draft-js-mention-plugin@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npmjs.org/draft-js-mention-plugin/-/draft-js-mention-plugin-3.0.4.tgz#e8530b7c16f23ce5b980515458418b5e24376f4a"
   dependencies:
     decorate-component-with-props "^1.0.2"
-    find-with-regex "^1.0.2"
+    find-with-regex "^1.1.3"
     immutable "~3.7.4"
     lodash.escaperegexp "^4.1.2"
     prop-types "^15.5.8"
@@ -3707,14 +3699,6 @@ external-editor@^1.1.0:
     spawn-sync "^1.0.15"
     tmp "^0.0.29"
 
-external-editor@^2.0.1, external-editor@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/external-editor/-/external-editor-2.1.0.tgz#3d026a21b7f95b5726387d4200ac160d372c3b48"
-  dependencies:
-    chardet "^0.4.0"
-    iconv-lite "^0.4.17"
-    tmp "^0.0.33"
-
 external-editor@^2.0.4:
   version "2.0.4"
   resolved "http://r.cnpmjs.org/external-editor/download/external-editor-2.0.4.tgz#1ed9199da9cbfe2ef2f7a31b2fde8b0d12368972"
@@ -3722,6 +3706,14 @@ external-editor@^2.0.4:
     iconv-lite "^0.4.17"
     jschardet "^1.4.2"
     tmp "^0.0.31"
+
+external-editor@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/external-editor/-/external-editor-2.1.0.tgz#3d026a21b7f95b5726387d4200ac160d372c3b48"
+  dependencies:
+    chardet "^0.4.0"
+    iconv-lite "^0.4.17"
+    tmp "^0.0.33"
 
 extglob@^0.3.1:
   version "0.3.2"
@@ -3902,9 +3894,9 @@ find-up@^1.0.0:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-find-with-regex@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/find-with-regex/-/find-with-regex-1.0.2.tgz#d3b36286539f14c527e31f194159c6d251651a45"
+find-with-regex@^1.0.2, find-with-regex@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/find-with-regex/-/find-with-regex-1.1.3.tgz#d6c6f2debee898d36b6a77e05709b13dd5dc8a26"
 
 find@^0.2.7:
   version "0.2.9"
@@ -4851,7 +4843,7 @@ hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "http://r.cnpmjs.org/hoist-non-react-statics/download/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
-hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.1.1, hoist-non-react-statics@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
 
@@ -4949,13 +4941,19 @@ iconv-lite@0.4.13:
   version "0.4.13"
   resolved "http://r.cnpmjs.org/iconv-lite/download/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-iconv-lite@0.4.19, iconv-lite@~0.4.13:
+iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
 iconv-lite@^0.4.17:
   version "0.4.18"
   resolved "http://r.cnpmjs.org/iconv-lite/download/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
+
+iconv-lite@~0.4.13:
+  version "0.4.21"
+  resolved "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.21.tgz#c47f8733d02171189ebc4a400f3218d348094798"
+  dependencies:
+    safer-buffer "^2.1.0"
 
 ieee754@^1.1.4, ieee754@^1.1.6:
   version "1.1.8"
@@ -4981,7 +4979,7 @@ immutable@^3.7.4, immutable@^3.8.2:
 
 immutable@~3.7.4:
   version "3.7.6"
-  resolved "http://r.cnpmjs.org/immutable/download/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
+  resolved "https://registry.npmjs.org/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
 
 import-lazy@^2.1.0:
   version "2.1.0"
@@ -5030,24 +5028,6 @@ inherits@2.0.1:
 ini@^1.3.4, ini@~1.3.0:
   version "1.3.4"
   resolved "http://r.cnpmjs.org/ini/download/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
-
-inquirer@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.npmjs.org/inquirer/-/inquirer-3.0.6.tgz#e04aaa9d05b7a3cb9b0f407d04375f0447190347"
-  dependencies:
-    ansi-escapes "^1.1.0"
-    chalk "^1.0.0"
-    cli-cursor "^2.1.0"
-    cli-width "^2.0.0"
-    external-editor "^2.0.1"
-    figures "^2.0.0"
-    lodash "^4.3.0"
-    mute-stream "0.0.7"
-    run-async "^2.2.0"
-    rx "^4.1.0"
-    string-width "^2.0.0"
-    strip-ansi "^3.0.0"
-    through "^2.3.6"
 
 inquirer@5.1.0:
   version "5.1.0"
@@ -6297,9 +6277,9 @@ liftoff@^2.2.0:
     rechoir "^0.6.2"
     resolve "^1.1.7"
 
-lint-staged@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/lint-staged/-/lint-staged-7.0.0.tgz#57926c63201e7bd38ca0576d74391efa699b4a9d"
+lint-staged@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.npmjs.org/lint-staged/-/lint-staged-7.0.2.tgz#c99f6800e0525fa9c16f04c13ebe137edfd4fcd7"
   dependencies:
     app-root-path "^2.0.1"
     chalk "^2.3.1"
@@ -6320,7 +6300,7 @@ lint-staged@7.0.0:
     path-is-inside "^1.0.2"
     pify "^3.0.0"
     please-upgrade-node "^3.0.1"
-    staged-git-files "1.1.0"
+    staged-git-files "1.1.1"
     stringify-object "^3.2.2"
 
 listr-silent-renderer@^1.1.1:
@@ -7090,13 +7070,6 @@ nice-try@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/nice-try/-/nice-try-1.0.4.tgz#d93962f6c52f2c1558c0fbda6d512819f1efe1c4"
 
-node-fetch@1.6.3:
-  version "1.6.3"
-  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
-
 node-fetch@1.7.3, node-fetch@^1.0.1:
   version "1.7.3"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
@@ -7445,27 +7418,9 @@ open@0.0.5:
   version "0.0.5"
   resolved "https://registry.npmjs.org/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
 
-opencollective@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/opencollective/-/opencollective-1.0.3.tgz#aee6372bc28144583690c3ca8daecfc120dd0ef1"
-  dependencies:
-    babel-polyfill "6.23.0"
-    chalk "1.1.3"
-    inquirer "3.0.6"
-    minimist "1.2.0"
-    node-fetch "1.6.3"
-    opn "4.0.2"
-
 opener@^1.4.3:
   version "1.4.3"
   resolved "http://r.cnpmjs.org/opener/download/opener-1.4.3.tgz#5c6da2c5d7e5831e8ffa3964950f8d6674ac90b8"
-
-opn@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/opn/-/opn-4.0.2.tgz#7abc22e644dff63b0a96d5ab7f2790c0f01abc95"
-  dependencies:
-    object-assign "^4.0.1"
-    pinkie-promise "^2.0.0"
 
 opn@^5.1.0:
   version "5.1.0"
@@ -7890,9 +7845,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "http://r.cnpmjs.org/preserve/download/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@1.11.1:
-  version "1.11.1"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
+prettier@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-1.12.0.tgz#d26fc5894b9230de97629b39cae225b503724ce8"
 
 pretty-format@^22.4.0:
   version "22.4.0"
@@ -7979,7 +7934,7 @@ prop-types@15.5.8:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@15.6.0, prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9:
+prop-types@15.6.0, prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.9:
   version "15.6.0"
   resolved "http://r.cnpmjs.org/prop-types/download/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -7994,7 +7949,7 @@ prop-types@^15.5.10, prop-types@^15.5.4:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
 
-prop-types@^15.6.0:
+prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -8546,6 +8501,12 @@ react-calendar-heatmap@^1.6.3:
   dependencies:
     prop-types "^15.5.10"
 
+react-click-outside@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/react-click-outside/-/react-click-outside-3.0.1.tgz#6e77e84d2f17afaaac26dbad743cbbf909f5e24c"
+  dependencies:
+    hoist-non-react-statics "^2.1.1"
+
 react-content-loader@3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/react-content-loader/-/react-content-loader-3.1.1.tgz#4121cdf1bbf58387bfd031fd4569d0617c0de69d"
@@ -8697,9 +8658,9 @@ react-style-proptype@^3.0.0:
   dependencies:
     prop-types "^15.5.4"
 
-react-svg@2.2.14:
-  version "2.2.14"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-2.2.14.tgz#08ec7e531c0ddccd4914117019d652b0fff58633"
+react-svg@2.2.16:
+  version "2.2.16"
+  resolved "https://registry.npmjs.org/react-svg/-/react-svg-2.2.16.tgz#6ecbdb09a5a022fba83a3e900fced4892bc248db"
   dependencies:
     svg-injector "^1.1.3"
 
@@ -9283,6 +9244,10 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
+safer-buffer@^2.1.0:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
+
 sane@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/sane/download/sane-2.0.0.tgz#99cb79f21f4a53a69d4d0cd957c2db04024b8eb2"
@@ -9693,9 +9658,9 @@ stackframe@^1.0.3:
   version "1.0.4"
   resolved "http://r.cnpmjs.org/stackframe/download/stackframe-1.0.4.tgz#357b24a992f9427cba6b545d96a14ed2cbca187b"
 
-staged-git-files@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/staged-git-files/-/staged-git-files-1.1.0.tgz#1a9bb131c1885601023c7aaddd3d54c22142c526"
+staged-git-files@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/staged-git-files/-/staged-git-files-1.1.1.tgz#37c2218ef0d6d26178b1310719309a16a59f8f7b"
 
 static-eval@~0.2.0:
   version "0.2.4"
@@ -9890,16 +9855,15 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "http://r.cnpmjs.org/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-styled-components@3.2.3:
-  version "3.2.3"
-  resolved "https://registry.npmjs.org/styled-components/-/styled-components-3.2.3.tgz#50f71207320eeb1ef539dec4637f21f5e3c936b4"
+styled-components@3.2.4:
+  version "3.2.4"
+  resolved "https://registry.npmjs.org/styled-components/-/styled-components-3.2.4.tgz#81c29cc67adfb451a0b0e53f9e5b0001173cc74b"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"
-    fbjs "^0.8.9"
-    hoist-non-react-statics "^1.2.0"
+    fbjs "^0.8.16"
+    hoist-non-react-statics "^2.5.0"
     is-plain-object "^2.0.1"
-    opencollective "^1.0.3"
     prop-types "^15.5.4"
     stylis "^3.5.0"
     stylis-rule-sheet "^0.0.10"
@@ -10711,9 +10675,13 @@ whatwg-encoding@^1.0.1:
   dependencies:
     iconv-lite "0.4.13"
 
-whatwg-fetch@2.0.3, whatwg-fetch@>=0.10.0:
+whatwg-fetch@2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
+
+whatwg-fetch@>=0.10.0:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
 
 whatwg-url@^6.3.0:
   version "6.4.0"

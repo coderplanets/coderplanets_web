@@ -18,6 +18,8 @@ const comments = gql`
         repliesCount
         likesCount
         dislikesCount
+        insertedAt
+        updatedAt
       }
       pageNumber
       pageSize
@@ -26,11 +28,18 @@ const comments = gql`
     }
   }
 `
-
-export const holder = 1
+const createComment = gql`
+  mutation($part: CmsPart, $id: ID!, $body: String!) {
+    createComment(part: $part, id: $id, body: $body) {
+      id
+      body
+    }
+  }
+`
 
 const schema = {
   comments,
+  createComment,
 }
 
 export default schema

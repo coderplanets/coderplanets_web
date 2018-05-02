@@ -1,11 +1,12 @@
 import React from 'react'
+import { Button, Icon } from 'antd'
+import withClickOutside from 'react-click-outside'
 
-import { Button } from 'antd'
 import BodyEditor from '../TypeWriter/BodyEditor'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_ASSETS, WORD_LIMIT } from '../../config'
 
-import { fakeUsers, getRandomInt } from '../../utils'
+import { debounce } from '../../utils'
 import * as logic from './logic'
 
 import { AvatarsRow, Space, SpaceGrow } from '../../components'
@@ -22,7 +23,7 @@ import {
   LeaveResponseText,
   LeaveResponseUsername,
   ReplyAvatars,
-  ReplyHint,
+  ReferToIcon,
   CounterWrapper,
   CounterSpliter,
   CounterCur,
@@ -34,32 +35,32 @@ const fakeUser = {
     'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/10.jpg',
 }
 
-const WordsCounter = () => (
+const WordsCounter = ({ countCurrent }) => (
   <CounterWrapper>
-    <CounterCur>22</CounterCur>
+    <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
     <CounterSpliter>/</CounterSpliter>
-    <CounterTotal>500</CounterTotal>
+    <CounterTotal>{WORD_LIMIT.COMMENT}</CounterTotal>
   </CounterWrapper>
 )
 
-const Header = ({ showInputEditor, onInput }) => {
+const Header = ({ showInputEditor, countCurrent, referUserList }) => {
   if (showInputEditor) {
     return (
       <InputHeaderWrapper>
         <UserAvatar src={fakeUser.avatar} />
-        <LeaveResponseUsername onClick={onInput}>
-          mydearxym
-        </LeaveResponseUsername>
-        <ReplyHint>回复:</ReplyHint>
-        <ReplyAvatars>
-          <AvatarsRow
-            users={fakeUsers.slice(1, getRandomInt(3, fakeUsers.length))}
-            total={3}
-            height="20px"
-          />
-        </ReplyAvatars>
+        <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
+        {referUserList.length > 0 ? (
+          <div style={{ display: 'flex' }}>
+            <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
+            <ReplyAvatars>
+              <AvatarsRow users={referUserList} total={3} height="20px" />
+            </ReplyAvatars>
+          </div>
+        ) : (
+          <div />
+        )}
         <SpaceGrow />
-        <WordsCounter />
+        <WordsCounter countCurrent={countCurrent} />
       </InputHeaderWrapper>
     )
   }
@@ -67,54 +68,102 @@ const Header = ({ showInputEditor, onInput }) => {
   return (
     <InputHeaderWrapper>
       <UserAvatar src={fakeUser.avatar} />
-      <LeaveResponseText onClick={onInput}>留条评论...</LeaveResponseText>
+      <LeaveResponseText onClick={logic.openCommentEditor}>
+        留条评论...
+      </LeaveResponseText>
     </InputHeaderWrapper>
   )
 }
 
-const InputEditor = ({ showInputEditor, onBlur }) => {
-  if (showInputEditor) {
-    return (
-      <div>
-        <InputEditorWrapper showInputEditor={showInputEditor}>
-          <BodyEditor
-            onChange={logic.onCommentInputChange}
-            body=""
-            onBlur={onBlur}
-          />
-        </InputEditorWrapper>
-        <InputFooter>
-          <InputHelper>
-            <HelperIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
-            <HelperIcon path={`${ICON_ASSETS}/cmd/extra_quote.svg`} />
-            <HelperIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
-          </InputHelper>
+const InputEditor = ({
+  showInputEditor,
+  body,
+  mentions,
+  restProps: { creating },
+}) => (
+  <div className="comment-editor">
+    <InputEditorWrapper showInputEditor={showInputEditor}>
+      <BodyEditor
+        mentions={mentions}
+        onChange={debounce(logic.onCommentInputChange, 450)}
+        onMention={logic.onMention}
+        body={body}
+      />
+    </InputEditorWrapper>
+    <InputFooter>
+      <InputHelper>
+        <div onClick={logic.insertCode}>
+          <HelperIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
+        </div>
+        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_quote.svg`} />
+        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
+      </InputHelper>
 
-          <InputSubmit>
-            <Button type="primary" ghost size="small">
-              预<Space right="5px" />览
-            </Button>
-            <Space right="10px" />
-            <Button type="primary" size="small">
-              提<Space right="5px" />交
-            </Button>
-          </InputSubmit>
-        </InputFooter>
-      </div>
-    )
-  }
-
-  return <div />
-}
-
-const CommentEditor = ({ onInput, showInputEditor }) => (
-  <Container showInputEditor={showInputEditor}>
-    <Header showInputEditor={showInputEditor} onInput={onInput} />
-    <InputEditor
-      showInputEditor={showInputEditor}
-      onBlur={logic.onCommentInputBlur}
-    />
-  </Container>
+      <InputSubmit>
+        <Button type="primary" ghost size="small">
+          预<Space right="5px" />览
+        </Button>
+        <Space right="10px" />
+        {!creating ? (
+          <Button type="primary" size="small" onClick={logic.createComment}>
+            提<Space right="5px" />交
+          </Button>
+        ) : (
+          <Button type="primary" size="small">
+            <Icon type="loading" />提<Space right="5px" />交
+          </Button>
+        )}
+      </InputSubmit>
+    </InputFooter>
+  </div>
 )
 
-export default CommentEditor
+const mentions = [
+  {
+    id: 112,
+    name: 'mydearxym',
+    avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
+  },
+  {
+    id: 113,
+    name: 'Julian',
+    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
+  },
+]
+
+class CommentEditor extends React.Component {
+  /* eslint-disable */
+  handleClickOutside() {
+    logic.onCommentInputBlur()
+  }
+  /* eslint-enable */
+
+  render() {
+    const {
+      referUserList,
+      restProps: { countCurrent, showInputEditor, editContent },
+    } = this.props
+
+    return (
+      <Container showInputEditor={showInputEditor}>
+        <Header
+          showInputEditor={showInputEditor}
+          countCurrent={countCurrent}
+          referUserList={referUserList}
+        />
+        {showInputEditor ? (
+          <InputEditor
+            mentions={mentions}
+            showInputEditor={showInputEditor}
+            body={editContent}
+            restProps={{ ...this.props }}
+          />
+        ) : (
+          <div />
+        )}
+      </Container>
+    )
+  }
+}
+
+export default withClickOutside(CommentEditor)

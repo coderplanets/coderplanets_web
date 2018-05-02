@@ -1,10 +1,12 @@
 import R from 'ramda'
 import React from 'react'
 import { Button } from 'antd'
+import TimeAgo from 'timeago-react'
 import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config'
-import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils'
+/* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
+import { Global, prettyNum } from '../../utils'
 
 import { AvatarsRow, SpaceGrow, Pagi, CommentLoading } from '../../components'
 
@@ -70,7 +72,7 @@ const DeleteMask = () => (
    }
  */
 
-const Comment = ({ data, floorNum }) => (
+const Comment = ({ data, floorNum, referUserList }) => (
   <CommentBlock>
     <DeleteMask />
     <CommentWrapper>
@@ -87,13 +89,12 @@ const Comment = ({ data, floorNum }) => (
             </CommentUserName>
             <ReplyUsers>
               <ReplyTitle>回复:</ReplyTitle>
-              <AvatarsRow
-                users={fakeUsers.slice(1, getRandomInt(3, fakeUsers.length))}
-                total={3}
-              />
+              <AvatarsRow users={referUserList} total={3} />
             </ReplyUsers>
           </CommentHeaderFirst>
-          <TimeStamps>2017-10-21</TimeStamps>
+          <TimeStamps>
+            <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+          </TimeStamps>
         </CommentHeader>
         <CommentContent>{data.body}</CommentContent>
         <CommentFooter>
@@ -126,11 +127,15 @@ const Comment = ({ data, floorNum }) => (
 const getFloorNum = (index, pageNumber, pageSize) =>
   index + 1 + (pageNumber - 1) * pageSize
 
-const Lists = ({ entries, pageNumber, pageSize }) => (
+const Lists = ({ entries, pageNumber, pageSize, referUserList }) => (
   <div>
     {entries.map((c, index) => (
       <div key={shortid.generate()}>
-        <Comment data={c} floorNum={getFloorNum(index, pageNumber, pageSize)} />
+        <Comment
+          data={c}
+          referUserList={referUserList}
+          floorNum={getFloorNum(index, pageNumber, pageSize)}
+        />
       </div>
     ))}
   </div>
@@ -138,7 +143,14 @@ const Lists = ({ entries, pageNumber, pageSize }) => (
 
 const CommentsList = ({
   entries,
-  restProps: { totalCount, pageSize, pageNumber, loading },
+  restProps: {
+    totalCount,
+    pageSize,
+    pageNumber,
+    loading,
+    loadingFresh,
+    referUserList,
+  },
 }) => (
   <div>
     {totalCount > 0 ? (
@@ -148,13 +160,25 @@ const CommentsList = ({
     ) : (
       <div />
     )}
+    {loadingFresh ? (
+      <CommentBlock>
+        <CommentLoading />
+      </CommentBlock>
+    ) : (
+      <div />
+    )}
     <ListsContainer>
       {loading ? (
         <CommentBlock>
           <CommentLoading />
         </CommentBlock>
       ) : (
-        <Lists entries={entries} pageSize={pageSize} pageNumber={pageNumber} />
+        <Lists
+          entries={entries}
+          referUserList={referUserList}
+          pageSize={pageSize}
+          pageNumber={pageNumber}
+        />
       )}
     </ListsContainer>
 

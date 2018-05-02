@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 import {
   gqRes,
   gqErr,
@@ -7,6 +7,8 @@ import {
   ERR,
   $solver,
   scrollIntoEle,
+  countWords,
+  dispatchEvent,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -23,10 +25,24 @@ const debug = makeDebugger('L:Comments')
 let comments = null
 let commentsConflict = null
 
-export function onCommentInput() {
-  // debug('onCommentInput')
+export function createComment() {
+  debug('createComment', comments.editContent)
+  debug('activeArticle: ', comments.activeArticle)
+
+  // TODO: validation...
   comments.markState({
-    showInputEditor: !comments.showInputEditor,
+    creating: true,
+  })
+
+  sr71$.mutate(S.createComment, {
+    id: comments.activeArticle.id,
+    body: comments.editContent,
+  })
+}
+
+export function openCommentEditor() {
+  comments.markState({
+    showInputEditor: true,
   })
 }
 
@@ -41,20 +57,62 @@ export function pageChange(page = 1) {
   loadComents(page)
 }
 
-export const loadComents = (page = 1) => {
+const markLoading = fresh => {
+  if (fresh) {
+    return comments.markState({ loadingFresh: true })
+  }
+  return comments.markState({ loading: true })
+}
+
+const cancelLoading = () => {
+  comments.markState({ loading: false, loadingFresh: false, creating: false })
+}
+
+// TODO: 第一次加载应该为综合排序(正序、点赞最多),创建评论以后应该使用倒序
+export const loadComents = (page = 1, fresh = false) => {
   const args = {
     id: comments.activeArticle.id,
     filter: { page, size: PAGE_SIZE.COMMENTS },
   }
 
-  comments.markState({ loading: true })
-
-  console.log('---.> query: ', args)
+  markLoading(fresh)
   sr71$.query(S.comments, args)
 }
 
-export function onCommentInputChange(value) {
-  debug('onCommentInputChange: ', value)
+function extractMentions(text) {
+  const mentionsRegex = new RegExp('@([a-zA-Z0-9_.]+)', 'gim')
+
+  let matches = text.match(mentionsRegex)
+  if (matches && matches.length) {
+    matches = matches.map(match => {
+      return match.slice(1)
+    })
+    return R.uniq(matches)
+  }
+  return []
+}
+
+export function onCommentInputChange(editContent) {
+  // debug('onCommentInputChange: ', editContent)
+
+  // debug('countWords --> ', extractMentions(editContent))
+
+  comments.markState({
+    countCurrent: countWords(editContent),
+    extractMentions: extractMentions(editContent),
+    editContent,
+  })
+}
+export function insertCode() {
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
+    type: 'FUCK',
+    data: '```javascript\n\n```',
+  })
+}
+
+export function onMention(user) {
+  debug('onMention: ', user)
+  comments.addReferUser(user)
 }
 
 const DataSolver = [
@@ -65,11 +123,22 @@ const DataSolver = [
   {
     match: gqRes('comments'),
     action: ({ comments }) => {
-      debug('--- bbb -> load comments: ', comments)
+      cancelLoading()
       commentsConflict.markState({
         ...comments,
-        loading: false,
       })
+    },
+  },
+
+  {
+    match: gqRes('createComment'),
+    action: ({ createComment }) => {
+      debug('createComment', createComment)
+      commentsConflict.markState({
+        showInputEditor: false,
+        editContent: '',
+      })
+      loadComents(1, true)
     },
   },
 ]

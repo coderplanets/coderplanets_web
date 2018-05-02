@@ -26,13 +26,13 @@ class CommentsContainer extends React.Component {
   }
 
   render() {
-    const { showInputEditor, entries } = this.props.comments
-    debug('showInputEditor ->', this.props.comments)
+    const { entries, referUserList } = this.props.comments
+
     return (
       <Wrapper>
         <CommentEditor
-          onInput={logic.onCommentInput}
-          showInputEditor={showInputEditor}
+          referUserList={referUserList}
+          restProps={{ ...this.props.comments }}
         />
         <CommentsList
           entries={entries}

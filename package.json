@@ -106,7 +106,7 @@
     "apollo-link-retry": "2.2.3",
     "debug": "3.1.0",
     "draft-js": "^0.10.5",
-    "draft-js-mention-plugin": "^2.0.1",
+    "draft-js-mention-plugin": "^3.0.4",
     "draft-js-plugins-editor": "^2.0.4",
     "glob": "^7.1.2",
     "graphql-tag": "^2.6.1",
@@ -127,6 +127,7 @@
     "react": "16.2.0",
     "react-beautiful-dnd": "6.0.0",
     "react-calendar-heatmap": "^1.6.3",
+    "react-click-outside": "^3.0.1",
     "react-content-loader": "3.1.1",
     "react-dom": "16.2.0",
     "react-icons": "^2.2.5",
@@ -145,8 +146,8 @@
     "rxjs": "^5.4.3",
     "scroll-into-view-if-needed": "1.5.0",
     "shortid": "^2.2.8",
-    "styled-components": "3.2.4",
     "store": "^2.0.12",
+    "styled-components": "3.2.4",
     "timeago-react": "2.0.0"
   },
   "devDependencies": {

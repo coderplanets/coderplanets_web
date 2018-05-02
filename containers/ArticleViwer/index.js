@@ -45,7 +45,10 @@ class ArticleViwerContainer extends React.Component {
   }
 
   render() {
-    const { type, articleViwer: { curPost, postLoading } } = this.props
+    const {
+      type,
+      articleViwer: { curPost, postLoading },
+    } = this.props
     return (
       <div>
         <Viwer
