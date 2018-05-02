@@ -1,4 +1,3 @@
-import R from 'ramda'
 import {
   gqRes,
   gqErr,
@@ -9,6 +8,7 @@ import {
   scrollIntoEle,
   countWords,
   dispatchEvent,
+  extractMentions,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -79,24 +79,7 @@ export const loadComents = (page = 1, fresh = false) => {
   sr71$.query(S.comments, args)
 }
 
-function extractMentions(text) {
-  const mentionsRegex = new RegExp('@([a-zA-Z0-9_.]+)', 'gim')
-
-  let matches = text.match(mentionsRegex)
-  if (matches && matches.length) {
-    matches = matches.map(match => {
-      return match.slice(1)
-    })
-    return R.uniq(matches)
-  }
-  return []
-}
-
 export function onCommentInputChange(editContent) {
-  // debug('onCommentInputChange: ', editContent)
-
-  // debug('countWords --> ', extractMentions(editContent))
-
   comments.markState({
     countCurrent: countWords(editContent),
     extractMentions: extractMentions(editContent),

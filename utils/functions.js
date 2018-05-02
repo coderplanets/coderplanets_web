@@ -120,3 +120,16 @@ export function debounce(func, wait, immediate) {
   }
 }
 /* eslint-enable */
+
+export function extractMentions(text) {
+  const mentionsRegex = new RegExp('@([a-zA-Z0-9_.]+)', 'gim')
+
+  let matches = text.match(mentionsRegex)
+  if (matches && matches.length) {
+    matches = matches.map(match => {
+      return match.slice(1)
+    })
+    return R.uniq(matches)
+  }
+  return []
+}

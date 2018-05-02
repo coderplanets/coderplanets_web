@@ -22,6 +22,7 @@ export {
   Rlog,
   countWords,
   debounce,
+  extractMentions,
 } from './functions'
 
 export { gqErr, gqRes } from './graphql_helper'
