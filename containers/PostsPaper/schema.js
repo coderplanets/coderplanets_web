@@ -10,6 +10,12 @@ const pagedPosts = gql`
         insertedAt
         updatedAt
         views
+        commentsParticipatorsCount
+        commentsParticipators(filter: { first: 5 }) {
+          id
+          nickname
+          avatar
+        }
       }
       totalCount
       pageSize

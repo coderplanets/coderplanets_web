@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { User } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsStore')
 /* eslint-enable no-unused-vars */
@@ -124,6 +125,8 @@ const PostItem = t.model('PostItem', {
   // author: Author,
   tags: t.optional(t.string, ''), // TODO: ArrayOf Tag
   comments: t.optional(t.string, ''), // TODO: ArrayOf comments
+  commentsParticipatorsCount: t.optional(t.number, 0),
+  commentsParticipators: t.optional(t.array(User), []),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })
@@ -138,6 +141,7 @@ const Posts = t.model('Posts', {
 
 const PostsStore = t
   .model('PostsStore', {
+    // TODO: remove community info, let apollo-client do the CACHE
     data: t.optional(t.map(Posts), { js: {} }),
     // tags ...
   })
@@ -154,6 +158,9 @@ const PostsStore = t
     get current() {
       const allJSON = self.all.toJSON()
       return allJSON.js
+    },
+    get commentsParticipatorUsers() {
+      return stripMobx(self.commentsParticipators)
     },
   }))
   .actions(self => ({

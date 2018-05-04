@@ -19,9 +19,9 @@ import ContentFilter from '../../components/ContentFilter'
 import {
   makeDebugger,
   storeSelector,
-  getRandomInt,
+  /* getRandomInt, */
   cutFrom,
-  fakeUsers,
+  /* fakeUsers, */
   // Global,
 } from '../../utils'
 
@@ -113,8 +113,8 @@ const PostItem = ({ post, active }) => (
         </PostBreif>
         <div>
           <AvatarsRow
-            users={fakeUsers.slice(1, getRandomInt(2, 6))}
-            total={3}
+            users={post.commentsParticipators}
+            total={post.commentsParticipatorsCount}
           />
         </div>
       </PostTopHalf>

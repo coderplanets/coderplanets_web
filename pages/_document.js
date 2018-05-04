@@ -34,16 +34,16 @@ export default class MyDocument extends Document {
             href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
             rel="stylesheet"
           />
-          <link
-            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css"
-            rel="stylesheet"
-          />
           {styleTags}
         </Head>
         <body id="body">
           <div className="root">{main}</div>
           <NextScript />
         </body>
+        <link
+          href="https://coderplanets.oss-cn-beijing.aliyuncs.com/css/mapbox-gl.css"
+          rel="stylesheet"
+        />
       </html>
     )
   }

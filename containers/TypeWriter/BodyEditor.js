@@ -3,6 +3,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { EditorState, ContentState, Modifier } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
@@ -14,7 +15,7 @@ import createMentionPlugin, {
 
 import toRawString from './exportContent'
 import { Wrapper } from './styles/editorStyle'
-import { EVENT } from '../../utils'
+import { EVENT, makeDebugger } from '../../utils'
 
 const themeClass = {
   mention: 'typewriter-mention',
@@ -24,6 +25,10 @@ const themeClass = {
   mentionSuggestionsEntryAvatar: 'typewriter-mentionSuggestionsEntryAvatar',
   mentionSuggestionsEntryText: 'typewriter-mentionSuggestionsEntryText',
 }
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('C:Comments')
+/* eslint-enable no-unused-vars */
 
 class MastaniEditor extends React.Component {
   constructor(props) {
@@ -202,6 +207,20 @@ class MastaniEditor extends React.Component {
       </Wrapper>
     )
   }
+}
+
+MastaniEditor.propTypes = {
+  mentions: PropTypes.number,
+  body: PropTypes.string,
+  onMention: PropTypes.func,
+  onChange: PropTypes.func,
+}
+
+MastaniEditor.defaultProps = {
+  body: '',
+  mentions: [],
+  onMention: debug,
+  onChange: debug,
 }
 
 export default MastaniEditor

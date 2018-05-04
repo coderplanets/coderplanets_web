@@ -29,11 +29,11 @@ export function closePreview() {
   preview.close()
 
   // force call Typewriter's componentWillUnmount to store the draft
-  dispatchEvent(EVENT.PREVIEW_CLOSED)
   // wait until preview move out of the screean
   setTimeout(() => {
     preview.markState({ type: null })
-  }, 500)
+    dispatchEvent(EVENT.PREVIEW_CLOSED)
+  }, 200)
 }
 
 function loadDataForPreview(info) {
