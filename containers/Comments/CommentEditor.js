@@ -53,7 +53,11 @@ const Header = ({ showInputEditor, countCurrent, referUserList }) => {
           <div style={{ display: 'flex' }}>
             <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
             <ReplyAvatars>
-              <AvatarsRow users={referUserList} total={3} height="20px" />
+              <AvatarsRow
+                users={referUserList}
+                total={referUserList.length}
+                height="20px"
+              />
             </ReplyAvatars>
           </div>
         ) : (

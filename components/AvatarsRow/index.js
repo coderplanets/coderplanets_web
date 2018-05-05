@@ -12,18 +12,19 @@ import R from 'ramda'
 
 import { makeDebugger, prettyNum } from '../../utils'
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './style'
+import { ATATARS_LIST_LENGTH } from '../../config/general'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
-const AvatarsRow = ({ users, total, height }) => {
+const AvatarsRow = ({ users, total, height, limit }) => {
   if (users.length === 0) {
     return <span />
   }
 
   return (
     <Avatars height={height}>
-      {total >= users.length ? (
+      {total <= users.length ? (
         <span />
       ) : (
         <AvatarsItem>
@@ -31,7 +32,7 @@ const AvatarsRow = ({ users, total, height }) => {
         </AvatarsItem>
       )}
 
-      {R.reverse(users).map(user => (
+      {R.slice(0, limit, R.reverse(users)).map(user => (
         <AvatarsItem key={shortid.generate()}>
           <Tooltip title={user.nickname}>
             <AvatarsImg src={user.avatar} />
@@ -51,11 +52,13 @@ AvatarsRow.propTypes = {
   ),
   total: PropTypes.number.isRequired,
   height: PropTypes.string,
+  limit: PropTypes.number,
 }
 
 AvatarsRow.defaultProps = {
   height: '32px',
   users: [],
+  limit: ATATARS_LIST_LENGTH.POSTS,
 }
 
 export default AvatarsRow
