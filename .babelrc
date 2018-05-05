@@ -1,0 +1,42 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "react-intl",
+      {
+        "messagesDir": "lang/.messages/"
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd"
+      }
+    ],
+    "ramda"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": "commonjs"
+          }
+        ],
+        "next/babel"
+      ]
+    }
+  }
+}
