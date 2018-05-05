@@ -1,12 +1,8 @@
-/* cool version */
-
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 import { Subject } from 'rxjs/Subject'
-// import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/of'
-/* import 'rxjs/add/observable/fromPromise' */
 import 'rxjs/add/observable/fromEventPattern'
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/do'
@@ -16,9 +12,6 @@ import 'rxjs/add/operator/timeoutWith'
 
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
-// import { isEmptyValue } from '../../utils'
-
-// import network from './index'
 
 import { queryPromise, mutatePromise, restGetPromise } from './index'
 
