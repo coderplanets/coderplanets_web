@@ -162,6 +162,7 @@ class MastaniEditor extends React.Component {
 
   loadUserSuggestions = () => {
     const { mentions } = this.props
+    /* debug('loadUserSuggestions --->', mentions) */
     this.setState({
       suggestions: mentions,
       mentions,
@@ -210,7 +211,13 @@ class MastaniEditor extends React.Component {
 }
 
 MastaniEditor.propTypes = {
-  mentions: PropTypes.number,
+  mentions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
   body: PropTypes.string,
   onMention: PropTypes.func,
   onChange: PropTypes.func,
