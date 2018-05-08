@@ -9,6 +9,7 @@ import {
   countWords,
   dispatchEvent,
   extractMentions,
+  stripMobx,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -38,6 +39,19 @@ export function createComment() {
     id: comments.activeArticle.id,
     body: comments.editContent,
   })
+}
+
+export function replyComment() {
+  debug('replyComment: ', comments.replyToComment)
+  debug('replyComment body: ', comments.replyContent)
+  sr71$.mutate(S.replyComment, {
+    id: comments.replyToComment.id,
+    body: comments.replyContent,
+  })
+}
+
+export function previewReply(data) {
+  debug('previewReply --> : ', data)
 }
 
 export function openCommentEditor() {
@@ -72,7 +86,8 @@ const cancelLoading = () => {
 export const loadComents = (page = 1, fresh = false) => {
   const args = {
     id: comments.activeArticle.id,
-    filter: { page, size: PAGE_SIZE.COMMENTS },
+    filter: { page, size: PAGE_SIZE.COMMENTS, sort: 'ASC_INSERTED' },
+    /* "DESC_INSERTED" */
   }
 
   markLoading(fresh)
@@ -86,6 +101,14 @@ export function onCommentInputChange(editContent) {
     editContent,
   })
 }
+export function onReplyChange(replyContent) {
+  comments.markState({
+    countCurrent: countWords(replyContent),
+    extractMentions: extractMentions(replyContent),
+    replyContent,
+  })
+}
+
 export function insertCode() {
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
     type: 'FUCK',
@@ -96,6 +119,32 @@ export function insertCode() {
 export function onMention(user) {
   debug('onMention: ', user)
   comments.addReferUser(user)
+}
+
+export function onDelete(comment) {
+  comments.markState({
+    tobeDeleteId: comment.id,
+  })
+}
+
+export function cancleDelete() {
+  comments.markState({
+    tobeDeleteId: null,
+  })
+}
+
+export function openReplyBox(data) {
+  console.log('openReplyBox data: ', data)
+  comments.markState({
+    showReplyEditor: true,
+    replyToComment: stripMobx(data),
+  })
+}
+
+export function closeReplyBox() {
+  comments.markState({
+    showReplyEditor: false,
+  })
 }
 
 const DataSolver = [
@@ -120,6 +169,17 @@ const DataSolver = [
       commentsConflict.markState({
         showInputEditor: false,
         editContent: '',
+      })
+      loadComents(1, true)
+    },
+  },
+  {
+    match: gqRes('replyComment'),
+    action: ({ replyComment }) => {
+      debug('replyComment', replyComment)
+      commentsConflict.markState({
+        showReplyEditor: false,
+        replyToComment: null,
       })
       loadComents(1, true)
     },

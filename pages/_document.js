@@ -13,6 +13,10 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>mastani</title>
+          <link
+            href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
+            rel="stylesheet"
+          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${
@@ -29,10 +33,6 @@ export default class MyDocument extends Document {
             gtag('config', '${process.env.GA_TRACING_ID}');
               `,
             }}
-          />
-          <link
-            href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
-            rel="stylesheet"
           />
           {styleTags}
         </Head>

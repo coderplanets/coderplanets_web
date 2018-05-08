@@ -9,6 +9,7 @@ import {
   TYPE,
   $solver,
   pageGoTop,
+  GA,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -82,6 +83,13 @@ export function onTitleSelect(activePost) {
   dispatchEvent(EVENT.NAV_EDIT, {
     type: TYPE.POST_PREVIEW_VIEW,
     data: activePost,
+  })
+  debug('activePost: ', activePost)
+
+  GA.event({
+    action: activePost.title,
+    category: '浏览',
+    label: '社区',
   })
 }
 

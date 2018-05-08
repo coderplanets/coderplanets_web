@@ -38,6 +38,13 @@ const AntOverWrite = styled.div`
       color: #acadad;
     }
   }
+  .comment-reply-editor {
+    .public-DraftEditor-content {
+      min-height: 200px;
+      font-size: 0.9em;
+      color: #acadad;
+    }
+  }
 
   .public-DraftEditor-content {
     min-height: 500px;
@@ -108,7 +115,7 @@ const AntOverWrite = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 368px;
-    font-size: 1.2em;
+    font-size: 1.1rem;
     margin-bottom: 0.2em;
     color: #6d999d;
   }
@@ -118,6 +125,11 @@ const AntOverWrite = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 12px;
+  }
+
+  // modal
+  .ant-modal-mask {
+    background-color: rgba(0, 0, 0, 0.15) !important;
   }
 
   // ----
@@ -253,6 +265,15 @@ const AntOverWrite = styled.div`
     background-color: ${lighten(0.1, 'tomato')};
     border-color: ${lighten(0.1, 'tomato')};
     color: white;
+  }
+
+  .ant-btn-red:active {
+    background-color: ${lighten(0.1, 'tomato')};
+    border-color: ${lighten(0.1, 'tomato')};
+  }
+  .ant-btn-red:focus {
+    background-color: ${lighten(0.2, 'tomato')};
+    border-color: ${lighten(0.2, 'tomato')};
   }
 
   .ant-btn-red {

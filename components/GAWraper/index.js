@@ -1,7 +1,7 @@
 import React from 'react'
 import Router from 'next/router'
 
-import * as GA from '../../utils/analytics'
+import { GA } from '../../utils'
 
 Router.onRouteChangeComplete = url => {
   GA.pageview(url)

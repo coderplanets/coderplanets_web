@@ -1,11 +1,12 @@
 import gql from 'graphql-tag'
 
 const comments = gql`
-  query comments($id: ID!, $filter: PagedFilter!) {
+  query comments($id: ID!, $filter: CommentsFilter!) {
     comments(id: $id, filter: $filter) {
       entries {
         id
         body
+        floor
         author {
           id
           nickname
@@ -14,6 +15,20 @@ const comments = gql`
         replyTo {
           id
           body
+          floor
+          author {
+            id
+            avatar
+            nickname
+          }
+        }
+        replies(filter: { first: 5 }) {
+          id
+          author {
+            id
+            avatar
+            nickname
+          }
         }
         repliesCount
         likesCount
@@ -37,9 +52,19 @@ const createComment = gql`
   }
 `
 
+const replyComment = gql`
+  mutation($part: CmsPart, $id: ID!, $body: String!) {
+    replyComment(part: $part, id: $id, body: $body) {
+      id
+      body
+    }
+  }
+`
+
 const schema = {
   comments,
   createComment,
+  replyComment,
 }
 
 export default schema

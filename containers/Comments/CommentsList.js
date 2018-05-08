@@ -40,6 +40,9 @@ import {
   ActionNumber,
   UpIcon,
   DownIcon,
+  ReplyBar,
+  ReplyToBody,
+  ReplyToFloor,
 } from './styles/comments_list'
 
 const getSelection = () => {
@@ -50,11 +53,11 @@ const getSelection = () => {
   }
 }
 
-const DeleteMask = () => (
-  <DeleteOverlay>
-    <DeleteHintText>删除后该内容将不可恢复</DeleteHintText>
+const DeleteMask = ({ show }) => (
+  <DeleteOverlay show={show}>
+    <DeleteHintText>删除后该该评论将不可恢复</DeleteHintText>
     <DeleteBtnGroup>
-      <Button size="small" type="red" ghost>
+      <Button size="small" type="red" ghost onClick={logic.cancleDelete}>
         取消
       </Button>
       &nbsp;&nbsp;
@@ -65,17 +68,47 @@ const DeleteMask = () => (
   </DeleteOverlay>
 )
 
-/*
-   const fakeUser = {
-   avatar:
-   'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/6.jpg',
-   }
- */
+const ActionBottom = ({ data, accountInfo }) => {
+  /* console.log('actionBottom data: ', data.author.id) */
+  /* console.log('accountInfo --dd -->', accountInfo) */
+  if (String(data.author.id) === accountInfo.id) {
+    return (
+      <div style={{ display: 'flex' }}>
+        <ReplyAction>
+          <ReplyIcon path={`${ICON_ASSETS}/cmd/edit.svg`} />
+          编辑
+        </ReplyAction>
+        <ReplyAction onClick={logic.onDelete.bind(this, data)}>
+          <ReplyIcon path={`${ICON_ASSETS}/cmd/delete.svg`} />
+          删除
+        </ReplyAction>
+      </div>
+    )
+  }
+  return (
+    <div style={{ display: 'flex' }}>
+      <ReplyAction onClick={logic.openReplyBox.bind(this, data)}>
+        <ReplyIcon path={`${ICON_ASSETS}/cmd/nest_comment.svg`} />
+        回复
+      </ReplyAction>
+    </div>
+  )
+}
 
-const Comment = ({ data, floorNum, referUserList }) => (
+const getAuthors = comment => {
+  // extra_id is used for preview this reply when in parrent comment
+  const replies = R.map(
+    reply => (reply.author.extra_id = reply.id),
+    comment.replies
+  )
+
+  return R.pluck('author', replies)
+}
+
+const Comment = ({ data, tobeDeleteId, accountInfo }) => (
   <CommentBlock>
-    <DeleteMask />
-    <CommentWrapper>
+    <DeleteMask show={data.id === tobeDeleteId} />
+    <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
       <CommentUserInfo>
         <CommentAvatar src={data.author.avatar} />
       </CommentUserInfo>
@@ -85,18 +118,37 @@ const Comment = ({ data, floorNum, referUserList }) => (
           <CommentHeaderFirst>
             <CommentUserName>
               {data.author.nickname}
-              <FloorNum>#{floorNum}</FloorNum>
+              <FloorNum>#{data.floor}</FloorNum>
             </CommentUserName>
-            <ReplyUsers>
-              <ReplyTitle>回复:</ReplyTitle>
-              <AvatarsRow users={referUserList} total={3} />
-            </ReplyUsers>
+            {data.repliesCount !== 0 ? (
+              <ReplyUsers>
+                <ReplyTitle>收到回复:</ReplyTitle>
+                <AvatarsRow
+                  users={getAuthors(data)}
+                  onUserSelect={logic.previewReply}
+                  total={data.repliesCount}
+                />
+              </ReplyUsers>
+            ) : (
+              <div />
+            )}
           </CommentHeaderFirst>
           <TimeStamps>
             <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
           </TimeStamps>
         </CommentHeader>
-        <CommentContent>{data.body}</CommentContent>
+        <CommentContent>
+          {data.replyTo ? (
+            <ReplyBar>
+              回复&nbsp;{data.replyTo.author.nickname}:
+              <ReplyToBody>{data.replyTo.body}</ReplyToBody>
+              <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
+            </ReplyBar>
+          ) : (
+            <div />
+          )}
+          {data.body}
+        </CommentContent>
         <CommentFooter>
           <Actions>
             <VisiableAction>
@@ -108,14 +160,8 @@ const Comment = ({ data, floorNum, referUserList }) => (
               <ActionNumber>{prettyNum(data.dislikesCount)}</ActionNumber>
             </VisiableAction>
             <SpaceGrow />
-            <ReplyAction>
-              <ReplyIcon path={`${ICON_ASSETS}/cmd/nest_comment.svg`} />
-              回复
-            </ReplyAction>
-            <ReplyAction>
-              <ReplyIcon path={`${ICON_ASSETS}/cmd/delete.svg`} />
-              删除
-            </ReplyAction>
+
+            <ActionBottom data={data} accountInfo={accountInfo} />
           </Actions>
         </CommentFooter>
       </CommentBodyInfo>
@@ -123,18 +169,14 @@ const Comment = ({ data, floorNum, referUserList }) => (
   </CommentBlock>
 )
 
-// TODO: movit to utils
-const getFloorNum = (index, pageNumber, pageSize) =>
-  index + 1 + (pageNumber - 1) * pageSize
-
-const Lists = ({ entries, pageNumber, pageSize, referUserList }) => (
+const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   <div>
-    {entries.map((c, index) => (
+    {entries.map(c => (
       <div key={shortid.generate()}>
         <Comment
           data={c}
-          referUserList={referUserList}
-          floorNum={getFloorNum(index, pageNumber, pageSize)}
+          tobeDeleteId={tobeDeleteId}
+          accountInfo={accountInfo}
         />
       </div>
     ))}
@@ -143,13 +185,14 @@ const Lists = ({ entries, pageNumber, pageSize, referUserList }) => (
 
 const CommentsList = ({
   entries,
+  accountInfo,
   restProps: {
     totalCount,
     pageSize,
     pageNumber,
     loading,
     loadingFresh,
-    referUserList,
+    tobeDeleteId,
   },
 }) => (
   <div>
@@ -175,9 +218,10 @@ const CommentsList = ({
       ) : (
         <Lists
           entries={entries}
-          referUserList={referUserList}
+          accountInfo={accountInfo}
           pageSize={pageSize}
           pageNumber={pageNumber}
+          tobeDeleteId={tobeDeleteId}
         />
       )}
     </ListsContainer>

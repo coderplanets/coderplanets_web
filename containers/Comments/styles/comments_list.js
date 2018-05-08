@@ -1,7 +1,14 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme, column } from '../../../utils'
+import { theme, column, Animate } from '../../../utils'
+import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
+
+export const ReplyBar = ReplyBarBase.extend`
+  margin-left: -2px;
+`
+export const ReplyToBody = ReplyToBodyBase.extend``
+export const ReplyToFloor = ReplyToFloorBase.extend``
 
 // min-height: 300px;
 export const ListsContainer = styled.div`
@@ -24,7 +31,7 @@ export const TotalNum = styled.span`
 
 export const FloorNum = styled.div`
   color: #b5ddb3;
-  font-size: 0.9em;
+  font-size: 1rem;
   align-self: center;
   margin-left: 5px;
   flex-grow: 1;
@@ -45,17 +52,19 @@ export const CommentBlock = styled.div`
 export const CommentWrapper = styled.div`
   display: flex;
   flex-grow: 1;
+  filter: ${props => (props.tobeDelete ? 'blur(3px)' : '')};
 `
 export const DeleteHintText = styled.div`
   color: tomato;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 10px;
 `
 export const DeleteOverlay = styled.div`
   position: absolute;
-  width: 97%;
+  margin-top: -15px;
+  margin-left: -20px;
+  width: 100%;
   height: 100%;
-  //  border: 1px dashed tomato;
   border-radius: 5px;
   z-index: 10;
   display: flex;
@@ -63,6 +72,7 @@ export const DeleteOverlay = styled.div`
   align-items: center;
   justify-content: center;
   visibility: ${props => (props.show ? 'visible' : 'hidden')};
+  animation: ${Animate.pulse} 0.3s linear;
 `
 export const DeleteBtnGroup = styled.div`
   display: flex;

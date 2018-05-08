@@ -16,6 +16,7 @@ const githubSignin = gql`
 const user = gql`
   query user($id: ID!) {
     user(id: $id) {
+      id
       nickname
       avatar
       bio

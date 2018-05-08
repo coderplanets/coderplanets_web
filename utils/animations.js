@@ -73,12 +73,24 @@ const fadeInDown = keyframes`
   }
 `
 
+const zoomIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+`
+
 const Animate = {
   fadeInRight,
   fadeInDown,
   pulse,
   fadeInUp,
   shake,
+  zoomIn,
 }
 
 export default Animate

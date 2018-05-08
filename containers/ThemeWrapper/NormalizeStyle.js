@@ -13,7 +13,7 @@ const NormalizeStyle = `
   }
 
   body {
-    font-size: 12px;
+    font-size: 14px !important;
     line-height: 1.5;
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
   }

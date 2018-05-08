@@ -59,3 +59,5 @@ export {
 } from './themes'
 
 export { default as fakeUsers } from './fake_user'
+
+export { default as GA } from './analytics'

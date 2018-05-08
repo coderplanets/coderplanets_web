@@ -7,15 +7,17 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
+/* import { Modal } from 'antd' */
 
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 
-import { Wrapper } from './styles'
-
+import { Modal } from '../../components'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
+import CommentReplyer from './CommentReplyer'
 
+import { Wrapper } from './styles'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Comments')
 /* eslint-enable no-unused-vars */
@@ -26,15 +28,36 @@ class CommentsContainer extends React.Component {
   }
 
   render() {
-    const { entries, referUserList } = this.props.comments
+    const {
+      entries,
+      referUserList,
+      accountInfo,
+      showReplyEditor,
+    } = this.props.comments
+
+    /* console.log('the fucking accountInfo --> ', accountInfo) */
+    // TODO: use styledModal
 
     return (
       <Wrapper>
+        <Modal show={showReplyEditor}>
+          {showReplyEditor ? (
+            <CommentReplyer
+              referUserList={referUserList}
+              restProps={{ ...this.props.comments }}
+              show={showReplyEditor}
+            />
+          ) : (
+            <div />
+          )}
+        </Modal>
+
         <CommentEditor
           referUserList={referUserList}
           restProps={{ ...this.props.comments }}
         />
         <CommentsList
+          accountInfo={accountInfo}
           entries={entries}
           restProps={{ ...this.props.comments }}
         />

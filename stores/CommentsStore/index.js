@@ -12,11 +12,20 @@ import { User } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:CommentsStore')
 /* eslint-enable no-unused-vars */
+const CommentBrief = t.model('CommentBrief', {
+  id: t.maybe(t.string),
+  body: t.maybe(t.string),
+  floor: t.maybe(t.number),
+  author: t.optional(User, {}),
+})
 
 const Comment = t.model('Comment', {
   id: t.maybe(t.string),
   body: t.maybe(t.string),
   author: t.optional(User, {}),
+  floor: t.number,
+  replyTo: t.maybe(CommentBrief),
+  replies: t.optional(t.array(CommentBrief), []),
   /* desc: t.optional(t.string, ''), */
   /* raw: t.maybe(t.string), */
   /* logo: t.maybe(t.string), */
@@ -39,10 +48,12 @@ const Mention = t.model('Mention', {
 const CommentsStore = t
   .model('CommentsStore', {
     showInputEditor: t.optional(t.boolean, false),
-    deletingID: t.optional(t.string, ''),
+    showReplyEditor: t.optional(t.boolean, false),
+    tobeDeleteId: t.maybe(t.string),
     countCurrent: t.optional(t.number, 0),
-    editContent: t.optional(t.string, ''),
 
+    editContent: t.optional(t.string, ''),
+    replyContent: t.optional(t.string, ''),
     entries: t.optional(t.array(Comment), []),
     totalCount: t.optional(t.number, 0),
     pageNumber: t.optional(t.number, 0),
@@ -52,7 +63,10 @@ const CommentsStore = t
     referUsers: t.optional(t.array(Mention), []),
     extractMentions: t.optional(t.array(t.string), []),
 
+    replyToComment: t.maybe(Comment),
+
     creating: t.optional(t.boolean, false),
+    replying: t.optional(t.boolean, false),
     loading: t.optional(t.boolean, false),
     loadingFresh: t.optional(t.boolean, false),
   })
@@ -68,6 +82,10 @@ const CommentsStore = t
         user => R.contains(user.nickname, extractMentions),
         referUsers
       )
+    },
+
+    get accountInfo() {
+      return self.root.account.accountInfo
     },
 
     get activeArticle() {
