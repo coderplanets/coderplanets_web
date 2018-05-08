@@ -17,6 +17,8 @@ import { ATATARS_LIST_LENGTH } from '../../config/general'
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
+const validUser = R.compose(R.not, R.isNil)
+
 const AvatarsRow = ({
   users,
   total,
@@ -29,6 +31,7 @@ const AvatarsRow = ({
     return <span />
   }
 
+  users = R.filter(validUser, users)
   return (
     <Avatars height={height}>
       {total <= users.length ? (

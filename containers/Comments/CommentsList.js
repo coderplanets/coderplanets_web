@@ -6,7 +6,7 @@ import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
-import { Global, prettyNum } from '../../utils'
+import { Global, prettyNum, stripMobx } from '../../utils'
 
 import { AvatarsRow, SpaceGrow, Pagi, CommentLoading } from '../../components'
 
@@ -96,11 +96,9 @@ const ActionBottom = ({ data, accountInfo }) => {
 }
 
 const getAuthors = comment => {
-  // extra_id is used for preview this reply when in parrent comment
-  const replies = R.map(
-    reply => (reply.author.extra_id = reply.id),
-    comment.replies
-  )
+  const replies = R.forEach(reply => {
+    return (reply.author.extra_id = reply.id)
+  }, R.clone(stripMobx(comment.replies)))
 
   return R.pluck('author', replies)
 }
