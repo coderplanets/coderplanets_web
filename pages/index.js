@@ -14,6 +14,7 @@ import Header from '../containers/Header'
 import Banner from '../containers/Banner'
 import Content from '../containers/Content'
 
+import Footer from '../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
@@ -52,6 +53,7 @@ export default class Index extends React.Component {
                 <Header />
                 <Banner />
                 <Content />
+                <Footer />
               </BodyLayout>
             </MultiLanguage>
           </ThemeWrapper>

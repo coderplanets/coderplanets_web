@@ -10,6 +10,7 @@ export const Hidder = styled.div`
 
 export const Wrapper = styled.div`
   margin: 30px;
+  margin-bottom: 0px;
   width: 95.5%;
   height: 70%;
   min-height: 70vh;
