@@ -91,15 +91,13 @@ export const PostAvatar = styled.img`
 export const PostBreif = styled.div`
   display: flex;
   flex-grow: 1;
-  font-size: 1.2em;
+  font-size: 1.1rem;
   margin-left: 10px;
   color: ${theme('paper.article_title')};
 `
 
 export const PostTitle = styled.div`
-  line-height: 1.2em;
   margin-bottom: 10px;
-  margin-top: 2px;
 
   @media (max-width: 1450px) {
     max-width: 500px;
@@ -115,23 +113,25 @@ export const PostTitleTagDot = styled.span`
   width: 10px;
   height: 10px;
   margin-right: 3px;
-  border-radius: 2px;
+  border-radius: 50%;
   background-color: #9cd090;
   display: inline-block;
 `
 
 export const PostTitleLink = styled.div`
   position: relative;
-  font-size: 0.8em;
+  font-size: 0.9rem;
+  margin-top: 2px;
   color: #a8b8c6;
   margin-left: 10px;
-  opacity: 0.7;
+  opacity: 0.8;
 `
 export const PostTitleTag = styled.div`
-  font-size: 0.8em;
+  font-size: 0.9rem;
   color: #a8b8c6;
   margin-left: 10px;
-  opacity: 0.7;
+  margin-top: 2px;
+  opacity: 0.8;
 `
 export const LinkIcon = styled(ReactSVG)`
   position: absolute;
@@ -145,7 +145,7 @@ export const PostExtra = styled.li`
   display: inline;
   opacity: 0.7;
   transition: opacity 0.2s;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 `
 
 export const PostBodyBreif = styled.li`
@@ -154,5 +154,5 @@ export const PostBodyBreif = styled.li`
   margin-right: 20px;
   white-space: normal;
   display: block;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 `

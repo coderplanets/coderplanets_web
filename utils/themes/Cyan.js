@@ -54,7 +54,7 @@ const Cyan = {
     filter_result_hint: '#edc48a',
     article_title: '#61868c',
     article_hover: '#f3f6f9',
-    article_brief: '#849ca0',
+    article_brief: '#a2c0c5',
     comments_user_border: secondHalfBg,
   },
   pagination: {

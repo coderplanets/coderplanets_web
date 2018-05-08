@@ -31,17 +31,17 @@ export const CommunityInfo = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 1.6em;
+  font-size: 1.5rem;
   color: ${theme('font')};
   @media (max-height: 800px) {
-    font-size: 1.4em;
+    font-size: 1.4rem;
   }
 `
 // color: ${theme('font')};
 export const Desc = styled.div`
-  font-size: 1.1em;
+  font-size: 1rem;
   color: ${theme('banner.desc')};
   @media (max-height: 800px) {
-    font-size: 1em;
+    font-size: 1rem;
   }
 `

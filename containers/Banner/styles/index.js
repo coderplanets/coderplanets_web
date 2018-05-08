@@ -57,7 +57,7 @@ export const NumberTitle = styled.div`
   }
 `
 export const NumberItem = styled.div`
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: ${theme('banner.number')};
   &:hover {
     color: ${props => (props.dead ? '' : '#f1c48f')};
