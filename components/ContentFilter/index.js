@@ -6,7 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Row, Col, Popover, Tag } from 'antd'
+import { Button, Row, Col, Tag } from 'antd'
+import { Popover } from '../../components'
 
 import { ICON_ASSETS } from '../../config'
 
@@ -149,7 +150,7 @@ const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
           综合排序
-          <FilterIcon path={`${ICON_ASSETS}/cmd/filter.svg`} />
+          <FilterIcon path={`${ICON_ASSETS}/cmd/filter2.svg`} />
         </InnerBtnWrapper>
       </Button>
       &nbsp;&nbsp;&nbsp;&nbsp;

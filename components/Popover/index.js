@@ -19,13 +19,13 @@ const renderContent = content => {
   return <ContentContainer>{content}</ContentContainer>
 }
 
-const PopoverComponent = ({ title, children, content, trigger }) => {
+const PopoverComponent = ({ title, children, content, trigger, placement }) => {
   return (
     <Popover
       content={renderContent(content)}
+      placement={placement}
       title={title}
       trigger={trigger}
-      placement="bottom"
     >
       {children}
     </Popover>
@@ -37,11 +37,13 @@ PopoverComponent.propTypes = {
   content: PropTypes.node.isRequired,
   title: PropTypes.string,
   trigger: PropTypes.oneOf(['hover', 'click', 'focus']),
+  placement: PropTypes.oneOf(['bottomLeft', 'bottom']),
 }
 
 PopoverComponent.defaultProps = {
   title: '',
   trigger: 'hover',
+  placement: 'bottom',
 }
 
 export default PopoverComponent

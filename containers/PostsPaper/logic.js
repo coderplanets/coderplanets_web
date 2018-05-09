@@ -37,11 +37,6 @@ export function outAnchor() {
   postsPaper.setHeaderFix(true)
 }
 
-export function pageChange(page) {
-  debug('pageChange page: ', page)
-  loadPosts(page)
-}
-
 export function loadPosts(page = 1) {
   postsPaper.markState({
     curView: 'LOADING',
@@ -64,7 +59,7 @@ export function loadPosts(page = 1) {
   sr71$.query(S.pagedPosts, args)
 }
 
-export function filterOnSelect(key, val) {
+export function onFilterSelect(key, val) {
   postsPaper.selectFilter(key, val)
   loadPosts()
 }
@@ -96,6 +91,10 @@ export function onTitleSelect(activePost) {
 export function createContent() {
   debug('onTitleSelect createContent ')
   dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+}
+
+export function pageChange(page) {
+  loadPosts(page)
 }
 
 const DataSolver = [

@@ -173,7 +173,7 @@ class PostsPaperContainer extends React.Component {
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <FilterWrapper>
             <ContentFilter
-              onSelect={logic.filterOnSelect}
+              onSelect={logic.onFilterSelect}
               activeWhen={when}
               activeSort={sort}
               activeLength={wordLength}

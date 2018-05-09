@@ -15,14 +15,15 @@ export const InnerBtnWrapper = styled.div`
 
 export const FilterIcon = styled(ReactSVG)`
   fill: ${theme('font')};
-  width: 14px;
-  height: 14px;
-  margin-top: 1px;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
   margin-left: 3px;
 `
 
 export const SelectPanelWrapper = styled.div`
   width: 280px;
+  margin-left: 20px;
 `
 
 export const SelectTitle = styled.div`
