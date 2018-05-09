@@ -9,8 +9,9 @@ import PropTypes from 'prop-types'
 import shortid from 'shortid'
 
 // import TagsLoading from '../../components/LoadingEffects/TagsLoading'
-import { Wrapper, TagItem, TagDot, TagTitle } from './styles'
+import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
+import { ICON_ASSETS } from '../../config'
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:TagList:index')
@@ -22,6 +23,20 @@ const TagList = ({ tags, active, onSelect }) => {
 
   return (
     <Wrapper>
+      {active.title ? (
+        <TagItem
+          onClick={onSelect.bind(this, {
+            title: '',
+            color: '',
+          })}
+        >
+          <AllTagIcon path={`${ICON_ASSETS}/cmd/all_tags.svg`} />
+          <TagTitle>全部标签</TagTitle>
+        </TagItem>
+      ) : (
+        <div />
+      )}
+
       {tags.map(tag => (
         <TagItem
           key={shortid.generate()}

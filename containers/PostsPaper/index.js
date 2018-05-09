@@ -202,7 +202,7 @@ class PostsPaperContainer extends React.Component {
 
             <TagDivider />
 
-            <TagList tags={tags} active={curTag} onSelect={logic.tagOnSelect} />
+            <TagList tags={tags} active={curTag} onSelect={logic.onTagSelect} />
           </Affix>
         </RightPart>
         <RightPadding />

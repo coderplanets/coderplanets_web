@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ReactSVG from 'react-svg'
 
 export const Wrapper = styled.div`
   /* border-right: 1px solid grey; */
@@ -15,18 +16,33 @@ export const TagItem = styled.div`
     color: tomato;
   }
 `
+
+export const AllTagIcon = styled(ReactSVG)`
+  fill: #6b8688;
+  margin-right: 10px;
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+`
+
+const getDotBgColor = (active, title, color) => {
+  if (!active) return color
+  return active === title ? color : 'lightgrey'
+}
+
 export const TagDot = styled.div`
   width: 14px;
   height: 14px;
   margin-top: 5px;
   margin-right: 12px;
   border-radius: 100%;
-  background-color: ${props => props.color};
+  background-color: ${props =>
+    getDotBgColor(props.active, props.title, props.color)};
   display: inline-block;
-  opacity: ${props => (props.active === props.title ? 1 : 0.7)};
+  opacity: 0.7;
 `
+// ${props => (props.active === props.title ? 1 : 0.7)}
 
 export const TagTitle = styled.div`
-  color: ${props => (props.active === props.title ? props.color : '#799CA0')};
-  font-weight: ${props => (props.active === props.title ? 'bold' : 'normal')};
+  color: #799ca0;
 `

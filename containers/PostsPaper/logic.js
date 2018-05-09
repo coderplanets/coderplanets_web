@@ -69,7 +69,7 @@ export function filterOnSelect(key, val) {
   loadPosts()
 }
 
-export function tagOnSelect(obj) {
+export function onTagSelect(obj) {
   postsPaper.selectTag(obj)
   loadPosts()
 }
