@@ -168,7 +168,7 @@ export const LikeIcon = styled(ReactSVG)`
 `
 
 export const UpIcon = styled(ReactSVG)`
-  fill: #6b8688;
+  fill: ${props => (props.viewerDid ? 'orange' : '#6b8688')};
   margin-right: 3px;
   margin-top: 2px;
   width: 20px;

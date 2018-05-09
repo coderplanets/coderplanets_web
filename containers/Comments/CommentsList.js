@@ -152,15 +152,25 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
         <CommentFooter>
           <Actions>
             <VisiableAction>
-              <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
+              <div onClick={logic.toggleLikeComment.bind(this, data)}>
+                <UpIcon
+                  path={`${ICON_ASSETS}/cmd/up.svg`}
+                  viewerDid={data.viewerHasLiked}
+                />
+              </div>
               <ActionNumber>{prettyNum(data.likesCount)}</ActionNumber>
             </VisiableAction>
             <VisiableAction>
-              <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
+              <div onClick={logic.toggleDislikeComment.bind(this, data)}>
+                <UpIcon
+                  path={`${ICON_ASSETS}/cmd/up.svg`}
+                  reverse
+                  viewerDid={data.viewerHasDisliked}
+                />
+              </div>
               <ActionNumber>{prettyNum(data.dislikesCount)}</ActionNumber>
             </VisiableAction>
             <SpaceGrow />
-
             <ActionBottom data={data} accountInfo={accountInfo} />
           </Actions>
         </CommentFooter>

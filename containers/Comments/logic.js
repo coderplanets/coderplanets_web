@@ -11,7 +11,6 @@ import {
   countWords,
   dispatchEvent,
   extractMentions,
-  stripMobx,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -38,12 +37,14 @@ export const loadComents = (args = {}) => {
   // debug('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
   args.id = comments.activeArticle.id
+  args.userHasLogin = comments.isLogin
+
   markLoading(args.fresh)
   comments.markState({
     filterType: args.filter.sort,
   })
 
-  /* debug('loadComents query: ', args) */
+  debug('loadComents query: ', args)
   sr71$.query(S.comments, args)
 }
 
@@ -147,7 +148,7 @@ export function onMention(user) {
 export function openReplyEditor(data) {
   comments.markState({
     showReplyEditor: true,
-    replyToComment: stripMobx(data),
+    replyToComment: data,
   })
 }
 
@@ -164,6 +165,31 @@ export function onFilterChange(filterType) {
   loadComents({ filter: { page: 1, sort: filterType } })
 }
 
+export function toggleLikeComment(comment) {
+  // TODO: check login first
+  debug('likeComment: ', comment)
+  if (comment.viewerHasLiked) {
+    return sr71$.mutate(S.undoLikeComment, {
+      id: comment.id,
+    })
+  }
+  return sr71$.mutate(S.likeComment, {
+    id: comment.id,
+  })
+}
+
+export function toggleDislikeComment(comment) {
+  // TODO: check login first
+  if (comment.viewerHasDisliked) {
+    return sr71$.mutate(S.undoDislikeComment, {
+      id: comment.id,
+    })
+  }
+  return sr71$.mutate(S.dislikeComment, {
+    id: comment.id,
+  })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -175,6 +201,7 @@ const DataSolver = [
   {
     match: gqRes('comments'),
     action: ({ comments }) => {
+      debug('comments --> ', comments)
       cancelLoading()
       commentsConflict.markState({
         ...comments,
@@ -206,6 +233,29 @@ const DataSolver = [
       scrollIntoEle('lists-info')
       loadComents({ filter: { page: 1 }, fresh: true })
     },
+  },
+  {
+    match: gqRes('likeComment'),
+    action: ({ likeComment }) =>
+      commentsConflict.updateOneComment(likeComment.id, likeComment),
+  },
+  {
+    match: gqRes('undoLikeComment'),
+    action: ({ undoLikeComment }) =>
+      commentsConflict.updateOneComment(undoLikeComment.id, undoLikeComment),
+  },
+  {
+    match: gqRes('dislikeComment'),
+    action: ({ dislikeComment }) =>
+      commentsConflict.updateOneComment(dislikeComment.id, dislikeComment),
+  },
+  {
+    match: gqRes('undoDislikeComment'),
+    action: ({ undoDislikeComment }) =>
+      commentsConflict.updateOneComment(
+        undoDislikeComment.id,
+        undoDislikeComment
+      ),
   },
   {
     match: gqRes('deleteComment'),

@@ -33,8 +33,8 @@ const Comment = t.model('Comment', {
   repliesCount: t.optional(t.number, 0),
   likesCount: t.optional(t.number, 0),
   dislikesCount: t.optional(t.number, 0),
-  /* viewerHasLiked: t.maybe(t.boolean), */
-  /* viewerHasdisliked: t.maybe(t.boolean), */
+  viewerHasLiked: t.maybe(t.boolean),
+  viewerHasDisliked: t.maybe(t.boolean),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })
@@ -84,7 +84,9 @@ const CommentsStore = t
     get root() {
       return getParent(self)
     },
-
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get referUserList() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
@@ -117,6 +119,10 @@ const CommentsStore = t
           avatar: user.avatar,
         })
       }
+    },
+    updateOneComment(id, comment = {}) {
+      const index = R.findIndex(R.propEq('id', id), self.entriesData)
+      self.entries[index] = R.merge(self.entriesData[index], comment)
     },
     markState(sobj) {
       markStates(sobj, self)

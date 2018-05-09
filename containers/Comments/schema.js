@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 const comments = gql`
-  query comments($id: ID!, $filter: CommentsFilter!) {
+  query comments($id: ID!, $filter: CommentsFilter!, $userHasLogin: Boolean!) {
     comments(id: $id, filter: $filter) {
       entries {
         id
@@ -12,6 +12,8 @@ const comments = gql`
           nickname
           avatar
         }
+        viewerHasLiked @include(if: $userHasLogin)
+        viewerHasDisliked @include(if: $userHasLogin)
         replyTo {
           id
           body
@@ -66,11 +68,53 @@ const deleteComment = gql`
     }
   }
 `
+
+const likeComment = gql`
+  mutation($part: CmsPart, $id: ID!) {
+    likeComment(part: $part, id: $id) {
+      id
+      viewerHasLiked
+      likesCount
+    }
+  }
+`
+const undoLikeComment = gql`
+  mutation($part: CmsPart, $id: ID!) {
+    undoLikeComment(part: $part, id: $id) {
+      id
+      viewerHasLiked
+      likesCount
+    }
+  }
+`
+const dislikeComment = gql`
+  mutation($part: CmsPart, $id: ID!) {
+    dislikeComment(part: $part, id: $id) {
+      id
+      viewerHasDisliked
+      dislikesCount
+    }
+  }
+`
+const undoDislikeComment = gql`
+  mutation($part: CmsPart, $id: ID!) {
+    undoDislikeComment(part: $part, id: $id) {
+      id
+      viewerHasDisliked
+      dislikesCount
+    }
+  }
+`
+
 const schema = {
   comments,
   createComment,
   replyComment,
   deleteComment,
+  likeComment,
+  undoLikeComment,
+  dislikeComment,
+  undoDislikeComment,
 }
 
 export default schema
