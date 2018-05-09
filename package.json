@@ -143,6 +143,6 @@
     "prettier": "1.12.0",
     "react-test-renderer": "16.2.0",
     "shelljs": "0.8.1",
-    "webpack-bundle-analyzer": "2.11.1"
+    "webpack-bundle-analyzer": "2.11.2"
   }
 }
