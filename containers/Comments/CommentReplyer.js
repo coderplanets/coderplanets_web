@@ -76,7 +76,7 @@ const InputEditor = ({ body, mentions, restProps: { replying } }) => (
     <InputEditorWrapper>
       <BodyEditor
         mentions={mentions}
-        onChange={debounce(logic.onReplyChange, 450)}
+        onChange={debounce(logic.onReplyInputChange, 450)}
         onMention={logic.onMention}
         body={body}
       />
@@ -96,7 +96,11 @@ const InputEditor = ({ body, mentions, restProps: { replying } }) => (
         </Button>
         <Space right="10px" />
         {!replying ? (
-          <Button type="primary" size="small" onClick={logic.replyComment}>
+          <Button
+            type="primary"
+            size="small"
+            onClick={logic.createReplyComment}
+          >
             提<Space right="5px" />交
           </Button>
         ) : (

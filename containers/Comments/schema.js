@@ -51,7 +51,6 @@ const createComment = gql`
     }
   }
 `
-
 const replyComment = gql`
   mutation($part: CmsPart, $id: ID!, $body: String!) {
     replyComment(part: $part, id: $id, body: $body) {
@@ -60,11 +59,18 @@ const replyComment = gql`
     }
   }
 `
-
+const deleteComment = gql`
+  mutation($part: CmsPart, $id: ID!) {
+    deleteComment(part: $part, id: $id) {
+      id
+    }
+  }
+`
 const schema = {
   comments,
   createComment,
   replyComment,
+  deleteComment,
 }
 
 export default schema

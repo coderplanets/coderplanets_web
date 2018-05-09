@@ -1,3 +1,4 @@
+import R from 'ramda'
 import {
   gqRes,
   gqErr,
@@ -26,6 +27,29 @@ const debug = makeDebugger('L:Comments')
 let comments = null
 let commentsConflict = null
 
+// TODO: 第一次加载应该为综合排序(正序、点赞最多),创建评论以后应该使用倒序
+const defaultArgs = {
+  fresh: false,
+  filter: { page: 1, size: PAGE_SIZE.COMMENTS, sort: 'ASC_INSERTED' },
+  /* "DESC_INSERTED" */
+}
+
+export const loadComents = (args = {}) => {
+  // debug('loadComents passed in: ', args)
+  args = R.mergeDeepRight(defaultArgs, args)
+  args.id = comments.activeArticle.id
+  // debug('loadComents args: ', args)
+  markLoading(args.fresh)
+  sr71$.query(S.comments, args)
+}
+
+const markLoading = fresh => {
+  if (fresh) {
+    return comments.markState({ loadingFresh: true })
+  }
+  return comments.markState({ loading: true })
+}
+
 export function createComment() {
   debug('createComment', comments.editContent)
   debug('activeArticle: ', comments.activeArticle)
@@ -41,12 +65,29 @@ export function createComment() {
   })
 }
 
-export function replyComment() {
-  debug('replyComment: ', comments.replyToComment)
-  debug('replyComment body: ', comments.replyContent)
+export function createReplyComment() {
   sr71$.mutate(S.replyComment, {
     id: comments.replyToComment.id,
     body: comments.replyContent,
+  })
+}
+
+export function deleteComment() {
+  sr71$.mutate(S.deleteComment, {
+    id: comments.tobeDeleteId,
+  })
+}
+
+// show delete confirm
+export function onDelete(comment) {
+  comments.markState({
+    tobeDeleteId: comment.id,
+  })
+}
+
+export function cancleDelete() {
+  comments.markState({
+    tobeDeleteId: null,
   })
 }
 
@@ -68,30 +109,11 @@ export function onCommentInputBlur() {
 
 export function pageChange(page = 1) {
   scrollIntoEle('lists-info')
-  loadComents(page)
-}
-
-const markLoading = fresh => {
-  if (fresh) {
-    return comments.markState({ loadingFresh: true })
-  }
-  return comments.markState({ loading: true })
+  loadComents({ filter: { page } })
 }
 
 const cancelLoading = () => {
   comments.markState({ loading: false, loadingFresh: false, creating: false })
-}
-
-// TODO: 第一次加载应该为综合排序(正序、点赞最多),创建评论以后应该使用倒序
-export const loadComents = (page = 1, fresh = false) => {
-  const args = {
-    id: comments.activeArticle.id,
-    filter: { page, size: PAGE_SIZE.COMMENTS, sort: 'ASC_INSERTED' },
-    /* "DESC_INSERTED" */
-  }
-
-  markLoading(fresh)
-  sr71$.query(S.comments, args)
 }
 
 export function onCommentInputChange(editContent) {
@@ -101,7 +123,7 @@ export function onCommentInputChange(editContent) {
     editContent,
   })
 }
-export function onReplyChange(replyContent) {
+export function onReplyInputChange(replyContent) {
   comments.markState({
     countCurrent: countWords(replyContent),
     extractMentions: extractMentions(replyContent),
@@ -121,20 +143,7 @@ export function onMention(user) {
   comments.addReferUser(user)
 }
 
-export function onDelete(comment) {
-  comments.markState({
-    tobeDeleteId: comment.id,
-  })
-}
-
-export function cancleDelete() {
-  comments.markState({
-    tobeDeleteId: null,
-  })
-}
-
-export function openReplyBox(data) {
-  console.log('openReplyBox data: ', data)
+export function openReplyEditor(data) {
   comments.markState({
     showReplyEditor: true,
     replyToComment: stripMobx(data),
@@ -147,6 +156,9 @@ export function closeReplyBox() {
   })
 }
 
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: gqRes(EVENT.PREVIEW),
@@ -161,7 +173,6 @@ const DataSolver = [
       })
     },
   },
-
   {
     match: gqRes('createComment'),
     action: ({ createComment }) => {
@@ -170,7 +181,7 @@ const DataSolver = [
         showInputEditor: false,
         editContent: '',
       })
-      loadComents(1, true)
+      loadComents({ filter: { page: 1, sort: 'DESC_INSERTED' }, fresh: true })
     },
   },
   {
@@ -181,7 +192,19 @@ const DataSolver = [
         showReplyEditor: false,
         replyToComment: null,
       })
-      loadComents(1, true)
+      scrollIntoEle('lists-info')
+      loadComents({ filter: { page: 1 }, fresh: true })
+    },
+  },
+  {
+    match: gqRes('deleteComment'),
+    action: ({ deleteComment }) => {
+      debug('deleteComment', deleteComment)
+      commentsConflict.markState({
+        tobeDeleteId: null,
+      })
+      scrollIntoEle('lists-info')
+      loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
 ]

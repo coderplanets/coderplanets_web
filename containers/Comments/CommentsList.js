@@ -61,7 +61,7 @@ const DeleteMask = ({ show }) => (
         取消
       </Button>
       &nbsp;&nbsp;
-      <Button size="small" type="red">
+      <Button size="small" type="red" onClick={logic.deleteComment}>
         确定删除
       </Button>
     </DeleteBtnGroup>
@@ -87,7 +87,7 @@ const ActionBottom = ({ data, accountInfo }) => {
   }
   return (
     <div style={{ display: 'flex' }}>
-      <ReplyAction onClick={logic.openReplyBox.bind(this, data)}>
+      <ReplyAction onClick={logic.openReplyEditor.bind(this, data)}>
         <ReplyIcon path={`${ICON_ASSETS}/cmd/nest_comment.svg`} />
         回复
       </ReplyAction>
