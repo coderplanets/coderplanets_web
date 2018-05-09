@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
-import { theme, column, Animate } from '../../../utils'
+import { theme, column, Animate, smokey } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
 export const ReplyBar = ReplyBarBase.extend`
@@ -16,11 +16,19 @@ export const ListsContainer = styled.div`
   border-radius: 4px;
 `
 
+export const TotalHeader = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+`
+export const TotalCountWrapper = styled.div`
+  flex-grow: 1;
+`
+
 export const ListTitle = styled.div`
   color: #62868a;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  font-size: 1.1em;
+  font-size: 1rem;
   margin-left: 2px;
 `
 
@@ -165,17 +173,9 @@ export const UpIcon = styled(ReactSVG)`
   margin-top: 2px;
   width: 20px;
   height: 20px;
+  transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
+  ${smokey};
 `
-
-export const DownIcon = styled(ReactSVG)`
-  fill: #6b8688;
-  margin-right: 3px;
-  margin-top: 2px;
-  width: 20px;
-  height: 20px;
-  transform: rotate(180deg);
-`
-
 export const ReplyIcon = styled(ReactSVG)`
   fill: #6b8688;
   margin-right: 5px;

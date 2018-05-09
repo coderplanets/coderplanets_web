@@ -5,6 +5,7 @@ import {
   makeDebugger,
   EVENT,
   ERR,
+  TYPE,
   $solver,
   scrollIntoEle,
   countWords,
@@ -27,19 +28,22 @@ const debug = makeDebugger('L:Comments')
 let comments = null
 let commentsConflict = null
 
-// TODO: 第一次加载应该为综合排序(正序、点赞最多),创建评论以后应该使用倒序
+/* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
   fresh: false,
-  filter: { page: 1, size: PAGE_SIZE.COMMENTS, sort: 'ASC_INSERTED' },
-  /* "DESC_INSERTED" */
+  filter: { page: 1, size: PAGE_SIZE.COMMENTS, sort: TYPE.ASC_INSERTED },
 }
 
 export const loadComents = (args = {}) => {
   // debug('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
   args.id = comments.activeArticle.id
-  // debug('loadComents args: ', args)
   markLoading(args.fresh)
+  comments.markState({
+    filterType: args.filter.sort,
+  })
+
+  /* debug('loadComents query: ', args) */
   sr71$.query(S.comments, args)
 }
 
@@ -51,9 +55,6 @@ const markLoading = fresh => {
 }
 
 export function createComment() {
-  debug('createComment', comments.editContent)
-  debug('activeArticle: ', comments.activeArticle)
-
   // TODO: validation...
   comments.markState({
     creating: true,
@@ -109,7 +110,7 @@ export function onCommentInputBlur() {
 
 export function pageChange(page = 1) {
   scrollIntoEle('lists-info')
-  loadComents({ filter: { page } })
+  loadComents({ filter: { page, sort: comments.filterType } })
 }
 
 const cancelLoading = () => {
@@ -156,6 +157,13 @@ export function closeReplyBox() {
   })
 }
 
+export function onFilterChange(filterType) {
+  comments.markState({
+    filterType,
+  })
+  loadComents({ filter: { page: 1, sort: filterType } })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -181,7 +189,10 @@ const DataSolver = [
         showInputEditor: false,
         editContent: '',
       })
-      loadComents({ filter: { page: 1, sort: 'DESC_INSERTED' }, fresh: true })
+      loadComents({
+        filter: { page: 1, sort: TYPE.DESC_INSERTED },
+        fresh: true,
+      })
     },
   },
   {

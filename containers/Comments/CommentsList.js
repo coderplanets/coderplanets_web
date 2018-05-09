@@ -6,15 +6,18 @@ import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
-import { Global, prettyNum, stripMobx } from '../../utils'
+import { Global, prettyNum } from '../../utils'
 
 import { AvatarsRow, SpaceGrow, Pagi, CommentLoading } from '../../components'
 
 import * as logic from './logic'
+import CommentsFilter from './CommentsFilter'
 
 import {
   ListsContainer,
   ListTitle,
+  TotalHeader,
+  TotalCountWrapper,
   TotalNum,
   FloorNum,
   CommentBlock,
@@ -39,7 +42,6 @@ import {
   ReplyTitle,
   ActionNumber,
   UpIcon,
-  DownIcon,
   ReplyBar,
   ReplyToBody,
   ReplyToFloor,
@@ -98,7 +100,7 @@ const ActionBottom = ({ data, accountInfo }) => {
 const getAuthors = comment => {
   const replies = R.forEach(reply => {
     return (reply.author.extra_id = reply.id)
-  }, R.clone(stripMobx(comment.replies)))
+  }, R.clone(comment.replies))
 
   return R.pluck('author', replies)
 }
@@ -154,7 +156,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
               <ActionNumber>{prettyNum(data.likesCount)}</ActionNumber>
             </VisiableAction>
             <VisiableAction>
-              <DownIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
+              <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
               <ActionNumber>{prettyNum(data.dislikesCount)}</ActionNumber>
             </VisiableAction>
             <SpaceGrow />
@@ -181,6 +183,20 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   </div>
 )
 
+const TotalCountText = ({ count }) => {
+  return (
+    <TotalCountWrapper>
+      {count > 0 ? (
+        <ListTitle id="lists-info">
+          收到 <TotalNum>{count}</TotalNum> 条评论:
+        </ListTitle>
+      ) : (
+        <div />
+      )}
+    </TotalCountWrapper>
+  )
+}
+
 const CommentsList = ({
   entries,
   accountInfo,
@@ -191,16 +207,15 @@ const CommentsList = ({
     loading,
     loadingFresh,
     tobeDeleteId,
+    filterType,
   },
 }) => (
   <div>
-    {totalCount > 0 ? (
-      <ListTitle id="lists-info">
-        收到 <TotalNum>{totalCount}</TotalNum> 条评论:
-      </ListTitle>
-    ) : (
-      <div />
-    )}
+    <TotalHeader>
+      <TotalCountText count={totalCount} />
+      <CommentsFilter filterType={filterType} />
+    </TotalHeader>
+
     {loadingFresh ? (
       <CommentBlock>
         <CommentLoading />

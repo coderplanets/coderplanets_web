@@ -10,7 +10,6 @@ import {
   MonthWrapper,
   MonthNumber,
   UpIcon,
-  DownIcon,
   DaysWrapper,
   DayBlock,
   DayWeek,
@@ -21,7 +20,7 @@ const MonthSelector = () => (
   <MonthWrapper>
     <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
     <MonthNumber>7月</MonthNumber>
-    <DownIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
+    <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
   </MonthWrapper>
 )
 

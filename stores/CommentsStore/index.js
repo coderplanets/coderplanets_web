@@ -52,6 +52,16 @@ const CommentsStore = t
     tobeDeleteId: t.maybe(t.string),
     countCurrent: t.optional(t.number, 0),
 
+    filterType: t.optional(
+      t.enumeration('filterType', [
+        'DESC_INSERTED',
+        'ASC_INSERTED',
+        'MOST_LIKE',
+        'MOST_DISLIKE',
+      ]),
+      'ASC_INSERTED'
+    ),
+
     editContent: t.optional(t.string, ''),
     replyContent: t.optional(t.string, ''),
     entries: t.optional(t.array(Comment), []),
@@ -82,6 +92,10 @@ const CommentsStore = t
         user => R.contains(user.nickname, extractMentions),
         referUsers
       )
+    },
+
+    get entriesData() {
+      return stripMobx(self.entries)
     },
 
     get accountInfo() {

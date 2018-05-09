@@ -22,15 +22,6 @@ export const UpIcon = styled(ReactSVG)`
   height: 30px;
   ${smokey};
 `
-
-export const DownIcon = styled(ReactSVG)`
-  fill: #6b8688;
-  width: 30px;
-  height: 30px;
-  transform: rotate(180deg);
-  ${smokey};
-`
-
 export const DaysWrapper = styled.div`
   display: flex;
   align-self: center;

@@ -27,7 +27,7 @@ export const RightPart = styled.div`
 
 /* fill: ${theme('shell.search_icon')}; */
 export const WritePostBtn = styled(Button)`
-  margin-top: 20px;
+  margin-top: 8px;
   width: 100%;
   max-width: 180px;
   margin-left: 8%;
@@ -50,13 +50,12 @@ export const TagDivider = styled.div`
   margin-bottom: 30px;
   margin-left: 8%;
 `
-
 export const PostWrapper = styled.div`
   display: flex;
   padding-left: 8px;
   padding-right: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   border-radius: 4px;
   background: ${props =>
     props.current.id === props.active.id
@@ -91,14 +90,13 @@ export const PostAvatar = styled.img`
 export const PostBreif = styled.div`
   display: flex;
   flex-grow: 1;
-  font-size: 1.1rem;
   margin-left: 10px;
   color: ${theme('paper.article_title')};
 `
 
 export const PostTitle = styled.div`
   margin-bottom: 10px;
-
+  font-size: 1rem;
   @media (max-width: 1450px) {
     max-width: 500px;
   }
@@ -154,5 +152,5 @@ export const PostBodyBreif = styled.li`
   margin-right: 20px;
   white-space: normal;
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 `

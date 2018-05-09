@@ -29,7 +29,9 @@ class CommentsContainer extends React.Component {
 
   render() {
     const {
-      entries,
+      /* entries, */
+      entriesData,
+      /* data, */
       referUserList,
       accountInfo,
       showReplyEditor,
@@ -58,7 +60,7 @@ class CommentsContainer extends React.Component {
         />
         <CommentsList
           accountInfo={accountInfo}
-          entries={entries}
+          entries={entriesData}
           restProps={{ ...this.props.comments }}
         />
       </Wrapper>
