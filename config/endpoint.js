@@ -15,6 +15,5 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
   }
 }
-
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
-export const HOLDER = 1
+export const ISSUE_ADDR = 'https://github.com/mydearxym/mastani_web/issues/new'

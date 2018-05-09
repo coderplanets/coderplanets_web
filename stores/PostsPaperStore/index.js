@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 import { Article } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsPaperStore')
@@ -63,12 +63,12 @@ const PostsPaperStore = t
     tags: t.optional(t.map(TagModel), {}),
     curView: t.optional(
       t.enumeration('curView', [
-        'TIMEOUT_PAGE',
-        'RESULT',
-        'RESULT_WITH_LOADING',
-        'LOADING',
+        /* 'TIMEOUT_PAGE', */
+        TYPE.RESULT,
+        TYPE.LOADING,
+        TYPE.NOT_FOUND,
       ]),
-      'RESULT'
+      TYPE.RESULT
     ),
     // runtime: ..
     // data: ...

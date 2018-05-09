@@ -39,7 +39,7 @@ export function outAnchor() {
 
 export function loadPosts(page = 1) {
   postsPaper.markState({
-    curView: 'LOADING',
+    curView: TYPE.LOADING,
   })
 
   // debug('loadPosts curFilter: ', postsPaper.curFilter)
@@ -102,8 +102,13 @@ const DataSolver = [
     match: gqRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       postsPaper.loadData(pagedPosts)
-      postsPaper.markState({
-        curView: 'RESULT',
+      if (pagedPosts.entries.length === 0) {
+        return postsPaper.markState({
+          curView: TYPE.NOT_FOUND,
+        })
+      }
+      return postsPaper.markState({
+        curView: TYPE.RESULT,
       })
     },
   },

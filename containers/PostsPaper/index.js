@@ -21,11 +21,18 @@ import {
   storeSelector,
   /* getRandomInt, */
   cutFrom,
+  TYPE,
   /* fakeUsers, */
   // Global,
 } from '../../utils'
 
-import { AvatarsRow, TagList, PostsLoading, Pagi } from '../../components'
+import {
+  AvatarsRow,
+  TagList,
+  PostsLoading,
+  Pagi,
+  NotFound,
+} from '../../components'
 
 // import logic from './logic'
 import * as logic from './logic'
@@ -133,12 +140,19 @@ const PostItem = ({ post, active }) => (
 
 const View = ({ posts, curView, active }) => {
   switch (curView) {
-    case 'RESULT': {
+    case TYPE.RESULT: {
       return (
         <div>
           {posts.map(post => (
             <PostItem post={post} key={shortid.generate()} active={active} />
           ))}
+        </div>
+      )
+    }
+    case TYPE.NOT_FOUND: {
+      return (
+        <div>
+          <NotFound />
         </div>
       )
     }

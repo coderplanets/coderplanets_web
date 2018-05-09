@@ -4,59 +4,52 @@ import ReactSVG from 'react-svg'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
-  border-radius: 5px;
   display: flex;
-  justify-content: center;
-  padding: 5em;
-  background: ${theme('error.bg')};
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 60vh;
-  margin-top: 2em;
-
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      rgba(255, 255, 255, 0.05) 25%,
-      rgba(255, 255, 255, 0.05) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgba(255, 255, 255, 0.05) 75%,
-      rgba(255, 255, 255, 0.05) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      rgba(255, 255, 255, 0.05) 25%,
-      rgba(255, 255, 255, 0.05) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgba(255, 255, 255, 0.05) 75%,
-      rgba(255, 255, 255, 0.05) 76%,
-      transparent 77%,
-      transparent
-    );
-  background-size: 65px 65px;
+  height: 100%;
+  margin-top: 10%;
 `
 
 export const Icon404 = styled(ReactSVG)`
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
+  fill: #b9c8c8;
 `
 
 export const Icon = styled.div``
 export const Text = styled.div`
-  margin-left: 1.5em;
+  text-align: center;
 `
 export const Title = styled.div`
-  color: ${theme('error.title')};
-  font-size: 2em;
-  margin-top: 0.2em;
+  color: #b8c8c8;
+  border-top: 1px solid #e2e8e8;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 1.5rem;
 `
 
+export const DescWrapper = styled.div`
+  color: #b8c8c8;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+`
 export const Desc = styled.div`
-  color: ${theme('error.desc')};
-  font-size: 1.3em;
-  margin-top: 1em;
+  color: #b8c8c8;
+`
+
+const link = styled.a`
+  text-decoration: none;
+  font-weight: bolder;
+  color: ${theme('header.fg')};
+  transition: color 0.3s;
+  &:hover {
+    text-decoration: underline;
+    color: tomato;
+  }
+`
+
+export const IssueLink = link.extend`
+  margin-left: 3px;
 `
