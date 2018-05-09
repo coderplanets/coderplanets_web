@@ -11,13 +11,18 @@ const link = styled.a`
     color: #5c868b;
   }
 `
-
-export const Wrapper = styled.div`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -18%;
+`
+export const BaseInfo = styled.div`
   display: flex;
   margin-top: 20px;
+`
+export const BeianInfo = styled.div`
   margin-bottom: 20px;
-  align-self: center;
-  margin-left: -18%;
 `
 
 export const Divider = styled.div`

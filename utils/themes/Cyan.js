@@ -44,7 +44,7 @@ const Cyan = {
     bg: topHalfBg,
     desc: '#a3bbbd',
     spliter: `1px solid ${darken(0.04, topHalfBg)}`,
-    number_desc: '#a3bbbd',
+    number_desc: '#a7bbbf',
     number: '#5c868b',
     number_divider: '#ccdcde',
     number_hover_bg: '#e4ecec',
