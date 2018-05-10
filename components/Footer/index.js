@@ -36,7 +36,7 @@ const Footer = () => {
         </About>
         <Divider>|</Divider>
         <About
-          href="http://www.miitbeian.gov.cn"
+          href="http://api.coderplanets.com/graphiql"
           rel="noopener noreferrer"
           target="_blank"
         >
