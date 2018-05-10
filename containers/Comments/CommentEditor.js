@@ -28,12 +28,6 @@ import {
 
 import EditorFooter from './EditorFooter'
 
-// TODO: use real user
-const fakeUser = {
-  avatar:
-    'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/10.jpg',
-}
-
 const WordsCounter = ({ countCurrent }) => (
   <CounterWrapper>
     <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
@@ -43,6 +37,7 @@ const WordsCounter = ({ countCurrent }) => (
 )
 
 const Header = ({
+  accountInfo,
   showInputEditor,
   showInputPreview,
   countCurrent,
@@ -51,8 +46,8 @@ const Header = ({
   if (showInputEditor) {
     return (
       <InputHeaderWrapper>
-        <UserAvatar src={fakeUser.avatar} />
-        <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
+        <UserAvatar src={accountInfo.avatar} />
+        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
         {referUsers.length > 0 ? (
           <div style={{ display: 'flex' }}>
             <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
@@ -74,14 +69,14 @@ const Header = ({
   } else if (showInputPreview) {
     return (
       <InputHeaderWrapper>
-        <UserAvatar src={fakeUser.avatar} />
-        <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
+        <UserAvatar src={accountInfo.avatar} />
+        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
       </InputHeaderWrapper>
     )
   }
   return (
     <InputHeaderWrapper>
-      <UserAvatar src={fakeUser.avatar} />
+      <UserAvatar src={accountInfo.avatar} />
       <LeaveResponseText onClick={logic.openInputBox}>
         留条评论...
       </LeaveResponseText>
@@ -141,6 +136,7 @@ class CommentEditor extends React.Component {
   render() {
     const {
       referUsers,
+      accountInfo,
       restProps: {
         countCurrent,
         showInputBox,
@@ -154,6 +150,7 @@ class CommentEditor extends React.Component {
     return (
       <Container show={showInputBox}>
         <Header
+          accountInfo={accountInfo}
           showInputEditor={showInputEditor}
           showInputPreview={showInputPreview}
           countCurrent={countCurrent}

@@ -48,6 +48,7 @@ class CommentsContainer extends React.Component {
           {/* NOTE: this is used for react-clickouside */}
           {showReplyBox ? (
             <CommentReplyer
+              accountInfo={accountInfo}
               referUsers={referUsersData}
               restProps={{ ...this.props.comments }}
               show={showReplyEditor}
@@ -59,6 +60,7 @@ class CommentsContainer extends React.Component {
         </Modal>
 
         <CommentEditor
+          accountInfo={accountInfo}
           referUsers={referUsersData}
           restProps={{ ...this.props.comments }}
         />
