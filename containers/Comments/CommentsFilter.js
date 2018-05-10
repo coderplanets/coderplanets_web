@@ -17,8 +17,8 @@ import * as logic from './logic'
 const filterDict = {
   DESC_INSERTED: '最新创建',
   ASC_INSERTED: '综合排序',
-  MOST_LIKE: '最多顶',
-  MOST_DISLIKE: '最多踩',
+  MOST_LIKES: '最多顶',
+  MOST_DISLIKES: '最多踩',
 }
 
 const Menus = ({ active }) => {
@@ -39,15 +39,15 @@ const Menus = ({ active }) => {
         最近创建
       </MenuItem>
       <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.MOST_LIKE)}
-        type={TYPE.MOST_LIKE}
+        onClick={logic.onFilterChange.bind(this, TYPE.MOST_LIKES)}
+        type={TYPE.MOST_LIKES}
         active={active}
       >
         最多顶
       </MenuItem>
       <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.MOST_DISLIKE)}
-        type={TYPE.MOST_DISLIKE}
+        onClick={logic.onFilterChange.bind(this, TYPE.MOST_DISLIKES)}
+        type={TYPE.MOST_DISLIKES}
         active={active}
       >
         最多踩
@@ -61,10 +61,10 @@ const renderFilterIcon = filterType => {
     case TYPE.DESC_INSERTED: {
       return <FilterIcon path={`${ICON_ASSETS}/cmd/recent.svg`} />
     }
-    case TYPE.MOST_LIKE: {
+    case TYPE.MOST_LIKES: {
       return <FilterIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
     }
-    case TYPE.MOST_DISLIKE: {
+    case TYPE.MOST_DISLIKES: {
       return <FilterIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
     }
     default: {

@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 import { Comment } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -40,12 +40,12 @@ const CommentsStore = t
     // cur filter type of comment list
     filterType: t.optional(
       t.enumeration('filterType', [
-        'DESC_INSERTED',
-        'ASC_INSERTED',
-        'MOST_LIKE',
-        'MOST_DISLIKE',
+        TYPE.DESC_INSERTED,
+        TYPE.ASC_INSERTED,
+        TYPE.MOST_LIKES,
+        TYPE.MOST_DISLIKES,
       ]),
-      'ASC_INSERTED'
+      TYPE.ASC_INSERTED
     ),
     // content input of current comment editor
     editContent: t.optional(t.string, ''),
