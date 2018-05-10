@@ -29,6 +29,7 @@ import {
   CheckIcon,
   CheckText,
 } from './styles'
+
 import {
   ExtraWrapper,
   ExtraItem,
@@ -36,6 +37,8 @@ import {
   ExtraItemIcon,
   ExtraDivider,
 } from './styles/editor'
+
+import { FileUploader } from '../../components'
 
 const articleTypeDic = {
   original: '原创',
@@ -152,10 +155,13 @@ const Editor = ({
         <ExtraItemTitle>代码</ExtraItemTitle>
       </ExtraItem>
       <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
-      <ExtraItem>
-        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
-        <ExtraItemTitle>图片</ExtraItemTitle>
-      </ExtraItem>
+      <FileUploader>
+        <ExtraItem>
+          <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
+          <ExtraItemTitle>图片</ExtraItemTitle>
+        </ExtraItem>
+      </FileUploader>
+
       <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
         <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_setting.svg`} />
