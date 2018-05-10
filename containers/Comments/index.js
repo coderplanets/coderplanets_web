@@ -32,7 +32,7 @@ class CommentsContainer extends React.Component {
       /* entries, */
       entriesData,
       /* data, */
-      referUserList,
+      referUsersData,
       accountInfo,
       showReplyEditor,
     } = this.props.comments
@@ -45,7 +45,7 @@ class CommentsContainer extends React.Component {
         <Modal show={showReplyEditor}>
           {showReplyEditor ? (
             <CommentReplyer
-              referUserList={referUserList}
+              referUsers={referUsersData}
               restProps={{ ...this.props.comments }}
               show={showReplyEditor}
             />
@@ -55,7 +55,7 @@ class CommentsContainer extends React.Component {
         </Modal>
 
         <CommentEditor
-          referUserList={referUserList}
+          referUsers={referUsersData}
           restProps={{ ...this.props.comments }}
         />
         <CommentsList

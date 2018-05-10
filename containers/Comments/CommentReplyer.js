@@ -46,18 +46,18 @@ const WordsCounter = ({ countCurrent }) => (
   </CounterWrapper>
 )
 
-const Header = ({ countCurrent, referUserList }) => {
+const Header = ({ countCurrent, referUsers }) => {
   return (
     <InputHeaderWrapper>
       <UserAvatar src={fakeUser.avatar} />
       <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
-      {referUserList.length > 0 ? (
+      {referUsers.length > 0 ? (
         <div style={{ display: 'flex' }}>
           <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
           <ReplyAvatars>
             <AvatarsRow
-              users={referUserList}
-              total={referUserList.length}
+              users={referUsers}
+              total={referUsers.length}
               height="20px"
             />
           </ReplyAvatars>
@@ -148,13 +148,13 @@ class CommentReplyEditor extends React.Component {
 
   render() {
     const {
-      referUserList,
+      referUsers,
       restProps: { countCurrent, replyContent, replyToComment },
     } = this.props
 
     return (
       <Container>
-        <Header countCurrent={countCurrent} referUserList={referUserList} />
+        <Header countCurrent={countCurrent} referUsers={referUsers} />
         <ReplyToBar comment={replyToComment} />
         <InputEditor
           mentions={mentions}

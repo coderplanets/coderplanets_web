@@ -43,19 +43,19 @@ const WordsCounter = ({ countCurrent }) => (
   </CounterWrapper>
 )
 
-const Header = ({ showInputEditor, countCurrent, referUserList }) => {
+const Header = ({ showInputEditor, countCurrent, referUsers }) => {
   if (showInputEditor) {
     return (
       <InputHeaderWrapper>
         <UserAvatar src={fakeUser.avatar} />
         <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
-        {referUserList.length > 0 ? (
+        {referUsers.length > 0 ? (
           <div style={{ display: 'flex' }}>
             <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
             <ReplyAvatars>
               <AvatarsRow
-                users={referUserList}
-                total={referUserList.length}
+                users={referUsers}
+                total={referUsers.length}
                 height="20px"
               />
             </ReplyAvatars>
@@ -144,7 +144,7 @@ class CommentEditor extends React.Component {
 
   render() {
     const {
-      referUserList,
+      referUsers,
       restProps: { countCurrent, showInputEditor, editContent },
     } = this.props
 
@@ -153,7 +153,7 @@ class CommentEditor extends React.Component {
         <Header
           showInputEditor={showInputEditor}
           countCurrent={countCurrent}
-          referUserList={referUserList}
+          referUsers={referUsers}
         />
         {showInputEditor ? (
           <InputEditor

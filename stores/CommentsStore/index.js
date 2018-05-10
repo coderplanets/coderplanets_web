@@ -47,11 +47,15 @@ const Mention = t.model('Mention', {
 
 const CommentsStore = t
   .model('CommentsStore', {
+    // toggle main comment editor
     showInputEditor: t.optional(t.boolean, false),
+    // toggle modal editor for reply
     showReplyEditor: t.optional(t.boolean, false),
+    // current to be delete comment id, use to target the confirm mask
     tobeDeleteId: t.maybe(t.string),
+    // words count for current comment (include reply comment)
     countCurrent: t.optional(t.number, 0),
-
+    // cur filter type of comment list
     filterType: t.optional(
       t.enumeration('filterType', [
         'DESC_INSERTED',
@@ -61,23 +65,32 @@ const CommentsStore = t
       ]),
       'ASC_INSERTED'
     ),
-
+    // content input of current comment editor
     editContent: t.optional(t.string, ''),
+    // content input of current reply comment editor
     replyContent: t.optional(t.string, ''),
+    // comments pagination data of current COMMUNITY / PART
     entries: t.optional(t.array(Comment), []),
     totalCount: t.optional(t.number, 0),
     pageNumber: t.optional(t.number, 0),
     totalPages: t.optional(t.number, 0),
     pageSize: t.optional(t.number, 0),
 
+    // current "@user" in valid array format
     referUsers: t.optional(t.array(Mention), []),
+    // current "@user" in string list
     extractMentions: t.optional(t.array(t.string), []),
 
+    // parrent comment of current reply
     replyToComment: t.maybe(Comment),
 
+    // toggle loading for creating comment
     creating: t.optional(t.boolean, false),
+    // toggle loading for creating reply comment
     replying: t.optional(t.boolean, false),
+    // toggle loading for comments list
     loading: t.optional(t.boolean, false),
+    // toggle loading for first item of commetns list
     loadingFresh: t.optional(t.boolean, false),
   })
   .views(self => ({
@@ -87,7 +100,7 @@ const CommentsStore = t
     get isLogin() {
       return self.root.account.isLogin
     },
-    get referUserList() {
+    get referUsersData() {
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
       return R.filter(
