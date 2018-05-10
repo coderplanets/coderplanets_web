@@ -1,57 +1,37 @@
 import React from 'react'
-import { Provider } from 'mobx-react'
 
-import initRootStore from '../stores'
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-// import Sidebar from '../containers/Sidebar'
-// import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import ApiLayout from '../containers/ApiLayout'
-import Header from '../containers/Header'
-// import Banner from '../containers/Banner'
-// import Content from '../containers/Content'
+const Api = () => (
+  <div>
+    <h2>TODO</h2>
+  </div>
+)
+export default Api
 
-// try to fix safari bug
-// see https://github.com/yahoo/react-intl/issues/422
-global.Intl = require('intl')
+/* import { Voyager } from 'graphql-voyager' */
+/* import Voyager from 'graphql-voyager' */
+/* import { Provider } from 'mobx-react' */
+/* import Playground from 'graphql-playground-react' */
+/* import dynamic from 'next/dynamic' */
 
-export default class Index extends React.Component {
-  static getInitialProps({ req }) {
-    const isServer = !!req
-    /* eslint-disable no-underscore-dangle */
-    /* eslint-disable no-undef */
-    const { locale, messages } = req || window.__NEXT_DATA__.props
-    const langSetup = {}
-    langSetup[locale] = messages
-    const store = initRootStore(isServer, langSetup)
-    /* eslint-enable no-undef */
+/* const VoyagerSSR = dynamic(import('graphql-voyager'), { */
+/* ssr: false, */
+/* }) */
 
-    return { isServer, version: store.version, messages, locale, langSetup }
-  }
+/* export default () => <Voyager /> */
 
-  constructor(props) {
-    super(props)
-    this.store = initRootStore(props.isServer, props.langSetup)
-  }
+/*
+   import dynamic from 'next/dynamic'
 
-  //   <Playground endpoint="https://api.graph.cool/simple/v1/swapi" />
+   import 'graphql-playground-react/playground.css'
 
-  render() {
-    return (
-      <Provider store={this.store}>
-        <ThemeWrapper>
-          <Route />
-          <MultiLanguage>
-            <Doraemon />
-            <ApiLayout>
-              <Header />
-              <div style={{ marginTop: '2vh' }}>api</div>
-            </ApiLayout>
-          </MultiLanguage>
-        </ThemeWrapper>
-      </Provider>
-    )
-  }
-}
+   const PlaygroundWithNoSSR = dynamic(import('graphql-playground-react'), {
+   ssr: false,
+   })
+
+   const Api = () => (
+   <Provider store={{}}>
+   <PlaygroundWithNoSSR endpoint="https://api.graph.cool/simple/v1/swapi" />
+   </Provider>
+   )
+   export default Api
+ */
