@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, Icon } from 'antd'
 import withClickOutside from 'react-click-outside'
 
 import BodyEditor from '../TypeWriter/BodyEditor'
@@ -9,13 +8,9 @@ import { ICON_ASSETS, WORD_LIMIT } from '../../config'
 import { debounce } from '../../utils'
 import * as logic from './logic'
 
-import { AvatarsRow, Space, SpaceGrow } from '../../components'
+import { AvatarsRow, SpaceGrow, MarkDownPreviewer } from '../../components'
 
 import {
-  InputFooter,
-  InputHelper,
-  HelperIcon,
-  InputSubmit,
   InputEditorWrapper,
   Container,
   InputHeaderWrapper,
@@ -28,8 +23,12 @@ import {
   CounterSpliter,
   CounterCur,
   CounterTotal,
+  PreviewerWrapper,
 } from './styles/comment_editor'
 
+import EditorFooter from './EditorFooter'
+
+// TODO: use real user
 const fakeUser = {
   avatar:
     'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/fakeuser/10.jpg',
@@ -43,7 +42,12 @@ const WordsCounter = ({ countCurrent }) => (
   </CounterWrapper>
 )
 
-const Header = ({ showInputEditor, countCurrent, referUsers }) => {
+const Header = ({
+  showInputEditor,
+  showInputPreview,
+  countCurrent,
+  referUsers,
+}) => {
   if (showInputEditor) {
     return (
       <InputHeaderWrapper>
@@ -67,12 +71,18 @@ const Header = ({ showInputEditor, countCurrent, referUsers }) => {
         <WordsCounter countCurrent={countCurrent} />
       </InputHeaderWrapper>
     )
+  } else if (showInputPreview) {
+    return (
+      <InputHeaderWrapper>
+        <UserAvatar src={fakeUser.avatar} />
+        <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
+      </InputHeaderWrapper>
+    )
   }
-
   return (
     <InputHeaderWrapper>
       <UserAvatar src={fakeUser.avatar} />
-      <LeaveResponseText onClick={logic.openCommentEditor}>
+      <LeaveResponseText onClick={logic.openInputBox}>
         留条评论...
       </LeaveResponseText>
     </InputHeaderWrapper>
@@ -81,6 +91,7 @@ const Header = ({ showInputEditor, countCurrent, referUsers }) => {
 
 const InputEditor = ({
   showInputEditor,
+  showInputPreview,
   body,
   mentions,
   restProps: { creating },
@@ -94,31 +105,15 @@ const InputEditor = ({
         body={body}
       />
     </InputEditorWrapper>
-    <InputFooter>
-      <InputHelper>
-        <div onClick={logic.insertCode}>
-          <HelperIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
-        </div>
-        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_quote.svg`} />
-        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
-      </InputHelper>
 
-      <InputSubmit>
-        <Button type="primary" ghost size="small">
-          预<Space right="5px" />览
-        </Button>
-        <Space right="10px" />
-        {!creating ? (
-          <Button type="primary" size="small" onClick={logic.createComment}>
-            提<Space right="5px" />交
-          </Button>
-        ) : (
-          <Button type="primary" size="small">
-            <Icon type="loading" />提<Space right="5px" />交
-          </Button>
-        )}
-      </InputSubmit>
-    </InputFooter>
+    <EditorFooter
+      loading={creating}
+      showPreview={showInputPreview}
+      onCreate={logic.createComment}
+      onBackEdit={logic.backToEditor}
+      onPreview={logic.createCommentPreview}
+    />
+    {/* <Footer loading={creating} showPreview={showInputPreview} /> */}
   </div>
 )
 
@@ -142,26 +137,52 @@ class CommentEditor extends React.Component {
   }
   /* eslint-enable */
 
+  //  <Container show={!showInputEditor && !showInputPreview}>
   render() {
     const {
       referUsers,
-      restProps: { countCurrent, showInputEditor, editContent },
+      restProps: {
+        countCurrent,
+        showInputBox,
+        showInputEditor,
+        showInputPreview,
+        editContent,
+        creating,
+      },
     } = this.props
 
     return (
-      <Container showInputEditor={showInputEditor}>
+      <Container show={showInputBox}>
         <Header
           showInputEditor={showInputEditor}
+          showInputPreview={showInputPreview}
           countCurrent={countCurrent}
           referUsers={referUsers}
         />
         {showInputEditor ? (
           <InputEditor
             mentions={mentions}
+            showInputPreview={showInputPreview}
             showInputEditor={showInputEditor}
             body={editContent}
             restProps={{ ...this.props }}
           />
+        ) : (
+          <div />
+        )}
+        {showInputPreview ? (
+          <div>
+            <PreviewerWrapper>
+              <MarkDownPreviewer body={editContent} />
+            </PreviewerWrapper>
+            <EditorFooter
+              loading={creating}
+              showPreview={showInputPreview}
+              onCreate={logic.createComment}
+              onBackEdit={logic.backToEditor}
+              onPreview={logic.createCommentPreview}
+            />
+          </div>
         ) : (
           <div />
         )}

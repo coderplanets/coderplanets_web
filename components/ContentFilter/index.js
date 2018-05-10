@@ -137,7 +137,7 @@ const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
-      trigger="click"
+      trigger="hover"
       content={
         <SelectPanel
           onSelect={onSelect}

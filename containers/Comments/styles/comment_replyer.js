@@ -37,33 +37,6 @@ export const InputEditorWrapper = styled.div`
   display: block;
   font-size: 1.4em;
 `
-
-export const InputFooter = styled.div`
-  display: flex;
-  padding: 0 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-right: 15px;
-`
-
-export const InputHelper = styled.div`
-  flex-grow: 1;
-  display: flex;
-`
-export const HelperIcon = styled(ReactSVG)`
-  fill: #b7cfd0;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-
-  &:hover {
-    fill: #51abb2;
-    cursor: pointer;
-  }
-`
-
-export const InputSubmit = styled.div``
-
 export const UserAvatar = styled.img`
   width: 25px;
   height: 25px;
@@ -121,4 +94,9 @@ export const CounterTotal = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   font-size: 1em;
+`
+
+export const PreviewWrapper = styled.div`
+  min-height: 200px;
+  padding: 0 20px;
 `

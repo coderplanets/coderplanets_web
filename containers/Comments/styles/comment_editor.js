@@ -6,7 +6,7 @@ import { theme } from '../../../utils'
 
 export const Container = styled.div`
   background: ${theme('preview.article_bg')};
-  min-height: ${props => (props.showInputEditor ? '100px' : '70px')};
+  min-height: ${props => (props.show ? '100px' : '70px')};
   height: auto;
   border-color: ${theme('preview.article_bg')};
   display: flex;
@@ -29,32 +29,6 @@ export const InputEditorWrapper = styled.div`
   display: ${props => (props.showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
 `
-
-export const InputFooter = styled.div`
-  display: flex;
-  padding: 0 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
-  margin-right: 15px;
-`
-
-export const InputHelper = styled.div`
-  flex-grow: 1;
-  display: flex;
-`
-export const HelperIcon = styled(ReactSVG)`
-  fill: #b7cfd0;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-
-  &:hover {
-    fill: #51abb2;
-    cursor: pointer;
-  }
-`
-
-export const InputSubmit = styled.div``
 
 export const UserAvatar = styled.img`
   width: 40px;
@@ -113,4 +87,9 @@ export const CounterTotal = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   font-size: 1em;
+`
+
+export const PreviewerWrapper = styled.div`
+  padding: 0 33px;
+  min-height: 150px;
 `

@@ -34,7 +34,9 @@ class CommentsContainer extends React.Component {
       /* data, */
       referUsersData,
       accountInfo,
+      showReplyBox,
       showReplyEditor,
+      showReplyPreview,
     } = this.props.comments
 
     /* console.log('the fucking accountInfo --> ', accountInfo) */
@@ -42,12 +44,14 @@ class CommentsContainer extends React.Component {
 
     return (
       <Wrapper>
-        <Modal show={showReplyEditor}>
-          {showReplyEditor ? (
+        <Modal show={showReplyBox}>
+          {/* NOTE: this is used for react-clickouside */}
+          {showReplyBox ? (
             <CommentReplyer
               referUsers={referUsersData}
               restProps={{ ...this.props.comments }}
               show={showReplyEditor}
+              showReplyPreview={showReplyPreview}
             />
           ) : (
             <div />

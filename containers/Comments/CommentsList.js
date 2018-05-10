@@ -8,7 +8,13 @@ import { ICON_ASSETS } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
 import { Global, prettyNum } from '../../utils'
 
-import { AvatarsRow, SpaceGrow, Pagi, CommentLoading } from '../../components'
+import {
+  AvatarsRow,
+  SpaceGrow,
+  Pagi,
+  CommentLoading,
+  MarkDownPreviewer,
+} from '../../components'
 
 import * as logic from './logic'
 import CommentsFilter from './CommentsFilter'
@@ -147,7 +153,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
           ) : (
             <div />
           )}
-          {data.body}
+          <MarkDownPreviewer body={data.body} />
         </CommentContent>
         <CommentFooter>
           <Actions>

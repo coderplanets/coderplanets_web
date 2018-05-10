@@ -67,34 +67,30 @@ export function createComment() {
   })
 }
 
-export function createReplyComment() {
-  sr71$.mutate(S.replyComment, {
-    id: comments.replyToComment.id,
-    body: comments.replyContent,
-  })
-}
-
-export function deleteComment() {
-  sr71$.mutate(S.deleteComment, {
-    id: comments.tobeDeleteId,
-  })
-}
-
-// show delete confirm
-export function onDelete(comment) {
+export function createCommentPreview() {
+  debug('createCommentPreview')
   comments.markState({
-    tobeDeleteId: comment.id,
+    showInputEditor: false,
+    showInputPreview: true,
   })
 }
 
-export function cancleDelete() {
+export function backToEditor() {
   comments.markState({
-    tobeDeleteId: null,
+    showInputEditor: true,
+    showInputPreview: false,
   })
 }
 
 export function previewReply(data) {
   debug('previewReply --> : ', data)
+}
+
+export function openInputBox() {
+  comments.markState({
+    showInputBox: true,
+    showInputEditor: true,
+  })
 }
 
 export function openCommentEditor() {
@@ -105,17 +101,17 @@ export function openCommentEditor() {
 
 export function onCommentInputBlur() {
   comments.markState({
+    showInputBox: false,
+    showInputPreview: false,
     showInputEditor: false,
   })
 }
 
-export function pageChange(page = 1) {
-  scrollIntoEle('lists-info')
-  loadComents({ filter: { page, sort: comments.filterType } })
-}
-
-const cancelLoading = () => {
-  comments.markState({ loading: false, loadingFresh: false, creating: false })
+export function createReplyComment() {
+  sr71$.mutate(S.replyComment, {
+    id: comments.replyToComment.id,
+    body: comments.replyContent,
+  })
 }
 
 export function onCommentInputChange(editContent) {
@@ -133,28 +129,36 @@ export function onReplyInputChange(replyContent) {
   })
 }
 
-export function insertCode() {
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'FUCK',
-    data: '```javascript\n\n```',
+export function openReplyEditor(data) {
+  comments.markState({
+    showReplyBox: true,
+    showReplyEditor: true,
+    showReplyPreview: false,
+    replyToComment: data,
   })
 }
 
-export function onMention(user) {
-  debug('onMention: ', user)
-  comments.addReferUser(user)
+export function replyCommentPreview() {
+  debug('replyCommentPreview')
+
+  comments.markState({
+    showReplyEditor: false,
+    showReplyPreview: true,
+  })
 }
 
-export function openReplyEditor(data) {
+export function replyBackToEditor() {
   comments.markState({
     showReplyEditor: true,
-    replyToComment: data,
+    showReplyPreview: false,
   })
 }
 
 export function closeReplyBox() {
   comments.markState({
+    showReplyBox: false,
     showReplyEditor: false,
+    showReplyPreview: false,
   })
 }
 
@@ -188,6 +192,46 @@ export function toggleDislikeComment(comment) {
   return sr71$.mutate(S.dislikeComment, {
     id: comment.id,
   })
+}
+
+export function insertCode() {
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
+    type: 'FUCK',
+    data: '```javascript\n\n```',
+  })
+}
+
+export function onMention(user) {
+  debug('onMention: ', user)
+  comments.addReferUser(user)
+}
+
+export function deleteComment() {
+  sr71$.mutate(S.deleteComment, {
+    id: comments.tobeDeleteId,
+  })
+}
+
+// show delete confirm
+export function onDelete(comment) {
+  comments.markState({
+    tobeDeleteId: comment.id,
+  })
+}
+
+export function cancleDelete() {
+  comments.markState({
+    tobeDeleteId: null,
+  })
+}
+
+export function pageChange(page = 1) {
+  scrollIntoEle('lists-info')
+  loadComents({ filter: { page, sort: comments.filterType } })
+}
+
+const cancelLoading = () => {
+  comments.markState({ loading: false, loadingFresh: false, creating: false })
 }
 
 // ###############################
@@ -227,7 +271,7 @@ const DataSolver = [
     action: ({ replyComment }) => {
       debug('replyComment', replyComment)
       commentsConflict.markState({
-        showReplyEditor: false,
+        showReplyBox: false,
         replyToComment: null,
       })
       scrollIntoEle('lists-info')

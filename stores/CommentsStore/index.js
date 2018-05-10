@@ -7,37 +7,11 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
-import { User } from '../SharedModel'
+import { Comment } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:CommentsStore')
 /* eslint-enable no-unused-vars */
-const CommentBrief = t.model('CommentBrief', {
-  id: t.maybe(t.string),
-  body: t.maybe(t.string),
-  floor: t.maybe(t.number),
-  author: t.optional(User, {}),
-})
-
-const Comment = t.model('Comment', {
-  id: t.maybe(t.string),
-  body: t.maybe(t.string),
-  author: t.optional(User, {}),
-  floor: t.number,
-  replyTo: t.maybe(CommentBrief),
-  replies: t.optional(t.array(CommentBrief), []),
-  /* desc: t.optional(t.string, ''), */
-  /* raw: t.maybe(t.string), */
-  /* logo: t.maybe(t.string), */
-  contributesDigest: t.optional(t.array(t.number), []),
-  repliesCount: t.optional(t.number, 0),
-  likesCount: t.optional(t.number, 0),
-  dislikesCount: t.optional(t.number, 0),
-  viewerHasLiked: t.maybe(t.boolean),
-  viewerHasDisliked: t.maybe(t.boolean),
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
-})
 
 const Mention = t.model('Mention', {
   id: t.string,
@@ -47,10 +21,18 @@ const Mention = t.model('Mention', {
 
 const CommentsStore = t
   .model('CommentsStore', {
-    // toggle main comment editor
+    // toggle main comment box
+    showInputBox: t.optional(t.boolean, false),
+    // toggle editor inside the comment box
     showInputEditor: t.optional(t.boolean, false),
+    // toggle markdown preview inside the comment box
+    showInputPreview: t.optional(t.boolean, false),
+
     // toggle modal editor for reply
+    showReplyBox: t.optional(t.boolean, false),
     showReplyEditor: t.optional(t.boolean, false),
+    showReplyPreview: t.optional(t.boolean, false),
+
     // current to be delete comment id, use to target the confirm mask
     tobeDeleteId: t.maybe(t.string),
     // words count for current comment (include reply comment)

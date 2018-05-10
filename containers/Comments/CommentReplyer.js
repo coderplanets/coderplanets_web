@@ -1,5 +1,4 @@
 import React from 'react'
-import { Icon } from 'antd'
 import withClickOutside from 'react-click-outside'
 
 import BodyEditor from '../TypeWriter/BodyEditor'
@@ -9,14 +8,9 @@ import { ICON_ASSETS, WORD_LIMIT } from '../../config'
 import { debounce } from '../../utils'
 import * as logic from './logic'
 
-import { AvatarsRow, Space, SpaceGrow } from '../../components'
-import Button from '../../components/Button'
+import { AvatarsRow, SpaceGrow, MarkDownPreviewer } from '../../components'
 
 import {
-  InputFooter,
-  InputHelper,
-  HelperIcon,
-  InputSubmit,
   InputEditorWrapper,
   Container,
   InputHeaderWrapper,
@@ -31,7 +25,10 @@ import {
   ReplyBar,
   ReplyToBody,
   ReplyToFloor,
+  PreviewWrapper,
 } from './styles/comment_replyer'
+
+import EditorFooter from './EditorFooter'
 
 const fakeUser = {
   avatar:
@@ -46,7 +43,7 @@ const WordsCounter = ({ countCurrent }) => (
   </CounterWrapper>
 )
 
-const Header = ({ countCurrent, referUsers }) => {
+const Header = ({ countCurrent, referUsers, showPreview }) => {
   return (
     <InputHeaderWrapper>
       <UserAvatar src={fakeUser.avatar} />
@@ -66,12 +63,12 @@ const Header = ({ countCurrent, referUsers }) => {
         <div />
       )}
       <SpaceGrow />
-      <WordsCounter countCurrent={countCurrent} />
+      {showPreview ? <div /> : <WordsCounter countCurrent={countCurrent} />}
     </InputHeaderWrapper>
   )
 }
 
-const InputEditor = ({ body, mentions, restProps: { replying } }) => (
+const InputEditor = ({ body, mentions }) => (
   <div className="comment-reply-editor">
     <InputEditorWrapper>
       <BodyEditor
@@ -81,35 +78,6 @@ const InputEditor = ({ body, mentions, restProps: { replying } }) => (
         body={body}
       />
     </InputEditorWrapper>
-    <InputFooter>
-      <InputHelper>
-        <div onClick={logic.insertCode}>
-          <HelperIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
-        </div>
-        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_quote.svg`} />
-        <HelperIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
-      </InputHelper>
-
-      <InputSubmit className="fuckingyou">
-        <Button type="primary" ghost size="small">
-          预<Space right="5px" />览
-        </Button>
-        <Space right="10px" />
-        {!replying ? (
-          <Button
-            type="primary"
-            size="small"
-            onClick={logic.createReplyComment}
-          >
-            提<Space right="5px" />交
-          </Button>
-        ) : (
-          <Button type="primary" size="small">
-            <Icon type="loading" />提<Space right="5px" />交
-          </Button>
-        )}
-      </InputSubmit>
-    </InputFooter>
   </div>
 )
 
@@ -149,17 +117,36 @@ class CommentReplyEditor extends React.Component {
   render() {
     const {
       referUsers,
-      restProps: { countCurrent, replyContent, replyToComment },
+      show,
+      showReplyPreview,
+      restProps: { countCurrent, replyContent, replyToComment, replying },
     } = this.props
 
     return (
       <Container>
-        <Header countCurrent={countCurrent} referUsers={referUsers} />
+        <Header
+          countCurrent={countCurrent}
+          referUsers={referUsers}
+          showPreview={showReplyPreview}
+        />
         <ReplyToBar comment={replyToComment} />
-        <InputEditor
-          mentions={mentions}
-          body={replyContent}
-          restProps={{ ...this.props }}
+        {show ? (
+          <InputEditor
+            mentions={mentions}
+            body={replyContent}
+            restProps={{ ...this.props }}
+          />
+        ) : (
+          <PreviewWrapper>
+            <MarkDownPreviewer body={replyContent} />
+          </PreviewWrapper>
+        )}
+        <EditorFooter
+          loading={replying}
+          showPreview={showReplyPreview}
+          onCreate={logic.createReplyComment}
+          onBackEdit={logic.replyBackToEditor}
+          onPreview={logic.replyCommentPreview}
         />
       </Container>
     )
