@@ -3,6 +3,7 @@ import React from 'react'
 import { Button, Icon } from 'antd'
 
 import { Space, StatusBox } from '../../components'
+import * as logic from './logic'
 
 import {
   FooterWrapper,
@@ -31,7 +32,12 @@ const Footer = ({ onPublish, publishing, success, error, warn, statusMsg }) => (
         </div>
       ) : (
         <div>
-          <Button size="default" type="primary" ghost>
+          <Button
+            size="default"
+            type="primary"
+            ghost
+            onClick={logic.canclePublish}
+          >
             取消
           </Button>
           <Space right="15px" />

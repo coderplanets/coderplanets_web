@@ -106,6 +106,13 @@ export function onPublish() {
   }
 }
 
+export const canclePublish = () => {
+  debug('canclePublish')
+  cancleLoading()
+  // typeWriter.reset()
+  typeWriter.closePreview()
+}
+
 export function bodyOnChange(body) {
   // debug('editorOnChange: ', body)
   typeWriter.markState({
@@ -135,7 +142,7 @@ const DataSolver = [
   {
     match: gqRes('createPost'),
     action: () => {
-      publishing(false)
+      cancleLoading()
       typeWriter.reset()
       typeWriter.closePreview()
       dispatchEvent(EVENT.REFRESH_POSTS)
