@@ -134,6 +134,7 @@ export function extractMentions(text) {
   return []
 }
 
+// https://blogs.sap.com/2017/07/15/use-regular-expression-to-parse-the-image-reference-in-the-markdown-sourcre-code/
 export const extractAttachments = str => {
   let m
   const regex = /!\[(.*?)\]\((.*?)\)/g
