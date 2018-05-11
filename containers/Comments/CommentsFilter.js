@@ -10,6 +10,7 @@ import {
   MenuItem,
   FilterIcon,
   Header,
+  RecentlyIcon,
 } from './styles/comments_filter'
 
 import * as logic from './logic'
@@ -59,7 +60,7 @@ const Menus = ({ active }) => {
 const renderFilterIcon = filterType => {
   switch (filterType) {
     case TYPE.DESC_INSERTED: {
-      return <FilterIcon path={`${ICON_ASSETS}/cmd/recent.svg`} />
+      return <RecentlyIcon path={`${ICON_ASSETS}/cmd/recent.svg`} />
     }
     case TYPE.MOST_LIKES: {
       return <FilterIcon path={`${ICON_ASSETS}/cmd/up.svg`} />

@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import R from 'ramda'
-import { theme, TYPE } from '../../../utils'
+import { theme, TYPE, Animate } from '../../../utils'
 
 const WIDE_CASE = [TYPE.POST_PREVIEW_VIEW, TYPE.PREVIEW_CREATE_POST]
 const WIDE_WIDTH = '70%'
@@ -77,15 +77,6 @@ export const CloserInner = styled.div`
 `
 // box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
 
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
 export const Closer = styled.div`
   float: right;
   width: ${closeWith};
@@ -99,7 +90,7 @@ export const Closer = styled.div`
       : 'block'};
 
   &:hover:after {
-    animation: ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${Animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
   }
   &:after {

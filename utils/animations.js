@@ -84,6 +84,16 @@ const zoomIn = keyframes`
   }
 `
 
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
+
 const Animate = {
   fadeInRight,
   fadeInDown,
@@ -91,6 +101,7 @@ const Animate = {
   fadeInUp,
   shake,
   zoomIn,
+  rotate360,
 }
 
 export default Animate

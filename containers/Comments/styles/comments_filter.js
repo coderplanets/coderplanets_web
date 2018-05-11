@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
-import { smokey } from '../../../utils'
+import { smokey, Animate } from '../../../utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;
@@ -19,7 +19,10 @@ export const FilterIcon = styled(ReactSVG)`
   height: 20px;
   transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
 `
-
+export const RecentlyIcon = FilterIcon.extend`
+  animation: ${Animate.rotate360} 0.6s linear;
+`
+// animation: ${Animate.rotate360} 1s cubic-bezier(0, 0.56, 0.24, 0.72);
 export const MenuWrapper = styled.div`
   width: 80px;
   display: flex;
