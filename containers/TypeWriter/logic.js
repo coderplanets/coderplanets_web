@@ -62,6 +62,25 @@ export function onUploadImageDone(url) {
   })
 }
 
+const getDigest = body => {
+  /* eslint-disable no-undef */
+  const digestContainer = document.getElementById(
+    'typewriter-preview-container'
+  )
+  /* eslint-enable no-undef */
+  const innerImagesLength = extractAttachments(body).length
+  let digest = R.slice(0, 65, R.trim(digestContainer.innerText))
+
+  if (innerImagesLength > 0 && innerImagesLength <= 2) {
+    const imgDigest = `${R.repeat('[图片]', innerImagesLength)}`
+    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+  } else if (innerImagesLength > 2) {
+    const imgDigest = `${R.repeat('[图片]', 2)} x ${innerImagesLength}`
+    digest = R.isEmpty(digest) ? imgDigest : `${digest}..${imgDigest}`
+  }
+
+  return digest
+}
 // TODO move specfical logic outof here
 export function onPublish() {
   // debug('onPublish: ', typeWriter.body)
@@ -69,14 +88,7 @@ export function onPublish() {
   if (checkValid()) {
     publishing()
 
-    /* eslint-disable no-undef */
-    const digestContainer = document.getElementById(
-      'typewriter-preview-container'
-    )
-    /* eslint-enable no-undef */
-
-    const digest = R.slice(0, 65, R.trim(digestContainer.innerText))
-    /* const { length } = body */
+    const digest = getDigest(body)
     const length = countWords(body)
 
     const variables = {
@@ -86,8 +98,6 @@ export function onPublish() {
       length,
       community: typeWriter.curCommunity.title,
     }
-
-    console.log('extractAttachments ---> ', extractAttachments(variables.body))
 
     if (articleType !== 'original') variables.linkAddr = typeWriter.linkAddr
     // debug('curCommunity: ', typeWriter.curCommunityName)
