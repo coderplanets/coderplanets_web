@@ -71,6 +71,7 @@ class MastaniEditor extends React.Component {
   componentWillUnmount() {
     const { pub } = this.state
     PubSub.unsubscribe(pub)
+    this.clearContent()
   }
 
   initPubSub() {
@@ -167,6 +168,15 @@ class MastaniEditor extends React.Component {
     this.setState({
       suggestions: mentions,
       mentions,
+    })
+  }
+
+  clearContent = () => {
+    const editorState = EditorState.createWithContent(
+      ContentState.createFromText('')
+    )
+    this.setState({
+      editorState,
     })
   }
 

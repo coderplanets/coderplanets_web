@@ -64,7 +64,7 @@ class FileUploader extends React.Component {
     const files = e.target.files
     /* console.log('handleCHange files: ', files) */
     const theFile = files[0]
-    console.log('file: ', theFile)
+    if (!theFile) return false
 
     const FileSize = theFile.size / 1024 / 1024
     if (FileSize > 2) {
