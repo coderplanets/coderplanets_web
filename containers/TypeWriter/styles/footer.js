@@ -8,6 +8,7 @@ export const FooterWrapper = styled.div`
   margin-top: 30px;
   margin-left: 35px;
   margin-right: 40px;
+  margin-bottom: 50px;
 `
 export const RespectText = styled.div`
   color: #b9cfd0;

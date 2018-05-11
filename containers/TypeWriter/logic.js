@@ -11,6 +11,7 @@ import {
   ERR,
   meteorState,
   countWords,
+  extractAttachments,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -53,6 +54,15 @@ function checkValid() {
   return true
 }
 
+export function onUploadImageDone(url) {
+  debug('onUploadImageDone: ', url)
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
+    type: 'Image',
+    data: `![](${url})`,
+  })
+}
+
+// TODO move specfical logic outof here
 export function onPublish() {
   // debug('onPublish: ', typeWriter.body)
   const { body, title, articleType } = typeWriter
@@ -76,6 +86,9 @@ export function onPublish() {
       length,
       community: typeWriter.curCommunity.title,
     }
+
+    console.log('extractAttachments ---> ', extractAttachments(variables.body))
+
     if (articleType !== 'original') variables.linkAddr = typeWriter.linkAddr
     // debug('curCommunity: ', typeWriter.curCommunityName)
     // debug('variables-: ', variables)

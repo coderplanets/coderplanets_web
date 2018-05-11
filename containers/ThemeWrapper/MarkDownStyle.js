@@ -620,6 +620,10 @@ const MarkDownStyle = styled.div`
   .markdown-body img {
     max-width: 50%;
     box-sizing: content-box;
+    // i add: center the img
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .markdown-body img[align='right'] {
@@ -764,11 +768,11 @@ const MarkDownStyle = styled.div`
 export default MarkDownStyle
 
 /*
-background: #0A2A35;
-margin-top: 0;
-margin-bottom: 0;
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 0.6em;
-color: #3B6E9D;
-*/
+   background: #0A2A35;
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 0.6em;
+   color: #3B6E9D;
+ */

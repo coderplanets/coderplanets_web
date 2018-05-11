@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 // import CommentsList from '../../components/CommentsList'
 import Comments from '../../containers/Comments'
-import PostLoading from '../../components/LoadingEffects/PostLoading'
+import { MarkDownPreviewer, PostLoading } from '../../components'
 
 import { ICON_ASSETS } from '../../config'
 
@@ -146,7 +146,9 @@ const PostViewer = ({ data, loading, onReaction }) => (
           <PostLoading num={2} />
         </div>
       ) : (
-        <ArticleBody>{data.body}</ArticleBody>
+        <ArticleBody>
+          <MarkDownPreviewer body={data.body} />
+        </ArticleBody>
       )}
     </BodyWrapper>
     <CommentsWrapper>

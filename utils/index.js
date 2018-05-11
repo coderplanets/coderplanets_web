@@ -23,6 +23,7 @@ export {
   countWords,
   debounce,
   extractMentions,
+  extractAttachments,
 } from './functions'
 
 export { gqErr, gqRes } from './graphql_helper'

@@ -133,3 +133,19 @@ export function extractMentions(text) {
   }
   return []
 }
+
+export const extractAttachments = str => {
+  let m
+  const regex = /!\[(.*?)\]\((.*?)\)/g
+
+  const urls = []
+  /* eslint-disable */
+  while ((m = regex.exec(str)) !== null) {
+    if (m.index === regex.lastIndex) {
+      regex.lastIndex += 1
+    }
+    urls.push(m[2])
+  }
+  /* eslint-enable */
+  return urls
+}

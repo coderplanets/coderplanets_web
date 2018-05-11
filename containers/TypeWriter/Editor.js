@@ -9,6 +9,7 @@ import { Popover, Button } from 'antd'
 
 import { ICON_ASSETS } from '../../config'
 import BodyEditor from './BodyEditor'
+import * as logic from './logic'
 
 import {
   BodyWrapper,
@@ -155,7 +156,7 @@ const Editor = ({
         <ExtraItemTitle>代码</ExtraItemTitle>
       </ExtraItem>
       <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
-      <FileUploader>
+      <FileUploader onUploadDone={logic.onUploadImageDone}>
         <ExtraItem>
           <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
           <ExtraItemTitle>图片</ExtraItemTitle>

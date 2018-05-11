@@ -76,7 +76,6 @@ class MastaniEditor extends React.Component {
   initPubSub() {
     const pub = PubSub.subscribe(EVENT.DRAFT_INSERT_SNIPPET, (event, data) => {
       this.insertSnippet(data.data)
-      console.log('INSERT_FUCK: ', data)
     })
     this.setState({
       pub,
@@ -105,7 +104,9 @@ class MastaniEditor extends React.Component {
     )
 
     const nextEditorState = EditorState.push(editorState, nextContentState)
-    this.setState({ editorState: nextEditorState })
+    this.setState({ editorState: nextEditorState }, () => {
+      this.focus()
+    })
   }
 
   onBlur = () => {

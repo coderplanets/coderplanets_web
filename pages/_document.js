@@ -41,8 +41,14 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
         <link
-          href="https://coderplanets.oss-cn-beijing.aliyuncs.com/css/mapbox-gl.css"
+          href="https://cdn.bootcss.com/mapbox-gl/0.45.0/mapbox-gl.css"
           rel="stylesheet"
+        />
+        {/* the ali-oss-sdk es6 import support sucks */}
+        {/* import from cdn is fine, it's not my money anyway */}
+        <script
+          async
+          src="http://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
       </html>
     )
