@@ -7,8 +7,6 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-// import { Button, Message } from 'antd'
-// import dynamic from 'next/dynamic'
 
 // import ContentInput from './ContentInput'
 import { ICON_ASSETS } from '../../config'

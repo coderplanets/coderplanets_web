@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
-import { Button } from 'antd'
+import { Button } from '../../../components'
 
 import { theme } from '../../../utils'
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import ReactSVG from 'react-svg'
-import { Input, Mention } from 'antd'
+import { Input } from '../../../components'
 import { theme } from '../../../utils'
 
 export const EditorBlock = styled.div`
@@ -32,19 +32,6 @@ export const TitleInput = styled(Input)`
     box-shadow: none;
     border-bottom: 1px solid;
     border-bottom-color: ${theme('preview.editor_border_active')};
-  }
-`
-
-export const BodyInput = styled(Mention)`
-  border: 1px solid #f9fcfc;
-  &:hover {
-    border-color: #f9fcfc;
-    border-bottom: 1px solid #b3cacb;
-  }
-  &:focus {
-    border-color: #f9fcfc;
-    box-shadow: none;
-    border-bottom: 1px solid #b3cacb;
   }
 `
 
@@ -196,32 +183,3 @@ export const CheckIcon = styled(ReactSVG)`
     props.active === props.value ? 'visiable' : 'hidden'};
 `
 export const CheckText = styled.div``
-
-// TODO: move to a component
-export const PopoverDIY = styled.div`
-  margin: -16px;
-  border-radius: 4px;
-  padding: 5px;
-  padding-right: 8px;
-  background: #f9fcfc;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  position: relative;
-`
-export const PopoverPointer = styled.div`
-  background: #f9fcfc;
-  width: 7.07106781px;
-  height: 7.07106781px;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  position: absolute;
-  display: block;
-  border-color: transparent;
-  border-style: solid;
-  top: 50%;
-  left: -4px;
-  box-shadow: -1px 2px 4px 0px rgba(86, 86, 86, 0.15);
-  -webkit-transform: translateY(-50%) rotate(45deg);
-  -ms-transform: translateY(-50%) rotate(45deg);
-  transform: translateY(-50%) rotate(45deg);
-`

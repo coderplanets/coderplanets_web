@@ -37,7 +37,7 @@ PopoverComponent.propTypes = {
   content: PropTypes.node.isRequired,
   title: PropTypes.string,
   trigger: PropTypes.oneOf(['hover', 'click', 'focus']),
-  placement: PropTypes.oneOf(['bottomLeft', 'bottom']),
+  placement: PropTypes.oneOf(['bottomLeft', 'bottom', 'right']),
 }
 
 PopoverComponent.defaultProps = {

@@ -7,17 +7,18 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
-import { Tabs } from 'antd'
 import ReactTooltip from 'react-tooltip'
 
 import { makeDebugger, storeSelector } from '../../utils'
-import * as logic from './logic'
+
+import { Tabs, ThemeSelector } from '../../components'
 
 import UserHeader from './UserHeader'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
-import ThemeSelector from '../../components/ThemeSelector'
+
 import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
+import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountViewer')

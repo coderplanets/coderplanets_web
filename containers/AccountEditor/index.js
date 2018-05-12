@@ -7,14 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Input, Button, Icon } from 'antd'
-
 import { ICON_ASSETS } from '../../config'
 // import Link from 'next/link'
 
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
-import { StatusBox } from '../../components'
+import { Input, Button, Icon, StatusBox } from '../../components'
 
 import {
   Wrapper,

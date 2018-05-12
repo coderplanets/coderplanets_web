@@ -5,13 +5,15 @@ import mentions from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 import R from 'ramda'
 import shortid from 'shortid'
+
+import { MENTION_USER_ADDR } from '../../config'
 import MarkDownStyle from '../../containers/ThemeWrapper/MarkDownStyle'
 
 import fullEmojis from './emojis'
 import { Wrapper, EmojiWraper, EmojiItem } from './styles/markdown_helper'
 
 const md = new Remarkable()
-md.use(mentions({ url: 'http:coderplanets.com/users/' }))
+md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
 const notTooLong = l => l.length < 20

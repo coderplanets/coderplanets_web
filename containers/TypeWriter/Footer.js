@@ -1,8 +1,7 @@
 //
 import React from 'react'
-import { Button, Icon } from 'antd'
 
-import { Space, StatusBox } from '../../components'
+import { Space, StatusBox, Button, Icon } from '../../components'
 import * as logic from './logic'
 
 import {

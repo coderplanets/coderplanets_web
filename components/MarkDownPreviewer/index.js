@@ -11,13 +11,14 @@ import remarkableemoj from 'remarkable-emoji'
 import mentionsPlugin from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 
+import { MENTION_USER_ADDR } from '../../config'
 import { makeDebugger } from '../../utils'
 import MarkDownStyle from '../../containers/ThemeWrapper/MarkDownStyle'
 
 import { PreviewerContainer } from './styles'
 
 const md = new Remarkable()
-md.use(mentionsPlugin({ url: 'http:coderplanets.com/users/' }))
+md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
 /* eslint-disable no-unused-vars */

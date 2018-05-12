@@ -6,12 +6,10 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Affix } from 'antd'
 import keydown from 'react-keydown'
-// import Link from 'next/link'
-import Navigator from '../../components/Navigator'
 
 import { ICON_ASSETS } from '../../config/assets'
+import { Affix, Navigator } from '../../components'
 
 import { makeDebugger, storeSelector } from '../../utils'
 

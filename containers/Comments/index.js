@@ -7,8 +7,6 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-/* import { Modal } from 'antd' */
-
 import { makeDebugger, storeSelector } from '../../utils'
 import * as logic from './logic'
 

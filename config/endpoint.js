@@ -17,3 +17,4 @@ const getGraphQLEndpoint = () => {
 }
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
 export const ISSUE_ADDR = 'https://github.com/mydearxym/mastani_web/issues/new'
+export const MENTION_USER_ADDR = 'https://coderplanets.com/users/'

@@ -7,10 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Trend from 'react-trend'
-import { Button, Icon, Tooltip } from 'antd'
 // import Link from 'next/link'
 
-import { Pagi } from '../../components'
+import { Pagi, Button, Icon, Tooltip } from '../../components'
 
 import { makeDebugger, storeSelector, prettyNum } from '../../utils'
 

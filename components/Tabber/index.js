@@ -5,7 +5,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import { Tabs } from 'antd'
+import { Tabs } from '../../components'
 
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */

@@ -7,7 +7,8 @@ import Remarkable from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 import mentions from 'remarkable-mentions'
 // import Prism from 'mastani-codehighlight'
-import { Button } from 'antd'
+import { MENTION_USER_ADDR } from '../../config'
+import { Button } from '../../components'
 
 import MarkDownStyle from '../../containers/ThemeWrapper/MarkDownStyle'
 import {
@@ -18,7 +19,7 @@ import {
 } from './styles/preview'
 
 const md = new Remarkable()
-md.use(mentions({ url: 'http:coderplanets.com/users/' }))
+md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
 /* eslint-disable react/no-danger */

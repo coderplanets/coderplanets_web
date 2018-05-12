@@ -7,12 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import shortid from 'shortid'
-import { Tooltip } from 'antd'
 import R from 'ramda'
 
 import { makeDebugger, prettyNum } from '../../utils'
-import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './style'
 import { ATATARS_LIST_LENGTH } from '../../config/general'
+
+import { Tooltip } from '../../components'
+import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */

@@ -1,9 +1,7 @@
 import React from 'react'
-import { Button, Icon } from 'antd'
-/* import Button from '../../components/Button' */
 
 import { ICON_ASSETS } from '../../config'
-import { Space } from '../../components'
+import { Space, Button, Icon } from '../../components'
 
 import * as logic from './logic'
 

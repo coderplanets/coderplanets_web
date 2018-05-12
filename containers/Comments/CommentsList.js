@@ -1,6 +1,5 @@
 import R from 'ramda'
 import React from 'react'
-import { Button } from 'antd'
 import TimeAgo from 'timeago-react'
 import shortid from 'shortid'
 
@@ -10,6 +9,7 @@ import { Global, prettyNum } from '../../utils'
 
 import {
   AvatarsRow,
+  Button,
   SpaceGrow,
   Pagi,
   CommentLoading,

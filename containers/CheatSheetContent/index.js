@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import randomColor from 'randomcolor'
 import shortid from 'shortid'
+// TODO: remove Row, Col, Divider
 import { Row, Col, Divider } from 'antd'
 // import Link from 'next/link'
 

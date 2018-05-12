@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import { Icon } from 'antd'
 import PropTypes from 'prop-types'
 
+import { Icon } from '../../components'
 import { makeDebugger } from '../../utils'
 import {
   Wrapper,

@@ -1,11 +1,8 @@
 import React from 'react'
-
 import shortid from 'shortid'
-import { Button, Icon } from 'antd'
-
-import A from '../../components/A'
 
 import { ICON_ASSETS } from '../../config'
+import { A, Button, Icon } from '../../components'
 
 import {
   UserWrapper,

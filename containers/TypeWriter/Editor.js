@@ -5,7 +5,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Popover, Button } from 'antd'
+import { Button, Popover, FileUploader } from '../../components'
 
 import { ICON_ASSETS } from '../../config'
 import BodyEditor from './BodyEditor'
@@ -24,8 +24,6 @@ import {
   MoreIcon,
   SourceLink,
   PreviewBtn,
-  PopoverDIY,
-  PopoverPointer,
   Selector,
   CheckIcon,
   CheckText,
@@ -39,8 +37,6 @@ import {
   ExtraDivider,
 } from './styles/editor'
 
-import { FileUploader } from '../../components'
-
 const articleTypeDic = {
   original: '原创',
   reprint: '转载',
@@ -49,9 +45,7 @@ const articleTypeDic = {
 
 const OriginalSelector = ({ active, onSelect }) => {
   return (
-    <PopoverDIY>
-      <PopoverPointer />
-
+    <div>
       <Selector onClick={onSelect.bind(this, 'original')}>
         <CheckIcon
           path={`${ICON_ASSETS}/cmd/check2.svg`}
@@ -82,7 +76,7 @@ const OriginalSelector = ({ active, onSelect }) => {
           翻译
         </CheckText>
       </Selector>
-    </PopoverDIY>
+    </div>
   )
 }
 

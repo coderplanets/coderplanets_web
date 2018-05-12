@@ -7,31 +7,22 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
-import { Affix } from 'antd'
 import TimeAgo from 'timeago-react'
 import Waypoint from 'react-waypoint'
 // import Link from 'next/link'
 
 import { ICON_ASSETS } from '../../config'
 
-// import { Button } from '../../components'
-import ContentFilter from '../../components/ContentFilter'
-import {
-  makeDebugger,
-  storeSelector,
-  /* getRandomInt, */
-  cutFrom,
-  TYPE,
-  /* fakeUsers, */
-  // Global,
-} from '../../utils'
+import { makeDebugger, storeSelector, cutFrom, TYPE } from '../../utils'
 
 import {
+  Affix,
   AvatarsRow,
   TagList,
   PostsLoading,
   Pagi,
   NotFound,
+  ContentFilter,
 } from '../../components'
 
 // import logic from './logic'
