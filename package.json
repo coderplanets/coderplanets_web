@@ -75,7 +75,7 @@
     "mobx-react": "5.0.0",
     "mobx-state-tree": "2.0.1",
     "module-alias": "^2.0.1",
-    "next": "6.0.1",
+    "next": "6.0.2",
     "path-match": "^1.2.4",
     "polished": "1.9.2",
     "prop-types": "^15.5.10",
