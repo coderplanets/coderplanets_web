@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import Wrapper from './styles'
 import * as logic from './logic'
 
@@ -37,4 +37,4 @@ ApiLayoutContainer.defaultProps = {
   children: <div />,
 }
 
-export default inject(storeSelector('apiLayout'))(observer(ApiLayoutContainer))
+export default inject(storePlug('apiLayout'))(observer(ApiLayoutContainer))

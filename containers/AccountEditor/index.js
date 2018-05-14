@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 import { ICON_ASSETS } from '../../config'
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 import { Input, Button, Icon, StatusBox } from '../../components'
 
@@ -178,6 +178,6 @@ class AccountEditorContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('accountEditor'))(
+export default inject(storePlug('accountEditor'))(
   observer(AccountEditorContainer)
 )

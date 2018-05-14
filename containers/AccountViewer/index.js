@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 import ReactTooltip from 'react-tooltip'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 
 import { Tabs, ThemeSelector } from '../../components'
 
@@ -100,6 +100,6 @@ class AccountViewerContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('accountViewer'))(
+export default inject(storePlug('accountViewer'))(
   observer(AccountViewerContainer)
 )

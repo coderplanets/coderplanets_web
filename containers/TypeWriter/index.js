@@ -14,7 +14,7 @@ import { ICON_ASSETS } from '../../config'
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 import Footer from './Footer'
@@ -189,6 +189,4 @@ class TypeWriterContainer extends React.Component {
 
 // TypeWriterContainer.defaultProps = {}
 
-export default inject(storeSelector('typeWriter'))(
-  observer(TypeWriterContainer)
-)
+export default inject(storePlug('typeWriter'))(observer(TypeWriterContainer))

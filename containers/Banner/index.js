@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { TYPE, makeDebugger, storeSelector } from '../../utils'
+import { TYPE, makeDebugger, storePlug } from '../../utils'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import CommunitiesRootBanner from './CommunitiesRootBanner'
@@ -59,4 +59,4 @@ class BannerContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('banner'))(observer(BannerContainer))
+export default inject(storePlug('banner'))(observer(BannerContainer))

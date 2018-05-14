@@ -29,7 +29,7 @@ export {
 export { gqErr, gqRes } from './graphql_helper'
 
 export {
-  storeSelector,
+  storePlug,
   markStates,
   meteorState,
   stripMobx,

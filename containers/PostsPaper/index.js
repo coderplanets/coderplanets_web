@@ -13,7 +13,7 @@ import Waypoint from 'react-waypoint'
 
 import { ICON_ASSETS } from '../../config'
 
-import { makeDebugger, storeSelector, cutFrom, TYPE } from '../../utils'
+import { makeDebugger, storePlug, cutFrom, TYPE } from '../../utils'
 
 import {
   Affix,
@@ -216,6 +216,4 @@ class PostsPaperContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('postsPaper'))(
-  observer(PostsPaperContainer)
-)
+export default inject(storePlug('postsPaper'))(observer(PostsPaperContainer))

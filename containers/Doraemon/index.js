@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 // import styled from 'styled-components'
 
 import { ICON_ASSETS } from '../../config'
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 
 import InputEditor from './InputEditor'
 import NodeIcon from './NodeIcon'
@@ -109,4 +109,4 @@ class DoraemonContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('doraemon'))(observer(DoraemonContainer))
+export default inject(storePlug('doraemon'))(observer(DoraemonContainer))

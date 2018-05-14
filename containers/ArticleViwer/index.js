@@ -12,7 +12,7 @@ import { inject, observer } from 'mobx-react'
 
 import PostViewer from './PostViewer'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -45,10 +45,7 @@ class ArticleViwerContainer extends React.Component {
   }
 
   render() {
-    const {
-      type,
-      articleViwer: { curPost, postLoading },
-    } = this.props
+    const { type, articleViwer: { curPost, postLoading } } = this.props
     return (
       <div>
         <Viwer
@@ -75,6 +72,6 @@ ArticleViwerContainer.defaultProps = {
 
 // ArticleViwerContainer
 
-export default inject(storeSelector('articleViwer'))(
+export default inject(storePlug('articleViwer'))(
   observer(ArticleViwerContainer)
 )

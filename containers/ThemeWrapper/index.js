@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { ThemeProvider } from 'styled-components'
 
-import { storeSelector } from '../../utils'
+import { storePlug } from '../../utils'
 
 import AntOverWrite from './AntOverWrite'
 import NormalizeStyle from './NormalizeStyle'
@@ -49,4 +49,4 @@ const ThemeObserver = ({ children, theme }) => (
   </ThemeProvider>
 )
 
-export default inject(storeSelector('theme'))(observer(ThemeObserver))
+export default inject(storePlug('theme'))(observer(ThemeObserver))

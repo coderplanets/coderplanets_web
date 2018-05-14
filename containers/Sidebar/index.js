@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import Trend from 'react-trend'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
 import {
   Sidebar,
@@ -152,4 +152,4 @@ class SidebarContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('sidebar'))(observer(SidebarContainer))
+export default inject(storePlug('sidebar'))(observer(SidebarContainer))

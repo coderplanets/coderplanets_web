@@ -11,7 +11,7 @@ import Trend from 'react-trend'
 
 import { Pagi, Button, Icon, Tooltip } from '../../components'
 
-import { makeDebugger, storeSelector, prettyNum } from '../../utils'
+import { makeDebugger, storePlug, prettyNum } from '../../utils'
 
 import {
   Wrapper,
@@ -140,6 +140,6 @@ class CommunitiesContentContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('communitiesContent'))(
+export default inject(storePlug('communitiesContent'))(
   observer(CommunitiesContentContainer)
 )

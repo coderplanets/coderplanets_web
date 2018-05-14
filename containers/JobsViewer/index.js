@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import { Wrapper } from './styles'
 import * as logic from './logic'
 
@@ -27,6 +27,4 @@ class JobsViewerContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('jobsViewer'))(
-  observer(JobsViewerContainer)
-)
+export default inject(storePlug('jobsViewer'))(observer(JobsViewerContainer))

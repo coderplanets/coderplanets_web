@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 import { ICON_ASSETS } from '../../config/assets'
 import { Affix, Navigator } from '../../components'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 
 import {
   HeaderWrapper,
@@ -153,4 +153,4 @@ class HeaderContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('header'))(observer(HeaderContainer))
+export default inject(storePlug('header'))(observer(HeaderContainer))

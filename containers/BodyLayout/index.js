@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 
 // import Link from 'next/link'
 
-import { storeSelector } from '../../utils'
+import { storePlug } from '../../utils'
 
 import Body from './styles'
 import * as logic from './logic'
@@ -44,6 +44,4 @@ BodyLayoutContainer.defaultProps = {
   children: <div />,
 }
 
-export default inject(storeSelector('bodylayout'))(
-  observer(BodyLayoutContainer)
-)
+export default inject(storePlug('bodylayout'))(observer(BodyLayoutContainer))

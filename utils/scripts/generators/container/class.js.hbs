@@ -13,7 +13,7 @@ import { inject, observer } from 'mobx-react'
   import messages from './messages'
 {{/if}}
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -35,4 +35,4 @@ class {{ properCase name }}Container extends React.Component {
   }
 }
 
-export default inject(storeSelector('{{ camelCase name }}'))(observer({{ properCase name }}Container))
+export default inject(storePlug('{{ camelCase name }}'))(observer({{ properCase name }}Container))

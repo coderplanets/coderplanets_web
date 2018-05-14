@@ -11,7 +11,7 @@ import ReactMapGL, { NavigationControl } from 'react-map-gl'
 // import Link from 'next/link'
 
 import defaultMapStyle from './defaultMapStyle'
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import { Wrapper } from './styles'
 import * as logic from './logic'
 
@@ -82,4 +82,4 @@ class MapViewerContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('mapViewer'))(observer(MapViewerContainer))
+export default inject(storePlug('mapViewer'))(observer(MapViewerContainer))

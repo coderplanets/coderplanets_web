@@ -17,7 +17,7 @@ import shortid from 'shortid'
 import { CheatSheetLoading } from '../../components/LoadingEffects'
 import { NotFound, Button } from '../../components'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
@@ -163,6 +163,6 @@ class CheatSheetViewerContainer extends React.Component {
 }
 /* eslint-enable react/no-danger */
 
-export default inject(storeSelector('cheatSheetPaper'))(
+export default inject(storePlug('cheatSheetPaper'))(
   observer(CheatSheetViewerContainer)
 )

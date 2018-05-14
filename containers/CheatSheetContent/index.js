@@ -14,7 +14,7 @@ import { Row, Col, Divider } from 'antd'
 
 import { Entry, CheatsheetItem } from './styles'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 const cheatsheetData = {
@@ -107,6 +107,6 @@ class CheatSheetContentContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('cheatSheetContent'))(
+export default inject(storePlug('cheatSheetContent'))(
   observer(CheatSheetContentContainer)
 )

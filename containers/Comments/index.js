@@ -7,7 +7,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 import { Modal } from '../../components'
@@ -78,4 +78,4 @@ class CommentsContainer extends React.Component {
 
 // CommentsContainer.defaultProps = {}
 
-export default inject(storeSelector('comments'))(observer(CommentsContainer))
+export default inject(storePlug('comments'))(observer(CommentsContainer))

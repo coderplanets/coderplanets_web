@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 // TODO: move it to component
@@ -107,4 +107,4 @@ class PreviewContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('preview'))(observer(PreviewContainer))
+export default inject(storePlug('preview'))(observer(PreviewContainer))

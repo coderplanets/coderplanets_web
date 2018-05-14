@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 import { isObject } from '../utils'
 
-export const storeSelector = R.curry((wantedStore, props) => ({
+export const storePlug = R.curry((wantedStore, props) => ({
   [wantedStore]: R.path(['store', wantedStore], props),
 }))
 

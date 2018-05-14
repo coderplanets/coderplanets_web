@@ -11,7 +11,7 @@ import Router, { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storeSelector } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import { init, syncRoute } from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -33,6 +33,4 @@ class RouteContainer extends React.Component {
   }
 }
 
-export default inject(storeSelector('route'))(
-  observer(withRouter(RouteContainer))
-)
+export default inject(storePlug('route'))(observer(withRouter(RouteContainer)))
