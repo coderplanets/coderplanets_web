@@ -64,13 +64,16 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
   }, secs * 1000)
 }
 
-export const stripMobx = obj =>
-  R.map(v => {
+export const stripMobx = obj => {
+  if (!obj) return obj
+
+  return R.map(v => {
     if (isObject(v) && R.has('$mobx')) {
       return v.toJSON()
     }
     return v
   }, obj)
+}
 
 /*
  *  make life easier by using the redux like connent syntax
