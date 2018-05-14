@@ -17,6 +17,8 @@ const Community = t.model('Community', {
   postsCount: t.optional(t.number, 0),
   viewerHasSubscribed: t.maybe(t.boolean),
   threads: t.optional(t.array(Thread), []),
+  insertedAt: t.optional(t.string, ''),
+  updatedAt: t.optional(t.string, ''),
 })
 
 export default Community
