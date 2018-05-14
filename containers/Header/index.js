@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 import { ICON_ASSETS } from '../../config/assets'
 import { Affix, Navigator } from '../../components'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import {
   HeaderWrapper,
@@ -127,7 +127,7 @@ class HeaderContainer extends React.Component {
 
     // <Affix style={{ display: fixed ? 'block' : 'none' }}>
     return (
-      <div>
+      <div id={TYPE.APP_HEADER_ID}>
         <AffixHeader fixed={fixed}>
           <Affix>
             <Header

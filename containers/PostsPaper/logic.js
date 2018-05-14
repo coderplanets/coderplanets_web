@@ -8,7 +8,7 @@ import {
   ERR,
   TYPE,
   $solver,
-  pageGoTop,
+  scrollIntoEle,
   GA,
 } from '../../utils'
 
@@ -55,7 +55,7 @@ export function loadPosts(page = 1) {
   }
 
   args.filter = validFilter(args.filter)
-  pageGoTop()
+  scrollIntoEle(TYPE.APP_HEADER_ID)
   sr71$.query(S.pagedPosts, args)
 }
 
