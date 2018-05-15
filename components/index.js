@@ -19,6 +19,10 @@ export { default as Pagi } from './Pagi'
 export { default as Navigator } from './Navigator'
 export { default as ThemeSelector } from './ThemeSelector'
 
+export { default as UserCell } from './UserCell'
+//
+export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
+
 // loading component
 export {
   CommentLoading,

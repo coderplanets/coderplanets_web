@@ -23,6 +23,7 @@ import {
   Pagi,
   NotFound,
   ContentFilter,
+  BuyMeChuanChuan,
 } from '../../components'
 
 // import logic from './logic'
@@ -169,11 +170,13 @@ class PostsPaperContainer extends React.Component {
       curFilter: { when, sort, wordLength },
       curTag,
       active,
+      accountInfo,
     } = this.props.postsPaper
 
     return (
       <Wrapper>
         <LeftPadding />
+        <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <FilterWrapper>

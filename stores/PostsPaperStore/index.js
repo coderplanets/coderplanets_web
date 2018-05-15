@@ -82,6 +82,11 @@ const PostsPaperStore = t
     get postsData() {
       return self.root.posts.postsData
     },
+
+    get accountInfo() {
+      return self.root.account.accountInfo
+    },
+
     get curCommunity() {
       return self.root.communities.curCommunity
     },

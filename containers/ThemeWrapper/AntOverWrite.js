@@ -277,7 +277,7 @@ const AntOverWrite = styled.div`
   }
 
   .ant-btn-red {
-    color: ${theme('button.fg')};
+    color: white;
     background-color: tomato;
     border-color: tomato;
   }

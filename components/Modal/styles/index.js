@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { Animate } from '../../../utils'
+import ReactSVG from 'react-svg'
+import { theme, Animate } from '../../../utils'
 
 // display: ${props => (props.show ? 'block' : 'none')};
 export const Mask = styled.div`
@@ -15,8 +16,9 @@ export const Mask = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
+  margin: 0 auto;
   top: 15%;
-  width: 600px;
+  width: ${props => props.width};
   min-height: 320px;
   max-height: 80vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
@@ -24,6 +26,23 @@ export const Wrapper = styled.div`
   border-top: 3px solid;
   animation: ${Animate.zoomeIn} 0.5s linear;
 `
+
+export const CloseBtn = styled(ReactSVG)`
+  fill: ${theme('font')};
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 15px;
+  top: 15px;
+  display: ${props => (props.show ? 'block' : 'none')};
+
+  &:hover {
+    animation: ${Animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    font-weight: bold;
+    cursor: pointer;
+  }
+`
+
 /* display: ${props => (props.show ? 'block' : 'none')}; */
 /* opacity: ${props => (props.show ? 1 : 0)}; */
 /* transition: opacity 1s ease-out; */

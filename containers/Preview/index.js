@@ -92,14 +92,12 @@ class PreviewContainer extends React.Component {
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
           <PreviewContent>
-            <div>
-              <Viewer
-                type={type}
-                root={root}
-                themeKeys={themeKeys}
-                curTheme={curTheme}
-              />
-            </div>
+            <Viewer
+              type={type}
+              root={root}
+              themeKeys={themeKeys}
+              curTheme={curTheme}
+            />
           </PreviewContent>
         </PreviewWrapper>
       </div>
