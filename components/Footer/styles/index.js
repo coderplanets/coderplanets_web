@@ -11,6 +11,16 @@ const link = styled.a`
     color: #5c868b;
   }
 `
+export const Support = styled.div`
+  font-weight: bolder;
+  color: #9fc0c5;
+  transition: color 0.3s;
+  &:hover {
+    cursor: pointer;
+    color: #5c868b;
+  }
+`
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

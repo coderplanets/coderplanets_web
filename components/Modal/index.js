@@ -15,15 +15,16 @@ import { Mask, Wrapper, CloseBtn } from './styles'
 const debug = makeDebugger('c:Modal:index')
 /* eslint-enable no-unused-vars */
 
-const Modal = ({ children, show, width, showCloseBtn, onMaskClick }) => {
+const Modal = ({ children, show, width, showCloseBtn, onClose }) => {
   return (
-    <Mask show={show} onClick={onMaskClick}>
-      <Wrapper width={width} onClick={e => e.stopPropagation()}>
+    <Mask show={show} onClick={onClose}>
+      <Wrapper width={width}>
         <CloseBtn
           path={`${ICON_ASSETS}/cmd/closeBtn.svg`}
           show={showCloseBtn}
+          onClick={onClose}
         />
-        {children}
+        <div onClick={e => e.stopPropagation()}>{children}</div>
       </Wrapper>
     </Mask>
   )
@@ -33,14 +34,14 @@ Modal.propTypes = {
   // https://www.npmjs.com/package/prop-types
   children: PropTypes.node.isRequired,
   show: PropTypes.bool,
-  onMaskClick: PropTypes.func,
+  onClose: PropTypes.func,
   width: PropTypes.string,
   showCloseBtn: PropTypes.bool,
 }
 
 Modal.defaultProps = {
   show: false,
-  onMaskClick: debug,
+  onClose: debug,
   width: '600px',
   showCloseBtn: false,
 }

@@ -6,8 +6,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 import { Modal, Button, Icon, UserCell } from '../../components'
 
+import { makeDebugger } from '../../utils'
 import { ICON_ASSETS, GITHUB_ME } from '../../config'
 
 // import { inject, observer } from 'mobx-react'
@@ -36,6 +38,10 @@ import {
   Weixin,
   MoneyNum,
 } from './styles'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:Footer:index')
+/* eslint-enable no-unused-vars */
 
 const PayMoneyFooter = ({ num }) => {
   return (
@@ -99,12 +105,12 @@ class BuyMeChuanChuan extends React.Component {
   }
 
   render() {
-    const { show, fromUser } = this.props
+    const { show, fromUser, onClose } = this.props
     return (
-      <Modal width="700px" show={show} showCloseBtn>
+      <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
           <Header>
-            <UserCell user={fromUser} />
+            {R.isEmpty(fromUser) ? <div /> : <UserCell user={fromUser} />}
           </Header>
           <BuyChuanChuan>
             <ChuanChuanDesc>
@@ -150,10 +156,13 @@ BuyMeChuanChuan.propTypes = {
     id: PropTypes.string,
     avatar: PropTypes.string,
     nickname: PropTypes.string,
-  }).isRequired,
+  }),
   show: PropTypes.bool,
+  onClose: PropTypes.func,
 }
 
 BuyMeChuanChuan.defaultProps = {
+  fromUser: {},
   show: false,
+  onClose: debug,
 }
