@@ -229,9 +229,8 @@ const CommentsList = ({
   <div>
     <TotalHeader>
       <TotalCountText count={totalCount} />
-      <CommentsFilter filterType={filterType} />
+      <CommentsFilter filterType={filterType} show={totalCount >= 2} />
     </TotalHeader>
-
     {loadingFresh ? (
       <CommentBlock>
         <CommentLoading />
@@ -254,13 +253,15 @@ const CommentsList = ({
         />
       )}
     </ListsContainer>
-
     <Pagi
       left="-10px"
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}
       onChange={logic.pageChange}
+      showBottomMsg
+      noMoreMsg="没有更多的评论了"
+      emptyMsg="目前还没有评论"
     />
   </div>
 )

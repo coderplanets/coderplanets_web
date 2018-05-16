@@ -28,18 +28,30 @@ export const PagiCustomRender = (current, type, originalElement) => {
   return originalElement
 }
 
+const BottomFooter = ({ show, msg }) => {
+  console.log('BottomFooter: show: ', show)
+  if (show) return <BottomMsg>{msg}</BottomMsg>
+  return <div />
+}
+
 const Pagi = ({
   pageNumber,
   pageSize,
   totalCount,
-  bottomMsg,
+  showBottomMsg,
+  emptyMsg,
+  noMoreMsg,
   left,
   top,
   bottom,
   onChange,
 }) => {
   if (totalCount === 0) {
-    return <div />
+    return (
+      <PagiWrapper left={left} top={top} bottom={bottom}>
+        <BottomFooter show={showBottomMsg} msg={emptyMsg} />
+      </PagiWrapper>
+    )
   }
   return (
     <PagiWrapper left={left} top={top} bottom={bottom}>
@@ -52,7 +64,7 @@ const Pagi = ({
           onChange={onChange}
         />
       ) : (
-        <BottomMsg>{bottomMsg}</BottomMsg>
+        <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
       )}
     </PagiWrapper>
   )
@@ -63,20 +75,23 @@ Pagi.propTypes = {
   pageSize: PropTypes.number.isRequired,
   totalCount: PropTypes.number.isRequired,
   // showBottomMsg: PropTypes.bool,
-  bottomMsg: PropTypes.string,
+  emptyMsg: PropTypes.string,
+  noMoreMsg: PropTypes.string,
   left: PropTypes.string,
   top: PropTypes.string,
   bottom: PropTypes.string,
+  showBottomMsg: PropTypes.bool,
 
   onChange: PropTypes.func.isRequired,
 }
 
 Pagi.defaultProps = {
-  bottomMsg: '没有更多评论了',
+  emptyMsg: '还没有评论',
+  noMoreMsg: '没有更多评论了',
+  showBottomMsg: false,
   left: '0px',
-  top: '40px',
+  top: '30px',
   bottom: '30px',
-  // showBottomMsg: true,
 }
 
 export default Pagi

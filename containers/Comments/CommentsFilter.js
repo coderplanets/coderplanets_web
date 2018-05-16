@@ -74,9 +74,9 @@ const renderFilterIcon = filterType => {
   }
 }
 
-const CommentsFilter = ({ filterType }) => {
+const CommentsFilter = ({ filterType, show }) => {
   return (
-    <FilterWraper>
+    <FilterWraper show={show}>
       <Popover content={<Menus active={filterType} />}>
         <Header>
           {renderFilterIcon(filterType)}

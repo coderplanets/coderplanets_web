@@ -5,6 +5,7 @@ import { smokey, Animate } from '../../../utils'
 export const FilterWraper = styled.div`
   margin-right: 8px;
   margin-top: 8px;
+  display: ${props => (props.show ? 'block' : 'none')};
   ${smokey};
 `
 export const Header = styled.div`
