@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 
 export const Wrapper = styled.div``
 
@@ -26,7 +27,7 @@ export const IconList = styled.div`
   flex-wrap: wrap;
 `
 
-export const PlanetsIcon = styled(ReactSVG)`
+export const PlanetsIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-right: 10px;

@@ -1,8 +1,7 @@
 import styled, { keyframes } from 'styled-components'
-import ReactSVG from 'react-svg'
 
-import { theme } from '../../../utils'
 import { Img } from '../../../components'
+import { theme } from '../../../utils'
 
 const rotate360 = keyframes`
 	from {
@@ -14,7 +13,7 @@ const rotate360 = keyframes`
 	}
 `
 
-export const LoadingIcon = styled(ReactSVG)`
+export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.search_icon')};
   width: 30px;
   height: 30px;
@@ -152,7 +151,7 @@ export const Hint = styled.div`
   width: 30px;
   font-size: 1.1rem;
 `
-export const HintEnter = styled(ReactSVG)`
+export const HintEnter = styled(Img)`
   color: ${theme('shell.desc')};
   margin-top: 10px;
   margin-right: 1.5em;
@@ -178,7 +177,7 @@ export const RepoStar = styled.div`
   margin-right: 10px;
 `
 
-export const NodeSVGIcon = styled(ReactSVG)`
+export const NodeSVGIcon = styled(Img)`
   width: 40px;
   height: 40px;
   margin-top: 3px;
@@ -194,20 +193,20 @@ export const ThemeDot = styled.div`
 `
 
 // TODO: rename -> PrefixIcon
-export const PrefixSVGIcon = styled(ReactSVG)`
+export const PrefixSVGIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
 `
 
-export const PrefixSearchIcon = styled(ReactSVG)`
+export const PrefixSearchIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
   fill: ${theme('shell.search_icon')};
 `
 
-export const PrefixMagicIcon = styled(ReactSVG)`
+export const PrefixMagicIcon = styled(Img)`
   width: 30px;
   height: 25px;
   margin-top: 20px;

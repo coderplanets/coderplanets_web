@@ -60,16 +60,16 @@ const Menus = ({ active }) => {
 const renderFilterIcon = filterType => {
   switch (filterType) {
     case TYPE.DESC_INSERTED: {
-      return <RecentlyIcon path={`${ICON_ASSETS}/cmd/recent.svg`} />
+      return <RecentlyIcon src={`${ICON_ASSETS}/cmd/recent.svg`} />
     }
     case TYPE.MOST_LIKES: {
-      return <FilterIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
+      return <FilterIcon src={`${ICON_ASSETS}/cmd/up.svg`} />
     }
     case TYPE.MOST_DISLIKES: {
-      return <FilterIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
+      return <FilterIcon src={`${ICON_ASSETS}/cmd/up.svg`} reverse />
     }
     default: {
-      return <FilterIcon path={`${ICON_ASSETS}/cmd/filter2.svg`} />
+      return <FilterIcon src={`${ICON_ASSETS}/cmd/filter2.svg`} />
     }
   }
 }

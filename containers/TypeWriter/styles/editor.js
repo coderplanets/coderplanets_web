@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { Animate } from '../../../utils'
 
 export const ExtraWrapper = styled.div`
@@ -17,7 +17,7 @@ export const ExtraItem = styled.div`
   }
 `
 
-export const ExtraDivider = styled(ReactSVG)`
+export const ExtraDivider = styled(Img)`
   fill: #75898a;
   width: 10px;
   height: 10px;
@@ -28,7 +28,7 @@ export const ExtraItemTitle = styled.div`
   cursor: pointer;
   font-size: 1.2em;
 `
-export const ExtraItemIcon = styled(ReactSVG)`
+export const ExtraItemIcon = styled(Img)`
   fill: #b7cfd0;
   width: 17px;
   height: 17px;

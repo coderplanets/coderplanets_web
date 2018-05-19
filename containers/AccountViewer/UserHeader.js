@@ -25,7 +25,7 @@ const SocalIcons = ({ accountInfo: { githubProfile } }) => (
       data-offset={tooltipOffset}
       data-delay-show="500"
     >
-      <SocalIcon path={`${ICON_ASSETS}/cmd/home.svg`} />
+      <SocalIcon src={`${ICON_ASSETS}/cmd/home.svg`} />
     </div>
 
     {githubProfile ? (
@@ -36,7 +36,7 @@ const SocalIcons = ({ accountInfo: { githubProfile } }) => (
           data-offset={tooltipOffset}
           data-delay-show="500"
         >
-          <SocalIcon path={`${ICON_ASSETS}/cmd/github.svg`} />
+          <SocalIcon src={`${ICON_ASSETS}/cmd/github.svg`} />
         </div>
       </A>
     ) : (
@@ -56,7 +56,7 @@ const UserHeaderSection = ({ accountInfo, logout, editProfile }) => (
             {accountInfo.nickname}
             {/* eslint-disable */}
             <div onClick={editProfile}>
-              <EditIcon path={`${ICON_ASSETS}/cmd/edit.svg`} />
+              <EditIcon src={`${ICON_ASSETS}/cmd/edit.svg`} />
             </div>
             {/* eslint-enable */}
           </UserName>

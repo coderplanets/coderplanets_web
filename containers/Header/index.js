@@ -46,7 +46,7 @@ const MiniMap = ({ curRoute }) => {
 
   return (
     <MiniMapWrapper>
-      <CommunityLogo path={`${ICON_ASSETS}/pl/${iconKey}.svg`} />
+      <CommunityLogo src={`${ICON_ASSETS}/pl/${iconKey}.svg`} />
       <MiniTab active>帖子</MiniTab>
       <MiniTab>教程</MiniTab>
       <MiniTab>动态</MiniTab>
@@ -74,20 +74,20 @@ const Header = ({ curRoute, leftOffset, fixed, isLogin, accountInfo }) => (
           ghost
           onClick={logic.previewState.bind(this, 'mst-state')}
         >
-          <StateIcon path={`${ICON_ASSETS}/cmd/header_state.svg`} />
+          <StateIcon src={`${ICON_ASSETS}/cmd/header_state.svg`} />
           <div>STATE</div>
         </StateButton>
 
-        <DividerIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
+        <DividerIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
       </div>
     </Admin>
 
     <Operations>
       <Search onClick={logic.openDoraemon}>
-        <HeaderIcon path={`${ICON_ASSETS}/cmd/search2.svg`} />
+        <HeaderIcon src={`${ICON_ASSETS}/cmd/search2.svg`} />
       </Search>
       <Notification onClick={logic.openPreview.bind(this, 'post')}>
-        <HeaderIcon path={`${ICON_ASSETS}/cmd/notification_none.svg`} />
+        <HeaderIcon src={`${ICON_ASSETS}/cmd/notification_none.svg`} />
       </Notification>
 
       {isLogin ? (
@@ -96,7 +96,7 @@ const Header = ({ curRoute, leftOffset, fixed, isLogin, accountInfo }) => (
         </User>
       ) : (
         <User onClick={logic.login}>
-          <HeaderIcon path={`${ICON_ASSETS}/cmd/header_user.svg`} />
+          <HeaderIcon src={`${ICON_ASSETS}/cmd/header_user.svg`} />
         </User>
       )}
     </Operations>

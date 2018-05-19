@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { Animate } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -27,7 +27,7 @@ export const AvatarPic = styled.img`
   margin-bottom: 30px;
 `
 
-export const BackIcon = styled(ReactSVG)`
+export const BackIcon = styled(Img)`
   fill: #51abb2;
   width: 20px;
   height: 20px;
@@ -43,7 +43,7 @@ export const BackIcon = styled(ReactSVG)`
   transition: opacity 0.2s;
 `
 
-const SexIcon = styled(ReactSVG)`
+const SexIcon = styled(Img)`
   width: 20px;
   height: 20px;
   margin-right: 10px;

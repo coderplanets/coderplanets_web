@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
-import { Button } from '../../../components'
 
+import { Button, Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -131,7 +130,7 @@ export const PostTitleTag = styled.div`
   margin-top: 2px;
   opacity: 0.8;
 `
-export const LinkIcon = styled(ReactSVG)`
+export const LinkIcon = styled(Img)`
   position: absolute;
   top: 6px;
   left: -5px;

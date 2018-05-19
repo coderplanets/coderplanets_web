@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Breadcrumbs = styled.div`
@@ -10,7 +10,7 @@ export const Breadcrumbs = styled.div`
   display: flex;
   align-items: center;
 `
-export const Logo = styled(ReactSVG)`
+export const Logo = styled(Img)`
   height: 22px;
   width: 22px;
   margin-top: 4px;
@@ -21,7 +21,7 @@ export const LogoText = styled.div`
   color: #5c868b;
 `
 
-export const BetaLogo = styled(ReactSVG)`
+export const BetaLogo = styled(Img)`
   fill: #ef8145;
   height: 40px;
   width: 40px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -13,7 +13,7 @@ export const InnerBtnWrapper = styled.div`
   }
 `
 
-export const FilterIcon = styled(ReactSVG)`
+export const FilterIcon = styled(Img)`
   fill: ${theme('font')};
   width: 16px;
   height: 16px;

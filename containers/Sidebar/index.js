@@ -63,7 +63,7 @@ const MenuList = ({ items, pin, curPath }) => {
                           >
                             <MenuItemIcon
                               active={curPath === R.toLower(item.raw)}
-                              path={item.logo}
+                              src={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
                             <div style={{ marginRight: 10 }} />

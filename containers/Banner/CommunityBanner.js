@@ -54,7 +54,7 @@ const CommunityBrief = ({ content }) => {
   return (
     <CommunityWrapper>
       {content.logo ? (
-        <CommunityLogo path={content.logo || DEFAULT_ICON} />
+        <CommunityLogo src={content.logo || DEFAULT_ICON} />
       ) : (
         <div />
       )}

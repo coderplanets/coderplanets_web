@@ -1,6 +1,6 @@
-//
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 
 export const InputFooter = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ export const InputHelper = styled.div`
   flex-grow: 1;
   display: flex;
 `
-export const HelperIcon = styled(ReactSVG)`
+export const HelperIcon = styled(Img)`
   fill: #b7cfd0;
   width: 20px;
   height: 20px;

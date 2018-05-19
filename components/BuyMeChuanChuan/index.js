@@ -65,7 +65,7 @@ const PayMoneyFooter = ({ num }) => {
 const ChuanSelector = ({ active, onSelect }) => {
   return (
     <SelectBox>
-      <ChuanChuanIcon path={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
+      <ChuanChuanIcon src={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
 
       <Selectors>
         <By>X</By>
@@ -122,7 +122,7 @@ class BuyMeChuanChuan extends React.Component {
                 <MyName>
                   开发者
                   <a href={GITHUB_ME} target="_blank">
-                    <NameLinkIcon path={`${ICON_ASSETS}/cmd/link2.svg`} />
+                    <NameLinkIcon src={`${ICON_ASSETS}/cmd/link2.svg`} />
                   </a>
                 </MyName>{' '}
                 撸个串

@@ -48,7 +48,7 @@ const OriginalSelector = ({ active, onSelect }) => {
     <div>
       <Selector onClick={onSelect.bind(this, 'original')}>
         <CheckIcon
-          path={`${ICON_ASSETS}/cmd/check2.svg`}
+          src={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="original"
         />
@@ -58,7 +58,7 @@ const OriginalSelector = ({ active, onSelect }) => {
       </Selector>
       <Selector onClick={onSelect.bind(this, 'reprint')}>
         <CheckIcon
-          path={`${ICON_ASSETS}/cmd/check2.svg`}
+          src={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="reprint"
         />
@@ -68,7 +68,7 @@ const OriginalSelector = ({ active, onSelect }) => {
       </Selector>
       <Selector onClick={onSelect.bind(this, 'translate')}>
         <CheckIcon
-          path={`${ICON_ASSETS}/cmd/check2.svg`}
+          src={`${ICON_ASSETS}/cmd/check2.svg`}
           active={active}
           value="translate"
         />
@@ -102,9 +102,9 @@ const Editor = ({
           trigger="hover"
         >
           <ReprintWrapper>
-            <ReprintIcon path={`${ICON_ASSETS}/cmd/${articleType}.svg`} />
+            <ReprintIcon src={`${ICON_ASSETS}/cmd/${articleType}.svg`} />
             <CopyRightText>{articleTypeDic[articleType]}</CopyRightText>
-            <MoreIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
+            <MoreIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
           </ReprintWrapper>
         </Popover>
       </CopyRightCheck>
@@ -136,30 +136,30 @@ const Editor = ({
     <BodyEditor onChange={bodyOnChange} body={body} />
     <ExtraWrapper>
       <ExtraItem>
-        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_tag.svg`} />
+        <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_tag.svg`} />
         <ExtraItemTitle>标签</ExtraItemTitle>
       </ExtraItem>
-      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
-        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_vote.svg`} />
+        <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_vote.svg`} />
         <ExtraItemTitle>投票</ExtraItemTitle>
       </ExtraItem>
-      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
-        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_code.svg`} />
+        <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_code.svg`} />
         <ExtraItemTitle>代码</ExtraItemTitle>
       </ExtraItem>
-      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
       <FileUploader onUploadDone={logic.onUploadImageDone}>
         <ExtraItem>
-          <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_image.svg`} />
+          <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_image.svg`} />
           <ExtraItemTitle>图片</ExtraItemTitle>
         </ExtraItem>
       </FileUploader>
 
-      <ExtraDivider path={`${ICON_ASSETS}/cmd/more.svg`} />
+      <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
-        <ExtraItemIcon path={`${ICON_ASSETS}/cmd/extra_setting.svg`} />
+        <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_setting.svg`} />
         <ExtraItemTitle>设置</ExtraItemTitle>
       </ExtraItem>
     </ExtraWrapper>

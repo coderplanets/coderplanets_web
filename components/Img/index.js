@@ -7,19 +7,28 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactSVG from 'react-svg'
 
-function Img(props) {
-  return <img className={props.className} src={props.src} alt={props.alt} />
+const NormalImg = ({ className, src, alt }) => (
+  <img className={className} src={src} alt={alt} />
+)
+
+const Img = ({ className, src, alt }) => {
+  if (/\.(svg)$/i.test(src)) {
+    return <ReactSVG svgClassName={className} path={src} />
+  }
+  return <NormalImg className={className} src={src} alt={alt} />
 }
 
 Img.propTypes = {
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-  alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string,
   className: PropTypes.string,
 }
 
 Img.defaultProps = {
-  className: undefined,
+  alt: 'coderplanets image',
+  className: 'fuck',
 }
 
 export default Img

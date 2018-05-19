@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 import { BaseBanner, BaseTabber, BaseBannerContent } from './index'
 
@@ -14,7 +14,7 @@ export const CommunityWrapper = styled.div`
   margin-top: -2em;
 `
 
-export const CommunityLogo = styled(ReactSVG)`
+export const CommunityLogo = styled(Img)`
   width: 70px;
   height: 70px;
   @media (max-height: 800px) {

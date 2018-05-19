@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Divider = styled.span`
@@ -73,7 +73,7 @@ export const ReactionUserNum = styled.div`
   }
 `
 
-export const ReactionIcon = styled(ReactSVG)`
+export const ReactionIcon = styled(Img)`
   margin-top: 4px;
   fill: grey;
   width: ${props => (props.width ? props.width : '1.5em')};

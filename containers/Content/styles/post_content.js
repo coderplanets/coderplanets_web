@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 
 export const Container = styled.div`
   padding: 20px;
@@ -43,7 +44,7 @@ export const SidebarDesc = styled.div`
   flex-wrap: wrap;
 `
 
-export const CommunityIcon = styled(ReactSVG)`
+export const CommunityIcon = styled(Img)`
   width: 25px;
   height: 25px;
   margin-right: 6px;

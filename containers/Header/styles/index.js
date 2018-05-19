@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
-import { Button } from '../../../components'
+import { Button, Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const HeaderWrapper = styled.div`
@@ -33,7 +32,7 @@ export const MiniMapWrapper = styled.div`
   margin-left: 4vw;
 `
 
-export const CommunityLogo = styled(ReactSVG)`
+export const CommunityLogo = styled(Img)`
   width: 26px;
   height: 26px;
   margin-right: 25px;
@@ -71,7 +70,7 @@ export const Admin = styled.div`
   flex-direction: column;
   justify-content: center;
 `
-export const DividerIcon = styled(ReactSVG)`
+export const DividerIcon = styled(Img)`
   fill: ${theme('header.fg')};
   width: 18px;
   height: 20px;
@@ -84,7 +83,7 @@ export const StateButton = styled(Button)`
   width: 80px;
   display: flex;
 `
-export const StateIcon = styled(ReactSVG)`
+export const StateIcon = styled(Img)`
   width: 12px;
   height: 100%;
   cursor: pointer;
@@ -92,7 +91,7 @@ export const StateIcon = styled(ReactSVG)`
   margin-top: 2px;
 `
 
-export const HeaderIcon = styled(ReactSVG)`
+export const HeaderIcon = styled(Img)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;

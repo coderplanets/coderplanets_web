@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 
 export const UserWrapper = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ export const UserName = styled.div`
   display: flex;
 `
 
-export const EditIcon = styled(ReactSVG)`
+export const EditIcon = styled(Img)`
   fill: tomato;
   width: 20px;
   height: 20px;
@@ -54,7 +55,7 @@ export const EditIcon = styled(ReactSVG)`
   transition: opacity 0.2s;
 `
 
-export const SocalIcon = styled(ReactSVG)`
+export const SocalIcon = styled(Img)`
   fill: tomato;
   margin-top: 10px;
   margin-right: 7px;

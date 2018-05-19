@@ -30,7 +30,7 @@ const TagList = ({ tags, active, onSelect }) => {
             color: '',
           })}
         >
-          <AllTagIcon path={`${ICON_ASSETS}/cmd/all_tags.svg`} />
+          <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
           <TagTitle>全部标签</TagTitle>
         </TagItem>
       ) : (

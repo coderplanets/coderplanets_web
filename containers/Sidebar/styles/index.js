@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
-
 import { darken } from 'polished'
+
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
@@ -134,7 +134,7 @@ export const SVGIconWrapper = styled.div`
   }
 `
 
-export const MenuItemIcon = styled(ReactSVG)`
+export const MenuItemIcon = styled(Img)`
   opacity: ${props => (props.active ? 1 : 0.5)};
   margin-top: 1em;
   width: 22px;

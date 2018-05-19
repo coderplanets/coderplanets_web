@@ -16,7 +16,7 @@ const NodeIcon = ({ suggestion: { raw, logo, cmd } }) => {
   if (cmd === 'theme') {
     return <ThemeDot bg={themeColorMap[raw]} />
   }
-  return <NodeSVGIcon path={logo || DEFAULT_ICON} />
+  return <NodeSVGIcon src={logo || DEFAULT_ICON} />
 }
 
 export default NodeIcon

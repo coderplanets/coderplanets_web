@@ -18,9 +18,9 @@ import {
 
 const MonthSelector = () => (
   <MonthWrapper>
-    <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} />
+    <UpIcon src={`${ICON_ASSETS}/cmd/up.svg`} />
     <MonthNumber>7月</MonthNumber>
-    <UpIcon path={`${ICON_ASSETS}/cmd/up.svg`} reverse />
+    <UpIcon src={`${ICON_ASSETS}/cmd/up.svg`} reverse />
   </MonthWrapper>
 )
 

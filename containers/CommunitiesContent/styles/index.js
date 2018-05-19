@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
-/* import { theme } from '../../../utils' */
+import { Img } from '../../../components'
 
-export const CommunityIcon = styled(ReactSVG)`
+export const CommunityIcon = styled(Img)`
   width: 80px;
   height: 80px;
   margin-top: -40px;

@@ -113,7 +113,7 @@ const TopHeader = ({ curView }) => {
         <Header>
           <UsageText>Github Flavor Markdown</UsageText>
           <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
-            <MarkdownIcon path={`${ICON_ASSETS}/cmd/original.svg`} />
+            <MarkdownIcon src={`${ICON_ASSETS}/cmd/original.svg`} />
             返回编辑
           </BackToEditHint>
         </Header>
@@ -126,7 +126,7 @@ const TopHeader = ({ curView }) => {
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
           >
-            <MarkdownIcon path={`${ICON_ASSETS}/cmd/markdown.svg`} />
+            <MarkdownIcon src={`${ICON_ASSETS}/cmd/markdown.svg`} />
             markdown 语法 / emojj 速查
           </MarkDownHint>
         </Header>

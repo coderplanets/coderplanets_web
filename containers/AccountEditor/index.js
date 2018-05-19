@@ -48,10 +48,10 @@ const SexItem = ({ label, value }) => (
     <SexLable>{label}</SexLable>
     <SexInput>
       <Dude onClick={logic.sexChange.bind(this, 'dude')}>
-        <DudeIcon path={`${ICON_ASSETS}/cmd/dude.svg`} value={value} />
+        <DudeIcon src={`${ICON_ASSETS}/cmd/dude.svg`} value={value} />
       </Dude>
       <Girl onClick={logic.sexChange.bind(this, 'girl')}>
-        <GirlIcon path={`${ICON_ASSETS}/cmd/girl.svg`} value={value} />
+        <GirlIcon src={`${ICON_ASSETS}/cmd/girl.svg`} value={value} />
       </Girl>
     </SexInput>
   </FormItemWrapper>
@@ -97,7 +97,7 @@ class AccountEditorContainer extends React.Component {
       <Wrapper>
         {/* eslint-disable */}
         <div onClick={logic.goBack}>
-          <BackIcon path={`${ICON_ASSETS}/cmd/goback.svg`} />
+          <BackIcon src={`${ICON_ASSETS}/cmd/goback.svg`} />
         </div>
         {/* eslint-enable */}
         <Avatar src={accountInfo.avatar} />

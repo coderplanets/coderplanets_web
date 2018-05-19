@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme, column, Animate, smokey } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
@@ -159,7 +159,7 @@ export const ActionNumber = styled.div`
   font-size: 1.2em;
 `
 
-export const LikeIcon = styled(ReactSVG)`
+export const LikeIcon = styled(Img)`
   fill: #6b8688;
   margin-right: 3px;
   margin-top: 2px;
@@ -167,7 +167,7 @@ export const LikeIcon = styled(ReactSVG)`
   height: 20px;
 `
 
-export const UpIcon = styled(ReactSVG)`
+export const UpIcon = styled(Img)`
   fill: ${props => (props.viewerDid ? 'orange' : '#6b8688')};
   margin-right: 3px;
   margin-top: 2px;
@@ -176,7 +176,7 @@ export const UpIcon = styled(ReactSVG)`
   transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
   ${smokey};
 `
-export const ReplyIcon = styled(ReactSVG)`
+export const ReplyIcon = styled(Img)`
   fill: #6b8688;
   margin-right: 5px;
   margin-top: 1px;

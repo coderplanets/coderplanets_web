@@ -43,7 +43,7 @@ const NotFound = ({ msg, desc }) => {
   return (
     <Wrapper>
       <Icon>
-        <Icon404 path={`${ICON_ASSETS}/404/nofound1.svg`} />
+        <Icon404 src={`${ICON_ASSETS}/404/nofound1.svg`} />
       </Icon>
       <Text>
         <Title>{msg}</Title>

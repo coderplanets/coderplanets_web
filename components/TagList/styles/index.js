@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
   /* border-right: 1px solid grey; */
@@ -17,7 +18,7 @@ export const TagItem = styled.div`
   }
 `
 
-export const AllTagIcon = styled(ReactSVG)`
+export const AllTagIcon = styled(Img)`
   fill: #6b8688;
   margin-right: 10px;
   margin-top: 2px;

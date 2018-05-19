@@ -42,7 +42,7 @@ import { TYPE } from '../../utils'
 /*
    <Reaction>
    <ReactionAction>
-   <ReactionIcon path={`${ICON_ASSETS}/cmd/uncollect.svg`} />
+   <ReactionIcon src={`${ICON_ASSETS}/cmd/uncollect.svg`} />
    <ReactionName>关注&nbsp;</ReactionName>
    </ReactionAction>
    <ReactionUserNum>22</ReactionUserNum>
@@ -75,7 +75,7 @@ const PreviewHeader = ({ data, onReaction }) => (
             data
           )}
         >
-          <ReactionIcon path={`${ICON_ASSETS}/cmd/uncollect.svg`} />
+          <ReactionIcon src={`${ICON_ASSETS}/cmd/uncollect.svg`} />
           <ReactionName>
             {data.viewerHasFavorited ? (
               <span>已收藏&nbsp;</span>
@@ -98,7 +98,7 @@ const PreviewHeader = ({ data, onReaction }) => (
           )}
         >
           <ReactionIcon
-            path={`${ICON_ASSETS}/cmd/like.svg`}
+            src={`${ICON_ASSETS}/cmd/like.svg`}
             style={{
               width: '1.2em',
               height: '1.2em',
@@ -114,7 +114,7 @@ const PreviewHeader = ({ data, onReaction }) => (
       <Reaction>
         <ReactionAction>
           <ReactionIcon
-            path={`${ICON_ASSETS}/cmd/watch.svg`}
+            src={`${ICON_ASSETS}/cmd/watch.svg`}
             style={{ marginTop: 6 }}
           />
           <ReactionName>浏览&nbsp;</ReactionName>
@@ -131,7 +131,7 @@ const PostViewer = ({ data, loading, onReaction }) => (
     <BodyWrapper>
       <ArticleHeader>
         <MoreWrapper>
-          <MoreIcon path={`${ICON_ASSETS}/cmd/more.svg`} />
+          <MoreIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
           <MoreOption>文章页</MoreOption>
         </MoreWrapper>
         <LinkFrom>

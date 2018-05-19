@@ -26,13 +26,13 @@ import {
 const PrefixIcon = ({ prefix }) => {
   switch (prefix) {
     case '': {
-      return <PrefixSearchIcon path={`${ICON_ASSETS}/cmd/search.svg`} />
+      return <PrefixSearchIcon src={`${ICON_ASSETS}/cmd/search.svg`} />
     }
     case '/': {
-      return <PrefixMagicIcon path={`${ICON_ASSETS}/cmd/magic.svg`} />
+      return <PrefixMagicIcon src={`${ICON_ASSETS}/cmd/magic.svg`} />
     }
     default: {
-      return <PrefixSVGIcon path={logic.getPrefixLogo(prefix)} />
+      return <PrefixSVGIcon src={logic.getPrefixLogo(prefix)} />
     }
   }
 }
@@ -72,7 +72,7 @@ export default class InputEditor extends React.Component {
       <EditorBar>
         <AddOn>
           {searching ? (
-            <LoadingIcon path={`${ICON_ASSETS}/cmd/search_loading.svg`} />
+            <LoadingIcon src={`${ICON_ASSETS}/cmd/search_loading.svg`} />
           ) : (
             <PrefixIcon prefix={prefix} />
           )}

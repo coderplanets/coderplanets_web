@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
-import { Input } from '../../../components'
+
+import { Input, Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const EditorBlock = styled.div`
@@ -50,7 +50,7 @@ export const UsageText = styled.div`
   font-size: 1.3em;
   flex-grow: 1;
 `
-export const MarkdownIcon = styled(ReactSVG)`
+export const MarkdownIcon = styled(Img)`
   fill: #51abb2;
   width: 20px;
   height: 18px;
@@ -106,7 +106,7 @@ export const ReprintWrapper = styled.div`
   cursor: pointer;
 `
 
-export const ReprintIcon = styled(ReactSVG)`
+export const ReprintIcon = styled(Img)`
   fill: #61abb1;
   width: 14px;
   height: 14px;
@@ -114,7 +114,7 @@ export const ReprintIcon = styled(ReactSVG)`
   margin-right: 5px;
 `
 
-export const MoreIcon = styled(ReactSVG)`
+export const MoreIcon = styled(Img)`
   width: 14px;
   height: 14px;
   margin-top: 3px;
@@ -173,7 +173,7 @@ export const Selector = styled.div`
     color: #6bb7bd;
   }
 `
-export const CheckIcon = styled(ReactSVG)`
+export const CheckIcon = styled(Img)`
   fill: #6bb7bd;
   width: 18px;
   height: 18px;

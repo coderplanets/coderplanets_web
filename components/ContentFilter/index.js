@@ -150,7 +150,7 @@ const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
           综合排序
-          <FilterIcon path={`${ICON_ASSETS}/cmd/filter2.svg`} />
+          <FilterIcon src={`${ICON_ASSETS}/cmd/filter2.svg`} />
         </InnerBtnWrapper>
       </Button>
       &nbsp;&nbsp;&nbsp;&nbsp;

@@ -50,7 +50,7 @@ const Header = ({ countCurrent, referUsers, showPreview }) => {
       <LeaveResponseUsername>mydearxym</LeaveResponseUsername>
       {referUsers.length > 0 ? (
         <div style={{ display: 'flex' }}>
-          <ReferToIcon path={`${ICON_ASSETS}/cmd/refer.svg`} />
+          <ReferToIcon src={`${ICON_ASSETS}/cmd/refer.svg`} />
           <ReplyAvatars>
             <AvatarsRow
               users={referUsers}

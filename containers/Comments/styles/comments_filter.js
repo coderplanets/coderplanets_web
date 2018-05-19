@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 import { smokey, Animate } from '../../../utils'
 
 export const FilterWraper = styled.div`
@@ -13,7 +14,7 @@ export const Header = styled.div`
   color: #5d8689;
 `
 
-export const FilterIcon = styled(ReactSVG)`
+export const FilterIcon = styled(Img)`
   fill: #5d8689;
   margin-right: 3px;
   width: 20px;

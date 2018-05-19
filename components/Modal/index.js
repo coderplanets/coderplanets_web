@@ -20,7 +20,7 @@ const Modal = ({ children, show, width, showCloseBtn, onClose }) => {
     <Mask show={show} onClick={onClose}>
       <Wrapper width={width}>
         <CloseBtn
-          path={`${ICON_ASSETS}/cmd/closeBtn.svg`}
+          src={`${ICON_ASSETS}/cmd/closeBtn.svg`}
           show={showCloseBtn}
           onClick={onClose}
         />

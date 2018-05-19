@@ -102,7 +102,7 @@ const PostItem = ({ post, active }) => (
         <PostBreif onClick={logic.onTitleSelect.bind(this, post)}>
           <PostTitle>{post.title}</PostTitle>
           <PostTitleLink>
-            <LinkIcon path={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </PostTitleLink>
           <PostTitleTag>

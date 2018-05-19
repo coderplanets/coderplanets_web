@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { WORD_LIMIT } from '../../../config'
 import { theme } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
@@ -55,7 +55,7 @@ export const LeaveResponseUsername = styled.div`
   margin-right: 10px;
 `
 
-export const ReferToIcon = styled(ReactSVG)`
+export const ReferToIcon = styled(Img)`
   fill: #b7cfd0;
   width: 20px;
   height: 20px;

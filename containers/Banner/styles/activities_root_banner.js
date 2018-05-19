@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { BaseBanner, BaseBannerContent } from './index'
 import { smokey, columnCenter } from '../../../utils'
 
@@ -16,7 +16,7 @@ export const MonthNumber = styled.div`
   font-size: 1.8em;
 `
 
-export const UpIcon = styled(ReactSVG)`
+export const UpIcon = styled(Img)`
   fill: #6b8688;
   width: 30px;
   height: 30px;

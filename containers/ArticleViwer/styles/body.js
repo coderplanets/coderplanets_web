@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const BodyWrapper = styled.div`
@@ -33,7 +33,7 @@ export const MoreWrapper = styled.div`
   display: flex;
   cursor: pointer;
 `
-export const MoreIcon = styled(ReactSVG)`
+export const MoreIcon = styled(Img)`
   fill: #6a868a;
   width: 15px;
   height: 15px;

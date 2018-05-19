@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   margin-top: 10%;
 `
 
-export const Icon404 = styled(ReactSVG)`
+export const Icon404 = styled(Img)`
   width: 300px;
   height: 300px;
   fill: #b9c8c8;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
+
+import { Img } from '../../../components'
 import { theme, Animate } from '../../../utils'
 
 // display: ${props => (props.show ? 'block' : 'none')};
@@ -28,7 +29,7 @@ export const Wrapper = styled.div`
   animation: ${Animate.zoomeIn} 0.5s linear;
 `
 
-export const CloseBtn = styled(ReactSVG)`
+export const CloseBtn = styled(Img)`
   fill: ${theme('font')};
   position: absolute;
   width: 30px;

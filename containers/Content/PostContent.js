@@ -28,11 +28,11 @@ const PostContent = () => (
     <SideWrapper>
       <SidebarTitle>来自社区</SidebarTitle>
       <SidebarDesc>
-        <CommunityIcon path={`${ICON_ASSETS}/pl/typescript.svg`} />
-        <CommunityIcon path={`${ICON_ASSETS}/pl/javascript.svg`} />
-        <CommunityIcon path={`${ICON_ASSETS}/pl/elixir.svg`} />
-        <CommunityIcon path={`${ICON_ASSETS}/pl/go.svg`} />
-        <CommunityIcon path={`${ICON_ASSETS}/pl/java.svg`} />
+        <CommunityIcon src={`${ICON_ASSETS}/pl/typescript.svg`} />
+        <CommunityIcon src={`${ICON_ASSETS}/pl/javascript.svg`} />
+        <CommunityIcon src={`${ICON_ASSETS}/pl/elixir.svg`} />
+        <CommunityIcon src={`${ICON_ASSETS}/pl/go.svg`} />
+        <CommunityIcon src={`${ICON_ASSETS}/pl/java.svg`} />
       </SidebarDesc>
       <SidebarTitle>标签</SidebarTitle>
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ReactSVG from 'react-svg'
 
+import { Img } from '../../../components'
 import { Animate } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -53,7 +53,7 @@ export const MyName = styled.div`
   margin-right: 8px;
   display: flex;
 `
-export const NameLinkIcon = styled(ReactSVG)`
+export const NameLinkIcon = styled(Img)`
   width: 20px;
   height: 20px;
   padding-top: 3px;
@@ -84,7 +84,7 @@ export const SelectBox = styled.div`
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 `
 
-export const ChuanChuanIcon = styled(ReactSVG)`
+export const ChuanChuanIcon = styled(Img)`
   width: 55px;
   height: 55px;
 `
