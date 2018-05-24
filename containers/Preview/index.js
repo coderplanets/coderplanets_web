@@ -78,14 +78,6 @@ class PreviewContainer extends React.Component {
   render() {
     const { visible, type, themeKeys, curTheme, root } = this.props.preview
 
-    /*
-
-    <PreviewBody>
-      <h2>Preview body</h2>
-    </PreviewBody>
-     */
-
-    /* debug('this.props.preview: ', this.props.preview.root.toJSON()) */
     return (
       <div>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />

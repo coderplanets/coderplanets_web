@@ -26,7 +26,7 @@ const Planets = ({ subscribedCommunities }) => {
             data-for="planet_icon"
             data-offset={tooltipOffset}
           >
-            <PlanetsIcon path={community.logo} />
+            <PlanetsIcon src={community.logo} />
           </div>
         ))}
       </IconList>
