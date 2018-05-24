@@ -1,4 +1,4 @@
 import R from 'ramda'
 
-export const gqRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))
-export const gqErr = key => R.pathEq(['error'], key)
+export const asyncRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))
+export const asyncErr = key => R.pathEq(['error'], key)

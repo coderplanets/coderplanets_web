@@ -1,7 +1,7 @@
 import R from 'ramda'
 import {
-  gqRes,
-  gqErr,
+  asyncRes,
+  asyncErr,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -99,7 +99,7 @@ export function pageChange(page) {
 
 const DataSolver = [
   {
-    match: gqRes('pagedPosts'),
+    match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       postsPaper.loadData(pagedPosts)
       if (pagedPosts.entries.length === 0) {
@@ -113,33 +113,33 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes(EVENT.REFRESH_POSTS),
+    match: asyncRes(EVENT.REFRESH_POSTS),
     action: res => {
       debug('EVENT.REFRESH_POSTS: ', res)
       loadPosts()
     },
   },
   {
-    match: gqRes(EVENT.PREVIEW_CLOSED),
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => postsPaper.markState({ activePost: {} }),
   },
 ]
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

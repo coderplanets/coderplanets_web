@@ -1,8 +1,8 @@
 import R from 'ramda'
 
 import {
-  gqRes,
-  gqErr,
+  asyncRes,
+  asyncErr,
   makeDebugger,
   $solver,
   dispatchEvent,
@@ -101,7 +101,7 @@ const cancleLoading = () => {
 }
 const DataSolver = [
   {
-    match: gqRes('updateProfile'),
+    match: asyncRes('updateProfile'),
     action: () => {
       meteorState(accountEditor, 'success', 3)
       updateDone()
@@ -113,7 +113,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       const errMsg = details[0].detail
       meteorState(accountEditor, 'error', 5, errMsg)
@@ -121,14 +121,14 @@ const ErrSolver = [
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
       cancleLoading()
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
       cancleLoading()

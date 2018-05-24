@@ -1,7 +1,7 @@
 import R from 'ramda'
 import {
-  gqRes,
-  gqErr,
+  asyncRes,
+  asyncErr,
   makeDebugger,
   EVENT,
   ERR,
@@ -239,11 +239,11 @@ const cancelLoading = () => {
 // ###############################
 const DataSolver = [
   {
-    match: gqRes(EVENT.PREVIEW),
+    match: asyncRes(EVENT.PREVIEW),
     action: () => {},
   },
   {
-    match: gqRes('comments'),
+    match: asyncRes('comments'),
     action: ({ comments }) => {
       debug('comments --> ', comments)
       cancelLoading()
@@ -253,7 +253,7 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes('createComment'),
+    match: asyncRes('createComment'),
     action: ({ createComment }) => {
       debug('createComment', createComment)
       commentsConflict.markState({
@@ -267,7 +267,7 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes('replyComment'),
+    match: asyncRes('replyComment'),
     action: ({ replyComment }) => {
       debug('replyComment', replyComment)
       commentsConflict.markState({
@@ -279,22 +279,22 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes('likeComment'),
+    match: asyncRes('likeComment'),
     action: ({ likeComment }) =>
       commentsConflict.updateOneComment(likeComment.id, likeComment),
   },
   {
-    match: gqRes('undoLikeComment'),
+    match: asyncRes('undoLikeComment'),
     action: ({ undoLikeComment }) =>
       commentsConflict.updateOneComment(undoLikeComment.id, undoLikeComment),
   },
   {
-    match: gqRes('dislikeComment'),
+    match: asyncRes('dislikeComment'),
     action: ({ dislikeComment }) =>
       commentsConflict.updateOneComment(dislikeComment.id, dislikeComment),
   },
   {
-    match: gqRes('undoDislikeComment'),
+    match: asyncRes('undoDislikeComment'),
     action: ({ undoDislikeComment }) =>
       commentsConflict.updateOneComment(
         undoDislikeComment.id,
@@ -302,7 +302,7 @@ const DataSolver = [
       ),
   },
   {
-    match: gqRes('deleteComment'),
+    match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
       debug('deleteComment', deleteComment)
       commentsConflict.markState({
@@ -316,19 +316,19 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

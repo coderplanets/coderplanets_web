@@ -2,7 +2,14 @@
 import store from 'store'
 
 // const debug = makeDebugger('L:sidebar')
-import { gqRes, gqErr, $solver, ERR, makeDebugger, EVENT } from '../../utils'
+import {
+  asyncRes,
+  asyncErr,
+  $solver,
+  ERR,
+  makeDebugger,
+  EVENT,
+} from '../../utils'
 import S from './schema'
 
 import SR71 from '../../utils/network/sr71'
@@ -37,35 +44,35 @@ export function loadSubscribedCommunities() {
 
 const DataSolver = [
   {
-    match: gqRes('subscribedCommunities'),
+    match: asyncRes('subscribedCommunities'),
     action: ({ subscribedCommunities }) =>
       sidebar.loadSubscribedCommunities(subscribedCommunities),
   },
   {
-    match: gqRes(EVENT.LOGOUT),
+    match: asyncRes(EVENT.LOGOUT),
     action: () => loadSubscribedCommunities(),
   },
   {
-    match: gqRes(EVENT.LOGIN),
+    match: asyncRes(EVENT.LOGIN),
     action: () => loadSubscribedCommunities(),
   },
 ]
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

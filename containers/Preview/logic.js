@@ -1,5 +1,5 @@
 import {
-  gqRes,
+  asyncRes,
   $solver,
   makeDebugger,
   EVENT,
@@ -47,7 +47,7 @@ function loadDataForPreview(info) {
 
 const DataResolver = [
   {
-    match: gqRes(EVENT.PREVIEW),
+    match: asyncRes(EVENT.PREVIEW),
     action: res => {
       const event = res[EVENT.PREVIEW]
       holdPage()
@@ -55,11 +55,11 @@ const DataResolver = [
     },
   },
   {
-    match: gqRes(EVENT.PREVIEW_CLOSE),
+    match: asyncRes(EVENT.PREVIEW_CLOSE),
     action: () => closePreview(),
   },
   {
-    match: gqRes(EVENT.NAV_EDIT),
+    match: asyncRes(EVENT.NAV_EDIT),
     action: res => {
       const event = res[EVENT.NAV_EDIT]
       holdPage()
@@ -70,7 +70,7 @@ const DataResolver = [
     },
   },
   {
-    match: gqRes(EVENT.NAV_CREATE_POST),
+    match: asyncRes(EVENT.NAV_CREATE_POST),
     action: res => {
       const event = res[EVENT.NAV_CREATE_POST]
       holdPage()

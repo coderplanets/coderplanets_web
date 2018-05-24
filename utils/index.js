@@ -26,7 +26,7 @@ export {
   extractAttachments,
 } from './functions'
 
-export { gqErr, gqRes } from './graphql_helper'
+export { asyncErr, asyncRes } from './graphql_helper'
 
 export {
   storePlug,

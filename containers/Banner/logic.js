@@ -1,7 +1,7 @@
 import R from 'ramda'
 import Router from 'next/router'
 
-import { gqRes, gqErr, makeDebugger, $solver, ERR } from '../../utils'
+import { asyncRes, asyncErr, makeDebugger, $solver, ERR } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
@@ -36,26 +36,26 @@ export function tabberChange(target) {
 
 const DataSolver = [
   {
-    match: gqRes('community'),
+    match: asyncRes('community'),
     action: ({ community }) => banner.loadCurCommunity(community),
   },
 ]
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

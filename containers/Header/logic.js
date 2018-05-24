@@ -2,8 +2,8 @@
 import store from 'store'
 
 import {
-  gqRes,
-  gqErr,
+  asyncRes,
+  asyncErr,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -82,18 +82,18 @@ export function openDoraemon() {
 
 const DataSolver = [
   {
-    match: gqRes('user'),
+    match: asyncRes('user'),
     action: ({ user }) => header.updateAccount(user),
   },
   {
     // TODO move it to user side view
-    match: gqRes('githubSigninRes'),
+    match: asyncRes('githubSigninRes'),
     action: ({ githubSigninRes }) => {
       debug('dataResolver  --->', githubSigninRes)
     },
   },
   {
-    match: gqRes('user'),
+    match: asyncRes('user'),
     action: ({ user }) => {
       debug('dataResolver userRes  --->', user)
       /* store.set('user', { ...data }) */
@@ -104,19 +104,19 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
     },

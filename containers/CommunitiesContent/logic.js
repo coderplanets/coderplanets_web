@@ -1,6 +1,13 @@
 // import R from 'ramda'
 
-import { gqRes, gqErr, $solver, ERR, makeDebugger, EVENT } from '../../utils'
+import {
+  asyncRes,
+  asyncErr,
+  $solver,
+  ERR,
+  makeDebugger,
+  EVENT,
+} from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -60,13 +67,13 @@ const cancleLoading = () => {
 
 const DataSolver = [
   {
-    match: gqRes('communities'),
+    match: asyncRes('communities'),
     action: ({ communities }) => {
       communitiesContent.loadCommunities(communities)
     },
   },
   {
-    match: gqRes('subscribeCommunity'),
+    match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
       communitiesContent.addSubscribedCommunity(subscribeCommunity)
       communitiesContent.markState({
@@ -75,7 +82,7 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes('unsubscribeCommunity'),
+    match: asyncRes('unsubscribeCommunity'),
     action: ({ unsubscribeCommunity }) => {
       debug('unsubscribeCommunity: ', unsubscribeCommunity)
       communitiesContent.removeSubscribedCommunity(unsubscribeCommunity)
@@ -85,32 +92,32 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes(EVENT.LOGOUT),
+    match: asyncRes(EVENT.LOGOUT),
     action: () => loadCommunities(),
   },
   {
-    match: gqRes(EVENT.LOGIN),
+    match: asyncRes(EVENT.LOGIN),
     action: () => loadCommunities(),
   },
 ]
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
       cancleLoading()
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
       cancleLoading()
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
       cancleLoading()

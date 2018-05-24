@@ -1,8 +1,8 @@
 import R from 'ramda'
 
 import {
-  gqRes,
-  gqErr,
+  asyncRes,
+  asyncErr,
   $solver,
   makeDebugger,
   isEmptyValue,
@@ -140,7 +140,7 @@ function publishing(maybe = true) {
 
 const DataSolver = [
   {
-    match: gqRes('createPost'),
+    match: asyncRes('createPost'),
     action: () => {
       cancleLoading()
       typeWriter.reset()
@@ -152,7 +152,7 @@ const DataSolver = [
     },
   },
   {
-    match: gqRes(EVENT.PREVIEW),
+    match: asyncRes(EVENT.PREVIEW),
     action: () => {},
   },
 ]
@@ -165,7 +165,7 @@ const cancleLoading = () => {
 
 const ErrSolver = [
   {
-    match: gqErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       const errMsg = details[0].detail
       debug('ERR.CRAPHQL -->', details)
@@ -174,14 +174,14 @@ const ErrSolver = [
     },
   },
   {
-    match: gqErr(ERR.TIMEOUT),
+    match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
       cancleLoading()
     },
   },
   {
-    match: gqErr(ERR.NETWORK),
+    match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
       cancleLoading()
