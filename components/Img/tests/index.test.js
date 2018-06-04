@@ -10,11 +10,6 @@ const renderComponent = (props = {}) =>
   shallow(<Img src={src} alt={alt} {...props} />)
 
 describe('<Img />', () => {
-  it('should render an <img> tag', () => {
-    const renderedComponent = renderComponent()
-    expect(renderedComponent.is('img')).toBe(true)
-  })
-
   it('should have an src attribute', () => {
     const renderedComponent = renderComponent()
     expect(renderedComponent.prop('src')).toEqual(src)
@@ -25,9 +20,9 @@ describe('<Img />', () => {
     expect(renderedComponent.prop('alt')).toEqual(alt)
   })
 
-  it('should not have a className attribute', () => {
+  it('should have a default className', () => {
     const renderedComponent = renderComponent()
-    expect(renderedComponent.prop('className')).toBeUndefined()
+    expect(renderedComponent.prop('className')).toBe('img-class')
   })
 
   it('should adopt a className attribute', () => {

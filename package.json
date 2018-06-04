@@ -34,18 +34,6 @@
       "npm run lint"
     ]
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "setupFiles": [
-      "<rootDir>/utils/testing/shim.js",
-      "<rootDir>/utils/testing/enzyme_setup.js"
-    ]
-  },
   "prettier": {
     "bracketSpacing": true,
     "trailingComma": "es5",
@@ -110,6 +98,7 @@
     "timeago-react": "2.0.0"
   },
   "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "8.2.2",
     "babel-jest": "22.4.1",
     "babel-plugin-import": "1.6.7",

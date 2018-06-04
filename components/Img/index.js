@@ -28,7 +28,7 @@ Img.propTypes = {
 
 Img.defaultProps = {
   alt: 'coderplanets image',
-  className: 'fuck',
+  className: 'img-class',
 }
 
 export default Img
