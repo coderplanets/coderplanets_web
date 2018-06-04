@@ -52,7 +52,7 @@ class BannerContainer extends React.Component {
   render() {
     const { banner } = this.props
     const { curRoute, detail } = banner
-    // const { mainQuery } = curRoute
+    // const { mainPath } = curRoute
     // debug('detail ---> ', detail)
 
     return <BannerContent curRoute={curRoute} banner={banner} detail={detail} />

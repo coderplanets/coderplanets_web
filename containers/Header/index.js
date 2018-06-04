@@ -41,8 +41,8 @@ const debug = makeDebugger('C:Header')
 
 const MiniMap = ({ curRoute }) => {
   const defaultIcon = 'js'
-  const { mainQuery } = curRoute
-  const iconKey = mainQuery.length > 1 ? mainQuery : defaultIcon
+  const { mainPath } = curRoute
+  const iconKey = mainPath.length > 1 ? mainPath : defaultIcon
 
   return (
     <MiniMapWrapper>

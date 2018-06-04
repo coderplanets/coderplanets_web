@@ -20,10 +20,10 @@ const debug = makeDebugger('c:CommunityContent:index')
 /* eslint-enable no-unused-vars */
 
 const ComunityContent = ({ curRoute }) => {
-  const { subQuery } = curRoute
-  debug('subQuery: ', subQuery)
+  const { subPath } = curRoute
+  debug('subPath: ', subPath)
 
-  switch (subQuery) {
+  switch (subPath) {
     case 'posts': {
       return <PostsPaper />
     }
