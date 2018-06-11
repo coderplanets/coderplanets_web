@@ -205,7 +205,7 @@ class PostsThreadContainer extends React.Component {
                 pageNumber={pagedPostsData.pageNumber}
                 pageSize={pagedPostsData.pageSize}
                 totalCount={pagedPostsData.totalCount}
-                onChange={logic.loadPosts}
+                onChange={logic.loadPostsPage}
               />
             </LeftPart>
 

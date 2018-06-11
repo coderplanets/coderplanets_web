@@ -54,7 +54,13 @@ export function loadPosts(page = 1) {
 
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
+
   sr71$.query(S.pagedPosts, args)
+}
+
+export function loadPostsPage(page = 1) {
+  postsThread.markQuery({ page })
+  loadPosts(page)
 }
 
 export function onFilterSelect(key, val) {

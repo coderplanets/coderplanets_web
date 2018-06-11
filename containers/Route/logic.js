@@ -1,6 +1,11 @@
 import R from 'ramda'
 
-import { makeDebugger /*  isEmptyNil, getParameterByName */ } from '../../utils'
+import {
+  makeDebugger,
+  parseMainPath,
+  parsePathList,
+  // queryStringToJSON /*  isEmptyNil, getParameterByName */,
+} from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Route')
@@ -8,27 +13,6 @@ const debug = makeDebugger('L:Route')
 
 let route = null
 const INDEX = ''
-
-// example: /getme/xxx?aa=bb&cc=dd
-const parseMainPath = R.compose(
-  R.head,
-  R.split('?'),
-  R.head,
-  R.reject(R.isEmpty),
-  R.split('/'),
-  R.prop('asPath')
-)
-
-// example: /xxx/getme?aa=bb&cc=dd
-const parseSubPathList = R.compose(
-  R.reject(R.isEmpty),
-  R.split('/'),
-  R.head,
-  R.reject(R.contains('=')),
-  R.reject(R.isEmpty),
-  R.split('?'),
-  R.prop('asPath')
-)
 
 const getMainPath = routeObj => {
   if (R.isEmpty(routeObj)) return INDEX
@@ -41,7 +25,7 @@ const getSubPath = routeObj => {
   if (R.isEmpty(routeObj)) return INDEX
   if (routeObj.asPath === '/') return INDEX
 
-  const asPathList = parseSubPathList(routeObj)
+  const asPathList = parsePathList(routeObj)
 
   return asPathList.length > 1 ? asPathList[1] : asPathList[0]
 }
@@ -50,10 +34,12 @@ export function syncRoute(routeObj) {
   const mainPath = getMainPath(routeObj)
   const subPath = getSubPath(routeObj)
 
-  const { query } = routeObj
+  const { query /* asPath */ } = routeObj
 
   /* console.log('syncRoute --> routeObj: ', routeObj) */
+  /* console.log('syncRoute --> asPath: ', asPath) */
   /* console.log('syncRoute --> query: ', query) */
+  /* console.log('syncRoute parse --> ', queryStringToJSON(asPath)) */
 
   route.markState({
     mainPath,

@@ -20,6 +20,20 @@ const Query = t.model('Query', {
   // view ... [chart, list ...]
 })
 
+const serializeQuery = obj => {
+  /* eslint-disable */
+  return (
+    '?' +
+    Object.keys(obj)
+      .reduce((a, k) => {
+        a.push(k + '=' + encodeURIComponent(obj[k]))
+        return a
+      }, [])
+      .join('&')
+  )
+  /* eslint-enable */
+}
+
 const RouteStore = t
   .model('RouteStore', {
     mainPath: t.optional(t.string, ''),
@@ -44,13 +58,20 @@ const RouteStore = t
       if (page && page === '1') {
         query = R.omit(['page', 'size'], query)
       }
-
-      /* debug('final query =>  ', query) */
+      let queryString = ''
+      if (!R.isEmpty(query)) {
+        queryString = serializeQuery(query)
+      }
       if (typeof window !== 'undefined') {
-        return Router.push({
-          pathname: `/${self.mainPath}`,
-          asPath: `/${self.subPath}`,
-          query,
+        let url = ''
+        if (self.mainPath === self.subPath) {
+          url = `/${self.mainPath}${queryString}`
+        } else {
+          url = `/${self.mainPath}/${self.subPath}${queryString}`
+        }
+
+        debug('push url: ', url)
+        return Router.push(url, url, {
           shallow: true,
         })
       }

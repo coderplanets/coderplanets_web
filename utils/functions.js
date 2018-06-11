@@ -5,17 +5,6 @@ import PubSub from 'pubsub-js'
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
 
-export const getParameterByName = name => {
-  /* if (!url) url = window.location.href;*/
-  const url = Global.location.href
-  name = name.replace(/[\[\]]/g, '\\$&')
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    results = regex.exec(url)
-  if (!results) return null
-  if (!results[2]) return ''
-  return decodeURIComponent(results[2].replace(/\+/g, ' '))
-}
-
 export const isObject = value => {
   const type = typeof value
   return value != null && (type == 'object' || type == 'function')

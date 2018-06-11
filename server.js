@@ -49,48 +49,31 @@ const getMessages = locale => {
 }
 
 // const homeQuery = route('/home/:name')
-const introQuery = route('/intro')
-const apiQuery = route('/api')
 // const communityQuery = route('/:main')
-const communityQuery = route('/:community')
-const communitySubQuery = route('/:main/:sub')
+const indexQuery = route('/:index')
+const communityQuery = route('/:community/:thread')
 const localeQuery = route('/locale/:lang')
 
 app.prepare().then(() => {
   createServer((req, res) => {
-    const { pathname } = parse(req.url)
-    // const homeMatch = homeQuery(pathname)
-    const introMatch = introQuery(pathname)
-    const apiMatch = apiQuery(pathname)
-    const localeMatch = localeQuery(pathname)
-    const communityMatch = communityQuery(pathname)
-    const communitySubMatch = communitySubQuery(pathname)
+    const urlParts = parse(req.url, true)
+    const { pathname, query } = urlParts
 
     const accept = accepts(req)
     const locale = accept.language(supportLanguages) // 'zh'
 
-    if (localeMatch) {
+    if (localeQuery(pathname)) {
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
-      return res.end(JSON.stringify(getMessages(localeMatch.lang)))
+      return res.end(JSON.stringify(getMessages(localeQuery(pathname).lang)))
+    } else if (indexQuery(pathname)) {
+      return app.render(req, res, '/', query)
+    } else if (communityQuery(pathname)) {
+      console.log('goto community page')
+      return app.render(req, res, '/community', query)
     }
 
     req.locale = locale
     req.messages = getMessages(locale)
-
-    if (introMatch) {
-      return app.render(req, res, '/intro', introMatch)
-    }
-
-    if (apiMatch) {
-      return app.render(req, res, '/api', apiMatch)
-    }
-
-    if (communityMatch) {
-      return app.render(req, res, '/', communityMatch)
-    }
-    if (communitySubMatch) {
-      return app.render(req, res, '/', communitySubMatch)
-    }
     /*
       if (homeMatch) {
         return app.render(req, res, '/', homeMatch)
