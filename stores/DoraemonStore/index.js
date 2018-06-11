@@ -79,6 +79,7 @@ const DoraemonStore = t
     },
     get allSuggestions() {
       const { entries } = self.root.account.subscribedCommunities
+      if (!entries) return []
 
       const subscribedCommunitiesMaps = {}
 

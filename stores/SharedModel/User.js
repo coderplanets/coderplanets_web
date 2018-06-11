@@ -1,5 +1,5 @@
 import { types as t } from 'mobx-state-tree'
-import Community from './Community'
+import { Community } from './Community'
 
 const SubscribedCommunities = t.model('SubscribedCommunities', {
   entries: t.optional(t.array(Community), []),
@@ -25,10 +25,14 @@ const GithubProfile = t.model('GithubProfile', {
 
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
-  id: t.optional(t.string, ''),
-  nickname: t.optional(t.string, ''),
-  bio: t.optional(t.string, ''),
-  avatar: t.optional(t.string, ''),
+  /* id: t.optional(t.string, ''), */
+  id: t.maybe(t.string),
+  /* nickname: t.optional(t.string, ''), */
+  nickname: t.maybe(t.string),
+  /* bio: t.optional(t.string, ''), */
+  bio: t.maybe(t.string),
+  /* avatar: t.optional(t.string, ''), */
+  avatar: t.maybe(t.string),
   email: t.maybe(t.string),
   location: t.maybe(t.string),
   company: t.maybe(t.string),
@@ -40,9 +44,21 @@ export const User = t.model('User', {
 
   fromGithub: t.optional(t.boolean, false),
   /* fromWeixin: t.optional(t.boolean, false), */
-  subscribedCommunities: t.optional(SubscribedCommunities, {}),
+  /* subscribedCommunities: t.optional(SubscribedCommunities, {}), */
+  subscribedCommunities: t.maybe(SubscribedCommunities),
+  subscribedCommunitiesCount: t.optional(t.number, 0),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybe(GithubProfile),
+  cmsPassportString: t.maybe(t.string),
+  insertedAt: t.optional(t.string, ''),
+  updatedAt: t.optional(t.string, ''),
+})
+
+export const SimpleUser = t.model('SimpleUser2', {
+  id: t.maybe(t.string),
+  nickname: t.maybe(t.string),
+  bio: t.maybe(t.string),
+  avatar: t.maybe(t.string),
 })
 
 export const EmptyUser = {

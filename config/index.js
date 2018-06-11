@@ -1,4 +1,4 @@
-export { PAGE_SIZE, WORD_LIMIT } from './general'
+export { PAGE_SIZE, WORD_LIMIT, TAG_COLORS, CMS_THREADS } from './general'
 export {
   GRAPHQL_ENDPOINT,
   ISSUE_ADDR,

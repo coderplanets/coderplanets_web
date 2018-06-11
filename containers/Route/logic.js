@@ -52,8 +52,8 @@ export function syncRoute(routeObj) {
 
   const { query } = routeObj
 
-  console.log('syncRoute --> routeObj: ', routeObj)
-  console.log('syncRoute --> query: ', query)
+  /* console.log('syncRoute --> routeObj: ', routeObj) */
+  /* console.log('syncRoute --> query: ', query) */
 
   route.markState({
     mainPath,

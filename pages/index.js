@@ -39,6 +39,8 @@ export default class Index extends React.Component {
     this.store = initRootStore(props.langSetup)
   }
 
+  //  <Doraemon />
+
   render() {
     return (
       <Provider store={this.store}>
