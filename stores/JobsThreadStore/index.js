@@ -1,5 +1,5 @@
 /*
- * PostsPaperStore store
+ * JobsThreadStore store
  *
  */
 
@@ -9,7 +9,7 @@ import R from 'ramda'
 import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 import { Article } from '../SharedModel'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:PostsPaperStore')
+const debug = makeDebugger('S:JobsThreadStore')
 /* eslint-enable no-unused-vars */
 
 /* const filters = { */
@@ -57,8 +57,8 @@ const TagModel = t.model('TagModel', {
   color: t.optional(t.string, ''),
 })
 
-const PostsPaperStore = t
-  .model('PostsPaperStore', {
+const JobsThreadStore = t
+  .model('JobsThreadStore', {
     filters: t.optional(t.map(FilterModel), {}),
     tags: t.optional(t.map(TagModel), {}),
     curView: t.optional(
@@ -135,4 +135,4 @@ const PostsPaperStore = t
     },
   }))
 
-export default PostsPaperStore
+export default JobsThreadStore

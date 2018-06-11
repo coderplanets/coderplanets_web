@@ -7,12 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import PostsPaper from '../../containers/PostsPaper'
-// TODO: rename to CheatSheetPapser
-import CheatSheetPaper from '../../containers/CheatSheetPaper'
 import MapViewer from '../../containers/MapViewer'
 // import TutsViewer from '../TutsViewer'
 // import JobsViewer from '../JobsViewer'
+import { PostsThread, JobsThread, CheatSheetPaper } from '../../containers'
 
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -25,7 +23,7 @@ const ComunityContent = ({ curRoute }) => {
 
   switch (subPath) {
     case 'posts': {
-      return <PostsPaper />
+      return <PostsThread />
     }
     case 'news': {
       return <h2>NesPaper</h2>
@@ -46,7 +44,7 @@ const ComunityContent = ({ curRoute }) => {
       return <h2>VideosPaper</h2>
     }
     case 'jobs': {
-      return <PostsPaper />
+      return <JobsThread />
     }
     case 'cheatsheet': {
       return <CheatSheetPaper />

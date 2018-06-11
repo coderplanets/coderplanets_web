@@ -23,7 +23,9 @@ import {
   ContentStore,
   CurCommunity,
   // papers
-  PostsPaperStore,
+  PostsThreadStore,
+  JobsThreadStore,
+  //
   CommunitiesContentStore,
   CheatSheetContentStore,
   // viewers
@@ -85,7 +87,8 @@ const rootStore = t
     // content end
 
     // papers
-    postsPaper: t.optional(PostsPaperStore, {}),
+    postsThread: t.optional(PostsThreadStore, {}),
+    jobsThread: t.optional(JobsThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 
     // viewers (for preview usage)

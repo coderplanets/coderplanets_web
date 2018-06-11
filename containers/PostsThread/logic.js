@@ -21,36 +21,36 @@ const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_POSTS, EVENT.PREVIEW_CLOSED],
 })
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:PostsPaper')
+const debug = makeDebugger('L:PostsThread')
 /* eslint-enable no-unused-vars */
 
-let postsPaper = null
+let postsThread = null
 let sub$ = null
 
 const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
-  postsPaper.setHeaderFix(false)
+  postsThread.setHeaderFix(false)
 }
 
 export function outAnchor() {
-  postsPaper.setHeaderFix(true)
+  postsThread.setHeaderFix(true)
 }
 
 export function loadPosts(page = 1) {
-  postsPaper.markState({
+  postsThread.markState({
     curView: TYPE.LOADING,
   })
 
-  // debug('loadPosts curFilter: ', postsPaper.curFilter)
-  // debug('loadPosts curTag: ', postsPaper.curTag)
+  // debug('loadPosts curFilter: ', postsThread.curFilter)
+  // debug('loadPosts curTag: ', postsThread.curTag)
   const args = {
     /* first: 4, */
     filter: {
       page,
       size: PAGE_SIZE.POSTSPAPER_POSTS,
-      ...postsPaper.curFilter,
-      tag: postsPaper.curTag.title,
+      ...postsThread.curFilter,
+      tag: postsThread.curTag.title,
     },
   }
 
@@ -60,18 +60,18 @@ export function loadPosts(page = 1) {
 }
 
 export function onFilterSelect(key, val) {
-  postsPaper.selectFilter(key, val)
+  postsThread.selectFilter(key, val)
   loadPosts()
 }
 
 export function onTagSelect(obj) {
-  postsPaper.selectTag(obj)
+  postsThread.selectTag(obj)
   loadPosts()
 }
 
 export function onTitleSelect(activePost) {
-  postsPaper.markState({ activePost })
-  /* postsPaper.setActive(post) */
+  postsThread.markState({ activePost })
+  /* postsThread.setActive(post) */
   /* debug('onTitleSelect publish post: ', activePost) */
   // PubSub.publish('hello', post)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
@@ -101,13 +101,13 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      postsPaper.loadData(pagedPosts)
+      postsThread.loadData(pagedPosts)
       if (pagedPosts.entries.length === 0) {
-        return postsPaper.markState({
+        return postsThread.markState({
           curView: TYPE.NOT_FOUND,
         })
       }
-      return postsPaper.markState({
+      return postsThread.markState({
         curView: TYPE.RESULT,
       })
     },
@@ -121,7 +121,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => postsPaper.markState({ activePost: {} }),
+    action: () => postsThread.markState({ activePost: {} }),
   },
 ]
 
@@ -147,7 +147,7 @@ const ErrSolver = [
 ]
 
 export function init(selectedStore) {
-  postsPaper = selectedStore
+  postsThread = selectedStore
   debug('@@@ init @@@ --')
   if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */

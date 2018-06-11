@@ -101,7 +101,7 @@ const CommentsStore = t
 
     get activeArticle() {
       // TODO: based on tab
-      return self.root.postsPaper.active
+      return self.root.postsThread.active
     },
   }))
   .actions(self => ({

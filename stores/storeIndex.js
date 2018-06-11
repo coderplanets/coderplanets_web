@@ -18,7 +18,8 @@ export { default as CommunitiesContentStore } from './CommunitiesContentStore'
 export { default as CheatSheetContentStore } from './CheatSheetContentStore'
 
 // papers store
-export { default as PostsPaperStore } from './PostsPaperStore'
+export { default as PostsThreadStore } from './PostsThreadStore'
+export { default as JobsThreadStore } from './JobsThreadStore'
 
 // toolbox
 export { default as TypeWriterStore } from './TypeWriterStore'

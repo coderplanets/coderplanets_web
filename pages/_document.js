@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta name="renderer" content="webkit" />
-          <title>mastani</title>
+          <title>cps</title>
           <link
             href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
             rel="stylesheet"

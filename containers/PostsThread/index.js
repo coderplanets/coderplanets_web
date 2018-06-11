@@ -1,6 +1,6 @@
 /*
  *
- * PostsPaper
+ * PostsThread
  *
  */
 
@@ -54,7 +54,7 @@ import {
 } from './styles'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:PostsPaper')
+const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
 const tags = [
@@ -156,9 +156,9 @@ const View = ({ posts, curView, active }) => {
   }
 }
 
-class PostsPaperContainer extends React.Component {
+class PostsThreadContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.postsPaper)
+    logic.init(this.props.postsThread)
   }
 
   componentDidMount() {}
@@ -171,7 +171,7 @@ class PostsPaperContainer extends React.Component {
       curTag,
       active,
       accountInfo,
-    } = this.props.postsPaper
+    } = this.props.postsThread
 
     return (
       <Wrapper>
@@ -218,4 +218,4 @@ class PostsPaperContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('postsPaper'))(observer(PostsPaperContainer))
+export default inject(storePlug('postsThread'))(observer(PostsThreadContainer))
