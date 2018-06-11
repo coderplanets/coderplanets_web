@@ -1,7 +1,6 @@
 // domain store
 export { default as AccountStore } from './AccountStore'
 export { default as UsersStore } from './UsersStore'
-export { default as PostsStore } from './PostsStore'
 
 export { default as BodylayoutStore } from './BodylayoutStore'
 export { default as ApiLayoutStore } from './ApiLayoutStore'

@@ -23,6 +23,7 @@ import {
   Pagi,
   NotFound,
   ContentFilter,
+  Space,
   BuyMeChuanChuan,
 } from '../../components'
 
@@ -165,7 +166,7 @@ class PostsThreadContainer extends React.Component {
 
   render() {
     const {
-      postsData,
+      pagedPostsData,
       curView,
       curFilter: { when, sort, wordLength },
       curTag,
@@ -174,46 +175,67 @@ class PostsThreadContainer extends React.Component {
     } = this.props.postsThread
 
     return (
-      <Wrapper>
-        <LeftPadding />
-        <BuyMeChuanChuan fromUser={accountInfo} />
-        <LeftPart>
-          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper>
-            <ContentFilter
-              onSelect={logic.onFilterSelect}
-              activeWhen={when}
-              activeSort={sort}
-              activeLength={wordLength}
-            />
-            <FilterResultHint>
-              结果约 {postsData.totalCount} 条
-            </FilterResultHint>
-          </FilterWrapper>
+      <React.Fragment>
+        {pagedPostsData ? (
+          <Wrapper>
+            <LeftPadding />
+            <BuyMeChuanChuan fromUser={accountInfo} />
+            <LeftPart>
+              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+              <FilterWrapper>
+                <ContentFilter
+                  onSelect={logic.onFilterSelect}
+                  activeWhen={when}
+                  activeSort={sort}
+                  activeLength={wordLength}
+                />
+                <FilterResultHint>
+                  结果约 {pagedPostsData.totalCount} 条
+                </FilterResultHint>
+              </FilterWrapper>
 
-          <View posts={postsData.entries} curView={curView} active={active} />
+              <View
+                posts={pagedPostsData.entries}
+                curView={curView}
+                active={active}
+              />
 
-          <Pagi
-            left="-10px"
-            pageNumber={postsData.pageNumber}
-            pageSize={postsData.pageSize}
-            totalCount={postsData.totalCount}
-            onChange={logic.pageChange}
-          />
-        </LeftPart>
+              <Pagi
+                left="-10px"
+                pageNumber={pagedPostsData.pageNumber}
+                pageSize={pagedPostsData.pageSize}
+                totalCount={pagedPostsData.totalCount}
+                onChange={logic.loadPosts}
+              />
+            </LeftPart>
 
-        <RightPart>
-          <WritePostBtn type="primary" onClick={logic.createContent}>
-            发&nbsp;&nbsp;&nbsp;&nbsp;帖
-          </WritePostBtn>
+            <RightPart>
+              <WritePostBtn type="primary" onClick={logic.createContent}>
+                发<Space right="20px" />帖
+              </WritePostBtn>
 
-          <Affix offsetTop={50}>
-            <TagDivider />
-            <TagList tags={tags} active={curTag} onSelect={logic.onTagSelect} />
-          </Affix>
-        </RightPart>
-        <RightPadding />
-      </Wrapper>
+              <Affix offsetTop={50}>
+                <TagDivider />
+                <TagList
+                  tags={tags}
+                  active={curTag}
+                  onSelect={logic.onTagSelect}
+                />
+              </Affix>
+            </RightPart>
+            <RightPadding />
+          </Wrapper>
+        ) : (
+          <Wrapper>
+            <LeftPadding />
+            <LeftPart>
+              <PostsLoading num={5} />
+            </LeftPart>
+            <RightPart />
+            <RightPadding />
+          </Wrapper>
+        )}
+      </React.Fragment>
     )
   }
 }

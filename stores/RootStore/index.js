@@ -16,7 +16,6 @@ import {
   UsersStore,
   AccountStore,
   BodylayoutStore,
-  PostsStore,
   ApiLayoutStore,
   HeaderStore,
   BannerStore,
@@ -57,7 +56,6 @@ const rootStore = t
     route: t.optional(RouteStore, {}),
     curCommunity: t.optional(CurCommunity, {}),
     communities: t.optional(CommunitiesStore, {}),
-    posts: t.optional(PostsStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
@@ -132,7 +130,6 @@ const rootStore = t
     afterCreate() {
       // self.communities.load()
       self.sidebar.load()
-      // self.posts.load()
     },
 
     setHeaderFix(fix) {

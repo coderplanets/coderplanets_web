@@ -42,8 +42,6 @@ export function loadPosts(page = 1) {
     curView: TYPE.LOADING,
   })
 
-  // debug('loadPosts curFilter: ', postsThread.curFilter)
-  // debug('loadPosts curTag: ', postsThread.curTag)
   const args = {
     /* first: 4, */
     filter: {
@@ -93,22 +91,19 @@ export function createContent() {
   dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
 }
 
-export function pageChange(page) {
-  loadPosts(page)
-}
-
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      postsThread.loadData(pagedPosts)
       if (pagedPosts.entries.length === 0) {
         return postsThread.markState({
           curView: TYPE.NOT_FOUND,
+          pagedPosts,
         })
       }
       return postsThread.markState({
         curView: TYPE.RESULT,
+        pagedPosts,
       })
     },
   },
@@ -148,9 +143,8 @@ const ErrSolver = [
 
 export function init(selectedStore) {
   postsThread = selectedStore
-  debug('@@@ init @@@ --')
+
   if (sub$) sub$.unsubscribe()
-  /* sub$ = sr71$.data().subscribe(handleData) */
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadPosts()

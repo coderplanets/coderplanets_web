@@ -7,7 +7,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
-import { Article } from '../SharedModel'
+import { Article, PagedPosts, Tag } from '../SharedModel'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsThreadStore')
 /* eslint-enable no-unused-vars */
@@ -52,15 +53,11 @@ const FilterModel = t.model('FilterModel', {
   ),
 })
 
-const TagModel = t.model('TagModel', {
-  title: t.optional(t.string, ''),
-  color: t.optional(t.string, ''),
-})
-
 const PostsThreadStore = t
   .model('PostsThreadStore', {
+    pagedPosts: t.maybe(PagedPosts),
     filters: t.optional(t.map(FilterModel), {}),
-    tags: t.optional(t.map(TagModel), {}),
+    tags: t.optional(t.map(Tag), {}),
     curView: t.optional(
       t.enumeration('curView', [
         /* 'TIMEOUT_PAGE', */
@@ -79,10 +76,9 @@ const PostsThreadStore = t
       return getParent(self)
     },
 
-    get postsData() {
-      return self.root.posts.postsData
+    get pagedPostsData() {
+      return stripMobx(self.pagedPosts)
     },
-
     get accountInfo() {
       return self.root.account.accountInfo
     },
