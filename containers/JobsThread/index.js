@@ -1,32 +1,239 @@
 /*
-*
-* JobsThread
-*
-*/
+ *
+ * PostsThread
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-
+import shortid from 'shortid'
+import TimeAgo from 'timeago-react'
+import Waypoint from 'react-waypoint'
 // import Link from 'next/link'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { ICON_ASSETS } from '../../config'
+
+import { makeDebugger, storePlug, cutFrom, TYPE } from '../../utils'
+
+import {
+  Affix,
+  TagList,
+  PostsLoading,
+  Pagi,
+  NotFound,
+  ContentFilter,
+  BuyMeChuanChuan,
+} from '../../components'
+
+// import logic from './logic'
 import * as logic from './logic'
+import {
+  Wrapper,
+  LeftPadding,
+  RightPadding,
+  LeftPart,
+  RightPart,
+  PostWrapper,
+  FilterWrapper,
+  FilterResultHint,
+  PostAvatar,
+  PostTitleLink,
+  LinkIcon,
+  PostMain,
+  PostTopHalf,
+  PostBreif,
+  PostTitle,
+  PostTitleTag,
+  PostSecondHalf,
+  PostBodyBreif,
+  PostExtra,
+  PostTitleTagDot,
+  TagDivider,
+  WritePostBtn,
+  SalaryWrapper,
+} from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
+
+const tags = [
+  {
+    color: '#FC6360',
+    title: '北京',
+  },
+  {
+    color: '#FFA653',
+    title: '杭州',
+  },
+  {
+    color: '#F8CE5A',
+    title: '深圳',
+  },
+  {
+    color: '#60CC5A',
+    title: '上海',
+  },
+  {
+    color: '#9fefe4',
+    title: '成都',
+  },
+  {
+    color: 'pink',
+    title: '厦门',
+  },
+  {
+    color: '#2CB8F0',
+    title: '武汉',
+  },
+  {
+    color: '#D488DE',
+    title: '广州',
+  },
+  {
+    color: 'lightgrey',
+    title: '其他',
+  },
+]
+
+const PostItem = ({ post, active }) => (
+  <PostWrapper current={post} active={active}>
+    <div>
+      <PostAvatar
+        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
+        alt="avatar"
+      />
+    </div>
+    <PostMain>
+      <PostTopHalf>
+        <PostBreif onClick={logic.onTitleSelect.bind(this, post)}>
+          <PostTitle>{post.title}</PostTitle>
+          <PostTitleLink>
+            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <span style={{ marginLeft: 9 }}>拉钩</span>
+          </PostTitleLink>
+          <PostTitleTag>
+            <PostTitleTagDot />
+            成都
+          </PostTitleTag>
+        </PostBreif>
+        <SalaryWrapper>15k - 30k</SalaryWrapper>
+      </PostTopHalf>
+
+      <PostSecondHalf>
+        <PostExtra>
+          mydearxym 发布于:{' '}
+          <TimeAgo datetime={post.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
+          {post.views}
+        </PostExtra>
+        <PostBodyBreif>{cutFrom(post.digest, 90)}</PostBodyBreif>
+      </PostSecondHalf>
+    </PostMain>
+  </PostWrapper>
+)
+
+const View = ({ posts, curView, active }) => {
+  switch (curView) {
+    case TYPE.RESULT: {
+      return (
+        <div>
+          {posts.map(post => (
+            <PostItem post={post} key={shortid.generate()} active={active} />
+          ))}
+        </div>
+      )
+    }
+    case TYPE.NOT_FOUND: {
+      return (
+        <div>
+          <NotFound />
+        </div>
+      )
+    }
+    default:
+      return <PostsLoading num={3} />
+  }
+}
 
 class JobsThreadContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.jobsThread)
   }
 
+  componentDidMount() {}
+
   render() {
+    const {
+      pagedJobsData,
+      curView,
+      curFilter: { when, sort, wordLength },
+      curTag,
+      active,
+      accountInfo,
+    } = this.props.jobsThread
+
     return (
-      <div>
-        <h2>job</h2>
-        JobsThread container!
-      </div>
+      <React.Fragment>
+        {pagedJobsData ? (
+          <Wrapper>
+            <LeftPadding />
+            <BuyMeChuanChuan fromUser={accountInfo} />
+            <LeftPart>
+              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+              <FilterWrapper>
+                <ContentFilter
+                  onSelect={logic.onFilterSelect}
+                  activeWhen={when}
+                  activeSort={sort}
+                  activeLength={wordLength}
+                />
+                <FilterResultHint>
+                  结果约 {pagedJobsData.totalCount} 条
+                </FilterResultHint>
+              </FilterWrapper>
+
+              <View
+                posts={pagedJobsData.entries}
+                curView={curView}
+                active={active}
+              />
+
+              <Pagi
+                left="-10px"
+                pageNumber={pagedJobsData.pageNumber}
+                pageSize={pagedJobsData.pageSize}
+                totalCount={pagedJobsData.totalCount}
+                onChange={logic.loadJobs}
+              />
+            </LeftPart>
+
+            <RightPart>
+              <WritePostBtn type="primary" onClick={logic.createContent}>
+                招贤纳士
+              </WritePostBtn>
+
+              <Affix offsetTop={50}>
+                <TagDivider />
+                <TagList
+                  tags={tags}
+                  active={curTag}
+                  onSelect={logic.onTagSelect}
+                />
+              </Affix>
+            </RightPart>
+            <RightPadding />
+          </Wrapper>
+        ) : (
+          <Wrapper>
+            <LeftPadding />
+            <LeftPart>
+              <PostsLoading num={3} />
+            </LeftPart>
+            <RightPart />
+            <RightPadding />
+          </Wrapper>
+        )}
+      </React.Fragment>
     )
   }
 }

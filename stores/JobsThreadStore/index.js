@@ -7,7 +7,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
-import { Article } from '../SharedModel'
+import { Article, PagedJobs, Tag } from '../SharedModel'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:JobsThreadStore')
 /* eslint-enable no-unused-vars */
@@ -52,15 +53,11 @@ const FilterModel = t.model('FilterModel', {
   ),
 })
 
-const TagModel = t.model('TagModel', {
-  title: t.optional(t.string, ''),
-  color: t.optional(t.string, ''),
-})
-
 const JobsThreadStore = t
   .model('JobsThreadStore', {
+    pagedJobs: t.maybe(PagedJobs),
     filters: t.optional(t.map(FilterModel), {}),
-    tags: t.optional(t.map(TagModel), {}),
+    tags: t.optional(t.map(Tag), {}),
     curView: t.optional(
       t.enumeration('curView', [
         /* 'TIMEOUT_PAGE', */
@@ -72,17 +69,17 @@ const JobsThreadStore = t
     ),
     // runtime: ..
     // data: ...
-    activePost: t.optional(Article, {}),
+    // TODO: rename to activeArticle
+    activeJob: t.optional(Article, {}),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
 
-    get postsData() {
-      return self.root.posts.postsData
+    get pagedJobsData() {
+      return stripMobx(self.pagedJobs)
     },
-
     get accountInfo() {
       return self.root.account.accountInfo
     },
@@ -98,7 +95,7 @@ const JobsThreadStore = t
       return R.pathOr({ title: '', color: '' }, ['js'], self.tags.toJSON())
     },
     get active() {
-      return stripMobx(self.activePost)
+      return stripMobx(self.activeJob)
     },
   }))
   .actions(self => ({
@@ -112,9 +109,6 @@ const JobsThreadStore = t
         : { [filter]: val }
 
       self.filters.set(community, newFilter)
-    },
-    loadData(data) {
-      self.root.posts.loadData(data)
     },
     selectTag(tag) {
       // TODO

@@ -29,7 +29,6 @@ export const PagiCustomRender = (current, type, originalElement) => {
 }
 
 const BottomFooter = ({ show, msg }) => {
-  console.log('BottomFooter: show: ', show)
   if (show) return <BottomMsg>{msg}</BottomMsg>
   return <div />
 }
