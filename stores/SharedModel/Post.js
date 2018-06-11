@@ -21,6 +21,7 @@ export const Post = t.model('Post', {
 
   commentsCount: t.optional(t.number, 0),
   commentsParticipatorsCount: t.optional(t.number, 0),
+  commentsParticipators: t.optional(t.array(User), []),
   views: t.optional(t.number, 0),
   favoritedCount: t.optional(t.number, 0),
   starredCount: t.optional(t.number, 0),
