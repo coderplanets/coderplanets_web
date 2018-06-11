@@ -40,7 +40,7 @@ const debug = makeDebugger('C:Header')
 /* eslint-enable no-unused-vars */
 
 const MiniMap = ({ curRoute }) => {
-  const defaultIcon = 'js'
+  const defaultIcon = 'javascript'
   const { mainPath } = curRoute
   const iconKey = mainPath.length > 1 ? mainPath : defaultIcon
 

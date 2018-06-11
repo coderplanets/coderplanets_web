@@ -60,32 +60,35 @@ const debug = makeDebugger('C:PostsPaper')
 const tags = [
   {
     color: '#FC6360',
-    title: 'react',
+    title: '精华',
   },
   {
     color: '#FFA653',
-    title: 'angular',
+    title: '翻译',
   },
   {
     color: '#F8CE5A',
-    title: 'ask',
+    title: '问答',
   },
   {
     color: '#60CC5A',
-    title: 'test 相关',
+    title: '教程',
   },
   {
     color: '#9fefe4',
-    title: '问答',
+    title: '分享',
   },
-
   {
     color: '#2CB8F0',
-    title: 'mastani',
+    title: '灌水',
   },
   {
     color: '#D488DE',
-    title: 'support',
+    title: '活动',
+  },
+  {
+    color: 'lightgrey',
+    title: '其他',
   },
 ]
 
@@ -158,10 +161,7 @@ class PostsPaperContainer extends React.Component {
     logic.init(this.props.postsPaper)
   }
 
-  componentDidMount() {
-    // Affix hack
-    // Global.scrollTo(0, 1)
-  }
+  componentDidMount() {}
 
   render() {
     const {
@@ -203,13 +203,12 @@ class PostsPaperContainer extends React.Component {
         </LeftPart>
 
         <RightPart>
-          <Affix offsetTop={100}>
-            <WritePostBtn type="primary" onClick={logic.createContent}>
-              发&nbsp;&nbsp;&nbsp;&nbsp;帖
-            </WritePostBtn>
+          <WritePostBtn type="primary" onClick={logic.createContent}>
+            发&nbsp;&nbsp;&nbsp;&nbsp;帖
+          </WritePostBtn>
 
+          <Affix offsetTop={50}>
             <TagDivider />
-
             <TagList tags={tags} active={curTag} onSelect={logic.onTagSelect} />
           </Affix>
         </RightPart>

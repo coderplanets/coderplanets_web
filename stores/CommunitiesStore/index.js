@@ -97,7 +97,7 @@ const CommunitiesStore = t
       */
     },
     get curCommunityName() {
-      return 'js'
+      return 'javascript'
       /*
 
          const { curRoute } = self.root

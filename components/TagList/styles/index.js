@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+/* import { Animate } from '../../../utils' */
 import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
@@ -14,10 +15,9 @@ export const TagItem = styled.div`
   display: flex;
   &:hover {
     cursor: pointer;
-    color: tomato;
+    font-weight: bold;
   }
 `
-
 export const AllTagIcon = styled(Img)`
   fill: #6b8688;
   margin-right: 10px;
