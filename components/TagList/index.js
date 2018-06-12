@@ -17,6 +17,17 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:TagList:index')
 /* eslint-enable no-unused-vars */
 
+const prettyColor = {
+  red: '#FC6360',
+  orange: '#FFA653',
+  yellow: '#F8CE5A',
+  green: '#60CC5A',
+  cyan: '#9fefe4',
+  blue: '#2CB8F0',
+  purple: '#D488DE',
+  grey: 'lightgrey',
+}
+
 const TagList = ({ tags, active, onSelect }) => {
   // const loading= true
   //   <TagsLoading num={7} />
@@ -46,7 +57,11 @@ const TagList = ({ tags, active, onSelect }) => {
             ext: 'helli',
           })}
         >
-          <TagDot color={tag.color} active={active.title} title={tag.title} />
+          <TagDot
+            color={prettyColor[tag.color]}
+            active={active.title}
+            title={tag.title}
+          />
           <TagTitle active={active.title} title={tag.title} color={tag.color}>
             {tag.title}
           </TagTitle>

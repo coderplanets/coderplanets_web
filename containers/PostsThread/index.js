@@ -58,41 +58,6 @@ import {
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-const tags = [
-  {
-    color: '#FC6360',
-    title: '精华',
-  },
-  {
-    color: '#FFA653',
-    title: '翻译',
-  },
-  {
-    color: '#F8CE5A',
-    title: '问答',
-  },
-  {
-    color: '#60CC5A',
-    title: '教程',
-  },
-  {
-    color: '#9fefe4',
-    title: '分享',
-  },
-  {
-    color: '#2CB8F0',
-    title: '灌水',
-  },
-  {
-    color: '#D488DE',
-    title: '活动',
-  },
-  {
-    color: 'lightgrey',
-    title: '其他',
-  },
-]
-
 const PostItem = ({ post, active }) => (
   <PostWrapper current={post} active={active}>
     <div>
@@ -138,18 +103,18 @@ const View = ({ posts, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
-        <div>
+        <React.Fragment>
           {posts.map(post => (
             <PostItem post={post} key={shortid.generate()} active={active} />
           ))}
-        </div>
+        </React.Fragment>
       )
     }
     case TYPE.NOT_FOUND: {
       return (
-        <div>
+        <React.Fragment>
           <NotFound />
-        </div>
+        </React.Fragment>
       )
     }
     default:
@@ -159,6 +124,7 @@ const View = ({ posts, curView, active }) => {
 
 class PostsThreadContainer extends React.Component {
   componentWillMount() {
+    console.log('PostsThreadContainer componentWillMount')
     logic.init(this.props.postsThread)
   }
 
@@ -167,9 +133,10 @@ class PostsThreadContainer extends React.Component {
   render() {
     const {
       pagedPostsData,
+      tagsData,
       curView,
       curFilter: { when, sort, wordLength },
-      curTag,
+      activeTagData,
       active,
       accountInfo,
     } = this.props.postsThread
@@ -205,7 +172,7 @@ class PostsThreadContainer extends React.Component {
                 pageNumber={pagedPostsData.pageNumber}
                 pageSize={pagedPostsData.pageSize}
                 totalCount={pagedPostsData.totalCount}
-                onChange={logic.loadPostsPage}
+                onChange={logic.loadPosts}
               />
             </LeftPart>
 
@@ -217,8 +184,8 @@ class PostsThreadContainer extends React.Component {
               <Affix offsetTop={50}>
                 <TagDivider />
                 <TagList
-                  tags={tags}
-                  active={curTag}
+                  tags={tagsData}
+                  active={activeTagData}
                   onSelect={logic.onTagSelect}
                 />
               </Affix>

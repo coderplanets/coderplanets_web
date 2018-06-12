@@ -19,7 +19,7 @@ const debug = makeDebugger('c:Navigator:index')
 const Navigator = () => {
   return (
     <Breadcrumbs>
-      <Logo src={`${ICON_ASSETS}/cmd/rainbow_logo.svg`} />
+      <Logo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
       <LogoText>coderplanets</LogoText>
       <BetaLogo src={`${ICON_ASSETS}/cmd/beta.svg`} />
     </Breadcrumbs>

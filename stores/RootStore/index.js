@@ -4,10 +4,9 @@
  */
 
 import { types as t } from 'mobx-state-tree'
-import { makeDebugger } from '../../utils'
 
+import { makeDebugger, markStates } from '../../utils'
 import RouteStore from '../RouteStore'
-
 import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
@@ -50,7 +49,6 @@ const debug = makeDebugger('S:rootStore')
 const rootStore = t
   .model({
     // domain stores
-    version: t.optional(t.string, '0.0.4'),
     account: t.optional(AccountStore, {}),
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
@@ -156,6 +154,9 @@ const rootStore = t
     },
     isLocaleExist(locale) {
       return !!self.langs.get(locale)
+    },
+    markState(sobj) {
+      markStates(sobj, self)
     },
   }))
 

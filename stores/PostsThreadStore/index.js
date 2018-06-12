@@ -57,7 +57,9 @@ const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.maybe(PagedPosts),
     filters: t.optional(t.map(FilterModel), {}),
-    tags: t.optional(t.map(Tag), {}),
+    /* tags: t.optional(t.map(Tag), {}), */
+    tags: t.optional(t.array(Tag), []),
+    activeTag: t.maybe(Tag),
     curView: t.optional(
       t.enumeration('curView', [
         /* 'TIMEOUT_PAGE', */
@@ -75,9 +77,11 @@ const PostsThreadStore = t
     get root() {
       return getParent(self)
     },
-
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
+    },
+    get tagsData() {
+      return stripMobx(self.tags)
     },
     get accountInfo() {
       return self.root.account.accountInfo
@@ -89,9 +93,8 @@ const PostsThreadStore = t
     get curFilter() {
       return R.pathOr('', ['js'], self.filters.toJSON())
     },
-
-    get curTag() {
-      return R.pathOr({ title: '', color: '' }, ['js'], self.tags.toJSON())
+    get activeTagData() {
+      return stripMobx(self.activeTag) || { title: '', color: '' }
     },
     get active() {
       return stripMobx(self.activePost)
@@ -100,7 +103,7 @@ const PostsThreadStore = t
   .actions(self => ({
     selectFilter(filter, val) {
       // TODO
-      const community = 'js'
+      const community = 'javascript'
       debug('curCommunity', self.curCommunity)
       const curFilter = self.filters.get(community, filter)
       const newFilter = curFilter
@@ -110,21 +113,15 @@ const PostsThreadStore = t
       self.filters.set(community, newFilter)
     },
     selectTag(tag) {
-      // TODO
-      const community = 'js'
-      // const curTag = self.tags.get(community)
+      const cur = tag.title === '' ? null : tag
 
-      if (self.curTag.title === tag.title) {
-        self.tags.set(community, { title: '', color: '' })
-      } else {
-        self.tags.set(community, tag)
-      }
+      self.activeTag = cur
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
     },
-    markQuery(query) {
-      self.root.route.markQuery(query)
+    markRoute(route, query) {
+      self.root.route.markRoute(route, query)
     },
     markState(sobj) {
       markStates(sobj, self)

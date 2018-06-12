@@ -2,12 +2,12 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import { request } from 'graphql-request'
 
-import { GRAPHQL_ENDPOINT } from '../config'
+import { GRAPHQL_ENDPOINT } from '../../config'
 
-import initRootStore from '../stores'
-import { GAWraper } from '../components'
+import initRootStore from '../../stores'
+import { GAWraper } from '../../components'
 
-import { /* Global */ queryStringToJSON } from '../utils'
+import { /* Global */ queryStringToJSON } from '../../utils'
 
 import {
   ThemeWrapper,
@@ -20,11 +20,11 @@ import {
   Header,
   Banner,
   Content,
-} from '../containers'
+} from '../../containers'
 
-import PostsThreadSchema from '../containers/PostsThread/schema'
+import PostsThreadSchema from '../../containers/PostsThread/schema'
 
-import Footer from '../components/Footer'
+import Footer from '../../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
@@ -38,7 +38,7 @@ export default class Index extends React.Component {
     /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
-    console.log('SSR getInitialProps ## community ##: ', asPath)
+    console.log('SSR ## community (in js)posts ##: ', asPath)
 
     const postsQuery = request(
       GRAPHQL_ENDPOINT,

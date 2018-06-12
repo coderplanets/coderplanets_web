@@ -57,7 +57,8 @@ const JobsThreadStore = t
   .model('JobsThreadStore', {
     pagedJobs: t.maybe(PagedJobs),
     filters: t.optional(t.map(FilterModel), {}),
-    tags: t.optional(t.map(Tag), {}),
+    tags: t.optional(t.array(Tag), []),
+    activeTag: t.maybe(Tag),
     curView: t.optional(
       t.enumeration('curView', [
         /* 'TIMEOUT_PAGE', */
@@ -76,9 +77,11 @@ const JobsThreadStore = t
     get root() {
       return getParent(self)
     },
-
     get pagedJobsData() {
       return stripMobx(self.pagedJobs)
+    },
+    get tagsData() {
+      return stripMobx(self.tags)
     },
     get accountInfo() {
       return self.root.account.accountInfo
@@ -90,9 +93,8 @@ const JobsThreadStore = t
     get curFilter() {
       return R.pathOr('', ['js'], self.filters.toJSON())
     },
-
-    get curTag() {
-      return R.pathOr({ title: '', color: '' }, ['js'], self.tags.toJSON())
+    get activeTagData() {
+      return stripMobx(self.activeTag) || { title: '', color: '' }
     },
     get active() {
       return stripMobx(self.activeJob)
@@ -101,7 +103,7 @@ const JobsThreadStore = t
   .actions(self => ({
     selectFilter(filter, val) {
       // TODO
-      const community = 'js'
+      const community = 'javascript'
       debug('curCommunity', self.curCommunity)
       const curFilter = self.filters.get(community, filter)
       const newFilter = curFilter
@@ -111,15 +113,9 @@ const JobsThreadStore = t
       self.filters.set(community, newFilter)
     },
     selectTag(tag) {
-      // TODO
-      const community = 'js'
-      // const curTag = self.tags.get(community)
+      const cur = tag.title === '' ? null : tag
 
-      if (self.curTag.title === tag.title) {
-        self.tags.set(community, { title: '', color: '' })
-      } else {
-        self.tags.set(community, tag)
-      }
+      self.activeTag = cur
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)

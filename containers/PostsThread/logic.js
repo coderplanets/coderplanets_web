@@ -46,21 +46,34 @@ export function loadPosts(page = 1) {
     /* first: 4, */
     filter: {
       page,
-      size: PAGE_SIZE.POSTSPAPER_POSTS,
+      size: PAGE_SIZE.COMMON,
       ...postsThread.curFilter,
-      tag: postsThread.curTag.title,
+      tag: postsThread.activeTagData.title,
     },
   }
 
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
+  postsThread.markRoute({}, { page })
+  console.log('--> pagedPosts')
   sr71$.query(S.pagedPosts, args)
 }
 
-export function loadPostsPage(page = 1) {
-  postsThread.markQuery({ page })
-  loadPosts(page)
+export function loadIfNeed() {
+  console.log('loadIfNeed loadPosts ...')
+  /* if (!postsThread.pagedPosts) { */
+  loadPosts()
+  /* } */
+}
+
+export function loadTags() {
+  const args = {
+    thread: 'POST',
+    communityId: '123',
+  }
+
+  sr71$.query(S.partialTags, args)
 }
 
 export function onFilterSelect(key, val) {
@@ -68,8 +81,8 @@ export function onFilterSelect(key, val) {
   loadPosts()
 }
 
-export function onTagSelect(obj) {
-  postsThread.selectTag(obj)
+export function onTagSelect(tag) {
+  postsThread.selectTag(tag)
   loadPosts()
 }
 
@@ -101,15 +114,21 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
+      let curView = TYPE.RESULT
       if (pagedPosts.entries.length === 0) {
-        return postsThread.markState({
-          curView: TYPE.NOT_FOUND,
-          pagedPosts,
-        })
+        curView = TYPE.NOT_FOUND
       }
       return postsThread.markState({
-        curView: TYPE.RESULT,
+        curView,
         pagedPosts,
+      })
+    },
+  },
+  {
+    match: asyncRes('partialTags'),
+    action: ({ partialTags }) => {
+      return postsThread.markState({
+        tags: partialTags,
       })
     },
   },
@@ -153,5 +172,9 @@ export function init(selectedStore) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadPosts()
+  /* if current route community !== curCommunity */
+  /* loadIfNeed() */
+  setTimeout(() => {
+    loadTags()
+  }, 500)
 }

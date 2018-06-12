@@ -1,8 +1,6 @@
 import R from 'ramda'
-import Router from 'next/router'
 
 import { asyncRes, asyncErr, makeDebugger, $solver, ERR } from '../../utils'
-
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
@@ -19,16 +17,14 @@ export function loadCommunity() {
 
 export function tabberChange(target) {
   // main should be current community title
-  const main = R.toLower(banner.curCommunity.title)
-  const sub = target
+  console.log('banner curCommunity -> ', banner.curCommunity)
+  const mainPath = R.toLower(banner.curCommunity.title)
+  const subPath = target
 
-  Router.push(
-    {
-      pathname: '/',
-      query: { main, sub },
-    },
-    `/${main}/${sub}`
-  )
+  banner.markRoute({
+    mainPath,
+    subPath,
+  })
 }
 
 // TODO: load cur community

@@ -26,12 +26,12 @@ const translator = {
   jobs: '招聘',
 }
 
-const Tabber = ({ source, onChange }) => {
+const Tabber = ({ source, defaultActive, onChange }) => {
   const tabitems = R.values(source)
   //   debug('tabitems: ', tabitems)
   //   <Tabs onChange={onChange} activeKey={'Js--jobs'}>
   return (
-    <Tabs onChange={onChange}>
+    <Tabs onChange={onChange} defaultActiveKey={defaultActive}>
       {tabitems.map(item => (
         <TabPane tab={translator[item.title] || item.title} key={item.title} />
       ))}
@@ -43,8 +43,11 @@ Tabber.propTypes = {
   // https://www.npmjs.com/package/prop-types
   onChange: PropTypes.func.isRequired,
   source: PropTypes.array.isRequired,
+  defaultActive: PropTypes.string,
 }
 
-Tabber.defaultProps = {}
+Tabber.defaultProps = {
+  defaultActive: 'posts',
+}
 
 export default Tabber

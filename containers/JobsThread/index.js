@@ -57,45 +57,6 @@ import {
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
 
-const tags = [
-  {
-    color: '#FC6360',
-    title: '北京',
-  },
-  {
-    color: '#FFA653',
-    title: '杭州',
-  },
-  {
-    color: '#F8CE5A',
-    title: '深圳',
-  },
-  {
-    color: '#60CC5A',
-    title: '上海',
-  },
-  {
-    color: '#9fefe4',
-    title: '成都',
-  },
-  {
-    color: 'pink',
-    title: '厦门',
-  },
-  {
-    color: '#2CB8F0',
-    title: '武汉',
-  },
-  {
-    color: '#D488DE',
-    title: '广州',
-  },
-  {
-    color: 'lightgrey',
-    title: '其他',
-  },
-]
-
 const PostItem = ({ post, active }) => (
   <PostWrapper current={post} active={active}>
     <div>
@@ -165,9 +126,10 @@ class JobsThreadContainer extends React.Component {
   render() {
     const {
       pagedJobsData,
+      tagsData,
       curView,
       curFilter: { when, sort, wordLength },
-      curTag,
+      activeTagData,
       active,
       accountInfo,
     } = this.props.jobsThread
@@ -215,8 +177,8 @@ class JobsThreadContainer extends React.Component {
               <Affix offsetTop={50}>
                 <TagDivider />
                 <TagList
-                  tags={tags}
-                  active={curTag}
+                  tags={tagsData}
+                  active={activeTagData}
                   onSelect={logic.onTagSelect}
                 />
               </Affix>
@@ -239,3 +201,19 @@ class JobsThreadContainer extends React.Component {
 }
 
 export default inject(storePlug('jobsThread'))(observer(JobsThreadContainer))
+
+/*
+   <iframe
+   id="ytplayer"
+   type="text/html"
+   width="640"
+   height="360"
+   allowfullscreen="allowfullscreen"
+   mozallowfullscreen="mozallowfullscreen"
+   msallowfullscreen="msallowfullscreen"
+   oallowfullscreen="oallowfullscreen"
+   webkitallowfullscreen="webkitallowfullscreen"
+   src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+   frameborder="0"
+   />
+ */

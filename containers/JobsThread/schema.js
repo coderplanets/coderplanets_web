@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-const pagedJobs = gql`
+const pagedJobsRaw = `
   query pagedJobs($filter: PagedArticleFilter) {
     pagedJobs(filter: $filter) {
       entries {
@@ -17,9 +17,29 @@ const pagedJobs = gql`
     }
   }
 `
+const partialTagsRaw = `
+  query($communityId: ID!, $thread: CmsThread!) {
+    partialTags(communityId: $communityId, thread: $thread) {
+      id
+      title
+      color
+      thread
+    }
+  }
+`
+
+const pagedJobs = gql`
+  ${pagedJobsRaw}
+`
+const partialTags = gql`
+  ${partialTagsRaw}
+`
 
 const schema = {
   pagedJobs,
+  pagedJobsRaw,
+  partialTags,
+  partialTagsRaw,
 }
 
 export default schema

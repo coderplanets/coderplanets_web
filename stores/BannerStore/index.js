@@ -20,7 +20,7 @@ const BannerStore = t
       return getParent(self)
     },
     get curRoute() {
-      return self.root.curRoute
+      return self.root.route.curRoute
     },
     get curCommunity() {
       return self.root.communities.curCommunity
@@ -41,11 +41,14 @@ const BannerStore = t
     },
   }))
   .actions(self => ({
-    markState(sobj) {
-      markStates(sobj, self)
-    },
     loadCurCommunity(data) {
       self.root.curCommunity.load(data)
+    },
+    markRoute(route, query) {
+      self.root.route.markRoute(route, query)
+    },
+    markState(sobj) {
+      markStates(sobj, self)
     },
   }))
 

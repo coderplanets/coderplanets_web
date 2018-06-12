@@ -5,10 +5,10 @@
 
 import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
-import Router from 'next/router'
+// import Router from 'next/router'
 
 import { PAGE_SIZE } from '../../config'
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, Global } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:RouteStore')
 /* eslint-enable no-unused-vars */
@@ -50,7 +50,13 @@ const RouteStore = t
     },
   }))
   .actions(self => ({
-    markQuery(query = {}) {
+    markRoute(route = {}, query = {}) {
+      const { mainPath, subPath } = self
+      const curRoute = { mainPath, subPath }
+      const newRoute = R.merge(curRoute, route)
+
+      self.markState({ ...newRoute })
+
       query = R.mapObjIndexed(v => String(v), query)
       const { page } = query
 
@@ -64,16 +70,21 @@ const RouteStore = t
       }
       if (typeof window !== 'undefined') {
         let url = ''
-        if (self.mainPath === self.subPath) {
-          url = `/${self.mainPath}${queryString}`
+        if (newRoute.mainPath === newRoute.subPath) {
+          url = `/${newRoute.mainPath}${queryString}`
         } else {
-          url = `/${self.mainPath}/${self.subPath}${queryString}`
+          url = `/${newRoute.mainPath}/${newRoute.subPath}${queryString}`
         }
 
-        debug('push url: ', url)
+        /* debug('push url: ', url) */
+        // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
+        return Global.history.pushState({}, null, url)
+
+        /*
         return Router.push(url, url, {
           shallow: true,
         })
+        */
       }
     },
 

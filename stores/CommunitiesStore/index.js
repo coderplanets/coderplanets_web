@@ -66,7 +66,7 @@ const CommunitiesStore = t
     get curCommunity() {
       // const { curRoute } = self.root
       const defaultCommunity = {
-        title: 'js',
+        title: 'javascript',
       }
 
       return {
@@ -74,27 +74,28 @@ const CommunitiesStore = t
         body: {},
         threads: [],
         title: defaultCommunity.title,
+        raw: defaultCommunity.title,
       }
 
       /*
-      let { mainPath } = curRoute
-      mainPath = R.isEmpty(mainPath) ? defaultCommunity.title : mainPath
-      try {
-        return {
-          header: R.pick(['title', 'desc', 'raw'], self.all[mainPath]),
-          body: R.omit(['desc', 'title', 'raw', 'parent'], self.all[mainPath]),
-          threads: R.path(['threads'], self.all[mainPath]),
-          title: R.path(['title'], self.all[mainPath]),
-        }
-      } catch (e) {
-        return {
-          header: {},
-          body: {},
-          threads: [],
-          title: defaultCommunity.title,
-        }
-      }
-      */
+         let { mainPath } = curRoute
+         mainPath = R.isEmpty(mainPath) ? defaultCommunity.title : mainPath
+         try {
+         return {
+         header: R.pick(['title', 'desc', 'raw'], self.all[mainPath]),
+         body: R.omit(['desc', 'title', 'raw', 'parent'], self.all[mainPath]),
+         threads: R.path(['threads'], self.all[mainPath]),
+         title: R.path(['title'], self.all[mainPath]),
+         }
+         } catch (e) {
+         return {
+         header: {},
+         body: {},
+         threads: [],
+         title: defaultCommunity.title,
+         }
+         }
+       */
     },
     get curCommunityName() {
       return 'javascript'
@@ -102,7 +103,7 @@ const CommunitiesStore = t
 
          const { curRoute } = self.root
          const { mainPath } = curRoute
-         const defaultCommunity = 'js'
+         const defaultCommunity = 'javascript'
 
          return R.isEmpty(mainPath) ? defaultCommunity : mainPath
        */

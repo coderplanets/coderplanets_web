@@ -12,9 +12,9 @@ export const Breadcrumbs = styled.div`
 `
 export const Logo = styled(Img)`
   height: 22px;
+  margin-top: 1px;
   width: 22px;
-  margin-top: 4px;
-  opacity: 0.6;
+  opacity: 0.7;
 `
 export const LogoText = styled.div`
   margin-left: 6px;

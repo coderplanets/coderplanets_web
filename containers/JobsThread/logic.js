@@ -48,13 +48,23 @@ export function loadJobs(page = 1) {
       page,
       size: PAGE_SIZE.POSTSPAPER_POSTS,
       ...jobsThread.curFilter,
-      tag: jobsThread.curTag.title,
+      tag: jobsThread.activeTagData.title,
     },
   }
 
+  console.log('loadJobs --> ', args)
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
   sr71$.query(S.pagedJobs, args)
+}
+
+export function loadTags() {
+  const args = {
+    thread: 'JOB',
+    communityId: '123',
+  }
+
+  sr71$.query(S.partialTags, args)
 }
 
 export function onFilterSelect(key, val) {
@@ -91,15 +101,21 @@ const DataSolver = [
   {
     match: asyncRes('pagedJobs'),
     action: ({ pagedJobs }) => {
+      let curView = TYPE.RESULT
       if (pagedJobs.entries.length === 0) {
-        return jobsThread.markState({
-          curView: TYPE.NOT_FOUND,
-          pagedJobs,
-        })
+        curView = TYPE.NOT_FOUND
       }
-      return jobsThread.markState({
-        curView: TYPE.RESULT,
+      jobsThread.markState({
+        curView,
         pagedJobs,
+      })
+    },
+  },
+  {
+    match: asyncRes('partialTags'),
+    action: ({ partialTags }) => {
+      return jobsThread.markState({
+        tags: partialTags,
       })
     },
   },
@@ -144,4 +160,7 @@ export function init(selectedStore) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadJobs()
+  setTimeout(() => {
+    loadTags()
+  }, 500)
 }

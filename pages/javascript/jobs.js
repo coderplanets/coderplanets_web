@@ -2,12 +2,12 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import { request } from 'graphql-request'
 
-import { GRAPHQL_ENDPOINT } from '../config'
+import { GRAPHQL_ENDPOINT } from '../../config'
 
-import initRootStore from '../stores'
-import { GAWraper } from '../components'
+import initRootStore from '../../stores'
+import { GAWraper } from '../../components'
 
-import { /* Global */ queryStringToJSON } from '../utils'
+import { /* Global */ queryStringToJSON } from '../../utils'
 
 import {
   ThemeWrapper,
@@ -20,17 +20,17 @@ import {
   Header,
   Banner,
   Content,
-} from '../containers'
+} from '../../containers'
 
-import PostsThreadSchema from '../containers/PostsThread/schema'
+import JobsThreadSchema from '../../containers/JobsThread/schema'
 
-import Footer from '../components/Footer'
+import Footer from '../../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 // TODO: should be community/posts
-export default class Index extends React.Component {
+export default class Jobs extends React.Component {
   static async getInitialProps(props) {
     const { req, asPath } = props
     const isServer = !!req
@@ -38,35 +38,27 @@ export default class Index extends React.Component {
     /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
-    console.log('SSR getInitialProps ## community ##: ', asPath)
+    console.log('SSR ## community (in javascript)jobs ##: ', asPath)
 
-    const postsQuery = request(
-      GRAPHQL_ENDPOINT,
-      PostsThreadSchema.pagedPostsRaw,
-      {
-        filter: queryStringToJSON(asPath),
-      }
-    )
+    const jobsQuery = request(GRAPHQL_ENDPOINT, JobsThreadSchema.pagedJobsRaw, {
+      filter: queryStringToJSON(asPath),
+    })
     const tagsQuery = request(
       GRAPHQL_ENDPOINT,
-      PostsThreadSchema.partialTagsRaw,
+      JobsThreadSchema.partialTagsRaw,
       {
-        thread: 'POST',
+        thread: 'JOB',
         communityId: '123',
       }
     )
 
-    const data = [await postsQuery, await tagsQuery]
-
-    /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
-    /* const langSetup = {} */
-    /* langSetup[locale] = messages */
+    const data = [await jobsQuery, await tagsQuery]
     /* eslint-enable no-undef */
 
     return {
       langSetup: {},
-      postsThread: {
-        pagedPosts: data[0].pagedPosts,
+      jobsThread: {
+        pagedJobs: data[0].pagedJobs,
         tags: data[1].partialTags,
       },
     }

@@ -10,7 +10,11 @@ const { basename } = require('path')
 const accepts = require('accepts')
 const glob = require('glob')
 
-const app = next({ dev })
+const app = next({
+  dev,
+  quiet: true,
+  conf: { useFileSystemPublicRoutes: false },
+})
 const handle = app.getRequestHandler()
 const route = pathMatch()
 
@@ -52,6 +56,7 @@ const getMessages = locale => {
 // const communityQuery = route('/:main')
 const indexQuery = route('/:index')
 const communityQuery = route('/:community/:thread')
+const heartQuery = route('/_next/:page?')
 const localeQuery = route('/locale/:lang')
 
 app.prepare().then(() => {
@@ -62,24 +67,24 @@ app.prepare().then(() => {
     const accept = accepts(req)
     const locale = accept.language(supportLanguages) // 'zh'
 
+    /* console.log('server pathname: ', pathname) */
+    /* console.log('server query: ', query) */
+
     if (localeQuery(pathname)) {
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
       return res.end(JSON.stringify(getMessages(localeQuery(pathname).lang)))
+    } else if (heartQuery(pathname)) {
+      return handle(req, res)
     } else if (indexQuery(pathname)) {
       return app.render(req, res, '/', query)
     } else if (communityQuery(pathname)) {
-      console.log('goto community page')
+      console.log('goto community page: ', pathname)
       return app.render(req, res, '/community', query)
     }
 
     req.locale = locale
     req.messages = getMessages(locale)
-    /*
-      if (homeMatch) {
-        return app.render(req, res, '/', homeMatch)
-      }
-     */
-    // now index page go this way
+
     return handle(req, res)
   }).listen(3000, err => {
     if (err) throw err

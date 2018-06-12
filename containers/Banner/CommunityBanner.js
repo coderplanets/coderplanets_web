@@ -25,10 +25,6 @@ import {
   Desc,
 } from './styles/community_banner'
 
-const onChange = e => {
-  logic.tabberChange(e)
-}
-
 const NumbersInfo = ({
   content: { subscribersCount, editorsCount, postsCount },
 }) => (
@@ -66,13 +62,17 @@ const CommunityBrief = ({ content }) => {
   )
 }
 
-const CommunityBanner = ({ content }) => (
+const CommunityBanner = ({ curRoute: { subPath }, content }) => (
   <BannerContainer>
     <BannerContentWrapper>
       <CommunityBrief content={content} />
       <NumbersInfo content={content} />
       <TabberWrapper>
-        <Tabber source={content.threads} onChange={onChange} />
+        <Tabber
+          source={content.threads}
+          onChange={logic.tabberChange}
+          defaultActive={subPath}
+        />
       </TabberWrapper>
     </BannerContentWrapper>
   </BannerContainer>

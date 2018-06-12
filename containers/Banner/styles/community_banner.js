@@ -15,11 +15,11 @@ export const CommunityWrapper = styled.div`
 `
 
 export const CommunityLogo = styled(Img)`
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   @media (max-height: 800px) {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 `
 export const CommunityInfo = styled.div`
@@ -31,10 +31,10 @@ export const CommunityInfo = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: ${theme('font')};
   @media (max-height: 800px) {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 `
 // color: ${theme('font')};

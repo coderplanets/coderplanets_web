@@ -1,3 +1,4 @@
+export { default as GAWraper } from './GAWraper'
 // Basic component
 export { default as A } from './A'
 export { default as Img } from './Img'

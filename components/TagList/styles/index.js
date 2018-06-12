@@ -40,7 +40,7 @@ export const TagDot = styled.div`
   background-color: ${props =>
     getDotBgColor(props.active, props.title, props.color)};
   display: inline-block;
-  opacity: 0.7;
+  opacity: 0.8;
 `
 // ${props => (props.active === props.title ? 1 : 0.7)}
 

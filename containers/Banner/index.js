@@ -25,7 +25,7 @@ const onChange = e => {
   logic.tabberChange(e)
 }
 
-const BannerContent = ({ detail: { type, content } }) => {
+const BannerContent = ({ curRoute, detail: { type, content } }) => {
   switch (type) {
     case TYPE.CHEATSHEET_ROOT_PAGE: {
       return <CheatsheetRootBanner />
@@ -40,7 +40,7 @@ const BannerContent = ({ detail: { type, content } }) => {
       return <PostBanner />
     }
     default:
-      return <CommunityBanner content={content} />
+      return <CommunityBanner content={content} curRoute={curRoute} />
   }
 }
 
