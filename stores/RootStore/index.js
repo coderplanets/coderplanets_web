@@ -17,10 +17,14 @@ import {
   BodylayoutStore,
   ApiLayoutStore,
   HeaderStore,
-  BannerStore,
   ContentStore,
   CurCommunity,
-  // papers
+
+  // banners
+  BannerStore,
+  PostBannerStore,
+
+  // threads
   PostsThreadStore,
   JobsThreadStore,
   //
@@ -77,12 +81,15 @@ const rootStore = t
     content: t.optional(ContentStore, {}),
     // layouts end
 
+    // banners
+    postBanner: t.optional(PostBannerStore, {}),
+
     // content
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     // content end
 
-    // papers
+    // threads
     postsThread: t.optional(PostsThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),

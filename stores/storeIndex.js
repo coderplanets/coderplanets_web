@@ -12,11 +12,15 @@ export { default as BannerStore } from './BannerStore'
 export { default as ContentStore } from './ContentStore'
 
 export { default as CurCommunity } from './CurCommunity'
+
+// banners store
+export { default as PostBannerStore } from './PostBannerStore'
+
 // contents store
 export { default as CommunitiesContentStore } from './CommunitiesContentStore'
 export { default as CheatSheetContentStore } from './CheatSheetContentStore'
 
-// papers store
+// threads store
 export { default as PostsThreadStore } from './PostsThreadStore'
 export { default as JobsThreadStore } from './JobsThreadStore'
 
