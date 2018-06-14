@@ -20,7 +20,6 @@ const debug = makeDebugger('C:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
 const Viwer = ({ type, data, loading, onReaction }) => {
-  // debug('Viwer data: ', data)
   switch (type) {
     case 'post': {
       return (
@@ -49,6 +48,7 @@ class ArticleViwerContainer extends React.Component {
       type,
       articleViwer: { curPost, postLoading },
     } = this.props
+
     return (
       <div>
         <Viwer

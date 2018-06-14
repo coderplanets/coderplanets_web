@@ -9,12 +9,14 @@ export const Container = styled.div`
   display: flex;
 `
 
-// TODO: use media
-export const BodyWrapper = styled.div`
+export const MainWrapper = styled.div`
+  width: 70%;
+`
+
+export const ArticleWrapper = styled.div`
   font-size: 1.3em;
   margin-left: 2vw;
   margin-right: 1.5vw;
-  width: 70%;
   background: ${theme('content.bg')};
   color: ${theme('font')};
   border-radius: 5px;
@@ -22,6 +24,14 @@ export const BodyWrapper = styled.div`
   min-height: 60vh;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
+
+export const CommentsWrapper = styled.div`
+  margin-top: 30px;
+  margin: 25px;
+`
+
+// TODO: use media
+export const BodyWrapper = styled.div``
 
 export const SideWrapper = styled.div`
   min-height: 180px;

@@ -124,7 +124,6 @@ const View = ({ posts, curView, active }) => {
 
 class PostsThreadContainer extends React.Component {
   componentWillMount() {
-    console.log('PostsThreadContainer componentWillMount')
     logic.init(this.props.postsThread)
   }
 

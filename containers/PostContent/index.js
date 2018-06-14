@@ -7,6 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import Comments from '../../containers/Comments'
+
 import { ICON_ASSETS } from '../../config'
 
 import { makeDebugger, storePlug } from '../../utils'
@@ -14,7 +16,9 @@ import * as logic from './logic'
 
 import {
   Container,
-  BodyWrapper,
+  MainWrapper,
+  ArticleWrapper,
+  CommentsWrapper,
   SideWrapper,
   SidebarTitle,
   SidebarDesc,
@@ -44,7 +48,12 @@ class PostContentContainer extends React.Component {
   render() {
     return (
       <Container>
-        <BodyWrapper>{fakePost}</BodyWrapper>
+        <MainWrapper>
+          <ArticleWrapper>{fakePost}</ArticleWrapper>
+          <CommentsWrapper>
+            <Comments />
+          </CommentsWrapper>
+        </MainWrapper>
         <SideWrapper>
           <SidebarTitle>所属社区</SidebarTitle>
           <SidebarDesc>

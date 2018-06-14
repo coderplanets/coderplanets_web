@@ -63,3 +63,16 @@ export const getParameterByName = name => {
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 /* eslint-enable */
+
+export const serializeQuery = obj => {
+  /* eslint-disable */
+  const qstring = Object.keys(obj)
+    .reduce((a, k) => {
+      a.push(k + '=' + encodeURIComponent(obj[k]))
+      return a
+    }, [])
+    .join('&')
+
+  return R.isEmpty(qstring) ? '' : `?${qstring}`
+  /* eslint-enable */
+}

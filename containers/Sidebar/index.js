@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import Link from 'next/link'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
@@ -56,7 +55,7 @@ const MenuList = ({ items, pin, curPath }) => {
                       )}
                     >
                       <MenuItemEach>
-                        <Link href={item.target.href} as={item.target.as}>
+                        <div onClick={logic.onCommunitySelect.bind(this, item)}>
                           <MenuRow
                             pin={pin}
                             active={curPath === R.toLower(item.raw)}
@@ -87,7 +86,7 @@ const MenuList = ({ items, pin, curPath }) => {
                               {/* <MiniChartText>247</MiniChartText> */}
                             </MiniChartWrapper>
                           </MenuRow>
-                        </Link>
+                        </div>
                       </MenuItemEach>
                     </div>
                     {provided.placeholder}

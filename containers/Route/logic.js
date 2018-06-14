@@ -41,6 +41,9 @@ export function syncRoute(routeObj) {
   /* console.log('syncRoute --> query: ', query) */
   /* console.log('syncRoute parse --> ', queryStringToJSON(asPath)) */
 
+  /* console.log('syncRoute --> mainPath -> ', mainPath) */
+  /* console.log('syncRoute --> subPath -> ', subPath) */
+
   route.markState({
     mainPath,
     subPath,

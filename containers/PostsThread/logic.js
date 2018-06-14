@@ -55,7 +55,11 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  postsThread.markRoute({}, { page })
+  postsThread.markRoute({
+    community: 'javascript',
+    thread: 'posts',
+    page,
+  })
   sr71$.query(S.pagedPosts, args)
 }
 
@@ -88,14 +92,12 @@ export function onTagSelect(tag) {
 export function onTitleSelect(activePost) {
   postsThread.markState({ activePost })
   /* postsThread.setActive(post) */
-  /* debug('onTitleSelect publish post: ', activePost) */
-  // PubSub.publish('hello', post)
+  debug('onTitleSelect publish post: ', activePost)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
   dispatchEvent(EVENT.NAV_EDIT, {
     type: TYPE.POST_PREVIEW_VIEW,
     data: activePost,
   })
-  debug('activePost: ', activePost)
 
   GA.event({
     action: activePost.title,

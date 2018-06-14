@@ -20,8 +20,6 @@ const debug = makeDebugger('c:CommunityContent:index')
 
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute
-  debug('subPath: ', subPath)
-
   switch (subPath) {
     case 'posts': {
       return <PostsThread />

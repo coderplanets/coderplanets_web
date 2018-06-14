@@ -36,8 +36,11 @@ const defaultArgs = {
 export const loadComents = (args = {}) => {
   // debug('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
-  args.id = comments.activeArticle.id
+  /* args.id = comments.activeArticle.id */
+  args.id = '119' // comments.activeArticle.id
   args.userHasLogin = comments.isLogin
+
+  /* console.log('comments id: ', args) */
 
   markLoading(args.fresh)
   comments.markState({
@@ -245,7 +248,6 @@ const DataSolver = [
   {
     match: asyncRes('comments'),
     action: ({ comments }) => {
-      debug('comments --> ', comments)
       cancelLoading()
       commentsConflict.markState({
         ...comments,

@@ -64,7 +64,7 @@ const DataResolver = [
       const event = res[EVENT.NAV_EDIT]
       holdPage()
 
-      debug('EVENT.NAV_EDIT: ', res)
+      debug('--> EVENT.NAV_EDIT: ', res)
       preview.open(event.type)
       loadDataForPreview(res[EVENT.NAV_EDIT])
     },
@@ -81,7 +81,6 @@ const DataResolver = [
 
 export function init(selectedStore) {
   preview = selectedStore
-  debug('@@@ init @@0')
   if (sub$) sub$.unsubscribe()
 
   // sub$ = sr71$.data().subscribe(handleData)

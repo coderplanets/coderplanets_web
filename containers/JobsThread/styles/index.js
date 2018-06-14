@@ -73,6 +73,7 @@ export const PostMain = styled.div`
   flex-grow: 1;
   flex-direction: column;
 `
+
 export const PostTopHalf = styled.div`
   display: flex;
 `
@@ -154,11 +155,29 @@ export const PostBodyBreif = styled.li`
   font-size: 0.85rem;
 `
 
+export const RightInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  height: 60px;
+  justify-content: space-between;
+  border-radius: 3px;
+  align-self: center;
+`
+
 export const SalaryWrapper = styled.div`
   font-size: 1.1rem;
   color: orange;
+  padding: 3px;
 
   ${PostWrapper}:hover & {
     animation: ${Animate.pulse} 0.3s linear;
   }
+`
+
+export const CompanyTitle = styled.div`
+  font-size: 1rem;
+  text-align: center;
+  background: #84acaf;
+  color: white;
 `

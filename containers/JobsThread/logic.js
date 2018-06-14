@@ -52,7 +52,7 @@ export function loadJobs(page = 1) {
     },
   }
 
-  console.log('loadJobs --> ', args)
+  /* console.log('loadJobs --> ', args) */
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
   sr71$.query(S.pagedJobs, args)

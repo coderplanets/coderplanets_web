@@ -1,6 +1,8 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
+import { EVENT } from '../utils'
+
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
@@ -90,6 +92,10 @@ export const dispatchEvent = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
+}
+
+export const closePreviewer = (type = '') => {
+  dispatchEvent(EVENT.PREVIEW_CLOSE, { type })
 }
 
 /* eslint-disable */

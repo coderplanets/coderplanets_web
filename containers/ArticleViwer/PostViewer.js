@@ -36,6 +36,7 @@ import {
 } from './styles/body'
 
 import { TYPE } from '../../utils'
+import * as logic from './logic'
 
 // <PreviewHeader>Preview header</PreviewHeader>post
 // TODO: extract a Avatar component
@@ -132,7 +133,9 @@ const PostViewer = ({ data, loading, onReaction }) => (
       <ArticleHeader>
         <MoreWrapper>
           <MoreIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
-          <MoreOption>文章页</MoreOption>
+          <MoreOption onClick={logic.gotoPostPage.bind(this, data)}>
+            文章页
+          </MoreOption>
         </MoreWrapper>
         <LinkFrom>
           <div>转载自:&nbsp;</div>

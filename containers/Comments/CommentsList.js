@@ -56,7 +56,7 @@ import {
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
   if (!R.isEmpty(selectText)) {
-    console.log('getSelection', selectText)
+    /* console.log('getSelection', selectText) */
     // TODO: then use window.getSelection().getRangeAt(0).getBoundingClientRect() to draw a button
   }
 }

@@ -15,15 +15,13 @@ export function loadCommunity() {
   sr71$.query(S.community, { title: 'javascript' })
 }
 
-export function tabberChange(target) {
+export function tabberChange(thread) {
   // main should be current community title
-  console.log('banner curCommunity -> ', banner.curCommunity)
-  const mainPath = R.toLower(banner.curCommunity.title)
-  const subPath = target
+  const communityTitle = R.toLower(banner.curCommunity.title)
 
   banner.markRoute({
-    mainPath,
-    subPath,
+    community: communityTitle,
+    thread,
   })
 }
 

@@ -20,6 +20,7 @@ export {
   prettyNum,
   Rlog,
   countWords,
+  closePreviewer,
   debounce,
   extractMentions,
   extractAttachments,
@@ -33,6 +34,7 @@ export {
   getParameterByName,
   queryStringToJSON,
   mergeRouteQuery,
+  serializeQuery,
 } from './route_helper'
 
 export {

@@ -18,10 +18,17 @@ const ContentStore = t
       return getParent(self)
     },
     get current() {
+      const { mainPath } = self.root.route.curRoute
+      let type = TYPE.COMMUNITY_PAGE
+
+      if (mainPath === 'post') {
+        type = TYPE.POST_PAGE
+      }
+
       // type depands on route main_query
       return {
         /* type: TYPE.POST_PAGE, */
-        type: TYPE.COMMUNITY_PAGE,
+        type,
         /* type: TYPE.CHEATSHEET_ROOT_PAGE, */
         /* type: TYPE.COMMUNITIES_ROOT_PAGE, */
         content: self.root.curCommunity.data,

@@ -50,7 +50,9 @@ import {
   PostTitleTagDot,
   TagDivider,
   WritePostBtn,
+  RightInfo,
   SalaryWrapper,
+  CompanyTitle,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
@@ -78,7 +80,6 @@ const PostItem = ({ post, active }) => (
             成都
           </PostTitleTag>
         </PostBreif>
-        <SalaryWrapper>15k - 30k</SalaryWrapper>
       </PostTopHalf>
 
       <PostSecondHalf>
@@ -90,6 +91,11 @@ const PostItem = ({ post, active }) => (
         <PostBodyBreif>{cutFrom(post.digest, 90)}</PostBodyBreif>
       </PostSecondHalf>
     </PostMain>
+
+    <RightInfo>
+      <CompanyTitle>中央公园</CompanyTitle>
+      <SalaryWrapper>15k - 30k</SalaryWrapper>
+    </RightInfo>
   </PostWrapper>
 )
 

@@ -28,6 +28,11 @@ export function pin() {
   sidebar.markState({ pin: !sidebar.pin })
 }
 
+export function onCommunitySelect(community) {
+  /* console.log('community --> ', community) */
+  sidebar.markRoute({ community: community.raw, thread: 'posts' })
+}
+
 export function loadSubscribedCommunities() {
   // const { accountInfo, isLogin } = sidebar
   const user = store.get('user')

@@ -22,6 +22,12 @@ class RouteContainer extends React.Component {
   componentWillMount() {
     init(this.props.route)
     syncRoute(this.props.router)
+    /*
+    Router.onRouteChangeStart = url => {
+      console.log('App is changing to: ', url)
+    }
+    */
+
     Router.onRouteChangeComplete = () => {
       // Router.onRouteChangeStart = url => {
       syncRoute(this.props.router)

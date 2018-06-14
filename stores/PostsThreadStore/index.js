@@ -120,8 +120,8 @@ const PostsThreadStore = t
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
     },
-    markRoute(route, query) {
-      self.root.route.markRoute(route, query)
+    markRoute(query) {
+      self.root.route.markRoute(query)
     },
     markState(sobj) {
       markStates(sobj, self)

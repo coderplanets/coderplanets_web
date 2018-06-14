@@ -6,27 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, TYPE } from '../../utils'
+import { Post } from '../SharedModel'
+import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViwerStore')
 /* eslint-enable no-unused-vars */
-
-const Post = t.model('Post', {
-  id: t.optional(t.string, ''),
-  title: t.optional(t.string, ''),
-  body: t.optional(t.string, ''),
-  digest: t.optional(t.string, ''),
-  views: t.optional(t.number, 0),
-  // author: Author,
-  tags: t.optional(t.string, ''), // TODO: ArrayOf Tag
-  comments: t.optional(t.string, ''), // TODO: ArrayOf comments
-  favoritedCount: t.optional(t.number, 0),
-  starredCount: t.optional(t.number, 0),
-  viewerHasFavorited: t.optional(t.boolean, false),
-  viewerHasStarred: t.optional(t.boolean, false),
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
-})
 
 const ArticleViwerStore = t
   .model('ArticleViwerStore', {
@@ -46,7 +30,7 @@ const ArticleViwerStore = t
       return getParent(self)
     },
     get curPost() {
-      return self.post.toJSON()
+      return stripMobx(self.post)
     },
   }))
   .actions(self => ({
@@ -56,6 +40,9 @@ const ArticleViwerStore = t
         type: upperType,
         [type]: R.merge(self[type], data),
       })
+    },
+    markRoute(query) {
+      self.root.route.markRoute(query)
     },
     markState(sobj) {
       markStates(sobj, self)

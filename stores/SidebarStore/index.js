@@ -79,7 +79,9 @@ const SidebarStore = t
     load() {
       // const communities = self.root.communities.all
     },
-
+    markRoute(query) {
+      self.root.route.markRoute(query)
+    },
     loadSubscribedCommunities(data) {
       self.root.account.loadSubscribedCommunities(data)
     },

@@ -5,10 +5,10 @@
 
 import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
-// import Router from 'next/router'
+import Router from 'next/router'
 
 import { PAGE_SIZE } from '../../config'
-import { markStates, makeDebugger, Global } from '../../utils'
+import { markStates, makeDebugger, serializeQuery } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:RouteStore')
 /* eslint-enable no-unused-vars */
@@ -19,20 +19,6 @@ const Query = t.model('Query', {
   // sort .... [when, ...]
   // view ... [chart, list ...]
 })
-
-const serializeQuery = obj => {
-  /* eslint-disable */
-  return (
-    '?' +
-    Object.keys(obj)
-      .reduce((a, k) => {
-        a.push(k + '=' + encodeURIComponent(obj[k]))
-        return a
-      }, [])
-      .join('&')
-  )
-  /* eslint-enable */
-}
 
 const RouteStore = t
   .model('RouteStore', {
@@ -50,42 +36,45 @@ const RouteStore = t
     },
   }))
   .actions(self => ({
-    markRoute(route = {}, query = {}) {
-      const { mainPath, subPath } = self
-      const curRoute = { mainPath, subPath }
-      const newRoute = R.merge(curRoute, route)
+    // default is nav to index page(community)
+    // use _page if nav to spectial page
+    // example:
+    // markRoute({ _page: 'post', id: 123, comments_page: 1 })
+    // markRoute({ _page: 'user', id: 123, comments_page: 1 })
+    markRoute(query) {
+      const { _page, id, community, thread, page } = query
 
-      self.markState({ ...newRoute })
-
-      query = R.mapObjIndexed(v => String(v), query)
-      const { page } = query
-
-      // page = 1 is default
-      if (page && page === '1') {
-        query = R.omit(['page', 'size'], query)
+      if (page && String(page) === '1') {
+        query = R.omit(['page'], query)
       }
-      let queryString = ''
-      if (!R.isEmpty(query)) {
-        queryString = serializeQuery(query)
-      }
-      if (typeof window !== 'undefined') {
-        let url = ''
-        if (newRoute.mainPath === newRoute.subPath) {
-          url = `/${newRoute.mainPath}${queryString}`
-        } else {
-          url = `/${newRoute.mainPath}/${newRoute.subPath}${queryString}`
-        }
 
-        /* debug('push url: ', url) */
-        // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
-        return Global.history.pushState({}, null, url)
+      const allQueryString = serializeQuery(query)
 
-        /*
-        return Router.push(url, url, {
-          shallow: true,
-        })
-        */
+      const otherQuery = R.omit(['community', 'thread'], query)
+      const queryString = serializeQuery(otherQuery)
+
+      let url = `/${allQueryString}`
+      let asPath = `/${community}/${thread}${queryString}`
+
+      if (_page) {
+        const restQueryString = serializeQuery(R.omit(['_page', 'id'], query))
+        url = `/${_page}/${id}${restQueryString}`
+        asPath = `/${_page}/${id}${restQueryString}`
       }
+
+      /* console.log('url: ', allQueryString) */
+      /* console.log('asPath --> ', asPath) */
+
+      /* self.mainPath = community */
+      /* self.subPath = thread */
+
+      // NOTE: shallow option only works for same page url
+      // if page is diffrent, it will cause page reload
+      Router.push(url, asPath, {
+        shallow: true,
+      })
+      // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
+      /* return Global.history.pushState({}, null, url) */
     },
 
     markState(sobj) {
