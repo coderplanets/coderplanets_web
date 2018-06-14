@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+// import { theme } from '../../../utils'
 
 // visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
 
@@ -8,24 +8,20 @@ export const Hidder = styled.div`
   display: ${props => (props.active === props.name ? 'block' : 'none')};
 `
 
-export const Wrapper = styled.div`
-  margin: 30px;
-  margin-bottom: 0px;
-  width: 95.5%;
-  height: 70%;
-  min-height: 70vh;
-  background: ${theme('content.bg')};
-  color: ${theme('font')};
-  border-radius: 6px;
-  padding: 1em 6em;
-  padding-top: 1.5em;
-  @media (max-width: 1400px) {
-    padding: 1em 2em;
-  }
-  @media (max-width: 1200px) {
-    padding: 1em 1em;
-  }
-`
+// background: ${theme('content.bg')};
+/* width: 100%; */
+/* height: 70%; */
+/* min-height: 70vh; */
+/* color: ${theme('font')}; */
+/* border-radius: 6px; */
+/* padding: 1em 6em; */
+/* @media (max-width: 1400px) { */
+/* padding: 1em 2em; */
+/* } */
+/* @media (max-width: 1200px) { */
+/* padding: 1em 1em; */
+/* } */
+export const Wrapper = styled.div``
 
 export const CategoryWrapper = styled.div`
   display: flex;

@@ -19,8 +19,11 @@ export { default as ArticleViwer } from './ArticleViwer'
 export { default as AccountEditor } from './AccountEditor'
 export { default as AccountViewer } from './AccountViewer'
 
-// banners
+/* banners */
 export { default as PostBanner } from './PostBanner'
+
+/* contents */
+export { default as PostContent } from './PostContent'
 
 /* threads */
 export { default as PostsThread } from './PostsThread'

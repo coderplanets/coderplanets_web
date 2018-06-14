@@ -27,7 +27,8 @@ import {
   // threads
   PostsThreadStore,
   JobsThreadStore,
-  //
+  // content
+  PostContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   // viewers
@@ -87,6 +88,7 @@ const rootStore = t
     // content
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
+    postContent: t.optional(PostContentStore, {}),
     // content end
 
     // threads

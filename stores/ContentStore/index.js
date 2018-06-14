@@ -20,7 +20,7 @@ const ContentStore = t
     get current() {
       // type depands on route main_query
       return {
-        // type: TYPE.POST_PAGE,
+        /* type: TYPE.POST_PAGE, */
         type: TYPE.COMMUNITY_PAGE,
         /* type: TYPE.CHEATSHEET_ROOT_PAGE, */
         /* type: TYPE.COMMUNITIES_ROOT_PAGE, */

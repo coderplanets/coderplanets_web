@@ -56,17 +56,16 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   postsThread.markRoute({}, { page })
-  console.log('--> pagedPosts')
   sr71$.query(S.pagedPosts, args)
 }
 
 export function loadIfNeed() {
-  console.log('loadIfNeed loadPosts ...')
   /* if (!postsThread.pagedPosts) { */
   loadPosts()
   /* } */
 }
 
+// TODO: use communityRaw
 export function loadTags() {
   const args = {
     thread: 'POST',

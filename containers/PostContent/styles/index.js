@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const Container = styled.div`
@@ -8,19 +9,27 @@ export const Container = styled.div`
   display: flex;
 `
 
+// TODO: use media
 export const BodyWrapper = styled.div`
   font-size: 1.3em;
-  width: 73%;
+  margin-left: 2vw;
+  margin-right: 1.5vw;
+  width: 70%;
+  background: ${theme('content.bg')};
+  color: ${theme('font')};
+  border-radius: 5px;
+  padding: 35px 40px;
+  min-height: 60vh;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 
 export const SideWrapper = styled.div`
   min-height: 180px;
+  margin-top: 20px;
   height: 100%;
-  margin-left: 7%;
   padding-left: 20px;
   max-width: 200px;
   flex-wrap: wrap;
-  border-left: 1px solid #d9e6e5;
 `
 
 export const CommunityTitle = styled.div`
@@ -39,7 +48,8 @@ export const SidebarDesc = styled.div`
   margin-bottom: 10px;
   padding-bottom: 15px;
   flex-direction: ${props => (props.column ? 'column' : 'row')};
-  border-bottom: ${props => (props.noBottom ? '' : '1px solid #D9E6E5')};
+  border-bottom: ${props => (props.noBottom ? '' : '1px solid')};
+  border-color: #d4ddde;
   max-width: 100%;
   flex-wrap: wrap;
 `

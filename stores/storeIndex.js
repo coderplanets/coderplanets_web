@@ -19,6 +19,7 @@ export { default as PostBannerStore } from './PostBannerStore'
 // contents store
 export { default as CommunitiesContentStore } from './CommunitiesContentStore'
 export { default as CheatSheetContentStore } from './CheatSheetContentStore'
+export { default as PostContentStore } from './PostContentStore'
 
 // threads store
 export { default as PostsThreadStore } from './PostsThreadStore'

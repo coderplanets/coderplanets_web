@@ -12,7 +12,7 @@ import { makeDebugger, storePlug, TYPE } from '../../utils'
 import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
 import CommunityContent from '../../components/CommunityContent'
-import PostContent from './PostContent'
+import { PostContent } from '../../containers'
 
 import * as logic from './logic'
 

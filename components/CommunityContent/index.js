@@ -12,6 +12,7 @@ import MapViewer from '../../containers/MapViewer'
 // import JobsViewer from '../JobsViewer'
 import { PostsThread, JobsThread, CheatSheetPaper } from '../../containers'
 
+import { Wrapper } from './styles'
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:CommunityContent:index')
@@ -57,9 +58,9 @@ const ComunityContent = ({ curRoute }) => {
 
 const CommunityContent = ({ curRoute }) => {
   return (
-    <div>
+    <Wrapper>
       <ComunityContent curRoute={curRoute} />
-    </div>
+    </Wrapper>
   )
 }
 
