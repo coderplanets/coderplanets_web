@@ -121,7 +121,7 @@ class BuyMeChuanChuan extends React.Component {
                 请{' '}
                 <MyName>
                   开发者
-                  <a href={GITHUB_ME} target="_blank">
+                  <a href={GITHUB_ME} target="_blank" rel="noopener noreferrer">
                     <NameLinkIcon src={`${ICON_ASSETS}/cmd/link2.svg`} />
                   </a>
                 </MyName>{' '}
