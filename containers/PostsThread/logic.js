@@ -27,7 +27,12 @@ const debug = makeDebugger('L:PostsThread')
 let postsThread = null
 let sub$ = null
 
-const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
+const validFilter = R.pickBy(
+  R.compose(
+    R.not,
+    R.isEmpty
+  )
+)
 
 export function inAnchor() {
   postsThread.setHeaderFix(false)

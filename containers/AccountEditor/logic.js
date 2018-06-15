@@ -52,8 +52,14 @@ const updatableAttrs = [
 ]
 
 const nilOrEmpty = R.either(R.isNil, R.isEmpty)
-const hasValue = R.compose(R.not, nilOrEmpty)
-const pickUpdatable = R.compose(R.pickBy(hasValue), R.pick(updatableAttrs))
+const hasValue = R.compose(
+  R.not,
+  nilOrEmpty
+)
+const pickUpdatable = R.compose(
+  R.pickBy(hasValue),
+  R.pick(updatableAttrs)
+)
 
 export const updateConfirm = () => {
   if (!accountEditor.statusClean) return false
