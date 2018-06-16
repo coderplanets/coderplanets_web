@@ -1,13 +1,15 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { request } from 'graphql-request'
-
-import { GRAPHQL_ENDPOINT } from '../../config'
 
 import initRootStore from '../../stores'
 import { GAWraper } from '../../components'
 
-import { /* Global */ queryStringToJSON } from '../../utils'
+import {
+  gqRequest,
+  queryStringToJSON,
+  parseMainPath,
+  extractThreadFromPath,
+} from '../../utils'
 
 import {
   ThemeWrapper,
@@ -29,7 +31,23 @@ import Footer from '../../components/Footer'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-// TODO: should be community/posts
+async function fetchData(props) {
+  const community = parseMainPath(props)
+  const thread = extractThreadFromPath(props)
+  const filter = { ...queryStringToJSON(props.asPath), community }
+
+  const pagedJobs = gqRequest(JobsThreadSchema.pagedJobsRaw, { filter })
+  const partialTags = gqRequest(JobsThreadSchema.partialTagsRaw, {
+    thread,
+    community,
+  })
+
+  return {
+    ...(await pagedJobs),
+    ...(await partialTags),
+  }
+}
+
 export default class Jobs extends React.Component {
   static async getInitialProps(props) {
     const { req, asPath } = props
@@ -40,26 +58,14 @@ export default class Jobs extends React.Component {
     /* eslint-disable no-undef */
     console.log('SSR ## community (in javascript)jobs ##: ', asPath)
 
-    const jobsQuery = request(GRAPHQL_ENDPOINT, JobsThreadSchema.pagedJobsRaw, {
-      filter: queryStringToJSON(asPath),
-    })
-    const tagsQuery = request(
-      GRAPHQL_ENDPOINT,
-      JobsThreadSchema.partialTagsRaw,
-      {
-        thread: 'JOB',
-        communityId: '123',
-      }
-    )
-
-    const data = [await jobsQuery, await tagsQuery]
+    const { pagedJobs, partialTags } = await fetchData(props)
     /* eslint-enable no-undef */
 
     return {
       langSetup: {},
       jobsThread: {
-        pagedJobs: data[0].pagedJobs,
-        tags: data[1].partialTags,
+        pagedJobs,
+        tags: partialTags,
       },
     }
   }

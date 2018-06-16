@@ -24,8 +24,8 @@ const pagedPostsRaw = `
   }
 `
 const partialTagsRaw = `
-  query($communityId: ID!, $thread: CmsThread!) {
-    partialTags(communityId: $communityId, thread: $thread) {
+  query($communityId: ID, $community: String, $thread: CmsThread!) {
+    partialTags(communityId: $communityId, community: $community, thread: $thread) {
       id
       title
       color

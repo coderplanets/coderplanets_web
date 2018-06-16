@@ -77,6 +77,9 @@ const PostsThreadStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.route.curRoute
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
@@ -86,7 +89,6 @@ const PostsThreadStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
-
     get curCommunity() {
       return self.root.communities.curCommunity
     },

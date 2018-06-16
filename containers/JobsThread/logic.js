@@ -27,12 +27,7 @@ const debug = makeDebugger('L:JobsThread')
 let jobsThread = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   jobsThread.setHeaderFix(false)
@@ -43,6 +38,7 @@ export function outAnchor() {
 }
 
 export function loadJobs(page = 1) {
+  debug('loadJobs ...')
   jobsThread.markState({
     curView: TYPE.LOADING,
   })
@@ -64,9 +60,11 @@ export function loadJobs(page = 1) {
 }
 
 export function loadTags() {
+  const community = jobsThread.curRoute.mainPath
+
   const args = {
     thread: 'JOB',
-    communityId: '123',
+    community,
   }
 
   sr71$.query(S.partialTags, args)

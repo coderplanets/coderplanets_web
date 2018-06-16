@@ -1,13 +1,11 @@
 /*
- * constants used cross the site
+ * utils functiosn
  */
 
 export { EVENT, ERR, TYPE } from './constants'
 
 export { makeDebugger } from './debug'
-/*
- * utils functiosn
- */
+
 export {
   dispatchEvent,
   mapKeys,
@@ -26,7 +24,7 @@ export {
   extractAttachments,
 } from './functions'
 
-export { asyncErr, asyncRes } from './graphql_helper'
+export { gqRequest, asyncErr, asyncRes } from './graphql_helper'
 
 export {
   parseMainPath,
@@ -35,6 +33,7 @@ export {
   queryStringToJSON,
   mergeRouteQuery,
   serializeQuery,
+  extractThreadFromPath,
 } from './route_helper'
 
 export {

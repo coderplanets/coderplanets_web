@@ -77,6 +77,9 @@ const JobsThreadStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.route.curRoute
+    },
     get pagedJobsData() {
       return stripMobx(self.pagedJobs)
     },

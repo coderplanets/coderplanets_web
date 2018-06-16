@@ -27,12 +27,7 @@ const debug = makeDebugger('L:PostsThread')
 let postsThread = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   postsThread.setHeaderFix(false)
@@ -43,9 +38,9 @@ export function outAnchor() {
 }
 
 export function loadPosts(page = 1) {
-  postsThread.markState({
-    curView: TYPE.LOADING,
-  })
+  const { mainPath, subPath } = postsThread.curRoute
+
+  postsThread.markState({ curView: TYPE.LOADING })
 
   const args = {
     /* first: 4, */
@@ -54,6 +49,7 @@ export function loadPosts(page = 1) {
       size: PAGE_SIZE.COMMON,
       ...postsThread.curFilter,
       tag: postsThread.activeTagData.title,
+      community: mainPath,
     },
   }
 
@@ -61,8 +57,8 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   postsThread.markRoute({
-    community: 'javascript',
-    thread: 'posts',
+    community: mainPath,
+    thread: subPath,
     page,
   })
   sr71$.query(S.pagedPosts, args)
@@ -74,11 +70,14 @@ export function loadIfNeed() {
   /* } */
 }
 
-// TODO: use communityRaw
 export function loadTags() {
+  console.log('loadTags postsThread: ', postsThread.curRoute)
+  const community = postsThread.curRoute.mainPath
+  /* const community = postsThread */
+
   const args = {
     thread: 'POST',
-    communityId: '123',
+    community,
   }
 
   sr71$.query(S.partialTags, args)

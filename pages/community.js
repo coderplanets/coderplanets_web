@@ -1,13 +1,15 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import { request } from 'graphql-request'
-
-import { GRAPHQL_ENDPOINT } from '../config'
 
 import initRootStore from '../stores'
 import { GAWraper } from '../components'
 
-import { /* Global */ queryStringToJSON } from '../utils'
+import {
+  gqRequest,
+  queryStringToJSON,
+  parseMainPath,
+  extractThreadFromPath,
+} from '../utils'
 
 import {
   ThemeWrapper,
@@ -29,34 +31,33 @@ import Footer from '../components/Footer'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-// TODO: should be community/posts
+async function fetchData(props) {
+  const community = parseMainPath(props)
+  const thread = extractThreadFromPath(props)
+  const filter = { ...queryStringToJSON(props.asPath), community }
+
+  const pagedPosts = gqRequest(PostsThreadSchema.pagedPostsRaw, { filter })
+  const partialTags = gqRequest(PostsThreadSchema.partialTagsRaw, {
+    thread,
+    community,
+  })
+
+  return {
+    ...(await pagedPosts),
+    ...(await partialTags),
+  }
+}
+
 export default class Index extends React.Component {
   static async getInitialProps(props) {
     const { req, asPath } = props
     const isServer = !!req
     if (!isServer) return {}
-    /* const isServer = !!req */
-    /* eslint-disable no-underscore-dangle */
-    /* eslint-disable no-undef */
-    console.log('SSR getInitialProps ## community ##: ', asPath)
 
-    const postsQuery = request(
-      GRAPHQL_ENDPOINT,
-      PostsThreadSchema.pagedPostsRaw,
-      {
-        filter: queryStringToJSON(asPath),
-      }
-    )
-    const tagsQuery = request(
-      GRAPHQL_ENDPOINT,
-      PostsThreadSchema.partialTagsRaw,
-      {
-        thread: 'POST',
-        communityId: '123',
-      }
-    )
+    console.log('SSR (index) queryStringToJSON: ', queryStringToJSON(asPath))
+    console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props))
 
-    const data = [await postsQuery, await tagsQuery]
+    const { pagedPosts, partialTags } = await fetchData(props)
 
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
@@ -66,8 +67,8 @@ export default class Index extends React.Component {
     return {
       langSetup: {},
       postsThread: {
-        pagedPosts: data[0].pagedPosts,
-        tags: data[1].partialTags,
+        pagedPosts,
+        tags: partialTags,
       },
     }
   }
