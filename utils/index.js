@@ -24,7 +24,7 @@ export {
   extractAttachments,
 } from './functions'
 
-export { gqRequest, asyncErr, asyncRes } from './graphql_helper'
+export { gqRequest, asyncErr, asyncRes, later } from './graphql_helper'
 
 export {
   parseMainPath,

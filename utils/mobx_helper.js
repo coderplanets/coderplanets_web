@@ -20,12 +20,12 @@ const matchResolver = (resolveArray, data) => {
   console.log('unMatched resovle data: ', data)
 }
 
-export const $solver = R.curry((dataResolver, errResolver, data) => {
-  if (data.error) {
-    return matchResolver(errResolver, data)
-  }
-  return matchResolver(dataResolver, data)
-})
+export const $solver = R.curry(
+  (dataResolver, errResolver, data) =>
+    data.error
+      ? matchResolver(errResolver, data)
+      : matchResolver(dataResolver, data)
+)
 
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {

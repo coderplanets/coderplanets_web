@@ -43,6 +43,10 @@ const RouteStore = t
     // markRoute({ _page: 'user', id: 123, comments_page: 1 })
     markRoute(query) {
       const { _page, id, community, thread, page } = query
+      if (community && thread) {
+        self.mainPath = community
+        self.subPath = thread
+      }
 
       if (page && String(page) === '1') {
         query = R.omit(['page'], query)
@@ -61,12 +65,6 @@ const RouteStore = t
         url = `/${_page}/${id}${restQueryString}`
         asPath = `/${_page}/${id}${restQueryString}`
       }
-
-      /* console.log('url: ', allQueryString) */
-      /* console.log('asPath --> ', asPath) */
-
-      /* self.mainPath = community */
-      /* self.subPath = thread */
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload

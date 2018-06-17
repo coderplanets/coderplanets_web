@@ -2,6 +2,7 @@ import R from 'ramda'
 import {
   asyncRes,
   asyncErr,
+  later,
   makeDebugger,
   dispatchEvent,
   EVENT,
@@ -18,7 +19,11 @@ import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_POSTS, EVENT.PREVIEW_CLOSED],
+  resv_event: [
+    EVENT.REFRESH_POSTS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.COMMUNITY_CHANGE,
+  ],
 })
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:PostsThread')
@@ -27,12 +32,7 @@ const debug = makeDebugger('L:PostsThread')
 let postsThread = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   postsThread.setHeaderFix(false)
@@ -69,14 +69,7 @@ export function loadPosts(page = 1) {
   sr71$.query(S.pagedPosts, args)
 }
 
-export function loadIfNeed() {
-  /* if (!postsThread.pagedPosts) { */
-  loadPosts()
-  /* } */
-}
-
 export function loadTags() {
-  console.log('loadTags postsThread: ', postsThread.curRoute)
   const community = postsThread.curRoute.mainPath
   /* const community = postsThread */
 
@@ -128,7 +121,7 @@ const DataSolver = [
       if (pagedPosts.entries.length === 0) {
         curView = TYPE.NOT_FOUND
       }
-      return postsThread.markState({
+      postsThread.markState({
         curView,
         pagedPosts,
       })
@@ -137,9 +130,16 @@ const DataSolver = [
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags }) => {
-      return postsThread.markState({
+      postsThread.markState({
         tags: partialTags,
       })
+    },
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => {
+      loadPosts()
+      later(loadTags, 200)
     },
   },
   {
@@ -184,7 +184,4 @@ export function init(selectedStore) {
 
   /* if current route community !== curCommunity */
   /* loadIfNeed() */
-  setTimeout(() => {
-    loadTags()
-  }, 500)
 }
