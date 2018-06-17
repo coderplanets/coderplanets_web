@@ -34,7 +34,7 @@ export const WritePostBtn = styled(Button)`
 export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
-  display: flex;
+  display: ${props => (props.show ? 'flex' : 'none')};
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;

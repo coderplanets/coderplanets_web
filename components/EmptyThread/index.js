@@ -1,12 +1,11 @@
 /*
  *
- * NotFound
+ * EmptyThread
  *
  */
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
 import { ICON_ASSETS, ISSUE_ADDR } from '../../config'
 import { makeDebugger } from '../../utils'
@@ -19,59 +18,56 @@ import {
   Title,
   DescWrapper,
   IssueLink,
-  Desc,
 } from './styles'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('c:NotFound:index')
+const debug = makeDebugger('c:EmptyThread:index')
 /* eslint-enable no-unused-vars */
 
-const DefaultDesc = () => (
+const translator = {
+  posts: '帖子',
+  jobs: '工作',
+}
+
+const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
-      如果没有你关注的语言或框架，你可以<IssueLink
-        href={ISSUE_ADDR}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        提交请求
-      </IssueLink>，管理员会在第一时间添加。
+      如果你有 {community} 相关的{translator[thread]}，欢迎一起分享、交流
     </div>
     <div>
-      如果你发现是网站的问题，恳请你<IssueLink
+      如果是网站的问题，恳请你<IssueLink
         href={ISSUE_ADDR}
         rel="noopener noreferrer"
         target="_blank"
       >
         提交issue
-      </IssueLink>，以便于开发者在第一时间修复。
+      </IssueLink>，以便于开发者排查修复。
     </div>
   </React.Fragment>
 )
 
-const NotFound = ({ msg, desc }) => (
+const EmptyThread = ({ community, thread }) => (
   <Wrapper>
     <Icon>
       <Icon404 src={`${ICON_ASSETS}/404/nofound1.svg`} />
     </Icon>
     <Text>
-      <Title>{msg}</Title>
+      <Title>
+        目前还没有 {community} 相关的{translator[thread]}
+      </Title>
       <DescWrapper>
-        {R.isEmpty(desc) ? <DefaultDesc /> : <Desc>{desc}</Desc>}
+        <DescContent community={community} thread={thread} />
       </DescWrapper>
     </Text>
   </Wrapper>
 )
 
-NotFound.propTypes = {
+EmptyThread.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  msg: PropTypes.string,
-  desc: PropTypes.string,
+  community: PropTypes.string.isRequired,
+  thread: PropTypes.string.isRequired,
 }
 
-NotFound.defaultProps = {
-  msg: '哦豁! 你所期待的内容没有找到 ...',
-  desc: '',
-}
+EmptyThread.defaultProps = {}
 
 // 如果你发现是网站的问题，恳请你在这里提交
-export default NotFound
+export default EmptyThread

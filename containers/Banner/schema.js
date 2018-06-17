@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-const community = gql`
-  query community($id: ID, $title: String) {
-    community(id: $id, title: $title) {
+const communityRaw = `
+  query community($id: ID, $raw: String) {
+    community(id: $id, raw: $raw) {
       id
       title
       desc
@@ -19,8 +19,13 @@ const community = gql`
   }
 `
 
+const community = gql`
+  ${communityRaw}
+`
+
 const schema = {
   community,
+  communityRaw,
 }
 
 export default schema

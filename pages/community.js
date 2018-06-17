@@ -9,6 +9,7 @@ import {
   queryStringToJSON,
   parseMainPath,
   extractThreadFromPath,
+  TYPE,
 } from '../utils'
 
 import {
@@ -24,6 +25,7 @@ import {
   Content,
 } from '../containers'
 
+import BannerSchema from '../containers/Banner/schema'
 import PostsThreadSchema from '../containers/PostsThread/schema'
 
 import Footer from '../components/Footer'
@@ -42,9 +44,12 @@ async function fetchData(props) {
     community,
   })
 
+  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
+
   return {
     ...(await pagedPosts),
     ...(await partialTags),
+    ...(await curCommunity),
   }
 }
 
@@ -57,17 +62,21 @@ export default class Index extends React.Component {
     console.log('SSR (index) queryStringToJSON: ', queryStringToJSON(asPath))
     console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props))
 
-    const { pagedPosts, partialTags } = await fetchData(props)
-
+    const { pagedPosts, partialTags, community } = await fetchData(props)
+    const curView =
+      pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
     /* eslint-enable no-undef */
+    /* console.log('curView --> ', curView) */
 
     return {
       langSetup: {},
+      curCommunity: { community },
       postsThread: {
         pagedPosts,
+        curView,
         tags: partialTags,
       },
     }

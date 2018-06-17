@@ -6,6 +6,7 @@ import { EVENT } from '../utils'
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
+export const onClient = typeof window !== 'undefined' ? true : false
 
 export const isObject = value => {
   const type = typeof value

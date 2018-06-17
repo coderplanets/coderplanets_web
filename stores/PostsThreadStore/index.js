@@ -66,6 +66,7 @@ const PostsThreadStore = t
         TYPE.RESULT,
         TYPE.LOADING,
         TYPE.NOT_FOUND,
+        TYPE.RESULT_EMPTY,
       ]),
       TYPE.RESULT
     ),
@@ -80,6 +81,9 @@ const PostsThreadStore = t
     get curRoute() {
       return self.root.route.curRoute
     },
+    get curCommunity() {
+      return self.root.curCommunity.community
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
@@ -88,9 +92,6 @@ const PostsThreadStore = t
     },
     get accountInfo() {
       return self.root.account.accountInfo
-    },
-    get curCommunity() {
-      return self.root.communities.curCommunity
     },
     get curFilter() {
       return R.pathOr('', ['js'], self.filters.toJSON())

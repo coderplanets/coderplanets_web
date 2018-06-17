@@ -24,6 +24,7 @@ import {
   Content,
 } from '../../containers'
 
+import BannerSchema from '../../containers/Banner/schema'
 import JobsThreadSchema from '../../containers/JobsThread/schema'
 
 import Footer from '../../components/Footer'
@@ -41,10 +42,12 @@ async function fetchData(props) {
     thread,
     community,
   })
+  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
 
   return {
     ...(await pagedJobs),
     ...(await partialTags),
+    ...(await curCommunity),
   }
 }
 
@@ -58,11 +61,12 @@ export default class Jobs extends React.Component {
     /* eslint-disable no-undef */
     console.log('SSR ## community (in javascript)jobs ##: ', asPath)
 
-    const { pagedJobs, partialTags } = await fetchData(props)
+    const { pagedJobs, partialTags, community } = await fetchData(props)
     /* eslint-enable no-undef */
 
     return {
       langSetup: {},
+      curCommunity: { community },
       jobsThread: {
         pagedJobs,
         tags: partialTags,

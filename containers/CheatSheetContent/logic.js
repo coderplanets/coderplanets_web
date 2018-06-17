@@ -10,6 +10,7 @@ const debug = makeDebugger('L:CheatSheetContent')
 /* eslint-enable no-unused-vars */
 
 let cheatSheetContent = null
+let sub$ = null
 
 export function someMethod() {}
 
@@ -19,5 +20,7 @@ const ErrSolver = []
 export function init(selectedStore) {
   cheatSheetContent = selectedStore
   debug(cheatSheetContent)
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

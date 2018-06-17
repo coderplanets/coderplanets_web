@@ -20,6 +20,7 @@ const sr71$ = new SR71({
 })
 
 let accountViewer = null
+let sub$ = null
 
 export function loadUser() {}
 
@@ -81,5 +82,7 @@ const ErrSolver = [
 
 export function init(selectedStore) {
   accountViewer = selectedStore
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

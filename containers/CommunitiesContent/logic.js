@@ -20,6 +20,7 @@ const debug = makeDebugger('L:CommunitiesContent')
 /* eslint-enable no-unused-vars */
 
 let communitiesContent = null
+let sub$ = null
 
 export function loadCommunities() {
   const args = {
@@ -128,7 +129,9 @@ const ErrSolver = [
 export function init(selectedStore) {
   communitiesContent = selectedStore
   debug(communitiesContent)
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadCommunities()
 }

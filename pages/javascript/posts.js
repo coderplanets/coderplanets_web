@@ -9,6 +9,7 @@ import {
   parseMainPath,
   queryStringToJSON,
   extractThreadFromPath,
+  TYPE,
 } from '../../utils'
 
 import {
@@ -24,6 +25,7 @@ import {
   Content,
 } from '../../containers'
 
+import BannerSchema from '../../containers/Banner/schema'
 import PostsThreadSchema from '../../containers/PostsThread/schema'
 
 import Footer from '../../components/Footer'
@@ -42,10 +44,12 @@ async function fetchData(props) {
     thread,
     community,
   })
+  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
 
   return {
     ...(await pagedPosts),
     ...(await partialTags),
+    ...(await curCommunity),
   }
 }
 
@@ -58,8 +62,10 @@ export default class Posts extends React.Component {
     console.log('SSR ## community (in javascript) post ##: ', asPath)
     console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
 
-    const { pagedPosts, partialTags } = await fetchData(props)
+    const { pagedPosts, partialTags, community } = await fetchData(props)
 
+    const curView =
+      pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
@@ -67,8 +73,10 @@ export default class Posts extends React.Component {
 
     return {
       langSetup: {},
+      curCommunity: { community },
       postsThread: {
         pagedPosts,
+        curView,
         tags: partialTags,
       },
     }

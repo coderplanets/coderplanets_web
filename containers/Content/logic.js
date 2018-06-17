@@ -13,5 +13,5 @@ export const holder = false
 export function init(selectedStore) {
   debug(content)
   content = selectedStore
-  // debug('content', content)
+  /* debug('content', content) */
 }

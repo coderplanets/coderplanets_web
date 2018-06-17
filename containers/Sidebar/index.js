@@ -113,7 +113,6 @@ const reorder = (list, startIndex, endIndex) => {
 
 class SidebarContainer extends React.Component {
   componentDidMount() {
-    debug('init')
     logic.init(this.props.sidebar)
   }
 

@@ -8,7 +8,7 @@ import R from 'ramda'
 import Router from 'next/router'
 
 import { PAGE_SIZE } from '../../config'
-import { markStates, makeDebugger, serializeQuery } from '../../utils'
+import { onClient, markStates, makeDebugger, serializeQuery } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:RouteStore')
 /* eslint-enable no-unused-vars */
@@ -68,9 +68,11 @@ const RouteStore = t
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
-      Router.push(url, asPath, {
-        shallow: true,
-      })
+      if (onClient) {
+        Router.push(url, asPath, {
+          shallow: true,
+        })
+      }
       // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
       /* return Global.history.pushState({}, null, url) */
     },

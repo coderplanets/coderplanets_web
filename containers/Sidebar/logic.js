@@ -20,6 +20,7 @@ const sr71$ = new SR71({
 })
 
 let sidebar = null
+let sub$ = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Sidebar')
@@ -45,7 +46,7 @@ export function loadSubscribedCommunities() {
   }
   if (user) {
     args.userId = user.id
-    args.filter.size = 10
+    args.filter.size = 20
   }
   sr71$.query(S.subscribedCommunities, args)
 }
@@ -89,6 +90,8 @@ const ErrSolver = [
 
 export function init(selectedStore) {
   sidebar = selectedStore
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadSubscribedCommunities()
 }

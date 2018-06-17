@@ -10,6 +10,7 @@ import {
   $solver,
   scrollIntoEle,
   GA,
+  later,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -167,8 +168,9 @@ export function init(selectedStore) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadJobs()
-  setTimeout(() => {
-    loadTags()
-  }, 500)
+  later(loadJobs, 500)
+  /* loadJobs() */
+  /* setTimeout(() => { */
+  /* loadTags() */
+  /* }, 500) */
 }

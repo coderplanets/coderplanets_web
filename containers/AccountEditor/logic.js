@@ -21,6 +21,7 @@ const debug = makeDebugger('L:AccountEditor')
 /* eslint-enable no-unused-vars */
 
 let accountEditor = null
+let sub$ = null
 
 export function goBack() {
   dispatchEvent(EVENT.PREVIEW, {
@@ -145,5 +146,7 @@ const ErrSolver = [
 export function init(selectedStore) {
   accountEditor = selectedStore
   accountEditor.copyAccountInfo()
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

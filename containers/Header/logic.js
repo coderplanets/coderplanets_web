@@ -25,6 +25,7 @@ const debug = makeDebugger('L:Header')
 /* eslint-enable no-unused-vars */
 
 let header = null
+let sub$ = null
 /* const sub$ = null */
 /* const user_token = */
 
@@ -52,7 +53,6 @@ export function checkUserAccount() {
     sr71$.query(S.user, { id: user.id })
   } else {
     // not shoe
-    debug('do nothing')
   }
 }
 
@@ -128,6 +128,7 @@ export function init(selectedStore) {
   // if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */
   // sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   checkUserAccount()
 }

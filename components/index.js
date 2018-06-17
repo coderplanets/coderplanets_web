@@ -2,6 +2,7 @@ export { default as GAWraper } from './GAWraper'
 // Basic component
 export { default as A } from './A'
 export { default as Img } from './Img'
+export { default as EmptyThread } from './EmptyThread'
 export { default as NotFound } from './NotFound'
 export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'

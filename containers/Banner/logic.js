@@ -1,28 +1,36 @@
-import R from 'ramda'
-
-import { asyncRes, asyncErr, makeDebugger, $solver, ERR } from '../../utils'
+import {
+  asyncRes,
+  asyncErr,
+  makeDebugger,
+  $solver,
+  ERR,
+  EVENT,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_CHANGE],
+})
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Banner')
 /* eslint-enable no-unused-vars */
 
 let banner = null
+let sub$ = null
 
 export function loadCommunity() {
-  sr71$.query(S.community, { title: 'javascript' })
+  const { mainPath } = banner.curRoute
+
+  sr71$.query(S.community, { raw: mainPath })
 }
 
 export function tabberChange(thread) {
   // main should be current community title
-  const communityTitle = R.toLower(banner.curCommunity.title)
+  /* const community = R.toLower(banner.curCommunity.raw) */
+  const community = banner.curRoute.mainPath
 
-  banner.markRoute({
-    community: communityTitle,
-    thread,
-  })
+  banner.markRoute({ community, thread })
 }
 
 // TODO: load cur community
@@ -32,6 +40,13 @@ const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => banner.loadCurCommunity(community),
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => {
+      console.log('loadCommunity -- (COMMUNITY_CHANGE): ', banner)
+      loadCommunity()
+    },
   },
 ]
 
@@ -56,8 +71,26 @@ const ErrSolver = [
   },
 ]
 
+/*
+const loadIfNeed = () => {
+  const { curCommunity, curRoute } = banner
+  const community = curCommunity.raw
+  const { mainPath } = curRoute
+
+  if (community !== mainPath) {
+    debug('>>>>>>>>> need load banner')
+    loadCommunity()
+  }
+}
+*/
+
 export function init(selectedStore) {
+  if (banner) return false
   banner = selectedStore
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadCommunity()
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  /* debug('##################   init banner: ', sub$) */
+  /* loadIfNeed() */
 }

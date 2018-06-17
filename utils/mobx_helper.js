@@ -17,6 +17,7 @@ const matchResolver = (resolveArray, data) => {
       return resolveArray[i].action(data)
     }
   }
+
   console.log('unMatched resovle data: ', data)
 }
 

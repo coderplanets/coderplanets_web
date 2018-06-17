@@ -23,7 +23,8 @@ const BannerStore = t
       return self.root.route.curRoute
     },
     get curCommunity() {
-      return self.root.communities.curCommunity
+      /* return self.root.communities.curCommunity */
+      return self.root.curCommunity.community
     },
     get detail() {
       // type depands on route main_query

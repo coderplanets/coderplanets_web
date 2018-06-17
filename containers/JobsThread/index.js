@@ -103,18 +103,18 @@ const View = ({ posts, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
-        <div>
+        <React.Fragment>
           {posts.map(post => (
             <PostItem post={post} key={shortid.generate()} active={active} />
           ))}
-        </div>
+        </React.Fragment>
       )
     }
-    case TYPE.NOT_FOUND: {
+    case TYPE.RESULT_EMPTY: {
       return (
-        <div>
+        <React.Fragment>
           <NotFound />
-        </div>
+        </React.Fragment>
       )
     }
     default:

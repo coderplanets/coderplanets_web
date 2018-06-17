@@ -7,7 +7,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Router, { withRouter } from 'next/router'
-// import Router, { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 

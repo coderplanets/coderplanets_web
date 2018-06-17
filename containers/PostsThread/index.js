@@ -21,7 +21,7 @@ import {
   TagList,
   PostsLoading,
   Pagi,
-  NotFound,
+  EmptyThread,
   ContentFilter,
   Space,
   BuyMeChuanChuan,
@@ -99,7 +99,7 @@ const PostItem = ({ post, active }) => (
   </PostWrapper>
 )
 
-const View = ({ posts, curView, active }) => {
+const View = ({ community, thread, posts, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
@@ -110,10 +110,10 @@ const View = ({ posts, curView, active }) => {
         </React.Fragment>
       )
     }
-    case TYPE.NOT_FOUND: {
+    case TYPE.RESULT_EMPTY: {
       return (
         <React.Fragment>
-          <NotFound />
+          <EmptyThread community={community} thread={thread} />
         </React.Fragment>
       )
     }
@@ -138,7 +138,10 @@ class PostsThreadContainer extends React.Component {
       activeTagData,
       active,
       accountInfo,
+      curRoute,
     } = this.props.postsThread
+
+    const { mainPath, subPath } = curRoute
 
     return (
       <React.Fragment>
@@ -148,7 +151,7 @@ class PostsThreadContainer extends React.Component {
             <BuyMeChuanChuan fromUser={accountInfo} />
             <LeftPart>
               <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-              <FilterWrapper>
+              <FilterWrapper show={curView === TYPE.RESULT}>
                 <ContentFilter
                   onSelect={logic.onFilterSelect}
                   activeWhen={when}
@@ -161,6 +164,8 @@ class PostsThreadContainer extends React.Component {
               </FilterWrapper>
 
               <View
+                community={mainPath}
+                thread={subPath}
                 posts={pagedPostsData.entries}
                 curView={curView}
                 active={active}

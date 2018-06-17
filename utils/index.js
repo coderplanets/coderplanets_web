@@ -14,6 +14,7 @@ export {
   getRandomInt,
   isEmptyValue,
   Global,
+  onClient,
   cutFrom,
   prettyNum,
   Rlog,

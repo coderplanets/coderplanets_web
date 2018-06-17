@@ -23,6 +23,7 @@ const debug = makeDebugger('L:TypeWriter')
 /* eslint-enable no-unused-vars */
 
 let typeWriter = null
+let sub$ = null
 
 export function copyrightChange(articleType) {
   typeWriter.markState({
@@ -191,5 +192,7 @@ const ErrSolver = [
 
 export function init(selectedStore) {
   typeWriter = selectedStore
-  sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

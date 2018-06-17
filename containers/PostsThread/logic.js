@@ -71,17 +71,15 @@ export function loadPosts(page = 1) {
     thread: subPath,
     page,
   })
+  console.log('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
 }
 
 export function loadTags() {
   const community = postsThread.curRoute.mainPath
-  /* const community = postsThread */
+  const thread = 'POST'
 
-  const args = {
-    thread: 'POST',
-    community,
-  }
+  const args = { community, thread }
 
   sr71$.query(S.partialTags, args)
 }
@@ -124,7 +122,7 @@ const DataSolver = [
     action: ({ pagedPosts }) => {
       let curView = TYPE.RESULT
       if (pagedPosts.entries.length === 0) {
-        curView = TYPE.NOT_FOUND
+        curView = TYPE.RESULT_EMPTY
       }
       postsThread.markState({
         curView,
@@ -143,8 +141,9 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
+      console.log('COMMUNITY_CHANGE loadPosts ...')
       loadPosts()
-      later(loadTags, 200)
+      later(loadTags, 500)
     },
   },
   {
@@ -181,12 +180,23 @@ const ErrSolver = [
   },
 ]
 
+/*
+const loadIfNeed = () => {
+  const { curCommunity, curRoute } = postsThread
+  const community = curCommunity.raw
+  const { mainPath } = curRoute
+
+  if (community !== mainPath) {
+    debug('>>>>>>>>> need load posts ')
+    loadPosts()
+  }
+}
+*/
+
 export function init(selectedStore) {
+  if (postsThread) return false
   postsThread = selectedStore
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  /* if current route community !== curCommunity */
-  /* loadIfNeed() */
 }
