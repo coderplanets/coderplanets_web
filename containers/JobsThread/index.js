@@ -20,7 +20,7 @@ import {
   TagList,
   PostsLoading,
   Pagi,
-  NotFound,
+  EmptyThread,
   ContentFilter,
   BuyMeChuanChuan,
 } from '../../components'
@@ -99,12 +99,12 @@ const PostItem = ({ post, active }) => (
   </PostWrapper>
 )
 
-const View = ({ posts, curView, active }) => {
+const View = ({ community, thread, jobs, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {posts.map(post => (
+          {jobs.map(post => (
             <PostItem post={post} key={shortid.generate()} active={active} />
           ))}
         </React.Fragment>
@@ -113,7 +113,7 @@ const View = ({ posts, curView, active }) => {
     case TYPE.RESULT_EMPTY: {
       return (
         <React.Fragment>
-          <NotFound />
+          <EmptyThread community={community} thread={thread} />
         </React.Fragment>
       )
     }
@@ -138,7 +138,11 @@ class JobsThreadContainer extends React.Component {
       activeTagData,
       active,
       accountInfo,
+      curRoute,
     } = this.props.jobsThread
+
+    // TODO: use curCommunity
+    const { mainPath, subPath } = curRoute
 
     return (
       <React.Fragment>
@@ -148,7 +152,7 @@ class JobsThreadContainer extends React.Component {
             <BuyMeChuanChuan fromUser={accountInfo} />
             <LeftPart>
               <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-              <FilterWrapper>
+              <FilterWrapper show={curView === TYPE.RESULT}>
                 <ContentFilter
                   onSelect={logic.onFilterSelect}
                   activeWhen={when}
@@ -161,7 +165,9 @@ class JobsThreadContainer extends React.Component {
               </FilterWrapper>
 
               <View
-                posts={pagedJobsData.entries}
+                community={mainPath}
+                thread={subPath}
+                jobs={pagedJobsData.entries}
                 curView={curView}
                 active={active}
               />

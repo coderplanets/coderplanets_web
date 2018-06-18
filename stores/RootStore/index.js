@@ -18,7 +18,8 @@ import {
   ApiLayoutStore,
   HeaderStore,
   ContentStore,
-  CurCommunity,
+  // TODO: rename to CurCommunityStore
+  CurCommunityStore,
 
   // banners
   BannerStore,
@@ -57,7 +58,7 @@ const rootStore = t
     account: t.optional(AccountStore, {}),
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
-    curCommunity: t.optional(CurCommunity, {}),
+    curCommunity: t.optional(CurCommunityStore, {}),
     communities: t.optional(CommunitiesStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),

@@ -48,7 +48,7 @@ export function outAnchor() {
 }
 
 export function loadPosts(page = 1) {
-  const { mainPath, subPath } = postsThread.curRoute
+  const { community, activeThread } = postsThread.curCommunity
 
   postsThread.markState({ curView: TYPE.LOADING })
 
@@ -59,7 +59,7 @@ export function loadPosts(page = 1) {
       size: PAGE_SIZE.COMMON,
       ...postsThread.curFilter,
       tag: postsThread.activeTagData.title,
-      community: mainPath,
+      community: community.raw,
     },
   }
 
@@ -67,8 +67,8 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   postsThread.markRoute({
-    community: mainPath,
-    thread: subPath,
+    community: community.raw,
+    thread: activeThread,
     page,
   })
   console.log('load posts --> ', args)
@@ -180,18 +180,12 @@ const ErrSolver = [
   },
 ]
 
-/*
 const loadIfNeed = () => {
-  const { curCommunity, curRoute } = postsThread
-  const community = curCommunity.raw
-  const { mainPath } = curRoute
-
-  if (community !== mainPath) {
-    debug('>>>>>>>>> need load posts ')
+  if (!postsThread.pagedPosts) {
     loadPosts()
+    later(loadTags, 300)
   }
 }
-*/
 
 export function init(selectedStore) {
   if (postsThread) return false
@@ -199,4 +193,5 @@ export function init(selectedStore) {
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadIfNeed()
 }

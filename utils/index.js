@@ -28,8 +28,8 @@ export {
 export { gqRequest, asyncErr, asyncRes, later } from './graphql_helper'
 
 export {
-  parseMainPath,
-  parsePathList,
+  getMainPath,
+  getSubPath,
   getParameterByName,
   queryStringToJSON,
   mergeRouteQuery,
@@ -71,3 +71,4 @@ export {
 export { default as fakeUsers } from './fake_user'
 
 export { default as GA } from './analytics'
+export { Trans } from './i18n'

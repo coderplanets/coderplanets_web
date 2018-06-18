@@ -60,7 +60,7 @@ const CommunityBrief = ({ content }) => (
   </CommunityWrapper>
 )
 
-const CommunityBanner = ({ curRoute: { subPath }, content }) => (
+const CommunityBanner = ({ curCommunity, content }) => (
   <BannerContainer>
     <BannerContentWrapper>
       <CommunityBrief content={content} />
@@ -69,7 +69,7 @@ const CommunityBanner = ({ curRoute: { subPath }, content }) => (
         <Tabber
           source={content.threads}
           onChange={logic.tabberChange}
-          defaultActive={subPath}
+          active={curCommunity.activeThread}
         />
       </TabberWrapper>
     </BannerContentWrapper>

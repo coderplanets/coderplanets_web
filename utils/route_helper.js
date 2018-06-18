@@ -2,7 +2,7 @@ import R from 'ramda'
 import { Global } from '../utils'
 
 // example: /getme/xxx?aa=bb&cc=dd
-export const parseMainPath = R.compose(
+const parseMainPath = R.compose(
   R.head,
   R.split('?'),
   R.head,
@@ -12,7 +12,7 @@ export const parseMainPath = R.compose(
 )
 
 // example: /xxx/getme?aa=bb&cc=dd
-export const parsePathList = R.compose(
+const parsePathList = R.compose(
   R.reject(R.isEmpty),
   R.split('/'),
   R.head,
@@ -21,6 +21,23 @@ export const parsePathList = R.compose(
   R.split('?'),
   R.prop('asPath')
 )
+
+const INDEX = ''
+export const getMainPath = routeObj => {
+  if (R.isEmpty(routeObj)) return INDEX
+  if (routeObj.asPath === '/') return INDEX
+
+  return parseMainPath(routeObj)
+}
+
+export const getSubPath = routeObj => {
+  if (R.isEmpty(routeObj)) return INDEX
+  if (routeObj.asPath === '/') return INDEX
+
+  const asPathList = parsePathList(routeObj)
+
+  return asPathList.length > 1 ? asPathList[1] : asPathList[0]
+}
 
 export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)

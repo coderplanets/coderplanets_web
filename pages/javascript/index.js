@@ -6,7 +6,7 @@ import { GAWraper } from '../../components'
 
 import {
   gqRequest,
-  parseMainPath,
+  getMainPath,
   queryStringToJSON,
   extractThreadFromPath,
 } from '../../utils'
@@ -32,7 +32,7 @@ import Footer from '../../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const community = parseMainPath(props)
+  const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(props.asPath), community }
 

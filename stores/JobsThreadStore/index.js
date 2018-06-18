@@ -61,10 +61,10 @@ const JobsThreadStore = t
     activeTag: t.maybe(Tag),
     curView: t.optional(
       t.enumeration('curView', [
-        /* 'TIMEOUT_PAGE', */
         TYPE.RESULT,
         TYPE.LOADING,
         TYPE.NOT_FOUND,
+        TYPE.RESULT_EMPTY,
       ]),
       TYPE.RESULT
     ),
@@ -80,6 +80,9 @@ const JobsThreadStore = t
     get curRoute() {
       return self.root.route.curRoute
     },
+    get curCommunity() {
+      return stripMobx(self.root.curCommunity)
+    },
     get pagedJobsData() {
       return stripMobx(self.pagedJobs)
     },
@@ -88,10 +91,6 @@ const JobsThreadStore = t
     },
     get accountInfo() {
       return self.root.account.accountInfo
-    },
-
-    get curCommunity() {
-      return self.root.communities.curCommunity
     },
     get curFilter() {
       return R.pathOr('', ['js'], self.filters.toJSON())
@@ -106,8 +105,8 @@ const JobsThreadStore = t
   .actions(self => ({
     selectFilter(filter, val) {
       // TODO
-      const community = 'javascript'
-      debug('curCommunity', self.curCommunity)
+      const community = self.curCommunity.community.raw
+      /* debug('curCommunity', self.curCommunity) */
       const curFilter = self.filters.get(community, filter)
       const newFilter = curFilter
         ? R.merge(curFilter, { [filter]: val })
@@ -122,6 +121,9 @@ const JobsThreadStore = t
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
+    },
+    markRoute(query) {
+      self.root.route.markRoute(query)
     },
     markState(sobj) {
       markStates(sobj, self)

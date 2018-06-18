@@ -2,10 +2,10 @@ import R from 'ramda'
 
 import {
   makeDebugger,
-  parseMainPath,
-  parsePathList,
   dispatchEvent,
   EVENT,
+  getMainPath,
+  getSubPath,
   // queryStringToJSON /*  isEmptyNil, getParameterByName */,
 } from '../../utils'
 
@@ -14,23 +14,6 @@ const debug = makeDebugger('L:Route')
 /* eslint-enable no-unused-vars */
 
 let route = null
-const INDEX = ''
-
-const getMainPath = routeObj => {
-  if (R.isEmpty(routeObj)) return INDEX
-  if (routeObj.asPath === '/') return INDEX
-
-  return parseMainPath(routeObj)
-}
-
-const getSubPath = routeObj => {
-  if (R.isEmpty(routeObj)) return INDEX
-  if (routeObj.asPath === '/') return INDEX
-
-  const asPathList = parsePathList(routeObj)
-
-  return asPathList.length > 1 ? asPathList[1] : asPathList[0]
-}
 
 const browerHistoryChanged = mainPath => {
   const otherPages = ['user', 'post', 'job']
@@ -39,9 +22,9 @@ const browerHistoryChanged = mainPath => {
     !R.contains(mainPath, otherPages) &&
     mainPath !== route.mainPath
   ) {
-    console.log('=========================')
-    console.log('browerHistoryChanged !')
-    console.log('=========================')
+    /* console.log('=========================') */
+    /* console.log('browerHistoryChanged !') */
+    /* console.log('=========================') */
     return true
   }
   return false

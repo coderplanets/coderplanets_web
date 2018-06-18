@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:HeaderStore')
 /* eslint-enable no-unused-vars */
@@ -21,16 +21,19 @@ const HeaderStore = t
       return getParent(self)
     },
     get curRoute() {
-      return self.root.curRoute
+      return self.root.route.curRoute
     },
+
+    get curCommunity() {
+      /* return self.root.communities.curCommunity */
+      return stripMobx(self.root.curCommunity)
+    },
+
     get accountInfo() {
       return self.root.account.accountInfo
     },
     get isLogin() {
       return self.root.account.isLogin
-    },
-    get curCommunity() {
-      return self.root.communities.curCommunity
     },
 
     get leftOffset() {
@@ -59,6 +62,12 @@ const HeaderStore = t
     setFix(fixed = false) {
       self.preSidebarPin = self.root.sidebar.pin
       self.fixed = fixed
+    },
+    loadCurCommunity(sobj) {
+      self.root.curCommunity.load(sobj)
+    },
+    markRoute(query) {
+      self.root.route.markRoute(query)
     },
     handleLogin() {
       self.root.doraemon.handleLogin()

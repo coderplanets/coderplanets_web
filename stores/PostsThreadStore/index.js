@@ -62,7 +62,6 @@ const PostsThreadStore = t
     activeTag: t.maybe(Tag),
     curView: t.optional(
       t.enumeration('curView', [
-        /* 'TIMEOUT_PAGE', */
         TYPE.RESULT,
         TYPE.LOADING,
         TYPE.NOT_FOUND,
@@ -82,7 +81,7 @@ const PostsThreadStore = t
       return self.root.route.curRoute
     },
     get curCommunity() {
-      return self.root.curCommunity.community
+      return stripMobx(self.root.curCommunity)
     },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)

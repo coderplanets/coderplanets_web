@@ -19,7 +19,11 @@ import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_POSTS, EVENT.PREVIEW_CLOSED],
+  resv_event: [
+    EVENT.REFRESH_POSTS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.COMMUNITY_CHANGE,
+  ],
 })
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:JobsThread')
@@ -44,10 +48,11 @@ export function outAnchor() {
 }
 
 export function loadJobs(page = 1) {
-  debug('loadJobs ...')
-  jobsThread.markState({
-    curView: TYPE.LOADING,
-  })
+  /* const { mainPath, subPath } = jobsThread.curRoute */
+  scrollIntoEle(TYPE.APP_HEADER_ID)
+  const { community, activeThread } = jobsThread.curCommunity
+
+  jobsThread.markState({ curView: TYPE.LOADING })
 
   const args = {
     /* first: 4, */
@@ -56,12 +61,17 @@ export function loadJobs(page = 1) {
       size: PAGE_SIZE.POSTSPAPER_POSTS,
       ...jobsThread.curFilter,
       tag: jobsThread.activeTagData.title,
+      community: community.raw,
     },
   }
 
-  /* console.log('loadJobs --> ', args) */
   args.filter = validFilter(args.filter)
-  scrollIntoEle(TYPE.APP_HEADER_ID)
+
+  jobsThread.markRoute({
+    community: community.raw,
+    thread: activeThread,
+    page,
+  })
   sr71$.query(S.pagedJobs, args)
 }
 
@@ -112,7 +122,7 @@ const DataSolver = [
     action: ({ pagedJobs }) => {
       let curView = TYPE.RESULT
       if (pagedJobs.entries.length === 0) {
-        curView = TYPE.NOT_FOUND
+        curView = TYPE.RESULT_EMPTY
       }
       jobsThread.markState({
         curView,
@@ -126,6 +136,14 @@ const DataSolver = [
       return jobsThread.markState({
         tags: partialTags,
       })
+    },
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => {
+      console.log('COMMUNITY_CHANGE loadPosts ...')
+      loadJobs()
+      later(loadTags, 500)
     },
   },
   {
@@ -162,15 +180,19 @@ const ErrSolver = [
   },
 ]
 
+const loadIfNeed = () => {
+  if (!jobsThread.pagedJobs) {
+    loadJobs()
+    later(loadTags, 300)
+  }
+}
+
 export function init(selectedStore) {
+  if (jobsThread) return false
   jobsThread = selectedStore
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  later(loadJobs, 500)
-  /* loadJobs() */
-  /* setTimeout(() => { */
-  /* loadTags() */
-  /* }, 500) */
+  loadIfNeed()
 }

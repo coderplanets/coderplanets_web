@@ -7,11 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
+import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config/assets'
 import { Affix, Navigator } from '../../components'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 
 import {
   HeaderWrapper,
@@ -39,32 +40,42 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Header')
 /* eslint-enable no-unused-vars */
 
-const MiniMap = ({ curRoute }) => {
-  const defaultIcon = 'javascript'
-  const { mainPath } = curRoute
-  const iconKey = mainPath.length > 1 ? mainPath : defaultIcon
+const MiniMap = ({ curCommunity: { community, activeThread } }) => (
+  <MiniMapWrapper>
+    <CommunityLogo src={community.logo} />
+    <React.Fragment>
+      {community.threads.map(t => (
+        <MiniTab
+          key={shortid.generate()}
+          active={t.title === activeThread}
+          onClick={logic.onThreadChange.bind(this, t)}
+        >
+          {Trans(t.title)}
+        </MiniTab>
+      ))}
+    </React.Fragment>
+  </MiniMapWrapper>
+)
 
-  return (
-    <MiniMapWrapper>
-      <CommunityLogo src={`${ICON_ASSETS}/pl/${iconKey}.svg`} />
-      <MiniTab active>帖子</MiniTab>
-      <MiniTab>教程</MiniTab>
-      <MiniTab>动态</MiniTab>
-      <MiniTab>视频</MiniTab>
-      <MiniTab>地图</MiniTab>
-      <MiniTab>cheatsheet</MiniTab>
-    </MiniMapWrapper>
-  )
-}
-
-const Header = ({ curRoute, leftOffset, fixed, isLogin, accountInfo }) => (
+const Header = ({
+  curCommunity,
+  curRoute,
+  leftOffset,
+  fixed,
+  isLogin,
+  accountInfo,
+}) => (
   <HeaderWrapper
     id="whereCallShowDoraemon"
     leftOffset={leftOffset}
     fixed={fixed}
   >
     <RouterWrapper>
-      {fixed ? <MiniMap curRoute={curRoute} /> : <Navigator />}
+      {fixed ? (
+        <MiniMap curCommunity={curCommunity} curRoute={curRoute} />
+      ) : (
+        <Navigator />
+      )}
     </RouterWrapper>
     <Admin>
       <div style={{ display: 'flex' }}>
@@ -123,6 +134,7 @@ class HeaderContainer extends React.Component {
       leftOffset,
       accountInfo,
       isLogin,
+      curCommunity,
     } = this.props.header
 
     // <Affix style={{ display: fixed ? 'block' : 'none' }}>
@@ -136,6 +148,7 @@ class HeaderContainer extends React.Component {
               leftOffset={leftOffset}
               accountInfo={accountInfo}
               isLogin={isLogin}
+              curCommunity={curCommunity}
             />
           </Affix>
         </AffixHeader>
@@ -146,6 +159,7 @@ class HeaderContainer extends React.Component {
             leftOffset={leftOffset}
             accountInfo={accountInfo}
             isLogin={isLogin}
+            curCommunity={curCommunity}
           />
         </RawHeader>
       </div>

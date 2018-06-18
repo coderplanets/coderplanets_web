@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, TYPE } from '../../utils'
+import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:BannerStore')
 /* eslint-enable no-unused-vars */
@@ -24,7 +24,7 @@ const BannerStore = t
     },
     get curCommunity() {
       /* return self.root.communities.curCommunity */
-      return self.root.curCommunity.community
+      return stripMobx(self.root.curCommunity)
     },
     get detail() {
       // type depands on route main_query
@@ -44,13 +44,10 @@ const BannerStore = t
         content: self.root.curCommunity.data,
       }
     },
-    get curCommunity2() {
-      return self.root.curCommunity.data
-    },
   }))
   .actions(self => ({
-    loadCurCommunity(data) {
-      self.root.curCommunity.load(data)
+    loadCurCommunity(sobj) {
+      self.root.curCommunity.load(sobj)
     },
     markRoute(query) {
       self.root.route.markRoute(query)

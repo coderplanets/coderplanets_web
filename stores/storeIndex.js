@@ -11,7 +11,7 @@ export { default as HeaderStore } from './HeaderStore'
 export { default as BannerStore } from './BannerStore'
 export { default as ContentStore } from './ContentStore'
 
-export { default as CurCommunity } from './CurCommunity'
+export { default as CurCommunityStore } from './CurCommunityStore'
 
 // banners store
 export { default as PostBannerStore } from './PostBannerStore'

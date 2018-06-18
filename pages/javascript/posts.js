@@ -6,7 +6,8 @@ import { GAWraper } from '../../components'
 
 import {
   gqRequest,
-  parseMainPath,
+  getMainPath,
+  getSubPath,
   queryStringToJSON,
   extractThreadFromPath,
   TYPE,
@@ -34,17 +35,17 @@ import Footer from '../../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const community = parseMainPath(props)
+  const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(props.asPath), community }
 
   // data
+  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
   const pagedPosts = gqRequest(PostsThreadSchema.pagedPostsRaw, { filter })
   const partialTags = gqRequest(PostsThreadSchema.partialTagsRaw, {
     thread,
     community,
   })
-  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
 
   return {
     ...(await pagedPosts),
@@ -61,6 +62,7 @@ export default class Posts extends React.Component {
 
     console.log('SSR ## community (in javascript) post ##: ', asPath)
     console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    const thread = getSubPath(props)
 
     const { pagedPosts, partialTags, community } = await fetchData(props)
 
@@ -73,7 +75,7 @@ export default class Posts extends React.Component {
 
     return {
       langSetup: {},
-      curCommunity: { community },
+      curCommunity: { community, activeThread: thread },
       postsThread: {
         pagedPosts,
         curView,

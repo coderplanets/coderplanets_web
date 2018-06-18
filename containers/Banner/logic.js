@@ -31,6 +31,7 @@ export function tabberChange(thread) {
   const community = banner.curRoute.mainPath
 
   banner.markRoute({ community, thread })
+  banner.loadCurCommunity({ activeThread: thread })
 }
 
 // TODO: load cur community
@@ -39,14 +40,14 @@ export function tabberChange(thread) {
 const DataSolver = [
   {
     match: asyncRes('community'),
-    action: ({ community }) => banner.loadCurCommunity(community),
+    action: ({ community }) => {
+      const thread = banner.curRoute.subPath
+      banner.loadCurCommunity({ community, activeThread: thread })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      console.log('loadCommunity -- (COMMUNITY_CHANGE): ', banner)
-      loadCommunity()
-    },
+    action: () => loadCommunity(),
   },
 ]
 

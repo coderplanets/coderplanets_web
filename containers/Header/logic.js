@@ -63,6 +63,14 @@ export function previewAccount() {
   })
 }
 
+export function onThreadChange(thread) {
+  const community = header.curRoute.mainPath
+  const activeThread = thread.raw
+
+  header.markRoute({ community, thread: activeThread })
+  header.loadCurCommunity({ activeThread })
+}
+
 export function login() {
   debug('do login')
   dispatchEvent(EVENT.LOGIN_PANEL)

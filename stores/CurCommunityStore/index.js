@@ -1,5 +1,5 @@
 /*
- * CurCommunity store
+ * CurCommunity Store
  *
  */
 
@@ -10,14 +10,14 @@ import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { Community, Tag } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:CurCommunity')
+const debug = makeDebugger('S:CurCommunityStore')
 /* eslint-enable no-unused-vars */
 
-const CurCommunity = t
-  .model('CurCommunity', {
+const CurCommunityStore = t
+  .model('CurCommunityStore', {
     community: t.optional(Community, {}),
-    tag: t.optional(Tag, {}),
-    thread: t.optional(t.string, 'posts'),
+    activeTag: t.optional(Tag, {}),
+    activeThread: t.optional(t.string, 'posts'),
   })
   .views(self => ({
     get root() {
@@ -28,12 +28,12 @@ const CurCommunity = t
     },
   }))
   .actions(self => ({
-    load(data) {
-      self.markState({ community: data })
+    load(obj) {
+      self.markState({ ...obj })
     },
     markState(sobj) {
       markStates(sobj, self)
     },
   }))
 
-export default CurCommunity
+export default CurCommunityStore

@@ -26,7 +26,11 @@ const onChange = e => {
   logic.tabberChange(e)
 }
 
-const BannerContent = ({ curRoute, detail: { type, content } }) => {
+const BannerContent = ({
+  curCommunity,
+  curRoute,
+  detail: { type, content },
+}) => {
   switch (type) {
     case TYPE.CHEATSHEET_ROOT_PAGE: {
       return <CheatsheetRootBanner />
@@ -41,7 +45,13 @@ const BannerContent = ({ curRoute, detail: { type, content } }) => {
       return <PostBanner />
     }
     default:
-      return <CommunityBanner content={content} curRoute={curRoute} />
+      return (
+        <CommunityBanner
+          curCommunity={curCommunity}
+          content={content}
+          curRoute={curRoute}
+        />
+      )
   }
 }
 
@@ -52,11 +62,18 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curRoute, detail } = banner
+    const { curCommunity, curRoute, detail } = banner
     // const { mainPath } = curRoute
     // debug('detail ---> ', detail)
 
-    return <BannerContent curRoute={curRoute} banner={banner} detail={detail} />
+    return (
+      <BannerContent
+        curCommunity={curCommunity}
+        curRoute={curRoute}
+        banner={banner}
+        detail={detail}
+      />
+    )
   }
 }
 

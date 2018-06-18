@@ -6,9 +6,11 @@ import { GAWraper } from '../../components'
 
 import {
   gqRequest,
+  getMainPath,
+  getSubPath,
   queryStringToJSON,
-  parseMainPath,
   extractThreadFromPath,
+  TYPE,
 } from '../../utils'
 
 import {
@@ -33,16 +35,17 @@ import Footer from '../../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const community = parseMainPath(props)
+  const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(props.asPath), community }
 
+  // data
+  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
   const pagedJobs = gqRequest(JobsThreadSchema.pagedJobsRaw, { filter })
   const partialTags = gqRequest(JobsThreadSchema.partialTagsRaw, {
     thread,
     community,
   })
-  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
 
   return {
     ...(await pagedJobs),
@@ -60,15 +63,19 @@ export default class Jobs extends React.Component {
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
     console.log('SSR ## community (in javascript)jobs ##: ', asPath)
+    const thread = getSubPath(props)
 
     const { pagedJobs, partialTags, community } = await fetchData(props)
     /* eslint-enable no-undef */
+    const curView =
+      pagedJobs.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
     return {
       langSetup: {},
-      curCommunity: { community },
+      curCommunity: { community, activeThread: thread },
       jobsThread: {
         pagedJobs,
+        curView,
         tags: partialTags,
       },
     }

@@ -19,10 +19,7 @@ const doQuery = (query, variables) =>
       variables,
       context,
     })
-    .then(res => {
-      console.log('doQuery: ', res.data)
-      return res.data
-    })
+    .then(res => res.data)
     .catch(formatGraphErrors)
 
 const doMutate = (mutation, variables) =>

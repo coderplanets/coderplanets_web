@@ -79,6 +79,9 @@ const SidebarStore = t
     load() {
       // const communities = self.root.communities.all
     },
+    loadCurCommunity(sobj) {
+      self.root.curCommunity.load(sobj)
+    },
     markRoute(query) {
       self.root.route.markRoute(query)
     },
