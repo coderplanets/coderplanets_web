@@ -8,4 +8,4 @@ lang/.messages/
 coverage/
 .coveralls.yml
 yarn-error.log
-.env
+.env*

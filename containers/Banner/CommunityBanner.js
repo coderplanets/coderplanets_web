@@ -46,21 +46,19 @@ const NumbersInfo = ({
   </NumbersWrapper>
 )
 
-const CommunityBrief = ({ content }) => {
-  return (
-    <CommunityWrapper>
-      {content.logo ? (
-        <CommunityLogo src={content.logo || DEFAULT_ICON} />
-      ) : (
-        <div />
-      )}
-      <CommunityInfo>
-        <Title>{content.title}</Title>
-        <Desc>{content.desc}</Desc>
-      </CommunityInfo>
-    </CommunityWrapper>
-  )
-}
+const CommunityBrief = ({ content }) => (
+  <CommunityWrapper>
+    {content.logo ? (
+      <CommunityLogo src={content.logo || DEFAULT_ICON} />
+    ) : (
+      <div />
+    )}
+    <CommunityInfo>
+      <Title>{content.title}</Title>
+      <Desc>{content.desc}</Desc>
+    </CommunityInfo>
+  </CommunityWrapper>
+)
 
 const CommunityBanner = ({ curRoute: { subPath }, content }) => (
   <BannerContainer>
