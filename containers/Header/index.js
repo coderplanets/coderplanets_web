@@ -47,7 +47,7 @@ const MiniMap = ({ curCommunity: { community, activeThread } }) => (
       {community.threads.map(t => (
         <MiniTab
           key={shortid.generate()}
-          active={t.title === activeThread}
+          active={t.raw === activeThread}
           onClick={logic.onThreadChange.bind(this, t)}
         >
           {Trans(t.title)}

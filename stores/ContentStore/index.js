@@ -18,7 +18,7 @@ const ContentStore = t
       return getParent(self)
     },
     get current() {
-      const { mainPath } = self.root.route.curRoute
+      const { mainPath } = self.root.curRoute
       let type = TYPE.COMMUNITY_PAGE
 
       if (mainPath === 'post') {

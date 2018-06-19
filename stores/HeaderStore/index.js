@@ -21,7 +21,7 @@ const HeaderStore = t
       return getParent(self)
     },
     get curRoute() {
-      return self.root.route.curRoute
+      return self.root.curRoute
     },
 
     get curCommunity() {

@@ -11,6 +11,7 @@ import {
   /* Global, */
   ERR,
   $solver,
+  thread2Subpath,
   // getParameterByName,
 } from '../../utils'
 
@@ -67,7 +68,7 @@ export function onThreadChange(thread) {
   const community = header.curRoute.mainPath
   const activeThread = thread.raw
 
-  header.markRoute({ community, thread: activeThread })
+  header.markRoute({ community, thread: thread2Subpath(activeThread) })
   header.loadCurCommunity({ activeThread })
 }
 

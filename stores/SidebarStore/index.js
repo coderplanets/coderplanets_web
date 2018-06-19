@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { makeDebugger, markStates } from '../../utils'
+import { makeDebugger, markStates, stripMobx } from '../../utils'
 /* import MenuItem from './MenuItemStore' */
 
 const menuItemConveter = R.compose(
@@ -49,6 +49,9 @@ const SidebarStore = t
     get root() {
       return getParent(self)
     },
+    get curCommunity() {
+      return stripMobx(self.root.curCommunity)
+    },
     get accountInfo() {
       return self.root.accountInfo
     },
@@ -66,9 +69,6 @@ const SidebarStore = t
     },
     get langMessages() {
       return self.root.langMessages
-    },
-    get curPath() {
-      return self.root.curPath
     },
     get subscribedCommunities() {
       const { entries } = self.root.account.subscribedCommunities

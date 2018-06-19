@@ -20,7 +20,7 @@ const BannerStore = t
       return getParent(self)
     },
     get curRoute() {
-      return self.root.route.curRoute
+      return self.root.curRoute
     },
     get curCommunity() {
       /* return self.root.communities.curCommunity */
@@ -28,7 +28,7 @@ const BannerStore = t
     },
     get detail() {
       // type depands on route main_query
-      const { mainPath } = self.root.route.curRoute
+      const { mainPath } = self.root.curRoute
       let type = TYPE.COMMUNITY_PAGE
 
       if (mainPath === 'post') {

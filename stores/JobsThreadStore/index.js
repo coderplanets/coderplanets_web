@@ -78,7 +78,7 @@ const JobsThreadStore = t
       return getParent(self)
     },
     get curRoute() {
-      return self.root.route.curRoute
+      return self.root.curRoute
     },
     get curCommunity() {
       return stripMobx(self.root.curCommunity)

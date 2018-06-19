@@ -122,11 +122,6 @@ const rootStore = t
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
-    // TODO: remove it
-    get curPath() {
-      return self.route.curPath
-    },
-    // TODO: rename to routeInfo
     get curRoute() {
       return self.route.curRoute
     },

@@ -6,6 +6,7 @@ import {
   ERR,
   EVENT,
   thread2Subpath,
+  subPath2Thread,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
@@ -43,8 +44,11 @@ const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => {
-      const thread = banner.curRoute.subPath
-      banner.loadCurCommunity({ community, activeThread: thread })
+      const { subPath } = banner.curRoute
+      banner.loadCurCommunity({
+        community,
+        activeThread: subPath2Thread(subPath),
+      })
     },
   },
   {

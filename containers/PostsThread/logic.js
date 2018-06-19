@@ -11,7 +11,6 @@ import {
   THREAD,
   $solver,
   scrollIntoEle,
-  thread2Subpath,
   GA,
 } from '../../utils'
 
@@ -50,7 +49,10 @@ export function outAnchor() {
 }
 
 export function loadPosts(page = 1) {
-  const { community, activeThread } = postsThread.curCommunity
+  /* const { community, activeThread } = postsThread.curCommunity */
+  const { mainPath, subPath } = postsThread.curRoute
+  const community = mainPath
+  const thread = subPath
 
   postsThread.markState({ curView: TYPE.LOADING })
 
@@ -60,8 +62,8 @@ export function loadPosts(page = 1) {
       page,
       size: PAGE_SIZE.COMMON,
       ...postsThread.curFilter,
-      tag: postsThread.activeTagData.title,
-      community: community.raw,
+      tag: postsThread.activeTagData.raw,
+      community,
     },
   }
 
@@ -69,11 +71,11 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   postsThread.markRoute({
-    community: community.raw,
-    thread: thread2Subpath(activeThread),
+    community,
+    thread,
     page,
   })
-  console.log('load posts --> ', args)
+  debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
 }
 
@@ -143,7 +145,6 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
-      console.log('COMMUNITY_CHANGE loadPosts ...')
       loadPosts()
       later(loadTags, 500)
     },

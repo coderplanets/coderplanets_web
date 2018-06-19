@@ -27,9 +27,6 @@ const RouteStore = t
     query: t.optional(Query, {}),
   })
   .views(self => ({
-    get curPath() {
-      return self.mainPath
-    },
     get curRoute() {
       const { mainPath, subPath } = self
       return { mainPath, subPath }

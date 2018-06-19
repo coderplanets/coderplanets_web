@@ -11,7 +11,6 @@ import {
   $solver,
   scrollIntoEle,
   GA,
-  thread2Subpath,
   later,
 } from '../../utils'
 
@@ -52,7 +51,9 @@ export function outAnchor() {
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = jobsThread.curRoute */
   scrollIntoEle(TYPE.APP_HEADER_ID)
-  const { community, activeThread } = jobsThread.curCommunity
+  const { mainPath, subPath } = jobsThread.curRoute
+  const community = mainPath
+  const thread = subPath
 
   jobsThread.markState({ curView: TYPE.LOADING })
 
@@ -62,16 +63,16 @@ export function loadJobs(page = 1) {
       page,
       size: PAGE_SIZE.POSTSPAPER_POSTS,
       ...jobsThread.curFilter,
-      tag: jobsThread.activeTagData.title,
-      community: community.raw,
+      tag: jobsThread.activeTagData.raw,
+      community,
     },
   }
 
   args.filter = validFilter(args.filter)
 
   jobsThread.markRoute({
-    community: community.raw,
-    thread: thread2Subpath(activeThread),
+    community,
+    thread,
     page,
   })
   sr71$.query(S.pagedJobs, args)
@@ -143,7 +144,6 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
-      console.log('COMMUNITY_CHANGE loadPosts ...')
       loadJobs()
       later(loadTags, 500)
     },

@@ -32,10 +32,9 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   ...draggableStyle,
 })
 
-const MenuList = ({ items, pin, curPath }) => {
+const MenuList = ({ items, pin, activeRaw }) => {
   /* const sparkData = [0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0] */
   // const sparkData = [0, 0, 0, 1, 0, 0, 1]
-
   const listItems = (
     <DragDropContext onDragEnd={debug}>
       <Droppable droppableId="droppable">
@@ -58,10 +57,10 @@ const MenuList = ({ items, pin, curPath }) => {
                         <div onClick={logic.onCommunitySelect.bind(this, item)}>
                           <MenuRow
                             pin={pin}
-                            active={curPath === R.toLower(item.raw)}
+                            active={activeRaw === R.toLower(item.raw)}
                           >
                             <MenuItemIcon
-                              active={curPath === R.toLower(item.raw)}
+                              active={activeRaw === R.toLower(item.raw)}
                               src={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
@@ -135,16 +134,26 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    const { curPath, pin, subscribedCommunities } = sidebar
+    const {
+      curCommunity: { community },
+      pin,
+      subscribedCommunities,
+    } = sidebar
     //    onMouseLeave={logic.leaveSidebar}
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
+    const activeRaw = community.raw
+    debug('curCommunity activeRaw: ', activeRaw)
 
     return (
       <Sidebar pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />
         <br />
         <br />
-        <MenuList items={subscribedCommunities} pin={pin} curPath={curPath} />
+        <MenuList
+          items={subscribedCommunities}
+          pin={pin}
+          activeRaw={activeRaw}
+        />
       </Sidebar>
     )
   }
