@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import { Tabs } from '../../components'
 
-import { makeDebugger, Trans } from '../../utils'
+import { makeDebugger, Trans, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Tabber:index')
 /* eslint-enable no-unused-vars */
@@ -16,13 +16,10 @@ const { TabPane } = Tabs
 
 const Tabber = ({ source, active, onChange }) => {
   const tabitems = R.values(source)
-  //   debug('tabitems: ', tabitems)
-  //   <Tabs onChange={onChange} activeKey={'Js--jobs'}>
+
   return (
     <Tabs onChange={onChange} activeKey={active}>
-      {tabitems.map(item => (
-        <TabPane tab={Trans(item.title)} key={item.title} />
-      ))}
+      {tabitems.map(item => <TabPane tab={Trans(item.title)} key={item.raw} />)}
     </Tabs>
   )
 }
@@ -35,7 +32,7 @@ Tabber.propTypes = {
 }
 
 Tabber.defaultProps = {
-  active: 'posts',
+  active: THREAD.POST,
 }
 
 export default Tabber

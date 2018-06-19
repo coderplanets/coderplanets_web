@@ -34,6 +34,7 @@ export const TYPE = {
   POST_PAGE: 'POST_PAGE',
   ACTIVITIES_ROOT_PAGE: 'ACTIVITIES_ROOT_PAGE',
 
+  // TODO: remove POST, JOB ...
   POST: 'POST',
   JOB: 'JOB',
   FAVORITE: 'FAVORITE',
@@ -57,4 +58,30 @@ export const TYPE = {
   DESC_INSERTED: 'DESC_INSERTED',
   MOST_LIKES: 'MOST_LIKES',
   MOST_DISLIKES: 'MOST_DISLIKES',
+}
+
+export const ROUTE = {
+  POSTS: 'posts',
+  JOBS: 'jobs',
+}
+
+export const FILTER = {
+  __TYPES: ['ASC_INSERTED', 'DESC_INSERTED', 'MOST_LIKES', 'MOST_DISLIKES'],
+  ASC_INSERTED: 'ASC_INSERTED',
+  DESC_INSERTED: 'DESC_INSERTED',
+  MOST_LIKES: 'MOST_LIKES',
+  MOST_DISLIKES: 'MOST_DISLIKES',
+}
+
+export const THREAD = {
+  __TYPES: ['post', 'job'],
+  POST: 'post',
+  JOB: 'job',
+}
+
+export const ACTION = {
+  __TYPES: ['FAVORITE', 'STAR', 'WATCH'],
+  FAVORITE: 'FAVORITE',
+  STAR: 'STAR',
+  WATCH: 'WATCH',
 }

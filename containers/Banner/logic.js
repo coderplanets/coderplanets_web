@@ -5,6 +5,7 @@ import {
   $solver,
   ERR,
   EVENT,
+  thread2Subpath,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
@@ -29,8 +30,9 @@ export function tabberChange(thread) {
   // main should be current community title
   /* const community = R.toLower(banner.curCommunity.raw) */
   const community = banner.curRoute.mainPath
+  const subPath = thread2Subpath(thread)
 
-  banner.markRoute({ community, thread })
+  banner.markRoute({ community, thread: subPath })
   banner.loadCurCommunity({ activeThread: thread })
 }
 

@@ -7,9 +7,11 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   $solver,
   scrollIntoEle,
   GA,
+  thread2Subpath,
   later,
 } from '../../utils'
 
@@ -69,7 +71,7 @@ export function loadJobs(page = 1) {
 
   jobsThread.markRoute({
     community: community.raw,
-    thread: activeThread,
+    thread: thread2Subpath(activeThread),
     page,
   })
   sr71$.query(S.pagedJobs, args)
@@ -79,7 +81,7 @@ export function loadTags() {
   const community = jobsThread.curRoute.mainPath
 
   const args = {
-    thread: 'JOB',
+    thread: R.toUpper(THREAD.JOB),
     community,
   }
 

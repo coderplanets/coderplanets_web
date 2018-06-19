@@ -10,6 +10,7 @@ import {
   getSubPath,
   queryStringToJSON,
   extractThreadFromPath,
+  subPath2Thread,
   TYPE,
 } from '../../utils'
 
@@ -72,7 +73,7 @@ export default class Jobs extends React.Component {
 
     return {
       langSetup: {},
-      curCommunity: { community, activeThread: thread },
+      curCommunity: { community, activeThread: subPath2Thread(thread) },
       jobsThread: {
         pagedJobs,
         curView,

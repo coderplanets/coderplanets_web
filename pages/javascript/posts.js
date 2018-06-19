@@ -11,6 +11,7 @@ import {
   queryStringToJSON,
   extractThreadFromPath,
   TYPE,
+  subPath2Thread,
 } from '../../utils'
 
 import {
@@ -75,7 +76,7 @@ export default class Posts extends React.Component {
 
     return {
       langSetup: {},
-      curCommunity: { community, activeThread: thread },
+      curCommunity: { community, activeThread: subPath2Thread(thread) },
       postsThread: {
         pagedPosts,
         curView,

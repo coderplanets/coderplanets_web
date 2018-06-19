@@ -16,6 +16,7 @@ module.exports = {
   },
   rules: {
     'arrow-body-style': 0,
+    'no-underscore-dangle': 0,
     'no-param-reassign': 0, // heavilly used in store.actions
     'no-use-before-define': 0, // heavilly used in store.views
     'consistent-return': 0,

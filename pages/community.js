@@ -11,6 +11,7 @@ import {
   getSubPath,
   extractThreadFromPath,
   TYPE,
+  subPath2Thread,
 } from '../utils'
 
 import {
@@ -72,11 +73,11 @@ export default class Index extends React.Component {
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
     /* eslint-enable no-undef */
-    console.log('community --> ', community)
+    console.log('partialTags --> ', partialTags)
 
     return {
       langSetup: {},
-      curCommunity: { community, activeThread: thread },
+      curCommunity: { community, activeThread: subPath2Thread(thread) },
       postsThread: {
         pagedPosts,
         curView,

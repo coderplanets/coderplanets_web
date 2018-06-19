@@ -2,7 +2,7 @@
  * utils functiosn
  */
 
-export { EVENT, ERR, TYPE } from './constants'
+export { EVENT, ERR, TYPE, THREAD, ACTION, FILTER } from './constants'
 
 export { makeDebugger } from './debug'
 
@@ -35,6 +35,8 @@ export {
   mergeRouteQuery,
   serializeQuery,
   extractThreadFromPath,
+  subPath2Thread,
+  thread2Subpath,
 } from './route_helper'
 
 export {

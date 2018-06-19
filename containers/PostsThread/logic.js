@@ -8,8 +8,10 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   $solver,
   scrollIntoEle,
+  thread2Subpath,
   GA,
 } from '../../utils'
 
@@ -68,7 +70,7 @@ export function loadPosts(page = 1) {
 
   postsThread.markRoute({
     community: community.raw,
-    thread: activeThread,
+    thread: thread2Subpath(activeThread),
     page,
   })
   console.log('load posts --> ', args)
@@ -77,10 +79,10 @@ export function loadPosts(page = 1) {
 
 export function loadTags() {
   const community = postsThread.curRoute.mainPath
-  const thread = 'POST'
+  const thread = R.toUpper(THREAD.POST)
 
   const args = { community, thread }
-
+  debug('loadTags --> ', args)
   sr71$.query(S.partialTags, args)
 }
 

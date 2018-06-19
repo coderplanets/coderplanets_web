@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, THREAD } from '../../utils'
 import { Community, Tag } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -17,7 +17,11 @@ const CurCommunityStore = t
   .model('CurCommunityStore', {
     community: t.optional(Community, {}),
     activeTag: t.optional(Tag, {}),
-    activeThread: t.optional(t.string, 'posts'),
+    activeThread: t.optional(
+      t.enumeration('activeThread', THREAD.__TYPES),
+      THREAD.POST
+    ),
+    /* activeThread: t.optional(t.enumerable t.string, 'posts'), */
   })
   .views(self => ({
     get root() {

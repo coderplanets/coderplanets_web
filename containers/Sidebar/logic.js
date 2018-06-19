@@ -9,6 +9,7 @@ import {
   ERR,
   makeDebugger,
   EVENT,
+  THREAD,
   dispatchEvent,
 } from '../../utils'
 import S from './schema'
@@ -33,7 +34,7 @@ export function pin() {
 export function onCommunitySelect(community) {
   /* console.log('community --> ', community) */
   sidebar.markRoute({ community: community.raw, thread: 'posts' })
-  sidebar.loadCurCommunity({ activeThread: 'posts' })
+  sidebar.loadCurCommunity({ activeThread: THREAD.POST })
 
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
 }

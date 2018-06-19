@@ -102,3 +102,13 @@ export const serializeQuery = obj => {
   return R.isEmpty(qstring) ? '' : `?${qstring}`
   /* eslint-enable */
 }
+
+const TR_MAP = {
+  posts: 'post',
+  jobs: 'job',
+  post: 'posts',
+  job: 'jobs',
+}
+
+export const subPath2Thread = path => TR_MAP[path] || ''
+export const thread2Subpath = thread => TR_MAP[thread] || ''
