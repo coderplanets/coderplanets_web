@@ -15,16 +15,19 @@ const debug = makeDebugger('L:Route')
 
 let route = null
 
-const browerHistoryChanged = mainPath => {
+const browerHistoryChanged = (mainPath, subPath) => {
   const otherPages = ['user', 'post', 'job']
-  if (
+  const mainPathChange =
     !R.isEmpty(route.mainPath) &&
     !R.contains(mainPath, otherPages) &&
     mainPath !== route.mainPath
-  ) {
-    /* console.log('=========================') */
-    /* console.log('browerHistoryChanged !') */
-    /* console.log('=========================') */
+
+  const subPathChange = !R.isEmpty(route.subPath) && subPath !== route.subPath
+
+  if (mainPathChange || subPathChange) {
+    console.log('=========================')
+    console.log('browerHistoryChanged !')
+    console.log('=========================')
     return true
   }
   return false
@@ -46,7 +49,7 @@ export function syncRoute(routeObj) {
   /* console.log('--cur route.mainPath: ', route.mainPath) */
 
   // NOTE: this only works for brower btn change
-  if (browerHistoryChanged(mainPath)) {
+  if (browerHistoryChanged(mainPath, subPath)) {
     dispatchEvent(EVENT.COMMUNITY_CHANGE)
   }
 

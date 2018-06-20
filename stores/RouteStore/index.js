@@ -33,16 +33,15 @@ const RouteStore = t
     },
   }))
   .actions(self => ({
-    // default is nav to index page(community)
-    // use _page if nav to spectial page
-    // example:
-    // markRoute({ _page: 'post', id: 123, comments_page: 1 })
-    // markRoute({ _page: 'user', id: 123, comments_page: 1 })
     markRoute(query) {
-      const { _page, id, community, thread, page } = query
-      if (community && thread) {
-        self.mainPath = community
-        self.subPath = thread
+      if (!onClient) return false
+      const { mainPath, subPath, page } = query
+
+      if (mainPath) {
+        self.mainPath = mainPath
+      }
+      if (subPath) {
+        self.subPath = subPath
       }
 
       if (page && String(page) === '1') {
@@ -50,26 +49,16 @@ const RouteStore = t
       }
 
       const allQueryString = serializeQuery(query)
+      const queryString = serializeQuery(R.omit(['mainPath', 'subPath'], query))
 
-      const otherQuery = R.omit(['community', 'thread'], query)
-      const queryString = serializeQuery(otherQuery)
-
-      let url = `/${allQueryString}`
-      let asPath = `/${community}/${thread}${queryString}`
-
-      if (_page) {
-        const restQueryString = serializeQuery(R.omit(['_page', 'id'], query))
-        url = `/${_page}/${id}${restQueryString}`
-        asPath = `/${_page}/${id}${restQueryString}`
-      }
+      const url = `/${allQueryString}`
+      const asPath = `/${self.mainPath}/${self.subPath}${queryString}`
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
-      if (onClient) {
-        Router.push(url, asPath, {
-          shallow: true,
-        })
-      }
+      Router.push(url, asPath, {
+        shallow: true,
+      })
       // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
       /* return Global.history.pushState({}, null, url) */
     },

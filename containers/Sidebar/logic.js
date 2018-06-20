@@ -10,6 +10,8 @@ import {
   makeDebugger,
   EVENT,
   dispatchEvent,
+  thread2Subpath,
+  THREAD,
 } from '../../utils'
 import S from './schema'
 
@@ -32,7 +34,11 @@ export function pin() {
 
 export function onCommunitySelect(community) {
   debug('onCommunitySelect --> ', community)
-  sidebar.markRoute({ community: community.raw, thread: 'posts' })
+  /* sidebar.markRoute({ community: community.raw, thread: 'posts' }) */
+  sidebar.markRoute({
+    mainPath: community.raw,
+    subPath: thread2Subpath(THREAD.POST),
+  })
   /* sidebar.loadCurCommunity({ activeThread: THREAD.POST }) */
 
   dispatchEvent(EVENT.COMMUNITY_CHANGE)

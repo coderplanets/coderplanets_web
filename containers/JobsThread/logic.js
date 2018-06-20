@@ -51,9 +51,8 @@ export function outAnchor() {
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = jobsThread.curRoute */
   scrollIntoEle(TYPE.APP_HEADER_ID)
-  const { mainPath, subPath } = jobsThread.curRoute
+  const { mainPath } = jobsThread.curRoute
   const community = mainPath
-  const thread = subPath
 
   jobsThread.markState({ curView: TYPE.LOADING })
 
@@ -70,11 +69,8 @@ export function loadJobs(page = 1) {
 
   args.filter = validFilter(args.filter)
 
-  jobsThread.markRoute({
-    community,
-    thread,
-    page,
-  })
+  debug('loadJobs args: ', args)
+  jobsThread.markRoute({ page })
   sr71$.query(S.pagedJobs, args)
 }
 
@@ -144,7 +140,7 @@ const DataSolver = [
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
       loadJobs()
-      later(loadTags, 500)
+      later(loadTags, 300)
     },
   },
   {

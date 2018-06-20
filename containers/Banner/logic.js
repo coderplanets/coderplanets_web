@@ -28,12 +28,7 @@ export function loadCommunity() {
 }
 
 export function tabberChange(thread) {
-  // main should be current community title
-  /* const community = R.toLower(banner.curCommunity.raw) */
-  const community = banner.curRoute.mainPath
-  const subPath = thread2Subpath(thread)
-
-  banner.markRoute({ community, thread: subPath })
+  banner.markRoute({ subPath: thread2Subpath(thread) })
   banner.loadCurCommunity({ activeThread: thread })
 }
 

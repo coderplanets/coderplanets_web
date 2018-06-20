@@ -65,10 +65,11 @@ export function previewAccount() {
 }
 
 export function onThreadChange(thread) {
-  const community = header.curRoute.mainPath
+  /* const community = header.curRoute.mainPath */
   const activeThread = thread.raw
 
-  header.markRoute({ community, thread: thread2Subpath(activeThread) })
+  /* header.markRoute({ community, thread: thread2Subpath(activeThread) }) */
+  header.markRoute({ subPath: thread2Subpath(activeThread) })
   header.loadCurCommunity({ activeThread })
 }
 

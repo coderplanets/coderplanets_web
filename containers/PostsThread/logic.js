@@ -50,9 +50,8 @@ export function outAnchor() {
 
 export function loadPosts(page = 1) {
   /* const { community, activeThread } = postsThread.curCommunity */
-  const { mainPath, subPath } = postsThread.curRoute
+  const { mainPath } = postsThread.curRoute
   const community = mainPath
-  const thread = subPath
 
   postsThread.markState({ curView: TYPE.LOADING })
 
@@ -70,11 +69,7 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  postsThread.markRoute({
-    community,
-    thread,
-    page,
-  })
+  postsThread.markRoute({ page })
   debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
 }

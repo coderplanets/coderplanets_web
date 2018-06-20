@@ -106,7 +106,6 @@ const PostsThreadStore = t
     selectFilter(filter, val) {
       // TODO
       const community = 'javascript'
-      debug('curCommunity', self.curCommunity)
       const curFilter = self.filters.get(community, filter)
       const newFilter = curFilter
         ? R.merge(curFilter, { [filter]: val })
