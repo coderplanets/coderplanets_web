@@ -135,11 +135,10 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      return jobsThread.markState({
+    action: ({ partialTags }) =>
+      jobsThread.markState({
         tags: partialTags,
-      })
-    },
+      }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -149,11 +148,8 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.REFRESH_POSTS),
-    action: res => {
-      debug('EVENT.REFRESH_POSTS: ', res)
-      loadJobs()
-    },
+    match: asyncRes(EVENT.REFRESH_JOBS),
+    action: () => loadJobs(),
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
