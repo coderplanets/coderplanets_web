@@ -8,13 +8,14 @@ export { default as SidebarStore } from './SidebarStore'
 export { default as PreviewStore } from './PreviewStore'
 export { default as DoraemonStore } from './DoraemonStore'
 export { default as HeaderStore } from './HeaderStore'
-export { default as BannerStore } from './BannerStore'
 export { default as ContentStore } from './ContentStore'
 
 export { default as CurCommunityStore } from './CurCommunityStore'
 
 // banners store
+export { default as BannerStore } from './BannerStore'
 export { default as PostBannerStore } from './PostBannerStore'
+export { default as CommunitiesBannerStore } from './CommunitiesBannerStore'
 
 // contents store
 export { default as CommunitiesContentStore } from './CommunitiesContentStore'

@@ -21,6 +21,7 @@ const SimpleUser = t.model('SimpleUser', {
 export const Category = t.model('Category', {
   id: t.maybe(t.string),
   title: t.maybe(t.string),
+  raw: t.maybe(t.string),
   communities: t.optional(t.array(SimpleCommunity), []),
   author: t.optional(SimpleUser, {}),
   insertedAt: t.optional(t.string, ''),

@@ -67,7 +67,7 @@ const HeaderStore = t
       self.root.curCommunity.load(sobj)
     },
     markRoute(query) {
-      self.root.route.markRoute(query)
+      self.root.markRoute(query)
     },
     handleLogin() {
       self.root.doraemon.handleLogin()

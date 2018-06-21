@@ -6,15 +6,15 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
+/* import { Post } from '../SharedModel' */
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:BannerStore')
 /* eslint-enable no-unused-vars */
 
 const BannerStore = t
-  .model('BannerStore', {
-    hehe: t.optional(t.string, ''),
-  })
+  .model('BannerStore', {})
   .views(self => ({
     get root() {
       return getParent(self)
@@ -23,26 +23,7 @@ const BannerStore = t
       return self.root.curRoute
     },
     get curCommunity() {
-      /* return self.root.communities.curCommunity */
       return stripMobx(self.root.curCommunity)
-    },
-    get detail() {
-      // type depands on route main_query
-      const { mainPath } = self.root.curRoute
-      let type = TYPE.COMMUNITY_PAGE
-
-      if (mainPath === 'post') {
-        type = TYPE.POST_PAGE
-      }
-
-      return {
-        // type: TYPE.ACTIVITIES_ROOT_PAGE,
-        /* type: TYPE.POST_PAGE, */
-        type,
-        /* type: TYPE.CHEATSHEET_ROOT_PAGE, */
-        /* type: TYPE.COMMUNITIES_ROOT_PAGE, */
-        content: self.root.curCommunity.data,
-      }
     },
   }))
   .actions(self => ({
@@ -50,7 +31,7 @@ const BannerStore = t
       self.root.curCommunity.load(sobj)
     },
     markRoute(query) {
-      self.root.route.markRoute(query)
+      self.root.markRoute(query)
     },
     markState(sobj) {
       markStates(sobj, self)

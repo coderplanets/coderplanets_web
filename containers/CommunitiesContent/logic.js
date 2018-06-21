@@ -27,7 +27,7 @@ export function loadCommunities() {
     filter: { page: 1, size: 20 },
     userHasLogin: communitiesContent.isLogin,
   }
-  sr71$.query(S.communities, args)
+  sr71$.query(S.pagedCommunities, args)
 }
 
 export function pageChange(page) {
@@ -36,7 +36,7 @@ export function pageChange(page) {
     userHasLogin: communitiesContent.isLogin,
   }
 
-  sr71$.query(S.communities, args)
+  sr71$.query(S.pagedCommunities, args)
 }
 
 export function subscribe(id) {
@@ -68,9 +68,9 @@ const cancleLoading = () => {
 
 const DataSolver = [
   {
-    match: asyncRes('communities'),
-    action: ({ communities }) => {
-      communitiesContent.loadCommunities(communities)
+    match: asyncRes('pagedCommunities'),
+    action: ({ pagedCommunities }) => {
+      communitiesContent.loadCommunities(pagedCommunities)
     },
   },
   {

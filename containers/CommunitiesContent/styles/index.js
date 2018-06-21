@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Img } from '../../../components'
 
 export const CommunityIcon = styled(Img)`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin-top: -40px;
 `
 
@@ -61,9 +61,12 @@ export const Divider = styled.div`
 export const GridWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const Wrapper = styled.div`
-  margin-top: 40px;
-  display: block;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `

@@ -62,8 +62,14 @@ export const TYPE = {
 }
 
 export const ROUTE = {
+  // NOTE: the lower-case is MUST
+  COMMUNITIES: 'communities',
+  CHEATSHEETS: 'cheatsheets',
+  ACTIVITIES: 'activities',
   POSTS: 'posts',
   JOBS: 'jobs',
+  POST: 'post',
+  JOB: 'JOB',
 }
 
 export const FILTER = {

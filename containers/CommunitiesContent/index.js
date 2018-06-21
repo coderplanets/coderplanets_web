@@ -72,7 +72,7 @@ const SubscribeBtn = ({
 
 const CommunityCard = ({ community, restProps }) => (
   <Card>
-    <CommunityIcon path={community.logo} />
+    <CommunityIcon src={community.logo} />
     <CardTitle>{community.title}</CardTitle>
     <CardDesc>{community.desc}</CardDesc>
     <ActivitySpark>

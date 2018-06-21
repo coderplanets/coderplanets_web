@@ -83,7 +83,7 @@ const SidebarStore = t
       self.root.curCommunity.load(sobj)
     },
     markRoute(query) {
-      self.root.route.markRoute(query)
+      self.root.markRoute(query)
     },
     loadSubscribedCommunities(data) {
       self.root.account.loadSubscribedCommunities(data)

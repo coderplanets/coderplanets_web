@@ -24,6 +24,7 @@ import {
   // banners
   BannerStore,
   PostBannerStore,
+  CommunitiesBannerStore,
 
   // threads
   PostsThreadStore,
@@ -79,12 +80,13 @@ const rootStore = t
     bodylayout: t.optional(BodylayoutStore, {}),
     apiLayout: t.optional(ApiLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
-    banner: t.optional(BannerStore, {}),
     content: t.optional(ContentStore, {}),
     // layouts end
 
     // banners
+    banner: t.optional(BannerStore, {}),
     postBanner: t.optional(PostBannerStore, {}),
+    communitiesBanner: t.optional(CommunitiesBannerStore, {}),
 
     // content
     communitiesContent: t.optional(CommunitiesContentStore, {}),
@@ -134,7 +136,9 @@ const rootStore = t
       // self.communities.load()
       self.sidebar.load()
     },
-
+    markRoute(query) {
+      self.route.markRoute(query)
+    },
     setHeaderFix(fix) {
       self.header.setFix(fix)
     },

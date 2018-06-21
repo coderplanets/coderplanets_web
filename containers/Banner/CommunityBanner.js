@@ -60,16 +60,16 @@ const CommunityBrief = ({ content }) => (
   </CommunityWrapper>
 )
 
-const CommunityBanner = ({ curCommunity, content }) => (
+const CommunityBanner = ({ curCommunity: { community, activeThread } }) => (
   <BannerContainer>
     <BannerContentWrapper>
-      <CommunityBrief content={content} />
-      <NumbersInfo content={content} />
+      <CommunityBrief content={community} />
+      <NumbersInfo content={community} />
       <TabberWrapper>
         <Tabber
-          source={content.threads}
+          source={community.threads}
           onChange={logic.tabberChange}
-          active={curCommunity.activeThread}
+          active={activeThread}
         />
       </TabberWrapper>
     </BannerContentWrapper>

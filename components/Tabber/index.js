@@ -26,13 +26,14 @@ const Tabber = ({ source, active, onChange }) => {
 
 Tabber.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   source: PropTypes.array.isRequired,
   active: PropTypes.string,
 }
 
 Tabber.defaultProps = {
   active: THREAD.POST,
+  onChange: debug,
 }
 
 export default Tabber

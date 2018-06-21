@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `
 
 export const LeftPadding = styled.div`
-  width: 4vw;
+  width: 2.5vw;
 `
 export const RightPadding = styled.div`
   width: 4vw;

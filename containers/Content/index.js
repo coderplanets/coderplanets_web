@@ -7,12 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, ROUTE } from '../../utils'
 
-import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
 import CommunityContent from '../../components/CommunityContent'
-import { PostContent } from '../../containers'
+import { CommunitiesContent, PostContent } from '../../containers'
 
 import * as logic from './logic'
 
@@ -22,15 +21,16 @@ import { Wrapper } from './styles'
 const debug = makeDebugger('C:Content')
 /* eslint-enable no-unused-vars */
 
-const renderContent = (curRoute, current) => {
-  switch (current.type) {
-    case TYPE.CHEATSHEET_ROOT_PAGE: {
+const renderContent = curRoute => {
+  const { mainPath } = curRoute
+  switch (mainPath) {
+    case ROUTE.CHEATSHEETS: {
       return <CheatSheetContent />
     }
-    case TYPE.COMMUNITIES_ROOT_PAGE: {
+    case ROUTE.COMMUNITIES: {
       return <CommunitiesContent />
     }
-    case TYPE.POST_PAGE: {
+    case ROUTE.POST: {
       return <PostContent />
     }
     default: {
@@ -45,9 +45,9 @@ class ContentContainer extends React.Component {
   }
 
   render() {
-    const { curRoute, current } = this.props.content
+    const { curRoute } = this.props.content
     //    debug('curRoute: ', curRoute)
-    return <Wrapper>{renderContent(curRoute, current)}</Wrapper>
+    return <Wrapper>{renderContent(curRoute)}</Wrapper>
   }
 }
 

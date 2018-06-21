@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-const communities = gql`
-  query communities($filter: PagedFilter!, $userHasLogin: Boolean!) {
-    communities(filter: $filter) {
+const pagedCommunities = gql`
+  query($filter: PagedFilter!, $userHasLogin: Boolean!) {
+    pagedCommunities(filter: $filter) {
       entries {
         id
         title
@@ -46,7 +46,7 @@ const unsubscribeCommunity = gql`
 `
 
 const schema = {
-  communities,
+  pagedCommunities,
   subscribeCommunity,
   unsubscribeCommunity,
 }

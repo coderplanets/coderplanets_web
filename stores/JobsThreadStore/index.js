@@ -123,7 +123,7 @@ const JobsThreadStore = t
       self.root.setHeaderFix(fix)
     },
     markRoute(query) {
-      self.root.route.markRoute(query)
+      self.root.markRoute(query)
     },
     markState(sobj) {
       markStates(sobj, self)

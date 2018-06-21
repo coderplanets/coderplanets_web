@@ -21,8 +21,10 @@ export { default as AccountViewer } from './AccountViewer'
 
 /* banners */
 export { default as PostBanner } from './PostBanner'
+export { default as CommunitiesBanner } from './CommunitiesBanner'
 
 /* contents */
+export { default as CommunitiesContent } from './CommunitiesContent'
 export { default as PostContent } from './PostContent'
 
 /* threads */

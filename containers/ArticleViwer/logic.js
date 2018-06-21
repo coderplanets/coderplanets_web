@@ -8,6 +8,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  ROUTE,
   $solver,
 } from '../../utils'
 
@@ -39,7 +40,7 @@ export function gotoPostPage(data) {
   debug('gotoPostPage data: ', data)
   const { id } = data
   closePreviewer()
-  articleViwer.markRoute({ _page: 'post', id })
+  articleViwer.markRoute({ mainPath: ROUTE.POST, subPath: id })
 }
 
 function loading(maybe = true) {

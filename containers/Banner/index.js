@@ -7,14 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { TYPE, makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, ROUTE } from '../../utils'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
-import CommunitiesRootBanner from './CommunitiesRootBanner'
 import CommunityBanner from './CommunityBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { PostBanner } from '../../containers'
+import { PostBanner, CommunitiesBanner } from '../../containers'
 
 import * as logic from './logic'
 
@@ -22,36 +21,23 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Banner')
 /* eslint-enable no-unused-vars */
 
-const onChange = e => {
-  logic.tabberChange(e)
-}
-
-const BannerContent = ({
-  curCommunity,
-  curRoute,
-  detail: { type, content },
-}) => {
-  switch (type) {
-    case TYPE.CHEATSHEET_ROOT_PAGE: {
+const BannerContent = ({ curCommunity, curRoute }) => {
+  const { mainPath } = curRoute
+  switch (mainPath) {
+    case ROUTE.CHEATSHEETS: {
       return <CheatsheetRootBanner />
     }
-    case TYPE.COMMUNITIES_ROOT_PAGE: {
-      return <CommunitiesRootBanner onChange={onChange} />
+    case ROUTE.COMMUNITIES: {
+      return <CommunitiesBanner />
     }
-    case TYPE.ACTIVITIES_ROOT_PAGE: {
+    case ROUTE.ACTIVITIES: {
       return <ActivitiesRootBanner />
     }
-    case TYPE.POST_PAGE: {
+    case ROUTE.POST: {
       return <PostBanner />
     }
     default:
-      return (
-        <CommunityBanner
-          curCommunity={curCommunity}
-          content={content}
-          curRoute={curRoute}
-        />
-      )
+      return <CommunityBanner curCommunity={curCommunity} />
   }
 }
 
@@ -62,7 +48,7 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curCommunity, curRoute, detail } = banner
+    const { curCommunity, curRoute } = banner
     // const { mainPath } = curRoute
     // debug('detail ---> ', detail)
 
@@ -71,7 +57,6 @@ class BannerContainer extends React.Component {
         curCommunity={curCommunity}
         curRoute={curRoute}
         banner={banner}
-        detail={detail}
       />
     )
   }
