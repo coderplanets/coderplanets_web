@@ -5,10 +5,13 @@ import initRootStore from '../../stores'
 import { GAWraper } from '../../components'
 
 import {
-  gqRequest,
-  getMainPath,
+  makeGQClient,
   queryStringToJSON,
+  getMainPath,
+  getSubPath,
   extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
 } from '../../utils'
 
 import {
@@ -24,6 +27,7 @@ import {
   Content,
 } from '../../containers'
 
+import BannerSchema from '../../containers/Banner/schema'
 import PostsThreadSchema from '../../containers/PostsThread/schema'
 
 import Footer from '../../components/Footer'
@@ -32,18 +36,25 @@ import Footer from '../../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
+  const { request } = makeGQClient()
+  // schema
+  const { communityRaw } = BannerSchema
+  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
+
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(props.asPath), community }
 
   // data
-  const pagedPosts = gqRequest(PostsThreadSchema.pagedPostsRaw, { filter })
-  const partialTags = gqRequest(PostsThreadSchema.partialTagsRaw, {
+  const curCommunity = request(communityRaw, { raw: community })
+  const pagedPosts = request(pagedPostsRaw, { filter })
+  const partialTags = request(partialTagsRaw, {
     thread,
     community,
   })
 
   return {
+    ...(await curCommunity),
     ...(await pagedPosts),
     ...(await partialTags),
   }
@@ -58,7 +69,11 @@ export default class Posts extends React.Component {
     console.log('SSR ## community (in javascript)index ##: ', asPath)
     console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
 
-    const { pagedPosts, partialTags } = await fetchData(props)
+    const thread = getSubPath(props)
+    const curView =
+      pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+
+    const { community, pagedPosts, partialTags } = await fetchData(props)
 
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
@@ -67,8 +82,10 @@ export default class Posts extends React.Component {
 
     return {
       langSetup: {},
+      curCommunity: { community, activeThread: subPath2Thread(thread) },
       postsThread: {
         pagedPosts,
+        curView,
         tags: partialTags,
       },
     }

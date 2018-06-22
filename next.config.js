@@ -26,23 +26,23 @@ module.exports = {
 
   webpack: (config, { isServer }) => {
     /*
-    config.module.rules.push({
-      test: /\.md$/,
-      loader: 'raw-loader',
-    })
-    */
+       config.module.rules.push({
+       test: /\.md$/,
+       loader: 'raw-loader',
+       })
+     */
     /*
-    config.module.rules.push(
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(svg|eot|ttf|woff|woff2)$/,
-        use: 'url-loader',
-      }
-    )
-    */
+       config.module.rules.push(
+       {
+       test: /\.css$/,
+       use: ['style-loader', 'css-loader'],
+       },
+       {
+       test: /\.(svg|eot|ttf|woff|woff2)$/,
+       use: 'url-loader',
+       }
+       )
+     */
 
     if (ANALYZE) {
       config.plugins.push(
@@ -52,7 +52,6 @@ module.exports = {
           openAnalyzer: true,
         })
       )
-      return config
     }
 
     config.plugins.push(

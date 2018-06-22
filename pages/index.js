@@ -25,6 +25,7 @@ export default class Index extends React.Component {
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
     // console.log('SSR getInitialProps ------> ', req.headers)
+    console.log('## index page talking ##')
     const { locale, messages } = req || window.__NEXT_DATA__.props
     const langSetup = {}
     langSetup[locale] = messages

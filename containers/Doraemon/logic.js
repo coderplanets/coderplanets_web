@@ -1,11 +1,10 @@
 import R from 'ramda'
 import Router from 'next/router'
-import store from 'store'
 
 import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
-import { makeDebugger, Global, dispatchEvent, EVENT } from '../../utils'
+import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 import oauthPopup from './oauth_window'
@@ -47,7 +46,7 @@ function simuUserLogin() {
     fromGithub: true,
   }
 
-  store.set('user', data)
+  BStore.set('user', data)
 
   doraemon.updateAccount(data)
 }
@@ -67,7 +66,6 @@ export function githubLoginHandler() {
   // sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   // checkUserAccount()
   // return false
-  // store.set('user', { token: user_token })
   // signinGithub('71b0c5169ebbb7a124b9')
   /* reference */
   /* http://www.graphql.college/implementing-github-oauth-flow-in-react */

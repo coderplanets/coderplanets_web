@@ -119,22 +119,24 @@ class CommunitiesContentContainer extends React.Component {
   }
 
   render() {
-    const { communities } = this.props.communitiesContent
-
+    const { pagedCommunitiesData } = this.props.communitiesContent
     return (
       <Wrapper>
-        <CommunitiesGrid
-          entries={communities.entries}
-          restProps={{ ...this.props.communitiesContent }}
-        />
-
-        <Pagi
-          left="-10px"
-          pageNumber={communities.pageNumber}
-          pageSize={communities.pageSize}
-          totalCount={communities.totalCount}
-          onChange={logic.pageChange}
-        />
+        {pagedCommunitiesData ? (
+          <React.Fragment>
+            <CommunitiesGrid
+              entries={pagedCommunitiesData.entries}
+              restProps={{ ...this.props.communitiesContent }}
+            />
+            <Pagi
+              left="-10px"
+              pageNumber={pagedCommunitiesData.pageNumber}
+              pageSize={pagedCommunitiesData.pageSize}
+              totalCount={pagedCommunitiesData.totalCount}
+              onChange={logic.pageChange}
+            />
+          </React.Fragment>
+        ) : null}
       </Wrapper>
     )
   }

@@ -1,4 +1,10 @@
-import { makeDebugger, asyncRes, $solver } from '../../utils'
+import {
+  makeDebugger,
+  asyncRes,
+  $solver,
+  dispatchEvent,
+  EVENT,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
@@ -22,6 +28,7 @@ export function tabOnChange(activeRaw) {
   communitiesBanner.markState({
     activeRaw,
   })
+  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeRaw })
 }
 // ###############################
 // Data & Error handlers

@@ -5,7 +5,7 @@ import initRootStore from '../../stores'
 import { GAWraper } from '../../components'
 
 import {
-  gqRequest,
+  makeGQClient,
   getMainPath,
   getSubPath,
   queryStringToJSON,
@@ -36,17 +36,20 @@ import Footer from '../../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
+  const { request } = makeGQClient()
+  // schema
+  const { communityRaw } = BannerSchema
+  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
+
+  // utils
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(props.asPath), community }
 
   // data
-  const curCommunity = gqRequest(BannerSchema.communityRaw, { raw: community })
-  const pagedPosts = gqRequest(PostsThreadSchema.pagedPostsRaw, { filter })
-  const partialTags = gqRequest(PostsThreadSchema.partialTagsRaw, {
-    thread,
-    community,
-  })
+  const curCommunity = request(communityRaw, { raw: community })
+  const pagedPosts = request(pagedPostsRaw, { filter })
+  const partialTags = request(partialTagsRaw, { thread, community })
 
   return {
     ...(await pagedPosts),

@@ -1,6 +1,4 @@
 // import R from 'ramda'
-import store from 'store'
-
 import {
   asyncRes,
   asyncErr,
@@ -12,6 +10,7 @@ import {
   ERR,
   $solver,
   thread2Subpath,
+  BStore,
   // getParameterByName,
 } from '../../utils'
 
@@ -47,7 +46,7 @@ export function signinGithub(code) {
 
 export function checkUserAccount() {
   // debug('checkUserAccount: to get user breif')
-  const user = store.get('user')
+  const user = BStore.get('user')
   if (user) {
     // NOTICE: if store is not valid json, user will be typeof string
     // header.updateAccount({ ...user })
@@ -106,7 +105,6 @@ const DataSolver = [
     match: asyncRes('user'),
     action: ({ user }) => {
       debug('dataResolver userRes  --->', user)
-      /* store.set('user', { ...data }) */
       header.updateAccount(user)
     },
   },

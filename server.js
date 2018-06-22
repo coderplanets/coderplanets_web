@@ -55,6 +55,7 @@ const getMessages = locale => {
 // const homeQuery = route('/home/:name')
 // const communityQuery = route('/:main')
 const indexQuery = route('/:index')
+const communitiesQuery = route('/communities/:category')
 const communityQuery = route('/:community/:thread')
 const heartQuery = route('/_next/:page?')
 const localeQuery = route('/locale/:lang')
@@ -77,6 +78,9 @@ app.prepare().then(() => {
       return handle(req, res)
     } else if (indexQuery(pathname)) {
       return app.render(req, res, '/', query)
+    } else if (communitiesQuery(pathname)) {
+      console.log('goto communities page: ', pathname)
+      return app.render(req, res, '/communities', query)
     } else if (communityQuery(pathname)) {
       console.log('goto community page: ', pathname)
       return app.render(req, res, '/community', query)

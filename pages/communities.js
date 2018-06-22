@@ -1,3 +1,6 @@
+/*
+   this page is for /communities
+ */
 import React from 'react'
 import { Provider } from 'mobx-react'
 
@@ -7,11 +10,9 @@ import { GAWraper } from '../components'
 import {
   makeGQClient,
   queryStringToJSON,
-  getMainPath,
+  nilOrEmpty,
   getSubPath,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
+  BStore,
 } from '../utils'
 
 import {
@@ -27,8 +28,8 @@ import {
   Content,
 } from '../containers'
 
-import BannerSchema from '../containers/Banner/schema'
-import PostsThreadSchema from '../containers/PostsThread/schema'
+import CommunitiesSchema from '../containers/CommunitiesContent/schema'
+/* import PostsThreadSchema from '../containers/PostsThread/schema' */
 
 import Footer from '../components/Footer'
 // try to fix safari bug
@@ -36,25 +37,23 @@ import Footer from '../components/Footer'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
-  // schema
-  const { communityRaw } = BannerSchema
-  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
+  /* const community = getMainPath(props) */
+  /* const thread = extractThreadFromPath(props) */
+  /* const category = getSubPath(props) */
+  const filter = { ...queryStringToJSON(props.asPath) }
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
 
-  // utils
-  const community = getMainPath(props)
-  const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(props.asPath), community }
-
-  // query data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedPosts = request(pagedPostsRaw, { filter })
-  const partialTags = request(partialTagsRaw, { thread, community })
+  const pagedCommunities = gqClient.request(
+    CommunitiesSchema.pagedCommunitiesRaw,
+    {
+      filter,
+      userHasLogin: nilOrEmpty(token) === false,
+    }
+  )
 
   return {
-    ...(await curCommunity),
-    ...(await pagedPosts),
-    ...(await partialTags),
+    ...(await pagedCommunities),
   }
 }
 
@@ -68,13 +67,19 @@ export default class Index extends React.Component {
       'SSR (community) queryStringToJSON: ',
       queryStringToJSON(asPath)
     )
-    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const thread = getSubPath(props)
-    /* console.log('getSubPath --> thread: ', thread) */
+    /* console.log('props --> ', props.req.headers.cookie) */
+    console.log(
+      'read_from(BStore cookie)--> ',
+      /* read_from(props.req.headers.cookie, '_ga') */
+      BStore.cookie.from_req(props.req, 'jwtToken')
+    )
 
-    const { pagedPosts, partialTags, community } = await fetchData(props)
-    const curView =
-      pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
+    const category = getSubPath(props)
+    console.log('getSubPath --> category: ', category)
+
+    const { pagedCommunities } = await fetchData(props)
+    /* console.log('communities ->> ', pagedCommunities) */
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
@@ -83,11 +88,8 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
-      curCommunity: { community, activeThread: subPath2Thread(thread) },
-      postsThread: {
-        pagedPosts,
-        curView,
-        tags: partialTags,
+      communitiesContent: {
+        pagedCommunities,
       },
     }
   }

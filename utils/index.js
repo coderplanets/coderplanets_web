@@ -11,6 +11,7 @@ export {
   mapKeys,
   isObject,
   notEmpty,
+  nilOrEmpty,
   getRandomInt,
   isEmptyValue,
   Global,
@@ -25,7 +26,7 @@ export {
   extractAttachments,
 } from './functions'
 
-export { gqRequest, asyncErr, asyncRes, later } from './graphql_helper'
+export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
 
 export {
   getMainPath,
@@ -72,5 +73,6 @@ export {
 
 export { default as fakeUsers } from './fake_user'
 
+export { default as BStore } from './bstore'
 export { default as GA } from './analytics'
 export { Trans } from './i18n'

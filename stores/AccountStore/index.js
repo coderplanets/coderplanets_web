@@ -65,7 +65,7 @@ const AccountStore = t
       self.user.subscribedCommunities.entries = R.insert(0, community, entries)
       self.user.subscribedCommunities.totalCount += 1
 
-      self.root.communities.toggleSubscribe(community)
+      self.root.communitiesContent.toggleSubscribe(community)
     },
 
     removeSubscribedCommunity(community) {
@@ -78,7 +78,8 @@ const AccountStore = t
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.user.subscribedCommunities.entries = R.remove(index, 1, entries)
       self.user.subscribedCommunities.totalCount -= 1
-      self.root.communities.toggleSubscribe(community)
+
+      self.root.communitiesContent.toggleSubscribe(community)
     },
 
     markState(sobj) {

@@ -8,6 +8,7 @@ import R from 'ramda'
 import { makeDebugger, markStates, stripMobx } from '../../utils'
 /* import MenuItem from './MenuItemStore' */
 
+// TODO: remove
 const menuItemConveter = R.compose(
   R.map(item => ({
     id: item.id,
@@ -76,9 +77,6 @@ const SidebarStore = t
     },
   }))
   .actions(self => ({
-    load() {
-      // const communities = self.root.communities.all
-    },
     loadCurCommunity(sobj) {
       self.root.curCommunity.load(sobj)
     },

@@ -26,6 +26,7 @@ export const mapKeys = R.curry((fn, obj) => {
   )
 })
 
+export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
 export const notEmpty = R.compose(
   R.not,
   R.isEmpty

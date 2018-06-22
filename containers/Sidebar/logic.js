@@ -1,6 +1,4 @@
 // import R from 'ramda'
-import store from 'store'
-
 // const debug = makeDebugger('L:sidebar')
 import {
   asyncRes,
@@ -12,6 +10,7 @@ import {
   dispatchEvent,
   thread2Subpath,
   THREAD,
+  BStore,
 } from '../../utils'
 import S from './schema'
 
@@ -46,7 +45,7 @@ export function onCommunitySelect(community) {
 
 export function loadSubscribedCommunities() {
   // const { accountInfo, isLogin } = sidebar
-  const user = store.get('user')
+  const user = BStore.get('user')
 
   const args = {
     filter: { page: 1, size: 30 },

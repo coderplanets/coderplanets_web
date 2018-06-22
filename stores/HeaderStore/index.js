@@ -25,7 +25,6 @@ const HeaderStore = t
     },
 
     get curCommunity() {
-      /* return self.root.communities.curCommunity */
       return stripMobx(self.root.curCommunity)
     },
 

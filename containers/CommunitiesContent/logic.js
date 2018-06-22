@@ -1,5 +1,4 @@
 // import R from 'ramda'
-
 import {
   asyncRes,
   asyncErr,
@@ -7,12 +6,13 @@ import {
   ERR,
   makeDebugger,
   EVENT,
+  BStore,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGOUT, EVENT.LOGIN],
+  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.REFRESH_COMMUNITIES],
 })
 
 /* eslint-disable no-unused-vars */
@@ -22,21 +22,22 @@ const debug = makeDebugger('L:CommunitiesContent')
 let communitiesContent = null
 let sub$ = null
 
-export function loadCommunities() {
-  const args = {
-    filter: { page: 1, size: 20 },
-    userHasLogin: communitiesContent.isLogin,
-  }
-  sr71$.query(S.pagedCommunities, args)
-}
-
-export function pageChange(page) {
+export function loadCommunities(page = 1, category = 'all') {
   const args = {
     filter: { page, size: 20 },
     userHasLogin: communitiesContent.isLogin,
   }
 
+  if (category !== 'all') {
+    args.filter.category = category
+  }
+
   sr71$.query(S.pagedCommunities, args)
+}
+
+export function pageChange(page) {
+  // TODO: merge category args
+  loadCommunities(page)
 }
 
 export function subscribe(id) {
@@ -69,27 +70,30 @@ const cancleLoading = () => {
 const DataSolver = [
   {
     match: asyncRes('pagedCommunities'),
-    action: ({ pagedCommunities }) => {
-      communitiesContent.loadCommunities(pagedCommunities)
-    },
+    action: ({ pagedCommunities }) =>
+      communitiesContent.markState({ pagedCommunities }),
   },
   {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
       communitiesContent.addSubscribedCommunity(subscribeCommunity)
-      communitiesContent.markState({
-        subscribing: false,
-      })
+      communitiesContent.markState({ subscribing: false })
     },
   },
   {
     match: asyncRes('unsubscribeCommunity'),
     action: ({ unsubscribeCommunity }) => {
-      debug('unsubscribeCommunity: ', unsubscribeCommunity)
       communitiesContent.removeSubscribedCommunity(unsubscribeCommunity)
-      communitiesContent.markState({
-        subscribing: false,
-      })
+      communitiesContent.markState({ subscribing: false })
+    },
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_COMMUNITIES),
+    action: res => {
+      const { data } = res[EVENT.REFRESH_COMMUNITIES]
+
+      console.log('REFRESH_COMMUNITIES: ', data)
+      loadCommunities(1, data)
     },
   },
   {
@@ -133,5 +137,11 @@ export function init(selectedStore) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadCommunities()
+  /* loadCommunities() */
+
+  const user = BStore.get('user')
+  if (user) {
+    BStore.cookie.set('jwtToken', user.token)
+  }
+  console.log('-----> from BStore user: ', user)
 }

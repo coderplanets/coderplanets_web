@@ -7,7 +7,6 @@ import { types as t } from 'mobx-state-tree'
 
 import { makeDebugger, markStates } from '../../utils'
 import RouteStore from '../RouteStore'
-import CommunitiesStore from '../CommunitiesStore'
 import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import {
@@ -60,7 +59,6 @@ const rootStore = t
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
     curCommunity: t.optional(CurCommunityStore, {}),
-    communities: t.optional(CommunitiesStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
@@ -134,7 +132,6 @@ const rootStore = t
   .actions(self => ({
     afterCreate() {
       // self.communities.load()
-      self.sidebar.load()
     },
     markRoute(query) {
       self.route.markRoute(query)

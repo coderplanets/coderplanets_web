@@ -90,10 +90,6 @@ const DoraemonStore = t
       }, R.map(convertThreadsToMaps, entries))
 
       return R.merge(subscribedCommunitiesMaps, cmds)
-      /* return R.mergeAll([self.root.communities.all, mapKeys(R.toLower, cmds)]) */
-    },
-    get communities() {
-      return self.root.communities.all
     },
     get suggestionCount() {
       return self.suggestions.length

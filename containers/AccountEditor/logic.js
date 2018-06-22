@@ -10,6 +10,7 @@ import {
   ERR,
   TYPE,
   meteorState,
+  nilOrEmpty,
 } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
@@ -52,7 +53,6 @@ const updatableAttrs = [
   'sex',
 ]
 
-const nilOrEmpty = R.either(R.isNil, R.isEmpty)
 const hasValue = R.compose(
   R.not,
   nilOrEmpty
