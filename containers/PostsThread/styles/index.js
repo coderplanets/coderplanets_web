@@ -39,7 +39,7 @@ export const FilterWrapper = styled.div`
 export const FilterResultHint = styled.div`
   margin-top: 4px;
   margin-right: 10px;
-  color: ${theme('paper.filter_result_hint')};
+  color: ${theme('thread.filter_result_hint')};
 `
 
 /* border-bottom: 1px solid #ececec; */
@@ -58,14 +58,16 @@ export const PostWrapper = styled.div`
   border-radius: 4px;
   background: ${props =>
     props.current.id === props.active.id
-      ? props.theme.paper.article_hover
+      ? props.theme.thread.article_hover
       : ''};
+  background: ${props =>
+    props.index % 2 === 0 ? theme('thread.article_strip') : ''};
   opacity: ${props =>
     props.active.id && props.current.id !== props.active.id ? 0.6 : 1};
 
   &:hover {
     cursor: pointer;
-    background: ${theme('paper.article_hover')};
+    background: ${theme('thread.article_hover')};
   }
 `
 export const PostMain = styled.div`
@@ -90,7 +92,7 @@ export const PostBreif = styled.div`
   display: flex;
   flex-grow: 1;
   margin-left: 10px;
-  color: ${theme('paper.article_title')};
+  color: ${theme('thread.article_title')};
 `
 
 export const PostTitle = styled.div`
@@ -147,7 +149,7 @@ export const PostExtra = styled.li`
 
 export const PostBodyBreif = styled.li`
   margin-top: 5px;
-  color: ${theme('paper.article_brief')};
+  color: ${theme('thread.article_brief')};
   margin-right: 20px;
   white-space: normal;
   display: block;

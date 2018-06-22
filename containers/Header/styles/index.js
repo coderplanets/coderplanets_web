@@ -15,8 +15,10 @@ export const HeaderWrapper = styled.div`
   padding: 0 4vw;
   margin-left: ${props => props.leftOffset};
   transition: all 0.2s;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(234, 234, 234, 0.28);
+  box-shadow: ${theme('preview.shadow')};
 `
+// box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(234, 234, 234, 0.28);
+
 // margin-left: ${props => (props.offsetLeft ? '180px' : '0')};
 
 export const RouterWrapper = styled.div`
@@ -43,16 +45,16 @@ export const CommunityLogo = styled(Img)`
 /*
    border-bottom: 2px solid;
    border-bottom-color: ${props =>
-   props.active ? theme('paper.article_title') : theme('header.fixed')};
+   props.active ? theme('thread.article_title') : theme('header.fixed')};
  */
 
-// ${theme('paper.article_title', props)}
+// ${theme('thread.article_title', props)}
 // border-bottom: ${props => (props.active ? '2px solid tomato' : '')};
 
 export const MiniTab = styled.div`
   border-bottom: ${props => (props.active ? '3px solid' : '')};
   border-bottom-color: ${props =>
-    props.active ? theme('paper.article_title') : ''};
+    props.active ? theme('thread.article_title') : ''};
   padding-bottom: ${props => (props.active ? '2px' : '5px')};
   padding-right: 5px;
   padding-left: 5px;
@@ -61,7 +63,7 @@ export const MiniTab = styled.div`
     props.active ? theme('header.tab_active') : theme('header.tab_others')};
   cursor: pointer;
 `
-// color: ${theme('paper.article_brief')};
+// color: ${theme('thread.article_brief')};
 
 // color: ${theme('header.fg')};
 // margin-right: 25px;

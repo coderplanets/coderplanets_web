@@ -58,8 +58,8 @@ import {
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-const PostItem = ({ post, active }) => (
-  <PostWrapper current={post} active={active}>
+const PostItem = ({ post, active, index }) => (
+  <PostWrapper current={post} active={active} index={index}>
     <div>
       <PostAvatar
         src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
@@ -104,8 +104,13 @@ const View = ({ community, thread, posts, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {posts.map(post => (
-            <PostItem post={post} key={shortid.generate()} active={active} />
+          {posts.map((post, index) => (
+            <PostItem
+              post={post}
+              key={shortid.generate()}
+              active={active}
+              index={index}
+            />
           ))}
         </React.Fragment>
       )

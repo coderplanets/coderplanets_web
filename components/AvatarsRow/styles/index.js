@@ -26,7 +26,7 @@ export const AvatarsItem = styled.li`
 
 export const AvatarsImg = styled.img`
   border: 2px solid;
-  border-color: ${theme('paper.comments_user_border')};
+  border-color: ${theme('thread.comments_user_border')};
   border-radius: 100px 100px 100px 100px;
   color: #ffffff;
   display: block;

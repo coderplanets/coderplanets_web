@@ -1,13 +1,15 @@
 /*
  * a theme inspired by rethinkdb: https://rethinkdb.com/
-*/
+ */
 
 import { lighten, darken } from 'polished'
 
 const primaryColor = '#5EABB3'
-const topHalfBg = '#DAE6E5' // header, banner ...
-const secondHalfBg = '#f9fcfc' // main content
-const mainBg = '#E4EEED'
+
+const bannerBg = '#DAE6E5'
+const contentBg = '#E4EEED'
+
+const contentBoxBg = '#f9fcfc'
 
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
@@ -15,47 +17,48 @@ const sidebarBg = '#1C4752'
 const markdownFont = '#839496'
 
 const Cyan = {
-  htmlBg: topHalfBg,
+  htmlBg: bannerBg,
   loading: {
-    basic: topHalfBg,
-    animate: lighten(0.03, topHalfBg),
+    basic: bannerBg,
+    animate: lighten(0.03, bannerBg),
   },
   error: {
     title: primaryColor,
     desc: darken(0.1, primaryColor),
-    bg: lighten(0.02, secondHalfBg),
+    bg: lighten(0.02, contentBoxBg),
   },
 
   font: fontColor,
   link: 'orange',
   main: '#7DC0C5',
-  body_bg: mainBg,
+  body_bg: contentBg,
   selection_bg: 'tomato',
   header: {
     fg: primaryColor,
-    bg: topHalfBg,
-    spliter: `1px solid ${darken(0.04, topHalfBg)}`,
-    fixed: secondHalfBg,
+    bg: bannerBg,
+    spliter: `1px solid ${darken(0.04, bannerBg)}`,
+    fixed: contentBoxBg,
     tab_active: '#61868c', // article_title
     tab_others: lighten(0.1, '#849ca0'), // article_brief
   },
   banner: {
     fg: primaryColor,
-    bg: topHalfBg,
+    bg: bannerBg,
     desc: '#a3bbbd',
-    spliter: `1px solid ${darken(0.04, topHalfBg)}`,
+    spliter: `1px solid ${darken(0.04, bannerBg)}`,
     number_desc: '#a7bbbf',
     number: '#5c868b',
     number_divider: '#ccdcde',
     number_hover_bg: '#e4ecec',
   },
-  paper: {
-    bg: secondHalfBg,
+  thread: {
+    bg: contentBoxBg,
     filter_result_hint: '#edc48a',
     article_title: '#61868c',
     article_hover: '#f3f6f9',
+    article_strip: contentBoxBg,
     article_brief: '#a2c0c5',
-    comments_user_border: secondHalfBg,
+    comments_user_border: contentBoxBg,
   },
   pagination: {
     item_bg: '#cbe7ea',
@@ -65,7 +68,7 @@ const Cyan = {
     inactive_num: 'white',
   },
   content: {
-    bg: secondHalfBg,
+    bg: contentBoxBg,
   },
   sidebar: {
     bg: sidebarBg,
@@ -75,7 +78,7 @@ const Cyan = {
   },
   preview: {
     font: primaryColor,
-    bg: mainBg,
+    bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
     editor_container_bg: '#F9FCFC',
     editor_header_bg: '#F9FCFC',
@@ -105,14 +108,14 @@ const Cyan = {
     strongFg: lighten(0.2, markdownFont),
     strongBg: '#34535C',
     link: 'orange',
-    tableBg: darken(0.01, secondHalfBg),
-    tableBg2n: darken(0.05, secondHalfBg),
-    tableborder: `1px solid ${darken(0.1, secondHalfBg)}`,
+    tableBg: darken(0.01, contentBoxBg),
+    tableBg2n: darken(0.05, contentBoxBg),
+    tableborder: `1px solid ${darken(0.1, contentBoxBg)}`,
     taskDone: '#528416',
-    taskPeding: darken(0.1, secondHalfBg),
+    taskPeding: darken(0.1, contentBoxBg),
   },
   code: {
-    bg: darken(0.05, secondHalfBg),
+    bg: darken(0.05, contentBoxBg),
   },
   shell: {
     link: lighten(0.3, primaryColor),
@@ -120,7 +123,7 @@ const Cyan = {
     search_icon: lighten(0.3, primaryColor),
     bar_bg: darken(0.03, primaryColor),
     border: darken(0.05, primaryColor),
-    title: lighten(0.3, topHalfBg),
+    title: lighten(0.3, bannerBg),
     desc: lighten(0.2, primaryColor),
     active_bg: darken(0.1, primaryColor),
   },
@@ -135,11 +138,11 @@ const Cyan = {
     activeText: primaryColor,
     normalText: lighten(0.1, primaryColor),
     bottom_bar: primaryColor,
-    baseline: `1px solid ${topHalfBg}`,
+    baseline: `1px solid ${bannerBg}`,
   },
   navigator: {
     activeBottom: `1.1px solid ${primaryColor}`,
-    borderRight: `1px solid ${darken(0.05, topHalfBg)}`,
+    borderRight: `1px solid ${darken(0.05, bannerBg)}`,
     hoverBg: '#eee',
   },
   a: {

@@ -31,10 +31,10 @@ export const CheatsheetWrapper = styled.div`
 export const CheatsheetTitle = styled.div`
   font-size: 2em;
   font-weight: bold;
-  color: ${theme('paper.article_title')};
+  color: ${theme('thread.article_title')};
 `
 export const CheatsheetDesc = styled.div`
   font-size: 1.3em;
   margin-top: 5px;
-  color: ${theme('paper.article_brief')};
+  color: ${theme('thread.article_brief')};
 `
