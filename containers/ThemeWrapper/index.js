@@ -29,11 +29,11 @@ const ThemeObserver = ({ children, theme }) => (
             background-color: ${theme.themeData.htmlBg};
           }
           *::-moz-selection {
-            background-color: ${theme.themeData.selection_bg} !important;
+            background-color: ${theme.themeData.selectionBg} !important;
           }
 
           *::selection {
-            background-color: ${theme.themeData.selection_bg} !important;
+            background-color: ${theme.themeData.selectionBg} !important;
           }
 
           a:hover {

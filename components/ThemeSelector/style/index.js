@@ -18,7 +18,7 @@ export const ThemeDot = styled.div`
   position: relative;
   cursor: pointer;
   color: ${props =>
-    props.active ? lighten(0.4, props.theme.body_bg) : getBackground(props)};
+    props.active ? lighten(0.4, props.theme.bodyBg) : getBackground(props)};
 
   &:after {
     content: 'T';

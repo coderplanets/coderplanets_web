@@ -45,25 +45,25 @@ export const CommunityLogo = styled(Img)`
 /*
    border-bottom: 2px solid;
    border-bottom-color: ${props =>
-   props.active ? theme('thread.article_title') : theme('header.fixed')};
+   props.active ? theme('thread.articleTitle') : theme('header.fixed')};
  */
 
-// ${theme('thread.article_title', props)}
+// ${theme('thread.articleTitle', props)}
 // border-bottom: ${props => (props.active ? '2px solid tomato' : '')};
 
 export const MiniTab = styled.div`
   border-bottom: ${props => (props.active ? '3px solid' : '')};
   border-bottom-color: ${props =>
-    props.active ? theme('thread.article_title') : ''};
+    props.active ? theme('thread.articleTitle') : ''};
   padding-bottom: ${props => (props.active ? '2px' : '5px')};
   padding-right: 5px;
   padding-left: 5px;
   margin-right: 6px;
   color: ${props =>
-    props.active ? theme('header.tab_active') : theme('header.tab_others')};
+    props.active ? theme('header.tabActive') : theme('header.tabOthers')};
   cursor: pointer;
 `
-// color: ${theme('thread.article_brief')};
+// color: ${theme('thread.articleBrief')};
 
 // color: ${theme('header.fg')};
 // margin-right: 25px;

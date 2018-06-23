@@ -12,8 +12,8 @@ const Slack = {
   font: fontColor,
   link: '#36AEE5',
   main: '#7DC0C5',
-  body_bg: mainBg,
-  selection_bg: '#FDDBA8',
+  bodyBg: mainBg,
+  selectionBg: '#FDDBA8',
   sidebar: {
     bg: sidebarBg,
     pin_active: '#4B968C',
@@ -22,12 +22,12 @@ const Slack = {
   },
   shell: {
     link: lighten(0.3, sidebarBg),
-    search_input: lighten(0.3, fontColor),
-    search_icon: lighten(0.3, fontColor),
-    bar_bg: lighten(0.03, sidebarBg),
+    searchInput: lighten(0.3, fontColor),
+    searchIcon: lighten(0.3, fontColor),
+    barBg: lighten(0.03, sidebarBg),
     border: darken(0.05, fontColor),
     text: lighten(0.15, sidebarBg),
-    active_bg: darken(0.1, sidebarBg),
+    activeBg: darken(0.1, sidebarBg),
   },
   preview: {
     font: fontColor,

@@ -5,10 +5,10 @@ import { WORD_LIMIT } from '../../../config'
 import { theme } from '../../../utils'
 
 export const Container = styled.div`
-  background: ${theme('preview.article_bg')};
+  background: ${theme('preview.articleBg')};
   min-height: ${props => (props.show ? '100px' : '70px')};
   height: auto;
-  border-color: ${theme('preview.article_bg')};
+  border-color: ${theme('preview.articleBg')};
   display: flex;
   flex-direction: column;
   transition: all 0.3s;

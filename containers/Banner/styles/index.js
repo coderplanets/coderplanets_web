@@ -34,7 +34,7 @@ export const NumbersWrapper = styled.div`
   text-align: center;
   margin-top: -2.1em;
 `
-// background: ${theme('banner.number_hover_bg')};
+// background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,12 +43,12 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: ${props => (props.dead ? '' : theme('banner.number_hover_bg'))};
+    background: ${props => (props.dead ? '' : theme('banner.numberHoverBg'))};
     cursor: ${props => (props.dead ? '' : 'pointer')};
   }
 `
 export const NumberTitle = styled.div`
-  color: ${theme('banner.number_desc')};
+  color: ${theme('banner.numberDesc')};
   &:hover {
     color: ${props => (props.dead ? '' : '#f1c48f')};
     text-decoration: ${props => (props.dead ? '' : 'underline')};
@@ -66,7 +66,7 @@ export const NumberItem = styled.div`
 `
 export const NumberDivider = styled.div`
   border: 1px solid;
-  border-color: ${theme('banner.number_divider')};
+  border-color: ${theme('banner.numberDivider')};
   height: 70%;
   align-self: center;
   margin-left: 10px;

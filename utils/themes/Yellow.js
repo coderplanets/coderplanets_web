@@ -12,8 +12,8 @@ const Yellow = {
   font: fontColor,
   link: '#4E9ED3',
   main: '#7DC0C5',
-  body_bg: mainBg,
-  selection_bg: '#FDDBA8',
+  bodyBg: mainBg,
+  selectionBg: '#FDDBA8',
   sidebar: {
     bg: sidebarBg,
     pin_active: '#2AA198',
@@ -22,12 +22,12 @@ const Yellow = {
   },
   shell: {
     link: darken(0.45, sidebarBg),
-    search_input: darken(0.5, sidebarBg),
-    search_icon: darken(0.4, sidebarBg),
-    bar_bg: darken(0.15, sidebarBg),
+    searchInput: darken(0.5, sidebarBg),
+    searchIcon: darken(0.4, sidebarBg),
+    barBg: darken(0.15, sidebarBg),
     border: darken(0.3, sidebarBg),
     text: darken(0.35, sidebarBg),
-    active_bg: darken(0.1, fontColor),
+    activeBg: darken(0.1, fontColor),
   },
   preview: {
     font: fontColor,

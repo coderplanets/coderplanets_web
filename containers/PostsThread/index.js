@@ -76,7 +76,7 @@ const PostItem = ({ post, active, index }) => (
           </PostTitleLink>
           <PostTitleTag>
             <PostTitleTagDot />
-            react
+            问答
           </PostTitleTag>
         </PostBreif>
         <div>

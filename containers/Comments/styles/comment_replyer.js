@@ -12,10 +12,10 @@ export const ReplyToBody = ReplyToBodyBase.extend``
 export const ReplyToFloor = ReplyToFloorBase.extend``
 
 export const Container = styled.div`
-  background: ${theme('preview.article_bg')};
+  background: ${theme('preview.articleBg')};
   min-height: 200px;
   height: 100%;
-  border-color: ${theme('preview.article_bg')};
+  border-color: ${theme('preview.articleBg')};
   display: flex;
   flex-direction: column;
   transition: all 0.3s;

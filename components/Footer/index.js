@@ -13,7 +13,7 @@ import { BuyMeChuanChuan } from '../../components'
 import {
   Container,
   BaseInfo,
-  BeianInfo,
+  /* BeianInfo, */
   Divider,
   About,
   Beian,
@@ -47,6 +47,14 @@ class Footer extends React.Component {
           onClose={this.toggleSupport.bind(this)}
         />
         <BaseInfo>
+          <Beian
+            href="http://www.miitbeian.gov.cn"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            蜀ICP备17043722号-4
+          </Beian>
+          <Divider>|</Divider>
           {/* TODO: use next/link to link to post */}
           <About
             href="http://www.miitbeian.gov.cn"
@@ -97,15 +105,6 @@ class Footer extends React.Component {
             />
           </GitSource>
         </BaseInfo>
-        <BeianInfo>
-          <Beian
-            href="http://www.miitbeian.gov.cn"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            蜀ICP备17043722号-4
-          </Beian>
-        </BeianInfo>
       </Container>
     )
   }

@@ -5,7 +5,7 @@ import { theme } from '../../../utils'
 export const AccountWrapper = styled.div`
   height: 100%;
   min-height: 100vh;
-  background: ${theme('preview.account_bg')};
+  background: ${theme('preview.accountBg')};
   padding: 22px;
   padding-top: 30px;
   border-radius: 3px;
@@ -22,7 +22,7 @@ export const Divider = styled.div`
   margin-top: ${props => (props.top ? props.top : '10px')};
   margin-bottom: ${props => (props.bottom ? props.bottom : '10px')};
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.account_divider')};
+  border-bottom-color: ${theme('preview.accountDivider')};
 `
 
 export const ThemeWrapper = styled.div`

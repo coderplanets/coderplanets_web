@@ -125,9 +125,7 @@ const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
 )
 
 const FilterTag = ({ onSelect, active, type }) =>
-  isEmptyValue(active) ? (
-    <span />
-  ) : (
+  isEmptyValue(active) ? null : (
     <Tag closable onClose={onSelect.bind(this, type, '')}>
       {filterDict[active]}
     </Tag>

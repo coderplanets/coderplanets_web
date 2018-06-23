@@ -7,7 +7,7 @@ const Body = styled.div`
   position: relative;
   height: 100%;
   min-height: 100vh;
-  background: ${theme('body_bg')};
+  background: ${theme('bodyBg')};
   display: flex;
   flex-direction: column;
   margin-left: ${props => (props.sidebarPin ? '180px' : '0')};

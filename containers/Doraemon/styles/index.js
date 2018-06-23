@@ -14,7 +14,7 @@ const rotate360 = keyframes`
 `
 
 export const LoadingIcon = styled(Img)`
-  fill: ${theme('shell.search_icon')};
+  fill: ${theme('shell.searchIcon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
@@ -70,7 +70,7 @@ export const BaseBar = styled.div`
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 70px;
-  background: ${theme('shell.bar_bg')};
+  background: ${theme('shell.barBg')};
   color: white;
   display: flex;
   flex-direction: row;
@@ -92,10 +92,10 @@ export const AlertBar = styled(BaseBar)`
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 70px;
-  background: ${props => (props.active ? theme('shell.active_bg', props) : '')};
+  background: ${props => (props.active ? theme('shell.activeBg', props) : '')};
 `
 export const InputBar = styled.input`
-  caret-color: ${theme('shell.search_input')};
+  caret-color: ${theme('shell.searchInput')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
     'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
@@ -103,7 +103,7 @@ export const InputBar = styled.input`
   width: auto;
   outline: none;
   font-weight: 200;
-  color: ${theme('shell.search_input')};
+  color: ${theme('shell.searchInput')};
   font-size: 1.6rem;
   max-height: none;
   background-color: transparent;
@@ -203,7 +203,7 @@ export const PrefixSearchIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  fill: ${theme('shell.search_icon')};
+  fill: ${theme('shell.searchIcon')};
 `
 
 export const PrefixMagicIcon = styled(Img)`

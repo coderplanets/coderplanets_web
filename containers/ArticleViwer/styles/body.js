@@ -5,7 +5,7 @@ import { theme } from '../../../utils'
 
 export const BodyWrapper = styled.div`
   padding: 20px;
-  background: ${theme('preview.article_bg')};
+  background: ${theme('preview.articleBg')};
   min-height: 600px;
   margin-top: 5px;
   margin-left: 4%;
@@ -70,7 +70,7 @@ export const ArticleTitle = styled.div`
   padding-bottom: 5px;
   // width: 93%;
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.account_divider')};
+  border-bottom-color: ${theme('preview.accountDivider')};
 `
 export const ArticleBody = styled.div`
   padding: 20px;

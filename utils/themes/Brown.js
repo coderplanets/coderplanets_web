@@ -28,8 +28,8 @@ const Dark = {
   font: fontColor,
   link: '#D57041',
   main: mainBg,
-  body_bg: secondHalfBg,
-  selection_bg: '#463f37', // not working
+  bodyBg: secondHalfBg,
+  selectionBg: '#463f37', // not working
   header: {
     fg: primaryColor,
     bg: topHalfBg,
@@ -75,13 +75,13 @@ const Dark = {
   },
   shell: {
     link: lighten(0.2, fontColor),
-    search_input: lighten(0.1, fontColor),
-    search_icon: lighten(0.1, fontColor),
-    bar_bg: darken(0.03, sidebarBg),
+    searchInput: lighten(0.1, fontColor),
+    searchIcon: lighten(0.1, fontColor),
+    barBg: darken(0.03, sidebarBg),
     border: lighten(0.08, sidebarBg),
     title: lighten(0.4, mainBg),
     desc: lighten(0.2, mainBg),
-    active_bg: darken(0.1, fontColor),
+    activeBg: darken(0.1, fontColor),
   },
   button: {
     primary: primaryColor,
@@ -93,7 +93,7 @@ const Dark = {
   taber: {
     activeText: primaryColor,
     normalText: lighten(0.1, primaryColor),
-    bottom_bar: primaryColor,
+    bottomBar: primaryColor,
     baseline: `1px solid ${topHalfBg}`,
   },
   navigator: {

@@ -27,7 +27,8 @@ export const SelectPanelWrapper = styled.div`
 `
 
 export const SelectTitle = styled.div`
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid;
+  border-color: ${theme('font')};
   font-weight: bold;
   width: 80%;
   padding-bottom: 5px;

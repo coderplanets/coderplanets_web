@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-/* import { Animate } from '../../../utils' */
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
@@ -40,7 +40,7 @@ export const TagDot = styled.div`
   background-color: ${props =>
     getDotBgColor(props.active, props.title, props.color)};
   display: inline-block;
-  opacity: 0.8;
+  opacity: ${theme('tags.dotOpacity')};
 `
 // ${props => (props.active === props.title ? 1 : 0.7)}
 

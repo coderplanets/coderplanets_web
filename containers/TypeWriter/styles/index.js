@@ -11,27 +11,27 @@ export const PreviewBlock = styled.div`
 `
 
 export const TitleInput = styled(Input)`
-  border-color: ${theme('preview.editor_border')};
+  border-color: ${theme('preview.editorBorder')};
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.editor_border_normal')};
+  border-bottom-color: ${theme('preview.editorBorderNormal')};
 
   text-align: center;
   height: 45px;
   font-size: 1.6em;
-  color: ${theme('preview.editor_title')};
-  background: ${theme('preview.editor_header_bg')};
+  color: ${theme('preview.editorTitle')};
+  background: ${theme('preview.editorHeaderBg')};
   align-self: center;
   width: 85%;
   &:hover {
-    border-color: ${theme('preview.editor_border')};
+    border-color: ${theme('preview.editorBorder')};
     border-bottom: 1px solid;
-    border-bottom-color: ${theme('preview.editor_border_active')};
+    border-bottom-color: ${theme('preview.editorBorderActive')};
   }
   &:focus {
-    border-color: ${theme('preview.editor_border')};
+    border-color: ${theme('preview.editorBorder')};
     box-shadow: none;
     border-bottom: 1px solid;
-    border-bottom-color: ${theme('preview.editor_border_active')};
+    border-bottom-color: ${theme('preview.editorBorderActive')};
   }
 `
 
@@ -79,7 +79,7 @@ export const BackToEditHint = styled.div`
 
 export const BodyWrapper = styled.div`
   padding: 20px;
-  background-color: ${theme('preview.editor_container_bg')};
+  background-color: ${theme('preview.editorContainerBg')};
   min-height: 600px;
   margin-top: 5px;
   margin-left: 4%;

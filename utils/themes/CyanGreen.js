@@ -12,8 +12,8 @@ const CyanGreen = {
   font: fontColor,
   link: '#99CFAF',
   main: '#7DC0C5',
-  body_bg: mainBg,
-  selection_bg: '#FDDBA8',
+  bodyBg: mainBg,
+  selectionBg: '#FDDBA8',
   sidebar: {
     bg: sidebarBg,
     pin_active: '#B1EFBD',
@@ -22,12 +22,12 @@ const CyanGreen = {
   },
   shell: {
     link: darken(0.25, sidebarBg),
-    search_input: darken(0.2, sidebarBg),
-    search_icon: darken(0.2, sidebarBg),
-    bar_bg: darken(0.01, sidebarBg),
+    searchInput: darken(0.2, sidebarBg),
+    searchIcon: darken(0.2, sidebarBg),
+    barBg: darken(0.01, sidebarBg),
     border: darken(0.1, sidebarBg),
     text: darken(0.15, sidebarBg),
-    active_bg: darken(0.1, fontColor),
+    activeBg: darken(0.1, fontColor),
   },
   preview: {
     font: fontColor,

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   width: 94%;
   margin: 40px;
   margin-top: 25px;
+  margin-bottom: 10px;
   height: 70%;
   min-height: 70vh;
   color: ${theme('font')};
@@ -14,9 +15,11 @@ export const Wrapper = styled.div`
   padding: 1em 6em;
   @media (max-width: 1400px) {
     padding: 1em 2em;
+    padding-bottom: 0;
   }
   @media (max-width: 1200px) {
     padding: 1em 1em;
+    padding-bottom: 0;
   }
 `
 

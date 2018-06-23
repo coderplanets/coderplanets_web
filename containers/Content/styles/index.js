@@ -7,20 +7,6 @@ import styled from 'styled-components'
 export const Hidder = styled.div`
   display: ${props => (props.active === props.name ? 'block' : 'none')};
 `
-
-// background: ${theme('content.bg')};
-/* width: 100%; */
-/* height: 70%; */
-/* min-height: 70vh; */
-/* color: ${theme('font')}; */
-/* border-radius: 6px; */
-/* padding: 1em 6em; */
-/* @media (max-width: 1400px) { */
-/* padding: 1em 2em; */
-/* } */
-/* @media (max-width: 1200px) { */
-/* padding: 1em 1em; */
-/* } */
 export const Wrapper = styled.div``
 
 export const CategoryWrapper = styled.div`

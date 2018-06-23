@@ -193,11 +193,11 @@ const AntOverWrite = styled.div`
   }
   .ant-pagination-item {
     border-radius: 50%;
-    background-color: ${theme('pagination.item_bg')};
-    border-color: ${theme('pagination.item_border_color')};
+    background-color: ${theme('pagination.itemBg')};
+    border-color: ${theme('pagination.itemBorderColor')};
   }
   .ant-pagination-item a {
-    color: ${theme('pagination.inactive_num')};
+    color: ${theme('pagination.inactiveNum')};
   }
 
   .ant-pagination-prev a,
@@ -216,7 +216,7 @@ const AntOverWrite = styled.div`
   .ant-pagination-disabled .ant-pagination-item-link,
   .ant-pagination-disabled:hover .ant-pagination-item-link,
   .ant-pagination-disabled:focus .ant-pagination-item-link {
-    color: ${theme('pagination.disable_text')};
+    color: ${theme('pagination.disableText')};
   }
 
   .ant-pagination-item-active {
@@ -294,7 +294,7 @@ const AntOverWrite = styled.div`
     border-bottom: ${theme('taber.baseline')};
   }
   .ant-tabs-ink-bar {
-    background-color: ${theme('taber.bottom_bar')};
+    background-color: ${theme('taber.bottomBar')};
   }
   .ant-tabs-nav .ant-tabs-tab {
     color: ${theme('taber.normalText')};

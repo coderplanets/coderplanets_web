@@ -1,23 +1,23 @@
 import styled from 'styled-components'
-import { smokey } from '../../../utils'
+import { theme, smokey } from '../../../utils'
 
 const link = styled.a`
   text-decoration: none;
   font-weight: bolder;
-  color: #9fc0c5;
+  color: ${theme('footer.text')};
   transition: color 0.3s;
   &:hover {
     text-decoration: underline;
-    color: #5c868b;
+    color: ${theme('footer.hover')};
   }
 `
 export const Support = styled.div`
   font-weight: bolder;
-  color: #9fc0c5;
+  color: ${theme('footer.text')};
   transition: color 0.3s;
   &:hover {
     cursor: pointer;
-    color: #5c868b;
+    color: ${theme('footer.hover')};
   }
 `
 
@@ -25,7 +25,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: -18%;
+  margin-left: -5%;
+  margin-bottom: 20px;
 `
 export const BaseInfo = styled.div`
   display: flex;
@@ -38,7 +39,7 @@ export const BeianInfo = styled.div`
 export const Divider = styled.div`
   margin-left: 12px;
   margin-right: 12px;
-  color: #b9cace;
+  color: ${theme('footer.text')};
 `
 
 export const GitSource = styled.div`
@@ -46,7 +47,8 @@ export const GitSource = styled.div`
   ${smokey};
 `
 export const Powerby = styled.div`
-  color: #b7c6d0;
+  color: ${theme('footer.label')};
+  font-style: italic;
 `
 
 export const PowerbyLink = link.extend``
