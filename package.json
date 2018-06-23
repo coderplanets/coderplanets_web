@@ -111,7 +111,7 @@
     "dotenv-webpack": "^1.5.4",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
-    "eslint": "5.0.0-rc.0",
+    "eslint": "5.0.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "2.12.0",
