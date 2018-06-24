@@ -508,13 +508,15 @@ const MarkDownStyle = styled.div`
   .markdown-body h1 {
     padding-bottom: 0.3em;
     font-size: 2em;
-    border-bottom: ${theme('markdown.titleBottom')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('markdown.titleBottom')};
   }
 
   .markdown-body h2 {
     padding-bottom: 0.3em;
     font-size: 1.5em;
-    border-bottom: ${theme('markdown.titleBottom')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('markdown.titleBottom')};
   }
 
   .markdown-body h3 {

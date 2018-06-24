@@ -43,42 +43,40 @@ const articleTypeDic = {
   translate: '翻译',
 }
 
-const OriginalSelector = ({ active, onSelect }) => {
-  return (
-    <div>
-      <Selector onClick={onSelect.bind(this, 'original')}>
-        <CheckIcon
-          src={`${ICON_ASSETS}/cmd/check2.svg`}
-          active={active}
-          value="original"
-        />
-        <CheckText active={active} value="original">
-          原创
-        </CheckText>
-      </Selector>
-      <Selector onClick={onSelect.bind(this, 'reprint')}>
-        <CheckIcon
-          src={`${ICON_ASSETS}/cmd/check2.svg`}
-          active={active}
-          value="reprint"
-        />
-        <CheckText active={active} value="reprint">
-          转载
-        </CheckText>
-      </Selector>
-      <Selector onClick={onSelect.bind(this, 'translate')}>
-        <CheckIcon
-          src={`${ICON_ASSETS}/cmd/check2.svg`}
-          active={active}
-          value="translate"
-        />
-        <CheckText active={active} value="translate">
-          翻译
-        </CheckText>
-      </Selector>
-    </div>
-  )
-}
+const OriginalSelector = ({ active, onSelect }) => (
+  <React.Fragment>
+    <Selector onClick={onSelect.bind(this, 'original')}>
+      <CheckIcon
+        src={`${ICON_ASSETS}/cmd/check2.svg`}
+        active={active}
+        value="original"
+      />
+      <CheckText active={active} value="original">
+        原创
+      </CheckText>
+    </Selector>
+    <Selector onClick={onSelect.bind(this, 'reprint')}>
+      <CheckIcon
+        src={`${ICON_ASSETS}/cmd/check2.svg`}
+        active={active}
+        value="reprint"
+      />
+      <CheckText active={active} value="reprint">
+        转载
+      </CheckText>
+    </Selector>
+    <Selector onClick={onSelect.bind(this, 'translate')}>
+      <CheckIcon
+        src={`${ICON_ASSETS}/cmd/check2.svg`}
+        active={active}
+        value="translate"
+      />
+      <CheckText active={active} value="translate">
+        翻译
+      </CheckText>
+    </Selector>
+  </React.Fragment>
+)
 
 const Editor = ({
   articleType,

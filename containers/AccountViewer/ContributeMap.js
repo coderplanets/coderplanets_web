@@ -65,7 +65,7 @@ const getClass = value => {
   switch (true) {
     case value.count >= 1 && value.count < 6:
       return 'color-scale-1'
-    case value.count >= 7 && value.count < 16:
+    case value.count >= 6 && value.count < 16:
       return 'color-scale-2'
     case value.count >= 16 && value.count < 26:
       return 'color-scale-3'
@@ -109,12 +109,12 @@ const ContributeMap = ({ data }) => {
       <DotWrapper>
         <DotList>
           <DotText>潜水&nbsp;&nbsp;</DotText>
-          <ColorDot color="#E2EEED" />
-          <ColorDot color="#DBE290" />
-          <ColorDot color="#99C06F" />
-          <ColorDot color="#609D4C" />
-          <ColorDot color="#61793E" />
-          <ColorDot color="#37642C" />
+          <ColorDot scale="empty" />
+          <ColorDot scale="1" />
+          <ColorDot scale="2" />
+          <ColorDot scale="3" />
+          <ColorDot scale="4" />
+          <ColorDot scale="5" />
           <DotText>&nbsp;高产</DotText>
         </DotList>
       </DotWrapper>

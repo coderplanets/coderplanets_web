@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 
 export const ContentContainer = styled.div`
-  margin: -18px;
+  margin: -20px;
   border-radius: 2px;
   padding: 5px;
   padding-right: 8px;

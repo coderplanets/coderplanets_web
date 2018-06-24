@@ -36,7 +36,7 @@ const Cyan = {
   header: {
     fg: primaryColor,
     bg: bannerBg,
-    spliter: `1px solid ${darken(0.04, bannerBg)}`,
+    spliter: darken(0.04, bannerBg),
     fixed: contentBoxBg,
     tabActive: '#61868c', // articleTitle
     tabOthers: lighten(0.1, '#849ca0'), // articleBrief
@@ -45,9 +45,10 @@ const Cyan = {
     fg: primaryColor,
     bg: bannerBg,
     desc: '#a3bbbd',
-    spliter: `1px solid ${darken(0.04, bannerBg)}`,
+    spliter: darken(0.04, bannerBg),
     numberDesc: '#a7bbbf',
     number: '#5c868b',
+    active: '#f1c48f',
     numberDivider: '#ccdcde',
     numberHoverBg: '#e4ecec',
   },
@@ -61,6 +62,7 @@ const Cyan = {
     articleTag: '#71979a',
     articleLink: '#71979a',
     commentsUserBorder: contentBoxBg,
+    extraInfo: '#84C3C8',
   },
   content: {
     bg: contentBoxBg,
@@ -77,23 +79,31 @@ const Cyan = {
     border_color: '#14363E',
   },
   preview: {
+    title: '#83a2a5',
+    desc: '#83a2a5',
     font: primaryColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
-    editorContainerBg: '#F9FCFC',
-    editorHeaderBg: '#F9FCFC',
-    editorBorder: '#F9FCFC',
-    editorBorderActive: '#b3cacb',
-    editorBorderNormal: '#e2eaea',
-    editorTitle: '#5b8c91',
-    footerText: '#a5c8ca',
+    closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#F9FCFC',
     accountDivider: '#f4f4f5',
     articleBg: '#F9FCFC',
     reactionHoverBg: '#F9FCFC',
+    helper: '#d9e5e6',
+    helperHover: '#83a2a5',
   },
-
+  editor: {
+    title: '#5b8c91',
+    content: '#a6bebf',
+    placeholder: '#B3CFD0',
+    headerBg: '#F9FCFC',
+    contentBg: '#F9FCFC',
+    border: '#F9FCFC',
+    borderAcitve: '#b3cacb',
+    borderNormal: '#e2eaea',
+    footer: '#a5c8ca',
+  },
   pagination: {
     itemBg: '#cbe7ea',
     itemBorderColor: '#cbe7ea',
@@ -103,13 +113,20 @@ const Cyan = {
   },
 
   heatmap: {
+    borderHover: '#51abb2',
     empty: '#E4EEED',
+    monthLabel: '#c6dbde',
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
   },
 
   markdown: {
     title: primaryColor,
     fg: markdownFont,
-    titleBottom: `1px solid ${lighten(0.3, primaryColor)}`,
+    titleBottom: lighten(0.3, primaryColor),
     hrColor: '#154452',
     blockquoteBorder: '0.25em solid #34535C',
     blockquoteFg: darken(0.09, markdownFont),
@@ -140,17 +157,11 @@ const Cyan = {
     fg: lighten(0.4, primaryColor),
     hoverBg: lighten(0.1, primaryColor),
     activeBg: darken(0.01, primaryColor),
-    clicked: `0px solid ${primaryColor}`,
-  },
-  taber: {
-    activeText: primaryColor,
-    normalText: lighten(0.1, primaryColor),
-    bottomBar: primaryColor,
-    baseline: `1px solid ${bannerBg}`,
+    clicked: primaryColor,
   },
   navigator: {
-    activeBottom: `1.1px solid ${primaryColor}`,
-    borderRight: `1px solid ${darken(0.05, bannerBg)}`,
+    activeBottom: primaryColor,
+    borderRight: darken(0.05, bannerBg),
     hoverBg: '#eee',
   },
   popover: {
@@ -160,6 +171,20 @@ const Cyan = {
   },
   tags: {
     dotOpacity: 0.8,
+  },
+  tabs: {
+    headerActive: primaryColor,
+    header: lighten(0.2, primaryColor),
+    contentBg: '#FFFFFF',
+    headerActiveBg: '#FFFFFF',
+    headerBg: '#F7F9F9',
+    headerActiveTop: primaryColor,
+    border: '#E8E8E8',
+  },
+  modal: {
+    bg: contentBoxBg,
+    border: primaryColor,
+    innerSelectBg: '#e4eeed45',
   },
   a: {
     hover: primaryColor,

@@ -5,28 +5,28 @@ import { theme } from '../../utils'
 
 const AntOverWrite = styled.div`
   .react-calendar-heatmap rect:hover {
-    stroke: #51abb2;
+    stroke: ${theme('heatmap.borderHover')};
   }
 
   .react-calendar-heatmap-month-label {
-    fill: #c6dbde;
+    fill: ${theme('heatmap.monthLabel')};
     font-size: 0.7em;
   }
 
   .react-calendar-heatmap .color-scale-1 {
-    fill: #dbe290;
+    fill: ${theme('heatmap.scale_1')};
   }
   .react-calendar-heatmap .color-scale-2 {
-    fill: #99c06f;
+    fill: ${theme('heatmap.scale_2')};
   }
   .react-calendar-heatmap .color-scale-3 {
-    fill: #609d4c;
+    fill: ${theme('heatmap.scale_3')};
   }
   .react-calendar-heatmap .color-scale-4 {
-    fill: #61793e;
+    fill: ${theme('heatmap.scale_4')};
   }
   .react-calendar-heatmap .color-scale-5 {
-    fill: #37642c;
+    fill: ${theme('heatmap.scale_5')};
   }
   .react-calendar-heatmap .color-empty {
     fill: ${theme('heatmap.empty')};
@@ -35,21 +35,21 @@ const AntOverWrite = styled.div`
     .public-DraftEditor-content {
       min-height: 150px;
       font-size: 1.3em;
-      color: #acadad;
+      color: ${theme('editor.content')};
     }
   }
   .comment-reply-editor {
     .public-DraftEditor-content {
       min-height: 200px;
       font-size: 0.9em;
-      color: #acadad;
+      color: ${theme('editor.content')};
     }
   }
 
   .public-DraftEditor-content {
     min-height: 500px;
     font-size: 1.3em;
-    color: #acadad;
+    color: ${theme('editor.content')};
   }
 
   .typewriter-mention {
@@ -287,27 +287,42 @@ const AntOverWrite = styled.div`
   }
 
   .ant-btn-clicked:after {
-    border: ${theme('button.clicked')};
+    border: 0px solid;
+    border-color: ${theme('button.clicked')};
   }
 
   .ant-tabs-bar {
-    border-bottom: ${theme('taber.baseline')};
+    border-bottom: ${theme('tabs.headerActive')};
   }
   .ant-tabs-ink-bar {
-    background-color: ${theme('taber.bottomBar')};
+    background-color: ${theme('tabs.headerActive')};
   }
   .ant-tabs-nav .ant-tabs-tab {
-    color: ${theme('taber.normalText')};
+    color: ${theme('tabs.header')};
+    &:hover {
+      color: ${theme('tabs.headerActive')};
+    }
   }
   .ant-tabs-nav .ant-tabs-tab-active {
-    color: ${theme('taber.activeText')};
+    color: ${theme('tabs.headerActive')};
     font-weight: bold;
+  }
+  .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    border-color: ${theme('tabs.border')};
+    background: ${theme('tabs.headerBg')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('tabs.border')};
   }
 
   .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active {
-    color: ${theme('taber.activeText')};
+    border-top: 2px solid;
+    border-top-color: ${theme('tabs.headerActiveTop')};
+    color: ${theme('tabs.header')};
+    background: ${theme('tabs.contentBg')};
     font-weight: bold;
   }
+
+  // tabs end
 
   ul {
     margin-bottom: 0;

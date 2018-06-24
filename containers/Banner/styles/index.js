@@ -10,7 +10,8 @@ export const BaseBanner = styled.div`
   flex-direction: column;
   justify-content: center;
   background: ${theme('banner.bg')};
-  border-bottom: ${theme('banner.spliter')};
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('banner.spliter')};
   @media (max-height: 800px) {
     min-height: 130px;
   }
@@ -24,7 +25,7 @@ export const BaseBannerContent = styled.div`
 
 export const BaseTabber = styled.div`
   position: absolute;
-  bottom: -17px;
+  bottom: -16px;
   width: 80vw;
   display: flex;
 `
@@ -34,7 +35,6 @@ export const NumbersWrapper = styled.div`
   text-align: center;
   margin-top: -2.1em;
 `
-// background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ export const NumberSection = styled.div`
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
-    color: ${props => (props.dead ? '' : '#f1c48f')};
+    color: ${props => (props.dead ? '' : theme('banner.active'))};
     text-decoration: ${props => (props.dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }
@@ -59,7 +59,7 @@ export const NumberItem = styled.div`
   font-size: 1.5rem;
   color: ${theme('banner.number')};
   &:hover {
-    color: ${props => (props.dead ? '' : '#f1c48f')};
+    color: ${props => (props.dead ? '' : theme('banner.active'))};
     text-decoration: ${props => (props.dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }

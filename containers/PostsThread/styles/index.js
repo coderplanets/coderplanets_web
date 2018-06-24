@@ -115,6 +115,7 @@ export const PostTitleTagDot = styled.span`
   border-radius: 50%;
   background-color: #9cd090;
   display: inline-block;
+  opacity: ${theme('tags.dotOpacity')};
 `
 
 export const PostTitleLink = styled.div`
@@ -146,7 +147,8 @@ export const PostExtra = styled.li`
   display: inline;
   opacity: 0.7;
   transition: opacity 0.2s;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: ${theme('thread.extraInfo')};
 `
 
 export const PostBodyBreif = styled.li`

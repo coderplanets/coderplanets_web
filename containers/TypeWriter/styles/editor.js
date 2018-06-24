@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { Animate } from '../../../utils'
+import { Animate, theme } from '../../../utils'
 
 export const ExtraWrapper = styled.div`
   display: flex;
@@ -9,8 +9,8 @@ export const ExtraWrapper = styled.div`
 `
 
 export const ExtraItem = styled.div`
-  color: #b7cfd0;
   display: flex;
+  color: ${theme('editor.content')};
   &:hover {
     color: #51abb2;
     animation: ${Animate.pulse} 0.4s linear;
@@ -29,7 +29,7 @@ export const ExtraItemTitle = styled.div`
   font-size: 1.2em;
 `
 export const ExtraItemIcon = styled(Img)`
-  fill: #b7cfd0;
+  fill: ${theme('editor.content')};
   width: 17px;
   height: 17px;
   margin-right: 3px;

@@ -18,7 +18,7 @@ export const BannerContainer = styled.div`
 
 export const TabberWrapper = styled.div`
   position: absolute;
-  bottom: -17px;
+  bottom: -16px;
   width: 80vw;
   display: flex;
   justify-content: center;

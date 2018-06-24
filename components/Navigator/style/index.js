@@ -45,9 +45,11 @@ export const LI = styled.li`
   padding: 0 5px;
   min-width: 15%;
   max-width: 30%;
-  border-bottom: ${props =>
+  border-bottom: 1px solid;
+  border-bottom-color: ${props =>
     props.active ? theme('navigator.activeBottom', props) : ''};
-  border-right: ${theme('navigator.borderRight')};
+  border-right: 1px solid;
+  border-right-color: ${theme('navigator.borderRight')};
   &:hover {
     background: ${theme('navigator.hoverBg')};
   }

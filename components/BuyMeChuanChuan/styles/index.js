@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { Animate } from '../../../utils'
+import { Animate, theme } from '../../../utils'
 
+// background: #f9fcfc;
 export const Wrapper = styled.div`
   height: 100%;
   min-height: 400px;
   width: 100%;
-  background: #f9fcfc;
   display: flex;
   flex-direction: column;
   padding: 15px 20px;
@@ -44,16 +44,17 @@ export const ChuanChuanSelect = styled.div`
 export const SelectTitle = styled.div`
   display: flex;
   margin-left: 5px;
-  color: grey;
+  color: ${theme('banner.desc')};
   font-size: 1.3rem;
 `
 export const MyName = styled.div`
-  color: #6d9d9e;
+  color: ${theme('link')};
   margin-left: 8px;
   margin-right: 8px;
   display: flex;
 `
 export const NameLinkIcon = styled(Img)`
+  fill: ${theme('link')};
   width: 20px;
   height: 20px;
   padding-top: 3px;
@@ -64,13 +65,14 @@ export const SelectDesc = styled.div`
   margin-left: 5px;
   font-size: 0.9rem;
   margin-bottom: 12px;
-  color: #a3bbbe;
+  color: ${theme('banner.desc')};
 `
 export const SelectBox = styled.div`
   margin-top: 10px;
-  border: 1px solid #c8dee0;
+  border: 1px solid;
+  border-color: ${theme('banner.desc')};
   border-radius: 4px;
-  background: #e4eeed45;
+  background: ${theme('modal.innerSelectBg')};
   height: 90px;
   display: flex;
   justify-content: left;
@@ -99,21 +101,22 @@ export const By = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.6rem;
-  color: lightgrey;
+  color: ${theme('font')};
   margin-left: -10px;
 `
 
 export const Circle = styled.div`
   width: 38px;
   height: 38px;
-  border: 1px solid #40abb1;
+  border: 1px solid;
+  border-color: ${theme('font')};
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
   color: ${props => (props.active ? 'white' : '#51abb2')};
-  background-color: ${props => (props.active ? '#40abb1' : '')};
+  background-color: ${props => (props.active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
     animation: ${Animate.pulse} 0.3s linear;
@@ -135,7 +138,7 @@ export const PayButton = styled.div`
 export const PayDesc = styled.div`
   font-size: 0.8rem;
   display: flex;
-  color: #a9c2c4;
+  color: ${theme('banner.desc')};
 `
 export const AliPay = styled.div`
   margin-left: 5px;

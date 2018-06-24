@@ -10,7 +10,8 @@ export const HeaderWrapper = styled.div`
   background: ${props =>
     props.fixed ? theme('header.fixed') : theme('header.bg')};
 
-  border-bottom: ${theme('header.spliter')};
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;
   margin-left: ${props => props.leftOffset};

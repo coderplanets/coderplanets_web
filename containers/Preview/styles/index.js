@@ -73,7 +73,7 @@ export const CloserInner = styled.div`
   border-right: 1px solid ${theme('preview.bg')};
   transform-origin: right center 0;
   transform: rotate3d(0, 1, 0, -30deg);
-  box-shadow: -6px 4px 5px 2px rgba(156, 154, 154, 0.2);
+  box-shadow: ${theme('preview.closerShadow')};
 `
 // box-shadow: -5px 0px 14px 0px rgba(189, 189, 189, 0.37);
 

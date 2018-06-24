@@ -40,7 +40,7 @@ export const SelectTitle = styled.div`
 export const SelectItem = styled.div`
   margin-bottom: 10px;
   color: ${props =>
-    props.active === props.item ? theme('font', props) : 'grey'};
+    props.active === props.item ? theme('font', props) : theme('banner.desc')};
   &:hover {
     cursor: pointer;
     color: ${theme('font')};

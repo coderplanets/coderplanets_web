@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
+
 export const FooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,11 +13,12 @@ export const FooterWrapper = styled.div`
   margin-bottom: 50px;
 `
 export const RespectText = styled.div`
-  color: #b9cfd0;
+  color: ${theme('editor.placeholder')};
   display: ${props => (props.show ? 'block' : 'none')};
 `
 export const Divider = styled.div`
-  border-top: 1px solid #c8dedf;
+  border-top: 1px solid;
+  border-color: ${theme('editor.placeholder')};
   margin-top: 10px;
   width: 55%;
   margin-bottom: 20px;

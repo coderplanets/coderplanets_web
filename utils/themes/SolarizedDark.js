@@ -9,7 +9,7 @@ const primaryColor = '#2d7eb1'
 const bannerBg = '#003B4A'
 const contentBg = '#002A35'
 
-const contentBoxBg = contentBg
+const contentBoxBg = '#072d3a' // contentBg
 
 const fontColor = primaryColor
 const sidebarBg = '#001B21'
@@ -38,7 +38,7 @@ const SolarizedDark = {
   header: {
     fg: primaryColor,
     bg: bannerBg,
-    spliter: `1px solid ${darken(0.04, bannerBg)}`,
+    spliter: darken(0.04, bannerBg),
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: darken(0.1, primaryColor), // articleBrief
@@ -46,10 +46,11 @@ const SolarizedDark = {
   banner: {
     fg: primaryColor,
     bg: bannerBg,
-    desc: '#436b90',
-    spliter: `1px solid ${darken(0.04, bannerBg)}`,
-    number: '#377788',
-    numberDesc: '#436b90',
+    desc: '#176179',
+    spliter: darken(0.04, bannerBg),
+    number: primaryColor,
+    active: '#2CB4AA',
+    numberDesc: '#176179',
     numberDivider: '#1b475d',
     numberHoverBg: '#0d475a',
   },
@@ -58,11 +59,12 @@ const SolarizedDark = {
     filterResultHint: '#556d23',
     articleTitle: '#427f98',
     articleHover: '#113744',
-    articleStrip: '#00313D',
+    articleStrip: '#072d3a',
     articleBrief: '#6B7F83',
     articleTag: '#278a82',
     articleLink: '#278a82',
     commentsUserBorder: contentBoxBg,
+    extraInfo: '#987d40',
   },
   content: {
     bg: contentBoxBg,
@@ -79,21 +81,30 @@ const SolarizedDark = {
     border_color: '#14363E',
   },
   preview: {
+    title: '#078681',
+    desc: '#007773',
     font: fontColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
-    editorContainerBg: '#0e3444',
-    editorHeaderBg: '#0e3444',
-    editorBorder: '#0e3444',
-    editorBorderActive: primaryColor,
-    editorBorderNormal: '#506562',
-    editorTitle: '#4E7E95',
-    footerText: '#2B597B',
+    closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: lighten(0.04, contentBg),
     accountBg: lighten(0.04, contentBg),
     accountDivider: '#184a5d',
     articleBg: lighten(0.04, contentBg),
     reactionHoverBg: lighten(0.04, contentBg),
+    helper: lighten(0.2, contentBg),
+    helperHover: lighten(0.4, contentBg),
+  },
+  editor: {
+    title: '#2a867f',
+    content: '#467E93',
+    placeholder: '#1E5162',
+    headerBg: '#0e3444',
+    contentBg: '#0e3444',
+    border: '#0e3444',
+    borderAcitve: '#10627b',
+    borderNormal: '#2d505f',
+    footer: '#2B597B',
   },
   pagination: {
     itemBg: '#103440',
@@ -103,7 +114,14 @@ const SolarizedDark = {
     inactiveNum: primaryColor,
   },
   heatmap: {
-    empty: '#2D5664',
+    empty: '#024352',
+    borderHover: '#176179',
+    monthLabel: '#176179',
+    scale_1: '#035b63',
+    scale_2: '#007470',
+    scale_3: '#048a84',
+    scale_4: '#05a78e',
+    scale_5: '#01c3a5',
   },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
@@ -139,17 +157,11 @@ const SolarizedDark = {
     fg: lighten(0.4, primaryColor),
     hoverBg: lighten(0.1, primaryColor),
     activeBg: darken(0.01, primaryColor),
-    clicked: `0px solid ${primaryColor}`,
-  },
-  taber: {
-    activeText: primaryColor,
-    normalText: darken(0.05, primaryColor),
-    bottomBar: primaryColor,
-    baseline: `1px solid ${bannerBg}`,
+    clicked: primaryColor,
   },
   navigator: {
-    activeBottom: `1.1px solid ${primaryColor}`,
-    borderRight: `1px solid ${darken(0.05, bannerBg)}`,
+    activeBottom: primaryColor,
+    borderRight: darken(0.05, bannerBg),
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
@@ -159,6 +171,20 @@ const SolarizedDark = {
   },
   tags: {
     dotOpacity: 0.5,
+  },
+  tabs: {
+    headerActive: primaryColor,
+    header: darken(0.1, primaryColor),
+    contentBg: '#0F4553',
+    headerActiveBg: '#0e3d4c',
+    headerBg: '#0d3a49',
+    headerActiveTop: primaryColor,
+    border: '#265663',
+  },
+  modal: {
+    bg: bannerBg,
+    border: primaryColor,
+    innerSelectBg: '#03323e',
   },
   a: {
     hover: primaryColor,

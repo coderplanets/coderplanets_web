@@ -17,6 +17,7 @@ export const Mask = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
+  background: ${theme('modal.bg')};
   margin: 0 auto;
   top: 15%;
   width: ${props => props.width};
@@ -25,7 +26,7 @@ export const Wrapper = styled.div`
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
   border: 1px solid;
   border-top: 3px solid;
-  border-color: #51abb2;
+  border-color: ${theme('modal.border')};
   animation: ${Animate.zoomeIn} 0.5s linear;
 `
 

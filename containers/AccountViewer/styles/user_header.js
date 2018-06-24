@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const UserWrapper = styled.div`
@@ -27,7 +28,7 @@ export const UserBrief = styled.div`
   flex-direction: column;
 `
 export const BriefInfo = styled.div`
-  color: #aaaaaa;
+  color: ${theme('preview.desc')};
   margin-left: 5px;
   font-size: 1em;
   display: flex;
@@ -36,7 +37,7 @@ export const UserName = styled.div`
   margin-left: 5px;
   margin-bottom: 3px;
   font-size: 1.3em;
-  color: #5c868b;
+  color: ${theme('preview.title')};
   display: flex;
 `
 

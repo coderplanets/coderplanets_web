@@ -11,27 +11,30 @@ export const PreviewBlock = styled.div`
 `
 
 export const TitleInput = styled(Input)`
-  border-color: ${theme('preview.editorBorder')};
+  border-color: ${theme('editor.border')};
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.editorBorderNormal')};
+  border-bottom-color: ${theme('editor.borderNormal')};
+  ::placeholder {
+    color: ${theme('editor.placeholder')};
+  }
 
   text-align: center;
   height: 45px;
   font-size: 1.6em;
-  color: ${theme('preview.editorTitle')};
-  background: ${theme('preview.editorHeaderBg')};
+  color: ${theme('editor.title')};
+  background: ${theme('editor.headerBg')};
   align-self: center;
   width: 85%;
   &:hover {
-    border-color: ${theme('preview.editorBorder')};
+    border-color: ${theme('editor.border')};
     border-bottom: 1px solid;
-    border-bottom-color: ${theme('preview.editorBorderActive')};
+    border-bottom-color: ${theme('editor.borderActive')};
   }
   &:focus {
-    border-color: ${theme('preview.editorBorder')};
+    border-color: ${theme('editor.border')};
     box-shadow: none;
     border-bottom: 1px solid;
-    border-bottom-color: ${theme('preview.editorBorderActive')};
+    border-bottom-color: ${theme('editor.borderActive')};
   }
 `
 
@@ -46,7 +49,7 @@ export const Header = styled.div`
 `
 
 export const UsageText = styled.div`
-  color: #618c92;
+  color: ${theme('editor.content')};
   font-size: 1.3em;
   flex-grow: 1;
 `
@@ -62,9 +65,9 @@ export const MarkdownIcon = styled(Img)`
 `
 export const MarkDownHint = styled.div`
   display: flex;
-  color: #b5cfd0;
+  color: ${theme('editor.placeholder')};
   &:hover {
-    color: #618c92;
+    color: ${theme('editor.content')};
     cursor: pointer;
   }
   transition: color 0.3s;
@@ -73,13 +76,13 @@ export const MarkDownHint = styled.div`
 // this is from top
 export const BackToEditHint = styled.div`
   display: flex;
-  color: #618c92;
+  color: ${theme('editor.title')};
   cursor: pointer;
 `
 
 export const BodyWrapper = styled.div`
   padding: 20px;
-  background-color: ${theme('preview.editorContainerBg')};
+  background-color: ${theme('editor.contentBg')};
   min-height: 600px;
   margin-top: 5px;
   margin-left: 4%;
@@ -102,12 +105,13 @@ export const CopyRightText = styled.div`
 `
 
 export const ReprintWrapper = styled.div`
+  color: ${theme('editor.content')};
   display: flex;
   cursor: pointer;
 `
 
 export const ReprintIcon = styled(Img)`
-  fill: #61abb1;
+  fill: ${theme('editor.content')};
   width: 14px;
   height: 14px;
   margin-top: 3px;
@@ -118,7 +122,7 @@ export const MoreIcon = styled(Img)`
   width: 14px;
   height: 14px;
   margin-top: 3px;
-  fill: #61abb1;
+  fill: ${theme('editor.placeholder')};
   &:hover {
     cursor: pointer;
   }
@@ -130,35 +134,42 @@ export const SourceLink = styled.div`
   justify-content: center;
 `
 export const LinkInput = styled(Input)`
-  border: 1px solid #f9fcfc;
+  border: 1px solid;
+  border-color: ${theme('editor.border')};
   height: 20px;
   line-height: 20px;
   width: 50%;
   font-size: 0.9em;
   margin-top: -1px;
-  color: #5b8c91;
-  background: #f9fcfc;
+  background: ${theme('editor.headerBg')};
   padding-left: 2px;
-  color: #a7b7ac;
-  text-align: center;
+  color: ${theme('editor.title')};
+
+  ::placeholder {
+    color: ${theme('editor.placeholder')};
+  }
+
+  text-align: left;
   &:hover {
-    border-color: #f9fcfc;
-    border-bottom: 1px solid #b3cacb;
-    color: #61abb1;
+    border-color: ${theme('editor.headerBg')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('editor.border')};
+    color: ${theme('editor.title')};
   }
   &:focus {
-    border-color: #f9fcfc;
+    border-color: ${theme('editor.headerBg')};
     box-shadow: none;
-    border-bottom: 1px solid #b3cacb;
-    color: #61abb1;
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('editor.placeholder')};
+    color: ${theme('editor.title')};
     text-align: left;
   }
 `
 export const LinkLabel = styled.div`
   font-size: 0.9em;
-  color: #a7b7ac;
+  color: ${theme('editor.placeholder')};
   ${SourceLink}:hover & {
-    color: #61abb1;
+    color: ${theme('editor.title')};
   }
   transition: color 0.3s;
 `
@@ -170,11 +181,11 @@ export const Selector = styled.div`
   display: flex;
   &:hover {
     cursor: pointer;
-    color: #6bb7bd;
+    color: ${theme('editor.title')};
   }
 `
 export const CheckIcon = styled(Img)`
-  fill: #6bb7bd;
+  fill: ${theme('editor.content')};
   width: 18px;
   height: 18px;
   margin-top: 2px;
@@ -182,4 +193,6 @@ export const CheckIcon = styled(Img)`
   visibility: ${props =>
     props.active === props.value ? 'visiable' : 'hidden'};
 `
-export const CheckText = styled.div``
+export const CheckText = styled.div`
+  color: ${theme('editor.content')};
+`

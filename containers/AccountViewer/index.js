@@ -17,7 +17,13 @@ import UserHeader from './UserHeader'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
-import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
+import {
+  AccountWrapper,
+  AccountContent,
+  ThemeWrapper,
+  Divider,
+  PanerWrapper,
+} from './styles'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -26,17 +32,15 @@ const debug = makeDebugger('C:AccountViewer')
 
 const { TabPane } = Tabs
 
-const ThemeSection = ({ themeKeys, curTheme }) => {
-  return (
-    <ThemeWrapper>
-      <ThemeSelector
-        themeKeys={themeKeys}
-        curTheme={curTheme}
-        changeTheme={logic.changeTheme}
-      />
-    </ThemeWrapper>
-  )
-}
+const ThemeSection = ({ themeKeys, curTheme }) => (
+  <ThemeWrapper>
+    <ThemeSelector
+      themeKeys={themeKeys}
+      curTheme={curTheme}
+      changeTheme={logic.changeTheme}
+    />
+  </ThemeWrapper>
+)
 
 class AccountViewerContainer extends React.Component {
   componentWillMount() {
@@ -78,16 +82,16 @@ class AccountViewerContainer extends React.Component {
           <Divider top="18px" />
           <Tabs onChange={console.log} type="card">
             <TabPane tab="最近" key="1">
-              Content of Tab Pane 1
+              <PanerWrapper>Content of Tab Pane 1</PanerWrapper>
             </TabPane>
             <TabPane tab="收藏 456" key="2">
-              Content of Tab Pane 2
+              <PanerWrapper>Content of Tab Pane 2</PanerWrapper>
             </TabPane>
             <TabPane tab="关注中 34" key="4">
-              Content of Tab Pane 3
+              <PanerWrapper>Content of Tab Pane 3</PanerWrapper>
             </TabPane>
             <TabPane tab="关注者 28" key="5">
-              Content of Tab Pane 3
+              <PanerWrapper>Content of Tab Pane 4</PanerWrapper>
             </TabPane>
           </Tabs>
         </AccountContent>

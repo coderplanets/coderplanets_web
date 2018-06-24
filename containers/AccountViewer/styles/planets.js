@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const Wrapper = styled.div``
@@ -9,14 +10,14 @@ export const HeaderWrapper = styled.div`
 `
 export const Title = styled.div`
   font-size: 1em;
-  color: #5c868b;
+  color: ${theme('preview.title')};
   margin-bottom: 10px;
   flex-grow: 1;
 `
 export const HelpText = styled.div`
-  color: #e8e7e7;
+  color: ${theme('preview.helper')};
   ${HeaderWrapper}:hover & {
-    color: #81a5a8;
+    color: ${theme('preview.helperHover')};
     cursor: pointer;
   }
   transition: color 0.2s;
