@@ -17,8 +17,16 @@ const groupSpliter = '{{ ::group:: }}'
 const cardsHeaderSpliter = '{{ ::cards-header:: }}'
 const cardItemSpliter = '{{ ::card-item:: }}'
 
-const getCardHeader = R.compose(R.trim, R.head, R.split(cardsHeaderSpliter))
-const getCardList = R.compose(R.trim, R.nth(1), R.split(cardsHeaderSpliter))
+const getCardHeader = R.compose(
+  R.trim,
+  R.head,
+  R.split(cardsHeaderSpliter)
+)
+const getCardList = R.compose(
+  R.trim,
+  R.nth(1),
+  R.split(cardsHeaderSpliter)
+)
 const getCardItems = R.compose(
   R.map(R.trim),
   R.split(cardItemSpliter),

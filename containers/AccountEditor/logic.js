@@ -51,8 +51,14 @@ const updatableAttrs = [
   'sex',
 ]
 
-const hasValue = R.compose(R.not, nilOrEmpty)
-const pickUpdatable = R.compose(R.pickBy(hasValue), R.pick(updatableAttrs))
+const hasValue = R.compose(
+  R.not,
+  nilOrEmpty
+)
+const pickUpdatable = R.compose(
+  R.pickBy(hasValue),
+  R.pick(updatableAttrs)
+)
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
