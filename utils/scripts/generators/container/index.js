@@ -32,12 +32,6 @@ module.exports = {
       default: true,
       message: 'Do you want i18n messages (i.e. will this container use text)?',
     },
-    {
-      type: 'confirm',
-      name: 'wantLoadable',
-      default: false,
-      message: 'Do you want to load the container asynchronously?',
-    },
   ],
   actions: data => {
     // Generate index.js and index.test.js
@@ -56,14 +50,26 @@ module.exports = {
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/tests/index.test.js',
-        templateFile: './container/test.js.hbs',
+        path: '../../../containers/{{properCase name}}/store.js',
+        templateFile: './container/store.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
         path: '../../../containers/{{properCase name}}/styles/index.js',
         templateFile: './container/styles.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../../../containers/{{properCase name}}/tests/index.test.js',
+        templateFile: './container/test.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../../../containers/{{properCase name}}/tests/store.test.js',
+        templateFile: './container/store.test.js.hbs',
         abortOnFail: true,
       },
     ]
@@ -74,16 +80,6 @@ module.exports = {
         type: 'add',
         path: '../../../containers/{{properCase name}}/lang.js',
         templateFile: './container/lang.js.hbs',
-        abortOnFail: true,
-      })
-    }
-
-    // If want Loadable.js to load the component asynchronously
-    if (data.wantLoadable) {
-      actions.push({
-        type: 'add',
-        path: '../../../containers/{{properCase name}}/Loadable.js',
-        templateFile: './container/loadable.js.hbs',
         abortOnFail: true,
       })
     }

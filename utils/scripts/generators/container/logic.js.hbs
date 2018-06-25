@@ -10,7 +10,7 @@ let sub$ = null
 const debug = makeDebugger('L:{{ properCase name }}')
 /* eslint-enable no-unused-vars */
 
-let {{ camelCase name }} = null
+let store = null
 
 export function someMethod() {}
 
@@ -21,9 +21,11 @@ export function someMethod() {}
 const DataSolver = []
 const ErrSolver = []
 
-export function init(selectedStore) {
-  {{ camelCase name }} = selectedStore
-  debug({{ camelCase name }})
+export function init(_store) {
+  if (store) return false
+  store = _store
+
+  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
