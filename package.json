@@ -127,7 +127,7 @@
     "lint-staged": "7.0.2",
     "npm-run-all": "^4.1.1",
     "plop": "^1.8.1",
-    "prettier": "1.13.5",
+    "prettier": "1.13.6",
     "react-test-renderer": "16.2.0",
     "shelljs": "0.8.1",
     "webpack-bundle-analyzer": "2.11.1"
