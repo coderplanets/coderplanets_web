@@ -32,6 +32,7 @@ export const UserName = styled.div`
 `
 export const PublishAt = styled.div`
   font-size: 0.9em;
+  color: ${theme('banner.desc')};
 `
 
 export const Avatar = styled.img`
@@ -51,20 +52,20 @@ export const ReactionAction = styled.div`
   &:hover {
     cursor: pointer;
     font-weight: bold;
-    background: ${theme('preview.reactionHoverBg')};
+    background: ${theme('article.reactionHoverBg')};
     border-radius: 6px;
   }
 `
 
 export const ReactionName = styled.div`
   align-self: center;
-  color: #7f979a;
+  color: ${theme('article.reactionTitle')};
   font-size: 0.9em;
   margin-left: 1px;
 `
 export const ReactionUserNum = styled.div`
   align-self: center;
-  color: #7f979a;
+  color: ${theme('article.reactionTitle')};
   font-size: 0.9em;
 
   &:hover {
@@ -75,7 +76,7 @@ export const ReactionUserNum = styled.div`
 
 export const ReactionIcon = styled(Img)`
   margin-top: 4px;
-  fill: grey;
+  fill: ${theme('article.reactionTitle')};
   width: ${props => (props.width ? props.width : '1.5em')};
   height: ${props => (props.height ? props.height : '1.5em')};
 `

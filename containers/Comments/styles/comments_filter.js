@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { smokey, Animate } from '../../../utils'
+import { smokey, Animate, theme } from '../../../utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;
@@ -35,9 +35,12 @@ export const MenuWrapper = styled.div`
 
 export const MenuItem = styled.div`
   margin-bottom: 10px;
-  color: ${props => (props.active === props.type ? '#58afb5' : '')};
+  color: ${props =>
+    props.active === props.type
+      ? theme('comment.filterActive')
+      : theme('comment.filter')};
   &:hover {
     cursor: pointer;
-    color: #58afb5;
+    color: ${theme('comment.filterActive')};
   }
 `

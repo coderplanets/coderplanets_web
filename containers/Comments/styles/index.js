@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-// import { theme, Animate } from '../../../utils'
+import { theme } from '../../../utils'
 
 export const Wrapper = styled.div``
 
 export const ReplyBarBase = styled.div`
-  color: #93b3b5;
-  background: #e8f1f2;
+  color: ${theme('comment.reply')};
+  background: ${theme('comment.replyBg')};
   border-radius: 3px;
   padding: 5px 10px;
   margin-left: 10px;
@@ -26,6 +26,6 @@ export const ReplyToBodyBase = styled.div`
   flex-grow: 1;
 `
 export const ReplyToFloorBase = styled.div`
-  color: #94d291;
+  color: ${theme('comment.floor')};
   margin-right: 5px;
 `

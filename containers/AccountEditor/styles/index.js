@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { Animate } from '../../../utils'
+import { Animate, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding-top: 20px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
-  background: #f9fcfc;
+  background: ${theme('content.cardBg')};
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ export const AvatarPic = styled.img`
 `
 
 export const BackIcon = styled(Img)`
-  fill: #51abb2;
+  fill: ${theme('font')};
   width: 20px;
   height: 20px;
   position: absolute;
@@ -56,16 +56,18 @@ const SexIcon = styled(Img)`
 export const Dude = styled.div``
 export const Girl = styled.div``
 export const DudeIcon = SexIcon.extend`
-  fill: ${props => (props.value === 'dude' ? '#869eec' : 'lightgrey')};
+  fill: ${props =>
+    props.value === 'dude' ? '#869eec' : theme('preview.divider')};
 `
 
 export const GirlIcon = SexIcon.extend`
-  fill: ${props => (props.value === 'girl' ? 'pink' : 'lightgrey')};
+  fill: ${props =>
+    props.value === 'girl' ? 'pink' : theme('preview.divider')};
   margin-top: 1px;
 `
 export const SexLable = styled.div`
   font-size: 1em;
-  color: grey;
+  color: ${theme('form.label')};
   margin-right: 10px;
 `
 
@@ -80,7 +82,7 @@ export const FormItemWrapper = styled.div`
 `
 export const FormLable = styled.div`
   font-size: 1em;
-  color: grey;
+  color: ${theme('form.label')};
   margin-right: 10px;
   margin-top: 5px;
 `
@@ -90,7 +92,8 @@ export const FormInput = styled.div`
 `
 
 export const Divider = styled.div`
-  border-top: 1px solid #e3eeed;
+  border-top: 1px solid;
+  border-top-color: ${theme('preview.divider')};
   margin-top: 15px;
   width: 75%;
   margin-bottom: 20px;

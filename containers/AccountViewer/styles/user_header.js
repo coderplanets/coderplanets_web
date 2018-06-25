@@ -42,7 +42,7 @@ export const UserName = styled.div`
 `
 
 export const EditIcon = styled(Img)`
-  fill: tomato;
+  fill: ${theme('preview.icon')};
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -57,7 +57,7 @@ export const EditIcon = styled(Img)`
 `
 
 export const SocalIcon = styled(Img)`
-  fill: tomato;
+  fill: ${theme('preview.icon')};
   margin-top: 10px;
   margin-right: 7px;
   width: 22px;

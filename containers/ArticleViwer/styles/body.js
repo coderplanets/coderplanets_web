@@ -47,6 +47,7 @@ export const MoreOption = styled.div`
 `
 export const LinkFrom = styled.div`
   display: flex;
+  color: ${theme('article.link')};
 `
 export const RefinedLabel = styled.div`
   color: tomato;
@@ -58,12 +59,12 @@ export const RefinedLabel = styled.div`
 
 export const LinkSource = styled.div`
   &:hover {
-    color: #71aeb5;
+    color: ${theme('article.linkHover')};
     cursor: pointer;
   }
 `
 export const ArticleTitle = styled.div`
-  color: #66868b;
+  color: ${theme('preview.title')};
   font-size: 1.5em;
   align-self: center;
   padding-top: 10px;
@@ -75,6 +76,5 @@ export const ArticleTitle = styled.div`
 export const ArticleBody = styled.div`
   padding: 20px;
   font-size: 1.2em;
-  color: #aaabbf;
   line-height: 2em;
 `

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const InputFooter = styled.div`
@@ -15,7 +16,7 @@ export const InputHelper = styled.div`
   display: flex;
 `
 export const HelperIcon = styled(Img)`
-  fill: #b7cfd0;
+  fill: ${theme('comment.placeholder')};
   width: 20px;
   height: 20px;
   margin-right: 8px;

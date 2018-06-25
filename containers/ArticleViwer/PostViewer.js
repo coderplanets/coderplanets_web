@@ -98,27 +98,16 @@ const PreviewHeader = ({ data, onReaction }) => (
             data
           )}
         >
-          <ReactionIcon
-            src={`${ICON_ASSETS}/cmd/like.svg`}
-            style={{
-              width: '1.2em',
-              height: '1.2em',
-              marginTop: 1,
-              marginRight: 2,
-            }}
-          />
-          <ReactionName>赞&nbsp;</ReactionName>
+          <ReactionIcon src={`${ICON_ASSETS}/cmd/like.svg`} />
+          <ReactionName>&nbsp;赞&nbsp;</ReactionName>
         </ReactionAction>
         <ReactionUserNum>{data.starredCount}</ReactionUserNum>
         <Divider />
       </Reaction>
       <Reaction>
         <ReactionAction>
-          <ReactionIcon
-            src={`${ICON_ASSETS}/cmd/watch.svg`}
-            style={{ marginTop: 6 }}
-          />
-          <ReactionName>浏览&nbsp;</ReactionName>
+          <ReactionIcon src={`${ICON_ASSETS}/cmd/watch.svg`} />
+          <ReactionName>&nbsp;浏览&nbsp;</ReactionName>
         </ReactionAction>
         <ReactionUserNum>{data.views}</ReactionUserNum>
       </Reaction>

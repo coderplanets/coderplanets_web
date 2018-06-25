@@ -135,9 +135,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
                   total={data.repliesCount}
                 />
               </ReplyUsers>
-            ) : (
-              <div />
-            )}
+            ) : null}
           </CommentHeaderFirst>
           <TimeStamps>
             <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
@@ -199,19 +197,17 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   </div>
 )
 
-const TotalCountText = ({ count }) => {
-  return (
-    <TotalCountWrapper>
-      {count > 0 ? (
-        <ListTitle id="lists-info">
-          收到 <TotalNum>{count}</TotalNum> 条评论:
-        </ListTitle>
-      ) : (
-        <div />
-      )}
-    </TotalCountWrapper>
-  )
-}
+const TotalCountText = ({ count }) => (
+  <TotalCountWrapper>
+    {count > 0 ? (
+      <ListTitle id="lists-info">
+        收到 <TotalNum>{count}</TotalNum> 条评论:
+      </ListTitle>
+    ) : (
+      <div />
+    )}
+  </TotalCountWrapper>
+)
 
 const CommentsList = ({
   entries,

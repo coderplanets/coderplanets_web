@@ -39,17 +39,17 @@ export const UserAvatar = styled.img`
 export const LeaveResponseText = styled.div`
   font-size: 1.3em;
   margin-left: 15px;
-  color: lightgrey;
+  color: ${theme('comment.placeholder')};
 `
 export const LeaveResponseUsername = styled.div`
   font-size: 1.3em;
   margin-left: 12px;
-  color: #96b3b5;
   margin-right: 10px;
+  color: ${theme('comment.username')};
 `
 
 export const ReferToIcon = styled(Img)`
-  fill: #b7cfd0;
+  fill: ${theme('comment.username')};
   width: 20px;
   height: 20px;
   margin-right: 5px;
@@ -66,6 +66,7 @@ export const CounterWrapper = styled.div`
 export const CounterSpliter = styled.div`
   font-size: 1.5em;
   font-weight: lighter;
+  color: ${theme('comment.placeholder')};
 `
 
 const getColor = num => {
@@ -87,6 +88,7 @@ export const CounterTotal = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   font-size: 1em;
+  color: ${theme('comment.placeholder')};
 `
 
 export const PreviewerWrapper = styled.div`

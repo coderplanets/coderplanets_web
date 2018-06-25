@@ -73,6 +73,7 @@ export const CounterWrapper = styled.div`
 export const CounterSpliter = styled.div`
   font-size: 1.5em;
   font-weight: lighter;
+  color: ${theme('comment.placeholder')};
 `
 
 const getColor = num => {
@@ -94,6 +95,7 @@ export const CounterTotal = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   font-size: 1em;
+  color: ${theme('comment.placeholder')};
 `
 
 export const PreviewWrapper = styled.div`

@@ -147,6 +147,13 @@ const AntOverWrite = styled.div`
 
   // popover end
 
+  // input
+  .ant-input {
+    background-color: ${theme('form.inputBg')};
+    color: ${theme('form.text')};
+    border-color: ${theme('form.border')};
+  }
+
   .ant-checkbox-wrapper {
     color: #87c5ca;
   }

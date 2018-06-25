@@ -59,9 +59,7 @@ const Header = ({
               />
             </ReplyAvatars>
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
         <SpaceGrow />
         <WordsCounter countCurrent={countCurrent} />
       </InputHeaderWrapper>

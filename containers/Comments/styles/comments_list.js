@@ -27,18 +27,18 @@ export const TotalCountWrapper = styled.div`
 `
 
 export const ListTitle = styled.div`
-  color: #62868a;
+  color: ${theme('comment.title')};
   font-size: 1rem;
   margin-left: 2px;
 `
 
 export const TotalNum = styled.span`
-  color: orange;
+  color: ${theme('comment.number')};
   font-size: 1.3em;
 `
 
 export const FloorNum = styled.div`
-  color: #b5ddb3;
+  color: ${theme('comment.floor')};
   font-size: 1rem;
   align-self: center;
   margin-left: 5px;
@@ -106,14 +106,14 @@ export const CommentHeaderFirst = styled.div`
 `
 
 export const CommentUserName = styled.div`
-  color: #678689;
+  color: ${theme('comment.username')};
   font-size: 1.3em;
   display: flex;
   flex-grow: 1;
 `
 
 export const TimeStamps = styled.div`
-  color: #9a9a9a;
+  color: ${theme('comment.placeholder')};
 `
 
 export const CommentBodyInfo = styled.div`
@@ -140,7 +140,7 @@ export const ReplyUsers = styled.div`
   margin-top: -4px;
 `
 export const ReplyTitle = styled.div`
-  color: #c5dadb;
+  color: ${theme('comment.reply')};
   margin-top: 4px;
   margin-right: 5px;
 `
@@ -160,7 +160,7 @@ export const ActionNumber = styled.div`
 `
 
 export const LikeIcon = styled(Img)`
-  fill: #6b8688;
+  fill: ${theme('comment.icon')};
   margin-right: 3px;
   margin-top: 2px;
   width: 20px;
@@ -177,7 +177,7 @@ export const UpIcon = styled(Img)`
   ${smokey};
 `
 export const ReplyIcon = styled(Img)`
-  fill: #6b8688;
+  fill: ${theme('comment.icon')};
   margin-right: 5px;
   margin-top: 1px;
   width: 18px;
@@ -186,7 +186,7 @@ export const ReplyIcon = styled(Img)`
 
 export const ReplyAction = styled.div`
   display: flex;
-  color: #90a5a6;
+  color: ${theme('comment.action')};
   margin-right: 12px;
   cursor: pointer;
   font-weight: bold;
