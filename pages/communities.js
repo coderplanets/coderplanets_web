@@ -4,7 +4,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import initRootStore from '../stores'
+import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
 import {

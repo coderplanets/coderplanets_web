@@ -6,11 +6,10 @@
 import { types as t } from 'mobx-state-tree'
 
 import { makeDebugger, markStates } from '../../utils'
-import RouteStore from '../RouteStore'
-import { ThemeStore, ThemeDefaults } from '../ThemeStore'
 
 import {
   // domain
+  RouteStore,
   UsersStore,
   AccountStore,
   BodylayoutStore,
@@ -18,6 +17,8 @@ import {
   ContentStore,
   // TODO: rename to CurCommunityStore
   CurCommunityStore,
+  ThemeStore,
+  ThemeDefaults,
 
   // banners
   BannerStore,
@@ -45,7 +46,7 @@ import {
   SidebarStore,
   TypeWriterStore,
   AccountEditorStore,
-} from '../storeIndex'
+} from '../index'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:rootStore')
