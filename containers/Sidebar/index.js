@@ -8,8 +8,8 @@ import React from 'react'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import Trend from 'react-trend'
 
+import { TrendLine } from '../../components'
 import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
 import {
@@ -70,19 +70,12 @@ const MenuList = ({ items, pin, activeRaw }) => {
                             </a>
 
                             <MiniChartWrapper pin={pin}>
-                              {/* <MiniChartBar /> */}
-                              <Trend
-                                smooth
-                                autoDraw
-                                autoDrawDuration={300}
-                                autoDrawEasing="ease-in"
+                              <TrendLine
                                 data={item.contributesDigest}
-                                gradient={['#D6ECB2', '#4F966E']}
+                                duration={300}
                                 radius={15}
-                                strokeWidth={7}
-                                strokeLinecap="round"
+                                width={7}
                               />
-                              {/* <MiniChartText>247</MiniChartText> */}
                             </MiniChartWrapper>
                           </MenuRow>
                         </div>

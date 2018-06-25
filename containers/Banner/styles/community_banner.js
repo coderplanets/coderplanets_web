@@ -32,7 +32,7 @@ export const CommunityInfo = styled.div`
 
 export const Title = styled.div`
   font-size: 1.4rem;
-  color: ${theme('font')};
+  color: ${theme('banner.title')};
   @media (max-height: 800px) {
     font-size: 1.3rem;
   }

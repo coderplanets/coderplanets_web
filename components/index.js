@@ -14,6 +14,7 @@ export { default as ContentFilter } from './ContentFilter'
 export { default as FileUploader } from './FileUploader'
 
 export { default as StateTree } from './StateTree'
+export { default as TrendLine } from './TrendLine'
 export { default as StatusBox } from './StatusBox'
 export { default as AvatarsRow } from './AvatarsRow'
 export { default as TagList } from './TagList'

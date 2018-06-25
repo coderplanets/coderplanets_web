@@ -42,7 +42,7 @@ const Cyan = {
     tabOthers: lighten(0.1, '#849ca0'), // articleBrief
   },
   banner: {
-    fg: primaryColor,
+    title: primaryColor,
     bg: bannerBg,
     desc: '#a3bbbd',
     spliter: darken(0.04, bannerBg),
@@ -66,6 +66,9 @@ const Cyan = {
   },
   content: {
     bg: contentBoxBg,
+    cardBg: contentBoxBg,
+    cardBorder: '#e6e6e6',
+    cardBorderHover: primaryColor,
   },
   footer: {
     text: '#b3ccc9',
@@ -92,6 +95,7 @@ const Cyan = {
     reactionHoverBg: '#F9FCFC',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
+    topLine: 'orange',
   },
   editor: {
     title: '#5b8c91',
@@ -113,6 +117,8 @@ const Cyan = {
   },
 
   heatmap: {
+    activityLow: '#D6ECB2',
+    activityHight: '#4F966E',
     borderHover: '#51abb2',
     empty: '#E4EEED',
     monthLabel: '#c6dbde',

@@ -11,7 +11,8 @@ export const AccountWrapper = styled.div`
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  border-top: 2px solid orange;
+  border-top: 2px solid;
+  border-top-color: ${theme('preview.topLine')};
 `
 export const AccountContent = styled.div`
   flex-grow: 1;

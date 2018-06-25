@@ -6,11 +6,8 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import Trend from 'react-trend'
-// import Link from 'next/link'
 
-import { Pagi, Button, Icon, Tooltip } from '../../components'
-
+import { Pagi, Button, Icon, Tooltip, TrendLine } from '../../components'
 import { makeDebugger, storePlug, prettyNum } from '../../utils'
 
 import {
@@ -76,25 +73,15 @@ const CommunityCard = ({ community, restProps }) => (
     <CardTitle>{community.title}</CardTitle>
     <CardDesc>{community.desc}</CardDesc>
     <ActivitySpark>
-      <Trend
-        smooth
-        autoDraw
-        autoDrawDuration={200}
-        autoDrawEasing="ease-in"
-        data={community.contributesDigest}
-        gradient={['#D6ECB2', '#4F966E']}
-        radius={15}
-        strokeWidth={3}
-        strokeLinecap="round"
-      />
+      <TrendLine data={community.contributesDigest} />
     </ActivitySpark>
     <Divider />
     <CardFooter>
-      <div>
+      <React.Fragment>
         {/* TODO: number color should be different when number grow large */}
         {prettyNum(community.subscribersCount)}{' '}
         {community.subscribersCount < 1000 ? '人关注' : '关注'}
-      </div>
+      </React.Fragment>
 
       <SubscribeBtn community={community} restProps={restProps} />
     </CardFooter>
@@ -120,6 +107,7 @@ class CommunitiesContentContainer extends React.Component {
 
   render() {
     const { pagedCommunitiesData } = this.props.communitiesContent
+
     return (
       <Wrapper>
         {pagedCommunitiesData ? (

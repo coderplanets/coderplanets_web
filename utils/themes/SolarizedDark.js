@@ -44,7 +44,7 @@ const SolarizedDark = {
     tabOthers: darken(0.1, primaryColor), // articleBrief
   },
   banner: {
-    fg: primaryColor,
+    title: primaryColor,
     bg: bannerBg,
     desc: '#176179',
     spliter: darken(0.04, bannerBg),
@@ -68,6 +68,9 @@ const SolarizedDark = {
   },
   content: {
     bg: contentBoxBg,
+    cardBg: bannerBg,
+    cardBorder: '#194f6f',
+    cardBorderHover: '#0F6186',
   },
   footer: {
     text: '#065365',
@@ -81,8 +84,8 @@ const SolarizedDark = {
     border_color: '#14363E',
   },
   preview: {
-    title: '#078681',
-    desc: '#007773',
+    title: primaryColor,
+    desc: '#1b6d88',
     font: fontColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
@@ -92,8 +95,9 @@ const SolarizedDark = {
     accountDivider: '#184a5d',
     articleBg: lighten(0.04, contentBg),
     reactionHoverBg: lighten(0.04, contentBg),
-    helper: lighten(0.2, contentBg),
-    helperHover: lighten(0.4, contentBg),
+    helper: lighten(0.1, contentBg),
+    helperHover: lighten(0.2, contentBg),
+    topLine: '#41c7bd',
   },
   editor: {
     title: '#2a867f',
@@ -114,6 +118,8 @@ const SolarizedDark = {
     inactiveNum: primaryColor,
   },
   heatmap: {
+    activityLow: '#007D7C',
+    activityHight: '#26A9A0',
     empty: '#024352',
     borderHover: '#176179',
     monthLabel: '#176179',

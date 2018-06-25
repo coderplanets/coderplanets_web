@@ -28,7 +28,7 @@ export const UserInfo = styled.div`
 export const UserName = styled.div`
   margin-bottom: 2px;
   font-size: 1.2em;
-  color: #66868b;
+  color: ${theme('banner.title')};
 `
 export const PublishAt = styled.div`
   font-size: 0.9em;
