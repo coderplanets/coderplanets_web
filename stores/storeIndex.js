@@ -1,40 +1,51 @@
 // domain store
 export { default as AccountStore } from './AccountStore'
 export { default as UsersStore } from './UsersStore'
-
-export { default as BodylayoutStore } from './BodylayoutStore'
-export { default as ApiLayoutStore } from './ApiLayoutStore'
-export { default as SidebarStore } from './SidebarStore'
-export { default as PreviewStore } from './PreviewStore'
-export { default as DoraemonStore } from './DoraemonStore'
-export { default as HeaderStore } from './HeaderStore'
-export { default as ContentStore } from './ContentStore'
-
 export { default as CurCommunityStore } from './CurCommunityStore'
 
+// utils store
+export { default as BodylayoutStore } from '../containers/BodyLayout/store'
+export { default as SidebarStore } from '../containers/Sidebar/store'
+export { default as PreviewStore } from '../containers/Preview/store'
+export { default as DoraemonStore } from '../containers/Doraemon/store'
+export { default as HeaderStore } from '../containers/Header/store'
+export { default as ContentStore } from '../containers/Content/store'
+
 // banners store
-export { default as BannerStore } from './BannerStore'
-export { default as PostBannerStore } from './PostBannerStore'
-export { default as CommunitiesBannerStore } from './CommunitiesBannerStore'
+export { default as BannerStore } from '../containers/Banner/store'
+export { default as PostBannerStore } from '../containers/PostBanner/store'
+export {
+  default as CommunitiesBannerStore,
+} from '../containers/CommunitiesBanner/store'
 
 // contents store
-export { default as CommunitiesContentStore } from './CommunitiesContentStore'
-export { default as CheatSheetContentStore } from './CheatSheetContentStore'
-export { default as PostContentStore } from './PostContentStore'
+export {
+  default as CommunitiesContentStore,
+} from '../containers/CommunitiesContent/store'
+export {
+  default as CheatSheetContentStore,
+} from '../containers/CheatSheetContent/store'
+export { default as PostContentStore } from '../containers/PostContent/store'
 
 // threads store
-export { default as PostsThreadStore } from './PostsThreadStore'
-export { default as JobsThreadStore } from './JobsThreadStore'
+export { default as PostsThreadStore } from '../containers/PostsThread/store'
+export { default as JobsThreadStore } from '../containers/JobsThread/store'
+export {
+  default as CheatSheetPaperStore,
+} from '../containers/CheatSheetPaper/store'
 
 // toolbox
-export { default as TypeWriterStore } from './TypeWriterStore'
-export { default as CommentsStore } from './CommentsStore'
-export { default as AccountEditorStore } from './AccountEditorStore'
+export { default as TypeWriterStore } from '../containers/TypeWriter/store'
+export { default as CommentsStore } from '../containers/Comments/store'
+export {
+  default as AccountEditorStore,
+} from '../containers/AccountEditor/store'
 
 // viewers store
-export { default as TutsViewerStore } from './TutsViewerStore'
-export { default as MapViewerStore } from './MapViewerStore'
-export { default as JobsViewerStore } from './JobsViewerStore'
-export { default as CheatSheetPaperStore } from './CheatSheetPaperStore'
-export { default as ArticleViwerStore } from './ArticleViwerStore'
-export { default as AccountViewerStore } from './AccountViewerStore'
+export { default as TutsViewerStore } from '../containers/TutsViewer/store'
+export { default as MapViewerStore } from '../containers/MapViewer/store'
+export { default as JobsViewerStore } from '../containers/JobsViewer/store'
+export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
+export {
+  default as AccountViewerStore,
+} from '../containers/AccountViewer/store'

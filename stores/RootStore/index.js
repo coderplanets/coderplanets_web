@@ -14,7 +14,6 @@ import {
   UsersStore,
   AccountStore,
   BodylayoutStore,
-  ApiLayoutStore,
   HeaderStore,
   ContentStore,
   // TODO: rename to CurCommunityStore
@@ -76,7 +75,6 @@ const rootStore = t
     // layouts > xxx > papers
     // layouts
     bodylayout: t.optional(BodylayoutStore, {}),
-    apiLayout: t.optional(ApiLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     content: t.optional(ContentStore, {}),
     // layouts end
