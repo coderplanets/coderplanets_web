@@ -10,7 +10,7 @@ let sub$ = null
 const debug = makeDebugger('L:PostContent')
 /* eslint-enable no-unused-vars */
 
-let postContent = null
+let store = null
 
 export function someMethod() {}
 
@@ -21,9 +21,11 @@ export function someMethod() {}
 const DataSolver = []
 const ErrSolver = []
 
-export function init(selectedStore) {
-  postContent = selectedStore
-  debug(postContent)
+export function init(_store) {
+  if (store) return false
+  store = _store
+
+  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

@@ -18,18 +18,18 @@ const sr71$ = new SR71({
 const debug = makeDebugger('L:Banner')
 /* eslint-enable no-unused-vars */
 
-let banner = null
+let store = null
 let sub$ = null
 
 export function loadCommunity() {
-  const { mainPath } = banner.curRoute
+  const { mainPath } = store.curRoute
 
   sr71$.query(S.community, { raw: mainPath })
 }
 
 export function tabberChange(thread) {
-  banner.markRoute({ subPath: thread2Subpath(thread) })
-  banner.loadCurCommunity({ activeThread: thread })
+  store.markRoute({ subPath: thread2Subpath(thread) })
+  store.loadCurCommunity({ activeThread: thread })
 }
 
 // TODO: load cur community
@@ -39,8 +39,8 @@ const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => {
-      const { subPath } = banner.curRoute
-      banner.loadCurCommunity({
+      const { subPath } = store.curRoute
+      store.loadCurCommunity({
         community,
         activeThread: subPath2Thread(subPath),
       })
@@ -86,13 +86,12 @@ const loadIfNeed = () => {
 }
 */
 
-export function init(selectedStore) {
-  if (banner) return false
-  banner = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  /* debug('##################   init banner: ', sub$) */
   /* loadIfNeed() */
 }

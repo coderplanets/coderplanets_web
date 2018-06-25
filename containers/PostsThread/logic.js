@@ -30,38 +30,33 @@ const sr71$ = new SR71({
 const debug = makeDebugger('L:PostsThread')
 /* eslint-enable no-unused-vars */
 
-let postsThread = null
+let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
-  postsThread.setHeaderFix(false)
+  store.setHeaderFix(false)
 }
 
 export function outAnchor() {
-  postsThread.setHeaderFix(true)
+  store.setHeaderFix(true)
 }
 
 export function loadPosts(page = 1) {
-  /* const { community, activeThread } = postsThread.curCommunity */
-  const { mainPath } = postsThread.curRoute
+  /* const { community, activeThread } = store.curCommunity */
+  const { mainPath } = store.curRoute
   const community = mainPath
 
-  postsThread.markState({ curView: TYPE.LOADING })
+  store.markState({ curView: TYPE.LOADING })
 
   const args = {
     /* first: 4, */
     filter: {
       page,
       size: PAGE_SIZE.COMMON,
-      ...postsThread.curFilter,
-      tag: postsThread.activeTagData.raw,
+      ...store.curFilter,
+      tag: store.activeTagData.raw,
       community,
     },
   }
@@ -69,13 +64,13 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  postsThread.markRoute({ page })
+  store.markRoute({ page })
   debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
 }
 
 export function loadTags() {
-  const community = postsThread.curRoute.mainPath
+  const community = store.curRoute.mainPath
   const thread = R.toUpper(THREAD.POST)
 
   const args = { community, thread }
@@ -84,18 +79,18 @@ export function loadTags() {
 }
 
 export function onFilterSelect(key, val) {
-  postsThread.selectFilter(key, val)
+  store.selectFilter(key, val)
   loadPosts()
 }
 
 export function onTagSelect(tag) {
-  postsThread.selectTag(tag)
+  store.selectTag(tag)
   loadPosts()
 }
 
 export function onTitleSelect(activePost) {
-  postsThread.markState({ activePost })
-  /* postsThread.setActive(post) */
+  store.markState({ activePost })
+  /* store.setActive(post) */
   debug('onTitleSelect publish post: ', activePost)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
   dispatchEvent(EVENT.NAV_EDIT, {
@@ -123,16 +118,13 @@ const DataSolver = [
       if (pagedPosts.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      postsThread.markState({
-        curView,
-        pagedPosts,
-      })
+      store.markState({ curView, pagedPosts })
     },
   },
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags }) => {
-      postsThread.markState({
+      store.markState({
         tags: partialTags,
       })
     },
@@ -153,7 +145,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => postsThread.markState({ activePost: {} }),
+    action: () => store.markState({ activePost: {} }),
   },
 ]
 
@@ -179,15 +171,15 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!postsThread.pagedPosts) {
+  if (!store.pagedPosts) {
     loadPosts()
     later(loadTags, 300)
   }
 }
 
-export function init(selectedStore) {
-  if (postsThread) return false
-  postsThread = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

@@ -19,7 +19,7 @@ const sr71$ = new SR71({
   resv_event: [EVENT.LOGIN],
 })
 
-let accountViewer = null
+let store = null
 let sub$ = null
 
 export function loadUser() {}
@@ -31,11 +31,11 @@ export function loadAccount() {
 }
 
 export function changeTheme(name) {
-  accountViewer.changeTheme(name)
+  store.changeTheme(name)
 }
 
 export function logout() {
-  accountViewer.logout()
+  store.logout()
   dispatchEvent(EVENT.LOGOUT)
 }
 
@@ -50,7 +50,7 @@ const DataSolver = [
     match: asyncRes('account'),
     action: res => {
       const data = res.account
-      accountViewer.updateAccount(data)
+      store.updateAccount(data)
     },
   },
   {
@@ -80,8 +80,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(selectedStore) {
-  accountViewer = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

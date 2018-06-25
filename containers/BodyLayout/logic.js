@@ -4,12 +4,13 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('L:BodyLayout')
 /* eslint-enable no-unused-vars */
 
-let bodylayout = null
+let store = null
 
 export function openDoraemon() {
-  bodylayout.openDoraemon()
+  store.openDoraemon()
 }
 
-export function init(selectedStore) {
-  bodylayout = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 }

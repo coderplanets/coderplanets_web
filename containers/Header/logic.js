@@ -24,13 +24,12 @@ const sr71$ = new SR71()
 const debug = makeDebugger('L:Header')
 /* eslint-enable no-unused-vars */
 
-let header = null
+let store = null
 let sub$ = null
 /* const sub$ = null */
 /* const user_token = */
 
 export function previewState() {
-  // header.openPreview(type)
   dispatchEvent(EVENT.PREVIEW, {
     type: TYPE.PREVIEW_ROOT_STORE,
   })
@@ -49,7 +48,6 @@ export function checkUserAccount() {
   const user = BStore.get('user')
   if (user) {
     // NOTICE: if store is not valid json, user will be typeof string
-    // header.updateAccount({ ...user })
     sr71$.query(S.user, { id: user.id })
   } else {
     // not shoe
@@ -64,12 +62,11 @@ export function previewAccount() {
 }
 
 export function onThreadChange(thread) {
-  /* const community = header.curRoute.mainPath */
   const activeThread = thread.raw
 
-  /* header.markRoute({ community, thread: thread2Subpath(activeThread) }) */
-  header.markRoute({ subPath: thread2Subpath(activeThread) })
-  header.loadCurCommunity({ activeThread })
+  /* store.markRoute({ community, thread: thread2Subpath(activeThread) }) */
+  store.markRoute({ subPath: thread2Subpath(activeThread) })
+  store.loadCurCommunity({ activeThread })
 }
 
 export function login() {
@@ -78,7 +75,6 @@ export function login() {
 }
 
 export function openPreview() {
-  // header.openPreview(type)
   dispatchEvent(EVENT.PREVIEW, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
     data: { hello: 'world' },
@@ -86,13 +82,13 @@ export function openPreview() {
 }
 
 export function openDoraemon() {
-  header.openDoraemon()
+  store.openDoraemon()
 }
 
 const DataSolver = [
   {
     match: asyncRes('user'),
-    action: ({ user }) => header.updateAccount(user),
+    action: ({ user }) => store.updateAccount(user),
   },
   {
     // TODO move it to user side view
@@ -105,7 +101,7 @@ const DataSolver = [
     match: asyncRes('user'),
     action: ({ user }) => {
       debug('dataResolver userRes  --->', user)
-      header.updateAccount(user)
+      store.updateAccount(user)
     },
   },
 ]
@@ -131,8 +127,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(selectedStore) {
-  header = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
   // if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */
   // sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

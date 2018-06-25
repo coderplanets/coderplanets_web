@@ -15,19 +15,15 @@ let sub$ = null
 const debug = makeDebugger('L:CommunitiesBanner')
 /* eslint-enable no-unused-vars */
 
-let communitiesBanner = null
+let store = null
 
 export function loadCategories() {
   sr71$.query(S.pagedCategories, { filter: {} })
 }
 
 export function tabOnChange(activeRaw) {
-  communitiesBanner.markRoute({
-    subPath: activeRaw,
-  })
-  communitiesBanner.markState({
-    activeRaw,
-  })
+  store.markRoute({ subPath: activeRaw })
+  store.markState({ activeRaw })
   dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeRaw })
 }
 // ###############################
@@ -38,7 +34,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedCategories'),
     action: ({ pagedCategories }) => {
-      communitiesBanner.markState({
+      store.markState({
         pagedCategories,
       })
     },
@@ -46,9 +42,10 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export function init(selectedStore) {
-  communitiesBanner = selectedStore
-  debug(communitiesBanner)
+export function init(_store) {
+  if (store) return false
+  store = _store
+
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadCategories()

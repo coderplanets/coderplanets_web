@@ -11,27 +11,17 @@ import oauthPopup from './oauth_window'
 
 const debug = makeDebugger('L:Doraemon')
 
-let doraemon = null
+let store = null
 let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-const reposIsEmpty = R.compose(
-  R.isEmpty,
-  R.prop('reposData')
-)
-const inputValueIsNotEmpty = R.compose(
-  R.not,
-  R.isEmpty,
-  R.prop('inputValue')
-)
-const isNotSearching = R.compose(
-  R.not,
-  R.prop('searching')
-)
+const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
+const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
+const isNotSearching = R.compose(R.not, R.prop('searching'))
 
 function queryPocket() {
-  pockect$.query(doraemon.inputValue)
+  pockect$.query(store.inputValue)
 }
 
 function simuUserLogin() {
@@ -48,12 +38,11 @@ function simuUserLogin() {
 
   BStore.set('user', data)
 
-  doraemon.updateAccount(data)
+  store.updateAccount(data)
 }
 
 export function githubLoginHandler() {
   // header.openPreview(type)
-  // TODO tell Doraemon to show login
   debug('just previewAccount ..')
 
   const clientId = '3b4281c5e54ffd801f85'
@@ -117,7 +106,7 @@ const initCmdResolver = () => {
       action: () => {
         SAK.completeInput(true)
         queryPocket()
-        doraemon.markState({
+        store.markState({
           inputForOtherUse: true,
           inputValue: Global.localStorage.getItem('debug'),
         })
@@ -167,7 +156,7 @@ const initCmdResolver = () => {
       match: SAK.stepTwoCmd('theme'),
       action: cmdpath => {
         const theme = R.last(cmdpath)
-        doraemon.changeTheme(theme)
+        store.changeTheme(theme)
       },
     },
     {
@@ -189,7 +178,7 @@ const initCmdResolver = () => {
         if (cmd === 'github') {
           Global.window.open('https://github.com/visionmedia/debug', '_blank')
         } else if (cmd === 'write') {
-          Global.localStorage.setItem('debug', doraemon.inputValue)
+          Global.localStorage.setItem('debug', store.inputValue)
           hidePanel()
         }
       },
@@ -221,7 +210,7 @@ const initCmdResolver = () => {
 }
 
 const doCmd = () => {
-  const cmd = doraemon.curCmdChain
+  const cmd = store.curCmdChain
   if (!cmd) return
 
   /* Do not use forEach, cause forEach will not break */
@@ -285,7 +274,7 @@ export function navToSuggestion(suggestion) {
 }
 
 export function getPrefixLogo(prefix) {
-  const { subscribedCommunities } = doraemon
+  const { subscribedCommunities } = store
   if (R.isEmpty(subscribedCommunities) || R.isEmpty(prefix)) {
     return DEFAULT_ICON
   }
@@ -300,13 +289,13 @@ export function getPrefixLogo(prefix) {
 }
 
 export function hidePanel() {
-  doraemon.hideDoraemon()
+  store.hideDoraemon()
   pockect$.stop()
 }
 
 export function inputOnChange(e) {
   const inputValue = e.target.value
-  doraemon.markState({
+  store.markState({
     inputValue,
     cmdChain: null,
     // searching: true,
@@ -314,21 +303,22 @@ export function inputOnChange(e) {
   queryPocket()
 }
 
-export function init(selectedStore) {
-  doraemon = selectedStore
-  debug('doraemon', doraemon)
+export function init(_store) {
+  if (store) return false
 
-  pockect$ = new Pockect(doraemon)
-  SAK = new SwissArmyKnife(doraemon)
+  store = _store
+
+  pockect$ = new Pockect(store)
+  SAK = new SwissArmyKnife(store)
 
   initCmdResolver()
 
   pockect$.cmdSuggesttion().subscribe(res => {
     // debug('--> loadSuggestions res: ', res)
-    doraemon.loadSuggestions(res)
+    store.loadSuggestions(res)
   })
 
   pockect$.emptyInput().subscribe(() => {
-    doraemon.clearSuggestions()
+    store.clearSuggestions()
   })
 }

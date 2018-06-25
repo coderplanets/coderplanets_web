@@ -13,16 +13,16 @@ import {
 const debug = makeDebugger('L:Route')
 /* eslint-enable no-unused-vars */
 
-let route = null
+let store = null
 
 const browerHistoryChanged = (mainPath, subPath) => {
   const otherPages = ['user', 'post', 'job']
   const mainPathChange =
-    !R.isEmpty(route.mainPath) &&
+    !R.isEmpty(store.mainPath) &&
     !R.contains(mainPath, otherPages) &&
-    mainPath !== route.mainPath
+    mainPath !== store.mainPath
 
-  const subPathChange = !R.isEmpty(route.subPath) && subPath !== route.subPath
+  const subPathChange = !R.isEmpty(store.subPath) && subPath !== store.subPath
 
   if (mainPathChange || subPathChange) {
     console.log('=========================')
@@ -46,20 +46,21 @@ export function syncRoute(routeObj) {
 
   /* console.log('syncRoute --> mainPath -> ', mainPath) */
   /* console.log('syncRoute --> subPath -> ', subPath) */
-  /* console.log('--cur route.mainPath: ', route.mainPath) */
+  /* console.log('--cur store.mainPath: ', store.mainPath) */
 
   // NOTE: this only works for brower btn change
   if (browerHistoryChanged(mainPath, subPath)) {
     dispatchEvent(EVENT.COMMUNITY_CHANGE)
   }
 
-  route.markState({
+  store.markState({
     mainPath,
     subPath,
     query,
   })
 }
 
-export function init(selectedStore) {
-  route = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 }

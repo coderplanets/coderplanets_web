@@ -20,7 +20,7 @@ const sr71$ = new SR71({
   resv_event: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
-let sidebar = null
+let store = null
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -28,23 +28,21 @@ const debug = makeDebugger('L:Sidebar')
 /* eslint-enable no-unused-vars */
 
 export function pin() {
-  sidebar.markState({ pin: !sidebar.pin })
+  store.markState({ pin: !store.pin })
 }
 
 export function onCommunitySelect(community) {
   debug('onCommunitySelect --> ', community)
-  /* sidebar.markRoute({ community: community.raw, thread: 'posts' }) */
-  sidebar.markRoute({
+  store.markRoute({
     mainPath: community.raw,
     subPath: thread2Subpath(THREAD.POST),
   })
-  /* sidebar.loadCurCommunity({ activeThread: THREAD.POST }) */
+  /* store.loadCurCommunity({ activeThread: THREAD.POST }) */
 
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
 }
 
 export function loadSubscribedCommunities() {
-  // const { accountInfo, isLogin } = sidebar
   const user = BStore.get('user')
 
   const args = {
@@ -61,7 +59,7 @@ const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
     action: ({ subscribedCommunities }) =>
-      sidebar.loadSubscribedCommunities(subscribedCommunities),
+      store.loadSubscribedCommunities(subscribedCommunities),
   },
   {
     match: asyncRes(EVENT.LOGOUT),
@@ -94,8 +92,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(selectedStore) {
-  sidebar = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

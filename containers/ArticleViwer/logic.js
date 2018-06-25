@@ -22,7 +22,7 @@ const sr71$ = new SR71({
 const debug = makeDebugger('L:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
-let articleViwer = null
+let store = null
 let sub$ = null
 
 export function onReaction(type, action, isUndo, data) {
@@ -40,13 +40,11 @@ export function gotoPostPage(data) {
   debug('gotoPostPage data: ', data)
   const { id } = data
   closePreviewer()
-  articleViwer.markRoute({ mainPath: ROUTE.POST, subPath: id })
+  store.markRoute({ mainPath: ROUTE.POST, subPath: id })
 }
 
 function loading(maybe = true) {
-  articleViwer.markState({
-    postLoading: maybe,
-  })
+  store.markState({ postLoading: maybe })
 }
 
 function queryPost(data) {
@@ -75,10 +73,7 @@ const DataSolver = [
       if (info.type === TYPE.POST) {
         queryPost(info.data)
 
-        articleViwer.markState({
-          type: 'POST',
-          post: info.data,
-        })
+        store.markState({ type: 'POST', post: info.data })
         /* articleViwer.load(TYPE.POST, res[EVENT.PREVIEW_POST].data) */
       }
     },
@@ -104,17 +99,14 @@ const DataSolver = [
     action: () => {
       // TODO: test
       sr71$.stop()
-      articleViwer.load(TYPE.POST, {})
+      store.load(TYPE.POST, {})
       loading(false)
     },
   },
   {
     match: asyncRes('post'), // GraphQL return
     action: ({ post }) => {
-      articleViwer.markState({
-        type: 'POST',
-        post,
-      })
+      store.markState({ type: 'POST', post })
       loading(false)
     },
   },
@@ -141,10 +133,10 @@ const ErrSolver = [
   },
 ]
 
-export function init(selectedStore) {
-  articleViwer = selectedStore
-  debug(articleViwer)
-  if (sub$) sub$.unsubscribe()
+export function init(_store) {
+  if (store) return false
+  store = _store
 
+  if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

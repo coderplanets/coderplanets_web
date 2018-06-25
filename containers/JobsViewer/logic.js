@@ -6,11 +6,13 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('L:JobsViewer')
 /* eslint-enable no-unused-vars */
 
-let jobsViewer = null
+let store = null
 
 export function someMethod() {}
 
-export function init(selectedStore) {
-  debug(jobsViewer)
-  jobsViewer = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
+
+  debug(store)
 }

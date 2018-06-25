@@ -9,24 +9,16 @@ const debug = makeDebugger('L:cheatSheetPaper')
 /* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71()
-let cheatSheetPaper = null
+let store = null
 let sub$ = null
 
-/* cheatSheetPaper logic */
+/* store logic */
 const groupSpliter = '{{ ::group:: }}'
 const cardsHeaderSpliter = '{{ ::cards-header:: }}'
 const cardItemSpliter = '{{ ::card-item:: }}'
 
-const getCardHeader = R.compose(
-  R.trim,
-  R.head,
-  R.split(cardsHeaderSpliter)
-)
-const getCardList = R.compose(
-  R.trim,
-  R.nth(1),
-  R.split(cardsHeaderSpliter)
-)
+const getCardHeader = R.compose(R.trim, R.head, R.split(cardsHeaderSpliter))
+const getCardList = R.compose(R.trim, R.nth(1), R.split(cardsHeaderSpliter))
 const getCardItems = R.compose(
   R.map(R.trim),
   R.split(cardItemSpliter),
@@ -53,14 +45,12 @@ const CheatsheetCDN =
 
 export function getData(which) {
   const url = `${CheatsheetCDN}/${which}.md`
-  cheatSheetPaper.markState({
-    state: 'loading',
-  })
+  store.markState({ state: 'loading' })
   sr71$.restGet(url)
 }
 
 function handleParseError(errMsg) {
-  cheatSheetPaper.markState({
+  store.markState({
     current: '',
     state: 'parse_error',
     errMsg: String(errMsg),
@@ -69,15 +59,12 @@ function handleParseError(errMsg) {
 }
 
 function handle404Error() {
-  cheatSheetPaper.markState({
-    current: '',
-    state: '404',
-  })
+  store.markState({ current: '', state: '404' })
 }
 
 const maybeEmptyState = v => (R.isEmpty(v) ? 'empty' : 'loaded')
 function handleLoaded(source) {
-  cheatSheetPaper.markState({
+  store.markState({
     source,
     state: maybeEmptyState(source),
   })
@@ -105,13 +92,14 @@ function handleError(res) {
       return false
 
     default:
-      debug('un handleError in ', cheatSheetPaper)
+      debug('un handleError in ', store)
       debug('un handleError: ', res)
   }
 }
 
-export function init(selectedStore) {
-  cheatSheetPaper = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe(res => {

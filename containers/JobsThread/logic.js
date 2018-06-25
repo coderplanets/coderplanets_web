@@ -30,39 +30,34 @@ const sr71$ = new SR71({
 const debug = makeDebugger('L:JobsThread')
 /* eslint-enable no-unused-vars */
 
-let jobsThread = null
+let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
-  jobsThread.setHeaderFix(false)
+  store.setHeaderFix(false)
 }
 
 export function outAnchor() {
-  jobsThread.setHeaderFix(true)
+  store.setHeaderFix(true)
 }
 
 export function loadJobs(page = 1) {
-  /* const { mainPath, subPath } = jobsThread.curRoute */
+  /* const { mainPath, subPath } = store.curRoute */
   scrollIntoEle(TYPE.APP_HEADER_ID)
-  const { mainPath } = jobsThread.curRoute
+  const { mainPath } = store.curRoute
   const community = mainPath
 
-  jobsThread.markState({ curView: TYPE.LOADING })
+  store.markState({ curView: TYPE.LOADING })
 
   const args = {
     /* first: 4, */
     filter: {
       page,
       size: PAGE_SIZE.POSTSPAPER_POSTS,
-      ...jobsThread.curFilter,
-      tag: jobsThread.activeTagData.raw,
+      ...store.curFilter,
+      tag: store.activeTagData.raw,
       community,
     },
   }
@@ -70,12 +65,12 @@ export function loadJobs(page = 1) {
   args.filter = validFilter(args.filter)
 
   debug('loadJobs args: ', args)
-  jobsThread.markRoute({ page })
+  store.markRoute({ page })
   sr71$.query(S.pagedJobs, args)
 }
 
 export function loadTags() {
-  const community = jobsThread.curRoute.mainPath
+  const community = store.curRoute.mainPath
 
   const args = {
     thread: R.toUpper(THREAD.JOB),
@@ -86,17 +81,17 @@ export function loadTags() {
 }
 
 export function onFilterSelect(key, val) {
-  jobsThread.selectFilter(key, val)
+  store.selectFilter(key, val)
   loadJobs()
 }
 
 export function onTagSelect(obj) {
-  jobsThread.selectTag(obj)
+  store.selectTag(obj)
   loadJobs()
 }
 
 export function onTitleSelect(activeJob) {
-  jobsThread.markState({ activeJob })
+  store.markState({ activeJob })
   dispatchEvent(EVENT.NAV_EDIT, {
     type: TYPE.POST_PREVIEW_VIEW,
     data: activeJob,
@@ -123,16 +118,13 @@ const DataSolver = [
       if (pagedJobs.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      jobsThread.markState({
-        curView,
-        pagedJobs,
-      })
+      store.markState({ curView, pagedJobs })
     },
   },
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags }) =>
-      jobsThread.markState({
+      store.markState({
         tags: partialTags,
       }),
   },
@@ -149,7 +141,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => jobsThread.markState({ activeJob: {} }),
+    action: () => store.markState({ activeJob: {} }),
   },
 ]
 
@@ -175,15 +167,15 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!jobsThread.pagedJobs) {
+  if (!store.pagedJobs) {
     loadJobs()
     later(loadTags, 300)
   }
 }
 
-export function init(selectedStore) {
-  if (jobsThread) return false
-  jobsThread = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

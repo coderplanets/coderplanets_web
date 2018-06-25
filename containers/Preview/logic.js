@@ -9,7 +9,6 @@ import {
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
-// const sr71$ = new SR71({ resv_event: EVENT.PREVIEW })
 const sr71$ = new SR71({
   resv_event: [
     EVENT.NAV_EDIT,
@@ -21,17 +20,17 @@ const sr71$ = new SR71({
 
 const debug = makeDebugger('L:Preview')
 
-let preview = null
+let store = null
 let sub$ = null
 
 export function closePreview() {
   debug('closePreview')
-  preview.close()
+  store.close()
 
   // force call Typewriter's componentWillUnmount to store the draft
   // wait until preview move out of the screean
   setTimeout(() => {
-    preview.markState({ type: null })
+    store.markState({ type: null })
     dispatchEvent(EVENT.PREVIEW_CLOSED)
   }, 200)
 }
@@ -51,7 +50,7 @@ const DataResolver = [
     action: res => {
       const event = res[EVENT.PREVIEW]
       holdPage()
-      preview.open(event.type)
+      store.open(event.type)
     },
   },
   {
@@ -65,7 +64,7 @@ const DataResolver = [
       holdPage()
 
       debug('--> EVENT.NAV_EDIT: ', res)
-      preview.open(event.type)
+      store.open(event.type)
       loadDataForPreview(res[EVENT.NAV_EDIT])
     },
   },
@@ -74,15 +73,15 @@ const DataResolver = [
     action: res => {
       const event = res[EVENT.NAV_CREATE_POST]
       holdPage()
-      preview.open(event.type)
+      store.open(event.type)
     },
   },
 ]
 
-export function init(selectedStore) {
-  preview = selectedStore
-  if (sub$) sub$.unsubscribe()
+export function init(_store) {
+  if (store) return false
+  store = _store
 
-  // sub$ = sr71$.data().subscribe(handleData)
+  if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 }

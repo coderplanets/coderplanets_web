@@ -6,12 +6,12 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('L:Content')
 /* eslint-enable no-unused-vars */
 
-let content = null
+let store = null
 
 export const holder = false
 
-export function init(selectedStore) {
-  debug(content)
-  content = selectedStore
+export function init(_store) {
+  if (store) return false
+  store = _store
   /* debug('content', content) */
 }

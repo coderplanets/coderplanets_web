@@ -9,7 +9,7 @@ const sr71$ = new SR71()
 const debug = makeDebugger('L:CheatSheetContent')
 /* eslint-enable no-unused-vars */
 
-let cheatSheetContent = null
+let store = null
 let sub$ = null
 
 export function someMethod() {}
@@ -17,9 +17,9 @@ export function someMethod() {}
 const DataSolver = []
 const ErrSolver = []
 
-export function init(selectedStore) {
-  cheatSheetContent = selectedStore
-  debug(cheatSheetContent)
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

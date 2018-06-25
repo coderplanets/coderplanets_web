@@ -19,13 +19,13 @@ const sr71$ = new SR71({
 const debug = makeDebugger('L:CommunitiesContent')
 /* eslint-enable no-unused-vars */
 
-let communitiesContent = null
+let store = null
 let sub$ = null
 
 export function loadCommunities(page = 1, category = 'all') {
   const args = {
     filter: { page, size: 20 },
-    userHasLogin: communitiesContent.isLogin,
+    userHasLogin: store.isLogin,
   }
 
   if (category !== 'all') {
@@ -44,7 +44,7 @@ export function subscribe(id) {
   debug('subscribe', id)
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
-  communitiesContent.markState({
+  store.markState({
     subscribing: true,
     subscribingId: id,
   })
@@ -54,7 +54,7 @@ export function unSubscribe(id) {
   debug('unSubscribe', id)
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
-  communitiesContent.markState({
+  store.markState({
     subscribing: true,
     subscribingId: id,
   })
@@ -62,7 +62,7 @@ export function unSubscribe(id) {
 
 /* when error occured cancle all the loading state */
 const cancleLoading = () => {
-  communitiesContent.markState({
+  store.markState({
     subscribing: false,
   })
 }
@@ -70,21 +70,20 @@ const cancleLoading = () => {
 const DataSolver = [
   {
     match: asyncRes('pagedCommunities'),
-    action: ({ pagedCommunities }) =>
-      communitiesContent.markState({ pagedCommunities }),
+    action: ({ pagedCommunities }) => store.markState({ pagedCommunities }),
   },
   {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
-      communitiesContent.addSubscribedCommunity(subscribeCommunity)
-      communitiesContent.markState({ subscribing: false })
+      store.addSubscribedCommunity(subscribeCommunity)
+      store.markState({ subscribing: false })
     },
   },
   {
     match: asyncRes('unsubscribeCommunity'),
     action: ({ unsubscribeCommunity }) => {
-      communitiesContent.removeSubscribedCommunity(unsubscribeCommunity)
-      communitiesContent.markState({ subscribing: false })
+      store.removeSubscribedCommunity(unsubscribeCommunity)
+      store.markState({ subscribing: false })
     },
   },
   {
@@ -130,9 +129,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(selectedStore) {
-  communitiesContent = selectedStore
-  debug(communitiesContent)
+export function init(_store) {
+  if (store) return false
+  store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
