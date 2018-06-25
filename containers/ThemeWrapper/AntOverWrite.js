@@ -52,34 +52,34 @@ const AntOverWrite = styled.div`
     color: ${theme('editor.content')};
   }
 
+  // mentions
   .typewriter-mention {
-    color: #575f67;
+    color: ${theme('comment.mentionText')};
     cursor: pointer;
     display: inline-block;
-    background: #fffddb;
-    padding-left: 2px;
-    padding-right: 2px;
-    border-radius: 2px;
+    background: ${theme('comment.mentionTextBg')};
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
     text-decoration: none;
   }
   .typewriter-mention:hover,
   .typewriter-mention:focus {
     color: #677584;
-    background: #fffddb;
+    background: ${theme('comment.mentionActiveBg')};
     outline: 0; /* reset for :focus */
   }
 
   .typewriter-suggestions {
-    border: 1px solid #eee;
+    border: 1px solid;
+    border-color: ${theme('comment.mentionBorder')};
     margin-top: 10px;
     position: absolute;
     min-width: 220px;
     max-width: 440px;
-    background: #fff;
+    background: ${theme('comment.mentionBg')};
     border-radius: 2px;
-    -webkit-box-shadow: 0px 2px 10px 1px rgba(235, 235, 235, 1);
-    -moz-box-shadow: 0px 2px 10px 1px rgba(235, 235, 235, 1);
-    box-shadow: 0px 2px 10px 1px rgba(235, 235, 235, 1);
+    box-shadow: ${theme('comment.mentionShadow')};
     cursor: pointer;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -100,10 +100,10 @@ const AntOverWrite = styled.div`
     display: flex;
   }
   .typewriter-mentionSuggestionsEntry:active {
-    background-color: #cce7ff;
+    background-color: tomato;
   }
   .typewriter-mentionSuggestionsEntryFocused {
-    background-color: #e6f3ff;
+    background-color: ${theme('comment.mentionActiveBg')};
     padding: 7px 10px 3px 10px;
     display: flex;
   }

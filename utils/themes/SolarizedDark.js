@@ -118,6 +118,14 @@ const SolarizedDark = {
     filter: '#62868a',
     filterActive: primaryColor,
     action: '#62868a',
+    // mention text displayed in article
+    mentionText: '#91a4b5',
+    mentionTextBg: '#115267',
+    // mention popover background
+    mentionBg: contentBoxBg,
+    mentionBorder: primaryColor,
+    mentionActiveBg: lighten(0.1, contentBoxBg),
+    mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.8)',
   },
   editor: {
     title: '#2a867f',
