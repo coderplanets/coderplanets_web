@@ -5,7 +5,7 @@ import { theme, selectorColors } from '../../../utils'
 
 const getBackground = type => {
   const themeName = type
-  return themeName === 'yellow'
+  return themeName === 'todo'
     ? darken(0.05, selectorColors[themeName])
     : lighten(0.05, selectorColors[themeName])
 }
