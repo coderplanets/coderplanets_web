@@ -19,7 +19,8 @@ const debug = makeDebugger('C:JobsViewer')
 
 class JobsViewerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.jobsViewer)
+    const { jobsViewer } = this.props
+    logic.init(jobsViewer)
   }
 
   render() {

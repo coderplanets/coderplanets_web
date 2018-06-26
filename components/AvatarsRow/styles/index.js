@@ -6,7 +6,7 @@ export const Avatars = styled.ul`
   display: flex;
   list-style-type: none;
   margin: auto;
-  height: ${props => props.height};
+  height: ${({ height }) => height};
   padding: 0px 8px 0px 0px;
   flex-direction: row-reverse;
 `

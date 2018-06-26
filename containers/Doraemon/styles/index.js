@@ -36,7 +36,7 @@ export const PageOverlay = styled.div`
   right: 0;
   top: 0;
   z-index: 1001;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
@@ -46,7 +46,7 @@ export const PanelContainer = styled.div`
   position: fixed;
   top: 12vh;
   z-index: 1002;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;
 `
@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
 
 export const SuggestionWrapper = styled.div`
   position: relative;
-  display: ${props => (props.empty ? 'none' : 'flex')};
+  display: ${({ empty }) => (empty ? 'none' : 'flex')};
   flex-direction: column;
   max-height: 60vh;
   overflow-y: scroll;
@@ -92,7 +92,7 @@ export const AlertBar = styled(BaseBar)`
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 70px;
-  background: ${props => (props.active ? theme('shell.activeBg', props) : '')};
+  background: ${({ active }) => (active ? theme('shell.activeBg') : '')};
 `
 export const InputBar = styled.input`
   caret-color: ${theme('shell.searchInput')};
@@ -181,14 +181,14 @@ export const NodeSVGIcon = styled(Img)`
   width: 40px;
   height: 40px;
   margin-top: 3px;
-  transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
+  transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 
 export const ThemeDot = styled.div`
   width: 35px;
   height: 35px;
   margin-top: 5px;
-  background: ${props => props.bg};
+  background: ${({ bg }) => bg};
   border-radius: 50%;
 `
 

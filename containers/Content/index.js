@@ -41,11 +41,14 @@ const renderContent = curRoute => {
 
 class ContentContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.content)
+    const { content } = this.props
+    logic.init(content)
   }
 
   render() {
-    const { curRoute } = this.props.content
+    const {
+      content: { curRoute },
+    } = this.props
     //    debug('curRoute: ', curRoute)
     return <Wrapper>{renderContent(curRoute)}</Wrapper>
   }

@@ -43,7 +43,8 @@ const BannerContent = ({ curCommunity, curRoute }) => {
 
 class BannerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.banner)
+    const { banner } = this.props
+    logic.init(banner)
   }
 
   render() {

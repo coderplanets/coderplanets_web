@@ -137,7 +137,8 @@ const TopHeader = ({ curView }) => {
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.typeWriter)
+    const { typeWriter } = this.props
+    logic.init(typeWriter)
   }
 
   componentWillUnmount() {
@@ -147,17 +148,19 @@ class TypeWriterContainer extends React.Component {
 
   render() {
     const {
-      articleType,
-      curView,
-      linkAddr,
-      title,
-      body,
-      publishing,
-      success,
-      error,
-      warn,
-      statusMsg,
-    } = this.props.typeWriter
+      typeWriter: {
+        articleType,
+        curView,
+        linkAddr,
+        title,
+        body,
+        publishing,
+        success,
+        error,
+        warn,
+        statusMsg,
+      },
+    } = this.props
 
     return (
       <Wrapper>

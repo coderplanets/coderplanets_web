@@ -4,10 +4,10 @@ import { Input, Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const EditorBlock = styled.div`
-  display: ${props => (props.name === props.curView ? 'block' : 'none')};
+  display: ${({ name, curView }) => (name === curView ? 'block' : 'none')};
 `
 export const PreviewBlock = styled.div`
-  display: ${props => (props.name === props.curView ? 'block' : 'none')};
+  display: ${({ name, curView }) => (name === curView ? 'block' : 'none')};
 `
 
 export const TitleInput = styled(Input)`
@@ -190,8 +190,8 @@ export const CheckIcon = styled(Img)`
   height: 18px;
   margin-top: 2px;
   margin-right: 3px;
-  visibility: ${props =>
-    props.active === props.value ? 'visiable' : 'hidden'};
+  visibility: ${({ active, value }) =>
+    active === value ? 'visiable' : 'hidden'};
 `
 export const CheckText = styled.div`
   color: ${theme('editor.content')};

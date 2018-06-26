@@ -55,7 +55,9 @@ class FileUploader extends React.Component {
   }
 
   componentWillUnmount() {
+    /* eslint-disable */
     delete this.state.ossClient
+    /* eslint-enable */
   }
 
   /* eslint-disable */

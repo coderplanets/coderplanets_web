@@ -91,7 +91,6 @@ const DataSolver = [
     action: res => {
       const { data } = res[EVENT.REFRESH_COMMUNITIES]
 
-      console.log('REFRESH_COMMUNITIES: ', data)
       loadCommunities(1, data)
     },
   },
@@ -142,5 +141,4 @@ export function init(_store) {
   if (user) {
     BStore.cookie.set('jwtToken', user.token)
   }
-  console.log('-----> from BStore user: ', user)
 }

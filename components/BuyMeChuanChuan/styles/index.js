@@ -115,8 +115,8 @@ export const Circle = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  color: ${props => (props.active ? 'white' : '#51abb2')};
-  background-color: ${props => (props.active ? theme('font') : '')};
+  color: ${({ active }) => (active ? 'white' : '#51abb2')};
+  background-color: ${({ active }) => (active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
     animation: ${Animate.pulse} 0.3s linear;

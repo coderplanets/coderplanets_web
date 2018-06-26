@@ -44,7 +44,8 @@ const ThemeSection = ({ themeKeys, curTheme }) => (
 
 class AccountViewerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.accountViewer)
+    const { accountViewer } = this.props
+    logic.init(accountViewer)
     logic.loadAccount()
   }
 
@@ -59,11 +60,13 @@ class AccountViewerContainer extends React.Component {
 
   render() {
     const {
-      themeKeys,
-      curTheme,
-      accountInfo,
-      subscribedCommunities,
-    } = this.props.accountViewer
+      accountViewer: {
+        themeKeys,
+        curTheme,
+        accountInfo,
+        subscribedCommunities,
+      },
+    } = this.props
 
     const { contributes } = accountInfo
 
@@ -81,7 +84,7 @@ class AccountViewerContainer extends React.Component {
           <Divider top="10px" bottom="20px" />
           <ContributeMap data={contributes} />
           <Divider top="18px" />
-          <Tabs onChange={console.log} type="card">
+          <Tabs onChange={debug} type="card">
             <TabPane tab="最近" key="1">
               <PanerWrapper>Content of Tab Pane 1</PanerWrapper>
             </TabPane>

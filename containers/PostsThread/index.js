@@ -129,22 +129,25 @@ const View = ({ community, thread, posts, curView, active }) => {
 
 class PostsThreadContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.postsThread)
+    const { postsThread } = this.props
+    logic.init(postsThread)
   }
 
   componentDidMount() {}
 
   render() {
     const {
-      pagedPostsData,
-      tagsData,
-      curView,
-      curFilter: { when, sort, wordLength },
-      activeTagData,
-      active,
-      accountInfo,
-      curRoute,
-    } = this.props.postsThread
+      postsThread: {
+        pagedPostsData,
+        tagsData,
+        curView,
+        curFilter: { when, sort, wordLength },
+        activeTagData,
+        active,
+        accountInfo,
+        curRoute,
+      },
+    } = this.props
 
     const { mainPath, subPath } = curRoute
 

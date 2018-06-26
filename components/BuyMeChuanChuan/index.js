@@ -43,51 +43,47 @@ import {
 const debug = makeDebugger('c:Footer:index')
 /* eslint-enable no-unused-vars */
 
-const PayMoneyFooter = ({ num }) => {
-  return (
-    <PayButton>
-      <PayDesc>
-        支持:<AliPay>
-          <Icon type="alipay-circle" />支付宝
-        </AliPay>
-        |
-        <Weixin>
-          <Icon type="wechat" /> 微信支付
-        </Weixin>
-      </PayDesc>
-      <Button type="red">
-        资助 <MoneyNum>￥{num * 10.24} 元</MoneyNum>
-      </Button>
-    </PayButton>
-  )
-}
+const PayMoneyFooter = ({ num }) => (
+  <PayButton>
+    <PayDesc>
+      支持:<AliPay>
+        <Icon type="alipay-circle" />支付宝
+      </AliPay>
+      |
+      <Weixin>
+        <Icon type="wechat" /> 微信支付
+      </Weixin>
+    </PayDesc>
+    <Button type="red">
+      资助 <MoneyNum>￥{num * 10.24} 元</MoneyNum>
+    </Button>
+  </PayButton>
+)
 
-const ChuanSelector = ({ active, onSelect }) => {
-  return (
-    <SelectBox>
-      <ChuanChuanIcon src={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
+const ChuanSelector = ({ active, onSelect }) => (
+  <SelectBox>
+    <ChuanChuanIcon src={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
 
-      <Selectors>
-        <By>X</By>
-        <Circle active={active === 1} onClick={onSelect.bind(this, 1)}>
-          1
-        </Circle>
-        <Circle active={active === 2} onClick={onSelect.bind(this, 2)}>
-          2
-        </Circle>
-        <Circle active={active === 3} onClick={onSelect.bind(this, 3)}>
-          3
-        </Circle>
-        <Circle active={active === 5} onClick={onSelect.bind(this, 5)}>
-          5
-        </Circle>
-        <Circle active={active === 10} onClick={onSelect.bind(this, 10)}>
-          10
-        </Circle>
-      </Selectors>
-    </SelectBox>
-  )
-}
+    <Selectors>
+      <By>X</By>
+      <Circle active={active === 1} onClick={onSelect.bind(this, 1)}>
+        1
+      </Circle>
+      <Circle active={active === 2} onClick={onSelect.bind(this, 2)}>
+        2
+      </Circle>
+      <Circle active={active === 3} onClick={onSelect.bind(this, 3)}>
+        3
+      </Circle>
+      <Circle active={active === 5} onClick={onSelect.bind(this, 5)}>
+        5
+      </Circle>
+      <Circle active={active === 10} onClick={onSelect.bind(this, 10)}>
+        10
+      </Circle>
+    </Selectors>
+  </SelectBox>
+)
 
 class BuyMeChuanChuan extends React.Component {
   componentDidMount() {}
@@ -106,6 +102,7 @@ class BuyMeChuanChuan extends React.Component {
 
   render() {
     const { show, fromUser, onClose } = this.props
+    const { activeChuan } = this.state
     return (
       <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
@@ -134,12 +131,12 @@ class BuyMeChuanChuan extends React.Component {
               </SelectDesc>
 
               <ChuanSelector
-                active={this.state.activeChuan}
+                active={activeChuan}
                 onSelect={this.onChuanSelect.bind(this)}
               />
               <SelectHolder />
 
-              <PayMoneyFooter num={this.state.activeChuan} />
+              <PayMoneyFooter num={activeChuan} />
             </ChuanChuanSelect>
           </BuyChuanChuan>
         </Wrapper>

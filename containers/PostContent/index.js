@@ -42,7 +42,8 @@ const fakePost = `吾愿吾亲爱之青年，生于青春，死于青春。—�
 
 class PostContentContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.postContent)
+    const { postContent } = this.props
+    logic.init(postContent)
   }
 
   render() {

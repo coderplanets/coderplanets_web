@@ -105,7 +105,8 @@ const reorder = (list, startIndex, endIndex) => {
 
 class SidebarContainer extends React.Component {
   componentDidMount() {
-    logic.init(this.props.sidebar)
+    const { sidebar } = this.props
+    logic.init(sidebar)
   }
 
   onDragEnd(result) {
@@ -113,7 +114,6 @@ class SidebarContainer extends React.Component {
     if (!result.destination) {
       return
     }
-
     /*
     const items = reorder(
       this.state.items,

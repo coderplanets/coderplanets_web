@@ -6,7 +6,7 @@ import { theme } from '../../../utils'
 
 export const Container = styled.div`
   background: ${theme('preview.articleBg')};
-  min-height: ${props => (props.show ? '100px' : '70px')};
+  min-height: ${({ show }) => (show ? '100px' : '70px')};
   height: auto;
   border-color: ${theme('preview.articleBg')};
   display: flex;
@@ -26,7 +26,7 @@ export const InputEditorWrapper = styled.div`
   height: auto;
   margin: 0 30px;
   margin-bottom: 30px;
-  display: ${props => (props.showInputEditor ? 'block' : 'none')};
+  display: ${({ showInputEditor }) => (showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
 `
 
@@ -82,7 +82,7 @@ const getColor = num => {
 export const CounterCur = styled.div`
   margin-right: 5px;
   font-size: 1em;
-  color: ${props => getColor(props.num)};
+  color: ${({ num }) => getColor(num)};
 `
 
 export const CounterTotal = styled.div`

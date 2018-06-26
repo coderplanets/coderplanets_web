@@ -5,7 +5,7 @@ import styled from 'styled-components'
 // visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
 
 export const Hidder = styled.div`
-  display: ${props => (props.active === props.name ? 'block' : 'none')};
+  display: ${({ active, name }) => (active === name ? 'block' : 'none')};
 `
 export const Wrapper = styled.div``
 
@@ -20,7 +20,7 @@ export const Category = styled.div`
   border-radius: 5px;
   margin-right: 3em;
   margin-bottom: 3em;
-  background: ${props => props.bg};
+  background: ${({ bg }) => bg};
 `
 
 export const Divider = styled.div`

@@ -37,6 +37,7 @@ global.Intl = require('intl')
 
 async function fetchData(props) {
   const { request } = makeGQClient()
+  const { asPath } = props
   // schema
   const { communityRaw } = BannerSchema
   const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
@@ -44,7 +45,7 @@ async function fetchData(props) {
   // utils
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(props.asPath), community }
+  const filter = { ...queryStringToJSON(asPath), community }
 
   // data
   const curCommunity = request(communityRaw, { raw: community })

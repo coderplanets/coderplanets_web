@@ -37,8 +37,8 @@ export const TagDot = styled.div`
   margin-top: 5px;
   margin-right: 12px;
   border-radius: 100%;
-  background-color: ${props =>
-    getDotBgColor(props.active, props.title, props.color)};
+  background-color: ${({ active, title, color }) =>
+    getDotBgColor(active, title, color)};
   display: inline-block;
   opacity: ${theme('tags.dotOpacity')};
 `

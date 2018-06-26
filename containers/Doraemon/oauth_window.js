@@ -82,7 +82,7 @@ const popup = authUrl => {
         ) {
           clearInterval(scanTimer)
           authWindow.close()
-          reject('Not allowed')
+          reject(new Error('Not allowed'))
         }
 
         if (msg.data.from_parent) {

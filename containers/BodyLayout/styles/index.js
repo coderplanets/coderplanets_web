@@ -10,9 +10,9 @@ const Body = styled.div`
   background: ${theme('bodyBg')};
   display: flex;
   flex-direction: column;
-  margin-left: ${props => (props.sidebarPin ? '180px' : '0')};
+  margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};
   transition: all 0.2s;
-  overflow-x: ${props => (props.sidebarPin ? 'hidden' : '')};
+  overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
 `
 /* overflow-x: hidden; */
 

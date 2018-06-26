@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { darken } from 'polished'
 
 import { Img } from '../../../components'
 import { theme } from '../../../utils'
@@ -11,10 +10,10 @@ export const Sidebar = styled.div`
   position: fixed;
   height: 100vh;
   top: 0;
-  width: ${props => (props.pin ? '250px' : '56px')};
-  box-shadow: ${props => (props.pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
+  width: ${({ pin }) => (pin ? '250px' : '56px')};
+  box-shadow: ${({ pin }) => (pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
-  border-color: ${theme('sidebar.border_color')};
+  border-color: ${theme('sidebar.borderColor')};
   z-index: 1000;
   overflow: hidden;
 
@@ -28,9 +27,9 @@ export const Sidebar = styled.div`
 `
 
 export const StyledPin = styled.div`
-  color: ${props => (props.pin ? props.theme.sidebar.pin_active : 'grey')};
-  visibility: ${props => (props.pin ? 'visible' : 'hidden')};
-  opacity: ${props => (props.pin ? 1 : 0)};
+  color: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
+  visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
+  opacity: ${({ pin }) => (pin ? 1 : 0)};
   position: absolute;
   font-size: 25px;
   right: 10px;
@@ -56,7 +55,7 @@ export const MenuItem = styled.ul`
 export const MenuItemWrapper = styled.li`
   display: block;
   &:hover {
-    background: ${props => darken(0.05, props.theme.sidebar.bg)};
+    background: ${theme('sidebar.menuHover')};
   }
 `
 export const MenuItemEach = styled.div`
@@ -69,7 +68,7 @@ export const MenuItemEach = styled.div`
   height: 50px;
   width: 100%;
   box-sizing: border-box;
-  color: ${theme('sidebar.menu_link')};
+  color: ${theme('sidebar.menuLink')};
 `
 export const MenuRow = styled.div`
   display: flex;
@@ -77,9 +76,9 @@ export const MenuRow = styled.div`
   font-size: 1em;
 
   > a {
-    display: ${props => (props.pin ? 'block' : 'none')};
-    color: ${theme('sidebar.menu_link')};
-    opacity: ${props => (props.active ? 1 : 0.5)};
+    display: ${({ pin }) => (pin ? 'block' : 'none')};
+    color: ${theme('sidebar.menuLink')};
+    opacity: ${({ active }) => (active ? 1 : 0.5)};
     flex-grow: 1;
     max-width: 50%;
   }
@@ -100,7 +99,7 @@ export const MiniChartWrapper = styled.div`
   position: relative;
   margin-top: -2px;
 
-  display: ${props => (props.pin ? 'flex' : 'none')};
+  display: ${({ pin }) => (pin ? 'flex' : 'none')};
   ${Sidebar}:hover & {
     display: flex;
   }
@@ -127,7 +126,7 @@ export const MiniChartText = styled.div`
 
 export const SVGIconWrapper = styled.div`
   margin-top: 5px;
-  opacity: ${props => (props.active ? 1 : 0.5)};
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
   > svg {
     width: 22px;
     height: 22px;
@@ -135,7 +134,7 @@ export const SVGIconWrapper = styled.div`
 `
 
 export const MenuItemIcon = styled(Img)`
-  opacity: ${props => (props.active ? 1 : 0.5)};
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
   margin-top: 1em;
   width: 22px;
   height: 22px;

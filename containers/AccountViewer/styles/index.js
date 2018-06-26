@@ -18,8 +18,8 @@ export const AccountContent = styled.div`
   flex-grow: 1;
 `
 export const Divider = styled.div`
-  margin-top: ${props => (props.top ? props.top : '10px')};
-  margin-bottom: ${props => (props.bottom ? props.bottom : '10px')};
+  margin-top: ${({ top }) => top || '10px'};
+  margin-bottom: ${({ bottom }) => bottom || '10px'};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('preview.accountDivider')};
 `

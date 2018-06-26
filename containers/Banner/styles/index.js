@@ -43,15 +43,15 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: ${props => (props.dead ? '' : theme('banner.numberHoverBg'))};
-    cursor: ${props => (props.dead ? '' : 'pointer')};
+    background: ${({ dead }) => (dead ? '' : theme('banner.numberHoverBg'))};
+    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
-    color: ${props => (props.dead ? '' : theme('banner.active'))};
-    text-decoration: ${props => (props.dead ? '' : 'underline')};
+    color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
+    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }
 `
@@ -59,8 +59,8 @@ export const NumberItem = styled.div`
   font-size: 1.5rem;
   color: ${theme('banner.number')};
   &:hover {
-    color: ${props => (props.dead ? '' : theme('banner.active'))};
-    text-decoration: ${props => (props.dead ? '' : 'underline')};
+    color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
+    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }
 `

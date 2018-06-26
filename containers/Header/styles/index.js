@@ -7,14 +7,14 @@ export const HeaderWrapper = styled.div`
   height: 33px;
   display: flex;
   flex-direction: row;
-  background: ${props =>
-    props.fixed ? theme('header.fixed') : theme('header.bg')};
+  background: ${({ fixed }) =>
+    fixed ? theme('header.fixed') : theme('header.bg')};
 
   border-bottom: 1px solid;
   border-bottom-color: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;
-  margin-left: ${props => props.leftOffset};
+  margin-left: ${({ leftOffset }) => leftOffset};
   transition: all 0.2s;
   box-shadow: ${theme('preview.shadow')};
 `
@@ -53,15 +53,15 @@ export const CommunityLogo = styled(Img)`
 // border-bottom: ${props => (props.active ? '2px solid tomato' : '')};
 
 export const MiniTab = styled.div`
-  border-bottom: ${props => (props.active ? '3px solid' : '')};
-  border-bottom-color: ${props =>
-    props.active ? theme('thread.articleTitle') : ''};
-  padding-bottom: ${props => (props.active ? '2px' : '5px')};
+  border-bottom: ${({ active }) => (active ? '3px solid' : '')};
+  border-bottom-color: ${({ active }) =>
+    active ? theme('thread.articleTitle') : ''};
+  padding-bottom: ${({ active }) => (active ? '2px' : '5px')};
   padding-right: 5px;
   padding-left: 5px;
   margin-right: 6px;
-  color: ${props =>
-    props.active ? theme('header.tabActive') : theme('header.tabOthers')};
+  color: ${({ active }) =>
+    active ? theme('header.tabActive') : theme('header.tabOthers')};
   cursor: pointer;
 `
 // color: ${theme('thread.articleBrief')};
@@ -124,10 +124,10 @@ export const User = styled.div`
   margin-right: 20px;
 `
 export const AffixHeader = styled.div`
-  display: ${props => (props.fixed ? 'block' : 'none')};
+  display: ${({ fixed }) => (fixed ? 'block' : 'none')};
 `
 
 export const RawHeader = styled.div`
-  display: ${props => (!props.fixed ? 'block' : 'none')};
+  display: ${({ fixed }) => (!fixed ? 'block' : 'none')};
 `
 // animation: ${Animate.fadeInRight} 0.2s linear;

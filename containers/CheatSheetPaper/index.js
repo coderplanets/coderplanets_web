@@ -114,7 +114,8 @@ const renderContent = (source, state, errMsg) => {
 
 class CheatSheetViewerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.cheatSheetPaper)
+    const { cheatSheetPaper } = this.props
+    logic.init(cheatSheetPaper)
   }
 
   componentDidMount() {

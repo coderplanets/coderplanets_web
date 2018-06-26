@@ -102,11 +102,13 @@ const CommunitiesGrid = ({ entries, restProps }) => (
 
 class CommunitiesContentContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.communitiesContent)
+    const { communitiesContent } = this.props
+    logic.init(communitiesContent)
   }
 
   render() {
-    const { pagedCommunitiesData } = this.props.communitiesContent
+    const { communitiesContent } = this.props
+    const { pagedCommunitiesData } = communitiesContent
 
     return (
       <Wrapper>
@@ -114,7 +116,7 @@ class CommunitiesContentContainer extends React.Component {
           <React.Fragment>
             <CommunitiesGrid
               entries={pagedCommunitiesData.entries}
-              restProps={{ ...this.props.communitiesContent }}
+              restProps={{ ...communitiesContent }}
             />
             <Pagi
               left="-10px"

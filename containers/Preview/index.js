@@ -72,11 +72,14 @@ const Viewer = ({ type, root }) => {
 
 class PreviewContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.preview)
+    const { preview } = this.props
+    logic.init(preview)
   }
 
   render() {
-    const { visible, type, themeKeys, curTheme, root } = this.props.preview
+    const {
+      preview: { visible, type, themeKeys, curTheme, root },
+    } = this.props
 
     return (
       <div>

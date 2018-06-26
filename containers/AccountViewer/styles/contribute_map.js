@@ -52,6 +52,7 @@ const dotColor = scale => {
   return theme(key)
 }
 
+/* eslint-disable */
 export const ColorDot = styled.div`
   width: 12px;
   height: 12px;
@@ -60,3 +61,4 @@ export const ColorDot = styled.div`
   margin-right: 2px;
   background-color: ${props => dotColor(props.scale)(props)};
 `
+/* eslint-enable */

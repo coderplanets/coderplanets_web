@@ -79,9 +79,10 @@ const SolarizedDark = {
   },
   sidebar: {
     bg: sidebarBg,
-    pin_active: '#849804',
-    menu_link: '#93A1A1',
-    border_color: '#14363E',
+    menuHover: lighten(0.1, sidebarBg),
+    pinActive: '#849804',
+    menuLink: '#93A1A1',
+    borderColor: '#14363E',
   },
   preview: {
     title: primaryColor,

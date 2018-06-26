@@ -48,7 +48,7 @@ const CheatSheetLoading = ({ column, theme }) => (
 
 CheatSheetLoading.propTypes = {
   column: PropTypes.number,
-  /* theme: PropTypes.object, */
+  theme: PropTypes.object.isRequired,
 }
 
 CheatSheetLoading.defaultProps = {

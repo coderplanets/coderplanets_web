@@ -124,22 +124,25 @@ const View = ({ community, thread, jobs, curView, active }) => {
 
 class JobsThreadContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.jobsThread)
+    const { jobsThread } = this.props
+    logic.init(jobsThread)
   }
 
   componentDidMount() {}
 
   render() {
     const {
-      pagedJobsData,
-      tagsData,
-      curView,
-      curFilter: { when, sort, wordLength },
-      activeTagData,
-      active,
-      accountInfo,
-      curRoute,
-    } = this.props.jobsThread
+      jobsThread: {
+        pagedJobsData,
+        tagsData,
+        curView,
+        curFilter: { when, sort, wordLength },
+        activeTagData,
+        active,
+        accountInfo,
+        curRoute,
+      },
+    } = this.props
 
     // TODO: use curCommunity
     const { mainPath, subPath } = curRoute

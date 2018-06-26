@@ -29,9 +29,9 @@ export const DaysWrapper = styled.div`
 `
 
 export const DayBlock = styled.div`
-  margin-right: ${props => (props.day % 5 === 0 ? '10px' : '5px')};
-  background: ${props => (props.day % 5 === 0 ? 'white' : '')};
-  font-size: ${props => (props.day % 5 === 0 ? '1.6em' : '0.9em')};
+  margin-right: ${({ day }) => (day % 5 === 0 ? '10px' : '5px')};
+  background: ${({ day }) => (day % 5 === 0 ? 'white' : '')};
+  font-size: ${({ day }) => (day % 5 === 0 ? '1.6em' : '0.9em')};
   position: relative;
   align-self: center;
   border: 1px solid lightgrey;
@@ -51,7 +51,7 @@ export const DayWeek = styled.div`
   left: -5px;
   font-size: 0.8em;
   color: #95acad;
-  display: ${props => (props.day % 5 === 0 ? 'block' : 'none')};
+  display: ${({ day }) => (day % 5 === 0 ? 'block' : 'none')};
 
   ${DayBlock}:hover & {
     display: block;

@@ -14,7 +14,7 @@ export const FooterWrapper = styled.div`
 `
 export const RespectText = styled.div`
   color: ${theme('editor.placeholder')};
-  display: ${props => (props.show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 `
 export const Divider = styled.div`
   border-top: 1px solid;

@@ -60,7 +60,7 @@ export const CommentBlock = styled.div`
 export const CommentWrapper = styled.div`
   display: flex;
   flex-grow: 1;
-  filter: ${props => (props.tobeDelete ? 'blur(3px)' : '')};
+  filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 export const DeleteHintText = styled.div`
   color: tomato;
@@ -79,7 +79,7 @@ export const DeleteOverlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  visibility: ${props => (props.show ? 'visible' : 'hidden')};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
   animation: ${Animate.pulse} 0.3s linear;
 `
 export const DeleteBtnGroup = styled.div`
@@ -168,12 +168,12 @@ export const LikeIcon = styled(Img)`
 `
 
 export const UpIcon = styled(Img)`
-  fill: ${props => (props.viewerDid ? 'orange' : '#6b8688')};
+  fill: ${({ viewerDid }) => (viewerDid ? 'orange' : '#6b8688')};
   margin-right: 3px;
   margin-top: 2px;
   width: 20px;
   height: 20px;
-  transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
+  transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
   ${smokey};
 `
 export const ReplyIcon = styled(Img)`

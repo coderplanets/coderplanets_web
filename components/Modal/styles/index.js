@@ -12,7 +12,7 @@ export const Mask = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1000;
-  display: ${props => (props.show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const Wrapper = styled.div`
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   background: ${theme('modal.bg')};
   margin: 0 auto;
   top: 15%;
-  width: ${props => props.width};
+  width: ${({ width }) => width};
   min-height: 320px;
   max-height: 80vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
@@ -37,7 +37,7 @@ export const CloseBtn = styled(Img)`
   height: 30px;
   right: 15px;
   top: 15px;
-  display: ${props => (props.show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 
   &:hover {
     animation: ${Animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);

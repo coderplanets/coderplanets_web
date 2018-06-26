@@ -89,7 +89,7 @@ const getColor = num => {
 export const CounterCur = styled.div`
   margin-right: 5px;
   font-size: 1em;
-  color: ${props => getColor(props.num)};
+  color: ${({ num }) => getColor(num)};
 `
 
 export const CounterTotal = styled.div`

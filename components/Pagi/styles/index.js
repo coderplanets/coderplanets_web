@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const PagiWrapper = styled.div`
   text-align: center;
-  margin-top: ${props => props.top};
-  margin-bottom: ${props => props.bottom};
-  margin-left: ${props => props.left};
+  margin-top: ${({ top }) => top};
+  margin-bottom: ${({ bottom }) => bottom};
+  margin-left: ${({ left }) => left};
 `
 
 export const BottomMsg = styled.div`

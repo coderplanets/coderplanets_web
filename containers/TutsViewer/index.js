@@ -19,7 +19,8 @@ const debug = makeDebugger('C:TutsViewer')
 
 class TutsViewerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.tutsViewer)
+    const { tutsViewer } = this.props
+    logic.init(tutsViewer)
   }
 
   render() {

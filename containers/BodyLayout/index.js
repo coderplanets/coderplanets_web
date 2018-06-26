@@ -18,7 +18,8 @@ import * as logic from './logic'
 
 class BodyLayoutContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.bodylayout)
+    const { bodylayout } = this.props
+    logic.init(bodylayout)
   }
 
   /* eslint-disable class-methods-use-this */
@@ -30,8 +31,11 @@ class BodyLayoutContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { sidebarPin } = this.props.bodylayout
-    return <Body sidebarPin={sidebarPin}>{this.props.children}</Body>
+    const {
+      bodylayout: { sidebarPin },
+      children,
+    } = this.props
+    return <Body sidebarPin={sidebarPin}>{children}</Body>
   }
 }
 

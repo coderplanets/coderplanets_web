@@ -16,15 +16,13 @@ import { Breadcrumbs, Logo, LogoText, BetaLogo } from './style'
 const debug = makeDebugger('c:Navigator:index')
 /* eslint-enable no-unused-vars */
 
-const Navigator = () => {
-  return (
-    <Breadcrumbs>
-      <Logo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
-      <LogoText>coderplanets</LogoText>
-      <BetaLogo src={`${ICON_ASSETS}/cmd/beta.svg`} />
-    </Breadcrumbs>
-  )
-}
+const Navigator = () => (
+  <Breadcrumbs>
+    <Logo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
+    <LogoText>coderplanets</LogoText>
+    <BetaLogo src={`${ICON_ASSETS}/cmd/beta.svg`} />
+  </Breadcrumbs>
+)
 
 /*
 Navigator.propTypes = {

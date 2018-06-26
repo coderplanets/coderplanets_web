@@ -77,9 +77,10 @@ const Cyan = {
   },
   sidebar: {
     bg: sidebarBg,
-    pin_active: primaryColor,
-    menu_link: '#D9E6E5',
-    border_color: '#14363E',
+    menuHover: darken(0.1, sidebarBg),
+    pinActive: primaryColor,
+    menuLink: '#D9E6E5',
+    borderColor: '#14363E',
   },
   preview: {
     title: '#83a2a5',

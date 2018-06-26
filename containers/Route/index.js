@@ -19,8 +19,9 @@ const debug = makeDebugger('C:Route')
 
 class RouteContainer extends React.Component {
   componentWillMount() {
-    init(this.props.route)
-    syncRoute(this.props.router)
+    const { route, router } = this.props
+    init(route)
+    syncRoute(router)
     /*
     Router.onRouteChangeStart = url => {
       console.log('App is changing to: ', url)
@@ -29,7 +30,8 @@ class RouteContainer extends React.Component {
 
     Router.onRouteChangeComplete = () => {
       // Router.onRouteChangeStart = url => {
-      syncRoute(this.props.router)
+      const { router } = this.props
+      syncRoute(router)
     }
   }
 

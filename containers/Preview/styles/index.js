@@ -20,7 +20,7 @@ export const PreviewOverlay = styled.div`
   right: 0;
   z-index: 998;
   top: 0;
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
 // z-index: 1001;
 // z-index: ${props => (props.visible ? 1001 : -1)};
@@ -35,12 +35,12 @@ export const PreviewWrapper = styled.div`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
   height: 100%;
-  width: ${props =>
-    R.contains(props.type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
+  width: ${({ type }) =>
+    R.contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
   max-width: 1000px;
   right: 0;
   position: fixed;
-  transform: ${props => doTransform(props.visible)};
+  transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
   overflow: auto;
   z-index: 1000;
@@ -83,9 +83,8 @@ export const Closer = styled.div`
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
-  display: ${props =>
-    props.type === TYPE.PREVIEW_ACCOUNT_VIEW ||
-    props.type === TYPE.PREVIEW_ACCOUNT_EDIT
+  display: ${({ type }) =>
+    type === TYPE.PREVIEW_ACCOUNT_VIEW || type === TYPE.PREVIEW_ACCOUNT_EDIT
       ? 'none'
       : 'block'};
 

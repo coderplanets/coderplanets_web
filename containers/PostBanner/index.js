@@ -46,7 +46,8 @@ const PostNumbers = () => (
 
 class PostBannerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.postBanner)
+    const { postBanner } = this.props
+    logic.init(postBanner)
   }
 
   render() {

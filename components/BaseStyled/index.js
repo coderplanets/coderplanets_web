@@ -40,15 +40,15 @@ export const Mark = styled.span`
 `
 
 export const Margin = styled.div`
-  margin-top: ${props => (props.top ? props.top : 0)};
-  margin-bottom: ${props => (props.bottom ? props.bottom : 0)};
-  margin-left: ${props => (props.left ? props.left : 0)};
-  margin-right: ${props => (props.right ? props.right : 0)};
+  margin-top: ${({ top }) => top || 0};
+  margin-bottom: ${({ bottom }) => bottom || 0};
+  margin-left: ${({ left }) => left || 0};
+  margin-right: ${({ right }) => right || 0};
 `
 
 export const Space = styled.span`
-  margin-left: ${props => (props.left ? props.left : 0)};
-  margin-right: ${props => (props.right ? props.right : 0)};
+  margin-left: ${({ left }) => left || 0};
+  margin-right: ${({ right }) => right || 0};
 `
 export const SpaceGrow = styled.div`
   flex-grow: 1;

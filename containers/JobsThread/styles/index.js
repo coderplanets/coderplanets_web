@@ -34,7 +34,7 @@ export const WritePostBtn = styled(Button)`
 export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
-  display: ${props => (props.show ? 'flex' : 'none')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;
@@ -56,12 +56,10 @@ export const PostWrapper = styled.div`
   padding-top: 6px;
   padding-bottom: 6px;
   border-radius: 4px;
-  background: ${props =>
-    props.current.id === props.active.id
-      ? props.theme.thread.articleHover
-      : ''};
-  opacity: ${props =>
-    props.active.id && props.current.id !== props.active.id ? 0.6 : 1};
+  background: ${({ current, active }) =>
+    current.id === active.id ? theme('thread.articleHover') : ''};
+  opacity: ${({ current, active }) =>
+    active.id && current.id !== active.id ? 0.6 : 1};
 
   &:hover {
     cursor: pointer;

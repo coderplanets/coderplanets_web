@@ -56,7 +56,8 @@ class MapViewerContainer extends React.Component {
   }
 
   componentWillMount() {
-    logic.init(this.props.mapViewer)
+    const { mapViewer } = this.props
+    logic.init(mapViewer)
   }
 
   render() {

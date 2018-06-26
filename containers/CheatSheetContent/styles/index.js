@@ -16,7 +16,7 @@ export const Category = styled.div`
   border-radius: 5px;
   margin-right: 3em;
   margin-bottom: 3em;
-  background: ${props => props.bg};
+  background: ${({ bg }) => bg};
 `
 
 export const CheatsheetItem = styled.div`
@@ -27,16 +27,16 @@ export const CheatsheetItem = styled.div`
   height: 30px;
   justify-content: center;
   border-radius: 4px;
-  background-color: ${props => opacify(0.01, setSaturation(0.1, props.fg))};
+  background-color: ${({ fg }) => opacify(0.01, setSaturation(0.1, fg))};
 `
 export const Entry = styled.div`
   font-size: 1.2em;
   text-align: center;
-  color: ${props => setLightness(0.52, setSaturation(0.2, props.fg))};
+  color: ${({ fg }) => setLightness(0.52, setSaturation(0.2, fg))};
 
   &:hover {
     cursor: pointer;
-    color: ${props => setLightness(0.6, setSaturation(0.3, props.fg))};
+    color: ${({ fg }) => setLightness(0.6, setSaturation(0.3, fg))};
   }
 `
 

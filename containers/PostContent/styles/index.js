@@ -57,8 +57,8 @@ export const SidebarDesc = styled.div`
   margin-top: 15px;
   margin-bottom: 10px;
   padding-bottom: 15px;
-  flex-direction: ${props => (props.column ? 'column' : 'row')};
-  border-bottom: ${props => (props.noBottom ? '' : '1px solid')};
+  flex-direction: ${({ column }) => (column ? 'column' : 'row')};
+  border-bottom: ${({ noBottom }) => (noBottom ? '' : '1px solid')};
   border-color: #d4ddde;
   max-width: 100%;
   flex-wrap: wrap;

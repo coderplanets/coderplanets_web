@@ -40,7 +40,8 @@ const Viwer = ({ type, data, loading, onReaction }) => {
 
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.articleViwer)
+    const { articleViwer } = this.props
+    logic.init(articleViwer)
   }
 
   render() {
@@ -50,14 +51,14 @@ class ArticleViwerContainer extends React.Component {
     } = this.props
 
     return (
-      <div>
+      <React.Fragment>
         <Viwer
           type={type}
           data={curPost}
           loading={postLoading}
           onReaction={logic.onReaction}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }

@@ -46,8 +46,8 @@ export const LI = styled.li`
   min-width: 15%;
   max-width: 30%;
   border-bottom: 1px solid;
-  border-bottom-color: ${props =>
-    props.active ? theme('navigator.activeBottom', props) : ''};
+  border-bottom-color: ${({ active }) =>
+    active ? theme('navigator.activeBottom') : ''};
   border-right: 1px solid;
   border-right-color: ${theme('navigator.borderRight')};
   &:hover {

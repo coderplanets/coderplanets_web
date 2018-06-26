@@ -38,10 +38,11 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { showSupport } = this.state
     return (
       <Container>
         <BuyMeChuanChuan
-          show={this.state.showSupport}
+          show={showSupport}
           onClose={this.toggleSupport.bind(this)}
         />
         <BaseInfo>

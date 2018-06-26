@@ -6,7 +6,7 @@ import { smokey, Animate, theme } from '../../../utils'
 export const FilterWraper = styled.div`
   margin-right: 8px;
   margin-top: 8px;
-  display: ${props => (props.show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'block' : 'none')};
   ${smokey};
 `
 export const Header = styled.div`
@@ -19,7 +19,7 @@ export const FilterIcon = styled(Img)`
   margin-right: 3px;
   width: 20px;
   height: 20px;
-  transform: ${props => (props.reverse ? 'rotate(180deg)' : '')};
+  transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const RecentlyIcon = FilterIcon.extend`
   animation: ${Animate.rotate360} 0.6s linear;
@@ -35,10 +35,8 @@ export const MenuWrapper = styled.div`
 
 export const MenuItem = styled.div`
   margin-bottom: 10px;
-  color: ${props =>
-    props.active === props.type
-      ? theme('comment.filterActive')
-      : theme('comment.filter')};
+  color: ${({ active, type }) =>
+    active === type ? theme('comment.filterActive') : theme('comment.filter')};
   &:hover {
     cursor: pointer;
     color: ${theme('comment.filterActive')};

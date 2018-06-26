@@ -77,8 +77,8 @@ export const ReactionUserNum = styled.div`
 export const ReactionIcon = styled(Img)`
   margin-top: 4px;
   fill: ${theme('article.reactionTitle')};
-  width: ${props => (props.width ? props.width : '1.5em')};
-  height: ${props => (props.height ? props.height : '1.5em')};
+  width: ${({ width }) => width || '1.5em'};
+  height: ${({ height }) => height || '1.5em'};
 `
 
 export const Reaction = styled.div`

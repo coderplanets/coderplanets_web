@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { lighten, darken } from 'polished'
-import { selectorColors } from '../../../utils'
+import { selectorColors, theme } from '../../../utils'
 
-const getBackground = props => {
-  const themeName = props.type
+const getBackground = type => {
+  const themeName = type
   return themeName === 'yellow'
     ? darken(0.05, selectorColors[themeName])
     : lighten(0.05, selectorColors[themeName])
@@ -17,13 +17,13 @@ export const ThemeDot = styled.div`
   background: ${props => getBackground(props)};
   position: relative;
   cursor: pointer;
-  color: ${props =>
-    props.active ? lighten(0.4, props.theme.bodyBg) : getBackground(props)};
+  color: ${({ active, type }) =>
+    active ? lighten(0.4, theme('bodyBg')) : getBackground(type)};
 
   &:after {
     content: 'T';
     position: absolute;
-    color: ${props => (props.active ? '#ff9f8e' : '')};
+    color: ${({ active }) => (active ? '#ff9f8e' : '')};
     top: 14%;
     left: 35%;
   }

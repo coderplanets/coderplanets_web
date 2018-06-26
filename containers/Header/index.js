@@ -116,7 +116,8 @@ const Header = ({
 
 class HeaderContainer extends React.Component {
   componentWillMount() {
-    logic.init(this.props.header)
+    const { header } = this.props
+    logic.init(header)
   }
 
   /* eslint-disable class-methods-use-this */
@@ -129,13 +130,15 @@ class HeaderContainer extends React.Component {
 
   render() {
     const {
-      fixed,
-      curRoute,
-      leftOffset,
-      accountInfo,
-      isLogin,
-      curCommunity,
-    } = this.props.header
+      header: {
+        fixed,
+        curRoute,
+        leftOffset,
+        accountInfo,
+        isLogin,
+        curCommunity,
+      },
+    } = this.props
 
     // <Affix style={{ display: fixed ? 'block' : 'none' }}>
     return (

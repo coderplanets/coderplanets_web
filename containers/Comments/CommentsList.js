@@ -104,9 +104,11 @@ const ActionBottom = ({ data, accountInfo }) => {
 }
 
 const getAuthors = comment => {
+  /* eslint-disable no-return-assign */
   const replies = R.forEach(reply => {
     return (reply.author.extra_id = reply.id)
   }, R.clone(comment.replies))
+  /* eslint-enable */
 
   return R.pluck('author', replies)
 }
