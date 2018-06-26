@@ -82,7 +82,7 @@ class PreviewContainer extends React.Component {
     } = this.props
 
     return (
-      <div>
+      <React.Fragment>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
@@ -95,7 +95,7 @@ class PreviewContainer extends React.Component {
             />
           </PreviewContent>
         </PreviewWrapper>
-      </div>
+      </React.Fragment>
     )
   }
 }
