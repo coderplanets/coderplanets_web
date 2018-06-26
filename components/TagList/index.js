@@ -44,9 +44,7 @@ const TagList = ({ tags, active, onSelect }) => {
           <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
           <TagTitle>全部标签</TagTitle>
         </TagItem>
-      ) : (
-        <div />
-      )}
+      ) : null}
 
       {tags.map(tag => (
         <TagItem

@@ -84,6 +84,7 @@ export const PostAvatar = styled.img`
   width: 42px;
   height: 42px;
   border-radius: 100%;
+  opacity: ${theme('avatarOpacity')};
 `
 
 export const PostBreif = styled.div`

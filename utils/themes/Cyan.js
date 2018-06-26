@@ -33,6 +33,7 @@ const Cyan = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: 'tomato',
+  avatarOpacity: 1,
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -206,6 +207,7 @@ const Cyan = {
   },
   tags: {
     dotOpacity: 0.8,
+    text: '#71979a',
   },
   tabs: {
     headerActive: primaryColor,

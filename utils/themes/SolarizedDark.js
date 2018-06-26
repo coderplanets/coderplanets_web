@@ -35,6 +35,7 @@ const SolarizedDark = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: '#839496',
+  avatarOpacity: 0.8,
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -206,6 +207,7 @@ const SolarizedDark = {
   },
   tags: {
     dotOpacity: 0.5,
+    text: '#278a82',
   },
   tabs: {
     headerActive: primaryColor,
