@@ -1,5 +1,6 @@
 // import styled from 'styled-components'
 
+// TODO: remove react-icon
 import PinOutline from 'react-icons/lib/ti/pin-outline'
 import Pin from 'react-icons/lib/md/fiber-pin'
 

@@ -139,6 +139,7 @@ class TypeWriterContainer extends React.Component {
   componentWillMount() {
     logic.init(this.props.typeWriter)
   }
+
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
     // Message.success('草稿已经保存')

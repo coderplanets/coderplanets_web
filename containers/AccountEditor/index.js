@@ -94,7 +94,7 @@ class AccountEditorContainer extends React.Component {
     /* debug('accountInfo editing->: ', accountInfo) */
 
     return (
-      <Wrapper>
+      <Wrapper className="normal-form">
         {/* eslint-disable */}
         <div onClick={logic.goBack}>
           <BackIcon src={`${ICON_ASSETS}/cmd/goback.svg`} />

@@ -24,6 +24,7 @@ module.exports = {
     'no-shadow': 0, //TODO: currently just for entry
     'no-return-assign': 0, //TODO currently only for BookStore
     'prefer-promise-reject-errors': 0,
+    'react/destructuring-assignment': 0,
     'react/jsx-no-bind': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/forbid-prop-types': 0,

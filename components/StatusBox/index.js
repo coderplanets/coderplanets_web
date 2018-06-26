@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon } from '../../components'
+import { Icon } from '..'
 import { makeDebugger } from '../../utils'
 import {
   Wrapper,
@@ -24,7 +24,8 @@ const debug = makeDebugger('c:StatusBox:index')
 function getDefaultMsg(success, error) {
   if (success) {
     return '已保存'
-  } else if (error) {
+  }
+  if (error) {
     return '出错了'
   }
   return '内容无改动，请编辑后再提交'

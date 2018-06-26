@@ -79,7 +79,8 @@ export const CounterSpliter = styled.div`
 const getColor = num => {
   if (num > WORD_LIMIT.COMMENT) {
     return 'tomato'
-  } else if (num >= WORD_LIMIT.COMMENT - 50 && num <= WORD_LIMIT.COMMENT) {
+  }
+  if (num >= WORD_LIMIT.COMMENT - 50 && num <= WORD_LIMIT.COMMENT) {
     return 'orange'
   }
   return 'yellowgreen'

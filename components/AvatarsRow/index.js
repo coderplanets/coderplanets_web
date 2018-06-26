@@ -12,7 +12,7 @@ import R from 'ramda'
 import { makeDebugger, prettyNum } from '../../utils'
 import { ATATARS_LIST_LENGTH } from '../../config/general'
 
-import { Tooltip } from '../../components'
+import { Tooltip } from '..'
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
 
 /* eslint-disable no-unused-vars */

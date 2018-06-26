@@ -8,7 +8,7 @@ import React from 'react'
 
 import { makeDebugger } from '../../utils'
 
-import { BuyMeChuanChuan } from '../../components'
+import { BuyMeChuanChuan } from '..'
 
 import {
   Container,
@@ -34,9 +34,7 @@ class Footer extends React.Component {
   }
 
   toggleSupport() {
-    this.setState({
-      showSupport: !this.state.showSupport,
-    })
+    this.setState(prevState => ({ showSupport: !prevState.showSupport }))
   }
 
   render() {

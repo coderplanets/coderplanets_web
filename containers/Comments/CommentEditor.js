@@ -64,7 +64,8 @@ const Header = ({
         <WordsCounter countCurrent={countCurrent} />
       </InputHeaderWrapper>
     )
-  } else if (showInputPreview) {
+  }
+  if (showInputPreview) {
     return (
       <InputHeaderWrapper>
         <UserAvatar src={accountInfo.avatar} />

@@ -11,7 +11,7 @@ import { makeDebugger, storePlug, ROUTE } from '../../utils'
 
 import CheatSheetContent from '../CheatSheetContent'
 import CommunityContent from '../../components/CommunityContent'
-import { CommunitiesContent, PostContent } from '../../containers'
+import { CommunitiesContent, PostContent } from '..'
 
 import * as logic from './logic'
 

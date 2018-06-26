@@ -68,6 +68,7 @@ export class Advisor {
     this.getSuggestionPath,
     cmdInit
   )
+
   suggestionPath = R.compose(
     this.getSuggestionPath,
     cmdFull

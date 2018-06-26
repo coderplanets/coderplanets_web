@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Comments from '../../containers/Comments'
+import Comments from '../Comments'
 
 import { ICON_ASSETS } from '../../config'
 

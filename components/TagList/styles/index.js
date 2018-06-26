@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from '../../../utils'
-import { Img } from '../../../components'
+import { Img } from '../..'
 
 export const Wrapper = styled.div`
   /* border-right: 1px solid grey; */

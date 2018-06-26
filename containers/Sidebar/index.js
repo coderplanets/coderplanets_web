@@ -114,15 +114,24 @@ class SidebarContainer extends React.Component {
       return
     }
 
+    /*
     const items = reorder(
       this.state.items,
       result.source.index,
       result.destination.index
     )
-
     this.setState({
       items,
     })
+    */
+
+    this.setState(prevState => ({
+      items: reorder(
+        prevState.items,
+        result.source.index,
+        result.destination.index
+      ),
+    }))
   }
 
   render() {

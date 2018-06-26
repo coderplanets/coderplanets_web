@@ -26,10 +26,12 @@ class MentionGenerator {
     this.contentState = contentState
     this.options = options
   }
+
   generate() {
     const contentRaw = convertToRaw(this.contentState)
     return this.processContent(contentRaw)
   }
+
   processContent(contentRaw) {
     const { blocks } = contentRaw
     const { encode } = this.options

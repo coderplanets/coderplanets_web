@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import { Modal, Button, Icon, UserCell } from '../../components'
+import { Modal, Button, Icon, UserCell } from '..'
 
 import { makeDebugger } from '../../utils'
 import { ICON_ASSETS, GITHUB_ME } from '../../config'

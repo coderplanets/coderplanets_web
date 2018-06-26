@@ -65,7 +65,8 @@ const DoraemonStore = t
     get curCmdChain() {
       if (!self.cmdChain && self.activeRaw) {
         return [self.activeRaw]
-      } else if (self.cmdChain && self.activeRaw) {
+      }
+      if (self.cmdChain && self.activeRaw) {
         return R.append(
           self.activeRaw,
           R.filter(el => el !== 'threads', R.map(R.toLower, self.cmdChain))

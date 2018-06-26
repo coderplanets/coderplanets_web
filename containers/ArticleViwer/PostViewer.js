@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 // import CommentsList from '../../components/CommentsList'
-import Comments from '../../containers/Comments'
+import Comments from '../Comments'
 import { MarkDownPreviewer, PostLoading } from '../../components'
 
 import { ICON_ASSETS } from '../../config'

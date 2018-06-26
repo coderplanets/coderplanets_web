@@ -13,7 +13,7 @@ import CheatsheetRootBanner from './CheatsheetRootBanner'
 import CommunityBanner from './CommunityBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { PostBanner, CommunitiesBanner } from '../../containers'
+import { PostBanner, CommunitiesBanner } from '..'
 
 import * as logic from './logic'
 

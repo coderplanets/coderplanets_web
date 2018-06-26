@@ -10,7 +10,7 @@ import mentions from 'remarkable-mentions'
 import { MENTION_USER_ADDR } from '../../config'
 import { Button } from '../../components'
 
-import MarkDownStyle from '../../containers/ThemeWrapper/MarkDownStyle'
+import MarkDownStyle from '../ThemeWrapper/MarkDownStyle'
 import {
   BodyWrapper,
   BodyHeader,

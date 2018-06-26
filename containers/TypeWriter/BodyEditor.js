@@ -68,6 +68,7 @@ class MastaniEditor extends React.Component {
 
     this.initPubSub()
   }
+
   componentWillUnmount() {
     const { pub } = this.state
     PubSub.unsubscribe(pub)
@@ -139,9 +140,15 @@ class MastaniEditor extends React.Component {
   }
 
   onSearchChange = ({ value }) => {
+    /*
     this.setState({
       suggestions: defaultSuggestionsFilter(value, this.state.mentions),
     })
+    */
+
+    this.setState(prevState => ({
+      suggestions: defaultSuggestionsFilter(value, prevState.mentions),
+    }))
   }
 
   onAddMention = user => {

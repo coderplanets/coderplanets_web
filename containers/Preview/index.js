@@ -14,9 +14,9 @@ import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 // TODO: move it to component
-import { StateTree } from '../../components/'
+import { StateTree } from '../../components'
 import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
-import { ArticleViwer, AccountViewer, AccountEditor } from '../../containers'
+import { ArticleViwer, AccountViewer, AccountEditor } from '..'
 
 import {
   PreviewOverlay,

@@ -39,7 +39,8 @@ const debug = makeDebugger('C:Doraemon')
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
     return <HintEnter src={`${ICON_ASSETS}/cmd/enter.svg`} />
-  } else if (length <= 9) {
+  }
+  if (length <= 9) {
     return <Hint>^ {index}</Hint>
   }
   return <span />
