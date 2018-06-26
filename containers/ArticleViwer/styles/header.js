@@ -9,7 +9,7 @@ export const Divider = styled.span`
   height: 0.9em;
   align-self: center;
   border-right: 1px solid;
-  border-right-color: ${theme('preview.accountDivider')};
+  border-right-color: ${theme('preview.divider')};
 `
 
 // border-bottom: 1px solid #e0e0e0;

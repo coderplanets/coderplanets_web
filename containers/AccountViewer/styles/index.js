@@ -11,7 +11,7 @@ export const AccountWrapper = styled.div`
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  border-top: 2px solid;
+  border-top: 3px solid;
   border-top-color: ${theme('preview.topLine')};
 `
 export const AccountContent = styled.div`
@@ -21,7 +21,7 @@ export const Divider = styled.div`
   margin-top: ${({ top }) => top || '10px'};
   margin-bottom: ${({ bottom }) => bottom || '10px'};
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.accountDivider')};
+  border-bottom-color: ${theme('preview.divider')};
 `
 export const ThemeWrapper = styled.div`
   margin-bottom: 15px;

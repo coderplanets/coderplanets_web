@@ -71,7 +71,7 @@ export const ArticleTitle = styled.div`
   padding-bottom: 5px;
   // width: 93%;
   border-bottom: 1px solid;
-  border-bottom-color: ${theme('preview.accountDivider')};
+  border-bottom-color: ${theme('preview.divider')};
 `
 export const ArticleBody = styled.div`
   padding: 20px;

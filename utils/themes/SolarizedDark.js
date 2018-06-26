@@ -8,15 +8,16 @@ const primaryColor = '#2d7eb1'
 
 const bannerBg = '#003B4A'
 const contentBg = '#002A35'
-
-const contentBoxBg = '#072d3a' // contentBg
-
+const contentBoxBg = '#072d3a'
 const fontColor = primaryColor
 const sidebarBg = '#001B21'
-
 const markdownFont = '#839496'
 
+const descText = '#176179'
+const primaryMate = '#2CB4AA'
+
 const SolarizedDark = {
+  logoText: primaryColor,
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,
@@ -42,30 +43,30 @@ const SolarizedDark = {
     spliter: darken(0.04, bannerBg),
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
-    tabOthers: darken(0.1, primaryColor), // articleBrief
+    tabOthers: darken(0.1, primaryColor),
   },
   banner: {
     title: primaryColor,
     bg: bannerBg,
-    desc: '#176179',
+    desc: descText,
     spliter: darken(0.04, bannerBg),
     number: primaryColor,
-    active: '#2CB4AA',
-    numberDesc: '#176179',
+    active: primaryMate,
+    numberDesc: descText,
     numberDivider: '#1b475d',
     numberHoverBg: '#0d475a',
   },
   thread: {
     bg: contentBoxBg,
-    filterResultHint: '#556d23',
-    articleTitle: '#427f98',
+    filterResultHint: descText,
+    articleTitle: '#7B8F90',
     articleHover: '#113744',
-    articleStrip: '#072d3a',
-    articleBrief: '#6B7F83',
-    articleTag: '#278a82',
-    articleLink: '#278a82',
+    articleStrip: contentBoxBg,
+    articleDigest: '#6B7F83',
+    articleTag: primaryColor,
+    articleLink: descText,
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#987d40',
+    extraInfo: darken(0.04, primaryMate), // '#987d40',
   },
   content: {
     bg: contentBoxBg,
@@ -94,7 +95,6 @@ const SolarizedDark = {
     closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: lighten(0.04, contentBg),
     accountBg: lighten(0.04, contentBg),
-    accountDivider: '#184a5d',
     articleBg: lighten(0.04, contentBg),
     helper: lighten(0.1, contentBg),
     helperHover: lighten(0.2, contentBg),
@@ -110,6 +110,7 @@ const SolarizedDark = {
   },
   comment: {
     icon: '#62868a',
+    didIcon: 'orange',
     title: '#62868a',
     username: '#62868a',
     number: '#00A59B',
@@ -151,8 +152,8 @@ const SolarizedDark = {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
     empty: '#024352',
-    borderHover: '#176179',
-    monthLabel: '#176179',
+    borderHover: descText,
+    monthLabel: descText,
     scale_1: '#035b63',
     scale_2: '#007470',
     scale_3: '#048a84',
@@ -207,13 +208,12 @@ const SolarizedDark = {
   },
   tags: {
     dotOpacity: 0.5,
-    text: '#278a82',
+    text: '#196677',
   },
   tabs: {
     headerActive: primaryColor,
     header: darken(0.1, primaryColor),
     contentBg: '#0F4553',
-    headerActiveBg: '#0e3d4c',
     headerBg: '#0d3a49',
     headerActiveTop: primaryColor,
     border: '#265663',
@@ -225,7 +225,6 @@ const SolarizedDark = {
   },
   form: {
     inputBg: '#002D39',
-    inputBorder: '#005256',
     text: '#617F82',
     label: '#617F82',
     border: '#005256',

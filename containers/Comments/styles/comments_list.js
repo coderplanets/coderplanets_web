@@ -94,6 +94,7 @@ export const CommentAvatar = styled.img`
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  opacity: ${theme('avatarOpacity')};
 `
 
 export const CommentHeader = styled.div`
@@ -147,7 +148,7 @@ export const ReplyTitle = styled.div`
 
 export const VisiableAction = styled.div`
   display: flex;
-  color: #90a5a6;
+  color: ${theme('comment.action')};
   margin-right: 10px;
   &:hover {
     cursor: pointer;
@@ -157,6 +158,7 @@ export const VisiableAction = styled.div`
 
 export const ActionNumber = styled.div`
   font-size: 1.2em;
+  color: ${theme('comment.action')};
 `
 
 export const LikeIcon = styled(Img)`
@@ -168,7 +170,8 @@ export const LikeIcon = styled(Img)`
 `
 
 export const UpIcon = styled(Img)`
-  fill: ${({ viewerDid }) => (viewerDid ? 'orange' : '#6b8688')};
+  fill: ${({ viewerDid }) =>
+    viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
   margin-right: 3px;
   margin-top: 2px;
   width: 20px;
@@ -197,10 +200,4 @@ export const ReplyAction = styled.div`
     opacity: 1;
   }
   transition: opacity 0.3s;
-`
-
-export const Pagi = styled.div`
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
 `

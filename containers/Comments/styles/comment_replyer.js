@@ -42,6 +42,7 @@ export const UserAvatar = styled.img`
   height: 25px;
   border-radius: 50%;
   margin-left: 3%;
+  opacity: ${theme('avatarOpacity')};
 `
 export const LeaveResponseText = styled.div`
   font-size: 1.3em;

@@ -144,9 +144,9 @@ export const PostExtra = styled.li`
   font-size: 0.9rem;
 `
 
-export const PostBodyBreif = styled.li`
+export const PostBodyDigest = styled.li`
   margin-top: 5px;
-  color: ${theme('thread.articleBrief')};
+  color: ${theme('thread.articleDigest')};
   margin-right: 20px;
   white-space: normal;
   display: block;

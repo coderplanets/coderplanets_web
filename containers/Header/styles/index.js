@@ -64,10 +64,6 @@ export const MiniTab = styled.div`
     active ? theme('header.tabActive') : theme('header.tabOthers')};
   cursor: pointer;
 `
-// color: ${theme('thread.articleBrief')};
-
-// color: ${theme('header.fg')};
-// margin-right: 25px;
 export const Admin = styled.div`
   display: flex;
   flex-direction: column;
@@ -81,7 +77,6 @@ export const DividerIcon = styled(Img)`
   margin-left: 3px;
   margin-right: 3px;
 `
-
 export const StateButton = styled(Button)`
   width: 80px;
   display: flex;
@@ -93,7 +88,6 @@ export const StateIcon = styled(Img)`
   margin-right: 8px;
   margin-top: 2px;
 `
-
 export const HeaderIcon = styled(Img)`
   fill: ${theme('header.fg')};
   width: 20px;
@@ -102,23 +96,20 @@ export const HeaderIcon = styled(Img)`
   margin-top: 2px;
   margin-right: 12px;
 `
-
 export const UserAvatar = styled.img`
   width: 20px;
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
   border-radius: 3px;
+  opacity: ${theme('avatarOpacity')};
 `
-
 export const Operations = styled.div`
   display: flex;
 `
-
 export const Search = styled.div`
   color: ${theme('header.fg')};
 `
-
 export const Notification = styled.div``
 export const User = styled.div`
   margin-right: 20px;
@@ -126,7 +117,6 @@ export const User = styled.div`
 export const AffixHeader = styled.div`
   display: ${({ fixed }) => (fixed ? 'block' : 'none')};
 `
-
 export const RawHeader = styled.div`
   display: ${({ fixed }) => (!fixed ? 'block' : 'none')};
 `

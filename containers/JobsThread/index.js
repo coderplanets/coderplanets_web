@@ -45,7 +45,7 @@ import {
   PostTitle,
   PostTitleTag,
   PostSecondHalf,
-  PostBodyBreif,
+  PostBodyDigest,
   PostExtra,
   PostTitleTagDot,
   TagDivider,
@@ -88,7 +88,7 @@ const PostItem = ({ post, active }) => (
           <TimeAgo datetime={post.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
           {post.views}
         </PostExtra>
-        <PostBodyBreif>{cutFrom(post.digest, 90)}</PostBodyBreif>
+        <PostBodyDigest>{cutFrom(post.digest, 90)}</PostBodyDigest>
       </PostSecondHalf>
     </PostMain>
 

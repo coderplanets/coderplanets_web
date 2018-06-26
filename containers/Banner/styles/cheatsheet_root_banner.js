@@ -36,5 +36,5 @@ export const CheatsheetTitle = styled.div`
 export const CheatsheetDesc = styled.div`
   font-size: 1.3em;
   margin-top: 5px;
-  color: ${theme('thread.articleBrief')};
+  color: ${theme('thread.articleDigest')};
 `

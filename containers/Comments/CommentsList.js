@@ -150,9 +150,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
               <ReplyToBody>{data.replyTo.body}</ReplyToBody>
               <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
             </ReplyBar>
-          ) : (
-            <div />
-          )}
+          ) : null}
           <MarkDownPreviewer body={data.body} />
         </CommentContent>
         <CommentFooter>
@@ -186,7 +184,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
 )
 
 const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
-  <div>
+  <React.Fragment>
     {entries.map(c => (
       <div key={shortid.generate()}>
         <Comment
@@ -196,7 +194,7 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
         />
       </div>
     ))}
-  </div>
+  </React.Fragment>
 )
 
 const TotalCountText = ({ count }) => (
@@ -205,9 +203,7 @@ const TotalCountText = ({ count }) => (
       <ListTitle id="lists-info">
         收到 <TotalNum>{count}</TotalNum> 条评论:
       </ListTitle>
-    ) : (
-      <div />
-    )}
+    ) : null}
   </TotalCountWrapper>
 )
 
@@ -224,7 +220,7 @@ const CommentsList = ({
     filterType,
   },
 }) => (
-  <div>
+  <React.Fragment>
     <TotalHeader>
       <TotalCountText count={totalCount} />
       <CommentsFilter filterType={filterType} show={totalCount >= 2} />
@@ -233,9 +229,7 @@ const CommentsList = ({
       <CommentBlock>
         <CommentLoading />
       </CommentBlock>
-    ) : (
-      <div />
-    )}
+    ) : null}
     <ListsContainer>
       {loading ? (
         <CommentBlock>
@@ -261,7 +255,7 @@ const CommentsList = ({
       noMoreMsg="没有更多的评论了"
       emptyMsg="目前还没有评论"
     />
-  </div>
+  </React.Fragment>
 )
 
 export default CommentsList

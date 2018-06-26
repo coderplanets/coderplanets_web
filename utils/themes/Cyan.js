@@ -8,15 +8,16 @@ const primaryColor = '#5EABB3'
 
 const bannerBg = '#DAE6E5'
 const contentBg = '#E4EEED'
-
 const contentBoxBg = '#f9fcfc'
-
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
-
 const markdownFont = '#839496'
 
+const descText = '#a3bbbd'
+const primaryMate = 'orange'
+
 const Cyan = {
+  logoText: primaryColor,
   htmlBg: bannerBg,
   loading: {
     basic: bannerBg,
@@ -40,28 +41,28 @@ const Cyan = {
     spliter: darken(0.04, bannerBg),
     fixed: contentBoxBg,
     tabActive: '#61868c', // articleTitle
-    tabOthers: lighten(0.1, '#849ca0'), // articleBrief
+    tabOthers: lighten(0.1, '#849ca0'),
   },
   banner: {
     title: primaryColor,
     bg: bannerBg,
-    desc: '#a3bbbd',
+    desc: descText,
     spliter: darken(0.04, bannerBg),
     numberDesc: '#a7bbbf',
-    number: '#5c868b',
-    active: '#f1c48f',
+    number: '#83a7ad',
+    active: primaryMate,
     numberDivider: '#ccdcde',
     numberHoverBg: '#e4ecec',
   },
   thread: {
     bg: contentBoxBg,
-    filterResultHint: '#edc48a',
-    articleTitle: '#61868c',
+    filterResultHint: descText,
+    articleTitle: '#83a7ad',
     articleHover: '#f3f6f9',
     articleStrip: contentBoxBg,
-    articleBrief: '#a2c0c5',
+    articleDigest: '#a2c0c5',
     articleTag: '#71979a',
-    articleLink: '#71979a',
+    articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: '#84C3C8',
   },
@@ -92,7 +93,6 @@ const Cyan = {
     closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#F9FCFC',
-    accountDivider: '#f4f4f5',
     articleBg: '#F9FCFC',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
@@ -108,6 +108,7 @@ const Cyan = {
   },
   comment: {
     icon: '#62868a',
+    didIcon: 'orange',
     title: '#62868a',
     username: '#62868a',
     number: '#efbc60',
@@ -213,7 +214,6 @@ const Cyan = {
     headerActive: primaryColor,
     header: lighten(0.2, primaryColor),
     contentBg: '#FFFFFF',
-    headerActiveBg: '#FFFFFF',
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
     border: '#E8E8E8',
@@ -225,7 +225,6 @@ const Cyan = {
   },
   form: {
     inputBg: '#FFFFFF',
-    inputBorder: '#88a4ad',
     text: '#88a4ad',
     label: '#88a4ad',
     border: '#B8C6C0',

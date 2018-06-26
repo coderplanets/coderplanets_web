@@ -45,5 +45,5 @@ export const TagDot = styled.div`
 // ${props => (props.active === props.title ? 1 : 0.7)}
 
 export const TagTitle = styled.div`
-  color: ${theme('tag.text')};
+  color: ${theme('tags.text')};
 `

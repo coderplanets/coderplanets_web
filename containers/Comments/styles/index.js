@@ -15,7 +15,7 @@ export const ReplyBarBase = styled.div`
   display: flex;
 `
 export const ReplyToBodyBase = styled.div`
-  color: #93b3b5;
+  color: ${theme('comment.title')};
   margin-left: 10px;
   margin-right: 20px;
   width: 350px;

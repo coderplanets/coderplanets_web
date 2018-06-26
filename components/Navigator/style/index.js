@@ -18,7 +18,7 @@ export const Logo = styled(Img)`
 `
 export const LogoText = styled.div`
   margin-left: 6px;
-  color: #5c868b;
+  color: ${theme('logoText')};
 `
 
 export const BetaLogo = styled(Img)`
