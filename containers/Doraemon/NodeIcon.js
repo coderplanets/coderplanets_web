@@ -5,7 +5,7 @@
 
 import React from 'react'
 
-import { themeColorMap } from '../../utils'
+import { themeCoverMap } from '../../utils'
 import { NodeSVGIcon, ThemeDot } from './styles'
 import { DEFAULT_ICON } from '../../config/assets'
 
@@ -14,7 +14,7 @@ import { DEFAULT_ICON } from '../../config/assets'
 const NodeIcon = ({ suggestion: { raw, logo, cmd } }) => {
   /* const lowerRaw = R.toLower(raw) */
   if (cmd === 'theme') {
-    return <ThemeDot bg={themeColorMap[raw]} />
+    return <ThemeDot bg={themeCoverMap[raw]} />
   }
   return <NodeSVGIcon src={logo || DEFAULT_ICON} />
 }

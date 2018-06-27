@@ -17,9 +17,6 @@ const AccountViewerStore = t
     get root() {
       return getParent(self)
     },
-    get themeKeys() {
-      return self.root.theme.themeKeys
-    },
     get subscribedCommunities() {
       return self.root.account.subscribedCommunities
     },

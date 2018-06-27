@@ -18,6 +18,7 @@ const primaryMate = 'orange'
 
 const Cyan = {
   logoText: primaryColor,
+  cover: primaryColor,
   htmlBg: bannerBg,
   loading: {
     basic: bannerBg,
@@ -98,7 +99,7 @@ const Cyan = {
     helperHover: '#83a2a5',
     topLine: 'orange',
     icon: 'tomato',
-    divider: '#d7e4e3',
+    divider: '#ebf1f0',
   },
   article: {
     link: '#b5ccce',

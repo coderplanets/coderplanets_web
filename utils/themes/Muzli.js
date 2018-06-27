@@ -17,6 +17,8 @@ const primaryMate = '#a7674d'
 
 const Muzli = {
   logoText: primaryColor,
+  cover: primaryColor,
+  coverIndex: '#9e96c3',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

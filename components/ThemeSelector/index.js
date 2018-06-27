@@ -6,6 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import shortid from 'shortid'
 
 import { FlexWrapper, ThemeDot } from './style'
 import { makeDebugger, themeKeys } from '../../utils'
@@ -14,11 +15,13 @@ const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
 
 const ThemeSelector = ({ curTheme, changeTheme }) => {
+  debug('ThemeSelector -> : ', themeKeys)
+
   return (
     <FlexWrapper>
       {themeKeys.map(name => (
         <ThemeDot
-          key={name}
+          key={shortid.generate()}
           active={curTheme === name}
           type={name}
           onClick={changeTheme.bind(this, name)}

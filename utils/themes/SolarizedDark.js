@@ -18,6 +18,8 @@ const primaryMate = '#2CB4AA'
 
 const SolarizedDark = {
   logoText: primaryColor,
+  cover: lighten(0.08, bannerBg),
+  coverIndex: primaryMate,
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

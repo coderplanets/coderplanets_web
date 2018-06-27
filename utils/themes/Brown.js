@@ -15,6 +15,8 @@ const mainBg = '#7DC0C5'
 const markdownFont = '#839496'
 
 const Dark = {
+  cover: fontColor,
+  coverIndex: 'orange',
   htmlBg: topHalfBg,
   loading: {
     basic: topHalfBg,

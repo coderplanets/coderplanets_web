@@ -17,6 +17,8 @@ const primaryMate = '#1e9089'
 
 const Yellow = {
   logoText: primaryColor,
+  cover: bannerBg,
+  coverIndex: primaryMate,
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

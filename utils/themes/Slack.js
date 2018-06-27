@@ -9,6 +9,8 @@ const sidebarBg = '#4B3A4C'
 const mainBg = '#F9F9F9'
 
 const Slack = {
+  cover: fontColor,
+  coverIndex: 'orange',
   font: fontColor,
   link: '#36AEE5',
   main: '#7DC0C5',

@@ -9,6 +9,8 @@ const sidebarBg = '#53B5B0'
 const mainBg = '#60848B'
 
 const CyanGreen = {
+  cover: sidebarBg,
+  coverIndex: 'orange',
   font: fontColor,
   link: '#99CFAF',
   main: '#7DC0C5',

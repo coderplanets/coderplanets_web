@@ -32,13 +32,9 @@ const debug = makeDebugger('C:AccountViewer')
 
 const { TabPane } = Tabs
 
-const ThemeSection = ({ themeKeys, curTheme }) => (
+const ThemeSection = ({ curTheme }) => (
   <ThemeWrapper>
-    <ThemeSelector
-      themeKeys={themeKeys}
-      curTheme={curTheme}
-      changeTheme={logic.changeTheme}
-    />
+    <ThemeSelector curTheme={curTheme} changeTheme={logic.changeTheme} />
   </ThemeWrapper>
 )
 
@@ -60,12 +56,7 @@ class AccountViewerContainer extends React.Component {
 
   render() {
     const {
-      accountViewer: {
-        themeKeys,
-        curTheme,
-        accountInfo,
-        subscribedCommunities,
-      },
+      accountViewer: { curTheme, accountInfo, subscribedCommunities },
     } = this.props
 
     const { contributes } = accountInfo
@@ -102,7 +93,7 @@ class AccountViewerContainer extends React.Component {
 
         {/* TODO if is others preview, then not show this */}
         <Divider top="10px" bottom="12px" />
-        <ThemeSection themeKeys={themeKeys} curTheme={curTheme} />
+        <ThemeSection curTheme={curTheme} />
       </AccountWrapper>
     )
   }

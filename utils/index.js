@@ -67,12 +67,12 @@ export {
   theme,
   themeDict,
   themeKeys,
-  themeColorMap,
-  selectorColors,
+  themeCoverMap,
+  themeCoverIndexMap,
 } from './themes'
 
 export { default as fakeUsers } from './fake_user'
 
 export { default as BStore } from './bstore'
-export { default as GA } from './analytics'
 export { Trans } from './i18n'
+export { default as GA } from './analytics'
