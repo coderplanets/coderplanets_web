@@ -52,7 +52,9 @@ class CommentsContainer extends React.Component {
               show={showReplyEditor}
               showReplyPreview={showReplyPreview}
             />
-          ) : null}
+          ) : (
+            <div />
+          )}
         </Modal>
 
         <CommentEditor

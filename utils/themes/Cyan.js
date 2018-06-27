@@ -138,7 +138,8 @@ const Cyan = {
     border: '#F9FCFC',
     borderAcitve: '#b3cacb',
     borderNormal: '#e2eaea',
-    footer: '#a5c8ca',
+    footer: '#a6bebf',
+    footerHover: darken(0.05, '#a6bebf'),
   },
   pagination: {
     itemBg: '#cbe7ea',

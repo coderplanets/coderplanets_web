@@ -22,8 +22,8 @@ import Yellow from './Yellow'
 import Green from './Green'
 
 export const themeDict = {
-  default: { ...Cyan },
-  /* cyan: { ...Cyan }, */
+  default: { ...Green },
+  cyan: { ...Cyan },
   solarized: { ...SolarizedDark },
   purple: { ...Purple },
   yellow: { ...Yellow },

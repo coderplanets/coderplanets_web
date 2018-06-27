@@ -140,7 +140,8 @@ const Github = {
     border: bannerBg,
     borderAcitve: primaryColor,
     borderNormal: lighten(0.05, bannerBg),
-    footer: '#504961',
+    footer: descText,
+    footerHover: lighten(0.05, descText),
   },
   pagination: {
     itemBg: darken(0.1, descText),

@@ -140,7 +140,7 @@ const Yellow = {
     border: '#fffaf0',
     borderAcitve: primaryColor,
     borderNormal: darken(0.05, bannerBg),
-    footer: '#c8d3cf',
+    footer: descText,
   },
   pagination: {
     itemBg: bannerBg,

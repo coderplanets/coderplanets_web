@@ -10,7 +10,7 @@ export const ExtraWrapper = styled.div`
 
 export const ExtraItem = styled.div`
   display: flex;
-  color: ${theme('editor.content')};
+  color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;
     animation: ${Animate.pulse} 0.4s linear;
@@ -27,6 +27,9 @@ export const ExtraDivider = styled(Img)`
 export const ExtraItemTitle = styled.div`
   cursor: pointer;
   font-size: 1.2em;
+  ${ExtraItem}:hover & {
+    color: ${theme('editor.footerHover')};
+  }
 `
 export const ExtraItemIcon = styled(Img)`
   fill: ${theme('editor.content')};
@@ -36,6 +39,6 @@ export const ExtraItemIcon = styled(Img)`
   margin-top: 2px;
 
   ${ExtraItem}:hover & {
-    fill: #51abb2;
+    fill: ${theme('editor.footerHover')};
   }
 `

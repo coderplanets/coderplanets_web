@@ -1,22 +1,23 @@
 /*
- * a theme inspired by Muzli && unbuntu
+ * a theme inspired by Green && unbuntu
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#615c79'
+const primaryColor = '#5da579'
 
-const bannerBg = '#2f2c3c'
-const contentBg = '#242029'
-const contentBoxBg = '#27212d'
+const bannerBg = '#bccebb' // '#AEC4AD'
+const contentBg = '#D3DFD1'
+const contentBoxBg = '#e0e8db' // '#DBE3D6'
 const fontColor = primaryColor
-const sidebarBg = '#222029'
-const markdownFont = '#7F8189'
+const sidebarBg = '#3B4F43'
+const markdownFont = '#83a085'
 
-const descText = '#4a455a'
-const primaryMate = '#a7674d'
+const descText = '#83a085'
+const bannerTitle = '#708e7a'
+const primaryMate = '#b57a5b'
 
-const Muzli = {
-  logoText: primaryColor,
+const Green = {
+  logoText: bannerTitle,
   cover: '#B4C9B2',
   coverIndex: '#9e96c3',
   htmlBg: contentBoxBg,
@@ -42,109 +43,110 @@ const Muzli = {
     fg: primaryColor,
     bg: bannerBg,
     spliter: darken(0.04, bannerBg),
-    fixed: bannerBg,
-    tabActive: primaryColor, // articleTitle
-    tabOthers: darken(0.1, primaryColor),
+    fixed: contentBg,
+    tabActive: bannerTitle,
+    tabOthers: descText,
   },
   banner: {
-    title: primaryColor,
+    title: bannerTitle,
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
-    number: primaryColor,
+    spliter: bannerBg,
+    number: bannerTitle,
     active: primaryMate,
     numberDesc: descText,
-    numberDivider: darken(0.08, descText),
+    numberDivider: '#aab9ab',
     numberHoverBg: lighten(0.03, bannerBg),
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#737990',
+    articleTitle: '#62867A',
     articleHover: lighten(0.03, contentBoxBg),
     articleStrip: contentBoxBg,
-    articleDigest: '#505667',
-    articleTag: '#526482',
+    articleDigest: descText,
+    articleTag: '#74a0ab',
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
   },
   content: {
     bg: contentBoxBg,
-    cardBg: bannerBg,
+    cardBg: lighten(0.05, contentBoxBg),
     cardBorder: lighten(0.08, contentBoxBg),
     cardBorderHover: lighten(0.1, contentBoxBg),
   },
   footer: {
-    text: descText,
-    hover: lighten(0.1, descText),
+    text: lighten(0.1, descText),
+    hover: descText,
     label: descText,
   },
   sidebar: {
     bg: sidebarBg,
     menuHover: lighten(0.1, sidebarBg),
-    pinActive: '#849804',
-    menuLink: '#93A1A1',
+    pinActive: contentBg,
+    menuLink: '#A6BBAF',
     borderColor: lighten(0.05, sidebarBg),
   },
   preview: {
-    title: primaryColor,
+    title: bannerTitle,
     desc: lighten(0.05, descText),
-    font: fontColor,
-    bg: contentBoxBg,
+    font: descText,
+    bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: lighten(0.04, contentBg),
-    accountBg: lighten(0.04, contentBg),
-    articleBg: lighten(0.04, contentBg),
-    helper: lighten(0.2, contentBg),
-    helperHover: lighten(0.3, contentBg),
-    topLine: '#c387e8',
+    accountBg: contentBoxBg,
+    articleBg: contentBoxBg,
+    helper: '#b0bfa8',
+    helperHover: descText,
+    topLine: primaryColor,
     icon: '#845145',
-    divider: darken(0.07, descText),
+    divider: '#ced8c6',
   },
   article: {
     link: primaryMate,
     linkHover: lighten(0.05, primaryMate),
-    reactionTitle: primaryColor,
+    reactionTitle: descText,
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
-    icon: primaryColor,
+    icon: bannerTitle,
     didIcon: primaryMate,
-    title: primaryColor,
-    username: primaryColor,
+    title: bannerTitle,
+    username: bannerTitle,
     number: primaryMate,
     floor: primaryMate,
-    reply: primaryColor,
-    replyBg: '#3d3644',
-    placeholder: descText,
+    reply: bannerTitle,
+    replyBg: '#e8efe5',
+    placeholder: lighten(0.05, descText),
     filter: descText,
-    filterActive: primaryColor,
-    action: primaryColor,
+    filterActive: bannerTitle,
+    action: descText,
     // mention text displayed in article
-    mentionText: '#70768B',
-    mentionTextBg: '#423a4a',
+    mentionText: bannerTitle,
+    mentionTextBg: '#f7f0dc',
     // mention popover background
     mentionBg: contentBoxBg,
-    mentionBorder: primaryColor,
-    mentionActiveBg: lighten(0.1, contentBoxBg),
-    mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.8)',
+    mentionBorder: bannerTitle,
+    mentionActiveBg: lighten(0.01, contentBoxBg),
+    mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.3)',
   },
   editor: {
-    title: primaryColor,
-    content: '#6E717A',
-    placeholder: darken(0.03, descText),
-    headerBg: bannerBg,
-    contentBg: bannerBg,
-    border: bannerBg,
+    title: bannerTitle,
+    content: descText,
+    placeholder: '#a6bba7',
+    headerBg: contentBoxBg,
+    contentBg: contentBoxBg,
+    border: contentBoxBg,
     borderAcitve: primaryColor,
-    borderNormal: lighten(0.05, bannerBg),
-    footer: '#504961',
+    borderNormal: darken(0.05, contentBoxBg),
+    footer: descText,
+    footerHover: darken(0.05, descText),
   },
   pagination: {
-    itemBg: darken(0.1, descText),
-    itemBorderColor: darken(0.06, descText),
+    itemBg: contentBg,
+    itemBorderColor: '#C3D4C3',
     disableText: descText,
     text: primaryColor,
     inactiveNum: primaryColor,
@@ -152,14 +154,14 @@ const Muzli = {
   heatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
-    empty: '#342e3a',
+    empty: '#d3dccc',
     borderHover: primaryColor,
     monthLabel: descText,
-    scale_1: lighten(0.04, '#342e3a'),
-    scale_2: lighten(0.08, '#342e3a'),
-    scale_3: lighten(0.12, '#342e3a'),
-    scale_4: lighten(0.18, '#342e3a'),
-    scale_5: lighten(0.3, '#342e3a'),
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
   },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
@@ -203,21 +205,21 @@ const Muzli = {
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
-    bg: bannerBg,
+    bg: contentBoxBg,
     borderColor: primaryColor,
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.5,
-    text: '#72788D',
+    dotOpacity: 0.7,
+    text: '#74a0ab',
   },
   tabs: {
-    headerActive: primaryColor,
-    header: darken(0.05, primaryColor),
-    contentBg: lighten(0.05, contentBoxBg),
-    headerBg: lighten(0.03, contentBoxBg),
+    headerActive: '#628672',
+    header: '#83A086',
+    contentBg: lighten(0.03, contentBoxBg),
+    headerBg: lighten(0.02, contentBoxBg),
     headerActiveTop: primaryColor,
-    border: descText,
+    border: darken(0.05, contentBoxBg),
   },
   modal: {
     bg: bannerBg,
@@ -227,7 +229,7 @@ const Muzli = {
   form: {
     inputBg: lighten(0.03, contentBoxBg),
     text: descText,
-    label: primaryColor,
+    label: bannerTitle,
     border: descText,
   },
   a: {
@@ -236,4 +238,4 @@ const Muzli = {
   },
 }
 
-export default Muzli
+export default Green

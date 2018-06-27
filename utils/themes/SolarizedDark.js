@@ -141,7 +141,8 @@ const SolarizedDark = {
     border: '#0e3444',
     borderAcitve: '#10627b',
     borderNormal: '#2d505f',
-    footer: '#2B597B',
+    footer: descText,
+    footerHover: lighten(0.05, descText),
   },
   pagination: {
     itemBg: '#103440',
