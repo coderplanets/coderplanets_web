@@ -14,22 +14,18 @@ import { makeDebugger, themeKeys } from '../../utils'
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
 
-const ThemeSelector = ({ curTheme, changeTheme }) => {
-  debug('ThemeSelector -> : ', themeKeys)
-
-  return (
-    <FlexWrapper>
-      {themeKeys.map(name => (
-        <ThemeDot
-          key={shortid.generate()}
-          active={curTheme === name}
-          type={name}
-          onClick={changeTheme.bind(this, name)}
-        />
-      ))}
-    </FlexWrapper>
-  )
-}
+const ThemeSelector = ({ curTheme, changeTheme }) => (
+  <FlexWrapper>
+    {themeKeys.map(name => (
+      <ThemeDot
+        key={shortid.generate()}
+        active={curTheme === name}
+        name={name}
+        onClick={changeTheme.bind(this, name)}
+      />
+    ))}
+  </FlexWrapper>
+)
 
 ThemeSelector.propTypes = {
   curTheme: PropTypes.string,
