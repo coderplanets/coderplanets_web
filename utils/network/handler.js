@@ -2,7 +2,7 @@ import R from 'ramda'
 
 import { Observable } from 'rxjs/Observable'
 
-import { makeDebugger, notEmpty, ERR } from '../../utils'
+import { makeDebugger, notEmpty, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 /* eslint-disable no-unused-vars */
