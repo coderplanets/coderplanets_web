@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 import { theme, smokey } from '../../../utils'
 
+export const Container = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -5%;
+  margin-bottom: 20px;
+`
+
 const link = styled.a`
   text-decoration: none;
   font-weight: bolder;
@@ -21,13 +29,6 @@ export const Support = styled.div`
   }
 `
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: -5%;
-  margin-bottom: 20px;
-`
 export const BaseInfo = styled.div`
   display: flex;
   margin-top: 20px;

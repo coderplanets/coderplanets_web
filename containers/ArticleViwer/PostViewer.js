@@ -116,7 +116,7 @@ const PreviewHeader = ({ data, onReaction }) => (
 )
 
 const PostViewer = ({ data, loading, onReaction }) => (
-  <div>
+  <React.Fragment>
     <PreviewHeader data={data} onReaction={onReaction} />
     <BodyWrapper>
       <ArticleHeader>
@@ -146,7 +146,7 @@ const PostViewer = ({ data, loading, onReaction }) => (
     <CommentsWrapper>
       <Comments />
     </CommentsWrapper>
-  </div>
+  </React.Fragment>
 )
 
 export default PostViewer

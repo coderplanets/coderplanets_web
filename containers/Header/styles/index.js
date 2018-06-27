@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Button, Img } from '../../../components'
 import { theme } from '../../../utils'
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
   height: 33px;
   display: flex;
   flex-direction: row;

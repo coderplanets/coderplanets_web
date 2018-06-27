@@ -73,7 +73,7 @@ export const ArticleTitle = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: ${theme('preview.divider')};
 `
-export const ArticleBody = styled.div`
+export const ArticleBody = styled.article`
   padding: 20px;
   font-size: 1.2em;
   line-height: 2em;

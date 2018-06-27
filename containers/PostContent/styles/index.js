@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
-export const Container = styled.div`
+export const Container = styled.article`
   padding: 20px;
   min-height: 300px;
   display: flex;

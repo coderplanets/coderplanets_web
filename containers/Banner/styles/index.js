@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, Animate } from '../../../utils'
 
-export const BaseBanner = styled.div`
+export const BaseBanner = styled.nav`
   position: relative;
   min-height: 140px;
   border-bottom: 1px solid tomato;

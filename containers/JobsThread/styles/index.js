@@ -49,7 +49,7 @@ export const TagDivider = styled.div`
   margin-bottom: 30px;
   margin-left: 8%;
 `
-export const PostWrapper = styled.div`
+export const PostWrapper = styled.article`
   display: flex;
   padding-left: 8px;
   padding-right: 8px;

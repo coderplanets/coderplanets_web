@@ -13,7 +13,7 @@ import { TrendLine } from '../../components'
 import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
 import {
-  Sidebar,
+  Container,
   MenuItem,
   MenuRow,
   MenuItemWrapper,
@@ -146,7 +146,7 @@ class SidebarContainer extends React.Component {
     const activeRaw = community.raw
 
     return (
-      <Sidebar pin={pin}>
+      <Container pin={pin}>
         <PinButton pin={pin} onClick={logic.pin} />
         <br />
         <br />
@@ -155,7 +155,7 @@ class SidebarContainer extends React.Component {
           pin={pin}
           activeRaw={activeRaw}
         />
-      </Sidebar>
+      </Container>
     )
   }
 }

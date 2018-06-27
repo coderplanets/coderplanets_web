@@ -5,7 +5,7 @@ import { theme } from '../../../utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
-export const Sidebar = styled.div`
+export const Container = styled.aside`
   border-right: 1px solid;
   position: fixed;
   height: 100vh;
@@ -37,7 +37,7 @@ export const StyledPin = styled.div`
   transition: visibility 0s, opacity 0.3s linear;
   cursor: pointer;
 
-  ${Sidebar}:hover & {
+  ${Container}:hover & {
     visibility: visible;
     opacity: 1;
   }
@@ -83,7 +83,7 @@ export const MenuRow = styled.div`
     max-width: 50%;
   }
 
-  ${Sidebar}:hover & {
+  ${Container}:hover & {
     a {
       display: block;
       flex-grow: 1;
@@ -100,7 +100,7 @@ export const MiniChartWrapper = styled.div`
   margin-top: -2px;
 
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
-  ${Sidebar}:hover & {
+  ${Container}:hover & {
     display: flex;
   }
 `
