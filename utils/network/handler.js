@@ -14,26 +14,28 @@ export const TimoutObservable = Observable.of({
   details: `server has no response in ${TIMEOUT_THRESHOLD} secs`,
 })
 
-export const formatGraphErrors = error => {
-  /* console.log('formatGraphErrors error: ', error) */
-  const { graphQLErrors } = error
-  // graphQLErrors may not catch in graph query (wrang sytax etc ...)
-  // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-  if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
-    // console.log('-- graphQLErrors --> ', graphQLErrors)
-    // console.log('-- error --> ', error)
-
-    const details = []
-    graphQLErrors.map(({ message, path, key }) => {
-      return details.push({
-        detail: key ? `${key}:${message}` : `${message}`,
-        path: path ? R.join(' |> ', path) : '',
-      })
+const fomatDetail = errors => {
+  const details = []
+  errors.map(({ message, path, key, code }) => {
+    return details.push({
+      detail: key ? `${key}:${message}` : `${message}`,
+      path: path ? R.join(' |> ', path) : '',
+      code,
     })
-    return { error: ERR.CRAPHQL, details }
+  })
+  return details
+}
+export const formatGraphErrors = error => {
+  if (Array.isArray(error))
+    return { error: ERR.CRAPHQL, details: fomatDetail(error) }
+
+  const { graphQLErrors } = error
+  if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
+    // graphQLErrors may not catch in graph query (wrang sytax etc ...)
+    // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
+    return { error: ERR.CRAPHQL, details: fomatDetail(graphQLErrors) }
   }
 
-  /* debug('maybe a network error') */
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }
 

@@ -39,11 +39,7 @@ const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
     /* graphQLErrors.map(({ message, path, detail }) => */
     debug('[GraphQL error happend]')
-    /*
-       graphQLErrors.map(({ message }) =>
-       debug(`[error detail]: ${operation.operationName} ${message}`)
-       )
-     */
+    graphQLErrors.map(({ message }) => debug(`[error detail--> ]:  ${message}`))
   }
   // if (networkError) {
   // debug(`[Network error]: ${networkError}`)
