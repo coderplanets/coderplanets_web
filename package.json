@@ -63,7 +63,7 @@
     "module-alias": "^2.0.1",
     "next": "6.0.3",
     "path-match": "^1.2.4",
-    "polished": "1.9.2",
+    "polished": "1.9.3",
     "prop-types": "^15.5.10",
     "pubsub-js": "^1.6.0",
     "ramda": "0.25.0",
