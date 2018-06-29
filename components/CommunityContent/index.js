@@ -49,7 +49,7 @@ const ComunityContent = ({ curRoute }) => {
       return <CheatSheetPaper />
     }
     default: {
-      return <div>posts</div>
+      return <div>default</div>
     }
   }
 }

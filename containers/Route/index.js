@@ -11,27 +11,20 @@ import Router, { withRouter } from 'next/router'
 // import Link from 'next/link'
 
 import { makeDebugger, storePlug } from '../../utils'
-import { init, syncRoute } from './logic'
+import { init, routeChange } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Route')
 /* eslint-enable no-unused-vars */
 
 class RouteContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { route, router } = this.props
-    init(route)
-    syncRoute(router)
-    /*
-    Router.onRouteChangeStart = url => {
-      console.log('App is changing to: ', url)
-    }
-    */
+    init(route, router)
 
     Router.onRouteChangeComplete = () => {
-      // Router.onRouteChangeStart = url => {
-      const { router } = this.props
-      syncRoute(router)
+      const { route } = this.props
+      routeChange(route)
     }
   }
 

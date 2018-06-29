@@ -1,7 +1,7 @@
 /*
-* RouteStore store test
-*
-*/
+ * RouteStore store test
+ *
+ */
 
 // import RouteStore from '../index'
 

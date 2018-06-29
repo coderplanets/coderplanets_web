@@ -6,61 +6,52 @@ import {
   EVENT,
   getMainPath,
   getSubPath,
+  onClient,
+  Global,
   // queryStringToJSON /*  isEmptyNil, getParameterByName */,
 } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Route')
 /* eslint-enable no-unused-vars */
+dispatchEvent(EVENT.COMMUNITY_CHANGE)
 
 let store = null
 
-const browerHistoryChanged = (mainPath, subPath) => {
-  const otherPages = ['user', 'post', 'job']
-  const mainPathChange =
-    !R.isEmpty(store.mainPath) &&
-    !R.contains(mainPath, otherPages) &&
-    mainPath !== store.mainPath
+export function routeChange() {
+  if (onClient) {
+    const browserMainPath = getMainPath({ asPath: Global.location.pathname })
+    const browserSubPath = getSubPath({ asPath: Global.location.pathname })
+    const notCommunityPage = ['user', 'post', 'job']
 
-  const subPathChange = !R.isEmpty(store.subPath) && subPath !== store.subPath
+    /*
+       debug('browserMainPath -> ', browserMainPath)
+       debug('browserSubPath -> ', browserSubPath)
 
-  if (mainPathChange || subPathChange) {
-    console.log('=========================')
-    console.log('browerHistoryChanged !')
-    console.log('=========================')
-    return true
+       debug('store.mainPath: ', store.mainPath)
+       debug('store.subPath: ', store.subPath)
+     */
+
+    const pathChange =
+      store.mainPath !== browserMainPath || store.subPath !== browserSubPath
+
+    if (pathChange) {
+      store.markState({ mainPath: browserMainPath, subPath: browserSubPath })
+
+      if (!R.contains(browserMainPath, notCommunityPage))
+        return dispatchEvent(EVENT.COMMUNITY_CHANGE)
+    }
   }
-  return false
 }
 
-export function syncRoute(routeObj) {
-  const mainPath = getMainPath(routeObj)
-  const subPath = getSubPath(routeObj)
-
-  const { query /* asPath */ } = routeObj
-
-  /* console.log('syncRoute --> routeObj: ', routeObj) */
-  /* console.log('syncRoute --> asPath: ', asPath) */
-  /* console.log('syncRoute --> query: ', query) */
-  /* console.log('syncRoute parse --> ', queryStringToJSON(asPath)) */
-
-  /* console.log('syncRoute --> mainPath -> ', mainPath) */
-  /* console.log('syncRoute --> subPath -> ', subPath) */
-  /* console.log('--cur store.mainPath: ', store.mainPath) */
-
-  // NOTE: this only works for brower btn change
-  if (browerHistoryChanged(mainPath, subPath)) {
-    dispatchEvent(EVENT.COMMUNITY_CHANGE)
-  }
-
-  store.markState({
-    mainPath,
-    subPath,
-    query,
-  })
-}
-
-export function init(_store) {
+export function init(_store, routeObj) {
   if (store) return false
   store = _store
+
+  // sync init router info
+  const mainPath = getMainPath(routeObj)
+  const subPath = getSubPath(routeObj)
+  const { query } = routeObj
+
+  store.markState({ mainPath, subPath, query })
 }

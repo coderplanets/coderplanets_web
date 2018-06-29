@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t } from 'mobx-state-tree'
+import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import Router from 'next/router'
 
@@ -27,6 +27,9 @@ const RouteStore = t
     query: t.optional(Query, {}),
   })
   .views(self => ({
+    get root() {
+      return getParent(self)
+    },
     get curRoute() {
       const { mainPath, subPath } = self
       return { mainPath, subPath }
@@ -56,13 +59,14 @@ const RouteStore = t
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
-      Router.push(url, asPath, {
-        shallow: true,
-      })
+      console.log('push url: ', url)
+      Router.push(url, asPath, { shallow: true })
       // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
       /* return Global.history.pushState({}, null, url) */
     },
-
+    loadCurCommunity(sobj) {
+      self.root.curCommunity.load(sobj)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

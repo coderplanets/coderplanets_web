@@ -173,6 +173,7 @@ const ErrSolver = [
 
 const loadIfNeed = () => {
   if (!store.pagedJobs) {
+    debug('loadIfNeed')
     loadJobs()
     later(loadTags, 300)
   }

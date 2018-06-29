@@ -28,6 +28,7 @@ export function loadCommunity() {
 }
 
 export function tabberChange(thread) {
+  console.log('tabberChange thread: ', thread2Subpath(thread))
   store.markRoute({ subPath: thread2Subpath(thread) })
   store.loadCurCommunity({ activeThread: thread })
 }
