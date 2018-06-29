@@ -212,6 +212,12 @@ const Github = {
     dotOpacity: 0.5,
     text: '#72788D',
   },
+  tagger: {
+    text: '#a7bfbf',
+    bg: '#004C61',
+    border: '#004C61',
+    closeBtn: '#a7bfbf',
+  },
   tabs: {
     headerActive: primaryColor,
     header: darken(0.05, primaryColor),

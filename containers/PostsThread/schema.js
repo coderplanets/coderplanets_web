@@ -10,6 +10,11 @@ const pagedPostsRaw = `
         insertedAt
         updatedAt
         views
+        author {
+          id
+          avatar
+          nickname
+        }
         commentsParticipatorsCount
         commentsParticipators(filter: { first: 5 }) {
           id

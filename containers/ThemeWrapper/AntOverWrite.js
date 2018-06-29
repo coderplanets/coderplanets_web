@@ -340,11 +340,15 @@ const AntOverWrite = styled.div`
   .ant-tag,
   .ant-tag a,
   .ant-tag a:hover {
-    color: #d2a05f;
+    color: ${theme('tagger.text')};
   }
   .ant-tag {
-    border: 1px solid #fff2b3;
-    background: #fff2b3;
+    border: 1px solid;
+    border-color: ${theme('tagger.border')};
+    background: ${theme('tagger.bg')};
+  }
+  .ant-tag .anticon-cross {
+    color: ${theme('tagger.closeBtn')};
   }
 `
 

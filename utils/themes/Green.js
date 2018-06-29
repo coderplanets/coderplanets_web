@@ -213,6 +213,12 @@ const Green = {
     dotOpacity: 0.7,
     text: '#74a0ab',
   },
+  tagger: {
+    text: '#8095ad',
+    bg: '#BBCEBC',
+    border: '#BBCEBC',
+    closeBtn: '#8095ad',
+  },
   tabs: {
     headerActive: '#628672',
     header: '#83A086',

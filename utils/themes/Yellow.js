@@ -211,6 +211,12 @@ const Yellow = {
     dotOpacity: 0.7,
     text: '#72788D',
   },
+  tagger: {
+    text: '#FFF6E5',
+    bg: '#afc1b3',
+    border: '#afc1b3',
+    closeBtn: '#FFF6E5',
+  },
   tabs: {
     headerActive: lighten(0.04, primaryColor),
     header: lighten(0.2, primaryColor),

@@ -212,6 +212,12 @@ const Purple = {
     dotOpacity: 0.5,
     text: '#72788D',
   },
+  tagger: {
+    text: '#959cb9',
+    bg: '#4A4559',
+    border: '#4A4559',
+    closeBtn: '#959cb9',
+  },
   tabs: {
     headerActive: primaryColor,
     header: darken(0.05, primaryColor),

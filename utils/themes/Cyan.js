@@ -17,7 +17,7 @@ const descText = '#a3bbbd'
 const primaryMate = 'orange'
 
 const Cyan = {
-  logoText: primaryColor,
+  logoText: descText,
   cover: primaryColor,
   htmlBg: bannerBg,
   loading: {
@@ -211,6 +211,12 @@ const Cyan = {
   tags: {
     dotOpacity: 0.8,
     text: '#71979a',
+  },
+  tagger: {
+    text: '#d2a05f',
+    bg: '#fff2b3',
+    border: '#fff2b3',
+    closeBtn: '#d2a05f',
   },
   tabs: {
     headerActive: primaryColor,

@@ -52,15 +52,13 @@ export function loadPosts(page = 1) {
   /* const { community, activeThread } = store.curCommunity */
   const { mainPath } = store.curRoute
   const community = mainPath
-
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
-    /* first: 4, */
     filter: {
       page,
       size: PAGE_SIZE.COMMON,
-      ...store.curFilter,
+      ...store.filtersData,
       tag: store.activeTagData.raw,
       community,
     },
@@ -69,9 +67,9 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  store.markRoute({ page })
   debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
+  store.markRoute({ page })
 }
 
 export function loadTags() {
@@ -83,8 +81,8 @@ export function loadTags() {
   sr71$.query(S.partialTags, args)
 }
 
-export function onFilterSelect(key, val) {
-  store.selectFilter(key, val)
+export function onFilterSelect(option) {
+  store.selectFilter(option)
   loadPosts()
 }
 

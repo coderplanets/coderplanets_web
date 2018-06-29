@@ -20,7 +20,7 @@ import {
   SelectItem,
 } from './styles'
 
-import { makeDebugger, isEmptyValue } from '../../utils'
+import { makeDebugger, isEmptyValue, FILTER } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */
@@ -38,36 +38,36 @@ const filterDict = {
   LEAST_WORDS: '字数最少',
 }
 
-const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
+const SelectPanel = ({ activeFilter, onSelect }) => (
   <SelectPanelWrapper>
     <Row>
       <Col span={8}>
         <SelectTitle>时间</SelectTitle>
         <SelectItem
           item="TODAY"
-          active={activeWhen}
-          onClick={onSelect.bind(this, 'when', 'TODAY')}
+          active={activeFilter.when}
+          onClick={onSelect.bind(this, { when: FILTER.TODAY })}
         >
           今天
         </SelectItem>
         <SelectItem
           item="THIS_WEEK"
-          active={activeWhen}
-          onClick={onSelect.bind(this, 'when', 'THIS_WEEK')}
+          active={activeFilter.when}
+          onClick={onSelect.bind(this, { when: FILTER.THIS_WEEK })}
         >
           本周
         </SelectItem>
         <SelectItem
           item="THIS_MONTH"
-          active={activeWhen}
-          onClick={onSelect.bind(this, 'when', 'THIS_MONTH')}
+          active={activeFilter.when}
+          onClick={onSelect.bind(this, { when: FILTER.THIS_MONTH })}
         >
           本月
         </SelectItem>
         <SelectItem
           item="THIS_YEAR"
-          active={activeWhen}
-          onClick={onSelect.bind(this, 'when', 'THIS_YEAR')}
+          active={activeFilter.when}
+          onClick={onSelect.bind(this, { when: FILTER.THIS_YEAR })}
         >
           今年
         </SelectItem>
@@ -76,29 +76,29 @@ const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
         <SelectTitle>排序</SelectTitle>
         <SelectItem
           item="MOST_VIEWS"
-          active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'MOST_VIEWS')}
+          active={activeFilter.sort}
+          onClick={onSelect.bind(this, { sort: FILTER.MOST_VIEWS })}
         >
           最多浏览
         </SelectItem>
         <SelectItem
           item="MOST_STARS"
-          active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'MOST_STARS')}
+          active={activeFilter.sort}
+          onClick={onSelect.bind(this, { sort: FILTER.MOST_STARS })}
         >
           最多点赞
         </SelectItem>
         <SelectItem
           item="MOST_FAVORITES"
-          active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'MOST_FAVORITES')}
+          active={activeFilter.sort}
+          onClick={onSelect.bind(this, { sort: FILTER.MOST_FAVORITES })}
         >
           最多收藏
         </SelectItem>
         <SelectItem
           item="MOST_COMMENTS"
-          active={activeSort}
-          onClick={onSelect.bind(this, 'sort', 'MOST_COMMENTS')}
+          active={activeFilter.sort}
+          onClick={onSelect.bind(this, { sort: FILTER.MOST_COMMENTS })}
         >
           最多评论
         </SelectItem>
@@ -107,15 +107,15 @@ const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
         <SelectTitle>长度</SelectTitle>
         <SelectItem
           item="MOST_WORDS"
-          active={activeLength}
-          onClick={onSelect.bind(this, 'wordLength', 'MOST_WORDS')}
+          active={activeFilter.wordLength}
+          onClick={onSelect.bind(this, { wordLength: FILTER.MOST_WORDS })}
         >
           字数最多
         </SelectItem>
         <SelectItem
           item="LEAST_WORDS"
-          active={activeLength}
-          onClick={onSelect.bind(this, 'wordLength', 'LEAST_WORDS')}
+          active={activeFilter.wordLength}
+          onClick={onSelect.bind(this, { wordLength: FILTER.LEAST_WORDS })}
         >
           字数最少
         </SelectItem>
@@ -126,24 +126,17 @@ const SelectPanel = ({ onSelect, activeWhen, activeSort, activeLength }) => (
 
 const FilterTag = ({ onSelect, active, type }) =>
   isEmptyValue(active) ? null : (
-    <Tag closable onClose={onSelect.bind(this, type, '')}>
+    <Tag closable onClose={onSelect.bind(this, { [type]: '' })}>
       {filterDict[active]}
     </Tag>
   )
 
-const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
+const ContentFilter = ({ activeFilter, onSelect }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
       trigger="hover"
-      content={
-        <SelectPanel
-          onSelect={onSelect}
-          activeWhen={activeWhen}
-          activeSort={activeSort}
-          activeLength={activeLength}
-        />
-      }
+      content={<SelectPanel onSelect={onSelect} activeFilter={activeFilter} />}
     >
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
@@ -154,25 +147,32 @@ const ContentFilter = ({ onSelect, activeWhen, activeSort, activeLength }) => (
       &nbsp;&nbsp;&nbsp;&nbsp;
     </Popover>
 
-    <FilterTag onSelect={onSelect} active={activeWhen} type="when" />
-    <FilterTag onSelect={onSelect} active={activeSort} type="sort" />
-    <FilterTag onSelect={onSelect} active={activeLength} type="wordLength" />
+    <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
+    <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
+    <FilterTag
+      onSelect={onSelect}
+      active={activeFilter.wordLength}
+      type="wordLength"
+    />
   </Wrapper>
 )
 
 ContentFilter.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  activeWhen: PropTypes.string,
-  activeSort: PropTypes.string,
-  activeLength: PropTypes.string,
-
+  activeFilter: PropTypes.shape({
+    when: PropTypes.string,
+    sort: PropTypes.string,
+    wordLength: PropTypes.string,
+  }),
   onSelect: PropTypes.func.isRequired,
 }
 
 ContentFilter.defaultProps = {
-  activeWhen: '',
-  activeSort: '',
-  activeLength: '',
+  activeFilter: {
+    when: '',
+    sort: '',
+    wordLength: '',
+  },
 }
 
 export default ContentFilter

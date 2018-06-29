@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
 import { Article, PagedPosts, Tag } from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -29,10 +29,10 @@ const FilterModel = t.model('FilterModel', {
   when: t.optional(
     t.enumeration('when', [
       '',
-      'TODAY',
-      'THIS_WEEK',
-      'THIS_MONTH',
-      'THIS_YEAR',
+      FILTER.TODAY,
+      FILTER.THIS_WEEK,
+      FILTER.THIS_MONTH,
+      FILTER.THIS_YEAR,
     ]),
     ''
   ),
@@ -40,15 +40,15 @@ const FilterModel = t.model('FilterModel', {
   sort: t.optional(
     t.enumeration('sort', [
       '',
-      'MOST_VIEWS',
-      'MOST_FAVORITES',
-      'MOST_STARS',
-      'MOST_COMMENTS',
+      FILTER.MOST_VIEWS,
+      FILTER.MOST_FAVORITES,
+      FILTER.MOST_STARS,
+      FILTER.MOST_COMMENTS,
     ]),
     ''
   ),
   wordLength: t.optional(
-    t.enumeration('length', ['', 'MOST_WORDS', 'LEAST_WORDS']),
+    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     ''
   ),
 })
@@ -56,7 +56,8 @@ const FilterModel = t.model('FilterModel', {
 const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.maybe(PagedPosts),
-    filters: t.optional(t.map(FilterModel), {}),
+    /* filters: t.optional(t.map(FilterModel), {}), */
+    filters: t.optional(FilterModel, {}),
     /* tags: t.optional(t.map(Tag), {}), */
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybe(Tag),
@@ -92,8 +93,8 @@ const PostsThreadStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
-    get curFilter() {
-      return R.pathOr('', ['js'], self.filters.toJSON())
+    get filtersData() {
+      return stripMobx(self.filters)
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || { title: '', color: '' }
@@ -103,15 +104,9 @@ const PostsThreadStore = t
     },
   }))
   .actions(self => ({
-    selectFilter(filter, val) {
-      // TODO
-      const community = 'javascript'
-      const curFilter = self.filters.get(community, filter)
-      const newFilter = curFilter
-        ? R.merge(curFilter, { [filter]: val })
-        : { [filter]: val }
-
-      self.filters.set(community, newFilter)
+    selectFilter(option) {
+      const curfilter = self.filtersData
+      self.filters = R.merge(curfilter, option)
     },
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag
