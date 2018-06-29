@@ -138,7 +138,7 @@ const Github = {
     headerBg: bannerBg,
     contentBg: bannerBg,
     border: bannerBg,
-    borderAcitve: primaryColor,
+    borderActive: primaryColor,
     borderNormal: lighten(0.05, bannerBg),
     footer: descText,
     footerHover: lighten(0.05, descText),

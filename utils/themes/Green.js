@@ -139,7 +139,7 @@ const Green = {
     headerBg: contentBoxBg,
     contentBg: contentBoxBg,
     border: contentBoxBg,
-    borderAcitve: primaryColor,
+    borderActive: primaryColor,
     borderNormal: darken(0.05, contentBoxBg),
     footer: descText,
     footerHover: darken(0.05, descText),

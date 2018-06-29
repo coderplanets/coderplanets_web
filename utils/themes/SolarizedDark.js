@@ -139,7 +139,7 @@ const SolarizedDark = {
     headerBg: '#0e3444',
     contentBg: '#0e3444',
     border: '#0e3444',
-    borderAcitve: '#10627b',
+    borderActive: '#10627b',
     borderNormal: '#2d505f',
     footer: descText,
     footerHover: lighten(0.05, descText),

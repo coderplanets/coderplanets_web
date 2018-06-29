@@ -138,7 +138,7 @@ const Yellow = {
     headerBg: '#fffaf0',
     contentBg: '#fffaf0',
     border: '#fffaf0',
-    borderAcitve: primaryColor,
+    borderActive: primaryColor,
     borderNormal: darken(0.05, bannerBg),
     footer: descText,
   },
