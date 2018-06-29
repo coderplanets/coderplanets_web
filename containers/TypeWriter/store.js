@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:TypeWriterStore')
 /* eslint-enable no-unused-vars */
@@ -47,7 +47,7 @@ const TypeWriterStore = t
       return !success && !error && !warn
     },
     get curCommunity() {
-      return self.root.curCommunity.data
+      return stripMobx(self.root.curCommunity)
     },
   }))
   .actions(self => ({

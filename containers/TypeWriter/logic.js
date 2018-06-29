@@ -88,12 +88,13 @@ export function onPublish() {
       body,
       digest,
       length,
-      community: store.curCommunity.title,
+      communityId: store.curCommunity.community.id,
     }
 
     if (articleType !== 'original') variables.linkAddr = store.linkAddr
     // debug('curCommunity: ', store.curCommunityName)
     // debug('variables-: ', variables)
+    // TODO: switch createJob
     sr71$.mutate(S.createPost, variables)
   }
 }

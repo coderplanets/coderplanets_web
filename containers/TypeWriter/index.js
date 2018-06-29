@@ -46,7 +46,7 @@ const View = ({
 
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
-      <div>
+      <React.Fragment>
         <EditorBlock name="CREATE_VIEW" curView={curView}>
           <Editor
             articleType={articleType}
@@ -67,43 +67,10 @@ const View = ({
             onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
           />
         </PreviewBlock>
-      </div>
+      </React.Fragment>
     )
   }
   return <MarkDownHelper />
-  /*
-
-
-  switch (curView) {
-    case 'CREATE_VIEW': {
-      return (
-        <div>
-          <Editor
-            articleType={articleType}
-            copyrightChange={copyrightChange}
-            body={body}
-            onChange={logic.editorOnChange}
-            onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
-          />
-          <PublishFooter onPublish={onPublish} publishing={publishing} />
-        </div>
-      )
-    }
-    case 'PREVIEW_VIEW': {
-      return (
-        <div>
-          <Preview
-            body={body}
-            onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
-          />
-          <PublishFooter onPublish={onPublish} publishing={publishing} />
-        </div>
-      )
-    }
-    default:
-      return <MarkDownHelper />
-  }
-  */
 }
 
 const TopHeader = ({ curView }) => {

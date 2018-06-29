@@ -7,7 +7,7 @@ const createPost = gql`
     $digest: String!
     $length: Int!
     $linkAddr: String
-    $community: String!
+    $communityId: ID!
   ) {
     createPost(
       title: $title
@@ -15,7 +15,7 @@ const createPost = gql`
       digest: $digest
       length: $length
       linkAddr: $linkAddr
-      community: $community
+      communityId: $communityId
     ) {
       id
       title
