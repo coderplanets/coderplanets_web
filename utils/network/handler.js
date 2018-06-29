@@ -2,7 +2,7 @@ import R from 'ramda'
 
 import { Observable } from 'rxjs/Observable'
 
-import { makeDebugger, notEmpty, ERR } from '..'
+import { makeDebugger, nilOrEmpty, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 /* eslint-disable no-unused-vars */
@@ -30,7 +30,7 @@ export const formatGraphErrors = error => {
     return { error: ERR.CRAPHQL, details: fomatDetail(error) }
 
   const { graphQLErrors } = error
-  if (notEmpty(graphQLErrors) && undefined !== graphQLErrors) {
+  if (!nilOrEmpty(graphQLErrors)) {
     // graphQLErrors may not catch in graph query (wrang sytax etc ...)
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
     return { error: ERR.CRAPHQL, details: fomatDetail(graphQLErrors) }
