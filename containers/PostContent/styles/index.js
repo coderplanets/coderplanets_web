@@ -11,14 +11,15 @@ export const Container = styled.article`
 
 export const MainWrapper = styled.div`
   width: 70%;
+  margin-left: 2.5rem;
 `
 
+/* background: ${theme('preview.articleBg')}; */
 export const ArticleWrapper = styled.div`
-  font-size: 1.3em;
+  font-size: 1.1rem;
   margin-left: 2vw;
-  margin-right: 1.5vw;
-  background: ${theme('content.bg')};
-  color: ${theme('font')};
+  margin-right: 1.6vw;
+  background: ${theme('preview.articleBg')};
   border-radius: 5px;
   padding: 35px 40px;
   min-height: 60vh;
@@ -59,9 +60,13 @@ export const SidebarDesc = styled.div`
   padding-bottom: 15px;
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};
   border-bottom: ${({ noBottom }) => (noBottom ? '' : '1px solid')};
-  border-color: #d4ddde;
+  border-color: ${theme('preview.divider')};
   max-width: 100%;
   flex-wrap: wrap;
+`
+export const NomoreDesc = styled.div`
+  color: ${theme('preview.divider')};
+  font-style: italic;
 `
 
 export const CommunityIcon = styled(Img)`

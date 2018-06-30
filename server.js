@@ -57,6 +57,7 @@ const getMessages = locale => {
 const indexQuery = route('/:index')
 const communitiesQuery = route('/communities/:category')
 const communityQuery = route('/:community/:thread')
+const postQuery = route('/post/:id')
 const heartQuery = route('/_next/:page?')
 const localeQuery = route('/locale/:lang')
 
@@ -74,17 +75,23 @@ app.prepare().then(() => {
     if (localeQuery(pathname)) {
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
       return res.end(JSON.stringify(getMessages(localeQuery(pathname).lang)))
-    } else if (heartQuery(pathname)) {
-      return handle(req, res)
-    } else if (indexQuery(pathname)) {
-      return app.render(req, res, '/', query)
-    } else if (communitiesQuery(pathname)) {
-      console.log('goto communities page: ', pathname)
-      return app.render(req, res, '/communities', query)
-    } else if (communityQuery(pathname)) {
-      console.log('goto community page: ', pathname)
-      return app.render(req, res, '/community', query)
     }
+    // _next heart ping, only works in dev
+    if (heartQuery(pathname)) return handle(req, res)
+
+    // home page
+    if (indexQuery(pathname)) return app.render(req, res, '/', query)
+
+    // post page
+    if (postQuery(pathname)) return app.render(req, res, '/post', query)
+
+    // all communities page
+    if (communitiesQuery(pathname))
+      return app.render(req, res, '/communities', query)
+
+    // gereral communit (pls, frameworks ..)
+    if (communityQuery(pathname))
+      return app.render(req, res, '/community', query)
 
     req.locale = locale
     req.messages = getMessages(locale)

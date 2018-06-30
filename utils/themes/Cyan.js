@@ -11,7 +11,7 @@ const contentBg = '#E4EEED'
 const contentBoxBg = '#f9fcfc'
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
-const markdownFont = '#839496'
+const markdownFont = '#9eb8bd'
 
 const descText = '#a3bbbd'
 const primaryMate = 'orange'

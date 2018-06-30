@@ -17,6 +17,7 @@ import {
   ContentStore,
   // TODO: rename to CurCommunityStore
   CurCommunityStore,
+  CurPostStore,
   ThemeStore,
   ThemeDefaults,
 
@@ -59,6 +60,7 @@ const rootStore = t
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
     curCommunity: t.optional(CurCommunityStore, {}),
+    curPost: t.optional(CurPostStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),

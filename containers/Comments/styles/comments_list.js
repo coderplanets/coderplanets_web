@@ -122,7 +122,6 @@ export const CommentBodyInfo = styled.div`
   ${column};
 `
 export const CommentContent = styled.div`
-  color: #888894;
   font-size: 1.1em;
 `
 

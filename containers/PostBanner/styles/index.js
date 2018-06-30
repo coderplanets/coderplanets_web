@@ -19,13 +19,13 @@ export const BaseBanner = styled.nav`
 export const BaseBannerContent = styled.div`
   display: flex;
   margin-left: 8%;
-  margin-right: 8%;
+  margin-right: 12%;
 `
 
 export const NumbersWrapper = styled.div`
   display: flex;
   text-align: center;
-  margin-top: -2.1em;
+  margin-top: -2.1rem;
 `
 
 export const NumbersInfo = NumbersWrapper.extend`
@@ -49,7 +49,7 @@ export const PostBrief = styled.div`
 
 export const Title = styled.div`
   font-size: 1.6em;
-  color: #69999c;
+  color: ${theme('thread.articleTitle')};
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -59,7 +59,7 @@ export const Desc = styled.div`
   margin-top: 5px;
   display: flex;
   font-size: 1.1em;
-  color: #a7bfc0;
+  color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled.img`
   width: 25px;
@@ -71,8 +71,9 @@ export const PrintTag = styled.div`
   font-size: 0.8em;
   padding: 1px 8px;
   border-radius: 3px;
-  border: 1px solid #62999b;
-  color: #62999b;
+  border: 1px solid;
+  border-color: ${theme('thread.extraInfo')};
+  color: ${theme('thread.extraInfo')};
   margin-right: 8px;
 `
 export const Username = styled.div`

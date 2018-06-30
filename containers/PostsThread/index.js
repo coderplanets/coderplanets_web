@@ -153,7 +153,7 @@ class PostsThreadContainer extends React.Component {
           <LeftPart>
             <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
             {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
-            <FilterWrapper>
+            <FilterWrapper show>
               <ContentFilter
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}

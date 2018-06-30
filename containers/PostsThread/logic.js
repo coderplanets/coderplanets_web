@@ -40,13 +40,8 @@ const validFilter = R.pickBy(
   )
 )
 
-export function inAnchor() {
-  store.setHeaderFix(false)
-}
-
-export function outAnchor() {
-  store.setHeaderFix(true)
-}
+export const inAnchor = () => store.setHeaderFix(false)
+export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
   /* const { community, activeThread } = store.curCommunity */
