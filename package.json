@@ -80,7 +80,7 @@
     "react-keydown": "^1.9.4",
     "react-map-gl": "^3.2.1",
     "react-masonry-component": "^6.0.1",
-    "react-svg": "4.0.17",
+    "react-svg": "4.1.0",
     "react-tooltip": "^3.4.0",
     "react-trend": "^1.2.4",
     "react-waypoint": "^8.0.0",
