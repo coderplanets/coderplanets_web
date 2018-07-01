@@ -11,11 +11,11 @@ export const FilterWraper = styled.div`
 `
 export const Header = styled.div`
   display: flex;
-  color: #5d8689;
+  color: ${theme('comment.title')};
 `
 
 export const FilterIcon = styled(Img)`
-  fill: #5d8689;
+  fill: ${theme('comment.title')};
   margin-right: 3px;
   width: 20px;
   height: 20px;

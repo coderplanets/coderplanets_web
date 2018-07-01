@@ -22,40 +22,38 @@ const filterDict = {
   MOST_DISLIKES: '最多踩',
 }
 
-const Menus = ({ active }) => {
-  return (
-    <MenuWrapper>
-      <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.ASC_INSERTED)}
-        type={TYPE.ASC_INSERTED}
-        active={active}
-      >
-        综合排序
-      </MenuItem>
-      <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.DESC_INSERTED)}
-        type={TYPE.DESC_INSERTED}
-        active={active}
-      >
-        最近创建
-      </MenuItem>
-      <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.MOST_LIKES)}
-        type={TYPE.MOST_LIKES}
-        active={active}
-      >
-        最多顶
-      </MenuItem>
-      <MenuItem
-        onClick={logic.onFilterChange.bind(this, TYPE.MOST_DISLIKES)}
-        type={TYPE.MOST_DISLIKES}
-        active={active}
-      >
-        最多踩
-      </MenuItem>
-    </MenuWrapper>
-  )
-}
+const Menus = ({ active }) => (
+  <MenuWrapper>
+    <MenuItem
+      onClick={logic.onFilterChange.bind(this, TYPE.ASC_INSERTED)}
+      type={TYPE.ASC_INSERTED}
+      active={active}
+    >
+      综合排序
+    </MenuItem>
+    <MenuItem
+      onClick={logic.onFilterChange.bind(this, TYPE.DESC_INSERTED)}
+      type={TYPE.DESC_INSERTED}
+      active={active}
+    >
+      最近创建
+    </MenuItem>
+    <MenuItem
+      onClick={logic.onFilterChange.bind(this, TYPE.MOST_LIKES)}
+      type={TYPE.MOST_LIKES}
+      active={active}
+    >
+      最多顶
+    </MenuItem>
+    <MenuItem
+      onClick={logic.onFilterChange.bind(this, TYPE.MOST_DISLIKES)}
+      type={TYPE.MOST_DISLIKES}
+      active={active}
+    >
+      最多踩
+    </MenuItem>
+  </MenuWrapper>
+)
 
 const renderFilterIcon = filterType => {
   switch (filterType) {

@@ -144,6 +144,7 @@ const Blue = {
     footerHover: lighten(0.05, descText),
   },
   pagination: {
+    activeNum: 'white',
     itemBg: darken(0.1, descText),
     itemBorderColor: darken(0.06, descText),
     disableText: descText,

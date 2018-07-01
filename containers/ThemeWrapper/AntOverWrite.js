@@ -232,9 +232,8 @@ const AntOverWrite = styled.div`
     background: ${theme('button.primary')};
     border-radius: 50%;
   }
-
   .ant-pagination-item-active a {
-    color: white;
+    color: ${theme('pagination.activeNum')};
     font-size: 1.1em;
   }
   // pagination end

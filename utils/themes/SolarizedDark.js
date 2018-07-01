@@ -145,6 +145,7 @@ const SolarizedDark = {
     footerHover: lighten(0.05, descText),
   },
   pagination: {
+    activeNum: 'white',
     itemBg: '#103440',
     itemBorderColor: '#103440',
     disableText: '#1d5365',

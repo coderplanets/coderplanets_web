@@ -143,6 +143,7 @@ const Yellow = {
     footer: descText,
   },
   pagination: {
+    activeNum: 'white',
     itemBg: bannerBg,
     itemBorderColor: darken(0.05, bannerBg),
     disableText: descText,

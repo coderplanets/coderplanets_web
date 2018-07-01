@@ -20,6 +20,7 @@ import Github from './Github'
 import Blue from './Blue'
 import Yellow from './Yellow'
 import Green from './Green'
+import IronGreen from './IronGreen'
 
 export const themeDict = {
   default: { ...Cyan },
@@ -30,6 +31,7 @@ export const themeDict = {
   github: { ...Github },
   blue: { ...Blue },
   green: { ...Green },
+  ironGreen: { ...IronGreen },
 }
 
 export const themeKeys = R.keys(themeDict)

@@ -1,24 +1,24 @@
+//
 /*
- * a theme inspired by rethinkdb: https://rethinkdb.com/
+ * a theme inspired by https://dribbble.com/shots/2478998-Forum-Concept
  */
 
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#5EABB3'
+const primaryColor = '#98dab4'
 
-const bannerBg = '#DAE6E5'
-const contentBg = '#E4EEED'
-const contentBoxBg = '#f9fcfc'
+const bannerBg = '#477479'
+const contentBg = '#528187'
+const contentBoxBg = '#54848A'
 const fontColor = primaryColor
-const sidebarBg = '#1C4752'
-const markdownFont = '#9eb8bd'
+const sidebarBg = '#00B5B0'
+const markdownFont = '#B4C7C6'
 
-const descText = '#a3bbbd'
-const primaryMate = 'orange'
+const descText = '#7EA7AC'
 
-const Cyan = {
+const IconGreen = {
   logoText: descText,
-  cover: primaryColor,
+  cover: bannerBg,
   coverIndex: '#F9FCFC',
   htmlBg: bannerBg,
   loading: {
@@ -36,37 +36,37 @@ const Cyan = {
   main: '#7DC0C5',
   bodyBg: contentBg,
   selectionBg: 'tomato',
-  avatarOpacity: 1,
+  avatarOpacity: 0.8,
   header: {
     fg: primaryColor,
     bg: bannerBg,
     spliter: darken(0.04, bannerBg),
-    fixed: contentBoxBg,
-    tabActive: '#61868c', // articleTitle
-    tabOthers: lighten(0.1, '#849ca0'),
+    fixed: bannerBg,
+    tabActive: darken(0.05, primaryColor),
+    tabOthers: lighten(0.08, descText),
   },
   banner: {
-    title: primaryColor,
+    title: '#c3cdd0',
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
-    numberDesc: '#a7bbbf',
+    spliter: '#4f8486',
+    numberDesc: darken(0.08, descText),
     number: '#83a7ad',
-    active: primaryMate,
-    numberDivider: '#ccdcde',
-    numberHoverBg: '#e4ecec',
+    active: primaryColor,
+    numberDivider: '#4f8486',
+    numberHoverBg: '#4D8489',
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#83a7ad',
-    articleHover: '#f3f6f9',
+    articleTitle: '#e4e4e4',
+    articleHover: '#528187',
     articleStrip: contentBoxBg,
-    articleDigest: '#a2c0c5',
-    articleTag: '#71979a',
+    articleDigest: '#B6C7C8',
+    articleTag: '#B4C7C8',
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#84C3C8',
+    extraInfo: '#95e4be',
   },
   content: {
     bg: contentBoxBg,
@@ -75,52 +75,52 @@ const Cyan = {
     cardBorderHover: primaryColor,
   },
   footer: {
-    text: '#b3ccc9',
+    text: descText,
     hover: '#5c868b',
-    label: '#b7c6d0',
+    label: descText,
   },
   sidebar: {
     bg: sidebarBg,
-    menuHover: darken(0.1, sidebarBg),
-    pinActive: primaryColor,
-    menuLink: '#D9E6E5',
+    menuHover: darken(0.05, sidebarBg),
+    pinActive: '#54848B',
+    menuLink: '#F0F9F8',
     borderColor: '#14363E',
   },
   preview: {
-    title: '#83a2a5',
-    desc: '#83a2a5',
+    title: '#C2CDD0',
+    desc: descText,
     font: primaryColor,
-    bg: contentBg,
-    shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
-    closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
+    bg: bannerBg,
+    shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
+    closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: '#F9FCFC',
-    accountBg: '#F9FCFC',
-    articleBg: '#F9FCFC',
-    helper: '#d9e5e6',
-    helperHover: '#83a2a5',
-    topLine: 'orange',
-    icon: 'tomato',
-    divider: '#ebf1f0',
+    accountBg: contentBoxBg,
+    articleBg: contentBoxBg,
+    helper: descText,
+    helperHover: lighten(0.08, descText),
+    topLine: sidebarBg,
+    icon: primaryColor,
+    divider: descText,
   },
   article: {
-    link: '#b5ccce',
-    linkHover: 'orange',
-    reactionTitle: '#7f979a',
-    reactionHoverBg: '#F9FCFC',
+    link: primaryColor,
+    linkHover: lighten(0.05, primaryColor),
+    reactionTitle: descText,
+    reactionHoverBg: contentBg,
   },
   comment: {
     icon: '#62868a',
-    didIcon: 'orange',
-    title: '#62868a',
-    username: '#62868a',
-    number: '#efbc60',
-    floor: '#efbc60',
-    reply: '#93b3b5',
-    replyBg: '#e8f1f2',
-    placeholder: '#C0D9DA',
-    filter: '#62868a',
+    didIcon: primaryColor,
+    title: '#AAC1C1',
+    username: '#DFDCD8',
+    number: primaryColor,
+    floor: primaryColor,
+    reply: '#b5d4d6',
+    replyBg: '#60959a',
+    placeholder: descText,
+    filter: descText,
     filterActive: primaryColor,
-    action: '#62868a',
+    action: descText,
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',
@@ -131,31 +131,31 @@ const Cyan = {
     mentionShadow: '0px 2px 10px 1px rgba(235, 235, 235, 1)',
   },
   editor: {
-    title: '#7ea9ad',
-    content: '#a6bebf',
-    placeholder: '#B3CFD0',
-    headerBg: '#F9FCFC',
-    contentBg: '#F9FCFC',
-    border: '#F9FCFC',
-    borderActive: descText,
-    borderNormal: '#e2eaea',
-    footer: '#a6bebf',
+    title: '#DBE1E4',
+    content: '#AEC7C8',
+    placeholder: descText,
+    headerBg: contentBoxBg,
+    contentBg: contentBoxBg,
+    border: contentBoxBg,
+    borderAcitve: primaryColor,
+    borderNormal: descText,
+    footer: descText,
     footerHover: darken(0.05, '#a6bebf'),
   },
   pagination: {
-    activeNum: 'white',
-    itemBg: '#cbe7ea',
-    itemBorderColor: '#cbe7ea',
-    disableText: '#BCD9DC',
-    text: '#6d7f7b',
-    inactiveNum: 'white',
+    activeNum: '#417478',
+    itemBg: bannerBg,
+    itemBorderColor: bannerBg,
+    disableText: '#6ea6a9',
+    text: '#B4C7C8',
+    inactiveNum: descText,
   },
 
   heatmap: {
     activityLow: '#D6ECB2',
     activityHight: '#4F966E',
     borderHover: '#51abb2',
-    empty: '#E4EEED',
+    empty: '#4f797d',
     monthLabel: '#c6dbde',
     scale_1: '#dbe290',
     scale_2: '#99c06f',
@@ -195,7 +195,7 @@ const Cyan = {
   },
   button: {
     primary: primaryColor,
-    fg: lighten(0.4, primaryColor),
+    fg: '#426F7E',
     hoverBg: lighten(0.1, primaryColor),
     activeBg: darken(0.01, primaryColor),
     clicked: primaryColor,
@@ -206,32 +206,26 @@ const Cyan = {
     hoverBg: '#eee',
   },
   popover: {
-    bg: '#f9fcfc',
-    borderColor: '#51abb2',
+    bg: contentBg,
+    borderColor: primaryColor,
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
     dotOpacity: 0.8,
-    text: '#71979a',
-  },
-  tagger: {
-    text: '#d2a05f',
-    bg: '#fff2b3',
-    border: '#fff2b3',
-    closeBtn: '#d2a05f',
+    text: lighten(0.05, descText),
   },
   tabs: {
     headerActive: primaryColor,
-    header: lighten(0.2, primaryColor),
-    contentBg: '#FFFFFF',
-    headerBg: '#F7F9F9',
+    header: descText,
+    contentBg: '#5b8b90',
+    headerBg: '#5b8b90',
     headerActiveTop: primaryColor,
-    border: '#E8E8E8',
+    border: '#5b8b90',
   },
   modal: {
-    bg: contentBoxBg,
+    bg: '#4f858a',
     border: primaryColor,
-    innerSelectBg: '#e4eeed45',
+    innerSelectBg: bannerBg,
   },
   form: {
     inputBg: '#FFFFFF',
@@ -245,4 +239,4 @@ const Cyan = {
   },
 }
 
-export default Cyan
+export default IconGreen

@@ -78,7 +78,7 @@ export const MenuRow = styled.div`
   > a {
     display: ${({ pin }) => (pin ? 'block' : 'none')};
     color: ${theme('sidebar.menuLink')};
-    opacity: ${({ active }) => (active ? 1 : 0.5)};
+    opacity: ${({ active }) => (active ? 1 : 0.7)};
     flex-grow: 1;
     max-width: 50%;
   }
