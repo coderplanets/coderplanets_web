@@ -84,7 +84,7 @@ const ContributeMap = ({ data }) => {
   return (
     <Wrapper>
       <TitleWrapper>
-        <Title>6个月内贡献 {data.totalCount} 次内容</Title>
+        <Title>6个月内创作 {data.totalCount} 次内容</Title>
         <HelpText>记录规则？</HelpText>
       </TitleWrapper>
       <CalendarHeatmap

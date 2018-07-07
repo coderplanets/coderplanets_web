@@ -163,6 +163,18 @@ const Github = {
     scale_4: lighten(0.18, '#342e3a'),
     scale_5: lighten(0.3, '#342e3a'),
   },
+  bannerHeatmap: {
+    activityLow: '#007D7C',
+    activityHight: '#26A9A0',
+    empty: '#342e3a',
+    borderHover: primaryColor,
+    monthLabel: descText,
+    scale_1: lighten(0.04, '#342e3a'),
+    scale_2: lighten(0.08, '#342e3a'),
+    scale_3: lighten(0.12, '#342e3a'),
+    scale_4: lighten(0.18, '#342e3a'),
+    scale_5: lighten(0.3, '#342e3a'),
+  },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
     fg: markdownFont,

@@ -164,6 +164,19 @@ const IconGreen = {
     scale_5: '#37642c',
   },
 
+  bannerHeatmap: {
+    activityLow: '#D6ECB2',
+    activityHight: '#4F966E',
+    borderHover: '#51abb2',
+    empty: '#4f797d',
+    monthLabel: descText,
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
+  },
+
   markdown: {
     title: primaryColor,
     fg: markdownFont,

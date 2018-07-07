@@ -21,10 +21,16 @@ export const HelpText = styled.div`
   transition: color 0.2s;
 `
 export const Title = styled.div`
-  font-size: 1em;
-  color: ${theme('preview.title')};
+  font-size: 0.8rem;
+  color: ${theme('banner.desc')};
   margin-bottom: 7px;
   flex-grow: 1;
+  opacity: 0.6;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+    font-weight: bold;
+  }
 `
 
 export const DotWrapper = styled.div`
@@ -33,10 +39,13 @@ export const DotWrapper = styled.div`
   justify-content: flex-end;
 `
 export const DotText = styled.div`
-  font-size: 0.9em;
-  color: ${theme('preview.helper')};
-  ${DotWrapper}:hover & {
-    color: ${theme('preview.helperHover')};
+  font-size: 0.8rem;
+  color: ${theme('banner.desc')};
+  opacity: 0.6;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+    font-weight: bold;
   }
 `
 export const DotList = styled.div`

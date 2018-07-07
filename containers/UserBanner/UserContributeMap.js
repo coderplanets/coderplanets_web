@@ -79,7 +79,7 @@ const UserContributeMap = ({ data }) => {
    */
 
   return (
-    <Wrapper>
+    <Wrapper className="banner-heatmap">
       <CalendarHeatmap
         startDate={data.startDate}
         endDate={data.endDate}
@@ -100,7 +100,7 @@ const UserContributeMap = ({ data }) => {
         id="user_comtribute_map"
       />
       <DotWrapper>
-        <Title>6个月内贡献 {data.totalCount} 次内容</Title>
+        <Title>6个月内创作 {data.totalCount} 次内容</Title>
         <DotList>
           <DotText>潜水&nbsp;&nbsp;</DotText>
           <ColorDot scale="empty" />

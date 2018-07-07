@@ -12,6 +12,12 @@ const AntOverWrite = styled.div`
     fill: ${theme('heatmap.monthLabel')};
     font-size: 0.7em;
   }
+  .banner-heatmap {
+    .react-calendar-heatmap-month-label {
+      fill: ${theme('bannerHeatmap.monthLabel')};
+      font-size: 0.7em;
+    }
+  }
 
   .react-calendar-heatmap .color-scale-1 {
     fill: ${theme('heatmap.scale_1')};

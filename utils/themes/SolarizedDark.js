@@ -164,6 +164,18 @@ const SolarizedDark = {
     scale_4: '#05a78e',
     scale_5: '#01c3a5',
   },
+  bannerHeatmap: {
+    activityLow: '#007D7C',
+    activityHight: '#26A9A0',
+    empty: '#024352',
+    borderHover: descText,
+    monthLabel: descText,
+    scale_1: '#035b63',
+    scale_2: '#007470',
+    scale_3: '#048a84',
+    scale_4: '#05a78e',
+    scale_5: '#01c3a5',
+  },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
     fg: markdownFont,

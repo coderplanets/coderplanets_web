@@ -162,6 +162,18 @@ const Yellow = {
     scale_4: '#61793e',
     scale_5: '#37642c',
   },
+  bannerHeatmap: {
+    activityLow: '#007D7C',
+    activityHight: '#26A9A0',
+    empty: '#f1eddd',
+    borderHover: primaryColor,
+    monthLabel: descText,
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
+  },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
     fg: markdownFont,
