@@ -240,6 +240,7 @@ const Cyan = {
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
     border: '#E8E8E8',
+    bottomLine: '#d9e9ea',
   },
   modal: {
     bg: contentBoxBg,

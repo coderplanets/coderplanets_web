@@ -237,6 +237,7 @@ const Yellow = {
     headerBg: darken(0.02, contentBoxBg),
     headerActiveTop: primaryColor,
     border: '#EAE0C9',
+    bottomLine: '#e4e0d6',
   },
   modal: {
     bg: bannerBg,

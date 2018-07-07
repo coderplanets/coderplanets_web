@@ -63,7 +63,7 @@ class UserContentContainer extends React.Component {
     return (
       <Container>
         <MainWrapper>
-          <TabberWrapper>
+          <TabberWrapper className="tabs-with-bottom">
             <Tabber source={fakeThreads} onChange={debug} active="activity" />
           </TabberWrapper>
           <h2>UserContent container!</h2>

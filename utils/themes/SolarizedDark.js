@@ -239,6 +239,7 @@ const SolarizedDark = {
     headerBg: '#0d3a49',
     headerActiveTop: primaryColor,
     border: '#265663',
+    bottomLine: descText,
   },
   modal: {
     bg: bannerBg,

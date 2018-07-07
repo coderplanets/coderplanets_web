@@ -234,6 +234,7 @@ const IconGreen = {
     headerBg: '#5b8b90',
     headerActiveTop: primaryColor,
     border: '#5b8b90',
+    bottomLine: descText,
   },
   modal: {
     bg: '#4f858a',

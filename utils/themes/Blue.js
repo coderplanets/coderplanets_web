@@ -232,6 +232,7 @@ const Blue = {
     headerBg: lighten(0.03, contentBoxBg),
     headerActiveTop: primaryColor,
     border: descText,
+    bottomLine: descText,
   },
   modal: {
     bg: bannerBg,

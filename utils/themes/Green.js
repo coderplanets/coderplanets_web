@@ -238,6 +238,7 @@ const Green = {
     headerBg: lighten(0.02, contentBoxBg),
     headerActiveTop: primaryColor,
     border: darken(0.05, contentBoxBg),
+    bottomLine: '#c6d4c6',
   },
   modal: {
     bg: bannerBg,
