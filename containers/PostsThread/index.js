@@ -146,6 +146,13 @@ class PostsThreadContainer extends React.Component {
 
     const { mainPath, subPath } = curRoute
 
+    /*
+
+       <Maybe judge={pagedPostsData} placeholder={...}>
+       some compoennt
+       </Maybe>
+     */
+
     return (
       <Wrapper>
         <React.Fragment>
@@ -158,9 +165,11 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
-              <FilterResultHint>
-                结果约 {pagedPostsData.totalCount} 条
-              </FilterResultHint>
+              {pagedPostsData ? (
+                <FilterResultHint>
+                  结果约 {pagedPostsData.totalCount} 条
+                </FilterResultHint>
+              ) : null}
             </FilterWrapper>
 
             {pagedPostsData ? (
