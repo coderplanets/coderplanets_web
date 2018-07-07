@@ -20,10 +20,12 @@ export { default as AccountEditor } from './AccountEditor'
 export { default as AccountViewer } from './AccountViewer'
 
 /* banners */
+export { default as UserBanner } from './UserBanner'
 export { default as PostBanner } from './PostBanner'
 export { default as CommunitiesBanner } from './CommunitiesBanner'
 
 /* contents */
+export { default as UserContent } from './UserContent'
 export { default as CommunitiesContent } from './CommunitiesContent'
 export { default as PostContent } from './PostContent'
 

@@ -1,8 +1,9 @@
 import gql from 'graphql-tag'
 
-const user = gql`
+const userRaw = `
   query user($id: ID!) {
     user(id: $id) {
+      id
       nickname
       avatar
       bio
@@ -19,13 +20,22 @@ const user = gql`
         login
       }
       contributes {
-        date
-        count
+        records {
+          count
+          date
+        }
+        startDate
+        endDate
+        totalCount
       }
     }
   }
 `
 
+const user = gql`
+  ${userRaw}
+`
+// TODO: use user schema
 const account = gql`
   query account {
     account {
@@ -56,6 +66,7 @@ const account = gql`
 const schema = {
   account,
   user,
+  userRaw,
 }
 
 export default schema

@@ -68,6 +68,7 @@ export const ROUTE = {
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   ACTIVITIES: 'activities',
+  USER: 'user',
   POSTS: 'posts',
   JOBS: 'jobs',
   POST: 'post',

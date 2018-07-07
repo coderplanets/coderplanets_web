@@ -11,7 +11,7 @@ import { makeDebugger, storePlug, ROUTE } from '../../utils'
 
 import CheatSheetContent from '../CheatSheetContent'
 import CommunityContent from '../../components/CommunityContent'
-import { CommunitiesContent, PostContent } from '..'
+import { CommunitiesContent, PostContent, UserContent } from '..'
 
 import * as logic from './logic'
 
@@ -32,6 +32,9 @@ const renderContent = curRoute => {
     }
     case ROUTE.POST: {
       return <PostContent />
+    }
+    case ROUTE.USER: {
+      return <UserContent />
     }
     default: {
       return <CommunityContent curRoute={curRoute} />

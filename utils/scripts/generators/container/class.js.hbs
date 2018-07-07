@@ -13,6 +13,8 @@ import { inject, observer } from 'mobx-react'
   import messages from './messages'
 {{/if}}
 
+// import { } from './styles'
+
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
@@ -22,7 +24,8 @@ const debug = makeDebugger('C:{{ properCase name }}')
 
 class {{ properCase name }}Container extends React.Component {
   componentWillMount() {
-    logic.init(this.props.{{ camelCase name }})
+    const {{{ camelCase name }}} = this.props
+    logic.init({{ camelCase name }})
   }
 
   render() {

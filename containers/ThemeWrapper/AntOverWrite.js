@@ -302,6 +302,10 @@ const AntOverWrite = styled.div`
   .ant-tabs-bar {
     border-bottom: ${theme('tabs.headerActive')};
   }
+  .ant-tabs-nav-container {
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('banner.bg')};
+  }
   .ant-tabs-ink-bar {
     background-color: ${theme('tabs.headerActive')};
   }

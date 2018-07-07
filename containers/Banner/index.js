@@ -13,7 +13,7 @@ import CheatsheetRootBanner from './CheatsheetRootBanner'
 import CommunityBanner from './CommunityBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { PostBanner, CommunitiesBanner } from '..'
+import { UserBanner, PostBanner, CommunitiesBanner } from '..'
 
 import * as logic from './logic'
 
@@ -35,6 +35,9 @@ const BannerContent = ({ curCommunity, curRoute }) => {
     }
     case ROUTE.POST: {
       return <PostBanner />
+    }
+    case ROUTE.USER: {
+      return <UserBanner />
     }
     default:
       return <CommunityBanner curCommunity={curCommunity} />
