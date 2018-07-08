@@ -146,13 +146,6 @@ class PostsThreadContainer extends React.Component {
 
     const { mainPath, subPath } = curRoute
 
-    /*
-
-       <Maybe judge={pagedPostsData} placeholder={...}>
-       some compoennt
-       </Maybe>
-     */
-
     return (
       <Wrapper>
         <React.Fragment>
@@ -165,14 +158,16 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
-              {pagedPostsData ? (
+              {!pagedPostsData ? null : (
                 <FilterResultHint>
                   结果约 {pagedPostsData.totalCount} 条
                 </FilterResultHint>
-              ) : null}
+              )}
             </FilterWrapper>
 
-            {pagedPostsData ? (
+            {!pagedPostsData ? (
+              <PostsLoading num={5} />
+            ) : (
               <React.Fragment>
                 <View
                   community={mainPath}
@@ -190,13 +185,11 @@ class PostsThreadContainer extends React.Component {
                   onChange={logic.loadPosts}
                 />
               </React.Fragment>
-            ) : (
-              <PostsLoading num={5} />
             )}
           </LeftPart>
 
           <RightPart>
-            {pagedPostsData ? (
+            {!pagedPostsData ? null : (
               <React.Fragment>
                 <WritePostBtn type="primary" onClick={logic.createContent}>
                   发<Space right="20px" />帖
@@ -211,7 +204,7 @@ class PostsThreadContainer extends React.Component {
                   />
                 </Affix>
               </React.Fragment>
-            ) : null}
+            )}
           </RightPart>
           <RightPadding />
         </React.Fragment>

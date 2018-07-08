@@ -26,6 +26,8 @@ export const Post = t.model('Post', {
   length: t.optional(t.number, 0),
   favoritedCount: t.optional(t.number, 0),
   starredCount: t.optional(t.number, 0),
+  viewerHasFavorited: t.optional(t.boolean, false),
+  viewerHasStarred: t.optional(t.boolean, false),
 
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),

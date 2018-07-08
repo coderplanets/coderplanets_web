@@ -17,42 +17,32 @@ const post = gql`
     }
   }
 `
-/*
-const viewerReactions = gql`
-  query post($id: ID!) {
-    post(id: $id) {
-      viewerHasFavorited
-      viewerHasStarred
-    }
-  }
-`
- */
 
 const reactionResult = gql`
   query post($id: ID!) {
     post(id: $id) {
-      viewerHasFavorited
-      viewerHasStarred
+      id
+      title
       favoritedCount
       starredCount
+      viewerHasFavorited
+      viewerHasStarred
     }
   }
 `
 
 const reaction = gql`
-  mutation($id: ID!, $action: String!, $type: String!) {
-    reaction(id: $id, action: $action, type: $type) {
+  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
+    reaction(id: $id, action: $action, thread: $thread) {
       id
-      title
     }
   }
 `
 
 const undoReaction = gql`
-  mutation($id: ID!, $action: String!, $type: String!) {
-    undoReaction(id: $id, action: $action, type: $type) {
+  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
+    undoReaction(id: $id, action: $action, thread: $thread) {
       id
-      title
     }
   }
 `

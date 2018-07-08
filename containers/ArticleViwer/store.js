@@ -29,6 +29,9 @@ const ArticleViwerStore = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get curPost() {
       return stripMobx(self.post)
     },

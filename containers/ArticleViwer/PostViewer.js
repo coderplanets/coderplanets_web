@@ -68,7 +68,7 @@ const PreviewHeader = ({ data, onReaction }) => (
     <ReactionWrapper>
       <Reaction>
         <ReactionAction
-          onClick={onReaction.bind(
+          onClick={logic.onReaction.bind(
             this,
             TYPE.POST,
             TYPE.FAVORITE,
@@ -134,9 +134,9 @@ const PostViewer = ({ data, loading, onReaction }) => (
       </ArticleHeader>
       <ArticleTitle>{data.title}</ArticleTitle>
       {loading ? (
-        <div>
+        <React.Fragment>
           <PostLoading num={2} />
-        </div>
+        </React.Fragment>
       ) : (
         <ArticleBody>
           <MarkDownPreviewer body={data.body} />

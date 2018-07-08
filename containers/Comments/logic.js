@@ -59,14 +59,14 @@ const markLoading = fresh => {
 
 export function createComment() {
   // TODO: validation...
-  store.markState({
-    creating: true,
-  })
-
-  sr71$.mutate(S.createComment, {
+  store.markState({ creating: true })
+  const args = {
     id: store.activeArticle.id,
     body: store.editContent,
-  })
+  }
+
+  debug('createComment args: ', args)
+  sr71$.mutate(S.createComment, args)
 }
 
 export function createCommentPreview() {

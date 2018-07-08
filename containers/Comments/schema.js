@@ -46,32 +46,32 @@ const comments = gql`
   }
 `
 const createComment = gql`
-  mutation($part: CmsPart, $id: ID!, $body: String!) {
-    createComment(part: $part, id: $id, body: $body) {
+  mutation($thread: CmsThread, $id: ID!, $body: String!) {
+    createComment(thread: $thread, id: $id, body: $body) {
       id
       body
     }
   }
 `
 const replyComment = gql`
-  mutation($part: CmsPart, $id: ID!, $body: String!) {
-    replyComment(part: $part, id: $id, body: $body) {
+  mutation($thread: CmsThread, $id: ID!, $body: String!) {
+    replyComment(thread: $thread, id: $id, body: $body) {
       id
       body
     }
   }
 `
 const deleteComment = gql`
-  mutation($part: CmsPart, $id: ID!) {
-    deleteComment(part: $part, id: $id) {
+  mutation($thread: CmsThread, $id: ID!) {
+    deleteComment(thread: $thread, id: $id) {
       id
     }
   }
 `
 
 const likeComment = gql`
-  mutation($part: CmsPart, $id: ID!) {
-    likeComment(part: $part, id: $id) {
+  mutation($thread: CmsThread, $id: ID!) {
+    likeComment(thread: $thread, id: $id) {
       id
       viewerHasLiked
       likesCount
@@ -79,8 +79,8 @@ const likeComment = gql`
   }
 `
 const undoLikeComment = gql`
-  mutation($part: CmsPart, $id: ID!) {
-    undoLikeComment(part: $part, id: $id) {
+  mutation($thread: CmsThread, $id: ID!) {
+    undoLikeComment(thread: $thread, id: $id) {
       id
       viewerHasLiked
       likesCount
@@ -88,8 +88,8 @@ const undoLikeComment = gql`
   }
 `
 const dislikeComment = gql`
-  mutation($part: CmsPart, $id: ID!) {
-    dislikeComment(part: $part, id: $id) {
+  mutation($thread: CmsThread, $id: ID!) {
+    dislikeComment(thread: $thread, id: $id) {
       id
       viewerHasDisliked
       dislikesCount
@@ -97,8 +97,8 @@ const dislikeComment = gql`
   }
 `
 const undoDislikeComment = gql`
-  mutation($part: CmsPart, $id: ID!) {
-    undoDislikeComment(part: $part, id: $id) {
+  mutation($thread: CmsThread, $id: ID!) {
+    undoDislikeComment(thread: $thread, id: $id) {
       id
       viewerHasDisliked
       dislikesCount

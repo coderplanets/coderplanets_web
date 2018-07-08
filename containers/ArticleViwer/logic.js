@@ -1,3 +1,5 @@
+import R from 'ramda'
+
 import SR71 from '../../utils/network/sr71'
 
 import {
@@ -25,13 +27,10 @@ const debug = makeDebugger('L:ArticleViwer')
 let store = null
 let sub$ = null
 
-export function onReaction(type, action, isUndo, data) {
-  const args = {
-    id: data.id,
-    type,
-    action,
-  }
-  return isUndo
+export function onReaction(thread, action, userDid, { id }) {
+  const args = { id, thread, action }
+
+  return userDid
     ? sr71$.mutate(S.undoReaction, args)
     : sr71$.mutate(S.reaction, args)
 }
@@ -50,17 +49,19 @@ function loading(maybe = true) {
 function queryPost(data) {
   const variables = {
     id: data.id,
-    userHasLogin: false,
+    userHasLogin: store.isLogin,
   }
-  debug('--### > queryPost make loading')
   loading()
   sr71$.query(S.post, variables)
 }
 
-function reloadReactions(data) {
+function reloadReactions(article) {
   const variables = {
-    id: data.id,
+    id: article.id,
   }
+  debug('reloadReactions: ', variables)
+
+  /* queryPost(article) */
   sr71$.query(S.reactionResult, variables)
 }
 
@@ -73,31 +74,30 @@ const DataSolver = [
       if (info.type === TYPE.POST) {
         queryPost(info.data)
 
-        store.markState({ type: 'POST', post: info.data })
+        store.markState({ type: TYPE.POST, post: info.data })
         /* articleViwer.load(TYPE.POST, res[EVENT.PREVIEW_POST].data) */
       }
     },
   },
   {
-    match: asyncRes(TYPE.REACTION),
-    action: res => {
+    match: asyncRes('reaction'),
+    action: ({ reaction }) => {
       // TODO: should be trigger
-      const info = res[TYPE.REACTION]
-      reloadReactions(info)
+      debug('get reaction: ', reaction)
+      reloadReactions(reaction)
     },
   },
   {
-    match: asyncRes(TYPE.UNDO_REACTION),
-    action: res => {
-      debug('undoReaction ', res)
-      const info = res[TYPE.UNDO_REACTION]
-      reloadReactions(info)
+    match: asyncRes('undoReaction'),
+    action: ({ undoReaction }) => {
+      debug('get undoReaction: ', undoReaction)
+      /* const info = res[TYPE.UNDO_REACTION] */
+      reloadReactions(undoReaction)
     },
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
-      // TODO: test
       sr71$.stop()
       store.load(TYPE.POST, {})
       loading(false)
@@ -106,7 +106,7 @@ const DataSolver = [
   {
     match: asyncRes('post'), // GraphQL return
     action: ({ post }) => {
-      store.markState({ type: 'POST', post })
+      store.markState({ type: TYPE.POST, post: R.merge(store.post, post) })
       loading(false)
     },
   },
