@@ -4,14 +4,16 @@ import { Img } from '../../../components'
 import { theme } from '../../../utils'
 import { BaseBanner, BaseTabber, BaseBannerContent } from './index'
 
-export const BannerContainer = BaseBanner.extend``
+export const BannerContainer = BaseBanner.extend`
+  min-height: 125px;
+`
 export const TabberWrapper = BaseTabber.extend``
 export const BannerContentWrapper = BaseBannerContent.extend``
 
 export const CommunityWrapper = styled.div`
   display: flex;
   flex-grow: 1;
-  margin-top: -2em;
+  margin-top: -2rem;
 `
 
 export const CommunityLogo = styled(Img)`

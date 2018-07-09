@@ -136,7 +136,7 @@ class JobsThreadContainer extends React.Component {
         pagedJobsData,
         tagsData,
         curView,
-        curFilter: { when, sort, wordLength },
+        filtersData,
         activeTagData,
         active,
         accountInfo,
@@ -144,7 +144,6 @@ class JobsThreadContainer extends React.Component {
       },
     } = this.props
 
-    // TODO: use curCommunity
     const { mainPath, subPath } = curRoute
 
     return (
@@ -158,9 +157,7 @@ class JobsThreadContainer extends React.Component {
               <FilterWrapper show={curView === TYPE.RESULT}>
                 <ContentFilter
                   onSelect={logic.onFilterSelect}
-                  activeWhen={when}
-                  activeSort={sort}
-                  activeLength={wordLength}
+                  activeFilter={filtersData}
                 />
                 <FilterResultHint>
                   结果约 {pagedJobsData.totalCount} 条

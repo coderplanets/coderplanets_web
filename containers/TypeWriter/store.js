@@ -46,8 +46,8 @@ const TypeWriterStore = t
       const { success, error, warn } = self
       return !success && !error && !warn
     },
-    get curCommunity() {
-      return stripMobx(self.root.curCommunity)
+    get viewing() {
+      return stripMobx(self.root.viewing)
     },
   }))
   .actions(self => ({

@@ -66,7 +66,7 @@ export function onThreadChange(thread) {
 
   /* store.markRoute({ community, thread: thread2Subpath(activeThread) }) */
   store.markRoute({ subPath: thread2Subpath(activeThread) })
-  store.loadCurCommunity({ activeThread })
+  store.setViewing({ activeThread })
 }
 
 export function login() {

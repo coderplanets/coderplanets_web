@@ -21,7 +21,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Banner')
 /* eslint-enable no-unused-vars */
 
-const BannerContent = ({ curCommunity, curRoute }) => {
+const BannerContent = ({ viewing, curRoute }) => {
   const { mainPath } = curRoute
   switch (mainPath) {
     case ROUTE.CHEATSHEETS: {
@@ -40,7 +40,7 @@ const BannerContent = ({ curCommunity, curRoute }) => {
       return <UserBanner />
     }
     default:
-      return <CommunityBanner curCommunity={curCommunity} />
+      return <CommunityBanner viewing={viewing} />
   }
 }
 
@@ -52,16 +52,12 @@ class BannerContainer extends React.Component {
 
   render() {
     const { banner } = this.props
-    const { curCommunity, curRoute } = banner
+    const { viewing, curRoute } = banner
     // const { mainPath } = curRoute
     // debug('detail ---> ', detail)
 
     return (
-      <BannerContent
-        curCommunity={curCommunity}
-        curRoute={curRoute}
-        banner={banner}
-      />
+      <BannerContent viewing={viewing} curRoute={curRoute} banner={banner} />
     )
   }
 }

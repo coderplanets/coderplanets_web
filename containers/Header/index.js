@@ -40,7 +40,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Header')
 /* eslint-enable no-unused-vars */
 
-const MiniMap = ({ curCommunity: { community, activeThread } }) => (
+const MiniMap = ({ activeInfo: { community, activeThread } }) => (
   <MiniMapWrapper>
     <CommunityLogo src={community.logo} />
     <React.Fragment>
@@ -58,7 +58,7 @@ const MiniMap = ({ curCommunity: { community, activeThread } }) => (
 )
 
 const Header = ({
-  curCommunity,
+  activeInfo,
   curRoute,
   leftOffset,
   fixed,
@@ -72,7 +72,7 @@ const Header = ({
   >
     <RouterWrapper>
       {fixed ? (
-        <MiniMap curCommunity={curCommunity} curRoute={curRoute} />
+        <MiniMap activeInfo={activeInfo} curRoute={curRoute} />
       ) : (
         <Navigator />
       )}
@@ -129,18 +129,16 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
+    const { header } = this.props
     const {
-      header: {
-        fixed,
-        curRoute,
-        leftOffset,
-        accountInfo,
-        isLogin,
-        curCommunity,
-      },
-    } = this.props
+      fixed,
+      curRoute,
+      leftOffset,
+      accountInfo,
+      isLogin,
+      activeInfo,
+    } = header
 
-    // <Affix style={{ display: fixed ? 'block' : 'none' }}>
     return (
       <div id={TYPE.APP_HEADER_ID}>
         <AffixHeader fixed={fixed}>
@@ -151,7 +149,7 @@ class HeaderContainer extends React.Component {
               leftOffset={leftOffset}
               accountInfo={accountInfo}
               isLogin={isLogin}
-              curCommunity={curCommunity}
+              activeInfo={activeInfo}
             />
           </Affix>
         </AffixHeader>
@@ -162,7 +160,7 @@ class HeaderContainer extends React.Component {
             leftOffset={leftOffset}
             accountInfo={accountInfo}
             isLogin={isLogin}
-            curCommunity={curCommunity}
+            activeInfo={activeInfo}
           />
         </RawHeader>
       </div>

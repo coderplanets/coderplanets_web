@@ -136,14 +136,10 @@ class SidebarContainer extends React.Component {
 
   render() {
     const { sidebar } = this.props
-    const {
-      curCommunity: { community },
-      pin,
-      subscribedCommunities,
-    } = sidebar
+    const { curCommunity, pin, subscribedCommunities } = sidebar
     //    onMouseLeave={logic.leaveSidebar}
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
-    const activeRaw = community.raw
+    const activeRaw = curCommunity.raw
 
     return (
       <Container pin={pin}>

@@ -27,10 +27,10 @@ export function loadCommunity() {
   sr71$.query(S.community, { raw: mainPath })
 }
 
-export function tabberChange(thread) {
-  console.log('tabberChange thread: ', thread2Subpath(thread))
-  store.markRoute({ subPath: thread2Subpath(thread) })
-  store.loadCurCommunity({ activeThread: thread })
+export function tabberChange(activeThread) {
+  console.log('tabberChange thread: ', thread2Subpath(activeThread))
+  store.markRoute({ subPath: thread2Subpath(activeThread) })
+  store.setViewing({ activeThread })
 }
 
 // TODO: load cur community
@@ -41,7 +41,7 @@ const DataSolver = [
     match: asyncRes('community'),
     action: ({ community }) => {
       const { subPath } = store.curRoute
-      store.loadCurCommunity({
+      store.setViewing({
         community,
         activeThread: subPath2Thread(subPath),
       })
@@ -76,8 +76,8 @@ const ErrSolver = [
 
 /*
 const loadIfNeed = () => {
-  const { curCommunity, curRoute } = banner
-  const community = curCommunity.raw
+  const { viewing, curRoute } = banner
+   const community = viewing.community.raw
   const { mainPath } = curRoute
 
   if (community !== mainPath) {

@@ -15,9 +15,7 @@ import {
   BodylayoutStore,
   HeaderStore,
   ContentStore,
-  // TODO: rename to CurCommunityStore
   ViewingStore,
-  CurCommunityStore,
   ThemeStore,
   ThemeDefaults,
 
@@ -61,7 +59,6 @@ const rootStore = t
     route: t.optional(RouteStore, {}),
     // TODO: refactor to viewing
     viewing: t.optional(ViewingStore, {}),
-    curCommunity: t.optional(CurCommunityStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
@@ -163,11 +160,8 @@ const rootStore = t
     isLocaleExist(locale) {
       return !!self.langs.get(locale)
     },
-    setViewing(type, content) {
-      self.viewing.setViewing(type, content)
-    },
-    clearViewing(type) {
-      self.viewing.clearViewing(type)
+    setViewing(sobj) {
+      self.viewing.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

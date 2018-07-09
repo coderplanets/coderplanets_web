@@ -51,7 +51,7 @@ const SidebarStore = t
       return getParent(self)
     },
     get curCommunity() {
-      return stripMobx(self.root.curCommunity)
+      return stripMobx(self.root.viewing.community)
     },
     get accountInfo() {
       return self.root.accountInfo
@@ -77,9 +77,6 @@ const SidebarStore = t
     },
   }))
   .actions(self => ({
-    loadCurCommunity(sobj) {
-      self.root.curCommunity.load(sobj)
-    },
     markRoute(query) {
       self.root.markRoute(query)
     },

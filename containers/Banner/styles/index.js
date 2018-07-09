@@ -33,7 +33,7 @@ export const BaseTabber = styled.div`
 export const NumbersWrapper = styled.div`
   display: flex;
   text-align: center;
-  margin-top: -2.1em;
+  margin-top: -2rem;
 `
 export const NumberSection = styled.div`
   display: flex;

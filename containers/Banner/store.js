@@ -22,16 +22,16 @@ const BannerStore = t
     get curRoute() {
       return self.root.curRoute
     },
-    get curCommunity() {
-      return stripMobx(self.root.curCommunity)
+    get viewing() {
+      return stripMobx(self.root.viewing)
     },
   }))
   .actions(self => ({
-    loadCurCommunity(sobj) {
-      self.root.curCommunity.load(sobj)
-    },
     markRoute(query) {
       self.root.markRoute(query)
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

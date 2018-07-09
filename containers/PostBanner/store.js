@@ -25,8 +25,8 @@ const PostBannerStore = t
     },
   }))
   .actions(self => ({
-    setViewing(type, content) {
-      self.root.setViewing(type, content)
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

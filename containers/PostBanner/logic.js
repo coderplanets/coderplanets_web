@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes, TYPE } from '../../utils'
+import { makeDebugger, $solver, asyncRes } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -26,7 +26,7 @@ export function loadPost() {
 const DataSolver = [
   {
     match: asyncRes('post'),
-    action: ({ post }) => store.setViewing(TYPE.POST, post),
+    action: ({ post }) => store.setViewing({ post }),
   },
 ]
 const ErrSolver = []

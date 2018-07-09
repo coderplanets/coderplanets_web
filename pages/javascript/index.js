@@ -83,7 +83,8 @@ export default class Posts extends React.Component {
 
     return {
       langSetup: {},
-      curCommunity: { community, activeThread: subPath2Thread(thread) },
+      /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
+      viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },
       postsThread: {
         pagedPosts,

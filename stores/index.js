@@ -4,7 +4,6 @@ export { default as RouteStore } from '../containers/Route/store'
 export { default as AccountStore } from './AccountStore'
 export { default as UsersStore } from './UsersStore'
 export { default as ViewingStore } from './ViewingStore'
-export { default as CurCommunityStore } from './CurCommunityStore'
 export { ThemeStore, ThemeDefaults } from './ThemeStore'
 
 // utils store

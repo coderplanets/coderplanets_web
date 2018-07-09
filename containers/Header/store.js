@@ -23,11 +23,9 @@ const HeaderStore = t
     get curRoute() {
       return self.root.curRoute
     },
-
-    get curCommunity() {
-      return stripMobx(self.root.curCommunity)
+    get activeInfo() {
+      return stripMobx(self.root.viewing)
     },
-
     get accountInfo() {
       return self.root.account.accountInfo
     },
@@ -62,9 +60,6 @@ const HeaderStore = t
       self.preSidebarPin = self.root.sidebar.pin
       self.fixed = fixed
     },
-    loadCurCommunity(sobj) {
-      self.root.curCommunity.load(sobj)
-    },
     markRoute(query) {
       self.root.markRoute(query)
     },
@@ -79,6 +74,9 @@ const HeaderStore = t
     },
     openPreview(type) {
       self.root.openPreview(type)
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

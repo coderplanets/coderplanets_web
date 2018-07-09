@@ -51,8 +51,7 @@ export function outAnchor() {
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = store.curRoute */
   scrollIntoEle(TYPE.APP_HEADER_ID)
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const community = store.curCommunity.raw
 
   store.markState({ curView: TYPE.LOADING })
 
@@ -61,7 +60,7 @@ export function loadJobs(page = 1) {
     filter: {
       page,
       size: PAGE_SIZE.POSTSPAPER_POSTS,
-      ...store.curFilter,
+      ...store.filtersData,
       tag: store.activeTagData.raw,
       community,
     },
@@ -75,7 +74,7 @@ export function loadJobs(page = 1) {
 }
 
 export function loadTags() {
-  const community = store.curRoute.mainPath
+  const community = store.curCommunity.raw
 
   const args = {
     thread: R.toUpper(THREAD.JOB),
@@ -85,8 +84,8 @@ export function loadTags() {
   sr71$.query(S.partialTags, args)
 }
 
-export function onFilterSelect(key, val) {
-  store.selectFilter(key, val)
+export function onFilterSelect(option) {
+  store.selectFilter(option)
   loadJobs()
 }
 

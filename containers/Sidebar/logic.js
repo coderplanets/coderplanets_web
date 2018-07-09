@@ -37,7 +37,6 @@ export function onCommunitySelect(community) {
     mainPath: community.raw,
     subPath: thread2Subpath(THREAD.POST),
   })
-  /* store.loadCurCommunity({ activeThread: THREAD.POST }) */
 
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
 }

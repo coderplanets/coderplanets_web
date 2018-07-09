@@ -49,7 +49,7 @@ const Cyan = {
     title: primaryColor,
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
+    spliter: bannerBg,
     numberDesc: '#a7bbbf',
     number: '#83a7ad',
     active: primaryMate,

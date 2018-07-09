@@ -63,8 +63,8 @@ const ArticleViwerStore = t
         [type]: R.merge(self[type], data),
       })
     },
-    setViewing(type, content) {
-      self.root.setViewing(type, content)
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markRoute(query) {
       self.root.markRoute(query)

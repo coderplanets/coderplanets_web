@@ -71,7 +71,7 @@ const DataSolver = [
         loadPost(post)
 
         store.markState({ type: TYPE.POST })
-        store.setViewing(TYPE.POST, post)
+        store.setViewing({ post })
       }
     },
   },
@@ -102,7 +102,7 @@ const DataSolver = [
   {
     match: asyncRes('post'), // GraphQL return
     action: ({ post }) => {
-      store.setViewing(TYPE.POST, post)
+      store.setViewing({ post })
       store.markState({ type: TYPE.POST })
       loading(false)
     },

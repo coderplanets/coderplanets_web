@@ -4,9 +4,9 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import R from 'ramda'
+/* import R from 'ramda' */
 
-import { markStates, makeDebugger, TYPE } from '../../utils'
+import { markStates, makeDebugger, THREAD } from '../../utils'
 import { Community, Post } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
@@ -17,6 +17,17 @@ const ViewingStore = t
   .model('ViewingStore', {
     community: t.optional(Community, {}),
     post: t.optional(Post, {}),
+    activeThread: t.optional(
+      t.enumeration('activeThread', THREAD.__TYPES),
+      THREAD.POST
+    ),
+    /*
+       activeTag: t.optional(Tag, {}),
+       activeThread: t.optional(
+       t.enumeration('activeThread', THREAD.__TYPES),
+       THREAD.POST
+       ),
+     */
   })
   .views(self => ({
     get root() {
@@ -24,29 +35,8 @@ const ViewingStore = t
     },
   }))
   .actions(self => ({
-    setViewing(type, content) {
-      switch (type) {
-        case TYPE.POST: {
-          self.post = R.merge(self.post, content)
-          return false
-        }
-
-        default: {
-          debug("what's the type?")
-        }
-      }
-    },
-    clearViewing(type) {
-      switch (type) {
-        case TYPE.POST: {
-          self.post = {}
-          return false
-        }
-
-        default: {
-          debug("what's the type?")
-        }
-      }
+    setViewing(sobj) {
+      self.markState(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

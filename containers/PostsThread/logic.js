@@ -44,9 +44,7 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
-  /* const { community, activeThread } = store.curCommunity */
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const community = store.curCommunity.raw
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
@@ -68,7 +66,7 @@ export function loadPosts(page = 1) {
 }
 
 export function loadTags() {
-  const community = store.curRoute.mainPath
+  const community = store.curCommunity.raw
   const thread = R.toUpper(THREAD.POST)
 
   const args = { community, thread }
@@ -87,7 +85,7 @@ export function onTagSelect(tag) {
 }
 
 export function onTitleSelect(post) {
-  store.setViewing(TYPE.POST, post)
+  store.setViewing({ post })
   /* store.setActive(post) */
   debug('onTitleSelect publish post: ', post)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
@@ -143,7 +141,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.clearViewing(TYPE.POST),
+    action: () => store.setViewing({ post: {} }),
   },
 ]
 

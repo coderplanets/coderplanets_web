@@ -56,7 +56,6 @@ const FilterModel = t.model('FilterModel', {
 const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    /* filters: t.optional(t.map(FilterModel), {}), */
     filters: t.optional(FilterModel, {}),
     /* tags: t.optional(t.map(Tag), {}), */
     tags: t.optional(t.array(Tag), []),
@@ -81,7 +80,7 @@ const PostsThreadStore = t
       return self.root.curRoute
     },
     get curCommunity() {
-      return stripMobx(self.root.curCommunity)
+      return stripMobx(self.root.viewing.community)
     },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
@@ -115,11 +114,8 @@ const PostsThreadStore = t
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
     },
-    setViewing(type, content) {
-      self.root.setViewing(type, content)
-    },
-    clearViewing(type) {
-      self.root.clearViewing(type)
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markRoute(query) {
       self.root.markRoute(query)

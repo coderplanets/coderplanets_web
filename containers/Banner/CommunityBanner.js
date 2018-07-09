@@ -60,7 +60,7 @@ const CommunityBrief = ({ content }) => (
   </CommunityWrapper>
 )
 
-const CommunityBanner = ({ curCommunity: { community, activeThread } }) => (
+const CommunityBanner = ({ viewing: { community, activeThread } }) => (
   <BannerContainer>
     <BannerContentWrapper>
       <CommunityBrief content={community} />

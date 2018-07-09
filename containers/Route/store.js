@@ -59,13 +59,10 @@ const RouteStore = t
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
-      console.log('push url: ', url)
+      /* console.log('push url: ', url) */
       Router.push(url, asPath, { shallow: true })
       // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
       /* return Global.history.pushState({}, null, url) */
-    },
-    loadCurCommunity(sobj) {
-      self.root.curCommunity.load(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)
