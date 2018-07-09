@@ -18,7 +18,7 @@ const PostContentStore = t
       return getParent(self)
     },
     get postData() {
-      return stripMobx(self.root.curPost.post)
+      return stripMobx(self.root.viewing.post)
     },
   }))
   .actions(self => ({

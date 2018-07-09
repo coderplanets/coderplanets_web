@@ -1,5 +1,3 @@
-import R from 'ramda'
-
 import SR71 from '../../utils/network/sr71'
 
 import {
@@ -36,7 +34,6 @@ export function onReaction(thread, action, userDid, { id }) {
 }
 
 export function gotoPostPage(data) {
-  debug('gotoPostPage data: ', data)
   const { id } = data
   closePreviewer()
   store.markRoute({ mainPath: ROUTE.POST, subPath: id })
@@ -46,7 +43,7 @@ function loading(maybe = true) {
   store.markState({ postLoading: maybe })
 }
 
-function queryPost(data) {
+function loadPost(data) {
   const variables = {
     id: data.id,
     userHasLogin: store.isLogin,
@@ -61,7 +58,6 @@ function reloadReactions(article) {
   }
   debug('reloadReactions: ', variables)
 
-  /* queryPost(article) */
   sr71$.query(S.reactionResult, variables)
 }
 
@@ -70,12 +66,12 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_POST),
     action: res => {
       const info = res[EVENT.PREVIEW_POST]
-      /* debug('EVENT.PREVIEW_POST: ', res[EVENT.PREVIEW_POST]) */
       if (info.type === TYPE.POST) {
-        queryPost(info.data)
+        const post = info.data
+        loadPost(post)
 
-        store.markState({ type: TYPE.POST, post: info.data })
-        /* articleViwer.load(TYPE.POST, res[EVENT.PREVIEW_POST].data) */
+        store.markState({ type: TYPE.POST })
+        store.setViewing(TYPE.POST, post)
       }
     },
   },
@@ -106,7 +102,8 @@ const DataSolver = [
   {
     match: asyncRes('post'), // GraphQL return
     action: ({ post }) => {
-      store.markState({ type: TYPE.POST, post: R.merge(store.post, post) })
+      store.setViewing(TYPE.POST, post)
+      store.markState({ type: TYPE.POST })
       loading(false)
     },
   },

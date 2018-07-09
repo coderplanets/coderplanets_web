@@ -45,16 +45,14 @@ class ArticleViwerContainer extends React.Component {
   }
 
   render() {
-    const {
-      type,
-      articleViwer: { curPost, postLoading },
-    } = this.props
+    const { type, articleViwer } = this.props
+    const { viewingPost, postLoading } = articleViwer
 
     return (
       <React.Fragment>
         <Viwer
           type={type}
-          data={curPost}
+          data={viewingPost}
           loading={postLoading}
           onReaction={logic.onReaction}
         />

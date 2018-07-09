@@ -6,8 +6,14 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post } from '../../stores/SharedModel'
-import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
+import {
+  markStates,
+  makeDebugger,
+  TYPE,
+  stripMobx,
+  THREAD,
+  subPath2Thread,
+} from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViwerStore')
 /* eslint-enable no-unused-vars */
@@ -22,18 +28,31 @@ const ArticleViwerStore = t
       ]),
       TYPE.POST
     ),
-    post: t.optional(Post, {}),
     postLoading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get isLogin() {
       return self.root.account.isLogin
     },
-    get curPost() {
-      return stripMobx(self.post)
+    get viewingPost() {
+      const { subPath } = self.curRoute
+      switch (subPath2Thread(subPath)) {
+        case THREAD.POST: {
+          return stripMobx(self.root.viewing.post)
+        }
+        case THREAD.JOB: {
+          return stripMobx(self.root.viewing.job)
+        }
+        default: {
+          return stripMobx(self.root.viewing.post)
+        }
+      }
     },
   }))
   .actions(self => ({
@@ -43,6 +62,9 @@ const ArticleViwerStore = t
         type: upperType,
         [type]: R.merge(self[type], data),
       })
+    },
+    setViewing(type, content) {
+      self.root.setViewing(type, content)
     },
     markRoute(query) {
       self.root.markRoute(query)

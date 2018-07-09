@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes } from '../../utils'
+import { makeDebugger, $solver, asyncRes, TYPE } from '../../utils'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -16,7 +16,6 @@ let store = null
 export function loadPost() {
   const id = store.curRoute.subPath
 
-  console.log('load post: ', id)
   sr71$.query(S.post, { id })
 }
 
@@ -27,10 +26,7 @@ export function loadPost() {
 const DataSolver = [
   {
     match: asyncRes('post'),
-    action: ({ post }) => {
-      console.log('DataSolver post: ', post)
-      store.loadPost(post)
-    },
+    action: ({ post }) => store.setViewing(TYPE.POST, post),
   },
 ]
 const ErrSolver = []

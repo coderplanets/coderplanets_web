@@ -21,12 +21,12 @@ const PostBannerStore = t
       return self.root.curRoute
     },
     get postData() {
-      return stripMobx(self.root.curPost.post)
+      return stripMobx(self.root.viewing.post)
     },
   }))
   .actions(self => ({
-    loadPost(post) {
-      self.root.curPost.load(post)
+    setViewing(type, content) {
+      self.root.setViewing(type, content)
     },
     markState(sobj) {
       markStates(sobj, self)

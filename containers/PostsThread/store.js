@@ -115,8 +115,8 @@ const PostsThreadStore = t
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
     },
-    setViewing(type, post) {
-      self.root.setViewing(type, post)
+    setViewing(type, content) {
+      self.root.setViewing(type, content)
     },
     clearViewing(type) {
       self.root.clearViewing(type)

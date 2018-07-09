@@ -53,7 +53,8 @@ export default class Index extends React.Component {
     return {
       langSetup: {},
       route: { mainPath: ROUTE.POST, subPath: post.id },
-      curPost: { post },
+      viewing: { post },
+      /* curPost: { post }, */
     }
   }
 
