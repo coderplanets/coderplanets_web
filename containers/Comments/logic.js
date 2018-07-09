@@ -35,19 +35,13 @@ const defaultArgs = {
 export const loadComents = (args = {}) => {
   // debug('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
-  /* args.id = comments.activeArticle.id */
-  args.id = '119' // comments.activeArticle.id
+  args.id = store.viewingArticle.id
   args.userHasLogin = store.isLogin
 
-  /* console.log('comments id: ', args) */
-
   markLoading(args.fresh)
-  store.markState({
-    filterType: args.filter.sort,
-  })
+  store.markState({ filterType: args.filter.sort })
 
-  debug('loadComents query: ', args)
-  sr71$.query(S.comments, args)
+  sr71$.query(S.pagedComments, args)
 }
 
 const markLoading = fresh => {
@@ -61,7 +55,7 @@ export function createComment() {
   // TODO: validation...
   store.markState({ creating: true })
   const args = {
-    id: store.activeArticle.id,
+    id: store.viewingArticle.id,
     body: store.editContent,
   }
 
@@ -70,7 +64,6 @@ export function createComment() {
 }
 
 export function createCommentPreview() {
-  debug('createCommentPreview')
   store.markState({
     showInputEditor: false,
     showInputPreview: true,
@@ -243,10 +236,10 @@ const DataSolver = [
     action: () => {},
   },
   {
-    match: asyncRes('comments'),
-    action: ({ comments }) => {
+    match: asyncRes('pagedComments'),
+    action: ({ pagedComments }) => {
       cancelLoading()
-      store.markState({ ...comments })
+      store.markState({ pagedComments })
     },
   },
   {
@@ -328,7 +321,11 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    loadComents()
+    return false
+  }
+
   store = _store
 
   if (sub$) sub$.unsubscribe()

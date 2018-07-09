@@ -86,18 +86,18 @@ export function onTagSelect(tag) {
   loadPosts()
 }
 
-export function onTitleSelect(activePost) {
-  store.markState({ activePost })
+export function onTitleSelect(post) {
+  store.setViewing(TYPE.POST, post)
   /* store.setActive(post) */
-  debug('onTitleSelect publish post: ', activePost)
+  debug('onTitleSelect publish post: ', post)
   // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
   dispatchEvent(EVENT.NAV_EDIT, {
     type: TYPE.POST_PREVIEW_VIEW,
-    data: activePost,
+    data: post,
   })
 
   GA.event({
-    action: activePost.title,
+    action: post.title,
     category: '浏览',
     label: '社区',
   })
@@ -143,7 +143,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.markState({ activePost: {} }),
+    action: () => store.clearViewing(TYPE.POST),
   },
 ]
 

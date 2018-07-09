@@ -208,28 +208,20 @@ const TotalCountText = ({ count }) => (
 )
 
 const CommentsList = ({
-  entries,
   accountInfo,
-  restProps: {
-    totalCount,
-    pageSize,
-    pageNumber,
-    loading,
-    loadingFresh,
-    tobeDeleteId,
-    filterType,
-  },
+  pagedComments: { entries, totalCount, pageSize, pageNumber },
+  restProps: { loading, loadingFresh, tobeDeleteId, filterType },
 }) => (
   <React.Fragment>
     <TotalHeader>
       <TotalCountText count={totalCount} />
       <CommentsFilter filterType={filterType} show={totalCount >= 2} />
     </TotalHeader>
-    {loadingFresh ? (
+    {!loadingFresh ? null : (
       <CommentBlock>
         <CommentLoading />
       </CommentBlock>
-    ) : null}
+    )}
     <ListsContainer>
       {loading ? (
         <CommentBlock>

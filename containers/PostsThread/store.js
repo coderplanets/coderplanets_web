@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { Article, PagedPosts, Tag } from '../../stores/SharedModel'
+import { PagedPosts, Tag, emptyPagiData } from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsThreadStore')
@@ -55,7 +55,7 @@ const FilterModel = t.model('FilterModel', {
 
 const PostsThreadStore = t
   .model('PostsThreadStore', {
-    pagedPosts: t.maybe(PagedPosts),
+    pagedPosts: t.optional(PagedPosts, emptyPagiData),
     /* filters: t.optional(t.map(FilterModel), {}), */
     filters: t.optional(FilterModel, {}),
     /* tags: t.optional(t.map(Tag), {}), */
@@ -72,7 +72,6 @@ const PostsThreadStore = t
     ),
     // runtime: ..
     // data: ...
-    activePost: t.optional(Article, {}),
   })
   .views(self => ({
     get root() {
@@ -99,8 +98,8 @@ const PostsThreadStore = t
     get activeTagData() {
       return stripMobx(self.activeTag) || { title: '', color: '' }
     },
-    get active() {
-      return stripMobx(self.activePost)
+    get activePost() {
+      return stripMobx(self.root.viewing.post)
     },
   }))
   .actions(self => ({
@@ -115,6 +114,12 @@ const PostsThreadStore = t
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
+    },
+    setViewing(type, post) {
+      self.root.setViewing(type, post)
+    },
+    clearViewing(type) {
+      self.root.clearViewing(type)
     },
     markRoute(query) {
       self.root.markRoute(query)

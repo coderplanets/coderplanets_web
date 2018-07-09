@@ -16,6 +16,7 @@ import {
   HeaderStore,
   ContentStore,
   // TODO: rename to CurCommunityStore
+  ViewingStore,
   CurCommunityStore,
   CurPostStore,
   ThemeStore,
@@ -59,6 +60,8 @@ const rootStore = t
     account: t.optional(AccountStore, {}),
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
+    // TODO: refactor to viewing
+    viewing: t.optional(ViewingStore, {}),
     curCommunity: t.optional(CurCommunityStore, {}),
     curPost: t.optional(CurPostStore, {}),
     comments: t.optional(CommentsStore, {}),
@@ -161,6 +164,12 @@ const rootStore = t
     },
     isLocaleExist(locale) {
       return !!self.langs.get(locale)
+    },
+    setViewing(type, content) {
+      self.viewing.setViewing(type, content)
+    },
+    clearViewing(type) {
+      self.viewing.clearViewing(type)
     },
     markState(sobj) {
       markStates(sobj, self)

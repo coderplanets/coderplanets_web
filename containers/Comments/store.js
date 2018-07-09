@@ -6,8 +6,15 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
-import { Comment } from '../../stores/SharedModel'
+import {
+  markStates,
+  makeDebugger,
+  stripMobx,
+  TYPE,
+  THREAD,
+  subPath2Thread,
+} from '../../utils'
+import { Comment, PagedComments, emptyPagiData } from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:CommentsStore')
@@ -52,11 +59,7 @@ const CommentsStore = t
     // content input of current reply comment editor
     replyContent: t.optional(t.string, ''),
     // comments pagination data of current COMMUNITY / PART
-    entries: t.optional(t.array(Comment), []),
-    totalCount: t.optional(t.number, 0),
-    pageNumber: t.optional(t.number, 0),
-    totalPages: t.optional(t.number, 0),
-    pageSize: t.optional(t.number, 0),
+    pagedComments: t.optional(PagedComments, emptyPagiData),
 
     // current "@user" in valid array format
     referUsers: t.optional(t.array(Mention), []),
@@ -79,6 +82,9 @@ const CommentsStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get isLogin() {
       return self.root.account.isLogin
     },
@@ -90,18 +96,25 @@ const CommentsStore = t
         referUsers
       )
     },
-
-    get entriesData() {
-      return stripMobx(self.entries)
+    get pagedCommentsData() {
+      return stripMobx(self.pagedComments)
     },
-
     get accountInfo() {
       return self.root.account.accountInfo
     },
-
-    get activeArticle() {
-      // TODO: based on tab
-      return self.root.postsThread.active
+    get viewingArticle() {
+      const { subPath } = self.curRoute
+      switch (subPath2Thread(subPath)) {
+        case THREAD.POST: {
+          return stripMobx(self.root.viewing.post)
+        }
+        case THREAD.JOB: {
+          return stripMobx(self.root.viewing.job)
+        }
+        default: {
+          return stripMobx(self.root.viewing.post)
+        }
+      }
     },
   }))
   .actions(self => ({

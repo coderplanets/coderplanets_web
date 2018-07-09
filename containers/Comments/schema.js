@@ -1,8 +1,12 @@
 import gql from 'graphql-tag'
 
-const comments = gql`
-  query comments($id: ID!, $filter: CommentsFilter!, $userHasLogin: Boolean!) {
-    comments(id: $id, filter: $filter) {
+const pagedComments = gql`
+  query pagedComments(
+    $id: ID!
+    $filter: CommentsFilter!
+    $userHasLogin: Boolean!
+  ) {
+    pagedComments(id: $id, filter: $filter) {
       entries {
         id
         body
@@ -107,7 +111,7 @@ const undoDislikeComment = gql`
 `
 
 const schema = {
-  comments,
+  pagedComments,
   createComment,
   replyComment,
   deleteComment,

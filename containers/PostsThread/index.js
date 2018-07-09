@@ -57,8 +57,8 @@ import {
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-const PostItem = ({ post, active, index }) => (
-  <PostWrapper current={post} active={active} index={index}>
+const PostItem = ({ post, activePost, index }) => (
+  <PostWrapper current={post} active={activePost} index={index}>
     <div>
       <PostAvatar src={post.author.avatar} alt="avatar" />
     </div>
@@ -95,7 +95,7 @@ const PostItem = ({ post, active, index }) => (
   </PostWrapper>
 )
 
-const View = ({ community, thread, posts, curView, active }) => {
+const View = ({ community, thread, posts, curView, activePost }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
@@ -104,7 +104,7 @@ const View = ({ community, thread, posts, curView, active }) => {
             <PostItem
               post={post}
               key={shortid.generate()}
-              active={active}
+              activePost={activePost}
               index={index}
             />
           ))}
@@ -139,7 +139,7 @@ class PostsThreadContainer extends React.Component {
         curView,
         filtersData,
         activeTagData,
-        active,
+        activePost,
         curRoute,
       },
     } = this.props
@@ -158,11 +158,9 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
-              {!pagedPostsData ? null : (
-                <FilterResultHint>
-                  结果约 {pagedPostsData.totalCount} 条
-                </FilterResultHint>
-              )}
+              <FilterResultHint>
+                结果约 {pagedPostsData.totalCount} 条
+              </FilterResultHint>
             </FilterWrapper>
 
             {!pagedPostsData ? (
@@ -174,7 +172,7 @@ class PostsThreadContainer extends React.Component {
                   thread={subPath}
                   posts={pagedPostsData.entries}
                   curView={curView}
-                  active={active}
+                  activePost={activePost}
                 />
 
                 <Pagi

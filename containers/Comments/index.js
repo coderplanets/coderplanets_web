@@ -29,16 +29,13 @@ class CommentsContainer extends React.Component {
   render() {
     const { comments } = this.props
     const {
-      entriesData,
+      pagedCommentsData,
       referUsersData,
       accountInfo,
       showReplyBox,
       showReplyEditor,
       showReplyPreview,
     } = comments
-
-    /* console.log('the fucking accountInfo --> ', accountInfo) */
-    // TODO: use styledModal
 
     return (
       <Wrapper>
@@ -64,7 +61,7 @@ class CommentsContainer extends React.Component {
         />
         <CommentsList
           accountInfo={accountInfo}
-          entries={entriesData}
+          pagedComments={pagedCommentsData}
           restProps={{ ...comments }}
         />
       </Wrapper>

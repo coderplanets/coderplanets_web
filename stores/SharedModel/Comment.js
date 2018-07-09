@@ -1,4 +1,6 @@
 import { types as t } from 'mobx-state-tree'
+
+import { PAGE_SIZE } from '../../config'
 import { User } from './User'
 
 const CommentBrief = t.model('CommentBrief', {
@@ -8,7 +10,7 @@ const CommentBrief = t.model('CommentBrief', {
   author: t.optional(User, {}),
 })
 
-const Comment = t.model('Comment', {
+export const Comment = t.model('Comment', {
   id: t.maybe(t.string),
   body: t.maybe(t.string),
   author: t.optional(User, {}),
@@ -25,4 +27,10 @@ const Comment = t.model('Comment', {
   updatedAt: t.optional(t.string, ''),
 })
 
-export default Comment
+export const PagedComments = t.model('PagedComments', {
+  entries: t.optional(t.array(Comment), []),
+  pageNumber: t.optional(t.number, 1),
+  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  totalCount: t.optional(t.number, 0),
+  totalPages: t.optional(t.number, 0),
+})
