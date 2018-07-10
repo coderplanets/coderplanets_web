@@ -28,6 +28,12 @@ module.exports = {
     },
     {
       type: 'confirm',
+      name: 'wantSchema',
+      default: true,
+      message: 'Do you want GraphQL schema?',
+    },
+    {
+      type: 'confirm',
       name: 'wantI18n',
       default: true,
       message: 'Do you want i18n messages (i.e. will this container use text)?',
@@ -73,6 +79,15 @@ module.exports = {
         abortOnFail: true,
       },
     ]
+
+    if (data.wantSchema) {
+      actions.push({
+        type: 'add',
+        path: '../../../containers/{{properCase name}}/schema.js',
+        templateFile: './container/schema.js.hbs',
+        abortOnFail: true,
+      })
+    }
 
     // If they want a i18n messages file
     if (data.wantI18n) {
