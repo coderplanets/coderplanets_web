@@ -4,7 +4,6 @@
  *
  */
 import React from 'react'
-
 import { prettyNum } from '../../utils'
 
 import {
@@ -15,6 +14,8 @@ import {
   NumberItem,
 } from './styles/numbers_info'
 
+import * as logic from './logic'
+
 const NumbersInfo = ({
   content: { subscribersCount, editorsCount, postsCount },
 }) => (
@@ -24,14 +25,16 @@ const NumbersInfo = ({
       <NumberItem>{prettyNum(subscribersCount)}</NumberItem>
     </NumberSection>
     <NumberDivider />
-    <NumberSection>
-      <NumberTitle>内容</NumberTitle>
-      <NumberItem>{prettyNum(postsCount)}</NumberItem>
+    <NumberSection dead>
+      <NumberTitle dead>内容</NumberTitle>
+      <NumberItem dead>{prettyNum(postsCount)}</NumberItem>
     </NumberSection>
     <NumberDivider />
     <NumberSection>
       <NumberTitle>编辑</NumberTitle>
-      <NumberItem>{prettyNum(editorsCount)}</NumberItem>
+      <NumberItem onClick={logic.showEditorList}>
+        {prettyNum(editorsCount)}
+      </NumberItem>
     </NumberSection>
   </NumbersWrapper>
 )

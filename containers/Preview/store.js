@@ -19,6 +19,7 @@ const PreviewStore = t
         TYPE.PREVIEW_ACCOUNT_EDIT,
         TYPE.PREVIEW_ROOT_STORE,
         TYPE.PREVIEW_CREATE_POST,
+        TYPE.PREVIEW_COMMUNITY_EDITORS,
       ])
     ),
     // header:

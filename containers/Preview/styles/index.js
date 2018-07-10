@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import R from 'ramda'
 import { theme, TYPE, Animate } from '../../../utils'
 
-const WIDE_CASE = [TYPE.POST_PREVIEW_VIEW, TYPE.PREVIEW_CREATE_POST]
+const WIDE_CASE = [
+  TYPE.POST_PREVIEW_VIEW,
+  TYPE.PREVIEW_CREATE_POST,
+  TYPE.PREVIEW_COMMUNITY_EDITORS,
+]
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 

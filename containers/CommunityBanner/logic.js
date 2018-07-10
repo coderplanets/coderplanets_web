@@ -7,6 +7,8 @@ import {
   asyncErr,
   ERR,
   EVENT,
+  TYPE,
+  dispatchEvent,
   subPath2Thread,
   thread2Subpath,
 } from '../../utils'
@@ -30,10 +32,17 @@ export function loadCommunity() {
 }
 
 export function tabberChange(activeThread) {
-  console.log('store is :', store)
-  console.log('tabberChange thread: ', thread2Subpath(activeThread))
+  // console.log('store is :', store)
+  // console.log('tabberChange thread: ', thread2Subpath(activeThread))
   store.markRoute({ subPath: thread2Subpath(activeThread) })
   store.setViewing({ activeThread })
+}
+
+export function showEditorList() {
+  debug('showEditorList ...')
+  dispatchEvent(EVENT.PREVIEW, {
+    type: TYPE.PREVIEW_COMMUNITY_EDITORS,
+  })
 }
 
 // ###############################

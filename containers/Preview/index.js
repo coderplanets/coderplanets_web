@@ -63,7 +63,9 @@ const Viewer = ({ type, root }) => {
     case TYPE.PREVIEW_CREATE_POST: {
       return <DynamicTypeWriter onClose={logic.closePreview} />
     }
-
+    case TYPE.PREVIEW_COMMUNITY_EDITORS: {
+      return <h2>TYPE.PREVIEW_COMMUNITY_EDITORS</h2>
+    }
     default: {
       return <StateTree json={root.toJSON()} />
     }

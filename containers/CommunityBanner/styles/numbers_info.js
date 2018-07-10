@@ -19,20 +19,20 @@ export const NumberSection = styled.div`
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
+// text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }
 `
+// text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
 export const NumberItem = styled.div`
   font-size: 1.5rem;
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
     animation: ${Animate.pulse} 0.4s linear;
   }
 `
