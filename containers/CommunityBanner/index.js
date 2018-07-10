@@ -7,12 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-// import Link from 'next/link'
-
-// import { } from './styles'
-
+import { ICON_ASSETS } from '../../config'
 import { makeDebugger, storePlug } from '../../utils'
-import { DEFAULT_ICON } from '../../config/assets'
 
 import Tabber from '../../components/Tabber'
 import NumbersInfo from './NumbersInfo'
@@ -28,18 +24,20 @@ import {
   CommunityInfo,
   Title,
   Desc,
+  LogoHolder,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CommunityBanner')
 /* eslint-enable no-unused-vars */
 
+const CommunityLogoHolder = `${ICON_ASSETS}/cmd/community_logo_holder.svg`
 const CommunityBrief = ({ content }) => (
   <CommunityWrapper>
     {content.logo ? (
-      <CommunityLogo src={content.logo || DEFAULT_ICON} />
+      <CommunityLogo src={content.logo || CommunityLogoHolder} />
     ) : (
-      <div />
+      <LogoHolder src={CommunityLogoHolder} />
     )}
     <CommunityInfo>
       <Title>{content.title}</Title>
@@ -56,9 +54,7 @@ class CommunityBannerContainer extends React.Component {
 
   render() {
     const { communityBanner } = this.props
-    const {
-      viewing: { community, activeThread },
-    } = communityBanner
+    const { viewing: { community, activeThread } } = communityBanner
 
     return (
       <BannerContainer>

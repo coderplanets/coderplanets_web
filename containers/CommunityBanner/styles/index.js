@@ -73,3 +73,15 @@ export const Desc = styled.div`
     font-size: 1rem;
   }
 `
+
+export const LogoHolder = styled(Img)`
+  fill: ${theme('banner.desc')};
+  width: 50px;
+  height: 50px;
+  @media (max-height: 800px) {
+    width: 40px;
+    height: 40px;
+  }
+  opacity: 0.6;
+  margin-top: 3px;
+`
