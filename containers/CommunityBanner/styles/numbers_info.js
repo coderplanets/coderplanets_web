@@ -16,7 +16,6 @@ export const NumberSection = styled.div`
 
   &:hover {
     background: ${({ dead }) => (dead ? '' : theme('banner.numberHoverBg'))};
-    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
 // text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
@@ -25,6 +24,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     animation: ${Animate.pulse} 0.4s linear;
+    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
 // text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
@@ -34,6 +34,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     animation: ${Animate.pulse} 0.4s linear;
+    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
 export const NumberDivider = styled.div`

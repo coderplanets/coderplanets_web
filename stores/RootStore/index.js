@@ -40,6 +40,7 @@ import {
   MapViewerStore,
   JobsViewerStore,
   CheatSheetPaperStore,
+  CommunityEditorsStore,
   // toolbox
   DoraemonStore,
   PreviewStore,
@@ -100,6 +101,7 @@ const rootStore = t
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
+    communityEditors: t.optional(CommunityEditorsStore, {}),
 
     // TODO rename to xxPaper
     tutsViewer: t.optional(TutsViewerStore, {}),

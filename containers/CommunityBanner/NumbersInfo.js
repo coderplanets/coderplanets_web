@@ -31,7 +31,7 @@ const NumbersInfo = ({
     </NumberSection>
     <NumberDivider />
     <NumberSection>
-      <NumberTitle>编辑</NumberTitle>
+      <NumberTitle dead>编辑</NumberTitle>
       <NumberItem onClick={logic.showEditorList}>
         {prettyNum(editorsCount)}
       </NumberItem>

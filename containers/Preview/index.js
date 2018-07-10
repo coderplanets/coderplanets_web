@@ -16,7 +16,12 @@ import * as logic from './logic'
 // TODO: move it to component
 import { StateTree } from '../../components'
 import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
-import { ArticleViwer, AccountViewer, AccountEditor } from '..'
+import {
+  ArticleViwer,
+  AccountViewer,
+  AccountEditor,
+  CommunityEditors,
+} from '..'
 
 import {
   PreviewOverlay,
@@ -64,7 +69,7 @@ const Viewer = ({ type, root }) => {
       return <DynamicTypeWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {
-      return <h2>TYPE.PREVIEW_COMMUNITY_EDITORS</h2>
+      return <CommunityEditors />
     }
     default: {
       return <StateTree json={root.toJSON()} />

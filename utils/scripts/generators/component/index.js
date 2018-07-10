@@ -39,12 +39,6 @@ module.exports = {
       default: true,
       message: 'Do you want i18n messages (i.e. will this component use text)?',
     },
-    {
-      type: 'confirm',
-      name: 'wantLoadable',
-      default: false,
-      message: 'Do you want to load the component asynchronously?',
-    },
   ],
   actions: data => {
     // Generate index.js and index.test.js
@@ -81,16 +75,6 @@ module.exports = {
         type: 'add',
         path: '../../../components/{{properCase name}}/lang.js',
         templateFile: './component/lang.js.hbs',
-        abortOnFail: true,
-      })
-    }
-
-    // If want Loadable.js to load the component asynchronously
-    if (data.wantLoadable) {
-      actions.push({
-        type: 'add',
-        path: '../../../components/{{properCase name}}/Loadable.js',
-        templateFile: './component/loadable.js.hbs',
         abortOnFail: true,
       })
     }

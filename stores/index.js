@@ -55,3 +55,7 @@ export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
 export {
   default as AccountViewerStore,
 } from '../containers/AccountViewer/store'
+
+export {
+  default as CommunityEditorsStore,
+} from '../containers/CommunityEditors/store'
