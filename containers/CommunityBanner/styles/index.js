@@ -2,7 +2,33 @@ import styled from 'styled-components'
 
 import { Img } from '../../../components'
 import { theme } from '../../../utils'
-import { BaseBanner, BaseTabber, BaseBannerContent } from './index'
+
+// TODO: extract it
+const BaseBanner = styled.nav`
+  position: relative;
+  min-height: 140px;
+  border-bottom: 1px solid tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${theme('banner.bg')};
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('banner.spliter')};
+  @media (max-height: 800px) {
+    min-height: 130px;
+  }
+`
+const BaseTabber = styled.div`
+  position: absolute;
+  bottom: -16px;
+  width: 80vw;
+  display: flex;
+`
+export const BaseBannerContent = styled.div`
+  display: flex;
+  margin-left: 8%;
+  margin-right: 8%;
+`
 
 export const BannerContainer = BaseBanner.extend`
   min-height: 125px;

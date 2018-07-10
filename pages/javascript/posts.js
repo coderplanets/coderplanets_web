@@ -27,7 +27,7 @@ import {
   Content,
 } from '../../containers'
 
-import BannerSchema from '../../containers/Banner/schema'
+import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import PostsThreadSchema from '../../containers/PostsThread/schema'
 
 import Footer from '../../components/Footer'
@@ -39,7 +39,7 @@ async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
   // schema
-  const { communityRaw } = BannerSchema
+  const { communityRaw } = CommunityBannerSchema
   const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
 
   // utils

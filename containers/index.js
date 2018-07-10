@@ -22,6 +22,7 @@ export { default as AccountViewer } from './AccountViewer'
 /* banners */
 export { default as UserBanner } from './UserBanner'
 export { default as PostBanner } from './PostBanner'
+export { default as CommunityBanner } from './CommunityBanner'
 export { default as CommunitiesBanner } from './CommunitiesBanner'
 
 /* contents */

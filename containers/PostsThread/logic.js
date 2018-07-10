@@ -44,7 +44,9 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
-  const community = store.curCommunity.raw
+  // NOTE: do not use viewing.community, it's too slow
+  const { mainPath } = store.curRoute
+  const community = mainPath
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
@@ -66,7 +68,9 @@ export function loadPosts(page = 1) {
 }
 
 export function loadTags() {
-  const community = store.curCommunity.raw
+  // NOTE: do not use viewing.community, it's too slow
+  const { mainPath } = store.curRoute
+  const community = mainPath
   const thread = R.toUpper(THREAD.POST)
 
   const args = { community, thread }

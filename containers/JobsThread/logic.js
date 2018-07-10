@@ -51,7 +51,9 @@ export function outAnchor() {
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = store.curRoute */
   scrollIntoEle(TYPE.APP_HEADER_ID)
-  const community = store.curCommunity.raw
+  // NOTE: do not use viewing.community, it's too slow
+  const { mainPath } = store.curRoute
+  const community = mainPath
 
   store.markState({ curView: TYPE.LOADING })
 
@@ -74,7 +76,9 @@ export function loadJobs(page = 1) {
 }
 
 export function loadTags() {
-  const community = store.curCommunity.raw
+  // NOTE: do not use viewing.community, it's too slow
+  const { mainPath } = store.curRoute
+  const community = mainPath
 
   const args = {
     thread: R.toUpper(THREAD.JOB),

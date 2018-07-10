@@ -18,6 +18,9 @@ export { default as ContentStore } from '../containers/Content/store'
 export { default as BannerStore } from '../containers/Banner/store'
 export { default as PostBannerStore } from '../containers/PostBanner/store'
 export {
+  default as CommunityBannerStore,
+} from '../containers/CommunityBanner/store'
+export {
   default as CommunitiesBannerStore,
 } from '../containers/CommunitiesBanner/store'
 

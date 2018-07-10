@@ -10,18 +10,18 @@ import { inject, observer } from 'mobx-react'
 import { makeDebugger, storePlug, ROUTE } from '../../utils'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
-import CommunityBanner from './CommunityBanner'
+/* import CommunityBanner from './CommunityBanner' */
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { UserBanner, PostBanner, CommunitiesBanner } from '..'
+import { UserBanner, PostBanner, CommunitiesBanner, CommunityBanner } from '..'
 
-import * as logic from './logic'
+import init from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Banner')
 /* eslint-enable no-unused-vars */
 
-const BannerContent = ({ viewing, curRoute }) => {
+const BannerContent = ({ curRoute }) => {
   const { mainPath } = curRoute
   switch (mainPath) {
     case ROUTE.CHEATSHEETS: {
@@ -40,25 +40,23 @@ const BannerContent = ({ viewing, curRoute }) => {
       return <UserBanner />
     }
     default:
-      return <CommunityBanner viewing={viewing} />
+      return <CommunityBanner />
   }
 }
 
 class BannerContainer extends React.Component {
   componentWillMount() {
     const { banner } = this.props
-    logic.init(banner)
+    init(banner)
   }
 
   render() {
     const { banner } = this.props
-    const { viewing, curRoute } = banner
+    const { curRoute } = banner
     // const { mainPath } = curRoute
     // debug('detail ---> ', detail)
 
-    return (
-      <BannerContent viewing={viewing} curRoute={curRoute} banner={banner} />
-    )
+    return <BannerContent curRoute={curRoute} banner={banner} />
   }
 }
 

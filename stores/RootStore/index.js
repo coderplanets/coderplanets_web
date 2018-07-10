@@ -22,6 +22,7 @@ import {
   // banners
   BannerStore,
   PostBannerStore,
+  CommunityBannerStore,
   CommunitiesBannerStore,
 
   // threads
@@ -57,7 +58,6 @@ const rootStore = t
     account: t.optional(AccountStore, {}),
     users: t.maybe(UsersStore),
     route: t.optional(RouteStore, {}),
-    // TODO: refactor to viewing
     viewing: t.optional(ViewingStore, {}),
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
@@ -83,6 +83,7 @@ const rootStore = t
     // banners
     banner: t.optional(BannerStore, {}),
     postBanner: t.optional(PostBannerStore, {}),
+    communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
 
     // content
