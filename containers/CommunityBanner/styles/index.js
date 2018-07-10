@@ -42,6 +42,14 @@ export const CommunityWrapper = styled.div`
   margin-top: -2rem;
 `
 
+export const LogoWrapper = styled.div`
+  position: relative;
+  width: 60px;
+  @media (max-height: 800px) {
+    width: 50px;
+  }
+`
+
 export const CommunityLogo = styled(Img)`
   width: 60px;
   height: 60px;

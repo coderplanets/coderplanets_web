@@ -96,7 +96,6 @@ export function init(_store) {
   if (store) return false
   store = _store
 
-  debug('init this fucking store: ', store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 

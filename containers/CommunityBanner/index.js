@@ -21,6 +21,7 @@ import {
   TabberWrapper,
   CommunityWrapper,
   CommunityLogo,
+  LogoWrapper,
   CommunityInfo,
   Title,
   Desc,
@@ -34,11 +35,13 @@ const debug = makeDebugger('C:CommunityBanner')
 const CommunityLogoHolder = `${ICON_ASSETS}/cmd/community_logo_holder.svg`
 const CommunityBrief = ({ content }) => (
   <CommunityWrapper>
-    {content.logo ? (
-      <CommunityLogo src={content.logo || CommunityLogoHolder} />
-    ) : (
-      <LogoHolder src={CommunityLogoHolder} />
-    )}
+    <LogoWrapper>
+      {content.logo ? (
+        <CommunityLogo src={content.logo || CommunityLogoHolder} />
+      ) : (
+        <LogoHolder src={CommunityLogoHolder} />
+      )}
+    </LogoWrapper>
     <CommunityInfo>
       <Title>{content.title}</Title>
       <Desc>{content.desc}</Desc>
@@ -54,7 +57,9 @@ class CommunityBannerContainer extends React.Component {
 
   render() {
     const { communityBanner } = this.props
-    const { viewing: { community, activeThread } } = communityBanner
+    const {
+      viewing: { community, activeThread },
+    } = communityBanner
 
     return (
       <BannerContainer>
