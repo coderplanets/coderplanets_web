@@ -1,7 +1,7 @@
 {
   "name": "coderplanets_web",
-  "version": "0.3.0",
-  "license": "MIT",
+  "version": "0.4.0",
+  "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env GOAL=dev run-p server lint:watch",
     "prod": "cross-env GOAL=production run-p server lint:watch",
