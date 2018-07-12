@@ -5,6 +5,10 @@
   </div>
   <div> work in progress ...</div>
   <br/><br/>
+ 
+  <a href="https://github.com/mastani-stack" target="_blank">
+    <img src="https://badgen.now.sh/badge/mastani-stack/powered%20by/purple" alt="pownerd by" />
+  </a>
   
   <a href="https://travis-ci.org/mydearxym/mastani_web" target="_blank">
     <img src="https://api.travis-ci.org/mydearxym/mastani_web.svg?branch=dev" alt="Build Status" />
@@ -44,6 +48,9 @@
     
   <a href="https://insight.io/github.com/mydearxym/mastani/tree/dev" target="_blank">
     <img src="https://insight.io/repoBadge/github.com/mydearxym/mastani" alt="source insight" />
+  </a>
+  <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">
+    <img src="https://badgen.now.sh/badge/license/Apache-2.0/blue" alt="license" />
   </a>
 </div>
 
