@@ -28,6 +28,7 @@ import {
   // threads
   PostsThreadStore,
   VideosThreadStore,
+  ReposThreadStore,
   JobsThreadStore,
   // content
   PostContentStore,
@@ -97,6 +98,7 @@ const rootStore = t
     // threads
     postsThread: t.optional(PostsThreadStore, {}),
     videosThread: t.optional(VideosThreadStore, {}),
+    reposThread: t.optional(ReposThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 

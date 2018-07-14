@@ -8,7 +8,7 @@ const I18nDict = {
   meetups: 'meetups',
   users: '用户',
   videos: '视频',
-  tuts: '教程',
+  repos: '开源项目',
   jobs: '招聘',
 }
 

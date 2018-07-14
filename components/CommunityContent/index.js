@@ -11,6 +11,7 @@ import MapViewer from '../../containers/MapViewer'
 import {
   PostsThread,
   VideosThread,
+  ReposThread,
   JobsThread,
   CheatSheetPaper,
 } from '../../containers'
@@ -26,6 +27,9 @@ const ComunityContent = ({ curRoute }) => {
   switch (subPath) {
     case ROUTE.POSTS: {
       return <PostsThread />
+    }
+    case ROUTE.REPOS: {
+      return <ReposThread />
     }
     case 'news': {
       return <h2>NesPaper</h2>
