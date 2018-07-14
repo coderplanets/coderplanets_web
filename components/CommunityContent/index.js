@@ -8,12 +8,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MapViewer from '../../containers/MapViewer'
-// import TutsViewer from '../TutsViewer'
-// import JobsViewer from '../JobsViewer'
-import { PostsThread, JobsThread, CheatSheetPaper } from '../../containers'
+import {
+  PostsThread,
+  VideosThread,
+  JobsThread,
+  CheatSheetPaper,
+} from '../../containers'
 
 import { Wrapper } from './styles'
-import { makeDebugger } from '../../utils'
+import { makeDebugger, ROUTE } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:CommunityContent:index')
 /* eslint-enable no-unused-vars */
@@ -21,7 +24,7 @@ const debug = makeDebugger('c:CommunityContent:index')
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute
   switch (subPath) {
-    case 'posts': {
+    case ROUTE.POSTS: {
       return <PostsThread />
     }
     case 'news': {
@@ -39,10 +42,10 @@ const ComunityContent = ({ curRoute }) => {
     case 'users': {
       return <h2>UsersPaper</h2>
     }
-    case 'videos': {
-      return <h2>VideosPaper</h2>
+    case ROUTE.VIDEOS: {
+      return <VideosThread />
     }
-    case 'jobs': {
+    case ROUTE.JOBS: {
       return <JobsThread />
     }
     case 'cheatsheet': {
