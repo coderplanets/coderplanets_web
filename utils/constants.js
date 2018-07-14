@@ -69,11 +69,32 @@ export const ROUTE = {
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   ACTIVITIES: 'activities',
-  USER: 'user',
   POSTS: 'posts',
   JOBS: 'jobs',
+  VIDEOS: 'videos',
+  USERS: 'users',
+  REPOS: 'repos',
+
   POST: 'post',
+  USER: 'user',
   JOB: 'JOB',
+}
+
+export const THREAD = {
+  __TYPES: ['post', 'job', 'video', 'repo', 'wiki', 'cheatsheets'],
+  POST: 'post',
+  JOB: 'job',
+  VIDEO: 'video',
+  REPO: 'repo',
+  WIKI: 'wiki',
+  CHEATSHEETS: 'cheatsheets',
+}
+
+export const ACTION = {
+  __TYPES: ['FAVORITE', 'STAR', 'WATCH'],
+  FAVORITE: 'FAVORITE',
+  STAR: 'STAR',
+  WATCH: 'WATCH',
 }
 
 export const FILTER = {
@@ -98,17 +119,4 @@ export const FILTER = {
   // length
   MOST_WORDS: 'MOST_WORDS',
   LEAST_WORDS: 'LEAST_WORDS',
-}
-
-export const THREAD = {
-  __TYPES: ['post', 'job'],
-  POST: 'post',
-  JOB: 'job',
-}
-
-export const ACTION = {
-  __TYPES: ['FAVORITE', 'STAR', 'WATCH'],
-  FAVORITE: 'FAVORITE',
-  STAR: 'STAR',
-  WATCH: 'WATCH',
 }

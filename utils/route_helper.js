@@ -106,8 +106,15 @@ export const serializeQuery = obj => {
 const TR_MAP = {
   posts: 'post',
   jobs: 'job',
+  videos: 'video',
+  repos: 'repo',
+
   post: 'posts',
   job: 'jobs',
+  video: 'videos',
+  repo: 'repos',
+
+  wiki: 'wiki',
 }
 
 export const subPath2Thread = path => TR_MAP[path] || ''

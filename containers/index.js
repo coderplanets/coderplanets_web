@@ -33,5 +33,6 @@ export { default as PostContent } from './PostContent'
 
 /* threads */
 export { default as PostsThread } from './PostsThread'
+export { default as VideosThread } from './VideosThread'
 export { default as JobsThread } from './JobsThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
