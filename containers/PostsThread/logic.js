@@ -1,4 +1,6 @@
 import R from 'ramda'
+import { PAGE_SIZE } from '../../config'
+
 import {
   asyncRes,
   asyncErr,
@@ -14,7 +16,6 @@ import {
   GA,
 } from '../../utils'
 
-import { PAGE_SIZE } from '../../config'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
@@ -33,6 +34,7 @@ const debug = makeDebugger('L:PostsThread')
 let store = null
 let sub$ = null
 
+// TODO: move to utils
 const validFilter = R.pickBy(
   R.compose(
     R.not,

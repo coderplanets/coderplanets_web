@@ -1,17 +1,40 @@
 /*
-*
-* VideosThread
-*
-*/
+ *
+ * VideosThread
+ *
+ */
 
 import React from 'react'
+import R from 'ramda'
+
+import shortid from 'shortid'
 import { inject, observer } from 'mobx-react'
 
-// import Link from 'next/link'
+import {
+  Affix,
+  TagList,
+  PostsLoading,
+  Pagi,
+  EmptyThread,
+  ContentFilter,
+  Space,
+} from '../../components'
 
-// import { } from './styles'
+import Item from './Item'
 
-import { makeDebugger, storePlug } from '../../utils'
+import {
+  Wrapper,
+  LeftPadding,
+  RightPadding,
+  LeftPart,
+  RightPart,
+  FilterWrapper,
+  FilterResultHint,
+  TagDivider,
+  WritePostBtn,
+} from './styles'
+
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 // import S from './schema'
 import * as logic from './logic'
@@ -20,6 +43,34 @@ import * as logic from './logic'
 const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */
 
+const View = ({ community, thread, entries, curView, activeVideo }) => {
+  switch (curView) {
+    case TYPE.RESULT: {
+      return (
+        <React.Fragment>
+          {entries.map((video, index) => (
+            <Item
+              data={video}
+              key={shortid.generate()}
+              activeVideo={activeVideo}
+              index={index}
+            />
+          ))}
+        </React.Fragment>
+      )
+    }
+    case TYPE.RESULT_EMPTY: {
+      return (
+        <React.Fragment>
+          <EmptyThread community={community} thread={thread} />
+        </React.Fragment>
+      )
+    }
+    default:
+      return <PostsLoading num={5} />
+  }
+}
+
 class VideosThreadContainer extends React.Component {
   componentWillMount() {
     const { videosThread } = this.props
@@ -27,11 +78,79 @@ class VideosThreadContainer extends React.Component {
   }
 
   render() {
+    const {
+      videosThread: {
+        pagedVideosData,
+        filtersData,
+        tagsData,
+        curRoute,
+        curView,
+        activeVideo,
+        activeTagData,
+      },
+    } = this.props
+
+    const { entries, pageNumber, pageSize, totalCount } = pagedVideosData
+    const { mainPath, subPath } = curRoute
+
     return (
-      <div>
-        <h2>VideosThread container!</h2>
-        <div>impress me!</div>
-      </div>
+      <Wrapper>
+        <React.Fragment>
+          <LeftPadding />
+          <LeftPart>
+            {/* <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} /> */}
+            <FilterWrapper show>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
+              />
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            </FilterWrapper>
+
+            {R.isEmpty(pagedVideosData.entries) ? (
+              <PostsLoading num={5} />
+            ) : (
+              <React.Fragment>
+                <View
+                  community={mainPath}
+                  thread={subPath}
+                  entries={entries}
+                  curView={curView}
+                  activeVideo={activeVideo}
+                />
+
+                <Pagi
+                  left="-10px"
+                  pageNumber={pageNumber}
+                  pageSize={pageSize}
+                  totalCount={totalCount}
+                  onChange={logic.loadVideos}
+                />
+              </React.Fragment>
+            )}
+          </LeftPart>
+
+          <RightPart>
+            {R.isEmpty(pagedVideosData.entries) ? null : (
+              <React.Fragment>
+                <WritePostBtn type="primary" onClick={logic.createContent}>
+                  提<Space right="10px" />交<Space right="10px" />视<Space right="10px" />频
+                </WritePostBtn>
+
+                <Affix offsetTop={50}>
+                  <TagDivider />
+                  <TagList
+                    tags={tagsData}
+                    active={activeTagData}
+                    onSelect={logic.onTagSelect}
+                  />
+                </Affix>
+              </React.Fragment>
+            )}
+          </RightPart>
+          <RightPadding />
+        </React.Fragment>
+      </Wrapper>
     )
   }
 }

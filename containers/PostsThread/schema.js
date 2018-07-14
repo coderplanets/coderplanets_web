@@ -28,6 +28,7 @@ const pagedPostsRaw = `
     }
   }
 `
+// TODO: mvoe to SharedSchema
 const partialTagsRaw = `
   query($communityId: ID, $community: String, $thread: CmsThread!) {
     partialTags(communityId: $communityId, community: $community, thread: $thread) {

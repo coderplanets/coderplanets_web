@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 /* import R from 'ramda' */
 
 import { markStates, makeDebugger, THREAD } from '../../utils'
-import { Community, Post } from '../SharedModel'
+import { Community, Post, Video } from '../SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ViewingStore')
@@ -17,6 +17,7 @@ const ViewingStore = t
   .model('ViewingStore', {
     community: t.optional(Community, {}),
     post: t.optional(Post, {}),
+    video: t.optional(Video, {}),
     activeThread: t.optional(
       t.enumeration('activeThread', THREAD.__TYPES),
       THREAD.POST

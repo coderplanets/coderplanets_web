@@ -77,7 +77,7 @@ export const PostTopHalf = styled.div`
   display: flex;
 `
 export const PostSecondHalf = styled.ul`
-  margin-left: 11px;
+  margin-left: 10px;
   margin-top: -10px;
 `
 export const PostAvatar = styled.img`

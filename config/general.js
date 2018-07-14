@@ -30,5 +30,8 @@ export const TAG_COLORS = [
 export const CMS_THREADS = [
   'post',
   'job',
+  'video',
+  'repo',
+  'wiki',
   // ...
 ]
