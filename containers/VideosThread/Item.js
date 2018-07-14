@@ -30,8 +30,8 @@ import {
 import { cutFrom } from '../../utils'
 import * as logic from './logic'
 
-const Item = ({ data, activeVideo, index }) => (
-  <Wrapper current={data} active={activeVideo} index={index}>
+const Item = ({ data, active, index }) => (
+  <Wrapper current={data} active={active} index={index}>
     <PosterWrapper>
       <Poster src={data.author.avatar} alt="poster" />
       <Duration>{data.duration}</Duration>
