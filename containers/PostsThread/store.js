@@ -25,6 +25,7 @@ const debug = makeDebugger('S:PostsThreadStore')
 /* js: 'react', */
 /* } */
 
+// TODO: move to SharedModel
 const FilterModel = t.model('FilterModel', {
   when: t.optional(
     t.enumeration('when', [
@@ -69,8 +70,6 @@ const PostsThreadStore = t
       ]),
       TYPE.RESULT
     ),
-    // runtime: ..
-    // data: ...
   })
   .views(self => ({
     get root() {
@@ -85,11 +84,11 @@ const PostsThreadStore = t
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
-    get tagsData() {
-      return stripMobx(self.tags)
-    },
     get accountInfo() {
       return self.root.account.accountInfo
+    },
+    get tagsData() {
+      return stripMobx(self.tags)
     },
     get filtersData() {
       return stripMobx(self.filters)

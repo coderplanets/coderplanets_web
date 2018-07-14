@@ -1,23 +1,53 @@
 import gql from 'graphql-tag'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
+const pagedVideosRaw = `
+  query($filter: PagedArticleFilter) {
+    pagedVideos(filter: $filter) {
+      entries {
+        id
+        title
+        desc
+        duration
+        views
+        originalAuthor
+        originalAuthorLink
+        author {
+          id
+          avatar
+          nickname
+        }
+        insertedAt
+      }
+      totalCount
+      pageSize
+      pageNumber
     }
   }
 `
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
+// TODO: mvoe to SharedSchema
+const partialTagsRaw = `
+  query($communityId: ID, $community: String, $thread: CmsThread!) {
+    partialTags(communityId: $communityId, community: $community, thread: $thread) {
       id
+      title
+      color
+      thread
     }
   }
 `
 
+const pagedVideos = gql`
+  ${pagedVideosRaw}
+`
+const partialTags = gql`
+  ${partialTagsRaw}
+`
+
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  pagedVideos,
+  pagedVideosRaw,
+  partialTags,
+  partialTagsRaw,
 }
 
 export default schema
