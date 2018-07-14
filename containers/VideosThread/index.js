@@ -52,7 +52,7 @@ const View = ({ community, thread, entries, curView, activeVideo }) => {
             <Item
               data={video}
               key={shortid.generate()}
-              activeVideo={activeVideo}
+              active={activeVideo}
               index={index}
             />
           ))}
