@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 const pagedPostsRaw = `
-  query pagedPosts($filter: PagedArticleFilter) {
+  query($filter: PagedArticleFilter) {
     pagedPosts(filter: $filter) {
       entries {
         id

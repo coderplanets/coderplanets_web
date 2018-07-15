@@ -49,7 +49,7 @@ import {
   PostExtra,
   PostTitleTagDot,
   TagDivider,
-  WritePostBtn,
+  PublishBtn,
   RightInfo,
   SalaryWrapper,
   CompanyTitle,
@@ -182,9 +182,9 @@ class JobsThreadContainer extends React.Component {
             </LeftPart>
 
             <RightPart>
-              <WritePostBtn type="primary" onClick={logic.createContent}>
+              <PublishBtn type="primary" onClick={logic.createContent}>
                 招贤纳士
-              </WritePostBtn>
+              </PublishBtn>
 
               <Affix offsetTop={50}>
                 <TagDivider />

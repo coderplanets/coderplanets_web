@@ -31,7 +31,7 @@ import {
   FilterWrapper,
   FilterResultHint,
   TagDivider,
-  WritePostBtn,
+  PublishBtn,
 } from './styles'
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
@@ -43,7 +43,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, entries, curView, activeVideo }) => {
+const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
@@ -52,7 +52,7 @@ const View = ({ community, thread, entries, curView, activeVideo }) => {
             <Item
               data={video}
               key={shortid.generate()}
-              active={activeVideo}
+              active={active}
               index={index}
             />
           ))}
@@ -107,7 +107,7 @@ class VideosThreadContainer extends React.Component {
               <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(pagedVideosData.entries) ? (
+            {R.isEmpty(entries) ? (
               <PostsLoading num={5} />
             ) : (
               <React.Fragment>
@@ -116,7 +116,7 @@ class VideosThreadContainer extends React.Component {
                   thread={subPath}
                   entries={entries}
                   curView={curView}
-                  activeVideo={activeVideo}
+                  active={activeVideo}
                 />
 
                 <Pagi
@@ -133,9 +133,9 @@ class VideosThreadContainer extends React.Component {
           <RightPart>
             {R.isEmpty(pagedVideosData.entries) ? null : (
               <React.Fragment>
-                <WritePostBtn type="primary" onClick={logic.createContent}>
+                <PublishBtn type="primary" onClick={logic.createContent}>
                   提<Space right="10px" />交<Space right="10px" />视<Space right="10px" />频
-                </WritePostBtn>
+                </PublishBtn>
 
                 <Affix offsetTop={50}>
                   <TagDivider />

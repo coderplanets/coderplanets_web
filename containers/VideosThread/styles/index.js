@@ -25,7 +25,7 @@ export const RightPart = styled.div`
 `
 
 /* fill: ${theme('shell.searchIcon')}; */
-export const WritePostBtn = styled(Button)`
+export const PublishBtn = styled(Button)`
   margin-top: 8px;
   width: 100%;
   max-width: 180px;

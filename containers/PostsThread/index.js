@@ -36,23 +36,24 @@ import {
   FilterWrapper,
   FilterResultHint,
   TagDivider,
-  WritePostBtn,
+  PublishBtn,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, posts, curView, activePost }) => {
+// TODO: move to common componnet
+const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {posts.map((post, index) => (
+          {entries.map((entry, index) => (
             <Item
-              data={post}
+              data={entry}
               key={shortid.generate()}
-              active={activePost}
+              active={active}
               index={index}
             />
           ))}
@@ -93,6 +94,7 @@ class PostsThreadContainer extends React.Component {
     } = this.props
 
     const { mainPath, subPath } = curRoute
+    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
     return (
       <Wrapper>
@@ -106,28 +108,26 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
-              <FilterResultHint>
-                结果约 {pagedPostsData.totalCount} 条
-              </FilterResultHint>
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(pagedPostsData.entries) ? (
+            {R.isEmpty(entries) ? (
               <PostsLoading num={5} />
             ) : (
               <React.Fragment>
                 <View
                   community={mainPath}
                   thread={subPath}
-                  posts={pagedPostsData.entries}
+                  entries={entries}
                   curView={curView}
-                  activePost={activePost}
+                  active={activePost}
                 />
 
                 <Pagi
                   left="-10px"
-                  pageNumber={pagedPostsData.pageNumber}
-                  pageSize={pagedPostsData.pageSize}
-                  totalCount={pagedPostsData.totalCount}
+                  pageNumber={pageNumber}
+                  pageSize={pageSize}
+                  totalCount={totalCount}
                   onChange={logic.loadPosts}
                 />
               </React.Fragment>
@@ -135,11 +135,11 @@ class PostsThreadContainer extends React.Component {
           </LeftPart>
 
           <RightPart>
-            {R.isEmpty(pagedPostsData.entries) ? null : (
+            {R.isEmpty(entries) ? null : (
               <React.Fragment>
-                <WritePostBtn type="primary" onClick={logic.createContent}>
+                <PublishBtn type="primary" onClick={logic.createContent}>
                   发<Space right="20px" />帖
-                </WritePostBtn>
+                </PublishBtn>
 
                 <Affix offsetTop={50}>
                   <TagDivider />

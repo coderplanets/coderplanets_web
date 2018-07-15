@@ -6,60 +6,60 @@ import { ICON_ASSETS } from '../../config'
 import { AvatarsRow } from '../../components'
 
 import {
-  PostWrapper,
-  PostAvatar,
-  PostTitleLink,
+  Wrapper,
+  Avatar,
+  TitleLink,
   LinkIcon,
-  PostMain,
-  PostTopHalf,
-  PostBreif,
-  PostTitle,
-  PostTitleTag,
-  PostSecondHalf,
-  PostBodyDigest,
-  PostExtra,
-  PostTitleTagDot,
+  Main,
+  TopHalf,
+  Breif,
+  Title,
+  TitleTag,
+  SecondHalf,
+  BodyDigest,
+  Extra,
+  TitleTagDot,
 } from './styles/item'
 
 import { cutFrom } from '../../utils'
 import * as logic from './logic'
 
 const Item = ({ data, active, index }) => (
-  <PostWrapper current={data} active={active} index={index}>
+  <Wrapper current={data} active={active} index={index}>
     <div>
-      <PostAvatar src={data.author.avatar} alt="avatar" />
+      <Avatar src={data.author.avatar} alt="avatar" />
     </div>
-    <PostMain>
-      <PostTopHalf>
-        <PostBreif onClick={logic.onTitleSelect.bind(this, data)}>
-          <PostTitle>{data.title}</PostTitle>
-          <PostTitleLink>
+    <Main>
+      <TopHalf>
+        <Breif onClick={logic.onTitleSelect.bind(this, data)}>
+          <Title>{data.title}</Title>
+          <TitleLink>
             <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
-          </PostTitleLink>
-          <PostTitleTag>
-            <PostTitleTagDot />
+          </TitleLink>
+          <TitleTag>
+            <TitleTagDot />
             问答
-          </PostTitleTag>
-        </PostBreif>
+          </TitleTag>
+        </Breif>
         <div>
           <AvatarsRow
             users={data.commentsParticipators}
             total={data.commentsParticipatorsCount}
           />
         </div>
-      </PostTopHalf>
+      </TopHalf>
 
-      <PostSecondHalf>
-        <PostExtra>
+      <SecondHalf>
+        <Extra>
           {data.author.nickname} 发布于:{' '}
           <TimeAgo datetime={data.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
           {data.views}
-        </PostExtra>
-        <PostBodyDigest>{cutFrom(data.digest, 90)}</PostBodyDigest>
-      </PostSecondHalf>
-    </PostMain>
-  </PostWrapper>
+        </Extra>
+        <BodyDigest>{cutFrom(data.digest, 90)}</BodyDigest>
+      </SecondHalf>
+    </Main>
+  </Wrapper>
 )
 
 export default Item
