@@ -26,4 +26,5 @@
 - [Roadmap](Roadmap.md)
 - [FAQ](FAQ.md)
 - [Contributing](Contributing.md)
+- [Troubleshooting](Troubleshooting.md)
 
