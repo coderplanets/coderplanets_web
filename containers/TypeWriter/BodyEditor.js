@@ -79,9 +79,7 @@ class MastaniEditor extends React.Component {
     const pub = PubSub.subscribe(EVENT.DRAFT_INSERT_SNIPPET, (event, data) => {
       this.insertSnippet(data.data)
     })
-    this.setState({
-      pub,
-    })
+    this.setState({ pub })
   }
 
   insertSnippet = data => {
@@ -133,9 +131,7 @@ class MastaniEditor extends React.Component {
     // console.log('onChange raw: ', newString)
 
     onChange(newString)
-    this.setState({
-      editorState,
-    })
+    this.setState({ editorState })
   }
 
   onSearchChange = ({ value }) => {
