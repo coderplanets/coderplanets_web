@@ -10,8 +10,6 @@ import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-// import { } from './styles'
-
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import {
@@ -38,9 +36,7 @@ import {
   PublishBtn,
 } from './styles'
 
-// import S from './schema'
 import * as logic from './logic'
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ReposThread')
 /* eslint-enable no-unused-vars */

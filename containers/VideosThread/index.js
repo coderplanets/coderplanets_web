@@ -36,9 +36,7 @@ import {
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 
-// import S from './schema'
 import * as logic from './logic'
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */

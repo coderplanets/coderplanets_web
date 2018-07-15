@@ -25,8 +25,6 @@ import {
 
 import Item from './Item'
 
-// import logic from './logic'
-import * as logic from './logic'
 import {
   Wrapper,
   LeftPadding,
@@ -39,6 +37,7 @@ import {
   PublishBtn,
 } from './styles'
 
+import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
