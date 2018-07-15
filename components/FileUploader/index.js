@@ -41,6 +41,7 @@ class FileUploader extends React.Component {
     super(props)
     /* eslint-disable */
     /* OSS sdk is import in _document from ali cdn */
+    debug('process.env', process.env)
     this.state.ossClient = new OSS.Wrapper({
       region: process.env.ALI_OSS_RESION,
       accessKeyId: process.env.ALI_ACCESS_KEY,

@@ -66,10 +66,10 @@ class MapViewerContainer extends React.Component {
 
     return (
       <Wrapper>
-        MapViewer container!
         <ReactMapGL
           {...viewport}
           mapStyle={defaultMapStyle}
+          mapboxApiAccessToken={process.env.MapboxAccessToken}
           onViewportChange={viewport => this.setState({ viewport })}
         >
           <div style={{ position: 'absolute', right: 0 }}>

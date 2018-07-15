@@ -114,8 +114,9 @@ const TR_MAP = {
   video: 'videos',
   repo: 'repos',
 
-  wiki: 'wiki',
+  /* wiki: 'wiki', */
+  /* map: 'map', */
 }
 
-export const subPath2Thread = path => TR_MAP[path] || ''
-export const thread2Subpath = thread => TR_MAP[thread] || ''
+export const subPath2Thread = path => TR_MAP[path] || path
+export const thread2Subpath = thread => TR_MAP[thread] || thread
