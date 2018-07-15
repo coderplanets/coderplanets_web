@@ -67,6 +67,7 @@ const IconGreen = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: '#95e4be',
+    articleSpliter: '#79A7A9',
   },
   content: {
     bg: contentBoxBg,

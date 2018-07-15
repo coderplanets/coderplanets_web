@@ -69,6 +69,7 @@ const Green = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
+    articleSpliter: '#BBCEBC',
   },
   content: {
     bg: contentBoxBg,

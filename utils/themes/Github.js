@@ -68,6 +68,7 @@ const Github = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
+    articleSpliter: '#3c4648',
   },
   content: {
     bg: contentBoxBg,

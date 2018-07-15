@@ -69,6 +69,7 @@ const SolarizedDark = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: darken(0.04, primaryMate), // '#987d40',
+    articleSpliter: '#014454',
   },
   content: {
     bg: contentBoxBg,

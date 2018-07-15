@@ -68,6 +68,7 @@ const Yellow = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
+    articleSpliter: '#decfb0',
   },
   content: {
     bg: contentBoxBg,

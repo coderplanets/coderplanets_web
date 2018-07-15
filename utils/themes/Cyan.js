@@ -67,6 +67,7 @@ const Cyan = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: '#84C3C8',
+    articleSpliter: '#dee8ea',
   },
   content: {
     bg: contentBoxBg,

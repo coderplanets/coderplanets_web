@@ -68,6 +68,7 @@ const Purple = {
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
+    articleSpliter: '#3f3a50',
   },
   content: {
     bg: contentBoxBg,
