@@ -7,13 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
-import TimeAgo from 'timeago-react'
 import Waypoint from 'react-waypoint'
-// import Link from 'next/link'
 
-import { ICON_ASSETS } from '../../config'
-
-import { makeDebugger, storePlug, cutFrom, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import {
   Affix,
@@ -25,87 +21,33 @@ import {
   BuyMeChuanChuan,
 } from '../../components'
 
-// import logic from './logic'
-import * as logic from './logic'
+import Item from './Item'
+
 import {
   Wrapper,
   LeftPadding,
   RightPadding,
   LeftPart,
   RightPart,
-  PostWrapper,
   FilterWrapper,
   FilterResultHint,
-  PostAvatar,
-  PostTitleLink,
-  LinkIcon,
-  PostMain,
-  PostTopHalf,
-  PostBreif,
-  PostTitle,
-  PostTitleTag,
-  PostSecondHalf,
-  PostBodyDigest,
-  PostExtra,
-  PostTitleTagDot,
   TagDivider,
   PublishBtn,
-  RightInfo,
-  SalaryWrapper,
-  CompanyTitle,
 } from './styles'
+
+import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
-
-const PostItem = ({ post, active }) => (
-  <PostWrapper current={post} active={active}>
-    <div>
-      <PostAvatar
-        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
-        alt="avatar"
-      />
-    </div>
-    <PostMain>
-      <PostTopHalf>
-        <PostBreif onClick={logic.onTitleSelect.bind(this, post)}>
-          <PostTitle>{post.title}</PostTitle>
-          <PostTitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
-            <span style={{ marginLeft: 9 }}>拉钩</span>
-          </PostTitleLink>
-          <PostTitleTag>
-            <PostTitleTagDot />
-            成都
-          </PostTitleTag>
-        </PostBreif>
-      </PostTopHalf>
-
-      <PostSecondHalf>
-        <PostExtra>
-          mydearxym 发布于:{' '}
-          <TimeAgo datetime={post.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
-          {post.views}
-        </PostExtra>
-        <PostBodyDigest>{cutFrom(post.digest, 90)}</PostBodyDigest>
-      </PostSecondHalf>
-    </PostMain>
-
-    <RightInfo>
-      <CompanyTitle>中央公园</CompanyTitle>
-      <SalaryWrapper>15k - 30k</SalaryWrapper>
-    </RightInfo>
-  </PostWrapper>
-)
 
 const View = ({ community, thread, jobs, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {jobs.map(post => (
-            <PostItem post={post} key={shortid.generate()} active={active} />
+          {jobs.map(job => (
+            <Item entry={job} key={shortid.generate()} active={active} />
           ))}
         </React.Fragment>
       )
