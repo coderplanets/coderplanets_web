@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['airbnb', 'plugin:react/recommended', 'prettier', 'prettier/react'],
-  plugins: ['prettier', 'react'],
+  plugins: ['prettier', 'react', 'cypress'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2016,
@@ -13,6 +13,7 @@ module.exports = {
     es6: true,
     node: true,
     jest: true,
+    'cypress/globals': true,
   },
   rules: {
     'arrow-body-style': 0,
@@ -39,6 +40,8 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
 
     'import/no-cycle': 0,
+    // for cypress test usage
+    'no-unused-expressions': 0,
 
     'prettier/prettier': [
       'error',
