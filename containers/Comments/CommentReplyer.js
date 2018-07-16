@@ -8,7 +8,7 @@ import { ICON_ASSETS, WORD_LIMIT } from '../../config'
 import { debounce } from '../../utils'
 import * as logic from './logic'
 
-import { AvatarsRow, SpaceGrow, MarkDownPreviewer } from '../../components'
+import { AvatarsRow, SpaceGrow, MarkDownRender } from '../../components'
 
 import {
   InputEditorWrapper,
@@ -138,7 +138,7 @@ class CommentReplyEditor extends React.Component {
           />
         ) : (
           <PreviewWrapper>
-            <MarkDownPreviewer body={replyContent} />
+            <MarkDownRender body={replyContent} />
           </PreviewWrapper>
         )}
         <EditorFooter

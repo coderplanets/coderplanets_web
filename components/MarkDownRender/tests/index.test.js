@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import MarkDownPreviewer from '../index'
+// import MarkDownRender from '../index'
 
-describe('TODO <MarkDownPreviewer />', () => {
+describe('TODO <MarkDownRender />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

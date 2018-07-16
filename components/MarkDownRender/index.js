@@ -1,6 +1,6 @@
 /*
  *
- * MarkDownPreviewer
+ * MarkDownRender
  *
  */
 import React from 'react'
@@ -22,11 +22,11 @@ md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('c:MarkDownPreviewer:index')
+const debug = makeDebugger('c:MarkDownRender:index')
 /* eslint-enable no-unused-vars */
 
 // TODO: move it to components
-class MarkDownPreviewer extends React.Component {
+class MarkDownRender extends React.Component {
   componentDidMount() {
     Prism.highlightAll()
   }
@@ -53,13 +53,13 @@ class MarkDownPreviewer extends React.Component {
 
 // TODO default props check
 
-MarkDownPreviewer.propTypes = {
+MarkDownRender.propTypes = {
   // https://www.npmjs.com/package/prop-types
   body: PropTypes.string,
 }
 
-MarkDownPreviewer.defaultProps = {
+MarkDownRender.defaultProps = {
   body: '',
 }
 
-export default MarkDownPreviewer
+export default MarkDownRender

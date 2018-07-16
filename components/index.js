@@ -9,7 +9,7 @@ export { default as Popover } from './Popover'
 export { Space, SpaceGrow } from './BaseStyled'
 
 // Utils component
-export { default as MarkDownPreviewer } from './MarkDownPreviewer'
+export { default as MarkDownRender } from './MarkDownRender'
 export { default as ContentFilter } from './ContentFilter'
 export { default as FileUploader } from './FileUploader'
 export { default as UserList } from './UserList'

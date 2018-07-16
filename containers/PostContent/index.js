@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
 
-import { MarkDownPreviewer } from '../../components'
+import { MarkDownRender } from '../../components'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
@@ -77,7 +77,7 @@ class PostContentContainer extends React.Component {
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <MarkDownPreviewer body={postData.body} />
+                <MarkDownRender body={postData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />

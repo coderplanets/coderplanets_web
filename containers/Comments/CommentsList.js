@@ -13,7 +13,7 @@ import {
   SpaceGrow,
   Pagi,
   CommentLoading,
-  MarkDownPreviewer,
+  MarkDownRender,
 } from '../../components'
 
 import * as logic from './logic'
@@ -151,7 +151,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
               <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
             </ReplyBar>
           ) : null}
-          <MarkDownPreviewer body={data.body} />
+          <MarkDownRender body={data.body} />
         </CommentContent>
         <CommentFooter>
           <Actions>
