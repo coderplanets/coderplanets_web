@@ -38,9 +38,6 @@ import {
   ArticleViwerStore,
   AccountViewerStore,
   CommentsStore,
-  TutsViewerStore,
-  MapViewerStore,
-  JobsViewerStore,
   CheatSheetPaperStore,
   CommunityEditorsStore,
   // toolbox
@@ -106,11 +103,6 @@ const rootStore = t
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
     communityEditors: t.optional(CommunityEditorsStore, {}),
-
-    // TODO rename to xxPaper
-    tutsViewer: t.optional(TutsViewerStore, {}),
-    mapViewer: t.optional(MapViewerStore, {}),
-    jobsViewer: t.optional(JobsViewerStore, {}),
   })
   .views(self => ({
     get locale() {

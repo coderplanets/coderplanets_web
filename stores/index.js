@@ -50,9 +50,6 @@ export {
 } from '../containers/AccountEditor/store'
 
 // viewers store
-export { default as TutsViewerStore } from '../containers/TutsViewer/store'
-export { default as MapViewerStore } from '../containers/MapViewer/store'
-export { default as JobsViewerStore } from '../containers/JobsViewer/store'
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
 export {
   default as AccountViewerStore,

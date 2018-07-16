@@ -7,7 +7,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MapViewer from '../../containers/MapViewer'
 import {
   PostsThread,
   VideosThread,
@@ -36,9 +35,6 @@ const ComunityContent = ({ curRoute }) => {
     }
     case 'tuts': {
       return <h2>TutsPaper</h2>
-    }
-    case 'map': {
-      return <MapViewer />
     }
     case 'meetups': {
       return <h2>MeetupPaper</h2>
