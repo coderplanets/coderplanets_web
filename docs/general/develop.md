@@ -14,7 +14,7 @@ config/endpoint.js
 export const otherAPI = '....'
 
 const getGraphQLEndpoint = () => {
-  switch (process.env.GOAL) {
+  switch (process.env.NODE_ENV) {
     case 'production':
       return 'http://api.coderplanets.com/graphiql'
 
@@ -36,7 +36,7 @@ you can edit it to match your own needs.
 
 ## env
 
-frontend code can not use NODE_ENV directly, this project use [webpack-env](https://github.com/mrsteele/dotenv-webpack)(`systemvars:true`) to pass the `GOAL` env to frontend code, so frontend code can use it like 'process.env.GOAL'. 
+frontend code can not use NODE_ENV directly, this project use [webpack-env](https://github.com/mrsteele/dotenv-webpack)(`systemvars:true`) to pass the `NODE_ENV` env to frontend code, so frontend code can use it like 'process.env.NODE_ENV'. 
 
 see next.config.js [details](https://github.com/mydearxym/mastani_web/blob/dev/next.config.js#L56-L60)
 ```js

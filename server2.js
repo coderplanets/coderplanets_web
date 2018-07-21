@@ -1,5 +1,5 @@
 const dev = process.env.NODE_ENV !== 'production'
-// const goal = process.env.GOAL
+// const goal = process.env.NODE_ENV
 
 const { createServer } = require('http')
 const { parse } = require('url')
