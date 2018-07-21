@@ -1,4 +1,4 @@
-FROM node:9.2.1-alpine
+FROM node:10-alpine
 
 # change timezone to +8
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
