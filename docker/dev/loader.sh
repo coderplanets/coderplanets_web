@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# cd /root/web/
+cd /root/web/
 
-# npm run launch &
+npm run launch &
 
 while true
 do
