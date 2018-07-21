@@ -1,4 +1,4 @@
-FROM node:9-alpine
+FROM node:10
 # From bitwalker/alpine-elixir-phoenix:latest
 # FROM node:10-alpine
 
