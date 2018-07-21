@@ -1,4 +1,5 @@
-From bitwalker/alpine-elixir-phoenix:latest
+FROM node:9-alpine
+# From bitwalker/alpine-elixir-phoenix:latest
 # FROM node:10-alpine
 
 RUN mkdir /root/web
