@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /root/web/
+# cd /root/web/
 
 # npm run launch &
 
