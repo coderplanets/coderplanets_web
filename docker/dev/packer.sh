@@ -14,7 +14,6 @@ fi
 mkdir "${PACKER_TMP_DIR}"
 
 echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
-pwd
 # cp -rf pages lang containers components stores config static utils next.config.js .env .babelrc "${PACKER_TMP_DIR}"
 npm run build
 # mv package.json.tmp package.json
@@ -32,7 +31,6 @@ cd ../..
 tar czvf "${ARCHIVE_NAME}" "${PACKER_TMP_DIR}/.next" "${PACKER_TMP_DIR}/package.json"
 
 echo "[Step 4/${TOTAL_STEPS}] cleanup ..."
-pwd
 rm -rf "${PACKER_TMP_DIR}"
 echo "--------------------------"
 echo "done !"
