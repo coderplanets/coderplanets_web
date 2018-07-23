@@ -16,7 +16,6 @@ mkdir "${PACKER_TMP_DIR}"
 echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
 # cp -rf pages lang containers components stores config static utils next.config.js .env .babelrc "${PACKER_TMP_DIR}"
 npm run build
-# mv package.json.tmp package.json
 
 cp -rf .next "${PACKER_TMP_DIR}"
 cp package-docker.json "${PACKER_TMP_DIR}/package.json"
