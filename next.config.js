@@ -1,4 +1,5 @@
 /* eslint-disable */
+const fs = require('fs')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
 /* eslint-enable */
@@ -9,11 +10,11 @@ const { ANALYZE } = process.env
 module.exports = {
   exportPathMap: () => {
     return {
-      '/': { page: '/' },
+      /* '/': { page: '/' }, */
       // '/ruby': { page: '/', query: { name: 'ruby' } },
-      '/cheatsheet': { page: '/', query: { main: 'cheatsheet', sub: '' } },
-      '/communities': { page: '/', query: { main: 'communities', sub: '' } },
-      '/js/posts': { page: '/', query: { main: 'js', sub: 'posts' } },
+      /* '/cheatsheet': { page: '/', query: { main: 'cheatsheet', sub: '' } }, */
+      /* '/communities': { page: '/', query: { main: 'communities', sub: '' } }, */
+      /* '/js/posts': { page: '/', query: { main: 'js', sub: 'posts' } }, */
       /* '/intro/i': { page: '/intro', query: { name: 'index' } }, */
       /* '/intro/feature': { page: '/intro', query: { name: 'feature' } }, */
       /* '/intro/theme': { page: '/intro', query: { name: 'theme' } }, */
@@ -54,12 +55,14 @@ module.exports = {
       )
     }
 
-    config.plugins.push(
-      new Dotenv({
-        path: './.env',
-        systemvars: true,
-      })
-    )
+    if (fs.existsSync('./.env')) {
+      config.plugins.push(
+        new Dotenv({
+          path: './.env',
+          systemvars: true,
+        })
+      )
+    }
 
     return config
   },

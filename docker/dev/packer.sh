@@ -14,20 +14,14 @@ fi
 mkdir "${PACKER_TMP_DIR}"
 
 echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
-# cp -rf pages lang containers components stores config static utils next.config.js .env .babelrc "${PACKER_TMP_DIR}"
-npm run build
-
-cp -rf .next "${PACKER_TMP_DIR}"
+# cp -rf pages lang containers components stores config static utils next.config.js .babelrc "${PACKER_TMP_DIR}"
+cp -rf pages lang containers components stores config static utils .babelrc "${PACKER_TMP_DIR}"
 cp package-docker.json "${PACKER_TMP_DIR}/package.json"
 
-cd "${PACKER_TMP_DIR}/.next"
-find . -name "*.js.map" -type f | xargs rm -f
-find . -name "*.hot-update.js" -type f | xargs rm -f
-find . -name "*.hot-update.json" -type f | xargs rm -f
-
 echo "[Step 3/${TOTAL_STEPS}] creating ${ARCHIVE_NAME} ..."
-cd ../..
-tar czvf "${ARCHIVE_NAME}" "${PACKER_TMP_DIR}/.next" "${PACKER_TMP_DIR}/package.json"
+cd "${PACKER_TMP_DIR}"
+tar czvf "../${ARCHIVE_NAME}" * .babelrc
+cd ../
 
 echo "[Step 4/${TOTAL_STEPS}] cleanup ..."
 rm -rf "${PACKER_TMP_DIR}"
