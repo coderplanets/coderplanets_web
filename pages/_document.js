@@ -12,7 +12,12 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <meta charset="utf-8" />
           <meta name="renderer" content="webkit" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
+          />
           <title>cps</title>
           <link
             href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
@@ -51,6 +56,7 @@ export default class MyDocument extends Document {
           async
           src="http://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
+        <noscript>You need to enable JavaScript to run this app.</noscript>
       </html>
     )
   }
