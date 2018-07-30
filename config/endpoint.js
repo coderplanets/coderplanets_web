@@ -19,7 +19,11 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
   }
 }
-export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
+const tmp = getGraphQLEndpoint()
+console.log('first tmp: ', tmp)
+export const GRAPHQL_ENDPOINT = tmp
+
+/* export const GRAPHQL_ENDPOINT = getGraphQLEndpoint() */
 export const GITHUB_ADDR = 'https://github.com/mydearxym/mastani_web'
 export const GITHUB_ME = 'https://github.com/mydearxym'
 export const ISSUE_ADDR = 'https://github.com/mydearxym/mastani_web/issues/new'
