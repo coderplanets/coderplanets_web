@@ -7,6 +7,7 @@ import { nilOrEmpty } from '.'
 export const asyncRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))
 export const asyncErr = key => R.pathEq(['error'], key)
 
+console.log('in graphql helper GRAPHQL_ENDPOINT: ', GRAPHQL_ENDPOINT)
 // NOTE the client with jwt info is used for getInitialProps for SSR
 // to load user related data
 export const makeGQClient = token => {

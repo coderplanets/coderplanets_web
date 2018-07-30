@@ -11,6 +11,8 @@ import fetch from 'isomorphic-fetch'
 import { makeDebugger, BStore } from '..'
 import { GRAPHQL_ENDPOINT } from '../../config'
 
+console.log('in network setup GRAPHQL_ENDPOINT: ', GRAPHQL_ENDPOINT)
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('Network')
 /* eslint-enable no-unused-vars */
