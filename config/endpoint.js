@@ -17,7 +17,7 @@ const getGraphQLEndpoint = () => {
 
     default:
       /* return 'http://localhost:4001/graphiql' */
-      return 'http://localhost:7001/graphiql'
+      return 'http://devapi.coderplanets.com/graphiql'
   }
 }
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
