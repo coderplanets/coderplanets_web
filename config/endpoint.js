@@ -9,15 +9,13 @@ const getGraphQLEndpoint = () => {
 
     case 'dev':
       console.log('process.env.GOAL pick 7001')
-      /* return 'http://devapi.coderplanets.com/graphiql' */
-      return 'http://localhost:7001/graphiql'
+      return 'http://devapi.coderplanets.com/graphiql'
 
     case 'local':
       return 'http://localhost:4001/graphiql'
 
     default:
-      /* return 'http://localhost:4001/graphiql' */
-      return 'http://devapi.coderplanets.com/graphiql'
+      return 'http://localhost:4001/graphiql'
   }
 }
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
