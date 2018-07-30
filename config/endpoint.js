@@ -1,7 +1,7 @@
 /* config for different envs */
 
 const getGraphQLEndpoint = () => {
-  switch (process.env.NODE_ENV) {
+  switch (process.env.GOAL) {
     case 'production':
       /* return 'http://api.coderplanets.com/graphiql' */
       return 'http://localhost:8000/graphiql'

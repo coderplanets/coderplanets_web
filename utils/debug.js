@@ -3,8 +3,8 @@ import { isBrowser } from './dom_operator'
 
 if (
   isBrowser &&
-  process.env.NODE_ENV !== 'production' &&
-  process.env.NODE_ENV !== 'test'
+  process.env.GOAL !== 'production' &&
+  process.env.GOAL !== 'test'
 ) {
   // Heads Up!
   // https://github.com/visionmedia/debug/pull/331
