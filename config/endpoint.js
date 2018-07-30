@@ -15,6 +15,7 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
 
     default:
+      console.log('pick default: ', process.env.GOAL)
       return 'http://localhost:4001/graphiql'
   }
 }
