@@ -11,6 +11,7 @@
     "build:clean": "run-s dist clean",
     "build:with18n": "npm run i18n && next build",
     "launch": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production next start -p ${SERVE_PORT}",
+    "launch:dev": "cross-env NODE_ENV=dev next build && cross-env NODE_ENV=dev next start -p ${SERVE_PORT}",
     "launch-server": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production node server",
     "build:dev": "cross-env NODE_ENV=dev run-s dist:dev clean",
     "dist": "npm run i18n && next build && next export -o \"build\"",

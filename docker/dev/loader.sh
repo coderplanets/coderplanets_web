@@ -2,7 +2,7 @@
 
 cd /root/web/
 
-npm run launch &
+npm run launch:dev &
 
 while true
 do
