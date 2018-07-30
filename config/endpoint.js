@@ -8,9 +8,9 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:8000/graphiql'
 
     case 'dev':
-      console.log('process.env.GOAL pick 7000')
+      console.log('process.env.GOAL pick 7001')
       /* return 'http://devapi.coderplanets.com/graphiql' */
-      return 'http://localhost:7000/graphiql'
+      return 'http://localhost:7001/graphiql'
 
     case 'local':
       return 'http://localhost:4001/graphiql'
