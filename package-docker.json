@@ -4,6 +4,7 @@
   "license": "Apache License 2.0",
   "scripts": {
     "launch": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production next start -p ${SERVE_PORT}",
+    "launch:dev": "cross-env NODE_ENV=dev next build && cross-env NODE_ENV=dev next start -p ${SERVE_PORT}",
     "launch-server": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production node server"
   },
   "dependencies": {
