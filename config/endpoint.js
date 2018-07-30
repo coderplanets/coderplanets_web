@@ -3,11 +3,12 @@
 const getGraphQLEndpoint = () => {
   switch (process.env.NODE_ENV) {
     case 'production':
-      return 'http://api.coderplanets.com/graphiql'
+      /* return 'http://api.coderplanets.com/graphiql' */
+      return 'http://localhost:8000/graphiql'
 
     case 'dev':
       /* return 'http://devapi.coderplanets.com/graphiql' */
-      return 'http://localhost:7001/graphiql'
+      return 'http://localhost:7000/graphiql'
 
     case 'local':
       return 'http://localhost:4001/graphiql'
