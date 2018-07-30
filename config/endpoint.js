@@ -1,12 +1,14 @@
 /* config for different envs */
 
 const getGraphQLEndpoint = () => {
+  console.log('process.env.GOAL ', process.env.GOAL)
   switch (process.env.GOAL) {
     case 'production':
       /* return 'http://api.coderplanets.com/graphiql' */
       return 'http://localhost:8000/graphiql'
 
     case 'dev':
+      console.log('process.env.GOAL pick 7000')
       /* return 'http://devapi.coderplanets.com/graphiql' */
       return 'http://localhost:7000/graphiql'
 
