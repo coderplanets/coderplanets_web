@@ -16,7 +16,8 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
 
     default:
-      return 'http://localhost:4001/graphiql'
+      /* return 'http://localhost:4001/graphiql' */
+      return 'http://localhost:7001/graphiql'
   }
 }
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
