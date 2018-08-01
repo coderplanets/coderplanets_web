@@ -7,8 +7,8 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:8000/graphiql'
 
     case 'dev':
-      /* return 'http://devapi.coderplanets.com/graphiql' */
-      return 'http://devapi.coderplanets.com'
+      return 'http://devapi.coderplanets.com/graphiql'
+    /* return 'http://devapi.coderplanets.com' */
 
     case 'local':
       return 'http://localhost:4001/graphiql'
