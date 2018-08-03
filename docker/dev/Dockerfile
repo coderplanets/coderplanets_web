@@ -3,6 +3,7 @@ FROM node:8.11
 RUN mkdir /root/web
 
 ADD web.tar.gz /root/web
+RUN npm install -g pm2
 RUN cd /root/web/ && npm install --registry=https://registry.npm.taobao.org
 
 ADD loader.sh /usr/local/bin/loader.sh
