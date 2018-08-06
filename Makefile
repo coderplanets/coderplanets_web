@@ -23,9 +23,6 @@ dep:
 build:
 	mix compile
 
-format:
-	mix format
-
 launch.help:
 	$(call launch.help)
 	@echo "\n"
@@ -55,10 +52,6 @@ gen.help:
 gen:
 	$(call gen.help)
 	@echo "\n"
-gen.migration:
-	mix ecto.gen.migration $(arg)
-gen.context:
-	mix phx.gen.context $(arg)
 
 commit.help:
 	$(call commit.help)
