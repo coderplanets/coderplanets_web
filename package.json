@@ -29,7 +29,7 @@
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "commitmsg": "commitlint -E HUSKY_GIT_PARAMS"
+    "commitmsg": "commitlint -E GIT_PARAMS"
   },
   "lint-staged": {
     "*.js": [
