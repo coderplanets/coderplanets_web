@@ -6,13 +6,14 @@ BELONG = "coderplanets"
 REPO = "coderplanets_web"
 
 DASHBOARD_APOLLO_LINK = "https://engine.apollographql.com/account/gh.mydearxym/services"
+DASHBOARD_PM2_LINK = "https://app.pm2.io"
 DASHBOARD_ALIYUN_LINK = "https://home.console.aliyun.com/new"
 
 CI_BUILD_LINK = "https://travis-ci.org/$(BELONG)/$(REPO)"
 CI_COVERAGE_LINK = "https://coveralls.io/github/$(BELONG)/$(REPO)"
 CI_CODECOV_LINK = "https://codecov.io/gh/$(BELONG)/$(REPO)"
 CI_DOC_LINK = "https://inch-ci.org/github/$(BELONG)/$(REPO)"
-CI_DEPSBOT_LINK = "https://github.com/dependabot/feedback/issues/6"
+CI_DEPSBOT_LINK = "https://david-dm.org/coderplanets/coderplanets_web"
 
 GITHUB_CODE_LINK = "https://github.com/$(BELONG)/$(REPO)"
 GITHUB_DOC_LINK = "https://github.com/$(BELONG)/$(REPO)/tree/dev/docs"
@@ -38,14 +39,14 @@ define launch.help
 	@echo "\n"
 	@echo "  [valid launch commands]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@echo "  launch      : start phoenix server in produnction env"
-	@echo "              | config locate in \"config/prod.exs\""
+	@echo "  dev         : start web server in local env"
+	@echo "              | HMR is enabled"
 	@echo "  ....................................................."
-	@echo "  launch.dev  : start phoenix server in development env"
-	@echo "              | config locate in \"config/dev.exs\""
+	@echo "  launch.dev  : start web server in development env"
+	@echo "              | HMR is disenabled"
 	@echo "  ....................................................."
-	@echo "  launch.mock : start phoenix server in mock env"
-	@echo "              | config locate in \"config/mock.exs\""
+	@echo "  launch.prod : start web server in produnction env"
+	@echo "              | HMR is disenabled"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
@@ -65,13 +66,7 @@ define gen.help
 	@echo "\n"
 	@echo "  [valid generators]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@echo "  gen.migration : generate migration fils"
-	@echo "                | e.p  : gen.migration arg=\"add_name_to_users\""
-	@echo "                | note : need to run \"make migrate\" later"
-	@echo "  .................................................................................."
-	@echo "  gen.context   : generate a new context"
-	@echo "                | e.p: make gen.context Accounts Credential credentials"
-	@echo "                                        email:string:unique user_id:references:users"
+	@echo "  gen : generate container/component/store fils"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
@@ -105,18 +100,6 @@ define release.help
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
-define console.help
-	@echo "\n"
-	@echo "  [valid console commands]"
-	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@echo "  console      : run iex"
-	@echo "  ..................................."
-	@echo "  console.dev  : run iex in dev env"
-	@echo "  ..................................."
-	@echo "  console.mock : run iex in mock env"
-	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-endef
-
 define test.help
 	@echo "\n"
 	@echo "  [valid test commands]"
@@ -140,11 +123,9 @@ define lint.help
 	@echo "\n"
 	@echo "  [valid test commands]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@echo "  lint        : analysis by credo in strict mode"
-	@echo "              | doc: https://github.com/rrrene/credo/"
+	@echo "  lint       : lint code by eslint"
 	@echo "  ......................................................."
-	@echo "  lint.static : analysis by dialyzer"
-	@echo "              | doc: https://github.com/jeremyjh/dialyxir"
+	@echo "  lint.watch : lint code by eslint in watch mode"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
@@ -154,6 +135,9 @@ define dashboard.help
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	@echo "  dashboard.apollo : graphql api status provide by apollo engine"
 	@echo "                   | $(DASHBOARD_APOLLO_LINK)"
+	@echo "  ................................................................................."
+	@echo "  dashboard.pm2    : pm2 running status"
+	@echo "                   | $(DASHBOARD_PM2_LINK)"
 	@echo "  ................................................................................."
 	@echo "  dashboard.aliyun : aliyun console"
 	@echo "                   | $(DASHBOARD_ALIYUN_LINK)"
@@ -172,9 +156,6 @@ define ci.help
 	@echo "  .........................................................................."
 	@echo "  ci.codecov  : browse test codecov status"
 	@echo "              | $(CI_CODECOV_LINK)"
-	@echo "  .........................................................................."
-	@echo "  ci.doc      : browse doc coverage status"
-	@echo "              | $(CI_DOC_LINK)"
 	@echo "  .........................................................................."
 	@echo "  ci.depsbot  : check outdated deps"
 	@echo "              | wip: $(CI_DEPSBOT_LINK) "

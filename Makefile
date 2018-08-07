@@ -6,7 +6,6 @@ help:
 	$(call commit.help)
 	$(call release.help)
 	$(call deploy.help)
-	$(call console.help)
 	$(call test.help)
 	$(call dashboard.help)
 	$(call ci.help)
@@ -23,15 +22,19 @@ dep:
 build:
 	mix compile
 
+dev:
+	npm run local
+
 launch.help:
 	$(call launch.help)
 	@echo "\n"
 launch:
-	mix phx.server
+	$(call launch.help)
+	@echo "\n"
 launch.dev:
-	MIX_ENV=dev mix phx.server
-launch.mock:
-	MIX_ENV=mock mix phx.server
+	npm run launch.dev
+launch.prod:
+	npm run launch
 
 migrate:
 	mix ecto.migrate
@@ -50,8 +53,7 @@ gen.help:
 	$(call gen.help)
 	@echo "\n"
 gen:
-	$(call gen.help)
-	@echo "\n"
+	npm run gen
 
 commit.help:
 	$(call commit.help)
@@ -110,17 +112,6 @@ lint:
 lint.static:
 	mix lint.static # use dialyzer
 
-# open iex with history support
-console.help:
-	$(call console.help)
-	@echo "\n"
-console:
-	iex --erl "-kernel shell_history enabled" -S mix
-console.dev:
-	MIX_ENV=dev iex --erl "-kernel shell_history enabled" -S mix
-console.mock:
-	MIX_ENV=mock iex --erl "-kernel shell_history enabled" -S mix
-
 # dashboard
 dashboard.help:
 	$(call dashboard.help)
@@ -130,6 +121,8 @@ dashboard:
 	@echo "\n"
 dashboard.apollo:
 	$(call browse,"$(DASHBOARD_APOLLO_LINK)")
+dashboard.pm2:
+	$(call browse,"$(DASHBOARD_PM2_LINK)")
 dashboard.aliyun:
 	$(call browse,"$(DASHBOARD_ALIYUN_LINK)")
 
