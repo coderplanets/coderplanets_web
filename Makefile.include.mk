@@ -8,7 +8,6 @@ REPO = "coderplanets_web"
 DASHBOARD_GA_LINK = "https://analytics.google.com"
 DASHBOARD_APOLLO_LINK = "https://engine.apollographql.com/account/gh.mydearxym/services"
 DASHBOARD_PM2_LINK = "https://app.pm2.io"
-DASHBOARD_ALIYUN_LINK = "https://home.console.aliyun.com/new"
 
 CI_BUILD_LINK = "https://travis-ci.org/$(BELONG)/$(REPO)"
 CI_COVERAGE_LINK = "https://coveralls.io/github/$(BELONG)/$(REPO)"

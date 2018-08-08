@@ -4,6 +4,10 @@
 [![Build Status](https://travis-ci.org/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.org/coderplanets/coderplanets_web)
 [![Coverage Status](https://coveralls.io/repos/github/coderplanets/coderplanets_web/badge.svg?branch=dev)](https://coveralls.io/github/coderplanets/coderplanets_web?branch=dev)
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
+<<<<<<< HEAD
+=======
+[![dev status](https://david-dm.org/coderplanets/coderplanets_web/dev-status.svg)](https://david-dm.org/coderplanets/coderplanets_web?type=dev)
+>>>>>>> chore: update pkgs & docs
 [![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
 [![cps badge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://github.com/coderplanets/coderplanets_server)
 
