@@ -76,7 +76,8 @@ class UserContentContainer extends React.Component {
             <br />
             <br />
             <Button type="primary">
-              <Icon type="plus" />关注他
+              <Icon type="plus" />
+              关注他
             </Button>
           </CardWrapper>
           <CardWrapper>

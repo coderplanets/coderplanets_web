@@ -98,8 +98,8 @@ const ReplyToBar = ({ comment }) => {
   if (!comment) return <div />
   return (
     <ReplyBar>
-      回复&nbsp;{comment.author.nickname}:
-      <ReplyToBody>{comment.body}</ReplyToBody>
+      回复&nbsp;
+      {comment.author.nickname}:<ReplyToBody>{comment.body}</ReplyToBody>
       <ReplyToFloor>#{comment.floor}</ReplyToFloor>
     </ReplyBar>
   )

@@ -16,7 +16,11 @@ const Planets = ({ subscribedCommunities }) => {
     <Wrapper>
       <HeaderWrapper>
         <Title>我/Ta的关注</Title>
-        <HelpText>共&nbsp;{subscribedCommunities.totalCount}&nbsp;个</HelpText>
+        <HelpText>
+          共&nbsp;
+          {subscribedCommunities.totalCount}
+          &nbsp;个
+        </HelpText>
       </HeaderWrapper>
       <IconList>
         {subscribedCommunities.entries.map(community => (

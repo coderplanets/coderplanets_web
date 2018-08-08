@@ -132,7 +132,8 @@ class VideosThreadContainer extends React.Component {
             {R.isEmpty(pagedVideosData.entries) ? null : (
               <React.Fragment>
                 <PublishBtn type="primary" onClick={logic.createContent}>
-                  提<Space right="10px" />交<Space right="10px" />视<Space right="10px" />频
+                  提<Space right="10px" />交<Space right="10px" />视
+                  <Space right="10px" />频
                 </PublishBtn>
 
                 <Affix offsetTop={50}>

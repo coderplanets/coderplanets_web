@@ -28,22 +28,18 @@ const debug = makeDebugger('c:NotFound:index')
 const DefaultDesc = () => (
   <React.Fragment>
     <div>
-      如果没有你关注的语言或框架，你可以<IssueLink
-        href={ISSUE_ADDR}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      如果没有你关注的语言或框架，你可以
+      <IssueLink href={ISSUE_ADDR} rel="noopener noreferrer" target="_blank">
         提交请求
-      </IssueLink>，管理员会在第一时间添加。
+      </IssueLink>
+      ，管理员会在第一时间添加。
     </div>
     <div>
-      如果你发现是网站的问题，恳请你<IssueLink
-        href={ISSUE_ADDR}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      如果你发现是网站的问题，恳请你
+      <IssueLink href={ISSUE_ADDR} rel="noopener noreferrer" target="_blank">
         提交issue
-      </IssueLink>，以便于开发者在第一时间修复。
+      </IssueLink>
+      ，以便于开发者在第一时间修复。
     </div>
   </React.Fragment>
 )

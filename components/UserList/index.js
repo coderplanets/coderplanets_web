@@ -40,7 +40,8 @@ const UsersTable = ({ entries }) => (
         </UserBrief>
         <Action>
           <Button size="small" type="primary" ghost>
-            <Icon type="user-add" />关注
+            <Icon type="user-add" />
+            关注
           </Button>
         </Action>
       </UserWrapper>

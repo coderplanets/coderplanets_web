@@ -1,9 +1,11 @@
 language: node_js
 
 node_js:
+  - 10
   - 9
   - 8
   - 7
+  - 6
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -11,7 +13,9 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 install:
+  - npm install
   - npm install -g codecov
+  - npm install -g eslint
 
 script:
   - npm run lint

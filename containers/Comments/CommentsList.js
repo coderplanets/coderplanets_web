@@ -146,7 +146,8 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
         <CommentContent>
           {data.replyTo ? (
             <ReplyBar>
-              回复&nbsp;{data.replyTo.author.nickname}:
+              回复&nbsp;
+              {data.replyTo.author.nickname}:
               <ReplyToBody>{data.replyTo.body}</ReplyToBody>
               <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
             </ReplyBar>

@@ -13,7 +13,12 @@ const BuilderList = ({ entries }) => {
           placement="bottom"
           trigger="hover"
           key={shortid.generate()}
-          content={<div>{builder.nickname}...</div>}
+          content={
+            <div>
+              {builder.nickname}
+              ...
+            </div>
+          }
         >
           <Builder>
             <Avatar src={builder.avatar} />
