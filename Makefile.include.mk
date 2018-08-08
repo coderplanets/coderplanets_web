@@ -5,6 +5,7 @@ OS := ${shell uname}
 BELONG = "coderplanets"
 REPO = "coderplanets_web"
 
+DASHBOARD_GA_LINK = "https://analytics.google.com"
 DASHBOARD_APOLLO_LINK = "https://engine.apollographql.com/account/gh.mydearxym/services"
 DASHBOARD_PM2_LINK = "https://app.pm2.io"
 DASHBOARD_ALIYUN_LINK = "https://home.console.aliyun.com/new"
@@ -103,20 +104,13 @@ endef
 define test.help
 	@echo "\n"
 	@echo "  [valid test commands]"
-	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	@echo "  test             : run all the test then quit"
-	@echo "  ....................................................."
+	@echo "  ..............................................................."
 	@echo "  test.watch       : run all the test in watch mode"
-	@echo "  ....................................................."
-	@echo "  test.watch.wip   : run @wip test in watch mode"
-	@echo "  ....................................................."
-	@echo "  test.db_reset    : reset test database"
-	@echo "                   | needed when add new migration"
-	@echo "  ....................................................."
-	@echo "  test.report      : show test coverage status web page"
-	@echo "  ....................................................."
-	@echo "  test.report.text : show test coverage in terminal"
-	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	@echo "  ..............................................................."
+	@echo "  test.report.text : run test then show test coverage in terminal"
+	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
 define lint.help
@@ -133,6 +127,9 @@ define dashboard.help
 	@echo "\n"
 	@echo "  [valid dashboard commands]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	@echo "  dashboard.ga     : google analytics dashboard"
+	@echo "                   | $(DASHBOARD_GA_LINK)"
+	@echo "  ................................................................................."
 	@echo "  dashboard.apollo : graphql api status provide by apollo engine"
 	@echo "                   | $(DASHBOARD_APOLLO_LINK)"
 	@echo "  ................................................................................."

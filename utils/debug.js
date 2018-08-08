@@ -21,7 +21,7 @@ if (
   } catch (e) {
     /* eslint-disable no-console */
     console.error('Mastani could not enable debug.')
-    console.error(e)
+    /* console.error(e) */
     /* eslint-enable no-console */
   }
 

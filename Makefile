@@ -89,19 +89,15 @@ test.help:
 	$(call test.help)
 	@echo "\n"
 test:
-	mix test
+	npm run test
+test.dev:
+	npm run test:dev
 test.watch:
-	mix test.watch
-test.watch.wip:
-	mix test.watch --only wip
-test.db_reset:
-	env MIX_ENV=test mix ecto.drop
-	env MIX_ENV=test mix ecto.create
-test.report:
-	MIX_ENV=mix test.coverage
-	$(call browse,"./cover/excoveralls.html")
+	npm run test:watch
+test.coverage:
+	npm run test:cover
 test.report.text:
-	MIX_ENV=mix test.coverage.short
+	npm run test:cover
 
 # lint code
 lint.help:
@@ -119,6 +115,8 @@ dashboard.help:
 dashboard:
 	$(call dashboard.help)
 	@echo "\n"
+dashboard.ga:
+	$(call browse,"$(DASHBOARD_GA_LINK)")
 dashboard.apollo:
 	$(call browse,"$(DASHBOARD_APOLLO_LINK)")
 dashboard.pm2:
