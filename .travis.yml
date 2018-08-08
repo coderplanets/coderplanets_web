@@ -4,7 +4,6 @@ node_js:
   - 10
   - 9
   - 8
-  - 7
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -16,6 +15,7 @@ install:
   - npm install
   - npm install -g codecov
   - npm install -g eslint
+  # pkg: react-beatiful-dnd cause the redux not found issue, fix later
   - npm install --save redux
   - commitlint-travis
 
