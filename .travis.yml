@@ -5,7 +5,6 @@ node_js:
   - 9
   - 8
   - 7
-  - 6
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -30,6 +29,5 @@ notifications:
 # after_success: 'npm run coveralls'
 
 cache:
-  yarn: true
   directories:
     - node_modules
