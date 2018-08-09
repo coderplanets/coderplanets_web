@@ -90,6 +90,8 @@ test.help:
 	@echo "\n"
 test:
 	npm run test
+test.e2e:
+	npm run test:e2e
 test.dev:
 	npm run test:dev
 test.watch:

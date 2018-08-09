@@ -108,6 +108,9 @@ define test.help
 	@echo "  ..............................................................."
 	@echo "  test.watch       : run all the test in watch mode"
 	@echo "  ..............................................................."
+	@echo "  test.e2e         : run e2e test using cypress"
+	@echo "                   | docs: https://docs.cypress.io/"
+	@echo "  ..............................................................."
 	@echo "  test.report.text : run test then show test coverage in terminal"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
