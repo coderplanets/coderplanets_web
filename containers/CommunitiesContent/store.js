@@ -14,12 +14,12 @@ const debug = makeDebugger('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
-    pagedCommunities: t.maybe(PagedCommunities),
+    pagedCommunities: t.maybeNull(PagedCommunities),
     // cur active category
     /* category: t.optional(t.string, ''), */
     // for UI loading state
     subscribing: t.optional(t.boolean, false),
-    subscribingId: t.maybe(t.string),
+    subscribingId: t.maybeNull(t.string),
   })
   .views(self => ({
     get root() {

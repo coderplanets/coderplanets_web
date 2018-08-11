@@ -45,7 +45,7 @@ const VideosThread = t
     pagedVideos: t.optional(PagedVideos, emptyPagiData),
     filters: t.optional(FilterModel, {}),
     tags: t.optional(t.array(Tag), []),
-    activeTag: t.maybe(Tag),
+    activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
         TYPE.RESULT,

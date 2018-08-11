@@ -36,10 +36,10 @@ const convertThreadsToMaps = com => {
 
 const Suggestion = t.model('Suggestion', {
   title: t.string,
-  desc: t.maybe(t.string),
+  desc: t.maybeNull(t.string),
   raw: t.string,
-  logo: t.maybe(t.string),
-  cmd: t.maybe(t.enumeration('cmd', ['theme', 'debug'])),
+  logo: t.maybeNull(t.string),
+  cmd: t.maybeNull(t.enumeration('cmd', ['theme', 'debug'])),
   descType: t.optional(
     t.enumeration('descType', ['text', 'component']),
     'text'
@@ -51,12 +51,12 @@ const DoraemonStore = t
     visible: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
     suggestions: t.optional(t.array(Suggestion), []),
-    activeRaw: t.maybe(t.string),
+    activeRaw: t.maybeNull(t.string),
     // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
     // for debug config, input login/password ... etc
     inputForOtherUse: t.optional(t.boolean, false),
-    cmdChain: t.maybe(t.array(t.string)),
+    cmdChain: t.maybeNull(t.array(t.string)),
   })
   .views(self => ({
     get root() {

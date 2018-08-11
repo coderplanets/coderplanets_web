@@ -8,17 +8,17 @@ import { Community } from './Community'
 import { Tag } from './Tag'
 
 export const Video = t.model('Video', {
-  id: t.maybe(t.string),
-  title: t.maybe(t.string),
-  desc: t.maybe(t.string),
-  duration: t.maybe(t.string),
-  /* durationDec: t.maybe(t.number), */
-  author: t.maybe(User),
+  id: t.maybeNull(t.string),
+  title: t.maybeNull(t.string),
+  desc: t.maybeNull(t.string),
+  duration: t.maybeNull(t.string),
+  /* durationDec: t.maybeNull(t.number), */
+  author: t.maybeNull(User),
 
-  source: t.maybe(t.string),
-  link: t.maybe(t.string),
-  originalAuthor: t.maybe(t.string),
-  originalAuthorLink: t.maybe(t.string),
+  source: t.maybeNull(t.string),
+  link: t.maybeNull(t.string),
+  originalAuthor: t.maybeNull(t.string),
+  originalAuthorLink: t.maybeNull(t.string),
 
   views: t.optional(t.number, 0),
 

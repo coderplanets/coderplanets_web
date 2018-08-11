@@ -4,24 +4,24 @@ import { PAGE_SIZE } from '../../config'
 
 // NOTE: the SimpleXXX version is to avoid circle import issue which cause MST error
 const SimpleCommunity = t.model('SimpleCommunity', {
-  id: t.maybe(t.string),
-  title: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  title: t.maybeNull(t.string),
   desc: t.optional(t.string, ''),
-  raw: t.maybe(t.string),
-  logo: t.maybe(t.string),
+  raw: t.maybeNull(t.string),
+  logo: t.maybeNull(t.string),
 })
 
 const SimpleUser = t.model('SimpleUser', {
-  id: t.maybe(t.string),
-  nickname: t.maybe(t.string),
-  bio: t.maybe(t.string),
-  avatar: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  nickname: t.maybeNull(t.string),
+  bio: t.maybeNull(t.string),
+  avatar: t.maybeNull(t.string),
 })
 
 export const Category = t.model('Category', {
-  id: t.maybe(t.string),
-  title: t.maybe(t.string),
-  raw: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  title: t.maybeNull(t.string),
+  raw: t.maybeNull(t.string),
   communities: t.optional(t.array(SimpleCommunity), []),
   author: t.optional(SimpleUser, {}),
   insertedAt: t.optional(t.string, ''),

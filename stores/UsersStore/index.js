@@ -13,7 +13,7 @@ const debug = makeDebugger('S:UsersStore')
 
 const UsersStore = t
   .model('UsersStore', {
-    all: t.maybe(t.array(User)),
+    all: t.maybeNull(t.array(User)),
     visiting: User,
     // filter: ...
     // account: ..
