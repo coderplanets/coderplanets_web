@@ -123,6 +123,8 @@ dashboard.apollo:
 	$(call browse,"$(DASHBOARD_APOLLO_LINK)")
 dashboard.pm2:
 	$(call browse,"$(DASHBOARD_PM2_LINK)")
+dashboard.errors:
+	$(call browse,"$(DASHBOARD_SENTRY_LINK)")
 dashboard.aliyun:
 	$(call browse,"$(DASHBOARD_ALIYUN_LINK)")
 

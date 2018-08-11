@@ -1,4 +1,7 @@
 /* eslint-disable */
+require('dotenv').config()
+const path = require('path')
+
 const fs = require('fs')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
@@ -27,6 +30,7 @@ module.exports = withProgressBar({
   },
 
   webpack: (config, { isServer }) => {
+    config.plugins = config.plugins || []
     /*
        config.module.rules.push({
        test: /\.md$/,
@@ -59,7 +63,7 @@ module.exports = withProgressBar({
     if (fs.existsSync('./.env')) {
       config.plugins.push(
         new Dotenv({
-          path: './.env',
+          path: path.join(__dirname, '.env'),
           systemvars: true,
         })
       )

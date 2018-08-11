@@ -3331,11 +3331,11 @@ dot-prop@^3.0.0:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv-webpack@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.4.tgz#9c92e46e412a1cfbc60217ed33d69d2bbfddbf9f"
+dotenv-webpack@1.5.7:
+  version "1.5.7"
+  resolved "https://registry.npmjs.org/dotenv-webpack/-/dotenv-webpack-1.5.7.tgz#c44395ab21d1fd28d79a90942a7b14b1debd145f"
   dependencies:
-    dotenv "^4.0.0"
+    dotenv "^5.0.1"
 
 dotenv@6.0.0:
   version "6.0.0"
@@ -3344,6 +3344,10 @@ dotenv@6.0.0:
 dotenv@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
+
+dotenv@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
 
 dotgitignore@^1.0.3:
   version "1.0.3"
@@ -8107,6 +8111,10 @@ randomcolor@^0.5.3:
 range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "http://r.cnpmjs.org/range-parser/download/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
+
+raven-js@^3.26.4:
+  version "3.26.4"
+  resolved "https://registry.npmjs.org/raven-js/-/raven-js-3.26.4.tgz#32aae3a63a9314467a453c94c89a364ea43707be"
 
 raw-body@2.3.2:
   version "2.3.2"
