@@ -4,25 +4,25 @@ import { PAGE_SIZE } from '../../config'
 import { User } from './User'
 
 const CommentBrief = t.model('CommentBrief', {
-  id: t.maybe(t.string),
-  body: t.maybe(t.string),
-  floor: t.maybe(t.number),
+  id: t.maybeNull(t.string),
+  body: t.maybeNull(t.string),
+  floor: t.maybeNull(t.number),
   author: t.optional(User, {}),
 })
 
 export const Comment = t.model('Comment', {
-  id: t.maybe(t.string),
-  body: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  body: t.maybeNull(t.string),
   author: t.optional(User, {}),
   floor: t.number,
-  replyTo: t.maybe(CommentBrief),
+  replyTo: t.maybeNull(CommentBrief),
   replies: t.optional(t.array(CommentBrief), []),
   contributesDigest: t.optional(t.array(t.number), []),
   repliesCount: t.optional(t.number, 0),
   likesCount: t.optional(t.number, 0),
   dislikesCount: t.optional(t.number, 0),
-  viewerHasLiked: t.maybe(t.boolean),
-  viewerHasDisliked: t.maybe(t.boolean),
+  viewerHasLiked: t.maybeNull(t.boolean),
+  viewerHasDisliked: t.maybeNull(t.boolean),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

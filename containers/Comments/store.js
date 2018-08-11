@@ -41,7 +41,7 @@ const CommentsStore = t
     showReplyPreview: t.optional(t.boolean, false),
 
     // current to be delete comment id, use to target the confirm mask
-    tobeDeleteId: t.maybe(t.string),
+    tobeDeleteId: t.maybeNull(t.string),
     // words count for current comment (include reply comment)
     countCurrent: t.optional(t.number, 0),
     // cur filter type of comment list
@@ -67,7 +67,7 @@ const CommentsStore = t
     extractMentions: t.optional(t.array(t.string), []),
 
     // parrent comment of current reply
-    replyToComment: t.maybe(Comment),
+    replyToComment: t.maybeNull(Comment),
 
     // toggle loading for creating comment
     creating: t.optional(t.boolean, false),

@@ -55,10 +55,10 @@ const FilterModel = t.model('FilterModel', {
 
 const JobsThreadStore = t
   .model('JobsThreadStore', {
-    pagedJobs: t.maybe(PagedJobs),
+    pagedJobs: t.maybeNull(PagedJobs),
     filters: t.optional(FilterModel, {}),
     tags: t.optional(t.array(Tag), []),
-    activeTag: t.maybe(Tag),
+    activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
         TYPE.RESULT,
