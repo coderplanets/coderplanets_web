@@ -20,7 +20,7 @@ dep:
 	npm install # for commitizen
 
 build:
-	mix compile
+	npm build
 
 dev:
 	npm run local
@@ -59,7 +59,7 @@ commit.help:
 	$(call commit.help)
 	@echo "\n"
 commit:
-	@npx git-cz
+	npx git-cz
 
 # release
 release.help:
