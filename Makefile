@@ -141,6 +141,10 @@ ci.coverage:
 	$(call browse,"$(CI_COVERAGE_LINK)")
 ci.codecov:
 	$(call browse,"$(CI_CODECOV_LINK)")
+ci.codefactor:
+	$(call browse,"$(CI_CODEFACTOR_LINK)")
+ci.codacy:
+	$(call browse,"$(CI_CODACY_LINK)")
 ci.doc:
 	$(call browse,"$(CI_DOC_LINK)")
 ci.depsbot:

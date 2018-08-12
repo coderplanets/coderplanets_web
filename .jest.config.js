@@ -3,6 +3,7 @@ module.exports = {
   coverageDirectory: './coverage/',
   testURL: 'http://localhost/',
   collectCoverage: true,
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
