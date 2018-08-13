@@ -31,16 +31,16 @@ const translator = {
 const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
-      如果你有 {community} 相关的{translator[thread]}，欢迎一起分享、交流
+      如果你有 {community} 相关的
+      {translator[thread]}
+      ，欢迎一起分享、交流
     </div>
     <div>
-      如果是网站的问题，恳请你<IssueLink
-        href={ISSUE_ADDR}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+      如果是网站的问题，恳请你
+      <IssueLink href={ISSUE_ADDR} rel="noopener noreferrer" target="_blank">
         提交issue
-      </IssueLink>，以便于开发者排查修复。
+      </IssueLink>
+      ，以便于开发者排查修复。
     </div>
   </React.Fragment>
 )
@@ -52,7 +52,8 @@ const EmptyThread = ({ community, thread }) => (
     </Icon>
     <Text>
       <Title>
-        目前还没有 {community} 相关的{translator[thread]}
+        目前还没有 {community} 相关的
+        {translator[thread]}
       </Title>
       <DescWrapper>
         <DescContent community={community} thread={thread} />

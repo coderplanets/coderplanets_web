@@ -12,7 +12,7 @@ import { markStates, TYPE, unholdPage } from '../../utils'
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
-    type: t.maybe(
+    type: t.maybeNull(
       t.enumeration('previewType', [
         TYPE.POST_PREVIEW_VIEW,
         TYPE.PREVIEW_ACCOUNT_VIEW,

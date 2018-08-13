@@ -1,6 +1,7 @@
 {
   "plugins": [
     "transform-decorators-legacy",
+    "transform-inline-environment-variables",
     [
       "styled-components",
       {
@@ -25,6 +26,10 @@
   ],
   "env": {
      "development": {
+       "presets": ["next/babel"],
+       "plugins": ["inline-dotenv"]
+    },
+    "local": {
        "presets": ["next/babel"],
        "plugins": ["inline-dotenv"]
     },

@@ -35,7 +35,8 @@ export const markStates = (sobj, self) => {
   const selfKeys = R.keys(self)
   R.forEachObjIndexed((val, key) => {
     if (R.contains(key, selfKeys)) {
-      self[key] = val
+      /* self[key] = val */
+      self = Object.assign(self, { [key]: val })
     }
   }, sobj)
 }

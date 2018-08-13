@@ -53,9 +53,9 @@ function simuUserLogin() {
 
 export function githubLoginHandler() {
   // header.openPreview(type)
-  debug('just previewAccount ..')
+  debug('just previewAccount ..', process.env.GITHUB_CLIENT_ID)
 
-  const clientId = '3b4281c5e54ffd801f85'
+  const clientId = process.env.GITHUB_CLIENT_ID
   const info = 'from_github'
   const cb = 'http://www.coderplanets.com'
   const github = 'https://github.com/login/oauth/authorize'

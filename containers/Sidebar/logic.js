@@ -12,6 +12,9 @@ import {
   THREAD,
   BStore,
 } from '../../utils'
+
+import { GRAPHQL_ENDPOINT } from '../../config'
+
 import S from './schema'
 
 import SR71 from '../../utils/network/sr71'
@@ -51,6 +54,7 @@ export function loadSubscribedCommunities() {
     args.userId = user.id
     args.filter.size = 20
   }
+  console.log('loadSubscribedCommunities: ', GRAPHQL_ENDPOINT)
   sr71$.query(S.subscribedCommunities, args)
 }
 

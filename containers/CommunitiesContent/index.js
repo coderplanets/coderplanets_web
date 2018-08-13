@@ -51,7 +51,8 @@ const SubscribeBtn = ({
             ghost
             onClick={logic.unSubscribe.bind(this, community.id)}
           >
-            <Icon type="check" />已关注
+            <Icon type="check" />
+            已关注
           </Button>
         </Tooltip>
       ) : (
@@ -60,7 +61,8 @@ const SubscribeBtn = ({
           type="primary"
           onClick={logic.subscribe.bind(this, community.id)}
         >
-          <Icon type="plus" />关注
+          <Icon type="plus" />
+          关注
         </Button>
       )}
     </div>

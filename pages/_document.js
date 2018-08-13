@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
           <meta
             name="viewport"

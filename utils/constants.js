@@ -81,14 +81,14 @@ export const ROUTE = {
 }
 
 export const THREAD = {
-  __TYPES: ['post', 'job', 'video', 'repo', 'wiki', 'map', 'cheatsheets'],
+  __TYPES: ['post', 'job', 'video', 'repo', 'wiki', 'map', 'cheatsheet'],
   POST: 'post',
   JOB: 'job',
   VIDEO: 'video',
   REPO: 'repo',
   WIKI: 'wiki',
   MAP: 'map',
-  CHEATSHEETS: 'cheatsheets',
+  CHEATSHEET: 'cheatsheet',
 }
 
 export const ACTION = {

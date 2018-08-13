@@ -40,7 +40,9 @@ const Communities = ({ data }) => {
 
   return (
     <React.Fragment>
-      {data.map(c => <CommunityIcon key={shortid.generate()} src={c.logo} />)}
+      {data.map(c => (
+        <CommunityIcon key={shortid.generate()} src={c.logo} />
+      ))}
     </React.Fragment>
   )
 }

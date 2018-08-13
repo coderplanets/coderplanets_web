@@ -60,7 +60,7 @@ const PostsThreadStore = t
     filters: t.optional(FilterModel, {}),
     /* tags: t.optional(t.map(Tag), {}), */
     tags: t.optional(t.array(Tag), []),
-    activeTag: t.maybe(Tag),
+    activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
         TYPE.RESULT,

@@ -19,7 +19,9 @@ const Tabber = ({ source, active, onChange }) => {
 
   return (
     <Tabs onChange={onChange} activeKey={active}>
-      {tabitems.map(item => <TabPane tab={Trans(item.title)} key={item.raw} />)}
+      {tabitems.map(item => (
+        <TabPane tab={Trans(item.title)} key={item.raw} />
+      ))}
     </Tabs>
   )
 }

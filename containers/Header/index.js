@@ -107,7 +107,7 @@ const Header = ({
         </User>
       ) : (
         <User onClick={logic.login}>
-          <HeaderIcon src={`${ICON_ASSETS}/cmd/header_user.svg`} />
+          <HeaderIcon src={`${ICON_ASSETS}/cmd/default_user.svg`} />
         </User>
       )}
     </Operations>

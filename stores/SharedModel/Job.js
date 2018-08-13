@@ -8,12 +8,12 @@ import { Comment } from './Comment'
 import { Tag } from './Tag'
 
 export const Job = t.model('Job', {
-  id: t.maybe(t.string),
-  title: t.maybe(t.string),
-  body: t.maybe(t.string),
-  digest: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  title: t.maybeNull(t.string),
+  body: t.maybeNull(t.string),
+  digest: t.maybeNull(t.string),
   // author: t.optional(User, {}),
-  author: t.maybe(User),
+  author: t.maybeNull(User),
 
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),

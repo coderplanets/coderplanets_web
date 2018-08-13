@@ -7,17 +7,17 @@ import { Community } from './Community'
 import { Tag } from './Tag'
 
 export const Repo = t.model('Reop', {
-  id: t.maybe(t.string),
-  repoName: t.maybe(t.string),
-  desc: t.maybe(t.string),
-  readme: t.maybe(t.string),
-  language: t.maybe(t.string),
+  id: t.maybeNull(t.string),
+  repoName: t.maybeNull(t.string),
+  desc: t.maybeNull(t.string),
+  readme: t.maybeNull(t.string),
+  language: t.maybeNull(t.string),
 
-  author: t.maybe(User),
+  author: t.maybeNull(User),
 
-  repoLink: t.maybe(t.string),
-  producer: t.maybe(t.string),
-  producerLink: t.maybe(t.string),
+  repoLink: t.maybeNull(t.string),
+  producer: t.maybeNull(t.string),
+  producerLink: t.maybeNull(t.string),
 
   repoStarCount: t.optional(t.number, 0),
   repoForkCount: t.optional(t.number, 0),

@@ -46,8 +46,10 @@ const debug = makeDebugger('c:Footer:index')
 const PayMoneyFooter = ({ num }) => (
   <PayButton>
     <PayDesc>
-      支持:<AliPay>
-        <Icon type="alipay-circle" />支付宝
+      支持:
+      <AliPay>
+        <Icon type="alipay-circle" />
+        支付宝
       </AliPay>
       |
       <Weixin>

@@ -26,7 +26,8 @@ const Footer = ({ onPublish, publishing, success, error, warn, statusMsg }) => (
           </Button>
           <Space right="15px" />
           <Button size="default" type="primary" disabled>
-            <Icon type="loading" />正在发布...
+            <Icon type="loading" />
+            正在发布...
           </Button>
         </div>
       ) : (

@@ -2,7 +2,7 @@
 
 ENV="dev"
 
-ARCHIVE_NAME="./docker/${ENV}/web.tar.gz"
+ARCHIVE_NAME="./deploy/${ENV}/web.tar.gz"
 PACKER_TMP_DIR="./packer_tmp"
 TOTAL_STEPS=4
 
@@ -17,6 +17,7 @@ echo "[Step 2/${TOTAL_STEPS}] cp files to ${PACKER_TMP_DIR} ..."
 # cp -rf pages lang containers components stores config static utils next.config.js .babelrc "${PACKER_TMP_DIR}"
 cp -rf pages lang containers components stores config static utils .babelrc "${PACKER_TMP_DIR}"
 cp package-docker.json "${PACKER_TMP_DIR}/package.json"
+# cp package.json "${PACKER_TMP_DIR}/package.json"
 
 echo "[Step 3/${TOTAL_STEPS}] creating ${ARCHIVE_NAME} ..."
 cd "${PACKER_TMP_DIR}"

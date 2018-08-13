@@ -14,7 +14,7 @@ const debug = makeDebugger('S:CommunitiesBannerStore')
 
 const CommunitiesBannerStore = t
   .model('CommunitiesBannerStore', {
-    pagedCategories: t.maybe(PagedCategories),
+    pagedCategories: t.maybeNull(PagedCategories),
     activeRaw: t.optional(t.string, 'all'),
   })
   .views(self => ({
