@@ -48,9 +48,7 @@ export function checkUserAccount() {
   /* const user = BStore.get('user') */
   if (BStore.get('user')) {
     // NOTICE: if store is not valid json, user will be typeof string
-    sr71$.query(S.loginState, {})
-  } else {
-    // not shoe
+    sr71$.query(S.sessionState, {})
   }
 }
 
@@ -87,11 +85,11 @@ export function openDoraemon() {
 
 const DataSolver = [
   {
-    match: asyncRes('loginState'),
-    action: ({ loginState }) => {
-      debug('loginState userRes  --->', loginState)
+    match: asyncRes('sessionState'),
+    action: ({ sessionState }) => {
+      debug('sessionState userRes  --->', sessionState)
       /* store.updateAccount(loginState) */
-      store.updateLoginState(loginState)
+      store.updateSessionState(sessionState)
     },
   },
   {

@@ -13,10 +13,10 @@ const githubSignin = gql`
   }
 `
 
-const loginState = gql`
+const sessionState = gql`
   query {
-    loginState {
-      isLogin
+    sessionState {
+      isValid
       user {
         id
         nickname
@@ -39,7 +39,7 @@ const loginState = gql`
   }
 `
 const schema = {
-  loginState,
+  sessionState,
   githubSignin,
   githubSigninRes,
 }

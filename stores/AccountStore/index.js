@@ -51,19 +51,16 @@ const AccountStore = t
       const user = R.merge(self.user, { ...sobj })
       self.markState({ user })
     },
-
-    updateLoginState(loginState) {
-      const { isLogin, user } = loginState
-      if (isLogin) {
-        self.isValidSession = isLogin
+    updateSessionState(sessionState) {
+      const { isValid, user } = sessionState
+      if (isValid) {
+        self.isValidSession = isValid
         return self.updateAccount(user)
       }
     },
-
     loadSubscribedCommunities(data) {
       self.user.subscribedCommunities = data
     },
-
     addSubscribedCommunity(community) {
       const {
         user: {
