@@ -2,7 +2,7 @@
 
 ENV="dev"
 
-ARCHIVE_NAME="./docker/${ENV}/web.tar.gz"
+ARCHIVE_NAME="./deploy/${ENV}/web.tar.gz"
 PACKER_TMP_DIR="./packer_tmp"
 TOTAL_STEPS=4
 
