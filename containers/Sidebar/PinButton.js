@@ -1,6 +1,12 @@
 import React from 'react'
-import { StyledPin } from './styles/index'
+import { PinIconWrapper, PinIcon } from './styles/index'
 
-const PinButton = props => <StyledPin {...props}>pin</StyledPin>
+import { ICON_ASSETS } from '../../config'
+
+const PinButton = ({ pin, onClick }) => (
+  <PinIconWrapper onClick={onClick}>
+    <PinIcon pin={pin} src={`${ICON_ASSETS}/cmd/pin.svg`} />
+  </PinIconWrapper>
+)
 
 export default PinButton

@@ -14,6 +14,8 @@ import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
 import {
   Container,
+  Header,
+  HeaderFuncs,
   MenuItem,
   MenuRow,
   MenuItemWrapper,
@@ -143,9 +145,10 @@ class SidebarContainer extends React.Component {
 
     return (
       <Container pin={pin}>
-        <PinButton pin={pin} onClick={logic.pin} />
-        <br />
-        <br />
+        <Header>
+          <HeaderFuncs>.</HeaderFuncs>
+          <PinButton pin={pin} onClick={logic.pin} />
+        </Header>
         <MenuList
           items={subscribedCommunities}
           pin={pin}

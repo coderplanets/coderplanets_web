@@ -106,9 +106,9 @@ lint.help:
 	$(call lint.help)
 	@echo "\n"
 lint:
-	mix lint # credo --strict
-lint.static:
-	mix lint.static # use dialyzer
+	npm run lint
+lint.watch:
+	npm run lint:watch # use dialyzer
 
 # dashboard
 dashboard.help:

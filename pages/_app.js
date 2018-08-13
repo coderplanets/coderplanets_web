@@ -6,7 +6,6 @@ const { SENTRY_TOKEN } = process.env
 export default class MyApp extends App {
   constructor(...args) {
     super(...args)
-    console.log('SENTRY_TOKEN: ', SENTRY_TOKEN)
     Raven.config(SENTRY_TOKEN).install()
   }
 
