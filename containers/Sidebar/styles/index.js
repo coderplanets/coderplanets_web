@@ -6,6 +6,8 @@ import { theme } from '../../../utils'
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
 export const Container = styled.aside`
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid;
   position: fixed;
   height: 100vh;
@@ -26,17 +28,37 @@ export const Container = styled.aside`
   }
 `
 
-export const StyledPin = styled.div`
-  color: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
+export const Header = styled.div`
+  display: flex;
+  margin-top: 10px;
+`
+
+export const HeaderFuncs = styled.div`
+  flex-grow: 1;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export const PinIconWrapper = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export const PinIcon = styled(Img)`
+  fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
+  margin-right: 10px;
+  width: 23px;
+  height: 23px;
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   opacity: ${({ pin }) => (pin ? 1 : 0)};
-  position: absolute;
-  font-size: 25px;
-  right: 10px;
-  top: 5px;
   transition: visibility 0s, opacity 0.3s linear;
   cursor: pointer;
 
+  &:hover {
+    cursor: pointer;
+  }
   ${Container}:hover & {
     visibility: visible;
     opacity: 1;
