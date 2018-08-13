@@ -13,31 +13,33 @@ const githubSignin = gql`
   }
 `
 
-const user = gql`
-  query user($id: ID!) {
-    user(id: $id) {
-      id
-      nickname
-      avatar
-      bio
-      fromGithub
-      company
-      education
-      location
-      qq
-      weibo
-      weichat
-      sex
-      githubProfile {
-        htmlUrl
-        login
+const loginState = gql`
+  query {
+    loginState {
+      isLogin
+      user {
+        id
+        nickname
+        avatar
+        bio
+        fromGithub
+        company
+        education
+        location
+        qq
+        weibo
+        weichat
+        sex
+        githubProfile {
+          htmlUrl
+          login
+        }
       }
     }
   }
 `
-
 const schema = {
-  user,
+  loginState,
   githubSignin,
   githubSigninRes,
 }

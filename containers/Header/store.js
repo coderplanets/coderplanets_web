@@ -66,8 +66,8 @@ const HeaderStore = t
     handleLogin() {
       self.root.doraemon.handleLogin()
     },
-    updateAccount(sobj) {
-      self.root.account.updateAccount(sobj)
+    updateLoginState(loginState) {
+      self.root.account.updateLoginState(loginState)
     },
     openDoraemon() {
       self.root.openDoraemon()

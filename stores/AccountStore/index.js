@@ -5,8 +5,8 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-
 import store from 'store'
+
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { User, EmptyUser } from '../SharedModel'
 /* eslint-disable no-unused-vars */
@@ -16,6 +16,7 @@ const debug = makeDebugger('S:AccountStore')
 const AccountStore = t
   .model('AccountStore', {
     user: t.optional(User, {}),
+    isValidSession: t.optional(t.boolean, false),
     // subscribedCommunites: ...
   })
   .views(self => ({
@@ -37,7 +38,7 @@ const AccountStore = t
       }
     },
     get isLogin() {
-      return self.user.nickname !== ''
+      return self.isValidSession
     },
   }))
   .actions(self => ({
@@ -49,6 +50,14 @@ const AccountStore = t
     updateAccount(sobj) {
       const user = R.merge(self.user, { ...sobj })
       self.markState({ user })
+    },
+
+    updateLoginState(loginState) {
+      const { isLogin, user } = loginState
+      if (isLogin) {
+        self.isValidSession = isLogin
+        return self.updateAccount(user)
+      }
     },
 
     loadSubscribedCommunities(data) {

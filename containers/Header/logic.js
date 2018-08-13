@@ -45,10 +45,10 @@ export function signinGithub(code) {
 
 export function checkUserAccount() {
   // debug('checkUserAccount: to get user breif')
-  const user = BStore.get('user')
-  if (user) {
+  /* const user = BStore.get('user') */
+  if (BStore.get('user')) {
     // NOTICE: if store is not valid json, user will be typeof string
-    sr71$.query(S.user, { id: user.id })
+    sr71$.query(S.loginState, {})
   } else {
     // not shoe
   }
@@ -87,21 +87,18 @@ export function openDoraemon() {
 
 const DataSolver = [
   {
-    match: asyncRes('user'),
-    action: ({ user }) => store.updateAccount(user),
+    match: asyncRes('loginState'),
+    action: ({ loginState }) => {
+      debug('loginState userRes  --->', loginState)
+      /* store.updateAccount(loginState) */
+      store.updateLoginState(loginState)
+    },
   },
   {
     // TODO move it to user side view
     match: asyncRes('githubSigninRes'),
     action: ({ githubSigninRes }) => {
       debug('dataResolver  --->', githubSigninRes)
-    },
-  },
-  {
-    match: asyncRes('user'),
-    action: ({ user }) => {
-      debug('dataResolver userRes  --->', user)
-      store.updateAccount(user)
     },
   },
 ]

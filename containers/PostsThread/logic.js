@@ -46,6 +46,7 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
+  debug('loadPosts')
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
   const community = mainPath
