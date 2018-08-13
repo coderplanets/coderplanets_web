@@ -2,7 +2,7 @@
 
 cd /root/web/
 
-npm run launch &
+pm2-runtime start npm --name "coderplanets_web" -- run launch &
 
 while true
 do
