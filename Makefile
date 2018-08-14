@@ -82,10 +82,17 @@ deploy.help:
 	@echo "\n"
 deploy.dev:
 	./deploy/dev/packer.sh
+	git add .
+	git commit -am "build: development"
+	git push
+	@echo "------------------------------"
+	@echo "deploy to docker done!"
+	@echo "todo: restart docker container"
 deploy.prod:
 	./deploy/production/packer.sh
 	git add .
 	git commit -am "build: production"
+	git push
 	@echo "------------------------------"
 	@echo "deploy to docker done!"
 	@echo "todo: restart docker container"
