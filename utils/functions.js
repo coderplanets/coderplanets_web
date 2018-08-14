@@ -42,7 +42,8 @@ export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
 export const cutFrom = (val, cutnumber = 20) => {
   if (isEmptyValue(val)) {
     return ''
-  } else if (val.length <= cutnumber) {
+  }
+  if (val.length <= cutnumber) {
     return val
   }
   return `${R.slice(0, cutnumber, val)} ...`
