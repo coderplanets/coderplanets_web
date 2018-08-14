@@ -32,6 +32,7 @@ export {
   getMainPath,
   getSubPath,
   getParameterByName,
+  getQueryFromUrl,
   queryStringToJSON,
   mergeRouteQuery,
   serializeQuery,
