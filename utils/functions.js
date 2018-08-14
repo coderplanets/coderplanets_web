@@ -1,7 +1,7 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import { EVENT } from '../utils'
+import { EVENT } from '.'
 
 /* eslint-disable */
 // TODO: document ?
@@ -27,14 +27,8 @@ export const mapKeys = R.curry((fn, obj) => {
 })
 
 export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
-export const notEmpty = R.compose(
-  R.not,
-  R.isEmpty
-)
-export const isEmptyValue = R.compose(
-  R.isEmpty,
-  R.trim
-)
+export const notEmpty = R.compose(R.not, R.isEmpty)
+export const isEmptyValue = R.compose(R.isEmpty, R.trim)
 /* eslint-disable */
 const log = (...args) => data => {
   console.log.apply(null, args.concat([data]))
