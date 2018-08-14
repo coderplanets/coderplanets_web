@@ -51,7 +51,7 @@ const popup = authUrl => {
       clearInterval(scanTimer)
     }
     window.postMessage(
-      { from_child: authWindow.location.search },
+      { from_oauth_window: authWindow.location.search },
       window.location.href
     )
   }, 1000)
