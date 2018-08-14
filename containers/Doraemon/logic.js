@@ -4,7 +4,8 @@ import Router from 'next/router'
 import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
-import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils'
+/* import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils' */
+import { makeDebugger, Global } from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 import oauthPopup from './oauth_window'
@@ -34,6 +35,7 @@ function queryPocket() {
   pockect$.query(store.inputValue)
 }
 
+/*
 function simuUserLogin() {
   const data = {
     id: '112',
@@ -50,6 +52,8 @@ function simuUserLogin() {
 
   store.updateAccount(data)
 }
+
+*/
 
 export function githubLoginHandler() {
   // header.openPreview(type)
@@ -73,26 +77,25 @@ export function githubLoginHandler() {
   /* console.log('getParameterByName:', getParameterByName('recoe')) */
   // popup('http://localhost:3000?code=djfiekdjfie')
 
+  console.log('oauthPopup url', url)
   oauthPopup(url)
-  simuUserLogin()
+  /* simuUserLogin() */
 
-  setTimeout(() => {
-    // use normal-http to signinGithub
-    // sync userinfo to store
-    // finally:
-    dispatchEvent(EVENT.LOGIN)
-  }, 5000)
-  /*
+  //  setTimeout(() => {
+  // use normal-http to signinGithub
+  // sync userinfo to store
+  // finally:
+  //  dispatchEvent(EVENT.LOGIN)
+  // }, 5000)
 
-     Global.addEventListener('message', e => {
-     if (e.origin === Global.location.origin) {
-     if (e.data.from_child) {
-     debug('收到合法消息: ', e.data)
-     Global.postMessage({ from_parent: true }, Global.location.href)
-     }
-     }
-     })
-   */
+  Global.addEventListener('message', e => {
+    if (e.origin === Global.location.origin) {
+      if (e.data.from_child) {
+        console.log('收到合法消息: ', e.data)
+        Global.postMessage({ from_parent: true }, Global.location.href)
+      }
+    }
+  })
 }
 
 const initCmdResolver = () => {
