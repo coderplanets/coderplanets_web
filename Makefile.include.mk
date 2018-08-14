@@ -141,6 +141,7 @@ define dashboard.help
 	@echo "  ................................................................................."
 	@echo "  dashboard.sentry : sentry error track"
 	@echo "                   | $(DASHBOARD_SENTRY_LINK)"
+	@echo "  ................................................................................."
 	@echo "  dashboard.apollo : graphql api status provide by apollo engine"
 	@echo "                   | $(DASHBOARD_APOLLO_LINK)"
 	@echo "  ................................................................................."
