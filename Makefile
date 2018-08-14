@@ -84,6 +84,11 @@ deploy.dev:
 	./deploy/dev/packer.sh
 deploy.prod:
 	./deploy/production/packer.sh
+	git add .
+	git commit -am "build: production"
+	@echo "------------------------------"
+	@echo "deploy to docker done!"
+	@echo "todo: restart docker container"
 
 test.help:
 	$(call test.help)
