@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "license": "Apache License 2.0",
   "scripts": {
-    "launch": "next build && cross-env GOAL=production next start -p ${SERVE_PORT}",
+    "launch": "cross-env GOAL=production next build && cross-env GOAL=production next start -p ${SERVE_PORT}",
     "launch:dev": "cross-env GOAL=dev next build && cross-env GOAL=dev next start -p ${SERVE_PORT}",
     "launch-server": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production node server"
   },
