@@ -58,11 +58,11 @@ define deploy.help
 	@echo "\n"
 	@echo "  [valid deploy commands]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	@echo "  deploy.dev  : pack & push code to aliyun for dev"
-	@echo "               | need manually restart docker container on aliyun"
+	@echo "  deploy.dev  : pack & push code to clould docker for dev"
+	@echo "               | need manually restart docker container"
 	@echo "  ..............................................................."
-	@echo "  deploy.prod : pack & push  code to for produnction"
-	@echo "               | need manually restart docker container on aliyun"
+	@echo "  deploy.prod : pack & push code to clould docker for produnction"
+	@echo "               | need manually restart docker container"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
 
