@@ -5,7 +5,7 @@ import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
 /* import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils' */
-import { makeDebugger, Global, getParameterByName } from '../../utils'
+import { makeDebugger, Global, getQueryFromUrl } from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 import oauthPopup from './oauth_window'
@@ -92,7 +92,7 @@ export function githubLoginHandler() {
     if (e.origin === Global.location.origin) {
       if (e.data.from_oauth_window) {
         console.log('收到合法消息: ', e.data)
-        const code = getParameterByName('code', e.data.from_oauth_window)
+        const code = getQueryFromUrl('code', e.data.from_oauth_window)
         console.log('get code: ', code)
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
