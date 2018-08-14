@@ -34,7 +34,7 @@ launch:
 launch.dev:
 	npm run launch.dev
 launch.prod:
-	npm run launch
+	SERVE_PORT=8002 npm run launch
 
 migrate:
 	mix ecto.migrate
