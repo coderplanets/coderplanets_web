@@ -1,17 +1,29 @@
 import R from 'ramda'
 import Router from 'next/router'
 
+import SR71 from '../../utils/network/sr71'
+import S from './schema'
 import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
 /* import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils' */
-import { makeDebugger, Global, getQueryFromUrl } from '../../utils'
+import {
+  makeDebugger,
+  Global,
+  ERR,
+  asyncRes,
+  asyncErr,
+  getQueryFromUrl,
+  $solver,
+} from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
 
 import oauthPopup from './oauth_window'
 
 const debug = makeDebugger('L:Doraemon')
+const sr71$ = new SR71()
 
+let sub$ = null
 let store = null
 let pockect$ = null
 let SAK = null
@@ -94,6 +106,8 @@ export function githubLoginHandler() {
         console.log('收到合法消息: ', e.data)
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
         console.log('get code: ', code)
+
+        sr71$.query(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
     }
@@ -318,6 +332,36 @@ export function inputOnChange(e) {
   queryPocket()
 }
 
+const DataSolver = [
+  {
+    match: asyncRes('githubSignin'),
+    action: ({ githubSignin }) => {
+      console.log('action githubSignin get: ', githubSignin)
+    },
+  },
+]
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      debug('ERR.CRAPHQL -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+    },
+  },
+]
+
 export function init(_store) {
   if (store) return false
 
@@ -336,4 +380,7 @@ export function init(_store) {
   pockect$.emptyInput().subscribe(() => {
     store.clearSuggestions()
   })
+
+  if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
