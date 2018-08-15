@@ -9,7 +9,7 @@ const githubSignin = gql`
         avatar
         nickname
         bio
-        from_github
+        fromGithub
       }
     }
   }
