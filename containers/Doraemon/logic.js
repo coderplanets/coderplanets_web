@@ -2,7 +2,7 @@ import R from 'ramda'
 import Router from 'next/router'
 
 import SR71 from '../../utils/network/sr71'
-import S from './schema'
+/* import S from './schema' */
 import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
@@ -107,7 +107,7 @@ export function githubLoginHandler() {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
         console.log('get code: ', code)
 
-        sr71$.query(S.githubSignin, { code })
+        /* sr71$.query(S.githubSignin, { code }) */
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
     }
