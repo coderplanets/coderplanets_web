@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "license": "Apache License 2.0",
   "scripts": {
-    "build:prod": "cross-env GOAL=production next build",
+    "build:prod": "echo ${GITHUB_CLIENT_ID} && cross-env GOAL=production next build",
     "build:dev": "cross-env GOAL=dev next build",
     "launch": "cross-env GOAL=production next start -p ${SERVE_PORT}",
     "launch:dev": "cross-env GOAL=dev next start -p ${SERVE_PORT}",
