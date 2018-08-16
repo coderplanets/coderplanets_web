@@ -5,7 +5,8 @@
   "scripts": {
     "build:prod": "echo ${GITHUB_CLIENT_ID} && echo ${GA_TRACING_ID} && echo ${SERVE_PORT} && cross-env GOAL=production next build",
     "build:dev": "cross-env GOAL=dev next build",
-    "launch": "cross-env GOAL=production next start -p ${SERVE_PORT}",
+    "launch-old": "cross-env GOAL=production next start -p ${SERVE_PORT}",
+    "launch": "cross-env GOAL=production next build && cross-env GOAL=production next start -p ${SERVE_PORT}",
     "launch:dev": "cross-env GOAL=dev next start -p ${SERVE_PORT}",
     "launch-server": "cross-env NODE_ENV=production next build && cross-env NODE_ENV=production node server"
   },
