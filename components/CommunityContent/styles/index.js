@@ -12,7 +12,10 @@ export const Wrapper = styled.div`
   color: ${theme('font')};
   background: ${theme('content.bg')};
   border-radius: 6px;
-  padding: 1em 6em;
+  padding: 1em 5em;
+  @media (max-width: 1600px) {
+    padding: 1em 3em;
+  }
   @media (max-width: 1400px) {
     padding: 1em 2em;
     padding-bottom: 0;
