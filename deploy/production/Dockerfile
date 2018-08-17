@@ -6,7 +6,7 @@ ADD web.tar.gz /root/web
 # RUN npm install -g pm2 --registry=https://registry.npm.taobao.org
 # RUN cd /root/web/ && npm install --registry=https://registry.npm.taobao.org
 
-ARG GITHUB_CLIENT_ID
+ARG GITHUB_CLIENT_ID="fuck"
 RUN cd /root/web/ && npm run build:prod
 
 ADD loader.sh /usr/local/bin/loader.sh
