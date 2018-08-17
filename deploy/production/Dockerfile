@@ -8,6 +8,7 @@ ADD web.tar.gz /root/web
 
 ARG GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}
 RUN cd /root/web/ && npm run build:prod
+RUN echo "$GITHUB_CLIENT_ID"
 
 ADD loader.sh /usr/local/bin/loader.sh
 RUN chmod +x /usr/local/bin/loader.sh
