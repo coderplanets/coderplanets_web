@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import store from 'store'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, BStore } from '../../utils'
 import { User, EmptyUser } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountStore')
@@ -30,9 +30,7 @@ const AccountStore = t
     },
 
     get subscribedCommunities() {
-      const {
-        user: { subscribedCommunities },
-      } = self
+      const { user: { subscribedCommunities } } = self
       return {
         ...stripMobx(subscribedCommunities),
       }
@@ -42,6 +40,13 @@ const AccountStore = t
     },
   }))
   .actions(self => ({
+    afterCreate() {
+      const user = BStore.get('user')
+      if (user) {
+        console.log('AccountStore afterCreate: ', user)
+        self.updateAccount(user)
+      }
+    },
     logout() {
       self.user = EmptyUser
       self.root.preview.close()
@@ -62,11 +67,7 @@ const AccountStore = t
       self.user.subscribedCommunities = data
     },
     addSubscribedCommunity(community) {
-      const {
-        user: {
-          subscribedCommunities: { entries },
-        },
-      } = self
+      const { user: { subscribedCommunities: { entries } } } = self
 
       self.user.subscribedCommunities.entries = R.insert(0, community, entries)
       self.user.subscribedCommunities.totalCount += 1
@@ -75,11 +76,7 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const {
-        user: {
-          subscribedCommunities: { entries },
-        },
-      } = self
+      const { user: { subscribedCommunities: { entries } } } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.user.subscribedCommunities.entries = R.remove(index, 1, entries)

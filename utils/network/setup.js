@@ -46,16 +46,16 @@ const errorLink = onError(({ graphQLErrors }) => {
   // }
 })
 
+/*
 let token = ''
 const user = BStore.get('user')
 
 if (user) {
   token = BStore.get('user').token || ''
 }
+*/
 
-/* const token = */
-/* 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYXN0YW5pX3NlcnZlciIsImV4cCI6MTUyNTI2Nzc3NCwiaWF0IjoxNTI0MDU4MTc0LCJpc3MiOiJtYXN0YW5pX3NlcnZlciIsImp0aSI6IjdiNjdhYzJmLTIwMjYtNDMzNy04MjcyLTVmYjY0ZDMxMGVjNyIsIm5iZiI6MTUyNDA1ODE3Mywic3ViIjoiMTEyIiwidHlwIjoiYWNjZXNzIn0.mm0GuOhzs8UYikPZGnIKQpnGYJQiwzEtCx2xeRn1qcT3sOT6Yg3GvM303OxDoGHnrNf72HSjwVxiCO6mXkq8mg' */
-
+const token = BStore.get('token') || ''
 export const context = {
   headers: {
     special: 'Special header value',
