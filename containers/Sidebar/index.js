@@ -9,7 +9,9 @@ import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-import { TrendLine } from '../../components'
+import { TrendLine, Button } from '../../components'
+import { ICON_ASSETS } from '../../config'
+
 import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
 import {
@@ -22,6 +24,12 @@ import {
   MenuItemEach,
   MenuItemIcon,
   MiniChartWrapper,
+  SiteLogoWrapper,
+  SiteLogo,
+  ExploreWrapper,
+  ExploreContent,
+  ExploreIcon,
+  ExploreText,
   /* MiniChartBar, */
   /* MiniChartText, */
 } from './styles'
@@ -146,7 +154,19 @@ class SidebarContainer extends React.Component {
     return (
       <Container pin={pin}>
         <Header>
-          <HeaderFuncs>.</HeaderFuncs>
+          <HeaderFuncs>
+            <SiteLogoWrapper pin={pin}>
+              <SiteLogo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
+            </SiteLogoWrapper>
+            <ExploreWrapper pin={pin}>
+              <Button size="small" type="primary" ghost>
+                <ExploreContent>
+                  <ExploreIcon src={`${ICON_ASSETS}/cmd/explore_more.svg`} />
+                  <ExploreText>explore</ExploreText>
+                </ExploreContent>
+              </Button>
+            </ExploreWrapper>
+          </HeaderFuncs>
           <PinButton pin={pin} onClick={logic.pin} />
         </Header>
         <MenuList
