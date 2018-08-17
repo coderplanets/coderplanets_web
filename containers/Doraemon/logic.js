@@ -10,6 +10,7 @@ import Pockect from './Pockect'
 import {
   makeDebugger,
   Global,
+  BStore,
   ERR,
   asyncRes,
   asyncErr,
@@ -29,19 +30,9 @@ let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-const reposIsEmpty = R.compose(
-  R.isEmpty,
-  R.prop('reposData')
-)
-const inputValueIsNotEmpty = R.compose(
-  R.not,
-  R.isEmpty,
-  R.prop('inputValue')
-)
-const isNotSearching = R.compose(
-  R.not,
-  R.prop('searching')
-)
+const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
+const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
+const isNotSearching = R.compose(R.not, R.prop('searching'))
 
 function queryPocket() {
   pockect$.query(store.inputValue)
@@ -73,32 +64,13 @@ export function githubLoginHandler() {
 
   const clientId = process.env.GITHUB_CLIENT_ID
   const info = 'from_github'
+  // TODO: prettify signin page
   const cb = 'http://www.coderplanets.com'
   const github = 'https://github.com/login/oauth/authorize'
   const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
 
-  // debug(url)
-  // sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  // checkUserAccount()
-  // return false
-  // signinGithub('71b0c5169ebbb7a124b9')
-  /* reference */
-  /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
-
-  /* Global.location.href = url */
-  /* console.log('getParameterByName:', getParameterByName('recoe')) */
-  // popup('http://localhost:3000?code=djfiekdjfie')
-
   console.log('oauthPopup url', url)
   oauthPopup(url)
-  /* simuUserLogin() */
-
-  //  setTimeout(() => {
-  // use normal-http to signinGithub
-  // sync userinfo to store
-  // finally:
-  //  dispatchEvent(EVENT.LOGIN)
-  // }, 5000)
 
   Global.addEventListener('message', e => {
     if (e.origin === Global.location.origin) {
@@ -336,6 +308,12 @@ const DataSolver = [
     match: asyncRes('githubSignin'),
     action: ({ githubSignin }) => {
       console.log('action githubSignin get: ', githubSignin)
+
+      BStore.set('user', githubSignin.user)
+      BStore.set('token', githubSignin.token)
+      /* store.updateSessionState({ isValid: true, user: githubSignin.user }) */
+      console.log('then refresh browser')
+      Global.location.reload(false)
     },
   },
 ]
