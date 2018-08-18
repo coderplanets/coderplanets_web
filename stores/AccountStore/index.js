@@ -50,7 +50,9 @@ const AccountStore = t
       const user = BStore.get('user')
       if (user) {
         console.log('before afterCreate: ', user)
-        self.updateAccount(user)
+        setTimeout(() => {
+          self.updateAccount(user)
+        }, 4000)
       }
     },
     logout() {
