@@ -63,7 +63,9 @@ const AccountStore = t
       Global.location.reload(false)
     },
     updateAccount(sobj) {
+      console.log('1 : ', sobj)
       const user = R.merge(self.user, { ...sobj })
+      console.log('2 : ', user)
       self.markState({ user })
     },
     updateSessionState(sessionState) {
