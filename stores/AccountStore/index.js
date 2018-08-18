@@ -7,7 +7,13 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import store from 'store'
 
-import { markStates, makeDebugger, stripMobx, BStore } from '../../utils'
+import {
+  markStates,
+  makeDebugger,
+  stripMobx,
+  BStore,
+  Global,
+} from '../../utils'
 import { User, EmptyUser } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountStore')
@@ -44,10 +50,8 @@ const AccountStore = t
   .actions(self => ({
     afterCreate() {
       const user = BStore.get('user')
-      console.log('AccountStore get user: ', user)
       if (user) {
-        console.log('AccountStore afterCreate: ', user)
-        /* self.updateAccount(user) */
+        self.updateAccount(user)
       }
     },
     logout() {
@@ -56,6 +60,8 @@ const AccountStore = t
       store.remove('user')
       store.remove('token')
       self.isValidSession = false
+
+      Global.location.reload(false)
     },
     updateAccount(sobj) {
       const user = R.merge(self.user, { ...sobj })
