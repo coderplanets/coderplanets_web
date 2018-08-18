@@ -11,7 +11,7 @@ import {
   markStates,
   makeDebugger,
   stripMobx,
-  BStore,
+  /* BStore, */
   Global,
 } from '../../utils'
 import { User, EmptyUser } from '../SharedModel'
@@ -46,13 +46,6 @@ const AccountStore = t
     },
   }))
   .actions(self => ({
-    afterAttach() {
-      const user = BStore.get('user')
-      if (user) {
-        console.log('before afterAttach: ', user)
-        self.updateAccount(user)
-      }
-    },
     logout() {
       self.user = EmptyUser
       self.root.preview.close()
