@@ -48,26 +48,6 @@ function queryPocket() {
   pockect$.query(store.inputValue)
 }
 
-/*
-function simuUserLogin() {
-  const data = {
-    id: '112',
-    token:
-      'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYXN0YW5pX3NlcnZlciIsImV4cCI6MTUyNTI2Nzc3NCwiaWF0IjoxNTI0MDU4MTc0LCJpc3MiOiJtYXN0YW5pX3NlcnZlciIsImp0aSI6IjdiNjdhYzJmLTIwMjYtNDMzNy04MjcyLTVmYjY0ZDMxMGVjNyIsIm5iZiI6MTUyNDA1ODE3Mywic3ViIjoiMTEyIiwidHlwIjoiYWNjZXNzIn0.mm0GuOhzs8UYikPZGnIKQpnGYJQiwzEtCx2xeRn1qcT3sOT6Yg3GvM303OxDoGHnrNf72HSjwVxiCO6mXkq8mg',
-    nickname: 'mydearxym',
-    avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
-    bio:
-      "everyday is the opportunity you can't get back,so live life to the fullest",
-    fromGithub: true,
-  }
-
-  BStore.set('user', data)
-
-  store.updateAccount(data)
-}
-
-*/
-
 export function githubLoginHandler() {
   // header.openPreview(type)
   debug('just previewAccount ..', process.env.GITHUB_CLIENT_ID)
@@ -75,11 +55,10 @@ export function githubLoginHandler() {
   const clientId = process.env.GITHUB_CLIENT_ID
   const info = 'from_github'
   // TODO: prettify signin page
-  const cb = 'http://www.coderplanets.com'
+  const cb = 'http://www.coderplanets.com/oauth'
   const github = 'https://github.com/login/oauth/authorize'
   const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
 
-  console.log('oauthPopup url', url)
   oauthPopup(url)
 
   Global.addEventListener('message', e => {
