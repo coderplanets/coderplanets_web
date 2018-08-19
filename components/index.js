@@ -9,6 +9,7 @@ export { default as Popover } from './Popover'
 export { Space, SpaceGrow } from './BaseStyled'
 
 // Utils component
+export { default as ErrorPage } from './ErrorPage'
 export { default as OauthHinter } from './OauthHinter'
 export { default as MarkDownRender } from './MarkDownRender'
 export { default as ContentFilter } from './ContentFilter'
