@@ -14,6 +14,7 @@ let store = null
 
 export function tabChange(activeThread) {
   store.markState({ activeThread })
+  store.markRoute({ tab: activeThread })
 }
 
 // ###############################

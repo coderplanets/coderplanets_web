@@ -27,6 +27,9 @@ const UserContent = t
     markState(sobj) {
       markStates(sobj, self)
     },
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
   }))
 
 export default UserContent
