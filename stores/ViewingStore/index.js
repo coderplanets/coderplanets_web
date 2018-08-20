@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-/* import R from 'ramda' */
+import R from 'ramda'
 
 import { markStates, makeDebugger, THREAD } from '../../utils'
 import { Community, Post, Video, Repo } from '../SharedModel'
@@ -20,16 +20,9 @@ const ViewingStore = t
     video: t.optional(Video, {}),
     repo: t.optional(Repo, {}),
     activeThread: t.optional(
-      t.enumeration('activeThread', THREAD.__TYPES),
+      t.enumeration('activeThread', R.values(THREAD)),
       THREAD.POST
     ),
-    /*
-       activeTag: t.optional(Tag, {}),
-       activeThread: t.optional(
-       t.enumeration('activeThread', THREAD.__TYPES),
-       THREAD.POST
-       ),
-     */
   })
   .views(self => ({
     get root() {
