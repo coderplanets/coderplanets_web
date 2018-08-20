@@ -24,6 +24,7 @@ import {
   PostBannerStore,
   CommunityBannerStore,
   CommunitiesBannerStore,
+  UserBannerStore,
 
   // threads
   PostsThreadStore,
@@ -34,6 +35,7 @@ import {
   PostContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
+  UserContentStore,
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
@@ -85,11 +87,13 @@ const rootStore = t
     postBanner: t.optional(PostBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
+    userBanner: t.optional(UserBannerStore, {}),
 
     // content
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
+    userContent: t.optional(UserContentStore, {}),
     // content end
 
     // threads

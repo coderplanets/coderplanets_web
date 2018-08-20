@@ -19,7 +19,7 @@ import {
   CardWrapper,
 } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -29,44 +29,75 @@ const debug = makeDebugger('C:UserContent')
 const fakeThreads = [
   {
     title: '动态',
-    raw: 'activity',
+    raw: 'activities',
   },
   {
     title: '帖子',
-    raw: 'post',
+    raw: 'posts',
   },
   {
     title: '评论',
-    raw: 'comment',
+    raw: 'comments',
   },
   {
     title: '收藏',
-    raw: 'favorite',
+    raw: 'favorites',
   },
   {
     title: '喜欢',
-    raw: 'like',
+    raw: 'likes',
   },
   {
     title: '自定义',
-    raw: 'customization',
+    raw: 'customizations',
   },
 ]
 
+const TabberContent = ({ active }) => {
+  switch (active) {
+    case USER_THREAD.POSTS: {
+      return <h2>POSTS</h2>
+    }
+    case USER_THREAD.COMMENTS: {
+      return <h2>COMMENTS</h2>
+    }
+    case USER_THREAD.FAVORITES: {
+      return <h2>FAVORITES</h2>
+    }
+    case USER_THREAD.LINKS: {
+      return <h2>LINKS</h2>
+    }
+    case USER_THREAD.CUSTOMIZATIONS: {
+      return <h2>CUSTOMIZATIONS</h2>
+    }
+    default: {
+      return <h2>Activies</h2>
+    }
+  }
+}
+
 class UserContentContainer extends React.Component {
   componentWillMount() {
-    const userContent = this.props
+    const { userContent } = this.props
     logic.init(userContent)
   }
 
   render() {
+    const { userContent } = this.props
+    const { activeThread } = userContent
+
+    console.log('activeThread --> ', activeThread)
     return (
       <Container>
         <MainWrapper>
           <TabberWrapper className="tabs-with-bottom">
-            <Tabber source={fakeThreads} onChange={debug} active="activity" />
+            <Tabber
+              source={fakeThreads}
+              onChange={logic.tabChange}
+              active={activeThread}
+            />
           </TabberWrapper>
-          <h2>UserContent container!</h2>
+          <TabberContent active={activeThread} />
         </MainWrapper>
         <SidebarWrapper>
           <CardWrapper>

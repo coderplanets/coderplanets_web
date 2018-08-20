@@ -91,6 +91,15 @@ export const THREAD = {
   CHEATSHEET: 'cheatsheet',
 }
 
+export const USER_THREAD = {
+  ACTIVITIES: 'activities',
+  POSTS: 'posts',
+  COMMENTS: 'comments',
+  FAVORITES: 'favorites',
+  LINKS: 'likes',
+  CUSTOMIZATIONS: 'customizations',
+}
+
 export const ACTION = {
   __TYPES: ['FAVORITE', 'STAR', 'WATCH'],
   FAVORITE: 'FAVORITE',

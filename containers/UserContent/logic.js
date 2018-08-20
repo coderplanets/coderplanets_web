@@ -12,7 +12,9 @@ const debug = makeDebugger('L:UserContent')
 
 let store = null
 
-export function someMethod() {}
+export function tabChange(activeThread) {
+  store.markState({ activeThread })
+}
 
 // ###############################
 // Data & Error handlers
