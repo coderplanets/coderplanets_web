@@ -3,7 +3,9 @@ import { theme } from '../../../utils'
 
 export const BannerContainer = styled.nav`
   position: relative;
-  min-height: 180px;
+  min-height: 200px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border-bottom: 1px solid tomato;
   display: flex;
   flex-direction: column;
@@ -14,6 +16,8 @@ export const BannerContainer = styled.nav`
   @media (max-height: 800px) {
     min-height: 130px;
   }
+
+  transition: max-height 0.2s;
 `
 
 /* export const TabberWrapper = BaseTabber.extend`` */
@@ -28,5 +32,6 @@ export const UserBriefWrapper = styled.div`
 `
 export const UserContributesWrapper = styled.div`
   width: 40%;
-  max-width: 400px;
+  max-width: 450px;
+  margin-right: 20px;
 `
