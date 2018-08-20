@@ -48,6 +48,8 @@ import {
   SidebarStore,
   TypeWriterStore,
   AccountEditorStore,
+  // user page
+  UserSettingsStore,
 } from '../index'
 
 /* eslint-disable no-unused-vars */
@@ -107,6 +109,8 @@ const rootStore = t
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
     communityEditors: t.optional(CommunityEditorsStore, {}),
+    // user page
+    userSettings: t.optional(UserSettingsStore, {}),
   })
   .views(self => ({
     get locale() {

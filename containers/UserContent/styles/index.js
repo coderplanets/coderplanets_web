@@ -26,6 +26,7 @@ export const TabberWrapper = styled.div`
 
 export const SidebarWrapper = styled.div`
   width: 300px;
+  color: ${theme('banner.desc')};
 `
 
 export const CardWrapper = styled.div`
