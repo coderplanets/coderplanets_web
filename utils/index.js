@@ -2,7 +2,16 @@
  * utils functiosn
  */
 
-export { EVENT, ERR, TYPE, THREAD, ACTION, FILTER, ROUTE } from './constants'
+export {
+  EVENT,
+  ERR,
+  TYPE,
+  THREAD,
+  USER_THREAD,
+  ACTION,
+  FILTER,
+  ROUTE,
+} from './constants'
 
 export { makeDebugger } from './debug'
 
