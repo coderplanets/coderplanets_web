@@ -25,7 +25,6 @@ export const BannerContentWrapper = styled.div`
 
 export const UserBriefWrapper = styled.div`
   flex-grow: 1;
-  align-self: center;
 `
 export const UserContributesWrapper = styled.div`
   width: 40%;

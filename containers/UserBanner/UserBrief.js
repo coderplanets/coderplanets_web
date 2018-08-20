@@ -1,31 +1,60 @@
 import React from 'react'
 
+import { ICON_ASSETS } from '../../config'
+
 import {
   Wrapper,
   AvatarWrapper,
   Avatar,
+  BriefTextWrapper,
   UserTitle,
   UserDesc,
+  DescLable,
+  SocialSpliter,
+  SocialWrapper,
+  SocialIcon,
 } from './styles/user_brief'
 
-const UserBrief = () => {
+const SocialIcons = () => {
   return (
-    <Wrapper>
-      <AvatarWrapper>
-        <Avatar src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-      </AvatarWrapper>
-
-      <div>
-        <UserTitle>Mydearxym(谢一面)</UserTitle>
-        <UserDesc>所属行业: xxx</UserDesc>
-        <UserDesc>
-          个人介绍: 我来个比较长一点点的个人介绍哈，看看布局效果
-        </UserDesc>
-        <UserDesc>公司: xxx</UserDesc>
-        <UserDesc>各种主页: xxx</UserDesc>
-      </div>
-    </Wrapper>
+    <SocialWrapper>
+      <SocialIcon src={`${ICON_ASSETS}/cmd/github.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/weixin.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/weibo.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/twitter.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/facebook.svg`} />
+    </SocialWrapper>
   )
 }
+
+const UserBrief = ({ user }) => (
+  <Wrapper>
+    <AvatarWrapper>
+      <Avatar src={user.avatar} />
+    </AvatarWrapper>
+
+    <BriefTextWrapper>
+      <UserTitle>{user.nickname}</UserTitle>
+      <UserDesc>
+        <DescLable>所在城市</DescLable> xxx
+      </UserDesc>
+      <UserDesc>
+        <DescLable>职业经历</DescLable> xxx
+      </UserDesc>
+      <UserDesc>
+        <DescLable>教育经历</DescLable> xxx
+      </UserDesc>
+      <UserDesc>
+        <DescLable>个人介绍 </DescLable>
+        {user.bio}
+      </UserDesc>
+      <SocialSpliter />
+      <UserDesc>
+        <DescLable>社交账号</DescLable>
+        <SocialIcons />
+      </UserDesc>
+    </BriefTextWrapper>
+  </Wrapper>
+)
 
 export default UserBrief

@@ -48,13 +48,15 @@ export const extractThreadFromPath = (props, uppper = true) => {
   return uppper ? R.toUpper(thread) : R.toLower(thread)
 }
 
-const defaultQuery = { page: 1, size: 20 }
+const defaultQuery = { page: '1', size: '20' }
 export const mergeRouteQuery = (query = {}) => {
   const routeQuery = R.clone(query)
   const { page, size } = routeQuery
 
-  if (page) routeQuery.page = parseInt(page, 10)
-  if (size) routeQuery.size = parseInt(size, 10)
+  /* if (page) routeQuery.page = parseInt(page, 10) */
+  /* if (size) routeQuery.size = parseInt(size, 10) */
+  if (page) routeQuery.page = String(page)
+  if (size) routeQuery.size = String(size)
 
   // { page: 2, size: 20 }
   return R.merge(defaultQuery, routeQuery)
@@ -73,6 +75,11 @@ export const queryStringToJSON = path => {
   })
 
   const json = JSON.parse(JSON.stringify(result))
+
+  /* if (json.page) json.page = String(json.page) */
+  /* if (json.size) json.size = String(json.size) */
+  /* console.log('json: ', json) */
+
   return mergeRouteQuery(json)
 }
 
