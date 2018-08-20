@@ -34,4 +34,5 @@ export const UserContributesWrapper = styled.div`
   width: 40%;
   max-width: 450px;
   margin-right: 20px;
+  margin-top: 10px;
 `

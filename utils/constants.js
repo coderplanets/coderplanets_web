@@ -96,7 +96,7 @@ export const USER_THREAD = {
   COMMENTS: 'comments',
   FAVORITES: 'favorites',
   LINKS: 'likes',
-  CUSTOMIZATIONS: 'customizations',
+  SETTINGS: 'settings',
 }
 
 export const ACTION = {

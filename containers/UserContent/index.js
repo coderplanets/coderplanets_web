@@ -10,6 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 
 import { Tabber, Button, Icon } from '../../components'
+import { UserSettings } from '..'
 
 import {
   Container,
@@ -48,8 +49,8 @@ const fakeThreads = [
     raw: 'likes',
   },
   {
-    title: '自定义',
-    raw: 'customizations',
+    title: '设置',
+    raw: 'settings',
   },
 ]
 
@@ -67,8 +68,8 @@ const TabberContent = ({ active }) => {
     case USER_THREAD.LINKS: {
       return <h2>LINKS</h2>
     }
-    case USER_THREAD.CUSTOMIZATIONS: {
-      return <h2>CUSTOMIZATIONS</h2>
+    case USER_THREAD.SETTINGS: {
+      return <UserSettings />
     }
     default: {
       return <h2>Activies</h2>
@@ -86,7 +87,6 @@ class UserContentContainer extends React.Component {
     const { userContent } = this.props
     const { activeThread } = userContent
 
-    console.log('activeThread --> ', activeThread)
     return (
       <Container>
         <MainWrapper>
@@ -101,7 +101,7 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <CardWrapper>
-            <h3>个人成就</h3>
+            <div>个人成就</div>
             <div>共获得 xx 赞</div>
             <div>创作的内容被收藏 xx 次</div>
             <br />

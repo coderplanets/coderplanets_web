@@ -60,3 +60,6 @@ export {
 export {
   default as CommunityEditorsStore,
 } from '../containers/CommunityEditors/store'
+
+// user page
+export { default as UserSettingsStore } from '../containers/UserSettings/store'

@@ -36,6 +36,18 @@ export const themeDict = {
 
 export const themeKeys = R.keys(themeDict)
 
+export const themeDescs = {
+  cyan: 'inspired by the rethinkdb.com admin panel',
+  default: 'inspired by the rethinkdb.com admin panel',
+  solarized: 'inspired by Emacs solarized theme',
+  purple: 'inspired ubuntu OS terminal',
+  yellow: 'inspired by vimawesome.com',
+  github: 'inspired by github.com',
+  blue: 'inspired by myself i think ?',
+  green: 'inspired by Olive theme from Vivaldi project',
+  ironGreen: 'inspired by dribbble: shots/2478998-Forum-Concept',
+}
+
 export const themeCoverMap = R.map(R.path(['cover']), themeDict)
 export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeDict)
 

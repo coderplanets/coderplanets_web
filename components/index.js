@@ -27,6 +27,8 @@ export { default as ThemeSelector } from './ThemeSelector'
 export { default as Tabber } from './Tabber'
 
 export { default as UserCell } from './UserCell'
+export { default as SectionLabel } from './SectionLabel'
+
 //
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { theme, smokey } from '../../../utils'
+import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -41,6 +41,8 @@ export const UserDesc = styled.div`
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : '')};
     font-weight: ${({ clickable }) => (clickable ? 'bolder' : '')};
+    color: ${({ clickable }) =>
+      clickable ? theme('banner.title') : theme('banner.desc')};
   }
 `
 
@@ -69,9 +71,10 @@ export const DetailToggleLabel = DescIconLable.extend`
 
 export const SocialSpliter = styled.div`
   border-top: 1px solid;
-  border-color: ${theme('header.spliter')};
+  border-color: ${theme('banner.desc')};
   margin-top: 4px;
-  padding-top: 5px;
+  padding-top: 8px;
+  opacity: 0.5;
 `
 
 export const SocialWrapper = styled.div`
@@ -79,9 +82,14 @@ export const SocialWrapper = styled.div`
 `
 
 export const SocialIcon = styled(Img)`
-  fill: ${theme('sidebar.bg')};
+  fill: ${theme('banner.desc')};
   width: 18px;
   height: 18px;
   margin-right: 8px;
-  ${smokey};
+
+  &:hover {
+    fill: ${theme('banner.title')};
+    cursor: pointer;
+  }
+  transition: fill 0.3s;
 `

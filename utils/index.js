@@ -76,6 +76,7 @@ export { smokey, column, columnCenter } from './common_styles'
 export {
   theme,
   themeDict,
+  themeDescs,
   themeKeys,
   themeCoverMap,
   themeCoverIndexMap,
