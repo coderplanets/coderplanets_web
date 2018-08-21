@@ -40,3 +40,4 @@ export { default as CheatSheetPaper } from './CheatSheetPaper'
 
 // user page
 export { default as UserSettings } from './UserSettings'
+export { default as UserFavorites } from './UserFavorites'

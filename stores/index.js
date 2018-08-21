@@ -63,3 +63,6 @@ export {
 
 // user page
 export { default as UserSettingsStore } from '../containers/UserSettings/store'
+export {
+  default as UserFavoritesStore,
+} from '../containers/UserFavorites/store'

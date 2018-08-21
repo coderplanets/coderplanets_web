@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 
 import { Tabber, Button, Icon } from '../../components'
-import { UserSettings } from '..'
+import { UserSettings, UserFavorites } from '..'
 
 import {
   Container,
@@ -63,7 +63,7 @@ const TabberContent = ({ active }) => {
       return <h2>COMMENTS</h2>
     }
     case USER_THREAD.FAVORITES: {
-      return <h2>FAVORITES</h2>
+      return <UserFavorites />
     }
     case USER_THREAD.LINKS: {
       return <h2>LINKS</h2>

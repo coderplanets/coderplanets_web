@@ -50,6 +50,7 @@ import {
   AccountEditorStore,
   // user page
   UserSettingsStore,
+  UserFavoritesStore,
 } from '../index'
 
 /* eslint-disable no-unused-vars */
@@ -111,6 +112,7 @@ const rootStore = t
     communityEditors: t.optional(CommunityEditorsStore, {}),
     // user page
     userSettings: t.optional(UserSettingsStore, {}),
+    userFavorites: t.optional(UserFavoritesStore, {}),
   })
   .views(self => ({
     get locale() {
