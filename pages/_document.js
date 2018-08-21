@@ -2,8 +2,6 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 /* eslint-disable */
-
-// http://image.mzliaoba.com/lib/antd.css
 export default class MyDocument extends Document {
   render() {
     const sheet = new ServerStyleSheet()
@@ -46,10 +44,6 @@ export default class MyDocument extends Document {
           <div className="root">{main}</div>
           <NextScript />
         </body>
-        <link
-          href="https://cdn.bootcss.com/mapbox-gl/0.45.0/mapbox-gl.css"
-          rel="stylesheet"
-        />
         {/* the ali-oss-sdk es6 import support sucks */}
         {/* import from cdn is fine, it's not my money anyway */}
         <script
