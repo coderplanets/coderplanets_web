@@ -21,9 +21,8 @@ import {
   EmptyThread,
   ContentFilter,
   Space,
+  PostItem,
 } from '../../components'
-
-import Item from './Item'
 
 import {
   Wrapper,
@@ -42,18 +41,17 @@ import * as logic from './logic'
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-// TODO: move to common componnet
 const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {entries.map((entry, index) => (
-            <Item
-              data={entry}
+          {entries.map(entry => (
+            <PostItem
               key={shortid.generate()}
+              entry={entry}
               active={active}
-              index={index}
+              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
             />
           ))}
         </React.Fragment>
