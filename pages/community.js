@@ -45,7 +45,7 @@ async function fetchData(props) {
   // utils
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(asPath), community }
+  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // query data
   const curCommunity = request(communityRaw, { raw: community })
@@ -66,8 +66,8 @@ export default class Index extends React.Component {
     if (!isServer) return {}
 
     console.log(
-      'SSR (community--) queryStringToJSON: ',
-      queryStringToJSON(asPath)
+      'SSR (community--) queryStringToJSON l: ',
+      queryStringToJSON(asPath, { pagi: 'number' })
     )
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const thread = getSubPath(props)
