@@ -73,7 +73,7 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
 PostItem.propTypes = {
   // https://www.npmjs.com/package/prop-types
   /* entry: PropTypes.object.isRequired, */
-  active: PropTypes.object.isRequired,
+  active: PropTypes.object,
 
   entry: PropTypes.shape({
     title: PropTypes.string,
@@ -91,6 +91,7 @@ PostItem.propTypes = {
 
 PostItem.defaultProps = {
   onTitleSelect: debug,
+  active: {},
 }
 
 export default PostItem

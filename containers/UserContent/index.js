@@ -7,10 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_ASSETS } from '../../config'
 // import Link from 'next/link'
 
 import { Tabber, Button, Icon } from '../../components'
 import { UserSettings, UserFavorites } from '..'
+
+import AchieveInfo from './AchieveInfo'
+import NumbersInfo from './NumbersInfo'
 
 import {
   Container,
@@ -18,6 +22,11 @@ import {
   TabberWrapper,
   SidebarWrapper,
   CardWrapper,
+  // TODO: move to component
+  AttactWrapper,
+  AttactIcon,
+  AttactLink,
+  AttactDivider,
 } from './styles'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
@@ -101,23 +110,36 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <CardWrapper>
-            <div>个人成就</div>
-            <div>共获得 xx 赞</div>
-            <div>创作的内容被收藏 xx 次</div>
-            <br />
-            <br />
+            <AchieveInfo />
             <Button type="primary">
               <Icon type="plus" />
               关注他
             </Button>
           </CardWrapper>
           <CardWrapper>
-            <div>关注中</div>
-            <div>关注者</div>
+            <NumbersInfo />
           </CardWrapper>
-          <CardWrapper>
-            <div>Javascript 社区编辑</div>
-          </CardWrapper>
+
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/join_at.svg`} />第 1 位会员{' '}
+            <AttactDivider /> 加入时间: 2018-08-18
+          </AttactWrapper>
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/contributer.svg`} />
+            本站源码贡献者(
+            <AttactLink
+              href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              详情
+            </AttactLink>
+            )
+          </AttactWrapper>
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/sponsor.svg`} />
+            本站赞助者(详情)
+          </AttactWrapper>
         </SidebarWrapper>
       </Container>
     )

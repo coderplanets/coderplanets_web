@@ -1,23 +1,41 @@
 import gql from 'graphql-tag'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
-`
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
-      id
+const pagedPostsRaw = `
+  query($filter: PagedArticleFilter) {
+    pagedPosts(filter: $filter) {
+      entries {
+        id
+        title
+        digest
+        insertedAt
+        updatedAt
+        views
+        author {
+          id
+          avatar
+          nickname
+        }
+        commentsParticipatorsCount
+        commentsParticipators(filter: { first: 5 }) {
+          id
+          nickname
+          avatar
+        }
+      }
+      totalCount
+      pageSize
+      pageNumber
     }
   }
 `
 
+const pagedPosts = gql`
+  ${pagedPostsRaw}
+`
+
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  pagedPosts,
+  pagedPostsRaw,
 }
 
 export default schema
