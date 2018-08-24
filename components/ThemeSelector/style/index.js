@@ -44,7 +44,7 @@ export const IntroBox = styled.div`
   margin-right: 15px;
   margin-bottom: 18px;
   height: 130px;
-  width: 200px;
+  width: 210px;
   padding: 10px;
   border-radius: 5px;
 `

@@ -1,20 +1,49 @@
 /*
-*
-* UserFavorites
-*
-*/
+ *
+ * UserFavorites
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-// import { } from './styles'
+import shortid from 'shortid'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
+
+import {
+  PostsLoading,
+  /* Pagi, */
+  /* EmptyThread, */
+  Pagi,
+  PostItem,
+} from '../../components'
 
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:UserFavorites')
 /* eslint-enable no-unused-vars */
+
+const View = ({ entries, curView, active }) => {
+  switch (curView) {
+    case TYPE.RESULT: {
+      return (
+        <React.Fragment>
+          {entries.map(entry => (
+            <PostItem
+              key={shortid.generate()}
+              entry={entry}
+              active={active}
+              onTitleSelect={debug}
+            />
+          ))}
+        </React.Fragment>
+      )
+    }
+    default:
+      return <PostsLoading num={5} />
+  }
+}
 
 class UserFavoritesContainer extends React.Component {
   componentWillMount() {
@@ -23,10 +52,25 @@ class UserFavoritesContainer extends React.Component {
   }
 
   render() {
+    const {
+      userFavorites: { pagedPostsData, curView },
+    } = this.props
+
+    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
+
     return (
       <div>
-        <h2>UserFavorites container!</h2>
-        <div>impress me!</div>
+        <React.Fragment>
+          <View entries={entries} curView={curView} />
+
+          <Pagi
+            left="-10px"
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalCount={totalCount}
+            onChange={debug}
+          />
+        </React.Fragment>
       </div>
     )
   }
