@@ -37,3 +37,7 @@ export { default as VideosThread } from './VideosThread'
 export { default as JobsThread } from './JobsThread'
 export { default as ReposThread } from './ReposThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
+
+// user page
+export { default as UserSettings } from './UserSettings'
+export { default as UserFavorites } from './UserFavorites'

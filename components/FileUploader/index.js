@@ -42,12 +42,16 @@ class FileUploader extends React.Component {
     /* eslint-disable */
     /* OSS sdk is import in _document from ali cdn */
     debug('process.env', process.env)
-    this.state.ossClient = new OSS.Wrapper({
-      region: process.env.ALI_OSS_RESION,
-      accessKeyId: process.env.ALI_ACCESS_KEY,
-      accessKeySecret: process.env.ALI_ACCESS_SECRET,
-      bucket: process.env.ALI_OSS_BUCKET,
-    })
+    try {
+      this.state.ossClient = new OSS.Wrapper({
+        region: process.env.ALI_OSS_RESION,
+        accessKeyId: process.env.ALI_ACCESS_KEY,
+        accessKeySecret: process.env.ALI_ACCESS_SECRET,
+        bucket: process.env.ALI_OSS_BUCKET,
+      })
+    } catch (e) {
+      console.error(e)
+    }
     /* eslint-enable */
   }
 

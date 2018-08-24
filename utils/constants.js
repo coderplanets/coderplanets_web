@@ -81,7 +81,6 @@ export const ROUTE = {
 }
 
 export const THREAD = {
-  __TYPES: ['post', 'job', 'video', 'repo', 'wiki', 'map', 'cheatsheet'],
   POST: 'post',
   JOB: 'job',
   VIDEO: 'video',
@@ -91,15 +90,22 @@ export const THREAD = {
   CHEATSHEET: 'cheatsheet',
 }
 
+export const USER_THREAD = {
+  ACTIVITIES: 'activities',
+  POSTS: 'posts',
+  COMMENTS: 'comments',
+  FAVORITES: 'favorites',
+  LINKS: 'likes',
+  SETTINGS: 'settings',
+}
+
 export const ACTION = {
-  __TYPES: ['FAVORITE', 'STAR', 'WATCH'],
   FAVORITE: 'FAVORITE',
   STAR: 'STAR',
   WATCH: 'WATCH',
 }
 
 export const FILTER = {
-  __TYPES: ['ASC_INSERTED', 'DESC_INSERTED', 'MOST_LIKES', 'MOST_DISLIKES'],
   // when
   TODAY: 'TODAY',
   THIS_WEEK: 'THIS_WEEK',

@@ -10,10 +10,9 @@ import {
   dispatchEvent,
   thread2Subpath,
   THREAD,
-  BStore,
 } from '../../utils'
 
-import { GRAPHQL_ENDPOINT } from '../../config'
+/* import { GRAPHQL_ENDPOINT } from '../../config' */
 
 import S from './schema'
 
@@ -45,16 +44,18 @@ export function onCommunitySelect(community) {
 }
 
 export function loadSubscribedCommunities() {
-  const user = BStore.get('user')
+  /* const user = BStore.get('user') */
+  const user = store.accountInfo
+  /* console.log('store.accountInfo in sidebar: ', store.accountInfo) */
 
   const args = {
     filter: { page: 1, size: 30 },
   }
-  if (user) {
+  if (user.id) {
     args.userId = user.id
     args.filter.size = 20
   }
-  console.log('loadSubscribedCommunities: ', GRAPHQL_ENDPOINT)
+  /* console.log('loadSubscribedCommunities: ', GRAPHQL_ENDPOINT) */
   sr71$.query(S.subscribedCommunities, args)
 }
 

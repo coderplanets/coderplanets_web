@@ -48,11 +48,14 @@ class UserBannerContainer extends React.Component {
   }
 
   render() {
+    const { userBanner } = this.props
+    const { viewingUser, showDetail } = userBanner
+
     return (
       <BannerContainer>
         <BannerContentWrapper>
           <UserBriefWrapper>
-            <UserBrief />
+            <UserBrief user={viewingUser} showDetail={showDetail} />
           </UserBriefWrapper>
           <UserContributesWrapper>
             <UserContributeMap data={fakeRecors} />

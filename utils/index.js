@@ -2,7 +2,16 @@
  * utils functiosn
  */
 
-export { EVENT, ERR, TYPE, THREAD, ACTION, FILTER, ROUTE } from './constants'
+export {
+  EVENT,
+  ERR,
+  TYPE,
+  THREAD,
+  USER_THREAD,
+  ACTION,
+  FILTER,
+  ROUTE,
+} from './constants'
 
 export { makeDebugger } from './debug'
 
@@ -67,6 +76,7 @@ export { smokey, column, columnCenter } from './common_styles'
 export {
   theme,
   themeDict,
+  themeDescs,
   themeKeys,
   themeCoverMap,
   themeCoverIndexMap,

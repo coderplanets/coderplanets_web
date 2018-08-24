@@ -30,20 +30,32 @@ export const Container = styled.aside`
 
 export const Header = styled.div`
   display: flex;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 `
 
 export const HeaderFuncs = styled.div`
+  display: flex;
   flex-grow: 1;
-  &:hover {
-    cursor: pointer;
-  }
 `
 
 export const PinIconWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }
+`
+
+export const SiteLogoWrapper = styled.div`
+  margin-left: 15px;
+  display: ${({ pin }) => (pin ? 'none' : 'block')};
+  ${Container}:hover & {
+    display: none;
+  }
+`
+
+export const SiteLogo = styled(Img)`
+  width: 25px;
+  height: 25px;
 `
 
 export const PinIcon = styled(Img)`
@@ -63,6 +75,32 @@ export const PinIcon = styled(Img)`
     visibility: visible;
     opacity: 1;
   }
+`
+
+export const ExploreWrapper = styled.div`
+  padding-left: 16px;
+  visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
+  opacity: ${({ pin }) => (pin ? 1 : 0)};
+
+  ${Container}:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
+`
+
+export const ExploreContent = styled.div`
+  display: flex;
+`
+
+export const ExploreText = styled.div`
+  margin-top: -2px;
+`
+export const ExploreIcon = styled(Img)`
+  fill: ${theme('button.primary')};
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  margin-top: 3px;
 `
 
 export const MenuItem = styled.ul`
@@ -146,18 +184,14 @@ export const MiniChartText = styled.div`
   }
 `
 
-export const SVGIconWrapper = styled.div`
-  margin-top: 5px;
-  opacity: ${({ active }) => (active ? 1 : 0.5)};
-  > svg {
-    width: 22px;
-    height: 22px;
-  }
-`
-
 export const MenuItemIcon = styled(Img)`
   opacity: ${({ active }) => (active ? 1 : 0.5)};
   margin-top: 1em;
   width: 22px;
   height: 22px;
+
+  ${MenuRow}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.2s;
 `

@@ -7,9 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_ASSETS } from '../../config'
 // import Link from 'next/link'
 
 import { Tabber, Button, Icon } from '../../components'
+import { UserSettings, UserFavorites } from '..'
+
+import AchieveInfo from './AchieveInfo'
+import NumbersInfo from './NumbersInfo'
 
 import {
   Container,
@@ -17,9 +22,14 @@ import {
   TabberWrapper,
   SidebarWrapper,
   CardWrapper,
+  // TODO: move to component
+  AttactWrapper,
+  AttactIcon,
+  AttactLink,
+  AttactDivider,
 } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -29,64 +39,107 @@ const debug = makeDebugger('C:UserContent')
 const fakeThreads = [
   {
     title: '动态',
-    raw: 'activity',
+    raw: 'activities',
   },
   {
     title: '帖子',
-    raw: 'post',
+    raw: 'posts',
   },
   {
     title: '评论',
-    raw: 'comment',
+    raw: 'comments',
   },
   {
     title: '收藏',
-    raw: 'favorite',
+    raw: 'favorites',
   },
   {
     title: '喜欢',
-    raw: 'like',
+    raw: 'likes',
   },
   {
-    title: '自定义',
-    raw: 'customization',
+    title: '设置',
+    raw: 'settings',
   },
 ]
 
+const TabberContent = ({ active }) => {
+  switch (active) {
+    case USER_THREAD.POSTS: {
+      return <h2>POSTS</h2>
+    }
+    case USER_THREAD.COMMENTS: {
+      return <h2>COMMENTS</h2>
+    }
+    case USER_THREAD.FAVORITES: {
+      return <UserFavorites />
+    }
+    case USER_THREAD.LINKS: {
+      return <h2>LINKS</h2>
+    }
+    case USER_THREAD.SETTINGS: {
+      return <UserSettings />
+    }
+    default: {
+      return <h2>Activies</h2>
+    }
+  }
+}
+
 class UserContentContainer extends React.Component {
   componentWillMount() {
-    const userContent = this.props
+    const { userContent } = this.props
     logic.init(userContent)
   }
 
   render() {
+    const { userContent } = this.props
+    const { activeThread } = userContent
+
     return (
       <Container>
         <MainWrapper>
           <TabberWrapper className="tabs-with-bottom">
-            <Tabber source={fakeThreads} onChange={debug} active="activity" />
+            <Tabber
+              source={fakeThreads}
+              onChange={logic.tabChange}
+              active={activeThread}
+            />
           </TabberWrapper>
-          <h2>UserContent container!</h2>
+          <TabberContent active={activeThread} />
         </MainWrapper>
         <SidebarWrapper>
           <CardWrapper>
-            <h3>个人成就</h3>
-            <div>共获得 xx 赞</div>
-            <div>创作的内容被收藏 xx 次</div>
-            <br />
-            <br />
+            <AchieveInfo />
             <Button type="primary">
               <Icon type="plus" />
               关注他
             </Button>
           </CardWrapper>
           <CardWrapper>
-            <div>关注中</div>
-            <div>关注者</div>
+            <NumbersInfo />
           </CardWrapper>
-          <CardWrapper>
-            <div>Javascript 社区编辑</div>
-          </CardWrapper>
+
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/join_at.svg`} />第 1 位会员{' '}
+            <AttactDivider /> 加入时间: 2018-08-18
+          </AttactWrapper>
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/contributer.svg`} />
+            本站源码贡献者(
+            <AttactLink
+              href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              详情
+            </AttactLink>
+            )
+          </AttactWrapper>
+          <AttactWrapper>
+            <AttactIcon src={`${ICON_ASSETS}/cmd/sponsor.svg`} />
+            本站赞助者(详情)
+          </AttactWrapper>
         </SidebarWrapper>
       </Container>
     )

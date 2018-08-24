@@ -24,6 +24,7 @@ import {
   PostBannerStore,
   CommunityBannerStore,
   CommunitiesBannerStore,
+  UserBannerStore,
 
   // threads
   PostsThreadStore,
@@ -34,6 +35,7 @@ import {
   PostContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
+  UserContentStore,
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
@@ -46,6 +48,9 @@ import {
   SidebarStore,
   TypeWriterStore,
   AccountEditorStore,
+  // user page
+  UserSettingsStore,
+  UserFavoritesStore,
 } from '../index'
 
 /* eslint-disable no-unused-vars */
@@ -85,11 +90,13 @@ const rootStore = t
     postBanner: t.optional(PostBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
+    userBanner: t.optional(UserBannerStore, {}),
 
     // content
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
+    userContent: t.optional(UserContentStore, {}),
     // content end
 
     // threads
@@ -103,6 +110,9 @@ const rootStore = t
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
     communityEditors: t.optional(CommunityEditorsStore, {}),
+    // user page
+    userSettings: t.optional(UserSettingsStore, {}),
+    userFavorites: t.optional(UserFavoritesStore, {}),
   })
   .views(self => ({
     get locale() {
