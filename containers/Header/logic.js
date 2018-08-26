@@ -83,6 +83,11 @@ export function openDoraemon() {
   store.openDoraemon()
 }
 
+export function upgradeHepler() {
+  debug('upgradeHepler')
+  store.upgradeHepler()
+}
+
 const DataSolver = [
   {
     match: asyncRes('sessionState'),

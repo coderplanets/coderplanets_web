@@ -29,6 +29,10 @@ const SocialIcons = () => {
       <SocialIcon src={`${ICON_ASSETS}/cmd/weibo.svg`} />
       <SocialIcon src={`${ICON_ASSETS}/cmd/twitter.svg`} />
       <SocialIcon src={`${ICON_ASSETS}/cmd/facebook.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/zhihu.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/dribble.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/huaban.svg`} />
+      <SocialIcon src={`${ICON_ASSETS}/cmd/douban.svg`} />
     </SocialWrapper>
   )
 }

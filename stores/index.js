@@ -13,6 +13,9 @@ export { default as PreviewStore } from '../containers/Preview/store'
 export { default as DoraemonStore } from '../containers/Doraemon/store'
 export { default as HeaderStore } from '../containers/Header/store'
 export { default as ContentStore } from '../containers/Content/store'
+export {
+  default as UpgradePackgesStore,
+} from '../containers/UpgradePackges/store'
 
 // banners store
 export { default as BannerStore } from '../containers/Banner/store'

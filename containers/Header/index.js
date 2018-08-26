@@ -10,7 +10,8 @@ import keydown from 'react-keydown'
 import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config/assets'
-import { Affix, Navigator } from '../../components'
+import { UpgradePackges } from '..'
+import { Affix, Navigator, Button } from '../../components'
 
 import { makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 
@@ -79,6 +80,10 @@ const Header = ({
     </RouterWrapper>
     <Admin>
       <div style={{ display: 'flex' }}>
+        <Button size="small" type="primary" ghost onClick={logic.upgradeHepler}>
+          upgrade
+        </Button>
+        &nbsp;&nbsp;&nbsp;
         <StateButton
           size="small"
           type="primary"
@@ -88,7 +93,6 @@ const Header = ({
           <StateIcon src={`${ICON_ASSETS}/cmd/header_state.svg`} />
           <div>STATE</div>
         </StateButton>
-
         <DividerIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
       </div>
     </Admin>
@@ -141,6 +145,7 @@ class HeaderContainer extends React.Component {
 
     return (
       <div id={TYPE.APP_HEADER_ID}>
+        <UpgradePackges />
         <AffixHeader fixed={fixed}>
           <Affix>
             <Header

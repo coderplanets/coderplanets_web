@@ -48,6 +48,7 @@ import {
   SidebarStore,
   TypeWriterStore,
   AccountEditorStore,
+  UpgradePackgesStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -76,6 +77,7 @@ const rootStore = t
     doraemon: t.optional(DoraemonStore, {}),
     typeWriter: t.optional(TypeWriterStore, {}),
     accountEditor: t.optional(AccountEditorStore, {}),
+    upgradePackges: t.optional(UpgradePackgesStore, {}),
     // toolbox end
 
     // layouts > xxx > papers
@@ -171,6 +173,9 @@ const rootStore = t
     },
     setViewing(sobj) {
       self.viewing.setViewing(sobj)
+    },
+    upgradeHepler() {
+      self.upgradePackges.upgradeHepler()
     },
     markState(sobj) {
       markStates(sobj, self)

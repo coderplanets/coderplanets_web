@@ -36,8 +36,9 @@ export const User = t.model('User', {
   avatar: t.maybeNull(t.string),
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
-  company: t.maybeNull(t.string),
-  education: t.maybeNull(t.string),
+  // TODO: backgrounds
+  /* company: t.maybeNull(t.string), */
+  /* education: t.maybeNull(t.string), */
   sex: t.maybeNull(t.string),
   qq: t.maybeNull(t.string),
   weichat: t.maybeNull(t.string),
