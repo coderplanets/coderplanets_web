@@ -30,6 +30,7 @@ export const LabelIcon = styled(Img)`
   height: 18px;
   margin-right: 5px;
   margin-left: 5px;
+  margin-top: 2px;
 `
 
 export const Desc = styled.div`

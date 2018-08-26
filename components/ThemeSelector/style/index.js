@@ -47,6 +47,11 @@ export const IntroBox = styled.div`
   width: 210px;
   padding: 10px;
   border-radius: 5px;
+  &:hover {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: ${theme('banner.desc')};
+  }
 `
 
 export const IntroDesc = styled.div`

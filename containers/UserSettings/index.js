@@ -33,15 +33,19 @@ class UserSettingsContainer extends React.Component {
         <SectionLabel
           title="主题设置"
           iconSrc={`${ICON_ASSETS}/cmd/setting_theme.svg`}
-          desc="请注意：付费主题可以随意预览，但是设置不会被保存."
+          desc="请注意：付费主题可以随意预览，但是设置不会被保存。"
         />
         <ThemeSelector
           curTheme={curTheme}
           changeTheme={logic.changeTheme}
           displayStyle="detail"
         />
-        <div>默认主题设置!</div>
-        <div>显示广告设置</div>
+        <SectionLabel
+          title="打赏设置"
+          iconSrc={`${ICON_ASSETS}/cmd/dashang.svg`}
+          desc="支持支付宝、微信支付，打赏按钮会在创作内容的末尾显示, 限付费用户。"
+        />
+        <div>TODO: use jianshu style</div>
       </div>
     )
   }
