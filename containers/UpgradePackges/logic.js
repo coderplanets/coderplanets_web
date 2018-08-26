@@ -3,18 +3,22 @@
 import { makeDebugger, $solver } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+/* import S from './schema' */
 
 const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:{{ properCase name }}')
+const debug = makeDebugger('L:UpgradePackges')
 /* eslint-enable no-unused-vars */
 
 let store = null
 
-export function someMethod() {}
+export function close() {
+  store.markState({
+    show: !store.show,
+  })
+}
 
 // ###############################
 // Data & Error handlers

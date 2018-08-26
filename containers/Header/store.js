@@ -78,6 +78,9 @@ const HeaderStore = t
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
+    upgradeHepler() {
+      self.root.upgradeHepler()
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

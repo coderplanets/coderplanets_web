@@ -43,9 +43,10 @@ class UserSettingsContainer extends React.Component {
         <SectionLabel
           title="打赏设置"
           iconSrc={`${ICON_ASSETS}/cmd/dashang.svg`}
-          desc="支持支付宝、微信支付，打赏按钮会在创作内容的末尾显示, 限付费用户。"
+          desc="仅支持原创内容， 链接分享、转载等不支持打赏设置。"
         />
-        <div>TODO: use jianshu style</div>
+        <div>打赏功能： 开启 / 关闭</div>
+        <div>打赏金额： xx 元</div>
       </div>
     )
   }
