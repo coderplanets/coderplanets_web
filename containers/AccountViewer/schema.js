@@ -8,8 +8,6 @@ const userRaw = `
       avatar
       bio
       fromGithub
-      company
-      education
       location
       qq
       weibo
@@ -39,8 +37,6 @@ const user = gql`
 const account = gql`
   query account {
     account {
-      company
-      education
       location
       qq
       weibo

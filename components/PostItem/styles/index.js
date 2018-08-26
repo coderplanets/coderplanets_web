@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+import { Img } from '../..'
 import { theme } from '../../../utils'
+
+/* background: ${({ index }) => */
+/* index % 2 === 0 ? theme('thread.articleStrip') : ''}; */
 
 export const Wrapper = styled.article`
   display: flex;
@@ -12,8 +15,6 @@ export const Wrapper = styled.article`
   border-radius: 4px;
   background: ${({ current, active }) =>
     current.id === active.id ? theme('thread.articleHover') : ''};
-  background: ${({ index }) =>
-    index % 2 === 0 ? theme('thread.articleStrip') : ''};
   opacity: ${({ current, active }) =>
     active.id && current.id !== active.id ? 0.6 : 1};
 

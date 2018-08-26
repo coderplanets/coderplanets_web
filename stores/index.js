@@ -13,6 +13,9 @@ export { default as PreviewStore } from '../containers/Preview/store'
 export { default as DoraemonStore } from '../containers/Doraemon/store'
 export { default as HeaderStore } from '../containers/Header/store'
 export { default as ContentStore } from '../containers/Content/store'
+export {
+  default as UpgradePackgesStore,
+} from '../containers/UpgradePackges/store'
 
 // banners store
 export { default as BannerStore } from '../containers/Banner/store'
@@ -23,6 +26,7 @@ export {
 export {
   default as CommunitiesBannerStore,
 } from '../containers/CommunitiesBanner/store'
+export { default as UserBannerStore } from '../containers/UserBanner/store'
 
 // contents store
 export {
@@ -32,6 +36,7 @@ export {
   default as CheatSheetContentStore,
 } from '../containers/CheatSheetContent/store'
 export { default as PostContentStore } from '../containers/PostContent/store'
+export { default as UserContentStore } from '../containers/UserContent/store'
 
 // threads store
 export { default as PostsThreadStore } from '../containers/PostsThread/store'
@@ -58,3 +63,9 @@ export {
 export {
   default as CommunityEditorsStore,
 } from '../containers/CommunityEditors/store'
+
+// user page
+export { default as UserSettingsStore } from '../containers/UserSettings/store'
+export {
+  default as UserFavoritesStore,
+} from '../containers/UserFavorites/store'

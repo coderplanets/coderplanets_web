@@ -12,6 +12,7 @@ import {
   queryStringToJSON,
   /* nilOrEmpty, */
   getSubPath,
+  USER_THREAD,
   /* BStore, */
   ROUTE,
 } from '../utils'
@@ -41,15 +42,12 @@ async function fetchData(props) {
   /* const thread = extractThreadFromPath(props) */
   /* const category = getSubPath(props) */
 
-  const { asPath } = props
-  const filter = { ...queryStringToJSON(asPath) }
+  /* const { asPath } = props */
+  //   const filter = { ...queryStringToJSON(asPath) }
   const token = null // BStore.cookie.from_req(req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
-  console.log('filter: ', filter)
   const userId = getSubPath(props)
-  console.log('getSubPath --> userId: ', userId)
-
   const user = gqClient
     .request(AccountSchema.userRaw, {
       id: userId,
@@ -71,21 +69,16 @@ export default class UserPage extends React.Component {
     if (!isServer) return {}
 
     console.log('SSR (user) queryStringToJSON: ', queryStringToJSON(asPath))
-    /* console.log('props --> ', props.req.headers.cookie) */
-    /* console.log( */
-    /* 'read_from(BStore cookie)--> ', */
-    /* read_from(props.req.headers.cookie, '_ga') */
-    /* BStore.cookie.from_req(props.req, 'jwtToken') */
-    /* ) */
-
-    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
+    const query = queryStringToJSON(asPath)
 
     const { user } = await fetchData(props)
-    console.log('fetchData user: ', user)
+    /* console.log('fetchData user: ', user) */
 
     return {
       langSetup: {},
-      route: { mainPath: ROUTE.USER, subPath: user.id },
+      route: { mainPath: ROUTE.USER, subPath: user.id, query },
+      userContent: { activeThread: query.tab || USER_THREAD.POSTS },
+      viewing: { user },
     }
   }
 

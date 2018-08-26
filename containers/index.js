@@ -15,6 +15,7 @@ export { default as Preview } from './Preview'
 export { default as Sidebar } from './Sidebar'
 export { default as Doraemon } from './Doraemon'
 export { default as CommunityEditors } from './CommunityEditors'
+export { default as UpgradePackges } from './UpgradePackges'
 
 export { default as ArticleViwer } from './ArticleViwer'
 export { default as AccountEditor } from './AccountEditor'
@@ -37,3 +38,7 @@ export { default as VideosThread } from './VideosThread'
 export { default as JobsThread } from './JobsThread'
 export { default as ReposThread } from './ReposThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
+
+// user page
+export { default as UserSettings } from './UserSettings'
+export { default as UserFavorites } from './UserFavorites'

@@ -8,7 +8,11 @@ export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'
 export { Space, SpaceGrow } from './BaseStyled'
 
+// items
+export { default as PostItem } from './PostItem'
+
 // Utils component
+export { default as ErrorPage } from './ErrorPage'
 export { default as OauthHinter } from './OauthHinter'
 export { default as MarkDownRender } from './MarkDownRender'
 export { default as ContentFilter } from './ContentFilter'
@@ -26,6 +30,8 @@ export { default as ThemeSelector } from './ThemeSelector'
 export { default as Tabber } from './Tabber'
 
 export { default as UserCell } from './UserCell'
+export { default as SectionLabel } from './SectionLabel'
+
 //
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 

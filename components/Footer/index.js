@@ -91,12 +91,12 @@ class Footer extends React.Component {
             </PowerbyLink>
           </Powerby>
           <Divider>|</Divider>
-          <Support onClick={this.toggleSupport.bind(this)}>资助</Support>
+          <Support onClick={this.toggleSupport.bind(this)}>打赏</Support>
           <Divider>|</Divider>
           <GitSource>
             <iframe
               title="souce_attr"
-              src="https://ghbtns.com/github-btn.html?user=mydearxym&repo=mastani_web&type=star&count=true"
+              src="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_web&type=star&count=true"
               frameBorder="0"
               scrolling="0"
               width="80px"
