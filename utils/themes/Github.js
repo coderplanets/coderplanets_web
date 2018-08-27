@@ -251,6 +251,7 @@ const Github = {
     text: descText,
     label: primaryColor,
     border: descText,
+    shadow: 'rgba(184, 198, 192, 0.3)',
   },
   a: {
     hover: primaryColor,

@@ -16,6 +16,8 @@ const debug = makeDebugger('S:AccountEditorStore')
 const AccountEditorStore = t
   .model('AccountEditorStore', {
     user: t.optional(User, {}),
+    showSocials: t.optional(t.boolean, false),
+
     updating: t.optional(t.boolean, false),
     success: t.optional(t.boolean, false),
     error: t.optional(t.boolean, false),

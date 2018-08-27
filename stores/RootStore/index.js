@@ -36,6 +36,8 @@ import {
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
+  // footer
+  FooterStore,
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
@@ -101,6 +103,8 @@ const rootStore = t
     userContent: t.optional(UserContentStore, {}),
     // content end
 
+    // footer
+    footer: t.optional(FooterStore, {}),
     // threads
     postsThread: t.optional(PostsThreadStore, {}),
     videosThread: t.optional(VideosThreadStore, {}),
@@ -176,6 +180,9 @@ const rootStore = t
     },
     upgradeHepler() {
       self.upgradePackges.upgradeHepler()
+    },
+    sponsorHepler() {
+      self.footer.sponsorHepler()
     },
     markState(sobj) {
       markStates(sobj, self)

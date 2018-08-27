@@ -5,10 +5,9 @@
  */
 
 import React from 'react'
+import { inject, observer } from 'mobx-react'
 
-import { makeDebugger } from '../../utils'
-
-import { BuyMeChuanChuan } from '..'
+import { BuyMeChuanChuan } from '../../components'
 
 import {
   Container,
@@ -22,28 +21,29 @@ import {
   PowerbyLink,
   GitSource,
 } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
+
+import * as logic from './logic'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('c:Footer:index')
+const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
 
-class Footer extends React.Component {
-  componentDidMount() {}
-
-  state = {
-    showSupport: false,
-  }
-
-  toggleSupport() {
-    this.setState(prevState => ({ showSupport: !prevState.showSupport }))
+class FooterContainer extends React.Component {
+  componentWillMount() {
+    const { footer } = this.props
+    logic.init(footer)
   }
 
   render() {
-    const { showSupport } = this.state
+    const { footer } = this.props
+
+    const { showSponsor } = footer
     return (
       <Container>
         <BuyMeChuanChuan
-          show={showSupport}
-          onClose={this.toggleSupport.bind(this)}
+          show={showSponsor}
+          onClose={logic.toggleSponsorHelper}
         />
         <BaseInfo>
           <Beian
@@ -91,7 +91,7 @@ class Footer extends React.Component {
             </PowerbyLink>
           </Powerby>
           <Divider>|</Divider>
-          <Support onClick={this.toggleSupport.bind(this)}>打赏</Support>
+          <Support onClick={logic.toggleSponsorHelper}>打赏</Support>
           <Divider>|</Divider>
           <GitSource>
             <iframe
@@ -109,4 +109,4 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer
+export default inject(storePlug('footer'))(observer(FooterContainer))

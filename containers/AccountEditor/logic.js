@@ -90,9 +90,16 @@ export function updateDone() {
   store.updateOrign(editing)
 }
 
+export function toggleSocials() {
+  store.markState({
+    showSocials: !store.showSocials,
+  })
+}
+
 const cancleLoading = () => {
   store.markState({ updating: false })
 }
+
 const DataSolver = [
   {
     match: asyncRes('updateProfile'),

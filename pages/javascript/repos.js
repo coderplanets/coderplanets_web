@@ -25,12 +25,12 @@ import {
   Header,
   Banner,
   Content,
+  Footer,
 } from '../../containers'
 
 import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import ReposThreadSchema from '../../containers/ReposThread/schema'
 
-import Footer from '../../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
