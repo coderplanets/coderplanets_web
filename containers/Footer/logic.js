@@ -3,24 +3,21 @@
 import { makeDebugger, $solver } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
+// import S from './schema'
+
 const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:UserSettings')
+const debug = makeDebugger('L:Footer2')
 /* eslint-enable no-unused-vars */
 
 let store = null
 
-export function changeTheme(theme) {
-  store.changeTheme(theme)
-}
-
-export function upgradeHepler() {
-  store.upgradeHepler()
-}
-export function sponsorHepler() {
-  store.sponsorHepler()
+export function toggleSponsorHelper() {
+  store.markState({
+    showSponsor: !store.showSponsor,
+  })
 }
 
 // ###############################

@@ -252,6 +252,7 @@ const SolarizedDark = {
     text: '#617F82',
     label: '#617F82',
     border: '#005256',
+    shadow: 'rgba(184, 198, 192, 0.3)',
   },
   a: {
     hover: primaryColor,

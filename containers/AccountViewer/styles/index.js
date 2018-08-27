@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 
 export const AccountWrapper = styled.div`
-  height: 100%;
+  height: auto;
   min-height: 100vh;
   background: ${theme('preview.accountBg')};
   padding: 22px;

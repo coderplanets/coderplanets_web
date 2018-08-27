@@ -18,7 +18,7 @@ const debug = makeDebugger('c:SectionLabel:index')
 /* eslint-enable no-unused-vars */
 
 // `${ICON_ASSETS}/cmd/setting_theme.svg`
-const SectionLabel = ({ title, iconSrc, desc }) => (
+const SectionLabel = ({ title, iconSrc, desc, node }) => (
   <Wrapper>
     <Label>
       <LabelIcon src={iconSrc} />
@@ -26,6 +26,7 @@ const SectionLabel = ({ title, iconSrc, desc }) => (
     </Label>
     <Divider />
     {R.isEmpty(desc) ? null : <Desc>{desc}</Desc>}
+    {R.isEmpty(node) ? null : <React.Fragment>{node}</React.Fragment>}
   </Wrapper>
 )
 
@@ -34,11 +35,13 @@ SectionLabel.propTypes = {
   title: PropTypes.string.isRequired,
   iconSrc: PropTypes.string,
   desc: PropTypes.string,
+  node: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 SectionLabel.defaultProps = {
   iconSrc: `${ICON_ASSETS}/cmd/setting_theme.svg`,
   desc: '',
+  node: '',
 }
 
 export default SectionLabel

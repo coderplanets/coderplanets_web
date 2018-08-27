@@ -253,6 +253,7 @@ const Cyan = {
     text: '#88a4ad',
     label: '#88a4ad',
     border: '#B8C6C0',
+    shadow: 'rgba(184, 198, 192, 0.3)',
   },
   a: {
     hover: primaryColor,

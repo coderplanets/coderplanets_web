@@ -44,4 +44,4 @@ export {
 } from './LoadingEffects'
 
 // UI library (currently use antd)
-export { Button, Affix, Tabs, Tooltip, Icon, Input } from 'antd'
+export { Button, Affix, Tabs, Tooltip, Icon, Input, Radio } from 'antd'

@@ -26,22 +26,22 @@ import {
   Header,
   Banner,
   Content,
+  Footer,
 } from '../containers'
 
 import CommunitiesSchema from '../containers/CommunitiesContent/schema'
 /* import PostsThreadSchema from '../containers/PostsThread/schema' */
 
-import Footer from '../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
+async function fetchData({ asPath, req }) {
   /* const community = getMainPath(props) */
   /* const thread = extractThreadFromPath(props) */
   /* const category = getSubPath(props) */
-  const filter = { ...queryStringToJSON(props.asPath) }
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const filter = { ...queryStringToJSON(asPath) }
+  const token = BStore.cookie.from_req(req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
   const pagedCommunities = gqClient.request(
@@ -68,11 +68,11 @@ export default class Index extends React.Component {
       queryStringToJSON(asPath)
     )
     /* console.log('props --> ', props.req.headers.cookie) */
-    console.log(
-      'read_from(BStore cookie)--> ',
-      /* read_from(props.req.headers.cookie, '_ga') */
-      BStore.cookie.from_req(props.req, 'jwtToken')
-    )
+    /* console.log( */
+    /* 'read_from(BStore cookie)--> ', */
+    /* read_from(props.req.headers.cookie, '_ga') */
+    /* BStore.cookie.from_req(props.req, 'jwtToken') */
+    /* ) */
 
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const category = getSubPath(props)

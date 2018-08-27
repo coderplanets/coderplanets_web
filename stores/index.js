@@ -38,6 +38,9 @@ export {
 export { default as PostContentStore } from '../containers/PostContent/store'
 export { default as UserContentStore } from '../containers/UserContent/store'
 
+// footer
+export { default as FooterStore } from '../containers/Footer/store'
+
 // threads store
 export { default as PostsThreadStore } from '../containers/PostsThread/store'
 export { default as VideosThreadStore } from '../containers/VideosThread/store'

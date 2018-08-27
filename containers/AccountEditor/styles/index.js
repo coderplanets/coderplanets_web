@@ -6,7 +6,7 @@ import { Animate, theme } from '../../../utils'
 export const Wrapper = styled.div`
   padding-top: 20px;
   padding-bottom: 50px;
-  height: 100%;
+  height: auto;
   min-height: 80vh;
   margin-top: 15px;
   margin-left: 15px;
@@ -81,10 +81,12 @@ export const FormItemWrapper = styled.div`
   margin-bottom: 25px;
 `
 export const FormLable = styled.div`
-  font-size: 1em;
+  font-size: 0.9rem;
   color: ${theme('form.label')};
   margin-right: 10px;
   margin-top: 5px;
+  width: auto;
+  text-align: right;
 `
 
 export const FormInput = styled.div`

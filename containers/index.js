@@ -32,6 +32,9 @@ export { default as UserContent } from './UserContent'
 export { default as CommunitiesContent } from './CommunitiesContent'
 export { default as PostContent } from './PostContent'
 
+// footer
+export { default as Footer } from './Footer'
+
 /* threads */
 export { default as PostsThread } from './PostsThread'
 export { default as VideosThread } from './VideosThread'
