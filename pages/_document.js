@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           />
           <title>cps</title>
           <link
-            href="https://cdn.bootcss.com/antd/3.1.4/antd.css"
+            href="https://cdn.jsdelivr.net/npm/antd@3.1.4/dist/antd.min.css"
             rel="stylesheet"
           />
           <script
@@ -44,6 +44,15 @@ export default class MyDocument extends Document {
           <div className="root">{main}</div>
           <NextScript />
         </body>
+        {/* load iziToast from CDN */}
+        <script
+          async
+          src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"
+        />
+        <link
+          href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css"
+          rel="stylesheet"
+        />
         {/* the ali-oss-sdk es6 import support sucks */}
         {/* import from cdn is fine, it's not my money anyway */}
         <script

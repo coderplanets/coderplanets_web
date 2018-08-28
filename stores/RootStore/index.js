@@ -4,8 +4,15 @@
  */
 
 import { types as t } from 'mobx-state-tree'
+import R from 'ramda'
 
-import { makeDebugger, markStates } from '../../utils'
+import {
+  makeDebugger,
+  markStates,
+  toast,
+  toastBarColor,
+  themeDict,
+} from '../../utils'
 
 import {
   // domain
@@ -183,6 +190,13 @@ const rootStore = t
     },
     sponsorHepler() {
       self.footer.sponsorHepler()
+    },
+    toast(type, options = {}) {
+      const themeData = themeDict[self.theme.curTheme]
+      const progressBarColor = toastBarColor(type, themeData)
+
+      const toastOpt = R.merge(options, { progressBarColor })
+      toast[type](toastOpt)
     },
     markState(sobj) {
       markStates(sobj, self)

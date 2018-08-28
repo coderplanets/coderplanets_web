@@ -8,7 +8,14 @@ export { Job, PagedJobs } from './Job'
 export { Tag, PagedTags } from './Tag'
 export { Category, PagedCategories } from './Category'
 
-export { EmptyUser, User, PagedUsers, SimpleUser } from './User'
+export {
+  EmptyUser,
+  User,
+  PagedUsers,
+  SimpleUser,
+  EduBackground,
+  WorkBackground,
+} from './User'
 
 export const emptyPagiData = {
   entries: [],

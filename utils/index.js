@@ -33,7 +33,10 @@ export {
   debounce,
   extractMentions,
   extractAttachments,
+  objAlreadyExsits,
 } from './functions'
+
+export { toast, toastBarColor } from './toast'
 
 export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
 

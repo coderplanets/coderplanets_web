@@ -1,4 +1,6 @@
 import React from 'react'
+import R from 'ramda'
+import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config'
 import { Input } from '../../components'
@@ -19,61 +21,59 @@ import {
 
 import * as logic from './logic'
 
-const FormItem = ({ label, onChange }) => (
+const FormItem = ({ label, data, mainChange, subChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
 
     <FormInput>
       <Input
         size="default"
-        defaultValue=""
+        value={data.school}
         placeholder="学校"
-        onChange={onChange}
+        onChange={mainChange}
       />
       &nbsp;&nbsp;
       <Input
         size="default"
-        defaultValue=""
+        value={data.major}
         placeholder="专业"
-        onChange={onChange}
+        onChange={subChange}
       />
-      <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+      <div onClick={logic.addBg.bind(this, 'education')}>
+        <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+      </div>
     </FormInput>
   </FormItemWrapper>
 )
 
-const BackgroundList = () => {
+const BackgroundList = ({ list }) => {
+  if (R.isEmpty(list)) return null
   return (
     <BackgroundsWrapper>
-      <BackgroundItem>
-        <BgTitle>斯坦福大学</BgTitle>
-        <BgDivider>·</BgDivider>
-        <BgDesc>电气工程师</BgDesc>
-        <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
-      </BackgroundItem>
-
-      <BackgroundItem>
-        <BgTitle>加州理工</BgTitle>
-        <BgDivider>·</BgDivider>
-        <BgDesc>动物医学</BgDesc>
-        <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
-      </BackgroundItem>
+      {list.map(item => (
+        <BackgroundItem key={shortid.generate()}>
+          <BgTitle>{item.school}</BgTitle>
+          <BgDivider>·</BgDivider>
+          <BgDesc>{item.major}</BgDesc>
+          <div onClick={logic.removeEduBg.bind(this, item.school, item.major)}>
+            <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+          </div>
+        </BackgroundItem>
+      ))}
     </BackgroundsWrapper>
   )
 }
 
-const EducationEditor = ({ accountInfo }) => {
-  return (
-    <Wrapper>
-      <FormItem
-        label="教育经历:"
-        value={accountInfo.qq}
-        icon="qq"
-        onChange={logic.profileChange('qq')}
-      />
-      <BackgroundList />
-    </Wrapper>
-  )
-}
+const EducationEditor = ({ accountInfo, data }) => (
+  <Wrapper>
+    <FormItem
+      label="教育经历:"
+      data={data}
+      mainChange={logic.updateBg.bind(this, 'educationBg', 'school')}
+      subChange={logic.updateBg.bind(this, 'educationBg', 'major')}
+    />
+    <BackgroundList list={accountInfo.educationBackgrounds} />
+  </Wrapper>
+)
 
 export default EducationEditor

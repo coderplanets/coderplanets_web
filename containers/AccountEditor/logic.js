@@ -30,9 +30,38 @@ export function goBack() {
   })
 }
 
-export const profileChange = R.curry((part, e) => {
+export const profileChange = R.curry((part, e) =>
   store.updateUser({ [part]: e.target.value })
-})
+)
+
+export const updateBg = (key, part, { target: { value } }) =>
+  store.markState({
+    [key]: R.merge(store[key], { [part]: value }),
+  })
+
+export const addBg = type => store.addBg(type)
+
+export const removeWorkBg = (company, title) => {
+  const {
+    accountInfo: { workBackgrounds },
+  } = store
+  const newWorkBackgrounds = R.reject(
+    R.equals({ company, title }),
+    workBackgrounds
+  )
+  store.updateUser({ workBackgrounds: newWorkBackgrounds })
+}
+
+export const removeEduBg = (school, major) => {
+  const {
+    accountInfo: { educationBackgrounds },
+  } = store
+  const newEducationBackgrounds = R.reject(
+    R.equals({ school, major }),
+    educationBackgrounds
+  )
+  store.updateUser({ educationBackgrounds: newEducationBackgrounds })
+}
 
 export function sexChange(sex) {
   store.updateUser({ sex })
