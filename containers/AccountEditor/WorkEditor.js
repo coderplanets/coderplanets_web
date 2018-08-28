@@ -1,4 +1,6 @@
 import React from 'react'
+import R from 'ramda'
+import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config'
 import { Input } from '../../components'
@@ -19,61 +21,61 @@ import {
 
 import * as logic from './logic'
 
-const FormItem = ({ label, onChange }) => (
+const FormItem = ({ label, data, mainChange, subChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
 
     <FormInput>
       <Input
         size="default"
-        defaultValue=""
+        value={data.company}
         placeholder="公司"
-        onChange={onChange}
+        onChange={mainChange}
       />
       &nbsp;&nbsp;
       <Input
         size="default"
-        defaultValue=""
+        value={data.title}
         placeholder="职位"
-        onChange={onChange}
+        onChange={subChange}
       />
-      <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+      <div onClick={logic.addBg.bind(this, 'work')}>
+        <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+      </div>
     </FormInput>
   </FormItemWrapper>
 )
 
-const BackgroundList = () => {
+const BackgroundList = ({ list }) => {
+  if (R.isEmpty(list)) return null
   return (
     <BackgroundsWrapper>
-      <BackgroundItem>
-        <BgTitle>Google.inc</BgTitle>
-        <BgDivider>·</BgDivider>
-        <BgDesc>高级软件工程师</BgDesc>
-        <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
-      </BackgroundItem>
-
-      <BackgroundItem>
-        <BgTitle>Facebook</BgTitle>
-        <BgDivider>·</BgDivider>
-        <BgDesc>测试工程师</BgDesc>
-        <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
-      </BackgroundItem>
+      {list.map(item => (
+        <BackgroundItem key={shortid.generate()}>
+          <BgTitle>{item.company}</BgTitle>
+          <BgDivider>·</BgDivider>
+          <BgDesc>{item.title}</BgDesc>
+          <div
+            onClick={logic.removeWorkBg.bind(this, item.company, item.title)}
+          >
+            <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+          </div>
+        </BackgroundItem>
+      ))}
     </BackgroundsWrapper>
   )
 }
 
-const WorkEditor = ({ accountInfo }) => {
-  return (
-    <Wrapper>
-      <FormItem
-        label="工作经历:"
-        value={accountInfo.qq}
-        icon="qq"
-        onChange={logic.profileChange('qq')}
-      />
-      <BackgroundList />
-    </Wrapper>
-  )
-}
+const WorkEditor = ({ accountInfo, data }) => (
+  <Wrapper>
+    <FormItem
+      label="工作经历:"
+      data={data}
+      mainChange={logic.updateBg.bind(this, 'workBg', 'company')}
+      subChange={logic.updateBg.bind(this, 'workBg', 'title')}
+    />
+    <BackgroundList list={accountInfo.workBackgrounds} />
+  </Wrapper>
+)
 
 export default WorkEditor

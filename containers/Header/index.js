@@ -84,6 +84,10 @@ const Header = ({
           upgrade
         </Button>
         &nbsp;&nbsp;&nbsp;
+        <Button size="small" type="primary" ghost onClick={logic.toast}>
+          toast
+        </Button>
+        &nbsp;&nbsp;&nbsp;
         <StateButton
           size="small"
           type="primary"

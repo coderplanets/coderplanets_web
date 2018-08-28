@@ -24,6 +24,16 @@ const GithubProfile = t.model('GithubProfile', {
   htmlUrl: t.string,
 })
 
+export const EduBackground = t.model('EduBackground', {
+  school: t.optional(t.string, ''),
+  major: t.optional(t.string, ''),
+})
+
+export const WorkBackground = t.model('WorkBackground', {
+  company: t.optional(t.string, ''),
+  title: t.optional(t.string, ''),
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
@@ -37,8 +47,8 @@ export const User = t.model('User', {
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
   // TODO: backgrounds
-  /* company: t.maybeNull(t.string), */
-  /* education: t.maybeNull(t.string), */
+  educationBackgrounds: t.optional(t.array(EduBackground), []),
+  workBackgrounds: t.optional(t.array(WorkBackground), []),
   sex: t.maybeNull(t.string),
   qq: t.maybeNull(t.string),
   weichat: t.maybeNull(t.string),

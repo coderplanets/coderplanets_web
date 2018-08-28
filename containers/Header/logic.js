@@ -88,6 +88,13 @@ export function upgradeHepler() {
   store.upgradeHepler()
 }
 
+export function toast() {
+  store.toast('success', {
+    title: 'mydearxym',
+    message: 'your website is fucking awesome',
+  })
+}
+
 const DataSolver = [
   {
     match: asyncRes('sessionState'),

@@ -81,6 +81,9 @@ const HeaderStore = t
     upgradeHepler() {
       self.root.upgradeHepler()
     },
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

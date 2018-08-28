@@ -45,7 +45,7 @@ export const Adder = styled(Img)`
 export const BackgroundsWrapper = styled.div`
   margin-top: -10px;
   margin-bottom: 20px;
-  margin-left: 20%;
+  margin-left: 22%;
   display: flex;
   flex-direction: column;
 `

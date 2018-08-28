@@ -95,6 +95,8 @@ class AccountEditorContainer extends React.Component {
     const {
       showSocials,
       accountInfo,
+      educationBgData,
+      workBgData,
       updating,
       success,
       error,
@@ -119,19 +121,21 @@ class AccountEditorContainer extends React.Component {
             onChange={logic.profileChange('nickname')}
           />
           <FormItem
-            label="邮箱:"
-            value={accountInfo.email}
-            onChange={logic.profileChange('email')}
-          />
-          <FormItem
             label="城市:"
             value={accountInfo.location}
             onChange={logic.profileChange('location')}
           />
         </div>
 
-        <EducationEditor accountInfo={accountInfo} />
-        <WorkEditor accountInfo={accountInfo} />
+        <WorkEditor accountInfo={accountInfo} data={workBgData} />
+        <EducationEditor accountInfo={accountInfo} data={educationBgData} />
+        <div>
+          <FormItem
+            label="邮箱:"
+            value={accountInfo.email}
+            onChange={logic.profileChange('email')}
+          />
+        </div>
         <SocialEditor show={showSocials} accountInfo={accountInfo} />
         <div>
           <SexItem label="性别:" value={accountInfo.sex} />

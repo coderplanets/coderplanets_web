@@ -35,12 +35,28 @@ const ThemeObserver = ({ children, theme }) => (
           *::selection {
             background-color: ${theme.themeData.selectionBg} !important;
           }
-
           a:hover {
             color: ${theme.themeData.a.hover};
           }
           a:active {
             color: ${theme.themeData.a.active};
+          }
+
+          .iziToast {
+            border: 1px solid !important;
+            border-color: ${theme.themeData.toast.border} !important;
+            background-color: ${theme.themeData.toast.bg} !important;
+            min-height: 36px !important;
+            padding: 2px 45px 0px 0 !important;
+          }
+          .iziToast > .iziToast-body .iziToast-title {
+            color: ${theme.themeData.toast.title} !important;
+          }
+          .iziToast-wrapper-topRight {
+            top: 25px !important;
+          }
+          .iziToast > .iziToast-body .iziToast-message {
+            color: ${theme.themeData.toast.message} !important;
           }
         `}</style>
         <div>{children}</div>

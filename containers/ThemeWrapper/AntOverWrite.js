@@ -3,6 +3,7 @@ import { lighten } from 'polished'
 
 import { theme } from '../../utils'
 
+// move ant style to seperate file
 const AntOverWrite = styled.div`
   .react-calendar-heatmap rect:hover {
     stroke: ${theme('heatmap.borderHover')};
@@ -164,7 +165,6 @@ const AntOverWrite = styled.div`
   .ant-input:focus {
     box-shadow: 0 0 0 2px ${theme('form.shadow')};
   }
-
   .ant-checkbox-wrapper {
     color: #87c5ca;
   }
@@ -189,7 +189,7 @@ const AntOverWrite = styled.div`
   }
 
   .ant-radio-wrapper {
-    color: grey;
+    color: ${theme('banner.desc')};
   }
   .ant-radio-wrapper-checked {
     color: ${theme('button.primary')};
