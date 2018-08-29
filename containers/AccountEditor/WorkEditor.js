@@ -53,8 +53,12 @@ const BackgroundList = ({ list }) => {
       {list.map(item => (
         <BackgroundItem key={shortid.generate()}>
           <BgTitle>{item.company}</BgTitle>
-          <BgDivider>·</BgDivider>
-          <BgDesc>{item.title}</BgDesc>
+          {R.isEmpty(item.title) ? null : (
+            <React.Fragment>
+              <BgDivider>·</BgDivider>
+              <BgDesc>{item.title}</BgDesc>
+            </React.Fragment>
+          )}
           <div
             onClick={logic.removeWorkBg.bind(this, item.company, item.title)}
           >
@@ -66,7 +70,7 @@ const BackgroundList = ({ list }) => {
   )
 }
 
-const WorkEditor = ({ accountInfo, data }) => (
+const WorkEditor = ({ user, data }) => (
   <Wrapper>
     <FormItem
       label="工作经历:"
@@ -74,7 +78,7 @@ const WorkEditor = ({ accountInfo, data }) => (
       mainChange={logic.updateBg.bind(this, 'workBg', 'company')}
       subChange={logic.updateBg.bind(this, 'workBg', 'title')}
     />
-    <BackgroundList list={accountInfo.workBackgrounds} />
+    <BackgroundList list={user.workBackgrounds} />
   </Wrapper>
 )
 
