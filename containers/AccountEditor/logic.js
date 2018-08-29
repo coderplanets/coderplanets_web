@@ -9,9 +9,12 @@ import {
   EVENT,
   ERR,
   TYPE,
+  cast,
   meteorState,
-  nilOrEmpty,
 } from '../../utils'
+
+import { updateFields } from './metrics'
+
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -43,7 +46,7 @@ export const addBg = type => store.addBg(type)
 
 export const removeWorkBg = (company, title) => {
   const {
-    accountInfo: { workBackgrounds },
+    editingUserData: { workBackgrounds },
   } = store
   const newWorkBackgrounds = R.reject(
     R.equals({ company, title }),
@@ -54,7 +57,7 @@ export const removeWorkBg = (company, title) => {
 
 export const removeEduBg = (school, major) => {
   const {
-    accountInfo: { educationBackgrounds },
+    editingUserData: { educationBackgrounds },
   } = store
   const newEducationBackgrounds = R.reject(
     R.equals({ school, major }),
@@ -67,35 +70,17 @@ export function sexChange(sex) {
   store.updateUser({ sex })
 }
 
-const updatableAttrs = [
-  'nickname',
-  'email',
-  'location',
-  'company',
-  'education',
-  'qq',
-  'weibo',
-  'weichat',
-  'bio',
-  'sex',
-]
-
-const hasValue = R.compose(
-  R.not,
-  nilOrEmpty
-)
-const pickUpdatable = R.compose(
-  R.pickBy(hasValue),
-  R.pick(updatableAttrs)
-)
-
 export const updateConfirm = () => {
   if (!store.statusClean) return false
-  // TODO: 只去除 null 的即可，如果为空也是合法的
-  const editing = pickUpdatable(store.accountInfo)
-  const origin = pickUpdatable(store.accountOrigin)
-  /* debug('editing: ', editing) */
-  /* debug('origin: ', origin) */
+  const editing = cast(updateFields, store.editingUserData)
+  const origin = cast(updateFields, store.accountOrigin)
+  /* console.log('updateConfirm: ', store.editingUserData) */
+  /* const hello = cast(updateFields, store.editingUserData) */
+  /* console.log('hello -> ', hello) */
+  /* const chageset = cast(xxx, 'valid') */
+  /* return false */
+  debug('editing: ', editing)
+  debug('origin: ', origin)
 
   // TODO: 唯一的限制是 昵称不能为空
   if (R.equals(editing, origin)) {
@@ -103,9 +88,7 @@ export const updateConfirm = () => {
     return false
   }
 
-  store.markState({
-    updating: true,
-  })
+  store.markState({ updating: true })
 
   sr71$.mutate(S.updateProfile, { profile: editing })
 }
@@ -115,7 +98,7 @@ export function cancleEdit() {
 }
 
 export function updateDone() {
-  const editing = pickUpdatable(store.accountInfo)
+  const editing = cast(updateFields, store.editingUserData)
   store.updateOrign(editing)
 }
 

@@ -1,17 +1,12 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import { EVENT } from '.'
+import { EVENT, isEmptyValue } from '.'
 
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
 export const onClient = typeof window !== 'undefined' ? true : false
-
-export const isObject = value => {
-  const type = typeof value
-  return value != null && (type == 'object' || type == 'function')
-}
 /* eslint-enable */
 
 // see https://github.com/ramda/ramda/issues/1361
@@ -26,15 +21,6 @@ export const mapKeys = R.curry((fn, obj) => {
   )
 })
 
-export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
-export const notEmpty = R.compose(
-  R.not,
-  R.isEmpty
-)
-export const isEmptyValue = R.compose(
-  R.isEmpty,
-  R.trim
-)
 /* eslint-disable */
 const log = (...args) => data => {
   console.log.apply(null, args.concat([data]))

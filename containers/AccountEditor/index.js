@@ -94,7 +94,7 @@ class AccountEditorContainer extends React.Component {
 
     const {
       showSocials,
-      accountInfo,
+      editingUserData,
       educationBgData,
       workBgData,
       updating,
@@ -104,8 +104,6 @@ class AccountEditorContainer extends React.Component {
       statusMsg,
     } = accountEditor
 
-    /* debug('accountInfo editing->: ', accountInfo) */
-
     return (
       <Wrapper className="normal-form">
         {/* eslint-disable */}
@@ -113,36 +111,36 @@ class AccountEditorContainer extends React.Component {
           <BackIcon src={`${ICON_ASSETS}/cmd/goback.svg`} />
         </div>
         {/* eslint-enable */}
-        <Avatar src={accountInfo.avatar} />
+        <Avatar src={editingUserData.avatar} />
         <div>
           <FormItem
             label="昵称:"
-            value={accountInfo.nickname}
+            value={editingUserData.nickname}
             onChange={logic.profileChange('nickname')}
           />
           <FormItem
             label="城市:"
-            value={accountInfo.location}
+            value={editingUserData.location}
             onChange={logic.profileChange('location')}
           />
         </div>
 
-        <WorkEditor accountInfo={accountInfo} data={workBgData} />
-        <EducationEditor accountInfo={accountInfo} data={educationBgData} />
+        <WorkEditor user={editingUserData} data={workBgData} />
+        <EducationEditor user={editingUserData} data={educationBgData} />
         <div>
           <FormItem
             label="邮箱:"
-            value={accountInfo.email}
+            value={editingUserData.email}
             onChange={logic.profileChange('email')}
           />
         </div>
-        <SocialEditor show={showSocials} accountInfo={accountInfo} />
+        <SocialEditor show={showSocials} user={editingUserData} />
         <div>
-          <SexItem label="性别:" value={accountInfo.sex} />
+          <SexItem label="性别:" value={editingUserData.sex} />
           <FormItem
             label="简介:"
             textarea
-            value={accountInfo.bio}
+            value={editingUserData.bio}
             onChange={logic.profileChange('bio')}
           />
         </div>

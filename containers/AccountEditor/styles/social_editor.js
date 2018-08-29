@@ -31,23 +31,22 @@ export const SocialIconsWrapper = styled.div`
   width: 250px;
 `
 export const SocialIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
+  fill: ${({ active }) =>
+    active ? theme('banner.title') : theme('banner.desc')};
   width: 18px;
   height: 18px;
   margin-right: 8px;
-
-  &:hover {
-    fill: ${theme('banner.title')};
-    cursor: pointer;
-  }
   transition: fill 0.3s;
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
 `
 
 export const AddOnIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
+  fill: ${({ active }) =>
+    active ? theme('banner.title') : theme('banner.desc')};
   margin-top: 3px;
   width: 16px;
   height: 16px;
+  opacity: ${({ active }) => (active ? 1 : 0.9)};
 `
 export const AddonAddr = styled.div`
   font-size: 0.7rem;

@@ -91,7 +91,7 @@ export function upgradeHepler() {
 export function toast() {
   store.toast('success', {
     title: 'mydearxym',
-    message: 'your website is fucking awesome',
+    msg: 'your website is fucking awesome',
   })
 }
 

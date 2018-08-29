@@ -21,6 +21,7 @@ const debug = makeDebugger('S:AccountEditorStore')
 const AccountEditorStore = t
   .model('AccountEditorStore', {
     user: t.optional(User, {}),
+    editingUser: t.optional(User, {}),
     showSocials: t.optional(t.boolean, false),
 
     educationBg: t.optional(EduBackground, { school: '', major: '' }),
@@ -40,9 +41,9 @@ const AccountEditorStore = t
       const { success, error, warn } = self
       return !success && !error && !warn
     },
-    get accountInfo() {
+    get editingUserData() {
       return {
-        ...stripMobx(self.user),
+        ...stripMobx(self.editingUser),
       }
     },
     get educationBgData() {
@@ -67,7 +68,7 @@ const AccountEditorStore = t
     copyAccountInfo() {
       const { accountInfo } = self.root.account
       if (accountInfo !== {}) {
-        self.user = accountInfo
+        self.editingUser = accountInfo
       }
     },
 
@@ -76,22 +77,22 @@ const AccountEditorStore = t
     },
 
     updateUser(sobj) {
-      const user = R.merge(self.user, { ...sobj })
-      self.markState({ user })
+      const editingUser = R.merge(self.editingUser, { ...sobj })
+      self.markState({ editingUser })
     },
 
     addBg(type) {
       if (!self.validator(type)) return false
 
       if (type === 'work') {
-        const workBackgrounds = R.clone(self.accountInfo.workBackgrounds)
+        const workBackgrounds = R.clone(self.editingUserData.workBackgrounds)
         workBackgrounds.push(self.workBgData)
         self.updateUser({ workBackgrounds })
         return self.markState({ workBg: { company: '', title: '' } })
       }
 
       const educationBackgrounds = R.clone(
-        self.accountInfo.educationBackgrounds
+        self.editingUserData.educationBackgrounds
       )
       educationBackgrounds.push(self.educationBgData)
       self.updateUser({ educationBackgrounds })
@@ -99,7 +100,7 @@ const AccountEditorStore = t
     },
 
     validator(type) {
-      const { workBackgrounds, educationBackgrounds } = self.accountInfo
+      const { workBackgrounds, educationBackgrounds } = self.editingUserData
 
       switch (type) {
         case 'work': {

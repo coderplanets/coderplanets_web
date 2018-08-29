@@ -18,11 +18,7 @@ export { makeDebugger } from './debug'
 export {
   dispatchEvent,
   mapKeys,
-  isObject,
-  notEmpty,
-  nilOrEmpty,
   getRandomInt,
-  isEmptyValue,
   Global,
   onClient,
   cutFrom,
@@ -36,7 +32,7 @@ export {
   objAlreadyExsits,
 } from './functions'
 
-export { toast, toastBarColor } from './toast'
+export { cast, notEmpty, isEmptyValue, nilOrEmpty, isObject } from './validator'
 
 export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
 
@@ -70,9 +66,6 @@ export {
   focusDoraemonBar,
   hideDoraemonBarRecover,
 } from './dom_operator'
-
-export { default as Animate } from './animations'
-export { smokey, column, columnCenter } from './common_styles'
 /*
  * theme related
  */
@@ -85,8 +78,10 @@ export {
   themeCoverIndexMap,
 } from './themes'
 
-export { default as fakeUsers } from './fake_user'
-
+// helpers
+export { toast, toastBarColor } from './toast'
+export { default as Animate } from './animations'
+export { smokey, column, columnCenter } from './common_styles'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

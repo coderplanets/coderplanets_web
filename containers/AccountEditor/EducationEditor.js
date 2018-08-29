@@ -53,8 +53,12 @@ const BackgroundList = ({ list }) => {
       {list.map(item => (
         <BackgroundItem key={shortid.generate()}>
           <BgTitle>{item.school}</BgTitle>
-          <BgDivider>·</BgDivider>
-          <BgDesc>{item.major}</BgDesc>
+          {R.isEmpty(item.major) ? null : (
+            <React.Fragment>
+              <BgDivider>·</BgDivider>
+              <BgDesc>{item.major}</BgDesc>
+            </React.Fragment>
+          )}
           <div onClick={logic.removeEduBg.bind(this, item.school, item.major)}>
             <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
           </div>
@@ -64,7 +68,7 @@ const BackgroundList = ({ list }) => {
   )
 }
 
-const EducationEditor = ({ accountInfo, data }) => (
+const EducationEditor = ({ user, data }) => (
   <Wrapper>
     <FormItem
       label="教育经历:"
@@ -72,7 +76,7 @@ const EducationEditor = ({ accountInfo, data }) => (
       mainChange={logic.updateBg.bind(this, 'educationBg', 'school')}
       subChange={logic.updateBg.bind(this, 'educationBg', 'major')}
     />
-    <BackgroundList list={accountInfo.educationBackgrounds} />
+    <BackgroundList list={user.educationBackgrounds} />
   </Wrapper>
 )
 
