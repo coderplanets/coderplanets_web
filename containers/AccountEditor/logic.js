@@ -45,9 +45,8 @@ export const updateBg = (key, part, { target: { value } }) =>
 export const addBg = type => store.addBg(type)
 
 export const removeWorkBg = (company, title) => {
-  const {
-    editingUserData: { workBackgrounds },
-  } = store
+  const { editingUserData } = store
+  const { workBackgrounds } = editingUserData
   const newWorkBackgrounds = R.reject(
     R.equals({ company, title }),
     workBackgrounds
@@ -56,9 +55,8 @@ export const removeWorkBg = (company, title) => {
 }
 
 export const removeEduBg = (school, major) => {
-  const {
-    editingUserData: { educationBackgrounds },
-  } = store
+  const { editingUserData } = store
+  const { educationBackgrounds } = editingUserData
   const newEducationBackgrounds = R.reject(
     R.equals({ school, major }),
     educationBackgrounds
@@ -74,15 +72,8 @@ export const updateConfirm = () => {
   if (!store.statusClean) return false
   const editing = cast(updateFields, store.editingUserData)
   const origin = cast(updateFields, store.accountOrigin)
-  /* console.log('updateConfirm: ', store.editingUserData) */
-  /* const hello = cast(updateFields, store.editingUserData) */
-  /* console.log('hello -> ', hello) */
-  /* const chageset = cast(xxx, 'valid') */
-  /* return false */
-  debug('editing: ', editing)
-  debug('origin: ', origin)
-
-  // TODO: 唯一的限制是 昵称不能为空
+  // debug('editing: ', editing)
+  // debug('origin: ', origin)
   if (R.equals(editing, origin)) {
     meteorState(store, 'warn', 3)
     return false
@@ -90,6 +81,7 @@ export const updateConfirm = () => {
 
   store.markState({ updating: true })
 
+  console.log('editing: ', editing)
   sr71$.mutate(S.updateProfile, { profile: editing })
 }
 
@@ -119,7 +111,6 @@ const DataSolver = [
       meteorState(store, 'success', 3)
       updateDone()
       cancleLoading()
-      // communitiesContent.loadCommunities(data)
     },
   },
 ]

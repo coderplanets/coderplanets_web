@@ -9,7 +9,14 @@ export const updateFields = [
   'weibo',
   'weichat',
   'github',
-
+  'zhihu',
+  'douban',
+  'twitter',
+  'facebook',
+  'dribble',
+  'instagram',
+  'pinterest',
+  'huaban',
   // backgrounds
   'workBackgrounds',
   'educationBackgrounds',
