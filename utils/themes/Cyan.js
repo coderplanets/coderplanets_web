@@ -99,7 +99,7 @@ const Cyan = {
     articleBg: '#F9FCFC',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
-    topLine: 'orange',
+    topLine: primaryColor,
     icon: 'tomato',
     divider: '#ebf1f0',
   },

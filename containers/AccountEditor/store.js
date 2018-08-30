@@ -72,11 +72,12 @@ const AccountEditorStore = t
       }
     },
 
-    updateOrign(user) {
+    updateAccount(user) {
       self.root.account.updateAccount(user)
+      self.root.updateViewingIfNeed('user', user)
     },
 
-    updateUser(sobj) {
+    updateEditing(sobj) {
       const editingUser = R.merge(self.editingUser, { ...sobj })
       self.markState({ editingUser })
     },
@@ -85,17 +86,23 @@ const AccountEditorStore = t
       if (!self.validator(type)) return false
 
       if (type === 'work') {
-        const workBackgrounds = R.clone(self.editingUserData.workBackgrounds)
-        workBackgrounds.push(self.workBgData)
-        self.updateUser({ workBackgrounds })
+        let workBackgrounds = R.clone(self.editingUserData.workBackgrounds)
+        /* workBackgrounds.push(self.workBgData) */
+        workBackgrounds = R.concat([self.workBgData], workBackgrounds)
+
+        self.updateEditing({ workBackgrounds })
         return self.markState({ workBg: { company: '', title: '' } })
       }
 
-      const educationBackgrounds = R.clone(
+      let educationBackgrounds = R.clone(
         self.editingUserData.educationBackgrounds
       )
-      educationBackgrounds.push(self.educationBgData)
-      self.updateUser({ educationBackgrounds })
+      /* educationBackgrounds.push(self.educationBgData) */
+      educationBackgrounds = R.concat(
+        [self.educationBgData],
+        educationBackgrounds
+      )
+      self.updateEditing({ educationBackgrounds })
       self.markState({ educationBg: { school: '', major: '' } })
     },
 

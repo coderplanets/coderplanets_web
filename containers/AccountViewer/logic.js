@@ -48,9 +48,8 @@ export function editProfile() {
 const DataSolver = [
   {
     match: asyncRes('account'),
-    action: res => {
-      const data = res.account
-      store.updateAccount(data)
+    action: ({ account }) => {
+      store.updateAccount(account)
     },
   },
   {

@@ -29,10 +29,27 @@ const ViewingStore = t
     get root() {
       return getParent(self)
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
   }))
   .actions(self => ({
     setViewing(sobj) {
       self.markState(sobj)
+    },
+    updateViewingIfNeed(type, sobj) {
+      // console.log('updateViewingIfNeed: type: ', type)
+      // console.log('updateViewingIfNeed: sobj: ', sobj)
+
+      switch (type) {
+        case 'user': {
+          if (self.user.id !== self.accountInfo.id) return false
+          const user = R.merge(self.user, sobj)
+          return self.markState({ user })
+        }
+        default:
+          return false
+      }
     },
     markState(sobj) {
       markStates(sobj, self)

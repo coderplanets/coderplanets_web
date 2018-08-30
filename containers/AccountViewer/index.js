@@ -11,9 +11,8 @@ import ReactTooltip from 'react-tooltip'
 
 import { makeDebugger, storePlug } from '../../utils'
 
-import { Tabs, ThemeSelector } from '../../components'
+import { Tabs, ThemeSelector, UserBrief } from '../../components'
 
-import UserHeader from './UserHeader'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
@@ -65,11 +64,13 @@ class AccountViewerContainer extends React.Component {
       <AccountWrapper>
         <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
-          <UserHeader
-            accountInfo={accountInfo}
-            logout={logic.logout}
-            editProfile={logic.editProfile}
+          <UserBrief
+            user={accountInfo}
+            displayStyle="sidebar"
+            showEdit
+            onEdit={logic.editProfile}
           />
+
           <Divider top="10px" bottom="20px" />
           <Planets subscribedCommunities={subscribedCommunities} />
           <Divider top="10px" bottom="20px" />

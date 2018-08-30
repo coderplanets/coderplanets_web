@@ -78,6 +78,8 @@ export {
   themeCoverIndexMap,
 } from './themes'
 
+export { default as SOCIAL_LISTS } from './social_lists'
+
 // helpers
 export { toast, toastBarColor } from './toast'
 export { default as Animate } from './animations'
