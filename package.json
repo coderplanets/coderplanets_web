@@ -64,7 +64,7 @@
     "draft-js-mention-plugin": "^3.0.4",
     "draft-js-plugins-editor": "^2.0.4",
     "glob": "^7.1.2",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.0",
     "graphql-request": "^1.6.0",
     "graphql-tag": "^2.6.1",
     "intl": "^1.2.5",
