@@ -34,7 +34,7 @@ export function goBack() {
 }
 
 export const profileChange = R.curry((part, e) =>
-  store.updateUser({ [part]: e.target.value })
+  store.updateEditing({ [part]: e.target.value })
 )
 
 export const updateBg = (key, part, { target: { value } }) =>
@@ -51,7 +51,7 @@ export const removeWorkBg = (company, title) => {
     R.equals({ company, title }),
     workBackgrounds
   )
-  store.updateUser({ workBackgrounds: newWorkBackgrounds })
+  store.updateEditing({ workBackgrounds: newWorkBackgrounds })
 }
 
 export const removeEduBg = (school, major) => {
@@ -61,23 +61,19 @@ export const removeEduBg = (school, major) => {
     R.equals({ school, major }),
     educationBackgrounds
   )
-  store.updateUser({ educationBackgrounds: newEducationBackgrounds })
+  store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
 }
 
 export function sexChange(sex) {
-  store.updateUser({ sex })
+  store.updateEditing({ sex })
 }
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
   const editing = cast(updateFields, store.editingUserData)
   const origin = cast(updateFields, store.accountOrigin)
-  // debug('editing: ', editing)
-  // debug('origin: ', origin)
-  if (R.equals(editing, origin)) {
-    meteorState(store, 'warn', 3)
-    return false
-  }
+
+  if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
 
   store.markState({ updating: true })
 
@@ -91,13 +87,11 @@ export function cancleEdit() {
 
 export function updateDone() {
   const editing = cast(updateFields, store.editingUserData)
-  store.updateOrign(editing)
+  store.updateAccount(editing)
 }
 
 export function toggleSocials() {
-  store.markState({
-    showSocials: !store.showSocials,
-  })
+  store.markState({ showSocials: !store.showSocials })
 }
 
 const cancleLoading = () => {
@@ -115,12 +109,15 @@ const DataSolver = [
   },
 ]
 
+const encodeGqError = errObj => {
+  return JSON.stringify(errObj)
+}
+
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
-      const errMsg = details[0].detail
-      meteorState(store, 'error', 5, errMsg)
+      meteorState(store, 'error', 5, encodeGqError(details))
       cancleLoading()
     },
   },

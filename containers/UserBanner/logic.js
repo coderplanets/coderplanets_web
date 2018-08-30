@@ -12,12 +12,7 @@ const debug = makeDebugger('L:UserBanner')
 
 let store = null
 
-export function toggleDetail() {
-  const showDetail = !store.showDetail
-
-  store.markState({ showDetail })
-}
-
+export const holder = 1
 // ###############################
 // Data & Error handlers
 // ###############################

@@ -14,17 +14,30 @@ export const TimoutObservable = Observable.of({
   details: `server has no response in ${TIMEOUT_THRESHOLD} secs`,
 })
 
+// refator later
 const fomatDetail = errors => {
   const details = []
   errors.map(({ message, path, key, code }) => {
+    if (Array.isArray(message)) {
+      return message.map(msg => {
+        return details.push({
+          detail: msg.message,
+          path: path ? R.join(' |> ', path) : '',
+          key: msg.key || '',
+          code,
+        })
+      })
+    }
     return details.push({
       detail: key ? `${key}:${message}` : `${message}`,
       path: path ? R.join(' |> ', path) : '',
+      key: key || '',
       code,
     })
   })
   return details
 }
+
 export const formatGraphErrors = error => {
   if (Array.isArray(error))
     return { error: ERR.CRAPHQL, details: fomatDetail(error) }

@@ -185,6 +185,9 @@ const rootStore = t
     setViewing(sobj) {
       self.viewing.setViewing(sobj)
     },
+    updateViewingIfNeed(type, sobj) {
+      self.viewing.updateViewingIfNeed(type, sobj)
+    },
     upgradeHepler() {
       self.upgradePackges.upgradeHepler()
     },

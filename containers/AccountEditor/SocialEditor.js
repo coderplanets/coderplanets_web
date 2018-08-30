@@ -1,7 +1,7 @@
 import React from 'react'
 import shortid from 'shortid'
 
-import { makeDebugger, nilOrEmpty } from '../../utils'
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 
 import { ICON_ASSETS } from '../../config'
 import { Input } from '../../components'
@@ -26,7 +26,6 @@ import {
 
 import * as logic from './logic'
 
-import { socialOptions } from './metrics'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountEditor')
 /* eslint-enable no-unused-vars */
@@ -58,7 +57,7 @@ const SocialIconList = ({ show, user }) => (
     <FormLable>社交账号:</FormLable>
 
     <SocialIconsWrapper>
-      {socialOptions.map(social => (
+      {SOCIAL_LISTS.map(social => (
         <SocialIcon
           key={shortid.generate()}
           src={`${ICON_ASSETS}/cmd/${social.key}.svg`}
@@ -89,7 +88,7 @@ const SocialEditor = ({ show, user }) => (
     <InputWrapper show={show}>
       {/* eslint-disable react/jsx-key */}
       {/* set key to SocialItem will cause input lose focus */}
-      {socialOptions.map(social => (
+      {SOCIAL_LISTS.map(social => (
         <SocialItem
           label={social.label}
           prefix={social.prefix}

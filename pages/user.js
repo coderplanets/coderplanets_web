@@ -38,12 +38,6 @@ import AccountSchema from '../containers/AccountViewer/schema'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  /* const community = getMainPath(props) */
-  /* const thread = extractThreadFromPath(props) */
-  /* const category = getSubPath(props) */
-
-  /* const { asPath } = props */
-  //   const filter = { ...queryStringToJSON(asPath) }
   const token = null // BStore.cookie.from_req(req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
@@ -72,7 +66,7 @@ export default class UserPage extends React.Component {
     const query = queryStringToJSON(asPath)
 
     const { user } = await fetchData(props)
-    /* console.log('fetchData user: ', user) */
+    console.log('fetchData user: ', user)
 
     return {
       langSetup: {},

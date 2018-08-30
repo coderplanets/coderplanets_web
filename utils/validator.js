@@ -20,14 +20,19 @@ export const isObject = value => {
   return value != null && (type === 'object' || type === 'function')
 }
 
-const objHasValue = v => notEmpty(v)
+const notNil = R.compose(
+  R.not,
+  R.isNil
+)
 
 const validObjects = R.compose(
-  R.pickBy(objHasValue),
+  R.pickBy(notNil),
   R.pickBy(isObject)
 )
+
 const validValues = R.compose(
-  R.pickBy(hasValue),
+  R.map(R.trim),
+  R.pickBy(notNil),
   R.reject(isObject)
 )
 

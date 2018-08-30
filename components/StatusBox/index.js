@@ -5,6 +5,8 @@
  */
 
 import React from 'react'
+import shortid from 'shortid'
+import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import { Icon } from '..'
@@ -15,6 +17,10 @@ import {
   SuccessMsgBox,
   ErrorMsgBox,
   WarningMsgBox,
+  ErrorArrayWrapper,
+  ErrorMsg,
+  ErrorKey,
+  ErrorDetail,
 } from './styles'
 
 /* eslint-disable no-unused-vars */
@@ -31,22 +37,56 @@ function getDefaultMsg(success, error) {
   return '内容无改动，请编辑后再提交'
 }
 
+const dencodeGqError = msg => {
+  try {
+    return JSON.parse(msg)
+  } catch (e) {
+    return [
+      {
+        detail: '未知解析错误',
+        key: 'GraphQL',
+      },
+    ]
+  }
+}
+
+const ErrorMessages = ({ show, msg }) => {
+  if (R.isEmpty(msg)) {
+    return (
+      <ErrorMsgBox show={show}>
+        <Icon type="close-circle" />
+        <Msg>出错了</Msg>
+      </ErrorMsgBox>
+    )
+  }
+
+  const msgArray = dencodeGqError(msg)
+
+  return (
+    <ErrorArrayWrapper>
+      {msgArray.map(errObj => (
+        <ErrorMsg key={shortid.generate()}>
+          <ErrorKey>{errObj.key}</ErrorKey>
+          <ErrorDetail>{errObj.detail}</ErrorDetail>
+        </ErrorMsg>
+      ))}
+    </ErrorArrayWrapper>
+  )
+}
+
 const StatusBox = ({ success, error, warn, msg }) => {
   const hint = msg === '' ? getDefaultMsg(success, error) : msg
   return (
     <Wrapper>
-      <SuccessMsgBox success={success}>
+      <SuccessMsgBox show={success}>
         <Icon type="check-circle" />
         <Msg>{hint}</Msg>
       </SuccessMsgBox>
-      <WarningMsgBox warn={warn}>
+      <WarningMsgBox show={warn}>
         <Icon type="exclamation-circle" />
         <Msg>{hint}</Msg>
       </WarningMsgBox>
-      <ErrorMsgBox error={error}>
-        <Icon type="close-circle" />
-        <Msg>{hint}</Msg>
-      </ErrorMsgBox>
+      <ErrorMessages show={error} msg={msg} />
     </Wrapper>
   )
 }

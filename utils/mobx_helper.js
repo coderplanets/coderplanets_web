@@ -39,6 +39,7 @@ export const markStates = (sobj, self) => {
       self = Object.assign(self, { [key]: val })
     }
   }, sobj)
+  return false
 }
 
 /*
@@ -64,6 +65,7 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
       statusMsg: '',
     })
   }, secs * 1000)
+  return false
 }
 
 export const stripMobx = obj => {

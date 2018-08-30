@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import { } from './styles'
 import { ICON_ASSETS } from '../../config'
 
-import { ThemeSelector, SectionLabel, Radio } from '../../components'
+import { ThemeSelector, SectionLabel, Radio, Button } from '../../components'
 import {
   Wrapper,
   LabelDescWrapper,
@@ -82,6 +82,15 @@ class UserSettingsContainer extends React.Component {
             <Radio value={2}>关闭</Radio>
           </RadioGroup>
         </RadiosWrapper>
+        <SectionLabel
+          title="Github 同步"
+          iconSrc={`${ICON_ASSETS}/cmd/github.svg`}
+          desc="将绑定的 Github 账户信息同步到最新状态, 上次同步时间: 3天前。"
+        />
+
+        <Button size="small" type="primary" ghost>
+          同步 Github 账号信息
+        </Button>
       </Wrapper>
     )
   }

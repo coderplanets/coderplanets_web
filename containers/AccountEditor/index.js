@@ -145,7 +145,6 @@ class AccountEditorContainer extends React.Component {
           />
         </div>
 
-        <br />
         <StatusBox
           success={success}
           error={error}

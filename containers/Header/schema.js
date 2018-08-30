@@ -23,8 +23,6 @@ const sessionState = gql`
         avatar
         bio
         fromGithub
-        company
-        education
         location
         qq
         weibo

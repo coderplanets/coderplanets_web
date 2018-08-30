@@ -12,9 +12,7 @@ const debug = makeDebugger('S:UserBanner')
 /* eslint-enable no-unused-vars */
 
 const UserBanner = t
-  .model('UserBanner', {
-    showDetail: t.optional(t.boolean, false),
-  })
+  .model('UserBanner', {})
   .views(self => ({
     get root() {
       return getParent(self)
