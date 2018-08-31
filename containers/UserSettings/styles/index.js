@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   padding-left: 10px;
 `
 export const RadiosWrapper = styled.div`
-  margin-top: -40px;
   margin-bottom: 40px;
   margin-left: 3px;
 `

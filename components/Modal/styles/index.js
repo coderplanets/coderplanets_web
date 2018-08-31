@@ -29,7 +29,11 @@ export const Wrapper = styled.div`
   border-color: ${theme('modal.border')};
   animation: ${Animate.zoomeIn} 0.5s linear;
 `
-
+export const ChildrenWrapper = styled.div`
+  min-height: 320px;
+  max-height: 80vh;
+  height: auto;
+`
 export const CloseBtn = styled(Img)`
   fill: ${theme('font')};
   position: absolute;

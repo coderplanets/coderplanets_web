@@ -5,7 +5,7 @@ import { theme } from '../../../utils'
 export const Container = styled.div`
   display: flex;
   margin-top: 30px;
-  margin-left: 7%;
+  margin-left: 6%;
   margin-right: 5%;
 `
 

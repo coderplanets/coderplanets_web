@@ -250,7 +250,7 @@ const SolarizedDark = {
   form: {
     inputBg: '#002D39',
     text: '#617F82',
-    label: '#617F82',
+    label: '#3d6d82',
     border: '#005256',
     shadow: 'rgba(184, 198, 192, 0.3)',
   },

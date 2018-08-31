@@ -19,12 +19,22 @@ const renderContent = content => {
   return <ContentContainer>{content}</ContentContainer>
 }
 
-const PopoverComponent = ({ title, children, content, trigger, placement }) => {
+const PopoverComponent = ({
+  title,
+  children,
+  content,
+  trigger,
+  placement,
+  visible,
+  onVisibleChange,
+}) => {
   return (
     <Popover
       content={renderContent(content)}
       placement={placement}
+      visible={visible}
       title={title}
+      onVisibleChange={onVisibleChange}
       trigger={trigger}
     >
       {children}
@@ -35,15 +45,19 @@ const PopoverComponent = ({ title, children, content, trigger, placement }) => {
 PopoverComponent.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
+  visible: PropTypes.bool,
   title: PropTypes.string,
   trigger: PropTypes.oneOf(['hover', 'click', 'focus']),
   placement: PropTypes.oneOf(['bottomLeft', 'bottom', 'right']),
+  onVisibleChange: PropTypes.func,
 }
 
 PopoverComponent.defaultProps = {
   title: '',
   trigger: 'hover',
   placement: 'bottom',
+  visible: false,
+  onVisibleChange: debug,
 }
 
 export default PopoverComponent

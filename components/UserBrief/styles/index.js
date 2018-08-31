@@ -39,8 +39,8 @@ export const UserTitle = styled.div`
 export const UserDesc = styled.div`
   color: ${theme('banner.desc')};
   display: ${({ hide }) => (hide ? 'none' : 'flex')};
-  font-size: 1rem;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
 
   &:hover {
     cursor: ${({ clickable }) => (clickable ? 'pointer' : '')};
@@ -51,7 +51,7 @@ export const UserDesc = styled.div`
 `
 
 export const UserDetailDesc = UserDesc.extend`
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 6px;
   margin-top: 8px;
   font-weight: bold;

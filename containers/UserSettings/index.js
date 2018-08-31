@@ -11,6 +11,9 @@ import { inject, observer } from 'mobx-react'
 import { ICON_ASSETS } from '../../config'
 
 import { ThemeSelector, SectionLabel, Radio, Button } from '../../components'
+
+import { FavoritesCats } from '..'
+
 import {
   Wrapper,
   LabelDescWrapper,
@@ -38,6 +41,7 @@ class UserSettingsContainer extends React.Component {
 
     return (
       <Wrapper>
+        <FavoritesCats />
         <SectionLabel
           title="主题设置"
           iconSrc={`${ICON_ASSETS}/cmd/setting_theme.svg`}
@@ -87,9 +91,8 @@ class UserSettingsContainer extends React.Component {
           iconSrc={`${ICON_ASSETS}/cmd/github.svg`}
           desc="将绑定的 Github 账户信息同步到最新状态, 上次同步时间: 3天前。"
         />
-
         <Button size="small" type="primary" ghost>
-          同步 Github 账号信息
+          同步 Github
         </Button>
       </Wrapper>
     )

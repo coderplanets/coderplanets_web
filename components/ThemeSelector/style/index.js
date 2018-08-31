@@ -52,6 +52,7 @@ export const IntroBox = styled.div`
     border-bottom: 2px solid;
     border-color: ${theme('banner.desc')};
   }
+  transition: border 0.3s;
 `
 
 export const IntroDesc = styled.div`
@@ -62,10 +63,12 @@ export const IntroDesc = styled.div`
 `
 
 export const ThemeTitle = styled.div`
-  color: ${theme('banner.desc')};
+  color: ${theme('banner.title')};
   font-size: 1.1rem;
   font-weight: ${({ active }) => (active ? 'bolder' : '')};
   cursor: pointer;
+  margin-top: -2px;
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
 `
 
 export const ThemeDesc = styled.div`

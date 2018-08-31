@@ -51,6 +51,7 @@ import {
   CommentsStore,
   CheatSheetPaperStore,
   CommunityEditorsStore,
+
   // toolbox
   DoraemonStore,
   PreviewStore,
@@ -61,6 +62,7 @@ import {
   // user page
   UserSettingsStore,
   UserFavoritesStore,
+  FavoritesCatsStore,
 } from '../index'
 
 /* eslint-disable no-unused-vars */
@@ -126,6 +128,7 @@ const rootStore = t
     // user page
     userSettings: t.optional(UserSettingsStore, {}),
     userFavorites: t.optional(UserFavoritesStore, {}),
+    favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({
     get locale() {
