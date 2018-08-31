@@ -6,6 +6,7 @@ export { default as EmptyThread } from './EmptyThread'
 export { default as NotFound } from './NotFound'
 export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'
+export { default as Popconfirm } from './Popconfirm'
 export { Space, SpaceGrow } from './BaseStyled'
 
 // items
@@ -32,8 +33,6 @@ export { default as Tabber } from './Tabber'
 
 export { default as UserCell } from './UserCell'
 export { default as SectionLabel } from './SectionLabel'
-
-//
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 
 // loading component

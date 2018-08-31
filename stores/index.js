@@ -17,6 +17,11 @@ export {
   default as UpgradePackgesStore,
 } from '../containers/UpgradePackges/store'
 
+//
+export {
+  default as FavoritesCatsStore,
+} from '../containers/FavoritesCats/store'
+
 // banners store
 export { default as BannerStore } from '../containers/Banner/store'
 export { default as PostBannerStore } from '../containers/PostBanner/store'
