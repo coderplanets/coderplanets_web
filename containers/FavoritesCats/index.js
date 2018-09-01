@@ -11,6 +11,7 @@ import { ICON_ASSETS } from '../../config'
 
 import { Modal, SectionLabel } from '../../components'
 import BoxView from './BoxView'
+import Creator from './Creator'
 import Updater from './Updater'
 import Setter from './Setter'
 
@@ -43,7 +44,7 @@ class FavoritesCatsContainer extends React.Component {
   // lists(box view, modal view), setter, creator and updater
   render() {
     const { favoritesCats } = this.props
-    const { showModal } = favoritesCats
+    const { showModal, showUpdater, showCreator, showSetter } = favoritesCats
 
     return (
       <div>
@@ -52,6 +53,7 @@ class FavoritesCatsContainer extends React.Component {
           iconSrc={`${ICON_ASSETS}/cmd/folder.svg`}
           desc="共有内容 xx 条, 最后更新时间 xxx"
           withAdder
+          onAdd={logic.onAdd}
         />
         <Modal
           width="420px"
@@ -59,8 +61,9 @@ class FavoritesCatsContainer extends React.Component {
           showCloseBtn
           onClose={logic.onModalClose}
         >
-          <Setter entries={categories} />
-          <Updater />
+          <Setter show={showModal && showSetter} entries={categories} />
+          <Creator show={showModal && showCreator} />
+          <Updater show={showModal && showUpdater} />
         </Modal>
         <BoxView entries={categories} onEdit={logic.onEdit} />
       </div>

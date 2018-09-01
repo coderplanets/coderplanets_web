@@ -33,6 +33,7 @@ export const ChildrenWrapper = styled.div`
   min-height: 320px;
   max-height: 80vh;
   height: auto;
+  overflow-y: scroll;
 `
 export const CloseBtn = styled(Img)`
   fill: ${theme('font')};

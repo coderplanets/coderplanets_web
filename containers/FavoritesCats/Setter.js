@@ -19,9 +19,9 @@ import {
   Footer,
 } from './styles/setter'
 
-const Setter = ({ entries }) => {
+const Setter = ({ show, entries }) => {
   return (
-    <Wrapper>
+    <Wrapper show={show}>
       <SectionLabel
         title="添加收藏"
         desc="选择你要添加的收藏夹"
@@ -40,7 +40,7 @@ const Setter = ({ entries }) => {
               </CatMain>
               <SetBtn>
                 <Button type="primary" ghost>
-                  加入
+                  收入
                 </Button>
               </SetBtn>
             </CatContent>

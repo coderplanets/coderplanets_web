@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   flex-direction: column;
   padding: 15px 25px;
 `
