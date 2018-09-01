@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from '../../../utils'
-// import { Img } from '../../../components'
+import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ export const RightPart = styled.div`
 `
 export const RightWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  height: 100%;
 `
 export const NumberDivider = styled.div`
   border-left: 1px solid;
@@ -31,12 +31,23 @@ export const NumberDivider = styled.div`
 `
 export const AchieveWrapper = styled.div`
   color: ${theme('banner.desc')};
+  padding-top: 8px;
+  padding-bottom: 8px;
+`
+export const AchieveLine = styled.div`
+  display: flex;
+  align-items: flex-end;
 `
 export const AchieveText = styled.div`
   font-size: 0.9rem;
   display: flex;
   align-items: baseline;
-  line-height: 1.3;
+`
+export const AchieveIcon = styled(Img)`
+  fill: ${theme('banner.desc')};
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
 `
 export const AcheveNumber = styled.div`
   font-size: 1.1rem;
