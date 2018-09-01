@@ -16,10 +16,3 @@ export const Desc = styled.div`
   display: flex;
   align-items: baseline;
 `
-
-export const Number = styled.div`
-  color: ${theme('banner.title')};
-  font-size: 1.1rem;
-  margin-left: 5px;
-  margin-right: 5px;
-`
