@@ -17,6 +17,7 @@ const FavoritesCats = t
     showModal: t.optional(t.boolean, false),
     showUpdater: t.optional(t.boolean, false),
     showCreator: t.optional(t.boolean, false),
+    showSetter: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

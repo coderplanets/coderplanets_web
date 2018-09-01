@@ -11,24 +11,15 @@ import {
   RadiosWrapper,
   Footer,
 } from './styles/editor'
-import {
-  SectionLabel,
-  Input,
-  Radio,
-  Space,
-  Button,
-  Popconfirm,
-} from '../../components'
+
+import { SectionLabel, Input, Radio, Space, Button } from '../../components'
 
 const { TextArea } = Input
 const RadioGroup = Radio.Group
 
-const Updater = ({ show }) => (
+const Creator = ({ show }) => (
   <Wrapper show={show} className="normal-form">
-    <SectionLabel
-      title="编辑收藏夹 - 前端框架"
-      iconSrc={`${ICON_ASSETS}/cmd/edit.svg`}
-    />
+    <SectionLabel title="创建收藏夹" iconSrc={`${ICON_ASSETS}/cmd/edit.svg`} />
     <EditWrapper>
       <FormItemWrapper>
         <FormLable>标题</FormLable>
@@ -63,15 +54,13 @@ const Updater = ({ show }) => (
       </FormItemWrapper>
     </EditWrapper>
     <Footer>
-      <Popconfirm content="删除收藏夹及包含的内容，是否继续?">
-        <Button type="red" ghost>
-          删除
-        </Button>
-      </Popconfirm>
+      <Button type="primary" ghost>
+        取消
+      </Button>
       <Space right="10px" />
       <Button type="primary">保存</Button>
     </Footer>
   </Wrapper>
 )
 
-export default Updater
+export default Creator

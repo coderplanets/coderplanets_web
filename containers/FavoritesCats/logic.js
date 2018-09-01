@@ -19,6 +19,17 @@ export function onEdit() {
     showModal: true,
     showUpdater: true,
     showCreator: false,
+    showSetter: false,
+    curView: 'list',
+  })
+}
+
+export function onAdd() {
+  store.markState({
+    showModal: true,
+    showUpdater: false,
+    showCreator: true,
+    showSetter: false,
     curView: 'list',
   })
 }
