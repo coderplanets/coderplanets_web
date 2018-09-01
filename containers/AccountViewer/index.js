@@ -13,6 +13,7 @@ import { makeDebugger, storePlug } from '../../utils'
 
 import { Tabs, ThemeSelector, UserBrief } from '../../components'
 
+import SiteSocial from './SiteSocial'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
@@ -71,9 +72,12 @@ class AccountViewerContainer extends React.Component {
             onEdit={logic.editProfile}
           />
 
-          <Divider top="10px" bottom="20px" />
+          <Divider top="20px" bottom="0px" />
+          <SiteSocial />
+          <Divider top="0px" bottom="20px" />
           <Planets subscribedCommunities={subscribedCommunities} />
           <Divider top="10px" bottom="20px" />
+
           <ContributeMap data={contributes} />
           <Divider top="18px" />
           <Tabs onChange={debug} type="card">
