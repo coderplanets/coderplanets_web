@@ -20,6 +20,7 @@ export { default as MarkDownRender } from './MarkDownRender'
 export { default as ContentFilter } from './ContentFilter'
 export { default as FileUploader } from './FileUploader'
 export { default as UserList } from './UserList'
+export { default as FocusLine } from './FocusLine'
 
 export { default as StateTree } from './StateTree'
 export { default as TrendLine } from './TrendLine'
