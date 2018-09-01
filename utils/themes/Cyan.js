@@ -101,7 +101,7 @@ const Cyan = {
     helperHover: '#83a2a5',
     topLine: primaryColor,
     icon: 'tomato',
-    divider: '#ebf1f0',
+    divider: '#e0e6e5',
   },
   article: {
     link: '#b5ccce',
