@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { ICON_ASSETS } from '../../config'
+
 import NumSection from './NumSection'
 import {
   Wrapper,
@@ -8,7 +10,9 @@ import {
   RightWrapper,
   NumberDivider,
   AchieveWrapper,
+  AchieveLine,
   AchieveText,
+  AchieveIcon,
   AcheveNumber,
 } from './styles/site_social'
 
@@ -24,12 +28,18 @@ const NumbersDashboard = () => (
 
 const AcieveDashboard = () => (
   <AchieveWrapper>
-    <AchieveText>
-      共获得 <AcheveNumber>18</AcheveNumber> 赞
-    </AchieveText>
-    <AchieveText>
-      创作的内容被收藏 <AcheveNumber>222</AcheveNumber> 次
-    </AchieveText>
+    <AchieveLine>
+      <AchieveIcon src={`${ICON_ASSETS}/cmd/likev2.svg`} />
+      <AchieveText>
+        共获得 <AcheveNumber>18</AcheveNumber> 赞
+      </AchieveText>
+    </AchieveLine>
+    <AchieveLine>
+      <AchieveIcon src={`${ICON_ASSETS}/cmd/favoritev2.svg`} />
+      <AchieveText>
+        创作的内容被收藏 <AcheveNumber>222</AcheveNumber> 次
+      </AchieveText>
+    </AchieveLine>
   </AchieveWrapper>
 )
 

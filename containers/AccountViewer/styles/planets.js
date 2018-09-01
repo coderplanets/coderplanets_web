@@ -7,6 +7,7 @@ export const Wrapper = styled.div``
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  margin-bottom: 5px;
 `
 export const Title = styled.div`
   font-size: 1em;

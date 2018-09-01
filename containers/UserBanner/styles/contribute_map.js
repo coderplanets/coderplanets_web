@@ -6,6 +6,7 @@ export const Wrapper = styled.div``
 
 export const TitleWrapper = styled.div`
   display: flex;
+  margin-bottom: 5px;
 `
 
 export const HelpText = styled.div`
