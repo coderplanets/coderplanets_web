@@ -12,8 +12,6 @@ import { ICON_ASSETS } from '../../config'
 
 import { ThemeSelector, SectionLabel, Radio, Button } from '../../components'
 
-import { FavoritesCats } from '..'
-
 import {
   Wrapper,
   LabelDescWrapper,
@@ -41,7 +39,6 @@ class UserSettingsContainer extends React.Component {
 
     return (
       <Wrapper>
-        <FavoritesCats />
         <SectionLabel
           title="主题设置"
           iconSrc={`${ICON_ASSETS}/cmd/setting_theme.svg`}
