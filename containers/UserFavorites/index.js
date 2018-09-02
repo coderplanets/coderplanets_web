@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import shortid from 'shortid'
 
+import { FavoritesCats } from '..'
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import {
@@ -60,9 +61,9 @@ class UserFavoritesContainer extends React.Component {
 
     return (
       <div>
+        <FavoritesCats />
         <React.Fragment>
           <View entries={entries} curView={curView} />
-
           <Pagi
             left="-10px"
             pageNumber={pageNumber}
