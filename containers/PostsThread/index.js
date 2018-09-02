@@ -5,17 +5,14 @@
  */
 
 import React from 'react'
-import R from 'ramda'
-
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 
 import {
   Affix,
-  TagList,
   PostsLoading,
   Pagi,
   EmptyThread,
@@ -24,6 +21,7 @@ import {
   PostItem,
 } from '../../components'
 
+import { TagsBar } from '..'
 import {
   Wrapper,
   LeftPadding,
@@ -81,10 +79,8 @@ class PostsThreadContainer extends React.Component {
     const {
       postsThread: {
         pagedPostsData,
-        tagsData,
         curView,
         filtersData,
-        activeTagData,
         activePost,
         curRoute,
       },
@@ -108,46 +104,36 @@ class PostsThreadContainer extends React.Component {
               <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(entries) ? (
-              <PostsLoading num={5} />
-            ) : (
-              <React.Fragment>
-                <View
-                  community={mainPath}
-                  thread={subPath}
-                  entries={entries}
-                  curView={curView}
-                  active={activePost}
-                />
+            <React.Fragment>
+              <View
+                community={mainPath}
+                thread={subPath}
+                entries={entries}
+                curView={curView}
+                active={activePost}
+              />
 
-                <Pagi
-                  left="-10px"
-                  pageNumber={pageNumber}
-                  pageSize={pageSize}
-                  totalCount={totalCount}
-                  onChange={logic.loadPosts}
-                />
-              </React.Fragment>
-            )}
+              <Pagi
+                left="-10px"
+                pageNumber={pageNumber}
+                pageSize={pageSize}
+                totalCount={totalCount}
+                onChange={logic.loadPosts}
+              />
+            </React.Fragment>
           </LeftPart>
 
           <RightPart>
-            {R.isEmpty(entries) ? null : (
-              <React.Fragment>
-                <PublishBtn type="primary" onClick={logic.createContent}>
-                  发<Space right="20px" />帖
-                </PublishBtn>
+            <React.Fragment>
+              <PublishBtn type="primary" onClick={logic.createContent}>
+                发<Space right="20px" />帖
+              </PublishBtn>
 
-                <Affix offsetTop={50}>
-                  <TagDivider />
-                  <TagList
-                    tags={tagsData}
-                    active={activeTagData}
-                    onSelect={logic.onTagSelect}
-                  />
-                </Affix>
-              </React.Fragment>
-            )}
+              <Affix offsetTop={50}>
+                <TagDivider />
+                <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
+              </Affix>
+            </React.Fragment>
           </RightPart>
           <RightPadding />
         </React.Fragment>

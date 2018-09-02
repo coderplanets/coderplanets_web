@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from '../../../utils'
-import { Img } from '../..'
+import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
   /* border-right: 1px solid grey; */
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding-left: 10%;
 `
 export const TagItem = styled.div`
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   font-size: medium;
   display: flex;
   &:hover {
@@ -46,4 +46,5 @@ export const TagDot = styled.div`
 
 export const TagTitle = styled.div`
   color: ${theme('tags.text')};
+  font-size: 1rem;
 `

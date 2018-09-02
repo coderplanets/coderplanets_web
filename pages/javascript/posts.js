@@ -83,10 +83,10 @@ export default class Posts extends React.Component {
       /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
       viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },
+      tagsBar: { tags: partialTags },
       postsThread: {
         pagedPosts,
         curView,
-        tags: partialTags,
       },
     }
   }

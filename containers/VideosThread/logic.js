@@ -5,8 +5,6 @@ import {
   makeDebugger,
   $solver,
   TYPE,
-  THREAD,
-  later,
   scrollIntoEle,
   asyncRes,
 } from '../../utils'
@@ -51,17 +49,6 @@ export function loadVideos(page = 1) {
   debug('load videos --> ', args)
   sr71$.query(S.pagedVideos, args)
   store.markRoute({ page })
-}
-
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-  const thread = R.toUpper(THREAD.VIDEO)
-
-  const args = { community, thread }
-  debug('loadTags --> ', args)
-  sr71$.query(S.partialTags, args)
 }
 
 export function onTitleSelect() {
@@ -112,7 +99,6 @@ const loadIfNeed = () => {
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
   if (R.isEmpty(store.pagedVideosData.entries)) {
     loadVideos()
-    later(loadTags, 500)
   }
 }
 

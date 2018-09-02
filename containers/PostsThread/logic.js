@@ -4,13 +4,11 @@ import { PAGE_SIZE } from '../../config'
 import {
   asyncRes,
   asyncErr,
-  later,
   makeDebugger,
   dispatchEvent,
   EVENT,
   ERR,
   TYPE,
-  THREAD,
   $solver,
   scrollIntoEle,
   GA,
@@ -52,12 +50,13 @@ export function loadPosts(page = 1) {
   const community = mainPath
   store.markState({ curView: TYPE.LOADING })
 
+  debug('store.activeTagData', store.activeTagData)
   const args = {
     filter: {
       page,
       size: PAGE_SIZE.COMMON,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
       community,
     },
   }
@@ -65,20 +64,8 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
-}
-
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-  const thread = R.toUpper(THREAD.POST)
-
-  const args = { community, thread }
-  debug('loadTags --> ', args)
-  sr71$.query(S.partialTags, args)
 }
 
 export function onFilterSelect(option) {
@@ -118,7 +105,7 @@ const DataSolver = [
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       let curView = TYPE.RESULT
-      if (pagedPosts.entries.length === 0) {
+      if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
       }
       store.markState({ curView, pagedPosts })
@@ -134,17 +121,11 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      loadPosts()
-      later(loadTags, 500)
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.REFRESH_POSTS),
-    action: res => {
-      debug('EVENT.REFRESH_POSTS: ', res)
-      loadPosts()
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
@@ -176,7 +157,6 @@ const ErrSolver = [
 const loadIfNeed = () => {
   if (!store.pagedPosts) {
     loadPosts()
-    later(loadTags, 300)
   }
 }
 

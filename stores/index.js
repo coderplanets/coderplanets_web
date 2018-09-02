@@ -55,6 +55,8 @@ export {
   default as CheatSheetPaperStore,
 } from '../containers/CheatSheetPaper/store'
 
+export { default as TagsBarStore } from '../containers/TagsBar/store'
+
 // toolbox
 export { default as TypeWriterStore } from '../containers/TypeWriter/store'
 export { default as CommentsStore } from '../containers/Comments/store'

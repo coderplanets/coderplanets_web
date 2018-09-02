@@ -12,7 +12,6 @@ import { inject, observer } from 'mobx-react'
 
 import {
   Affix,
-  TagList,
   PostsLoading,
   Pagi,
   EmptyThread,
@@ -21,6 +20,7 @@ import {
 } from '../../components'
 
 import Item from './Item'
+import { TagsBar } from '..'
 
 import {
   Wrapper,
@@ -138,7 +138,7 @@ class VideosThreadContainer extends React.Component {
 
                 <Affix offsetTop={50}>
                   <TagDivider />
-                  <TagList
+                  <TagsBar
                     tags={tagsData}
                     active={activeTagData}
                     onSelect={logic.onTagSelect}

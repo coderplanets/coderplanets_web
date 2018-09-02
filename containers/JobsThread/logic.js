@@ -7,11 +7,9 @@ import {
   EVENT,
   ERR,
   TYPE,
-  THREAD,
   $solver,
   scrollIntoEle,
   GA,
-  later,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -75,19 +73,6 @@ export function loadJobs(page = 1) {
   sr71$.query(S.pagedJobs, args)
 }
 
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-
-  const args = {
-    thread: R.toUpper(THREAD.JOB),
-    community,
-  }
-
-  sr71$.query(S.partialTags, args)
-}
-
 export function onFilterSelect(option) {
   store.selectFilter(option)
   loadJobs()
@@ -138,10 +123,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      loadJobs()
-      later(loadTags, 300)
-    },
+    action: () => loadJobs(),
   },
   {
     match: asyncRes(EVENT.REFRESH_JOBS),
@@ -178,7 +160,6 @@ const loadIfNeed = () => {
   if (!store.pagedJobs) {
     debug('loadIfNeed')
     loadJobs()
-    later(loadTags, 300)
   }
 }
 

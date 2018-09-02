@@ -38,6 +38,7 @@ import {
   VideosThreadStore,
   ReposThreadStore,
   JobsThreadStore,
+  TagsBarStore,
   // content
   PostContentStore,
   CommunitiesContentStore,
@@ -120,6 +121,8 @@ const rootStore = t
     reposThread: t.optional(ReposThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
+
+    tagsBar: t.optional(TagsBarStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),

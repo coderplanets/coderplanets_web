@@ -9,11 +9,10 @@ import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 
 import {
   Affix,
-  TagList,
   PostsLoading,
   Pagi,
   EmptyThread,
@@ -22,6 +21,7 @@ import {
 } from '../../components'
 
 import Item from './Item'
+import { TagsBar } from '..'
 
 import {
   Wrapper,
@@ -130,7 +130,8 @@ class JobsThreadContainer extends React.Component {
 
               <Affix offsetTop={50}>
                 <TagDivider />
-                <TagList
+                <TagsBar
+                  thread={THREAD.JOB}
                   tags={tagsData}
                   active={activeTagData}
                   onSelect={logic.onTagSelect}
