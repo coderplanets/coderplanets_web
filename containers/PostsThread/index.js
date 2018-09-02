@@ -81,10 +81,8 @@ class PostsThreadContainer extends React.Component {
     const {
       postsThread: {
         pagedPostsData,
-        tagsData,
         curView,
         filtersData,
-        activeTagData,
         activePost,
         curRoute,
       },
@@ -140,12 +138,7 @@ class PostsThreadContainer extends React.Component {
 
                 <Affix offsetTop={50}>
                   <TagDivider />
-                  <TagsBar
-                    thread={THREAD.POST}
-                    tags={tagsData}
-                    active={activeTagData}
-                    onSelect={logic.onTagSelect}
-                  />
+                  <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
                 </Affix>
               </React.Fragment>
             )}

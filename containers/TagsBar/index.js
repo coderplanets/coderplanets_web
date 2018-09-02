@@ -38,13 +38,13 @@ class TagsBarContainer extends React.Component {
   }
 
   render() {
-    const { tagsBar, active, onSelect } = this.props
+    const { tagsBar, onSelect } = this.props
 
-    const { tagsData } = tagsBar
+    const { tagsData, activeTagData } = tagsBar
 
     return (
       <Wrapper>
-        {active.title ? (
+        {activeTagData.title ? (
           <TagItem onClick={onSelect.bind(this, { title: '', color: '' })}>
             <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
             <TagTitle>全部标签</TagTitle>
@@ -62,10 +62,14 @@ class TagsBarContainer extends React.Component {
           >
             <TagDot
               color={prettyColor[tag.color]}
-              active={active.title}
+              active={activeTagData.title}
               title={tag.title}
             />
-            <TagTitle active={active.title} title={tag.title} color={tag.color}>
+            <TagTitle
+              active={activeTagData.title}
+              title={tag.title}
+              color={tag.color}
+            >
               {tag.title}
             </TagTitle>
           </TagItem>

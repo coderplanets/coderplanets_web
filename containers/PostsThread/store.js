@@ -58,8 +58,6 @@ const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
     filters: t.optional(FilterModel, {}),
-    /* tags: t.optional(t.map(Tag), {}), */
-    tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
@@ -86,9 +84,6 @@ const PostsThreadStore = t
     },
     get accountInfo() {
       return self.root.account.accountInfo
-    },
-    get tagsData() {
-      return stripMobx(self.tags)
     },
     get filtersData() {
       return stripMobx(self.filters)
