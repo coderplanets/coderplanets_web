@@ -42,6 +42,7 @@ export { default as VideosThread } from './VideosThread'
 export { default as JobsThread } from './JobsThread'
 export { default as ReposThread } from './ReposThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
+export { default as TagsBar } from './TagsBar'
 
 // user page
 export { default as UserSettings } from './UserSettings'

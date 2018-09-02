@@ -11,11 +11,10 @@ import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 
 import {
   Affix,
-  TagList,
   PostsLoading,
   Pagi,
   EmptyThread,
@@ -24,6 +23,7 @@ import {
   PostItem,
 } from '../../components'
 
+import { TagsBar } from '..'
 import {
   Wrapper,
   LeftPadding,
@@ -140,7 +140,8 @@ class PostsThreadContainer extends React.Component {
 
                 <Affix offsetTop={50}>
                   <TagDivider />
-                  <TagList
+                  <TagsBar
+                    thread={THREAD.POST}
                     tags={tagsData}
                     active={activeTagData}
                     onSelect={logic.onTagSelect}
