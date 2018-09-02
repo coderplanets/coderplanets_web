@@ -21,6 +21,10 @@ const debug = makeDebugger('L:TagsBar')
 
 let store = null
 
+export function onTagSelect(tag) {
+  store.selectTag(tag)
+}
+
 export function loadTags(pthread) {
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
@@ -40,6 +44,7 @@ const DataSolver = [
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags }) => {
+      console.log('partialTags --> ', partialTags)
       store.markState({
         tags: partialTags,
       })

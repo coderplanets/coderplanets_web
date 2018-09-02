@@ -37,15 +37,24 @@ class TagsBarContainer extends React.Component {
     logic.loadIfNeed(thread)
   }
 
+  onSelect(tag) {
+    const { onSelect } = this.props
+
+    logic.onTagSelect(tag)
+    onSelect(tag)
+  }
+
   render() {
-    const { tagsBar, onSelect } = this.props
+    const { tagsBar } = this.props
 
     const { tagsData, activeTagData } = tagsBar
 
     return (
       <Wrapper>
         {activeTagData.title ? (
-          <TagItem onClick={onSelect.bind(this, { title: '', color: '' })}>
+          <TagItem
+            onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
+          >
             <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
             <TagTitle>全部标签</TagTitle>
           </TagItem>
@@ -54,10 +63,10 @@ class TagsBarContainer extends React.Component {
         {tagsData.map(tag => (
           <TagItem
             key={shortid.generate()}
-            onClick={onSelect.bind(this, {
+            onClick={this.onSelect.bind(this, {
+              id: tag.id,
               title: tag.title,
               color: tag.color,
-              ext: 'helli',
             })}
           >
             <TagDot

@@ -50,12 +50,13 @@ export function loadPosts(page = 1) {
   const community = mainPath
   store.markState({ curView: TYPE.LOADING })
 
+  debug('store.activeTagData', store.activeTagData)
   const args = {
     filter: {
       page,
       size: PAGE_SIZE.COMMON,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
       community,
     },
   }
@@ -63,7 +64,6 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  debug('load posts --> ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
 }
@@ -105,7 +105,7 @@ const DataSolver = [
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       let curView = TYPE.RESULT
-      if (pagedPosts.entries.length === 0) {
+      if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
       }
       store.markState({ curView, pagedPosts })

@@ -5,8 +5,6 @@
  */
 
 import React from 'react'
-import R from 'ramda'
-
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
@@ -106,42 +104,36 @@ class PostsThreadContainer extends React.Component {
               <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(entries) ? (
-              <PostsLoading num={5} />
-            ) : (
-              <React.Fragment>
-                <View
-                  community={mainPath}
-                  thread={subPath}
-                  entries={entries}
-                  curView={curView}
-                  active={activePost}
-                />
+            <React.Fragment>
+              <View
+                community={mainPath}
+                thread={subPath}
+                entries={entries}
+                curView={curView}
+                active={activePost}
+              />
 
-                <Pagi
-                  left="-10px"
-                  pageNumber={pageNumber}
-                  pageSize={pageSize}
-                  totalCount={totalCount}
-                  onChange={logic.loadPosts}
-                />
-              </React.Fragment>
-            )}
+              <Pagi
+                left="-10px"
+                pageNumber={pageNumber}
+                pageSize={pageSize}
+                totalCount={totalCount}
+                onChange={logic.loadPosts}
+              />
+            </React.Fragment>
           </LeftPart>
 
           <RightPart>
-            {R.isEmpty(entries) ? null : (
-              <React.Fragment>
-                <PublishBtn type="primary" onClick={logic.createContent}>
-                  发<Space right="20px" />帖
-                </PublishBtn>
+            <React.Fragment>
+              <PublishBtn type="primary" onClick={logic.createContent}>
+                发<Space right="20px" />帖
+              </PublishBtn>
 
-                <Affix offsetTop={50}>
-                  <TagDivider />
-                  <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
-                </Affix>
-              </React.Fragment>
-            )}
+              <Affix offsetTop={50}>
+                <TagDivider />
+                <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
+              </Affix>
+            </React.Fragment>
           </RightPart>
           <RightPadding />
         </React.Fragment>
