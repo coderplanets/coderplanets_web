@@ -27,7 +27,7 @@ const FocusLine = ({ iconSrc, before, focus, after }) => (
 FocusLine.propTypes = {
   iconSrc: PropTypes.string,
   before: PropTypes.string.isRequired,
-  focus: PropTypes.string.isRequired,
+  focus: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   after: PropTypes.string.isRequired,
 }
 
