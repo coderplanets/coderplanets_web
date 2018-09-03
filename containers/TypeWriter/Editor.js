@@ -5,6 +5,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { Labeler } from '..'
 import { Button, Popover, FileUploader } from '../../components'
 
 import { ICON_ASSETS } from '../../config'
@@ -134,10 +135,7 @@ const Editor = ({
     <br />
     <BodyEditor onChange={bodyOnChange} body={body} />
     <ExtraWrapper>
-      <ExtraItem>
-        <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_tag.svg`} />
-        <ExtraItemTitle>标签</ExtraItemTitle>
-      </ExtraItem>
+      <Labeler />
       <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
       <ExtraItem>
         <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_vote.svg`} />

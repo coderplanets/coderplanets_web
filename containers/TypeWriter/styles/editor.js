@@ -26,7 +26,7 @@ export const ExtraDivider = styled(Img)`
 `
 export const ExtraItemTitle = styled.div`
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1rem;
   ${ExtraItem}:hover & {
     color: ${theme('editor.footerHover')};
   }

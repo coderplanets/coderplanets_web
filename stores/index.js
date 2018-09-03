@@ -63,6 +63,7 @@ export { default as CommentsStore } from '../containers/Comments/store'
 export {
   default as AccountEditorStore,
 } from '../containers/AccountEditor/store'
+export { default as LabelerStore } from '../containers/Labeler/store'
 
 // viewers store
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
