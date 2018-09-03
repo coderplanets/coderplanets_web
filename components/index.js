@@ -30,6 +30,7 @@ export { default as Pagi } from './Pagi'
 export { default as Navigator } from './Navigator'
 export { default as ThemeSelector } from './ThemeSelector'
 export { default as Tabber } from './Tabber'
+export { default as InlineTags } from './InlineTags'
 
 export { default as UserCell } from './UserCell'
 export { default as SectionLabel } from './SectionLabel'

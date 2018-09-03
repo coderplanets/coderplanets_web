@@ -225,7 +225,7 @@ const Cyan = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.8,
+    dotOpacity: 0.4,
     text: '#71979a',
   },
   tagger: {

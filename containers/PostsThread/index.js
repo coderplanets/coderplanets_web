@@ -91,52 +91,50 @@ class PostsThreadContainer extends React.Component {
 
     return (
       <Wrapper>
-        <React.Fragment>
-          <LeftPadding />
-          <LeftPart>
-            <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-            {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
-            <FilterWrapper show>
-              <ContentFilter
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-            </FilterWrapper>
+        <LeftPadding />
+        <LeftPart>
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+          {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
+          <FilterWrapper show>
+            <ContentFilter
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+            />
+            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+          </FilterWrapper>
 
-            <React.Fragment>
-              <View
-                community={mainPath}
-                thread={subPath}
-                entries={entries}
-                curView={curView}
-                active={activePost}
-              />
+          <React.Fragment>
+            <View
+              community={mainPath}
+              thread={subPath}
+              entries={entries}
+              curView={curView}
+              active={activePost}
+            />
 
-              <Pagi
-                left="-10px"
-                pageNumber={pageNumber}
-                pageSize={pageSize}
-                totalCount={totalCount}
-                onChange={logic.loadPosts}
-              />
-            </React.Fragment>
-          </LeftPart>
+            <Pagi
+              left="-10px"
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onChange={logic.loadPosts}
+            />
+          </React.Fragment>
+        </LeftPart>
 
-          <RightPart>
-            <React.Fragment>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                发<Space right="20px" />帖
-              </PublishBtn>
+        <RightPart>
+          <React.Fragment>
+            <PublishBtn type="primary" onClick={logic.createContent}>
+              发<Space right="20px" />帖
+            </PublishBtn>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
-              </Affix>
-            </React.Fragment>
-          </RightPart>
-          <RightPadding />
-        </React.Fragment>
+            <Affix offsetTop={50}>
+              <TagDivider />
+              <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
+            </Affix>
+          </React.Fragment>
+        </RightPart>
+        <RightPadding />
       </Wrapper>
     )
   }

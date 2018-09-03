@@ -12,8 +12,8 @@ const glob = require('glob')
 
 const app = next({
   dev,
-  quiet: true,
-  conf: { useFileSystemPublicRoutes: false },
+  quiet: false,
+  // conf: { useFileSystemPublicRoutes: false },
 })
 const handle = app.getRequestHandler()
 const route = pathMatch()

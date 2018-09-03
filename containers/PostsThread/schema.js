@@ -10,6 +10,11 @@ const pagedPostsRaw = `
         insertedAt
         updatedAt
         views
+        tags {
+          title
+          color
+          id
+        }
         author {
           id
           avatar

@@ -45,7 +45,7 @@ async function fetchData(props) {
   // utils
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(asPath), community }
+  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // data
   const curCommunity = request(communityRaw, { raw: community })

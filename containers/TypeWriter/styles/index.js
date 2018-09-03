@@ -177,6 +177,11 @@ export const LinkLabel = styled.div`
 export const PreviewBtn = styled.div`
   margin-top: -3px;
 `
+
+export const SelectorWrapper = styled.div`
+  padding: 5px 8px;
+`
+
 export const Selector = styled.div`
   display: flex;
   &:hover {

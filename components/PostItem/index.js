@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import { ICON_ASSETS } from '../../config'
-import { AvatarsRow } from '..'
+import { AvatarsRow, InlineTags } from '..'
 
 import {
   Wrapper,
@@ -20,11 +20,9 @@ import {
   TopHalf,
   Breif,
   Title,
-  TitleTag,
   SecondHalf,
   BodyDigest,
   Extra,
-  TitleTagDot,
 } from './styles'
 
 import { cutFrom, makeDebugger } from '../../utils'
@@ -45,10 +43,7 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
             <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </TitleLink>
-          <TitleTag>
-            <TitleTagDot />
-            问答
-          </TitleTag>
+          <InlineTags data={entry.tags} />
         </Breif>
         <div>
           <AvatarsRow

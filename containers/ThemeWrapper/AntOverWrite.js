@@ -180,9 +180,7 @@ const AntOverWrite = styled.div`
       opacity: 0.5;
     }
   }
-  .ant-input:focus {
-    box-shadow: 0 0 0 2px ${theme('form.shadow')};
-  }
+
   .ant-checkbox-wrapper {
     color: #87c5ca;
   }

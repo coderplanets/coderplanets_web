@@ -19,17 +19,6 @@ import * as logic from './logic'
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
-const prettyColor = {
-  red: '#FC6360',
-  orange: '#FFA653',
-  yellow: '#F8CE5A',
-  green: '#60CC5A',
-  cyan: '#9fefe4',
-  blue: '#2CB8F0',
-  purple: '#D488DE',
-  grey: 'lightgrey',
-}
-
 class TagsBarContainer extends React.Component {
   componentWillMount() {
     const { tagsBar, thread } = this.props
@@ -70,7 +59,7 @@ class TagsBarContainer extends React.Component {
             })}
           >
             <TagDot
-              color={prettyColor[tag.color]}
+              color={tag.color}
               active={activeTagData.title}
               title={tag.title}
             />

@@ -24,6 +24,7 @@ import {
   MoreIcon,
   SourceLink,
   PreviewBtn,
+  SelectorWrapper,
   Selector,
   CheckIcon,
   CheckText,
@@ -44,7 +45,7 @@ const articleTypeDic = {
 }
 
 const OriginalSelector = ({ active, onSelect }) => (
-  <React.Fragment>
+  <SelectorWrapper>
     <Selector onClick={onSelect.bind(this, 'original')}>
       <CheckIcon
         src={`${ICON_ASSETS}/cmd/check2.svg`}
@@ -75,7 +76,7 @@ const OriginalSelector = ({ active, onSelect }) => (
         翻译
       </CheckText>
     </Selector>
-  </React.Fragment>
+  </SelectorWrapper>
 )
 
 const Editor = ({
