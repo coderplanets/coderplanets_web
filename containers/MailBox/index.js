@@ -63,7 +63,6 @@ class MailBoxContainer extends React.Component {
   }
 
   onVisibleChange(visible) {
-    console.log(('hello ', visible))
     if (visible) {
       debug('load if need')
     }
