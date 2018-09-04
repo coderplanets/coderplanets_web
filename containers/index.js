@@ -46,6 +46,7 @@ export { default as TagsBar } from './TagsBar'
 
 // tools
 export { default as Labeler } from './Labeler'
+export { default as MailBox } from './MailBox'
 
 // user page
 export { default as UserSettings } from './UserSettings'

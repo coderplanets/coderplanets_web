@@ -122,6 +122,17 @@ function publishing(maybe = true) {
   store.markState({ publishing: maybe })
 }
 
+export function insertCode() {
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
+    type: 'FUCK',
+    data: '```javascript\n\n```',
+  })
+}
+
+// ###############################
+// Data & Error handlers
+// ###############################
+
 const DataSolver = [
   {
     match: asyncRes('createPost'),

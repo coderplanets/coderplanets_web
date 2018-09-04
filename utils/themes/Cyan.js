@@ -269,6 +269,9 @@ const Cyan = {
     successBar: '#9dd035',
     warnBar: '#f5a30e',
   },
+  mailBox: {
+    headHightBg: '#e8f9f8',
+  },
 }
 
 export default Cyan

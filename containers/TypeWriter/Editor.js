@@ -142,7 +142,7 @@ const Editor = ({
         <ExtraItemTitle>投票</ExtraItemTitle>
       </ExtraItem>
       <ExtraDivider src={`${ICON_ASSETS}/cmd/more.svg`} />
-      <ExtraItem>
+      <ExtraItem onClick={logic.insertCode}>
         <ExtraItemIcon src={`${ICON_ASSETS}/cmd/extra_code.svg`} />
         <ExtraItemTitle>代码</ExtraItemTitle>
       </ExtraItem>

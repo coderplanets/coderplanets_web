@@ -10,9 +10,11 @@ import keydown from 'react-keydown'
 import shortid from 'shortid'
 
 import { ICON_ASSETS } from '../../config/assets'
-import { UpgradePackges } from '..'
-import { Affix, Navigator, Button } from '../../components'
+import { UpgradePackges, MailBox } from '..'
+import { Affix, Navigator } from '../../components'
 
+import UserAccount from './UserAccount'
+import AddOns from './AddOns'
 import { makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 
 import {
@@ -21,16 +23,9 @@ import {
   MiniMapWrapper,
   CommunityLogo,
   MiniTab,
-  Admin,
   Search,
-  Notification,
   HeaderIcon,
-  UserAvatar,
-  StateIcon,
-  StateButton,
-  DividerIcon,
   Operations,
-  User,
   AffixHeader,
   RawHeader,
 } from './styles'
@@ -78,46 +73,14 @@ const Header = ({
         <Navigator />
       )}
     </RouterWrapper>
-    <Admin>
-      <div style={{ display: 'flex' }}>
-        <Button size="small" type="primary" ghost onClick={logic.upgradeHepler}>
-          upgrade
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button size="small" type="primary" ghost onClick={logic.toast}>
-          toast
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <StateButton
-          size="small"
-          type="primary"
-          ghost
-          onClick={logic.previewState.bind(this, 'mst-state')}
-        >
-          <StateIcon src={`${ICON_ASSETS}/cmd/header_state.svg`} />
-          <div>STATE</div>
-        </StateButton>
-        <DividerIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
-      </div>
-    </Admin>
-
+    <AddOns />
     <Operations>
       <Search onClick={logic.openDoraemon}>
         <HeaderIcon src={`${ICON_ASSETS}/cmd/search2.svg`} />
       </Search>
-      <Notification onClick={logic.openPreview.bind(this, 'post')}>
-        <HeaderIcon src={`${ICON_ASSETS}/cmd/notification_none.svg`} />
-      </Notification>
 
-      {isLogin ? (
-        <User onClick={logic.previewAccount.bind(this, 'account')}>
-          <UserAvatar src={accountInfo.avatar} />
-        </User>
-      ) : (
-        <User onClick={logic.login}>
-          <HeaderIcon src={`${ICON_ASSETS}/cmd/default_user.svg`} />
-        </User>
-      )}
+      <MailBox />
+      <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
     </Operations>
   </HeaderWrapper>
 )

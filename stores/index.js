@@ -16,6 +16,7 @@ export { default as ContentStore } from '../containers/Content/store'
 export {
   default as UpgradePackgesStore,
 } from '../containers/UpgradePackges/store'
+export { default as MailBoxStore } from '../containers/MailBox/store'
 
 //
 export {
