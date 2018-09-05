@@ -24,6 +24,7 @@ export const FilterIcon = styled(Img)`
 export const SelectPanelWrapper = styled.div`
   width: 280px;
   margin-left: 20px;
+  padding: 10px;
 `
 
 export const SelectTitle = styled.div`

@@ -7,6 +7,11 @@ const post = gql`
       title
       body
       views
+      author {
+        id
+        nickname
+        avatar
+      }
       linkAddr
       insertedAt
       updatedAt

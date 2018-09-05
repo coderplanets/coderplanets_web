@@ -38,16 +38,10 @@ export const MoreIcon = styled(Img)`
   width: 15px;
   height: 15px;
 `
-export const MoreOption = styled.div`
-  visibility: hidden;
-  ${MoreWrapper}:hover & {
-    visibility: visible;
-    cursor: pointer;
-  }
-`
 export const LinkFrom = styled.div`
   display: flex;
   color: ${theme('article.link')};
+  margin-left: 5%;
 `
 export const RefinedLabel = styled.div`
   color: tomato;
@@ -77,4 +71,5 @@ export const ArticleBody = styled.article`
   padding: 20px;
   font-size: 1.2em;
   line-height: 2em;
+  flex-grow: 1;
 `

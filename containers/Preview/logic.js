@@ -18,13 +18,14 @@ const sr71$ = new SR71({
   ],
 })
 
+/* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Preview')
+/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null
 
 export function closePreview() {
-  debug('closePreview')
   store.close()
 
   // force call Typewriter's componentWillUnmount to store the draft
@@ -36,7 +37,6 @@ export function closePreview() {
 }
 
 function loadDataForPreview(info) {
-  debug('loadDataForPreview --> : ', info)
   if (info.type === TYPE.POST_PREVIEW_VIEW) {
     // debug('load fucking post: ', info.data)
     dispatchEvent(EVENT.PREVIEW_POST, { type: TYPE.POST, data: info.data })
@@ -63,7 +63,6 @@ const DataResolver = [
       const event = res[EVENT.NAV_EDIT]
       holdPage()
 
-      debug('--> EVENT.NAV_EDIT: ', res)
       store.open(event.type)
       loadDataForPreview(res[EVENT.NAV_EDIT])
     },

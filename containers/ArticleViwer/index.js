@@ -12,21 +12,19 @@ import { inject, observer } from 'mobx-react'
 
 import PostViewer from './PostViewer'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
-const Viwer = ({ type, data, loading, onReaction }) => {
+const Viwer = ({ type, data, loading }) => {
   switch (type) {
-    case 'post': {
-      return (
-        <PostViewer data={data} loading={loading} onReaction={onReaction} />
-      )
+    case TYPE.POST: {
+      return <PostViewer data={data} loading={loading} />
     }
-    case 'job': {
+    case TYPE.JOb: {
       return <div>job</div>
     }
     case 'typewriter': {
@@ -45,17 +43,14 @@ class ArticleViwerContainer extends React.Component {
   }
 
   render() {
-    const { type, articleViwer } = this.props
-    const { viewingPost, postLoading } = articleViwer
+    const { articleViwer } = this.props
+    const { type, viewingPost, postLoading, accountInfo } = articleViwer
+
+    debug('accountInfo --> ', accountInfo)
 
     return (
       <React.Fragment>
-        <Viwer
-          type={type}
-          data={viewingPost}
-          loading={postLoading}
-          onReaction={logic.onReaction}
-        />
+        <Viwer type={type} data={viewingPost} loading={postLoading} />
       </React.Fragment>
     )
   }
@@ -64,13 +59,10 @@ class ArticleViwerContainer extends React.Component {
 ArticleViwerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
-  type: PropTypes.oneOf(['post', 'tut', 'job']),
   // onReaction: PropTypes.func.isRequired,
 }
 
-ArticleViwerContainer.defaultProps = {
-  type: 'post',
-}
+ArticleViwerContainer.defaultProps = {}
 
 // ArticleViwerContainer
 

@@ -84,9 +84,8 @@ class PreviewContainer extends React.Component {
   }
 
   render() {
-    const {
-      preview: { visible, type, themeKeys, curTheme, root },
-    } = this.props
+    const { preview } = this.props
+    const { visible, type, root } = preview
 
     return (
       <React.Fragment>
@@ -94,12 +93,7 @@ class PreviewContainer extends React.Component {
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
           <PreviewContent>
-            <Viewer
-              type={type}
-              root={root}
-              themeKeys={themeKeys}
-              curTheme={curTheme}
-            />
+            <Viewer type={type} root={root} />
           </PreviewContent>
         </PreviewWrapper>
       </React.Fragment>

@@ -40,6 +40,10 @@ const ArticleViwerStore = t
     get isLogin() {
       return self.root.account.isLogin
     },
+    get accountInfo() {
+      return self.root.account.accountInfo
+    },
+
     get viewingPost() {
       const { subPath } = self.curRoute
       switch (subPath2Thread(subPath)) {
