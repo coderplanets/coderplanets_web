@@ -8,7 +8,7 @@ import React from 'react'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Container,
@@ -34,13 +34,13 @@ const OauthHinter = () => {
   return (
     <Container>
       <CPSMdLogoWrapper>
-        <CPSMdLogo src={`${ICON_ASSETS}/cmd/cps_logo_md.png`} />
+        <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
       </CPSMdLogoWrapper>
       <HintWrapper>
         <IconsWrapper>
-          <CPSLogoIcon src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
-          <LinkIcon src={`${ICON_ASSETS}/cmd/oauth_link.svg`} />
-          <GithubLogoIcon src={`${ICON_ASSETS}/cmd/github.svg`} />
+          <CPSLogoIcon src={`${ICON_CMD}/keyboard_logo.svg`} />
+          <LinkIcon src={`${ICON_CMD}/oauth_link.svg`} />
+          <GithubLogoIcon src={`${ICON_CMD}/github.svg`} />
         </IconsWrapper>
         <TextWrapper>
           <HintTitle>绑定成功，请稍等</HintTitle>

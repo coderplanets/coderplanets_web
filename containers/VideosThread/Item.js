@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Space } from '../../components'
 import {
@@ -41,7 +41,7 @@ const Item = ({ data, active, index }) => (
         <Breif onClick={logic.onTitleSelect.bind(this, data)}>
           <Title>{data.title}</Title>
           <TitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_CMD}/link.svg`} />
             <span style={{ marginLeft: 9 }}>youtube</span>
           </TitleLink>
           <TitleTag>
@@ -59,8 +59,7 @@ const Item = ({ data, active, index }) => (
           <Space right="2px" />⁝<Space right="2px" />
           <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
           <Space right="2px" />⁝<Space right="2px" />
-          <ViewIcon src={`${ICON_ASSETS}/cmd/refer.svg`} />{' '}
-          <Space right="2px" />
+          <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right="2px" />
           {data.views}
         </Extra>
         <BodyDigest>{cutFrom(data.desc, 90)}</BodyDigest>

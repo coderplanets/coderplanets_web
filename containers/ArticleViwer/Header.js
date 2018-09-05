@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -43,7 +43,7 @@ const Header = ({ data }) => (
             data
           )}
         >
-          <ReactionIcon src={`${ICON_ASSETS}/cmd/uncollect.svg`} />
+          <ReactionIcon src={`${ICON_CMD}/uncollect.svg`} />
           <ReactionName>
             {data.viewerHasFavorited ? (
               <span>已收藏&nbsp;</span>
@@ -65,7 +65,7 @@ const Header = ({ data }) => (
             data
           )}
         >
-          <ReactionIcon src={`${ICON_ASSETS}/cmd/like.svg`} />
+          <ReactionIcon src={`${ICON_CMD}/like.svg`} />
           <ReactionName>&nbsp;赞&nbsp;</ReactionName>
         </ReactionAction>
         <ReactionUserNum>{data.starredCount}</ReactionUserNum>
@@ -73,7 +73,7 @@ const Header = ({ data }) => (
       </Reaction>
       <Reaction>
         <ReactionAction>
-          <ReactionIcon src={`${ICON_ASSETS}/cmd/watch.svg`} />
+          <ReactionIcon src={`${ICON_CMD}/watch.svg`} />
           <ReactionName>&nbsp;浏览&nbsp;</ReactionName>
         </ReactionAction>
         <ReactionUserNum>{data.views}</ReactionUserNum>

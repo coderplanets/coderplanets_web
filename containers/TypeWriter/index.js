@@ -9,7 +9,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 // import ContentInput from './ContentInput'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import Editor from './Editor'
 import Preview from './Preview'
@@ -80,7 +80,7 @@ const TopHeader = ({ curView }) => {
         <Header>
           <UsageText>Github Flavor Markdown</UsageText>
           <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
-            <MarkdownIcon src={`${ICON_ASSETS}/cmd/original.svg`} />
+            <MarkdownIcon src={`${ICON_CMD}/original.svg`} />
             返回编辑
           </BackToEditHint>
         </Header>
@@ -93,7 +93,7 @@ const TopHeader = ({ curView }) => {
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
           >
-            <MarkdownIcon src={`${ICON_ASSETS}/cmd/markdown.svg`} />
+            <MarkdownIcon src={`${ICON_CMD}/markdown.svg`} />
             markdown 语法 / emojj 速查
           </MarkDownHint>
         </Header>

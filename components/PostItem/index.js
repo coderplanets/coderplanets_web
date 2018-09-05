@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { AvatarsRow, InlineTags } from '..'
 
 import {
@@ -40,7 +40,7 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
         <Breif onClick={onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <TitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_CMD}/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </TitleLink>
           <InlineTags data={entry.tags} />

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config/assets'
+import { ICON_CMD } from '../../config/assets'
 
 import { Button } from '../../components'
 import { Wrapper, StateIcon, StateButton, DividerIcon } from './styles/addons'
@@ -22,10 +22,10 @@ const AddOns = () => (
       ghost
       onClick={logic.previewState.bind(this, 'mst-state')}
     >
-      <StateIcon src={`${ICON_ASSETS}/cmd/header_state.svg`} />
+      <StateIcon src={`${ICON_CMD}/header_state.svg`} />
       <div>STATE</div>
     </StateButton>
-    <DividerIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
+    <DividerIcon src={`${ICON_CMD}/more.svg`} />
   </Wrapper>
 )
 

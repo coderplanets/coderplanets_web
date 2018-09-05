@@ -15,7 +15,7 @@ import { Popover } from '../../components'
 import Selector from './Selector'
 import MailLists from './MailLists'
 
-import { ICON_ASSETS } from '../../config/assets'
+import { ICON_CMD } from '../../config/assets'
 import { Wrapper, PannerWrapper, Icon } from './styles'
 
 import * as logic from './logic'
@@ -27,17 +27,17 @@ const fakeOpts = [
   {
     title: '关注',
     raw: 'notifications',
-    icon: `${ICON_ASSETS}/cmd/mail_watching.svg`,
+    icon: `${ICON_CMD}/mail_watching.svg`,
   },
   {
     title: '提及',
     raw: 'mentions',
-    icon: `${ICON_ASSETS}/cmd/mail_mention.svg`,
+    icon: `${ICON_CMD}/mail_mention.svg`,
   },
   {
     title: '消息',
     raw: 'sys_notifications',
-    icon: `${ICON_ASSETS}/cmd/mail_notification.svg`,
+    icon: `${ICON_CMD}/mail_notification.svg`,
   },
 ]
 
@@ -83,7 +83,7 @@ class MailBoxContainer extends React.Component {
         onVisibleChange={this.onVisibleChange.bind(this)}
       >
         <Wrapper>
-          <Icon src={`${ICON_ASSETS}/cmd/header_mail.svg`} />
+          <Icon src={`${ICON_CMD}/header_mail.svg`} />
         </Wrapper>
       </Popover>
     )

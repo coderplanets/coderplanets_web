@@ -1,7 +1,7 @@
 import React from 'react'
 /* import TimeAgo from 'timeago-react' */
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Space } from '../../components'
 import BuilderList from './BuilderList'
@@ -82,12 +82,12 @@ const Item = ({ data, active, index }) => (
           </TitleTag>
           <StatusInfo>
             <StatusSection>
-              <StarIcon src={`${ICON_ASSETS}/cmd/repo_star.svg`} />
+              <StarIcon src={`${ICON_CMD}/repo_star.svg`} />
               <StatusNum>{data.repoStarCount}</StatusNum>
             </StatusSection>
             <Space right="3px" />
             <StatusSection>
-              <ForkIcon src={`${ICON_ASSETS}/cmd/repo_fork.svg`} />
+              <ForkIcon src={`${ICON_CMD}/repo_fork.svg`} />
               <StatusNum>{data.repoForkCount}</StatusNum>
             </StatusSection>
           </StatusInfo>

@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   FlexWrapper,
@@ -61,7 +61,7 @@ const DetailStyle = ({ curTheme, changeTheme }) => (
             {themeDescs[name]}
           </ThemeDesc>
           <AuthorInfo>
-            <AuthorIcon src={`${ICON_ASSETS}/cmd/author.svg`} />
+            <AuthorIcon src={`${ICON_CMD}/author.svg`} />
             <AuthorName
               href="https://www.github.com/mydearxym"
               rel="noopener noreferrer"

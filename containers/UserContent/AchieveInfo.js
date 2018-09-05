@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { FocusLine } from '../../components'
 import { Wrapper, Title, Desc } from './styles/achieve_info'
@@ -10,13 +10,13 @@ const AchieveInfo = () => (
     <Title>个人成就</Title>
     <FocusLine
       before="共获得"
-      iconSrc={`${ICON_ASSETS}/cmd/likev2.svg`}
+      iconSrc={`${ICON_CMD}/likev2.svg`}
       focus={18}
       after="赞"
     />
     <FocusLine
       before="创作的内容被收藏"
-      iconSrc={`${ICON_ASSETS}/cmd/favoritev2.svg`}
+      iconSrc={`${ICON_CMD}/favoritev2.svg`}
       focus={187}
       after="次"
     />

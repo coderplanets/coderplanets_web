@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -19,7 +19,7 @@ const RadioGroup = Radio.Group
 
 const Creator = ({ show }) => (
   <Wrapper show={show} className="normal-form">
-    <SectionLabel title="创建收藏夹" iconSrc={`${ICON_ASSETS}/cmd/edit.svg`} />
+    <SectionLabel title="创建收藏夹" iconSrc={`${ICON_CMD}/edit.svg`} />
     <EditWrapper>
       <FormItemWrapper>
         <FormLable>标题</FormLable>

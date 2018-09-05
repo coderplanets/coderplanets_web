@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -33,7 +33,7 @@ const SectionLabel = ({ title, iconSrc, desc, node, withAdder, onAdd }) => (
       <LabelIcon src={iconSrc} />
       <Title>{title}</Title>
       <AdderWrapper show={withAdder} onClick={onAdd}>
-        <AdderIcon src={`${ICON_ASSETS}/cmd/add_circle.svg`} />
+        <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
         <AdderText>添加</AdderText>
       </AdderWrapper>
     </Label>
@@ -54,7 +54,7 @@ SectionLabel.propTypes = {
 }
 
 SectionLabel.defaultProps = {
-  iconSrc: `${ICON_ASSETS}/cmd/setting_theme.svg`,
+  iconSrc: `${ICON_CMD}/setting_theme.svg`,
   desc: '',
   node: '',
   withAdder: false,

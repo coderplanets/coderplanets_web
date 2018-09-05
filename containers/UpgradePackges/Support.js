@@ -1,7 +1,7 @@
 import React from 'react'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   PkgItem,
@@ -12,9 +12,9 @@ import {
 
 const MarkIcon = ({ not }) => {
   return not ? (
-    <PkgItemNoIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+    <PkgItemNoIcon src={`${ICON_CMD}/cross.svg`} />
   ) : (
-    <PkgItemYesIcon src={`${ICON_ASSETS}/cmd/check.svg`} />
+    <PkgItemYesIcon src={`${ICON_CMD}/check.svg`} />
   )
 }
 

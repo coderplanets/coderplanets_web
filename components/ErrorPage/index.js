@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Container,
@@ -34,11 +34,11 @@ const debug = makeDebugger('c:ErrorPage:index')
 const ErrorPage = ({ errorCode }) => (
   <Container>
     <LogoWrapper>
-      <CPSMdLogo src={`${ICON_ASSETS}/cmd/cps_logo_md.png`} />
+      <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
     </LogoWrapper>
     <HintWrapper>
       <IconsWrapper>
-        <Error404Icon src={`${ICON_ASSETS}/cmd/cry.svg`} />
+        <Error404Icon src={`${ICON_CMD}/cry.svg`} />
         <ErrorDivider />
         <ErrorNumber>{errorCode}</ErrorNumber>
       </IconsWrapper>

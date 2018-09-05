@@ -2,7 +2,7 @@ import React from 'react'
 import R from 'ramda'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Input } from '../../components'
 
 import {
@@ -40,7 +40,7 @@ const FormItem = ({ label, data, mainChange, subChange }) => (
         onChange={subChange}
       />
       <div onClick={logic.addBg.bind(this, 'work')}>
-        <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+        <Adder src={`${ICON_CMD}/add.svg`} />
       </div>
     </FormInput>
   </FormItemWrapper>
@@ -62,7 +62,7 @@ const BackgroundList = ({ list }) => {
           <div
             onClick={logic.removeWorkBg.bind(this, item.company, item.title)}
           >
-            <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+            <DeleteIcon src={`${ICON_CMD}/cross.svg`} />
           </div>
         </BackgroundItem>
       ))}

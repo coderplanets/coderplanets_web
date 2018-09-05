@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { TrendLine, Button } from '../../components'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
@@ -156,12 +156,12 @@ class SidebarContainer extends React.Component {
         <Header>
           <HeaderFuncs>
             <SiteLogoWrapper pin={pin}>
-              <SiteLogo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
+              <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />
             </SiteLogoWrapper>
             <ExploreWrapper pin={pin}>
               <Button size="small" type="primary" ghost>
                 <ExploreContent>
-                  <ExploreIcon src={`${ICON_ASSETS}/cmd/explore_more.svg`} />
+                  <ExploreIcon src={`${ICON_CMD}/explore_more.svg`} />
                   <ExploreText>explore</ExploreText>
                 </ExploreContent>
               </Button>

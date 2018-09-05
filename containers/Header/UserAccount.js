@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config/assets'
+import { ICON_CMD } from '../../config/assets'
 import * as logic from './logic'
 
 import { Wrapper, DefaultUserIcon, AvatarIcon } from './styles/user_account'
@@ -14,7 +14,7 @@ const UserAccount = ({ isLogin, accountInfo }) => {
         </Wrapper>
       ) : (
         <Wrapper onClick={logic.login}>
-          <DefaultUserIcon src={`${ICON_ASSETS}/cmd/default_user.svg`} />
+          <DefaultUserIcon src={`${ICON_CMD}/default_user.svg`} />
         </Wrapper>
       )}
     </React.Fragment>

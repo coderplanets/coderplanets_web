@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Space, Button, Icon } from '../../components'
 
 import * as logic from './logic'
@@ -26,10 +26,10 @@ const EditorFooter = ({
       ) : (
         <InputHelper>
           <div onClick={logic.insertCode}>
-            <HelperIcon src={`${ICON_ASSETS}/cmd/extra_code.svg`} />
+            <HelperIcon src={`${ICON_CMD}/extra_code.svg`} />
           </div>
-          <HelperIcon src={`${ICON_ASSETS}/cmd/extra_quote.svg`} />
-          <HelperIcon src={`${ICON_ASSETS}/cmd/extra_image.svg`} />
+          <HelperIcon src={`${ICON_CMD}/extra_quote.svg`} />
+          <HelperIcon src={`${ICON_CMD}/extra_image.svg`} />
         </InputHelper>
       )}
 

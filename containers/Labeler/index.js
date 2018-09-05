@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { makeDebugger, storePlug } from '../../utils'
 
 import { Popover } from '../../components'
@@ -50,7 +50,7 @@ class LabelerContainer extends React.Component {
           onVisibleChange={this.onVisibleChange.bind(this)}
         >
           <LabelItem>
-            <LabelIcon src={`${ICON_ASSETS}/cmd/extra_tag.svg`} />
+            <LabelIcon src={`${ICON_CMD}/extra_tag.svg`} />
             <Title>标签</Title>
           </LabelItem>
         </Popover>

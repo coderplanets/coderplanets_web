@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Popover } from '../../components'
 import ArticleOptions from './ArticleOptions'
 
@@ -24,7 +24,7 @@ const BodyHeader = () => (
         trigger="click"
       >
         <div>
-          <MoreIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
+          <MoreIcon src={`${ICON_CMD}/more.svg`} />
         </div>
       </Popover>
     </MoreWrapper>

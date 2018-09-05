@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { cutFrom } from '../../utils'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -38,7 +38,7 @@ const Item = ({ entry, active }) => (
         <Breif onClick={logic.onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <TitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_CMD}/link.svg`} />
             <span style={{ marginLeft: 9 }}>拉钩</span>
           </TitleLink>
           <TitleTag>

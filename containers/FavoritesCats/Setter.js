@@ -1,7 +1,7 @@
 import React from 'react'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { SectionLabel, Button } from '../../components'
 import {
@@ -25,7 +25,7 @@ const Setter = ({ show, entries }) => {
       <SectionLabel
         title="添加收藏"
         desc="选择你要添加的收藏夹"
-        iconSrc={`${ICON_ASSETS}/cmd/folder.svg`}
+        iconSrc={`${ICON_CMD}/folder.svg`}
       />
       <ListWrapper>
         {entries.map(cat => (

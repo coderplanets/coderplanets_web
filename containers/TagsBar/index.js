@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
@@ -44,7 +44,7 @@ class TagsBarContainer extends React.Component {
           <TagItem
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
-            <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
+            <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
             <TagTitle>全部标签</TagTitle>
           </TagItem>
         ) : null}

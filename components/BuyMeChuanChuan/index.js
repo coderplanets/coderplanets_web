@@ -10,7 +10,7 @@ import R from 'ramda'
 import { Modal, Button, Icon, UserCell } from '..'
 
 import { makeDebugger } from '../../utils'
-import { ICON_ASSETS, GITHUB_ME } from '../../config'
+import { ICON_CMD, GITHUB_ME } from '../../config'
 
 // import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
@@ -64,7 +64,7 @@ const PayMoneyFooter = ({ num }) => (
 
 const ChuanSelector = ({ active, onSelect }) => (
   <SelectBox>
-    <ChuanChuanIcon src={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
+    <ChuanChuanIcon src={`${ICON_CMD}/chuanchuan.svg`} />
 
     <Selectors>
       <By>X</By>
@@ -113,7 +113,7 @@ class BuyMeChuanChuan extends React.Component {
           </Header>
           <BuyChuanChuan>
             <ChuanChuanDesc>
-              <FoodPic src={`${ICON_ASSETS}/cmd/food.png`} />
+              <FoodPic src={`${ICON_CMD}/food.png`} />
             </ChuanChuanDesc>
             <ChuanChuanSelect>
               <SelectTitle>
@@ -121,7 +121,7 @@ class BuyMeChuanChuan extends React.Component {
                 <MyName>
                   开发者
                   <a href={GITHUB_ME} target="_blank" rel="noopener noreferrer">
-                    <NameLinkIcon src={`${ICON_ASSETS}/cmd/link2.svg`} />
+                    <NameLinkIcon src={`${ICON_CMD}/link2.svg`} />
                   </a>
                 </MyName>{' '}
                 撸个串

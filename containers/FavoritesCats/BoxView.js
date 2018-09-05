@@ -1,7 +1,7 @@
 import React from 'react'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -25,10 +25,10 @@ const BoxView = ({ entries, onEdit }) => {
           <Header>
             <Title>
               <TitleText>{cat.title}</TitleText>
-              <LockIcon src={`${ICON_ASSETS}/cmd/lock.svg`} />
+              <LockIcon src={`${ICON_CMD}/lock.svg`} />
             </Title>
             <div onClick={onEdit}>
-              <EditIcon src={`${ICON_ASSETS}/cmd/edit.svg`} />
+              <EditIcon src={`${ICON_CMD}/edit.svg`} />
             </div>
           </Header>
           <Desc>{cat.desc}</Desc>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Wrapper, Icon, Title } from './styles/error_msg'
 
 const msgDict = {
@@ -12,7 +12,7 @@ const msgDict = {
 const EmptyMsg = ({ type }) => {
   return (
     <Wrapper>
-      <Icon src={`${ICON_ASSETS}/cmd/planet_v2.svg`} />
+      <Icon src={`${ICON_CMD}/planet_v2.svg`} />
       <Title>{msgDict[type]}</Title>
     </Wrapper>
   )

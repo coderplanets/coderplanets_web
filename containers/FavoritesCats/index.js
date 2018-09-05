@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Modal, SectionLabel } from '../../components'
 import BoxView from './BoxView'
@@ -50,7 +50,7 @@ class FavoritesCatsContainer extends React.Component {
       <div>
         <SectionLabel
           title="收藏夹"
-          iconSrc={`${ICON_ASSETS}/cmd/folder.svg`}
+          iconSrc={`${ICON_CMD}/folder.svg`}
           desc="共有内容 xx 条, 最后更新时间 xxx"
           withAdder
           onAdd={logic.onAdd}

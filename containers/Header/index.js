@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
 import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config/assets'
+import { ICON_CMD } from '../../config/assets'
 import { UpgradePackges, MailBox } from '..'
 import { Affix, Navigator } from '../../components'
 
@@ -76,7 +76,7 @@ const Header = ({
     <AddOns />
     <Operations>
       <Search onClick={logic.openDoraemon}>
-        <HeaderIcon src={`${ICON_ASSETS}/cmd/search2.svg`} />
+        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
       </Search>
 
       <MailBox />

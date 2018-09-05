@@ -2,7 +2,7 @@ import React from 'react'
 import shortid from 'shortid'
 import R from 'ramda'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   BannerContainer,
@@ -18,9 +18,9 @@ import {
 
 const MonthSelector = () => (
   <MonthWrapper>
-    <UpIcon src={`${ICON_ASSETS}/cmd/up.svg`} />
+    <UpIcon src={`${ICON_CMD}/up.svg`} />
     <MonthNumber>7月</MonthNumber>
-    <UpIcon src={`${ICON_ASSETS}/cmd/up.svg`} reverse />
+    <UpIcon src={`${ICON_CMD}/up.svg`} reverse />
   </MonthWrapper>
 )
 
