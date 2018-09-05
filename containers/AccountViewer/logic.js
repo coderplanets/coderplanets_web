@@ -40,7 +40,7 @@ export function logout() {
 }
 
 export function editProfile() {
-  dispatchEvent(EVENT.NAV_EDIT, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_EDIT,
   })
 }

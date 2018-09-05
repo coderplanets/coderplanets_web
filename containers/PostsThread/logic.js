@@ -33,12 +33,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -82,9 +77,8 @@ export function onTitleSelect(post) {
   store.setViewing({ post })
   /* store.setActive(post) */
   debug('onTitleSelect publish post: ', post)
-  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
+  dispatchEvent(EVENT.PREIVEW_CONTENT, {
+    type: TYPE.PREVIEW_POST_VIEW,
     data: post,
   })
 
@@ -97,7 +91,7 @@ export function onTitleSelect(post) {
 
 export function createContent() {
   debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 const DataSolver = [

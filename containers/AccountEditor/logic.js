@@ -28,7 +28,7 @@ let store = null
 let sub$ = null
 
 export function goBack() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
   })
 }

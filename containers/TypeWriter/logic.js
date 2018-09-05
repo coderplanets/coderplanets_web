@@ -146,10 +146,6 @@ const DataSolver = [
       // 3. notify the xxxPaper
     },
   },
-  {
-    match: asyncRes(EVENT.PREVIEW),
-    action: () => {},
-  },
 ]
 
 const cancleLoading = () => {

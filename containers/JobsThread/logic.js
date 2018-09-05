@@ -31,12 +31,7 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   store.setHeaderFix(false)
@@ -85,8 +80,8 @@ export function onTagSelect(obj) {
 
 export function onTitleSelect(activeJob) {
   store.markState({ activeJob })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_POST_VIEW,
     data: activeJob,
   })
   debug('activeJob: ', activeJob)
@@ -100,7 +95,7 @@ export function onTitleSelect(activeJob) {
 
 export function createContent() {
   debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 const DataSolver = [

@@ -232,10 +232,6 @@ const cancelLoading = () => {
 // ###############################
 const DataSolver = [
   {
-    match: asyncRes(EVENT.PREVIEW),
-    action: () => {},
-  },
-  {
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()

@@ -15,7 +15,7 @@ import {
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_POST, EVENT.PREVIEW_CLOSED],
+  resv_event: [EVENT.PREVIEW_LOAD, EVENT.PREVIEW_CLOSED],
 })
 
 /* eslint-disable no-unused-vars */
@@ -61,13 +61,21 @@ function reloadReactions(article) {
   sr71$.query(S.reactionResult, variables)
 }
 
+export function onEdit() {
+  debug('onEdit', store.viewingPost)
+}
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
-    match: asyncRes(EVENT.PREVIEW_POST),
+    match: asyncRes(EVENT.PREVIEW_LOAD),
     action: res => {
-      const info = res[EVENT.PREVIEW_POST]
-      if (info.type === TYPE.POST) {
-        const post = info.data
+      console.log('==== EVENT.PREVIEW_LOAD res: ', res)
+      const payload = res[EVENT.PREVIEW_LOAD]
+      if (payload.type === TYPE.POST) {
+        const post = payload.data
         loadPost(post)
 
         store.markState({ type: TYPE.POST })

@@ -62,10 +62,10 @@ const Viewer = ({ type, root }) => {
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
       return <AccountEditor />
     }
-    case TYPE.POST_PREVIEW_VIEW: {
+    case TYPE.PREVIEW_POST_VIEW: {
       return <ArticleViwer />
     }
-    case TYPE.PREVIEW_CREATE_POST: {
+    case TYPE.PREVIEW_POST_CREATE: {
       return <DynamicTypeWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {

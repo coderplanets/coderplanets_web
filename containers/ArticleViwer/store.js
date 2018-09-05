@@ -45,6 +45,10 @@ const ArticleViwerStore = t
     },
 
     get viewingPost() {
+      return stripMobx(self.root.viewing.post)
+    },
+    /*
+    get viewingPost() {
       const { subPath } = self.curRoute
       switch (subPath2Thread(subPath)) {
         case THREAD.POST: {
@@ -58,6 +62,7 @@ const ArticleViwerStore = t
         }
       }
     },
+    */
   }))
   .actions(self => ({
     load(upperType, data) {

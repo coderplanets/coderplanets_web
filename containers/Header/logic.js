@@ -30,7 +30,7 @@ let sub$ = null
 /* const user_token = */
 
 export function previewState() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ROOT_STORE,
   })
 }
@@ -53,7 +53,7 @@ export function checkUserAccount() {
 }
 
 export function previewAccount() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
     data: { hello: 'world --- fuck' },
   })
@@ -73,7 +73,7 @@ export function login() {
 }
 
 export function openPreview() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
     data: { hello: 'world' },
   })

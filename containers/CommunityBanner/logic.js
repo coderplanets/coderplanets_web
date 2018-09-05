@@ -41,7 +41,7 @@ export function tabberChange(activeThread) {
 
 export function showEditorList() {
   debug('showEditorList ...')
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_COMMUNITY_EDITORS,
   })
 }

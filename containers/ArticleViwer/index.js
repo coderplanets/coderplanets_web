@@ -19,10 +19,12 @@ import * as logic from './logic'
 const debug = makeDebugger('C:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
-const Viwer = ({ type, data, loading }) => {
+const Viwer = ({ type, data, loading, accountInfo }) => {
   switch (type) {
     case TYPE.POST: {
-      return <PostViewer data={data} loading={loading} />
+      return (
+        <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
+      )
     }
     case TYPE.JOb: {
       return <div>job</div>
@@ -46,11 +48,16 @@ class ArticleViwerContainer extends React.Component {
     const { articleViwer } = this.props
     const { type, viewingPost, postLoading, accountInfo } = articleViwer
 
-    debug('accountInfo --> ', accountInfo)
+    // debug('accountInfo --> ', accountInfo)
 
     return (
       <React.Fragment>
-        <Viwer type={type} data={viewingPost} loading={postLoading} />
+        <Viwer
+          type={type}
+          data={viewingPost}
+          loading={postLoading}
+          accountInfo={accountInfo}
+        />
       </React.Fragment>
     )
   }

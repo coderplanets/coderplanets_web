@@ -5,10 +5,10 @@ import Body from './Body'
 
 import { CommentsWrapper } from './styles/body'
 
-const PostViewer = ({ data, loading }) => (
+const PostViewer = ({ data, loading, accountInfo }) => (
   <React.Fragment>
     <Header data={data} />
-    <Body data={data} loading={loading} />
+    <Body data={data} loading={loading} accountInfo={accountInfo} />
     <CommentsWrapper>
       <Comments />
     </CommentsWrapper>

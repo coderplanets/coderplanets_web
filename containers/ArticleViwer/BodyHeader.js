@@ -2,6 +2,7 @@ import React from 'react'
 
 import { ICON_ASSETS } from '../../config'
 import { Popover } from '../../components'
+import ArticleOptions from './ArticleOptions'
 
 import {
   MoreWrapper,
@@ -18,17 +19,9 @@ const BodyHeader = () => (
   <ArticleHeader>
     <MoreWrapper>
       <Popover
-        content={
-          <div>
-            <h4>编辑文章</h4>
-            <h4>删除文章</h4>
-            <h4>置为精华</h4>
-            <h4>取消精华帖</h4>
-            <h4>举报文章</h4>
-          </div>
-        }
-        placement="right"
-        trigger="hover"
+        content={<ArticleOptions />}
+        placement="bottomLeft"
+        trigger="click"
       >
         <div>
           <MoreIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
