@@ -6,14 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  makeDebugger,
-  TYPE,
-  stripMobx,
-  THREAD,
-  subPath2Thread,
-} from '../../utils'
+import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViwerStore')
 /* eslint-enable no-unused-vars */
