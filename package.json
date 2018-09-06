@@ -84,7 +84,7 @@
     "ramda": "0.25.0",
     "randomcolor": "^0.5.3",
     "raven-js": "^3.26.4",
-    "react": "16.4.2",
+    "react": "16.5.0",
     "react-beautiful-dnd": "6.0.0",
     "react-calendar-heatmap": "^1.6.3",
     "react-click-outside": "^3.0.1",
