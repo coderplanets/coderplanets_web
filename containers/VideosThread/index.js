@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import {
@@ -15,6 +14,7 @@ import {
   EmptyThread,
   ContentFilter,
   Space,
+  Maybe,
 } from '../../components'
 
 import Item from './Item'
@@ -97,9 +97,7 @@ class VideosThreadContainer extends React.Component {
               <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(entries) ? (
-              <PostsLoading num={5} />
-            ) : (
+            <Maybe data={entries} loading={<PostsLoading num={5} />}>
               <React.Fragment>
                 <View
                   community={mainPath}
@@ -117,11 +115,11 @@ class VideosThreadContainer extends React.Component {
                   onChange={logic.loadVideos}
                 />
               </React.Fragment>
-            )}
+            </Maybe>
           </LeftPart>
 
           <RightPart>
-            {R.isEmpty(pagedVideosData.entries) ? null : (
+            <Maybe data={pagedVideosData.entries}>
               <React.Fragment>
                 <PublishBtn type="primary" onClick={logic.createContent}>
                   提<Space right="10px" />交<Space right="10px" />视
@@ -137,7 +135,7 @@ class VideosThreadContainer extends React.Component {
                   />
                 </Affix>
               </React.Fragment>
-            )}
+            </Maybe>
           </RightPart>
           <RightPadding />
         </React.Fragment>

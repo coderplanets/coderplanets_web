@@ -1,9 +1,7 @@
 import React from 'react'
-import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-import { uid } from '../../utils'
-import { Input } from '../../components'
+import { Input, Maybe } from '../../components'
 
 import {
   Wrapper,
@@ -19,6 +17,7 @@ import {
   DeleteIcon,
 } from './styles/education_editor'
 
+import { uid } from '../../utils'
 import * as logic from './logic'
 
 const FormItem = ({ label, data, mainChange, subChange }) => (
@@ -46,27 +45,28 @@ const FormItem = ({ label, data, mainChange, subChange }) => (
   </FormItemWrapper>
 )
 
-const BackgroundList = ({ list }) => {
-  if (R.isEmpty(list)) return null
-  return (
+const BackgroundList = ({ list }) => (
+  <Maybe data={list}>
     <BackgroundsWrapper>
       {list.map(item => (
         <BackgroundItem key={uid.gen()}>
           <BgTitle>{item.school}</BgTitle>
-          {R.isEmpty(item.major) ? null : (
+
+          <Maybe data={item.major}>
             <React.Fragment>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.major}</BgDesc>
             </React.Fragment>
-          )}
+          </Maybe>
+
           <div onClick={logic.removeEduBg.bind(this, item.school, item.major)}>
             <DeleteIcon src={`${ICON_CMD}/cross.svg`} />
           </div>
         </BackgroundItem>
       ))}
     </BackgroundsWrapper>
-  )
-}
+  </Maybe>
+)
 
 const EducationEditor = ({ user, data }) => (
   <Wrapper>

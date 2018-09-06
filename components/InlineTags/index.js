@@ -6,8 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
+import { Maybe } from '..'
 import { Wrapper, Tag, Dot, Title } from './styles'
 
 import { makeDebugger, uid } from '../../utils'
@@ -15,9 +15,8 @@ import { makeDebugger, uid } from '../../utils'
 const debug = makeDebugger('c:InlineTags:index')
 /* eslint-enable no-unused-vars */
 
-const InlineTags = ({ data }) => {
-  if (R.isEmpty(data)) return null
-  return (
+const InlineTags = ({ data }) => (
+  <Maybe data={data}>
     <Wrapper>
       {data.map(tag => (
         <Tag key={uid.gen()}>
@@ -26,8 +25,8 @@ const InlineTags = ({ data }) => {
         </Tag>
       ))}
     </Wrapper>
-  )
-}
+  </Maybe>
+)
 
 InlineTags.propTypes = {
   // https://www.npmjs.com/package/prop-types

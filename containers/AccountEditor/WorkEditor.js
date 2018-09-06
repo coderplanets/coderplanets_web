@@ -1,9 +1,7 @@
 import React from 'react'
-import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-import { uid } from '../../utils'
-import { Input } from '../../components'
+import { Input, Maybe } from '../../components'
 
 import {
   Wrapper,
@@ -19,6 +17,7 @@ import {
   DeleteIcon,
 } from './styles/education_editor'
 
+import { uid } from '../../utils'
 import * as logic from './logic'
 
 const FormItem = ({ label, data, mainChange, subChange }) => (
@@ -46,19 +45,18 @@ const FormItem = ({ label, data, mainChange, subChange }) => (
   </FormItemWrapper>
 )
 
-const BackgroundList = ({ list }) => {
-  if (R.isEmpty(list)) return null
-  return (
+const BackgroundList = ({ list }) => (
+  <Maybe data={list}>
     <BackgroundsWrapper>
       {list.map(item => (
         <BackgroundItem key={uid.gen()}>
           <BgTitle>{item.company}</BgTitle>
-          {R.isEmpty(item.title) ? null : (
+          <Maybe data={item.title}>
             <React.Fragment>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.title}</BgDesc>
             </React.Fragment>
-          )}
+          </Maybe>
           <div
             onClick={logic.removeWorkBg.bind(this, item.company, item.title)}
           >
@@ -67,9 +65,8 @@ const BackgroundList = ({ list }) => {
         </BackgroundItem>
       ))}
     </BackgroundsWrapper>
-  )
-}
-
+  </Maybe>
+)
 const WorkEditor = ({ user, data }) => (
   <Wrapper>
     <FormItem

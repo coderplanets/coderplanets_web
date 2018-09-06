@@ -6,9 +6,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
+
+import { Maybe } from '..'
 
 import {
   Wrapper,
@@ -38,8 +39,12 @@ const SectionLabel = ({ title, iconSrc, desc, node, withAdder, onAdd }) => (
       </AdderWrapper>
     </Label>
     <Divider />
-    {R.isEmpty(desc) ? null : <Desc>{desc}</Desc>}
-    {R.isEmpty(node) ? null : <React.Fragment>{node}</React.Fragment>}
+    <Maybe data={desc}>
+      <Desc>{desc}</Desc>
+    </Maybe>
+    <Maybe data={node}>
+      <React.Fragment>{node}</React.Fragment>
+    </Maybe>
   </Wrapper>
 )
 

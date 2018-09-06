@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
@@ -18,6 +17,7 @@ import {
   EmptyThread,
   ContentFilter,
   Space,
+  Maybe,
 } from '../../components'
 
 import Item from './Item'
@@ -102,9 +102,7 @@ class ReposThreadContainer extends React.Component {
               </FilterResultHint>
             </FilterWrapper>
 
-            {R.isEmpty(entries) ? (
-              <PostsLoading num={5} />
-            ) : (
+            <Maybe data={entries} loading={<PostsLoading num={5} />}>
               <React.Fragment>
                 <View
                   community={mainPath}
@@ -122,11 +120,11 @@ class ReposThreadContainer extends React.Component {
                   onChange={logic.loadRepos}
                 />
               </React.Fragment>
-            )}
+            </Maybe>
           </LeftPart>
 
           <RightPart>
-            {R.isEmpty(entries) ? null : (
+            <Maybe data={entries}>
               <React.Fragment>
                 <PublishBtn type="primary" onClick={logic.createContent}>
                   发<Space right="20px" />布
@@ -142,7 +140,7 @@ class ReposThreadContainer extends React.Component {
                   />
                 </Affix>
               </React.Fragment>
-            )}
+            </Maybe>
           </RightPart>
           <RightPadding />
         </React.Fragment>

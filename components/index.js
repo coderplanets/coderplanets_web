@@ -13,6 +13,7 @@ export { Space, SpaceGrow } from './BaseStyled'
 export { default as PostItem } from './PostItem'
 
 // Utils component
+export { default as Maybe } from './Maybe'
 export { default as UserBrief } from './UserBrief'
 export { default as ErrorPage } from './ErrorPage'
 export { default as OauthHinter } from './OauthHinter'

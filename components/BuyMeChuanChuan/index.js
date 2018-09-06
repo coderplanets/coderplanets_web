@@ -6,12 +6,10 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
 import { ICON_CMD, GITHUB_ME } from '../../config'
 
-import { Modal, Button, Icon, UserCell } from '..'
-import { makeDebugger } from '../../utils'
+import { Modal, Button, Icon, UserCell, Maybe } from '..'
 
 // import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
@@ -39,6 +37,8 @@ import {
   Weixin,
   MoneyNum,
 } from './styles'
+
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Footer:index')
@@ -110,7 +110,9 @@ class BuyMeChuanChuan extends React.Component {
       <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
           <Header>
-            {R.isEmpty(fromUser) ? <div /> : <UserCell user={fromUser} />}
+            <Maybe data={fromUser}>
+              <UserCell user={fromUser} />
+            </Maybe>
           </Header>
           <BuyChuanChuan>
             <ChuanChuanDesc>
