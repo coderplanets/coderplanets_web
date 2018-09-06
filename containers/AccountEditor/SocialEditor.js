@@ -1,7 +1,6 @@
 import React from 'react'
-import shortid from 'shortid'
 
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
 
 import { ICON_CMD } from '../../config'
 import { Input } from '../../components'
@@ -59,7 +58,7 @@ const SocialIconList = ({ show, user }) => (
     <SocialIconsWrapper>
       {SOCIAL_LISTS.map(social => (
         <SocialIcon
-          key={shortid.generate()}
+          key={uid.gen()}
           src={`${ICON_CMD}/${social.key}.svg`}
           active={!nilOrEmpty(user[social.key])}
         />

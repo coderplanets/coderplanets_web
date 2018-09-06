@@ -6,10 +6,9 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { TagsBar } from '..'
 
 import {
   Affix,
@@ -21,7 +20,6 @@ import {
   PostItem,
 } from '../../components'
 
-import { TagsBar } from '..'
 import {
   Wrapper,
   LeftPadding,
@@ -34,6 +32,7 @@ import {
   PublishBtn,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
@@ -46,7 +45,7 @@ const View = ({ community, thread, entries, curView, active }) => {
         <React.Fragment>
           {entries.map(entry => (
             <PostItem
-              key={shortid.generate()}
+              key={uid.gen()}
               entry={entry}
               active={active}
               onTitleSelect={logic.onTitleSelect.bind(this, entry)}

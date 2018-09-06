@@ -1,7 +1,7 @@
 import React from 'react'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
+import { uid } from '../../utils'
 
 import {
   Wrapper,
@@ -21,7 +21,7 @@ const BoxView = ({ entries, onEdit }) => {
   return (
     <Wrapper>
       {entries.map(cat => (
-        <BoxWrapper key={shortid.generate()}>
+        <BoxWrapper key={uid.gen()}>
           <Header>
             <Title>
               <TitleText>{cat.title}</TitleText>

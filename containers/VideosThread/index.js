@@ -6,8 +6,6 @@
 
 import React from 'react'
 import R from 'ramda'
-
-import shortid from 'shortid'
 import { inject, observer } from 'mobx-react'
 
 import {
@@ -34,8 +32,7 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
-
+import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideosThread')
@@ -47,12 +44,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       return (
         <React.Fragment>
           {entries.map((video, index) => (
-            <Item
-              data={video}
-              key={shortid.generate()}
-              active={active}
-              index={index}
-            />
+            <Item data={video} key={uid.gen()} active={active} index={index} />
           ))}
         </React.Fragment>
       )

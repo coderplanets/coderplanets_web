@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '../../config'
-import { makeDebugger } from '../../utils'
 
 import {
   Icon404,
@@ -21,6 +20,9 @@ import {
   IssueLink,
   Desc,
 } from './styles'
+
+import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:NotFound:index')
 /* eslint-enable no-unused-vars */

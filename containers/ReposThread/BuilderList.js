@@ -1,6 +1,7 @@
 //
 import React from 'react'
-import shortid from 'shortid'
+
+import { uid } from '../../utils'
 
 import { Popover } from '../../components'
 import { Wrapper, Builder, Avatar } from './styles/builder_list'
@@ -12,7 +13,7 @@ const BuilderList = ({ entries }) => {
         <Popover
           placement="bottom"
           trigger="hover"
-          key={shortid.generate()}
+          key={uid.gen()}
           content={
             <div>
               {builder.nickname}

@@ -6,11 +6,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
 
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
 import { Button } from '..'
 
 import BackgroundList from './BackgroundList'
@@ -44,7 +43,7 @@ const SocialIcons = ({ user }) => (
   <SocialWrapper>
     {SOCIAL_LISTS.map(social => (
       <SocialIcon
-        key={shortid.generate()}
+        key={uid.gen()}
         src={`${ICON_CMD}/${social.key}.svg`}
         active={!nilOrEmpty(user[social.key])}
       />

@@ -1,5 +1,6 @@
 import React from 'react'
-import shortid from 'shortid'
+
+import { uid } from '../../utils'
 
 import {
   Wrapper,
@@ -15,7 +16,7 @@ const Selector = ({ source, activeRaw, onChange }) => (
     <OptisonsWrapper>
       {source.map(opt => (
         <Option
-          key={shortid.generate()}
+          key={uid.gen()}
           active={activeRaw === opt.raw}
           onClick={onChange.bind(this, opt)}
         >

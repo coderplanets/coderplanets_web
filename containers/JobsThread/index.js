@@ -6,10 +6,9 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 
 import {
   Affix,
@@ -47,7 +46,7 @@ const View = ({ community, thread, jobs, curView, active }) => {
       return (
         <React.Fragment>
           {jobs.map(job => (
-            <Item entry={job} key={shortid.generate()} active={active} />
+            <Item entry={job} key={uid.gen()} active={active} />
           ))}
         </React.Fragment>
       )

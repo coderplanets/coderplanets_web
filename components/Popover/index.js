@@ -8,8 +8,9 @@ import React from 'react'
 import { Popover } from 'antd'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '../../utils'
 import { ContentContainer } from './styles'
+
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Popover:index')

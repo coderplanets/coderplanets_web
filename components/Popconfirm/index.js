@@ -22,6 +22,7 @@ import {
   CutIcon,
   ConfirmText,
 } from './styles'
+
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Popconfirm:index')

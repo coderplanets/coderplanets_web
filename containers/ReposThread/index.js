@@ -7,10 +7,9 @@
 import React from 'react'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 
 import {
   Affix,
@@ -47,12 +46,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       return (
         <React.Fragment>
           {entries.map((entry, index) => (
-            <Item
-              data={entry}
-              key={shortid.generate()}
-              active={active}
-              index={index}
-            />
+            <Item data={entry} key={uid.gen()} active={active} index={index} />
           ))}
         </React.Fragment>
       )

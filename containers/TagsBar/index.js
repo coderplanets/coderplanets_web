@@ -7,13 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
+import { uid, makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
@@ -51,7 +50,7 @@ class TagsBarContainer extends React.Component {
 
         {tagsData.map(tag => (
           <TagItem
-            key={shortid.generate()}
+            key={uid.gen()}
             onClick={this.onSelect.bind(this, {
               id: tag.id,
               title: tag.title,

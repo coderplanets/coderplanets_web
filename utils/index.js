@@ -15,6 +15,7 @@ export {
 
 export { makeDebugger } from './debug'
 
+export { default as uid } from './uid'
 export {
   dispatchEvent,
   mapKeys,

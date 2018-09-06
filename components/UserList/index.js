@@ -6,9 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import shortid from 'shortid'
 
-import { makeDebugger } from '../../utils'
 import { Pagi, Button, Icon } from '..'
 
 import {
@@ -21,6 +19,9 @@ import {
   Location,
   Action,
 } from './styles'
+
+import { makeDebugger, uid } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:UserList:index')
 /* eslint-enable no-unused-vars */
@@ -28,7 +29,7 @@ const debug = makeDebugger('c:UserList:index')
 const UsersTable = ({ entries }) => (
   <TableWrapper>
     {entries.map(user => (
-      <UserWrapper key={shortid.generate()}>
+      <UserWrapper key={uid.gen()}>
         <UserAvatar src={user.avatar} />
         <UserBrief>
           <Nickname>{user.nickname}</Nickname>

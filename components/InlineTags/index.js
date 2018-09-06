@@ -7,11 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import shortid from 'shortid'
 
 import { Wrapper, Tag, Dot, Title } from './styles'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, uid } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:InlineTags:index')
 /* eslint-enable no-unused-vars */
@@ -21,7 +20,7 @@ const InlineTags = ({ data }) => {
   return (
     <Wrapper>
       {data.map(tag => (
-        <Tag key={shortid.generate()}>
+        <Tag key={uid.gen()}>
           <Dot color={tag.color} />
           <Title>{tag.title}</Title>
         </Tag>

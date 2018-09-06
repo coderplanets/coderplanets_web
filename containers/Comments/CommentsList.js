@@ -1,11 +1,10 @@
 import R from 'ramda'
 import React from 'react'
 import TimeAgo from 'timeago-react'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
-import { Global, prettyNum } from '../../utils'
+import { Global, prettyNum, uid } from '../../utils'
 
 import {
   AvatarsRow,
@@ -187,7 +186,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
 const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   <React.Fragment>
     {entries.map(c => (
-      <div key={shortid.generate()}>
+      <div key={uid.gen()}>
         <Comment
           data={c}
           tobeDeleteId={tobeDeleteId}

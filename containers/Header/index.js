@@ -7,15 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config/assets'
-import { UpgradePackges, MailBox } from '..'
-import { Affix, Navigator } from '../../components'
 
+import { UpgradePackges, MailBox } from '..'
+
+import { Affix, Navigator } from '../../components'
 import UserAccount from './UserAccount'
 import AddOns from './AddOns'
-import { makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 
 import {
   HeaderWrapper,
@@ -30,6 +29,7 @@ import {
   RawHeader,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -42,7 +42,7 @@ const MiniMap = ({ activeInfo: { community, activeThread } }) => (
     <React.Fragment>
       {community.threads.map(t => (
         <MiniTab
-          key={shortid.generate()}
+          key={uid.gen()}
           active={t.raw === activeThread}
           onClick={logic.onThreadChange.bind(this, t)}
         >

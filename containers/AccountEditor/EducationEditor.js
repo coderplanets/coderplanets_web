@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
+import { uid } from '../../utils'
 import { Input } from '../../components'
 
 import {
@@ -51,7 +51,7 @@ const BackgroundList = ({ list }) => {
   return (
     <BackgroundsWrapper>
       {list.map(item => (
-        <BackgroundItem key={shortid.generate()}>
+        <BackgroundItem key={uid.gen()}>
           <BgTitle>{item.school}</BgTitle>
           {R.isEmpty(item.major) ? null : (
             <React.Fragment>

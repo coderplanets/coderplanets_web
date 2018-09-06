@@ -7,14 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import randomColor from 'randomcolor'
-import shortid from 'shortid'
 // TODO: remove Row, Col, Divider
 import { Row, Col, Divider } from 'antd'
 // import Link from 'next/link'
 
 import { Entry, CheatsheetItem } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { uid, makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 const cheatsheetData = {
@@ -71,7 +70,7 @@ const Langs = ({ base }) => {
       <Col span={22}>
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {langs.map((item, i) => (
-            <CheatsheetItem key={shortid.generate()} fg={colors[i]}>
+            <CheatsheetItem key={uid.gen()} fg={colors[i]}>
               <Entry fg={colors[i]}>{item.title}</Entry>
             </CheatsheetItem>
           ))}

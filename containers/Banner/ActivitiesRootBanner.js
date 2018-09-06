@@ -1,5 +1,4 @@
 import React from 'react'
-import shortid from 'shortid'
 import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
@@ -16,6 +15,8 @@ import {
   DayNumber,
 } from './styles/activities_root_banner'
 
+import { uid } from '../../utils'
+
 const MonthSelector = () => (
   <MonthWrapper>
     <UpIcon src={`${ICON_CMD}/up.svg`} />
@@ -29,7 +30,7 @@ const days = R.range(1, 32)
 const DaysSelector = () => (
   <DaysWrapper>
     {days.map(day => (
-      <DayBlock key={shortid.generate()} day={day}>
+      <DayBlock key={uid.gen()} day={day}>
         <DayWeek day={day}>周几</DayWeek>
         <DayNumber>{day}</DayNumber>
       </DayBlock>

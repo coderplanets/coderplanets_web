@@ -1,9 +1,10 @@
 import React from 'react'
-import shortid from 'shortid'
 
 import { ICON_CMD } from '../../config'
+import { uid } from '../../utils'
 
 import { SectionLabel, Button } from '../../components'
+
 import {
   Wrapper,
   CatWrapper,
@@ -29,7 +30,7 @@ const Setter = ({ show, entries }) => {
       />
       <ListWrapper>
         {entries.map(cat => (
-          <CatWrapper key={shortid.generate()}>
+          <CatWrapper key={uid.gen()}>
             <CatContent>
               <CatMain>
                 <CatHeader>
