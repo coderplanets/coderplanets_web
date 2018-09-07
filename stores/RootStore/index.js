@@ -173,9 +173,6 @@ const rootStore = t
     openDoraemon() {
       self.doraemon.open()
     },
-    openPreview(type) {
-      self.preview.open(type)
-    },
     closePreview() {
       self.preview.close()
     },

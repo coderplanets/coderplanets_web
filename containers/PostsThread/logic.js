@@ -82,7 +82,7 @@ export function onTitleSelect(post) {
   store.setViewing({ post })
   /* store.setActive(post) */
   debug('onTitleSelect publish post: ', post)
-  dispatchEvent(EVENT.PREIVEW_CONTENT, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,
     data: post,
   })

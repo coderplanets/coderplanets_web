@@ -8,6 +8,7 @@ import {
   isEmptyValue,
   dispatchEvent,
   EVENT,
+  TYPE,
   ERR,
   meteorState,
   countWords,
@@ -99,7 +100,6 @@ export function onPublish() {
 }
 
 export const canclePublish = () => {
-  debug('canclePublish')
   cancleLoading()
   // store.reset()
   store.closePreview()
@@ -127,6 +127,23 @@ export function insertCode() {
     type: 'FUCK',
     data: '```javascript\n\n```',
   })
+}
+
+const openAttachment = att => {
+  if (!att) return false
+
+  const { type, title, body, digest } = att
+  if (type === TYPE.POST) {
+    store.markState({
+      title,
+      body: body || digest || '',
+      isEdit: true,
+    })
+  }
+}
+
+const cancleMutate = () => {
+  store.reset()
 }
 
 // ###############################
@@ -178,10 +195,21 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+export function init(_store, attachment) {
+  if (store) {
+    return openAttachment(attachment)
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  openAttachment(attachment)
+}
+
+export function uninit() {
+  store.toast('info', {
+    title: 'todo',
+    msg: '草稿已保存',
+  })
+  cancleMutate()
 }

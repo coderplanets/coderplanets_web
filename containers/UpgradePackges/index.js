@@ -37,6 +37,7 @@ const freeUserItems = [
 ]
 
 const proUserItems = [
+  { title: '关闭广告' },
   { title: '主题设置' },
   { title: '首页发帖' },
   { title: '发起投票' },

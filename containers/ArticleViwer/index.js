@@ -40,8 +40,9 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
 
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
-    const { articleViwer } = this.props
-    logic.init(articleViwer)
+    const { articleViwer, attachment } = this.props
+    debug('attachment ===> : ', attachment)
+    logic.init(articleViwer, attachment)
   }
 
   render() {

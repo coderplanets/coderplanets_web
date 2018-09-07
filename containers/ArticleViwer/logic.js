@@ -4,6 +4,7 @@ import {
   asyncRes,
   asyncErr,
   makeDebugger,
+  dispatchEvent,
   closePreviewer,
   EVENT,
   ERR,
@@ -15,7 +16,7 @@ import {
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_LOAD, EVENT.PREVIEW_CLOSED],
+  resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
 /* eslint-disable no-unused-vars */
@@ -43,11 +44,9 @@ function loading(maybe = true) {
   store.markState({ postLoading: maybe })
 }
 
-function loadPost(data) {
-  const variables = {
-    id: data.id,
-    userHasLogin: store.isLogin,
-  }
+function loadPost({ id }) {
+  const userHasLogin = store.isLogin
+  const variables = { id, userHasLogin }
   loading()
   sr71$.query(S.post, variables)
 }
@@ -63,26 +62,29 @@ function reloadReactions(article) {
 
 export function onEdit() {
   debug('onEdit', store.viewingPost)
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_POST_EDIT,
+    data: store.viewingPost, // maybe need clone
+  })
+}
+
+const openAttachment = att => {
+  if (!att) return false
+
+  const { type } = att
+
+  if (type === TYPE.POST) {
+    loadPost(att)
+
+    store.markState({ type })
+    store.setViewing({ post: att })
+  }
 }
 
 // ###############################
 // Data & Error handlers
 // ###############################
 const DataSolver = [
-  {
-    match: asyncRes(EVENT.PREVIEW_LOAD),
-    action: res => {
-      console.log('==== EVENT.PREVIEW_LOAD res: ', res)
-      const payload = res[EVENT.PREVIEW_LOAD]
-      if (payload.type === TYPE.POST) {
-        const post = payload.data
-        loadPost(post)
-
-        store.markState({ type: TYPE.POST })
-        store.setViewing({ post })
-      }
-    },
-  },
   {
     match: asyncRes('reaction'),
     action: ({ reaction }) => {
@@ -138,10 +140,13 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+export function init(_store, attachment) {
+  if (store) {
+    return openAttachment(attachment)
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  openAttachment(attachment)
 }

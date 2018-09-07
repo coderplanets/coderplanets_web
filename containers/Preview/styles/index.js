@@ -6,6 +6,7 @@ import { theme, TYPE, Animate } from '../../../utils'
 const WIDE_CASE = [
   TYPE.PREVIEW_POST_VIEW,
   TYPE.PREVIEW_POST_CREATE,
+  TYPE.PREVIEW_POST_EDIT,
   TYPE.PREVIEW_COMMUNITY_EDITORS,
 ]
 const WIDE_WIDTH = '70%'

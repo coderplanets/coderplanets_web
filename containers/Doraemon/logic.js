@@ -49,7 +49,6 @@ function queryPocket() {
 }
 
 export function githubLoginHandler() {
-  // header.openPreview(type)
   debug('just previewAccount ..', process.env.GITHUB_CLIENT_ID)
 
   const clientId = process.env.GITHUB_CLIENT_ID

@@ -8,27 +8,16 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-// import ContentInput from './ContentInput'
-import { ICON_CMD } from '../../config'
-
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
+import Header from './Header'
 import Footer from './Footer'
 
-import {
-  Wrapper,
-  EditorBlock,
-  PreviewBlock,
-  Header,
-  UsageText,
-  MarkdownIcon,
-  MarkDownHint,
-  BackToEditHint,
-} from './styles'
+import { Wrapper, EditorBlock, PreviewBlock } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TypeWriter')
@@ -73,65 +62,40 @@ const View = ({
   return <MarkDownHelper />
 }
 
-const TopHeader = ({ curView }) => {
-  switch (curView) {
-    case 'MARKDOWN_HELP_VIEW': {
-      return (
-        <Header>
-          <UsageText>Github Flavor Markdown</UsageText>
-          <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
-            <MarkdownIcon src={`${ICON_CMD}/original.svg`} />
-            返回编辑
-          </BackToEditHint>
-        </Header>
-      )
-    }
-    default:
-      return (
-        <Header>
-          <UsageText>发布帖子</UsageText>
-          <MarkDownHint
-            onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
-          >
-            <MarkdownIcon src={`${ICON_CMD}/markdown.svg`} />
-            markdown 语法 / emojj 速查
-          </MarkDownHint>
-        </Header>
-      )
-  }
-}
-
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
   componentWillMount() {
-    const { typeWriter } = this.props
-    logic.init(typeWriter)
+    const { typeWriter, attachment } = this.props
+
+    logic.init(typeWriter, attachment)
   }
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
     // Message.success('草稿已经保存')
+    logic.uninit()
   }
 
   render() {
+    const { typeWriter } = this.props
+
     const {
-      typeWriter: {
-        articleType,
-        curView,
-        linkAddr,
-        title,
-        body,
-        publishing,
-        success,
-        error,
-        warn,
-        statusMsg,
-      },
-    } = this.props
+      articleType,
+      curView,
+      linkAddr,
+      title,
+      body,
+      publishing,
+      success,
+      error,
+      warn,
+      isEdit,
+      statusMsg,
+    } = typeWriter
 
     return (
       <Wrapper>
-        <TopHeader curView={curView} />
+        <Header isEdit={isEdit} curView={curView} />
         <View
           curView={curView}
           linkAddr={linkAddr}
@@ -141,6 +105,7 @@ class TypeWriterContainer extends React.Component {
           copyrightChange={logic.copyrightChange}
         />
         <Footer
+          isEdit={isEdit}
           onPublish={logic.onPublish}
           publishing={publishing}
           success={success}

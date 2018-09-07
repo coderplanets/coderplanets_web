@@ -4,24 +4,39 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
+import R from 'ramda'
 
-import { markStates, TYPE, unholdPage } from '../../utils'
+import { User } from '../../stores/SharedModel'
+import { markStates, TYPE, stripMobx } from '../../utils'
 
 // const debug = makeDebugger('S:PreviewStore')
+
+const Attachment = t.model('EditData', {
+  id: t.string,
+  type: t.optional(t.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST),
+  title: t.string,
+  body: t.maybeNull(t.string),
+  digest: t.maybeNull(t.string),
+  author: t.maybeNull(User),
+})
 
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
     type: t.maybeNull(
       t.enumeration('previewType', [
+        TYPE.PREVIEW_ROOT_STORE,
+        TYPE.PREVIEW_COMMUNITY_EDITORS,
+        // post
         TYPE.PREVIEW_POST_VIEW,
+        TYPE.PREVIEW_POST_CREATE,
+        TYPE.PREVIEW_POST_EDIT,
+        // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
-        TYPE.PREVIEW_ROOT_STORE,
-        TYPE.PREVIEW_POST_CREATE,
-        TYPE.PREVIEW_COMMUNITY_EDITORS,
       ])
     ),
+    attachment: t.maybeNull(Attachment),
     // header:
     // body:
   })
@@ -36,16 +51,22 @@ const PreviewStore = t
     get curTheme() {
       return self.root.theme.curTheme
     },
+    get attachmentData() {
+      return stripMobx(self.attachment)
+    },
   }))
   .actions(self => ({
-    open(type = TYPE.PREVIEW_POST_VIEW) {
+    open({ type, data }) {
       self.visible = true
       self.type = type
+
+      if (type === TYPE.PREVIEW_POST_EDIT || type === TYPE.PREVIEW_POST_VIEW) {
+        self.attachment = R.merge({ type: TYPE.POST }, data)
+      }
     },
     close() {
       self.visible = false
       // self.type = TYPE.PREVIEW_ROOT_STORE
-      unholdPage()
     },
     markState(sobj) {
       markStates(sobj, self)

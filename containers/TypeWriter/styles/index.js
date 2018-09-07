@@ -47,39 +47,6 @@ export const Header = styled.div`
   padding-top: 15px;
   margin-bottom: 10px;
 `
-
-export const UsageText = styled.div`
-  color: ${theme('editor.content')};
-  font-size: 1.3em;
-  flex-grow: 1;
-`
-export const MarkdownIcon = styled(Img)`
-  fill: #51abb2;
-  width: 20px;
-  height: 18px;
-  margin-right: 5px;
-
-  ${MarkDownHint}:hover & {
-    fill: #618c92;
-  }
-`
-export const MarkDownHint = styled.div`
-  display: flex;
-  color: ${theme('editor.placeholder')};
-  &:hover {
-    color: ${theme('editor.content')};
-    cursor: pointer;
-  }
-  transition: color 0.3s;
-`
-
-// this is from top
-export const BackToEditHint = styled.div`
-  display: flex;
-  color: ${theme('editor.title')};
-  cursor: pointer;
-`
-
 export const BodyWrapper = styled.div`
   padding: 20px;
   background-color: ${theme('editor.contentBg')};

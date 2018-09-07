@@ -72,9 +72,6 @@ const HeaderStore = t
     openDoraemon() {
       self.root.openDoraemon()
     },
-    openPreview(type) {
-      self.root.openPreview(type)
-    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

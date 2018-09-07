@@ -32,6 +32,8 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
+
+    isEdit: t.optional(t.boolean, false),
     /* for StatusBox */
     success: t.optional(t.boolean, false),
     error: t.optional(t.boolean, false),
@@ -49,6 +51,9 @@ const TypeWriterStore = t
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
   }))
   .actions(self => ({
     closePreview() {
@@ -61,6 +66,7 @@ const TypeWriterStore = t
         body: '',
         isOriginal: true,
         articleType: 'original',
+        isEdit: false,
         // curView:
       })
     },

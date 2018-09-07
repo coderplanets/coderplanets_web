@@ -55,7 +55,6 @@ export function checkUserAccount() {
 export function previewAccount() {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
-    data: { hello: 'world --- fuck' },
   })
 }
 
@@ -70,13 +69,6 @@ export function onThreadChange(thread) {
 export function login() {
   debug('do login')
   dispatchEvent(EVENT.LOGIN_PANEL)
-}
-
-export function openPreview() {
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_ACCOUNT_VIEW,
-    data: { hello: 'world' },
-  })
 }
 
 export function openDoraemon() {
