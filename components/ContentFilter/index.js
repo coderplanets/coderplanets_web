@@ -144,7 +144,6 @@ const ContentFilter = ({ activeFilter, onSelect }) => (
           <FilterIcon src={`${ICON_CMD}/filter2.svg`} />
         </InnerBtnWrapper>
       </Button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
     </Popover>
 
     <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
