@@ -4,7 +4,6 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import R from 'ramda'
 
 import { User } from '../../stores/SharedModel'
 import { markStates, TYPE, stripMobx } from '../../utils'
@@ -31,6 +30,10 @@ const PreviewStore = t
         TYPE.PREVIEW_POST_VIEW,
         TYPE.PREVIEW_POST_CREATE,
         TYPE.PREVIEW_POST_EDIT,
+        // job
+        TYPE.PREVIEW_JOB_VIEW,
+        TYPE.PREVIEW_JOB_CREATE,
+        TYPE.PREVIEW_JOB_EDIT,
         // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
@@ -60,9 +63,16 @@ const PreviewStore = t
       self.visible = true
       self.type = type
 
-      if (type === TYPE.PREVIEW_POST_EDIT || type === TYPE.PREVIEW_POST_VIEW) {
-        self.attachment = R.merge({ type: TYPE.POST }, data)
-      }
+      // NOTE: currently the attachment is only used for article-like content
+      if (data) self.attachment = data
+      /*
+         if (type === TYPE.PREVIEW_POST_EDIT || type === TYPE.PREVIEW_POST_VIEW) {
+         self.attachment = R.merge({ type: TYPE.POST }, data)
+         }
+         if (type === TYPE.PREVIEW_JOB_EDIT || type === TYPE.PREVIEW_JOB_VIEW) {
+         self.attachment = R.merge({ type: TYPE.JOB }, data)
+         }
+       */
     },
     close() {
       self.visible = false

@@ -11,51 +11,38 @@ import { inject, observer } from 'mobx-react'
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
-import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
-
 import Header from './Header'
 import Footer from './Footer'
 
-import { Wrapper, EditorBlock, PreviewBlock } from './styles'
+import { Wrapper, ViewerWrapper } from './styles'
+
+import { init, uninit, changeView } from './logic'
+import { makeDebugger, storePlug } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
 
-const View = ({
-  curView,
-  articleType,
-  copyrightChange,
-  title,
-  body,
-  linkAddr,
-}) => {
-  // const curView = 'create' // markdown_help
-
+const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
-        <EditorBlock name="CREATE_VIEW" curView={curView}>
+        <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
-            articleType={articleType}
-            copyrightChange={copyrightChange}
+            cpType={cpType}
+            thread={thread}
             title={title}
-            titleOnChange={logic.titleOnChange}
             linkAddr={linkAddr}
-            linkSourceOnChange={logic.linkSourceOnChange}
             body={body}
-            bodyOnChange={logic.bodyOnChange}
-            onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
           />
-        </EditorBlock>
-        <PreviewBlock name="PREVIEW_VIEW" curView={curView}>
+        </ViewerWrapper>
+        <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
             title={title}
             body={body}
-            onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
+            onBack={changeView.bind(this, 'CREATE_VIEW')}
           />
-        </PreviewBlock>
+        </ViewerWrapper>
       </React.Fragment>
     )
   }
@@ -67,20 +54,21 @@ class TypeWriterContainer extends React.Component {
   componentWillMount() {
     const { typeWriter, attachment } = this.props
 
-    logic.init(typeWriter, attachment)
+    init(typeWriter, attachment)
   }
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
     // Message.success('草稿已经保存')
-    logic.uninit()
+    uninit()
   }
 
   render() {
     const { typeWriter } = this.props
 
     const {
-      articleType,
+      cpType,
+      thread,
       curView,
       linkAddr,
       title,
@@ -98,15 +86,14 @@ class TypeWriterContainer extends React.Component {
         <Header isEdit={isEdit} curView={curView} />
         <View
           curView={curView}
+          thread={thread}
           linkAddr={linkAddr}
           title={title}
           body={body}
-          articleType={articleType}
-          copyrightChange={logic.copyrightChange}
+          cpType={cpType}
         />
         <Footer
           isEdit={isEdit}
-          onPublish={logic.onPublish}
           publishing={publishing}
           success={success}
           error={error}

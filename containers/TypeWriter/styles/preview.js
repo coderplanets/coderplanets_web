@@ -3,8 +3,13 @@ import styled from 'styled-components'
 // BodyWrapper, BodyHeader, BackToEditBtn, PreviewHeader
 import { theme } from '../../../utils'
 
-export { BodyHeader, BodyWrapper } from './index'
+export { Wrapper } from './editor'
 
+export const Header = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+`
 export const PreviewHeader = styled.div`
   color: ${theme('preview.title')};
   margin-bottom: 15px;

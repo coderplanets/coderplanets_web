@@ -99,8 +99,7 @@ export function onTitleSelect(activeJob) {
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 const DataSolver = [

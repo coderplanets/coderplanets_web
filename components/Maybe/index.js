@@ -19,7 +19,8 @@ const MaybeLoading = ({ loading }) => {
 }
 
 const Maybe = ({ children, data, loading }) => {
-  if (R.isEmpty(data)) return <MaybeLoading loading={loading} />
+  if (data === false || R.isEmpty(data))
+    return <MaybeLoading loading={loading} />
   return <React.Fragment>{children}</React.Fragment>
 }
 

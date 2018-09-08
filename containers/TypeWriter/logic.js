@@ -8,7 +8,6 @@ import {
   isEmptyValue,
   dispatchEvent,
   EVENT,
-  TYPE,
   ERR,
   meteorState,
   countWords,
@@ -26,8 +25,8 @@ const debug = makeDebugger('L:TypeWriter')
 let store = null
 let sub$ = null
 
-export function copyrightChange(articleType) {
-  store.markState({ articleType })
+export function copyrightChange(cpType) {
+  store.markState({ cpType })
 }
 
 export function changeView(curView) {
@@ -35,12 +34,12 @@ export function changeView(curView) {
 }
 
 function checkValid() {
-  const { body, title, articleType, linkAddr } = store
+  const { body, title, cpType, linkAddr } = store
   if (isEmptyValue(body) || isEmptyValue(title)) {
     meteorState(store, 'error', 5, '文章标题 或 文章内容 不能为空')
     return false
   }
-  if (articleType !== 'original' && isEmptyValue(linkAddr)) {
+  if (cpType !== 'original' && isEmptyValue(linkAddr)) {
     meteorState(store, 'error', 5, '请填写完整地址以方便跳转, http(s)://...')
     return false
   }
@@ -77,7 +76,7 @@ const getDigest = body => {
 // TODO move specfical logic outof here
 export function onPublish() {
   // debug('onPublish: ', store.body)
-  const { body, title, articleType } = store
+  const { body, title, cpType } = store
   if (checkValid()) {
     publishing()
 
@@ -92,7 +91,7 @@ export function onPublish() {
       communityId: store.viewing.community.id,
     }
 
-    if (articleType !== 'original') variables.linkAddr = store.linkAddr
+    if (cpType !== 'original') variables.linkAddr = store.linkAddr
     // debug('variables-: ', variables)
     // TODO: switch createJob
     sr71$.mutate(S.createPost, variables)
@@ -132,14 +131,15 @@ export function insertCode() {
 const openAttachment = att => {
   if (!att) return false
 
-  const { type, title, body, digest } = att
-  if (type === TYPE.POST) {
-    store.markState({
-      title,
-      body: body || digest || '',
-      isEdit: true,
-    })
-  }
+  const { id, title, body, digest } = att
+
+  store.markState({
+    id,
+    title,
+    body: body || digest || '',
+    isEdit: true,
+  })
+  // TODO: load if needed
 }
 
 const cancleMutate = () => {

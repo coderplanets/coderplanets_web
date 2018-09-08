@@ -95,7 +95,6 @@ export function onTitleSelect(post) {
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 

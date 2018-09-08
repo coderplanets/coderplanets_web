@@ -40,9 +40,7 @@ export function logout() {
 }
 
 export function editProfile() {
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_ACCOUNT_EDIT,
-  })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
 }
 
 const DataSolver = [

@@ -56,12 +56,14 @@ const CloseBtn = ({ type }) => (
 // TODO: post edit viewer
 const Viewer = ({ type, root, attachment }) => {
   switch (type) {
+    // account
     case TYPE.PREVIEW_ACCOUNT_VIEW: {
       return <AccountViewer />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
       return <AccountEditor />
     }
+    // post
     case TYPE.PREVIEW_POST_VIEW: {
       return <ArticleViwer attachment={attachment} />
     }
@@ -76,6 +78,11 @@ const Viewer = ({ type, root, attachment }) => {
         />
       )
     }
+    // job
+    case TYPE.PREVIEW_JOB_CREATE: {
+      return <DynamicTypeWriter onClose={logic.closePreview} />
+    }
+    // utils
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {
       return <CommunityEditors />
     }

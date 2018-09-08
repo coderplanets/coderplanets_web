@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { Space, StatusBox, Button, Icon } from '../../components'
-import * as logic from './logic'
+import { canclePublish, onPublish } from './logic'
 
 import {
   FooterWrapper,
@@ -19,15 +19,7 @@ const DoingText = ({ isEdit }) => {
   )
 }
 
-const Footer = ({
-  isEdit,
-  onPublish,
-  publishing,
-  success,
-  error,
-  warn,
-  statusMsg,
-}) => (
+const Footer = ({ isEdit, publishing, success, error, warn, statusMsg }) => (
   <FooterWrapper>
     <StatusBox success={success} error={error} warn={warn} msg={statusMsg} />
     <RespectText show={!success && !warn && !error && !publishing}>
@@ -50,12 +42,7 @@ const Footer = ({
         </div>
       ) : (
         <div>
-          <Button
-            size="default"
-            type="primary"
-            ghost
-            onClick={logic.canclePublish}
-          >
+          <Button size="default" type="primary" ghost onClick={canclePublish}>
             取消
           </Button>
           <Space right="15px" />

@@ -4,9 +4,15 @@ import R from 'ramda'
 import { theme, TYPE, Animate } from '../../../utils'
 
 const WIDE_CASE = [
+  // post
   TYPE.PREVIEW_POST_VIEW,
   TYPE.PREVIEW_POST_CREATE,
   TYPE.PREVIEW_POST_EDIT,
+  // job
+  TYPE.PREVIEW_JOB_VIEW,
+  TYPE.PREVIEW_JOB_CREATE,
+  TYPE.PREVIEW_JOB_EDIT,
+
   TYPE.PREVIEW_COMMUNITY_EDITORS,
 ]
 const WIDE_WIDTH = '70%'
