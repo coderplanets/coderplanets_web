@@ -46,6 +46,7 @@ export {
   CheatSheetLoading,
   PostLoading,
   PostsLoading,
+  TypeWriterLoading,
 } from './LoadingEffects'
 
 // UI library (currently use antd)

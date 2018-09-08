@@ -8,20 +8,17 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
-// import Link from 'next/link'
-
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
-// TODO: move it to component
-import { StateTree } from '../../components'
-import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
 import {
   ArticleViwer,
   AccountViewer,
   AccountEditor,
   CommunityEditors,
 } from '..'
+
+import { StateTree, TypeWriterLoading } from '../../components'
 
 import {
   PreviewOverlay,
