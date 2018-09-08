@@ -16,16 +16,16 @@ const Editor = ({ cpType, thread, title, body, linkAddr }) => (
   <Wrapper>
     <EditorHeader cpType={cpType} thread={thread} linkAddr={linkAddr} />
     <TitleInput
-      placeholder="文章标题."
+      placeholder="标 题."
       defaultValue=""
       value={title}
       onChange={titleOnChange}
     />
-    <br />
 
+    <br />
     <BodyEditor onChange={bodyOnChange} body={body} />
     <FooterWrapper>
-      <EditorFooter />
+      <EditorFooter thread={thread} />
     </FooterWrapper>
   </Wrapper>
 )

@@ -11,6 +11,9 @@ export { Space, SpaceGrow } from './BaseStyled'
 
 // items
 export { default as PostItem } from './PostItem'
+export { default as JobItem } from './JobItem'
+export { default as RepoItem } from './RepoItem'
+export { default as VideoItem } from './VideoItem'
 
 // Utils component
 export { default as Maybe } from './Maybe'

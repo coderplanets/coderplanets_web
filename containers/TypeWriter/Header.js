@@ -10,6 +10,7 @@ import {
   BackToEditHint,
 } from './styles/header'
 
+import { THREAD } from '../../utils'
 import * as logic from './logic'
 
 const DoingText = ({ isEdit }) => {
@@ -19,8 +20,19 @@ const DoingText = ({ isEdit }) => {
     <React.Fragment>发布</React.Fragment>
   )
 }
+const ThreadText = ({ thread }) => {
+  switch (thread) {
+    case THREAD.JOB: {
+      return '工作'
+    }
 
-const Header = ({ isEdit, curView }) => {
+    default: {
+      return '帖子'
+    }
+  }
+}
+
+const Header = ({ isEdit, curView, thread }) => {
   switch (curView) {
     case 'MARKDOWN_HELP_VIEW': {
       return (
@@ -38,13 +50,13 @@ const Header = ({ isEdit, curView }) => {
         <Wrapper>
           <UsageText>
             <DoingText isEdit={isEdit} />
-            帖子
+            <ThreadText thread={thread} />
           </UsageText>
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
           >
             <MarkdownIcon src={`${ICON_CMD}/markdown.svg`} />
-            markdown 速查
+            markdown 语法速查
           </MarkDownHint>
         </Wrapper>
       )

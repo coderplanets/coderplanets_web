@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+import { Img } from '../..'
 import { theme, Animate } from '../../../utils'
 
 export const Wrapper = styled.article`
@@ -84,6 +84,7 @@ export const TitleTag = styled.div`
   opacity: 0.8;
 `
 export const LinkIcon = styled(Img)`
+  fill: ${theme('thread.articleLink')};
   position: absolute;
   top: 6px;
   left: -5px;

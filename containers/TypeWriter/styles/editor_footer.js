@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
 `
 
-export const ExtraItem = styled.div`
+export const Item = styled.div`
   display: flex;
   color: ${theme('editor.footer')};
   &:hover {
@@ -16,28 +16,28 @@ export const ExtraItem = styled.div`
   }
 `
 
-export const ExtraDivider = styled(Img)`
+export const Divider = styled(Img)`
   fill: #75898a;
   width: 10px;
   height: 10px;
   margin-left: 4px;
   margin-right: 4px;
 `
-export const ExtraItemTitle = styled.div`
+export const ItemTitle = styled.div`
   cursor: pointer;
   font-size: 1rem;
-  ${ExtraItem}:hover & {
+  ${Item}:hover & {
     color: ${theme('editor.footerHover')};
   }
 `
-export const ExtraItemIcon = styled(Img)`
+export const ItemIcon = styled(Img)`
   fill: ${theme('editor.content')};
   width: 17px;
   height: 17px;
   margin-right: 3px;
   margin-top: 2px;
 
-  ${ExtraItem}:hover & {
+  ${Item}:hover & {
     fill: ${theme('editor.footerHover')};
   }
 `

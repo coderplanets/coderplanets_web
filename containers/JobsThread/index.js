@@ -17,9 +17,9 @@ import {
   EmptyThread,
   ContentFilter,
   BuyMeChuanChuan,
+  JobItem,
 } from '../../components'
 
-import Item from './Item'
 import { TagsBar } from '..'
 
 import {
@@ -45,8 +45,13 @@ const View = ({ community, thread, jobs, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {jobs.map(job => (
-            <Item entry={job} key={uid.gen()} active={active} />
+          {jobs.map(entry => (
+            <JobItem
+              entry={entry}
+              key={uid.gen()}
+              active={active}
+              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
+            />
           ))}
         </React.Fragment>
       )

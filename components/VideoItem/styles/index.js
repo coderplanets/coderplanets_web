@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+import { Img } from '../..'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.article`
@@ -10,12 +10,7 @@ export const Wrapper = styled.article`
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 4px;
-  background: ${({ current, active }) =>
-    current.id === active.id ? theme('thread.articleHover') : ''};
-  background: ${({ index }) =>
-    index % 2 === 0 ? theme('thread.articleStrip') : ''};
-  opacity: ${({ current, active }) =>
-    active.id && current.id !== active.id ? 0.6 : 1};
+  opacity: ${({ active }) => (active ? 0.6 : 1)};
 
   &:hover {
     background: ${theme('thread.articleHover')};

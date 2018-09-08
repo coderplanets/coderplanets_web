@@ -7,9 +7,19 @@ const pagedJobsRaw = `
         id
         title
         digest
+        tags {
+          id
+          title
+          color
+        }
+        author {
+          id
+          nickname
+          avatar
+        }
+        views
         insertedAt
         updatedAt
-        views
       }
       totalCount
       pageSize

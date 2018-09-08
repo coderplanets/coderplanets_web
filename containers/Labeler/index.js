@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
@@ -35,7 +36,7 @@ class LabelerContainer extends React.Component {
   }
 
   render() {
-    const { labeler } = this.props
+    const { labeler, label, iconSrc } = this.props
     const { tagsData } = labeler
 
     const { visible } = this.state
@@ -50,13 +51,26 @@ class LabelerContainer extends React.Component {
           onVisibleChange={this.onVisibleChange.bind(this)}
         >
           <LabelItem>
-            <LabelIcon src={`${ICON_CMD}/extra_tag.svg`} />
-            <Title>标签</Title>
+            <LabelIcon src={iconSrc} />
+            <Title>{label}</Title>
           </LabelItem>
         </Popover>
       </Wrapper>
     )
   }
+}
+
+LabelerContainer.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+  label: PropTypes.oneOf(['标签', '薪资', '城市']),
+  // label: PropTypes.oneOf(['tag', 'salary', 'city']),
+  iconSrc: PropTypes.string,
+}
+
+LabelerContainer.defaultProps = {
+  label: '标签',
+  // label: 'tag',
+  iconSrc: `${ICON_CMD}/extra_tag.svg`,
 }
 
 export default inject(storePlug('labeler'))(observer(LabelerContainer))

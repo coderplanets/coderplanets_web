@@ -66,8 +66,6 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
 )
 
 PostItem.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  /* entry: PropTypes.object.isRequired, */
   active: PropTypes.object,
 
   entry: PropTypes.shape({

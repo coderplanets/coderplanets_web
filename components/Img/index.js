@@ -27,7 +27,7 @@ Img.propTypes = {
 }
 
 Img.defaultProps = {
-  alt: 'coderplanets image',
+  alt: 'image',
   className: 'img-class',
 }
 

@@ -83,7 +83,7 @@ class TypeWriterContainer extends React.Component {
 
     return (
       <Wrapper>
-        <Header isEdit={isEdit} curView={curView} />
+        <Header isEdit={isEdit} curView={curView} thread={thread} />
         <View
           curView={curView}
           thread={thread}
