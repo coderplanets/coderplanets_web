@@ -33,11 +33,7 @@ export function tabOnChange(activeRaw) {
 const DataSolver = [
   {
     match: asyncRes('pagedCategories'),
-    action: ({ pagedCategories }) => {
-      store.markState({
-        pagedCategories,
-      })
-    },
+    action: ({ pagedCategories }) => store.markState({ pagedCategories }),
   },
 ]
 const ErrSolver = []

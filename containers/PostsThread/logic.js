@@ -112,11 +112,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      store.markState({
-        tags: partialTags,
-      })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -154,7 +150,7 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedPosts) {
+  if (R.isEmpty(store.pagedPostsData.entries)) {
     loadPosts()
   }
 }

@@ -20,9 +20,9 @@ const debug = makeDebugger('C:TagsBar')
 
 class TagsBarContainer extends React.Component {
   componentWillMount() {
+    debug('componentWillMount')
     const { tagsBar, thread } = this.props
-    logic.init(tagsBar)
-    logic.loadIfNeed(thread)
+    logic.init(tagsBar, thread)
   }
 
   onSelect(tag) {

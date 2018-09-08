@@ -27,16 +27,7 @@ export function loadCommunityEditors() {
 const DataSolver = [
   {
     match: asyncRes('pagedUsers'),
-    action: ({ pagedUsers }) => {
-      store.markState({ pagedEditors: pagedUsers })
-      /*
-         let curView = TYPE.RESULT
-         if (pagedPosts.entries.length === 0) {
-         curView = TYPE.RESULT_EMPTY
-         }
-         store.markState({ curView, pagedPosts })
-       */
-    },
+    action: ({ pagedUsers: pagedEditors }) => store.markState({ pagedEditors }),
   },
 ]
 const ErrSolver = []

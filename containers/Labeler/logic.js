@@ -33,10 +33,7 @@ export function loadTagsIfNeed() {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) =>
-      store.markState({
-        tags: partialTags,
-      }),
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
 ]
 const ErrSolver = []

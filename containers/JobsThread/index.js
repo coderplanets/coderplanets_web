@@ -72,102 +72,72 @@ class JobsThreadContainer extends React.Component {
   componentDidMount() {}
 
   render() {
+    const { jobsThread } = this.props
+
     const {
-      jobsThread: {
-        pagedJobsData,
-        tagsData,
-        curView,
-        filtersData,
-        activeTagData,
-        active,
-        accountInfo,
-        curRoute,
-      },
-    } = this.props
+      pagedJobsData,
+      tagsData,
+      curView,
+      filtersData,
+      activeTagData,
+      active,
+      accountInfo,
+      curRoute,
+    } = jobsThread
 
     const { mainPath, subPath } = curRoute
+    const { entries, totalCount, pageNumber, pageSize } = pagedJobsData
 
     return (
-      <React.Fragment>
-        {pagedJobsData ? (
-          <Wrapper>
-            <LeftPadding />
-            <BuyMeChuanChuan fromUser={accountInfo} />
-            <LeftPart>
-              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-              <FilterWrapper show={curView === TYPE.RESULT}>
-                <ContentFilter
-                  onSelect={logic.onFilterSelect}
-                  activeFilter={filtersData}
-                />
-                <FilterResultHint>
-                  结果约 {pagedJobsData.totalCount} 条
-                </FilterResultHint>
-              </FilterWrapper>
+      <Wrapper>
+        <LeftPadding />
+        <BuyMeChuanChuan fromUser={accountInfo} />
+        <LeftPart>
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+          <FilterWrapper show={curView === TYPE.RESULT}>
+            <ContentFilter
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+            />
+            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+          </FilterWrapper>
 
-              <View
-                community={mainPath}
-                thread={subPath}
-                jobs={pagedJobsData.entries}
-                curView={curView}
-                active={active}
-              />
+          <View
+            community={mainPath}
+            thread={subPath}
+            jobs={entries}
+            curView={curView}
+            active={active}
+          />
 
-              <Pagi
-                left="-10px"
-                pageNumber={pagedJobsData.pageNumber}
-                pageSize={pagedJobsData.pageSize}
-                totalCount={pagedJobsData.totalCount}
-                onChange={logic.loadJobs}
-              />
-            </LeftPart>
+          <Pagi
+            left="-10px"
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalCount={totalCount}
+            onChange={logic.loadJobs}
+          />
+        </LeftPart>
 
-            <RightPart>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                招贤纳士
-              </PublishBtn>
+        <RightPart>
+          <PublishBtn type="primary" onClick={logic.createContent}>
+            招贤纳士
+          </PublishBtn>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagsBar
-                  thread={THREAD.JOB}
-                  tags={tagsData}
-                  active={activeTagData}
-                  onSelect={logic.onTagSelect}
-                />
-              </Affix>
-            </RightPart>
-            <RightPadding />
-          </Wrapper>
-        ) : (
-          <Wrapper>
-            <LeftPadding />
-            <LeftPart>
-              <PostsLoading num={3} />
-            </LeftPart>
-            <RightPart />
-            <RightPadding />
-          </Wrapper>
-        )}
-      </React.Fragment>
+          <Affix offsetTop={50}>
+            <TagDivider />
+            <TagsBar
+              thread={THREAD.JOB}
+              tags={tagsData}
+              active={activeTagData}
+              onSelect={logic.onTagSelect}
+            />
+          </Affix>
+        </RightPart>
+        <RightPadding />
+      </Wrapper>
     )
   }
 }
 
 export default inject(storePlug('jobsThread'))(observer(JobsThreadContainer))
-
-/*
-   <iframe
-   id="ytplayer"
-   type="text/html"
-   width="640"
-   height="360"
-   allowfullscreen="allowfullscreen"
-   mozallowfullscreen="mozallowfullscreen"
-   msallowfullscreen="msallowfullscreen"
-   oallowfullscreen="oallowfullscreen"
-   webkitallowfullscreen="webkitallowfullscreen"
-   src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-   frameborder="0"
-   />
- */

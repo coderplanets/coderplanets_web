@@ -30,6 +30,7 @@ export function loadTags(pthread) {
   const { mainPath } = store.curRoute
   const community = mainPath
   const thread = R.toUpper(pthread)
+  store.markState({ thread })
 
   const args = { community, thread }
   debug('#### loadTags --> ', args)
@@ -43,12 +44,7 @@ export function loadTags(pthread) {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      console.log('partialTags --> ', partialTags)
-      store.markState({
-        tags: partialTags,
-      })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -77,16 +73,19 @@ const ErrSolver = [
 ]
 
 export const loadIfNeed = thread => {
-  if (R.isEmpty(store.tagsData)) {
+  if (R.isEmpty(store.tagsData) || thread !== store.thread) {
     loadTags(thread)
   }
 }
 
-export function init(_store) {
-  if (store) return false
+export function init(_store, thread) {
+  if (store) {
+    return loadIfNeed(thread)
+  }
   store = _store
 
   debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadIfNeed(thread)
 }

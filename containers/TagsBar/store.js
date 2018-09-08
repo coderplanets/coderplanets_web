@@ -17,6 +17,7 @@ const TagsBar = t
   .model('TagsBar', {
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
+    thread: t.maybeNull(t.string),
   })
   .views(self => ({
     get root() {

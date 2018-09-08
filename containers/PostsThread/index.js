@@ -75,15 +75,14 @@ class PostsThreadContainer extends React.Component {
   componentDidMount() {}
 
   render() {
+    const { postsThread } = this.props
     const {
-      postsThread: {
-        pagedPostsData,
-        curView,
-        filtersData,
-        activePost,
-        curRoute,
-      },
-    } = this.props
+      pagedPostsData,
+      curView,
+      filtersData,
+      activePost,
+      curRoute,
+    } = postsThread
 
     const { mainPath, subPath } = curRoute
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData

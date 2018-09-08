@@ -116,10 +116,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) =>
-      store.markState({
-        tags: partialTags,
-      }),
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -157,7 +154,7 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedJobs) {
+  if (R.isEmpty(store.pagedJobsData.entries)) {
     debug('loadIfNeed')
     loadJobs()
   }
@@ -171,4 +168,5 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadIfNeed()
+  /* loadJobs() */
 }
