@@ -4,10 +4,10 @@ import BodyHeader from './BodyHeader'
 import BodyFooter from './BodyFooter'
 import { MarkDownRender, PostLoading } from '../../components'
 
-import { BodyWrapper, ArticleTitle, ArticleBody } from './styles/body'
+import { Wrapper, ArticleTitle, ArticleBody } from './styles/body'
 
 const Body = ({ data, loading }) => (
-  <BodyWrapper>
+  <Wrapper>
     <BodyHeader />
     <ArticleTitle>{data.title}</ArticleTitle>
     {loading ? (
@@ -20,7 +20,7 @@ const Body = ({ data, loading }) => (
       </ArticleBody>
     )}
     <BodyFooter />
-  </BodyWrapper>
+  </Wrapper>
 )
 
 export default Body

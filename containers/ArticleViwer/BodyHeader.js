@@ -5,18 +5,20 @@ import { Popover } from '../../components'
 import ArticleOptions from './ArticleOptions'
 
 import {
+  Wrapper,
   MoreWrapper,
   MoreIcon,
   LinkFrom,
   RefinedLabel,
   LinkSource,
-  ArticleHeader,
-} from './styles/body'
+  RefinedIcon,
+  RefinedText,
+} from './styles/body_header'
 
 // import { Wrapper } from './styles/body_header'
 
 const BodyHeader = () => (
-  <ArticleHeader>
+  <Wrapper>
     <MoreWrapper>
       <Popover
         content={<ArticleOptions />}
@@ -32,8 +34,11 @@ const BodyHeader = () => (
       <div>转载自:&nbsp;</div>
       <LinkSource>github.com/mydearxym/...</LinkSource>
     </LinkFrom>
-    <RefinedLabel>精华帖</RefinedLabel>
-  </ArticleHeader>
+    <RefinedLabel>
+      <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
+      <RefinedText>精华帖</RefinedText>
+    </RefinedLabel>
+  </Wrapper>
 )
 
 export default BodyHeader
