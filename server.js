@@ -10,13 +10,10 @@ const { basename } = require('path')
 const accepts = require('accepts')
 const glob = require('glob')
 
-const app = next({
-  dev,
-  quiet: false,
-  // conf: { useFileSystemPublicRoutes: false },
-})
+const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const route = pathMatch()
+const SERVE_PORT = 3000
 
 // const moduleAlias = require('module-alias')
 // For the development version, we'll use React.
@@ -97,8 +94,8 @@ app.prepare().then(() => {
     req.messages = getMessages(locale)
 
     return handle(req, res)
-  }).listen(3000, err => {
+  }).listen(SERVE_PORT, err => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log(`> Ready on http://localhost: ${SERVE_PORT}`)
   })
 })
