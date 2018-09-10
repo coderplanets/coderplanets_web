@@ -11,12 +11,10 @@ import dynamic from 'next/dynamic'
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
-import {
-  ArticleViwer,
-  AccountViewer,
-  AccountEditor,
-  CommunityEditors,
-} from '..'
+import ArticleViwer from '../ArticleViwer'
+import AccountViewer from '../AccountViewer'
+import AccountEditor from '../AccountEditor'
+import CommunityEditors from '../CommunityEditors'
 
 import { StateTree, TypeWriterLoading } from '../../components'
 
