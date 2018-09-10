@@ -20,4 +20,5 @@ export const DefaultUserIcon = styled(Img)`
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
+  display: block;
 `
