@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import TagsBar from '../TagsBar'
 
 import {
   Affix,
@@ -19,8 +19,6 @@ import {
   BuyMeChuanChuan,
   JobItem,
 } from '../../components'
-
-import { TagsBar } from '..'
 
 import {
   Wrapper,
@@ -34,6 +32,7 @@ import {
   PublishBtn,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */

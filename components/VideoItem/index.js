@@ -10,7 +10,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
-import { Space } from '..'
+import { Space } from '../BaseStyled'
 
 import {
   Wrapper,

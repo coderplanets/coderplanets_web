@@ -6,11 +6,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
-
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
-import { Button } from '..'
 
 import BackgroundList from './BackgroundList'
 
@@ -34,6 +32,7 @@ import {
 } from './styles'
 
 /* import * as logic from './logic' */
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:UserBrief')

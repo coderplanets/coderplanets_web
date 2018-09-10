@@ -7,7 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Pagi, Button, Icon } from '..'
+import { Button, Icon } from 'antd'
+
+import Pagi from '../Pagi'
 
 import {
   TableWrapper,

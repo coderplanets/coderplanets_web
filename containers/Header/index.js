@@ -10,7 +10,8 @@ import keydown from 'react-keydown'
 
 import { ICON_CMD } from '../../config/assets'
 
-import { UpgradePackges, MailBox } from '..'
+import MailBox from '../MailBox'
+import UpgradePackges from '../UpgradePackges'
 
 import { Affix, Navigator } from '../../components'
 import UserAccount from './UserAccount'

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
 
-import { Maybe } from '..'
+import Maybe from '../Maybe'
 
 import {
   Wrapper,

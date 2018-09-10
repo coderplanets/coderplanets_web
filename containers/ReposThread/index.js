@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
-import { TagsBar } from '..'
+import TagsBar from '../TagsBar'
 
 import {
   Affix,

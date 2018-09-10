@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Button } from 'antd'
 
 import Remarkable from 'remarkable'
 import mentions from 'remarkable-mentions'
@@ -13,13 +14,12 @@ import remarkableemoj from 'remarkable-emoji'
 import Masonry from 'react-masonry-component'
 import Prism from 'mastani-codehighlight'
 
-import { CheatSheetLoading } from '../../components/LoadingEffects'
-import { NotFound, Button } from '../../components'
+import { NotFound, CheatSheetLoading } from '../../components'
+
+import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
 
 import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
-
-import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
 
 // import code from './es7'
 

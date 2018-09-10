@@ -7,10 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
+import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '../../config/general'
 
-import { Tooltip } from '..'
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
 
 import { makeDebugger, prettyNum, uid } from '../../utils'

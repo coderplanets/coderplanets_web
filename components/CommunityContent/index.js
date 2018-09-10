@@ -7,13 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  PostsThread,
-  VideosThread,
-  ReposThread,
-  JobsThread,
-  CheatSheetPaper,
-} from '../../containers'
+import PostsThread from '../../containers/PostsThread'
+import VideosThread from '../../containers/VideosThread'
+import ReposThread from '../../containers/ReposThread'
+import JobsThread from '../../containers/JobsThread'
+import CheatSheetPaper from '../../containers/CheatSheetPaper'
 
 import { Wrapper } from './styles'
 import { makeDebugger, ROUTE } from '../../utils'

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import Img from '../../Img'
 import { theme } from '../../../utils'
-import { Img } from '../..'
 
 export const Wrapper = styled.div`
   color: ${theme('banner.desc')};

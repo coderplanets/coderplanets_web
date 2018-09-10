@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { Animate, theme } from '../../../utils'
 
 // background: #f9fcfc;

@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
-
-/* background: ${({ index }) => */
-/* index % 2 === 0 ? theme('thread.articleStrip') : ''}; */
 
 export const Wrapper = styled.article`
   display: flex;

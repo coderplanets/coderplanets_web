@@ -8,9 +8,6 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
-import * as logic from './logic'
-
 import ArticleViwer from '../ArticleViwer'
 import AccountViewer from '../AccountViewer'
 import AccountEditor from '../AccountEditor'
@@ -26,6 +23,9 @@ import {
   Closer,
   CloserInner,
 } from './styles'
+
+import { makeDebugger, storePlug, TYPE } from '../../utils'
+import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Preview')

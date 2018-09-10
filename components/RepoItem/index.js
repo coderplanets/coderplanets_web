@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
 
-import { Space } from '..'
+import { Space } from '../BaseStyled'
 import BuilderList from './BuilderList'
 
 import {

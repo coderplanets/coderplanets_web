@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Popover } from '..'
+import { Popover } from 'antd'
 import { Wrapper, Builder, Avatar } from './styles/builder_list'
 
 import { uid } from '../../utils'

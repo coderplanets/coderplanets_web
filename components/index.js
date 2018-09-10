@@ -2,19 +2,18 @@ export { default as GAWraper } from './GAWraper'
 // Basic component
 export { default as A } from './A'
 export { default as Img } from './Img'
+
 export { default as EmptyThread } from './EmptyThread'
 export { default as NotFound } from './NotFound'
 export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'
 export { default as Popconfirm } from './Popconfirm'
 export { Space, SpaceGrow } from './BaseStyled'
-
 // items
 export { default as PostItem } from './PostItem'
 export { default as JobItem } from './JobItem'
 export { default as RepoItem } from './RepoItem'
 export { default as VideoItem } from './VideoItem'
-
 // Utils component
 export { default as Maybe } from './Maybe'
 export { default as UserBrief } from './UserBrief'

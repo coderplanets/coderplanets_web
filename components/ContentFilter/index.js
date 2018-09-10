@@ -6,8 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Row, Col, Tag } from 'antd'
-import { Popover } from '..'
+import { Button, Row, Col, Tag, Popover } from 'antd'
 
 import { ICON_CMD } from '../../config'
 

@@ -8,7 +8,7 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { Icon } from '..'
+import { Icon } from 'antd'
 import {
   Wrapper,
   Msg,

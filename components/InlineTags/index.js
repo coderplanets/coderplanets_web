@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Maybe } from '..'
+import Maybe from '../Maybe'
 import { Wrapper, Tag, Dot, Title } from './styles'
 
 import { makeDebugger, uid } from '../../utils'

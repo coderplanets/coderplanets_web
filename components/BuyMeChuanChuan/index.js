@@ -6,10 +6,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Button, Icon } from 'antd'
 
 import { ICON_CMD, GITHUB_ME } from '../../config'
 
-import { Modal, Button, Icon, UserCell, Maybe } from '..'
+import Modal from '../Modal'
+import UserCell from '../UserCell'
+import Maybe from '../Maybe'
 
 // import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'

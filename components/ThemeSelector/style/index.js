@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
-
+import Img from '../../Img'
 import { theme, themeCoverMap, themeCoverIndexMap } from '../../../utils'
 
 export const FlexWrapper = styled.div`

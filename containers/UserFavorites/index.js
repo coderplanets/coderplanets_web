@@ -7,17 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { FavoritesCats } from '..'
+import FavoritesCats from '../FavoritesCats'
+import { PostsLoading, Pagi, PostItem } from '../../components'
+
 import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
-
-import {
-  PostsLoading,
-  /* Pagi, */
-  /* EmptyThread, */
-  Pagi,
-  PostItem,
-} from '../../components'
-
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:UserFavorites')

@@ -9,7 +9,9 @@ import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
-import { AvatarsRow, InlineTags } from '..'
+
+import AvatarsRow from '../AvatarsRow'
+import InlineTags from '../InlineTags'
 
 import {
   Wrapper,

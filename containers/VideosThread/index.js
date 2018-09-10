@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { TagsBar } from '..'
+import TagsBar from '../TagsBar'
 
 import {
   Affix,

@@ -10,8 +10,10 @@ import { inject, observer } from 'mobx-react'
 import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
 
+import UserSettings from '../UserSettings'
+import UserFavorites from '../UserFavorites'
+
 import { Tabber, Button, Icon } from '../../components'
-import { UserSettings, UserFavorites } from '..'
 
 import AchieveInfo from './AchieveInfo'
 import NumbersInfo from './NumbersInfo'
