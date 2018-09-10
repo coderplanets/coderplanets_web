@@ -266,6 +266,9 @@ const Yellow = {
     successBar: '#9dd035',
     warnBar: '#f5a30e',
   },
+  mailBox: {
+    headHightBg: bannerBg,
+  },
 }
 
 export default Yellow

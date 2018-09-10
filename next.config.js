@@ -30,25 +30,9 @@ module.exports = withProgressBar({
   },
 
   webpack: (config, { isServer }) => {
+    console.log('webpack fucking')
+
     config.plugins = config.plugins || []
-    /*
-       config.module.rules.push({
-       test: /\.md$/,
-       loader: 'raw-loader',
-       })
-     */
-    /*
-       config.module.rules.push(
-       {
-       test: /\.css$/,
-       use: ['style-loader', 'css-loader'],
-       },
-       {
-       test: /\.(svg|eot|ttf|woff|woff2)$/,
-       use: 'url-loader',
-       }
-       )
-     */
 
     if (ANALYZE) {
       config.plugins.push(
@@ -61,6 +45,7 @@ module.exports = withProgressBar({
     }
 
     if (fs.existsSync('./.env')) {
+      console.log('====== env building ======')
       config.plugins.push(
         new Dotenv({
           path: path.join(__dirname, '.env'),

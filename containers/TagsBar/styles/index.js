@@ -4,15 +4,14 @@ import { theme } from '../../../utils'
 import { Img } from '../../../components'
 
 export const Wrapper = styled.div`
-  /* border-right: 1px solid grey; */
   flex-direction: column;
   margin-left: 10px;
   padding-left: 10%;
 `
 export const TagItem = styled.div`
   margin-bottom: 14px;
-  font-size: medium;
   display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
     font-weight: bold;
@@ -34,7 +33,6 @@ const getDotBgColor = (active, title, color) => {
 export const TagDot = styled.div`
   width: 14px;
   height: 14px;
-  margin-top: 5px;
   margin-right: 12px;
   border-radius: 100%;
   background-color: ${({ active, title, color }) =>

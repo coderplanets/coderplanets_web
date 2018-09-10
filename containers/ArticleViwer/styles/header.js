@@ -13,7 +13,7 @@ export const Divider = styled.span`
 `
 
 // border-bottom: 1px solid #e0e0e0;
-export const PreviewHeaderWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   margin-left: 30px;
   margin-right: 30px;

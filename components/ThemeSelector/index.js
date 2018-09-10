@@ -6,9 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   FlexWrapper,
@@ -22,7 +21,8 @@ import {
   AuthorIcon,
   AuthorName,
 } from './style'
-import { makeDebugger, themeKeys, themeDescs } from '../../utils'
+
+import { makeDebugger, themeKeys, themeDescs, uid } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
@@ -31,7 +31,7 @@ const DotStyle = ({ curTheme, changeTheme }) => (
   <FlexWrapper>
     {themeKeys.map(name => (
       <ThemeDot
-        key={shortid.generate()}
+        key={uid.gen()}
         active={curTheme === name}
         name={name}
         onClick={changeTheme.bind(this, name)}
@@ -43,7 +43,7 @@ const DotStyle = ({ curTheme, changeTheme }) => (
 const DetailStyle = ({ curTheme, changeTheme }) => (
   <DetailWrapper>
     {themeKeys.map(name => (
-      <IntroBox key={shortid.generate()} active={curTheme === name}>
+      <IntroBox key={uid.gen()} active={curTheme === name}>
         <ThemeDot
           large
           active={curTheme === name}
@@ -61,7 +61,7 @@ const DetailStyle = ({ curTheme, changeTheme }) => (
             {themeDescs[name]}
           </ThemeDesc>
           <AuthorInfo>
-            <AuthorIcon src={`${ICON_ASSETS}/cmd/author.svg`} />
+            <AuthorIcon src={`${ICON_CMD}/author.svg`} />
             <AuthorName
               href="https://www.github.com/mydearxym"
               rel="noopener noreferrer"

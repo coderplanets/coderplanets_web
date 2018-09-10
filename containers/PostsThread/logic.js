@@ -82,9 +82,8 @@ export function onTitleSelect(post) {
   store.setViewing({ post })
   /* store.setActive(post) */
   debug('onTitleSelect publish post: ', post)
-  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_POST_VIEW,
     data: post,
   })
 
@@ -96,8 +95,7 @@ export function onTitleSelect(post) {
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 const DataSolver = [
@@ -113,11 +111,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      store.markState({
-        tags: partialTags,
-      })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -155,7 +149,7 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedPosts) {
+  if (R.isEmpty(store.pagedPostsData.entries)) {
     loadPosts()
   }
 }

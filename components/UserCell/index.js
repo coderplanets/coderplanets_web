@@ -8,8 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
-
 import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:UserCell:index')
 /* eslint-enable no-unused-vars */

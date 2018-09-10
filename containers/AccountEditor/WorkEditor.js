@@ -1,9 +1,7 @@
 import React from 'react'
-import R from 'ramda'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
-import { Input } from '../../components'
+import { ICON_CMD } from '../../config'
+import { Input, Maybe } from '../../components'
 
 import {
   Wrapper,
@@ -19,6 +17,7 @@ import {
   DeleteIcon,
 } from './styles/education_editor'
 
+import { uid } from '../../utils'
 import * as logic from './logic'
 
 const FormItem = ({ label, data, mainChange, subChange }) => (
@@ -40,36 +39,34 @@ const FormItem = ({ label, data, mainChange, subChange }) => (
         onChange={subChange}
       />
       <div onClick={logic.addBg.bind(this, 'work')}>
-        <Adder src={`${ICON_ASSETS}/cmd/add.svg`} />
+        <Adder src={`${ICON_CMD}/add.svg`} />
       </div>
     </FormInput>
   </FormItemWrapper>
 )
 
-const BackgroundList = ({ list }) => {
-  if (R.isEmpty(list)) return null
-  return (
+const BackgroundList = ({ list }) => (
+  <Maybe data={list}>
     <BackgroundsWrapper>
       {list.map(item => (
-        <BackgroundItem key={shortid.generate()}>
+        <BackgroundItem key={uid.gen()}>
           <BgTitle>{item.company}</BgTitle>
-          {R.isEmpty(item.title) ? null : (
+          <Maybe data={item.title}>
             <React.Fragment>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.title}</BgDesc>
             </React.Fragment>
-          )}
+          </Maybe>
           <div
             onClick={logic.removeWorkBg.bind(this, item.company, item.title)}
           >
-            <DeleteIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+            <DeleteIcon src={`${ICON_CMD}/cross.svg`} />
           </div>
         </BackgroundItem>
       ))}
     </BackgroundsWrapper>
-  )
-}
-
+  </Maybe>
+)
 const WorkEditor = ({ user, data }) => (
   <Wrapper>
     <FormItem

@@ -44,6 +44,10 @@ export { default as ReposThread } from './ReposThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
 export { default as TagsBar } from './TagsBar'
 
+// tools
+export { default as Labeler } from './Labeler'
+export { default as MailBox } from './MailBox'
+
 // user page
 export { default as UserSettings } from './UserSettings'
 export { default as UserFavorites } from './UserFavorites'

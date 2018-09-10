@@ -7,34 +7,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
+import { uid, makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
-const prettyColor = {
-  red: '#FC6360',
-  orange: '#FFA653',
-  yellow: '#F8CE5A',
-  green: '#60CC5A',
-  cyan: '#9fefe4',
-  blue: '#2CB8F0',
-  purple: '#D488DE',
-  grey: 'lightgrey',
-}
-
 class TagsBarContainer extends React.Component {
   componentWillMount() {
+    debug('componentWillMount')
     const { tagsBar, thread } = this.props
-    logic.init(tagsBar)
-    logic.loadIfNeed(thread)
+    logic.init(tagsBar, thread)
   }
 
   onSelect(tag) {
@@ -55,14 +43,14 @@ class TagsBarContainer extends React.Component {
           <TagItem
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
-            <AllTagIcon src={`${ICON_ASSETS}/cmd/all_tags.svg`} />
+            <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
             <TagTitle>全部标签</TagTitle>
           </TagItem>
         ) : null}
 
         {tagsData.map(tag => (
           <TagItem
-            key={shortid.generate()}
+            key={uid.gen()}
             onClick={this.onSelect.bind(this, {
               id: tag.id,
               title: tag.title,
@@ -70,7 +58,7 @@ class TagsBarContainer extends React.Component {
             })}
           >
             <TagDot
-              color={prettyColor[tag.color]}
+              color={tag.color}
               active={activeTagData.title}
               title={tag.title}
             />

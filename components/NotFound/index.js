@@ -8,8 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_ASSETS, ISSUE_ADDR } from '../../config'
-import { makeDebugger } from '../../utils'
+import { ICON_BASE, ISSUE_ADDR } from '../../config'
 
 import {
   Icon404,
@@ -21,6 +20,9 @@ import {
   IssueLink,
   Desc,
 } from './styles'
+
+import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:NotFound:index')
 /* eslint-enable no-unused-vars */
@@ -47,7 +49,7 @@ const DefaultDesc = () => (
 const NotFound = ({ msg, desc }) => (
   <Wrapper>
     <Icon>
-      <Icon404 src={`${ICON_ASSETS}/404/nofound1.svg`} />
+      <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
     </Icon>
     <Text>
       <Title>{msg}</Title>

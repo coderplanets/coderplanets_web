@@ -5,12 +5,10 @@
  */
 
 import React from 'react'
-import shortid from 'shortid'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import { Icon } from '..'
-import { makeDebugger } from '../../utils'
 import {
   Wrapper,
   Msg,
@@ -22,6 +20,8 @@ import {
   ErrorKey,
   ErrorDetail,
 } from './styles'
+
+import { makeDebugger, uid } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:StatusBox:index')
@@ -65,7 +65,7 @@ const ErrorMessages = ({ show, msg }) => {
   return (
     <ErrorArrayWrapper>
       {msgArray.map(errObj => (
-        <ErrorMsg key={shortid.generate()}>
+        <ErrorMsg key={uid.gen()}>
           <ErrorKey>{errObj.key}</ErrorKey>
           <ErrorDetail>{errObj.detail}</ErrorDetail>
         </ErrorMsg>

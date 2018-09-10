@@ -12,21 +12,21 @@ import { inject, observer } from 'mobx-react'
 
 import PostViewer from './PostViewer'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
-const Viwer = ({ type, data, loading, onReaction }) => {
+const Viwer = ({ type, data, loading, accountInfo }) => {
   switch (type) {
-    case 'post': {
+    case TYPE.POST: {
       return (
-        <PostViewer data={data} loading={loading} onReaction={onReaction} />
+        <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
-    case 'job': {
+    case TYPE.JOb: {
       return <div>job</div>
     }
     case 'typewriter': {
@@ -40,13 +40,16 @@ const Viwer = ({ type, data, loading, onReaction }) => {
 
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
-    const { articleViwer } = this.props
-    logic.init(articleViwer)
+    const { articleViwer, attachment } = this.props
+    debug('attachment ===> : ', attachment)
+    logic.init(articleViwer, attachment)
   }
 
   render() {
-    const { type, articleViwer } = this.props
-    const { viewingPost, postLoading } = articleViwer
+    const { articleViwer } = this.props
+    const { type, viewingPost, postLoading, accountInfo } = articleViwer
+
+    // debug('accountInfo --> ', accountInfo)
 
     return (
       <React.Fragment>
@@ -54,7 +57,7 @@ class ArticleViwerContainer extends React.Component {
           type={type}
           data={viewingPost}
           loading={postLoading}
-          onReaction={logic.onReaction}
+          accountInfo={accountInfo}
         />
       </React.Fragment>
     )
@@ -64,13 +67,10 @@ class ArticleViwerContainer extends React.Component {
 ArticleViwerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
-  type: PropTypes.oneOf(['post', 'tut', 'job']),
   // onReaction: PropTypes.func.isRequired,
 }
 
-ArticleViwerContainer.defaultProps = {
-  type: 'post',
-}
+ArticleViwerContainer.defaultProps = {}
 
 // ArticleViwerContainer
 

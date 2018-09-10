@@ -11,8 +11,12 @@ export { Space, SpaceGrow } from './BaseStyled'
 
 // items
 export { default as PostItem } from './PostItem'
+export { default as JobItem } from './JobItem'
+export { default as RepoItem } from './RepoItem'
+export { default as VideoItem } from './VideoItem'
 
 // Utils component
+export { default as Maybe } from './Maybe'
 export { default as UserBrief } from './UserBrief'
 export { default as ErrorPage } from './ErrorPage'
 export { default as OauthHinter } from './OauthHinter'
@@ -30,6 +34,7 @@ export { default as Pagi } from './Pagi'
 export { default as Navigator } from './Navigator'
 export { default as ThemeSelector } from './ThemeSelector'
 export { default as Tabber } from './Tabber'
+export { default as InlineTags } from './InlineTags'
 
 export { default as UserCell } from './UserCell'
 export { default as SectionLabel } from './SectionLabel'
@@ -41,6 +46,7 @@ export {
   CheatSheetLoading,
   PostLoading,
   PostsLoading,
+  TypeWriterLoading,
 } from './LoadingEffects'
 
 // UI library (currently use antd)

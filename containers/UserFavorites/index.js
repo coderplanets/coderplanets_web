@@ -7,10 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import shortid from 'shortid'
-
 import { FavoritesCats } from '..'
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 
 import {
   PostsLoading,
@@ -32,7 +30,7 @@ const View = ({ entries, curView, active }) => {
         <React.Fragment>
           {entries.map(entry => (
             <PostItem
-              key={shortid.generate()}
+              key={uid.gen()}
               entry={entry}
               active={active}
               onTitleSelect={debug}

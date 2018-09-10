@@ -6,10 +6,9 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { TagsBar } from '..'
 
 import {
   Affix,
@@ -21,7 +20,6 @@ import {
   PostItem,
 } from '../../components'
 
-import { TagsBar } from '..'
 import {
   Wrapper,
   LeftPadding,
@@ -34,6 +32,7 @@ import {
   PublishBtn,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
@@ -46,7 +45,7 @@ const View = ({ community, thread, entries, curView, active }) => {
         <React.Fragment>
           {entries.map(entry => (
             <PostItem
-              key={shortid.generate()}
+              key={uid.gen()}
               entry={entry}
               active={active}
               onTitleSelect={logic.onTitleSelect.bind(this, entry)}
@@ -76,67 +75,64 @@ class PostsThreadContainer extends React.Component {
   componentDidMount() {}
 
   render() {
+    const { postsThread } = this.props
     const {
-      postsThread: {
-        pagedPostsData,
-        curView,
-        filtersData,
-        activePost,
-        curRoute,
-      },
-    } = this.props
+      pagedPostsData,
+      curView,
+      filtersData,
+      activePost,
+      curRoute,
+    } = postsThread
 
     const { mainPath, subPath } = curRoute
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
     return (
       <Wrapper>
-        <React.Fragment>
-          <LeftPadding />
-          <LeftPart>
-            <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-            {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
-            <FilterWrapper show>
-              <ContentFilter
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-            </FilterWrapper>
+        <LeftPadding />
+        <LeftPart>
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+          {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
+          <FilterWrapper show>
+            <ContentFilter
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+            />
+            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+          </FilterWrapper>
 
-            <React.Fragment>
-              <View
-                community={mainPath}
-                thread={subPath}
-                entries={entries}
-                curView={curView}
-                active={activePost}
-              />
+          <React.Fragment>
+            <View
+              community={mainPath}
+              thread={subPath}
+              entries={entries}
+              curView={curView}
+              active={activePost}
+            />
 
-              <Pagi
-                left="-10px"
-                pageNumber={pageNumber}
-                pageSize={pageSize}
-                totalCount={totalCount}
-                onChange={logic.loadPosts}
-              />
-            </React.Fragment>
-          </LeftPart>
+            <Pagi
+              left="-10px"
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onChange={logic.loadPosts}
+            />
+          </React.Fragment>
+        </LeftPart>
 
-          <RightPart>
-            <React.Fragment>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                发<Space right="20px" />帖
-              </PublishBtn>
+        <RightPart>
+          <React.Fragment>
+            <PublishBtn type="primary" onClick={logic.createContent}>
+              发<Space right="20px" />帖
+            </PublishBtn>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
-              </Affix>
-            </React.Fragment>
-          </RightPart>
-          <RightPadding />
-        </React.Fragment>
+            <Affix offsetTop={50}>
+              <TagDivider />
+              <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
+            </Affix>
+          </React.Fragment>
+        </RightPart>
+        <RightPadding />
       </Wrapper>
     )
   }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Button, Img } from '../../../components'
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 
 export const HeaderWrapper = styled.header`
@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.header`
   border-bottom-color: ${theme('header.spliter')};
   align-items: center;
   padding: 0 4vw;
+  padding-right: 5.5vw;
   margin-left: ${({ leftOffset }) => leftOffset};
   transition: all 0.2s;
   box-shadow: ${theme('preview.shadow')};
@@ -64,55 +65,20 @@ export const MiniTab = styled.div`
     active ? theme('header.tabActive') : theme('header.tabOthers')};
   cursor: pointer;
 `
-export const Admin = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-export const DividerIcon = styled(Img)`
-  fill: ${theme('header.fg')};
-  width: 18px;
-  height: 20px;
-  margin-top: 2px;
-  margin-left: 3px;
-  margin-right: 3px;
-`
-export const StateButton = styled(Button)`
-  width: 80px;
-  display: flex;
-`
-export const StateIcon = styled(Img)`
-  width: 12px;
-  height: 100%;
-  cursor: pointer;
-  margin-right: 8px;
-  margin-top: 2px;
-`
 export const HeaderIcon = styled(Img)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin-top: 2px;
   margin-right: 12px;
-`
-export const UserAvatar = styled.img`
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin-right: 12px;
-  border-radius: 3px;
-  opacity: ${theme('avatarOpacity')};
 `
 export const Operations = styled.div`
   display: flex;
+  align-items: center;
 `
 export const Search = styled.div`
   color: ${theme('header.fg')};
-`
-export const Notification = styled.div``
-export const User = styled.div`
-  margin-right: 20px;
+  padding-top: 8px;
 `
 export const AffixHeader = styled.div`
   display: ${({ fixed }) => (fixed ? 'block' : 'none')};

@@ -60,6 +60,8 @@ import {
   TypeWriterStore,
   AccountEditorStore,
   UpgradePackgesStore,
+  MailBoxStore,
+  LabelerStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -90,6 +92,8 @@ const rootStore = t
     typeWriter: t.optional(TypeWriterStore, {}),
     accountEditor: t.optional(AccountEditorStore, {}),
     upgradePackges: t.optional(UpgradePackgesStore, {}),
+    mailBox: t.optional(MailBoxStore, {}),
+    labeler: t.optional(LabelerStore, {}),
     // toolbox end
 
     // layouts > xxx > papers
@@ -168,9 +172,6 @@ const rootStore = t
     },
     openDoraemon() {
       self.doraemon.open()
-    },
-    openPreview(type) {
-      self.preview.open(type)
     },
     closePreview() {
       self.preview.close()

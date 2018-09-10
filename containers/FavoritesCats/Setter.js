@@ -1,9 +1,10 @@
 import React from 'react'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
+import { uid } from '../../utils'
 
 import { SectionLabel, Button } from '../../components'
+
 import {
   Wrapper,
   CatWrapper,
@@ -25,11 +26,11 @@ const Setter = ({ show, entries }) => {
       <SectionLabel
         title="添加收藏"
         desc="选择你要添加的收藏夹"
-        iconSrc={`${ICON_ASSETS}/cmd/folder.svg`}
+        iconSrc={`${ICON_CMD}/folder.svg`}
       />
       <ListWrapper>
         {entries.map(cat => (
-          <CatWrapper key={shortid.generate()}>
+          <CatWrapper key={uid.gen()}>
             <CatContent>
               <CatMain>
                 <CatHeader>

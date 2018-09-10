@@ -6,14 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  makeDebugger,
-  TYPE,
-  stripMobx,
-  THREAD,
-  subPath2Thread,
-} from '../../utils'
+import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViwerStore')
 /* eslint-enable no-unused-vars */
@@ -40,6 +33,14 @@ const ArticleViwerStore = t
     get isLogin() {
       return self.root.account.isLogin
     },
+    get accountInfo() {
+      return self.root.account.accountInfo
+    },
+
+    get viewingPost() {
+      return stripMobx(self.root.viewing.post)
+    },
+    /*
     get viewingPost() {
       const { subPath } = self.curRoute
       switch (subPath2Thread(subPath)) {
@@ -54,6 +55,7 @@ const ArticleViwerStore = t
         }
       }
     },
+    */
   }))
   .actions(self => ({
     load(upperType, data) {

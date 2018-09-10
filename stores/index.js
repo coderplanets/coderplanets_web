@@ -16,6 +16,7 @@ export { default as ContentStore } from '../containers/Content/store'
 export {
   default as UpgradePackgesStore,
 } from '../containers/UpgradePackges/store'
+export { default as MailBoxStore } from '../containers/MailBox/store'
 
 //
 export {
@@ -63,6 +64,7 @@ export { default as CommentsStore } from '../containers/Comments/store'
 export {
   default as AccountEditorStore,
 } from '../containers/AccountEditor/store'
+export { default as LabelerStore } from '../containers/Labeler/store'
 
 // viewers store
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'

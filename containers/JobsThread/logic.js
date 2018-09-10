@@ -85,8 +85,8 @@ export function onTagSelect(obj) {
 
 export function onTitleSelect(activeJob) {
   store.markState({ activeJob })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_POST_VIEW,
     data: activeJob,
   })
   debug('activeJob: ', activeJob)
@@ -99,8 +99,7 @@ export function onTitleSelect(activeJob) {
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 const DataSolver = [
@@ -116,10 +115,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) =>
-      store.markState({
-        tags: partialTags,
-      }),
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -157,7 +153,7 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedJobs) {
+  if (R.isEmpty(store.pagedJobsData.entries)) {
     debug('loadIfNeed')
     loadJobs()
   }
@@ -171,4 +167,5 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadIfNeed()
+  /* loadJobs() */
 }

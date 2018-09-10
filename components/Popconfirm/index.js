@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import Popover from '../Popover'
 
@@ -22,6 +22,7 @@ import {
   CutIcon,
   ConfirmText,
 } from './styles'
+
 import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Popconfirm:index')
@@ -30,7 +31,7 @@ const debug = makeDebugger('c:Popconfirm:index')
 const Hint = ({ content, closeIt }) => (
   <Wrapper>
     <Header>
-      <WarningIcon src={`${ICON_ASSETS}/cmd/warning.svg`} />
+      <WarningIcon src={`${ICON_CMD}/warning.svg`} />
       <Desc>{content}</Desc>
     </Header>
     <Footer>
@@ -38,7 +39,7 @@ const Hint = ({ content, closeIt }) => (
         <CancleBtn>取消</CancleBtn>
       </div>
       <DeleteBtn onClick={closeIt}>
-        <CutIcon src={`${ICON_ASSETS}/cmd/cut_right.svg`} />
+        <CutIcon src={`${ICON_CMD}/cut_right.svg`} />
         <ConfirmText>继续</ConfirmText>
       </DeleteBtn>
     </Footer>

@@ -1,0 +1,45 @@
+/*
+ *
+ * InlineTags
+ *
+ */
+
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import { Maybe } from '..'
+import { Wrapper, Tag, Dot, Title } from './styles'
+
+import { makeDebugger, uid } from '../../utils'
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:InlineTags:index')
+/* eslint-enable no-unused-vars */
+
+const InlineTags = ({ data }) => (
+  <Maybe data={data}>
+    <Wrapper>
+      {data.map(tag => (
+        <Tag key={uid.gen()}>
+          <Dot color={tag.color} />
+          <Title>{tag.title}</Title>
+        </Tag>
+      ))}
+    </Wrapper>
+  </Maybe>
+)
+
+InlineTags.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      color: PropTypes.string,
+    })
+  ),
+}
+
+InlineTags.defaultProps = {
+  data: [],
+}
+
+export default InlineTags

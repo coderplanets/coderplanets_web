@@ -1,9 +1,8 @@
 import React from 'react'
-import shortid from 'shortid'
 
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Input } from '../../components'
 import {
   Wrapper,
@@ -41,7 +40,7 @@ const SocialItem = ({ label, prefix, value, icon, onChange }) => (
         addonBefore={<SocialPrefix prefix={prefix} />}
         addonAfter={
           <AddOnIcon
-            src={`${ICON_ASSETS}/cmd/${icon}.svg`}
+            src={`${ICON_CMD}/${icon}.svg`}
             active={!nilOrEmpty(value)}
           />
         }
@@ -59,8 +58,8 @@ const SocialIconList = ({ show, user }) => (
     <SocialIconsWrapper>
       {SOCIAL_LISTS.map(social => (
         <SocialIcon
-          key={shortid.generate()}
-          src={`${ICON_ASSETS}/cmd/${social.key}.svg`}
+          key={uid.gen()}
+          src={`${ICON_CMD}/${social.key}.svg`}
           active={!nilOrEmpty(user[social.key])}
         />
       ))}
@@ -69,12 +68,12 @@ const SocialIconList = ({ show, user }) => (
         {show ? (
           <React.Fragment>
             <TogglerText>... 收起</TogglerText>
-            <UpIcon src={`${ICON_ASSETS}/cmd/arrow.svg`} />
+            <UpIcon src={`${ICON_CMD}/arrow.svg`} />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <TogglerText>... 编辑</TogglerText>
-            <DownIcon src={`${ICON_ASSETS}/cmd/arrow.svg`} />
+            <DownIcon src={`${ICON_CMD}/arrow.svg`} />
           </React.Fragment>
         )}
       </TogglerTextWrapper>

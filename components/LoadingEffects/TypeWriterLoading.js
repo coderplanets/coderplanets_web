@@ -3,7 +3,8 @@ import R from 'ramda'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
-import shortid from 'shortid'
+
+import { uid } from '../../utils'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
@@ -30,11 +31,11 @@ const Loading = ({ theme }) => (
 )
 
 const TypeWriterLoading = ({ num, theme }) => {
-  // const ukey = shortid.generate()
+  // const ukey = uid.gen()
   const range = R.range(0, num)
   return range.map(() => (
-    <LoadingWrapper key={shortid.generate()}>
-      <Loading uniquekey={shortid.generate()} theme={theme} />
+    <LoadingWrapper key={uid.gen()}>
+      <Loading uniquekey={uid.gen()} theme={theme} />
     </LoadingWrapper>
   ))
 }

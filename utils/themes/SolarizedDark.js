@@ -268,6 +268,9 @@ const SolarizedDark = {
     successBar: '#9dd035',
     warnBar: '#f5a30e',
   },
+  mailBox: {
+    headHightBg: bannerBg,
+  },
 }
 
 export default SolarizedDark

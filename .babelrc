@@ -31,7 +31,6 @@
     },
     "local": {
        "presets": ["next/babel"],
-       "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": ["next/babel"]

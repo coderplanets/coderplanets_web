@@ -1,7 +1,7 @@
 import React from 'react'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
+import { uid } from '../../utils'
 
 import {
   PkgItem,
@@ -12,16 +12,16 @@ import {
 
 const MarkIcon = ({ not }) => {
   return not ? (
-    <PkgItemNoIcon src={`${ICON_ASSETS}/cmd/cross.svg`} />
+    <PkgItemNoIcon src={`${ICON_CMD}/cross.svg`} />
   ) : (
-    <PkgItemYesIcon src={`${ICON_ASSETS}/cmd/check.svg`} />
+    <PkgItemYesIcon src={`${ICON_CMD}/check.svg`} />
   )
 }
 
 const Support = ({ items, not }) => (
   <React.Fragment>
     {items.map(item => (
-      <PkgItem key={shortid.generate()}>
+      <PkgItem key={uid.gen()}>
         <MarkIcon not={not} />
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>

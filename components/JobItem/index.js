@@ -1,8 +1,14 @@
+/*
+ *
+ * JobItem
+ *
+ */
+
 import React from 'react'
+import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { cutFrom } from '../../utils'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -21,24 +27,24 @@ import {
   RightInfo,
   SalaryWrapper,
   CompanyTitle,
-} from './styles/item'
+} from './styles'
 
-import * as logic from './logic'
+import { makeDebugger, cutFrom } from '../../utils'
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:JobItem:index')
+/* eslint-enable no-unused-vars */
 
-const Item = ({ entry, active }) => (
+const JobItem = ({ entry, active, onTitleSelect }) => (
   <Wrapper current={entry} active={active}>
     <div>
-      <Avatar
-        src="http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/me.jpg"
-        alt="avatar"
-      />
+      <Avatar src={entry.author.avatar} alt="avatar" />
     </div>
     <Main>
       <TopHalf>
-        <Breif onClick={logic.onTitleSelect.bind(this, entry)}>
+        <Breif onClick={onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <TitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_CMD}/link.svg`} />
             <span style={{ marginLeft: 9 }}>拉钩</span>
           </TitleLink>
           <TitleTag>
@@ -65,4 +71,26 @@ const Item = ({ entry, active }) => (
   </Wrapper>
 )
 
-export default Item
+JobItem.propTypes = {
+  active: PropTypes.object,
+
+  entry: PropTypes.shape({
+    title: PropTypes.string,
+    digest: PropTypes.string,
+    views: PropTypes.number,
+
+    author: PropTypes.shape({
+      nickname: PropTypes.string,
+      avatar: PropTypes.string,
+    }),
+  }).isRequired,
+
+  onTitleSelect: PropTypes.func,
+}
+
+JobItem.defaultProps = {
+  onTitleSelect: debug,
+  active: {},
+}
+
+export default JobItem

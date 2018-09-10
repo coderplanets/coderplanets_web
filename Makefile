@@ -13,10 +13,9 @@ help:
 	@echo "\n"
 
 init:
-	mix ecto.setup
+	npm install
 
 dep:
-	mix deps.get
 	npm install # for commitizen
 
 build:
@@ -35,19 +34,6 @@ launch.dev:
 	npm run launch.dev
 launch.prod:
 	SERVE_PORT=8002 npm run launch
-
-migrate:
-	mix ecto.migrate
-rollback:
-	mix ecto.rollback
-migrate.mock:
-  MIX_ENV=mock mix ecto.migrate
-rollback.mock:
-  MIX_ENV=mock mix ecto.rollback
-migrate.dev:
-	MIX_ENV=dev mix ecto.migrate
-rollback.dev:
-  MIX_ENV=dev mix ecto.rollback
 
 gen.help:
 	$(call gen.help)

@@ -5,7 +5,7 @@ import { theme, Animate } from '../../../utils'
 export const NumbersWrapper = styled.div`
   display: flex;
   text-align: center;
-  margin-top: -2rem;
+  margin-top: -1.5rem;
 `
 export const NumberSection = styled.div`
   display: flex;

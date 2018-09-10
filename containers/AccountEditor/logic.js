@@ -28,9 +28,7 @@ let store = null
 let sub$ = null
 
 export function goBack() {
-  dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.PREVIEW_ACCOUNT_VIEW,
-  })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 }
 
 export const profileChange = R.curry((part, e) =>

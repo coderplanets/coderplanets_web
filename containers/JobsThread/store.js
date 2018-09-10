@@ -7,7 +7,12 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { Article, PagedJobs, Tag } from '../../stores/SharedModel'
+import {
+  Article,
+  PagedJobs,
+  Tag,
+  emptyPagiData,
+} from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:JobsThreadStore')
@@ -55,7 +60,7 @@ const FilterModel = t.model('FilterModel', {
 
 const JobsThreadStore = t
   .model('JobsThreadStore', {
-    pagedJobs: t.maybeNull(PagedJobs),
+    pagedJobs: t.optional(PagedJobs, emptyPagiData),
     filters: t.optional(FilterModel, {}),
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),

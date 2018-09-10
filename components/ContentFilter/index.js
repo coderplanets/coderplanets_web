@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { Button, Row, Col, Tag } from 'antd'
 import { Popover } from '..'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -135,16 +135,15 @@ const ContentFilter = ({ activeFilter, onSelect }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
-      trigger="hover"
+      trigger="click"
       content={<SelectPanel onSelect={onSelect} activeFilter={activeFilter} />}
     >
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
           综合排序
-          <FilterIcon src={`${ICON_ASSETS}/cmd/filter2.svg`} />
+          <FilterIcon src={`${ICON_CMD}/filter2.svg`} />
         </InnerBtnWrapper>
       </Button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
     </Popover>
 
     <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />

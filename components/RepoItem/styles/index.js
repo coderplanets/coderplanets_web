@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+import { Img } from '../..'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.article`
@@ -12,15 +12,11 @@ export const Wrapper = styled.article`
   border-radius: 4px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('thread.articleSpliter')};
-  opacity: ${({ current, active }) =>
-    active.id && current.id !== active.id ? 0.6 : 1};
+  opacity: ${({ active }) => (active ? 0.6 : 1)};
+  &:hover {
+    background: ${theme('thread.articleHover')};
+  }
 `
-/*
-   &:hover {
-   cursor: pointer;
-   background: ${theme('thread.articleHover')};
-   }
- */
 
 export const Main = styled.div`
   display: flex;

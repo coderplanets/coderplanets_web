@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import {
   Wrapper,
@@ -27,7 +27,7 @@ const Updater = ({ show }) => (
   <Wrapper show={show} className="normal-form">
     <SectionLabel
       title="编辑收藏夹 - 前端框架"
-      iconSrc={`${ICON_ASSETS}/cmd/edit.svg`}
+      iconSrc={`${ICON_CMD}/edit.svg`}
     />
     <EditWrapper>
       <FormItemWrapper>

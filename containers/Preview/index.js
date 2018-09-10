@@ -8,20 +8,17 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
-// import Link from 'next/link'
-
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
-// TODO: move it to component
-import { StateTree } from '../../components'
-import TypeWriterLoading from '../../components/LoadingEffects/TypeWriterLoading'
 import {
   ArticleViwer,
   AccountViewer,
   AccountEditor,
   CommunityEditors,
 } from '..'
+
+import { StateTree, TypeWriterLoading } from '../../components'
 
 import {
   PreviewOverlay,
@@ -54,20 +51,35 @@ const CloseBtn = ({ type }) => (
 // <AccountViewer2 themeKeys={themeKeys} curTheme={curTheme} />
 
 // TODO: post edit viewer
-const Viewer = ({ type, root }) => {
+const Viewer = ({ type, root, attachment }) => {
   switch (type) {
+    // account
     case TYPE.PREVIEW_ACCOUNT_VIEW: {
       return <AccountViewer />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
       return <AccountEditor />
     }
-    case TYPE.POST_PREVIEW_VIEW: {
-      return <ArticleViwer />
+    // post
+    case TYPE.PREVIEW_POST_VIEW: {
+      return <ArticleViwer attachment={attachment} />
     }
-    case TYPE.PREVIEW_CREATE_POST: {
+    case TYPE.PREVIEW_POST_CREATE: {
       return <DynamicTypeWriter onClose={logic.closePreview} />
     }
+    case TYPE.PREVIEW_POST_EDIT: {
+      return (
+        <DynamicTypeWriter
+          onClose={logic.closePreview}
+          attachment={attachment}
+        />
+      )
+    }
+    // job
+    case TYPE.PREVIEW_JOB_CREATE: {
+      return <DynamicTypeWriter onClose={logic.closePreview} />
+    }
+    // utils
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {
       return <CommunityEditors />
     }
@@ -84,9 +96,8 @@ class PreviewContainer extends React.Component {
   }
 
   render() {
-    const {
-      preview: { visible, type, themeKeys, curTheme, root },
-    } = this.props
+    const { preview } = this.props
+    const { visible, type, root, attachmentData } = preview
 
     return (
       <React.Fragment>
@@ -94,12 +105,7 @@ class PreviewContainer extends React.Component {
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
           <PreviewContent>
-            <Viewer
-              type={type}
-              root={root}
-              themeKeys={themeKeys}
-              curTheme={curTheme}
-            />
+            <Viewer type={type} root={root} attachment={attachmentData} />
           </PreviewContent>
         </PreviewWrapper>
       </React.Fragment>
