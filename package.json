@@ -59,7 +59,7 @@
     "apollo-link-http": "1.5.4",
     "apollo-link-retry": "2.2.4",
     "chalk": "^2.4.1",
-    "debug": "3.1.0",
+    "debug": "3.2.0",
     "draft-js": "^0.10.5",
     "draft-js-mention-plugin": "^3.0.4",
     "draft-js-plugins-editor": "^2.0.4",
