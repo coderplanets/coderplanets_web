@@ -90,56 +90,49 @@ class ReposThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
-          <FilterWrapper show>
-            <ContentFilter
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-            />
-            <FilterResultHint>
-              结果约 {pagedReposData.totalCount} 条
-            </FilterResultHint>
-          </FilterWrapper>
-
-          <Maybe data={entries} loading={<PostsLoading num={5} />}>
-            <React.Fragment>
-              <View
-                community={mainPath}
-                thread={subPath}
-                entries={entries}
-                curView={curView}
-                active={activeRepo}
+          <Maybe data={totalCount !== 0}>
+            <FilterWrapper>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
               />
-
-              <Pagi
-                left="-10px"
-                pageNumber={pageNumber}
-                pageSize={pageSize}
-                totalCount={totalCount}
-                onChange={logic.loadRepos}
-              />
-            </React.Fragment>
+              <FilterResultHint>
+                结果约 {pagedReposData.totalCount} 条
+              </FilterResultHint>
+            </FilterWrapper>
           </Maybe>
+
+          <View
+            community={mainPath}
+            thread={subPath}
+            entries={entries}
+            curView={curView}
+            active={activeRepo}
+          />
+
+          <Pagi
+            left="-10px"
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalCount={totalCount}
+            onChange={logic.loadRepos}
+          />
         </LeftPart>
 
         <RightPart>
-          <Maybe data={entries}>
-            <React.Fragment>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                发<Space right="20px" />布
-              </PublishBtn>
+          <PublishBtn type="primary" onClick={logic.createContent}>
+            发<Space right="20px" />布
+          </PublishBtn>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagsBar
-                  thread={THREAD.REPO}
-                  tags={tagsData}
-                  active={activeTagData}
-                  onSelect={logic.onTagSelect}
-                />
-              </Affix>
-            </React.Fragment>
-          </Maybe>
+          <Affix offsetTop={50}>
+            <TagDivider />
+            <TagsBar
+              thread={THREAD.REPO}
+              tags={tagsData}
+              active={activeTagData}
+              onSelect={logic.onTagSelect}
+            />
+          </Affix>
         </RightPart>
         <RightPadding />
       </Wrapper>

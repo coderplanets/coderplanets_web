@@ -27,7 +27,7 @@ export const Title = styled.div`
   border-top: 1px solid #e2e8e8;
   margin-top: 20px;
   padding-top: 20px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 `
 
 export const DescWrapper = styled.div`

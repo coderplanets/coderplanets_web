@@ -19,8 +19,14 @@ const MaybeLoading = ({ loading }) => {
 }
 
 const Maybe = ({ children, data, loading }) => {
-  if (data === false || R.isEmpty(data))
+  if (Array.isArray(data) && R.isEmpty(data)) {
     return <MaybeLoading loading={loading} />
+  }
+
+  if (data === false) {
+    return <MaybeLoading loading={loading} />
+  }
+
   return <React.Fragment>{children}</React.Fragment>
 }
 

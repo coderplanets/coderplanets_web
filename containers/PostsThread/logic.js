@@ -44,7 +44,6 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
-  debug('loadPosts')
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
   const community = mainPath
@@ -64,6 +63,7 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
+  debug('loadPosts args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
 }
@@ -103,6 +103,7 @@ const DataSolver = [
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       let curView = TYPE.RESULT
+      debug('load back pagedPosts: ', pagedPosts)
       if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
       }
@@ -155,7 +156,10 @@ const loadIfNeed = () => {
 }
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadIfNeed()
+  }
+
   store = _store
 
   if (sub$) sub$.unsubscribe()

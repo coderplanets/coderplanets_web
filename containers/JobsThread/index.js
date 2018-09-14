@@ -17,6 +17,7 @@ import {
   EmptyThread,
   ContentFilter,
   BuyMeChuanChuan,
+  Maybe,
   JobItem,
 } from '../../components'
 
@@ -39,12 +40,12 @@ import * as logic from './logic'
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, jobs, curView, active }) => {
+const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {jobs.map(entry => (
+          {entries.map(entry => (
             <JobItem
               entry={entry}
               key={uid.gen()}
@@ -98,13 +99,15 @@ class JobsThreadContainer extends React.Component {
         <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper show={curView === TYPE.RESULT}>
-            <ContentFilter
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-            />
-            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-          </FilterWrapper>
+          <Maybe data={totalCount !== 0}>
+            <FilterWrapper show={curView === TYPE.RESULT}>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
+              />
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            </FilterWrapper>
+          </Maybe>
 
           <View
             community={mainPath}

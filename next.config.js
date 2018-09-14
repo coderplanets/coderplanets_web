@@ -30,8 +30,6 @@ module.exports = withProgressBar({
   },
 
   webpack: (config, { isServer }) => {
-    console.log('webpack fucking')
-
     config.plugins = config.plugins || []
 
     if (ANALYZE) {
@@ -45,7 +43,6 @@ module.exports = withProgressBar({
     }
 
     if (fs.existsSync('./.env')) {
-      console.log('====== env building ======')
       config.plugins.push(
         new Dotenv({
           path: path.join(__dirname, '.env'),

@@ -26,6 +26,8 @@ const debug = makeDebugger('c:EmptyThread:index')
 const translator = {
   posts: '帖子',
   jobs: '工作',
+  videos: '视频',
+  repos: '开源项目',
 }
 
 const DescContent = ({ community, thread }) => (
@@ -52,7 +54,7 @@ const EmptyThread = ({ community, thread }) => (
     </Icon>
     <Text>
       <Title>
-        目前还没有 {community} 相关的
+        {community} 社区内未找到符合相关条件的
         {translator[thread]}
       </Title>
       <DescWrapper>

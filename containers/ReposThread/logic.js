@@ -84,6 +84,7 @@ const DataSolver = [
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
+      debug('========> curView: ', curView)
       store.markState({ curView, pagedRepos })
     },
   },

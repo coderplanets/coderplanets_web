@@ -16,6 +16,7 @@ import {
   Pagi,
   EmptyThread,
   ContentFilter,
+  Maybe,
   Space,
   PostItem,
 } from '../../components'
@@ -87,19 +88,22 @@ class PostsThreadContainer extends React.Component {
     const { mainPath, subPath } = curRoute
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
+    debug('jjj === ', totalCount === 0)
+
     return (
       <Wrapper>
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          {/* <FilterWrapper show={curView === TYPE.RESULT}> */}
-          <FilterWrapper show>
-            <ContentFilter
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-            />
-            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-          </FilterWrapper>
+          <Maybe data={totalCount !== 0}>
+            <FilterWrapper show>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
+              />
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            </FilterWrapper>
+          </Maybe>
 
           <React.Fragment>
             <View

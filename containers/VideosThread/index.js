@@ -88,54 +88,49 @@ class VideosThreadContainer extends React.Component {
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          {/* <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} /> */}
-          <FilterWrapper show>
-            <ContentFilter
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-            />
-            <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-          </FilterWrapper>
-
-          <Maybe data={entries} loading={<PostsLoading num={5} />}>
-            <React.Fragment>
-              <View
-                community={mainPath}
-                thread={subPath}
-                entries={entries}
-                curView={curView}
-                active={activeVideo}
+          <Maybe data={totalCount !== 0}>
+            <FilterWrapper>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
               />
-
-              <Pagi
-                left="-10px"
-                pageNumber={pageNumber}
-                pageSize={pageSize}
-                totalCount={totalCount}
-                onChange={logic.loadVideos}
-              />
-            </React.Fragment>
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            </FilterWrapper>
           </Maybe>
+
+          <View
+            community={mainPath}
+            thread={subPath}
+            entries={entries}
+            curView={curView}
+            active={activeVideo}
+          />
+
+          <Pagi
+            left="-10px"
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalCount={totalCount}
+            onChange={logic.loadVideos}
+          />
         </LeftPart>
 
         <RightPart>
-          <Maybe data={pagedVideosData.entries}>
-            <React.Fragment>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                发<Space right="10px" />布<Space right="10px" />视
-                <Space right="10px" />频
-              </PublishBtn>
+          <React.Fragment>
+            <PublishBtn type="primary" onClick={logic.createContent}>
+              发<Space right="10px" />布<Space right="10px" />视
+              <Space right="10px" />频
+            </PublishBtn>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagsBar
-                  tags={tagsData}
-                  active={activeTagData}
-                  onSelect={logic.onTagSelect}
-                />
-              </Affix>
-            </React.Fragment>
-          </Maybe>
+            <Affix offsetTop={50}>
+              <TagDivider />
+              <TagsBar
+                tags={tagsData}
+                active={activeTagData}
+                onSelect={logic.onTagSelect}
+              />
+            </Affix>
+          </React.Fragment>
         </RightPart>
         <RightPadding />
       </Wrapper>
