@@ -90,17 +90,19 @@ export const ExploreWrapper = styled.div`
 
 export const ExploreContent = styled.div`
   display: flex;
+  align-items: center;
 `
 
 export const ExploreText = styled.div`
-  margin-top: -2px;
+  margin-top: -1px;
 `
 export const ExploreIcon = styled(Img)`
   fill: ${theme('button.primary')};
   width: 13px;
   height: 13px;
   margin-right: 10px;
-  margin-top: 3px;
+  display: block;
+  margin-top: -1px;
 `
 
 export const MenuItem = styled.ul`

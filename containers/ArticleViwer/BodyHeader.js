@@ -17,11 +17,11 @@ import {
 
 // import { Wrapper } from './styles/body_header'
 
-const BodyHeader = () => (
+const BodyHeader = ({ thread }) => (
   <Wrapper>
     <MoreWrapper>
       <Popover
-        content={<ArticleOptions />}
+        content={<ArticleOptions thread={thread} />}
         placement="bottomLeft"
         trigger="click"
       >
@@ -36,7 +36,7 @@ const BodyHeader = () => (
     </LinkFrom>
     <RefinedLabel>
       <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
-      <RefinedText>精华帖</RefinedText>
+      <RefinedText>精 华</RefinedText>
     </RefinedLabel>
   </Wrapper>
 )

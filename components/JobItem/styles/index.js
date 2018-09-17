@@ -50,7 +50,7 @@ export const Title = styled.div`
   margin-bottom: 10px;
   font-size: 1rem;
   @media (max-width: 1450px) {
-    max-width: 500px;
+    max-width: 560px;
   }
   @media (max-width: 1250px) {
     max-width: 450px;
@@ -121,7 +121,7 @@ export const RightInfo = styled.div`
 export const SalaryWrapper = styled.div`
   font-size: 1.1rem;
   color: orange;
-  padding: 3px;
+  padding: 3px 5px;
 
   ${Wrapper}:hover & {
     animation: ${Animate.pulse} 0.3s linear;

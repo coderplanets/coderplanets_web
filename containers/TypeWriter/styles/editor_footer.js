@@ -17,7 +17,7 @@ export const Item = styled.div`
 `
 
 export const Divider = styled(Img)`
-  fill: #75898a;
+  fill: ${theme('editor.footer')};
   width: 10px;
   height: 10px;
   margin-left: 4px;

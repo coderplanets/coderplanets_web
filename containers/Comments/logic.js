@@ -35,8 +35,9 @@ const defaultArgs = {
 export const loadComents = (args = {}) => {
   // debug('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
-  args.id = store.viewingArticle.id
+  args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
+  args.thread = store.activeThread
 
   markLoading(args.fresh)
   store.markState({ filterType: args.filter.sort })
@@ -55,7 +56,7 @@ export function createComment() {
   // TODO: validation...
   store.markState({ creating: true })
   const args = {
-    id: store.viewingArticle.id,
+    id: store.viewingData.id,
     body: store.editContent,
   }
 

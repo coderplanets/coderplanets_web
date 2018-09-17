@@ -153,6 +153,9 @@ const rootStore = t
       // TODO self.doraemon.visible
       return self.doraemon.visible
     },
+    get viewingData() {
+      return self.viewing.viewingData
+    },
     get curRoute() {
       return self.route.curRoute
     },

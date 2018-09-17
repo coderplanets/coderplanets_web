@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import PostViewer from './PostViewer'
+import JobViewer from './JobViewer'
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
@@ -19,13 +20,15 @@ const debug = makeDebugger('C:ArticleViwer')
 
 const Viwer = ({ type, data, loading, accountInfo }) => {
   switch (type) {
-    case TYPE.POST: {
+    case TYPE.PREVIEW_POST_VIEW: {
       return (
         <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
-    case TYPE.JOb: {
-      return <div>job</div>
+    case TYPE.PREVIEW_JOB_VIEW: {
+      return (
+        <JobViewer data={data} loading={loading} accountInfo={accountInfo} />
+      )
     }
     case 'typewriter': {
       return <div>typewriter</div>
@@ -39,21 +42,18 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
     const { articleViwer, attachment } = this.props
-    debug('attachment ===> : ', attachment)
     logic.init(articleViwer, attachment)
   }
 
   render() {
     const { articleViwer } = this.props
-    const { type, viewingPost, postLoading, accountInfo } = articleViwer
-
-    // debug('accountInfo --> ', accountInfo)
+    const { type, viewingData, postLoading, accountInfo } = articleViwer
 
     return (
       <React.Fragment>
         <Viwer
           type={type}
-          data={viewingPost}
+          data={viewingData}
           loading={postLoading}
           accountInfo={accountInfo}
         />

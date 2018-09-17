@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { User, Community, Post, Video, Repo } from '../SharedModel'
-import { markStates, makeDebugger, THREAD } from '../../utils'
+import { User, Community, Post, Job, Video, Repo } from '../SharedModel'
+import { markStates, makeDebugger, THREAD, stripMobx } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ViewingStore')
@@ -18,6 +18,7 @@ const ViewingStore = t
     user: t.optional(User, {}),
     community: t.optional(Community, {}),
     post: t.optional(Post, {}),
+    job: t.optional(Job, {}),
     video: t.optional(Video, {}),
     repo: t.optional(Repo, {}),
     activeThread: t.optional(
@@ -31,6 +32,23 @@ const ViewingStore = t
     },
     get accountInfo() {
       return self.root.accountInfo
+    },
+    get viewingData() {
+      console.log('self.activeThread -> ', self.activeThread)
+      switch (self.activeThread) {
+        case THREAD.JOB: {
+          return stripMobx(self.job)
+        }
+        case THREAD.REPO: {
+          return stripMobx(self.repo)
+        }
+        case THREAD.VIDEO: {
+          return stripMobx(self.video)
+        }
+        default: {
+          return stripMobx(self.post)
+        }
+      }
     },
   }))
   .actions(self => ({

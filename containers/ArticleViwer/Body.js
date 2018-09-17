@@ -6,9 +6,9 @@ import { MarkDownRender, PostLoading } from '../../components'
 
 import { Wrapper, ArticleTitle, ArticleBody } from './styles/body'
 
-const Body = ({ data, loading }) => (
+const Body = ({ data, loading, thread }) => (
   <Wrapper>
-    <BodyHeader />
+    <BodyHeader thread={thread} />
     <ArticleTitle>{data.title}</ArticleTitle>
     {loading ? (
       <React.Fragment>
@@ -19,7 +19,7 @@ const Body = ({ data, loading }) => (
         <MarkDownRender body={data.body} />
       </ArticleBody>
     )}
-    <BodyFooter />
+    <BodyFooter thread={thread} />
   </Wrapper>
 )
 

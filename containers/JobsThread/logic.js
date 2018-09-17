@@ -9,7 +9,7 @@ import {
   TYPE,
   $solver,
   scrollIntoEle,
-  GA,
+  // GA,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -83,18 +83,11 @@ export function onTagSelect(obj) {
   loadJobs()
 }
 
-export function onTitleSelect(activeJob) {
-  store.markState({ activeJob })
+export function onTitleSelect(job) {
+  store.setViewing({ job })
   dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_POST_VIEW,
-    data: activeJob,
-  })
-  debug('activeJob: ', activeJob)
-
-  GA.event({
-    action: activeJob.title,
-    category: '浏览',
-    label: '社区',
+    type: TYPE.PREVIEW_JOB_VIEW,
+    data: job,
   })
 }
 
@@ -127,7 +120,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.markState({ activeJob: {} }),
+    action: () => store.setViewing({ job: {} }),
   },
 ]
 

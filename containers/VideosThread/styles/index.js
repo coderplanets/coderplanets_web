@@ -34,6 +34,7 @@ export const PublishBtn = styled(Button)`
 export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
+  display: flex;
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;

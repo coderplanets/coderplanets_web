@@ -9,6 +9,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   ROUTE,
   $solver,
 } from '../../utils'
@@ -51,6 +52,13 @@ function loadPost({ id }) {
   sr71$.query(S.post, variables)
 }
 
+function loadJob({ id }) {
+  const userHasLogin = store.isLogin
+  const variables = { id, userHasLogin }
+  loading()
+  sr71$.query(S.job, variables)
+}
+
 function reloadReactions(article) {
   const variables = {
     id: article.id,
@@ -60,12 +68,26 @@ function reloadReactions(article) {
   sr71$.query(S.reactionResult, variables)
 }
 
-export function onEdit() {
-  debug('onEdit', store.viewingPost)
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_POST_EDIT,
-    data: store.viewingPost, // maybe need clone
-  })
+export function onEdit(thread) {
+  /* debug('onEdit', store.viewingPost) */
+  debug('onEdit viewingData: ', store.viewingData)
+  switch (thread) {
+    case THREAD.POST: {
+      return dispatchEvent(EVENT.PREVIEW_OPEN, {
+        type: TYPE.PREVIEW_POST_EDIT,
+        data: store.viewingData, // maybe need clone
+      })
+    }
+    case THREAD.JOB: {
+      return dispatchEvent(EVENT.PREVIEW_OPEN, {
+        type: TYPE.PREVIEW_JOB_EDIT,
+        data: store.viewingData, // maybe need clone
+      })
+    }
+    default: {
+      debug('unsupported thread')
+    }
+  }
 }
 
 const openAttachment = att => {
@@ -73,17 +95,29 @@ const openAttachment = att => {
 
   const { type } = att
 
-  if (type === TYPE.POST) {
+  if (type === TYPE.PREVIEW_POST_VIEW) {
     loadPost(att)
 
     store.markState({ type })
     store.setViewing({ post: att })
+  }
+
+  if (type === TYPE.PREVIEW_JOB_VIEW) {
+    loadJob(att)
+    store.markState({ type })
+    store.setViewing({ job: att })
   }
 }
 
 // ###############################
 // Data & Error handlers
 // ###############################
+
+function contentLoaded(content) {
+  store.setViewing(content)
+  loading(false)
+}
+
 const DataSolver = [
   {
     match: asyncRes('reaction'),
@@ -105,17 +139,17 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       sr71$.stop()
-      store.load(TYPE.POST, {})
+      /* store.load(TYPE.POST, {}) */
       loading(false)
     },
   },
   {
-    match: asyncRes('post'), // GraphQL return
-    action: ({ post }) => {
-      store.setViewing({ post })
-      store.markState({ type: TYPE.POST })
-      loading(false)
-    },
+    match: asyncRes('post'),
+    action: ({ post }) => contentLoaded({ post }),
+  },
+  {
+    match: asyncRes('job'),
+    action: ({ job }) => contentLoaded({ job }),
   },
 ]
 

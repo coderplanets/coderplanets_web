@@ -4,15 +4,34 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
+import R from 'ramda'
 
 import { User } from '../../stores/SharedModel'
 import { markStates, TYPE, stripMobx } from '../../utils'
 
-// const debug = makeDebugger('S:PreviewStore')
+/* const debug = makeDebugger('S:PreviewStore') */
+const ARTICLE_CURD_TYPES = [
+  // post
+  TYPE.PREVIEW_POST_VIEW,
+  TYPE.PREVIEW_POST_CREATE,
+  TYPE.PREVIEW_POST_EDIT,
+  // job
+  TYPE.PREVIEW_JOB_VIEW,
+  TYPE.PREVIEW_JOB_CREATE,
+  TYPE.PREVIEW_JOB_EDIT,
+  // repo
+  TYPE.PREVIEW_REPO_VIEW,
+  TYPE.PREVIEW_REPO_CREATE,
+  TYPE.PREVIEW_REPO_EDIT,
+]
 
-const Attachment = t.model('EditData', {
+const Attachment = t.model('Attachment', {
   id: t.string,
-  type: t.optional(t.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST),
+  type: t.optional(
+    t.enumeration('type', [...ARTICLE_CURD_TYPES]),
+    TYPE.PREVIEW_POST_VIEW
+  ),
+  /* type: t.maybeNull(t.string), // t.optional(t.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
   title: t.string,
   body: t.maybeNull(t.string),
   digest: t.maybeNull(t.string),
@@ -26,17 +45,11 @@ const PreviewStore = t
       t.enumeration('previewType', [
         TYPE.PREVIEW_ROOT_STORE,
         TYPE.PREVIEW_COMMUNITY_EDITORS,
-        // post
-        TYPE.PREVIEW_POST_VIEW,
-        TYPE.PREVIEW_POST_CREATE,
-        TYPE.PREVIEW_POST_EDIT,
-        // job
-        TYPE.PREVIEW_JOB_VIEW,
-        TYPE.PREVIEW_JOB_CREATE,
-        TYPE.PREVIEW_JOB_EDIT,
         // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
+        // article types
+        ...ARTICLE_CURD_TYPES,
       ])
     ),
     attachment: t.maybeNull(Attachment),
@@ -47,7 +60,6 @@ const PreviewStore = t
     get root() {
       return getParent(self)
     },
-
     get themeKeys() {
       return self.root.theme.themeKeys
     },
@@ -64,15 +76,7 @@ const PreviewStore = t
       self.type = type
 
       // NOTE: currently the attachment is only used for article-like content
-      if (data) self.attachment = data
-      /*
-         if (type === TYPE.PREVIEW_POST_EDIT || type === TYPE.PREVIEW_POST_VIEW) {
-         self.attachment = R.merge({ type: TYPE.POST }, data)
-         }
-         if (type === TYPE.PREVIEW_JOB_EDIT || type === TYPE.PREVIEW_JOB_VIEW) {
-         self.attachment = R.merge({ type: TYPE.JOB }, data)
-         }
-       */
+      if (data) self.attachment = R.merge({ type }, data)
     },
     close() {
       self.visible = false

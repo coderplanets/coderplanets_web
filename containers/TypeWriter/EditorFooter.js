@@ -59,7 +59,9 @@ const EditorFooter = ({ thread }) => {
       return (
         <Wrapper>
           <Labeler />
+          <Divider src={`${ICON_CMD}/more.svg`} />
           <CodeInputer divider />
+          <Divider src={`${ICON_CMD}/more.svg`} />
           <PicUploader divider />
         </Wrapper>
       )

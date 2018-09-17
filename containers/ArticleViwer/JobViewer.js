@@ -4,17 +4,16 @@ import Header from './Header'
 import Body from './Body'
 
 import { CommentsWrapper } from './styles/body'
-
 import { THREAD } from '../../utils'
 
-const PostViewer = ({ data, loading, accountInfo }) => (
+const JobViewer = ({ data, loading, accountInfo }) => (
   <React.Fragment>
     <Header data={data} />
     <Body
       data={data}
       loading={loading}
       accountInfo={accountInfo}
-      thread={THREAD.POST}
+      thread={THREAD.JOB}
     />
     <CommentsWrapper>
       <Comments />
@@ -22,4 +21,4 @@ const PostViewer = ({ data, loading, accountInfo }) => (
   </React.Fragment>
 )
 
-export default PostViewer
+export default JobViewer

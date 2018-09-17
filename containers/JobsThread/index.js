@@ -85,7 +85,7 @@ class JobsThreadContainer extends React.Component {
       curView,
       filtersData,
       activeTagData,
-      active,
+      activeJob,
       accountInfo,
       curRoute,
     } = jobsThread
@@ -112,9 +112,9 @@ class JobsThreadContainer extends React.Component {
           <View
             community={mainPath}
             thread={subPath}
-            jobs={entries}
+            entries={entries}
             curView={curView}
-            active={active}
+            active={activeJob}
           />
 
           <Pagi

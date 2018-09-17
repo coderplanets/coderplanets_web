@@ -88,8 +88,6 @@ class PostsThreadContainer extends React.Component {
     const { mainPath, subPath } = curRoute
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
-    debug('jjj === ', totalCount === 0)
-
     return (
       <Wrapper>
         <LeftPadding />

@@ -77,6 +77,27 @@ const Viewer = ({ type, root, attachment }) => {
     case TYPE.PREVIEW_JOB_CREATE: {
       return <DynamicTypeWriter onClose={logic.closePreview} />
     }
+    case TYPE.PREVIEW_JOB_VIEW: {
+      return <ArticleViwer attachment={attachment} />
+    }
+    case TYPE.PREVIEW_JOB_EDIT: {
+      return (
+        <DynamicTypeWriter
+          onClose={logic.closePreview}
+          attachment={attachment}
+        />
+      )
+    }
+    // repo
+    case TYPE.PREVIEW_REPO_EDIT: {
+      return <h3>PREVIEW_REPO_EDIT</h3>
+    }
+    case TYPE.PREVIEW_REPO_VIEW: {
+      return <h3>PREVIEW_REPO_VIEW</h3>
+    }
+    case TYPE.PREVIEW_REPO_CREATE: {
+      return <h3>PREVIEW_REPO_CREATE</h3>
+    }
     // utils
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {
       return <CommunityEditors />

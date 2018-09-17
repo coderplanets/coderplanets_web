@@ -11,8 +11,8 @@ import {
   makeDebugger,
   stripMobx,
   TYPE,
-  THREAD,
-  subPath2Thread,
+  // THREAD,
+  // subPath2Thread,
 } from '../../utils'
 import { Comment, PagedComments, emptyPagiData } from '../../stores/SharedModel'
 
@@ -102,19 +102,12 @@ const CommentsStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
-    get viewingArticle() {
-      const { subPath } = self.curRoute
-      switch (subPath2Thread(subPath)) {
-        case THREAD.POST: {
-          return stripMobx(self.root.viewing.post)
-        }
-        case THREAD.JOB: {
-          return stripMobx(self.root.viewing.job)
-        }
-        default: {
-          return stripMobx(self.root.viewing.post)
-        }
-      }
+    get activeThread() {
+      const { activeThread } = self.root.viewing
+      return R.toUpper(activeThread)
+    },
+    get viewingData() {
+      return self.root.viewingData
     },
   }))
   .actions(self => ({

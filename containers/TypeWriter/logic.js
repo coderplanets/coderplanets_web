@@ -123,7 +123,7 @@ function publishing(maybe = true) {
 
 export function insertCode() {
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'FUCK',
+    type: 'insert',
     data: '```javascript\n\n```',
   })
 }
@@ -132,6 +132,7 @@ const openAttachment = att => {
   if (!att) return false
 
   const { id, title, body, digest } = att
+  console.log('openAttachment: ', att)
 
   store.markState({
     id,

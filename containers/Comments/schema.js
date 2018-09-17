@@ -4,9 +4,10 @@ const pagedComments = gql`
   query pagedComments(
     $id: ID!
     $filter: CommentsFilter!
+    $thread: CmsThread
     $userHasLogin: Boolean!
   ) {
-    pagedComments(id: $id, filter: $filter) {
+    pagedComments(id: $id, filter: $filter, thread: $thread) {
       entries {
         id
         body

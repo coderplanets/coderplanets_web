@@ -107,7 +107,7 @@ const Cyan = {
     link: '#b5ccce',
     linkHover: 'orange',
     reactionTitle: '#7f979a',
-    reactionHoverBg: '#F9FCFC',
+    reactionHoverBg: '#f3f7f7',
   },
   comment: {
     icon: '#62868a',

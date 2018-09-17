@@ -5,9 +5,9 @@ import { ICON_CMD } from '../../config'
 import { Wrapper, Item, ItemIcon, ItemTitle } from './styles/article_options'
 import * as logic from './logic'
 
-const ArticleOptions = () => (
+const ArticleOptions = ({ thread }) => (
   <Wrapper>
-    <Item onClick={logic.onEdit}>
+    <Item onClick={logic.onEdit.bind(this, thread)}>
       <ItemIcon src={`${ICON_CMD}/edit.svg`} />
       <ItemTitle>编辑文章</ItemTitle>
     </Item>

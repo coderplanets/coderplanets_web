@@ -5,6 +5,8 @@ import { PAGE_SIZE } from '../../config'
 import {
   makeDebugger,
   $solver,
+  dispatchEvent,
+  EVENT,
   TYPE,
   scrollIntoEle,
   asyncRes,
@@ -61,6 +63,7 @@ export function onTitleSelect() {
 
 export function createContent() {
   debug('createContent')
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
 export function onTagSelect() {
@@ -79,12 +82,10 @@ const DataSolver = [
   {
     match: asyncRes('pagedRepos'),
     action: ({ pagedRepos }) => {
-      debug('========> pagedRepos: ', pagedRepos)
       let curView = TYPE.RESULT
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      debug('========> curView: ', curView)
       store.markState({ curView, pagedRepos })
     },
   },

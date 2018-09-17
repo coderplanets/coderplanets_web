@@ -22,9 +22,29 @@ const post = gql`
     }
   }
 `
-
+const job = gql`
+  query($id: ID!) {
+    job(id: $id) {
+      id
+      title
+      body
+      company
+      company_logo
+      location
+      views
+      author {
+        id
+        nickname
+        avatar
+      }
+      linkAddr
+      insertedAt
+      updatedAt
+    }
+  }
+`
 const reactionResult = gql`
-  query post($id: ID!) {
+  query($id: ID!) {
     post(id: $id) {
       id
       title
@@ -54,6 +74,7 @@ const undoReaction = gql`
 
 const schema = {
   post,
+  job,
   // viewerReactions,
   reaction,
   undoReaction,
