@@ -45,7 +45,12 @@ const View = ({ community, thread, entries, curView, active }) => {
       return (
         <React.Fragment>
           {entries.map(video => (
-            <VideoItem entry={video} key={uid.gen()} active={active} />
+            <VideoItem
+              entry={video}
+              key={uid.gen()}
+              active={active}
+              onTitleSelect={logic.onTitleSelect}
+            />
           ))}
         </React.Fragment>
       )

@@ -271,6 +271,11 @@ const SolarizedDark = {
   mailBox: {
     headHightBg: bannerBg,
   },
+  alertWarn: {
+    border: '#ffe58f',
+    bg: '#fffbe6',
+    text: '#c3ae8e',
+  },
 }
 
 export default SolarizedDark

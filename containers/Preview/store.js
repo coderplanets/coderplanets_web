@@ -10,7 +10,7 @@ import { User } from '../../stores/SharedModel'
 import { markStates, TYPE, stripMobx } from '../../utils'
 
 /* const debug = makeDebugger('S:PreviewStore') */
-const ARTICLE_CURD_TYPES = [
+const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.PREVIEW_POST_VIEW,
   TYPE.PREVIEW_POST_CREATE,
@@ -23,12 +23,16 @@ const ARTICLE_CURD_TYPES = [
   TYPE.PREVIEW_REPO_VIEW,
   TYPE.PREVIEW_REPO_CREATE,
   TYPE.PREVIEW_REPO_EDIT,
+  // video
+  TYPE.PREVIEW_VIDEO_VIEW,
+  TYPE.PREVIEW_VIDEO_CREATE,
+  TYPE.PREVIEW_VIDEO_EDIT,
 ]
 
 const Attachment = t.model('Attachment', {
   id: t.string,
   type: t.optional(
-    t.enumeration('type', [...ARTICLE_CURD_TYPES]),
+    t.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
     TYPE.PREVIEW_POST_VIEW
   ),
   /* type: t.maybeNull(t.string), // t.optional(t.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
@@ -49,7 +53,7 @@ const PreviewStore = t
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
         // article types
-        ...ARTICLE_CURD_TYPES,
+        ...THREAD_CONTENT_CURD_TYPES,
       ])
     ),
     attachment: t.maybeNull(Attachment),

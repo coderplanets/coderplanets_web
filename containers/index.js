@@ -41,6 +41,7 @@ export { default as ReposThread } from './ReposThread'
 export { default as CheatSheetPaper } from './CheatSheetPaper'
 export { default as TagsBar } from './TagsBar'
 // tools
+export { default as VideoEditor } from './VideoEditor'
 export { default as Labeler } from './Labeler'
 export { default as MailBox } from './MailBox'
 // user page

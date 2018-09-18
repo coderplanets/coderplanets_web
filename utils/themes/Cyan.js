@@ -272,6 +272,11 @@ const Cyan = {
   mailBox: {
     headHightBg: '#e8f9f8',
   },
+  alertWarn: {
+    border: '#ffe58f',
+    bg: '#fffbe6',
+    text: '#c3ae8e',
+  },
 }
 
 export default Cyan

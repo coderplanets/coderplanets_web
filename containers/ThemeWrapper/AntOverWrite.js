@@ -138,6 +138,14 @@ const AntOverWrite = styled.div`
   .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.15) !important;
   }
+  // alert
+  .ant-alert {
+    color: ${theme('alertWarn.text')};
+  }
+  .ant-alert-warning {
+    border-color: ${theme('alertWarn.border')};
+    background: ${theme('alertWarn.bg')};
+  }
 
   // ----
   // popover

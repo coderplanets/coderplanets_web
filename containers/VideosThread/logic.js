@@ -5,8 +5,10 @@ import {
   makeDebugger,
   $solver,
   TYPE,
+  EVENT,
   scrollIntoEle,
   asyncRes,
+  dispatchEvent,
 } from '../../utils'
 
 import S from './schema'
@@ -21,12 +23,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -51,12 +48,18 @@ export function loadVideos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect() {
-  debug('onTitleSelect')
+export function onTitleSelect(video) {
+  store.setViewing({ video })
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_VIDEO_VIEW,
+    data: video,
+  })
+  debug('onTitleSelect: ', video)
 }
 
 export function createContent() {
   debug('createContent')
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
 export function onTagSelect() {

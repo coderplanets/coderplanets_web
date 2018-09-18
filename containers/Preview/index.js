@@ -12,6 +12,7 @@ import ArticleViwer from '../ArticleViwer'
 import AccountViewer from '../AccountViewer'
 import AccountEditor from '../AccountEditor'
 import CommunityEditors from '../CommunityEditors'
+import VideoEditor from '../VideoEditor'
 
 import { StateTree, TypeWriterLoading } from '../../components'
 
@@ -97,6 +98,16 @@ const Viewer = ({ type, root, attachment }) => {
     }
     case TYPE.PREVIEW_REPO_CREATE: {
       return <h3>PREVIEW_REPO_CREATE</h3>
+    }
+    // video
+    case TYPE.PREVIEW_VIDEO_EDIT: {
+      return <h3>PREVIEW_VIDEO_EDIT</h3>
+    }
+    case TYPE.PREVIEW_VIDEO_VIEW: {
+      return <h3>PREVIEW_VIDEO_VIEW</h3>
+    }
+    case TYPE.PREVIEW_VIDEO_CREATE: {
+      return <VideoEditor />
     }
     // utils
     case TYPE.PREVIEW_COMMUNITY_EDITORS: {

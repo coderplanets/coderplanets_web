@@ -62,7 +62,7 @@ class LabelerContainer extends React.Component {
 
 LabelerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  label: PropTypes.oneOf(['标签', '薪资', '城市']),
+  label: PropTypes.oneOf(['标签', '薪资', '城市', '编辑']),
   // label: PropTypes.oneOf(['tag', 'salary', 'city']),
   iconSrc: PropTypes.string,
 }
