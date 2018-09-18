@@ -61,6 +61,7 @@ export { default as TagsBarStore } from '../containers/TagsBar/store'
 // toolbox
 export { default as TypeWriterStore } from '../containers/TypeWriter/store'
 export { default as VideoEditorStore } from '../containers/VideoEditor/store'
+export { default as RepoEditorStore } from '../containers/RepoEditor/store'
 export { default as CommentsStore } from '../containers/Comments/store'
 export {
   default as AccountEditorStore,

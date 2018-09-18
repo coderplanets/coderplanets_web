@@ -13,6 +13,7 @@ import AccountViewer from '../AccountViewer'
 import AccountEditor from '../AccountEditor'
 import CommunityEditors from '../CommunityEditors'
 import VideoEditor from '../VideoEditor'
+import RepoEditor from '../RepoEditor'
 
 import { StateTree, TypeWriterLoading } from '../../components'
 
@@ -90,14 +91,11 @@ const Viewer = ({ type, root, attachment }) => {
       )
     }
     // repo
-    case TYPE.PREVIEW_REPO_EDIT: {
-      return <h3>PREVIEW_REPO_EDIT</h3>
-    }
     case TYPE.PREVIEW_REPO_VIEW: {
       return <h3>PREVIEW_REPO_VIEW</h3>
     }
     case TYPE.PREVIEW_REPO_CREATE: {
-      return <h3>PREVIEW_REPO_CREATE</h3>
+      return <RepoEditor />
     }
     // video
     case TYPE.PREVIEW_VIDEO_EDIT: {

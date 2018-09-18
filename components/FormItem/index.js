@@ -5,9 +5,11 @@
  */
 
 import React from 'react'
+import R from 'ramda'
 import PropTypes from 'prop-types'
-
 import { Input } from 'antd'
+
+import Maybe from '../Maybe'
 import { FormItemWrapper, FormLable, FormInput, NodeWrapper } from './styles'
 
 import { makeDebugger } from '../../utils'
@@ -18,7 +20,7 @@ const debug = makeDebugger('c:FormItem:index')
 
 const { TextArea } = Input
 
-const FormContent = ({ type, value, onChange, placeholder, node }) => {
+const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
   switch (type) {
     case 'node': {
       return <NodeWrapper>{node}</NodeWrapper>
@@ -39,7 +41,7 @@ const FormContent = ({ type, value, onChange, placeholder, node }) => {
       return (
         <FormInput>
           <Input
-            size="default"
+            size={size}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
@@ -50,13 +52,24 @@ const FormContent = ({ type, value, onChange, placeholder, node }) => {
   }
 }
 
-const FormItem = ({ type, label, value, onChange, placeholder, node }) => (
+const FormItem = ({
+  type,
+  label,
+  value,
+  onChange,
+  size,
+  placeholder,
+  node,
+}) => (
   <FormItemWrapper className="normal-form">
-    <FormLable>{label}</FormLable>
+    <Maybe data={!R.isEmpty(label)}>
+      <FormLable>{label}</FormLable>
+    </Maybe>
 
     <FormContent
       type={type}
       value={value}
+      size={size}
       onChange={onChange}
       placeholder={placeholder}
       node={node}
@@ -71,12 +84,12 @@ FormItem.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['input', 'textarea', 'node']),
   node: PropTypes.node,
-  /* size: PropTypes.oneOf(['small', 'medium', 'large']), */
+  size: PropTypes.oneOf(['small', 'default', 'large']),
 }
 
 FormItem.defaultProps = {
-  label: 'label',
-  /* size: 'small', */
+  label: '',
+  size: 'default',
   placeholder: '',
   type: 'input',
   node: <div />,

@@ -18,7 +18,7 @@ export const FormLable = styled.div`
 `
 export const FormInput = styled.div`
   flex-grow: 1;
-  max-width: 400px;
+  max-width: 600px;
 `
 export const NodeWrapper = styled.div`
   margin-top: 4px;
