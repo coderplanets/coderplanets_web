@@ -95,9 +95,11 @@ const StatusIcon = styled(Img)`
   margin-right: 3px;
   margin-top: 2px;
 `
-export const StarIcon = StatusIcon.extend``
+export const StarIcon = StatusIcon.extend`
+  margin-top: 0px;
+`
 export const ForkIcon = StatusIcon.extend`
-  margin-top: 3px;
+  margin-top: 2px;
 `
 
 export const TitleLink = styled.div`

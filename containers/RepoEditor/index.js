@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { GithubRepoPage } from '../../components'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'
@@ -18,6 +19,17 @@ import * as logic from './logic'
 const debug = makeDebugger('C:RepoEditor')
 /* eslint-enable no-unused-vars */
 
+const View = ({ cur }) => {
+  switch (cur) {
+    case 'preview': {
+      return <GithubRepoPage />
+    }
+    default: {
+      return <SearchMan />
+    }
+  }
+}
+
 class RepoEditorContainer extends React.Component {
   componentWillMount() {
     const { repoEditor } = this.props
@@ -25,9 +37,11 @@ class RepoEditorContainer extends React.Component {
   }
 
   render() {
+    const curView = 'preview' //
+
     return (
       <Wrapper>
-        <SearchMan />
+        <View cur={curView} />
       </Wrapper>
     )
   }
