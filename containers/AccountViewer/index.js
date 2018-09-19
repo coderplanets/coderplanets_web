@@ -7,11 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
+import { Tabs } from 'antd'
 import ReactTooltip from 'react-tooltip'
 
-import { makeDebugger, storePlug } from '../../utils'
-
-import { Tabs, ThemeSelector, UserBrief } from '../../components'
+import { ThemeSelector, UserBrief } from '../../components'
 
 import SiteSocial from './SiteSocial'
 import Planets from './Planets'
@@ -24,6 +23,8 @@ import {
   Divider,
   PanerWrapper,
 } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */

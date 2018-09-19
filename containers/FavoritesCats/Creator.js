@@ -1,4 +1,5 @@
 import React from 'react'
+import { Input, Radio } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
@@ -12,7 +13,7 @@ import {
   Footer,
 } from './styles/editor'
 
-import { SectionLabel, Input, Radio, Space, Button } from '../../components'
+import { SectionLabel, Space, Button } from '../../components'
 
 const { TextArea } = Input
 const RadioGroup = Radio.Group

@@ -7,10 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { Radio } from 'antd'
 // import { } from './styles'
 import { ICON_CMD } from '../../config'
 
-import { ThemeSelector, SectionLabel, Radio, Button } from '../../components'
+import { ThemeSelector, SectionLabel, Button } from '../../components'
 
 import {
   Wrapper,
