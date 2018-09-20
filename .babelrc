@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "transform-decorators-legacy",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "transform-inline-environment-variables",
     [
       "styled-components",
