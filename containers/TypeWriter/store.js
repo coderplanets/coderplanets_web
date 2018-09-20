@@ -33,7 +33,7 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
-
+    // TODO: rename to isEditMode
     isEdit: t.optional(t.boolean, false),
     /* for StatusBox */
     success: t.optional(t.boolean, false),

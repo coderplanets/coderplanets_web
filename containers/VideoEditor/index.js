@@ -12,6 +12,9 @@ import { ICON_CMD } from '../../config'
 
 import Labeler from '../Labeler'
 import { FormItem, Margin } from '../../components'
+import Footer from './Footer'
+import SourceOptions from './SourceOptions'
+
 import {
   Wrapper,
   Title,
@@ -42,7 +45,7 @@ const WarnMessage = () => (
     <WarnMsgItem>
       <WarnMsgIcon src={`${ICON_CMD}/ban.svg`} />
       <WarnMsgText>
-        仅限发布免费视频链接，如您发布的视频内容是需要付费才能观看的，请先获取授权。
+        仅限发布公开视频链接，如果您发布的视频内容是需要付费才能观看的，请先获取授权。
       </WarnMsgText>
     </WarnMsgItem>
     <Margin top="7px" />
@@ -50,7 +53,7 @@ const WarnMessage = () => (
       <WarnMsgIcon src={`${ICON_CMD}/warn.svg`} />
       <WarnMsgText>
         如非质量很高，请不要发布国内视频(广告)网站,
-        如优酷，爱奇艺，腾讯视频等站点的内容。推荐 youtube, vimeo 等。
+        如优酷，爱奇艺，腾讯视频等站点的内容。推荐 youtube, vimeo, B站 等。
       </WarnMsgText>
     </WarnMsgItem>
   </WarnMsgWrapper>
@@ -63,9 +66,20 @@ class VideoEditorContainer extends React.Component {
   }
 
   render() {
+    const { videoEditor } = this.props
+
+    const {
+      editVideoData,
+      publishing,
+      success,
+      error,
+      warn,
+      statusMsg,
+    } = videoEditor
+
     return (
       <Wrapper>
-        <Title>发布视频</Title>
+        <Title>发布视频链接</Title>
         <AlertWrapper>
           <Alert message={<WarnMessage />} type="warning" />
         </AlertWrapper>
@@ -89,39 +103,60 @@ class VideoEditorContainer extends React.Component {
           </PosterWrapper>
         </CoversWrapper>
         <FormWrapper>
-          <FormItem label="标题:" value="" onChange={debug} />
+          <FormItem
+            label="标题:"
+            value={editVideoData.title}
+            onChange={logic.formDataChange('title')}
+          />
           <FormItem
             label="来源:"
-            value=""
-            onChange={debug}
-            placeholder="youtube"
+            value={editVideoData.source}
+            onChange={logic.formDataChange('source')}
+            placeholder="YouTube"
+            att={
+              <SourceOptions
+                active={editVideoData.source}
+                sourceOnSelect={logic.sourceOnSelect}
+              />
+            }
           />
           <FormItem
             label="视频链接:"
-            value=""
-            onChange={debug}
+            value={editVideoData.link}
+            onChange={logic.formDataChange('link')}
             placeholder="https://youtube/xxx"
           />
-          <FormItem label="作者:" value="" onChange={debug} />
+          <FormItem
+            label="原作者:"
+            value={editVideoData.originalAuthor}
+            onChange={logic.formDataChange('originalAuthor')}
+            placeholder="原视频作者昵称"
+          />
           <FormItem
             label="作者链接:"
-            value=""
-            onChange={debug}
-            placeholder="视频网站的作者主页 或 作者其他社交账号"
+            value={editVideoData.originalAuthorLink}
+            onChange={logic.formDataChange('originalAuthorLink')}
+            placeholder="视频网站的作者主页 或 作者其他社交账号链接"
           />
           <FormItem
             label="时长:"
-            value=""
-            onChange={debug}
+            value={editVideoData.duration}
+            onChange={logic.formDataChange('duration')}
             placeholder="mm:ss 或 hh:mm:ss"
           />
           <FormItem
             label="创作时间:"
-            value=""
-            onChange={debug}
+            value={editVideoData.pulishAt}
+            onChange={logic.formDataChange('pulishAt')}
             placeholder="原视频发布日期, 格式 YYYY-MM-DD"
           />
-          <FormItem label="描述:" value="" onChange={debug} type="textarea" />
+          <FormItem
+            label="描述:"
+            value={editVideoData.desc}
+            onChange={logic.formDataChange('desc')}
+            type="textarea"
+            placeholder="视频描述信息"
+          />
           <FormItem
             label="标签:"
             value=""
@@ -130,6 +165,15 @@ class VideoEditorContainer extends React.Component {
             node={<Labeler label="编辑" />}
           />
         </FormWrapper>
+
+        <Footer
+          isEdit={false}
+          publishing={publishing}
+          success={success}
+          error={error}
+          warn={warn}
+          statusMsg={statusMsg}
+        />
       </Wrapper>
     )
   }

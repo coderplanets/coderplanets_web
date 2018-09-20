@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -14,7 +14,14 @@ const debug = makeDebugger('L:VideoEditor')
 
 let store = null
 
-export function someMethod() {}
+export const formDataChange = R.curry((part, e) =>
+  store.updateEditing({ [part]: e.target.value })
+)
+
+export const sourceOnSelect = source => store.updateEditing({ source })
+
+export function onPublish() {}
+export function canclePublish() {}
 
 // ###############################
 // Data & Error handlers

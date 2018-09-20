@@ -20,7 +20,15 @@ const debug = makeDebugger('c:FormItem:index')
 
 const { TextArea } = Input
 
-const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
+const FormContent = ({
+  type,
+  value,
+  onChange,
+  size,
+  placeholder,
+  node,
+  att,
+}) => {
   switch (type) {
     case 'node': {
       return <NodeWrapper>{node}</NodeWrapper>
@@ -46,6 +54,7 @@ const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
             onChange={onChange}
             placeholder={placeholder}
           />
+          <Maybe data={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
     }
@@ -60,6 +69,7 @@ const FormItem = ({
   size,
   placeholder,
   node,
+  att,
 }) => (
   <FormItemWrapper className="normal-form">
     <Maybe data={!R.isEmpty(label)}>
@@ -73,26 +83,31 @@ const FormItem = ({
       onChange={onChange}
       placeholder={placeholder}
       node={node}
+      att={att}
     />
   </FormItemWrapper>
 )
 
 FormItem.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   type: PropTypes.oneOf(['input', 'textarea', 'node']),
   node: PropTypes.node,
+  att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(['small', 'default', 'large']),
 }
 
 FormItem.defaultProps = {
+  value: '',
   label: '',
   size: 'default',
   placeholder: '',
   type: 'input',
   node: <div />,
+  att: '',
+  onChange: debug,
 }
 
 export default FormItem
