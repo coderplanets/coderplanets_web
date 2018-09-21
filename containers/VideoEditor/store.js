@@ -58,9 +58,26 @@ const VideoEditor = t
           const result = changeset(self.editVideoData)
             .exsit({ title: '视频标题' }, self.changeErr)
             .min({ title: '视频标题' }, 10, self.changeErr)
+            .exsit({ source: '视频来源' }, self.changeErr)
+            .exsit({ link: '视频链接' }, self.changeErr)
+            .startsWith({ link: '视频链接' }, 'https://', self.changeErr)
+            .exsit({ originalAuthor: '原作者昵称' }, self.changeErr)
+            .exsit({ originalAuthorLink: '原作者链接' }, self.changeErr)
+            .startsWith(
+              { originalAuthorLink: '原作者链接' },
+              'https://',
+              self.changeErr
+            )
             .exsit({ desc: '视频描述' }, self.changeErr)
             .min({ desc: '视频描述' }, 10, self.changeErr)
+            .exsit({ duration: '时长' }, self.changeErr)
+            .durationFmt({ duration: '时长' }, self.changeErr)
+            .exsit({ pulishAt: '发布日期' }, self.changeErr)
+            .dateFmt({ pulishAt: '发布日期' }, self.changeErr)
             .done()
+
+          // const format1 = /^([01]?[0-9]|[0-5][0-9]):[0-5][0-9]$/
+          // const format2 = /^(?:0[0-2]|0[0-9]):[0-5][0-9]:[0-5][0-9]$/
 
           if (!result.passed) flashState(self, 'ratKey', result.rat)
           return result.passed

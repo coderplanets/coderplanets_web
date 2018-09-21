@@ -110,7 +110,7 @@ class VideoEditorContainer extends React.Component {
             ratKey={ratKey}
             value={editVideoData.title}
             onChange={logic.formDataChange('title')}
-            placeholder="#必填#"
+            placeholder="视频标题 #必填#"
           />
           <FormItem
             label="来源:"
@@ -148,7 +148,7 @@ class VideoEditorContainer extends React.Component {
             ratKey={ratKey}
             value={editVideoData.originalAuthorLink}
             onChange={logic.formDataChange('originalAuthorLink')}
-            placeholder="视频网站的作者主页||作者社交账号链接 -[必填]-"
+            placeholder="视频网站的作者主页||作者社交账号链接 #必填#"
           />
           <FormItem
             label="时长:"
@@ -159,7 +159,7 @@ class VideoEditorContainer extends React.Component {
             placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
           <FormItem
-            label="创作时间:"
+            label="发布日期:"
             raw="pulishAt"
             ratKey={ratKey}
             value={editVideoData.pulishAt}
