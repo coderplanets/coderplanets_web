@@ -75,6 +75,7 @@ class VideoEditorContainer extends React.Component {
       error,
       warn,
       statusMsg,
+      ratKey,
     } = videoEditor
 
     return (
@@ -105,14 +106,19 @@ class VideoEditorContainer extends React.Component {
         <FormWrapper>
           <FormItem
             label="标题:"
+            raw="title"
+            ratKey={ratKey}
             value={editVideoData.title}
             onChange={logic.formDataChange('title')}
+            placeholder="#必填#"
           />
           <FormItem
             label="来源:"
+            raw="source"
+            ratKey={ratKey}
             value={editVideoData.source}
             onChange={logic.formDataChange('source')}
-            placeholder="YouTube"
+            placeholder="YouTube #必填#"
             att={
               <SourceOptions
                 active={editVideoData.source}
@@ -122,40 +128,52 @@ class VideoEditorContainer extends React.Component {
           />
           <FormItem
             label="视频链接:"
+            raw="link"
+            ratKey={ratKey}
             value={editVideoData.link}
             onChange={logic.formDataChange('link')}
-            placeholder="https://youtube/xxx"
+            placeholder="https://youtube/xxx #必填#"
           />
           <FormItem
             label="原作者:"
+            raw="originalAuthor"
+            ratKey={ratKey}
             value={editVideoData.originalAuthor}
             onChange={logic.formDataChange('originalAuthor')}
-            placeholder="原视频作者昵称"
+            placeholder="原视频作者昵称 #必填#"
           />
           <FormItem
             label="作者链接:"
+            raw="originalAuthorLink"
+            ratKey={ratKey}
             value={editVideoData.originalAuthorLink}
             onChange={logic.formDataChange('originalAuthorLink')}
-            placeholder="视频网站的作者主页 或 作者其他社交账号链接"
+            placeholder="视频网站的作者主页||作者社交账号链接 -[必填]-"
           />
           <FormItem
             label="时长:"
+            raw="duration"
+            ratKey={ratKey}
             value={editVideoData.duration}
             onChange={logic.formDataChange('duration')}
-            placeholder="mm:ss 或 hh:mm:ss"
+            placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
           <FormItem
             label="创作时间:"
+            raw="pulishAt"
+            ratKey={ratKey}
             value={editVideoData.pulishAt}
             onChange={logic.formDataChange('pulishAt')}
-            placeholder="原视频发布日期, 格式 YYYY-MM-DD"
+            placeholder="原视频发布日期, 格式 YYYY-MM-DD #必填#"
           />
           <FormItem
             label="描述:"
+            raw="desc"
+            ratKey={ratKey}
             value={editVideoData.desc}
             onChange={logic.formDataChange('desc')}
             type="textarea"
-            placeholder="视频描述信息"
+            placeholder="视频描述信息 #必填#"
           />
           <FormItem
             label="标签:"

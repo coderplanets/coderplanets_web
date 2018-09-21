@@ -20,7 +20,14 @@ export const formDataChange = R.curry((part, e) =>
 
 export const sourceOnSelect = source => store.updateEditing({ source })
 
-export function onPublish() {}
+export function onPublish() {
+  debug('onPublish editVideoData: ', store.editVideoData)
+
+  if (store.validator('publish')) {
+    console.log('is Ok')
+  }
+}
+
 export function canclePublish() {}
 
 // ###############################

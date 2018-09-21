@@ -77,7 +77,6 @@ export const FormWrapper = styled.div`
   padding: 0 30px;
 `
 export const AlertWrapper = styled.div`
-  padding: 0 10px;
   margin-bottom: 15px;
 `
 export const WarnMsgWrapper = styled.div`

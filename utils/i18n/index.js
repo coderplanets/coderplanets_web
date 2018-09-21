@@ -3,7 +3,7 @@
 const I18nDict = {
   posts: '帖子',
   map: '地图',
-  news: '动态',
+  news: '动态(wiki)',
   cheatsheet: 'cheatsheet',
   meetups: 'meetups',
   users: '用户',

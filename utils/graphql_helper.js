@@ -2,7 +2,7 @@ import R from 'ramda'
 import { request, GraphQLClient } from 'graphql-request'
 
 import { GRAPHQL_ENDPOINT } from '../config'
-import { nilOrEmpty } from '.'
+import { nilOrEmpty } from './validator'
 
 export const asyncRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))
 export const asyncErr = key => R.pathEq(['error'], key)

@@ -1,7 +1,6 @@
 /*
  * utils functiosn
  */
-
 export {
   EVENT,
   ERR,
@@ -33,7 +32,15 @@ export {
   objAlreadyExsits,
 } from './functions'
 
-export { cast, notEmpty, isEmptyValue, nilOrEmpty, isObject } from './validator'
+export {
+  cast,
+  changeset,
+  notEmpty,
+  hasValue,
+  isEmptyValue,
+  nilOrEmpty,
+  isObject,
+} from './validator'
 
 export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
 
@@ -53,6 +60,7 @@ export {
 export {
   storePlug,
   markStates,
+  flashState,
   meteorState,
   stripMobx,
   $solver,

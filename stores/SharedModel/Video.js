@@ -13,6 +13,7 @@ export const Video = t.model('Video', {
   desc: t.maybeNull(t.string),
   duration: t.maybeNull(t.string),
   /* durationDec: t.maybeNull(t.number), */
+  poster: t.maybeNull(t.string),
   author: t.maybeNull(User),
 
   source: t.maybeNull(t.string),

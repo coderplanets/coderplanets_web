@@ -1,7 +1,8 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import { EVENT, isEmptyValue } from '.'
+import { EVENT } from './constants'
+import { isEmptyValue } from './validator'
 
 /* eslint-disable */
 // TODO: document ?
