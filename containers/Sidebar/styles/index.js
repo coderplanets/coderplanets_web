@@ -76,7 +76,6 @@ export const PinIcon = styled(Img)`
     opacity: 1;
   }
 `
-
 export const ExploreWrapper = styled.div`
   padding-left: 16px;
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
@@ -87,20 +86,22 @@ export const ExploreWrapper = styled.div`
     opacity: 1;
   }
 `
-
 export const ExploreContent = styled.div`
   display: flex;
   align-items: center;
 `
-
 export const ExploreText = styled.div`
-  margin-top: -1px;
+  letter-spacing: 1.5px;
+  ${ExploreContent}:hover & {
+    letter-spacing: 3px;
+  }
+  transition: letter-spacing 0.3s;
 `
 export const ExploreIcon = styled(Img)`
   fill: ${theme('button.primary')};
-  width: 13px;
-  height: 13px;
-  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
   display: block;
   margin-top: -1px;
 `

@@ -161,8 +161,8 @@ class SidebarContainer extends React.Component {
             <ExploreWrapper pin={pin}>
               <Button size="small" type="primary" ghost>
                 <ExploreContent>
-                  <ExploreIcon src={`${ICON_CMD}/explore_more.svg`} />
-                  <ExploreText>explore</ExploreText>
+                  <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
+                  <ExploreText>Explore</ExploreText>
                 </ExploreContent>
               </Button>
             </ExploreWrapper>
