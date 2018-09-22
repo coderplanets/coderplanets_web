@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, Animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   padding: 0 10px;
 `
 export const Thumbnil = styled.div`
+  position: relative;
   height: 100px;
   width: 180px;
   border: 1px dashed;
@@ -26,6 +27,7 @@ export const Thumbnil = styled.div`
   }
 `
 export const Poster = styled.div`
+  position: relative;
   flex-grow: 1;
   margin-left: 10px;
   border: 1px dashed;
@@ -54,5 +56,37 @@ export const UploaderText = styled.div`
   font-size: 1.2rem;
   &:hover {
     color: ${theme('banner.title')};
+  }
+`
+export const CoverImg = styled(Img)`
+  width: 100%;
+  height: 100%;
+`
+
+export const ThumbCermeraIcon = styled(Img)`
+  position: absolute;
+  fill: #f9fcfc;
+  width: 50px;
+  height: 50px;
+  top: 25%;
+  left: 35%;
+  opacity: 0;
+  ${Thumbnil}:hover & {
+    animation: ${Animate.zoomIn} 0.2s linear;
+    opacity: 1;
+  }
+`
+export const PosterCermeraIcon = styled(Img)`
+  position: absolute;
+  fill: #f9fcfc;
+  width: 50px;
+  height: 50px;
+  top: 35%;
+  left: 40%;
+  opacity: 0;
+  ${Poster}:hover & {
+    animation: ${Animate.zoomIn} 0.2s linear;
+    opacity: 1;
+    cursor: pointer;
   }
 `

@@ -13,6 +13,7 @@ export const Video = t.model('Video', {
   desc: t.maybeNull(t.string),
   duration: t.maybeNull(t.string),
   /* durationDec: t.maybeNull(t.number), */
+  thumbnil: t.maybeNull(t.string),
   poster: t.maybeNull(t.string),
   author: t.maybeNull(User),
 
@@ -27,7 +28,7 @@ export const Video = t.model('Video', {
   tags: t.optional(t.array(Tag), []),
   /* comments: t.optional(t.array(Comment), []), */
 
-  pulishAt: t.optional(t.string, ''),
+  publishAt: t.optional(t.string, ''),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

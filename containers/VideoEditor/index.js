@@ -47,7 +47,10 @@ class VideoEditorContainer extends React.Component {
       <Wrapper>
         <Title>发布视频链接</Title>
         <AlertMessage />
-        <CoverUploader />
+        <CoverUploader
+          thumbnil={editVideoData.thumbnil}
+          poster={editVideoData.poster}
+        />
         <FormWrapper>
           <FormItem
             label="标题:"
@@ -105,10 +108,10 @@ class VideoEditorContainer extends React.Component {
           />
           <FormItem
             label="发布日期:"
-            raw="pulishAt"
+            raw="publishAt"
             ratKey={ratKey}
-            value={editVideoData.pulishAt}
-            onChange={logic.formDataChange('pulishAt')}
+            value={editVideoData.publishAt}
+            onChange={logic.formDataChange('publishAt')}
             placeholder="原视频发布日期, 格式 YYYY-MM-DD #必填#"
           />
           <FormItem

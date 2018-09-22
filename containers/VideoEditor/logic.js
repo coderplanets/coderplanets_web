@@ -1,9 +1,9 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import { makeDebugger, asyncRes, $solver, asyncErr, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
@@ -19,17 +19,24 @@ export const formDataChange = R.curry((part, e) =>
 )
 
 export const sourceOnSelect = source => store.updateEditing({ source })
-
-export const coverOnUpload = url => {
-  debug('coverOnUpload url: ', url)
-}
+export const copyThumbnilLink = url => store.updateEditing({ poster: url })
+export const onUploadDone = (part, url) => store.updateEditing({ [part]: url })
 
 export function onPublish() {
+  if (!store.validator('publish')) return false
   debug('onPublish editVideoData: ', store.editVideoData)
 
-  if (store.validator('publish')) {
-    console.log('is Ok')
-  }
+  const communityId = store.curCommunity.id
+  const publishAt = new Date(store.editVideoData.publishAt).toISOString()
+  const durationSec = 2000
+  const args = R.merge(store.editVideoData, {
+    communityId,
+    publishAt,
+    durationSec,
+  })
+
+  debug('args: ', args)
+  sr71$.mutate(S.createVideo, args)
 }
 
 export function canclePublish() {}
@@ -38,7 +45,16 @@ export function canclePublish() {}
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('createVideo'),
+    action: () => {
+      // cancelLoading()
+      /* store.markState({ createVideo }) */
+      debug('createVideo done')
+    },
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),

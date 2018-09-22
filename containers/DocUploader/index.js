@@ -11,7 +11,7 @@ import { ASSETS_ENDPOINT } from '../../config'
 
 import { Wrapper, InputFile } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, uid } from '../../utils'
 import { init, onUploadError } from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -40,34 +40,21 @@ const getFileName = filename => {
 }
 
 class DocUploaderContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    /* eslint-disable */
-    /* OSS sdk is import in _document from ali cdn */
-    debug('process.env', process.env)
-    try {
-      this.state.ossClient = new OSS.Wrapper({
-        region: process.env.ALI_OSS_RESION,
-        accessKeyId: process.env.ALI_ACCESS_KEY,
-        accessKeySecret: process.env.ALI_ACCESS_SECRET,
-        bucket: process.env.ALI_OSS_BUCKET,
-        /* internal: true, */
-        /* secure: true, */
-      })
-    } catch (e) {
-      console.error(e)
-      this.props.onUploadError(e)
-    }
-    /* eslint-enable */
-  }
+  /* constructor(props) { */
+  /* super(props) */
+  /* this.initOssClient() */
+  /* } */
 
   state = {
     ossClient: null,
+    // use unique id to init the file input, otherwise it will be the some instance
+    uniqueId: uid.gen(),
   }
 
   componentWillMount() {
     const { docUploader } = this.props
     init(docUploader)
+    this.initOssClient()
   }
 
   componentWillUnmount() {
@@ -76,9 +63,38 @@ class DocUploaderContainer extends React.Component {
     /* eslint-enable */
   }
 
+  initOssClient() {
+    /* eslint-disable */
+    /* OSS sdk is import in _document from ali cdn */
+    try {
+      /* this.state.ossClient = new OSS.Wrapper({ */
+      const ossClient = new OSS.Wrapper({
+        region: process.env.ALI_OSS_RESION,
+        accessKeyId: process.env.ALI_ACCESS_KEY,
+        accessKeySecret: process.env.ALI_ACCESS_SECRET,
+        bucket: process.env.ALI_OSS_BUCKET,
+        /* internal: true, */
+        /* secure: true, */
+      })
+
+      this.setState({ ossClient })
+    } catch (e) {
+      console.error(e)
+      this.props.onUploadError(e)
+    }
+    /* eslint-enable */
+  }
+
+  onUploadDone(url) {
+    /* eslint-disable */
+    this.props.onUploadDone(url)
+    delete this.state.ossClient
+    /* eslint-enable */
+    this.initOssClient()
+  }
+
   /* eslint-disable */
   handleCHange(e) {
-    // TODO: Dir nameing
     const files = e.target.files
     /* console.log('handleCHange files: ', files) */
     const theFile = files[0]
@@ -92,34 +108,32 @@ class DocUploaderContainer extends React.Component {
     this.props.onUploadStart()
     const filename = theFile.name
     const fullpath = `${getDir()}/${getFileName(filename)}`
-    debug('fullpath: ', fullpath)
+
     this.state.ossClient
       .multipartUpload(fullpath, theFile)
       .then(result => {
-        /* console.log('result: ', result) */
         const url = `${ASSETS_ENDPOINT}/${result.name}`
-        /* console.log('result.url: ', url) */
-        this.props.onUploadDone(url)
+        this.onUploadDone(url)
       })
-      .catch(err => {
-        this.props.onUploadError(err)
-      })
+      .catch(err => this.props.onUploadError(err))
   }
   /* eslint-enable */
 
   render() {
     const { children } = this.props
+    const { uniqueId } = this.state
+
     return (
       <Wrapper>
         <InputFile
           type="file"
-          name="file"
-          id="file"
+          name={`file-${uniqueId}`}
+          id={`file-${uniqueId}`}
           accept="image/*"
           onChange={this.handleCHange.bind(this)}
         />
         {/* eslint-disable */}
-        <label htmlFor="file">{children}</label>
+        <label htmlFor={`file-${uniqueId}`}>{children}</label>
         {/* eslint-enable */}
       </Wrapper>
     )

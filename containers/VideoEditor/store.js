@@ -18,6 +18,9 @@ import {
 const debug = makeDebugger('S:VideoEditor')
 /* eslint-enable no-unused-vars */
 
+/* thumbnil: */
+/* 'https://coderplanets.oss-cn-beijing.aliyuncs.com/posts/2018_9/22/javascript--post--113--mydearxym-112--%E4%BF%84%E7%BD%97%E6%96%AF.jpg', */
+
 const VideoEditor = t
   .model('VideoEditor', {
     editVideo: t.optional(Video, { source: 'youtube' }),
@@ -34,6 +37,9 @@ const VideoEditor = t
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
     },
     get editVideoData() {
       return {
@@ -56,8 +62,10 @@ const VideoEditor = t
       switch (type) {
         case 'publish': {
           const result = changeset(self.editVideoData)
+            .exsit({ thumbnil: '缩略图' }, self.changeErr)
+            .exsit({ thumbnil: '视频封面' }, self.changeErr)
             .exsit({ title: '视频标题' }, self.changeErr)
-            .min({ title: '视频标题' }, 10, self.changeErr)
+            .min({ title: '视频标题' }, 5, self.changeErr)
             .exsit({ source: '视频来源' }, self.changeErr)
             .exsit({ link: '视频链接' }, self.changeErr)
             .startsWith({ link: '视频链接' }, 'https://', self.changeErr)
@@ -72,8 +80,8 @@ const VideoEditor = t
             .min({ desc: '视频描述' }, 10, self.changeErr)
             .exsit({ duration: '时长' }, self.changeErr)
             .durationFmt({ duration: '时长' }, self.changeErr)
-            .exsit({ pulishAt: '发布日期' }, self.changeErr)
-            .dateFmt({ pulishAt: '发布日期' }, self.changeErr)
+            .exsit({ publishAt: '发布日期' }, self.changeErr)
+            .dateFmt({ publishAt: '发布日期' }, self.changeErr)
             .done()
 
           // const format1 = /^([01]?[0-9]|[0-5][0-9]):[0-5][0-9]$/

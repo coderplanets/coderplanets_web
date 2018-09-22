@@ -4,20 +4,22 @@ const createVideo = gql`
   mutation(
     $title: String!
     $poster: String!
+    $thumbnil: String!
     $desc: String!
     $duration: String!
-    $duration_sec: String!
+    $durationSec: Int!
     $source: String!
     $link: String!
     $originalAuthor: String!
     $originalAuthorLink: String!
-    $publishAt: Datetime!
+    $publishAt: String!
     $communityId: ID!
     $tags: [Ids]
   ) {
     createVideo(
       title: $title
-      post: $poster
+      poster: $poster
+      thumbnil: $thumbnil
       desc: $desc
       duration: $duration
       durationSec: $durationSec
@@ -25,12 +27,11 @@ const createVideo = gql`
       link: $link
       originalAuthor: $originalAuthor
       originalAuthorLink: $originalAuthorLink
-      pulishAt: $publishAt
+      publishAt: $publishAt
       communityId: $communityId
       tags: $tags
     ) {
       title
-      body
       id
     }
   }
