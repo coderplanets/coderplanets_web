@@ -145,6 +145,9 @@ const AntOverWrite = styled.div`
   .ant-alert-warning {
     border-color: ${theme('alertWarn.border')};
     background: ${theme('alertWarn.bg')};
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
   }
 
   // ----

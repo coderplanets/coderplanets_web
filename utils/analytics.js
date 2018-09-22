@@ -1,4 +1,4 @@
-import { Global } from '../utils'
+import { Global } from './functions'
 
 // https://analytics.google.com/analytics/web/?hl=zh-CN&pli=1#/embed/report-home/a39874160w174341184p173551323
 

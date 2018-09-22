@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 
 import R from 'ramda'
-import { isObject } from '.'
+import { isObject } from './validator'
 
 export const storePlug = R.curry((wantedStore, props) => ({
   [wantedStore]: R.path(['store', wantedStore], props),
@@ -40,6 +40,13 @@ export const markStates = (sobj, self) => {
     }
   }, sobj)
   return false
+}
+
+export const flashState = (store, state, value, secs = 5) => {
+  store.markState({ [state]: value })
+  setTimeout(() => {
+    store.markState({ [state]: '' })
+  }, secs * 1000)
 }
 
 /*

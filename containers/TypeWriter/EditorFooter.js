@@ -3,8 +3,10 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
+import DocUploader from '../DocUploader'
+
 import { Labeler } from '..'
-import { FileUploader, Maybe } from '../../components'
+import { Maybe } from '../../components'
 
 import {
   Wrapper,
@@ -34,12 +36,12 @@ const PicUploader = ({ divider }) => (
     <Maybe data={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
-    <FileUploader onUploadDone={onUploadImageDone}>
+    <DocUploader onUploadDone={onUploadImageDone}>
       <Item>
         <ItemIcon src={`${ICON_CMD}/extra_image.svg`} />
         <ItemTitle>图片</ItemTitle>
       </Item>
-    </FileUploader>
+    </DocUploader>
   </React.Fragment>
 )
 

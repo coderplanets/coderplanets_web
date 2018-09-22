@@ -23,7 +23,9 @@ import {
   CommunityLogo,
   LogoWrapper,
   CommunityInfo,
+  TitleWrapper,
   Title,
+  GroupsIcon,
   Desc,
   LogoHolder,
 } from './styles'
@@ -43,7 +45,10 @@ const CommunityBrief = ({ content }) => (
       )}
     </LogoWrapper>
     <CommunityInfo>
-      <Title>{content.title}</Title>
+      <TitleWrapper>
+        <Title>{content.title}</Title>
+        <GroupsIcon src={`${ICON_CMD}/online_groups.svg`} />
+      </TitleWrapper>
       <Desc>{content.desc}</Desc>
     </CommunityInfo>
   </CommunityWrapper>

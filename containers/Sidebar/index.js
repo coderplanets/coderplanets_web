@@ -23,6 +23,7 @@ import {
   MenuItemWrapper,
   MenuItemEach,
   MenuItemIcon,
+  MenuItemTitle,
   MiniChartWrapper,
   SiteLogoWrapper,
   SiteLogo,
@@ -74,10 +75,12 @@ const MenuList = ({ items, pin, activeRaw }) => {
                               src={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
-                            <div style={{ marginRight: 10 }} />
-                            <a style={{ textDecoration: 'none' }}>
+                            <MenuItemTitle
+                              pin={pin}
+                              active={activeRaw === R.toLower(item.raw)}
+                            >
                               {item.title}
-                            </a>
+                            </MenuItemTitle>
 
                             <MiniChartWrapper pin={pin}>
                               <TrendLine
@@ -153,7 +156,7 @@ class SidebarContainer extends React.Component {
 
     return (
       <Container pin={pin}>
-        <Header>
+        <Header pin={pin}>
           <HeaderFuncs>
             <SiteLogoWrapper pin={pin}>
               <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />
@@ -161,8 +164,8 @@ class SidebarContainer extends React.Component {
             <ExploreWrapper pin={pin}>
               <Button size="small" type="primary" ghost>
                 <ExploreContent>
-                  <ExploreIcon src={`${ICON_CMD}/explore_more.svg`} />
-                  <ExploreText>explore</ExploreText>
+                  <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
+                  <ExploreText>Explore</ExploreText>
                 </ExploreContent>
               </Button>
             </ExploreWrapper>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FileUploaderWrapper = styled.div``
+export const Wrapper = styled.div``
 export const InputFile = styled.input`
   width: 0.1px;
   height: 0.1px;

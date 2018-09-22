@@ -44,6 +44,8 @@ export { default as TagsBar } from './TagsBar'
 export { default as VideoEditor } from './VideoEditor'
 export { default as Labeler } from './Labeler'
 export { default as MailBox } from './MailBox'
+export { default as DocUploader } from './DocUploader'
+
 // user page
 export { default as UserSettings } from './UserSettings'
 export { default as UserFavorites } from './UserFavorites'

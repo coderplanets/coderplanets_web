@@ -7,20 +7,34 @@
 import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
-import { Input } from 'antd'
+// import { Input } from 'antd'
 
 import Maybe from '../Maybe'
-import { FormItemWrapper, FormLable, FormInput, NodeWrapper } from './styles'
+import {
+  FormItemWrapper,
+  FormLable,
+  FormInput,
+  NodeWrapper,
+  Inputer,
+  TextAreaer,
+} from './styles'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, hasValue } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:FormItem:index')
 /* eslint-enable no-unused-vars */
 
-const { TextArea } = Input
-
-const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
+const FormContent = ({
+  type,
+  value,
+  onChange,
+  error,
+  size,
+  placeholder,
+  node,
+  att,
+}) => {
   switch (type) {
     case 'node': {
       return <NodeWrapper>{node}</NodeWrapper>
@@ -28,8 +42,9 @@ const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
     case 'textarea': {
       return (
         <FormInput>
-          <TextArea
+          <TextAreaer
             value={value}
+            error={String(error)}
             placeholder={placeholder}
             autosize={{ minRows: 3, maxRows: 6 }}
             onChange={onChange}
@@ -40,12 +55,14 @@ const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
     default: {
       return (
         <FormInput>
-          <Input
+          <Inputer
             size={size}
+            error={String(error)}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
           />
+          <Maybe data={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
     }
@@ -55,44 +72,57 @@ const FormContent = ({ type, value, onChange, size, placeholder, node }) => {
 const FormItem = ({
   type,
   label,
+  raw,
+  ratKey,
   value,
   onChange,
   size,
   placeholder,
   node,
+  att,
 }) => (
   <FormItemWrapper className="normal-form">
     <Maybe data={!R.isEmpty(label)}>
-      <FormLable>{label}</FormLable>
+      <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
     </Maybe>
 
     <FormContent
       type={type}
       value={value}
+      error={hasValue(raw) && raw === ratKey}
       size={size}
       onChange={onChange}
       placeholder={placeholder}
       node={node}
+      att={att}
     />
   </FormItemWrapper>
 )
 
 FormItem.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   label: PropTypes.string,
+  raw: PropTypes.string,
+  ratKey: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   type: PropTypes.oneOf(['input', 'textarea', 'node']),
   node: PropTypes.node,
+  att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(['small', 'default', 'large']),
 }
 
 FormItem.defaultProps = {
+  value: '',
   label: '',
+  raw: '',
+  ratKey: '',
   size: 'default',
   placeholder: '',
   type: 'input',
   node: <div />,
+  att: '',
+  onChange: debug,
 }
 
 export default FormItem

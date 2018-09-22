@@ -4,7 +4,7 @@
 
 import R from 'ramda'
 
-import { Global } from '.'
+import { Global } from './functions'
 
 const checkValid = () => Global.iziToast || false
 
@@ -12,7 +12,7 @@ const defaultOptions = {
   title: 'coderplanets',
   message: 'is Awesome!',
   position: 'topRight',
-  timeout: 3000,
+  timeout: 5000,
   icon: '',
   progressBarColor: 'yellogreen',
   displayMode: 'replace',

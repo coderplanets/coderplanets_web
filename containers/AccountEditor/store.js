@@ -20,7 +20,8 @@ const debug = makeDebugger('S:AccountEditorStore')
 
 const AccountEditorStore = t
   .model('AccountEditorStore', {
-    user: t.optional(User, {}),
+    // user: t.optional(User, {}),
+    // TODO: rename to editObj
     editingUser: t.optional(User, {}),
     showSocials: t.optional(t.boolean, false),
 
