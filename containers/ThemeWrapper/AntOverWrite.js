@@ -3,6 +3,7 @@ import { lighten } from 'polished'
 
 import { theme } from '../../utils'
 
+// move ant style to seperate file
 const AntOverWrite = styled.div`
   .react-calendar-heatmap rect:hover {
     stroke: ${theme('heatmap.borderHover')};
@@ -137,6 +138,17 @@ const AntOverWrite = styled.div`
   .ant-modal-mask {
     background-color: rgba(0, 0, 0, 0.15) !important;
   }
+  // alert
+  .ant-alert {
+    color: ${theme('alertWarn.text')};
+  }
+  .ant-alert-warning {
+    border-color: ${theme('alertWarn.border')};
+    background: ${theme('alertWarn.bg')};
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
 
   // ----
   // popover
@@ -159,6 +171,24 @@ const AntOverWrite = styled.div`
       background-color: ${theme('form.inputBg')};
       color: ${theme('form.text')};
       border-color: ${theme('form.border')};
+    }
+    .ant-input:focus {
+      border-color: ${theme('form.border')};
+      border-left: 4px solid ${theme('banner.title')};
+      border-right: 4px solid ${theme('banner.title')};
+      box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+    }
+    .ant-input:hover {
+      box-shadow: 0 0 0 1px ${theme('form.shadow')};
+    }
+
+    input::placeholder {
+      color: ${theme('form.text')};
+      opacity: 0.5;
+    }
+    textarea::placeholder {
+      color: ${theme('form.text')};
+      opacity: 0.5;
     }
   }
 
@@ -186,19 +216,22 @@ const AntOverWrite = styled.div`
   }
 
   .ant-radio-wrapper {
-    color: grey;
+    color: ${theme('banner.desc')};
   }
   .ant-radio-wrapper-checked {
     color: ${theme('button.primary')};
   }
 
   .ant-radio-checked .ant-radio-inner {
-    border-color: ${theme('button.primary')} !important;
-    margin-top: 50px;
+    border-color: ${theme('button.primary')};
   }
 
   .ant-radio-inner:after {
-    background-color: ${theme('button.primary')} !important;
+    background-color: ${theme('button.primary')};
+  }
+  .ant-radio-inner {
+    border: 1px solid ${theme('form.border')};
+    background: ${theme('form.inputBg')};
   }
 
   // pagination overides

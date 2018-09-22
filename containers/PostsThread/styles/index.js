@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { Button } from 'antd'
 
-import { Button } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
   max-width: 1400px;
+  padding-top: 8px;
 `
 
 export const LeftPadding = styled.div`
@@ -22,12 +23,12 @@ export const LeftPart = styled.div`
 export const RightPart = styled.div`
   width: 20vw;
   margin-left: 30px;
+  padding-top: 5px;
 `
 
 /* fill: ${theme('shell.searchIcon')}; */
 // TODO: rename to PublishButn
 export const PublishBtn = styled(Button)`
-  margin-top: 8px;
   width: 100%;
   max-width: 180px;
   margin-left: 8%;

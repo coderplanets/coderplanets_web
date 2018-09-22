@@ -16,6 +16,13 @@ export function changeTheme(theme) {
   store.changeTheme(theme)
 }
 
+export function upgradeHepler() {
+  store.upgradeHepler()
+}
+export function sponsorHepler() {
+  store.sponsorHepler()
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

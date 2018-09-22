@@ -1,13 +1,11 @@
 {
   "plugins": [
-    "transform-decorators-legacy",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "transform-inline-environment-variables",
     [
       "styled-components",
       {
-        "ssr": true,
-        "displayName": true,
-        "preprocess": false
+        "pure": true
       }
     ],
     [
@@ -31,7 +29,6 @@
     },
     "local": {
        "presets": ["next/babel"],
-       "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": ["next/babel"]

@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { Space, StatusBox, Button, Icon } from '../../components'
-import * as logic from './logic'
+import { canclePublish, onPublish } from './logic'
 
 import {
   FooterWrapper,
@@ -11,7 +11,15 @@ import {
   Divider,
 } from './styles/footer'
 
-const Footer = ({ onPublish, publishing, success, error, warn, statusMsg }) => (
+const DoingText = ({ isEdit }) => {
+  return isEdit ? (
+    <React.Fragment>更新</React.Fragment>
+  ) : (
+    <React.Fragment>发布</React.Fragment>
+  )
+}
+
+const Footer = ({ isEdit, publishing, success, error, warn, statusMsg }) => (
   <FooterWrapper>
     <StatusBox success={success} error={error} warn={warn} msg={statusMsg} />
     <RespectText show={!success && !warn && !error && !publishing}>
@@ -27,22 +35,19 @@ const Footer = ({ onPublish, publishing, success, error, warn, statusMsg }) => (
           <Space right="15px" />
           <Button size="default" type="primary" disabled>
             <Icon type="loading" />
-            正在发布...
+            正在
+            <DoingText isEdit={isEdit} />
+            ...
           </Button>
         </div>
       ) : (
         <div>
-          <Button
-            size="default"
-            type="primary"
-            ghost
-            onClick={logic.canclePublish}
-          >
+          <Button size="default" type="primary" ghost onClick={canclePublish}>
             取消
           </Button>
           <Space right="15px" />
           <Button size="default" type="primary" onClick={onPublish}>
-            发<Space right="10px" />布
+            <DoingText isEdit={isEdit} />
           </Button>
         </div>
       )}

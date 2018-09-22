@@ -7,11 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
 
+import UserSettings from '../UserSettings'
+import UserFavorites from '../UserFavorites'
+
 import { Tabber, Button, Icon } from '../../components'
-import { UserSettings, UserFavorites } from '..'
 
 import AchieveInfo from './AchieveInfo'
 import NumbersInfo from './NumbersInfo'
@@ -121,11 +123,11 @@ class UserContentContainer extends React.Component {
           </CardWrapper>
 
           <AttactWrapper>
-            <AttactIcon src={`${ICON_ASSETS}/cmd/join_at.svg`} />第 1 位会员{' '}
+            <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 1 位会员{' '}
             <AttactDivider /> 加入时间: 2018-08-18
           </AttactWrapper>
           <AttactWrapper>
-            <AttactIcon src={`${ICON_ASSETS}/cmd/contributer.svg`} />
+            <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
             本站源码贡献者(
             <AttactLink
               href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
@@ -137,7 +139,7 @@ class UserContentContainer extends React.Component {
             )
           </AttactWrapper>
           <AttactWrapper>
-            <AttactIcon src={`${ICON_ASSETS}/cmd/sponsor.svg`} />
+            <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
             本站赞助者(详情)
           </AttactWrapper>
         </SidebarWrapper>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -27,7 +27,7 @@ export const Title = styled.div`
   border-top: 1px solid #e2e8e8;
   margin-top: 20px;
   padding-top: 20px;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 `
 
 export const DescWrapper = styled.div`

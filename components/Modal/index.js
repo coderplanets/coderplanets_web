@@ -8,8 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { makeDebugger } from '../../utils'
-import { ICON_ASSETS } from '../../config'
-import { Mask, Wrapper, CloseBtn } from './styles'
+import { ICON_CMD } from '../../config'
+import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Modal:index')
@@ -19,11 +19,13 @@ const Modal = ({ children, show, width, showCloseBtn, onClose }) => (
   <Mask show={show} onClick={onClose}>
     <Wrapper width={width}>
       <CloseBtn
-        src={`${ICON_ASSETS}/cmd/closeBtn.svg`}
+        src={`${ICON_CMD}/closeBtn.svg`}
         show={showCloseBtn}
         onClick={onClose}
       />
-      <div onClick={e => e.stopPropagation()}>{children}</div>
+      <ChildrenWrapper onClick={e => e.stopPropagation()}>
+        {children}
+      </ChildrenWrapper>
     </Wrapper>
   </Mask>
 )

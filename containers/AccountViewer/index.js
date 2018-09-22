@@ -7,13 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
+import { Tabs } from 'antd'
 import ReactTooltip from 'react-tooltip'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { ThemeSelector, UserBrief } from '../../components'
 
-import { Tabs, ThemeSelector } from '../../components'
-
-import UserHeader from './UserHeader'
+import SiteSocial from './SiteSocial'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
@@ -24,6 +23,8 @@ import {
   Divider,
   PanerWrapper,
 } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -65,14 +66,19 @@ class AccountViewerContainer extends React.Component {
       <AccountWrapper>
         <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
-          <UserHeader
-            accountInfo={accountInfo}
-            logout={logic.logout}
-            editProfile={logic.editProfile}
+          <UserBrief
+            user={accountInfo}
+            displayStyle="sidebar"
+            showEdit
+            onEdit={logic.editProfile}
           />
-          <Divider top="10px" bottom="20px" />
+
+          <Divider top="20px" bottom="0px" />
+          <SiteSocial />
+          <Divider top="0px" bottom="20px" />
           <Planets subscribedCommunities={subscribedCommunities} />
           <Divider top="10px" bottom="20px" />
+
           <ContributeMap data={contributes} />
           <Divider top="18px" />
           <Tabs onChange={debug} type="card">

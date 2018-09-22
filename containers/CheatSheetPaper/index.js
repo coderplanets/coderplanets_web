@@ -6,21 +6,20 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Button } from 'antd'
 
 import Remarkable from 'remarkable'
 import mentions from 'remarkable-mentions'
 import remarkableemoj from 'remarkable-emoji'
 import Masonry from 'react-masonry-component'
 import Prism from 'mastani-codehighlight'
-import shortid from 'shortid'
 
-import { CheatSheetLoading } from '../../components/LoadingEffects'
-import { NotFound, Button } from '../../components'
-
-import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
+import { NotFound, CheatSheetLoading } from '../../components'
 
 import { Wrapper, CheatSheetStyle, CardWrapper } from './styles'
+
+import { makeDebugger, storePlug, uid } from '../../utils'
+import * as logic from './logic'
 
 // import code from './es7'
 
@@ -35,7 +34,7 @@ md.use(remarkableemoj)
 /* eslint-disable react/no-danger */
 const Cards = ({ cards }) =>
   cards.map(item => (
-    <CardWrapper key={shortid.generate()}>
+    <CardWrapper key={uid.gen()}>
       <div>
         <div
           dangerouslySetInnerHTML={{
@@ -48,7 +47,7 @@ const Cards = ({ cards }) =>
 
 const CheatSheets = ({ source }) =>
   source.map(item => (
-    <CheatSheetStyle key={shortid.generate()}>
+    <CheatSheetStyle key={uid.gen()}>
       <div className="cheatsheet-body">
         <div
           dangerouslySetInnerHTML={{

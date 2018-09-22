@@ -38,7 +38,6 @@ class CommunityEditorsContainer extends React.Component {
         <p>参与社区的日常维护维护, 删除灌水帖等低质量内容</p>
         <p>编辑社区 wiki, 上传视频资料等</p>
         <p>为社区文章设置标签, 便于更好的分类等</p>
-        <div>the user lists</div>
         <UserList data={pagedEditorsData} />
       </Container>
     )

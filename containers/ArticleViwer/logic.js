@@ -4,10 +4,12 @@ import {
   asyncRes,
   asyncErr,
   makeDebugger,
+  dispatchEvent,
   closePreviewer,
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   ROUTE,
   $solver,
 } from '../../utils'
@@ -15,7 +17,7 @@ import {
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_POST, EVENT.PREVIEW_CLOSED],
+  resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
 /* eslint-disable no-unused-vars */
@@ -43,13 +45,18 @@ function loading(maybe = true) {
   store.markState({ postLoading: maybe })
 }
 
-function loadPost(data) {
-  const variables = {
-    id: data.id,
-    userHasLogin: store.isLogin,
-  }
+function loadPost({ id }) {
+  const userHasLogin = store.isLogin
+  const variables = { id, userHasLogin }
   loading()
   sr71$.query(S.post, variables)
+}
+
+function loadJob({ id }) {
+  const userHasLogin = store.isLogin
+  const variables = { id, userHasLogin }
+  loading()
+  sr71$.query(S.job, variables)
 }
 
 function reloadReactions(article) {
@@ -61,20 +68,57 @@ function reloadReactions(article) {
   sr71$.query(S.reactionResult, variables)
 }
 
-const DataSolver = [
-  {
-    match: asyncRes(EVENT.PREVIEW_POST),
-    action: res => {
-      const info = res[EVENT.PREVIEW_POST]
-      if (info.type === TYPE.POST) {
-        const post = info.data
-        loadPost(post)
+export function onEdit(thread) {
+  /* debug('onEdit', store.viewingPost) */
+  debug('onEdit viewingData: ', store.viewingData)
+  switch (thread) {
+    case THREAD.POST: {
+      return dispatchEvent(EVENT.PREVIEW_OPEN, {
+        type: TYPE.PREVIEW_POST_EDIT,
+        data: store.viewingData, // maybe need clone
+      })
+    }
+    case THREAD.JOB: {
+      return dispatchEvent(EVENT.PREVIEW_OPEN, {
+        type: TYPE.PREVIEW_JOB_EDIT,
+        data: store.viewingData, // maybe need clone
+      })
+    }
+    default: {
+      debug('unsupported thread')
+    }
+  }
+}
 
-        store.markState({ type: TYPE.POST })
-        store.setViewing({ post })
-      }
-    },
-  },
+const openAttachment = att => {
+  if (!att) return false
+
+  const { type } = att
+
+  if (type === TYPE.PREVIEW_POST_VIEW) {
+    loadPost(att)
+
+    store.markState({ type })
+    store.setViewing({ post: att })
+  }
+
+  if (type === TYPE.PREVIEW_JOB_VIEW) {
+    loadJob(att)
+    store.markState({ type })
+    store.setViewing({ job: att })
+  }
+}
+
+// ###############################
+// Data & Error handlers
+// ###############################
+
+function contentLoaded(content) {
+  store.setViewing(content)
+  loading(false)
+}
+
+const DataSolver = [
   {
     match: asyncRes('reaction'),
     action: ({ reaction }) => {
@@ -95,17 +139,17 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       sr71$.stop()
-      store.load(TYPE.POST, {})
+      /* store.load(TYPE.POST, {}) */
       loading(false)
     },
   },
   {
-    match: asyncRes('post'), // GraphQL return
-    action: ({ post }) => {
-      store.setViewing({ post })
-      store.markState({ type: TYPE.POST })
-      loading(false)
-    },
+    match: asyncRes('post'),
+    action: ({ post }) => contentLoaded({ post }),
+  },
+  {
+    match: asyncRes('job'),
+    action: ({ job }) => contentLoaded({ job }),
   },
 ]
 
@@ -130,10 +174,13 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+export function init(_store, attachment) {
+  if (store) {
+    return openAttachment(attachment)
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  openAttachment(attachment)
 }

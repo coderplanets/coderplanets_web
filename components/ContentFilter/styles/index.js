@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -24,6 +24,7 @@ export const FilterIcon = styled(Img)`
 export const SelectPanelWrapper = styled.div`
   width: 280px;
   margin-left: 20px;
+  padding: 10px;
 `
 
 export const SelectTitle = styled.div`

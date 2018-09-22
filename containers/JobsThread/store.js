@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { Article, PagedJobs, Tag } from '../../stores/SharedModel'
+import { PagedJobs, Tag, emptyPagiData } from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:JobsThreadStore')
@@ -55,7 +55,7 @@ const FilterModel = t.model('FilterModel', {
 
 const JobsThreadStore = t
   .model('JobsThreadStore', {
-    pagedJobs: t.maybeNull(PagedJobs),
+    pagedJobs: t.optional(PagedJobs, emptyPagiData),
     filters: t.optional(FilterModel, {}),
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
@@ -71,7 +71,6 @@ const JobsThreadStore = t
     // runtime: ..
     // data: ...
     // TODO: rename to activeArticle
-    activeJob: t.optional(Article, {}),
   })
   .views(self => ({
     get root() {
@@ -98,8 +97,8 @@ const JobsThreadStore = t
     get activeTagData() {
       return stripMobx(self.activeTag) || { title: '', color: '' }
     },
-    get active() {
-      return stripMobx(self.activeJob)
+    get activeJob() {
+      return stripMobx(self.root.viewing.job)
     },
   }))
   .actions(self => ({
@@ -114,6 +113,9 @@ const JobsThreadStore = t
     },
     setHeaderFix(fix) {
       self.root.setHeaderFix(fix)
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markRoute(query) {
       self.root.markRoute(query)

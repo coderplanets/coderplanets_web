@@ -7,11 +7,9 @@ import {
   EVENT,
   ERR,
   TYPE,
-  THREAD,
   $solver,
   scrollIntoEle,
-  GA,
-  later,
+  // GA,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -75,19 +73,6 @@ export function loadJobs(page = 1) {
   sr71$.query(S.pagedJobs, args)
 }
 
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-
-  const args = {
-    thread: R.toUpper(THREAD.JOB),
-    community,
-  }
-
-  sr71$.query(S.partialTags, args)
-}
-
 export function onFilterSelect(option) {
   store.selectFilter(option)
   loadJobs()
@@ -98,24 +83,16 @@ export function onTagSelect(obj) {
   loadJobs()
 }
 
-export function onTitleSelect(activeJob) {
-  store.markState({ activeJob })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
-    data: activeJob,
-  })
-  debug('activeJob: ', activeJob)
-
-  GA.event({
-    action: activeJob.title,
-    category: '浏览',
-    label: '社区',
+export function onTitleSelect(job) {
+  store.setViewing({ job })
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_JOB_VIEW,
+    data: job,
   })
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 const DataSolver = [
@@ -131,17 +108,11 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) =>
-      store.markState({
-        tags: partialTags,
-      }),
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      loadJobs()
-      later(loadTags, 300)
-    },
+    action: () => loadJobs(),
   },
   {
     match: asyncRes(EVENT.REFRESH_JOBS),
@@ -149,7 +120,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.markState({ activeJob: {} }),
+    action: () => store.setViewing({ job: {} }),
   },
 ]
 
@@ -175,10 +146,9 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedJobs) {
+  if (R.isEmpty(store.pagedJobsData.entries)) {
     debug('loadIfNeed')
     loadJobs()
-    later(loadTags, 300)
   }
 }
 
@@ -190,4 +160,5 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadIfNeed()
+  /* loadJobs() */
 }

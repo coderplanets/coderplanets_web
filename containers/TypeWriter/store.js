@@ -19,8 +19,9 @@ const TypeWriterStore = t
     publishing: t.optional(t.boolean, false),
 
     isOriginal: t.optional(t.boolean, true),
-    articleType: t.optional(
-      t.enumeration('articleType', ['original', 'reprint', 'translate']),
+
+    cpType: t.optional(
+      t.enumeration('cpType', ['original', 'reprint', 'translate']),
       'original'
     ),
     curView: t.optional(
@@ -32,6 +33,8 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
+    // TODO: rename to isEditMode
+    isEdit: t.optional(t.boolean, false),
     /* for StatusBox */
     success: t.optional(t.boolean, false),
     error: t.optional(t.boolean, false),
@@ -49,8 +52,14 @@ const TypeWriterStore = t
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get thread() {
+      return self.root.viewing.activeThread
+    },
   }))
   .actions(self => ({
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
     closePreview() {
       self.root.closePreview()
     },
@@ -60,7 +69,8 @@ const TypeWriterStore = t
         linkAddr: '',
         body: '',
         isOriginal: true,
-        articleType: 'original',
+        cpType: 'original',
+        isEdit: false,
         // curView:
       })
     },

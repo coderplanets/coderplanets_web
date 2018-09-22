@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Container = styled.div`

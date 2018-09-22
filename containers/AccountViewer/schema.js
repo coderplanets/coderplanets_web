@@ -7,12 +7,29 @@ const userRaw = `
       nickname
       avatar
       bio
-      fromGithub
+      sex
       location
       qq
       weibo
       weichat
-      sex
+      github
+      zhihu
+      douban
+      twitter
+      facebook
+      dribble
+      instagram
+      pinterest
+      huaban
+      workBackgrounds {
+        company
+        title
+      }
+      educationBackgrounds {
+        school
+        major
+      }
+      fromGithub
       githubProfile {
         htmlUrl
         login
@@ -38,10 +55,27 @@ const account = gql`
   query account {
     account {
       location
+      sex
       qq
       weibo
       weichat
-      sex
+      github
+      zhihu
+      douban
+      twitter
+      facebook
+      dribble
+      instagram
+      pinterest
+      huaban
+      workBackgrounds {
+        company
+        title
+      }
+      educationBackgrounds {
+        school
+        major
+      }
       githubProfile {
         htmlUrl
         login

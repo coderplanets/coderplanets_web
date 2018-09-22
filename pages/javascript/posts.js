@@ -25,12 +25,12 @@ import {
   Header,
   Banner,
   Content,
+  Footer,
 } from '../../containers'
 
 import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import PostsThreadSchema from '../../containers/PostsThread/schema'
 
-import Footer from '../../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
@@ -45,7 +45,7 @@ async function fetchData(props) {
   // utils
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(asPath), community }
+  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // data
   const curCommunity = request(communityRaw, { raw: community })
@@ -83,10 +83,10 @@ export default class Posts extends React.Component {
       /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
       viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },
+      tagsBar: { tags: partialTags },
       postsThread: {
         pagedPosts,
         curView,
-        tags: partialTags,
       },
     }
   }

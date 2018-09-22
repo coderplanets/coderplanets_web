@@ -1,6 +1,6 @@
 import styled from 'styled-components'
+import { Button } from 'antd'
 
-import { Button } from '../../../components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`

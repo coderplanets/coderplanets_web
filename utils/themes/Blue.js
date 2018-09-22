@@ -245,10 +245,29 @@ const Blue = {
     text: descText,
     label: primaryColor,
     border: descText,
+    shadow: 'rgba(184, 198, 192, 0.3)',
   },
   a: {
     hover: primaryColor,
     active: darken(0.1, primaryColor),
+  },
+  toast: {
+    bg: contentBoxBg,
+    border: descText,
+    message: descText,
+    title: primaryColor,
+    infoBar: primaryColor,
+    errorBar: '#f59381',
+    successBar: '#9dd035',
+    warnBar: '#f5a30e',
+  },
+  mailBox: {
+    headHightBg: bannerBg,
+  },
+  alertWarn: {
+    border: '#ffe58f',
+    bg: '#fffbe6',
+    text: '#c3ae8e',
   },
 }
 

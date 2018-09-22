@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
 // import styled from 'styled-components'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { makeDebugger, storePlug } from '../../utils'
 
 import InputEditor from './InputEditor'
@@ -38,7 +38,7 @@ const debug = makeDebugger('C:Doraemon')
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
-    return <HintEnter src={`${ICON_ASSETS}/cmd/enter.svg`} />
+    return <HintEnter src={`${ICON_CMD}/enter.svg`} />
   }
   if (length <= 9) {
     return <Hint>^ {index}</Hint>

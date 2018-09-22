@@ -4,13 +4,11 @@ import { PAGE_SIZE } from '../../config'
 import {
   asyncRes,
   asyncErr,
-  later,
   makeDebugger,
   dispatchEvent,
   EVENT,
   ERR,
   TYPE,
-  THREAD,
   $solver,
   scrollIntoEle,
   GA,
@@ -46,18 +44,18 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
-  debug('loadPosts')
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
   const community = mainPath
   store.markState({ curView: TYPE.LOADING })
 
+  debug('store.activeTagData', store.activeTagData)
   const args = {
     filter: {
       page,
       size: PAGE_SIZE.COMMON,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
       community,
     },
   }
@@ -65,20 +63,9 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  debug('load posts --> ', args)
+  debug('loadPosts args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
-}
-
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-  const thread = R.toUpper(THREAD.POST)
-
-  const args = { community, thread }
-  debug('loadTags --> ', args)
-  sr71$.query(S.partialTags, args)
 }
 
 export function onFilterSelect(option) {
@@ -95,9 +82,8 @@ export function onTitleSelect(post) {
   store.setViewing({ post })
   /* store.setActive(post) */
   debug('onTitleSelect publish post: ', post)
-  // dispatchEvent(EVENT.PREVIEW, { type: TYPE.POST_PREVIEW_VIEW, data: post })
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.POST_PREVIEW_VIEW,
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_POST_VIEW,
     data: post,
   })
 
@@ -109,8 +95,7 @@ export function onTitleSelect(post) {
 }
 
 export function createContent() {
-  debug('onTitleSelect createContent ')
-  dispatchEvent(EVENT.NAV_CREATE_POST, { type: TYPE.PREVIEW_CREATE_POST })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 const DataSolver = [
@@ -118,7 +103,8 @@ const DataSolver = [
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
       let curView = TYPE.RESULT
-      if (pagedPosts.entries.length === 0) {
+      debug('load back pagedPosts: ', pagedPosts)
+      if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
       }
       store.markState({ curView, pagedPosts })
@@ -126,25 +112,15 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      store.markState({
-        tags: partialTags,
-      })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      loadPosts()
-      later(loadTags, 500)
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.REFRESH_POSTS),
-    action: res => {
-      debug('EVENT.REFRESH_POSTS: ', res)
-      loadPosts()
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
@@ -174,14 +150,16 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedPosts) {
+  if (R.isEmpty(store.pagedPostsData.entries)) {
     loadPosts()
-    later(loadTags, 300)
   }
 }
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadIfNeed()
+  }
+
   store = _store
 
   if (sub$) sub$.unsubscribe()

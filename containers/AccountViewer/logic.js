@@ -40,18 +40,13 @@ export function logout() {
 }
 
 export function editProfile() {
-  dispatchEvent(EVENT.NAV_EDIT, {
-    type: TYPE.PREVIEW_ACCOUNT_EDIT,
-  })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
 }
 
 const DataSolver = [
   {
     match: asyncRes('account'),
-    action: res => {
-      const data = res.account
-      store.updateAccount(data)
-    },
+    action: ({ account }) => store.updateAccount(account),
   },
   {
     match: asyncRes(EVENT.LOGIN),

@@ -7,6 +7,7 @@ export const Wrapper = styled.div``
 
 export const HeaderWrapper = styled.div`
   display: flex;
+  margin-bottom: 5px;
 `
 export const Title = styled.div`
   font-size: 1em;
@@ -29,9 +30,9 @@ export const IconList = styled.div`
 `
 
 export const PlanetsIcon = styled(Img)`
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
   margin-bottom: 3px;
   cursor: pointer;
   opacity: 0.6;

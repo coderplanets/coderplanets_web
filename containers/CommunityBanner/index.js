@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { makeDebugger, storePlug } from '../../utils'
 
 import Tabber from '../../components/Tabber'
@@ -23,7 +23,9 @@ import {
   CommunityLogo,
   LogoWrapper,
   CommunityInfo,
+  TitleWrapper,
   Title,
+  GroupsIcon,
   Desc,
   LogoHolder,
 } from './styles'
@@ -32,7 +34,7 @@ import {
 const debug = makeDebugger('C:CommunityBanner')
 /* eslint-enable no-unused-vars */
 
-const CommunityLogoHolder = `${ICON_ASSETS}/cmd/community_logo_holder.svg`
+const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 const CommunityBrief = ({ content }) => (
   <CommunityWrapper>
     <LogoWrapper>
@@ -43,7 +45,10 @@ const CommunityBrief = ({ content }) => (
       )}
     </LogoWrapper>
     <CommunityInfo>
-      <Title>{content.title}</Title>
+      <TitleWrapper>
+        <Title>{content.title}</Title>
+        <GroupsIcon src={`${ICON_CMD}/online_groups.svg`} />
+      </TitleWrapper>
       <Desc>{content.desc}</Desc>
     </CommunityInfo>
   </CommunityWrapper>

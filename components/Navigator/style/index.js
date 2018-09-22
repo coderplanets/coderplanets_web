@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Breadcrumbs = styled.div`
@@ -54,7 +54,6 @@ export const LI = styled.li`
     background: ${theme('navigator.hoverBg')};
   }
 `
-
 export const A = styled.a`
   position: relative;
   display: block;
@@ -64,4 +63,39 @@ export const A = styled.a`
   text-align: center;
   color: #aaa;
   cursor: pointer;
+`
+
+export const ShortAddr = styled.div`
+  padding: 5px 10px;
+  color: ${theme('banner.title')};
+  font-weight: bolder;
+  &:hover {
+    cursor: pointer;
+  }
+`
+export const ShortDesc = styled.span`
+  color: ${theme('banner.desc')};
+  margin-right: 1px;
+  font-weight: normal;
+`
+
+export const SiteMapWrapper = styled.div`
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+`
+export const DotDivider = styled.div`
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: ${theme('banner.desc')};
+  margin-left: 5px;
+  margin-right: 5px;
+`
+export const SiteLink = styled.a`
+  color: ${theme('banner.desc')};
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('banner.title')};
+  }
 `

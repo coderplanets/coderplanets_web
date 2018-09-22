@@ -8,8 +8,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_ASSETS } from '../../config'
-import { AvatarsRow } from '..'
+import { ICON_CMD } from '../../config'
+
+import AvatarsRow from '../AvatarsRow'
+import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
@@ -20,11 +22,9 @@ import {
   TopHalf,
   Breif,
   Title,
-  TitleTag,
   SecondHalf,
   BodyDigest,
   Extra,
-  TitleTagDot,
 } from './styles'
 
 import { cutFrom, makeDebugger } from '../../utils'
@@ -42,13 +42,10 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
         <Breif onClick={onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <TitleLink>
-            <LinkIcon src={`${ICON_ASSETS}/cmd/link.svg`} />
+            <LinkIcon src={`${ICON_CMD}/link.svg`} />
             <span style={{ marginLeft: 9 }}>github</span>
           </TitleLink>
-          <TitleTag>
-            <TitleTagDot />
-            问答
-          </TitleTag>
+          <InlineTags data={entry.tags} />
         </Breif>
         <div>
           <AvatarsRow
@@ -71,8 +68,6 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
 )
 
 PostItem.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  /* entry: PropTypes.object.isRequired, */
   active: PropTypes.object,
 
   entry: PropTypes.shape({

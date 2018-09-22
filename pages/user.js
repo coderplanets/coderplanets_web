@@ -28,22 +28,16 @@ import {
   Header,
   Banner,
   Content,
+  Footer,
 } from '../containers'
 
 import AccountSchema from '../containers/AccountViewer/schema'
 
-import Footer from '../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  /* const community = getMainPath(props) */
-  /* const thread = extractThreadFromPath(props) */
-  /* const category = getSubPath(props) */
-
-  /* const { asPath } = props */
-  //   const filter = { ...queryStringToJSON(asPath) }
   const token = null // BStore.cookie.from_req(req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
@@ -72,7 +66,7 @@ export default class UserPage extends React.Component {
     const query = queryStringToJSON(asPath)
 
     const { user } = await fetchData(props)
-    /* console.log('fetchData user: ', user) */
+    console.log('fetchData user: ', user)
 
     return {
       langSetup: {},

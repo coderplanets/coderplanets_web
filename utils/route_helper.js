@@ -1,5 +1,5 @@
 import R from 'ramda'
-import { Global } from '.'
+import { Global } from './functions'
 
 // example: /getme/xxx?aa=bb&cc=dd
 const parseMainPath = R.compose(

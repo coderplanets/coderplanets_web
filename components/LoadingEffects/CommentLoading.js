@@ -9,7 +9,7 @@ const LoadingWrapper = styled.div`
 `
 
 const CommentLoading = ({ theme }) => {
-  // const ukey = shortid.generate()
+  // const ukey = uid.gen()
   return (
     <LoadingWrapper>
       <ContentLoader

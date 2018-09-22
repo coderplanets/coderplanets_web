@@ -5,11 +5,11 @@ import { PAGE_SIZE } from '../../config'
 import {
   makeDebugger,
   $solver,
+  dispatchEvent,
+  EVENT,
   TYPE,
-  THREAD,
   scrollIntoEle,
   asyncRes,
-  later,
 } from '../../utils'
 
 import S from './schema'
@@ -57,23 +57,13 @@ export function loadRepos(page = 1) {
   store.markRoute({ page })
 }
 
-export function loadTags() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-  const thread = R.toUpper(THREAD.REPO)
-
-  const args = { community, thread }
-  debug('loadTags --> ', args)
-  sr71$.query(S.partialTags, args)
-}
-
 export function onTitleSelect() {
   debug('onTitleSelect')
 }
 
 export function createContent() {
   debug('createContent')
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
 export function onTagSelect() {
@@ -92,7 +82,6 @@ const DataSolver = [
   {
     match: asyncRes('pagedRepos'),
     action: ({ pagedRepos }) => {
-      debug('========> pagedRepos: ', pagedRepos)
       let curView = TYPE.RESULT
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -102,11 +91,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags }) => {
-      store.markState({
-        tags: partialTags,
-      })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
 ]
 const ErrSolver = []
@@ -116,7 +101,6 @@ const loadIfNeed = () => {
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
   if (R.isEmpty(store.pagedReposData.entries)) {
     loadRepos()
-    later(loadTags, 500)
   }
 }
 

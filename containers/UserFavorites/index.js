@@ -7,18 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import shortid from 'shortid'
+import FavoritesCats from '../FavoritesCats'
+import { PostsLoading, Pagi, PostItem } from '../../components'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
-
-import {
-  PostsLoading,
-  /* Pagi, */
-  /* EmptyThread, */
-  Pagi,
-  PostItem,
-} from '../../components'
-
+import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:UserFavorites')
@@ -31,7 +23,7 @@ const View = ({ entries, curView, active }) => {
         <React.Fragment>
           {entries.map(entry => (
             <PostItem
-              key={shortid.generate()}
+              key={uid.gen()}
               entry={entry}
               active={active}
               onTitleSelect={debug}
@@ -60,9 +52,9 @@ class UserFavoritesContainer extends React.Component {
 
     return (
       <div>
+        <FavoritesCats />
         <React.Fragment>
           <View entries={entries} curView={curView} />
-
           <Pagi
             left="-10px"
             pageNumber={pageNumber}

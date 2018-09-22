@@ -30,7 +30,7 @@ let sub$ = null
 /* const user_token = */
 
 export function previewState() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ROOT_STORE,
   })
 }
@@ -53,9 +53,8 @@ export function checkUserAccount() {
 }
 
 export function previewAccount() {
-  dispatchEvent(EVENT.PREVIEW, {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
-    data: { hello: 'world --- fuck' },
   })
 }
 
@@ -72,13 +71,6 @@ export function login() {
   dispatchEvent(EVENT.LOGIN_PANEL)
 }
 
-export function openPreview() {
-  dispatchEvent(EVENT.PREVIEW, {
-    type: TYPE.PREVIEW_ACCOUNT_VIEW,
-    data: { hello: 'world' },
-  })
-}
-
 export function openDoraemon() {
   store.openDoraemon()
 }
@@ -86,6 +78,13 @@ export function openDoraemon() {
 export function upgradeHepler() {
   debug('upgradeHepler')
   store.upgradeHepler()
+}
+
+export function toast() {
+  store.toast('success', {
+    title: 'mydearxym',
+    msg: 'your website is fucking awesome',
+  })
 }
 
 const DataSolver = [

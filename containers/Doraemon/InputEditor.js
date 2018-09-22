@@ -7,7 +7,7 @@
 import React from 'react'
 import keydown from 'react-keydown'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import * as logic from './logic'
 
@@ -26,10 +26,10 @@ import {
 const PrefixIcon = ({ prefix }) => {
   switch (prefix) {
     case '': {
-      return <PrefixSearchIcon src={`${ICON_ASSETS}/cmd/search.svg`} />
+      return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
     }
     case '/': {
-      return <PrefixMagicIcon src={`${ICON_ASSETS}/cmd/magic.svg`} />
+      return <PrefixMagicIcon src={`${ICON_CMD}/magic.svg`} />
     }
     default: {
       return <PrefixSVGIcon src={logic.getPrefixLogo(prefix)} />
@@ -72,7 +72,7 @@ export default class InputEditor extends React.Component {
       <EditorBar>
         <AddOn>
           {searching ? (
-            <LoadingIcon src={`${ICON_ASSETS}/cmd/search_loading.svg`} />
+            <LoadingIcon src={`${ICON_CMD}/search_loading.svg`} />
           ) : (
             <PrefixIcon prefix={prefix} />
           )}

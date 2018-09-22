@@ -25,12 +25,12 @@ import {
   Header,
   Banner,
   Content,
+  Footer,
 } from '../../containers'
 
 import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import JobsThreadSchema from '../../containers/JobsThread/schema'
 
-import Footer from '../../components/Footer'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
@@ -82,10 +82,10 @@ export default class Jobs extends React.Component {
       /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
       viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },
+      tagsBar: { tags: partialTags },
       jobsThread: {
         pagedJobs,
         curView,
-        tags: partialTags,
       },
     }
   }

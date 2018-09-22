@@ -24,22 +24,39 @@ const GithubProfile = t.model('GithubProfile', {
   htmlUrl: t.string,
 })
 
+export const EduBackground = t.model('EduBackground', {
+  school: t.optional(t.string, ''),
+  major: t.optional(t.string, ''),
+})
+
+export const WorkBackground = t.model('WorkBackground', {
+  company: t.optional(t.string, ''),
+  title: t.optional(t.string, ''),
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
   id: t.maybeNull(t.string),
-  /* nickname: t.optional(t.string, ''), */
   nickname: t.maybeNull(t.string),
-  /* bio: t.optional(t.string, ''), */
   bio: t.maybeNull(t.string),
-  /* avatar: t.optional(t.string, ''), */
   avatar: t.maybeNull(t.string),
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
   // TODO: backgrounds
-  /* company: t.maybeNull(t.string), */
-  /* education: t.maybeNull(t.string), */
+  educationBackgrounds: t.optional(t.array(EduBackground), []),
+  workBackgrounds: t.optional(t.array(WorkBackground), []),
   sex: t.maybeNull(t.string),
+  // social
+  github: t.maybeNull(t.string),
+  zhihu: t.maybeNull(t.string),
+  douban: t.maybeNull(t.string),
+  twitter: t.maybeNull(t.string),
+  facebook: t.maybeNull(t.string),
+  dribble: t.maybeNull(t.string),
+  instagram: t.maybeNull(t.string),
+  pinterest: t.maybeNull(t.string),
+  huaban: t.maybeNull(t.string),
   qq: t.maybeNull(t.string),
   weichat: t.maybeNull(t.string),
   weibo: t.maybeNull(t.string),

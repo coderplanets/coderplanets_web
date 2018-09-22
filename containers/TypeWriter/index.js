@@ -8,140 +8,92 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-// import ContentInput from './ContentInput'
-import { ICON_ASSETS } from '../../config'
-
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
-import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
-
+import Header from './Header'
 import Footer from './Footer'
 
-import {
-  Wrapper,
-  EditorBlock,
-  PreviewBlock,
-  Header,
-  UsageText,
-  MarkdownIcon,
-  MarkDownHint,
-  BackToEditHint,
-} from './styles'
+import { Wrapper, ViewerWrapper } from './styles'
+
+import { init, uninit, changeView } from './logic'
+import { makeDebugger, storePlug } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
 
-const View = ({
-  curView,
-  articleType,
-  copyrightChange,
-  title,
-  body,
-  linkAddr,
-}) => {
-  // const curView = 'create' // markdown_help
-
+const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
-        <EditorBlock name="CREATE_VIEW" curView={curView}>
+        <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
-            articleType={articleType}
-            copyrightChange={copyrightChange}
+            cpType={cpType}
+            thread={thread}
             title={title}
-            titleOnChange={logic.titleOnChange}
             linkAddr={linkAddr}
-            linkSourceOnChange={logic.linkSourceOnChange}
             body={body}
-            bodyOnChange={logic.bodyOnChange}
-            onPreview={logic.changeView.bind(this, 'PREVIEW_VIEW')}
           />
-        </EditorBlock>
-        <PreviewBlock name="PREVIEW_VIEW" curView={curView}>
+        </ViewerWrapper>
+        <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
             title={title}
             body={body}
-            onBack={logic.changeView.bind(this, 'CREATE_VIEW')}
+            onBack={changeView.bind(this, 'CREATE_VIEW')}
           />
-        </PreviewBlock>
+        </ViewerWrapper>
       </React.Fragment>
     )
   }
   return <MarkDownHelper />
 }
 
-const TopHeader = ({ curView }) => {
-  switch (curView) {
-    case 'MARKDOWN_HELP_VIEW': {
-      return (
-        <Header>
-          <UsageText>Github Flavor Markdown</UsageText>
-          <BackToEditHint onClick={logic.changeView.bind(this, 'CREATE_VIEW')}>
-            <MarkdownIcon src={`${ICON_ASSETS}/cmd/original.svg`} />
-            返回编辑
-          </BackToEditHint>
-        </Header>
-      )
-    }
-    default:
-      return (
-        <Header>
-          <UsageText>发布帖子</UsageText>
-          <MarkDownHint
-            onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}
-          >
-            <MarkdownIcon src={`${ICON_ASSETS}/cmd/markdown.svg`} />
-            markdown 语法 / emojj 速查
-          </MarkDownHint>
-        </Header>
-      )
-  }
-}
-
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
   componentWillMount() {
-    const { typeWriter } = this.props
-    logic.init(typeWriter)
+    const { typeWriter, attachment } = this.props
+
+    init(typeWriter, attachment)
   }
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
     // Message.success('草稿已经保存')
+    uninit()
   }
 
   render() {
+    const { typeWriter } = this.props
+
     const {
-      typeWriter: {
-        articleType,
-        curView,
-        linkAddr,
-        title,
-        body,
-        publishing,
-        success,
-        error,
-        warn,
-        statusMsg,
-      },
-    } = this.props
+      cpType,
+      thread,
+      curView,
+      linkAddr,
+      title,
+      body,
+      publishing,
+      success,
+      error,
+      warn,
+      isEdit,
+      statusMsg,
+    } = typeWriter
 
     return (
       <Wrapper>
-        <TopHeader curView={curView} />
+        <Header isEdit={isEdit} curView={curView} thread={thread} />
         <View
           curView={curView}
+          thread={thread}
           linkAddr={linkAddr}
           title={title}
           body={body}
-          articleType={articleType}
-          copyrightChange={logic.copyrightChange}
+          cpType={cpType}
         />
         <Footer
-          onPublish={logic.onPublish}
+          isEdit={isEdit}
           publishing={publishing}
           success={success}
           error={error}

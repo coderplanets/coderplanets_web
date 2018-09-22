@@ -1,44 +1,47 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
-import { Animate, theme } from '../../../utils'
+import { Input } from '../../../components'
+import { theme } from '../../../utils'
 
-export const ExtraWrapper = styled.div`
+export const Wrapper = styled.div`
+  padding: 20px;
+  background-color: ${theme('editor.contentBg')};
+  min-height: 600px;
+  margin-top: 5px;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+`
+export const TitleInput = styled(Input)`
+  border-color: ${theme('editor.border')};
+  border-bottom: 1px solid;
+  border-bottom-color: ${theme('editor.borderNormal')};
+  ::placeholder {
+    color: ${theme('editor.placeholder')};
+  }
+
+  text-align: center;
+  height: 45px;
+  font-size: 1.6em;
+  color: ${theme('editor.title')};
+  background: ${theme('editor.headerBg')};
+  align-self: center;
+  width: 85%;
+  &:hover {
+    border-color: ${theme('editor.border')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('editor.borderActive')};
+  }
+  &:focus {
+    border-color: ${theme('editor.border')};
+    box-shadow: none;
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('editor.borderActive')};
+  }
+`
+export const FooterWrapper = styled.div`
   display: flex;
   justify-content: center;
-`
-
-export const ExtraItem = styled.div`
-  display: flex;
-  color: ${theme('editor.footer')};
-  &:hover {
-    color: #51abb2;
-    animation: ${Animate.pulse} 0.4s linear;
-  }
-`
-
-export const ExtraDivider = styled(Img)`
-  fill: #75898a;
-  width: 10px;
-  height: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-`
-export const ExtraItemTitle = styled.div`
-  cursor: pointer;
-  font-size: 1.2em;
-  ${ExtraItem}:hover & {
-    color: ${theme('editor.footerHover')};
-  }
-`
-export const ExtraItemIcon = styled(Img)`
-  fill: ${theme('editor.content')};
-  width: 17px;
-  height: 17px;
-  margin-right: 3px;
-  margin-top: 2px;
-
-  ${ExtraItem}:hover & {
-    fill: ${theme('editor.footerHover')};
-  }
 `

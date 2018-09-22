@@ -65,15 +65,35 @@ export const CommunityInfo = styled.div`
   margin-top: -6px;
   margin-left: 1em;
 `
-
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
 export const Title = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: ${theme('banner.title')};
   @media (max-height: 800px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 `
-// color: ${theme('font')};
+export const GroupsIcon = styled(Img)`
+  fill: ${theme('banner.desc')};
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  opacity: 0;
+  &:hover {
+    cursor: pointer;
+    fill: ${theme('banner.title')};
+  }
+  ${BannerContainer}:hover & {
+    fill: ${theme('banner.title')};
+    opacity: 1;
+  }
+  transition: opacity 0.2s;
+`
+
 export const Desc = styled.div`
   font-size: 1rem;
   color: ${theme('banner.desc')};

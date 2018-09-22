@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { Button, Modal, SectionLabel } from '../../components'
 import Support from './Support'
@@ -37,6 +37,7 @@ const freeUserItems = [
 ]
 
 const proUserItems = [
+  { title: '关闭广告' },
   { title: '主题设置' },
   { title: '首页发帖' },
   { title: '发起投票' },
@@ -69,7 +70,7 @@ class UpgradePackgesContainer extends React.Component {
           <LabelWrapper>
             <SectionLabel
               title="升级助手"
-              iconSrc={`${ICON_ASSETS}/cmd/rocket.svg`}
+              iconSrc={`${ICON_CMD}/rocket.svg`}
               desc="请注意：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善, 届时会恢复原价, 介意的朋友请慎拍, 谢谢理解。"
             />
           </LabelWrapper>

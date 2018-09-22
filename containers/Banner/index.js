@@ -7,14 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
+import UserBanner from '../UserBanner'
+import PostBanner from '../PostBanner'
+import CommunitiesBanner from '../CommunitiesBanner'
+import CommunityBanner from '../CommunityBanner'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
-/* import CommunityBanner from './CommunityBanner' */
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { UserBanner, PostBanner, CommunitiesBanner, CommunityBanner } from '..'
-
+import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import init from './logic'
 
 /* eslint-disable no-unused-vars */

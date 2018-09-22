@@ -8,26 +8,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-// import Link from 'next/link'
-
 import PostViewer from './PostViewer'
+import JobViewer from './JobViewer'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ArticleViwer')
 /* eslint-enable no-unused-vars */
 
-const Viwer = ({ type, data, loading, onReaction }) => {
+const Viwer = ({ type, data, loading, accountInfo }) => {
   switch (type) {
-    case 'post': {
+    case TYPE.PREVIEW_POST_VIEW: {
       return (
-        <PostViewer data={data} loading={loading} onReaction={onReaction} />
+        <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
-    case 'job': {
-      return <div>job</div>
+    case TYPE.PREVIEW_JOB_VIEW: {
+      return (
+        <JobViewer data={data} loading={loading} accountInfo={accountInfo} />
+      )
     }
     case 'typewriter': {
       return <div>typewriter</div>
@@ -40,21 +41,21 @@ const Viwer = ({ type, data, loading, onReaction }) => {
 
 class ArticleViwerContainer extends React.Component {
   componentWillMount() {
-    const { articleViwer } = this.props
-    logic.init(articleViwer)
+    const { articleViwer, attachment } = this.props
+    logic.init(articleViwer, attachment)
   }
 
   render() {
-    const { type, articleViwer } = this.props
-    const { viewingPost, postLoading } = articleViwer
+    const { articleViwer } = this.props
+    const { type, viewingData, postLoading, accountInfo } = articleViwer
 
     return (
       <React.Fragment>
         <Viwer
           type={type}
-          data={viewingPost}
+          data={viewingData}
           loading={postLoading}
-          onReaction={logic.onReaction}
+          accountInfo={accountInfo}
         />
       </React.Fragment>
     )
@@ -64,13 +65,10 @@ class ArticleViwerContainer extends React.Component {
 ArticleViwerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
-  type: PropTypes.oneOf(['post', 'tut', 'job']),
   // onReaction: PropTypes.func.isRequired,
 }
 
-ArticleViwerContainer.defaultProps = {
-  type: 'post',
-}
+ArticleViwerContainer.defaultProps = {}
 
 // ArticleViwerContainer
 

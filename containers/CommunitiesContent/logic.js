@@ -89,9 +89,9 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.REFRESH_COMMUNITIES),
     action: res => {
-      const { data } = res[EVENT.REFRESH_COMMUNITIES]
+      const payload = res[EVENT.REFRESH_COMMUNITIES]
 
-      loadCommunities(1, data)
+      loadCommunities(1, payload.data)
     },
   },
   {

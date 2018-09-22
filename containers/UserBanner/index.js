@@ -17,7 +17,7 @@ import {
   UserContributesWrapper,
 } from './styles'
 
-import UserBrief from './UserBrief'
+import { UserBrief } from '../../components'
 import UserContributeMap from './UserContributeMap'
 
 import * as logic from './logic'
@@ -49,13 +49,13 @@ class UserBannerContainer extends React.Component {
 
   render() {
     const { userBanner } = this.props
-    const { viewingUser, showDetail } = userBanner
+    const { viewingUser } = userBanner
 
     return (
       <BannerContainer>
         <BannerContentWrapper>
           <UserBriefWrapper>
-            <UserBrief user={viewingUser} showDetail={showDetail} />
+            <UserBrief user={viewingUser} />
           </UserBriefWrapper>
           <UserContributesWrapper>
             <UserContributeMap data={fakeRecors} />

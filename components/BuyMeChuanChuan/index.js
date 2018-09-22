@@ -6,11 +6,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
-import { Modal, Button, Icon, UserCell } from '..'
+import { Button, Icon } from 'antd'
 
-import { makeDebugger } from '../../utils'
-import { ICON_ASSETS, GITHUB_ME } from '../../config'
+import { ICON_CMD, GITHUB_ME } from '../../config'
+
+import Modal from '../Modal'
+import UserCell from '../UserCell'
+import Maybe from '../Maybe'
 
 // import { inject, observer } from 'mobx-react'
 // import Link from 'next/link'
@@ -39,6 +41,8 @@ import {
   MoneyNum,
 } from './styles'
 
+import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Footer:index')
 /* eslint-enable no-unused-vars */
@@ -64,7 +68,7 @@ const PayMoneyFooter = ({ num }) => (
 
 const ChuanSelector = ({ active, onSelect }) => (
   <SelectBox>
-    <ChuanChuanIcon src={`${ICON_ASSETS}/cmd/chuanchuan.svg`} />
+    <ChuanChuanIcon src={`${ICON_CMD}/chuanchuan.svg`} />
 
     <Selectors>
       <By>X</By>
@@ -109,11 +113,13 @@ class BuyMeChuanChuan extends React.Component {
       <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
           <Header>
-            {R.isEmpty(fromUser) ? <div /> : <UserCell user={fromUser} />}
+            <Maybe data={fromUser}>
+              <UserCell user={fromUser} />
+            </Maybe>
           </Header>
           <BuyChuanChuan>
             <ChuanChuanDesc>
-              <FoodPic src={`${ICON_ASSETS}/cmd/food.png`} />
+              <FoodPic src={`${ICON_CMD}/food.png`} />
             </ChuanChuanDesc>
             <ChuanChuanSelect>
               <SelectTitle>
@@ -121,7 +127,7 @@ class BuyMeChuanChuan extends React.Component {
                 <MyName>
                   开发者
                   <a href={GITHUB_ME} target="_blank" rel="noopener noreferrer">
-                    <NameLinkIcon src={`${ICON_ASSETS}/cmd/link2.svg`} />
+                    <NameLinkIcon src={`${ICON_CMD}/link2.svg`} />
                   </a>
                 </MyName>{' '}
                 撸个串

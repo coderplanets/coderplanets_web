@@ -7,13 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
-import shortid from 'shortid'
 
-import { ICON_ASSETS } from '../../config/assets'
-import { UpgradePackges } from '..'
-import { Affix, Navigator, Button } from '../../components'
+import { ICON_CMD } from '../../config/assets'
 
-import { makeDebugger, storePlug, TYPE, Trans } from '../../utils'
+import MailBox from '../MailBox'
+import UpgradePackges from '../UpgradePackges'
+
+import { Affix, Navigator } from '../../components'
+import UserAccount from './UserAccount'
+import AddOns from './AddOns'
 
 import {
   HeaderWrapper,
@@ -21,20 +23,14 @@ import {
   MiniMapWrapper,
   CommunityLogo,
   MiniTab,
-  Admin,
   Search,
-  Notification,
   HeaderIcon,
-  UserAvatar,
-  StateIcon,
-  StateButton,
-  DividerIcon,
   Operations,
-  User,
   AffixHeader,
   RawHeader,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, Trans } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -47,7 +43,7 @@ const MiniMap = ({ activeInfo: { community, activeThread } }) => (
     <React.Fragment>
       {community.threads.map(t => (
         <MiniTab
-          key={shortid.generate()}
+          key={uid.gen()}
           active={t.raw === activeThread}
           onClick={logic.onThreadChange.bind(this, t)}
         >
@@ -78,42 +74,14 @@ const Header = ({
         <Navigator />
       )}
     </RouterWrapper>
-    <Admin>
-      <div style={{ display: 'flex' }}>
-        <Button size="small" type="primary" ghost onClick={logic.upgradeHepler}>
-          upgrade
-        </Button>
-        &nbsp;&nbsp;&nbsp;
-        <StateButton
-          size="small"
-          type="primary"
-          ghost
-          onClick={logic.previewState.bind(this, 'mst-state')}
-        >
-          <StateIcon src={`${ICON_ASSETS}/cmd/header_state.svg`} />
-          <div>STATE</div>
-        </StateButton>
-        <DividerIcon src={`${ICON_ASSETS}/cmd/more.svg`} />
-      </div>
-    </Admin>
-
+    <AddOns />
     <Operations>
       <Search onClick={logic.openDoraemon}>
-        <HeaderIcon src={`${ICON_ASSETS}/cmd/search2.svg`} />
+        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
       </Search>
-      <Notification onClick={logic.openPreview.bind(this, 'post')}>
-        <HeaderIcon src={`${ICON_ASSETS}/cmd/notification_none.svg`} />
-      </Notification>
 
-      {isLogin ? (
-        <User onClick={logic.previewAccount.bind(this, 'account')}>
-          <UserAvatar src={accountInfo.avatar} />
-        </User>
-      ) : (
-        <User onClick={logic.login}>
-          <HeaderIcon src={`${ICON_ASSETS}/cmd/default_user.svg`} />
-        </User>
-      )}
+      <MailBox />
+      <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
     </Operations>
   </HeaderWrapper>
 )

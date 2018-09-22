@@ -39,7 +39,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/click-events-have-key-events': 0,
 
-    'import/no-cycle': 0,
     // for cypress test usage
     'no-unused-expressions': 0,
 

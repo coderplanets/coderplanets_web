@@ -99,15 +99,15 @@ const Cyan = {
     articleBg: '#F9FCFC',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
-    topLine: 'orange',
+    topLine: primaryColor,
     icon: 'tomato',
-    divider: '#ebf1f0',
+    divider: '#e0e6e5',
   },
   article: {
     link: '#b5ccce',
     linkHover: 'orange',
     reactionTitle: '#7f979a',
-    reactionHoverBg: '#F9FCFC',
+    reactionHoverBg: '#f3f7f7',
   },
   comment: {
     icon: '#62868a',
@@ -225,7 +225,7 @@ const Cyan = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.8,
+    dotOpacity: 0.4,
     text: '#71979a',
   },
   tagger: {
@@ -253,10 +253,29 @@ const Cyan = {
     text: '#88a4ad',
     label: '#88a4ad',
     border: '#B8C6C0',
+    shadow: 'rgba(184, 198, 192, 0.3)',
   },
   a: {
     hover: primaryColor,
     active: darken(0.1, primaryColor),
+  },
+  toast: {
+    bg: contentBoxBg,
+    border: descText,
+    message: descText,
+    title: primaryColor,
+    infoBar: primaryColor,
+    errorBar: '#f59381',
+    successBar: '#9dd035',
+    warnBar: '#f5a30e',
+  },
+  mailBox: {
+    headHightBg: '#e8f9f8',
+  },
+  alertWarn: {
+    border: '#ffe58f',
+    bg: '#fffbe6',
+    text: '#c3ae8e',
   },
 }
 

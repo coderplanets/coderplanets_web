@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Masonry from 'react-masonry-component'
 import R from 'ramda'
-import shortid from 'shortid'
 import { withTheme } from 'styled-components'
 
 // import Loading, { Rect, Circle } from 'react-content-loader'
 import ContentLoader from 'react-content-loader'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, uid } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:LoadingEffects:index')
 /* eslint-enable no-unused-vars */
@@ -41,7 +40,7 @@ const LoadingBlock = ({ theme }) => (
 const CheatSheetLoading = ({ column, theme }) => (
   <Masonry>
     {R.range(0, column).map(() => (
-      <LoadingBlock key={shortid.generate()} theme={theme} />
+      <LoadingBlock key={uid.gen()} theme={theme} />
     ))}
   </Masonry>
 )

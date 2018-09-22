@@ -11,7 +11,6 @@ import { markStates, makeDebugger } from '../../utils'
 const debug = makeDebugger('S:UserSettings')
 /* eslint-enable no-unused-vars */
 
-// NOTE: add me to ../../stores/index && ../../stores/RootStore/index
 const UserSettings = t
   .model('UserSettings', {})
   .views(self => ({
@@ -25,6 +24,12 @@ const UserSettings = t
   .actions(self => ({
     changeTheme(name) {
       self.root.changeTheme(name)
+    },
+    upgradeHepler() {
+      self.root.upgradeHepler()
+    },
+    sponsorHepler() {
+      self.root.sponsorHepler()
     },
     markState(sobj) {
       markStates(sobj, self)

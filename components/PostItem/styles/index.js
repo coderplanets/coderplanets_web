@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme } from '../../../utils'
-
-/* background: ${({ index }) => */
-/* index % 2 === 0 ? theme('thread.articleStrip') : ''}; */
 
 export const Wrapper = styled.article`
   display: flex;
@@ -62,16 +59,6 @@ export const Title = styled.div`
     max-width: 350px;
   }
 `
-export const TitleTagDot = styled.span`
-  width: 10px;
-  height: 10px;
-  margin-right: 4px;
-  border-radius: 50%;
-  background-color: #9cd090;
-  display: inline-block;
-  opacity: ${theme('tags.dotOpacity')};
-`
-
 export const TitleLink = styled.div`
   position: relative;
   font-size: 0.9rem;
@@ -80,13 +67,6 @@ export const TitleLink = styled.div`
   margin-left: 10px;
   opacity: 0.8;
   text-decoration: underline;
-`
-export const TitleTag = styled.div`
-  color: ${theme('thread.articleTag')};
-  margin-left: 10px;
-  margin-top: 2px;
-  opacity: 0.8;
-  font-size: 0.9rem;
 `
 export const LinkIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};

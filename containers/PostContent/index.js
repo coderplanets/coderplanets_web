@@ -6,13 +6,12 @@
 
 import React from 'react'
 import R from 'ramda'
-import shortid from 'shortid'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
 
 import { MarkDownRender } from '../../components'
-import { makeDebugger, storePlug } from '../../utils'
+import { uid, makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 import {
@@ -41,7 +40,7 @@ const Communities = ({ data }) => {
   return (
     <React.Fragment>
       {data.map(c => (
-        <CommunityIcon key={shortid.generate()} src={c.logo} />
+        <CommunityIcon key={uid.gen()} src={c.logo} />
       ))}
     </React.Fragment>
   )
@@ -53,7 +52,7 @@ const Tags = ({ data }) => {
   return (
     <React.Fragment>
       {data.map(t => (
-        <TagWrapper key={shortid.generate()}>
+        <TagWrapper key={uid.gen()}>
           <TagDot color={t.color} />
           <TagTitle>{t.title}</TagTitle>
         </TagWrapper>

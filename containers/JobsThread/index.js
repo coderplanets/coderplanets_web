@@ -6,22 +6,20 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  TagList,
   PostsLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
   BuyMeChuanChuan,
+  Maybe,
+  JobItem,
 } from '../../components'
-
-import Item from './Item'
 
 import {
   Wrapper,
@@ -35,19 +33,25 @@ import {
   PublishBtn,
 } from './styles'
 
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, jobs, curView, active }) => {
+const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          {jobs.map(job => (
-            <Item entry={job} key={shortid.generate()} active={active} />
+          {entries.map(entry => (
+            <JobItem
+              entry={entry}
+              key={uid.gen()}
+              active={active}
+              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
+            />
           ))}
         </React.Fragment>
       )
@@ -73,101 +77,74 @@ class JobsThreadContainer extends React.Component {
   componentDidMount() {}
 
   render() {
+    const { jobsThread } = this.props
+
     const {
-      jobsThread: {
-        pagedJobsData,
-        tagsData,
-        curView,
-        filtersData,
-        activeTagData,
-        active,
-        accountInfo,
-        curRoute,
-      },
-    } = this.props
+      pagedJobsData,
+      tagsData,
+      curView,
+      filtersData,
+      activeTagData,
+      activeJob,
+      accountInfo,
+      curRoute,
+    } = jobsThread
 
     const { mainPath, subPath } = curRoute
+    const { entries, totalCount, pageNumber, pageSize } = pagedJobsData
 
     return (
-      <React.Fragment>
-        {pagedJobsData ? (
-          <Wrapper>
-            <LeftPadding />
-            <BuyMeChuanChuan fromUser={accountInfo} />
-            <LeftPart>
-              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-              <FilterWrapper show={curView === TYPE.RESULT}>
-                <ContentFilter
-                  onSelect={logic.onFilterSelect}
-                  activeFilter={filtersData}
-                />
-                <FilterResultHint>
-                  结果约 {pagedJobsData.totalCount} 条
-                </FilterResultHint>
-              </FilterWrapper>
-
-              <View
-                community={mainPath}
-                thread={subPath}
-                jobs={pagedJobsData.entries}
-                curView={curView}
-                active={active}
+      <Wrapper>
+        <LeftPadding />
+        <BuyMeChuanChuan fromUser={accountInfo} />
+        <LeftPart>
+          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+          <Maybe data={totalCount !== 0}>
+            <FilterWrapper show={curView === TYPE.RESULT}>
+              <ContentFilter
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
               />
+              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            </FilterWrapper>
+          </Maybe>
 
-              <Pagi
-                left="-10px"
-                pageNumber={pagedJobsData.pageNumber}
-                pageSize={pagedJobsData.pageSize}
-                totalCount={pagedJobsData.totalCount}
-                onChange={logic.loadJobs}
-              />
-            </LeftPart>
+          <View
+            community={mainPath}
+            thread={subPath}
+            entries={entries}
+            curView={curView}
+            active={activeJob}
+          />
 
-            <RightPart>
-              <PublishBtn type="primary" onClick={logic.createContent}>
-                招贤纳士
-              </PublishBtn>
+          <Pagi
+            left="-10px"
+            pageNumber={pageNumber}
+            pageSize={pageSize}
+            totalCount={totalCount}
+            onChange={logic.loadJobs}
+          />
+        </LeftPart>
 
-              <Affix offsetTop={50}>
-                <TagDivider />
-                <TagList
-                  tags={tagsData}
-                  active={activeTagData}
-                  onSelect={logic.onTagSelect}
-                />
-              </Affix>
-            </RightPart>
-            <RightPadding />
-          </Wrapper>
-        ) : (
-          <Wrapper>
-            <LeftPadding />
-            <LeftPart>
-              <PostsLoading num={3} />
-            </LeftPart>
-            <RightPart />
-            <RightPadding />
-          </Wrapper>
-        )}
-      </React.Fragment>
+        <RightPart>
+          <PublishBtn type="primary" onClick={logic.createContent}>
+            招贤纳士
+          </PublishBtn>
+
+          <Affix offsetTop={50}>
+            <TagDivider />
+            <TagsBar
+              thread={THREAD.JOB}
+              tags={tagsData}
+              active={activeTagData}
+              onSelect={logic.onTagSelect}
+            />
+          </Affix>
+        </RightPart>
+        <RightPadding />
+      </Wrapper>
     )
   }
 }
 
 export default inject(storePlug('jobsThread'))(observer(JobsThreadContainer))
-
-/*
-   <iframe
-   id="ytplayer"
-   type="text/html"
-   width="640"
-   height="360"
-   allowfullscreen="allowfullscreen"
-   mozallowfullscreen="mozallowfullscreen"
-   msallowfullscreen="msallowfullscreen"
-   oallowfullscreen="oallowfullscreen"
-   webkitallowfullscreen="webkitallowfullscreen"
-   src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-   frameborder="0"
-   />
- */

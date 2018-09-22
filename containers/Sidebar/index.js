@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import { TrendLine, Button } from '../../components'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 
 import { makeDebugger, storePlug } from '../../utils'
 import PinButton from './PinButton'
@@ -23,6 +23,7 @@ import {
   MenuItemWrapper,
   MenuItemEach,
   MenuItemIcon,
+  MenuItemTitle,
   MiniChartWrapper,
   SiteLogoWrapper,
   SiteLogo,
@@ -74,10 +75,12 @@ const MenuList = ({ items, pin, activeRaw }) => {
                               src={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
-                            <div style={{ marginRight: 10 }} />
-                            <a style={{ textDecoration: 'none' }}>
+                            <MenuItemTitle
+                              pin={pin}
+                              active={activeRaw === R.toLower(item.raw)}
+                            >
                               {item.title}
-                            </a>
+                            </MenuItemTitle>
 
                             <MiniChartWrapper pin={pin}>
                               <TrendLine
@@ -153,16 +156,16 @@ class SidebarContainer extends React.Component {
 
     return (
       <Container pin={pin}>
-        <Header>
+        <Header pin={pin}>
           <HeaderFuncs>
             <SiteLogoWrapper pin={pin}>
-              <SiteLogo src={`${ICON_ASSETS}/cmd/keyboard_logo.svg`} />
+              <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />
             </SiteLogoWrapper>
             <ExploreWrapper pin={pin}>
               <Button size="small" type="primary" ghost>
                 <ExploreContent>
-                  <ExploreIcon src={`${ICON_ASSETS}/cmd/explore_more.svg`} />
-                  <ExploreText>explore</ExploreText>
+                  <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
+                  <ExploreText>Explore</ExploreText>
                 </ExploreContent>
               </Button>
             </ExploreWrapper>

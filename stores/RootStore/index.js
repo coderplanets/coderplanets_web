@@ -4,8 +4,15 @@
  */
 
 import { types as t } from 'mobx-state-tree'
+import R from 'ramda'
 
-import { makeDebugger, markStates } from '../../utils'
+import {
+  makeDebugger,
+  markStates,
+  toast,
+  toastBarColor,
+  themeDict,
+} from '../../utils'
 
 import {
   // domain
@@ -31,27 +38,37 @@ import {
   VideosThreadStore,
   ReposThreadStore,
   JobsThreadStore,
+  TagsBarStore,
   // content
   PostContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
+  // footer
+  FooterStore,
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
   CommentsStore,
   CheatSheetPaperStore,
   CommunityEditorsStore,
+
   // toolbox
   DoraemonStore,
   PreviewStore,
   SidebarStore,
   TypeWriterStore,
+  VideoEditorStore,
+  RepoEditorStore,
   AccountEditorStore,
   UpgradePackgesStore,
+  MailBoxStore,
+  LabelerStore,
+  DocUploaderStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
+  FavoritesCatsStore,
 } from '../index'
 
 /* eslint-disable no-unused-vars */
@@ -76,8 +93,13 @@ const rootStore = t
     preview: t.optional(PreviewStore, { visible: false }),
     doraemon: t.optional(DoraemonStore, {}),
     typeWriter: t.optional(TypeWriterStore, {}),
+    videoEditor: t.optional(VideoEditorStore, {}),
+    repoEditor: t.optional(RepoEditorStore, {}),
     accountEditor: t.optional(AccountEditorStore, {}),
     upgradePackges: t.optional(UpgradePackgesStore, {}),
+    mailBox: t.optional(MailBoxStore, {}),
+    labeler: t.optional(LabelerStore, {}),
+    docUploader: t.optional(DocUploaderStore, {}),
     // toolbox end
 
     // layouts > xxx > papers
@@ -101,12 +123,16 @@ const rootStore = t
     userContent: t.optional(UserContentStore, {}),
     // content end
 
+    // footer
+    footer: t.optional(FooterStore, {}),
     // threads
     postsThread: t.optional(PostsThreadStore, {}),
     videosThread: t.optional(VideosThreadStore, {}),
     reposThread: t.optional(ReposThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
+
+    tagsBar: t.optional(TagsBarStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
@@ -115,6 +141,7 @@ const rootStore = t
     // user page
     userSettings: t.optional(UserSettingsStore, {}),
     userFavorites: t.optional(UserFavoritesStore, {}),
+    favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({
     get locale() {
@@ -131,6 +158,9 @@ const rootStore = t
     get doraemonVisible() {
       // TODO self.doraemon.visible
       return self.doraemon.visible
+    },
+    get viewingData() {
+      return self.viewing.viewingData
     },
     get curRoute() {
       return self.route.curRoute
@@ -152,9 +182,6 @@ const rootStore = t
     openDoraemon() {
       self.doraemon.open()
     },
-    openPreview(type) {
-      self.preview.open(type)
-    },
     closePreview() {
       self.preview.close()
     },
@@ -174,8 +201,21 @@ const rootStore = t
     setViewing(sobj) {
       self.viewing.setViewing(sobj)
     },
+    updateViewingIfNeed(type, sobj) {
+      self.viewing.updateViewingIfNeed(type, sobj)
+    },
     upgradeHepler() {
       self.upgradePackges.upgradeHepler()
+    },
+    sponsorHepler() {
+      self.footer.sponsorHepler()
+    },
+    toast(type, options = {}) {
+      const themeData = themeDict[self.theme.curTheme]
+      const progressBarColor = toastBarColor(type, themeData)
+
+      const toastOpt = R.merge(options, { progressBarColor })
+      toast[type](toastOpt)
     },
     markState(sobj) {
       markStates(sobj, self)

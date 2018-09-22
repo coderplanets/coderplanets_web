@@ -16,6 +16,12 @@ export { default as ContentStore } from '../containers/Content/store'
 export {
   default as UpgradePackgesStore,
 } from '../containers/UpgradePackges/store'
+export { default as MailBoxStore } from '../containers/MailBox/store'
+
+//
+export {
+  default as FavoritesCatsStore,
+} from '../containers/FavoritesCats/store'
 
 // banners store
 export { default as BannerStore } from '../containers/Banner/store'
@@ -38,6 +44,9 @@ export {
 export { default as PostContentStore } from '../containers/PostContent/store'
 export { default as UserContentStore } from '../containers/UserContent/store'
 
+// footer
+export { default as FooterStore } from '../containers/Footer/store'
+
 // threads store
 export { default as PostsThreadStore } from '../containers/PostsThread/store'
 export { default as VideosThreadStore } from '../containers/VideosThread/store'
@@ -47,12 +56,18 @@ export {
   default as CheatSheetPaperStore,
 } from '../containers/CheatSheetPaper/store'
 
+export { default as TagsBarStore } from '../containers/TagsBar/store'
+
 // toolbox
+export { default as DocUploaderStore } from '../containers/DocUploader/store'
 export { default as TypeWriterStore } from '../containers/TypeWriter/store'
+export { default as VideoEditorStore } from '../containers/VideoEditor/store'
+export { default as RepoEditorStore } from '../containers/RepoEditor/store'
 export { default as CommentsStore } from '../containers/Comments/store'
 export {
   default as AccountEditorStore,
 } from '../containers/AccountEditor/store'
+export { default as LabelerStore } from '../containers/Labeler/store'
 
 // viewers store
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'

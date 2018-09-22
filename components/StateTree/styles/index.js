@@ -4,6 +4,7 @@ import { theme } from '../../../utils'
 
 export const StateViewerWrapper = styled.div`
   padding: 25px;
+  padding-top: 15px;
 `
 
 export const StateTreeHeader = styled.div`

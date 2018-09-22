@@ -1,7 +1,6 @@
 /*
  * utils functiosn
  */
-
 export {
   EVENT,
   ERR,
@@ -15,14 +14,11 @@ export {
 
 export { makeDebugger } from './debug'
 
+export { default as uid } from './uid'
 export {
   dispatchEvent,
   mapKeys,
-  isObject,
-  notEmpty,
-  nilOrEmpty,
   getRandomInt,
-  isEmptyValue,
   Global,
   onClient,
   cutFrom,
@@ -33,7 +29,18 @@ export {
   debounce,
   extractMentions,
   extractAttachments,
+  objAlreadyExsits,
 } from './functions'
+
+export {
+  cast,
+  changeset,
+  notEmpty,
+  hasValue,
+  isEmptyValue,
+  nilOrEmpty,
+  isObject,
+} from './validator'
 
 export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
 
@@ -53,6 +60,7 @@ export {
 export {
   storePlug,
   markStates,
+  flashState,
   meteorState,
   stripMobx,
   $solver,
@@ -67,9 +75,6 @@ export {
   focusDoraemonBar,
   hideDoraemonBarRecover,
 } from './dom_operator'
-
-export { default as Animate } from './animations'
-export { smokey, column, columnCenter } from './common_styles'
 /*
  * theme related
  */
@@ -82,8 +87,12 @@ export {
   themeCoverIndexMap,
 } from './themes'
 
-export { default as fakeUsers } from './fake_user'
+export { default as SOCIAL_LISTS } from './social_lists'
 
+// helpers
+export { toast, toastBarColor } from './toast'
+export { default as Animate } from './animations'
+export { smokey, column, columnCenter } from './common_styles'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

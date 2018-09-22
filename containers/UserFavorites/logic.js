@@ -40,7 +40,6 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      console.log('来啦: ', pagedPosts)
       let curView = TYPE.RESULT
       if (pagedPosts.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY

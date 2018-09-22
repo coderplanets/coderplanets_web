@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../..'
+import Img from '../../Img'
 import { theme, Animate } from '../../../utils'
 
 // display: ${props => (props.show ? 'block' : 'none')};
@@ -29,7 +29,12 @@ export const Wrapper = styled.div`
   border-color: ${theme('modal.border')};
   animation: ${Animate.zoomeIn} 0.5s linear;
 `
-
+export const ChildrenWrapper = styled.div`
+  min-height: 320px;
+  max-height: 80vh;
+  height: auto;
+  overflow-y: scroll;
+`
 export const CloseBtn = styled(Img)`
   fill: ${theme('font')};
   position: absolute;

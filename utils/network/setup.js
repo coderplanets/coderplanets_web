@@ -38,22 +38,10 @@ const retryLink = new RetryLink({
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
     /* graphQLErrors.map(({ message, path, detail }) => */
-    debug('[GraphQL error happend]')
+    debug('[GraphQL error happend]: ')
     graphQLErrors.map(({ message }) => debug(`[error detail--> ]:  ${message}`))
   }
-  // if (networkError) {
-  // debug(`[Network error]: ${networkError}`)
-  // }
 })
-
-/*
-let token = ''
-const user = BStore.get('user')
-
-if (user) {
-  token = BStore.get('user').token || ''
-}
-*/
 
 const token = BStore.get('token') || ''
 export const context = {

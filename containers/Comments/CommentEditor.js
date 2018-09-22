@@ -3,7 +3,7 @@ import withClickOutside from 'react-click-outside'
 
 import BodyEditor from '../TypeWriter/BodyEditor'
 
-import { ICON_ASSETS, WORD_LIMIT } from '../../config'
+import { ICON_CMD, WORD_LIMIT } from '../../config'
 
 import { debounce } from '../../utils'
 import * as logic from './logic'
@@ -50,7 +50,7 @@ const Header = ({
         <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
         {referUsers.length > 0 ? (
           <div style={{ display: 'flex' }}>
-            <ReferToIcon src={`${ICON_ASSETS}/cmd/refer.svg`} />
+            <ReferToIcon src={`${ICON_CMD}/refer.svg`} />
             <ReplyAvatars>
               <AvatarsRow
                 users={referUsers}

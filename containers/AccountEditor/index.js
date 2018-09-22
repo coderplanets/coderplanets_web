@@ -6,13 +6,17 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Input } from 'antd'
 
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
 
 import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
-import { Input, Button, Icon, StatusBox } from '../../components'
+import { Button, Icon, StatusBox } from '../../components'
+
+import WorkEditor from './WorkEditor'
+import EducationEditor from './EducationEditor'
+import SocialEditor from './SocialEditor'
 
 import {
   Wrapper,
@@ -31,6 +35,8 @@ import {
   GirlIcon,
 } from './styles'
 
+import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountEditor')
 /* eslint-enable no-unused-vars */
@@ -43,20 +49,22 @@ const Avatar = ({ src }) => (
   </div>
 )
 
+// TODO: move localComponent
 const SexItem = ({ label, value }) => (
   <FormItemWrapper>
     <SexLable>{label}</SexLable>
     <SexInput>
       <Dude onClick={logic.sexChange.bind(this, 'dude')}>
-        <DudeIcon src={`${ICON_ASSETS}/cmd/dude.svg`} value={value} />
+        <DudeIcon src={`${ICON_CMD}/dude.svg`} value={value} />
       </Dude>
       <Girl onClick={logic.sexChange.bind(this, 'girl')}>
-        <GirlIcon src={`${ICON_ASSETS}/cmd/girl.svg`} value={value} />
+        <GirlIcon src={`${ICON_CMD}/girl.svg`} value={value} />
       </Girl>
     </SexInput>
   </FormItemWrapper>
 )
 
+// TODO: move localComponent
 const FormItem = ({ label, textarea, value, onChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
@@ -83,69 +91,61 @@ class AccountEditorContainer extends React.Component {
   }
 
   render() {
-    const {
-      accountEditor: { accountInfo, updating, success, error, warn, statusMsg },
-    } = this.props
+    const { accountEditor } = this.props
 
-    /* debug('accountInfo editing->: ', accountInfo) */
+    const {
+      showSocials,
+      editingUserData,
+      educationBgData,
+      workBgData,
+      updating,
+      success,
+      error,
+      warn,
+      statusMsg,
+    } = accountEditor
 
     return (
       <Wrapper className="normal-form">
         {/* eslint-disable */}
         <div onClick={logic.goBack}>
-          <BackIcon src={`${ICON_ASSETS}/cmd/goback.svg`} />
+          <BackIcon src={`${ICON_CMD}/goback.svg`} />
         </div>
         {/* eslint-enable */}
-        <Avatar src={accountInfo.avatar} />
-        <FormItem
-          label="昵称:"
-          value={accountInfo.nickname}
-          onChange={logic.profileChange('nickname')}
-        />
-        <FormItem
-          label="邮箱:"
-          value={accountInfo.email}
-          onChange={logic.profileChange('email')}
-        />
-        <FormItem
-          label="城市:"
-          value={accountInfo.location}
-          onChange={logic.profileChange('location')}
-        />
-        <FormItem
-          label="公司:"
-          value={accountInfo.company}
-          onChange={logic.profileChange('company')}
-        />
-        <FormItem
-          label="学校:"
-          value={accountInfo.education}
-          onChange={logic.profileChange('education')}
-        />
-        <FormItem
-          label="QQ:"
-          value={accountInfo.qq}
-          onChange={logic.profileChange('qq')}
-        />
-        <FormItem
-          label="微博:"
-          value={accountInfo.weibo}
-          onChange={logic.profileChange('weibo')}
-        />
-        <FormItem
-          label="微信:"
-          value={accountInfo.weichat}
-          onChange={logic.profileChange('weichat')}
-        />
-        <SexItem label="性别:" value={accountInfo.sex} />
-        <FormItem
-          label="简介:"
-          textarea
-          value={accountInfo.bio}
-          onChange={logic.profileChange('bio')}
-        />
+        <Avatar src={editingUserData.avatar} />
+        <div>
+          <FormItem
+            label="昵称:"
+            value={editingUserData.nickname}
+            onChange={logic.profileChange('nickname')}
+          />
+          <FormItem
+            label="城市:"
+            value={editingUserData.location}
+            onChange={logic.profileChange('location')}
+          />
+        </div>
 
-        <br />
+        <WorkEditor user={editingUserData} data={workBgData} />
+        <EducationEditor user={editingUserData} data={educationBgData} />
+        <div>
+          <FormItem
+            label="邮箱:"
+            value={editingUserData.email}
+            onChange={logic.profileChange('email')}
+          />
+        </div>
+        <SocialEditor show={showSocials} user={editingUserData} />
+        <div>
+          <SexItem label="性别:" value={editingUserData.sex} />
+          <FormItem
+            label="简介:"
+            textarea
+            value={editingUserData.bio}
+            onChange={logic.profileChange('bio')}
+          />
+        </div>
+
         <StatusBox
           success={success}
           error={error}

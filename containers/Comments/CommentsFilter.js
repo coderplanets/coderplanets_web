@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { TYPE } from '../../utils'
-import { ICON_ASSETS } from '../../config'
+import { ICON_CMD } from '../../config'
 import { Popover } from '../../components'
 
 import {
@@ -58,16 +58,16 @@ const Menus = ({ active }) => (
 const renderFilterIcon = filterType => {
   switch (filterType) {
     case TYPE.DESC_INSERTED: {
-      return <RecentlyIcon src={`${ICON_ASSETS}/cmd/recent.svg`} />
+      return <RecentlyIcon src={`${ICON_CMD}/recent.svg`} />
     }
     case TYPE.MOST_LIKES: {
-      return <FilterIcon src={`${ICON_ASSETS}/cmd/up.svg`} />
+      return <FilterIcon src={`${ICON_CMD}/up.svg`} />
     }
     case TYPE.MOST_DISLIKES: {
-      return <FilterIcon src={`${ICON_ASSETS}/cmd/up.svg`} reverse />
+      return <FilterIcon src={`${ICON_CMD}/up.svg`} reverse />
     }
     default: {
-      return <FilterIcon src={`${ICON_ASSETS}/cmd/filter2.svg`} />
+      return <FilterIcon src={`${ICON_CMD}/filter2.svg`} />
     }
   }
 }
