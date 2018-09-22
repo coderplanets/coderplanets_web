@@ -1,4 +1,4 @@
-import R from 'ramda'
+// import R from 'ramda'
 
 import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -9,30 +9,15 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:VideoEditor')
+const debug = makeDebugger('L:DocUploader')
 /* eslint-enable no-unused-vars */
 
 let store = null
 
-export const formDataChange = R.curry((part, e) =>
-  store.updateEditing({ [part]: e.target.value })
-)
-
-export const sourceOnSelect = source => store.updateEditing({ source })
-
-export const coverOnUpload = url => {
-  debug('coverOnUpload url: ', url)
+export function onUploadError(error) {
+  debug('onUploadError: ', error)
+  store.toast('error', { title: '文件上传出错', msg: '请重新上传' })
 }
-
-export function onPublish() {
-  debug('onPublish editVideoData: ', store.editVideoData)
-
-  if (store.validator('publish')) {
-    console.log('is Ok')
-  }
-}
-
-export function canclePublish() {}
 
 // ###############################
 // Data & Error handlers

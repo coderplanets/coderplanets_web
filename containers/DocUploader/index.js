@@ -1,18 +1,21 @@
 /*
  *
- * FileUploader
+ * DocUploader
  *
  */
-
 import React from 'react'
+import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 
-import { FileUploaderWrapper, InputFile } from './styles'
 import { ASSETS_ENDPOINT } from '../../config'
-import { makeDebugger } from '../../utils'
+
+import { Wrapper, InputFile } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
+import { init, onUploadError } from './logic'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:FileUploader')
+const debug = makeDebugger('C:DocUploader')
 /* eslint-enable no-unused-vars */
 
 const getDir = () => {
@@ -36,7 +39,7 @@ const getFileName = filename => {
   return `${community}--${part}--${partId}--${nickname}-${userId}--${filename}`
 }
 
-class FileUploader extends React.Component {
+class DocUploaderContainer extends React.Component {
   constructor(props) {
     super(props)
     /* eslint-disable */
@@ -48,15 +51,23 @@ class FileUploader extends React.Component {
         accessKeyId: process.env.ALI_ACCESS_KEY,
         accessKeySecret: process.env.ALI_ACCESS_SECRET,
         bucket: process.env.ALI_OSS_BUCKET,
+        /* internal: true, */
+        /* secure: true, */
       })
     } catch (e) {
       console.error(e)
+      this.props.onUploadError(e)
     }
     /* eslint-enable */
   }
 
   state = {
     ossClient: null,
+  }
+
+  componentWillMount() {
+    const { docUploader } = this.props
+    init(docUploader)
   }
 
   componentWillUnmount() {
@@ -80,8 +91,10 @@ class FileUploader extends React.Component {
 
     this.props.onUploadStart()
     const filename = theFile.name
+    const fullpath = `${getDir()}/${getFileName(filename)}`
+    debug('fullpath: ', fullpath)
     this.state.ossClient
-      .multipartUpload(`${getDir()}/${getFileName(filename)}`, theFile)
+      .multipartUpload(fullpath, theFile)
       .then(result => {
         /* console.log('result: ', result) */
         const url = `${ASSETS_ENDPOINT}/${result.name}`
@@ -97,7 +110,7 @@ class FileUploader extends React.Component {
   render() {
     const { children } = this.props
     return (
-      <FileUploaderWrapper>
+      <Wrapper>
         <InputFile
           type="file"
           name="file"
@@ -108,23 +121,23 @@ class FileUploader extends React.Component {
         {/* eslint-disable */}
         <label htmlFor="file">{children}</label>
         {/* eslint-enable */}
-      </FileUploaderWrapper>
+      </Wrapper>
     )
   }
 }
 
-FileUploader.propTypes = {
-  // https://www.npmjs.com/package/prop-types
+DocUploaderContainer.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   onUploadStart: PropTypes.func,
   onUploadError: PropTypes.func,
   onUploadDone: PropTypes.func,
+  docUploader: PropTypes.any.isRequired,
 }
 
-FileUploader.defaultProps = {
+DocUploaderContainer.defaultProps = {
   onUploadStart: debug,
-  onUploadError: debug,
   onUploadDone: debug,
+  onUploadError,
 }
 
-export default FileUploader
+export default inject(storePlug('docUploader'))(observer(DocUploaderContainer))
