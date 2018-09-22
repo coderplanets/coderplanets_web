@@ -23,6 +23,7 @@ import {
   MenuItemWrapper,
   MenuItemEach,
   MenuItemIcon,
+  MenuItemTitle,
   MiniChartWrapper,
   SiteLogoWrapper,
   SiteLogo,
@@ -74,10 +75,12 @@ const MenuList = ({ items, pin, activeRaw }) => {
                               src={item.logo}
                             />
                             {/* eslint-disable jsx-a11y/anchor-is-valid */}
-                            <div style={{ marginRight: 10 }} />
-                            <a style={{ textDecoration: 'none' }}>
+                            <MenuItemTitle
+                              pin={pin}
+                              active={activeRaw === R.toLower(item.raw)}
+                            >
                               {item.title}
-                            </a>
+                            </MenuItemTitle>
 
                             <MiniChartWrapper pin={pin}>
                               <TrendLine

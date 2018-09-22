@@ -136,31 +136,47 @@ export const MenuItemEach = styled.div`
 export const MenuRow = styled.div`
   display: flex;
   justify-content: left;
-  font-size: 1em;
+  align-items: center;
+  font-size: 1rem;
+`
+export const MenuItemIcon = styled(Img)`
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin-right: 10px;
 
-  > a {
-    display: ${({ pin }) => (pin ? 'block' : 'none')};
-    color: ${theme('sidebar.menuLink')};
-    opacity: ${({ active }) => (active ? 1 : 0.7)};
+  ${MenuRow}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.2s;
+`
+export const MenuItemTitle = styled.div`
+  display: ${({ pin }) => (pin ? 'block' : 'none')};
+  color: ${theme('sidebar.menuLink')};
+  opacity: ${({ active }) => (active ? 1 : 0.7)};
+  flex-grow: 1;
+  max-width: 50%;
+  letter-spacing: 1.5px;
+  transition: opacity 0.2s;
+
+  ${MenuRow}:hover & {
+    opacity: 1;
+    letter-spacing: 2.5px;
+  }
+  ${Container}:hover & {
+    display: block;
     flex-grow: 1;
     max-width: 50%;
   }
-
-  ${Container}:hover & {
-    a {
-      display: block;
-      flex-grow: 1;
-      max-width: 50%;
-    }
-  }
 `
+
 // TODO: hover
 export const MiniChartWrapper = styled.div`
-  width: 12vh;
+  width: 28%;
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  margin-top: -2px;
 
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
   ${Container}:hover & {
@@ -185,16 +201,4 @@ export const MiniChartText = styled.div`
   ${MenuRow}:hover & {
     font-weight: bold;
   }
-`
-
-export const MenuItemIcon = styled(Img)`
-  opacity: ${({ active }) => (active ? 1 : 0.5)};
-  margin-top: 1em;
-  width: 22px;
-  height: 22px;
-
-  ${MenuRow}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.2s;
 `
