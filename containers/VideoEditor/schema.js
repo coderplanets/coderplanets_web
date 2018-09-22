@@ -1,8 +1,36 @@
 import gql from 'graphql-tag'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
+const createVideo = gql`
+  mutation(
+    $title: String!
+    $poster: String!
+    $desc: String!
+    $duration: String!
+    $duration_sec: String!
+    $source: String!
+    $link: String!
+    $originalAuthor: String!
+    $originalAuthorLink: String!
+    $publishAt: Datetime!
+    $communityId: ID!
+    $tags: [Ids]
+  ) {
+    createVideo(
+      title: $title
+      post: $poster
+      desc: $desc
+      duration: $duration
+      durationSec: $durationSec
+      source: $source
+      link: $link
+      originalAuthor: $originalAuthor
+      originalAuthorLink: $originalAuthorLink
+      pulishAt: $publishAt
+      communityId: $communityId
+      tags: $tags
+    ) {
+      title
+      body
       id
     }
   }
@@ -16,7 +44,7 @@ const simpleQuery = gql`
 `
 
 const schema = {
-  simpleMutation,
+  createVideo,
   simpleQuery,
 }
 
