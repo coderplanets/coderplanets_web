@@ -156,7 +156,7 @@ class SidebarContainer extends React.Component {
 
     return (
       <Container pin={pin}>
-        <Header>
+        <Header pin={pin}>
           <HeaderFuncs>
             <SiteLogoWrapper pin={pin}>
               <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />

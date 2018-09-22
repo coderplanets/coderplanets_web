@@ -27,24 +27,23 @@ export const Container = styled.aside`
     box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
   }
 `
-
 export const Header = styled.div`
   display: flex;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 14px;
+  margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
+  ${Container}:hover & {
+    margin-bottom: 4px;
+  }
 `
-
 export const HeaderFuncs = styled.div`
   display: flex;
   flex-grow: 1;
 `
-
 export const PinIconWrapper = styled.div`
   &:hover {
     cursor: pointer;
   }
 `
-
 export const SiteLogoWrapper = styled.div`
   margin-left: 15px;
   display: ${({ pin }) => (pin ? 'none' : 'block')};
@@ -52,12 +51,10 @@ export const SiteLogoWrapper = styled.div`
     display: none;
   }
 `
-
 export const SiteLogo = styled(Img)`
   width: 25px;
   height: 25px;
 `
-
 export const PinIcon = styled(Img)`
   fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};
   margin-right: 10px;
