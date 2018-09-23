@@ -95,10 +95,10 @@ const StatusIcon = styled(Img)`
   margin-right: 3px;
   margin-top: 2px;
 `
-export const StarIcon = StatusIcon.extend`
+export const StarIcon = styled(StatusIcon)`
   margin-top: 0px;
 `
-export const ForkIcon = StatusIcon.extend`
+export const ForkIcon = styled(StatusIcon)`
   margin-top: 2px;
 `
 

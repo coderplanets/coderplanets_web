@@ -49,14 +49,12 @@ export const UserDesc = styled.div`
       clickable ? theme('banner.title') : theme('banner.desc')};
   }
 `
-
-export const UserDetailDesc = UserDesc.extend`
+export const UserDetailDesc = styled(UserDesc)`
   font-size: 0.95rem;
   margin-bottom: 6px;
   margin-top: 8px;
   font-weight: bold;
 `
-
 export const DescLable = styled.div`
   min-width: 70px;
   opacity: 0.9;
@@ -77,7 +75,6 @@ export const BackgroundDivider = styled.div`
   margin-left: 4px;
   margin-right: 4px;
 `
-
 export const BackgroundItem = styled.div`
   display: flex;
   align-items: center;
@@ -85,14 +82,12 @@ export const BackgroundItem = styled.div`
 export const BackgroundDetailItem = styled(BackgroundItem)`
   margin-bottom: 8px;
 `
-
-export const DetailToggleLabel = DescIconLable.extend`
+export const DetailToggleLabel = styled(DescIconLable)`
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const ToggleText = styled.div`
   font-size: 0.9rem;
 `
-
 export const SocialSpliter = styled.div`
   border-top: 1px solid;
   border-color: ${theme('banner.desc')};
@@ -100,7 +95,6 @@ export const SocialSpliter = styled.div`
   padding-top: 8px;
   opacity: 0.5;
 `
-
 export const SocialWrapper = styled.div`
   display: flex;
 `

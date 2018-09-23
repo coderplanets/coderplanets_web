@@ -62,7 +62,7 @@ const FormContent = ({
             onChange={onChange}
             placeholder={placeholder}
           />
-          <Maybe data={!R.isEmpty(att)}>{att}</Maybe>
+          <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
     }
@@ -82,7 +82,7 @@ const FormItem = ({
   att,
 }) => (
   <FormItemWrapper className="normal-form">
-    <Maybe data={!R.isEmpty(label)}>
+    <Maybe test={!R.isEmpty(label)}>
       <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
     </Maybe>
 

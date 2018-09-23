@@ -9,7 +9,7 @@ export const Container = styled.footer`
   margin-bottom: 20px;
 `
 
-const link = styled.a`
+const Link = styled.a`
   text-decoration: none;
   font-weight: bolder;
   color: ${theme('footer.text')};
@@ -51,7 +51,6 @@ export const Powerby = styled.div`
   color: ${theme('footer.label')};
   font-style: italic;
 `
-
-export const PowerbyLink = link.extend``
-export const About = link.extend``
-export const Beian = link.extend``
+export const PowerbyLink = styled(Link)``
+export const About = styled(Link)``
+export const Beian = styled(Link)``

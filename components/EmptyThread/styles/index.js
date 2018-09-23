@@ -35,7 +35,7 @@ export const DescWrapper = styled.div`
   margin-top: 0.6rem;
   font-size: 1rem;
 `
-const link = styled.a`
+const Link = styled.a`
   text-decoration: none;
   font-weight: bolder;
   color: ${theme('header.fg')};
@@ -45,7 +45,6 @@ const link = styled.a`
     color: tomato;
   }
 `
-
-export const IssueLink = link.extend`
+export const IssueLink = styled(Link)`
   margin-left: 3px;
 `

@@ -99,7 +99,7 @@ class JobsThreadContainer extends React.Component {
         <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe data={totalCount !== 0}>
+          <Maybe test={totalCount !== 0}>
             <FilterWrapper show={curView === TYPE.RESULT}>
               <ContentFilter
                 onSelect={logic.onFilterSelect}

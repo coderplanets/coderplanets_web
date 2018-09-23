@@ -6,11 +6,11 @@ import { WORD_LIMIT } from '../../../config'
 import { theme } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
-export const ReplyBar = ReplyBarBase.extend`
+export const ReplyBar = styled(ReplyBarBase)`
   margin-left: 10px;
 `
-export const ReplyToBody = ReplyToBodyBase.extend``
-export const ReplyToFloor = ReplyToFloorBase.extend``
+export const ReplyToBody = styled(ReplyToBodyBase)``
+export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 export const Container = styled.div`
   background: ${theme('preview.articleBg')};

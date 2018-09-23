@@ -57,7 +57,7 @@ export const AddonAddr = styled.div`
 export const TogglerWrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};
 `
-export const TogglerLabelWrapper = TogglerWrapper.extend`
+export const TogglerLabelWrapper = styled(TogglerWrapper)`
   margin-left: 5%;
 `
 export const TogglerDivider = styled.div`
@@ -106,11 +106,11 @@ const ToggleIcon = styled(Img)`
   margin-top: 2px;
 `
 
-export const UpIcon = ToggleIcon.extend`
+export const UpIcon = styled(ToggleIcon)`
   transform: rotateX(180deg);
 `
 
-export const DownIcon = ToggleIcon.extend``
+export const DownIcon = styled(ToggleIcon)``
 
 /* import { Img } from '../../../components' */
 /* import { Animate, theme } from '../../../utils' */

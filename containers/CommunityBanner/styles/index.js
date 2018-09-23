@@ -31,11 +31,11 @@ export const BaseBannerContent = styled.div`
   margin-right: 8%;
 `
 
-export const BannerContainer = BaseBanner.extend`
+export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
-export const TabberWrapper = BaseTabber.extend``
-export const BannerContentWrapper = BaseBannerContent.extend``
+export const TabberWrapper = styled(BaseTabber)``
+export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const CommunityWrapper = styled.div`
   display: flex;

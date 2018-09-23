@@ -22,7 +22,7 @@ export const FilterIcon = styled(Img)`
   height: 20px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
-export const RecentlyIcon = FilterIcon.extend`
+export const RecentlyIcon = styled(FilterIcon)`
   animation: ${Animate.rotate360} 0.6s linear;
 `
 // animation: ${Animate.rotate360} 1s cubic-bezier(0, 0.56, 0.24, 0.72);

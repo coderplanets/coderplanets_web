@@ -4,8 +4,8 @@ import Img from '../../../components/Img'
 import { BaseBanner, BaseBannerContent } from './index'
 import { smokey, columnCenter } from '../../../utils'
 
-export const BannerContainer = BaseBanner.extend``
-export const BannerContentWrapper = BaseBannerContent.extend``
+export const BannerContainer = styled(BaseBanner)``
+export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const MonthWrapper = styled.div`
   ${columnCenter};

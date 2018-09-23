@@ -93,7 +93,7 @@ class VideosThreadContainer extends React.Component {
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          <Maybe data={totalCount !== 0}>
+          <Maybe test={totalCount !== 0}>
             <FilterWrapper>
               <ContentFilter
                 onSelect={logic.onFilterSelect}
