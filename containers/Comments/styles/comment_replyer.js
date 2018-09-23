@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+/* import { Img } from '../../../components' */
+import Img from '../../../components/Img'
 import { WORD_LIMIT } from '../../../config'
 import { theme } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'

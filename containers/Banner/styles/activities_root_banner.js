@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+import Img from '../../../components/Img'
 import { BaseBanner, BaseBannerContent } from './index'
 import { smokey, columnCenter } from '../../../utils'
 

@@ -3,9 +3,11 @@
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "transform-inline-environment-variables",
     [
-      "styled-components",
+      "babel-plugin-styled-components",
       {
-        "pure": true
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
       }
     ],
     [

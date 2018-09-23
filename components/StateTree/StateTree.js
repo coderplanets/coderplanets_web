@@ -17,17 +17,15 @@ const debug = makeDebugger('c:StateTree:index')
 
 /* apathy flat ocean tube */
 const StateTree = ({ json }) => (
-  <div>
-    <ReactJson
-      src={json}
-      theme="rjv-default"
-      name="rootStore"
-      collapsed={1}
-      iconStyle="circle"
-      displayDataTypes={false}
-      enableClipboard={false}
-    />
-  </div>
+  <ReactJson
+    src={json}
+    theme="rjv-default"
+    name="rootStore"
+    collapsed={1}
+    iconStyle="circle"
+    displayDataTypes={false}
+    enableClipboard={false}
+  />
 )
 
 StateTree.propTypes = {

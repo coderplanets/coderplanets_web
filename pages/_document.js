@@ -3,10 +3,22 @@ import { ServerStyleSheet } from 'styled-components'
 
 /* eslint-disable */
 export default class MyDocument extends Document {
-  render() {
+  static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet()
-    const main = sheet.collectStyles(<Main />)
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    )
     const styleTags = sheet.getStyleElement()
+    return { ...page, styleTags }
+  }
+
+  render() {
+    /*
+       const sheet = new ServerStyleSheet()
+       const main = sheet.collectStyles(<Main />)
+       const styleTags = sheet.getStyleElement()
+     */
+
     return (
       <html>
         <Head>
@@ -38,10 +50,10 @@ export default class MyDocument extends Document {
               `,
             }}
           />
-          {styleTags}
+          {this.props.styleTags}
         </Head>
         <body id="body">
-          <div className="root">{main}</div>
+          <Main />
           <NextScript />
         </body>
         {/* load iziToast from CDN */}

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
+/* import { Img } from '../../../components' */
+import Img from '../../../components/Img'
 import { theme } from '../../../utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。

@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-import { Img } from '../../../components'
-import { theme, column, Animate, smokey } from '../../../utils'
+/* import { Img } from '../../../components' */
+import Img from '../../../components/Img'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
+
+import { theme, column, Animate, smokey } from '../../../utils'
 
 export const ReplyBar = ReplyBarBase.extend`
   margin-left: -2px;

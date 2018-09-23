@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
-import { Img } from '../../../components'
+/* import { Img } from '../../../components' */
+import Img from '../../../components/Img'
 import { theme } from '../../../utils'
 
 const rotate360 = keyframes`
