@@ -115,11 +115,10 @@ const DoraemonStore = t
     changeTheme(name) {
       self.root.changeTheme(name)
     },
-
     loadSuggestions(suggestion) {
       self.suggestions = suggestion.data
       self.prefix = suggestion.prefix
-      // if (data)R.isEmpty()
+
       if (!R.isEmpty(suggestion.data)) {
         self.activeRaw = suggestion.data[0].raw
       }
@@ -127,13 +126,11 @@ const DoraemonStore = t
         self.activeRaw = null
       }
     },
-
     clearSuggestions() {
       self.suggestions = []
       self.prefix = ''
       self.activeRaw = null
     },
-
     activeUp() {
       if (self.suggestionCount === 0) return false
       let nextActiveRaw = ''

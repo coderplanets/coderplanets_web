@@ -1,19 +1,27 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
-import { Subject } from 'rxjs/Subject'
+import { Subject } from 'rxjs'
 
-import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/fromEventPattern'
-import 'rxjs/add/operator/debounceTime'
-import 'rxjs/add/operator/do'
-import 'rxjs/add/operator/switchMap'
-import 'rxjs/add/operator/merge'
-import 'rxjs/add/operator/timeoutWith'
+// debounceTime,
+import { switchMap, takeUntil, merge, timeoutWith } from 'rxjs/operators'
+
+// import 'rxjs/add/observable/of'
+// import 'rxjs/add/observable/fromEventPattern'
+
+/*
+   import 'rxjs/add/operator/debounceTime'
+   import 'rxjs/add/operator/do'
+   import 'rxjs/add/operator/switchMap'
+   import 'rxjs/add/operator/merge'
+   import 'rxjs/add/operator/timeoutWith'
+ */
 
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 import { queryPromise, mutatePromise, restGetPromise } from './index'
+
+// import { debounceTime, switchMap, merge, timeoutWith } from 'rxjs/operator'
 
 class SR71 {
   constructor(opts = { resv_event: '' }) {
@@ -26,31 +34,40 @@ class SR71 {
 
     this.initEventSubscription()
     /* this.query$ = this.queryInput$.debounceTime(300).switchMap(q => */
-    this.query$ = this.queryInput$.switchMap(q =>
-      queryPromise(q)
-        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
-        .takeUntil(this.stop$)
+    this.query$ = this.queryInput$.pipe(
+      switchMap(q =>
+        queryPromise(q).pipe(
+          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          takeUntil(this.stop$)
+        )
+      )
     )
 
     /* this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(q => */
-    this.mutate$ = this.mutateInput$.switchMap(q =>
-      mutatePromise(q)
-        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
-        .takeUntil(this.stop$)
+    this.mutate$ = this.mutateInput$.pipe(
+      switchMap(q =>
+        mutatePromise(q).pipe(
+          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          takeUntil(this.stop$)
+        )
+      )
     )
 
     /* this.restGet$ = this.getInput$.debounceTime(300).switchMap(q => */
-    this.restGet$ = this.getInput$.switchMap(q =>
-      restGetPromise(q)
-        .timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable)
-        .takeUntil(this.stop$)
+    this.restGet$ = this.getInput$.pipe(
+      switchMap(q =>
+        restGetPromise(q).pipe(
+          timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
+          takeUntil(this.stop$)
+        )
+      )
     )
 
     /* this.event$ = this.eventInput$.debounceTime(100) */
     this.event$ = this.eventInput$
 
-    this.graphql$ = this.query$.merge(this.mutate$)
-    this.data$ = this.graphql$.merge(this.restGet$, this.event$)
+    this.graphql$ = this.query$.pipe(merge(this.mutate$))
+    this.data$ = this.graphql$.pipe(merge(this.restGet$, this.event$))
   }
 
   // Private

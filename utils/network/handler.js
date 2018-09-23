@@ -1,6 +1,7 @@
 import R from 'ramda'
 
-import { Observable } from 'rxjs/Observable'
+/* import { Observable } from 'rxjs/Observable' */
+import { of } from 'rxjs'
 
 import { makeDebugger, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
@@ -9,9 +10,9 @@ import { TIMEOUT_THRESHOLD } from './setup'
 const debug = makeDebugger('Network')
 /* eslint-enable no-unused-vars */
 
-export const TimoutObservable = Observable.of({
+export const TimoutObservable = of({
   error: ERR.TIMEOUT,
-  details: `server has no response in ${TIMEOUT_THRESHOLD} secs`,
+  details: `server has no-response in ${TIMEOUT_THRESHOLD} secs`,
 })
 
 // refator later

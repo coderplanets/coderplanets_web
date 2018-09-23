@@ -3,8 +3,7 @@
  */
 import R from 'ramda'
 
-import { Observable } from 'rxjs/Observable'
-import 'rxjs/add/observable/fromPromise'
+import { from } from 'rxjs'
 
 import { notEmpty } from '../../../utils'
 
@@ -111,9 +110,7 @@ export class Advisor {
   }
 
   relateSuggestions$ = q =>
-    Observable.fromPromise(
-      new Promise(resolve => resolve(this.relateSuggestions(q)))
-    )
+    from(new Promise(resolve => resolve(this.relateSuggestions(q))))
 
   specialSuggestions = val => ({
     prefix: '/',
