@@ -6,11 +6,12 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import R from 'ramda'
 // import Link from 'next/link'
 import { Tabs } from 'antd'
 import ReactTooltip from 'react-tooltip'
 
-import { ThemeSelector, UserBrief } from '../../components'
+import { ThemeSelector, UserBrief, Maybe } from '../../components'
 
 import SiteSocial from './SiteSocial'
 import Planets from './Planets'
@@ -75,8 +76,12 @@ class AccountViewerContainer extends React.Component {
 
           <Divider top="20px" bottom="0px" />
           <SiteSocial />
-          <Divider top="0px" bottom="20px" />
-          <Planets subscribedCommunities={subscribedCommunities} />
+          <Maybe test={!R.isEmpty(subscribedCommunities)}>
+            <React.Fragment>
+              <Divider top="0px" bottom="20px" />
+              <Planets subscribedCommunities={subscribedCommunities} />
+            </React.Fragment>
+          </Maybe>
           <Divider top="10px" bottom="20px" />
 
           <ContributeMap data={contributes} />

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import { Input, Maybe } from '../../components'
+import { FormItem, Maybe, Space } from '../../components'
 
 import {
   Wrapper,
@@ -20,23 +20,27 @@ import {
 import { uid } from '../../utils'
 import * as logic from './logic'
 
-const FormItem = ({ label, data, mainChange, subChange }) => (
+const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
 
     <FormInput>
-      <Input
+      <FormItem
         size="default"
         value={data.school}
+        raw="school"
+        ratKey={ratKey}
         placeholder="学校"
         onChange={mainChange}
+        bottom="0"
       />
-      &nbsp;&nbsp;
-      <Input
+      <Space right="8px" />
+      <FormItem
         size="default"
         value={data.major}
         placeholder="专业"
         onChange={subChange}
+        bottom="0"
       />
       <div onClick={logic.addBg.bind(this, 'education')}>
         <Adder src={`${ICON_CMD}/add.svg`} />
@@ -68,11 +72,12 @@ const BackgroundList = ({ list }) => (
   </Maybe>
 )
 
-const EducationEditor = ({ user, data }) => (
+const EducationEditor = ({ user, ratKey, data }) => (
   <Wrapper>
-    <FormItem
+    <FormBar
       label="教育经历:"
       data={data}
+      ratKey={ratKey}
       mainChange={logic.updateBg.bind(this, 'educationBg', 'school')}
       subChange={logic.updateBg.bind(this, 'educationBg', 'major')}
     />

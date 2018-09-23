@@ -73,7 +73,7 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (R.trim(source[field]).length <= num) {
+    if (R.trim(source[field]).length < num) {
       const title = trans
       const msg = `不能小于 ${num} 个字符`
 
@@ -81,6 +81,22 @@ export const changeset = source => ({
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
     }
     return changeset(source)
+  },
+  alreadyExsits: (obj, target, pools, cb) => {
+    if (source.__dirty__) return changeset(source)
+    const field = keyOf(obj)
+    const trans = valueOf(obj)
+
+    if (R.length(R.filter(R.equals(target), pools)) > 0) {
+      const title = trans
+      const msg = `已经存在了, 请核对。`
+
+      cb({ title, msg })
+      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+    }
+
+    return changeset(source)
+    // R.length(R.filter(R.equals(target), source)) > 0
   },
   startsWith: (obj, prefix, cb) => {
     if (source.__dirty__) return changeset(source)

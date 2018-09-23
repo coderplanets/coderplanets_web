@@ -98,6 +98,7 @@ export const GroupsIcon = styled(Img)`
 export const Desc = styled.div`
   font-size: 1rem;
   color: ${theme('banner.desc')};
+  margin-top: -2px;
   @media (max-height: 800px) {
     font-size: 1rem;
   }

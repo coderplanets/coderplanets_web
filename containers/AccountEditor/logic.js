@@ -43,8 +43,8 @@ export const updateBg = (key, part, { target: { value } }) =>
 export const addBg = type => store.addBg(type)
 
 export const removeWorkBg = (company, title) => {
-  const { editingUserData } = store
-  const { workBackgrounds } = editingUserData
+  const { editUserData } = store
+  const { workBackgrounds } = editUserData
   const newWorkBackgrounds = R.reject(
     R.equals({ company, title }),
     workBackgrounds
@@ -53,8 +53,8 @@ export const removeWorkBg = (company, title) => {
 }
 
 export const removeEduBg = (school, major) => {
-  const { editingUserData } = store
-  const { educationBackgrounds } = editingUserData
+  const { editUserData } = store
+  const { educationBackgrounds } = editUserData
   const newEducationBackgrounds = R.reject(
     R.equals({ school, major }),
     educationBackgrounds
@@ -68,7 +68,7 @@ export function sexChange(sex) {
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
-  const editing = cast(updateFields, store.editingUserData)
+  const editing = cast(updateFields, store.editUserData)
   const origin = cast(updateFields, store.accountOrigin)
 
   if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
@@ -84,7 +84,7 @@ export function cancleEdit() {
 }
 
 export function updateDone() {
-  const editing = cast(updateFields, store.editingUserData)
+  const editing = cast(updateFields, store.editUserData)
   store.updateAccount(editing)
 }
 
