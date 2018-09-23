@@ -2,7 +2,6 @@ import fetch from 'isomorphic-fetch'
 import { Observable } from 'rxjs/Observable'
 
 import 'rxjs/add/observable/fromPromise'
-import 'rxjs/add/observable/of'
 
 /* import { makeDebugger } from '../../utils' */
 import { client, context } from './setup'
