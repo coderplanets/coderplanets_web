@@ -69,7 +69,7 @@ export default class MyDocument extends Document {
         {/* import from cdn is fine, it's not my money anyway */}
         <script
           async
-          src="http://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
+          src="https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
         <noscript>You need to enable JavaScript to run this app.</noscript>
       </html>
