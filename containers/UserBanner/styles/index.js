@@ -20,7 +20,6 @@ export const BannerContainer = styled.nav`
   transition: max-height 0.2s;
 `
 
-/* export const TabberWrapper = BaseTabber.extend`` */
 export const BannerContentWrapper = styled.div`
   display: flex;
   margin-left: 8%;

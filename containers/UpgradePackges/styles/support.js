@@ -17,13 +17,13 @@ const PkgItemIcon = styled(Img)`
   margin-right: 6px;
 `
 
-export const PkgItemYesIcon = PkgItemIcon.extend`
+export const PkgItemYesIcon = styled(PkgItemIcon)`
   fill: yellowgreen;
   width: 14px;
   height: 12px;
   margin-right: 6px;
 `
-export const PkgItemNoIcon = PkgItemIcon.extend`
+export const PkgItemNoIcon = styled(PkgItemIcon)`
   fill: tomato;
   width: 12px;
   height: 10px;

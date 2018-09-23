@@ -56,12 +56,12 @@ const SexIcon = styled(Img)`
 /* props.active === props.item ? theme('font', props) : 'grey'}; */
 export const Dude = styled.div``
 export const Girl = styled.div``
-export const DudeIcon = SexIcon.extend`
+export const DudeIcon = styled(SexIcon)`
   fill: ${({ value }) =>
     value === 'dude' ? '#869eec' : theme('preview.divider')};
 `
 
-export const GirlIcon = SexIcon.extend`
+export const GirlIcon = styled(SexIcon)`
   fill: ${({ value }) =>
     value === 'girl' ? 'pink' : theme('preview.divider')};
   margin-top: 1px;

@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import Maybe from '../Maybe'
 import { StateViewerWrapper, StateTreeHeader } from './styles'
 
 let StateTreeWithNoSSR = null
@@ -23,9 +22,7 @@ export default class StateViewer extends React.Component {
           应用状态树 -- 方便调试及 issue 报告， 仅在 beta 版
           中默认显示，后期会作为插件形式供自定义显示, 更多详情。
         </StateTreeHeader>
-        <Maybe test={StateTreeWithNoSSR}>
-          <StateTreeWithNoSSR json={json} />
-        </Maybe>
+        {StateTreeWithNoSSR ? <StateTreeWithNoSSR json={json} /> : null}
       </StateViewerWrapper>
     )
   }

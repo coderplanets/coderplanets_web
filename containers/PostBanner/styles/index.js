@@ -28,16 +28,16 @@ export const NumbersWrapper = styled.div`
   margin-top: -2.1rem;
 `
 
-export const NumbersInfo = NumbersWrapper.extend`
+export const NumbersInfo = styled(NumbersWrapper)`
   margin-top: 0;
 `
 
-export const BannerContainer = BaseBanner.extend`
+export const BannerContainer = styled(BaseBanner)`
   height: 100px;
   min-height: 100px;
 `
 
-export const BannerContentWrapper = BaseBannerContent.extend`
+export const BannerContentWrapper = styled(BaseBannerContent)`
   display: flex;
 `
 export const PostBrief = styled.div`

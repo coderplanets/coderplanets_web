@@ -6,11 +6,11 @@ import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
 import { theme, column, Animate, smokey } from '../../../utils'
 
-export const ReplyBar = ReplyBarBase.extend`
+export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;
 `
-export const ReplyToBody = ReplyToBodyBase.extend``
-export const ReplyToFloor = ReplyToFloorBase.extend``
+export const ReplyToBody = styled(ReplyToBodyBase)``
+export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 // min-height: 300px;
 export const ListsContainer = styled.div`
