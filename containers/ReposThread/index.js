@@ -90,7 +90,7 @@ class ReposThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe data={totalCount !== 0}>
+          <Maybe test={totalCount !== 0}>
             <FilterWrapper>
               <ContentFilter
                 onSelect={logic.onFilterSelect}

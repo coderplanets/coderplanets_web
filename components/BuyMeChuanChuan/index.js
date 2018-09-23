@@ -113,7 +113,7 @@ class BuyMeChuanChuan extends React.Component {
       <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
         <Wrapper>
           <Header>
-            <Maybe data={fromUser}>
+            <Maybe test={fromUser}>
               <UserCell user={fromUser} />
             </Maybe>
           </Header>

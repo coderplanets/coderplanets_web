@@ -46,13 +46,13 @@ const FormItem = ({ label, data, mainChange, subChange }) => (
 )
 
 const BackgroundList = ({ list }) => (
-  <Maybe data={list}>
+  <Maybe test={list}>
     <BackgroundsWrapper>
       {list.map(item => (
         <BackgroundItem key={uid.gen()}>
           <BgTitle>{item.school}</BgTitle>
 
-          <Maybe data={item.major}>
+          <Maybe test={item.major}>
             <React.Fragment>
               <BgDivider>·</BgDivider>
               <BgDesc>{item.major}</BgDesc>

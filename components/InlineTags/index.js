@@ -16,7 +16,7 @@ const debug = makeDebugger('c:InlineTags:index')
 /* eslint-enable no-unused-vars */
 
 const InlineTags = ({ data }) => (
-  <Maybe data={data}>
+  <Maybe test={data}>
     <Wrapper>
       {data.map(tag => (
         <Tag key={uid.gen()}>

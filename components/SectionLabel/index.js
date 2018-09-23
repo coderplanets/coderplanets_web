@@ -39,10 +39,10 @@ const SectionLabel = ({ title, iconSrc, desc, node, withAdder, onAdd }) => (
       </AdderWrapper>
     </Label>
     <Divider />
-    <Maybe data={desc}>
+    <Maybe test={desc}>
       <Desc>{desc}</Desc>
     </Maybe>
-    <Maybe data={node}>
+    <Maybe test={node}>
       <React.Fragment>{node}</React.Fragment>
     </Maybe>
   </Wrapper>

@@ -21,7 +21,7 @@ import { insertCode, onUploadImageDone } from './logic'
 
 const CodeInputer = ({ divider }) => (
   <React.Fragment>
-    <Maybe data={!divider}>
+    <Maybe test={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
     <Item onClick={insertCode}>
@@ -33,7 +33,7 @@ const CodeInputer = ({ divider }) => (
 
 const PicUploader = ({ divider }) => (
   <React.Fragment>
-    <Maybe data={!divider}>
+    <Maybe test={!divider}>
       <Divider src={`${ICON_CMD}/more.svg`} />
     </Maybe>
     <DocUploader onUploadDone={onUploadImageDone}>

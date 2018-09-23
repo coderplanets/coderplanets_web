@@ -18,12 +18,16 @@ const MaybeLoading = ({ loading }) => {
   return <React.Fragment>{loading}</React.Fragment>
 }
 
-const Maybe = ({ children, data, loading }) => {
-  if (Array.isArray(data) && R.isEmpty(data)) {
+const Maybe = ({ children, test, loading }) => {
+  if (Array.isArray(test) && R.isEmpty(test)) {
     return <MaybeLoading loading={loading} />
   }
 
-  if (data === false) {
+  if (test === null) {
+    return null
+  }
+
+  if (test === false) {
     return <MaybeLoading loading={loading} />
   }
 
@@ -33,12 +37,12 @@ const Maybe = ({ children, data, loading }) => {
 Maybe.propTypes = {
   // https://www.npmjs.com/package/prop-types
   children: PropTypes.node.isRequired,
-  data: PropTypes.any,
+  test: PropTypes.any,
   loading: PropTypes.node,
 }
 
 Maybe.defaultProps = {
-  data: '',
+  test: '',
   loading: null,
 }
 

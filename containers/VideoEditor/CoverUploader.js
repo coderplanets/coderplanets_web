@@ -48,7 +48,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
           </UploaderLabel>
         </DocUploader>
         <br />
-        <Maybe data={!nilOrEmpty(thumbnil)}>
+        <Maybe test={!nilOrEmpty(thumbnil)}>
           <UploaderLabel>
             <UploaderIcon src={`${ICON_CMD}/copy.svg`} />
             <UploaderText onClick={copyThumbnilLink.bind(this, thumbnil)}>

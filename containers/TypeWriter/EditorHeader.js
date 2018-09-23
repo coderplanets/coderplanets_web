@@ -14,7 +14,7 @@ const EditorHeader = ({ cpType, thread, linkAddr }) => (
       <CopyrightSelector cpType={cpType} thread={thread} />
     </CopyRightWrapper>
 
-    <Maybe data={cpType !== 'original'}>
+    <Maybe test={cpType !== 'original'}>
       <SourceLink>
         <LinkLabel>原地址:</LinkLabel>
         <LinkInput
