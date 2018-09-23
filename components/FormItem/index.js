@@ -80,8 +80,9 @@ const FormItem = ({
   placeholder,
   node,
   att,
+  bottom,
 }) => (
-  <FormItemWrapper className="normal-form">
+  <FormItemWrapper className="normal-form" bottom={bottom}>
     <Maybe test={!R.isEmpty(label)}>
       <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
     </Maybe>
@@ -110,6 +111,7 @@ FormItem.propTypes = {
   node: PropTypes.node,
   att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(['small', 'default', 'large']),
+  bottom: PropTypes.string,
 }
 
 FormItem.defaultProps = {
@@ -123,6 +125,7 @@ FormItem.defaultProps = {
   node: <div />,
   att: '',
   onChange: debug,
+  bottom: '25px',
 }
 
 export default FormItem

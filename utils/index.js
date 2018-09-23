@@ -29,7 +29,6 @@ export {
   debounce,
   extractMentions,
   extractAttachments,
-  objAlreadyExsits,
 } from './functions'
 
 export {

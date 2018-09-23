@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import { Input, Maybe } from '../../components'
+import { FormItem, Space, Maybe } from '../../components'
 
 import {
   Wrapper,
@@ -20,23 +20,27 @@ import {
 import { uid } from '../../utils'
 import * as logic from './logic'
 
-const FormItem = ({ label, data, mainChange, subChange }) => (
+const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
 
     <FormInput>
-      <Input
+      <FormItem
         size="default"
         value={data.company}
+        raw="company"
+        ratKey={ratKey}
         placeholder="公司"
         onChange={mainChange}
+        bottom="0"
       />
-      &nbsp;&nbsp;
-      <Input
+      <Space right="8px" />
+      <FormItem
         size="default"
         value={data.title}
         placeholder="职位"
         onChange={subChange}
+        bottom="0"
       />
       <div onClick={logic.addBg.bind(this, 'work')}>
         <Adder src={`${ICON_CMD}/add.svg`} />
@@ -67,11 +71,12 @@ const BackgroundList = ({ list }) => (
     </BackgroundsWrapper>
   </Maybe>
 )
-const WorkEditor = ({ user, data }) => (
+const WorkEditor = ({ user, ratKey, data }) => (
   <Wrapper>
-    <FormItem
+    <FormBar
       label="工作经历:"
       data={data}
+      ratKey={ratKey}
       mainChange={logic.updateBg.bind(this, 'workBg', 'company')}
       subChange={logic.updateBg.bind(this, 'workBg', 'title')}
     />

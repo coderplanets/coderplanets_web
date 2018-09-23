@@ -141,6 +141,3 @@ export const extractAttachments = str => {
   /* eslint-enable */
   return urls
 }
-
-export const objAlreadyExsits = (target, source) =>
-  R.length(R.filter(R.equals(target), source)) > 0

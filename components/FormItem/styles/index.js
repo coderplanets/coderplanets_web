@@ -30,7 +30,7 @@ export const TextAreaer = styled(TextArea)`
 
 export const FormItemWrapper = styled.div`
   display: flex;
-  margin-bottom: 25px;
+  margin-bottom: ${({ bottom }) => bottom};
   width: 100%;
 `
 export const FormLable = styled.div`
