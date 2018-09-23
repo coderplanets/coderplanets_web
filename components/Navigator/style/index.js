@@ -17,8 +17,12 @@ export const Logo = styled(Img)`
   opacity: 0.7;
 `
 export const LogoText = styled.div`
-  margin-left: 6px;
   color: ${theme('logoText')};
+  font-family: cursive;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-left: 6px;
 `
 
 export const BetaLogo = styled(Img)`

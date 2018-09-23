@@ -4,7 +4,7 @@
  *
  */
 
-// TODO' html background-color
+// font-family: https://css-tricks.com/snippets/css/system-font-stack/
 const NormalizeStyle = `
   html {
     line-height: 1.15; /* 1 */
@@ -15,7 +15,7 @@ const NormalizeStyle = `
   body {
     font-size: 14px !important;
     line-height: 1.5;
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
   html,body{

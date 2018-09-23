@@ -41,7 +41,7 @@ const Navigator = () => (
         </ShortAddr>
       }
     >
-      <LogoText>coderplanets</LogoText>
+      <LogoText>Coderplanets</LogoText>
     </Popover>
     <BetaLogo src={`${ICON_CMD}/beta.svg`} />
     <SiteMapWrapper>
