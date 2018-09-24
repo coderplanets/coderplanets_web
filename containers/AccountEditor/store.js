@@ -126,7 +126,6 @@ const AccountEditorStore = t
             )
             .done()
 
-          console.log('result rat: ', result)
           if (!result.passed) flashState(self, 'ratKey', result.rat)
           return result.passed
         }
@@ -145,7 +144,6 @@ const AccountEditorStore = t
             )
             .done()
 
-          console.log('result rat: ', result)
           if (!result.passed) flashState(self, 'ratKey', result.rat)
           return result.passed
         }

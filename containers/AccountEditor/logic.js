@@ -74,8 +74,6 @@ export const updateConfirm = () => {
   if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
 
   store.markState({ updating: true })
-
-  console.log('editing: ', editing)
   sr71$.mutate(S.updateProfile, { profile: editing })
 }
 

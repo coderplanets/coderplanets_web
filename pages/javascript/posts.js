@@ -4,15 +4,8 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
-import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  TYPE,
-  subPath2Thread,
-} from '../../utils'
+import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
+import PostsThreadSchema from '../../containers/PostsThread/schema'
 
 import {
   ThemeWrapper,
@@ -28,8 +21,20 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import PostsThreadSchema from '../../containers/PostsThread/schema'
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  TYPE,
+  subPath2Thread,
+  makeDebugger,
+} from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:posts')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -65,8 +70,8 @@ export default class Posts extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR ## community (in javascript) post ##: ', asPath)
-    console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR ## community (in javascript) post ##: ', asPath)
+    debug('SSR queryStringToJSON: ', queryStringToJSON(asPath))
     const thread = getSubPath(props)
 
     const { pagedPosts, partialTags, community } = await fetchData(props)

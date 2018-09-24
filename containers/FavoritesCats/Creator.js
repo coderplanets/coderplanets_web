@@ -3,6 +3,8 @@ import { Input, Radio } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
+import { SectionLabel, Space, Button } from '../../components'
+
 import {
   Wrapper,
   EditWrapper,
@@ -13,7 +15,11 @@ import {
   Footer,
 } from './styles/editor'
 
-import { SectionLabel, Space, Button } from '../../components'
+import { makeDebugger } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('C:FavoritesCats:Creator')
+/* eslint-enable no-unused-vars */
 
 const { TextArea } = Input
 const RadioGroup = Radio.Group
@@ -29,7 +35,7 @@ const Creator = ({ show }) => (
             size="default"
             placeholder="收藏夹标题"
             defaultValue="hello"
-            onChange={console.log}
+            onChange={debug}
           />
         </FormInput>
       </FormItemWrapper>
@@ -39,7 +45,7 @@ const Creator = ({ show }) => (
           <TextArea
             placeholder="收藏什么的？"
             autosize={{ minRows: 2, maxRows: 3 }}
-            onChange={console.log}
+            onChange={debug}
           />
         </FormInput>
       </FormItemWrapper>
@@ -47,7 +53,7 @@ const Creator = ({ show }) => (
       <FormItemWrapper>
         <FormLable>加锁</FormLable>
         <RadiosWrapper>
-          <RadioGroup onChange={console.log} value={1}>
+          <RadioGroup onChange={debug} value={1}>
             <Radio value={1}>公开</Radio>
             <Radio value={2}>不公开</Radio>
           </RadioGroup>

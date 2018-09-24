@@ -63,12 +63,14 @@ class ArticleViwerContainer extends React.Component {
 }
 
 ArticleViwerContainer.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
+  attachment: PropTypes.any,
   // onReaction: PropTypes.func.isRequired,
 }
 
-ArticleViwerContainer.defaultProps = {}
+ArticleViwerContainer.defaultProps = {
+  attachment: {},
+}
 
 // ArticleViwerContainer
 

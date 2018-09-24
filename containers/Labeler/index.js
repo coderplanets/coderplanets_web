@@ -65,12 +65,14 @@ LabelerContainer.propTypes = {
   label: PropTypes.oneOf(['标签', '薪资', '城市', '编辑']),
   // label: PropTypes.oneOf(['tag', 'salary', 'city']),
   iconSrc: PropTypes.string,
+  labeler: PropTypes.any,
 }
 
 LabelerContainer.defaultProps = {
   label: '标签',
   // label: 'tag',
   iconSrc: `${ICON_CMD}/extra_tag.svg`,
+  labeler: {},
 }
 
 export default inject(storePlug('labeler'))(observer(LabelerContainer))

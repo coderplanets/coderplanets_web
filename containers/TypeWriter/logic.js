@@ -132,7 +132,7 @@ const openAttachment = att => {
   if (!att) return false
 
   const { id, title, body, digest } = att
-  console.log('openAttachment: ', att)
+  debug('openAttachment: ', att)
 
   store.markState({
     id,

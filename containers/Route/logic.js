@@ -52,7 +52,7 @@ export function init(_store, routeObj) {
   const mainPath = getMainPath(routeObj)
   const subPath = getSubPath(routeObj)
   const { query } = routeObj
-  console.log('init routeObj: ', routeObj)
+  debug('init routeObj: ', routeObj)
 
   store.markState({ mainPath, subPath, query })
 }

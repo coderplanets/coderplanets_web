@@ -25,7 +25,6 @@ md.use(remarkableemoj)
 const debug = makeDebugger('c:MarkDownRender:index')
 /* eslint-enable no-unused-vars */
 
-// TODO: move it to components
 class MarkDownRender extends React.Component {
   componentDidMount() {
     Prism.highlightAll()
@@ -38,12 +37,14 @@ class MarkDownRender extends React.Component {
       <PreviewerContainer>
         <MarkDownStyle>
           <div className="markdown-body">
+            {/* eslint-disable react/no-danger */}
             <div
               id="typewriter-preview-container"
               dangerouslySetInnerHTML={{
                 __html: md.render(body),
               }}
             />
+            {/* eslint-enable react/no-danger */}
           </div>
         </MarkDownStyle>
       </PreviewerContainer>

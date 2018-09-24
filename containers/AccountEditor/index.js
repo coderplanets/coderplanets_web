@@ -106,8 +106,6 @@ class AccountEditorContainer extends React.Component {
       ratKey,
     } = accountEditor
 
-    console.log('ratkey: ', ratKey)
-
     return (
       <Wrapper className="normal-form">
         {/* eslint-disable */}

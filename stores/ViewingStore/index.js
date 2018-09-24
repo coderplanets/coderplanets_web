@@ -34,7 +34,6 @@ const ViewingStore = t
       return self.root.accountInfo
     },
     get viewingData() {
-      console.log('self.activeThread -> ', self.activeThread)
       switch (self.activeThread) {
         case THREAD.JOB: {
           return stripMobx(self.job)

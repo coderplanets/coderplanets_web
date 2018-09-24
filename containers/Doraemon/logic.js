@@ -64,7 +64,6 @@ export function githubLoginHandler() {
     if (e.origin === Global.location.origin) {
       if (e.data.from_oauth_window) {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
-        console.log('get code: ', code)
 
         sr71$.mutate(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
@@ -295,12 +294,9 @@ const DataSolver = [
   {
     match: asyncRes('githubSignin'),
     action: ({ githubSignin }) => {
-      console.log('action githubSignin get: ', githubSignin)
-
       BStore.set('user', githubSignin.user)
       BStore.set('token', githubSignin.token)
       /* store.updateSessionState({ isValid: true, user: githubSignin.user }) */
-      console.log('then refresh browser')
       Global.location.reload(false)
     },
   },

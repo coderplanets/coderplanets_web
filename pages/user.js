@@ -7,16 +7,7 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import {
-  makeGQClient,
-  queryStringToJSON,
-  /* nilOrEmpty, */
-  getSubPath,
-  USER_THREAD,
-  /* BStore, */
-  ROUTE,
-} from '../utils'
-
+import AccountSchema from '../containers/AccountViewer/schema'
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -31,7 +22,20 @@ import {
   Footer,
 } from '../containers'
 
-import AccountSchema from '../containers/AccountViewer/schema'
+import {
+  makeGQClient,
+  queryStringToJSON,
+  /* nilOrEmpty, */
+  getSubPath,
+  USER_THREAD,
+  /* BStore, */
+  ROUTE,
+  makeDebugger,
+} from '../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:user')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -48,7 +52,7 @@ async function fetchData(props) {
       /* userHasLogin: nilOrEmpty(token) === false, */
     })
     .catch(e => {
-      console.log('error? ', e)
+      debug('error? ', e)
     })
 
   return {
@@ -62,11 +66,11 @@ export default class UserPage extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR (user) queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR (user) queryStringToJSON: ', queryStringToJSON(asPath))
     const query = queryStringToJSON(asPath)
 
     const { user } = await fetchData(props)
-    console.log('fetchData user: ', user)
+    debug('fetchData user: ', user)
 
     return {
       langSetup: {},

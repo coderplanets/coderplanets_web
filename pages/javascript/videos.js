@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  TYPE,
-  subPath2Thread,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -30,6 +20,21 @@ import {
 
 import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import VideosThreadSchema from '../../containers/VideosThread/schema'
+
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  TYPE,
+  subPath2Thread,
+  makeDebugger,
+} from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:videos')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -65,8 +70,8 @@ export default class Videos extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR ## community (in javascript) video ##: ', asPath)
-    console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR ## community (in javascript) video ##: ', asPath)
+    debug('SSR queryStringToJSON: ', queryStringToJSON(asPath))
     const thread = getSubPath(props)
 
     const { pagedVideos, partialTags, community } = await fetchData(props)

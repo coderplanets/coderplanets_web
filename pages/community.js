@@ -5,16 +5,6 @@ import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
 import {
-  makeGQClient,
-  queryStringToJSON,
-  getMainPath,
-  getSubPath,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
-} from '../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -30,6 +20,21 @@ import {
 
 import CommunityBannerSchema from '../containers/CommunityBanner/schema'
 import PostsThreadSchema from '../containers/PostsThread/schema'
+
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getMainPath,
+  getSubPath,
+  extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
+  makeDebugger,
+} from '../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:community')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -65,7 +70,7 @@ export default class Index extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log(
+    debug(
       'SSR (community--) queryStringToJSON l: ',
       queryStringToJSON(asPath, { pagi: 'number' })
     )

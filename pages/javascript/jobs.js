@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -31,9 +21,24 @@ import {
 import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
 import JobsThreadSchema from '../../containers/JobsThread/schema'
 
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
+  makeDebugger,
+} from '../../utils'
+
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:jobs')
+/* eslint-enable no-unused-vars */
 
 async function fetchData(props) {
   const { request } = makeGQClient()
@@ -69,7 +74,8 @@ export default class Jobs extends React.Component {
     /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
-    console.log('SSR ## community (in javascript)jobs ##: ', asPath)
+    debug('SSR ## community (in javascript)jobs ##: ', asPath)
+
     const thread = getSubPath(props)
 
     const { pagedJobs, partialTags, community } = await fetchData(props)
