@@ -20,7 +20,7 @@ export const LogoText = styled.div`
   color: ${theme('logoText')};
   font-family: cursive;
   font-weight: bolder;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-size: 1rem;
   margin-left: 6px;
 `
@@ -87,6 +87,7 @@ export const SiteMapWrapper = styled.div`
   display: flex;
   margin-left: 10px;
   align-items: center;
+  font-size: 0.9rem;
 `
 export const DotDivider = styled.div`
   width: 5px;

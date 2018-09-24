@@ -38,6 +38,7 @@ const Navigator = () => (
         <ShortAddr>
           <ShortDesc>暗号: https://</ShortDesc>
           cps.fun
+          <ShortDesc> (备案中)</ShortDesc>
         </ShortAddr>
       }
     >
