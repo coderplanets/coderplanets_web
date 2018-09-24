@@ -236,7 +236,7 @@ const Cyan = {
   },
   tabs: {
     headerActive: primaryColor,
-    header: lighten(0.2, primaryColor),
+    header: lighten(0.15, primaryColor),
     contentBg: '#FFFFFF',
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
