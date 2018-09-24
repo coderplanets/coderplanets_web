@@ -83,6 +83,7 @@ const SolarizedDark = {
     label: '#065365',
   },
   sidebar: {
+    logoText: primaryColor,
     bg: sidebarBg,
     menuHover: lighten(0.1, sidebarBg),
     pinActive: '#849804',

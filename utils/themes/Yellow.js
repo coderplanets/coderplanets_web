@@ -82,6 +82,7 @@ const Yellow = {
     label: descText,
   },
   sidebar: {
+    logoText: primaryColor,
     bg: sidebarBg,
     menuHover: lighten(0.1, sidebarBg),
     pinActive: '#849804',

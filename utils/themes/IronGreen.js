@@ -81,6 +81,7 @@ const IconGreen = {
     label: descText,
   },
   sidebar: {
+    logoText: primaryColor,
     bg: sidebarBg,
     menuHover: darken(0.05, sidebarBg),
     pinActive: '#54848B',

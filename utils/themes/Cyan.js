@@ -82,6 +82,7 @@ const Cyan = {
   },
   sidebar: {
     bg: sidebarBg,
+    logoText: '#5e9aa2',
     menuHover: darken(0.1, sidebarBg),
     pinActive: primaryColor,
     menuLink: '#D9E6E5',

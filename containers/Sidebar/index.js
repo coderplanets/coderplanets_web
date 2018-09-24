@@ -26,7 +26,7 @@ import {
   MenuItemTitle,
   MiniChartWrapper,
   SiteLogoWrapper,
-  SiteLogo,
+  // SiteLogo,
   ExploreWrapper,
   ExploreContent,
   ExploreIcon,
@@ -159,7 +159,8 @@ class SidebarContainer extends React.Component {
         <Header pin={pin}>
           <HeaderFuncs>
             <SiteLogoWrapper pin={pin}>
-              <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />
+              CPS
+              {/* <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} /> */}
             </SiteLogoWrapper>
             <ExploreWrapper pin={pin}>
               <Button size="small" type="primary" ghost>

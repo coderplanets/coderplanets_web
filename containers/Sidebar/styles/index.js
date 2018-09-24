@@ -47,6 +47,9 @@ export const PinIconWrapper = styled.div`
 `
 export const SiteLogoWrapper = styled.div`
   margin-left: 15px;
+  color: ${theme('sidebar.logoText')};
+  letter-spacing: 1px;
+  margin-top: -4px;
   display: ${({ pin }) => (pin ? 'none' : 'block')};
   ${Container}:hover & {
     display: none;
