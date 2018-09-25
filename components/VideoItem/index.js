@@ -10,9 +10,9 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
+import DotDivider from '../DotDivider'
 import { Space } from '../BaseStyled'
 import InlineTags from '../InlineTags'
-import SourceLink from './SourceLink'
 
 import {
   Wrapper,
@@ -32,8 +32,9 @@ import {
   ButtonAvatar,
   ButtonNickname,
   InsertTime,
-  DotDivider,
 } from './styles'
+
+import SourceLink from './SourceLink'
 
 import { makeDebugger, cutFrom } from '../../utils'
 /* eslint-disable no-unused-vars */

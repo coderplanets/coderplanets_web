@@ -136,11 +136,3 @@ export const InsertTime = styled.div`
   margin-top: 1px;
   margin-left: 2px;
 `
-export const DotDivider = styled.div`
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  background-color: ${theme('thread.articleDigest')};
-  margin-left: 5px;
-  margin-right: 5px;
-`
