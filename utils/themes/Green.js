@@ -20,6 +20,7 @@ const Green = {
   logoText: bannerTitle,
   cover: '#B4C9B2',
   coverIndex: '#9e96c3',
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

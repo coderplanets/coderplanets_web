@@ -14,8 +14,10 @@ export { default as PostItem } from './PostItem'
 export { default as JobItem } from './JobItem'
 export { default as RepoItem } from './RepoItem'
 export { default as VideoItem } from './VideoItem'
+
 // Utils component
 export { default as Maybe } from './Maybe'
+export { default as DotDivider } from './DotDivider'
 export { default as UserBrief } from './UserBrief'
 export { default as ErrorPage } from './ErrorPage'
 export { default as OauthHinter } from './OauthHinter'

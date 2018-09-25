@@ -20,6 +20,7 @@ const Cyan = {
   logoText: descText,
   cover: primaryColor,
   coverIndex: '#F9FCFC',
+  contrastFg: 'orange',
   htmlBg: bannerBg,
   loading: {
     basic: bannerBg,

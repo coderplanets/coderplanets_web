@@ -3,7 +3,7 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
-import { Maybe } from '..'
+import Maybe from '../Maybe'
 import { Wrapper, LinkIcon, LogoIcon } from './styles/source_link'
 
 const recommandSources = ['youtube', 'vimeo', 'bilibili']

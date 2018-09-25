@@ -19,6 +19,7 @@ const Blue = {
   logoText: primaryColor,
   cover: '#586ABD',
   coverIndex: '#9e96c3',
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,
