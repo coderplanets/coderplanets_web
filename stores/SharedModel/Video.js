@@ -28,7 +28,7 @@ export const Video = t.model('Video', {
   tags: t.optional(t.array(Tag), []),
   /* comments: t.optional(t.array(Comment), []), */
 
-  publishAt: t.optional(t.string, ''),
+  publishAt: t.maybeNull(t.string),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

@@ -6,8 +6,10 @@ const pagedVideosRaw = `
       entries {
         id
         title
+        poster
         desc
         duration
+        source
         views
         originalAuthor
         originalAuthorLink
@@ -17,6 +19,7 @@ const pagedVideosRaw = `
           nickname
         }
         insertedAt
+        publishAt
       }
       totalCount
       pageSize
