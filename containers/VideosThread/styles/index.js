@@ -41,11 +41,3 @@ export const FilterResultHint = styled.div`
   margin-right: 10px;
   color: ${theme('thread.filterResultHint')};
 `
-
-/* border-bottom: 1px solid #ececec; */
-export const TagDivider = styled.div`
-  width: 80%;
-  margin-top: 40px;
-  margin-bottom: 30px;
-  margin-left: 8%;
-`

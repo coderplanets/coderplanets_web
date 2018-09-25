@@ -64,9 +64,9 @@ const VideoItem = ({ entry, active, onTitleSelect }) => {
             <OriginalAuthorLink href={entry.originalAuthorLink} target="_blank">
               {entry.originalAuthor}
             </OriginalAuthorLink>{' '}
-            <Space right="6px" />⁝<Space right="6px" />
+            <DotDivider />
             <TimeAgo datetime={entry.publishAt} locale="zh_CN" />
-            <Space right="6px" />⁝<Space right="6px" />
+            <Space right="8px" />
             <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right="2px" />
             {entry.views}
           </Extra>
