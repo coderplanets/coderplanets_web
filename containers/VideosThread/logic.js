@@ -14,7 +14,14 @@ import {
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [
+    EVENT.REFRESH_VIDEOS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.COMMUNITY_CHANGE,
+  ],
+})
+
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -90,6 +97,18 @@ const DataSolver = [
       }
       store.markState({ curView, pagedVideos })
     },
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadVideos(),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_VIDEOS),
+    action: () => loadVideos(),
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.setViewing({ video: {} }),
   },
   {
     match: asyncRes('partialTags'),

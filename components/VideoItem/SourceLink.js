@@ -19,7 +19,7 @@ const SourceLink = ({ value }) => (
       <LinkIcon src={`${ICON_CMD}/link.svg`} />
     </Maybe>
     <Maybe test={R.contains(value, recommandSources)}>
-      <LogoIcon src={`${ICON_CMD}/youtube.svg`} color={colorMaps[value]} />
+      <LogoIcon src={`${ICON_CMD}/${value}.svg`} color={colorMaps[value]} />
     </Maybe>
     <div>{value}</div>
   </Wrapper>

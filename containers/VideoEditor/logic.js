@@ -1,6 +1,14 @@
 import R from 'ramda'
 
-import { makeDebugger, asyncRes, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  dispatchEvent,
+  asyncRes,
+  $solver,
+  asyncErr,
+  ERR,
+  EVENT,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
@@ -52,6 +60,9 @@ const DataSolver = [
       // cancelLoading()
       /* store.markState({ createVideo }) */
       debug('createVideo done')
+      // store.reset()
+      store.closePreview()
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
     },
   },
 ]

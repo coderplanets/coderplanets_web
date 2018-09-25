@@ -54,6 +54,9 @@ const VideoEditor = t
     changeErr(options) {
       self.toast('error', options)
     },
+    closePreview() {
+      self.root.closePreview()
+    },
     updateEditing(sobj) {
       const editVideo = R.merge(self.editVideoData, { ...sobj })
       self.markState({ editVideo })
