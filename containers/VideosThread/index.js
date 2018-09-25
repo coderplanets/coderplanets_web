@@ -29,11 +29,10 @@ import {
   RightPart,
   FilterWrapper,
   FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
+import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -128,8 +127,8 @@ class VideosThreadContainer extends React.Component {
             </PublishBtn>
 
             <Affix offsetTop={50}>
-              <TagDivider />
               <TagsBar
+                thread={THREAD.VIDEO}
                 tags={tagsData}
                 active={activeTagData}
                 onSelect={logic.onTagSelect}

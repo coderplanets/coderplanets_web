@@ -30,7 +30,6 @@ import {
   RightPart,
   FilterWrapper,
   FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
@@ -126,7 +125,6 @@ class ReposThreadContainer extends React.Component {
           </PublishBtn>
 
           <Affix offsetTop={50}>
-            <TagDivider />
             <TagsBar
               thread={THREAD.REPO}
               tags={tagsData}

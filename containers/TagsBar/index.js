@@ -20,7 +20,6 @@ const debug = makeDebugger('C:TagsBar')
 
 class TagsBarContainer extends React.Component {
   componentWillMount() {
-    debug('componentWillMount')
     const { tagsBar, thread } = this.props
     logic.init(tagsBar, thread)
   }
@@ -34,7 +33,6 @@ class TagsBarContainer extends React.Component {
 
   render() {
     const { tagsBar } = this.props
-
     const { tagsData, activeTagData } = tagsBar
 
     return (

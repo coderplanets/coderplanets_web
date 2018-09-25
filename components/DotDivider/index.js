@@ -14,21 +14,18 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:DotDivider:index')
 /* eslint-enable no-unused-vars */
 
-const DotDivider = ({ radius, color, space }) => {
-  return <Wrapper radius={radius} space={space} color={color} />
-}
+const DotDivider = ({ radius, space }) => (
+  <Wrapper radius={radius} space={space} />
+)
 
 DotDivider.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   radius: PropTypes.string,
-  color: PropTypes.any,
   space: PropTypes.string,
 }
 
 DotDivider.defaultProps = {
   radius: '5px',
   space: '5px',
-  color: null,
 }
 
 export default DotDivider

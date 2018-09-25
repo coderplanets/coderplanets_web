@@ -10,9 +10,9 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
+import DotDivider from '../DotDivider'
 import { Space } from '../BaseStyled'
 import InlineTags from '../InlineTags'
-import SourceLink from './SourceLink'
 
 import {
   Wrapper,
@@ -32,8 +32,9 @@ import {
   ButtonAvatar,
   ButtonNickname,
   InsertTime,
-  DotDivider,
 } from './styles'
+
+import SourceLink from './SourceLink'
 
 import { makeDebugger, cutFrom } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -63,9 +64,9 @@ const VideoItem = ({ entry, active, onTitleSelect }) => {
             <OriginalAuthorLink href={entry.originalAuthorLink} target="_blank">
               {entry.originalAuthor}
             </OriginalAuthorLink>{' '}
-            <Space right="6px" />⁝<Space right="6px" />
+            <DotDivider />
             <TimeAgo datetime={entry.publishAt} locale="zh_CN" />
-            <Space right="6px" />⁝<Space right="6px" />
+            <Space right="8px" />
             <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right="2px" />
             {entry.views}
           </Extra>

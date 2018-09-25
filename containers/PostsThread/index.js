@@ -29,7 +29,6 @@ import {
   RightPart,
   FilterWrapper,
   FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
@@ -129,7 +128,6 @@ class PostsThreadContainer extends React.Component {
             </PublishBtn>
 
             <Affix offsetTop={50}>
-              <TagDivider />
               <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
             </Affix>
           </React.Fragment>

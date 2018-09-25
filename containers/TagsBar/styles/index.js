@@ -4,6 +4,7 @@ import { theme } from '../../../utils'
 import Img from '../../../components/Img'
 
 export const Wrapper = styled.div`
+  margin-top: 30px;
   flex-direction: column;
   margin-left: 10px;
   padding-left: 10%;
