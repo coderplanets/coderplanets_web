@@ -166,6 +166,12 @@ const Blue = {
     scale_4: lighten(0.18, '#342e3a'),
     scale_5: lighten(0.3, '#342e3a'),
   },
+  locationMap: {
+    oceanColor: '#F9FCFC',
+    regionBg: '#A0BCBD',
+    restRegionBg: '#D9E6E5',
+    borderStroke: '#A0BBBD',
+  },
   bannerHeatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',

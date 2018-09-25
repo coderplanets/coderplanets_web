@@ -11,6 +11,7 @@ import PostsThread from '../../containers/PostsThread'
 import VideosThread from '../../containers/VideosThread'
 import ReposThread from '../../containers/ReposThread'
 import JobsThread from '../../containers/JobsThread'
+import UsersThread from '../../containers/UsersThread'
 import CheatSheetPaper from '../../containers/CheatSheetPaper'
 
 import { Wrapper } from './styles'
@@ -28,17 +29,8 @@ const ComunityContent = ({ curRoute }) => {
     case ROUTE.REPOS: {
       return <ReposThread />
     }
-    case 'news': {
-      return <h2>NesPaper</h2>
-    }
-    case 'tuts': {
-      return <h2>TutsPaper</h2>
-    }
-    case 'meetups': {
-      return <h2>MeetupPaper</h2>
-    }
-    case 'users': {
-      return <h2>UsersPaper</h2>
+    case ROUTE.USERS: {
+      return <UsersThread />
     }
     case ROUTE.VIDEOS: {
       return <VideosThread />
