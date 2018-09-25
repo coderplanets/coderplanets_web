@@ -8,6 +8,8 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
+import { ICON_CMD } from '../../config'
+
 import TagsBar from '../TagsBar'
 
 import {
@@ -19,6 +21,7 @@ import {
   BuyMeChuanChuan,
   Maybe,
   JobItem,
+  PublishLabel,
 } from '../../components'
 
 import {
@@ -128,7 +131,7 @@ class JobsThreadContainer extends React.Component {
 
         <RightPart>
           <PublishBtn type="primary" onClick={logic.createContent}>
-            招贤纳士
+            <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
           </PublishBtn>
 
           <Affix offsetTop={50}>

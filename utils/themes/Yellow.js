@@ -19,6 +19,7 @@ const Yellow = {
   logoText: primaryColor,
   cover: bannerBg,
   coverIndex: primaryMate,
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

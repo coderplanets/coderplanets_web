@@ -19,6 +19,7 @@ const Purple = {
   logoText: primaryColor,
   cover: primaryColor,
   coverIndex: '#9e96c3',
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

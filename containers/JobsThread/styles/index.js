@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   display: flex;
   max-width: 1400px;
 `
-
 export const LeftPadding = styled.div`
   width: 4vw;
 `
@@ -18,12 +17,10 @@ export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
-
 export const RightPart = styled.div`
   width: 20vw;
   margin-left: 30px;
 `
-
 /* fill: ${theme('shell.searchIcon')}; */
 export const PublishBtn = styled(Button)`
   margin-top: 8px;
@@ -41,8 +38,6 @@ export const FilterResultHint = styled.div`
   margin-right: 10px;
   color: ${theme('thread.filterResultHint')};
 `
-
-/* border-bottom: 1px solid #ececec; */
 export const TagDivider = styled.div`
   width: 80%;
   margin-top: 40px;

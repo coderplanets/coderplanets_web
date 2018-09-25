@@ -19,6 +19,7 @@ const Github = {
   logoText: primaryColor,
   cover: '#F6F8FA',
   coverIndex: '#9e96c3',
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

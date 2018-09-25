@@ -20,6 +20,7 @@ const SolarizedDark = {
   logoText: primaryColor,
   cover: lighten(0.08, bannerBg),
   coverIndex: primaryMate,
+  contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
     basic: bannerBg,

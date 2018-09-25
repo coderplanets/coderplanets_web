@@ -11,6 +11,8 @@ export const Job = t.model('Job', {
   id: t.maybeNull(t.string),
   title: t.maybeNull(t.string),
   body: t.maybeNull(t.string),
+  company: t.optional(t.string, ''),
+  companyLogo: t.optional(t.string, ''),
   digest: t.maybeNull(t.string),
   // author: t.optional(User, {}),
   author: t.maybeNull(User),

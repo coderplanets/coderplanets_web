@@ -20,6 +20,7 @@ const IconGreen = {
   logoText: descText,
   cover: bannerBg,
   coverIndex: '#F9FCFC',
+  contrastFg: 'orange',
   htmlBg: bannerBg,
   loading: {
     basic: bannerBg,

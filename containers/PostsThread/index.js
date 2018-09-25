@@ -17,8 +17,8 @@ import {
   EmptyThread,
   ContentFilter,
   Maybe,
-  Space,
   PostItem,
+  PublishLabel,
 } from '../../components'
 
 import {
@@ -125,7 +125,7 @@ class PostsThreadContainer extends React.Component {
         <RightPart>
           <React.Fragment>
             <PublishBtn type="primary" onClick={logic.createContent}>
-              发<Space right="20px" />帖
+              <PublishLabel text="发布帖子" />
             </PublishBtn>
 
             <Affix offsetTop={50}>

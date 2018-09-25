@@ -6,7 +6,8 @@ const pagedJobsRaw = `
       entries {
         id
         title
-        digest
+        company
+        companyLogo
         tags {
           id
           title
