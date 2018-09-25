@@ -103,6 +103,7 @@ export const ROUTE = {
 
 export const THREAD = {
   POST: 'post',
+  USER: 'user',
   JOB: 'job',
   VIDEO: 'video',
   REPO: 'repo',
