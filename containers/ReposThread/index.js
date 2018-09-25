@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
+import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
 import {
@@ -16,9 +17,9 @@ import {
   Pagi,
   EmptyThread,
   ContentFilter,
-  Space,
   Maybe,
   RepoItem,
+  PublishLabel,
 } from '../../components'
 
 import {
@@ -121,7 +122,7 @@ class ReposThreadContainer extends React.Component {
 
         <RightPart>
           <PublishBtn type="primary" onClick={logic.createContent}>
-            发<Space right="20px" />布
+            <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
           </PublishBtn>
 
           <Affix offsetTop={50}>

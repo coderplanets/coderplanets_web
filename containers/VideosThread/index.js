@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
 import {
@@ -15,9 +16,9 @@ import {
   Pagi,
   EmptyThread,
   ContentFilter,
-  Space,
   Maybe,
   VideoItem,
+  PublishLabel,
 } from '../../components'
 
 import {
@@ -123,8 +124,7 @@ class VideosThreadContainer extends React.Component {
         <RightPart>
           <React.Fragment>
             <PublishBtn type="primary" onClick={logic.createContent}>
-              发<Space right="10px" />布<Space right="10px" />视
-              <Space right="10px" />频
+              <PublishLabel text="发布视频" iconSrc={`${ICON_CMD}/link2.svg`} />
             </PublishBtn>
 
             <Affix offsetTop={50}>
