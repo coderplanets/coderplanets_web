@@ -1,11 +1,16 @@
 import React from 'react'
-import G2 from 'g2'
+// TODO import it globaly, g2 is too big to load in time (> 400KB)
+// import G2 from 'g2'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 import { fetch } from 'whatwg-fetch'
 
 import { Margin } from '../../components'
-import { uid, theme as themeHelper } from '../../utils'
+import { makeDebugger, uid, theme as themeHelper } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:LocationMap')
+/* eslint-enable no-unused-vars */
 
 class LocationMap extends React.Component {
   constructor(props) {
@@ -15,7 +20,12 @@ class LocationMap extends React.Component {
   }
 
   componentDidMount() {
-    this.initG2()
+    try {
+      this.initG2()
+    } catch (e) {
+      // TODO: tell toast
+      debug('G2 is not load', e)
+    }
   }
 
   onResize(width) {
@@ -25,6 +35,7 @@ class LocationMap extends React.Component {
     if (this.chart) this.chart.changeSize(newWidth, height)
   }
 
+  /* eslint-disable no-undef */
   initG2() {
     const { theme } = this.props
 
@@ -57,6 +68,8 @@ class LocationMap extends React.Component {
           },
         })
         this.chart.forceFit()
+        // animate it's to "dragy"
+        this.chart.animate(false)
         this.chart.legend(false)
         this.chart.coord('map', {
           projection: 'albers',
@@ -88,8 +101,9 @@ class LocationMap extends React.Component {
         const curWidth = document.getElementById(this.chartId).offsetWidth
         this.onResize(curWidth)
       })
-      .catch(ex => console.log('parsing failed', ex))
+      .catch(ex => debug('parsing failed', ex))
   }
+  /* eslint-enable no-undef */
 
   render() {
     return (
