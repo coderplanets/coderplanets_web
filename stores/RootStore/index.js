@@ -131,7 +131,7 @@ const rootStore = t
     videosThread: t.optional(VideosThreadStore, {}),
     reposThread: t.optional(ReposThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
-    usersThreadStore: t.optional(UsersThreadStore, {}),
+    usersThread: t.optional(UsersThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),

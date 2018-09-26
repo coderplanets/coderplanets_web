@@ -4,7 +4,6 @@ import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 import fetchGeoData from './geo_data'
-import { fetch } from 'whatwg-fetch'
 
 import { Margin } from '../../components'
 import { makeDebugger, uid, theme as themeHelper } from '../../utils'
@@ -44,12 +43,7 @@ class LocationMap extends React.Component {
     // animate it's to "dragy"
     this.chart.animate(false)
     this.chart.legend(false)
-    this.chart.tooltip({
-      title: null,
-      map: {
-        name: 'name',
-      },
-    })
+    this.chart.tooltip({ title: null })
 
     this.chart.coord('map', {
       projection: 'albers',
@@ -66,6 +60,8 @@ class LocationMap extends React.Component {
     const regionBg = themeHelper('locationMap.regionBg')({ theme })
     const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
     const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
+    const markerBg = themeHelper('locationMap.markerBg')({ theme })
+    const markerShadow = themeHelper('locationMap.markerShadow')({ theme })
 
     const { Stat } = G2
 
@@ -109,27 +105,27 @@ class LocationMap extends React.Component {
             lineWidth: 1,
           })
 
-        // TODO: should from server
-        fetch('http://antvis.github.io/static/data/china-pm.json')
-          .then(response => response.json())
-          .then(data => {
-            const pointView = this.chart.createView()
-            pointView.source(data)
-            pointView
-              .point()
-              .position(Stat.map.location('long*lant'))
-              .size('value', 12, 1)
-              .color('value', () => '#C2DEB6')
-              .tooltip('name*value')
-              .shape('value', () => 'circle')
-              .style({
-                shadowBlur: 10,
-                shadowColor: '#C2DEB6',
-              })
-            this.chart.render()
-            const curWidth = document.getElementById(this.chartId).offsetWidth
-            this.onResize(curWidth)
+        const pointView = this.chart.createView()
+
+        const { markers } = this.props
+        pointView.source(markers, {
+          value: { alias: '人数' },
+          city: { alias: '城市' },
+        })
+        pointView
+          .point()
+          .position(Stat.map.location('long*lant'))
+          .size('value', 12, 1)
+          .color('value', () => markerBg)
+          .tooltip('city*value')
+          .shape('value', () => 'circle')
+          .style({
+            shadowBlur: 5,
+            shadowColor: markerShadow,
           })
+        this.chart.render()
+        const curWidth = document.getElementById(this.chartId).offsetWidth
+        this.onResize(curWidth)
       })
       .catch(ex => debug('parsing failed', ex))
   }
@@ -154,3 +150,9 @@ class LocationMap extends React.Component {
 }
 
 export default withTheme(LocationMap)
+
+/*
+   fetch('http://antvis.github.io/static/data/china-pm.json')
+   .then(response => response.json())
+   .then(data => {})
+ */

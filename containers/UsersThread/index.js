@@ -6,8 +6,9 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-
 import dynamic from 'next/dynamic'
+
+import MapLoading from './MapLoading'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -29,7 +30,17 @@ class UsersThreadContainer extends React.Component {
   }
 
   render() {
-    return <div>{LocationMapSSR ? <LocationMapSSR /> : null}</div>
+    const { usersThread } = this.props
+    const { geoInfosData, geoDataLoading } = usersThread
+
+    /* const ready = LocationMapSSR !== null && !R.isEmpty(geoInfosData) */
+    const ready = LocationMapSSR !== null && !geoDataLoading
+
+    return (
+      <div>
+        {ready ? <LocationMapSSR markers={geoInfosData} /> : <MapLoading />}
+      </div>
+    )
   }
 }
 
