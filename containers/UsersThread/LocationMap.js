@@ -1,21 +1,45 @@
 import React from 'react'
-import G2 from 'g2'
+// TODO import it globaly, g2 is too big to load in time (> 400KB)
+// import G2 from 'g2'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
-import { fetch } from 'whatwg-fetch'
+import fetchGeoData from './geo_data'
 
 import { Margin } from '../../components'
-import { uid, theme as themeHelper } from '../../utils'
+import { makeDebugger, uid, theme as themeHelper } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:LocationMap')
+/* eslint-enable no-unused-vars */
 
 class LocationMap extends React.Component {
   constructor(props) {
     super(props)
     this.chart = null
     this.chartId = uid.gen()
+
+    const { curTheme } = this.props
+    this.curTheme = curTheme
   }
 
   componentDidMount() {
-    this.initG2()
+    try {
+      this.initG2()
+    } catch (e) {
+      // TODO: tell toast
+      debug('G2 is not load', e)
+    }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.curTheme !== this.curTheme) {
+      this.curTheme = nextProps.curTheme
+
+      this.chart.destroy()
+      setTimeout(() => {
+        this.initG2()
+      }, 1000)
+    }
   }
 
   onResize(width) {
@@ -25,14 +49,38 @@ class LocationMap extends React.Component {
     if (this.chart) this.chart.changeSize(newWidth, height)
   }
 
+  /* eslint-disable no-undef */
+  configG2() {
+    G2.track(false)
+
+    this.chart.forceFit()
+    // animate it's to "dragy"
+    this.chart.animate(false)
+    this.chart.legend(false)
+    this.chart.tooltip({ title: null })
+
+    this.chart.coord('map', {
+      projection: 'albers',
+      basic: [110, 0, 25, 47], // 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度
+      max: [16.573, -13.613], // 指定投影后最大的坐标点
+      min: [-27.187, -49.739], // 指定投影后最小的坐标点
+    })
+  }
+
   initG2() {
     const { theme } = this.props
 
-    const { Stat } = G2
-    G2.track(false) // track my ass
+    const oceanColor = themeHelper('locationMap.oceanColor')({ theme })
+    const regionBg = themeHelper('locationMap.regionBg')({ theme })
+    const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
+    const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
+    const markerBg = themeHelper('locationMap.markerBg')({ theme })
+    const markerShadow = themeHelper('locationMap.markerShadow')({ theme })
 
-    fetch('https://coderplanets.oss-cn-beijing.aliyuncs.com/asia.geo.json')
-      .then(response => response.json())
+    const { Stat } = G2
+
+    debug('initG2 .... ##')
+    fetchGeoData()
       .then(mapData => {
         const map = []
         const { features } = mapData
@@ -40,14 +88,9 @@ class LocationMap extends React.Component {
           const { name } = features[i].properties
           map.push({ name })
         }
-        const oceanColor = themeHelper('locationMap.oceanColor')({ theme })
-        const regionBg = themeHelper('locationMap.regionBg')({ theme })
-        const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
-        const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
 
         this.chart = new G2.Chart({
           id: this.chartId,
-          // width: 975, // ratio: 650 / 400
           height: 500,
           plotCfg: {
             margin: [10, 105],
@@ -56,15 +99,8 @@ class LocationMap extends React.Component {
             },
           },
         })
-        this.chart.forceFit()
-        this.chart.legend(false)
-        this.chart.coord('map', {
-          projection: 'albers',
-          basic: [110, 0, 25, 47], // 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度
-          max: [16.573, -13.613], // 指定投影后最大的坐标点
-          min: [-27.187, -49.739], // 指定投影后最小的坐标点
-        })
-        this.chart.tooltip({ title: null })
+
+        this.configG2()
 
         const bgView = this.chart.createView()
         bgView.source(map)
@@ -84,12 +120,31 @@ class LocationMap extends React.Component {
             lineWidth: 1,
           })
 
+        const pointView = this.chart.createView()
+
+        const { markers } = this.props
+        pointView.source(markers, {
+          value: { alias: '人数' },
+          city: { alias: '城市' },
+        })
+        pointView
+          .point()
+          .position(Stat.map.location('long*lant'))
+          .size('value', 12, 1)
+          .color('value', () => markerBg)
+          .tooltip('city*value')
+          .shape('value', () => 'circle')
+          .style({
+            shadowBlur: 5,
+            shadowColor: markerShadow,
+          })
         this.chart.render()
         const curWidth = document.getElementById(this.chartId).offsetWidth
         this.onResize(curWidth)
       })
-      .catch(ex => console.log('parsing failed', ex))
+      .catch(ex => debug('parsing failed', ex))
   }
+  /* eslint-enable no-undef */
 
   render() {
     return (
@@ -110,3 +165,9 @@ class LocationMap extends React.Component {
 }
 
 export default withTheme(LocationMap)
+
+/*
+   fetch('http://antvis.github.io/static/data/china-pm.json')
+   .then(response => response.json())
+   .then(data => {})
+ */

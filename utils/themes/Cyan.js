@@ -171,6 +171,8 @@ const Cyan = {
     regionBg: '#A0BCBD',
     restRegionBg: '#D9E6E5',
     borderStroke: '#A0BBBD',
+    markerBg: '#C2DEB6',
+    markerShadow: '#C2DEB6',
   },
   bannerHeatmap: {
     activityLow: '#D6ECB2',
