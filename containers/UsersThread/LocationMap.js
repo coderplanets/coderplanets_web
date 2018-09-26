@@ -3,6 +3,7 @@ import React from 'react'
 // import G2 from 'g2'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
+import fetchGeoData from './geo_data'
 import { fetch } from 'whatwg-fetch'
 
 import { Margin } from '../../components'
@@ -36,14 +37,39 @@ class LocationMap extends React.Component {
   }
 
   /* eslint-disable no-undef */
+  configG2() {
+    G2.track(false)
+
+    this.chart.forceFit()
+    // animate it's to "dragy"
+    this.chart.animate(false)
+    this.chart.legend(false)
+    this.chart.tooltip({
+      title: null,
+      map: {
+        name: 'name',
+      },
+    })
+
+    this.chart.coord('map', {
+      projection: 'albers',
+      basic: [110, 0, 25, 47], // 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度
+      max: [16.573, -13.613], // 指定投影后最大的坐标点
+      min: [-27.187, -49.739], // 指定投影后最小的坐标点
+    })
+  }
+
   initG2() {
     const { theme } = this.props
 
-    const { Stat } = G2
-    G2.track(false) // track my ass
+    const oceanColor = themeHelper('locationMap.oceanColor')({ theme })
+    const regionBg = themeHelper('locationMap.regionBg')({ theme })
+    const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
+    const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
 
-    fetch('https://coderplanets.oss-cn-beijing.aliyuncs.com/asia.geo.json')
-      .then(response => response.json())
+    const { Stat } = G2
+
+    fetchGeoData()
       .then(mapData => {
         const map = []
         const { features } = mapData
@@ -51,14 +77,9 @@ class LocationMap extends React.Component {
           const { name } = features[i].properties
           map.push({ name })
         }
-        const oceanColor = themeHelper('locationMap.oceanColor')({ theme })
-        const regionBg = themeHelper('locationMap.regionBg')({ theme })
-        const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
-        const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
 
         this.chart = new G2.Chart({
           id: this.chartId,
-          // width: 975, // ratio: 650 / 400
           height: 500,
           plotCfg: {
             margin: [10, 105],
@@ -67,17 +88,8 @@ class LocationMap extends React.Component {
             },
           },
         })
-        this.chart.forceFit()
-        // animate it's to "dragy"
-        this.chart.animate(false)
-        this.chart.legend(false)
-        this.chart.coord('map', {
-          projection: 'albers',
-          basic: [110, 0, 25, 47], // 指定投影方法的基本参数，[λ0, φ0, φ1, φ2] 分别表示中央经度、坐标起始纬度、第一标准纬度、第二标准纬度
-          max: [16.573, -13.613], // 指定投影后最大的坐标点
-          min: [-27.187, -49.739], // 指定投影后最小的坐标点
-        })
-        this.chart.tooltip({ title: null })
+
+        this.configG2()
 
         const bgView = this.chart.createView()
         bgView.source(map)
@@ -97,9 +109,27 @@ class LocationMap extends React.Component {
             lineWidth: 1,
           })
 
-        this.chart.render()
-        const curWidth = document.getElementById(this.chartId).offsetWidth
-        this.onResize(curWidth)
+        // TODO: should from server
+        fetch('http://antvis.github.io/static/data/china-pm.json')
+          .then(response => response.json())
+          .then(data => {
+            const pointView = this.chart.createView()
+            pointView.source(data)
+            pointView
+              .point()
+              .position(Stat.map.location('long*lant'))
+              .size('value', 12, 1)
+              .color('value', () => '#C2DEB6')
+              .tooltip('name*value')
+              .shape('value', () => 'circle')
+              .style({
+                shadowBlur: 10,
+                shadowColor: '#C2DEB6',
+              })
+            this.chart.render()
+            const curWidth = document.getElementById(this.chartId).offsetWidth
+            this.onResize(curWidth)
+          })
       })
       .catch(ex => debug('parsing failed', ex))
   }
