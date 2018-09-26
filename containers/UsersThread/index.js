@@ -31,14 +31,18 @@ class UsersThreadContainer extends React.Component {
 
   render() {
     const { usersThread } = this.props
-    const { geoInfosData, geoDataLoading } = usersThread
+    const { geoInfosData, geoDataLoading, curTheme } = usersThread
 
     /* const ready = LocationMapSSR !== null && !R.isEmpty(geoInfosData) */
     const ready = LocationMapSSR !== null && !geoDataLoading
 
     return (
       <div>
-        {ready ? <LocationMapSSR markers={geoInfosData} /> : <MapLoading />}
+        {ready ? (
+          <LocationMapSSR markers={geoInfosData} curTheme={curTheme} />
+        ) : (
+          <MapLoading />
+        )}
       </div>
     )
   }

@@ -17,6 +17,9 @@ class LocationMap extends React.Component {
     super(props)
     this.chart = null
     this.chartId = uid.gen()
+
+    const { curTheme } = this.props
+    this.curTheme = curTheme
   }
 
   componentDidMount() {
@@ -25,6 +28,17 @@ class LocationMap extends React.Component {
     } catch (e) {
       // TODO: tell toast
       debug('G2 is not load', e)
+    }
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.curTheme !== this.curTheme) {
+      this.curTheme = nextProps.curTheme
+
+      this.chart.destroy()
+      setTimeout(() => {
+        this.initG2()
+      }, 1000)
     }
   }
 
@@ -65,6 +79,7 @@ class LocationMap extends React.Component {
 
     const { Stat } = G2
 
+    debug('initG2 .... ##')
     fetchGeoData()
       .then(mapData => {
         const map = []

@@ -28,6 +28,9 @@ const UsersThread = t
     get root() {
       return getParent(self)
     },
+    get curTheme() {
+      return self.root.theme.curTheme
+    },
     get geoInfosData() {
       return stripMobx(self.geoInfos)
     },

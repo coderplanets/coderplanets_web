@@ -168,11 +168,11 @@ const SolarizedDark = {
     scale_5: '#01c3a5',
   },
   locationMap: {
-    oceanColor: '#F9FCFC',
-    regionBg: '#A0BCBD',
-    restRegionBg: '#D9E6E5',
-    borderStroke: '#A0BBBD',
-    markerBg: '#C2DEB6',
+    oceanColor: '#002D39',
+    regionBg: '#024a5d',
+    restRegionBg: '#003B49',
+    borderStroke: descText,
+    markerBg: '#41c7bd',
     markerShadow: '#C2DEB6',
   },
   bannerHeatmap: {
