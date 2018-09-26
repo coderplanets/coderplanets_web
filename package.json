@@ -138,7 +138,7 @@
     "eslint-plugin-cypress": "^2.0.1",
     "eslint-plugin-import": "2.13.0",
     "eslint-plugin-jsx-a11y": "6.1.1",
-    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-prettier": "2.7.0",
     "eslint-plugin-react": "7.11.0",
     "eslint-watch": "4.0.2",
     "husky": "^0.14.3",
