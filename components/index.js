@@ -52,6 +52,7 @@ export {
   PostItemLoading,
   VideoItemLoading,
   RepoItemLoading,
+  JobItemLoading,
   TypeWriterLoading,
   ArticleContentLoading,
 } from './LoadingEffects'

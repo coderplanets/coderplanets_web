@@ -14,7 +14,7 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostItemLoading,
+  JobItemLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
@@ -47,6 +47,7 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
+          <JobItemLoading num={1} />
           {entries.map(entry => (
             <JobItem
               entry={entry}
@@ -66,7 +67,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostItemLoading num={3} />
+      return <JobItemLoading num={3} />
   }
 }
 
