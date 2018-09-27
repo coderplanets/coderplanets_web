@@ -41,7 +41,7 @@ export { default as InlineTags } from './InlineTags'
 export { default as UserCell } from './UserCell'
 export { default as SectionLabel } from './SectionLabel'
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
-
+export { default as VideoSourceInfo } from './VideoSourceInfo'
 //
 export { default as GithubRepoPage } from './GithubRepoPage'
 

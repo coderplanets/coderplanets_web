@@ -50,6 +50,7 @@ import {
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
+  VideoViewerStore,
   CommentsStore,
   CheatSheetPaperStore,
   CommunityEditorsStore,
@@ -139,6 +140,7 @@ const rootStore = t
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
+    videoViewer: t.optional(VideoViewerStore, {}),
     communityEditors: t.optional(CommunityEditorsStore, {}),
     // user page
     userSettings: t.optional(UserSettingsStore, {}),

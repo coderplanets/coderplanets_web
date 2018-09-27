@@ -8,8 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
+// viewers
 import ArticleViwer from '../ArticleViwer'
 import AccountViewer from '../AccountViewer'
+import VideoViewer from '../VideoViewer'
+// eiditors
 import AccountEditor from '../AccountEditor'
 import CommunityEditors from '../CommunityEditors'
 import VideoEditor from '../VideoEditor'
@@ -102,7 +105,7 @@ const Viewer = ({ type, root, attachment }) => {
       return <h3>PREVIEW_VIDEO_EDIT</h3>
     }
     case TYPE.PREVIEW_VIDEO_VIEW: {
-      return <h3>PREVIEW_VIDEO_VIEW</h3>
+      return <VideoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_VIDEO_CREATE: {
       return <VideoEditor />

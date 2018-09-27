@@ -39,6 +39,16 @@ const Attachment = t.model('Attachment', {
   body: t.maybeNull(t.string),
   digest: t.maybeNull(t.string),
   author: t.maybeNull(User),
+
+  // video spec
+  poster: t.maybeNull(t.string),
+  desc: t.maybeNull(t.string),
+  duration: t.maybeNull(t.string),
+  publishAt: t.maybeNull(t.string),
+  source: t.maybeNull(t.string),
+  link: t.maybeNull(t.string),
+  originalAuthor: t.maybeNull(t.string),
+  originalAuthorLink: t.maybeNull(t.string),
 })
 
 const PreviewStore = t

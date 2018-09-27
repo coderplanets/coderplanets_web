@@ -76,6 +76,7 @@ export {
   default as AccountViewerStore,
 } from '../containers/AccountViewer/store'
 
+export { default as VideoViewerStore } from '../containers/VideoViewer/store'
 export {
   default as CommunityEditorsStore,
 } from '../containers/CommunityEditors/store'
