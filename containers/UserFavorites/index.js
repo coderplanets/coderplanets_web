@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { PostsLoading, Pagi, PostItem } from '../../components'
+import { PostLoading, Pagi, PostItem } from '../../components'
 
 import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
@@ -33,7 +33,7 @@ const View = ({ entries, curView, active }) => {
       )
     }
     default:
-      return <PostsLoading num={5} />
+      return <PostLoading num={5} />
   }
 }
 
@@ -44,9 +44,7 @@ class UserFavoritesContainer extends React.Component {
   }
 
   render() {
-    const {
-      userFavorites: { pagedPostsData, curView },
-    } = this.props
+    const { userFavorites: { pagedPostsData, curView } } = this.props
 
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 

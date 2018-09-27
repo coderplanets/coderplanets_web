@@ -42,7 +42,7 @@ export { default as UserCell } from './UserCell'
 export { default as SectionLabel } from './SectionLabel'
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 export { default as VideoSourceInfo } from './VideoSourceInfo'
-//
+
 export { default as GithubRepoPage } from './GithubRepoPage'
 
 // loading component
@@ -50,8 +50,9 @@ export {
   CommentLoading,
   CheatSheetLoading,
   PostLoading,
-  PostsLoading,
+  PostItemLoading,
   TypeWriterLoading,
+  ArticleContentLoading,
 } from './LoadingEffects'
 
 // UI library (currently use antd)

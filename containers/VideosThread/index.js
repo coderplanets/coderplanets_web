@@ -12,7 +12,7 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
+  PostItemLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
@@ -44,6 +44,8 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
+          <PostItemLoading num={1} />
+
           {entries.map(video => (
             <VideoItem
               entry={video}
@@ -63,7 +65,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostsLoading num={5} />
+      return <PostItemLoading num={5} />
   }
 }
 
