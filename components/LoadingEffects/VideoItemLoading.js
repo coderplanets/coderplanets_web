@@ -15,17 +15,18 @@ const LoadingWrapper = styled.div`
 const LoadingItem = ({ theme }) => (
   <ContentLoader
     height={100}
-    width={400}
+    width={500}
     speed={2}
     primaryColor={theme.loading.basic}
     secondaryColor={theme.loading.animate}
   >
-    <rect x="25" y="16.05" rx="5" ry="5" width="363" height="8" />
-    <rect x="25" y="46.05" rx="5" ry="5" width="358.0" height="8" />
-    <rect x="25" y="75" rx="5" ry="5" width="355" height="8" />
-    <rect x="25" y="16.05" rx="5" ry="5" width="363" height="8" />
-    <rect x="25" y="46.05" rx="5" ry="5" width="358.0" height="8" />
-    <rect x="25" y="75" rx="5" ry="5" width="355" height="8" />
+    <rect x="168" y="9.69" rx="4" ry="4" width="183" height="8.64" />
+    <rect x="168" y="46.28" rx="4" ry="4" width="269.36" height="5.24" />
+    <rect x="5" y="5.38" rx="5" ry="1" width="151.5" height="86.0194" />
+    <rect x="168" y="28.2" rx="4" ry="4" width="140.5" height="7.12" />
+    <rect x="283.02" y="141.21" rx="4" ry="4" width="86.5" height="9.76" />
+    <circle cx="175.31" cy="79.07" r="8.313" />
+    <rect x="190" y="77.2" rx="0" ry="0" width="60" height="4" />
   </ContentLoader>
 )
 

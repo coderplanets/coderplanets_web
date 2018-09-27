@@ -49,8 +49,8 @@ export { default as GithubRepoPage } from './GithubRepoPage'
 export {
   CommentLoading,
   CheatSheetLoading,
-  PostLoading,
   PostItemLoading,
+  VideoItemLoading,
   TypeWriterLoading,
   ArticleContentLoading,
 } from './LoadingEffects'
