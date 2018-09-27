@@ -14,8 +14,8 @@ const debug = makeDebugger('c:Maybe:index')
 /* eslint-enable no-unused-vars */
 
 const MaybeLoading = ({ loading }) => {
-  if (R.isEmpty(loading)) return null
-  return <React.Fragment>{loading}</React.Fragment>
+  if (R.isEmpty(loading)) return <div />
+  return <div>{loading}</div>
 }
 
 const Maybe = ({ children, test, loading }) => {
@@ -23,13 +23,8 @@ const Maybe = ({ children, test, loading }) => {
     return <MaybeLoading loading={loading} />
   }
 
-  if (test === null) {
-    return null
-  }
-
-  if (test === false) {
-    return <MaybeLoading loading={loading} />
-  }
+  if (test === null) return <div />
+  if (test === false) return <MaybeLoading loading={loading} />
 
   return <React.Fragment>{children}</React.Fragment>
 }

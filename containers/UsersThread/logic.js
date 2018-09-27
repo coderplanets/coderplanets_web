@@ -63,7 +63,6 @@ export function init(_store) {
   }
   store = _store
 
-  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadGeoData()

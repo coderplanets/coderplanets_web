@@ -38,7 +38,7 @@ class LocationMap extends React.Component {
       this.chart.destroy()
       setTimeout(() => {
         this.initG2()
-      }, 1000)
+      }, 500)
     }
   }
 
@@ -70,16 +70,15 @@ class LocationMap extends React.Component {
   initG2() {
     const { theme } = this.props
 
-    const oceanColor = themeHelper('locationMap.oceanColor')({ theme })
-    const regionBg = themeHelper('locationMap.regionBg')({ theme })
-    const restRegionBg = themeHelper('locationMap.restRegionBg')({ theme })
-    const borderStroke = themeHelper('locationMap.borderStroke')({ theme })
-    const markerBg = themeHelper('locationMap.markerBg')({ theme })
-    const markerShadow = themeHelper('locationMap.markerShadow')({ theme })
+    const oceanColor = themeHelper('geoMap.oceanColor')({ theme })
+    const regionBg = themeHelper('geoMap.regionBg')({ theme })
+    const restRegionBg = themeHelper('geoMap.restRegionBg')({ theme })
+    const borderStroke = themeHelper('geoMap.borderStroke')({ theme })
+    const markerBg = themeHelper('geoMap.markerBg')({ theme })
+    const markerShadow = themeHelper('geoMap.markerShadow')({ theme })
 
     const { Stat } = G2
 
-    debug('initG2 .... ##')
     fetchGeoData()
       .then(mapData => {
         const map = []
