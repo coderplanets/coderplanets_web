@@ -167,7 +167,7 @@ const SolarizedDark = {
     scale_4: '#05a78e',
     scale_5: '#01c3a5',
   },
-  locationMap: {
+  geoMap: {
     oceanColor: '#002D39',
     regionBg: '#024a5d',
     restRegionBg: '#003B49',

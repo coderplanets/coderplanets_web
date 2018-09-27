@@ -166,7 +166,7 @@ const Cyan = {
     scale_4: '#61793e',
     scale_5: '#37642c',
   },
-  locationMap: {
+  geoMap: {
     oceanColor: '#F9FCFC',
     regionBg: '#A0BCBD',
     restRegionBg: '#D9E6E5',

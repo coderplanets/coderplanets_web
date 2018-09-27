@@ -17,11 +17,11 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UsersThread')
 /* eslint-enable no-unused-vars */
 
-let LocationMapSSR = null
+let GeoMapSSR = null
 
 class UsersThreadContainer extends React.Component {
   componentDidMount() {
-    LocationMapSSR = dynamic(import('./LocationMap'), { ssr: false })
+    GeoMapSSR = dynamic(import('./GeoMap.js'), { ssr: false })
   }
 
   componentWillMount() {
@@ -33,17 +33,16 @@ class UsersThreadContainer extends React.Component {
     const { usersThread } = this.props
     const { geoInfosData, geoDataLoading, curTheme } = usersThread
 
-    /* const ready = LocationMapSSR !== null && !R.isEmpty(geoInfosData) */
-    const ready = LocationMapSSR !== null && !geoDataLoading
+    const ready = GeoMapSSR !== null && !geoDataLoading
 
     return (
-      <div>
+      <React.Fragment>
         {ready ? (
-          <LocationMapSSR markers={geoInfosData} curTheme={curTheme} />
+          <GeoMapSSR markers={geoInfosData} curTheme={curTheme} />
         ) : (
           <MapLoading />
         )}
-      </div>
+      </React.Fragment>
     )
   }
 }
