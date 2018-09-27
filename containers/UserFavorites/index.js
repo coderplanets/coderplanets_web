@@ -44,7 +44,9 @@ class UserFavoritesContainer extends React.Component {
   }
 
   render() {
-    const { userFavorites: { pagedPostsData, curView } } = this.props
+    const {
+      userFavorites: { pagedPostsData, curView },
+    } = this.props
 
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
