@@ -47,7 +47,6 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          <JobItemLoading num={1} />
           {entries.map(entry => (
             <JobItem
               entry={entry}

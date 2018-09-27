@@ -45,7 +45,6 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          <RepoItemLoading num={1} />
           {entries.map(entry => (
             <RepoItem key={uid.gen()} entry={entry} active={active} />
           ))}

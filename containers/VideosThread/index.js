@@ -44,8 +44,6 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
-          <VideoItemLoading num={1} />
-
           {entries.map(video => (
             <VideoItem
               entry={video}
