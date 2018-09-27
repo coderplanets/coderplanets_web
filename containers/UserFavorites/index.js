@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { PostsLoading, Pagi, PostItem } from '../../components'
+import { PostItemLoading, Pagi, PostItem } from '../../components'
 
 import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
@@ -33,7 +33,7 @@ const View = ({ entries, curView, active }) => {
       )
     }
     default:
-      return <PostsLoading num={5} />
+      return <PostItemLoading num={5} />
   }
 }
 

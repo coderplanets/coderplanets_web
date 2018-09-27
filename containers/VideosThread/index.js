@@ -12,7 +12,7 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
+  VideoItemLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
@@ -63,7 +63,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostsLoading num={5} />
+      return <VideoItemLoading num={5} />
   }
 }
 

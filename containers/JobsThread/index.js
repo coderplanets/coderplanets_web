@@ -14,7 +14,7 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
+  JobItemLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
@@ -66,7 +66,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostsLoading num={3} />
+      return <JobItemLoading num={3} />
   }
 }
 

@@ -9,31 +9,28 @@ import { uid } from '../../utils'
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
   width: 100%;
-  height: 100px;
-  margin-bottom: 30px;
   overflow: hidden;
 `
 
 const LoadingItem = ({ theme }) => (
   <ContentLoader
-    height={560}
+    height={100}
     width={500}
     speed={2}
     primaryColor={theme.loading.basic}
     secondaryColor={theme.loading.animate}
   >
-    <rect x="38" y="5.58" rx="4" ry="4" width="195.55" height="8.69" />
-    <rect x="38" y="19.93" rx="3" ry="3" width="130.05" height="5.36" />
-    <rect x="38" y="48.02" rx="3" ry="3" width="329.47" height="5.3" />
-    <rect x="38" y="35.16" rx="3" ry="3" width="454.96" height="6.05" />
-    <circle cx="16.8" cy="19" r="15" />
-    <circle cx="449" cy="14" r="8" />
-    <circle cx="467" cy="14" r="8" />
-    <circle cx="485" cy="14" r="8" />
+    <rect x="168" y="9.69" rx="4" ry="4" width="183" height="8.0" />
+    <rect x="168" y="46.28" rx="4" ry="4" width="269.36" height="5.0" />
+    <rect x="5" y="5.38" rx="5" ry="1" width="151.5" height="86.0194" />
+    <rect x="168" y="28.2" rx="4" ry="4" width="140.5" height="6.0" />
+    <rect x="283.02" y="141.21" rx="4" ry="4" width="86.5" height="9.76" />
+    <circle cx="175.31" cy="79.07" r="8.313" />
+    <rect x="190" y="77.2" rx="0" ry="0" width="60" height="4" />
   </ContentLoader>
 )
 
-const PostsLoading = ({ num, theme }) => {
+const VideoItemLoading = ({ num, theme }) => {
   // const ukey = uid.gen()
   const range = R.range(0, num)
   return range.map(() => (
@@ -43,12 +40,12 @@ const PostsLoading = ({ num, theme }) => {
   ))
 }
 
-PostsLoading.propTypes = {
+VideoItemLoading.propTypes = {
   num: PropTypes.number,
 }
 
-PostsLoading.defaultProps = {
+VideoItemLoading.defaultProps = {
   num: 1,
 }
 
-export default withTheme(PostsLoading)
+export default withTheme(VideoItemLoading)
