@@ -51,6 +51,7 @@ export {
   CheatSheetLoading,
   PostItemLoading,
   VideoItemLoading,
+  RepoItemLoading,
   TypeWriterLoading,
   ArticleContentLoading,
 } from './LoadingEffects'

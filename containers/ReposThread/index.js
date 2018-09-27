@@ -13,7 +13,7 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostItemLoading,
+  RepoItemLoading,
   Pagi,
   EmptyThread,
   ContentFilter,
@@ -45,6 +45,7 @@ const View = ({ community, thread, entries, curView, active }) => {
     case TYPE.RESULT: {
       return (
         <React.Fragment>
+          <RepoItemLoading num={1} />
           {entries.map(entry => (
             <RepoItem key={uid.gen()} entry={entry} active={active} />
           ))}
@@ -59,7 +60,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostItemLoading num={5} />
+      return <RepoItemLoading num={5} />
   }
 }
 
