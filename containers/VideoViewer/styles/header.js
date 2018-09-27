@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   padding-right: 30px;
   padding-top: 10px;
   padding-bottom: 6px;
+  background: ${theme('preview.articleBg')};
 `
 export const Divider = styled.span`
   margin: 0 8px;
@@ -18,6 +19,7 @@ export const Divider = styled.span`
   border-right: 1px solid;
   border-right-color: ${theme('preview.divider')};
 `
+
 export const UserInfo = styled.div`
   flex-grow: 1;
   display: flex;

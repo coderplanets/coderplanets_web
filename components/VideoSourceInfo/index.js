@@ -1,10 +1,22 @@
+/*
+ *
+ * VideoSourceInfo
+ *
+ */
+
 import React from 'react'
 import R from 'ramda'
+import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
 
 import Maybe from '../Maybe'
-import { Wrapper, LinkIcon, LogoIcon } from './styles/source_link'
+import { Wrapper, LinkIcon, LogoIcon } from './styles'
+
+import { makeDebugger } from '../../utils'
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:VideoSourceInfo:index')
+/* eslint-enable no-unused-vars */
 
 const recommandSources = ['youtube', 'vimeo', 'bilibili']
 const colorMaps = {
@@ -13,7 +25,7 @@ const colorMaps = {
   bilibili: '#F78199',
 }
 
-const SourceLink = ({ value }) => (
+const VideoSourceInfo = ({ value }) => (
   <Wrapper>
     <Maybe test={!R.contains(value, recommandSources)}>
       <LinkIcon src={`${ICON_CMD}/link.svg`} />
@@ -25,4 +37,10 @@ const SourceLink = ({ value }) => (
   </Wrapper>
 )
 
-export default SourceLink
+VideoSourceInfo.propTypes = {
+  value: PropTypes.string.isRequired,
+}
+
+VideoSourceInfo.defaultProps = {}
+
+export default VideoSourceInfo

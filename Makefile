@@ -83,6 +83,9 @@ deploy.prod:
 	@echo "deploy to docker done!"
 	@echo "todo: restart docker container"
 
+
+clean.cache:
+	rm -rf ./node_modules/.cache
 test.help:
 	$(call test.help)
 	@echo "\n"
