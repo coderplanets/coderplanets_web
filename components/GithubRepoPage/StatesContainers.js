@@ -2,6 +2,7 @@ import React from 'react'
 import R from 'ramda'
 
 import Maybe from '../Maybe'
+import Popover from '../Popover'
 
 import {
   Wrapper,
@@ -11,21 +12,35 @@ import {
   BuilderWrapper,
   Avatar,
   Linker,
+  PopInfo,
+  PopAvatar,
+  PopNickname,
 } from './styles/states_containers'
 
 import { uid } from '../../utils'
 
 const BuilderList = ({ entries }) => (
-  <BuilderWrapper id="fucking">
+  <BuilderWrapper>
     {entries.map(builder => (
-      <Linker
+      <Popover
         key={uid.gen()}
-        href={builder.htmlUrl}
-        rel="noopener noreferrer"
-        target="_blank"
+        content={
+          <PopInfo>
+            <PopAvatar src={builder.avatar} />
+            <PopNickname>{builder.nickname}</PopNickname>
+          </PopInfo>
+        }
+        placement="bottom"
+        trigger="hover"
       >
-        <Avatar src={builder.avatar} />
-      </Linker>
+        <Linker
+          href={builder.htmlUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Avatar src={builder.avatar} />
+        </Linker>
+      </Popover>
     ))}
   </BuilderWrapper>
 )

@@ -70,3 +70,21 @@ export const Linker = styled.a`
     text-decoration: none;
   }
 `
+export const PopInfo = styled.div`
+  padding: 10px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const PopAvatar = styled(Img)`
+  width: 100px;
+  height: 100px;
+`
+export const PopNickname = styled.div`
+  padding: 5px 10px;
+  color: ${theme('thread.articleTitle')};
+  font-size: 1rem;
+  font-weight: border;
+`
