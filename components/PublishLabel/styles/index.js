@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  padding: 0 10px;
+  padding-left: 2px;
+  letter-spacing: 4px;
 `
 export const PublishIcon = styled(Img)`
   fill: ${theme('button.fg')};
