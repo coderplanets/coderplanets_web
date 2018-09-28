@@ -27,7 +27,13 @@ const BuilderList = ({ entries }) => (
         content={
           <PopInfo>
             <PopAvatar src={builder.avatar} />
-            <PopNickname>{builder.nickname}</PopNickname>
+            <PopNickname
+              href={builder.htmlUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              @ {builder.nickname}
+            </PopNickname>
           </PopInfo>
         }
         placement="bottom"

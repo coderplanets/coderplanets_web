@@ -82,9 +82,16 @@ export const PopAvatar = styled(Img)`
   width: 100px;
   height: 100px;
 `
-export const PopNickname = styled.div`
+export const PopNickname = styled.a`
   padding: 5px 10px;
   color: ${theme('thread.articleTitle')};
   font-size: 1rem;
   font-weight: border;
+  transition: color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+  }
 `
