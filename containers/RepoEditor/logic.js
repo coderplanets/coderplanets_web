@@ -1,4 +1,11 @@
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  EVENT,
+  ERR,
+} from '../../utils'
 
 import githubApi from './github_api'
 
@@ -6,7 +13,9 @@ import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.PREVIEW_CLOSED],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -46,7 +55,12 @@ export function searchOnChange(e) {
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.markState({ curView: 'search' }),
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
