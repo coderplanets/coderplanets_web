@@ -14,6 +14,8 @@ import {
   CountDivider,
 } from './styles/header'
 
+import { numberWithCommas } from '../../utils'
+
 const TitlesInfo = ({ repo }) => (
   <TitlesWrapper>
     <TitleLink href={repo.ownerUrl} rel="noopener noreferrer" target="_blank">
@@ -33,7 +35,7 @@ const CountsInfo = ({ repo }) => (
       target="_blank"
     >
       <CountIcon src={`${ICON_CMD}/repo_watch.svg`} />
-      <CountText>Watch: {repo.watchCount}</CountText>
+      <CountText>{numberWithCommas(repo.watchCount)}</CountText>
       <CountDivider src={`${ICON_CMD}/more.svg`} />
     </CountItem>
     <CountItem
@@ -42,7 +44,7 @@ const CountsInfo = ({ repo }) => (
       target="_blank"
     >
       <StarIcon src={`${ICON_CMD}/repo_star.svg`} />
-      <CountText>Star: {repo.starCount}</CountText>
+      <CountText>{numberWithCommas(repo.starCount)}</CountText>
       <CountDivider src={`${ICON_CMD}/more.svg`} />
     </CountItem>
     <CountItem
@@ -51,7 +53,7 @@ const CountsInfo = ({ repo }) => (
       target="_blank"
     >
       <CountIcon src={`${ICON_CMD}/repo_fork.svg`} />
-      <CountText>Fork: {repo.forkCount}</CountText>
+      <CountText>{numberWithCommas(repo.forkCount)}</CountText>
     </CountItem>
   </CountsWrapper>
 )

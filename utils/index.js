@@ -23,6 +23,7 @@ export {
   onClient,
   cutFrom,
   prettyNum,
+  numberWithCommas,
   Rlog,
   countWords,
   closePreviewer,

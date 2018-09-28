@@ -70,6 +70,10 @@ export const prettyNum = (num, digits = 1) => {
   /* eslint-enable  */
 }
 
+// https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+export const numberWithCommas = x =>
+  x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
 // from https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
 // count both chinese-word and english-words
 export function countWords(str) {
