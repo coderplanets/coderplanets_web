@@ -17,7 +17,7 @@ import {
   Wrapper,
   BodyWrapper,
   DescriptionWrapper,
-  DescLink,
+  HomepageLink,
   ReadmeWrapper,
   Footer,
   SearchButton,
@@ -46,7 +46,7 @@ const GithubRepoPage = ({
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}
-        <DescLink>{repo.homepageUrl}</DescLink>
+        <HomepageLink>{repo.homepageUrl}</HomepageLink>
       </DescriptionWrapper>
       <StatesContainers repo={repo} />
       <ReadmeWrapper>

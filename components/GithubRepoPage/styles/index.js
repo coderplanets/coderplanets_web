@@ -25,13 +25,12 @@ export const DescriptionWrapper = styled.div`
   width: 100%;
   color: ${theme('banner.desc')};
 `
-
-export const DescLink = styled.a`
-  color: ${theme('banner.title')};
+export const HomepageLink = styled.a`
+  color: ${theme('markdown.link')};
   transition: color 0.3s;
-  margin-left: 5px;
+  margin-left: 12px;
   &:hover {
-    color: ${theme('banner.title')};
+    color: ${theme('markdown.link')};
     text-decoration: underline;
     cursor: pointer;
   }
