@@ -14,35 +14,52 @@ import {
   CountDivider,
 } from './styles/header'
 
-const TitlesInfo = () => (
+const TitlesInfo = ({ repo }) => (
   <TitlesWrapper>
-    <TitleLink>mydearxym </TitleLink>/{' '}
-    <TitleLink>coderplanets_server</TitleLink>{' '}
+    <TitleLink href={repo.ownerUrl} rel="noopener noreferrer" target="_blank">
+      {repo.ownerName}
+    </TitleLink>{' '}
+    /{' '}
+    <TitleLink href={repo.repoUrl} rel="noopener noreferrer" target="_blank">
+      {repo.title}
+    </TitleLink>{' '}
   </TitlesWrapper>
 )
-const CountsInfo = () => (
+const CountsInfo = ({ repo }) => (
   <CountsWrapper>
-    <CountItem>
+    <CountItem
+      href={`${repo.repoUrl}/watchers`}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <CountIcon src={`${ICON_CMD}/repo_watch.svg`} />
-      <CountText>Watch: 7</CountText>
+      <CountText>Watch: {repo.watchCount}</CountText>
       <CountDivider src={`${ICON_CMD}/more.svg`} />
     </CountItem>
-    <CountItem>
+    <CountItem
+      href={`${repo.repoUrl}/stargazers`}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <StarIcon src={`${ICON_CMD}/repo_star.svg`} />
-      <CountText>Star: 11</CountText>
+      <CountText>Star: {repo.starCount}</CountText>
       <CountDivider src={`${ICON_CMD}/more.svg`} />
     </CountItem>
-    <CountItem>
+    <CountItem
+      href={`${repo.repoUrl}/network/members`}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <CountIcon src={`${ICON_CMD}/repo_fork.svg`} />
-      <CountText>Fork: 44</CountText>
+      <CountText>Fork: {repo.forkCount}</CountText>
     </CountItem>
   </CountsWrapper>
 )
 
-const Header = () => (
+const Header = ({ repo }) => (
   <Wrapper>
-    <TitlesInfo />
-    <CountsInfo />
+    <TitlesInfo repo={repo} />
+    <CountsInfo repo={repo} />
   </Wrapper>
 )
 

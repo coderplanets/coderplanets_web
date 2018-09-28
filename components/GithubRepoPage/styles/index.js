@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Button } from 'antd'
+
 // import Img from '../../Img'
 import { theme } from '../../../utils'
 
@@ -18,7 +20,8 @@ export const BodyWrapper = styled.div`
   position: relative;
 `
 export const DescriptionWrapper = styled.div`
-  margin-top: 4px;
+  margin-top: 8px;
+  margin-bottom: 5px;
   width: 100%;
   color: ${theme('banner.desc')};
 `
@@ -33,8 +36,25 @@ export const DescLink = styled.a`
     cursor: pointer;
   }
 `
-
 export const ReadmeWrapper = styled.div`
   margin-top: 20px;
   width: 100%;
+`
+export const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+`
+export const SearchButton = styled(Button)`
+  margin-right: 10px;
+  display: ${({ show }) => (show ? 'block' : 'none')};
+`
+export const SyncButton = styled(Button)`
+  display: ${({ show }) => (show ? 'block' : 'none')};
+
+  margin-right: 10px;
+`
+export const PublishButton = styled(Button)`
+  display: ${({ show }) => (show ? 'block' : 'none')};
 `

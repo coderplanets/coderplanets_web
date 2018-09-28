@@ -202,6 +202,7 @@ const IconGreen = {
     tableborder: `1px solid ${darken(0.1, contentBoxBg)}`,
     taskDone: '#528416',
     taskPeding: darken(0.1, contentBoxBg),
+    br: '#e8e8e8',
   },
   code: {
     bg: darken(0.05, contentBoxBg),

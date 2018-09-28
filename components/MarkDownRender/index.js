@@ -4,6 +4,7 @@
  *
  */
 import React from 'react'
+import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import Remarkable from 'remarkable'
@@ -17,7 +18,10 @@ import { PreviewerContainer } from './styles'
 
 import { makeDebugger } from '../../utils'
 
-const md = new Remarkable()
+const md = new Remarkable('full', {
+  html: true,
+  breaks: false,
+})
 md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
@@ -32,6 +36,11 @@ class MarkDownRender extends React.Component {
 
   render() {
     const { body } = this.props
+    /*
+       NOTE: the '---' in normal markdown will break the render process
+       this is the most mother fucking disgusting bug i ever seen
+     */
+    const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body)
 
     return (
       <PreviewerContainer>
@@ -41,7 +50,7 @@ class MarkDownRender extends React.Component {
             <div
               id="typewriter-preview-container"
               dangerouslySetInnerHTML={{
-                __html: md.render(body),
+                __html: md.render(safeBody),
               }}
             />
             {/* eslint-enable react/no-danger */}

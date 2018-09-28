@@ -22,6 +22,7 @@ export const Repo = t.model('Reop', {
   repoStarCount: t.optional(t.number, 0),
   repoForkCount: t.optional(t.number, 0),
   repoWatchCount: t.optional(t.number, 0),
+
   views: t.optional(t.number, 0),
 
   communities: t.optional(t.array(Community), []),

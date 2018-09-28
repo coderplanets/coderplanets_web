@@ -4,6 +4,8 @@ export const ERR = {
   NETWORK: 'NETWORK',
   NOT_FOUND: 'NOT_FOUND',
   TIMEOUT: 'TIMEOUT',
+  AUTH: 'AUTH',
+  UNKOWN: 'UNKOWN',
 }
 
 export const EVENT = {

@@ -13,7 +13,7 @@ export const TitlesWrapper = styled.div`
 `
 export const TitleLink = styled.a`
   color: ${theme('banner.title')};
-  transition: color 0.3s;
+  transition: color 0.2s;
   &:hover {
     color: ${theme('banner.title')};
     text-decoration: underline;
@@ -23,9 +23,17 @@ export const TitleLink = styled.a`
 export const CountsWrapper = styled.div`
   display: flex;
 `
-export const CountItem = styled.div`
+export const CountItem = styled.a`
   display: flex;
   align-items: center;
+
+  color: ${theme('banner.title')};
+  transition: color 0.2s;
+  &:hover {
+    color: ${theme('banner.title')};
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `
 export const CountIcon = styled(Img)`
   fill: ${theme('banner.title')};

@@ -41,7 +41,13 @@ export {
   isObject,
 } from './validator'
 
-export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
+export {
+  makeGQClient,
+  makeGithubExplore,
+  asyncErr,
+  asyncRes,
+  later,
+} from './graphql_helper'
 
 export {
   getMainPath,

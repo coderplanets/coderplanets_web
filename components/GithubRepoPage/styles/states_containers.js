@@ -28,10 +28,17 @@ export const BoxWrapper = styled.div`
   flex-grow: ${({ grow }) => (grow ? 1 : 0)};
   display: flex;
   flex-direction: column;
+  &:hover {
+    cursor: ${({ nohover }) => (nohover ? '' : 'pointer')};
+  }
 `
 export const Label = styled.div`
   color: ${theme('banner.desc')};
   font-size: 0.9rem;
+  ${BoxWrapper}:hover & {
+    color: ${theme('banner.title')};
+  }
+  transition: color 0.2s;
 `
 export const Number = styled.div`
   font-size: ${({ small }) => (small ? 1.1 : '1.3rem')};
@@ -53,8 +60,13 @@ export const Avatar = styled(Img)`
     opacity: 1;
   }
 `
-export const MoreText = styled.div`
-  font-size: 1rem;
-  margin-left: 5px;
-  color: ${theme('banner.desc')};
+export const Linker = styled.a`
+  transition: color 0.3s;
+  color: ${theme('thread.extraInfo')};
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.extraInfo')};
+    text-decoration: none;
+  }
 `
