@@ -2,9 +2,14 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
+import { Space } from '../BaseStyled'
+import Popover from '../Popover'
+
 import {
   Wrapper,
   TitlesWrapper,
+  LanguageDot,
+  LanguagePopover,
   TitleLink,
   CountsWrapper,
   CountItem,
@@ -18,10 +23,18 @@ import { numberWithCommas } from '../../utils'
 
 const TitlesInfo = ({ repo }) => (
   <TitlesWrapper>
+    <Popover
+      content={<LanguagePopover>javascript</LanguagePopover>}
+      placement="bottom"
+      trigger="hover"
+    >
+      <LanguageDot />
+    </Popover>
     <TitleLink href={repo.ownerUrl} rel="noopener noreferrer" target="_blank">
       {repo.ownerName}
-    </TitleLink>{' '}
-    /{' '}
+    </TitleLink>
+    <Space left="4px" />/{''}
+    <Space right="4px" />
     <TitleLink href={repo.repoUrl} rel="noopener noreferrer" target="_blank">
       {repo.title}
     </TitleLink>{' '}

@@ -10,6 +10,21 @@ export const Wrapper = styled.div`
 `
 export const TitlesWrapper = styled.div`
   font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+`
+export const LanguageDot = styled.div`
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-right: 8px;
+  background-color: #f4e068;
+`
+export const LanguagePopover = styled.div`
+  color: ${theme('thread.articleTitle')};
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: bold;
 `
 export const TitleLink = styled.a`
   color: ${theme('banner.title')};
@@ -47,11 +62,11 @@ export const StarIcon = styled(CountIcon)`
   margin-top: -4px;
 `
 export const CountDivider = styled(CountIcon)`
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 4px;
+  margin-right: 4px;
 `
-
 export const CountText = styled.div`
   font-size: 0.9rem;
   color: ${theme('banner.title')};
+  margin-right: 2px;
 `
