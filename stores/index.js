@@ -51,6 +51,7 @@ export { default as FooterStore } from '../containers/Footer/store'
 export { default as PostsThreadStore } from '../containers/PostsThread/store'
 export { default as VideosThreadStore } from '../containers/VideosThread/store'
 export { default as ReposThreadStore } from '../containers/ReposThread/store'
+export { default as WikiThreadStore } from '../containers/WikiThread/store'
 export { default as JobsThreadStore } from '../containers/JobsThread/store'
 export { default as UsersThreadStore } from '../containers/UsersThread/store'
 export {

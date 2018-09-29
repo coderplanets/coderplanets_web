@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import PostsThread from '../../containers/PostsThread'
 import VideosThread from '../../containers/VideosThread'
 import ReposThread from '../../containers/ReposThread'
+import WikiThread from '../../containers/WikiThread'
 import JobsThread from '../../containers/JobsThread'
 import UsersThread from '../../containers/UsersThread'
 import CheatSheetPaper from '../../containers/CheatSheetPaper'
@@ -37,6 +38,9 @@ const ComunityContent = ({ curRoute }) => {
     }
     case ROUTE.JOBS: {
       return <JobsThread />
+    }
+    case ROUTE.WIKI: {
+      return <WikiThread />
     }
     case 'cheatsheet': {
       return <CheatSheetPaper />
