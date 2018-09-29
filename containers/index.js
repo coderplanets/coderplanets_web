@@ -17,10 +17,12 @@ export { default as Doraemon } from './Doraemon'
 export { default as CommunityEditors } from './CommunityEditors'
 export { default as UpgradePackges } from './UpgradePackges'
 
+// viewers
 export { default as ArticleViwer } from './ArticleViwer'
 export { default as AccountEditor } from './AccountEditor'
 export { default as AccountViewer } from './AccountViewer'
 export { default as VideoViewer } from './VideoViewer'
+export { default as RepoViewer } from './RepoViewer'
 
 export { default as FavoritesCats } from './FavoritesCats'
 /* banners */

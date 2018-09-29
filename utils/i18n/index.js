@@ -6,7 +6,7 @@ const I18nDict = {
   news: '动态(wiki)',
   cheatsheet: 'cheatsheet',
   meetups: 'meetups',
-  users: '用户',
+  users: '社友',
   videos: '视频',
   repos: '开源项目',
   jobs: '招聘',

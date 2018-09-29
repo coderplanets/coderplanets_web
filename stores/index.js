@@ -80,6 +80,7 @@ export { default as VideoViewerStore } from '../containers/VideoViewer/store'
 export {
   default as CommunityEditorsStore,
 } from '../containers/CommunityEditors/store'
+export { default as RepoViewerStore } from '../containers/RepoViewer/store'
 
 // user page
 export { default as UserSettingsStore } from '../containers/UserSettings/store'

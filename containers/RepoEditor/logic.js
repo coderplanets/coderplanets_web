@@ -1,11 +1,22 @@
-// import R from 'ramda'
+import {
+  makeDebugger,
+  dispatchEvent,
+  $solver,
+  asyncRes,
+  asyncErr,
+  EVENT,
+  ERR,
+} from '../../utils'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import githubApi from './github_api'
+
 import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.PREVIEW_CLOSED],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -14,13 +25,62 @@ const debug = makeDebugger('L:RepoEditor')
 
 let store = null
 
-export function someMethod() {}
+export function onPublish() {
+  const args = {
+    communityId: store.viewing.community.id,
+    ...store.editRepoData,
+  }
+
+  debug('onPublish args: ', args)
+  sr71$.mutate(S.createRepo, args)
+}
+
+export function onGithubSearch() {
+  if (!store.validator('searchValue')) return false
+  const { owner, name } = store
+
+  store.markState({ searching: true })
+  githubApi
+    .search(owner, name)
+    .then(values => {
+      store.markState({
+        editRepo: githubApi.transForm(values),
+        searching: false,
+        curView: 'show',
+      })
+    })
+    .catch(e => store.handleError(githubApi.parseError(e)))
+}
+
+export function changeView(curView) {
+  console.log('changeView: ', curView)
+  store.markState({ curView })
+}
+
+export function searchOnChange(e) {
+  const searchValue = e.target.value
+  store.markState({ searchValue })
+}
 
 // ###############################
 // Data & Error handlers
 // ###############################
-
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('createRepo'),
+    action: () => {
+      debug('done!')
+      // cancleLoading()
+      // store.reset()
+      store.closePreview()
+      dispatchEvent(EVENT.REFRESH_REPOS)
+    },
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.markState({ curView: 'search' }),
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),

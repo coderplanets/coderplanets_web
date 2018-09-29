@@ -46,7 +46,12 @@ const View = ({ community, thread, entries, curView, active }) => {
       return (
         <React.Fragment>
           {entries.map(entry => (
-            <RepoItem key={uid.gen()} entry={entry} active={active} />
+            <RepoItem
+              key={uid.gen()}
+              entry={entry}
+              active={active}
+              onTitleSelect={logic.onTitleSelect}
+            />
           ))}
         </React.Fragment>
       )
@@ -59,7 +64,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <RepoItemLoading num={5} />
+      return <RepoItemLoading num={4} />
   }
 }
 

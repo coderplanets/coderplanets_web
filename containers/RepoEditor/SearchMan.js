@@ -17,7 +17,7 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('C:RepoEditor')
 /* eslint-enable no-unused-vars */
 
-const SearchMan = () => (
+const SearchMan = ({ value, searching, onSearch, onChange }) => (
   <Wrapper>
     <FormWrapper>
       <SearchTitle>
@@ -30,16 +30,28 @@ const SearchMan = () => (
       </SearchTitle>
       <InputWrapper>
         <FormItem
-          value=""
+          value={value}
           size="large"
-          onChange={debug}
+          onChange={onChange.bind(this)}
           placeholder="Github 仓库地址，如: https://github.com/coderplanets/coderplanets_web"
+          disabled={Boolean(searching)}
         />
       </InputWrapper>
 
-      <Button size="default" type="primary" ghost>
-        Github 搜索
-      </Button>
+      {searching ? (
+        <Button size="default" type="primary" ghost>
+          正在搜索..
+        </Button>
+      ) : (
+        <Button
+          size="default"
+          type="primary"
+          ghost
+          onClick={onSearch.bind(this)}
+        >
+          Github 搜索
+        </Button>
+      )}
     </FormWrapper>
     <Footer>
       搜索使用当前登录的 Github token, 请注意不要意外发布您的私有项目。

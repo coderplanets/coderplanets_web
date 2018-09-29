@@ -7,32 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import { Wrapper, BodyDigest } from './styles'
 
-import { Space } from '../BaseStyled'
-import BuilderList from './BuilderList'
-
-import {
-  Wrapper,
-  Main,
-  TopHalf,
-  Breif,
-  Title,
-  Producer,
-  RepoName,
-  TitleTag,
-  StatusInfo,
-  StatusSection,
-  StarIcon,
-  ForkIcon,
-  StatusNum,
-  SecondHalf,
-  BodyDigest,
-  TitleTagDot,
-  BuildByWrapper,
-} from './styles'
-
-import fakeBuilders from './fakeUsers'
+import Header from './Header'
+import Footer from './Footer'
 import { makeDebugger, cutFrom } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:RepoItem:index')
@@ -40,40 +18,15 @@ const debug = makeDebugger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onTitleSelect }) => (
   <Wrapper active={active.id && entry.id !== active.id}>
-    <Main>
-      <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
-          <Title>
-            <Producer>{entry.producer}</Producer>
-            <RepoName> / {entry.repoName}</RepoName>
-          </Title>
-          <TitleTag>
-            <TitleTagDot />
-            音频
-          </TitleTag>
-          <StatusInfo>
-            <StatusSection>
-              <StarIcon src={`${ICON_CMD}/repo_star.svg`} />
-              <StatusNum>{entry.repoStarCount}</StatusNum>
-            </StatusSection>
-            <Space right="3px" />
-            <StatusSection>
-              <ForkIcon src={`${ICON_CMD}/repo_fork.svg`} />
-              <StatusNum>{entry.repoForkCount}</StatusNum>
-            </StatusSection>
-          </StatusInfo>
-        </Breif>
-      </TopHalf>
+    <Header entry={entry} onTitleSelect={onTitleSelect.bind(this, entry)} />
 
-      <SecondHalf>
-        <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
-      </SecondHalf>
+    <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
 
-      <BuildByWrapper>
-        <div>Build by </div>
-        <BuilderList entries={fakeBuilders} />
-      </BuildByWrapper>
-    </Main>
+    <Footer
+      contributors={entry.contributors}
+      author={entry.author}
+      insertedAt={entry.insertedAt}
+    />
   </Wrapper>
 )
 
@@ -82,7 +35,7 @@ RepoItem.propTypes = {
 
   entry: PropTypes.shape({
     title: PropTypes.string,
-    digest: PropTypes.string,
+    desc: PropTypes.string,
     views: PropTypes.number,
 
     author: PropTypes.shape({

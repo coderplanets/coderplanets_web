@@ -5,8 +5,9 @@
  */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
+import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
 import TopHeader from './TopHeader'
 import BodyHeader from './BodyHeader'
@@ -17,8 +18,12 @@ import {
   Wrapper,
   BodyWrapper,
   DescriptionWrapper,
-  DescLink,
+  HomepageLink,
   ReadmeWrapper,
+  Footer,
+  SearchButton,
+  SyncButton,
+  PublishButton,
 } from './styles'
 
 import { makeDebugger } from '../../utils'
@@ -26,27 +31,68 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:GithubRepoPage:index')
 /* eslint-enable no-unused-vars */
 
-const GithubRepoPage = () => (
+const GithubRepoPage = ({
+  repo,
+  onSearch,
+  onPublish,
+  onSync,
+  showPublishBtn,
+  showSearchBtn,
+  showSyncBtn,
+}) => (
   <Wrapper>
     <TopHeader />
     <BodyWrapper>
       <BodyHeader />
-      <Header />
+      <Header repo={repo} />
       <DescriptionWrapper>
-        A declarative, efficient, and flexible JavaScript library for building
-        user interfaces. Project Files for Youtube Tutorial Series Project Files
-        for Youtube Tutorial Series. <DescLink>https://reactjs.org</DescLink>
+        {repo.desc}
+        <HomepageLink>{repo.homepageUrl}</HomepageLink>
       </DescriptionWrapper>
-      <StatesContainers />
+      <StatesContainers repo={repo} />
       <ReadmeWrapper>
-        <MarkDownRender body="hello this is readme" />
+        <MarkDownRender body={repo.readme || ''} />
       </ReadmeWrapper>
     </BodyWrapper>
+    <Footer>
+      <Maybe test={showSearchBtn}>
+        <SearchButton type="primary" ghost onClick={onSearch}>
+          重新搜索
+        </SearchButton>
+      </Maybe>
+      <Maybe test={showSyncBtn}>
+        <SyncButton type="primary" ghost onClick={onSync}>
+          同步仓库
+        </SyncButton>
+      </Maybe>
+      <Maybe test={showPublishBtn}>
+        <PublishButton type="primary" onClick={onPublish}>
+          发布
+        </PublishButton>
+      </Maybe>
+    </Footer>
   </Wrapper>
 )
 
-// GithubRepoPage.propTypes = {}
+GithubRepoPage.propTypes = {
+  repo: PropTypes.object.isRequired,
+  onPublish: PropTypes.func,
+  onSearch: PropTypes.func,
+  onSync: PropTypes.func,
 
-// GithubRepoPage.defaultProps = {}
+  showPublishBtn: PropTypes.bool,
+  showSearchBtn: PropTypes.bool,
+  showSyncBtn: PropTypes.bool,
+}
+
+GithubRepoPage.defaultProps = {
+  onPublish: debug,
+  onSearch: debug,
+  onSync: debug,
+
+  showPublishBtn: false,
+  showSearchBtn: false,
+  showSyncBtn: false,
+}
 
 export default GithubRepoPage

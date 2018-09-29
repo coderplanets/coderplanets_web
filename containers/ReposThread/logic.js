@@ -15,7 +15,13 @@ import {
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [
+    EVENT.REFRESH_REPOS,
+    EVENT.PREVIEW_CLOSED,
+    // EVENT.COMMUNITY_CHANGE,
+  ],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -57,8 +63,14 @@ export function loadRepos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect() {
-  debug('onTitleSelect')
+export function onTitleSelect(repo) {
+  store.setViewing({ repo })
+  debug('onTitleSelect ---', repo)
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_REPO_VIEW,
+    data: repo,
+  })
 }
 
 export function createContent() {
@@ -92,6 +104,14 @@ const DataSolver = [
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags: tags }) => store.markState({ tags }),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_REPOS),
+    action: () => loadRepos(),
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.setViewing({ repo: {} }),
   },
 ]
 const ErrSolver = []

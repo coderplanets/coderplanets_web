@@ -200,6 +200,7 @@ const Yellow = {
     tableborder: `1px solid ${lighten(0.07, contentBoxBg)}`,
     taskDone: '#528416',
     taskPeding: lighten(0.1, contentBoxBg),
+    br: '#e8e8e8',
   },
   code: {
     bg: lighten(0.03, contentBoxBg),

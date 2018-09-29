@@ -33,12 +33,12 @@ const translator = {
 const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
-      如果你有 {community} 相关的
+      如果你有 {community} 相关的优质
       {translator[thread]}
-      ，欢迎一起分享、交流
+      ，欢迎一起分享 / 交流
     </div>
     <div>
-      如果是网站的问题，恳请你
+      若是网站的问题，恳请你
       <IssueLink href={ISSUE_ADDR} rel="noopener noreferrer" target="_blank">
         提交issue
       </IssueLink>

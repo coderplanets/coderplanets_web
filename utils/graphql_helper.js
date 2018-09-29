@@ -23,6 +23,15 @@ export const makeGQClient = token => {
   }
 }
 
+export const makeGithubExplore = (GRAPHQL_ENDPOINT, token) => {
+  const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
+    headers: {
+      authorization: `bearer ${token}`,
+    },
+  })
+  return client
+}
+
 // NOTE: this is a simple hack for send parallel requests in rxjs
 // in rxjs, if you want to send parallel request you should use complex method
 // like forkJoin .. which need to refactor whole sr71 part
