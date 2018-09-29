@@ -15,6 +15,7 @@ import InfoBoard from './InfoBoard'
 import { makeDebugger, storePlug } from '../../utils'
 
 import Header from './Header'
+import BodyHeader from './BodyHeader'
 
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
@@ -35,6 +36,7 @@ class VideoViewerContainer extends React.Component {
     return (
       <Wrapper>
         <Header data={viewingData} />
+        <BodyHeader />
         <PlayWindow poster={viewingData.poster} />
         <InfoBoard data={viewingData} />
       </Wrapper>
