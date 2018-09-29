@@ -51,7 +51,7 @@ const GithubRepoPage = ({
       </DescriptionWrapper>
       <StatesContainers repo={repo} />
       <ReadmeWrapper>
-        <MarkDownRender body={repo.readme} />
+        <MarkDownRender body={repo.readme || ''} />
       </ReadmeWrapper>
     </BodyWrapper>
     <Footer>

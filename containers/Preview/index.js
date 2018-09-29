@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic'
 import ArticleViwer from '../ArticleViwer'
 import AccountViewer from '../AccountViewer'
 import VideoViewer from '../VideoViewer'
+import RepoViewer from '../RepoViewer'
 // eiditors
 import AccountEditor from '../AccountEditor'
 import CommunityEditors from '../CommunityEditors'
@@ -95,7 +96,8 @@ const Viewer = ({ type, root, attachment }) => {
     }
     // repo
     case TYPE.PREVIEW_REPO_VIEW: {
-      return <h3>PREVIEW_REPO_VIEW</h3>
+      console.log('PREVIEW_REPO_VIEW attachment: ', attachment)
+      return <RepoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_REPO_CREATE: {
       return <RepoEditor />

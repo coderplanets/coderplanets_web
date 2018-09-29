@@ -18,7 +18,7 @@ const debug = makeDebugger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onTitleSelect }) => (
   <Wrapper active={active.id && entry.id !== active.id}>
-    <Header entry={entry} onTitleSelect={onTitleSelect} />
+    <Header entry={entry} onTitleSelect={onTitleSelect.bind(this, entry)} />
 
     <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
 

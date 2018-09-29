@@ -63,8 +63,14 @@ export function loadRepos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect() {
-  debug('onTitleSelect')
+export function onTitleSelect(repo) {
+  store.setViewing({ repo })
+  debug('onTitleSelect ---', repo)
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_REPO_VIEW,
+    data: repo,
+  })
 }
 
 export function createContent() {

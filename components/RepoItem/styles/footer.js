@@ -52,4 +52,5 @@ export const PublishInfo = styled.div`
   font-size: 0.85rem;
   margin-right: 10px;
   align-items: center;
+  align-self: flex-end;
 `
