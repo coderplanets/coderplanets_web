@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
 import TopHeader from './TopHeader'
 import BodyHeader from './BodyHeader'
@@ -54,20 +55,21 @@ const GithubRepoPage = ({
       </ReadmeWrapper>
     </BodyWrapper>
     <Footer>
-      <SearchButton
-        type="primary"
-        ghost
-        onClick={onSearch}
-        show={showSearchBtn}
-      >
-        重新搜索
-      </SearchButton>
-      <SyncButton type="primary" ghost onClick={onSync} show={showSyncBtn}>
-        同步仓库
-      </SyncButton>
-      <PublishButton type="primary" onClick={onPublish} show={showPublishBtn}>
-        发布
-      </PublishButton>
+      <Maybe test={showSearchBtn}>
+        <SearchButton type="primary" ghost onClick={onSearch}>
+          重新搜索
+        </SearchButton>
+      </Maybe>
+      <Maybe test={showSyncBtn}>
+        <SyncButton type="primary" ghost onClick={onSync}>
+          同步仓库
+        </SyncButton>
+      </Maybe>
+      <Maybe test={showPublishBtn}>
+        <PublishButton type="primary" onClick={onPublish}>
+          发布
+        </PublishButton>
+      </Maybe>
     </Footer>
   </Wrapper>
 )

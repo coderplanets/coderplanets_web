@@ -59,7 +59,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <RepoItemLoading num={5} />
+      return <RepoItemLoading num={4} />
   }
 }
 

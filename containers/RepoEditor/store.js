@@ -36,11 +36,17 @@ const RepoEditor = t
     get root() {
       return getParent(self)
     },
+    get viewing() {
+      return stripMobx(self.root.viewing)
+    },
     get editRepoData() {
       return stripMobx(self.editRepo)
     },
   }))
   .actions(self => ({
+    closePreview() {
+      self.root.closePreview()
+    },
     toast(type, options) {
       self.root.toast(type, options)
     },

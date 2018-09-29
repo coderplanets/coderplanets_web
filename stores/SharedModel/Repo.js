@@ -36,7 +36,7 @@ export const Repo = t.model('Reop', {
 
   primaryLanguage: t.maybeNull(Language),
   license: t.maybeNull(t.string),
-  releaseTag: t.optional(t.string, ''),
+  releaseTag: t.maybeNull(t.string),
   contributors: t.array(Contributor),
 
   author: t.maybeNull(User),

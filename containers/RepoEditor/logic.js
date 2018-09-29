@@ -1,5 +1,6 @@
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   asyncErr,
@@ -11,7 +12,7 @@ import githubApi from './github_api'
 
 import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED],
@@ -23,6 +24,16 @@ const debug = makeDebugger('L:RepoEditor')
 /* eslint-enable no-unused-vars */
 
 let store = null
+
+export function onPublish() {
+  const args = {
+    communityId: store.viewing.community.id,
+    ...store.editRepoData,
+  }
+
+  debug('onPublish args: ', args)
+  sr71$.mutate(S.createRepo, args)
+}
 
 export function onGithubSearch() {
   if (!store.validator('searchValue')) return false
@@ -54,8 +65,17 @@ export function searchOnChange(e) {
 // ###############################
 // Data & Error handlers
 // ###############################
-
 const DataSolver = [
+  {
+    match: asyncRes('createRepo'),
+    action: () => {
+      debug('done!')
+      // cancleLoading()
+      // store.reset()
+      store.closePreview()
+      dispatchEvent(EVENT.REFRESH_REPOS)
+    },
+  },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => store.markState({ curView: 'search' }),

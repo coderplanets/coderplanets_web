@@ -19,11 +19,11 @@ export const Title = styled.div`
   }
 `
 export const LangDot = styled.div`
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   border-radius: 100%;
   background-color: ${({ color }) => color};
-  margin-right: 8px;
+  margin-right: 6px;
 `
 export const PopoverInfo = styled.div`
   padding: 5px 10px;

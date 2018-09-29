@@ -16,7 +16,7 @@ const v3EndpointOpt = {
 }
 
 const baseInfoQuery = (owner, name) =>
-  graphqlClient.request(S.simpleQuery, { owner, name })
+  graphqlClient.request(S.repository, { owner, name })
 
 const contributorsQuery = (owner, name) => {
   const path = 'contributors?page=1&per_page=8'

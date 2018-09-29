@@ -26,7 +26,9 @@ const View = ({ curView, searching, searchValue, repo }) => {
         <GithubRepoPage
           repo={repo}
           onSearch={logic.changeView.bind(this, 'search')}
+          onPublish={logic.onPublish}
           showSearchBtn
+          showPublishBtn
         />
       )
     }

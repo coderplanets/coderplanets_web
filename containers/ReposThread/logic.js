@@ -15,7 +15,13 @@ import {
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [
+    EVENT.REFRESH_REPOS,
+    EVENT.PREVIEW_CLOSED,
+    // EVENT.COMMUNITY_CHANGE,
+  ],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -92,6 +98,14 @@ const DataSolver = [
   {
     match: asyncRes('partialTags'),
     action: ({ partialTags: tags }) => store.markState({ tags }),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_REPOS),
+    action: () => loadRepos(),
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.setViewing({ repo: {} }),
   },
 ]
 const ErrSolver = []

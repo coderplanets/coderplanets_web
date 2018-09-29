@@ -47,13 +47,8 @@ export const Footer = styled.div`
 `
 export const SearchButton = styled(Button)`
   margin-right: 10px;
-  display: ${({ show }) => (show ? 'block' : 'none')};
 `
 export const SyncButton = styled(Button)`
-  display: ${({ show }) => (show ? 'block' : 'none')};
-
   margin-right: 10px;
 `
-export const PublishButton = styled(Button)`
-  display: ${({ show }) => (show ? 'block' : 'none')};
-`
+export const PublishButton = styled(Button)``
