@@ -5,16 +5,23 @@ const pagedReposRaw = `
     pagedRepos(filter: $filter) {
       entries {
         id
-        repoName
+        title
+        ownerName
         desc
-        readme
-        language
-        repoLink
-        producer
-        producerLink
-        repoStarCount
-        repoForkCount
-        repoWatchCount
+
+        license
+        releaseTag
+        contributors {
+          avatar
+          htmlUrl
+          nickname
+        }
+        starCount
+        forkCount
+        primaryLanguage {
+          name
+          color
+        }
         views
         author {
           id

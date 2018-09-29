@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { Repo2 } from '../../stores/SharedModel'
+import { Repo } from '../../stores/SharedModel'
 
 import {
   markStates,
@@ -20,7 +20,7 @@ const debug = makeDebugger('S:RepoEditor')
 
 const RepoEditor = t
   .model('RepoEditor', {
-    editRepo: t.maybeNull(Repo2),
+    editRepo: t.maybeNull(Repo),
     curView: t.optional(t.enumeration('curView', ['search', 'show']), 'search'),
     searchValue: t.optional(t.string, ''),
     searching: t.optional(t.boolean, false),

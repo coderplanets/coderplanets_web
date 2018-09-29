@@ -24,16 +24,17 @@ export const Text = styled.div`
 `
 export const Title = styled.div`
   color: #b8c8c8;
-  border-top: 1px solid #e2e8e8;
-  margin-top: 20px;
-  padding-top: 20px;
+  border-bottom: 1px solid #e2e8e8;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 1.4rem;
 `
 
 export const DescWrapper = styled.div`
   color: #b8c8c8;
   margin-top: 0.6rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 `
 const Link = styled.a`
   text-decoration: none;

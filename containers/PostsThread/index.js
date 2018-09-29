@@ -62,7 +62,7 @@ const View = ({ community, thread, entries, curView, active }) => {
       )
     }
     default:
-      return <PostItemLoading num={5} />
+      return <PostItemLoading num={4} />
   }
 }
 
