@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   padding-right: 30px;
   padding-top: 10px;
   padding-bottom: 6px;
-  background: ${theme('preview.articleBg')};
 `
 export const Divider = styled.span`
   margin: 0 8px;
@@ -19,33 +18,28 @@ export const Divider = styled.span`
   border-right: 1px solid;
   border-right-color: ${theme('preview.divider')};
 `
-
 export const UserInfo = styled.div`
   flex-grow: 1;
   display: flex;
+  align-items: center;
 `
-
 export const UserName = styled.div`
-  margin-bottom: 2px;
-  font-size: 1.2em;
+  font-size: 1rem;
   color: ${theme('banner.title')};
 `
 export const PublishAt = styled.div`
-  font-size: 0.9em;
+  font-size: 0.8rem;
   color: ${theme('banner.desc')};
 `
-
 export const Avatar = styled.img`
   border-radius: 100%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
 `
-
 export const ReactionWrapper = styled.div`
   display: flex;
 `
-
 export const ReactionAction = styled.div`
   display: flex;
   padding: 0 3px;
@@ -56,7 +50,6 @@ export const ReactionAction = styled.div`
     border-radius: 6px;
   }
 `
-
 export const ReactionName = styled.div`
   align-self: center;
   color: ${theme('article.reactionTitle')};
@@ -73,14 +66,12 @@ export const ReactionUserNum = styled.div`
     text-decoration: underline;
   }
 `
-
 export const ReactionIcon = styled(Img)`
   margin-top: 4px;
   fill: ${theme('article.reactionTitle')};
   width: ${({ width }) => width || '1.5em'};
   height: ${({ height }) => height || '1.5em'};
 `
-
 export const Reaction = styled.div`
   align-self: center;
   font-size: 1.2em;
