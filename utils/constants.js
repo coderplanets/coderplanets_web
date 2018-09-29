@@ -98,6 +98,7 @@ export const ROUTE = {
   VIDEOS: 'videos',
   USERS: 'users',
   REPOS: 'repos',
+  WIKI: 'wiki',
 
   POST: 'post',
   USER: 'user',

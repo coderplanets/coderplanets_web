@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
-import { Labeler } from '..'
+import Labeler from '../Labeler'
 import { Popover } from '../../components'
 
 // import ArticleOptions from '../../containers/ArticleViwer/ArticleOptions'
