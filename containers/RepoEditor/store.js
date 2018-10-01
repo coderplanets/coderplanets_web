@@ -69,6 +69,12 @@ const RepoEditor = t
             msg: 'token 可能过期，请尝试重新登录',
           })
         }
+        case ERR.TIMEOUT: {
+          return self.changeErr({
+            title: 'Github 超时',
+            msg: '特殊国情，请稍后重试',
+          })
+        }
         default: {
           return self.changeErr({ title: '未知错误', msg: '...' })
         }

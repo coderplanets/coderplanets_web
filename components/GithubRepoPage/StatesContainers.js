@@ -91,7 +91,7 @@ const StatesContainers = ({ repo }) => (
       <BoxWrapper>
         <Label>License</Label>
         <Number small={repo.license.length > 5}>
-          {R.toUpper(repo.license)}
+          {R.toUpper(repo.license) || '--'}
         </Number>
       </BoxWrapper>
     </Linker>
