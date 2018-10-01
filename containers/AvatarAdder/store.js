@@ -27,6 +27,7 @@ const AvatarAdder = t
   .model('AvatarAdder', {
     githubUser: t.optional(GithubUser, fakeUser),
     searchValue: t.optional(t.string, ''),
+    popoverVisiable: t.optional(t.boolean, false),
     searching: t.optional(t.boolean, false),
     error: t.optional(t.boolean, false),
     /* ERR_TYPE:  */

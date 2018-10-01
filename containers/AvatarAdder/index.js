@@ -28,10 +28,16 @@ class AvatarAdderContainer extends React.Component {
 
   render() {
     const { avatarAdder } = this.props
-    const { githubUserData, searching, searchValue } = avatarAdder
+    const {
+      popoverVisiable,
+      githubUserData,
+      searching,
+      searchValue,
+    } = avatarAdder
 
     return (
       <Popover
+        visible={popoverVisiable}
         content={
           <AdderPanel
             user={githubUserData}
@@ -41,6 +47,7 @@ class AvatarAdderContainer extends React.Component {
         }
         placement="bottom"
         trigger="click"
+        onVisibleChange={logic.onPopoverVisible.bind(this)}
       >
         <Wrapper>
           <AddText>+</AddText>

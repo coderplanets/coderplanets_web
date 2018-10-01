@@ -32,6 +32,15 @@ export function onConfirm() {
 export const inputOnChange = e =>
   store.markState({ searchValue: e.target.value })
 
+export const onPopoverVisible = visable => {
+  if (!visable) {
+    store.markState({
+      searchValue: '',
+      searching: false,
+    })
+  }
+  store.markState({ popoverVisiable: visable })
+}
 // ###############################
 // Data & Error handlers
 // ###############################
