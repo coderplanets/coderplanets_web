@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
-import { Popover, Maybe, Space } from '../../components'
+import { DotDivider } from '../../components'
 
 import {
   Wrapper,
@@ -9,73 +8,18 @@ import {
   NoteTitle,
   NoteDivider,
   NoteDesc,
-  AvatarListWrapper,
-  AvatarLink,
-  Avatar,
-  UserPopWrapper,
-  PopAvatarWrapper,
-  PopAvatar,
-  UserPopInfo,
-  Username,
-  UserBio,
-  UserLocation,
-  UserCompany,
-  LabelIcon,
-  LabelText,
+  FootNote,
   SycNote,
 } from './styles/contributors'
 
-import fakeUser from './fakeUser'
-
-import { uid } from '../../utils'
+import AvatarList from './AvatarList'
 
 const Note = () => (
   <NoteWrapper>
     <NoteTitle>本页贡献者</NoteTitle>
     <NoteDivider />
-    <NoteDesc>参与编辑后你的 GitHub 头像会同步在这里, 感谢参与.</NoteDesc>
+    <NoteDesc>参与编辑后你的 GitHub 头像会同步在这里, 以示感谢.</NoteDesc>
   </NoteWrapper>
-)
-
-const AvatarPopInfo = ({ user }) => (
-  <UserPopWrapper>
-    <PopAvatarWrapper>
-      <PopAvatar src={user.avatar} />
-    </PopAvatarWrapper>
-    <UserPopInfo>
-      <Username>{user.nickname}</Username>
-      <UserBio>{user.bio}</UserBio>
-      <Maybe test={user.location}>
-        <UserLocation>
-          <LabelIcon src={`${ICON_CMD}/city_map.svg`} />
-          <LabelText> {user.location}</LabelText>
-        </UserLocation>
-      </Maybe>
-      <Maybe test={user.company}>
-        <UserCompany>
-          <LabelIcon src={`${ICON_CMD}/profile_company.svg`} />
-          <LabelText> {user.company}</LabelText>
-        </UserCompany>
-      </Maybe>
-    </UserPopInfo>
-  </UserPopWrapper>
-)
-
-const AvatarList = () => (
-  <AvatarListWrapper>
-    {fakeUser.map(user => (
-      <Popover
-        content={<AvatarPopInfo user={user} />}
-        placement="bottom"
-        trigger="hover"
-        key={uid.gen()}
-      >
-        <AvatarLink>
-          <Avatar src={user.avatar} />
-        </AvatarLink>
-      </Popover>
-    ))}
-  </AvatarListWrapper>
 )
 
 const Contributors = () => (
@@ -83,12 +27,13 @@ const Contributors = () => (
     <Note />
     <AvatarList />
 
-    <SycNote>
-      <LabelIcon src={`${ICON_CMD}/sync.svg`} />
-      <LabelText>最后同步:</LabelText>
-      <Space right="5px" />
-      <LabelText>3天前</LabelText>
-    </SycNote>
+    <FootNote>
+      <SycNote>
+        浏览: 228
+        <DotDivider />
+        最后同步: 3天前
+      </SycNote>
+    </FootNote>
   </Wrapper>
 )
 

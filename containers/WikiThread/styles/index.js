@@ -29,4 +29,5 @@ export const RightPart = styled.div`
 export const PublishBtn = styled(Button)`
   width: 100%;
   max-width: 220px;
+  margin-top: 10px;
 `
