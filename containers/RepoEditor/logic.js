@@ -40,9 +40,9 @@ export function onGithubSearch() {
   store.markState({ searching: true })
   githubApi
     .searchRepo(owner, name)
-    .then(values => {
+    .then(res => {
       store.markState({
-        editRepo: githubApi.transFormRepo(values),
+        editRepo: githubApi.transformRepo(res),
         searching: false,
         curView: 'show',
       })

@@ -7,29 +7,20 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { GithubUser } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AvatarAdder')
 /* eslint-enable no-unused-vars */
 
-const fakeUser = {
-  avatar: 'https://avatars3.githubusercontent.com/u/7498434?s=40&v=4',
-  htmlUrl: 'https://avatars3.githubusercontent.com/u/7498434?s=40&v=4',
-  bio:
-    "everyday is the opportunity you don't get back, so live life to the fullest",
-  nickname: 'nickname',
-  location: 'location',
-  company: 'company info',
-}
-
 const AvatarAdder = t
   .model('AvatarAdder', {
-    githubUser: t.optional(GithubUser, fakeUser),
+    githubUser: t.maybeNull(GithubUser),
     searchValue: t.optional(t.string, ''),
     popoverVisiable: t.optional(t.boolean, false),
     searching: t.optional(t.boolean, false),
-    error: t.optional(t.boolean, false),
+
+    errorType: t.maybeNull(t.string),
     /* ERR_TYPE:  */
   })
   .views(self => ({
@@ -41,6 +32,39 @@ const AvatarAdder = t
     },
   }))
   .actions(self => ({
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
+    changeErr(options) {
+      self.toast('error', options)
+    },
+    handleError(errorType) {
+      debug(errorType)
+      self.markState({ errorType, searching: false })
+      switch (errorType) {
+        case ERR.NOT_FOUND: {
+          return self.changeErr({
+            title: '用户未找到',
+            msg: '请输入正确的 github 登陆用户名',
+          })
+        }
+        case ERR.AUTH: {
+          return self.changeErr({
+            title: 'Github 鉴权出错',
+            msg: 'token 可能过期，请尝试重新登录',
+          })
+        }
+        case ERR.TIMEOUT: {
+          return self.changeErr({
+            title: 'Github 超时',
+            msg: '特殊国情，请稍后重试',
+          })
+        }
+        default: {
+          return self.changeErr({ title: '未知错误', msg: '...' })
+        }
+      }
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

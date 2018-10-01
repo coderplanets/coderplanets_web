@@ -1,7 +1,20 @@
 // import gql from 'graphql-tag'
 
+const user = `
+  query($login: String!) {
+    user(login: $login) {
+      id
+      login
+      bio
+      avatarUrl
+      location
+      company
+      url
+    }
+  }
+`
 const repository = `
-  query ($owner: String!, $name: String!){
+  query($owner: String!, $name: String!) {
     repository(owner: $owner, name: $name) {
       name
       description
@@ -11,7 +24,7 @@ const repository = `
       }
       object(expression: "master:README.md") {
         ... on Blob {
-         text
+          text
         }
       }
       forkCount
@@ -49,6 +62,7 @@ const repository = `
 `
 
 const schema = {
+  user,
   repository,
 }
 

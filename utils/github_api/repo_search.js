@@ -33,7 +33,7 @@ const getLicense = value => {
 }
 
 // transform to match our model
-export const repoTransForm = res => {
+export const transformRepo = res => {
   const baseInfoRes = res[0].repository
   const contributorsRes = res[1].data
   const contributors = []

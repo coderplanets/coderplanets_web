@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import { makeDebugger, $solver, asyncErr, ERR, githubApi } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
@@ -19,14 +19,18 @@ export function onSearch(e) {
     debug('store.searchValue: ', store.searchValue)
     store.markState({ searching: true, searchValue: e.target.value })
 
-    setTimeout(() => {
-      store.markState({ searching: false })
-    }, 4000)
+    githubApi
+      .searchUser(store.searchValue)
+      .then(res => {
+        store.markState({ githubUser: githubApi.transformUser(res) })
+        store.markState({ searching: false })
+      })
+      .catch(e => store.handleError(githubApi.parseError(e)))
   }
 }
 
 export function onConfirm() {
-  debug('onConfirm: ', store.searchValue)
+  debug('onConfirm: ', store.githubUserData)
 }
 
 export const inputOnChange = e =>
@@ -37,6 +41,7 @@ export const onPopoverVisible = visable => {
     store.markState({
       searchValue: '',
       searching: false,
+      githubUser: null,
     })
   }
   store.markState({ popoverVisiable: visable })
