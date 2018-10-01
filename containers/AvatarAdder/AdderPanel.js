@@ -11,6 +11,9 @@ import {
   SearchInput,
   Result,
   Divider,
+  Footer,
+  AddBtn,
+  AdderIcon,
 } from './styles/adder_panel'
 
 import * as logic from './logic'
@@ -38,7 +41,12 @@ const AdderPanel = () => (
       <Divider />
       <GithubUserCard user={fakeUser} />
       <Divider />
-      <div>buttons</div>
+      <Footer>
+        <AddBtn>
+          <AdderIcon src={`${ICON_CMD}/add.svg`} />
+          <div>添加</div>
+        </AddBtn>
+      </Footer>
     </Result>
   </Wrapper>
 )

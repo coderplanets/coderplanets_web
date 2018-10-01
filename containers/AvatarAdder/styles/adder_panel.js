@@ -27,6 +27,38 @@ export const Divider = styled.div`
   margin-top: 15px;
   margin-bottom: 10px;
 `
+export const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+export const AdderIcon = styled(Img)`
+  width: 17px;
+  height: 17px;
+  fill: ${theme('thread.articleDigest')};
+  display: block;
+  margin-right: 3px;
+  &:hover {
+    fill: ${theme('thread.articleTitle')};
+  }
+`
+export const AddBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  color: ${theme('thread.articleTitle')};
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: ${theme('thread.articleDigest')};
+
+  &:hover {
+    border: 1px solid;
+    border-color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+    font-weight: bold;
+  }
+`
+
 export const LabelIcon = styled(Img)`
   fill: ${theme('form.text')};
   width: 20px;
