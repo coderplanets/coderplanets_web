@@ -27,8 +27,21 @@ class AvatarAdderContainer extends React.Component {
   }
 
   render() {
+    const { avatarAdder } = this.props
+    const { githubUserData, searching, searchValue } = avatarAdder
+
     return (
-      <Popover content={<AdderPanel />} placement="bottom" trigger="click">
+      <Popover
+        content={
+          <AdderPanel
+            user={githubUserData}
+            searchValue={searchValue}
+            searching={searching}
+          />
+        }
+        placement="bottom"
+        trigger="click"
+      >
         <Wrapper>
           <AddText>+</AddText>
         </Wrapper>

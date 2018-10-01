@@ -19,6 +19,11 @@ export const Result = styled.div`
   display: flex;
   flex-direction: column;
 `
+export const SearchWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`
 export const Divider = styled.div`
   width: 100%;
   border-top: 1px solid;

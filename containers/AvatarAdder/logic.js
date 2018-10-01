@@ -14,15 +14,23 @@ const debug = makeDebugger('L:AvatarAdder')
 
 let store = null
 
-export function pressOnChange(e) {
+export function onSearch(e) {
   if (e.key === 'Enter') {
-    debug(e.key)
+    debug('store.searchValue: ', store.searchValue)
+    store.markState({ searching: true, searchValue: e.target.value })
+
+    setTimeout(() => {
+      store.markState({ searching: false })
+    }, 4000)
   }
 }
 
-export function inputOnChange(e) {
-  debug('value: ', e.target.value)
+export function onConfirm() {
+  debug('onConfirm: ', store.searchValue)
 }
+
+export const inputOnChange = e =>
+  store.markState({ searchValue: e.target.value })
 
 // ###############################
 // Data & Error handlers

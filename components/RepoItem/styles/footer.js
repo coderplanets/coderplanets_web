@@ -37,6 +37,7 @@ export const PopoverInfo = styled.div`
 export const PopAvatar = styled(Img)`
   width: 80px;
   height: 80px;
+  border-radius: 3px;
 `
 export const PopLink = styled.a`
   color: ${theme('thread.articleTitle')};
