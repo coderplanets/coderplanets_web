@@ -43,6 +43,7 @@ export { default as SectionLabel } from './SectionLabel'
 export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 export { default as VideoSourceInfo } from './VideoSourceInfo'
 
+export { default as ContributorList } from './ContributorList'
 export { default as GithubRepoPage } from './GithubRepoPage'
 export { default as GithubUserCard } from './GithubUserCard'
 

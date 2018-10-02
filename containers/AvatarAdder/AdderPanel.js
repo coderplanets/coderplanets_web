@@ -2,7 +2,8 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
-import { GithubUserCard, Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
+import GithubUserCard from '../../components/GithubUserCard'
 
 import {
   Wrapper,

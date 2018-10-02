@@ -40,7 +40,7 @@ import {
   WikiThreadStore,
   JobsThreadStore,
   UsersThreadStore,
-  TagsBarStore,
+  CheatsheetThreadStore,
   // content
   PostContentStore,
   CommunitiesContentStore,
@@ -70,6 +70,7 @@ import {
   LabelerStore,
   DocUploaderStore,
   AvatarAdderStore,
+  TagsBarStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -138,6 +139,7 @@ const rootStore = t
     wikiThread: t.optional(WikiThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
     usersThread: t.optional(UsersThreadStore, {}),
+    cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
     cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),

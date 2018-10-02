@@ -56,6 +56,9 @@ export { default as WikiThreadStore } from '../containers/WikiThread/store'
 export { default as JobsThreadStore } from '../containers/JobsThread/store'
 export { default as UsersThreadStore } from '../containers/UsersThread/store'
 export {
+  default as CheatsheetThreadStore,
+} from '../containers/CheatsheetThread/store'
+export {
   default as CheatSheetPaperStore,
 } from '../containers/CheatSheetPaper/store'
 

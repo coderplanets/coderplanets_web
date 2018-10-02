@@ -99,6 +99,7 @@ export const ROUTE = {
   USERS: 'users',
   REPOS: 'repos',
   WIKI: 'wiki',
+  CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
   USER: 'user',
