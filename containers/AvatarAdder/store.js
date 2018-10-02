@@ -1,32 +1,34 @@
 /*
- * WikiThread store
+ * AvatarAdder store
  *
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { Wiki } from '../../stores/SharedModel'
+import { GithubUser } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
+
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:WikiThread')
+const debug = makeDebugger('S:AvatarAdder')
 /* eslint-enable no-unused-vars */
 
-const WikiThread = t
-  .model('WikiThread', {
-    wiki: t.optional(Wiki, { readme: '' }),
-    // errorType
+const AvatarAdder = t
+  .model('AvatarAdder', {
+    githubUser: t.maybeNull(GithubUser),
+    searchValue: t.optional(t.string, ''),
+    popoverVisiable: t.optional(t.boolean, false),
+    searching: t.optional(t.boolean, false),
+
     errorType: t.maybeNull(t.string),
+    /* ERR_TYPE:  */
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
-    get wikiData() {
-      return stripMobx(self.wiki)
+    get githubUserData() {
+      return stripMobx(self.githubUser)
     },
   }))
   .actions(self => ({
@@ -42,8 +44,8 @@ const WikiThread = t
       switch (errorType) {
         case ERR.NOT_FOUND: {
           return self.changeErr({
-            title: '仓库未找到',
-            msg: '请确认输入的仓库地址',
+            title: '用户未找到',
+            msg: '请输入正确的 github 登陆用户名',
           })
         }
         case ERR.AUTH: {
@@ -68,4 +70,4 @@ const WikiThread = t
     },
   }))
 
-export default WikiThread
+export default AvatarAdder

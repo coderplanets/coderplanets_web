@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, Animate } from '../../../utils'
 
 export const Container = styled.div`
   display: flex;
@@ -49,17 +49,6 @@ export const CPSLogoIcon = styled(Img)`
   height: 53px;
   margin-top: -5px;
 `
-
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
-
 export const LinkIcon = styled(Img)`
   fill: #6e967f;
   width: 23px;
@@ -67,7 +56,7 @@ export const LinkIcon = styled(Img)`
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 16px;
-  animation: ${rotate360} 2s linear infinite;
+  animation: ${Animate.rotate360} 2s linear infinite;
 `
 
 export const GithubLogoIcon = styled(Img)`

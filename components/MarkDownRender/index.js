@@ -30,8 +30,22 @@ const debug = makeDebugger('c:MarkDownRender:index')
 /* eslint-enable no-unused-vars */
 
 class MarkDownRender extends React.Component {
+  state = {
+    body: '',
+  }
+
   componentDidMount() {
     Prism.highlightAll()
+    setTimeout(() => Prism.highlightAll(), 1000)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { body } = this.state
+
+    if (nextProps.body !== body) {
+      this.setState({ body: nextProps.body })
+      setTimeout(() => Prism.highlightAll(), 1000)
+    }
   }
 
   render() {

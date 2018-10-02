@@ -18,6 +18,9 @@ export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
+export const WikiWrapper = styled.div`
+  width: 90%;
+`
 export const RightPart = styled.div`
   width: 25vw;
   margin-left: 30px;
@@ -29,4 +32,5 @@ export const RightPart = styled.div`
 export const PublishBtn = styled(Button)`
   width: 100%;
   max-width: 220px;
+  margin-top: 10px;
 `

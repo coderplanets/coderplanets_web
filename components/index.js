@@ -44,6 +44,7 @@ export { default as BuyMeChuanChuan } from './BuyMeChuanChuan'
 export { default as VideoSourceInfo } from './VideoSourceInfo'
 
 export { default as GithubRepoPage } from './GithubRepoPage'
+export { default as GithubUserCard } from './GithubUserCard'
 
 // loading component
 export {

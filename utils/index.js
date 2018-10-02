@@ -50,6 +50,8 @@ export {
   later,
 } from './graphql_helper'
 
+export { default as githubApi } from './github_api'
+
 export {
   getMainPath,
   getSubPath,

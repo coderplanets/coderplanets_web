@@ -6,12 +6,10 @@ import {
   asyncErr,
   EVENT,
   ERR,
+  githubApi,
 } from '../../utils'
 
-import githubApi from './github_api'
-
 import SR71 from '../../utils/network/sr71'
-
 import S from './schema'
 
 const sr71$ = new SR71({
@@ -41,10 +39,10 @@ export function onGithubSearch() {
 
   store.markState({ searching: true })
   githubApi
-    .search(owner, name)
-    .then(values => {
+    .searchRepo(owner, name)
+    .then(res => {
       store.markState({
-        editRepo: githubApi.transForm(values),
+        editRepo: githubApi.transformRepo(res),
         searching: false,
         curView: 'show',
       })
@@ -52,15 +50,14 @@ export function onGithubSearch() {
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
-export function changeView(curView) {
-  console.log('changeView: ', curView)
-  store.markState({ curView })
-}
-
-export function searchOnChange(e) {
-  const searchValue = e.target.value
+export const changeView = curView => store.markState({ curView })
+export const searchOnChange = ({ target: { value: searchValue } }) =>
   store.markState({ searchValue })
-}
+
+/*
+   export const searchOnChange = ({ target: { e: searchValue } }) =>
+   store.markState({ searchValue })
+ */
 
 // ###############################
 // Data & Error handlers

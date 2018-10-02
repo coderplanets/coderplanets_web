@@ -14,6 +14,7 @@ import { PublishLabel, MarkDownRender } from '../../components'
 import {
   Wrapper,
   LeftPart,
+  WikiWrapper,
   LeftPadding,
   RightPart,
   RightPadding,
@@ -36,11 +37,16 @@ class WikiThreadContainer extends React.Component {
   }
 
   render() {
+    const { wikiThread } = this.props
+    const { wikiData } = wikiThread
+
     return (
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          <MarkDownRender body="## this is a wiki demo" />
+          <WikiWrapper>
+            <MarkDownRender body={wikiData.readme} />
+          </WikiWrapper>
         </LeftPart>
         <RightPart>
           <React.Fragment>
@@ -50,7 +56,11 @@ class WikiThreadContainer extends React.Component {
                 iconSrc={`${ICON_CMD}/github.svg`}
               />
             </PublishBtn>
-            <Contributors />
+            <Contributors
+              users={wikiData.contributors}
+              views={wikiData.views}
+              lastSync={wikiData.lastSync}
+            />
           </React.Fragment>
         </RightPart>
         <RightPadding />

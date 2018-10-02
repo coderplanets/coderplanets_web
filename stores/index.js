@@ -17,6 +17,7 @@ export {
   default as UpgradePackgesStore,
 } from '../containers/UpgradePackges/store'
 export { default as MailBoxStore } from '../containers/MailBox/store'
+export { default as AvatarAdderStore } from '../containers/AvatarAdder/store'
 
 //
 export {

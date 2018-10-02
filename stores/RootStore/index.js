@@ -69,6 +69,7 @@ import {
   MailBoxStore,
   LabelerStore,
   DocUploaderStore,
+  AvatarAdderStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -104,6 +105,7 @@ const rootStore = t
     mailBox: t.optional(MailBoxStore, {}),
     labeler: t.optional(LabelerStore, {}),
     docUploader: t.optional(DocUploaderStore, {}),
+    avatarAdder: t.optional(AvatarAdderStore, {}),
     // toolbox end
 
     // layouts > xxx > papers

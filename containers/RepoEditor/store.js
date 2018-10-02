@@ -29,8 +29,8 @@ const RepoEditor = t
     // repo name
     name: t.optional(t.string, ''),
 
-    // error
-    error: t.maybeNull(t.string),
+    // errorType
+    errorType: t.maybeNull(t.string),
   })
   .views(self => ({
     get root() {
@@ -53,10 +53,10 @@ const RepoEditor = t
     changeErr(options) {
       self.toast('error', options)
     },
-    handleError(error) {
-      debug(error)
-      self.markState({ error, searching: false })
-      switch (error) {
+    handleError(errorType) {
+      debug(errorType)
+      self.markState({ errorType, searching: false })
+      switch (errorType) {
         case ERR.NOT_FOUND: {
           return self.changeErr({
             title: '仓库未找到',
@@ -67,6 +67,12 @@ const RepoEditor = t
           return self.changeErr({
             title: 'Github 鉴权出错',
             msg: 'token 可能过期，请尝试重新登录',
+          })
+        }
+        case ERR.TIMEOUT: {
+          return self.changeErr({
+            title: 'Github 超时',
+            msg: '特殊国情，请稍后重试',
           })
         }
         default: {
