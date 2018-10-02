@@ -1,6 +1,7 @@
 import React from 'react'
+import TimeAgo from 'timeago-react'
 
-import { DotDivider } from '../../components'
+import { DotDivider, Button } from '../../components'
 
 import {
   Wrapper,
@@ -14,6 +15,8 @@ import {
 
 import AvatarList from './AvatarList'
 
+import * as logic from './logic'
+
 const Note = () => (
   <NoteWrapper>
     <NoteTitle>本页贡献者</NoteTitle>
@@ -22,17 +25,27 @@ const Note = () => (
   </NoteWrapper>
 )
 
-const Contributors = () => (
+const Contributors = ({ users, views, lastSync }) => (
   <Wrapper>
     <Note />
-    <AvatarList />
+    <AvatarList users={users} addContributor={logic.addContributor} />
 
     <FootNote>
       <SycNote>
-        浏览: 228
+        浏览: {views}
         <DotDivider />
-        最后同步: 3天前
+        最后同步:&nbsp;
+        <TimeAgo datetime={lastSync || ''} locale="zh_CN" />
       </SycNote>
+      <br />
+      <Button
+        size="small"
+        type="primary"
+        ghost
+        onClick={logic.syncWikiFromGithub}
+      >
+        同步 wiki
+      </Button>
     </FootNote>
   </Wrapper>
 )

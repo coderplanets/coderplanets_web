@@ -30,7 +30,11 @@ export function onSearch(e) {
 }
 
 export function onConfirm() {
-  debug('onConfirm: ', store.githubUserData)
+  store.markState({
+    searching: false,
+    githubUser: null,
+    popoverVisiable: false,
+  })
 }
 
 export const inputOnChange = e =>

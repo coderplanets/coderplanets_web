@@ -5,12 +5,11 @@ import { Popover, GithubUserCard } from '../../components'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles/avatar_list'
 
-import fakeUser from './fakeUser'
 import { uid } from '../../utils'
 
-const AvatarList = () => (
+const AvatarList = ({ users, addContributor }) => (
   <Wrapper>
-    {fakeUser.map(user => (
+    {users.map(user => (
       <Popover
         content={
           <CardWrapper>
@@ -26,7 +25,7 @@ const AvatarList = () => (
         </AvatarLink>
       </Popover>
     ))}
-    <AvatarAdder />
+    <AvatarAdder onConfirm={addContributor} />
   </Wrapper>
 )
 

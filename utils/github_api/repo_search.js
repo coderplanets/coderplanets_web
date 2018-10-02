@@ -2,7 +2,7 @@ import R from 'ramda'
 import { timeout } from 'promise-timeout'
 
 import { TIMEOUT_SEC, restEndpoint } from './config'
-import { graphqlClient, restClient } from './client'
+import { graphqlClient, restpClient } from './client'
 
 import S from './schema'
 
@@ -13,7 +13,7 @@ const contributorsQuery = (owner, name) => {
   const path = 'contributors?page=1&per_page=8'
   const api = `${restEndpoint}/repos/${owner}/${name}/${path}`
 
-  return restClient(`${api}`)
+  return restpClient(`${api}`)
 }
 
 export const searchRepoPromise = (owner, name) =>

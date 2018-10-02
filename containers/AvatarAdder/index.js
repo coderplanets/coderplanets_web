@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import PropTypes from 'prop-types'
 
 import { Popover } from '../../components'
 
@@ -26,6 +27,12 @@ class AvatarAdderContainer extends React.Component {
     logic.init(avatarAdder)
   }
 
+  onConfirm(user) {
+    const { onConfirm } = this.props
+    logic.onConfirm()
+    onConfirm(user)
+  }
+
   render() {
     const { avatarAdder } = this.props
     const {
@@ -43,6 +50,7 @@ class AvatarAdderContainer extends React.Component {
             user={githubUserData}
             searchValue={searchValue}
             searching={searching}
+            onConfirm={this.onConfirm.bind(this, githubUserData)}
           />
         }
         placement="bottom"
@@ -55,6 +63,15 @@ class AvatarAdderContainer extends React.Component {
       </Popover>
     )
   }
+}
+
+AvatarAdderContainer.propTypes = {
+  avatarAdder: PropTypes.object.isRequired,
+  onConfirm: PropTypes.func,
+}
+
+AvatarAdderContainer.defaultProps = {
+  onConfirm: debug,
 }
 
 export default inject(storePlug('avatarAdder'))(observer(AvatarAdderContainer))

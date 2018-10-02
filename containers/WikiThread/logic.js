@@ -1,9 +1,16 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  ERR,
+  githubApi,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
@@ -14,13 +21,59 @@ const debug = makeDebugger('L:WikiThread')
 
 let store = null
 
-export function someMethod() {}
+const getWiki = () => {
+  const community = store.curCommunity.raw
+
+  sr71$.query(S.wiki, { community })
+}
+
+const syncWiki = readme => {
+  const args = {
+    readme,
+    lastSync: new Date().toISOString(),
+    communityId: store.curCommunity.id,
+  }
+
+  sr71$.mutate(S.syncWiki, args)
+}
+
+export function syncWikiFromGithub() {
+  githubApi
+    .searchWiki('javascript')
+    .then(res => {
+      syncWiki(res)
+    })
+    .catch(e => {
+      store.handleError(githubApi.parseError(e))
+    })
+}
+
+export function addContributor(user) {
+  const args = {
+    id: store.wikiData.id,
+    contributor: user,
+  }
+  sr71$.mutate(S.addWikiContributor, args)
+}
 
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('wiki'),
+    action: ({ wiki }) => store.markState({ wiki }),
+  },
+  {
+    match: asyncRes('syncWiki'),
+    action: () => getWiki(),
+  },
+  {
+    match: asyncRes('addWikiContributor'),
+    action: () => getWiki(),
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
@@ -43,10 +96,15 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return getWiki()
+  }
+
   store = _store
 
   debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  getWiki()
 }

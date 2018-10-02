@@ -3,13 +3,17 @@ import { ERR } from '../constants'
 
 import { searchRepoPromise, transformRepo } from './repo_search'
 import { searchUserPromise, ransformUser } from './user_search'
+import { searchWikiPromise } from './wiki_search'
 
 const githubApi = {
+  // search repo
   searchRepo: (owner, name) => searchRepoPromise(owner, name),
   transformRepo: res => transformRepo(res),
-
+  // search user
   searchUser: login => searchUserPromise(login),
   transformUser: res => ransformUser(res),
+  // search wiki
+  searchWiki: raw => searchWikiPromise(raw),
 
   parseError: e => {
     // console.log('parseError e: ', e)

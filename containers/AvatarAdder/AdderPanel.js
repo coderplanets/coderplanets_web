@@ -21,7 +21,7 @@ import SearchLoing from './SearchLoading'
 
 import * as logic from './logic'
 
-const AdderPanel = ({ user, searchValue, searching }) => (
+const AdderPanel = ({ user, searchValue, searching, onConfirm }) => (
   <Wrapper>
     <Header>
       <LabelIcon src={`${ICON_CMD}/github.svg`} />
@@ -46,7 +46,7 @@ const AdderPanel = ({ user, searchValue, searching }) => (
           <GithubUserCard user={user} />
           <Divider />
           <Footer>
-            <AddBtn onClick={logic.onConfirm}>
+            <AddBtn onClick={onConfirm}>
               <AdderIcon src={`${ICON_CMD}/add.svg`} />
               <div>添加</div>
             </AddBtn>
