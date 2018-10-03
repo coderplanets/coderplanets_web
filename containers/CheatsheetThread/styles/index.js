@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+// import Img from '../../../components/Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 20px;
 `
-
 export const CardWrapper = styled.div`
   width: 550px;
   height: auto;
@@ -25,5 +26,3 @@ export const CardWrapper = styled.div`
     width: 350px;
   }
 `
-
-export { default as CheatSheetStyle } from './CheatSheetStyle'

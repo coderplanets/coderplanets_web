@@ -96,7 +96,6 @@ const Viewer = ({ type, root, attachment }) => {
     }
     // repo
     case TYPE.PREVIEW_REPO_VIEW: {
-      console.log('PREVIEW_REPO_VIEW attachment: ', attachment)
       return <RepoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_REPO_CREATE: {

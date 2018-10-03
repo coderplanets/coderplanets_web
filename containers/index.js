@@ -43,14 +43,14 @@ export { default as JobsThread } from './JobsThread'
 export { default as UsersThread } from './UsersThread'
 export { default as ReposThread } from './ReposThread'
 export { default as WikiThread } from './WikiThread'
-export { default as CheatSheetPaper } from './CheatSheetPaper'
-export { default as TagsBar } from './TagsBar'
+export { default as CheatsheetThread } from './CheatsheetThread'
 // tools
 export { default as VideoEditor } from './VideoEditor'
 export { default as Labeler } from './Labeler'
 export { default as MailBox } from './MailBox'
 export { default as DocUploader } from './DocUploader'
 export { default as AvatarAdder } from './AvatarAdder'
+export { default as TagsBar } from './TagsBar'
 
 // user page
 export { default as UserSettings } from './UserSettings'

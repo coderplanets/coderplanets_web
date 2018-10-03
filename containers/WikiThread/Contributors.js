@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { DotDivider, Button } from '../../components'
+import { DotDivider, Button, ContributorList } from '../../components'
 
 import {
   Wrapper,
@@ -12,8 +12,6 @@ import {
   FootNote,
   SycNote,
 } from './styles/contributors'
-
-import AvatarList from './AvatarList'
 
 import * as logic from './logic'
 
@@ -28,7 +26,11 @@ const Note = () => (
 const Contributors = ({ users, views, lastSync }) => (
   <Wrapper>
     <Note />
-    <AvatarList users={users} addContributor={logic.addContributor} />
+    <ContributorList
+      users={users}
+      addContributor={logic.addContributor}
+      showAdder
+    />
 
     <FootNote>
       <SycNote>

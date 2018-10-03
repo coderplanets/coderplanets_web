@@ -1,22 +1,31 @@
 /*
- * WikiThread store
+ * CheatsheetThread store
  *
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { Wiki } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
+import { Cheatsheet } from '../../stores/SharedModel'
+import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '../../utils'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:WikiThread')
+const debug = makeDebugger('S:CheatsheetThread')
 /* eslint-enable no-unused-vars */
 
-const WikiThread = t
-  .model('WikiThread', {
-    wiki: t.optional(Wiki, { readme: '' }),
-    // errorType
+const CheatsheetThread = t
+  .model('CheatsheetThread', {
+    cheatsheet: t.optional(Cheatsheet, { readme: '' }),
+    current: t.optional(t.string, ''),
+    curView: t.optional(
+      t.enumeration('curView', [
+        TYPE.RESULT,
+        TYPE.LOADING,
+        TYPE.NOT_FOUND,
+        TYPE.RESULT_EMPTY,
+      ]),
+      TYPE.RESULT
+    ),
     errorType: t.maybeNull(t.string),
   })
   .views(self => ({
@@ -26,8 +35,8 @@ const WikiThread = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
-    get wikiData() {
-      return stripMobx(self.wiki)
+    get cheatsheetData() {
+      return stripMobx(self.cheatsheet)
     },
   }))
   .actions(self => ({
@@ -43,7 +52,7 @@ const WikiThread = t
       switch (errorType) {
         case ERR.NOT_FOUND: {
           return self.changeErr({
-            title: '仓库未找到',
+            title: 'Cheatsheet 未找到',
             msg: '请确认输入的仓库地址',
           })
         }
@@ -69,4 +78,4 @@ const WikiThread = t
     },
   }))
 
-export default WikiThread
+export default CheatsheetThread

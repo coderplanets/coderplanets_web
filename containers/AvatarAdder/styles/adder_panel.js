@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import { Input } from 'antd'
 import Img from '../../../components/Img'
 import { theme } from '../../../utils'
 

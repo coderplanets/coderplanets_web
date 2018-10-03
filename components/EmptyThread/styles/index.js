@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 10%;
+  margin-bottom: 30px;
 `
 
 export const Icon404 = styled(Img)`
