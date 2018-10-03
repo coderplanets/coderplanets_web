@@ -28,7 +28,6 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
-          <title>cps</title>
           {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
           <script
             async

@@ -37,10 +37,12 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Preview')
 /* eslint-enable no-unused-vars */
 
-const DynamicTypeWriter = dynamic(import('../TypeWriter'), {
+const DynamicTypeWriter = dynamic({
+  loader: () => import('../TypeWriter'),
   /* eslint-disable */
   loading: () => <TypeWriterLoading />,
   /* eslint-enable */
+  srr: false,
 })
 
 const CloseBtn = ({ type }) => (

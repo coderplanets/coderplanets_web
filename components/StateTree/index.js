@@ -10,7 +10,11 @@ let StateTreeWithNoSSR = null
 // example: https://github.com/zeit/next.js/issues/219
 export default class StateViewer extends React.Component {
   componentDidMount() {
-    StateTreeWithNoSSR = dynamic(import('./StateTree'), { ssr: false })
+    // StateTreeWithNoSSR = dynamic(import('./StateTree'), { ssr: false })
+    StateTreeWithNoSSR = dynamic({
+      loader: () => import('./StateTree'),
+      ssr: false,
+    })
   }
 
   render() {

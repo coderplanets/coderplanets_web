@@ -21,8 +21,10 @@ let GeoMapSSR = null
 
 class UsersThreadContainer extends React.Component {
   componentDidMount() {
-    GeoMapSSR = dynamic(import('./GeoMap.js'), {
+    GeoMapSSR = dynamic({
+      loader: () => import('./GeoMap.js'),
       loading: () => <MapLoading />,
+      ssr: false,
     })
   }
 
