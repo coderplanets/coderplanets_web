@@ -50,9 +50,19 @@ const EditorFooter = ({ thread }) => {
     case THREAD.JOB: {
       return (
         <Wrapper>
-          <Labeler label="城市" iconSrc={`${ICON_CMD}/city_map.svg`} />
+          <Labeler label="city" />
           <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="薪资" iconSrc={`${ICON_CMD}/money_yuan.svg`} />
+          <Labeler label="salary" />
+          <Divider src={`${ICON_CMD}/more.svg`} />
+          <Labeler label="education" />
+          <Divider src={`${ICON_CMD}/more.svg`} />
+          <Labeler label="finance" />
+          <Divider src={`${ICON_CMD}/more.svg`} />
+          <Labeler label="scale" />
+          <Divider src={`${ICON_CMD}/more.svg`} />
+          <Labeler label="field" multi />
+          <Divider src={`${ICON_CMD}/more.svg`} />
+          <Labeler label="exp" />
           <PicUploader />
         </Wrapper>
       )

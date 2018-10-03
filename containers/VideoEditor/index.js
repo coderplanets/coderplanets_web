@@ -128,7 +128,7 @@ class VideoEditorContainer extends React.Component {
             value=""
             onChange={debug}
             type="node"
-            node={<Labeler label="编辑" />}
+            node={<Labeler />}
           />
         </FormWrapper>
 
