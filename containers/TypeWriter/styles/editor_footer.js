@@ -5,6 +5,8 @@ import { Animate, theme } from '../../../utils'
 //
 export const Wrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const Item = styled.div`

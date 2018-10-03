@@ -1,6 +1,6 @@
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
 
-const partialTags = gql`
+const partialTags = `
   query($communityId: ID, $community: String, $thread: CmsThread!) {
     partialTags(
       communityId: $communityId
