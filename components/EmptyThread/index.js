@@ -34,7 +34,7 @@ const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
       如果你有 {community} 相关的优质
-      {translator[thread]}
+      {translator[thread] || thread}
       ，欢迎一起分享 / 交流
     </div>
     <div>
@@ -55,7 +55,7 @@ const EmptyThread = ({ community, thread }) => (
     <Text>
       <Title>
         {community} 社区内未找到符合相关条件的
-        {translator[thread]}
+        {translator[thread] || thread}
       </Title>
       <DescWrapper>
         <DescContent community={community} thread={thread} />

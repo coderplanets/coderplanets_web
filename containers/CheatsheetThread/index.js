@@ -10,43 +10,36 @@ import Prism from 'mastani-codehighlight'
 
 import { Wrapper } from './styles'
 
-// import { NotFound, CheatSheetLoading } from '../../components'
+import { EmptyThread, CheatSheetLoading } from '../../components'
 
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CheatsheetThread')
 /* eslint-enable no-unused-vars */
 
-/*
-const renderContent = (source, state, errMsg) => {
-  switch (state) {
-    case 'init': {
-      return <div>init la</div>
-    }
-    case 'loading': {
+const renderView = (cheatsheetData, type, communityRaw) => {
+  switch (type) {
+    case TYPE.LOADING: {
       return <CheatSheetLoading />
     }
-    case '404': {
-      return <NotFound />
+    case TYPE.NOT_FOUND: {
+      return <EmptyThread community={communityRaw} thread="cheatsheet" />
     }
-    case 'empty': {
-      return <div>isEmpty</div>
+    default: {
+      return (
+        <Cheatsheet
+          source={cheatsheetData.readme}
+          communityRaw={communityRaw}
+        />
+      )
     }
-    case 'loaded': {
-      return <Cheatsheet source={source} />
-    }
-    case 'parse_error': {
-      return <h3>parse error</h3>
-    }
-    default:
-      return <div>default</div>
   }
 }
-*/
+// TODO: NOT_FOUND, parse_error
 
 class CheatsheetThreadContainer extends React.Component {
   componentWillMount() {
@@ -60,17 +53,19 @@ class CheatsheetThreadContainer extends React.Component {
 
   render() {
     const { cheatsheetThread } = this.props
-    const { sourceData /* state, errMsg */ } = cheatsheetThread
-
-    // console.log('sourceData --> ', sourceData)
-    // <div>{renderContent(source, state, errMsg)}</div>
-
-    // <div>{renderContent(sourceData, state, errMsg)}</div>
+    const { cheatsheetData, curView, curCommunity } = cheatsheetThread
+    const communityRaw = curCommunity.raw
 
     return (
       <Wrapper>
-        <Cheatsheet source={sourceData} />
-        <Note />
+        {renderView(cheatsheetData, curView, communityRaw)}
+        <Note
+          onSync={logic.syncCheetsheetFromGithub}
+          contributors={cheatsheetData.contributors}
+          views={cheatsheetData.views}
+          addContributor={logic.addContributor}
+          curView={curView}
+        />
       </Wrapper>
     )
   }

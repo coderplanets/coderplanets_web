@@ -39,13 +39,9 @@ const syncWiki = readme => {
 
 export function syncWikiFromGithub() {
   githubApi
-    .searchWiki('javascript')
-    .then(res => {
-      syncWiki(res)
-    })
-    .catch(e => {
-      store.handleError(githubApi.parseError(e))
-    })
+    .searchWiki(store.curCommunity.raw)
+    .then(res => syncWiki(res))
+    .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
 export function addContributor(user) {

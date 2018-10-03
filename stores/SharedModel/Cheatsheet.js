@@ -1,7 +1,7 @@
 import { types as t } from 'mobx-state-tree'
 import { GithubUser } from './GithubUser'
 
-const Wiki = t.model('Wiki', {
+const Cheatsheet = t.model('Cheatsheet', {
   id: t.maybeNull(t.string),
   readme: t.maybeNull(t.string),
   lastSync: t.maybeNull(t.string),
@@ -9,4 +9,4 @@ const Wiki = t.model('Wiki', {
   contributors: t.optional(t.array(GithubUser), []),
 })
 
-export default Wiki
+export default Cheatsheet

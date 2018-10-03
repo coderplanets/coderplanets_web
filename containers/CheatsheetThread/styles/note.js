@@ -38,3 +38,6 @@ export const ViewsText = styled.div`
   margin-right: 2%;
   font-size: 0.8rem;
 `
+export const SyncWrapper = styled.div`
+  margin-top: 15px;
+`

@@ -28,3 +28,6 @@ export const GITHUB_ADDR = 'https://github.com/coderplanets/coderplanets_web'
 export const GITHUB_ME = 'https://github.com/mydearxym'
 export const ISSUE_ADDR = `${GITHUB_ADDR}/issues/new`
 export const MENTION_USER_ADDR = 'https://coderplanets.com/users/'
+
+export const COMMUNITY_WIKI =
+  'https://github.com/coderplanets/cps_cheatsheets/blob/master'

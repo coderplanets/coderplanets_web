@@ -8,6 +8,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { Wiki } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:WikiThread')
 /* eslint-enable no-unused-vars */

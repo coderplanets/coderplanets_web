@@ -9,7 +9,8 @@ export { Tag, PagedTags } from './Tag'
 export { Category, PagedCategories } from './Category'
 
 export { GithubUser } from './GithubUser'
-export { Wiki } from './Wiki'
+export { default as Wiki } from './Wiki'
+export { default as Cheatsheet } from './Cheatsheet'
 
 export {
   EmptyUser,
