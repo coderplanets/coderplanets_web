@@ -58,9 +58,6 @@ export { default as UsersThreadStore } from '../containers/UsersThread/store'
 export {
   default as CheatsheetThreadStore,
 } from '../containers/CheatsheetThread/store'
-export {
-  default as CheatSheetPaperStore,
-} from '../containers/CheatSheetPaper/store'
 
 export { default as TagsBarStore } from '../containers/TagsBar/store'
 

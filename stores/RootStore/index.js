@@ -54,7 +54,6 @@ import {
   VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
-  CheatSheetPaperStore,
   CommunityEditorsStore,
 
   // toolbox
@@ -140,7 +139,6 @@ const rootStore = t
     jobsThread: t.optional(JobsThreadStore, {}),
     usersThread: t.optional(UsersThreadStore, {}),
     cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
-    cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),
 

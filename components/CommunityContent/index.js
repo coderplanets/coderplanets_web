@@ -14,7 +14,6 @@ import WikiThread from '../../containers/WikiThread'
 import JobsThread from '../../containers/JobsThread'
 import UsersThread from '../../containers/UsersThread'
 import CheatsheetThread from '../../containers/CheatsheetThread'
-// import CheatSheetPaper from '../../containers/CheatSheetPaper'
 
 import { Wrapper } from './styles'
 import { makeDebugger, ROUTE } from '../../utils'
@@ -44,7 +43,6 @@ const ComunityContent = ({ curRoute }) => {
       return <WikiThread />
     }
     case ROUTE.CHEATSHEET: {
-      // return <CheatSheetPaper />
       return <CheatsheetThread />
     }
     default: {
