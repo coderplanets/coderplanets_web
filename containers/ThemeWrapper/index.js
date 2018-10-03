@@ -11,19 +11,14 @@ import { ThemeProvider } from 'styled-components'
 import { storePlug } from '../../utils'
 
 import AntOverWrite from './AntOverWrite'
-import NormalizeStyle from './NormalizeStyle'
 // import MarkDownStyle from './MarkDownStyle'
 import CodeHighlight from './CodeHighlight'
-
-// TODO: mv MarkDownStyle && CodeHighlight to it's own container
+import './normalize.css'
 
 const ThemeObserver = ({ children, theme }) => (
   <ThemeProvider theme={theme.themeData}>
     <AntOverWrite>
       <CodeHighlight>
-        <style global jsx>
-          {NormalizeStyle}
-        </style>
         <style global jsx>{`
           html {
             background-color: ${theme.themeData.htmlBg};

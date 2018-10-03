@@ -107,7 +107,7 @@ export const ExploreIcon = styled(Img)`
   margin-top: -1px;
 `
 
-export const MenuItem = styled.ul`
+export const MenuItem = styled.div`
   margin-top: 0px;
   left: 0;
   position: relative;
@@ -116,7 +116,7 @@ export const MenuItem = styled.ul`
   overflow-y: scroll;
   transition: left 0.2s;
 `
-export const MenuItemWrapper = styled.li`
+export const MenuItemWrapper = styled.div`
   display: block;
   &:hover {
     background: ${theme('sidebar.menuHover')};
