@@ -1,14 +1,22 @@
 import React from 'react'
 import Comments from '../Comments'
-import Header from './Header'
-import Body from './Body'
+
+import { ArticleHeader } from '../../components'
 
 import { CommentsWrapper } from './styles/body'
+import Body from './Body'
+
 import { THREAD } from '../../utils'
+import * as logic from './logic'
 
 const JobViewer = ({ data, loading, accountInfo }) => (
   <React.Fragment>
-    <Header data={data} />
+    <ArticleHeader
+      data={data}
+      author={data.author}
+      onReaction={logic.onReaction}
+      THREAD={THREAD.JOB}
+    />
     <Body
       data={data}
       loading={loading}

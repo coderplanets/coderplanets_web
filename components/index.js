@@ -16,6 +16,7 @@ export { default as RepoItem } from './RepoItem'
 export { default as VideoItem } from './VideoItem'
 
 // Utils component
+export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
 export { default as DotDivider } from './DotDivider'
 export { default as PublishLabel } from './PublishLabel'
