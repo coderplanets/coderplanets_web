@@ -31,18 +31,21 @@ export function onOptionSelect(uniqId, item) {
   if (index < 0) return false
   // return false
   // toggle item if exsit
-  if (R.contains(item, store.labelEntriesData[index].bucket)) {
+  if (R.contains(item, store.labelEntriesData[index].selected)) {
     return store.markUniqState(uniqId, {
-      bucket: R.reject(e => e === item, store.labelEntriesData[index].bucket),
+      selected: R.reject(
+        e => e === item,
+        store.labelEntriesData[index].selected
+      ),
     })
   }
-  // replace bucket if single select mode
+  // replace selected if single select mode
   if (!store.labelEntriesData[index].multi) {
-    return store.markUniqState(uniqId, { popVisible: false, bucket: [item] })
+    return store.markUniqState(uniqId, { popVisible: false, selected: [item] })
   }
-  // push to bucket if multi select mode
+  // push to selected if multi select mode
   store.markUniqState(uniqId, {
-    bucket: R.uniq(R.concat(store.labelEntriesData[index].bucket, [item])),
+    selected: R.uniq(R.concat(store.labelEntriesData[index].selected, [item])),
   })
 }
 

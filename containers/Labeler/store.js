@@ -30,7 +30,7 @@ const RealLabel = t.model('RealLabel', {
     'default'
   ),
   multi: t.optional(t.boolean, false),
-  bucket: t.optional(t.array(t.string), []),
+  selected: t.optional(t.array(t.string), []),
 })
 
 /*

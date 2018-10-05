@@ -7,7 +7,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
@@ -15,7 +14,6 @@ import Maybe from '../Maybe'
 
 import {
   Wrapper,
-  UserInfo,
   ReactionWrapper,
   Reaction,
   ReactionAction,
@@ -23,11 +21,11 @@ import {
   CollectIcon,
   LikeIcon,
   ReactionUserNum,
-  Avatar,
-  UserName,
-  PublishAt,
   Divider,
 } from './styles'
+
+import UserInfo from './UserInfo'
+import CompanyInfo from './CompanyInfo'
 
 import { makeDebugger, TYPE, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -36,82 +34,90 @@ const debug = makeDebugger('c:ArticleHeader:index')
 
 const ArticleHeader = ({
   thread,
+  author,
+  company,
   data,
   onReaction,
   showFavorite,
   showStar,
-}) => (
-  <Wrapper>
-    <UserInfo>
-      <Avatar src={data.author.avatar} alt="user_avatar" />
-      <div>
-        <UserName>{data.author.nickname}</UserName>
-        <PublishAt>
-          发表于: <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
-        </PublishAt>
-      </div>
-    </UserInfo>
-    <ReactionWrapper>
-      <Maybe text={showFavorite}>
-        <Reaction>
-          <ReactionAction
-            onClick={onReaction.bind(
-              this,
-              thread,
-              TYPE.FAVORITE,
-              data.viewerHasFavorited,
-              data
-            )}
-          >
-            <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
-            <ReactionName>
-              {data.viewerHasFavorited ? (
-                <span>已收藏</span>
-              ) : (
-                <span>收藏</span>
+}) => {
+  return (
+    <Wrapper>
+      {author && !company ? (
+        <UserInfo author={author} insertedAt={data.insertedAt} />
+      ) : null}
+      {company ? (
+        <CompanyInfo
+          company={company}
+          insertedAt={data.insertedAt}
+          author={author}
+        />
+      ) : null}
+      <ReactionWrapper>
+        <Maybe text={showFavorite}>
+          <Reaction>
+            <ReactionAction
+              onClick={onReaction.bind(
+                this,
+                thread,
+                TYPE.FAVORITE,
+                data.viewerHasFavorited,
+                data
               )}
-            </ReactionName>
-          </ReactionAction>
-          <ReactionUserNum>{data.favoritedCount}</ReactionUserNum>
-          <Divider />
-        </Reaction>
-      </Maybe>
+            >
+              <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
+              <ReactionName>
+                {data.viewerHasFavorited ? (
+                  <span>已收藏</span>
+                ) : (
+                  <span>收藏</span>
+                )}
+              </ReactionName>
+            </ReactionAction>
+            <ReactionUserNum>{data.favoritedCount}</ReactionUserNum>
+            <Divider />
+          </Reaction>
+        </Maybe>
 
-      <Maybe test={showStar}>
+        <Maybe test={showStar}>
+          <Reaction>
+            <ReactionAction
+              onClick={onReaction.bind(
+                this,
+                thread,
+                TYPE.STAR,
+                data.viewerHasStarred,
+                data
+              )}
+            >
+              <LikeIcon src={`${ICON_CMD}/like.svg`} />
+              <ReactionName>赞</ReactionName>
+            </ReactionAction>
+            <ReactionUserNum>{data.starredCount}</ReactionUserNum>
+            <Divider />
+          </Reaction>
+        </Maybe>
+
         <Reaction>
-          <ReactionAction
-            onClick={onReaction.bind(
-              this,
-              thread,
-              TYPE.STAR,
-              data.viewerHasStarred,
-              data
-            )}
-          >
-            <LikeIcon src={`${ICON_CMD}/like.svg`} />
-            <ReactionName>赞</ReactionName>
+          <ReactionAction>
+            <ReactionName>浏览:</ReactionName>
           </ReactionAction>
-          <ReactionUserNum>{data.starredCount}</ReactionUserNum>
-          <Divider />
+          <ReactionUserNum>{data.views}</ReactionUserNum>
         </Reaction>
-      </Maybe>
-
-      <Reaction>
-        <ReactionAction>
-          <ReactionName>浏览:</ReactionName>
-        </ReactionAction>
-        <ReactionUserNum>{data.views}</ReactionUserNum>
-      </Reaction>
-    </ReactionWrapper>
-  </Wrapper>
-)
+      </ReactionWrapper>
+    </Wrapper>
+  )
+}
 
 ArticleHeader.propTypes = {
   author: PropTypes.shape({
     nickname: PropTypes.string,
     avatar: PropTypes.string,
-  }).isRequired,
-
+  }),
+  company: PropTypes.shape({
+    title: PropTypes.string,
+    logo: PropTypes.string,
+  }),
   thread: PropTypes.oneOf(R.values(THREAD)),
 
   data: PropTypes.shape({
@@ -138,6 +144,8 @@ ArticleHeader.defaultProps = {
   onReaction: debug,
   showFavorite: true,
   showStar: true,
+  author: null,
+  company: null,
 }
 
 export default ArticleHeader

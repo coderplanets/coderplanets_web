@@ -29,7 +29,7 @@ const job = gql`
       title
       body
       company
-      company_logo
+      companyLogo
       location
       views
       author {

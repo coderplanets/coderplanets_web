@@ -5,29 +5,11 @@ import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
-  padding-left: 30px;
+  align-items: center;
+  padding-left: 35px;
   padding-right: 30px;
   padding-top: 10px;
   padding-bottom: 6px;
-`
-export const UserInfo = styled.div`
-  flex-grow: 1;
-  display: flex;
-`
-export const UserName = styled.div`
-  margin-bottom: 2px;
-  font-size: 1.2em;
-  color: ${theme('banner.title')};
-`
-export const PublishAt = styled.div`
-  font-size: 0.9em;
-  color: ${theme('banner.desc')};
-`
-export const Avatar = styled.img`
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
 `
 export const ReactionWrapper = styled.div`
   display: flex;
