@@ -11,11 +11,13 @@ import {
   Username,
 } from './styles/company_info'
 
+import { cutFrom } from '../../utils'
+
 const CompanyInfo = ({ company, insertedAt, author }) => (
   <Wrapper>
     <Logo src={company.logo} alt="user_avatar" />
     <div>
-      <Title>{company.title}</Title>
+      <Title>{cutFrom(company.title, 14)}</Title>
       <PublishAt>
         <Username>{author.nickname}</Username>
         <DotDivider />
