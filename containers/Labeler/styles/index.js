@@ -34,3 +34,7 @@ export const Title = styled.div`
     color: ${theme('editor.footerHover')};
   }
 `
+export const PopHint = styled.div`
+  padding: 5px 8px;
+  color: ${theme('thread.articleDigest')};
+`

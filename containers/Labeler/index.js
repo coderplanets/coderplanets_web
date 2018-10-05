@@ -12,7 +12,7 @@ import { inject, observer } from 'mobx-react'
 import { Popover, Maybe } from '../../components'
 import Options from './Options'
 import Selected from './Selected'
-import { Wrapper, LabelItem, LabelIcon, Title } from './styles'
+import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
 import optionMap from './option_map'
 import { makeDebugger, storePlug, uid } from '../../utils'
@@ -64,12 +64,18 @@ class LabelerContainer extends React.Component {
     return (
       <Wrapper>
         <Maybe test={readonly}>
-          <LabelItem>
-            <LabelIcon src={optionMap[label].iconSrc} />
-            <Title>
-              <Selected items={selected} readonly={readonly} />
-            </Title>
-          </LabelItem>
+          <Popover
+            content={<PopHint>{trans[label]}</PopHint>}
+            placement="bottom"
+            trigger="hover"
+          >
+            <LabelItem>
+              <LabelIcon src={optionMap[label].iconSrc} />
+              <Title>
+                <Selected items={selected} readonly={readonly} />
+              </Title>
+            </LabelItem>
+          </Popover>
         </Maybe>
         <Maybe test={!readonly}>
           {targetIndex >= 0 ? (

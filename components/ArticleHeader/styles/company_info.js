@@ -14,6 +14,24 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   margin-top: 2px;
 `
+export const HomtPage = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const HomeIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  width: 15px;
+  height: 15px;
+  display: block;
+`
+export const HomepageLink = styled.a`
+  color: ${theme('thread.articleDigest')};
+  margin-left: 3px;
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
+`
 export const Username = styled.div`
   font-size: 0.9rem;
 `
@@ -25,7 +43,7 @@ export const PublishAt = styled.div`
 `
 export const Logo = styled(Img)`
   border-radius: 3px;
-  width: 44px;
-  height: 44px;
-  margin-right: 10px;
+  width: 64px;
+  height: 64px;
+  margin-right: 12px;
 `

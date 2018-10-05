@@ -3,6 +3,7 @@ import R from 'ramda'
 
 import { Maybe } from '../../components'
 import { Wrapper, Item, Hightlight } from './styles/selected'
+import { uid } from '../../utils'
 
 const renderItems = items => {
   if (items.length === 1) {
@@ -31,7 +32,9 @@ const renderReadonlyItems = items => {
 
   return (
     <Item>
-      <Hightlight>{items[0]}, ..</Hightlight>
+      {items.map(item => (
+        <Hightlight key={uid.gen()}>{item}</Hightlight>
+      ))}
     </Item>
   )
 }
