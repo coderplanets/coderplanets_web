@@ -30,9 +30,6 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
         <JobViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
-    case 'typewriter': {
-      return <div>typewriter</div>
-    }
     default: {
       return <div>default</div>
     }

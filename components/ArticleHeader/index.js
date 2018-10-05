@@ -11,6 +11,8 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
+import Maybe from '../Maybe'
+
 import {
   Wrapper,
   UserInfo,
@@ -32,7 +34,13 @@ import { makeDebugger, TYPE, THREAD } from '../../utils'
 const debug = makeDebugger('c:ArticleHeader:index')
 /* eslint-enable no-unused-vars */
 
-const ArticleHeader = ({ thread, data, onReaction }) => (
+const ArticleHeader = ({
+  thread,
+  data,
+  onReaction,
+  showFavorite,
+  showStar,
+}) => (
   <Wrapper>
     <UserInfo>
       <Avatar src={data.author.avatar} alt="user_avatar" />
@@ -44,40 +52,50 @@ const ArticleHeader = ({ thread, data, onReaction }) => (
       </div>
     </UserInfo>
     <ReactionWrapper>
-      <Reaction>
-        <ReactionAction
-          onClick={onReaction.bind(
-            this,
-            thread,
-            TYPE.FAVORITE,
-            data.viewerHasFavorited,
-            data
-          )}
-        >
-          <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
-          <ReactionName>
-            {data.viewerHasFavorited ? <span>已收藏</span> : <span>收藏</span>}
-          </ReactionName>
-        </ReactionAction>
-        <ReactionUserNum>{data.favoritedCount}</ReactionUserNum>
-        <Divider />
-      </Reaction>
-      <Reaction>
-        <ReactionAction
-          onClick={onReaction.bind(
-            this,
-            thread,
-            TYPE.STAR,
-            data.viewerHasStarred,
-            data
-          )}
-        >
-          <LikeIcon src={`${ICON_CMD}/like.svg`} />
-          <ReactionName>赞</ReactionName>
-        </ReactionAction>
-        <ReactionUserNum>{data.starredCount}</ReactionUserNum>
-        <Divider />
-      </Reaction>
+      <Maybe text={showFavorite}>
+        <Reaction>
+          <ReactionAction
+            onClick={onReaction.bind(
+              this,
+              thread,
+              TYPE.FAVORITE,
+              data.viewerHasFavorited,
+              data
+            )}
+          >
+            <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
+            <ReactionName>
+              {data.viewerHasFavorited ? (
+                <span>已收藏</span>
+              ) : (
+                <span>收藏</span>
+              )}
+            </ReactionName>
+          </ReactionAction>
+          <ReactionUserNum>{data.favoritedCount}</ReactionUserNum>
+          <Divider />
+        </Reaction>
+      </Maybe>
+
+      <Maybe test={showStar}>
+        <Reaction>
+          <ReactionAction
+            onClick={onReaction.bind(
+              this,
+              thread,
+              TYPE.STAR,
+              data.viewerHasStarred,
+              data
+            )}
+          >
+            <LikeIcon src={`${ICON_CMD}/like.svg`} />
+            <ReactionName>赞</ReactionName>
+          </ReactionAction>
+          <ReactionUserNum>{data.starredCount}</ReactionUserNum>
+          <Divider />
+        </Reaction>
+      </Maybe>
+
       <Reaction>
         <ReactionAction>
           <ReactionName>浏览:</ReactionName>
@@ -110,11 +128,16 @@ ArticleHeader.propTypes = {
     // handler
   }).isRequired,
   onReaction: PropTypes.func,
+  // ui
+  showFavorite: PropTypes.bool,
+  showStar: PropTypes.bool,
 }
 
 ArticleHeader.defaultProps = {
   thread: THREAD.POST,
   onReaction: debug,
+  showFavorite: true,
+  showStar: true,
 }
 
 export default ArticleHeader

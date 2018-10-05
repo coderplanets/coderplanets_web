@@ -15,7 +15,8 @@ const JobViewer = ({ data, loading, accountInfo }) => (
       data={data}
       author={data.author}
       onReaction={logic.onReaction}
-      THREAD={THREAD.JOB}
+      thread={THREAD.JOB}
+      showStar={false}
     />
     <Body
       data={data}
