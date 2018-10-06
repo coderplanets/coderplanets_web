@@ -19,11 +19,10 @@ export const FilterIcon = styled(Img)`
   margin-top: 2px;
   margin-left: 3px;
 `
-export const SelectPanelWrapper = styled.div`
+export const FiltrPanelWrapper = styled.div`
   display: flex;
   min-width: 280px;
-  padding: 10px;
-  padding-bottom: 0px;
+  padding: 12px;
 `
 export const ColumnWrapper = styled.div`
   display: flex;

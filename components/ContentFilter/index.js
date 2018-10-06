@@ -11,23 +11,8 @@ import { Button, Tag } from 'antd'
 import { ICON_CMD } from '../../config'
 
 import Popover from '../Popover'
-
-import {
-  Wrapper,
-  InnerBtnWrapper,
-  FilterIcon,
-  SelectPanelWrapper,
-} from './styles'
-
-import TimeFilter from './TimeFilter'
-import SortFilter from './SortFilter'
-import LengthFilter from './LengthFilter'
-import JobSalaryFilter from './JobSalaryFilter'
-import JobExpFilter from './JobExpFilter'
-import JobEducationFilter from './JobEducationFilter'
-import JobFieldFilter from './JobFieldFilter'
-import JobFinaceFilter from './JobFinaceFilter'
-import JobScaleFilter from './JobScaleFilter'
+import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles'
+import FilterPanel from './FilterPanel'
 
 import { makeDebugger, isEmptyValue } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -47,20 +32,6 @@ const filterDict = {
   LEAST_WORDS: '字数最少',
 }
 
-const SelectPanel = ({ activeFilter, onSelect }) => (
-  <SelectPanelWrapper>
-    <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
-    <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-    <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-    <JobSalaryFilter onSelect={onSelect} />
-    <JobExpFilter onSelect={onSelect} />
-    <JobEducationFilter onSelect={onSelect} />
-    <JobFieldFilter onSelect={onSelect} />
-    <JobFinaceFilter onSelect={onSelect} />
-    <JobScaleFilter onSelect={onSelect} />
-  </SelectPanelWrapper>
-)
-
 const FilterTag = ({ onSelect, active, type }) =>
   isEmptyValue(active) ? null : (
     <Tag closable onClose={onSelect.bind(this, { [type]: '' })}>
@@ -68,38 +39,12 @@ const FilterTag = ({ onSelect, active, type }) =>
     </Tag>
   )
 
-/* most-views     selector: ..... */
-/* most-favorite  selector: ..... */
-/* most-star  selector: ..... */
-/* most-comments  selector: ..... */
-
-// post
-/* Time           selector: ..... */
-/* Sort           selector: ..... */
-/* Length         selector: ..... */
-
-// job
-/* time  selector: ..... */
-/* sort  selector: ..... */
-/* salary  selector: ..... */
-/* ...  selector: ..... */
-/* ...  selector: ..... */
-
-// repo
-/* time      selector: ... */
-/* sort      selector: ... */
-
-// video
-/* time      selector */
-/* sort      selector */
-/* source    selector */
-
 const ContentFilter = ({ activeFilter, onSelect }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
       trigger="click"
-      content={<SelectPanel onSelect={onSelect} activeFilter={activeFilter} />}
+      content={<FilterPanel onSelect={onSelect} activeFilter={activeFilter} />}
     >
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>

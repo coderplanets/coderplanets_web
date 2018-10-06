@@ -8,7 +8,7 @@ const LABEL_POOL = {
     iconSrc: `${ICON_CMD}/city_map.svg`,
   },
   salary: {
-    data: ['2k -', '2k-5k', '5k-10k', '10k-15k', '15k-25k', '25k-50k', '50k+'],
+    data: ['2k-', '2k-5k', '5k-10k', '10k-15k', '15k-25k', '25k-50k', '50k+'],
     iconSrc: `${ICON_CMD}/money_yuan.svg`,
   },
   exp: {
