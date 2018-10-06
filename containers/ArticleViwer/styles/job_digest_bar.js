@@ -4,6 +4,7 @@ import Img from '../../../components/Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
+  margin-top: 12px;
   display: flex;
   justify-content: center;
   align-items: center;

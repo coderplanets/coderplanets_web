@@ -3,6 +3,7 @@ import R from 'ramda'
 
 import { Maybe } from '../../components'
 import { Wrapper, Item, Hightlight } from './styles/selected'
+import { uid } from '../../utils'
 
 const renderItems = items => {
   if (items.length === 1) {
@@ -12,7 +13,7 @@ const renderItems = items => {
       </Item>
     )
   }
-  // {items.map(item => <div key={uid.gen()}>{item}</div>)}
+
   return (
     <Item>
       (<Hightlight>{items[0]}, ..</Hightlight>)
@@ -20,9 +21,32 @@ const renderItems = items => {
   )
 }
 
-const Selected = ({ items }) => (
+const renderReadonlyItems = items => {
+  if (items.length === 1) {
+    return (
+      <Item>
+        <Hightlight>{items[0]}</Hightlight>
+      </Item>
+    )
+  }
+
+  return (
+    <Item>
+      {items.map(item => (
+        <Hightlight key={uid.gen()}>{item}</Hightlight>
+      ))}
+    </Item>
+  )
+}
+
+const Selected = ({ items, readonly }) => (
   <Maybe test={!R.isEmpty(items)}>
-    <Wrapper>{renderItems(items)}</Wrapper>
+    <Maybe test={!readonly}>
+      <Wrapper>{renderItems(items)}</Wrapper>
+    </Maybe>
+    <Maybe test={readonly}>
+      <Wrapper>{renderReadonlyItems(items)}</Wrapper>
+    </Maybe>
   </Maybe>
 )
 

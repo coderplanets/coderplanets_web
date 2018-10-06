@@ -28,6 +28,12 @@ let store = null
 let sub$ = null
 
 export function onReaction(thread, action, userDid, { id }) {
+  /*
+     debug('onReaction thread: ', thread)
+     debug('onReaction action: ', action)
+     debug('onReaction userDid: ', userDid)
+     debug('onReaction id: ', id)
+   */
   const args = { id, thread, action }
 
   return userDid

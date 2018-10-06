@@ -54,7 +54,7 @@ class MarkDownRender extends React.Component {
        NOTE: the '---' in normal markdown will break the render process
        this is the most mother fucking disgusting bug i ever seen
      */
-    const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body)
+    const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body || '')
 
     return (
       <PreviewerContainer>

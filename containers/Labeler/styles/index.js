@@ -29,7 +29,12 @@ export const Title = styled.div`
   align-items: center;
   cursor: pointer;
   font-size: 1rem;
+  margin-top: 2px;
   ${LabelItem}:hover & {
     color: ${theme('editor.footerHover')};
   }
+`
+export const PopHint = styled.div`
+  padding: 5px 8px;
+  color: ${theme('thread.articleDigest')};
 `
