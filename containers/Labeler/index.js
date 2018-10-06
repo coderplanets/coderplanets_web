@@ -9,12 +9,13 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
+import { LABEL_POOL } from '../../config'
+
 import { Popover, Maybe } from '../../components'
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
-import optionMap from './option_map'
 import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
@@ -70,7 +71,7 @@ class LabelerContainer extends React.Component {
             trigger="hover"
           >
             <LabelItem>
-              <LabelIcon src={optionMap[label].iconSrc} />
+              <LabelIcon src={LABEL_POOL[label].iconSrc} />
               <Title>
                 <Selected items={selected} readonly={readonly} />
               </Title>
@@ -94,7 +95,7 @@ class LabelerContainer extends React.Component {
               onVisibleChange={logic.onVisibleChange.bind(this, uniqId)}
             >
               <LabelItem>
-                <LabelIcon src={optionMap[label].iconSrc} />
+                <LabelIcon src={LABEL_POOL[label].iconSrc} />
                 <Title>
                   {trans[label]}
                   <Selected items={selected} readonly={readonly} />

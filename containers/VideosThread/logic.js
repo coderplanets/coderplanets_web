@@ -64,10 +64,12 @@ export function onTitleSelect(video) {
   store.setViewing({ video })
   debug('onTitleSelect: ', video)
 
+  /*
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
     data: video,
   })
+  */
 }
 
 export function createContent() {
