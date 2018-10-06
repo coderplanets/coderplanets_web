@@ -2,7 +2,7 @@ import React from 'react'
 import R from 'ramda'
 import TagList from './TagList'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, LABEL_POOL } from '../../config'
 
 import {
   OptionWrapper,
@@ -11,7 +11,6 @@ import {
   OptionText,
 } from './styles/options'
 
-import optionMap from './option_map'
 import { uid } from '../../utils'
 
 const OptionItems = ({ items, selected, onOptionSelect }) => {
@@ -43,7 +42,7 @@ const renderOptions = (label, tagsData, selected, onOptionSelect) => {
     default: {
       return (
         <OptionItems
-          items={optionMap[label].data}
+          items={LABEL_POOL[label].data}
           selected={selected}
           onOptionSelect={onOptionSelect}
         />

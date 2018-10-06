@@ -8,3 +8,5 @@ export {
   COMMUNITY_WIKI,
 } from './endpoint'
 export { ASSETS_ENDPOINT, ICON_BASE, ICON_CMD, DEFAULT_ICON } from './assets'
+
+export { default as LABEL_POOL } from './label_pool'

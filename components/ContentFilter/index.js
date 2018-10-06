@@ -6,7 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Row, Col, Tag } from 'antd'
+import { Button, Tag } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
@@ -17,11 +17,19 @@ import {
   InnerBtnWrapper,
   FilterIcon,
   SelectPanelWrapper,
-  SelectTitle,
-  SelectItem,
 } from './styles'
 
-import { makeDebugger, isEmptyValue, FILTER } from '../../utils'
+import TimeFilter from './TimeFilter'
+import SortFilter from './SortFilter'
+import LengthFilter from './LengthFilter'
+import JobSalaryFilter from './JobSalaryFilter'
+import JobExpFilter from './JobExpFilter'
+import JobEducationFilter from './JobEducationFilter'
+import JobFieldFilter from './JobFieldFilter'
+import JobFinaceFilter from './JobFinaceFilter'
+import JobScaleFilter from './JobScaleFilter'
+
+import { makeDebugger, isEmptyValue } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */
@@ -41,87 +49,15 @@ const filterDict = {
 
 const SelectPanel = ({ activeFilter, onSelect }) => (
   <SelectPanelWrapper>
-    <Row>
-      <Col span={8}>
-        <SelectTitle>时间</SelectTitle>
-        <SelectItem
-          item="TODAY"
-          active={activeFilter.when}
-          onClick={onSelect.bind(this, { when: FILTER.TODAY })}
-        >
-          今天
-        </SelectItem>
-        <SelectItem
-          item="THIS_WEEK"
-          active={activeFilter.when}
-          onClick={onSelect.bind(this, { when: FILTER.THIS_WEEK })}
-        >
-          本周
-        </SelectItem>
-        <SelectItem
-          item="THIS_MONTH"
-          active={activeFilter.when}
-          onClick={onSelect.bind(this, { when: FILTER.THIS_MONTH })}
-        >
-          本月
-        </SelectItem>
-        <SelectItem
-          item="THIS_YEAR"
-          active={activeFilter.when}
-          onClick={onSelect.bind(this, { when: FILTER.THIS_YEAR })}
-        >
-          今年
-        </SelectItem>
-      </Col>
-      <Col span={8}>
-        <SelectTitle>排序</SelectTitle>
-        <SelectItem
-          item="MOST_VIEWS"
-          active={activeFilter.sort}
-          onClick={onSelect.bind(this, { sort: FILTER.MOST_VIEWS })}
-        >
-          最多浏览
-        </SelectItem>
-        <SelectItem
-          item="MOST_STARS"
-          active={activeFilter.sort}
-          onClick={onSelect.bind(this, { sort: FILTER.MOST_STARS })}
-        >
-          最多点赞
-        </SelectItem>
-        <SelectItem
-          item="MOST_FAVORITES"
-          active={activeFilter.sort}
-          onClick={onSelect.bind(this, { sort: FILTER.MOST_FAVORITES })}
-        >
-          最多收藏
-        </SelectItem>
-        <SelectItem
-          item="MOST_COMMENTS"
-          active={activeFilter.sort}
-          onClick={onSelect.bind(this, { sort: FILTER.MOST_COMMENTS })}
-        >
-          最多评论
-        </SelectItem>
-      </Col>
-      <Col span={8}>
-        <SelectTitle>长度</SelectTitle>
-        <SelectItem
-          item="MOST_WORDS"
-          active={activeFilter.wordLength}
-          onClick={onSelect.bind(this, { wordLength: FILTER.MOST_WORDS })}
-        >
-          字数最多
-        </SelectItem>
-        <SelectItem
-          item="LEAST_WORDS"
-          active={activeFilter.wordLength}
-          onClick={onSelect.bind(this, { wordLength: FILTER.LEAST_WORDS })}
-        >
-          字数最少
-        </SelectItem>
-      </Col>
-    </Row>
+    <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
+    <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
+    <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
+    <JobSalaryFilter onSelect={onSelect} />
+    <JobExpFilter onSelect={onSelect} />
+    <JobEducationFilter onSelect={onSelect} />
+    <JobFieldFilter onSelect={onSelect} />
+    <JobFinaceFilter onSelect={onSelect} />
+    <JobScaleFilter onSelect={onSelect} />
   </SelectPanelWrapper>
 )
 
@@ -131,6 +67,32 @@ const FilterTag = ({ onSelect, active, type }) =>
       {filterDict[active]}
     </Tag>
   )
+
+/* most-views     selector: ..... */
+/* most-favorite  selector: ..... */
+/* most-star  selector: ..... */
+/* most-comments  selector: ..... */
+
+// post
+/* Time           selector: ..... */
+/* Sort           selector: ..... */
+/* Length         selector: ..... */
+
+// job
+/* time  selector: ..... */
+/* sort  selector: ..... */
+/* salary  selector: ..... */
+/* ...  selector: ..... */
+/* ...  selector: ..... */
+
+// repo
+/* time      selector: ... */
+/* sort      selector: ... */
+
+// video
+/* time      selector */
+/* sort      selector */
+/* source    selector */
 
 const ContentFilter = ({ activeFilter, onSelect }) => (
   <Wrapper>

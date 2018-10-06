@@ -1,6 +1,6 @@
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from './assets'
 
-const optionMap = {
+const LABEL_POOL = {
   default: {
     iconSrc: `${ICON_CMD}/extra_tag.svg`,
   },
@@ -58,4 +58,4 @@ const optionMap = {
   },
 }
 
-export default optionMap
+export default LABEL_POOL
