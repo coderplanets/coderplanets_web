@@ -57,7 +57,6 @@ const PreviewStore = t
     type: t.maybeNull(
       t.enumeration('previewType', [
         TYPE.PREVIEW_ROOT_STORE,
-        TYPE.PREVIEW_COMMUNITY_EDITORS,
         // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,

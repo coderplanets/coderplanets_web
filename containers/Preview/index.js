@@ -15,7 +15,6 @@ import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
 // eiditors
 import AccountEditor from '../AccountEditor'
-import CommunityEditors from '../CommunityEditors'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
@@ -114,9 +113,6 @@ const Viewer = ({ type, root, attachment }) => {
       return <VideoEditor />
     }
     // utils
-    case TYPE.PREVIEW_COMMUNITY_EDITORS: {
-      return <CommunityEditors />
-    }
     default: {
       return <StateTree json={root.toJSON()} />
     }

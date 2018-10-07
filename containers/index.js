@@ -14,7 +14,6 @@ export { default as Content } from './Content'
 export { default as Preview } from './Preview'
 export { default as Sidebar } from './Sidebar'
 export { default as Doraemon } from './Doraemon'
-export { default as CommunityEditors } from './CommunityEditors'
 export { default as UpgradePackges } from './UpgradePackges'
 
 // viewers
