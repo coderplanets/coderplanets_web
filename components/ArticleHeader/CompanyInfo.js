@@ -3,7 +3,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
-import { DotDivider } from '..'
+import DotDivider from '../DotDivider'
 
 import {
   Wrapper,
