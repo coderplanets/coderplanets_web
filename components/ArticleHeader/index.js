@@ -59,6 +59,7 @@ const ArticleHeader = ({
         <Maybe text={showFavorite}>
           <Reaction>
             <ReactionAction
+              active={data.viewerHasFavorited}
               onClick={onReaction.bind(
                 this,
                 thread,
@@ -84,6 +85,7 @@ const ArticleHeader = ({
         <Maybe test={showStar}>
           <Reaction>
             <ReactionAction
+              active={data.viewerHasStarred}
               onClick={onReaction.bind(
                 this,
                 thread,
@@ -93,7 +95,9 @@ const ArticleHeader = ({
               )}
             >
               <LikeIcon src={`${ICON_CMD}/like.svg`} />
-              <ReactionName>赞</ReactionName>
+              <ReactionName>
+                {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
+              </ReactionName>
             </ReactionAction>
             <ReactionUserNum>{data.starredCount}</ReactionUserNum>
             <Divider />

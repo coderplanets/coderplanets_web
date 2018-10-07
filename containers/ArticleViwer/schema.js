@@ -22,8 +22,19 @@ const post = gql`
     }
   }
 `
-const job = gql`
+const postReactionRes = gql`
   query($id: ID!) {
+    post(id: $id) {
+      id
+      favoritedCount
+      starredCount
+      viewerHasFavorited
+      viewerHasStarred
+    }
+  }
+`
+const job = gql`
+  query($id: ID!, $userHasLogin: Boolean!) {
     job(id: $id) {
       id
       title
@@ -40,22 +51,20 @@ const job = gql`
       linkAddr
       insertedAt
       updatedAt
-    }
-  }
-`
-const reactionResult = gql`
-  query($id: ID!) {
-    post(id: $id) {
-      id
-      title
       favoritedCount
-      starredCount
-      viewerHasFavorited
-      viewerHasStarred
+      viewerHasFavorited @include(if: $userHasLogin)
     }
   }
 `
-
+const jobReactionRes = gql`
+  query($id: ID!) {
+    job(id: $id) {
+      id
+      favoritedCount
+      viewerHasFavorited
+    }
+  }
+`
 const reaction = gql`
   mutation($id: ID!, $action: String!, $thread: CmsThread!) {
     reaction(id: $id, action: $action, thread: $thread) {
@@ -74,11 +83,12 @@ const undoReaction = gql`
 
 const schema = {
   post,
+  postReactionRes,
   job,
+  jobReactionRes,
   // viewerReactions,
   reaction,
   undoReaction,
-  reactionResult,
 }
 
 export default schema

@@ -30,12 +30,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -62,14 +57,11 @@ export function loadVideos(page = 1) {
 
 export function onTitleSelect(video) {
   store.setViewing({ video })
-  debug('onTitleSelect: ', video)
 
-  /*
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
     data: video,
   })
-  */
 }
 
 export function createContent() {
