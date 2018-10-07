@@ -12,6 +12,7 @@ import { ICON_CMD } from '../../config/assets'
 
 import MailBox from '../MailBox'
 import UpgradePackges from '../UpgradePackges'
+import UserLister from '../UserLister'
 
 import { Affix, Navigator } from '../../components'
 import UserAccount from './UserAccount'
@@ -76,11 +77,15 @@ const Header = ({
     </RouterWrapper>
     <AddOns />
     <Operations>
+      <Search onClick={logic.openUserLister}>
+        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
+      </Search>
       <Search onClick={logic.openDoraemon}>
         <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
       </Search>
 
       <MailBox />
+      <UserLister />
       <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
     </Operations>
   </HeaderWrapper>

@@ -12,13 +12,12 @@ export const EVENT = {
   LOGIN_PANEL: 'LOGIN_PANEL',
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
+  // preview
+  PREVIEW_OPEN: 'PREVIEW_OPEN',
   PREVIEW_CLOSE: 'PREVIEW_CLOSE',
   PREVIEW_CLOSED: 'PREVIEW_CLOSED',
-  // new
-  PREVIEW_LOAD: 'PREVIEW_LOAD',
-  PREVIEW_OPEN: 'PREVIEW_OPEN',
-  // action: preview, create, update
   // new end
+  USER_LISTER_OPEN: 'USER_LISTER_OPEN',
 
   // refresh
   REFRESH_COMMUNITIES: 'REFRESH_COMMUNITIES',
@@ -29,7 +28,6 @@ export const EVENT = {
 
   // community
   COMMUNITY_CHANGE: 'COMMUNITY_CHANGE',
-
   // Draft editor
   DRAFT_INSERT_SNIPPET: 'DRAFT_INSERT_SNIPPET',
 }

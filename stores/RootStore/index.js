@@ -70,6 +70,7 @@ import {
   DocUploaderStore,
   AvatarAdderStore,
   TagsBarStore,
+  UserListerStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -141,6 +142,7 @@ const rootStore = t
     cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),
+    userLister: t.optional(UserListerStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),

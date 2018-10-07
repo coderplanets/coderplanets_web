@@ -51,6 +51,7 @@ export { default as MailBox } from './MailBox'
 export { default as DocUploader } from './DocUploader'
 export { default as AvatarAdder } from './AvatarAdder'
 export { default as TagsBar } from './TagsBar'
+export { default as UserLister } from './UserLister'
 
 // user page
 export { default as UserSettings } from './UserSettings'

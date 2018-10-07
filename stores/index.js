@@ -19,6 +19,7 @@ export {
 export { default as MailBoxStore } from '../containers/MailBox/store'
 export { default as AvatarAdderStore } from '../containers/AvatarAdder/store'
 
+export { default as UserListerStore } from '../containers/UserLister/store'
 //
 export {
   default as FavoritesCatsStore,
