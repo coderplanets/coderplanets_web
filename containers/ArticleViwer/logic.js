@@ -1,5 +1,5 @@
-import SR71 from '../../utils/network/sr71'
 import R from 'ramda'
+import SR71 from '../../utils/network/sr71'
 
 import {
   asyncRes,

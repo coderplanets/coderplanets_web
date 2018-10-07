@@ -30,7 +30,12 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
+const validFilter = R.pickBy(
+  R.compose(
+    R.not,
+    R.isEmpty
+  )
+)
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
