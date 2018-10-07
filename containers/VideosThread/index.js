@@ -96,6 +96,7 @@ class VideosThreadContainer extends React.Component {
           <Maybe test={totalCount !== 0}>
             <FilterWrapper>
               <ContentFilter
+                thread={THREAD.VIDEO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />

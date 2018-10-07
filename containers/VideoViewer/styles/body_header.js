@@ -8,9 +8,8 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px 35px;
-  padding-bottom: 5px;
+  align-items: center;
+  padding: 8px 32px;
 `
 export const MoreWrapper = styled.div`
   display: flex;

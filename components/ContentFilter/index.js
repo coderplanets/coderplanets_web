@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Tag } from 'antd'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -14,7 +15,7 @@ import Popover from '../Popover'
 import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles'
 import FilterPanel from './FilterPanel'
 
-import { makeDebugger, isEmptyValue } from '../../utils'
+import { makeDebugger, isEmptyValue, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContentFilter:index')
 /* eslint-enable no-unused-vars */
@@ -39,12 +40,18 @@ const FilterTag = ({ onSelect, active, type }) =>
     </Tag>
   )
 
-const ContentFilter = ({ activeFilter, onSelect }) => (
+const ContentFilter = ({ thread, activeFilter, onSelect }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
       trigger="click"
-      content={<FilterPanel onSelect={onSelect} activeFilter={activeFilter} />}
+      content={
+        <FilterPanel
+          thread={thread}
+          onSelect={onSelect}
+          activeFilter={activeFilter}
+        />
+      }
     >
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
@@ -72,6 +79,7 @@ ContentFilter.propTypes = {
     wordLength: PropTypes.string,
   }),
   onSelect: PropTypes.func.isRequired,
+  thread: PropTypes.oneOf(R.values(THREAD)),
 }
 
 ContentFilter.defaultProps = {
@@ -80,6 +88,7 @@ ContentFilter.defaultProps = {
     sort: '',
     wordLength: '',
   },
+  thread: THREAD.POST,
 }
 
 export default ContentFilter

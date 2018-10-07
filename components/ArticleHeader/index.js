@@ -16,10 +16,12 @@ import {
   Wrapper,
   ReactionWrapper,
   Reaction,
+  PlainAction,
   ReactionAction,
   ReactionName,
   CollectIcon,
   LikeIcon,
+  PlainUserNum,
   ReactionUserNum,
   Divider,
 } from './styles'
@@ -57,6 +59,7 @@ const ArticleHeader = ({
         <Maybe text={showFavorite}>
           <Reaction>
             <ReactionAction
+              active={data.viewerHasFavorited}
               onClick={onReaction.bind(
                 this,
                 thread,
@@ -82,6 +85,7 @@ const ArticleHeader = ({
         <Maybe test={showStar}>
           <Reaction>
             <ReactionAction
+              active={data.viewerHasStarred}
               onClick={onReaction.bind(
                 this,
                 thread,
@@ -91,7 +95,9 @@ const ArticleHeader = ({
               )}
             >
               <LikeIcon src={`${ICON_CMD}/like.svg`} />
-              <ReactionName>赞</ReactionName>
+              <ReactionName>
+                {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
+              </ReactionName>
             </ReactionAction>
             <ReactionUserNum>{data.starredCount}</ReactionUserNum>
             <Divider />
@@ -99,10 +105,10 @@ const ArticleHeader = ({
         </Maybe>
 
         <Reaction>
-          <ReactionAction>
+          <PlainAction>
             <ReactionName>浏览:</ReactionName>
-          </ReactionAction>
-          <ReactionUserNum>{data.views}</ReactionUserNum>
+          </PlainAction>
+          <PlainUserNum>{data.views}</PlainUserNum>
         </Reaction>
       </ReactionWrapper>
     </Wrapper>

@@ -94,9 +94,8 @@ export function onTitleSelect(post) {
   })
 }
 
-export function createContent() {
+export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
-}
 
 const DataSolver = [
   {

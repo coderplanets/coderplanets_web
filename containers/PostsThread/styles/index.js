@@ -19,13 +19,11 @@ export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
-
 export const RightPart = styled.div`
   width: 20vw;
   margin-left: 30px;
   padding-top: 5px;
 `
-
 /* fill: ${theme('shell.searchIcon')}; */
 // TODO: rename to PublishButn
 export const PublishBtn = styled(Button)`
@@ -36,7 +34,8 @@ export const PublishBtn = styled(Button)`
 export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
-  display: ${({ show }) => (show ? 'flex' : 'none')};
+  display: flex;
+  align-items: center;
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;

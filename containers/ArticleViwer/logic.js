@@ -1,3 +1,4 @@
+import R from 'ramda'
 import SR71 from '../../utils/network/sr71'
 
 import {
@@ -28,13 +29,12 @@ let store = null
 let sub$ = null
 
 export function onReaction(thread, action, userDid, { id }) {
-  /*
-     debug('onReaction thread: ', thread)
-     debug('onReaction action: ', action)
-     debug('onReaction userDid: ', userDid)
-     debug('onReaction id: ', id)
-   */
-  const args = { id, thread, action }
+  /* debug('onReaction thread: ', thread) */
+  /* debug('onReaction action: ', action) */
+  // debug('onReaction userDid: ', store.isLogin)
+  /* debug('onReaction id: ', id) */
+
+  const args = { id, thread: R.toUpper(thread), action }
 
   return userDid
     ? sr71$.mutate(S.undoReaction, args)
@@ -62,21 +62,23 @@ function loadJob({ id }) {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
   loading()
+  debug('loadJob variables: ', variables)
   sr71$.query(S.job, variables)
 }
 
-function reloadReactions(article) {
-  const variables = {
-    id: article.id,
+function reloadReactions({ id }) {
+  switch (store.activeThread) {
+    case THREAD.JOB: {
+      return sr71$.query(S.jobReactionRes, { id })
+    }
+    default: {
+      return sr71$.query(S.postReactionRes, { id })
+    }
   }
-  debug('reloadReactions: ', variables)
-
-  sr71$.query(S.reactionResult, variables)
 }
 
 export function onEdit(thread) {
   /* debug('onEdit', store.viewingPost) */
-  debug('onEdit viewingData: ', store.viewingData)
   switch (thread) {
     case THREAD.POST: {
       return dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -118,44 +120,38 @@ const openAttachment = att => {
 // ###############################
 // Data & Error handlers
 // ###############################
-
-function contentLoaded(content) {
-  store.setViewing(content)
-  loading(false)
-}
-
 const DataSolver = [
   {
     match: asyncRes('reaction'),
     action: ({ reaction }) => {
-      // TODO: should be trigger
       debug('get reaction: ', reaction)
-      reloadReactions(reaction)
+      return reloadReactions(reaction)
     },
   },
   {
     match: asyncRes('undoReaction'),
-    action: ({ undoReaction }) => {
-      debug('get undoReaction: ', undoReaction)
-      /* const info = res[TYPE.UNDO_REACTION] */
-      reloadReactions(undoReaction)
-    },
+    action: ({ undoReaction }) => reloadReactions(undoReaction),
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       sr71$.stop()
-      /* store.load(TYPE.POST, {}) */
       loading(false)
     },
   },
   {
     match: asyncRes('post'),
-    action: ({ post }) => contentLoaded({ post }),
+    action: ({ post }) => {
+      store.setViewing({ post: R.merge(store.viewingData, post) })
+      loading(false)
+    },
   },
   {
     match: asyncRes('job'),
-    action: ({ job }) => contentLoaded({ job }),
+    action: ({ job }) => {
+      store.setViewing({ job: R.merge(store.viewingData, job) })
+      loading(false)
+    },
   },
 ]
 
