@@ -28,10 +28,12 @@ export const Reaction = styled.div`
   align-items: center;
   display: flex;
 `
-export const ReactionAction = styled.div`
+export const PlainAction = styled.div`
   display: flex;
   align-items: center;
   padding: 2px 3px;
+`
+export const ReactionAction = styled(PlainAction)`
   &:hover {
     cursor: pointer;
     font-weight: bold;
@@ -43,11 +45,12 @@ export const ReactionName = styled.div`
   color: ${theme('article.reactionTitle')};
   font-size: 0.9rem;
 `
-export const ReactionUserNum = styled.div`
+export const PlainUserNum = styled.div`
   color: ${theme('article.reactionTitle')};
   font-size: 1rem;
   margin-left: 2px;
-
+`
+export const ReactionUserNum = styled(PlainUserNum)`
   &:hover {
     cursor: pointer;
     text-decoration: underline;

@@ -16,10 +16,12 @@ import {
   Wrapper,
   ReactionWrapper,
   Reaction,
+  PlainAction,
   ReactionAction,
   ReactionName,
   CollectIcon,
   LikeIcon,
+  PlainUserNum,
   ReactionUserNum,
   Divider,
 } from './styles'
@@ -99,10 +101,10 @@ const ArticleHeader = ({
         </Maybe>
 
         <Reaction>
-          <ReactionAction>
+          <PlainAction>
             <ReactionName>浏览:</ReactionName>
-          </ReactionAction>
-          <ReactionUserNum>{data.views}</ReactionUserNum>
+          </PlainAction>
+          <PlainUserNum>{data.views}</PlainUserNum>
         </Reaction>
       </ReactionWrapper>
     </Wrapper>
