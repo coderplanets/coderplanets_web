@@ -104,6 +104,7 @@ class JobsThreadContainer extends React.Component {
           <Maybe test={totalCount !== 0}>
             <FilterWrapper show={curView === TYPE.RESULT}>
               <ContentFilter
+                thread={THREAD.JOB}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />

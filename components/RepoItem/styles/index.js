@@ -10,8 +10,8 @@ export const Wrapper = styled.article`
 
   padding-left: 8px;
   padding-right: 8px;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   border-radius: 4px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('thread.articleSpliter')};

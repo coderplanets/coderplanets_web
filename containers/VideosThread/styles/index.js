@@ -35,6 +35,7 @@ export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
   display: flex;
+  align-items: center;
 `
 export const FilterResultHint = styled.div`
   margin-top: 4px;

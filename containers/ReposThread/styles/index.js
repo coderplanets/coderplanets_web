@@ -7,7 +7,9 @@ export const Wrapper = styled.div`
   display: flex;
   max-width: 1400px;
 `
-
+export const ViewerWrapper = styled.div`
+  margin-top: -6px;
+`
 export const LeftPadding = styled.div`
   width: 2.5vw;
 `
@@ -18,12 +20,10 @@ export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
-
 export const RightPart = styled.div`
   width: 20vw;
   margin-left: 30px;
 `
-
 /* fill: ${theme('shell.searchIcon')}; */
 export const PublishBtn = styled(Button)`
   margin-top: 8px;
@@ -32,12 +32,13 @@ export const PublishBtn = styled(Button)`
   margin-left: 8%;
 `
 export const FilterWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 8px;
   margin-left: 8px;
-  display: ${({ show }) => (show ? 'flex' : 'none')};
 `
 export const FilterResultHint = styled.div`
-  margin-top: 4px;
+  margin-top: 8px;
   margin-right: 10px;
   color: ${theme('thread.filterResultHint')};
 `

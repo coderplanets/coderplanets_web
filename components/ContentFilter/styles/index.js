@@ -21,7 +21,7 @@ export const FilterIcon = styled(Img)`
 `
 export const FiltrPanelWrapper = styled.div`
   display: flex;
-  min-width: 280px;
+  min-width: 200px;
   padding: 12px;
 `
 export const ColumnWrapper = styled.div`

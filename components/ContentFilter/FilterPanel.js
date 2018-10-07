@@ -17,8 +17,7 @@ import VideoSourceFilter from './VideoSourceFilter'
 
 import { THREAD } from '../../utils'
 
-const FilterPanel = ({ activeFilter, onSelect }) => {
-  const thread = THREAD.VIDEO
+const FilterPanel = ({ thread, activeFilter, onSelect }) => {
   switch (thread) {
     case THREAD.POST: {
       return (

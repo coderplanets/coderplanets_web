@@ -95,6 +95,7 @@ class PostsThreadContainer extends React.Component {
           <Maybe test={totalCount !== 0}>
             <FilterWrapper show>
               <ContentFilter
+                thread={THREAD.POST}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />

@@ -24,6 +24,7 @@ import {
 
 import {
   Wrapper,
+  ViewerWrapper,
   LeftPadding,
   RightPadding,
   LeftPart,
@@ -44,7 +45,7 @@ const View = ({ community, thread, entries, curView, active }) => {
   switch (curView) {
     case TYPE.RESULT: {
       return (
-        <React.Fragment>
+        <ViewerWrapper>
           {entries.map(entry => (
             <RepoItem
               key={uid.gen()}
@@ -53,14 +54,14 @@ const View = ({ community, thread, entries, curView, active }) => {
               onTitleSelect={logic.onTitleSelect}
             />
           ))}
-        </React.Fragment>
+        </ViewerWrapper>
       )
     }
     case TYPE.RESULT_EMPTY: {
       return (
-        <React.Fragment>
+        <ViewerWrapper>
           <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
+        </ViewerWrapper>
       )
     }
     default:
@@ -98,6 +99,7 @@ class ReposThreadContainer extends React.Component {
           <Maybe test={totalCount !== 0}>
             <FilterWrapper>
               <ContentFilter
+                thread={THREAD.REPO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
@@ -106,7 +108,6 @@ class ReposThreadContainer extends React.Component {
               </FilterResultHint>
             </FilterWrapper>
           </Maybe>
-
           <View
             community={mainPath}
             thread={subPath}
@@ -114,7 +115,6 @@ class ReposThreadContainer extends React.Component {
             curView={curView}
             active={activeRepo}
           />
-
           <Pagi
             left="-10px"
             pageNumber={pageNumber}
