@@ -11,12 +11,14 @@ import { markStates, makeDebugger } from '../../utils'
 const debug = makeDebugger('S:VideoViewer')
 /* eslint-enable no-unused-vars */
 
-// NOTE: add me to ../../stores/index && ../../stores/RootStore/index
 const VideoViewer = t
   .model('VideoViewer', {})
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+    get isLogin() {
+      return self.root.account.isLogin
     },
     get viewingData() {
       return self.root.viewingData

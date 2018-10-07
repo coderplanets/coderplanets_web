@@ -27,6 +27,10 @@ export const Video = t.model('Video', {
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),
   /* comments: t.optional(t.array(Comment), []), */
+  favoritedCount: t.optional(t.number, 0),
+  starredCount: t.optional(t.number, 0),
+  viewerHasFavorited: t.optional(t.boolean, false),
+  viewerHasStarred: t.optional(t.boolean, false),
 
   publishAt: t.maybeNull(t.string),
   insertedAt: t.optional(t.string, ''),
