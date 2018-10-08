@@ -192,11 +192,21 @@ export function toggleDislikeComment(comment) {
   })
 }
 
+export function onUploadImageDone(url) {
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+}
+
+export function insertQuote() {
+  const data = '> '
+
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+}
+
 export function insertCode() {
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'FUCK',
-    data: '```javascript\n\n```',
-  })
+  const communityRaw = store.curCommunity.raw
+  const data = `\`\`\`${communityRaw}\n\n\`\`\``
+
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export function onMention(user) {

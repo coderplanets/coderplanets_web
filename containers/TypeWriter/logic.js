@@ -46,14 +46,6 @@ function checkValid() {
   return true
 }
 
-export function onUploadImageDone(url) {
-  debug('onUploadImageDone: ', url)
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'Image',
-    data: `![](${url})`,
-  })
-}
-
 const getDigest = body => {
   /* eslint-disable no-undef */
   const digestContainer = document.getElementById(
@@ -121,11 +113,15 @@ function publishing(maybe = true) {
   store.markState({ publishing: maybe })
 }
 
+export function onUploadImageDone(url) {
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+}
+
 export function insertCode() {
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'insert',
-    data: '```javascript\n\n```',
-  })
+  const communityRaw = store.curCommunity.raw
+  const data = `\`\`\`${communityRaw}\n\n\`\`\``
+
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 const openAttachment = att => {

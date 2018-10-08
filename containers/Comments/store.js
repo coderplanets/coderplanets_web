@@ -103,6 +103,9 @@ const CommentsStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get activeThread() {
       const { activeThread } = self.root.viewing
       return R.toUpper(activeThread)
