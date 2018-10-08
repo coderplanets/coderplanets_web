@@ -58,6 +58,7 @@ export function createComment() {
   const args = {
     id: store.viewingData.id,
     body: store.editContent,
+    thread: store.activeThread,
   }
 
   debug('createComment args: ', args)
@@ -241,11 +242,13 @@ const DataSolver = [
   },
   {
     match: asyncRes('createComment'),
-    action: ({ createComment }) => {
-      debug('createComment', createComment)
+    action: () => {
       store.markState({
+        showInputBox: false,
         showInputEditor: false,
         editContent: '',
+        creating: false,
+        loading: false,
       })
       loadComents({
         filter: { page: 1, sort: TYPE.DESC_INSERTED },

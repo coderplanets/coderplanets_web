@@ -4,4 +4,12 @@ import styled from 'styled-components'
 // import { theme } from '../../../utils'
 
 export const Wrapper = styled.div``
-export const Title = styled.div``
+
+export const CommentsWrapper = styled.div`
+  min-height: 200px;
+  margin-top: 30px;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 10%;
+  border-radius: 5px;
+`

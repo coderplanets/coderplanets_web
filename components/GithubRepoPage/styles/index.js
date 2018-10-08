@@ -40,7 +40,7 @@ export const ReadmeWrapper = styled.div`
   width: 100%;
 `
 export const Footer = styled.div`
-  display: flex;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 40px;
