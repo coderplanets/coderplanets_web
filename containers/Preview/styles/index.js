@@ -56,15 +56,13 @@ export const PreviewWrapper = styled.div`
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
-  overflow: auto;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end;
 `
 export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('preview.bg')};
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
 `
