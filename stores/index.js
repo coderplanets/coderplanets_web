@@ -19,6 +19,7 @@ export {
 export { default as MailBoxStore } from '../containers/MailBox/store'
 export { default as AvatarAdderStore } from '../containers/AvatarAdder/store'
 
+export { default as UserListerStore } from '../containers/UserLister/store'
 //
 export {
   default as FavoritesCatsStore,
@@ -79,9 +80,6 @@ export {
 } from '../containers/AccountViewer/store'
 
 export { default as VideoViewerStore } from '../containers/VideoViewer/store'
-export {
-  default as CommunityEditorsStore,
-} from '../containers/CommunityEditors/store'
 export { default as RepoViewerStore } from '../containers/RepoViewer/store'
 
 // user page

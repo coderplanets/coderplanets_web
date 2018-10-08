@@ -54,7 +54,6 @@ import {
   VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
-  CommunityEditorsStore,
 
   // toolbox
   DoraemonStore,
@@ -70,6 +69,7 @@ import {
   DocUploaderStore,
   AvatarAdderStore,
   TagsBarStore,
+  UserListerStore,
   // user page
   UserSettingsStore,
   UserFavoritesStore,
@@ -141,13 +141,13 @@ const rootStore = t
     cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),
+    userLister: t.optional(UserListerStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
     videoViewer: t.optional(VideoViewerStore, {}),
     repoViewer: t.optional(RepoViewerStore, {}),
-    communityEditors: t.optional(CommunityEditorsStore, {}),
     // user page
     userSettings: t.optional(UserSettingsStore, {}),
     userFavorites: t.optional(UserFavoritesStore, {}),

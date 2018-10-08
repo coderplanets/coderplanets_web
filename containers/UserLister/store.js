@@ -1,27 +1,29 @@
 /*
- * CommunityEditors store
+ * UserLister store
  *
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { PagedUsers, emptyPagiData } from '../../stores/SharedModel'
+
+import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:CommunityEditors')
+const debug = makeDebugger('S:UserLister')
 /* eslint-enable no-unused-vars */
 
-const CommunityEditors = t
-  .model('CommunityEditors', {
-    pagedEditors: t.optional(PagedUsers, emptyPagiData),
+const UserLister = t
+  .model('UserLister', {
+    show: t.optional(t.boolean, false),
+    pagedUsers: t.optional(PagedUsers, emptyPagiData),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
-    get pagedEditorsData() {
-      return stripMobx(self.pagedEditors)
+    get pagedUsersData() {
+      return stripMobx(self.pagedUsers)
     },
   }))
   .actions(self => ({
@@ -30,4 +32,4 @@ const CommunityEditors = t
     },
   }))
 
-export default CommunityEditors
+export default UserLister

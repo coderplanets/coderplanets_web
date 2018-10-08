@@ -14,7 +14,6 @@ export { default as Content } from './Content'
 export { default as Preview } from './Preview'
 export { default as Sidebar } from './Sidebar'
 export { default as Doraemon } from './Doraemon'
-export { default as CommunityEditors } from './CommunityEditors'
 export { default as UpgradePackges } from './UpgradePackges'
 
 // viewers
@@ -51,6 +50,7 @@ export { default as MailBox } from './MailBox'
 export { default as DocUploader } from './DocUploader'
 export { default as AvatarAdder } from './AvatarAdder'
 export { default as TagsBar } from './TagsBar'
+export { default as UserLister } from './UserLister'
 
 // user page
 export { default as UserSettings } from './UserSettings'

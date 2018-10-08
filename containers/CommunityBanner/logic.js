@@ -7,8 +7,7 @@ import {
   asyncErr,
   ERR,
   EVENT,
-  TYPE,
-  dispatchEvent,
+  // dispatchEvent,
   subPath2Thread,
   thread2Subpath,
 } from '../../utils'
@@ -41,9 +40,6 @@ export function tabberChange(activeThread) {
 
 export function showEditorList() {
   debug('showEditorList ...')
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_COMMUNITY_EDITORS,
-  })
 }
 
 // ###############################

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { Button, Icon } from 'antd'
 
-import Pagi from '../Pagi'
+import { Pagi } from '../../components'
 
 import {
   TableWrapper,
@@ -20,7 +20,7 @@ import {
   Bio,
   Location,
   Action,
-} from './styles'
+} from './styles/user_list'
 
 import { makeDebugger, uid } from '../../utils'
 
