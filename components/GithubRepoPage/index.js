@@ -54,7 +54,7 @@ const GithubRepoPage = ({
         <MarkDownRender body={repo.readme || ''} />
       </ReadmeWrapper>
     </BodyWrapper>
-    <Footer>
+    <Footer show={showSearchBtn || showSyncBtn || showPublishBtn}>
       <Maybe test={showSearchBtn}>
         <SearchButton type="primary" ghost onClick={onSearch}>
           重新搜索

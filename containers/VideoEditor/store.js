@@ -48,11 +48,8 @@ const VideoEditor = t
     },
   }))
   .actions(self => ({
-    toast(type, options) {
-      self.root.toast(type, options)
-    },
-    changeErr(options) {
-      self.toast('error', options)
+    changesetErr(options) {
+      self.root.changesetErr(options)
     },
     closePreview() {
       self.root.closePreview()
@@ -64,27 +61,28 @@ const VideoEditor = t
     validator(type) {
       switch (type) {
         case 'publish': {
+          const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
           const result = changeset(self.editVideoData)
-            .exsit({ thumbnil: '缩略图' }, self.changeErr)
-            .exsit({ thumbnil: '视频封面' }, self.changeErr)
-            .exsit({ title: '视频标题' }, self.changeErr)
-            .min({ title: '视频标题' }, 5, self.changeErr)
-            .exsit({ source: '视频来源' }, self.changeErr)
-            .exsit({ link: '视频链接' }, self.changeErr)
-            .startsWith({ link: '视频链接' }, 'https://', self.changeErr)
-            .exsit({ originalAuthor: '原作者昵称' }, self.changeErr)
-            .exsit({ originalAuthorLink: '原作者链接' }, self.changeErr)
+            .exsit({ thumbnil: '缩略图' }, self.changesetErr)
+            .exsit({ thumbnil: '视频封面' }, self.changesetErr)
+            .exsit({ title: '视频标题' }, self.changesetErr, opt)
+            .min({ title: '视频标题' }, 5, self.changesetErr, opt)
+            .exsit({ source: '视频来源' }, self.changesetErr, opt)
+            .exsit({ link: '视频链接' }, self.changesetErr, opt)
+            .startsWith({ link: '视频链接' }, 'https://', self.changesetErr)
+            .exsit({ originalAuthor: '原作者昵称' }, self.changesetErr, opt)
+            .exsit({ originalAuthorLink: '原作者链接' }, self.changesetErr, opt)
             .startsWith(
               { originalAuthorLink: '原作者链接' },
               'https://',
-              self.changeErr
+              self.changesetErr
             )
-            .exsit({ desc: '视频描述' }, self.changeErr)
-            .min({ desc: '视频描述' }, 10, self.changeErr)
-            .exsit({ duration: '时长' }, self.changeErr)
-            .durationFmt({ duration: '时长' }, self.changeErr)
-            .exsit({ publishAt: '发布日期' }, self.changeErr)
-            .dateFmt({ publishAt: '发布日期' }, self.changeErr)
+            .exsit({ desc: '视频描述' }, self.changesetErr, opt)
+            .min({ desc: '视频描述' }, 10, self.changesetErr, opt)
+            .exsit({ duration: '时长' }, self.changesetErr, opt)
+            .durationFmt({ duration: '时长' }, self.changesetErr)
+            .exsit({ publishAt: '发布日期' }, self.changesetErr, opt)
+            .dateFmt({ publishAt: '发布日期' }, self.changesetErr)
             .done()
 
           // const format1 = /^([01]?[0-9]|[0-5][0-9]):[0-5][0-9]$/

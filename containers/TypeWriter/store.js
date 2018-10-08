@@ -52,6 +52,9 @@ const TypeWriterStore = t
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get thread() {
       return self.root.viewing.activeThread
     },

@@ -9,7 +9,7 @@ export const Wrapper = styled.div``
 export const BodyWrapper = styled.div`
   padding: 20px 30px;
   height: auto;
-  min-height: 80vh;
+  min-height: 600px;
   margin-left: 15px;
   margin-right: 15px;
   background: ${theme('content.cardBg')};
@@ -17,7 +17,6 @@ export const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
 `
 export const DescriptionWrapper = styled.div`
   margin-top: 8px;
@@ -40,7 +39,7 @@ export const ReadmeWrapper = styled.div`
   width: 100%;
 `
 export const Footer = styled.div`
-  display: flex;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 40px;

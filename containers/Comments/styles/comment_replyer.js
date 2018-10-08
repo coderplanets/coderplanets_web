@@ -31,7 +31,7 @@ export const InputHeaderWrapper = styled.div`
 `
 export const InputEditorWrapper = styled.div`
   min-height: 180px;
-  max-height: 60vh;
+  max-height: 60%;
   overflow-y: scroll;
   margin: 0 10px;
   margin-bottom: 10px;

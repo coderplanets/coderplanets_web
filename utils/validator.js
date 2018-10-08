@@ -52,7 +52,7 @@ const valueOf = R.compose(
 )
 
 export const changeset = source => ({
-  exsit: (obj, cb) => {
+  exsit: (obj, cb, opt = {}) => {
     if (source.__dirty__) return changeset(source)
 
     const field = keyOf(obj)
@@ -60,7 +60,7 @@ export const changeset = source => ({
 
     if (nilOrEmpty(source[field])) {
       const title = trans
-      const msg = '不能为空 (请填写 #必填# 字段)'
+      const msg = opt.msg || '不能为空'
 
       cb({ title, msg })
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))

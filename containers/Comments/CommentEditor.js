@@ -83,6 +83,9 @@ const Header = ({
   )
 }
 
+// onChange={debounce(logic.onCommentInputChange, 450)}
+// onChange={logic.onCommentInputChange}
+
 const InputEditor = ({
   showInputEditor,
   showInputPreview,
@@ -94,7 +97,7 @@ const InputEditor = ({
     <InputEditorWrapper showInputEditor={showInputEditor}>
       <BodyEditor
         mentions={mentions}
-        onChange={debounce(logic.onCommentInputChange, 450)}
+        onChange={debounce(logic.onCommentInputChange, 200)}
         onMention={logic.onMention}
         body={body}
       />
@@ -131,7 +134,6 @@ class CommentEditor extends React.Component {
   }
   /* eslint-enable */
 
-  //  <Container show={!showInputEditor && !showInputPreview}>
   render() {
     const {
       referUsers,
@@ -163,9 +165,7 @@ class CommentEditor extends React.Component {
             body={editContent}
             restProps={{ ...this.props }}
           />
-        ) : (
-          <div />
-        )}
+        ) : null}
         {showInputPreview ? (
           <div>
             <PreviewerWrapper>
@@ -179,9 +179,7 @@ class CommentEditor extends React.Component {
               onPreview={logic.createCommentPreview}
             />
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
       </Container>
     )
   }

@@ -7,7 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-// import { } from './styles'
+import { CommentsWrapper } from './styles'
+
+import Comments from '../Comments'
 import { GithubRepoPage } from '../../components'
 
 import { makeDebugger, storePlug } from '../../utils'
@@ -27,13 +29,12 @@ class RepoViewerContainer extends React.Component {
     const { repoViewer } = this.props
     const { viewingData } = repoViewer
 
-    debug('repoViewer ---------- ', viewingData)
-
-    // debug('viewingData: ', viewingData)
-
     return (
       <div>
         <GithubRepoPage repo={viewingData} />
+        <CommentsWrapper>
+          <Comments />
+        </CommentsWrapper>
       </div>
     )
   }

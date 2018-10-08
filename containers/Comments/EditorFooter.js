@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
+
+import DocUploader from '../DocUploader'
 import { Space, Button, Icon } from '../../components'
 
 import * as logic from './logic'
@@ -28,8 +30,12 @@ const EditorFooter = ({
           <div onClick={logic.insertCode}>
             <HelperIcon src={`${ICON_CMD}/extra_code.svg`} />
           </div>
-          <HelperIcon src={`${ICON_CMD}/extra_quote.svg`} />
-          <HelperIcon src={`${ICON_CMD}/extra_image.svg`} />
+          <div onClick={logic.insertQuote}>
+            <HelperIcon src={`${ICON_CMD}/extra_quote.svg`} />
+          </div>
+          <DocUploader onUploadDone={logic.onUploadImageDone}>
+            <HelperIcon src={`${ICON_CMD}/extra_image.svg`} />
+          </DocUploader>
         </InputHelper>
       )}
 

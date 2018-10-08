@@ -7,9 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import Comments from '../Comments'
 import { ArticleHeader } from '../../components'
 
-import { Wrapper } from './styles'
+import { Wrapper, CommentsWrapper } from './styles'
 
 import PlayWindow from './PlayWindow'
 import InfoBoard from './InfoBoard'
@@ -43,6 +44,9 @@ class VideoViewerContainer extends React.Component {
         <BodyHeader />
         <PlayWindow poster={viewingData.poster} />
         <InfoBoard data={viewingData} />
+        <CommentsWrapper>
+          <Comments />
+        </CommentsWrapper>
       </Wrapper>
     )
   }
