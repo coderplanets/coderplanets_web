@@ -18,7 +18,7 @@ export const LanguageDot = styled.div`
   height: 15px;
   border-radius: 100%;
   margin-right: 8px;
-  background-color: #f4e068;
+  background-color: ${({ color }) => color};
 `
 export const LanguagePopover = styled.div`
   color: ${theme('thread.articleTitle')};

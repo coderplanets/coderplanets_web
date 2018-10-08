@@ -19,16 +19,16 @@ import {
   CountDivider,
 } from './styles/header'
 
-import { numberWithCommas } from '../../utils'
+import { numberWithCommas, cutFrom } from '../../utils'
 
 const TitlesInfo = ({ repo }) => (
   <TitlesWrapper>
     <Popover
-      content={<LanguagePopover>javascript</LanguagePopover>}
+      content={<LanguagePopover>{repo.primaryLanguage.name}</LanguagePopover>}
       placement="bottom"
       trigger="hover"
     >
-      <LanguageDot />
+      <LanguageDot color={repo.primaryLanguage.color} />
     </Popover>
     <TitleLink href={repo.ownerUrl} rel="noopener noreferrer" target="_blank">
       {repo.ownerName}
@@ -36,7 +36,7 @@ const TitlesInfo = ({ repo }) => (
     <Space left="4px" />/{''}
     <Space right="4px" />
     <TitleLink href={repo.repoUrl} rel="noopener noreferrer" target="_blank">
-      {repo.title}
+      {cutFrom(repo.title, 20)}
     </TitleLink>{' '}
   </TitlesWrapper>
 )
