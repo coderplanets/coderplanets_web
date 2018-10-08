@@ -227,6 +227,9 @@ const rootStore = t
       const toastOpt = R.merge(options, { progressBarColor })
       toast[type](toastOpt)
     },
+    changesetErr(options) {
+      self.toast('error', options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

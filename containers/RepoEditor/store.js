@@ -47,36 +47,33 @@ const RepoEditor = t
     closePreview() {
       self.root.closePreview()
     },
-    toast(type, options) {
-      self.root.toast(type, options)
-    },
-    changeErr(options) {
-      self.toast('error', options)
+    changesetErr(options) {
+      self.root.changesetErr(options)
     },
     handleError(errorType) {
       debug(errorType)
       self.markState({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND: {
-          return self.changeErr({
+          return self.changesetErr({
             title: '仓库未找到',
             msg: '请确认输入的仓库地址',
           })
         }
         case ERR.AUTH: {
-          return self.changeErr({
+          return self.changesetErr({
             title: 'Github 鉴权出错',
             msg: 'token 可能过期，请尝试重新登录',
           })
         }
         case ERR.TIMEOUT: {
-          return self.changeErr({
+          return self.changesetErr({
             title: 'Github 超时',
             msg: '特殊国情，请稍后重试',
           })
         }
         default: {
-          return self.changeErr({ title: '未知错误', msg: '...' })
+          return self.changesetErr({ title: '未知错误', msg: '...' })
         }
       }
     },
@@ -84,13 +81,13 @@ const RepoEditor = t
       switch (type) {
         case 'searchValue': {
           const result = changeset({ searchValue: self.searchValue })
-            .exsit({ searchValue: 'Github仓库地址' }, self.changeErr)
+            .exsit({ searchValue: 'Github仓库地址' }, self.changesetErr)
             .startsWith(
               { searchValue: 'Github仓库地址' },
               'https://github.com/',
-              self.changeErr
+              self.changesetErr
             )
-            .min({ searchValue: 'Github仓库地址' }, 20, self.changeErr)
+            .min({ searchValue: 'Github仓库地址' }, 20, self.changesetErr)
             .done()
 
           try {
@@ -103,7 +100,7 @@ const RepoEditor = t
 
             return result.passed
           } catch (e) {
-            self.changeErr({ title: 'Github仓库地址', msg: '解析错误' })
+            self.changesetErr({ title: 'Github仓库地址', msg: '解析错误' })
             return false
           }
         }

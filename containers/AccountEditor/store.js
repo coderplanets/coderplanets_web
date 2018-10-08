@@ -63,12 +63,55 @@ const AccountEditorStore = t
     },
   }))
   .actions(self => ({
-    toast(type, options) {
-      self.root.toast(type, options)
+    changesetErr(options) {
+      self.root.changesetErr(options)
     },
-    changeErr(options) {
-      self.toast('error', options)
+    validator(type) {
+      const { workBackgrounds, educationBackgrounds } = self.editUserData
+
+      switch (type) {
+        case 'work': {
+          const result = changeset(self.workBgData)
+            .exsit({ company: '公司名称' }, self.changesetErr)
+            .min({ company: '公司名称' }, 2, self.changesetErr)
+            .alreadyExsits(
+              {
+                company: `${self.workBgData.company}, ${self.workBgData.title}`,
+              },
+              self.workBgData,
+              workBackgrounds,
+              self.changesetErr
+            )
+            .done()
+
+          if (!result.passed) flashState(self, 'ratKey', result.rat)
+          return result.passed
+        }
+        case 'education': {
+          const { educationBgData } = self
+          const result = changeset(educationBgData)
+            .exsit({ school: '学校名称' }, self.changesetErr)
+            .min({ school: '学校名称' }, 2, self.changesetErr)
+            .alreadyExsits(
+              {
+                school: `${educationBgData.school}, ${educationBgData.major}`,
+              },
+              educationBgData,
+              educationBackgrounds,
+              self.changesetErr
+            )
+            .done()
+
+          if (!result.passed) flashState(self, 'ratKey', result.rat)
+          return result.passed
+        }
+        default: {
+          debug('unknow validator')
+          return false
+        }
+      }
     },
+
     copyAccountInfo() {
       const { accountInfo } = self.root.account
       if (accountInfo !== {}) {
@@ -106,52 +149,6 @@ const AccountEditorStore = t
       )
       self.updateEditing({ educationBackgrounds })
       self.markState({ educationBg: { school: '', major: '' } })
-    },
-
-    validator(type) {
-      const { workBackgrounds, educationBackgrounds } = self.editUserData
-
-      switch (type) {
-        case 'work': {
-          const result = changeset(self.workBgData)
-            .exsit({ company: '公司名称' }, self.changeErr)
-            .min({ company: '公司名称' }, 2, self.changeErr)
-            .alreadyExsits(
-              {
-                company: `${self.workBgData.company}, ${self.workBgData.title}`,
-              },
-              self.workBgData,
-              workBackgrounds,
-              self.changeErr
-            )
-            .done()
-
-          if (!result.passed) flashState(self, 'ratKey', result.rat)
-          return result.passed
-        }
-        case 'education': {
-          const { educationBgData } = self
-          const result = changeset(educationBgData)
-            .exsit({ school: '学校名称' }, self.changeErr)
-            .min({ school: '学校名称' }, 2, self.changeErr)
-            .alreadyExsits(
-              {
-                school: `${educationBgData.school}, ${educationBgData.major}`,
-              },
-              educationBgData,
-              educationBackgrounds,
-              self.changeErr
-            )
-            .done()
-
-          if (!result.passed) flashState(self, 'ratKey', result.rat)
-          return result.passed
-        }
-        default: {
-          debug('unknow validator')
-          return false
-        }
-      }
     },
 
     markState(sobj) {
