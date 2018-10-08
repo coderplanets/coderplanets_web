@@ -236,7 +236,7 @@ const Cyan = {
   },
   tags: {
     dotOpacity: 0.4,
-    text: '#71979a',
+    text: '#83a7ad',
   },
   tagger: {
     text: '#d2a05f',
