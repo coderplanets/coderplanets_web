@@ -53,7 +53,8 @@ const markLoading = fresh => {
 }
 
 export function createComment() {
-  // TODO: validation...
+  if (!store.validator('create')) return false
+
   store.markState({ creating: true })
   const args = {
     id: store.viewingData.id,
@@ -105,6 +106,8 @@ export function onCommentInputBlur() {
 }
 
 export function createReplyComment() {
+  if (!store.validator('reply')) return false
+
   sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,

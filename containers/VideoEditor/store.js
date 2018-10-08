@@ -64,26 +64,27 @@ const VideoEditor = t
     validator(type) {
       switch (type) {
         case 'publish': {
+          const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
           const result = changeset(self.editVideoData)
             .exsit({ thumbnil: '缩略图' }, self.changeErr)
             .exsit({ thumbnil: '视频封面' }, self.changeErr)
-            .exsit({ title: '视频标题' }, self.changeErr)
-            .min({ title: '视频标题' }, 5, self.changeErr)
-            .exsit({ source: '视频来源' }, self.changeErr)
-            .exsit({ link: '视频链接' }, self.changeErr)
+            .exsit({ title: '视频标题' }, self.changeErr, opt)
+            .min({ title: '视频标题' }, 5, self.changeErr, opt)
+            .exsit({ source: '视频来源' }, self.changeErr, opt)
+            .exsit({ link: '视频链接' }, self.changeErr, opt)
             .startsWith({ link: '视频链接' }, 'https://', self.changeErr)
-            .exsit({ originalAuthor: '原作者昵称' }, self.changeErr)
-            .exsit({ originalAuthorLink: '原作者链接' }, self.changeErr)
+            .exsit({ originalAuthor: '原作者昵称' }, self.changeErr, opt)
+            .exsit({ originalAuthorLink: '原作者链接' }, self.changeErr, opt)
             .startsWith(
               { originalAuthorLink: '原作者链接' },
               'https://',
               self.changeErr
             )
-            .exsit({ desc: '视频描述' }, self.changeErr)
-            .min({ desc: '视频描述' }, 10, self.changeErr)
-            .exsit({ duration: '时长' }, self.changeErr)
+            .exsit({ desc: '视频描述' }, self.changeErr, opt)
+            .min({ desc: '视频描述' }, 10, self.changeErr, opt)
+            .exsit({ duration: '时长' }, self.changeErr, opt)
             .durationFmt({ duration: '时长' }, self.changeErr)
-            .exsit({ publishAt: '发布日期' }, self.changeErr)
+            .exsit({ publishAt: '发布日期' }, self.changeErr, opt)
             .dateFmt({ publishAt: '发布日期' }, self.changeErr)
             .done()
 

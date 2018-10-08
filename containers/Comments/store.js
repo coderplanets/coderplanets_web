@@ -11,6 +11,7 @@ import {
   makeDebugger,
   stripMobx,
   TYPE,
+  changeset,
   // THREAD,
   // subPath2Thread,
 } from '../../utils'
@@ -111,6 +112,37 @@ const CommentsStore = t
     },
   }))
   .actions(self => ({
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
+    changeErr(options) {
+      self.toast('error', options)
+    },
+    // changesetErr() {
+    // self.root.changesetError(options)
+    // },
+
+    validator(type) {
+      switch (type) {
+        case 'create': {
+          const result = changeset({ editContent: self.editContent })
+            .exsit({ editContent: '评论内容' }, self.changeErr)
+            .done()
+
+          return result.passed
+        }
+        case 'reply': {
+          const result = changeset({ replyContent: self.replyContent })
+            .exsit({ replyContent: '回复内容' }, self.changeErr)
+            .done()
+
+          return result.passed
+        }
+        default: {
+          return false
+        }
+      }
+    },
     addReferUser(user) {
       const index = R.findIndex(u => u.id === String(user.id), self.referUsers)
       if (index === -1) {
