@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 export const MsgWrapper = styled.div`
   width: 90%;
-  height: 150px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;

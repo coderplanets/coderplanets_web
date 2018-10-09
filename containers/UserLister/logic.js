@@ -1,5 +1,7 @@
 import R from 'ramda'
 
+import { PAGE_SIZE } from '../../config'
+
 import {
   makeDebugger,
   $solver,
@@ -41,15 +43,22 @@ const loadUsers = (type, data, page = 1) => {
         { ...data },
         {
           thread: R.toUpper(data.thread),
-          filter: { page, size: 20 },
+          filter: { page, size: PAGE_SIZE.COMMON },
           userHasLogin: store.isLogin,
         }
       )
 
       return sr71$.query(S.reactionUsers, args)
     }
+    case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
+      const args = { ...data, filter: { page, size: PAGE_SIZE.COMMON } }
+
+      return sr71$.query(S.communityEditors, args)
+    }
     default: {
-      return sr71$.query(S.pagedUsers, { filter: { page, size: 20 } })
+      return sr71$.query(S.pagedUsers, {
+        filter: { page, size: PAGE_SIZE.COMMON },
+      })
     }
   }
 }
@@ -75,6 +84,14 @@ const DataSolver = [
   {
     match: asyncRes('reactionUsers'),
     action: ({ reactionUsers: pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ pagedUsers, curView })
+    },
+  },
+  {
+    match: asyncRes('communityEditors'),
+    action: ({ communityEditors: pagedUsers }) => {
       const curView =
         pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
       store.markState({ pagedUsers, curView })

@@ -16,6 +16,23 @@ const pagedUsers = gql`
     }
   }
 `
+const communityEditors = gql`
+  query($id: ID!, $filter: PagedFilter!) {
+    communityEditors(id: $id, filter: $filter) {
+      entries {
+        id
+        nickname
+        avatar
+        location
+        bio
+      }
+      totalCount
+      totalPages
+      pageSize
+      pageNumber
+    }
+  }
+`
 
 const reactionUsers = gql`
   query(
@@ -44,6 +61,7 @@ const reactionUsers = gql`
 
 const schema = {
   pagedUsers,
+  communityEditors,
   reactionUsers,
 }
 

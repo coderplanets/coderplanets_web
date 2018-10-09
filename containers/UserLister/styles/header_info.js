@@ -24,6 +24,12 @@ export const DescIcon = styled(Img)`
   margin-right: 5px;
   display: block;
 `
+export const EditorIcon = styled(DescIcon)`
+  width: 15px;
+  height: 15px;
+  fill: ${theme('thread.articleTitle')};
+`
+
 export const DescText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 0.9rem;

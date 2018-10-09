@@ -18,13 +18,14 @@ const UserLister = t
     show: t.optional(t.boolean, false),
     curView: t.optional(
       t.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
-      TYPE.RESULT
+      TYPE.LOADING
     ),
     pagedUsers: t.optional(PagedUsers, emptyPagiData),
     type: t.optional(
       t.enumeration('type', [
         TYPE.USER_LISTER_FAVORITES,
         TYPE.USER_LISTER_STARS,
+        TYPE.USER_LISTER_COMMUNITY_EDITORS,
       ]),
       TYPE.USER_LISTER_FAVORITES
     ),
