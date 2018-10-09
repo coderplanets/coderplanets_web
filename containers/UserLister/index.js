@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Modal, SearchingLabel } from '../../components'
-import { Wrapper, SearchingWrapper } from './styles'
+import { Modal, SearchingLabel, EmptyLabel } from '../../components'
+import { Wrapper, MsgWrapper } from './styles'
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 
@@ -24,16 +24,16 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
   switch (curView) {
     case TYPE.LOADING: {
       return (
-        <SearchingWrapper>
+        <MsgWrapper>
           <SearchingLabel />
-        </SearchingWrapper>
+        </MsgWrapper>
       )
     }
     case TYPE.RESULT_EMPTY: {
       return (
-        <SearchingWrapper>
-          <SearchingLabel text="empty" />
-        </SearchingWrapper>
+        <MsgWrapper>
+          <EmptyLabel text="未找到符合条件的用户" />
+        </MsgWrapper>
       )
     }
     default: {

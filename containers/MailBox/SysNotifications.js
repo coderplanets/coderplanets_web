@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-import EmptyMsg from './EmptyMsg'
+import { EmptyLabel } from '../../components'
 
 const SysNotificationList = ({ data }) => {
-  if (R.isEmpty(data)) return <EmptyMsg type="sys_notifications" />
+  if (R.isEmpty(data)) return <EmptyLabel text="没有收到系统消息" />
 
   return <h3>SysNotificationList</h3>
 }

@@ -47,6 +47,7 @@ export { default as ContributorList } from './ContributorList'
 export { default as GithubRepoPage } from './GithubRepoPage'
 export { default as GithubUserCard } from './GithubUserCard'
 export { default as SearchingLabel } from './SearchingLabel'
+export { default as EmptyLabel } from './EmptyLabel'
 
 // loading component
 export {

@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-import EmptyMsg from './EmptyMsg'
+import { EmptyLabel } from '../../components'
 
 const NotificationList = ({ data }) => {
-  if (R.isEmpty(data)) return <EmptyMsg type="notifications" />
+  if (R.isEmpty(data)) return <EmptyLabel text="没有收到关注消息" />
 
   return <h3>NotificationList</h3>
 }
