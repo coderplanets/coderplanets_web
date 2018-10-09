@@ -6,4 +6,10 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   padding: 20px;
 `
-export const Holder = 1
+export const SearchingWrapper = styled.div`
+  width: 90%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

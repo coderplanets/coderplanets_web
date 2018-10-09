@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-
 import Maybe from '../../components/Maybe'
 import GithubUserCard from '../../components/GithubUserCard'
+import SearchingLabel from '../../components/SearchingLabel'
 
 import {
   Wrapper,
@@ -17,8 +17,6 @@ import {
   AddBtn,
   AdderIcon,
 } from './styles/adder_panel'
-
-import SearchLoing from './SearchLoading'
 
 import * as logic from './logic'
 
@@ -37,7 +35,7 @@ const AdderPanel = ({ user, searchValue, searching, onConfirm }) => (
       test={!searching}
       loading={
         <SearchWrapper>
-          <SearchLoing />
+          <SearchingLabel text="正在搜索..." />
         </SearchWrapper>
       }
     >

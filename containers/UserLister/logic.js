@@ -33,7 +33,7 @@ export function onClose() {
 }
 
 const loadUsers = (type, data, page = 1) => {
-  // debug('loadUsers data: ', data)
+  store.markState({ curView: TYPE.LOADING })
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES:
     case TYPE.USER_LISTER_STARS: {
@@ -74,11 +74,20 @@ const DataSolver = [
   },
   {
     match: asyncRes('reactionUsers'),
-    action: ({ reactionUsers: pagedUsers }) => store.markState({ pagedUsers }),
+    action: ({ reactionUsers: pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ pagedUsers, curView })
+    },
   },
   {
     match: asyncRes('pagedUsers'),
-    action: ({ pagedUsers }) => store.markState({ pagedUsers }),
+    action: ({ pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+
+      store.markState({ pagedUsers, curView })
+    },
   },
 ]
 const ErrSolver = [

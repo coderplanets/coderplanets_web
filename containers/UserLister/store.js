@@ -16,6 +16,10 @@ const debug = makeDebugger('S:UserLister')
 const UserLister = t
   .model('UserLister', {
     show: t.optional(t.boolean, false),
+    curView: t.optional(
+      t.enumeration('curView', [TYPE.RESULT, TYPE.LOADING, TYPE.RESULT_EMPTY]),
+      TYPE.RESULT
+    ),
     pagedUsers: t.optional(PagedUsers, emptyPagiData),
     type: t.optional(
       t.enumeration('type', [
