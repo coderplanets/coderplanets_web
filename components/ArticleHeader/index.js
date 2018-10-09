@@ -86,6 +86,7 @@ const ArticleHeader = ({
                   thread,
                   id: data.id,
                   action: TYPE.FAVORITE,
+                  brief: data.title || '',
                 }
               )}
             >
@@ -117,6 +118,7 @@ const ArticleHeader = ({
                 thread,
                 id: data.id,
                 action: TYPE.STAR,
+                brief: data.title || '',
               })}
             >
               {data.starredCount}

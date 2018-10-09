@@ -1,10 +1,17 @@
 import React from 'react'
 
-import { Wrapper, Title } from './styles/header_info'
+import { ICON_CMD } from '../../config'
+import {
+  Wrapper,
+  Title,
+  DescLabel,
+  DescIcon,
+  DescText,
+} from './styles/header_info'
 
 import { TYPE } from '../../utils'
 
-const HeaderInfo = ({ type, totalCount }) => {
+const HeaderInfo = ({ type, totalCount, brief }) => {
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES: {
       return (
@@ -13,11 +20,10 @@ const HeaderInfo = ({ type, totalCount }) => {
             已收藏用户 ({totalCount}
             人)
           </Title>
-          {/*
-               <Desc>
-               xxx 社区共有编辑/志愿者 14 人，同时对所有感兴趣的朋友开放, ... 详情
-               </Desc>
-             */}
+          <DescLabel>
+            <DescIcon src={`${ICON_CMD}/paper.svg`} />
+            <DescText> {brief}</DescText>
+          </DescLabel>
         </Wrapper>
       )
     }
@@ -28,6 +34,10 @@ const HeaderInfo = ({ type, totalCount }) => {
             已赞用户 ({totalCount}
             人)
           </Title>
+          <DescLabel>
+            <DescIcon src={`${ICON_CMD}/paper.svg`} />
+            <DescText> {brief}</DescText>
+          </DescLabel>
         </Wrapper>
       )
     }

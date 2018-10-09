@@ -31,6 +31,7 @@ const UserLister = t
     id: t.maybeNull(t.string),
     thread: t.maybeNull(t.string),
     action: t.maybeNull(t.string),
+    brief: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {

@@ -56,12 +56,23 @@ class UserListerContainer extends React.Component {
 
   render() {
     const { userLister } = this.props
-    const { curView, show, type, pagedUsersData, accountInfo } = userLister
+    const {
+      curView,
+      show,
+      type,
+      brief,
+      pagedUsersData,
+      accountInfo,
+    } = userLister
 
     return (
       <Modal width="700px" show={show} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
-          <HeaderInfo type={type} totalCount={pagedUsersData.totalCount} />
+          <HeaderInfo
+            type={type}
+            brief={brief}
+            totalCount={pagedUsersData.totalCount}
+          />
 
           {renderContent(curView, pagedUsersData, accountInfo)}
         </Wrapper>
