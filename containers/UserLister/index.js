@@ -8,9 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { Modal } from '../../components'
-import { Wrapper, Header, Title, Desc } from './styles'
+import { Wrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
+
+import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import * as logic from './logic'
@@ -18,7 +20,6 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserLister')
 /* eslint-enable no-unused-vars */
 
-// NOTE: add me to ../containers/index
 class UserListerContainer extends React.Component {
   componentWillMount() {
     const { userLister } = this.props
@@ -27,19 +28,17 @@ class UserListerContainer extends React.Component {
 
   render() {
     const { userLister } = this.props
-    const { show, pagedUsersData } = userLister
+    const { show, type, pagedUsersData, accountInfo } = userLister
 
     return (
       <Modal width="700px" show={show} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
-          <Header>
-            <Title>社区编辑</Title>
-            <Desc>
-              xxx 社区共有编辑/志愿者 14 人，同时对所有感兴趣的朋友开放, ...
-              详情
-            </Desc>
-          </Header>
-          <UserList data={pagedUsersData} />
+          <HeaderInfo type={type} totalCount={pagedUsersData.totalCount} />
+          <UserList
+            data={pagedUsersData}
+            accountInfo={accountInfo}
+            onPageChange={logic.onPageChange}
+          />
         </Wrapper>
       </Modal>
     )

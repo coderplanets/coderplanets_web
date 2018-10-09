@@ -74,10 +74,6 @@ export function login() {
 export function openDoraemon() {
   store.openDoraemon()
 }
-// TODO: tmp
-export function openUserLister() {
-  dispatchEvent(EVENT.USER_LISTER_OPEN)
-}
 
 export function upgradeHepler() {
   debug('upgradeHepler')

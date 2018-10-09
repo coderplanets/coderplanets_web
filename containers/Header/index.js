@@ -77,9 +77,6 @@ const Header = ({
     </RouterWrapper>
     <AddOns />
     <Operations>
-      <Search onClick={logic.openUserLister}>
-        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
-      </Search>
       <Search onClick={logic.openDoraemon}>
         <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
       </Search>
