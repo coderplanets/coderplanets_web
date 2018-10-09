@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-import EmptyMsg from './EmptyMsg'
+import { EmptyLabel } from '../../components'
 
 const MentionList = ({ data }) => {
-  if (R.isEmpty(data)) return <EmptyMsg type="mentions" />
+  if (R.isEmpty(data)) return <EmptyLabel text="还没有人提到(@)你" />
 
   return <h3>MentionList</h3>
 }

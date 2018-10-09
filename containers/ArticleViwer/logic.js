@@ -98,6 +98,9 @@ export function onEdit(thread) {
   }
 }
 
+export const showReactionUsers = (type, data) =>
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+
 const openAttachment = att => {
   if (!att) return false
 

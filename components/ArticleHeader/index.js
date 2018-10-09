@@ -40,6 +40,7 @@ const ArticleHeader = ({
   company,
   data,
   onReaction,
+  showReactionUsers,
   showFavorite,
   showStar,
 }) => {
@@ -77,7 +78,20 @@ const ArticleHeader = ({
                 )}
               </ReactionName>
             </ReactionAction>
-            <ReactionUserNum>{data.favoritedCount}</ReactionUserNum>
+            <ReactionUserNum
+              onClick={showReactionUsers.bind(
+                this,
+                TYPE.USER_LISTER_FAVORITES,
+                {
+                  thread,
+                  id: data.id,
+                  action: TYPE.FAVORITE,
+                  brief: data.title || '',
+                }
+              )}
+            >
+              {data.favoritedCount}
+            </ReactionUserNum>
             <Divider />
           </Reaction>
         </Maybe>
@@ -99,7 +113,16 @@ const ArticleHeader = ({
                 {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
               </ReactionName>
             </ReactionAction>
-            <ReactionUserNum>{data.starredCount}</ReactionUserNum>
+            <ReactionUserNum
+              onClick={showReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
+                thread,
+                id: data.id,
+                action: TYPE.STAR,
+                brief: data.title || '',
+              })}
+            >
+              {data.starredCount}
+            </ReactionUserNum>
             <Divider />
           </Reaction>
         </Maybe>
@@ -140,6 +163,7 @@ ArticleHeader.propTypes = {
     // handler
   }).isRequired,
   onReaction: PropTypes.func,
+  showReactionUsers: PropTypes.func,
   // ui
   showFavorite: PropTypes.bool,
   showStar: PropTypes.bool,
@@ -152,6 +176,7 @@ ArticleHeader.defaultProps = {
   showStar: true,
   author: null,
   company: null,
+  showReactionUsers: debug,
 }
 
 export default ArticleHeader

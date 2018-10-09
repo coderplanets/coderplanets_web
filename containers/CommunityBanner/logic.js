@@ -7,7 +7,8 @@ import {
   asyncErr,
   ERR,
   EVENT,
-  // dispatchEvent,
+  TYPE,
+  dispatchEvent,
   subPath2Thread,
   thread2Subpath,
 } from '../../utils'
@@ -39,7 +40,13 @@ export function tabberChange(activeThread) {
 }
 
 export function showEditorList() {
-  debug('showEditorList ...')
+  const type = TYPE.USER_LISTER_COMMUNITY_EDITORS
+  const data = {
+    id: store.viewing.community.id,
+    brief: store.viewing.community.title,
+  }
+
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 // ###############################

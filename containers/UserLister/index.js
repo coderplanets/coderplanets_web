@@ -7,10 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Modal } from '../../components'
-import { Wrapper, Header, Title, Desc } from './styles'
+import { Modal, SearchingLabel, EmptyLabel } from '../../components'
+import { Wrapper, MsgWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
+
+import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import * as logic from './logic'
@@ -18,7 +20,34 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserLister')
 /* eslint-enable no-unused-vars */
 
-// NOTE: add me to ../containers/index
+const renderContent = (curView, pagedUsersData, accountInfo) => {
+  switch (curView) {
+    case TYPE.LOADING: {
+      return (
+        <MsgWrapper>
+          <SearchingLabel />
+        </MsgWrapper>
+      )
+    }
+    case TYPE.RESULT_EMPTY: {
+      return (
+        <MsgWrapper>
+          <EmptyLabel text="未找到符合条件的用户" />
+        </MsgWrapper>
+      )
+    }
+    default: {
+      return (
+        <UserList
+          data={pagedUsersData}
+          accountInfo={accountInfo}
+          onPageChange={logic.onPageChange}
+        />
+      )
+    }
+  }
+}
+
 class UserListerContainer extends React.Component {
   componentWillMount() {
     const { userLister } = this.props
@@ -27,19 +56,25 @@ class UserListerContainer extends React.Component {
 
   render() {
     const { userLister } = this.props
-    const { show, pagedUsersData } = userLister
+    const {
+      curView,
+      show,
+      type,
+      brief,
+      pagedUsersData,
+      accountInfo,
+    } = userLister
 
     return (
       <Modal width="700px" show={show} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
-          <Header>
-            <Title>社区编辑</Title>
-            <Desc>
-              xxx 社区共有编辑/志愿者 14 人，同时对所有感兴趣的朋友开放, ...
-              详情
-            </Desc>
-          </Header>
-          <UserList data={pagedUsersData} />
+          <HeaderInfo
+            type={type}
+            brief={brief}
+            totalCount={pagedUsersData.totalCount}
+          />
+
+          {renderContent(curView, pagedUsersData, accountInfo)}
         </Wrapper>
       </Modal>
     )

@@ -43,6 +43,7 @@ export const User = t.model('User', {
   avatar: t.maybeNull(t.string),
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
+  geoCity: t.maybeNull(t.string),
   // TODO: backgrounds
   educationBackgrounds: t.optional(t.array(EduBackground), []),
   workBackgrounds: t.optional(t.array(WorkBackground), []),
@@ -71,6 +72,8 @@ export const User = t.model('User', {
   cmsPassportString: t.maybeNull(t.string),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
+
+  viewerHasFollowed: t.optional(t.boolean, false),
 })
 
 export const SimpleUser = t.model('SimpleUser2', {

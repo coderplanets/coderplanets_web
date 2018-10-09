@@ -1,4 +1,6 @@
-// import R from 'ramda'
+import R from 'ramda'
+
+import { PAGE_SIZE } from '../../config'
 
 import {
   makeDebugger,
@@ -9,6 +11,7 @@ import {
   unholdPage,
   ERR,
   EVENT,
+  TYPE,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -31,26 +34,77 @@ export function onClose() {
   unholdPage()
 }
 
-const loadUsers = () => {
-  sr71$.query(S.pagedUsers, { filter: { page: 1, size: 20 } })
+const loadUsers = (type, data, page = 1) => {
+  store.markState({ curView: TYPE.LOADING })
+  switch (type) {
+    case TYPE.USER_LISTER_FAVORITES:
+    case TYPE.USER_LISTER_STARS: {
+      const args = R.merge(
+        { ...data },
+        {
+          thread: R.toUpper(data.thread),
+          filter: { page, size: PAGE_SIZE.COMMON },
+          userHasLogin: store.isLogin,
+        }
+      )
+
+      return sr71$.query(S.reactionUsers, args)
+    }
+    case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
+      const args = { ...data, filter: { page, size: PAGE_SIZE.COMMON } }
+
+      return sr71$.query(S.communityEditors, args)
+    }
+    default: {
+      return sr71$.query(S.pagedUsers, {
+        filter: { page, size: PAGE_SIZE.COMMON },
+      })
+    }
+  }
+}
+
+export const onPageChange = page => {
+  const { type, id, action, thread } = store
+  loadUsers(type, { id, action, thread }, page)
 }
 
 // ###############################
 // Data & Error handlers
 // ###############################
-
 const DataSolver = [
   {
     match: asyncRes(EVENT.USER_LISTER_OPEN),
-    action: () => {
-      loadUsers()
-      store.markState({ show: true })
+    action: res => {
+      const { type, data } = res.USER_LISTER_OPEN
+      store.markState({ show: true, type, ...data })
+      loadUsers(type, data)
       holdPage()
     },
   },
   {
+    match: asyncRes('reactionUsers'),
+    action: ({ reactionUsers: pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ pagedUsers, curView })
+    },
+  },
+  {
+    match: asyncRes('communityEditors'),
+    action: ({ communityEditors: pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ pagedUsers, curView })
+    },
+  },
+  {
     match: asyncRes('pagedUsers'),
-    action: ({ pagedUsers }) => store.markState({ pagedUsers }),
+    action: ({ pagedUsers }) => {
+      const curView =
+        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+
+      store.markState({ pagedUsers, curView })
+    },
   },
 ]
 const ErrSolver = [
