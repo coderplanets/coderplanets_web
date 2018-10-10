@@ -122,11 +122,11 @@ export const THREAD = {
 }
 
 export const USER_THREAD = {
-  ACTIVITIES: 'activities',
-  POSTS: 'posts',
+  PUBLISH: 'publish',
   COMMENTS: 'comments',
   FAVORITES: 'favorites',
   LINKS: 'likes',
+  BILLING: 'billing',
   SETTINGS: 'settings',
 }
 

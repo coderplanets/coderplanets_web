@@ -26,7 +26,9 @@ const supportIcons = [
   'job',
   'cheatsheet',
   // user tab
-  'posts',
+  'publish',
+  'billing',
+  'comments',
   'settings',
   'likes',
   'favorites',

@@ -25,12 +25,8 @@ const debug = makeDebugger('C:UserContent')
 
 const fakeThreads = [
   {
-    title: '动态',
-    raw: 'activities',
-  },
-  {
     title: '发布',
-    raw: 'posts',
+    raw: 'publish',
   },
   {
     title: '评论',
@@ -45,6 +41,10 @@ const fakeThreads = [
     raw: 'likes',
   },
   {
+    title: '账单',
+    raw: 'billing',
+  },
+  {
     title: '设置',
     raw: 'settings',
   },
@@ -52,9 +52,6 @@ const fakeThreads = [
 
 const TabberContent = ({ active }) => {
   switch (active) {
-    case USER_THREAD.POSTS: {
-      return <h2>POSTS</h2>
-    }
     case USER_THREAD.COMMENTS: {
       return <h2>COMMENTS</h2>
     }
@@ -64,11 +61,14 @@ const TabberContent = ({ active }) => {
     case USER_THREAD.LINKS: {
       return <h2>LINKS</h2>
     }
+    case USER_THREAD.BILLING: {
+      return <h2>BILLING</h2>
+    }
     case USER_THREAD.SETTINGS: {
       return <UserSettings />
     }
     default: {
-      return <h2>Activies</h2>
+      return <h2>PUBLISH</h2>
     }
   }
 }

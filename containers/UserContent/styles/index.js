@@ -22,7 +22,7 @@ export const MainWrapper = styled.div`
   flex-direction: column;
 `
 export const TabberWrapper = styled.div`
-  width: 80vw;
+  width: 100%;
   display: flex;
 `
 

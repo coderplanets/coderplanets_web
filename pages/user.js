@@ -75,7 +75,7 @@ export default class UserPage extends React.Component {
     return {
       langSetup: {},
       route: { mainPath: ROUTE.USER, subPath: user.id, query },
-      userContent: { activeThread: query.tab || USER_THREAD.POSTS },
+      userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
       viewing: { user },
     }
   }

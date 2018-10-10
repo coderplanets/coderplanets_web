@@ -15,7 +15,7 @@ const UserContent = t
   .model('UserContent', {
     activeThread: t.optional(
       t.enumeration('activeThread', R.values(USER_THREAD)),
-      USER_THREAD.ACTIVITIES
+      USER_THREAD.PUBLISH
     ),
   })
   .views(self => ({
