@@ -14,7 +14,7 @@ import { ICON_CMD } from '../../config'
 import UserSettings from '../UserSettings'
 import UserFavorites from '../UserFavorites'
 
-import { Tabber, Button, Icon, DotDivider, Space } from '../../components'
+import { Tabber, DotDivider, Space, FollowButton } from '../../components'
 
 import AchieveInfo from './AchieveInfo'
 import NumbersInfo from './NumbersInfo'
@@ -113,10 +113,11 @@ class UserContentContainer extends React.Component {
         <SidebarWrapper>
           <CardWrapper>
             <AchieveInfo user={viewingUser} />
-            <Button type="primary">
-              <Icon type="plus" />
-              关注他
-            </Button>
+            <FollowButton
+              hasFollowd={viewingUser.viewerHasFollowed}
+              userId={viewingUser.id}
+              size="default"
+            />
           </CardWrapper>
           <CardWrapper>
             <NumbersInfo user={viewingUser} />

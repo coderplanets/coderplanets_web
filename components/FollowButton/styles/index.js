@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const BtnWrapper = styled.div`
@@ -14,10 +14,12 @@ const BtnIcon = styled(Img)`
   margin-right: 3px;
 `
 export const WatchIcon = styled(BtnIcon)`
-  fill: ${theme('banner.title')};
+  height: 12px;
+  width: 12px;
+  fill: ${theme('button.fg')};
 `
 export const WatchedIcon = styled(BtnIcon)`
-  fill: ${theme('button.fg')};
+  fill: ${theme('banner.title')};
 `
 export const Popinfo = styled.div`
   color: ${theme('thread.articleTitle')};
