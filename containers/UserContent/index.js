@@ -14,10 +14,13 @@ import { ICON_CMD } from '../../config'
 import UserSettings from '../UserSettings'
 import UserFavorites from '../UserFavorites'
 
-import { Tabber, DotDivider, Space, FollowButton } from '../../components'
-
-import AchieveInfo from './AchieveInfo'
-import NumbersInfo from './NumbersInfo'
+import {
+  Affix,
+  Tabber,
+  DotDivider,
+  Space,
+  FollowButton,
+} from '../../components'
 
 import {
   Container,
@@ -30,6 +33,9 @@ import {
   AttactIcon,
   AttactLink,
 } from './styles'
+
+import AchieveInfo from './AchieveInfo'
+import NumbersInfo from './NumbersInfo'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
@@ -111,46 +117,50 @@ class UserContentContainer extends React.Component {
           <TabberContent active={activeThread} />
         </MainWrapper>
         <SidebarWrapper>
-          <CardWrapper>
-            <AchieveInfo user={viewingUser} />
-            <FollowButton
-              hasFollowd={viewingUser.viewerHasFollowed}
-              userId={viewingUser.id}
-              size="default"
-              onFollow={logic.followUser}
-              undoFollowUser={logic.undoFollowUser}
-            />
-          </CardWrapper>
-          <CardWrapper>
-            <NumbersInfo
-              user={viewingUser}
-              showFollowings={logic.showFollowings}
-              showFollowers={logic.showFollowers}
-            />
-          </CardWrapper>
+          <Affix offsetTop={30}>
+            <React.Fragment>
+              <CardWrapper>
+                <AchieveInfo user={viewingUser} />
+                <FollowButton
+                  hasFollowd={viewingUser.viewerHasFollowed}
+                  userId={viewingUser.id}
+                  size="default"
+                  onFollow={logic.followUser}
+                  undoFollowUser={logic.undoFollowUser}
+                />
+              </CardWrapper>
+              <CardWrapper>
+                <NumbersInfo
+                  user={viewingUser}
+                  showFollowings={logic.showFollowings}
+                  showFollowers={logic.showFollowers}
+                />
+              </CardWrapper>
 
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 {viewingUser.id}{' '}
-            位会员 <DotDivider /> 加入时间:
-            <Space right="5px" />
-            <TimeAgo datetime={viewingUser.insertedAt} locale="zh_CN" />
-          </AttactWrapper>
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
-            本站源码贡献者(
-            <AttactLink
-              href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              详情
-            </AttactLink>
-            )
-          </AttactWrapper>
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
-            本站赞助者(详情)
-          </AttactWrapper>
+              <AttactWrapper>
+                <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第{' '}
+                {viewingUser.id} 位会员 <DotDivider /> 加入时间:
+                <Space right="5px" />
+                <TimeAgo datetime={viewingUser.insertedAt} locale="zh_CN" />
+              </AttactWrapper>
+              <AttactWrapper>
+                <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
+                本站源码贡献者(
+                <AttactLink
+                  href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  详情
+                </AttactLink>
+                )
+              </AttactWrapper>
+              <AttactWrapper>
+                <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
+                本站赞助者(详情)
+              </AttactWrapper>
+            </React.Fragment>
+          </Affix>
         </SidebarWrapper>
       </Container>
     )
