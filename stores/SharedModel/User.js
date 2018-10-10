@@ -34,6 +34,12 @@ export const WorkBackground = t.model('WorkBackground', {
   title: t.optional(t.string, ''),
 })
 
+export const Achievement = t.model('Achievement', {
+  reputation: t.optional(t.number, 0),
+  contentsStaredCount: t.optional(t.number, 0),
+  contentsFavoritedCount: t.optional(t.number, 0),
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
@@ -70,6 +76,16 @@ export const User = t.model('User', {
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybeNull(GithubProfile),
   cmsPassportString: t.maybeNull(t.string),
+
+  followingsCount: t.optional(t.number, 0),
+  followersCount: t.optional(t.number, 0),
+
+  achievement: t.optional(Achievement, {
+    reputation: 0,
+    contentsStaredCount: 0,
+    contentsFavoritedCount: 0,
+  }),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 

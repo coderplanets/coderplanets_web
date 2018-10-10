@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
@@ -13,7 +14,7 @@ import { ICON_CMD } from '../../config'
 import UserSettings from '../UserSettings'
 import UserFavorites from '../UserFavorites'
 
-import { Tabber, Button, Icon } from '../../components'
+import { Tabber, Button, Icon, DotDivider, Space } from '../../components'
 
 import AchieveInfo from './AchieveInfo'
 import NumbersInfo from './NumbersInfo'
@@ -28,7 +29,6 @@ import {
   AttactWrapper,
   AttactIcon,
   AttactLink,
-  AttactDivider,
 } from './styles'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
@@ -96,7 +96,7 @@ class UserContentContainer extends React.Component {
 
   render() {
     const { userContent } = this.props
-    const { activeThread } = userContent
+    const { activeThread, viewingUser } = userContent
 
     return (
       <Container>
@@ -112,19 +112,21 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <CardWrapper>
-            <AchieveInfo />
+            <AchieveInfo user={viewingUser} />
             <Button type="primary">
               <Icon type="plus" />
               关注他
             </Button>
           </CardWrapper>
           <CardWrapper>
-            <NumbersInfo />
+            <NumbersInfo user={viewingUser} />
           </CardWrapper>
 
           <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 1 位会员{' '}
-            <AttactDivider /> 加入时间: 2018-08-18
+            <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 {viewingUser.id}{' '}
+            位会员 <DotDivider /> 加入时间:
+            <Space right="5px" />
+            <TimeAgo datetime={viewingUser.insertedAt} locale="zh_CN" />
           </AttactWrapper>
           <AttactWrapper>
             <AttactIcon src={`${ICON_CMD}/contributer.svg`} />

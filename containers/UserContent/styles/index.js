@@ -66,13 +66,3 @@ export const AttactLink = styled.a`
     cursor: pointer;
   }
 `
-
-export const AttactDivider = styled.div`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-left: 10px;
-  margin-right: 6px;
-  background: ${theme('banner.desc')};
-  opacity: 0.7;
-`

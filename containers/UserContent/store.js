@@ -1,12 +1,12 @@
 /*
-* UserContent store
-*
-*/
+ * UserContent store
+ *
+ */
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, USER_THREAD } from '../../utils'
+import { markStates, makeDebugger, USER_THREAD, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:UserContent')
 /* eslint-enable no-unused-vars */
@@ -21,6 +21,10 @@ const UserContent = t
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+
+    get viewingUser() {
+      return stripMobx(self.root.viewing.user)
     },
   }))
   .actions(self => ({

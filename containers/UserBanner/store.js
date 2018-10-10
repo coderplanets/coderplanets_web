@@ -17,12 +17,17 @@ const UserBanner = t
     get root() {
       return getParent(self)
     },
-
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
   }))
   .actions(self => ({
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },
