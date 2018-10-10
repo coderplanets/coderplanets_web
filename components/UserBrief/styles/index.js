@@ -6,15 +6,13 @@ import { theme } from '../../../utils'
 export const Wrapper = styled.div`
   display: flex;
 `
-
 export const AvatarWrapper = styled.div`
   margin-right: 12px;
   display: flex;
   flex-direction: column;
 `
-
 export const Avatar = styled(Img)`
-  border-radius: 8px;
+  border-radius: 4px;
   width: ${({ displayStyle }) =>
     displayStyle === 'default' ? '120px' : '70px'};
   height: ${({ displayStyle }) =>
@@ -22,20 +20,17 @@ export const Avatar = styled(Img)`
   margin-top: 6px;
   margin-bottom: 10px;
 `
-
 export const BriefTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 `
-
 export const UserTitle = styled.div`
   display: flex;
   font-size: 1.2rem;
   color: ${theme('banner.title')};
   margin-bottom: 5px;
 `
-
 export const UserDesc = styled.div`
   color: ${theme('banner.desc')};
   display: ${({ hide }) => (hide ? 'none' : 'flex')};
@@ -66,7 +61,6 @@ export const DescIconLable = styled(Img)`
   margin-right: 10px;
   margin-top: 4px;
 `
-
 export const BackgroundDivider = styled.div`
   width: 5px;
   height: 5px;
@@ -98,7 +92,6 @@ export const SocialSpliter = styled.div`
 export const SocialWrapper = styled.div`
   display: flex;
 `
-
 export const SocialIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   display: ${({ active }) => (active ? 'block' : 'none')};
@@ -118,7 +111,6 @@ export const SocialIcon = styled(Img)`
 export const EditWrapper = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
-
 export const EditIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 20px;

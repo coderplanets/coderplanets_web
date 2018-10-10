@@ -25,6 +25,11 @@ const supportIcons = [
   'wiki',
   'job',
   'cheatsheet',
+  // user tab
+  'posts',
+  'settings',
+  'likes',
+  'favorites',
 ]
 const TabIcon = ({ raw, active }) => {
   if (R.contains(raw, supportIcons)) {

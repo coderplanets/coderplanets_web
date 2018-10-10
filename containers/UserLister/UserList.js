@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
-import { Pagi } from '../../components'
+import { Pagi, FollowButton } from '../../components'
 
 import {
   TableWrapper,
@@ -21,8 +21,6 @@ import {
   GeoIcon,
   Action,
 } from './styles/user_list'
-
-import FollowButton from './FollowButton'
 
 import { makeDebugger, uid } from '../../utils'
 
@@ -45,7 +43,10 @@ const UsersTable = ({ entries, accountId }) => (
           </Title>
           <Action>
             {accountId !== user.id ? (
-              <FollowButton user={user} />
+              <FollowButton
+                hasFollowd={user.viewerHasFollowed}
+                userId={user.id}
+              />
             ) : (
               <div>(本人)</div>
             )}

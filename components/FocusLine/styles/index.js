@@ -23,7 +23,7 @@ export const Icon = styled(Img)`
 `
 export const Focus = styled.div`
   font-size: 1.1rem;
-  color: ${theme('banner.title')};
+  color: ${theme('contrastFg')};
   margin-left: 3px;
   margin-right: 3px;
 `

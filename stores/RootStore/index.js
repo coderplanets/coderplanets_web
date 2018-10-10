@@ -230,6 +230,10 @@ const rootStore = t
     changesetErr(options) {
       self.toast('error', options)
     },
+    authWarning(options = {}) {
+      const defaultOpt = { title: '未登录', msg: '需要登录后才能进行该操作' }
+      self.toast('warn', R.merge(defaultOpt, options))
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

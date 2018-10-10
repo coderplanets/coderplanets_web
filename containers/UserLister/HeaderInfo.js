@@ -42,6 +42,32 @@ const HeaderInfo = ({ type, totalCount, brief }) => {
         </Wrapper>
       )
     }
+    case TYPE.USER_LISTER_FOLLOWERS: {
+      return (
+        <Wrapper>
+          <Title>
+            关注者 ({totalCount}
+            人)
+          </Title>
+          <DescLabel>
+            <DescText>关注 {brief} 的人 </DescText>
+          </DescLabel>
+        </Wrapper>
+      )
+    }
+    case TYPE.USER_LISTER_FOLLOWINGS: {
+      return (
+        <Wrapper>
+          <Title>
+            关注中 ({totalCount}
+            人)
+          </Title>
+          <DescLabel>
+            <DescText>{brief} 关注的人 </DescText>
+          </DescLabel>
+        </Wrapper>
+      )
+    }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
       return (
         <Wrapper>

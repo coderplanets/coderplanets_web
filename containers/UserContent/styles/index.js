@@ -44,7 +44,7 @@ export const AttactWrapper = styled.div`
   align-items: center;
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
-  margin-left: 15px;
+  margin-left: 10px;
 `
 
 export const AttactIcon = styled(Img)`
@@ -65,14 +65,4 @@ export const AttactLink = styled.a`
     color: ${theme('banner.title')};
     cursor: pointer;
   }
-`
-
-export const AttactDivider = styled.div`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-left: 10px;
-  margin-right: 6px;
-  background: ${theme('banner.desc')};
-  opacity: 0.7;
 `
