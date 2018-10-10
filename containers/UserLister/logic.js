@@ -35,6 +35,8 @@ export function onClose() {
 }
 
 const loadUsers = (type, data, page = 1) => {
+  debug('loadUsers type: ', type)
+
   store.markState({ curView: TYPE.LOADING })
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES:
@@ -49,6 +51,20 @@ const loadUsers = (type, data, page = 1) => {
       )
 
       return sr71$.query(S.reactionUsers, args)
+    }
+    case TYPE.USER_LISTER_FOLLOWINGS: {
+      const args = {
+        userId: data.id,
+        filter: { page, size: PAGE_SIZE.COMMON },
+      }
+      return sr71$.query(S.pagedFollowings, args)
+    }
+    case TYPE.USER_LISTER_FOLLOWERS: {
+      const args = {
+        userId: data.id,
+        filter: { page, size: PAGE_SIZE.COMMON },
+      }
+      return sr71$.query(S.pagedFollowers, args)
     }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
       const args = { ...data, filter: { page, size: PAGE_SIZE.COMMON } }
@@ -68,6 +84,10 @@ export const onPageChange = page => {
   loadUsers(type, { id, action, thread }, page)
 }
 
+const handleUsersRes = pagedUsers => {
+  const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+  store.markState({ pagedUsers, curView })
+}
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -83,28 +103,23 @@ const DataSolver = [
   },
   {
     match: asyncRes('reactionUsers'),
-    action: ({ reactionUsers: pagedUsers }) => {
-      const curView =
-        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
-      store.markState({ pagedUsers, curView })
-    },
+    action: ({ reactionUsers: pagedUsers }) => handleUsersRes(pagedUsers),
+  },
+  {
+    match: asyncRes('pagedFollowings'),
+    action: ({ pagedFollowings: pagedUsers }) => handleUsersRes(pagedUsers),
+  },
+  {
+    match: asyncRes('pagedFollowers'),
+    action: ({ pagedFollowers: pagedUsers }) => handleUsersRes(pagedUsers),
   },
   {
     match: asyncRes('communityEditors'),
-    action: ({ communityEditors: pagedUsers }) => {
-      const curView =
-        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
-      store.markState({ pagedUsers, curView })
-    },
+    action: ({ communityEditors: pagedUsers }) => handleUsersRes(pagedUsers),
   },
   {
     match: asyncRes('pagedUsers'),
-    action: ({ pagedUsers }) => {
-      const curView =
-        pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
-
-      store.markState({ pagedUsers, curView })
-    },
+    action: ({ pagedUsers }) => handleUsersRes(pagedUsers),
   },
 ]
 const ErrSolver = [

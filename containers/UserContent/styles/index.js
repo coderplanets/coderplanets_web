@@ -44,7 +44,7 @@ export const AttactWrapper = styled.div`
   align-items: center;
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
-  margin-left: 15px;
+  margin-left: 10px;
 `
 
 export const AttactIcon = styled(Img)`

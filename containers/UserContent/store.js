@@ -22,12 +22,17 @@ const UserContent = t
     get root() {
       return getParent(self)
     },
-
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
   }))
   .actions(self => ({
+    authWarning(options = {}) {
+      self.root.authWarning(options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

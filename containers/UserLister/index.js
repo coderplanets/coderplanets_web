@@ -32,7 +32,7 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
     case TYPE.RESULT_EMPTY: {
       return (
         <MsgWrapper>
-          <EmptyLabel text="未找到符合条件的用户" />
+          <EmptyLabel text="没有找到你要找的人呢" />
         </MsgWrapper>
       )
     }

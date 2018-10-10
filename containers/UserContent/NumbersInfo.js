@@ -1,15 +1,33 @@
 import React from 'react'
 
-import NumSection from './NumSection'
-import { Wrapper, Divider } from './styles/numbers_info'
+import {
+  Wrapper,
+  Divider,
+  NumWrapper,
+  NumTitle,
+  NumNumber,
+  RepTitle,
+  RepNumber,
+} from './styles/numbers_info'
 
-const NumbersInfo = ({ user }) => (
+import { prettyNum } from '../../utils'
+
+const NumbersInfo = ({ user, showFollowers, showFollowings }) => (
   <Wrapper>
-    <NumSection title="声望" num={user.achievement.reputation} />
+    <NumWrapper>
+      <RepTitle>声望</RepTitle>
+      <RepNumber>{prettyNum(user.achievement.reputation)}</RepNumber>
+    </NumWrapper>
     <Divider />
-    <NumSection title="关注者" num={user.followersCount} />
+    <NumWrapper onClick={showFollowers.bind(this, user)}>
+      <NumTitle>关注者</NumTitle>
+      <NumNumber>{prettyNum(user.followersCount)}</NumNumber>
+    </NumWrapper>
     <Divider />
-    <NumSection title="关注中" num={user.followingsCount} />
+    <NumWrapper onClick={showFollowings.bind(this, user)}>
+      <NumTitle>关注中</NumTitle>
+      <NumNumber>{prettyNum(user.followingsCount)}</NumNumber>
+    </NumWrapper>
   </Wrapper>
 )
 

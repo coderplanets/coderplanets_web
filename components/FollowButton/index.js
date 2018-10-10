@@ -20,7 +20,6 @@ class FollowButton extends React.Component {
 
   onFollow() {
     const { userId, onFollow } = this.props
-    debug('onFollow :', userId)
 
     this.fakeLoading()
     onFollow(userId)
@@ -28,8 +27,6 @@ class FollowButton extends React.Component {
 
   onUndoFollow() {
     const { userId, onUndoFollow } = this.props
-
-    debug('onUndoFollow :', userId)
 
     this.fakeLoading()
     onUndoFollow(userId)

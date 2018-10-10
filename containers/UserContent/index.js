@@ -117,10 +117,16 @@ class UserContentContainer extends React.Component {
               hasFollowd={viewingUser.viewerHasFollowed}
               userId={viewingUser.id}
               size="default"
+              onFollow={logic.followUser}
+              undoFollowUser={logic.undoFollowUser}
             />
           </CardWrapper>
           <CardWrapper>
-            <NumbersInfo user={viewingUser} />
+            <NumbersInfo
+              user={viewingUser}
+              showFollowings={logic.showFollowings}
+              showFollowers={logic.showFollowers}
+            />
           </CardWrapper>
 
           <AttactWrapper>

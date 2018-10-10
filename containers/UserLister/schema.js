@@ -8,11 +8,37 @@ const pagedUsers = gql`
         nickname
         avatar
         location
-        bio
       }
       totalCount
       pageSize
       pageNumber
+    }
+  }
+`
+const pagedFollowers = gql`
+  query($userId: ID, $filter: PagedFilter!) {
+    pagedFollowers(userId: $userId, filter: $filter) {
+      entries {
+        id
+        nickname
+        avatar
+        location
+      }
+      totalCount
+    }
+  }
+`
+
+const pagedFollowings = gql`
+  query($userId: ID, $filter: PagedFilter!) {
+    pagedFollowings(userId: $userId, filter: $filter) {
+      entries {
+        id
+        nickname
+        avatar
+        location
+      }
+      totalCount
     }
   }
 `
@@ -24,7 +50,6 @@ const communityEditors = gql`
         nickname
         avatar
         location
-        bio
       }
       totalCount
       totalPages
@@ -61,8 +86,10 @@ const reactionUsers = gql`
 
 const schema = {
   pagedUsers,
-  communityEditors,
   reactionUsers,
+  pagedFollowers,
+  pagedFollowings,
+  communityEditors,
 }
 
 export default schema
