@@ -3,9 +3,9 @@ import React from 'react'
 import { ICON_CMD } from '../../config'
 
 import { FocusLine } from '../../components'
-import { Wrapper, Title, Desc } from './styles/achieve_info'
+import { Wrapper, Title, Desc } from './styles/achieve_card'
 
-const AchieveInfo = ({ user }) => (
+const AchieveCard = ({ user }) => (
   <Wrapper>
     <Title>个人成就</Title>
     <FocusLine
@@ -25,4 +25,4 @@ const AchieveInfo = ({ user }) => (
   </Wrapper>
 )
 
-export default AchieveInfo
+export default AchieveCard

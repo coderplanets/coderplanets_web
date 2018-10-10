@@ -8,11 +8,11 @@ import {
   NumNumber,
   RepTitle,
   RepNumber,
-} from './styles/numbers_info'
+} from './styles/numbers_card'
 
 import { prettyNum } from '../../utils'
 
-const NumbersInfo = ({ user, showFollowers, showFollowings }) => (
+const NumbersCard = ({ user, showFollowers, showFollowings }) => (
   <Wrapper>
     <NumWrapper>
       <RepTitle>声望</RepTitle>
@@ -31,4 +31,4 @@ const NumbersInfo = ({ user, showFollowers, showFollowings }) => (
   </Wrapper>
 )
 
-export default NumbersInfo
+export default NumbersCard

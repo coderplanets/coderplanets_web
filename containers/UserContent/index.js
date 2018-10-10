@@ -6,36 +6,15 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import TimeAgo from 'timeago-react'
-
-import { ICON_CMD } from '../../config'
-// import Link from 'next/link'
 
 import UserSettings from '../UserSettings'
 import UserFavorites from '../UserFavorites'
 
-import {
-  Affix,
-  Tabber,
-  DotDivider,
-  Space,
-  FollowButton,
-} from '../../components'
+import { Affix, Tabber } from '../../components'
 
-import {
-  Container,
-  MainWrapper,
-  TabberWrapper,
-  SidebarWrapper,
-  CardWrapper,
-  // TODO: move to component
-  AttactWrapper,
-  AttactIcon,
-  AttactLink,
-} from './styles'
+import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
 
-import AchieveInfo from './AchieveInfo'
-import NumbersInfo from './NumbersInfo'
+import DigestBoard from './DigestBoard'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
@@ -50,7 +29,7 @@ const fakeThreads = [
     raw: 'activities',
   },
   {
-    title: '帖子',
+    title: '发布',
     raw: 'posts',
   },
   {
@@ -118,48 +97,7 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <Affix offsetTop={30}>
-            <React.Fragment>
-              <CardWrapper>
-                <AchieveInfo user={viewingUser} />
-                <FollowButton
-                  hasFollowd={viewingUser.viewerHasFollowed}
-                  userId={viewingUser.id}
-                  size="default"
-                  onFollow={logic.followUser}
-                  undoFollowUser={logic.undoFollowUser}
-                />
-              </CardWrapper>
-              <CardWrapper>
-                <NumbersInfo
-                  user={viewingUser}
-                  showFollowings={logic.showFollowings}
-                  showFollowers={logic.showFollowers}
-                />
-              </CardWrapper>
-
-              <AttactWrapper>
-                <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第{' '}
-                {viewingUser.id} 位会员 <DotDivider /> 加入时间:
-                <Space right="5px" />
-                <TimeAgo datetime={viewingUser.insertedAt} locale="zh_CN" />
-              </AttactWrapper>
-              <AttactWrapper>
-                <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
-                本站源码贡献者(
-                <AttactLink
-                  href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  详情
-                </AttactLink>
-                )
-              </AttactWrapper>
-              <AttactWrapper>
-                <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
-                本站赞助者(详情)
-              </AttactWrapper>
-            </React.Fragment>
+            <DigestBoard user={viewingUser} />
           </Affix>
         </SidebarWrapper>
       </Container>
