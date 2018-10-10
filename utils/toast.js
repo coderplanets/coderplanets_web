@@ -5,6 +5,7 @@
 import R from 'ramda'
 
 import { Global } from './functions'
+import { nilOrEmpty } from './validator'
 
 const checkValid = () => Global.iziToast || false
 
@@ -23,20 +24,20 @@ const doNotify = (options = {}) => {
   if (!checkValid()) return false
 
   /* eslint-disable no-undef */
-  iziToast.show(R.merge(defaultOptions, options))
+  iziToast.show(R.merge(defaultOptions, R.reject(nilOrEmpty, options)))
   /* eslint-enable no-def */
   return false
 }
 
 export const toast = {
-  info: ({ title, msg, progressBarColor }) =>
-    doNotify({ title, message: msg, progressBarColor }),
-  error: ({ title, msg, progressBarColor }) =>
-    doNotify({ title, message: msg, progressBarColor }),
-  success: ({ title, msg, progressBarColor }) =>
-    doNotify({ title, message: msg, progressBarColor }),
-  warn: ({ title, msg, progressBarColor }) =>
-    doNotify({ title, message: msg, progressBarColor }),
+  info: ({ title, msg, progressBarColor, position }) =>
+    doNotify({ title, message: msg, progressBarColor, position }),
+  error: ({ title, msg, progressBarColor, position }) =>
+    doNotify({ title, message: msg, progressBarColor, position }),
+  success: ({ title, msg, progressBarColor, position }) =>
+    doNotify({ title, message: msg, progressBarColor, position }),
+  warn: ({ title, msg, progressBarColor, position }) =>
+    doNotify({ title, message: msg, progressBarColor, position }),
 }
 
 export const toastBarColor = (type, themeData) => {

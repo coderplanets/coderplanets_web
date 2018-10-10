@@ -16,6 +16,8 @@ import {
 } from './styles/editor'
 
 import { makeDebugger } from '../../utils'
+import { categoryOnChange, onCategoryUpdate } from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Favorites:Updater')
 /* eslint-enable no-unused-vars */
@@ -23,7 +25,7 @@ const debug = makeDebugger('C:Favorites:Updater')
 const { TextArea } = Input
 const RadioGroup = Radio.Group
 
-const Updater = ({ show }) => (
+const Updater = ({ data, show }) => (
   <Wrapper show={show} className="normal-form">
     <SectionLabel
       title="编辑收藏夹 - 前端框架"
@@ -36,8 +38,8 @@ const Updater = ({ show }) => (
           <Input
             size="default"
             placeholder="收藏夹标题"
-            defaultValue="hello"
-            onChange={debug}
+            value={data.title}
+            onChange={categoryOnChange('title')}
           />
         </FormInput>
       </FormItemWrapper>
@@ -45,9 +47,10 @@ const Updater = ({ show }) => (
         <FormLable>描述</FormLable>
         <FormInput>
           <TextArea
+            value={data.desc}
+            onChange={categoryOnChange('desc')}
             placeholder="收藏什么的？"
             autosize={{ minRows: 2, maxRows: 3 }}
-            onChange={debug}
           />
         </FormInput>
       </FormItemWrapper>
@@ -69,7 +72,9 @@ const Updater = ({ show }) => (
         </Button>
       </Popconfirm>
       <Space right="10px" />
-      <Button type="primary">保存</Button>
+      <Button type="primary" onClick={onCategoryUpdate}>
+        保存
+      </Button>
     </Footer>
   </Wrapper>
 )

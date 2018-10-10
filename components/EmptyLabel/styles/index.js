@@ -14,10 +14,11 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   margin-top: 10px;
+  font-size: ${({ size }) => (size === 'default' ? '1rem' : '1.4rem;')};
 `
 
 export const Icon = styled(Img)`
   fill: ${theme('banner.desc')};
-  width: 70px;
-  height: 70px;
+  width: ${({ size }) => (size === 'default' ? '70px' : '100px')};
+  height: ${({ size }) => (size === 'default' ? '70px' : '100px')};
 `

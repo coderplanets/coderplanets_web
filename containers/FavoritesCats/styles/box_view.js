@@ -7,6 +7,12 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
+export const MsgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 90%;
+`
+
 export const BoxWrapper = styled.div`
   display: flex;
   flex-direction: column;

@@ -16,6 +16,7 @@ import {
 } from './styles/editor'
 
 import { makeDebugger } from '../../utils'
+import { categoryOnChange, onCategoryCreate } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:FavoritesCats:Creator')
@@ -24,7 +25,7 @@ const debug = makeDebugger('C:FavoritesCats:Creator')
 const { TextArea } = Input
 const RadioGroup = Radio.Group
 
-const Creator = ({ show }) => (
+const Creator = ({ data, show }) => (
   <Wrapper show={show} className="normal-form">
     <SectionLabel title="创建收藏夹" iconSrc={`${ICON_CMD}/edit.svg`} />
     <EditWrapper>
@@ -33,9 +34,9 @@ const Creator = ({ show }) => (
         <FormInput>
           <Input
             size="default"
-            placeholder="收藏夹标题"
-            defaultValue="hello"
-            onChange={debug}
+            placeholder="收藏夹标题 #必填#"
+            value={data.title}
+            onChange={categoryOnChange('title')}
           />
         </FormInput>
       </FormItemWrapper>
@@ -43,9 +44,10 @@ const Creator = ({ show }) => (
         <FormLable>描述</FormLable>
         <FormInput>
           <TextArea
+            value={data.desc}
+            onChange={categoryOnChange('desc')}
             placeholder="收藏什么的？"
             autosize={{ minRows: 2, maxRows: 3 }}
-            onChange={debug}
           />
         </FormInput>
       </FormItemWrapper>
@@ -65,7 +67,9 @@ const Creator = ({ show }) => (
         取消
       </Button>
       <Space right="10px" />
-      <Button type="primary">保存</Button>
+      <Button type="primary" onClick={onCategoryCreate}>
+        保存
+      </Button>
     </Footer>
   </Wrapper>
 )
