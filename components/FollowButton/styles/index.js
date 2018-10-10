@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, Animate } from '../../../utils'
 
 export const BtnWrapper = styled.div`
   display: flex;
@@ -24,4 +24,13 @@ export const WatchedIcon = styled(BtnIcon)`
 export const Popinfo = styled.div`
   color: ${theme('thread.articleTitle')};
   padding: 5px 8px;
+`
+
+export const LoadingIcon = styled(BtnIcon)`
+  fill: ${({ light }) =>
+    light ? theme('button.fg') : theme('thread.articleTitle')};
+
+  height: 20px;
+  width: 20px;
+  animation: ${Animate.rotate360} 1s linear infinite;
 `
