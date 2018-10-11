@@ -15,7 +15,7 @@ const debug = makeDebugger('S:RouteStore')
 
 const Query = t.model('Query', {
   page: t.optional(t.string, '1'),
-  size: t.optional(t.string, String(PAGE_SIZE.COMMON)),
+  size: t.optional(t.string, String(PAGE_SIZE.D)),
   tab: t.maybeNull(t.string),
   // sort .... [when, ...]
   // view ... [chart, list ...]

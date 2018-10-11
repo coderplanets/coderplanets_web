@@ -37,7 +37,7 @@ export const Job = t.model('Job', {
 export const PagedJobs = t.model('PagedJobs', {
   entries: t.optional(t.array(Job), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

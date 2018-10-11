@@ -45,7 +45,7 @@ const loadUsers = (type, data, page = 1) => {
         { ...data },
         {
           thread: R.toUpper(data.thread),
-          filter: { page, size: PAGE_SIZE.COMMON },
+          filter: { page, size: PAGE_SIZE.D },
           userHasLogin: store.isLogin,
         }
       )
@@ -55,25 +55,25 @@ const loadUsers = (type, data, page = 1) => {
     case TYPE.USER_LISTER_FOLLOWINGS: {
       const args = {
         userId: data.id,
-        filter: { page, size: PAGE_SIZE.COMMON },
+        filter: { page, size: PAGE_SIZE.D },
       }
       return sr71$.query(S.pagedFollowings, args)
     }
     case TYPE.USER_LISTER_FOLLOWERS: {
       const args = {
         userId: data.id,
-        filter: { page, size: PAGE_SIZE.COMMON },
+        filter: { page, size: PAGE_SIZE.D },
       }
       return sr71$.query(S.pagedFollowers, args)
     }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
-      const args = { ...data, filter: { page, size: PAGE_SIZE.COMMON } }
+      const args = { ...data, filter: { page, size: PAGE_SIZE.D } }
 
       return sr71$.query(S.communityEditors, args)
     }
     default: {
       return sr71$.query(S.pagedUsers, {
-        filter: { page, size: PAGE_SIZE.COMMON },
+        filter: { page, size: PAGE_SIZE.D },
       })
     }
   }

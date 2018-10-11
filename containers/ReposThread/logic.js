@@ -30,12 +30,7 @@ const debug = makeDebugger('L:ReposThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -48,7 +43,7 @@ export function loadRepos(page = 1) {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,

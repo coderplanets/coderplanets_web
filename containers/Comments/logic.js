@@ -29,7 +29,7 @@ let store = null
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
   fresh: false,
-  filter: { page: 1, size: PAGE_SIZE.COMMENTS, sort: TYPE.ASC_INSERTED },
+  filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
 }
 
 export const loadComents = (args = {}) => {

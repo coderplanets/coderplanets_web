@@ -30,12 +30,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -45,7 +40,7 @@ export function loadVideos(page = 1) {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,

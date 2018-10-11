@@ -50,7 +50,7 @@ export const Repo = t.model('Reop', {
 export const PagedRepos = t.model('PagedRepos', {
   entries: t.optional(t.array(Repo), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

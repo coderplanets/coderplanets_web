@@ -30,7 +30,7 @@ export const Comment = t.model('Comment', {
 export const PagedComments = t.model('PagedComments', {
   entries: t.optional(t.array(Comment), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

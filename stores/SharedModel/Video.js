@@ -40,7 +40,7 @@ export const Video = t.model('Video', {
 export const PagedVideos = t.model('PagedVideos', {
   entries: t.optional(t.array(Video), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

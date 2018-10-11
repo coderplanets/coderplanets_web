@@ -29,7 +29,7 @@ export function loadFavorites() {
   const args = {
     filter: {
       page: 1,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       community: 'javascript',
     },
   }
