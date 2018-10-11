@@ -21,7 +21,13 @@ export const backToCategoryList = () => {
 }
 
 export const onCatSelect = curCategory => {
+  debug('onCatSelect: ', curCategory)
   store.markState({ curCategory, parentView: 'CATEGORY_DETAIL' })
+}
+export const changeFavoriteThread = favoriteThread => {
+  store.markState({ favoriteThread })
+  // TODO: load it
+  // change route
 }
 
 // fake, just for ui demo

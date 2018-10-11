@@ -47,7 +47,13 @@ class UserFavoritesContainer extends React.Component {
 
   render() {
     const {
-      userFavorites: { pagedPostsData, parentView, curView },
+      userFavorites: {
+        pagedPostsData,
+        parentView,
+        curView,
+        curCategoryData,
+        favoriteThread,
+      },
     } = this.props
 
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
@@ -58,7 +64,12 @@ class UserFavoritesContainer extends React.Component {
           <FavoritesCats onSelect={logic.onCatSelect} />
         ) : (
           <React.Fragment>
-            <Breadcrumbs gotoParent={logic.backToCategoryList} />
+            <Breadcrumbs
+              gotoParent={logic.backToCategoryList}
+              category={curCategoryData}
+              favoriteThread={favoriteThread}
+              changeFavoriteThread={logic.changeFavoriteThread}
+            />
             <View entries={entries} curView={curView} />
             <Pagi
               left="-10px"

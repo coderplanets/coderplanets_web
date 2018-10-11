@@ -13,7 +13,7 @@ import {
   FavoriteCategory,
 } from '../../stores/SharedModel'
 
-import { markStates, makeDebugger, TYPE, stripMobx } from '../../utils'
+import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:UserFavorites')
 /* eslint-enable no-unused-vars */
@@ -21,6 +21,15 @@ const debug = makeDebugger('S:UserFavorites')
 const UserFavorites = t
   .model('UserFavorites', {
     curCategory: t.maybeNull(FavoriteCategory),
+    favoriteThread: t.optional(
+      t.enumeration('favoriteThread', [
+        THREAD.POST,
+        THREAD.VIDEO,
+        THREAD.REPO,
+        THREAD.JOB,
+      ]),
+      THREAD.POST
+    ),
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
     parentView: t.optional(
       t.enumeration('parentView', [

@@ -49,6 +49,7 @@ export { default as GithubUserCard } from './GithubUserCard'
 export { default as SearchingLabel } from './SearchingLabel'
 export { default as EmptyLabel } from './EmptyLabel'
 export { default as FollowButton } from './FollowButton'
+export { default as ThreadSelector } from './ThreadSelector'
 
 // loading component
 export {
