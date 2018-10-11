@@ -1,4 +1,5 @@
 import React from 'react'
+import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 import { Pagi } from '../../components'
@@ -24,13 +25,14 @@ const CategoryCardList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   onEdit,
   onPageChange,
+  onSelect,
 }) => (
   <Wrapper>
     <CardListWrapper>
       {entries.map(cat => (
         <BoxWrapper key={uid.gen()}>
           <Header>
-            <Title>
+            <Title onClick={onSelect.bind(this, cat)}>
               <TitleText>{cutFrom(cat.title, 10)}</TitleText>
               <LockIcon src={`${ICON_CMD}/lock.svg`} />
             </Title>
@@ -38,10 +40,15 @@ const CategoryCardList = ({
               <EditIcon src={`${ICON_CMD}/edit.svg`} />
             </div>
           </Header>
-          <Desc>{cutFrom(cat.desc, 20)}</Desc>
-          <Footer>
-            <FooterCounter>4 条内容</FooterCounter>
-            <FooterUpdate>更新: 3天前</FooterUpdate>
+          <Desc onClick={onSelect.bind(this, cat)}>
+            {cutFrom(cat.desc, 20)}
+          </Desc>
+          <Footer onClick={onSelect.bind(this, cat)}>
+            <FooterCounter>{cat.totalCount} 条内容</FooterCounter>
+            <FooterUpdate>
+              {' '}
+              更新: <TimeAgo datetime={cat.updatedAt} locale="zh_CN" />
+            </FooterUpdate>
           </Footer>
         </BoxWrapper>
       ))}

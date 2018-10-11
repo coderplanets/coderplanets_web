@@ -76,8 +76,6 @@ const DataSolver = [
   {
     match: asyncRes('listFavoriteCategories'),
     action: ({ listFavoriteCategories: pagedCategories }) => {
-      debug('listFavoriteCateories: ', pagedCategories)
-
       // const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
       store.markState({ pagedCategories })
       // store.closePreview()

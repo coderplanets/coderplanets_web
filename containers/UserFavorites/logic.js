@@ -16,6 +16,15 @@ const debug = makeDebugger('L:UserFavorites')
 
 let store = null
 
+export const backToCategoryList = () => {
+  store.markState({ parentView: 'CATEGORY_LIST' })
+}
+
+export const onCatSelect = curCategory => {
+  store.markState({ curCategory, parentView: 'CATEGORY_DETAIL' })
+}
+
+// fake, just for ui demo
 export function loadFavorites() {
   const args = {
     filter: {

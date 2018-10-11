@@ -9,6 +9,7 @@ const listFavoriteCategories = gql`
         desc
         totalCount
         private
+        updatedAt
       }
       totalPages
       totalCount

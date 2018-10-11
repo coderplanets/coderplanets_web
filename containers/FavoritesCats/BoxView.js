@@ -6,7 +6,7 @@ import { Wrapper, MsgWrapper } from './styles/box_view'
 
 import CategoryCardList from './CategoryCardList'
 
-const BoxView = ({ data, onEdit, onPageChange }) => {
+const BoxView = ({ data, onEdit, onPageChange, onSelect }) => {
   const { totalCount } = data
 
   return (
@@ -20,6 +20,7 @@ const BoxView = ({ data, onEdit, onPageChange }) => {
           data={data}
           onEdit={onEdit}
           onPageChange={onPageChange}
+          onSelect={onSelect}
         />
       )}
     </Wrapper>

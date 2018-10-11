@@ -7,6 +7,7 @@ export const FavoriteCategory = t.model('FavoriteCategory', {
   desc: t.maybeNull(t.string),
   totalCount: t.optional(t.number, 0),
   private: t.optional(t.boolean, false),
+  updatedAt: t.optional(t.string, ''),
 })
 
 export const PagedFavoriteCategories = t.model('PagedFavoriteCategories', {

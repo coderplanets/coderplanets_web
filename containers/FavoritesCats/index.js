@@ -5,6 +5,8 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
@@ -30,7 +32,8 @@ class FavoritesCatsContainer extends React.Component {
 
   // lists(box view, modal view), setter, creator and updater
   render() {
-    const { favoritesCats } = this.props
+    const { favoritesCats, onSelect } = this.props
+
     const {
       showModal,
       showUpdater,
@@ -65,10 +68,20 @@ class FavoritesCatsContainer extends React.Component {
           data={pagedCategoriesData}
           onEdit={logic.openUpdater}
           onPageChange={logic.loadCategories}
+          onSelect={onSelect}
         />
       </div>
     )
   }
+}
+
+FavoritesCatsContainer.propTypes = {
+  onSelect: PropTypes.func,
+  favoritesCats: PropTypes.any.isRequired,
+}
+
+FavoritesCatsContainer.defaultProps = {
+  onSelect: debug,
 }
 
 export default inject(storePlug('favoritesCats'))(
