@@ -48,8 +48,8 @@ class FavoritesCatsContainer extends React.Component {
           iconSrc={`${ICON_CMD}/folder.svg`}
           desc={`当前共有收藏夹 ${totalCount} 个。`}
           withAdder
-          onAdd={logic.onAdd}
-          adderText="创建收藏夹"
+          onAdd={logic.openCreator}
+          adderText="创建"
         />
         <Modal
           width="420px"
@@ -61,7 +61,11 @@ class FavoritesCatsContainer extends React.Component {
           <Creator data={editCategoryData} show={showModal && showCreator} />
           <Updater data={editCategoryData} show={showModal && showUpdater} />
         </Modal>
-        <BoxView data={pagedCategoriesData} onEdit={logic.onEdit} />
+        <BoxView
+          data={pagedCategoriesData}
+          onEdit={logic.openUpdater}
+          onPageChange={logic.loadCategories}
+        />
       </div>
     )
   }

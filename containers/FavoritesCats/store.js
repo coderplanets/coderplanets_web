@@ -17,14 +17,17 @@ import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
 const debug = makeDebugger('S:FavoritesCats')
 /* eslint-enable no-unused-vars */
 
+const emptyCat = {
+  id: '',
+  title: '',
+  desc: '',
+  private: false,
+}
+
 const FavoritesCats = t
   .model('FavoritesCats', {
     pagedCategories: t.optional(PagedFavoriteCategories, emptyPagiData),
-    editCategory: t.optional(FavoriteCategory, {
-      title: '',
-      desc: '',
-      private: false,
-    }),
+    editCategory: t.optional(FavoriteCategory, emptyCat),
     curView: t.optional(t.enumeration('view', ['box', 'list']), 'box'),
     showModal: t.optional(t.boolean, false),
     showUpdater: t.optional(t.boolean, false),
@@ -67,6 +70,9 @@ const FavoritesCats = t
           return false
         }
       }
+    },
+    cleanEditData() {
+      self.editCategory = emptyCat
     },
     markState(sobj) {
       markStates(sobj, self)

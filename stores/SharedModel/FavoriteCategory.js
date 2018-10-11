@@ -2,8 +2,9 @@ import { types as t } from 'mobx-state-tree'
 import { PAGE_SIZE } from '../../config'
 
 export const FavoriteCategory = t.model('FavoriteCategory', {
+  id: t.maybeNull(t.string),
   title: t.optional(t.string, ''),
-  desc: t.optional(t.string, ''),
+  desc: t.maybeNull(t.string),
   totalCount: t.optional(t.number, 0),
   private: t.optional(t.boolean, false),
 })

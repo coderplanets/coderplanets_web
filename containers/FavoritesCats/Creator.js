@@ -16,7 +16,7 @@ import {
 } from './styles/editor'
 
 import { makeDebugger } from '../../utils'
-import { categoryOnChange, onCategoryCreate } from './logic'
+import { categoryOnChange, onCategoryCreate, onModalClose } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:FavoritesCats:Creator')
@@ -63,7 +63,7 @@ const Creator = ({ data, show }) => (
       </FormItemWrapper>
     </EditWrapper>
     <Footer>
-      <Button type="primary" ghost>
+      <Button type="primary" ghost onClick={onModalClose}>
         取消
       </Button>
       <Space right="10px" />

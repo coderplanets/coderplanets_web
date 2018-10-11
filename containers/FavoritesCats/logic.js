@@ -1,6 +1,7 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes } from '../../utils'
+import { PAGE_SIZE } from '../../config'
+import { makeDebugger, $solver, asyncRes, asyncErr, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
@@ -20,31 +21,35 @@ export const categoryOnChange = R.curry((part, e) =>
 
 export function onCategoryCreate() {
   if (!store.validator('publish')) return false
-
-  console.log('onCategoryCreate data: ', store.editCategoryData)
+  sr71$.mutate(S.createFavoriteCategory, { ...store.editCategoryData })
 }
 
 export function onCategoryUpdate() {
-  debug('onCategoryUpdate data: ')
+  if (!store.validator('publish')) return false
+  sr71$.mutate(S.updateFavoriteCategory, { ...store.editCategoryData })
 }
 
-const listCategories = (page = 1) => {
+export const loadCategories = (page = 1) => {
   const userId = store.viewingUser.id
 
-  sr71$.query(S.listFavoriteCategories, { userId, filter: { page, size: 20 } })
+  sr71$.query(S.listFavoriteCategories, {
+    userId,
+    filter: { page, size: PAGE_SIZE.M },
+  })
 }
 
-export function onEdit() {
+export function openUpdater(editCategory) {
   store.markState({
     showModal: true,
     showUpdater: true,
     showCreator: false,
     showSetter: false,
     curView: 'list',
+    editCategory,
   })
 }
 
-export function onAdd() {
+export function openCreator() {
   store.markState({
     showModal: true,
     showUpdater: false,
@@ -54,12 +59,15 @@ export function onAdd() {
   })
 }
 
-export function onModalClose() {
-  store.markState({
-    showModal: false,
-  })
+export const onModalClose = () => {
+  store.markState({ showModal: false })
+  store.cleanEditData()
 }
 
+const reloadCats = () => {
+  onModalClose()
+  loadCategories()
+}
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -76,12 +84,40 @@ const DataSolver = [
       // dispatchEvent(EVENT.REFRESH_VIDEOS)
     },
   },
+  {
+    match: asyncRes('createFavoriteCategory'),
+    action: () => reloadCats(),
+  },
+  {
+    match: asyncRes('updateFavoriteCategory'),
+    action: () => reloadCats(),
+  },
 ]
-const ErrSolver = []
+
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      store.changesetErr({ title: '已经存在了', msg: details[0].detail })
+    },
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+    },
+  },
+]
 
 export function init(_store) {
   if (store) {
-    return listCategories()
+    return loadCategories()
   }
   store = _store
 
@@ -89,5 +125,5 @@ export function init(_store) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  listCategories()
+  loadCategories()
 }

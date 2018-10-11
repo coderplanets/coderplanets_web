@@ -4,6 +4,10 @@
 
 export const PAGE_SIZE = {
   COMMON: 20,
+  S: 10,
+  D: 20,
+  M: 30,
+  L: 40,
   POSTSPAPER_POSTS: 25,
   COMMENTS: 20,
 }

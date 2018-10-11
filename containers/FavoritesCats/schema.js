@@ -6,6 +6,7 @@ const listFavoriteCategories = gql`
       entries {
         id
         title
+        desc
         totalCount
         private
       }
@@ -18,8 +19,8 @@ const listFavoriteCategories = gql`
 `
 
 const createFavoriteCategory = gql`
-  mutation($title: String!, $private: Boolean) {
-    createFavoriteCategory(title: $title, private: $private) {
+  mutation($title: String!, $desc: String, $private: Boolean) {
+    createFavoriteCategory(title: $title, desc: $desc, private: $private) {
       id
       title
     }
