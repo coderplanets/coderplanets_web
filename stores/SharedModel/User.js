@@ -34,10 +34,25 @@ export const WorkBackground = t.model('WorkBackground', {
   title: t.optional(t.string, ''),
 })
 
+const SourceContribute = t.model('SourceContribute', {
+  web: t.maybeNull(t.boolean),
+  server: t.maybeNull(t.boolean),
+  mobile: t.maybeNull(t.boolean),
+  weApp: t.maybeNull(t.boolean),
+  h5: t.maybeNull(t.boolean),
+})
+
 export const Achievement = t.model('Achievement', {
   reputation: t.optional(t.number, 0),
   contentsStaredCount: t.optional(t.number, 0),
   contentsFavoritedCount: t.optional(t.number, 0),
+  sourceContribute: t.optional(SourceContribute, {
+    web: false,
+    server: false,
+    mobile: false,
+    weApp: false,
+    h5: false,
+  }),
 })
 
 export const User = t.model('User', {

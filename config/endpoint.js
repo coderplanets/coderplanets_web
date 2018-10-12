@@ -24,9 +24,12 @@ const getGraphQLEndpoint = () => {
   }
 }
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
-export const GITHUB_ADDR = 'https://github.com/coderplanets/coderplanets_web'
+export const GITHUB_WEB_ADDR =
+  'https://github.com/coderplanets/coderplanets_web'
+export const GITHUB_SERVER_ADDR =
+  'https://github.com/coderplanets/coderplanets_server'
 export const GITHUB_ME = 'https://github.com/mydearxym'
-export const ISSUE_ADDR = `${GITHUB_ADDR}/issues/new`
+export const ISSUE_ADDR = `${GITHUB_WEB_ADDR}/issues/new`
 export const MENTION_USER_ADDR = 'https://coderplanets.com/users/'
 
 export const COMMUNITY_WIKI =

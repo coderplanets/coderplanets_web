@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-const listFavoriteCategories = gql`
+const favoriteCategories = gql`
   query($userId: ID, $filter: CommonPagedFilter!) {
-    listFavoriteCategories(userId: $userId, filter: $filter) {
+    favoriteCategories(userId: $userId, filter: $filter) {
       entries {
         id
         title
@@ -64,7 +64,7 @@ const unsetFavorites = gql`
 `
 
 const schema = {
-  listFavoriteCategories,
+  favoriteCategories,
   createFavoriteCategory,
   updateFavoriteCategory,
   setFavorites,

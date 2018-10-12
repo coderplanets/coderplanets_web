@@ -30,6 +30,10 @@ const userRaw = `
         reputation
         contentsStaredCount
         contentsFavoritedCount
+        sourceContribute {
+          web
+          server
+        }
       }
       workBackgrounds {
         company

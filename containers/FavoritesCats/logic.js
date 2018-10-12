@@ -32,7 +32,7 @@ export function onCategoryUpdate() {
 export const loadCategories = (page = 1) => {
   const userId = store.viewingUser.id
 
-  sr71$.query(S.listFavoriteCategories, {
+  sr71$.query(S.favoriteCategories, {
     userId,
     filter: { page, size: PAGE_SIZE.M },
   })
@@ -74,8 +74,8 @@ const reloadCats = () => {
 
 const DataSolver = [
   {
-    match: asyncRes('listFavoriteCategories'),
-    action: ({ listFavoriteCategories: pagedCategories }) => {
+    match: asyncRes('favoriteCategories'),
+    action: ({ favoriteCategories: pagedCategories }) => {
       // const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
       store.markState({ pagedCategories })
       // store.closePreview()
