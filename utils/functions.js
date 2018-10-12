@@ -2,7 +2,7 @@ import R from 'ramda'
 import PubSub from 'pubsub-js'
 
 import { EVENT } from './constants'
-import { isEmptyValue } from './validator'
+import { nilOrEmpty } from './validator'
 
 /* eslint-disable */
 // TODO: document ?
@@ -33,7 +33,7 @@ const log = (...args) => data => {
 export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
 
 export const cutFrom = (val, cutnumber = 20) => {
-  if (isEmptyValue(val)) {
+  if (nilOrEmpty(val)) {
     return ''
   }
   if (val.length <= cutnumber) {

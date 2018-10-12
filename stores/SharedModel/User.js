@@ -2,7 +2,7 @@ import { types as t } from 'mobx-state-tree'
 import { Community } from './Community'
 import { PAGE_SIZE } from '../../config'
 
-const SubscribedCommunities = t.model('SubscribedCommunities', {
+const pagedCommunities = t.model('pagedCommunities', {
   entries: t.optional(t.array(Community), []),
   totalCount: t.optional(t.number, 0),
 })
@@ -34,10 +34,25 @@ export const WorkBackground = t.model('WorkBackground', {
   title: t.optional(t.string, ''),
 })
 
+const SourceContribute = t.model('SourceContribute', {
+  web: t.maybeNull(t.boolean),
+  server: t.maybeNull(t.boolean),
+  mobile: t.maybeNull(t.boolean),
+  weApp: t.maybeNull(t.boolean),
+  h5: t.maybeNull(t.boolean),
+})
+
 export const Achievement = t.model('Achievement', {
   reputation: t.optional(t.number, 0),
   contentsStaredCount: t.optional(t.number, 0),
   contentsFavoritedCount: t.optional(t.number, 0),
+  sourceContribute: t.optional(SourceContribute, {
+    web: false,
+    server: false,
+    mobile: false,
+    weApp: false,
+    h5: false,
+  }),
 })
 
 export const User = t.model('User', {
@@ -70,8 +85,8 @@ export const User = t.model('User', {
 
   fromGithub: t.optional(t.boolean, false),
   /* fromWeixin: t.optional(t.boolean, false), */
-  /* subscribedCommunities: t.optional(SubscribedCommunities, {}), */
-  subscribedCommunities: t.maybeNull(SubscribedCommunities),
+  /* subscribedCommunities: t.optional(pagedCommunities, {}), */
+  subscribedCommunities: t.maybeNull(pagedCommunities),
   subscribedCommunitiesCount: t.optional(t.number, 0),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybeNull(GithubProfile),
@@ -85,6 +100,7 @@ export const User = t.model('User', {
     contentsStaredCount: 0,
     contentsFavoritedCount: 0,
   }),
+  editableCommunities: t.maybeNull(pagedCommunities),
 
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
@@ -114,7 +130,7 @@ export const EmptyUser = {
 export const PagedUsers = t.model('PagedUsers', {
   entries: t.optional(t.array(User), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

@@ -59,7 +59,7 @@ export function loadJobs(page = 1) {
     /* first: 4, */
     filter: {
       page,
-      size: PAGE_SIZE.POSTSPAPER_POSTS,
+      size: PAGE_SIZE.M,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,

@@ -33,7 +33,7 @@ export const Community = t.model('Community', {
 export const PagedCommunities = t.model('PagedCommunities', {
   entries: t.optional(t.array(Community), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

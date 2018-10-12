@@ -10,6 +10,8 @@ import { inject, observer } from 'mobx-react'
 import FavoritesCats from '../FavoritesCats'
 import { PostItemLoading, Pagi, PostItem } from '../../components'
 
+import Breadcrumbs from './Breadcrumbs'
+
 import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
@@ -45,24 +47,39 @@ class UserFavoritesContainer extends React.Component {
 
   render() {
     const {
-      userFavorites: { pagedPostsData, curView },
+      userFavorites: {
+        pagedPostsData,
+        parentView,
+        curView,
+        curCategoryData,
+        favoriteThread,
+      },
     } = this.props
 
     const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
 
     return (
       <div>
-        <FavoritesCats />
-        <React.Fragment>
-          <View entries={entries} curView={curView} />
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={debug}
-          />
-        </React.Fragment>
+        {parentView === 'CATEGORY_LIST' ? (
+          <FavoritesCats onSelect={logic.onCatSelect} />
+        ) : (
+          <React.Fragment>
+            <Breadcrumbs
+              gotoParent={logic.backToCategoryList}
+              category={curCategoryData}
+              favoriteThread={favoriteThread}
+              changeFavoriteThread={logic.changeFavoriteThread}
+            />
+            <View entries={entries} curView={curView} />
+            <Pagi
+              left="-10px"
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onChange={debug}
+            />
+          </React.Fragment>
+        )}
       </div>
     )
   }

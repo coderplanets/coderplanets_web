@@ -10,9 +10,3 @@ export const Title = styled.div`
   font-size: 1.1rem;
   margin-bottom: 10px;
 `
-
-export const Desc = styled.div`
-  color: ${theme('banner.desc')};
-  display: flex;
-  align-items: baseline;
-`

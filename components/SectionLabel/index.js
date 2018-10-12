@@ -28,14 +28,22 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:SectionLabel:index')
 /* eslint-enable no-unused-vars */
 
-const SectionLabel = ({ title, iconSrc, desc, node, withAdder, onAdd }) => (
+const SectionLabel = ({
+  title,
+  iconSrc,
+  desc,
+  node,
+  withAdder,
+  onAdd,
+  adderText,
+}) => (
   <Wrapper>
     <Label>
       <LabelIcon src={iconSrc} />
       <Title>{title}</Title>
       <AdderWrapper show={withAdder} onClick={onAdd}>
         <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
-        <AdderText>添加</AdderText>
+        <AdderText>{adderText}</AdderText>
       </AdderWrapper>
     </Label>
     <Divider />
@@ -56,6 +64,7 @@ SectionLabel.propTypes = {
   node: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   withAdder: PropTypes.bool,
   onAdd: PropTypes.func,
+  adderText: PropTypes.string,
 }
 
 SectionLabel.defaultProps = {
@@ -64,6 +73,7 @@ SectionLabel.defaultProps = {
   node: '',
   withAdder: false,
   onAdd: debug,
+  adderText: '添加',
 }
 
 export default SectionLabel

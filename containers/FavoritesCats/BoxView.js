@@ -1,43 +1,28 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
-import { uid } from '../../utils'
+import { EmptyLabel } from '../../components'
 
-import {
-  Wrapper,
-  BoxWrapper,
-  Header,
-  Title,
-  TitleText,
-  LockIcon,
-  EditIcon,
-  Footer,
-  FooterCounter,
-  FooterUpdate,
-  Desc,
-} from './styles/box_view'
+import { Wrapper, MsgWrapper } from './styles/box_view'
 
-const BoxView = ({ entries, onEdit }) => {
+import CategoryCardList from './CategoryCardList'
+
+const BoxView = ({ data, onEdit, onPageChange, onSelect }) => {
+  const { totalCount } = data
+
   return (
     <Wrapper>
-      {entries.map(cat => (
-        <BoxWrapper key={uid.gen()}>
-          <Header>
-            <Title>
-              <TitleText>{cat.title}</TitleText>
-              <LockIcon src={`${ICON_CMD}/lock.svg`} />
-            </Title>
-            <div onClick={onEdit}>
-              <EditIcon src={`${ICON_CMD}/edit.svg`} />
-            </div>
-          </Header>
-          <Desc>{cat.desc}</Desc>
-          <Footer>
-            <FooterCounter>4 条内容</FooterCounter>
-            <FooterUpdate>更新: 3天前</FooterUpdate>
-          </Footer>
-        </BoxWrapper>
-      ))}
+      {totalCount === 0 ? (
+        <MsgWrapper>
+          <EmptyLabel text="你还没有任何收藏夹" size="large" />
+        </MsgWrapper>
+      ) : (
+        <CategoryCardList
+          data={data}
+          onEdit={onEdit}
+          onPageChange={onPageChange}
+          onSelect={onSelect}
+        />
+      )}
     </Wrapper>
   )
 }

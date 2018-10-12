@@ -5,6 +5,8 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
@@ -22,19 +24,6 @@ import * as logic from './logic'
 const debug = makeDebugger('C:FavoritesCats')
 /* eslint-enable no-unused-vars */
 
-const categories = [
-  {
-    title: '前端框架',
-    desc: 'this is a desc',
-    private: 'is private!',
-  },
-  {
-    title: '后端技术',
-    desc: 'this is a desc',
-    private: 'is private!',
-  },
-]
-
 class FavoritesCatsContainer extends React.Component {
   componentWillMount() {
     const { favoritesCats } = this.props
@@ -43,17 +32,27 @@ class FavoritesCatsContainer extends React.Component {
 
   // lists(box view, modal view), setter, creator and updater
   render() {
-    const { favoritesCats } = this.props
-    const { showModal, showUpdater, showCreator, showSetter } = favoritesCats
+    const { favoritesCats, onSelect } = this.props
 
+    const {
+      showModal,
+      showUpdater,
+      showCreator,
+      showSetter,
+      editCategoryData,
+      pagedCategoriesData,
+    } = favoritesCats
+
+    const { entries, totalCount } = pagedCategoriesData
     return (
       <div>
         <SectionLabel
           title="收藏夹"
           iconSrc={`${ICON_CMD}/folder.svg`}
-          desc="共有内容 xx 条, 最后更新时间 xxx"
+          desc={`当前共有收藏夹 ${totalCount} 个。`}
           withAdder
-          onAdd={logic.onAdd}
+          onAdd={logic.openCreator}
+          adderText="创建"
         />
         <Modal
           width="420px"
@@ -61,14 +60,28 @@ class FavoritesCatsContainer extends React.Component {
           showCloseBtn
           onClose={logic.onModalClose}
         >
-          <Setter show={showModal && showSetter} entries={categories} />
-          <Creator show={showModal && showCreator} />
-          <Updater show={showModal && showUpdater} />
+          <Setter show={showModal && showSetter} entries={entries} />
+          <Creator data={editCategoryData} show={showModal && showCreator} />
+          <Updater data={editCategoryData} show={showModal && showUpdater} />
         </Modal>
-        <BoxView entries={categories} onEdit={logic.onEdit} />
+        <BoxView
+          data={pagedCategoriesData}
+          onEdit={logic.openUpdater}
+          onPageChange={logic.loadCategories}
+          onSelect={onSelect}
+        />
       </div>
     )
   }
+}
+
+FavoritesCatsContainer.propTypes = {
+  onSelect: PropTypes.func,
+  favoritesCats: PropTypes.any.isRequired,
+}
+
+FavoritesCatsContainer.defaultProps = {
+  onSelect: debug,
 }
 
 export default inject(storePlug('favoritesCats'))(

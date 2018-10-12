@@ -7,7 +7,7 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import AccountSchema from '../containers/AccountViewer/schema'
+import UserBannerSchema from '../containers/UserBanner/schema'
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -25,7 +25,7 @@ import {
 import {
   makeGQClient,
   queryStringToJSON,
-  /* nilOrEmpty, */
+  nilOrEmpty,
   getSubPath,
   USER_THREAD,
   /* BStore, */
@@ -47,9 +47,9 @@ async function fetchData(props) {
 
   const userId = getSubPath(props)
   const user = gqClient
-    .request(AccountSchema.userRaw, {
+    .request(UserBannerSchema.userRaw, {
       id: userId,
-      /* userHasLogin: nilOrEmpty(token) === false, */
+      userHasLogin: nilOrEmpty(token) === false,
     })
     .catch(e => {
       debug('error? ', e)
@@ -75,7 +75,7 @@ export default class UserPage extends React.Component {
     return {
       langSetup: {},
       route: { mainPath: ROUTE.USER, subPath: user.id, query },
-      userContent: { activeThread: query.tab || USER_THREAD.POSTS },
+      userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
       viewing: { user },
     }
   }

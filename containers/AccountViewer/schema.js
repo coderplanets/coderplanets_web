@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-const userRaw = `
+const user = gql`
   query user($id: ID!) {
     user(id: $id) {
       id
@@ -45,10 +45,6 @@ const userRaw = `
       }
     }
   }
-`
-
-const user = gql`
-  ${userRaw}
 `
 // TODO: use user schema
 const account = gql`
@@ -96,7 +92,6 @@ const account = gql`
 const schema = {
   account,
   user,
-  userRaw,
 }
 
 export default schema

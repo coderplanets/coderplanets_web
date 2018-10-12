@@ -15,21 +15,23 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:EmptyLabel:index')
 /* eslint-enable no-unused-vars */
 
-const EmptyLabel = ({ text, iconSrc }) => (
+const EmptyLabel = ({ text, iconSrc, size }) => (
   <Wrapper>
-    <Icon src={iconSrc} />
-    <Title>{text}</Title>
+    <Icon src={iconSrc} size={size} />
+    <Title size={size}>{text}</Title>
   </Wrapper>
 )
 
 EmptyLabel.propTypes = {
   iconSrc: PropTypes.string,
   text: PropTypes.string,
+  size: PropTypes.oneOf(['default', 'large']),
 }
 
 EmptyLabel.defaultProps = {
   text: '啥子都没得 ...',
   iconSrc: `${ICON_CMD}/planet_v2.svg`,
+  size: 'default',
 }
 
 export default EmptyLabel

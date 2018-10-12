@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   position: relative;
   background: ${theme('modal.bg')};
   margin: 0 auto;
-  top: 15%;
+  top: 13%;
   width: ${({ width }) => width};
   min-height: 320px;
   max-height: 80vh;

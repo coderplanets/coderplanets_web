@@ -45,7 +45,7 @@ export function loadVideos(page = 1) {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,

@@ -3,9 +3,10 @@ import React from 'react'
 import { ICON_CMD } from '../../config'
 
 import { FocusLine } from '../../components'
-import { Wrapper, Title, Desc } from './styles/achieve_info'
+import { Wrapper, Title } from './styles/achieve_card'
+import CommunityEditorInfo from './CommunityEditorInfo'
 
-const AchieveInfo = ({ user }) => (
+const AchieveCard = ({ user }) => (
   <Wrapper>
     <Title>个人成就</Title>
     <FocusLine
@@ -21,8 +22,8 @@ const AchieveInfo = ({ user }) => (
       after="次"
     />
 
-    <Desc>xx,xx,xx 社区编辑</Desc>
+    <CommunityEditorInfo user={user} />
   </Wrapper>
 )
 
-export default AchieveInfo
+export default AchieveCard

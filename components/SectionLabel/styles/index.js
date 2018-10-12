@@ -17,7 +17,7 @@ export const Title = styled.div`
   flex-grow: 1;
 `
 export const AdderWrapper = styled.div`
-  margin-right: 11%;
+  margin-right: 5%;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   &:active {
     animation: ${Animate.pulse} 0.3s linear;
@@ -55,7 +55,7 @@ export const Divider = styled.div`
   border-color: ${theme('banner.desc')};
   margin-top: 12px;
   margin-bottom: 18px;
-  width: 90%;
+  width: 95%;
   opacity: 0.3;
 `
 

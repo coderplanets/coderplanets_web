@@ -30,6 +30,10 @@ const userRaw = `
         reputation
         contentsStaredCount
         contentsFavoritedCount
+        sourceContribute {
+          web
+          server
+        }
       }
       workBackgrounds {
         company
@@ -51,6 +55,15 @@ const userRaw = `
         }
         startDate
         endDate
+        totalCount
+      }
+      editableCommunities {
+        entries {
+          id
+          logo
+          title
+          raw
+        }
         totalCount
       }
       insertedAt
