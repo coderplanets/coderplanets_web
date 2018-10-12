@@ -2,7 +2,7 @@ import { types as t } from 'mobx-state-tree'
 import { Community } from './Community'
 import { PAGE_SIZE } from '../../config'
 
-const SubscribedCommunities = t.model('SubscribedCommunities', {
+const pagedCommunities = t.model('pagedCommunities', {
   entries: t.optional(t.array(Community), []),
   totalCount: t.optional(t.number, 0),
 })
@@ -85,8 +85,8 @@ export const User = t.model('User', {
 
   fromGithub: t.optional(t.boolean, false),
   /* fromWeixin: t.optional(t.boolean, false), */
-  /* subscribedCommunities: t.optional(SubscribedCommunities, {}), */
-  subscribedCommunities: t.maybeNull(SubscribedCommunities),
+  /* subscribedCommunities: t.optional(pagedCommunities, {}), */
+  subscribedCommunities: t.maybeNull(pagedCommunities),
   subscribedCommunitiesCount: t.optional(t.number, 0),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybeNull(GithubProfile),
@@ -100,6 +100,7 @@ export const User = t.model('User', {
     contentsStaredCount: 0,
     contentsFavoritedCount: 0,
   }),
+  editableCommunities: t.maybeNull(pagedCommunities),
 
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),

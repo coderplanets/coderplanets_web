@@ -57,6 +57,15 @@ const userRaw = `
         endDate
         totalCount
       }
+      editableCommunities {
+        entries {
+          id
+          logo
+          title
+          raw
+        }
+        totalCount
+      }
       insertedAt
     }
   }
