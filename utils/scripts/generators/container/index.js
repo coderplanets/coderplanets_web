@@ -35,7 +35,7 @@ module.exports = {
     {
       type: 'confirm',
       name: 'wantI18n',
-      default: true,
+      default: false,
       message: 'Do you want i18n messages (i.e. will this container use text)?',
     },
   ],

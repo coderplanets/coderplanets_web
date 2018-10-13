@@ -1,18 +1,22 @@
- /*
+/*
  *
  * {{ properCase name }}
  *
- */
+*/
 
 import React from 'react'
 import PropTypes from 'prop-types'
 
+{{#if wantStyle}}
+import { Wrapper } from './styles'
+{{/if}}
 {{#if wantI18n}}
 import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 {{/if}}
 
 import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:{{ properCase name }}:index')
 /* eslint-enable no-unused-vars */
