@@ -23,20 +23,44 @@ const debug = makeDebugger('L:UserPublished')
 
 let store = null
 
-export const loadPosts = (page = 1) => {
-  const args = {
+const beforeQuery = page => {
+  store.markState({ curView: TYPE.LOADING })
+  // args
+  return {
     userId: store.viewingUser.id,
     filter: pagedFilter(page),
   }
-
-  store.markState({ curView: TYPE.LOADING })
+}
+export const loadPosts = (page = 1) => {
+  const args = beforeQuery(page)
   sr71$.query(S.publishedPosts, args)
 }
 
-export function onPageChange(page) {
+export const loadJobs = (page = 1) => {
+  const args = beforeQuery(page)
+  sr71$.query(S.publishedJobs, args)
+}
+
+export const loadVideos = (page = 1) => {
+  const args = beforeQuery(page)
+  sr71$.query(S.publishedVideos, args)
+}
+
+export const loadRepos = (page = 1) => {
+  const args = beforeQuery(page)
+  sr71$.query(S.publishedRepos, args)
+}
+
+export function reload(page) {
   switch (store.curThread) {
     case THREAD.JOB: {
-      return debug('load job')
+      return loadJobs(page)
+    }
+    case THREAD.VIDEO: {
+      return loadVideos(page)
+    }
+    case THREAD.REPO: {
+      return loadRepos(page)
     }
     default: {
       return loadPosts(page)
@@ -47,6 +71,7 @@ export function onPageChange(page) {
 export function onThreadChange(curThread) {
   // TODO: markRoute
   store.markState({ curThread })
+  reload()
 }
 
 // ###############################
@@ -56,13 +81,19 @@ export function onThreadChange(curThread) {
 const DataSolver = [
   {
     match: asyncRes('publishedPosts'),
-    action: ({ publishedPosts: pagedPosts }) => {
-      let curView = TYPE.RESULT
-      if (pagedPosts.entries.length === 0) {
-        curView = TYPE.RESULT_EMPTY
-      }
-      store.markState({ curView, pagedPosts })
-    },
+    action: ({ publishedPosts }) => store.markPagedData(publishedPosts),
+  },
+  {
+    match: asyncRes('publishedJobs'),
+    action: ({ publishedJobs }) => store.markPagedData(publishedJobs),
+  },
+  {
+    match: asyncRes('publishedVideos'),
+    action: ({ publishedVideos }) => store.markPagedData(publishedVideos),
+  },
+  {
+    match: asyncRes('publishedRepos'),
+    action: ({ publishedRepos }) => store.markPagedData(publishedRepos),
   },
 ]
 const ErrSolver = [

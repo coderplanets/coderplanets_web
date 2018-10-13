@@ -27,9 +27,9 @@ class UserPublishedContainer extends React.Component {
 
   render() {
     const { userPublished } = this.props
-    const { pagedPostsData, curView, curThread } = userPublished
+    const { pagedData, curView, curThread } = userPublished
 
-    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
+    const { entries, totalCount, pageNumber, pageSize } = pagedData
 
     return (
       <div>
@@ -41,17 +41,19 @@ class UserPublishedContainer extends React.Component {
             lookLike="box"
           />
         </ThreadWrapper>
+
         <PublishedContents
           entries={entries}
           curView={curView}
           thread={curThread}
         />
+
         <Pagi
           left="-20px"
           pageNumber={pageNumber}
           pageSize={pageSize}
           totalCount={totalCount}
-          onChange={logic.onPageChange}
+          onChange={logic.reload}
         />
       </div>
     )
