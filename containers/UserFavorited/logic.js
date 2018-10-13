@@ -11,7 +11,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:UserFavorites')
+const debug = makeDebugger('L:UserFavorited')
 /* eslint-enable no-unused-vars */
 
 let store = null

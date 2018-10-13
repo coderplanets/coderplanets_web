@@ -90,5 +90,5 @@ export { default as UserStaredStore } from '../containers/UserStared/store'
 export { default as UserSettingsStore } from '../containers/UserSettings/store'
 // TODO: rename to UserFavoritedStore
 export {
-  default as UserFavoritesStore,
-} from '../containers/UserFavorites/store'
+  default as UserFavoritedStore,
+} from '../containers/UserFavorited/store'

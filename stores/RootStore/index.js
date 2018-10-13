@@ -74,7 +74,7 @@ import {
   UserPublishedStore,
   UserSettingsStore,
   UserStaredStore,
-  UserFavoritesStore,
+  UserFavoritedStore,
   FavoritesCatsStore,
 } from '../index'
 
@@ -154,7 +154,7 @@ const rootStore = t
     userPublished: t.optional(UserPublishedStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
     userStared: t.optional(UserStaredStore, {}),
-    userFavorites: t.optional(UserFavoritesStore, {}),
+    userFavorited: t.optional(UserFavoritedStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({

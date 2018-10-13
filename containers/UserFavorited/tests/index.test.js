@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import UserFavorites from '../index'
+// import UserFavorited from '../index'
 
-describe('TODO <UserFavorites />', () => {
+describe('TODO <UserFavorited />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

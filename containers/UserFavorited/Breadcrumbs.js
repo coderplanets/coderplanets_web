@@ -7,6 +7,7 @@ import {
   TitleList,
   Divider,
   Label,
+  ThreadSelectorLabel,
   LabelText,
   LabelIcon,
   LabelSlash,
@@ -30,12 +31,12 @@ const Breadcrumbs = ({
         <div>{category.title}</div>
       </Label>
       <LabelSlash>/</LabelSlash>
-      <Label>
+      <ThreadSelectorLabel>
         <ThreadSelector
           active={favoriteThread}
           onSelect={changeFavoriteThread}
         />
-      </Label>
+      </ThreadSelectorLabel>
     </TitleList>
     <Divider />
   </Wrapper>

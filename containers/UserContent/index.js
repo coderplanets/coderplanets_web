@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import UserSettings from '../UserSettings'
 import UserStared from '../UserStared'
-import UserFavorites from '../UserFavorites'
+import UserFavorited from '../UserFavorited'
 import UserPublished from '../UserPublished'
 
 import { Affix, Tabber } from '../../components'
@@ -58,7 +58,7 @@ const TabberContent = ({ active }) => {
       return <h2>COMMENTS</h2>
     }
     case USER_THREAD.FAVORITES: {
-      return <UserFavorites />
+      return <UserFavorited />
     }
     case USER_THREAD.LINKS: {
       return <UserStared />

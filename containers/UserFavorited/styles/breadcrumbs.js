@@ -17,6 +17,10 @@ export const Label = styled.div`
   align-items: center;
   margin-left: 3px;
 `
+export const ThreadSelectorLabel = styled(Label)`
+  flex-grow: 1;
+`
+
 export const LabelText = styled.div`
   &:hover {
     color: ${theme('banner.title')};
@@ -43,6 +47,6 @@ export const Divider = styled.div`
   border-color: ${theme('banner.desc')};
   margin-top: 10px;
   margin-bottom: 15px;
-  width: 95%;
+  width: 100%;
   opacity: 0.3;
 `
