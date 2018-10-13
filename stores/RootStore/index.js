@@ -73,6 +73,7 @@ import {
   // user page
   UserPublishedStore,
   UserSettingsStore,
+  UserStaredStore,
   UserFavoritesStore,
   FavoritesCatsStore,
 } from '../index'
@@ -152,6 +153,7 @@ const rootStore = t
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
+    userStared: t.optional(UserStaredStore, {}),
     userFavorites: t.optional(UserFavoritesStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
   })

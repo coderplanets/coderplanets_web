@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_BASE, ISSUE_ADDR } from '../../config'
-import { makeDebugger } from '../../utils'
+import { makeDebugger, Trans } from '../../utils'
 
 import {
   Icon404,
@@ -23,18 +23,11 @@ import {
 const debug = makeDebugger('c:EmptyThread:index')
 /* eslint-enable no-unused-vars */
 
-const translator = {
-  posts: '帖子',
-  jobs: '工作',
-  videos: '视频',
-  repos: '开源项目',
-}
-
 const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
       如果你有 {community} 相关的优质
-      {translator[thread] || thread}
+      {Trans(thread)}
       ，欢迎一起分享 / 交流
     </div>
     <div>
@@ -55,7 +48,7 @@ const EmptyThread = ({ community, thread }) => (
     <Text>
       <Title>
         {community} 社区内未找到符合相关条件的
-        {translator[thread] || thread}
+        {`${Trans(thread)}信息`}
       </Title>
       <DescWrapper>
         <DescContent community={community} thread={thread} />

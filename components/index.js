@@ -9,7 +9,8 @@ export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'
 export { default as Popconfirm } from './Popconfirm'
 export { Space, SpaceGrow, Margin } from './BaseStyled'
-// items
+// paged contents
+export { default as PagedContents } from './PagedContents'
 export { default as PostItem } from './PostItem'
 export { default as JobItem } from './JobItem'
 export { default as RepoItem } from './RepoItem'

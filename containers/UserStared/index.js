@@ -1,30 +1,30 @@
 /*
  *
- * UserPublished
+ * UserStared
  *
  */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ThreadSelector, PagedContents } from '../../components'
 import { ThreadWrapper } from './styles'
-import { makeDebugger, storePlug } from '../../utils'
+import { ThreadSelector, PagedContents } from '../../components'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:UserPublished')
+const debug = makeDebugger('C:UserStared')
 /* eslint-enable no-unused-vars */
 
-class UserPublishedContainer extends React.Component {
+class UserStaredContainer extends React.Component {
   componentWillMount() {
-    const { userPublished } = this.props
-    logic.init(userPublished)
+    const { userStared } = this.props
+    logic.init(userStared)
   }
 
   render() {
-    const { userPublished } = this.props
-    const { pagedData, curView, curThread, viewingUser } = userPublished
+    const { userStared } = this.props
+    const { pagedData, curView, curThread, viewingUser } = userStared
 
     const { totalCount } = pagedData
 
@@ -36,6 +36,7 @@ class UserPublishedContainer extends React.Component {
             onSelect={logic.onThreadChange}
             totalCount={totalCount}
             lookLike="box"
+            options={[THREAD.POST, THREAD.JOB, THREAD.VIDEO]}
           />
         </ThreadWrapper>
 
@@ -44,13 +45,11 @@ class UserPublishedContainer extends React.Component {
           thread={curThread}
           curView={curView}
           onPageChange={logic.reload}
-          emptyPrefix={`未找到 ${viewingUser.nickname} 发布的`}
+          emptyPrefix={`未找到 ${viewingUser.nickname} 喜欢的`}
         />
       </React.Fragment>
     )
   }
 }
 
-export default inject(storePlug('userPublished'))(
-  observer(UserPublishedContainer)
-)
+export default inject(storePlug('userStared'))(observer(UserStaredContainer))

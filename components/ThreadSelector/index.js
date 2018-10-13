@@ -52,7 +52,7 @@ const ThreadSelector = ({
         )}
       </div>
     </Popover>
-    {totalCount !== 0 ? <LabelCount>结果 {totalCount} 条</LabelCount> : null}
+    <LabelCount>结果共 {totalCount} 条</LabelCount>
   </Wrapper>
 )
 
