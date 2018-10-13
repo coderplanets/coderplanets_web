@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   margin-top: 10px;
-  font-size: ${({ size }) => (size === 'default' ? '1rem' : '1.4rem;')};
+  font-size: ${({ size }) => (size === 'default' ? '1rem' : '1.2rem;')};
 `
 
 export const Icon = styled(Img)`

@@ -54,5 +54,6 @@ export { default as UserLister } from './UserLister'
 
 // user page
 export { default as UserPublished } from './UserPublished'
+export { default as UserStared } from './UserStared'
+export { default as UserFavorited } from './UserFavorited'
 export { default as UserSettings } from './UserSettings'
-export { default as UserFavorites } from './UserFavorites'

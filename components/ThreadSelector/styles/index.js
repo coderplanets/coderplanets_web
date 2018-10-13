@@ -6,6 +6,7 @@ import { theme } from '../../../utils'
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-grow: 1;
 `
 export const Label = styled.div`
   display: flex;

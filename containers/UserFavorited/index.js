@@ -1,6 +1,6 @@
 /*
  *
- * UserFavorites
+ * UserFavorited
  *
  */
 
@@ -15,7 +15,7 @@ import Breadcrumbs from './Breadcrumbs'
 import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:UserFavorites')
+const debug = makeDebugger('C:UserFavorited')
 /* eslint-enable no-unused-vars */
 
 const View = ({ entries, curView, active }) => {
@@ -41,13 +41,13 @@ const View = ({ entries, curView, active }) => {
 
 class UserFavoritesContainer extends React.Component {
   componentWillMount() {
-    const { userFavorites } = this.props
-    logic.init(userFavorites)
+    const { userFavorited } = this.props
+    logic.init(userFavorited)
   }
 
   render() {
     const {
-      userFavorites: {
+      userFavorited: {
         pagedPostsData,
         parentView,
         curView,
@@ -85,6 +85,6 @@ class UserFavoritesContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('userFavorites'))(
+export default inject(storePlug('userFavorited'))(
   observer(UserFavoritesContainer)
 )

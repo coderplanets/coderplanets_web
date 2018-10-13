@@ -5,8 +5,8 @@ import {
   $solver,
   asyncRes,
   asyncErr,
-  TYPE,
   ERR,
+  TYPE,
   THREAD,
   pagedFilter,
 } from '../../utils'
@@ -18,7 +18,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:UserPublished')
+const debug = makeDebugger('L:UserStared')
 /* eslint-enable no-unused-vars */
 
 let store = null
@@ -31,24 +31,20 @@ const beforeQuery = page => {
     filter: pagedFilter(page),
   }
 }
-export const loadPosts = (page = 1) => {
+
+export function loadPosts(page = 1) {
   const args = beforeQuery(page)
-  sr71$.query(S.publishedPosts, args)
+  sr71$.query(S.staredPosts, args)
 }
 
-export const loadJobs = (page = 1) => {
+export function loadJobs(page = 1) {
   const args = beforeQuery(page)
-  sr71$.query(S.publishedJobs, args)
+  sr71$.query(S.staredJobs, args)
 }
 
-export const loadVideos = (page = 1) => {
+export function loadVideos(page = 1) {
   const args = beforeQuery(page)
-  sr71$.query(S.publishedVideos, args)
-}
-
-export const loadRepos = (page = 1) => {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedRepos, args)
+  sr71$.query(S.staredVideos, args)
 }
 
 export function reload(page) {
@@ -58,9 +54,6 @@ export function reload(page) {
     }
     case THREAD.VIDEO: {
       return loadVideos(page)
-    }
-    case THREAD.REPO: {
-      return loadRepos(page)
     }
     default: {
       return loadPosts(page)
@@ -80,20 +73,16 @@ export function onThreadChange(curThread) {
 
 const DataSolver = [
   {
-    match: asyncRes('publishedPosts'),
-    action: ({ publishedPosts }) => store.markPagedData(publishedPosts),
+    match: asyncRes('staredPosts'),
+    action: ({ staredPosts }) => store.markPagedData(staredPosts),
   },
   {
-    match: asyncRes('publishedJobs'),
-    action: ({ publishedJobs }) => store.markPagedData(publishedJobs),
+    match: asyncRes('staredJobs'),
+    action: ({ staredJobs }) => store.markPagedData(staredJobs),
   },
   {
-    match: asyncRes('publishedVideos'),
-    action: ({ publishedVideos }) => store.markPagedData(publishedVideos),
-  },
-  {
-    match: asyncRes('publishedRepos'),
-    action: ({ publishedRepos }) => store.markPagedData(publishedRepos),
+    match: asyncRes('staredVideos'),
+    action: ({ staredVideos }) => store.markPagedData(staredVideos),
   },
 ]
 const ErrSolver = [
@@ -123,8 +112,9 @@ export function init(_store) {
   }
   store = _store
 
+  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  return loadPosts()
+  loadPosts()
 }

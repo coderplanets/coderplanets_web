@@ -1,5 +1,5 @@
 /*
-* UserFavoritedStore store
+* UserStaredStore store
 *
 */
 
@@ -8,11 +8,11 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:UserFavoritedStore')
+const debug = makeDebugger('S:UserStaredStore')
 /* eslint-enable no-unused-vars */
 
-const UserFavoritedStore = t
-  .model('UserFavoritedStore', {})
+const UserStaredStore = t
+  .model('UserStaredStore', {})
   .views(self => ({
     get root() {
       return getParent(self)
@@ -24,4 +24,4 @@ const UserFavoritedStore = t
     },
   }))
 
-export default UserFavoritedStore
+export default UserStaredStore

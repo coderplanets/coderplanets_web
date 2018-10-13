@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-const publishedPosts = gql`
+const staredPosts = gql`
   query($userId: ID!, $filter: PagedFilter!) {
-    publishedPosts(userId: $userId, filter: $filter) {
+    staredPosts(userId: $userId, filter: $filter) {
       entries {
         id
         title
@@ -29,9 +29,10 @@ const publishedPosts = gql`
     }
   }
 `
-const publishedJobs = gql`
+
+const staredJobs = gql`
   query($userId: ID!, $filter: PagedFilter!) {
-    publishedJobs(userId: $userId, filter: $filter) {
+    staredJobs(userId: $userId, filter: $filter) {
       entries {
         id
         title
@@ -58,9 +59,9 @@ const publishedJobs = gql`
     }
   }
 `
-const publishedVideos = gql`
+const staredVideos = gql`
   query($userId: ID!, $filter: PagedFilter!) {
-    publishedVideos(userId: $userId, filter: $filter) {
+    staredVideos(userId: $userId, filter: $filter) {
       entries {
         id
         title
@@ -86,48 +87,10 @@ const publishedVideos = gql`
     }
   }
 `
-const publishedRepos = gql`
-  query($userId: ID!, $filter: PagedFilter!) {
-    publishedRepos(userId: $userId, filter: $filter) {
-      entries {
-        id
-        title
-        ownerName
-        desc
-        license
-        releaseTag
-        contributors {
-          avatar
-          htmlUrl
-          nickname
-        }
-        starCount
-        forkCount
-        primaryLanguage {
-          name
-          color
-        }
-        views
-        author {
-          id
-          avatar
-          nickname
-        }
-        insertedAt
-      }
-      totalPages
-      totalCount
-      pageSize
-      pageNumber
-    }
-  }
-`
-
 const schema = {
-  publishedPosts,
-  publishedJobs,
-  publishedVideos,
-  publishedRepos,
+  staredPosts,
+  staredJobs,
+  staredVideos,
 }
 
 export default schema

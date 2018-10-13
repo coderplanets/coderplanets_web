@@ -73,7 +73,8 @@ import {
   // user page
   UserPublishedStore,
   UserSettingsStore,
-  UserFavoritesStore,
+  UserStaredStore,
+  UserFavoritedStore,
   FavoritesCatsStore,
 } from '../index'
 
@@ -152,7 +153,8 @@ const rootStore = t
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
-    userFavorites: t.optional(UserFavoritesStore, {}),
+    userStared: t.optional(UserStaredStore, {}),
+    userFavorited: t.optional(UserFavoritedStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({

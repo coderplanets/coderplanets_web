@@ -30,8 +30,9 @@ export const Title = styled.div`
 
   ${Wrapper}:hover & {
     opacity: 1;
-    font-weight: bold;
+    color: ${theme('thread.articleDigest')};
   }
+  transition: opacity 0.3s;
 `
 
 export const DotWrapper = styled.div`

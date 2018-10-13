@@ -26,12 +26,9 @@ export const NumTitle = styled(RepTitle)`
   }
 `
 export const RepNumber = styled.div`
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.5rem;
 `
 export const NumNumber = styled(RepNumber)`
-  font-size: 1.4rem;
-  font-weight: bold;
   ${NumWrapper}:hover & {
     color: ${theme('contrastFg')};
     cursor: pointer;

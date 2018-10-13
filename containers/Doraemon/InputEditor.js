@@ -31,6 +31,9 @@ const PrefixIcon = ({ prefix }) => {
     case '/': {
       return <PrefixMagicIcon src={`${ICON_CMD}/magic.svg`} />
     }
+    case 'login': {
+      return <PrefixSVGIcon src={`${ICON_CMD}/login.svg`} />
+    }
     default: {
       return <PrefixSVGIcon src={logic.getPrefixLogo(prefix)} />
     }

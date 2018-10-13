@@ -1,5 +1,5 @@
 /*
- * UserFavorites store
+ * UserFavorited store
  *
  */
 
@@ -15,11 +15,11 @@ import {
 
 import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:UserFavorites')
+const debug = makeDebugger('S:UserFavorited')
 /* eslint-enable no-unused-vars */
 
-const UserFavorites = t
-  .model('UserFavorites', {
+const UserFavorited = t
+  .model('UserFavorited', {
     curCategory: t.maybeNull(FavoriteCategory),
     favoriteThread: t.optional(
       t.enumeration('favoriteThread', [
@@ -68,4 +68,4 @@ const UserFavorites = t
     },
   }))
 
-export default UserFavorites
+export default UserFavorited

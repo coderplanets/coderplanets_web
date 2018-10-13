@@ -15,9 +15,12 @@ export const Middle = styled.div`
   padding: 5px 0;
   margin-bottom: 2px;
 `
-export const Footer = styled.div``
+export const Footer = styled.div`
+  color: ${theme('thread.articleDigest')};
+`
 
 export const Title = styled.div`
+  color: ${theme('thread.articleTitle')};
   font-size: 1rem;
   width: 90%;
 `
