@@ -35,8 +35,9 @@ export const getSubPath = routeObj => {
   if (routeObj.asPath === '/') return INDEX
 
   const asPathList = parsePathList(routeObj)
+  const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
 
-  return asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  return subPath
 }
 
 export const extractThreadFromPath = (props, uppper = true) => {

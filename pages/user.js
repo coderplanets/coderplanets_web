@@ -45,15 +45,14 @@ async function fetchData(props) {
   const token = null // BStore.cookie.from_req(req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
+  /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
   const user = gqClient
     .request(UserBannerSchema.userRaw, {
       id: userId,
       userHasLogin: nilOrEmpty(token) === false,
     })
-    .catch(e => {
-      debug('error? ', e)
-    })
+    .catch(e => console.log('SSR: user page error', e))
 
   return {
     ...(await user),
@@ -70,7 +69,7 @@ export default class UserPage extends React.Component {
     const query = queryStringToJSON(asPath)
 
     const { user } = await fetchData(props)
-    debug('fetchData user: ', user)
+    // debug('fetchData user-->: ', user)
 
     return {
       langSetup: {},

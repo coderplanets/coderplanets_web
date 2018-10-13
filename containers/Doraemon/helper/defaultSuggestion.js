@@ -58,17 +58,41 @@ const cmds = {
     },
   },
   login: {
-    title: '登陆',
-    desc: '登陆 desc',
+    title: 'login',
+    desc: '第三方账号登录',
     raw: 'login',
     logo: `${ICON_CMD}/login.svg`,
 
     threads: {
       github: {
-        title: 'github 登陆',
-        desc: '使用 github open id 登陆',
+        title: 'github',
+        desc: '使用 github 账号登录',
         raw: 'github',
-        logo: `${ICON_CMD}/github.svg`,
+        logo: `${ICON_CMD}/shell_github.svg`,
+      },
+      weixin: {
+        title: 'weixin',
+        desc: '使用微信账号登录',
+        raw: 'weixin',
+        logo: `${ICON_CMD}/shell_weixin.png`,
+      },
+      weibo: {
+        title: 'weibo',
+        desc: '使用微博账号登录',
+        raw: 'weibo',
+        logo: `${ICON_CMD}/shell_weibo.png`,
+      },
+      twitter: {
+        title: 'twitter',
+        desc: 'sign in with twitter account',
+        raw: 'twitter',
+        logo: `${ICON_CMD}/shell_twitter.svg`,
+      },
+      google: {
+        title: 'google',
+        desc: 'sign in with google account',
+        raw: 'google',
+        logo: `${ICON_CMD}/shell_google.svg`,
       },
     },
   },

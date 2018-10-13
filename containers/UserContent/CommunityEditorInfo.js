@@ -12,7 +12,7 @@ import {
 import { uid } from '../../utils'
 
 const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
-  if (editableCommunities.totalCount === 0) return null
+  if (!editableCommunities || editableCommunities.totalCount === 0) return null
 
   if (editableCommunities.totalCount > 10) {
     return (

@@ -1,23 +1,26 @@
 /*
-*
-* {{ properCase name }}
-*
+ *
+ * {{ properCase name }}
+ *
 */
 
 import  React from 'react'
 import PropTypes from 'prop-types'
 
-// import { inject, observer } from 'mobx-react'
-// import Link from 'next/link'
-// import styled from 'styled-components'
-
+{{#if wantStyle}}
+import { Wrapper } from './styles'
+{{/if}}
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-// @inject('')
-// @observer
+import { makeDebugger } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:{{ properCase name }}:index')
+/* eslint-enable no-unused-vars */
+
 class {{ properCase name }} extends React.Component {
   componentDidMount() {}
 

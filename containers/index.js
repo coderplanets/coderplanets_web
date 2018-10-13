@@ -53,5 +53,6 @@ export { default as TagsBar } from './TagsBar'
 export { default as UserLister } from './UserLister'
 
 // user page
+export { default as UserPublished } from './UserPublished'
 export { default as UserSettings } from './UserSettings'
 export { default as UserFavorites } from './UserFavorites'

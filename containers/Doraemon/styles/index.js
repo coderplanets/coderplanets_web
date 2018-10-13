@@ -74,7 +74,7 @@ export const BaseBar = styled.div`
   background: ${theme('shell.barBg')};
   color: white;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 `
 export const EditorBar = styled(BaseBar)`
   position: relative;
@@ -130,7 +130,7 @@ export const ContentWraper = styled.div`
 `
 export const Title = styled.div`
   display: block;
-  font-size: 1.5em;
+  font-size: 1.2rem;
   color: ${theme('shell.title')};
   > a {
     color: ${theme('shell.link')};
@@ -139,7 +139,7 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
   text-overflow: ellipsis;
-  font-size: 1.1em;
+  font-size: 0.9rem;
   width: 90%;
   white-space: nowrap;
   overflow: hidden;
@@ -181,35 +181,29 @@ export const RepoStar = styled.div`
 export const NodeSVGIcon = styled(Img)`
   width: 40px;
   height: 40px;
-  margin-top: 3px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 
 export const ThemeDot = styled.div`
   width: 35px;
   height: 35px;
-  margin-top: 5px;
   background: ${({ bg }) => bg};
   border-radius: 50%;
 `
-
 // TODO: rename -> PrefixIcon
 export const PrefixSVGIcon = styled(Img)`
   width: 30px;
   height: 30px;
-  margin-top: 20px;
+  display: block;
 `
-
 export const PrefixSearchIcon = styled(Img)`
   width: 30px;
   height: 30px;
-  margin-top: 20px;
   fill: ${theme('shell.searchIcon')};
+  margin-top: 5px;
 `
-
 export const PrefixMagicIcon = styled(Img)`
   width: 30px;
   height: 25px;
-  margin-top: 20px;
   transform: rotate(-30deg);
 `

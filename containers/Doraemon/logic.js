@@ -150,8 +150,28 @@ const initCmdResolver = () => {
       match: SAK.stepTwoCmd('login'),
       action: cmdpath => {
         debug('stepTwoCmd login->: ', cmdpath)
-        githubLoginHandler()
-        hidePanel()
+        switch (R.last(cmdpath)) {
+          case 'github': {
+            hidePanel()
+            return githubLoginHandler()
+          }
+          case 'weibo':
+          case 'twitter':
+          case 'google':
+          case 'weixin': {
+            const url =
+              'https://github.com/coderplanets/coderplanets_web/issues/251'
+            const win = window.open(url, '_blank')
+
+            // see https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window-using-javascript
+            return win.focus()
+          }
+          default: {
+            debug('unsupported login method: ', cmdpath)
+            return hidePanel()
+          }
+        }
+
         /* reference */
         /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
         /* SAK.completeInput(true) */

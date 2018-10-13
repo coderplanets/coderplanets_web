@@ -36,8 +36,14 @@ module.exports = {
     {
       type: 'confirm',
       name: 'wantI18n',
-      default: true,
+      default: false,
       message: 'Do you want i18n messages (i.e. will this component use text)?',
+    },
+    {
+      type: 'confirm',
+      name: 'wantStyle',
+      default: true,
+      message: 'Does it have styles?',
     },
   ],
   actions: data => {
@@ -75,6 +81,15 @@ module.exports = {
         type: 'add',
         path: '../../../components/{{properCase name}}/lang.js',
         templateFile: './component/lang.js.hbs',
+        abortOnFail: true,
+      })
+    }
+
+    if (data.wantStyle) {
+      actions.push({
+        type: 'add',
+        path: '../../../components/{{properCase name}}/styles/index.js',
+        templateFile: './component/styles.js.hbs',
         abortOnFail: true,
       })
     }

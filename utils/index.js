@@ -48,6 +48,7 @@ export {
   asyncErr,
   asyncRes,
   later,
+  pagedFilter,
 } from './graphql_helper'
 
 export { default as githubApi } from './github_api'

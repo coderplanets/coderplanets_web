@@ -35,6 +35,7 @@ const userRaw = `
           server
         }
       }
+
       workBackgrounds {
         company
         title
@@ -57,6 +58,7 @@ const userRaw = `
         endDate
         totalCount
       }
+
       editableCommunities {
         entries {
           id
