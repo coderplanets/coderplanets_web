@@ -32,7 +32,7 @@ class UserPublishedContainer extends React.Component {
     const { entries, totalCount, pageNumber, pageSize } = pagedData
 
     return (
-      <div>
+      <React.Fragment>
         <ThreadWrapper>
           <ThreadSelector
             active={curThread}
@@ -55,7 +55,7 @@ class UserPublishedContainer extends React.Component {
           totalCount={totalCount}
           onChange={logic.reload}
         />
-      </div>
+      </React.Fragment>
     )
   }
 }
