@@ -9,15 +9,17 @@ import EmptyLabel from '../EmptyLabel'
 
 import { uid, TYPE, Trans } from '../../utils'
 
-const JobsList = ({
-  entries,
-  curView,
-  community,
-  thread,
-  emptyPrefix,
-  active,
-  onTitleSelect,
-}) => {
+const JobsList = ({ props }) => {
+  const {
+    entries,
+    active,
+    curView,
+    community,
+    thread,
+    emptyPrefix,
+    onTitleSelect,
+  } = props
+
   switch (curView) {
     case TYPE.RESULT: {
       return (
