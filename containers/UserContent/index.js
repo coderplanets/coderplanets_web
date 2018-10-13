@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import UserSettings from '../UserSettings'
 import UserFavorites from '../UserFavorites'
+import UserPublished from '../UserPublished'
 
 import { Affix, Tabber } from '../../components'
 
@@ -68,7 +69,7 @@ const TabberContent = ({ active }) => {
       return <UserSettings />
     }
     default: {
-      return <h2>PUBLISH</h2>
+      return <UserPublished />
     }
   }
 }

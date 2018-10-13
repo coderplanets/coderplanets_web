@@ -83,6 +83,9 @@ export { default as VideoViewerStore } from '../containers/VideoViewer/store'
 export { default as RepoViewerStore } from '../containers/RepoViewer/store'
 
 // user page
+export {
+  default as UserPublishedStore,
+} from '../containers/UserPublished/store'
 export { default as UserSettingsStore } from '../containers/UserSettings/store'
 export {
   default as UserFavoritesStore,

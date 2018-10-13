@@ -71,6 +71,7 @@ import {
   TagsBarStore,
   UserListerStore,
   // user page
+  UserPublishedStore,
   UserSettingsStore,
   UserFavoritesStore,
   FavoritesCatsStore,
@@ -149,6 +150,7 @@ const rootStore = t
     videoViewer: t.optional(VideoViewerStore, {}),
     repoViewer: t.optional(RepoViewerStore, {}),
     // user page
+    userPublished: t.optional(UserPublishedStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
     userFavorites: t.optional(UserFavoritesStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
