@@ -18,19 +18,23 @@ const debug = makeDebugger('c:PagedContents:index')
 
 const PagedContents = ({
   thread,
+  active,
   data: { entries, pageNumber, pageSize, totalCount },
   curView,
   onPageChange,
+  onTitleSelect,
   emptyPrefix,
   community,
 }) => (
   <React.Fragment>
     <ContentList
       thread={thread}
+      active={active}
       entries={entries}
       curView={curView}
       emptyPrefix={emptyPrefix}
       community={community}
+      onTitleSelect={onTitleSelect}
     />
 
     <Pagi
@@ -45,6 +49,7 @@ const PagedContents = ({
 
 PagedContents.propTypes = {
   thread: PropTypes.oneOf([THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]),
+  active: PropTypes.object,
   data: PropTypes.shape({
     entries: PropTypes.array.isRequired,
     totalPages: PropTypes.number.isRequired,
@@ -58,17 +63,20 @@ PagedContents.propTypes = {
     TYPE.NOT_FOUND,
     TYPE.RESULT_EMPTY,
   ]),
-  onPageChange: PropTypes.func,
   emptyPrefix: PropTypes.string,
   community: PropTypes.string,
+  onPageChange: PropTypes.func,
+  onTitleSelect: PropTypes.func,
 }
 
 PagedContents.defaultProps = {
   thread: THREAD.POST,
+  active: {},
   curView: TYPE.LOADING,
-  onPageChange: debug,
   emptyPrefix: '',
   community: 'javascript',
+  onPageChange: debug,
+  onTitleSelect: debug,
 }
 
 export default PagedContents

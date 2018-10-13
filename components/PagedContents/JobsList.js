@@ -16,6 +16,7 @@ const JobsList = ({
   thread,
   emptyPrefix,
   active,
+  onTitleSelect,
 }) => {
   switch (curView) {
     case TYPE.RESULT: {
@@ -26,7 +27,7 @@ const JobsList = ({
               key={uid.gen()}
               entry={entry}
               active={active}
-              onTitleSelect={console.log}
+              onTitleSelect={onTitleSelect.bind(this, entry)}
             />
           ))}
         </React.Fragment>

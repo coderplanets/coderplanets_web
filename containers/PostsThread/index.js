@@ -12,13 +12,10 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostItemLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
   Maybe,
-  PostItem,
   PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -32,39 +29,11 @@ import {
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
-
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <PostItem
-              key={uid.gen()}
-              entry={entry}
-              active={active}
-              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostItemLoading num={4} />
-  }
-}
 
 class PostsThreadContainer extends React.Component {
   componentWillMount() {
@@ -84,8 +53,8 @@ class PostsThreadContainer extends React.Component {
       curRoute,
     } = postsThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedPostsData
 
     return (
       <Wrapper>
@@ -103,23 +72,15 @@ class PostsThreadContainer extends React.Component {
             </FilterWrapper>
           </Maybe>
 
-          <React.Fragment>
-            <View
-              community={mainPath}
-              thread={subPath}
-              entries={entries}
-              curView={curView}
-              active={activePost}
-            />
-
-            <Pagi
-              left="-10px"
-              pageNumber={pageNumber}
-              pageSize={pageSize}
-              totalCount={totalCount}
-              onChange={logic.loadPosts}
-            />
-          </React.Fragment>
+          <PagedContents
+            data={pagedPostsData}
+            community={mainPath}
+            thread={THREAD.POST}
+            curView={curView}
+            active={activePost}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadPosts}
+          />
         </LeftPart>
 
         <RightPart>

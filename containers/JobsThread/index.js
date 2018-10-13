@@ -14,14 +14,11 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  JobItemLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
   BuyMeChuanChuan,
   Maybe,
-  JobItem,
   PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -35,40 +32,12 @@ import {
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
-
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <JobItem
-              entry={entry}
-              key={uid.gen()}
-              active={active}
-              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <JobItemLoading num={3} />
-  }
-}
 
 class JobsThreadContainer extends React.Component {
   componentWillMount() {
@@ -92,8 +61,8 @@ class JobsThreadContainer extends React.Component {
       curRoute,
     } = jobsThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedJobsData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedJobsData
 
     return (
       <Wrapper>
@@ -112,20 +81,14 @@ class JobsThreadContainer extends React.Component {
             </FilterWrapper>
           </Maybe>
 
-          <View
+          <PagedContents
+            data={pagedJobsData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.JOB}
             curView={curView}
             active={activeJob}
-          />
-
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadJobs}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadJobs}
           />
         </LeftPart>
 

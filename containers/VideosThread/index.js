@@ -12,13 +12,10 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  VideoItemLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
   Maybe,
-  VideoItem,
   PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -32,40 +29,12 @@ import {
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */
-
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(video => (
-            <VideoItem
-              entry={video}
-              key={uid.gen()}
-              active={active}
-              onTitleSelect={logic.onTitleSelect}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <VideoItemLoading num={5} />
-  }
-}
 
 class VideosThreadContainer extends React.Component {
   componentWillMount() {
@@ -86,8 +55,8 @@ class VideosThreadContainer extends React.Component {
       activeTagData,
     } = videosThread
 
-    const { entries, pageNumber, pageSize, totalCount } = pagedVideosData
-    const { mainPath, subPath } = curRoute
+    const { mainPath } = curRoute
+    const { totalCount } = pagedVideosData
 
     return (
       <Wrapper>
@@ -104,20 +73,14 @@ class VideosThreadContainer extends React.Component {
             </FilterWrapper>
           </Maybe>
 
-          <View
+          <PagedContents
+            data={pagedVideosData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.VIDEO}
             curView={curView}
             active={activeVideo}
-          />
-
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadVideos}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadVideos}
           />
         </LeftPart>
 

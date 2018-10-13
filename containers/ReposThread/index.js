@@ -13,18 +13,14 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  RepoItemLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
   Maybe,
-  RepoItem,
   PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
   Wrapper,
-  ViewerWrapper,
   LeftPadding,
   RightPadding,
   LeftPart,
@@ -34,40 +30,12 @@ import {
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ReposThread')
 /* eslint-enable no-unused-vars */
-
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <ViewerWrapper>
-          {entries.map(entry => (
-            <RepoItem
-              key={uid.gen()}
-              entry={entry}
-              active={active}
-              onTitleSelect={logic.onTitleSelect}
-            />
-          ))}
-        </ViewerWrapper>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <ViewerWrapper>
-          <EmptyThread community={community} thread={thread} />
-        </ViewerWrapper>
-      )
-    }
-    default:
-      return <RepoItemLoading num={4} />
-  }
-}
 
 class ReposThreadContainer extends React.Component {
   componentWillMount() {
@@ -88,8 +56,8 @@ class ReposThreadContainer extends React.Component {
       curRoute,
     } = reposThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedReposData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedReposData
 
     return (
       <Wrapper>
@@ -108,19 +76,15 @@ class ReposThreadContainer extends React.Component {
               </FilterResultHint>
             </FilterWrapper>
           </Maybe>
-          <View
+
+          <PagedContents
+            data={pagedReposData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.REPO}
             curView={curView}
             active={activeRepo}
-          />
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadRepos}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadRepos}
           />
         </LeftPart>
 
