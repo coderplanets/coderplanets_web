@@ -115,7 +115,7 @@ const Cyan = {
     icon: '#62868a',
     didIcon: 'orange',
     title: '#62868a',
-    username: '#62868a',
+    username: '#7FA7AC',
     number: '#efbc60',
     floor: '#efbc60',
     reply: '#93b3b5',
