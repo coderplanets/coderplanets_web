@@ -47,7 +47,6 @@ const setFavorites = gql`
   mutation($id: ID!, $thread: CmsThread, $categoryId: ID!) {
     setFavorites(id: $id, thread: $thread, categoryId: $categoryId) {
       id
-      title
       totalCount
     }
   }
@@ -57,7 +56,6 @@ const unsetFavorites = gql`
   mutation($id: ID!, $thread: CmsThread, $categoryId: ID!) {
     unsetFavorites(id: $id, thread: $thread, categoryId: $categoryId) {
       id
-      title
       totalCount
     }
   }

@@ -25,6 +25,7 @@ const video = gql`
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)
       viewerHasStarred @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
     }
   }
 `

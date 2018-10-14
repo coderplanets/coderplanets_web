@@ -26,8 +26,8 @@ const debug = makeDebugger('C:FavoritesCats')
 
 class FavoritesCatsContainer extends React.Component {
   componentWillMount() {
-    const { favoritesCats } = this.props
-    logic.init(favoritesCats)
+    const { favoritesCats, displayMode } = this.props
+    logic.init(favoritesCats, displayMode)
   }
 
   // lists(box view, modal view), setter, creator and updater
@@ -35,42 +35,57 @@ class FavoritesCatsContainer extends React.Component {
     const { favoritesCats, onSelect } = this.props
 
     const {
+      displayMode,
+      viewingData,
+
+      isCreatorView,
+      isUpdaterView,
+      isSetterView,
       showModal,
-      showUpdater,
-      showCreator,
-      showSetter,
       editCategoryData,
       pagedCategoriesData,
     } = favoritesCats
 
     const { entries, totalCount } = pagedCategoriesData
+
     return (
-      <div>
-        <SectionLabel
-          title="收藏夹"
-          iconSrc={`${ICON_CMD}/folder.svg`}
-          desc={`当前共有收藏夹 ${totalCount} 个。`}
-          withAdder
-          onAdd={logic.openCreator}
-          adderText="创建"
-        />
+      <React.Fragment>
+        {displayMode === 'list' ? (
+          <SectionLabel
+            title="收藏夹"
+            iconSrc={`${ICON_CMD}/folder.svg`}
+            desc={`当前共有收藏夹 ${totalCount} 个。`}
+            withAdder
+            onAdd={logic.changeViewTo.bind(this, 'creator')}
+            adderText="创建"
+          />
+        ) : null}
         <Modal
           width="420px"
           show={showModal}
           showCloseBtn
           onClose={logic.onModalClose}
         >
-          <Setter show={showModal && showSetter} entries={entries} />
-          <Creator data={editCategoryData} show={showModal && showCreator} />
-          <Updater data={editCategoryData} show={showModal && showUpdater} />
+          <Setter
+            entries={entries}
+            show={isSetterView}
+            selectedId={viewingData.favoritedCategoryId}
+            onCreateCat={logic.onSetterCreateCat}
+            onSet={logic.setContent}
+            onUnset={logic.unSetContent}
+          />
+          <Creator data={editCategoryData} show={isCreatorView} />
+          <Updater data={editCategoryData} show={isUpdaterView} />
         </Modal>
-        <BoxView
-          data={pagedCategoriesData}
-          onEdit={logic.openUpdater}
-          onPageChange={logic.loadCategories}
-          onSelect={onSelect}
-        />
-      </div>
+        {displayMode === 'list' ? (
+          <BoxView
+            data={pagedCategoriesData}
+            onEdit={logic.changeViewTo.bind(this, 'updater')}
+            onPageChange={logic.loadCategories}
+            onSelect={onSelect}
+          />
+        ) : null}
+      </React.Fragment>
     )
   }
 }
@@ -78,10 +93,12 @@ class FavoritesCatsContainer extends React.Component {
 FavoritesCatsContainer.propTypes = {
   onSelect: PropTypes.func,
   favoritesCats: PropTypes.any.isRequired,
+  displayMode: PropTypes.oneOf(['list', 'hide']),
 }
 
 FavoritesCatsContainer.defaultProps = {
   onSelect: debug,
+  displayMode: 'hide',
 }
 
 export default inject(storePlug('favoritesCats'))(

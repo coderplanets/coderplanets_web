@@ -19,6 +19,7 @@ const post = gql`
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)
       viewerHasStarred @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
     }
   }
 `
@@ -30,6 +31,7 @@ const postReactionRes = gql`
       starredCount
       viewerHasFavorited
       viewerHasStarred
+      favoritedCategoryId
     }
   }
 `
@@ -53,6 +55,7 @@ const job = gql`
       updatedAt
       favoritedCount
       viewerHasFavorited @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
     }
   }
 `
@@ -62,6 +65,7 @@ const jobReactionRes = gql`
       id
       favoritedCount
       viewerHasFavorited
+      favoritedCategoryId
     }
   }
 `

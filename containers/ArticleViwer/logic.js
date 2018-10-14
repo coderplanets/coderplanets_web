@@ -18,7 +18,7 @@ import {
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED],
+  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
 })
 
 /* eslint-disable no-unused-vars */
@@ -30,7 +30,9 @@ let sub$ = null
 
 export function onReaction(thread, action, userDid, { id }) {
   /* debug('onReaction thread: ', thread) */
-  /* debug('onReaction action: ', action) */
+  if (action === TYPE.FAVORITE) {
+    return FavoriteSetter(thread)
+  }
   // debug('onReaction userDid: ', store.isLogin)
   /* debug('onReaction id: ', id) */
 
@@ -39,6 +41,12 @@ export function onReaction(thread, action, userDid, { id }) {
   return userDid
     ? sr71$.mutate(S.undoReaction, args)
     : sr71$.mutate(S.reaction, args)
+}
+
+export function FavoriteSetter(thread) {
+  return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
+    data: { thread },
+  })
 }
 
 export function gotoPostPage(data) {
@@ -66,8 +74,8 @@ function loadJob({ id }) {
   sr71$.query(S.job, variables)
 }
 
-function reloadReactions({ id }) {
-  switch (store.activeThread) {
+function reloadReactions(id, thread) {
+  switch (thread) {
     case THREAD.JOB: {
       return sr71$.query(S.jobReactionRes, { id })
     }
@@ -126,14 +134,19 @@ const openAttachment = att => {
 const DataSolver = [
   {
     match: asyncRes('reaction'),
-    action: ({ reaction }) => {
-      debug('get reaction: ', reaction)
-      return reloadReactions(reaction)
-    },
+    action: ({ reaction: { id } }) => reloadReactions(id, store.activeThread),
   },
   {
     match: asyncRes('undoReaction'),
-    action: ({ undoReaction }) => reloadReactions(undoReaction),
+    action: ({ undoReaction: { id } }) =>
+      reloadReactions(id, store.activeThread),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_REACTIONS),
+    action: e => {
+      const { id, thread } = e[EVENT.REFRESH_REACTIONS].data
+      reloadReactions(id, thread)
+    },
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),

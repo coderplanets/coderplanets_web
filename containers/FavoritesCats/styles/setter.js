@@ -7,9 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   padding: 15px 25px;
 `
-export const ListWrapper = styled.div`
-  margin-left: 3px;
-`
+export const ListWrapper = styled.div``
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
@@ -19,6 +17,10 @@ export const Footer = styled.div`
 export const CatWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 10px 5px;
+  &:hover {
+    background: ${theme('thread.articleHover')};
+  }
 `
 export const CatContent = styled.div`
   display: flex;
@@ -51,6 +53,4 @@ export const CatDivider = styled.div`
   border-color: ${theme('banner.desc')};
   width: 100%;
   opacity: 0.4;
-  margin-top: 8px;
-  margin-bottom: 8px;
 `

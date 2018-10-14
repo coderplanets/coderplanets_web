@@ -8,6 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
+import FavoritesCats from '../FavoritesCats'
 import PostViewer from './PostViewer'
 import JobViewer from './JobViewer'
 
@@ -48,6 +49,8 @@ class ArticleViwerContainer extends React.Component {
 
     return (
       <React.Fragment>
+        <FavoritesCats />
+
         <Viwer
           type={type}
           data={viewingData}
