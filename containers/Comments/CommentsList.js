@@ -201,7 +201,7 @@ const TotalCountText = ({ count }) => (
   <TotalCountWrapper>
     {count > 0 ? (
       <ListTitle id="lists-info">
-        收到 <TotalNum>{count}</TotalNum> 条评论:
+        共收到 <TotalNum>{count}</TotalNum> 条评论:
       </ListTitle>
     ) : null}
   </TotalCountWrapper>

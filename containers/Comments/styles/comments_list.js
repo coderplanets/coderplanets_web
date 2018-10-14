@@ -87,46 +87,40 @@ export const DeleteOverlay = styled.div`
 export const DeleteBtnGroup = styled.div`
   display: flex;
 `
-
 export const CommentUserInfo = styled.div`
   margin-right: 15px;
 `
-
-export const CommentAvatar = styled.img`
-  width: 45px;
-  height: 45px;
+export const CommentAvatar = styled(Img)`
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   opacity: ${theme('avatarOpacity')};
 `
-
 export const CommentHeader = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   ${column};
+  margin-top: -1px;
 `
-
 export const CommentHeaderFirst = styled.div`
   display: flex;
 `
-
 export const CommentUserName = styled.div`
   color: ${theme('comment.username')};
-  font-size: 1.3em;
+  font-size: 1rem;
   display: flex;
   flex-grow: 1;
 `
-
 export const TimeStamps = styled.div`
   color: ${theme('comment.placeholder')};
+  font-size: 0.9rem;
 `
-
 export const CommentBodyInfo = styled.div`
   width: 100%;
   ${column};
 `
 export const CommentContent = styled.div`
-  font-size: 1.1em;
+  font-size: 1.1rem;
 `
-
 export const CommentFooter = styled.div`
   margin-top: 15px;
   display: flex;

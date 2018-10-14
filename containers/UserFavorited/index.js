@@ -61,7 +61,7 @@ class UserFavoritesContainer extends React.Component {
     return (
       <div>
         {parentView === 'CATEGORY_LIST' ? (
-          <FavoritesCats onSelect={logic.onCatSelect} />
+          <FavoritesCats onSelect={logic.onCatSelect} displayMode="list" />
         ) : (
           <React.Fragment>
             <Breadcrumbs

@@ -50,7 +50,7 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
         <div>
           <AvatarsRow
             users={entry.commentsParticipators}
-            total={entry.commentsParticipatorsCount}
+            total={entry.commentsCount}
           />
         </div>
       </TopHalf>

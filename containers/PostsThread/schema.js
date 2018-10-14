@@ -20,7 +20,7 @@ const pagedPostsRaw = `
           avatar
           nickname
         }
-        commentsParticipatorsCount
+        commentsCount
         commentsParticipators(filter: { first: 5 }) {
           id
           nickname

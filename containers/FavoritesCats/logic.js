@@ -1,12 +1,22 @@
 import R from 'ramda'
 
 import { PAGE_SIZE } from '../../config'
-import { makeDebugger, $solver, asyncRes, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  dispatchEvent,
+  $solver,
+  asyncRes,
+  asyncErr,
+  ERR,
+  EVENT,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.SET_FAVORITE_CONTENT],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -38,36 +48,48 @@ export const loadCategories = (page = 1) => {
   })
 }
 
-export function openUpdater(editCategory) {
-  store.markState({
-    showModal: true,
-    showUpdater: true,
-    showCreator: false,
-    showSetter: false,
-    curView: 'list',
-    editCategory,
-  })
+export const changeViewTo = view => {
+  store.changeViewTo(view)
 }
-
-export function openCreator() {
-  store.markState({
-    showModal: true,
-    showUpdater: false,
-    showCreator: true,
-    showSetter: false,
-    curView: 'list',
-  })
+export const onSetterCreateCat = () => {
+  store.markState({ createfromSetter: true })
+  store.changeViewTo('creator')
 }
 
 export const onModalClose = () => {
+  if (store.createfromSetter) {
+    store.markState({ createfromSetter: false })
+    return store.changeViewTo('setter')
+  }
+
   store.markState({ showModal: false })
   store.cleanEditData()
 }
 
-const reloadCats = () => {
-  onModalClose()
-  loadCategories()
+export const setContent = categoryId => {
+  const { id } = store.viewingData
+  const { thread } = store
+
+  const args = {
+    id,
+    thread: R.toUpper(thread),
+    categoryId,
+  }
+  sr71$.mutate(S.setFavorites, args)
 }
+
+export const unSetContent = categoryId => {
+  const { id } = store.viewingData
+  const { thread } = store
+
+  const args = {
+    id,
+    thread: R.toUpper(thread),
+    categoryId,
+  }
+  sr71$.mutate(S.unsetFavorites, args)
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -84,11 +106,50 @@ const DataSolver = [
   },
   {
     match: asyncRes('createFavoriteCategory'),
-    action: () => reloadCats(),
+    action: () => {
+      // createfromSetter
+      loadCategories()
+      if (store.createfromSetter) {
+        store.markState({ createfromSetter: false })
+        return store.changeViewTo('setter')
+      }
+      return onModalClose()
+    },
   },
   {
     match: asyncRes('updateFavoriteCategory'),
-    action: () => reloadCats(),
+    action: () => {
+      onModalClose()
+      loadCategories()
+    },
+  },
+  {
+    match: asyncRes('setFavorites'),
+    action: () => {
+      loadCategories()
+      /* store.updateCategory(cat) */
+      const { id } = store.viewingData
+      const { thread } = store
+      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+    },
+  },
+  {
+    match: asyncRes('unsetFavorites'),
+    action: () => {
+      loadCategories()
+      /* store.updateCategory(cat) */
+      const { id } = store.viewingData
+      const { thread } = store
+      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+    },
+  },
+  {
+    match: asyncRes(EVENT.SET_FAVORITE_CONTENT),
+    action: e => {
+      const { thread } = e[EVENT.SET_FAVORITE_CONTENT].data
+      store.changeViewTo('setter')
+      store.markState({ thread, createfromSetter: true })
+    },
   },
 ]
 
@@ -113,8 +174,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export function init(_store, displayMode) {
   if (store) {
+    store.markState({ displayMode })
     return loadCategories()
   }
   store = _store
@@ -123,5 +185,6 @@ export function init(_store) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+  store.markState({ displayMode })
   loadCategories()
 }
