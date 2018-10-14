@@ -109,7 +109,6 @@ const DataSolver = [
     action: () => {
       // createfromSetter
       loadCategories()
-      console.log('createFavoriteCategory: ', store.createfromSetter)
       if (store.createfromSetter) {
         store.markState({ createfromSetter: false })
         return store.changeViewTo('setter')
@@ -126,8 +125,9 @@ const DataSolver = [
   },
   {
     match: asyncRes('setFavorites'),
-    action: ({ setFavorites: cat }) => {
-      store.updateCategory(cat)
+    action: () => {
+      loadCategories()
+      /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
       dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
@@ -135,8 +135,9 @@ const DataSolver = [
   },
   {
     match: asyncRes('unsetFavorites'),
-    action: ({ unsetFavorites: cat }) => {
-      store.updateCategory(cat)
+    action: () => {
+      loadCategories()
+      /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
       dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })

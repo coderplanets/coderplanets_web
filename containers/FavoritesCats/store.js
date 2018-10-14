@@ -118,6 +118,7 @@ const FavoritesCats = t
         }
       }
     },
+    /*
     updateCategory(cat) {
       const { id } = cat
       const pagedCategoriesData = R.clone(self.pagedCategoriesData)
@@ -129,6 +130,7 @@ const FavoritesCats = t
         self.pagedCategories = R.merge(pagedCategoriesData, { entries })
       }
     },
+    */
     changeViewTo(view = 'creator') {
       switch (view) {
         case 'setter': {
