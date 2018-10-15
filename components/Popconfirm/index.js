@@ -28,7 +28,7 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:Popconfirm:index')
 /* eslint-enable no-unused-vars */
 
-const Hint = ({ content, closeIt }) => (
+const Hint = ({ content, closeIt, onConfirm }) => (
   <Wrapper>
     <Header>
       <WarningIcon src={`${ICON_CMD}/warning.svg`} />
@@ -38,7 +38,7 @@ const Hint = ({ content, closeIt }) => (
       <div onClick={closeIt}>
         <CancleBtn>取消</CancleBtn>
       </div>
-      <DeleteBtn onClick={closeIt}>
+      <DeleteBtn onClick={onConfirm}>
         <CutIcon src={`${ICON_CMD}/cut_right.svg`} />
         <ConfirmText>继续</ConfirmText>
       </DeleteBtn>
@@ -57,6 +57,12 @@ class Popconfirm extends React.Component {
     this.setState({ visible: false })
   }
 
+  onConfirm() {
+    const { onConfirm } = this.props
+    this.setState({ visible: false })
+    onConfirm()
+  }
+
   onVisibleChange(visible) {
     this.setState({ visible })
   }
@@ -70,7 +76,13 @@ class Popconfirm extends React.Component {
         placement={placement}
         trigger={trigger}
         visible={visible}
-        content={<Hint content={content} closeIt={this.closeIt.bind(this)} />}
+        content={
+          <Hint
+            content={content}
+            closeIt={this.closeIt.bind(this)}
+            onConfirm={this.onConfirm.bind(this)}
+          />
+        }
         onVisibleChange={this.onVisibleChange.bind(this)}
       >
         {children}
@@ -85,12 +97,14 @@ Popconfirm.propTypes = {
   content: PropTypes.string,
   trigger: PropTypes.string,
   placement: PropTypes.oneOf(['bottomLeft', 'bottom', 'right']),
+  onConfirm: PropTypes.func,
 }
 
 Popconfirm.defaultProps = {
   trigger: 'click',
   placement: 'bottom',
   content: '该操作不可逆，是否继续？',
+  onConfirm: debug,
 }
 
 export default Popconfirm

@@ -70,20 +70,12 @@ class FavoritesCatsContainer extends React.Component {
             entries={entries}
             show={isSetterView}
             selectedId={viewingData.favoritedCategoryId}
-            onCreateCat={logic.onSetterCreateCat}
-            onSet={logic.setContent}
-            onUnset={logic.unSetContent}
           />
           <Creator data={editCategoryData} show={isCreatorView} />
           <Updater data={editCategoryData} show={isUpdaterView} />
         </Modal>
         {displayMode === 'list' ? (
-          <BoxView
-            data={pagedCategoriesData}
-            onEdit={logic.changeViewTo.bind(this, 'updater')}
-            onPageChange={logic.loadCategories}
-            onSelect={onSelect}
-          />
+          <BoxView data={pagedCategoriesData} onSelect={onSelect} />
         ) : null}
       </React.Fragment>
     )

@@ -16,7 +16,7 @@ import {
 } from './styles/editor'
 
 import { makeDebugger } from '../../utils'
-import { categoryOnChange, onCategoryUpdate } from './logic'
+import { categoryOnChange, onCategoryUpdate, onCategoryDelete } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Favorites:Updater')
@@ -66,7 +66,10 @@ const Updater = ({ data, show }) => (
       </FormItemWrapper>
     </EditWrapper>
     <Footer>
-      <Popconfirm content="删除收藏夹及包含的内容，是否继续?">
+      <Popconfirm
+        content="删除收藏夹及包含的内容，是否继续?"
+        onConfirm={onCategoryDelete}
+      >
         <Button type="red" ghost>
           删除
         </Button>

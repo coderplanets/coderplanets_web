@@ -6,7 +6,7 @@ import { Wrapper, MsgWrapper } from './styles/box_view'
 
 import CategoryCardList from './CategoryCardList'
 
-const BoxView = ({ data, onEdit, onPageChange, onSelect }) => {
+const BoxView = ({ data, onSelect }) => {
   const { totalCount } = data
 
   return (
@@ -16,12 +16,7 @@ const BoxView = ({ data, onEdit, onPageChange, onSelect }) => {
           <EmptyLabel text="你还没有任何收藏夹" size="large" />
         </MsgWrapper>
       ) : (
-        <CategoryCardList
-          data={data}
-          onEdit={onEdit}
-          onPageChange={onPageChange}
-          onSelect={onSelect}
-        />
+        <CategoryCardList data={data} onSelect={onSelect} />
       )}
     </Wrapper>
   )
