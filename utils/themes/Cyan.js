@@ -69,9 +69,12 @@ const Cyan = {
     commentsUserBorder: contentBoxBg,
     extraInfo: '#84C3C8',
     articleSpliter: '#dee8ea',
+    // like github
+    repoTitle: '#0066D1',
   },
   content: {
     bg: contentBoxBg,
+    border: contentBoxBg,
     cardBg: contentBoxBg,
     cardBorder: '#e6e6e6',
     cardBorderHover: primaryColor,

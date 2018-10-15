@@ -8,7 +8,6 @@ import { theme } from '../../../utils'
 const BaseBanner = styled.nav`
   position: relative;
   min-height: 140px;
-  border-bottom: 1px solid tomato;
   display: flex;
   flex-direction: column;
   justify-content: center;

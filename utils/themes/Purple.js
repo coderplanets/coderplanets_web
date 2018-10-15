@@ -70,9 +70,12 @@ const Purple = {
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
     articleSpliter: '#3f3a50',
+    // like github
+    repoTitle: '#0066D1',
   },
   content: {
     bg: contentBoxBg,
+    border: contentBoxBg,
     cardBg: bannerBg,
     cardBorder: lighten(0.08, contentBoxBg),
     cardBorderHover: lighten(0.1, contentBoxBg),

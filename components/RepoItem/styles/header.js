@@ -30,14 +30,14 @@ export const PopoverInfo = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const Owner = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.repoTitle')};
   margin-right: 5px;
   ${Title}:hover & {
     color: ${theme('banner.title')};
   }
 `
 export const RepoName = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('thread.repoTitle')};
   ${Title}:hover & {
     color: ${theme('banner.title')};
   }
@@ -70,10 +70,11 @@ export const StatusSection = styled.div`
   display: flex;
   margin-right: 6px;
 `
-export const StatusNum = styled.div``
-
+export const StatusNum = styled.div`
+  color: ${theme('thread.articleDigest')};
+`
 const StatusIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+  fill: ${theme('thread.articleDigest')};
   width: 15px;
   height: 15px;
   margin-right: 3px;
