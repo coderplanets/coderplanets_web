@@ -8,36 +8,15 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { PostItemLoading, Pagi, PostItem } from '../../components'
+import { PagedContents } from '../../components'
 
 import Breadcrumbs from './Breadcrumbs'
 
-import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:UserFavorited')
 /* eslint-enable no-unused-vars */
-
-const View = ({ entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <PostItem
-              key={uid.gen()}
-              entry={entry}
-              active={active}
-              onTitleSelect={debug}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostItemLoading num={5} />
-  }
-}
 
 class UserFavoritesContainer extends React.Component {
   componentWillMount() {
@@ -46,17 +25,18 @@ class UserFavoritesContainer extends React.Component {
   }
 
   render() {
-    const {
-      userFavorited: {
-        pagedPostsData,
-        parentView,
-        curView,
-        curCategoryData,
-        favoriteThread,
-      },
-    } = this.props
+    const { userFavorited } = this.props
 
-    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
+    const {
+      pagedData,
+      parentView,
+      curView,
+      curCategoryData,
+      curThread,
+      viewingUser,
+    } = userFavorited
+
+    const { totalCount } = pagedData
 
     return (
       <div>
@@ -67,16 +47,17 @@ class UserFavoritesContainer extends React.Component {
             <Breadcrumbs
               gotoParent={logic.backToCategoryList}
               category={curCategoryData}
-              favoriteThread={favoriteThread}
+              curThread={curThread}
+              totalCount={totalCount}
               changeFavoriteThread={logic.changeFavoriteThread}
             />
-            <View entries={entries} curView={curView} />
-            <Pagi
-              left="-10px"
-              pageNumber={pageNumber}
-              pageSize={pageSize}
-              totalCount={totalCount}
-              onChange={debug}
+
+            <PagedContents
+              data={pagedData}
+              thread={curThread}
+              curView={curView}
+              onPageChange={debug}
+              emptyPrefix={`未找到 ${viewingUser.nickname} 收藏的`}
             />
           </React.Fragment>
         )}

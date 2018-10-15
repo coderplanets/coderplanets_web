@@ -1,8 +1,13 @@
 // import R from 'ramda'
 
-import { PAGE_SIZE } from '../../config'
-
-import { makeDebugger, $solver, asyncRes, TYPE } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  TYPE,
+  pagedFilter,
+  THREAD,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
@@ -21,30 +26,53 @@ export const backToCategoryList = () => {
 }
 
 export const onCatSelect = curCategory => {
-  debug('onCatSelect: ', curCategory)
   store.markState({ curCategory, parentView: 'CATEGORY_DETAIL' })
-}
-export const changeFavoriteThread = favoriteThread => {
-  store.markState({ favoriteThread })
-  // TODO: load it
-  // change route
+  loadPosts()
 }
 
-// fake, just for ui demo
-export function loadFavorites() {
-  const args = {
-    filter: {
-      page: 1,
-      size: PAGE_SIZE.D,
-      community: 'javascript',
-    },
+const beforeQuery = page => {
+  store.markState({ curView: TYPE.LOADING })
+  // args
+  return {
+    userId: store.viewingUser.id,
+    filter: pagedFilter(page),
+    categoryId: store.curCategory.id,
   }
+}
 
-  /* args.filter = validFilter(args.filter) */
-  /* scrollIntoEle(TYPE.APP_HEADER_ID) */
-  debug('loadFavorites --> ', args)
-  sr71$.query(S.pagedPosts, args)
-  /* store.markRoute({ page }) */
+export function loadPosts(page = 1) {
+  const args = beforeQuery(page)
+  sr71$.query(S.favoritedPosts, args)
+}
+
+export function loadJobs(page = 1) {
+  const args = beforeQuery(page)
+  sr71$.query(S.favoritedJobs, args)
+}
+
+export function loadVideos(page = 1) {
+  const args = beforeQuery(page)
+  sr71$.query(S.favoritedVideos, args)
+}
+
+export function reload(page) {
+  switch (store.curThread) {
+    case THREAD.JOB: {
+      return loadJobs(page)
+    }
+    case THREAD.VIDEO: {
+      return loadVideos(page)
+    }
+    default: {
+      return loadPosts(page)
+    }
+  }
+}
+
+export const changeFavoriteThread = curThread => {
+  store.markState({ curThread })
+  // TODO:  change route
+  reload()
 }
 
 // ###############################
@@ -53,25 +81,29 @@ export function loadFavorites() {
 
 const DataSolver = [
   {
-    match: asyncRes('pagedPosts'),
-    action: ({ pagedPosts }) => {
-      let curView = TYPE.RESULT
-      if (pagedPosts.entries.length === 0) {
-        curView = TYPE.RESULT_EMPTY
-      }
-      store.markState({ curView, pagedPosts })
-    },
+    match: asyncRes('favoritedPosts'),
+    action: ({ favoritedPosts }) => store.markPagedData(favoritedPosts),
+  },
+  {
+    match: asyncRes('favoritedJobs'),
+    action: ({ favoritedJobs }) => store.markPagedData(favoritedJobs),
+  },
+  {
+    match: asyncRes('favoritedVideos'),
+    action: ({ favoritedVideos }) => store.markPagedData(favoritedVideos),
   },
 ]
 const ErrSolver = []
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    //  return loadPosts()
+  }
   store = _store
 
   debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadFavorites()
+  //  loadPosts()
 }
