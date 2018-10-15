@@ -20,7 +20,9 @@ import {
   Footer,
 } from './styles/setter'
 
-const Setter = ({ show, entries, selectedId, onCreateCat, onSet, onUnset }) => {
+import { setContent, unSetContent, onSetterCreateCat } from './logic'
+
+const Setter = ({ show, entries, selectedId }) => {
   return (
     <Wrapper show={show}>
       <SectionLabel
@@ -45,7 +47,7 @@ const Setter = ({ show, entries, selectedId, onCreateCat, onSet, onUnset }) => {
                     <Button
                       type="red"
                       ghost
-                      onClick={onUnset.bind(this, cat.id)}
+                      onClick={unSetContent.bind(this, cat.id)}
                     >
                       移除
                     </Button>
@@ -53,7 +55,7 @@ const Setter = ({ show, entries, selectedId, onCreateCat, onSet, onUnset }) => {
                     <Button
                       type="primary"
                       ghost
-                      onClick={onSet.bind(this, cat.id)}
+                      onClick={setContent.bind(this, cat.id)}
                     >
                       加入
                     </Button>
@@ -66,7 +68,7 @@ const Setter = ({ show, entries, selectedId, onCreateCat, onSet, onUnset }) => {
         ))}
       </ListWrapper>
       <Footer>
-        <Button type="primary" onClick={onCreateCat}>
+        <Button type="primary" onClick={onSetterCreateCat}>
           创建新收藏夹
         </Button>
       </Footer>

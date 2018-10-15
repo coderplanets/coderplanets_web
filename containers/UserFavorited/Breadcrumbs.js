@@ -2,6 +2,7 @@ import React from 'react'
 import { ICON_CMD } from '../../config'
 
 import { ThreadSelector } from '../../components'
+
 import {
   Wrapper,
   TitleList,
@@ -13,11 +14,13 @@ import {
   LabelSlash,
 } from './styles/breadcrumbs'
 
+import { THREAD } from '../../utils'
 // iconSrc={`${ICON_CMD}/folder.svg`}
 const Breadcrumbs = ({
   gotoParent,
   category,
-  favoriteThread,
+  curThread,
+  totalCount,
   changeFavoriteThread,
 }) => (
   <Wrapper>
@@ -33,8 +36,10 @@ const Breadcrumbs = ({
       <LabelSlash>/</LabelSlash>
       <ThreadSelectorLabel>
         <ThreadSelector
-          active={favoriteThread}
+          active={curThread}
           onSelect={changeFavoriteThread}
+          totalCount={totalCount}
+          options={[THREAD.POST, THREAD.JOB, THREAD.VIDEO]}
         />
       </ThreadSelectorLabel>
     </TitleList>

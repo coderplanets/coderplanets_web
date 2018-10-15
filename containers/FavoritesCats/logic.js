@@ -39,6 +39,11 @@ export function onCategoryUpdate() {
   sr71$.mutate(S.updateFavoriteCategory, { ...store.editCategoryData })
 }
 
+export function onCategoryDelete() {
+  const { id } = store.editCategoryData
+  sr71$.mutate(S.deleteFavoriteCategory, { id })
+}
+
 export const loadCategories = (page = 1) => {
   const userId = store.viewingUser.id
 
@@ -46,6 +51,11 @@ export const loadCategories = (page = 1) => {
     userId,
     filter: { page, size: PAGE_SIZE.M },
   })
+}
+
+export const switchToUpdater = editCategory => {
+  store.markState({ editCategory })
+  store.changeViewTo('updater')
 }
 
 export const changeViewTo = view => {
@@ -118,6 +128,13 @@ const DataSolver = [
   },
   {
     match: asyncRes('updateFavoriteCategory'),
+    action: () => {
+      onModalClose()
+      loadCategories()
+    },
+  },
+  {
+    match: asyncRes('deleteFavoriteCategory'),
     action: () => {
       onModalClose()
       loadCategories()

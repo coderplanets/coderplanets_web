@@ -42,6 +42,13 @@ const updateFavoriteCategory = gql`
     }
   }
 `
+const deleteFavoriteCategory = gql`
+  mutation($id: ID!) {
+    deleteFavoriteCategory(id: $id) {
+      done
+    }
+  }
+`
 
 const setFavorites = gql`
   mutation($id: ID!, $thread: CmsThread, $categoryId: ID!) {
@@ -65,6 +72,7 @@ const schema = {
   favoriteCategories,
   createFavoriteCategory,
   updateFavoriteCategory,
+  deleteFavoriteCategory,
   setFavorites,
   unsetFavorites,
 }

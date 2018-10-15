@@ -20,11 +20,10 @@ import {
 } from './styles/category_card_list'
 
 import { uid, cutFrom } from '../../utils'
+import { loadCategories, switchToUpdater } from './logic'
 
 const CategoryCardList = ({
   data: { entries, pageNumber, pageSize, totalCount },
-  onEdit,
-  onPageChange,
   onSelect,
 }) => (
   <Wrapper>
@@ -36,7 +35,7 @@ const CategoryCardList = ({
               <TitleText>{cutFrom(cat.title, 10)}</TitleText>
               <LockIcon src={`${ICON_CMD}/lock.svg`} />
             </Title>
-            <div onClick={onEdit.bind(this, cat)}>
+            <div onClick={switchToUpdater.bind(this, cat)}>
               <EditIcon src={`${ICON_CMD}/edit.svg`} />
             </div>
           </Header>
@@ -59,7 +58,7 @@ const CategoryCardList = ({
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}
-      onChange={onPageChange}
+      onChange={loadCategories}
     />
   </Wrapper>
 )

@@ -9,6 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 /* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils' */
 import {
   PagedPosts,
+  PagedJobs,
+  PagedVideos,
   emptyPagiData,
   FavoriteCategory,
 } from '../../stores/SharedModel'
@@ -21,16 +23,10 @@ const debug = makeDebugger('S:UserFavorited')
 const UserFavorited = t
   .model('UserFavorited', {
     curCategory: t.maybeNull(FavoriteCategory),
-    favoriteThread: t.optional(
-      t.enumeration('favoriteThread', [
-        THREAD.POST,
-        THREAD.VIDEO,
-        THREAD.REPO,
-        THREAD.JOB,
-      ]),
+    curThread: t.optional(
+      t.enumeration('favoriteThread', [THREAD.POST, THREAD.VIDEO, THREAD.JOB]),
       THREAD.POST
     ),
-    pagedPosts: t.optional(PagedPosts, emptyPagiData),
     parentView: t.optional(
       t.enumeration('parentView', [
         // category list view
@@ -50,6 +46,9 @@ const UserFavorited = t
       ]),
       TYPE.LOADING
     ),
+    pagedPosts: t.optional(PagedPosts, emptyPagiData),
+    pagedJobs: t.optional(PagedJobs, emptyPagiData),
+    pagedVideos: t.optional(PagedVideos, emptyPagiData),
   })
   .views(self => ({
     get root() {
@@ -58,11 +57,46 @@ const UserFavorited = t
     get curCategoryData() {
       return stripMobx(self.curCategory)
     },
+    get viewingUser() {
+      return stripMobx(self.root.viewing.user)
+    },
+    get pagedData() {
+      switch (self.curThread) {
+        case THREAD.JOB: {
+          return stripMobx(self.pagedJobs)
+        }
+        case THREAD.VIDEO: {
+          return stripMobx(self.pagedVideos)
+        }
+        case THREAD.REPO: {
+          return stripMobx(self.pagedRepos)
+        }
+        default: {
+          return stripMobx(self.pagedPosts)
+        }
+      }
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
   }))
   .actions(self => ({
+    markPagedData(pagedData) {
+      const curView =
+        pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+
+      switch (self.curThread) {
+        case THREAD.JOB: {
+          return self.markState({ curView, pagedJobs: pagedData })
+        }
+        case THREAD.VIDEO: {
+          return self.markState({ curView, pagedVideos: pagedData })
+        }
+        default: {
+          return self.markState({ curView, pagedPosts: pagedData })
+        }
+      }
+    },
     markState(sobj) {
       markStates(sobj, self)
     },
