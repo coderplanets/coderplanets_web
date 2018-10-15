@@ -72,7 +72,7 @@ const Blue = {
     articleSpliter: '#3c4648',
 
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#737990',
   },
   content: {
     bg: contentBoxBg,

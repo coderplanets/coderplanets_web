@@ -71,7 +71,7 @@ const Yellow = {
     extraInfo: primaryMate,
     articleSpliter: '#decfb0',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: primaryColor,
   },
   content: {
     bg: contentBoxBg,

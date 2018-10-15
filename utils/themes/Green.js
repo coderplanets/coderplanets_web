@@ -72,7 +72,7 @@ const Green = {
     extraInfo: primaryMate,
     articleSpliter: '#BBCEBC',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#62867A',
   },
   content: {
     bg: contentBoxBg,

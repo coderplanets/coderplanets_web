@@ -70,7 +70,7 @@ const IconGreen = {
     extraInfo: '#95e4be',
     articleSpliter: '#79A7A9',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#e4e4e4',
   },
   content: {
     bg: contentBoxBg,
