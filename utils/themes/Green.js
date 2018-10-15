@@ -71,9 +71,12 @@ const Green = {
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
     articleSpliter: '#BBCEBC',
+    // like github
+    repoTitle: '#0066D1',
   },
   content: {
     bg: contentBoxBg,
+    border: contentBoxBg,
     cardBg: lighten(0.05, contentBoxBg),
     cardBorder: lighten(0.08, contentBoxBg),
     cardBorderHover: lighten(0.1, contentBoxBg),

@@ -69,9 +69,12 @@ const IconGreen = {
     commentsUserBorder: contentBoxBg,
     extraInfo: '#95e4be',
     articleSpliter: '#79A7A9',
+    // like github
+    repoTitle: '#0066D1',
   },
   content: {
     bg: contentBoxBg,
+    border: contentBoxBg,
     cardBg: contentBoxBg,
     cardBorder: '#e6e6e6',
     cardBorderHover: primaryColor,

@@ -71,9 +71,12 @@ const SolarizedDark = {
     commentsUserBorder: contentBoxBg,
     extraInfo: darken(0.04, primaryMate), // '#987d40',
     articleSpliter: '#014454',
+    // like github
+    repoTitle: '#0066D1',
   },
   content: {
     bg: contentBoxBg,
+    border: contentBoxBg,
     cardBg: bannerBg,
     cardBorder: '#194f6f',
     cardBorderHover: '#0F6186',
