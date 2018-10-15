@@ -72,7 +72,7 @@ const SolarizedDark = {
     extraInfo: darken(0.04, primaryMate), // '#987d40',
     articleSpliter: '#014454',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#7B8F90',
   },
   content: {
     bg: contentBoxBg,

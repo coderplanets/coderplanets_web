@@ -6,13 +6,14 @@ import { lighten, darken } from 'polished'
 const primaryColor = 'rgba(68, 181, 99, 0.8)'
 
 const bannerBg = '#FAFBFC'
-const contentBg = '#F9F9F9'
+const contentBg = '#f8f8f8'
 const contentBoxBg = '#FFFFFF'
 const fontColor = primaryColor
 const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
 
 const descText = '#b5b5b5'
+const threadTitle = '#7b7878'
 // const primaryMate = 'orange'
 
 const Github = {
@@ -22,8 +23,8 @@ const Github = {
   contrastFg: '#eca014',
   htmlBg: bannerBg,
   loading: {
-    basic: bannerBg,
-    animate: lighten(0.03, bannerBg),
+    basic: darken(0.05, contentBg),
+    animate: contentBg,
   },
   error: {
     title: primaryColor,
@@ -59,8 +60,8 @@ const Github = {
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#7b7878',
-    articleHover: '#f3f6f9',
+    articleTitle: threadTitle,
+    articleHover: '#f9f9f9',
     articleStrip: contentBoxBg,
     articleDigest: descText,
     articleTag: '#71979a',
@@ -70,7 +71,7 @@ const Github = {
     articleSpliter: '#dee8ea',
 
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#6ba0d8',
   },
   content: {
     bg: contentBoxBg,
@@ -93,18 +94,18 @@ const Github = {
     borderColor: '#14363E',
   },
   preview: {
-    title: '#83a2a5',
-    desc: '#83a2a5',
+    title: threadTitle,
+    desc: descText,
     font: primaryColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
     closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
-    accountBg: '#F9FCFC',
-    articleBg: '#F9FCFC',
+    accountBg: '#FFFFFF',
+    articleBg: '#FFFFFF',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
-    topLine: primaryColor,
+    topLine: '#22292E',
     icon: 'tomato',
     divider: '#e0e6e5',
   },

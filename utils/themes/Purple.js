@@ -71,7 +71,7 @@ const Purple = {
     extraInfo: primaryMate,
     articleSpliter: '#3f3a50',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#737990',
   },
   content: {
     bg: contentBoxBg,

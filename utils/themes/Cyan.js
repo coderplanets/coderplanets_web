@@ -70,7 +70,7 @@ const Cyan = {
     extraInfo: '#84C3C8',
     articleSpliter: '#dee8ea',
     // like github
-    repoTitle: '#0066D1',
+    repoTitle: '#83a7ad',
   },
   content: {
     bg: contentBoxBg,
