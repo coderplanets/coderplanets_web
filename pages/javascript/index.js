@@ -18,8 +18,7 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import PostsThreadSchema from '../../containers/PostsThread/schema'
+import { S } from '../../containers/fragments'
 
 import {
   makeGQClient,
@@ -43,21 +42,15 @@ global.Intl = require('intl')
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
 
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedPosts = request(pagedPostsRaw, { filter })
-  const partialTags = request(partialTagsRaw, {
-    thread,
-    community,
-  })
+  const curCommunity = request(S.community, { raw: community })
+  const pagedPosts = request(S.pagedPosts, { filter })
+  const partialTags = request(S.partialTags, { thread, community })
 
   return {
     ...(await curCommunity),

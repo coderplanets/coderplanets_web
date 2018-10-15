@@ -18,8 +18,7 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import JobsThreadSchema from '../../containers/JobsThread/schema'
+import { S } from '../../containers/fragments'
 
 import {
   makeGQClient,
@@ -43,21 +42,15 @@ const debug = makeDebugger('page:jobs')
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedJobsRaw, partialTagsRaw } = JobsThreadSchema
 
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedJobs = request(pagedJobsRaw, { filter })
-  const partialTags = request(partialTagsRaw, {
-    thread,
-    community,
-  })
+  const curCommunity = request(S.community, { raw: community })
+  const pagedJobs = request(S.pagedJobs, { filter })
+  const partialTags = request(S.partialTags, { thread, community })
 
   return {
     ...(await pagedJobs),

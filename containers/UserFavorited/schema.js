@@ -1,111 +1,36 @@
 import gql from 'graphql-tag'
+import { F } from '../fragments'
 
-const favoritedPostsRaw = `
-  query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
-    favoritedPosts(userId: $userId, categoryId: $categoryId, filter: $filter) {
-      entries {
-        id
-        title
-        digest
-        insertedAt
-        updatedAt
-        views
-        author {
-          id
-          avatar
-          nickname
-        }
-        commentsParticipatorsCount
-        commentsParticipators(filter: { first: 5 }) {
-          id
-          nickname
-          avatar
-        }
-      }
-      totalCount
-      pageSize
-      pageNumber
-    }
-  }
-`
-
-const favoritedJobsRaw = `
+const favoritedJobs = gql`
   query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
     favoritedJobs(userId: $userId, categoryId: $categoryId, filter: $filter) {
-      entries {
-        id
-        title
-        company
-        companyLogo
-        tags {
-          id
-          title
-          color
-        }
-        author {
-          id
-          nickname
-          avatar
-        }
-        views
-        insertedAt
-        updatedAt
-      }
-      totalPages
-      totalCount
-      pageSize
-      pageNumber
+      ${F.pagedJobs}
     }
   }
 `
-const favoritedVideosRaw = `
+const favoritedVideos = gql`
   query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
     favoritedVideos(userId: $userId, categoryId: $categoryId, filter: $filter) {
-      entries {
-        id
-        title
-        poster
-        desc
-        duration
-        source
-        views
-        originalAuthor
-        originalAuthorLink
-        author {
-          id
-          avatar
-          nickname
-        }
-        insertedAt
-        publishAt
-      }
-      totalPages
-      totalCount
-      pageSize
-      pageNumber
+      ${F.pagedVideos}
     }
   }
 `
 
 const favoritedPosts = gql`
-  ${favoritedPostsRaw}
+  query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
+    favoritedPosts(userId: $userId, categoryId: $categoryId, filter: $filter) {
+      ${F.pagedPosts}
+    }
+  }
 `
-const favoritedJobs = gql`
-  ${favoritedJobsRaw}
-`
-const favoritedVideos = gql`
-  ${favoritedVideosRaw}
-`
+
 const schema = {
   // post
   favoritedPosts,
-  favoritedPostsRaw,
   // job
   favoritedJobs,
-  favoritedJobsRaw,
   // video
   favoritedVideos,
-  favoritedVideosRaw,
 }
 
 export default schema

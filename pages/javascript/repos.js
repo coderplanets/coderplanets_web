@@ -18,8 +18,7 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import ReposThreadSchema from '../../containers/ReposThread/schema'
+import { S } from '../../containers/fragments'
 
 import {
   makeGQClient,
@@ -42,9 +41,6 @@ const debug = makeDebugger('page:repos')
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedReposRaw, partialTagsRaw } = ReposThreadSchema
 
   // utils
   const community = getMainPath(props)
@@ -52,9 +48,9 @@ async function fetchData(props) {
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedRepos = request(pagedReposRaw, { filter })
-  const partialTags = request(partialTagsRaw, { thread, community })
+  const curCommunity = request(S.community, { raw: community })
+  const pagedRepos = request(S.pagedRepos, { filter })
+  const partialTags = request(S.partialTags, { thread, community })
 
   return {
     ...(await pagedRepos),
