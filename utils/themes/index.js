@@ -23,8 +23,8 @@ import Green from './Green'
 import IronGreen from './IronGreen'
 
 export const themeDict = {
-  default: { ...Github },
-  cyan: { ...Cyan },
+  default: { ...Cyan },
+  /* cyan: { ...Cyan }, */
   solarized: { ...SolarizedDark },
   purple: { ...Purple },
   yellow: { ...Yellow },
