@@ -152,6 +152,6 @@
     "react-test-renderer": "16.4.2",
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
-    "webpack-bundle-analyzer": "3.0.2"
+    "webpack-bundle-analyzer": "3.0.3"
   }
 }
