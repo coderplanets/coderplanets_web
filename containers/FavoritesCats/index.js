@@ -6,12 +6,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
-
 import { Modal, SectionLabel } from '../../components'
+
+import { AdderWrapper, AdderText, AdderIcon } from './styles'
+
 import BoxView from './BoxView'
 import Creator from './Creator'
 import Updater from './Updater'
@@ -55,9 +56,12 @@ class FavoritesCatsContainer extends React.Component {
             title="收藏夹"
             iconSrc={`${ICON_CMD}/folder.svg`}
             desc={`当前共有收藏夹 ${totalCount} 个。`}
-            withAdder
-            onAdd={logic.changeViewTo.bind(this, 'creator')}
-            adderText="创建"
+            addonNode={
+              <AdderWrapper onClick={logic.changeViewTo.bind(this, 'creator')}>
+                <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
+                <AdderText>创建</AdderText>
+              </AdderWrapper>
+            }
           />
         ) : null}
         <Modal

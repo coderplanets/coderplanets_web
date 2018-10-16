@@ -18,9 +18,7 @@ import {
   Desc,
   Divider,
   LabelIcon,
-  AdderWrapper,
-  AdderText,
-  AdderIcon,
+  AddonWrapper,
 } from './styles'
 
 import { makeDebugger } from '../../utils'
@@ -28,23 +26,12 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:SectionLabel:index')
 /* eslint-enable no-unused-vars */
 
-const SectionLabel = ({
-  title,
-  iconSrc,
-  desc,
-  node,
-  withAdder,
-  onAdd,
-  adderText,
-}) => (
+const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
   <Wrapper>
     <Label>
       <LabelIcon src={iconSrc} />
       <Title>{title}</Title>
-      <AdderWrapper show={withAdder} onClick={onAdd}>
-        <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
-        <AdderText>{adderText}</AdderText>
-      </AdderWrapper>
+      <AddonWrapper show={addonNode !== ''}>{addonNode}</AddonWrapper>
     </Label>
     <Divider />
     <Maybe test={desc}>
@@ -62,20 +49,14 @@ SectionLabel.propTypes = {
   iconSrc: PropTypes.string,
   desc: PropTypes.string,
   node: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  withAdder: PropTypes.bool,
-  onAdd: PropTypes.func,
-  adderText: PropTypes.string,
-  // addonNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  addonNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 SectionLabel.defaultProps = {
   iconSrc: `${ICON_CMD}/setting_theme.svg`,
   desc: '',
   node: '',
-  withAdder: false,
-  onAdd: debug,
-  adderText: '添加',
-  // addonNode: '',
+  addonNode: '',
 }
 
 export default SectionLabel
