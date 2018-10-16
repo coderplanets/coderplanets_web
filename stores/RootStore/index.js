@@ -72,6 +72,7 @@ import {
   UserListerStore,
   // user page
   UserPublishedStore,
+  UserPublishedCommentsStore,
   UserSettingsStore,
   UserBillingStore,
   UserFavoritedStore,
@@ -153,6 +154,7 @@ const rootStore = t
     repoViewer: t.optional(RepoViewerStore, {}),
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
+    userPublishedComments: t.optional(UserPublishedCommentsStore, {}),
     userBilling: t.optional(UserBillingStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
     userStared: t.optional(UserStaredStore, {}),

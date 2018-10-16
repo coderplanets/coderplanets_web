@@ -1,4 +1,4 @@
-export const pagedPostsFragment = `
+export const pagedPosts = `
   entries {
     id
     title
@@ -27,7 +27,7 @@ export const pagedPostsFragment = `
   pageSize
   pageNumber
 `
-export const pagedJobsFragment = `
+export const pagedJobs = `
   entries {
     id
     title
@@ -52,7 +52,7 @@ export const pagedJobsFragment = `
    pageNumber
 `
 
-export const pagedVideosFragment = `
+export const pagedVideos = `
   entries {
     id
     title
@@ -77,7 +77,7 @@ export const pagedVideosFragment = `
   pageNumber
 `
 
-export const pagedReposFragment = `
+export const pagedRepos = `
   entries {
     id
     title
@@ -104,6 +104,13 @@ export const pagedReposFragment = `
     }
     insertedAt
   }
+  totalPages
+  totalCount
+  pageSize
+  pageNumber
+`
+
+export const pagedCounts = `
   totalPages
   totalCount
   pageSize

@@ -86,6 +86,9 @@ export { default as RepoViewerStore } from '../containers/RepoViewer/store'
 export {
   default as UserPublishedStore,
 } from '../containers/UserPublished/store'
+export {
+  default as UserPublishedCommentsStore,
+} from '../containers/UserPublishedComments/store'
 export { default as UserStaredStore } from '../containers/UserStared/store'
 export { default as UserBillingStore } from '../containers/UserBilling/store'
 export { default as UserSettingsStore } from '../containers/UserSettings/store'

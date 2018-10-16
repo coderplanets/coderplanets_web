@@ -8,61 +8,66 @@
  *
  */
 
-import { communityFragment, partialTagsFragment } from './general'
+import { community, partialTags, comment, commentParent } from './general'
+
 import {
-  pagedPostsFragment,
-  pagedJobsFragment,
-  pagedVideosFragment,
-  pagedReposFragment,
+  pagedPosts,
+  pagedJobs,
+  pagedVideos,
+  pagedRepos,
+  pagedCounts,
 } from './paged'
 
 export const F = {
-  pagedPosts: `${pagedPostsFragment}`,
-  pagedJobs: `${pagedJobsFragment}`,
-  pagedVideos: `${pagedVideosFragment}`,
-  pagedRepos: `${pagedReposFragment}`,
+  pagedPosts,
+  pagedJobs,
+  pagedVideos,
+  pagedRepos,
+  pagedCounts,
+  comment,
+  commentParent,
 }
 
 export const S = {
   community: `
     query community($id: ID, $raw: String) {
       community(id: $id, raw: $raw) {
-        ${communityFragment}
+        ${community}
       }
     }
   `,
   partialTags: `
     query($communityId: ID, $community: String, $thread: CmsThread!) {
       partialTags(communityId: $communityId, community: $community, thread: $thread) {
-        ${partialTagsFragment}
+        ${partialTags}
       }
     }
   `,
   pagedPosts: `
     query($filter: PagedArticleFilter) {
       pagedPosts(filter: $filter) {
-        ${pagedPostsFragment}
+        ${pagedPosts}
       }
     }
   `,
   pagedJobs: `
     query($filter: PagedArticleFilter) {
       pagedJobs(filter: $filter) {
-        ${pagedJobsFragment}
+        ${pagedJobs}
       }
     }
   `,
   pagedVideos: `
     query($filter: PagedArticleFilter) {
       pagedVideos(filter: $filter) {
-        ${pagedVideosFragment}
+        ${pagedVideos}
       }
     }
   `,
   pagedRepos: `
     query($filter: PagedArticleFilter) {
       pagedRepos(filter: $filter) {
-        ${pagedReposFragment}
+        ${pagedRepos}
       }
     }
   `,

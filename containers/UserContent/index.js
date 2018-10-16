@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import UserPublished from '../UserPublished'
+import UserPublishedComments from '../UserPublishedComments'
 import UserBilling from '../UserBilling'
 import UserSettings from '../UserSettings'
 import UserStared from '../UserStared'
@@ -26,7 +27,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserContent')
 /* eslint-enable no-unused-vars */
 
-const fakeThreads = [
+const taberThreads = [
   {
     title: '发布',
     raw: 'publish',
@@ -56,7 +57,7 @@ const fakeThreads = [
 const TabberContent = ({ active }) => {
   switch (active) {
     case USER_THREAD.COMMENTS: {
-      return <h2>COMMENTS</h2>
+      return <UserPublishedComments />
     }
     case USER_THREAD.FAVORITES: {
       return <UserFavorited />
@@ -91,7 +92,7 @@ class UserContentContainer extends React.Component {
         <MainWrapper>
           <TabberWrapper className="tabs-with-bottom">
             <Tabber
-              source={fakeThreads}
+              source={taberThreads}
               onChange={logic.tabChange}
               active={activeThread}
             />
