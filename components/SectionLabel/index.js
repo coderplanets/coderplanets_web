@@ -65,6 +65,7 @@ SectionLabel.propTypes = {
   withAdder: PropTypes.bool,
   onAdd: PropTypes.func,
   adderText: PropTypes.string,
+  // addonNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 SectionLabel.defaultProps = {
@@ -74,6 +75,7 @@ SectionLabel.defaultProps = {
   withAdder: false,
   onAdd: debug,
   adderText: '添加',
+  // addonNode: '',
 }
 
 export default SectionLabel

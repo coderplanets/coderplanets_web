@@ -87,6 +87,7 @@ export {
   default as UserPublishedStore,
 } from '../containers/UserPublished/store'
 export { default as UserStaredStore } from '../containers/UserStared/store'
+export { default as UserBillingStore } from '../containers/UserBilling/store'
 export { default as UserSettingsStore } from '../containers/UserSettings/store'
 // TODO: rename to UserFavoritedStore
 export {
