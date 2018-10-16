@@ -7,10 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import UserPublished from '../UserPublished'
+import UserBilling from '../UserBilling'
 import UserSettings from '../UserSettings'
 import UserStared from '../UserStared'
 import UserFavorited from '../UserFavorited'
-import UserPublished from '../UserPublished'
 
 import { Affix, Tabber } from '../../components'
 
@@ -64,7 +65,7 @@ const TabberContent = ({ active }) => {
       return <UserStared />
     }
     case USER_THREAD.BILLING: {
-      return <h2>BILLING</h2>
+      return <UserBilling />
     }
     case USER_THREAD.SETTINGS: {
       return <UserSettings />

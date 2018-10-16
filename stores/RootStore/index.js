@@ -73,8 +73,9 @@ import {
   // user page
   UserPublishedStore,
   UserSettingsStore,
-  UserStaredStore,
+  UserBillingStore,
   UserFavoritedStore,
+  UserStaredStore,
   FavoritesCatsStore,
 } from '../index'
 
@@ -152,6 +153,7 @@ const rootStore = t
     repoViewer: t.optional(RepoViewerStore, {}),
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
+    userBilling: t.optional(UserBillingStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
     userStared: t.optional(UserStaredStore, {}),
     userFavorited: t.optional(UserFavoritedStore, {}),
