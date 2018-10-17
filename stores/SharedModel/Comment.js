@@ -47,7 +47,7 @@ const PostBrief = t.model('PostBrief', {
   digest: t.maybeNull(t.string),
   // author: t.optional(User, {}),
   author: t.maybeNull(User),
-
+  commentsCount: t.maybeNull(t.number),
   communities: t.optional(t.array(Community), []),
 })
 
@@ -71,6 +71,7 @@ const JobBrief = t.model('JobBrief', {
   company: t.maybeNull(t.string),
   // author: t.optional(User, {}),
   author: t.maybeNull(User),
+  commentsCount: t.maybeNull(t.number),
   communities: t.optional(t.array(Community), []),
 })
 
@@ -91,6 +92,7 @@ const VideoBrief = t.model('VideoBrief', {
   id: t.maybeNull(t.string),
   title: t.maybeNull(t.string),
   author: t.maybeNull(User),
+  commentsCount: t.maybeNull(t.number),
   communities: t.optional(t.array(Community), []),
 })
 
@@ -113,6 +115,7 @@ const RepoBrief = t.model('RepoBrief', {
   ownerName: t.maybeNull(t.string),
   ownerUrl: t.maybeNull(t.string),
   repoUrl: t.maybeNull(t.string),
+  commentsCount: t.maybeNull(t.number),
   communities: t.optional(t.array(Community), []),
 })
 
