@@ -16,6 +16,7 @@ import {
   Maybe,
   PublishLabel,
   PagedContents,
+  Guardian,
 } from '../../components'
 
 import {
@@ -62,13 +63,15 @@ class PostsThreadContainer extends React.Component {
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <Maybe test={totalCount !== 0}>
-            <FilterWrapper show>
-              <ContentFilter
-                thread={THREAD.POST}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+            <FilterWrapper>
+              <Guardian require="elixir->job.edit">
+                <ContentFilter
+                  thread={THREAD.POST}
+                  onSelect={logic.onFilterSelect}
+                  activeFilter={filtersData}
+                />
+                <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+              </Guardian>
             </FilterWrapper>
           </Maybe>
 

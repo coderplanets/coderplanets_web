@@ -90,7 +90,7 @@ export const User = t.model('User', {
   subscribedCommunitiesCount: t.optional(t.number, 0),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybeNull(GithubProfile),
-  cmsPassportString: t.maybeNull(t.string),
+  // cmsPassportString: t.optional(t.string, '{}'),
 
   followingsCount: t.optional(t.number, 0),
   followersCount: t.optional(t.number, 0),
@@ -125,6 +125,7 @@ export const EmptyUser = {
   subscribedCommunities: {},
   contributes: {},
   githubProfile: null,
+  // cmsPassportString: '{}',
 }
 
 export const PagedUsers = t.model('PagedUsers', {

@@ -29,7 +29,6 @@ const sessionState = gql`
         weichat
         sex
         cmsPassport
-        cmsPassportString
         githubProfile {
           htmlUrl
           login

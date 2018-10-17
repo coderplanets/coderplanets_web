@@ -5,7 +5,6 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import store from 'store'
 
 import {
   markStates,
@@ -13,6 +12,7 @@ import {
   stripMobx,
   /* BStore, */
   Global,
+  BStore,
 } from '../../utils'
 import { User, EmptyUser } from '../SharedModel'
 /* eslint-disable no-unused-vars */
@@ -51,8 +51,8 @@ const AccountStore = t
     logout() {
       self.user = EmptyUser
       self.root.preview.close()
-      store.remove('user')
-      store.remove('token')
+      BStore.remove('user')
+      BStore.remove('token')
       self.isValidSession = false
 
       Global.location.reload(false)
@@ -65,6 +65,7 @@ const AccountStore = t
       const { isValid, user } = sessionState
       if (isValid) {
         self.isValidSession = isValid
+        BStore.set('passports', user.cmsPassport)
         return self.updateAccount(user)
       }
       // if not valid then empty user data
