@@ -17,7 +17,7 @@ export { default as RepoItem } from './RepoItem'
 export { default as VideoItem } from './VideoItem'
 
 // Utils component
-export { default as Guardian } from './Guardian'
+export { withGuardian } from './HOC'
 export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
 export { default as DotDivider } from './DotDivider'

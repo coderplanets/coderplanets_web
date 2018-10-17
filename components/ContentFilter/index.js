@@ -11,7 +11,9 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
+import { withGuardian } from '../HOC'
 import Popover from '../Popover'
+
 import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles'
 import FilterPanel from './FilterPanel'
 
@@ -91,4 +93,4 @@ ContentFilter.defaultProps = {
   thread: THREAD.POST,
 }
 
-export default ContentFilter
+export default withGuardian(ContentFilter)
