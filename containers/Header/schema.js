@@ -28,6 +28,7 @@ const sessionState = gql`
         weibo
         weichat
         sex
+        cmsPassport
         githubProfile {
           htmlUrl
           login

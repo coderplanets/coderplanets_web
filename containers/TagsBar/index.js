@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
+import { withGuardian } from '../../components/HOC'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
@@ -100,4 +101,6 @@ TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
 }
 
-export default inject(storePlug('tagsBar'))(observer(TagsBarContainer))
+export default withGuardian(
+  inject(storePlug('tagsBar'))(observer(TagsBarContainer))
+)

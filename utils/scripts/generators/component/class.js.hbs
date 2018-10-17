@@ -29,19 +29,19 @@ class {{ properCase name }} extends React.Component {
   render() {
     return (
       <div>
-      {{ properCase name }} component
-      {{#if wantMessages}}
-        <FormattedMessage {...messages.header} />
-      {{/if}}
+        {{ properCase name }} component
+        {{#if wantMessages}}
+          <FormattedMessage {...messages.header} />
+        {{/if}}
       </div>
     )
   }
 }
 
-export default {{ properCase name }}
-
-Index.propTypes = {
+{{ properCase name }}.propTypes = {
   // https://www.npmjs.com/package/prop-types
 }
 
-Index.defaultProps = {}
+{{ properCase name }}.defaultProps = {}
+
+export default {{ properCase name }}

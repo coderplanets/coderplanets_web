@@ -62,11 +62,12 @@ class PostsThreadContainer extends React.Component {
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <Maybe test={totalCount !== 0}>
-            <FilterWrapper show>
+            <FilterWrapper>
               <ContentFilter
                 thread={THREAD.POST}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
+                passport="elixir->job.edit"
               />
               <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
