@@ -1,6 +1,9 @@
 import React from 'react'
 
+import { DotDivider } from '../../components'
 import { Wrapper, Title } from './styles/parent'
+
+import CommentCount from './CommentsCount'
 import CommunityList from './CommunityList'
 
 import { THREAD } from '../../utils'
@@ -10,7 +13,11 @@ const Parent = ({ thread, data }) => {
     case THREAD.JOB: {
       return (
         <Wrapper>
-          <Title>{data.job.title}</Title>
+          <Title>
+            {data.job.title} [{data.job.company}]
+          </Title>
+          <DotDivider />
+          <CommentCount floor={data.floor} total={data.job.commentsCount} />
           <CommunityList items={data.job.communities} />
         </Wrapper>
       )
@@ -18,7 +25,11 @@ const Parent = ({ thread, data }) => {
     case THREAD.REPO: {
       return (
         <Wrapper>
-          <Title>{data.repo.title}</Title>
+          <Title>
+            {data.repo.ownerName} / {data.repo.title}
+          </Title>
+          <DotDivider />
+          <CommentCount floor={data.floor} total={data.repo.commentsCount} />
           <CommunityList items={data.repo.communities} />
         </Wrapper>
       )
@@ -27,6 +38,8 @@ const Parent = ({ thread, data }) => {
       return (
         <Wrapper>
           <Title>{data.video.title}</Title>
+          <DotDivider />
+          <CommentCount floor={data.floor} total={data.video.commentsCount} />
           <CommunityList items={data.video.communities} />
         </Wrapper>
       )
@@ -35,6 +48,8 @@ const Parent = ({ thread, data }) => {
       return (
         <Wrapper>
           <Title>{data.post.title}</Title>
+          <DotDivider />
+          <CommentCount floor={data.floor} total={data.post.commentsCount} />
           <CommunityList items={data.post.communities} />
         </Wrapper>
       )

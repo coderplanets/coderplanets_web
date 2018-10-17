@@ -52,8 +52,6 @@ const publishedRepoComments = gql`
         repo {
           ${F.commentParent}
           ownerName
-          ownerUrl
-          repoUrl
         }
       }
       ${F.pagedCounts}

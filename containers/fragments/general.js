@@ -36,6 +36,7 @@ export const comment = `
 export const commentParent = `
   id
   title
+  commentsCount
   author {
     id
     nickname
