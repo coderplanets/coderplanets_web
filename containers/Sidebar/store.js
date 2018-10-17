@@ -71,7 +71,7 @@ const SidebarStore = t
     get langMessages() {
       return self.root.langMessages
     },
-    get subscribedCommunities() {
+    get communitiesData() {
       const { entries } = self.root.account.subscribedCommunities
       return menuItemConveter(entries)
     },
@@ -80,8 +80,13 @@ const SidebarStore = t
     markRoute(query) {
       self.root.markRoute(query)
     },
-    loadSubscribedCommunities(data) {
+    // load Subscribed communities
+    loadCommunities(data) {
       self.root.account.loadSubscribedCommunities(data)
+    },
+    onSortCommunities(entries) {
+      const data = R.merge(self.root.account.subscribedCommunities, { entries })
+      self.loadCommunities(data)
     },
     markState(sobj) {
       markStates(sobj, self)

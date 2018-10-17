@@ -1,12 +1,14 @@
 import React from 'react'
-import { PinIconWrapper, PinIcon } from './styles/index'
 
 import { ICON_CMD } from '../../config'
+import { Wrapper, PinIcon } from './styles/pin_button'
 
-const PinButton = ({ pin, onClick }) => (
-  <PinIconWrapper onClick={onClick}>
+import { setPin } from './logic'
+
+const PinButton = ({ pin }) => (
+  <Wrapper onClick={setPin}>
     <PinIcon pin={pin} src={`${ICON_CMD}/pin.svg`} />
-  </PinIconWrapper>
+  </Wrapper>
 )
 
 export default PinButton
