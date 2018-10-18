@@ -6,28 +6,16 @@
    login --
  */
 import { ICON_CMD, ICON_BASE } from '../../../config'
+import { themeMeta } from '../../../utils'
 
 const cmds = {
   theme: {
     title: 'theme',
-    desc: 'theme desc..',
+    desc: 'awesome themes for hackers',
     raw: 'theme',
     logo: `${ICON_CMD}/themes.svg`,
 
-    threads: {
-      cyan: {
-        title: 'cyan theme',
-        desc: `cyan desc`,
-        raw: `cyan`,
-        cmd: 'theme',
-      },
-      solarized: {
-        title: 'solarizedDark theme',
-        desc: `solarizedDark desc`,
-        raw: `solarized`,
-        cmd: 'theme',
-      },
-    },
+    threads: { ...themeMeta },
   },
   user: {
     title: 'user',

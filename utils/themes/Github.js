@@ -18,7 +18,7 @@ const threadTitle = '#7b7878'
 
 const Github = {
   logoText: descText,
-  cover: primaryColor,
+  cover: 'white',
   coverIndex: '#F9FCFC',
   contrastFg: '#eca014',
   htmlBg: bannerBg,

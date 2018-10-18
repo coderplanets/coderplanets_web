@@ -34,14 +34,14 @@ class DoraemonContainer extends React.Component {
     // debug('suggestion.raw: ', suggestions.toJSON())
 
     return (
-      <div>
+      <React.Fragment>
         <PageOverlay visible={visible} onClick={logic.hidePanel} />
         <PanelContainer visible={visible}>
           <InputEditor value={inputValue} searching={false} prefix={prefix} />
           {logic.repoNotFound(doraemon) && <AlertBar>Repo not found</AlertBar>}
           <ResultsList suggestions={suggestions} activeRaw={activeRaw} />
         </PanelContainer>
-      </div>
+      </React.Fragment>
     )
   }
 }
