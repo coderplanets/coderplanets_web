@@ -13,7 +13,7 @@ import {
   Nickname,
   When,
   CommentBody,
-} from './styles/comments_to_post'
+} from './styles/comments_to_content'
 
 import Parent from './Parent'
 

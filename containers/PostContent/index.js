@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import Comments from '../Comments'
 
 import { MarkDownRender } from '../../components'
-import { uid, makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 import {
@@ -19,47 +19,13 @@ import {
   MainWrapper,
   ArticleWrapper,
   CommentsWrapper,
-  SideWrapper,
-  SidebarTitle,
-  SidebarDesc,
-  CommunityIcon,
-  TagDot,
-  TagWrapper,
-  TagTitle,
-  /* RelatedUser, */
-  NomoreDesc,
 } from './styles'
+
+import SideCards from './SideCards'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostContent')
 /* eslint-enable no-unused-vars */
-
-const Communities = ({ data }) => {
-  if (R.isEmpty(data)) return <NomoreDesc>不属于任何社区</NomoreDesc>
-
-  return (
-    <React.Fragment>
-      {data.map(c => (
-        <CommunityIcon key={uid.gen()} src={c.logo} />
-      ))}
-    </React.Fragment>
-  )
-}
-
-const Tags = ({ data }) => {
-  if (R.isEmpty(data)) return <NomoreDesc>无标签</NomoreDesc>
-
-  return (
-    <React.Fragment>
-      {data.map(t => (
-        <TagWrapper key={uid.gen()}>
-          <TagDot color={t.color} />
-          <TagTitle>{t.title}</TagTitle>
-        </TagWrapper>
-      ))}
-    </React.Fragment>
-  )
-}
 
 class PostContentContainer extends React.Component {
   componentWillMount() {
@@ -68,46 +34,22 @@ class PostContentContainer extends React.Component {
   }
 
   render() {
-    const {
-      postContent: { postData },
-    } = this.props
+    const { postContent } = this.props
+    const { viewingPostData } = postContent
 
     return (
       <Container>
-        {R.isNil(postData.id) ? null : (
+        {R.isNil(viewingPostData.id) ? null : (
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <MarkDownRender body={postData.body} />
+                <MarkDownRender body={viewingPostData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideWrapper>
-              <SidebarTitle>所属社区</SidebarTitle>
-              <SidebarDesc>
-                <Communities data={postData.communities} />
-              </SidebarDesc>
-              <SidebarTitle>标签</SidebarTitle>
-
-              <SidebarDesc column noBottom>
-                <Tags data={postData.tags} />
-              </SidebarDesc>
-              {/*
-                  <SidebarTitle>参与者</SidebarTitle>
-                  <SidebarDesc noBottom>
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  <RelatedUser src="https://avatars2.githubusercontent.com/u/6184465?v=4" />
-                  </SidebarDesc>
-                */}
-            </SideWrapper>
+            <SideCards data={viewingPostData} />
           </React.Fragment>
         )}
       </Container>
