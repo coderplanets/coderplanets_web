@@ -15,7 +15,7 @@ const markdownFont = '#7F8189'
 const descText = '#4a455a'
 const primaryMate = '#a7674d'
 
-const Purple = {
+const purple = {
   logoText: primaryColor,
   cover: primaryColor,
   coverIndex: '#9e96c3',
@@ -291,4 +291,4 @@ const Purple = {
   },
 }
 
-export default Purple
+export default purple

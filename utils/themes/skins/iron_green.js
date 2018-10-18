@@ -16,7 +16,7 @@ const markdownFont = '#B4C7C6'
 
 const descText = '#7EA7AC'
 
-const IconGreen = {
+const iconGreen = {
   logoText: descText,
   cover: bannerBg,
   coverIndex: '#F9FCFC',
@@ -286,4 +286,4 @@ const IconGreen = {
   },
 }
 
-export default IconGreen
+export default iconGreen

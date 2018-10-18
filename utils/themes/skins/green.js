@@ -1,24 +1,25 @@
 /*
- * a theme inspired by Muzli && unbuntu
+ * a theme inspired by green && unbuntu
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#738990'
+const primaryColor = '#5da579'
 
-const bannerBg = '#EFE8D6'
-const contentBg = '#FEF6E4'
-const contentBoxBg = '#FEF6E4'
+const bannerBg = '#bccebb' // '#AEC4AD'
+const contentBg = '#D3DFD1'
+const contentBoxBg = '#e0e8db' // '#DBE3D6'
 const fontColor = primaryColor
-const sidebarBg = '#323c40'
-const markdownFont = '#85979c'
+const sidebarBg = '#3B4F43'
+const markdownFont = '#83a085'
 
-const descText = '#9eb7bd'
-const primaryMate = '#1e9089'
+const descText = '#83a085'
+const bannerTitle = '#708e7a'
+const primaryMate = '#b57a5b'
 
-const Yellow = {
-  logoText: primaryColor,
-  cover: bannerBg,
-  coverIndex: primaryMate,
+const green = {
+  logoText: bannerTitle,
+  cover: '#B4C9B2',
+  coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
@@ -43,40 +44,40 @@ const Yellow = {
     fg: primaryColor,
     bg: bannerBg,
     spliter: darken(0.04, bannerBg),
-    fixed: bannerBg,
-    tabActive: primaryColor, // articleTitle
-    tabOthers: lighten(0.1, primaryColor),
+    fixed: contentBg,
+    tabActive: bannerTitle,
+    tabOthers: descText,
   },
   banner: {
-    title: lighten(0.06, primaryColor),
+    title: bannerTitle,
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
-    number: primaryColor,
+    spliter: bannerBg,
+    number: bannerTitle,
     active: primaryMate,
     numberDesc: descText,
-    numberDivider: '#dcdad6',
-    numberHoverBg: darken(0.03, bannerBg),
+    numberDivider: '#aab9ab',
+    numberHoverBg: lighten(0.03, bannerBg),
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: primaryColor,
-    articleHover: '#f7eedc',
+    articleTitle: '#62867A',
+    articleHover: lighten(0.03, contentBoxBg),
     articleStrip: contentBoxBg,
     articleDigest: descText,
-    articleTag: '#526482',
+    articleTag: '#74a0ab',
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
-    articleSpliter: '#decfb0',
+    articleSpliter: '#BBCEBC',
     // like github
-    repoTitle: primaryColor,
+    repoTitle: '#62867A',
   },
   content: {
     bg: contentBoxBg,
     border: contentBoxBg,
-    cardBg: bannerBg,
+    cardBg: lighten(0.05, contentBoxBg),
     cardBorder: lighten(0.08, contentBoxBg),
     cardBorderHover: lighten(0.1, contentBoxBg),
   },
@@ -89,69 +90,69 @@ const Yellow = {
     logoText: primaryColor,
     bg: sidebarBg,
     menuHover: lighten(0.1, sidebarBg),
-    pinActive: '#849804',
-    menuLink: '#93A1A1',
+    pinActive: contentBg,
+    menuLink: '#A6BBAF',
     borderColor: lighten(0.05, sidebarBg),
   },
   preview: {
-    title: primaryColor,
+    title: bannerTitle,
     desc: lighten(0.05, descText),
-    font: fontColor,
-    bg: contentBoxBg,
+    font: descText,
+    bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: lighten(0.04, contentBg),
-    accountBg: contentBg,
-    articleBg: '#fffaf0',
-    helper: lighten(0.3, contentBg),
-    helperHover: primaryColor,
-    topLine: '#4EAFA5',
-    icon: '#4EAFA5',
-    divider: '#eae7de',
+    accountBg: contentBoxBg,
+    articleBg: contentBoxBg,
+    helper: '#b0bfa8',
+    helperHover: descText,
+    topLine: primaryColor,
+    icon: '#845145',
+    divider: '#ced8c6',
   },
   article: {
     link: primaryMate,
     linkHover: lighten(0.05, primaryMate),
-    reactionTitle: primaryColor,
+    reactionTitle: descText,
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
-    icon: lighten(0.06, primaryColor),
+    icon: bannerTitle,
     didIcon: primaryMate,
-    title: lighten(0.06, primaryColor),
-    username: lighten(0.06, primaryColor),
+    title: bannerTitle,
+    username: bannerTitle,
     number: primaryMate,
     floor: primaryMate,
-    reply: lighten(0.06, primaryColor),
-    replyBg: '#fff4da',
-    placeholder: descText,
+    reply: bannerTitle,
+    replyBg: '#e8efe5',
+    placeholder: lighten(0.05, descText),
     filter: descText,
-    filterActive: lighten(0.06, primaryColor),
-    action: lighten(0.06, primaryColor),
+    filterActive: bannerTitle,
+    action: descText,
     // mention text displayed in article
-    mentionText: '#70768B',
-    mentionTextBg: '#423a4a',
+    mentionText: bannerTitle,
+    mentionTextBg: '#f7f0dc',
     // mention popover background
     mentionBg: contentBoxBg,
-    mentionBorder: lighten(0.06, primaryColor),
-    mentionActiveBg: lighten(0.1, contentBoxBg),
-    mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.8)',
+    mentionBorder: bannerTitle,
+    mentionActiveBg: lighten(0.01, contentBoxBg),
+    mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.3)',
   },
   editor: {
-    title: primaryColor,
+    title: bannerTitle,
     content: descText,
-    placeholder: '#c8d3cf',
-    headerBg: '#fffaf0',
-    contentBg: '#fffaf0',
-    border: '#fffaf0',
+    placeholder: '#a6bba7',
+    headerBg: contentBoxBg,
+    contentBg: contentBoxBg,
+    border: contentBoxBg,
     borderActive: primaryColor,
-    borderNormal: darken(0.05, bannerBg),
+    borderNormal: darken(0.05, contentBoxBg),
     footer: descText,
+    footerHover: darken(0.05, descText),
   },
   pagination: {
-    activeNum: 'white',
-    itemBg: bannerBg,
-    itemBorderColor: darken(0.05, bannerBg),
+    itemBg: contentBg,
+    itemBorderColor: '#C3D4C3',
     disableText: descText,
     text: primaryColor,
     inactiveNum: primaryColor,
@@ -159,7 +160,7 @@ const Yellow = {
   heatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
-    empty: '#f1eddd',
+    empty: '#d3dccc',
     borderHover: primaryColor,
     monthLabel: descText,
     scale_1: '#dbe290',
@@ -179,7 +180,7 @@ const Yellow = {
   bannerHeatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
-    empty: '#f1eddd',
+    empty: '#d3dccc',
     borderHover: primaryColor,
     monthLabel: descText,
     scale_1: '#dbe290',
@@ -231,38 +232,38 @@ const Yellow = {
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
-    bg: bannerBg,
+    bg: contentBoxBg,
     borderColor: primaryColor,
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
     dotOpacity: 0.7,
-    text: '#72788D',
+    text: '#74a0ab',
   },
   tagger: {
-    text: '#FFF6E5',
-    bg: '#afc1b3',
-    border: '#afc1b3',
-    closeBtn: '#FFF6E5',
+    text: '#8095ad',
+    bg: '#BBCEBC',
+    border: '#BBCEBC',
+    closeBtn: '#8095ad',
   },
   tabs: {
-    headerActive: lighten(0.04, primaryColor),
-    header: lighten(0.2, primaryColor),
-    contentBg: darken(0.03, contentBoxBg),
-    headerBg: darken(0.02, contentBoxBg),
+    headerActive: '#628672',
+    header: '#83A086',
+    contentBg: lighten(0.03, contentBoxBg),
+    headerBg: lighten(0.02, contentBoxBg),
     headerActiveTop: primaryColor,
-    border: '#EAE0C9',
-    bottomLine: '#e4e0d6',
+    border: darken(0.05, contentBoxBg),
+    bottomLine: '#c6d4c6',
   },
   modal: {
     bg: bannerBg,
     border: primaryColor,
-    innerSelectBg: '#f7f0e0',
+    innerSelectBg: '#333040',
   },
   form: {
     inputBg: lighten(0.03, contentBoxBg),
     text: descText,
-    label: primaryColor,
+    label: bannerTitle,
     border: descText,
     shadow: 'rgba(184, 198, 192, 0.3)',
   },
@@ -280,14 +281,6 @@ const Yellow = {
     successBar: '#9dd035',
     warnBar: '#f5a30e',
   },
-  mailBox: {
-    headHightBg: bannerBg,
-  },
-  alertWarn: {
-    border: '#ffe58f',
-    bg: '#fffbe6',
-    text: '#c3ae8e',
-  },
 }
 
-export default Yellow
+export default green

@@ -1,24 +1,24 @@
 /*
- * a theme inspired by Muzli && unbuntu
+ * a theme inspired by https://vimawesome.com/
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#615c79'
+const primaryColor = '#738990'
 
-const bannerBg = '#2f2c3c'
-const contentBg = '#242029'
-const contentBoxBg = '#27212d'
+const bannerBg = '#EFE8D6'
+const contentBg = '#FEF6E4'
+const contentBoxBg = '#FEF6E4'
 const fontColor = primaryColor
-const sidebarBg = '#222029'
-const markdownFont = '#7F8189'
+const sidebarBg = '#323c40'
+const markdownFont = '#85979c'
 
-const descText = '#4a455a'
-const primaryMate = '#a7674d'
+const descText = '#9eb7bd'
+const primaryMate = '#1e9089'
 
-const Blue = {
+const yellow = {
   logoText: primaryColor,
-  cover: '#586ABD',
-  coverIndex: '#9e96c3',
+  cover: bannerBg,
+  coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
   loading: {
@@ -45,34 +45,33 @@ const Blue = {
     spliter: darken(0.04, bannerBg),
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
-    tabOthers: darken(0.1, primaryColor),
+    tabOthers: lighten(0.1, primaryColor),
   },
   banner: {
-    title: primaryColor,
+    title: lighten(0.06, primaryColor),
     bg: bannerBg,
     desc: descText,
     spliter: darken(0.04, bannerBg),
     number: primaryColor,
     active: primaryMate,
     numberDesc: descText,
-    numberDivider: darken(0.08, descText),
-    numberHoverBg: lighten(0.03, bannerBg),
+    numberDivider: '#dcdad6',
+    numberHoverBg: darken(0.03, bannerBg),
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#737990',
-    articleHover: lighten(0.03, contentBoxBg),
+    articleTitle: primaryColor,
+    articleHover: '#f7eedc',
     articleStrip: contentBoxBg,
-    articleDigest: '#505667',
+    articleDigest: descText,
     articleTag: '#526482',
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
-    articleSpliter: '#3c4648',
-
+    articleSpliter: '#decfb0',
     // like github
-    repoTitle: '#737990',
+    repoTitle: primaryColor,
   },
   content: {
     bg: contentBoxBg,
@@ -82,8 +81,8 @@ const Blue = {
     cardBorderHover: lighten(0.1, contentBoxBg),
   },
   footer: {
-    text: descText,
-    hover: lighten(0.1, descText),
+    text: lighten(0.1, descText),
+    hover: descText,
     label: descText,
   },
   sidebar: {
@@ -102,13 +101,13 @@ const Blue = {
     shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
     markdownHelperBg: lighten(0.04, contentBg),
-    accountBg: lighten(0.04, contentBg),
-    articleBg: lighten(0.04, contentBg),
-    helper: lighten(0.2, contentBg),
-    helperHover: lighten(0.3, contentBg),
-    topLine: '#c387e8',
-    icon: '#845145',
-    divider: darken(0.07, descText),
+    accountBg: contentBg,
+    articleBg: '#fffaf0',
+    helper: lighten(0.3, contentBg),
+    helperHover: primaryColor,
+    topLine: '#4EAFA5',
+    icon: '#4EAFA5',
+    divider: '#eae7de',
   },
   article: {
     link: primaryMate,
@@ -117,43 +116,42 @@ const Blue = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
-    icon: primaryColor,
+    icon: lighten(0.06, primaryColor),
     didIcon: primaryMate,
-    title: primaryColor,
-    username: primaryColor,
+    title: lighten(0.06, primaryColor),
+    username: lighten(0.06, primaryColor),
     number: primaryMate,
     floor: primaryMate,
-    reply: primaryColor,
-    replyBg: '#3d3644',
+    reply: lighten(0.06, primaryColor),
+    replyBg: '#fff4da',
     placeholder: descText,
     filter: descText,
-    filterActive: primaryColor,
-    action: primaryColor,
+    filterActive: lighten(0.06, primaryColor),
+    action: lighten(0.06, primaryColor),
     // mention text displayed in article
     mentionText: '#70768B',
     mentionTextBg: '#423a4a',
     // mention popover background
     mentionBg: contentBoxBg,
-    mentionBorder: primaryColor,
+    mentionBorder: lighten(0.06, primaryColor),
     mentionActiveBg: lighten(0.1, contentBoxBg),
     mentionShadow: '0px 2px 10px 1px rgba(47, 46, 46, 0.8)',
   },
   editor: {
     title: primaryColor,
-    content: '#6E717A',
-    placeholder: darken(0.03, descText),
-    headerBg: bannerBg,
-    contentBg: bannerBg,
-    border: bannerBg,
-    borderAcitve: primaryColor,
-    borderNormal: lighten(0.05, bannerBg),
+    content: descText,
+    placeholder: '#c8d3cf',
+    headerBg: '#fffaf0',
+    contentBg: '#fffaf0',
+    border: '#fffaf0',
+    borderActive: primaryColor,
+    borderNormal: darken(0.05, bannerBg),
     footer: descText,
-    footerHover: lighten(0.05, descText),
   },
   pagination: {
     activeNum: 'white',
-    itemBg: darken(0.1, descText),
-    itemBorderColor: darken(0.06, descText),
+    itemBg: bannerBg,
+    itemBorderColor: darken(0.05, bannerBg),
     disableText: descText,
     text: primaryColor,
     inactiveNum: primaryColor,
@@ -161,14 +159,14 @@ const Blue = {
   heatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
-    empty: '#342e3a',
+    empty: '#f1eddd',
     borderHover: primaryColor,
     monthLabel: descText,
-    scale_1: lighten(0.04, '#342e3a'),
-    scale_2: lighten(0.08, '#342e3a'),
-    scale_3: lighten(0.12, '#342e3a'),
-    scale_4: lighten(0.18, '#342e3a'),
-    scale_5: lighten(0.3, '#342e3a'),
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
   },
   geoMap: {
     oceanColor: '#F9FCFC',
@@ -181,14 +179,14 @@ const Blue = {
   bannerHeatmap: {
     activityLow: '#007D7C',
     activityHight: '#26A9A0',
-    empty: '#342e3a',
+    empty: '#f1eddd',
     borderHover: primaryColor,
     monthLabel: descText,
-    scale_1: lighten(0.04, '#342e3a'),
-    scale_2: lighten(0.08, '#342e3a'),
-    scale_3: lighten(0.12, '#342e3a'),
-    scale_4: lighten(0.18, '#342e3a'),
-    scale_5: lighten(0.3, '#342e3a'),
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
   },
   markdown: {
     title: darken(0.05, '#DBE0E1'),
@@ -238,22 +236,28 @@ const Blue = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.5,
+    dotOpacity: 0.7,
     text: '#72788D',
   },
+  tagger: {
+    text: '#FFF6E5',
+    bg: '#afc1b3',
+    border: '#afc1b3',
+    closeBtn: '#FFF6E5',
+  },
   tabs: {
-    headerActive: primaryColor,
-    header: darken(0.05, primaryColor),
-    contentBg: lighten(0.05, contentBoxBg),
-    headerBg: lighten(0.03, contentBoxBg),
+    headerActive: lighten(0.04, primaryColor),
+    header: lighten(0.2, primaryColor),
+    contentBg: darken(0.03, contentBoxBg),
+    headerBg: darken(0.02, contentBoxBg),
     headerActiveTop: primaryColor,
-    border: descText,
-    bottomLine: descText,
+    border: '#EAE0C9',
+    bottomLine: '#e4e0d6',
   },
   modal: {
     bg: bannerBg,
     border: primaryColor,
-    innerSelectBg: '#333040',
+    innerSelectBg: '#f7f0e0',
   },
   form: {
     inputBg: lighten(0.03, contentBoxBg),
@@ -286,4 +290,4 @@ const Blue = {
   },
 }
 
-export default Blue
+export default yellow
