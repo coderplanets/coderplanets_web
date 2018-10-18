@@ -12,29 +12,10 @@
  */
 
 import R from 'ramda'
-
-import {
-  Cyan,
-  Purple,
-  SolarizedDark,
-  Github,
-  Blue,
-  Yellow,
-  Green,
-  IronGreen,
-} from './skins'
+import skinsData from './skins'
 
 export const defaultTheme = 'cyan'
-export const themeSkins = {
-  cyan: { ...Cyan },
-  solarized: { ...SolarizedDark },
-  purple: { ...Purple },
-  yellow: { ...Yellow },
-  github: { ...Github },
-  blue: { ...Blue },
-  green: { ...Green },
-  ironGreen: { ...IronGreen },
-}
+export const themeSkins = { ...skinsData }
 
 // cover color of a theme
 export const themeCoverMap = R.map(R.path(['cover']), themeSkins)

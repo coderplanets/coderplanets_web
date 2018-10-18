@@ -11,11 +11,24 @@
  * Earthsung https://atom.io/themes/earthsung-by-jackson-syntax
  */
 
-export { default as Cyan } from './Cyan'
-export { default as Purple } from './Purple'
-export { default as SolarizedDark } from './SolarizedDark'
-export { default as Github } from './Github'
-export { default as Blue } from './Blue'
-export { default as Yellow } from './Yellow'
-export { default as Green } from './Green'
-export { default as IronGreen } from './IronGreen'
+import cyan from './cyan'
+import solarizedDark from './solarized_dark'
+import github from './github'
+import purple from './purple'
+import blue from './blue'
+import yellow from './yellow'
+import green from './green'
+import ironGreen from './iron_green'
+
+const skinsData = {
+  cyan,
+  solarizedDark,
+  purple,
+  yellow,
+  github,
+  blue,
+  green,
+  ironGreen,
+}
+
+export default skinsData
