@@ -1,10 +1,9 @@
 import React from 'react'
 
-import { DotDivider } from '../../components'
+import { DotDivider, CommunityList } from '../../components'
 import { Wrapper, Title } from './styles/parent'
 
 import CommentCount from './CommentsCount'
-import CommunityList from './CommunityList'
 
 import { THREAD } from '../../utils'
 

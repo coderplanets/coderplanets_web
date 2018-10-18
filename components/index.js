@@ -52,6 +52,7 @@ export { default as SearchingLabel } from './SearchingLabel'
 export { default as EmptyLabel } from './EmptyLabel'
 export { default as FollowButton } from './FollowButton'
 export { default as ThreadSelector } from './ThreadSelector'
+export { default as CommunityList } from './CommunityList'
 
 // loading component
 export {
