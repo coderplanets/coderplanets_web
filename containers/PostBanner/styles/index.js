@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme } from '../../../utils'
 
 export const BaseBanner = styled.nav`
   position: relative;
@@ -15,28 +15,15 @@ export const BaseBanner = styled.nav`
     min-height: 130px;
   }
 `
-
 export const BaseBannerContent = styled.div`
   display: flex;
   margin-left: 8%;
-  margin-right: 12%;
+  margin-right: 8%;
 `
-
-export const NumbersWrapper = styled.div`
-  display: flex;
-  text-align: center;
-  margin-top: -2.1rem;
-`
-
-export const NumbersInfo = styled(NumbersWrapper)`
-  margin-top: 0;
-`
-
 export const BannerContainer = styled(BaseBanner)`
   height: 100px;
   min-height: 100px;
 `
-
 export const BannerContentWrapper = styled(BaseBannerContent)`
   display: flex;
 `
@@ -56,9 +43,11 @@ export const Title = styled.div`
   text-overflow: ellipsis;
 `
 export const Desc = styled.div`
+  display: flex;
+  align-items: center;
   margin-top: 5px;
   display: flex;
-  font-size: 1.1em;
+  font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled.img`
@@ -67,57 +56,12 @@ export const Avatar = styled.img`
   border-radius: 100%;
   margin-right: 5px;
 `
-export const PrintTag = styled.div`
+export const MarkTag = styled.div`
   font-size: 0.8em;
   padding: 1px 8px;
   border-radius: 3px;
   border: 1px solid;
-  border-color: ${theme('thread.extraInfo')};
-  color: ${theme('thread.extraInfo')};
+  border-color: tomato;
+  color: tomato;
   margin-right: 8px;
-`
-export const Username = styled.div`
-  margin-right: 3px;
-  &:hover {
-    cursor: pointer;
-    color: #719a9b;
-  }
-`
-// background: ${theme('banner.numberHoverBg')};
-export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 5px;
-  border-radius: 4px;
-
-  &:hover {
-    background: ${({ dead }) => (dead ? '' : theme('banner.numberHoverBg'))};
-    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
-  }
-`
-export const NumberTitle = styled.div`
-  color: ${theme('banner.numberDesc')};
-  &:hover {
-    color: ${({ dead }) => (dead ? '' : '#f1c48f')};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
-  }
-`
-export const NumberItem = styled.div`
-  font-size: 1.5rem;
-  color: ${theme('banner.number')};
-  &:hover {
-    color: ${({ dead }) => (dead ? '' : '#f1c48f')};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
-  }
-`
-export const NumberDivider = styled.div`
-  border: 1px solid;
-  border-color: ${theme('banner.numberDivider')};
-  height: 70%;
-  align-self: center;
-  margin-left: 10px;
-  margin-right: 10px;
 `

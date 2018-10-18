@@ -65,7 +65,7 @@ export const SidebarDesc = styled.div`
   flex-wrap: wrap;
 `
 export const NomoreDesc = styled.div`
-  color: ${theme('preview.divider')};
+  color: ${theme('banner.desc')};
   font-style: italic;
 `
 
