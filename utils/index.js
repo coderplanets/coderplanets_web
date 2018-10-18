@@ -89,10 +89,8 @@ export {
  */
 export {
   theme,
-  defaultTheme,
   themeMeta,
-  themeDict,
-  themeKeys,
+  themeSkins,
   themeCoverMap,
   themeCoverIndexMap,
 } from './themes'

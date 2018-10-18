@@ -7,10 +7,10 @@ const themeMeta = {
     raw: 'cyan',
     cmd: 'theme',
   },
-  solarized: {
-    title: 'solarized',
+  solarizedDark: {
+    title: 'solarized-dark',
     desc: 'a theme inspired by famous solarized proj',
-    raw: 'solarized',
+    raw: 'solarizedDark',
     cmd: 'theme',
   },
   purple: {
