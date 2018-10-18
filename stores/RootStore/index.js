@@ -11,7 +11,7 @@ import {
   markStates,
   toast,
   toastBarColor,
-  themeDict,
+  themeSkins,
 } from '../../utils'
 
 import {
@@ -229,7 +229,7 @@ const rootStore = t
       self.footer.sponsorHepler()
     },
     toast(type, options = {}) {
-      const themeData = themeDict[self.theme.curTheme]
+      const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)
 
       const toastOpt = R.merge(options, { progressBarColor })

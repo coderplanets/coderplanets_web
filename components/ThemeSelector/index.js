@@ -6,6 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -22,14 +23,15 @@ import {
   AuthorName,
 } from './style'
 
-import { makeDebugger, themeKeys, themeMeta, uid } from '../../utils'
+import { makeDebugger, themeMeta, uid } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
 
 const DotStyle = ({ curTheme, changeTheme }) => (
   <FlexWrapper>
-    {themeKeys.map(name => (
+    {R.keys(themeMeta).map(name => (
       <ThemeDot
         key={uid.gen()}
         active={curTheme === name}
@@ -42,7 +44,7 @@ const DotStyle = ({ curTheme, changeTheme }) => (
 
 const DetailStyle = ({ curTheme, changeTheme }) => (
   <DetailWrapper>
-    {themeKeys.map(name => (
+    {R.keys(themeMeta).map(name => (
       <IntroBox key={uid.gen()} active={curTheme === name}>
         <ThemeDot
           large

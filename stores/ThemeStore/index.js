@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { makeDebugger, markStates, themeDict, defaultTheme } from '../../utils'
+import { makeDebugger, markStates, themeSkins, defaultTheme } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ThemeStore')
@@ -19,7 +19,7 @@ export const ThemeDefaults = {
 export const ThemeStore = t
   .model('ThemeStore', {
     curTheme: t.optional(
-      t.enumeration('theme', R.keys(themeDict)),
+      t.enumeration('theme', R.keys(themeSkins)),
       defaultTheme
     ),
   })
@@ -28,10 +28,10 @@ export const ThemeStore = t
       return getParent(self)
     },
     get themeData() {
-      return themeDict[self.curTheme]
+      return themeSkins[self.curTheme]
     },
     get themeKeys() {
-      return R.keys(themeDict)
+      return R.keys(themeSkins)
     },
   }))
   .actions(self => ({

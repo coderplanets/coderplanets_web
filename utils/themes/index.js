@@ -13,17 +13,19 @@
 
 import R from 'ramda'
 
-import Cyan from './Cyan'
-import Purple from './Purple'
-import SolarizedDark from './SolarizedDark'
-import Github from './Github'
-import Blue from './Blue'
-import Yellow from './Yellow'
-import Green from './Green'
-import IronGreen from './IronGreen'
+import {
+  Cyan,
+  Purple,
+  SolarizedDark,
+  Github,
+  Blue,
+  Yellow,
+  Green,
+  IronGreen,
+} from './skins'
 
 export const defaultTheme = 'cyan'
-export const themeDict = {
+export const themeSkins = {
   cyan: { ...Cyan },
   solarized: { ...SolarizedDark },
   purple: { ...Purple },
@@ -34,12 +36,12 @@ export const themeDict = {
   ironGreen: { ...IronGreen },
 }
 
-export const themeKeys = R.keys(themeDict)
+// cover color of a theme
+export const themeCoverMap = R.map(R.path(['cover']), themeSkins)
+// the "T" color in themeSelector
+export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeSkins)
 
-export const themeCoverMap = R.map(R.path(['cover']), themeDict)
-export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeDict)
-
-// shorthand for style-components
+// curried shorthand for style-components
 export const theme = themepath =>
   R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
 
