@@ -5,10 +5,10 @@
 
 import React from 'react'
 
-import { themeCoverMap } from '../../utils'
-import { NodeSVGIcon, ThemeDot } from './styles'
+import { Icon, ThemeDot } from './styles/suggest_icon'
 import { DEFAULT_ICON } from '../../config/assets'
 
+import { themeCoverMap } from '../../utils'
 // const debug = makeDebugger('C:Doraemon:NodeIcon')
 
 const NodeIcon = ({ suggestion: { raw, logo, cmd } }) => {
@@ -16,7 +16,7 @@ const NodeIcon = ({ suggestion: { raw, logo, cmd } }) => {
   if (cmd === 'theme') {
     return <ThemeDot bg={themeCoverMap[raw]} />
   }
-  return <NodeSVGIcon src={logo || DEFAULT_ICON} />
+  return <Icon src={logo || DEFAULT_ICON} />
 }
 
 export default NodeIcon
