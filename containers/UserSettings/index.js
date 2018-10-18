@@ -60,7 +60,7 @@ class UserSettingsContainer extends React.Component {
         <ThemeSelector
           curTheme={curTheme}
           changeTheme={logic.changeTheme}
-          displayStyle="detail"
+          displayStyle="card"
         />
         <SectionLabel
           title="打赏设置"

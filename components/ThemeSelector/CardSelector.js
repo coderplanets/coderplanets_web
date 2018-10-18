@@ -1,0 +1,56 @@
+import React from 'react'
+import R from 'ramda'
+
+import { ICON_CMD } from '../../config'
+
+import {
+  Wrapper,
+  ThemeDot,
+  IntroBox,
+  IntroDesc,
+  ThemeTitle,
+  ThemeDesc,
+  AuthorInfo,
+  AuthorIcon,
+  AuthorName,
+} from './style/card_selector'
+
+import { themeMeta, uid } from '../../utils'
+
+const CardSelector = ({ curTheme, changeTheme }) => (
+  <Wrapper>
+    {R.keys(themeMeta).map(name => (
+      <IntroBox key={uid.gen()} active={curTheme === name}>
+        <ThemeDot
+          large
+          active={curTheme === name}
+          name={name}
+          onClick={changeTheme.bind(this, name)}
+        />
+        <IntroDesc>
+          <ThemeTitle
+            active={curTheme === name}
+            onClick={changeTheme.bind(this, name)}
+          >
+            {name}
+          </ThemeTitle>
+          <ThemeDesc onClick={changeTheme.bind(this, name)}>
+            {themeMeta[name].desc}
+          </ThemeDesc>
+          <AuthorInfo>
+            <AuthorIcon src={`${ICON_CMD}/author.svg`} />
+            <AuthorName
+              href="https://www.github.com/mydearxym"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              mydearxym
+            </AuthorName>
+          </AuthorInfo>
+        </IntroDesc>
+      </IntroBox>
+    ))}
+  </Wrapper>
+)
+
+export default CardSelector
