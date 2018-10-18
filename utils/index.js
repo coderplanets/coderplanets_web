@@ -89,8 +89,9 @@ export {
  */
 export {
   theme,
+  defaultTheme,
+  themeMeta,
   themeDict,
-  themeDescs,
   themeKeys,
   themeCoverMap,
   themeCoverIndexMap,

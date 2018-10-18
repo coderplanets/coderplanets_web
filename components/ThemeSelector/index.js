@@ -22,7 +22,7 @@ import {
   AuthorName,
 } from './style'
 
-import { makeDebugger, themeKeys, themeDescs, uid } from '../../utils'
+import { makeDebugger, themeKeys, themeMeta, uid } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
@@ -58,7 +58,7 @@ const DetailStyle = ({ curTheme, changeTheme }) => (
             {name}
           </ThemeTitle>
           <ThemeDesc onClick={changeTheme.bind(this, name)}>
-            {themeDescs[name]}
+            {themeMeta[name].desc}
           </ThemeDesc>
           <AuthorInfo>
             <AuthorIcon src={`${ICON_CMD}/author.svg`} />
