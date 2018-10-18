@@ -14,6 +14,13 @@ const postRaw = `
         id
         avatar
         nickname
+        bio
+        location
+        achievement {
+          reputation
+        }
+        followersCount
+        followingsCount
       }
       favoritedCount
       starredCount
