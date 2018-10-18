@@ -1,5 +1,5 @@
 /*
- * a theme inspired by solarized: http://ethanschoonover.com/solarized
+ * inspired by solarized proj: http://ethanschoonover.com/solarized
  */
 // some selection color not supported
 import { lighten, darken } from 'polished'
@@ -16,7 +16,7 @@ const markdownFont = '#687F82'
 const descText = '#176179'
 const primaryMate = '#2CB4AA'
 
-const SolarizedDark = {
+const solarizedDark = {
   logoText: primaryColor,
   cover: lighten(0.08, bannerBg),
   coverIndex: primaryMate,
@@ -292,4 +292,4 @@ const SolarizedDark = {
   },
 }
 
-export default SolarizedDark
+export default solarizedDark

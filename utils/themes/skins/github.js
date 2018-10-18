@@ -1,30 +1,30 @@
 /*
- * a theme inspired by rethinkdb: https://rethinkdb.com/
+ * a theme inspired by github
  */
-
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#5EABB3'
+const primaryColor = 'rgba(68, 181, 99, 0.8)'
 
-const bannerBg = '#DAE6E5'
-const contentBg = '#E4EEED'
-const contentBoxBg = '#f9fcfc'
+const bannerBg = '#FAFBFC'
+const contentBg = '#f8f8f8'
+const contentBoxBg = '#FFFFFF'
 const fontColor = primaryColor
-const sidebarBg = '#1C4752'
+const sidebarBg = '#23292E'
 const markdownFont = '#9eb8bd'
 
-const descText = '#a3bbbd'
-const primaryMate = 'orange'
+const descText = '#b5b5b5'
+const threadTitle = '#7b7878'
+// const primaryMate = 'orange'
 
-const Cyan = {
+const github = {
   logoText: descText,
-  cover: primaryColor,
+  cover: 'white',
   coverIndex: '#F9FCFC',
   contrastFg: '#eca014',
   htmlBg: bannerBg,
   loading: {
-    basic: bannerBg,
-    animate: lighten(0.03, bannerBg),
+    basic: darken(0.05, contentBg),
+    animate: contentBg,
   },
   error: {
     title: primaryColor,
@@ -39,50 +39,51 @@ const Cyan = {
   selectionBg: 'tomato',
   avatarOpacity: 1,
   header: {
-    fg: primaryColor,
+    fg: '#8c8c8c',
     bg: bannerBg,
-    spliter: darken(0.04, bannerBg),
+    spliter: '#efefef',
     fixed: contentBoxBg,
-    tabActive: '#61868c', // articleTitle
+    tabActive: '#EB6224', // articleTitle
     tabOthers: lighten(0.1, '#849ca0'),
   },
   banner: {
-    title: primaryColor,
+    title: '#949494',
     bg: bannerBg,
-    desc: descText,
-    spliter: bannerBg,
-    numberDesc: '#a7bbbf',
-    number: '#83a7ad',
-    active: primaryMate,
-    numberDivider: '#ccdcde',
-    numberHoverBg: '#e4ecec',
+    desc: '#cccccc',
+    spliter: '#eae9e9',
+    numberDesc: '#cccccc',
+    number: '#949494',
+    active: '#669ede',
+    numberDivider: '#eae9e9',
+    numberHoverBg: '#f3f3f3',
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#83a7ad',
-    articleHover: '#f3f6f9',
+    articleTitle: threadTitle,
+    articleHover: '#f9f9f9',
     articleStrip: contentBoxBg,
-    articleDigest: '#a2c0c5',
+    articleDigest: descText,
     articleTag: '#71979a',
     articleLink: descText,
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#84C3C8',
+    extraInfo: descText,
     articleSpliter: '#dee8ea',
+
     // like github
-    repoTitle: '#83a7ad',
+    repoTitle: '#6ba0d8',
   },
   content: {
     bg: contentBoxBg,
-    border: contentBoxBg,
+    border: '#EEEEEE',
     cardBg: contentBoxBg,
     cardBorder: '#e6e6e6',
     cardBorderHover: primaryColor,
   },
   footer: {
-    text: '#b3ccc9',
-    hover: '#5c868b',
-    label: '#b7c6d0',
+    text: '#c7c7c7',
+    hover: '#949CB5',
+    label: '#c7c7c7',
   },
   sidebar: {
     bg: sidebarBg,
@@ -93,18 +94,18 @@ const Cyan = {
     borderColor: '#14363E',
   },
   preview: {
-    title: '#83a2a5',
-    desc: '#83a2a5',
+    title: threadTitle,
+    desc: descText,
     font: primaryColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
     closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
     markdownHelperBg: '#F9FCFC',
-    accountBg: '#F9FCFC',
-    articleBg: '#F9FCFC',
+    accountBg: '#FFFFFF',
+    articleBg: '#FFFFFF',
     helper: '#d9e5e6',
     helperHover: '#83a2a5',
-    topLine: primaryColor,
+    topLine: '#22292E',
     icon: 'tomato',
     divider: '#e0e6e5',
   },
@@ -222,7 +223,7 @@ const Cyan = {
   },
   button: {
     primary: primaryColor,
-    fg: lighten(0.4, primaryColor),
+    fg: '#FFFFFF',
     hoverBg: lighten(0.1, primaryColor),
     activeBg: darken(0.01, primaryColor),
     clicked: primaryColor,
@@ -239,7 +240,7 @@ const Cyan = {
   },
   tags: {
     dotOpacity: 0.4,
-    text: '#83a7ad',
+    text: '#949494',
   },
   tagger: {
     text: '#d2a05f',
@@ -248,13 +249,13 @@ const Cyan = {
     closeBtn: '#d2a05f',
   },
   tabs: {
-    headerActive: primaryColor,
-    header: lighten(0.15, primaryColor),
+    headerActive: '#EB6224',
+    header: '#b5b5b5',
     contentBg: '#FFFFFF',
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
     border: '#E8E8E8',
-    bottomLine: '#d9e9ea',
+    bottomLine: '#E1E4E8',
   },
   modal: {
     bg: contentBoxBg,
@@ -292,4 +293,4 @@ const Cyan = {
   },
 }
 
-export default Cyan
+export default github
