@@ -14,7 +14,6 @@
 import R from 'ramda'
 import skinsData from './skins'
 
-export const defaultTheme = 'cyan'
 export const themeSkins = { ...skinsData }
 
 // cover color of a theme

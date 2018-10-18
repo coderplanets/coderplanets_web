@@ -2,6 +2,8 @@
    general behavior of the site
  */
 
+export const DEFAULT_THEME = 'cyan'
+
 export const PAGE_SIZE = {
   S: 10,
   D: 20,

@@ -89,7 +89,6 @@ export {
  */
 export {
   theme,
-  defaultTheme,
   themeMeta,
   themeSkins,
   themeCoverMap,
