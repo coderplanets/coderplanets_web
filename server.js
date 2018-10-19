@@ -54,6 +54,7 @@ const getMessages = locale => {
 const indexQuery = route('/:index')
 const userQuery = route('/user/:userId')
 const postQuery = route('/post/:id')
+const jobQuery = route('/job/:id')
 const communitiesQuery = route('/communities/:category')
 const communityQuery = route('/:community/:thread')
 const heartQuery = route('/_next/:page?')
@@ -83,6 +84,8 @@ app.prepare().then(() => {
     if (userQuery(pathname)) return app.render(req, res, '/user', query)
     // post page
     if (postQuery(pathname)) return app.render(req, res, '/post', query)
+    // job page
+    if (jobQuery(pathname)) return app.render(req, res, '/job', query)
     // all communities page
     if (communitiesQuery(pathname))
       return app.render(req, res, '/communities', query)

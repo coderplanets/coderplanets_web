@@ -25,9 +25,14 @@ export {
   default as FavoritesCatsStore,
 } from '../containers/FavoritesCats/store'
 
-// banners store
+// pages banners store
 export { default as BannerStore } from '../containers/Banner/store'
+
+// post page banner
 export { default as PostBannerStore } from '../containers/PostBanner/store'
+// job page banner
+export { default as JobBannerStore } from '../containers/JobBanner/store'
+
 export {
   default as CommunityBannerStore,
 } from '../containers/CommunityBanner/store'

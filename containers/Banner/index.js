@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import UserBanner from '../UserBanner'
 import PostBanner from '../PostBanner'
+import JobBanner from '../JobBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
 import CommunityBanner from '../CommunityBanner'
 
@@ -36,6 +37,9 @@ const BannerContent = ({ curRoute }) => {
     }
     case ROUTE.POST: {
       return <PostBanner />
+    }
+    case ROUTE.JOB: {
+      return <JobBanner />
     }
     case ROUTE.USER: {
       return <UserBanner />

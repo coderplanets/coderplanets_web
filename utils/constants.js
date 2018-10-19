@@ -111,7 +111,9 @@ export const ROUTE = {
 
   POST: 'post',
   USER: 'user',
-  JOB: 'JOB',
+  JOB: 'job',
+  VIDEO: 'video',
+  REPO: 'repo',
 }
 
 export const THREAD = {

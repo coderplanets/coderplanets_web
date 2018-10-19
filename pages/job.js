@@ -29,12 +29,12 @@ global.Intl = require('intl')
 async function fetchData(props) {
   const { request } = makeGQClient()
   // schema
-  const postId = getSubPath(props)
+  const jobId = getSubPath(props)
 
   // query data
-  const post = request(P.post, { id: postId })
+  const job = request(P.job, { id: jobId })
 
-  return { ...(await post) }
+  return { ...(await job) }
 }
 
 export default class Index extends React.Component {
@@ -43,16 +43,16 @@ export default class Index extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR (post--) queryStringToJSON: ', queryStringToJSON(asPath))
+    console.log('SSR (job--) queryStringToJSON: ', queryStringToJSON(asPath))
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { post } = await fetchData(props)
-    /* const postId = getSubPath(props) */
+    const { job } = await fetchData(props)
+    /* const jobId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
 
     return {
       langSetup: {},
-      route: { mainPath: ROUTE.POST, subPath: post.id },
-      viewing: { post },
+      route: { mainPath: ROUTE.JOB, subPath: job.id },
+      viewing: { job },
       /* curPost: { post }, */
     }
   }

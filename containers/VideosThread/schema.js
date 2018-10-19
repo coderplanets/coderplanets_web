@@ -1,12 +1,12 @@
 import gql from 'graphql-tag'
-import { S } from '../fragments'
+import { P } from '../schemas'
 
 const schema = {
   pagedVideos: gql`
-    ${S.pagedVideos}
+    ${P.pagedVideos}
   `,
   partialTags: gql`
-    ${S.partialTags}
+    ${P.partialTags}
   `,
 }
 

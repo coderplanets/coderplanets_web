@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../fragments'
+import { F } from '../schemas'
 
 const publishedPosts = gql`
   query($userId: ID!, $filter: PagedFilter!) {

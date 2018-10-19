@@ -18,7 +18,7 @@ import {
   Footer,
 } from '../../containers'
 
-import { S } from '../../containers/fragments'
+import { P } from '../../containers/schemas'
 
 import {
   makeGQClient,
@@ -49,9 +49,9 @@ async function fetchData(props) {
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(S.community, { raw: community })
-  const pagedVideos = request(S.pagedVideos, { filter })
-  const partialTags = request(S.partialTags, { thread, community })
+  const curCommunity = request(P.community, { raw: community })
+  const pagedVideos = request(P.pagedVideos, { filter })
+  const partialTags = request(P.partialTags, { thread, community })
 
   return {
     ...(await pagedVideos),
