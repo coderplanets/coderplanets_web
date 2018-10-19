@@ -39,6 +39,7 @@ import {
   PostBannerStore,
   JobBannerStore,
   VideoBannerStore,
+  RepoBannerStore,
   CommunityBannerStore,
   CommunitiesBannerStore,
   UserBannerStore,
@@ -46,6 +47,7 @@ import {
   PostContentStore,
   JobContentStore,
   VideoContentStore,
+  RepoContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
@@ -127,6 +129,7 @@ const rootStore = t
     postBanner: t.optional(PostBannerStore, {}),
     jobBanner: t.optional(JobBannerStore, {}),
     videoBanner: t.optional(VideoBannerStore, {}),
+    repoBanner: t.optional(RepoBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
@@ -137,6 +140,7 @@ const rootStore = t
     postContent: t.optional(PostContentStore, {}),
     jobContent: t.optional(JobContentStore, {}),
     videoContent: t.optional(VideoContentStore, {}),
+    repoContent: t.optional(RepoContentStore, {}),
     userContent: t.optional(UserContentStore, {}),
     // content end
 

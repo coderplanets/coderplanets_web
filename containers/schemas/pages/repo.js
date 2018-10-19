@@ -1,32 +1,45 @@
 import F from '../fragments'
 
-export const repo = 1
+export const repo = `
+  query($id: ID!) {
+    repo(id: $id) {
+      ${F.repo}
+      readme
+      author {
+        ${F.author}
+        bio
+        location
+        achievement {
+          reputation
+        }
+        followersCount
+        followingsCount
+      }
+      communities {
+        ${F.community}
+      }
+      tags {
+        ${F.tag}
+      }
+    }
+  }
+`
 
 export const pagedRepos = `
   query($filter: PagedArticleFilter) {
     pagedRepos(filter: $filter) {
       entries {
-        id
-        title
-        ownerName
-        desc
-        license
-        releaseTag
-        insertedAt
-        contributors {
-          avatar
-          htmlUrl
-          nickname
-        }
-        starCount
-        forkCount
-        primaryLanguage {
-          name
-          color
-        }
+        ${F.repo}
         views
+        releaseTag
         author {
           ${F.author}
+        }
+        communities {
+          ${F.community}
+        }
+        tags {
+          ${F.tag}
         }
       }
       ${F.pagedCounts}
