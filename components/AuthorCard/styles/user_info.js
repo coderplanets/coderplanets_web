@@ -9,13 +9,13 @@ export const Wrapper = styled.div`
 export const Avatar = styled(Img)`
   width: 40px;
   height: 40px;
-  border-radius: 3px;
+  border-radius: 100%;
   display: block;
 `
 export const Brief = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
+  margin-left: 12px;
 `
 export const Nickname = styled.div`
   color: ${theme('thread.articleTitle')};
