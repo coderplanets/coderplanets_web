@@ -1,4 +1,4 @@
-import { post, job, tag, author, pagedCounts } from './base'
+import { post, job, video, tag, author, pagedCounts } from './base'
 
 export const pagedPosts = `
   entries {
@@ -34,17 +34,7 @@ export const pagedJobs = `
 
 export const pagedVideos = `
   entries {
-    id
-    title
-    poster
-    desc
-    insertedAt
-    publishAt
-    duration
-    source
-    views
-    originalAuthor
-    originalAuthorLink
+    ${video}
     author {
       ${author}
     }

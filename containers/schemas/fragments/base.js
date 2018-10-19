@@ -22,6 +22,20 @@ export const job = `
   insertedAt
   updatedAt
 `
+export const video = `
+  id
+  title
+  poster
+  desc
+  duration
+  source
+  views
+  originalAuthor
+  originalAuthorLink
+  publishAt
+  insertedAt
+  updatedAt
+`
 export const tag = `
   id
   title

@@ -55,6 +55,7 @@ const indexQuery = route('/:index')
 const userQuery = route('/user/:userId')
 const postQuery = route('/post/:id')
 const jobQuery = route('/job/:id')
+const videoQuery = route('/video/:id')
 const communitiesQuery = route('/communities/:category')
 const communityQuery = route('/:community/:thread')
 const heartQuery = route('/_next/:page?')
@@ -86,6 +87,8 @@ app.prepare().then(() => {
     if (postQuery(pathname)) return app.render(req, res, '/post', query)
     // job page
     if (jobQuery(pathname)) return app.render(req, res, '/job', query)
+    // video page
+    if (videoQuery(pathname)) return app.render(req, res, '/video', query)
     // all communities page
     if (communitiesQuery(pathname))
       return app.render(req, res, '/communities', query)

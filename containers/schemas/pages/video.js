@@ -1,22 +1,36 @@
 import F from '../fragments'
 
-export const video = 1
-
+export const video = `
+  query($id: ID!) {
+    video(id: $id) {
+      ${F.video}
+      link
+      author {
+        ${F.author}
+        bio
+        location
+        achievement {
+          reputation
+        }
+        followersCount
+        followingsCount
+      }
+      favoritedCount
+      starredCount
+      communities {
+        ${F.community}
+      }
+      tags {
+        ${F.tag}
+      }
+    }
+  }
+`
 export const pagedVideos = `
   query($filter: PagedArticleFilter) {
     pagedVideos(filter: $filter) {
       entries {
-        id
-        title
-        poster
-        desc
-        insertedAt
-        publishAt
-        duration
-        source
-        views
-        originalAuthor
-        originalAuthorLink
+       ${F.video}
         author {
           ${F.author}
         }

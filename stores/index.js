@@ -32,6 +32,8 @@ export { default as BannerStore } from '../containers/Banner/store'
 export { default as PostBannerStore } from '../containers/PostBanner/store'
 // job page banner
 export { default as JobBannerStore } from '../containers/JobBanner/store'
+// video page banner
+export { default as VideoBannerStore } from '../containers/VideoBanner/store'
 
 export {
   default as CommunityBannerStore,
@@ -50,6 +52,7 @@ export {
 } from '../containers/CheatSheetContent/store'
 export { default as PostContentStore } from '../containers/PostContent/store'
 export { default as JobContentStore } from '../containers/JobContent/store'
+export { default as VideoContentStore } from '../containers/VideoContent/store'
 export { default as UserContentStore } from '../containers/UserContent/store'
 
 // footer

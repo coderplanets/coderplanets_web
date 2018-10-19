@@ -13,7 +13,7 @@ import { prettyNum, numberWithCommas } from '../../utils'
 const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
   <NumbersInfo>
     <NumberSection dead>
-      <NumberTitle dead>阅读</NumberTitle>
+      <NumberTitle dead>浏览</NumberTitle>
       <NumberItem dead>{prettyNum(views)}</NumberItem>
     </NumberSection>
     <NumberDivider />
