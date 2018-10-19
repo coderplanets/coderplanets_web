@@ -26,14 +26,6 @@ import {
   ThemeStore,
   ThemeDefaults,
 
-  // banners
-  BannerStore,
-  PostBannerStore,
-  JobBannerStore,
-  CommunityBannerStore,
-  CommunitiesBannerStore,
-  UserBannerStore,
-
   // threads
   PostsThreadStore,
   VideosThreadStore,
@@ -42,9 +34,20 @@ import {
   JobsThreadStore,
   UsersThreadStore,
   CheatsheetThreadStore,
+  // banners
+  BannerStore,
+  PostBannerStore,
+  JobBannerStore,
+  VideoBannerStore,
+  RepoBannerStore,
+  CommunityBannerStore,
+  CommunitiesBannerStore,
+  UserBannerStore,
   // content
   PostContentStore,
   JobContentStore,
+  VideoContentStore,
+  RepoContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
@@ -125,6 +128,8 @@ const rootStore = t
     banner: t.optional(BannerStore, {}),
     postBanner: t.optional(PostBannerStore, {}),
     jobBanner: t.optional(JobBannerStore, {}),
+    videoBanner: t.optional(VideoBannerStore, {}),
+    repoBanner: t.optional(RepoBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
@@ -134,6 +139,8 @@ const rootStore = t
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
     jobContent: t.optional(JobContentStore, {}),
+    videoContent: t.optional(VideoContentStore, {}),
+    repoContent: t.optional(RepoContentStore, {}),
     userContent: t.optional(UserContentStore, {}),
     // content end
 

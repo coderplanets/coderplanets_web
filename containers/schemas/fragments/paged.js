@@ -1,4 +1,4 @@
-import { post, job, tag, author, pagedCounts } from './base'
+import { post, job, video, repo, tag, author, pagedCounts } from './base'
 
 export const pagedPosts = `
   entries {
@@ -6,9 +6,7 @@ export const pagedPosts = `
     digest
     commentsCount
     commentsParticipators(filter: { first: 5 }) {
-      id
-      nickname
-      avatar
+      ${author}
     }
     tags {
       ${tag}
@@ -34,17 +32,7 @@ export const pagedJobs = `
 
 export const pagedVideos = `
   entries {
-    id
-    title
-    poster
-    desc
-    insertedAt
-    publishAt
-    duration
-    source
-    views
-    originalAuthor
-    originalAuthorLink
+    ${video}
     author {
       ${author}
     }
@@ -54,24 +42,7 @@ export const pagedVideos = `
 
 export const pagedRepos = `
   entries {
-    id
-    title
-    ownerName
-    desc
-    license
-    releaseTag
-    insertedAt
-    contributors {
-      avatar
-      htmlUrl
-      nickname
-    }
-    starCount
-    forkCount
-    primaryLanguage {
-      name
-      color
-    }
+    ${repo}
     views
     author {
       ${author}

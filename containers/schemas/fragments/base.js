@@ -22,6 +22,40 @@ export const job = `
   insertedAt
   updatedAt
 `
+export const video = `
+  id
+  title
+  poster
+  desc
+  duration
+  source
+  views
+  originalAuthor
+  originalAuthorLink
+  publishAt
+  insertedAt
+  updatedAt
+`
+export const repo = `
+  id
+  title
+  ownerName
+  desc
+  insertedAt
+  prsCount
+  forkCount
+  starCount
+  license
+  primaryLanguage {
+    color
+    name
+  }
+  contributors {
+    avatar
+    htmlUrl
+    nickname
+  }
+`
 export const tag = `
   id
   title

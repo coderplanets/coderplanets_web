@@ -1,26 +1,14 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const video = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     video(id: $id) {
-      id
-      title
-      poster
-      desc
-      duration
-      author {
-        id
-        nickname
-        avatar
-      }
-      source
+      ${F.video}
       link
-      originalAuthor
-      originalAuthorLink
-      views
-      publishAt
-      insertedAt
-      updatedAt
+      author {
+        ${F.author}
+      }
       favoritedCount
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)

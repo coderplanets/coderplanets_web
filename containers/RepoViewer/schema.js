@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const simpleMutation = gql`
   mutation($id: ID!) {
@@ -10,29 +11,16 @@ const simpleMutation = gql`
 const repo = gql`
   query($id: ID!) {
     repo(id: $id) {
-      id
-      title
-      desc
-      ownerName
+      ${F.repo}
+      watchCount
       ownerUrl
       repoUrl
       homepageUrl
       readme
-      starCount
       issuesCount
-      prsCount
-      forkCount
-      watchCount
-      primaryLanguage {
-        color
-        name
-      }
-      license
       releaseTag
-      contributors {
-        avatar
-        htmlUrl
-        nickname
+      author {
+        ${F.author}
       }
     }
   }

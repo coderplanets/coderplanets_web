@@ -11,6 +11,8 @@ import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
 import PostContent from '../PostContent'
 import JobContent from '../JobContent'
+import VideoContent from '../VideoContent'
+import RepoContent from '../RepoContent'
 import UserContent from '../UserContent'
 
 import CommunityContent from '../../components/CommunityContent'
@@ -37,6 +39,12 @@ const renderContent = curRoute => {
     }
     case ROUTE.JOB: {
       return <JobContent />
+    }
+    case ROUTE.VIDEO: {
+      return <VideoContent />
+    }
+    case ROUTE.REPO: {
+      return <RepoContent />
     }
     case ROUTE.USER: {
       return <UserContent />
