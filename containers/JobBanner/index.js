@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { ContentBanner } from '../../components'
+import MiddleInfo from './MiddleInfo'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -26,7 +27,7 @@ class JobBannerContainer extends React.Component {
     const { jobBanner } = this.props
     const { viewingJobData } = jobBanner
 
-    return <ContentBanner data={viewingJobData} />
+    return <ContentBanner data={viewingJobData} middleNode={<MiddleInfo />} />
   }
 }
 

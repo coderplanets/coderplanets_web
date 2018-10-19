@@ -28,12 +28,16 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:ContentBanner:index')
 /* eslint-enable no-unused-vars */
 
-const ContentBanner = ({ data }) => (
+// TODO: add a Loading effect
+const ContentBanner = ({ data, middleNode }) => (
   <BannerContainer>
     {R.isNil(data.id) ? null : (
       <BannerContentWrapper>
         <PostBrief>
           <Title>{data.title}</Title>
+          <React.Fragment>
+            {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
+          </React.Fragment>
           <Desc>
             <MarkTag>精华帖</MarkTag>
             <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
@@ -59,6 +63,7 @@ ContentBanner.propTypes = {
     viewerHasFavorited: PropTypes.bool,
     viewerHasStarred: PropTypes.bool,
   }),
+  middleNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 ContentBanner.defaultProps = {
@@ -71,6 +76,7 @@ ContentBanner.defaultProps = {
     viewerHasFavorited: false,
     viewerHasStarred: false,
   },
+  middleNode: '',
 }
 
 export default ContentBanner

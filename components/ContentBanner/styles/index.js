@@ -21,8 +21,9 @@ export const BaseBannerContent = styled.div`
   margin-right: 8%;
 `
 export const BannerContainer = styled(BaseBanner)`
-  height: 100px;
   min-height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
   display: flex;
@@ -35,7 +36,7 @@ export const PostBrief = styled.div`
 `
 
 export const Title = styled.div`
-  font-size: 1.6em;
+  font-size: 1.5em;
   color: ${theme('thread.articleTitle')};
   width: 100%;
   white-space: nowrap;
@@ -46,6 +47,7 @@ export const Desc = styled.div`
   display: flex;
   align-items: center;
   margin-top: 5px;
+  margin-bottom: 8px;
   display: flex;
   font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
