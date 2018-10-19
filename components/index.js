@@ -55,6 +55,7 @@ export { default as FollowButton } from './FollowButton'
 export { default as ThreadSelector } from './ThreadSelector'
 export { default as CommunityList } from './CommunityList'
 export { default as AuthorCard } from './AuthorCard'
+export { default as ContentSourceCard } from './ContentSourceCard'
 
 // loading component
 export {
