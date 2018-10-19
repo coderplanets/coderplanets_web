@@ -18,6 +18,7 @@ export { default as VideoItem } from './VideoItem'
 
 // Utils component
 export { withGuardian } from './HOC'
+export { default as ContentBanner } from './ContentBanner'
 export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
 export { default as DotDivider } from './DotDivider'

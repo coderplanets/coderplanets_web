@@ -27,12 +27,14 @@ export { default as FavoritesCats } from './FavoritesCats'
 /* banners */
 export { default as UserBanner } from './UserBanner'
 export { default as PostBanner } from './PostBanner'
+export { default as JobBanner } from './JobBanner'
 export { default as CommunityBanner } from './CommunityBanner'
 export { default as CommunitiesBanner } from './CommunitiesBanner'
 /* contents */
 export { default as UserContent } from './UserContent'
 export { default as CommunitiesContent } from './CommunitiesContent'
 export { default as PostContent } from './PostContent'
+export { default as JobContent } from './JobContent'
 // footer
 export { default as Footer } from './Footer'
 /* threads */

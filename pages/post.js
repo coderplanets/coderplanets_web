@@ -4,7 +4,13 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import { makeGQClient, queryStringToJSON, getSubPath, ROUTE } from '../utils'
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getSubPath,
+  ROUTE,
+  THREAD,
+} from '../utils'
 
 import {
   ThemeWrapper,
@@ -52,7 +58,7 @@ export default class Index extends React.Component {
     return {
       langSetup: {},
       route: { mainPath: ROUTE.POST, subPath: post.id },
-      viewing: { post },
+      viewing: { post, activeThread: THREAD.POST },
       /* curPost: { post }, */
     }
   }

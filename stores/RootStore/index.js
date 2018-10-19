@@ -44,6 +44,7 @@ import {
   CheatsheetThreadStore,
   // content
   PostContentStore,
+  JobContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
@@ -132,6 +133,7 @@ const rootStore = t
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
+    jobContent: t.optional(JobContentStore, {}),
     userContent: t.optional(UserContentStore, {}),
     // content end
 

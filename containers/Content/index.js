@@ -10,6 +10,7 @@ import { inject, observer } from 'mobx-react'
 import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
 import PostContent from '../PostContent'
+import JobContent from '../JobContent'
 import UserContent from '../UserContent'
 
 import CommunityContent from '../../components/CommunityContent'
@@ -33,6 +34,9 @@ const renderContent = curRoute => {
     }
     case ROUTE.POST: {
       return <PostContent />
+    }
+    case ROUTE.JOB: {
+      return <JobContent />
     }
     case ROUTE.USER: {
       return <UserContent />

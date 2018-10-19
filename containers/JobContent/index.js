@@ -1,12 +1,12 @@
 /*
  *
- * PostContent
+ * JobContent
  *
  */
 
 import React from 'react'
-import R from 'ramda'
 import { inject, observer } from 'mobx-react'
+import R from 'ramda'
 
 import Comments from '../Comments'
 import { MarkDownRender } from '../../components'
@@ -20,36 +20,36 @@ import {
 
 import SideCards from './SideCards'
 
-import * as logic from './logic'
 import { makeDebugger, storePlug } from '../../utils'
+import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:PostContent')
+const debug = makeDebugger('C:JobContent')
 /* eslint-enable no-unused-vars */
 
-class PostContentContainer extends React.Component {
+class JobContentContainer extends React.Component {
   componentWillMount() {
-    const { postContent } = this.props
-    logic.init(postContent)
+    const { jobContent } = this.props
+    logic.init(jobContent)
   }
 
   render() {
-    const { postContent } = this.props
-    const { viewingPostData } = postContent
+    const { jobContent } = this.props
+    const { viewingJobData } = jobContent
 
     return (
       <Container>
-        {R.isNil(viewingPostData.id) ? null : (
+        {R.isNil(viewingJobData.id) ? null : (
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <MarkDownRender body={viewingPostData.body} />
+                <MarkDownRender body={viewingJobData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingPostData} />
+            <SideCards data={viewingJobData} />
           </React.Fragment>
         )}
       </Container>
@@ -57,4 +57,4 @@ class PostContentContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('postContent'))(observer(PostContentContainer))
+export default inject(storePlug('jobContent'))(observer(JobContentContainer))

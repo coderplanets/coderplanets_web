@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-// import { Img } from '../../../components'
 // import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 22%;
 `
-export const Holder = 1
+export const holder = 1

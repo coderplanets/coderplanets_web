@@ -49,6 +49,7 @@ export {
   default as CheatSheetContentStore,
 } from '../containers/CheatSheetContent/store'
 export { default as PostContentStore } from '../containers/PostContent/store'
+export { default as JobContentStore } from '../containers/JobContent/store'
 export { default as UserContentStore } from '../containers/UserContent/store'
 
 // footer

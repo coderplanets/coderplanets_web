@@ -1,5 +1,5 @@
 /*
- * JobBanner store
+ * JobContent store
  *
  */
 
@@ -8,17 +8,14 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:JobBanner')
+const debug = makeDebugger('S:JobContent')
 /* eslint-enable no-unused-vars */
 
-const JobBanner = t
-  .model('JobBanner', {})
+const JobContent = t
+  .model('JobContent', {})
   .views(self => ({
     get root() {
       return getParent(self)
-    },
-    get curRoute() {
-      return self.root.curRoute
     },
     get viewingJobData() {
       return stripMobx(self.root.viewing.job)
@@ -30,4 +27,4 @@ const JobBanner = t
     },
   }))
 
-export default JobBanner
+export default JobContent

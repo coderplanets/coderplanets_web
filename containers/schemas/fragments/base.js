@@ -35,14 +35,14 @@ export const author = `
 
 // comment
 export const comment = `
-id
-body
-floor
-author {
   id
-  nickname
-  avatar
-}
+  body
+  floor
+  author {
+    id
+    nickname
+    avatar
+  }
   likesCount
   dislikesCount
   insertedAt

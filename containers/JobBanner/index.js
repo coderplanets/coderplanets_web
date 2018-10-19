@@ -1,22 +1,21 @@
 /*
-*
-* JobBanner
-*
-*/
+ *
+ * JobBanner
+ *
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-// import { } from './styles'
+import { ContentBanner } from '../../components'
 
 import { makeDebugger, storePlug } from '../../utils'
-
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobBanner')
 /* eslint-enable no-unused-vars */
 
-// NOTE: add me to ../containers/index
 class JobBannerContainer extends React.Component {
   componentWillMount() {
     const { jobBanner } = this.props
@@ -24,12 +23,10 @@ class JobBannerContainer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h2>JobBanner container!</h2>
-        <div>impress me!</div>
-      </div>
-    )
+    const { jobBanner } = this.props
+    const { viewingJobData } = jobBanner
+
+    return <ContentBanner data={viewingJobData} />
   }
 }
 
