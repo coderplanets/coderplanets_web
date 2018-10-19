@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const pagedComments = gql`
   query pagedComments(
@@ -9,14 +10,7 @@ const pagedComments = gql`
   ) {
     pagedComments(id: $id, filter: $filter, thread: $thread) {
       entries {
-        id
-        body
-        floor
-        author {
-          id
-          nickname
-          avatar
-        }
+        ${F.comment}
         viewerHasLiked @include(if: $userHasLogin)
         viewerHasDisliked @include(if: $userHasLogin)
         replyTo {
@@ -24,29 +18,18 @@ const pagedComments = gql`
           body
           floor
           author {
-            id
-            avatar
-            nickname
+            ${F.author}
           }
         }
         replies(filter: { first: 5 }) {
           id
           author {
-            id
-            avatar
-            nickname
+            ${F.author}
           }
         }
         repliesCount
-        likesCount
-        dislikesCount
-        insertedAt
-        updatedAt
       }
-      pageNumber
-      pageSize
-      totalCount
-      totalPages
+      ${F.pagedCounts}
     }
   }
 `

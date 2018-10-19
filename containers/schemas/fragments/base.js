@@ -1,24 +1,39 @@
 export const community = `
   id
   title
-  desc
   raw
+  desc
   logo
-  threads {
-    title
-    raw
-  }
-  subscribersCount
-  editorsCount
-  postsCount
 `
-
-export const partialTags = `
+export const post = `
+  id
+  title
+  insertedAt
+  updatedAt
+  views
+`
+// TODO: more info
+export const job = `
+  id
+  title
+  company
+  companyLogo
+  views
+  insertedAt
+  updatedAt
+`
+export const tag = `
   id
   title
   color
-  thread
 `
+export const author = `
+  id
+  avatar
+  nickname
+`
+
+// comment
 export const comment = `
   id
   body
@@ -48,4 +63,11 @@ export const commentParent = `
     logo
     raw
   }
+`
+
+export const pagedCounts = `
+  totalPages
+  totalCount
+  pageSize
+  pageNumber
 `

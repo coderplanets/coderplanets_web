@@ -4,7 +4,13 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import { makeGQClient, queryStringToJSON, getSubPath, ROUTE } from '../utils'
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getSubPath,
+  ROUTE,
+  THREAD,
+} from '../utils'
 
 import {
   ThemeWrapper,
@@ -20,7 +26,7 @@ import {
   Footer,
 } from '../containers'
 
-import PostBannerSchema from '../containers/PostBanner/schema'
+import { P } from '../containers/schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -30,10 +36,9 @@ async function fetchData(props) {
   const { request } = makeGQClient()
   // schema
   const postId = getSubPath(props)
-  const { postRaw } = PostBannerSchema
 
   // query data
-  const post = request(postRaw, { id: postId })
+  const post = request(P.post, { id: postId })
 
   return { ...(await post) }
 }
@@ -53,7 +58,7 @@ export default class Index extends React.Component {
     return {
       langSetup: {},
       route: { mainPath: ROUTE.POST, subPath: post.id },
-      viewing: { post },
+      viewing: { post, activeThread: THREAD.POST },
       /* curPost: { post }, */
     }
   }

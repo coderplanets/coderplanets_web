@@ -29,6 +29,7 @@ import {
   // banners
   BannerStore,
   PostBannerStore,
+  JobBannerStore,
   CommunityBannerStore,
   CommunitiesBannerStore,
   UserBannerStore,
@@ -43,6 +44,7 @@ import {
   CheatsheetThreadStore,
   // content
   PostContentStore,
+  JobContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
@@ -122,6 +124,7 @@ const rootStore = t
     // banners
     banner: t.optional(BannerStore, {}),
     postBanner: t.optional(PostBannerStore, {}),
+    jobBanner: t.optional(JobBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
@@ -130,6 +133,7 @@ const rootStore = t
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
+    jobContent: t.optional(JobContentStore, {}),
     userContent: t.optional(UserContentStore, {}),
     // content end
 

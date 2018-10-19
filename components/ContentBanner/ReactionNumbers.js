@@ -8,7 +8,7 @@ import {
   NumberItem,
 } from './styles/reaction_numbers'
 
-import { prettyNum } from '../../utils'
+import { prettyNum, numberWithCommas } from '../../utils'
 
 const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
   <NumbersInfo>
@@ -17,15 +17,21 @@ const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
       <NumberItem dead>{prettyNum(views)}</NumberItem>
     </NumberSection>
     <NumberDivider />
-    <NumberSection>
-      <NumberTitle>喜欢</NumberTitle>
-      <NumberItem>{prettyNum(starredCount)}</NumberItem>
-    </NumberSection>
-    <NumberDivider />
-    <NumberSection>
-      <NumberTitle>收藏</NumberTitle>
-      <NumberItem>{prettyNum(favoritedCount)}</NumberItem>
-    </NumberSection>
+    {starredCount >= 0 ? (
+      <React.Fragment>
+        <NumberSection>
+          <NumberTitle>喜欢</NumberTitle>
+          <NumberItem>{numberWithCommas(starredCount)}</NumberItem>
+        </NumberSection>
+        <NumberDivider />
+      </React.Fragment>
+    ) : null}
+    {favoritedCount >= 0 ? (
+      <NumberSection>
+        <NumberTitle>收藏</NumberTitle>
+        <NumberItem>{numberWithCommas(favoritedCount)}</NumberItem>
+      </NumberSection>
+    ) : null}
     {/*
         <NumberDivider />
         <NumberSection>

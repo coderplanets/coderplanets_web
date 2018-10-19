@@ -7,7 +7,6 @@ export const NumbersWrapper = styled.div`
   text-align: center;
   margin-top: -2.1rem;
 `
-
 export const NumbersInfo = styled(NumbersWrapper)`
   margin-top: 0;
 `

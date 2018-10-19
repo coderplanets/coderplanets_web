@@ -9,10 +9,7 @@ import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
-
 import { MarkDownRender } from '../../components'
-import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
 
 import {
   Container,
@@ -22,6 +19,9 @@ import {
 } from './styles'
 
 import SideCards from './SideCards'
+
+import * as logic from './logic'
+import { makeDebugger, storePlug } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostContent')

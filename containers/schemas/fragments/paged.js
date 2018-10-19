@@ -1,55 +1,35 @@
+import { post, job, tag, author, pagedCounts } from './base'
+
 export const pagedPosts = `
   entries {
-    id
-    title
+    ${post}
     digest
-    insertedAt
-    updatedAt
-    views
-    tags {
-      title
-      color
-      id
-    }
-    author {
-      id
-      avatar
-      nickname
-    }
     commentsCount
     commentsParticipators(filter: { first: 5 }) {
       id
       nickname
       avatar
     }
+    tags {
+      ${tag}
+    }
+    author {
+      ${author}
+    }
   }
-  totalCount
-  pageSize
-  pageNumber
+  ${pagedCounts}
 `
 export const pagedJobs = `
   entries {
-    id
-    title
-    company
-    companyLogo
+    ${job}
     tags {
-      id
-      title
-      color
+      ${tag}
     }
     author {
-      id
-      nickname
-      avatar
+      ${author}
     }
-    views
-    insertedAt
-    updatedAt
    }
-   totalCount
-   pageSize
-   pageNumber
+  ${pagedCounts}
 `
 
 export const pagedVideos = `
@@ -58,23 +38,18 @@ export const pagedVideos = `
     title
     poster
     desc
+    insertedAt
+    publishAt
     duration
     source
     views
     originalAuthor
     originalAuthorLink
     author {
-      id
-      avatar
-      nickname
+      ${author}
     }
-    insertedAt
-    publishAt
   }
-  totalPages
-  totalCount
-  pageSize
-  pageNumber
+  ${pagedCounts}
 `
 
 export const pagedRepos = `
@@ -85,6 +60,7 @@ export const pagedRepos = `
     desc
     license
     releaseTag
+    insertedAt
     contributors {
       avatar
       htmlUrl
@@ -98,21 +74,8 @@ export const pagedRepos = `
     }
     views
     author {
-      id
-      avatar
-      nickname
+      ${author}
     }
-    insertedAt
   }
-  totalPages
-  totalCount
-  pageSize
-  pageNumber
-`
-
-export const pagedCounts = `
-  totalPages
-  totalCount
-  pageSize
-  pageNumber
+  ${pagedCounts}
 `

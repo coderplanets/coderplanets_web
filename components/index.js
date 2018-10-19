@@ -18,6 +18,7 @@ export { default as VideoItem } from './VideoItem'
 
 // Utils component
 export { withGuardian } from './HOC'
+export { default as ContentBanner } from './ContentBanner'
 export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
 export { default as DotDivider } from './DotDivider'
@@ -54,6 +55,7 @@ export { default as FollowButton } from './FollowButton'
 export { default as ThreadSelector } from './ThreadSelector'
 export { default as CommunityList } from './CommunityList'
 export { default as AuthorCard } from './AuthorCard'
+export { default as ContentSourceCard } from './ContentSourceCard'
 
 // loading component
 export {
