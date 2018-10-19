@@ -7,4 +7,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 22%;
 `
-export const holder = 1
+export const ReportWrapper = styled.div`
+  padding: 0 10px;
+`
