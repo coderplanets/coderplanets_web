@@ -27,7 +27,7 @@ const debug = makeDebugger('C:VideoContent')
 /* eslint-enable no-unused-vars */
 
 class VideoContentContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { videoContent } = this.props
     logic.init(videoContent)
   }

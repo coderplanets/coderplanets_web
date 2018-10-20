@@ -21,16 +21,14 @@ let GeoMapSSR = null
 
 class UsersThreadContainer extends React.Component {
   componentDidMount() {
+    const { usersThread } = this.props
+    logic.init(usersThread)
+
     GeoMapSSR = dynamic({
       loader: () => import('./GeoMap.js'),
       loading: () => <MapLoading />,
       ssr: false,
     })
-  }
-
-  componentWillMount() {
-    const { usersThread } = this.props
-    logic.init(usersThread)
   }
 
   render() {

@@ -28,7 +28,7 @@ const debug = makeDebugger('C:PostContent')
 /* eslint-enable no-unused-vars */
 
 class PostContentContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { postContent } = this.props
     logic.init(postContent)
   }

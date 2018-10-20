@@ -75,6 +75,7 @@ import {
   AvatarAdderStore,
   TagsBarStore,
   UserListerStore,
+  InformerStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -157,6 +158,7 @@ const rootStore = t
 
     tagsBar: t.optional(TagsBarStore, {}),
     userLister: t.optional(UserListerStore, {}),
+    informer: t.optional(InformerStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
@@ -252,6 +254,9 @@ const rootStore = t
     authWarning(options = {}) {
       const defaultOpt = { title: '未登录', msg: '需要登录后才能进行该操作' }
       self.toast('warn', R.merge(defaultOpt, options))
+    },
+    callInformer() {
+      self.informer.show()
     },
     markState(sobj) {
       markStates(sobj, self)

@@ -20,7 +20,7 @@ const debug = makeDebugger('C:AvatarAdder')
 /* eslint-enable no-unused-vars */
 
 class AvatarAdderContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { avatarAdder } = this.props
     logic.init(avatarAdder)
   }

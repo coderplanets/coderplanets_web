@@ -40,12 +40,10 @@ const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
 
 class JobsThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { jobsThread } = this.props
     logic.init(jobsThread)
   }
-
-  componentDidMount() {}
 
   render() {
     const { jobsThread } = this.props

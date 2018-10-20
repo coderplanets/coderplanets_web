@@ -18,7 +18,7 @@ const debug = makeDebugger('C:JobBanner')
 /* eslint-enable no-unused-vars */
 
 class JobBannerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { jobBanner } = this.props
     logic.init(jobBanner)
   }

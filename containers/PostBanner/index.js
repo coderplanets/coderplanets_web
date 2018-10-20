@@ -11,7 +11,7 @@ const debug = makeDebugger('C:PostBanner')
 /* eslint-enable no-unused-vars */
 
 class PostBannerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { postBanner } = this.props
     logic.init(postBanner)
   }

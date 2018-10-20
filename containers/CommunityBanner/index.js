@@ -55,7 +55,7 @@ const CommunityBrief = ({ content }) => (
 )
 
 class CommunityBannerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { communityBanner } = this.props
     logic.init(communityBanner)
   }

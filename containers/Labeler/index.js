@@ -38,7 +38,7 @@ class LabelerContainer extends React.Component {
     uniqId: uid.gen(),
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { labeler, label, multi, selected } = this.props
     const { uniqId } = this.state
 

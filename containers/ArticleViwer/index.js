@@ -38,7 +38,7 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
 }
 
 class ArticleViwerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { articleViwer, attachment } = this.props
     logic.init(articleViwer, attachment)
   }

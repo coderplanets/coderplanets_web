@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import BadContentRepot from '../index'
+// import Informer from '../index'
 
-describe('TODO <BadContentRepot />', () => {
+describe('TODO <Informer />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

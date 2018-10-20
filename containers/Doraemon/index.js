@@ -19,7 +19,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Doraemon')
 /* eslint-enable no-unused-vars */
 class DoraemonContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { doraemon } = this.props
     logic.init(doraemon)
   }

@@ -45,12 +45,10 @@ class MastaniEditor extends React.Component {
     pub: null,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadDraft()
     this.loadUserSuggestions()
-  }
 
-  componentDidMount() {
     /* DONT use loadDraft in componentDidMount, it will cause strange bug of mentions */
     /* also onCHange empty issue in Draft.js */
     /*
@@ -62,11 +60,6 @@ class MastaniEditor extends React.Component {
        )}
      */
     /* TODO: has to use setTimeout otherwise the mention not work */
-    setTimeout(() => {
-      this.focus()
-    }, 100)
-
-    this.initPubSub()
   }
 
   componentWillUnmount() {

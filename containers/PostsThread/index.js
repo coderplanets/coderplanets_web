@@ -36,12 +36,10 @@ const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
 class PostsThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { postsThread } = this.props
     logic.init(postsThread)
   }
-
-  componentDidMount() {}
 
   render() {
     const { postsThread } = this.props

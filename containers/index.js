@@ -53,6 +53,7 @@ export { default as DocUploader } from './DocUploader'
 export { default as AvatarAdder } from './AvatarAdder'
 export { default as TagsBar } from './TagsBar'
 export { default as UserLister } from './UserLister'
+export { default as Informer } from './Informer'
 
 // user page
 export { default as UserPublished } from './UserPublished'

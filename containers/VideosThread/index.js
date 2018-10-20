@@ -37,7 +37,7 @@ const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */
 
 class VideosThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { videosThread } = this.props
     logic.init(videosThread)
   }

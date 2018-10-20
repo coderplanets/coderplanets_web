@@ -51,7 +51,7 @@ const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
 
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { typeWriter, attachment } = this.props
 
     init(typeWriter, attachment)

@@ -55,7 +55,7 @@ const platinumUserItems = [
 ]
 
 class UpgradePackgesContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { upgradePackges } = this.props
     logic.init(upgradePackges)
   }
