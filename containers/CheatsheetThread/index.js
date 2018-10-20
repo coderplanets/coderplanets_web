@@ -42,12 +42,9 @@ const renderView = (cheatsheetData, type, communityRaw) => {
 // TODO: NOT_FOUND, parse_error
 
 class CheatsheetThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { cheatsheetThread } = this.props
     logic.init(cheatsheetThread)
-  }
-
-  componentDidMount() {
     Prism.highlightAll()
   }
 

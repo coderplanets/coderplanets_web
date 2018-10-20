@@ -28,7 +28,7 @@ const debug = makeDebugger('C:JobContent')
 /* eslint-enable no-unused-vars */
 
 class JobContentContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { jobContent } = this.props
     logic.init(jobContent)
   }

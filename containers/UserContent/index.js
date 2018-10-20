@@ -78,7 +78,7 @@ const TabberContent = ({ active }) => {
 }
 
 class UserContentContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userContent } = this.props
     logic.init(userContent)
   }

@@ -19,7 +19,7 @@ const debug = makeDebugger('C:UserFavorited')
 /* eslint-enable no-unused-vars */
 
 class UserFavoritesContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userFavorited } = this.props
     logic.init(userFavorited)
   }

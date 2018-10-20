@@ -49,7 +49,7 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
 }
 
 class UserListerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userLister } = this.props
     logic.init(userLister)
   }

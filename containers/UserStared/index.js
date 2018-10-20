@@ -17,7 +17,7 @@ const debug = makeDebugger('C:UserStared')
 /* eslint-enable no-unused-vars */
 
 class UserStaredContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userStared } = this.props
     logic.init(userStared)
   }

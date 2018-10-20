@@ -89,7 +89,7 @@ const Header = ({
 )
 
 class HeaderContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { header } = this.props
     logic.init(header)
   }

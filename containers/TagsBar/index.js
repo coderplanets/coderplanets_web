@@ -20,7 +20,7 @@ const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
 class TagsBarContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { tagsBar, thread } = this.props
     logic.init(tagsBar, thread)
   }

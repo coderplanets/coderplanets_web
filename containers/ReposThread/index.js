@@ -38,7 +38,7 @@ const debug = makeDebugger('C:ReposThread')
 /* eslint-enable no-unused-vars */
 
 class ReposThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { reposThread } = this.props
     logic.init(reposThread)
   }

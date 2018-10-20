@@ -31,7 +31,7 @@ const debug = makeDebugger('C:WikiThread')
 /* eslint-enable no-unused-vars */
 
 class WikiThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { wikiThread } = this.props
     logic.init(wikiThread)
   }

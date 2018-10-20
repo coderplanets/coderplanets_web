@@ -20,7 +20,7 @@ const debug = makeDebugger('C:UserPublishedComments')
 /* eslint-enable no-unused-vars */
 
 class UserPublishedCommentsContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userPublishedComments } = this.props
     logic.init(userPublishedComments)
   }

@@ -17,7 +17,7 @@ const debug = makeDebugger('C:UserPublished')
 /* eslint-enable no-unused-vars */
 
 class UserPublishedContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userPublished } = this.props
     logic.init(userPublished)
   }
