@@ -3,7 +3,7 @@ import { Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
-import SectionLabel from '../SectionLabel'
+import { SectionLabel } from '../../components'
 import { Wrapper, Divider } from './styles/content'
 
 const Content = () => (

@@ -1,11 +1,7 @@
 import React from 'react'
 
-import {
-  AuthorCard,
-  ContentSourceCard,
-  BadContentRepot,
-} from '../../components'
-
+import Informer from '../Informer'
+import { AuthorCard, ContentSourceCard } from '../../components'
 import { Wrapper, ReportWrapper } from './styles/side_cards'
 
 const SideCards = ({ data }) => (
@@ -13,7 +9,7 @@ const SideCards = ({ data }) => (
     <AuthorCard user={data.author} />
     <ContentSourceCard data={data} />
     <ReportWrapper>
-      <BadContentRepot />
+      <Informer />
     </ReportWrapper>
   </Wrapper>
 )

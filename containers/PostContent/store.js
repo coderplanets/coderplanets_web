@@ -22,6 +22,9 @@ const PostContentStore = t
     },
   }))
   .actions(self => ({
+    callInformer() {
+      self.root.callInformer()
+    },
     markState(sobj) {
       markStates(sobj, self)
     },
