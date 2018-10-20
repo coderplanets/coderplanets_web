@@ -17,6 +17,13 @@ export const video = `
       }
       favoritedCount
       starredCount
+
+      pagedCommentsParticipators {
+        entries {
+          ${F.author}
+        }
+        totalCount
+      }
       communities {
         ${F.community}
       }

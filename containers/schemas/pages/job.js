@@ -17,6 +17,12 @@ export const job = `
         followingsCount
       }
       favoritedCount
+      pagedCommentsParticipators {
+        entries {
+          ${F.author}
+        }
+        totalCount
+      }
       communities {
         ${F.community}
       }

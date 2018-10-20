@@ -2,7 +2,7 @@ import { types as t } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '../../config'
 
-import { User } from './User'
+import { User, PagedUsers } from './User'
 import { Community } from './Community'
 /* import { Comment } from './Comment' */
 import { Tag } from './Tag'
@@ -32,6 +32,8 @@ export const Video = t.model('Video', {
   viewerHasFavorited: t.optional(t.boolean, false),
   viewerHasStarred: t.optional(t.boolean, false),
   favoritedCategoryId: t.maybeNull(t.string),
+
+  pagedCommentsParticipators: t.optional(PagedUsers, {}),
 
   publishAt: t.maybeNull(t.string),
   insertedAt: t.optional(t.string, ''),

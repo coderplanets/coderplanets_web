@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
-  min-height: 180px;
+  min-height: 100px;
   padding: 20px;
   padding-bottom: 0;
   max-width: 300px;
@@ -19,13 +19,15 @@ export const Title = styled.div`
 export const Desc = styled.div`
   display: flex;
   margin-top: 15px;
-  margin-bottom: 10px;
-  padding-bottom: 15px;
+  margin-bottom: 20px;
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};
-  border-bottom: ${({ noBottom }) => (noBottom ? '' : '1px solid')};
-  border-color: ${theme('preview.divider')};
-  max-width: 100%;
   flex-wrap: wrap;
+`
+export const Didiver = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid;
+  border-color: ${theme('preview.divider')};
 `
 export const NomoreDesc = styled.div`
   color: ${theme('banner.desc')};
