@@ -2,7 +2,7 @@ import { types as t } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '../../config'
 
-import { User } from './User'
+import { User, PagedUsers } from './User'
 import { Community } from './Community'
 import { Tag } from './Tag'
 
@@ -43,6 +43,8 @@ export const Repo = t.model('Reop', {
   views: t.optional(t.number, 0),
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),
+
+  pagedCommentsParticipators: t.optional(PagedUsers, {}),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

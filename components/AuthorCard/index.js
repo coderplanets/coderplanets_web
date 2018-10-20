@@ -19,9 +19,9 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:AuthorCard:index')
 /* eslint-enable no-unused-vars */
 
-const AuthorCard = ({ user }) => (
+const AuthorCard = ({ user, header }) => (
   <Wrapper>
-    <Header />
+    <Header header={header} />
     <Divider />
     <UserInfo user={user} />
     <ReactionNumbers user={user} />
@@ -30,8 +30,11 @@ const AuthorCard = ({ user }) => (
 
 AuthorCard.propTypes = {
   user: PropTypes.object.isRequired,
+  header: PropTypes.string,
 }
 
-AuthorCard.defaultProps = {}
+AuthorCard.defaultProps = {
+  header: '关于作者',
+}
 
 export default AuthorCard

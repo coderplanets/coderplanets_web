@@ -18,6 +18,12 @@ export const post = `
       }
       favoritedCount
       starredCount
+      pagedCommentsParticipators {
+        entries {
+          ${F.author}
+        }
+        totalCount
+      }
       communities {
         ${F.community}
       }

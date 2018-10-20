@@ -3,9 +3,9 @@ import FollowButton from '../FollowButton'
 
 import { Wrapper, Title, FollowWrapper } from './styles/header'
 
-const Header = () => (
+const Header = ({ header }) => (
   <Wrapper>
-    <Title>关于作者</Title>
+    <Title>{header}</Title>
     <FollowWrapper>
       <FollowButton />
     </FollowWrapper>

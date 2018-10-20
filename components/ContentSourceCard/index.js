@@ -9,9 +9,10 @@ import PropTypes from 'prop-types'
 
 import CommunityList from '../CommunityList'
 
-import { Wrapper, Title, Desc, NomoreDesc } from './styles'
+import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
-import TagList from './TagList'
+import UserList from './UserList'
+// import TagList from './TagList'
 
 import { makeDebugger } from '../../utils'
 
@@ -19,20 +20,33 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:ContentSourceCard:index')
 /* eslint-enable no-unused-vars */
 
-const ContentSourceCard = ({ data }) => (
+const ContentSourceCard = ({
+  data: { communities, pagedCommentsParticipators: users },
+}) => (
   <Wrapper>
     <Title>所属社区</Title>
     <Desc>
       <CommunityList
-        items={data.communities}
+        items={communities}
         emptyHint={<NomoreDesc>不属于任何社区</NomoreDesc>}
       />
     </Desc>
-    <Title>标签</Title>
 
-    <Desc column noBottom>
-      <TagList items={data.tags} />
-    </Desc>
+    {users.totalCount !== 0 ? (
+      <React.Fragment>
+        <Didiver />
+        <Title>参与讨论 ({users.totalCount})</Title>
+        <Desc noBottom>
+          <UserList items={users.entries} />
+        </Desc>
+      </React.Fragment>
+    ) : null}
+
+    {/*
+        <Desc column noBottom>
+        <TagList items={data.tags} />
+        </Desc>
+      */}
   </Wrapper>
 )
 
@@ -46,6 +60,10 @@ ContentSourceCard.propTypes = {
         raw: PropTypes.string,
       })
     ),
+    pagedCommentsParticipators: PropTypes.shape({
+      entries: PropTypes.array,
+      totalCount: PropTypes.number,
+    }),
     tags: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
@@ -61,6 +79,10 @@ ContentSourceCard.defaultProps = {
   data: {
     communities: [],
     tags: [],
+    pagedCommentsParticipators: {
+      entries: [],
+      totalCount: 0,
+    },
   },
 }
 
