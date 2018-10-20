@@ -20,6 +20,33 @@ export function toggleModal() {
   })
 }
 
+export function backToOverview() {
+  store.markState({
+    curView: 'overview',
+  })
+}
+
+export function onMessageChange(e) {
+  store.markState({ message: e.target.value })
+}
+
+export function onConfirm() {
+  debug('onConfirm')
+  store.toastDone({
+    title: '感谢提交',
+    msg: '我们会尽快处理您举报的内容，为民除害。',
+  })
+  backToOverview()
+  toggleModal()
+}
+
+export function yesReport(type) {
+  store.markState({
+    curView: 'form',
+    type,
+  })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -45,6 +72,12 @@ const ErrSolver = [
     },
   },
 ]
+
+export function unInit() {
+  store.markState({
+    curView: 'overview',
+  })
+}
 
 export function init(_store) {
   if (store) return false

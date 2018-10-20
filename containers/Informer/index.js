@@ -12,7 +12,10 @@ import { ICON_CMD } from '../../config'
 
 import { Modal } from '../../components'
 import { Wrapper, Title, Icon } from './styles'
-import Content from './Content'
+
+import Header from './Header'
+import Overview from './Overview'
+import Form from './Form'
 
 import { makeDebugger, storePlug } from '../../utils'
 
@@ -27,9 +30,13 @@ class InformerContainer extends React.Component {
     logic.init(informer)
   }
 
+  componentWillUnmount() {
+    logic.unInit()
+  }
+
   render() {
     const { informer, title } = this.props
-    const { showModal } = informer
+    const { showModal, curView, viewingData, type, message } = informer
 
     return (
       <React.Fragment>
@@ -39,7 +46,14 @@ class InformerContainer extends React.Component {
           showCloseBtn
           onClose={logic.toggleModal}
         >
-          <Content />
+          <React.Fragment>
+            <Header data={viewingData} />
+            {curView === 'form' ? (
+              <Form type={type} message={message} />
+            ) : (
+              <Overview />
+            )}
+          </React.Fragment>
         </Modal>
         <Wrapper onClick={logic.toggleModal}>
           <Icon src={`${ICON_CMD}/flag.svg`} />
