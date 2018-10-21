@@ -25,13 +25,16 @@ const Informer = t
     get root() {
       return getParent(self)
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get viewingData() {
       return self.root.viewingData
     },
   }))
   .actions(self => ({
     show() {
-      self.show = true
+      self.showModal = true
     },
     toastDone(options) {
       self.root.toast('success', R.merge({ position: 'topCenter' }, options))
