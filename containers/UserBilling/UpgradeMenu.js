@@ -7,8 +7,11 @@ import {
   PlanWrapper,
   PlanDivider,
   PlanTitle,
+  GirlTitle,
+  TitleDesc,
   PlanDesc,
   PurchaseButton,
+  PinkButton,
   DescLine,
   MoreLink,
   BadPrice,
@@ -26,7 +29,10 @@ const UpgradeMenu = () => (
     />
 
     <PlanWrapper>
-      <PlanTitle>高级用户</PlanTitle>
+      <PlanTitle>
+        <div>高级用户</div>
+        <TitleDesc>(推荐)</TitleDesc>
+      </PlanTitle>
       <PlanDesc>
         <DescLine>
           <BadPrice>￥102.4</BadPrice> / <GoodPrice>￥69 </GoodPrice>
@@ -39,7 +45,7 @@ const UpgradeMenu = () => (
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级成高级用户
+          升级高级用户
         </Button>
       </PurchaseButton>
     </PlanWrapper>
@@ -58,8 +64,25 @@ const UpgradeMenu = () => (
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级成赞助商
+          升级赞助商
         </Button>
+      </PurchaseButton>
+    </PlanWrapper>
+    <PlanDivider />
+    <PlanWrapper>
+      <GirlTitle>
+        <div>我是程序猿</div>
+        <TitleDesc pink>(限女生)</TitleDesc>
+      </GirlTitle>
+      <PlanDesc>
+        <DescLine green>￥0 永久免费</DescLine>
+        <DescLine>高级用户的所有功能，以及个人项目推广等</DescLine>
+        <DescLine>
+          <MoreLink>程序猿用户细则...</MoreLink>
+        </DescLine>
+      </PlanDesc>
+      <PurchaseButton>
+        <PinkButton>无理由升级</PinkButton>
       </PurchaseButton>
     </PlanWrapper>
     <PlanDivider />
