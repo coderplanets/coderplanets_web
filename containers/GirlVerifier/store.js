@@ -1,5 +1,5 @@
 /*
-* Informer store
+* GirlVerifier store
 *
 */
 
@@ -8,18 +8,16 @@ import R from 'ramda'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:Informer')
+const debug = makeDebugger('S:GirlVerifier')
 /* eslint-enable no-unused-vars */
 
-const Informer = t
-  .model('Informer', {
+const GirlVerifier = t
+  .model('GirlVerifier', {
     showModal: t.optional(t.boolean, false),
-    curView: t.optional(
-      t.enumeration('curView', ['overview', 'form']),
-      'overview'
+    message: t.optional(
+      t.string,
+      '我的 github 主页信息已经可以证明我是女生了。'
     ),
-    type: t.optional(t.string, ''),
-    message: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
@@ -27,9 +25,6 @@ const Informer = t
     },
     get accountInfo() {
       return self.root.accountInfo
-    },
-    get viewingData() {
-      return self.root.viewingData
     },
   }))
   .actions(self => ({
@@ -47,4 +42,4 @@ const Informer = t
     },
   }))
 
-export default Informer
+export default GirlVerifier

@@ -1,4 +1,6 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
+
 import { SectionLabel, Button } from '../../components'
 
 import { ICON_CMD } from '../../config'
@@ -7,18 +9,26 @@ import {
   PlanWrapper,
   PlanDivider,
   PlanTitle,
+  GirlTitle,
+  TitleDesc,
   PlanDesc,
   PurchaseButton,
+  PinkButton,
   DescLine,
   MoreLink,
   BadPrice,
   GoodPrice,
 } from './styles/upgrade_menu'
 
-import { upgradeHepler, sponsorHepler } from './logic'
+import { upgradeHepler, sponsorHepler, girlVerifier } from './logic'
+
+const DynamicGirlVerifier = dynamic({
+  loader: () => import('../GirlVerifier'),
+})
 
 const UpgradeMenu = () => (
   <React.Fragment>
+    <DynamicGirlVerifier />
     <SectionLabel
       title="账单概况"
       iconSrc={`${ICON_CMD}/bill.svg`}
@@ -26,7 +36,10 @@ const UpgradeMenu = () => (
     />
 
     <PlanWrapper>
-      <PlanTitle>高级用户</PlanTitle>
+      <PlanTitle>
+        <div>高级用户</div>
+        <TitleDesc>(推荐)</TitleDesc>
+      </PlanTitle>
       <PlanDesc>
         <DescLine>
           <BadPrice>￥102.4</BadPrice> / <GoodPrice>￥69 </GoodPrice>
@@ -39,7 +52,7 @@ const UpgradeMenu = () => (
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级成高级用户
+          升级高级用户
         </Button>
       </PurchaseButton>
     </PlanWrapper>
@@ -58,8 +71,25 @@ const UpgradeMenu = () => (
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级成赞助商
+          升级赞助商
         </Button>
+      </PurchaseButton>
+    </PlanWrapper>
+    <PlanDivider />
+    <PlanWrapper>
+      <GirlTitle>
+        <div>我是程序猿</div>
+        <TitleDesc pink>(限女生)</TitleDesc>
+      </GirlTitle>
+      <PlanDesc>
+        <DescLine green>￥0 永久免费</DescLine>
+        <DescLine>高级用户的所有功能，以及个人项目推广等</DescLine>
+        <DescLine>
+          <MoreLink>程序猿用户细则...</MoreLink>
+        </DescLine>
+      </PlanDesc>
+      <PurchaseButton onClick={girlVerifier}>
+        <PinkButton>无理由升级</PinkButton>
       </PurchaseButton>
     </PlanWrapper>
     <PlanDivider />

@@ -10,11 +10,10 @@ export const Wrapper = styled.div`
 export const Avatar = styled(Img)`
   width: 20px;
   height: 20px;
-  border-radius: 3px;
+  border-radius: 100%;
   display: block;
-  margin-right: 4px;
+  margin-right: 5px;
 `
-
 export const PopInfo = styled.div`
   padding: 5px 10px;
   color: ${theme('thread.articleTitle')};

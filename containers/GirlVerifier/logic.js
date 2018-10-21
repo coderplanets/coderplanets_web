@@ -9,21 +9,27 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:UserBilling')
+const debug = makeDebugger('L:GirlVerifier')
 /* eslint-enable no-unused-vars */
 
 let store = null
 
-export function upgradeHepler() {
-  store.upgradeHepler()
+export function toggleModal() {
+  store.markState({
+    showModal: !store.showModal,
+  })
 }
 
-export function sponsorHepler() {
-  store.sponsorHepler()
+export function onMessageChange(e) {
+  store.markState({ message: e.target.value })
 }
 
-export function girlVerifier() {
-  store.callGirlVerifier()
+export function onConfirm() {
+  store.toastDone({
+    title: '感谢提交',
+    msg: '我们会尽快核实你提交的资料。',
+  })
+  toggleModal()
 }
 // ###############################
 // Data & Error handlers

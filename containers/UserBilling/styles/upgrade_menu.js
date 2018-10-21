@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Button } from 'antd'
 
 // import Img from '../../../components/Img'
 import { theme } from '../../../utils'
@@ -21,6 +22,14 @@ export const PlanTitle = styled.div`
   font-size: 0.9rem;
   margin-top: 2px;
 `
+export const GirlTitle = styled(PlanTitle)`
+  color: #ff7199;
+  display: flex;
+  flex-direction: column;
+`
+export const TitleDesc = styled.div`
+  color: ${({ pink }) => (pink ? '#ffafc9' : theme('thread.articleDigest'))};
+`
 export const PlanDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   flex-grow: 1;
@@ -32,7 +41,27 @@ export const PurchaseButton = styled.div`
   width: 130px;
   text-align: center;
 `
+const pinkHover = `
+  background-color: #ff7199  !important;
+  border-color: #ff7199;
+  color: white;
+`
+export const PinkButton = styled(Button)`
+  color: white;
+  background-color: #f59dba;
+  border-color: #f59dba;
+  &:focus {
+    ${pinkHover};
+  }
+  &:hover {
+    ${pinkHover};
+  }
+  &:active {
+    ${pinkHover};
+  }
+`
 export const DescLine = styled.div`
+  color: ${({ green }) => (green ? 'yellowgreen' : '')};
   font-size: 0.9rem;
   margin-bottom: 3px;
 `
@@ -46,7 +75,6 @@ export const MoreLink = styled.a`
     color: ${theme('markdown.link')};
   }
 `
-
 export const BadPrice = styled.span`
   text-decoration: line-through;
   color: tomato;
