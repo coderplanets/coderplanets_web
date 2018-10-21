@@ -1,4 +1,6 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
+
 import { SectionLabel, Button } from '../../components'
 
 import { ICON_CMD } from '../../config'
@@ -18,10 +20,15 @@ import {
   GoodPrice,
 } from './styles/upgrade_menu'
 
-import { upgradeHepler, sponsorHepler } from './logic'
+import { upgradeHepler, sponsorHepler, girlVerifier } from './logic'
+
+const DynamicGirlVerifier = dynamic({
+  loader: () => import('../GirlVerifier'),
+})
 
 const UpgradeMenu = () => (
   <React.Fragment>
+    <DynamicGirlVerifier />
     <SectionLabel
       title="账单概况"
       iconSrc={`${ICON_CMD}/bill.svg`}
@@ -81,7 +88,7 @@ const UpgradeMenu = () => (
           <MoreLink>程序猿用户细则...</MoreLink>
         </DescLine>
       </PlanDesc>
-      <PurchaseButton>
+      <PurchaseButton onClick={girlVerifier}>
         <PinkButton>无理由升级</PinkButton>
       </PurchaseButton>
     </PlanWrapper>

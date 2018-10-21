@@ -76,6 +76,7 @@ import {
   TagsBarStore,
   UserListerStore,
   InformerStore,
+  GirlVerifierStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -159,6 +160,7 @@ const rootStore = t
     tagsBar: t.optional(TagsBarStore, {}),
     userLister: t.optional(UserListerStore, {}),
     informer: t.optional(InformerStore, {}),
+    girlVerifier: t.optional(GirlVerifierStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
@@ -257,6 +259,9 @@ const rootStore = t
     },
     callInformer() {
       self.informer.show()
+    },
+    callGirlVerifier() {
+      self.girlVerifier.show()
     },
     markState(sobj) {
       markStates(sobj, self)
