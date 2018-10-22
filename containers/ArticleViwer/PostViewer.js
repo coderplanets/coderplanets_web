@@ -31,7 +31,7 @@ const PostViewer = ({ data, loading }) => (
       data={data}
       author={data.author}
       onReaction={logic.onReaction}
-      showReactionUsers={logic.showReactionUsers}
+      onListReactionUsers={logic.onListReactionUsers}
     />
 
     <BodyWrapper>

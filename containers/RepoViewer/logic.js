@@ -1,18 +1,23 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   asyncErr,
   ERR,
   TYPE,
+  EVENT,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
+})
+
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -22,8 +27,24 @@ const debug = makeDebugger('L:RepoViewer')
 let store = null
 
 export function loadRepo(id) {
-  sr71$.query(S.repo, { id })
+  const userHasLogin = store.isLogin
+  sr71$.query(S.repo, { id, userHasLogin })
 }
+
+function reloadReactions(id) {
+  return sr71$.query(S.repoReactionRes, { id })
+}
+
+export function onReaction(thread, action) {
+  if (action === TYPE.FAVORITE) {
+    return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
+      data: { thread },
+    })
+  }
+}
+
+export const onListReactionUsers = (type, data) =>
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 const openAttachment = att => {
   if (!att) return false
@@ -42,7 +63,17 @@ const openAttachment = att => {
 const DataSolver = [
   {
     match: asyncRes('repo'),
-    action: ({ repo }) => store.setViewing({ repo }),
+    action: ({ repo }) => {
+      store.setViewing({ repo: R.merge(store.viewingData, repo) })
+      // store.setViewing({ repo })
+    },
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_REACTIONS),
+    action: e => {
+      const { id } = e[EVENT.REFRESH_REACTIONS].data
+      reloadReactions(id)
+    },
   },
 ]
 const ErrSolver = [

@@ -44,7 +44,7 @@ const ArticleHeader = ({
   company,
   data,
   onReaction,
-  showReactionUsers,
+  onListReactionUsers,
   showFavorite,
   showLastSync,
   showStar,
@@ -84,7 +84,7 @@ const ArticleHeader = ({
               </ReactionName>
             </ReactionAction>
             <ReactionUserNum
-              onClick={showReactionUsers.bind(
+              onClick={onListReactionUsers.bind(
                 this,
                 TYPE.USER_LISTER_FAVORITES,
                 {
@@ -119,7 +119,7 @@ const ArticleHeader = ({
               </ReactionName>
             </ReactionAction>
             <ReactionUserNum
-              onClick={showReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
+              onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
                 thread,
                 id: data.id,
                 action: TYPE.STAR,
@@ -190,7 +190,7 @@ ArticleHeader.propTypes = {
     // handler
   }).isRequired,
   onReaction: PropTypes.func,
-  showReactionUsers: PropTypes.func,
+  onListReactionUsers: PropTypes.func,
   // ui
   showFavorite: PropTypes.bool,
   showLastSync: PropTypes.bool,
@@ -205,7 +205,7 @@ ArticleHeader.defaultProps = {
   showStar: true,
   author: null,
   company: null,
-  showReactionUsers: debug,
+  onListReactionUsers: debug,
 }
 
 export default ArticleHeader

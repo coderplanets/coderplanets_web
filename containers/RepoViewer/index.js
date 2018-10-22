@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import { CommentsWrapper } from './styles'
 
+import FavoritesCats from '../FavoritesCats'
 import Comments from '../Comments'
 import { GithubRepoPage } from '../../components'
 
@@ -32,7 +33,12 @@ class RepoViewerContainer extends React.Component {
     debug('viewingData ', viewingData)
     return (
       <div>
-        <GithubRepoPage repo={viewingData} />
+        <FavoritesCats />
+        <GithubRepoPage
+          repo={viewingData}
+          onReaction={logic.onReaction}
+          onListReactionUsers={logic.onListReactionUsers}
+        />
         <CommentsWrapper>
           <Comments />
         </CommentsWrapper>
