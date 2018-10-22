@@ -38,6 +38,7 @@ export const video = `
 `
 export const repo = `
   id
+  views
   title
   ownerName
   desc

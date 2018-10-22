@@ -29,6 +29,7 @@ class RepoViewerContainer extends React.Component {
     const { repoViewer } = this.props
     const { viewingData } = repoViewer
 
+    debug('viewingData ', viewingData)
     return (
       <div>
         <GithubRepoPage repo={viewingData} />

@@ -52,6 +52,14 @@ export const PlainUserNum = styled.div`
   font-size: 1rem;
   margin-left: 2px;
 `
+export const SyncTime = styled(PlainUserNum)`
+  font-size: 0.9rem;
+  margin-left: 3px;
+`
+export const PopInfo = styled.div`
+  padding: 5px 10px;
+  color: ${theme('article.reactionTitle')};
+`
 export const ReactionUserNum = styled(PlainUserNum)`
   &:hover {
     cursor: pointer;

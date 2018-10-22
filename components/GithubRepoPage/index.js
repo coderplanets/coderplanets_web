@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
-import TopHeader from './TopHeader'
+import ArticleHeader from '../ArticleHeader'
 import BodyHeader from './BodyHeader'
 import Header from './Header'
 import StatesContainers from './StatesContainers'
@@ -41,7 +41,12 @@ const GithubRepoPage = ({
   showSyncBtn,
 }) => (
   <Wrapper>
-    <TopHeader />
+    <ArticleHeader
+      data={repo}
+      author={repo.author}
+      showStar={false}
+      showLastSync
+    />
     <BodyWrapper>
       <BodyHeader />
       <Header repo={repo} />
