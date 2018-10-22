@@ -46,7 +46,10 @@ const FavoritesCats = t
     // open creator from setter, so we can go back to setter based on this state
     createfromSetter: t.optional(t.boolean, false),
     thread: t.maybeNull(
-      t.enumeration([THREAD.POST, THREAD.JOB, THREAD.VIDEO], THREAD.POST)
+      t.enumeration(
+        [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO],
+        THREAD.POST
+      )
     ),
   })
   .views(self => ({

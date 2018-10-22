@@ -31,7 +31,10 @@ let sub$ = null
 export function onReaction(thread, action, userDid, { id }) {
   /* debug('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
-    return FavoriteSetter(thread)
+    // call favoriteSetter
+    return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
+      data: { thread },
+    })
   }
   // debug('onReaction userDid: ', store.isLogin)
   /* debug('onReaction id: ', id) */
@@ -41,12 +44,6 @@ export function onReaction(thread, action, userDid, { id }) {
   return userDid
     ? sr71$.mutate(S.undoReaction, args)
     : sr71$.mutate(S.reaction, args)
-}
-
-export function FavoriteSetter(thread) {
-  return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
-    data: { thread },
-  })
 }
 
 export function gotoPostPage(data) {
@@ -106,7 +103,7 @@ export function onEdit(thread) {
   }
 }
 
-export const showReactionUsers = (type, data) =>
+export const onListReactionUsers = (type, data) =>
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 const openAttachment = att => {

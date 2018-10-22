@@ -1,15 +1,8 @@
 import gql from 'graphql-tag'
 import { F } from '../schemas'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
-`
 const repo = gql`
-  query($id: ID!) {
+  query($id: ID!, $userHasLogin: Boolean!) {
     repo(id: $id) {
       ${F.repo}
       watchCount
@@ -20,6 +13,7 @@ const repo = gql`
       issuesCount
       releaseTag
       lastSync
+      favoritedCategoryId @include(if: $userHasLogin)
       author {
         ${F.author}
       }
@@ -27,9 +21,20 @@ const repo = gql`
   }
 `
 
+const repoReactionRes = gql`
+  query($id: ID!) {
+    repo(id: $id) {
+      id
+      favoritedCategoryId
+      viewerHasFavorited
+      favoritedCount
+    }
+  }
+`
+
 const schema = {
-  simpleMutation,
   repo,
+  repoReactionRes,
 }
 
 export default schema

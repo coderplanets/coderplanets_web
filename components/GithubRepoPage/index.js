@@ -26,7 +26,7 @@ import {
   PublishButton,
 } from './styles'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:GithubRepoPage:index')
 /* eslint-enable no-unused-vars */
@@ -36,6 +36,8 @@ const GithubRepoPage = ({
   onSearch,
   onPublish,
   onSync,
+  onReaction,
+  onListReactionUsers,
   showPublishBtn,
   showSearchBtn,
   showSyncBtn,
@@ -44,8 +46,11 @@ const GithubRepoPage = ({
     <ArticleHeader
       data={repo}
       author={repo.author}
+      thread={THREAD.REPO}
       showStar={false}
       showLastSync
+      onReaction={onReaction}
+      onListReactionUsers={onListReactionUsers}
     />
     <BodyWrapper>
       <BodyHeader />
@@ -85,6 +90,9 @@ GithubRepoPage.propTypes = {
   onSearch: PropTypes.func,
   onSync: PropTypes.func,
 
+  onReaction: PropTypes.func,
+  onListReactionUsers: PropTypes.func,
+
   showPublishBtn: PropTypes.bool,
   showSearchBtn: PropTypes.bool,
   showSyncBtn: PropTypes.bool,
@@ -94,6 +102,9 @@ GithubRepoPage.defaultProps = {
   onPublish: debug,
   onSearch: debug,
   onSync: debug,
+
+  onReaction: debug,
+  onListReactionUsers: debug,
 
   showPublishBtn: false,
   showSearchBtn: false,

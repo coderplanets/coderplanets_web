@@ -44,6 +44,7 @@ export const Repo = t.model('Reop', {
 
   favoritedCount: t.optional(t.number, 0),
   viewerHasFavorited: t.optional(t.boolean, false),
+  favoritedCategoryId: t.maybeNull(t.string),
 
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),

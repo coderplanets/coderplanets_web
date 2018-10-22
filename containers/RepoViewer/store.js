@@ -17,6 +17,9 @@ const RepoViewer = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get viewingData() {
       return self.root.viewingData
     },
