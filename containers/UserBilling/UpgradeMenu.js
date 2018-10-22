@@ -78,14 +78,14 @@ const UpgradeMenu = () => (
     <PlanDivider />
     <PlanWrapper>
       <GirlTitle>
-        <div>我是程序猿</div>
+        <div>我是程序媛</div>
         <TitleDesc pink>(限女生)</TitleDesc>
       </GirlTitle>
       <PlanDesc>
         <DescLine green>￥0 永久免费</DescLine>
         <DescLine>高级用户的所有功能，以及个人项目推广等</DescLine>
         <DescLine>
-          <MoreLink>程序猿用户细则...</MoreLink>
+          <MoreLink>程序媛用户细则...</MoreLink>
         </DescLine>
       </PlanDesc>
       <PurchaseButton onClick={girlVerifier}>
