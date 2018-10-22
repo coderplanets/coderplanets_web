@@ -15,6 +15,7 @@ export const repo = `
         followersCount
         followingsCount
       }
+      favoritedCount
       pagedCommentsParticipators {
         entries {
           ${F.author}

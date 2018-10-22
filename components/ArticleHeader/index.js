@@ -22,6 +22,7 @@ import {
   CollectIcon,
   LikeIcon,
   PlainUserNum,
+  SyncTime,
   ReactionUserNum,
   Divider,
 } from './styles'
@@ -132,6 +133,13 @@ const ArticleHeader = ({
             <ReactionName>浏览:</ReactionName>
           </PlainAction>
           <PlainUserNum>{data.views}</PlainUserNum>
+          <Divider />
+        </Reaction>
+        <Reaction>
+          <PlainAction>
+            <ReactionName>同步于:</ReactionName>
+          </PlainAction>
+          <SyncTime>3天前</SyncTime>
         </Reaction>
       </ReactionWrapper>
     </Wrapper>
