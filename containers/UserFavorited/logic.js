@@ -55,6 +55,11 @@ export function loadVideos(page = 1) {
   sr71$.query(S.favoritedVideos, args)
 }
 
+export function loadRepos(page = 1) {
+  const args = beforeQuery(page)
+  sr71$.query(S.favoritedRepos, args)
+}
+
 export function reload(page) {
   switch (store.curThread) {
     case THREAD.JOB: {
@@ -62,6 +67,9 @@ export function reload(page) {
     }
     case THREAD.VIDEO: {
       return loadVideos(page)
+    }
+    case THREAD.REPO: {
+      return loadRepos(page)
     }
     default: {
       return loadPosts(page)
@@ -91,6 +99,10 @@ const DataSolver = [
   {
     match: asyncRes('favoritedVideos'),
     action: ({ favoritedVideos }) => store.markPagedData(favoritedVideos),
+  },
+  {
+    match: asyncRes('favoritedRepos'),
+    action: ({ favoritedRepos }) => store.markPagedData(favoritedRepos),
   },
 ]
 const ErrSolver = []

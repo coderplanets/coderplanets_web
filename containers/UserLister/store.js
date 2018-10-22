@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
+import R from 'ramda'
 
 import { PagedUsers, emptyPagiData } from '../../stores/SharedModel'
 
@@ -51,6 +51,16 @@ const UserLister = t
     },
   }))
   .actions(self => ({
+    toggleHasFollow(userId) {
+      const { entries } = self.pagedUsersData
+
+      const index = R.findIndex(R.propEq('id', userId), entries)
+      if (index >= 0) {
+        debug('found you! ', entries[index])
+        const curIsFollow = self.pagedUsers.entries[index].hasFollowd
+        self.pagedUsers.entries[index].hasFollowd = !curIsFollow
+      }
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

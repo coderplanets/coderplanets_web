@@ -85,7 +85,7 @@ class UserContentContainer extends React.Component {
 
   render() {
     const { userContent } = this.props
-    const { activeThread, viewingUser } = userContent
+    const { activeThread, viewingUser, accountInfo } = userContent
 
     return (
       <Container>
@@ -101,7 +101,7 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <Affix offsetTop={30}>
-            <DigestBoard user={viewingUser} />
+            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
           </Affix>
         </SidebarWrapper>
       </Container>

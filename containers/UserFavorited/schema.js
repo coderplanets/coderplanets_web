@@ -15,7 +15,13 @@ const favoritedVideos = gql`
     }
   }
 `
-
+const favoritedRepos = gql`
+  query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
+    favoritedRepos(userId: $userId, categoryId: $categoryId, filter: $filter) {
+      ${F.pagedRepos}
+    }
+  }
+`
 const favoritedPosts = gql`
   query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {
     favoritedPosts(userId: $userId, categoryId: $categoryId, filter: $filter) {
@@ -31,6 +37,8 @@ const schema = {
   favoritedJobs,
   // video
   favoritedVideos,
+  // repo
+  favoritedRepos,
 }
 
 export default schema

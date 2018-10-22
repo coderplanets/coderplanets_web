@@ -34,8 +34,18 @@ export function onClose() {
   unholdPage()
 }
 
+export function onFollow(userId) {
+  debug('onFollow userId: ', userId)
+
+  sr71$.mutate(S.follow, { userId })
+}
+
+export function undoFollow(userId) {
+  sr71$.mutate(S.undoFollow, { userId })
+}
+
 const loadUsers = (type, data, page = 1) => {
-  debug('loadUsers type: ', type)
+  // debug('loadUsers type: ', type)
 
   store.markState({ curView: TYPE.LOADING })
   switch (type) {
@@ -56,6 +66,7 @@ const loadUsers = (type, data, page = 1) => {
       const args = {
         userId: data.id,
         filter: { page, size: PAGE_SIZE.D },
+        userHasLogin: store.isLogin,
       }
       return sr71$.query(S.pagedFollowings, args)
     }
@@ -120,6 +131,20 @@ const DataSolver = [
   {
     match: asyncRes('pagedUsers'),
     action: ({ pagedUsers }) => handleUsersRes(pagedUsers),
+  },
+  {
+    match: asyncRes('follow'),
+    action: ({ follow: { id } }) => {
+      /* debug('follow done: ', follow) */
+      store.toggleHasFollow(id)
+    },
+  },
+  {
+    match: asyncRes('undoFollow'),
+    action: ({ undoFollow: { id } }) => {
+      /* debug('undoFollow done: ', undoFollow) */
+      store.toggleHasFollow(id)
+    },
   },
 ]
 const ErrSolver = [

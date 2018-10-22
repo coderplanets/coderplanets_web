@@ -22,6 +22,7 @@ import {
   Action,
 } from './styles/user_list'
 
+import { onFollow, undoFollow } from './logic'
 import { makeDebugger, uid } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -46,6 +47,8 @@ const UsersTable = ({ entries, accountId }) => (
               <FollowButton
                 hasFollowd={user.viewerHasFollowed}
                 userId={user.id}
+                onFollow={onFollow}
+                onUndoFollow={undoFollow}
               />
             ) : (
               <div>(本人)</div>

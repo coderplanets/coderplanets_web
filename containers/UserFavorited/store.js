@@ -11,6 +11,7 @@ import {
   PagedPosts,
   PagedJobs,
   PagedVideos,
+  PagedRepos,
   emptyPagiData,
   FavoriteCategory,
 } from '../../stores/SharedModel'
@@ -24,7 +25,12 @@ const UserFavorited = t
   .model('UserFavorited', {
     curCategory: t.maybeNull(FavoriteCategory),
     curThread: t.optional(
-      t.enumeration('favoriteThread', [THREAD.POST, THREAD.VIDEO, THREAD.JOB]),
+      t.enumeration('favoriteThread', [
+        THREAD.POST,
+        THREAD.VIDEO,
+        THREAD.JOB,
+        THREAD.REPO,
+      ]),
       THREAD.POST
     ),
     parentView: t.optional(
@@ -49,6 +55,7 @@ const UserFavorited = t
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
     pagedJobs: t.optional(PagedJobs, emptyPagiData),
     pagedVideos: t.optional(PagedVideos, emptyPagiData),
+    pagedRepos: t.optional(PagedRepos, emptyPagiData),
   })
   .views(self => ({
     get root() {

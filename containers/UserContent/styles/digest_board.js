@@ -8,6 +8,7 @@ export const CardWrapper = styled.div`
   background: ${theme('preview.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   padding: 20px;
+  padding-bottom: 10px;
   min-height: 100px;
   margin-bottom: 15px;
 `
