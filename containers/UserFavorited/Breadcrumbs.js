@@ -39,7 +39,7 @@ const Breadcrumbs = ({
           active={curThread}
           onSelect={changeFavoriteThread}
           totalCount={totalCount}
-          options={[THREAD.POST, THREAD.JOB, THREAD.VIDEO]}
+          options={[THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]}
         />
       </ThreadSelectorLabel>
     </TitleList>
