@@ -7,6 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
+import TimeAgo from 'timeago-react'
+import Popover from '../Popover'
 
 import { ICON_CMD } from '../../config'
 
@@ -23,6 +25,7 @@ import {
   LikeIcon,
   PlainUserNum,
   SyncTime,
+  PopInfo,
   ReactionUserNum,
   Divider,
 } from './styles'
@@ -43,6 +46,7 @@ const ArticleHeader = ({
   onReaction,
   showReactionUsers,
   showFavorite,
+  showLastSync,
   showStar,
 }) => {
   return (
@@ -133,14 +137,29 @@ const ArticleHeader = ({
             <ReactionName>浏览:</ReactionName>
           </PlainAction>
           <PlainUserNum>{data.views}</PlainUserNum>
-          <Divider />
         </Reaction>
-        <Reaction>
-          <PlainAction>
-            <ReactionName>同步于:</ReactionName>
-          </PlainAction>
-          <SyncTime>3天前</SyncTime>
-        </Reaction>
+
+        <Maybe test={showLastSync}>
+          <Popover
+            placement="bottomLeft"
+            trigger="hover"
+            content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
+          >
+            <Reaction>
+              <Divider />
+              <PlainAction>
+                <ReactionName>同步于:</ReactionName>
+              </PlainAction>
+              <SyncTime>
+                {data.lastSync ? (
+                  <TimeAgo datetime={data.lastSync} locale="zh_CN" />
+                ) : (
+                  '--'
+                )}
+              </SyncTime>
+            </Reaction>
+          </Popover>
+        </Maybe>
       </ReactionWrapper>
     </Wrapper>
   )
@@ -174,6 +193,7 @@ ArticleHeader.propTypes = {
   showReactionUsers: PropTypes.func,
   // ui
   showFavorite: PropTypes.bool,
+  showLastSync: PropTypes.bool,
   showStar: PropTypes.bool,
 }
 
@@ -181,6 +201,7 @@ ArticleHeader.defaultProps = {
   thread: THREAD.POST,
   onReaction: debug,
   showFavorite: true,
+  showLastSync: false,
   showStar: true,
   author: null,
   company: null,

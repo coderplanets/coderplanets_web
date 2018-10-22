@@ -48,6 +48,7 @@ export const Repo = t.model('Reop', {
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),
 
+  lastSync: t.maybeNull(t.string),
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),

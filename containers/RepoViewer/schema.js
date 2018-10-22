@@ -19,6 +19,7 @@ const repo = gql`
       readme
       issuesCount
       releaseTag
+      lastSync
       author {
         ${F.author}
       }

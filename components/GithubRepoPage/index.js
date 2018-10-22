@@ -41,7 +41,12 @@ const GithubRepoPage = ({
   showSyncBtn,
 }) => (
   <Wrapper>
-    <ArticleHeader data={repo} author={repo.author} showStar={false} />
+    <ArticleHeader
+      data={repo}
+      author={repo.author}
+      showStar={false}
+      showLastSync
+    />
     <BodyWrapper>
       <BodyHeader />
       <Header repo={repo} />
