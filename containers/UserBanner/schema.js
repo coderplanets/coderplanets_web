@@ -1,11 +1,11 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const userRaw = `
   query user($id: ID!, $userHasLogin: Boolean!) {
     user(id: $id) {
-      id
-      nickname
-      avatar
+      ${F.author}
+      views
       bio
       sex
       location
@@ -61,10 +61,7 @@ const userRaw = `
 
       editableCommunities {
         entries {
-          id
-          logo
-          title
-          raw
+          ${F.community}
         }
         totalCount
       }
