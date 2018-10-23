@@ -1,12 +1,14 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   asyncErr,
   ERR,
   TYPE,
+  EVENT,
   THREAD,
   pagedFilter,
 } from '../../utils'
@@ -65,6 +67,16 @@ export function onThreadChange(curThread) {
   // TODO: markRoute
   store.markState({ curThread })
   reload()
+}
+
+export function onTitleSelect(data) {
+  const { curThread: thread } = store
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
+    thread,
+    data,
+  })
 }
 
 // ###############################

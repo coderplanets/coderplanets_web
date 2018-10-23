@@ -1,12 +1,14 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   TYPE,
   pagedFilter,
   THREAD,
+  EVENT,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -81,6 +83,16 @@ export const changeFavoriteThread = curThread => {
   store.markState({ curThread })
   // TODO:  change route
   reload()
+}
+
+export function onTitleSelect(data) {
+  const { curThread: thread } = store
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
+    thread,
+    data,
+  })
 }
 
 // ###############################
