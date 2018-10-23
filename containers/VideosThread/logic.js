@@ -6,6 +6,7 @@ import {
   $solver,
   TYPE,
   EVENT,
+  THREAD,
   scrollIntoEle,
   asyncRes,
   dispatchEvent,
@@ -30,12 +31,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -60,12 +56,11 @@ export function loadVideos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect(video) {
-  store.setViewing({ video })
-
+export function onTitleSelect(data) {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
-    data: video,
+    thread: THREAD.VIDEO,
+    data,
   })
 }
 

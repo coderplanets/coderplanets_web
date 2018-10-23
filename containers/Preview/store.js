@@ -7,8 +7,9 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { User } from '../../stores/SharedModel'
-import { markStates, TYPE, stripMobx, unholdPage } from '../../utils'
+import { markStates, TYPE, stripMobx, unholdPage, THREAD } from '../../utils'
 
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 /* const debug = makeDebugger('S:PreviewStore') */
 const THREAD_CONTENT_CURD_TYPES = [
   // post
@@ -83,12 +84,19 @@ const PreviewStore = t
     },
   }))
   .actions(self => ({
-    open({ type, data }) {
+    open({ type, data, thread }) {
       self.visible = true
       self.type = type
 
       // NOTE: currently the attachment is only used for article-like content
       if (data) self.attachment = R.merge({ type }, data)
+
+      if ((thread, R.contains(thread, PREVIEWABLE_THREADS))) {
+        self.setViewing({ [thread]: data, viewingThread: thread })
+      }
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     close() {
       self.visible = false

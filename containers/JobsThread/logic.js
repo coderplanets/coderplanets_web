@@ -7,6 +7,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   $solver,
   scrollIntoEle,
   // GA,
@@ -31,12 +32,7 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   store.setHeaderFix(false)
@@ -83,11 +79,11 @@ export function onTagSelect(obj) {
   loadJobs()
 }
 
-export function onTitleSelect(job) {
-  store.setViewing({ job })
+export function onTitleSelect(data) {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
-    data: job,
+    thread: THREAD.JOB,
+    data,
   })
 }
 

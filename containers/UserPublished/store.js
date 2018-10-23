@@ -89,7 +89,9 @@ const UserPublished = t
         }
       }
     },
-
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

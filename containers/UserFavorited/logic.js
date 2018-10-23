@@ -110,6 +110,7 @@ const ErrSolver = []
 export function init(_store) {
   if (store) {
     //  return loadPosts()
+    return false
   }
   store = _store
 
