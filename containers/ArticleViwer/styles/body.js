@@ -41,11 +41,13 @@ export const ArticleHeader = styled.div`
 `
 export const ArticleTitle = styled.div`
   color: ${theme('preview.title')};
-  font-size: 1.5em;
+  font-size: 1.2rem;
   align-self: center;
   padding-top: 10px;
   padding-bottom: 5px;
-  // width: 93%;
+  padding-left: 20px;
+  padding-right: 20px;
+
   border-bottom: 1px solid;
   border-bottom-color: ${theme('preview.divider')};
 `

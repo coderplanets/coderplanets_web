@@ -75,7 +75,7 @@ class JobsThreadContainer extends React.Component {
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
               />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+              <FilterResultHint>结果共 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
           </Maybe>
 

@@ -62,15 +62,15 @@ const CopyrightContent = ({ active, thread }) => (
   </Wrapper>
 )
 
-const CopyrightSelector = ({ cpType, thread }) => (
+const CopyrightSelector = ({ copyRight, thread }) => (
   <Popover
-    content={<CopyrightContent active={cpType} thread={thread} />}
+    content={<CopyrightContent active={copyRight} thread={thread} />}
     placement="right"
     trigger="hover"
   >
     <ReprintWrapper>
-      <ReprintIcon src={`${ICON_CMD}/${cpType}.svg`} />
-      <CopyRightText>{getCpTitle(cpType)}</CopyRightText>
+      <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />
+      <CopyRightText>{getCpTitle(copyRight)}</CopyRightText>
       <MoreIcon src={`${ICON_CMD}/more.svg`} />
     </ReprintWrapper>
   </Popover>

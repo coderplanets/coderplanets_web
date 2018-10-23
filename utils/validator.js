@@ -98,14 +98,15 @@ export const changeset = source => ({
     return changeset(source)
     // R.length(R.filter(R.equals(target), source)) > 0
   },
-  startsWith: (obj, prefix, cb) => {
-    if (source.__dirty__) return changeset(source)
+  startsWith: (obj, prefix, cb, condition = true) => {
+    if (source.__dirty__ || !condition) return changeset(source)
+
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
     if (!R.startsWith(prefix, R.trim(source[field]))) {
       const title = trans
-      const msg = `仅支持 ${prefix} 开头的链接地址`
+      const msg = `请填写 ${prefix} 开头的链接地址`
 
       cb({ title, msg })
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))

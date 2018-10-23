@@ -22,10 +22,15 @@ export const MoreIcon = styled(Img)`
   width: 15px;
   height: 15px;
 `
-export const LinkFrom = styled.div`
+export const LinkFrom = styled.a`
   display: flex;
   color: ${theme('article.link')};
   margin-left: 5%;
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.extraInfo')};
+    text-decoration: underline;
+  }
 `
 export const RefinedLabel = styled.div`
   display: flex;

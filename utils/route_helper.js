@@ -115,6 +115,20 @@ export const serializeQuery = obj => {
   /* eslint-enable */
 }
 
+// see: https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
+export const getDomain = url => {
+  /* eslint-disable */
+  try {
+    const matches = url.match(/^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i)
+    const domain = matches && matches[1]
+
+    return domain.split('.')[0]
+  } catch (e) {
+    return '??'
+  }
+  /* eslint-enable */
+}
+
 const TR_MAP = {
   posts: 'post',
   users: 'user',

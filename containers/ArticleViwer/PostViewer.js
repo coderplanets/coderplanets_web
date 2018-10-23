@@ -35,7 +35,7 @@ const PostViewer = ({ data, loading }) => (
     />
 
     <BodyWrapper>
-      <BodyHeader thread={THREAD.POST} />
+      <BodyHeader data={data} thread={THREAD.POST} />
       <ArticleTitle>{data.title}</ArticleTitle>
       <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
         <ArticleBody>

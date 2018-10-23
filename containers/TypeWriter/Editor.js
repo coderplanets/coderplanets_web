@@ -12,9 +12,9 @@ import EditorFooter from './EditorFooter'
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
 import { titleOnChange, bodyOnChange } from './logic'
 
-const Editor = ({ cpType, thread, title, body, linkAddr }) => (
+const Editor = ({ copyRight, thread, title, body, linkAddr }) => (
   <Wrapper>
-    <EditorHeader cpType={cpType} thread={thread} linkAddr={linkAddr} />
+    <EditorHeader copyRight={copyRight} thread={thread} linkAddr={linkAddr} />
     <TitleInput
       placeholder="标 题."
       defaultValue=""
@@ -33,7 +33,7 @@ const Editor = ({ cpType, thread, title, body, linkAddr }) => (
 Editor.propTypes = {
   // https://www.npmjs.com/package/prop-types
   thread: PropTypes.string.isRequired,
-  cpType: PropTypes.string.isRequired,
+  copyRight: PropTypes.string.isRequired,
   body: PropTypes.string,
   title: PropTypes.string,
   linkAddr: PropTypes.string,

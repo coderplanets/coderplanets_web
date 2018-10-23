@@ -17,7 +17,7 @@ import {
 
 // import { Wrapper } from './styles/body_header'
 
-const BodyHeader = ({ thread }) => (
+const BodyHeader = ({ data, thread }) => (
   <Wrapper>
     <MoreWrapper>
       <Popover
@@ -30,10 +30,12 @@ const BodyHeader = ({ thread }) => (
         </div>
       </Popover>
     </MoreWrapper>
-    <LinkFrom>
-      <div>转载自:&nbsp;</div>
-      <LinkSource>github.com/mydearxym/...</LinkSource>
-    </LinkFrom>
+    {data.linkAddr ? (
+      <LinkFrom href={data.linkAddr} target="_blank" rel="noopener noreferrer">
+        <div>转载自:&nbsp;</div>
+        <LinkSource>{data.linkAddr}</LinkSource>
+      </LinkFrom>
+    ) : null}
     <RefinedLabel>
       <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
       <RefinedText>精 华</RefinedText>

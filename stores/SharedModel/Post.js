@@ -9,11 +9,14 @@ import { Tag } from './Tag'
 
 export const Post = t.model('Post', {
   id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  body: t.maybeNull(t.string),
-  digest: t.maybeNull(t.string),
+  title: t.optional(t.string, ''),
+  body: t.optional(t.string, ''),
+  digest: t.optional(t.string, ''),
   // author: t.optional(User, {}),
   author: t.maybeNull(User),
+
+  linkAddr: t.maybeNull(t.string),
+  copyRight: t.optional(t.string, 'original'),
 
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),

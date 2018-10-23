@@ -6,6 +6,8 @@ export const post = `
       ${F.post}
       body
       length
+      linkAddr
+      copyRight
       author {
         ${F.author}
         bio
@@ -39,6 +41,8 @@ export const pagedPosts = `
       entries {
         ${F.post}
         digest
+        linkAddr
+        copyRight
         commentsCount
         commentsParticipators(filter: { first: 5 }) {
           id
