@@ -27,19 +27,18 @@ const debug = makeDebugger('C:TypeWriter')
 const View = ({
   curView,
   thread,
-  copyRight,
-  editData: { title, body, linkAddr },
+  editData: { title, body, linkAddr, copyRight },
 }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
-            copyRight={copyRight}
             thread={thread}
             title={title}
-            linkAddr={linkAddr}
             body={body}
+            linkAddr={linkAddr}
+            copyRight={copyRight}
           />
         </ViewerWrapper>
         <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
@@ -84,8 +83,6 @@ class TypeWriterContainer extends React.Component {
       statusMsg,
       editData,
     } = typeWriter
-
-    debug('fucking editData: ', editData)
 
     return (
       <Wrapper>

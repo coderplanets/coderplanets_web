@@ -24,17 +24,6 @@ const TypeWriterStore = t
     editPost: t.optional(Post, {}),
     editJob: t.maybeNull(Job),
 
-    title: t.optional(t.string, ''),
-    linkAddr: t.optional(t.string, ''),
-    body: t.optional(t.string, ''),
-    publishing: t.optional(t.boolean, false),
-
-    isOriginal: t.optional(t.boolean, true),
-
-    copyRight: t.optional(
-      t.enumeration('copyRight', ['original', 'reprint', 'translate']),
-      'original'
-    ),
     curView: t.optional(
       t.enumeration('curView', [
         'MARKDOWN_HELP_VIEW',
@@ -44,6 +33,8 @@ const TypeWriterStore = t
       ]),
       'CREATE_VIEW'
     ),
+
+    publishing: t.optional(t.boolean, false),
     // TODO: rename to isEditMode
     isEdit: t.optional(t.boolean, false),
     /* for StatusBox */
@@ -96,11 +87,12 @@ const TypeWriterStore = t
           const result = changeset(self.editData)
             .exsit({ title: '文章标题或内容' }, self.changesetErr)
             .exsit({ body: '文章标题或内容' }, self.changesetErr)
+            .exsit({ linkAddr: '原链接地址' }, self.changesetErr)
             .startsWith(
-              { linkAddr: '版权很重要' },
+              { linkAddr: '原链接地址' },
               'https://',
               self.changesetErr,
-              self.copyRight !== 'original'
+              self.editData.copyRight !== 'original'
             )
             .done()
 
@@ -121,8 +113,6 @@ const TypeWriterStore = t
     },
     reset() {
       self.markState({
-        isOriginal: true,
-        copyRight: 'original',
         isEdit: false,
       })
 

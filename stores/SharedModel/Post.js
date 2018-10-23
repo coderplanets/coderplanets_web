@@ -16,6 +16,7 @@ export const Post = t.model('Post', {
   author: t.maybeNull(User),
 
   linkAddr: t.maybeNull(t.string),
+  copyRight: t.optional(t.string, 'original'),
 
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),

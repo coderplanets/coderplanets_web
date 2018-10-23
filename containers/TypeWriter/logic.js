@@ -26,10 +26,6 @@ const debug = makeDebugger('L:TypeWriter')
 let store = null
 let sub$ = null
 
-export function copyrightChange(copyRight) {
-  store.markState({ copyRight })
-}
-
 export function changeView(curView) {
   store.markState({ curView })
 }
@@ -63,10 +59,7 @@ export function onPublish() {
 
 function publishPost() {
   if (!store.validator(THREAD.POST)) return false
-  debug('passed copyRight: ', store.copyRight)
-  // debug('onPublish: ', store.body)
-  const { copyRight } = store
-  const { body, title } = store.editData
+  const { body, title, copyRight } = store.editData
   publishing()
 
   const digest = getDigest(body)
@@ -77,6 +70,7 @@ function publishPost() {
     body,
     digest,
     length,
+    copyRight,
     communityId: store.viewing.community.id,
   }
 
@@ -99,10 +93,10 @@ export const canclePublish = () => {
 // maybe trigger before init, fix later
 export function bodyOnChange(body) {
   if (!store) return false
-  // debug('editorOnChange: ', body)
-  // debug('editorOnChange store: ', store)
   store.updateEditing({ body })
 }
+
+export const copyrightChange = copyRight => store.updateEditing({ copyRight })
 
 export const titleOnChange = ({ target: { value: title } }) =>
   store.updateEditing({ title })
@@ -110,9 +104,7 @@ export const titleOnChange = ({ target: { value: title } }) =>
 export const linkSourceOnChange = ({ target: { value: linkAddr } }) =>
   store.updateEditing({ linkAddr })
 
-function publishing(maybe = true) {
-  store.markState({ publishing: maybe })
-}
+const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
 export const onUploadImageDone = url =>
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })

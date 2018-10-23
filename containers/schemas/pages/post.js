@@ -6,6 +6,8 @@ export const post = `
       ${F.post}
       body
       length
+      linkAddr
+      copyRight
       author {
         ${F.author}
         bio
