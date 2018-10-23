@@ -10,8 +10,6 @@ import { Button, Tag } from 'antd'
 import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-
-import { withGuardian } from '../HOC'
 import Popover from '../Popover'
 
 import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles'
@@ -93,4 +91,4 @@ ContentFilter.defaultProps = {
   thread: THREAD.POST,
 }
 
-export default withGuardian(ContentFilter)
+export default ContentFilter

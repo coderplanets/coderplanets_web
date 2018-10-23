@@ -5,14 +5,15 @@ import {
   asyncErr,
   $solver,
   makeDebugger,
-  isEmptyValue,
   dispatchEvent,
+  THREAD,
   EVENT,
   ERR,
   meteorState,
   countWords,
   extractAttachments,
 } from '../../utils'
+
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -25,25 +26,12 @@ const debug = makeDebugger('L:TypeWriter')
 let store = null
 let sub$ = null
 
-export function copyrightChange(cpType) {
-  store.markState({ cpType })
+export function copyrightChange(copyRight) {
+  store.markState({ copyRight })
 }
 
 export function changeView(curView) {
   store.markState({ curView })
-}
-
-function checkValid() {
-  const { body, title, cpType, linkAddr } = store
-  if (isEmptyValue(body) || isEmptyValue(title)) {
-    meteorState(store, 'error', 5, '文章标题 或 文章内容 不能为空')
-    return false
-  }
-  if (cpType !== 'original' && isEmptyValue(linkAddr)) {
-    meteorState(store, 'error', 5, '请填写完整地址以方便跳转, http(s)://...')
-    return false
-  }
-  return true
 }
 
 const getDigest = body => {
@@ -65,29 +53,41 @@ const getDigest = body => {
 
   return digest
 }
-// TODO move specfical logic outof here
+
 export function onPublish() {
-  // debug('onPublish: ', store.body)
-  const { body, title, cpType } = store
-  if (checkValid()) {
-    publishing()
-
-    const digest = getDigest(body)
-    const length = countWords(body)
-
-    const variables = {
-      title,
-      body,
-      digest,
-      length,
-      communityId: store.viewing.community.id,
-    }
-
-    if (cpType !== 'original') variables.linkAddr = store.linkAddr
-    // debug('variables-: ', variables)
-    // TODO: switch createJob
-    sr71$.mutate(S.createPost, variables)
+  if (store.activeThread === THREAD.POST) {
+    return publishPost()
   }
+  return publishJob()
+}
+
+function publishPost() {
+  if (!store.validator(THREAD.POST)) return false
+  debug('passed copyRight: ', store.copyRight)
+  // debug('onPublish: ', store.body)
+  const { copyRight } = store
+  const { body, title } = store.editData
+  publishing()
+
+  const digest = getDigest(body)
+  const length = countWords(body)
+
+  const variables = {
+    title,
+    body,
+    digest,
+    length,
+    communityId: store.viewing.community.id,
+  }
+
+  if (copyRight !== 'original') variables.linkAddr = store.linkAddr
+  debug('variables-: ', variables)
+  // TODO: switch createJob
+  sr71$.mutate(S.createPost, variables)
+}
+
+function publishJob() {
+  debug('TODO: publishJob')
 }
 
 export const canclePublish = () => {
@@ -96,26 +96,26 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
+// maybe trigger before init, fix later
 export function bodyOnChange(body) {
+  if (!store) return false
   // debug('editorOnChange: ', body)
-  store.markState({ body })
+  // debug('editorOnChange store: ', store)
+  store.updateEditing({ body })
 }
 
-export function titleOnChange(e) {
-  store.markState({ title: e.target.value })
-}
+export const titleOnChange = ({ target: { value: title } }) =>
+  store.updateEditing({ title })
 
-export function linkSourceOnChange(e) {
-  store.markState({ linkAddr: e.target.value })
-}
+export const linkSourceOnChange = ({ target: { value: linkAddr } }) =>
+  store.updateEditing({ linkAddr })
 
 function publishing(maybe = true) {
   store.markState({ publishing: maybe })
 }
 
-export function onUploadImageDone(url) {
+export const onUploadImageDone = url =>
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
-}
 
 export function insertCode() {
   const communityRaw = store.curCommunity.raw
@@ -126,22 +126,15 @@ export function insertCode() {
 
 const openAttachment = att => {
   if (!att) return false
-
-  const { id, title, body, digest } = att
+  // const { id, title, body, digest } = att
   debug('openAttachment: ', att)
 
-  store.markState({
-    id,
-    title,
-    body: body || digest || '',
-    isEdit: true,
-  })
+  store.updateEditing(att)
+  store.markState({ isEdit: true })
   // TODO: load if needed
 }
 
-const cancleMutate = () => {
-  store.reset()
-}
+const cancleMutate = () => store.reset()
 
 // ###############################
 // Data & Error handlers
@@ -171,7 +164,7 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       const errMsg = details[0].detail
-      debug('ERR.CRAPHQL -->', details)
+      debug('--> ERR.CRAPHQL -->', details)
       meteorState(store, 'error', 5, errMsg)
       cancleLoading()
     },

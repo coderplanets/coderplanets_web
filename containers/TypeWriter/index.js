@@ -23,13 +23,19 @@ import { makeDebugger, storePlug } from '../../utils'
 const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
 
-const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
+// const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
+const View = ({
+  curView,
+  thread,
+  copyRight,
+  editData: { title, body, linkAddr },
+}) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
-            cpType={cpType}
+            copyRight={copyRight}
             thread={thread}
             title={title}
             linkAddr={linkAddr}
@@ -67,30 +73,28 @@ class TypeWriterContainer extends React.Component {
     const { typeWriter } = this.props
 
     const {
-      cpType,
+      copyRight,
       thread,
       curView,
-      linkAddr,
-      title,
-      body,
       publishing,
       success,
       error,
       warn,
       isEdit,
       statusMsg,
+      editData,
     } = typeWriter
+
+    debug('fucking editData: ', editData)
 
     return (
       <Wrapper>
         <Header isEdit={isEdit} curView={curView} thread={thread} />
         <View
           curView={curView}
+          editData={editData}
           thread={thread}
-          linkAddr={linkAddr}
-          title={title}
-          body={body}
-          cpType={cpType}
+          copyRight={copyRight}
         />
         <Footer
           isEdit={isEdit}

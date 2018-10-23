@@ -4,15 +4,26 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
+import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { Post, Job } from '../../stores/SharedModel'
+
+import {
+  markStates,
+  makeDebugger,
+  stripMobx,
+  THREAD,
+  changeset,
+} from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:TypeWriterStore')
 /* eslint-enable no-unused-vars */
 
 const TypeWriterStore = t
   .model('TypeWriterStore', {
+    editPost: t.optional(Post, {}),
+    editJob: t.maybeNull(Job),
+
     title: t.optional(t.string, ''),
     linkAddr: t.optional(t.string, ''),
     body: t.optional(t.string, ''),
@@ -20,8 +31,8 @@ const TypeWriterStore = t
 
     isOriginal: t.optional(t.boolean, true),
 
-    cpType: t.optional(
-      t.enumeration('cpType', ['original', 'reprint', 'translate']),
+    copyRight: t.optional(
+      t.enumeration('copyRight', ['original', 'reprint', 'translate']),
       'original'
     ),
     curView: t.optional(
@@ -52,10 +63,23 @@ const TypeWriterStore = t
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get editData() {
+      switch (self.root.viewing.activeThread) {
+        case THREAD.JOB: {
+          return stripMobx(self.editJob)
+        }
+        default: {
+          return stripMobx(self.editPost)
+        }
+      }
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
     get thread() {
+      return self.root.viewing.activeThread
+    },
+    get activeThread() {
       return self.root.viewing.activeThread
     },
   }))
@@ -63,19 +87,47 @@ const TypeWriterStore = t
     toast(type, options) {
       self.root.toast(type, options)
     },
+    changesetErr(options) {
+      self.root.changesetErr(options)
+    },
+    validator(type) {
+      switch (type) {
+        case THREAD.POST: {
+          const result = changeset(self.editData)
+            .exsit({ title: '文章标题或内容' }, self.changesetErr)
+            .exsit({ body: '文章标题或内容' }, self.changesetErr)
+            .startsWith(
+              { linkAddr: '版权很重要' },
+              'https://',
+              self.changesetErr,
+              self.copyRight !== 'original'
+            )
+            .done()
+
+          return result.passed
+        }
+        default: {
+          debug('unknow validator')
+          return false
+        }
+      }
+    },
+    updateEditing(sobj) {
+      const editPost = R.merge(self.editData, { ...sobj })
+      self.markState({ editPost })
+    },
     closePreview() {
       self.root.closePreview()
     },
     reset() {
       self.markState({
-        title: '',
-        linkAddr: '',
-        body: '',
         isOriginal: true,
-        cpType: 'original',
+        copyRight: 'original',
         isEdit: false,
-        // curView:
       })
+
+      self.editPost = {}
+      self.editJob = {}
     },
     markState(sobj) {
       markStates(sobj, self)
