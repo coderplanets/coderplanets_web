@@ -7,7 +7,9 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import UserBannerSchema from '../containers/UserBanner/schema'
+// import UserBannerSchema from '../containers/UserBanner/schema'
+import { P } from '../containers/schemas'
+
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -48,7 +50,7 @@ async function fetchData(props) {
   /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
   const user = gqClient
-    .request(UserBannerSchema.userRaw, {
+    .request(P.user, {
       id: userId,
       userHasLogin: nilOrEmpty(token) === false,
     })
