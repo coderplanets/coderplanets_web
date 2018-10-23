@@ -62,6 +62,7 @@ export const User = t.model('User', {
   nickname: t.maybeNull(t.string),
   bio: t.maybeNull(t.string),
   avatar: t.maybeNull(t.string),
+  views: t.optional(t.number, 0),
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
   geoCity: t.maybeNull(t.string),

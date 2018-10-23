@@ -45,6 +45,11 @@ const DigestBoard = ({ user, accountId }) => (
       <TimeAgo datetime={user.insertedAt} locale="zh_CN" />
     </AttactWrapper>
 
+    <AttactWrapper>
+      <AttactIcon src={`${ICON_CMD}/user_been_views.svg`} />
+      主页被浏览 {user.views} 次
+    </AttactWrapper>
+
     {anyTrue(user.achievement.sourceContribute) ? (
       <SourceContributeInfo data={user.achievement.sourceContribute} />
     ) : null}

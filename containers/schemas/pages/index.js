@@ -1,8 +1,10 @@
 import F from '../fragments'
+
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
 import { pagedVideos, video } from './video'
 import { pagedRepos, repo } from './repo'
+import { user } from './user'
 
 const P = {
   community: `
@@ -39,6 +41,8 @@ const P = {
   // repo
   pagedRepos,
   repo,
+  // user
+  user,
 }
 
 export default P

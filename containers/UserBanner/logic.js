@@ -32,12 +32,13 @@ const ErrSolver = []
 
 export function init(_store) {
   if (store) {
-    return loadUser()
+    return false
+    // return loadUser()
   }
   store = _store
 
   debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadUser()
+  // loadUser()
 }
