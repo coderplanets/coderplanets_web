@@ -41,6 +41,8 @@ export const pagedPosts = `
       entries {
         ${F.post}
         digest
+        linkAddr
+        copyRight
         commentsCount
         commentsParticipators(filter: { first: 5 }) {
           id

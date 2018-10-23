@@ -59,22 +59,20 @@ export function onPublish() {
 
 function publishPost() {
   if (!store.validator(THREAD.POST)) return false
-  const { body, title, copyRight } = store.editData
+  const { body } = store.editData
   publishing()
 
   const digest = getDigest(body)
   const length = countWords(body)
 
   const variables = {
-    title,
-    body,
+    ...store.editData,
     digest,
     length,
-    copyRight,
     communityId: store.viewing.community.id,
   }
 
-  if (copyRight !== 'original') variables.linkAddr = store.linkAddr
+  // if (copyRight !== 'original') variables.linkAddr = store.linkAddr
   debug('variables-: ', variables)
   // TODO: switch createJob
   sr71$.mutate(S.createPost, variables)

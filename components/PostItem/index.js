@@ -27,7 +27,7 @@ import {
   Extra,
 } from './styles'
 
-import { cutFrom, makeDebugger } from '../../utils'
+import { cutFrom, makeDebugger, getDomain } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:PostItem:index')
 /* eslint-enable no-unused-vars */
@@ -41,10 +41,12 @@ const PostItem = ({ entry, active, onTitleSelect }) => (
       <TopHalf>
         <Breif onClick={onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
-          <TitleLink>
-            <LinkIcon src={`${ICON_CMD}/link.svg`} />
-            <span style={{ marginLeft: 9 }}>github</span>
-          </TitleLink>
+          {entry.linkAddr ? (
+            <TitleLink>
+              <LinkIcon src={`${ICON_CMD}/link.svg`} />
+              <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
+            </TitleLink>
+          ) : null}
           <InlineTags data={entry.tags} />
         </Breif>
         <div>
