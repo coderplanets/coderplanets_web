@@ -8,6 +8,7 @@ import {
   dispatchEvent,
   EVENT,
   TYPE,
+  THREAD,
   scrollIntoEle,
   asyncRes,
 } from '../../utils'
@@ -63,13 +64,11 @@ export function loadRepos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect(repo) {
-  store.setViewing({ repo })
-  debug('onTitleSelect ---', repo)
-
+export function onTitleSelect(data) {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
-    data: repo,
+    thread: THREAD.REPO,
+    data,
   })
 }
 

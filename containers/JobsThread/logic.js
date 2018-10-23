@@ -7,6 +7,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   $solver,
   scrollIntoEle,
   // GA,
@@ -83,11 +84,11 @@ export function onTagSelect(obj) {
   loadJobs()
 }
 
-export function onTitleSelect(job) {
-  store.setViewing({ job })
+export function onTitleSelect(data) {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
-    data: job,
+    thread: THREAD.JOB,
+    data,
   })
 }
 

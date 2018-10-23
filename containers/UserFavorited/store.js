@@ -99,6 +99,9 @@ const UserFavorited = t
         case THREAD.VIDEO: {
           return self.markState({ curView, pagedVideos: pagedData })
         }
+        case THREAD.REPO: {
+          return self.markState({ curView, pagedRepos: pagedData })
+        }
         default: {
           return self.markState({ curView, pagedPosts: pagedData })
         }

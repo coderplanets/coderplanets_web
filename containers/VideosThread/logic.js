@@ -6,6 +6,7 @@ import {
   $solver,
   TYPE,
   EVENT,
+  THREAD,
   scrollIntoEle,
   asyncRes,
   dispatchEvent,
@@ -60,12 +61,11 @@ export function loadVideos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect(video) {
-  store.setViewing({ video })
-
+export function onTitleSelect(data) {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
-    data: video,
+    thread: THREAD.VIDEO,
+    data,
   })
 }
 

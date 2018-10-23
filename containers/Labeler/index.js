@@ -102,7 +102,9 @@ class LabelerContainer extends React.Component {
                 </Title>
               </LabelItem>
             </Popover>
-          ) : null}
+          ) : (
+            <div />
+          )}
         </Maybe>
       </Wrapper>
     )

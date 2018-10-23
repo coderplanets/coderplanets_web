@@ -1,12 +1,14 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   asyncErr,
   TYPE,
   THREAD,
+  EVENT,
   ERR,
   pagedFilter,
 } from '../../utils'
@@ -70,6 +72,17 @@ export function onThreadChange(curThread) {
       return loadPostComments()
     }
   }
+}
+
+export function onTitleSelect(data) {
+  const thread = store.curThread
+  debug('onTitleSelect data: ', data[thread])
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
+    data: data[thread],
+    thread,
+  })
 }
 
 // ###############################

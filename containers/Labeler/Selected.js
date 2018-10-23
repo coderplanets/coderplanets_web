@@ -6,6 +6,8 @@ import { Wrapper, Item, Hightlight } from './styles/selected'
 import { uid } from '../../utils'
 
 const renderItems = items => {
+  if (!items) return null
+
   if (items.length === 1) {
     return (
       <Item>
@@ -22,6 +24,8 @@ const renderItems = items => {
 }
 
 const renderReadonlyItems = items => {
+  if (!items) return null
+
   if (items.length === 1) {
     return (
       <Item>

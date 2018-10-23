@@ -50,14 +50,14 @@ const InfoBoard = ({
         </OriginAuthor>
         <DotDivider />
         <PublishTime>
-          发布于: <TimeAgo datetime={publishAt} locale="zh_CN" />
+          发布于: <TimeAgo datetime={publishAt || ''} locale="zh_CN" />
         </PublishTime>
       </Footer>
     </BaseInfo>
     <OtherInfo>
       <Source>
         来源:
-        <VideoSourceInfo value={source} />
+        <VideoSourceInfo value={source || ''} />
       </Source>
       <Duration>
         <DurationIcon src={`${ICON_CMD}/duration.svg`} />

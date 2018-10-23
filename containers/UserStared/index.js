@@ -44,8 +44,9 @@ class UserStaredContainer extends React.Component {
           data={pagedData}
           thread={curThread}
           curView={curView}
-          onPageChange={logic.reload}
           emptyPrefix={`未找到 ${viewingUser.nickname} 喜欢的`}
+          onPageChange={logic.reload}
+          onTitleSelect={logic.onTitleSelect}
         />
       </React.Fragment>
     )

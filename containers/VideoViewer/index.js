@@ -42,7 +42,7 @@ class VideoViewerContainer extends React.Component {
           thread={THREAD.VIDEO}
         />
         <BodyHeader />
-        <PlayWindow poster={viewingData.poster} />
+        {viewingData.poster ? <PlayWindow poster={viewingData.poster} /> : null}
         <InfoBoard data={viewingData} />
         <CommentsWrapper>
           <Comments />

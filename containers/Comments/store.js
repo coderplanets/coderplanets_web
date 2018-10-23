@@ -107,8 +107,8 @@ const CommentsStore = t
       return stripMobx(self.root.viewing.community)
     },
     get activeThread() {
-      const { activeThread } = self.root.viewing
-      return R.toUpper(activeThread)
+      const { activeThread, viewingThread } = self.root.viewing
+      return R.toUpper(viewingThread || activeThread)
     },
     get viewingData() {
       return self.root.viewingData

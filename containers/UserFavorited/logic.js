@@ -1,12 +1,14 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
+  dispatchEvent,
   $solver,
   asyncRes,
   TYPE,
   pagedFilter,
   THREAD,
+  EVENT,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -83,6 +85,16 @@ export const changeFavoriteThread = curThread => {
   reload()
 }
 
+export function onTitleSelect(data) {
+  const { curThread: thread } = store
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
+    thread,
+    data,
+  })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -110,6 +122,7 @@ const ErrSolver = []
 export function init(_store) {
   if (store) {
     //  return loadPosts()
+    return false
   }
   store = _store
 

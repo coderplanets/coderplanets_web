@@ -9,6 +9,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  THREAD,
   $solver,
   scrollIntoEle,
   GA,
@@ -78,17 +79,18 @@ export function onTagSelect(tag) {
   loadPosts()
 }
 
-export function onTitleSelect(post) {
-  store.setViewing({ post })
-  /* store.setActive(post) */
-  debug('onTitleSelect publish post: ', post)
+export function onTitleSelect(data) {
+  /* store.setViewing({ post }) */
+  debug('onTitleSelect publish post: ', data)
+
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,
-    data: post,
+    thread: THREAD.POST,
+    data,
   })
 
   GA.event({
-    action: post.title,
+    action: data.title,
     category: '浏览',
     label: '社区',
   })

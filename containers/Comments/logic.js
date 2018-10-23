@@ -42,6 +42,7 @@ export const loadComents = (args = {}) => {
   markLoading(args.fresh)
   store.markState({ filterType: args.filter.sort })
 
+  debug('pagedComments args: ', args)
   sr71$.query(S.pagedComments, args)
 }
 
