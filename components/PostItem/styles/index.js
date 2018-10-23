@@ -4,6 +4,7 @@ import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.article`
+  position: relative;
   display: flex;
   padding-left: 8px;
   padding-right: 8px;
@@ -19,6 +20,14 @@ export const Wrapper = styled.article`
     cursor: pointer;
     background: ${theme('thread.articleHover')};
   }
+`
+export const ReadedLabel = styled.div`
+  position: absolute;
+  top: 15px;
+  left: -30px;
+  font-size: 0.75rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 export const Main = styled.div`
   display: flex;

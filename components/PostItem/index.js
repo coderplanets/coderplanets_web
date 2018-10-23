@@ -15,6 +15,7 @@ import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
+  ReadedLabel,
   Avatar,
   TitleLink,
   LinkIcon,
@@ -34,6 +35,7 @@ const debug = makeDebugger('c:PostItem:index')
 
 const PostItem = ({ entry, active, onTitleSelect }) => (
   <Wrapper current={entry} active={active}>
+    <ReadedLabel>已读</ReadedLabel>
     <div>
       <Avatar src={entry.author.avatar} alt="avatar" />
     </div>
