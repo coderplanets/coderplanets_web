@@ -1,19 +1,34 @@
 import R from 'ramda'
 
-export const notEmpty = R.compose(R.not, R.isEmpty)
-export const isEmptyValue = R.compose(R.isEmpty, R.trim)
+export const notEmpty = R.compose(
+  R.not,
+  R.isEmpty
+)
+export const isEmptyValue = R.compose(
+  R.isEmpty,
+  R.trim
+)
 export const nilOrEmpty = R.either(R.isNil, isEmptyValue)
 
-export const hasValue = R.compose(R.not, nilOrEmpty)
+export const hasValue = R.compose(
+  R.not,
+  nilOrEmpty
+)
 
 export const isObject = value => {
   const type = typeof value
   return value != null && (type === 'object' || type === 'function')
 }
 
-const notNil = R.compose(R.not, R.isNil)
+const notNil = R.compose(
+  R.not,
+  R.isNil
+)
 
-const validObjects = R.compose(R.pickBy(notNil), R.pickBy(isObject))
+const validObjects = R.compose(
+  R.pickBy(notNil),
+  R.pickBy(isObject)
+)
 
 const validValues = R.compose(
   R.map(R.trim),
@@ -27,8 +42,14 @@ export const cast = (fields, source) => {
   return R.merge(validValues(casted), validObjects(casted))
 }
 
-const keyOf = R.compose(R.head, R.keys)
-const valueOf = R.compose(R.head, R.values)
+const keyOf = R.compose(
+  R.head,
+  R.keys
+)
+const valueOf = R.compose(
+  R.head,
+  R.values
+)
 
 export const changeset = source => ({
   exsit: (obj, cb, opt = {}) => {
