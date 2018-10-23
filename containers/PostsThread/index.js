@@ -67,7 +67,7 @@ class PostsThreadContainer extends React.Component {
                 activeFilter={filtersData}
                 passport="elixir->job.edit"
               />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
+              <FilterResultHint>结果共 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
           </Maybe>
 

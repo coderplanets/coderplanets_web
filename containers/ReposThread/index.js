@@ -72,7 +72,7 @@ class ReposThreadContainer extends React.Component {
                 activeFilter={filtersData}
               />
               <FilterResultHint>
-                结果约 {pagedReposData.totalCount} 条
+                结果共 {pagedReposData.totalCount} 条
               </FilterResultHint>
             </FilterWrapper>
           </Maybe>
