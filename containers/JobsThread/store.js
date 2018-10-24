@@ -91,6 +91,9 @@ const JobsThreadStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get filtersData() {
       return stripMobx(self.filters)
     },
@@ -116,6 +119,13 @@ const JobsThreadStore = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedJobsData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedJobs.entries[index].viewerHasViewed = true
+      }
     },
     markRoute(query) {
       self.root.markRoute(query)

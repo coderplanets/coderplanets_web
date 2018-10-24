@@ -5,20 +5,25 @@ import { theme } from '../../../utils'
 
 export const Wrapper = styled.article`
   display: flex;
+  position: relative;
   align-items: center;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 6px;
   padding-bottom: 6px;
   border-radius: 4px;
-  background: ${({ current, active }) =>
-    current.id === active.id ? theme('thread.articleHover') : ''};
-  opacity: ${({ current, active }) =>
-    active.id && current.id !== active.id ? 0.6 : 1};
+  opacity: ${({ opacity }) => opacity};
 
   &:hover {
     cursor: pointer;
     background: ${theme('thread.articleHover')};
   }
 `
-export const Holder = 1
+export const ReadedLabel = styled.div`
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  font-size: 0.75rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+`

@@ -4,20 +4,12 @@ import Img from '../../Img'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
-  flex-grow: 1;
-`
-export const InnerBtnWrapper = styled.div`
   display: flex;
-  &:hover {
-    cursor: pointer;
-  }
+  align-items: flex-start;
+  width: 100%;
 `
-export const FilterIcon = styled(Img)`
-  fill: ${theme('font')};
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  margin-left: 3px;
+export const MainFilterWrapper = styled.div`
+  flex-grow: 1;
 `
 export const FiltrPanelWrapper = styled.div`
   display: flex;

@@ -36,7 +36,7 @@ const JobViewer = ({ data, loading }) => {
         showStar={false}
       />
       <BodyWrapper>
-        <BodyHeader thread={THREAD.JOB} />
+        <BodyHeader data={data} thread={THREAD.JOB} />
         <ArticleTitle>{data.title}</ArticleTitle>
         <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
           <JobDigestBar />

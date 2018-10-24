@@ -41,6 +41,7 @@ const validFilter = R.pickBy(
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
@@ -51,6 +52,7 @@ export function loadVideos(page = 1) {
       tag: store.activeTagData.raw,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
@@ -62,6 +64,8 @@ export function loadVideos(page = 1) {
 }
 
 export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
+
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
     thread: THREAD.VIDEO,

@@ -60,6 +60,7 @@ class AccountViewerContainer extends React.Component {
     } = this.props
 
     const { contributes } = accountInfo
+    console.log('accountInfo ->->', accountInfo)
 
     return (
       <AccountWrapper>
@@ -73,7 +74,7 @@ class AccountViewerContainer extends React.Component {
           />
 
           <Divider top="20px" bottom="0px" />
-          <SiteSocial />
+          <SiteSocial user={accountInfo} />
           <Maybe test={!R.isEmpty(subscribedCommunities)}>
             <React.Fragment>
               <Divider top="0px" bottom="20px" />

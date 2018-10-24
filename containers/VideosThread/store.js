@@ -63,6 +63,9 @@ const VideosThread = t
     get curRoute() {
       return self.root.curRoute
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
@@ -97,6 +100,13 @@ const VideosThread = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedVideosData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedVideos.entries[index].viewerHasViewed = true
+      }
     },
     markRoute(query) {
       self.root.markRoute(query)

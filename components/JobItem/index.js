@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 // import { ICON_CMD } from '../../config'
 
-import { Wrapper } from './styles'
+import { Wrapper, ReadedLabel } from './styles'
 
 import JobInfo from './JobInfo'
 import CompanyInfo from './CompanyInfo'
@@ -19,8 +19,19 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:JobItem:index')
 /* eslint-enable no-unused-vars */
 
+const getOpacity = (current, active, viewed) => {
+  if (active.id) {
+    return current.id !== active.id ? 0.6 : 1
+  }
+  return viewed ? 0.85 : 1
+}
+
 const JobItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper current={entry} active={active} onClick={onTitleSelect}>
+  <Wrapper
+    opacity={getOpacity(entry, active, entry.viewerHasViewed)}
+    onClick={onTitleSelect}
+  >
+    {entry.viewerHasViewed ? <ReadedLabel>已读</ReadedLabel> : null}
     <JobInfo entry={entry} />
     <CompanyInfo entry={entry} />
   </Wrapper>

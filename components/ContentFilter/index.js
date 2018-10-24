@@ -6,14 +6,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Tag } from 'antd'
+import { Tag } from 'antd'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
-import Popover from '../Popover'
-
-import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles'
-import FilterPanel from './FilterPanel'
+import { Wrapper, MainFilterWrapper } from './styles'
+import FilterButton from './FilterButton'
+import FilterResult from './FilterResult'
 
 import { makeDebugger, isEmptyValue, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -40,34 +38,24 @@ const FilterTag = ({ onSelect, active, type }) =>
     </Tag>
   )
 
-const ContentFilter = ({ thread, activeFilter, onSelect }) => (
+const ContentFilter = ({ thread, activeFilter, onSelect, totalCount }) => (
   <Wrapper>
-    <Popover
-      placement="bottomLeft"
-      trigger="click"
-      content={
-        <FilterPanel
-          thread={thread}
-          onSelect={onSelect}
-          activeFilter={activeFilter}
-        />
-      }
-    >
-      <Button size="small" type="primary" ghost>
-        <InnerBtnWrapper>
-          综合排序
-          <FilterIcon src={`${ICON_CMD}/filter2.svg`} />
-        </InnerBtnWrapper>
-      </Button>
-    </Popover>
+    <MainFilterWrapper>
+      <FilterButton
+        thread={thread}
+        onSelect={onSelect}
+        activeFilter={activeFilter}
+      />
 
-    <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
-    <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
-    <FilterTag
-      onSelect={onSelect}
-      active={activeFilter.wordLength}
-      type="wordLength"
-    />
+      <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
+      <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
+      <FilterTag
+        onSelect={onSelect}
+        active={activeFilter.wordLength}
+        type="wordLength"
+      />
+    </MainFilterWrapper>
+    <FilterResult totalCount={totalCount} />
   </Wrapper>
 )
 
@@ -80,6 +68,7 @@ ContentFilter.propTypes = {
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
+  totalCount: PropTypes.number,
 }
 
 ContentFilter.defaultProps = {
@@ -89,6 +78,7 @@ ContentFilter.defaultProps = {
     wordLength: '',
   },
   thread: THREAD.POST,
+  totalCount: 0,
 }
 
 export default ContentFilter

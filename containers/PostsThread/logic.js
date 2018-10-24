@@ -80,8 +80,8 @@ export function onTagSelect(tag) {
 }
 
 export function onTitleSelect(data) {
-  /* store.setViewing({ post }) */
-  debug('onTitleSelect publish post: ', data)
+  // debug('onTitleSelect publish post: ', data)
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,

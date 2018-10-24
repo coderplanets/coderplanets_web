@@ -29,6 +29,8 @@ import {
   subPath2Thread,
   TYPE,
   makeDebugger,
+  BStore,
+  nilOrEmpty,
 } from '../utils'
 
 /* eslint-disable no-unused-vars */
@@ -40,7 +42,10 @@ const debug = makeDebugger('page:community')
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
+
   const { asPath } = props
   // schema
 
@@ -50,9 +55,9 @@ async function fetchData(props) {
   const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // query data
-  const curCommunity = request(P.community, { raw: community })
-  const pagedPosts = request(P.pagedPosts, { filter })
-  const partialTags = request(P.partialTags, { thread, community })
+  const curCommunity = gqClient.request(P.community, { raw: community })
+  const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
+  const partialTags = gqClient.request(P.partialTags, { thread, community })
 
   return {
     ...(await curCommunity),

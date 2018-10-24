@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 `
 
 export const Item = styled.div`
@@ -17,13 +18,13 @@ export const Item = styled.div`
     animation: ${Animate.pulse} 0.4s linear;
   }
 `
-
 export const Divider = styled(Img)`
   fill: ${theme('editor.footer')};
   width: 10px;
   height: 10px;
   margin-left: 4px;
   margin-right: 4px;
+  display: block;
 `
 export const ItemTitle = styled.div`
   cursor: pointer;

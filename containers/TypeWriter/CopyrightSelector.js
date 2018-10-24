@@ -52,11 +52,11 @@ const CopyrightContent = ({ active, thread }) => (
   <Wrapper>
     {getOptions(thread).map(opt => (
       <Selector key={uid.gen()} onClick={copyrightChange.bind(this, opt.value)}>
+        <CheckText>{opt.title}</CheckText>
         <CheckIcon
           src={`${ICON_CMD}/check2.svg`}
           active={active === opt.value}
         />
-        <CheckText>{opt.title}</CheckText>
       </Selector>
     ))}
   </Wrapper>

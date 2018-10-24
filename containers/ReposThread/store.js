@@ -74,9 +74,13 @@ const ReposThread = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get tagsData() {
       return stripMobx(self.tags)
     },
+
     get filtersData() {
       return stripMobx(self.filters)
     },
@@ -102,6 +106,13 @@ const ReposThread = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedReposData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedRepos.entries[index].viewerHasViewed = true
+      }
     },
     markRoute(query) {
       self.root.markRoute(query)

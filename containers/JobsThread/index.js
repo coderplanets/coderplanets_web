@@ -28,7 +28,6 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
   PublishBtn,
 } from './styles'
 
@@ -74,8 +73,8 @@ class JobsThreadContainer extends React.Component {
                 thread={THREAD.JOB}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
+                totalCount={totalCount}
               />
-              <FilterResultHint>结果共 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
           </Maybe>
 

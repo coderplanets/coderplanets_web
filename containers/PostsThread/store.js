@@ -111,6 +111,13 @@ const PostsThreadStore = t
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
+    setViewedFlag(id) {
+      const { entries } = self.pagedPostsData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedPosts.entries[index].viewerHasViewed = true
+      }
+    },
     markRoute(query) {
       self.root.markRoute(query)
     },

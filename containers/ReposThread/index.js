@@ -26,7 +26,6 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
   PublishBtn,
 } from './styles'
 
@@ -70,10 +69,8 @@ class ReposThreadContainer extends React.Component {
                 thread={THREAD.REPO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
+                totalCount={totalCount}
               />
-              <FilterResultHint>
-                结果共 {pagedReposData.totalCount} 条
-              </FilterResultHint>
             </FilterWrapper>
           </Maybe>
 

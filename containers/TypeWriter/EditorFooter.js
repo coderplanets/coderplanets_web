@@ -16,6 +16,8 @@ import {
   Divider,
 } from './styles/editor_footer'
 
+import CompanyInfoEditor from './CompanyInfoEditor'
+
 import { THREAD } from '../../utils'
 import { insertCode, onUploadImageDone } from './logic'
 
@@ -45,26 +47,29 @@ const PicUploader = ({ divider }) => (
   </React.Fragment>
 )
 
-const EditorFooter = ({ thread }) => {
+const EditorFooter = ({ thread, editData }) => {
   switch (thread) {
     case THREAD.JOB: {
       return (
-        <Wrapper>
-          <Labeler label="city" />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="salary" />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="education" />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="finance" />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="scale" />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="field" multi />
-          <Divider src={`${ICON_CMD}/more.svg`} />
-          <Labeler label="exp" />
-          <PicUploader />
-        </Wrapper>
+        <div>
+          <CompanyInfoEditor editData={editData} />
+          <Wrapper>
+            <Labeler label="city" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="salary" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="education" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="finance" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="scale" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="field" multi />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="exp" />
+            <PicUploader />
+          </Wrapper>
+        </div>
       )
     }
     default: {

@@ -102,6 +102,12 @@ export const titleOnChange = ({ target: { value: title } }) =>
 export const linkSourceOnChange = ({ target: { value: linkAddr } }) =>
   store.updateEditing({ linkAddr })
 
+export const companyOnChange = ({ target: { value: company } }) =>
+  store.updateEditing({ company })
+
+export const companyLinkOnChange = ({ target: { value: companyLink } }) =>
+  store.updateEditing({ companyLink })
+
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
 export const onUploadImageDone = url =>

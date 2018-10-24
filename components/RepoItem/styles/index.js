@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.article`
+  position: relative;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -15,10 +16,19 @@ export const Wrapper = styled.article`
   border-radius: 4px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('thread.articleSpliter')};
-  opacity: ${({ active }) => (active ? 0.6 : 1)};
+  opacity: ${({ opacity }) => opacity};
+
   &:hover {
     background: ${theme('thread.articleHover')};
   }
+`
+export const ReadedLabel = styled.div`
+  position: absolute;
+  top: 24px;
+  left: -30px;
+  font-size: 0.75rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
 `
 export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};
