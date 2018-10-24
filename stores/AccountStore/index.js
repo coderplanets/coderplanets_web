@@ -49,12 +49,8 @@ const AccountStore = t
   }))
   .actions(self => ({
     logout() {
-      self.user = EmptyUser
       self.root.preview.close()
-      BStore.remove('user')
-      BStore.remove('token')
-      self.isValidSession = false
-
+      self.sesstionCleanup()
       Global.location.reload(false)
     },
     updateAccount(sobj) {
@@ -73,8 +69,15 @@ const AccountStore = t
         }
         return self.updateAccount(user)
       }
-      // if not valid then empty user data
+      // if not valid then clean up
+      self.sesstionCleanup()
+    },
+    sesstionCleanup() {
       self.user = EmptyUser
+      self.isValidSession = false
+      BStore.remove('user')
+      BStore.remove('token')
+      BStore.cookie.remove('jwtToken')
     },
     loadSubscribedCommunities(data) {
       self.user.subscribedCommunities = data
