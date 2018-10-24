@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { Button } from 'antd'
 
-import { theme } from '../../../utils'
+// import Img from '../../../components/Img'
+// import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -36,9 +37,4 @@ export const FilterWrapper = styled.div`
   margin-left: 8px;
   display: flex;
   align-items: center;
-`
-export const FilterResultHint = styled.div`
-  margin-top: 4px;
-  margin-right: 10px;
-  color: ${theme('thread.filterResultHint')};
 `

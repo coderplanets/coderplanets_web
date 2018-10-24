@@ -25,7 +25,6 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
   PublishBtn,
 } from './styles'
 
@@ -68,8 +67,8 @@ class VideosThreadContainer extends React.Component {
                 thread={THREAD.VIDEO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
+                totalCount={totalCount}
               />
-              <FilterResultHint>结果共 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
           </Maybe>
 

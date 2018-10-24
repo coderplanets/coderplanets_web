@@ -25,7 +25,6 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
   PublishBtn,
 } from './styles'
 
@@ -65,9 +64,8 @@ class PostsThreadContainer extends React.Component {
                 thread={THREAD.POST}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
-                passport="elixir->job.edit"
+                totalCount={totalCount}
               />
-              <FilterResultHint>结果共 {totalCount} 条</FilterResultHint>
             </FilterWrapper>
           </Maybe>
 
