@@ -1,48 +1,21 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const user = gql`
   query user($id: ID!) {
     user(id: $id) {
-      id
-      nickname
-      avatar
-      bio
-      sex
-      location
-      qq
-      weibo
-      weichat
-      github
-      zhihu
-      douban
-      twitter
-      facebook
-      dribble
-      instagram
-      pinterest
-      huaban
-      workBackgrounds {
-        company
-        title
+      ${F.user}
+
+      achievement {
+        ${F.achievement}
       }
-      educationBackgrounds {
-        school
-        major
-      }
+      ${F.userBackgrounds}
       fromGithub
       githubProfile {
         htmlUrl
         login
       }
-      contributes {
-        records {
-          count
-          date
-        }
-        startDate
-        endDate
-        totalCount
-      }
+      ${F.userContributes}
     }
   }
 `
@@ -50,41 +23,17 @@ const user = gql`
 const account = gql`
   query account {
     account {
-      location
-      sex
-      qq
-      weibo
-      weichat
-      github
-      zhihu
-      douban
-      twitter
-      facebook
-      dribble
-      instagram
-      pinterest
-      huaban
-      workBackgrounds {
-        company
-        title
+      ${F.user}
+      achievement {
+        ${F.achievement}
       }
-      educationBackgrounds {
-        school
-        major
-      }
+      ${F.userBackgrounds}
+
       githubProfile {
         htmlUrl
         login
       }
-      contributes {
-        records {
-          count
-          date
-        }
-        startDate
-        endDate
-        totalCount
-      }
+      ${F.userContributes}
     }
   }
 `

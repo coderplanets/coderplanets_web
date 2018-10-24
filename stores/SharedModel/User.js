@@ -43,7 +43,7 @@ const SourceContribute = t.model('SourceContribute', {
 })
 
 export const Achievement = t.model('Achievement', {
-  reputation: t.maybeNull(t.number),
+  reputation: t.optional(t.number, 0),
   contentsStaredCount: t.optional(t.number, 0),
   contentsFavoritedCount: t.optional(t.number, 0),
   sourceContribute: t.optional(SourceContribute, {
@@ -96,7 +96,7 @@ export const User = t.model('User', {
   followingsCount: t.optional(t.number, 0),
   followersCount: t.optional(t.number, 0),
 
-  achievement: t.maybeNull(Achievement),
+  achievement: t.optional(Achievement, {}),
   editableCommunities: t.maybeNull(pagedCommunities),
 
   insertedAt: t.optional(t.string, ''),

@@ -67,6 +67,50 @@ export const author = `
   avatar
   nickname
 `
+export const user = `
+  ${author}
+  bio
+  location
+  sex
+  qq
+  weibo
+  weichat
+  github
+  zhihu
+  douban
+  twitter
+  facebook
+  dribble
+  instagram
+  pinterest
+  huaban
+  followersCount
+  followingsCount
+`
+export const achievement = `
+  reputation
+  contentsStaredCount
+  contentsFavoritedCount
+`
+export const userBackgrounds = `
+  workBackgrounds {
+    company
+    title
+  }
+  educationBackgrounds {
+    school
+    major
+  }
+`
+export const userContributes = `
+  records {
+    count
+    date
+  }
+  startDate
+  endDate
+  totalCount
+`
 
 // comment
 export const comment = `
@@ -99,7 +143,6 @@ export const commentParent = `
     raw
   }
 `
-
 export const pagedCounts = `
   totalPages
   totalCount

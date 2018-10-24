@@ -63,18 +63,55 @@ class UserSettingsContainer extends React.Component {
           displayStyle="card"
         />
         <SectionLabel
-          title="打赏设置"
+          title="视图选项"
+          iconSrc={`${ICON_CMD}/setting_list.svg`}
+          desc="浏览帖子/招聘/视频/开源项目时的列表显示方式。"
+        />
+        <RadiosWrapper>
+          <RadioGroup onChange={debug} value={2}>
+            <Radio value={1}>列表视图</Radio>
+            <Radio value={2}>摘要视图</Radio>
+          </RadioGroup>
+        </RadiosWrapper>
+
+        <SectionLabel
+          title="阅读提示"
+          iconSrc={`${ICON_CMD}/setting_read.svg`}
+          desc="是否在阅读列表左侧显示已读标签, 以便突出未读内容？"
+        />
+        <RadiosWrapper>
+          <RadioGroup onChange={debug} value={1}>
+            <Radio value={1}>显示</Radio>
+            <Radio value={2}>不显示</Radio>
+          </RadioGroup>
+        </RadiosWrapper>
+
+        <SectionLabel
+          title="显示密度"
+          iconSrc={`${ICON_CMD}/setting_number.svg`}
+          desc="浏览帖子/招聘/视频/开源项目时每页显示的条数。"
+        />
+        <RadiosWrapper>
+          <RadioGroup onChange={debug} value={2}>
+            <Radio value={1}>20条 / 每页</Radio>
+            <Radio value={2}>25条 / 每页</Radio>
+            <Radio value={3}>30条 / 每页</Radio>
+          </RadioGroup>
+        </RadiosWrapper>
+
+        <SectionLabel
+          title="打赏设置(wip)"
           iconSrc={`${ICON_CMD}/dashang.svg`}
           desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不支持打赏设置。"
         />
         <RadiosWrapper>
-          <RadioGroup onChange={debug} value={1}>
+          <RadioGroup onChange={debug} value={2}>
             <Radio value={1}>开启</Radio>
             <Radio value={2}>关闭</Radio>
           </RadioGroup>
         </RadiosWrapper>
         <SectionLabel
-          title="邮件提醒"
+          title="邮件提醒(wip)"
           iconSrc={`${ICON_CMD}/mail.svg`}
           desc="接收邮件提醒，订阅, 账单, 每周精选等等, 我们不会滥用你的信任，建议开启。"
         />

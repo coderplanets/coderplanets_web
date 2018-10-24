@@ -16,6 +16,10 @@ import {
   repo,
   author,
   tag,
+  user,
+  achievement,
+  userBackgrounds,
+  userContributes,
   comment,
   commentParent,
   pagedCounts,
@@ -35,9 +39,15 @@ const F = {
   pagedJobs,
   pagedVideos,
   pagedRepos,
-  pagedCounts,
+
+  user,
+  achievement,
+  userBackgrounds,
+  userContributes,
+
   comment,
   commentParent,
+  pagedCounts,
 }
 
 export default F
