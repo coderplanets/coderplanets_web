@@ -18,7 +18,7 @@ md.use(mentions({ url: MENTION_USER_ADDR }))
 md.use(remarkableemoj)
 
 /* eslint-disable react/no-danger */
-const Preview = ({ onBack, title, body }) => (
+const Preview = ({ onBack, editData: { title, body } }) => (
   <Wrapper>
     <Header>
       <BackToEditBtn>

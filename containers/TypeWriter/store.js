@@ -22,7 +22,7 @@ const debug = makeDebugger('S:TypeWriterStore')
 const TypeWriterStore = t
   .model('TypeWriterStore', {
     editPost: t.optional(Post, {}),
-    editJob: t.maybeNull(Job),
+    editJob: t.optional(Job, {}),
 
     curView: t.optional(
       t.enumeration('curView', [
@@ -105,8 +105,16 @@ const TypeWriterStore = t
       }
     },
     updateEditing(sobj) {
-      const editPost = R.merge(self.editData, { ...sobj })
-      self.markState({ editPost })
+      switch (self.root.viewing.activeThread) {
+        case THREAD.JOB: {
+          const editJob = R.merge(self.editData, { ...sobj })
+          return self.markState({ editJob })
+        }
+        default: {
+          const editPost = R.merge(self.editData, { ...sobj })
+          return self.markState({ editPost })
+        }
+      }
     },
     closePreview() {
       self.root.closePreview()

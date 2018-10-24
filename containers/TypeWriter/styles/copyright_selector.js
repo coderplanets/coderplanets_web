@@ -19,7 +19,7 @@ export const CheckIcon = styled(Img)`
   width: 18px;
   height: 18px;
   margin-top: 2px;
-  margin-right: 3px;
+  margin-left: 3px;
   visibility: ${({ active }) => (active ? 'visiable' : 'hidden')};
 `
 export const CheckText = styled.div`

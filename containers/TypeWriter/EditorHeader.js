@@ -8,7 +8,7 @@ import { LinkLabel, LinkInput, SourceLink } from './styles'
 
 import { changeView, linkSourceOnChange } from './logic'
 
-const EditorHeader = ({ copyRight, thread, linkAddr }) => (
+const EditorHeader = ({ thread, editData: { copyRight, linkAddr } }) => (
   <Wrapper>
     <CopyRightWrapper>
       <CopyrightSelector copyRight={copyRight} thread={thread} />
