@@ -37,6 +37,9 @@ export const Job = t.model('Job', {
   favoritedCategoryId: t.maybeNull(t.string),
 
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
+
+  viewerHasViewed: t.optional(t.boolean, false),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

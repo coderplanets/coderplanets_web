@@ -33,9 +33,16 @@ import { cutFrom, makeDebugger, getDomain } from '../../utils'
 const debug = makeDebugger('c:PostItem:index')
 /* eslint-enable no-unused-vars */
 
+const getOpacity = (current, active, viewed) => {
+  if (active.id) {
+    return current.id !== active.id ? 0.6 : 1
+  }
+  return viewed ? 0.85 : 1
+}
+
 const PostItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper current={entry} active={active}>
-    <ReadedLabel>已读</ReadedLabel>
+  <Wrapper opacity={getOpacity(entry, active, entry.viewerHasViewed)}>
+    {entry.viewerHasViewed ? <ReadedLabel>已读</ReadedLabel> : null}
     <div>
       <Avatar src={entry.author.avatar} alt="avatar" />
     </div>

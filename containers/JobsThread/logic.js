@@ -32,12 +32,7 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function inAnchor() {
   store.setHeaderFix(false)
@@ -85,6 +80,7 @@ export function onTagSelect(obj) {
 }
 
 export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
     thread: THREAD.JOB,

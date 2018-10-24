@@ -51,6 +51,9 @@ export const Repo = t.model('Reop', {
 
   lastSync: t.maybeNull(t.string),
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
+
+  viewerHasViewed: t.optional(t.boolean, false),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

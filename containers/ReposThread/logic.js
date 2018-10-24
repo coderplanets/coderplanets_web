@@ -31,12 +31,7 @@ const debug = makeDebugger('L:ReposThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -65,6 +60,7 @@ export function loadRepos(page = 1) {
 }
 
 export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
     thread: THREAD.REPO,

@@ -35,6 +35,8 @@ export const Post = t.model('Post', {
 
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
 
+  viewerHasViewed: t.optional(t.boolean, false),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

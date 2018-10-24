@@ -18,6 +18,7 @@ import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
+  ReadedLabel,
   PosterWrapper,
   Poster,
   Duration,
@@ -41,8 +42,16 @@ import { makeDebugger, cutFrom } from '../../utils'
 const debug = makeDebugger('c:VideoItem:index')
 /* eslint-enable no-unused-vars */
 
+const getOpacity = (current, active, viewed) => {
+  if (active.id) {
+    return current.id !== active.id ? 0.6 : 1
+  }
+  return viewed ? 0.85 : 1
+}
+
 const VideoItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper active={active.id && entry.id !== active.id}>
+  <Wrapper opacity={getOpacity(entry, active, entry.viewerHasViewed)}>
+    {entry.viewerHasViewed ? <ReadedLabel>已读</ReadedLabel> : null}
     <PosterWrapper>
       <Poster src={entry.poster} alt="poster" />
       <Duration>{entry.duration}</Duration>

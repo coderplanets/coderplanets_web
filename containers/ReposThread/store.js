@@ -103,6 +103,13 @@ const ReposThread = t
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
+    setViewedFlag(id) {
+      const { entries } = self.pagedReposData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedRepos.entries[index].viewerHasViewed = true
+      }
+    },
     markRoute(query) {
       self.root.markRoute(query)
     },

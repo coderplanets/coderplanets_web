@@ -36,6 +36,9 @@ export const Video = t.model('Video', {
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
 
   publishAt: t.maybeNull(t.string),
+
+  viewerHasViewed: t.optional(t.boolean, false),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })
