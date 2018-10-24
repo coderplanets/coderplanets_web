@@ -32,6 +32,20 @@ const SettingMenu = () => (
       <OptionText active>不显已读</OptionText>
       <OptionIcon src={`${ICON_CMD}/check2.svg`} active />
     </Option>
+    <Didiver />
+    <Title>显示密度</Title>
+    <Option>
+      <OptionText>20条 / 页</OptionText>
+      <OptionIcon src={`${ICON_CMD}/check2.svg`} />
+    </Option>
+    <Option>
+      <OptionText>25条 / 页</OptionText>
+      <OptionIcon src={`${ICON_CMD}/check2.svg`} active />
+    </Option>
+    <Option>
+      <OptionText>30条 / 页</OptionText>
+      <OptionIcon src={`${ICON_CMD}/check2.svg`} />
+    </Option>
   </Wrapper>
 )
 

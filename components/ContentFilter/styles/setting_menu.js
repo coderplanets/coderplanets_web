@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 `
 export const Title = styled.div`
   font-size: 0.9rem;
+  margin-bottom: 2px;
   color: ${theme('thread.articleTitle')};
 `
 export const Didiver = styled.div`
@@ -26,7 +27,7 @@ export const Didiver = styled.div`
 export const Option = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 6px;
 `
 export const OptionIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
