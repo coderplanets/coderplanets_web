@@ -53,6 +53,9 @@ export function loadJobs(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
+
+  debug('userHasLogin ====> ', userHasLogin)
 
   store.markState({ curView: TYPE.LOADING })
 
@@ -65,6 +68,7 @@ export function loadJobs(page = 1) {
       tag: store.activeTagData.raw,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
@@ -148,10 +152,13 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
+  loadJobs()
+  /*
   if (R.isEmpty(store.pagedJobsData.entries)) {
     debug('loadIfNeed')
     loadJobs()
   }
+  */
 }
 
 export function init(_store) {

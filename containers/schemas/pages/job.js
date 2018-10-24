@@ -33,7 +33,7 @@ export const job = `
   }
 `
 export const pagedJobs = `
-  query($filter: PagedArticleFilter) {
+  query($filter: PagedArticleFilter, $userHasLogin: Boolean!) {
     pagedJobs(filter: $filter) {
       entries {
         ${F.job}
@@ -46,6 +46,7 @@ export const pagedJobs = `
         tags {
           ${F.tag}
         }
+        viewerHasViewed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }

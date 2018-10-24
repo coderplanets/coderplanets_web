@@ -66,6 +66,11 @@ const AccountStore = t
       if (isValid) {
         self.isValidSession = isValid
         BStore.set('passports', user.cmsPassport)
+
+        const token = BStore.get('token')
+        if (token) {
+          BStore.cookie.set('jwtToken', token)
+        }
         return self.updateAccount(user)
       }
       // if not valid then empty user data

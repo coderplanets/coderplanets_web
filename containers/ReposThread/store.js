@@ -74,9 +74,13 @@ const ReposThread = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get tagsData() {
       return stripMobx(self.tags)
     },
+
     get filtersData() {
       return stripMobx(self.filters)
     },

@@ -44,6 +44,8 @@ export const outAnchor = () => store.setHeaderFix(true)
 export function loadRepos(page = 1) {
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
+
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
@@ -54,6 +56,7 @@ export function loadRepos(page = 1) {
       tag: store.activeTagData.raw,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
