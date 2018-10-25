@@ -8,6 +8,7 @@ import {
   asyncErr,
   ERR,
   EVENT,
+  isObject,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -22,13 +23,11 @@ const debug = makeDebugger('L:VideoEditor')
 
 let store = null
 
-export const formDataChange = R.curry((part, e) =>
-  store.updateEditing({ [part]: e.target.value })
-)
-
-export const sourceOnSelect = source => store.updateEditing({ source })
-export const copyThumbnilLink = url => store.updateEditing({ poster: url })
-export const onUploadDone = (part, url) => store.updateEditing({ [part]: url })
+export const inputOnChange = (part, e) => {
+  if (!store) return false
+  const value = isObject(e) ? e.target.value : e
+  store.updateEditing({ [part]: value })
+}
 
 export function onPublish() {
   if (!store.validator('publish')) return false
