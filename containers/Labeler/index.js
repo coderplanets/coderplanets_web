@@ -34,8 +34,9 @@ const trans = {
 }
 
 class LabelerContainer extends React.Component {
-  state = {
-    uniqId: uid.gen(),
+  constructor(props) {
+    super(props)
+    this.state = { uniqId: uid.gen() }
   }
 
   componentDidMount() {

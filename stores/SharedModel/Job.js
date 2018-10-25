@@ -39,8 +39,12 @@ export const Job = t.model('Job', {
 
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
 
-  viewerHasViewed: t.optional(t.boolean, false),
+  salary: t.optional(t.string, ''),
+  exp: t.optional(t.string, ''),
+  education: t.optional(t.string, ''),
+  field: t.optional(t.string, ''),
 
+  viewerHasViewed: t.optional(t.boolean, false),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

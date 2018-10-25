@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
+import R from 'ramda'
 
 import { Tag } from '../../stores/SharedModel'
 
@@ -38,6 +38,15 @@ const TagsBar = t
       const cur = tag.title === '' ? null : tag
 
       self.activeTag = cur
+    },
+    getTagIdByTitle(title) {
+      if (!title) return false
+
+      const index = R.findIndex(R.propEq('title', title), self.tagsData)
+      if (index >= 0) {
+        return self.tagsData[index].id
+      }
+      return false
     },
     markState(sobj) {
       markStates(sobj, self)
