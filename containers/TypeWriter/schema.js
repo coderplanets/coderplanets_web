@@ -30,6 +30,7 @@ const createJob = gql`
   mutation(
     $title: String!
     $body: String!
+    $desc: String
     $digest: String!
     $length: Int!
     $communityId: ID!
@@ -48,6 +49,7 @@ const createJob = gql`
     createJob(
       title: $title
       body: $body
+      desc: $desc
       digest: $digest
       length: $length
       communityId: $communityId

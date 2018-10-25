@@ -19,6 +19,16 @@ export const job = `
   company
   companyLogo
   views
+  linkAddr
+  copyRight
+
+  salary
+  education
+  exp
+  finance
+  field
+  scale
+
   insertedAt
   updatedAt
 `

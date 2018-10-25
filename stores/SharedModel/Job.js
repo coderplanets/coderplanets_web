@@ -43,6 +43,8 @@ export const Job = t.model('Job', {
   exp: t.optional(t.string, ''),
   education: t.optional(t.string, ''),
   field: t.optional(t.string, ''),
+  scale: t.optional(t.string, ''),
+  finance: t.optional(t.string, ''),
 
   viewerHasViewed: t.optional(t.boolean, false),
   insertedAt: t.optional(t.string, ''),

@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 import {
   Wrapper,
@@ -15,24 +16,26 @@ import {
 
 import { cutFrom } from '../../utils'
 
-const CompanyInfo = ({ entry }) => (
+const CompanyInfo = ({
+  entry: { company, companyLogo, desc, field, finance, scale },
+}) => (
   <Wrapper>
     <TopHalf>
       <BaseInfo>
         <Header>
-          <Title>{cutFrom(entry.company, 12)}</Title>
+          <Title>{cutFrom(company, 12)}</Title>
         </Header>
         <Middle>
           <StatesWrapper>
-            <StateItem>移动互联网,教育 </StateItem>
-            <StateItem>A轮</StateItem>
-            <StateItem>150-500人</StateItem>
+            <StateItem>{field} </StateItem>
+            <StateItem>{finance}</StateItem>
+            <StateItem>{scale}</StateItem>
           </StatesWrapper>
         </Middle>
       </BaseInfo>
-      <CompanyLogo src={entry.companyLogo} />
+      <CompanyLogo src={companyLogo} />
     </TopHalf>
-    <Footer>“尖端技术,转正机会”</Footer>
+    <Footer>&quot; {R.isEmpty(desc) ? '---' : desc} &quot;</Footer>
   </Wrapper>
 )
 
