@@ -9,7 +9,12 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 export const MainFilterWrapper = styled.div`
+  display: flex;
+  align-items: center;
   flex-grow: 1;
+`
+export const ActiveTagsWrapper = styled.div`
+  margin-left: 15px;
 `
 export const FiltrPanelWrapper = styled.div`
   display: flex;

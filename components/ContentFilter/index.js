@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { Tag } from 'antd'
 import R from 'ramda'
 
-import { Wrapper, MainFilterWrapper } from './styles'
+import { Wrapper, MainFilterWrapper, ActiveTagsWrapper } from './styles'
 import FilterButton from './FilterButton'
 import FilterResult from './FilterResult'
 
@@ -47,13 +47,15 @@ const ContentFilter = ({ thread, activeFilter, onSelect, totalCount }) => (
         activeFilter={activeFilter}
       />
 
-      <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
-      <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
-      <FilterTag
-        onSelect={onSelect}
-        active={activeFilter.wordLength}
-        type="wordLength"
-      />
+      <ActiveTagsWrapper>
+        <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
+        <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
+        <FilterTag
+          onSelect={onSelect}
+          active={activeFilter.wordLength}
+          type="wordLength"
+        />
+      </ActiveTagsWrapper>
     </MainFilterWrapper>
     <FilterResult totalCount={totalCount} />
   </Wrapper>
