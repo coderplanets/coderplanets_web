@@ -58,6 +58,16 @@ const Labeler = t
     get labelEntriesData() {
       return stripMobx(self.labelEntries)
     },
+    // return the label map key-value
+    get labelsData() {
+      const labelList = stripMobx(self.labelEntries)
+      const mapData = {}
+      R.forEach(label => {
+        mapData[label.label] = label.selected
+      }, labelList)
+
+      return mapData
+    },
   }))
   .actions(self => ({
     toast(type, options) {

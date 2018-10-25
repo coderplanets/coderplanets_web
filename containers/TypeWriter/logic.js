@@ -80,7 +80,10 @@ function publishPost() {
 }
 
 function publishJob() {
-  debug('TODO: publishJob')
+  debug('TODO: publishJob: ', store.editData)
+  debug('labelEntriesData: ', store.labelsData)
+
+  if (!store.validator(`${THREAD.JOB}_LABELS`)) return false
 }
 
 export const canclePublish = () => {

@@ -73,6 +73,9 @@ const TypeWriterStore = t
     get activeThread() {
       return self.root.viewing.activeThread
     },
+    get labelsData() {
+      return self.root.labeler.labelsData
+    },
   }))
   .actions(self => ({
     toast(type, options) {
@@ -94,6 +97,13 @@ const TypeWriterStore = t
               self.changesetErr,
               self.editData.copyRight !== 'original'
             )
+            .done()
+
+          return result.passed
+        }
+        case `${THREAD.JOB}_LABELS`: {
+          const result = changeset(self.labelsData)
+            .exsit({ salary: '月薪' }, self.changesetErr)
             .done()
 
           return result.passed
