@@ -12,6 +12,7 @@ import {
   meteorState,
   countWords,
   extractAttachments,
+  isObject,
 } from '../../utils'
 
 import S from './schema'
@@ -88,25 +89,11 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
-// maybe trigger before init, fix later
-export function bodyOnChange(body) {
+export const inputOnChange = (part, e) => {
   if (!store) return false
-  store.updateEditing({ body })
+  const value = isObject(e) ? e.target.value : e
+  store.updateEditing({ [part]: value })
 }
-
-export const copyrightChange = copyRight => store.updateEditing({ copyRight })
-
-export const titleOnChange = ({ target: { value: title } }) =>
-  store.updateEditing({ title })
-
-export const linkSourceOnChange = ({ target: { value: linkAddr } }) =>
-  store.updateEditing({ linkAddr })
-
-export const companyOnChange = ({ target: { value: company } }) =>
-  store.updateEditing({ company })
-
-export const companyLinkOnChange = ({ target: { value: companyLink } }) =>
-  store.updateEditing({ companyLink })
 
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 

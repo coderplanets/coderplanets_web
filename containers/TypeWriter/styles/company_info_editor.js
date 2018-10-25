@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import { Img } from '../../../components'
+import { Img } from '../../../components'
 import { theme } from '../../../utils'
 import { TitleInput } from './editor'
 
@@ -20,7 +20,7 @@ export const Content = styled.div`
   border-top: 2px solid;
   border-color: ${theme('editor.title')};
 `
-export const CompanyLogo = styled.div`
+export const LogoUploadBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,9 +30,21 @@ export const CompanyLogo = styled.div`
   border-radius: 4px;
   margin-right: 10px;
 `
+export const CompanyLogo = styled(Img)`
+  border-radius: 3px;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+`
+
 export const UploadHint = styled.div`
   padding: 10px;
   text-align: center;
+  color: ${theme('thread.articleDigest')};
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
 `
 export const CompanyInfo = styled.div`
   display: flex;

@@ -1,8 +1,12 @@
 import React from 'react'
+import R from 'ramda'
+
+import DocUploader from '../DocUploader'
 
 import {
   Wrapper,
   Content,
+  LogoUploadBox,
   CompanyLogo,
   CompanyInfo,
   TitleInputer,
@@ -10,27 +14,35 @@ import {
   UploadHint,
 } from './styles/company_info_editor'
 
-import { companyOnChange, companyLinkOnChange } from './logic'
+import { inputOnChange } from './logic'
 
-const CompanyInfoEditor = ({ editData }) => (
+const CompanyInfoEditor = ({
+  editData: { company, companyLogo, companyLink },
+}) => (
   <Wrapper>
     <Content>
-      <CompanyLogo>
-        <UploadHint>公司 Logo</UploadHint>
-      </CompanyLogo>
+      <DocUploader onUploadDone={inputOnChange.bind(this, 'companyLogo')}>
+        {R.isEmpty(companyLogo) ? (
+          <LogoUploadBox>
+            <UploadHint>公司 Logo</UploadHint>
+          </LogoUploadBox>
+        ) : (
+          <CompanyLogo src={companyLogo} />
+        )}
+      </DocUploader>
       <CompanyInfo>
         <div>
           <TitleInputer
             placeholder="公司名称"
-            value={editData.company}
-            onChange={companyOnChange}
+            value={company}
+            onChange={inputOnChange.bind(this, 'company')}
           />
         </div>
         <div>
           <LinkInputer
             placeholder="公司主页链接"
-            value={editData.companyLink}
-            onChange={companyLinkOnChange}
+            value={companyLink}
+            onChange={inputOnChange.bind(this, 'companyLink')}
           />
         </div>
       </CompanyInfo>

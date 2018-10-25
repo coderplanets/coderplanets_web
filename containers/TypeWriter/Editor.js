@@ -10,7 +10,7 @@ import BodyEditor from './BodyEditor'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
-import { titleOnChange, bodyOnChange } from './logic'
+import { inputOnChange } from './logic'
 
 const Editor = ({ thread, editData }) => {
   const { title, body } = editData
@@ -21,11 +21,11 @@ const Editor = ({ thread, editData }) => {
         placeholder="标 题."
         defaultValue=""
         value={title}
-        onChange={titleOnChange}
+        onChange={inputOnChange.bind(this, 'title')}
       />
 
       <br />
-      <BodyEditor onChange={bodyOnChange} body={body} />
+      <BodyEditor onChange={inputOnChange.bind(this, 'body')} body={body} />
       <FooterWrapper>
         <EditorFooter thread={thread} editData={editData} />
       </FooterWrapper>
