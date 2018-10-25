@@ -12,10 +12,10 @@ export const post = `
   updatedAt
   views
 `
-// TODO: more info
 export const job = `
   id
   title
+  desc
   company
   companyLogo
   views
