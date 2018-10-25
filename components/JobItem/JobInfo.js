@@ -20,29 +20,31 @@ import {
 
 import { cutFrom } from '../../utils'
 
-const JobInfo = ({ entry }) => (
+const JobInfo = ({
+  entry: { author, insertedAt, views, title, salary, education, exp },
+}) => (
   <Wrapper>
     <Header>
-      <Title>{cutFrom(entry.title, 50)}</Title>
+      <Title>{cutFrom(title, 30)}</Title>
     </Header>
     <Middle>
-      <SalaryWrapper>20k-30k</SalaryWrapper>
+      <SalaryWrapper>{salary}</SalaryWrapper>
       <Background>
-        <Degree>本科</Degree>
+        <Degree>{education}</Degree>
         <ExpDivider>&</ExpDivider>
-        <Exp>经验 1-3 年</Exp>
+        <Exp>经验 {exp}</Exp>
       </Background>
     </Middle>
     <Footer>
       <Extra>
-        {entry.author.nickname} <DotDivider />
-        <TimeAgo datetime={entry.insertedAt} locale="zh_CN" />
+        {author.nickname} <DotDivider />
+        <TimeAgo datetime={insertedAt} locale="zh_CN" />
         <DotDivider />
         浏览:
-        {entry.views}
+        {views}
         <DotDivider />
         评论:
-        {entry.views}
+        {views}
       </Extra>
     </Footer>
   </Wrapper>

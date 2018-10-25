@@ -58,6 +58,29 @@ const Labeler = t
     get labelEntriesData() {
       return stripMobx(self.labelEntries)
     },
+    // return the label map key-value
+    get labelsData() {
+      const labelList = stripMobx(self.labelEntries)
+
+      const mapData = { tags: [] }
+      R.forEach(label => {
+        if (label.label === 'city' || label.label === 'default') {
+          const tagId = self.root.tagsBar.getTagIdByTitle(label.selected[0])
+          if (tagId !== false) {
+            mapData.tags.push({ id: tagId })
+          }
+          return false
+        }
+
+        if (label.multi) {
+          mapData[label.label] = label.selected
+        } else {
+          mapData[label.label] = label.selected[0] || ''
+        }
+      }, labelList)
+
+      return mapData
+    },
   }))
   .actions(self => ({
     toast(type, options) {

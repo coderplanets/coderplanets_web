@@ -5,7 +5,7 @@ const I18nDict = {
   post: '帖子',
   map: '地图',
   cheatsheet: 'cheatsheet',
-  users: '社友',
+  users: 'JSer', // TODO: should call Rubyist, JSer, Pythoner, Clojurist
   videos: '视频',
   video: '视频',
   repos: '开源项目',

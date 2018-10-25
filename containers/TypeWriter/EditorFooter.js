@@ -60,13 +60,13 @@ const EditorFooter = ({ thread, editData }) => {
             <Divider src={`${ICON_CMD}/more.svg`} />
             <Labeler label="education" />
             <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="exp" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
+            <Labeler label="field" />
+            <Divider src={`${ICON_CMD}/more.svg`} />
             <Labeler label="finance" />
             <Divider src={`${ICON_CMD}/more.svg`} />
             <Labeler label="scale" />
-            <Divider src={`${ICON_CMD}/more.svg`} />
-            <Labeler label="field" multi />
-            <Divider src={`${ICON_CMD}/more.svg`} />
-            <Labeler label="exp" />
             <PicUploader />
           </Wrapper>
         </div>

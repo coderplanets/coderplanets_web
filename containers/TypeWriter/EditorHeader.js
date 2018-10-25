@@ -6,7 +6,7 @@ import CopyrightSelector from './CopyrightSelector'
 import { Wrapper, CopyRightWrapper, PreviewBtn } from './styles/editor_header'
 import { LinkLabel, LinkInput, SourceLink } from './styles'
 
-import { changeView, linkSourceOnChange } from './logic'
+import { changeView, inputOnChange } from './logic'
 
 const EditorHeader = ({ thread, editData: { copyRight, linkAddr } }) => (
   <Wrapper>
@@ -20,7 +20,7 @@ const EditorHeader = ({ thread, editData: { copyRight, linkAddr } }) => (
         <LinkInput
           placeholder="请填写url地址, 比如: https://coderplanets/js/posts/..."
           value={linkAddr}
-          onChange={linkSourceOnChange}
+          onChange={inputOnChange.bind(this, 'linkAddr')}
         />
       </SourceLink>
     </Maybe>

@@ -18,7 +18,7 @@ import {
 } from './styles/copyright_selector'
 
 import { uid, THREAD } from '../../utils'
-import { copyrightChange } from './logic'
+import { inputOnChange } from './logic'
 
 const FullOptions = [
   {
@@ -51,7 +51,10 @@ const getCpTitle = cptype =>
 const CopyrightContent = ({ active, thread }) => (
   <Wrapper>
     {getOptions(thread).map(opt => (
-      <Selector key={uid.gen()} onClick={copyrightChange.bind(this, opt.value)}>
+      <Selector
+        key={uid.gen()}
+        onClick={inputOnChange.bind(this, 'copyRight', opt.value)}
+      >
         <CheckText>{opt.title}</CheckText>
         <CheckIcon
           src={`${ICON_CMD}/check2.svg`}

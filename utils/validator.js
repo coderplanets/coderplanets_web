@@ -8,7 +8,7 @@ export const isEmptyValue = R.compose(
   R.isEmpty,
   R.trim
 )
-export const nilOrEmpty = R.either(R.isNil, isEmptyValue)
+export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
 
 export const hasValue = R.compose(
   R.not,
@@ -29,6 +29,8 @@ const validObjects = R.compose(
   R.pickBy(notNil),
   R.pickBy(isObject)
 )
+
+const emptyArray = obj => Array.isArray(obj) && obj.length === 0
 
 const validValues = R.compose(
   R.map(R.trim),
@@ -57,8 +59,13 @@ export const changeset = source => ({
 
     const field = keyOf(obj)
     const trans = valueOf(obj)
-
-    if (nilOrEmpty(source[field])) {
+    let isInValid = false
+    if (emptyArray(source[field])) {
+      isInValid = true
+    } else if (!Array.isArray(source[field]) && nilOrEmpty(source[field])) {
+      isInValid = true
+    }
+    if (isInValid) {
       const title = trans
       const msg = opt.msg || '不能为空'
 
@@ -104,7 +111,10 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (!R.startsWith(prefix, R.trim(source[field]))) {
+    if (
+      !hasValue(source[field]) ||
+      !R.startsWith(prefix, R.trim(source[field]))
+    ) {
       const title = trans
       const msg = `请填写 ${prefix} 开头的链接地址`
 

@@ -12,6 +12,7 @@ import {
   meteorState,
   countWords,
   extractAttachments,
+  isObject,
 } from '../../utils'
 
 import S from './schema'
@@ -58,7 +59,7 @@ export function onPublish() {
 }
 
 function publishPost() {
-  if (!store.validator(THREAD.POST)) return false
+  if (!store.validator('general')) return false
   const { body } = store.editData
   publishing()
 
@@ -72,14 +73,33 @@ function publishPost() {
     communityId: store.viewing.community.id,
   }
 
-  // if (copyRight !== 'original') variables.linkAddr = store.linkAddr
-  debug('variables-: ', variables)
-  // TODO: switch createJob
   sr71$.mutate(S.createPost, variables)
 }
 
 function publishJob() {
-  debug('TODO: publishJob')
+  if (
+    !store.validator('general') ||
+    !store.validator('companyInfo') ||
+    !store.validator(`${THREAD.JOB}_LABELS`)
+  ) {
+    return false
+  }
+
+  const { body } = store.editData
+  publishing()
+
+  const digest = getDigest(body)
+  const length = countWords(body)
+
+  const variables = {
+    ...store.editData,
+    ...store.labelsData,
+    digest,
+    length,
+    communityId: store.viewing.community.id,
+  }
+
+  sr71$.mutate(S.createJob, variables)
 }
 
 export const canclePublish = () => {
@@ -88,25 +108,11 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
-// maybe trigger before init, fix later
-export function bodyOnChange(body) {
+export const inputOnChange = (part, e) => {
   if (!store) return false
-  store.updateEditing({ body })
+  const value = isObject(e) ? e.target.value : e
+  store.updateEditing({ [part]: value })
 }
-
-export const copyrightChange = copyRight => store.updateEditing({ copyRight })
-
-export const titleOnChange = ({ target: { value: title } }) =>
-  store.updateEditing({ title })
-
-export const linkSourceOnChange = ({ target: { value: linkAddr } }) =>
-  store.updateEditing({ linkAddr })
-
-export const companyOnChange = ({ target: { value: company } }) =>
-  store.updateEditing({ company })
-
-export const companyLinkOnChange = ({ target: { value: companyLink } }) =>
-  store.updateEditing({ companyLink })
 
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
@@ -131,6 +137,11 @@ const openAttachment = att => {
 }
 
 const cancleMutate = () => store.reset()
+const doneCleanUp = () => {
+  cancleLoading()
+  store.reset()
+  store.closePreview()
+}
 
 // ###############################
 // Data & Error handlers
@@ -140,13 +151,27 @@ const DataSolver = [
   {
     match: asyncRes('createPost'),
     action: () => {
-      cancleLoading()
-      store.reset()
-      store.closePreview()
+      store.toast('success', {
+        title: '帖子已发布',
+        msg: 'have a good day :)',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
       dispatchEvent(EVENT.REFRESH_POSTS)
-      // 1. empty the store
-      // 2. close the preview
-      // 3. notify the xxxPaper
+    },
+  },
+  {
+    match: asyncRes('createJob'),
+    action: () => {
+      store.toast('success', {
+        title: '招聘信息已发布',
+        msg: '预祝你在这里的招聘工作一切顺利 :)',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
+      dispatchEvent(EVENT.REFRESH_JOBS)
     },
   },
 ]

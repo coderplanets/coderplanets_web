@@ -28,6 +28,7 @@ export const TagDot = styled.div`
   width: 12px;
   height: 12px;
   margin-right: 8px;
+  margin-left: 3px;
   border-radius: 100%;
   background-color: ${({ color }) => color};
   opacity: ${theme('tags.dotOpacity')};

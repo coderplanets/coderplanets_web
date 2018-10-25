@@ -20,7 +20,7 @@ import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
   resv_event: [
-    EVENT.REFRESH_POSTS,
+    EVENT.REFRESH_JOBS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
   ],

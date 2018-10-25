@@ -33,11 +33,15 @@ const OptionItems = ({ items, selected, onOptionSelect }) => {
 
 const renderOptions = (label, tagsData, selected, onOptionSelect) => {
   switch (label) {
-    case 'default': {
-      return <TagList data={tagsData} />
-    }
+    case 'default':
     case 'city': {
-      return <TagList data={tagsData} />
+      return (
+        <TagList
+          data={tagsData}
+          selected={selected}
+          onOptionSelect={onOptionSelect}
+        />
+      )
     }
     default: {
       return (

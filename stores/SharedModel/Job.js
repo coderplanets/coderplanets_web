@@ -10,6 +10,7 @@ import { Tag } from './Tag'
 export const Job = t.model('Job', {
   id: t.maybeNull(t.string),
   title: t.optional(t.string, ''),
+  desc: t.maybeNull(t.string),
   body: t.optional(t.string, ''),
   company: t.optional(t.string, ''),
   companyLogo: t.optional(t.string, ''),
@@ -38,8 +39,14 @@ export const Job = t.model('Job', {
 
   pagedCommentsParticipators: t.optional(PagedUsers, {}),
 
-  viewerHasViewed: t.optional(t.boolean, false),
+  salary: t.optional(t.string, ''),
+  exp: t.optional(t.string, ''),
+  education: t.optional(t.string, ''),
+  field: t.optional(t.string, ''),
+  scale: t.optional(t.string, ''),
+  finance: t.optional(t.string, ''),
 
+  viewerHasViewed: t.optional(t.boolean, false),
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })

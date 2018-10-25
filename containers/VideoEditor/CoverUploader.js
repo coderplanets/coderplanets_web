@@ -19,11 +19,11 @@ import {
 
 import { nilOrEmpty } from '../../utils'
 
-import { onUploadDone, copyThumbnilLink } from './logic'
+import { inputOnChange } from './logic'
 
 const CoverUploader = ({ thumbnil, poster }) => (
   <Wrapper>
-    <DocUploader onUploadDone={onUploadDone.bind(this, 'thumbnil')}>
+    <DocUploader onUploadDone={inputOnChange.bind(this, 'thumbnil')}>
       {nilOrEmpty(thumbnil) ? (
         <Thumbnil>
           <UploaderLabel>
@@ -41,7 +41,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
 
     {nilOrEmpty(poster) ? (
       <Poster>
-        <DocUploader onUploadDone={onUploadDone.bind(this, 'poster')}>
+        <DocUploader onUploadDone={inputOnChange.bind(this, 'poster')}>
           <UploaderLabel>
             <UploaderIcon src={`${ICON_CMD}/image_upload.svg`} />
             <UploaderText>上传封面图</UploaderText>
@@ -51,7 +51,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
         <Maybe test={!nilOrEmpty(thumbnil)}>
           <UploaderLabel>
             <UploaderIcon src={`${ICON_CMD}/copy.svg`} />
-            <UploaderText onClick={copyThumbnilLink.bind(this, thumbnil)}>
+            <UploaderText onClick={inputOnChange.bind(this, 'thumbnil')}>
               使用缩略图
             </UploaderText>
           </UploaderLabel>
@@ -59,7 +59,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
       </Poster>
     ) : (
       <Poster>
-        <DocUploader onUploadDone={onUploadDone.bind(this, 'poster')}>
+        <DocUploader onUploadDone={inputOnChange.bind(this, 'poster')}>
           <React.Fragment>
             <PosterCermeraIcon src={`${ICON_CMD}/camera.svg`} />
             <CoverImg src={poster} />
