@@ -10,6 +10,7 @@ import { Tag } from './Tag'
 export const Job = t.model('Job', {
   id: t.maybeNull(t.string),
   title: t.optional(t.string, ''),
+  desc: t.optional(t.string, ''),
   body: t.optional(t.string, ''),
   company: t.optional(t.string, ''),
   companyLogo: t.optional(t.string, ''),

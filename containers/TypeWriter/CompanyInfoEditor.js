@@ -17,7 +17,7 @@ import {
 import { inputOnChange } from './logic'
 
 const CompanyInfoEditor = ({
-  editData: { company, companyLogo, companyLink },
+  editData: { company, companyLogo, companyLink, desc },
 }) => (
   <Wrapper>
     <Content>
@@ -43,6 +43,13 @@ const CompanyInfoEditor = ({
             placeholder="公司主页链接"
             value={companyLink}
             onChange={inputOnChange.bind(this, 'companyLink')}
+          />
+        </div>
+        <div>
+          <LinkInputer
+            placeholder="不打卡,双休,五险一金,美女多 ..."
+            value={desc}
+            onChange={inputOnChange.bind(this, 'desc')}
           />
         </div>
       </CompanyInfo>
