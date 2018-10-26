@@ -18,6 +18,7 @@ const VideosList = ({ props }) => {
     thread,
     emptyPrefix,
     onTitleSelect,
+    accountInfo,
   } = props
 
   switch (curView) {
@@ -29,6 +30,7 @@ const VideosList = ({ props }) => {
               key={uid.gen()}
               entry={entry}
               active={active}
+              accountInfo={accountInfo}
               onTitleSelect={onTitleSelect.bind(this, entry)}
             />
           ))}

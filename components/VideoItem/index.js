@@ -18,7 +18,6 @@ import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
-  ReadedLabel,
   PosterWrapper,
   Poster,
   Duration,
@@ -37,21 +36,15 @@ import {
   InsertTime,
 } from './styles'
 
+import { renderReadMark, getOpacity } from './helper'
 import { makeDebugger, cutFrom } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:VideoItem:index')
 /* eslint-enable no-unused-vars */
 
-const getOpacity = (current, active, viewed) => {
-  if (active.id) {
-    return current.id !== active.id ? 0.6 : 1
-  }
-  return viewed ? 0.85 : 1
-}
-
-const VideoItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper opacity={getOpacity(entry, active, entry.viewerHasViewed)}>
-    {entry.viewerHasViewed ? <ReadedLabel>已读</ReadedLabel> : null}
+const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
+  <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
+    {renderReadMark(entry, accountInfo)}
     <PosterWrapper>
       <Poster src={entry.poster} alt="poster" />
       <Duration>{entry.duration}</Duration>
@@ -103,12 +96,28 @@ VideoItem.propTypes = {
     }),
   }).isRequired,
 
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
   onTitleSelect: PropTypes.func,
 }
 
 VideoItem.defaultProps = {
   onTitleSelect: debug,
   active: {},
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: 'DIGEST',
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
 }
 
 export default VideoItem

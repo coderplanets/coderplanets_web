@@ -22,7 +22,9 @@ const debug = makeDebugger('c:JobItem:index')
 /* eslint-enable no-unused-vars */
 
 const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
-  const { customization: { contentsLayout, contentDivider } } = accountInfo
+  const {
+    customization: { contentsLayout, contentDivider },
+  } = accountInfo
 
   return (
     <Wrapper

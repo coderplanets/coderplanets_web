@@ -122,15 +122,17 @@ const ErrSolver = []
 const loadIfNeed = () => {
   /* loadVideos() */
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
+  loadRepos()
+  /*
   if (R.isEmpty(store.pagedReposData.entries)) {
     loadRepos()
   }
+  */
 }
 
 export function init(_store) {
   if (store) {
-    loadIfNeed()
-    return false
+    return loadIfNeed()
   }
   store = _store
 

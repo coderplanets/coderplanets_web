@@ -123,15 +123,18 @@ const ErrSolver = []
 const loadIfNeed = () => {
   /* loadVideos() */
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
+  loadVideos()
+
+  /*
   if (R.isEmpty(store.pagedVideosData.entries)) {
     loadVideos()
   }
+  */
 }
 
 export function init(_store) {
   if (store) {
-    loadIfNeed()
-    return false
+    return loadIfNeed()
   }
   store = _store
 
