@@ -48,8 +48,6 @@ const ContentFilter = ({
   isLogin,
   totalCount,
 }) => {
-  console.log('activeFilter: ', activeFilter)
-
   return (
     <Wrapper>
       <MainFilterWrapper>

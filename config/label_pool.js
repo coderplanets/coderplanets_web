@@ -8,6 +8,7 @@ const LABEL_POOL = {
     iconSrc: `${ICON_CMD}/city_map.svg`,
   },
   salary: {
+    iconSrc: `${ICON_CMD}/money_yuan.svg`,
     data: [
       '2k以下',
       '2k-5k',
@@ -17,15 +18,14 @@ const LABEL_POOL = {
       '25k-50k',
       '50k以上',
     ],
-    iconSrc: `${ICON_CMD}/money_yuan.svg`,
   },
   exp: {
-    data: ['不限', '应届', '3年以下', '3-5年', '5-10年', '10年以上'],
     iconSrc: `${ICON_CMD}/footer_exp.svg`,
+    data: ['不限', '应届', '3年以下', '3-5年', '5-10年', '10年以上'],
   },
   education: {
-    data: ['不限', '大专', '本科', '硕士', '博士'],
     iconSrc: `${ICON_CMD}/profile_education.svg`,
+    data: ['不限', '大专', '本科', '硕士', '博士'],
   },
   finance: {
     data: [
@@ -41,6 +41,7 @@ const LABEL_POOL = {
     iconSrc: `${ICON_CMD}/stock2.svg`,
   },
   scale: {
+    iconSrc: `${ICON_CMD}/footer_scale.svg`,
     data: [
       '少于15人',
       '15-50人',
@@ -49,9 +50,9 @@ const LABEL_POOL = {
       '500-2000人',
       '2000人以上',
     ],
-    iconSrc: `${ICON_CMD}/footer_scale.svg`,
   },
   field: {
+    iconSrc: `${ICON_CMD}/footer_field.svg`,
     data: [
       '互联网',
       '电子商务',
@@ -62,7 +63,6 @@ const LABEL_POOL = {
       'O2O',
       '区块链',
     ],
-    iconSrc: `${ICON_CMD}/footer_field.svg`,
   },
 }
 

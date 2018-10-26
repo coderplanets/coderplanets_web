@@ -29,6 +29,8 @@ export {
   WorkBackground,
 } from './User'
 
+export { ContentFilter } from './ContentFilter'
+
 export const emptyPagiData = {
   entries: [],
   pageNumber: 1,

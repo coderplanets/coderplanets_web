@@ -6,54 +6,23 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { PagedPosts, Tag, emptyPagiData } from '../../stores/SharedModel'
+import {
+  PagedPosts,
+  Tag,
+  ContentFilter,
+  emptyPagiData,
+} from '../../stores/SharedModel'
+
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsThreadStore')
 /* eslint-enable no-unused-vars */
 
-/* const tags = { */
-/* js: 'react', */
-/* } */
-
-// TODO: move to SharedModel
-const FilterModel = t.model('FilterModel', {
-  when: t.optional(
-    t.enumeration('when', [
-      '',
-      FILTER.TODAY,
-      FILTER.THIS_WEEK,
-      FILTER.THIS_MONTH,
-      FILTER.THIS_YEAR,
-    ]),
-    ''
-  ),
-
-  sort: t.optional(
-    t.enumeration('sort', [
-      '',
-      FILTER.MOST_VIEWS,
-      FILTER.MOST_FAVORITES,
-      FILTER.MOST_STARS,
-      FILTER.MOST_COMMENTS,
-    ]),
-    ''
-  ),
-  wordLength: t.optional(
-    t.enumeration('wordLength', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
-    ''
-  ),
-  readState: t.optional(
-    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
-    ''
-  ),
-})
-
 const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    filters: t.optional(FilterModel, {}),
+    filters: t.optional(ContentFilter, {}),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
