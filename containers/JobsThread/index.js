@@ -15,7 +15,6 @@ import TagsBar from '../TagsBar'
 import {
   Affix,
   ContentFilter,
-  BuyMeChuanChuan,
   PublishLabel,
   PagedContents,
 } from '../../components'
@@ -55,7 +54,6 @@ class JobsThreadContainer extends React.Component {
       activeJob,
       accountInfo,
       curRoute,
-      isLogin,
     } = jobsThread
 
     const { mainPath } = curRoute
@@ -64,7 +62,6 @@ class JobsThreadContainer extends React.Component {
     return (
       <Wrapper>
         <LeftPadding />
-        <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
           <FilterWrapper show={curView === TYPE.RESULT}>
@@ -72,8 +69,9 @@ class JobsThreadContainer extends React.Component {
               thread={THREAD.JOB}
               onSelect={logic.onFilterSelect}
               activeFilter={filtersData}
-              isLogin={isLogin}
+              accountInfo={accountInfo}
               totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
             />
           </FilterWrapper>
 

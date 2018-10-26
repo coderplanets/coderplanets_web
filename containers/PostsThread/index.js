@@ -47,6 +47,7 @@ class PostsThreadContainer extends React.Component {
       filtersData,
       activePost,
       curRoute,
+      accountInfo,
       isLogin,
     } = postsThread
 
@@ -65,7 +66,9 @@ class PostsThreadContainer extends React.Component {
               onSelect={logic.onFilterSelect}
               activeFilter={filtersData}
               isLogin={isLogin}
+              accountInfo={accountInfo}
               totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
             />
           </FilterWrapper>
 

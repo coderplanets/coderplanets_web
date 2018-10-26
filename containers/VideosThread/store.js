@@ -41,6 +41,9 @@ const VideosThread = t
     get curRoute() {
       return self.root.curRoute
     },
+    get accountInfo() {
+      return self.root.account.accountInfo
+    },
     get isLogin() {
       return self.root.account.isLogin
     },
@@ -85,6 +88,9 @@ const VideosThread = t
       if (index >= 0) {
         self.pagedVideos.entries[index].viewerHasViewed = true
       }
+    },
+    updateCustom(option) {
+      self.root.updateCustom(option)
     },
     markRoute(query) {
       self.root.markRoute(query)

@@ -53,7 +53,7 @@ class ReposThreadContainer extends React.Component {
       activeTagData,
       activeRepo,
       curRoute,
-      isLogin,
+      accountInfo,
     } = reposThread
 
     const { mainPath } = curRoute
@@ -70,8 +70,9 @@ class ReposThreadContainer extends React.Component {
                 thread={THREAD.REPO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
-                isLogin={isLogin}
+                accountInfo={accountInfo}
                 totalCount={totalCount}
+                onCustomChange={logic.onCustomChange}
               />
             </FilterWrapper>
           </Maybe>

@@ -34,12 +34,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -98,6 +93,11 @@ export function onTitleSelect(data) {
 export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 
+export const onCustomChange = option => store.updateCustom(option)
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),

@@ -55,6 +55,17 @@ export const Achievement = t.model('Achievement', {
   }),
 })
 
+const Customization = t.model('Customization', {
+  listView: t.optional(t.enumeration('listView', ['DIGEST', 'LIST']), 'DIGEST'),
+  markViewed: t.optional(t.boolean, true),
+  displayDensity: t.optional(
+    t.enumeration('displayDensity', ['20', '25', '30']),
+    '20'
+  ),
+  // theme
+  // ...
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
@@ -103,6 +114,7 @@ export const User = t.model('User', {
   updatedAt: t.optional(t.string, ''),
 
   viewerHasFollowed: t.optional(t.boolean, false),
+  customization: t.optional(Customization, {}),
 })
 
 export const SimpleUser = t.model('SimpleUser2', {
