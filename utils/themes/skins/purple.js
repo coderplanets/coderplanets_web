@@ -67,6 +67,7 @@ const purple = {
     articleDigest: '#505667',
     articleTag: '#526482',
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
     articleSpliter: '#3f3a50',

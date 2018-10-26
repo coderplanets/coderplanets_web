@@ -22,7 +22,7 @@ const FilterResult = ({
     <ResultText>结果共 {totalCount} 条</ResultText>
     <Popover
       placement="bottomRight"
-      trigger="hover"
+      trigger="click"
       content={
         <SettingMenu
           thread={thread}

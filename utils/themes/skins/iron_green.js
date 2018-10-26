@@ -66,6 +66,7 @@ const iconGreen = {
     articleDigest: '#B6C7C8',
     articleTag: '#B4C7C8',
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: '#95e4be',
     articleSpliter: '#79A7A9',

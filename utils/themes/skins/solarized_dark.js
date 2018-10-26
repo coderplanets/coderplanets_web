@@ -68,6 +68,7 @@ const solarizedDark = {
     articleDigest: '#6B7F83',
     articleTag: primaryColor,
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: darken(0.04, primaryMate), // '#987d40',
     articleSpliter: '#014454',

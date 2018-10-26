@@ -22,13 +22,12 @@ const debug = makeDebugger('c:JobItem:index')
 /* eslint-enable no-unused-vars */
 
 const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
-  const {
-    customization: { contentsLayout },
-  } = accountInfo
+  const { customization: { contentsLayout, contentDivider } } = accountInfo
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
+      divider={contentDivider}
       onClick={onTitleSelect}
     >
       {renderReadMark(entry, accountInfo)}

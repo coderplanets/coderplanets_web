@@ -16,7 +16,7 @@ import { THREAD } from '../../utils'
 
 const SettingMenu = ({
   thread,
-  customization: { contentsLayout, markViewed, displayDensity },
+  customization: { contentsLayout, contentDivider, markViewed, displayDensity },
   onCustomChange,
 }) => (
   <Wrapper>
@@ -47,19 +47,31 @@ const SettingMenu = ({
       ) : null}
     </React.Fragment>
 
-    <Title>阅读标记</Title>
-    <Option onClick={onCustomChange.bind(this, { markViewed: true })}>
+    <Title>阅读辅助</Title>
+    <Option onClick={onCustomChange.bind(this, { markViewed: !markViewed })}>
       <OptionText>已读标记</OptionText>
       <OptionIcon src={`${ICON_CMD}/check2.svg`} active={markViewed === true} />
     </Option>
-    <Option onClick={onCustomChange.bind(this, { markViewed: false })}>
-      <OptionText active>不显标记</OptionText>
-      <OptionIcon
-        src={`${ICON_CMD}/check2.svg`}
-        active={markViewed === false}
-      />
-    </Option>
-    <Didiver />
+
+    {R.contains(thread, [THREAD.POST, THREAD.JOB]) ? (
+      <React.Fragment>
+        <Option
+          onClick={onCustomChange.bind(this, {
+            contentDivider: !contentDivider,
+          })}
+        >
+          <OptionText active>辅助分界</OptionText>
+          <OptionIcon
+            src={`${ICON_CMD}/check2.svg`}
+            active={contentDivider === true}
+          />
+        </Option>
+        <Didiver />
+      </React.Fragment>
+    ) : (
+      <Didiver />
+    )}
+
     <Title>显示密度</Title>
     <Option onClick={onCustomChange.bind(this, { displayDensity: '20' })}>
       <OptionText>20条 / 页</OptionText>
