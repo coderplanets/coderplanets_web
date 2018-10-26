@@ -16,7 +16,6 @@ import {
   Affix,
   ContentFilter,
   BuyMeChuanChuan,
-  Maybe,
   PublishLabel,
   PagedContents,
 } from '../../components'
@@ -56,10 +55,12 @@ class JobsThreadContainer extends React.Component {
       activeJob,
       accountInfo,
       curRoute,
+      isLogin,
     } = jobsThread
 
     const { mainPath } = curRoute
     const { totalCount } = pagedJobsData
+    console.log('filtersData->', filtersData)
 
     return (
       <Wrapper>
@@ -67,16 +68,15 @@ class JobsThreadContainer extends React.Component {
         <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper show={curView === TYPE.RESULT}>
-              <ContentFilter
-                thread={THREAD.JOB}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-                totalCount={totalCount}
-              />
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper show={curView === TYPE.RESULT}>
+            <ContentFilter
+              thread={THREAD.JOB}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              isLogin={isLogin}
+              totalCount={totalCount}
+            />
+          </FilterWrapper>
 
           <PagedContents
             data={pagedJobsData}

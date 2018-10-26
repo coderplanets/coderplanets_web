@@ -5,6 +5,7 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
@@ -18,6 +19,7 @@ const TimeFilter = ({ activeFilter, onSelect }) => (
       <SelectIcon src={`${ICON_CMD}/duration.svg`} />
       <SelectTitle>时间</SelectTitle>
     </SelectLable>
+    <LabelDivider />
     <SelectItem
       active={activeFilter.when === FILTER.TODAY}
       onClick={onSelect.bind(this, { when: FILTER.TODAY })}

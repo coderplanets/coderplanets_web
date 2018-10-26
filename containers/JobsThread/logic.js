@@ -80,7 +80,7 @@ export function loadJobs(page = 1) {
 
 export function onFilterSelect(option) {
   store.selectFilter(option)
-  loadJobs()
+  // loadJobs()
 }
 
 export function onTagSelect(obj) {

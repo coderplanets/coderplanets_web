@@ -32,10 +32,14 @@ export const ColumnWrapper = styled.div`
 export const SelectLable = styled.div`
   display: flex;
   align-items: center;
+`
+export const LabelDivider = styled.div`
   border-bottom: 1px solid;
   border-color: ${theme('banner.desc')};
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  opacity: 0.6;
 `
 export const SelectIcon = styled(Img)`
   fill: ${theme('banner.title')};
@@ -52,6 +56,9 @@ export const SelectTitle = styled.div`
   font-weight: bold;
   width: 80%;
 `
+export const LeftAlignWrapper = styled.div`
+  text-align: left;
+`
 export const SelectItem = styled.div`
   font-size: 0.9rem;
   margin-bottom: 10px;
@@ -63,7 +70,7 @@ export const SelectItem = styled.div`
   }
   &:before {
     content: '*';
-    color: ${theme('preview.font')};
+    color: ${theme('banner.title')};
     opacity: ${({ active }) => (active ? 1 : 0)};
     font-weight: lighter;
     position: absolute;

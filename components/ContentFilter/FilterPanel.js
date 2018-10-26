@@ -54,12 +54,15 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobSalaryFilter onSelect={onSelect} />
-          <JobExpFilter onSelect={onSelect} />
-          <JobEducationFilter onSelect={onSelect} />
-          <JobFieldFilter onSelect={onSelect} />
-          <JobFinaceFilter onSelect={onSelect} />
-          <JobScaleFilter onSelect={onSelect} />
+          <JobSalaryFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobExpFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobEducationFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobFieldFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobFinaceFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <JobScaleFilter activeFilter={activeFilter} onSelect={onSelect} />
+          {isLogin ? (
+            <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
+          ) : null}
         </FiltrPanelWrapper>
       )
     }
@@ -69,12 +72,6 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <JobSalaryFilter onSelect={onSelect} />
-          <JobExpFilter onSelect={onSelect} />
-          <JobEducationFilter onSelect={onSelect} />
-          <JobFieldFilter onSelect={onSelect} />
-          <JobFinaceFilter onSelect={onSelect} />
-          <JobScaleFilter onSelect={onSelect} />
         </FiltrPanelWrapper>
       )
     }

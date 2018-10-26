@@ -5,6 +5,7 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
@@ -18,6 +19,8 @@ const SortFilter = ({ activeFilter, onSelect }) => (
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
       <SelectTitle>排序</SelectTitle>
     </SelectLable>
+    <LabelDivider />
+
     <SelectItem
       active={activeFilter.sort === FILTER.MOST_VIEWS}
       onClick={onSelect.bind(this, { sort: FILTER.MOST_VIEWS })}

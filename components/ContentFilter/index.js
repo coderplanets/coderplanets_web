@@ -94,6 +94,14 @@ ContentFilter.propTypes = {
     when: PropTypes.string,
     sort: PropTypes.string,
     wordLength: PropTypes.string,
+    readState: PropTypes.string,
+    // job
+    jobSalary: PropTypes.string,
+    jobExp: PropTypes.string,
+    jobEducation: PropTypes.string,
+    jobField: PropTypes.string,
+    jobFinace: PropTypes.string,
+    jobScale: PropTypes.string,
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
@@ -103,9 +111,19 @@ ContentFilter.propTypes = {
 
 ContentFilter.defaultProps = {
   activeFilter: {
+    // general,
     when: '',
     sort: '',
     wordLength: '',
+    readState: '',
+
+    // job
+    jobSalary: '',
+    jobExp: '',
+    jobEducation: '',
+    jobField: '',
+    jobFinace: '',
+    jobScale: '',
   },
   thread: THREAD.POST,
   isLogin: false,

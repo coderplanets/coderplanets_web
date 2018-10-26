@@ -5,6 +5,7 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
@@ -18,6 +19,7 @@ const ViewedFilter = ({ activeFilter, onSelect }) => (
       <SelectIcon src={`${ICON_CMD}/user_been_views.svg`} />
       <SelectTitle>阅读</SelectTitle>
     </SelectLable>
+    <LabelDivider />
     <SelectItem
       active={activeFilter.readState === FILTER.READED}
       onClick={onSelect.bind(this, { readState: FILTER.READED })}
