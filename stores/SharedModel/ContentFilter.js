@@ -28,16 +28,16 @@ export const ContentFilter = t.model('ContentFilter', {
     t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     ''
   ),
-  readState: t.optional(
-    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
-    ''
-  ),
   jobSalary: t.optional(t.string, ''),
   jobExp: t.optional(t.string, ''),
   jobEducation: t.optional(t.string, ''),
   jobField: t.optional(t.string, ''),
   jobFinace: t.optional(t.string, ''),
   jobScale: t.optional(t.string, ''),
+  readState: t.optional(
+    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
+    ''
+  ),
 })
 
 export const holder = 1

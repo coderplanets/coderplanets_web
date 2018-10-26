@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 export const ResultText = styled.div`
   margin-right: 4px;
   color: ${theme('thread.filterResultHint')};
+  min-width: 75px;
 `
 export const SettingWrapper = styled.div``
 export const SettingIcon = styled(Img)`

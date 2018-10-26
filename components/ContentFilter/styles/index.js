@@ -13,10 +13,6 @@ export const MainFilterWrapper = styled.div`
   align-items: center;
   flex-grow: 1;
 `
-export const ActiveTagsWrapper = styled.div`
-  margin-left: 15px;
-  margin-top: -1px;
-`
 export const FiltrPanelWrapper = styled.div`
   display: flex;
   min-width: 200px;

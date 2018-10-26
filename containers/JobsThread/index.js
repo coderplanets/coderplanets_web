@@ -60,7 +60,6 @@ class JobsThreadContainer extends React.Component {
 
     const { mainPath } = curRoute
     const { totalCount } = pagedJobsData
-    console.log('filtersData->', filtersData)
 
     return (
       <Wrapper>
