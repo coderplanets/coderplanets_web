@@ -13,7 +13,6 @@ import TagsBar from '../TagsBar'
 import {
   Affix,
   ContentFilter,
-  Maybe,
   PublishLabel,
   PagedContents,
 } from '../../components'
@@ -52,6 +51,7 @@ class VideosThreadContainer extends React.Component {
       curView,
       activeVideo,
       activeTagData,
+      isLogin,
     } = videosThread
 
     const { mainPath } = curRoute
@@ -61,16 +61,15 @@ class VideosThreadContainer extends React.Component {
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper>
-              <ContentFilter
-                thread={THREAD.VIDEO}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-                totalCount={totalCount}
-              />
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper>
+            <ContentFilter
+              thread={THREAD.VIDEO}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              isLogin={isLogin}
+              totalCount={totalCount}
+            />
+          </FilterWrapper>
 
           <PagedContents
             data={pagedVideosData}

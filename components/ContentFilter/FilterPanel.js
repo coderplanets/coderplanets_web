@@ -4,6 +4,7 @@ import { FiltrPanelWrapper } from './styles'
 
 import TimeFilter from './TimeFilter'
 import SortFilter from './SortFilter'
+import RepoSortFilter from './RepoSortFilter'
 import LengthFilter from './LengthFilter'
 import ViewedFilter from './ViewedFilter'
 // job
@@ -37,7 +38,10 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <VideoSourceFilter onSelect={onSelect} />
+          <VideoSourceFilter activeFilter={activeFilter} onSelect={onSelect} />
+          {isLogin ? (
+            <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
+          ) : null}
         </FiltrPanelWrapper>
       )
     }
@@ -45,7 +49,10 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <RepoSortFilter activeFilter={activeFilter} onSelect={onSelect} />
+          {isLogin ? (
+            <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
+          ) : null}
         </FiltrPanelWrapper>
       )
     }

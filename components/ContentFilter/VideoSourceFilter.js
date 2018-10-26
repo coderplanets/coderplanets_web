@@ -5,40 +5,40 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
 } from './styles'
 
-import { FILTER } from '../../utils'
-
-const VideoSourceFilter = ({ onSelect }) => (
+const VideoSourceFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLable>
       <SelectIcon src={`${ICON_CMD}/player_play.svg`} />
       <SelectTitle>来源</SelectTitle>
     </SelectLable>
+    <LabelDivider />
     <SelectItem
-      active={false}
-      onClick={onSelect.bind(this, { wordLength: FILTER.MOST_WORDS })}
+      active={activeFilter.videoSource === 'youtube'}
+      onClick={onSelect.bind(this, { videoSource: 'youtube' })}
     >
       youtube
     </SelectItem>
     <SelectItem
-      active={false}
-      onClick={onSelect.bind(this, { wordLength: FILTER.LEAST_WORDS })}
+      active={activeFilter.videoSource === 'vimeo'}
+      onClick={onSelect.bind(this, { videoSource: 'vimeo' })}
     >
       vimeo
     </SelectItem>
     <SelectItem
-      active={false}
-      onClick={onSelect.bind(this, { wordLength: FILTER.LEAST_WORDS })}
+      active={activeFilter.videoSource === 'bilibili'}
+      onClick={onSelect.bind(this, { videoSource: 'bilibili' })}
     >
-      B 站
+      B站
     </SelectItem>
     <SelectItem
-      active={false}
-      onClick={onSelect.bind(this, { wordLength: FILTER.LEAST_WORDS })}
+      active={activeFilter.videoSource === 'other'}
+      onClick={onSelect.bind(this, { videoSource: 'other' })}
     >
       其他网站
     </SelectItem>
