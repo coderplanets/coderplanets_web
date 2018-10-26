@@ -13,14 +13,6 @@ import { PagedPosts, Tag, emptyPagiData } from '../../stores/SharedModel'
 const debug = makeDebugger('S:PostsThreadStore')
 /* eslint-enable no-unused-vars */
 
-/* const filters = { */
-/* js: { */
-/* time: 'today', */
-/* sort: 'most_views', */
-/* length: 'most_words', */
-/* }, */
-/* } */
-
 /* const tags = { */
 /* js: 'react', */
 /* } */
@@ -49,7 +41,11 @@ const FilterModel = t.model('FilterModel', {
     ''
   ),
   wordLength: t.optional(
-    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
+    t.enumeration('wordLength', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
+    ''
+  ),
+  readState: t.optional(
+    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
     ''
   ),
 })

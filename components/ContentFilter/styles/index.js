@@ -27,7 +27,7 @@ export const ColumnWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   min-width: 60px;
-  margin-right: 28px;
+  margin-right: 22px;
 `
 export const SelectLable = styled.div`
   display: flex;
@@ -56,8 +56,18 @@ export const SelectItem = styled.div`
   font-size: 0.9rem;
   margin-bottom: 10px;
   color: ${({ active }) => (active ? theme('font') : theme('banner.desc'))};
+  position: relative;
   &:hover {
     cursor: pointer;
     color: ${theme('font')};
+  }
+  &:before {
+    content: '*';
+    color: ${theme('preview.font')};
+    opacity: ${({ active }) => (active ? 1 : 0)};
+    font-weight: lighter;
+    position: absolute;
+    left: -10px;
+    top: 2px;
   }
 `

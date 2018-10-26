@@ -16,21 +16,19 @@ const ViewedFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLable>
       <SelectIcon src={`${ICON_CMD}/user_been_views.svg`} />
-      <SelectTitle>标记</SelectTitle>
+      <SelectTitle>阅读</SelectTitle>
     </SelectLable>
     <SelectItem
-      item="TODAY"
-      active={activeFilter.when}
-      onClick={onSelect.bind(this, { when: FILTER.TODAY })}
+      active={activeFilter.readState === FILTER.READED}
+      onClick={onSelect.bind(this, { readState: FILTER.READED })}
     >
-      只显已读
+      已读内容
     </SelectItem>
     <SelectItem
-      item="THIS_WEEK"
-      active={activeFilter.when}
-      onClick={onSelect.bind(this, { when: FILTER.THIS_WEEK })}
+      active={activeFilter.readState === FILTER.UNREAD}
+      onClick={onSelect.bind(this, { readState: FILTER.UNREAD })}
     >
-      只显未读
+      未读内容
     </SelectItem>
   </ColumnWrapper>
 )

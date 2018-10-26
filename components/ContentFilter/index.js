@@ -29,6 +29,9 @@ const filterDict = {
   MOST_COMMENTS: '最多评论',
   MOST_WORDS: '字数最多',
   LEAST_WORDS: '字数最少',
+  //
+  READED: '只显已读',
+  UNREAD: '只显未读',
 }
 
 const FilterTag = ({ onSelect, active, type }) =>
@@ -38,28 +41,52 @@ const FilterTag = ({ onSelect, active, type }) =>
     </Tag>
   )
 
-const ContentFilter = ({ thread, activeFilter, onSelect, totalCount }) => (
-  <Wrapper>
-    <MainFilterWrapper>
-      <FilterButton
-        thread={thread}
-        onSelect={onSelect}
-        activeFilter={activeFilter}
-      />
+const ContentFilter = ({
+  thread,
+  activeFilter,
+  onSelect,
+  isLogin,
+  totalCount,
+}) => {
+  console.log('activeFilter: ', activeFilter)
 
-      <ActiveTagsWrapper>
-        <FilterTag onSelect={onSelect} active={activeFilter.when} type="when" />
-        <FilterTag onSelect={onSelect} active={activeFilter.sort} type="sort" />
-        <FilterTag
+  return (
+    <Wrapper>
+      <MainFilterWrapper>
+        <FilterButton
+          thread={thread}
           onSelect={onSelect}
-          active={activeFilter.wordLength}
-          type="wordLength"
+          isLogin={isLogin}
+          activeFilter={activeFilter}
         />
-      </ActiveTagsWrapper>
-    </MainFilterWrapper>
-    <FilterResult totalCount={totalCount} />
-  </Wrapper>
-)
+
+        <ActiveTagsWrapper>
+          <FilterTag
+            onSelect={onSelect}
+            active={activeFilter.when}
+            type="when"
+          />
+          <FilterTag
+            onSelect={onSelect}
+            active={activeFilter.sort}
+            type="sort"
+          />
+          <FilterTag
+            onSelect={onSelect}
+            active={activeFilter.wordLength}
+            type="wordLength"
+          />
+          <FilterTag
+            onSelect={onSelect}
+            active={activeFilter.readState}
+            type="readState"
+          />
+        </ActiveTagsWrapper>
+      </MainFilterWrapper>
+      <FilterResult totalCount={totalCount} />
+    </Wrapper>
+  )
+}
 
 ContentFilter.propTypes = {
   // https://www.npmjs.com/package/prop-types
@@ -70,6 +97,7 @@ ContentFilter.propTypes = {
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
+  isLogin: PropTypes.bool,
   totalCount: PropTypes.number,
 }
 
@@ -80,6 +108,7 @@ ContentFilter.defaultProps = {
     wordLength: '',
   },
   thread: THREAD.POST,
+  isLogin: false,
   totalCount: 0,
 }
 

@@ -47,6 +47,7 @@ class PostsThreadContainer extends React.Component {
       filtersData,
       activePost,
       curRoute,
+      isLogin,
     } = postsThread
 
     const { mainPath } = curRoute
@@ -63,6 +64,7 @@ class PostsThreadContainer extends React.Component {
               thread={THREAD.POST}
               onSelect={logic.onFilterSelect}
               activeFilter={filtersData}
+              isLogin={isLogin}
               totalCount={totalCount}
             />
           </FilterWrapper>

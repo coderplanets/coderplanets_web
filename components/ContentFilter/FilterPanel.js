@@ -18,7 +18,7 @@ import VideoSourceFilter from './VideoSourceFilter'
 
 import { THREAD } from '../../utils'
 
-const FilterPanel = ({ thread, activeFilter, onSelect }) => {
+const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {
     case THREAD.POST: {
       return (
@@ -26,7 +26,9 @@ const FilterPanel = ({ thread, activeFilter, onSelect }) => {
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-          <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
+          {isLogin ? (
+            <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
+          ) : null}
         </FiltrPanelWrapper>
       )
     }
