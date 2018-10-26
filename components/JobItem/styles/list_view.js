@@ -15,10 +15,11 @@ export const Main = styled.div`
 `
 export const TopHalf = styled.div`
   display: flex;
+  line-height: 1;
 `
 export const SecondHalf = styled.div`
   margin-left: 10px;
-  margin-top: -10px;
+  margin-top: -3px;
 `
 export const CompanyLogo = styled(Img)`
   width: 45px;
@@ -26,7 +27,6 @@ export const CompanyLogo = styled(Img)`
   border-radius: 5px;
   opacity: ${theme('avatarOpacity')};
   display: block;
-  margin-top: 2px;
 `
 export const Breif = styled.div`
   display: flex;
