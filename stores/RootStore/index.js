@@ -263,6 +263,9 @@ const rootStore = t
     callGirlVerifier() {
       self.girlVerifier.show()
     },
+    updateCustom(options) {
+      self.account.updateCustom(options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

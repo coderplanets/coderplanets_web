@@ -150,7 +150,6 @@ const AccountEditorStore = t
       self.updateEditing({ educationBackgrounds })
       self.markState({ educationBg: { school: '', major: '' } })
     },
-
     markState(sobj) {
       markStates(sobj, self)
     },

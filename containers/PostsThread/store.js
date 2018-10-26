@@ -86,6 +86,9 @@ const PostsThreadStore = t
         self.pagedPosts.entries[index].viewerHasViewed = true
       }
     },
+    updateCustom(option) {
+      self.root.updateCustom(option)
+    },
     markRoute(query) {
       self.root.markRoute(query)
     },

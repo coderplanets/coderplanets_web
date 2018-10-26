@@ -1,20 +1,16 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
-      id
-      title
+      ${F.post}
       body
-      views
       author {
-        id
-        nickname
-        avatar
+        ${F.author}
       }
       linkAddr
       insertedAt
-      updatedAt
       favoritedCount
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)
@@ -38,21 +34,12 @@ const postReactionRes = gql`
 const job = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     job(id: $id) {
-      id
-      title
+      ${F.job}
       body
-      company
-      companyLogo
-      location
-      views
       author {
-        id
-        nickname
-        avatar
+        ${F.author}
       }
-      linkAddr
-      insertedAt
-      updatedAt
+
       favoritedCount
       viewerHasFavorited @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)

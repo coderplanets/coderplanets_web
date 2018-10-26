@@ -32,9 +32,9 @@ const AccountStore = t
     get accountInfo() {
       return {
         ...stripMobx(self.user),
+        isLogin: self.isValidSession,
       }
     },
-
     get subscribedCommunities() {
       const {
         user: { subscribedCommunities },
@@ -108,7 +108,10 @@ const AccountStore = t
 
       self.root.communitiesContent.toggleSubscribe(community)
     },
-
+    updateCustom(options) {
+      const curCustomization = R.clone(self.accountInfo.customization)
+      self.user.customization = R.merge(curCustomization, options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

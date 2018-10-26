@@ -98,6 +98,11 @@ export function onTitleSelect(data) {
 export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 
+export const onCustomChange = option => store.updateCustom(option)
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),

@@ -3,28 +3,10 @@ import styled from 'styled-components'
 import Img from '../../Img'
 import { theme } from '../../../utils'
 
-export const Wrapper = styled.article`
-  position: relative;
+export const Wrapper = styled.div`
+  margin-bottom: 5px;
   display: flex;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  border-radius: 4px;
-  opacity: ${({ opacity }) => opacity};
-
-  &:hover {
-    cursor: pointer;
-    background: ${theme('thread.articleHover')};
-  }
-`
-export const ReadedLabel = styled.div`
-  position: absolute;
-  top: 14px;
-  left: -30px;
-  font-size: 0.75rem;
-  color: ${theme('thread.articleDigest')};
-  opacity: 0.8;
+  width: 100%;
 `
 export const Main = styled.div`
   display: flex;
@@ -33,23 +15,18 @@ export const Main = styled.div`
 `
 export const TopHalf = styled.div`
   display: flex;
+  line-height: 1;
 `
 export const SecondHalf = styled.div`
   margin-left: 10px;
-  margin-top: -10px;
+  margin-top: -3px;
 `
-
-export const Avatar = styled(Img)`
-  width: 42px;
-  height: 42px;
-  border-radius: 100%;
+export const CompanyLogo = styled(Img)`
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
   opacity: ${theme('avatarOpacity')};
   display: block;
-  margin-top: 2px;
-`
-export const SmallAvatar = styled(Avatar)`
-  width: 35px;
-  height: 35px;
 `
 export const Breif = styled.div`
   display: flex;
@@ -88,21 +65,20 @@ export const LinkIcon = styled(Img)`
   width: 12px;
   height: 12px;
 `
-
-export const Extra = styled.li`
-  display: inline;
-  opacity: 0.7;
+export const Extra = styled.div`
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
   transition: opacity 0.2s;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  margin-top: 3px;
   color: ${theme('thread.extraInfo')};
 `
-export const BodyDigest = styled.li`
-  margin-top: 5px;
-  color: ${theme('thread.articleDigest')};
-  margin-right: 20px;
-  white-space: normal;
-  display: block;
-  font-size: 0.85rem;
+export const Salary = styled.div`
+  color: ${theme('contrastFg')};
+  margin-left: 7px;
+  font-weight: bold;
+  font-size: 0.9rem;
 `
 export const CommentWrapper = styled.div`
   display: flex;

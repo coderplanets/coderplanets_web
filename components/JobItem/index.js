@@ -9,33 +9,37 @@ import PropTypes from 'prop-types'
 
 // import { ICON_CMD } from '../../config'
 
-import { Wrapper, ReadedLabel } from './styles'
+import { Wrapper } from './styles'
 
-import JobInfo from './JobInfo'
-import CompanyInfo from './CompanyInfo'
+import DigestView from './DigestView'
+import ListView from './ListView'
 
+import { renderReadMark, getOpacity } from './helper'
 import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:JobItem:index')
 /* eslint-enable no-unused-vars */
 
-const getOpacity = (current, active, viewed) => {
-  if (active.id) {
-    return current.id !== active.id ? 0.6 : 1
-  }
-  return viewed ? 0.85 : 1
-}
+const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
+  const {
+    customization: { contentsLayout },
+  } = accountInfo
 
-const JobItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper
-    opacity={getOpacity(entry, active, entry.viewerHasViewed)}
-    onClick={onTitleSelect}
-  >
-    {entry.viewerHasViewed ? <ReadedLabel>已读</ReadedLabel> : null}
-    <JobInfo entry={entry} />
-    <CompanyInfo entry={entry} />
-  </Wrapper>
-)
+  return (
+    <Wrapper
+      opacity={getOpacity(entry, active, accountInfo)}
+      onClick={onTitleSelect}
+    >
+      {renderReadMark(entry, accountInfo)}
+      {contentsLayout === 'DIGEST' ? (
+        <DigestView entry={entry} />
+      ) : (
+        <ListView entry={entry} onTitleSelect={onTitleSelect} />
+      )}
+    </Wrapper>
+  )
+}
 
 JobItem.propTypes = {
   active: PropTypes.object,
@@ -51,12 +55,28 @@ JobItem.propTypes = {
     }),
   }).isRequired,
 
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
   onTitleSelect: PropTypes.func,
 }
 
 JobItem.defaultProps = {
   onTitleSelect: debug,
   active: {},
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: 'DIGEST',
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
 }
 
 export default JobItem

@@ -51,7 +51,7 @@ class VideosThreadContainer extends React.Component {
       curView,
       activeVideo,
       activeTagData,
-      isLogin,
+      accountInfo,
     } = videosThread
 
     const { mainPath } = curRoute
@@ -66,8 +66,9 @@ class VideosThreadContainer extends React.Component {
               thread={THREAD.VIDEO}
               onSelect={logic.onFilterSelect}
               activeFilter={filtersData}
-              isLogin={isLogin}
+              accountInfo={accountInfo}
               totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
             />
           </FilterWrapper>
 

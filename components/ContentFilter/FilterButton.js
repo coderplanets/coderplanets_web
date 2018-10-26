@@ -25,7 +25,7 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => (
       <Button size="small" type="primary" ghost>
         <InnerBtnWrapper>
           综合排序
-          <FilterIcon src={`${ICON_CMD}/filter2.svg`} />
+          <FilterIcon src={`${ICON_CMD}/content_filter.svg`} />
         </InnerBtnWrapper>
       </Button>
     </Popover>

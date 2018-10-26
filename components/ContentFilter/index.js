@@ -23,8 +23,9 @@ const ContentFilter = ({
   thread,
   activeFilter,
   onSelect,
-  isLogin,
+  accountInfo: { isLogin, customization },
   totalCount,
+  onCustomChange,
 }) => (
   <Wrapper>
     <MainFilterWrapper>
@@ -37,7 +38,12 @@ const ContentFilter = ({
 
       <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
     </MainFilterWrapper>
-    <FilterResult totalCount={totalCount} />
+    <FilterResult
+      thread={thread}
+      totalCount={totalCount}
+      customization={customization}
+      onCustomChange={onCustomChange}
+    />
   </Wrapper>
 )
 
@@ -60,8 +66,16 @@ ContentFilter.propTypes = {
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
-  isLogin: PropTypes.bool,
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
   totalCount: PropTypes.number,
+  onCustomChange: PropTypes.func,
 }
 
 ContentFilter.defaultProps = {
@@ -83,8 +97,16 @@ ContentFilter.defaultProps = {
     videoSource: '',
   },
   thread: THREAD.POST,
-  isLogin: false,
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: 'DIGEST',
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
   totalCount: 0,
+  onCustomChange: debug,
 }
 
 export default ContentFilter

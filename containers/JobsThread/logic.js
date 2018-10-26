@@ -97,6 +97,7 @@ export function onTagSelect(obj) {
 }
 
 export const onFilterSelect = option => store.selectFilter(option)
+export const onCustomChange = option => store.updateCustom(option)
 
 // ###############################
 // Data & Error handlers
@@ -162,7 +163,9 @@ const loadIfNeed = () => {
 }
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadIfNeed()
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
