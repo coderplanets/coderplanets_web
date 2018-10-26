@@ -71,11 +71,7 @@ export function loadPosts(page = 1) {
   store.markRoute({ page })
 }
 
-export function onFilterSelect(option) {
-  debug('onFilterSelect option: ', option)
-  store.selectFilter(option)
-  // loadPosts()
-}
+export const onFilterSelect = option => store.selectFilter(option)
 
 export function onTagSelect(tag) {
   store.selectTag(tag)

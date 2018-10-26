@@ -16,6 +16,10 @@ const filterDict = {
   MOST_COMMENTS: '最多评论',
   MOST_WORDS: '字数最多',
   LEAST_WORDS: '字数最少',
+  // repo
+  MOST_STAR: '最多Star',
+  MOST_FORK: '最多Fork',
+  MOST_WATCH: '最多Watch',
   //
   READED: '只显已读',
   UNREAD: '只显未读',

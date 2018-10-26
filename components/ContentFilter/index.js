@@ -55,6 +55,8 @@ ContentFilter.propTypes = {
     jobField: PropTypes.string,
     jobFinace: PropTypes.string,
     jobScale: PropTypes.string,
+    // video
+    videoSource: PropTypes.string,
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
@@ -77,6 +79,8 @@ ContentFilter.defaultProps = {
     jobField: '',
     jobFinace: '',
     jobScale: '',
+    // video
+    videoSource: '',
   },
   thread: THREAD.POST,
   isLogin: false,

@@ -85,9 +85,7 @@ export function onTagSelect() {
   debug('onTagSelect')
 }
 
-export function onFilterSelect() {
-  debug('onFilterSelect')
-}
+export const onFilterSelect = option => store.selectFilter(option)
 
 // ###############################
 // Data & Error handlers

@@ -78,16 +78,6 @@ export function loadJobs(page = 1) {
   sr71$.query(S.pagedJobs, args)
 }
 
-export function onFilterSelect(option) {
-  store.selectFilter(option)
-  // loadJobs()
-}
-
-export function onTagSelect(obj) {
-  store.selectTag(obj)
-  loadJobs()
-}
-
 export function onTitleSelect(data) {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -101,6 +91,16 @@ export function createContent() {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
+export function onTagSelect(obj) {
+  store.selectTag(obj)
+  loadJobs()
+}
+
+export const onFilterSelect = option => store.selectFilter(option)
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('pagedJobs'),

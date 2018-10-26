@@ -54,6 +54,7 @@ export const SelectTitle = styled.div`
 `
 export const LeftAlignWrapper = styled.div`
   text-align: left;
+  margin-left: ${({ offset }) => offset || 0};
 `
 export const SelectItem = styled.div`
   font-size: 0.9rem;
