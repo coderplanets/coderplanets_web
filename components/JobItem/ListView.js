@@ -2,13 +2,15 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
-
 import InlineTags from '../InlineTags'
+import DotDivider from '../DotDivider'
 
 import {
-  SmallAvatar,
+  Wrapper,
+  CompanyLogo,
   TitleLink,
   LinkIcon,
+  Salary,
   Main,
   TopHalf,
   Breif,
@@ -18,17 +20,19 @@ import {
   CommentWrapper,
   CommentIcon,
   CommentNum,
-} from './styles'
+} from './styles/list_view'
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
 const ListView = ({ entry, onTitleSelect }) => (
-  <React.Fragment>
-    <SmallAvatar src={entry.author.avatar} />
+  <Wrapper>
+    <CompanyLogo src={entry.companyLogo} />
     <Main>
       <TopHalf>
         <Breif onClick={onTitleSelect.bind(this, entry)}>
-          <Title>{cutFrom(entry.title, 45)}</Title>
+          <Title>
+            【 {entry.company} 】{cutFrom(entry.title, 45)}
+          </Title>
           {entry.linkAddr ? (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
@@ -47,12 +51,14 @@ const ListView = ({ entry, onTitleSelect }) => (
 
       <SecondHalf>
         <Extra>
+          <Salary>{entry.salary}</Salary>
+          <DotDivider />
           {entry.author.nickname} 发布于:{' '}
           <TimeAgo datetime={entry.insertedAt} locale="zh_CN" />
         </Extra>
       </SecondHalf>
     </Main>
-  </React.Fragment>
+  </Wrapper>
 )
 
 export default ListView

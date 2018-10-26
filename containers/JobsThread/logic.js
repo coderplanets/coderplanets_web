@@ -163,7 +163,9 @@ const loadIfNeed = () => {
 }
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadIfNeed()
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()

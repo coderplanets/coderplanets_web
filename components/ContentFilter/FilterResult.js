@@ -17,7 +17,7 @@ const FilterResult = ({ totalCount, customization, onCustomChange }) => (
     <ResultText>结果共 {totalCount} 条</ResultText>
     <Popover
       placement="bottomRight"
-      trigger="click"
+      trigger="hover"
       content={
         <SettingMenu
           customization={customization}
