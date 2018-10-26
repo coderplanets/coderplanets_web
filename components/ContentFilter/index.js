@@ -68,7 +68,7 @@ ContentFilter.propTypes = {
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
     customization: PropTypes.shape({
-      listView: PropTypes.oneOf(['DIGEST', 'LIST']),
+      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
       markViewed: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
@@ -99,7 +99,7 @@ ContentFilter.defaultProps = {
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({
-      listView: 'DIGEST',
+      contentsLayout: 'DIGEST',
       markViewed: true,
       displayDensity: '20',
     }),

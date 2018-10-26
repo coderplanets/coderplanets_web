@@ -12,20 +12,23 @@ import {
 } from './styles/setting_menu'
 
 const SettingMenu = ({
-  customization: { listView, markViewed, displayDensity },
+  customization: { contentsLayout, markViewed, displayDensity },
   onCustomChange,
 }) => (
   <Wrapper>
     <Title>视图显示</Title>
-    <Option onClick={onCustomChange.bind(this, { listView: 'LIST' })}>
+    <Option onClick={onCustomChange.bind(this, { contentsLayout: 'LIST' })}>
       <OptionText>列表视图</OptionText>
-      <OptionIcon src={`${ICON_CMD}/check2.svg`} active={listView === 'LIST'} />
+      <OptionIcon
+        src={`${ICON_CMD}/check2.svg`}
+        active={contentsLayout === 'LIST'}
+      />
     </Option>
-    <Option onClick={onCustomChange.bind(this, { listView: 'DIGEST' })}>
+    <Option onClick={onCustomChange.bind(this, { contentsLayout: 'DIGEST' })}>
       <OptionText active>摘要视图</OptionText>
       <OptionIcon
         src={`${ICON_CMD}/check2.svg`}
-        active={listView === 'DIGEST'}
+        active={contentsLayout === 'DIGEST'}
       />
     </Option>
     <Didiver />

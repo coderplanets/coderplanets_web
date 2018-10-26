@@ -25,6 +25,7 @@ const PagedContents = ({
   onTitleSelect,
   emptyPrefix,
   community,
+  accountInfo,
 }) => (
   <React.Fragment>
     <ContentList
@@ -35,6 +36,7 @@ const PagedContents = ({
       emptyPrefix={emptyPrefix}
       community={community}
       onTitleSelect={onTitleSelect}
+      accountInfo={accountInfo}
     />
 
     <Pagi
@@ -67,6 +69,14 @@ PagedContents.propTypes = {
   community: PropTypes.string,
   onPageChange: PropTypes.func,
   onTitleSelect: PropTypes.func,
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
 }
 
 PagedContents.defaultProps = {
@@ -77,6 +87,14 @@ PagedContents.defaultProps = {
   community: 'javascript',
   onPageChange: debug,
   onTitleSelect: debug,
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: 'DIGEST',
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
 }
 
 export default PagedContents

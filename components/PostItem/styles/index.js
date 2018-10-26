@@ -20,7 +20,7 @@ export const Wrapper = styled.article`
 `
 export const ReadedLabel = styled.div`
   position: absolute;
-  top: 15px;
+  top: 14px;
   left: -30px;
   font-size: 0.75rem;
   color: ${theme('thread.articleDigest')};
@@ -38,13 +38,19 @@ export const SecondHalf = styled.ul`
   margin-left: 10px;
   margin-top: -10px;
 `
-export const Avatar = styled.img`
+
+export const Avatar = styled(Img)`
   width: 42px;
   height: 42px;
   border-radius: 100%;
   opacity: ${theme('avatarOpacity')};
+  display: block;
+  margin-top: 2px;
 `
-
+export const SmallAvatar = styled(Avatar)`
+  width: 35px;
+  height: 35px;
+`
 export const Breif = styled.div`
   display: flex;
   flex-grow: 1;
@@ -90,7 +96,6 @@ export const Extra = styled.li`
   font-size: 0.85rem;
   color: ${theme('thread.extraInfo')};
 `
-
 export const BodyDigest = styled.li`
   margin-top: 5px;
   color: ${theme('thread.articleDigest')};
@@ -98,4 +103,20 @@ export const BodyDigest = styled.li`
   white-space: normal;
   display: block;
   font-size: 0.85rem;
+`
+export const CommentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+`
+export const CommentIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  display: block;
+`
+export const CommentNum = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 0.9rem;
 `

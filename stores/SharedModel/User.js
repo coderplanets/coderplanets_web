@@ -56,7 +56,10 @@ export const Achievement = t.model('Achievement', {
 })
 
 const Customization = t.model('Customization', {
-  listView: t.optional(t.enumeration('listView', ['DIGEST', 'LIST']), 'DIGEST'),
+  contentsLayout: t.optional(
+    t.enumeration('contentsLayout', ['DIGEST', 'LIST']),
+    'DIGEST'
+  ),
   markViewed: t.optional(t.boolean, true),
   displayDensity: t.optional(
     t.enumeration('displayDensity', ['20', '25', '30']),

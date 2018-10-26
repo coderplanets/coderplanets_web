@@ -8,15 +8,19 @@ export const Wrapper = styled.div`
 `
 export const InnerBtnWrapper = styled.div`
   display: flex;
+  align-items: center;
   &:hover {
     cursor: pointer;
   }
 `
-
 export const FilterIcon = styled(Img)`
-  fill: ${theme('font')};
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  margin-left: 3px;
+  fill: ${theme('banner.desc')};
+  width: 14px;
+  height: 13px;
+  margin-left: 5px;
+  display: block;
+  transform: rotate(90deg);
+  ${InnerBtnWrapper}:hover & {
+    fill: ${theme('banner.title')};
+  }
 `
