@@ -5,6 +5,7 @@ import { FiltrPanelWrapper } from './styles'
 import TimeFilter from './TimeFilter'
 import SortFilter from './SortFilter'
 import LengthFilter from './LengthFilter'
+import ViewedFilter from './ViewedFilter'
 // job
 import JobSalaryFilter from './JobSalaryFilter'
 import JobExpFilter from './JobExpFilter'
@@ -25,6 +26,7 @@ const FilterPanel = ({ thread, activeFilter, onSelect }) => {
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
+          <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
         </FiltrPanelWrapper>
       )
     }

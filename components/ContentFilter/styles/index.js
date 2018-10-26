@@ -15,6 +15,7 @@ export const MainFilterWrapper = styled.div`
 `
 export const ActiveTagsWrapper = styled.div`
   margin-left: 15px;
+  margin-top: -1px;
 `
 export const FiltrPanelWrapper = styled.div`
   display: flex;
