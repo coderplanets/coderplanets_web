@@ -8,7 +8,7 @@ import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles/filter_button'
 
 import FilterPanel from './FilterPanel'
 
-const FilterButton = ({ thread, onSelect, activeFilter }) => (
+const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
@@ -17,6 +17,7 @@ const FilterButton = ({ thread, onSelect, activeFilter }) => (
         <FilterPanel
           thread={thread}
           onSelect={onSelect}
+          isLogin={isLogin}
           activeFilter={activeFilter}
         />
       }

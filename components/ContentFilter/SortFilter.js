@@ -5,6 +5,7 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
@@ -18,30 +19,28 @@ const SortFilter = ({ activeFilter, onSelect }) => (
       <SelectIcon src={`${ICON_CMD}/click.svg`} />
       <SelectTitle>排序</SelectTitle>
     </SelectLable>
+    <LabelDivider />
+
     <SelectItem
-      item="MOST_VIEWS"
-      active={activeFilter.sort}
+      active={activeFilter.sort === FILTER.MOST_VIEWS}
       onClick={onSelect.bind(this, { sort: FILTER.MOST_VIEWS })}
     >
       最多浏览
     </SelectItem>
     <SelectItem
-      item="MOST_STARS"
-      active={activeFilter.sort}
+      active={activeFilter.sort === FILTER.MOST_STARS}
       onClick={onSelect.bind(this, { sort: FILTER.MOST_STARS })}
     >
       最多点赞
     </SelectItem>
     <SelectItem
-      item="MOST_FAVORITES"
-      active={activeFilter.sort}
+      active={activeFilter.sort === FILTER.MOST_FAVORITES}
       onClick={onSelect.bind(this, { sort: FILTER.MOST_FAVORITES })}
     >
       最多收藏
     </SelectItem>
     <SelectItem
-      item="MOST_COMMENTS"
-      active={activeFilter.sort}
+      active={activeFilter.sort === FILTER.MOST_COMMENTS}
       onClick={onSelect.bind(this, { sort: FILTER.MOST_COMMENTS })}
     >
       最多评论

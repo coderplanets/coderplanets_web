@@ -13,7 +13,6 @@ import TagsBar from '../TagsBar'
 import {
   Affix,
   ContentFilter,
-  Maybe,
   PublishLabel,
   PagedContents,
 } from '../../components'
@@ -48,6 +47,7 @@ class PostsThreadContainer extends React.Component {
       filtersData,
       activePost,
       curRoute,
+      isLogin,
     } = postsThread
 
     const { mainPath } = curRoute
@@ -58,16 +58,16 @@ class PostsThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper>
-              <ContentFilter
-                thread={THREAD.POST}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-                totalCount={totalCount}
-              />
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper>
+            {/* TODO: show when url has tag query and totalCount = 0 */}
+            <ContentFilter
+              thread={THREAD.POST}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              isLogin={isLogin}
+              totalCount={totalCount}
+            />
+          </FilterWrapper>
 
           <PagedContents
             data={pagedPostsData}

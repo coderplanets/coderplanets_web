@@ -23,13 +23,13 @@ const SettingMenu = () => (
       <OptionIcon src={`${ICON_CMD}/check2.svg`} active />
     </Option>
     <Didiver />
-    <Title>阅读提示</Title>
+    <Title>阅读标记</Title>
     <Option>
-      <OptionText>显示已读</OptionText>
+      <OptionText>已读标记</OptionText>
       <OptionIcon src={`${ICON_CMD}/check2.svg`} />
     </Option>
     <Option>
-      <OptionText active>不显已读</OptionText>
+      <OptionText active>不显标记</OptionText>
       <OptionIcon src={`${ICON_CMD}/check2.svg`} active />
     </Option>
     <Didiver />

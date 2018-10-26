@@ -163,4 +163,8 @@ export const FILTER = {
   // length
   MOST_WORDS: 'MOST_WORDS',
   LEAST_WORDS: 'LEAST_WORDS',
+
+  // READ
+  READED: 'READED',
+  UNREAD: 'UNREAD',
 }

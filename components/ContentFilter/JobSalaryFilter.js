@@ -5,29 +5,34 @@ import { ICON_CMD, LABEL_POOL } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
+  LeftAlignWrapper,
   SelectItem,
 } from './styles'
 
-import { FILTER, uid } from '../../utils'
+import { uid } from '../../utils'
 
-const JobSalaryFilter = ({ onSelect }) => (
+const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLable>
       <SelectIcon src={`${ICON_CMD}/money_frame.svg`} />
       <SelectTitle>月薪</SelectTitle>
     </SelectLable>
+    <LabelDivider />
 
-    {LABEL_POOL.salary.data.map(item => (
-      <SelectItem
-        key={uid.gen()}
-        active={false}
-        onClick={onSelect.bind(this, { when: FILTER.TODAY })}
-      >
-        {item}
-      </SelectItem>
-    ))}
+    <LeftAlignWrapper>
+      {LABEL_POOL.salary.data.map(item => (
+        <SelectItem
+          key={uid.gen()}
+          active={activeFilter.jobSalary === item}
+          onClick={onSelect.bind(this, { jobSalary: item })}
+        >
+          {item}
+        </SelectItem>
+      ))}
+    </LeftAlignWrapper>
   </ColumnWrapper>
 )
 

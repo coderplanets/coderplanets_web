@@ -47,6 +47,7 @@ export const outAnchor = () => store.setHeaderFix(true)
 export function loadPosts(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
+  const userHasLogin = store.isLogin
   const community = mainPath
   store.markState({ curView: TYPE.LOADING })
 
@@ -59,6 +60,7 @@ export function loadPosts(page = 1) {
       tag: store.activeTagData.title,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
@@ -70,8 +72,9 @@ export function loadPosts(page = 1) {
 }
 
 export function onFilterSelect(option) {
+  debug('onFilterSelect option: ', option)
   store.selectFilter(option)
-  loadPosts()
+  // loadPosts()
 }
 
 export function onTagSelect(tag) {

@@ -5,6 +5,7 @@ import { ICON_CMD } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
   SelectItem,
@@ -18,30 +19,27 @@ const TimeFilter = ({ activeFilter, onSelect }) => (
       <SelectIcon src={`${ICON_CMD}/duration.svg`} />
       <SelectTitle>时间</SelectTitle>
     </SelectLable>
+    <LabelDivider />
     <SelectItem
-      item="TODAY"
-      active={activeFilter.when}
+      active={activeFilter.when === FILTER.TODAY}
       onClick={onSelect.bind(this, { when: FILTER.TODAY })}
     >
       今天
     </SelectItem>
     <SelectItem
-      item="THIS_WEEK"
-      active={activeFilter.when}
+      active={activeFilter.when === FILTER.THIS_WEEK}
       onClick={onSelect.bind(this, { when: FILTER.THIS_WEEK })}
     >
       本周
     </SelectItem>
     <SelectItem
-      item="THIS_MONTH"
-      active={activeFilter.when}
+      active={activeFilter.when === FILTER.THIS_MONTH}
       onClick={onSelect.bind(this, { when: FILTER.THIS_MONTH })}
     >
       本月
     </SelectItem>
     <SelectItem
-      item="THIS_YEAR"
-      active={activeFilter.when}
+      active={activeFilter.when === FILTER.THIS_YEAR}
       onClick={onSelect.bind(this, { when: FILTER.THIS_YEAR })}
     >
       今年

@@ -5,29 +5,34 @@ import { LABEL_POOL } from '../../config'
 import {
   ColumnWrapper,
   SelectLable,
+  LabelDivider,
   SelectIcon,
   SelectTitle,
+  LeftAlignWrapper,
   SelectItem,
 } from './styles'
 
-import { FILTER, uid } from '../../utils'
+import { uid } from '../../utils'
 
-const JobExpFilter = ({ onSelect }) => (
+const JobExpFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
     <SelectLable>
       <SelectIcon src={LABEL_POOL.exp.iconSrc} />
-      <SelectTitle>工作经验</SelectTitle>
+      <SelectTitle>经验</SelectTitle>
     </SelectLable>
+    <LabelDivider />
 
-    {LABEL_POOL.exp.data.map(item => (
-      <SelectItem
-        key={uid.gen()}
-        active={false}
-        onClick={onSelect.bind(this, { when: FILTER.TODAY })}
-      >
-        {item}
-      </SelectItem>
-    ))}
+    <LeftAlignWrapper>
+      {LABEL_POOL.exp.data.map(item => (
+        <SelectItem
+          key={uid.gen()}
+          active={activeFilter.jobExp === item}
+          onClick={onSelect.bind(this, { jobExp: item })}
+        >
+          {item}
+        </SelectItem>
+      ))}
+    </LeftAlignWrapper>
   </ColumnWrapper>
 )
 
