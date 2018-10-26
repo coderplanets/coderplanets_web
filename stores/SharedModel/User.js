@@ -60,6 +60,7 @@ const Customization = t.model('Customization', {
     t.enumeration('contentsLayout', ['DIGEST', 'LIST']),
     'DIGEST'
   ),
+  contentDivider: t.optional(t.boolean, false),
   markViewed: t.optional(t.boolean, true),
   displayDensity: t.optional(
     t.enumeration('displayDensity', ['20', '25', '30']),

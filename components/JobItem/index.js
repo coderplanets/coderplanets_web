@@ -23,12 +23,13 @@ const debug = makeDebugger('c:JobItem:index')
 
 const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
   const {
-    customization: { contentsLayout },
+    customization: { contentsLayout, contentDivider },
   } = accountInfo
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
+      divider={contentDivider}
       onClick={onTitleSelect}
     >
       {renderReadMark(entry, accountInfo)}

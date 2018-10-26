@@ -9,10 +9,13 @@ export const Wrapper = styled.article`
   align-items: center;
   padding-left: 8px;
   padding-right: 8px;
-  padding-top: 6px;
-  padding-bottom: 6px;
   border-radius: 4px;
   opacity: ${({ opacity }) => opacity};
+
+  padding-top: ${({ divider }) => (divider ? '10px' : '6px')};
+  padding-bottom: ${({ divider }) => (divider ? '10px' : '6px')};
+  border-bottom: ${({ divider }) => (divider ? '1px solid' : '0')};
+  border-bottom-color: #dce5e6;
 
   &:hover {
     cursor: pointer;

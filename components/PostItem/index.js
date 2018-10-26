@@ -22,11 +22,14 @@ const debug = makeDebugger('c:PostItem:index')
 const PostItem = ({ entry, active, onTitleSelect, accountInfo }) => {
   // debug('customization --> ', customization)
   const {
-    customization: { contentsLayout },
+    customization: { contentsLayout, contentDivider },
   } = accountInfo
 
   return (
-    <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
+    <Wrapper
+      opacity={getOpacity(entry, active, accountInfo)}
+      divider={contentDivider}
+    >
       {renderReadMark(entry, accountInfo)}
       {contentsLayout === 'DIGEST' ? (
         <DigestView entry={entry} onTitleSelect={onTitleSelect} />

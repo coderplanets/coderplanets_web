@@ -67,6 +67,7 @@ const yellow = {
     articleDigest: descText,
     articleTag: '#526482',
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
     articleSpliter: '#decfb0',

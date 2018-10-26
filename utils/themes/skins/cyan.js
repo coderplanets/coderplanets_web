@@ -66,6 +66,7 @@ const cyan = {
     articleDigest: '#a2c0c5',
     articleTag: '#71979a',
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: '#84C3C8',
     articleSpliter: '#dee8ea',

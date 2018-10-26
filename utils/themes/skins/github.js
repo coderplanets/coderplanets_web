@@ -66,6 +66,7 @@ const github = {
     articleDigest: descText,
     articleTag: '#71979a',
     articleLink: descText,
+    articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
     extraInfo: descText,
     articleSpliter: '#dee8ea',

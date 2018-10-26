@@ -18,6 +18,7 @@ import {
   BodyDigest,
   Extra,
 } from './styles'
+
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
