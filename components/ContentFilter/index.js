@@ -39,6 +39,7 @@ const ContentFilter = ({
       <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
     </MainFilterWrapper>
     <FilterResult
+      thread={thread}
       totalCount={totalCount}
       customization={customization}
       onCustomChange={onCustomChange}

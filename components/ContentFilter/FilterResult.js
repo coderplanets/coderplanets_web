@@ -12,7 +12,12 @@ import {
 
 import SettingMenu from './SettingMenu'
 
-const FilterResult = ({ totalCount, customization, onCustomChange }) => (
+const FilterResult = ({
+  thread,
+  totalCount,
+  customization,
+  onCustomChange,
+}) => (
   <Wrapper>
     <ResultText>结果共 {totalCount} 条</ResultText>
     <Popover
@@ -20,6 +25,7 @@ const FilterResult = ({ totalCount, customization, onCustomChange }) => (
       trigger="hover"
       content={
         <SettingMenu
+          thread={thread}
           customization={customization}
           onCustomChange={onCustomChange}
         />

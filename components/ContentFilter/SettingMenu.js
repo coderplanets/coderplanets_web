@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -11,27 +12,41 @@ import {
   OptionText,
 } from './styles/setting_menu'
 
+import { THREAD } from '../../utils'
+
 const SettingMenu = ({
+  thread,
   customization: { contentsLayout, markViewed, displayDensity },
   onCustomChange,
 }) => (
   <Wrapper>
-    <Title>视图显示</Title>
-    <Option onClick={onCustomChange.bind(this, { contentsLayout: 'LIST' })}>
-      <OptionText>列表视图</OptionText>
-      <OptionIcon
-        src={`${ICON_CMD}/check2.svg`}
-        active={contentsLayout === 'LIST'}
-      />
-    </Option>
-    <Option onClick={onCustomChange.bind(this, { contentsLayout: 'DIGEST' })}>
-      <OptionText active>摘要视图</OptionText>
-      <OptionIcon
-        src={`${ICON_CMD}/check2.svg`}
-        active={contentsLayout === 'DIGEST'}
-      />
-    </Option>
-    <Didiver />
+    <React.Fragment>
+      {!R.contains(thread, [THREAD.VIDEO, THREAD.REPO]) ? (
+        <React.Fragment>
+          <Title>视图显示</Title>
+          <Option
+            onClick={onCustomChange.bind(this, { contentsLayout: 'LIST' })}
+          >
+            <OptionText>列表视图</OptionText>
+            <OptionIcon
+              src={`${ICON_CMD}/check2.svg`}
+              active={contentsLayout === 'LIST'}
+            />
+          </Option>
+          <Option
+            onClick={onCustomChange.bind(this, { contentsLayout: 'DIGEST' })}
+          >
+            <OptionText active>摘要视图</OptionText>
+            <OptionIcon
+              src={`${ICON_CMD}/check2.svg`}
+              active={contentsLayout === 'DIGEST'}
+            />
+          </Option>
+          <Didiver />
+        </React.Fragment>
+      ) : null}
+    </React.Fragment>
+
     <Title>阅读标记</Title>
     <Option onClick={onCustomChange.bind(this, { markViewed: true })}>
       <OptionText>已读标记</OptionText>
