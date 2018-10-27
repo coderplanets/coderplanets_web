@@ -47,6 +47,10 @@ const solarizedDark = {
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: darken(0.1, primaryColor),
+    cardBg: '#002A34',
+    cardBorder: '#003B49',
+    cardLogo: '#006177',
+    cardTitle: '#007373',
   },
   banner: {
     title: primaryColor,

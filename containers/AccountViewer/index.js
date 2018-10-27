@@ -60,7 +60,6 @@ class AccountViewerContainer extends React.Component {
     } = this.props
 
     const { contributes } = accountInfo
-    console.log('accountInfo ->->', accountInfo)
 
     return (
       <AccountWrapper>

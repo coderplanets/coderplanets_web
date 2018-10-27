@@ -15,7 +15,9 @@ const user = gql`
         htmlUrl
         login
       }
-      ${F.userContributes}
+      contributes {
+        ${F.userContributes}
+      }
     }
   }
 `
@@ -33,7 +35,9 @@ const account = gql`
         htmlUrl
         login
       }
-      ${F.userContributes}
+      contributes {
+        ${F.userContributes}
+      }
     }
   }
 `

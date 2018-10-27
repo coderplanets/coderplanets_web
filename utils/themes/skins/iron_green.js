@@ -45,6 +45,10 @@ const iconGreen = {
     fixed: bannerBg,
     tabActive: darken(0.05, primaryColor),
     tabOthers: lighten(0.08, descText),
+    cardBg: '#e6ecec',
+    cardBorder: '#ccd8d6',
+    cardLogo: '#A0BBBD',
+    cardTitle: '#a0b5b9',
   },
   banner: {
     title: '#c3cdd0',
