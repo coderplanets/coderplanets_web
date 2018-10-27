@@ -50,7 +50,14 @@ const SettingMenu = ({
     <Title>阅读辅助</Title>
     <Option onClick={onCustomChange.bind(this, { markViewed: !markViewed })}>
       <OptionText>已读标记</OptionText>
-      <OptionIcon src={`${ICON_CMD}/check2.svg`} active={markViewed === true} />
+      <OptionIcon
+        src={
+          markViewed === true
+            ? `${ICON_CMD}/turn_on.svg`
+            : `${ICON_CMD}/turn_off.svg`
+        }
+        active
+      />
     </Option>
 
     {R.contains(thread, [THREAD.POST, THREAD.JOB]) ? (
@@ -62,8 +69,12 @@ const SettingMenu = ({
         >
           <OptionText active>辅助分界</OptionText>
           <OptionIcon
-            src={`${ICON_CMD}/check2.svg`}
-            active={contentDivider === true}
+            src={
+              contentDivider === true
+                ? `${ICON_CMD}/turn_on.svg`
+                : `${ICON_CMD}/turn_off.svg`
+            }
+            active
           />
         </Option>
         <Didiver />
