@@ -45,6 +45,10 @@ const github = {
     fixed: contentBoxBg,
     tabActive: '#EB6224', // articleTitle
     tabOthers: lighten(0.1, '#849ca0'),
+    cardBg: '#e6ecec',
+    cardBorder: '#ccd8d6',
+    cardLogo: '#A0BBBD',
+    cardTitle: '#a0b5b9',
   },
   banner: {
     title: '#949494',

@@ -46,6 +46,10 @@ const blue = {
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: darken(0.1, primaryColor),
+    cardBg: '#e6ecec',
+    cardBorder: '#ccd8d6',
+    cardLogo: '#A0BBBD',
+    cardTitle: '#a0b5b9',
   },
   banner: {
     title: primaryColor,

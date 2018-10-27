@@ -10,12 +10,12 @@ export const Wrapper = styled.div`
 `
 export const CardWrapper = styled.div`
   position: absolute;
-  background: #e6ecec;
+  background: ${theme('header.cardBg')};
   border-radius: 4px;
   width: 150px;
   height: 68px;
   border: 1px solid;
-  border-color: #ccd8d6;
+  border-color: ${theme('header.cardBorder')};
   z-index: 1000;
   top: 4px;
 `
@@ -32,10 +32,6 @@ export const CommunityLogo = styled(Img)`
   height: 50px;
   margin-right: 7px;
 `
-export const CommunityInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 export const BetaLogo = styled(Img)`
   fill: #ef8145;
   height: 40px;
@@ -43,18 +39,22 @@ export const BetaLogo = styled(Img)`
   margin-top: 5px;
   margin-left: 3px;
 `
+export const CommunityInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: -2px;
+`
 export const LogoText = styled.div`
-  color: ${theme('banner.desc')};
+  color: ${theme('header.cardLogo')};
   font-size: 0.8rem;
   font-family: cursive;
-  text-align: center;
 `
 export const CommunityTitle = styled.div`
-  color: ${theme('banner.title')};
+  color: ${theme('header.cardTitle')};
   font-size: 1rem;
   font-weight: bold;
+  margin-top: -2px;
 `
-
 export const Breadcrumbs = styled.div`
   max-width: 520px;
   margin-left: 160px;
