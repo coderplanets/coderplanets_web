@@ -6,7 +6,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import NormalView from './NormalView'
-import SimpleView from './SimpleView'
+import BriefView from './BriefView'
 
 import { makeDebugger, THREAD } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -18,7 +18,7 @@ const Tabber = ({ source, active, onChange, layout }) => (
     {layout === 'DIGEST' ? (
       <NormalView source={source} active={active} onChange={onChange} />
     ) : (
-      <SimpleView source={source} active={active} onChange={onChange} />
+      <BriefView source={source} active={active} onChange={onChange} />
     )}
   </React.Fragment>
 )

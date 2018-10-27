@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import DigestView from './DigestView'
-import SimpleView from './SimpleView'
+import BriefView from './BriefView'
 
 import { makeDebugger } from '../../utils'
 
@@ -21,7 +21,7 @@ const Navigator = ({ curCommunity, layout }) => (
     {layout === 'DIGEST' ? (
       <DigestView />
     ) : (
-      <SimpleView curCommunity={curCommunity} />
+      <BriefView curCommunity={curCommunity} />
     )}
   </React.Fragment>
 )

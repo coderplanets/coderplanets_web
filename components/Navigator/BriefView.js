@@ -17,11 +17,11 @@ import {
   DotDivider,
   SiteLink,
   LogoHolder,
-} from './style/simple_view'
+} from './styles/brief_view'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const SimpleView = ({ curCommunity: { logo, title } }) => (
+const BriefView = ({ curCommunity: { logo, title } }) => (
   <Wrapper>
     <CardWrapper>
       <CommunityWrapper>
@@ -47,4 +47,4 @@ const SimpleView = ({ curCommunity: { logo, title } }) => (
   </Wrapper>
 )
 
-export default SimpleView
+export default BriefView

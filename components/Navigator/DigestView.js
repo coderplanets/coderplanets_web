@@ -13,7 +13,7 @@ import {
   ShortDesc,
   DotDivider,
   SiteLink,
-} from './style'
+} from './styles'
 
 const DigestView = () => (
   <Breadcrumbs>

@@ -7,11 +7,11 @@ import {
   Wrapper,
   BannerContentWrapper,
   TabberWrapper,
-} from './styles/simple_view'
+} from './styles/brief_view'
 
 import { tabberChange } from './logic'
 
-const SimpleView = ({ community, activeThread, layout }) => (
+const BriefView = ({ community, activeThread, layout }) => (
   <Wrapper>
     <BannerContentWrapper>
       <TabberWrapper>
@@ -26,4 +26,4 @@ const SimpleView = ({ community, activeThread, layout }) => (
   </Wrapper>
 )
 
-export default SimpleView
+export default BriefView

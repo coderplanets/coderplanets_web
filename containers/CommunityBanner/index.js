@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 import { makeDebugger, storePlug } from '../../utils'
 
 import DigestView from './DigestView'
-import SimpleView from './SimpleView'
+import BriefView from './BriefView'
 
 import * as logic from './logic'
 
@@ -27,7 +27,9 @@ class CommunityBannerContainer extends React.Component {
   render() {
     const { communityBanner } = this.props
     const {
-      accountInfo: { customization: { bannerLayout } },
+      accountInfo: {
+        customization: { bannerLayout },
+      },
       viewing: { community, activeThread },
     } = communityBanner
 
@@ -40,7 +42,7 @@ class CommunityBannerContainer extends React.Component {
             layout={bannerLayout}
           />
         ) : (
-          <SimpleView
+          <BriefView
             community={community}
             activeThread={activeThread}
             layout={bannerLayout}

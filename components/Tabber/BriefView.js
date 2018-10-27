@@ -1,12 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
-import { Wrapper, TabItem } from './styles/simple_view'
+import { Wrapper, TabItem } from './styles/brief_view'
 import TabIcon from './TabIcon'
 
 import { uid, Trans } from '../../utils'
 
-const SimpleView = ({ source, active, onChange }) => {
+const BriefView = ({ source, active, onChange }) => {
   const tabitems = R.values(source)
 
   return (
@@ -25,4 +25,4 @@ const SimpleView = ({ source, active, onChange }) => {
   )
 }
 
-export default SimpleView
+export default BriefView
