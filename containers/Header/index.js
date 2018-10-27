@@ -62,6 +62,7 @@ const Header = ({
   fixed,
   isLogin,
   accountInfo,
+  curCommunity,
 }) => (
   <HeaderWrapper
     id="whereCallShowDoraemon"
@@ -72,7 +73,10 @@ const Header = ({
       {fixed ? (
         <MiniMap activeInfo={activeInfo} curRoute={curRoute} />
       ) : (
-        <Navigator />
+        <Navigator
+          curCommunity={curCommunity}
+          layout={accountInfo.customization.bannerLayout}
+        />
       )}
     </RouterWrapper>
     <AddOns />
@@ -111,6 +115,7 @@ class HeaderContainer extends React.Component {
       accountInfo,
       isLogin,
       activeInfo,
+      curCommunity,
     } = header
 
     return (
@@ -125,6 +130,7 @@ class HeaderContainer extends React.Component {
               accountInfo={accountInfo}
               isLogin={isLogin}
               activeInfo={activeInfo}
+              curCommunity={curCommunity}
             />
           </Affix>
         </AffixHeader>
@@ -136,6 +142,7 @@ class HeaderContainer extends React.Component {
             accountInfo={accountInfo}
             isLogin={isLogin}
             activeInfo={activeInfo}
+            curCommunity={curCommunity}
           />
         </RawHeader>
       </div>

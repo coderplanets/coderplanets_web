@@ -5114,6 +5114,12 @@ hoist-non-react-statics@^2.3.1:
   version "2.3.1"
   resolved "http://r.cnpmjs.org/hoist-non-react-statics/download/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
 
+hoist-non-react-statics@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.0.1.tgz#fba3e7df0210eb9447757ca1a7cb607162f0a364"
+  dependencies:
+    react-is "^16.3.2"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "http://r.cnpmjs.org/home-or-tmp/download/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -7192,20 +7198,20 @@ mkdirp@0.5.0:
   dependencies:
     minimist "0.0.8"
 
-mobx-react@5.2.6:
-  version "5.2.6"
-  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-5.2.6.tgz#1acf6bbbf4f3b52874b91ff4a1d49fc3aae9a5d5"
+mobx-react@5.3.6:
+  version "5.3.6"
+  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-5.3.6.tgz#0bead0173aed7d12ace4981b53c28db4d61de9ef"
   dependencies:
-    hoist-non-react-statics "^2.5.0"
+    hoist-non-react-statics "^3.0.0"
     react-lifecycles-compat "^3.0.2"
 
-mobx-state-tree@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/mobx-state-tree/-/mobx-state-tree-3.3.0.tgz#a4bbe1bbd64af61fe2f842df9a882e3e7efb0783"
+mobx-state-tree@3.7.1:
+  version "3.7.1"
+  resolved "https://registry.npmjs.org/mobx-state-tree/-/mobx-state-tree-3.7.1.tgz#161fc1b46224d3defa28b482914d3aa8e1b80ed7"
 
-mobx@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.npmjs.org/mobx/-/mobx-4.4.0.tgz#7fd1b7879cac642988acc0e6e2351e93e3970d12"
+mobx@4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npmjs.org/mobx/-/mobx-4.5.2.tgz#d7ddfb1ac953197dff62e1da7175c5c8ad9de790"
 
 modify-values@^1.0.0:
   version "1.0.1"
@@ -8842,14 +8848,14 @@ react-content-loader@3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/react-content-loader/-/react-content-loader-3.1.2.tgz#98230b4604b4b744eaa2d3fc88917dd988df6766"
 
-react-dom@16.4.2:
-  version "16.4.2"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
+react-dom@16.6.0:
+  version "16.6.0"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.6.0.tgz#6375b8391e019a632a89a0988bce85f0cc87a92f"
   dependencies:
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.10.0"
 
 react-error-overlay@4.0.0:
   version "4.0.0"
@@ -8867,6 +8873,10 @@ react-intl@2.4.0:
 react-is@^16.3.1:
   version "16.4.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
+
+react-is@^16.3.2:
+  version "16.6.0"
+  resolved "https://registry.npmjs.org/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
 
 react-is@^16.4.2:
   version "16.4.2"
@@ -9002,14 +9012,14 @@ react-waypoint@^8.0.0:
     consolidated-events "^1.1.0"
     prop-types "^15.0.0"
 
-react@16.4.2:
-  version "16.4.2"
-  resolved "https://registry.npmjs.org/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
+react@16.6.0:
+  version "16.6.0"
+  resolved "https://registry.npmjs.org/react/-/react-16.6.0.tgz#b34761cfaf3e30f5508bc732fb4736730b7da246"
   dependencies:
-    fbjs "^0.8.16"
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    prop-types "^15.6.2"
+    scheduler "^0.10.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -9620,6 +9630,13 @@ sane@^2.0.0:
 sax@^1.2.1, sax@^1.2.4:
   version "1.2.4"
   resolved "http://r.cnpmjs.org/sax/download/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scheduler@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.10.0.tgz#7988de90fe7edccc774ea175a783e69c40c521e1"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 schema-utils@^0.4.4, schema-utils@^0.4.5:
   version "0.4.7"

@@ -5,60 +5,35 @@
  */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import DigestView from './DigestView'
+import BriefView from './BriefView'
 
-import Popover from '../Popover'
-
-import {
-  Breadcrumbs,
-  Logo,
-  LogoText,
-  BetaLogo,
-  SiteMapWrapper,
-  ShortAddr,
-  ShortDesc,
-  DotDivider,
-  SiteLink,
-} from './style'
 import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Navigator:index')
 /* eslint-enable no-unused-vars */
 
-const Navigator = () => (
-  <Breadcrumbs>
-    <Logo src={`${ICON_CMD}/keyboard_logo.svg`} />
-    <Popover
-      placement="bottom"
-      trigger="hover"
-      content={
-        <ShortAddr>
-          <ShortDesc>暗号: https://</ShortDesc>
-          cps.fun
-          <ShortDesc> (备案中)</ShortDesc>
-        </ShortAddr>
-      }
-    >
-      <LogoText>Coderplanets</LogoText>
-    </Popover>
-    <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-    <SiteMapWrapper>
-      <SiteLink>首页</SiteLink>
-      <DotDivider />
-      <SiteLink>社区</SiteLink>
-    </SiteMapWrapper>
-  </Breadcrumbs>
+const Navigator = ({ curCommunity, layout }) => (
+  <React.Fragment>
+    {layout === 'DIGEST' ? (
+      <DigestView />
+    ) : (
+      <BriefView curCommunity={curCommunity} />
+    )}
+  </React.Fragment>
 )
 
-/*
-   Navigator.propTypes = {
-   // https://www.npmjs.com/package/prop-types
-   }
+Navigator.propTypes = {
+  curCommunity: PropTypes.object,
+  layout: PropTypes.oneOf(['DIGEST', 'BRIEF']),
+}
 
-   Navigator.defaultProps = {}
- */
+Navigator.defaultProps = {
+  curCommunity: {},
+  layout: 'DIGEST',
+}
 
 export default Navigator

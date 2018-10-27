@@ -1,3 +1,4 @@
+import { toJS } from 'mobx'
 import { inject, observer } from 'mobx-react'
 
 import R from 'ramda'
@@ -77,13 +78,16 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
 
 export const stripMobx = obj => {
   if (!obj) return obj
+  return toJS(obj)
 
+  /*
   return R.map(v => {
     if (isObject(v) && R.has('$mobx')) {
       return v.toJSON()
     }
     return v
   }, obj)
+  */
 }
 
 /*
