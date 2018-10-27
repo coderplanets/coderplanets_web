@@ -108,4 +108,4 @@ const SettingMenu = ({
   </Wrapper>
 )
 
-export default SettingMenu
+export default React.memo(SettingMenu)
