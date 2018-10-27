@@ -56,6 +56,10 @@ export const Achievement = t.model('Achievement', {
 })
 
 const Customization = t.model('Customization', {
+  bannerLayout: t.optional(
+    t.enumeration('contentsLayout', ['DIGEST', 'BRIEF']),
+    'DIGEST'
+  ),
   contentsLayout: t.optional(
     t.enumeration('contentsLayout', ['DIGEST', 'LIST']),
     'DIGEST'

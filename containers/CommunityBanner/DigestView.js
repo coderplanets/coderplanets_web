@@ -42,7 +42,7 @@ const CommunityBrief = ({ content }) => (
   </CommunityWrapper>
 )
 
-const DigestView = ({ community, activeThread }) => (
+const DigestView = ({ community, activeThread, layout }) => (
   <Wrapper>
     <BannerContentWrapper>
       <CommunityBrief content={community} />
@@ -52,6 +52,7 @@ const DigestView = ({ community, activeThread }) => (
           source={community.threads}
           onChange={tabberChange}
           active={activeThread}
+          layout={layout}
         />
       </TabberWrapper>
     </BannerContentWrapper>

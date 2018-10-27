@@ -73,7 +73,10 @@ const Header = ({
       {fixed ? (
         <MiniMap activeInfo={activeInfo} curRoute={curRoute} />
       ) : (
-        <Navigator curCommunity={curCommunity} />
+        <Navigator
+          curCommunity={curCommunity}
+          layout={accountInfo.customization.bannerLayout}
+        />
       )}
     </RouterWrapper>
     <AddOns />

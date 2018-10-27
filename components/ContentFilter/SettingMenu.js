@@ -16,14 +16,20 @@ import { THREAD } from '../../utils'
 
 const SettingMenu = ({
   thread,
-  customization: { contentsLayout, contentDivider, markViewed, displayDensity },
+  customization: {
+    bannerLayout,
+    contentsLayout,
+    contentDivider,
+    markViewed,
+    displayDensity,
+  },
   onCustomChange,
 }) => (
   <Wrapper>
     <React.Fragment>
+      <Title>视图显示</Title>
       {!R.contains(thread, [THREAD.VIDEO, THREAD.REPO]) ? (
         <React.Fragment>
-          <Title>视图显示</Title>
           <Option
             onClick={onCustomChange.bind(this, { contentsLayout: 'LIST' })}
           >
@@ -42,9 +48,24 @@ const SettingMenu = ({
               active={contentsLayout === 'DIGEST'}
             />
           </Option>
-          <Didiver />
         </React.Fragment>
       ) : null}
+      <Option
+        onClick={onCustomChange.bind(this, {
+          bannerLayout: bannerLayout === 'DIGEST' ? 'BRIEF' : 'DIGEST',
+        })}
+      >
+        <OptionText active>扩展视图</OptionText>
+        <OptionIcon
+          src={
+            bannerLayout === 'BRIEF'
+              ? `${ICON_CMD}/turn_on.svg`
+              : `${ICON_CMD}/turn_off.svg`
+          }
+          active
+        />
+      </Option>
+      <Didiver />
     </React.Fragment>
 
     <Title>阅读辅助</Title>

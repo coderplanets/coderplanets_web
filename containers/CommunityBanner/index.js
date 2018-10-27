@@ -27,17 +27,24 @@ class CommunityBannerContainer extends React.Component {
   render() {
     const { communityBanner } = this.props
     const {
+      accountInfo: { customization: { bannerLayout } },
       viewing: { community, activeThread },
     } = communityBanner
-    const layout = 'SIMPLE'
-    /* const layout = 'DIGEST' */
 
     return (
       <div>
-        {layout === 'DIGEST' ? (
-          <DigestView community={community} activeThread={activeThread} />
+        {bannerLayout === 'DIGEST' ? (
+          <DigestView
+            community={community}
+            activeThread={activeThread}
+            layout={bannerLayout}
+          />
         ) : (
-          <SimpleView community={community} activeThread={activeThread} />
+          <SimpleView
+            community={community}
+            activeThread={activeThread}
+            layout={bannerLayout}
+          />
         )}
       </div>
     )

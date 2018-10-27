@@ -13,29 +13,27 @@ import { makeDebugger, THREAD } from '../../utils'
 const debug = makeDebugger('c:Tabber:index')
 /* eslint-enable no-unused-vars */
 
-const Tabber = ({ source, active, onChange }) => {
-  const layout = 'DIGEST2'
-  return (
-    <React.Fragment>
-      {layout === 'DIGEST' ? (
-        <NormalView source={source} active={active} onChange={onChange} />
-      ) : (
-        <SimpleView source={source} active={active} onChange={onChange} />
-      )}
-    </React.Fragment>
-  )
-}
+const Tabber = ({ source, active, onChange, layout }) => (
+  <React.Fragment>
+    {layout === 'DIGEST' ? (
+      <NormalView source={source} active={active} onChange={onChange} />
+    ) : (
+      <SimpleView source={source} active={active} onChange={onChange} />
+    )}
+  </React.Fragment>
+)
 
 Tabber.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   onChange: PropTypes.func,
   source: PropTypes.array.isRequired,
   active: PropTypes.string,
+  layout: PropTypes.oneOf(['DIGEST', 'BRIEF']),
 }
 
 Tabber.defaultProps = {
   active: THREAD.POST,
   onChange: debug,
+  layout: 'DIGEST',
 }
 
 export default React.memo(Tabber)

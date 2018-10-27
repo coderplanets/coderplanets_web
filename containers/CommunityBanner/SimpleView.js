@@ -11,7 +11,7 @@ import {
 
 import { tabberChange } from './logic'
 
-const SimpleView = ({ community, activeThread }) => (
+const SimpleView = ({ community, activeThread, layout }) => (
   <Wrapper>
     <BannerContentWrapper>
       <TabberWrapper>
@@ -19,6 +19,7 @@ const SimpleView = ({ community, activeThread }) => (
           source={community.threads}
           onChange={tabberChange}
           active={activeThread}
+          layout={layout}
         />
       </TabberWrapper>
     </BannerContentWrapper>

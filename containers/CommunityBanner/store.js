@@ -23,6 +23,9 @@ const CommunityBanner = t
     get viewing() {
       return stripMobx(self.root.viewing)
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
   }))
   .actions(self => ({
     markRoute(query) {
