@@ -7,8 +7,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
-// import Link from 'next/link'
-import { Tabs } from 'antd'
 import ReactTooltip from 'react-tooltip'
 
 import { ThemeSelector, UserBrief, Maybe } from '../../components'
@@ -17,13 +15,7 @@ import SiteSocial from './SiteSocial'
 import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
-import {
-  AccountWrapper,
-  AccountContent,
-  ThemeWrapper,
-  Divider,
-  PanerWrapper,
-} from './styles'
+import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -31,8 +23,6 @@ import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:AccountViewer')
 /* eslint-enable no-unused-vars */
-
-const { TabPane } = Tabs
 
 const ThemeSection = ({ curTheme }) => (
   <ThemeWrapper>
@@ -60,6 +50,7 @@ class AccountViewerContainer extends React.Component {
     } = this.props
 
     const { contributes } = accountInfo
+    // debug('contributes --> ', contributes)
 
     return (
       <AccountWrapper>
@@ -83,21 +74,6 @@ class AccountViewerContainer extends React.Component {
           <Divider top="10px" bottom="20px" />
 
           <ContributeMap data={contributes} />
-          <Divider top="18px" />
-          <Tabs onChange={debug} type="card">
-            <TabPane tab="最近" key="1">
-              <PanerWrapper>Content of Tab Pane 1</PanerWrapper>
-            </TabPane>
-            <TabPane tab="收藏 456" key="2">
-              <PanerWrapper>Content of Tab Pane 2</PanerWrapper>
-            </TabPane>
-            <TabPane tab="关注中 34" key="4">
-              <PanerWrapper>Content of Tab Pane 3</PanerWrapper>
-            </TabPane>
-            <TabPane tab="关注者 28" key="5">
-              <PanerWrapper>Content of Tab Pane 4</PanerWrapper>
-            </TabPane>
-          </Tabs>
         </AccountContent>
 
         {/* TODO if is others preview, then not show this */}
