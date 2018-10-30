@@ -54,18 +54,24 @@ export const MenuItemTitle = styled.div`
   display: ${({ pin }) => (pin ? 'block' : 'none')};
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
-  flex-grow: 1;
-  max-width: 50%;
-  letter-spacing: 1.5px;
+  // flex-grow: 1;
+  // max-width: 50%;
+  letter-spacing: 1.3px;
   transition: opacity 0.2s;
+
+  width: 110px;
+  margin-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   ${MenuRow}:hover & {
     opacity: 1;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
   }
   ${Container}:hover & {
     display: block;
-    flex-grow: 1;
+    // flex-grow: 1;
     max-width: 50%;
   }
 `
