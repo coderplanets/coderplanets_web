@@ -20,6 +20,7 @@ const BriefView = ({ community, activeThread, layout }) => (
           onChange={tabberChange}
           active={activeThread}
           layout={layout}
+          communityRaw={community.raw}
         />
       </TabberWrapper>
     </BannerContentWrapper>

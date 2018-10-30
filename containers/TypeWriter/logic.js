@@ -7,6 +7,7 @@ import {
   makeDebugger,
   dispatchEvent,
   THREAD,
+  ROUTE,
   EVENT,
   ERR,
   meteorState,
@@ -66,13 +67,20 @@ function publishPost() {
   const digest = getDigest(body)
   const length = countWords(body)
 
-  const variables = {
+  let variables = {
     ...store.editData,
     digest,
     length,
     communityId: store.viewing.community.id,
   }
 
+  if (store.viewing.community.raw === ROUTE.HOME) {
+    debug('add topic on it: ', ROUTE.HOME)
+    variables = R.merge(variables, { topic: 'CITY' })
+  }
+
+  console.log('create post --> ', variables)
+  // TODO: topic
   sr71$.mutate(S.createPost, variables)
 }
 

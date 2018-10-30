@@ -19,7 +19,7 @@ const NormalView = ({ source, active, onChange }) => {
           tab={
             <LableWrapper>
               <TabIcon raw={item.raw} active={active} />
-              {Trans(item.title)}
+              {item.alias ? item.alias : Trans(item.title)}
             </LableWrapper>
           }
           key={item.raw}

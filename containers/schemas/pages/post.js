@@ -36,7 +36,7 @@ export const post = `
   }
 `
 export const pagedPosts = `
-  query($filter: PagedArticleFilter, $userHasLogin: Boolean!) {
+  query($filter: PagedPostsFilter, $userHasLogin: Boolean!) {
     pagedPosts(filter: $filter) {
       entries {
         ${F.post}

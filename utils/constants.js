@@ -98,6 +98,7 @@ export const TYPE = {
 
 export const ROUTE = {
   // NOTE: the lower-case is MUST
+  HOME: 'home',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   ACTIVITIES: 'activities',
@@ -107,6 +108,9 @@ export const ROUTE = {
   USERS: 'users',
   REPOS: 'repos',
   WIKI: 'wiki',
+  SHARE: 'share',
+  CITY: 'city',
+  NEWS: 'news',
   CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
@@ -123,7 +127,10 @@ export const THREAD = {
   VIDEO: 'video',
   REPO: 'repo',
   WIKI: 'wiki',
-  MAP: 'map',
+  SHARE: 'share',
+  NEWS: 'news',
+  CITY: 'city',
+  share: 'share',
   CHEATSHEET: 'cheatsheet',
 }
 

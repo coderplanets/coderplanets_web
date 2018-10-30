@@ -9,6 +9,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  ROUTE,
   THREAD,
   $solver,
   scrollIntoEle,
@@ -61,6 +62,10 @@ export function loadPosts(page = 1) {
       community,
     },
     userHasLogin,
+  }
+
+  if (community === ROUTE.HOME) {
+    args.filter = R.merge(args.filter, { topic: 'CITY' })
   }
 
   args.filter = validFilter(args.filter)
@@ -155,13 +160,14 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (R.isEmpty(store.pagedPostsData.entries)) {
-    loadPosts()
-  }
+  /* if (R.isEmpty(store.pagedPostsData.entries)) { */
+  loadPosts()
+  /* } */
 }
 
 export function init(_store) {
   if (store) {
+    // return false
     return loadIfNeed()
   }
 
