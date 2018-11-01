@@ -46,7 +46,7 @@ const ComunityContent = ({ curRoute }) => {
       return <CheatsheetThread />
     }
     default: {
-      return <div>default</div>
+      return <PostsThread />
     }
   }
 }

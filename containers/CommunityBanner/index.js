@@ -33,6 +33,7 @@ class CommunityBannerContainer extends React.Component {
       viewing: { community, activeThread },
     } = communityBanner
 
+    /* console.log('the - fuck? ', community.threads) */
     return (
       <div>
         {bannerLayout === 'DIGEST' ? (

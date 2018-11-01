@@ -7,6 +7,7 @@ import {
   EVENT,
   ERR,
   TYPE,
+  ROUTE,
   THREAD,
   $solver,
   scrollIntoEle,
@@ -39,13 +40,8 @@ const validFilter = R.pickBy(
   )
 )
 
-export function inAnchor() {
-  store.setHeaderFix(false)
-}
-
-export function outAnchor() {
-  store.setHeaderFix(true)
-}
+export const inAnchor = () => store.setHeaderFix(false)
+export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = store.curRoute */
@@ -59,19 +55,20 @@ export function loadJobs(page = 1) {
 
   store.markState({ curView: TYPE.LOADING })
 
-  const args = {
-    /* first: 4, */
+  let args = {
     filter: {
       page,
       size: PAGE_SIZE.M,
       ...store.filtersData,
       tag: store.activeTagData.raw,
-      community,
     },
     userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
+  if (community !== ROUTE.HOME) {
+    args = R.merge(args, { community })
+  }
 
   debug('loadJobs args: ', args)
   store.markRoute({ page })

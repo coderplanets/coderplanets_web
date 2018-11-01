@@ -7,12 +7,13 @@ import {
   makeDebugger,
   dispatchEvent,
   THREAD,
+  ROUTE,
   EVENT,
   ERR,
   meteorState,
   countWords,
   extractAttachments,
-  isObject,
+  updateEditing,
 } from '../../utils'
 
 import S from './schema'
@@ -66,13 +67,20 @@ function publishPost() {
   const digest = getDigest(body)
   const length = countWords(body)
 
-  const variables = {
+  let variables = {
     ...store.editData,
     digest,
     length,
     communityId: store.viewing.community.id,
   }
 
+  if (store.viewing.community.raw === ROUTE.HOME) {
+    debug('add topic on it: ', ROUTE.HOME)
+    variables = R.merge(variables, { topic: 'CITY' })
+  }
+
+  console.log('create post --> ', variables)
+  // TODO: topic
   sr71$.mutate(S.createPost, variables)
 }
 
@@ -108,12 +116,6 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
-export const inputOnChange = (part, e) => {
-  if (!store) return false
-  const value = isObject(e) ? e.target.value : e
-  store.updateEditing({ [part]: value })
-}
-
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
 export const onUploadImageDone = url =>
@@ -142,6 +144,8 @@ const doneCleanUp = () => {
   store.reset()
   store.closePreview()
 }
+
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 // ###############################
 // Data & Error handlers

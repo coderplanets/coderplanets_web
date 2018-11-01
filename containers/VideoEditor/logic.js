@@ -8,7 +8,7 @@ import {
   asyncErr,
   ERR,
   EVENT,
-  isObject,
+  updateEditing,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -22,12 +22,6 @@ const debug = makeDebugger('L:VideoEditor')
 /* eslint-enable no-unused-vars */
 
 let store = null
-
-export const inputOnChange = (part, e) => {
-  if (!store) return false
-  const value = isObject(e) ? e.target.value : e
-  store.updateEditing({ [part]: value })
-}
 
 export function onPublish() {
   if (!store.validator('publish')) return false
@@ -47,6 +41,8 @@ export function onPublish() {
 }
 
 export function canclePublish() {}
+
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 // ###############################
 // Data & Error handlers

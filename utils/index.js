@@ -75,6 +75,7 @@ export {
   stripMobx,
   $solver,
   observerHoc,
+  updateEditing,
 } from './mobx_helper'
 
 export {

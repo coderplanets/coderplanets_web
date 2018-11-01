@@ -9,6 +9,8 @@ const createPost = gql`
     $linkAddr: String
     $copyRight: String
     $communityId: ID!
+    $tags: [Ids]
+    $topic: CmsTopic
   ) {
     createPost(
       title: $title
@@ -18,6 +20,8 @@ const createPost = gql`
       linkAddr: $linkAddr
       copyRight: $copyRight
       communityId: $communityId
+      tags: $tags
+      topic: $topic
     ) {
       id
       title

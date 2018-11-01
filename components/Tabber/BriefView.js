@@ -18,7 +18,7 @@ const BriefView = ({ source, active, onChange }) => {
           onClick={onChange.bind(this, item.raw)}
         >
           <TabIcon raw={item.raw} active={active} small />
-          {Trans(item.title)}
+          {item.alias ? item.alias : Trans(item.title)}
         </TabItem>
       ))}
     </Wrapper>

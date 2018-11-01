@@ -15,29 +15,19 @@ import Banner from '../containers/Banner'
 import Content from '../containers/Content'
 
 import Footer from '../containers/Footer'
+
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 export default class Index extends React.Component {
-  static getInitialProps({ req }) {
-    /* const isServer = !!req */
-    /* eslint-disable no-underscore-dangle */
-    /* eslint-disable no-undef */
-    // console.log('SSR getInitialProps ------> ', req.headers)
-    console.log('## index page talking ##')
-    const { locale, messages } = req || window.__NEXT_DATA__.props
-    const langSetup = {}
-    langSetup[locale] = messages
-    const store = initRootStore(langSetup)
-    /* eslint-enable no-undef */
-
-    return { version: store.version, messages, locale, langSetup }
+  static async getInitialProps() {
+    return {}
   }
 
   constructor(props) {
     super(props)
-    this.store = initRootStore(props.langSetup)
+    this.store = initRootStore({ ...props })
   }
 
   //  <Doraemon />

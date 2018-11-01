@@ -27,8 +27,9 @@ export const EVENT = {
   REFRESH_VIDEOS: 'REFRESH_VIDEOS',
   REFRESH_REACTIONS: 'REFRESH_REACTIONS',
 
-  // community
+  // route change
   COMMUNITY_CHANGE: 'COMMUNITY_CHANGE',
+  TABBER_CHANGE: 'TABBER_CHANGE',
   // Draft editor
   DRAFT_INSERT_SNIPPET: 'DRAFT_INSERT_SNIPPET',
 
@@ -98,6 +99,7 @@ export const TYPE = {
 
 export const ROUTE = {
   // NOTE: the lower-case is MUST
+  HOME: 'home',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   ACTIVITIES: 'activities',
@@ -107,6 +109,9 @@ export const ROUTE = {
   USERS: 'users',
   REPOS: 'repos',
   WIKI: 'wiki',
+  SHARE: 'share',
+  CITY: 'city',
+  NEWS: 'news',
   CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
@@ -123,7 +128,9 @@ export const THREAD = {
   VIDEO: 'video',
   REPO: 'repo',
   WIKI: 'wiki',
-  MAP: 'map',
+  SHARE: 'share',
+  NEWS: 'news',
+  CITY: 'city',
   CHEATSHEET: 'cheatsheet',
 }
 
