@@ -36,12 +36,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -53,7 +48,7 @@ export function loadPosts(page = 1) {
 
   store.markState({ curView: TYPE.LOADING })
 
-  debug('store.activeTagData', store.activeTagData)
+  debug('loadPosts --> doing')
   const args = {
     filter: {
       page,
@@ -166,13 +161,12 @@ const ErrSolver = [
 
 const loadIfNeed = () => {
   /* if (R.isEmpty(store.pagedPostsData.entries)) { */
-  loadPosts()
+  // loadPosts()
   /* } */
 }
 
 export function init(_store) {
   if (store) {
-    // return false
     return loadIfNeed()
   }
 

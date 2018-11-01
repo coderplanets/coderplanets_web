@@ -3,20 +3,20 @@
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#738990'
+const primaryColor = '#A89074'
 
-const bannerBg = '#EFE8D6'
-const contentBg = '#FEF6E4'
-const contentBoxBg = '#FEF6E4'
+const bannerBg = '#f7f1e2' // '#EFE8D6'
+const contentBg = '#F7F4EE'
+const contentBoxBg = '#FCFBF7'
 const fontColor = primaryColor
-const sidebarBg = '#323c40'
-const markdownFont = '#85979c'
+const sidebarBg = '#2C4E57'
+const markdownFont = '#c5b297'
 
-const descText = '#9eb7bd'
-const primaryMate = '#1e9089'
+const descText = '#c5b297'
+const primaryMate = '#B84E20'
 
 const yellow = {
-  logoText: primaryColor,
+  logoText: '#d2bca1',
   cover: bannerBg,
   coverIndex: primaryMate,
   contrastFg: 'orange',
@@ -40,23 +40,23 @@ const yellow = {
   selectionBg: '#839496',
   avatarOpacity: 0.8,
   header: {
-    fg: primaryColor,
+    fg: '#988E80',
     bg: bannerBg,
     spliter: darken(0.04, bannerBg),
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: lighten(0.1, primaryColor),
-    cardBg: '#e6ecec',
-    cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
-    cardTitle: '#a0b5b9',
+    cardBg: '#fbf7ea',
+    cardBorder: '#eadbbd',
+    cardLogo: '#dac6ae',
+    cardTitle: '#d68364',
   },
   banner: {
-    title: lighten(0.06, primaryColor),
+    title: '#988E80',
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
-    number: primaryColor,
+    spliter: '#f1e8d4',
+    number: '#988E80',
     active: primaryMate,
     numberDesc: descText,
     numberDivider: '#dcdad6',
@@ -65,22 +65,22 @@ const yellow = {
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: primaryColor,
-    articleHover: '#f7eedc',
+    articleTitle: '#b3a98c',
+    articleHover: '#F5F4EF',
     articleStrip: contentBoxBg,
-    articleDigest: descText,
-    articleTag: '#526482',
+    articleDigest: '#bdb6ab',
+    articleTag: '#B84A20',
     articleLink: descText,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: primaryMate,
+    extraInfo: '#6198AA',
     articleSpliter: '#decfb0',
     // like github
-    repoTitle: primaryColor,
+    repoTitle: '#978E72',
   },
   content: {
     bg: contentBoxBg,
-    border: contentBoxBg,
+    border: '#f5eedd',
     cardBg: bannerBg,
     cardBorder: lighten(0.08, contentBoxBg),
     cardBorderHover: lighten(0.1, contentBoxBg),
@@ -94,20 +94,20 @@ const yellow = {
     logoText: primaryColor,
     bg: sidebarBg,
     menuHover: lighten(0.1, sidebarBg),
-    pinActive: '#849804',
-    menuLink: '#93A1A1',
+    pinActive: '#6AB3B1',
+    menuLink: '#b6cecd',
     borderColor: lighten(0.05, sidebarBg),
   },
   preview: {
     title: primaryColor,
     desc: lighten(0.05, descText),
-    font: fontColor,
-    bg: contentBoxBg,
-    shadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
-    closerShadow: '-5px 0px 14px 0px rgba(41, 18, 18, 0.19)',
-    markdownHelperBg: lighten(0.04, contentBg),
-    accountBg: contentBg,
-    articleBg: '#fffaf0',
+    font: descText,
+    bg: contentBg,
+    shadow: '-5px 0px 11px 0px rgba(90, 64, 26, 0.1)',
+    closerShadow: '-8px 5px 14px 0px rgba(132, 113, 63, 0.19)',
+    markdownHelperBg: lighten(0.04, contentBoxBg),
+    accountBg: contentBoxBg,
+    articleBg: contentBoxBg,
     helper: lighten(0.3, contentBg),
     helperHover: primaryColor,
     topLine: '#4EAFA5',
@@ -224,11 +224,11 @@ const yellow = {
     activeBg: lighten(0.05, contentBg),
   },
   button: {
-    primary: primaryColor,
-    fg: lighten(0.4, primaryColor),
-    hoverBg: lighten(0.1, primaryColor),
-    activeBg: darken(0.01, primaryColor),
-    clicked: primaryColor,
+    primary: '#d68364',
+    fg: '#ffeadc',
+    hoverBg: lighten(0.1, '#d68364'),
+    activeBg: darken(0.01, '#d68364'),
+    clicked: '#d68364',
   },
   navigator: {
     activeBottom: primaryColor,
@@ -236,19 +236,19 @@ const yellow = {
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
-    bg: bannerBg,
+    bg: contentBoxBg,
     borderColor: primaryColor,
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.7,
-    text: '#72788D',
+    dotOpacity: 0.45,
+    text: '#b7a689',
   },
   tagger: {
-    text: '#FFF6E5',
-    bg: '#afc1b3',
-    border: '#afc1b3',
-    closeBtn: '#FFF6E5',
+    text: '#fff6f1',
+    bg: '#d49481',
+    border: '#d49481',
+    closeBtn: '#fff6f1',
   },
   tabs: {
     headerActive: lighten(0.04, primaryColor),
