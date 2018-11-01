@@ -15,6 +15,7 @@ export const MenuItem = styled.div`
 `
 export const MenuItemWrapper = styled.div`
   display: block;
+  z-index: 2001;
   &:hover {
     background: ${theme('sidebar.menuHover')};
   }

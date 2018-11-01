@@ -1,9 +1,7 @@
-import R from 'ramda'
+// import R from 'ramda'
 
 import {
   makeDebugger,
-  dispatchEvent,
-  EVENT,
   getMainPath,
   getSubPath,
   onClient,
@@ -14,15 +12,12 @@ import {
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Route')
 /* eslint-enable no-unused-vars */
-dispatchEvent(EVENT.COMMUNITY_CHANGE)
-
 let store = null
 
 export function routeChange() {
   if (onClient) {
     const browserMainPath = getMainPath({ asPath: Global.location.pathname })
     const browserSubPath = getSubPath({ asPath: Global.location.pathname })
-    const notCommunityPage = ['user', 'post', 'job', 'video', 'repo']
 
     /*
        debug('browserMainPath -> ', browserMainPath)
@@ -37,9 +32,6 @@ export function routeChange() {
 
     if (pathChange) {
       store.markState({ mainPath: browserMainPath, subPath: browserSubPath })
-
-      if (!R.contains(browserMainPath, notCommunityPage))
-        return dispatchEvent(EVENT.COMMUNITY_CHANGE)
     }
   }
 }

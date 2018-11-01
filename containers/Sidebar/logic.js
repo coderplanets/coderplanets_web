@@ -36,7 +36,9 @@ export function setPin() {
 }
 
 export function onCommunitySelect(community) {
-  debug('onCommunitySelect --> ', community)
+  // console.log('onCommunitySelect --> ', community)
+  store.setViewing({ community })
+
   store.markRoute({
     mainPath: community.raw,
     subPath: thread2Subpath(THREAD.POST),
