@@ -27,8 +27,9 @@ export const EVENT = {
   REFRESH_VIDEOS: 'REFRESH_VIDEOS',
   REFRESH_REACTIONS: 'REFRESH_REACTIONS',
 
-  // community
+  // route change
   COMMUNITY_CHANGE: 'COMMUNITY_CHANGE',
+  TABBER_CHANGE: 'TABBER_CHANGE',
   // Draft editor
   DRAFT_INSERT_SNIPPET: 'DRAFT_INSERT_SNIPPET',
 
@@ -130,7 +131,6 @@ export const THREAD = {
   SHARE: 'share',
   NEWS: 'news',
   CITY: 'city',
-  share: 'share',
   CHEATSHEET: 'cheatsheet',
 }
 

@@ -13,7 +13,7 @@ import {
   meteorState,
   countWords,
   extractAttachments,
-  isObject,
+  updateEditing,
 } from '../../utils'
 
 import S from './schema'
@@ -116,12 +116,6 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
-export const inputOnChange = (part, e) => {
-  if (!store) return false
-  const value = isObject(e) ? e.target.value : e
-  store.updateEditing({ [part]: value })
-}
-
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
 export const onUploadImageDone = url =>
@@ -150,6 +144,8 @@ const doneCleanUp = () => {
   store.reset()
   store.closePreview()
 }
+
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 // ###############################
 // Data & Error handlers

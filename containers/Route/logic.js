@@ -22,7 +22,7 @@ export function routeChange() {
   if (onClient) {
     const browserMainPath = getMainPath({ asPath: Global.location.pathname })
     const browserSubPath = getSubPath({ asPath: Global.location.pathname })
-    const notCommunityPage = ['user', 'post', 'job']
+    const notCommunityPage = ['user', 'post', 'job', 'video', 'repo']
 
     /*
        debug('browserMainPath -> ', browserMainPath)

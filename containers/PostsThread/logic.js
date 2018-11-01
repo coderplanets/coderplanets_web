@@ -25,6 +25,7 @@ const sr71$ = new SR71({
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
+    EVENT.TABBER_CHANGE,
   ],
 })
 /* eslint-disable no-unused-vars */
@@ -47,9 +48,9 @@ export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
+  const { mainPath: community, subPath: topic } = store.curRoute
   const userHasLogin = store.isLogin
-  const community = mainPath
+
   store.markState({ curView: TYPE.LOADING })
 
   debug('store.activeTagData', store.activeTagData)
@@ -65,7 +66,7 @@ export function loadPosts(page = 1) {
   }
 
   if (community === ROUTE.HOME) {
-    args.filter = R.merge(args.filter, { topic: 'CITY' })
+    args.filter = R.merge(args.filter, { topic })
   }
 
   args.filter = validFilter(args.filter)
@@ -126,6 +127,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadPosts(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
     action: () => loadPosts(),
   },
   {

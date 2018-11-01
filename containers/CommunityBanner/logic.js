@@ -34,7 +34,11 @@ export function loadCommunity() {
 export function tabberChange(activeThread) {
   // console.log('store is :', store)
   // console.log('tabberChange thread: ', thread2Subpath(activeThread))
-  debug('subPath set to: ', thread2Subpath(activeThread))
+  // debug('subPath set to: ', thread2Subpath(activeThread))
+
+  debug('tabberChange ---> ', activeThread)
+  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread } })
+
   store.markRoute({ subPath: thread2Subpath(activeThread) })
   store.setViewing({ activeThread })
 }

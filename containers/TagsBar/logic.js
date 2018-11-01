@@ -44,7 +44,10 @@ export function loadTags(pthread) {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => {
+      debug('partialTags get: ', tags)
+      store.markState({ tags })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
