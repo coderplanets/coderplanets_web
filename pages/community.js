@@ -49,7 +49,7 @@ async function fetchData(props) {
   const { asPath } = props
   // schema
 
-  // utils
+  // utils: filter, tags staff
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
@@ -58,11 +58,18 @@ async function fetchData(props) {
   const curCommunity = gqClient.request(P.community, { raw: community })
   const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
   const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
   return {
     ...(await curCommunity),
     ...(await pagedPosts),
     ...(await partialTags),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -80,7 +87,18 @@ export default class Index extends React.Component {
     const thread = getSubPath(props)
     /* console.log('getSubPath --> thread: ', thread) */
 
-    const { pagedPosts, partialTags, community } = await fetchData(props)
+    const {
+      pagedPosts,
+      partialTags,
+      community,
+      subscribedCommunities,
+    } = await fetchData(props)
+
+    console.log(
+      'pages get subscribedCommunities: ',
+      subscribedCommunities.totalCount
+    )
+
     const curView =
       pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
@@ -91,6 +109,8 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      // account: { user: { subscribedCommunities } },
+      account: { userSubscribedCommunities: subscribedCommunities },
       /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
       viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },

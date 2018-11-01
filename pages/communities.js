@@ -64,7 +64,7 @@ export default class Index extends React.Component {
     if (!isServer) return {}
 
     console.log(
-      'SSR (community) queryStringToJSON: ',
+      'SSR (communities) queryStringToJSON: ',
       queryStringToJSON(asPath)
     )
     /* console.log('props --> ', props.req.headers.cookie) */

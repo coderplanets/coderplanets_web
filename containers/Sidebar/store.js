@@ -47,8 +47,8 @@ const SidebarStore = t
       return self.root.langMessages
     },
     get communitiesData() {
-      const { entries } = self.root.account.subscribedCommunities
-      return entries || []
+      const { subscribedCommunities } = self.root.account
+      return subscribedCommunities ? subscribedCommunities.entries : []
     },
   }))
   .actions(self => ({

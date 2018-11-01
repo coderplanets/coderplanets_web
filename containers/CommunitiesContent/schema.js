@@ -1,22 +1,16 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const pagedCommunities = gql`
   query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {
     pagedCommunities(filter: $filter) {
       entries {
-        id
-        title
-        desc
-        raw
-        logo
+        ${F.community}
         contributesDigest
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
-      pageNumber
-      pageSize
-      totalCount
-      totalPages
+      ${F.pagedCounts}
     }
   }
 `
@@ -25,19 +19,12 @@ const pagedCommunitiesRaw = `
   query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {
     pagedCommunities(filter: $filter) {
       entries {
-        id
-        title
-        desc
-        raw
-        logo
+        ${F.community}
         contributesDigest
         subscribersCount
         viewerHasSubscribed @include(if: $userHasLogin)
       }
-      pageNumber
-      pageSize
-      totalCount
-      totalPages
+      ${F.pagedCounts}
     }
   }
 `
@@ -45,10 +32,7 @@ const pagedCommunitiesRaw = `
 const subscribeCommunity = gql`
   mutation($communityId: ID!) {
     subscribeCommunity(communityId: $communityId) {
-      id
-      title
-      raw
-      logo
+      ${F.community}
       contributesDigest
       threads {
         title

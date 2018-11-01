@@ -6,8 +6,8 @@ import {
   ERR,
   makeDebugger,
   EVENT,
-  BStore,
 } from '../../utils'
+
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -32,6 +32,7 @@ export function loadCommunities(page = 1, category = 'all') {
     args.filter.category = category
   }
 
+  console.log('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
 }
 
@@ -75,6 +76,7 @@ const DataSolver = [
   {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
+      console.log('subscribeCommunity done: ', subscribeCommunity)
       store.addSubscribedCommunity(subscribeCommunity)
       store.markState({ subscribing: false })
     },
@@ -129,16 +131,20 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadCommunities()
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  /* loadCommunities() */
+  loadCommunities()
 
+  /*
   const user = BStore.get('user')
   if (user) {
     BStore.cookie.set('jwtToken', user.token)
   }
+  */
 }
