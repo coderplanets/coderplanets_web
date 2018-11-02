@@ -54,6 +54,11 @@ export const CommunityTitle = styled.div`
   font-size: 1rem;
   font-weight: bold;
   margin-top: -2px;
+
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 export const Breadcrumbs = styled.div`
   max-width: 520px;

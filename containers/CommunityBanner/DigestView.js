@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import Tabber from '../../components/Tabber'
+
+import { Tabber, CommunityStatesPad } from '../../components'
 
 import {
   Wrapper,
@@ -18,8 +19,7 @@ import {
   LogoHolder,
 } from './styles/digest_view'
 
-import NumbersInfo from './NumbersInfo'
-import { tabberChange } from './logic'
+import { tabberChange, showEditorList } from './logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -46,7 +46,10 @@ const DigestView = ({ community, activeThread, layout }) => (
   <Wrapper>
     <BannerContentWrapper>
       <CommunityBrief content={community} />
-      <NumbersInfo content={community} />
+      <CommunityStatesPad
+        community={community}
+        onShowEditorList={showEditorList}
+      />
       <TabberWrapper>
         <Tabber
           source={community.threads}

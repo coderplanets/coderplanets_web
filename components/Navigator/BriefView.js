@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Popover from '../Popover'
 import { ICON_CMD } from '../../config'
 // import Popover from '../Popover'
 
@@ -19,23 +20,31 @@ import {
   LogoHolder,
 } from './styles/brief_view'
 
+import CardPopover from './CardPopover'
+
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ curCommunity: { logo, title } }) => (
+const BriefView = ({ curCommunity }) => (
   <Wrapper>
-    <CardWrapper>
-      <CommunityWrapper>
-        {logo ? (
-          <CommunityLogo src={logo} />
-        ) : (
-          <LogoHolder src={CommunityLogoHolder} />
-        )}
-        <CommunityInfo>
-          <LogoText>coderplanets</LogoText>
-          <CommunityTitle>{title}</CommunityTitle>
-        </CommunityInfo>
-      </CommunityWrapper>
-    </CardWrapper>
+    <Popover
+      placement="bottomLeft"
+      trigger="hover"
+      content={<CardPopover community={curCommunity} />}
+    >
+      <CardWrapper>
+        <CommunityWrapper>
+          {curCommunity.logo ? (
+            <CommunityLogo src={curCommunity.logo} />
+          ) : (
+            <LogoHolder src={CommunityLogoHolder} />
+          )}
+          <CommunityInfo>
+            <LogoText>coderplanets</LogoText>
+            <CommunityTitle>{curCommunity.title}</CommunityTitle>
+          </CommunityInfo>
+        </CommunityWrapper>
+      </CardWrapper>
+    </Popover>
     <Breadcrumbs>
       <BetaLogo src={`${ICON_CMD}/beta.svg`} />
       <SiteMapWrapper>
