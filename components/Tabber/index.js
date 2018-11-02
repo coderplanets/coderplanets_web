@@ -4,6 +4,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 
 import NormalView from './NormalView'
 import BriefView from './BriefView'
@@ -17,13 +18,14 @@ const debug = makeDebugger('c:Tabber:index')
 
 const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)
+  const sortedSource = R.sort((a, b) => a.index - b.index, aliasSource)
 
   return (
     <React.Fragment>
       {layout === 'DIGEST' ? (
-        <NormalView source={aliasSource} active={active} onChange={onChange} />
+        <NormalView source={sortedSource} active={active} onChange={onChange} />
       ) : (
-        <BriefView source={aliasSource} active={active} onChange={onChange} />
+        <BriefView source={sortedSource} active={active} onChange={onChange} />
       )}
     </React.Fragment>
   )

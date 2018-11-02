@@ -9,6 +9,7 @@ export const subscribedCommunities = `
         threads {
           title
           raw
+          index
         }
       }
       ${F.pagedCounts}
@@ -23,6 +24,7 @@ export const community = `
       threads {
         title
         raw
+        index
       }
       subscribersCount
       editorsCount

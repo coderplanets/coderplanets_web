@@ -6,6 +6,7 @@ import { PAGE_SIZE } from '../../config'
 const Thread = t.model('Thread', {
   title: t.string,
   raw: t.string,
+  index: t.optional(t.number, 0),
 })
 
 export const SimpleCategory = t.model('Category', {
