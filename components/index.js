@@ -57,6 +57,7 @@ export { default as CommunityList } from './CommunityList'
 export { default as AuthorCard } from './AuthorCard'
 export { default as ContentSourceCard } from './ContentSourceCard'
 export { default as CommunityStatesPad } from './CommunityStatesPad'
+export { default as DiscussLinker } from './DiscussLinker'
 
 // loading component
 export {

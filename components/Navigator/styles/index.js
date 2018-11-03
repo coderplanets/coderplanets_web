@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import DotDividerBase from '../../DotDivider'
 import { theme } from '../../../utils'
 
 export const Breadcrumbs = styled.div`
@@ -82,21 +81,4 @@ export const ShortDesc = styled.span`
   color: ${theme('banner.desc')};
   margin-right: 1px;
   font-weight: normal;
-`
-
-export const SiteMapWrapper = styled.div`
-  display: flex;
-  margin-left: 10px;
-  align-items: center;
-  font-size: 0.9rem;
-`
-export const DotDivider = styled(DotDividerBase)`
-  background-color: ${theme('banner.desc')};
-`
-export const SiteLink = styled.a`
-  color: ${theme('banner.desc')};
-  &:hover {
-    text-decoration: underline;
-    color: ${theme('banner.title')};
-  }
 `

@@ -2,7 +2,6 @@ import React from 'react'
 
 import Popover from '../Popover'
 import { ICON_CMD } from '../../config'
-// import Popover from '../Popover'
 
 import {
   Wrapper,
@@ -14,13 +13,11 @@ import {
   CommunityTitle,
   Breadcrumbs,
   BetaLogo,
-  SiteMapWrapper,
-  DotDivider,
-  SiteLink,
   LogoHolder,
 } from './styles/brief_view'
 
 import CardPopover from './CardPopover'
+import MainEntries from './MainEntries'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -47,11 +44,7 @@ const BriefView = ({ curCommunity }) => (
     </Popover>
     <Breadcrumbs>
       <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-      <SiteMapWrapper>
-        <SiteLink>首页</SiteLink>
-        <DotDivider />
-        <SiteLink>社区</SiteLink>
-      </SiteMapWrapper>
+      <MainEntries />
     </Breadcrumbs>
   </Wrapper>
 )

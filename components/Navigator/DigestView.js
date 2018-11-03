@@ -8,12 +8,11 @@ import {
   Logo,
   LogoText,
   BetaLogo,
-  SiteMapWrapper,
   ShortAddr,
   ShortDesc,
-  DotDivider,
-  SiteLink,
 } from './styles'
+
+import MainEntries from './MainEntries'
 
 const DigestView = () => (
   <Breadcrumbs>
@@ -32,11 +31,7 @@ const DigestView = () => (
       <LogoText>Coderplanets</LogoText>
     </Popover>
     <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-    <SiteMapWrapper>
-      <SiteLink>首页</SiteLink>
-      <DotDivider />
-      <SiteLink>社区</SiteLink>
-    </SiteMapWrapper>
+    <MainEntries />
   </Breadcrumbs>
 )
 
