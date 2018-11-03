@@ -18,13 +18,9 @@ import { uid } from '../../utils'
 import { onCommunitySelect } from './logic'
 
 const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
-  <MenuItemWrapper>
+  <MenuItemWrapper onClick={onCommunitySelect.bind(this, item)}>
     <MenuItemBar>
-      <MenuRow
-        pin={pin}
-        active={activeRaw === R.toLower(item.raw)}
-        onClick={onCommunitySelect.bind(this, item)}
-      >
+      <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
           src={item.logo}
@@ -51,8 +47,8 @@ const MenuList = SortableContainer(({ items, pin, activeRaw }) => (
   <MenuItem>
     {items.map((item, index) => (
       <SortableMenuBar
-        key={uid.gen()}
         index={index}
+        key={uid.gen()}
         pin={pin}
         item={item}
         activeRaw={activeRaw}

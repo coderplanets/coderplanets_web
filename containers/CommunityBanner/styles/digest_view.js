@@ -11,6 +11,8 @@ export const BaseBannerContent = styled.div`
   display: flex;
   margin-left: 8%;
   margin-right: 8%;
+  align-items: center;
+  margin-top: -2rem;
 `
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
@@ -21,7 +23,6 @@ export const BannerContentWrapper = styled(BaseBannerContent)``
 export const CommunityWrapper = styled.div`
   display: flex;
   flex-grow: 1;
-  margin-top: -2rem;
 `
 
 export const LogoWrapper = styled.div`
@@ -31,7 +32,6 @@ export const LogoWrapper = styled.div`
     width: 50px;
   }
 `
-
 export const CommunityLogo = styled(Img)`
   width: 60px;
   height: 60px;

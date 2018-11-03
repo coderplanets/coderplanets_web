@@ -5,22 +5,12 @@ import { pagedJobs, job } from './job'
 import { pagedVideos, video } from './video'
 import { pagedRepos, repo } from './repo'
 import { user } from './user'
+import { community, subscribedCommunities } from './community'
 
 const P = {
-  community: `
-    query community($id: ID, $raw: String) {
-      community(id: $id, raw: $raw) {
-        ${F.community}
-        threads {
-          title
-          raw
-        }
-        subscribersCount
-        editorsCount
-        postsCount
-      }
-    }
-  `,
+  community,
+  subscribedCommunities,
+
   partialTags: `
     query($communityId: ID, $community: String, $thread: CmsThread!) {
       partialTags(communityId: $communityId, community: $community, thread: $thread) {

@@ -21,29 +21,7 @@ const user = gql`
     }
   }
 `
-// TODO: use user schema
-const account = gql`
-  query account {
-    account {
-      ${F.user}
-      achievement {
-        ${F.achievement}
-      }
-      ${F.userBackgrounds}
-
-      githubProfile {
-        htmlUrl
-        login
-      }
-      contributes {
-        ${F.userContributes}
-      }
-    }
-  }
-`
-
 const schema = {
-  account,
   user,
 }
 

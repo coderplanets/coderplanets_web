@@ -127,7 +127,9 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return checkUserAccount()
+  }
   store = _store
   // if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */

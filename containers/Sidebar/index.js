@@ -40,6 +40,7 @@ class SidebarContainer extends React.Component {
           pin={pin}
           activeRaw={activeRaw}
           onSortEnd={logic.onSortMenuEnd}
+          distance={5}
         />
       </Container>
     )

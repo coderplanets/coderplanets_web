@@ -8,31 +8,6 @@ import R from 'ramda'
 import { makeDebugger, markStates, stripMobx } from '../../utils'
 /* import MenuItem from './MenuItemStore' */
 
-// TODO: remove
-const menuItemConveter = R.compose(
-  R.map(item => ({
-    id: item.id,
-    title: item.title,
-    raw: item.raw,
-    logo: item.logo,
-    contributesDigest: item.contributesDigest,
-    target: {
-      href: {
-        pathname: '/',
-        query: {
-          main: R.toLower(item.raw),
-          sub: 'posts', // default to posts
-        },
-      },
-      as: {
-        // pathname: `/${R.toLower(item.raw)}/posts`,
-        pathname: `/${R.toLower(item.raw)}`,
-      },
-    },
-  })),
-  R.values
-)
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:SidebarStore')
 /* eslint-enable no-unused-vars */
@@ -72,8 +47,8 @@ const SidebarStore = t
       return self.root.langMessages
     },
     get communitiesData() {
-      const { entries } = self.root.account.subscribedCommunities
-      return menuItemConveter(entries)
+      const { subscribedCommunities } = self.root.account
+      return subscribedCommunities ? subscribedCommunities.entries : []
     },
   }))
   .actions(self => ({
@@ -88,11 +63,11 @@ const SidebarStore = t
       const data = R.merge(self.root.account.subscribedCommunities, { entries })
       self.loadCommunities(data)
     },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
     markState(sobj) {
       markStates(sobj, self)
-    },
-    changeTheme(name) {
-      self.root.changeTheme(name)
     },
   }))
 

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
+// import Img from '../../Img'
 import { theme, Animate } from '../../../utils'
 
-export const NumbersWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   text-align: center;
-  margin-top: -1.5rem;
 `
 export const NumberSection = styled.div`
   display: flex;

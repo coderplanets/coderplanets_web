@@ -6,6 +6,7 @@ import { PAGE_SIZE } from '../../config'
 const Thread = t.model('Thread', {
   title: t.string,
   raw: t.string,
+  index: t.optional(t.number, 0),
 })
 
 export const SimpleCategory = t.model('Category', {
@@ -24,6 +25,9 @@ export const Community = t.model('Community', {
   subscribersCount: t.optional(t.number, 0),
   editorsCount: t.optional(t.number, 0),
   postsCount: t.optional(t.number, 0),
+  videosCount: t.optional(t.number, 0),
+  jobsCount: t.optional(t.number, 0),
+  reposCount: t.optional(t.number, 0),
   viewerHasSubscribed: t.maybeNull(t.boolean),
   threads: t.optional(t.array(Thread), []),
   insertedAt: t.optional(t.string, ''),

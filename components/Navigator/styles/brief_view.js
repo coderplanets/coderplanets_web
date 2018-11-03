@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import DotDividerBase from '../../DotDivider'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -54,6 +53,11 @@ export const CommunityTitle = styled.div`
   font-size: 1rem;
   font-weight: bold;
   margin-top: -2px;
+
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 export const Breadcrumbs = styled.div`
   max-width: 520px;
@@ -61,22 +65,6 @@ export const Breadcrumbs = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-`
-export const SiteMapWrapper = styled.div`
-  display: flex;
-  margin-left: 10px;
-  align-items: center;
-  font-size: 0.9rem;
-`
-export const DotDivider = styled(DotDividerBase)`
-  background-color: ${theme('banner.desc')};
-`
-export const SiteLink = styled.a`
-  color: ${theme('banner.desc')};
-  &:hover {
-    text-decoration: underline;
-    color: ${theme('banner.title')};
-  }
 `
 
 export const LogoHolder = styled(Img)`

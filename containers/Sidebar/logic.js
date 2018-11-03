@@ -36,7 +36,9 @@ export function setPin() {
 }
 
 export function onCommunitySelect(community) {
-  debug('onCommunitySelect --> ', community)
+  // console.log('onCommunitySelect --> ', community)
+  store.setViewing({ community })
+
   store.markRoute({
     mainPath: community.raw,
     subPath: thread2Subpath(THREAD.POST),
@@ -54,7 +56,8 @@ export function onSortMenuEnd({ oldIndex, newIndex }) {
 export function loadCommunities() {
   /* const user = BStore.get('user') */
   const user = store.accountInfo
-  /* console.log('store.accountInfo in sidebar: ', store.accountInfo) */
+
+  console.log('store.accountInfo in sidebar: ', store.accountInfo)
 
   const args = {
     filter: { page: 1, size: 30 },
@@ -64,6 +67,7 @@ export function loadCommunities() {
     args.filter.size = 20
   }
   /* console.log('loadCommunities: ', GRAPHQL_ENDPOINT) */
+  console.log('subscribedCommunities args --> ', args)
   sr71$.query(S.subscribedCommunities, args)
 }
 
@@ -110,5 +114,4 @@ export function init(_store) {
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadCommunities()
 }

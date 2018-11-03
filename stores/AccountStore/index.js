@@ -14,7 +14,8 @@ import {
   Global,
   BStore,
 } from '../../utils'
-import { User, EmptyUser } from '../SharedModel'
+
+import { User, EmptyUser, PagedCommunities } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountStore')
 /* eslint-enable no-unused-vars */
@@ -23,7 +24,7 @@ const AccountStore = t
   .model('AccountStore', {
     user: t.optional(User, {}),
     isValidSession: t.optional(t.boolean, false),
-    // subscribedCommunites: ...
+    userSubscribedCommunities: t.maybeNull(PagedCommunities),
   })
   .views(self => ({
     get root() {
@@ -36,12 +37,13 @@ const AccountStore = t
       }
     },
     get subscribedCommunities() {
-      const {
-        user: { subscribedCommunities },
-      } = self
+      return stripMobx(self.userSubscribedCommunities)
+      /*
+      const { user: { subscribedCommunities } } = self
       return {
         ...stripMobx(subscribedCommunities),
       }
+      */
     },
     get isLogin() {
       return self.isValidSession
