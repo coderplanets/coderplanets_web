@@ -35,6 +35,8 @@ export const EVENT = {
 
   // favorites
   SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
+  // customization
+  SET_C11N: 'SET_C11N',
 }
 
 export const TYPE = {

@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const githubSigninRes = 'githubSignin'
 const githubSignin = gql`
@@ -29,6 +30,9 @@ const sessionState = gql`
         weichat
         sex
         cmsPassport
+        customization {
+          ${F.c11n}
+        }
         githubProfile {
           htmlUrl
           login
@@ -37,10 +41,26 @@ const sessionState = gql`
     }
   }
 `
+
+const setCustomization = gql`
+  mutation($customization: CustomizationInput!) {
+    setCustomization(customization: $customization) {
+      id
+      customization {
+        bannerLayout
+        contentDivider
+        markViewed
+        displayDensity
+      }
+    }
+  }
+`
+
 const schema = {
   sessionState,
   githubSignin,
   githubSigninRes,
+  setCustomization,
 }
 
 export default schema

@@ -11,6 +11,7 @@ import {
   $solver,
   thread2Subpath,
   BStore,
+  atomizeValues,
   // getParameterByName,
 } from '../../utils'
 
@@ -18,7 +19,9 @@ import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.SET_C11N],
+})
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Header')
@@ -101,6 +104,22 @@ const DataSolver = [
     match: asyncRes('githubSigninRes'),
     action: ({ githubSigninRes }) => {
       debug('dataResolver  --->', githubSigninRes)
+    },
+  },
+  {
+    match: asyncRes(EVENT.SET_C11N),
+    action: res => {
+      const { data } = res[EVENT.SET_C11N]
+
+      const customization = atomizeValues(data)
+      sr71$.mutate(S.setCustomization, { customization })
+    },
+  },
+  {
+    // TODO: notify user if failed
+    match: asyncRes('setCustomization'),
+    action: ({ setCustomization }) => {
+      debug('set setCustomization done: ', setCustomization)
     },
   },
 ]

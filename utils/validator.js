@@ -20,6 +20,13 @@ export const isObject = value => {
   return value != null && (type === 'object' || type === 'function')
 }
 
+export const isString = value => {
+  if (typeof value === 'string' || value instanceof String) {
+    return true
+  }
+  return false
+}
+
 const notNil = R.compose(
   R.not,
   R.isNil

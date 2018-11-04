@@ -41,6 +41,7 @@ export {
   isEmptyValue,
   nilOrEmpty,
   isObject,
+  isString,
 } from './validator'
 
 export {
@@ -50,6 +51,7 @@ export {
   asyncRes,
   later,
   pagedFilter,
+  atomizeValues,
 } from './graphql_helper'
 
 export { default as githubApi } from './github_api'

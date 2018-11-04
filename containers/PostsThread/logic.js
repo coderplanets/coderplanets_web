@@ -103,7 +103,12 @@ export function onTitleSelect(data) {
 export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 
-export const onCustomChange = option => store.updateCustom(option)
+export const onCustomChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+
+  debug('onCustomChange option: ', option)
+  store.updateCustom(option)
+}
 
 // ###############################
 // Data & Error handlers
