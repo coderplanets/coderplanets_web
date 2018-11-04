@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { Button } from 'antd'
 
 // import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
 
 export const BodyWrapper = styled.div`
+  ${cs.flexColumn('align-center')};
   padding: 20px 30px;
   height: auto;
   min-height: 600px;
@@ -14,9 +15,6 @@ export const BodyWrapper = styled.div`
   margin-right: 15px;
   background: ${theme('content.cardBg')};
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `
 export const DescriptionWrapper = styled.div`
   margin-top: 8px;

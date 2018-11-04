@@ -4,7 +4,7 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   position: relative;
 `
 export const CardWrapper = styled.div`
@@ -19,9 +19,7 @@ export const CardWrapper = styled.div`
   top: 4px;
 `
 export const CommunityWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${cs.flex('align-both')};
   width: 100%;
   height: 100%;
   margin-top: 2px;
@@ -39,8 +37,7 @@ export const BetaLogo = styled(Img)`
   margin-left: 3px;
 `
 export const CommunityInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-top: -2px;
 `
 export const LogoText = styled.div`
@@ -57,11 +54,10 @@ export const CommunityTitle = styled.div`
   ${cs.truncate('80px')};
 `
 export const Breadcrumbs = styled.div`
+  ${cs.flex('align-center')};
   max-width: 520px;
   margin-left: 160px;
   height: 100%;
-  display: flex;
-  align-items: center;
 `
 
 export const LogoHolder = styled(Img)`

@@ -2,46 +2,41 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
+
   height: 200px;
   width: 100%;
   margin-bottom: 25px;
   padding: 0 10px;
 `
 export const Thumbnil = styled.div`
+  ${cs.flex('align-center')};
+  align-self: center;
+
   position: relative;
   height: 100px;
   width: 180px;
   border: 1px dashed;
   border-color: ${theme('form.label')};
   border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
   &:hover {
     cursor: pointer;
   }
 `
 export const Poster = styled.div`
+  ${cs.flexColumnGrow('align-both')};
+
   position: relative;
-  flex-grow: 1;
   margin-left: 10px;
   border: 1px dashed;
   border-radius: 3px;
   border-color: ${theme('form.label')};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
 export const UploaderLabel = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   &:hover {
     cursor: pointer;
   }

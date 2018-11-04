@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 12px;
   margin-left: 2px;
 `

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 import DotDividerBase from '../../DotDivider'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
+
   margin-left: 10px;
-  align-items: center;
   font-size: 0.9rem;
 `
 export const DotDivider = styled(DotDividerBase)`

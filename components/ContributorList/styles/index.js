@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-// import { theme } from '../../../utils'
+import { cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
   margin-top: 15px;
 `

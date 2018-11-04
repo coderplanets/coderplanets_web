@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const TableWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
 `
 // background: ${theme('preview.articleBg')};
 
 export const UserWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   width: 48%;
   margin-bottom: 10px;
   margin-right: 5px;
@@ -27,25 +27,20 @@ export const UserAvatar = styled(Img)`
 `
 
 export const UserBrief = styled.div`
+  ${cs.flexColumnGrow('justify-between')};
   margin-left: 18px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `
 export const Title = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleTitle')};
-  display: flex;
-  align-items: center;
 `
 export const Nickname = styled.div`
   font-size: 1rem;
 `
 export const Location = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-left: 10px;
-  display: flex;
-  align-items: center;
 `
 export const GeoIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};

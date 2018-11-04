@@ -4,10 +4,9 @@ import Img from '../../../components/Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flex('align-center')};
   margin-top: 10px;
   color: ${theme('banner.desc')};
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
 `
 export const CommunityPopinfo = styled.div`

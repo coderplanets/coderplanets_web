@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flex('align-both')};
+
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   min-height: 400px;
   background: #000000;

@@ -1,19 +1,18 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+
   padding-left: 35px;
   padding-right: 30px;
   padding-top: 10px;
   padding-bottom: 6px;
 `
 export const ReactionWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-right: 5px;
 `
 export const Divider = styled.div`
@@ -25,12 +24,10 @@ export const Divider = styled.div`
   margin-right: 6px;
 `
 export const Reaction = styled.div`
-  align-items: center;
-  display: flex;
+  ${cs.flex('align-center')};
 `
 export const PlainAction = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   border-radius: 5px;
 `
 export const ReactionAction = styled(PlainAction)`

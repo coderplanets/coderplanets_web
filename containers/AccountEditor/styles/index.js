@@ -5,6 +5,8 @@ import Img from '../../../components/Img'
 import { animate, theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn('align-center')};
+
   padding-top: 20px;
   padding-bottom: 50px;
   height: auto;
@@ -14,9 +16,6 @@ export const Wrapper = styled.div`
   margin-right: 15px;
   background: ${theme('content.cardBg')};
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   animation: ${animate.fadeInRight} 0.2s linear;
 `
@@ -71,12 +70,12 @@ export const SexLable = styled.div`
 `
 
 export const SexInput = styled.div`
+  ${cs.flex()};
   width: 250px;
-  display: flex;
 `
 
 export const FormItemWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 25px;
 `
 export const FormLable = styled.div`

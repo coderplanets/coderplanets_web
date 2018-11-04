@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   width: 100%;
   min-height: 140px;
   padding: 20px;
@@ -15,7 +14,7 @@ export const Wrapper = styled.div`
   margin-bottom: 15px;
 `
 export const CompanyBrand = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CompanyLogo = styled(Img)`
   width: 40px;
@@ -24,15 +23,13 @@ export const CompanyLogo = styled(Img)`
   margin-right: 12px;
 `
 export const CompanyLabel = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
 `
 export const HomePage = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
 `
 export const LinkIcon = styled(Img)`
@@ -53,12 +50,10 @@ export const Link = styled.a`
   }
 `
 export const CompanyStates = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 export const StateLabel = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-bottom: 10px;
   margin-left: 5px;
 `

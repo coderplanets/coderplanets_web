@@ -56,13 +56,12 @@ export const SuggestionWrapper = styled.div`
 `
 // #001b21;
 export const BaseBar = styled.div`
+  ${cs.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 70px;
   background: ${theme('shell.barBg')};
   color: white;
-  display: flex;
-  align-items: center;
 `
 export const EditorBar = styled(BaseBar)`
   position: relative;
@@ -143,8 +142,7 @@ export const HintEnter = styled(Img)`
 `
 
 export const SubInfoWraper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
 `
 
 export const RepoLang = styled.div`

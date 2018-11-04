@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
 
 export const LabelItem = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('editor.footer')};
   &:hover {
     color: ${theme('banner.title')};
@@ -25,8 +24,7 @@ export const LabelIcon = styled(Img)`
   }
 `
 export const Title = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   cursor: pointer;
   font-size: 1rem;
   margin-top: 2px;

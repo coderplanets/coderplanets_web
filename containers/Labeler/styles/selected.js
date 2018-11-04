@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Item = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('editor.footer')};
-  display: flex;
-  align-items: center;
 `
 export const Hightlight = styled.div`
   color: ${theme('contrastFg')};

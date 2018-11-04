@@ -4,12 +4,11 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 10px;
 `
 export const Tag = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: -6px;
 `
 export const Title = styled.div`

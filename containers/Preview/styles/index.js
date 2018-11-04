@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import R from 'ramda'
-import { theme, TYPE, animate } from '../../../utils'
+import { theme, TYPE, animate, cs } from '../../../utils'
 
 const WIDE_CASE = [
   // post
@@ -42,6 +42,7 @@ export const PreviewOverlay = styled.div`
 // visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 
 export const PreviewWrapper = styled.div`
+  ${cs.flex()};
   color: ${theme('preview.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -57,7 +58,6 @@ export const PreviewWrapper = styled.div`
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
   z-index: 1000;
-  display: flex;
 `
 export const PreviewContent = styled.div`
   width: 90%;
@@ -67,15 +67,13 @@ export const PreviewContent = styled.div`
   box-shadow: ${theme('preview.shadow')};
 `
 export const PreviewHeader = styled.div`
+  ${cs.flex()};
   border-bottom: 1px solid grey;
   line-height: 30px;
-  display: flex;
 `
-
 export const PreviewCloser = styled.div`
   width: 10%;
 `
-
 const closeWith = '40px'
 
 export const CloserInner = styled.div`

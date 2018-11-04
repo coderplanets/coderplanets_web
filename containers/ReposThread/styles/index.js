@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Button } from 'antd'
 
-// import { theme } from '../../../utils'
+import { cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   max-width: 1400px;
 `
 export const ViewerWrapper = styled.div`
@@ -32,8 +32,7 @@ export const PublishBtn = styled(Button)`
   margin-left: 8%;
 `
 export const FilterWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-bottom: 8px;
   margin-left: 8px;
 `

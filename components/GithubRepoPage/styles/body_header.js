@@ -1,20 +1,20 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
   align-items: flex-start;
+
+  width: 100%;
   margin-bottom: 15px;
   border-bottom: 1px solid;
   border-bottom-color: ${theme('preview.divider')};
   padding-bottom: 5px;
 `
 export const MoreWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   cursor: pointer;
 `
 export const MoreIcon = styled(Img)`
@@ -25,8 +25,7 @@ export const MoreIcon = styled(Img)`
 export const LablerWrapper = styled.div``
 
 export const RefinedLabel = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: tomato;
   border: 1px dashed tomato;
   padding: 0 5px;

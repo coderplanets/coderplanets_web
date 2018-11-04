@@ -4,12 +4,11 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const AvatarWrapper = styled.div`
+  ${cs.flexColumn()};
   margin-right: 12px;
-  display: flex;
-  flex-direction: column;
 `
 export const Avatar = styled(Img)`
   border-radius: 4px;
@@ -21,12 +20,11 @@ export const Avatar = styled(Img)`
   margin-bottom: 10px;
 `
 export const BriefTextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-left: 10px;
 `
 export const UserTitle = styled.div`
-  display: flex;
+  ${cs.flex()};
   font-size: 1.2rem;
   color: ${theme('banner.title')};
   margin-bottom: 5px;
@@ -68,8 +66,7 @@ export const BackgroundDivider = styled.div`
   margin-right: 4px;
 `
 export const BackgroundItem = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const BackgroundDetailItem = styled(BackgroundItem)`
   margin-bottom: 8px;
@@ -88,7 +85,7 @@ export const SocialSpliter = styled.div`
   opacity: 0.5;
 `
 export const SocialWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const SocialIcon = styled(Img)`
   fill: ${theme('banner.desc')};

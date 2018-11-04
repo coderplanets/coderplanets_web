@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const AdderWrapper = styled.div`
-  display: flex;
+  ${cs.flex('justify-end')};
   width: 80px;
   text-align: right;
-  justify-content: flex-end;
   &:active {
     animation: ${animate.pulse} 0.3s linear;
   }

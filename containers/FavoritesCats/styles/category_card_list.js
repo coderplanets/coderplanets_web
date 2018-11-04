@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
 export const CardListWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
 `
 export const BoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   border: 1px solid;
   border: ${({ active }) => (active ? '2px solid' : '1px dashed')};
   border-color: ${theme('banner.desc')};
@@ -27,19 +26,16 @@ export const BoxWrapper = styled.div`
   }
 `
 export const Header = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const Footer = styled.div`
-  display: flex;
+  ${cs.flex()};
   &:hover {
     cursor: pointer;
   }
 `
 export const Title = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+  ${cs.flexGrow('align-center')};
 `
 export const EditIcon = styled(Img)`
   fill: ${theme('banner.desc')};

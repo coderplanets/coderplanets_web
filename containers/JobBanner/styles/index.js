@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 export const BaseBanner = styled.nav`
+  ${cs.flexColumn('justify-center')};
+
   position: relative;
   min-height: 140px;
   border-bottom: 1px solid tomato;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
@@ -16,7 +15,7 @@ export const BaseBanner = styled.nav`
   }
 `
 export const BaseBannerContent = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
 `
@@ -25,13 +24,11 @@ export const BannerContainer = styled(BaseBanner)`
   min-height: 100px;
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
-  display: flex;
+  ${cs.flex()};
 `
 export const PostBrief = styled.div`
+  ${cs.flexColumnGrow()};
   width: 60%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 `
 
 export const Title = styled.div`
@@ -41,10 +38,9 @@ export const Title = styled.div`
   ${cs.truncate('100%')};
 `
 export const Desc = styled.div`
-  display: flex;
+  ${cs.flex()};
   align-items: center;
   margin-top: 5px;
-  display: flex;
   font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
 `

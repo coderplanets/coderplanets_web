@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
 
 export const Wrapper = styled.div``
 
 export const HeaderWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 5px;
 `
 export const Title = styled.div`
@@ -26,7 +26,7 @@ export const HelpText = styled.div`
 `
 
 export const IconList = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
 `
 

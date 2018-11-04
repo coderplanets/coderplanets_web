@@ -1,16 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   margin-top: 10px;
 `
-
 export const Label = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
-
 export const Title = styled.div`
   color: ${theme('tabs.headerActive')};
   font-size: 0.9rem;

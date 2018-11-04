@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Avatars = styled.ul`
-  display: flex;
+  ${cs.flex()};
+  flex-direction: row-reverse;
   list-style-type: none;
   margin: auto;
   height: ${({ height }) => height};
   padding: 0px 8px 0px 0px;
-  flex-direction: row-reverse;
 `
 // height: 49px;
 export const AvatarsItem = styled.li`

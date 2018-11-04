@@ -2,16 +2,16 @@ import styled from 'styled-components'
 
 import { BaseBanner, BaseTabber } from './index'
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled(BaseBanner)`
   min-height: 125px;
 `
 export const BaseBannerContent = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
+
   margin-left: 8%;
   margin-right: 8%;
-  align-items: center;
   margin-top: -2rem;
 `
 export const BannerContainer = styled(BaseBanner)`
@@ -21,8 +21,7 @@ export const TabberWrapper = styled(BaseTabber)``
 export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const CommunityWrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
 `
 
 export const LogoWrapper = styled.div`
@@ -41,15 +40,13 @@ export const CommunityLogo = styled(Img)`
   }
 `
 export const CommunityInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   margin-top: -6px;
   margin-left: 1em;
 `
 export const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const Title = styled.div`
   font-size: 1.3rem;

@@ -13,20 +13,18 @@ export const ReplyToBody = styled(ReplyToBodyBase)``
 export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 export const Container = styled.div`
+  ${cs.flexColumn()};
   background: ${theme('preview.articleBg')};
   min-height: 200px;
   height: 100%;
   border-color: ${theme('preview.articleBg')};
-  display: flex;
-  flex-direction: column;
   transition: all 0.3s;
   border-radius: 3px;
 `
 
 export const InputHeaderWrapper = styled.div`
+  ${cs.flex('align-center')};
   height: 50px;
-  display: flex;
-  align-items: center;
   margin-right: 20px;
 `
 export const InputEditorWrapper = styled.div`
@@ -66,8 +64,7 @@ export const ReferToIcon = styled(Img)`
 export const ReplyAvatars = styled.div``
 
 export const CounterWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: #c2d9da;
 `
 export const CounterSpliter = styled.div`

@@ -45,7 +45,7 @@ export const MenuItemIcon = styled(Img)`
   transition: opacity 0.2s;
 `
 export const MenuRow = styled.div`
-  display: flex;
+  ${cs.flex()};
   justify-content: left;
   align-items: center;
   font-size: 1rem;
@@ -67,7 +67,6 @@ export const MenuItemTitle = styled.div`
   }
   ${Container}:hover & {
     display: block;
-    // flex-grow: 1;
     max-width: 50%;
   }
 `

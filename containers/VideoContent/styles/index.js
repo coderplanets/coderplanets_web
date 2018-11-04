@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Container = styled.article`
+  ${cs.flex()};
   padding: 20px;
   min-height: 300px;
-  display: flex;
 `
 export const MainWrapper = styled.div`
   width: 68%;

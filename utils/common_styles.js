@@ -25,10 +25,70 @@ const circle = (width = '30px') => `
   border-radius: 100%;
 `
 
+/*
+ * flex opts sort order:
+ * [flex-direction][align-items][flex-grow]
+ */
+const flexOpts = opt => {
+  switch (opt) {
+    case 'align-both': {
+      return 'align-items: center;justify-content: center;'
+    }
+    case 'align-center': {
+      return 'align-items: center;'
+    }
+    case 'align-start': {
+      return 'align-items: flex-start;'
+    }
+    case 'align-end': {
+      return 'align-items: flex-end;'
+    }
+    case 'justify-center': {
+      return 'justify-content: center;'
+    }
+    case 'justify-end': {
+      return 'justify-content: flex-end;'
+    }
+    case 'justify-between': {
+      return 'justify-content: space-between;'
+    }
+    case 'justify-around': {
+      return 'justify-content: space-around;'
+    }
+    case 'justify-evenly': {
+      return 'justify-content: space-evenly;'
+    }
+    default: {
+      return ''
+    }
+  }
+}
+
+const flex = opt => `
+  display: flex;
+  ${flexOpts(opt)};
+`
+const flexGrow = opt => `
+  ${flex(opt)};
+  flex-grow: 1;
+`
+const flexColumn = opt => `
+  ${flex(opt)};
+  flex-direction: column;
+`
+const flexColumnGrow = opt => `
+  ${flexColumn(opt)};
+  flex-grow: 1;
+`
+
 const cs = {
   truncate,
   circle,
   smokey,
+  flex,
+  flexGrow,
+  flexColumn,
+  flexColumnGrow,
 }
 
 export default cs

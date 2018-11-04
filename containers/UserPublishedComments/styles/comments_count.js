@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+  ${cs.flexGrow('align-center')};
   color: ${theme('thread.articleDigest')};
 `
 export const FloorNum = styled.div`

@@ -4,8 +4,8 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
+  ${cs.flex()};
   position: relative;
-  display: flex;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 4px;
@@ -30,12 +30,10 @@ export const ReadedLabel = styled.div`
   opacity: 0.8;
 `
 export const Main = styled.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  ${cs.flexColumnGrow()};
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const SecondHalf = styled.div`
   margin-left: 10px;
@@ -53,12 +51,10 @@ export const SmallAvatar = styled(Avatar)`
   height: 35px;
 `
 export const Breif = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
-
 export const Title = styled.div`
   margin-bottom: 10px;
   font-size: 1rem;
@@ -106,8 +102,7 @@ export const BodyDigest = styled.li`
   font-size: 0.85rem;
 `
 export const CommentWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   align-self: flex-start;
 `
 export const CommentIcon = styled(Img)`

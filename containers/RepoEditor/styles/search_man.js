@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 // import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn('align-center')};
+
   padding-top: 20px;
   padding-bottom: 30px;
   height: auto;
@@ -12,18 +14,12 @@ export const Wrapper = styled.div`
   margin-right: 15px;
   background: ${theme('content.cardBg')};
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
 `
 export const FormWrapper = styled.div`
+  ${cs.flexColumnGrow('align-both')};
+
   width: 100%;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
   margin-top: -10%;
 `
 export const Letter = styled.span`

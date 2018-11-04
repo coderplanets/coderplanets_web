@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flexColumn()};
   flex-grow: 1;
   width: 48%;
   max-width: 60%;
-  flex-direction: column;
 `
 export const Header = styled.div``
 export const Middle = styled.div`
-  display: flex;
+  ${cs.flex()};
   padding: 5px 0;
   margin-bottom: 2px;
 `
@@ -31,19 +30,17 @@ export const SalaryWrapper = styled.div`
   margin-right: 20px;
 `
 export const BackgroundWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Background = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
 `
 export const Degree = styled.div``
 export const Exp = styled.div``
 
 export const Extra = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   opacity: 0.7;
   transition: opacity 0.2s;
   font-size: 0.8rem;

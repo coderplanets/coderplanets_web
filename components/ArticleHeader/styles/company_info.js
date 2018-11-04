@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  ${cs.flexGrow('align-center')};
   margin-left: 4px;
 `
 export const Title = styled.div`
@@ -15,8 +13,7 @@ export const Title = styled.div`
   margin-top: 2px;
 `
 export const HomtPage = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const HomeIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -36,8 +33,7 @@ export const Username = styled.div`
   font-size: 0.9rem;
 `
 export const PublishAt = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
 `

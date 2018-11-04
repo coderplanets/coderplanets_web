@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const FooterWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   margin-top: 30px;
   margin-left: 35px;
   margin-right: 40px;

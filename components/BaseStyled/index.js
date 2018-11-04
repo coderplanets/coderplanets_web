@@ -1,19 +1,6 @@
 import styled from 'styled-components'
 import { theme } from '../../utils'
 
-export const Center = styled.div`
-  /* display: flex;*/
-  /* align-items: center;*/
-  /* justify-content: center;*/
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-`
-export const HorizontalCenter = styled.div`
-  text-align: center;
-`
-
 export const Title = styled.div`
   font-size: 3vh;
   color: ${theme('font')};

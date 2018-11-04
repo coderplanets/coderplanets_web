@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flexColumn('justify-between')};
   align-items: center;
-  flex-direction: column;
+
   height: 100vh;
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
@@ -24,14 +23,11 @@ export const CPSMdLogo = styled(Img)`
   width: 200px;
 `
 export const IconsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
 `
 
 export const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   margin-top: 15px;
 `
 export const HintTitle = styled.div`
@@ -58,25 +54,20 @@ export const LinkIcon = styled(Img)`
   margin-top: 16px;
   animation: ${animate.rotate360} 2s linear infinite;
 `
-
 export const GithubLogoIcon = styled(Img)`
   fill: ${theme('sidebar.bg')};
   width: 50px;
   height: 50px;
 `
-
 export const HintWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-top: -15%;
   color: ${theme('banner.title')};
 `
-
 export const FooterWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-bottom: 10px;
 `
-
 export const IssueLink = styled.a`
   text-decoration: underline;
   font-weight: bolder;

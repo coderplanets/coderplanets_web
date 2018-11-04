@@ -1,15 +1,14 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const BannerContainer = styled.nav`
+  ${cs.flexColumn('justify-center')};
+
   position: relative;
   min-height: 200px;
   padding-top: 8px;
   padding-bottom: 8px;
   border-bottom: 1px solid tomato;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.spliter')};
@@ -21,7 +20,7 @@ export const BannerContainer = styled.nav`
 `
 
 export const BannerContentWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
 `

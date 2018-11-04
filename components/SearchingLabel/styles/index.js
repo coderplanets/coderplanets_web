@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};

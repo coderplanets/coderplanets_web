@@ -2,9 +2,7 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 export const Container = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   margin-left: -5%;
   margin-bottom: 20px;
 `
@@ -30,7 +28,7 @@ export const Support = styled.div`
 `
 
 export const BaseInfo = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: 20px;
 `
 export const BeianInfo = styled.div`

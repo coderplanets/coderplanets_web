@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const CardWrapper = styled.div`
   background: ${theme('preview.articleBg')};
@@ -13,8 +13,7 @@ export const CardWrapper = styled.div`
   margin-bottom: 15px;
 `
 export const AttactWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
   margin-left: 10px;

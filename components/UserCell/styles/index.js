@@ -3,19 +3,16 @@ import styled from 'styled-components'
 import { cs } from '../../../utils'
 
 export const UserCellWrapper = styled.div`
-  display: flex;
+  ${cs.flex('justify-start')};
   align-items: center;
-  justify-content: flex-start;
   margin-left: 10px;
 `
 export const Avatar = styled.img`
   ${cs.circle('38px')};
 `
 export const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn('align-start')};
   margin-left: 10px;
-  align-items: start;
 `
 
 export const NickName = styled.div`

@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
-import { theme, animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   text-align: center;
 `
 export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   padding: 0 5px;
   border-radius: 4px;
 

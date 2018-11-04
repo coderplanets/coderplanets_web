@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   text-align: center;
+
   padding-top: 10px;
   padding-bottom: 10px;
   margin-right: 10px;

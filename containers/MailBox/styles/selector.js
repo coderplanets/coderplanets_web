@@ -2,15 +2,13 @@ import styled from 'styled-components'
 
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 export const OptisonsWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  ${cs.flex('justify-evenly')};
   padding-top: 3px;
 `
 export const HeaderDivider = styled.div`
@@ -24,13 +22,13 @@ export const HeaderDivider = styled.div`
 `
 
 export const Option = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
+
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
   background: ${({ active }) => (active ? theme('mailBox.headHightBg') : '')};
   padding: 2px 8px;
   border-radius: 5px;
-  align-items: center;
   line-height: 1;
 
   &:hover {

@@ -4,9 +4,7 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  ${cs.flexGrow('align-center')};
 `
 export const UserName = styled.div`
   font-size: 0.9rem;

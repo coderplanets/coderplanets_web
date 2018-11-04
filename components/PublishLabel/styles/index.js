@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
+  ${cs.flex('align-center')};
   justify-content: space-between;
+  width: 100%;
   padding-left: 2px;
   letter-spacing: 4px;
 `

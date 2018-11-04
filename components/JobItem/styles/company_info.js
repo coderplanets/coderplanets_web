@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   flex-grow: 1;
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const BaseInfo = styled.div`
   flex-grow: 1;
@@ -21,7 +20,7 @@ export const CompanyLogo = styled(Img)`
 `
 export const Header = styled.div``
 export const Middle = styled.div`
-  display: flex;
+  ${cs.flex()};
   padding: 5px 0;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -35,8 +34,8 @@ export const Title = styled.div`
   font-size: 1rem;
 `
 export const StatesWrapper = styled.div`
+  ${cs.flex()};
   color: ${theme('thread.articleDigest')};
-  display: flex;
   margin-bottom: 2px;
 `
 export const StateItem = styled.div`

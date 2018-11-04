@@ -8,9 +8,7 @@ export const BannerContainer = styled(BaseBanner)``
 export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const MonthWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  ${cs.flexColumn('align-center')};
   color: #56868a;
 `
 
@@ -25,8 +23,7 @@ export const UpIcon = styled(Img)`
   ${cs.smokey};
 `
 export const DaysWrapper = styled.div`
-  display: flex;
-  align-self: center;
+  ${cs.flex('align-center')};
   margin-left: 20px;
 `
 

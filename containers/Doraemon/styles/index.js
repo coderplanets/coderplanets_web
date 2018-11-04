@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const PageOverlay = styled.div`
   bottom: 0;
@@ -27,13 +27,12 @@ export const PanelContainer = styled.div`
 `
 // #001b21;
 export const BaseBar = styled.div`
+  ${cs.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 70px;
   background: ${theme('shell.barBg')};
   color: white;
-  display: flex;
-  align-items: center;
 `
 
 export const AlertBar = styled(BaseBar)`

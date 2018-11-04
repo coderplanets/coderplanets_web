@@ -1,6 +1,6 @@
 import styled from 'styled-components' //
 
-import { animate } from '../../../utils'
+import { animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   min-height: 1rem;
@@ -28,14 +28,13 @@ export const ErrorMsgBox = styled.div`
 `
 
 export const ErrorArrayWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   color: tomato;
   animation: ${animate.shake} 0.5s ease-in;
 `
 
 export const ErrorMsg = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 
 export const ErrorKey = styled.div`

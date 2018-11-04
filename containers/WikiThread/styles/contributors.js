@@ -1,16 +1,14 @@
 import styled from 'styled-components'
 
 // import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   padding-left: 8px;
 `
 export const NoteWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-top: 20px;
 `
 export const NoteTitle = styled.div`
@@ -34,9 +32,9 @@ export const FootNote = styled.div`
   margin-top: 15px;
 `
 export const SycNote = styled.div`
+  ${cs.flex('align-center')};
+
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   font-size: 0.8rem;
-  display: flex;
-  align-items: center;
 `

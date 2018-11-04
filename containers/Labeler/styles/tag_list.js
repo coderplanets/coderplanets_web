@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `
 
 export const LabelItem = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;
@@ -16,9 +16,8 @@ export const LabelItem = styled.div`
 `
 
 export const TagItem = styled.div`
+  ${cs.flex('align-center')};
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
   &:hover {
     cursor: pointer;
     font-weight: bold;

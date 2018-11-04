@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 35px;
   margin-right: 35px;
   padding-top: 15px;
@@ -27,7 +27,7 @@ export const MarkdownIcon = styled(Img)`
   }
 `
 export const MarkDownHint = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('editor.placeholder')};
   &:hover {
     color: ${theme('editor.content')};
@@ -36,7 +36,7 @@ export const MarkDownHint = styled.div`
   transition: color 0.3s;
 `
 export const BackToEditHint = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('editor.title')};
   cursor: pointer;
 `

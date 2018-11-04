@@ -4,16 +4,15 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
 `
 export const Title = styled.div`
+  ${cs.flex('align-center')};
+
   margin-bottom: 10px;
   font-size: 1.2rem;
   max-width: 450px;
-  display: flex;
-  align-items: center;
   &:hover {
     cursor: pointer;
   }
@@ -58,12 +57,12 @@ export const TitleTagDot = styled.span`
 `
 
 export const StatusInfo = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: 3px;
 `
 
 export const StatusSection = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-right: 6px;
 `
 export const StatusNum = styled.div`

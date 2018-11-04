@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Container = styled.div`
-  display: flex;
+  ${cs.flexColumn('align-center')};
   justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+
   height: 100vh;
   background: ${theme('banner.bg')};
   background-image: url('https://www.transparenttextures.com/patterns/transparent-square-tiles.png');
@@ -24,14 +23,11 @@ export const CPSMdLogo = styled(Img)`
   width: 200px;
 `
 export const IconsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
 `
 
 export const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   margin-top: 20px;
 `
 export const HintTitle = styled.div`
@@ -67,8 +63,7 @@ export const ErrorNumber = styled.div`
 `
 
 export const HintWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-top: -15%;
   color: ${theme('banner.title')};
 `

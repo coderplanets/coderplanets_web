@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items; flex-end;
+  ${cs.flex('align-end')};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

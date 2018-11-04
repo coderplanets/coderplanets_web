@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
+
   padding: 10px;
   width: 320px;
 `
 export const Body = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CommunityLogo = styled(Img)`
   width: 80px;
@@ -18,18 +18,14 @@ export const CommunityLogo = styled(Img)`
   display: block;
   margin-right: 15px;
 `
-
 export const CommunityInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
-
 export const Title = styled.div`
   font-size: 1.2rem;
   color: ${theme('thread.articleTitle')};
   margin-bottom: 3px;
 `
-
 export const Desc = styled.div`
   font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
@@ -45,6 +41,5 @@ export const Divider = styled.div`
 `
 
 export const Footer = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  ${cs.flex('justify-start')};
 `

@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
   padding: 10px;
-  display: flex;
-  flex-direction: column;
 `
 export const Header = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Footer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  ${cs.flex('justify-end')};
 `
 export const WarningIcon = styled(Img)`
   fill: #ffbd45;
@@ -33,13 +31,13 @@ export const CancleBtn = styled.div`
   }
 `
 export const DeleteBtn = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
+
   margin-left: 5px;
   margin-right: 8px;
   padding-left: 4px;
   padding-right: 4px;
   line-height: 1;
-  align-items: center;
   border-radius: 5px;
   border: 1px solid transparent;
   &:hover {

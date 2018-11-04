@@ -1,20 +1,18 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   padding: 10px;
   padding-left: 15px;
   padding-bottom: 0;
 `
 export const Item = styled.div`
+  ${cs.flex('align-start')};
   color: ${theme('banner.desc')};
   margin-bottom: 8px;
-  display: flex;
-  align-items: flex-start;
 
   &:hover {
     color: ${({ red }) => (red ? 'tomato' : theme('banner.title'))};

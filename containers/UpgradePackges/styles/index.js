@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   padding: 20px 20px;
   padding-bottom: 40px;
 `
@@ -14,14 +13,12 @@ export const LabelWrapper = styled.div`
 `
 
 export const ContentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
 `
 
 export const Dashboard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
+
   width: 220px;
   min-height: 380px;
   margin-right: 24px;

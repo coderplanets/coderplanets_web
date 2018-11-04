@@ -91,7 +91,6 @@ const AntOverWrite = styled.div`
     padding-top: 8px;
     padding-bottom: 8px;
     z-index: 2;
-    display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

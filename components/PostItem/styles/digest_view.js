@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   width: 100%;
 `
 export const ContentWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Divider = styled.div`
   border-bottom: 1px solid;

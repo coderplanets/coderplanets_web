@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const NumbersWrapper = styled.div`
-  display: flex;
-  text-align: center;
+  ${cs.flex('align-center')};
   margin-top: -2.1rem;
 `
 export const NumbersInfo = styled(NumbersWrapper)`
@@ -12,9 +11,8 @@ export const NumbersInfo = styled(NumbersWrapper)`
 `
 // background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   padding: 0 5px;
   border-radius: 4px;
 

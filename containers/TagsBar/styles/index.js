@@ -4,15 +4,14 @@ import { theme, cs } from '../../../utils'
 import Img from '../../../components/Img'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
   margin-top: 30px;
-  flex-direction: column;
   margin-left: 10px;
   padding-left: 10%;
 `
 export const TagItem = styled.div`
+  ${cs.flex('align-center')};
   margin-bottom: 14px;
-  display: flex;
-  align-items: center;
 `
 export const AllTagIcon = styled(Img)`
   fill: #6b8688;

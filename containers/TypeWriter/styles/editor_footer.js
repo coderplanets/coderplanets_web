@@ -1,17 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { animate, theme } from '../../../utils'
+import { animate, theme, cs } from '../../../utils'
 //
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex('align-both')};
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 `
 
 export const Item = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;

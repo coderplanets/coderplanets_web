@@ -11,7 +11,7 @@ export const FilterWraper = styled.div`
   ${cs.smokey};
 `
 export const Header = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('comment.title')};
 `
 
@@ -27,10 +27,8 @@ export const RecentlyIcon = styled(FilterIcon)`
 `
 // animation: ${animate.rotate360} 1s cubic-bezier(0, 0.56, 0.24, 0.72);
 export const MenuWrapper = styled.div`
+  ${cs.flexColumn('align-center')};
   width: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 10px;
 `
 

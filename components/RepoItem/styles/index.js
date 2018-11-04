@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  ${cs.flexColumnGrow()};
 
+  position: relative;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 18px;

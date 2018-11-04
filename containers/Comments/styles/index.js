@@ -5,6 +5,7 @@ import { theme, cs } from '../../../utils'
 export const Wrapper = styled.div``
 
 export const ReplyBarBase = styled.div`
+  ${cs.flex()};
   color: ${theme('comment.reply')};
   background: ${theme('comment.replyBg')};
   border-radius: 3px;
@@ -12,7 +13,6 @@ export const ReplyBarBase = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 8px;
-  display: flex;
 `
 export const ReplyToBodyBase = styled.div`
   color: ${theme('comment.title')};

@@ -4,7 +4,7 @@ import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
 `
 export const Avatar = styled(Img)`

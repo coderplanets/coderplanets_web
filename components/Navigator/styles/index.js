@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Breadcrumbs = styled.div`
+  ${cs.flex('align-center')};
   max-width: 520px;
   margin-left: 3vw;
   height: 100%;
-  display: flex;
-  align-items: center;
 `
 export const Logo = styled(Img)`
   height: 22px;
