@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
 import { WORD_LIMIT } from '../../../config'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Container = styled.div`
   background: ${theme('preview.articleBg')};
@@ -32,9 +32,7 @@ export const InputEditorWrapper = styled.div`
 `
 
 export const UserAvatar = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  ${cs.circle('40px')};
   margin-left: 4%;
   opacity: ${theme('avatarOpacity')};
 `

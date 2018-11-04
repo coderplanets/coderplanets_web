@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 /* import { Img } from '../..' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,10 +19,8 @@ export const Title = styled.div`
   margin-top: -1px;
 `
 export const Dot = styled.div`
-  width: 10px;
-  height: 10px;
+  ${cs.circle('10px')};
   margin-right: 4px;
-  border-radius: 50%;
   background-color: ${({ color }) => color};
 
   opacity: ${theme('tags.dotOpacity')};

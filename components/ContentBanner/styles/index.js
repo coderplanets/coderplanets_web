@@ -51,9 +51,7 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled.img`
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
+  ${cs.circle('25px')};
   margin-right: 5px;
 `
 export const MarkTag = styled.div`

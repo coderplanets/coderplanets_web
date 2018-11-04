@@ -9,9 +9,7 @@ export const UserCellWrapper = styled.div`
   margin-left: 10px;
 `
 export const Avatar = styled.img`
-  width: 38px;
-  height: 38px;
-  border-radius: 100%;
+  ${cs.circle('38px')};
 `
 export const UserInfo = styled.div`
   display: flex;

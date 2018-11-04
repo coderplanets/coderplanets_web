@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
-import { theme, themeCoverMap, themeCoverIndexMap } from '../../../utils'
+import { theme, themeCoverMap, themeCoverIndexMap, cs } from '../../../utils'
 
 export const Dot = styled.div`
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
+  ${cs.circle('25px')};
+
   margin-right: 10px;
   background: ${({ name }) => themeCoverMap[name]};
   border: ${({ name }) => (name === 'github' ? '1px solid lightgrey' : '')};

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   flex-grow: 1;
@@ -17,8 +17,6 @@ export const PublishAt = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled(Img)`
-  border-radius: 100%;
-  width: 35px;
-  height: 35px;
+  ${cs.circle('35px')};
   margin-right: 10px;
 `

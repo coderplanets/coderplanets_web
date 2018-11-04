@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
-import { theme, column, Animate, smokey } from '../../../utils'
+import { theme, column, Animate, smokey, cs } from '../../../utils'
 
 export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;
@@ -91,9 +91,7 @@ export const CommentUserInfo = styled.div`
   margin-right: 15px;
 `
 export const CommentAvatar = styled(Img)`
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+  ${cs.circle('38px')};
   opacity: ${theme('avatarOpacity')};
 `
 export const CommentHeader = styled.div`

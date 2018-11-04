@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
   position: relative;
@@ -43,9 +43,7 @@ export const SecondHalf = styled.div`
 `
 
 export const Avatar = styled(Img)`
-  width: 42px;
-  height: 42px;
-  border-radius: 100%;
+  ${cs.circle('42px')};
   opacity: ${theme('avatarOpacity')};
   display: block;
   margin-top: 2px;

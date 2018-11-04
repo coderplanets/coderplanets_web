@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -14,9 +14,7 @@ export const TitlesWrapper = styled.div`
   align-items: center;
 `
 export const LanguageDot = styled.div`
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
+  ${cs.circle('15px')};
   margin-right: 8px;
   background-color: ${({ color }) => color};
 `

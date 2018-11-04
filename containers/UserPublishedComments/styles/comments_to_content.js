@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -28,9 +28,7 @@ export const CommentHeader = styled.div`
   margin-bottom: 3px;
 `
 export const Avatar = styled(Img)`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  ${cs.circle('30px')};
   margin-right: 8px;
 `
 export const AvatarInfo = styled.div`

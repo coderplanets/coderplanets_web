@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,9 +19,7 @@ export const Title = styled.div`
   }
 `
 export const LangDot = styled.div`
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
+  ${cs.circle('12px')};
   background-color: ${({ color }) => color};
   margin-right: 6px;
 `
@@ -52,10 +50,8 @@ export const TitleTag = styled.div`
 `
 
 export const TitleTagDot = styled.span`
-  width: 10px;
-  height: 10px;
+  ${cs.circle('10px')};
   margin-right: 4px;
-  border-radius: 50%;
   background-color: #9cd090;
   display: inline-block;
   opacity: ${theme('tags.dotOpacity')};

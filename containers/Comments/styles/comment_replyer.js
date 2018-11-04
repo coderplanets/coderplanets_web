@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
 import { WORD_LIMIT } from '../../../config'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
 export const ReplyBar = styled(ReplyBarBase)`
@@ -39,9 +39,7 @@ export const InputEditorWrapper = styled.div`
   font-size: 1.4em;
 `
 export const UserAvatar = styled.img`
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  ${cs.circle('25px')};
   margin-left: 3%;
   opacity: ${theme('avatarOpacity')};
 `

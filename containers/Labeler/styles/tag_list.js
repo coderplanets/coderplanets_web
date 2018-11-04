@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, Animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding: 10px;
@@ -25,11 +25,9 @@ export const TagItem = styled.div`
   }
 `
 export const TagDot = styled.div`
-  width: 12px;
-  height: 12px;
+  ${cs.circle('12px')};
   margin-right: 8px;
   margin-left: 3px;
-  border-radius: 100%;
   background-color: ${({ color }) => color};
   opacity: ${theme('tags.dotOpacity')};
 `

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { Animate, theme } from '../../../utils'
+import { Animate, theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding-top: 20px;
@@ -22,9 +22,7 @@ export const Wrapper = styled.div`
 `
 
 export const AvatarPic = styled.img`
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
+  ${cs.circle('70px')};
   margin-bottom: 30px;
 `
 

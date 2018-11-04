@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { Animate, theme } from '../../../utils'
+import { Animate, theme, cs } from '../../../utils'
 
 // background: #f9fcfc;
 export const Wrapper = styled.div`
@@ -106,11 +106,9 @@ export const By = styled.div`
 `
 
 export const Circle = styled.div`
-  width: 38px;
-  height: 38px;
+  ${cs.circle('38px')};
   border: 1px solid;
   border-color: ${theme('font')};
-  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

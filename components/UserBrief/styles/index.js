@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -62,10 +62,8 @@ export const DescIconLable = styled(Img)`
   margin-top: 4px;
 `
 export const BackgroundDivider = styled.div`
-  width: 5px;
-  height: 5px;
+  ${cs.circle('5px')};
   background: ${theme('banner.desc')};
-  border-radius: 50%;
   margin-left: 4px;
   margin-right: 4px;
 `

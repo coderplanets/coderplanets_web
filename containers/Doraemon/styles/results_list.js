@@ -101,15 +101,9 @@ export const InputBar = styled.input`
   border-radius: 0;
   transition: all 400ms ease;
 `
-
 export const SuggestIconWrapper = styled.div`
   width: 10%;
   margin-right: 10px;
-`
-
-export const AvatarImg = styled(Img)`
-  width: 100%;
-  border-radius: 50%;
 `
 export const ContentWraper = styled.div`
   color: tomato;
@@ -171,10 +165,8 @@ export const NodeSVGIcon = styled(Img)`
 `
 
 export const ThemeDot = styled.div`
-  width: 35px;
-  height: 35px;
+  ${cs.circle('35px')};
   background: ${({ bg }) => bg};
-  border-radius: 50%;
 `
 // TODO: rename -> PrefixIcon
 export const PrefixSVGIcon = styled(Img)`

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
   position: relative;
@@ -127,9 +127,7 @@ export const BottomAuthorWrapper = styled.div`
   margin-bottom: 2px;
 `
 export const ButtonAvatar = styled(Img)`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  ${cs.circle('20px')};
   opacity: 0.8;
   display: block;
 `
