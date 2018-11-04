@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 // width: 550px;
 export const CardWrapper = styled.div`
@@ -27,8 +26,7 @@ export const CardWrapper = styled.div`
   }
 `
 export const ErrorWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   padding: 20px 40px;
   border: 1px solid #f5a799;
   border-radius: 5px;

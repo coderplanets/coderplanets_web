@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 import { Input } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
+
   padding: 20px;
   background-color: ${theme('editor.contentBg')};
   min-height: 600px;
@@ -11,8 +13,6 @@ export const Wrapper = styled.div`
   margin-left: 4%;
   margin-right: 4%;
   border-radius: 5px;
-  flex-direction: column;
-  display: flex;
 `
 export const TitleInput = styled(Input)`
   border-color: ${theme('editor.border')};
@@ -42,6 +42,5 @@ export const TitleInput = styled(Input)`
   }
 `
 export const FooterWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
 `

@@ -1,27 +1,24 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
 `
 export const Title = styled.div`
+  ${cs.flex('align-center')};
+
   margin-bottom: 10px;
   font-size: 1.2rem;
   max-width: 450px;
-  display: flex;
-  align-items: center;
   &:hover {
     cursor: pointer;
   }
 `
 export const LangDot = styled.div`
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
+  ${cs.circle('12px')};
   background-color: ${({ color }) => color};
   margin-right: 6px;
 `
@@ -52,22 +49,20 @@ export const TitleTag = styled.div`
 `
 
 export const TitleTagDot = styled.span`
-  width: 10px;
-  height: 10px;
+  ${cs.circle('10px')};
   margin-right: 4px;
-  border-radius: 50%;
   background-color: #9cd090;
   display: inline-block;
   opacity: ${theme('tags.dotOpacity')};
 `
 
 export const StatusInfo = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: 3px;
 `
 
 export const StatusSection = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-right: 6px;
 `
 export const StatusNum = styled.div`

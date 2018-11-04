@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
-import { theme, column, Animate, smokey } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;
@@ -14,13 +14,12 @@ export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 // min-height: 300px;
 export const ListsContainer = styled.div`
-  ${column};
+  ${cs.flexColumn('')};
   border-radius: 4px;
 `
 
 export const TotalHeader = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: 25px;
   margin-bottom: 10px;
 `
@@ -48,7 +47,7 @@ export const FloorNum = styled.div`
 `
 
 export const CommentBlock = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 16px;
   padding: 15px;
   padding-left: 20px;
@@ -60,8 +59,7 @@ export const CommentBlock = styled.div`
 
 // filter: blur(3px);
 export const CommentWrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 export const DeleteHintText = styled.div`
@@ -70,6 +68,8 @@ export const DeleteHintText = styled.div`
   margin-bottom: 10px;
 `
 export const DeleteOverlay = styled.div`
+  ${cs.flexColumn('align-both')};
+
   position: absolute;
   margin-top: -15px;
   margin-left: -20px;
@@ -77,62 +77,54 @@ export const DeleteOverlay = styled.div`
   height: 100%;
   border-radius: 5px;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-  animation: ${Animate.pulse} 0.3s linear;
+  animation: ${animate.pulse} 0.3s linear;
 `
 export const DeleteBtnGroup = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CommentUserInfo = styled.div`
   margin-right: 15px;
 `
 export const CommentAvatar = styled(Img)`
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+  ${cs.circle('38px')};
   opacity: ${theme('avatarOpacity')};
 `
 export const CommentHeader = styled.div`
+  ${cs.flexColumn()};
   margin-bottom: 5px;
-  ${column};
   margin-top: -1px;
 `
 export const CommentHeaderFirst = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CommentUserName = styled.div`
+  ${cs.flexGrow()};
+
   color: ${theme('comment.username')};
   font-size: 1rem;
-  display: flex;
-  flex-grow: 1;
 `
 export const TimeStamps = styled.div`
   color: ${theme('comment.placeholder')};
   font-size: 0.9rem;
 `
 export const CommentBodyInfo = styled.div`
+  ${cs.flexColumn()};
   width: 100%;
-  ${column};
 `
 export const CommentContent = styled.div`
   font-size: 1.1rem;
 `
 export const CommentFooter = styled.div`
+  ${cs.flex()};
   margin-top: 15px;
-  display: flex;
 `
 export const Actions = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: -4px;
 `
-
 export const ReplyUsers = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: -4px;
 `
 export const ReplyTitle = styled.div`
@@ -140,9 +132,8 @@ export const ReplyTitle = styled.div`
   margin-top: 4px;
   margin-right: 5px;
 `
-
 export const VisiableAction = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('comment.action')};
   margin-right: 10px;
   &:hover {
@@ -150,7 +141,6 @@ export const VisiableAction = styled.div`
     font-weight: bold;
   }
 `
-
 export const ActionNumber = styled.div`
   font-size: 1.2em;
   color: ${theme('comment.action')};
@@ -172,7 +162,7 @@ export const UpIcon = styled(Img)`
   width: 20px;
   height: 20px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
-  ${smokey};
+  ${cs.smokey};
 `
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.icon')};
@@ -183,7 +173,7 @@ export const ReplyIcon = styled(Img)`
 `
 
 export const ReplyAction = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('comment.action')};
   margin-right: 12px;
   cursor: pointer;

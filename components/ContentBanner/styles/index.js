@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const BaseBanner = styled.nav`
+  ${cs.flexColumn('justify-center')};
+
   position: relative;
   min-height: 140px;
   border-bottom: 1px solid tomato;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
@@ -16,7 +15,7 @@ export const BaseBanner = styled.nav`
   }
 `
 export const BaseBannerContent = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
 `
@@ -26,36 +25,28 @@ export const BannerContainer = styled(BaseBanner)`
   padding-bottom: 10px;
 `
 export const BannerContentWrapper = styled(BaseBannerContent)`
-  display: flex;
+  ${cs.flex()};
 `
 export const PostBrief = styled.div`
+  ${cs.flexColumnGrow()};
   width: 60%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 `
 
 export const Title = styled.div`
   font-size: 1.5em;
   color: ${theme('thread.articleTitle')};
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  ${cs.truncate('100%')};
 `
 export const Desc = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: 5px;
   margin-bottom: 8px;
-  display: flex;
   font-size: 0.9rem;
   color: ${theme('thread.articleDigest')};
 `
 export const Avatar = styled.img`
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
+  ${cs.circle('25px')};
   margin-right: 5px;
 `
 export const MarkTag = styled.div`

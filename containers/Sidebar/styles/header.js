@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 import { Container } from './index'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: 14px;
   margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
   ${Container}:hover & {
@@ -13,8 +13,7 @@ export const Wrapper = styled.div`
   }
 `
 export const HeaderFuncs = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
 `
 export const PinIconWrapper = styled.div`
   &:hover {
@@ -64,8 +63,7 @@ export const ExploreWrapper = styled.div`
   }
 `
 export const ExploreContent = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const ExploreText = styled.div`
   letter-spacing: 1.5px;

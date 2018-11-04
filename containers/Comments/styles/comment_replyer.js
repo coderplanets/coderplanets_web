@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
 import { WORD_LIMIT } from '../../../config'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
 export const ReplyBar = styled(ReplyBarBase)`
@@ -13,20 +13,18 @@ export const ReplyToBody = styled(ReplyToBodyBase)``
 export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 export const Container = styled.div`
+  ${cs.flexColumn()};
   background: ${theme('preview.articleBg')};
   min-height: 200px;
   height: 100%;
   border-color: ${theme('preview.articleBg')};
-  display: flex;
-  flex-direction: column;
   transition: all 0.3s;
   border-radius: 3px;
 `
 
 export const InputHeaderWrapper = styled.div`
+  ${cs.flex('align-center')};
   height: 50px;
-  display: flex;
-  align-items: center;
   margin-right: 20px;
 `
 export const InputEditorWrapper = styled.div`
@@ -39,9 +37,7 @@ export const InputEditorWrapper = styled.div`
   font-size: 1.4em;
 `
 export const UserAvatar = styled.img`
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  ${cs.circle('25px')};
   margin-left: 3%;
   opacity: ${theme('avatarOpacity')};
 `
@@ -68,8 +64,7 @@ export const ReferToIcon = styled(Img)`
 export const ReplyAvatars = styled.div``
 
 export const CounterWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: #c2d9da;
 `
 export const CounterSpliter = styled.div`

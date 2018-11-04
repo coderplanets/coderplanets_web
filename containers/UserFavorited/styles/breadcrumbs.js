@@ -1,20 +1,18 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-top: 10px;
 `
 export const TitleList = styled.div`
+  ${cs.flex()};
   color: ${theme('tabs.headerActive')};
-  display: flex;
 `
 export const Label = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-left: 3px;
 `
 export const ThreadSelectorLabel = styled(Label)`

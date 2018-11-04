@@ -1,19 +1,16 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
+  ${cs.flex('justify-around')};
 `
-
 export const Divider = styled.div`
   border-left: 1px solid;
   border-color: ${theme('banner.desc')};
   opacity: 0.4;
 `
 export const NumWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   text-align: center;
 `
 export const RepTitle = styled.div`

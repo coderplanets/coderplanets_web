@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
+
   padding: 20px;
   background: ${theme('preview.articleBg')};
   min-height: 600px;
@@ -10,11 +12,11 @@ export const Wrapper = styled.div`
   margin-left: 4%;
   margin-right: 4%;
   border-radius: 3px;
-  flex-direction: column;
-  display: flex;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 export const BodyWrapper = styled.div`
+  ${cs.flexColumn()};
+
   padding: 20px;
   background: ${theme('preview.articleBg')};
   min-height: 600px;
@@ -22,8 +24,6 @@ export const BodyWrapper = styled.div`
   margin-left: 4%;
   margin-right: 4%;
   border-radius: 3px;
-  flex-direction: column;
-  display: flex;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 export const CommentsWrapper = styled.div`
@@ -35,8 +35,7 @@ export const CommentsWrapper = styled.div`
   border-radius: 5px;
 `
 export const ArticleHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
   color: #cdd0d4;
 `
 export const ArticleTitle = styled.div`
@@ -58,7 +57,5 @@ export const ArticleBody = styled.article`
   flex-grow: 1;
 `
 export const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${cs.flex('align-both')};
 `

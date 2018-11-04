@@ -1,20 +1,20 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flex()};
+
   margin-bottom: 5px;
-  display: flex;
   width: 100%;
 `
 export const Main = styled.div`
-  display: flex;
+  ${cs.flexColumn()};
   flex-grow: 1;
-  flex-direction: column;
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
   line-height: 1;
 `
 export const SecondHalf = styled.div`
@@ -29,7 +29,7 @@ export const CompanyLogo = styled(Img)`
   display: block;
 `
 export const Breif = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-grow: 1;
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
@@ -66,8 +66,7 @@ export const LinkIcon = styled(Img)`
   height: 12px;
 `
 export const Extra = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   opacity: 0.8;
   transition: opacity 0.2s;
   font-size: 0.9rem;
@@ -81,8 +80,7 @@ export const Salary = styled.div`
   font-size: 0.9rem;
 `
 export const CommentWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   align-self: flex-start;
 `
 export const CommentIcon = styled(Img)`

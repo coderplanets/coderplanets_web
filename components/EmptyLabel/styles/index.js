@@ -2,15 +2,13 @@ import styled from 'styled-components'
 
 /* import { Img } from '../../../components' */
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn('align-both')};
+
   color: ${theme('banner.desc')};
-  display: flex;
-  justify-content: center;
   height: 200px;
-  align-items: center;
-  flex-direction: column;
 `
 export const Title = styled.div`
   margin-top: 10px;

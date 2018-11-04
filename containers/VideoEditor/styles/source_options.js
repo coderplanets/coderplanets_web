@@ -2,17 +2,15 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: 5px;
 `
 export const ItemWrapper = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
   margin-right: 8px;
-  align-items: center;
 `
 export const Title = styled.div`
   color: ${({ active }) =>

@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   width: 100%;
   margin-top: 10%;
   margin-bottom: 30px;

@@ -1,22 +1,18 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
   width: 100%;
 `
 export const TitlesWrapper = styled.div`
+  ${cs.flex('align-center')};
   font-size: 1.3rem;
-  display: flex;
-  align-items: center;
 `
 export const LanguageDot = styled.div`
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
+  ${cs.circle('15px')};
   margin-right: 8px;
   background-color: ${({ color }) => color};
 `
@@ -36,11 +32,10 @@ export const TitleLink = styled.a`
   }
 `
 export const CountsWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CountItem = styled.a`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 
   color: ${theme('banner.title')};
   transition: color 0.2s;

@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleLink')};
   margin-left: 10px;
   opacity: 0.8;

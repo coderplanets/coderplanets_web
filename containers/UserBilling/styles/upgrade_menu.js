@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import { Button } from 'antd'
 
 // import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const PlanWrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
+  ${cs.flex('align-start')};
   padding: 5px 10px;
   margin-top: 10px;
 `
@@ -23,18 +22,15 @@ export const PlanTitle = styled.div`
   margin-top: 2px;
 `
 export const GirlTitle = styled(PlanTitle)`
+  ${cs.flexColumn()};
   color: #ff7199;
-  display: flex;
-  flex-direction: column;
 `
 export const TitleDesc = styled.div`
   color: ${({ pink }) => (pink ? '#ffafc9' : theme('thread.articleDigest'))};
 `
 export const PlanDesc = styled.div`
+  ${cs.flexColumnGrow()};
   color: ${theme('thread.articleDigest')};
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
 `
 export const PurchaseButton = styled.div`
   margin-top: 2px;

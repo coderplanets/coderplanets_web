@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
-  display: flex;
+  ${cs.flex('align-center')};
+
   position: relative;
-  align-items: center;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 4px;

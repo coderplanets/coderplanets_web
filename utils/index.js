@@ -101,8 +101,8 @@ export { default as SOCIAL_LISTS } from './social_lists'
 
 // helpers
 export { toast, toastBarColor } from './toast'
-export { default as Animate } from './animations'
-export { smokey, column, columnCenter } from './common_styles'
+export { default as animate } from './animations'
+export { default as cs } from './common_styles'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

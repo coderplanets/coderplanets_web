@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('banner.title')};
   font-size: 1rem;
   padding: 20px 18px;

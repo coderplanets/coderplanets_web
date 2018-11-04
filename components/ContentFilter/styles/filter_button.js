@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const InnerBtnWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+
   &:hover {
     cursor: pointer;
   }

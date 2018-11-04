@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const PrefixIcon = styled(Img)`
   width: 30px;
@@ -24,6 +24,6 @@ export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 35px;
   height: 35px;
-  animation: ${Animate.rotate360} 2s linear infinite;
+  animation: ${animate.rotate360} 2s linear infinite;
   display: block;
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme } from '../../utils'
+import { theme, cs } from '../../utils'
 
 // move ant style to seperate file
 const AntOverWrite = styled.div`
@@ -91,7 +91,6 @@ const AntOverWrite = styled.div`
     padding-top: 8px;
     padding-bottom: 8px;
     z-index: 2;
-    display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -118,9 +117,8 @@ const AntOverWrite = styled.div`
   .typewriter-mentionSuggestionsEntryText {
     display: inline-block;
     margin-left: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+    ${cs.truncate('320px')};
     max-width: 368px;
     font-size: 1.1rem;
     margin-bottom: 0.2em;

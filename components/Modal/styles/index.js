@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 // display: ${props => (props.show ? 'block' : 'none')};
 export const Mask = styled.div`
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   border: 1px solid;
   border-top: 3px solid;
   border-color: ${theme('modal.border')};
-  animation: ${Animate.zoomeIn} 0.5s linear;
+  animation: ${animate.zoomeIn} 0.5s linear;
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;
@@ -45,7 +45,7 @@ export const CloseBtn = styled(Img)`
   display: ${({ show }) => (show ? 'block' : 'none')};
 
   &:hover {
-    animation: ${Animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
     cursor: pointer;
   }
@@ -55,4 +55,4 @@ export const CloseBtn = styled(Img)`
 /* opacity: ${props => (props.show ? 1 : 0)}; */
 /* transition: opacity 1s ease-out; */
 
-// animation: ${Animate.zoomeIn} 0.5s linear;
+// animation: ${animate.zoomeIn} 0.5s linear;

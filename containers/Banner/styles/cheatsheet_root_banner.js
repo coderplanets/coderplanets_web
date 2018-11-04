@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const CheatsheetBanner = styled.div`
+  ${cs.flexColumn('justify-center')};
+
   position: relative;
   min-height: 140px;
   border-bottom: 1px solid tomato;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
@@ -23,9 +22,7 @@ export const CheatsheetBanner = styled.div`
 `
 
 export const CheatsheetWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
 `
 
 export const CheatsheetTitle = styled.div`

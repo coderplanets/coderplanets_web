@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const BtnWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 const BtnIcon = styled(Img)`
   height: 15px;
@@ -32,5 +31,5 @@ export const LoadingIcon = styled(BtnIcon)`
 
   height: 20px;
   width: 20px;
-  animation: ${Animate.rotate360} 1s linear infinite;
+  animation: ${animate.rotate360} 1s linear infinite;
 `

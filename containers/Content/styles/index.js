@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import { theme } from '../../../utils'
+import { cs } from '../../../utils'
 
 // visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
 
@@ -10,7 +10,7 @@ export const Hidder = styled.div`
 export const Wrapper = styled.div``
 
 export const CategoryWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   width: 100%;
 `
 

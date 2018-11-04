@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
+  ${cs.flex()};
+
   position: relative;
-  display: flex;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 10px;
@@ -64,13 +65,11 @@ export const Title = styled.div`
   }
 `
 export const Main = styled.div`
+  ${cs.flexColumnGrow()};
   margin-left: 10px;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const SecondHalf = styled.ul`
   margin-left: 10px;
@@ -78,13 +77,12 @@ export const SecondHalf = styled.ul`
   flex-grow: 1;
 `
 export const Breif = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
 export const ViewInfo = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
@@ -93,8 +91,8 @@ export const ViewIcon = styled(Img)`
   display: block;
 `
 export const Extra = styled.li`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+
   opacity: 0.8;
   transition: opacity 0.2s;
   font-size: 0.85rem;
@@ -122,14 +120,12 @@ export const OriginalAuthorLink = styled.a`
   }
 `
 export const BottomAuthorWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 10px;
   margin-bottom: 2px;
 `
 export const ButtonAvatar = styled(Img)`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  ${cs.circle('20px')};
   opacity: 0.8;
   display: block;
 `
@@ -138,8 +134,7 @@ export const ButtonNickname = styled.div`
   margin-left: 5px;
 `
 export const InsertTime = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
   margin-top: 1px;

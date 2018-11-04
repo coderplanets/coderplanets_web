@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-bottom: 8px;
 `
 export const Title = styled.div`
@@ -14,8 +13,7 @@ export const Title = styled.div`
   margin-bottom: 3px;
 `
 export const DescLabel = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const DescIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};

@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 import Img from '../../../components/Img'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
   margin-top: 30px;
-  flex-direction: column;
   margin-left: 10px;
   padding-left: 10%;
 `
 export const TagItem = styled.div`
+  ${cs.flex('align-center')};
   margin-bottom: 14px;
-  display: flex;
-  align-items: center;
 `
 export const AllTagIcon = styled(Img)`
   fill: #6b8688;
@@ -27,10 +26,9 @@ const getDotBgColor = (active, title, color) => {
 }
 
 export const TagDot = styled.div`
-  width: 14px;
-  height: 14px;
+  ${cs.circle('14px')};
+
   margin-right: 12px;
-  border-radius: 100%;
   background-color: ${({ active, title, color }) =>
     getDotBgColor(active, title, color)};
   opacity: ${theme('tags.dotOpacity')};

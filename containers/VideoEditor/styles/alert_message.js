@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   margin-bottom: 20px;
@@ -11,8 +11,7 @@ export const WarnMsgWrapper = styled.div`
   font-size: 0.8rem;
 `
 export const WarnMsgItem = styled.div`
-  display: flex;
-  align-items: flex-start;
+  ${cs.flex('align-start')};
 `
 export const WarnMsgIcon = styled(Img)`
   fill: ${theme('alertWarn.text')};

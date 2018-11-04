@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: 2px;
   margin-bottom: 2px;
 `

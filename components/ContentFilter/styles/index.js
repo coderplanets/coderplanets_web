@@ -1,33 +1,28 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
+  ${cs.flex('align-start')};
   width: 100%;
 `
 export const MainFilterWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   flex-grow: 1;
 `
 export const FiltrPanelWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   min-width: 200px;
   padding: 12px;
 `
 export const ColumnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${cs.flexColumn('align-center')};
   min-width: 60px;
   margin-right: 22px;
 `
 export const SelectLable = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const LabelDivider = styled.div`
   border-bottom: 1px solid;

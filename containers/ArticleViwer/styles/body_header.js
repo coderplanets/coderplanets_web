@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
 `
 export const LinkSource = styled.div`
   &:hover {
@@ -14,7 +13,7 @@ export const LinkSource = styled.div`
   }
 `
 export const MoreWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   cursor: pointer;
 `
 export const MoreIcon = styled(Img)`
@@ -23,7 +22,8 @@ export const MoreIcon = styled(Img)`
   height: 15px;
 `
 export const LinkFrom = styled.a`
-  display: flex;
+  ${cs.flex()};
+
   color: ${theme('article.link')};
   margin-left: 5%;
   &:hover {
@@ -33,8 +33,8 @@ export const LinkFrom = styled.a`
   }
 `
 export const RefinedLabel = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+
   color: tomato;
   border: 1px dashed tomato;
   padding: 0 5px;

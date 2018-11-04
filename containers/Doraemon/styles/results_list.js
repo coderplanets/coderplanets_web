@@ -1,25 +1,15 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
-
-const rotate360 = keyframes`
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-`
+import { theme, animate, cs } from '../../../utils'
 
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  animation: ${rotate360} 2s linear infinite;
+  animation: ${animate.rotate360} 2s linear infinite;
 `
 
 export const AddOn = styled.div`
@@ -66,13 +56,12 @@ export const SuggestionWrapper = styled.div`
 `
 // #001b21;
 export const BaseBar = styled.div`
+  ${cs.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
   height: 70px;
   background: ${theme('shell.barBg')};
   color: white;
-  display: flex;
-  align-items: center;
 `
 export const EditorBar = styled(BaseBar)`
   position: relative;
@@ -111,15 +100,9 @@ export const InputBar = styled.input`
   border-radius: 0;
   transition: all 400ms ease;
 `
-
 export const SuggestIconWrapper = styled.div`
   width: 10%;
   margin-right: 10px;
-`
-
-export const AvatarImg = styled(Img)`
-  width: 100%;
-  border-radius: 50%;
 `
 export const ContentWraper = styled.div`
   color: tomato;
@@ -136,12 +119,10 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
-  text-overflow: ellipsis;
   font-size: 0.9rem;
-  width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
   margin-bottom: 7px;
+
+  ${cs.truncate('90%')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};
@@ -161,8 +142,7 @@ export const HintEnter = styled(Img)`
 `
 
 export const SubInfoWraper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
 `
 
 export const RepoLang = styled.div`
@@ -183,10 +163,8 @@ export const NodeSVGIcon = styled(Img)`
 `
 
 export const ThemeDot = styled.div`
-  width: 35px;
-  height: 35px;
+  ${cs.circle('35px')};
   background: ${({ bg }) => bg};
-  border-radius: 50%;
 `
 // TODO: rename -> PrefixIcon
 export const PrefixSVGIcon = styled(Img)`

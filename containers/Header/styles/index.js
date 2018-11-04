@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const HeaderWrapper = styled.header`
   height: 33px;
-  display: flex;
-  flex-direction: row;
+  ${cs.flex()};
   background: ${({ fixed }) =>
     fixed ? theme('header.fixed') : theme('header.bg')};
 
@@ -24,15 +23,13 @@ export const HeaderWrapper = styled.header`
 // margin-left: ${props => (props.offsetLeft ? '180px' : '0')};
 
 export const RouterWrapper = styled.div`
-  flex-grow: 1;
-  display: flex;
+  ${cs.flexGrow()};
   height: 100%;
   margin-top: 1px;
 `
 
 export const MiniMapWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
+  ${cs.flex('align-end')};
   margin-left: 4vw;
 `
 
@@ -73,8 +70,7 @@ export const HeaderIcon = styled(Img)`
   margin-right: 12px;
 `
 export const Operations = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const Search = styled.div`
   color: ${theme('header.fg')};
@@ -86,4 +82,4 @@ export const AffixHeader = styled.div`
 export const RawHeader = styled.div`
   display: ${({ fixed }) => (!fixed ? 'block' : 'none')};
 `
-// animation: ${Animate.fadeInRight} 0.2s linear;
+// animation: ${animate.fadeInRight} 0.2s linear;

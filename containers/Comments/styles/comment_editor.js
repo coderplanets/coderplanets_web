@@ -3,24 +3,22 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
 import { WORD_LIMIT } from '../../../config'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Container = styled.div`
+  ${cs.flexColumn()};
   background: ${theme('preview.articleBg')};
   min-height: ${({ show }) => (show ? '100px' : '70px')};
   height: auto;
   border-color: ${theme('preview.articleBg')};
-  display: flex;
-  flex-direction: column;
   transition: all 0.3s;
 
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
 `
 export const InputHeaderWrapper = styled.div`
+  ${cs.flex('align-center')};
   height: 70px;
-  display: flex;
-  align-items: center;
   margin-right: 20px;
 `
 export const InputEditorWrapper = styled.div`
@@ -32,9 +30,7 @@ export const InputEditorWrapper = styled.div`
 `
 
 export const UserAvatar = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  ${cs.circle('40px')};
   margin-left: 4%;
   opacity: ${theme('avatarOpacity')};
 `
@@ -61,8 +57,7 @@ export const ReferToIcon = styled(Img)`
 export const ReplyAvatars = styled.div``
 
 export const CounterWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: #c2d9da;
 `
 export const CounterSpliter = styled.div`

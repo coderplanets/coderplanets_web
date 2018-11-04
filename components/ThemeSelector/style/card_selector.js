@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 import { Dot } from './index'
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
 `
 
@@ -13,7 +13,8 @@ export const ThemeDot = styled(Dot)``
 
 /* background: ${({ active }) => (active ? theme('banner.bg') : '')}; */
 export const IntroBox = styled.div`
-  display: flex;
+  ${cs.flex()};
+
   border: 1px solid;
   border: ${({ active }) => (active ? '2px solid' : '1px dashed')};
   border-color: ${theme('banner.desc')};
@@ -32,8 +33,7 @@ export const IntroBox = styled.div`
 `
 
 export const IntroDesc = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   width: 80%;
   position: relative;
 `
@@ -54,12 +54,13 @@ export const ThemeDesc = styled.div`
 `
 
 export const AuthorInfo = styled.div`
+  ${cs.flex()};
+
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
   position: absolute;
   bottom: -5px;
   left: 0;
-  display: flex;
 `
 
 export const AuthorIcon = styled(Img)`

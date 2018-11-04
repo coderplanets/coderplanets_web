@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flexColumn('align-center')};
   min-height: 400px;
-  align-items: center;
-  flex-direction: column;
   padding-right: 50px;
 `
 export const LoadingIcon = styled(Img)`

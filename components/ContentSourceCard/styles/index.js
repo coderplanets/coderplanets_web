@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   min-height: 100px;
@@ -17,7 +17,7 @@ export const Title = styled.div`
   font-size: 1em;
 `
 export const Desc = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-top: 15px;
   margin-bottom: 20px;
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};

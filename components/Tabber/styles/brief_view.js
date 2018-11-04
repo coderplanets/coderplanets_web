@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const TabItem = styled.div`
+  ${cs.flex('align-center')};
   padding: 0 5px;
   padding-bottom: 2px;
   font-size: 0.85rem;
   margin-right: 10px;
-  display: flex;
-  align-items: center;
   border-bottom: 1px dashed;
 
   color: ${({ active }) =>

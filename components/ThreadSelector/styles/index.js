@@ -1,21 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+  ${cs.flexGrow('align-center')};
 `
 export const Label = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   cursor: pointer;
 `
 export const BoxedLabel = styled(Label)`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   cursor: pointer;
   border: 1px solid;
   padding: 0 10px;

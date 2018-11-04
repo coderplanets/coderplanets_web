@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
 
 export const InputFooter = styled.div`
-  display: flex;
+  ${cs.flex()};
   padding: 0 10px;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -13,8 +13,7 @@ export const InputFooter = styled.div`
 `
 
 export const InputHelper = styled.div`
-  flex-grow: 1;
-  display: flex;
+  ${cs.flexGrow()};
 `
 export const HelperIcon = styled(Img)`
   fill: ${theme('comment.placeholder')};

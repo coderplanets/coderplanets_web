@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};
@@ -14,7 +14,7 @@ export const EditWrapper = styled.div`
   margin-top: 20px;
 `
 export const FormItemWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 20px;
 `
 export const FormLable = styled.div`
@@ -32,7 +32,6 @@ export const RadiosWrapper = styled.div`
   margin-top: 6px;
 `
 export const Footer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  ${cs.flex('align-end')};
   margin-bottom: 10px;
 `

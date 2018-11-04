@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const AccountWrapper = styled.div`
+  ${cs.flexColumn()};
   height: auto;
   min-height: 100vh;
   background: ${theme('preview.accountBg')};
   padding: 22px;
   padding-top: 30px;
   border-radius: 3px;
-  display: flex;
-  flex-direction: column;
   border-top: 3px solid;
   border-top-color: ${theme('preview.topLine')};
 `

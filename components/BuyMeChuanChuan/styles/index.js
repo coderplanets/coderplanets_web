@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { Animate, theme } from '../../../utils'
+import { animate, theme, cs } from '../../../utils'
 
 // background: #f9fcfc;
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
+
   height: 100%;
   min-height: 400px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   padding: 15px 20px;
 `
 
@@ -21,7 +21,7 @@ export const Header = styled.div`
 `
 
 export const BuyChuanChuan = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const ChuanChuanDesc = styled.div`
   width: 50%;
@@ -37,21 +37,20 @@ export const FoodPic = styled.img`
   border-radius: 5px;
 `
 export const ChuanChuanSelect = styled.div`
+  ${cs.flexColumn()};
   width: 50%;
-  display: flex;
-  flex-direction: column;
 `
 export const SelectTitle = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 5px;
   color: ${theme('banner.desc')};
   font-size: 1.3rem;
 `
 export const MyName = styled.div`
+  ${cs.flex()};
   color: ${theme('link')};
   margin-left: 8px;
   margin-right: 8px;
-  display: flex;
 `
 export const NameLinkIcon = styled(Img)`
   fill: ${theme('link')};
@@ -68,15 +67,15 @@ export const SelectDesc = styled.div`
   color: ${theme('banner.desc')};
 `
 export const SelectBox = styled.div`
+  ${cs.flex('align-center')};
+  justify-content: left;
+
   margin-top: 10px;
   border: 1px solid;
   border-color: ${theme('banner.desc')};
   border-radius: 4px;
   background: ${theme('modal.innerSelectBg')};
   height: 90px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
 
   background-image: linear-gradient(#51abb2 2px, transparent 2px),
     linear-gradient(90deg, #51abb200 2px, transparent 2px),
@@ -92,34 +91,29 @@ export const ChuanChuanIcon = styled(Img)`
 `
 
 export const Selectors = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const By = styled.div`
+  ${cs.flex('align-both')};
+
   width: 40px;
   height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.6rem;
   color: ${theme('font')};
   margin-left: -10px;
 `
 
 export const Circle = styled.div`
-  width: 38px;
-  height: 38px;
+  ${cs.flex('align-both')};
+  ${cs.circle('38px')};
   border: 1px solid;
   border-color: ${theme('font')};
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 10px;
   color: ${({ active }) => (active ? 'white' : '#51abb2')};
   background-color: ${({ active }) => (active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
-    animation: ${Animate.pulse} 0.3s linear;
+    animation: ${animate.pulse} 0.3s linear;
   }
   transition: background-color 0.3s ease-out;
 `
@@ -129,15 +123,14 @@ export const SelectHolder = styled.div`
 `
 
 export const PayButton = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-right: 5px;
+  ${cs.flex('justify-between')};
   align-items: center;
+  margin-right: 5px;
 `
 
 export const PayDesc = styled.div`
+  ${cs.flex()};
   font-size: 0.8rem;
-  display: flex;
   color: ${theme('banner.desc')};
 `
 export const AliPay = styled.div`

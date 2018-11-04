@@ -1,20 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Avatar = styled(Img)`
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
+  ${cs.circle('40px')};
   display: block;
 `
 export const Brief = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
   margin-left: 12px;
 `
 export const Nickname = styled.div`

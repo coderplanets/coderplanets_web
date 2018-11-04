@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flexColumn('align-start')};
+
   width: 110px;
-  flex-direction: column;
-  align-items: flex-start;
   padding: 15px;
   padding-right: 5px;
   margin: 0 10px;
@@ -25,8 +24,7 @@ export const Didiver = styled.div`
   opacity: 0.6;
 `
 export const Option = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   margin-top: 6px;
 `
 export const OptionIcon = styled(Img)`

@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flex()};
   padding: 20px 40px;
   background: ${theme('preview.articleBg')};
   min-height: 120px;
-  display: flex;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 export const BaseInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  ${cs.flexColumnGrow()};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -25,8 +23,7 @@ export const Desc = styled.div`
   font-size: 0.9rem;
 `
 export const Footer = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   margin-top: 20px;
 `
@@ -48,16 +45,13 @@ export const OriginAuthorLink = styled.a`
 export const PublishTime = styled.div``
 
 export const OtherInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  ${cs.flexColumn('justify-between')};
 `
 export const Duration = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+  justify-content: flex-end;
   color: ${theme('thread.articleDigest')};
   min-width: 120px;
-  justify-content: flex-end;
 `
 export const DurationText = styled.div``
 
@@ -70,11 +64,11 @@ export const DurationIcon = styled(Img)`
   margin-right: 5px;
 `
 export const Source = styled.div`
+  ${cs.flex('align-center')};
   justify-content: flex-end;
+
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
-  display: flex;
-  align-items: center;
   min-width: 120px;
   text-align: right;
 `

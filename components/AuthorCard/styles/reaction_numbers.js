@@ -1,18 +1,15 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
   padding: 0 10px;
   margin-top: 15px;
 `
 export const ReactionNum = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
   text-align: center;
 `
 export const NumDesc = styled.div`

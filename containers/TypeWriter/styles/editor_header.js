@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
-// import { theme } from '../../../utils'
+import { cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
 `
 export const CopyRightWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const PreviewBtn = styled.div`
   margin-top: -3px;
 `
 
 export const FooterWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
 `

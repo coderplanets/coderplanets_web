@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn('justify-center')};
+
   padding: 5px 12px;
   padding-top: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `
 export const Item = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
+
   color: ${theme('thread.articleTitle')};
   margin-bottom: 8px;
   &:hover {

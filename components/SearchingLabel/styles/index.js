@@ -1,17 +1,16 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   width: 26px;
   height: 26px;
-  animation: ${Animate.rotate360} 2s linear infinite;
+  animation: ${animate.rotate360} 2s linear infinite;
   display: block;
   margin-right: 3px;
 `

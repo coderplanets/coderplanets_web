@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 export const Divider = styled.div`
   width: 100%;
@@ -17,8 +16,7 @@ export const Divider = styled.div`
 `
 
 export const Text = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
   font-size: 0.9rem;
 `
 export const Title = styled.div`

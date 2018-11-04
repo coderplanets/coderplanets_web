@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const NumbersWrapper = styled.div`
-  display: flex;
-  text-align: center;
+  ${cs.flex('align-center')};
   margin-top: -2.1rem;
 `
 export const NumbersInfo = styled(NumbersWrapper)`
@@ -12,9 +11,8 @@ export const NumbersInfo = styled(NumbersWrapper)`
 `
 // background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   padding: 0 5px;
   border-radius: 4px;
 
@@ -28,7 +26,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberItem = styled.div`
@@ -37,7 +35,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberDivider = styled.div`

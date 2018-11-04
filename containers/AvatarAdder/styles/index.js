@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
 // import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${cs.flex('align-both')};
+
   border: 1px dashed;
   margin-left: 2px;
   width: 24px;

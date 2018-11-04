@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   text-align: center;
 `
 export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
+
   padding: 0 5px;
   border-radius: 4px;
 
@@ -23,7 +22,7 @@ export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
@@ -33,7 +32,7 @@ export const NumberItem = styled.div`
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `

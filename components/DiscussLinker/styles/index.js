@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
   max-width: 290px;
-  display: flex;
-  flex-direction: column;
   padding: 10px;
 `
 export const Header = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const DiscussIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -20,8 +19,7 @@ export const DiscussIcon = styled(Img)`
   display: block;
 `
 export const Info = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
 export const Title = styled.div`
   font-size: 1rem;
@@ -43,8 +41,7 @@ export const Divider = styled.div`
   margin-bottom: 6px;
 `
 export const Footer = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -61,12 +58,7 @@ export const GithubIcon = styled(Img)`
 
 export const IssueLink = styled.a`
   color: ${theme('banner.title')};
-
-  width: 210px
-  margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  ${cs.truncate('230px')};
 
   transition: color 0.2s;
   &:hover {
