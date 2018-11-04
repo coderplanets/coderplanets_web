@@ -5,12 +5,13 @@ import DiscussLinker from '../DiscussLinker'
 
 import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
 
+const splitMargin = '8px'
 const MainEntries = () => (
   <Wrapper>
     <SiteLink>首页</SiteLink>
-    <DotDivider />
+    <DotDivider space={splitMargin} />
     <SiteLink>社区</SiteLink>
-    <DotDivider />
+    <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
       trigger="click"
@@ -23,7 +24,7 @@ const MainEntries = () => (
     >
       <SiteLink>专栏</SiteLink>
     </Popover>
-    <DotDivider />
+    <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
       trigger="click"

@@ -10,6 +10,7 @@ export {
   ACTION,
   FILTER,
   ROUTE,
+  C11N,
 } from './constants'
 
 export { makeDebugger } from './debug'

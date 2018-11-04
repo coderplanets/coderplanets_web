@@ -15,7 +15,7 @@ import DigestView from './DigestView'
 import ListView from './ListView'
 
 import { renderReadMark, getOpacity } from './helper'
-import { makeDebugger } from '../../utils'
+import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:JobItem:index')
@@ -33,7 +33,7 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
       onClick={onTitleSelect}
     >
       {renderReadMark(entry, accountInfo)}
-      {contentsLayout === 'DIGEST' ? (
+      {contentsLayout === C11N.DIGEST ? (
         <DigestView entry={entry} />
       ) : (
         <ListView entry={entry} onTitleSelect={onTitleSelect} />
@@ -59,7 +59,7 @@ JobItem.propTypes = {
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
     customization: PropTypes.shape({
-      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
@@ -73,7 +73,7 @@ JobItem.defaultProps = {
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({
-      contentsLayout: 'DIGEST',
+      contentsLayout: C11N.DIGEST,
       markViewed: true,
       displayDensity: '20',
     }),

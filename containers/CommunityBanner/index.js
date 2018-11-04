@@ -7,12 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from '../../utils'
-
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
 import * as logic from './logic'
+import { makeDebugger, storePlug, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CommunityBanner')
@@ -36,7 +35,7 @@ class CommunityBannerContainer extends React.Component {
     /* console.log('the - fuck? ', community.threads) */
     return (
       <div>
-        {bannerLayout === 'DIGEST' ? (
+        {bannerLayout === C11N.DIGEST ? (
           <DigestView
             community={community}
             activeThread={activeThread}

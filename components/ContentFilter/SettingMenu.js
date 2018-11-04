@@ -12,7 +12,7 @@ import {
   OptionText,
 } from './styles/setting_menu'
 
-import { THREAD } from '../../utils'
+import { THREAD, C11N } from '../../utils'
 
 const SettingMenu = ({
   thread,
@@ -30,13 +30,13 @@ const SettingMenu = ({
       <Title>视图显示</Title>
       <Option
         onClick={onCustomChange.bind(this, {
-          bannerLayout: bannerLayout === 'DIGEST' ? 'BRIEF' : 'DIGEST',
+          bannerLayout: bannerLayout === C11N.DIGEST ? C11N.BRIEF : C11N.DIGEST,
         })}
       >
         <OptionText active>扩展模式</OptionText>
         <OptionIcon
           src={
-            bannerLayout === 'BRIEF'
+            bannerLayout === C11N.BRIEF
               ? `${ICON_CMD}/turn_on.svg`
               : `${ICON_CMD}/turn_off.svg`
           }
@@ -46,21 +46,21 @@ const SettingMenu = ({
       {!R.contains(thread, [THREAD.VIDEO, THREAD.REPO]) ? (
         <React.Fragment>
           <Option
-            onClick={onCustomChange.bind(this, { contentsLayout: 'LIST' })}
+            onClick={onCustomChange.bind(this, { contentsLayout: C11N.LIST })}
           >
             <OptionText>列表视图</OptionText>
             <OptionIcon
               src={`${ICON_CMD}/check2.svg`}
-              active={contentsLayout === 'LIST'}
+              active={contentsLayout === C11N.LIST}
             />
           </Option>
           <Option
-            onClick={onCustomChange.bind(this, { contentsLayout: 'DIGEST' })}
+            onClick={onCustomChange.bind(this, { contentsLayout: C11N.DIGEST })}
           >
             <OptionText active>摘要视图</OptionText>
             <OptionIcon
               src={`${ICON_CMD}/check2.svg`}
-              active={contentsLayout === 'DIGEST'}
+              active={contentsLayout === C11N.DIGEST}
             />
           </Option>
           <Didiver />

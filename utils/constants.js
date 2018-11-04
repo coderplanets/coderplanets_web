@@ -179,3 +179,10 @@ export const FILTER = {
   READED: 'READED',
   UNREAD: 'UNREAD',
 }
+
+// customization
+export const C11N = {
+  DIGEST: 'digest',
+  LIST: 'list',
+  BRIEF: 'brief',
+}
