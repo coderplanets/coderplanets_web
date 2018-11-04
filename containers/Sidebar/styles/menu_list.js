@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Container } from './index'
 import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const MenuItem = styled.div`
   margin-top: 0px;
@@ -55,16 +55,11 @@ export const MenuItemTitle = styled.div`
   display: ${({ pin }) => (pin ? 'block' : 'none')};
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
-  // flex-grow: 1;
-  // max-width: 50%;
   letter-spacing: 1.3px;
   transition: opacity 0.2s;
-
-  width: 110px;
   margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  ${cs.truncate('110px')};
 
   ${MenuRow}:hover & {
     opacity: 1;

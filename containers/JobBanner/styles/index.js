@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const BaseBanner = styled.nav`
   position: relative;
@@ -37,10 +37,8 @@ export const PostBrief = styled.div`
 export const Title = styled.div`
   font-size: 1.6em;
   color: ${theme('thread.articleTitle')};
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  ${cs.truncate('100%')};
 `
 export const Desc = styled.div`
   display: flex;

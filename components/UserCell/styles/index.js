@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { cs } from '../../../utils'
+
 export const UserCellWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -27,8 +29,6 @@ export const NickName = styled.div`
 export const Bio = styled.div`
   color: #a0bbbe;
   margin-top: -3px;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  ${cs.truncate('200px')};
 `

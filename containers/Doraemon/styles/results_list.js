@@ -1,25 +1,15 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
-import { theme } from '../../../utils'
-
-const rotate360 = keyframes`
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
-`
+import { theme, Animate, cs } from '../../../utils'
 
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  animation: ${rotate360} 2s linear infinite;
+  animation: ${Animate.rotate360} 2s linear infinite;
 `
 
 export const AddOn = styled.div`
@@ -136,12 +126,10 @@ export const Title = styled.div`
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
-  text-overflow: ellipsis;
   font-size: 0.9rem;
-  width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
   margin-bottom: 7px;
+
+  ${cs.truncate('90%')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};

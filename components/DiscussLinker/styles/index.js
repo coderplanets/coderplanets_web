@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   max-width: 290px;
@@ -61,12 +61,7 @@ export const GithubIcon = styled(Img)`
 
 export const IssueLink = styled.a`
   color: ${theme('banner.title')};
-
-  width: 210px
-  margin-right: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  ${cs.truncate('230px')};
 
   transition: color 0.2s;
   &:hover {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -54,10 +54,7 @@ export const CommunityTitle = styled.div`
   font-weight: bold;
   margin-top: -2px;
 
-  width: 80px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  ${cs.truncate('80px')};
 `
 export const Breadcrumbs = styled.div`
   max-width: 520px;
