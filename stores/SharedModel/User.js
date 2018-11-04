@@ -1,5 +1,7 @@
 import { types as t } from 'mobx-state-tree'
 import { Community /* PagedCommunities */ } from './Community'
+
+import { C11N } from '../../utils'
 import { PAGE_SIZE } from '../../config'
 
 const PagedCommunities = t.model('pagedCommunities', {
@@ -57,12 +59,12 @@ export const Achievement = t.model('Achievement', {
 
 const Customization = t.model('Customization', {
   bannerLayout: t.optional(
-    t.enumeration('contentsLayout', ['DIGEST', 'BRIEF']),
-    'DIGEST'
+    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.BRIEF]),
+    C11N.DIGEST
   ),
   contentsLayout: t.optional(
-    t.enumeration('contentsLayout', ['DIGEST', 'LIST']),
-    'DIGEST'
+    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.LIST]),
+    C11N.DIGEST
   ),
   contentDivider: t.optional(t.boolean, false),
   markViewed: t.optional(t.boolean, true),

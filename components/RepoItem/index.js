@@ -13,7 +13,7 @@ import Header from './Header'
 import Footer from './Footer'
 
 import { renderReadMark, getOpacity } from './helper'
-import { makeDebugger, cutFrom } from '../../utils'
+import { makeDebugger, cutFrom, C11N } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:RepoItem:index')
 /* eslint-enable no-unused-vars */
@@ -49,7 +49,7 @@ RepoItem.propTypes = {
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
     customization: PropTypes.shape({
-      contentsLayout: PropTypes.oneOf(['DIGEST', 'LIST']),
+      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
@@ -63,7 +63,7 @@ RepoItem.defaultProps = {
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({
-      contentsLayout: 'DIGEST',
+      contentsLayout: C11N.DIGEST,
       markViewed: true,
       displayDensity: '20',
     }),

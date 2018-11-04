@@ -35,6 +35,8 @@ export const EVENT = {
 
   // favorites
   SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
+  // customization
+  SET_C11N: 'SET_C11N',
 }
 
 export const TYPE = {
@@ -178,4 +180,11 @@ export const FILTER = {
   // READ
   READED: 'READED',
   UNREAD: 'UNREAD',
+}
+
+// customization
+export const C11N = {
+  DIGEST: 'digest',
+  LIST: 'list',
+  BRIEF: 'brief',
 }

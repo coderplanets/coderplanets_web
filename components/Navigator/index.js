@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Navigator:index')
@@ -18,7 +18,7 @@ const debug = makeDebugger('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout }) => (
   <React.Fragment>
-    {layout === 'DIGEST' ? (
+    {layout === C11N.DIGEST ? (
       <DigestView />
     ) : (
       <BriefView curCommunity={curCommunity} />
@@ -28,12 +28,12 @@ const Navigator = ({ curCommunity, layout }) => (
 
 Navigator.propTypes = {
   curCommunity: PropTypes.object,
-  layout: PropTypes.oneOf(['DIGEST', 'BRIEF']),
+  layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
 }
 
 Navigator.defaultProps = {
   curCommunity: {},
-  layout: 'DIGEST',
+  layout: C11N.DIGEST,
 }
 
 export default Navigator

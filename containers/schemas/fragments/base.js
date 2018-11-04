@@ -97,16 +97,23 @@ export const user = `
   followersCount
   followingsCount
 `
+export const c11n = `
+  bannerLayout
+  contentsLayout
+  contentDivider
+  markViewed
+  displayDensity
+`
 export const achievement = `
   reputation
   contentsStaredCount
   contentsFavoritedCount
 `
 export const userBackgrounds = `
-  workBackgrounds {
-    company
-    title
-  }
+workBackgrounds {
+  company
+  title
+}
   educationBackgrounds {
     school
     major
