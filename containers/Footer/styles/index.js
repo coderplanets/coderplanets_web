@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, smokey } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Container = styled.footer`
   display: flex;
@@ -45,7 +45,7 @@ export const Divider = styled.div`
 
 export const GitSource = styled.div`
   margin-top: 2px;
-  ${smokey};
+  ${cs.smokey};
 `
 export const Powerby = styled.div`
   color: ${theme('footer.label')};

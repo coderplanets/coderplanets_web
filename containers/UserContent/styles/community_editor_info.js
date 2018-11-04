@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, smokey } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   margin-top: 10px;
@@ -20,7 +20,7 @@ export const CommunityIcon = styled(Img)`
   display: block;
   margin-right: 4px;
   margin-bottom: 10px;
-  ${smokey};
+  ${cs.smokey};
 `
 export const Text = styled.div`
   font-size: 0.9rem;

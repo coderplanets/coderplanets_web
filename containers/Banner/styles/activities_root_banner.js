@@ -2,13 +2,15 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 import { BaseBanner, BaseBannerContent } from './index'
-import { smokey, columnCenter } from '../../../utils'
+import { cs } from '../../../utils'
 
 export const BannerContainer = styled(BaseBanner)``
 export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const MonthWrapper = styled.div`
-  ${columnCenter};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   color: #56868a;
 `
 
@@ -20,7 +22,7 @@ export const UpIcon = styled(Img)`
   fill: #6b8688;
   width: 30px;
   height: 30px;
-  ${smokey};
+  ${cs.smokey};
 `
 export const DaysWrapper = styled.div`
   display: flex;

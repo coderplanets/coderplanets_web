@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
-import { theme, column, Animate, smokey, cs } from '../../../utils'
+import { theme, Animate, cs } from '../../../utils'
 
 export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;
@@ -14,7 +14,8 @@ export const ReplyToFloor = styled(ReplyToFloorBase)``
 
 // min-height: 300px;
 export const ListsContainer = styled.div`
-  ${column};
+  display: flex;
+  flex-direction: column;
   border-radius: 4px;
 `
 
@@ -95,8 +96,9 @@ export const CommentAvatar = styled(Img)`
   opacity: ${theme('avatarOpacity')};
 `
 export const CommentHeader = styled.div`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 5px;
-  ${column};
   margin-top: -1px;
 `
 export const CommentHeaderFirst = styled.div`
@@ -113,8 +115,9 @@ export const TimeStamps = styled.div`
   font-size: 0.9rem;
 `
 export const CommentBodyInfo = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  ${column};
 `
 export const CommentContent = styled.div`
   font-size: 1.1rem;
@@ -170,7 +173,7 @@ export const UpIcon = styled(Img)`
   width: 20px;
   height: 20px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
-  ${smokey};
+  ${cs.smokey};
 `
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.icon')};

@@ -4,7 +4,7 @@
  *
  */
 
-export const smokey = `
+const smokey = `
   opacity: 0.6;
 
   &:hover {
@@ -13,29 +13,22 @@ export const smokey = `
   }
   transition: opacity 0.3s;
 `
-
-export const column = `
-  display: flex;
-  flex-direction: column;
-`
-export const columnCenter = `
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-export const truncate = (width = '100px') => `
+const truncate = (width = '100px') => `
   width: ${width};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `
-export const circle = (width = '30px') => `
+const circle = (width = '30px') => `
   width: ${width};
   height: ${width};
   border-radius: 100%;
 `
-export const cs = {
+
+const cs = {
   truncate,
   circle,
   smokey,
 }
+
+export default cs

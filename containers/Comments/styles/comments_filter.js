@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { smokey, Animate, theme } from '../../../utils'
+import { Animate, theme, cs } from '../../../utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;
   margin-top: 8px;
   display: ${({ show }) => (show ? 'block' : 'none')};
-  ${smokey};
+  ${cs.smokey};
 `
 export const Header = styled.div`
   display: flex;
