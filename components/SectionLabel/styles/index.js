@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   margin-top: 10px;
@@ -20,7 +20,7 @@ export const AddonWrapper = styled.div`
   margin-right: 5%;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   &:active {
-    animation: ${Animate.pulse} 0.3s linear;
+    animation: ${animate.pulse} 0.3s linear;
   }
 `
 export const Divider = styled.div`

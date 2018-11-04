@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Img from '../../../components/Img'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
-import { theme, Animate, cs } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;
@@ -83,7 +83,7 @@ export const DeleteOverlay = styled.div`
   align-items: center;
   justify-content: center;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-  animation: ${Animate.pulse} 0.3s linear;
+  animation: ${animate.pulse} 0.3s linear;
 `
 export const DeleteBtnGroup = styled.div`
   display: flex;

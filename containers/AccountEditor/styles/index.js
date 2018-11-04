@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { Animate, theme, cs } from '../../../utils'
+import { animate, theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding-top: 20px;
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  animation: ${Animate.fadeInRight} 0.2s linear;
+  animation: ${animate.fadeInRight} 0.2s linear;
 `
 
 export const AvatarPic = styled.img`

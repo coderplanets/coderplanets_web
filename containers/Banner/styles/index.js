@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const BaseBanner = styled.nav`
   position: relative;
@@ -51,7 +51,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberItem = styled.div`
@@ -60,7 +60,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberDivider = styled.div`

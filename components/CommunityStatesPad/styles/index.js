@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
@@ -33,7 +33,7 @@ export const NumberItem = styled.div`
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `

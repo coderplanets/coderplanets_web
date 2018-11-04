@@ -113,4 +113,4 @@ export const UpIcon = styled(ToggleIcon)`
 export const DownIcon = styled(ToggleIcon)``
 
 /* import { Img } from '../../../components' */
-/* import { Animate, theme } from '../../../utils' */
+/* import { animate, theme } from '../../../utils' */

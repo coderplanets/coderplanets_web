@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding: 10px;
@@ -48,7 +48,7 @@ export const DeleteBtn = styled.div`
     border: 1px solid tomato;
   }
   &:active {
-    animation: ${Animate.pulse} 0.3s linear;
+    animation: ${animate.pulse} 0.3s linear;
   }
 `
 export const CutIcon = styled(Img)`

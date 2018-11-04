@@ -86,4 +86,4 @@ export const AffixHeader = styled.div`
 export const RawHeader = styled.div`
   display: ${({ fixed }) => (!fixed ? 'block' : 'none')};
 `
-// animation: ${Animate.fadeInRight} 0.2s linear;
+// animation: ${animate.fadeInRight} 0.2s linear;

@@ -94,7 +94,7 @@ const rotate360 = keyframes`
   }
 `
 
-const Animate = {
+const animate = {
   fadeInRight,
   fadeInDown,
   pulse,
@@ -104,4 +104,4 @@ const Animate = {
   rotate360,
 }
 
-export default Animate
+export default animate

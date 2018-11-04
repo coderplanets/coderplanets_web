@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 /* import { Img } from '../../../components' */
 import Img from '../../../components/Img'
-import { theme, Animate, cs } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  animation: ${Animate.rotate360} 2s linear infinite;
+  animation: ${animate.rotate360} 2s linear infinite;
 `
 
 export const AddOn = styled.div`

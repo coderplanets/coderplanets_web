@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { Animate, theme, cs } from '../../../utils'
+import { animate, theme, cs } from '../../../utils'
 
 // background: #f9fcfc;
 export const Wrapper = styled.div`
@@ -117,7 +117,7 @@ export const Circle = styled.div`
   background-color: ${({ active }) => (active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
-    animation: ${Animate.pulse} 0.3s linear;
+    animation: ${animate.pulse} 0.3s linear;
   }
   transition: background-color 0.3s ease-out;
 `

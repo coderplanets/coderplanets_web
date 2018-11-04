@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Container = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ export const LinkIcon = styled(Img)`
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 16px;
-  animation: ${Animate.rotate360} 2s linear infinite;
+  animation: ${animate.rotate360} 2s linear infinite;
 `
 
 export const GithubLogoIcon = styled(Img)`

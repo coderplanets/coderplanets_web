@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ export const ThumbCermeraIcon = styled(Img)`
   left: 35%;
   opacity: 0;
   ${Thumbnil}:hover & {
-    animation: ${Animate.zoomIn} 0.2s linear;
+    animation: ${animate.zoomIn} 0.2s linear;
     opacity: 1;
   }
 `
@@ -86,7 +86,7 @@ export const PosterCermeraIcon = styled(Img)`
   left: 40%;
   opacity: 0;
   ${Poster}:hover & {
-    animation: ${Animate.zoomIn} 0.2s linear;
+    animation: ${animate.zoomIn} 0.2s linear;
     opacity: 1;
     cursor: pointer;
   }

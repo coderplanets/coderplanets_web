@@ -1,6 +1,6 @@
 import styled from 'styled-components' //
 
-import { Animate } from '../../../utils'
+import { animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   min-height: 1rem;
@@ -11,19 +11,19 @@ export const Msg = styled.span`
 
 export const SuccessMsgBox = styled.div`
   color: yellowgreen;
-  animation: ${Animate.fadeInUp} 0.5s linear;
+  animation: ${animate.fadeInUp} 0.5s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const WarningMsgBox = styled.div`
   color: #e8c557;
-  animation: ${Animate.pulse} 0.3s linear;
+  animation: ${animate.pulse} 0.3s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
 export const ErrorMsgBox = styled.div`
   color: tomato;
-  animation: ${Animate.shake} 0.3s linear;
+  animation: ${animate.shake} 0.3s linear;
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
@@ -31,7 +31,7 @@ export const ErrorArrayWrapper = styled.div`
   display: flex;
   flex-direction: column;
   color: tomato;
-  animation: ${Animate.shake} 0.5s ease-in;
+  animation: ${animate.shake} 0.5s ease-in;
 `
 
 export const ErrorMsg = styled.div`

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, Animate } from '../../../utils'
+import { theme, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const PlayIcon = styled(Img)`
   left: 45%;
   opacity: 0;
   ${Wrapper}:hover & {
-    animation: ${Animate.zoomIn} 0.2s linear;
+    animation: ${animate.zoomIn} 0.2s linear;
     opacity: 1;
     cursor: pointer;
   }
