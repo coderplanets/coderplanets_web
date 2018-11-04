@@ -4,8 +4,8 @@
  *
  */
 
-const smokey = `
-  opacity: 0.6;
+const smokey = (opt = 0.6) => `
+  opacity: ${opt};
 
   &:hover {
     opacity: 1;
