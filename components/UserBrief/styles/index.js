@@ -84,24 +84,6 @@ export const SocialSpliter = styled.div`
   padding-top: 8px;
   opacity: 0.5;
 `
-export const SocialWrapper = styled.div`
-  ${cs.flex()};
-`
-export const SocialIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
-  display: ${({ active }) => (active ? 'block' : 'none')};
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  opacity: 1;
-
-  &:hover {
-    fill: ${theme('banner.title')};
-    cursor: pointer;
-  }
-
-  transition: fill 0.3s;
-`
 
 export const EditWrapper = styled.div`
   display: ${({ show }) => (show ? 'block' : 'none')};
