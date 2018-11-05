@@ -52,6 +52,9 @@ const UserPublished = t
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get pagedData() {
       switch (self.curThread) {
         case THREAD.JOB: {

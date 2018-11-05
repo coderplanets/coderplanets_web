@@ -14,7 +14,7 @@ const MainEntries = () => (
     <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
-      trigger="click"
+      trigger="hover"
       content={
         <DiscussLinker
           title="专栏"
@@ -27,7 +27,7 @@ const MainEntries = () => (
     <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
-      trigger="click"
+      trigger="hover"
       content={
         <DiscussLinker
           title="团队"

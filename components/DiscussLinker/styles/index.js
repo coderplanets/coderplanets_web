@@ -5,7 +5,7 @@ import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  max-width: 290px;
+  max-width: 300px;
   padding: 10px;
 `
 export const Header = styled.div`

@@ -26,9 +26,7 @@ class FooterContainer extends React.Component {
 
   render() {
     const { footer } = this.props
-    const { showSponsor } = footer
-
-    const curView = 'DIGEST'
+    const { showSponsor, curView } = footer
 
     return (
       <div>

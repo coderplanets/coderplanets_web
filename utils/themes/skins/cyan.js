@@ -36,7 +36,7 @@ const cyan = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: 'tomato',
+  selectionBg: '#A0BBBC',
   avatarOpacity: 1,
   header: {
     fg: primaryColor,

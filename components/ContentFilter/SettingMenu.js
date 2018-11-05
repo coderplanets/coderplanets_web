@@ -90,7 +90,7 @@ const SettingMenu = ({
             contentDivider: !contentDivider,
           })}
         >
-          <OptionText active>辅助分界</OptionText>
+          <OptionText active>辅助分隔</OptionText>
           <OptionIcon
             src={
               contentDivider === true
