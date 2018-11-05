@@ -18,8 +18,6 @@ import {
   Footer,
 } from '../containers'
 
-import { P } from '../containers/schemas'
-
 import {
   makeGQClient,
   queryStringToJSON,
@@ -32,6 +30,8 @@ import {
   BStore,
   nilOrEmpty,
 } from '../utils'
+
+import { P } from '../containers/schemas'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('page:community')

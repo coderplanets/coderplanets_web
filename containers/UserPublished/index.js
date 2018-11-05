@@ -24,7 +24,13 @@ class UserPublishedContainer extends React.Component {
 
   render() {
     const { userPublished } = this.props
-    const { pagedData, curView, curThread, viewingUser } = userPublished
+    const {
+      pagedData,
+      curView,
+      curThread,
+      viewingUser,
+      accountInfo,
+    } = userPublished
 
     const { totalCount } = pagedData
 
@@ -43,6 +49,7 @@ class UserPublishedContainer extends React.Component {
           data={pagedData}
           thread={curThread}
           curView={curView}
+          accountInfo={accountInfo}
           emptyPrefix={`未找到 ${viewingUser.nickname} 发布的`}
           onPageChange={logic.reload}
           onTitleSelect={logic.onTitleSelect}

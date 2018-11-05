@@ -20,10 +20,16 @@ const UserSettings = t
     get curTheme() {
       return self.root.theme.curTheme
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
   }))
   .actions(self => ({
     changeTheme(name) {
       self.root.changeTheme(name)
+    },
+    updateC11N(option) {
+      self.root.updateC11N(option)
     },
     upgradeHepler() {
       self.root.upgradeHepler()

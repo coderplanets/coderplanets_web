@@ -19,9 +19,10 @@ import {
   LabelDescLink,
   RadiosWrapper,
 } from './styles'
-import { makeDebugger, storePlug } from '../../utils'
 
+import { makeDebugger, storePlug, C11N } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:UserSettings')
 /* eslint-enable no-unused-vars */
@@ -36,8 +37,10 @@ class UserSettingsContainer extends React.Component {
 
   render() {
     const { userSettings } = this.props
-    const { curTheme } = userSettings
+    const { curTheme, accountInfo } = userSettings
+    const { customization } = accountInfo
 
+    // debug('accountInfo -** ', customization)
     return (
       <Wrapper>
         <SectionLabel
@@ -63,46 +66,68 @@ class UserSettingsContainer extends React.Component {
           displayStyle="card"
         />
         <SectionLabel
-          title="视图选项"
-          iconSrc={`${ICON_CMD}/setting_list.svg`}
-          desc="浏览帖子/招聘/视频/开源项目时的列表显示方式。"
+          title="顶部视图"
+          iconSrc={`${ICON_CMD}/setting_banner.svg`}
+          desc="浏览社区内容时，顶部社区信息摘要的显示方式。"
         />
         <RadiosWrapper>
-          <RadioGroup onChange={debug} value={2}>
-            <Radio value={1}>列表视图</Radio>
-            <Radio value={2}>摘要视图</Radio>
+          <RadioGroup
+            onChange={logic.c11nOnChange.bind(this, 'bannerLayout')}
+            value={customization.bannerLayout}
+          >
+            <Radio value={C11N.DIGEST}>详细视图</Radio>
+            <Radio value={C11N.BRIEF}>简洁视图</Radio>
           </RadioGroup>
         </RadiosWrapper>
-
+        <SectionLabel
+          title="内容视图"
+          iconSrc={`${ICON_CMD}/setting_list.svg`}
+          desc="浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图"
+        />
+        <RadiosWrapper>
+          <RadioGroup
+            onChange={logic.c11nOnChange.bind(this, 'contentsLayout')}
+            value={customization.contentsLayout}
+          >
+            <Radio value={C11N.LIST}>列表视图</Radio>
+            <Radio value={C11N.DIGEST}>摘要视图</Radio>
+          </RadioGroup>
+        </RadiosWrapper>
         <SectionLabel
           title="阅读提示"
           iconSrc={`${ICON_CMD}/setting_read.svg`}
           desc="是否在阅读列表左侧显示已读标签, 以便突出未读内容？"
         />
         <RadiosWrapper>
-          <RadioGroup onChange={debug} value={1}>
-            <Radio value={1}>显示</Radio>
-            <Radio value={2}>不显示</Radio>
+          <RadioGroup
+            onChange={logic.c11nOnChange.bind(this, 'markViewed')}
+            value={customization.markViewed}
+          >
+            {/* eslint-disable react/jsx-boolean-value */}
+            <Radio value={true}>显示</Radio>
+            {/* eslint-enable react/jsx-boolean-value */}
+            <Radio value={false}>不显示</Radio>
           </RadioGroup>
         </RadiosWrapper>
-
         <SectionLabel
           title="显示密度"
           iconSrc={`${ICON_CMD}/setting_number.svg`}
-          desc="浏览帖子/招聘/视频/开源项目时每页显示的条数。"
+          desc="浏览帖子/招聘/视频/开源项目等内容时， 每页显示的条数。"
         />
         <RadiosWrapper>
-          <RadioGroup onChange={debug} value={2}>
-            <Radio value={1}>20条 / 每页</Radio>
-            <Radio value={2}>25条 / 每页</Radio>
-            <Radio value={3}>30条 / 每页</Radio>
+          <RadioGroup
+            onChange={logic.c11nOnChange.bind(this, 'displayDensity')}
+            value={customization.displayDensity}
+          >
+            <Radio value="20">20条 / 每页</Radio>
+            <Radio value="25">25条 / 每页</Radio>
+            <Radio value="30">30条 / 每页</Radio>
           </RadioGroup>
         </RadiosWrapper>
-
         <SectionLabel
           title="打赏设置(wip)"
           iconSrc={`${ICON_CMD}/dashang.svg`}
-          desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不支持打赏设置。"
+          desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不显示打赏按钮。提现需提交申请，将在 3-5 个工作日内到达你的账户，不收取任何手续费用。"
         />
         <RadiosWrapper>
           <RadioGroup onChange={debug} value={2}>
@@ -116,7 +141,7 @@ class UserSettingsContainer extends React.Component {
           desc="接收邮件提醒，订阅, 账单, 每周精选等等, 我们不会滥用你的信任，建议开启。"
         />
         <RadiosWrapper>
-          <RadioGroup onChange={debug} value={1}>
+          <RadioGroup onChange={debug} value={2}>
             <Radio value={1}>开启</Radio>
             <Radio value={2}>关闭</Radio>
           </RadioGroup>

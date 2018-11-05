@@ -89,8 +89,8 @@ const VideosThread = t
         self.pagedVideos.entries[index].viewerHasViewed = true
       }
     },
-    updateCustom(option) {
-      self.root.updateCustom(option)
+    updateC11N(option) {
+      self.root.updateC11N(option)
     },
     markRoute(query) {
       self.root.markRoute(query)

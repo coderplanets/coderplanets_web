@@ -37,6 +37,9 @@ const AccountStore = t
       }
     },
     get subscribedCommunities() {
+      if (!self.userSubscribedCommunities) {
+        return { entries: [] }
+      }
       return stripMobx(self.userSubscribedCommunities)
       /*
       const { user: { subscribedCommunities } } = self
@@ -110,7 +113,7 @@ const AccountStore = t
 
       self.root.communitiesContent.toggleSubscribe(community)
     },
-    updateCustom(options) {
+    updateC11N(options) {
       const curCustomization = R.clone(self.accountInfo.customization)
       self.user.customization = R.merge(curCustomization, options)
     },

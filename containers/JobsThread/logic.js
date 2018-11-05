@@ -94,7 +94,7 @@ export function onTagSelect(obj) {
 }
 
 export const onFilterSelect = option => store.selectFilter(option)
-export const onCustomChange = option => store.updateCustom(option)
+export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################
 // Data & Error handlers
