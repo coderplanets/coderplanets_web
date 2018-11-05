@@ -108,8 +108,20 @@ const DigestView = () => (
       <Column>
         <Title>客户端</Title>
         <Body>
-          <Item>APP</Item>
-          <Item>小程序</Item>
+          <Item
+            href="https://github.com/coderplanets/coderplanets_web/issues/269"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            APP
+          </Item>
+          <Item
+            href="https://github.com/coderplanets/coderplanets_web/issues/270"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            小程序
+          </Item>
         </Body>
       </Column>
     </MainInfos>
