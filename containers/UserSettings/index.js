@@ -11,13 +11,20 @@ import { Radio } from 'antd'
 // import { } from './styles'
 import { ICON_CMD } from '../../config'
 
-import { ThemeSelector, SectionLabel, Button } from '../../components'
+import {
+  ThemeSelector,
+  SectionLabel,
+  Popover,
+  DiscussLinker,
+  Button,
+} from '../../components'
 
 import {
   Wrapper,
   LabelDescWrapper,
   LabelDescLink,
   RadiosWrapper,
+  OptionsWrapper,
 } from './styles'
 
 import { makeDebugger, storePlug, C11N } from '../../utils'
@@ -129,23 +136,50 @@ class UserSettingsContainer extends React.Component {
           iconSrc={`${ICON_CMD}/dashang.svg`}
           desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不显示打赏按钮。提现需提交申请，将在 3-5 个工作日内到达你的账户，不收取任何手续费用。"
         />
-        <RadiosWrapper>
-          <RadioGroup onChange={debug} value={2}>
-            <Radio value={1}>开启</Radio>
-            <Radio value={2}>关闭</Radio>
-          </RadioGroup>
-        </RadiosWrapper>
+        <Popover
+          placement="bottom"
+          trigger="hover"
+          content={
+            <DiscussLinker
+              title="打赏设置"
+              addr="https://github.com/coderplanets/coderplanets_web/issues/268"
+            />
+          }
+        >
+          <OptionsWrapper>
+            <RadiosWrapper>
+              <RadioGroup onChange={debug} value={2}>
+                <Radio value={1}>开启</Radio>
+                <Radio value={2}>关闭</Radio>
+              </RadioGroup>
+            </RadiosWrapper>
+          </OptionsWrapper>
+        </Popover>
         <SectionLabel
-          title="邮件提醒(wip)"
+          title="邮件订阅(wip)"
           iconSrc={`${ICON_CMD}/mail.svg`}
           desc="接收邮件提醒，订阅, 账单, 每周精选等等, 我们不会滥用你的信任，建议开启。"
         />
-        <RadiosWrapper>
-          <RadioGroup onChange={debug} value={2}>
-            <Radio value={1}>开启</Radio>
-            <Radio value={2}>关闭</Radio>
-          </RadioGroup>
-        </RadiosWrapper>
+        <Popover
+          placement="bottom"
+          trigger="hover"
+          content={
+            <DiscussLinker
+              title="邮件订阅"
+              addr="https://github.com/coderplanets/coderplanets_web/issues/267"
+            />
+          }
+        >
+          <OptionsWrapper>
+            <RadiosWrapper>
+              <RadioGroup onChange={debug} value={2}>
+                <Radio value={1}>开启</Radio>
+                <Radio value={2}>关闭</Radio>
+              </RadioGroup>
+            </RadiosWrapper>
+          </OptionsWrapper>
+        </Popover>
+
         <SectionLabel
           title="Github 同步"
           iconSrc={`${ICON_CMD}/github.svg`}

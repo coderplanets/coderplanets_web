@@ -53,8 +53,20 @@ const DigestView = () => (
         <Title>About</Title>
         <Body>
           <Item>关于CPS</Item>
-          <Item>反馈与建议</Item>
-          <Item>加入我们</Item>
+          <Item
+            href="https://github.com/coderplanets/coderplanets_web/issues"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            反馈与建议
+          </Item>
+          <Item
+            href="https://github.com/coderplanets"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            加入我们
+          </Item>
           <Item>使用帮助</Item>
           <Item>商务合作</Item>
         </Body>
