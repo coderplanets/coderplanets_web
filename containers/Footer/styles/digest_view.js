@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import { Img } from '../../../components'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.footer`
+  ${cs.flexColumn()};
+`
+
+export const MainInfos = styled.div`
   ${cs.flex('justify-start')};
   margin-left: 8%;
   margin-bottom: 20px;
@@ -30,10 +34,20 @@ export const SiteInfo = styled.div`
   align-items: end;
   margin-bottom: 10px;
 `
-export const SiteDesc = styled.div`
-  font-size: 0.8rem;
-  color: ${theme('thread.articleDigest')};
+export const SiteDesc = styled.a`
   margin-bottom: 5px;
+  color: ${theme('thread.articleDigest')};
+  display: block;
+
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  transition: color 0.2s;
 `
 
 export const SiteLogo = styled(Img)`
@@ -58,15 +72,19 @@ export const Body = styled.div`
   color: ${theme('thread.articleDigest')};
 `
 
-export const Item = styled.div`
+export const Item = styled.a`
+  color: ${theme('thread.articleDigest')};
+
   font-size: 0.8rem;
   margin-bottom: 8px;
   margin-top: ${({ offsetTop }) => offsetTop || '0'};
 
   &:hover {
     color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
     cursor: pointer;
   }
+  transition: color 0.2s;
 `
 
 export const ItemGitSource = styled.div`
