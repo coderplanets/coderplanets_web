@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
 import { theme, cs } from '../../utils'
 
 // move ant style to seperate file
-const AntOverWrite = styled.div`
+const AntUIOverWrite = createGlobalStyle`
   .react-calendar-heatmap rect:hover {
     stroke: ${theme('heatmap.borderHover')};
   }
@@ -394,4 +394,4 @@ const AntOverWrite = styled.div`
   }
 `
 
-export default AntOverWrite
+export default AntUIOverWrite

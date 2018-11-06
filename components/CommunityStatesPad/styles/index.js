@@ -22,7 +22,7 @@ export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulseRule};
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `
@@ -32,7 +32,7 @@ export const NumberItem = styled.div`
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulseRule};
     cursor: ${({ dead }) => (dead ? '' : 'pointer')};
   }
 `

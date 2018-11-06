@@ -113,7 +113,7 @@ export const Circle = styled.div`
   background-color: ${({ active }) => (active ? theme('font') : '')};
   &:hover {
     cursor: pointer;
-    animation: ${animate.pulse} 0.3s linear;
+    animation: ${animate.pulseRule};
   }
   transition: background-color 0.3s ease-out;
 `

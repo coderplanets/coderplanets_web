@@ -13,7 +13,7 @@ export const Item = styled.div`
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulseRule};
   }
 `
 export const Divider = styled(Img)`

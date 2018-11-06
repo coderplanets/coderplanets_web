@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   background: ${theme('content.cardBg')};
   border-radius: 5px;
   position: relative;
-  animation: ${animate.fadeInRight} 0.2s linear;
+  animation: ${animate.fadeInRightRule};
 `
 
 export const AvatarPic = styled.img`

@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   border: 1px solid;
   border-top: 3px solid;
   border-color: ${theme('modal.border')};
-  animation: ${animate.zoomeIn} 0.5s linear;
+  animation: ${animate.zoomInRule};
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;
@@ -45,14 +45,8 @@ export const CloseBtn = styled(Img)`
   display: ${({ show }) => (show ? 'block' : 'none')};
 
   &:hover {
-    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${animate.rotate360CloseRule};
     font-weight: bold;
     cursor: pointer;
   }
 `
-
-/* display: ${props => (props.show ? 'block' : 'none')}; */
-/* opacity: ${props => (props.show ? 1 : 0)}; */
-/* transition: opacity 1s ease-out; */
-
-// animation: ${animate.zoomeIn} 0.5s linear;

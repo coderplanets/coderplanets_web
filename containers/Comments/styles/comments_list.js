@@ -78,7 +78,7 @@ export const DeleteOverlay = styled.div`
   border-radius: 5px;
   z-index: 10;
   visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
-  animation: ${animate.pulse} 0.3s linear;
+  animation: ${animate.pulseRule};
 `
 export const DeleteBtnGroup = styled.div`
   ${cs.flex()};

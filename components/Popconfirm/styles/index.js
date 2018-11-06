@@ -46,7 +46,7 @@ export const DeleteBtn = styled.div`
     border: 1px solid tomato;
   }
   &:active {
-    animation: ${animate.pulse} 0.3s linear;
+    animation: ${animate.pulseRule};
   }
 `
 export const CutIcon = styled(Img)`

@@ -23,9 +23,8 @@ export const FilterIcon = styled(Img)`
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const RecentlyIcon = styled(FilterIcon)`
-  animation: ${animate.rotate360} 0.6s linear;
+  animation: ${animate.rotate360Rule};
 `
-// animation: ${animate.rotate360} 1s cubic-bezier(0, 0.56, 0.24, 0.72);
 export const MenuWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   width: 80px;

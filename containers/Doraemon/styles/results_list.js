@@ -9,7 +9,7 @@ export const LoadingIcon = styled(Img)`
   width: 30px;
   height: 30px;
   margin-top: 20px;
-  animation: ${animate.rotate360} 2s linear infinite;
+  animation: ${animate.rotate360Rule};
 `
 
 export const AddOn = styled.div`

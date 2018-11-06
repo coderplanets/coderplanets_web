@@ -26,7 +26,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulseRule};
   }
 `
 export const NumberItem = styled.div`
@@ -35,7 +35,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${animate.pulse} 0.4s linear;
+    animation: ${animate.pulseRule};
   }
 `
 export const NumberDivider = styled.div`

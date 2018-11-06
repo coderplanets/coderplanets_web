@@ -68,7 +68,7 @@ export const ThumbCermeraIcon = styled(Img)`
   left: 35%;
   opacity: 0;
   ${Thumbnil}:hover & {
-    animation: ${animate.zoomIn} 0.2s linear;
+    animation: ${animate.zoomInRule};
     opacity: 1;
   }
 `
@@ -81,7 +81,7 @@ export const PosterCermeraIcon = styled(Img)`
   left: 40%;
   opacity: 0;
   ${Poster}:hover & {
-    animation: ${animate.zoomIn} 0.2s linear;
+    animation: ${animate.zoomInRule};
     opacity: 1;
     cursor: pointer;
   }

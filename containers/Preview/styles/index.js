@@ -99,7 +99,7 @@ export const Closer = styled.div`
       : 'block'};
 
   &:hover:after {
-    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${animate.rotate360CloseRule};
     font-weight: bold;
   }
   &:after {

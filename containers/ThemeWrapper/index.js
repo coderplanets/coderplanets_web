@@ -10,55 +10,19 @@ import { ThemeProvider } from 'styled-components'
 
 import { storePlug } from '../../utils'
 
-import AntOverWrite from './AntOverWrite'
 // import MarkDownStyle from './MarkDownStyle'
-import CodeHighlight from './CodeHighlight'
-/* import './normalize.css' */
-import normalize from './normalize'
+import CodeSyxHighlight from './CodeSyxHighlight'
+import AntUIOverWrite from './AntUIOverWrite'
+import GlobalStyle from './GlobalStyle'
 
 const ThemeObserver = ({ children, theme }) => (
   <ThemeProvider theme={theme.themeData}>
-    <AntOverWrite>
-      <CodeHighlight>
-        <style global jsx>{`
-          ${normalize};
-          html {
-            background-color: ${theme.themeData.htmlBg};
-          }
-          *::-moz-selection {
-            background-color: ${theme.themeData.selectionBg} !important;
-          }
-
-          *::selection {
-            background-color: ${theme.themeData.selectionBg} !important;
-          }
-          a:hover {
-            color: ${theme.themeData.a.hover};
-          }
-          a:active {
-            color: ${theme.themeData.a.active};
-          }
-
-          .iziToast {
-            border: 1px solid !important;
-            border-color: ${theme.themeData.toast.border} !important;
-            background-color: ${theme.themeData.toast.bg} !important;
-            min-height: 36px !important;
-            padding: 2px 45px 0px 0 !important;
-          }
-          .iziToast > .iziToast-body .iziToast-title {
-            color: ${theme.themeData.toast.title} !important;
-          }
-          .iziToast-wrapper-topRight {
-            top: 25px !important;
-          }
-          .iziToast > .iziToast-body .iziToast-message {
-            color: ${theme.themeData.toast.message} !important;
-          }
-        `}</style>
-        <div>{children}</div>
-      </CodeHighlight>
-    </AntOverWrite>
+    <React.Fragment>
+      <div>{children}</div>
+      <CodeSyxHighlight />
+      <AntUIOverWrite />
+      <GlobalStyle />
+    </React.Fragment>
   </ThemeProvider>
 )
 

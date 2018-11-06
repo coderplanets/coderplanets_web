@@ -31,5 +31,5 @@ export const LoadingIcon = styled(BtnIcon)`
 
   height: 20px;
   width: 20px;
-  animation: ${animate.rotate360} 1s linear infinite;
+  animation: ${animate.rotate360Rule};
 `
