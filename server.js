@@ -1,111 +1,102 @@
 const dev = process.env.NODE_ENV !== 'production'
 // const goal = process.env.NODE_ENV
 
-const { createServer } = require('http')
-const { parse } = require('url')
 const next = require('next')
+const express = require('express')
+const LRUCache = require('lru-cache')
 const mobxReact = require('mobx-react')
-const pathMatch = require('path-match')
-const { basename } = require('path')
-const accepts = require('accepts')
-const glob = require('glob')
 
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
-const route = pathMatch()
 const SERVE_PORT = 3000
 
-// const moduleAlias = require('module-alias')
-// For the development version, we'll use React.
-// Because, it support react hot loading and so on.
-/*
-   if (!dev) {
-   moduleAlias.addAlias('react', 'preact-compat')
-   moduleAlias.addAlias('react-dom', 'preact-compat')
-   }
- */
+// This is where we cache our rendered HTML pages
+const ssrCache = new LRUCache({
+  max: 100,
+  maxAge: 1000 * 60 * 60, // 1hour
+})
 
-// const langMatch = route('/lang/:name')
 mobxReact.useStaticRendering(true)
 
-const supportLanguages = glob
-  .sync('./lang/*.json')
-  .map(f => basename(f, '.json'))
-
-const messageCache = new Map()
-const getMessages = locale => {
-  if (!messageCache.has(locale)) {
-    /* eslint-disable import/no-dynamic-require */
-    /* eslint-disable global-require */
-    let langData = {}
-
-    try {
-      langData = require(`./lang/${locale}.json`)
-      messageCache.set(locale, langData)
-    } catch (e) {
-      return { error: 'this lang is not supported' }
-    }
-  }
-  return messageCache.get(locale)
-}
-
-// const homeQuery = route('/home/:name')
-// const communityQuery = route('/:main')
-const indexQuery = route('/:index')
-const userQuery = route('/user/:userId')
-const postQuery = route('/post/:id')
-const jobQuery = route('/job/:id')
-const videoQuery = route('/video/:id')
-const repoQuery = route('/repo/:id')
-const communitiesQuery = route('/communities/:category')
-const communityQuery = route('/:community/:thread')
-const heartQuery = route('/_next/:page?')
-const localeQuery = route('/locale/:lang')
-
 app.prepare().then(() => {
-  createServer((req, res) => {
-    const urlParts = parse(req.url, true)
-    const { pathname, query } = urlParts
+  const server = express()
 
-    const accept = accepts(req)
-    const locale = accept.language(supportLanguages) // 'zh'
+  server.get('/_next/:page?', (req, res) => handle(req, res))
 
-    /* console.log('server pathname: ', pathname) */
-    /* console.log('server query: ', query) */
+  server.get('/user/:userId', (req, res) =>
+    renderAndCache(req, res, '/user', req.query)
+  )
 
-    if (localeQuery(pathname)) {
-      res.setHeader('Content-Type', 'application/json;charset=utf-8')
-      return res.end(JSON.stringify(getMessages(localeQuery(pathname).lang)))
-    }
-    // _next heart ping, only works in dev
-    if (heartQuery(pathname)) return handle(req, res)
+  server.get('/post/:id', (req, res) =>
+    renderAndCache(req, res, '/post', req.query)
+  )
 
-    // user page
-    if (userQuery(pathname)) return app.render(req, res, '/user', query)
-    // post page
-    if (postQuery(pathname)) return app.render(req, res, '/post', query)
-    // job page
-    if (jobQuery(pathname)) return app.render(req, res, '/job', query)
-    // video page
-    if (videoQuery(pathname)) return app.render(req, res, '/video', query)
-    // repo page
-    if (repoQuery(pathname)) return app.render(req, res, '/repo', query)
-    // all communities page
-    if (communitiesQuery(pathname))
-      return app.render(req, res, '/communities', query)
-    // gereral communit (pls, frameworks ..)
-    if (communityQuery(pathname))
-      return app.render(req, res, '/community', query)
+  server.get('/job/:id', (req, res) =>
+    renderAndCache(req, res, '/job', req.query)
+  )
 
-    // home page TODO: redirect to home
-    if (indexQuery(pathname)) return app.render(req, res, '/', query)
+  server.get('/video/:id', (req, res) =>
+    renderAndCache(req, res, '/video', req.query)
+  )
 
-    req.locale = locale
-    req.messages = getMessages(locale)
+  server.get('/repo/:id', (req, res) =>
+    renderAndCache(req, res, '/repo', req.query)
+  )
 
-    return handle(req, res)
-  }).listen(SERVE_PORT, err => {
+  server.get('/repo/:id', (req, res) =>
+    renderAndCache(req, res, '/repo', req.query)
+  )
+
+  server.get('/communities/:category', (req, res) =>
+    renderAndCache(req, res, '/communities', req.query)
+  )
+
+  server.get('/:community/:thread', (req, res) =>
+    renderAndCache(req, res, '/community', req.query)
+  )
+
+  server.get('*', (req, res) => handle(req, res))
+
+  server.listen(SERVE_PORT, err => {
     if (err) throw err
-    console.log(`> Ready on http://localhost: ${SERVE_PORT}`)
+    console.log(`> Ready on http://localhost:${SERVE_PORT}`)
   })
 })
+
+/*
+ * NB: make sure to modify this to take into account anything that should trigger
+ * an immediate page change (e.g a locale stored in req.session)
+ */
+function getCacheKey(req) {
+  return `${req.url}`
+}
+
+async function renderAndCache(req, res, pagePath, queryParams) {
+  const key = getCacheKey(req)
+
+  // If we have a page in the cache, let's serve it
+  if (ssrCache.has(key)) {
+    res.setHeader('x-cache', 'HIT')
+    res.send(ssrCache.get(key))
+    return
+  }
+
+  try {
+    // If not let's render the page into HTML
+    const html = await app.renderToHTML(req, res, pagePath, queryParams)
+
+    // Something is wrong with the request, let's skip the cache
+    if (res.statusCode !== 200) {
+      res.send(html)
+      return
+    }
+
+    // Let's cache this page
+    ssrCache.set(key, html)
+
+    res.setHeader('x-cache', 'MISS')
+    res.send(html)
+  } catch (err) {
+    app.renderError(err, req, res, pagePath, queryParams)
+  }
+}
