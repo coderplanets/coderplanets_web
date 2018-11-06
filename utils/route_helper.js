@@ -35,8 +35,9 @@ export const getSubPath = routeObj => {
   if (routeObj.asPath === '/') return INDEX
 
   const asPathList = parsePathList(routeObj)
+  const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
 
-  return asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  return subPath
 }
 
 export const extractThreadFromPath = (props, uppper = true) => {
@@ -114,13 +115,29 @@ export const serializeQuery = obj => {
   /* eslint-enable */
 }
 
+// see: https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
+export const getDomain = url => {
+  /* eslint-disable */
+  try {
+    const matches = url.match(/^https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i)
+    const domain = matches && matches[1]
+
+    return domain.split('.')[0]
+  } catch (e) {
+    return '??'
+  }
+  /* eslint-enable */
+}
+
 const TR_MAP = {
   posts: 'post',
+  users: 'user',
   jobs: 'job',
   videos: 'video',
   repos: 'repo',
 
   post: 'posts',
+  user: 'users',
   job: 'jobs',
   video: 'videos',
   repo: 'repos',

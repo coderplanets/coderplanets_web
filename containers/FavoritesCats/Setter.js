@@ -20,7 +20,9 @@ import {
   Footer,
 } from './styles/setter'
 
-const Setter = ({ show, entries }) => {
+import { setContent, unSetContent, onSetterCreateCat } from './logic'
+
+const Setter = ({ show, entries, selectedId }) => {
   return (
     <Wrapper show={show}>
       <SectionLabel
@@ -30,27 +32,45 @@ const Setter = ({ show, entries }) => {
       />
       <ListWrapper>
         {entries.map(cat => (
-          <CatWrapper key={uid.gen()}>
-            <CatContent>
-              <CatMain>
-                <CatHeader>
-                  <CatTitle>{cat.title}</CatTitle>
-                </CatHeader>
-                <CatDec>{cat.desc}</CatDec>
-                <CatCounter>3 条内容</CatCounter>
-              </CatMain>
-              <SetBtn>
-                <Button type="primary" ghost>
-                  收入
-                </Button>
-              </SetBtn>
-            </CatContent>
+          <div key={uid.gen()}>
+            <CatWrapper>
+              <CatContent>
+                <CatMain>
+                  <CatHeader>
+                    <CatTitle>{cat.title}</CatTitle>
+                  </CatHeader>
+                  <CatDec>{cat.desc}</CatDec>
+                  <CatCounter>共 {cat.totalCount} 条内容</CatCounter>
+                </CatMain>
+                <SetBtn>
+                  {selectedId === cat.id ? (
+                    <Button
+                      type="red"
+                      ghost
+                      onClick={unSetContent.bind(this, cat.id)}
+                    >
+                      移除
+                    </Button>
+                  ) : (
+                    <Button
+                      type="primary"
+                      ghost
+                      onClick={setContent.bind(this, cat.id)}
+                    >
+                      加入
+                    </Button>
+                  )}
+                </SetBtn>
+              </CatContent>
+            </CatWrapper>
             <CatDivider />
-          </CatWrapper>
+          </div>
         ))}
       </ListWrapper>
       <Footer>
-        <Button type="primary">创建新收藏夹</Button>
+        <Button type="primary" onClick={onSetterCreateCat}>
+          创建新收藏夹
+        </Button>
       </Footer>
     </Wrapper>
   )

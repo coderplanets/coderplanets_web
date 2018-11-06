@@ -1,24 +1,27 @@
 /*
-*
-* {{ properCase name }}
-*
+ *
+ * {{ properCase name }}
+ *
 */
 
 import  React from 'react'
 import PropTypes from 'prop-types'
 
-// import { inject, observer } from 'mobx-react'
-// import Link from 'next/link'
-// import styled from 'styled-components'
-
+{{#if wantStyle}}
+import { Wrapper } from './styles'
+{{/if}}
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-// @inject('')
-// @observer
-class {{ properCase name }} extends React.Component {
+import { makeDebugger } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:{{ properCase name }}:index')
+/* eslint-enable no-unused-vars */
+
+class {{ properCase name }} extends React.PureComponent {
   componentDidMount() {}
 
   componentWillUnmount() {}
@@ -26,19 +29,19 @@ class {{ properCase name }} extends React.Component {
   render() {
     return (
       <div>
-      {{ properCase name }} component
-      {{#if wantMessages}}
-        <FormattedMessage {...messages.header} />
-      {{/if}}
+        {{ properCase name }} component
+        {{#if wantMessages}}
+          <FormattedMessage {...messages.header} />
+        {{/if}}
       </div>
     )
   }
 }
 
-export default {{ properCase name }}
-
-Index.propTypes = {
+{{ properCase name }}.propTypes = {
   // https://www.npmjs.com/package/prop-types
 }
 
-Index.defaultProps = {}
+{{ properCase name }}.defaultProps = {}
+
+export default {{ properCase name }}

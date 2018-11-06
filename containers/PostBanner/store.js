@@ -20,7 +20,7 @@ const PostBannerStore = t
     get curRoute() {
       return self.root.curRoute
     },
-    get postData() {
+    get viewingPostData() {
       return stripMobx(self.root.viewing.post)
     },
   }))

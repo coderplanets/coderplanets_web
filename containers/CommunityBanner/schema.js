@@ -1,31 +1,12 @@
 import gql from 'graphql-tag'
-
-const communityRaw = `
-  query community($id: ID, $raw: String) {
-    community(id: $id, raw: $raw) {
-      id
-      title
-      desc
-      raw
-      logo
-      threads {
-        title
-        raw
-      }
-      subscribersCount
-      editorsCount
-      postsCount
-    }
-  }
-`
+import { P } from '../schemas'
 
 const community = gql`
-  ${communityRaw}
+  ${P.community}
 `
 
 const schema = {
   community,
-  communityRaw,
 }
 
 export default schema

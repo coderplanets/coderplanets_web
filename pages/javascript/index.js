@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  queryStringToJSON,
-  getMainPath,
-  getSubPath,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,8 +18,22 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import PostsThreadSchema from '../../containers/PostsThread/schema'
+import { P } from '../../containers/schemas'
+
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getMainPath,
+  getSubPath,
+  extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
+  makeDebugger,
+} from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:index')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -38,21 +42,15 @@ global.Intl = require('intl')
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
 
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedPosts = request(pagedPostsRaw, { filter })
-  const partialTags = request(partialTagsRaw, {
-    thread,
-    community,
-  })
+  const curCommunity = request(P.community, { raw: community })
+  const pagedPosts = request(P.pagedPosts, { filter })
+  const partialTags = request(P.partialTags, { thread, community })
 
   return {
     ...(await curCommunity),
@@ -67,8 +65,8 @@ export default class Posts extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR ## community (in javascript)index ##: ', asPath)
-    console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR ## community (in javascript)index ##: ', asPath)
+    debug('SSR queryStringToJSON: ', queryStringToJSON(asPath))
 
     const thread = getSubPath(props)
     const curView =

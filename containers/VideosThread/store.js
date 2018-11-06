@@ -6,44 +6,22 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { makeDebugger, markStates, stripMobx, TYPE, FILTER } from '../../utils'
-import { PagedVideos, Tag, emptyPagiData } from '../../stores/SharedModel'
+import {
+  PagedVideos,
+  Tag,
+  ContentFilter,
+  emptyPagiData,
+} from '../../stores/SharedModel'
+
+import { makeDebugger, markStates, stripMobx, TYPE } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:VideosThread')
 /* eslint-enable no-unused-vars */
 
-const FilterModel = t.model('FilterModel', {
-  when: t.optional(
-    t.enumeration('when', [
-      '',
-      FILTER.TODAY,
-      FILTER.THIS_WEEK,
-      FILTER.THIS_MONTH,
-      FILTER.THIS_YEAR,
-    ]),
-    ''
-  ),
-
-  sort: t.optional(
-    t.enumeration('sort', [
-      '',
-      FILTER.MOST_VIEWS,
-      FILTER.MOST_FAVORITES,
-      FILTER.MOST_STARS,
-      FILTER.MOST_COMMENTS,
-    ]),
-    ''
-  ),
-  wordLength: t.optional(
-    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
-    ''
-  ),
-})
-
 const VideosThread = t
   .model('VideosThread', {
     pagedVideos: t.optional(PagedVideos, emptyPagiData),
-    filters: t.optional(FilterModel, {}),
+    filters: t.optional(ContentFilter, {}),
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
@@ -62,6 +40,12 @@ const VideosThread = t
     },
     get curRoute() {
       return self.root.curRoute
+    },
+    get accountInfo() {
+      return self.root.account.accountInfo
+    },
+    get isLogin() {
+      return self.root.account.isLogin
     },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
@@ -97,6 +81,16 @@ const VideosThread = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedVideosData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedVideos.entries[index].viewerHasViewed = true
+      }
+    },
+    updateC11N(option) {
+      self.root.updateC11N(option)
     },
     markRoute(query) {
       self.root.markRoute(query)

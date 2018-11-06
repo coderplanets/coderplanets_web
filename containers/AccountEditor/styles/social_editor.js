@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
 export const InputWrapper = styled.div`
@@ -10,7 +10,7 @@ export const InputWrapper = styled.div`
 `
 
 export const FormItemWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 20px;
 `
 export const FormLable = styled.div`
@@ -27,7 +27,7 @@ export const FormInput = styled.div`
   width: 250px;
 `
 export const SocialIconsWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   flex-wrap: wrap;
   width: 250px;
 `
@@ -69,7 +69,7 @@ export const TogglerDivider = styled.div`
   margin-top: 8px;
 `
 export const TogglerTextWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   &:hover {
     cursor: pointer;
     font-weight: bold;
@@ -113,4 +113,4 @@ export const UpIcon = styled(ToggleIcon)`
 export const DownIcon = styled(ToggleIcon)``
 
 /* import { Img } from '../../../components' */
-/* import { Animate, theme } from '../../../utils' */
+/* import { animate, theme } from '../../../utils' */

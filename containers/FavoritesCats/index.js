@@ -5,11 +5,14 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
-
 import { Modal, SectionLabel } from '../../components'
+
+import { AdderWrapper, AdderText, AdderIcon } from './styles'
+
 import BoxView from './BoxView'
 import Creator from './Creator'
 import Updater from './Updater'
@@ -22,53 +25,76 @@ import * as logic from './logic'
 const debug = makeDebugger('C:FavoritesCats')
 /* eslint-enable no-unused-vars */
 
-const categories = [
-  {
-    title: '前端框架',
-    desc: 'this is a desc',
-    private: 'is private!',
-  },
-  {
-    title: '后端技术',
-    desc: 'this is a desc',
-    private: 'is private!',
-  },
-]
-
 class FavoritesCatsContainer extends React.Component {
-  componentWillMount() {
-    const { favoritesCats } = this.props
-    logic.init(favoritesCats)
+  componentDidMount() {
+    const { favoritesCats, displayMode } = this.props
+    logic.init(favoritesCats, displayMode)
   }
 
   // lists(box view, modal view), setter, creator and updater
   render() {
-    const { favoritesCats } = this.props
-    const { showModal, showUpdater, showCreator, showSetter } = favoritesCats
+    const { favoritesCats, onSelect } = this.props
+
+    const {
+      displayMode,
+      viewingData,
+
+      isCreatorView,
+      isUpdaterView,
+      isSetterView,
+      showModal,
+      editCategoryData,
+      pagedCategoriesData,
+    } = favoritesCats
+
+    const { entries, totalCount } = pagedCategoriesData
 
     return (
-      <div>
-        <SectionLabel
-          title="收藏夹"
-          iconSrc={`${ICON_CMD}/folder.svg`}
-          desc="共有内容 xx 条, 最后更新时间 xxx"
-          withAdder
-          onAdd={logic.onAdd}
-        />
+      <React.Fragment>
+        {displayMode === 'list' ? (
+          <SectionLabel
+            title="收藏夹"
+            iconSrc={`${ICON_CMD}/folder.svg`}
+            desc={`当前共有收藏夹 ${totalCount} 个。`}
+            addonNode={
+              <AdderWrapper onClick={logic.changeViewTo.bind(this, 'creator')}>
+                <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
+                <AdderText>创建</AdderText>
+              </AdderWrapper>
+            }
+          />
+        ) : null}
         <Modal
           width="420px"
           show={showModal}
           showCloseBtn
           onClose={logic.onModalClose}
         >
-          <Setter show={showModal && showSetter} entries={categories} />
-          <Creator show={showModal && showCreator} />
-          <Updater show={showModal && showUpdater} />
+          <Setter
+            entries={entries}
+            show={isSetterView}
+            selectedId={viewingData.favoritedCategoryId}
+          />
+          <Creator data={editCategoryData} show={isCreatorView} />
+          <Updater data={editCategoryData} show={isUpdaterView} />
         </Modal>
-        <BoxView entries={categories} onEdit={logic.onEdit} />
-      </div>
+        {displayMode === 'list' ? (
+          <BoxView data={pagedCategoriesData} onSelect={onSelect} />
+        ) : null}
+      </React.Fragment>
     )
   }
+}
+
+FavoritesCatsContainer.propTypes = {
+  onSelect: PropTypes.func,
+  favoritesCats: PropTypes.any.isRequired,
+  displayMode: PropTypes.oneOf(['list', 'hide']),
+}
+
+FavoritesCatsContainer.defaultProps = {
+  onSelect: debug,
+  displayMode: 'hide',
 }
 
 export default inject(storePlug('favoritesCats'))(

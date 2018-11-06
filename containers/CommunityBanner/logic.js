@@ -34,16 +34,23 @@ export function loadCommunity() {
 export function tabberChange(activeThread) {
   // console.log('store is :', store)
   // console.log('tabberChange thread: ', thread2Subpath(activeThread))
-  debug('subPath set to: ', thread2Subpath(activeThread))
+  // debug('subPath set to: ', thread2Subpath(activeThread))
+
+  debug('tabberChange ---> ', activeThread)
+  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread } })
+
   store.markRoute({ subPath: thread2Subpath(activeThread) })
   store.setViewing({ activeThread })
 }
 
 export function showEditorList() {
-  debug('showEditorList ...')
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_COMMUNITY_EDITORS,
-  })
+  const type = TYPE.USER_LISTER_COMMUNITY_EDITORS
+  const data = {
+    id: store.viewing.community.id,
+    brief: store.viewing.community.title,
+  }
+
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 // ###############################

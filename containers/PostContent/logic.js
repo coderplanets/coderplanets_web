@@ -12,7 +12,9 @@ const debug = makeDebugger('L:PostContent')
 
 let store = null
 
-export function someMethod() {}
+export function callInformer() {
+  store.callInformer()
+}
 
 // ###############################
 // Data & Error handlers

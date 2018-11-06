@@ -1,17 +1,22 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
+  ${cs.flex('justify-between')};
   flex-wrap: wrap;
+
+  width: 100%;
   margin-top: 15px;
   margin-bottom: 10px;
-  justify-content: space-between;
 `
 export const BoxWrapper = styled.div`
+  ${cs.flexColumn('justify-evenly')};
+  align-items: center;
+  flex-grow: ${({ grow }) => (grow ? 1 : 0)};
+
+  border-radius: 4px;
   min-width: 100px;
   height: 70px;
   padding-top: 4px;
@@ -21,17 +26,17 @@ export const BoxWrapper = styled.div`
   border-color: ${theme('banner.desc')};
   border-top: 2px solid;
   border-top-color: ${theme('banner.title')};
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 4px;
-  flex-grow: ${({ grow }) => (grow ? 1 : 0)};
-  display: flex;
-  flex-direction: column;
+  &:hover {
+    cursor: ${({ nohover }) => (nohover ? '' : 'pointer')};
+  }
 `
 export const Label = styled.div`
   color: ${theme('banner.desc')};
   font-size: 0.9rem;
+  ${BoxWrapper}:hover & {
+    color: ${theme('banner.title')};
+  }
+  transition: color 0.2s;
 `
 export const Number = styled.div`
   font-size: ${({ small }) => (small ? 1.1 : '1.3rem')};
@@ -39,7 +44,7 @@ export const Number = styled.div`
 `
 
 export const BuilderWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const Avatar = styled(Img)`
   width: 20px;
@@ -53,8 +58,36 @@ export const Avatar = styled(Img)`
     opacity: 1;
   }
 `
-export const MoreText = styled.div`
+export const Linker = styled.a`
+  transition: color 0.3s;
+  color: ${theme('thread.extraInfo')};
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.extraInfo')};
+    text-decoration: none;
+  }
+`
+export const PopInfo = styled.div`
+  ${cs.flexColumn('align-both')};
+
+  padding: 10px;
+  padding-bottom: 0px;
+`
+export const PopAvatar = styled(Img)`
+  width: 100px;
+  height: 100px;
+`
+export const PopNickname = styled.a`
+  padding: 5px 10px;
+  color: ${theme('thread.articleTitle')};
   font-size: 1rem;
-  margin-left: 5px;
-  color: ${theme('banner.desc')};
+  font-weight: border;
+  transition: color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+  }
 `

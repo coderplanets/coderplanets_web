@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
+import { withGuardian } from '../../components/HOC'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
@@ -19,8 +20,7 @@ const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
 class TagsBarContainer extends React.Component {
-  componentWillMount() {
-    debug('componentWillMount')
+  componentDidMount() {
     const { tagsBar, thread } = this.props
     logic.init(tagsBar, thread)
   }
@@ -34,7 +34,6 @@ class TagsBarContainer extends React.Component {
 
   render() {
     const { tagsBar } = this.props
-
     const { tagsData, activeTagData } = tagsBar
 
     return (
@@ -102,4 +101,6 @@ TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
 }
 
-export default inject(storePlug('tagsBar'))(observer(TagsBarContainer))
+export default withGuardian(
+  inject(storePlug('tagsBar'))(observer(TagsBarContainer))
+)

@@ -7,6 +7,8 @@ import {
   EVENT,
   ERR,
   TYPE,
+  ROUTE,
+  THREAD,
   $solver,
   scrollIntoEle,
   // GA,
@@ -19,7 +21,7 @@ import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
   resv_event: [
-    EVENT.REFRESH_POSTS,
+    EVENT.REFRESH_JOBS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
   ],
@@ -38,13 +40,8 @@ const validFilter = R.pickBy(
   )
 )
 
-export function inAnchor() {
-  store.setHeaderFix(false)
-}
-
-export function outAnchor() {
-  store.setHeaderFix(true)
-}
+export const inAnchor = () => store.setHeaderFix(false)
+export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadJobs(page = 1) {
   /* const { mainPath, subPath } = store.curRoute */
@@ -52,42 +49,38 @@ export function loadJobs(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
+
+  debug('userHasLogin ====> ', userHasLogin)
 
   store.markState({ curView: TYPE.LOADING })
 
-  const args = {
-    /* first: 4, */
+  let args = {
     filter: {
       page,
-      size: PAGE_SIZE.POSTSPAPER_POSTS,
+      size: PAGE_SIZE.M,
       ...store.filtersData,
       tag: store.activeTagData.raw,
-      community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
+  if (community !== ROUTE.HOME) {
+    args = R.merge(args, { community })
+  }
 
   debug('loadJobs args: ', args)
   store.markRoute({ page })
   sr71$.query(S.pagedJobs, args)
 }
 
-export function onFilterSelect(option) {
-  store.selectFilter(option)
-  loadJobs()
-}
-
-export function onTagSelect(obj) {
-  store.selectTag(obj)
-  loadJobs()
-}
-
-export function onTitleSelect(job) {
-  store.setViewing({ job })
+export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
-    data: job,
+    thread: THREAD.JOB,
+    data,
   })
 }
 
@@ -95,6 +88,17 @@ export function createContent() {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
+export function onTagSelect(obj) {
+  store.selectTag(obj)
+  loadJobs()
+}
+
+export const onFilterSelect = option => store.selectFilter(option)
+export const onCustomChange = option => store.updateC11N(option)
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('pagedJobs'),
@@ -146,14 +150,19 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
+  loadJobs()
+  /*
   if (R.isEmpty(store.pagedJobsData.entries)) {
     debug('loadIfNeed')
     loadJobs()
   }
+  */
 }
 
 export function init(_store) {
-  if (store) return false
+  if (store) {
+    return loadIfNeed()
+  }
   store = _store
 
   if (sub$) sub$.unsubscribe()

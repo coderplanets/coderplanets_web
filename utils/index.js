@@ -10,6 +10,7 @@ export {
   ACTION,
   FILTER,
   ROUTE,
+  C11N,
 } from './constants'
 
 export { makeDebugger } from './debug'
@@ -23,13 +24,13 @@ export {
   onClient,
   cutFrom,
   prettyNum,
+  numberWithCommas,
   Rlog,
   countWords,
   closePreviewer,
   debounce,
   extractMentions,
   extractAttachments,
-  objAlreadyExsits,
 } from './functions'
 
 export {
@@ -40,9 +41,20 @@ export {
   isEmptyValue,
   nilOrEmpty,
   isObject,
+  isString,
 } from './validator'
 
-export { makeGQClient, asyncErr, asyncRes, later } from './graphql_helper'
+export {
+  makeGQClient,
+  makeGithubExplore,
+  asyncErr,
+  asyncRes,
+  later,
+  pagedFilter,
+  atomizeValues,
+} from './graphql_helper'
+
+export { default as githubApi } from './github_api'
 
 export {
   getMainPath,
@@ -52,6 +64,7 @@ export {
   queryStringToJSON,
   mergeRouteQuery,
   serializeQuery,
+  getDomain,
   extractThreadFromPath,
   subPath2Thread,
   thread2Subpath,
@@ -65,6 +78,7 @@ export {
   stripMobx,
   $solver,
   observerHoc,
+  updateEditing,
 } from './mobx_helper'
 
 export {
@@ -80,9 +94,8 @@ export {
  */
 export {
   theme,
-  themeDict,
-  themeDescs,
-  themeKeys,
+  themeMeta,
+  themeSkins,
   themeCoverMap,
   themeCoverIndexMap,
 } from './themes'
@@ -91,8 +104,8 @@ export { default as SOCIAL_LISTS } from './social_lists'
 
 // helpers
 export { toast, toastBarColor } from './toast'
-export { default as Animate } from './animations'
-export { smokey, column, columnCenter } from './common_styles'
+export { default as animate } from './animations'
+export { default as cs } from './common_styles'
 export { default as BStore } from './bstore'
 export { Trans } from './i18n'
 export { default as GA } from './analytics'

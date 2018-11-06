@@ -7,29 +7,18 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
-// import Link from 'next/link'
-
+import UserPublished from '../UserPublished'
+import UserPublishedComments from '../UserPublishedComments'
+import UserBilling from '../UserBilling'
 import UserSettings from '../UserSettings'
-import UserFavorites from '../UserFavorites'
+import UserStared from '../UserStared'
+import UserFavorited from '../UserFavorited'
 
-import { Tabber, Button, Icon } from '../../components'
+import { Affix, Tabber } from '../../components'
 
-import AchieveInfo from './AchieveInfo'
-import NumbersInfo from './NumbersInfo'
+import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
 
-import {
-  Container,
-  MainWrapper,
-  TabberWrapper,
-  SidebarWrapper,
-  CardWrapper,
-  // TODO: move to component
-  AttactWrapper,
-  AttactIcon,
-  AttactLink,
-  AttactDivider,
-} from './styles'
+import DigestBoard from './DigestBoard'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
@@ -38,14 +27,10 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserContent')
 /* eslint-enable no-unused-vars */
 
-const fakeThreads = [
+const taberThreads = [
   {
-    title: '动态',
-    raw: 'activities',
-  },
-  {
-    title: '帖子',
-    raw: 'posts',
+    title: '发布',
+    raw: 'publish',
   },
   {
     title: '评论',
@@ -60,6 +45,10 @@ const fakeThreads = [
     raw: 'likes',
   },
   {
+    title: '账单',
+    raw: 'billing',
+  },
+  {
     title: '设置',
     raw: 'settings',
   },
@@ -67,43 +56,43 @@ const fakeThreads = [
 
 const TabberContent = ({ active }) => {
   switch (active) {
-    case USER_THREAD.POSTS: {
-      return <h2>POSTS</h2>
-    }
     case USER_THREAD.COMMENTS: {
-      return <h2>COMMENTS</h2>
+      return <UserPublishedComments />
     }
     case USER_THREAD.FAVORITES: {
-      return <UserFavorites />
+      return <UserFavorited />
     }
     case USER_THREAD.LINKS: {
-      return <h2>LINKS</h2>
+      return <UserStared />
+    }
+    case USER_THREAD.BILLING: {
+      return <UserBilling />
     }
     case USER_THREAD.SETTINGS: {
       return <UserSettings />
     }
     default: {
-      return <h2>Activies</h2>
+      return <UserPublished />
     }
   }
 }
 
 class UserContentContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { userContent } = this.props
     logic.init(userContent)
   }
 
   render() {
     const { userContent } = this.props
-    const { activeThread } = userContent
+    const { activeThread, viewingUser, accountInfo } = userContent
 
     return (
       <Container>
         <MainWrapper>
           <TabberWrapper className="tabs-with-bottom">
             <Tabber
-              source={fakeThreads}
+              source={taberThreads}
               onChange={logic.tabChange}
               active={activeThread}
             />
@@ -111,37 +100,9 @@ class UserContentContainer extends React.Component {
           <TabberContent active={activeThread} />
         </MainWrapper>
         <SidebarWrapper>
-          <CardWrapper>
-            <AchieveInfo />
-            <Button type="primary">
-              <Icon type="plus" />
-              关注他
-            </Button>
-          </CardWrapper>
-          <CardWrapper>
-            <NumbersInfo />
-          </CardWrapper>
-
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/join_at.svg`} />第 1 位会员{' '}
-            <AttactDivider /> 加入时间: 2018-08-18
-          </AttactWrapper>
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
-            本站源码贡献者(
-            <AttactLink
-              href="https://github.com/coderplanets/coderplanets_web/commits?author=mydearxym"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              详情
-            </AttactLink>
-            )
-          </AttactWrapper>
-          <AttactWrapper>
-            <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
-            本站赞助者(详情)
-          </AttactWrapper>
+          <Affix offsetTop={30}>
+            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
+          </Affix>
         </SidebarWrapper>
       </Container>
     )

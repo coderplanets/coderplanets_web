@@ -38,6 +38,10 @@ const ArticleViwerStore = t
     get viewingData() {
       return self.root.viewingData
     },
+    get activeThread() {
+      const { activeThread } = self.root.viewing
+      return activeThread
+    },
   }))
   .actions(self => ({
     setViewing(sobj) {

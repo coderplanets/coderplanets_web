@@ -10,54 +10,52 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 
+import VideoSourceInfo from '../VideoSourceInfo'
+
+import DotDivider from '../DotDivider'
 import { Space } from '../BaseStyled'
+import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
   PosterWrapper,
   Poster,
   Duration,
-  TitleLink,
-  LinkIcon,
   ViewIcon,
   Main,
   TopHalf,
   Breif,
   Title,
-  TitleTag,
   SecondHalf,
   BodyDigest,
   Extra,
   OriginalAuthorLink,
-  TitleTagDot,
   BottomAuthorWrapper,
   ButtonAvatar,
   ButtonNickname,
+  InsertTime,
 } from './styles'
 
-import { makeDebugger, cutFrom } from '../../utils'
+import { renderReadMark, getOpacity } from './helper'
+import { makeDebugger, cutFrom, C11N } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:VideoItem:index')
 /* eslint-enable no-unused-vars */
 
-const VideoItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper active={active.id && entry.id !== active.id}>
+const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
+  <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
+    {renderReadMark(entry, accountInfo)}
     <PosterWrapper>
-      <Poster src={entry.author.avatar} alt="poster" />
+      <Poster src={entry.poster} alt="poster" />
       <Duration>{entry.duration}</Duration>
     </PosterWrapper>
     <Main>
       <TopHalf>
         <Breif onClick={onTitleSelect.bind(this, entry)}>
           <Title>{entry.title}</Title>
-          <TitleLink>
-            <LinkIcon src={`${ICON_CMD}/link.svg`} />
-            <span style={{ marginLeft: 9 }}>youtube</span>
-          </TitleLink>
-          <TitleTag>
-            <TitleTagDot />
-            elixir
-          </TitleTag>
+          <VideoSourceInfo value={entry.source} />
+          <InlineTags data={entry.tags} />
         </Breif>
       </TopHalf>
 
@@ -66,9 +64,9 @@ const VideoItem = ({ entry, active, onTitleSelect }) => (
           <OriginalAuthorLink href={entry.originalAuthorLink} target="_blank">
             {entry.originalAuthor}
           </OriginalAuthorLink>{' '}
-          <Space right="2px" />⁝<Space right="2px" />
-          <TimeAgo datetime={entry.insertedAt} locale="zh_CN" />
-          <Space right="2px" />⁝<Space right="2px" />
+          <DotDivider />
+          <TimeAgo datetime={entry.publishAt} locale="zh_CN" />
+          <Space right="8px" />
           <ViewIcon src={`${ICON_CMD}/refer.svg`} /> <Space right="2px" />
           {entry.views}
         </Extra>
@@ -77,6 +75,10 @@ const VideoItem = ({ entry, active, onTitleSelect }) => (
       <BottomAuthorWrapper>
         <ButtonAvatar src={entry.author.avatar} />
         <ButtonNickname>{entry.author.nickname}</ButtonNickname>
+        <InsertTime>
+          <DotDivider />
+          <TimeAgo datetime={entry.insertedAt} locale="zh_CN" />
+        </InsertTime>
       </BottomAuthorWrapper>
     </Main>
   </Wrapper>
@@ -95,12 +97,28 @@ VideoItem.propTypes = {
     }),
   }).isRequired,
 
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
   onTitleSelect: PropTypes.func,
 }
 
 VideoItem.defaultProps = {
   onTitleSelect: debug,
   active: {},
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: C11N.DIGEST,
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
 }
 
 export default VideoItem

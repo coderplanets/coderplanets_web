@@ -1,15 +1,12 @@
 import styled from 'styled-components'
 import { setLightness, setSaturation, opacify } from 'polished'
 
-/* import { theme } from '../../../utils' */
-
-// visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
+import { cs } from '../../../utils'
 
 export const CategoryWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   width: 100%;
 `
-
 export const Category = styled.div`
   width: 100px;
   height: 50px;
@@ -20,12 +17,10 @@ export const Category = styled.div`
 `
 
 export const CheatsheetItem = styled.div`
+  ${cs.flexColumn('justify-center')};
   width: 100px;
   margin: 10px 20px;
-  display: flex;
-  flex-direction: column;
   height: 30px;
-  justify-content: center;
   border-radius: 4px;
   background-color: ${({ fg }) => opacify(0.01, setSaturation(0.1, fg))};
 `

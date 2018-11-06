@@ -1,53 +1,13 @@
 import gql from 'graphql-tag'
-
-const pagedVideosRaw = `
-  query($filter: PagedArticleFilter) {
-    pagedVideos(filter: $filter) {
-      entries {
-        id
-        title
-        desc
-        duration
-        views
-        originalAuthor
-        originalAuthorLink
-        author {
-          id
-          avatar
-          nickname
-        }
-        insertedAt
-      }
-      totalCount
-      pageSize
-      pageNumber
-    }
-  }
-`
-// TODO: mvoe to SharedSchema
-const partialTagsRaw = `
-  query($communityId: ID, $community: String, $thread: CmsThread!) {
-    partialTags(communityId: $communityId, community: $community, thread: $thread) {
-      id
-      title
-      color
-      thread
-    }
-  }
-`
-
-const pagedVideos = gql`
-  ${pagedVideosRaw}
-`
-const partialTags = gql`
-  ${partialTagsRaw}
-`
+import { P } from '../schemas'
 
 const schema = {
-  pagedVideos,
-  pagedVideosRaw,
-  partialTags,
-  partialTagsRaw,
+  pagedVideos: gql`
+    ${P.pagedVideos}
+  `,
+  partialTags: gql`
+    ${P.partialTags}
+  `,
 }
 
 export default schema

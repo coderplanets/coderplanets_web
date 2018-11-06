@@ -1,5 +1,7 @@
 // import R from 'ramda'
 // const debug = makeDebugger('L:sidebar')
+import { arrayMove } from 'react-sortable-hoc'
+
 import {
   asyncRes,
   asyncErr,
@@ -29,12 +31,14 @@ let sub$ = null
 const debug = makeDebugger('L:Sidebar')
 /* eslint-enable no-unused-vars */
 
-export function pin() {
+export function setPin() {
   store.markState({ pin: !store.pin })
 }
 
 export function onCommunitySelect(community) {
-  debug('onCommunitySelect --> ', community)
+  // console.log('onCommunitySelect --> ', community)
+  store.setViewing({ community })
+
   store.markRoute({
     mainPath: community.raw,
     subPath: thread2Subpath(THREAD.POST),
@@ -43,10 +47,17 @@ export function onCommunitySelect(community) {
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
 }
 
-export function loadSubscribedCommunities() {
+export function onSortMenuEnd({ oldIndex, newIndex }) {
+  const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
+  // TODO: sync to server
+  store.onSortCommunities(sortedCommunities)
+}
+
+export function loadCommunities() {
   /* const user = BStore.get('user') */
   const user = store.accountInfo
-  /* console.log('store.accountInfo in sidebar: ', store.accountInfo) */
+
+  console.log('store.accountInfo in sidebar: ', store.accountInfo)
 
   const args = {
     filter: { page: 1, size: 30 },
@@ -55,7 +66,8 @@ export function loadSubscribedCommunities() {
     args.userId = user.id
     args.filter.size = 20
   }
-  /* console.log('loadSubscribedCommunities: ', GRAPHQL_ENDPOINT) */
+  /* console.log('loadCommunities: ', GRAPHQL_ENDPOINT) */
+  console.log('subscribedCommunities args --> ', args)
   sr71$.query(S.subscribedCommunities, args)
 }
 
@@ -63,15 +75,15 @@ const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
     action: ({ subscribedCommunities }) =>
-      store.loadSubscribedCommunities(subscribedCommunities),
+      store.loadCommunities(subscribedCommunities),
   },
   {
     match: asyncRes(EVENT.LOGOUT),
-    action: () => loadSubscribedCommunities(),
+    action: () => loadCommunities(),
   },
   {
     match: asyncRes(EVENT.LOGIN),
-    action: () => loadSubscribedCommunities(),
+    action: () => loadCommunities(),
   },
 ]
 
@@ -102,5 +114,4 @@ export function init(_store) {
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadSubscribedCommunities()
 }

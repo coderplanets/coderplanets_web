@@ -23,23 +23,17 @@ import { makeDebugger, storePlug } from '../../utils'
 const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
 
-const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
+// const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
+const View = ({ curView, thread, editData }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
-          <Editor
-            cpType={cpType}
-            thread={thread}
-            title={title}
-            linkAddr={linkAddr}
-            body={body}
-          />
+          <Editor thread={thread} editData={editData} />
         </ViewerWrapper>
         <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
-            title={title}
-            body={body}
+            editData={editData}
             onBack={changeView.bind(this, 'CREATE_VIEW')}
           />
         </ViewerWrapper>
@@ -51,7 +45,7 @@ const View = ({ curView, thread, cpType, title, body, linkAddr }) => {
 
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { typeWriter, attachment } = this.props
 
     init(typeWriter, attachment)
@@ -67,30 +61,27 @@ class TypeWriterContainer extends React.Component {
     const { typeWriter } = this.props
 
     const {
-      cpType,
+      copyRight,
       thread,
       curView,
-      linkAddr,
-      title,
-      body,
       publishing,
       success,
       error,
       warn,
       isEdit,
       statusMsg,
+      editData,
     } = typeWriter
 
+    // debug('editData: ', editData)
     return (
       <Wrapper>
         <Header isEdit={isEdit} curView={curView} thread={thread} />
         <View
           curView={curView}
+          editData={editData}
           thread={thread}
-          linkAddr={linkAddr}
-          title={title}
-          body={body}
-          cpType={cpType}
+          copyRight={copyRight}
         />
         <Footer
           isEdit={isEdit}

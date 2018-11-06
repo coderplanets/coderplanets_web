@@ -1,8 +1,10 @@
 import { types as t } from 'mobx-state-tree'
-import { Community } from './Community'
+import { Community /* PagedCommunities */ } from './Community'
+
+import { C11N } from '../../utils'
 import { PAGE_SIZE } from '../../config'
 
-const SubscribedCommunities = t.model('SubscribedCommunities', {
+const PagedCommunities = t.model('pagedCommunities', {
   entries: t.optional(t.array(Community), []),
   totalCount: t.optional(t.number, 0),
 })
@@ -34,6 +36,46 @@ export const WorkBackground = t.model('WorkBackground', {
   title: t.optional(t.string, ''),
 })
 
+const SourceContribute = t.model('SourceContribute', {
+  web: t.maybeNull(t.boolean),
+  server: t.maybeNull(t.boolean),
+  mobile: t.maybeNull(t.boolean),
+  weApp: t.maybeNull(t.boolean),
+  h5: t.maybeNull(t.boolean),
+})
+
+export const Achievement = t.model('Achievement', {
+  reputation: t.optional(t.number, 0),
+  contentsStaredCount: t.optional(t.number, 0),
+  contentsFavoritedCount: t.optional(t.number, 0),
+  sourceContribute: t.optional(SourceContribute, {
+    web: false,
+    server: false,
+    mobile: false,
+    weApp: false,
+    h5: false,
+  }),
+})
+
+const Customization = t.model('Customization', {
+  bannerLayout: t.optional(
+    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.BRIEF]),
+    C11N.DIGEST
+  ),
+  contentsLayout: t.optional(
+    t.enumeration('contentsLayout', [C11N.DIGEST, C11N.LIST]),
+    C11N.DIGEST
+  ),
+  contentDivider: t.optional(t.boolean, false),
+  markViewed: t.optional(t.boolean, true),
+  displayDensity: t.optional(
+    t.enumeration('displayDensity', ['20', '25', '30']),
+    '20'
+  ),
+  // theme
+  // ...
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
@@ -41,8 +83,10 @@ export const User = t.model('User', {
   nickname: t.maybeNull(t.string),
   bio: t.maybeNull(t.string),
   avatar: t.maybeNull(t.string),
+  views: t.optional(t.number, 0),
   email: t.maybeNull(t.string),
   location: t.maybeNull(t.string),
+  geoCity: t.maybeNull(t.string),
   // TODO: backgrounds
   educationBackgrounds: t.optional(t.array(EduBackground), []),
   workBackgrounds: t.optional(t.array(WorkBackground), []),
@@ -63,14 +107,24 @@ export const User = t.model('User', {
 
   fromGithub: t.optional(t.boolean, false),
   /* fromWeixin: t.optional(t.boolean, false), */
-  /* subscribedCommunities: t.optional(SubscribedCommunities, {}), */
-  subscribedCommunities: t.maybeNull(SubscribedCommunities),
+  /* subscribedCommunities: t.optional(pagedCommunities, {}), */
+  subscribedCommunities: t.maybeNull(PagedCommunities),
   subscribedCommunitiesCount: t.optional(t.number, 0),
   contributes: t.optional(Contributes, {}),
   githubProfile: t.maybeNull(GithubProfile),
-  cmsPassportString: t.maybeNull(t.string),
+  // cmsPassportString: t.optional(t.string, '{}'),
+
+  followingsCount: t.optional(t.number, 0),
+  followersCount: t.optional(t.number, 0),
+
+  achievement: t.optional(Achievement, {}),
+  editableCommunities: t.maybeNull(PagedCommunities),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
+
+  viewerHasFollowed: t.optional(t.boolean, false),
+  customization: t.optional(Customization, {}),
 })
 
 export const SimpleUser = t.model('SimpleUser2', {
@@ -90,12 +144,13 @@ export const EmptyUser = {
   subscribedCommunities: {},
   contributes: {},
   githubProfile: null,
+  // cmsPassportString: '{}',
 }
 
 export const PagedUsers = t.model('PagedUsers', {
   entries: t.optional(t.array(User), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

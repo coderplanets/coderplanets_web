@@ -1,51 +1,60 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
-  display: flex;
+  ${cs.flex()};
+  position: relative;
   padding-left: 8px;
   padding-right: 8px;
-  padding-top: 6px;
-  padding-bottom: 6px;
   border-radius: 4px;
-  background: ${({ current, active }) =>
-    current.id === active.id ? theme('thread.articleHover') : ''};
-  opacity: ${({ current, active }) =>
-    active.id && current.id !== active.id ? 0.6 : 1};
+  opacity: ${({ opacity }) => opacity};
+
+  padding-top: ${({ divider }) => (divider ? '10px' : '6px')};
+  padding-bottom: ${({ divider }) => (divider ? '10px' : '6px')};
+  border-bottom: ${({ divider }) => (divider ? '1px solid' : '0')};
+  border-bottom-color: ${theme('thread.articleDivider')};
 
   &:hover {
     cursor: pointer;
     background: ${theme('thread.articleHover')};
   }
 `
+export const ReadedLabel = styled.div`
+  position: absolute;
+  top: 14px;
+  left: -30px;
+  font-size: 0.75rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+`
 export const Main = styled.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+  ${cs.flexColumnGrow()};
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
-export const SecondHalf = styled.ul`
+export const SecondHalf = styled.div`
   margin-left: 10px;
   margin-top: -10px;
 `
-export const Avatar = styled.img`
-  width: 42px;
-  height: 42px;
-  border-radius: 100%;
-  opacity: ${theme('avatarOpacity')};
-`
 
+export const Avatar = styled(Img)`
+  ${cs.circle('42px')};
+  opacity: ${theme('avatarOpacity')};
+  display: block;
+  margin-top: 2px;
+`
+export const SmallAvatar = styled(Avatar)`
+  width: 35px;
+  height: 35px;
+`
 export const Breif = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
-
 export const Title = styled.div`
   margin-bottom: 10px;
   font-size: 1rem;
@@ -84,7 +93,6 @@ export const Extra = styled.li`
   font-size: 0.85rem;
   color: ${theme('thread.extraInfo')};
 `
-
 export const BodyDigest = styled.li`
   margin-top: 5px;
   color: ${theme('thread.articleDigest')};
@@ -92,4 +100,19 @@ export const BodyDigest = styled.li`
   white-space: normal;
   display: block;
   font-size: 0.85rem;
+`
+export const CommentWrapper = styled.div`
+  ${cs.flex('align-center')};
+  align-self: flex-start;
+`
+export const CommentIcon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  display: block;
+`
+export const CommentNum = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 0.9rem;
 `

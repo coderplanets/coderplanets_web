@@ -4,6 +4,10 @@ import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding-left: 10px;
+  margin-bottom: 30px;
+`
+export const OptionsWrapper = styled.div`
+  width: 300px;
 `
 export const RadiosWrapper = styled.div`
   margin-bottom: 40px;

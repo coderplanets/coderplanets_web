@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { request, GraphQLClient } from 'graphql-request'
 
-import { GRAPHQL_ENDPOINT } from '../config'
-import { nilOrEmpty } from './validator'
+import { GRAPHQL_ENDPOINT, PAGE_SIZE } from '../config'
+import { nilOrEmpty, isString } from './validator'
 
 export const asyncRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))
 export const asyncErr = key => R.pathEq(['error'], key)
@@ -21,6 +21,34 @@ export const makeGQClient = token => {
   return {
     request: (schema, query) => request(GRAPHQL_ENDPOINT, schema, query),
   }
+}
+
+export const makeGithubExplore = (GRAPHQL_ENDPOINT, token) => {
+  const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
+    headers: {
+      authorization: `bearer ${token}`,
+    },
+  })
+  return client
+}
+
+export const pagedFilter = (page, options = {}) =>
+  R.merge({ page, size: PAGE_SIZE.D }, options)
+
+/*
+ * map value(string) to UPPER case for server absinthe-atom format
+ * e.p: is server required :post, front-end should pass "POST"
+ */
+export const atomizeValues = _obj => {
+  const obj = R.clone(_obj)
+
+  Object.keys(obj).forEach(k => {
+    if (isString(obj[k])) {
+      obj[k] = R.toUpper(obj[k])
+    }
+  })
+
+  return obj
 }
 
 // NOTE: this is a simple hack for send parallel requests in rxjs

@@ -6,58 +6,23 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { PagedPosts, Tag, emptyPagiData } from '../../stores/SharedModel'
+import {
+  PagedPosts,
+  Tag,
+  ContentFilter,
+  emptyPagiData,
+} from '../../stores/SharedModel'
+
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsThreadStore')
 /* eslint-enable no-unused-vars */
 
-/* const filters = { */
-/* js: { */
-/* time: 'today', */
-/* sort: 'most_views', */
-/* length: 'most_words', */
-/* }, */
-/* } */
-
-/* const tags = { */
-/* js: 'react', */
-/* } */
-
-// TODO: move to SharedModel
-const FilterModel = t.model('FilterModel', {
-  when: t.optional(
-    t.enumeration('when', [
-      '',
-      FILTER.TODAY,
-      FILTER.THIS_WEEK,
-      FILTER.THIS_MONTH,
-      FILTER.THIS_YEAR,
-    ]),
-    ''
-  ),
-
-  sort: t.optional(
-    t.enumeration('sort', [
-      '',
-      FILTER.MOST_VIEWS,
-      FILTER.MOST_FAVORITES,
-      FILTER.MOST_STARS,
-      FILTER.MOST_COMMENTS,
-    ]),
-    ''
-  ),
-  wordLength: t.optional(
-    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
-    ''
-  ),
-})
-
 const PostsThreadStore = t
   .model('PostsThreadStore', {
     pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    filters: t.optional(FilterModel, {}),
+    filters: t.optional(ContentFilter, {}),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
@@ -85,6 +50,9 @@ const PostsThreadStore = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get filtersData() {
       return stripMobx(self.filters)
     },
@@ -110,6 +78,16 @@ const PostsThreadStore = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedPostsData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedPosts.entries[index].viewerHasViewed = true
+      }
+    },
+    updateC11N(option) {
+      self.root.updateC11N(option)
     },
     markRoute(query) {
       self.root.markRoute(query)

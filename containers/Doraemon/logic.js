@@ -64,7 +64,6 @@ export function githubLoginHandler() {
     if (e.origin === Global.location.origin) {
       if (e.data.from_oauth_window) {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
-        console.log('get code: ', code)
 
         sr71$.mutate(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
@@ -151,8 +150,28 @@ const initCmdResolver = () => {
       match: SAK.stepTwoCmd('login'),
       action: cmdpath => {
         debug('stepTwoCmd login->: ', cmdpath)
-        githubLoginHandler()
-        hidePanel()
+        switch (R.last(cmdpath)) {
+          case 'github': {
+            hidePanel()
+            return githubLoginHandler()
+          }
+          case 'weibo':
+          case 'twitter':
+          case 'google':
+          case 'weixin': {
+            const url =
+              'https://github.com/coderplanets/coderplanets_web/issues/251'
+            const win = window.open(url, '_blank')
+
+            // see https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window-using-javascript
+            return win.focus()
+          }
+          default: {
+            debug('unsupported login method: ', cmdpath)
+            return hidePanel()
+          }
+        }
+
         /* reference */
         /* http://www.graphql.college/implementing-github-oauth-flow-in-react */
         /* SAK.completeInput(true) */
@@ -295,12 +314,9 @@ const DataSolver = [
   {
     match: asyncRes('githubSignin'),
     action: ({ githubSignin }) => {
-      console.log('action githubSignin get: ', githubSignin)
-
       BStore.set('user', githubSignin.user)
       BStore.set('token', githubSignin.token)
       /* store.updateSessionState({ isValid: true, user: githubSignin.user }) */
-      console.log('then refresh browser')
       Global.location.reload(false)
     },
   },

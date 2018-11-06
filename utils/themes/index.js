@@ -12,45 +12,17 @@
  */
 
 import R from 'ramda'
+import skinsData from './skins'
 
-import Cyan from './Cyan'
-import Purple from './Purple'
-import SolarizedDark from './SolarizedDark'
-import Github from './Github'
-import Blue from './Blue'
-import Yellow from './Yellow'
-import Green from './Green'
-import IronGreen from './IronGreen'
+export const themeSkins = { ...skinsData }
 
-export const themeDict = {
-  default: { ...Cyan },
-  /* cyan: { ...Cyan }, */
-  solarized: { ...SolarizedDark },
-  purple: { ...Purple },
-  yellow: { ...Yellow },
-  github: { ...Github },
-  blue: { ...Blue },
-  green: { ...Green },
-  ironGreen: { ...IronGreen },
-}
+// cover color of a theme
+export const themeCoverMap = R.map(R.path(['cover']), themeSkins)
+// the "T" color in themeSelector
+export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeSkins)
 
-export const themeKeys = R.keys(themeDict)
-
-export const themeDescs = {
-  cyan: 'inspired by the rethinkdb.com admin panel',
-  default: 'inspired by the rethinkdb.com admin panel',
-  solarized: 'inspired by Emacs solarized theme',
-  purple: 'inspired ubuntu OS terminal',
-  yellow: 'inspired by vimawesome.com',
-  github: 'inspired by github.com',
-  blue: 'inspired by myself i think ?',
-  green: 'inspired by Olive theme from Vivaldi project',
-  ironGreen: 'inspired by dribbble: shots/2478998-Forum-Concept',
-}
-
-export const themeCoverMap = R.map(R.path(['cover']), themeDict)
-export const themeCoverIndexMap = R.map(R.path(['coverIndex']), themeDict)
-
-// shorthand for style-components
+// curried shorthand for style-components
 export const theme = themepath =>
   R.path(['theme', ...R.split('.', themepath)]) || 'wheat'
+
+export { default as themeMeta } from './theme_meta'

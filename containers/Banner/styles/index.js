@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const BaseBanner = styled.nav`
+  ${cs.flexColumn('justify-center')};
+
   position: relative;
   min-height: 140px;
-  border-bottom: 1px solid tomato;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.spliter')};
@@ -18,27 +16,24 @@ export const BaseBanner = styled.nav`
 `
 
 export const BaseBannerContent = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
 `
 
 export const BaseTabber = styled.div`
+  ${cs.flex()};
   position: absolute;
   bottom: -16px;
   width: 80vw;
-  display: flex;
 `
 
 export const NumbersWrapper = styled.div`
-  display: flex;
-  text-align: center;
+  ${cs.flex('align-center')};
   margin-top: -2rem;
 `
 export const NumberSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
   padding: 0 5px;
   border-radius: 4px;
 
@@ -52,7 +47,7 @@ export const NumberTitle = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberItem = styled.div`
@@ -61,7 +56,7 @@ export const NumberItem = styled.div`
   &:hover {
     color: ${({ dead }) => (dead ? '' : theme('banner.active'))};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 export const NumberDivider = styled.div`

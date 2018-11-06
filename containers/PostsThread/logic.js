@@ -9,6 +9,8 @@ import {
   EVENT,
   ERR,
   TYPE,
+  ROUTE,
+  THREAD,
   $solver,
   scrollIntoEle,
   GA,
@@ -23,6 +25,7 @@ const sr71$ = new SR71({
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
+    EVENT.TABBER_CHANGE,
   ],
 })
 /* eslint-disable no-unused-vars */
@@ -45,19 +48,24 @@ export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const { mainPath: community, subPath: topic } = store.curRoute
+  const userHasLogin = store.isLogin
+
   store.markState({ curView: TYPE.LOADING })
 
-  debug('store.activeTagData', store.activeTagData)
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community,
     },
+    userHasLogin,
+  }
+
+  if (community === ROUTE.HOME) {
+    args.filter = R.merge(args.filter, { topic })
   }
 
   args.filter = validFilter(args.filter)
@@ -68,36 +76,43 @@ export function loadPosts(page = 1) {
   store.markRoute({ page })
 }
 
-export function onFilterSelect(option) {
-  store.selectFilter(option)
-  loadPosts()
-}
+export const onFilterSelect = option => store.selectFilter(option)
 
 export function onTagSelect(tag) {
   store.selectTag(tag)
   loadPosts()
 }
 
-export function onTitleSelect(post) {
-  store.setViewing({ post })
-  /* store.setActive(post) */
-  debug('onTitleSelect publish post: ', post)
+export function onTitleSelect(data) {
+  // debug('onTitleSelect publish post: ', data)
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
+
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,
-    data: post,
+    thread: THREAD.POST,
+    data,
   })
 
   GA.event({
-    action: post.title,
+    action: data.title,
     category: '浏览',
     label: '社区',
   })
 }
 
-export function createContent() {
+export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+
+export const onCustomChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+
+  debug('onCustomChange option: ', option)
+  store.updateC11N(option)
 }
 
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
@@ -116,6 +131,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadPosts(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
     action: () => loadPosts(),
   },
   {
@@ -150,9 +169,9 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (R.isEmpty(store.pagedPostsData.entries)) {
-    loadPosts()
-  }
+  /* if (R.isEmpty(store.pagedPostsData.entries)) { */
+  // loadPosts()
+  /* } */
 }
 
 export function init(_store) {

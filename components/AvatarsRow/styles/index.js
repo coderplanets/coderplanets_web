@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Avatars = styled.ul`
-  display: flex;
+  ${cs.flex()};
+  flex-direction: row-reverse;
   list-style-type: none;
   margin: auto;
   height: ${({ height }) => height};
   padding: 0px 8px 0px 0px;
-  flex-direction: row-reverse;
 `
-
 // height: 49px;
 export const AvatarsItem = styled.li`
   margin: 0px 0px 0px 0px;
@@ -20,10 +19,11 @@ export const AvatarsItem = styled.li`
   opacity: 0.75;
   &:hover {
     opacity: 1;
-    animation: ${Animate.pulse} 0.3s linear;
+  }
+  ${Avatars}:hover & {
+    margin-left: 5px;
   }
 `
-
 export const AvatarsImg = styled.img`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};

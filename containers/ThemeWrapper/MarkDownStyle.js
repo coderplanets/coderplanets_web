@@ -164,9 +164,9 @@ const MarkDownStyle = styled.div`
   }
 
   .markdown-body strong {
-    font-weight: normal !important;
     color: ${theme('markdown.strongFg')};
     background-color: ${theme('markdown.strongBg')};
+    padding: 0 5px;
   }
 
   .markdown-body h1 {
@@ -428,17 +428,18 @@ const MarkDownStyle = styled.div`
   }
 
   .markdown-body hr {
-    height: 0.25em;
+    height: 1px;
     padding: 0;
     margin: 24px 0;
-    background-color: #e1e4e8;
+    background-color: ${theme('markdown.br')};
     border: 0;
   }
 
   .markdown-body blockquote {
     padding: 0 1em;
     color: ${theme('markdown.blockquoteFg')};
-    border-left: ${theme('markdown.blockquoteBorder')};
+    border-left: 0.25em solid;
+    border-left-color: ${theme('markdown.blockquoteBorder')};
     font-style: italic;
   }
 
@@ -620,12 +621,12 @@ const MarkDownStyle = styled.div`
   }
 
   .markdown-body img {
-    max-width: 50%;
+    max-width: 100%;
     box-sizing: content-box;
     // i add: center the img
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    // display: block;
+    //  margin-left: auto;
+    // margin-right: auto;
   }
 
   .markdown-body img[align='right'] {

@@ -4,30 +4,39 @@ export const ERR = {
   NETWORK: 'NETWORK',
   NOT_FOUND: 'NOT_FOUND',
   TIMEOUT: 'TIMEOUT',
+  AUTH: 'AUTH',
+  UNKOWN: 'UNKOWN',
 }
 
 export const EVENT = {
   LOGIN_PANEL: 'LOGIN_PANEL',
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
+  // preview
+  PREVIEW_OPEN: 'PREVIEW_OPEN',
   PREVIEW_CLOSE: 'PREVIEW_CLOSE',
   PREVIEW_CLOSED: 'PREVIEW_CLOSED',
-  // new
-  PREVIEW_LOAD: 'PREVIEW_LOAD',
-  PREVIEW_OPEN: 'PREVIEW_OPEN',
-  // action: preview, create, update
   // new end
+  USER_LISTER_OPEN: 'USER_LISTER_OPEN',
 
   // refresh
   REFRESH_COMMUNITIES: 'REFRESH_COMMUNITIES',
   REFRESH_POSTS: 'REFRESH_POSTS',
+  REFRESH_REPOS: 'REFRESH_REPOS',
   REFRESH_JOBS: 'REFRESH_JOBS',
+  REFRESH_VIDEOS: 'REFRESH_VIDEOS',
+  REFRESH_REACTIONS: 'REFRESH_REACTIONS',
 
-  // community
+  // route change
   COMMUNITY_CHANGE: 'COMMUNITY_CHANGE',
-
+  TABBER_CHANGE: 'TABBER_CHANGE',
   // Draft editor
   DRAFT_INSERT_SNIPPET: 'DRAFT_INSERT_SNIPPET',
+
+  // favorites
+  SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
+  // customization
+  SET_C11N: 'SET_C11N',
 }
 
 export const TYPE = {
@@ -50,12 +59,18 @@ export const TYPE = {
   REACTION: 'reaction',
   UNDO_REACTION: 'undoReaction',
 
+  USER_LISTER_FAVORITES: 'USER_LISTER_FAVORITES',
+  USER_LISTER_STARS: 'USER_LISTER_STARS',
+  USER_LISTER_COMMUNITY_EDITORS: 'USER_LISTER_COMMUNITY_EDITORS',
+
+  USER_LISTER_FOLLOWINGS: 'USER_LISTER_FOLLOWINGS',
+  USER_LISTER_FOLLOWERS: 'USER_LISTER_FOLLOWERS',
+
   // preview
   PREVIEW_ACCOUNT_VIEW: 'PREVIEW_ACCOUNT_VIEW',
   PREVIEW_ACCOUNT_EDIT: 'PREVIEW_ACCOUNT_EDIT',
 
   PREVIEW_ROOT_STORE: 'PREVIEW_ROOT_STORE',
-  PREVIEW_COMMUNITY_EDITORS: 'PREVIEW_COMMUNITY_EDITORS',
 
   PREVIEW_POST_VIEW: 'PREVIEW_POST_VIEW',
   PREVIEW_POST_CREATE: 'PREVIEW_POST_CREATE',
@@ -86,6 +101,7 @@ export const TYPE = {
 
 export const ROUTE = {
   // NOTE: the lower-case is MUST
+  HOME: 'home',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
   ACTIVITIES: 'activities',
@@ -94,28 +110,38 @@ export const ROUTE = {
   VIDEOS: 'videos',
   USERS: 'users',
   REPOS: 'repos',
+  WIKI: 'wiki',
+  SHARE: 'share',
+  CITY: 'city',
+  NEWS: 'news',
+  CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
   USER: 'user',
-  JOB: 'JOB',
+  JOB: 'job',
+  VIDEO: 'video',
+  REPO: 'repo',
 }
 
 export const THREAD = {
   POST: 'post',
+  USER: 'user',
   JOB: 'job',
   VIDEO: 'video',
   REPO: 'repo',
   WIKI: 'wiki',
-  MAP: 'map',
+  SHARE: 'share',
+  NEWS: 'news',
+  CITY: 'city',
   CHEATSHEET: 'cheatsheet',
 }
 
 export const USER_THREAD = {
-  ACTIVITIES: 'activities',
-  POSTS: 'posts',
+  PUBLISH: 'publish',
   COMMENTS: 'comments',
   FAVORITES: 'favorites',
   LINKS: 'likes',
+  BILLING: 'billing',
   SETTINGS: 'settings',
 }
 
@@ -143,7 +169,22 @@ export const FILTER = {
   MOST_LIKES: 'MOST_LIKES',
   MOST_DISLIKES: 'MOST_DISLIKES',
 
+  MOST_STAR: 'MOST_STAR',
+  MOST_FORK: 'MOST_FORK',
+  MOST_WATCH: 'MOST_WATCH',
+
   // length
   MOST_WORDS: 'MOST_WORDS',
   LEAST_WORDS: 'LEAST_WORDS',
+
+  // READ
+  READED: 'READED',
+  UNREAD: 'UNREAD',
+}
+
+// customization
+export const C11N = {
+  DIGEST: 'digest',
+  LIST: 'list',
+  BRIEF: 'brief',
 }

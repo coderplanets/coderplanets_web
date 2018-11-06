@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,31 +18,39 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import JobsThreadSchema from '../../containers/JobsThread/schema'
+import { P } from '../../containers/schemas'
+
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
+  makeDebugger,
+} from '../../utils'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:jobs')
+/* eslint-enable no-unused-vars */
+
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedJobsRaw, partialTagsRaw } = JobsThreadSchema
 
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedJobs = request(pagedJobsRaw, { filter })
-  const partialTags = request(partialTagsRaw, {
-    thread,
-    community,
-  })
+  const curCommunity = request(P.community, { raw: community })
+  const pagedJobs = request(P.pagedJobs, { filter })
+  const partialTags = request(P.partialTags, { thread, community })
 
   return {
     ...(await pagedJobs),
@@ -69,7 +67,8 @@ export default class Jobs extends React.Component {
     /* const isServer = !!req */
     /* eslint-disable no-underscore-dangle */
     /* eslint-disable no-undef */
-    console.log('SSR ## community (in javascript)jobs ##: ', asPath)
+    debug('SSR ## community (in javascript)jobs ##: ', asPath)
+
     const thread = getSubPath(props)
 
     const { pagedJobs, partialTags, community } = await fetchData(props)

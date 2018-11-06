@@ -27,7 +27,7 @@ export function loadUser() {}
 export function loadAccount() {
   // load contributes ..
   // load posts ...
-  sr71$.query(S.account, {})
+  sr71$.query(S.user, {})
 }
 
 export function changeTheme(name) {
@@ -45,8 +45,8 @@ export function editProfile() {
 
 const DataSolver = [
   {
-    match: asyncRes('account'),
-    action: ({ account }) => store.updateAccount(account),
+    match: asyncRes('user'),
+    action: ({ user }) => store.updateAccount(user),
   },
   {
     match: asyncRes(EVENT.LOGIN),

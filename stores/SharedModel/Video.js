@@ -2,7 +2,7 @@ import { types as t } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '../../config'
 
-import { User } from './User'
+import { User, PagedUsers } from './User'
 import { Community } from './Community'
 /* import { Comment } from './Comment' */
 import { Tag } from './Tag'
@@ -27,8 +27,18 @@ export const Video = t.model('Video', {
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),
   /* comments: t.optional(t.array(Comment), []), */
+  favoritedCount: t.optional(t.number, 0),
+  starredCount: t.optional(t.number, 0),
+  viewerHasFavorited: t.optional(t.boolean, false),
+  viewerHasStarred: t.optional(t.boolean, false),
+  favoritedCategoryId: t.maybeNull(t.string),
 
-  publishAt: t.optional(t.string, ''),
+  pagedCommentsParticipators: t.optional(PagedUsers, {}),
+
+  publishAt: t.maybeNull(t.string),
+
+  viewerHasViewed: t.optional(t.boolean, false),
+
   insertedAt: t.optional(t.string, ''),
   updatedAt: t.optional(t.string, ''),
 })
@@ -36,7 +46,7 @@ export const Video = t.model('Video', {
 export const PagedVideos = t.model('PagedVideos', {
   entries: t.optional(t.array(Video), []),
   pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.COMMON),
+  pageSize: t.optional(t.number, PAGE_SIZE.D),
   totalCount: t.optional(t.number, 0),
   totalPages: t.optional(t.number, 0),
 })

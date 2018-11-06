@@ -13,6 +13,8 @@ import { markStates, makeDebugger, THREAD, stripMobx } from '../../utils'
 const debug = makeDebugger('S:ViewingStore')
 /* eslint-enable no-unused-vars */
 
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
+
 const ViewingStore = t
   .model('ViewingStore', {
     user: t.optional(User, {}),
@@ -25,6 +27,10 @@ const ViewingStore = t
       t.enumeration('activeThread', R.values(THREAD)),
       THREAD.POST
     ),
+    // for preview usage
+    viewingThread: t.maybeNull(
+      t.enumeration('viewingThread', PREVIEWABLE_THREADS)
+    ),
   })
   .views(self => ({
     get root() {
@@ -34,8 +40,8 @@ const ViewingStore = t
       return self.root.accountInfo
     },
     get viewingData() {
-      console.log('self.activeThread -> ', self.activeThread)
-      switch (self.activeThread) {
+      const curThread = self.viewingThread || self.activeThread
+      switch (curThread) {
         case THREAD.JOB: {
           return stripMobx(self.job)
         }

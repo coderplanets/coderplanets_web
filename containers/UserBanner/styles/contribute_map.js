@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
 
 export const TitleWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 5px;
 `
-
 export const HelpText = styled.div`
   color: ${theme('preview.helper')};
   margin-top: 2px;
@@ -30,14 +29,14 @@ export const Title = styled.div`
 
   ${Wrapper}:hover & {
     opacity: 1;
-    font-weight: bold;
+    color: ${theme('thread.articleDigest')};
   }
+  transition: opacity 0.3s;
 `
 
 export const DotWrapper = styled.div`
+  ${cs.flex('justify-end')};
   margin-top: 4px;
-  display: flex;
-  justify-content: flex-end;
 `
 export const DotText = styled.div`
   font-size: 0.8rem;
@@ -50,9 +49,9 @@ export const DotText = styled.div`
   }
 `
 export const DotList = styled.div`
+  ${cs.flex()};
   margin-left: 5px;
   margin-right: 3px;
-  display: flex;
 `
 const dotColor = scale => {
   let key = `heatmap.scale_${scale}`

@@ -18,7 +18,7 @@ import {
 } from './styles/copyright_selector'
 
 import { uid, THREAD } from '../../utils'
-import { copyrightChange } from './logic'
+import { inputOnChange } from './logic'
 
 const FullOptions = [
   {
@@ -51,26 +51,29 @@ const getCpTitle = cptype =>
 const CopyrightContent = ({ active, thread }) => (
   <Wrapper>
     {getOptions(thread).map(opt => (
-      <Selector key={uid.gen()} onClick={copyrightChange.bind(this, opt.value)}>
+      <Selector
+        key={uid.gen()}
+        onClick={inputOnChange.bind(this, 'copyRight', opt.value)}
+      >
+        <CheckText>{opt.title}</CheckText>
         <CheckIcon
           src={`${ICON_CMD}/check2.svg`}
           active={active === opt.value}
         />
-        <CheckText>{opt.title}</CheckText>
       </Selector>
     ))}
   </Wrapper>
 )
 
-const CopyrightSelector = ({ cpType, thread }) => (
+const CopyrightSelector = ({ copyRight, thread }) => (
   <Popover
-    content={<CopyrightContent active={cpType} thread={thread} />}
+    content={<CopyrightContent active={copyRight} thread={thread} />}
     placement="right"
     trigger="hover"
   >
     <ReprintWrapper>
-      <ReprintIcon src={`${ICON_CMD}/${cpType}.svg`} />
-      <CopyRightText>{getCpTitle(cpType)}</CopyRightText>
+      <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />
+      <CopyRightText>{getCpTitle(copyRight)}</CopyRightText>
       <MoreIcon src={`${ICON_CMD}/more.svg`} />
     </ReprintWrapper>
   </Popover>

@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 import { Img } from '../../../components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding: 5px 8px;
 `
 
 export const Selector = styled.div`
-  display: flex;
+  ${cs.flex()};
   &:hover {
     cursor: pointer;
     color: ${theme('editor.title')};
@@ -19,7 +19,7 @@ export const CheckIcon = styled(Img)`
   width: 18px;
   height: 18px;
   margin-top: 2px;
-  margin-right: 3px;
+  margin-left: 3px;
   visibility: ${({ active }) => (active ? 'visiable' : 'hidden')};
 `
 export const CheckText = styled.div`
@@ -31,8 +31,8 @@ export const CopyRightText = styled.div`
 `
 
 export const ReprintWrapper = styled.div`
+  ${cs.flex()};
   color: ${theme('editor.content')};
-  display: flex;
   cursor: pointer;
 `
 

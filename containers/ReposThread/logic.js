@@ -8,6 +8,7 @@ import {
   dispatchEvent,
   EVENT,
   TYPE,
+  THREAD,
   scrollIntoEle,
   asyncRes,
 } from '../../utils'
@@ -15,7 +16,13 @@ import {
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [
+    EVENT.REFRESH_REPOS,
+    EVENT.PREVIEW_CLOSED,
+    // EVENT.COMMUNITY_CHANGE,
+  ],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -37,16 +44,19 @@ export const outAnchor = () => store.setHeaderFix(true)
 export function loadRepos(page = 1) {
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
+
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
@@ -57,8 +67,13 @@ export function loadRepos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect() {
-  debug('onTitleSelect')
+export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_REPO_VIEW,
+    thread: THREAD.REPO,
+    data,
+  })
 }
 
 export function createContent() {
@@ -70,9 +85,9 @@ export function onTagSelect() {
   debug('onTagSelect')
 }
 
-export function onFilterSelect() {
-  debug('onFilterSelect')
-}
+export const onFilterSelect = option => store.selectFilter(option)
+
+export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################
 // Data & Error handlers
@@ -93,21 +108,31 @@ const DataSolver = [
     match: asyncRes('partialTags'),
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
+  {
+    match: asyncRes(EVENT.REFRESH_REPOS),
+    action: () => loadRepos(),
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.setViewing({ repo: {} }),
+  },
 ]
 const ErrSolver = []
 
 const loadIfNeed = () => {
   /* loadVideos() */
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
+  loadRepos()
+  /*
   if (R.isEmpty(store.pagedReposData.entries)) {
     loadRepos()
   }
+  */
 }
 
 export function init(_store) {
   if (store) {
-    loadIfNeed()
-    return false
+    return loadIfNeed()
   }
   store = _store
 

@@ -5,14 +5,17 @@ import {
   asyncErr,
   $solver,
   makeDebugger,
-  isEmptyValue,
   dispatchEvent,
+  THREAD,
+  ROUTE,
   EVENT,
   ERR,
   meteorState,
   countWords,
   extractAttachments,
+  updateEditing,
 } from '../../utils'
+
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -25,33 +28,8 @@ const debug = makeDebugger('L:TypeWriter')
 let store = null
 let sub$ = null
 
-export function copyrightChange(cpType) {
-  store.markState({ cpType })
-}
-
 export function changeView(curView) {
   store.markState({ curView })
-}
-
-function checkValid() {
-  const { body, title, cpType, linkAddr } = store
-  if (isEmptyValue(body) || isEmptyValue(title)) {
-    meteorState(store, 'error', 5, '文章标题 或 文章内容 不能为空')
-    return false
-  }
-  if (cpType !== 'original' && isEmptyValue(linkAddr)) {
-    meteorState(store, 'error', 5, '请填写完整地址以方便跳转, http(s)://...')
-    return false
-  }
-  return true
-}
-
-export function onUploadImageDone(url) {
-  debug('onUploadImageDone: ', url)
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'Image',
-    data: `![](${url})`,
-  })
 }
 
 const getDigest = body => {
@@ -73,29 +51,63 @@ const getDigest = body => {
 
   return digest
 }
-// TODO move specfical logic outof here
+
 export function onPublish() {
-  // debug('onPublish: ', store.body)
-  const { body, title, cpType } = store
-  if (checkValid()) {
-    publishing()
-
-    const digest = getDigest(body)
-    const length = countWords(body)
-
-    const variables = {
-      title,
-      body,
-      digest,
-      length,
-      communityId: store.viewing.community.id,
-    }
-
-    if (cpType !== 'original') variables.linkAddr = store.linkAddr
-    // debug('variables-: ', variables)
-    // TODO: switch createJob
-    sr71$.mutate(S.createPost, variables)
+  if (store.activeThread === THREAD.POST) {
+    return publishPost()
   }
+  return publishJob()
+}
+
+function publishPost() {
+  if (!store.validator('general')) return false
+  const { body } = store.editData
+  publishing()
+
+  const digest = getDigest(body)
+  const length = countWords(body)
+
+  let variables = {
+    ...store.editData,
+    digest,
+    length,
+    communityId: store.viewing.community.id,
+  }
+
+  if (store.viewing.community.raw === ROUTE.HOME) {
+    debug('add topic on it: ', ROUTE.HOME)
+    variables = R.merge(variables, { topic: 'CITY' })
+  }
+
+  console.log('create post --> ', variables)
+  // TODO: topic
+  sr71$.mutate(S.createPost, variables)
+}
+
+function publishJob() {
+  if (
+    !store.validator('general') ||
+    !store.validator('companyInfo') ||
+    !store.validator(`${THREAD.JOB}_LABELS`)
+  ) {
+    return false
+  }
+
+  const { body } = store.editData
+  publishing()
+
+  const digest = getDigest(body)
+  const length = countWords(body)
+
+  const variables = {
+    ...store.editData,
+    ...store.labelsData,
+    digest,
+    length,
+    communityId: store.viewing.community.id,
+  }
+
+  sr71$.mutate(S.createJob, variables)
 }
 
 export const canclePublish = () => {
@@ -104,48 +116,36 @@ export const canclePublish = () => {
   store.closePreview()
 }
 
-export function bodyOnChange(body) {
-  // debug('editorOnChange: ', body)
-  store.markState({ body })
-}
+const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
-export function titleOnChange(e) {
-  store.markState({ title: e.target.value })
-}
-
-export function linkSourceOnChange(e) {
-  store.markState({ linkAddr: e.target.value })
-}
-
-function publishing(maybe = true) {
-  store.markState({ publishing: maybe })
-}
+export const onUploadImageDone = url =>
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export function insertCode() {
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, {
-    type: 'insert',
-    data: '```javascript\n\n```',
-  })
+  const communityRaw = store.curCommunity.raw
+  const data = `\`\`\`${communityRaw}\n\n\`\`\``
+
+  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 const openAttachment = att => {
   if (!att) return false
+  // const { id, title, body, digest } = att
+  debug('openAttachment: ', att)
 
-  const { id, title, body, digest } = att
-  console.log('openAttachment: ', att)
-
-  store.markState({
-    id,
-    title,
-    body: body || digest || '',
-    isEdit: true,
-  })
+  store.updateEditing(att)
+  store.markState({ isEdit: true })
   // TODO: load if needed
 }
 
-const cancleMutate = () => {
+const cancleMutate = () => store.reset()
+const doneCleanUp = () => {
+  cancleLoading()
   store.reset()
+  store.closePreview()
 }
+
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 // ###############################
 // Data & Error handlers
@@ -155,13 +155,27 @@ const DataSolver = [
   {
     match: asyncRes('createPost'),
     action: () => {
-      cancleLoading()
-      store.reset()
-      store.closePreview()
+      store.toast('success', {
+        title: '帖子已发布',
+        msg: 'have a good day :)',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
       dispatchEvent(EVENT.REFRESH_POSTS)
-      // 1. empty the store
-      // 2. close the preview
-      // 3. notify the xxxPaper
+    },
+  },
+  {
+    match: asyncRes('createJob'),
+    action: () => {
+      store.toast('success', {
+        title: '招聘信息已发布',
+        msg: '预祝你在这里的招聘工作一切顺利 :)',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
+      dispatchEvent(EVENT.REFRESH_JOBS)
     },
   },
 ]
@@ -175,7 +189,7 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       const errMsg = details[0].detail
-      debug('ERR.CRAPHQL -->', details)
+      debug('--> ERR.CRAPHQL -->', details)
       meteorState(store, 'error', 5, errMsg)
       cancleLoading()
     },

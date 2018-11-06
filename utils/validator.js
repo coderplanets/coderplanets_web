@@ -8,7 +8,7 @@ export const isEmptyValue = R.compose(
   R.isEmpty,
   R.trim
 )
-export const nilOrEmpty = R.either(R.isNil, isEmptyValue)
+export const nilOrEmpty = R.either(R.isNil, R.isEmpty)
 
 export const hasValue = R.compose(
   R.not,
@@ -20,6 +20,13 @@ export const isObject = value => {
   return value != null && (type === 'object' || type === 'function')
 }
 
+export const isString = value => {
+  if (typeof value === 'string' || value instanceof String) {
+    return true
+  }
+  return false
+}
+
 const notNil = R.compose(
   R.not,
   R.isNil
@@ -29,6 +36,8 @@ const validObjects = R.compose(
   R.pickBy(notNil),
   R.pickBy(isObject)
 )
+
+const emptyArray = obj => Array.isArray(obj) && obj.length === 0
 
 const validValues = R.compose(
   R.map(R.trim),
@@ -52,15 +61,20 @@ const valueOf = R.compose(
 )
 
 export const changeset = source => ({
-  exsit: (obj, cb) => {
+  exsit: (obj, cb, opt = {}) => {
     if (source.__dirty__) return changeset(source)
 
     const field = keyOf(obj)
     const trans = valueOf(obj)
-
-    if (nilOrEmpty(source[field])) {
+    let isInValid = false
+    if (emptyArray(source[field])) {
+      isInValid = true
+    } else if (!Array.isArray(source[field]) && nilOrEmpty(source[field])) {
+      isInValid = true
+    }
+    if (isInValid) {
       const title = trans
-      const msg = '不能为空 (请填写 #必填# 字段)'
+      const msg = opt.msg || '不能为空'
 
       cb({ title, msg })
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
@@ -73,7 +87,7 @@ export const changeset = source => ({
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (R.trim(source[field]).length <= num) {
+    if (R.trim(source[field]).length < num) {
       const title = trans
       const msg = `不能小于 ${num} 个字符`
 
@@ -82,14 +96,34 @@ export const changeset = source => ({
     }
     return changeset(source)
   },
-  startsWith: (obj, prefix, cb) => {
+  alreadyExsits: (obj, target, pools, cb) => {
     if (source.__dirty__) return changeset(source)
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    if (!R.startsWith(prefix, R.trim(source[field]))) {
+    if (R.length(R.filter(R.equals(target), pools)) > 0) {
       const title = trans
-      const msg = `仅支持 ${prefix} 开头的链接地址`
+      const msg = `已经存在了, 请核对。`
+
+      cb({ title, msg })
+      return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
+    }
+
+    return changeset(source)
+    // R.length(R.filter(R.equals(target), source)) > 0
+  },
+  startsWith: (obj, prefix, cb, condition = true) => {
+    if (source.__dirty__ || !condition) return changeset(source)
+
+    const field = keyOf(obj)
+    const trans = valueOf(obj)
+
+    if (
+      !hasValue(source[field]) ||
+      !R.startsWith(prefix, R.trim(source[field]))
+    ) {
+      const title = trans
+      const msg = `请填写 ${prefix} 开头的链接地址`
 
       cb({ title, msg })
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))

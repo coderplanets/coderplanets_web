@@ -8,10 +8,13 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
+// viewers
 import ArticleViwer from '../ArticleViwer'
 import AccountViewer from '../AccountViewer'
+import VideoViewer from '../VideoViewer'
+import RepoViewer from '../RepoViewer'
+// eiditors
 import AccountEditor from '../AccountEditor'
-import CommunityEditors from '../CommunityEditors'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
@@ -33,10 +36,12 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Preview')
 /* eslint-enable no-unused-vars */
 
-const DynamicTypeWriter = dynamic(import('../TypeWriter'), {
+const DynamicTypeWriter = dynamic({
+  loader: () => import('../TypeWriter'),
   /* eslint-disable */
   loading: () => <TypeWriterLoading />,
   /* eslint-enable */
+  srr: false,
 })
 
 const CloseBtn = ({ type }) => (
@@ -92,7 +97,7 @@ const Viewer = ({ type, root, attachment }) => {
     }
     // repo
     case TYPE.PREVIEW_REPO_VIEW: {
-      return <h3>PREVIEW_REPO_VIEW</h3>
+      return <RepoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_REPO_CREATE: {
       return <RepoEditor />
@@ -102,15 +107,12 @@ const Viewer = ({ type, root, attachment }) => {
       return <h3>PREVIEW_VIDEO_EDIT</h3>
     }
     case TYPE.PREVIEW_VIDEO_VIEW: {
-      return <h3>PREVIEW_VIDEO_VIEW</h3>
+      return <VideoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_VIDEO_CREATE: {
       return <VideoEditor />
     }
     // utils
-    case TYPE.PREVIEW_COMMUNITY_EDITORS: {
-      return <CommunityEditors />
-    }
     default: {
       return <StateTree json={root.toJSON()} />
     }
@@ -118,7 +120,7 @@ const Viewer = ({ type, root, attachment }) => {
 }
 
 class PreviewContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { preview } = this.props
     logic.init(preview)
   }

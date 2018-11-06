@@ -5,7 +5,6 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import store from 'store'
 
 import {
   markStates,
@@ -13,8 +12,10 @@ import {
   stripMobx,
   /* BStore, */
   Global,
+  BStore,
 } from '../../utils'
-import { User, EmptyUser } from '../SharedModel'
+
+import { User, EmptyUser, PagedCommunities } from '../SharedModel'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountStore')
 /* eslint-enable no-unused-vars */
@@ -23,7 +24,7 @@ const AccountStore = t
   .model('AccountStore', {
     user: t.optional(User, {}),
     isValidSession: t.optional(t.boolean, false),
-    // subscribedCommunites: ...
+    userSubscribedCommunities: t.maybeNull(PagedCommunities),
   })
   .views(self => ({
     get root() {
@@ -32,16 +33,20 @@ const AccountStore = t
     get accountInfo() {
       return {
         ...stripMobx(self.user),
+        isLogin: self.isValidSession,
       }
     },
-
     get subscribedCommunities() {
-      const {
-        user: { subscribedCommunities },
-      } = self
+      if (!self.userSubscribedCommunities) {
+        return { entries: [] }
+      }
+      return stripMobx(self.userSubscribedCommunities)
+      /*
+      const { user: { subscribedCommunities } } = self
       return {
         ...stripMobx(subscribedCommunities),
       }
+      */
     },
     get isLogin() {
       return self.isValidSession
@@ -49,12 +54,8 @@ const AccountStore = t
   }))
   .actions(self => ({
     logout() {
-      self.user = EmptyUser
       self.root.preview.close()
-      store.remove('user')
-      store.remove('token')
-      self.isValidSession = false
-
+      self.sesstionCleanup()
       Global.location.reload(false)
     },
     updateAccount(sobj) {
@@ -65,10 +66,23 @@ const AccountStore = t
       const { isValid, user } = sessionState
       if (isValid) {
         self.isValidSession = isValid
+        BStore.set('passports', user.cmsPassport)
+
+        const token = BStore.get('token')
+        if (token) {
+          BStore.cookie.set('jwtToken', token)
+        }
         return self.updateAccount(user)
       }
-      // if not valid then empty user data
+      // if not valid then clean up
+      self.sesstionCleanup()
+    },
+    sesstionCleanup() {
       self.user = EmptyUser
+      self.isValidSession = false
+      BStore.remove('user')
+      BStore.remove('token')
+      BStore.cookie.remove('jwtToken')
     },
     loadSubscribedCommunities(data) {
       self.user.subscribedCommunities = data
@@ -99,7 +113,10 @@ const AccountStore = t
 
       self.root.communitiesContent.toggleSubscribe(community)
     },
-
+    updateC11N(options) {
+      const curCustomization = R.clone(self.accountInfo.customization)
+      self.user.customization = R.merge(curCustomization, options)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

@@ -7,86 +7,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import DotSelector from './DotSelector'
+import CardSelector from './CardSelector'
 
-import {
-  FlexWrapper,
-  ThemeDot,
-  DetailWrapper,
-  IntroBox,
-  IntroDesc,
-  ThemeTitle,
-  ThemeDesc,
-  AuthorInfo,
-  AuthorIcon,
-  AuthorName,
-} from './style'
+import { makeDebugger } from '../../utils'
 
-import { makeDebugger, themeKeys, themeDescs, uid } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ThemeSelector:index')
 /* eslint-enable no-unused-vars */
 
-const DotStyle = ({ curTheme, changeTheme }) => (
-  <FlexWrapper>
-    {themeKeys.map(name => (
-      <ThemeDot
-        key={uid.gen()}
-        active={curTheme === name}
-        name={name}
-        onClick={changeTheme.bind(this, name)}
-      />
-    ))}
-  </FlexWrapper>
-)
-
-const DetailStyle = ({ curTheme, changeTheme }) => (
-  <DetailWrapper>
-    {themeKeys.map(name => (
-      <IntroBox key={uid.gen()} active={curTheme === name}>
-        <ThemeDot
-          large
-          active={curTheme === name}
-          name={name}
-          onClick={changeTheme.bind(this, name)}
-        />
-        <IntroDesc>
-          <ThemeTitle
-            active={curTheme === name}
-            onClick={changeTheme.bind(this, name)}
-          >
-            {name}
-          </ThemeTitle>
-          <ThemeDesc onClick={changeTheme.bind(this, name)}>
-            {themeDescs[name]}
-          </ThemeDesc>
-          <AuthorInfo>
-            <AuthorIcon src={`${ICON_CMD}/author.svg`} />
-            <AuthorName
-              href="https://www.github.com/mydearxym"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              mydearxym
-            </AuthorName>
-          </AuthorInfo>
-        </IntroDesc>
-      </IntroBox>
-    ))}
-  </DetailWrapper>
-)
-
 const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   return displayStyle === 'default' ? (
-    <DotStyle curTheme={curTheme} changeTheme={changeTheme} />
+    <DotSelector curTheme={curTheme} changeTheme={changeTheme} />
   ) : (
-    <DetailStyle curTheme={curTheme} changeTheme={changeTheme} />
+    <CardSelector curTheme={curTheme} changeTheme={changeTheme} />
   )
 }
 
 ThemeSelector.propTypes = {
   curTheme: PropTypes.string,
-  displayStyle: PropTypes.oneOf(['default', 'detail']),
+  displayStyle: PropTypes.oneOf(['default', 'card']),
   changeTheme: PropTypes.func.isRequired,
   // https://www.npmjs.com/package/prop-types
 }

@@ -51,7 +51,7 @@ class DocUploaderContainer extends React.Component {
     uniqueId: uid.gen(),
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { docUploader } = this.props
     init(docUploader)
     this.initOssClient()

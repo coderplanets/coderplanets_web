@@ -8,7 +8,7 @@
 import React from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
-import R from 'ramda'
+// import R from 'ramda'
 
 import {
   Wrapper,
@@ -78,9 +78,11 @@ const getClass = value => {
 
 const ContributeMap = ({ data }) => {
   /* if don't jadge empty(first load), the tool tip will not work */
+  /*
   if (R.isEmpty(data.records)) {
     return <div />
   }
+  */
   return (
     <Wrapper>
       <TitleWrapper>
@@ -91,9 +93,7 @@ const ContributeMap = ({ data }) => {
         startDate={data.startDate}
         endDate={data.endDate}
         showMonthLabels
-        onClick={value => {
-          debug(value)
-        }}
+        onClick={value => debug(value)}
         gutterSize={3}
         tooltipDataAttrs={customTooltipDataAttrs}
         monthLabels={monthLabels}

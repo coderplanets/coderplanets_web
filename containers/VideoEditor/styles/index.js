@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn('align-center')};
+  position: relative;
   padding-top: 20px;
   padding-bottom: 50px;
   height: auto;
@@ -12,10 +14,6 @@ export const Wrapper = styled.div`
   margin-right: 15px;
   background: ${theme('content.cardBg')};
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
 `
 export const Title = styled.h2`
   color: ${theme('form.label')};

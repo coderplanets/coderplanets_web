@@ -1,21 +1,52 @@
 import React from 'react'
 import Comments from '../Comments'
-import Header from './Header'
-import Body from './Body'
+// import Header from './Header'
 
-import { CommentsWrapper } from './styles/body'
+import {
+  Maybe,
+  ArticleHeader,
+  MarkDownRender,
+  ArticleContentLoading,
+} from '../../components'
+
+import Labeler from '../Labeler'
+
+import {
+  BodyWrapper,
+  CommentsWrapper,
+  ArticleTitle,
+  ArticleBody,
+  Footer,
+} from './styles/body'
+
+import BodyHeader from './BodyHeader'
 
 import { THREAD } from '../../utils'
+import * as logic from './logic'
 
-const PostViewer = ({ data, loading, accountInfo }) => (
+// <Header data={data} />
+const PostViewer = ({ data, loading }) => (
   <React.Fragment>
-    <Header data={data} />
-    <Body
+    <ArticleHeader
       data={data}
-      loading={loading}
-      accountInfo={accountInfo}
-      thread={THREAD.POST}
+      author={data.author}
+      onReaction={logic.onReaction}
+      onListReactionUsers={logic.onListReactionUsers}
     />
+
+    <BodyWrapper>
+      <BodyHeader data={data} thread={THREAD.POST} />
+      <ArticleTitle>{data.title}</ArticleTitle>
+      <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
+        <ArticleBody>
+          <MarkDownRender body={data.body} />
+        </ArticleBody>
+      </Maybe>
+      <Footer>
+        <Labeler />
+      </Footer>
+    </BodyWrapper>
+
     <CommentsWrapper>
       <Comments />
     </CommentsWrapper>

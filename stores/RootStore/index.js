@@ -11,7 +11,7 @@ import {
   markStates,
   toast,
   toastBarColor,
-  themeDict,
+  themeSkins,
 } from '../../utils'
 
 import {
@@ -26,21 +26,28 @@ import {
   ThemeStore,
   ThemeDefaults,
 
-  // banners
-  BannerStore,
-  PostBannerStore,
-  CommunityBannerStore,
-  CommunitiesBannerStore,
-  UserBannerStore,
-
   // threads
   PostsThreadStore,
   VideosThreadStore,
   ReposThreadStore,
+  WikiThreadStore,
   JobsThreadStore,
-  TagsBarStore,
+  UsersThreadStore,
+  CheatsheetThreadStore,
+  // banners
+  BannerStore,
+  PostBannerStore,
+  JobBannerStore,
+  VideoBannerStore,
+  RepoBannerStore,
+  CommunityBannerStore,
+  CommunitiesBannerStore,
+  UserBannerStore,
   // content
   PostContentStore,
+  JobContentStore,
+  VideoContentStore,
+  RepoContentStore,
   CommunitiesContentStore,
   CheatSheetContentStore,
   UserContentStore,
@@ -49,9 +56,9 @@ import {
   // viewers
   ArticleViwerStore,
   AccountViewerStore,
+  VideoViewerStore,
+  RepoViewerStore,
   CommentsStore,
-  CheatSheetPaperStore,
-  CommunityEditorsStore,
 
   // toolbox
   DoraemonStore,
@@ -65,9 +72,18 @@ import {
   MailBoxStore,
   LabelerStore,
   DocUploaderStore,
+  AvatarAdderStore,
+  TagsBarStore,
+  UserListerStore,
+  InformerStore,
+  GirlVerifierStore,
   // user page
+  UserPublishedStore,
+  UserPublishedCommentsStore,
   UserSettingsStore,
-  UserFavoritesStore,
+  UserBillingStore,
+  UserFavoritedStore,
+  UserStaredStore,
   FavoritesCatsStore,
 } from '../index'
 
@@ -100,6 +116,7 @@ const rootStore = t
     mailBox: t.optional(MailBoxStore, {}),
     labeler: t.optional(LabelerStore, {}),
     docUploader: t.optional(DocUploaderStore, {}),
+    avatarAdder: t.optional(AvatarAdderStore, {}),
     // toolbox end
 
     // layouts > xxx > papers
@@ -112,6 +129,9 @@ const rootStore = t
     // banners
     banner: t.optional(BannerStore, {}),
     postBanner: t.optional(PostBannerStore, {}),
+    jobBanner: t.optional(JobBannerStore, {}),
+    videoBanner: t.optional(VideoBannerStore, {}),
+    repoBanner: t.optional(RepoBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
@@ -120,6 +140,9 @@ const rootStore = t
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
+    jobContent: t.optional(JobContentStore, {}),
+    videoContent: t.optional(VideoContentStore, {}),
+    repoContent: t.optional(RepoContentStore, {}),
     userContent: t.optional(UserContentStore, {}),
     // content end
 
@@ -129,18 +152,28 @@ const rootStore = t
     postsThread: t.optional(PostsThreadStore, {}),
     videosThread: t.optional(VideosThreadStore, {}),
     reposThread: t.optional(ReposThreadStore, {}),
+    wikiThread: t.optional(WikiThreadStore, {}),
     jobsThread: t.optional(JobsThreadStore, {}),
-    cheatSheetPaper: t.optional(CheatSheetPaperStore, {}),
+    usersThread: t.optional(UsersThreadStore, {}),
+    cheatsheetThread: t.optional(CheatsheetThreadStore, {}),
 
     tagsBar: t.optional(TagsBarStore, {}),
+    userLister: t.optional(UserListerStore, {}),
+    informer: t.optional(InformerStore, {}),
+    girlVerifier: t.optional(GirlVerifierStore, {}),
 
     // viewers (for preview usage)
     articleViwer: t.optional(ArticleViwerStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),
-    communityEditors: t.optional(CommunityEditorsStore, {}),
+    videoViewer: t.optional(VideoViewerStore, {}),
+    repoViewer: t.optional(RepoViewerStore, {}),
     // user page
+    userPublished: t.optional(UserPublishedStore, {}),
+    userPublishedComments: t.optional(UserPublishedCommentsStore, {}),
+    userBilling: t.optional(UserBillingStore, {}),
     userSettings: t.optional(UserSettingsStore, {}),
-    userFavorites: t.optional(UserFavoritesStore, {}),
+    userStared: t.optional(UserStaredStore, {}),
+    userFavorited: t.optional(UserFavoritedStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({
@@ -211,11 +244,27 @@ const rootStore = t
       self.footer.sponsorHepler()
     },
     toast(type, options = {}) {
-      const themeData = themeDict[self.theme.curTheme]
+      const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)
 
       const toastOpt = R.merge(options, { progressBarColor })
       toast[type](toastOpt)
+    },
+    changesetErr(options) {
+      self.toast('error', options)
+    },
+    authWarning(options = {}) {
+      const defaultOpt = { title: '未登录', msg: '需要登录后才能进行该操作' }
+      self.toast('warn', R.merge(defaultOpt, options))
+    },
+    callInformer() {
+      self.informer.show()
+    },
+    callGirlVerifier() {
+      self.girlVerifier.show()
+    },
+    updateC11N(options) {
+      self.account.updateC11N(options)
     },
     markState(sobj) {
       markStates(sobj, self)

@@ -17,7 +17,7 @@ import Body from './styles'
 import * as logic from './logic'
 
 class BodyLayoutContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { bodylayout } = this.props
     logic.init(bodylayout)
   }

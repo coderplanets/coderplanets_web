@@ -6,71 +6,136 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
-import { makeDebugger, storePlug } from '../../utils'
+import { LABEL_POOL } from '../../config'
 
-import { Popover } from '../../components'
-import TagList from './TagList'
-import { Wrapper, LabelItem, LabelIcon, Title } from './styles'
+import { Popover, Maybe } from '../../components'
+import Options from './Options'
+import Selected from './Selected'
+import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
+import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Labeler')
 /* eslint-enable no-unused-vars */
 
+const trans = {
+  default: '标签',
+  city: '城市',
+  salary: '月薪',
+  exp: '经验',
+  education: '学历',
+  finance: '融资',
+  scale: '规模',
+  field: '领域',
+}
+
 class LabelerContainer extends React.Component {
-  componentWillMount() {
-    const { labeler } = this.props
-    logic.init(labeler)
+  constructor(props) {
+    super(props)
+    this.state = { uniqId: uid.gen() }
   }
 
-  state = { visible: false }
+  componentDidMount() {
+    const { labeler, label, multi, selected } = this.props
+    const { uniqId } = this.state
 
-  onVisibleChange(visible) {
-    if (visible) {
-      logic.loadTagsIfNeed()
-    }
-    this.setState({ visible })
+    const options = { label, multi, selected }
+    logic.init(labeler, uniqId, options)
+  }
+
+  componentWillUnmount() {
+    const { uniqId } = this.state
+    logic.uninit(uniqId)
   }
 
   render() {
-    const { labeler, label, iconSrc } = this.props
-    const { tagsData } = labeler
+    const { uniqId } = this.state
+    const { labeler, label, readonly } = this.props
+    /* const { tagsData, popVisible, selectedData, labelEntriesData } = labeler */
+    const { labelEntriesData } = labeler
+    const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(
+      labelEntriesData
+    )
 
-    const { visible } = this.state
+    const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
 
     return (
       <Wrapper>
-        <Popover
-          content={<TagList data={tagsData} />}
-          placement="right"
-          trigger="click"
-          visible={visible}
-          onVisibleChange={this.onVisibleChange.bind(this)}
-        >
-          <LabelItem>
-            <LabelIcon src={iconSrc} />
-            <Title>{label}</Title>
-          </LabelItem>
-        </Popover>
+        <Maybe test={readonly}>
+          <Popover
+            content={<PopHint>{trans[label]}</PopHint>}
+            placement="bottom"
+            trigger="hover"
+          >
+            <LabelItem>
+              <LabelIcon src={LABEL_POOL[label].iconSrc} />
+              <Title>
+                <Selected items={selected} readonly={readonly} />
+              </Title>
+            </LabelItem>
+          </Popover>
+        </Maybe>
+        <Maybe test={!readonly}>
+          {targetIndex >= 0 ? (
+            <Popover
+              content={
+                <Options
+                  label={label}
+                  tagsData={tags}
+                  selected={selected}
+                  onOptionSelect={logic.onOptionSelect.bind(this, uniqId)}
+                />
+              }
+              placement="right"
+              trigger="click"
+              visible={popVisible}
+              onVisibleChange={logic.onVisibleChange.bind(this, uniqId)}
+            >
+              <LabelItem>
+                <LabelIcon src={LABEL_POOL[label].iconSrc} />
+                <Title>
+                  {trans[label]}
+                  <Selected items={selected} readonly={readonly} />
+                </Title>
+              </LabelItem>
+            </Popover>
+          ) : (
+            <div />
+          )}
+        </Maybe>
       </Wrapper>
     )
   }
 }
 
 LabelerContainer.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  label: PropTypes.oneOf(['标签', '薪资', '城市', '编辑']),
-  // label: PropTypes.oneOf(['tag', 'salary', 'city']),
-  iconSrc: PropTypes.string,
+  label: PropTypes.oneOf([
+    'default',
+    'salary',
+    'city',
+    'exp',
+    'education',
+    'finance',
+    'scale',
+    'field',
+  ]),
+  labeler: PropTypes.any,
+  multi: PropTypes.bool,
+  selected: PropTypes.arrayOf(PropTypes.string),
+
+  readonly: PropTypes.bool,
 }
 
 LabelerContainer.defaultProps = {
-  label: '标签',
-  // label: 'tag',
-  iconSrc: `${ICON_CMD}/extra_tag.svg`,
+  label: 'default',
+  labeler: {},
+  multi: false,
+  selected: [],
+  readonly: false,
 }
 
 export default inject(storePlug('labeler'))(observer(LabelerContainer))

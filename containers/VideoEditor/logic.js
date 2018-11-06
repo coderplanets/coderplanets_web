@@ -1,6 +1,15 @@
 import R from 'ramda'
 
-import { makeDebugger, asyncRes, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  dispatchEvent,
+  asyncRes,
+  $solver,
+  asyncErr,
+  ERR,
+  EVENT,
+  updateEditing,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
@@ -13,14 +22,6 @@ const debug = makeDebugger('L:VideoEditor')
 /* eslint-enable no-unused-vars */
 
 let store = null
-
-export const formDataChange = R.curry((part, e) =>
-  store.updateEditing({ [part]: e.target.value })
-)
-
-export const sourceOnSelect = source => store.updateEditing({ source })
-export const copyThumbnilLink = url => store.updateEditing({ poster: url })
-export const onUploadDone = (part, url) => store.updateEditing({ [part]: url })
 
 export function onPublish() {
   if (!store.validator('publish')) return false
@@ -41,6 +42,8 @@ export function onPublish() {
 
 export function canclePublish() {}
 
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -52,6 +55,9 @@ const DataSolver = [
       // cancelLoading()
       /* store.markState({ createVideo }) */
       debug('createVideo done')
+      // store.reset()
+      store.closePreview()
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
     },
   },
 ]

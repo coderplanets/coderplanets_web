@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  TYPE,
-  subPath2Thread,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,8 +18,22 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import VideosThreadSchema from '../../containers/VideosThread/schema'
+import { P } from '../../containers/schemas'
+
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  TYPE,
+  subPath2Thread,
+  makeDebugger,
+} from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:videos')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -38,9 +42,6 @@ global.Intl = require('intl')
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedVideosRaw, partialTagsRaw } = VideosThreadSchema
 
   // utils
   const community = getMainPath(props)
@@ -48,9 +49,9 @@ async function fetchData(props) {
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedVideos = request(pagedVideosRaw, { filter })
-  const partialTags = request(partialTagsRaw, { thread, community })
+  const curCommunity = request(P.community, { raw: community })
+  const pagedVideos = request(P.pagedVideos, { filter })
+  const partialTags = request(P.partialTags, { thread, community })
 
   return {
     ...(await pagedVideos),
@@ -65,8 +66,8 @@ export default class Videos extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR ## community (in javascript) video ##: ', asPath)
-    console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR ## community (in javascript) video ##: ', asPath)
+    debug('SSR queryStringToJSON: ', queryStringToJSON(asPath))
     const thread = getSubPath(props)
 
     const { pagedVideos, partialTags, community } = await fetchData(props)

@@ -1,12 +1,12 @@
 /*
-* UserFavoritesStore store test
+* UserFavoritedStore store test
 *
 */
 
 // import R from 'ramda'
 
-// import UserFavoritesStore from '../index'
+// import UserFavoritedStore from '../index'
 
-it('TODO: test UserFavoritesStore', () => {
+it('TODO: test UserFavoritedStore', () => {
   expect(1 + 1).toBe(2)
 })

@@ -15,29 +15,78 @@ import Banner from '../containers/Banner'
 import Content from '../containers/Content'
 
 import Footer from '../containers/Footer'
+
+import { P } from '../containers/schemas'
+
+import {
+  makeGQClient,
+  /*
+     queryStringToJSON,
+     getMainPath,
+     getSubPath,
+     extractThreadFromPath,
+     subPath2Thread,
+     TYPE,
+     makeDebugger,
+   */
+  BStore,
+  // nilOrEmpty,
+} from '../utils'
+
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-export default class Index extends React.Component {
-  static getInitialProps({ req }) {
-    /* const isServer = !!req */
-    /* eslint-disable no-underscore-dangle */
-    /* eslint-disable no-undef */
-    // console.log('SSR getInitialProps ------> ', req.headers)
-    console.log('## index page talking ##')
-    const { locale, messages } = req || window.__NEXT_DATA__.props
-    const langSetup = {}
-    langSetup[locale] = messages
-    const store = initRootStore(langSetup)
-    /* eslint-enable no-undef */
+async function fetchData(props) {
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
+  // const userHasLogin = nilOrEmpty(token) === false
 
-    return { version: store.version, messages, locale, langSetup }
+  /*
+  const { asPath } = props
+
+  const community = getMainPath(props)
+  const thread = extractThreadFromPath(props)
+  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
+  */
+
+  // query data
+  // const curCommunity = gqClient.request(P.community, { raw: community })
+  // const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
+  // const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
+
+  return {
+    ...(await subscribedCommunities),
+  }
+}
+
+export default class Index extends React.Component {
+  static async getInitialProps(props) {
+    console.log('SSR (index) queryStringToJSON: ')
+
+    const { subscribedCommunities } = await fetchData(props)
+    console.log(
+      'index get subscribedCommunities ',
+      subscribedCommunities.totalCount
+    )
+
+    return {}
+    /*
+    return {
+      account: { userSubscribedCommunities: subscribedCommunities },
+    }
+    */
   }
 
   constructor(props) {
     super(props)
-    this.store = initRootStore(props.langSetup)
+    this.store = initRootStore({ ...props })
   }
 
   //  <Doraemon />

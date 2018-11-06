@@ -12,7 +12,9 @@ import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_CHANGE],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -25,14 +27,18 @@ export function onTagSelect(tag) {
   store.selectTag(tag)
 }
 
-export function loadTags(pthread) {
+export function loadTags() {
   // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
-  const thread = R.toUpper(pthread)
-  store.markState({ thread })
+  const { mainPath: community } = store.curRoute
+  const thread = R.toUpper(store.thread)
 
   const args = { community, thread }
+  /*
+  if (community === ROUTE.HOME) {
+    args.topic = R.merge(args, { topic })
+  }
+  */
+
   debug('#### loadTags --> ', args)
   sr71$.query(S.partialTags, args)
 }
@@ -44,7 +50,10 @@ export function loadTags(pthread) {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => {
+      debug('partialTags get: ', tags)
+      store.markState({ tags })
+    },
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -74,18 +83,19 @@ const ErrSolver = [
 
 export const loadIfNeed = thread => {
   if (R.isEmpty(store.tagsData) || thread !== store.thread) {
-    loadTags(thread)
+    loadTags()
   }
 }
 
 export function init(_store, thread) {
   if (store) {
+    store.markState({ thread })
     return loadIfNeed(thread)
   }
   store = _store
 
-  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  store.markState({ thread })
   loadIfNeed(thread)
 }

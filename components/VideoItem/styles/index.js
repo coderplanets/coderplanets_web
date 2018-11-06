@@ -1,32 +1,42 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
-  display: flex;
+  ${cs.flex()};
+
+  position: relative;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 4px;
-  opacity: ${({ active }) => (active ? 0.6 : 1)};
+  opacity: ${({ opacity }) => opacity};
 
   &:hover {
     background: ${theme('thread.articleHover')};
   }
 `
-
+export const ReadedLabel = styled.div`
+  position: absolute;
+  top: 15px;
+  left: -30px;
+  font-size: 0.75rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.8;
+`
 export const PosterWrapper = styled.div`
   position: relative;
-`
-
-export const Poster = styled.img`
   height: 138px;
   width: 246px;
+`
+export const Poster = styled.img`
+  height: 100%;
+  width: 100%;
+  min-width: 246px;
   opacity: ${theme('avatarOpacity')};
 `
-
 export const Duration = styled.div`
   position: absolute;
   bottom: 0;
@@ -36,7 +46,6 @@ export const Duration = styled.div`
   font-size: 0.8rem;
   padding: 0 4px;
 `
-
 export const Title = styled.div`
   margin-bottom: 10px;
   font-size: 1rem;
@@ -56,80 +65,39 @@ export const Title = styled.div`
   }
 `
 export const Main = styled.div`
+  ${cs.flexColumnGrow()};
   margin-left: 10px;
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
 `
 export const TopHalf = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const SecondHalf = styled.ul`
   margin-left: 10px;
   margin-top: -10px;
   flex-grow: 1;
 `
-
 export const Breif = styled.div`
-  display: flex;
-  flex-grow: 1;
+  ${cs.flexGrow()};
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
 `
-
-export const TitleTagDot = styled.span`
-  width: 10px;
-  height: 10px;
-  margin-right: 4px;
-  border-radius: 50%;
-  background-color: #9cd090;
-  display: inline-block;
-  opacity: ${theme('tags.dotOpacity')};
-`
-
-export const TitleLink = styled.div`
-  position: relative;
-  font-size: 0.9rem;
-  margin-top: 2px;
-  color: ${theme('thread.articleLink')};
-  margin-left: 10px;
-  opacity: 0.8;
-  text-decoration: underline;
-`
-export const TitleTag = styled.div`
-  color: ${theme('thread.articleTag')};
-  margin-left: 10px;
-  margin-top: 2px;
-  opacity: 0.8;
-  font-size: 0.9rem;
-`
-export const LinkIcon = styled(Img)`
-  fill: ${theme('thread.articleLink')};
-  position: absolute;
-  top: 6px;
-  left: -5px;
-  width: 12px;
-  height: 12px;
-`
-
 export const ViewInfo = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
-
 export const ViewIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  display: block;
 `
-
 export const Extra = styled.li`
-  display: flex;
-  opacity: 0.7;
+  ${cs.flex('align-center')};
+
+  opacity: 0.8;
   transition: opacity 0.2s;
   font-size: 0.85rem;
   color: ${theme('thread.extraInfo')};
 `
-
 export const BodyDigest = styled.li`
   margin-top: 5px;
   color: ${theme('thread.articleDigest')};
@@ -141,7 +109,6 @@ export const BodyDigest = styled.li`
     cursor: pointer;
   }
 `
-
 export const OriginalAuthorLink = styled.a`
   transition: color 0.3s;
   color: ${theme('thread.extraInfo')};
@@ -152,21 +119,24 @@ export const OriginalAuthorLink = styled.a`
     text-decoration: underline;
   }
 `
-
 export const BottomAuthorWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-left: 10px;
   margin-bottom: 2px;
 `
-
 export const ButtonAvatar = styled(Img)`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  ${cs.circle('20px')};
   opacity: 0.8;
+  display: block;
 `
-
 export const ButtonNickname = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-left: 5px;
+`
+export const InsertTime = styled.div`
+  ${cs.flex('align-center')};
+  font-size: 0.8rem;
+  color: ${theme('thread.articleDigest')};
+  margin-top: 1px;
+  margin-left: 2px;
 `

@@ -85,7 +85,7 @@ const FormItem = ({ label, textarea, value, onChange }) => (
 )
 
 class AccountEditorContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { accountEditor } = this.props
     logic.init(accountEditor)
   }
@@ -95,7 +95,7 @@ class AccountEditorContainer extends React.Component {
 
     const {
       showSocials,
-      editingUserData,
+      editUserData,
       educationBgData,
       workBgData,
       updating,
@@ -103,6 +103,7 @@ class AccountEditorContainer extends React.Component {
       error,
       warn,
       statusMsg,
+      ratKey,
     } = accountEditor
 
     return (
@@ -112,36 +113,40 @@ class AccountEditorContainer extends React.Component {
           <BackIcon src={`${ICON_CMD}/goback.svg`} />
         </div>
         {/* eslint-enable */}
-        <Avatar src={editingUserData.avatar} />
+        <Avatar src={editUserData.avatar} />
         <div>
           <FormItem
             label="昵称:"
-            value={editingUserData.nickname}
+            value={editUserData.nickname}
             onChange={logic.profileChange('nickname')}
           />
           <FormItem
             label="城市:"
-            value={editingUserData.location}
+            value={editUserData.location}
             onChange={logic.profileChange('location')}
           />
         </div>
 
-        <WorkEditor user={editingUserData} data={workBgData} />
-        <EducationEditor user={editingUserData} data={educationBgData} />
+        <WorkEditor user={editUserData} data={workBgData} ratKey={ratKey} />
+        <EducationEditor
+          user={editUserData}
+          data={educationBgData}
+          ratKey={ratKey}
+        />
         <div>
           <FormItem
             label="邮箱:"
-            value={editingUserData.email}
+            value={editUserData.email}
             onChange={logic.profileChange('email')}
           />
         </div>
-        <SocialEditor show={showSocials} user={editingUserData} />
+        <SocialEditor show={showSocials} user={editUserData} />
         <div>
-          <SexItem label="性别:" value={editingUserData.sex} />
+          <SexItem label="性别:" value={editUserData.sex} />
           <FormItem
             label="简介:"
             textarea
-            value={editingUserData.bio}
+            value={editUserData.bio}
             onChange={logic.profileChange('bio')}
           />
         </div>

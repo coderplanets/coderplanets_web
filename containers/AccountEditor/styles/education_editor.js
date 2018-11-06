@@ -2,18 +2,15 @@ import styled from 'styled-components'
 
 import Img from '../../../components/Img'
 /* import { Img } from '../../../components' */
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
 `
-
 export const FormItemWrapper = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 20px;
 `
-
 export const FormLable = styled.div`
   text-align: right;
   font-size: 0.9rem;
@@ -23,13 +20,10 @@ export const FormLable = styled.div`
   width: 75px;
   margin-left: -12px;
 `
-
 export const FormInput = styled.div`
+  ${cs.flex('align-center')};
   width: 280px;
-  display: flex;
-  align-items: center;
 `
-
 export const Adder = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 25px;
@@ -42,17 +36,14 @@ export const Adder = styled(Img)`
   }
   transition: fill 0.3s;
 `
-
 export const BackgroundsWrapper = styled.div`
+  ${cs.flexColumn()};
   margin-top: -10px;
   margin-bottom: 20px;
   margin-left: 22%;
-  display: flex;
-  flex-direction: column;
 `
 export const BackgroundItem = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const BgTitle = styled.div`
   color: ${theme('banner.desc')};

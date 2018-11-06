@@ -8,17 +8,15 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
+import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
-  Space,
   Maybe,
-  RepoItem,
+  PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -28,43 +26,18 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ReposThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <RepoItem key={uid.gen()} entry={entry} active={active} />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostsLoading num={5} />
-  }
-}
-
 class ReposThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { reposThread } = this.props
     logic.init(reposThread)
   }
@@ -80,10 +53,11 @@ class ReposThreadContainer extends React.Component {
       activeTagData,
       activeRepo,
       curRoute,
+      accountInfo,
     } = reposThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedReposData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedReposData
 
     return (
       <Wrapper>
@@ -93,39 +67,34 @@ class ReposThreadContainer extends React.Component {
           <Maybe test={totalCount !== 0}>
             <FilterWrapper>
               <ContentFilter
+                thread={THREAD.REPO}
                 onSelect={logic.onFilterSelect}
                 activeFilter={filtersData}
+                accountInfo={accountInfo}
+                totalCount={totalCount}
+                onCustomChange={logic.onCustomChange}
               />
-              <FilterResultHint>
-                结果约 {pagedReposData.totalCount} 条
-              </FilterResultHint>
             </FilterWrapper>
           </Maybe>
 
-          <View
+          <PagedContents
+            data={pagedReposData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.REPO}
             curView={curView}
             active={activeRepo}
-          />
-
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadRepos}
+            accountInfo={accountInfo}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadRepos}
           />
         </LeftPart>
 
         <RightPart>
           <PublishBtn type="primary" onClick={logic.createContent}>
-            发<Space right="20px" />布
+            <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
           </PublishBtn>
 
           <Affix offsetTop={50}>
-            <TagDivider />
             <TagsBar
               thread={THREAD.REPO}
               tags={tagsData}

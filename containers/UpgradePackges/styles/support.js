@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 import Img from '../../../components/Img'
 
 export const PkgItem = styled.div`
-  display: flex;
+  ${cs.flex()};
   margin-bottom: 5px;
 `
 

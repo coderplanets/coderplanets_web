@@ -6,70 +6,41 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from '../../config'
 
-import {
-  Wrapper,
-  Avatar,
-  TitleLink,
-  LinkIcon,
-  Main,
-  TopHalf,
-  Breif,
-  Title,
-  TitleTag,
-  SecondHalf,
-  BodyDigest,
-  Extra,
-  TitleTagDot,
-  RightInfo,
-  SalaryWrapper,
-  CompanyTitle,
-} from './styles'
+import { Wrapper } from './styles'
 
-import { makeDebugger, cutFrom } from '../../utils'
+import DigestView from './DigestView'
+import ListView from './ListView'
+
+import { renderReadMark, getOpacity } from './helper'
+import { makeDebugger, C11N } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:JobItem:index')
 /* eslint-enable no-unused-vars */
 
-const JobItem = ({ entry, active, onTitleSelect }) => (
-  <Wrapper current={entry} active={active}>
-    <div>
-      <Avatar src={entry.author.avatar} alt="avatar" />
-    </div>
-    <Main>
-      <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
-          <Title>{entry.title}</Title>
-          <TitleLink>
-            <LinkIcon src={`${ICON_CMD}/link.svg`} />
-            <span style={{ marginLeft: 9 }}>拉钩</span>
-          </TitleLink>
-          <TitleTag>
-            <TitleTagDot />
-            成都
-          </TitleTag>
-        </Breif>
-      </TopHalf>
+const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
+  const {
+    customization: { contentsLayout, contentDivider },
+  } = accountInfo
 
-      <SecondHalf>
-        <Extra>
-          mydearxym 发布于:{' '}
-          <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
-          {entry.views}
-        </Extra>
-        <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
-      </SecondHalf>
-    </Main>
-
-    <RightInfo>
-      <CompanyTitle>中央公园</CompanyTitle>
-      <SalaryWrapper>15k - 30k</SalaryWrapper>
-    </RightInfo>
-  </Wrapper>
-)
+  return (
+    <Wrapper
+      opacity={getOpacity(entry, active, accountInfo)}
+      divider={contentDivider}
+      onClick={onTitleSelect}
+    >
+      {renderReadMark(entry, accountInfo)}
+      {contentsLayout === C11N.DIGEST ? (
+        <DigestView entry={entry} />
+      ) : (
+        <ListView entry={entry} onTitleSelect={onTitleSelect} />
+      )}
+    </Wrapper>
+  )
+}
 
 JobItem.propTypes = {
   active: PropTypes.object,
@@ -85,12 +56,28 @@ JobItem.propTypes = {
     }),
   }).isRequired,
 
+  accountInfo: PropTypes.shape({
+    isLogin: PropTypes.bool,
+    customization: PropTypes.shape({
+      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
+      markViewed: PropTypes.bool,
+      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+    }),
+  }),
   onTitleSelect: PropTypes.func,
 }
 
 JobItem.defaultProps = {
   onTitleSelect: debug,
   active: {},
+  accountInfo: {
+    isLogin: false,
+    customization: PropTypes.shape({
+      contentsLayout: C11N.DIGEST,
+      markViewed: true,
+      displayDensity: '20',
+    }),
+  },
 }
 
 export default JobItem

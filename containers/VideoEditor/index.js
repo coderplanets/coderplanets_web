@@ -18,16 +18,16 @@ import SourceOptions from './SourceOptions'
 import { Wrapper, Title, FormWrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
+import { init, inputOnChange } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideoEditor')
 /* eslint-enable no-unused-vars */
 
 class VideoEditorContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { videoEditor } = this.props
-    logic.init(videoEditor)
+    init(videoEditor)
   }
 
   render() {
@@ -57,7 +57,7 @@ class VideoEditorContainer extends React.Component {
             raw="title"
             ratKey={ratKey}
             value={editVideoData.title}
-            onChange={logic.formDataChange('title')}
+            onChange={inputOnChange.bind(this, 'title')}
             placeholder="视频标题 #必填#"
           />
           <FormItem
@@ -65,12 +65,12 @@ class VideoEditorContainer extends React.Component {
             raw="source"
             ratKey={ratKey}
             value={editVideoData.source}
-            onChange={logic.formDataChange('source')}
+            onChange={inputOnChange.bind(this, 'source')}
             placeholder="YouTube #必填#"
             att={
               <SourceOptions
                 active={editVideoData.source}
-                sourceOnSelect={logic.sourceOnSelect}
+                sourceOnSelect={inputOnChange.bind(this, 'source')}
               />
             }
           />
@@ -79,7 +79,7 @@ class VideoEditorContainer extends React.Component {
             raw="link"
             ratKey={ratKey}
             value={editVideoData.link}
-            onChange={logic.formDataChange('link')}
+            onChange={inputOnChange.bind(this, 'link')}
             placeholder="https://youtube/xxx #必填#"
           />
           <FormItem
@@ -87,7 +87,7 @@ class VideoEditorContainer extends React.Component {
             raw="originalAuthor"
             ratKey={ratKey}
             value={editVideoData.originalAuthor}
-            onChange={logic.formDataChange('originalAuthor')}
+            onChange={inputOnChange.bind(this, 'originalAuthor')}
             placeholder="原视频作者昵称 #必填#"
           />
           <FormItem
@@ -95,7 +95,7 @@ class VideoEditorContainer extends React.Component {
             raw="originalAuthorLink"
             ratKey={ratKey}
             value={editVideoData.originalAuthorLink}
-            onChange={logic.formDataChange('originalAuthorLink')}
+            onChange={inputOnChange.bind(this, 'originalAuthorLink')}
             placeholder="视频网站的作者主页||作者社交账号链接 #必填#"
           />
           <FormItem
@@ -103,7 +103,7 @@ class VideoEditorContainer extends React.Component {
             raw="duration"
             ratKey={ratKey}
             value={editVideoData.duration}
-            onChange={logic.formDataChange('duration')}
+            onChange={inputOnChange.bind(this, 'duration')}
             placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
           <FormItem
@@ -111,7 +111,7 @@ class VideoEditorContainer extends React.Component {
             raw="publishAt"
             ratKey={ratKey}
             value={editVideoData.publishAt}
-            onChange={logic.formDataChange('publishAt')}
+            onChange={inputOnChange.bind(this, 'publishAt')}
             placeholder="原视频发布日期, 格式 YYYY-MM-DD #必填#"
           />
           <FormItem
@@ -119,7 +119,7 @@ class VideoEditorContainer extends React.Component {
             raw="desc"
             ratKey={ratKey}
             value={editVideoData.desc}
-            onChange={logic.formDataChange('desc')}
+            onChange={inputOnChange.bind(this, 'desc')}
             type="textarea"
             placeholder="视频描述信息 #必填#"
           />
@@ -128,7 +128,7 @@ class VideoEditorContainer extends React.Component {
             value=""
             onChange={debug}
             type="node"
-            node={<Labeler label="编辑" />}
+            node={<Labeler />}
           />
         </FormWrapper>
 

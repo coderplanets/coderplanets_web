@@ -1,10 +1,11 @@
+import { toJS } from 'mobx'
 import { inject, observer } from 'mobx-react'
 
 import R from 'ramda'
 import { isObject } from './validator'
 
-export const storePlug = R.curry((wantedStore, props) => ({
-  [wantedStore]: R.path(['store', wantedStore], props),
+export const storePlug = R.curry((selectedStore, props) => ({
+  [selectedStore]: R.path(['store', selectedStore], props),
 }))
 
 /*
@@ -77,13 +78,37 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
 
 export const stripMobx = obj => {
   if (!obj) return obj
+  return toJS(obj)
 
+  /*
   return R.map(v => {
     if (isObject(v) && R.has('$mobx')) {
       return v.toJSON()
     }
     return v
   }, obj)
+  */
+}
+
+/*
+ *
+ * handle general form data change case
+ * NOTE: this method require store has a updateEditing under the hook to do the real update
+ *
+ */
+export const updateEditing = (store, part, e) => {
+  if (!store) return false
+  if (!store.updateEditing)
+    return console.log('Error: updateEditing not found in store: ', store)
+
+  let value = e
+  if (isObject(e) && R.has('target', e)) {
+    /* eslint-disable prefer-destructuring */
+    value = e.target.value
+    /* eslint-enable prefer-destructuring */
+  }
+
+  store.updateEditing({ [part]: value })
 }
 
 /*

@@ -5,16 +5,6 @@ import initRootStore from '../../stores/init'
 import { GAWraper } from '../../components'
 
 import {
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  queryStringToJSON,
-  extractThreadFromPath,
-  TYPE,
-  subPath2Thread,
-} from '../../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,19 +18,29 @@ import {
   Footer,
 } from '../../containers'
 
-import CommunityBannerSchema from '../../containers/CommunityBanner/schema'
-import ReposThreadSchema from '../../containers/ReposThread/schema'
+import { P } from '../../containers/schemas'
 
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  queryStringToJSON,
+  extractThreadFromPath,
+  TYPE,
+  subPath2Thread,
+  makeDebugger,
+} from '../../utils'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:repos')
+/* eslint-enable no-unused-vars */
+
 async function fetchData(props) {
   const { request } = makeGQClient()
   const { asPath } = props
-  // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedReposRaw, partialTagsRaw } = ReposThreadSchema
 
   // utils
   const community = getMainPath(props)
@@ -48,9 +48,9 @@ async function fetchData(props) {
   const filter = { ...queryStringToJSON(asPath), community }
 
   // data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedRepos = request(pagedReposRaw, { filter })
-  const partialTags = request(partialTagsRaw, { thread, community })
+  const curCommunity = request(P.community, { raw: community })
+  const pagedRepos = request(P.pagedRepos, { filter })
+  const partialTags = request(P.partialTags, { thread, community })
 
   return {
     ...(await pagedRepos),
@@ -65,8 +65,8 @@ export default class Repos extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log('SSR ## community (in javascript) repo ##: ', asPath)
-    console.log('SSR queryStringToJSON: ', queryStringToJSON(asPath))
+    debug('SSR ## community (in javascript) repo ##: ', asPath)
+    debug('SSR queryStringToJSON: ', queryStringToJSON(asPath))
     const thread = getSubPath(props)
 
     const { pagedRepos, partialTags, community } = await fetchData(props)

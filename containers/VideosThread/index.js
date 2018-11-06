@@ -7,17 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
-  Space,
-  Maybe,
-  VideoItem,
+  PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -27,48 +24,18 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideosThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(video => (
-            <VideoItem
-              entry={video}
-              key={uid.gen()}
-              active={active}
-              onTitleSelect={logic.onTitleSelect}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostsLoading num={5} />
-  }
-}
-
 class VideosThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { videosThread } = this.props
     logic.init(videosThread)
   }
@@ -84,52 +51,48 @@ class VideosThreadContainer extends React.Component {
       curView,
       activeVideo,
       activeTagData,
+      accountInfo,
     } = videosThread
 
-    const { entries, pageNumber, pageSize, totalCount } = pagedVideosData
-    const { mainPath, subPath } = curRoute
+    const { mainPath } = curRoute
+    const { totalCount } = pagedVideosData
 
     return (
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper>
-              <ContentFilter
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper>
+            <ContentFilter
+              thread={THREAD.VIDEO}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              accountInfo={accountInfo}
+              totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
+            />
+          </FilterWrapper>
 
-          <View
+          <PagedContents
+            data={pagedVideosData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.VIDEO}
             curView={curView}
             active={activeVideo}
-          />
-
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadVideos}
+            accountInfo={accountInfo}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadVideos}
           />
         </LeftPart>
 
         <RightPart>
           <React.Fragment>
             <PublishBtn type="primary" onClick={logic.createContent}>
-              发<Space right="10px" />布<Space right="10px" />视
-              <Space right="10px" />频
+              <PublishLabel text="发布视频" iconSrc={`${ICON_CMD}/link2.svg`} />
             </PublishBtn>
 
             <Affix offsetTop={50}>
-              <TagDivider />
               <TagsBar
+                thread={THREAD.VIDEO}
                 tags={tagsData}
                 active={activeTagData}
                 onSelect={logic.onTagSelect}

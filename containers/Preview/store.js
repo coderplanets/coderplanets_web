@@ -7,8 +7,9 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { User } from '../../stores/SharedModel'
-import { markStates, TYPE, stripMobx } from '../../utils'
+import { markStates, TYPE, stripMobx, unholdPage, THREAD } from '../../utils'
 
+const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 /* const debug = makeDebugger('S:PreviewStore') */
 const THREAD_CONTENT_CURD_TYPES = [
   // post
@@ -39,6 +40,16 @@ const Attachment = t.model('Attachment', {
   body: t.maybeNull(t.string),
   digest: t.maybeNull(t.string),
   author: t.maybeNull(User),
+
+  // video spec
+  poster: t.maybeNull(t.string),
+  desc: t.maybeNull(t.string),
+  duration: t.maybeNull(t.string),
+  publishAt: t.maybeNull(t.string),
+  source: t.maybeNull(t.string),
+  link: t.maybeNull(t.string),
+  originalAuthor: t.maybeNull(t.string),
+  originalAuthorLink: t.maybeNull(t.string),
 })
 
 const PreviewStore = t
@@ -47,7 +58,6 @@ const PreviewStore = t
     type: t.maybeNull(
       t.enumeration('previewType', [
         TYPE.PREVIEW_ROOT_STORE,
-        TYPE.PREVIEW_COMMUNITY_EDITORS,
         // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
@@ -74,15 +84,23 @@ const PreviewStore = t
     },
   }))
   .actions(self => ({
-    open({ type, data }) {
+    open({ type, data, thread }) {
       self.visible = true
       self.type = type
 
       // NOTE: currently the attachment is only used for article-like content
       if (data) self.attachment = R.merge({ type }, data)
+
+      if ((thread, R.contains(thread, PREVIEWABLE_THREADS))) {
+        self.setViewing({ [thread]: data, viewingThread: thread })
+      }
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     close() {
       self.visible = false
+      unholdPage()
       // self.type = TYPE.PREVIEW_ROOT_STORE
     },
     markState(sobj) {

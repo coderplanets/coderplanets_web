@@ -29,6 +29,7 @@ export function closePreview() {
   setTimeout(() => {
     store.markState({ type: null })
     dispatchEvent(EVENT.PREVIEW_CLOSED)
+    store.setViewing({ viewingThread: null })
   }, 200)
 }
 

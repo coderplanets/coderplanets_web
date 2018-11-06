@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 
 import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
+  ${cs.flex('align-end')};
   color: ${theme('banner.desc')};
-  display: flex;
-  align-items: flex-end;
 `
 export const TextWrapper = styled.div`
+  ${cs.flex()};
   font-size: 0.9rem;
-  display: flex;
   align-items: baseline;
 `
 export const Text = styled.div``
@@ -23,7 +22,7 @@ export const Icon = styled(Img)`
 `
 export const Focus = styled.div`
   font-size: 1.1rem;
-  color: ${theme('banner.title')};
+  color: ${theme('contrastFg')};
   margin-left: 3px;
   margin-right: 3px;
 `

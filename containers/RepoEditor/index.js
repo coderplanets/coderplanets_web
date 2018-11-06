@@ -19,29 +19,50 @@ import * as logic from './logic'
 const debug = makeDebugger('C:RepoEditor')
 /* eslint-enable no-unused-vars */
 
-const View = ({ cur }) => {
-  switch (cur) {
-    case 'preview': {
-      return <GithubRepoPage />
+const View = ({ curView, searching, searchValue, repo }) => {
+  switch (curView) {
+    case 'show': {
+      return (
+        <GithubRepoPage
+          repo={repo}
+          onSearch={logic.changeView.bind(this, 'search')}
+          onPublish={logic.onPublish}
+          showSearchBtn
+          showPublishBtn
+        />
+      )
     }
     default: {
-      return <SearchMan />
+      return (
+        <SearchMan
+          value={searchValue}
+          onSearch={logic.onGithubSearch}
+          onChange={logic.searchOnChange}
+          searching={Boolean(searching)}
+        />
+      )
     }
   }
 }
 
 class RepoEditorContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { repoEditor } = this.props
     logic.init(repoEditor)
   }
 
   render() {
-    const curView = 'preview' //
+    const { repoEditor } = this.props
+    const { curView, searching, searchValue, editRepoData } = repoEditor
 
     return (
       <Wrapper>
-        <View cur={curView} />
+        <View
+          curView={curView}
+          searching={searching}
+          searchValue={searchValue}
+          repo={editRepoData}
+        />
       </Wrapper>
     )
   }

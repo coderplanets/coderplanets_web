@@ -6,6 +6,7 @@ import {
   $solver,
   TYPE,
   EVENT,
+  THREAD,
   scrollIntoEle,
   asyncRes,
   dispatchEvent,
@@ -14,7 +15,14 @@ import {
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [
+    EVENT.REFRESH_VIDEOS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.COMMUNITY_CHANGE,
+  ],
+})
+
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -33,16 +41,18 @@ const validFilter = R.pickBy(
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
   const community = mainPath
+  const userHasLogin = store.isLogin
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.COMMON,
+      size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
       community,
     },
+    userHasLogin,
   }
 
   args.filter = validFilter(args.filter)
@@ -53,13 +63,14 @@ export function loadVideos(page = 1) {
   store.markRoute({ page })
 }
 
-export function onTitleSelect(video) {
-  store.setViewing({ video })
+export function onTitleSelect(data) {
+  setTimeout(() => store.setViewedFlag(data.id), 1500)
+
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
-    data: video,
+    thread: THREAD.VIDEO,
+    data,
   })
-  debug('onTitleSelect: ', video)
 }
 
 export function createContent() {
@@ -71,9 +82,8 @@ export function onTagSelect() {
   debug('onTagSelect')
 }
 
-export function onFilterSelect() {
-  debug('onFilterSelect')
-}
+export const onFilterSelect = option => store.selectFilter(option)
+export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################
 // Data & Error handlers
@@ -92,6 +102,18 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadVideos(),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_VIDEOS),
+    action: () => loadVideos(),
+  },
+  {
+    match: asyncRes(EVENT.PREVIEW_CLOSED),
+    action: () => store.setViewing({ video: {} }),
+  },
+  {
     match: asyncRes('partialTags'),
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
@@ -101,15 +123,18 @@ const ErrSolver = []
 const loadIfNeed = () => {
   /* loadVideos() */
   /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
+  loadVideos()
+
+  /*
   if (R.isEmpty(store.pagedVideosData.entries)) {
     loadVideos()
   }
+  */
 }
 
 export function init(_store) {
   if (store) {
-    loadIfNeed()
-    return false
+    return loadIfNeed()
   }
   store = _store
 

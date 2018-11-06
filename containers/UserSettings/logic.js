@@ -16,6 +16,13 @@ export function changeTheme(theme) {
   store.changeTheme(theme)
 }
 
+export function c11nOnChange(part, e) {
+  console.log('c11nOnChange --> ', part)
+  console.log('c11nOnChange --> e', e.target.value)
+
+  store.updateC11N({ [part]: e.target.value })
+}
+
 export function upgradeHepler() {
   store.upgradeHepler()
 }

@@ -5,16 +5,6 @@ import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
 import {
-  makeGQClient,
-  queryStringToJSON,
-  getMainPath,
-  getSubPath,
-  extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
-} from '../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,34 +18,58 @@ import {
   Footer,
 } from '../containers'
 
-import CommunityBannerSchema from '../containers/CommunityBanner/schema'
-import PostsThreadSchema from '../containers/PostsThread/schema'
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getMainPath,
+  getSubPath,
+  extractThreadFromPath,
+  subPath2Thread,
+  TYPE,
+  makeDebugger,
+  BStore,
+  nilOrEmpty,
+} from '../utils'
+
+import { P } from '../containers/schemas'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:community')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
+
   const { asPath } = props
   // schema
-  const { communityRaw } = CommunityBannerSchema
-  const { pagedPostsRaw, partialTagsRaw } = PostsThreadSchema
 
-  // utils
+  // utils: filter, tags staff
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
   const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // query data
-  const curCommunity = request(communityRaw, { raw: community })
-  const pagedPosts = request(pagedPostsRaw, { filter })
-  const partialTags = request(partialTagsRaw, { thread, community })
+  const curCommunity = gqClient.request(P.community, { raw: community })
+  const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
+  const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
   return {
     ...(await curCommunity),
     ...(await pagedPosts),
     ...(await partialTags),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -65,7 +79,7 @@ export default class Index extends React.Component {
     const isServer = !!req
     if (!isServer) return {}
 
-    console.log(
+    debug(
       'SSR (community--) queryStringToJSON l: ',
       queryStringToJSON(asPath, { pagi: 'number' })
     )
@@ -73,7 +87,18 @@ export default class Index extends React.Component {
     const thread = getSubPath(props)
     /* console.log('getSubPath --> thread: ', thread) */
 
-    const { pagedPosts, partialTags, community } = await fetchData(props)
+    const {
+      pagedPosts,
+      partialTags,
+      community,
+      subscribedCommunities,
+    } = await fetchData(props)
+
+    console.log(
+      'pages get subscribedCommunities: ',
+      subscribedCommunities.totalCount
+    )
+
     const curView =
       pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
@@ -84,6 +109,8 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      // account: { user: { subscribedCommunities } },
+      account: { userSubscribedCommunities: subscribedCommunities },
       /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
       viewing: { community, activeThread: subPath2Thread(thread) },
       route: { mainPath: community.raw, subPath: thread },

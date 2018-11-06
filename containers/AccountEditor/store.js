@@ -10,7 +10,8 @@ import {
   markStates,
   makeDebugger,
   stripMobx,
-  objAlreadyExsits,
+  changeset,
+  flashState,
 } from '../../utils'
 import { User, EduBackground, WorkBackground } from '../../stores/SharedModel'
 
@@ -21,8 +22,7 @@ const debug = makeDebugger('S:AccountEditorStore')
 const AccountEditorStore = t
   .model('AccountEditorStore', {
     // user: t.optional(User, {}),
-    // TODO: rename to editObj
-    editingUser: t.optional(User, {}),
+    editUser: t.optional(User, {}),
     showSocials: t.optional(t.boolean, false),
 
     educationBg: t.optional(EduBackground, { school: '', major: '' }),
@@ -33,6 +33,7 @@ const AccountEditorStore = t
     error: t.optional(t.boolean, false),
     warn: t.optional(t.boolean, false),
     statusMsg: t.optional(t.string, ''),
+    ratKey: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
@@ -42,9 +43,9 @@ const AccountEditorStore = t
       const { success, error, warn } = self
       return !success && !error && !warn
     },
-    get editingUserData() {
+    get editUserData() {
       return {
-        ...stripMobx(self.editingUser),
+        ...stripMobx(self.editUser),
       }
     },
     get educationBgData() {
@@ -62,14 +63,59 @@ const AccountEditorStore = t
     },
   }))
   .actions(self => ({
-    toast(type, options) {
-      self.root.toast(type, options)
+    changesetErr(options) {
+      self.root.changesetErr(options)
+    },
+    validator(type) {
+      const { workBackgrounds, educationBackgrounds } = self.editUserData
+
+      switch (type) {
+        case 'work': {
+          const result = changeset(self.workBgData)
+            .exsit({ company: '公司名称' }, self.changesetErr)
+            .min({ company: '公司名称' }, 2, self.changesetErr)
+            .alreadyExsits(
+              {
+                company: `${self.workBgData.company}, ${self.workBgData.title}`,
+              },
+              self.workBgData,
+              workBackgrounds,
+              self.changesetErr
+            )
+            .done()
+
+          if (!result.passed) flashState(self, 'ratKey', result.rat)
+          return result.passed
+        }
+        case 'education': {
+          const { educationBgData } = self
+          const result = changeset(educationBgData)
+            .exsit({ school: '学校名称' }, self.changesetErr)
+            .min({ school: '学校名称' }, 2, self.changesetErr)
+            .alreadyExsits(
+              {
+                school: `${educationBgData.school}, ${educationBgData.major}`,
+              },
+              educationBgData,
+              educationBackgrounds,
+              self.changesetErr
+            )
+            .done()
+
+          if (!result.passed) flashState(self, 'ratKey', result.rat)
+          return result.passed
+        }
+        default: {
+          debug('unknow validator')
+          return false
+        }
+      }
     },
 
     copyAccountInfo() {
       const { accountInfo } = self.root.account
       if (accountInfo !== {}) {
-        self.editingUser = accountInfo
+        self.editUser = accountInfo
       }
     },
 
@@ -79,15 +125,15 @@ const AccountEditorStore = t
     },
 
     updateEditing(sobj) {
-      const editingUser = R.merge(self.editingUser, { ...sobj })
-      self.markState({ editingUser })
+      const editUser = R.merge(self.editUser, { ...sobj })
+      self.markState({ editUser })
     },
 
     addBg(type) {
       if (!self.validator(type)) return false
 
       if (type === 'work') {
-        let workBackgrounds = R.clone(self.editingUserData.workBackgrounds)
+        let workBackgrounds = R.clone(self.editUserData.workBackgrounds)
         /* workBackgrounds.push(self.workBgData) */
         workBackgrounds = R.concat([self.workBgData], workBackgrounds)
 
@@ -95,9 +141,7 @@ const AccountEditorStore = t
         return self.markState({ workBg: { company: '', title: '' } })
       }
 
-      let educationBackgrounds = R.clone(
-        self.editingUserData.educationBackgrounds
-      )
+      let educationBackgrounds = R.clone(self.editUserData.educationBackgrounds)
       /* educationBackgrounds.push(self.educationBgData) */
       educationBackgrounds = R.concat(
         [self.educationBgData],
@@ -106,35 +150,6 @@ const AccountEditorStore = t
       self.updateEditing({ educationBackgrounds })
       self.markState({ educationBg: { school: '', major: '' } })
     },
-
-    validator(type) {
-      const { workBackgrounds, educationBackgrounds } = self.editingUserData
-
-      switch (type) {
-        case 'work': {
-          if (R.isEmpty(self.workBgData.company))
-            return self.toast('error', { title: '公司名称', msg: '不能为空' })
-          if (objAlreadyExsits(self.workBgData, workBackgrounds))
-            return self.toast('error', { title: '工作经历', msg: '已经存在' })
-
-          return true
-        }
-        case 'education': {
-          if (R.isEmpty(self.educationBgData.school))
-            return self.toast('error', { title: '学校名称', msg: '不能为空' })
-
-          if (objAlreadyExsits(self.educationBgData, educationBackgrounds))
-            return self.toast('error', { title: '教育经历', msg: '已经存在' })
-
-          return true
-        }
-        default: {
-          debug('unknow validator')
-          return false
-        }
-      }
-    },
-
     markState(sobj) {
       markStates(sobj, self)
     },

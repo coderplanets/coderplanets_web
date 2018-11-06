@@ -6,45 +6,23 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils'
-import { PagedRepos, Tag, emptyPagiData } from '../../stores/SharedModel'
+import {
+  PagedRepos,
+  Tag,
+  ContentFilter,
+  emptyPagiData,
+} from '../../stores/SharedModel'
+
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ReposThread')
 /* eslint-enable no-unused-vars */
 
-const FilterModel = t.model('FilterModel', {
-  when: t.optional(
-    t.enumeration('when', [
-      '',
-      FILTER.TODAY,
-      FILTER.THIS_WEEK,
-      FILTER.THIS_MONTH,
-      FILTER.THIS_YEAR,
-    ]),
-    ''
-  ),
-
-  sort: t.optional(
-    t.enumeration('sort', [
-      '',
-      FILTER.MOST_VIEWS,
-      FILTER.MOST_FAVORITES,
-      FILTER.MOST_STARS,
-      FILTER.MOST_COMMENTS,
-    ]),
-    ''
-  ),
-  wordLength: t.optional(
-    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
-    ''
-  ),
-})
-
 const ReposThread = t
   .model('ReposThread', {
     pagedRepos: t.optional(PagedRepos, emptyPagiData),
-    filters: t.optional(FilterModel, {}),
+    filters: t.optional(ContentFilter, {}),
     /* tags: t.optional(t.map(Tag), {}), */
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
@@ -74,6 +52,9 @@ const ReposThread = t
     get accountInfo() {
       return self.root.account.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get tagsData() {
       return stripMobx(self.tags)
     },
@@ -102,6 +83,16 @@ const ReposThread = t
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    setViewedFlag(id) {
+      const { entries } = self.pagedReposData
+      const index = R.findIndex(R.propEq('id', id), entries)
+      if (index >= 0) {
+        self.pagedRepos.entries[index].viewerHasViewed = true
+      }
+    },
+    updateC11N(option) {
+      self.root.updateC11N(option)
     },
     markRoute(query) {
       self.root.markRoute(query)

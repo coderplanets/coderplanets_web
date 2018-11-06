@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import R from 'ramda'
-import { theme, TYPE, Animate } from '../../../utils'
+import { theme, TYPE, animate, cs } from '../../../utils'
 
 const WIDE_CASE = [
   // post
@@ -17,8 +17,6 @@ const WIDE_CASE = [
   TYPE.PREVIEW_REPO_CREATE,
   // video
   TYPE.PREVIEW_VIDEO_VIEW,
-
-  TYPE.PREVIEW_COMMUNITY_EDITORS,
 ]
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
@@ -44,6 +42,7 @@ export const PreviewOverlay = styled.div`
 // visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 
 export const PreviewWrapper = styled.div`
+  ${cs.flex()};
   color: ${theme('preview.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -58,28 +57,23 @@ export const PreviewWrapper = styled.div`
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
-  overflow: auto;
   z-index: 1000;
-  display: flex;
-  justify-content: flex-end;
 `
 export const PreviewContent = styled.div`
   width: 90%;
   background-color: ${theme('preview.bg')};
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   box-shadow: ${theme('preview.shadow')};
 `
 export const PreviewHeader = styled.div`
+  ${cs.flex()};
   border-bottom: 1px solid grey;
   line-height: 30px;
-  display: flex;
 `
-
 export const PreviewCloser = styled.div`
   width: 10%;
 `
-
 const closeWith = '40px'
 
 export const CloserInner = styled.div`
@@ -105,7 +99,7 @@ export const Closer = styled.div`
       : 'block'};
 
   &:hover:after {
-    animation: ${Animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
+    animation: ${animate.rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
     font-weight: bold;
   }
   &:after {

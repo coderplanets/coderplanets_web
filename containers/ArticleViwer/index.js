@@ -8,6 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
+import FavoritesCats from '../FavoritesCats'
 import PostViewer from './PostViewer'
 import JobViewer from './JobViewer'
 
@@ -30,9 +31,6 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
         <JobViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
-    case 'typewriter': {
-      return <div>typewriter</div>
-    }
     default: {
       return <div>default</div>
     }
@@ -40,7 +38,7 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
 }
 
 class ArticleViwerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { articleViwer, attachment } = this.props
     logic.init(articleViwer, attachment)
   }
@@ -51,6 +49,8 @@ class ArticleViwerContainer extends React.Component {
 
     return (
       <React.Fragment>
+        <FavoritesCats />
+
         <Viwer
           type={type}
           data={viewingData}
@@ -63,12 +63,14 @@ class ArticleViwerContainer extends React.Component {
 }
 
 ArticleViwerContainer.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   articleViwer: PropTypes.object.isRequired,
+  attachment: PropTypes.any,
   // onReaction: PropTypes.func.isRequired,
 }
 
-ArticleViwerContainer.defaultProps = {}
+ArticleViwerContainer.defaultProps = {
+  attachment: {},
+}
 
 // ArticleViwerContainer
 

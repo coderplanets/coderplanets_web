@@ -17,11 +17,14 @@ const PostContentStore = t
     get root() {
       return getParent(self)
     },
-    get postData() {
+    get viewingPostData() {
       return stripMobx(self.root.viewing.post)
     },
   }))
   .actions(self => ({
+    callInformer() {
+      self.root.callInformer()
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

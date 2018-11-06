@@ -8,17 +8,15 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
+import { ICON_CMD } from '../../config'
+
 import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
-  BuyMeChuanChuan,
-  Maybe,
-  JobItem,
+  PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -28,53 +26,21 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:JobsThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <JobItem
-              entry={entry}
-              key={uid.gen()}
-              active={active}
-              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostsLoading num={3} />
-  }
-}
-
 class JobsThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { jobsThread } = this.props
     logic.init(jobsThread)
   }
-
-  componentDidMount() {}
 
   render() {
     const { jobsThread } = this.props
@@ -90,49 +56,43 @@ class JobsThreadContainer extends React.Component {
       curRoute,
     } = jobsThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedJobsData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedJobsData
 
     return (
       <Wrapper>
         <LeftPadding />
-        <BuyMeChuanChuan fromUser={accountInfo} />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper show={curView === TYPE.RESULT}>
-              <ContentFilter
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper show={curView === TYPE.RESULT}>
+            <ContentFilter
+              thread={THREAD.JOB}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              accountInfo={accountInfo}
+              totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
+            />
+          </FilterWrapper>
 
-          <View
+          <PagedContents
+            data={pagedJobsData}
             community={mainPath}
-            thread={subPath}
-            entries={entries}
+            thread={THREAD.JOB}
             curView={curView}
             active={activeJob}
-          />
-
-          <Pagi
-            left="-10px"
-            pageNumber={pageNumber}
-            pageSize={pageSize}
-            totalCount={totalCount}
-            onChange={logic.loadJobs}
+            accountInfo={accountInfo}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadJobs}
           />
         </LeftPart>
 
         <RightPart>
           <PublishBtn type="primary" onClick={logic.createContent}>
-            招贤纳士
+            <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
           </PublishBtn>
 
           <Affix offsetTop={50}>
-            <TagDivider />
             <TagsBar
               thread={THREAD.JOB}
               tags={tagsData}

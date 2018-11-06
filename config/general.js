@@ -2,10 +2,13 @@
    general behavior of the site
  */
 
+export const DEFAULT_THEME = 'cyan'
+
 export const PAGE_SIZE = {
-  COMMON: 20,
-  POSTSPAPER_POSTS: 25,
-  COMMENTS: 20,
+  S: 10,
+  D: 20,
+  M: 30,
+  L: 40,
 }
 
 export const WORD_LIMIT = {

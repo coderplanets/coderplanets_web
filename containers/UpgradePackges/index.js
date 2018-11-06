@@ -55,7 +55,7 @@ const platinumUserItems = [
 ]
 
 class UpgradePackgesContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { upgradePackges } = this.props
     logic.init(upgradePackges)
   }
@@ -97,7 +97,7 @@ class UpgradePackgesContainer extends React.Component {
                 <Support not items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
-              <Button type="red">软妹 69/98 元</Button>
+              <Button type="red">￥69 元</Button>
             </Dashboard>
             <Dashboard>
               <PkgTitle>赞助商</PkgTitle>
@@ -108,7 +108,7 @@ class UpgradePackgesContainer extends React.Component {
                 <Support items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
-              <Button type="red">软妹 997 元</Button>
+              <Button type="red">￥1999 元</Button>
             </Dashboard>
           </ContentWrapper>
         </Wrapper>

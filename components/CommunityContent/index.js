@@ -10,8 +10,10 @@ import PropTypes from 'prop-types'
 import PostsThread from '../../containers/PostsThread'
 import VideosThread from '../../containers/VideosThread'
 import ReposThread from '../../containers/ReposThread'
+import WikiThread from '../../containers/WikiThread'
 import JobsThread from '../../containers/JobsThread'
-import CheatSheetPaper from '../../containers/CheatSheetPaper'
+import UsersThread from '../../containers/UsersThread'
+import CheatsheetThread from '../../containers/CheatsheetThread'
 
 import { Wrapper } from './styles'
 import { makeDebugger, ROUTE } from '../../utils'
@@ -28,17 +30,8 @@ const ComunityContent = ({ curRoute }) => {
     case ROUTE.REPOS: {
       return <ReposThread />
     }
-    case 'news': {
-      return <h2>NesPaper</h2>
-    }
-    case 'tuts': {
-      return <h2>TutsPaper</h2>
-    }
-    case 'meetups': {
-      return <h2>MeetupPaper</h2>
-    }
-    case 'users': {
-      return <h2>UsersPaper</h2>
+    case ROUTE.USERS: {
+      return <UsersThread />
     }
     case ROUTE.VIDEOS: {
       return <VideosThread />
@@ -46,11 +39,14 @@ const ComunityContent = ({ curRoute }) => {
     case ROUTE.JOBS: {
       return <JobsThread />
     }
-    case 'cheatsheet': {
-      return <CheatSheetPaper />
+    case ROUTE.WIKI: {
+      return <WikiThread />
+    }
+    case ROUTE.CHEATSHEET: {
+      return <CheatsheetThread />
     }
     default: {
-      return <div>default</div>
+      return <PostsThread />
     }
   }
 }

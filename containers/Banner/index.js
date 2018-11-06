@@ -9,6 +9,9 @@ import { inject, observer } from 'mobx-react'
 
 import UserBanner from '../UserBanner'
 import PostBanner from '../PostBanner'
+import JobBanner from '../JobBanner'
+import VideoBanner from '../VideoBanner'
+import RepoBanner from '../RepoBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
 import CommunityBanner from '../CommunityBanner'
 
@@ -37,6 +40,15 @@ const BannerContent = ({ curRoute }) => {
     case ROUTE.POST: {
       return <PostBanner />
     }
+    case ROUTE.JOB: {
+      return <JobBanner />
+    }
+    case ROUTE.VIDEO: {
+      return <VideoBanner />
+    }
+    case ROUTE.REPO: {
+      return <RepoBanner />
+    }
     case ROUTE.USER: {
       return <UserBanner />
     }
@@ -46,7 +58,7 @@ const BannerContent = ({ curRoute }) => {
 }
 
 class BannerContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { banner } = this.props
     init(banner)
   }

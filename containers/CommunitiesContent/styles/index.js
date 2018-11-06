@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 import Img from '../../../components/Img'
 
 export const CommunityIcon = styled(Img)`
@@ -8,8 +8,9 @@ export const CommunityIcon = styled(Img)`
   height: 60px;
   margin-top: -40px;
 `
-
 export const Card = styled.div`
+  ${cs.flexColumn('align-center')};
+
   position: relative;
   padding-top: 12px;
   padding: 10px;
@@ -25,9 +26,6 @@ export const Card = styled.div`
     border-color: ${theme('content.cardBorderHover')};
   }
   border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 60px;
 `
 export const CardTitle = styled.div`
@@ -48,9 +46,9 @@ export const ActivitySpark = styled.div`
 `
 
 export const CardFooter = styled.div`
-  display: flex;
+  ${cs.flex('justify-around')};
+
   width: 100%;
-  justify-content: space-around;
   position: absolute;
   bottom: 16px;
   color: ${theme('banner.desc')};
@@ -65,14 +63,11 @@ export const Divider = styled.div`
 `
 
 export const GridWrapper = styled.div`
-  display: flex;
+  ${cs.flex('justify-center')};
   flex-wrap: wrap;
-  justify-content: center;
 `
 
 export const Wrapper = styled.div`
   margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${cs.flexColumn('justify-center')};
 `

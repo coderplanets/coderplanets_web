@@ -1,61 +1,61 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
-      id
-      title
+      ${F.post}
       body
-      views
       author {
-        id
-        nickname
-        avatar
+        ${F.author}
       }
       linkAddr
       insertedAt
-      updatedAt
       favoritedCount
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)
       viewerHasStarred @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
     }
   }
 `
-const job = gql`
-  query($id: ID!) {
-    job(id: $id) {
-      id
-      title
-      body
-      company
-      company_logo
-      location
-      views
-      author {
-        id
-        nickname
-        avatar
-      }
-      linkAddr
-      insertedAt
-      updatedAt
-    }
-  }
-`
-const reactionResult = gql`
+const postReactionRes = gql`
   query($id: ID!) {
     post(id: $id) {
       id
-      title
       favoritedCount
       starredCount
       viewerHasFavorited
       viewerHasStarred
+      favoritedCategoryId
     }
   }
 `
+const job = gql`
+  query($id: ID!, $userHasLogin: Boolean!) {
+    job(id: $id) {
+      ${F.job}
+      body
+      author {
+        ${F.author}
+      }
 
+      favoritedCount
+      viewerHasFavorited @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
+    }
+  }
+`
+const jobReactionRes = gql`
+  query($id: ID!) {
+    job(id: $id) {
+      id
+      favoritedCount
+      viewerHasFavorited
+      favoritedCategoryId
+    }
+  }
+`
 const reaction = gql`
   mutation($id: ID!, $action: String!, $thread: CmsThread!) {
     reaction(id: $id, action: $action, thread: $thread) {
@@ -74,11 +74,12 @@ const undoReaction = gql`
 
 const schema = {
   post,
+  postReactionRes,
   job,
+  jobReactionRes,
   // viewerReactions,
   reaction,
   undoReaction,
-  reactionResult,
 }
 
 export default schema

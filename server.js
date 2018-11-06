@@ -54,6 +54,9 @@ const getMessages = locale => {
 const indexQuery = route('/:index')
 const userQuery = route('/user/:userId')
 const postQuery = route('/post/:id')
+const jobQuery = route('/job/:id')
+const videoQuery = route('/video/:id')
+const repoQuery = route('/repo/:id')
 const communitiesQuery = route('/communities/:category')
 const communityQuery = route('/:community/:thread')
 const heartQuery = route('/_next/:page?')
@@ -77,18 +80,25 @@ app.prepare().then(() => {
     // _next heart ping, only works in dev
     if (heartQuery(pathname)) return handle(req, res)
 
-    // home page
-    if (indexQuery(pathname)) return app.render(req, res, '/', query)
     // user page
     if (userQuery(pathname)) return app.render(req, res, '/user', query)
     // post page
     if (postQuery(pathname)) return app.render(req, res, '/post', query)
+    // job page
+    if (jobQuery(pathname)) return app.render(req, res, '/job', query)
+    // video page
+    if (videoQuery(pathname)) return app.render(req, res, '/video', query)
+    // repo page
+    if (repoQuery(pathname)) return app.render(req, res, '/repo', query)
     // all communities page
     if (communitiesQuery(pathname))
       return app.render(req, res, '/communities', query)
     // gereral communit (pls, frameworks ..)
     if (communityQuery(pathname))
       return app.render(req, res, '/community', query)
+
+    // home page TODO: redirect to home
+    if (indexQuery(pathname)) return app.render(req, res, '/', query)
 
     req.locale = locale
     req.messages = getMessages(locale)

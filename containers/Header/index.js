@@ -12,6 +12,7 @@ import { ICON_CMD } from '../../config/assets'
 
 import MailBox from '../MailBox'
 import UpgradePackges from '../UpgradePackges'
+import UserLister from '../UserLister'
 
 import { Affix, Navigator } from '../../components'
 import UserAccount from './UserAccount'
@@ -61,6 +62,7 @@ const Header = ({
   fixed,
   isLogin,
   accountInfo,
+  curCommunity,
 }) => (
   <HeaderWrapper
     id="whereCallShowDoraemon"
@@ -71,7 +73,10 @@ const Header = ({
       {fixed ? (
         <MiniMap activeInfo={activeInfo} curRoute={curRoute} />
       ) : (
-        <Navigator />
+        <Navigator
+          curCommunity={curCommunity}
+          layout={accountInfo.customization.bannerLayout}
+        />
       )}
     </RouterWrapper>
     <AddOns />
@@ -81,13 +86,14 @@ const Header = ({
       </Search>
 
       <MailBox />
+      <UserLister />
       <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
     </Operations>
   </HeaderWrapper>
 )
 
 class HeaderContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { header } = this.props
     logic.init(header)
   }
@@ -109,6 +115,7 @@ class HeaderContainer extends React.Component {
       accountInfo,
       isLogin,
       activeInfo,
+      curCommunity,
     } = header
 
     return (
@@ -123,6 +130,7 @@ class HeaderContainer extends React.Component {
               accountInfo={accountInfo}
               isLogin={isLogin}
               activeInfo={activeInfo}
+              curCommunity={curCommunity}
             />
           </Affix>
         </AffixHeader>
@@ -134,6 +142,7 @@ class HeaderContainer extends React.Component {
             accountInfo={accountInfo}
             isLogin={isLogin}
             activeInfo={activeInfo}
+            curCommunity={curCommunity}
           />
         </RawHeader>
       </div>

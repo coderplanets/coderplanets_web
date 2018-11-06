@@ -34,6 +34,7 @@ const FormContent = ({
   placeholder,
   node,
   att,
+  disabled,
 }) => {
   switch (type) {
     case 'node': {
@@ -48,6 +49,7 @@ const FormContent = ({
             placeholder={placeholder}
             autosize={{ minRows: 3, maxRows: 6 }}
             onChange={onChange}
+            disabled={disabled}
           />
         </FormInput>
       )
@@ -61,6 +63,7 @@ const FormContent = ({
             value={value}
             onChange={onChange}
             placeholder={placeholder}
+            disabled={disabled}
           />
           <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
@@ -80,8 +83,10 @@ const FormItem = ({
   placeholder,
   node,
   att,
+  bottom,
+  disabled,
 }) => (
-  <FormItemWrapper className="normal-form">
+  <FormItemWrapper className="normal-form" bottom={bottom}>
     <Maybe test={!R.isEmpty(label)}>
       <FormLable error={hasValue(raw) && raw === ratKey}>{label}</FormLable>
     </Maybe>
@@ -95,6 +100,7 @@ const FormItem = ({
       placeholder={placeholder}
       node={node}
       att={att}
+      disabled={disabled}
     />
   </FormItemWrapper>
 )
@@ -110,6 +116,8 @@ FormItem.propTypes = {
   node: PropTypes.node,
   att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(['small', 'default', 'large']),
+  bottom: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 FormItem.defaultProps = {
@@ -123,6 +131,8 @@ FormItem.defaultProps = {
   node: <div />,
   att: '',
   onChange: debug,
+  bottom: '25px',
+  disabled: false,
 }
 
 export default FormItem

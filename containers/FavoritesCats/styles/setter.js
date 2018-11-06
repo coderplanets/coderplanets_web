@@ -1,38 +1,35 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};
   flex-direction: column;
   padding: 15px 25px;
 `
-export const ListWrapper = styled.div`
-  margin-left: 3px;
-`
+export const ListWrapper = styled.div``
 export const Footer = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')};
   margin-top: 20px;
   margin-bottom: 10px;
 `
 export const CatWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${cs.flexColumn()};
+  padding: 10px 5px;
+  &:hover {
+    background: ${theme('thread.articleHover')};
+  }
 `
 export const CatContent = styled.div`
-  display: flex;
-  align-items: center;
+  ${cs.flex('align-center')};
 `
 export const CatMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  ${cs.flexColumnGrow()};
 `
 export const SetBtn = styled.div``
 
 export const CatHeader = styled.div`
-  display: flex;
+  ${cs.flex()};
 `
 export const CatTitle = styled.div`
   color: ${theme('banner.desc')};
@@ -51,6 +48,4 @@ export const CatDivider = styled.div`
   border-color: ${theme('banner.desc')};
   width: 100%;
   opacity: 0.4;
-  margin-top: 8px;
-  margin-bottom: 8px;
 `

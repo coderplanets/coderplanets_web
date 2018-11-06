@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Input } from 'antd'
 
 // import Img from '../../Img'
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 const { TextArea } = Input
 
@@ -29,8 +29,8 @@ export const TextAreaer = styled(TextArea)`
 `
 
 export const FormItemWrapper = styled.div`
-  display: flex;
-  margin-bottom: 25px;
+  ${cs.flex()};
+  margin-bottom: ${({ bottom }) => bottom};
   width: 100%;
 `
 export const FormLable = styled.div`

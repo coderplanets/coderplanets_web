@@ -26,13 +26,15 @@ const HeaderStore = t
     get activeInfo() {
       return stripMobx(self.root.viewing)
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get accountInfo() {
       return self.root.account.accountInfo
     },
     get isLogin() {
       return self.root.account.isLogin
     },
-
     get leftOffset() {
       const curSidebarPin = self.root.sidebar.pin
       if (

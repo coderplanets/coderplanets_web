@@ -7,16 +7,7 @@ import { Provider } from 'mobx-react'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
-import {
-  makeGQClient,
-  queryStringToJSON,
-  /* nilOrEmpty, */
-  getSubPath,
-  USER_THREAD,
-  /* BStore, */
-  ROUTE,
-} from '../utils'
-
+// import UserBannerSchema from '../containers/UserBanner/schema'
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -31,28 +22,48 @@ import {
   Footer,
 } from '../containers'
 
-import AccountSchema from '../containers/AccountViewer/schema'
+import {
+  BStore,
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  getSubPath,
+  USER_THREAD,
+  /* BStore, */
+  ROUTE,
+  makeDebugger,
+  pagedFilter,
+} from '../utils'
+
+import { P } from '../containers/schemas'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('page:user')
+/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const token = null // BStore.cookie.from_req(req, 'jwtToken')
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
 
+  /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
   const user = gqClient
-    .request(AccountSchema.userRaw, {
-      id: userId,
-      /* userHasLogin: nilOrEmpty(token) === false, */
-    })
-    .catch(e => {
-      console.log('error? ', e)
-    })
+    .request(P.user, { id: userId, userHasLogin })
+    .catch(e => console.log('SSR: user page error', e))
+
+  const filter = pagedFilter(1)
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter,
+  })
 
   return {
     ...(await user),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -63,15 +74,17 @@ export default class UserPage extends React.Component {
     if (!isServer) return {}
 
     console.log('SSR (user) queryStringToJSON: ', queryStringToJSON(asPath))
+
     const query = queryStringToJSON(asPath)
 
-    const { user } = await fetchData(props)
-    console.log('fetchData user: ', user)
+    const { user, subscribedCommunities } = await fetchData(props)
+    // debug('fetchData user-->: ', user)
 
     return {
       langSetup: {},
+      account: { userSubscribedCommunities: subscribedCommunities },
       route: { mainPath: ROUTE.USER, subPath: user.id, query },
-      userContent: { activeThread: query.tab || USER_THREAD.POSTS },
+      userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
       viewing: { user },
     }
   }

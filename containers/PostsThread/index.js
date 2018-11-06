@@ -12,13 +12,9 @@ import TagsBar from '../TagsBar'
 
 import {
   Affix,
-  PostsLoading,
-  Pagi,
-  EmptyThread,
   ContentFilter,
-  Maybe,
-  Space,
-  PostItem,
+  PublishLabel,
+  PagedContents,
 } from '../../components'
 
 import {
@@ -28,52 +24,20 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  FilterResultHint,
-  TagDivider,
   PublishBtn,
 } from './styles'
 
-import { uid, makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
-const View = ({ community, thread, entries, curView, active }) => {
-  switch (curView) {
-    case TYPE.RESULT: {
-      return (
-        <React.Fragment>
-          {entries.map(entry => (
-            <PostItem
-              key={uid.gen()}
-              entry={entry}
-              active={active}
-              onTitleSelect={logic.onTitleSelect.bind(this, entry)}
-            />
-          ))}
-        </React.Fragment>
-      )
-    }
-    case TYPE.RESULT_EMPTY: {
-      return (
-        <React.Fragment>
-          <EmptyThread community={community} thread={thread} />
-        </React.Fragment>
-      )
-    }
-    default:
-      return <PostsLoading num={5} />
-  }
-}
-
 class PostsThreadContainer extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const { postsThread } = this.props
     logic.init(postsThread)
   }
-
-  componentDidMount() {}
 
   render() {
     const { postsThread } = this.props
@@ -83,53 +47,50 @@ class PostsThreadContainer extends React.Component {
       filtersData,
       activePost,
       curRoute,
+      accountInfo,
+      isLogin,
     } = postsThread
 
-    const { mainPath, subPath } = curRoute
-    const { entries, totalCount, pageNumber, pageSize } = pagedPostsData
+    const { mainPath } = curRoute
+    const { totalCount } = pagedPostsData
 
     return (
       <Wrapper>
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper show>
-              <ContentFilter
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-              />
-              <FilterResultHint>结果约 {totalCount} 条</FilterResultHint>
-            </FilterWrapper>
-          </Maybe>
-
-          <React.Fragment>
-            <View
-              community={mainPath}
-              thread={subPath}
-              entries={entries}
-              curView={curView}
-              active={activePost}
-            />
-
-            <Pagi
-              left="-10px"
-              pageNumber={pageNumber}
-              pageSize={pageSize}
+          <FilterWrapper>
+            {/* TODO: show when url has tag query and totalCount = 0 */}
+            <ContentFilter
+              thread={THREAD.POST}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              isLogin={isLogin}
+              accountInfo={accountInfo}
               totalCount={totalCount}
-              onChange={logic.loadPosts}
+              onCustomChange={logic.onCustomChange}
             />
-          </React.Fragment>
+          </FilterWrapper>
+
+          <PagedContents
+            data={pagedPostsData}
+            community={mainPath}
+            thread={THREAD.POST}
+            curView={curView}
+            active={activePost}
+            accountInfo={accountInfo}
+            onTitleSelect={logic.onTitleSelect}
+            onPageChange={logic.loadPosts}
+          />
         </LeftPart>
 
         <RightPart>
           <React.Fragment>
             <PublishBtn type="primary" onClick={logic.createContent}>
-              发<Space right="20px" />帖
+              <PublishLabel text="发布帖子" />
             </PublishBtn>
 
             <Affix offsetTop={50}>
-              <TagDivider />
               <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
             </Affix>
           </React.Fragment>

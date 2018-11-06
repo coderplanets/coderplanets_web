@@ -1,40 +1,6 @@
-import gql from 'graphql-tag'
+// import gql from 'graphql-tag'
+import { P } from '../schemas'
 
-const postRaw = `
-  query post($id: ID!) {
-    post(id: $id) {
-      id
-      title
-      body
-      insertedAt
-      updatedAt
-      views
-      length
-      author {
-        id
-        avatar
-        nickname
-      }
-      favoritedCount
-      starredCount
-      communities {
-        id
-        title
-        logo
-      }
-      tags {
-        id
-        title
-        color
-      }
-    }
-  }
-`
-
-const post = gql`
-  ${postRaw}
-`
-
-const schema = { post, postRaw }
+const schema = { post: P.post }
 
 export default schema

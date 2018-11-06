@@ -1,34 +1,32 @@
 import styled from 'styled-components'
 
-import { theme, Animate } from '../../../utils'
+import { theme, animate, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding: 10px;
 `
 
 export const LabelItem = styled.div`
-  display: flex;
+  ${cs.flex()};
   color: ${theme('editor.footer')};
   &:hover {
     color: #51abb2;
-    animation: ${Animate.pulse} 0.4s linear;
+    animation: ${animate.pulse} 0.4s linear;
   }
 `
 
 export const TagItem = styled.div`
+  ${cs.flex('align-center')};
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
   &:hover {
     cursor: pointer;
     font-weight: bold;
   }
 `
 export const TagDot = styled.div`
-  width: 12px;
-  height: 12px;
+  ${cs.circle('12px')};
   margin-right: 8px;
-  border-radius: 100%;
+  margin-left: 3px;
   background-color: ${({ color }) => color};
   opacity: ${theme('tags.dotOpacity')};
 `

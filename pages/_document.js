@@ -28,7 +28,11 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
-          <title>cps</title>
+          {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
+          <script
+            async
+            src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
+          />
           <link
             href="https://cdn.jsdelivr.net/npm/antd@3.1.4/dist/antd.min.css"
             rel="stylesheet"
