@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import Img from '../../../components/Img'
 import { Container } from './index'
-import { Img } from '../../../components'
 import { theme, cs } from '../../../utils'
 
 export const MenuItem = styled.div`

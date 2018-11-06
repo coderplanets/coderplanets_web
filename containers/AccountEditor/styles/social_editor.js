@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-/* import { Img } from '../../../components' */
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div``
@@ -111,6 +110,3 @@ export const UpIcon = styled(ToggleIcon)`
 `
 
 export const DownIcon = styled(ToggleIcon)``
-
-/* import { Img } from '../../../components' */
-/* import { animate, theme } from '../../../utils' */

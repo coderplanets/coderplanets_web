@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-/* import { Img } from '../../../components' */
 import { theme, cs } from '../../../utils'
 
 export const CardWrapper = styled.div`
