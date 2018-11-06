@@ -2,7 +2,7 @@
  * make children compoent cound reach the props.theme object
  * because mobx's observer mechanism, we should manually watch the theme
  * otherwhise the render will not be triggled
-*/
+ */
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
@@ -13,13 +13,15 @@ import { storePlug } from '../../utils'
 import AntOverWrite from './AntOverWrite'
 // import MarkDownStyle from './MarkDownStyle'
 import CodeHighlight from './CodeHighlight'
-import './normalize.css'
+/* import './normalize.css' */
+import normalize from './normalize'
 
 const ThemeObserver = ({ children, theme }) => (
   <ThemeProvider theme={theme.themeData}>
     <AntOverWrite>
       <CodeHighlight>
         <style global jsx>{`
+          ${normalize};
           html {
             background-color: ${theme.themeData.htmlBg};
           }
