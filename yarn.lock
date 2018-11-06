@@ -8145,9 +8145,11 @@ pn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
 
-polished@1.9.3:
-  version "1.9.3"
-  resolved "https://registry.npmjs.org/polished/-/polished-1.9.3.tgz#d61b8a0c4624efe31e2583ff24a358932b6b75e1"
+polished@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/polished/-/polished-2.3.0.tgz#66c8b66bc666e95d9d12d760dac9df758aed8f8e"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"

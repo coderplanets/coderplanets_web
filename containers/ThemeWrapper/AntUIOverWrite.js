@@ -287,6 +287,21 @@ const AntUIOverWrite = createGlobalStyle`
   .ant-btn:active {
     background-color: ${theme('button.activeBg')};
   }
+  .ant-btn-background-ghost.ant-btn-primary.hover,
+  .ant-btn-background-ghost.ant-btn-primary:hover {
+    color: ${theme('button.hoverBg')};
+    border-color: ${theme('button.hoverBg')};
+  }
+  .ant-btn-background-ghost.ant-btn-primary:focus,
+  .ant-btn-background-ghost.ant-btn-primary:hover {
+    color: ${theme('button.hoverBg')};
+    border-color: ${theme('button.hoverBg')};
+  }
+  .ant-btn-background-ghost.ant-btn-primary.active,
+  .ant-btn-background-ghost.ant-btn-primary:active {
+    color: ${theme('button.fg')};
+    border-color: ${theme('button.hoverBg')};
+  }
 
   .ant-btn-primary {
     color: ${theme('button.fg')};

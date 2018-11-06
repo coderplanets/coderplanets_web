@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-
 import { theme } from '../../../utils'
 
+// margin: -20px;
 export const ContentContainer = styled.div`
-  margin: -20px;
+  margin-top: -8px;
   border-radius: 2px;
   background: ${theme('popover.bg')};
   border: 1px solid;
