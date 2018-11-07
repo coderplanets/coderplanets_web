@@ -51,7 +51,7 @@ export function checkUserAccount() {
   /* const user = BStore.get('user') */
   if (BStore.get('user')) {
     // NOTICE: if store is not valid json, user will be typeof string
-    console.log('query sessionState: ', S.sessionState)
+    console.log('query sessionState->: ', S.sessionState)
     sr71$.query(S.sessionState, {})
   }
 }
