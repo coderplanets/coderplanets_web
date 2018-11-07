@@ -30,9 +30,19 @@ let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
-const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
-const isNotSearching = R.compose(R.not, R.prop('searching'))
+const reposIsEmpty = R.compose(
+  R.isEmpty,
+  R.prop('reposData')
+)
+const inputValueIsNotEmpty = R.compose(
+  R.not,
+  R.isEmpty,
+  R.prop('inputValue')
+)
+const isNotSearching = R.compose(
+  R.not,
+  R.prop('searching')
+)
 
 function queryPocket() {
   pockect$.query(store.inputValue)
