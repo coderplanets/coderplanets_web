@@ -62,7 +62,7 @@ const AccountStore = t
       debug('updateAccount fucking: ', sobj)
 
       debug('current self.user: ', self.user)
-      const user = R.merge(self.user, { ...sobj })
+      const user = R.merge(stripMobx(self.user), { ...sobj })
       debug('about user: ', user)
       self.markState({ user })
     },
@@ -92,11 +92,7 @@ const AccountStore = t
       self.user.subscribedCommunities = data
     },
     addSubscribedCommunity(community) {
-      const {
-        user: {
-          subscribedCommunities: { entries },
-        },
-      } = self
+      const { user: { subscribedCommunities: { entries } } } = self
 
       self.user.subscribedCommunities.entries = R.insert(0, community, entries)
       self.user.subscribedCommunities.totalCount += 1
@@ -105,11 +101,7 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const {
-        user: {
-          subscribedCommunities: { entries },
-        },
-      } = self
+      const { user: { subscribedCommunities: { entries } } } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.user.subscribedCommunities.entries = R.remove(index, 1, entries)
