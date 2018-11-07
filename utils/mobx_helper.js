@@ -33,13 +33,24 @@ export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
     throw new Error('markState get invalid object, exepect a object')
   }
+
   const selfKeys = R.keys(self)
+
   R.forEachObjIndexed((val, key) => {
     if (R.contains(key, selfKeys)) {
-      /* self[key] = val */
-      self = Object.assign(self, { [key]: val })
+      if (isObject(self[key])) {
+        /*
+           NOTE: i had to use the next syntax to update object state
+           because the normal "self = Object.assign(self, { [key]: val })" is NOT WORKING in production build
+           what a mother-fucking bug is this ??? TODO: check later
+         */
+        self[key] = Object.assign(self[key], val)
+      } else {
+        self = Object.assign(self, { [key]: val })
+      }
     }
   }, sobj)
+
   return false
 }
 

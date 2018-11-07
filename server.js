@@ -23,37 +23,40 @@ app.prepare().then(() => {
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
-  server.get('/user/:userId', (req, res) =>
-    renderAndCache(req, res, '/user', req.query)
-  )
+  server.get('/user/:userId', (req, res) => {
+    console.log('match me user')
+    return renderAndCache(req, res, '/user', req.query)
+  })
 
-  server.get('/post/:id', (req, res) =>
-    renderAndCache(req, res, '/post', req.query)
-  )
+  server.get('/post/:id', (req, res) => {
+    console.log('match me post')
+    return renderAndCache(req, res, '/post', req.query)
+  })
 
-  server.get('/job/:id', (req, res) =>
-    renderAndCache(req, res, '/job', req.query)
-  )
+  server.get('/job/:id', (req, res) => {
+    console.log('match me job')
+    return renderAndCache(req, res, '/job', req.query)
+  })
 
-  server.get('/video/:id', (req, res) =>
-    renderAndCache(req, res, '/video', req.query)
-  )
+  server.get('/video/:id', (req, res) => {
+    console.log('match me video')
+    return renderAndCache(req, res, '/video', req.query)
+  })
 
-  server.get('/repo/:id', (req, res) =>
-    renderAndCache(req, res, '/repo', req.query)
-  )
+  server.get('/repo/:id', (req, res) => {
+    console.log('match me repo')
+    return renderAndCache(req, res, '/repo', req.query)
+  })
 
-  server.get('/repo/:id', (req, res) =>
-    renderAndCache(req, res, '/repo', req.query)
-  )
+  server.get('/communities/:category', (req, res) => {
+    console.log('match me communities')
+    return renderAndCache(req, res, '/communities', req.query)
+  })
 
-  server.get('/communities/:category', (req, res) =>
-    renderAndCache(req, res, '/communities', req.query)
-  )
-
-  server.get('/:community/:thread', (req, res) =>
-    renderAndCache(req, res, '/community', req.query)
-  )
+  server.get('/:community/:thread', (req, res) => {
+    console.log('match me community')
+    return renderAndCache(req, res, '/community', req.query)
+  })
 
   server.get('*', (req, res) => handle(req, res))
 

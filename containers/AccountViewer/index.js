@@ -51,7 +51,6 @@ class AccountViewerContainer extends React.Component {
 
     const { contributes } = accountInfo
     // debug('contributes --> ', contributes)
-    debug('accountInfo --> ', accountInfo)
 
     return (
       <AccountWrapper>

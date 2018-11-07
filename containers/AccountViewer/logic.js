@@ -46,10 +46,7 @@ export function editProfile() {
 const DataSolver = [
   {
     match: asyncRes('user'),
-    action: ({ user }) => {
-      debug('user: ', user)
-      store.updateAccount(user)
-    },
+    action: ({ user }) => store.updateAccount(user),
   },
   {
     match: asyncRes(EVENT.LOGIN),
