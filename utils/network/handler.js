@@ -49,7 +49,6 @@ export const formatGraphErrors = error => {
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
     return { error: ERR.CRAPHQL, details: fomatDetail(graphQLErrors) }
   }
-  console.log('fucking error: ', error)
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }
 

@@ -18,8 +18,6 @@ const doQuery = (query, variables) =>
       context,
     })
     .then(res => {
-      console.log('server return errror? ', res)
-      console.log('server return errror errors --> ', res.errors)
       if (res.errors) return formatGraphErrors(res.errors)
       return res.data
     })
