@@ -20,6 +20,7 @@ const sessionState = gql`
       isValid
       user {
         id
+        geoCity
         nickname
         avatar
         bio
