@@ -7,7 +7,6 @@
 import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
-// import { Input } from 'antd'
 
 import Maybe from '../Maybe'
 import {
