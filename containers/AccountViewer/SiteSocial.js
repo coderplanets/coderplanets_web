@@ -15,7 +15,10 @@ import {
 
 const NumbersDashboard = ({ user }) => (
   <RightWrapper>
-    <NumSection title="声望" num={user.achievement.reputation} />
+    <NumSection
+      title="声望"
+      num={user.achievement ? user.achievement.reputation : 0}
+    />
     <NumberDivider />
     <NumSection title="关注者" num={user.followingsCount} />
     <NumberDivider />
@@ -23,18 +26,18 @@ const NumbersDashboard = ({ user }) => (
   </RightWrapper>
 )
 
-const AcieveDashboard = ({ user }) => (
+const AchieveDashboard = ({ user }) => (
   <AchieveWrapper>
     <FocusLine
       before="共获得"
       iconSrc={`${ICON_CMD}/likev2.svg`}
-      focus={user.achievement.contentsStaredCount}
+      focus={user.achievement ? user.achievement.contentsStaredCount : 0}
       after="赞"
     />
     <FocusLine
       before="创作的内容被收藏"
       iconSrc={`${ICON_CMD}/favoritev2.svg`}
-      focus={user.achievement.contentsFavoritedCount}
+      focus={user.achievement ? user.achievement.contentsFavoritedCount : 0}
       after="次"
     />
   </AchieveWrapper>
@@ -48,7 +51,7 @@ const SiteSocial = ({ user }) => {
         <NumbersDashboard user={user} />
       </LeftPart>
       <RightPart>
-        <AcieveDashboard user={user} />
+        <AchieveDashboard user={user} />
       </RightPart>
     </Wrapper>
   )
