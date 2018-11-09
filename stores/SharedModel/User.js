@@ -117,7 +117,7 @@ export const User = t.model('User', {
   followingsCount: t.optional(t.number, 0),
   followersCount: t.optional(t.number, 0),
 
-  achievement: t.optional(Achievement, {}),
+  achievement: t.maybeNull(Achievement),
   editableCommunities: t.maybeNull(PagedCommunities),
 
   insertedAt: t.optional(t.string, ''),
