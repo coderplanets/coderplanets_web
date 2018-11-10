@@ -17,7 +17,7 @@ import {
 } from './styles/digest_view'
 
 import SocialList from './SocialList'
-import GitSource from './GitSource'
+// import GitSource from './GitSource'
 import BottomInfo from './BottomInfo'
 
 const DigestView = () => (
@@ -91,18 +91,28 @@ const DigestView = () => (
           >
             Developer API
           </Item>
-          <Item>
-            <GitSource
-              title="F:"
-              addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_web&type=star&count=true"
-            />
+          <Item
+            href="https://github.com/coderplanets/coderplanets_web"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            前端源码
           </Item>
-          <Item offsetTop="-8px">
-            <GitSource
-              title="B:"
-              addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_server&type=star&count=true"
-            />
+          <Item
+            href="https://github.com/coderplanets/coderplanets_server"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            后端源码
           </Item>
+          {/*
+               <Item offsetTop="-8px">
+               <GitSource
+               title="B:"
+               addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_server&type=star&count=true"
+               />
+               </Item>
+             */}
         </Body>
       </Column>
       <Column>
