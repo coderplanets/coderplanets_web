@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
             src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
           />
           <link
-            href="https://cdn.jsdelivr.net/npm/antd@3.1.4/dist/antd.min.css"
+            href="https://cdn.jsdelivr.net/npm/antd@3.8.4/dist/antd.min.css"
             rel="stylesheet"
           />
           <script
