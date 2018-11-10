@@ -18,10 +18,15 @@ const ssrCache = new LRUCache({
 
 mobxReact.useStaticRendering(true)
 
+const HOME_PAGE = '/home/posts'
 app.prepare().then(() => {
   const server = express()
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
+
+  server.get('/', (req, res) => {
+    return res.redirect(HOME_PAGE)
+  })
 
   server.get('/user/:userId', (req, res) => {
     console.log('match me user')

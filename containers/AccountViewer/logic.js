@@ -22,13 +22,7 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export function loadUser() {}
-
-export function loadAccount() {
-  // load contributes ..
-  // load posts ...
-  sr71$.query(S.user, {})
-}
+export const loadAccount = () => sr71$.query(S.user, {})
 
 export function changeTheme(name) {
   store.changeTheme(name)
@@ -46,7 +40,10 @@ export function editProfile() {
 const DataSolver = [
   {
     match: asyncRes('user'),
-    action: ({ user }) => store.updateAccount(user),
+    action: ({ user }) => {
+      debug('get user ----> : ', user)
+      store.updateAccount(user)
+    },
   },
   {
     match: asyncRes(EVENT.LOGIN),
