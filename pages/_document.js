@@ -24,7 +24,6 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
-          <meta name="referrer" content="origin" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
