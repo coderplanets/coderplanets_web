@@ -1,7 +1,6 @@
 import React from 'react'
 import withClickOutside from 'react-click-outside'
-
-import BodyEditor from '../TypeWriter/BodyEditor'
+import dynamic from 'next/dynamic'
 
 import { ICON_CMD, WORD_LIMIT } from '../../config'
 
@@ -29,6 +28,13 @@ import {
 } from './styles/comment_replyer'
 
 import EditorFooter from './EditorFooter'
+
+const DynamicBodyEditor = dynamic({
+  loader: () => import('../TypeWriter/BodyEditor'),
+  /* eslint-disable */
+  loading: () => <div>loading</div>,
+  /* eslint-enable */
+})
 
 const fakeUser = {
   avatar:
@@ -71,7 +77,7 @@ const Header = ({ countCurrent, referUsers, showPreview }) => {
 const InputEditor = ({ body, mentions }) => (
   <div className="comment-reply-editor">
     <InputEditorWrapper>
-      <BodyEditor
+      <DynamicBodyEditor
         mentions={mentions}
         onChange={debounce(logic.onReplyInputChange, 450)}
         onMention={logic.onMention}
