@@ -30,19 +30,9 @@ let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-const reposIsEmpty = R.compose(
-  R.isEmpty,
-  R.prop('reposData')
-)
-const inputValueIsNotEmpty = R.compose(
-  R.not,
-  R.isEmpty,
-  R.prop('inputValue')
-)
-const isNotSearching = R.compose(
-  R.not,
-  R.prop('searching')
-)
+const reposIsEmpty = R.compose(R.isEmpty, R.prop('reposData'))
+const inputValueIsNotEmpty = R.compose(R.not, R.isEmpty, R.prop('inputValue'))
+const isNotSearching = R.compose(R.not, R.prop('searching'))
 
 function queryPocket() {
   pockect$.query(store.inputValue)
@@ -52,7 +42,7 @@ export function githubLoginHandler() {
   const clientId = process.env.GITHUB_CLIENT_ID
   const info = 'from_github'
   // TODO: prettify signin page
-  const cb = 'http://www.coderplanets.com/oauth'
+  const cb = 'https://www.coderplanets.com/oauth'
   const github = 'https://github.com/login/oauth/authorize'
   const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
 
