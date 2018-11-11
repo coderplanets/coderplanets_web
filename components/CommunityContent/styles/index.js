@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   margin: 40px;
   margin-top: 25px;
   margin-bottom: 10px;
-  height: 70%;
   min-height: 70vh;
   color: ${theme('font')};
   background: ${theme('content.bg')};

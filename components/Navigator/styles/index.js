@@ -15,11 +15,12 @@ export const Logo = styled(Img)`
   width: 22px;
   opacity: 0.7;
 `
+// font-family: cursive; // not general
 export const LogoText = styled.div`
   color: ${theme('logoText')};
-  font-family: cursive;
-  font-weight: bolder;
-  letter-spacing: 0.5px;
+  font-family: Helvetica;
+  font-weight: bold;
+  letter-spacing: 1px;
   font-size: 1rem;
   margin-left: 6px;
 `
