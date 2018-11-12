@@ -13,16 +13,30 @@ import { withGuardian } from '../../components/HOC'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
-import { uid, makeDebugger, storePlug, THREAD } from '../../utils'
+import { uid, makeDebugger, storePlug, THREAD, TOPIC, Trans } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
+const colorOrder = {
+  red: 0,
+  orange: 1,
+  yellow: 2,
+  green: 3,
+  cyan: 4,
+  blue: 5,
+  purple: 6,
+  dodgerblue: 7,
+  yellowgreen: 8,
+  brown: 9,
+  grey: 10,
+}
+
 class TagsBarContainer extends React.Component {
   componentDidMount() {
-    const { tagsBar, thread } = this.props
-    logic.init(tagsBar, thread)
+    const { tagsBar, thread, topic } = this.props
+    logic.init(tagsBar, thread, topic)
   }
 
   onSelect(tag) {
@@ -36,6 +50,10 @@ class TagsBarContainer extends React.Component {
     const { tagsBar } = this.props
     const { tagsData, activeTagData } = tagsBar
 
+    const sortedTags = tagsData.sort(
+      (t1, t2) => colorOrder[t1.color] - colorOrder[t2.color]
+    )
+
     return (
       <Wrapper>
         {activeTagData.title ? (
@@ -47,7 +65,7 @@ class TagsBarContainer extends React.Component {
           </TagItem>
         ) : null}
 
-        {tagsData.map(tag => (
+        {sortedTags.map(tag => (
           <TagItem
             key={uid.gen()}
             onClick={this.onSelect.bind(this, {
@@ -66,7 +84,7 @@ class TagsBarContainer extends React.Component {
               title={tag.title}
               color={tag.color}
             >
-              {tag.title}
+              {Trans(tag.title)}
             </TagTitle>
           </TagItem>
         ))}
@@ -78,6 +96,7 @@ class TagsBarContainer extends React.Component {
 TagsBarContainer.propTypes = {
   tagsBar: PropTypes.object.isRequired,
   thread: PropTypes.string,
+  topic: PropTypes.string,
   /*
      tags: PropTypes.arrayOf(
      PropTypes.shape({
@@ -99,6 +118,7 @@ TagsBarContainer.propTypes = {
 
 TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
+  topic: TOPIC.POST,
 }
 
 export default withGuardian(

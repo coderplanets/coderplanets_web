@@ -37,6 +37,12 @@ export default class MyDocument extends Document {
             href="https://cdn.jsdelivr.net/npm/antd@3.8.4/dist/antd.min.css"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Orbitron"
+            rel="stylesheet"
+          />
+          <link rel="shortcut icon" href="/favicon.ico" />
+
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${
@@ -51,7 +57,7 @@ export default class MyDocument extends Document {
             gtag('js', new Date());
 
             gtag('config', '${process.env.GA_TRACING_ID}');
-                `,
+              `,
             }}
           />
           {this.props.styleTags}
@@ -60,6 +66,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+
         {/* load iziToast from CDN */}
         <script
           async

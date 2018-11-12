@@ -8,7 +8,7 @@ import R from 'ramda'
 
 import { Tag } from '../../stores/SharedModel'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TOPIC } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:TagsBar')
 /* eslint-enable no-unused-vars */
@@ -18,6 +18,7 @@ const TagsBar = t
     tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     thread: t.maybeNull(t.string),
+    topic: t.optional(t.string, TOPIC.POST),
   })
   .views(self => ({
     get root() {
@@ -25,6 +26,12 @@ const TagsBar = t
     },
     get curRoute() {
       return self.root.curRoute
+    },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
+    get curThread() {
+      return self.root.viewing.activeThread
     },
     get tagsData() {
       return stripMobx(self.tags)

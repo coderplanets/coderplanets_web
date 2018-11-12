@@ -43,7 +43,7 @@ export const CommunityInfo = styled.div`
 export const LogoText = styled.div`
   color: ${theme('header.cardLogo')};
   font-size: 0.8rem;
-  font-family: cursive;
+  font-family: Cursive, Helvetica;
 `
 export const CommunityTitle = styled.div`
   color: ${theme('header.cardTitle')};

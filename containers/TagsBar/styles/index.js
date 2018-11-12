@@ -37,8 +37,10 @@ export const TagDot = styled.div`
 
 export const TagTitle = styled.div`
   color: ${theme('tags.text')};
-  font-size: 1rem;
+  font-size: 0.95rem;
   opacity: 0.9;
+  letter-spacing: 0.1rem;
+
   &:hover {
     cursor: pointer;
     opacity: 1;

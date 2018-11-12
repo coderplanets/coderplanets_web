@@ -85,7 +85,6 @@ export default class Index extends React.Component {
     )
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const thread = getSubPath(props)
-    /* console.log('getSubPath --> thread: ', thread) */
 
     const {
       pagedPosts,

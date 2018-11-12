@@ -308,6 +308,9 @@ const AntUIOverWrite = createGlobalStyle`
     background-color: ${theme('button.primary')};
     border-color: ${theme('button.primary')};
   }
+  .ant-btn-primary:focus, .ant-btn-primary:hover {
+    border-color: ${theme('button.primary')};
+  }
   .ant-btn-primary.disabled,
   .ant-btn-primary[disabled],
   .ant-btn-primary.disabled:hover,

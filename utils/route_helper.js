@@ -44,7 +44,10 @@ export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)
   const subPath = pathList.length > 1 ? pathList[1] : pathList[0]
 
-  const thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
+  let thread = subPath
+  if (subPath !== 'news') {
+    thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
+  }
 
   return uppper ? R.toUpper(thread) : R.toLower(thread)
 }
