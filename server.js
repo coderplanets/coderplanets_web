@@ -21,6 +21,7 @@ mobxReact.useStaticRendering(true)
 const HOME_PAGE = '/home/posts'
 app.prepare().then(() => {
   const server = express()
+  server.use(express.static('static'))
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 

@@ -18,11 +18,12 @@ export const Logo = styled(Img)`
 // font-family: cursive; // not general
 export const LogoText = styled.div`
   color: ${theme('logoText')};
-  font-family: Helvetica;
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-size: 1rem;
+  font-family: Orbitron, Cursive, Helvetica;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
   margin-left: 6px;
+  margin-top: 3px;
 `
 
 export const BetaLogo = styled(Img)`

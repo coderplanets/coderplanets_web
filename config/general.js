@@ -28,4 +28,8 @@ export const TAG_COLORS = [
   'cyan',
   'blue',
   'purple',
+  'dodgerblue',
+  'yellowgreen',
+  'brown',
+  'grey',
 ]

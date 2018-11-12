@@ -38,7 +38,9 @@ export const markStates = (sobj, self) => {
 
   R.forEachObjIndexed((val, key) => {
     if (R.contains(key, selfKeys)) {
-      if (isObject(self[key])) {
+      if (Array.isArray(val)) {
+        self = Object.assign(self, { [key]: val })
+      } else if (isObject(self[key])) {
         /*
            NOTE: i had to use the next syntax to update object state
            because the normal "self = Object.assign(self, { [key]: val })" is NOT WORKING in production build

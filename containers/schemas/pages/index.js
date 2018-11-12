@@ -12,10 +12,9 @@ const P = {
   subscribedCommunities,
 
   partialTags: `
-    query($communityId: ID, $community: String, $thread: CmsThread!) {
-      partialTags(communityId: $communityId, community: $community, thread: $thread) {
+    query($communityId: ID, $community: String, $thread: CmsThread!, $topic: String) {
+      partialTags(communityId: $communityId, community: $community, thread: $thread, topic: $topic) {
         ${F.tag}
-        thread
       }
     }
   `,

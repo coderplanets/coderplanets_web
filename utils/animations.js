@@ -86,7 +86,7 @@ const shakeRule = css`
   ${shake} 0.3s linear;
 `
 const zoomInRule = css`
-  ${zoomIn} 0.3s linear;
+  ${zoomIn} 0.2s linear;
 `
 const fadeInRightRule = css`
   ${fadeInRight} 0.2s linear;

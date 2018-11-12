@@ -7,13 +7,14 @@ import {
   asyncErr,
   EVENT,
   ERR,
+  TOPIC,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.COMMUNITY_CHANGE],
+  resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 let sub$ = null
 
@@ -27,17 +28,12 @@ export function onTagSelect(tag) {
   store.selectTag(tag)
 }
 
-export function loadTags() {
+export function loadTags(topic = TOPIC.POST) {
   // NOTE: do not use viewing.community, it's too slow
-  const { mainPath: community } = store.curRoute
-  const thread = R.toUpper(store.thread)
+  const community = store.curCommunity.raw
+  const thread = R.toUpper(store.curThread)
 
-  const args = { community, thread }
-  /*
-  if (community === ROUTE.HOME) {
-    args.topic = R.merge(args, { topic })
-  }
-  */
+  const args = { community, thread, topic }
 
   debug('#### loadTags --> ', args)
   sr71$.query(S.partialTags, args)
@@ -50,14 +46,18 @@ export function loadTags() {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => {
-      debug('partialTags get: ', tags)
-      store.markState({ tags })
-    },
+    action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => loadTags(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
+    action: data => {
+      const { topic } = data[EVENT.TABBER_CHANGE].data
+      loadTags(topic)
+    },
   },
 ]
 const ErrSolver = [
@@ -81,21 +81,15 @@ const ErrSolver = [
   },
 ]
 
-export const loadIfNeed = thread => {
-  if (R.isEmpty(store.tagsData) || thread !== store.thread) {
-    loadTags()
-  }
-}
-
-export function init(_store, thread) {
+export function init(_store, thread, topic) {
   if (store) {
-    store.markState({ thread })
-    return loadIfNeed(thread)
+    store.markState({ thread, topic })
+    return false
+    // return loadIfNeed(thread)
   }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  store.markState({ thread })
-  loadIfNeed(thread)
+  store.markState({ thread, topic })
 }

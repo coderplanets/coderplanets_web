@@ -51,8 +51,9 @@ class PostsThreadContainer extends React.Component {
       isLogin,
     } = postsThread
 
-    const { mainPath } = curRoute
+    const { mainPath, subPath } = curRoute
     const { totalCount } = pagedPostsData
+    const topic = subPath
 
     return (
       <Wrapper>
@@ -91,7 +92,11 @@ class PostsThreadContainer extends React.Component {
             </PublishBtn>
 
             <Affix offsetTop={50}>
-              <TagsBar thread={THREAD.POST} onSelect={logic.onTagSelect} />
+              <TagsBar
+                thread={THREAD.POST}
+                topic={topic}
+                onSelect={logic.onTagSelect}
+              />
             </Affix>
           </React.Fragment>
         </RightPart>

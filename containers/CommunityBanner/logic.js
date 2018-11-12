@@ -35,12 +35,14 @@ export function tabberChange(activeThread) {
   // console.log('store is :', store)
   // console.log('tabberChange thread: ', thread2Subpath(activeThread))
   // debug('subPath set to: ', thread2Subpath(activeThread))
+  const subPath = thread2Subpath(activeThread)
+  debug('EVENT.activeThread -----> ', activeThread)
+  debug('EVENT.subPath -----> ', subPath)
 
-  debug('tabberChange ---> ', activeThread)
-  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread } })
-
-  store.markRoute({ subPath: thread2Subpath(activeThread) })
+  store.markRoute({ subPath })
   store.setViewing({ activeThread })
+
+  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
 export function showEditorList() {

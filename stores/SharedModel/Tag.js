@@ -5,10 +5,16 @@ import { TAG_COLORS, PAGE_SIZE } from '../../config'
 import { Community } from './Community'
 import { THREAD } from '../../utils'
 
+export const Topic = t.model('Topic', {
+  id: t.maybeNull(t.string),
+  raw: t.maybeNull(t.string),
+})
+
 export const Tag = t.model('Tag', {
   id: t.maybeNull(t.string),
   title: t.maybeNull(t.string),
   color: t.optional(t.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
+  topic: t.maybeNull(Topic),
   /* thread: t.optional(t.enumeration('thread', R.values(THREAD)), THREAD.POST), */
   thread: t.optional(t.enumeration('thread', R.values(THREAD)), THREAD.POST),
   community: t.maybeNull(Community),

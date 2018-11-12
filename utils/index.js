@@ -6,6 +6,7 @@ export {
   ERR,
   TYPE,
   THREAD,
+  TOPIC,
   USER_THREAD,
   ACTION,
   FILTER,

@@ -136,6 +136,14 @@ export const THREAD = {
   CHEATSHEET: 'cheatsheet',
 }
 
+export const TOPIC = {
+  POST: 'posts',
+  JOB: 'job',
+  NEWS: 'news',
+  SHARE: 'share',
+  CITY: 'city',
+}
+
 export const USER_THREAD = {
   PUBLISH: 'publish',
   COMMENTS: 'comments',
