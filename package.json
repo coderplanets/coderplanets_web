@@ -151,7 +151,7 @@
     "plop": "2.0.0",
     "prettier": "1.14.0",
     "react-test-renderer": "16.4.2",
-    "shelljs": "0.8.2",
+    "shelljs": "0.8.3",
     "standard-version": "^4.4.0",
     "webpack-bundle-analyzer": "3.0.2"
   }
