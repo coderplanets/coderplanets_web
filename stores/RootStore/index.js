@@ -258,7 +258,13 @@ const rootStore = t
         title: '当前账号未登录',
         msg: '暂不支持匿名操作，请登录后再次尝试.',
       }
-      self.toast('warn', R.merge(defaultOpt, options))
+
+      if (options.hideToast && options.hideToast === true) {
+        // pass
+      } else {
+        self.toast('warn', R.merge(defaultOpt, options))
+      }
+
       dispatchEvent(EVENT.LOGIN_PANEL)
       return false
     },

@@ -19,6 +19,9 @@ const Footer = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get curRoute() {
       return self.root.curRoute
     },
@@ -41,6 +44,9 @@ const Footer = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     sponsorHepler() {
       self.showSponsor = true
     },
