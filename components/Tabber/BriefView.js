@@ -7,11 +7,11 @@ import TabIcon from './TabIcon'
 import { uid, Trans } from '../../utils'
 
 const BriefView = ({ source, active, onChange }) => {
-  const tabitems = R.values(source)
+  const sortedTabs = R.sort((a, b) => a.index - b.index, source)
 
   return (
     <Wrapper>
-      {tabitems.map(item => (
+      {sortedTabs.map(item => (
         <TabItem
           key={uid.gen()}
           active={item.raw === active}
