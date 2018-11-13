@@ -7,6 +7,7 @@ import {
   asyncErr,
   EVENT,
   ERR,
+  THREAD,
   TOPIC,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -28,10 +29,14 @@ export function onTagSelect(tag) {
   store.selectTag(tag)
 }
 
+const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
+
 export function loadTags(topic = TOPIC.POST) {
-  // NOTE: do not use viewing.community, it's too slow
+  const { curThread } = store
+  if (R.contains(curThread, NO_TAG_THREADS)) return false
+
   const community = store.curCommunity.raw
-  const thread = R.toUpper(store.curThread)
+  const thread = R.toUpper(curThread)
 
   const args = { community, thread, topic }
 

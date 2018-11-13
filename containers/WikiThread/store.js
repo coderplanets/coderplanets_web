@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { Wiki } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:WikiThread')
@@ -16,6 +16,15 @@ const debug = makeDebugger('S:WikiThread')
 const WikiThread = t
   .model('WikiThread', {
     wiki: t.optional(Wiki, { readme: '' }),
+    curView: t.optional(
+      t.enumeration('curView', [
+        TYPE.RESULT,
+        TYPE.LOADING,
+        TYPE.NOT_FOUND,
+        TYPE.RESULT_EMPTY,
+      ]),
+      TYPE.RESULT
+    ),
     // errorType
     errorType: t.maybeNull(t.string),
   })
