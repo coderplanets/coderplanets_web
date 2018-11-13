@@ -36,7 +36,9 @@ const renderReadonlyItems = items => {
 
   return (
     <Item>
-      {items.map(item => <Hightlight key={uid.gen()}>{item}</Hightlight>)}
+      {items.map(item => (
+        <Hightlight key={uid.gen()}>{item}</Hightlight>
+      ))}
     </Item>
   )
 }
