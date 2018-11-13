@@ -5,6 +5,7 @@ import {
   $solver,
   asyncRes,
   asyncErr,
+  TYPE,
   ERR,
   githubApi,
 } from '../../utils'
@@ -75,6 +76,8 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      // TODO: add CODE to NOT_FOUND in server
+      store.markState({ curView: TYPE.NOT_FOUND })
     },
   },
   {
