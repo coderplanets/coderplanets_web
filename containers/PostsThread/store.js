@@ -44,6 +44,9 @@ const PostsThreadStore = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
+    get curThread() {
+      return self.root.viewing.activeThread
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },

@@ -16,12 +16,13 @@ import {
   ErrorMsgBox,
   WarningMsgBox,
   ErrorArrayWrapper,
-  ErrorMsg,
-  ErrorKey,
+  // ErrorMsg,
+  // ErrorKey,
   ErrorDetail,
 } from './styles'
 
-import { makeDebugger, uid } from '../../utils'
+/* import { makeDebugger, uid, isObject } from '../../utils' */
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:StatusBox:index')
@@ -37,6 +38,7 @@ function getDefaultMsg(success, error) {
   return '内容无改动，请编辑后再提交'
 }
 
+/*
 const dencodeGqError = msg => {
   try {
     return JSON.parse(msg)
@@ -49,6 +51,7 @@ const dencodeGqError = msg => {
     ]
   }
 }
+*/
 
 const ErrorMessages = ({ show, msg }) => {
   if (R.isEmpty(msg)) {
@@ -60,16 +63,20 @@ const ErrorMessages = ({ show, msg }) => {
     )
   }
 
-  const msgArray = dencodeGqError(msg)
+  // const msgArray = dencodeGqError(msg)
 
   return (
     <ErrorArrayWrapper>
-      {msgArray.map(errObj => (
-        <ErrorMsg key={uid.gen()}>
-          <ErrorKey>{errObj.key}</ErrorKey>
-          <ErrorDetail>{errObj.detail}</ErrorDetail>
-        </ErrorMsg>
-      ))}
+      <ErrorDetail>{msg}</ErrorDetail>
+
+      {/*
+           {msgArray.map(errObj => (
+           <ErrorMsg key={uid.gen()}>
+           <ErrorKey>{errObj.key}</ErrorKey>
+           <ErrorDetail>{errObj.detail}</ErrorDetail>
+           </ErrorMsg>
+           ))}
+         */}
     </ErrorArrayWrapper>
   )
 }

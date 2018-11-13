@@ -33,6 +33,12 @@ import * as logic from './logic'
 const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
+const LabelText = {
+  news: '发布新闻',
+  share: '我要分享',
+  city: '发布同城帖',
+}
+
 class PostsThreadContainer extends React.Component {
   componentDidMount() {
     const { postsThread } = this.props
@@ -88,7 +94,7 @@ class PostsThreadContainer extends React.Component {
         <RightPart>
           <React.Fragment>
             <PublishBtn type="primary" onClick={logic.createContent}>
-              <PublishLabel text="发布帖子" />
+              <PublishLabel text={LabelText[subPath] || '发布帖子'} />
             </PublishBtn>
 
             <Affix offsetTop={50}>

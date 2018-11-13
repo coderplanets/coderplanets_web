@@ -13,23 +13,21 @@ import {
 
 import { uid } from '../../utils'
 
-const OptionItems = ({ items, selected, onOptionSelect }) => {
-  return (
-    <OptionWrapper>
-      {items.map(item => (
-        <OptionItem key={uid.gen()}>
-          <OptionCheckIcon
-            src={`${ICON_CMD}/check.svg`}
-            active={R.contains(item, selected)}
-          />
-          <OptionText onClick={onOptionSelect.bind(this, item)}>
-            {item}
-          </OptionText>
-        </OptionItem>
-      ))}
-    </OptionWrapper>
-  )
-}
+const OptionItems = ({ items, selected, onOptionSelect }) => (
+  <OptionWrapper>
+    {items.map(item => (
+      <OptionItem key={uid.gen()}>
+        <OptionCheckIcon
+          src={`${ICON_CMD}/check.svg`}
+          active={R.contains(item, selected)}
+        />
+        <OptionText onClick={onOptionSelect.bind(this, item)}>
+          {item}
+        </OptionText>
+      </OptionItem>
+    ))}
+  </OptionWrapper>
+)
 
 const renderOptions = (label, tagsData, selected, onOptionSelect) => {
   switch (label) {
