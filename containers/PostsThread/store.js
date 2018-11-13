@@ -64,6 +64,12 @@ const PostsThreadStore = t
     },
   }))
   .actions(self => ({
+    toastInfo(options) {
+      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+    },
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = R.merge(curfilter, option)

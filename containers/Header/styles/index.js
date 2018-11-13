@@ -68,6 +68,7 @@ export const HeaderIcon = styled(Img)`
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
+  margin-top: ${({ offsetTop }) => offsetTop || '0'};
 `
 export const Operations = styled.div`
   ${cs.flex('align-center')};

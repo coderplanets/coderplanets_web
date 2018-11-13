@@ -4,7 +4,6 @@ import { theme, cs } from '../../../utils'
 
 export const PageOverlay = styled.div`
   bottom: 0;
-  cursor: pointer;
   left: 0;
   overflow: auto;
   position: fixed;

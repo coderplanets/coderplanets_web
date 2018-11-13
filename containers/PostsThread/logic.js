@@ -100,8 +100,13 @@ export function onTitleSelect(data) {
   })
 }
 
-export const createContent = () =>
+export const createContent = () => {
+  if (!store.isLogin) {
+    store.authWarning()
+    return false
+  }
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+}
 
 export const onCustomChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
