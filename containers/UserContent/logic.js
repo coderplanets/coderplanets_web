@@ -24,17 +24,13 @@ const debug = makeDebugger('L:UserContent')
 let store = null
 
 export function followUser(userId) {
-  if (!store.isLogin) {
-    store.authWarning()
-  }
+  if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.follow, { userId })
 }
 
 export function undoFollowUser(userId) {
-  if (!store.isLogin) {
-    store.authWarning()
-  }
+  if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.undoFollow, { userId })
 }

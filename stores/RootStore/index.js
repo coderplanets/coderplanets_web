@@ -260,6 +260,7 @@ const rootStore = t
       }
       self.toast('warn', R.merge(defaultOpt, options))
       dispatchEvent(EVENT.LOGIN_PANEL)
+      return false
     },
     changesetErr(options) {
       self.toast('error', options)
