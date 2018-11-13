@@ -101,10 +101,8 @@ export function onTitleSelect(data) {
 }
 
 export const createContent = () => {
-  if (!store.isLogin) {
-    store.authWarning()
-    return false
-  }
+  if (!store.isLogin) return store.authWarning()
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 

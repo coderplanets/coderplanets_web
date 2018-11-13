@@ -33,7 +33,7 @@ const UserContent = t
     },
   }))
   .actions(self => ({
-    authWarning(options = {}) {
+    authWarning(options) {
       self.root.authWarning(options)
     },
     markState(sobj) {
