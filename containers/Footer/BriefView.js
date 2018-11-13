@@ -1,8 +1,6 @@
 import React from 'react'
 
 // import { ICON_CMD } from '../../config'
-import { BuyMeChuanChuan } from '../../components'
-
 import {
   Wrapper,
   MainInfos,
@@ -14,12 +12,9 @@ import {
 
 import BottomInfo from './BottomInfo'
 
-import { toggleSponsorHelper } from './logic'
-
-const BriefView = ({ showSponsor }) => (
+const BriefView = ({ toggleSponsorHelper }) => (
   <Wrapper>
     <MainInfos>
-      <BuyMeChuanChuan show={showSponsor} onClose={toggleSponsorHelper} />
       <BaseInfo>
         <Item
           href="http://www.miitbeian.gov.cn"
