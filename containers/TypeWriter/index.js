@@ -25,6 +25,7 @@ const debug = makeDebugger('C:TypeWriter')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
 const View = ({ curView, thread, editData }) => {
+  console.log('View editData: ', editData.body)
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -53,7 +54,6 @@ class TypeWriterContainer extends React.Component {
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
-    // Message.success('草稿已经保存')
     uninit()
   }
 
@@ -73,7 +73,6 @@ class TypeWriterContainer extends React.Component {
       editData,
     } = typeWriter
 
-    // debug('editData: ', editData)
     return (
       <Wrapper>
         <Header isEdit={isEdit} curView={curView} thread={thread} />

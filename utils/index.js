@@ -34,6 +34,8 @@ export {
   extractAttachments,
 } from './functions'
 
+export { errorForHuman } from './errors'
+
 export {
   cast,
   changeset,

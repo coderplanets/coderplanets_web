@@ -52,6 +52,7 @@ async function fetchData(props) {
   // utils: filter, tags staff
   const community = getMainPath(props)
   const thread = extractThreadFromPath(props)
+  console.log('the page community thread: ', thread)
   const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
 
   // query data
@@ -85,6 +86,7 @@ export default class Index extends React.Component {
     )
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const thread = getSubPath(props)
+    console.log('getSubPath thread: ', thread)
 
     const {
       pagedPosts,
@@ -100,6 +102,7 @@ export default class Index extends React.Component {
 
     const curView =
       pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */

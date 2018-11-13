@@ -74,13 +74,6 @@ export const login = () => dispatchEvent(EVENT.LOGIN_PANEL)
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
-export function toast() {
-  store.toast('success', {
-    title: 'mydearxym',
-    msg: 'your website is fucking awesome',
-  })
-}
-
 const DataSolver = [
   {
     match: asyncRes('sessionState'),

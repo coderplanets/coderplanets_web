@@ -7,13 +7,14 @@ import {
   makeDebugger,
   dispatchEvent,
   THREAD,
-  ROUTE,
   EVENT,
   ERR,
   meteorState,
   countWords,
   extractAttachments,
   updateEditing,
+  errorForHuman,
+  closePreviewer,
 } from '../../utils'
 
 import S from './schema'
@@ -53,31 +54,35 @@ const getDigest = body => {
 }
 
 export function onPublish() {
-  if (store.activeThread === THREAD.POST) {
-    return publishPost()
+  if (store.activeThread === THREAD.JOB) {
+    return publishJob()
   }
-  return publishJob()
+  return publishPost()
 }
 
 function publishPost() {
   if (!store.validator('general')) return false
+  const { subPath: topic } = store.curRoute
   const { body } = store.editData
   publishing()
 
   const digest = getDigest(body)
   const length = countWords(body)
 
-  let variables = {
+  const variables = {
     ...store.editData,
+    communityId: store.viewing.community.id,
     digest,
     length,
-    communityId: store.viewing.community.id,
+    topic,
   }
 
+  /*
   if (store.viewing.community.raw === ROUTE.HOME) {
     debug('add topic on it: ', ROUTE.HOME)
-    variables = R.merge(variables, { topic: 'CITY' })
+    variables = R.merge(variables, { topic })
   }
+  */
 
   console.log('create post --> ', variables)
   // TODO: topic
@@ -113,7 +118,7 @@ function publishJob() {
 export const canclePublish = () => {
   cancleLoading()
   // store.reset()
-  store.closePreview()
+  closePreviewer()
 }
 
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
@@ -140,9 +145,9 @@ const openAttachment = att => {
 
 const cancleMutate = () => store.reset()
 const doneCleanUp = () => {
-  cancleLoading()
   store.reset()
-  store.closePreview()
+  cancleLoading()
+  closePreviewer()
 }
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
@@ -188,8 +193,8 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
-      const errMsg = details[0].detail
-      debug('--> ERR.CRAPHQL -->', details)
+      // const errMsg = details[0].detail
+      const errMsg = errorForHuman(details)
       meteorState(store, 'error', 5, errMsg)
       cancleLoading()
     },
@@ -211,6 +216,7 @@ const ErrSolver = [
 ]
 
 export function init(_store, attachment) {
+  debug('init')
   if (store) {
     return openAttachment(attachment)
   }
@@ -222,9 +228,11 @@ export function init(_store, attachment) {
 }
 
 export function uninit() {
+  /*
   store.toast('info', {
     title: 'todo',
     msg: '草稿已保存',
   })
+  */
   cancleMutate()
 }

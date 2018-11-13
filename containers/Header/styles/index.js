@@ -34,11 +34,11 @@ export const MiniMapWrapper = styled.div`
 `
 
 export const CommunityLogo = styled(Img)`
-  width: 26px;
-  height: 26px;
-  margin-right: 25px;
+  width: 22px;
+  height: 22px;
+  margin-right: 22px;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 `
 
 /*

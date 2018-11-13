@@ -44,9 +44,6 @@ const RepoEditor = t
     },
   }))
   .actions(self => ({
-    closePreview() {
-      self.root.closePreview()
-    },
     changesetErr(options) {
       self.root.changesetErr(options)
     },
