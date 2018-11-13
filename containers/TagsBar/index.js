@@ -19,20 +19,6 @@ import * as logic from './logic'
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
-const colorOrder = {
-  red: 0,
-  orange: 1,
-  yellow: 2,
-  green: 3,
-  cyan: 4,
-  blue: 5,
-  purple: 6,
-  dodgerblue: 7,
-  yellowgreen: 8,
-  brown: 9,
-  grey: 10,
-}
-
 class TagsBarContainer extends React.Component {
   componentDidMount() {
     const { tagsBar, thread, topic } = this.props
@@ -50,9 +36,7 @@ class TagsBarContainer extends React.Component {
     const { tagsBar } = this.props
     const { tagsData, activeTagData } = tagsBar
 
-    const sortedTags = tagsData.sort(
-      (t1, t2) => colorOrder[t1.color] - colorOrder[t2.color]
-    )
+    const sortedTags = logic.sortByColor(tagsData)
 
     return (
       <Wrapper>

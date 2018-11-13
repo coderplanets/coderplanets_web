@@ -10,11 +10,11 @@ import { Trans } from '../../utils'
 const { TabPane } = Tabs
 
 const NormalView = ({ source, active, onChange }) => {
-  const tabitems = R.values(source)
+  const sortedTabs = R.sort((a, b) => a.index - b.index, source)
 
   return (
     <Tabs onChange={onChange} activeKey={active}>
-      {tabitems.map(item => (
+      {sortedTabs.map(item => (
         <TabPane
           tab={
             <LableWrapper>
