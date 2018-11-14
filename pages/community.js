@@ -1,5 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
@@ -24,11 +25,12 @@ import {
   getMainPath,
   getSubPath,
   extractThreadFromPath,
-  subPath2Thread,
-  TYPE,
   makeDebugger,
   BStore,
   nilOrEmpty,
+  ssrPagedSchema,
+  ssrContentsThread,
+  addTopicIfNeed,
 } from '../utils'
 
 import { P } from '../containers/schemas'
@@ -51,13 +53,27 @@ async function fetchData(props) {
 
   // utils: filter, tags staff
   const community = getMainPath(props)
+  const topic = getSubPath(props)
   const thread = extractThreadFromPath(props)
-  console.log('the page community thread: ', thread)
-  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
+  /* const thread = getSubPath(props) */
+
+  console.log('the page community thread ->: ', thread)
+  const filter = addTopicIfNeed(
+    {
+      ...queryStringToJSON(asPath, { pagi: 'number' }),
+      community,
+    },
+    thread,
+    topic
+  )
 
   // query data
   const curCommunity = gqClient.request(P.community, { raw: community })
-  const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
+  const pagedContents = gqClient.request(ssrPagedSchema(thread), {
+    filter,
+    userHasLogin,
+  })
+
   const partialTags = gqClient.request(P.partialTags, { thread, community })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -68,13 +84,13 @@ async function fetchData(props) {
 
   return {
     ...(await curCommunity),
-    ...(await pagedPosts),
+    ...(await pagedContents),
     ...(await partialTags),
     ...(await subscribedCommunities),
   }
 }
 
-export default class Index extends React.Component {
+export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
     const { req, asPath } = props
     const isServer = !!req
@@ -85,43 +101,49 @@ export default class Index extends React.Component {
       queryStringToJSON(asPath, { pagi: 'number' })
     )
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const thread = getSubPath(props)
+    const subPath = getSubPath(props)
+    const thread = extractThreadFromPath(props)
     console.log('getSubPath thread: ', thread)
 
-    const {
-      pagedPosts,
-      partialTags,
-      community,
-      subscribedCommunities,
-    } = await fetchData(props)
+    let resp
+    try {
+      resp = await fetchData(props)
+    } catch (error) {
+      console.error('TODO: error handling:')
+      // JSON.stringify(error, undefined, 2)
+    }
+
+    const { partialTags, community, subscribedCommunities } = resp
+
+    // const pagedContents =
 
     console.log(
       'pages get subscribedCommunities: ',
       subscribedCommunities.totalCount
     )
 
-    const curView =
-      pagedPosts.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+    const contentsThread = ssrContentsThread(resp, thread)
 
+    // console.log('contentsThread --> ', contentsThread)
+
+    // console.log('pagedPosts -- ', pagedPosts)
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
     /* eslint-enable no-undef */
     /* console.log('partialTags --> ', partialTags) */
 
-    return {
-      langSetup: {},
-      // account: { user: { subscribedCommunities } },
-      account: { userSubscribedCommunities: subscribedCommunities },
-      /* curCommunity: { community, activeThread: subPath2Thread(thread) }, */
-      viewing: { community, activeThread: subPath2Thread(thread) },
-      route: { mainPath: community.raw, subPath: thread },
-      tagsBar: { tags: partialTags },
-      postsThread: {
-        pagedPosts,
-        curView,
+    return R.merge(
+      {
+        langSetup: {},
+        // account: { user: { subscribedCommunities } },
+        account: { userSubscribedCommunities: subscribedCommunities },
+        viewing: { community, activeThread: R.toLower(thread) },
+        route: { mainPath: community.raw, subPath },
+        tagsBar: { tags: partialTags },
       },
-    }
+      contentsThread
+    )
   }
 
   constructor(props) {
