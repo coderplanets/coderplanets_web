@@ -50,8 +50,10 @@ const renderView = (wikiData, type, communityRaw) => {
 }
 
 class WikiThreadContainer extends React.Component {
-  componentDidMount() {
-    const { wikiThread } = this.props
+  constructor(props) {
+    super(props)
+
+    const { wikiThread } = props
     logic.init(wikiThread)
   }
 

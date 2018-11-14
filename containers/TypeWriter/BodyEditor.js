@@ -30,7 +30,7 @@ const themeClass = {
 const debug = makeDebugger('C:BodyEditor')
 /* eslint-enable no-unused-vars */
 
-class MastaniEditor extends React.Component {
+class BodyEditor extends React.Component {
   constructor(props) {
     super(props)
     this.mentionPlugin = createMentionPlugin({
@@ -190,7 +190,7 @@ class MastaniEditor extends React.Component {
   }
 }
 
-MastaniEditor.propTypes = {
+BodyEditor.propTypes = {
   mentions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -203,11 +203,11 @@ MastaniEditor.propTypes = {
   onChange: PropTypes.func,
 }
 
-MastaniEditor.defaultProps = {
+BodyEditor.defaultProps = {
   body: '',
   mentions: [],
   onMention: debug,
   onChange: debug,
 }
 
-export default MastaniEditor
+export default BodyEditor

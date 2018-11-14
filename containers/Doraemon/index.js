@@ -19,8 +19,9 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Doraemon')
 /* eslint-enable no-unused-vars */
 class DoraemonContainer extends React.Component {
-  componentDidMount() {
-    const { doraemon } = this.props
+  constructor(props) {
+    super(props)
+    const { doraemon } = props
     logic.init(doraemon)
   }
   // ref={infobar => (this[`infobar${suggestion.title}`] = infobar)}

@@ -21,8 +21,10 @@ const debug = makeDebugger('C:UserBilling')
 /* eslint-enable no-unused-vars */
 
 class UserBillingContainer extends React.Component {
-  componentDidMount() {
-    const { userBilling } = this.props
+  constructor(props) {
+    super(props)
+
+    const { userBilling } = props
     logic.init(userBilling)
   }
 

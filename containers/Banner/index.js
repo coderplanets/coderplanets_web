@@ -58,8 +58,10 @@ const BannerContent = ({ curRoute }) => {
 }
 
 class BannerContainer extends React.Component {
-  componentDidMount() {
-    const { banner } = this.props
+  constructor(props) {
+    super(props)
+
+    const { banner } = props
     init(banner)
   }
 

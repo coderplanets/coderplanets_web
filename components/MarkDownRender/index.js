@@ -30,8 +30,10 @@ const debug = makeDebugger('c:MarkDownRender:index')
 /* eslint-enable no-unused-vars */
 
 class MarkDownRender extends React.Component {
-  state = {
-    body: '',
+  constructor(props) {
+    super(props)
+
+    this.state = { body: '' }
   }
 
   componentDidMount() {

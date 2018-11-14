@@ -37,8 +37,10 @@ const debug = makeDebugger('C:UserSettings')
 const RadioGroup = Radio.Group
 
 class UserSettingsContainer extends React.Component {
-  componentDidMount() {
-    const { userSettings } = this.props
+  constructor(props) {
+    super(props)
+
+    const { userSettings } = props
     logic.init(userSettings)
   }
 

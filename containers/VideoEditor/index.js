@@ -25,8 +25,10 @@ const debug = makeDebugger('C:VideoEditor')
 /* eslint-enable no-unused-vars */
 
 class VideoEditorContainer extends React.Component {
-  componentDidMount() {
-    const { videoEditor } = this.props
+  constructor(props) {
+    super(props)
+
+    const { videoEditor } = props
     init(videoEditor)
   }
 

@@ -40,8 +40,10 @@ const LabelText = {
 }
 
 class PostsThreadContainer extends React.Component {
-  componentDidMount() {
-    const { postsThread } = this.props
+  constructor(props) {
+    super(props)
+
+    const { postsThread } = props
     logic.init(postsThread)
   }
 
