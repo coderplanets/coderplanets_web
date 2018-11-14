@@ -92,8 +92,9 @@ const green = {
     label: descText,
   },
   sidebar: {
-    logoText: primaryColor,
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
+    logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),
     pinActive: contentBg,
     menuLink: '#A6BBAF',

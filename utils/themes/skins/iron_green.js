@@ -90,8 +90,9 @@ const iconGreen = {
     label: descText,
   },
   sidebar: {
-    logoText: primaryColor,
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
+    logoText: primaryColor,
     menuHover: darken(0.05, sidebarBg),
     pinActive: '#54848B',
     menuLink: '#F0F9F8',
