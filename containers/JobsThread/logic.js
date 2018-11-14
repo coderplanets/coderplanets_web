@@ -70,7 +70,7 @@ export function loadJobs(page = 1) {
     args = R.merge(args, { community })
   }
 
-  debug('loadJobs args: ', args)
+  debug('######## loadJobs args: ', args)
   store.markRoute({ page })
   sr71$.query(S.pagedJobs, args)
 }
@@ -149,25 +149,15 @@ const ErrSolver = [
   },
 ]
 
-const loadIfNeed = () => {
-  loadJobs()
-  /*
-  if (R.isEmpty(store.pagedJobsData.entries)) {
-    debug('loadIfNeed')
-    loadJobs()
-  }
-  */
-}
-
 export function init(_store) {
   if (store) {
-    return loadIfNeed()
+    return false // loadIfNeed()
   }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadIfNeed()
+  // loadIfNeed()
   /* loadJobs() */
 }
