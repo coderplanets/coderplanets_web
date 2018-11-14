@@ -40,21 +40,18 @@ const getFileName = filename => {
 }
 
 class DocUploaderContainer extends React.Component {
-  /* constructor(props) { */
-  /* super(props) */
-  /* this.initOssClient() */
-  /* } */
+  constructor(props) {
+    super(props)
 
-  state = {
-    ossClient: null,
-    // use unique id to init the file input, otherwise it will be the some instance
-    uniqueId: uid.gen(),
-  }
-
-  componentDidMount() {
-    const { docUploader } = this.props
+    const { docUploader } = props
     init(docUploader)
     this.initOssClient()
+
+    this.state = {
+      ossClient: null,
+      // use unique id to init the file input, otherwise it will be the some instance
+      uniqueId: uid.gen(),
+    }
   }
 
   componentWillUnmount() {

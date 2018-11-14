@@ -47,11 +47,13 @@ const Hint = ({ content, closeIt, onConfirm }) => (
 )
 
 class Popconfirm extends React.Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
+
+    this.state = { visible: false }
+  }
 
   componentWillUnmount() {}
-
-  state = { visible: false }
 
   closeIt() {
     this.setState({ visible: false })

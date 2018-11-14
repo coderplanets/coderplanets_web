@@ -37,13 +37,13 @@ const debug = makeDebugger('c:Footer:index')
 /* eslint-enable no-unused-vars */
 
 class BuyMeChuanChuan extends React.Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
+
+    this.state = { activeChuan: 1 }
+  }
 
   componentWillUnmount() {}
-
-  state = {
-    activeChuan: 1,
-  }
 
   onChuanSelect(activeChuan) {
     this.setState({

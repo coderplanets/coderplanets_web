@@ -46,8 +46,10 @@ const View = ({ curView, searching, searchValue, repo }) => {
 }
 
 class RepoEditorContainer extends React.Component {
-  componentDidMount() {
-    const { repoEditor } = this.props
+  constructor(props) {
+    super(props)
+
+    const { repoEditor } = props
     logic.init(repoEditor)
   }
 

@@ -22,7 +22,8 @@ const debug = makeDebugger('C:{{ properCase name }}')
 
 // NOTE: add me to ../containers/index
 class {{ properCase name }}Container extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     const {{preCurly ""}} {{ camelCase name}} {{afterCurly ""}} = this.props
     logic.init({{ camelCase name }})
   }

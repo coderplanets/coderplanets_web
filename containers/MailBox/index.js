@@ -55,11 +55,13 @@ const MailsPannel = ({ activeRaw }) => {
 }
 
 class MailBoxContainer extends React.Component {
-  state = { visible: false }
+  constructor(props) {
+    super(props)
 
-  componentDidMount() {
-    const { mailBox } = this.props
+    const { mailBox } = props
     logic.init(mailBox)
+
+    this.state = { visible: false }
   }
 
   onVisibleChange(visible) {

@@ -20,8 +20,9 @@ const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
 
 class FooterContainer extends React.Component {
-  componentDidMount() {
-    const { footer } = this.props
+  constructor(props) {
+    super(props)
+    const { footer } = props
     logic.init(footer)
   }
 

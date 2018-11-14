@@ -51,26 +51,6 @@ class TypeWriterContainer extends React.Component {
 
     init(typeWriter, attachment)
   }
-  /*
-     NOTE: here must use willMount before didMount fires AFTER the children didMount
-     bug the child Editor init data in it's own didMount, so we need parent ini first
-     the order issue see: https://github.com/facebook/react/issues/5737
-
-     componentDidMount() {
-     debug('========= init ====== ')
-     const { typeWriter, attachment } = this.props
-
-     init(typeWriter, attachment)
-     }
-   */
-
-  /*
-  componentWillMount() {
-    const { typeWriter, attachment } = this.props
-
-    init(typeWriter, attachment)
-  }
-  */
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')

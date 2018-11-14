@@ -21,8 +21,10 @@ const debug = makeDebugger('C:Comments')
 /* eslint-enable no-unused-vars */
 
 class CommentsContainer extends React.Component {
-  componentDidMount() {
-    const { comments } = this.props
+  constructor(props) {
+    super(props)
+
+    const { comments } = props
     logic.init(comments)
   }
 

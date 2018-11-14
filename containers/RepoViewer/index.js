@@ -21,8 +21,9 @@ const debug = makeDebugger('C:RepoViewer')
 /* eslint-enable no-unused-vars */
 
 class RepoViewerContainer extends React.Component {
-  componentDidMount() {
-    const { repoViewer, attachment } = this.props
+  constructor(props) {
+    super(props)
+    const { repoViewer, attachment } = props
     logic.init(repoViewer, attachment)
   }
 

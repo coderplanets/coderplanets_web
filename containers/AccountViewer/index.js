@@ -31,8 +31,9 @@ const ThemeSection = ({ curTheme }) => (
 )
 
 class AccountViewerContainer extends React.Component {
-  componentDidMount() {
-    const { accountViewer } = this.props
+  constructor(props) {
+    super(props)
+    const { accountViewer } = props
     logic.init(accountViewer)
     logic.loadAccount()
 

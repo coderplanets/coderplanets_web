@@ -18,8 +18,10 @@ const debug = makeDebugger('C:VideoBanner')
 /* eslint-enable no-unused-vars */
 
 class VideoBannerContainer extends React.Component {
-  componentDidMount() {
-    const { videoBanner } = this.props
+  constructor(props) {
+    super(props)
+
+    const { videoBanner } = props
     logic.init(videoBanner)
   }
 
