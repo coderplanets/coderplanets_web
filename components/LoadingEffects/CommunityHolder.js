@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 
-import { BannerWrapper, BannerText } from './styles/community_holder'
+import {
+  BannerWrapper,
+  BannerText,
+  SidebarText,
+} from './styles/community_holder'
 
 const CommunityHolder = ({ place, text }) => {
   switch (place) {
     case 'sidebar': {
-      return <span>{text.slice(0, 1)}</span>
+      return <SidebarText>{R.toUpper(text.slice(0, 1))}</SidebarText>
     }
     default: {
       return (
