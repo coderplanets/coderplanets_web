@@ -73,6 +73,7 @@ export {
   JobItemLoading,
   TypeWriterLoading,
   ArticleContentLoading,
+  CommunityHolder,
 } from './LoadingEffects'
 
 // UI library (currently use antd)

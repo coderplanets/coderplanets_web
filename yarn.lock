@@ -614,9 +614,15 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@7.0.0", "@babel/runtime@^7.0.0", "@babel/runtime@^7.0.0-rc.1":
+"@babel/runtime@7.0.0", "@babel/runtime@^7.0.0":
   version "7.0.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
+"@babel/runtime@^7.1.5":
+  version "7.1.5"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.1.5.tgz#4170907641cf1f61508f563ece3725150cc6fe39"
   dependencies:
     regenerator-runtime "^0.12.0"
 
@@ -839,9 +845,9 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@tanem/svg-injector@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-1.2.1.tgz#3120e90246d0eb3c4fc6c61586a6f028a3c658ae"
+"@tanem/svg-injector@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-2.1.1.tgz#e9bc12d87d2d1adfcaa46c17c9f481c563ee9d88"
 
 "@types/async@2.0.50":
   version "2.0.50"
@@ -9024,12 +9030,12 @@ react-sortable-hoc@^0.8.3:
     invariant "^2.2.1"
     prop-types "^15.5.7"
 
-react-svg@5.0.16:
-  version "5.0.16"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-5.0.16.tgz#169906aebacf0c668bccfc3fa25c516d33a58f9a"
+react-svg@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.npmjs.org/react-svg/-/react-svg-7.1.0.tgz#b6b1192d69f9fef9e5d6faee0a8dc9317008dbdb"
   dependencies:
-    "@babel/runtime" "^7.0.0-rc.1"
-    "@tanem/svg-injector" "^1.2.1"
+    "@babel/runtime" "^7.1.5"
+    "@tanem/svg-injector" "^2.1.1"
     prop-types "^15.6.2"
 
 react-test-renderer@16.4.2:

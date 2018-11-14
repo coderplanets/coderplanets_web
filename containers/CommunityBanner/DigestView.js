@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
-import { Tabber, CommunityStatesPad } from '../../components'
+import { Tabber, CommunityStatesPad, CommunityHolder } from '../../components'
 
 import {
   Wrapper,
@@ -27,7 +27,10 @@ const CommunityBrief = ({ content }) => (
   <CommunityWrapper>
     <LogoWrapper>
       {content.logo ? (
-        <CommunityLogo src={content.logo || CommunityLogoHolder} />
+        <CommunityLogo
+          src={content.logo}
+          loading={<CommunityHolder text={content.raw} />}
+        />
       ) : (
         <LogoHolder src={CommunityLogoHolder} />
       )}
