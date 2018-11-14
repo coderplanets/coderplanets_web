@@ -27,7 +27,7 @@ const themeClass = {
 }
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:Comments')
+const debug = makeDebugger('C:BodyEditor')
 /* eslint-enable no-unused-vars */
 
 class MastaniEditor extends React.Component {
@@ -37,12 +37,12 @@ class MastaniEditor extends React.Component {
       theme: themeClass,
       mentionPrefix: '@',
     })
-  }
 
-  state = {
-    editorState: EditorState.createEmpty(),
-    suggestions: [],
-    pub: null,
+    this.state = {
+      editorState: EditorState.createEmpty(),
+      suggestions: [],
+      pub: null,
+    }
   }
 
   componentDidMount() {
@@ -75,17 +75,23 @@ class MastaniEditor extends React.Component {
     this.setState({ pub })
   }
 
+  loadDraft = () => {
+    const { body } = this.props
+    console.log('loadDraft body: ', body)
+    const editorState = EditorState.createWithContent(
+      ContentState.createFromText(body)
+    )
+    // somehow the onCHange behave strange
+    // see issue: https://github.com/facebook/draft-js/issues/1198
+
+    //     setTimeout(() => {
+    //   this.focus()
+    //    }, 150)
+
+    this.setState({ editorState })
+  }
+
   insertSnippet = data => {
-    /*
-       const curString = toRawString(this.state.editorState.getCurrentContent())
-       const contentState = ContentState.createFromText(
-       `${curString}\n\n${data}\n\n`
-       )
-       const editorState = EditorState.push(this.state.editorState, contentState)
-
-       this.setState({ editorState })
-     */
-
     const { editorState } = this.state
     /* const contentState = ContentState.createFromText('ni ma') */
     const contentState = editorState.getCurrentContent()
@@ -102,20 +108,7 @@ class MastaniEditor extends React.Component {
     })
   }
 
-  onBlur = () => {
-    /*
-    const selectionState = this.state.editorState.getSelection()
-    const { editorState } = this.state
-    const fuck = Modifier.splitBlock(
-      editorState.getCurrentContent(),
-      selectionState,
-      'this-is-me'
-    )
-
-    const fff = toRawString(fuck)
-    console.log('fffff: ', fff.split('\n'))
-    */
-  }
+  onBlur = () => {}
 
   onChange = editorState => {
     const { onChange } = this.props
@@ -168,21 +161,6 @@ class MastaniEditor extends React.Component {
     const editorState = EditorState.createWithContent(
       ContentState.createFromText('')
     )
-    this.setState({ editorState })
-  }
-
-  loadDraft = () => {
-    const { body } = this.props
-    const editorState = EditorState.createWithContent(
-      ContentState.createFromText(body)
-    )
-    // somehow the onCHange behave strange
-    // see issue: https://github.com/facebook/draft-js/issues/1198
-
-    //     setTimeout(() => {
-    //   this.focus()
-    //    }, 150)
-
     this.setState({ editorState })
   }
 

@@ -25,7 +25,6 @@ const debug = makeDebugger('C:TypeWriter')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
 const View = ({ curView, thread, editData }) => {
-  console.log('View editData: ', editData.body)
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -46,11 +45,32 @@ const View = ({ curView, thread, editData }) => {
 
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
+    const { typeWriter, attachment } = props
+
+    init(typeWriter, attachment)
+  }
+  /*
+     NOTE: here must use willMount before didMount fires AFTER the children didMount
+     bug the child Editor init data in it's own didMount, so we need parent ini first
+     the order issue see: https://github.com/facebook/react/issues/5737
+
+     componentDidMount() {
+     debug('========= init ====== ')
+     const { typeWriter, attachment } = this.props
+
+     init(typeWriter, attachment)
+     }
+   */
+
+  /*
+  componentWillMount() {
     const { typeWriter, attachment } = this.props
 
     init(typeWriter, attachment)
   }
+  */
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
