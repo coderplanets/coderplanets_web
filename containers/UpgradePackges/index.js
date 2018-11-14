@@ -89,7 +89,7 @@ class UpgradePackgesContainer extends React.Component {
               </Button>
             </Dashboard>
             <Dashboard>
-              <PkgTitle>高级用户</PkgTitle>
+              <PkgTitle>付费用户</PkgTitle>
               <TitleDivider />
               <ItemsWrapper>
                 <Support items={freeUserItems} />

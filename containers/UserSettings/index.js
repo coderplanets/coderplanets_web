@@ -61,7 +61,7 @@ class UserSettingsContainer extends React.Component {
               </LabelDescLink>{' '}
               或升级成
               <LabelDescLink onClick={logic.upgradeHepler}>
-                高级用户
+                付费用户
               </LabelDescLink>
               解锁该功能。
             </LabelDescWrapper>
