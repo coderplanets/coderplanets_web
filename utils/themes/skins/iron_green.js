@@ -87,7 +87,8 @@ const iconGreen = {
   footer: {
     text: descText,
     hover: '#5c868b',
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,

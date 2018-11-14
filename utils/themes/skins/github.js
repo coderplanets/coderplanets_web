@@ -88,7 +88,8 @@ const github = {
   footer: {
     text: '#c7c7c7',
     hover: '#949CB5',
-    label: '#c7c7c7',
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,
