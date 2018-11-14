@@ -15,7 +15,7 @@ import cyan from './cyan'
 import solarizedDark from './solarized_dark'
 import github from './github'
 import purple from './purple'
-import blue from './blue'
+import monokai from './monokai'
 import yellow from './yellow'
 import green from './green'
 import ironGreen from './iron_green'
@@ -26,7 +26,7 @@ const skinsData = {
   purple,
   yellow,
   github,
-  blue,
+  monokai,
   green,
   ironGreen,
 }

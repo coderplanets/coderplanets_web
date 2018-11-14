@@ -3,21 +3,22 @@
  */
 import { lighten, darken } from 'polished'
 
-const primaryColor = '#615c79'
+const primaryColor = '#756b49'
 
-const bannerBg = '#2f2c3c'
-const contentBg = '#242029'
-const contentBoxBg = '#27212d'
+const bannerBg = '#3D3B3E'
+const contentBg = '#2B292C'
+const contentBoxBg = '#312f31'
 const fontColor = primaryColor
-const sidebarBg = '#222029'
+const sidebarBg = '#211F22'
 const markdownFont = '#7F8189'
 
-const descText = '#4a455a'
-const primaryMate = '#a7674d'
+const descText = '#736f6f'
+const primaryMate = '#cc8651'
 
-const blue = {
-  logoText: primaryColor,
-  cover: '#586ABD',
+// https://www.slant.co/topics/7880/viewpoints/10/~dark-themes-for-text-editors~monokai-pro
+const monokai = {
+  logoText: descText,
+  cover: '#2B292C',
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
@@ -40,44 +41,44 @@ const blue = {
   selectionBg: '#839496',
   avatarOpacity: 0.8,
   header: {
-    fg: primaryColor,
+    fg: descText,
     bg: bannerBg,
-    spliter: darken(0.04, bannerBg),
+    spliter: '#474548',
     fixed: bannerBg,
-    tabActive: primaryColor, // articleTitle
-    tabOthers: darken(0.1, primaryColor),
-    cardBg: '#e6ecec',
-    cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
-    cardTitle: '#a0b5b9',
+    tabActive: '#ab995e',
+    tabOthers: descText,
+    cardBg: '#39363a',
+    cardBorder: '#555356',
+    cardLogo: descText,
+    cardTitle: primaryColor,
   },
   banner: {
-    title: primaryColor,
+    title: '#9A9899',
     bg: bannerBg,
     desc: descText,
-    spliter: darken(0.04, bannerBg),
-    number: primaryColor,
-    active: primaryMate,
+    spliter: '#474548',
+    number: descText,
+    active: primaryColor,
     numberDesc: descText,
-    numberDivider: darken(0.08, descText),
+    numberDivider: '#4d4b4e',
     numberHoverBg: lighten(0.03, bannerBg),
   },
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#737990',
-    articleHover: lighten(0.03, contentBoxBg),
+    articleTitle: '#989087',
+    articleHover: '#363337',
     articleStrip: contentBoxBg,
-    articleDigest: '#505667',
+    articleDigest: '#847473',
     articleTag: '#526482',
     articleLink: descText,
-    articleDivider: '#dce5e6',
+    articleDivider: '#464141',
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
-    articleSpliter: '#3c4648',
+    articleSpliter: '#464141',
 
     // like github
-    repoTitle: '#737990',
+    repoTitle: '#989087',
   },
   content: {
     bg: contentBoxBg,
@@ -87,9 +88,10 @@ const blue = {
     cardBorderHover: lighten(0.1, contentBoxBg),
   },
   footer: {
-    text: descText,
+    text: darken(0.05, descText),
     hover: lighten(0.1, descText),
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,
@@ -244,17 +246,17 @@ const blue = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.5,
-    text: '#72788D',
+    dotOpacity: 0.7,
+    text: '#77726a',
   },
   tabs: {
-    headerActive: primaryColor,
-    header: darken(0.05, primaryColor),
+    headerActive: '#ab995e',
+    header: descText,
     contentBg: lighten(0.05, contentBoxBg),
     headerBg: lighten(0.03, contentBoxBg),
     headerActiveTop: primaryColor,
     border: descText,
-    bottomLine: descText,
+    bottomLine: '#474548',
   },
   modal: {
     bg: bannerBg,
@@ -292,4 +294,4 @@ const blue = {
   },
 }
 
-export default blue
+export default monokai

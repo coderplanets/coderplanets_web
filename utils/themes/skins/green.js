@@ -89,7 +89,8 @@ const green = {
   footer: {
     text: lighten(0.1, descText),
     hover: descText,
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,

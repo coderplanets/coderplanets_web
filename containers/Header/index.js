@@ -82,7 +82,7 @@ const Header = ({
     <AddOns />
     <Operations>
       <Search onClick={logic.openDoraemon}>
-        <HeaderIcon src={`${ICON_CMD}/search2.svg`} offsetTop="-2.5px" />
+        <HeaderIcon src={`${ICON_CMD}/search2.svg`} offsetTop="-1px" />
       </Search>
 
       {isLogin ? <MailBox /> : null}

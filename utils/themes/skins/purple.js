@@ -88,7 +88,8 @@ const purple = {
   footer: {
     text: descText,
     hover: lighten(0.1, descText),
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,

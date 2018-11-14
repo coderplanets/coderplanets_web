@@ -36,14 +36,14 @@ export const SiteInfo = styled.div`
 `
 export const SiteDesc = styled.a`
   margin-bottom: 5px;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('footer.text')};
   display: block;
 
   font-size: 0.8rem;
   margin-bottom: 5px;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: ${theme('footer.title')};
     text-decoration: underline;
     cursor: pointer;
   }
@@ -57,7 +57,7 @@ export const SiteLogo = styled(Img)`
   margin-right: 8px;
 `
 export const SiteTitle = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('footer.title')};
   font-size: 1rem;
 `
 
@@ -69,18 +69,18 @@ export const Title = styled.div`
 
 export const Body = styled.div`
   ${cs.flexColumn('justify-start')};
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('footer.text')};
 `
 
 export const Item = styled.a`
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('footer.text')};
 
   font-size: 0.8rem;
   margin-bottom: 8px;
   margin-top: ${({ offsetTop }) => offsetTop || '0'};
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: ${theme('footer.title')};
     text-decoration: underline;
     cursor: pointer;
   }
