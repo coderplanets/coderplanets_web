@@ -37,8 +37,10 @@ const debug = makeDebugger('C:UserSettings')
 const RadioGroup = Radio.Group
 
 class UserSettingsContainer extends React.Component {
-  componentDidMount() {
-    const { userSettings } = this.props
+  constructor(props) {
+    super(props)
+
+    const { userSettings } = props
     logic.init(userSettings)
   }
 
@@ -61,7 +63,7 @@ class UserSettingsContainer extends React.Component {
               </LabelDescLink>{' '}
               或升级成
               <LabelDescLink onClick={logic.upgradeHepler}>
-                高级用户
+                付费用户
               </LabelDescLink>
               解锁该功能。
             </LabelDescWrapper>

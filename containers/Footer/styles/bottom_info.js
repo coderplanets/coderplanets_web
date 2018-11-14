@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   padding-left: 5%;
   padding-right: 5%;
-  background: #d9e6e5;
+  background: ${theme('footer.bottomBg')};
   height: 40px;
   width: 100%;
 `

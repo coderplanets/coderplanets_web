@@ -15,11 +15,13 @@ const debug = makeDebugger('L:Footer2')
 let store = null
 
 export function toggleSponsorHelper() {
+  // if (!store.isLogin) return store.authWarning()
   store.markState({
     showSponsor: !store.showSponsor,
   })
 }
 
+export const onLogin = () => store.authWarning({ hideToast: true })
 // ###############################
 // Data & Error handlers
 // ###############################

@@ -3,7 +3,7 @@ import R from 'ramda'
 
 import { Maybe } from '../../components'
 import { Wrapper, Item, Hightlight } from './styles/selected'
-import { uid } from '../../utils'
+import { uid, Trans } from '../../utils'
 
 const renderItems = items => {
   if (!items) return null
@@ -11,14 +11,14 @@ const renderItems = items => {
   if (items.length === 1) {
     return (
       <Item>
-        (<Hightlight>{items[0]}</Hightlight>)
+        (<Hightlight>{Trans(items[0])}</Hightlight>)
       </Item>
     )
   }
 
   return (
     <Item>
-      (<Hightlight>{items[0]}, ..</Hightlight>)
+      (<Hightlight>{Trans(items[0])}, ..</Hightlight>)
     </Item>
   )
 }

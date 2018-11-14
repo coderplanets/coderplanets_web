@@ -82,10 +82,11 @@ const Header = ({
     <AddOns />
     <Operations>
       <Search onClick={logic.openDoraemon}>
-        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
+        <HeaderIcon src={`${ICON_CMD}/search2.svg`} offsetTop="-1px" />
       </Search>
 
-      <MailBox />
+      {isLogin ? <MailBox /> : null}
+
       <UserLister />
       <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
     </Operations>
@@ -93,8 +94,9 @@ const Header = ({
 )
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    const { header } = this.props
+  constructor(props) {
+    super(props)
+    const { header } = props
     logic.init(header)
   }
 

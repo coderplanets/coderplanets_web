@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
+import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
@@ -58,6 +58,9 @@ const HeaderStore = t
     },
   }))
   .actions(self => ({
+    toastInfo(options) {
+      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+    },
     setFix(fixed = false) {
       self.preSidebarPin = self.root.sidebar.pin
       self.fixed = fixed

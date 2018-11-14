@@ -48,7 +48,10 @@ export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
   // NOTE: do not use viewing.community, it's too slow
-  const { mainPath: community, subPath: topic } = store.curRoute
+  const { curCommunity } = store
+  const { subPath: topic } = store.curRoute
+  // const { curCommunity: community, curThread } = store
+
   const userHasLogin = store.isLogin
 
   store.markState({ curView: TYPE.LOADING })
@@ -59,19 +62,19 @@ export function loadPosts(page = 1) {
       size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.title,
-      community,
+      community: curCommunity.raw,
     },
     userHasLogin,
   }
 
-  if (community === ROUTE.HOME) {
+  if (curCommunity.raw === ROUTE.HOME) {
     args.filter = R.merge(args.filter, { topic })
   }
 
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  // debug('loadPosts args: ', args)
+  debug('loadPosts args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
 }
@@ -100,8 +103,11 @@ export function onTitleSelect(data) {
   })
 }
 
-export const createContent = () =>
+export const createContent = () => {
+  if (!store.isLogin) return store.authWarning()
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+}
 
 export const onCustomChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
@@ -117,6 +123,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
+      console.log('pagedPosts --> ', pagedPosts)
       let curView = TYPE.RESULT
       if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY

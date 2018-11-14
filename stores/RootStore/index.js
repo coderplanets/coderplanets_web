@@ -12,6 +12,8 @@ import {
   toast,
   toastBarColor,
   themeSkins,
+  dispatchEvent,
+  EVENT,
 } from '../../utils'
 
 import {
@@ -250,12 +252,24 @@ const rootStore = t
       const toastOpt = R.merge(options, { progressBarColor })
       toast[type](toastOpt)
     },
+    authWarning(options = {}) {
+      const defaultOpt = {
+        position: 'topCenter',
+        title: '当前账号未登录',
+        msg: '暂不支持匿名操作，请登录后再次尝试.',
+      }
+
+      if (options.hideToast && options.hideToast === true) {
+        // pass
+      } else {
+        self.toast('warn', R.merge(defaultOpt, options))
+      }
+
+      dispatchEvent(EVENT.LOGIN_PANEL)
+      return false
+    },
     changesetErr(options) {
       self.toast('error', options)
-    },
-    authWarning(options = {}) {
-      const defaultOpt = { title: '未登录', msg: '需要登录后才能进行该操作' }
-      self.toast('warn', R.merge(defaultOpt, options))
     },
     callInformer() {
       self.informer.show()

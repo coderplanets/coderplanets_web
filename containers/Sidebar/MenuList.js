@@ -2,7 +2,7 @@ import React from 'react'
 import R from 'ramda'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
-import { TrendLine } from '../../components'
+import { TrendLine, CommunityHolder } from '../../components'
 
 import {
   MenuItem,
@@ -24,6 +24,7 @@ const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
           src={item.logo}
+          loading={<CommunityHolder text={item.raw} place="sidebar" />}
         />
         {/* eslint-disable jsx-a11y/anchor-is-valid */}
         <MenuItemTitle pin={pin} active={activeRaw === R.toLower(item.raw)}>

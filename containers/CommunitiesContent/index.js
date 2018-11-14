@@ -103,8 +103,10 @@ const CommunitiesGrid = ({ entries, restProps }) => (
 )
 
 class CommunitiesContentContainer extends React.Component {
-  componentDidMount() {
-    const { communitiesContent } = this.props
+  constructor(props) {
+    super(props)
+
+    const { communitiesContent } = props
     logic.init(communitiesContent)
   }
 

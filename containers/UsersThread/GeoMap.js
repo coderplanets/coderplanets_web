@@ -18,7 +18,7 @@ class LocationMap extends React.Component {
     this.chart = null
     this.chartId = uid.gen()
 
-    const { curTheme } = this.props
+    const { curTheme } = props
     this.curTheme = curTheme
   }
 

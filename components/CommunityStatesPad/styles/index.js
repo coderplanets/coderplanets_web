@@ -40,6 +40,7 @@ export const NumberDivider = styled.div`
   border: 1px solid;
   border-color: ${theme('banner.numberDivider')};
   height: 70%;
+  min-height: 40px;
   align-self: center;
   margin-left: 10px;
   margin-right: 10px;

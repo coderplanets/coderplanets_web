@@ -44,6 +44,9 @@ const PostsThreadStore = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
+    get curThread() {
+      return self.root.viewing.activeThread
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
@@ -64,6 +67,12 @@ const PostsThreadStore = t
     },
   }))
   .actions(self => ({
+    toastInfo(options) {
+      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+    },
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = R.merge(curfilter, option)

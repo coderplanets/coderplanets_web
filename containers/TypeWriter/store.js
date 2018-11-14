@@ -47,6 +47,9 @@ const TypeWriterStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get statusClean() {
       const { success, error, warn } = self
       return !success && !error && !warn
@@ -141,16 +144,12 @@ const TypeWriterStore = t
         }
       }
     },
-    closePreview() {
-      self.root.closePreview()
-    },
     reset() {
       self.markState({
         isEdit: false,
       })
-
-      self.editPost = {}
-      self.editJob = {}
+      self.editPost = { title: '', body: '' }
+      self.editJob = { title: '', body: '' }
     },
     markState(sobj) {
       markStates(sobj, self)

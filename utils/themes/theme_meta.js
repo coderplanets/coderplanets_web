@@ -31,10 +31,10 @@ const themeMeta = {
     raw: 'github',
     cmd: 'theme',
   },
-  blue: {
-    title: 'blue',
-    desc: 'inspired by a dribble collection',
-    raw: 'blue',
+  monokai: {
+    title: 'monokai',
+    desc: 'inspired by monokai pro theme',
+    raw: 'monokai',
     cmd: 'theme',
   },
   green: {

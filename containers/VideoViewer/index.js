@@ -24,8 +24,9 @@ const debug = makeDebugger('C:VideoViewer')
 /* eslint-enable no-unused-vars */
 
 class VideoViewerContainer extends React.Component {
-  componentDidMount() {
-    const { videoViewer, attachment } = this.props
+  constructor(props) {
+    super(props)
+    const { videoViewer, attachment } = props
     logic.init(videoViewer, attachment)
   }
 

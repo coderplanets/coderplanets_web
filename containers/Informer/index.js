@@ -25,8 +25,10 @@ const debug = makeDebugger('C:Informer')
 /* eslint-enable no-unused-vars */
 
 class InformerContainer extends React.Component {
-  componentDidMount() {
-    const { informer } = this.props
+  constructor(props) {
+    super(props)
+
+    const { informer } = props
     logic.init(informer)
   }
 

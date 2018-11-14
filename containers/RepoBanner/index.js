@@ -17,8 +17,10 @@ const debug = makeDebugger('C:RepoBanner')
 /* eslint-enable no-unused-vars */
 
 class RepoBannerContainer extends React.Component {
-  componentDidMount() {
-    const { repoBanner } = this.props
+  constructor(props) {
+    super(props)
+
+    const { repoBanner } = props
     logic.init(repoBanner)
   }
 

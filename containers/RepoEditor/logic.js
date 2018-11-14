@@ -7,6 +7,7 @@ import {
   EVENT,
   ERR,
   githubApi,
+  closePreviewer,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -69,7 +70,7 @@ const DataSolver = [
       debug('done!')
       // cancleLoading()
       // store.reset()
-      store.closePreview()
+      closePreviewer()
       dispatchEvent(EVENT.REFRESH_REPOS)
     },
   },

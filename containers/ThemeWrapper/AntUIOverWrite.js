@@ -237,6 +237,9 @@ const AntUIOverWrite = createGlobalStyle`
   .ant-pagination-item:hover {
     border-color: ${theme('button.primary')};
   }
+  .ant-pagination-item:focus a, .ant-pagination-item:hover a {
+    color: ${theme('pagination.inactiveNum')};
+  }
   .ant-pagination-item {
     border-radius: 50%;
     background-color: ${theme('pagination.itemBg')};

@@ -89,11 +89,13 @@ const solarizedDark = {
   footer: {
     text: '#065365',
     hover: '#5c868b',
-    label: '#065365',
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
-    logoText: primaryColor,
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
+    logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),
     pinActive: '#849804',
     menuLink: '#93A1A1',

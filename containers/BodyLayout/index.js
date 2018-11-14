@@ -17,8 +17,10 @@ import Body from './styles'
 import * as logic from './logic'
 
 class BodyLayoutContainer extends React.Component {
-  componentDidMount() {
-    const { bodylayout } = this.props
+  constructor(props) {
+    super(props)
+
+    const { bodylayout } = props
     logic.init(bodylayout)
   }
 

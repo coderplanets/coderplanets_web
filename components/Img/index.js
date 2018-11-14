@@ -13,9 +13,15 @@ const NormalImg = ({ className, src, alt }) => (
   <img className={className} src={src} alt={alt} />
 )
 
-const Img = ({ className, src, alt }) => {
+const Img = ({ className, src, alt, loading }) => {
   if (/\.(svg)$/i.test(src)) {
-    return <ReactSVG svgClassName={className} path={src} />
+    return (
+      <ReactSVG
+        svgClassName={className}
+        src={src}
+        loading={() => <React.Fragment>{loading}</React.Fragment>}
+      />
+    )
   }
   return <NormalImg className={className} src={src} alt={alt} />
 }
@@ -24,11 +30,13 @@ Img.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
   className: PropTypes.string,
+  loading: PropTypes.any,
 }
 
 Img.defaultProps = {
   alt: 'image',
   className: 'img-class',
+  loading: null,
 }
 
 export default Img

@@ -14,6 +14,7 @@ import { inputOnChange } from './logic'
 
 const Editor = ({ thread, editData }) => {
   const { title, body } = editData
+
   return (
     <Wrapper>
       <EditorHeader thread={thread} editData={editData} />

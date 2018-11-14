@@ -21,10 +21,11 @@ const debug = makeDebugger('C:GirlVerifier')
 
 const { TextArea } = Input
 
-// NOTE: add me to ../containers/index
 class GirlVerifierContainer extends React.Component {
-  componentDidMount() {
-    const { girlVerifier } = this.props
+  constructor(props) {
+    super(props)
+
+    const { girlVerifier } = props
     logic.init(girlVerifier)
   }
 

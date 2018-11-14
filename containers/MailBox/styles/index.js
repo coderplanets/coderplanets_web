@@ -14,6 +14,7 @@ export const Icon = styled(Img)`
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
+  margin-top: -2px;
 `
 
 export const PannerWrapper = styled.div`

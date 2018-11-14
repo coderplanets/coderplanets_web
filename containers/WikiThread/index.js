@@ -9,7 +9,12 @@ import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
 
-import { PublishLabel, MarkDownRender } from '../../components'
+import {
+  PublishLabel,
+  MarkDownRender,
+  EmptyThread,
+  ArticleContentLoading,
+} from '../../components'
 
 import {
   Wrapper,
@@ -23,29 +28,46 @@ import {
 
 import Contributors from './Contributors'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:WikiThread')
 /* eslint-enable no-unused-vars */
 
+const renderView = (wikiData, type, communityRaw) => {
+  switch (type) {
+    case TYPE.LOADING: {
+      return <ArticleContentLoading />
+    }
+    case TYPE.NOT_FOUND: {
+      return <EmptyThread community={communityRaw} thread="wiki" />
+    }
+    default: {
+      return <MarkDownRender body={wikiData.readme} />
+    }
+  }
+}
+
 class WikiThreadContainer extends React.Component {
-  componentDidMount() {
-    const { wikiThread } = this.props
+  constructor(props) {
+    super(props)
+
+    const { wikiThread } = props
     logic.init(wikiThread)
   }
 
   render() {
     const { wikiThread } = this.props
-    const { wikiData } = wikiThread
+    const { wikiData, curView, curCommunity } = wikiThread
+    const communityRaw = curCommunity.raw
 
     return (
       <Wrapper>
         <LeftPadding />
         <LeftPart>
           <WikiWrapper>
-            <MarkDownRender body={wikiData.readme} />
+            {renderView(wikiData, curView, communityRaw)}
           </WikiWrapper>
         </LeftPart>
         <RightPart>

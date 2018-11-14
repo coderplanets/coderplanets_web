@@ -26,8 +26,10 @@ const debug = makeDebugger('C:FavoritesCats')
 /* eslint-enable no-unused-vars */
 
 class FavoritesCatsContainer extends React.Component {
-  componentDidMount() {
-    const { favoritesCats, displayMode } = this.props
+  constructor(props) {
+    super(props)
+
+    const { favoritesCats, displayMode } = props
     logic.init(favoritesCats, displayMode)
   }
 

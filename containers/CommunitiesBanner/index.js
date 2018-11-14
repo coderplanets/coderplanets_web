@@ -21,8 +21,10 @@ const debug = makeDebugger('C:CommunitiesBanner')
 /* eslint-enable no-unused-vars */
 
 class CommunitiesBannerContainer extends React.Component {
-  componentDidMount() {
-    const { communitiesBanner } = this.props
+  constructor(props) {
+    super(props)
+
+    const { communitiesBanner } = props
     logic.init(communitiesBanner)
   }
 
