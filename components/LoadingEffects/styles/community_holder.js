@@ -8,7 +8,6 @@ export const BannerWrapper = styled.div`
   justify-content: center;
   width: 60px;
   height: 60px;
-
   border-radius: 4px;
   border-style: double;
   border-color: ${theme('banner.desc')};
@@ -23,4 +22,5 @@ export const SidebarText = styled.div`
 
 export const BannerText = styled.div`
   ${cs.truncate('45px')};
+  text-align: center;
 `
