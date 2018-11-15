@@ -150,6 +150,7 @@ const DataSolver = [
     action: () => {
       sr71$.stop()
       loading(false)
+      store.setViewing({ post: {} })
     },
   },
   {
