@@ -76,10 +76,12 @@ export default class Index extends React.Component {
       subscribedCommunities.totalCount
     )
 
-    /* return {} */
+    return {}
+    /*
     return {
       account: { userSubscribedCommunities: subscribedCommunities },
     }
+    */
   }
 
   constructor(props) {
