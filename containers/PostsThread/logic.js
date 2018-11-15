@@ -36,12 +36,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -174,20 +169,11 @@ const ErrSolver = [
   },
 ]
 
-const loadIfNeed = () => {
-  /* if (R.isEmpty(store.pagedPostsData.entries)) { */
-  // loadPosts()
-  /* } */
-}
-
 export function init(_store) {
-  if (store) {
-    return loadIfNeed()
-  }
+  if (store) return false
 
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadIfNeed()
 }

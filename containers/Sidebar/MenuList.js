@@ -24,7 +24,7 @@ const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
           src={item.logo}
-          loading={<CommunityHolder text={item.raw} place="sidebar" />}
+          loading={<CommunityHolder text={item.title} place="sidebar" />}
         />
         {/* eslint-disable jsx-a11y/anchor-is-valid */}
         <MenuItemTitle pin={pin} active={activeRaw === R.toLower(item.raw)}>
