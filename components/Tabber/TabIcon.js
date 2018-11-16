@@ -24,6 +24,7 @@ const supportIcons = [
   'likes',
   'favorites',
   // categories
+  'pl',
   'frontend',
   'backend',
   'blockchain',

@@ -22,6 +22,7 @@ export const Category = t.model('Category', {
   id: t.maybeNull(t.string),
   title: t.maybeNull(t.string),
   raw: t.maybeNull(t.string),
+  index: t.maybeNull(t.number),
   communities: t.optional(t.array(SimpleCommunity), []),
   author: t.optional(SimpleUser, {}),
   insertedAt: t.optional(t.string, ''),
