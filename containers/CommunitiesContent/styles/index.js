@@ -7,4 +7,7 @@ export const Wrapper = styled.div`
   margin-top: 45px;
   ${cs.flexColumn('justify-center')};
 `
-export const holder = 1
+export const SubscribedBox = styled.div`
+  color: yellowgreen;
+  font-weight: bold;
+`

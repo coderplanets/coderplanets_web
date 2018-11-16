@@ -3,8 +3,29 @@ import React from 'react'
 import { Button, Icon, Tooltip } from '../../components'
 
 // import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles'
+import { SubscribedBox } from './styles'
 import { subscribe, unSubscribe } from './logic'
+
+const AlreadySubedBtn = ({ community }) => (
+  <Tooltip title="取消关注" mouseEnterDelay={1} placement="bottom">
+    {community.raw !== 'home' ? (
+      <Button
+        size="small"
+        type="primary"
+        ghost
+        onClick={unSubscribe.bind(this, community.id)}
+      >
+        <Icon type="check" />
+        已关注
+      </Button>
+    ) : (
+      <SubscribedBox>
+        <Icon type="check" />
+        &nbsp;已关注
+      </SubscribedBox>
+    )}
+  </Tooltip>
+)
 
 const SubscribeBtn = ({
   community,
@@ -22,17 +43,7 @@ const SubscribeBtn = ({
   return (
     <div>
       {community.viewerHasSubscribed ? (
-        <Tooltip title="取消关注" mouseEnterDelay={1} placement="bottom">
-          <Button
-            size="small"
-            type="primary"
-            ghost
-            onClick={unSubscribe.bind(this, community.id)}
-          >
-            <Icon type="check" />
-            已关注
-          </Button>
-        </Tooltip>
+        <AlreadySubedBtn community={community} />
       ) : (
         <Button
           size="small"
