@@ -99,7 +99,10 @@ const PostsThreadStore = t
       const { entries } = self.pagedPostsData
       const index = R.findIndex(R.propEq('id', item.id), entries)
       if (index >= 0) {
-        self.pagedPosts.entries[index] = item
+        self.pagedPosts.entries[index] = R.merge(
+          stripMobx(self.pagedPosts.entries[index]),
+          item
+        )
       }
     },
     updateC11N(option) {
