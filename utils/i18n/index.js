@@ -16,6 +16,8 @@ const I18nDict = {
   jobs: '招聘',
   job: '招聘',
   // tags
+
+  pl: '编程语言',
   science: '科学',
   tech: '技术',
   workplace: '职场',
