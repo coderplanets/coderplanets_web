@@ -7,6 +7,7 @@ const pagedCategories = gql`
         id
         title
         raw
+        index
       }
       totalCount
       totalPages

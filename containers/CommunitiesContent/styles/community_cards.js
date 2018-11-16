@@ -40,7 +40,11 @@ export const CardTitle = styled.div`
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
-  color: ${theme('banner.title')};
+  color: ${theme('thread.articleTitle')};
+
+  ${Card}:hover & {
+    color: ${theme('banner.title')};
+  }
 `
 export const CardDesc = styled.div`
   font-size: 1em;
