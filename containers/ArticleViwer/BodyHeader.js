@@ -47,7 +47,9 @@ const BodyHeader = ({ data, thread }) => {
           <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
           <RefinedText>精 华</RefinedText>
         </RefinedLabel>
-      ) : null}
+      ) : (
+        <div />
+      )}
     </Wrapper>
   )
 }

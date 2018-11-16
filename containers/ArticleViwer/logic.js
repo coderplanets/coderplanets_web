@@ -188,10 +188,10 @@ const DataSolver = [
   {
     match: asyncRes('setTag'),
     action: () => {
-      if (store.activeThread === THREAD.POST) {
-        loadPost(store.viewingData)
-      } else {
+      if (store.activeThread === THREAD.JOB) {
         loadJob(store.viewingData)
+      } else {
+        loadPost(store.viewingData)
       }
       // dispatchEvent(EVENT.REFRESH_POSTS)
       closePreviewer()
@@ -200,10 +200,10 @@ const DataSolver = [
   {
     match: asyncRes('unsetTag'),
     action: () => {
-      if (store.activeThread === THREAD.POST) {
-        loadPost(store.viewingData)
-      } else {
+      if (store.activeThread === THREAD.JOB) {
         loadJob(store.viewingData)
+      } else {
+        loadPost(store.viewingData)
       }
       // dispatchEvent(EVENT.REFRESH_POSTS)
       closePreviewer()
