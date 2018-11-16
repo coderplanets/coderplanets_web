@@ -83,6 +83,7 @@ export const onFilterSelect = option => store.selectFilter(option)
 export function onTagSelect(tag) {
   store.selectTag(tag)
   loadPosts()
+  store.markRoute({ tag: tag.title })
 }
 
 export function onTitleSelect(data) {

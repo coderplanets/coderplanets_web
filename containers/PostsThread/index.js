@@ -56,6 +56,7 @@ class PostsThreadContainer extends React.Component {
       curRoute,
       accountInfo,
       isLogin,
+      activeTagData,
     } = postsThread
 
     const { mainPath, subPath } = curRoute
@@ -103,6 +104,7 @@ class PostsThreadContainer extends React.Component {
                 thread={THREAD.POST}
                 topic={topic}
                 onSelect={logic.onTagSelect}
+                active={activeTagData}
               />
             </Affix>
           </React.Fragment>

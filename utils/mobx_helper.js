@@ -41,7 +41,12 @@ export const markStates = (sobj, self) => {
 
   R.forEachObjIndexed((val, key) => {
     if (!R.contains(key, selfKeys)) return false
-    if (!R.isEmpty(val) && !Array.isArray(val) && isObject(val)) {
+    if (
+      !R.isEmpty(val) &&
+      !Array.isArray(val) &&
+      isObject(val) &&
+      self[key] !== null
+    ) {
       // NOTE: had to use this syntax to update object val
       // because the normal one is NOT WORKING in production build
       // what a mother-fucking bug is this ??? TODO: check later

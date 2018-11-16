@@ -23,13 +23,26 @@ export const ssrPagedSchema = thread => {
 const getCurView = source =>
   source.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
+const getActiveTag = (tagTitle, tagList) => {
+  if (!tagTitle || R.isEmpty(tagList)) return null
+
+  const index = R.findIndex(R.propEq('title', tagTitle), tagList)
+
+  if (index < 0) return null
+  return tagList[index]
+}
+
 export const ssrContentsThread = (resp, thread) => {
+  // console.log('filter in resp: ', resp.filter)
+  const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
+
   switch (R.toLower(thread)) {
     case THREAD.JOB: {
       return {
         jobsThread: {
           pagedJobs: resp.pagedJobs,
           curView: getCurView(resp.pagedJobs),
+          activeTag,
         },
       }
     }
@@ -38,6 +51,7 @@ export const ssrContentsThread = (resp, thread) => {
         videosThread: {
           pagedVideos: resp.pagedVideos,
           curView: getCurView(resp.pagedVideos),
+          activeTag,
         },
       }
     }
@@ -46,6 +60,7 @@ export const ssrContentsThread = (resp, thread) => {
         videosThread: {
           pagedRepos: resp.pagedRepos,
           curView: getCurView(resp.pagedRepos),
+          activeTag,
         },
       }
     }
@@ -54,6 +69,7 @@ export const ssrContentsThread = (resp, thread) => {
         postsThread: {
           pagedPosts: resp.pagedPosts,
           curView: getCurView(resp.pagedPosts),
+          activeTag,
         },
       }
     }

@@ -40,17 +40,12 @@ const RouteStore = t
     markRoute(query) {
       if (!onClient) return false
       const { mainPath, subPath, page } = query
+      query = R.pickBy(v => !R.isEmpty(v), query)
 
-      if (mainPath) {
-        self.mainPath = mainPath
-      }
-      if (subPath) {
-        self.subPath = subPath
-      }
+      if (mainPath) self.mainPath = mainPath
+      if (subPath) self.subPath = subPath
 
-      if (page && String(page) === '1') {
-        query = R.omit(['page'], query)
-      }
+      if (page && String(page) === '1') query = R.omit(['page'], query)
 
       const allQueryString = serializeQuery(query)
       const queryString = serializeQuery(R.omit(['mainPath', 'subPath'], query))
