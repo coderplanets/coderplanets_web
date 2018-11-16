@@ -9,7 +9,7 @@ import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
 const splitMargin = '8px'
 const MainEntries = () => (
   <Wrapper>
-    <Link href="/" prefetch>
+    <Link href="/home/posts">
       <SiteLink>首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />

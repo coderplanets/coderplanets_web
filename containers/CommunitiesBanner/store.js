@@ -4,7 +4,6 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { PagedCategories } from '../../stores/SharedModel'
@@ -22,11 +21,7 @@ const CommunitiesBannerStore = t
       return getParent(self)
     },
     get pagedCategoriesData() {
-      const data = stripMobx(self.pagedCategories)
-      if (data) {
-        data.entries = R.concat([{ title: '全部', raw: 'all' }], data.entries)
-      }
-      return data
+      return stripMobx(self.pagedCategories)
     },
   }))
   .actions(self => ({

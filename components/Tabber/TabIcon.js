@@ -23,6 +23,13 @@ const supportIcons = [
   'settings',
   'likes',
   'favorites',
+  // categories
+  'frontend',
+  'backend',
+  'blockchain',
+  'ai',
+  'mobile',
+  'design',
 ]
 
 const TabIcon = ({ raw, active, small }) => {
