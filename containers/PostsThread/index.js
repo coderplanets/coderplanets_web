@@ -34,7 +34,7 @@ const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
 const LabelText = {
-  news: '发布新闻',
+  radar: '采集信息',
   share: '我要分享',
   city: '发布同城帖',
 }
