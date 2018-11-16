@@ -18,7 +18,6 @@ import {
 
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
   resv_event: [
@@ -36,12 +35,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -176,7 +170,6 @@ const ErrSolver = [
 
 export function init(_store) {
   if (store) return false
-
   store = _store
 
   if (sub$) sub$.unsubscribe()

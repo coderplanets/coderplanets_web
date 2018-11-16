@@ -44,23 +44,6 @@ export function loadTags(topic = TOPIC.POST) {
   sr71$.query(S.partialTags, args)
 }
 
-const colorOrder = {
-  red: 0,
-  orange: 1,
-  yellow: 2,
-  green: 3,
-  cyan: 4,
-  blue: 5,
-  purple: 6,
-  dodgerblue: 7,
-  yellowgreen: 8,
-  brown: 9,
-  grey: 10,
-}
-
-export const sortByColor = source =>
-  source.sort((t1, t2) => colorOrder[t1.color] - colorOrder[t2.color])
-
 // ###############################
 // Data & Error handlers
 // ###############################

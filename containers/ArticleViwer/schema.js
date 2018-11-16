@@ -9,12 +9,41 @@ const post = gql`
       author {
         ${F.author}
       }
+      tags {
+        ${F.tag}
+      }
+      communities {
+        ${F.community}
+      }
       linkAddr
       insertedAt
       favoritedCount
       starredCount
+      viewerHasViewed @include(if: $userHasLogin)
       viewerHasFavorited @include(if: $userHasLogin)
       viewerHasStarred @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
+    }
+  }
+`
+
+const job = gql`
+  query($id: ID!, $userHasLogin: Boolean!) {
+    job(id: $id) {
+      ${F.job}
+      body
+      author {
+        ${F.author}
+      }
+      tags {
+        ${F.tag}
+      }
+      communities {
+        ${F.community}
+      }
+      favoritedCount
+      viewerHasViewed @include(if: $userHasLogin)
+      viewerHasFavorited @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
     }
   }
@@ -28,21 +57,6 @@ const postReactionRes = gql`
       viewerHasFavorited
       viewerHasStarred
       favoritedCategoryId
-    }
-  }
-`
-const job = gql`
-  query($id: ID!, $userHasLogin: Boolean!) {
-    job(id: $id) {
-      ${F.job}
-      body
-      author {
-        ${F.author}
-      }
-
-      favoritedCount
-      viewerHasFavorited @include(if: $userHasLogin)
-      favoritedCategoryId @include(if: $userHasLogin)
     }
   }
 `
@@ -71,6 +85,27 @@ const undoReaction = gql`
     }
   }
 `
+const setTag = gql`
+  mutation($thread: String!, $id: ID!, $tagId: ID!, $communityId: ID!) {
+    setTag(thread: $thread, id: $id, tagId: $tagId, communityId: $communityId) {
+      id
+      title
+    }
+  }
+`
+const unsetTag = gql`
+  mutation($thread: String!, $id: ID!, $tagId: ID!, $communityId: ID!) {
+    unsetTag(
+      thread: $thread
+      id: $id
+      tagId: $tagId
+      communityId: $communityId
+    ) {
+      id
+      title
+    }
+  }
+`
 
 const schema = {
   post,
@@ -80,6 +115,8 @@ const schema = {
   // viewerReactions,
   reaction,
   undoReaction,
+  setTag,
+  unsetTag,
 }
 
 export default schema

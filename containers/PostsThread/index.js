@@ -42,7 +42,6 @@ const LabelText = {
 class PostsThreadContainer extends React.Component {
   constructor(props) {
     super(props)
-
     const { postsThread } = props
     logic.init(postsThread)
   }

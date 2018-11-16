@@ -62,7 +62,7 @@ export const ssrContentsThread = (resp, thread) => {
 
 // TODO generl
 export const addTopicIfNeed = (source, thread, topic) => {
-  if (!R.contains(thread, ['VIDEO', 'REPO', 'USER', 'WIKI'])) {
+  if (!R.contains(thread, ['JOB', 'VIDEO', 'REPO', 'USER', 'WIKI'])) {
     return R.merge(source, { topic })
   }
   return source

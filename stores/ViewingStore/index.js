@@ -75,6 +75,23 @@ const ViewingStore = t
           return false
       }
     },
+    syncViewingItem(item) {
+      const curThread = self.viewingThread || self.activeThread
+      switch (curThread) {
+        case THREAD.JOB: {
+          return self.root.jobsThread.updateItem(item)
+        }
+        case THREAD.REPO: {
+          return self.root.reposThread.updateItem(item)
+        }
+        case THREAD.VIDEO: {
+          return self.root.videosThread.updateItem(item)
+        }
+        default: {
+          return self.root.postsThread.updateItem(item)
+        }
+      }
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

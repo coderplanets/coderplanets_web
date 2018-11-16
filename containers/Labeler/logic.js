@@ -49,6 +49,10 @@ export function onOptionSelect(uniqId, item) {
   })
 }
 
+export const getSelectedTagId = label => {
+  return store.getSelectedTagId(label)
+}
+
 export function onVisibleChange(uniqId, popVisible) {
   store.markUniqState(uniqId, { popVisible })
 
