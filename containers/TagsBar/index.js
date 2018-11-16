@@ -31,8 +31,8 @@ class TagsBarContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    const { tagsBar, thread, topic } = props
-    logic.init(tagsBar, thread, topic)
+    const { tagsBar, thread, topic, active } = props
+    logic.init(tagsBar, thread, topic, active)
   }
 
   onSelect(tag) {
@@ -55,7 +55,7 @@ class TagsBarContainer extends React.Component {
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
             <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
-            <TagTitle>全部标签</TagTitle>
+            <TagTitle>全部</TagTitle>
           </TagItem>
         ) : null}
 
@@ -108,11 +108,17 @@ TagsBarContainer.propTypes = {
    */
   onSelect: PropTypes.func.isRequired,
   // https://www.npmjs.com/package/prop-types
+  active: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    color: PropTypes.string,
+  }),
 }
 
 TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
   topic: TOPIC.POST,
+  active: {},
 }
 
 export default withGuardian(

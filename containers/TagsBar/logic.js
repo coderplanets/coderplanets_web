@@ -25,9 +25,7 @@ const debug = makeDebugger('L:TagsBar')
 
 let store = null
 
-export function onTagSelect(tag) {
-  store.selectTag(tag)
-}
+export const onTagSelect = tag => store.selectTag(tag)
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
@@ -86,15 +84,18 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, thread, topic) {
+export function init(_store, thread, topic, active) {
+  let activeTag = R.pick(['id', 'title', 'color'], active)
+  if (R.isEmpty(activeTag.title)) activeTag = null
+
   if (store) {
-    store.markState({ thread, topic })
-    return false
-    // return loadIfNeed(thread)
+    return store.markState({ thread, topic, activeTag })
   }
+
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  store.markState({ thread, topic })
+
+  store.markState({ thread, topic, activeTag })
 }
