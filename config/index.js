@@ -1,4 +1,11 @@
-export { DEFAULT_THEME, PAGE_SIZE, WORD_LIMIT, TAG_COLORS } from './general'
+export {
+  DEFAULT_THEME,
+  PAGE_SIZE,
+  WORD_LIMIT,
+  TAG_COLORS,
+  TAG_COLOR_ORDER,
+} from './general'
+
 export {
   GRAPHQL_ENDPOINT,
   ISSUE_ADDR,

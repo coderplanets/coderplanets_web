@@ -50,6 +50,18 @@ class LabelerContainer extends React.Component {
     logic.uninit(uniqId)
   }
 
+  onTagSelect(uniqId, item) {
+    const { selected, onTagSelect, onTagUnselect } = this.props
+    // const { labelsData, labelEntriesData } = labeler
+    logic.onOptionSelect(uniqId, item)
+    const tagId = logic.getSelectedTagId(item)
+    if (R.contains(item, selected)) {
+      onTagUnselect(tagId)
+    } else {
+      onTagSelect(tagId)
+    }
+  }
+
   render() {
     const { uniqId } = this.state
     const { labeler, label, readonly } = this.props
@@ -85,7 +97,7 @@ class LabelerContainer extends React.Component {
                   label={label}
                   tagsData={tags}
                   selected={selected}
-                  onOptionSelect={logic.onOptionSelect.bind(this, uniqId)}
+                  onOptionSelect={this.onTagSelect.bind(this, uniqId)}
                 />
               }
               placement="right"
@@ -125,6 +137,8 @@ LabelerContainer.propTypes = {
   multi: PropTypes.bool,
   selected: PropTypes.arrayOf(PropTypes.string),
 
+  onTagSelect: PropTypes.func,
+  onTagUnselect: PropTypes.func,
   readonly: PropTypes.bool,
 }
 
@@ -134,6 +148,8 @@ LabelerContainer.defaultProps = {
   multi: false,
   selected: [],
   readonly: false,
+  onTagSelect: debug,
+  onTagUnselect: debug,
 }
 
 export default inject(storePlug('labeler'))(observer(LabelerContainer))

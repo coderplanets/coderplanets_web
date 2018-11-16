@@ -4,7 +4,7 @@
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
-import { markStates, makeDebugger, TYPE } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViwerStore')
 /* eslint-enable no-unused-vars */
@@ -38,6 +38,9 @@ const ArticleViwerStore = t
     get viewingData() {
       return self.root.viewingData
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get activeThread() {
       const { activeThread } = self.root.viewing
       return activeThread
@@ -46,6 +49,9 @@ const ArticleViwerStore = t
   .actions(self => ({
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    syncViewingItem(item) {
+      self.root.viewing.syncViewingItem(item)
     },
     markRoute(query) {
       self.root.markRoute(query)

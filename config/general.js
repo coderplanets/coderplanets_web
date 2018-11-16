@@ -33,3 +33,17 @@ export const TAG_COLORS = [
   'brown',
   'grey',
 ]
+
+export const TAG_COLOR_ORDER = {
+  red: 0,
+  orange: 1,
+  yellow: 2,
+  green: 3,
+  cyan: 4,
+  blue: 5,
+  purple: 6,
+  dodgerblue: 7,
+  yellowgreen: 8,
+  brown: 9,
+  grey: 10,
+}

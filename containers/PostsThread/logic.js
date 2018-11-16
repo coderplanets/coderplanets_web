@@ -18,7 +18,6 @@ import {
 
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
   resv_event: [
@@ -171,7 +170,6 @@ const ErrSolver = [
 
 export function init(_store) {
   if (store) return false
-
   store = _store
 
   if (sub$) sub$.unsubscribe()

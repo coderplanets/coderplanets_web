@@ -13,7 +13,15 @@ import { withGuardian } from '../../components/HOC'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
-import { uid, makeDebugger, storePlug, THREAD, TOPIC, Trans } from '../../utils'
+import {
+  uid,
+  makeDebugger,
+  storePlug,
+  sortByColor,
+  THREAD,
+  TOPIC,
+  Trans,
+} from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
@@ -38,7 +46,7 @@ class TagsBarContainer extends React.Component {
     const { tagsBar } = this.props
     const { tagsData, activeTagData } = tagsBar
 
-    const sortedTags = logic.sortByColor(tagsData)
+    const sortedTags = sortByColor(tagsData)
 
     return (
       <Wrapper>

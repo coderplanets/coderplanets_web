@@ -103,6 +103,22 @@ export function onEdit(thread) {
   }
 }
 
+export const onTagSelect = tagId => {
+  const { id } = store.viewingData
+  const communityId = store.curCommunity.id
+  const thread = R.toUpper(store.activeThread)
+
+  sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
+}
+
+export const onTagUnselect = tagId => {
+  const { id } = store.viewingData
+  const communityId = store.curCommunity.id
+  const thread = R.toUpper(store.activeThread)
+
+  sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
+}
+
 export const onListReactionUsers = (type, data) =>
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
@@ -130,15 +146,6 @@ const openAttachment = att => {
 // ###############################
 const DataSolver = [
   {
-    match: asyncRes('reaction'),
-    action: ({ reaction: { id } }) => reloadReactions(id, store.activeThread),
-  },
-  {
-    match: asyncRes('undoReaction'),
-    action: ({ undoReaction: { id } }) =>
-      reloadReactions(id, store.activeThread),
-  },
-  {
     match: asyncRes(EVENT.REFRESH_REACTIONS),
     action: e => {
       const { id, thread } = e[EVENT.REFRESH_REACTIONS].data
@@ -157,6 +164,7 @@ const DataSolver = [
     match: asyncRes('post'),
     action: ({ post }) => {
       store.setViewing({ post: R.merge(store.viewingData, post) })
+      store.syncViewingItem(post)
       loading(false)
     },
   },
@@ -164,7 +172,41 @@ const DataSolver = [
     match: asyncRes('job'),
     action: ({ job }) => {
       store.setViewing({ job: R.merge(store.viewingData, job) })
+      store.syncViewingItem(job)
       loading(false)
+    },
+  },
+  {
+    match: asyncRes('reaction'),
+    action: ({ reaction: { id } }) => reloadReactions(id, store.activeThread),
+  },
+  {
+    match: asyncRes('undoReaction'),
+    action: ({ undoReaction: { id } }) =>
+      reloadReactions(id, store.activeThread),
+  },
+  {
+    match: asyncRes('setTag'),
+    action: () => {
+      if (store.activeThread === THREAD.POST) {
+        loadPost(store.viewingData)
+      } else {
+        loadJob(store.viewingData)
+      }
+      // dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('unsetTag'),
+    action: () => {
+      if (store.activeThread === THREAD.POST) {
+        loadPost(store.viewingData)
+      } else {
+        loadJob(store.viewingData)
+      }
+      // dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
     },
   },
 ]

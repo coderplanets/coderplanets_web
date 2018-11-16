@@ -26,6 +26,7 @@ export {
   cutFrom,
   prettyNum,
   numberWithCommas,
+  sortByColor,
   Rlog,
   countWords,
   closePreviewer,
