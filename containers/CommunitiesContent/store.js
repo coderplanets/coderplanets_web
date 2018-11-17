@@ -35,6 +35,9 @@ const CommunitiesContentStore = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     toggleSubscribe(community) {
       const index = R.findIndex(
         R.propEq('id', community.id),

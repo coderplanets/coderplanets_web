@@ -38,7 +38,7 @@ export function pageChange(page) {
 }
 
 export function subscribe(id) {
-  debug('subscribe', id)
+  if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
   store.markState({
@@ -48,7 +48,7 @@ export function subscribe(id) {
 }
 
 export function unSubscribe(id) {
-  debug('unSubscribe', id)
+  if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
   store.markState({
