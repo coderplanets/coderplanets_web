@@ -16,6 +16,8 @@ const supportIcons = [
   'wiki',
   'job',
   'cheatsheet',
+  'group',
+  'company',
   // user tab
   'publish',
   'billing',
