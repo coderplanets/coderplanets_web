@@ -23,6 +23,7 @@ const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
+          nonFill={item.raw === 'javascript'}
           src={item.logo}
           loading={<CommunityHolder text={item.title} place="sidebar" />}
         />

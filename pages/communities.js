@@ -29,31 +29,43 @@ import {
   Footer,
 } from '../containers'
 
-import CommunitiesSchema from '../containers/CommunitiesContent/schema'
+import { P } from '../containers/schemas'
+
 /* import PostsThreadSchema from '../containers/PostsThread/schema' */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData({ asPath, req }) {
-  /* const community = getMainPath(props) */
-  /* const thread = extractThreadFromPath(props) */
-  /* const category = getSubPath(props) */
-  const filter = { ...queryStringToJSON(asPath) }
-  const token = BStore.cookie.from_req(req, 'jwtToken')
+async function fetchData(props) {
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
+  const subPath = getSubPath(props)
+  const category = subPath !== '' ? subPath : 'pl'
 
-  const pagedCommunities = gqClient.request(
-    CommunitiesSchema.pagedCommunitiesRaw,
-    {
-      filter,
-      userHasLogin: nilOrEmpty(token) === false,
-    }
-  )
+  const { asPath } = props
+
+  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }) }
+
+  const pagedCommunities = gqClient.request(P.pagedCommunities, {
+    filter: { ...filter, category },
+    userHasLogin,
+  })
+  const pagedCategories = gqClient.request(P.pagedCategories, { filter })
+
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
   return {
+    category,
+    ...(await pagedCategories),
     ...(await pagedCommunities),
+    ...(await subscribedCommunities),
   }
 }
 
@@ -67,19 +79,15 @@ export default class Index extends React.Component {
       'SSR (communities) queryStringToJSON: ',
       queryStringToJSON(asPath)
     )
-    /* console.log('props --> ', props.req.headers.cookie) */
-    /* console.log( */
-    /* 'read_from(BStore cookie)--> ', */
-    /* read_from(props.req.headers.cookie, '_ga') */
-    /* BStore.cookie.from_req(props.req, 'jwtToken') */
-    /* ) */
-
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const category = getSubPath(props)
-    console.log('getSubPath --> category: ', category)
+    const {
+      category,
+      pagedCategories,
+      pagedCommunities,
+      subscribedCommunities,
+    } = await fetchData(props)
+    // console.log('communities ->> ', pagedCommunities)
 
-    const { pagedCommunities } = await fetchData(props)
-    /* console.log('communities ->> ', pagedCommunities) */
     /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
     /* const langSetup = {} */
     /* langSetup[locale] = messages */
@@ -88,6 +96,11 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      account: { userSubscribedCommunities: subscribedCommunities },
+      communitiesBanner: {
+        pagedCategories,
+        activeTab: category,
+      },
       communitiesContent: {
         pagedCommunities,
       },

@@ -35,7 +35,8 @@ export const getSubPath = routeObj => {
   if (routeObj.asPath === '/') return INDEX
 
   const asPathList = parsePathList(routeObj)
-  const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  // const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  const subPath = asPathList.length > 1 ? asPathList[1] : ''
 
   return subPath
 }

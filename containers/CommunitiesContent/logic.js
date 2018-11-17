@@ -22,14 +22,10 @@ const debug = makeDebugger('L:CommunitiesContent')
 let store = null
 let sub$ = null
 
-export function loadCommunities(page = 1, category = 'all') {
+export function loadCommunities(page = 1, category = 'pl') {
   const args = {
-    filter: { page, size: 20 },
+    filter: { page, size: 20, category },
     userHasLogin: store.isLogin,
-  }
-
-  if (category !== 'all') {
-    args.filter.category = category
   }
 
   console.log('loadCommunities ', args)
@@ -130,21 +126,18 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) {
-    return loadCommunities()
+const loadIfNeed = () => {
+  if (!store.pagedCommunities) {
+    loadCommunities()
   }
+}
+
+export function init(_store) {
+  if (store) return loadIfNeed()
+
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  loadCommunities()
-
-  /*
-  const user = BStore.get('user')
-  if (user) {
-    BStore.cookie.set('jwtToken', user.token)
-  }
-  */
+  loadIfNeed()
 }
