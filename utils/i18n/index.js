@@ -15,8 +15,10 @@ const I18nDict = {
   repo: '开源项目',
   jobs: '招聘',
   job: '招聘',
+  group: '组织',
+  company: '公司',
+  user: '用户',
   // tags
-
   pl: '编程语言',
   science: '科学',
   tech: '技术',
@@ -50,6 +52,8 @@ const I18nDict = {
   refined: '精华',
   spread: '推广',
   other: '其他',
+  activity: '活动',
+  '2hand': '二手',
   // cities
   beijing: '北京',
   shanghai: '上海',
