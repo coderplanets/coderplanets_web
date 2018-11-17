@@ -32,6 +32,7 @@ export const LogoWrapper = styled.div`
   }
 `
 export const CommunityLogo = styled(Img)`
+  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   width: 60px;
   height: 60px;
   @media (max-height: 800px) {

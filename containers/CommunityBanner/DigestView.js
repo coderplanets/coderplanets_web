@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -19,6 +20,7 @@ import {
   LogoHolder,
 } from './styles/digest_view'
 
+import { NON_FILL_COMMUNITY } from '../../utils'
 import { tabberChange, showEditorList } from './logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
@@ -28,6 +30,7 @@ const CommunityBrief = ({ content }) => (
     <LogoWrapper>
       {content.logo ? (
         <CommunityLogo
+          nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
           src={content.logo}
           loading={<CommunityHolder text={content.raw} />}
         />
