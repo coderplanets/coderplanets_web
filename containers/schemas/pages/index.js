@@ -1,23 +1,19 @@
-import F from '../fragments'
-
 import { pagedPosts, post } from './post'
 import { pagedJobs, job } from './job'
 import { pagedVideos, video } from './video'
 import { pagedRepos, repo } from './repo'
 import { user } from './user'
-import { community, subscribedCommunities } from './community'
+import { community, subscribedCommunities, pagedCommunities } from './community'
+import { pagedCategories, partialTags } from './misc'
 
 const P = {
+  // community
   community,
   subscribedCommunities,
-
-  partialTags: `
-    query($communityId: ID, $community: String, $thread: CmsThread!, $topic: String) {
-      partialTags(communityId: $communityId, community: $community, thread: $thread, topic: $topic) {
-        ${F.tag}
-      }
-    }
-  `,
+  pagedCommunities,
+  // misc
+  pagedCategories,
+  partialTags,
   // post
   pagedPosts,
   post,

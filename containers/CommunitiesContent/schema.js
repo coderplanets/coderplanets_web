@@ -14,7 +14,6 @@ const pagedCommunities = gql`
     }
   }
 `
-
 const pagedCommunitiesRaw = `
   query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {
     pagedCommunities(filter: $filter) {
@@ -28,7 +27,6 @@ const pagedCommunitiesRaw = `
     }
   }
 `
-
 const subscribeCommunity = gql`
   mutation($communityId: ID!) {
     subscribeCommunity(communityId: $communityId) {
@@ -41,7 +39,6 @@ const subscribeCommunity = gql`
     }
   }
 `
-
 const unsubscribeCommunity = gql`
   mutation($communityId: ID!) {
     unsubscribeCommunity(communityId: $communityId) {

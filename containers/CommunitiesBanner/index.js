@@ -38,8 +38,10 @@ class CommunitiesBannerContainer extends React.Component {
 
   render() {
     const {
-      communitiesBanner: { pagedCategoriesData, activeRaw },
+      communitiesBanner: { pagedCategoriesData, activeTab },
     } = this.props
+    debug('activeRaw: ', activeTab)
+
     return (
       <BannerContainer>
         <BannerContentWrapper>
@@ -61,7 +63,7 @@ class CommunitiesBannerContainer extends React.Component {
             <TabberWrapper>
               <Tabber
                 source={pagedCategoriesData.entries}
-                active={activeRaw}
+                active={activeTab}
                 onChange={logic.tabOnChange}
               />
             </TabberWrapper>

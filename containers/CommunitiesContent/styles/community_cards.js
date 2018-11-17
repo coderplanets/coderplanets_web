@@ -4,16 +4,11 @@ import { theme, cs } from '../../../utils'
 import Img from '../../../components/Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${cs.flex('justify-center')};
 `
 export const CardsWrapper = styled.div`
   ${cs.flex('justify-center')};
   flex-wrap: wrap;
-`
-export const CommunityIcon = styled(Img)`
-  width: 60px;
-  height: 60px;
-  margin-top: -40px;
 `
 export const Card = styled.div`
   ${cs.flexColumn('align-center')};
@@ -34,6 +29,16 @@ export const Card = styled.div`
   }
   border-radius: 3px;
   margin-bottom: 60px;
+`
+// fill only works for non-colored svgs
+export const CommunityIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
+  width: 60px;
+  height: 60px;
+  margin-top: -40px;
+  ${Card}:hover & {
+    fill: ${theme('banner.title')};
+  }
 `
 export const CardTitle = styled.div`
   font-size: 1.2em;
