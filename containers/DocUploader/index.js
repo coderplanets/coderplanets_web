@@ -40,6 +40,7 @@ const getFileName = filename => {
 }
 
 class DocUploaderContainer extends React.Component {
+  /*
   constructor(props) {
     super(props)
 
@@ -49,9 +50,21 @@ class DocUploaderContainer extends React.Component {
 
     this.state = {
       ossClient: null,
-      // use unique id to init the file input, otherwise it will be the some instance
       uniqueId: uid.gen(),
     }
+  }
+  */
+
+  state = {
+    ossClient: null,
+    // use unique id to init the file input, otherwise it will be the some instance
+    uniqueId: uid.gen(),
+  }
+
+  componentDidMount() {
+    const { docUploader } = this.props
+    init(docUploader)
+    this.initOssClient()
   }
 
   componentWillUnmount() {
@@ -92,6 +105,7 @@ class DocUploaderContainer extends React.Component {
 
   /* eslint-disable */
   handleCHange(e) {
+    console.log('handleCHange e: ', e)
     const files = e.target.files
     /* console.log('handleCHange files: ', files) */
     const theFile = files[0]
