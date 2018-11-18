@@ -27,6 +27,7 @@ const debug = makeDebugger('C:Banner')
 
 const BannerContent = ({ curRoute }) => {
   const { mainPath } = curRoute
+  debug('BannerContent mainPath: ', mainPath)
   switch (mainPath) {
     case ROUTE.CHEATSHEETS: {
       return <CheatsheetRootBanner />

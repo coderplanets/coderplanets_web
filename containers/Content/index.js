@@ -27,7 +27,7 @@ const debug = makeDebugger('C:Content')
 
 const renderContent = curRoute => {
   const { mainPath } = curRoute
-  console.log('Content --> ', mainPath)
+  debug('Contents mainPath: ', mainPath)
   switch (mainPath) {
     case ROUTE.CHEATSHEETS: {
       return <CheatSheetContent />
