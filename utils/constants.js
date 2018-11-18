@@ -131,12 +131,14 @@ export const THREAD = {
   REPO: 'repo',
   WIKI: 'wiki',
   CHEATSHEET: 'cheatsheet',
-
   // home spec
   TECH: 'tech',
   SHARE: 'share',
   RADAR: 'radar',
   CITY: 'city',
+  // city spec
+  GROUP: 'group',
+  COMPANY: 'company',
 }
 
 export const TOPIC = {

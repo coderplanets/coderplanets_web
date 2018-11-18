@@ -22,7 +22,8 @@ const debug = makeDebugger('L:CommunitiesContent')
 let store = null
 let sub$ = null
 
-export function loadCommunities(page = 1, category = 'pl') {
+export function loadCommunities(page = 1) {
+  const { subPath: category } = store.curRoute
   const args = {
     filter: { page, size: 20, category },
     userHasLogin: store.isLogin,

@@ -32,12 +32,12 @@ export const Card = styled.div`
 `
 // fill only works for non-colored svgs
 export const CommunityIcon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   width: 60px;
   height: 60px;
   margin-top: -40px;
   ${Card}:hover & {
-    fill: ${theme('banner.title')};
+    fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.title'))};
   }
 `
 export const CardTitle = styled.div`

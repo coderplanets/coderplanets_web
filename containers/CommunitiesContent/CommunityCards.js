@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 // import { ICON_CMD } from '../../config'
 // import { Wrapper } from './styles'
@@ -17,11 +18,14 @@ import {
   CardFooter,
 } from './styles/community_cards'
 
-import { prettyNum } from '../../utils'
+import { NON_FILL_COMMUNITY, prettyNum } from '../../utils'
 
 const CommunityCard = ({ community, restProps }) => (
   <Card>
-    <CommunityIcon src={community.logo} />
+    <CommunityIcon
+      nonFill={R.contains(community.raw, NON_FILL_COMMUNITY)}
+      src={community.logo}
+    />
     <CardTitle>{community.title}</CardTitle>
     <CardDesc>{community.desc}</CardDesc>
     <ActivitySpark>
