@@ -18,11 +18,15 @@ init:
 dep:
 	npm install # for commitizen
 
+# shortcut for launch.local
+dev:
+	npm run local
+
 build:
 	npm build
 
-dev:
-	npm run local
+build.prod:
+	npm run build.prod
 
 launch.help:
 	$(call launch.help)
@@ -30,10 +34,12 @@ launch.help:
 launch:
 	$(call launch.help)
 	@echo "\n"
+launch.local:
+	npm run local
 launch.dev:
 	npm run launch.dev
 launch.prod:
-	SERVE_PORT=8002 npm run launch
+	npm run launch.prod
 
 gen.help:
 	$(call gen.help)

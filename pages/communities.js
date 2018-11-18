@@ -43,6 +43,7 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
   const subPath = getSubPath(props)
   const category = subPath !== '' ? subPath : 'pl'
+  console.log('category meet: ', category)
 
   const { asPath } = props
 

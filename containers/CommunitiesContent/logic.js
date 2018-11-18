@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 import {
   asyncRes,
   asyncErr,
@@ -6,6 +6,7 @@ import {
   ERR,
   makeDebugger,
   EVENT,
+  pagedFilter,
 } from '../../utils'
 
 import S from './schema'
@@ -23,13 +24,15 @@ let store = null
 let sub$ = null
 
 export function loadCommunities(page = 1) {
-  const { subPath: category } = store.curRoute
+  const { subPath } = store.curRoute
+  const category = !R.isEmpty(subPath) ? subPath : 'pl'
+
   const args = {
-    filter: { page, size: 20, category },
+    filter: { ...pagedFilter(page), category },
     userHasLogin: store.isLogin,
   }
 
-  console.log('loadCommunities ', args)
+  debug('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
 }
 
@@ -128,7 +131,10 @@ const ErrSolver = [
 ]
 
 const loadIfNeed = () => {
-  if (!store.pagedCommunities) {
+  if (
+    !store.pagedCommunitiesData ||
+    store.pagedCommunitiesData.totalCount === 0
+  ) {
     loadCommunities()
   }
 }
