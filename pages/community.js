@@ -47,6 +47,9 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
+  console.log('========= ')
+  console.log('userHasLogin: ', userHasLogin)
+  console.log('========= ')
 
   const { asPath } = props
   // schema

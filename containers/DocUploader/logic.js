@@ -16,7 +16,10 @@ let store = null
 
 export function onUploadError(error) {
   debug('onUploadError: ', error)
-  store.toast('error', { title: '文件上传出错', msg: '请重新上传' })
+  store.toast('error', {
+    title: '暂时无法上传图片',
+    msg: '请检查 OSS key 配置',
+  })
 }
 
 // ###############################

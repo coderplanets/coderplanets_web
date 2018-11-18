@@ -10,7 +10,7 @@ const createPost = gql`
     $copyRight: String
     $communityId: ID!
     $tags: [Ids]
-    $topic: CmsTopic
+    $topic: String
   ) {
     createPost(
       title: $title
