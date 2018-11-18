@@ -34,7 +34,7 @@ const debug = makeDebugger('C:PostsThread')
 /* eslint-enable no-unused-vars */
 
 const LabelText = {
-  news: '发布新闻',
+  radar: '采集信息',
   share: '我要分享',
   city: '发布同城帖',
 }
@@ -42,7 +42,6 @@ const LabelText = {
 class PostsThreadContainer extends React.Component {
   constructor(props) {
     super(props)
-
     const { postsThread } = props
     logic.init(postsThread)
   }
@@ -57,6 +56,7 @@ class PostsThreadContainer extends React.Component {
       curRoute,
       accountInfo,
       isLogin,
+      activeTagData,
     } = postsThread
 
     const { mainPath, subPath } = curRoute
@@ -104,6 +104,7 @@ class PostsThreadContainer extends React.Component {
                 thread={THREAD.POST}
                 topic={topic}
                 onSelect={logic.onTagSelect}
+                active={activeTagData}
               />
             </Affix>
           </React.Fragment>

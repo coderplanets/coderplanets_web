@@ -32,12 +32,9 @@ export function loadCommunity() {
 }
 
 export function tabberChange(activeThread) {
-  // console.log('store is :', store)
-  // console.log('tabberChange thread: ', thread2Subpath(activeThread))
-  // debug('subPath set to: ', thread2Subpath(activeThread))
   const subPath = thread2Subpath(activeThread)
-  debug('EVENT.activeThread -----> ', activeThread)
-  debug('EVENT.subPath -----> ', subPath)
+  // debug('EVENT.activeThread -----> ', activeThread)
+  // debug('EVENT.subPath -----> ', subPath)
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })

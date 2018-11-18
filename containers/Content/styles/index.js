@@ -4,11 +4,12 @@ import { cs } from '../../../utils'
 
 // visibility: ${props => (props.active === props.name ? 'visible' : 'hidden')};
 
+export const Wrapper = styled.div`
+  flex-grow: 1;
+`
 export const Hidder = styled.div`
   display: ${({ active, name }) => (active === name ? 'block' : 'none')};
 `
-export const Wrapper = styled.div``
-
 export const CategoryWrapper = styled.div`
   ${cs.flex()};
   width: 100%;

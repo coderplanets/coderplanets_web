@@ -11,10 +11,12 @@ const ArticleOptions = ({ thread }) => (
       <ItemIcon src={`${ICON_CMD}/edit.svg`} />
       <ItemTitle>编辑文章</ItemTitle>
     </Item>
-    <Item>
-      <ItemIcon src={`${ICON_CMD}/diamond.svg`} />
-      <ItemTitle>置为精华</ItemTitle>
-    </Item>
+    {/*
+         <Item>
+         <ItemIcon src={`${ICON_CMD}/diamond.svg`} />
+         <ItemTitle>置为精华</ItemTitle>
+         </Item>
+       */}
     <Item>
       <ItemIcon src={`${ICON_CMD}/flag.svg`} />
       <ItemTitle>举报文章</ItemTitle>

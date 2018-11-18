@@ -9,12 +9,18 @@ import { inject, observer } from 'mobx-react'
 
 import Tabber from '../../components/Tabber'
 
-// import Link from 'next/link'
+import {
+  BannerContainer,
+  BannerContentWrapper,
+  ContentWrapper,
+  TabberWrapper,
+  Title,
+  Desc,
+  IssueLink,
+} from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
-
-import { BannerContainer, TabberWrapper, BannerContentWrapper } from './styles'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:CommunitiesBanner')
@@ -28,19 +34,36 @@ class CommunitiesBannerContainer extends React.Component {
     logic.init(communitiesBanner)
   }
 
+  // https://github.com/coderplanets/coderplanets_web/issues/265
+
   render() {
     const {
-      communitiesBanner: { pagedCategoriesData, activeRaw },
+      communitiesBanner: { pagedCategoriesData, activeTab },
     } = this.props
+    debug('activeRaw: ', activeTab)
+
     return (
       <BannerContainer>
         <BannerContentWrapper>
-          <h2>this is all communities</h2>
+          <ContentWrapper>
+            <Title>寻找你感兴趣的社区</Title>
+            <Desc>
+              若没有你感兴趣的社区, 你可以
+              <IssueLink
+                href="https://github.com/coderplanets/coderplanets_web/issues/280"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                参与创建
+              </IssueLink>
+              !
+            </Desc>
+          </ContentWrapper>
           {pagedCategoriesData ? (
             <TabberWrapper>
               <Tabber
                 source={pagedCategoriesData.entries}
-                active={activeRaw}
+                active={activeTab}
                 onChange={logic.tabOnChange}
               />
             </TabberWrapper>

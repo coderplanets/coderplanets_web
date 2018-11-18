@@ -12,6 +12,7 @@ export {
   FILTER,
   ROUTE,
   C11N,
+  NON_FILL_COMMUNITY,
 } from './constants'
 
 export { makeDebugger } from './debug'
@@ -26,6 +27,7 @@ export {
   cutFrom,
   prettyNum,
   numberWithCommas,
+  sortByColor,
   Rlog,
   countWords,
   closePreviewer,

@@ -90,6 +90,17 @@ const AccountStore = t
     },
     addSubscribedCommunity(community) {
       const {
+        userSubscribedCommunities: { entries },
+      } = self
+
+      self.userSubscribedCommunities.entries = R.insert(0, community, entries)
+      self.userSubscribedCommunities.totalCount += 1
+
+      self.root.communitiesContent.toggleSubscribe(community)
+
+      /*
+
+      const {
         user: {
           subscribedCommunities: { entries },
         },
@@ -99,20 +110,28 @@ const AccountStore = t
       self.user.subscribedCommunities.totalCount += 1
 
       self.root.communitiesContent.toggleSubscribe(community)
+      */
     },
 
     removeSubscribedCommunity(community) {
       const {
-        user: {
-          subscribedCommunities: { entries },
-        },
+        userSubscribedCommunities: { entries },
       } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
-      self.user.subscribedCommunities.entries = R.remove(index, 1, entries)
-      self.user.subscribedCommunities.totalCount -= 1
+      self.userSubscribedCommunities.entries = R.remove(index, 1, entries)
+      self.userSubscribedCommunities.totalCount -= 1
 
       self.root.communitiesContent.toggleSubscribe(community)
+      /*
+         const { user: { subscribedCommunities: { entries } } } = self
+
+         const index = R.findIndex(R.propEq('id', community.id), entries)
+         self.user.subscribedCommunities.entries = R.remove(index, 1, entries)
+         self.user.subscribedCommunities.totalCount -= 1
+
+         self.root.communitiesContent.toggleSubscribe(community)
+       */
     },
     updateC11N(options) {
       const curCustomization = R.clone(self.accountInfo.customization)

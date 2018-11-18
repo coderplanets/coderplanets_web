@@ -66,6 +66,7 @@ async function fetchData(props) {
     thread,
     topic
   )
+  console.log('the page community filter ->: ', filter)
 
   // query data
   const curCommunity = gqClient.request(P.community, { raw: community })
@@ -83,6 +84,7 @@ async function fetchData(props) {
   })
 
   return {
+    filter,
     ...(await curCommunity),
     ...(await pagedContents),
     ...(await partialTags),
@@ -115,6 +117,9 @@ export default class PageCommunity extends React.Component {
 
     const { partialTags, community, subscribedCommunities } = resp
 
+    // console.log('the gilter', filter)
+    // console.log('partialTags: ', partialTags)
+
     // const pagedContents =
 
     console.log(
@@ -123,15 +128,6 @@ export default class PageCommunity extends React.Component {
     )
 
     const contentsThread = ssrContentsThread(resp, thread)
-
-    // console.log('contentsThread --> ', contentsThread)
-
-    // console.log('pagedPosts -- ', pagedPosts)
-    /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
-    /* const langSetup = {} */
-    /* langSetup[locale] = messages */
-    /* eslint-enable no-undef */
-    /* console.log('partialTags --> ', partialTags) */
 
     return R.merge(
       {

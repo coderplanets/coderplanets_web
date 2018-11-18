@@ -8,19 +8,33 @@ import { uid, Trans } from '../../utils'
 const renderItems = items => {
   if (!items) return null
 
-  if (items.length === 1) {
-    return (
-      <Item>
-        (<Hightlight>{Trans(items[0])}</Hightlight>)
-      </Item>
-    )
+  switch (items.length) {
+    case 1: {
+      return (
+        <Item>
+          (<Hightlight>{Trans(items[0])}</Hightlight>)
+        </Item>
+      )
+    }
+    case 2: {
+      return (
+        <Item>
+          (
+          <Hightlight>
+            {Trans(items[0])}, {Trans(items[1])}
+          </Hightlight>
+          )
+        </Item>
+      )
+    }
+    default: {
+      return (
+        <Item>
+          (<Hightlight>{Trans(items[0])}, ..</Hightlight>)
+        </Item>
+      )
+    }
   }
-
-  return (
-    <Item>
-      (<Hightlight>{Trans(items[0])}, ..</Hightlight>)
-    </Item>
-  )
 }
 
 const renderReadonlyItems = items => {

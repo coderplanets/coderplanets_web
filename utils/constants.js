@@ -113,7 +113,7 @@ export const ROUTE = {
   WIKI: 'wiki',
   SHARE: 'share',
   CITY: 'city',
-  NEWS: 'news',
+  RADAR: 'radar',
   CHEATSHEET: 'cheatsheet',
 
   POST: 'post',
@@ -130,16 +130,21 @@ export const THREAD = {
   VIDEO: 'video',
   REPO: 'repo',
   WIKI: 'wiki',
-  SHARE: 'share',
-  NEWS: 'news',
-  CITY: 'city',
   CHEATSHEET: 'cheatsheet',
+  // home spec
+  TECH: 'tech',
+  SHARE: 'share',
+  RADAR: 'radar',
+  CITY: 'city',
+  // city spec
+  GROUP: 'group',
+  COMPANY: 'company',
 }
 
 export const TOPIC = {
   POST: 'posts',
   JOB: 'job',
-  NEWS: 'news',
+  RADAR: 'radar',
   SHARE: 'share',
   CITY: 'city',
 }
@@ -196,3 +201,7 @@ export const C11N = {
   LIST: 'list',
   BRIEF: 'brief',
 }
+
+/* some svg icon are sensitive to fill color */
+/* some community svg need fill color, like city etc.. */
+export const NON_FILL_COMMUNITY = ['javascript']

@@ -9,12 +9,15 @@ const supportIcons = [
   'repo',
   'user',
   'city',
-  'news',
+  'tech',
+  'radar',
   'share',
   'video',
   'wiki',
   'job',
   'cheatsheet',
+  'group',
+  'company',
   // user tab
   'publish',
   'billing',
@@ -22,6 +25,14 @@ const supportIcons = [
   'settings',
   'likes',
   'favorites',
+  // categories
+  'pl',
+  'frontend',
+  'backend',
+  'blockchain',
+  'ai',
+  'mobile',
+  'design',
 ]
 
 const TabIcon = ({ raw, active, small }) => {

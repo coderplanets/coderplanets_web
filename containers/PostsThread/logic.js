@@ -18,7 +18,6 @@ import {
 
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
   resv_event: [
@@ -84,6 +83,7 @@ export const onFilterSelect = option => store.selectFilter(option)
 export function onTagSelect(tag) {
   store.selectTag(tag)
   loadPosts()
+  store.markRoute({ tag: tag.title })
 }
 
 export function onTitleSelect(data) {
@@ -174,20 +174,10 @@ const ErrSolver = [
   },
 ]
 
-const loadIfNeed = () => {
-  /* if (R.isEmpty(store.pagedPostsData.entries)) { */
-  // loadPosts()
-  /* } */
-}
-
 export function init(_store) {
-  if (store) {
-    return loadIfNeed()
-  }
-
+  if (store) return false
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadIfNeed()
 }
