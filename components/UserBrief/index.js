@@ -5,6 +5,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 import { Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
@@ -50,12 +51,14 @@ class UserBrief extends React.Component {
 
     return (
       <Wrapper>
-        <AvatarWrapper>
-          <Avatar src={user.avatar} displayStyle={displayStyle} />
-          <Button size="small" type="primary" ghost>
-            升级账户
-          </Button>
-        </AvatarWrapper>
+        <Link href={`/user/${user.id}`}>
+          <AvatarWrapper>
+            <Avatar src={user.avatar} displayStyle={displayStyle} />
+            <Button size="small" type="primary" ghost>
+              升级账户
+            </Button>
+          </AvatarWrapper>
+        </Link>
 
         <BriefTextWrapper>
           <UserTitle>

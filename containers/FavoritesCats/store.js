@@ -56,6 +56,9 @@ const FavoritesCats = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
@@ -99,6 +102,9 @@ const FavoritesCats = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     changesetErr(options) {
       self.root.changesetErr(R.merge({ position: 'topCenter' }, options))
     },
@@ -135,6 +141,8 @@ const FavoritesCats = t
     },
     */
     changeViewTo(view = 'creator') {
+      if (!self.isLogin) return self.authWarning()
+
       switch (view) {
         case 'setter': {
           return self.markState({
