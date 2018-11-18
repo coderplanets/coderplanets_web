@@ -88,10 +88,12 @@ const github = {
   footer: {
     text: '#c7c7c7',
     hover: '#949CB5',
-    label: '#c7c7c7',
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
     logoText: '#5e9aa2',
     menuHover: darken(0.1, sidebarBg),
     pinActive: primaryColor,

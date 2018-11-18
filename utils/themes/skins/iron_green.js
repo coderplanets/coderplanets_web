@@ -87,11 +87,13 @@ const iconGreen = {
   footer: {
     text: descText,
     hover: '#5c868b',
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
-    logoText: primaryColor,
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
+    logoText: primaryColor,
     menuHover: darken(0.05, sidebarBg),
     pinActive: '#54848B',
     menuLink: '#F0F9F8',

@@ -21,25 +21,24 @@ const debug = makeDebugger('C:ArticleViwer')
 
 const Viwer = ({ type, data, loading, accountInfo }) => {
   switch (type) {
-    case TYPE.PREVIEW_POST_VIEW: {
-      return (
-        <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
-      )
-    }
     case TYPE.PREVIEW_JOB_VIEW: {
       return (
         <JobViewer data={data} loading={loading} accountInfo={accountInfo} />
       )
     }
     default: {
-      return <div>default</div>
+      return (
+        <PostViewer data={data} loading={loading} accountInfo={accountInfo} />
+      )
     }
   }
 }
 
 class ArticleViwerContainer extends React.Component {
-  componentDidMount() {
-    const { articleViwer, attachment } = this.props
+  constructor(props) {
+    super(props)
+
+    const { articleViwer, attachment } = props
     logic.init(articleViwer, attachment)
   }
 

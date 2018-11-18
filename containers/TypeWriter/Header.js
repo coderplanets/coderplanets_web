@@ -25,7 +25,12 @@ const ThreadText = ({ thread }) => {
     case THREAD.JOB: {
       return '工作'
     }
-
+    case THREAD.SHARE: {
+      return '分享'
+    }
+    case THREAD.RADAR: {
+      return '信息'
+    }
     default: {
       return '帖子'
     }

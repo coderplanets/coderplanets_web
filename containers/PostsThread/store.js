@@ -44,6 +44,9 @@ const PostsThreadStore = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
+    get curThread() {
+      return self.root.viewing.activeThread
+    },
     get pagedPostsData() {
       return stripMobx(self.pagedPosts)
     },
@@ -64,6 +67,12 @@ const PostsThreadStore = t
     },
   }))
   .actions(self => ({
+    toastInfo(options) {
+      self.root.toast('info', R.merge({ position: 'topCenter' }, options))
+    },
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = R.merge(curfilter, option)
@@ -84,6 +93,16 @@ const PostsThreadStore = t
       const index = R.findIndex(R.propEq('id', id), entries)
       if (index >= 0) {
         self.pagedPosts.entries[index].viewerHasViewed = true
+      }
+    },
+    updateItem(item) {
+      const { entries } = self.pagedPostsData
+      const index = R.findIndex(R.propEq('id', item.id), entries)
+      if (index >= 0) {
+        self.pagedPosts.entries[index] = R.merge(
+          stripMobx(self.pagedPosts.entries[index]),
+          item
+        )
       }
     },
     updateC11N(option) {

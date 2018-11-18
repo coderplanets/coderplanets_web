@@ -45,15 +45,15 @@ const View = ({ curView, thread, editData }) => {
 
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
-  componentDidMount() {
-    const { typeWriter, attachment } = this.props
+  constructor(props) {
+    super(props)
+    const { typeWriter, attachment } = props
 
     init(typeWriter, attachment)
   }
 
   componentWillUnmount() {
     debug('TODO: store state to localstarange')
-    // Message.success('草稿已经保存')
     uninit()
   }
 
@@ -73,7 +73,6 @@ class TypeWriterContainer extends React.Component {
       editData,
     } = typeWriter
 
-    // debug('editData: ', editData)
     return (
       <Wrapper>
         <Header isEdit={isEdit} curView={curView} thread={thread} />

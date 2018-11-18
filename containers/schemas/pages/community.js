@@ -16,7 +16,6 @@ export const subscribedCommunities = `
     }
   }
 `
-
 export const community = `
   query community($id: ID, $raw: String) {
     community(id: $id, raw: $raw) {
@@ -32,6 +31,19 @@ export const community = `
       jobsCount
       videosCount
       reposCount
+    }
+  }
+`
+export const pagedCommunities = `
+  query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {
+    pagedCommunities(filter: $filter) {
+      entries {
+        ${F.community}
+        contributesDigest
+        subscribersCount
+        viewerHasSubscribed @include(if: $userHasLogin)
+      }
+      ${F.pagedCounts}
     }
   }
 `

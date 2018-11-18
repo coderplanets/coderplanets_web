@@ -1,10 +1,18 @@
-export { DEFAULT_THEME, PAGE_SIZE, WORD_LIMIT, TAG_COLORS } from './general'
+export {
+  DEFAULT_THEME,
+  PAGE_SIZE,
+  WORD_LIMIT,
+  TAG_COLORS,
+  TAG_COLOR_ORDER,
+} from './general'
+
 export {
   GRAPHQL_ENDPOINT,
   ISSUE_ADDR,
   GITHUB_WEB_ADDR,
   GITHUB_SERVER_ADDR,
   GITHUB_ME,
+  GITHUB_CPS_TEAM,
   MENTION_USER_ADDR,
   COMMUNITY_WIKI,
 } from './endpoint'

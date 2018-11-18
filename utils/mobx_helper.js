@@ -19,7 +19,7 @@ const matchResolver = (resolveArray, data) => {
     }
   }
 
-  console.log('unMatched resovle data: ', data)
+  console.warn('unMatched resovle data: ', data)
 }
 
 export const $solver = R.curry(
@@ -29,27 +29,30 @@ export const $solver = R.curry(
       : matchResolver(dataResolver, data)
 )
 
+/*
+ * a helper to update mobx state
+ * just like setState in normal React component
+*/
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
-    throw new Error('markState get invalid object, exepect a object')
+    throw new Error('markState: invalid sobj, exepect a object')
   }
-
   const selfKeys = R.keys(self)
 
   R.forEachObjIndexed((val, key) => {
-    if (R.contains(key, selfKeys)) {
-      if (Array.isArray(val)) {
-        self = Object.assign(self, { [key]: val })
-      } else if (isObject(self[key])) {
-        /*
-           NOTE: i had to use the next syntax to update object state
-           because the normal "self = Object.assign(self, { [key]: val })" is NOT WORKING in production build
-           what a mother-fucking bug is this ??? TODO: check later
-         */
-        self[key] = Object.assign(self[key], val)
-      } else {
-        self = Object.assign(self, { [key]: val })
-      }
+    if (!R.contains(key, selfKeys)) return false
+    if (
+      !R.isEmpty(val) &&
+      !Array.isArray(val) &&
+      isObject(val) &&
+      self[key] !== null
+    ) {
+      // NOTE: had to use this syntax to update object val
+      // because the normal one is NOT WORKING in production build
+      // what a mother-fucking bug is this ??? TODO: check later
+      self[key] = Object.assign(self[key], val)
+    } else {
+      self = Object.assign(self, { [key]: val })
     }
   }, sobj)
 
@@ -112,7 +115,7 @@ export const stripMobx = obj => {
 export const updateEditing = (store, part, e) => {
   if (!store) return false
   if (!store.updateEditing)
-    return console.log('Error: updateEditing not found in store: ', store)
+    return console.warn('Error: updateEditing not found in store: ', store)
 
   let value = e
   if (isObject(e) && R.has('target', e)) {

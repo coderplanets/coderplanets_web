@@ -70,26 +70,9 @@ export function onThreadChange(thread) {
   store.setViewing({ activeThread })
 }
 
-export function login() {
-  debug('do login')
-  dispatchEvent(EVENT.LOGIN_PANEL)
-}
-
-export function openDoraemon() {
-  store.openDoraemon()
-}
-
-export function upgradeHepler() {
-  debug('upgradeHepler')
-  store.upgradeHepler()
-}
-
-export function toast() {
-  store.toast('success', {
-    title: 'mydearxym',
-    msg: 'your website is fucking awesome',
-  })
-}
+export const login = () => dispatchEvent(EVENT.LOGIN_PANEL)
+export const openDoraemon = () => store.openDoraemon()
+export const upgradeHepler = () => store.upgradeHepler()
 
 const DataSolver = [
   {
@@ -110,6 +93,13 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.SET_C11N),
     action: res => {
+      if (!store.isLogin) {
+        store.toastInfo({
+          title: '设置未保存',
+          msg: '当前为未登录状态，个性化设置不会同步到服务器.',
+        })
+        return false
+      }
       const { data } = res[EVENT.SET_C11N]
 
       const customization = atomizeValues(data)

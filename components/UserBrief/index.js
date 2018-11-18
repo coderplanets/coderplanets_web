@@ -32,12 +32,10 @@ const debug = makeDebugger('c:UserBrief')
 /* eslint-enable no-unused-vars */
 
 class UserBrief extends React.Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
 
-  componentWillUnmount() {}
-
-  state = {
-    showDetail: false,
+    this.state = { showDetail: false }
   }
 
   toggleDetail() {

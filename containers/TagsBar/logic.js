@@ -7,6 +7,7 @@ import {
   asyncErr,
   EVENT,
   ERR,
+  THREAD,
   TOPIC,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -24,37 +25,22 @@ const debug = makeDebugger('L:TagsBar')
 
 let store = null
 
-export function onTagSelect(tag) {
-  store.selectTag(tag)
-}
+export const onTagSelect = tag => store.selectTag(tag)
+
+const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
 export function loadTags(topic = TOPIC.POST) {
-  // NOTE: do not use viewing.community, it's too slow
+  const { curThread } = store
+  if (R.contains(curThread, NO_TAG_THREADS)) return false
+
   const community = store.curCommunity.raw
-  const thread = R.toUpper(store.curThread)
+  const thread = R.toUpper(curThread)
 
   const args = { community, thread, topic }
 
   debug('#### loadTags --> ', args)
   sr71$.query(S.partialTags, args)
 }
-
-const colorOrder = {
-  red: 0,
-  orange: 1,
-  yellow: 2,
-  green: 3,
-  cyan: 4,
-  blue: 5,
-  purple: 6,
-  dodgerblue: 7,
-  yellowgreen: 8,
-  brown: 9,
-  grey: 10,
-}
-
-export const sortByColor = source =>
-  source.sort((t1, t2) => colorOrder[t1.color] - colorOrder[t2.color])
 
 // ###############################
 // Data & Error handlers
@@ -98,15 +84,18 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, thread, topic) {
+export function init(_store, thread, topic, active) {
+  let activeTag = R.pick(['id', 'title', 'color'], active)
+  if (R.isEmpty(activeTag.title)) activeTag = null
+
   if (store) {
-    store.markState({ thread, topic })
-    return false
-    // return loadIfNeed(thread)
+    return store.markState({ thread, topic, activeTag })
   }
+
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  store.markState({ thread, topic })
+
+  store.markState({ thread, topic, activeTag })
 }

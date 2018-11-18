@@ -28,8 +28,9 @@ const debug = makeDebugger('C:RepoContent')
 /* eslint-enable no-unused-vars */
 
 class RepoContentContainer extends React.Component {
-  componentDidMount() {
-    const { repoContent } = this.props
+  constructor(props) {
+    super(props)
+    const { repoContent } = props
     logic.init(repoContent)
   }
 

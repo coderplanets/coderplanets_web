@@ -9,13 +9,13 @@ export const Wrapper = styled.div`
 `
 export const Tag = styled.div`
   ${cs.flex('align-center')};
-  margin-top: -6px;
+  margin-top: -8px;
+  margin-right: 4px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTag')};
   opacity: 0.8;
-  font-size: 0.9rem;
-  margin-top: -1px;
+  font-size: 0.8rem;
 `
 export const Dot = styled.div`
   ${cs.circle('10px')};

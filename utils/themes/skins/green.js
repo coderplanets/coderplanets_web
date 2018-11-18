@@ -89,11 +89,13 @@ const green = {
   footer: {
     text: lighten(0.1, descText),
     hover: descText,
-    label: descText,
+    title: '#77706B',
+    bottomBg: '#252325',
   },
   sidebar: {
-    logoText: primaryColor,
     bg: sidebarBg,
+    holder: lighten(0.15, sidebarBg),
+    logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),
     pinActive: contentBg,
     menuLink: '#A6BBAF',

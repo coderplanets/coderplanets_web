@@ -6,18 +6,18 @@ import { ICON_CMD } from '../../config'
 import { OptionCheckIcon } from './styles/options'
 import { Wrapper, TagItem, TagDot, TagTitle } from './styles/tag_list'
 
-import { uid } from '../../utils'
+import { uid, sortByColor, Trans } from '../../utils'
 
 const TagList = ({ data, selected, onOptionSelect }) => (
   <Wrapper>
-    {data.map(tag => (
+    {sortByColor(data).map(tag => (
       <TagItem key={uid.gen()} onClick={onOptionSelect.bind(this, tag.title)}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}
           active={R.contains(tag.title, selected)}
         />
         <TagDot color={tag.color} />
-        <TagTitle title={tag.title}>{tag.title}</TagTitle>
+        <TagTitle title={tag.title}>{Trans(tag.title)}</TagTitle>
       </TagItem>
     ))}
   </Wrapper>

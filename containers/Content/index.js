@@ -56,8 +56,10 @@ const renderContent = curRoute => {
 }
 
 class ContentContainer extends React.Component {
-  componentDidMount() {
-    const { content } = this.props
+  constructor(props) {
+    super(props)
+
+    const { content } = props
     logic.init(content)
   }
 

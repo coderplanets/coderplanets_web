@@ -13,3 +13,4 @@ export { default as JobItemLoading } from './JobItemLoading'
 export { default as TypeWriterLoading } from './TypeWriterLoading'
 
 export { default as ArticleContentLoading } from './ArticleContentLoading'
+export { default as CommunityHolder } from './CommunityHolder'

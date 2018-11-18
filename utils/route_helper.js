@@ -35,7 +35,8 @@ export const getSubPath = routeObj => {
   if (routeObj.asPath === '/') return INDEX
 
   const asPathList = parsePathList(routeObj)
-  const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  // const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  const subPath = asPathList.length > 1 ? asPathList[1] : ''
 
   return subPath
 }
@@ -44,10 +45,13 @@ export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)
   const subPath = pathList.length > 1 ? pathList[1] : pathList[0]
 
+  /*
   let thread = subPath
   if (subPath !== 'news') {
     thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
   }
+  */
+  const thread = R.endsWith('s', subPath) ? R.slice(0, -1, subPath) : subPath
 
   return uppper ? R.toUpper(thread) : R.toLower(thread)
 }
@@ -66,7 +70,11 @@ export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
 
 export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
   const splited = R.split('?', path)
-  if (splited.length <= 1) return mergeRouteQuery({}, opt)
+  // if (splited.length !== 1) return mergeRouteQuery({}, opt)
+  if (splited.length === 1) return mergeRouteQuery({}, opt)
+
+  // splited = mergeRouteQuery({}, opt)
+  // console.log('splited2 --> ', splited)
 
   const result = {}
   const paris = splited[1].split('&')
@@ -78,7 +86,7 @@ export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
 
   const json = JSON.parse(JSON.stringify(result))
 
-  return mergeRouteQuery(json)
+  return mergeRouteQuery(json, opt)
 }
 
 /* eslint-disable */

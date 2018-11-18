@@ -22,9 +22,11 @@ const debug = makeDebugger('c:{{ properCase name }}:index')
 /* eslint-enable no-unused-vars */
 
 class {{ properCase name }} extends React.PureComponent {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
+  }
 
-  componentWillUnmount() {}
+  // componentWillUnmount() {}
 
   render() {
     return (

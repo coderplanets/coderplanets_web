@@ -13,16 +13,26 @@ import { withGuardian } from '../../components/HOC'
 
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
-import { uid, makeDebugger, storePlug, THREAD, TOPIC, Trans } from '../../utils'
+import {
+  uid,
+  makeDebugger,
+  storePlug,
+  sortByColor,
+  THREAD,
+  TOPIC,
+  Trans,
+} from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
 
 class TagsBarContainer extends React.Component {
-  componentDidMount() {
-    const { tagsBar, thread, topic } = this.props
-    logic.init(tagsBar, thread, topic)
+  constructor(props) {
+    super(props)
+
+    const { tagsBar, thread, topic, active } = props
+    logic.init(tagsBar, thread, topic, active)
   }
 
   onSelect(tag) {
@@ -36,7 +46,7 @@ class TagsBarContainer extends React.Component {
     const { tagsBar } = this.props
     const { tagsData, activeTagData } = tagsBar
 
-    const sortedTags = logic.sortByColor(tagsData)
+    const sortedTags = sortByColor(tagsData)
 
     return (
       <Wrapper>
@@ -45,7 +55,7 @@ class TagsBarContainer extends React.Component {
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
             <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
-            <TagTitle>全部标签</TagTitle>
+            <TagTitle>全部</TagTitle>
           </TagItem>
         ) : null}
 
@@ -98,11 +108,17 @@ TagsBarContainer.propTypes = {
    */
   onSelect: PropTypes.func.isRequired,
   // https://www.npmjs.com/package/prop-types
+  active: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    color: PropTypes.string,
+  }),
 }
 
 TagsBarContainer.defaultProps = {
   thread: THREAD.POST,
   topic: TOPIC.POST,
+  active: {},
 }
 
 export default withGuardian(

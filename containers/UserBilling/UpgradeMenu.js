@@ -37,7 +37,7 @@ const UpgradeMenu = () => (
 
     <PlanWrapper>
       <PlanTitle>
-        <div>高级用户</div>
+        <div>付费用户</div>
         <TitleDesc>(推荐)</TitleDesc>
       </PlanTitle>
       <PlanDesc>
@@ -47,12 +47,12 @@ const UpgradeMenu = () => (
         </DescLine>
         <DescLine>将获得区别于免费用户的 10+ 项功能/服务</DescLine>
         <DescLine>
-          <MoreLink>更多高级用户详情..</MoreLink>
+          <MoreLink>更多付费用户详情..</MoreLink>
         </DescLine>
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级高级用户
+          升级付费用户
         </Button>
       </PurchaseButton>
     </PlanWrapper>
@@ -64,7 +64,7 @@ const UpgradeMenu = () => (
           <BadPrice>￥2999起</BadPrice> / <GoodPrice>￥1999起 </GoodPrice>
           每年
         </DescLine>
-        <DescLine>无限期高级用户，每年的企业/产品推广等</DescLine>
+        <DescLine>付费用户所有功能，每年的企业/产品推广等</DescLine>
         <DescLine>
           <MoreLink>更多赞助商服务详情..</MoreLink>
         </DescLine>
@@ -83,7 +83,7 @@ const UpgradeMenu = () => (
       </GirlTitle>
       <PlanDesc>
         <DescLine green>￥0 永久免费</DescLine>
-        <DescLine>高级用户的所有功能，以及个人项目推广等</DescLine>
+        <DescLine>付费用户的所有功能，以及个人项目推广等</DescLine>
         <DescLine>
           <MoreLink>程序媛用户细则...</MoreLink>
         </DescLine>

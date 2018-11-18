@@ -8,93 +8,22 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
 
-import { ICON_CMD } from '../../config/assets'
+import { Affix } from '../../components'
+import Header from './Header'
 
-import MailBox from '../MailBox'
-import UpgradePackges from '../UpgradePackges'
-import UserLister from '../UserLister'
+import { AffixHeader, RawHeader } from './styles'
 
-import { Affix, Navigator } from '../../components'
-import UserAccount from './UserAccount'
-import AddOns from './AddOns'
-
-import {
-  HeaderWrapper,
-  RouterWrapper,
-  MiniMapWrapper,
-  CommunityLogo,
-  MiniTab,
-  Search,
-  HeaderIcon,
-  Operations,
-  AffixHeader,
-  RawHeader,
-} from './styles'
-
-import { uid, makeDebugger, storePlug, TYPE, Trans } from '../../utils'
+import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Header')
 /* eslint-enable no-unused-vars */
 
-const MiniMap = ({ activeInfo: { community, activeThread } }) => (
-  <MiniMapWrapper>
-    <CommunityLogo src={community.logo} />
-    <React.Fragment>
-      {community.threads.map(t => (
-        <MiniTab
-          key={uid.gen()}
-          active={t.raw === activeThread}
-          onClick={logic.onThreadChange.bind(this, t)}
-        >
-          {Trans(t.title)}
-        </MiniTab>
-      ))}
-    </React.Fragment>
-  </MiniMapWrapper>
-)
-
-const Header = ({
-  activeInfo,
-  curRoute,
-  leftOffset,
-  fixed,
-  isLogin,
-  accountInfo,
-  curCommunity,
-}) => (
-  <HeaderWrapper
-    id="whereCallShowDoraemon"
-    leftOffset={leftOffset}
-    fixed={fixed}
-  >
-    <RouterWrapper>
-      {fixed ? (
-        <MiniMap activeInfo={activeInfo} curRoute={curRoute} />
-      ) : (
-        <Navigator
-          curCommunity={curCommunity}
-          layout={accountInfo.customization.bannerLayout}
-        />
-      )}
-    </RouterWrapper>
-    <AddOns />
-    <Operations>
-      <Search onClick={logic.openDoraemon}>
-        <HeaderIcon src={`${ICON_CMD}/search2.svg`} />
-      </Search>
-
-      <MailBox />
-      <UserLister />
-      <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
-    </Operations>
-  </HeaderWrapper>
-)
-
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    const { header } = this.props
+  constructor(props) {
+    super(props)
+    const { header } = props
     logic.init(header)
   }
 
@@ -120,7 +49,6 @@ class HeaderContainer extends React.Component {
 
     return (
       <div id={TYPE.APP_HEADER_ID}>
-        <UpgradePackges />
         <AffixHeader fixed={fixed}>
           <Affix>
             <Header

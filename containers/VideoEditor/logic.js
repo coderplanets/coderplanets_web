@@ -9,6 +9,7 @@ import {
   ERR,
   EVENT,
   updateEditing,
+  closePreviewer,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -56,7 +57,7 @@ const DataSolver = [
       /* store.markState({ createVideo }) */
       debug('createVideo done')
       // store.reset()
-      store.closePreview()
+      closePreviewer()
       dispatchEvent(EVENT.REFRESH_VIDEOS)
     },
   },

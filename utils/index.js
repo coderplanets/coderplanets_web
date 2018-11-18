@@ -12,6 +12,7 @@ export {
   FILTER,
   ROUTE,
   C11N,
+  NON_FILL_COMMUNITY,
 } from './constants'
 
 export { makeDebugger } from './debug'
@@ -26,6 +27,7 @@ export {
   cutFrom,
   prettyNum,
   numberWithCommas,
+  sortByColor,
   Rlog,
   countWords,
   closePreviewer,
@@ -33,6 +35,8 @@ export {
   extractMentions,
   extractAttachments,
 } from './functions'
+
+export { errorForHuman } from './errors'
 
 export {
   cast,
@@ -81,6 +85,8 @@ export {
   observerHoc,
   updateEditing,
 } from './mobx_helper'
+
+export { ssrPagedSchema, ssrContentsThread, addTopicIfNeed } from './ssr_helper'
 
 export {
   pageGoTop,

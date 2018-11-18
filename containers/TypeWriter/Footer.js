@@ -22,7 +22,7 @@ const DoingText = ({ isEdit }) => {
 const Footer = ({ isEdit, publishing, success, error, warn, statusMsg }) => (
   <FooterWrapper>
     <StatusBox success={success} error={error} warn={warn} msg={statusMsg} />
-    <RespectText show={!success && !warn && !error && !publishing}>
+    <RespectText show={!success && !warn && !error}>
       请尊重自己和他人的时间，不要发布无意义的内容。
     </RespectText>
     <Divider />
@@ -33,7 +33,7 @@ const Footer = ({ isEdit, publishing, success, error, warn, statusMsg }) => (
             取消
           </Button>
           <Space right="15px" />
-          <Button size="default" type="primary" disabled>
+          <Button size="default" type="primary">
             <Icon type="loading" />
             正在
             <DoingText isEdit={isEdit} />

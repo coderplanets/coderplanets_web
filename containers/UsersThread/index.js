@@ -20,8 +20,10 @@ const debug = makeDebugger('C:UsersThread')
 let GeoMapSSR = null
 
 class UsersThreadContainer extends React.Component {
-  componentDidMount() {
-    const { usersThread } = this.props
+  constructor(props) {
+    super(props)
+
+    const { usersThread } = props
     logic.init(usersThread)
 
     GeoMapSSR = dynamic({

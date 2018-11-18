@@ -20,7 +20,7 @@ import SocialList from './SocialList'
 // import GitSource from './GitSource'
 import BottomInfo from './BottomInfo'
 
-const DigestView = () => (
+const DigestView = ({ toggleSponsorHelper }) => (
   <Wrapper>
     <MainInfos>
       <MainColumn>
@@ -75,8 +75,8 @@ const DigestView = () => (
       <Column>
         <Title>付费方案</Title>
         <Body>
-          <Item>高级用户</Item>
-          <Item>打赏支持</Item>
+          <Item>付费用户</Item>
+          <Item onClick={toggleSponsorHelper}>打赏支持</Item>
         </Body>
       </Column>
 
@@ -106,13 +106,13 @@ const DigestView = () => (
             后端源码
           </Item>
           {/*
-               <Item offsetTop="-8px">
-               <GitSource
-               title="B:"
-               addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_server&type=star&count=true"
-               />
-               </Item>
-             */}
+              <Item offsetTop="-8px">
+              <GitSource
+              title="B:"
+              addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_server&type=star&count=true"
+              />
+              </Item>
+            */}
         </Body>
       </Column>
       <Column>

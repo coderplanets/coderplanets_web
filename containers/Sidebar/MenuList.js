@@ -2,7 +2,7 @@ import React from 'react'
 import R from 'ramda'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
-import { TrendLine } from '../../components'
+import { TrendLine, CommunityHolder } from '../../components'
 
 import {
   MenuItem,
@@ -14,7 +14,7 @@ import {
   MiniChartWrapper,
 } from './styles/menu_list'
 
-import { uid } from '../../utils'
+import { uid, NON_FILL_COMMUNITY } from '../../utils'
 import { onCommunitySelect } from './logic'
 
 const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
@@ -23,7 +23,9 @@ const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
+          nonFill={R.contains(item.raw, NON_FILL_COMMUNITY)}
           src={item.logo}
+          loading={<CommunityHolder text={item.title} place="sidebar" />}
         />
         {/* eslint-disable jsx-a11y/anchor-is-valid */}
         <MenuItemTitle pin={pin} active={activeRaw === R.toLower(item.raw)}>

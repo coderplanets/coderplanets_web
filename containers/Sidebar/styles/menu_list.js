@@ -33,6 +33,7 @@ export const MenuItemBar = styled.div`
   color: ${theme('sidebar.menuLink')};
 `
 export const MenuItemIcon = styled(Img)`
+  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   opacity: ${({ active }) => (active ? 1 : 0.5)};
   width: 22px;
   height: 22px;

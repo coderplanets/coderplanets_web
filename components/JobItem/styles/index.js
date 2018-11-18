@@ -15,7 +15,7 @@ export const Wrapper = styled.article`
   padding-top: ${({ divider }) => (divider ? '10px' : '6px')};
   padding-bottom: ${({ divider }) => (divider ? '10px' : '6px')};
   border-bottom: ${({ divider }) => (divider ? '1px solid' : '0')};
-  border-bottom-color: #dce5e6;
+  border-bottom-color: ${theme('thread.articleDivider')};
 
   &:hover {
     cursor: pointer;

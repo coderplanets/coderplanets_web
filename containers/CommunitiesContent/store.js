@@ -25,16 +25,20 @@ const CommunitiesContentStore = t
     get root() {
       return getParent(self)
     },
-
     get isLogin() {
       return self.root.account.isLogin
     },
-
+    get curRoute() {
+      return self.root.curRoute
+    },
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     toggleSubscribe(community) {
       const index = R.findIndex(
         R.propEq('id', community.id),

@@ -3,6 +3,7 @@ import PubSub from 'pubsub-js'
 
 import { EVENT } from './constants'
 import { nilOrEmpty } from './validator'
+import { TAG_COLOR_ORDER } from '../config'
 
 /* eslint-disable */
 // TODO: document ?
@@ -21,6 +22,9 @@ export const mapKeys = R.curry((fn, obj) => {
     R.keys(obj)
   )
 })
+
+export const sortByColor = source =>
+  source.sort((t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color])
 
 /* eslint-disable */
 const log = (...args) => data => {

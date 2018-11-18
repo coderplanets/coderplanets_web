@@ -86,6 +86,16 @@ const Labeler = t
     toast(type, options) {
       self.root.toast(type, options)
     },
+    // getSelectedTagId(uniqId, label) {
+    getSelectedTagId(label) {
+      // const labelList = stripMobx(self.labelEntries)
+      // const index = R.findIndex(R.propEq('uniqId', uniqId))(
+      //  self.labelEntriesData
+      // )
+
+      const tagId = self.root.tagsBar.getTagIdByTitle(label)
+      return tagId
+    },
     markUniqState(uniqId, sobj) {
       sobj = R.merge(sobj, { uniqId })
       const index = R.findIndex(R.propEq('uniqId', uniqId))(

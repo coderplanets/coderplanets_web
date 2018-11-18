@@ -9,18 +9,20 @@ import { inject, observer } from 'mobx-react'
 
 // import {} from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { BuyMeChuanChuan } from '../../components'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
 
 class FooterContainer extends React.Component {
-  componentDidMount() {
-    const { footer } = this.props
+  constructor(props) {
+    super(props)
+    const { footer } = props
     logic.init(footer)
   }
 
@@ -29,13 +31,19 @@ class FooterContainer extends React.Component {
     const { showSponsor, curView } = footer
 
     return (
-      <div>
+      <React.Fragment>
+        <BuyMeChuanChuan
+          show={showSponsor}
+          onClose={logic.toggleSponsorHelper}
+          onLogin={logic.onLogin}
+        />
+
         {curView === 'DIGEST' ? (
-          <DigestView />
+          <DigestView toggleSponsorHelper={logic.toggleSponsorHelper} />
         ) : (
-          <BriefView showSponsor={showSponsor} />
+          <BriefView toggleSponsorHelper={logic.toggleSponsorHelper} />
         )}
-      </div>
+      </React.Fragment>
     )
   }
 }

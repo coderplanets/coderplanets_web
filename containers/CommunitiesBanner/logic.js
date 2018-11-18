@@ -21,10 +21,10 @@ export function loadCategories() {
   sr71$.query(S.pagedCategories, { filter: {} })
 }
 
-export function tabOnChange(activeRaw) {
-  store.markRoute({ subPath: activeRaw })
-  store.markState({ activeRaw })
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeRaw })
+export function tabOnChange(activeTab) {
+  store.markRoute({ subPath: activeTab })
+  store.markState({ activeTab })
+  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
 }
 // ###############################
 // Data & Error handlers
@@ -38,11 +38,17 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
+const loadIfNeed = () => {
+  if (!store.pagedCategoriesData) {
+    loadCategories()
+  }
+}
+
 export function init(_store) {
-  if (store) return false
+  if (store) return loadIfNeed()
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadCategories()
+  loadIfNeed()
 }
