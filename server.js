@@ -45,8 +45,8 @@ app.prepare().then(() => {
 
   server.get('/job/:id', (req, res) => {
     console.log('match me job')
-    return app.render(req, res, '/job', req.query)
-    /* return renderAndCache(req, res, '/job', req.query) */
+    /* return app.render(req, res, '/job', req.query) */
+    return renderAndCache(req, res, '/job', req.query)
   })
 
   server.get('/video/:id', (req, res) => {
