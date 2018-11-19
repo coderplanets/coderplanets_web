@@ -16,6 +16,7 @@ const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
     pagedCommunities: t.maybeNull(PagedCommunities),
     searchValue: t.optional(t.string, ''),
+    searching: t.optional(t.boolean, false),
     // cur active category
     /* category: t.optional(t.string, ''), */
     // for UI loading state

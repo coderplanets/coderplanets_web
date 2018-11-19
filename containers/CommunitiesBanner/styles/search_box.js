@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,8 +10,14 @@ export const InputWrapper = styled.div`
   ${cs.flex('align-center')};
   border-radius: 6px;
   padding: 10px 18px;
-  background-color: #f2f5f4;
+  background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
+  opacity: 0.8;
+  &:hover {
+    background-color: ${theme('content.cardBg')};
+    opacity: 1;
+  }
+  transition: all 0.2s ease-in;
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('banner.desc')};
@@ -20,6 +26,13 @@ export const SearchIcon = styled(Img)`
   margin-right: 10px;
   display: block;
 `
+
+export const LoadingIcon = styled(SearchIcon)`
+  width: 22px;
+  height: 22px;
+  animation: ${animate.rotate360Rule};
+`
+
 export const InputBar = styled.input`
   caret-color: ${theme('banner.title')};
   flex-grow: 1;

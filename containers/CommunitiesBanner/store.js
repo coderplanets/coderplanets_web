@@ -25,6 +25,9 @@ const CommunitiesBannerStore = t
     get isSearchMode() {
       return !R.isEmpty(self.searchValue)
     },
+    get searching() {
+      return self.root.communitiesContent.searching
+    },
     get pagedCategoriesData() {
       return stripMobx(self.pagedCategories)
     },
