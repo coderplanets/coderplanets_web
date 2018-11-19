@@ -3,6 +3,7 @@ import {
   asyncRes,
   $solver,
   dispatchEvent,
+  updateEditing,
   EVENT,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -19,6 +20,11 @@ let store = null
 
 export function loadCategories() {
   sr71$.query(S.pagedCategories, { filter: {} })
+}
+
+export const searchChange = e => {
+  updateEditing(store, 'searchValue', e)
+  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: 'city' })
 }
 
 export function tabOnChange(activeTab) {

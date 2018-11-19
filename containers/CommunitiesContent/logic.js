@@ -32,6 +32,7 @@ export function loadCommunities(page = 1) {
     userHasLogin: store.isLogin,
   }
 
+  // debug('.')
   debug('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
 }

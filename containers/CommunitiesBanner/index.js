@@ -14,10 +14,12 @@ import {
   BannerContentWrapper,
   ContentWrapper,
   TabberWrapper,
-  Title,
+  // Title,
   Desc,
   IssueLink,
 } from './styles'
+
+import SearchBox from './SearchBox'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -37,16 +39,22 @@ class CommunitiesBannerContainer extends React.Component {
   // https://github.com/coderplanets/coderplanets_web/issues/265
 
   render() {
+    const { communitiesBanner } = this.props
     const {
-      communitiesBanner: { pagedCategoriesData, activeTab },
-    } = this.props
-    debug('activeRaw: ', activeTab)
+      pagedCategoriesData,
+      activeTab,
+      searchValue,
+      isSearchMode,
+    } = communitiesBanner
+
+    // debug('searchValue: ', searchValue)
+    // debug('isSearchMode --> ', isSearchMode)
 
     return (
       <BannerContainer>
         <BannerContentWrapper>
           <ContentWrapper>
-            <Title>寻找你感兴趣的社区</Title>
+            <SearchBox onChange={logic.searchChange} value={searchValue} />
             <Desc>
               若没有你感兴趣的社区, 你可以
               <IssueLink
@@ -59,7 +67,7 @@ class CommunitiesBannerContainer extends React.Component {
               !
             </Desc>
           </ContentWrapper>
-          {pagedCategoriesData ? (
+          {!isSearchMode && pagedCategoriesData ? (
             <TabberWrapper>
               <Tabber
                 source={pagedCategoriesData.entries}
