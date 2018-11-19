@@ -24,26 +24,6 @@ export const Title = styled.div`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
 `
-export const Desc = styled.div`
-  ${cs.flex()};
-  color: ${theme('banner.desc')};
-  font-size: 0.9rem;
-  margin-top: 3px;
-`
-export const IssueLink = styled.a`
-  color: ${theme('banner.title')};
-  margin-left: 3px;
-  margin-right: 3px;
-
-  transition: color 0.3s;
-
-  &:hover {
-    cursor: pointer;
-    color: ${theme('thread.title')};
-    text-decoration: underline;
-  }
-`
-
 export const TabberWrapper = styled.div`
   ${cs.flex('justify-center')};
 

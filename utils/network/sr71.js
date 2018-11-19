@@ -1,9 +1,15 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
-import { Subject } from 'rxjs'
+import { Subject, timer } from 'rxjs'
 
 // debounceTime,
-import { switchMap, takeUntil, merge, timeoutWith } from 'rxjs/operators'
+import {
+  switchMap,
+  takeUntil,
+  debounce,
+  merge,
+  timeoutWith,
+} from 'rxjs/operators'
 
 // import 'rxjs/add/observable/of'
 // import 'rxjs/add/observable/fromEventPattern'
@@ -35,6 +41,7 @@ class SR71 {
     this.initEventSubscription()
     /* this.query$ = this.queryInput$.debounceTime(300).switchMap(q => */
     this.query$ = this.queryInput$.pipe(
+      debounce(() => timer(300)),
       switchMap(q =>
         queryPromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
@@ -45,6 +52,7 @@ class SR71 {
 
     /* this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(q => */
     this.mutate$ = this.mutateInput$.pipe(
+      debounce(() => timer(300)),
       switchMap(q =>
         mutatePromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),
@@ -55,6 +63,7 @@ class SR71 {
 
     /* this.restGet$ = this.getInput$.debounceTime(300).switchMap(q => */
     this.restGet$ = this.getInput$.pipe(
+      debounce(() => timer(300)),
       switchMap(q =>
         restGetPromise(q).pipe(
           timeoutWith(TIMEOUT_THRESHOLD, TimoutObservable),

@@ -27,6 +27,21 @@ const pagedCommunitiesRaw = `
     }
   }
 `
+
+const searchCommunities = gql`
+  query($title: String!, $userHasLogin: Boolean!) {
+    searchCommunities(title: $title) {
+      entries {
+        ${F.community}
+        contributesDigest
+        subscribersCount
+        viewerHasSubscribed @include(if: $userHasLogin)
+      }
+      ${F.pagedCounts}
+    }
+  }
+`
+
 const subscribeCommunity = gql`
   mutation($communityId: ID!) {
     subscribeCommunity(communityId: $communityId) {
@@ -50,6 +65,7 @@ const unsubscribeCommunity = gql`
 const schema = {
   pagedCommunities,
   pagedCommunitiesRaw,
+  searchCommunities,
   subscribeCommunity,
   unsubscribeCommunity,
 }

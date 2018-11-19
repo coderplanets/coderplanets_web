@@ -32,8 +32,15 @@ export function loadCommunities(page = 1) {
     userHasLogin: store.isLogin,
   }
 
+  // debug('.')
   debug('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
+}
+
+function searchCommunities(title) {
+  const args = { title, userHasLogin: store.isLogin }
+
+  sr71$.query(S.searchCommunities, args)
 }
 
 export function pageChange(page) {
@@ -74,6 +81,11 @@ const DataSolver = [
     action: ({ pagedCommunities }) => store.markState({ pagedCommunities }),
   },
   {
+    match: asyncRes('searchCommunities'),
+    action: ({ searchCommunities: pagedCommunities }) =>
+      store.markState({ pagedCommunities }),
+  },
+  {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
       console.log('subscribeCommunity done: ', subscribeCommunity)
@@ -92,8 +104,11 @@ const DataSolver = [
     match: asyncRes(EVENT.REFRESH_COMMUNITIES),
     action: res => {
       const payload = res[EVENT.REFRESH_COMMUNITIES]
-
-      loadCommunities(1, payload.data)
+      if (payload.type === 'search' && !R.isEmpty(payload.data)) {
+        store.markState({ searchValue: payload.data })
+        return searchCommunities(payload.data)
+      }
+      loadCommunities()
     },
   },
   {

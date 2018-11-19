@@ -15,6 +15,7 @@ const debug = makeDebugger('S:CommunitiesContentStore')
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
     pagedCommunities: t.maybeNull(PagedCommunities),
+    searchValue: t.optional(t.string, ''),
     // cur active category
     /* category: t.optional(t.string, ''), */
     // for UI loading state
