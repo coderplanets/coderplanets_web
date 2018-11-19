@@ -72,6 +72,7 @@ export function unSubscribe(id) {
 const cancleLoading = () => {
   store.markState({
     subscribing: false,
+    searching: false,
   })
 }
 
@@ -83,7 +84,7 @@ const DataSolver = [
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
-      store.markState({ pagedCommunities }),
+      store.markState({ pagedCommunities, searching: false }),
   },
   {
     match: asyncRes('subscribeCommunity'),
@@ -105,7 +106,7 @@ const DataSolver = [
     action: res => {
       const payload = res[EVENT.REFRESH_COMMUNITIES]
       if (payload.type === 'search' && !R.isEmpty(payload.data)) {
-        store.markState({ searchValue: payload.data })
+        store.markState({ searchValue: payload.data, searching: true })
         return searchCommunities(payload.data)
       }
       loadCommunities()

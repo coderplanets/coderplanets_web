@@ -43,6 +43,7 @@ class CommunitiesBannerContainer extends React.Component {
       activeTab,
       searchValue,
       isSearchMode,
+      searching,
     } = communitiesBanner
 
     // debug('searchValue: ', searchValue)
@@ -52,7 +53,11 @@ class CommunitiesBannerContainer extends React.Component {
       <BannerContainer>
         <BannerContentWrapper>
           <ContentWrapper>
-            <SearchBox onChange={logic.searchChange} value={searchValue} />
+            <SearchBox
+              onChange={logic.searchChange}
+              value={searchValue}
+              searching={searching}
+            />
           </ContentWrapper>
           {!isSearchMode && pagedCategoriesData ? (
             <TabberWrapper>
