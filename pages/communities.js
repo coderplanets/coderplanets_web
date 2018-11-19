@@ -13,6 +13,7 @@ import {
   nilOrEmpty,
   getSubPath,
   BStore,
+  ROUTE,
 } from '../utils'
 
 import {
@@ -97,6 +98,10 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      route: {
+        mainPath: ROUTE.COMMUNITIES,
+        subPath: category,
+      },
       account: { userSubscribedCommunities: subscribedCommunities },
       communitiesBanner: {
         pagedCategories,

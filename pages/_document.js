@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
             src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
           />
           <link
-            href="https://cdn.jsdelivr.net/npm/antd@3.8.4/dist/antd.min.css"
+            href="https://cdn.staticfile.org/antd/3.8.4/antd.css"
             rel="stylesheet"
           />
           <link
@@ -70,10 +70,10 @@ export default class MyDocument extends Document {
         {/* load iziToast from CDN */}
         <script
           async
-          src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"
+          src="https://cdn.staticfile.org/izitoast/1.4.0/js/iziToast.min.js"
         />
         <link
-          href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css"
+          href="https://cdn.staticfile.org/izitoast/1.4.0/css/iziToast.css"
           rel="stylesheet"
         />
         {/* the ali-oss-sdk es6 import support sucks */}

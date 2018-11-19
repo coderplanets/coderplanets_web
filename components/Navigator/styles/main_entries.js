@@ -12,8 +12,9 @@ export const Wrapper = styled.div`
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};
 `
-export const SiteLink = styled.a`
+export const SiteLink = styled.div`
   color: ${theme('banner.desc')};
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
     color: ${theme('banner.title')};
