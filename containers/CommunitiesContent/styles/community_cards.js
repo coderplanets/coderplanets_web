@@ -17,7 +17,7 @@ const BaseCard = styled.div`
   padding-top: 12px;
   padding: 10px;
   padding-bottom: 0;
-  width: 250px;
+  width: 230px;
   height: 250px;
   margin-right: 30px;
   background: ${theme('content.cardBg')};
