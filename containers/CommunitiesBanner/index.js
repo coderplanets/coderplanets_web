@@ -15,8 +15,6 @@ import {
   ContentWrapper,
   TabberWrapper,
   // Title,
-  Desc,
-  IssueLink,
 } from './styles'
 
 import SearchBox from './SearchBox'
@@ -55,17 +53,6 @@ class CommunitiesBannerContainer extends React.Component {
         <BannerContentWrapper>
           <ContentWrapper>
             <SearchBox onChange={logic.searchChange} value={searchValue} />
-            <Desc>
-              若没有你感兴趣的社区, 你可以
-              <IssueLink
-                href="https://github.com/coderplanets/coderplanets_web/issues/280"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                参与创建
-              </IssueLink>
-              !
-            </Desc>
           </ContentWrapper>
           {!isSearchMode && pagedCategoriesData ? (
             <TabberWrapper>

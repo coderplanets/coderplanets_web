@@ -10,7 +10,7 @@ export const CardsWrapper = styled.div`
   ${cs.flex('justify-center')};
   flex-wrap: wrap;
 `
-export const Card = styled.div`
+const BaseCard = styled.div`
   ${cs.flexColumn('align-center')};
 
   position: relative;
@@ -23,13 +23,55 @@ export const Card = styled.div`
   background: ${theme('content.cardBg')};
   border: 1px solid;
   border-color: ${theme('content.cardBorder')};
+  border-radius: 3px;
+`
+export const Card = styled(BaseCard)`
+  margin-bottom: 60px;
+
   &:hover {
     border: 1px solid;
     border-color: ${theme('content.cardBorderHover')};
   }
-  border-radius: 3px;
-  margin-bottom: 60px;
 `
+
+export const EmptyCard = styled(BaseCard)`
+  width: 500px;
+  margin-left: 20px;
+`
+export const EmptyTitle = styled.div`
+  margin-top: 30px;
+  color: ${theme('thread.articleTitle')};
+  font-size: 1.2rem;
+`
+export const EmptyDesc = styled.div`
+  margin-top: 30px;
+  color: ${theme('thread.articleDigest')};
+  font-size: 1rem;
+`
+export const SearchValueFocus = styled.span`
+  color: ${theme('banner.title')};
+  &:before {
+    content: '"';
+  }
+
+  &:after {
+    content: '"';
+  }
+`
+export const IssueLink = styled.a`
+  color: ${theme('banner.title')};
+  margin-left: 3px;
+  margin-right: 3px;
+
+  transition: color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: ${theme('banner.title')};
+    text-decoration: underline;
+  }
+`
+
 // fill only works for non-colored svgs
 export const CommunityIcon = styled(Img)`
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};

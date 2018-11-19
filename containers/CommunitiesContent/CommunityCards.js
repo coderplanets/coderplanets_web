@@ -10,6 +10,11 @@ import {
   Wrapper,
   CardsWrapper,
   Card,
+  EmptyCard,
+  EmptyTitle,
+  EmptyDesc,
+  IssueLink,
+  SearchValueFocus,
   CommunityIcon,
   CardTitle,
   CardDesc,
@@ -18,7 +23,7 @@ import {
   CardFooter,
 } from './styles/community_cards'
 
-import { NON_FILL_COMMUNITY, prettyNum } from '../../utils'
+import { NON_FILL_COMMUNITY, prettyNum, cutFrom } from '../../utils'
 
 const CommunityCard = ({ community, restProps }) => (
   <Card>
@@ -44,18 +49,45 @@ const CommunityCard = ({ community, restProps }) => (
   </Card>
 )
 
-const CommnityCards = ({ entries, restProps }) => (
-  <Wrapper>
-    <CardsWrapper>
-      {entries.map(community => (
-        <CommunityCard
-          key={community.raw}
-          community={community}
-          restProps={restProps}
-        />
-      ))}
-    </CardsWrapper>
-  </Wrapper>
-)
+const CommnityCards = ({ entries, restProps }) => {
+  if (R.isEmpty(entries)) {
+    const { searchValue } = restProps
+
+    return (
+      <CardsWrapper>
+        <EmptyCard>
+          <EmptyTitle>
+            没有找到包含{' '}
+            <SearchValueFocus>{cutFrom(searchValue, 10)}</SearchValueFocus>{' '}
+            的社区
+          </EmptyTitle>
+          <EmptyDesc>
+            若没有你感兴趣的社区, 你可以
+            <IssueLink
+              href="https://github.com/coderplanets/coderplanets_web/issues/280"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              参与创建
+            </IssueLink>
+          </EmptyDesc>
+        </EmptyCard>
+      </CardsWrapper>
+    )
+  }
+  return (
+    <Wrapper>
+      <CardsWrapper>
+        {entries.map(community => (
+          <CommunityCard
+            key={community.raw}
+            community={community}
+            restProps={restProps}
+          />
+        ))}
+      </CardsWrapper>
+    </Wrapper>
+  )
+}
 
 export default CommnityCards

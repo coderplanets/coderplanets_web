@@ -24,7 +24,10 @@ export function loadCategories() {
 
 export const searchChange = e => {
   updateEditing(store, 'searchValue', e)
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: 'city' })
+  dispatchEvent(EVENT.REFRESH_COMMUNITIES, {
+    type: 'search',
+    data: e.target.value,
+  })
 }
 
 export function tabOnChange(activeTab) {

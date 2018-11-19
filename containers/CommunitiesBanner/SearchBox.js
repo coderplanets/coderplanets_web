@@ -13,7 +13,7 @@ const SearchBox = ({ value, onChange }) => (
     <InputWrapper>
       <SearchIcon src={`${ICON_CMD}/search.svg`} />
       <InputBar
-        placeholder="寻找你感兴趣的社区, 当前共有社区 45 个"
+        placeholder="输入关键字, 寻找你感兴趣的社区.."
         onChange={onChange}
         value={value}
       />
