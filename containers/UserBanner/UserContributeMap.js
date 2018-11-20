@@ -4,11 +4,10 @@
  * TODO: this component use global class as style
  *
  */
-
 import React from 'react'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
-import R from 'ramda'
+// import R from 'ramda'
 
 import {
   Wrapper,
@@ -47,11 +46,9 @@ const monthLabels = [
   '12月',
 ]
 
-// TODO
 const getClass = value => {
-  if (!value) {
-    return 'color-empty'
-  }
+  if (!value) return 'color-empty'
+
   switch (true) {
     case value.count >= 1 && value.count < 6:
       return 'color-scale-1'
@@ -68,9 +65,11 @@ const getClass = value => {
 
 const UserContributeMap = ({ data }) => {
   /* if don't jadge empty(first load), the tool tip will not work */
+  /*
   if (R.isEmpty(data.records)) {
     return null
   }
+  */
   /*
      <TitleWrapper>
      <Title>6个月内贡献 {data.totalCount} 次内容</Title>
@@ -84,9 +83,7 @@ const UserContributeMap = ({ data }) => {
         startDate={data.startDate}
         endDate={data.endDate}
         showMonthLabels
-        onClick={value => {
-          debug(value)
-        }}
+        onClick={value => debug(value)}
         gutterSize={3}
         tooltipDataAttrs={customTooltipDataAttrs}
         monthLabels={monthLabels}

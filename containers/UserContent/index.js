@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import R from 'ramda'
+// import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import UserPublished from '../UserPublished'
@@ -89,26 +89,6 @@ class UserContentContainer extends React.Component {
     const { userContent } = this.props
     const { activeThread, viewingUser, accountInfo } = userContent
 
-    let user = viewingUser
-    if (!user.achievement) {
-      user = R.merge(viewingUser, {
-        achievement: {
-          reputation: 0,
-          contentsStaredCount: 0,
-          contentsFavoritedCount: 0,
-          sourceContribute: {
-            web: false,
-            server: false,
-            mobile: false,
-            weApp: false,
-            h5: false,
-          },
-        },
-      })
-    }
-
-    // console.log('fucking viewingUser -> ', user)
-
     return (
       <Container>
         <MainWrapper>
@@ -123,7 +103,7 @@ class UserContentContainer extends React.Component {
         </MainWrapper>
         <SidebarWrapper>
           <Affix offsetTop={30}>
-            <DigestBoard user={user} accountId={accountInfo.id} />
+            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
           </Affix>
         </SidebarWrapper>
       </Container>

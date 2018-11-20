@@ -26,6 +26,8 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserBanner')
 /* eslint-enable no-unused-vars */
 
+/*
+// use for turning the theme
 const fakeRecors = {
   endDate: '2018-07-07',
   startDate: '2018-01-07',
@@ -41,6 +43,8 @@ const fakeRecors = {
     { date: '2018-02-03', count: 10 },
   ],
 }
+*/
+
 class UserBannerContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -53,6 +57,8 @@ class UserBannerContainer extends React.Component {
     const { userBanner } = this.props
     const { viewingUser } = userBanner
 
+    debug('viewingUser: ', viewingUser.contributes)
+
     return (
       <BannerContainer>
         <BannerContentWrapper>
@@ -60,7 +66,7 @@ class UserBannerContainer extends React.Component {
             <UserBrief user={viewingUser} />
           </UserBriefWrapper>
           <UserContributesWrapper>
-            <UserContributeMap data={fakeRecors} />
+            <UserContributeMap data={viewingUser.contributes} />
           </UserContributesWrapper>
         </BannerContentWrapper>
       </BannerContainer>
