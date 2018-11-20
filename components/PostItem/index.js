@@ -21,9 +21,11 @@ const debug = makeDebugger('c:PostItem:index')
 
 const PostItem = ({ entry, active, onTitleSelect, accountInfo }) => {
   // debug('customization --> ', customization)
-  const {
-    customization: { contentsLayout, contentDivider },
-  } = accountInfo
+  const { customization: { contentsLayout, contentDivider } } = accountInfo
+
+  console.log('entry --> ', entry)
+  console.log('active --> ', active)
+  console.log('accountInfo --> ', accountInfo)
 
   return (
     <Wrapper
