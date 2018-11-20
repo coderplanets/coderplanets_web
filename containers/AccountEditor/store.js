@@ -49,14 +49,10 @@ const AccountEditorStore = t
       }
     },
     get educationBgData() {
-      return {
-        ...stripMobx(self.educationBg),
-      }
+      return stripMobx(self.educationBg)
     },
     get workBgData() {
-      return {
-        ...stripMobx(self.workBg),
-      }
+      return stripMobx(self.workBg)
     },
     get accountOrigin() {
       return self.root.account.accountInfo

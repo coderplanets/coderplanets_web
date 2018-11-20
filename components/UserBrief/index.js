@@ -51,14 +51,15 @@ class UserBrief extends React.Component {
 
     return (
       <Wrapper>
-        <Link href={`/user/${user.id}`}>
-          <AvatarWrapper>
+        <AvatarWrapper>
+          <Link href={`/user/${user.id}`}>
             <Avatar src={user.avatar} displayStyle={displayStyle} />
-            <Button size="small" type="primary" ghost>
-              升级账户
-            </Button>
-          </AvatarWrapper>
-        </Link>
+          </Link>
+
+          <Button size="small" type="primary" ghost>
+            升级账户
+          </Button>
+        </AvatarWrapper>
 
         <BriefTextWrapper>
           <UserTitle>

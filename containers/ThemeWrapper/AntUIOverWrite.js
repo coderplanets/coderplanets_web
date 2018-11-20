@@ -172,8 +172,8 @@ const AntUIOverWrite = createGlobalStyle`
     }
     .ant-input:focus {
       border-color: ${theme('form.border')};
-      border-left: 4px solid ${theme('banner.title')};
-      border-right: 4px solid ${theme('banner.title')};
+      border-left: 3px solid ${theme('banner.title')} !important;
+      border-right: 3px solid ${theme('banner.title')} !important;
       box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
     }
     .ant-input:hover {
@@ -302,7 +302,7 @@ const AntUIOverWrite = createGlobalStyle`
   }
   .ant-btn-background-ghost.ant-btn-primary.active,
   .ant-btn-background-ghost.ant-btn-primary:active {
-    color: ${theme('button.fg')};
+    color: ${theme('button.primary')};
     border-color: ${theme('button.hoverBg')};
   }
 

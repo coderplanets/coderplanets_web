@@ -11,6 +11,7 @@ import {
   TYPE,
   cast,
   meteorState,
+  updateEditing,
 } from '../../utils'
 
 import { updateFields } from './metrics'
@@ -27,13 +28,10 @@ const debug = makeDebugger('L:AccountEditor')
 let store = null
 let sub$ = null
 
-export function goBack() {
+export const goBack = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
-}
 
-export const profileChange = R.curry((part, e) =>
-  store.updateEditing({ [part]: e.target.value })
-)
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 export const updateBg = (key, part, { target: { value } }) =>
   store.markState({
@@ -68,13 +66,23 @@ export function sexChange(sex) {
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
-  const editing = cast(updateFields, store.editUserData)
-  const origin = cast(updateFields, store.accountOrigin)
+  let profile = cast(updateFields, store.editUserData)
+  // const origin = cast(updateFields, store.accountOrigin)
+  // if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
+  const educationBackgrounds = R.clone(profile.educationBackgrounds)
+  const workBackgrounds = R.clone(profile.workBackgrounds)
 
-  if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
+  profile = R.omit(['educationBackgrounds', 'workBackgrounds'], profile)
+
+  const args = { profile }
+
+  if (!R.isEmpty(educationBackgrounds))
+    args.educationBackgrounds = educationBackgrounds
+  if (!R.isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
 
   store.markState({ updating: true })
-  sr71$.mutate(S.updateProfile, { profile: editing })
+  debug('profile: ', args)
+  sr71$.mutate(S.updateProfile, args)
 }
 
 export function cancleEdit() {

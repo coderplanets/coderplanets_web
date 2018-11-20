@@ -93,7 +93,7 @@ const SocialEditor = ({ show, user }) => (
           prefix={social.prefix}
           icon={social.key}
           value={user[social.key]}
-          onChange={logic.profileChange(social.key)}
+          onChange={logic.inputOnChange.bind(this, social.key)}
         />
       ))}
       {/* eslint-enable react/jsx-key */}

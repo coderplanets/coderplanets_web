@@ -74,6 +74,7 @@ const loadUsers = (type, data, page = 1) => {
       const args = {
         userId: data.id,
         filter: { page, size: PAGE_SIZE.D },
+        userHasLogin: store.isLogin,
       }
       return sr71$.query(S.pagedFollowers, args)
     }

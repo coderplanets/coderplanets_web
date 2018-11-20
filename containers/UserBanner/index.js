@@ -57,8 +57,6 @@ class UserBannerContainer extends React.Component {
     const { userBanner } = this.props
     const { viewingUser } = userBanner
 
-    debug('viewingUser: ', viewingUser.contributes)
-
     return (
       <BannerContainer>
         <BannerContentWrapper>

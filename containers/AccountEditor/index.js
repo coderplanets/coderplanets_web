@@ -11,7 +11,6 @@ import { Input } from 'antd'
 import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
 
-import { makeDebugger, storePlug } from '../../utils'
 import { Button, Icon, StatusBox } from '../../components'
 
 import WorkEditor from './WorkEditor'
@@ -35,6 +34,7 @@ import {
   GirlIcon,
 } from './styles'
 
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -120,12 +120,12 @@ class AccountEditorContainer extends React.Component {
           <FormItem
             label="昵称:"
             value={editUserData.nickname}
-            onChange={logic.profileChange('nickname')}
+            onChange={logic.inputOnChange.bind(this, 'nickname')}
           />
           <FormItem
             label="城市:"
             value={editUserData.location}
-            onChange={logic.profileChange('location')}
+            onChange={logic.inputOnChange.bind(this, 'location')}
           />
         </div>
 
@@ -139,7 +139,7 @@ class AccountEditorContainer extends React.Component {
           <FormItem
             label="邮箱:"
             value={editUserData.email}
-            onChange={logic.profileChange('email')}
+            onChange={logic.inputOnChange.bind(this, 'email')}
           />
         </div>
         <SocialEditor show={showSocials} user={editUserData} />
@@ -149,7 +149,7 @@ class AccountEditorContainer extends React.Component {
             label="简介:"
             textarea
             value={editUserData.bio}
-            onChange={logic.profileChange('bio')}
+            onChange={logic.inputOnChange.bind(this, 'bio')}
           />
         </div>
 
@@ -167,7 +167,7 @@ class AccountEditorContainer extends React.Component {
           </Button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {updating ? (
-            <Button type="primary" disabled>
+            <Button type="primary">
               <Icon type="loading" /> 保存中
             </Button>
           ) : (
