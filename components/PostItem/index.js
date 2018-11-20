@@ -23,9 +23,11 @@ const PostItem = ({ entry, active, onTitleSelect, accountInfo }) => {
   // debug('customization --> ', customization)
   const { customization: { contentsLayout, contentDivider } } = accountInfo
 
-  console.log('entry --> ', entry)
-  console.log('active --> ', active)
-  console.log('accountInfo --> ', accountInfo)
+  /*
+     debug('entry --> ', entry)
+     debug('active --> ', active)
+     debug('accountInfo --> ', accountInfo)
+   */
 
   return (
     <Wrapper
