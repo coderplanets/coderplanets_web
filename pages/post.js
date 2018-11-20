@@ -5,14 +5,6 @@ import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
 import {
-  makeGQClient,
-  queryStringToJSON,
-  getSubPath,
-  ROUTE,
-  THREAD,
-} from '../utils'
-
-import {
   ThemeWrapper,
   MultiLanguage,
   Sidebar,
@@ -28,19 +20,40 @@ import {
 
 import { P } from '../containers/schemas'
 
+import {
+  makeGQClient,
+  queryStringToJSON,
+  getSubPath,
+  ROUTE,
+  THREAD,
+  BStore,
+} from '../utils'
+
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
+
   // schema
   const postId = getSubPath(props)
 
   // query data
-  const post = request(P.post, { id: postId })
+  const post = gqClient.request(P.post, { id: postId })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
-  return { ...(await post) }
+  // TODO: comments
+  return {
+    ...(await post),
+    ...(await subscribedCommunities),
+  }
 }
 
 export default class Index extends React.Component {
@@ -51,12 +64,14 @@ export default class Index extends React.Component {
 
     console.log('SSR (post--) queryStringToJSON: ', queryStringToJSON(asPath))
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { post } = await fetchData(props)
+    const { post, subscribedCommunities } = await fetchData(props)
+
     /* const postId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
 
     return {
       langSetup: {},
+      account: { userSubscribedCommunities: subscribedCommunities },
       route: { mainPath: ROUTE.POST, subPath: post.id },
       viewing: { post, activeThread: THREAD.POST },
       /* curPost: { post }, */

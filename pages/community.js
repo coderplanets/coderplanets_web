@@ -47,9 +47,6 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  console.log('========= ')
-  console.log('userHasLogin: ', userHasLogin)
-  console.log('========= ')
 
   const { asPath } = props
   // schema
@@ -61,7 +58,7 @@ async function fetchData(props) {
   /* const thread = getSubPath(props) */
 
   console.log('the page community thread ->: ', thread)
-  const filter = addTopicIfNeed(
+  let filter = addTopicIfNeed(
     {
       ...queryStringToJSON(asPath, { pagi: 'number' }),
       community,
@@ -69,6 +66,8 @@ async function fetchData(props) {
     thread,
     topic
   )
+
+  filter = R.pick(['page', 'size', 'community', 'topic', 'tag'], filter)
   console.log('the page community filter ->: ', filter)
 
   // query data
@@ -108,7 +107,7 @@ export default class PageCommunity extends React.Component {
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const subPath = getSubPath(props)
     const thread = extractThreadFromPath(props)
-    console.log('getSubPath thread: ', thread)
+    // console.log('getSubPath thread: ', thread)
 
     let resp
     try {
@@ -119,11 +118,6 @@ export default class PageCommunity extends React.Component {
     }
 
     const { partialTags, community, subscribedCommunities } = resp
-
-    // console.log('the gilter', filter)
-    // console.log('partialTags: ', partialTags)
-
-    // const pagedContents =
 
     console.log(
       'pages get subscribedCommunities: ',

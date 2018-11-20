@@ -31,15 +31,10 @@ import {
   USER_THREAD,
   /* BStore, */
   ROUTE,
-  makeDebugger,
   pagedFilter,
 } from '../utils'
 
 import { P } from '../containers/schemas'
-
-/* eslint-disable no-unused-vars */
-const debug = makeDebugger('page:user')
-/* eslint-enable no-unused-vars */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -78,7 +73,7 @@ export default class UserPage extends React.Component {
     const query = queryStringToJSON(asPath)
 
     const { user, subscribedCommunities } = await fetchData(props)
-    // debug('fetchData user-->: ', user)
+    // console.log('fetchData user-->: ', user)
 
     return {
       langSetup: {},

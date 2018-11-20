@@ -13,7 +13,7 @@ import {
   THREAD,
   $solver,
   scrollIntoEle,
-  GA,
+  // GA,
 } from '../../utils'
 
 import S from './schema'
@@ -96,11 +96,14 @@ export function onTitleSelect(data) {
     data,
   })
 
+  store.markRoute({ preview: THREAD.POST, id: data.id })
+  /*
   GA.event({
     action: data.title,
     category: '浏览',
     label: '社区',
   })
+  */
 }
 
 export const createContent = () => {
@@ -111,8 +114,6 @@ export const createContent = () => {
 
 export const onCustomChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
-
-  debug('onCustomChange option: ', option)
   store.updateC11N(option)
 }
 
@@ -149,7 +150,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.setViewing({ post: {} }),
+    action: () => {
+      store.setViewing({ post: {} })
+      store.markRoute({})
+    },
   },
 ]
 
