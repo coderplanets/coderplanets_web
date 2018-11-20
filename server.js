@@ -12,8 +12,9 @@ const SERVE_PORT = process.env.SERVE_PORT || 3000
 
 // This is where we cache our rendered HTML pages
 const ssrCache = new LRUCache({
-  max: 100,
-  maxAge: 1000 * 60 * 60, // 1hour
+  max: 1000, // cache item count
+  // maxAge: 1000 * 60 * 60, // 1hour
+  maxAge: 1000 * 30, // 30 ses
 })
 
 mobxReact.useStaticRendering(true)
