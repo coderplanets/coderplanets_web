@@ -4,6 +4,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const next = require('next')
 const express = require('express')
 const LRUCache = require('lru-cache')
+const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
 
@@ -24,6 +25,7 @@ const HOME_PAGE = '/home/posts'
 app.prepare().then(() => {
   const server = express()
   server.use(express.static('static'))
+  server.use(helmet())
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
