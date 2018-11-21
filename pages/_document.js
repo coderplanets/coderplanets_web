@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
           />
-          <link rel="icon" href="/favicon.ico?v=4" />
+          <link rel="icon" href="/favicon.ico?v=5" />
 
           <script
             async
