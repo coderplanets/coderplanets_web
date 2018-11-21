@@ -41,12 +41,15 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
           />
-          <link
-            rel="shortcut icon"
-            href="/favicon.ico?v=6"
-            type="image/x-icon"
-          />
-          <link rel="icon" href="/favicon.ico?v=6" type="image/x-icon" />
+          {/*
+               <link
+               rel="shortcut icon"
+               href="/favicon.ico?v=6"
+               type="image/x-icon"
+               />
+               <link rel="icon" href="/favicon.ico?v=6" type="image/x-icon" />
+             */}
+          <link rel="icon" href="/favicon.ico?v=6" />
 
           <script
             async
@@ -62,7 +65,7 @@ export default class MyDocument extends Document {
             gtag('js', new Date());
 
             gtag('config', '${process.env.GA_TRACING_ID}');
-                  `,
+              `,
             }}
           />
           {this.props.styleTags}
