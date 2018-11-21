@@ -6,7 +6,6 @@ import {
   InfoBar,
   Wrapper,
   SuggestionWrapper,
-  SuggestIconWrapper,
   ContentWraper,
   Title,
   Desc,
@@ -38,9 +37,7 @@ const ResultsList = ({ suggestions, activeRaw }) => (
           id={suggestion.raw}
           onMouseEnter={navToSuggestion.bind(this, suggestion)}
         >
-          <SuggestIconWrapper>
-            <SuggestIcon raw={suggestion.raw} suggestion={suggestion} />
-          </SuggestIconWrapper>
+          <SuggestIcon raw={suggestion.raw} suggestion={suggestion} />
           <ContentWraper>
             <Title>{suggestion.title}</Title>
             <Desc>{suggestion.desc}</Desc>

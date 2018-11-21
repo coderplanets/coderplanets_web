@@ -7,10 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { PageOverlay, PanelContainer, AlertBar } from './styles'
+import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
+import AlertBar from './AlertBar'
+import UtilsBar from './UtilsBar'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -29,7 +31,15 @@ class DoraemonContainer extends React.Component {
 
   render() {
     const { doraemon } = this.props
-    const { inputValue, suggestions, activeRaw, prefix, visible } = doraemon
+    const {
+      inputValue,
+      suggestions,
+      activeRaw,
+      prefix,
+      visible,
+      searching,
+      showAlert,
+    } = doraemon
 
     // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
@@ -38,9 +48,14 @@ class DoraemonContainer extends React.Component {
       <React.Fragment>
         <PageOverlay visible={visible} onClick={logic.hidePanel} />
         <PanelContainer visible={visible}>
-          <InputEditor value={inputValue} searching={false} prefix={prefix} />
-          {logic.repoNotFound(doraemon) && <AlertBar>Repo not found</AlertBar>}
+          <InputEditor
+            value={inputValue}
+            searching={searching}
+            prefix={prefix}
+          />
+          {showAlert ? <AlertBar /> : null}
           <ResultsList suggestions={suggestions} activeRaw={activeRaw} />
+          <UtilsBar />
         </PanelContainer>
       </React.Fragment>
     )

@@ -29,18 +29,7 @@ export const BaseBar = styled.div`
   ${cs.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
-  height: 70px;
+  height: 65px;
   background: ${theme('shell.barBg')};
   color: white;
-`
-
-export const AlertBar = styled(BaseBar)`
-  position: relative;
-  padding: 18px;
-  color: #365760;
-  &:before {
-    content: '⚠ ';
-    margin-right: 10px;
-    color: tomato;
-  }
 `

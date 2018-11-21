@@ -9,13 +9,13 @@ export const PrefixIcon = styled(Img)`
   display: block;
 `
 export const PrefixSearchIcon = styled(Img)`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   fill: ${theme('shell.searchIcon')};
   display: block;
 `
 export const PrefixMagicIcon = styled(Img)`
-  width: 30px;
+  width: 25px;
   height: 25px;
   transform: rotate(-30deg);
   display: block;

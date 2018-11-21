@@ -14,9 +14,23 @@ const githubSignin = gql`
     }
   }
 `
+const searchPosts = gql`
+  query($title: String!) {
+    searchPosts(title: $title) {
+      entries {
+        id
+        title
+        digest
+        views
+      }
+      totalCount
+    }
+  }
+`
 
 const schema = {
   githubSignin,
+  searchPosts,
 }
 
 export default schema

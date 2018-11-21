@@ -30,20 +30,6 @@ let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-const reposIsEmpty = R.compose(
-  R.isEmpty,
-  R.prop('reposData')
-)
-const inputValueIsNotEmpty = R.compose(
-  R.not,
-  R.isEmpty,
-  R.prop('inputValue')
-)
-const isNotSearching = R.compose(
-  R.not,
-  R.prop('searching')
-)
-
 function queryPocket() {
   pockect$.query(store.inputValue)
 }
@@ -68,6 +54,11 @@ export function githubLoginHandler() {
       }
     }
   })
+}
+
+export const searchPosts = title => {
+  console.log('searchPosts: ', title)
+  sr71$.query(S.searchPosts, { title })
 }
 
 const initCmdResolver = () => {
@@ -262,13 +253,6 @@ export function handleShortCuts(e) {
   }
 }
 
-// TODO: not found hinter logic ..
-export const repoNotFound = R.allPass([
-  reposIsEmpty,
-  inputValueIsNotEmpty,
-  isNotSearching,
-])
-
 export function navSuggestion(direction) {
   SAK.navSuggestion(direction)
 }
@@ -294,8 +278,8 @@ export function getPrefixLogo(prefix) {
 }
 
 export function hidePanel() {
-  store.hideDoraemon()
-  pockect$.stop()
+  // store.hideDoraemon()
+  // pockect$.stop()
 }
 
 export function inputOnChange(e) {
@@ -318,6 +302,25 @@ const DataSolver = [
       Global.location.reload(false)
     },
   },
+  {
+    match: asyncRes('searchPosts'),
+    action: ({ searchPosts }) => {
+      console.log('searchPosts get: ', searchPosts)
+      const data = R.map(
+        e => ({
+          raw: e.id,
+          title: e.title,
+          desc: `v:${e.views}  ${e.digest}`,
+        }),
+        searchPosts.entries
+      )
+      if (searchPosts.totalCount === 0) {
+        store.markState({ showAlert: true })
+      }
+      store.markState({ searching: false })
+      store.loadSuggestions({ prefix: '', data })
+    },
+  },
 ]
 
 const ErrSolver = [
@@ -325,17 +328,20 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      store.markState({ searching: false })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      store.markState({ searching: false })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
+      store.markState({ searching: false })
       debug('ERR.NETWORK -->', details)
     },
   },
@@ -350,6 +356,21 @@ export function init(_store) {
   SAK = new SwissArmyKnife(store)
 
   initCmdResolver()
+
+  pockect$.search().subscribe(res => {
+    if (R.isEmpty(res)) {
+      store.markState({ searching: false, showAlert: false })
+      return false
+    }
+
+    debug('--> search: ', res)
+    store.markState({ searching: true, showAlert: false })
+    searchPosts(res)
+  })
+
+  pockect$.searchUser().subscribe(res => {
+    debug('--> search user: ', res)
+  })
 
   pockect$.cmdSuggesttion().subscribe(res => {
     debug('--> loadSuggestions res: ', res)

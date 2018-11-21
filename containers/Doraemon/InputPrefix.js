@@ -9,7 +9,7 @@ import {
   PrefixMagicIcon,
 } from './styles/input_prefix'
 
-import { getPrefixLogo } from './logic'
+// import { getPrefixLogo } from './logic'
 
 const InputPrefix = ({ cmd, searching }) => {
   if (searching) {
@@ -19,6 +19,15 @@ const InputPrefix = ({ cmd, searching }) => {
   switch (cmd) {
     case '': {
       return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
+    }
+    case '#': {
+      return <PrefixSearchIcon src={`${ICON_CMD}/shell_focus.svg`} />
+    }
+    case '@': {
+      return <PrefixSearchIcon src={`${ICON_CMD}/shell_user.svg`} />
+    }
+    case '?': {
+      return <PrefixSearchIcon src={`${ICON_CMD}/shell_help.svg`} />
     }
     case '/': {
       return <PrefixMagicIcon src={`${ICON_CMD}/magic.svg`} />
@@ -30,7 +39,8 @@ const InputPrefix = ({ cmd, searching }) => {
       return <PrefixIcon src={`${ICON_CMD}/themes.svg`} />
     }
     default: {
-      return <PrefixIcon src={getPrefixLogo(cmd)} />
+      return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
+      // fdreturn <PrefixIcon src={getPrefixLogo(cmd)} />
     }
   }
 }

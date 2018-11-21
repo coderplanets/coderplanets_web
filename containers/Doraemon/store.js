@@ -49,6 +49,8 @@ const Suggestion = t.model('Suggestion', {
 const DoraemonStore = t
   .model('DoraemonStore', {
     visible: t.optional(t.boolean, false),
+    searching: t.optional(t.boolean, false),
+    showAlert: t.optional(t.boolean, false),
     inputValue: t.optional(t.string, ''),
     suggestions: t.optional(t.array(Suggestion), []),
     activeRaw: t.maybeNull(t.string),

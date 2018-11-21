@@ -223,7 +223,7 @@ const cyan = {
     searchIcon: lighten(0.3, primaryColor),
     barBg: darken(0.03, primaryColor),
     border: darken(0.05, primaryColor),
-    title: lighten(0.3, bannerBg),
+    title: '#d7eef1',
     desc: lighten(0.2, primaryColor),
     activeBg: darken(0.1, primaryColor),
   },

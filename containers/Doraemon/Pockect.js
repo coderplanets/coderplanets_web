@@ -1,4 +1,5 @@
 import { Subject, of } from 'rxjs'
+import R from 'ramda'
 import PubSub from 'pubsub-js'
 
 import {
@@ -13,6 +14,7 @@ import {
 
 import { makeDebugger, isEmptyValue, EVENT } from '../../utils'
 import {
+  searchablePrefix,
   startWithSpecialPrefix,
   startWithSlash,
   Advisor,
@@ -35,14 +37,18 @@ export default class Pockect {
     this.stop$ = new Subject() // esc, pageClick  ...
     // TODO: netfix search use throttle
     // see: https://www.youtube.com/watch?v=XRYN2xt11Ek
-    this.cmdInput$ = this.input$.pipe(debounceTime(200)) // .distinctUntilChanged()
+    this.generalInput$ = this.input$.pipe(debounceTime(200)) // .distinctUntilChanged()
 
     PubSub.subscribe(EVENT.LOGIN_PANEL, () => {
       this.store.handleLogin()
       this.input$.next('/login/')
     })
 
-    this.cmdSuggestionCommon = this.cmdInput$.pipe(
+    /* this.search$ = this.generalInput$.pipe(filter(v => !searchablePrefix(v))) */
+    this.search$ = this.generalInput$.pipe(filter(searchablePrefix))
+    this.searchUser$ = this.generalInput$.pipe(filter(R.startsWith('@')))
+
+    this.cmdSuggestionCommon = this.generalInput$.pipe(
       filter(startWithSlash),
       switchMap(q =>
         this.advisor.relateSuggestions$(q).pipe(takeUntil(this.stop$))
@@ -50,7 +56,7 @@ export default class Pockect {
       catchError(() => of([]))
     )
 
-    this.cmdSuggestionSpecial = this.cmdInput$.pipe(
+    this.cmdSuggestionSpecial = this.generalInput$.pipe(
       filter(startWithSpecialPrefix),
       map(this.advisor.specialSuggestions)
     )
@@ -70,6 +76,14 @@ export default class Pockect {
   stop() {
     //    debug('stop ...')
     this.stop$.next()
+  }
+
+  search() {
+    return this.search$
+  }
+
+  searchUser() {
+    return this.searchUser$
   }
 
   cmdSuggesttion() {
