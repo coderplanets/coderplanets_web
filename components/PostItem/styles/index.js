@@ -7,7 +7,7 @@ export const Wrapper = styled.article`
   ${cs.flex()};
   position: relative;
   padding-left: 8px;
-  padding-right: 8px;
+  padding-right: 0;
   border-radius: 4px;
   opacity: ${({ opacity }) => opacity};
 
