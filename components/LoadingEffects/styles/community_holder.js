@@ -13,13 +13,23 @@ export const BannerWrapper = styled.div`
   border-color: ${theme('banner.desc')};
   color: ${theme('banner.desc')};
 `
-
 export const SidebarText = styled.div`
   color: ${theme('sidebar.holder')};
   text-align: center;
   margin-left: 5px;
 `
-
+export const CommunitiesText = styled.div`
+  ${cs.flex('align-center')};
+  color: ${theme('banner.desc')};
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  border-style: double;
+  border-color: ${theme('banner.desc')};
+  text-align: center;
+  margin-top: -40px;
+`
 export const BannerText = styled.div`
   ${cs.truncate('45px')};
   text-align: center;

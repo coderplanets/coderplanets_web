@@ -3,7 +3,7 @@ import R from 'ramda'
 
 // import { ICON_CMD } from '../../config'
 // import { Wrapper } from './styles'
-import { TrendLine } from '../../components'
+import { TrendLine, CommunityHolder } from '../../components'
 import SubscribeBtn from './SubscribeBtn'
 
 import {
@@ -30,6 +30,7 @@ const CommunityCard = ({ community, restProps }) => (
     <CommunityIcon
       nonFill={R.contains(community.raw, NON_FILL_COMMUNITY)}
       src={community.logo}
+      loading={<CommunityHolder text={community.raw} place="communities" />}
     />
     <CardTitle>{community.title}</CardTitle>
     <CardDesc>{community.desc}</CardDesc>
