@@ -21,7 +21,7 @@ export const LeftPart = styled.div`
   width: 100%;
 `
 export const RightPart = styled.div`
-  width: 20vw;
+  width: 18vw;
   margin-left: 30px;
   padding-top: 5px;
 `
