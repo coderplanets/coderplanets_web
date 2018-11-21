@@ -19,7 +19,10 @@ import { makeDebugger, prettyNum, uid } from '../../utils'
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
-const validUser = R.compose(R.not, R.isNil)
+const validUser = R.compose(
+  R.not,
+  R.isNil
+)
 
 const AvatarsRow = ({
   users,
