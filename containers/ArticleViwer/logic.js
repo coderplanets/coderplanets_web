@@ -122,12 +122,20 @@ export const onTagUnselect = tagId => {
 export const onListReactionUsers = (type, data) =>
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
+export const onCommentCreate = () => {
+  const { id } = store.viewingData
+  if (store.activeThread === THREAD.POST) {
+    return sr71$.query(S.postComment, { id })
+  }
+}
+
 const openAttachment = att => {
   if (!att) return false
 
   const { type } = att
 
   if (type === TYPE.PREVIEW_POST_VIEW) {
+    debug('================= load post =====================')
     loadPost(att)
 
     store.markState({ type })
@@ -157,13 +165,14 @@ const DataSolver = [
     action: () => {
       sr71$.stop()
       loading(false)
-      store.setViewing({ post: {} })
+      // store.setViewing({ post: {} })
     },
   },
   {
     match: asyncRes('post'),
     action: ({ post }) => {
       store.setViewing({ post: R.merge(store.viewingData, post) })
+      console.log('before  syncViewingItem post: ', post)
       store.syncViewingItem(post)
       loading(false)
     },

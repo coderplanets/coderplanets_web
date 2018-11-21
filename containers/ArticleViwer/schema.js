@@ -15,6 +15,12 @@ const post = gql`
       communities {
         ${F.community}
       }
+      commentsParticipators {
+        id
+        nickname
+        avatar
+      }
+      commentsCount
       linkAddr
       insertedAt
       favoritedCount
@@ -23,6 +29,19 @@ const post = gql`
       viewerHasFavorited @include(if: $userHasLogin)
       viewerHasStarred @include(if: $userHasLogin)
       favoritedCategoryId @include(if: $userHasLogin)
+    }
+  }
+`
+const postComment = gql`
+  query post($id: ID!) {
+    post(id: $id) {
+      id
+      commentsParticipators {
+        id
+        nickname
+        avatar
+      }
+      commentsCount
     }
   }
 `
@@ -109,6 +128,7 @@ const unsetTag = gql`
 
 const schema = {
   post,
+  postComment,
   postReactionRes,
   job,
   jobReactionRes,

@@ -19,10 +19,7 @@ import { makeDebugger, prettyNum, uid } from '../../utils'
 const debug = makeDebugger('c:AvatarsRow:index')
 /* eslint-enable no-unused-vars */
 
-const validUser = R.compose(
-  R.not,
-  R.isNil
-)
+const validUser = R.compose(R.not, R.isNil)
 
 const AvatarsRow = ({
   users,
@@ -39,7 +36,7 @@ const AvatarsRow = ({
   users = R.filter(validUser, users)
   return (
     <Avatars height={height}>
-      {total <= users.length ? (
+      {total <= 1 ? (
         <span />
       ) : (
         <AvatarsItem onClick={onTotalSelect.bind(this, { users, total })}>

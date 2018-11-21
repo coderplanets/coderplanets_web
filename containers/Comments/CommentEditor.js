@@ -97,6 +97,7 @@ const InputEditor = ({
   showInputPreview,
   body,
   mentions,
+  onCreate,
   restProps: { creating },
 }) => (
   <div className="comment-editor">
@@ -112,7 +113,7 @@ const InputEditor = ({
     <EditorFooter
       loading={creating}
       showPreview={showInputPreview}
-      onCreate={logic.createComment}
+      onCreate={onCreate}
       onBackEdit={logic.backToEditor}
       onPreview={logic.createCommentPreview}
     />
@@ -144,6 +145,7 @@ class CommentEditor extends React.Component {
     const {
       referUsers,
       accountInfo,
+      onCreate,
       restProps: {
         countCurrent,
         showInputBox,
@@ -169,6 +171,7 @@ class CommentEditor extends React.Component {
             showInputPreview={showInputPreview}
             showInputEditor={showInputEditor}
             body={editContent}
+            onCreate={onCreate}
             restProps={{ ...this.props }}
           />
         ) : null}
@@ -180,7 +183,7 @@ class CommentEditor extends React.Component {
             <EditorFooter
               loading={creating}
               showPreview={showInputPreview}
-              onCreate={logic.createComment}
+              onCreate={onCreate}
               onBackEdit={logic.backToEditor}
               onPreview={logic.createCommentPreview}
             />

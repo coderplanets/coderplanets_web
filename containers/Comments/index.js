@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { makeDebugger, storePlug } from '../../utils'
-import * as logic from './logic'
 
 import { Modal } from '../../components'
 import CommentEditor from './CommentEditor'
@@ -16,6 +14,10 @@ import CommentsList from './CommentsList'
 import CommentReplyer from './CommentReplyer'
 
 import { Wrapper } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
+import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Comments')
 /* eslint-enable no-unused-vars */
@@ -26,6 +28,12 @@ class CommentsContainer extends React.Component {
 
     const { comments } = props
     logic.init(comments)
+  }
+
+  onCreate() {
+    const { onCreate } = this.props
+    logic.createComment()
+    onCreate()
   }
 
   render() {
@@ -57,6 +65,7 @@ class CommentsContainer extends React.Component {
         </Modal>
 
         <CommentEditor
+          onCreate={this.onCreate.bind(this)}
           accountInfo={accountInfo}
           referUsers={referUsersData}
           restProps={{ ...comments }}
@@ -71,10 +80,12 @@ class CommentsContainer extends React.Component {
   }
 }
 
-// CommentsContainer.propTypes = {
-// https://www.npmjs.com/package/prop-types
-// }
+CommentsContainer.propTypes = {
+  onCreate: PropTypes.func,
+}
 
-// CommentsContainer.defaultProps = {}
+CommentsContainer.defaultProps = {
+  onCreate: debug,
+}
 
 export default inject(storePlug('comments'))(observer(CommentsContainer))

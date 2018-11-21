@@ -56,7 +56,7 @@ const PostViewer = ({ data, loading }) => {
       </BodyWrapper>
 
       <CommentsWrapper>
-        <Comments />
+        <Comments onCreate={logic.onCommentCreate} />
       </CommentsWrapper>
     </React.Fragment>
   )
