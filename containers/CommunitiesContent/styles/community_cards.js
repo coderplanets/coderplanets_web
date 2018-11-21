@@ -74,10 +74,12 @@ export const IssueLink = styled.a`
 
 // fill only works for non-colored svgs
 export const CommunityIcon = styled(Img)`
+  display: block;
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
-  width: 60px;
-  height: 60px;
-  margin-top: -40px;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 8px;
+  margin-top: -35px;
   ${Card}:hover & {
     fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.title'))};
   }

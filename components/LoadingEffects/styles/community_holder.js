@@ -22,13 +22,14 @@ export const CommunitiesText = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('banner.desc')};
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   border-radius: 4px;
   border-style: double;
   border-color: ${theme('banner.desc')};
   text-align: center;
-  margin-top: -40px;
+  margin-top: -35px;
+  margin-bottom: 8px;
 `
 export const BannerText = styled.div`
   ${cs.truncate('45px')};
