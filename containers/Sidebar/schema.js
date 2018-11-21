@@ -1,31 +1,16 @@
 import gql from 'graphql-tag'
-import { P } from '../schemas'
+import { F } from '../schemas'
 
 const subscribedCommunities = gql`
-  ${P.subscribedCommunities}
+  query subscribedCommunities($userId: ID, $filter: PagedFilter!) {
+    subscribedCommunities(userId: $userId, filter: $filter) {
+      entries {
+        ${F.community}
+        contributesDigest
+      }
+    }
+  }
 `
-
-// TODO remove
-/*
-   const communities = gql`
-   query communities($filter: PagedFilter!) {
-   communities(filter: $filter) {
-   entries {
-   id
-   title
-   desc
-   raw
-   logo
-   contributesDigest
-   }
-   pageNumber
-   pageSize
-   totalCount
-   totalPages
-   }
-   }
-   `
- */
 
 const schema = {
   // communities,

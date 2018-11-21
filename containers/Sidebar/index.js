@@ -26,6 +26,10 @@ class SidebarContainer extends React.Component {
     logic.init(sidebar)
   }
 
+  componentDidMount() {
+    logic.loadCommunities()
+  }
+
   render() {
     const { sidebar } = this.props
     const { curCommunity, pin, communitiesData } = sidebar

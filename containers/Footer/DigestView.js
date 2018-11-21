@@ -25,7 +25,7 @@ const DigestView = ({ toggleSponsorHelper }) => (
     <MainInfos>
       <MainColumn>
         <SiteInfo>
-          <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} />
+          <SiteLogo src={`${ICON_CMD}/keyboard_logo.png`} />
           <SiteTitle>coderplanets</SiteTitle>
         </SiteInfo>
         <div>

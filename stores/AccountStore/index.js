@@ -86,7 +86,8 @@ const AccountStore = t
       BStore.cookie.remove('jwtToken')
     },
     loadSubscribedCommunities(data) {
-      self.user.subscribedCommunities = data
+      // self.user.subscribedCommunities = data
+      self.userSubscribedCommunities = data
     },
     addSubscribedCommunity(community) {
       const {

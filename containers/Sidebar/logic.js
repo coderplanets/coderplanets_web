@@ -55,16 +55,8 @@ export function onSortMenuEnd({ oldIndex, newIndex }) {
 
 export function loadCommunities() {
   /* const user = BStore.get('user') */
-  const user = store.accountInfo
-
-  console.log('store.accountInfo in sidebar: ', store.accountInfo)
-
   const args = {
     filter: { page: 1, size: 30 },
-  }
-  if (user.id) {
-    args.userId = user.id
-    args.filter.size = 20
   }
   /* console.log('loadCommunities: ', GRAPHQL_ENDPOINT) */
   console.log('subscribedCommunities args --> ', args)
@@ -74,8 +66,10 @@ export function loadCommunities() {
 const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
-    action: ({ subscribedCommunities }) =>
-      store.loadCommunities(subscribedCommunities),
+    action: ({ subscribedCommunities }) => {
+      console.log('subscribedCommunities -bbb-> ', subscribedCommunities)
+      store.loadCommunities(subscribedCommunities)
+    },
   },
   {
     match: asyncRes(EVENT.LOGOUT),

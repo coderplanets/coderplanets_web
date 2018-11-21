@@ -38,7 +38,7 @@ const OauthHinter = () => {
       </CPSMdLogoWrapper>
       <HintWrapper>
         <IconsWrapper>
-          <CPSLogoIcon src={`${ICON_CMD}/keyboard_logo.svg`} />
+          <CPSLogoIcon src={`${ICON_CMD}/keyboard_logo.png`} />
           <LinkIcon src={`${ICON_CMD}/oauth_link.svg`} />
           <GithubLogoIcon src={`${ICON_CMD}/github.svg`} />
         </IconsWrapper>

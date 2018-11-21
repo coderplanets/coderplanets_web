@@ -1,16 +1,11 @@
 import F from '../fragments'
 
+// contributesDigest
 export const subscribedCommunities = `
   query subscribedCommunities($userId: ID, $filter: PagedFilter!) {
     subscribedCommunities(userId: $userId, filter: $filter) {
       entries {
         ${F.community}
-        contributesDigest
-        threads {
-          title
-          raw
-          index
-        }
       }
       ${F.pagedCounts}
     }
