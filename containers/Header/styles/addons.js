@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import HeaderStatesSVG from '../../../components/SvgIcons/HeaderStatesSVG'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
 `
 
-export const StateIcon = styled(Img)`
+export const HeaderStatesIcon = styled(HeaderStatesSVG)`
   fill: ${theme('header.fg')};
   width: 22px;
   height: 26px;
@@ -23,12 +23,4 @@ export const Divider = styled.div`
   margin-left: 10px;
   margin-right: 6px;
   opacity: 0.7;
-`
-export const DividerIcon = styled(Img)`
-  fill: ${theme('header.fg')};
-  width: 18px;
-  height: 20px;
-  margin-top: 5px;
-  margin-left: 3px;
-  margin-right: 3px;
 `

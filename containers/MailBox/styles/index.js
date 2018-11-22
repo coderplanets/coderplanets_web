@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-/* import { Img } from '../../../components' */
-import Img from '../../../components/Img'
+import HeaderMailSVG from '../../../components/SvgIcons/HeaderMailSVG'
 import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   padding-top: 8px;
 `
 
-export const Icon = styled(Img)`
+export const HeaderMailIcon = styled(HeaderMailSVG)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;

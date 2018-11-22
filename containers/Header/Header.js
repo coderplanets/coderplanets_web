@@ -1,8 +1,6 @@
 import React from 'react'
 
 import { Navigator } from '../../components'
-import { ICON_CMD } from '../../config/assets'
-
 import MailBox from '../MailBox'
 import UserLister from '../UserLister'
 
@@ -14,7 +12,7 @@ import {
   Wrapper,
   RouterWrapper,
   Search,
-  HeaderIcon,
+  HeaderSearchIcon,
   Operations,
 } from './styles/header'
 
@@ -44,7 +42,7 @@ const Header = ({
     <AddOns />
     <Operations>
       <Search onClick={openDoraemon}>
-        <HeaderIcon src={`${ICON_CMD}/search2.svg`} offsetTop="-1px" />
+        <HeaderSearchIcon offsettop="-1px" />
       </Search>
 
       {isLogin ? <MailBox /> : null}

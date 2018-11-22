@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import HeaderSearchSVG from '../../../components/SvgIcons/HeaderSearchSVG'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.header`
@@ -23,13 +23,13 @@ export const RouterWrapper = styled.div`
   height: 100%;
   margin-top: 1px;
 `
-export const HeaderIcon = styled(Img)`
+export const HeaderSearchIcon = styled(HeaderSearchSVG)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
-  margin-top: ${({ offsetTop }) => offsetTop || '0'};
+  margin-top: ${({ offsettop }) => offsettop || '0'};
 `
 export const Operations = styled.div`
   ${cs.flex('align-center')};

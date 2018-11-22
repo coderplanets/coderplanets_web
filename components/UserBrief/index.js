@@ -53,7 +53,9 @@ class UserBrief extends React.Component {
       <Wrapper>
         <AvatarWrapper>
           <Link href={`/user/${user.id}`}>
-            <Avatar src={user.avatar} displayStyle={displayStyle} />
+            <div>
+              <Avatar src={user.avatar} displayStyle={displayStyle} />
+            </div>
           </Link>
 
           <Button size="small" type="primary" ghost>

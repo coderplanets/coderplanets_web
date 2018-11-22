@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_CMD } from '../../config/assets'
 // import { } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
@@ -15,10 +16,9 @@ import { Popover } from '../../components'
 import Selector from './Selector'
 import MailLists from './MailLists'
 
-import { ICON_CMD } from '../../config/assets'
-import { Wrapper, PannerWrapper, Icon } from './styles'
-
+import { Wrapper, HeaderMailIcon, PannerWrapper } from './styles'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:MailBox')
 /* eslint-enable no-unused-vars */
@@ -85,7 +85,7 @@ class MailBoxContainer extends React.Component {
         onVisibleChange={this.onVisibleChange.bind(this)}
       >
         <Wrapper>
-          <Icon src={`${ICON_CMD}/header_mail.svg`} />
+          <HeaderMailIcon />
         </Wrapper>
       </Popover>
     )

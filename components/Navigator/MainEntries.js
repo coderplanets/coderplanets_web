@@ -13,7 +13,7 @@ const MainEntries = () => (
       <SiteLink>首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Link href="/communities" prefetch>
+    <Link href="/communities/pl" prefetch>
       <SiteLink>社区</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
