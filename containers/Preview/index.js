@@ -10,11 +10,11 @@ import dynamic from 'next/dynamic'
 
 // viewers
 import ArticleViwer from '../ArticleViwer'
-import AccountViewer from '../AccountViewer'
+// import AccountViewer from '../AccountViewer'
 import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
 // eiditors
-import AccountEditor from '../AccountEditor'
+// import AccountEditor from '../AccountEditor'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
@@ -44,6 +44,22 @@ const DynamicTypeWriter = dynamic({
   srr: false,
 })
 
+const DynamicAccountViewer = dynamic({
+  loader: () => import('../AccountViewer'),
+  /* eslint-disable */
+  loading: () => <div>loading..</div>,
+  /* eslint-enable */
+  srr: false,
+})
+
+const DynamicAccountEditor = dynamic({
+  loader: () => import('../AccountEditor'),
+  /* eslint-disable */
+  loading: () => <div>loading..</div>,
+  /* eslint-enable */
+  srr: false,
+})
+
 const CloseBtn = ({ type }) => (
   <PreviewCloser onClick={logic.closePreview}>
     <Closer type={type}>
@@ -60,10 +76,10 @@ const Viewer = ({ type, root, attachment }) => {
   switch (type) {
     // account
     case TYPE.PREVIEW_ACCOUNT_VIEW: {
-      return <AccountViewer />
+      return <DynamicAccountViewer />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
-      return <AccountEditor />
+      return <DynamicAccountEditor />
     }
     // post
     case TYPE.PREVIEW_POST_VIEW: {
