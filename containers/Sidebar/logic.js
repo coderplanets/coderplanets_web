@@ -66,10 +66,8 @@ export function loadCommunities() {
 const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
-    action: ({ subscribedCommunities }) => {
-      console.log('subscribedCommunities -bbb-> ', subscribedCommunities)
-      store.loadCommunities(subscribedCommunities)
-    },
+    action: ({ subscribedCommunities }) =>
+      store.loadCommunities(subscribedCommunities),
   },
   {
     match: asyncRes(EVENT.LOGOUT),

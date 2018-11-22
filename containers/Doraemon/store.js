@@ -12,6 +12,8 @@ import {
   markStates,
   focusDoraemonBar,
   hideDoraemonBarRecover,
+  THREAD,
+  stripMobx,
 } from '../../utils'
 // const debug = makeDebugger('S:DoraemonStore')
 
@@ -38,6 +40,7 @@ const Suggestion = t.model('Suggestion', {
   title: t.string,
   desc: t.maybeNull(t.string),
   raw: t.string,
+  id: t.maybeNull(t.string),
   logo: t.maybeNull(t.string),
   cmd: t.maybeNull(t.enumeration('cmd', ['theme', 'debug'])),
   descType: t.optional(
@@ -49,6 +52,17 @@ const Suggestion = t.model('Suggestion', {
 const DoraemonStore = t
   .model('DoraemonStore', {
     visible: t.optional(t.boolean, false),
+    searching: t.optional(t.boolean, false),
+    showAlert: t.optional(t.boolean, false),
+    showUtils: t.optional(t.boolean, false),
+    showThreadSelector: t.optional(t.boolean, false),
+    searchedTotalCount: t.optional(t.number, 0),
+
+    searchThread: t.optional(
+      t.enumeration('searchThread', [...R.values(THREAD), 'community']),
+      'community'
+    ),
+
     inputValue: t.optional(t.string, ''),
     suggestions: t.optional(t.array(Suggestion), []),
     activeRaw: t.maybeNull(t.string),
@@ -103,6 +117,12 @@ const DoraemonStore = t
         return undefined
       }
       return self.suggestions[self.activeSuggestionIndex].title
+    },
+    get activeSuggestion() {
+      if (self.activeSuggestionIndex === -1) {
+        return undefined
+      }
+      return stripMobx(self.suggestions[self.activeSuggestionIndex])
     },
   }))
   .actions(self => ({

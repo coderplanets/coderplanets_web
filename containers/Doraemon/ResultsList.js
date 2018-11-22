@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -6,7 +7,6 @@ import {
   InfoBar,
   Wrapper,
   SuggestionWrapper,
-  SuggestIconWrapper,
   ContentWraper,
   Title,
   Desc,
@@ -16,7 +16,8 @@ import {
 
 import SuggestIcon from './SuggestIcon'
 
-import { navToSuggestion } from './logic'
+import { navToSuggestion, selectSuggestion } from './logic'
+import { THREAD } from '../../utils'
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
@@ -28,7 +29,7 @@ const HintIcon = ({ index, active, cur, length }) => {
   return null
 }
 
-const ResultsList = ({ suggestions, activeRaw }) => (
+const ResultsList = ({ searchThread, suggestions, activeRaw }) => (
   <Wrapper>
     <SuggestionWrapper empty={suggestions.length === 0}>
       {suggestions.map((suggestion, i) => (
@@ -37,10 +38,14 @@ const ResultsList = ({ suggestions, activeRaw }) => (
           key={suggestion.raw}
           id={suggestion.raw}
           onMouseEnter={navToSuggestion.bind(this, suggestion)}
+          onClick={selectSuggestion}
         >
-          <SuggestIconWrapper>
-            <SuggestIcon raw={suggestion.raw} suggestion={suggestion} />
-          </SuggestIconWrapper>
+          <SuggestIcon
+            raw={suggestion.raw}
+            suggestion={suggestion}
+            round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
+            searchThread={searchThread}
+          />
           <ContentWraper>
             <Title>{suggestion.title}</Title>
             <Desc>{suggestion.desc}</Desc>

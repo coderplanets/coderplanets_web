@@ -30,8 +30,21 @@ const cmdInit = R.compose(
 
 export const startWithSlash = R.startsWith('/')
 
+export const searchablePrefix = R.compose(
+  R.not,
+  R.anyPass([
+    R.startsWith('/'),
+    R.startsWith('?'),
+    R.startsWith('#'),
+    R.startsWith('@'),
+    R.startsWith('>'),
+    R.startsWith('<'),
+  ])
+)
+
 export const startWithSpecialPrefix = R.anyPass([
   R.startsWith('?'),
+  R.startsWith('#'),
   R.startsWith('>'),
   R.startsWith('<'),
 ])
@@ -112,8 +125,25 @@ export class Advisor {
   relateSuggestions$ = q =>
     from(new Promise(resolve => resolve(this.relateSuggestions(q))))
 
-  specialSuggestions = val => ({
-    prefix: '/',
-    data: [this.getSuggestionPath(val)],
-  })
+  specialSuggestions = val => {
+    // console.log('this.getSuggestionPath(val): ', this.getSuggestionPath(val))
+    return {
+      prefix: R.head(val),
+      data: [
+        {
+          title: 'todo',
+          desc: 'world',
+          raw: 'javascript',
+          logo:
+            'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/pl/javascript.svg',
+        },
+      ],
+    }
+    /*
+       return {
+       prefix: '/',
+       data: [this.getSuggestionPath(val)],
+       }
+     */
+  }
 }

@@ -1,6 +1,7 @@
 // this is tmp, use react-intl .. later
 
 const I18nDict = {
+  community: '社区',
   posts: '帖子',
   post: '帖子',
   map: '地图',

@@ -41,15 +41,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
           />
-          {/*
-               <link
-               rel="shortcut icon"
-               href="/favicon.ico?v=6"
-               type="image/x-icon"
-               />
-               <link rel="icon" href="/favicon.ico?v=6" type="image/x-icon" />
-             */}
-          <link rel="icon" href="/favicon.ico?v=6" />
+          <link rel="icon" href="/favicon.ico?v=7" />
 
           <script
             async

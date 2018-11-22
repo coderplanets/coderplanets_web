@@ -23,6 +23,7 @@ export const AvatarsItem = styled.li`
   ${Avatars}:hover & {
     margin-left: 5px;
   }
+  transition: all 0.3s;
 `
 export const AvatarsImg = styled.img`
   border: 2px solid;

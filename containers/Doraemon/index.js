@@ -7,10 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { PageOverlay, PanelContainer, AlertBar } from './styles'
+import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
+
+import ThreadSelectBar from './ThreadSelectBar'
+import AlertBar from './AlertBar'
+import UtilsBar from './UtilsBar'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -29,18 +33,44 @@ class DoraemonContainer extends React.Component {
 
   render() {
     const { doraemon } = this.props
-    const { inputValue, suggestions, activeRaw, prefix, visible } = doraemon
+    const {
+      inputValue,
+      suggestions,
+      activeRaw,
+      prefix,
+      visible,
+      searching,
+      showAlert,
+      showUtils,
+      showThreadSelector,
+      searchThread,
+      searchedTotalCount,
+    } = doraemon
 
-    // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
 
     return (
       <React.Fragment>
         <PageOverlay visible={visible} onClick={logic.hidePanel} />
         <PanelContainer visible={visible}>
-          <InputEditor value={inputValue} searching={false} prefix={prefix} />
-          {logic.repoNotFound(doraemon) && <AlertBar>Repo not found</AlertBar>}
-          <ResultsList suggestions={suggestions} activeRaw={activeRaw} />
+          <InputEditor
+            value={inputValue}
+            searching={searching}
+            prefix={prefix}
+          />
+
+          {showThreadSelector ? (
+            <ThreadSelectBar active={searchThread} />
+          ) : null}
+          {showAlert ? (
+            <AlertBar value={inputValue} searchThread={searchThread} />
+          ) : null}
+          <ResultsList
+            suggestions={suggestions}
+            activeRaw={activeRaw}
+            searchThread={searchThread}
+          />
+          {showUtils ? <UtilsBar total={searchedTotalCount} /> : null}
         </PanelContainer>
       </React.Fragment>
     )

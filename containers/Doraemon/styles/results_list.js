@@ -58,7 +58,7 @@ export const BaseBar = styled.div`
   ${cs.flex('align-center')};
   border: 1px solid ${theme('shell.border')};
   width: 100%;
-  height: 70px;
+  height: 65px;
   background: ${theme('shell.barBg')};
   color: white;
 `
@@ -75,11 +75,13 @@ export const AlertBar = styled(BaseBar)`
     color: tomato;
   }
 `
-
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
-  min-height: 70px;
+  min-height: 65px;
   background: ${({ active }) => (active ? theme('shell.activeBg') : '')};
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const InputBar = styled.input`
   caret-color: ${theme('shell.searchInput')};
@@ -99,19 +101,14 @@ export const InputBar = styled.input`
   border-radius: 0;
   transition: all 400ms ease;
 `
-export const SuggestIconWrapper = styled.div`
-  width: 10%;
-  margin-right: 10px;
-`
 export const ContentWraper = styled.div`
-  color: tomato;
   text-align: left;
   flex-grow: 1;
 `
 export const Title = styled.div`
-  display: block;
-  font-size: 1.2rem;
   color: ${theme('shell.title')};
+  display: block;
+  font-size: 1.1rem;
   > a {
     color: ${theme('shell.link')};
   }
@@ -119,9 +116,8 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('shell.desc')};
   font-size: 0.9rem;
-  margin-bottom: 7px;
 
-  ${cs.truncate('90%')};
+  ${cs.truncate('400px')};
 `
 export const Hint = styled.div`
   color: ${theme('shell.desc')};
