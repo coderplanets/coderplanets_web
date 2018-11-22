@@ -11,6 +11,21 @@ import {
   TabVideoIcon,
   TabRepoIcon,
   TabCheatsheetIcon,
+  // communities
+  TabPlIcon,
+  TabFrontendIcon,
+  TabBackendIcon,
+  TabMobileIcon,
+  TabAIIcon,
+  TabDesignIcon,
+  TabBlockChainIcon,
+  // user
+  TabLikesIcon,
+  TabPublishIcon,
+  TabBillingIcon,
+  TabCommentsIcon,
+  TabSettingsIcon,
+  TabFavoritesIcon,
 } from './styles'
 
 /*
@@ -23,13 +38,6 @@ import {
    'settings',
    'likes',
    'favorites',
-   'pl',
-   'frontend',
-   'backend',
-   'blockchain',
-   'ai',
-   'mobile',
-   'design',
    ]
  */
 
@@ -65,31 +73,50 @@ const TabIcon = ({ raw, active, small }) => {
     case 'cheatsheet': {
       return <TabCheatsheetIcon active={active} small={small} />
     }
+    // communities
+    case 'pl': {
+      return <TabPlIcon active={active} small={small} />
+    }
+    case 'frontend': {
+      return <TabFrontendIcon active={active} small={small} />
+    }
+    case 'backend': {
+      return <TabBackendIcon active={active} small={small} />
+    }
+    case 'mobile': {
+      return <TabMobileIcon active={active} small={small} />
+    }
+    case 'ai': {
+      return <TabAIIcon active={active} small={small} />
+    }
+    case 'design': {
+      return <TabDesignIcon active={active} small={small} />
+    }
+    case 'blockchain': {
+      return <TabBlockChainIcon active={active} small={small} />
+    }
+    case 'favorites': {
+      return <TabFavoritesIcon active={active} small={small} />
+    }
+    case 'likes': {
+      return <TabLikesIcon active={active} small={small} />
+    }
+    case 'publish': {
+      return <TabPublishIcon active={active} small={small} />
+    }
+    case 'billing': {
+      return <TabBillingIcon active={active} small={small} />
+    }
+    case 'comments': {
+      return <TabCommentsIcon active={active} small={small} />
+    }
+    case 'settings': {
+      return <TabSettingsIcon active={active} small={small} />
+    }
     default: {
       return <TabPostIcon active={active} small={small} />
     }
   }
 }
-
-/*
-   const TabIcon = ({ raw, active, small }) => {
-   if (R.contains(raw, supportIcons)) {
-   return (
-   <Icon
-   src={`${ICON_CMD}/tab_${raw}.svg`}
-   active={raw === active}
-   small={small}
-   />
-   )
-   }
-   return (
-   <Icon
-   src={`${ICON_CMD}/tab_list.svg`}
-   active={raw === active}
-   small={small}
-   />
-   )
-   }
- */
 
 export default TabIcon
