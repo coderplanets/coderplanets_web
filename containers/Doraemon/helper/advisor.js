@@ -7,26 +7,11 @@ import { from } from 'rxjs'
 
 import { notEmpty } from '../../../utils'
 
-const cmdSplit = R.compose(
-  R.split('/'),
-  R.slice(1, Infinity)
-)
-const cmdFull = R.compose(
-  R.filter(notEmpty),
-  cmdSplit
-)
-const cmdHead = R.compose(
-  R.head,
-  cmdSplit
-)
-const cmdLast = R.compose(
-  R.last,
-  cmdFull
-)
-const cmdInit = R.compose(
-  R.init,
-  cmdFull
-)
+const cmdSplit = R.compose(R.split('/'), R.slice(1, Infinity))
+const cmdFull = R.compose(R.filter(notEmpty), cmdSplit)
+const cmdHead = R.compose(R.head, cmdSplit)
+const cmdLast = R.compose(R.last, cmdFull)
+const cmdInit = R.compose(R.init, cmdFull)
 
 export const startWithSlash = R.startsWith('/')
 
@@ -45,7 +30,6 @@ export const searchablePrefix = R.compose(
 export const startWithSpecialPrefix = R.anyPass([
   R.startsWith('?'),
   R.startsWith('#'),
-  R.startsWith('@'),
   R.startsWith('>'),
   R.startsWith('<'),
 ])
@@ -77,15 +61,9 @@ export class Advisor {
     return R.path(cmdChain, this.curSuggestions) || {}
   }
 
-  suggestionPathInit = R.compose(
-    this.getSuggestionPath,
-    cmdInit
-  )
+  suggestionPathInit = R.compose(this.getSuggestionPath, cmdInit)
 
-  suggestionPath = R.compose(
-    this.getSuggestionPath,
-    cmdFull
-  )
+  suggestionPath = R.compose(this.getSuggestionPath, cmdFull)
 
   suggestionPathThenStartsWith = val => {
     const init = this.suggestionPathInit(val)
@@ -105,10 +83,7 @@ export class Advisor {
   )
 
   getSuggestion = R.ifElse(
-    R.compose(
-      R.startsWith('/'),
-      R.tail
-    ), // avoid multi /, like /////
+    R.compose(R.startsWith('/'), R.tail), // avoid multi /, like /////
     () => R.identity([]),
     this.suggestionBreif
   )

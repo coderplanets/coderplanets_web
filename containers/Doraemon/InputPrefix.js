@@ -9,12 +9,14 @@ import {
   PrefixMagicIcon,
 } from './styles/input_prefix'
 
-const InputPrefix = ({ cmd, searching }) => {
+import { THREAD } from '../../utils'
+
+const InputPrefix = ({ prefix, searching }) => {
   if (searching) {
     return <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} />
   }
 
-  switch (cmd) {
+  switch (prefix) {
     case '': {
       return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
     }
@@ -22,6 +24,9 @@ const InputPrefix = ({ cmd, searching }) => {
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_focus.svg`} />
     }
     case '@': {
+      return <PrefixSearchIcon src={`${ICON_CMD}/shell_user.svg`} />
+    }
+    case THREAD.USER: {
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_user.svg`} />
     }
     case '?': {

@@ -48,7 +48,7 @@ export default class InputEditor extends React.Component {
     return (
       <EditorBar>
         <PrefixWraper>
-          <InputPrefix cmd={prefix} searching={searching} />
+          <InputPrefix prefix={prefix} searching={searching} />
         </PrefixWraper>
         <InputBar
           id="doraemonInputbar"

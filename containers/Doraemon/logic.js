@@ -295,6 +295,7 @@ export function inputOnBlur() {
     hidePanel()
   }
 }
+
 export function hidePanel() {
   emptySearchStates()
   store.hideDoraemon()
@@ -502,8 +503,17 @@ export function init(_store) {
   })
 
   pockect$.searchUser().subscribe(name => {
-    debug('--> search user: ', name)
-    sr71$.query(S.searchUsers, { name })
+    const nickname = R.slice(1, Infinity, name)
+    store.markState({
+      prefix: THREAD.USER,
+      searchThread: THREAD.USER,
+      showThreadSelector: true,
+      showAlert: false,
+    })
+    if (R.isEmpty(nickname)) return false
+
+    debug('--> search user: ', nickname)
+    searchContents(nickname)
   })
 
   pockect$.cmdSuggesttion().subscribe(res => {
