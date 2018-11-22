@@ -75,11 +75,13 @@ export const AlertBar = styled(BaseBar)`
     color: tomato;
   }
 `
-
 export const InfoBar = styled(BaseBar)`
   padding: 10px;
   min-height: 65px;
   background: ${({ active }) => (active ? theme('shell.activeBg') : '')};
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const InputBar = styled.input`
   caret-color: ${theme('shell.searchInput')};
@@ -100,14 +102,13 @@ export const InputBar = styled.input`
   transition: all 400ms ease;
 `
 export const ContentWraper = styled.div`
-  margin-left: 15px;
   text-align: left;
   flex-grow: 1;
 `
 export const Title = styled.div`
+  color: ${theme('shell.title')};
   display: block;
   font-size: 1.1rem;
-  color: ${theme('shell.title')};
   > a {
     color: ${theme('shell.link')};
   }

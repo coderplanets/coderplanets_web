@@ -11,6 +11,8 @@ import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
+
+import ThreadSelectBar from './ThreadSelectBar'
 import AlertBar from './AlertBar'
 import UtilsBar from './UtilsBar'
 
@@ -39,9 +41,12 @@ class DoraemonContainer extends React.Component {
       visible,
       searching,
       showAlert,
+      showUtils,
+      showThreadSelector,
+      searchThread,
+      searchedTotalCount,
     } = doraemon
 
-    // debug('activeRaw: ', activeRaw)
     // debug('suggestion.raw: ', suggestions.toJSON())
 
     return (
@@ -53,9 +58,19 @@ class DoraemonContainer extends React.Component {
             searching={searching}
             prefix={prefix}
           />
-          {showAlert ? <AlertBar /> : null}
-          <ResultsList suggestions={suggestions} activeRaw={activeRaw} />
-          <UtilsBar />
+
+          {showThreadSelector ? (
+            <ThreadSelectBar active={searchThread} />
+          ) : null}
+          {showAlert ? (
+            <AlertBar value={inputValue} searchThread={searchThread} />
+          ) : null}
+          <ResultsList
+            suggestions={suggestions}
+            activeRaw={activeRaw}
+            searchThread={searchThread}
+          />
+          {showUtils ? <UtilsBar total={searchedTotalCount} /> : null}
         </PanelContainer>
       </React.Fragment>
     )

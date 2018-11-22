@@ -6,11 +6,17 @@ import { cs, theme } from '../../../utils'
 export const Wrapper = styled.div`
   width: 10%;
 `
+export const ThemeIconWrapper = styled.div`
+  margin-right: 16px;
+`
+
 export const Icon = styled(Img)`
   fill: ${({ nonFill }) => (nonFill ? '' : theme('shell.searchIcon'))};
   width: 35px;
   height: 35px;
   display: block;
+  border-radius: ${({ round }) => (round ? '100%' : '4px')};
+  margin-left: 4px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
 export const ThemeDot = styled.div`

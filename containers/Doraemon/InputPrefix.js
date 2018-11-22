@@ -9,8 +9,6 @@ import {
   PrefixMagicIcon,
 } from './styles/input_prefix'
 
-// import { getPrefixLogo } from './logic'
-
 const InputPrefix = ({ cmd, searching }) => {
   if (searching) {
     return <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} />
@@ -40,7 +38,6 @@ const InputPrefix = ({ cmd, searching }) => {
     }
     default: {
       return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
-      // fdreturn <PrefixIcon src={getPrefixLogo(cmd)} />
     }
   }
 }

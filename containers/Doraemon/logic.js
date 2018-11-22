@@ -3,7 +3,7 @@ import Router from 'next/router'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
-import { DEFAULT_ICON } from '../../config/assets'
+// import { DEFAULT_ICON } from '../../config/assets'
 
 import Pockect from './Pockect'
 /* import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils' */
@@ -16,6 +16,9 @@ import {
   asyncErr,
   getQueryFromUrl,
   $solver,
+  prettyNum,
+  THREAD,
+  cutFrom,
 } from '../../utils'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
 
@@ -56,9 +59,27 @@ export function githubLoginHandler() {
   })
 }
 
-export const searchPosts = title => {
-  console.log('searchPosts: ', title)
-  sr71$.query(S.searchPosts, { title })
+export const searchContents = title => {
+  switch (store.searchThread) {
+    case THREAD.POST: {
+      return sr71$.query(S.searchPosts, { title })
+    }
+    case THREAD.JOB: {
+      return sr71$.query(S.searchJobs, { title })
+    }
+    case THREAD.USER: {
+      return sr71$.query(S.searchUsers, { name: title })
+    }
+    case THREAD.VIDEO: {
+      return sr71$.query(S.searchVideos, { title })
+    }
+    case THREAD.REPO: {
+      return sr71$.query(S.searchRepos, { title })
+    }
+    default: {
+      return sr71$.query(S.searchCommunities, { title })
+    }
+  }
 }
 
 const initCmdResolver = () => {
@@ -205,7 +226,7 @@ const initCmdResolver = () => {
   ]
 }
 
-const doCmd = () => {
+const doSpecCmd = () => {
   const cmd = store.curCmdChain
   if (!cmd) return
 
@@ -219,7 +240,6 @@ const doCmd = () => {
 }
 
 export function handleShortCuts(e) {
-  //  debug('onKeyPress ..', e.key)
   switch (e.key) {
     case 'Tab': {
       SAK.completeInput()
@@ -228,9 +248,12 @@ export function handleShortCuts(e) {
       break
     }
     case 'Enter': {
-      doCmd()
-      // Cmder.doCmd()
-      // pockect$.doCmd()
+      if (store.showThreadSelector) {
+        console.log('current enter activeSuggestion: ', store.activeSuggestion)
+      } else {
+        doSpecCmd()
+      }
+
       e.preventDefault()
       break
     }
@@ -262,24 +285,20 @@ export function navToSuggestion(suggestion) {
   SAK.navToSuggestion(suggestion)
 }
 
-export function getPrefixLogo(prefix) {
-  const { subscribedCommunities } = store
-  if (R.isEmpty(subscribedCommunities) || R.isEmpty(prefix)) {
-    return DEFAULT_ICON
-  }
-
-  const index = R.findIndex(e => {
-    return e.raw === prefix
-  }, subscribedCommunities)
-  if (index === -1) return DEFAULT_ICON
-
-  const { logo } = subscribedCommunities[index]
-  return logo
+export function selectSuggestion() {
+  // console.log('selectSuggestion: ', store.activeSuggestion)
+  doSpecCmd()
 }
 
+export function inputOnBlur() {
+  if (!store.showThreadSelector) {
+    hidePanel()
+  }
+}
 export function hidePanel() {
-  // store.hideDoraemon()
-  // pockect$.stop()
+  emptySearchStates()
+  store.hideDoraemon()
+  pockect$.stop()
 }
 
 export function inputOnChange(e) {
@@ -292,6 +311,26 @@ export function inputOnChange(e) {
   queryPocket()
 }
 
+export const searchThreadOnChange = searchThread => {
+  store.markState({ searchThread, showAlert: false })
+  searchContents(store.inputValue)
+}
+
+const convert2Sugguestions = (data, searchedTotalCount) => {
+  if (searchedTotalCount === 0) {
+    store.markState({
+      showAlert: true,
+      showUtils: true,
+      searchedTotalCount,
+    })
+  }
+  store.markState({ searching: false, showUtils: true, searchedTotalCount })
+  store.loadSuggestions({ prefix: '', data })
+}
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('githubSignin'),
@@ -303,22 +342,104 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('searchPosts'),
-    action: ({ searchPosts }) => {
-      console.log('searchPosts get: ', searchPosts)
+    match: asyncRes('searchCommunities'),
+    action: ({ searchCommunities }) => {
       const data = R.map(
         e => ({
-          raw: e.id,
+          id: e.id,
+          logo: e.logo,
+          raw: `raw-${e.id}`,
           title: e.title,
-          desc: `v:${e.views}  ${e.digest}`,
+          desc: `${e.desc}`,
+        }),
+        searchCommunities.entries
+      )
+      const { totalCount } = searchCommunities
+      convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes('searchUsers'),
+    action: ({ searchUsers }) => {
+      const data = R.map(
+        e => ({
+          id: e.id,
+          logo: e.avatar,
+          raw: `raw-${e.id}`,
+          title: e.nickname,
+          desc: `${e.bio}`,
+        }),
+        searchUsers.entries
+      )
+      const { totalCount } = searchUsers
+      convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes('searchPosts'),
+    action: ({ searchPosts }) => {
+      const data = R.map(
+        e => ({
+          id: e.id,
+          logo: e.author.avatar,
+          raw: `raw-${e.id}`,
+          title: e.title,
+          desc: `${e.commentsCount}/${prettyNum(e.views)}  ${e.digest}`,
         }),
         searchPosts.entries
       )
-      if (searchPosts.totalCount === 0) {
-        store.markState({ showAlert: true })
-      }
-      store.markState({ searching: false })
-      store.loadSuggestions({ prefix: '', data })
+      const { totalCount } = searchPosts
+      convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes('searchJobs'),
+    action: ({ searchJobs }) => {
+      const data = R.map(
+        e => ({
+          id: e.id,
+          logo: e.companyLogo,
+          raw: `raw-${e.id}`,
+          title: `${e.company} / ${e.title} / ${e.salary}`,
+          desc: `${prettyNum(e.views)}  ${e.digest}`,
+        }),
+        searchJobs.entries
+      )
+      const { totalCount } = searchJobs
+      convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes('searchVideos'),
+    action: ({ searchVideos }) => {
+      const data = R.map(
+        e => ({
+          id: e.id,
+          logo: e.thumbnil,
+          raw: `raw-${e.id}`,
+          title: `${e.title} / ${e.source} / ${e.salary}`,
+          desc: `${prettyNum(e.views)} ${e.duration}  ${e.desc}`,
+        }),
+        searchVideos.entries
+      )
+      const { totalCount } = searchVideos
+      convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes('searchRepos'),
+    action: ({ searchRepos }) => {
+      const data = R.map(
+        e => ({
+          id: e.id,
+          raw: `raw-${e.id}`,
+          title: `${e.ownerName} / ${cutFrom(e.title, 30)}`,
+          desc: `star:${prettyNum(e.starCount)}  ${e.desc}`,
+        }),
+        searchRepos.entries
+      )
+      const { totalCount } = searchRepos
+      convert2Sugguestions(data, totalCount)
     },
   },
 ]
@@ -347,6 +468,16 @@ const ErrSolver = [
   },
 ]
 
+const emptySearchStates = () => {
+  store.markState({
+    searching: false,
+    showThreadSelector: false,
+    showAlert: false,
+    showUtils: false,
+    searchThread: 'community',
+  })
+}
+
 export function init(_store) {
   if (store) return false
 
@@ -358,18 +489,21 @@ export function init(_store) {
   initCmdResolver()
 
   pockect$.search().subscribe(res => {
-    if (R.isEmpty(res)) {
-      store.markState({ searching: false, showAlert: false })
-      return false
-    }
+    if (R.isEmpty(res)) return emptySearchStates()
 
     debug('--> search: ', res)
-    store.markState({ searching: true, showAlert: false })
-    searchPosts(res)
+    store.markState({
+      searching: true,
+      showThreadSelector: true,
+      showAlert: false,
+      showUtils: false,
+    })
+    searchContents(res)
   })
 
-  pockect$.searchUser().subscribe(res => {
-    debug('--> search user: ', res)
+  pockect$.searchUser().subscribe(name => {
+    debug('--> search user: ', name)
+    sr71$.query(S.searchUsers, { name })
   })
 
   pockect$.cmdSuggesttion().subscribe(res => {
