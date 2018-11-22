@@ -1,6 +1,5 @@
 export { default as GAWraper } from './GAWraper'
 // Basic component
-export { default as A } from './A'
 /*
 * NOTE: should import Img in absolute path
 * import { Img } from '..component' will cause next.js build error in production
