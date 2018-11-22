@@ -4,8 +4,8 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import initRootStore from '../stores/init'
-import { GAWraper } from '../components'
+import initRootStore from '../../stores/init'
+import { GAWraper } from '../../components'
 
 import {
   makeGQClient,
@@ -14,7 +14,7 @@ import {
   getSubPath,
   BStore,
   ROUTE,
-} from '../utils'
+} from '../../utils'
 
 import {
   ThemeWrapper,
@@ -28,9 +28,9 @@ import {
   Banner,
   Content,
   Footer,
-} from '../containers'
+} from '../../containers'
 
-import { P } from '../containers/schemas'
+import { P } from '../../containers/schemas'
 
 /* import PostsThreadSchema from '../containers/PostsThread/schema' */
 
