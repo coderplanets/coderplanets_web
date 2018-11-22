@@ -505,7 +505,7 @@ export function init(_store) {
   pockect$.searchUser().subscribe(name => {
     const nickname = R.slice(1, Infinity, name)
     store.markState({
-      prefix: THREAD.USER,
+      prefix: '@',
       searchThread: THREAD.USER,
       showThreadSelector: true,
       showAlert: false,
