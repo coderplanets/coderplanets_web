@@ -18,6 +18,7 @@ const debug = makeDebugger('C:Route')
 /* eslint-enable no-unused-vars */
 
 class RouteContainer extends React.Component {
+  /*
   constructor(props) {
     super(props)
 
@@ -26,6 +27,16 @@ class RouteContainer extends React.Component {
 
     Router.onRouteChangeComplete = () => {
       const { route } = props
+      routeChange(route)
+    }
+  }
+  */
+  componentDidMount() {
+    const { route, router } = this.props
+    init(route, router)
+
+    Router.onRouteChangeComplete = () => {
+      const { route } = this.props
       routeChange(route)
     }
   }

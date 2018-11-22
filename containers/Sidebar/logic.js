@@ -59,7 +59,6 @@ export function loadCommunities() {
     filter: { page: 1, size: 30 },
   }
   /* console.log('loadCommunities: ', GRAPHQL_ENDPOINT) */
-  console.log('subscribedCommunities args --> ', args)
   sr71$.query(S.subscribedCommunities, args)
 }
 
