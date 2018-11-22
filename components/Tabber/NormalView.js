@@ -4,7 +4,6 @@ import { Tabs } from 'antd'
 
 import { LableWrapper } from './styles'
 import TabIcon from './TabIcon'
-
 import { Trans } from '../../utils'
 
 const { TabPane } = Tabs
