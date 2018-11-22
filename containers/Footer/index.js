@@ -6,10 +6,11 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import dynamic from 'next/dynamic'
 
 // import {} from './styles'
 
-import { BuyMeChuanChuan } from '../../components'
+// import { BuyMeChuanChuan } from '../../components'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 
@@ -18,6 +19,11 @@ import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
+
+const DynamicBuyMeChuanChuan = dynamic({
+  loader: () => import('../../components/BuyMeChuanChuan'),
+  ssr: false,
+})
 
 class FooterContainer extends React.Component {
   constructor(props) {
@@ -32,7 +38,7 @@ class FooterContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <BuyMeChuanChuan
+        <DynamicBuyMeChuanChuan
           show={showSponsor}
           onClose={logic.toggleSponsorHelper}
           onLogin={logic.onLogin}
