@@ -41,6 +41,7 @@ async function fetchData(props) {
   const postId = getSubPath(props)
 
   // query data
+  const sessionState = gqClient.request(P.sessionState)
   const post = gqClient.request(P.post, { id: postId })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
@@ -51,6 +52,7 @@ async function fetchData(props) {
 
   // TODO: comments
   return {
+    ...(await sessionState),
     ...(await post),
     ...(await subscribedCommunities),
   }
@@ -64,14 +66,18 @@ export default class Index extends React.Component {
 
     console.log('SSR (post--) queryStringToJSON: ', queryStringToJSON(asPath))
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { post, subscribedCommunities } = await fetchData(props)
+    const { sessionState, post, subscribedCommunities } = await fetchData(props)
 
     /* const postId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
 
     return {
       langSetup: {},
-      account: { userSubscribedCommunities: subscribedCommunities },
+      account: {
+        user: sessionState.user,
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
       route: { mainPath: ROUTE.POST, subPath: post.id },
       viewing: { post, activeThread: THREAD.POST },
       /* curPost: { post }, */

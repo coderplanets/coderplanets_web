@@ -10,6 +10,7 @@ import {
   getSubPath,
   ROUTE,
   THREAD,
+  BStore,
 } from '../utils'
 
 import {
@@ -33,13 +34,26 @@ import { P } from '../containers/schemas'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
+
   const videoId = getSubPath(props)
 
   // query data
-  const video = request(P.video, { id: videoId })
+  const sessionState = gqClient.request(P.sessionState)
+  const video = gqClient.request(P.video, { id: videoId })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
-  return { ...(await video) }
+  return {
+    ...(await sessionState),
+    ...(await video),
+    ...(await subscribedCommunities),
+  }
 }
 
 export default class Index extends React.Component {
@@ -50,12 +64,19 @@ export default class Index extends React.Component {
 
     console.log('SSR (video--) queryStringToJSON: ', queryStringToJSON(asPath))
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { video } = await fetchData(props)
+    const { sessionState, video, subscribedCommunities } = await fetchData(
+      props
+    )
     /* const videoId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
 
     return {
       langSetup: {},
+      account: {
+        user: sessionState.user,
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
       route: { mainPath: ROUTE.VIDEO, subPath: video.id },
       viewing: { video, activeThread: THREAD.VIDEO },
     }

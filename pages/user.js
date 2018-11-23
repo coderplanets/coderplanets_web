@@ -47,6 +47,8 @@ async function fetchData(props) {
 
   /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
+
+  const sessionState = gqClient.request(P.sessionState)
   const user = gqClient
     .request(P.user, { id: userId, userHasLogin })
     .catch(e => console.log('SSR: user page error', e))
@@ -57,6 +59,7 @@ async function fetchData(props) {
   })
 
   return {
+    ...(await sessionState),
     ...(await user),
     ...(await subscribedCommunities),
   }
@@ -72,12 +75,16 @@ export default class UserPage extends React.Component {
 
     const query = queryStringToJSON(asPath)
 
-    const { user, subscribedCommunities } = await fetchData(props)
+    const { sessionState, user, subscribedCommunities } = await fetchData(props)
     // console.log('fetchData user-->: ', user)
 
     return {
       langSetup: {},
-      account: { userSubscribedCommunities: subscribedCommunities },
+      account: {
+        user: sessionState.user,
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
       route: { mainPath: ROUTE.USER, subPath: user.id, query },
       userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
       viewing: { user },

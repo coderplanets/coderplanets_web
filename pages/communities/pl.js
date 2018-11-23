@@ -50,6 +50,7 @@ async function fetchData(props) {
 
   const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }) }
 
+  const sessionState = gqClient.request(P.sessionState)
   const pagedCommunities = gqClient.request(P.pagedCommunities, {
     filter: { ...filter, category },
     userHasLogin,
@@ -65,6 +66,7 @@ async function fetchData(props) {
 
   return {
     category,
+    ...(await sessionState),
     ...(await pagedCategories),
     ...(await pagedCommunities),
     ...(await subscribedCommunities),
@@ -84,6 +86,7 @@ export default class Index extends React.Component {
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const {
       category,
+      sessionState,
       pagedCategories,
       pagedCommunities,
       subscribedCommunities,
@@ -102,7 +105,11 @@ export default class Index extends React.Component {
         mainPath: ROUTE.COMMUNITIES,
         subPath: category,
       },
-      account: { userSubscribedCommunities: subscribedCommunities },
+      account: {
+        user: sessionState.user,
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
       communitiesBanner: {
         pagedCategories,
         activeTab: category,

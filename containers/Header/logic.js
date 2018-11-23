@@ -10,7 +10,6 @@ import {
   ERR,
   $solver,
   thread2Subpath,
-  BStore,
   atomizeValues,
   // getParameterByName,
 } from '../../utils'
@@ -46,14 +45,13 @@ export function signinGithub(code) {
   sr71$.mutate(S.githubSignin, args)
 }
 
-export function checkUserAccount() {
-  // debug('checkUserAccount: to get user breif')
-  /* const user = BStore.get('user') */
-  if (BStore.get('user')) {
-    // NOTICE: if store is not valid json, user will be typeof string
-    console.log('query sessionState->: ', S.sessionState)
-    sr71$.query(S.sessionState, {})
-  }
+export function checkSesstionState() {
+  // if (BStore.get('user')) {
+  // NOTICE: if store is not valid json, user will be typeof string
+  // console.log('query sessionState->: ', S.sessionState)
+  // sr71$.query(S.sessionState, {})
+  // }
+  store.confirmSesstionState()
 }
 
 export function previewAccount() {
@@ -75,14 +73,6 @@ export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
 const DataSolver = [
-  {
-    match: asyncRes('sessionState'),
-    action: ({ sessionState }) => {
-      debug('sessionState userRes  --->', sessionState)
-      /* store.updateAccount(loginState) */
-      store.updateSessionState(sessionState)
-    },
-  },
   {
     // TODO move it to user side view
     match: asyncRes('githubSigninRes'),
@@ -137,14 +127,11 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return checkUserAccount()
-  }
+  if (store) return false
   store = _store
   // if (sub$) sub$.unsubscribe()
   /* sub$ = sr71$.data().subscribe(handleData) */
   // sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  checkUserAccount()
 }

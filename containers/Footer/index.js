@@ -20,9 +20,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
 
-let DynamicBuyMeChuanChuan = null
-
-DynamicBuyMeChuanChuan = dynamic({
+const DynamicBuyMeChuanChuan = dynamic({
   loader: () => import('../../components/BuyMeChuanChuan'),
   ssr: false,
 })

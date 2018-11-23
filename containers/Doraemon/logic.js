@@ -338,7 +338,6 @@ const DataSolver = [
     action: ({ githubSignin }) => {
       BStore.set('user', githubSignin.user)
       BStore.set('token', githubSignin.token)
-      /* store.updateSessionState({ isValid: true, user: githubSignin.user }) */
       Global.location.reload(false)
     },
   },

@@ -69,4 +69,31 @@ export const user = `
   }
 `
 
-export const holder = 1
+export const sessionState = `
+  query {
+    sessionState {
+      isValid
+      user {
+        id
+        geoCity
+        nickname
+        avatar
+        bio
+        fromGithub
+        location
+        qq
+        weibo
+        weichat
+        sex
+        cmsPassport
+        customization {
+          ${F.c11n}
+        }
+        githubProfile {
+          htmlUrl
+          login
+        }
+      }
+    }
+  }
+`

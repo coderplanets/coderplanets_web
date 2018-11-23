@@ -10,6 +10,7 @@ import {
   getSubPath,
   ROUTE,
   THREAD,
+  BStore,
 } from '../utils'
 
 import {
@@ -33,14 +34,26 @@ import { P } from '../containers/schemas'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const { request } = makeGQClient()
+  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const gqClient = makeGQClient(token)
   // schema
   const jobId = getSubPath(props)
 
   // query data
-  const job = request(P.job, { id: jobId })
+  const sessionState = gqClient.request(P.sessionState)
+  const job = gqClient.request(P.job, { id: jobId })
+  const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
+    filter: {
+      page: 1,
+      size: 30,
+    },
+  })
 
-  return { ...(await job) }
+  return {
+    ...(await sessionState),
+    ...(await job),
+    ...(await subscribedCommunities),
+  }
 }
 
 export default class Index extends React.Component {
@@ -51,12 +64,17 @@ export default class Index extends React.Component {
 
     console.log('SSR (job--) queryStringToJSON: ', queryStringToJSON(asPath))
     /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { job } = await fetchData(props)
+    const { sessionState, subscribedCommunities, job } = await fetchData(props)
     /* const jobId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
 
     return {
       langSetup: {},
+      account: {
+        user: sessionState.user,
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
       route: { mainPath: ROUTE.JOB, subPath: job.id },
       viewing: { job, activeThread: THREAD.JOB },
     }

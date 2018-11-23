@@ -129,9 +129,6 @@ const DoraemonStore = t
     updateAccount(data) {
       self.root.account.updateAccount(data)
     },
-    updateSessionState(sessionState) {
-      self.root.account.updateSessionState(sessionState)
-    },
     changeTheme(name) {
       self.root.changeTheme(name)
     },

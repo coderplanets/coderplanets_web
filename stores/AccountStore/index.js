@@ -63,6 +63,7 @@ const AccountStore = t
 
       self.markState({ user })
     },
+    /*
     updateSessionState(sessionState) {
       const { isValid, user } = sessionState
       if (isValid) {
@@ -75,8 +76,16 @@ const AccountStore = t
         }
         return self.updateAccount(user)
       }
-      // if not valid then clean up
       self.sesstionCleanup()
+    },
+    */
+    confirmSesstionState() {
+      if (!self.isValidSession) return self.sesstionCleanup()
+
+      const token = BStore.get('token')
+      if (token) {
+        BStore.cookie.set('jwtToken', token)
+      }
     },
     sesstionCleanup() {
       self.user = EmptyUser

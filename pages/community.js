@@ -71,6 +71,7 @@ async function fetchData(props) {
   console.log('the page community filter ->: ', filter)
 
   // query data
+  const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, { raw: community })
   const pagedContents = gqClient.request(ssrPagedSchema(thread), {
     filter,
@@ -87,6 +88,7 @@ async function fetchData(props) {
 
   return {
     filter,
+    ...(await sessionState),
     ...(await curCommunity),
     ...(await pagedContents),
     ...(await partialTags),
@@ -117,7 +119,9 @@ export default class PageCommunity extends React.Component {
       // JSON.stringify(error, undefined, 2)
     }
 
-    const { partialTags, community, subscribedCommunities } = resp
+    const { sessionState, partialTags, community, subscribedCommunities } = resp
+
+    console.log('get sessionState in server: ', sessionState)
 
     console.log(
       'pages get subscribedCommunities: ',
@@ -130,7 +134,11 @@ export default class PageCommunity extends React.Component {
       {
         langSetup: {},
         // account: { user: { subscribedCommunities } },
-        account: { userSubscribedCommunities: subscribedCommunities },
+        account: {
+          user: sessionState.user,
+          isValidSession: sessionState.isValid,
+          userSubscribedCommunities: subscribedCommunities,
+        },
         viewing: { community, activeThread: R.toLower(thread) },
         route: { mainPath: community.raw, subPath },
         tagsBar: { tags: partialTags },

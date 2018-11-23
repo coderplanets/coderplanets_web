@@ -71,8 +71,8 @@ const HeaderStore = t
     handleLogin() {
       self.root.doraemon.handleLogin()
     },
-    updateSessionState(sessionState) {
-      self.root.account.updateSessionState(sessionState)
+    confirmSesstionState() {
+      self.root.account.confirmSesstionState()
     },
     openDoraemon() {
       self.root.openDoraemon()

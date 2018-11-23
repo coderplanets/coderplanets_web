@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+// import { F } from '../schemas'
 
 const githubSigninRes = 'githubSignin'
 const githubSignin = gql`
@@ -9,35 +9,6 @@ const githubSignin = gql`
       user {
         nickname
         bio
-      }
-    }
-  }
-`
-
-const sessionState = gql`
-  query {
-    sessionState {
-      isValid
-      user {
-        id
-        geoCity
-        nickname
-        avatar
-        bio
-        fromGithub
-        location
-        qq
-        weibo
-        weichat
-        sex
-        cmsPassport
-        customization {
-          ${F.c11n}
-        }
-        githubProfile {
-          htmlUrl
-          login
-        }
       }
     }
   }
@@ -58,7 +29,6 @@ const setCustomization = gql`
 `
 
 const schema = {
-  sessionState,
   githubSignin,
   githubSigninRes,
   setCustomization,
