@@ -1,5 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import dynamic from 'next/dynamic'
+
 import R from 'ramda'
 
 import initRootStore from '../stores/init'
@@ -10,7 +12,7 @@ import {
   MultiLanguage,
   Sidebar,
   Preview,
-  Doraemon,
+  // Doraemon,
   Route,
   BodyLayout,
   Header,
@@ -34,6 +36,11 @@ import {
 } from '../utils'
 
 import { P } from '../containers/schemas'
+
+const DynamicDoramon = dynamic({
+  loader: () => import('../containers/Doraemon'),
+  ssr: false,
+})
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('page:community')
@@ -153,7 +160,7 @@ export default class PageCommunity extends React.Component {
             <MultiLanguage>
               <Sidebar />
               <Preview />
-              <Doraemon />
+              <DynamicDoramon />
               <BodyLayout>
                 <Header />
                 <Banner />

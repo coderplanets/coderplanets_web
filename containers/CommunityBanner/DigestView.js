@@ -15,7 +15,6 @@ import {
   CommunityInfo,
   TitleWrapper,
   Title,
-  GroupsIcon,
   Desc,
   LogoHolder,
 } from './styles/digest_view'
@@ -41,7 +40,7 @@ const CommunityBrief = ({ content }) => (
     <CommunityInfo>
       <TitleWrapper>
         <Title>{content.title}</Title>
-        <GroupsIcon src={`${ICON_CMD}/online_groups.svg`} />
+        {/* <GroupsIcon src={`${ICON_CMD}/online_groups.svg`} /> */}
       </TitleWrapper>
       <Desc>{content.desc}</Desc>
     </CommunityInfo>

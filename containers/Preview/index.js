@@ -41,7 +41,7 @@ const DynamicTypeWriter = dynamic({
   /* eslint-disable */
   loading: () => <TypeWriterLoading />,
   /* eslint-enable */
-  srr: false,
+  ssr: false,
 })
 
 const DynamicAccountViewer = dynamic({
@@ -49,7 +49,7 @@ const DynamicAccountViewer = dynamic({
   /* eslint-disable */
   loading: () => <div>loading..</div>,
   /* eslint-enable */
-  srr: false,
+  ssr: false,
 })
 
 const DynamicAccountEditor = dynamic({
@@ -57,7 +57,7 @@ const DynamicAccountEditor = dynamic({
   /* eslint-disable */
   loading: () => <div>loading..</div>,
   /* eslint-enable */
-  srr: false,
+  ssr: false,
 })
 
 const CloseBtn = ({ type }) => (
