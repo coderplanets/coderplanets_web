@@ -19,6 +19,7 @@ import {
 
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
+import testMentions from './test_mentions'
 
 const sr71$ = new SR71()
 
@@ -131,6 +132,12 @@ export function insertCode() {
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+}
+
+export const onMentionSearch = value => {
+  const mentionList = R.map(m => ({ ...m, name: m.nickname }), testMentions)
+  debug('onMentionSearch value: ', value)
+  store.markState({ mentionList })
 }
 
 const openAttachment = att => {

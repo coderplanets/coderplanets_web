@@ -4,17 +4,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { EditorState, ContentState, Modifier } from 'draft-js'
+import R from 'ramda'
 import Editor from 'draft-js-plugins-editor'
+import createMentionPlugin from 'draft-js-mention-plugin'
 import PubSub from 'pubsub-js'
 
-import createMentionPlugin, {
-  defaultSuggestionsFilter,
-} from 'draft-js-mention-plugin'
-
 import toRawString from './exportContent'
-import { Wrapper } from './styles/editorStyle'
+import { Wrapper } from './styles/body_editor'
+
 import { EVENT, makeDebugger } from '../../utils'
 
 const themeClass = {
@@ -30,36 +28,40 @@ const themeClass = {
 const debug = makeDebugger('C:BodyEditor')
 /* eslint-enable no-unused-vars */
 
+const mentionFilter = (value, mentions) =>
+  R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
+
 class BodyEditor extends React.Component {
   constructor(props) {
     super(props)
+
     this.mentionPlugin = createMentionPlugin({
       theme: themeClass,
       mentionPrefix: '@',
     })
+  }
 
-    this.state = {
-      editorState: EditorState.createEmpty(),
-      suggestions: [],
-      pub: null,
-    }
+  state = {
+    editorState: EditorState.createEmpty(),
+    suggestions: [],
+    mentionList: [],
+    pub: null,
   }
 
   componentDidMount() {
     this.loadDraft()
     this.loadUserSuggestions()
+  }
 
-    /* DONT use loadDraft in componentDidMount, it will cause strange bug of mentions */
-    /* also onCHange empty issue in Draft.js */
-    /*
-       see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
-       import {  ContentState } from 'draft-js'
-
-       const editorState={EditorState.createWithContent(
-       ContentState.createFromText('fuck')
-       )}
-     */
-    /* TODO: has to use setTimeout otherwise the mention not work */
+  componentWillReceiveProps(nextProps) {
+    /* eslint-disable react/destructuring-assignment */
+    if (
+      nextProps.mentionList &&
+      !R.equals(nextProps.mentionList, this.state.mentionList)
+    ) {
+      this.loadUserSuggestions(nextProps.mentionList)
+    }
+    /* eslint-enable react/destructuring-assignment */
   }
 
   componentWillUnmount() {
@@ -77,18 +79,15 @@ class BodyEditor extends React.Component {
 
   loadDraft = () => {
     const { body } = this.props
-    console.log('loadDraft body: ', body)
+
+    // see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
     const editorState = EditorState.createWithContent(
       ContentState.createFromText(body)
     )
-    // somehow the onCHange behave strange
-    // see issue: https://github.com/facebook/draft-js/issues/1198
 
-    //     setTimeout(() => {
-    //   this.focus()
-    //    }, 150)
-
-    this.setState({ editorState })
+    this.setState({ editorState }, () => {
+      this.editor.componentWillMount()
+    })
   }
 
   insertSnippet = data => {
@@ -121,40 +120,35 @@ class BodyEditor extends React.Component {
   }
 
   onSearchChange = ({ value }) => {
-    /*
-    this.setState({
-      suggestions: defaultSuggestionsFilter(value, this.state.mentions),
-    })
-    */
+    /* console.log('onSearchChange value: ', value) */
+    const { onMentionSearch } = this.props
+    onMentionSearch(value)
 
     this.setState(prevState => ({
-      suggestions: defaultSuggestionsFilter(value, prevState.mentions),
+      suggestions: mentionFilter(value, prevState.mentionList),
     }))
   }
 
+  loadUserSuggestions = propsMentionList => {
+    /* eslint-disable react/destructuring-assignment */
+    const mentionList = propsMentionList || this.props.mentionList
+    debug('loadUserSuggestions --->', mentionList)
+
+    this.setState({ suggestions: mentionList, mentionList })
+    /* eslint-enable react/destructuring-assignment */
+  }
+
   onAddMention = user => {
-    // console.log('onAddMention: ', user)
+    console.log('onAddMention: ', user)
     const { onMention } = this.props
     onMention(user)
     // get the mention object selected
   }
 
-  /*
-     onBlur = () => {
-     if (this.props.onBlur) this.props.onBlur()
-     }
-   */
-
   focus = () => {
     if (this.editor) {
       this.editor.focus()
     }
-  }
-
-  loadUserSuggestions = () => {
-    const { mentions } = this.props
-    /* debug('loadUserSuggestions --->', mentions) */
-    this.setState({ suggestions: mentions, mentions })
   }
 
   clearContent = () => {
@@ -168,6 +162,9 @@ class BodyEditor extends React.Component {
     const { MentionSuggestions } = this.mentionPlugin
     const plugins = [this.mentionPlugin]
     const { editorState, suggestions } = this.state
+
+    /* console.log('mentionList-> ', this.props.mentionList) */
+    //  console.log('suggestions : ', suggestions)
 
     return (
       <Wrapper onClick={this.focus}>
@@ -191,22 +188,24 @@ class BodyEditor extends React.Component {
 }
 
 BodyEditor.propTypes = {
-  mentions: PropTypes.arrayOf(
+  mentionList: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       avatar: PropTypes.string,
       name: PropTypes.string,
     })
   ),
   body: PropTypes.string,
+  onMentionSearch: PropTypes.func,
   onMention: PropTypes.func,
   onChange: PropTypes.func,
 }
 
 BodyEditor.defaultProps = {
   body: '',
-  mentions: [],
+  mentionList: [],
   onMention: debug,
+  onMentionSearch: debug,
   onChange: debug,
 }
 

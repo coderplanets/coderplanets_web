@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme, cs } from '../../utils'
+import { theme } from '../../utils'
 
 // move ant style to seperate file
 const AntUIOverWrite = createGlobalStyle`
@@ -57,79 +57,6 @@ const AntUIOverWrite = createGlobalStyle`
     min-height: 500px;
     font-size: 1.3em;
     color: ${theme('editor.content')};
-  }
-
-  // mentions
-  .typewriter-mention {
-    color: ${theme('comment.mentionText')};
-    cursor: pointer;
-    display: inline-block;
-    background: ${theme('comment.mentionTextBg')};
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 3px;
-    text-decoration: none;
-  }
-  .typewriter-mention:hover,
-  .typewriter-mention:focus {
-    color: #677584;
-    background: ${theme('comment.mentionActiveBg')};
-    outline: 0; /* reset for :focus */
-  }
-
-  .typewriter-suggestions {
-    border: 1px solid;
-    border-color: ${theme('comment.mentionBorder')};
-    margin-top: 10px;
-    position: absolute;
-    min-width: 220px;
-    max-width: 440px;
-    background: ${theme('comment.mentionBg')};
-    border-radius: 2px;
-    box-shadow: ${theme('comment.mentionShadow')};
-    cursor: pointer;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    z-index: 2;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    box-sizing: border-box;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  .typewriter-mentionSuggestionsEntry {
-    transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
-    padding: 7px 10px 3px 10px;
-    padding-left: 10px;
-    display: flex;
-  }
-  .typewriter-mentionSuggestionsEntry:active {
-    background-color: tomato;
-  }
-  .typewriter-mentionSuggestionsEntryFocused {
-    background-color: ${theme('comment.mentionActiveBg')};
-    padding: 7px 10px 3px 10px;
-    display: flex;
-  }
-
-  .typewriter-mentionSuggestionsEntryText {
-    display: inline-block;
-    margin-left: 8px;
-
-    ${cs.truncate('320px')};
-    max-width: 368px;
-    font-size: 1.1rem;
-    margin-bottom: 0.2em;
-    color: #6d999d;
-  }
-
-  .typewriter-mentionSuggestionsEntryAvatar {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
   }
 
   // modal

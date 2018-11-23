@@ -24,12 +24,16 @@ const debug = makeDebugger('C:TypeWriter')
 /* eslint-enable no-unused-vars */
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
-const View = ({ curView, thread, editData }) => {
+const View = ({ curView, thread, editData, mentionList }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
-          <Editor thread={thread} editData={editData} />
+          <Editor
+            thread={thread}
+            editData={editData}
+            mentionList={mentionList}
+          />
         </ViewerWrapper>
         <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
@@ -71,6 +75,7 @@ class TypeWriterContainer extends React.Component {
       isEdit,
       statusMsg,
       editData,
+      mentionListData,
     } = typeWriter
 
     return (
@@ -81,6 +86,7 @@ class TypeWriterContainer extends React.Component {
           editData={editData}
           thread={thread}
           copyRight={copyRight}
+          mentionList={mentionListData}
         />
         <Footer
           isEdit={isEdit}

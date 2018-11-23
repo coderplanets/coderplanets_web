@@ -19,10 +19,18 @@ import {
 const debug = makeDebugger('S:TypeWriterStore')
 /* eslint-enable no-unused-vars */
 
+const Mention = t.model('Mention', {
+  id: t.string,
+  name: t.string,
+  avatar: t.string,
+})
+
 const TypeWriterStore = t
   .model('TypeWriterStore', {
     editPost: t.optional(Post, {}),
     editJob: t.optional(Job, {}),
+
+    mentionList: t.optional(t.array(Mention), []),
 
     curView: t.optional(
       t.enumeration('curView', [
@@ -78,6 +86,9 @@ const TypeWriterStore = t
     },
     get labelsData() {
       return self.root.labeler.labelsData
+    },
+    get mentionListData() {
+      return stripMobx(self.mentionList)
     },
   }))
   .actions(self => ({

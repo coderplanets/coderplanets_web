@@ -46,17 +46,11 @@ const DynamicTypeWriter = dynamic({
 
 const DynamicAccountViewer = dynamic({
   loader: () => import('../AccountViewer'),
-  /* eslint-disable */
-  loading: () => <div>loading..</div>,
-  /* eslint-enable */
   ssr: false,
 })
 
 const DynamicAccountEditor = dynamic({
   loader: () => import('../AccountEditor'),
-  /* eslint-disable */
-  loading: () => <div>loading..</div>,
-  /* eslint-enable */
   ssr: false,
 })
 
