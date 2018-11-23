@@ -22,7 +22,9 @@ const debug = makeDebugger('C:Footer')
 
 const DynamicBuyMeChuanChuan = dynamic({
   loader: () => import('../../components/BuyMeChuanChuan'),
-  ssr: false,
+  /* eslint-disable */
+  loading: () => <div />,
+  /* eslint-enable */
 })
 
 class FooterContainer extends React.Component {
