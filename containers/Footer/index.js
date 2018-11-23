@@ -20,16 +20,20 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Footer')
 /* eslint-enable no-unused-vars */
 
-const DynamicBuyMeChuanChuan = dynamic({
-  loader: () => import('../../components/BuyMeChuanChuan'),
-  ssr: false,
-})
+let DynamicBuyMeChuanChuan = null
 
 class FooterContainer extends React.Component {
   constructor(props) {
     super(props)
     const { footer } = props
     logic.init(footer)
+  }
+
+  componentDidMount() {
+    DynamicBuyMeChuanChuan = dynamic({
+      loader: () => import('../../components/BuyMeChuanChuan'),
+      ssr: false,
+    })
   }
 
   render() {
