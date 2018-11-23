@@ -22,18 +22,16 @@ const debug = makeDebugger('C:Footer')
 
 let DynamicBuyMeChuanChuan = null
 
+DynamicBuyMeChuanChuan = dynamic({
+  loader: () => import('../../components/BuyMeChuanChuan'),
+  ssr: false,
+})
+
 class FooterContainer extends React.Component {
   constructor(props) {
     super(props)
     const { footer } = props
     logic.init(footer)
-  }
-
-  componentDidMount() {
-    DynamicBuyMeChuanChuan = dynamic({
-      loader: () => import('../../components/BuyMeChuanChuan'),
-      ssr: false,
-    })
   }
 
   render() {
