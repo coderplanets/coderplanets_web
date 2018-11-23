@@ -4,18 +4,24 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { EditorState, ContentState, Modifier } from 'draft-js'
 import R from 'ramda'
+import PubSub from 'pubsub-js'
+
+import { EditorState, ContentState, Modifier } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
-import PubSub from 'pubsub-js'
+import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
 import toRawString from './exportContent'
 import { Wrapper } from './styles/body_editor'
 
 import { EVENT, makeDebugger } from '../../utils'
 
-const themeClass = {
+const linkifyPlugin = createLinkifyPlugin({
+  theme: { link: 'typewriter-link' },
+})
+
+const mentionThemeClass = {
   mention: 'typewriter-mention',
   mentionSuggestions: 'typewriter-suggestions',
   mentionSuggestionsEntry: 'typewriter-mentionSuggestionsEntry',
@@ -36,7 +42,7 @@ class BodyEditor extends React.Component {
     super(props)
 
     this.mentionPlugin = createMentionPlugin({
-      theme: themeClass,
+      theme: mentionThemeClass,
       mentionPrefix: '@',
     })
   }
@@ -160,7 +166,7 @@ class BodyEditor extends React.Component {
 
   render() {
     const { MentionSuggestions } = this.mentionPlugin
-    const plugins = [this.mentionPlugin]
+    const plugins = [this.mentionPlugin, linkifyPlugin]
     const { editorState, suggestions } = this.state
 
     /* console.log('mentionList-> ', this.props.mentionList) */

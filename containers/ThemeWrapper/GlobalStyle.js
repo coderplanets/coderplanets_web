@@ -109,6 +109,15 @@ const GlobalStyle = createGlobalStyle`
     height: 24px;
     border-radius: 12px;
   }
+
+  .typewriter-link {
+    color: ${theme('markdown.link')};
+
+    &:hover {
+      color: ${theme('markdown.link')};
+      text-decoration: underline;
+    }
+  }
 `
 
 export default GlobalStyle
