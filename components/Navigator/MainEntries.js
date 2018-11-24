@@ -13,9 +13,9 @@ const MainEntries = () => (
       <SiteLink>首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Link href="/communities/pl" prefetch>
+    <a href="/communities">
       <SiteLink>社区</SiteLink>
-    </Link>
+    </a>
     <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"

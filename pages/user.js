@@ -81,7 +81,7 @@ export default class UserPage extends React.Component {
     return {
       langSetup: {},
       account: {
-        user: sessionState.user,
+        user: sessionState.user || {},
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },

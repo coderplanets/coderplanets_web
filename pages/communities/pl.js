@@ -106,7 +106,7 @@ export default class Index extends React.Component {
         subPath: category,
       },
       account: {
-        user: sessionState.user,
+        user: sessionState.user || {},
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },

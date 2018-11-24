@@ -144,7 +144,7 @@ const initCmdResolver = () => {
             pathname: '/',
             query: { main: 'communities', sub: 'all' },
           },
-          '/communities/all'
+          '/communities'
         )
         hidePanel()
       },
