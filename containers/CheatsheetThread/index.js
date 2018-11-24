@@ -51,6 +51,9 @@ class CheatsheetThreadContainer extends React.Component {
 
   componentDidMount() {
     Prism.highlightAll()
+    setTimeout(() => {
+      Prism.highlightAll()
+    }, 1000)
   }
 
   render() {
