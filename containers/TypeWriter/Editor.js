@@ -10,7 +10,12 @@ import BodyEditor from './BodyEditor'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
-import { inputOnChange, onMentionSearch } from './logic'
+import {
+  inputOnChange,
+  bodyInputOnChange,
+  onMention,
+  onMentionSearch,
+} from './logic'
 
 const Editor = ({ thread, editData, mentionList }) => {
   const { title, body } = editData
@@ -27,9 +32,10 @@ const Editor = ({ thread, editData, mentionList }) => {
 
       <br />
       <BodyEditor
-        onChange={inputOnChange.bind(this, 'body')}
+        onChange={bodyInputOnChange}
         body={body}
         mentionList={mentionList}
+        onMention={onMention}
         onMentionSearch={onMentionSearch}
       />
       <FooterWrapper>

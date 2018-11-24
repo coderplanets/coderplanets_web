@@ -84,9 +84,30 @@ const createJob = gql`
   }
 `
 
+const mentionSomeone = gql`
+  mutation(
+    $userId: ID!
+    $sourceTitle: String!
+    $sourceId: ID!
+    $sourceType: String!
+    $sourcePreview: String!
+  ) {
+    mentionSomeone(
+      userId: $userId
+      sourceTitle: $sourceTitle
+      sourceId: $sourceId
+      sourceType: $sourceType
+      sourcePreview: $sourcePreview
+    ) {
+      done
+    }
+  }
+`
+
 const schema = {
   createPost,
   createJob,
+  mentionSomeone,
 }
 
 export default schema

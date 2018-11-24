@@ -12,10 +12,27 @@ export const Wrapper = styled.div`
 `
 
 export const UsageText = styled.div`
+  ${cs.flexGrow('align-center')};
   color: ${theme('editor.content')};
   font-size: 1.3em;
-  flex-grow: 1;
 `
+
+export const AtSignIcon = styled(Img)`
+  fill: ${theme('editor.content')};
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin-left: 5px;
+  margin-right: 3px;
+`
+
+export const RefUsersWrapper = styled.div`
+  ${cs.flex('align-center')};
+`
+export const RefUserList = styled.div`
+  margin-top: -10px;
+`
+
 export const MarkdownIcon = styled(Img)`
   fill: #51abb2;
   width: 20px;

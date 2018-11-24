@@ -76,11 +76,19 @@ class TypeWriterContainer extends React.Component {
       statusMsg,
       editData,
       mentionListData,
+      referUsersData,
     } = typeWriter
+
+    debug('referUsersData: ', referUsersData)
 
     return (
       <Wrapper>
-        <Header isEdit={isEdit} curView={curView} thread={thread} />
+        <Header
+          isEdit={isEdit}
+          curView={curView}
+          thread={thread}
+          referUsers={referUsersData}
+        />
         <View
           curView={curView}
           editData={editData}

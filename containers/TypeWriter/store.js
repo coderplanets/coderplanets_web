@@ -31,6 +31,10 @@ const TypeWriterStore = t
     editJob: t.optional(Job, {}),
 
     mentionList: t.optional(t.array(Mention), []),
+    // current "@user" in valid array format
+    referUsers: t.optional(t.array(Mention), []),
+    // current "@user" in string list
+    extractMentions: t.optional(t.array(t.string), []),
 
     curView: t.optional(
       t.enumeration('curView', [
@@ -89,6 +93,14 @@ const TypeWriterStore = t
     },
     get mentionListData() {
       return stripMobx(self.mentionList)
+    },
+    get referUsersData() {
+      const referUsers = stripMobx(self.referUsers)
+      const extractMentions = stripMobx(self.extractMentions)
+      return R.filter(
+        user => R.contains(user.name, extractMentions),
+        referUsers
+      )
     },
   }))
   .actions(self => ({
@@ -161,6 +173,17 @@ const TypeWriterStore = t
       })
       self.editPost = { title: '', body: '' }
       self.editJob = { title: '', body: '' }
+    },
+
+    addReferUser(user) {
+      const index = R.findIndex(u => u.id === String(user.id), self.referUsers)
+      if (index === -1) {
+        self.referUsers.push({
+          id: String(user.id),
+          name: user.name,
+          avatar: user.avatar,
+        })
+      }
     },
     markState(sobj) {
       markStates(sobj, self)

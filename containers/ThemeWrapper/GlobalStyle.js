@@ -41,18 +41,19 @@ const GlobalStyle = createGlobalStyle`
 // mentions
   .typewriter-mention {
     color: ${theme('comment.mentionText')};
+    background: ${theme('comment.mentionTextBg')};
     cursor: pointer;
     display: inline-block;
-    background: ${theme('comment.mentionTextBg')};
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-bottom: 4px;
     border-radius: 3px;
     text-decoration: none;
   }
   .typewriter-mention:hover,
   .typewriter-mention:focus {
-    color: #677584;
-    background: ${theme('comment.mentionActiveBg')};
+    color: ${theme('comment.mentionText')};
+    background: ${theme('comment.mentionTextBg')};
     outline: 0; /* reset for :focus */
   }
 

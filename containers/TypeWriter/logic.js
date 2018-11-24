@@ -12,6 +12,7 @@ import {
   meteorState,
   countWords,
   extractAttachments,
+  extractMentions,
   updateEditing,
   errorForHuman,
   closePreviewer,
@@ -140,6 +141,12 @@ export const onMentionSearch = value => {
   store.markState({ mentionList })
 }
 
+export const onMention = user => store.addReferUser(user)
+
+export const mentionSomeone = userId => {
+  debug('mentionSomeone: ', userId)
+}
+
 const openAttachment = att => {
   if (!att) return false
   // const { id, title, body, digest } = att
@@ -158,6 +165,12 @@ const doneCleanUp = () => {
 }
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
+export const bodyInputOnChange = content => {
+  store.markState({ extractMentions: extractMentions(content) })
+
+  // extractMentions: extractMentions(content)
+  updateEditing(store, 'body', content)
+}
 
 // ###############################
 // Data & Error handlers

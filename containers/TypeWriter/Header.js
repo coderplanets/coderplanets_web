@@ -1,10 +1,15 @@
 import React from 'react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
+import { AvatarsRow } from '../../components'
 import {
   Wrapper,
   UsageText,
+  RefUsersWrapper,
+  AtSignIcon,
+  RefUserList,
   MarkdownIcon,
   MarkDownHint,
   BackToEditHint,
@@ -37,7 +42,7 @@ const ThreadText = ({ thread }) => {
   }
 }
 
-const Header = ({ isEdit, curView, thread }) => {
+const Header = ({ isEdit, curView, thread, referUsers }) => {
   switch (curView) {
     case 'MARKDOWN_HELP_VIEW': {
       return (
@@ -56,6 +61,19 @@ const Header = ({ isEdit, curView, thread }) => {
           <UsageText>
             <DoingText isEdit={isEdit} />
             <ThreadText thread={thread} />
+            {!R.isEmpty(referUsers) ? (
+              <RefUsersWrapper>
+                <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
+                <RefUserList>
+                  <AvatarsRow
+                    users={referUsers}
+                    total={referUsers.length}
+                    height="20px"
+                    limit={12}
+                  />
+                </RefUserList>
+              </RefUsersWrapper>
+            ) : null}
           </UsageText>
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}

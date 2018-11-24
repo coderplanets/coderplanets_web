@@ -138,8 +138,7 @@ class BodyEditor extends React.Component {
   loadUserSuggestions = propsMentionList => {
     /* eslint-disable react/destructuring-assignment */
     const mentionList = propsMentionList || this.props.mentionList
-    debug('loadUserSuggestions --->', mentionList)
-
+    // debug('loadUserSuggestions --->', mentionList)
     this.setState({ suggestions: mentionList, mentionList })
     /* eslint-enable react/destructuring-assignment */
   }
