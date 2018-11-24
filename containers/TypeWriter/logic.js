@@ -141,10 +141,23 @@ export const onMentionSearch = value => {
   store.markState({ mentionList })
 }
 
-export const onMention = user => store.addReferUser(user)
+export const onMention = user => {
+  // tmp test
+  mentionSomeone('1')
+  store.addReferUser(user)
+}
 
 export const mentionSomeone = userId => {
   debug('mentionSomeone: ', userId)
+  const args = {
+    userId,
+    sourceTitle: '你好 cps',
+    sourcePreview: '你好 cps 的内容',
+    sourceType: 'POST',
+    sourceId: '1',
+  }
+
+  sr71$.mutate(S.mentionSomeone, args)
 }
 
 const openAttachment = att => {
@@ -201,6 +214,12 @@ const DataSolver = [
 
       doneCleanUp()
       dispatchEvent(EVENT.REFRESH_JOBS)
+    },
+  },
+  {
+    match: asyncRes('mentionSomeone'),
+    action: res => {
+      debug('mentionSomeone done: ', res)
     },
   },
 ]
