@@ -57,7 +57,6 @@ async function fetchData(props) {
   const thread = extractThreadFromPath(props)
   /* const thread = getSubPath(props) */
 
-  console.log('the page community thread ->: ', thread)
   let filter = addTopicIfNeed(
     {
       ...queryStringToJSON(asPath, { pagi: 'number' }),
@@ -68,7 +67,7 @@ async function fetchData(props) {
   )
 
   filter = R.pick(['page', 'size', 'community', 'topic', 'tag'], filter)
-  console.log('the page community filter ->: ', filter)
+  // console.log('the page community filter ->: ', filter)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -121,12 +120,12 @@ export default class PageCommunity extends React.Component {
 
     const { sessionState, partialTags, community, subscribedCommunities } = resp
 
-    console.log('get sessionState in server: ', sessionState)
-
+    /*
     console.log(
       'pages get subscribedCommunities: ',
       subscribedCommunities.totalCount
     )
+    */
 
     const contentsThread = ssrContentsThread(resp, thread)
 
@@ -135,7 +134,7 @@ export default class PageCommunity extends React.Component {
         langSetup: {},
         // account: { user: { subscribedCommunities } },
         account: {
-          user: sessionState.user,
+          user: sessionState.user || {},
           isValidSession: sessionState.isValid,
           userSubscribedCommunities: subscribedCommunities,
         },
