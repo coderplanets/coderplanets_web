@@ -21,7 +21,10 @@ const Selector = ({ source, activeRaw, onChange }) => (
           onClick={onChange.bind(this, opt)}
         >
           <Icon src={opt.icon} active={activeRaw === opt.raw} />
-          <Title>{opt.title}</Title>
+          <Title>
+            {opt.title}
+            {opt.count > 0 ? <span>({opt.count})</span> : null}
+          </Title>
         </Option>
       ))}
     </OptisonsWrapper>

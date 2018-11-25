@@ -7,52 +7,17 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config/assets'
-// import { } from './styles'
+import { Popover } from '../../components'
+import MailsPanel from './MailsPanel'
+
+import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-
-import { Popover } from '../../components'
-import Selector from './Selector'
-import MailLists from './MailLists'
-
-import { Wrapper, HeaderMailIcon, PannerWrapper } from './styles'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:MailBox')
 /* eslint-enable no-unused-vars */
-
-const fakeOpts = [
-  {
-    title: '关注',
-    raw: 'notifications',
-    icon: `${ICON_CMD}/mail_watching.svg`,
-  },
-  {
-    title: '提及',
-    raw: 'mentions',
-    icon: `${ICON_CMD}/mail_mention.svg`,
-  },
-  {
-    title: '消息',
-    raw: 'sys_notifications',
-    icon: `${ICON_CMD}/mail_notification.svg`,
-  },
-]
-
-const MailsPannel = ({ activeRaw }) => {
-  return (
-    <PannerWrapper>
-      <Selector
-        source={fakeOpts}
-        activeRaw={activeRaw}
-        onChange={logic.selectChange}
-      />
-      <MailLists activeRaw={activeRaw} />
-    </PannerWrapper>
-  )
-}
 
 class MailBoxContainer extends React.Component {
   constructor(props) {
@@ -66,7 +31,7 @@ class MailBoxContainer extends React.Component {
 
   onVisibleChange(visible) {
     if (visible) {
-      debug('load if need')
+      logic.loadMentions()
     }
     this.setState({ visible })
   }
@@ -74,17 +39,28 @@ class MailBoxContainer extends React.Component {
   render() {
     const { mailBox } = this.props
 
-    const { activeRaw } = mailBox
+    const { activeRaw, mailStatusData, pagedMentionsData } = mailBox
     const { visible } = this.state
+
+    /* debug('mailStatus: ', mailStatusData) */
+    debug('pagedMentionsData --> ', pagedMentionsData)
+
     return (
       <Popover
-        content={<MailsPannel activeRaw={activeRaw} />}
+        content={
+          <MailsPanel
+            activeRaw={activeRaw}
+            mailStatus={mailStatusData}
+            pagedMentions={pagedMentionsData}
+          />
+        }
         placement="bottomLeft"
         trigger="click"
         visible={visible}
         onVisibleChange={this.onVisibleChange.bind(this)}
       >
         <Wrapper>
+          <NofityDot active={mailStatusData.hasMail} />
           <HeaderMailIcon />
         </Wrapper>
       </Popover>

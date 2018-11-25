@@ -1,23 +1,43 @@
 import gql from 'graphql-tag'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
+const mentions = gql`
+  query($filter: MessagesFilter!) {
+    mentions(filter: $filter) {
+      entries {
+        id
+        fromUser {
+          id
+          avatar
+          nickname
+        }
+        sourceTitle
+        sourcePreview
+        sourceType
+        read
+      }
+      totalPages
+      totalCount
+      pageSize
+      pageNumber
     }
   }
 `
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
+const mailBoxStatus = gql`
+  query {
+    user {
       id
+      mailBox {
+        hasMail
+        totalCount
+        mentionCount
+        notificationCount
+      }
     }
   }
 `
-
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  mailBoxStatus,
+  mentions,
 }
 
 export default schema
