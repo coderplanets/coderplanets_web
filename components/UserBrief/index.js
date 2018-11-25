@@ -47,7 +47,7 @@ class UserBrief extends React.Component {
 
   render() {
     const { showDetail } = this.state
-    const { user, displayStyle, showEdit, onEdit } = this.props
+    const { user, displayStyle, showEdit, onEdit, viewingType } = this.props
 
     return (
       <Wrapper>
@@ -58,17 +58,21 @@ class UserBrief extends React.Component {
             </div>
           </Link>
 
-          <Button size="small" type="primary" ghost>
-            升级账户
-          </Button>
+          {viewingType === 'account' ? (
+            <Button size="small" type="primary" ghost>
+              升级账户
+            </Button>
+          ) : null}
         </AvatarWrapper>
 
         <BriefTextWrapper>
           <UserTitle>
             {user.nickname}
-            <EditWrapper show={showEdit} onClick={onEdit}>
-              <EditIcon src={`${ICON_CMD}/edit.svg`} />
-            </EditWrapper>
+            {viewingType === 'account' ? (
+              <EditWrapper show={showEdit} onClick={onEdit}>
+                <EditIcon src={`${ICON_CMD}/edit.svg`} />
+              </EditWrapper>
+            ) : null}
           </UserTitle>
           {showDetail ? (
             <DetailView
@@ -94,6 +98,7 @@ class UserBrief extends React.Component {
 UserBrief.propTypes = {
   user: PropTypes.object.isRequired,
   displayStyle: PropTypes.oneOf(['default', 'sidebar']),
+  viewingType: PropTypes.oneOf(['account', 'user']),
   showEdit: PropTypes.bool,
   onEdit: PropTypes.func,
 }
@@ -101,6 +106,7 @@ UserBrief.propTypes = {
 UserBrief.defaultProps = {
   showEdit: false,
   displayStyle: 'default',
+  viewingType: 'user',
   onEdit: debug,
 }
 

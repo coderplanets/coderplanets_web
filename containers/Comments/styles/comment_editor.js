@@ -27,9 +27,9 @@ export const InputEditorWrapper = styled.div`
   display: ${({ showInputEditor }) => (showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
 `
-
 export const UserAvatar = styled.img`
   ${cs.circle('40px')};
+  fill: ${theme('thread.articleTitle')};
   margin-left: 4%;
   opacity: ${theme('avatarOpacity')};
 `
@@ -44,7 +44,6 @@ export const LeaveResponseUsername = styled.div`
   margin-right: 10px;
   color: ${theme('comment.username')};
 `
-
 export const ReferToIcon = styled(Img)`
   fill: ${theme('comment.username')};
   width: 20px;

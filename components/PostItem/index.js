@@ -19,7 +19,13 @@ import { makeDebugger, C11N } from '../../utils'
 const debug = makeDebugger('c:PostItem:index')
 /* eslint-enable no-unused-vars */
 
-const PostItem = ({ entry, active, onTitleSelect, accountInfo }) => {
+const PostItem = ({
+  entry,
+  active,
+  onTitleSelect,
+  onUserSelect,
+  accountInfo,
+}) => {
   // debug('customization --> ', customization)
   const {
     customization: { contentsLayout, contentDivider },
@@ -38,7 +44,11 @@ const PostItem = ({ entry, active, onTitleSelect, accountInfo }) => {
     >
       {renderReadMark(entry, accountInfo)}
       {contentsLayout === C11N.DIGEST ? (
-        <DigestView entry={entry} onTitleSelect={onTitleSelect} />
+        <DigestView
+          entry={entry}
+          onTitleSelect={onTitleSelect}
+          onUserSelect={onUserSelect}
+        />
       ) : (
         <ListView entry={entry} onTitleSelect={onTitleSelect} />
       )}
@@ -69,10 +79,12 @@ PostItem.propTypes = {
     }),
   }),
   onTitleSelect: PropTypes.func,
+  onUserSelect: PropTypes.func,
 }
 
 PostItem.defaultProps = {
   onTitleSelect: debug,
+  onUserSelect: debug,
   active: {},
   accountInfo: {
     isLogin: false,

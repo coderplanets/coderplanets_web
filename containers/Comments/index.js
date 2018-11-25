@@ -26,8 +26,8 @@ class CommentsContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    const { comments } = props
-    logic.init(comments)
+    const { comments, ssr } = props
+    logic.init(comments, ssr)
   }
 
   onCreate() {
@@ -82,10 +82,13 @@ class CommentsContainer extends React.Component {
 
 CommentsContainer.propTypes = {
   onCreate: PropTypes.func,
+  ssr: PropTypes.bool,
+  comments: PropTypes.any.isRequired,
 }
 
 CommentsContainer.defaultProps = {
   onCreate: debug,
+  ssr: false,
 }
 
 export default inject(storePlug('comments'))(observer(CommentsContainer))

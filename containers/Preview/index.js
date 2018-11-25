@@ -66,11 +66,14 @@ const CloseBtn = ({ type }) => (
 // <AccountViewer2 themeKeys={themeKeys} curTheme={curTheme} />
 
 // TODO: post edit viewer
-const Viewer = ({ type, root, attachment }) => {
+const Viewer = ({ type, root, attachment, attUser }) => {
   switch (type) {
     // account
     case TYPE.PREVIEW_ACCOUNT_VIEW: {
       return <DynamicAccountViewer />
+    }
+    case TYPE.PREVIEW_USER_VIEW: {
+      return <DynamicAccountViewer user={attUser} />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
       return <DynamicAccountEditor />
@@ -139,7 +142,7 @@ class PreviewContainer extends React.Component {
 
   render() {
     const { preview } = this.props
-    const { visible, type, root, attachmentData } = preview
+    const { visible, type, root, attachmentData, attUserData } = preview
 
     return (
       <React.Fragment>
@@ -147,7 +150,12 @@ class PreviewContainer extends React.Component {
         <PreviewWrapper visible={visible} type={type}>
           <CloseBtn type={type} />
           <PreviewContent>
-            <Viewer type={type} root={root} attachment={attachmentData} />
+            <Viewer
+              type={type}
+              root={root}
+              attachment={attachmentData}
+              attUser={attUserData}
+            />
           </PreviewContent>
         </PreviewWrapper>
       </React.Fragment>

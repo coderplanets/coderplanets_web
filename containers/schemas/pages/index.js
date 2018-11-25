@@ -4,6 +4,7 @@ import { pagedVideos, video } from './video'
 import { pagedRepos, repo } from './repo'
 import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
+import { pagedComments } from './comment'
 import { pagedCategories, partialTags } from './misc'
 
 const P = {
@@ -11,6 +12,8 @@ const P = {
   community,
   subscribedCommunities,
   pagedCommunities,
+  // comment
+  pagedComments,
   // misc
   pagedCategories,
   partialTags,

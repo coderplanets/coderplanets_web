@@ -48,7 +48,7 @@ class PostContentContainer extends React.Component {
                 <MarkDownRender body={viewingPostData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
-                <Comments />
+                <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
             <SideCards data={viewingPostData} />

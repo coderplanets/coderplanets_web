@@ -40,6 +40,7 @@ export const PagedMentionMessages = t.model('PagedMentionMessages', {
 
 const MailBox = t
   .model('MailBox', {
+    panelVisiable: t.optional(t.boolean, false),
     mailStatus: t.optional(MailStatus, {}),
     pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),
     activeRaw: t.optional(

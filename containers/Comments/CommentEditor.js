@@ -27,6 +27,9 @@ import {
 
 import EditorFooter from './EditorFooter'
 
+// const DEFAULT_USER_ICON = `${ICON_CMD}/ufo_user.svg`
+const DEFAULT_USER_ICON = `${ICON_CMD}/alien_user3.svg`
+
 const DynamicBodyEditor = dynamic({
   loader: () => import('../TypeWriter/BodyEditor'),
   /* eslint-disable */
@@ -81,9 +84,9 @@ const Header = ({
   }
   return (
     <InputHeaderWrapper>
-      <UserAvatar src={accountInfo.avatar} />
+      <UserAvatar src={accountInfo.avatar || DEFAULT_USER_ICON} />
       <LeaveResponseText onClick={logic.openInputBox}>
-        留条评论...
+        来都来了, 留条评论吧...
       </LeaveResponseText>
     </InputHeaderWrapper>
   )

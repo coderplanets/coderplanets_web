@@ -18,6 +18,7 @@ const PostsList = ({ props }) => {
     thread,
     emptyPrefix,
     onTitleSelect,
+    onUserSelect,
     accountInfo,
   } = props
 
@@ -31,6 +32,7 @@ const PostsList = ({ props }) => {
               entry={entry}
               active={active}
               accountInfo={accountInfo}
+              onUserSelect={onUserSelect}
               onTitleSelect={onTitleSelect.bind(this, entry)}
             />
           ))}

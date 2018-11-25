@@ -16,12 +16,14 @@ import {
   TypeLabel,
   SourceTitle,
   SourcePreview,
+  PreviewBody,
   AtLabel,
 } from './styles/mention_list'
 import { uid, cutFrom } from '../../utils'
 
+import { previewUser } from './logic'
+
 const MentionList = ({ data }) => {
-  console.log('get data ==> : ', data)
   if (R.isEmpty(data.entries)) return <EmptyLabel text="还没有人提到(@)你" />
 
   return (
@@ -32,7 +34,7 @@ const MentionList = ({ data }) => {
             <div key={uid.gen()}>
               <Message>
                 <MessageHeader>
-                  <UserLabel>
+                  <UserLabel onClick={previewUser.bind(this, item.fromUser)}>
                     <UserAvatar src={item.fromUser.avatar} />
                     <UserNickname>
                       {cutFrom(item.fromUser.nickname, 8)}
@@ -45,7 +47,7 @@ const MentionList = ({ data }) => {
                 </MessageHeader>
                 <MessageBody>
                   <SourcePreview>
-                    {cutFrom(item.sourcePreview, 20)}
+                    <PreviewBody>{item.sourcePreview}</PreviewBody>
                     <AtLabel>中@了你</AtLabel>
                   </SourcePreview>
                 </MessageBody>

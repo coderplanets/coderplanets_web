@@ -22,7 +22,7 @@ import {
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
-const DigestView = ({ entry, onTitleSelect }) => (
+const DigestView = ({ entry, onTitleSelect, onUserSelect }) => (
   <React.Fragment>
     <Avatar src={entry.author.avatar} />
     <Main>
@@ -39,6 +39,7 @@ const DigestView = ({ entry, onTitleSelect }) => (
         </Breif>
         <div>
           <AvatarsRow
+            onUserSelect={onUserSelect}
             users={entry.commentsParticipators}
             total={entry.commentsCount}
           />
