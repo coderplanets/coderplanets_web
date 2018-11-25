@@ -5,6 +5,13 @@ import { cs, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
+  overflow: hidden;
+`
+export const ListsWrapper = styled.div`
+  width: 340px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 export const UserLabel = styled.div`
   ${cs.flex('align-center')};

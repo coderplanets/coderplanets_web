@@ -4,6 +4,7 @@ import R from 'ramda'
 import { EmptyLabel } from '../../components'
 import {
   Wrapper,
+  ListsWrapper,
   Message,
   MessageDivider,
   MessageHeader,
@@ -25,31 +26,35 @@ const MentionList = ({ data }) => {
 
   return (
     <Wrapper>
-      {data.entries.map(item => (
-        <div key={uid.gen()}>
-          <Message>
-            <MessageHeader>
-              <UserLabel>
-                <UserAvatar src={item.fromUser.avatar} />
-                <UserNickname>
-                  {cutFrom(item.fromUser.nickname, 8)}
-                </UserNickname>
-              </UserLabel>
-              <TitleHeader>
-                <TypeLabel>在帖子</TypeLabel>
-                <SourceTitle>{item.sourceTitle}</SourceTitle>
-              </TitleHeader>
-            </MessageHeader>
-            <MessageBody>
-              <SourcePreview>
-                {cutFrom(item.sourcePreview, 20)}
-                <AtLabel>中@了你</AtLabel>
-              </SourcePreview>
-            </MessageBody>
-          </Message>
-          <MessageDivider />
+      <ListsWrapper>
+        <div>
+          {data.entries.map(item => (
+            <div key={uid.gen()}>
+              <Message>
+                <MessageHeader>
+                  <UserLabel>
+                    <UserAvatar src={item.fromUser.avatar} />
+                    <UserNickname>
+                      {cutFrom(item.fromUser.nickname, 8)}
+                    </UserNickname>
+                  </UserLabel>
+                  <TitleHeader>
+                    <TypeLabel>在帖子</TypeLabel>
+                    <SourceTitle>{item.sourceTitle}</SourceTitle>
+                  </TitleHeader>
+                </MessageHeader>
+                <MessageBody>
+                  <SourcePreview>
+                    {cutFrom(item.sourcePreview, 20)}
+                    <AtLabel>中@了你</AtLabel>
+                  </SourcePreview>
+                </MessageBody>
+              </Message>
+              <MessageDivider />
+            </div>
+          ))}
         </div>
-      ))}
+      </ListsWrapper>
     </Wrapper>
   )
 }

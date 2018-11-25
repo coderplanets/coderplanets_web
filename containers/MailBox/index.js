@@ -43,7 +43,7 @@ class MailBoxContainer extends React.Component {
     const { visible } = this.state
 
     /* debug('mailStatus: ', mailStatusData) */
-    debug('pagedMentionsData --> ', pagedMentionsData)
+    // debug('pagedMentionsData --> ', pagedMentionsData)
 
     return (
       <Popover
