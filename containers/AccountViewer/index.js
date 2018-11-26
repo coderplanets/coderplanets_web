@@ -73,7 +73,10 @@ class AccountViewerContainer extends React.Component {
           <Maybe test={!R.isEmpty(subscribedCommunities)}>
             <React.Fragment>
               <Divider top="0px" bottom="20px" />
-              <Planets subscribedCommunities={subscribedCommunities} />
+              <Planets
+                subscribedCommunities={subscribedCommunities}
+                viewingType={viewingType}
+              />
             </React.Fragment>
           </Maybe>
           <Divider top="10px" bottom="20px" />
