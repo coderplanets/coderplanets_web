@@ -124,7 +124,7 @@
     "babel-plugin-inline-dotenv": "^1.1.2",
     "babel-plugin-ramda": "1.6.3",
     "babel-plugin-react-intl": "2.4.0",
-    "babel-plugin-styled-components": "1.8.0",
+    "babel-plugin-styled-components": "1.9.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "commitizen": "^2.10.1",
     "coveralls": "3.0.2",
