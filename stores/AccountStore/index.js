@@ -55,7 +55,7 @@ const AccountStore = t
   .actions(self => ({
     logout() {
       self.root.preview.close()
-      self.sesstionCleanup()
+      self.sessionCleanup()
       Global.location.reload(false)
     },
     updateAccount(sobj) {
@@ -63,31 +63,21 @@ const AccountStore = t
 
       self.markState({ user })
     },
-    /*
-    updateSessionState(sessionState) {
-      const { isValid, user } = sessionState
-      if (isValid) {
-        self.isValidSession = isValid
-        BStore.set('passports', user.cmsPassport)
-
-        const token = BStore.get('token')
-        if (token) {
-          BStore.cookie.set('jwtToken', token)
-        }
-        return self.updateAccount(user)
-      }
-      self.sesstionCleanup()
-    },
-    */
-    confirmSesstionState() {
-      if (!self.isValidSession) return self.sesstionCleanup()
+    confirmSessionState() {
+      if (!self.isValidSession) return self.sessionCleanup()
 
       const token = BStore.get('token')
       if (token) {
         BStore.cookie.set('jwtToken', token)
       }
     },
-    sesstionCleanup() {
+    setSession(user, token) {
+      if (!token || !user) return false
+      BStore.set('user', user)
+      BStore.set('token', token)
+      BStore.cookie.set('jwtToken', token)
+    },
+    sessionCleanup() {
       self.user = EmptyUser
       self.isValidSession = false
       BStore.remove('user')

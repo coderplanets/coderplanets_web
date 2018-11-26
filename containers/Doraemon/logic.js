@@ -10,7 +10,6 @@ import Pockect from './Pockect'
 import {
   makeDebugger,
   Global,
-  BStore,
   ERR,
   asyncRes,
   asyncErr,
@@ -276,22 +275,13 @@ export function handleShortCuts(e) {
   }
 }
 
-export function navSuggestion(direction) {
-  SAK.navSuggestion(direction)
-}
-
+export const navSuggestion = direction => SAK.navSuggestion(direction)
 // mounseEnter
-export function navToSuggestion(suggestion) {
-  SAK.navToSuggestion(suggestion)
-}
-
-export function selectSuggestion() {
-  // console.log('selectSuggestion: ', store.activeSuggestion)
-  doSpecCmd()
-}
+export const navToSuggestion = suggestion => SAK.navToSuggestion(suggestion)
+export const selectSuggestion = () => doSpecCmd()
 
 export function inputOnBlur() {
-  if (!store.showThreadSelector) {
+  if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
     hidePanel()
   }
 }
@@ -335,9 +325,10 @@ const convert2Sugguestions = (data, searchedTotalCount) => {
 const DataSolver = [
   {
     match: asyncRes('githubSignin'),
-    action: ({ githubSignin }) => {
-      BStore.set('user', githubSignin.user)
-      BStore.set('token', githubSignin.token)
+    action: ({ githubSignin: { user, token } }) => {
+      store.setSession(user, token)
+      // BStore.set('user', githubSignin.user)
+      // BStore.set('token', githubSignin.token)
       Global.location.reload(false)
     },
   },
@@ -491,7 +482,6 @@ export function init(_store) {
   pockect$.search().subscribe(res => {
     if (R.isEmpty(res)) return emptySearchStates()
 
-    debug('--> search: ', res)
     store.markState({
       searching: true,
       showThreadSelector: true,
@@ -510,19 +500,11 @@ export function init(_store) {
       showAlert: false,
     })
     if (R.isEmpty(nickname)) return false
-
-    debug('--> search user: ', nickname)
     searchContents(nickname)
   })
 
-  pockect$.cmdSuggesttion().subscribe(res => {
-    debug('--> loadSuggestions res: ', res)
-    store.loadSuggestions(res)
-  })
-
-  pockect$.emptyInput().subscribe(() => {
-    store.clearSuggestions()
-  })
+  pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
+  pockect$.emptyInput().subscribe(() => store.clearSuggestions())
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

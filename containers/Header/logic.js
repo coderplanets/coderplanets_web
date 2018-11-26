@@ -51,7 +51,7 @@ export function checkSesstionState() {
   // console.log('query sessionState->: ', S.sessionState)
   // sr71$.query(S.sessionState, {})
   // }
-  store.confirmSesstionState()
+  store.confirmSessionState()
 }
 
 export function previewAccount() {

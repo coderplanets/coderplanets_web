@@ -126,6 +126,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    setSession(user, token) {
+      self.root.account.setSession(user, token)
+    },
     updateAccount(data) {
       self.root.account.updateAccount(data)
     },
