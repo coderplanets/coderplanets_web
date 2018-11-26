@@ -2,33 +2,19 @@ import React from 'react'
 import withClickOutside from 'react-click-outside'
 import dynamic from 'next/dynamic'
 
-import { ICON_CMD, WORD_LIMIT } from '../../config'
-
 import { debounce } from '../../utils'
 import * as logic from './logic'
 
-import { AvatarsRow, SpaceGrow, MarkDownRender } from '../../components'
+import { MarkDownRender } from '../../components'
 
 import {
-  InputEditorWrapper,
   Container,
-  InputHeaderWrapper,
-  UserAvatar,
-  LeaveResponseText,
-  LeaveResponseUsername,
-  ReplyAvatars,
-  ReferToIcon,
-  CounterWrapper,
-  CounterSpliter,
-  CounterCur,
-  CounterTotal,
+  InputEditorWrapper,
   PreviewerWrapper,
 } from './styles/comment_editor'
 
+import EditorHeader from './EditorHeader'
 import EditorFooter from './EditorFooter'
-
-// const DEFAULT_USER_ICON = `${ICON_CMD}/ufo_user.svg`
-const DEFAULT_USER_ICON = `${ICON_CMD}/alien_user3.svg`
 
 const DynamicBodyEditor = dynamic({
   loader: () => import('../TypeWriter/BodyEditor'),
@@ -36,64 +22,6 @@ const DynamicBodyEditor = dynamic({
   loading: () => <div>loading</div>,
   /* eslint-enable */
 })
-
-const WordsCounter = ({ countCurrent }) => (
-  <CounterWrapper>
-    <CounterCur num={countCurrent}>{countCurrent}</CounterCur>
-    <CounterSpliter>/</CounterSpliter>
-    <CounterTotal>{WORD_LIMIT.COMMENT}</CounterTotal>
-  </CounterWrapper>
-)
-
-const Header = ({
-  accountInfo,
-  showInputEditor,
-  showInputPreview,
-  countCurrent,
-  referUsers,
-}) => {
-  if (showInputEditor) {
-    return (
-      <InputHeaderWrapper>
-        <UserAvatar src={accountInfo.avatar} />
-        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
-        {referUsers.length > 0 ? (
-          <div style={{ display: 'flex' }}>
-            <ReferToIcon src={`${ICON_CMD}/refer.svg`} />
-            <ReplyAvatars>
-              <AvatarsRow
-                users={referUsers}
-                total={referUsers.length}
-                height="20px"
-              />
-            </ReplyAvatars>
-          </div>
-        ) : null}
-        <SpaceGrow />
-        <WordsCounter countCurrent={countCurrent} />
-      </InputHeaderWrapper>
-    )
-  }
-  if (showInputPreview) {
-    return (
-      <InputHeaderWrapper>
-        <UserAvatar src={accountInfo.avatar} />
-        <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
-      </InputHeaderWrapper>
-    )
-  }
-  return (
-    <InputHeaderWrapper>
-      <UserAvatar src={accountInfo.avatar || DEFAULT_USER_ICON} />
-      <LeaveResponseText onClick={logic.openInputBox}>
-        来都来了, 留条评论吧...
-      </LeaveResponseText>
-    </InputHeaderWrapper>
-  )
-}
-
-// onChange={debounce(logic.onCommentInputChange, 450)}
-// onChange={logic.onCommentInputChange}
 
 const InputEditor = ({
   showInputEditor,
@@ -161,7 +89,7 @@ class CommentEditor extends React.Component {
 
     return (
       <Container show={showInputBox}>
-        <Header
+        <EditorHeader
           accountInfo={accountInfo}
           showInputEditor={showInputEditor}
           showInputPreview={showInputPreview}

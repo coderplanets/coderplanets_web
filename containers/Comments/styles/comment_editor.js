@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import { WORD_LIMIT } from '../../../config'
+// import Img from '../../../components/Img'
 import { theme, cs } from '../../../utils'
 
 export const Container = styled.div`
@@ -15,76 +14,12 @@ export const Container = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
 `
-export const InputHeaderWrapper = styled.div`
-  ${cs.flex('align-center')};
-  height: 70px;
-  margin-right: 20px;
-`
 export const InputEditorWrapper = styled.div`
   height: auto;
   margin: 0 30px;
   margin-bottom: 30px;
   display: ${({ showInputEditor }) => (showInputEditor ? 'block' : 'none')};
   font-size: 0.9em;
-`
-export const UserAvatar = styled.img`
-  ${cs.circle('40px')};
-  fill: ${theme('thread.articleTitle')};
-  margin-left: 4%;
-  opacity: ${theme('avatarOpacity')};
-`
-export const LeaveResponseText = styled.div`
-  font-size: 1.3em;
-  margin-left: 15px;
-  color: ${theme('comment.placeholder')};
-`
-export const LeaveResponseUsername = styled.div`
-  font-size: 1.3em;
-  margin-left: 12px;
-  margin-right: 10px;
-  color: ${theme('comment.username')};
-`
-export const ReferToIcon = styled(Img)`
-  fill: ${theme('comment.username')};
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  margin-top: 5px;
-`
-
-export const ReplyAvatars = styled.div``
-
-export const CounterWrapper = styled.div`
-  ${cs.flex('align-center')};
-  color: #c2d9da;
-`
-export const CounterSpliter = styled.div`
-  font-size: 1.5em;
-  font-weight: lighter;
-  color: ${theme('comment.placeholder')};
-`
-
-const getColor = num => {
-  if (num > WORD_LIMIT.COMMENT) {
-    return 'tomato'
-  }
-  if (num >= WORD_LIMIT.COMMENT - 50 && num <= WORD_LIMIT.COMMENT) {
-    return 'orange'
-  }
-  return 'yellowgreen'
-}
-
-export const CounterCur = styled.div`
-  margin-right: 5px;
-  font-size: 1em;
-  color: ${({ num }) => getColor(num)};
-`
-
-export const CounterTotal = styled.div`
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 1em;
-  color: ${theme('comment.placeholder')};
 `
 
 export const PreviewerWrapper = styled.div`

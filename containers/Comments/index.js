@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import { Modal } from '../../components'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
-import CommentReplyer from './CommentReplyer'
+import CommentReplyEditor from './CommentReplyEditor'
 
 import { Wrapper } from './styles'
 
@@ -52,7 +52,7 @@ class CommentsContainer extends React.Component {
         <Modal show={showReplyBox}>
           {/* NOTE: this is used for react-clickouside */}
           {showReplyBox ? (
-            <CommentReplyer
+            <CommentReplyEditor
               accountInfo={accountInfo}
               referUsers={referUsersData}
               restProps={{ ...comments }}

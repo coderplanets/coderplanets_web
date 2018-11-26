@@ -112,7 +112,7 @@ export const CommentBodyInfo = styled.div`
   width: 100%;
 `
 export const CommentContent = styled.div`
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 `
 export const CommentFooter = styled.div`
   ${cs.flex()};

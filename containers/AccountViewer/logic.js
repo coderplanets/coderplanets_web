@@ -23,8 +23,7 @@ let store = null
 let sub$ = null
 
 export const loadAccount = () => {
-  debug('loadUser user 日日日日日日日2: ')
-
+  store.markState({ viewingType: 'account' })
   return sr71$.query(S.user, {})
 }
 

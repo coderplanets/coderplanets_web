@@ -41,14 +41,15 @@ const AntUIOverWrite = createGlobalStyle`
   .comment-editor {
     .public-DraftEditor-content {
       min-height: 150px;
-      font-size: 1.3em;
+      font-size: 1rem;
       color: ${theme('editor.content')};
     }
   }
   .comment-reply-editor {
+    font-size: 0.8rem;
+
     .public-DraftEditor-content {
       min-height: 200px;
-      font-size: 0.9em;
       color: ${theme('editor.content')};
     }
   }
