@@ -1,6 +1,15 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  dispatchEvent,
+  TYPE,
+  EVENT,
+  ERR,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
@@ -14,19 +23,31 @@ const debug = makeDebugger('L:MailBox')
 
 let store = null
 
+/*
+   export const panelVisiableOnChange = panelVisiable =>
+   store.markState({ panelVisiable })
+ */
+
 export function selectChange(data) {
   store.markState({
     activeRaw: data.raw,
   })
 }
 
+export const previewUser = user => {
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_USER_VIEW,
+    data: user,
+  })
+}
+
 export function loadMailboxStates() {
-  console.log('loadMailboxStates')
+  // debug('loadMailboxStates')
   sr71$.query(S.mailBoxStatus, {})
 }
 
 export function loadMentions() {
-  console.log('loadMentions')
+  // debug('loadMentions')
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
 

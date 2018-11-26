@@ -33,9 +33,8 @@ const ThemeSection = ({ curTheme }) => (
 class AccountViewerContainer extends React.Component {
   constructor(props) {
     super(props)
-    const { accountViewer } = props
-    logic.init(accountViewer)
-    logic.loadAccount()
+    const { accountViewer, user } = props
+    logic.init(accountViewer, user)
 
     /* force rebuild the tooltip, otherwise it won't work in some async cases */
     /* if you want to custom see: */
@@ -46,11 +45,15 @@ class AccountViewerContainer extends React.Component {
   }
 
   render() {
+    const { accountViewer } = this.props
     const {
-      accountViewer: { curTheme, accountInfo, subscribedCommunities },
-    } = this.props
+      curTheme,
+      viewingType,
+      userInfoData,
+      subscribedCommunities,
+    } = accountViewer
 
-    const { contributes } = accountInfo
+    const { contributes } = userInfoData // accountInfo
     // debug('contributes --> ', contributes)
 
     return (
@@ -58,18 +61,22 @@ class AccountViewerContainer extends React.Component {
         <ReactTooltip effect="solid" place="bottom" />
         <AccountContent>
           <UserBrief
-            user={accountInfo}
+            user={userInfoData}
             displayStyle="sidebar"
             showEdit
+            viewingType={viewingType}
             onEdit={logic.editProfile}
           />
 
           <Divider top="20px" bottom="0px" />
-          <SiteSocial user={accountInfo} />
+          <SiteSocial user={userInfoData} />
           <Maybe test={!R.isEmpty(subscribedCommunities)}>
             <React.Fragment>
               <Divider top="0px" bottom="20px" />
-              <Planets subscribedCommunities={subscribedCommunities} />
+              <Planets
+                subscribedCommunities={subscribedCommunities}
+                viewingType={viewingType}
+              />
             </React.Fragment>
           </Maybe>
           <Divider top="10px" bottom="20px" />
@@ -77,9 +84,12 @@ class AccountViewerContainer extends React.Component {
           <ContributeMap data={contributes} />
         </AccountContent>
 
-        {/* TODO if is others preview, then not show this */}
-        <Divider top="10px" bottom="12px" />
-        <ThemeSection curTheme={curTheme} />
+        {viewingType === 'account' ? (
+          <React.Fragment>
+            <Divider top="10px" bottom="12px" />
+            <ThemeSection curTheme={curTheme} />
+          </React.Fragment>
+        ) : null}
       </AccountWrapper>
     )
   }

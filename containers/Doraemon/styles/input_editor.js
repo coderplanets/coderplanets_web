@@ -28,4 +28,9 @@ export const InputBar = styled.input`
   border: 0;
   border-radius: 0;
   transition: all 400ms ease;
+
+  ::placeholder {
+    color: ${theme('shell.searchInput')};
+    opacity: 0.5;
+  }
 `

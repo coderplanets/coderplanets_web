@@ -86,6 +86,8 @@ export function previewReply(data) {
 }
 
 export function openInputBox() {
+  if (!store.isLogin) return store.authWarning({ hideToast: true })
+
   store.markState({
     showInputBox: true,
     showInputEditor: true,
@@ -334,9 +336,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export function init(_store, ssr = false) {
   if (store) {
-    loadComents()
+    if (!ssr) return loadComents()
     return false
   }
 
@@ -345,5 +347,5 @@ export function init(_store) {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  loadComents()
+  if (!ssr) return loadComents()
 }

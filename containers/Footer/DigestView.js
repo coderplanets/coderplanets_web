@@ -46,6 +46,7 @@ const DigestView = ({ toggleSponsorHelper }) => (
         </div>
 
         <br />
+
         <Title>contact us:</Title>
         <SocialList />
       </MainColumn>
@@ -96,14 +97,14 @@ const DigestView = ({ toggleSponsorHelper }) => (
             rel="noopener noreferrer"
             target="_blank"
           >
-            前端源码
+            Source Code(F)
           </Item>
           <Item
             href="https://github.com/coderplanets/coderplanets_server"
             rel="noopener noreferrer"
             target="_blank"
           >
-            后端源码
+            Source Code(B)
           </Item>
           {/*
               <Item offsetTop="-8px">

@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import { Modal } from '../../components'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
-import CommentReplyer from './CommentReplyer'
+import CommentReplyEditor from './CommentReplyEditor'
 
 import { Wrapper } from './styles'
 
@@ -26,8 +26,8 @@ class CommentsContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    const { comments } = props
-    logic.init(comments)
+    const { comments, ssr } = props
+    logic.init(comments, ssr)
   }
 
   onCreate() {
@@ -52,7 +52,7 @@ class CommentsContainer extends React.Component {
         <Modal show={showReplyBox}>
           {/* NOTE: this is used for react-clickouside */}
           {showReplyBox ? (
-            <CommentReplyer
+            <CommentReplyEditor
               accountInfo={accountInfo}
               referUsers={referUsersData}
               restProps={{ ...comments }}
@@ -82,10 +82,13 @@ class CommentsContainer extends React.Component {
 
 CommentsContainer.propTypes = {
   onCreate: PropTypes.func,
+  ssr: PropTypes.bool,
+  comments: PropTypes.any.isRequired,
 }
 
 CommentsContainer.defaultProps = {
   onCreate: debug,
+  ssr: false,
 }
 
 export default inject(storePlug('comments'))(observer(CommentsContainer))

@@ -34,16 +34,24 @@ class MailBoxContainer extends React.Component {
       logic.loadMentions()
     }
     this.setState({ visible })
+    // logic.panelVisiableOnChange(visible)
   }
 
   render() {
     const { mailBox } = this.props
 
-    const { activeRaw, mailStatusData, pagedMentionsData } = mailBox
+    const {
+      activeRaw,
+      mailStatusData,
+      pagedMentionsData,
+      // panelVisiable,
+    } = mailBox
     const { visible } = this.state
+    // const visible = true
+    debug('visible: ', visible)
 
     /* debug('mailStatus: ', mailStatusData) */
-    debug('pagedMentionsData --> ', pagedMentionsData)
+    // debug('pagedMentionsData --> ', pagedMentionsData)
 
     return (
       <Popover

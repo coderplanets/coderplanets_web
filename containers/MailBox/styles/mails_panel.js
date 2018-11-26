@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import { theme } from '../../../utils'
+import { theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   width: 350px;
@@ -8,5 +8,12 @@ export const Wrapper = styled.div`
   height: auto;
   padding: 10px;
 `
-
-export const holder = 1
+export const SeeAllMessages = styled.div`
+  color: ${theme('banner.title')};
+  text-align: center;
+  margin-top: 10px;
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+`

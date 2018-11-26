@@ -57,7 +57,7 @@ export const PreviewWrapper = styled.div`
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
-  z-index: 1000;
+  z-index: 2000;
 `
 export const PreviewContent = styled.div`
   width: 90%;
@@ -94,7 +94,9 @@ export const Closer = styled.div`
   perspective: ${closeWith};
   cursor: pointer;
   display: ${({ type }) =>
-    type === TYPE.PREVIEW_ACCOUNT_VIEW || type === TYPE.PREVIEW_ACCOUNT_EDIT
+    type === TYPE.PREVIEW_ACCOUNT_VIEW ||
+    type === TYPE.PREVIEW_USER_VIEW ||
+    type === TYPE.PREVIEW_ACCOUNT_EDIT
       ? 'none'
       : 'block'};
 

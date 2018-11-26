@@ -88,6 +88,7 @@ class PostsThreadContainer extends React.Component {
             curView={curView}
             active={activePost}
             accountInfo={accountInfo}
+            onUserSelect={logic.onUserSelect}
             onTitleSelect={logic.onTitleSelect}
             onPageChange={logic.loadPosts}
           />

@@ -11,10 +11,16 @@ import {
 } from './styles/planets'
 
 const tooltipOffset = JSON.stringify({ top: 10, left: 5 })
-const Planets = ({ subscribedCommunities }) => (
+const Planets = ({ subscribedCommunities, viewingType }) => (
   <Wrapper>
     <HeaderWrapper>
-      <Title>我/Ta的关注</Title>
+      <Title>
+        {viewingType === 'account' ? (
+          <span>我的关注</span>
+        ) : (
+          <span>Ta的关注</span>
+        )}
+      </Title>
       <HelpText>
         共&nbsp;
         {subscribedCommunities.totalCount}

@@ -60,6 +60,7 @@ export default class InputEditor extends React.Component {
           onBlur={logic.inputOnBlur}
           onChange={logic.inputOnChange}
           value={value}
+          placeholder="type ? for help"
         />
       </EditorBar>
     )

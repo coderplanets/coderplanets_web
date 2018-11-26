@@ -60,11 +60,13 @@ const PreviewStore = t
         TYPE.PREVIEW_ROOT_STORE,
         // account
         TYPE.PREVIEW_ACCOUNT_VIEW,
+        TYPE.PREVIEW_USER_VIEW,
         TYPE.PREVIEW_ACCOUNT_EDIT,
         // article types
         ...THREAD_CONTENT_CURD_TYPES,
       ])
     ),
+    attUser: t.maybeNull(User),
     attachment: t.maybeNull(Attachment),
     // header:
     // body:
@@ -82,6 +84,9 @@ const PreviewStore = t
     get attachmentData() {
       return stripMobx(self.attachment)
     },
+    get attUserData() {
+      return stripMobx(self.attUser)
+    },
   }))
   .actions(self => ({
     open({ type, data, thread }) {
@@ -89,7 +94,13 @@ const PreviewStore = t
       self.type = type
 
       // NOTE: currently the attachment is only used for article-like content
-      if (data) self.attachment = R.merge({ type }, data)
+      if (type === TYPE.PREVIEW_USER_VIEW) {
+        console.log('skip for user view: ', data)
+        self.attUser = data
+      } else if (data) {
+        self.attachment = R.merge({ type }, data)
+      }
+      // if (data) self.attachment = R.merge({ type }, data)
 
       if ((thread, R.contains(thread, PREVIEWABLE_THREADS))) {
         self.setViewing({ [thread]: data, viewingThread: thread })

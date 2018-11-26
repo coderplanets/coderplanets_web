@@ -21,8 +21,10 @@ const renderContent = content => {
 }
 
 class PopoverComponent extends React.Component {
-  state = {
-    insideVisible: false,
+  constructor(props) {
+    super(props)
+
+    this.state = { insideVisible: false }
   }
 
   onVisibleChange(visible) {

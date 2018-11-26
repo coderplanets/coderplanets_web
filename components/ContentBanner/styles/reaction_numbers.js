@@ -23,6 +23,7 @@ export const NumberSection = styled.div`
 `
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
+  text-align: center;
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};
     text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
@@ -31,6 +32,8 @@ export const NumberTitle = styled.div`
 `
 export const NumberItem = styled.div`
   font-size: 1.5rem;
+  text-align: center;
+
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ dead }) => (dead ? '' : '#f1c48f')};

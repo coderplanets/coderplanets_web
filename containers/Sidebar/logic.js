@@ -37,7 +37,8 @@ export function setPin() {
 
 export function onCommunitySelect(community) {
   // console.log('onCommunitySelect --> ', community)
-  store.setViewing({ community })
+  // store.setViewing({ community, post: {}, job: {}, video: {}, repo: {} })
+  store.setViewing({ community, post: {} })
 
   store.markRoute({
     mainPath: community.raw,

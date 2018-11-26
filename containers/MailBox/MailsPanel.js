@@ -3,7 +3,7 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config/assets'
 
-import { Wrapper } from './styles/mails_panel'
+import { Wrapper, SeeAllMessages } from './styles/mails_panel'
 import Selector from './Selector'
 import MailLists from './MailLists'
 
@@ -48,6 +48,7 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
         onChange={selectChange}
       />
       <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
+      <SeeAllMessages>查看全部消息</SeeAllMessages>
     </Wrapper>
   )
 }

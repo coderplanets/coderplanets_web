@@ -115,6 +115,9 @@ const CommentsStore = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     changesetErr(options) {
       self.root.changesetErr(options)
     },

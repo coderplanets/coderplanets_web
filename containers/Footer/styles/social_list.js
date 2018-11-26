@@ -20,3 +20,7 @@ export const Icon = styled(Img)`
   display: block;
   margin-right: 8px;
 `
+
+export const PopInfo = styled.div`
+  padding: 5px 10px;
+`

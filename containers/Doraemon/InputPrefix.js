@@ -28,7 +28,7 @@ const InputPrefix = ({ prefix, searching }) => {
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_help.svg`} />
     }
     case '/': {
-      return <PrefixMagicIcon src={`${ICON_CMD}/magic.svg`} />
+      return <PrefixMagicIcon src={`${ICON_CMD}/doraemon_cat.svg`} />
     }
     case 'login': {
       return <PrefixIcon src={`${ICON_CMD}/login.svg`} />

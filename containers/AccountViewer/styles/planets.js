@@ -23,13 +23,12 @@ export const HelpText = styled.div`
   }
   transition: color 0.2s;
 `
-
 export const IconList = styled.div`
   ${cs.flex()};
   flex-wrap: wrap;
 `
-
 export const PlanetsIcon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
   width: 26px;
   height: 26px;
   margin-right: 8px;

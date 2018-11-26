@@ -10,6 +10,7 @@ import {
   Wrapper,
   ThemeIconWrapper,
   Icon,
+  DoraemonIcon,
   ThemeDot,
 } from './styles/suggest_icon'
 import { DEFAULT_ICON } from '../../config/assets'
@@ -26,6 +27,15 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
       </ThemeIconWrapper>
     )
   }
+  // doraemon cat icon, it's smaller then normal icons
+  if (raw === 'doraemon_help') {
+    return (
+      <Wrapper>
+        <DoraemonIcon src={logo} />
+      </Wrapper>
+    )
+  }
+  // normal icons
   return (
     <React.Fragment>
       {logo ? (

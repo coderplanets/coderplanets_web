@@ -5,9 +5,20 @@ import { cs, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
+  overflow: hidden;
+`
+export const ListsWrapper = styled.div`
+  width: 340px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 export const UserLabel = styled.div`
   ${cs.flex('align-center')};
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const UserAvatar = styled(Img)`
   ${cs.circle('16px')};
@@ -17,6 +28,9 @@ export const UserAvatar = styled(Img)`
 export const UserNickname = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: -2px;
+  ${UserLabel}:hover & {
+    color: ${theme('banner.title')};
+  }
 `
 export const Message = styled.div`
   ${cs.flexColumn()};
@@ -46,14 +60,24 @@ export const TypeLabel = styled.div`
 `
 export const SourceTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 0.9rem;
   ${cs.truncate('180px')};
+  font-size: 0.9rem;
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const SourcePreview = styled.div`
+  ${cs.flex()};
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
-  font-style: italic;
   margin-top: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+`
+export const PreviewBody = styled.div`
+  font-style: italic;
+  ${cs.truncate('250px')};
 `
 export const AtLabel = styled.span`
   margin-left: 3px;
