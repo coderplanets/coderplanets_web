@@ -5,6 +5,7 @@ import R from 'ramda'
 
 import { from } from 'rxjs'
 
+import { ICON_CMD } from '../../../config'
 import { notEmpty } from '../../../utils'
 
 const cmdSplit = R.compose(
@@ -131,11 +132,10 @@ export class Advisor {
       prefix: R.head(val),
       data: [
         {
-          title: 'todo',
-          desc: 'world',
-          raw: 'javascript',
-          logo:
-            'https://coderplanets.oss-cn-beijing.aliyuncs.com/icons/pl/javascript.svg',
+          title: 'Doraemon Pocket 说明书',
+          desc: '包含搜索，设置，跳转以及开发扩展等使用说明',
+          raw: 'doraemon_help',
+          logo: `${ICON_CMD}/doraemon_cat.svg`,
         },
       ],
     }

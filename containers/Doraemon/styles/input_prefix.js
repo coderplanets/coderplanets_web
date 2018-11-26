@@ -14,10 +14,12 @@ export const PrefixSearchIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   display: block;
 `
+// transform: rotate(-30deg);
 export const PrefixMagicIcon = styled(Img)`
-  width: 25px;
-  height: 25px;
-  transform: rotate(-30deg);
+  width: 42px;
+  height: 42px;
+  margin-left: -5px;
+  margin-top: 3px;
   display: block;
 `
 export const LoadingIcon = styled(Img)`

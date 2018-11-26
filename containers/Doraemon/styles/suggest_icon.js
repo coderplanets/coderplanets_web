@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 export const ThemeIconWrapper = styled.div`
   margin-right: 16px;
 `
-
 export const Icon = styled(Img)`
   fill: ${({ nonFill }) => (nonFill ? '' : theme('shell.searchIcon'))};
   width: 35px;
@@ -22,4 +21,10 @@ export const Icon = styled(Img)`
 export const ThemeDot = styled.div`
   ${cs.circle('35px')};
   background: ${({ bg }) => bg};
+`
+export const DoraemonIcon = styled(Img)`
+  width: 52px;
+  height: 52px;
+  display: block;
+  margin-left: -4px;
 `
