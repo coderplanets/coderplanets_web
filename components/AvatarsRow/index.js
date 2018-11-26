@@ -47,7 +47,7 @@ const AvatarsRow = ({
         </AvatarsItem>
       )}
 
-      {R.slice(0, limit, R.reverse(users)).map(user => (
+      {R.slice(0, limit, users).map(user => (
         <AvatarsItem key={uid.gen()} onClick={onUserSelect.bind(this, user)}>
           <Tooltip title={user.nickname}>
             <AvatarsImg src={user.avatar} />
