@@ -27,6 +27,8 @@ const THREAD_CONTENT_CURD_TYPES = [
   TYPE.PREVIEW_VIDEO_VIEW,
   TYPE.PREVIEW_VIDEO_CREATE,
   TYPE.PREVIEW_VIDEO_EDIT,
+  // mails
+  TYPE.PREVIEW_MAILS_VIEW,
 ]
 
 const Attachment = t.model('Attachment', {

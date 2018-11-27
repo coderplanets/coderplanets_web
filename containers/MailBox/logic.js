@@ -51,6 +51,11 @@ export function loadMentions() {
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
 
+export const seeAll = () => {
+  debug('seeAll')
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
