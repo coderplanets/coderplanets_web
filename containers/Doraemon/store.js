@@ -126,6 +126,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
     setSession(user, token) {
       self.root.account.setSession(user, token)
     },

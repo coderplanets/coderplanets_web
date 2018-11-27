@@ -32,6 +32,8 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:UserBrief')
 /* eslint-enable no-unused-vars */
 
+const DEFAULT_USER_ICON = `${ICON_CMD}/alien_user3.svg`
+
 class UserBrief extends React.Component {
   constructor(props) {
     super(props)
@@ -54,7 +56,10 @@ class UserBrief extends React.Component {
         <AvatarWrapper>
           <Link href={`/user/${user.id}`}>
             <div>
-              <Avatar src={user.avatar} displayStyle={displayStyle} />
+              <Avatar
+                src={user.avatar || DEFAULT_USER_ICON}
+                displayStyle={displayStyle}
+              />
             </div>
           </Link>
 
