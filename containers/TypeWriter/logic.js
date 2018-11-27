@@ -143,7 +143,7 @@ export const onMentionSearch = value => {
 
 export const onMention = user => {
   // tmp test
-  mentionSomeone('1')
+  mentionSomeone('2')
   store.addReferUser(user)
 }
 

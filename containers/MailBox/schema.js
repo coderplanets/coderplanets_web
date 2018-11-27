@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const mentions = gql`
   query($filter: MessagesFilter!) {
@@ -6,6 +7,7 @@ const mentions = gql`
       entries {
         id
         fromUser {
+          ${F.author}
           id
           avatar
           nickname
@@ -15,10 +17,7 @@ const mentions = gql`
         sourceType
         read
       }
-      totalPages
-      totalCount
-      pageSize
-      pageNumber
+      ${F.pagedCounts}
     }
   }
 `

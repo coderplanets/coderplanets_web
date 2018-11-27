@@ -47,6 +47,10 @@ class MailsViewerContainer extends React.Component {
     logic.init(mailsViewer)
   }
 
+  componentDidMount() {
+    logic.loadMentions()
+  }
+
   render() {
     const { mailsViewer } = this.props
     const { activeRaw, pagedMentionsData } = mailsViewer

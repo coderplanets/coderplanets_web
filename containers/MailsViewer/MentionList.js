@@ -20,7 +20,7 @@ import {
   AtLabel,
 } from './styles/mention_list'
 
-import { uid, cutFrom } from '../../utils'
+import { uid } from '../../utils'
 
 const MentionList = ({ data }) => {
   if (R.isEmpty(data.entries)) return <EmptyLabel text="还没有人提到(@)你" />
@@ -35,9 +35,7 @@ const MentionList = ({ data }) => {
                 <MessageHeader>
                   <UserLabel>
                     <UserAvatar src={item.fromUser.avatar} />
-                    <UserNickname>
-                      {cutFrom(item.fromUser.nickname, 8)}
-                    </UserNickname>
+                    <UserNickname>{item.fromUser.nickname}</UserNickname>
                   </UserLabel>
                   <TitleHeader>
                     <TypeLabel>在帖子</TypeLabel>
