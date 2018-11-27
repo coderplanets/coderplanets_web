@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 import { ICON_CMD } from '../../config/assets'
 
 import TabSelector from '../../components/TabSelector'
+import MailLists from './MailLists'
 import { Wrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
@@ -47,15 +48,17 @@ class MailsViewerContainer extends React.Component {
   }
 
   render() {
+    const { mailsViewer } = this.props
+    const { activeRaw, pagedMentionsData } = mailsViewer
+
     return (
       <Wrapper>
         <TabSelector
           source={mailTabs}
-          activeRaw={'mentions'}
-          onChange={debug}
+          activeRaw={activeRaw}
+          onChange={logic.selectChange}
         />
-        <h2>MailsViewer container!</h2>
-        <div>impress me!</div>
+        <MailLists activeRaw={activeRaw} pagedMentions={pagedMentionsData} />
       </Wrapper>
     )
   }

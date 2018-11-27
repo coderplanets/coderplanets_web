@@ -1,7 +1,7 @@
 import React from 'react'
 
 import NotificationList from './NotificationList'
-import SysNotificationList from './SysNotificationList'
+import SysNotifications from './SysNotificationList'
 import MentionList from './MentionList'
 
 const MailLists = ({ activeRaw, pagedMentions }) => {
@@ -10,7 +10,7 @@ const MailLists = ({ activeRaw, pagedMentions }) => {
       return <NotificationList data={[]} />
     }
     case 'sys_notifications': {
-      return <SysNotificationList data={[]} />
+      return <SysNotifications data={[]} />
     }
     default:
       return <MentionList data={pagedMentions} />

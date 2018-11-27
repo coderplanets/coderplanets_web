@@ -14,7 +14,8 @@ const debug = makeDebugger('L:MailsViewer')
 
 let store = null
 
-export function someMethod() {}
+export const selectChange = ({ raw: activeRaw }) =>
+  store.markState({ activeRaw })
 
 // ###############################
 // Data & Error handlers

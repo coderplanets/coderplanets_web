@@ -28,11 +28,8 @@ let store = null
    store.markState({ panelVisiable })
  */
 
-export function selectChange(data) {
-  store.markState({
-    activeRaw: data.raw,
-  })
-}
+export const selectChange = ({ raw: activeRaw }) =>
+  store.markState({ activeRaw })
 
 export const previewUser = user => {
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -41,20 +38,15 @@ export const previewUser = user => {
   })
 }
 
-export function loadMailboxStates() {
-  // debug('loadMailboxStates')
-  sr71$.query(S.mailBoxStatus, {})
-}
+export const loadMailboxStates = () => sr71$.query(S.mailBoxStatus, {})
 
 export function loadMentions() {
   // debug('loadMentions')
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
 
-export const seeAll = () => {
-  debug('seeAll')
+export const seeAll = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
-}
 
 // ###############################
 // Data & Error handlers
