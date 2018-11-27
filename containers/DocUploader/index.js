@@ -12,32 +12,11 @@ import { ASSETS_ENDPOINT } from '../../config'
 import { Wrapper, InputFile } from './styles'
 
 import { makeDebugger, storePlug, uid } from '../../utils'
-import { init, onUploadError } from './logic'
+import { init, onUploadError, getOSSDir, getOSSFileName } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:DocUploader')
 /* eslint-enable no-unused-vars */
-
-const getDir = () => {
-  /* yearYmonthM */
-  const date = new Date()
-  let day = date.getDate()
-  if (day < 10) {
-    day = `0${day}`
-  }
-
-  return `posts/${date.getFullYear()}_${date.getMonth() + 1}/${day}`
-}
-
-const getFileName = filename => {
-  const community = 'javascript'
-  const part = 'post'
-  const partId = '113'
-  const nickname = 'mydearxym'
-  const userId = '112'
-
-  return `${community}--${part}--${partId}--${nickname}-${userId}--${filename}`
-}
 
 class DocUploaderContainer extends React.Component {
   /*
@@ -118,7 +97,7 @@ class DocUploaderContainer extends React.Component {
 
     this.props.onUploadStart()
     const filename = theFile.name
-    const fullpath = `${getDir()}/${getFileName(filename)}`
+    const fullpath = `${getOSSDir()}/${getOSSFileName(filename)}`
 
     this.state.ossClient
       .multipartUpload(fullpath, theFile)

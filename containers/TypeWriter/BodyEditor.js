@@ -45,6 +45,7 @@ class BodyEditor extends React.Component {
       theme: mentionThemeClass,
       mentionPrefix: '@',
     })
+    this.initPubSub()
   }
 
   state = {
