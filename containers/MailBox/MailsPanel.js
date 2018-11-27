@@ -3,8 +3,8 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config/assets'
 
+import TabSelector from '../../components/TabSelector'
 import { Wrapper, SeeAllMessages } from './styles/mails_panel'
-import Selector from './Selector'
 import MailLists from './MailLists'
 
 import { selectChange, seeAll } from './logic'
@@ -42,7 +42,7 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
 
   return (
     <Wrapper>
-      <Selector
+      <TabSelector
         source={mailTabs}
         activeRaw={activeRaw}
         onChange={selectChange}
