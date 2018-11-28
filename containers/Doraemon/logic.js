@@ -316,7 +316,7 @@ const DataSolver = [
       store.setSession(user, token)
       setTimeout(() => {
         Global.location.reload(false)
-      }, 100)
+      }, 200)
     },
   },
   {

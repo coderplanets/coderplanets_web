@@ -19,7 +19,7 @@ const githubLoginHandler = (store, sr71$) => {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
 
         store.toast('info', {
-          title: '正在验证您的 github 账户',
+          title: '正在同步您的 github 账户信息',
           msg: '请稍等。',
           position: 'topCenter',
         })
