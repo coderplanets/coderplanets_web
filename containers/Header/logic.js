@@ -37,14 +37,6 @@ export function previewState() {
   })
 }
 
-export function signinGithub(code) {
-  debug('signin_github: ', code)
-  const args = {
-    code,
-  }
-  sr71$.mutate(S.githubSignin, args)
-}
-
 export function checkSesstionState() {
   setTimeout(() => {
     store.confirmSessionState()

@@ -314,10 +314,7 @@ const DataSolver = [
     match: asyncRes('githubSignin'),
     action: ({ githubSignin: { user, token } }) => {
       store.setSession(user, token)
-      setTimeout(() => {
-        Global.location.href = Global.location.href
-        // Global.location.reload(false)
-      }, 1000)
+      Global.location.href = Global.location.href
     },
   },
   {
