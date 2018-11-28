@@ -46,7 +46,9 @@ export function signinGithub(code) {
 }
 
 export function checkSesstionState() {
-  store.confirmSessionState()
+  setTimeout(() => {
+    store.confirmSessionState()
+  }, 1000)
 }
 
 export function previewAccount() {
