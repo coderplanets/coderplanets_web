@@ -43,17 +43,18 @@ async function fetchData(props) {
   // const userHasLogin = nilOrEmpty(token) === false
 
   /*
-  const { asPath } = props
+     const { asPath } = props
 
-  const community = getMainPath(props)
-  const thread = extractThreadFromPath(props)
-  const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
-  */
+     const community = getMainPath(props)
+     const thread = extractThreadFromPath(props)
+     const filter = { ...queryStringToJSON(asPath, { pagi: 'number' }), community }
+   */
 
   // query data
   // const curCommunity = gqClient.request(P.community, { raw: community })
   // const pagedPosts = gqClient.request(P.pagedPosts, { filter, userHasLogin })
   // const partialTags = gqClient.request(P.partialTags, { thread, community })
+  const sessionState = gqClient.request(P.sessionState)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -62,26 +63,28 @@ async function fetchData(props) {
   })
 
   return {
+    ...(await sessionState),
     ...(await subscribedCommunities),
   }
 }
 
 export default class Index extends React.Component {
   static async getInitialProps(props) {
-    console.log('SSR (index) queryStringToJSON: ')
+    // console.log('SSR (index) queryStringToJSON: ')
+    const { subscribedCommunities, sessionState } = await fetchData(props)
 
-    const { subscribedCommunities } = await fetchData(props)
-    console.log(
-      'index get subscribedCommunities ',
-      subscribedCommunities.totalCount
-    )
-
-    return {}
-    /*
     return {
-      account: { userSubscribedCommunities: subscribedCommunities },
+      account: {
+        user: sessionState.user || {},
+        isValidSession: sessionState.isValid,
+        userSubscribedCommunities: subscribedCommunities,
+      },
     }
-    */
+    /*
+       return {
+       account: { userSubscribedCommunities: subscribedCommunities },
+       }
+     */
   }
 
   constructor(props) {
