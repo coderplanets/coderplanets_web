@@ -319,7 +319,7 @@ const DataSolver = [
       setTimeout(() => {
         Global.location.href = Global.location.href
         // Global.location.reload(false)
-      }, 100)
+      }, 500)
     },
   },
   {
