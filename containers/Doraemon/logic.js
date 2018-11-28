@@ -315,7 +315,8 @@ const DataSolver = [
     action: ({ githubSignin: { user, token } }) => {
       store.setSession(user, token)
       setTimeout(() => {
-        Global.location.reload(false)
+        Global.location.href = Global.location.href
+        // Global.location.reload(false)
       }, 1000)
     },
   },
