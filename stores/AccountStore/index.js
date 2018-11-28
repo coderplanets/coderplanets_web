@@ -65,7 +65,7 @@ const AccountStore = t
     },
     confirmSessionState() {
       debug('confirmSessionState self.isValidSession: ', self.isValidSession)
-      if (!self.isValidSession) return self.sessionCleanup()
+      // if (!self.isValidSession) return self.sessionCleanup()
 
       const token = BStore.get('token')
       if (token) {
