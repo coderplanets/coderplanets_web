@@ -314,9 +314,9 @@ const DataSolver = [
     match: asyncRes('githubSignin'),
     action: ({ githubSignin: { user, token } }) => {
       store.setSession(user, token)
-      // BStore.set('user', githubSignin.user)
-      // BStore.set('token', githubSignin.token)
-      // Global.location.reload(false)
+      setTimeout(() => {
+        Global.location.reload(false)
+      }, 100)
     },
   },
   {
