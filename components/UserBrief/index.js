@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { Button } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, DEFAULT_USER_AVATAR } from '../../config'
 
 import {
   Wrapper,
@@ -31,8 +31,6 @@ import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:UserBrief')
 /* eslint-enable no-unused-vars */
-
-const DEFAULT_USER_ICON = `${ICON_CMD}/alien_user3.svg`
 
 class UserBrief extends React.Component {
   constructor(props) {
@@ -57,7 +55,7 @@ class UserBrief extends React.Component {
           <Link href={`/user/${user.id}`}>
             <div>
               <Avatar
-                src={user.avatar || DEFAULT_USER_ICON}
+                src={user.avatar || DEFAULT_USER_AVATAR}
                 displayStyle={displayStyle}
               />
             </div>

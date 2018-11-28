@@ -1,4 +1,5 @@
 /* config for different envs */
+import { ICON_CMD } from './assets'
 
 const getGraphQLEndpoint = () => {
   /* console.log('process.env: ', process.env) */
@@ -24,6 +25,7 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
   }
 }
+
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
 export const GITHUB_WEB_ADDR =
   'https://github.com/coderplanets/coderplanets_web'
@@ -36,3 +38,5 @@ export const MENTION_USER_ADDR = 'https://coderplanets.com/users/'
 
 export const COMMUNITY_WIKI =
   'https://github.com/coderplanets/cps_cheatsheets/blob/master'
+
+export const DEFAULT_USER_AVATAR = `${ICON_CMD}/alien_user3.svg`
