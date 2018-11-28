@@ -16,6 +16,7 @@ const debug = makeDebugger('S:MailsViewer')
 const MailsViewer = t
   .model('MailsViewer', {
     pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),
+    readState: t.optional(t.boolean, false),
     activeRaw: t.optional(
       t.enumeration('notifications', [
         'notifications',

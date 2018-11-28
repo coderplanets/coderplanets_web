@@ -4,7 +4,7 @@ import NotificationList from './NotificationList'
 import SysNotifications from './SysNotificationList'
 import MentionList from './MentionList'
 
-const MailLists = ({ activeRaw, pagedMentions }) => {
+const MailLists = ({ activeRaw, pagedMentions, readState }) => {
   switch (activeRaw) {
     case 'notifications': {
       return <NotificationList data={[]} />
@@ -13,7 +13,7 @@ const MailLists = ({ activeRaw, pagedMentions }) => {
       return <SysNotifications data={[]} />
     }
     default:
-      return <MentionList data={pagedMentions} />
+      return <MentionList data={pagedMentions} readState={readState} />
   }
 }
 

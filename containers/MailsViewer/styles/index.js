@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '../../../components/Img'
+import Img from '../../../components/Img'
 import { cs, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -17,3 +17,9 @@ export const Wrapper = styled.div`
 `
 
 export const Title = styled.div``
+
+export const OptionToggleIcon = styled(Img)`
+  fill: ${theme('banner.title')};
+  width: 20px;
+  height: 20px;
+`

@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+
 import { ICON_CMD } from '../../config/assets'
 
 import TabSelector from '../../components/TabSelector'
@@ -53,7 +54,7 @@ class MailsViewerContainer extends React.Component {
 
   render() {
     const { mailsViewer } = this.props
-    const { activeRaw, pagedMentionsData } = mailsViewer
+    const { activeRaw, pagedMentionsData, readState } = mailsViewer
 
     return (
       <Wrapper>
@@ -62,7 +63,12 @@ class MailsViewerContainer extends React.Component {
           activeRaw={activeRaw}
           onChange={logic.selectChange}
         />
-        <MailLists activeRaw={activeRaw} pagedMentions={pagedMentionsData} />
+
+        <MailLists
+          activeRaw={activeRaw}
+          pagedMentions={pagedMentionsData}
+          readState={readState}
+        />
       </Wrapper>
     )
   }

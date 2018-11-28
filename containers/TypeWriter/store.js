@@ -168,13 +168,16 @@ const TypeWriterStore = t
       }
     },
     reset() {
-      self.markState({
-        isEdit: false,
-      })
+      self.markState({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
       self.editJob = { title: '', body: '' }
     },
-
+    updateMentionList(mentionArray) {
+      const curMentionList = R.clone(self.mentionList)
+      const uniqList = R.uniq(R.concat(curMentionList, mentionArray))
+      const mentionList = R.map(m => ({ ...m, name: m.nickname }), uniqList)
+      self.mentionList = mentionList
+    },
     addReferUser(user) {
       const index = R.findIndex(u => u.id === String(user.id), self.referUsers)
       if (index === -1) {

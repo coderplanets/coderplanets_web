@@ -6,9 +6,16 @@ import { cs, theme } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   overflow: hidden;
-  margin-left: 30px;
-  margin-right: 40px;
+  margin-left: 20px;
+  margin-right: 30px;
 `
+export const InfoWrapper = styled.div`
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 15px;
+  margin-right: 35px;
+`
+
 export const ListsWrapper = styled.div`
   width: 80%px;
   max-height: 400px;
@@ -37,6 +44,7 @@ export const UserNickname = styled.div`
 export const Message = styled.div`
   ${cs.flexColumn()};
   padding: 10px 15px;
+  position: relative;
   &:hover {
     background: ${theme('thread.articleHover')};
   }
@@ -73,13 +81,14 @@ export const SourcePreview = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
   margin-top: 3px;
+  margin-left: 20px;
   &:hover {
     cursor: pointer;
   }
 `
 export const PreviewBody = styled.div`
   font-style: italic;
-  ${cs.truncate('500px')};
+  ${cs.truncate('550px')};
 `
 export const AtLabel = styled.span`
   margin-left: 3px;

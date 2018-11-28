@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const createPost = gql`
   mutation(
@@ -10,6 +11,7 @@ const createPost = gql`
     $copyRight: String
     $communityId: ID!
     $tags: [Ids]
+    $mentionUsers: [Ids]
     $topic: String
   ) {
     createPost(
@@ -21,6 +23,7 @@ const createPost = gql`
       copyRight: $copyRight
       communityId: $communityId
       tags: $tags
+      mentionUsers: $mentionUsers
       topic: $topic
     ) {
       id
@@ -83,23 +86,12 @@ const createJob = gql`
     }
   }
 `
-
-const mentionSomeone = gql`
-  mutation(
-    $userId: ID!
-    $sourceTitle: String!
-    $sourceId: ID!
-    $sourceType: String!
-    $sourcePreview: String!
-  ) {
-    mentionSomeone(
-      userId: $userId
-      sourceTitle: $sourceTitle
-      sourceId: $sourceId
-      sourceType: $sourceType
-      sourcePreview: $sourcePreview
-    ) {
-      done
+const searchUsers = gql`
+  query($name: String!) {
+    searchUsers(name: $name) {
+      entries {
+        ${F.author}
+      }
     }
   }
 `
@@ -107,7 +99,7 @@ const mentionSomeone = gql`
 const schema = {
   createPost,
   createJob,
-  mentionSomeone,
+  searchUsers,
 }
 
 export default schema

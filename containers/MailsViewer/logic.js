@@ -1,5 +1,6 @@
 // import R from 'ramda'
 
+import { PAGE_SIZE } from '../../config'
 import { makeDebugger, $solver, asyncRes, asyncErr, ERR } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -17,9 +18,17 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
-export function loadMentions() {
+export function loadMentions(page = 1) {
   // debug('loadMentions')
-  sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
+  const read = store.readState
+  sr71$.query(S.mentions, {
+    filter: { page, size: PAGE_SIZE.M, read },
+  })
+  /* sr71$.query(S.mentions, { filter: { page: 1, size: 10 } }) */
+}
+export const toggleReadState = () => {
+  store.markState({ readState: !store.readState })
+  loadMentions()
 }
 
 // ###############################
