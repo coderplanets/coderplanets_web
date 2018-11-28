@@ -76,6 +76,7 @@ const AccountStore = t
       debug('setSession user: ', user)
       debug('setSession token: ', token)
       if (!token || !user) return false
+      self.isValidSession = true
       BStore.set('user', user)
       BStore.set('token', token)
       BStore.cookie.set('jwtToken', token)
@@ -92,9 +93,7 @@ const AccountStore = t
       self.userSubscribedCommunities = data
     },
     addSubscribedCommunity(community) {
-      const {
-        userSubscribedCommunities: { entries },
-      } = self
+      const { userSubscribedCommunities: { entries } } = self
 
       self.userSubscribedCommunities.entries = R.insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
@@ -117,9 +116,7 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const {
-        userSubscribedCommunities: { entries },
-      } = self
+      const { userSubscribedCommunities: { entries } } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.userSubscribedCommunities.entries = R.remove(index, 1, entries)
