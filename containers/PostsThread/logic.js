@@ -86,13 +86,11 @@ export function onTagSelect(tag) {
   store.markRoute({ tag: tag.title })
 }
 
-export const onUserSelect = user => {
-  debug('onUserSelect: ', user)
+export const onUserSelect = user =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
-}
 
 export function onTitleSelect(data) {
   // debug('onTitleSelect publish post: ', data)

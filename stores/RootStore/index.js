@@ -61,6 +61,7 @@ import {
   VideoViewerStore,
   RepoViewerStore,
   CommentsStore,
+  MailsViewerStore,
 
   // toolbox
   DoraemonStore,
@@ -169,6 +170,7 @@ const rootStore = t
     accountViewer: t.optional(AccountViewerStore, {}),
     videoViewer: t.optional(VideoViewerStore, {}),
     repoViewer: t.optional(RepoViewerStore, {}),
+    mailsViewer: t.optional(MailsViewerStore, {}),
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
     userPublishedComments: t.optional(UserPublishedCommentsStore, {}),

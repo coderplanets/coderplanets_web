@@ -1,27 +1,22 @@
 /*
- * MailBox store
+ * MailsViewer store
  *
  */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import {
-  MailStatus,
-  PagedMentionMessages,
-  emptyPagiData,
-} from '../../stores/SharedModel'
+import { PagedMentionMessages, emptyPagiData } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:MailBox')
+const debug = makeDebugger('S:MailsViewer')
 /* eslint-enable no-unused-vars */
 
-const MailBox = t
-  .model('MailBox', {
-    panelVisiable: t.optional(t.boolean, false),
-    mailStatus: t.optional(MailStatus, {}),
+const MailsViewer = t
+  .model('MailsViewer', {
     pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),
+    readState: t.optional(t.boolean, false),
     activeRaw: t.optional(
       t.enumeration('notifications', [
         'notifications',
@@ -35,9 +30,6 @@ const MailBox = t
     get root() {
       return getParent(self)
     },
-    get mailStatusData() {
-      return stripMobx(self.mailStatus)
-    },
     get pagedMentionsData() {
       return stripMobx(self.pagedMentions)
     },
@@ -48,4 +40,4 @@ const MailBox = t
     },
   }))
 
-export default MailBox
+export default MailsViewer

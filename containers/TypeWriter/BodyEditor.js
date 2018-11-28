@@ -45,6 +45,7 @@ class BodyEditor extends React.Component {
       theme: mentionThemeClass,
       mentionPrefix: '@',
     })
+    this.initPubSub()
   }
 
   state = {
@@ -144,7 +145,6 @@ class BodyEditor extends React.Component {
   }
 
   onAddMention = user => {
-    console.log('onAddMention: ', user)
     const { onMention } = this.props
     onMention(user)
     // get the mention object selected

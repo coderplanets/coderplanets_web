@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { Button } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, DEFAULT_USER_AVATAR } from '../../config'
 
 import {
   Wrapper,
@@ -54,7 +54,10 @@ class UserBrief extends React.Component {
         <AvatarWrapper>
           <Link href={`/user/${user.id}`}>
             <div>
-              <Avatar src={user.avatar} displayStyle={displayStyle} />
+              <Avatar
+                src={user.avatar || DEFAULT_USER_AVATAR}
+                displayStyle={displayStyle}
+              />
             </div>
           </Link>
 

@@ -95,6 +95,7 @@ export {
 
 export { default as VideoViewerStore } from '../containers/VideoViewer/store'
 export { default as RepoViewerStore } from '../containers/RepoViewer/store'
+export { default as MailsViewerStore } from '../containers/MailsViewer/store'
 
 // user page
 export {

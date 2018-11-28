@@ -58,11 +58,11 @@ const popup = authUrl => {
 
   // beforeunload not work here casue there is a redirect
   /*
-  window[eventMethod]('beforeunload', () => {
-    console.log('user close authWindow 2 ??')
+     window[eventMethod]('beforeunload', () => {
+     console.log('user close authWindow 2 ??')
      clearInterval(scanTimer)
-  })
-  */
+     })
+   */
 
   // Listen to message from child window
   const authPromise = new Promise((resolve, reject) => {

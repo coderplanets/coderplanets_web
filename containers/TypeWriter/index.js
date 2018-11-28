@@ -78,8 +78,7 @@ class TypeWriterContainer extends React.Component {
       mentionListData,
       referUsersData,
     } = typeWriter
-
-    debug('referUsersData: ', referUsersData)
+    debug('mentionListData --> ', mentionListData)
 
     return (
       <Wrapper>

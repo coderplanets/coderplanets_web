@@ -17,6 +17,8 @@ const WIDE_CASE = [
   TYPE.PREVIEW_REPO_CREATE,
   // video
   TYPE.PREVIEW_VIDEO_VIEW,
+  // mails
+  TYPE.PREVIEW_MAILS_VIEW,
 ]
 const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'

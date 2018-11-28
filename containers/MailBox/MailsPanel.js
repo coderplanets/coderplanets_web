@@ -3,11 +3,11 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config/assets'
 
+import TabSelector from '../../components/TabSelector'
 import { Wrapper, SeeAllMessages } from './styles/mails_panel'
-import Selector from './Selector'
 import MailLists from './MailLists'
 
-import { selectChange } from './logic'
+import { selectChange, seeAll } from './logic'
 
 const mailTabs = [
   {
@@ -42,13 +42,13 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
 
   return (
     <Wrapper>
-      <Selector
+      <TabSelector
         source={mailTabs}
         activeRaw={activeRaw}
         onChange={selectChange}
       />
       <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
-      <SeeAllMessages>查看全部消息</SeeAllMessages>
+      <SeeAllMessages onClick={seeAll}>查看全部消息</SeeAllMessages>
     </Wrapper>
   )
 }

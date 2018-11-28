@@ -31,6 +31,8 @@ export {
 
 export { ContentFilter } from './ContentFilter'
 
+export { MailStatus, MentionMsg, PagedMentionMessages } from './Mail'
+
 export const emptyPagiData = {
   entries: [],
   pageNumber: 1,

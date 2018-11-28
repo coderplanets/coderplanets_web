@@ -13,6 +13,7 @@ import ArticleViwer from '../ArticleViwer'
 // import AccountViewer from '../AccountViewer'
 import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
+import MailsViewer from '../MailsViewer'
 // eiditors
 // import AccountEditor from '../AccountEditor'
 import VideoEditor from '../VideoEditor'
@@ -124,6 +125,9 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     case TYPE.PREVIEW_VIDEO_CREATE: {
       return <VideoEditor />
+    }
+    case TYPE.PREVIEW_MAILS_VIEW: {
+      return <MailsViewer />
     }
     // utils
     default: {

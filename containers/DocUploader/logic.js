@@ -22,6 +22,28 @@ export function onUploadError(error) {
   })
 }
 
+export const getOSSDir = () => {
+  const thread = store.curThread
+  /* yearYmonthM */
+  const date = new Date()
+  let day = date.getDate()
+  if (day < 10) {
+    day = `0${day}`
+  }
+
+  return `${thread}/${date.getFullYear()}_${date.getMonth() + 1}/${day}`
+}
+
+export const getOSSFileName = filename => {
+  const community = store.curCommunity.raw
+  const thread = store.curThread
+  const userName = store.accountInfo.nickname
+  const userId = store.accountInfo.id
+  const id = store.viewingData.id || 'new'
+
+  return `${community}-${thread}-${id}-${userName}-${userId}-${filename}`
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

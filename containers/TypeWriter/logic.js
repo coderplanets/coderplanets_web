@@ -20,7 +20,7 @@ import {
 
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
-import testMentions from './test_mentions'
+// import testMentions from './test_mentions'
 
 const sr71$ = new SR71()
 
@@ -77,14 +77,14 @@ function publishPost() {
     digest,
     length,
     topic,
+    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
-
   /*
-  if (store.viewing.community.raw === ROUTE.HOME) {
-    debug('add topic on it: ', ROUTE.HOME)
-    variables = R.merge(variables, { topic })
-  }
-  */
+     if (store.viewing.community.raw === ROUTE.HOME) {
+     debug('add topic on it: ', ROUTE.HOME)
+     variables = R.merge(variables, { topic })
+     }
+   */
 
   console.log('create post --> ', variables)
   // TODO: topic
@@ -136,29 +136,18 @@ export function insertCode() {
 }
 
 export const onMentionSearch = value => {
-  const mentionList = R.map(m => ({ ...m, name: m.nickname }), testMentions)
-  debug('onMentionSearch value: ', value)
-  store.markState({ mentionList })
-}
-
-export const onMention = user => {
-  // tmp test
-  mentionSomeone('1')
-  store.addReferUser(user)
-}
-
-export const mentionSomeone = userId => {
-  debug('mentionSomeone: ', userId)
-  const args = {
-    userId,
-    sourceTitle: '你好 cps',
-    sourcePreview: '你好 cps 的内容',
-    sourceType: 'POST',
-    sourceId: '1',
+  // const mentionList = R.map(m => ({ ...m, name: m.nickname }), testMentions)
+  if (value && value.length >= 2) {
+    debug('search user for ', value)
+    sr71$.query(S.searchUsers, { name: value })
+  } else {
+    store.markState({ mentionList: [] })
+    // sr71$.query(S.commentParti..., { name: value })
   }
-
-  sr71$.mutate(S.mentionSomeone, args)
+  // store.markState({ mentionList })
 }
+
+export const onMention = user => store.addReferUser(user)
 
 const openAttachment = att => {
   if (!att) return false
@@ -217,16 +206,15 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('mentionSomeone'),
-    action: res => {
-      debug('mentionSomeone done: ', res)
+    match: asyncRes('searchUsers'),
+    action: ({ searchUsers: { entries } }) => {
+      debug('searchUsers done--: ', entries)
+      store.updateMentionList(entries)
     },
   },
 ]
 
-const cancleLoading = () => {
-  store.markState({ publishing: false })
-}
+const cancleLoading = () => store.markState({ publishing: false })
 
 const ErrSolver = [
   {
@@ -255,10 +243,8 @@ const ErrSolver = [
 ]
 
 export function init(_store, attachment) {
-  debug('init')
-  if (store) {
-    return openAttachment(attachment)
-  }
+  if (store) return openAttachment(attachment)
+
   store = _store
 
   if (sub$) sub$.unsubscribe()

@@ -21,21 +21,8 @@ const mentions = gql`
     }
   }
 `
-const mailBoxStatus = gql`
-  query {
-    user {
-      id
-      mailBox {
-        hasMail
-        totalCount
-        mentionCount
-        notificationCount
-      }
-    }
-  }
-`
+
 const schema = {
-  mailBoxStatus,
   mentions,
 }
 

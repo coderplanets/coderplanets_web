@@ -3,25 +3,25 @@ import Router from 'next/router'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
-// import { DEFAULT_ICON } from '../../config/assets'
 
-import Pockect from './Pockect'
-/* import { makeDebugger, Global, dispatchEvent, EVENT, BStore } from '../../utils' */
 import {
   makeDebugger,
   Global,
-  ERR,
+  dispatchEvent,
   asyncRes,
   asyncErr,
-  getQueryFromUrl,
   $solver,
+  EVENT,
+  TYPE,
+  ERR,
   prettyNum,
   THREAD,
   cutFrom,
 } from '../../utils'
-import { SwissArmyKnife } from './helper/swissArmyKnife'
 
-import oauthPopup from './oauth_window'
+import Pockect from './Pockect'
+import { SwissArmyKnife } from './helper/swissArmyKnife'
+import githubLoginHandler from './oauth/github_handler'
 
 const debug = makeDebugger('L:Doraemon')
 const sr71$ = new SR71()
@@ -32,31 +32,7 @@ let pockect$ = null
 let SAK = null
 let cmdResolver = []
 
-function queryPocket() {
-  pockect$.query(store.inputValue)
-}
-
-export function githubLoginHandler() {
-  const clientId = process.env.GITHUB_CLIENT_ID
-  const info = 'from_github'
-  // TODO: prettify signin page
-  const cb = 'https://www.coderplanets.com/oauth'
-  const github = 'https://github.com/login/oauth/authorize'
-  const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
-
-  oauthPopup(url)
-
-  Global.addEventListener('message', e => {
-    if (e.origin === Global.location.origin) {
-      if (e.data.from_oauth_window) {
-        const code = getQueryFromUrl('code', e.data.from_oauth_window)
-
-        sr71$.mutate(S.githubSignin, { code })
-        Global.postMessage({ from_parent: true }, Global.location.href)
-      }
-    }
-  })
-}
+const queryPocket = () => pockect$.query(store.inputValue)
 
 export const searchContents = title => {
   switch (store.searchThread) {
@@ -81,7 +57,7 @@ export const searchContents = title => {
   }
 }
 
-const initCmdResolver = () => {
+const initSpecCmdResolver = () => {
   cmdResolver = [
     {
       match: SAK.stepOneCmd('theme'),
@@ -162,7 +138,7 @@ const initCmdResolver = () => {
         switch (R.last(cmdpath)) {
           case 'github': {
             hidePanel()
-            return githubLoginHandler()
+            return githubLoginHandler(store, sr71$)
           }
           case 'weibo':
           case 'twitter':
@@ -238,6 +214,19 @@ const doSpecCmd = () => {
   return false
 }
 
+const doNavigate = () => {
+  const { id } = store.activeSuggestion
+  if (R.startsWith('user-raw', store.activeSuggestion.raw)) {
+    hidePanel()
+    return dispatchEvent(EVENT.PREVIEW_OPEN, {
+      type: TYPE.PREVIEW_USER_VIEW,
+      data: { id },
+    })
+  }
+
+  debug('doNavigate cmd: ', store.activeSuggestion)
+}
+
 export function handleShortCuts(e) {
   switch (e.key) {
     case 'Tab': {
@@ -248,7 +237,7 @@ export function handleShortCuts(e) {
     }
     case 'Enter': {
       if (store.showThreadSelector) {
-        console.log('current enter activeSuggestion: ', store.activeSuggestion)
+        doNavigate()
       } else {
         doSpecCmd()
       }
@@ -278,7 +267,10 @@ export function handleShortCuts(e) {
 export const navSuggestion = direction => SAK.navSuggestion(direction)
 // mounseEnter
 export const navToSuggestion = suggestion => SAK.navToSuggestion(suggestion)
-export const selectSuggestion = () => doSpecCmd()
+export const selectSuggestion = () => {
+  if (store.showThreadSelector) return doNavigate()
+  doSpecCmd()
+}
 
 export function inputOnBlur() {
   if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
@@ -292,13 +284,8 @@ export function hidePanel() {
   pockect$.stop()
 }
 
-export function inputOnChange(e) {
-  const inputValue = e.target.value
-  store.markState({
-    inputValue,
-    cmdChain: null,
-    // searching: true,
-  })
+export function inputOnChange({ target: { value: inputValue } }) {
+  store.markState({ inputValue, cmdChain: null })
   queryPocket()
 }
 
@@ -339,7 +326,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.logo,
-          raw: `raw-${e.id}`,
+          raw: `community-raw-${e.id}`,
           title: e.title,
           desc: `${e.desc}`,
         }),
@@ -356,7 +343,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.avatar,
-          raw: `raw-${e.id}`,
+          raw: `user-raw-${e.id}`,
           title: e.nickname,
           desc: `${e.bio}`,
         }),
@@ -373,7 +360,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.author.avatar,
-          raw: `raw-${e.id}`,
+          raw: `post-raw-${e.id}`,
           title: e.title,
           desc: `${e.commentsCount}/${prettyNum(e.views)}  ${e.digest}`,
         }),
@@ -390,7 +377,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.companyLogo,
-          raw: `raw-${e.id}`,
+          raw: `job-raw-${e.id}`,
           title: `${e.company} / ${e.title} / ${e.salary}`,
           desc: `${prettyNum(e.views)}  ${e.digest}`,
         }),
@@ -407,7 +394,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.thumbnil,
-          raw: `raw-${e.id}`,
+          raw: `video-raw-${e.id}`,
           title: `${e.title} / ${e.source} / ${e.salary}`,
           desc: `${prettyNum(e.views)} ${e.duration}  ${e.desc}`,
         }),
@@ -423,7 +410,7 @@ const DataSolver = [
       const data = R.map(
         e => ({
           id: e.id,
-          raw: `raw-${e.id}`,
+          raw: `repo-raw-${e.id}`,
           title: `${e.ownerName} / ${cutFrom(e.title, 30)}`,
           desc: `star:${prettyNum(e.starCount)}  ${e.desc}`,
         }),
@@ -477,7 +464,7 @@ export function init(_store) {
   pockect$ = new Pockect(store)
   SAK = new SwissArmyKnife(store)
 
-  initCmdResolver()
+  initSpecCmdResolver()
 
   pockect$.search().subscribe(res => {
     if (R.isEmpty(res)) return emptySearchStates()

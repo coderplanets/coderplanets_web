@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, DEFAULT_USER_AVATAR } from '../../config'
 import { AvatarsRow, SpaceGrow } from '../../components'
 import WordsCounter from './WordsCounter'
 
@@ -15,8 +15,6 @@ import {
 
 import { openInputBox } from './logic'
 // import { Wrapper } from './styles'
-
-const DEFAULT_USER_ICON = `${ICON_CMD}/alien_user3.svg`
 
 const EditorHeader = ({
   accountInfo,
@@ -57,7 +55,7 @@ const EditorHeader = ({
   }
   return (
     <Wrapper>
-      <UserAvatar src={accountInfo.avatar || DEFAULT_USER_ICON} />
+      <UserAvatar src={accountInfo.avatar || DEFAULT_USER_AVATAR} />
       <LeaveResponseText onClick={openInputBox}>
         来都来了, 留条评论吧...
       </LeaveResponseText>
