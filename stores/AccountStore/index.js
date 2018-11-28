@@ -64,6 +64,7 @@ const AccountStore = t
       self.markState({ user })
     },
     confirmSessionState() {
+      debug('confirmSessionState self.isValidSession: ', self.isValidSession)
       if (!self.isValidSession) return self.sessionCleanup()
 
       const token = BStore.get('token')
@@ -91,9 +92,7 @@ const AccountStore = t
       self.userSubscribedCommunities = data
     },
     addSubscribedCommunity(community) {
-      const {
-        userSubscribedCommunities: { entries },
-      } = self
+      const { userSubscribedCommunities: { entries } } = self
 
       self.userSubscribedCommunities.entries = R.insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
@@ -116,9 +115,7 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const {
-        userSubscribedCommunities: { entries },
-      } = self
+      const { userSubscribedCommunities: { entries } } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.userSubscribedCommunities.entries = R.remove(index, 1, entries)

@@ -46,11 +46,6 @@ export function signinGithub(code) {
 }
 
 export function checkSesstionState() {
-  // if (BStore.get('user')) {
-  // NOTICE: if store is not valid json, user will be typeof string
-  // console.log('query sessionState->: ', S.sessionState)
-  // sr71$.query(S.sessionState, {})
-  // }
   store.confirmSessionState()
 }
 
@@ -73,13 +68,6 @@ export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
 const DataSolver = [
-  {
-    // TODO move it to user side view
-    match: asyncRes('githubSigninRes'),
-    action: ({ githubSigninRes }) => {
-      debug('dataResolver  --->', githubSigninRes)
-    },
-  },
   {
     match: asyncRes(EVENT.SET_C11N),
     action: res => {

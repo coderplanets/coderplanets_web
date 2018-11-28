@@ -1,19 +1,6 @@
 import gql from 'graphql-tag'
 // import { F } from '../schemas'
 
-const githubSigninRes = 'githubSignin'
-const githubSignin = gql`
-  mutation($code: String!) {
-    githubSignin(code: $code) {
-      token
-      user {
-        nickname
-        bio
-      }
-    }
-  }
-`
-
 const setCustomization = gql`
   mutation($customization: CustomizationInput!) {
     setCustomization(customization: $customization) {
@@ -29,8 +16,6 @@ const setCustomization = gql`
 `
 
 const schema = {
-  githubSignin,
-  githubSigninRes,
   setCustomization,
 }
 
