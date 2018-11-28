@@ -18,7 +18,11 @@ const githubLoginHandler = (store, sr71$) => {
       if (e.data.from_oauth_window) {
         const code = getQueryFromUrl('code', e.data.from_oauth_window)
 
-        store.toast('info', { title: '正在验证', msg: '请稍等。' })
+        store.toast('info', {
+          title: '正在验证您的 github 账户',
+          msg: '请稍等。',
+          position: 'topCenter',
+        })
         sr71$.mutate(S.githubSignin, { code })
         Global.postMessage({ from_parent: true }, Global.location.href)
       }
