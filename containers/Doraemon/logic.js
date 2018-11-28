@@ -317,7 +317,8 @@ const DataSolver = [
       /* Global.location.href = Global.location.href */
       // IMPORTANT
       setTimeout(() => {
-        Global.location.href = Global.location.href
+        debug('before refresh page: ', Global.location.href)
+        // Global.location.href = Global.location.href
         // Global.location.reload(false)
       }, 1000)
     },
