@@ -316,7 +316,7 @@ const DataSolver = [
       store.setSession(user, token)
       // BStore.set('user', githubSignin.user)
       // BStore.set('token', githubSignin.token)
-      Global.location.reload(false)
+      // Global.location.reload(false)
     },
   },
   {
