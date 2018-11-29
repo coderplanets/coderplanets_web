@@ -58,6 +58,9 @@ const HeaderStore = t
     },
   }))
   .actions(self => ({
+    updateSesstion(state) {
+      self.root.account.updateSesstion(state)
+    },
     toastInfo(options) {
       self.root.toast('info', R.merge({ position: 'topCenter' }, options))
     },

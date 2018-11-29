@@ -318,10 +318,13 @@ const DataSolver = [
 
       /* Global.location.href = Global.location.href */
       // IMPORTANT
+      Global.location.reload()
+      /*
       setTimeout(() => {
         debug('before refresh page: ', Global.location.href)
         Global.location.reload()
       }, 1000)
+      */
     },
   },
   {

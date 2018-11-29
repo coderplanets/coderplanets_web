@@ -15,8 +15,23 @@ const setCustomization = gql`
   }
 `
 
+const sessionState = gql`
+  query {
+    sessionState {
+      isValid
+      user {
+        id
+        geoCity
+        nickname
+        avatar
+      }
+    }
+  }
+`
+
 const schema = {
   setCustomization,
+  sessionState,
 }
 
 export default schema

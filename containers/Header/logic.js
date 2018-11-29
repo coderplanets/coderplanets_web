@@ -37,10 +37,10 @@ export function previewState() {
   })
 }
 
+// to avoid page-cache in server
 export function checkSesstionState() {
-  setTimeout(() => {
-    store.confirmSessionState()
-  }, 1000)
+  sr71$.query(S.sessionState, {})
+  // store.confirmSessionState()
 }
 
 export function previewAccount() {
@@ -62,6 +62,10 @@ export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
 const DataSolver = [
+  {
+    match: asyncRes('sessionState'),
+    action: ({ sessionState: state }) => store.updateSesstion(state),
+  },
   {
     match: asyncRes(EVENT.SET_C11N),
     action: res => {
