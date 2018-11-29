@@ -321,7 +321,7 @@ const DataSolver = [
       setTimeout(() => {
         debug('before refresh page: ', Global.location.href)
         Global.location.reload()
-      }, 200)
+      }, 1000)
     },
   },
   {
