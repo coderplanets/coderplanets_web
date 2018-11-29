@@ -31,6 +31,9 @@ const UsersThread = t
     get curTheme() {
       return self.root.theme.curTheme
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get geoInfosData() {
       return stripMobx(self.geoInfos)
     },

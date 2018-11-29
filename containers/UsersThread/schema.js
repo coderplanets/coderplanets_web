@@ -1,21 +1,18 @@
 import gql from 'graphql-tag'
 
-const citiesGeoInfo = gql`
-  query {
-    citiesGeoInfo {
-      entries {
-        city
-        value
-        long
-        lant
-      }
-      totalCount
+const communityGeoInfo = gql`
+  query($id: ID) {
+    communityGeoInfo(id: $id) {
+      city
+      long
+      lant
+      value
     }
   }
 `
 
 const schema = {
-  citiesGeoInfo,
+  communityGeoInfo,
 }
 
 export default schema

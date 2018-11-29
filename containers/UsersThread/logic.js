@@ -14,11 +14,10 @@ const debug = makeDebugger('L:UsersThread')
 
 let store = null
 
-// citiesGeoInfo
 export function loadGeoData() {
-  debug('loadGeoData')
   store.markState({ geoDataLoading: true })
-  sr71$.query(S.citiesGeoInfo, {})
+  const { id } = store.curCommunity
+  sr71$.query(S.communityGeoInfo, { id })
 }
 
 // ###############################
@@ -27,10 +26,11 @@ export function loadGeoData() {
 
 const DataSolver = [
   {
-    match: asyncRes('citiesGeoInfo'),
-    action: ({ citiesGeoInfo }) => {
+    match: asyncRes('communityGeoInfo'),
+    action: ({ communityGeoInfo }) => {
+      debug('communityGeoInfo:  ', communityGeoInfo)
       store.markState({
-        geoInfos: citiesGeoInfo.entries,
+        geoInfos: communityGeoInfo,
         geoDataLoading: false,
       })
     },
