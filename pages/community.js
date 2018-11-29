@@ -48,6 +48,8 @@ async function fetchData(props) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
+  console.log('token: ', token)
+  console.log('userHasLogin: ', userHasLogin)
   const { asPath } = props
   // schema
 
@@ -119,13 +121,7 @@ export default class PageCommunity extends React.Component {
     }
 
     const { sessionState, partialTags, community, subscribedCommunities } = resp
-
-    /*
-    console.log(
-      'pages get subscribedCommunities: ',
-      subscribedCommunities.totalCount
-    )
-    */
+    console.log('sessionState: ', sessionState)
 
     const contentsThread = ssrContentsThread(resp, thread)
 
