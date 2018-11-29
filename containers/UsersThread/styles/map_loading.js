@@ -6,6 +6,7 @@ import { theme, cs } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   min-height: 400px;
+  padding-top: 80px;
   padding-right: 50px;
 `
 export const LoadingIcon = styled(Img)`
