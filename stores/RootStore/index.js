@@ -249,6 +249,11 @@ const rootStore = t
     sponsorHepler() {
       self.footer.sponsorHepler()
     },
+    cashierHelper(opt) {
+      self.upgradePackges.close()
+      self.footer.closeSponsor()
+      self.cashier.callCashier(opt)
+    },
     toast(type, options = {}) {
       const themeData = themeSkins[self.theme.curTheme]
       const progressBarColor = toastBarColor(type, themeData)

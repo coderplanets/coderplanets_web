@@ -13,7 +13,8 @@ const debug = makeDebugger('S:Cashier')
 
 const Cashier = t
   .model('Cashier', {
-    show: t.optional(t.boolean, true),
+    show: t.optional(t.boolean, false),
+    transferAccount: t.optional(t.string, ''),
     sidebarView: t.optional(
       t.enumeration('sideView', ['pay', 'question']),
       'pay'
@@ -22,9 +23,21 @@ const Cashier = t
       t.enumeration('contentView', ['pay', 'question']),
       'pay'
     ),
+    subContentView: t.optional(
+      t.enumeration('subContentView', ['pay', 'confirm']),
+      'pay'
+    ),
     payMethod: t.optional(
       t.enumeration('payMethod', ['wechat', 'alipay']),
       'alipay'
+    ),
+    payForType: t.optional(
+      t.enumeration('payForType', ['tips', 'upgrade', 'sponsor']),
+      'tips'
+    ),
+    faceValue: t.optional(
+      t.enumeration('faceValue', ['10.24', '51.2', '102.4', '512', '1024']),
+      '10.24'
     ),
   })
   .views(self => ({
@@ -36,6 +49,11 @@ const Cashier = t
     },
   }))
   .actions(self => ({
+    callCashier({ payForType, faceValue }) {
+      self.show = true
+      self.payForType = payForType
+      self.faceValue = String(faceValue)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

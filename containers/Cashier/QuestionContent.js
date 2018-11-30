@@ -14,7 +14,7 @@ const QuestionContent = () => (
     <Title>付款成功但是未填写账户信息怎么办？</Title>
     <Desc>
       这种情况您可以将平台账户信息发邮件至 member@coderplanets.com,
-      我会尽快为您处理。
+      客服会尽快为您处理。
     </Desc>
     <Divider />
     <Title>资金的主要用途是什么？</Title>

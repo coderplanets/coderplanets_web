@@ -52,7 +52,7 @@ class BuyMeChuanChuan extends React.Component {
   }
 
   render() {
-    const { show, fromUser, onClose, onLogin } = this.props
+    const { show, fromUser, onClose, onLogin, onPay } = this.props
     const { activeChuan } = this.state
     return (
       <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
@@ -84,7 +84,7 @@ class BuyMeChuanChuan extends React.Component {
 
               <SelectDesc>
                 你的资助将主要用于 coderplanets
-                网站的运维费用，使之更加稳定可靠。
+                网站的开发和维护，使之更加稳定可靠。
                 同时，资助任意金额即可解锁所有精心设计的主题, 查看详情。
               </SelectDesc>
 
@@ -94,7 +94,7 @@ class BuyMeChuanChuan extends React.Component {
               />
               <SelectHolder />
 
-              <PaymentFooter num={activeChuan} />
+              <PaymentFooter num={activeChuan} onPay={onPay} />
             </ChuanChuanSelect>
           </BuyChuanChuan>
         </Wrapper>
@@ -115,6 +115,7 @@ BuyMeChuanChuan.propTypes = {
   show: PropTypes.bool,
   onClose: PropTypes.func,
   onLogin: PropTypes.func,
+  onPay: PropTypes.func,
 }
 
 BuyMeChuanChuan.defaultProps = {
@@ -122,4 +123,5 @@ BuyMeChuanChuan.defaultProps = {
   show: false,
   onClose: debug,
   onLogin: debug,
+  onPay: debug,
 }

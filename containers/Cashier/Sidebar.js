@@ -6,7 +6,13 @@ import QuestionSidebar from './QuestionSidebar'
 
 import { Wrapper } from './styles/sidebar'
 
-const Sidebar = ({ accountInfo, sidebarView, payMethod }) => {
+const Sidebar = ({
+  accountInfo,
+  sidebarView,
+  faceValue,
+  payMethod,
+  subContentView,
+}) => {
   switch (sidebarView) {
     case 'question': {
       return (
@@ -18,7 +24,12 @@ const Sidebar = ({ accountInfo, sidebarView, payMethod }) => {
     default: {
       return (
         <Wrapper>
-          <PaymentSidebar accountInfo={accountInfo} payMethod={payMethod} />
+          <PaymentSidebar
+            accountInfo={accountInfo}
+            payMethod={payMethod}
+            faceValue={faceValue}
+            subContentView={subContentView}
+          />
         </Wrapper>
       )
     }

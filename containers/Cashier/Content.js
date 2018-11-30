@@ -6,7 +6,13 @@ import QuestionContent from './QuestionContent'
 
 import { Wrapper } from './styles/content'
 
-const Componet = ({ contentView }) => {
+const Componet = ({
+  contentView,
+  faceValue,
+  payMethod,
+  subContentView,
+  transferAccount,
+}) => {
   switch (contentView) {
     case 'question': {
       return <QuestionContent />
@@ -14,7 +20,12 @@ const Componet = ({ contentView }) => {
     default: {
       return (
         <Wrapper>
-          <PaymentContent />
+          <PaymentContent
+            faceValue={faceValue}
+            payMethod={payMethod}
+            subContentView={subContentView}
+            transferAccount={transferAccount}
+          />
         </Wrapper>
       )
     }

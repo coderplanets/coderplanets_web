@@ -30,17 +30,34 @@ class CashierContainer extends React.Component {
 
   render() {
     const { cashier } = this.props
-    const { show, accountInfo, sidebarView, contentView, payMethod } = cashier
+    const {
+      show,
+      accountInfo,
+      sidebarView,
+      contentView,
+      subContentView,
+      payMethod,
+      faceValue,
+      transferAccount,
+    } = cashier
 
     return (
-      <Modal width="520px" show={show} showCloseBtn>
+      <Modal width="520px" show={show} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
           <Sidebar
             accountInfo={accountInfo}
             sidebarView={sidebarView}
+            subContentView={subContentView}
             payMethod={payMethod}
+            faceValue={faceValue}
           />
-          <Content contentView={contentView} />
+          <Content
+            contentView={contentView}
+            subContentView={subContentView}
+            faceValue={faceValue}
+            payMethod={payMethod}
+            transferAccount={transferAccount}
+          />
         </Wrapper>
       </Modal>
     )

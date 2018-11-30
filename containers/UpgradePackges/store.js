@@ -27,6 +27,9 @@ const UpgradePackges = t
     markState(sobj) {
       markStates(sobj, self)
     },
+    close() {
+      self.show = false
+    },
   }))
 
 export default UpgradePackges

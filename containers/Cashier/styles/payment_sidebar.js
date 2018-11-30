@@ -11,16 +11,13 @@ export const Wrapper = styled.div`
   padding: 15px;
   padding-bottom: 0;
 `
-
 export const TransWrapper = styled.div`
   ${cs.flex('align-center')};
 `
-
 export const AccountIcon = styled(Img)`
   ${cs.circle('30px')};
   display: block;
 `
-
 export const TransIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 20px;
@@ -29,7 +26,6 @@ export const TransIcon = styled(Img)`
   margin-left: 10px;
   margin-right: 10px;
 `
-
 export const SiteLogo = styled(Img)`
   width: 30px;
   height: 30px;
@@ -60,14 +56,15 @@ const OptionWrapper = styled.div`
 `
 export const WeixinWrapper = styled(OptionWrapper)`
   color: ${({ active }) => (active ? '#3eb64b' : theme('thread.articleTitle'))};
+  display: ${({ display }) => display || 'block'};
 `
 export const AliWrapper = styled(OptionWrapper)`
   color: ${({ active }) => (active ? '#42abe1' : theme('thread.articleTitle'))};
+  display: ${({ display }) => display || 'block'};
 `
-export const QuestionDivider = styled.div`
-  margin-top: 70px;
+export const Holder = styled.div`
+  margin-top: ${({ margin }) => margin || '80px'};
 `
-
 export const QuestionWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   &:hover {
@@ -77,4 +74,11 @@ export const QuestionWrapper = styled.div`
 `
 export const OptionTitle = styled.span`
   margin-left: 6px;
+`
+export const FaceValueWrapper = styled.div`
+  color: ${theme('thread.articleDigest')};
+`
+export const FaceValueNum = styled.span`
+  color: orange;
+  font-weight: bold;
 `

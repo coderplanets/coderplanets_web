@@ -6,6 +6,7 @@ import {
   holdPage,
   asyncRes,
   asyncErr,
+  Global,
   EVENT,
   ERR,
 } from '../../utils'
@@ -24,11 +25,23 @@ const debug = makeDebugger('L:Cashier')
 
 let store = null
 
-export const sidebarViewOnChange = sidebarView => {
+export const sidebarViewOnChange = sidebarView =>
   store.markState({ sidebarView, contentView: sidebarView })
-}
 
 export const payMethodOnChange = payMethod => store.markState({ payMethod })
+
+export const subContentViewOnChange = subContentView =>
+  store.markState({ subContentView })
+
+export const transferAccountChange = ({ target: { value } }) =>
+  store.markState({ transferAccount: value })
+
+export const onClose = () => {
+  const confirmed = Global.confirm('若已付款，请确保您填写了账户信息')
+
+  if (confirmed) return store.markState({ show: false, subContentView: 'pay' })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

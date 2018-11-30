@@ -44,6 +44,7 @@ class FooterContainer extends React.Component {
           show={showSponsor}
           onClose={logic.toggleSponsorHelper}
           onLogin={logic.onLogin}
+          onPay={logic.onPay}
         />
 
         {curView === 'DIGEST' ? (
