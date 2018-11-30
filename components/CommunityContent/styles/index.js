@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
-  width: 94%;
+  ${cs.flex('justify-center')};
+  width: 95%;
   margin: 40px;
   margin-top: 25px;
   margin-bottom: 10px;
@@ -13,18 +14,7 @@ export const Wrapper = styled.div`
   border: 1px solid;
   border-color: ${theme('content.border')};
   border-radius: 6px;
-  padding: 1em 5em;
-  @media (max-width: 1600px) {
-    padding: 1em 3em;
-  }
-  @media (max-width: 1400px) {
-    padding: 1em 2em;
-    padding-bottom: 0;
-  }
-  @media (max-width: 1200px) {
-    padding: 1em 1em;
-    padding-bottom: 0;
-  }
+  padding: 1em;
 `
 
 export const holder = 1

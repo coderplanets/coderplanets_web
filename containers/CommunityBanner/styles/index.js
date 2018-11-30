@@ -6,6 +6,7 @@ import { theme, cs } from '../../../utils'
 
 export const BaseBanner = styled.nav`
   ${cs.flexColumn('justify-center')};
+  align-items: center;
 
   position: relative;
   min-height: 140px;

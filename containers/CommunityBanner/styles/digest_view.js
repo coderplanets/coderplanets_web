@@ -2,23 +2,29 @@ import styled from 'styled-components'
 
 import { BaseBanner, BaseTabber } from './index'
 import Img from '../../../components/Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs, MEDIA_MAX_WIDTH } from '../../../utils'
 
 export const Wrapper = styled(BaseBanner)`
   min-height: 125px;
+`
+export const InnerWrapper = styled.div`
+  max-width: ${MEDIA_MAX_WIDTH};
+  width: 100%;
 `
 export const BaseBannerContent = styled.div`
   ${cs.flex('align-center')};
 
   margin-left: 8%;
-  margin-right: 8%;
+  margin-right: 7%;
   margin-top: -2rem;
 `
+
+export const BannerContentWrapper = styled(BaseBannerContent)``
+
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
 export const TabberWrapper = styled(BaseTabber)``
-export const BannerContentWrapper = styled(BaseBannerContent)``
 
 export const CommunityWrapper = styled.div`
   ${cs.flexGrow()};

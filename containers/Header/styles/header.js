@@ -1,23 +1,27 @@
 import styled from 'styled-components'
 
 import HeaderSearchSVG from '../../../components/SvgIcons/HeaderSearchSVG'
-import { theme, cs } from '../../../utils'
+import { theme, cs, MEDIA_MAX_WIDTH } from '../../../utils'
 
 export const Wrapper = styled.header`
-  height: 33px;
-  ${cs.flex()};
+  ${cs.flex('justify-center')};
   background: ${({ fixed }) =>
     fixed ? theme('header.fixed') : theme('header.bg')};
-
   border-bottom: 1px solid;
   border-bottom-color: ${theme('header.spliter')};
-  align-items: center;
-  padding: 0 4vw;
-  padding-right: 5.5vw;
   margin-left: ${({ leftOffset }) => leftOffset};
-  transition: all 0.2s;
   box-shadow: ${theme('preview.shadow')};
 `
+export const InnerWrapper = styled.div`
+  ${cs.flex()};
+  max-width: ${MEDIA_MAX_WIDTH};
+  width: 100%;
+  height: 33px;
+  align-items: center;
+  padding: 0 5vw;
+  transition: all 0.2s;
+`
+
 export const RouterWrapper = styled.div`
   ${cs.flexGrow()};
   height: 100%;

@@ -11,6 +11,7 @@ import AddOns from './AddOns'
 
 import {
   Wrapper,
+  InnerWrapper,
   RouterWrapper,
   Search,
   HeaderSearchIcon,
@@ -30,28 +31,30 @@ const Header = ({
   curCommunity,
 }) => (
   <Wrapper id="whereCallShowDoraemon" leftOffset={leftOffset} fixed={fixed}>
-    <RouterWrapper>
-      {fixed ? (
-        <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
-      ) : (
-        <Navigator
-          curCommunity={curCommunity}
-          layout={accountInfo.customization.bannerLayout}
-        />
-      )}
-    </RouterWrapper>
-    <AddOns />
-    <Operations>
-      <Search onClick={openDoraemon}>
-        <HeaderSearchIcon offsettop="-1px" />
-      </Search>
+    <InnerWrapper>
+      <RouterWrapper>
+        {fixed ? (
+          <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
+        ) : (
+          <Navigator
+            curCommunity={curCommunity}
+            layout={accountInfo.customization.bannerLayout}
+          />
+        )}
+      </RouterWrapper>
+      <AddOns />
+      <Operations>
+        <Search onClick={openDoraemon}>
+          <HeaderSearchIcon offsettop="-1px" />
+        </Search>
 
-      {isLogin ? <MailBox /> : null}
+        {isLogin ? <MailBox /> : null}
 
-      <UserLister />
-      <Cashier />
-      <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
-    </Operations>
+        <UserLister />
+        <Cashier />
+        <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
+      </Operations>
+    </InnerWrapper>
   </Wrapper>
 )
 
