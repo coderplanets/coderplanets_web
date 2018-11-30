@@ -7,6 +7,7 @@ import { Tabber, CommunityStatesPad, CommunityHolder } from '../../components'
 
 import {
   Wrapper,
+  InnerWrapper,
   BannerContentWrapper,
   TabberWrapper,
   CommunityWrapper,
@@ -49,22 +50,24 @@ const CommunityBrief = ({ content }) => (
 
 const DigestView = ({ community, activeThread, layout }) => (
   <Wrapper>
-    <BannerContentWrapper>
-      <CommunityBrief content={community} />
-      <CommunityStatesPad
-        community={community}
-        onShowEditorList={showEditorList}
-      />
-      <TabberWrapper>
-        <Tabber
-          source={community.threads}
-          onChange={tabberChange}
-          active={activeThread}
-          layout={layout}
-          communityRaw={community.raw}
+    <InnerWrapper>
+      <BannerContentWrapper>
+        <CommunityBrief content={community} />
+        <CommunityStatesPad
+          community={community}
+          onShowEditorList={showEditorList}
         />
-      </TabberWrapper>
-    </BannerContentWrapper>
+        <TabberWrapper>
+          <Tabber
+            source={community.threads}
+            onChange={tabberChange}
+            active={activeThread}
+            layout={layout}
+            communityRaw={community.raw}
+          />
+        </TabberWrapper>
+      </BannerContentWrapper>
+    </InnerWrapper>
   </Wrapper>
 )
 

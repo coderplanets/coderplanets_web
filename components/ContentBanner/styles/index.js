@@ -7,7 +7,6 @@ export const BaseBanner = styled.nav`
 
   position: relative;
   min-height: 140px;
-  border-bottom: 1px solid tomato;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
