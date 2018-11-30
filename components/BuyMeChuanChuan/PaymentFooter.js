@@ -9,7 +9,7 @@ import {
   MoneyNum,
 } from './styles/payment_footer'
 
-const PaymentFooter = ({ num }) => (
+const PaymentFooter = ({ num, onPay }) => (
   <Wrapper>
     <PayDesc>
       支持:
@@ -22,7 +22,7 @@ const PaymentFooter = ({ num }) => (
         <Icon type="wechat" /> 微信支付
       </Weixin>
     </PayDesc>
-    <Button type="red">
+    <Button type="red" onClick={onPay.bind(this, num * 10.24)}>
       资助 <MoneyNum>￥{num * 10.24} 元</MoneyNum>
     </Button>
   </Wrapper>

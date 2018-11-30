@@ -216,6 +216,7 @@ const AntUIOverWrite = createGlobalStyle`
     background-color: ${theme('button.hoverBg')};
   }
   .ant-btn:active {
+    color: ${theme('button.fg')} !important;
     background-color: ${theme('button.activeBg')};
   }
   .ant-btn-background-ghost.ant-btn-primary.hover,

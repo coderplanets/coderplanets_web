@@ -47,8 +47,14 @@ const Footer = t
     authWarning(options) {
       self.root.authWarning(options)
     },
+    cashierHelper(opt) {
+      self.root.cashierHelper(opt)
+    },
     sponsorHepler() {
       self.showSponsor = true
+    },
+    closeSponsor() {
+      self.showSponsor = false
     },
     markState(sobj) {
       markStates(sobj, self)

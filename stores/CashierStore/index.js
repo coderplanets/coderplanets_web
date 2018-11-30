@@ -1,5 +1,5 @@
 /*
-* UpgradePackges store
+* CashierStore store
 *
 */
 
@@ -8,28 +8,20 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:UpgradePackges')
+const debug = makeDebugger('S:CashierStore')
 /* eslint-enable no-unused-vars */
 
-const UpgradePackges = t
-  .model('UpgradePackges', {
-    show: t.optional(t.boolean, false),
-  })
+const CashierStore = t
+  .model('CashierStore', {})
   .views(self => ({
     get root() {
       return getParent(self)
     },
   }))
   .actions(self => ({
-    upgradeHepler() {
-      self.show = true
-    },
     markState(sobj) {
       markStates(sobj, self)
     },
-    close() {
-      self.show = false
-    },
   }))
 
-export default UpgradePackges
+export default CashierStore

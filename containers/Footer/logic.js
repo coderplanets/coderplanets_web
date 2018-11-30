@@ -22,6 +22,8 @@ export function toggleSponsorHelper() {
 }
 
 export const onLogin = () => store.authWarning({ hideToast: true })
+export const onPay = num =>
+  store.cashierHelper({ payForType: 'tips', faceValue: num })
 // ###############################
 // Data & Error handlers
 // ###############################
