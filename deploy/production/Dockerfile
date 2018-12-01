@@ -8,6 +8,7 @@ RUN cd /root/web/ && npm install --registry=https://registry.npm.taobao.org
 
 ARG GITHUB_CLIENT_ID=3b4281c5e54ffd801f85
 ARG SERVE_PORT=8002
+ARG SIMU_ARG=JJJ
 
 RUN cd /root/web/ && make build.prod
 
