@@ -16,7 +16,7 @@ export const BannerContainer = styled(BaseBanner)``
 export const TabberWrapper = styled.div`
   ${cs.flex()};
   width: 80vw;
-  margin-left: 120px;
+  margin-left: 250px;
   margin-top: 4px;
 `
 export const BannerContentWrapper = styled(BaseBannerContent)``

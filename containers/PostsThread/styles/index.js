@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   ${cs.flex()};
   max-width: 1400px;
   padding-top: 8px;
+  width: 100%;
 `
 
 export const LeftPadding = styled.div`
