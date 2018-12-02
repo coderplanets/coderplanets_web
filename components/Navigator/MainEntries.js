@@ -10,7 +10,7 @@ const splitMargin = '8px'
 const MainEntries = () => (
   <Wrapper>
     <Link href="/home/posts">
-      <SiteLink>首页(-)</SiteLink>
+      <SiteLink>首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
     <a href="/communities">
