@@ -13,7 +13,6 @@ export const HeaderMailIcon = styled(HeaderMailSVG)`
   height: 20px;
   cursor: pointer;
   margin-right: 12px;
-  margin-top: -2px;
 `
 export const NofityDot = styled.div`
   position: absolute;

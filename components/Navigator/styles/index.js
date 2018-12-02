@@ -11,7 +11,7 @@ export const Breadcrumbs = styled.div`
 `
 export const Logo = styled(Img)`
   height: 22px;
-  margin-top: 1px;
+  margin-top: -5px;
   width: 22px;
   opacity: 0.7;
 `

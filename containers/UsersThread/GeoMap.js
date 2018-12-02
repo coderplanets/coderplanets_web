@@ -6,6 +6,8 @@ import { withTheme } from 'styled-components'
 import fetchGeoData from './geo_data'
 
 import { Margin } from '../../components'
+
+import { MapWrapper } from './styles'
 import { makeDebugger, uid, theme as themeHelper } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -147,7 +149,7 @@ class LocationMap extends React.Component {
 
   render() {
     return (
-      <div>
+      <MapWrapper>
         <ReactResizeDetector
           handleWidth
           refreshMode="debounce"
@@ -158,7 +160,7 @@ class LocationMap extends React.Component {
         />
         <div id={this.chartId} />
         <Margin bottom="10px" />
-      </div>
+      </MapWrapper>
     )
   }
 }
