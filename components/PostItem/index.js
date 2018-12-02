@@ -21,15 +21,14 @@ const debug = makeDebugger('c:PostItem:index')
 
 const PostItem = ({
   entry,
+  cover,
   active,
   onTitleSelect,
   onUserSelect,
   accountInfo,
 }) => {
   // debug('customization --> ', customization)
-  const {
-    customization: { contentsLayout, contentDivider },
-  } = accountInfo
+  const { customization: { contentsLayout, contentDivider } } = accountInfo
 
   /*
      debug('entry --> ', entry)
@@ -46,11 +45,12 @@ const PostItem = ({
       {contentsLayout === C11N.DIGEST ? (
         <DigestView
           entry={entry}
+          cover={cover}
           onTitleSelect={onTitleSelect}
           onUserSelect={onUserSelect}
         />
       ) : (
-        <ListView entry={entry} onTitleSelect={onTitleSelect} />
+        <ListView entry={entry} cover={cover} onTitleSelect={onTitleSelect} />
       )}
     </Wrapper>
   )
@@ -58,7 +58,6 @@ const PostItem = ({
 
 PostItem.propTypes = {
   active: PropTypes.object,
-
   entry: PropTypes.shape({
     title: PropTypes.string,
     digest: PropTypes.string,
@@ -69,6 +68,7 @@ PostItem.propTypes = {
       avatar: PropTypes.string,
     }),
   }).isRequired,
+  cover: PropTypes.oneOf(['avatar', 'source']),
 
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
@@ -86,6 +86,7 @@ PostItem.defaultProps = {
   onTitleSelect: debug,
   onUserSelect: debug,
   active: {},
+  cover: 'avatar',
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({

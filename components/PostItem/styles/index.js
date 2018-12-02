@@ -42,6 +42,7 @@ export const SecondHalf = styled.div`
 
 export const Avatar = styled(Img)`
   ${cs.circle('42px')};
+  fill: ${theme('thread.articleTitle')};
   opacity: ${theme('avatarOpacity')};
   display: block;
   margin-top: 2px;

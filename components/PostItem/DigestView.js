@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ICON_BASE } from '../../config'
 
 import AvatarsRow from '../AvatarsRow'
 import InlineTags from '../InlineTags'
@@ -22,9 +22,15 @@ import {
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
-const DigestView = ({ entry, onTitleSelect, onUserSelect }) => (
+const DigestView = ({ entry, cover, onTitleSelect, onUserSelect }) => (
   <React.Fragment>
-    <Avatar src={entry.author.avatar} />
+    {cover === 'avatar' ? (
+      <Avatar src={entry.author.avatar} />
+    ) : (
+      <Avatar
+        src={entry.sourceLogo || `${ICON_BASE}/radar_source/default.svg`}
+      />
+    )}
     <Main>
       <TopHalf>
         <Breif onClick={onTitleSelect.bind(this, entry)}>

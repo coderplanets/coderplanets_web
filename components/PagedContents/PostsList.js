@@ -12,6 +12,7 @@ import { uid, TYPE, Trans } from '../../utils'
 const PostsList = ({ props }) => {
   const {
     entries,
+    cover,
     active,
     curView,
     community,
@@ -30,6 +31,7 @@ const PostsList = ({ props }) => {
             <PostItem
               key={uid.gen()}
               entry={entry}
+              cover={cover}
               active={active}
               accountInfo={accountInfo}
               onUserSelect={onUserSelect}

@@ -18,6 +18,7 @@ const debug = makeDebugger('c:PagedContents:index')
 
 const PagedContents = ({
   thread,
+  cover,
   active,
   data: { entries, pageNumber, pageSize, totalCount },
   curView,
@@ -31,6 +32,7 @@ const PagedContents = ({
   <React.Fragment>
     <ContentList
       thread={thread}
+      cover={cover}
       active={active}
       entries={entries}
       curView={curView}
@@ -53,6 +55,7 @@ const PagedContents = ({
 
 PagedContents.propTypes = {
   thread: PropTypes.oneOf([THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]),
+  cover: PropTypes.oneOf(['avatar', 'source']),
   active: PropTypes.object,
   data: PropTypes.shape({
     entries: PropTypes.array.isRequired,
@@ -84,6 +87,7 @@ PagedContents.propTypes = {
 
 PagedContents.defaultProps = {
   thread: THREAD.POST,
+  cover: 'avatar',
   active: {},
   curView: TYPE.LOADING,
   emptyPrefix: '',
