@@ -35,12 +35,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -73,7 +68,6 @@ export function loadPosts(page = 1) {
   args.filter = validFilter(args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
-  debug('loadPosts args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page })
 }
@@ -130,7 +124,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      console.log('pagedPosts --> ', pagedPosts)
+      debug('pagedPosts: ', pagedPosts)
       let curView = TYPE.RESULT
       if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -184,19 +178,12 @@ const ErrSolver = [
   },
 ]
 
-const loadIfNeed = () => {
-  if (store.pagedPostsData.totalCount === 0) {
-    loadPosts()
-  }
+export function init(_store) {
+  store = _store
+  // if (sub$) sub$.unsubscribe()
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function init(_store) {
-  if (store) {
-    return loadIfNeed()
-  }
-  store = _store
-
+export function uninit() {
   if (sub$) sub$.unsubscribe()
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadIfNeed()
 }

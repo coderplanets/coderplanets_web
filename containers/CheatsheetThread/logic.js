@@ -99,13 +99,14 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return getCheatsheet()
-  }
   store = _store
 
   debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   getCheatsheet()
+}
+
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }

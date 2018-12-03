@@ -20,6 +20,7 @@ const debug = makeDebugger('C:UsersThread')
 let GeoMapSSR = null
 
 class UsersThreadContainer extends React.Component {
+  /*
   constructor(props) {
     super(props)
 
@@ -31,6 +32,23 @@ class UsersThreadContainer extends React.Component {
       loading: () => <MapLoading />,
       ssr: false,
     })
+  }
+  */
+
+  componentDidMount() {
+    const { usersThread } = this.props
+
+    logic.init(usersThread)
+
+    GeoMapSSR = dynamic({
+      loader: () => import('./GeoMap.js'),
+      loading: () => <MapLoading />,
+      ssr: false,
+    })
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

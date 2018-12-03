@@ -20,7 +20,8 @@ const sr71$ = new SR71({
   resv_event: [
     EVENT.REFRESH_REPOS,
     EVENT.PREVIEW_CLOSED,
-    // EVENT.COMMUNITY_CHANGE,
+    EVENT.COMMUNITY_CHANGE,
+    EVENT.TABBER_CHANGE,
   ],
 })
 let sub$ = null
@@ -31,12 +32,7 @@ const debug = makeDebugger('L:ReposThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -109,6 +105,14 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadRepos(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
+    action: () => loadRepos(),
+  },
+  {
     match: asyncRes(EVENT.REFRESH_REPOS),
     action: () => loadRepos(),
   },
@@ -119,26 +123,13 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-const loadIfNeed = () => {
-  /* loadVideos() */
-  /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
-  loadRepos()
-  /*
-  if (R.isEmpty(store.pagedReposData.entries)) {
-    loadRepos()
-  }
-  */
-}
-
 export function init(_store) {
-  if (store) {
-    return loadIfNeed()
-  }
   store = _store
 
-  debug(store)
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
 
-  loadIfNeed()
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }

@@ -24,6 +24,7 @@ const sr71$ = new SR71({
     EVENT.REFRESH_JOBS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
+    EVENT.TABBER_CHANGE,
   ],
 })
 /* eslint-disable no-unused-vars */
@@ -33,12 +34,7 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -103,6 +99,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedJobs'),
     action: ({ pagedJobs }) => {
+      debug('pagedJobs --> ', pagedJobs)
       let curView = TYPE.RESULT
       if (pagedJobs.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -116,6 +113,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadJobs(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
     action: () => loadJobs(),
   },
   {
@@ -150,14 +151,12 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return false // loadIfNeed()
-  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
 
-  // loadIfNeed()
-  /* loadJobs() */
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }

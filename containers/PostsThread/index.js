@@ -39,11 +39,15 @@ const LabelText = {
   city: '发布同城帖',
 }
 
+// see https://stackoverflow.com/questions/38137740/which-kinds-of-initialization-is-more-appropriate-in-constructor-vs-componentwil/
 class PostsThreadContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { postsThread } = props
+  componentDidMount() {
+    const { postsThread } = this.props
     logic.init(postsThread)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

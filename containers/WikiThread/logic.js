@@ -5,6 +5,7 @@ import {
   $solver,
   asyncRes,
   asyncErr,
+  EVENT,
   TYPE,
   ERR,
   githubApi,
@@ -13,7 +14,9 @@ import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -70,6 +73,14 @@ const DataSolver = [
     match: asyncRes('addWikiContributor'),
     action: () => getWiki(),
   },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => getWiki(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
+    action: () => getWiki(),
+  },
 ]
 const ErrSolver = [
   {
@@ -95,15 +106,14 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return getWiki()
-  }
-
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  // if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   getWiki()
+}
+
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }

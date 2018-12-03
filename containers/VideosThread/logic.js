@@ -3,7 +3,9 @@ import R from 'ramda'
 import { PAGE_SIZE } from '../../config'
 import {
   makeDebugger,
+  asyncErr,
   $solver,
+  ERR,
   TYPE,
   EVENT,
   THREAD,
@@ -20,6 +22,7 @@ const sr71$ = new SR71({
     EVENT.REFRESH_VIDEOS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
+    EVENT.TABBER_CHANGE,
   ],
 })
 
@@ -31,12 +34,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -106,6 +104,14 @@ const DataSolver = [
     action: () => loadVideos(),
   },
   {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => loadVideos(),
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
+    action: () => loadVideos(),
+  },
+  {
     match: asyncRes(EVENT.REFRESH_VIDEOS),
     action: () => loadVideos(),
   },
@@ -118,29 +124,35 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
 ]
-const ErrSolver = []
 
-const loadIfNeed = () => {
-  /* loadVideos() */
-  /* console.log('store.pagedVideos.entries --> ', store.pagedVideosData.entries) */
-  loadVideos()
-
-  /*
-  if (R.isEmpty(store.pagedVideosData.entries)) {
-    loadVideos()
-  }
-  */
-}
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      debug('ERR.CRAPHQL -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+    },
+  },
+]
 
 export function init(_store) {
-  if (store) {
-    return loadIfNeed()
-  }
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  // if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
 
-  loadIfNeed()
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }

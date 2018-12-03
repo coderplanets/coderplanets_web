@@ -28,7 +28,7 @@ const DataSolver = [
   {
     match: asyncRes('communityGeoInfo'),
     action: ({ communityGeoInfo }) => {
-      debug('communityGeoInfo:  ', communityGeoInfo)
+      debug('communityGeoInfo->:  ', communityGeoInfo)
       store.markState({
         geoInfos: communityGeoInfo,
         geoDataLoading: false,
@@ -58,12 +58,13 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return loadGeoData()
-  }
   store = _store
 
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadGeoData()
+}
+
+export function uninit() {
+  if (sub$) sub$.unsubscribe()
 }
