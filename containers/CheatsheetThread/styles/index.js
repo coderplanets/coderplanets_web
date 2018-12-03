@@ -5,6 +5,7 @@ import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
+  width: 100%;
   padding: 20px;
 `
 export const CardWrapper = styled.div`

@@ -7,6 +7,7 @@ import { cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
+  width: 100%;
 `
 export const LeftPadding = styled.div`
   width: 2.5vw;

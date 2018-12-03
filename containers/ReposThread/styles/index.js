@@ -6,6 +6,7 @@ import { cs } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flex()};
   max-width: 1400px;
+  width: 100%;
 `
 export const ViewerWrapper = styled.div`
   margin-top: -6px;
