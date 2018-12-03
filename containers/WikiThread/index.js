@@ -55,10 +55,6 @@ class WikiThreadContainer extends React.Component {
     logic.init(wikiThread)
   }
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
   render() {
     const { wikiThread } = this.props
     const { wikiData, curView, curCommunity } = wikiThread

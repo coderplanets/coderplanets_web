@@ -42,10 +42,6 @@ class JobsThreadContainer extends React.Component {
     logic.init(jobsThread)
   }
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
   render() {
     const { jobsThread } = this.props
 

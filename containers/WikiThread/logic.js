@@ -108,12 +108,8 @@ const ErrSolver = [
 export function init(_store) {
   store = _store
 
-  // if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   getWiki()
-}
-
-export function uninit() {
-  if (sub$) sub$.unsubscribe()
 }

@@ -47,10 +47,6 @@ class UsersThreadContainer extends React.Component {
     })
   }
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
   render() {
     const { usersThread } = this.props
     const { geoInfosData, geoDataLoading, curTheme } = usersThread

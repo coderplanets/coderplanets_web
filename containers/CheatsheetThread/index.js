@@ -52,10 +52,6 @@ class CheatsheetThreadContainer extends React.Component {
     }, 1000)
   }
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
   render() {
     const { cheatsheetThread } = this.props
     const { cheatsheetData, curView, curCommunity } = cheatsheetThread

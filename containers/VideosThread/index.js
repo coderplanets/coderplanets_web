@@ -40,10 +40,6 @@ class VideosThreadContainer extends React.Component {
     logic.init(videosThread)
   }
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
   render() {
     const { videosThread } = this.props
 

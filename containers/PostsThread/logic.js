@@ -187,8 +187,3 @@ export function init(_store) {
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
-
-export function uninit() {
-  // debug('======== un init')
-  // if (sub$) sub$.unsubscribe()
-}

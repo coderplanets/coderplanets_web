@@ -34,12 +34,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -154,10 +149,6 @@ const ErrSolver = [
 export function init(_store) {
   store = _store
 
-  // if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-}
-
-export function uninit() {
-  if (sub$) sub$.unsubscribe()
 }
