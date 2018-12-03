@@ -28,15 +28,15 @@ const PostItem = ({
   accountInfo,
 }) => {
   // debug('customization --> ', customization)
-  const {
-    customization: { contentsLayout, contentDivider },
-  } = accountInfo
+  const { customization: { contentsLayout, contentDivider } } = accountInfo
 
-  /*
-     debug('entry --> ', entry)
-     debug('active --> ', active)
-     debug('accountInfo --> ', accountInfo)
-   */
+  debug('entry --> ', entry)
+  debug('active --> ', active)
+
+  debug('accountInfo.isLogin --> ', accountInfo.isLogin)
+  debug('accountInfo.markViewed --> ', accountInfo.customization.markViewed)
+  debug('get opacity: ', getOpacity(entry, active, accountInfo))
+  debug('=========================================================')
 
   return (
     <Wrapper
