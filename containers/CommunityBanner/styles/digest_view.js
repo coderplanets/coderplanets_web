@@ -33,6 +33,7 @@ export const CommunityWrapper = styled.div`
 export const LogoWrapper = styled.div`
   position: relative;
   width: 60px;
+  margin-top: ${({ raw }) => (raw === 'home' ? '-14px' : 0)};
   @media (max-height: 800px) {
     width: 50px;
   }
@@ -41,6 +42,7 @@ export const CommunityLogo = styled(Img)`
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
   width: 60px;
   height: 60px;
+  display: block;
   @media (max-height: 800px) {
     width: 50px;
     height: 50px;

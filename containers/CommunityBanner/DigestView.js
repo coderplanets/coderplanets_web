@@ -27,7 +27,7 @@ const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
 const CommunityBrief = ({ content }) => (
   <CommunityWrapper>
-    <LogoWrapper>
+    <LogoWrapper raw={content.raw}>
       {content.logo ? (
         <CommunityLogo
           nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
