@@ -46,8 +46,10 @@ class PostsThreadContainer extends React.Component {
     logic.init(postsThread)
   }
 
+  // componentWillUnmount will be called everytime when route changes
+  // so don't use
   componentWillUnmount() {
-    logic.uninit()
+    // logic.uninit()
   }
 
   render() {

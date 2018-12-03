@@ -189,6 +189,6 @@ export function init(_store) {
 }
 
 export function uninit() {
-  debug('======== un init')
-  if (sub$) sub$.unsubscribe()
+  // debug('======== un init')
+  // if (sub$) sub$.unsubscribe()
 }

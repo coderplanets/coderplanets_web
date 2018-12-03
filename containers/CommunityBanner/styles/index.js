@@ -22,5 +22,6 @@ export const BaseTabber = styled.div`
 
   position: absolute;
   bottom: -16px;
+  margin-left: -10px;
   width: 80vw;
 `
