@@ -35,12 +35,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -143,7 +138,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadPosts(),
+    action: () => {
+      debug('======= fucking COMMUNITY_CHANGE ')
+      loadPosts()
+    },
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
@@ -184,11 +182,13 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
+  debug('======== init')
   store = _store
   // if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
 export function uninit() {
+  debug('======== un init')
   if (sub$) sub$.unsubscribe()
 }
