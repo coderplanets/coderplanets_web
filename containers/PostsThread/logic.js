@@ -13,7 +13,7 @@ import {
   THREAD,
   $solver,
   scrollIntoEle,
-  closePreviewer,
+  // closePreviewer,
   // GA,
 } from '../../utils'
 
@@ -184,7 +184,7 @@ const ErrSolver = [
 
 export function init(_store) {
   debug('======== init')
-  closePreviewer()
+  // closePreviewer()
   store = _store
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

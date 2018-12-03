@@ -131,7 +131,7 @@ export default class PageCommunity extends React.Component {
           isValidSession: sessionState.isValid,
           userSubscribedCommunities: subscribedCommunities,
         },
-        viewing: { community, activeThread: R.toLower(thread) },
+        viewing: { community, activeThread: R.toLower(thread), post: {} },
         route: { mainPath: community.raw, subPath },
         tagsBar: { tags: partialTags },
       },
