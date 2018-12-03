@@ -34,7 +34,12 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
+const validFilter = R.pickBy(
+  R.compose(
+    R.not,
+    R.isEmpty
+  )
+)
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
