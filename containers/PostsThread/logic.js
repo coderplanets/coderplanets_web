@@ -13,8 +13,6 @@ import {
   THREAD,
   $solver,
   scrollIntoEle,
-  // closePreviewer,
-  // GA,
 } from '../../utils'
 
 import S from './schema'
@@ -36,7 +34,12 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
+const validFilter = R.pickBy(
+  R.compose(
+    R.not,
+    R.isEmpty
+  )
+)
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -184,7 +187,7 @@ const ErrSolver = [
 
 export function init(_store) {
   debug('======== init')
-  // closePreviewer()
+
   store = _store
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

@@ -36,6 +36,7 @@ export const LogoWrapper = styled.div`
   margin-top: ${({ raw }) => (raw === 'home' ? '-14px' : 0)};
   @media (max-height: 800px) {
     width: 50px;
+    margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
   }
 `
 export const CommunityLogo = styled(Img)`
