@@ -17,13 +17,11 @@ import {
   PopNickname,
 } from './styles/states_containers'
 
-import { uid } from '../../utils'
-
 const BuilderList = ({ entries }) => (
   <BuilderWrapper>
     {entries.map(builder => (
       <Popover
-        key={uid.gen()}
+        key={builder.htmlUrl}
         content={
           <PopInfo>
             <PopAvatar src={builder.avatar} />

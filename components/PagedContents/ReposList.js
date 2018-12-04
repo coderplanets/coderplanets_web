@@ -7,7 +7,7 @@ import RepoItem from '../RepoItem'
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
 
-import { uid, TYPE, Trans } from '../../utils'
+import { TYPE, Trans } from '../../utils'
 
 const ReposList = ({ props }) => {
   const {
@@ -27,7 +27,7 @@ const ReposList = ({ props }) => {
         <React.Fragment>
           {entries.map(entry => (
             <RepoItem
-              key={uid.gen()}
+              key={entry.id}
               entry={entry}
               active={active}
               accountInfo={accountInfo}

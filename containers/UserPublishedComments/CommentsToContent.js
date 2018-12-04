@@ -17,7 +17,7 @@ import {
 
 import Parent from './Parent'
 
-import { uid, TYPE, Trans } from '../../utils'
+import { TYPE, Trans } from '../../utils'
 
 const CommentsToContent = ({ data, thread, curView, onTitleSelect }) => {
   const { entries } = data
@@ -27,7 +27,7 @@ const CommentsToContent = ({ data, thread, curView, onTitleSelect }) => {
       return (
         <Wrapper>
           {entries.map(comment => (
-            <div key={uid.gen()}>
+            <div key={comment.id}>
               <CommentBlock onClick={onTitleSelect.bind(this, comment)}>
                 <Parent data={comment} thread={thread} />
                 <CommentBox>

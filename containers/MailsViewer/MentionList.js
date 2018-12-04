@@ -24,7 +24,6 @@ import {
 } from './styles/mention_list'
 
 import { loadMentions } from './logic'
-import { uid } from '../../utils'
 
 const MentionList = ({
   data: { entries, pageNumber, pageSize, totalCount },
@@ -40,7 +39,7 @@ const MentionList = ({
 
       <ListsWrapper>
         {entries.map(item => (
-          <React.Fragment key={uid.gen()}>
+          <React.Fragment key={item.id}>
             <Message>
               <MessageHeader>
                 <UserLabel>

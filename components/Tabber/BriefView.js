@@ -3,13 +3,13 @@ import React from 'react'
 import { Wrapper, TabItem } from './styles/brief_view'
 import TabIcon from './TabIcon'
 
-import { uid, Trans, sortByIndex } from '../../utils'
+import { Trans, sortByIndex } from '../../utils'
 
 const BriefView = ({ source, active, onChange }) => (
   <Wrapper>
     {sortByIndex(source).map(item => (
       <TabItem
-        key={uid.gen()}
+        key={item.raw}
         active={item.raw === active}
         onClick={onChange.bind(this, item.raw)}
       >

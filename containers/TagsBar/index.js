@@ -14,7 +14,6 @@ import { withGuardian } from '../../components/HOC'
 import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
 
 import {
-  uid,
   makeDebugger,
   storePlug,
   sortByColor,
@@ -61,7 +60,7 @@ class TagsBarContainer extends React.Component {
 
         {sortedTags.map(tag => (
           <TagItem
-            key={uid.gen()}
+            key={tag.id}
             onClick={this.onSelect.bind(this, {
               id: tag.id,
               title: tag.title,

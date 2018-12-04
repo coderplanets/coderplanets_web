@@ -23,7 +23,7 @@ import {
 } from './styles/user_list'
 
 import { onFollow, undoFollow } from './logic'
-import { makeDebugger, uid } from '../../utils'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:UserList:index')
@@ -32,7 +32,7 @@ const debug = makeDebugger('c:UserList:index')
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>
     {entries.map(user => (
-      <UserWrapper key={uid.gen()}>
+      <UserWrapper key={user.id}>
         <UserAvatar src={user.avatar} />
         <UserBrief>
           <Title>

@@ -15,8 +15,6 @@ import {
   PublishInfo,
 } from './styles/footer'
 
-import { uid } from '../../utils'
-
 const Footer = ({ contributors, author, insertedAt }) => (
   <Wrapper>
     <Contributors>
@@ -24,7 +22,7 @@ const Footer = ({ contributors, author, insertedAt }) => (
         <Popover
           placement="bottom"
           trigger="hover"
-          key={uid.gen()}
+          key={builder.htmlUrl}
           content={
             <PopoverInfo>
               <PopAvatar src={builder.avatar} />

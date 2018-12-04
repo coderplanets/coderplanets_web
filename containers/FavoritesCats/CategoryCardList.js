@@ -19,7 +19,7 @@ import {
   Desc,
 } from './styles/category_card_list'
 
-import { uid, cutFrom } from '../../utils'
+import { cutFrom } from '../../utils'
 import { loadCategories, switchToUpdater } from './logic'
 
 const CategoryCardList = ({
@@ -29,7 +29,7 @@ const CategoryCardList = ({
   <Wrapper>
     <CardListWrapper>
       {entries.map(cat => (
-        <BoxWrapper key={uid.gen()}>
+        <BoxWrapper key={cat.id}>
           <Header>
             <Title onClick={onSelect.bind(this, cat)}>
               <TitleText>{cutFrom(cat.title, 10)}</TitleText>

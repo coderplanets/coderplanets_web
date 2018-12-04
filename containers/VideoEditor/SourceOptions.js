@@ -4,8 +4,6 @@ import R from 'ramda'
 import { ICON_CMD } from '../../config'
 import { Wrapper, ItemWrapper, Title, Icon } from './styles/source_options'
 
-import { uid } from '../../utils'
-
 const recommands = [
   {
     title: 'YouTube',
@@ -48,7 +46,7 @@ const SourceOptions = ({ active, sourceOnSelect }) => {
     <Wrapper>
       {recommands.map(s => (
         <ItemWrapper
-          key={uid.gen()}
+          key={s.title}
           onClick={sourceOnSelect.bind(this, trimLower(s.title))}
         >
           <Icon

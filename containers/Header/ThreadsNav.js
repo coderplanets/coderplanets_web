@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Wrapper, CommunityLogo, MiniTab } from './styles/threads_nav'
 
-import { uid, Trans } from '../../utils'
+import { Trans } from '../../utils'
 import { onThreadChange } from './logic'
 
 const ThreadsNav = ({ activeInfo: { community, activeThread } }) => (
@@ -11,7 +11,7 @@ const ThreadsNav = ({ activeInfo: { community, activeThread } }) => (
     <React.Fragment>
       {community.threads.map(t => (
         <MiniTab
-          key={uid.gen()}
+          key={t.raw}
           active={t.raw === activeThread}
           onClick={onThreadChange.bind(this, t)}
         >

@@ -14,7 +14,7 @@ import AvatarAdder from '../../containers/AvatarAdder'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
-import { makeDebugger, uid } from '../../utils'
+import { makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ContributorList:index')
 /* eslint-enable no-unused-vars */
@@ -30,7 +30,7 @@ const ContributorList = ({ users, showAdder, addContributor }) => (
         }
         placement="bottom"
         trigger="hover"
-        key={uid.gen()}
+        key={user.id}
       >
         <AvatarLink>
           <Avatar src={user.avatar} />

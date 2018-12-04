@@ -1,8 +1,6 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import { uid } from '../../utils'
-
 import { SectionLabel, Button } from '../../components'
 
 import {
@@ -32,7 +30,7 @@ const Setter = ({ show, entries, selectedId }) => {
       />
       <ListWrapper>
         {entries.map(cat => (
-          <div key={uid.gen()}>
+          <div key={cat.id}>
             <CatWrapper>
               <CatContent>
                 <CatMain>

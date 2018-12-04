@@ -5,8 +5,6 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 import MenuBar from './MenuBar'
 import { Wrapper } from './styles/menu_list'
 
-import { uid } from '../../utils'
-
 const SortableMenuBar = SortableElement(({ pin, item, activeRaw }) => (
   <MenuBar pin={pin} item={item} activeRaw={activeRaw} />
 ))
@@ -18,12 +16,12 @@ const MenuList = SortableContainer(({ items, pin, activeRaw }) => {
   return (
     <Wrapper>
       {homeCommunities.map(item => (
-        <MenuBar key={uid.gen()} pin={pin} item={item} activeRaw={activeRaw} />
+        <MenuBar key={item.raw} pin={pin} item={item} activeRaw={activeRaw} />
       ))}
       {sortableCommunities.map((item, index) => (
         <SortableMenuBar
           index={index}
-          key={uid.gen()}
+          key={item.raw}
           pin={pin}
           item={item}
           activeRaw={activeRaw}

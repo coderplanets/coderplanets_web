@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
-import { Global, prettyNum, uid } from '../../utils'
+import { Global, prettyNum } from '../../utils'
 
 import {
   AvatarsRow,
@@ -186,7 +186,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
 const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
   <React.Fragment>
     {entries.map(c => (
-      <div key={uid.gen()}>
+      <div key={c.id}>
         <Comment
           data={c}
           tobeDeleteId={tobeDeleteId}

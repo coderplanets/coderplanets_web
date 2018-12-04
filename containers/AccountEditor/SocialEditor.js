@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
-
 import { ICON_CMD } from '../../config'
 import { Input } from '../../components'
 import {
@@ -23,6 +21,7 @@ import {
   TogglerText,
 } from './styles/social_editor'
 
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -58,7 +57,7 @@ const SocialIconList = ({ show, user }) => (
     <SocialIconsWrapper>
       {SOCIAL_LISTS.map(social => (
         <SocialIcon
-          key={uid.gen()}
+          key={social.key}
           src={`${ICON_CMD}/${social.key}.svg`}
           active={!nilOrEmpty(user[social.key])}
         />
