@@ -28,6 +28,7 @@ export {
   prettyNum,
   numberWithCommas,
   sortByColor,
+  sortByIndex,
   Rlog,
   countWords,
   closePreviewer,

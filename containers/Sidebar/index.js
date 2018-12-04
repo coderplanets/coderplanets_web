@@ -20,14 +20,10 @@ const debug = makeDebugger('C:Sidebar:index')
 /* eslint-enable no-unused-vars */
 
 class SidebarContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { sidebar } = props
-    logic.init(sidebar)
-  }
-
   componentDidMount() {
-    logic.loadCommunities()
+    const { sidebar } = this.props
+    logic.init(sidebar)
+    // logic.loadCommunities()
   }
 
   render() {

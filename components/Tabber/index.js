@@ -4,21 +4,20 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 
 import { mapAlias } from './alias'
 
-import { makeDebugger, THREAD, C11N } from '../../utils'
+import { makeDebugger, THREAD, C11N, sortByIndex } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:Tabber:index')
 /* eslint-enable no-unused-vars */
 
 const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)
-  const sortedSource = R.sort((a, b) => a.index - b.index, aliasSource)
+  const sortedSource = sortByIndex(aliasSource)
 
   return (
     <React.Fragment>

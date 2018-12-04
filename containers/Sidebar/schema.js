@@ -12,9 +12,26 @@ const subscribedCommunities = gql`
   }
 `
 
+const setCustomization = gql`
+  mutation(
+    $userId: ID
+    $customization: CustomizationInput!
+    $sidebarCommunitiesIndex: [CommunityIndex]
+  ) {
+    setCustomization(
+      userId: $userId
+      customization: $customization
+      sidebarCommunitiesIndex: $sidebarCommunitiesIndex
+    ) {
+      id
+    }
+  }
+`
+
 const schema = {
   // communities,
   subscribedCommunities,
+  setCustomization,
 }
 
 export default schema

@@ -16,7 +16,7 @@ export const TimoutObservable = of({
 })
 
 // refator later
-const fomatDetail = errors => {
+const formatDetail = errors => {
   const details = []
   errors.map(({ message, path, key, code }) => {
     if (Array.isArray(message)) {
@@ -40,14 +40,15 @@ const fomatDetail = errors => {
 }
 
 export const formatGraphErrors = error => {
-  if (Array.isArray(error))
-    return { error: ERR.CRAPHQL, details: fomatDetail(error) }
+  if (Array.isArray(error)) {
+    return { error: ERR.CRAPHQL, details: formatDetail(error) }
+  }
 
   const { graphQLErrors } = error
   if (!R.isEmpty(graphQLErrors)) {
     // graphQLErrors may not catch in graph query (wrang sytax etc ...)
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-    return { error: ERR.CRAPHQL, details: fomatDetail(graphQLErrors) }
+    return { error: ERR.CRAPHQL, details: formatDetail(graphQLErrors) }
   }
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }

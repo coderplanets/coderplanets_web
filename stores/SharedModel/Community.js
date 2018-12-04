@@ -19,6 +19,7 @@ export const Community = t.model('Community', {
   title: t.maybeNull(t.string),
   desc: t.optional(t.string, ''),
   raw: t.maybeNull(t.string),
+  index: t.optional(t.number, 1000000),
   logo: t.maybeNull(t.string),
   categories: t.optional(t.array(SimpleCategory), []),
   contributesDigest: t.optional(t.array(t.number), []),
