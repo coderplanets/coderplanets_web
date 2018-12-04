@@ -2,6 +2,7 @@ export const community = `
   id
   title
   raw
+  index
   desc
   logo
 `

@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 // const debug = makeDebugger('L:sidebar')
 import { arrayMove } from 'react-sortable-hoc'
 
@@ -17,7 +17,6 @@ import {
 /* import { GRAPHQL_ENDPOINT } from '../../config' */
 
 import S from './schema'
-
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
@@ -48,18 +47,38 @@ export function onCommunitySelect(community) {
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
 }
 
+const mapIndexed = R.addIndex(R.map)
+
 export function onSortMenuEnd({ oldIndex, newIndex }) {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
   // TODO: sync to server
+  setC11N(sortedCommunities)
   store.onSortCommunities(sortedCommunities)
 }
 
-export function loadCommunities() {
-  /* const user = BStore.get('user') */
+const setC11N = sortedCommunities => {
+  const { isLogin } = store
+  if (!isLogin) return store.authWarning()
+
+  // TODO: check login
+  sortedCommunities = R.reject(R.propEq('raw', 'home'), sortedCommunities)
+  const sidebarCommunitiesIndex = mapIndexed(
+    (c, index) => ({ community: c.raw, index }),
+    sortedCommunities
+  )
+
+  const { contentDivider } = store.accountInfo.customization
   const args = {
-    filter: { page: 1, size: 30 },
+    customization: {
+      contentDivider,
+    },
+    sidebarCommunitiesIndex,
   }
-  /* console.log('loadCommunities: ', GRAPHQL_ENDPOINT) */
+  sr71$.mutate(S.setCustomization, args)
+}
+
+export function loadCommunities() {
+  const args = { filter: { page: 1, size: 30 } }
   sr71$.query(S.subscribedCommunities, args)
 }
 
@@ -68,6 +87,10 @@ const DataSolver = [
     match: asyncRes('subscribedCommunities'),
     action: ({ subscribedCommunities }) =>
       store.loadCommunities(subscribedCommunities),
+  },
+  {
+    match: asyncRes('setCustomization'),
+    action: () => loadCommunities(),
   },
   {
     match: asyncRes(EVENT.LOGOUT),
@@ -101,9 +124,8 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

@@ -24,7 +24,12 @@ export const mapKeys = R.curry((fn, obj) => {
 })
 
 export const sortByColor = source =>
-  source.sort((t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color])
+  R.sort(
+    (t1, t2) => TAG_COLOR_ORDER[t1.color] - TAG_COLOR_ORDER[t2.color],
+    source
+  )
+
+export const sortByIndex = source => R.sort((a, b) => a.index - b.index, source)
 
 /* eslint-disable */
 const log = (...args) => data => {

@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { makeDebugger, markStates, stripMobx } from '../../utils'
+import { makeDebugger, markStates, stripMobx, sortByIndex } from '../../utils'
 /* import MenuItem from './MenuItemStore' */
 
 /* eslint-disable no-unused-vars */
@@ -48,10 +48,15 @@ const SidebarStore = t
     },
     get communitiesData() {
       const { subscribedCommunities } = self.root.account
-      return subscribedCommunities ? subscribedCommunities.entries : []
+      return subscribedCommunities
+        ? sortByIndex(subscribedCommunities.entries)
+        : []
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     markRoute(query) {
       self.root.markRoute(query)
     },
