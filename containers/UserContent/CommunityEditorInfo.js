@@ -9,7 +9,8 @@ import {
   Text,
   CommunityPopinfo,
 } from './styles/community_editor_info'
-import { uid } from '../../utils'
+
+// import { uid } from '../../utils'
 
 const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   if (!editableCommunities || editableCommunities.totalCount === 0) return null
@@ -19,7 +20,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
       <Wrapper>
         {editableCommunities.entries.map(community => (
           <Popover
-            key={uid.gen()}
+            key={community.id}
             placement="bottom"
             trigger="hover"
             content={<CommunityPopinfo>{community.title}</CommunityPopinfo>}
@@ -38,7 +39,7 @@ const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
     <Wrapper>
       {editableCommunities.entries.map(community => (
         <Popover
-          key={uid.gen()}
+          key={community.id}
           placement="bottom"
           trigger="hover"
           content={<CommunityPopinfo>{community.title}</CommunityPopinfo>}

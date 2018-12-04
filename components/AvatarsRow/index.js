@@ -13,7 +13,7 @@ import { ATATARS_LIST_LENGTH } from '../../config/general'
 
 import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
 
-import { makeDebugger, prettyNum, uid } from '../../utils'
+import { makeDebugger, prettyNum } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:AvatarsRow:index')
@@ -48,7 +48,7 @@ const AvatarsRow = ({
       )}
 
       {R.slice(0, limit, users).map(user => (
-        <AvatarsItem key={uid.gen()} onClick={onUserSelect.bind(this, user)}>
+        <AvatarsItem key={user.id} onClick={onUserSelect.bind(this, user)}>
           <Tooltip title={user.nickname}>
             <AvatarsImg src={user.avatar} />
           </Tooltip>

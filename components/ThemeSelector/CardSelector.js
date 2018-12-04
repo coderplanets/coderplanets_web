@@ -15,12 +15,12 @@ import {
   AuthorName,
 } from './style/card_selector'
 
-import { themeMeta, uid } from '../../utils'
+import { themeMeta } from '../../utils'
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>
     {R.keys(themeMeta).map(name => (
-      <IntroBox key={uid.gen()} active={curTheme === name}>
+      <IntroBox key={name} active={curTheme === name}>
         <ThemeDot
           large
           active={curTheme === name}

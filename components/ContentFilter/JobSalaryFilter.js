@@ -12,7 +12,7 @@ import {
   SelectItem,
 } from './styles'
 
-import { uid } from '../../utils'
+// import { uid } from '../../utils'
 
 const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
@@ -25,7 +25,7 @@ const JobSalaryFilter = ({ activeFilter, onSelect }) => (
     <LeftAlignWrapper>
       {LABEL_POOL.salary.data.map(item => (
         <SelectItem
-          key={uid.gen()}
+          key={item}
           active={activeFilter.jobSalary === item}
           onClick={onSelect.bind(this, { jobSalary: item })}
         >

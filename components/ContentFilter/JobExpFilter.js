@@ -12,7 +12,7 @@ import {
   SelectItem,
 } from './styles'
 
-import { uid } from '../../utils'
+// import { uid } from '../../utils'
 
 const JobExpFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
@@ -25,7 +25,7 @@ const JobExpFilter = ({ activeFilter, onSelect }) => (
     <LeftAlignWrapper>
       {LABEL_POOL.exp.data.map(item => (
         <SelectItem
-          key={uid.gen()}
+          key={item}
           active={activeFilter.jobExp === item}
           onClick={onSelect.bind(this, { jobExp: item })}
         >

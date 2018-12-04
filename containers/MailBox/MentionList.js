@@ -19,8 +19,8 @@ import {
   PreviewBody,
   AtLabel,
 } from './styles/mention_list'
-import { uid, cutFrom } from '../../utils'
 
+import { cutFrom } from '../../utils'
 import { previewUser } from './logic'
 
 const MentionList = ({ data }) => {
@@ -31,7 +31,7 @@ const MentionList = ({ data }) => {
       <ListsWrapper>
         <div>
           {data.entries.map(item => (
-            <div key={uid.gen()}>
+            <div key={item.id}>
               <Message>
                 <MessageHeader>
                   <UserLabel onClick={previewUser.bind(this, item.fromUser)}>

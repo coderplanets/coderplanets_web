@@ -7,7 +7,7 @@ import VideoItem from '../VideoItem'
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
 
-import { uid, TYPE, Trans } from '../../utils'
+import { TYPE, Trans } from '../../utils'
 
 const VideosList = ({ props }) => {
   const {
@@ -27,7 +27,7 @@ const VideosList = ({ props }) => {
         <React.Fragment>
           {entries.map(entry => (
             <VideoItem
-              key={uid.gen()}
+              key={entry.id}
               entry={entry}
               active={active}
               accountInfo={accountInfo}

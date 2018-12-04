@@ -7,7 +7,7 @@ import JobItem from '../JobItem'
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
 
-import { uid, TYPE, Trans } from '../../utils'
+import { TYPE, Trans } from '../../utils'
 
 const JobsList = ({ props }) => {
   const {
@@ -27,7 +27,7 @@ const JobsList = ({ props }) => {
         <React.Fragment>
           {entries.map(entry => (
             <JobItem
-              key={uid.gen()}
+              key={entry.id}
               entry={entry}
               active={active}
               accountInfo={accountInfo}

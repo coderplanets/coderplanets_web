@@ -3,13 +3,13 @@ import R from 'ramda'
 
 import { Wrapper, ThemeDot } from './style/dot_selector'
 
-import { themeMeta, uid } from '../../utils'
+import { themeMeta } from '../../utils'
 
 const DotSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>
     {R.keys(themeMeta).map(name => (
       <ThemeDot
-        key={uid.gen()}
+        key={name}
         active={curTheme === name}
         name={name}
         onClick={changeTheme.bind(this, name)}

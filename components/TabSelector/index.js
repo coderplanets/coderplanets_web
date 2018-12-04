@@ -16,7 +16,7 @@ import {
   HeaderDivider,
 } from './styles'
 
-import { uid, makeDebugger } from '../../utils'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:TabSelector:index')
@@ -27,7 +27,7 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
     <OptisonsWrapper>
       {source.map(opt => (
         <Option
-          key={uid.gen()}
+          key={opt.raw}
           active={activeRaw === opt.raw}
           onClick={onChange.bind(this, opt)}
         >

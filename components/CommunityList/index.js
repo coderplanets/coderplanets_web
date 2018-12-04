@@ -11,7 +11,7 @@ import R from 'ramda'
 import Popover from '../Popover'
 import { Wrapper, Logo, PopoverInfo } from './styles'
 
-import { uid, makeDebugger } from '../../utils'
+import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:CommunityList:index')
@@ -28,7 +28,7 @@ const CommunityList = ({ items, emptyHint }) => {
     <Wrapper>
       {items.map(community => (
         <Popover
-          key={uid.gen()}
+          key={community.id}
           placement="bottom"
           trigger="hover"
           content={<PopoverInfo>{community.title}</PopoverInfo>}

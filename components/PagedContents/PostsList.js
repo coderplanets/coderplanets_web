@@ -7,7 +7,7 @@ import PostItem from '../PostItem'
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
 
-import { uid, TYPE, Trans } from '../../utils'
+import { TYPE, Trans } from '../../utils'
 
 const PostsList = ({ props }) => {
   const {
@@ -29,7 +29,7 @@ const PostsList = ({ props }) => {
         <React.Fragment>
           {entries.map(entry => (
             <PostItem
-              key={uid.gen()}
+              key={entry.id}
               entry={entry}
               cover={cover}
               active={active}

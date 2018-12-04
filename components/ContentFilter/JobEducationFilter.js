@@ -11,7 +11,7 @@ import {
   SelectItem,
 } from './styles'
 
-import { uid } from '../../utils'
+// import { uid } from '../../utils'
 
 const JobEducationFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>
@@ -23,7 +23,7 @@ const JobEducationFilter = ({ activeFilter, onSelect }) => (
 
     {LABEL_POOL.education.data.map(item => (
       <SelectItem
-        key={uid.gen()}
+        key={item}
         active={activeFilter.jobEducation === item}
         onClick={onSelect.bind(this, { jobEducation: item })}
       >
