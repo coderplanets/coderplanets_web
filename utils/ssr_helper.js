@@ -57,7 +57,7 @@ export const ssrContentsThread = (resp, thread) => {
     }
     case THREAD.REPO: {
       return {
-        videosThread: {
+        reposThread: {
           pagedRepos: resp.pagedRepos,
           curView: getCurView(resp.pagedRepos),
           activeTag,

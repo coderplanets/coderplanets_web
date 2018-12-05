@@ -19,12 +19,13 @@ export const Wrapper = styled.article`
   }
 `
 export const ReadedLabel = styled.div`
-  position: absolute;
-  top: 15px;
-  left: -30px;
-  font-size: 0.75rem;
   color: ${theme('thread.articleDigest')};
-  opacity: 0.8;
+  position: absolute;
+  top: 14px;
+  left: -22px;
+  font-size: 1rem;
+  opacity: 0.9;
+  font-style: italic;
 `
 export const PosterWrapper = styled.div`
   position: relative;

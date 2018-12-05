@@ -6,6 +6,7 @@ export {
   ERR,
   TYPE,
   THREAD,
+  COMMUNITY_SPEC_THREADS,
   TOPIC,
   USER_THREAD,
   ACTION,

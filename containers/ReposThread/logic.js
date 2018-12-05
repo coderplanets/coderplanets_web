@@ -17,12 +17,7 @@ import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
-  resv_event: [
-    EVENT.REFRESH_REPOS,
-    EVENT.PREVIEW_CLOSED,
-    EVENT.COMMUNITY_CHANGE,
-    EVENT.TABBER_CHANGE,
-  ],
+  resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 let sub$ = null
 
@@ -32,12 +27,7 @@ const debug = makeDebugger('L:ReposThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -98,6 +88,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedRepos'),
     action: ({ pagedRepos }) => {
+      debug('load pagedRepos -> ', pagedRepos)
       let curView = TYPE.RESULT
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -110,12 +101,12 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
-    match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadRepos(),
-  },
-  {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: () => loadRepos(),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      const { activeThread } = data
+      if (activeThread === THREAD.REPO) return loadRepos()
+    },
   },
   {
     match: asyncRes(EVENT.REFRESH_REPOS),

@@ -18,12 +18,7 @@ import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
-  resv_event: [
-    EVENT.REFRESH_VIDEOS,
-    EVENT.PREVIEW_CLOSED,
-    EVENT.COMMUNITY_CHANGE,
-    EVENT.TABBER_CHANGE,
-  ],
+  resv_event: [EVENT.REFRESH_VIDEOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
@@ -34,12 +29,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export function loadVideos(page = 1) {
   const { mainPath } = store.curRoute
@@ -96,7 +86,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedVideos'),
     action: ({ pagedVideos }) => {
-      /* debug('========> pagedVideos: ', pagedVideos) */
+      debug('========> pagedVideos: ', pagedVideos)
       let curView = TYPE.RESULT
       if (pagedVideos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -105,16 +95,12 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadVideos(),
-  },
-  {
-    match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadVideos(),
-  },
-  {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: () => loadVideos(),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      const { activeThread } = data
+      if (activeThread === THREAD.VIDEO) return loadVideos()
+    },
   },
   {
     match: asyncRes(EVENT.REFRESH_VIDEOS),

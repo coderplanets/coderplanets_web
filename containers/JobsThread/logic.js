@@ -20,12 +20,7 @@ import SR71 from '../../utils/network/sr71'
 // import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
-  resv_event: [
-    EVENT.REFRESH_JOBS,
-    EVENT.PREVIEW_CLOSED,
-    EVENT.COMMUNITY_CHANGE,
-    EVENT.TABBER_CHANGE,
-  ],
+  resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:JobsThread')
@@ -34,12 +29,7 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -117,12 +107,12 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
-    match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadJobs(),
-  },
-  {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: () => loadJobs(),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      const { activeThread } = data
+      if (activeThread === THREAD.JOB) return loadJobs()
+    },
   },
   {
     match: asyncRes(EVENT.REFRESH_JOBS),

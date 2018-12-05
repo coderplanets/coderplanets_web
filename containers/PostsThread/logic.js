@@ -11,6 +11,7 @@ import {
   TYPE,
   ROUTE,
   THREAD,
+  COMMUNITY_SPEC_THREADS,
   $solver,
   scrollIntoEle,
 } from '../../utils'
@@ -34,12 +35,7 @@ let store = null
 let sub$ = null
 
 // TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
+const validFilter = R.pickBy(R.compose(R.not, R.isEmpty))
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -149,7 +145,12 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: () => loadPosts(),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
+        loadPosts()
+      }
+    },
   },
   {
     match: asyncRes(EVENT.REFRESH_POSTS),
@@ -191,4 +192,8 @@ export function init(_store) {
   store = _store
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  debug('===== uninit')
 }

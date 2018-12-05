@@ -21,12 +21,13 @@ export const Wrapper = styled.article`
   }
 `
 export const ReadedLabel = styled.div`
-  position: absolute;
-  top: 24px;
-  left: -30px;
-  font-size: 0.75rem;
   color: ${theme('thread.articleDigest')};
-  opacity: 0.8;
+  position: absolute;
+  top: 22px;
+  left: -16px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-style: italic;
 `
 export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};

@@ -12,7 +12,7 @@ export const ViewerWrapper = styled.div`
   margin-top: -6px;
 `
 export const LeftPadding = styled.div`
-  width: 2.5vw;
+  width: 3vw;
 `
 export const RightPadding = styled.div`
   width: 4vw;

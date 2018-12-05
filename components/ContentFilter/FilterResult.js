@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Popover from '../Popover'
 import { ICON_CMD } from '../../config'
+import Popover from '../Popover'
 
 import {
   Wrapper,

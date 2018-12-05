@@ -38,7 +38,7 @@ export function loadTags(topic = TOPIC.POST) {
 
   const args = { community, thread, topic }
 
-  debug('#### loadTags --> ', args)
+  /* debug('#### loadTags --> ', args) */
   sr71$.query(S.partialTags, args)
 }
 
