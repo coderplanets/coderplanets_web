@@ -30,15 +30,12 @@ const Loading = ({ theme }) => (
   </ContentLoader>
 )
 
-const TypeWriterLoading = ({ num, theme }) => {
-  // const ukey = uid.gen()
-  const range = R.range(0, num)
-  return range.map(() => (
+const TypeWriterLoading = ({ num, theme }) =>
+  R.range(0, num).map(() => (
     <LoadingWrapper key={uid.gen()}>
       <Loading uniquekey={uid.gen()} theme={theme} />
     </LoadingWrapper>
   ))
-}
 
 TypeWriterLoading.propTypes = {
   num: PropTypes.number,

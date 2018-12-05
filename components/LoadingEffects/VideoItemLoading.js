@@ -30,15 +30,12 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const VideoItemLoading = ({ num, theme }) => {
-  // const ukey = uid.gen()
-  const range = R.range(0, num)
-  return range.map(() => (
+const VideoItemLoading = ({ num, theme }) =>
+  R.range(0, num).map(() => (
     <LoadingWrapper key={uid.gen()}>
       <LoadingItem uniquekey={uid.gen()} theme={theme} />
     </LoadingWrapper>
   ))
-}
 
 VideoItemLoading.propTypes = {
   num: PropTypes.number,
