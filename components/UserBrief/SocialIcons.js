@@ -5,7 +5,7 @@ import { ICON_CMD } from '../../config'
 import Popover from '../Popover'
 
 import { Wrapper, Linker, SocialIcon, PopInfo } from './styles/social_icons'
-import { nilOrEmpty, SOCIAL_LISTS, uid } from '../../utils'
+import { nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 
 const DisplayIcon = ({ user, social }) => {
   if (social.siteUrl) {
@@ -46,7 +46,7 @@ const DisplayIcon = ({ user, social }) => {
 const SocialIcons = ({ user }) => (
   <Wrapper>
     {SOCIAL_LISTS.map(social => (
-      <DisplayIcon key={uid.gen()} user={user} social={social} />
+      <DisplayIcon key={social.key} user={user} social={social} />
     ))}
   </Wrapper>
 )

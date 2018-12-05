@@ -3,7 +3,7 @@ import R from 'ramda'
 import { Tag } from 'antd'
 
 import { Wrapper, TagWrapper } from './styles/selected_tags'
-import { uid, isEmptyValue } from '../../utils'
+import { isEmptyValue } from '../../utils'
 
 const filterDict = {
   TODAY: '今天',
@@ -38,7 +38,7 @@ const SelectedTags = ({ onSelect, activeFilter }) => (
   <Wrapper>
     {R.keys(activeFilter).map(filterKey => (
       <FilterTag
-        key={uid.gen()}
+        key={filterKey}
         onSelect={onSelect}
         active={activeFilter[filterKey]}
         type={filterKey}

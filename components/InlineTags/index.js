@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import Maybe from '../Maybe'
 import { Wrapper, Tag, Dot, Title } from './styles'
 
-import { makeDebugger, uid, sortByColor, Trans } from '../../utils'
+import { makeDebugger, sortByColor, Trans } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:InlineTags:index')
 /* eslint-enable no-unused-vars */
@@ -19,7 +19,7 @@ const InlineTags = ({ data }) => (
   <Maybe test={data}>
     <Wrapper>
       {sortByColor(data).map(tag => (
-        <Tag key={uid.gen()}>
+        <Tag key={tag.title}>
           <Dot color={tag.color} />
           <Title>{Trans(tag.title)}</Title>
         </Tag>

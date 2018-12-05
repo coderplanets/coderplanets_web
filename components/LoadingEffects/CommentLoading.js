@@ -8,26 +8,23 @@ const LoadingWrapper = styled.div`
   overflow: hidden;
 `
 
-const CommentLoading = ({ theme }) => {
-  // const ukey = uid.gen()
-  return (
-    <LoadingWrapper>
-      <ContentLoader
-        height={60}
-        width={400}
-        speed={2}
-        primaryColor={theme.loading.basic}
-        secondaryColor={theme.loading.animate}
-      >
-        <rect x="35" y="6" rx="4" ry="4" width="117" height="5.25" />
-        <rect x="37" y="20" rx="3" ry="3" width="85" height="5.25" />
-        <rect x="37" y="37.68" rx="3" ry="3" width="318.5" height="4.6" />
-        <rect x="37" y="51" rx="3" ry="3" width="319.2" height="5.11" />
-        <rect x="71" y="104" rx="3" ry="3" width="201" height="6.4" />
-        <circle cx="14.0" cy="14.0" r="14.0" />
-      </ContentLoader>
-    </LoadingWrapper>
-  )
-}
+const CommentLoading = ({ theme }) => (
+  <LoadingWrapper>
+    <ContentLoader
+      height={60}
+      width={400}
+      speed={2}
+      primaryColor={theme.loading.basic}
+      secondaryColor={theme.loading.animate}
+    >
+      <rect x="35" y="6" rx="4" ry="4" width="117" height="5.25" />
+      <rect x="37" y="20" rx="3" ry="3" width="85" height="5.25" />
+      <rect x="37" y="37.68" rx="3" ry="3" width="318.5" height="4.6" />
+      <rect x="37" y="51" rx="3" ry="3" width="319.2" height="5.11" />
+      <rect x="71" y="104" rx="3" ry="3" width="201" height="6.4" />
+      <circle cx="14.0" cy="14.0" r="14.0" />
+    </ContentLoader>
+  </LoadingWrapper>
+)
 
 export default withTheme(CommentLoading)

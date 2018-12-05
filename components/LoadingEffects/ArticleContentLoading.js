@@ -29,15 +29,12 @@ const LoadingItem = ({ theme }) => (
   </ContentLoader>
 )
 
-const ArticleContentLoading = ({ num, theme }) => {
-  // const ukey = uid.gen()
-  const range = R.range(0, num)
-  return range.map(() => (
+const ArticleContentLoading = ({ num, theme }) =>
+  R.range(0, num).map(() => (
     <LoadingWrapper key={uid.gen()}>
       <LoadingItem uniquekey={uid.gen()} theme={theme} />
     </LoadingWrapper>
   ))
-}
 
 ArticleContentLoading.propTypes = {
   num: PropTypes.number,
