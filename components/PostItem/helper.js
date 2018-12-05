@@ -4,7 +4,10 @@ import React from 'react'
 import { ReadedLabel } from './styles'
 
 export const getOpacity = (entry, active, accountInfo) => {
-  const { isLogin, customization: { markViewed } } = accountInfo
+  const {
+    isLogin,
+    customization: { markViewed },
+  } = accountInfo
   const { viewerHasViewed } = entry
 
   if (active.id) {
@@ -19,7 +22,10 @@ export const getOpacity = (entry, active, accountInfo) => {
 
 export const renderReadMark = (entry, accountInfo) => {
   const { viewerHasViewed } = entry
-  const { isLogin, customization: { markViewed } } = accountInfo
+  const {
+    isLogin,
+    customization: { markViewed },
+  } = accountInfo
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
