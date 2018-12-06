@@ -3,9 +3,9 @@ import { Provider } from 'mobx-react'
 
 import GAWraper from '../components/GAWraper'
 import initRootStore from '../stores/init'
-// import ThemeWrapper from '../containers/ThemeWrapper'
+import ThemeWrapper from '../containers/ThemeWrapper'
 
-// import { ErrorPage } from '../components'
+import { ErrorPage } from '../components'
 
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {
@@ -21,7 +21,7 @@ export default class Error extends React.Component {
   }
 
   render() {
-    //  const { statusCode } = this.props
+    const { statusCode } = this.props
 
     /*
        <p>
@@ -34,12 +34,9 @@ export default class Error extends React.Component {
     return (
       <Provider store={this.store}>
         <GAWraper>
-          <h3>Errored</h3>
-          {/*
-              <ThemeWrapper>
-              <ErrorPage errorCode={statusCode} />
-              </ThemeWrapper>
-            */}
+          <ThemeWrapper>
+            <ErrorPage errorCode={statusCode} />
+          </ThemeWrapper>
         </GAWraper>
       </Provider>
     )
