@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
 import {
   Container,
@@ -51,7 +51,7 @@ const ErrorPage = ({ errorCode }) => (
         <HintDesc>
           如果你觉得是站点的问题, 恳请你
           <IssueLink
-            href="https://github.com/coderplanets/coderplanets_server/issues/new"
+            href={`${ISSUE_ADDR}`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -59,7 +59,6 @@ const ErrorPage = ({ errorCode }) => (
           </IssueLink>
           , 以便于开发人员及时修复.
         </HintDesc>
-        <HintDesc>如果没其他事的话， 5 秒钟后跳转回首页...</HintDesc>
       </TextWrapper>
     </HintWrapper>
     <FooterWrapper />
