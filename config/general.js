@@ -3,6 +3,8 @@
  */
 
 export const DEFAULT_THEME = 'cyan'
+export const SENINOR_AMOUNT_THRESHOLD = 51.2
+export const SPONSOR_AMOUNT_THRESHOLD = 5999
 
 export const PAGE_SIZE = {
   S: 10,

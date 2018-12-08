@@ -10,8 +10,10 @@ import { inject, observer } from 'mobx-react'
 import { ICON_CMD } from '../../config'
 
 import { SectionLabel } from '../../components'
-import { Wrapper } from './styles'
 import UpgradeMenu from './UpgradeMenu'
+import BillsTable from './BillsTable'
+
+import { Wrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -38,6 +40,7 @@ class UserBillingContainer extends React.Component {
           iconSrc={`${ICON_CMD}/bill_history.svg`}
           desc="没有查询到付费记录, 欢迎升级体验。"
         />
+        <BillsTable />
       </Wrapper>
     )
   }

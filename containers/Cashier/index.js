@@ -36,7 +36,7 @@ class CashierContainer extends React.Component {
       sidebarView,
       contentView,
       subContentView,
-      payMethod,
+      paymentMethod,
       faceValue,
       transferAccount,
     } = cashier
@@ -48,14 +48,14 @@ class CashierContainer extends React.Component {
             accountInfo={accountInfo}
             sidebarView={sidebarView}
             subContentView={subContentView}
-            payMethod={payMethod}
+            paymentMethod={paymentMethod}
             faceValue={faceValue}
           />
           <Content
             contentView={contentView}
             subContentView={subContentView}
             faceValue={faceValue}
-            payMethod={payMethod}
+            paymentMethod={paymentMethod}
             transferAccount={transferAccount}
           />
         </Wrapper>

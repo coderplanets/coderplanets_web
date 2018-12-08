@@ -297,6 +297,13 @@ const cyan = {
     bg: '#fffbe6',
     text: '#c3ae8e',
   },
+  table: {
+    headerBg: '#fff',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#e8e8e8',
+    hoverBg: '#fffef1',
+  },
 }
 
 export default cyan

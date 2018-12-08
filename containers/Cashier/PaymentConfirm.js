@@ -12,18 +12,18 @@ const trans = {
   alipay: '支付宝',
 }
 
-const PaymentConfirm = ({ payMethod, transferAccount }) => (
+const PaymentConfirm = ({ paymentMethod, transferAccount }) => (
   <Wrapper>
     <FormItem
       size="default"
       value={transferAccount}
-      placeholder={`${trans[payMethod]}账号`}
+      placeholder={`${trans[paymentMethod]}账号`}
       onChange={transferAccountChange}
       bottom="0"
     />
     <Desc>
       请填写您的
-      {trans[payMethod]}
+      {trans[paymentMethod]}
       账号，我们将在一个工作日内绑定。
     </Desc>
     <BtnWrapper>

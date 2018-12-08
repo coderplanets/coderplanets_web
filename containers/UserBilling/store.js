@@ -28,6 +28,9 @@ const UserBilling = t
     callGirlVerifier() {
       self.root.callGirlVerifier()
     },
+    cashierHelper(opt) {
+      self.root.cashierHelper(opt)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

@@ -28,7 +28,8 @@ let store = null
 export const sidebarViewOnChange = sidebarView =>
   store.markState({ sidebarView, contentView: sidebarView })
 
-export const payMethodOnChange = payMethod => store.markState({ payMethod })
+export const paymentMethodOnChange = paymentMethod =>
+  store.markState({ paymentMethod })
 
 export const subContentViewOnChange = subContentView =>
   store.markState({ subContentView })

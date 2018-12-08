@@ -1,8 +1,14 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
-import SR71 from '../../utils/network/sr71'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  ERR,
+  PAYMENT_USAGE,
+} from '../../utils'
 
+import SR71 from '../../utils/network/sr71'
 // import S from './schema'
 
 const sr71$ = new SR71()
@@ -15,6 +21,7 @@ const debug = makeDebugger('L:UserBilling')
 let store = null
 
 export function upgradeHepler() {
+  debug('upgradeHepler')
   store.upgradeHepler()
 }
 
@@ -25,6 +32,10 @@ export function sponsorHepler() {
 export function girlVerifier() {
   store.callGirlVerifier()
 }
+
+export const seniorOnPay = () =>
+  store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, faceValue: '51.2' })
+
 // ###############################
 // Data & Error handlers
 // ###############################

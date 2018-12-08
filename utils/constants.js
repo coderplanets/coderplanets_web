@@ -218,6 +218,18 @@ export const C11N = {
   BRIEF: 'brief',
 }
 
+export const PAYMENT_USAGE = {
+  SENINOR: 'SENINOR',
+  GIRLS_CODE_TOO_PLAN: 'GirlsCodeTooPlan',
+  DONATE: 'DONATE',
+  SPONSOR: 'SPONSOR',
+}
+
+export const PAYMENT_METHOD = {
+  ALIPAY: 'ALIPAY',
+  WECHAT: 'WECHAT',
+}
+
 /* some svg icon are sensitive to fill color */
 /* some community svg need fill color, like city etc.. */
 export const NON_FILL_COMMUNITY = ['javascript']

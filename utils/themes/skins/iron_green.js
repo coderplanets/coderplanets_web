@@ -291,6 +291,13 @@ const iconGreen = {
     bg: '#fffbe6',
     text: '#c3ae8e',
   },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
+  },
 }
 
 export default iconGreen

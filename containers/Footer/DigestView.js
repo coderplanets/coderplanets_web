@@ -76,7 +76,7 @@ const DigestView = ({ toggleSponsorHelper }) => (
       <Column>
         <Title>付费方案</Title>
         <Body>
-          <Item>付费用户</Item>
+          <Item>CPS会员</Item>
           <Item onClick={toggleSponsorHelper}>打赏支持</Item>
         </Body>
       </Column>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Icon } from 'antd'
 
 import { ICON_CMD } from '../../config'
+
 import {
   Wrapper,
   TransWrapper,
@@ -20,11 +21,12 @@ import {
   FaceValueNum,
 } from './styles/payment_sidebar'
 
-import { sidebarViewOnChange, payMethodOnChange } from './logic'
+import { PAYMENT_METHOD } from '../../utils'
+import { sidebarViewOnChange, paymentMethodOnChange } from './logic'
 
 const PaymentSidebar = ({
   accountInfo,
-  payMethod,
+  paymentMethod,
   faceValue,
   subContentView,
 }) => (
@@ -40,16 +42,16 @@ const PaymentSidebar = ({
         <SelectorTitle>付款方式</SelectorTitle>
         <TitleDivider />
         <AliWrapper
-          active={payMethod === 'alipay'}
-          display={payMethod === 'alipay' ? 'block' : 'none'}
+          active={paymentMethod === PAYMENT_METHOD.ALIPAY}
+          display={paymentMethod === PAYMENT_METHOD.ALIPAY ? 'block' : 'none'}
         >
           <Icon type="alipay-circle" />
           <OptionTitle>支付宝</OptionTitle>
         </AliWrapper>
         <Holder margin="20px" />
         <WeixinWrapper
-          active={payMethod === 'wechat'}
-          display={payMethod === 'wechat' ? 'block' : 'none'}
+          active={paymentMethod === PAYMENT_METHOD.WECHAT}
+          display={paymentMethod === PAYMENT_METHOD.WECHAT ? 'block' : 'none'}
         >
           <Icon type="wechat" />
           <OptionTitle>微信支付</OptionTitle>
@@ -67,15 +69,15 @@ const PaymentSidebar = ({
         <SelectorTitle>付款方式</SelectorTitle>
         <TitleDivider />
         <AliWrapper
-          active={payMethod === 'alipay'}
-          onClick={payMethodOnChange.bind(this, 'alipay')}
+          active={paymentMethod === PAYMENT_METHOD.ALIPAY}
+          onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.ALIPAY)}
         >
           <Icon type="alipay-circle" />
           <OptionTitle>支付宝</OptionTitle>
         </AliWrapper>
         <WeixinWrapper
-          active={payMethod === 'wechat'}
-          onClick={payMethodOnChange.bind(this, 'wechat')}
+          active={paymentMethod === PAYMENT_METHOD.WECHAT}
+          onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.WECHAT)}
         >
           <Icon type="wechat" />
           <OptionTitle>微信支付</OptionTitle>

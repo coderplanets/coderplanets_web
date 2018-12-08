@@ -1,12 +1,17 @@
 /*
-* Cashier store
-*
-*/
+ * Cashier store
+ *
+ */
 
 import { types as t, getParent } from 'mobx-state-tree'
-// import R from 'ramda'
+import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import {
+  markStates,
+  makeDebugger,
+  PAYMENT_USAGE,
+  PAYMENT_METHOD,
+} from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:Cashier')
 /* eslint-enable no-unused-vars */
@@ -27,13 +32,13 @@ const Cashier = t
       t.enumeration('subContentView', ['pay', 'confirm']),
       'pay'
     ),
-    payMethod: t.optional(
-      t.enumeration('payMethod', ['wechat', 'alipay']),
-      'alipay'
+    paymentMethod: t.optional(
+      t.enumeration('paymentMethod', R.values(PAYMENT_METHOD)),
+      PAYMENT_METHOD.ALIPAY
     ),
-    payForType: t.optional(
-      t.enumeration('payForType', ['tips', 'upgrade', 'sponsor']),
-      'tips'
+    paymentUsage: t.optional(
+      t.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
+      PAYMENT_USAGE.SENINOR
     ),
     faceValue: t.optional(
       t.enumeration('faceValue', ['10.24', '51.2', '102.4', '512', '1024']),
@@ -49,9 +54,9 @@ const Cashier = t
     },
   }))
   .actions(self => ({
-    callCashier({ payForType, faceValue }) {
+    callCashier({ paymentUsage, faceValue }) {
       self.show = true
-      self.payForType = payForType
+      self.paymentUsage = paymentUsage
       self.faceValue = String(faceValue)
     },
     markState(sobj) {

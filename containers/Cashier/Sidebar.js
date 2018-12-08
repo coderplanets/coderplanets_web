@@ -10,7 +10,7 @@ const Sidebar = ({
   accountInfo,
   sidebarView,
   faceValue,
-  payMethod,
+  paymentMethod,
   subContentView,
 }) => {
   switch (sidebarView) {
@@ -26,7 +26,7 @@ const Sidebar = ({
         <Wrapper>
           <PaymentSidebar
             accountInfo={accountInfo}
-            payMethod={payMethod}
+            paymentMethod={paymentMethod}
             faceValue={faceValue}
             subContentView={subContentView}
           />

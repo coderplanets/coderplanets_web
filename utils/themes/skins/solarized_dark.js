@@ -90,7 +90,7 @@ const solarizedDark = {
     text: '#065365',
     hover: '#5c868b',
     title: '#77706B',
-    bottomBg: '#252325',
+    bottomBg: '#061b20',
   },
   sidebar: {
     bg: sidebarBg,
@@ -296,6 +296,13 @@ const solarizedDark = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 

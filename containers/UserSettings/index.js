@@ -63,7 +63,7 @@ class UserSettingsContainer extends React.Component {
               </LabelDescLink>{' '}
               或升级成
               <LabelDescLink onClick={logic.upgradeHepler}>
-                付费用户
+                CPS会员
               </LabelDescLink>
               解锁该功能。
             </LabelDescWrapper>

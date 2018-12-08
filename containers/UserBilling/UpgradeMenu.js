@@ -3,7 +3,11 @@ import dynamic from 'next/dynamic'
 
 import { SectionLabel, Button } from '../../components'
 
-import { ICON_CMD } from '../../config'
+import {
+  ICON_CMD,
+  SENINOR_AMOUNT_THRESHOLD,
+  SPONSOR_AMOUNT_THRESHOLD,
+} from '../../config'
 
 import {
   PlanWrapper,
@@ -20,7 +24,12 @@ import {
   GoodPrice,
 } from './styles/upgrade_menu'
 
-import { upgradeHepler, sponsorHepler, girlVerifier } from './logic'
+import {
+  seniorOnPay,
+  upgradeHepler,
+  sponsorHepler,
+  girlVerifier,
+} from './logic'
 
 const DynamicGirlVerifier = dynamic({
   loader: () => import('../GirlVerifier'),
@@ -37,22 +46,23 @@ const UpgradeMenu = () => (
 
     <PlanWrapper>
       <PlanTitle>
-        <div>付费用户</div>
+        <div>CPS会员</div>
         <TitleDesc>(推荐)</TitleDesc>
       </PlanTitle>
       <PlanDesc>
         <DescLine>
-          <BadPrice>￥102.4</BadPrice> / <GoodPrice>￥69 </GoodPrice>
+          <BadPrice>￥102.4</BadPrice> /{' '}
+          <GoodPrice>￥{SENINOR_AMOUNT_THRESHOLD} </GoodPrice>
           无限期有效
         </DescLine>
         <DescLine>将获得区别于免费用户的 10+ 项功能/服务</DescLine>
         <DescLine>
-          <MoreLink>更多付费用户详情..</MoreLink>
+          <MoreLink>更多CPS会员详情..</MoreLink>
         </DescLine>
       </PlanDesc>
       <PurchaseButton>
-        <Button type="primary" ghost onClick={upgradeHepler}>
-          升级付费用户
+        <Button type="primary" ghost onClick={seniorOnPay}>
+          成为 CPS会员
         </Button>
       </PurchaseButton>
     </PlanWrapper>
@@ -61,17 +71,18 @@ const UpgradeMenu = () => (
       <PlanTitle>赞助商</PlanTitle>
       <PlanDesc>
         <DescLine>
-          <BadPrice>￥2999起</BadPrice> / <GoodPrice>￥1999起 </GoodPrice>
+          <BadPrice>￥8999起</BadPrice> /{' '}
+          <GoodPrice>￥{SPONSOR_AMOUNT_THRESHOLD}起 </GoodPrice>
           每年
         </DescLine>
-        <DescLine>付费用户所有功能，每年的企业/产品推广等</DescLine>
+        <DescLine>CPS会员所有功能，每年的企业/产品推广等</DescLine>
         <DescLine>
           <MoreLink>更多赞助商服务详情..</MoreLink>
         </DescLine>
       </PlanDesc>
       <PurchaseButton>
         <Button type="primary" ghost onClick={upgradeHepler}>
-          升级赞助商
+          升级成赞助商
         </Button>
       </PurchaseButton>
     </PlanWrapper>
@@ -83,7 +94,7 @@ const UpgradeMenu = () => (
       </GirlTitle>
       <PlanDesc>
         <DescLine green>￥0 永久免费</DescLine>
-        <DescLine>付费用户的所有功能，以及个人项目推广等</DescLine>
+        <DescLine>CPS会员的所有功能，以及个人项目推广等</DescLine>
         <DescLine>
           <MoreLink>程序媛用户细则...</MoreLink>
         </DescLine>

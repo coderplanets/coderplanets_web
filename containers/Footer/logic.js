@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver } from '../../utils'
+import { makeDebugger, $solver, PAYMENT_USAGE } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
@@ -23,7 +23,7 @@ export function toggleSponsorHelper() {
 
 export const onLogin = () => store.authWarning({ hideToast: true })
 export const onPay = num =>
-  store.cashierHelper({ payForType: 'tips', faceValue: num })
+  store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, faceValue: num })
 // ###############################
 // Data & Error handlers
 // ###############################
