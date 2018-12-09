@@ -375,8 +375,12 @@ const AntUIOverWrite = createGlobalStyle`
   }
   .ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td {
    background: ${theme('table.hoverBg')};
- }
-
+  }
+  .ant-table-placeholder {
+    background: ${theme('table.headerBg')};
+    color: ${theme('table.text')};
+    opacity: 0.6;
+  }
 `
 
 export default AntUIOverWrite

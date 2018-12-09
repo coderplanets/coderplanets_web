@@ -12,6 +12,7 @@ import {
   PAYMENT_USAGE,
   PAYMENT_METHOD,
 } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:Cashier')
 /* eslint-enable no-unused-vars */
@@ -40,8 +41,8 @@ const Cashier = t
       t.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
       PAYMENT_USAGE.SENINOR
     ),
-    faceValue: t.optional(
-      t.enumeration('faceValue', ['10.24', '51.2', '102.4', '512', '1024']),
+    amount: t.optional(
+      t.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),
       '10.24'
     ),
   })
@@ -52,12 +53,24 @@ const Cashier = t
     get accountInfo() {
       return self.root.accountInfo
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
   }))
   .actions(self => ({
-    callCashier({ paymentUsage, faceValue }) {
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
+    toastDone(options) {
+      self.root.toast('success', R.merge({ position: 'topCenter' }, options))
+    },
+    toastError(options) {
+      self.root.toast('error', R.merge({ position: 'topCenter' }, options))
+    },
+    callCashier({ paymentUsage, amount }) {
       self.show = true
       self.paymentUsage = paymentUsage
-      self.faceValue = String(faceValue)
+      self.amount = String(amount)
     },
     markState(sobj) {
       markStates(sobj, self)

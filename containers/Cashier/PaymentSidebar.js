@@ -27,7 +27,7 @@ import { sidebarViewOnChange, paymentMethodOnChange } from './logic'
 const PaymentSidebar = ({
   accountInfo,
   paymentMethod,
-  faceValue,
+  amount,
   subContentView,
 }) => (
   <Wrapper>
@@ -60,7 +60,7 @@ const PaymentSidebar = ({
         <SelectorTitle>付款金额</SelectorTitle>
         <TitleDivider />
         <FaceValueWrapper>
-          <FaceValueNum>{faceValue}</FaceValueNum> 元
+          <FaceValueNum>{amount}</FaceValueNum> 元
         </FaceValueWrapper>
         <Holder />
       </SelectorWrapper>

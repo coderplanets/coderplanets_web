@@ -23,14 +23,15 @@ const debug = makeDebugger('C:UserBilling')
 /* eslint-enable no-unused-vars */
 
 class UserBillingContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { userBilling } = props
+  componentDidMount() {
+    const { userBilling } = this.props
     logic.init(userBilling)
   }
 
   render() {
+    const { userBilling } = this.props
+    const { pagedBillRecordsData } = userBilling
+
     return (
       <Wrapper>
         <UpgradeMenu />
@@ -40,7 +41,7 @@ class UserBillingContainer extends React.Component {
           iconSrc={`${ICON_CMD}/bill_history.svg`}
           desc="没有查询到付费记录, 欢迎升级体验。"
         />
-        <BillsTable />
+        <BillsTable data={pagedBillRecordsData} />
       </Wrapper>
     )
   }

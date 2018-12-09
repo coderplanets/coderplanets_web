@@ -34,7 +34,7 @@ const QR_CODE_ADDR = {
 }
 
 const PaymentContent = ({
-  faceValue,
+  amount,
   paymentMethod,
   subContentView,
   transferAccount,
@@ -53,9 +53,9 @@ const PaymentContent = ({
       return (
         <Wrapper>
           <CountDesc>
-            资助 <DescNumber>{faceValue} </DescNumber>元
+            资助 <DescNumber>{amount} </DescNumber>元
           </CountDesc>
-          <PaymentPic src={QR_CODE_ADDR[paymentMethod][faceValue]} />
+          <PaymentPic src={QR_CODE_ADDR[paymentMethod][amount]} />
           <NextDesc>
             付款完成后，请进入
             <NextStepBtn onClick={subContentViewOnChange.bind(this, 'confirm')}>

@@ -19,6 +19,10 @@ const I18nDict = {
   group: '组织',
   company: '公司',
   user: '用户',
+  // bill
+  done: '完成',
+  pending: '处理中',
+  reject: '出错',
   // tags
   pl: '编程语言',
   science: '科学',

@@ -14,10 +14,7 @@ const debug = makeDebugger('S:GirlVerifier')
 const GirlVerifier = t
   .model('GirlVerifier', {
     showModal: t.optional(t.boolean, false),
-    message: t.optional(
-      t.string,
-      '我的 github 主页信息已经可以证明我是女生了。'
-    ),
+    message: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {

@@ -108,8 +108,7 @@ const UpgradeMenu = () => (
       <PlanTitle>打赏用户</PlanTitle>
       <PlanDesc>
         <DescLine>
-          <BadPrice>￥15</BadPrice> / <GoodPrice>￥10.24 </GoodPrice>
-          每年
+          <BadPrice>￥15</BadPrice> / <GoodPrice>￥10.24 </GoodPrice>起
         </DescLine>
         <DescLine>打赏任意金额可解锁全部主题</DescLine>
         <DescLine>

@@ -8,6 +8,9 @@ const convertToErrorMsg = errCode => {
     case DEFAULT_BASE + 3: {
       return '不存在'
     }
+    case DEFAULT_BASE + 11: {
+      return '存在未处理订单'
+    }
     case THROTTLE_BASE + 1:
     case THROTTLE_BASE + 2:
     case THROTTLE_BASE + 3: {

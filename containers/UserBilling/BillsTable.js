@@ -1,17 +1,16 @@
 import React from 'react'
 import { Table } from 'antd'
+import TimeAgo from 'timeago-react'
 
+import { ArticleContentLoading } from '../../components'
 // import { ICON_CMD } from '../../config'
-import { Wrapper } from './styles/bills_table'
+import { Wrapper, ColorCell } from './styles/bills_table'
+import { Trans } from '../../utils'
 
 const columns = [
   {
     title: 'ID',
-    dataIndex: 'id',
-  },
-  {
-    title: '时间',
-    dataIndex: 'insertedAt',
+    dataIndex: 'hashId',
   },
   {
     title: '付款方式',
@@ -26,32 +25,44 @@ const columns = [
     dataIndex: 'paymentUsage',
   },
   {
+    title: '时间',
+    dataIndex: 'insertedAt',
+    /* eslint-disable-next-line */
+    render: text => <TimeAgo datetime={text} locale="zh_CN" />,
+  },
+  {
     title: '状态',
     dataIndex: 'state',
-  },
-]
-const data = [
-  {
-    id: '128439',
-    paymentMethod: '支付宝',
-    amount: '51.2元',
-    paymentUsage: 'GilsCodeToo',
-    insertedAt: '2018-19-22',
-    state: '完成',
-  },
-  {
-    id: '138844',
-    paymentMethod: '微信支付',
-    amount: '51.2元',
-    paymentUsage: '用途',
-    insertedAt: '2018-19-22',
-    state: '处理中',
+    /* eslint-disable-next-line */
+    render: text => {
+      switch (text) {
+        case 'done': {
+          return <ColorCell color="yellowgreen">{Trans(text)}</ColorCell>
+        }
+        case 'reject': {
+          return <ColorCell color="tomato">{Trans(text)}</ColorCell>
+        }
+        default: {
+          return <ColorCell>{Trans(text)}</ColorCell>
+        }
+      }
+    },
   },
 ]
 
-const BillsTable = () => (
+const BillsTable = ({ data }) => (
   <Wrapper>
-    <Table columns={columns} dataSource={data} size="small" />
+    {data ? (
+      <Table
+        columns={columns}
+        dataSource={data.entries}
+        size="small"
+        rowKey="hashId"
+        locale={{ emptyText: '暂无账单信息' }}
+      />
+    ) : (
+      <ArticleContentLoading />
+    )}
   </Wrapper>
 )
 

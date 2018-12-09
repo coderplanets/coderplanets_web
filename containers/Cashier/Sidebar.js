@@ -9,7 +9,7 @@ import { Wrapper } from './styles/sidebar'
 const Sidebar = ({
   accountInfo,
   sidebarView,
-  faceValue,
+  amount,
   paymentMethod,
   subContentView,
 }) => {
@@ -27,7 +27,7 @@ const Sidebar = ({
           <PaymentSidebar
             accountInfo={accountInfo}
             paymentMethod={paymentMethod}
-            faceValue={faceValue}
+            amount={amount}
             subContentView={subContentView}
           />
         </Wrapper>

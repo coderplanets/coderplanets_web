@@ -38,6 +38,8 @@ export const EVENT = {
   SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
   // customization
   SET_C11N: 'SET_C11N',
+  // bills
+  NEW_BILLS: 'NEW_BILLS',
 }
 
 export const TYPE = {

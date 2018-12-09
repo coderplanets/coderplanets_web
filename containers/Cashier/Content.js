@@ -8,7 +8,7 @@ import { Wrapper } from './styles/content'
 
 const Componet = ({
   contentView,
-  faceValue,
+  amount,
   paymentMethod,
   subContentView,
   transferAccount,
@@ -21,7 +21,7 @@ const Componet = ({
       return (
         <Wrapper>
           <PaymentContent
-            faceValue={faceValue}
+            amount={amount}
             paymentMethod={paymentMethod}
             subContentView={subContentView}
             transferAccount={transferAccount}
