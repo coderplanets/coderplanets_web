@@ -53,7 +53,7 @@ const PaymentContent = ({
       return (
         <Wrapper>
           <CountDesc>
-            付款 <DescNumber>{faceValue} </DescNumber>元
+            资助 <DescNumber>{faceValue} </DescNumber>元
           </CountDesc>
           <PaymentPic src={QR_CODE_ADDR[paymentMethod][faceValue]} />
           <NextDesc>

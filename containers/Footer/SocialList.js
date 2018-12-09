@@ -6,7 +6,7 @@ import { Wrapper, Item, Icon, PopInfo } from './styles/social_list'
 
 const SocialList = () => (
   <Wrapper>
-    <a href="mailto:support@coderplanets.com">
+    <a href="mailto:support@group.coderplanets.com">
       <Item>
         <Icon src={`${ICON_CMD}/social_email.svg`} />
       </Item>
