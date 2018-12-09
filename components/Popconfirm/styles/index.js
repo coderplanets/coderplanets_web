@@ -43,19 +43,20 @@ export const DeleteBtn = styled.div`
   &:hover {
     cursor: pointer;
     font-weight: bold;
-    border: 1px solid tomato;
+    border: 1px solid;
+    border-color: ${theme('baseColor.error')};
   }
   &:active {
     animation: ${animate.pulseRule};
   }
 `
 export const CutIcon = styled(Img)`
-  fill: tomato;
+  fill: ${theme('baseColor.error')};
   width: 18px;
   height: 18px;
   margin-right: 1px;
   margin-top: 1px;
 `
 export const ConfirmText = styled.div`
-  color: tomato;
+  color: ${theme('baseColor.error')};
 `

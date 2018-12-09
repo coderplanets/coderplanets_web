@@ -23,10 +23,11 @@ export const PlanTitle = styled.div`
 `
 export const GirlTitle = styled(PlanTitle)`
   ${cs.flexColumn()};
-  color: #ff7199;
+  color: ${theme('baseColor.pink')};
 `
 export const TitleDesc = styled.div`
-  color: ${({ pink }) => (pink ? '#ffafc9' : theme('thread.articleDigest'))};
+  color: ${({ pink }) =>
+    pink ? theme('baseColor.pinkLite') : theme('thread.articleDigest')};
 `
 export const PlanDesc = styled.div`
   ${cs.flexColumnGrow()};
@@ -38,26 +39,28 @@ export const PurchaseButton = styled.div`
   text-align: center;
 `
 const pinkHover = `
-  background-color: #ff7199  !important;
-  border-color: #ff7199;
-  color: white;
+  background-color: ${theme('baseColor.pink')};
+  border-color: ${theme('baseColor.pink')};
+  opacity: 0.6;
 `
 export const PinkButton = styled(Button)`
   color: white;
-  background-color: #f59dba;
-  border-color: #f59dba;
+  background-color: ${theme('baseColor.pink')};
+  border-color: ${theme('baseColor.pink')};
   &:focus {
     ${pinkHover};
+    color: ${theme('baseColor.pinkBtnText')};
   }
   &:hover {
     ${pinkHover};
+    color: ${theme('baseColor.pinkBtnText')};
   }
   &:active {
     ${pinkHover};
   }
 `
 export const DescLine = styled.div`
-  color: ${({ green }) => (green ? 'yellowgreen' : '')};
+  color: ${({ green }) => (green ? theme('baseColor.green') : '')};
   font-size: 0.9rem;
   margin-bottom: 3px;
 `
@@ -73,10 +76,9 @@ export const MoreLink = styled.a`
 `
 export const BadPrice = styled.span`
   text-decoration: line-through;
-  color: tomato;
-  opacity: 0.8;
+  color: ${theme('baseColor.error')};
 `
 export const GoodPrice = styled.span`
-  color: yellowgreen;
+  color: ${theme('baseColor.green')};
   font-weight: bold;
 `

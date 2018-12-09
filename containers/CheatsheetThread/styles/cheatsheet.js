@@ -36,7 +36,7 @@ export const ErrorWrapper = styled.div`
 `
 export const ErrorTitle = styled.div`
   font-size: 1.2rem;
-  color: tomato;
+  color: ${theme('baseColor.error')};
   margin-bottom: 20px;
 `
 export const ErrorLink = styled.a`
@@ -46,7 +46,7 @@ export const ErrorLink = styled.a`
 
   &:hover {
     cursor: pointer;
-    color: tomato;
+    color: ${theme('baseColor.error')};
     text-decoration: underline;
   }
 `

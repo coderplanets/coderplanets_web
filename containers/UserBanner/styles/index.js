@@ -8,9 +8,8 @@ export const BannerContainer = styled.nav`
   min-height: 200px;
   padding-top: 8px;
   padding-bottom: 8px;
-  border-bottom: 1px solid tomato;
-  background: ${theme('banner.bg')};
   border-bottom: 1px solid;
+  background: ${theme('banner.bg')};
   border-bottom-color: ${theme('banner.spliter')};
   @media (max-height: 800px) {
     min-height: 130px;

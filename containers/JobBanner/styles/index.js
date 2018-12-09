@@ -7,7 +7,7 @@ export const BaseBanner = styled.nav`
 
   position: relative;
   min-height: 140px;
-  border-bottom: 1px solid tomato;
+  border-bottom: 1px solid;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {
@@ -53,7 +53,7 @@ export const MarkTag = styled.div`
   padding: 1px 8px;
   border-radius: 3px;
   border: 1px solid;
-  border-color: tomato;
-  color: tomato;
+  border-color: ${theme('baseColor.error')}
+  color: ${theme('baseColor.error')};
   margin-right: 8px;
 `

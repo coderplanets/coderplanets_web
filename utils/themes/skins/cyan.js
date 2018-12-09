@@ -38,6 +38,13 @@ const cyan = {
   bodyBg: contentBg,
   selectionBg: '#A0BBBC',
   avatarOpacity: 1,
+  baseColor: {
+    error: 'tomato !important',
+    green: 'yellowgreen !important',
+    pink: '#f59dba !important',
+    pinkLite: '#ffafc9',
+    pinkBtnText: '#fff !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,

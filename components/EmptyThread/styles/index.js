@@ -41,7 +41,7 @@ const Link = styled.a`
   transition: color 0.3s;
   &:hover {
     text-decoration: underline;
-    color: tomato;
+    color: ${theme('baseColor.error')};
   }
 `
 export const IssueLink = styled(Link)`

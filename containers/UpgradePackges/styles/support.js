@@ -24,7 +24,7 @@ export const PkgItemYesIcon = styled(PkgItemIcon)`
   margin-right: 6px;
 `
 export const PkgItemNoIcon = styled(PkgItemIcon)`
-  fill: tomato;
+  fill: ${theme('baseColor.error')};
   width: 12px;
   height: 10px;
   margin-right: 6px;

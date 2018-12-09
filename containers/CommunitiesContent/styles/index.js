@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '../../../utils'
+import { cs, theme } from '../../../utils'
 // import Img from '../../../components/Img'
 
 export const Wrapper = styled.div`
@@ -8,6 +8,6 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('justify-center')};
 `
 export const SubscribedBox = styled.div`
-  color: yellowgreen;
+  color: ${theme('baseColor.green')};
   font-weight: bold;
 `

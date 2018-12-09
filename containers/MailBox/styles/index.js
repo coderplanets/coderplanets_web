@@ -19,7 +19,7 @@ export const NofityDot = styled.div`
   display: ${({ active }) => (active ? 'block' : 'none')};
   width: 8px;
   height: 8px;
-  background: tomato;
+  background: ${theme('baseColor.error')};
   border-radius: 100%;
   top: 5px;
   right: 8px;

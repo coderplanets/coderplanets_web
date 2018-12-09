@@ -6,16 +6,15 @@ import { theme, cs } from '../../../utils'
 
 const { TextArea } = Input
 
-/* border-color: ${({ isError }) => (isError ? 'tomato' : theme('form.border'))}; */
 export const Inputer = styled(Input)`
   border-left: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-right: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-left-color: ${({ error }) =>
-    error === 'true' ? 'tomato !important' : ''};
+    error === 'true' ? theme('baseColor.error') : ''};
   border-right-color: ${({ error }) =>
-    error === 'true' ? 'tomato !important' : ''};
+    error === 'true' ? theme('baseColor.error') : ''};
 `
 export const TextAreaer = styled(TextArea)`
   border-left: ${({ error }) =>
@@ -23,9 +22,9 @@ export const TextAreaer = styled(TextArea)`
   border-right: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-left-color: ${({ error }) =>
-    error === 'true' ? 'tomato !important' : ''};
+    error === 'true' ? theme('baseColor.error') : ''};
   border-right-color: ${({ error }) =>
-    error === 'true' ? 'tomato !important' : ''};
+    error === 'true' ? theme('baseColor.error') : ''};
 `
 
 export const FormItemWrapper = styled.div`
@@ -35,7 +34,8 @@ export const FormItemWrapper = styled.div`
 `
 export const FormLable = styled.div`
   font-size: 0.9rem;
-  color: ${({ error }) => (error ? 'tomato' : theme('form.label'))};
+  color: ${({ error }) =>
+    error ? theme('baseColor.error') : theme('form.label')};
   margin-right: 10px;
   margin-top: 5px;
   width: auto;

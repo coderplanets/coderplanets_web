@@ -40,6 +40,13 @@ const green = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: 'tomato !important',
+    green: 'yellowgreen !important',
+    pink: '#f59dba !important',
+    pinkLite: '#ffafc9',
+    pinkBtnText: '#fff !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,

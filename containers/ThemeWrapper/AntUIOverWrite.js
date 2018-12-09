@@ -82,11 +82,11 @@ const AntUIOverWrite = createGlobalStyle`
     padding: 0;
   }
   .ant-popover .ant-popover-content .ant-popover-inner {
-    background: tomato;
+    background: ${theme('baseColor.error')};
   }
 
   .ant-popover-inner {
-    background: tomato !important;
+    background: ${theme('baseColor.error')};
   }
 
   // popover end
@@ -276,12 +276,12 @@ const AntUIOverWrite = createGlobalStyle`
 
   .ant-btn-red {
     color: white;
-    background-color: tomato;
-    border-color: tomato;
+    background-color: ${theme('baseColor.error')};
+    border-color: ${theme('baseColor.error')};
   }
   .ant-btn-background-ghost.ant-btn-red {
-    color: tomato;
-    border-color: tomato;
+    color: ${theme('baseColor.error')};
+    border-color: ${theme('baseColor.error')};
   }
 
   .ant-btn-clicked:after {

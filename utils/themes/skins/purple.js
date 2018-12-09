@@ -39,6 +39,13 @@ const purple = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: '#a24e3f !important',
+    green: '#699411 !important',
+    pink: '#966475 !important',
+    pinkLite: '#82606b',
+    pinkBtnText: '#ded0d0 !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,
