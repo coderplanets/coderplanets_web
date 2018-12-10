@@ -1,7 +1,12 @@
+import R from 'ramda'
+
 const DEFAULT_BASE = 4000
 // const CHANGESET_BASE = 4100
 const THROTTLE_BASE = 4200
-// const ACCOUNT_BASE = 4300
+const ACCOUNT_BASE = 4300
+
+// spec error
+const LOGIN_ERROR = ACCOUNT_BASE + 1
 
 const convertToErrorMsg = errCode => {
   switch (errCode) {
@@ -10,6 +15,9 @@ const convertToErrorMsg = errCode => {
     }
     case DEFAULT_BASE + 11: {
       return '存在未处理订单'
+    }
+    case LOGIN_ERROR: {
+      return '需要登陆'
     }
     case THROTTLE_BASE + 1:
     case THROTTLE_BASE + 2:
@@ -28,4 +36,9 @@ export const errorForHuman = details => {
   return convertToErrorMsg(errCode)
 }
 
-export const holder = 1
+const checkLoginError = errors =>
+  !!(R.find(R.propEq('code', LOGIN_ERROR))(errors) || false)
+
+export const ssrAmbulance = {
+  hasLoginError: checkLoginError,
+}

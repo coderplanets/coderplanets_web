@@ -40,7 +40,6 @@ export function previewState() {
 // to avoid page-cache in server
 export function checkSesstionState() {
   sr71$.query(S.sessionState, {})
-  // store.confirmSessionState()
 }
 
 export function previewAccount() {
@@ -64,7 +63,11 @@ export const upgradeHepler = () => store.upgradeHepler()
 const DataSolver = [
   {
     match: asyncRes('sessionState'),
-    action: ({ sessionState: state }) => store.updateSesstion(state),
+    action: ({ sessionState: state }) => {
+      debug('client side check sessionState: ', state)
+
+      store.updateSesstion(state)
+    },
   },
   {
     match: asyncRes(EVENT.SET_C11N),
@@ -113,11 +116,10 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
-  // if (sub$) sub$.unsubscribe()
-  /* sub$ = sr71$.data().subscribe(handleData) */
-  // sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  if (sub$) sub$.unsubscribe()
+
+  if (sub$) return checkSesstionState()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  checkSesstionState()
 }

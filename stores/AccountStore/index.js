@@ -66,17 +66,10 @@ const AccountStore = t
     updateSesstion({ isValid, user }) {
       self.isValidSession = isValid
       if (isValid) {
-        self.updateAccount(user || {})
+        BStore.set('user', user)
+        return self.updateAccount(user || {})
       }
-    },
-    confirmSessionState() {
-      debug('confirmSessionState self.isValidSession: ', self.isValidSession)
-      // if (!self.isValidSession) return self.sessionCleanup()
-
-      const token = BStore.get('token')
-      if (token) {
-        BStore.cookie.set('jwtToken', token)
-      }
+      return self.sessionCleanup()
     },
     setSession(user, token) {
       debug('setSession user: ', user)

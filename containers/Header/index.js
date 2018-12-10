@@ -21,14 +21,9 @@ const debug = makeDebugger('C:Header')
 /* eslint-enable no-unused-vars */
 
 class HeaderContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { header } = props
-    logic.init(header)
-  }
-
   componentDidMount() {
-    logic.checkSesstionState()
+    const { header } = this.props
+    logic.init(header)
   }
 
   /* eslint-disable class-methods-use-this */

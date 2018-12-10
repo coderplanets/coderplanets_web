@@ -40,7 +40,7 @@ export {
   extractAttachments,
 } from './functions'
 
-export { errorForHuman } from './errors'
+export { errorForHuman, ssrAmbulance } from './errors'
 
 export {
   cast,
