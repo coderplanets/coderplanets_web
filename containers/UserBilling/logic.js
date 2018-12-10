@@ -32,8 +32,11 @@ export const girlVerifier = () => store.callGirlVerifier()
 export const seniorOnPay = () =>
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: '51.2' })
 
-export const loadBilRecords = (page = 1) =>
+export const loadBilRecords = (page = 1) => {
+  if (!store.isSelfViewing) return false
+
   sr71$.query(S.pagedBillRecords, { filter: { page, size: PAGE_SIZE.D } })
+}
 
 // ###############################
 // Data & Error handlers

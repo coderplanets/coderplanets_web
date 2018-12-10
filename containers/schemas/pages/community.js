@@ -6,6 +6,7 @@ export const subscribedCommunities = `
     subscribedCommunities(userId: $userId, filter: $filter) {
       entries {
         ${F.community}
+        contributesDigest
       }
       ${F.pagedCounts}
     }

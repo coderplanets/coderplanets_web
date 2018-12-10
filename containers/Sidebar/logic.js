@@ -14,8 +14,6 @@ import {
   THREAD,
 } from '../../utils'
 
-/* import { GRAPHQL_ENDPOINT } from '../../config' */
-
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 

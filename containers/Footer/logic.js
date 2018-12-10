@@ -22,8 +22,10 @@ export function toggleSponsorHelper() {
 }
 
 export const onLogin = () => store.authWarning({ hideToast: true })
-export const onPay = num =>
+export const onPay = num => {
+  if (!store.isLogin) return store.authWarning()
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
+}
 // ###############################
 // Data & Error handlers
 // ###############################

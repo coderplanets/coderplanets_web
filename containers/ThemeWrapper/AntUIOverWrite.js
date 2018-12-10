@@ -292,6 +292,9 @@ const AntUIOverWrite = createGlobalStyle`
   .ant-tabs-bar {
     border-bottom: ${theme('tabs.headerActive')};
   }
+  .ant-tabs {
+    width: 100%;
+  }
   .tabs-with-bottom {
     .ant-tabs-nav-container {
       border-bottom: 1px solid;

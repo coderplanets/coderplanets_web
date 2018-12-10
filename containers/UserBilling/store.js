@@ -43,6 +43,9 @@ const UserBilling = t
     get pagedBillRecordsData() {
       return stripMobx(self.pagedBillRecords)
     },
+    get isSelfViewing() {
+      return self.root.viewing.isSelfViewing
+    },
   }))
   .actions(self => ({
     upgradeHepler() {

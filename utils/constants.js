@@ -221,7 +221,7 @@ export const C11N = {
 }
 
 export const PAYMENT_USAGE = {
-  SENINOR: 'SENINOR',
+  SENIOR: 'SENIOR',
   GIRLS_CODE_TOO_PLAN: 'GirlsCodeTooPlan',
   DONATE: 'DONATE',
   SPONSOR: 'SPONSOR',

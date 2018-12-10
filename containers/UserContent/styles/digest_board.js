@@ -16,14 +16,15 @@ export const AttactWrapper = styled.div`
   font-size: 0.8rem;
   color: ${theme('banner.desc')};
   margin-left: 10px;
+  margin-bottom: 4px;
 `
 
 export const AttactIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-right: 5px;
-  margin-top: 4px;
   height: 15px;
   width: 15px;
+  display: block;
 `
 
 export const AttactLink = styled.a`

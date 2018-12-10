@@ -45,13 +45,18 @@ async function fetchData(props) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
+  // console.log('userHasLogin: ', userHasLogin)
+  // console.log('token: ', token)
   /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
+  // console.log('userId =============== ', userId)
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient
     .request(P.user, { id: userId, userHasLogin })
-    .catch(e => console.log('SSR: user page error', e))
+    .catch(e => {
+      console.log('SSR: user page error', e)
+    })
 
   const filter = pagedFilter(1)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -76,7 +81,7 @@ export default class UserPage extends React.Component {
     const query = queryStringToJSON(asPath)
 
     const { sessionState, user, subscribedCommunities } = await fetchData(props)
-    // console.log('fetchData user-->: ', user)
+    console.log(' ======== fetchData user-->: ', user)
 
     return {
       langSetup: {},

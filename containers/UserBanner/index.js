@@ -46,10 +46,8 @@ const fakeRecors = {
 */
 
 class UserBannerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { userBanner } = props
+  componentDidMount() {
+    const { userBanner } = this.props
     logic.init(userBanner)
   }
 

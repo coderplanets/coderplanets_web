@@ -28,7 +28,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UserContent')
 /* eslint-enable no-unused-vars */
 
-const taberThreads = [
+const BaseTaberThreads = [
   {
     title: '发布',
     raw: 'publish',
@@ -45,6 +45,10 @@ const taberThreads = [
     title: '喜欢',
     raw: 'likes',
   },
+]
+
+const FullTaberThreads = [
+  ...BaseTaberThreads,
   {
     title: '账单',
     raw: 'billing',
@@ -79,22 +83,27 @@ const TabberContent = ({ active }) => {
 }
 
 class UserContentContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { userContent } = props
+  componentDidMount() {
+    const { userContent } = this.props
     logic.init(userContent)
   }
 
   render() {
     const { userContent } = this.props
-    const { activeThread, viewingUser, accountInfo } = userContent
+    const {
+      activeThread,
+      viewingUser,
+      accountInfo,
+      isSelfViewing,
+    } = userContent
 
+    const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
     return (
       <Container>
         <MainWrapper>
           <TabberWrapper className="tabs-with-bottom">
             <Tabber
-              source={taberThreads}
+              source={taberSource}
               onChange={logic.tabChange}
               active={activeThread}
             />

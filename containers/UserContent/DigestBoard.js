@@ -54,10 +54,25 @@ const DigestBoard = ({ user, accountId }) => (
       <SourceContributeInfo data={user.achievement.sourceContribute} />
     ) : null}
 
-    <AttactWrapper>
-      <AttactIcon src={`${ICON_CMD}/sponsor.svg`} />
-      本站赞助者(详情)
-    </AttactWrapper>
+    {user.achievement.donateMember && !user.achievement.seniorMember ? (
+      <AttactWrapper>
+        <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
+        <div>友情打赏</div>
+      </AttactWrapper>
+    ) : null}
+
+    {user.achievement.seniorMember ? (
+      <AttactWrapper>
+        <AttactIcon src={`${ICON_CMD}/member_senior.svg`} />
+        <div>CPS 会员</div>
+      </AttactWrapper>
+    ) : null}
+    {user.achievement.sponsorMember ? (
+      <AttactWrapper>
+        <AttactIcon src={`${ICON_CMD}/member_sponsor.svg`} />
+        <div>特别赞助</div>
+      </AttactWrapper>
+    ) : null}
   </React.Fragment>
 )
 

@@ -31,13 +31,9 @@ const DataSolver = [
 const ErrSolver = []
 
 export function init(_store) {
-  if (store) {
-    // return loadUser()
-    return false
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   // loadUser()
 }

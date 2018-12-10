@@ -13,7 +13,7 @@ import { SectionLabel } from '../../components'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
 
-import { Wrapper } from './styles'
+import { Wrapper, ErrText } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
@@ -30,18 +30,24 @@ class UserBillingContainer extends React.Component {
 
   render() {
     const { userBilling } = this.props
-    const { pagedBillRecordsData } = userBilling
+    const { pagedBillRecordsData, isSelfViewing } = userBilling
 
     return (
       <Wrapper>
-        <UpgradeMenu />
-        <br />
-        <SectionLabel
-          title="历史账单"
-          iconSrc={`${ICON_CMD}/bill_history.svg`}
-          desc="没有查询到付费记录, 欢迎升级体验。"
-        />
-        <BillsTable data={pagedBillRecordsData} />
+        {isSelfViewing ? (
+          <React.Fragment>
+            <UpgradeMenu />
+            <br />
+            <SectionLabel
+              title="历史账单"
+              iconSrc={`${ICON_CMD}/bill_history.svg`}
+              desc="没有查询到付费记录, 欢迎升级体验。"
+            />
+            <BillsTable data={pagedBillRecordsData} />
+          </React.Fragment>
+        ) : (
+          <ErrText>请登录后查看本人的账单信息</ErrText>
+        )}
       </Wrapper>
     )
   }

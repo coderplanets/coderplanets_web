@@ -39,7 +39,7 @@ const Cashier = t
     ),
     paymentUsage: t.optional(
       t.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
-      PAYMENT_USAGE.SENINOR
+      PAYMENT_USAGE.SENIOR
     ),
     amount: t.optional(
       t.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),

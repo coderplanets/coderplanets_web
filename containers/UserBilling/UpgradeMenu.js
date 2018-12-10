@@ -5,7 +5,7 @@ import { SectionLabel, Button } from '../../components'
 
 import {
   ICON_CMD,
-  SENINOR_AMOUNT_THRESHOLD,
+  SENIOR_AMOUNT_THRESHOLD,
   SPONSOR_AMOUNT_THRESHOLD,
 } from '../../config'
 
@@ -52,7 +52,7 @@ const UpgradeMenu = () => (
       <PlanDesc>
         <DescLine>
           <BadPrice>￥102.4</BadPrice> /{' '}
-          <GoodPrice>￥{SENINOR_AMOUNT_THRESHOLD} </GoodPrice>
+          <GoodPrice>￥{SENIOR_AMOUNT_THRESHOLD} </GoodPrice>
           无限期有效
         </DescLine>
         <DescLine>将获得区别于免费用户的 10+ 项功能/服务</DescLine>

@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD, SENINOR_AMOUNT_THRESHOLD } from '../../config'
+import { ICON_CMD, SENIOR_AMOUNT_THRESHOLD } from '../../config'
 
 import { Button, Modal, SectionLabel } from '../../components'
 import Support from './Support'
@@ -99,7 +99,7 @@ class UpgradePackgesContainer extends React.Component {
                 <Support not items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
-              <Button type="red">￥{SENINOR_AMOUNT_THRESHOLD} 元</Button>
+              <Button type="red">￥{SENIOR_AMOUNT_THRESHOLD} 元</Button>
             </Dashboard>
             <Dashboard>
               <PkgTitle>赞助商</PkgTitle>
