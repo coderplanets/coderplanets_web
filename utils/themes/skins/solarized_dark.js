@@ -13,7 +13,7 @@ const fontColor = primaryColor
 const sidebarBg = '#001B21'
 const markdownFont = '#687F82'
 
-const descText = '#176179'
+const descText = '#126682'
 const primaryMate = '#2CB4AA'
 
 const solarizedDark = {
@@ -95,8 +95,8 @@ const solarizedDark = {
   },
   footer: {
     text: '#065365',
-    hover: '#5c868b',
-    title: '#77706B',
+    hover: '#147f7e',
+    title: '#195D61',
     bottomBg: '#061b20',
   },
   sidebar: {

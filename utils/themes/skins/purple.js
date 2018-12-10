@@ -12,7 +12,7 @@ const fontColor = primaryColor
 const sidebarBg = '#222029'
 const markdownFont = '#7F8189'
 
-const descText = '#4a455a'
+const descText = '#514a67'
 const primaryMate = '#a7674d'
 
 const purple = {
@@ -96,7 +96,7 @@ const purple = {
     text: descText,
     hover: lighten(0.1, descText),
     title: '#77706B',
-    bottomBg: '#252325',
+    bottomBg: '#1f1d1f',
   },
   sidebar: {
     bg: sidebarBg,

@@ -12,13 +12,14 @@ export const ResultText = styled.div`
   min-width: 75px;
 `
 export const SettingWrapper = styled.div``
+
 export const SettingIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
+  fill: ${theme('thread.filterResultHint')};
   width: 15px;
   height: 15px;
   display: block;
   &:hover {
-    fill: ${theme('thread.articleTitle')};
+    fill: ${theme('thread.articleDigest')};
     cursor: pointer;
   }
 `

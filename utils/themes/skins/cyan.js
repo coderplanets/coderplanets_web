@@ -263,7 +263,7 @@ const cyan = {
   },
   tabs: {
     headerActive: primaryColor,
-    header: lighten(0.15, primaryColor),
+    header: lighten(0.08, primaryColor),
     contentBg: '#FFFFFF',
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
