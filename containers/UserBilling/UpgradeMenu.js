@@ -1,6 +1,5 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import R from 'ramda'
 
 import { SectionLabel } from '../../components'
 
@@ -23,35 +22,23 @@ const labelText = isSeniorMember => {
   return '当前账户为免费账户，欢迎升级账户以获得更好的体验/服务, 同时支持社区的发展。'
 }
 
-const UpgradeMenu = ({ achievement }) => {
-  // more safe, should mv logic to server, fix later
-  const userAchievement = R.merge(
-    {
-      seniorMember: false,
-      donateMember: false,
-      sponsorMember: false,
-    },
-    achievement
-  )
+const UpgradeMenu = ({ achievement }) => (
+  <React.Fragment>
+    <DynamicGirlVerifier />
+    <SectionLabel
+      title="账单概况"
+      iconSrc={`${ICON_CMD}/bill.svg`}
+      desc={labelText(achievement.seniorMember)}
+    />
 
-  return (
-    <React.Fragment>
-      <DynamicGirlVerifier />
-      <SectionLabel
-        title="账单概况"
-        iconSrc={`${ICON_CMD}/bill.svg`}
-        desc={labelText(userAchievement.seniorMember)}
-      />
-
-      <SeniorPlan joined={userAchievement.seniorMember} />
-      <PlanDivider />
-      <SponsorPlan joined={userAchievement.sponsorMember} />
-      <PlanDivider />
-      <GirlsCodeTooPlan joined={userAchievement.seniorMember} />
-      <PlanDivider hide={userAchievement.seniorMember} />
-      <TipingDevsPlan />
-    </React.Fragment>
-  )
-}
+    <SeniorPlan joined={achievement.seniorMember} />
+    <PlanDivider />
+    <SponsorPlan joined={achievement.sponsorMember} />
+    <PlanDivider />
+    <GirlsCodeTooPlan joined={achievement.seniorMember} />
+    <PlanDivider hide={achievement.seniorMember} />
+    <TipingDevsPlan />
+  </React.Fragment>
+)
 
 export default UpgradeMenu

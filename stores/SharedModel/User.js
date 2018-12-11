@@ -148,6 +148,14 @@ export const EmptyUser = {
   contributes: {},
   githubProfile: null,
   // cmsPassportString: '{}',
+  achievement: {
+    reputation: 0,
+    contentsStaredCount: 0,
+    contentsFavoritedCount: 0,
+    donateMember: false,
+    seniorMember: false,
+    sponsorMember: false,
+  },
 }
 
 export const PagedUsers = t.model('PagedUsers', {

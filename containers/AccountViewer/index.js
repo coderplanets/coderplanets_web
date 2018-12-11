@@ -31,9 +31,8 @@ const ThemeSection = ({ curTheme }) => (
 )
 
 class AccountViewerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { accountViewer, user } = props
+  componentDidMount() {
+    const { accountViewer, user } = this.props
     logic.init(accountViewer, user)
 
     /* force rebuild the tooltip, otherwise it won't work in some async cases */
@@ -54,7 +53,6 @@ class AccountViewerContainer extends React.Component {
     } = accountViewer
 
     const { contributes } = userInfoData // accountInfo
-    // debug('contributes --> ', contributes)
 
     return (
       <AccountWrapper>
@@ -66,6 +64,7 @@ class AccountViewerContainer extends React.Component {
             showEdit
             viewingType={viewingType}
             onEdit={logic.editProfile}
+            onLogout={logic.onLogout}
           />
 
           <Divider top="20px" bottom="0px" />

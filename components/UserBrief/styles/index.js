@@ -13,11 +13,12 @@ export const AvatarWrapper = styled.div`
 export const Avatar = styled(Img)`
   border-radius: 4px;
   width: ${({ displayStyle }) =>
-    displayStyle === 'default' ? '120px' : '70px'};
+    displayStyle === 'default' ? '120px' : '80px'};
   height: ${({ displayStyle }) =>
-    displayStyle === 'default' ? '120px' : '70px'};
+    displayStyle === 'default' ? '120px' : '80px'};
   margin-top: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  cursor: ${({ hover }) => (hover ? 'pointer' : 'none')};
 `
 export const BriefTextWrapper = styled.div`
   ${cs.flexColumn()};
@@ -83,21 +84,4 @@ export const SocialSpliter = styled.div`
   margin-top: 4px;
   padding-top: 8px;
   opacity: 0.5;
-`
-
-export const EditWrapper = styled.div`
-  display: ${({ show }) => (show ? 'block' : 'none')};
-`
-export const EditIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 4px;
-
-  &:hover {
-    fill: ${theme('banner.title')};
-  }
-  transition: opacity 0.2s;
 `

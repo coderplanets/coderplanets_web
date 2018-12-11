@@ -11,7 +11,6 @@ import {
   makeDebugger,
   stripMobx,
   /* BStore, */
-  Global,
   BStore,
 } from '../../utils'
 
@@ -56,7 +55,6 @@ const AccountStore = t
     logout() {
       self.root.preview.close()
       self.sessionCleanup()
-      Global.location.reload(false)
     },
     updateAccount(sobj) {
       const user = R.merge(stripMobx(self.user), { ...sobj })
