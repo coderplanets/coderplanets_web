@@ -56,8 +56,8 @@ export const PinkButton = styled(Button)`
 `
 export const DescLine = styled.div`
   color: ${({ green }) => (green ? theme('baseColor.green') : '')};
-  font-size: 0.9rem;
-  margin-bottom: 3px;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
 `
 export const MoreLink = styled.a`
   color: ${theme('markdown.link')};

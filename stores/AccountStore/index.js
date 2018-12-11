@@ -91,7 +91,9 @@ const AccountStore = t
       self.userSubscribedCommunities = data
     },
     addSubscribedCommunity(community) {
-      const { userSubscribedCommunities: { entries } } = self
+      const {
+        userSubscribedCommunities: { entries },
+      } = self
 
       self.userSubscribedCommunities.entries = R.insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
@@ -114,7 +116,9 @@ const AccountStore = t
     },
 
     removeSubscribedCommunity(community) {
-      const { userSubscribedCommunities: { entries } } = self
+      const {
+        userSubscribedCommunities: { entries },
+      } = self
 
       const index = R.findIndex(R.propEq('id', community.id), entries)
       self.userSubscribedCommunities.entries = R.remove(index, 1, entries)

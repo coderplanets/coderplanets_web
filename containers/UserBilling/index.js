@@ -32,8 +32,7 @@ class UserBillingContainer extends React.Component {
   render() {
     const { userBilling } = this.props
     const { pagedBillRecordsData, accountInfo, isSelfViewing } = userBilling
-    debug('accountInfo: ', accountInfo.achievement)
-
+    // debug('accountInfo: ', accountInfo.achievement)
     return (
       <Wrapper>
         {isSelfViewing ? (
