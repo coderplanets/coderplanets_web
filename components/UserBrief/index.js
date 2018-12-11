@@ -6,9 +6,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { Button } from 'antd'
 
-import { ICON_CMD, DEFAULT_USER_AVATAR } from '../../config'
+import { DEFAULT_USER_AVATAR } from '../../config'
 
 import {
   Wrapper,
@@ -18,13 +17,13 @@ import {
   UserTitle,
   UserDesc,
   SocialSpliter,
-  EditIcon,
-  EditWrapper,
 } from './styles'
 
 import SocialIcons from './SocialIcons'
+import BadgeInfo from './BadgeInfo'
 import DetailView from './DetailView'
 import DigestView from './DigestView'
+import Operators from './Operators'
 
 import { makeDebugger } from '../../utils'
 
@@ -47,7 +46,14 @@ class UserBrief extends React.Component {
 
   render() {
     const { showDetail } = this.state
-    const { user, displayStyle, showEdit, onEdit, viewingType } = this.props
+    const {
+      user,
+      displayStyle,
+      showEdit,
+      onEdit,
+      onLogout,
+      viewingType,
+    } = this.props
 
     return (
       <Wrapper>
@@ -57,26 +63,22 @@ class UserBrief extends React.Component {
               <Avatar
                 src={user.avatar || DEFAULT_USER_AVATAR}
                 displayStyle={displayStyle}
+                hover={displayStyle === 'sidebar'}
               />
             </div>
           </Link>
 
-          {viewingType === 'account' ? (
-            <Button size="small" type="primary" ghost>
-              升级账户
-            </Button>
-          ) : null}
+          {displayStyle === 'sidebar' ? <BadgeInfo user={user} /> : null}
         </AvatarWrapper>
 
         <BriefTextWrapper>
           <UserTitle>
             {user.nickname}
             {viewingType === 'account' ? (
-              <EditWrapper show={showEdit} onClick={onEdit}>
-                <EditIcon src={`${ICON_CMD}/edit.svg`} />
-              </EditWrapper>
+              <Operators show={showEdit} onClick={onEdit} onLogout={onLogout} />
             ) : null}
           </UserTitle>
+
           {showDetail ? (
             <DetailView
               user={user}
@@ -104,6 +106,7 @@ UserBrief.propTypes = {
   viewingType: PropTypes.oneOf(['account', 'user']),
   showEdit: PropTypes.bool,
   onEdit: PropTypes.func,
+  onLogout: PropTypes.func,
 }
 
 UserBrief.defaultProps = {
@@ -111,6 +114,7 @@ UserBrief.defaultProps = {
   displayStyle: 'default',
   viewingType: 'user',
   onEdit: debug,
+  onLogout: debug,
 }
 
 export default UserBrief

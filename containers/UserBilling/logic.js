@@ -1,11 +1,22 @@
 // import R from 'ramda'
+import { PAGE_SIZE } from '../../config'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  ERR,
+  EVENT,
+  PAYMENT_USAGE,
+  asyncRes,
+} from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
+import S from './schema'
 
-// import S from './schema'
-
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.NEW_BILLS],
+})
 let sub$ = null
 
 /* eslint-disable no-unused-vars */
@@ -14,22 +25,34 @@ const debug = makeDebugger('L:UserBilling')
 
 let store = null
 
-export function upgradeHepler() {
-  store.upgradeHepler()
+export const upgradeHepler = () => store.upgradeHepler()
+export const sponsorHepler = () => store.sponsorHepler()
+export const girlVerifier = () => store.callGirlVerifier()
+
+export const seniorOnPay = () =>
+  store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: '51.2' })
+
+export const loadBilRecords = (page = 1) => {
+  if (!store.isSelfViewing) return false
+
+  sr71$.query(S.pagedBillRecords, { filter: { page, size: PAGE_SIZE.D } })
 }
 
-export function sponsorHepler() {
-  store.sponsorHepler()
-}
-
-export function girlVerifier() {
-  store.callGirlVerifier()
-}
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('pagedBillRecords'),
+    action: ({ pagedBillRecords }) => store.markState({ pagedBillRecords }),
+  },
+  {
+    match: asyncRes(EVENT.NEW_BILLS),
+    action: () => loadBilRecords(),
+  },
+]
+
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
@@ -52,10 +75,11 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  loadBilRecords()
+
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadBilRecords()
 }

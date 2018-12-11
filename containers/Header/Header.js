@@ -4,6 +4,7 @@ import { Navigator } from '../../components'
 import MailBox from '../MailBox'
 import UserLister from '../UserLister'
 import Cashier from '../Cashier'
+import UpgradePackges from '../UpgradePackges'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
@@ -50,6 +51,7 @@ const Header = ({
 
         {isLogin ? <MailBox /> : null}
 
+        <UpgradePackges />
         <UserLister />
         <Cashier />
         <UserAccount isLogin={isLogin} accountInfo={accountInfo} />

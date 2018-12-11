@@ -13,7 +13,7 @@ const fontColor = primaryColor
 const sidebarBg = '#001B21'
 const markdownFont = '#687F82'
 
-const descText = '#176179'
+const descText = '#126682'
 const primaryMate = '#2CB4AA'
 
 const solarizedDark = {
@@ -40,6 +40,13 @@ const solarizedDark = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: '#a24e3f !important',
+    green: '#699411 !important',
+    pink: '#966475 !important',
+    pinkLite: '#82606b',
+    pinkBtnText: '#ded0d0 !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -88,9 +95,9 @@ const solarizedDark = {
   },
   footer: {
     text: '#065365',
-    hover: '#5c868b',
-    title: '#77706B',
-    bottomBg: '#252325',
+    hover: '#147f7e',
+    title: '#195D61',
+    bottomBg: '#061b20',
   },
   sidebar: {
     bg: sidebarBg,
@@ -296,6 +303,13 @@ const solarizedDark = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 

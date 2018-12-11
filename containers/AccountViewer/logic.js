@@ -8,9 +8,12 @@ import {
   dispatchEvent,
   EVENT,
   TYPE,
+  Global,
 } from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:AccountViewer')
 /* eslint-enable no-unused-vars */
@@ -34,13 +37,17 @@ export const loadUser = user => {
 
 export const changeTheme = name => store.changeTheme(name)
 
-export function logout() {
-  store.logout()
-  dispatchEvent(EVENT.LOGOUT)
-}
-
 export const editProfile = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
+
+export const onLogout = () => {
+  store.logout()
+
+  setTimeout(() => {
+    Global.location.reload(false)
+  }, 2000)
+  // dispatchEvent(EVENT.LOGOUT)
+}
 
 const DataSolver = [
   {
@@ -85,13 +92,9 @@ export const loadUserInfo = user => {
 }
 
 export function init(_store, user) {
-  debug('DDDDD ---> init')
-  if (store) {
-    return loadUserInfo(user)
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return loadUserInfo(user)
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   return loadUserInfo(user)

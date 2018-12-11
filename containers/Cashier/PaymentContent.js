@@ -17,14 +17,14 @@ import {
 import { subContentViewOnChange } from './logic'
 
 const QR_CODE_ADDR = {
-  alipay: {
+  ALIPAY: {
     '10.24': `${ICON_BASE}/payment/alipay-10.24.png`,
     '51.2': `${ICON_BASE}/payment/alipay-51.2.png`,
     '102.4': `${ICON_BASE}/payment/alipay-102.4.png`,
     '512': `${ICON_BASE}/payment/alipay-512.png`,
     '1024': `${ICON_BASE}/payment/alipay-1024.png`,
   },
-  wechat: {
+  WECHAT: {
     '10.24': `${ICON_BASE}/payment/wechat-10.24.png`,
     '51.2': `${ICON_BASE}/payment/wechat-51.2.png`,
     '102.4': `${ICON_BASE}/payment/wechat-102.4.png`,
@@ -34,8 +34,8 @@ const QR_CODE_ADDR = {
 }
 
 const PaymentContent = ({
-  faceValue,
-  payMethod,
+  amount,
+  paymentMethod,
   subContentView,
   transferAccount,
 }) => {
@@ -43,7 +43,7 @@ const PaymentContent = ({
     case 'confirm': {
       return (
         <PaymentConfirm
-          payMethod={payMethod}
+          paymentMethod={paymentMethod}
           transferAccount={transferAccount}
         />
       )
@@ -53,9 +53,9 @@ const PaymentContent = ({
       return (
         <Wrapper>
           <CountDesc>
-            付款 <DescNumber>{faceValue} </DescNumber>元
+            资助 <DescNumber>{amount} </DescNumber>元
           </CountDesc>
-          <PaymentPic src={QR_CODE_ADDR[payMethod][faceValue]} />
+          <PaymentPic src={QR_CODE_ADDR[paymentMethod][amount]} />
           <NextDesc>
             付款完成后，请进入
             <NextStepBtn onClick={subContentViewOnChange.bind(this, 'confirm')}>

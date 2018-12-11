@@ -55,6 +55,9 @@ export const Achievement = t.model('Achievement', {
     weApp: false,
     h5: false,
   }),
+  donateMember: t.optional(t.boolean, false),
+  seniorMember: t.optional(t.boolean, false),
+  sponsorMember: t.optional(t.boolean, false),
 })
 
 const Customization = t.model('Customization', {
@@ -145,6 +148,14 @@ export const EmptyUser = {
   contributes: {},
   githubProfile: null,
   // cmsPassportString: '{}',
+  achievement: {
+    reputation: 0,
+    contentsStaredCount: 0,
+    contentsFavoritedCount: 0,
+    donateMember: false,
+    seniorMember: false,
+    sponsorMember: false,
+  },
 }
 
 export const PagedUsers = t.model('PagedUsers', {

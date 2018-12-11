@@ -62,7 +62,7 @@ export const CommentWrapper = styled.div`
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 export const DeleteHintText = styled.div`
-  color: tomato;
+  color: ${theme('baseColor.error')};
   font-size: 1.3em;
   margin-bottom: 10px;
 `

@@ -7,17 +7,29 @@ const simpleMutation = gql`
     }
   }
 `
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
-      id
+const pagedBillRecords = gql`
+  query($filter: PagedFilter!) {
+    pagedBillRecords(filter: $filter) {
+      entries {
+        id
+        state
+        amount
+        hashId
+        paymentUsage
+        paymentMethod
+        insertedAt
+      }
+      totalPages
+      totalCount
+      pageSize
+      pageNumber
     }
   }
 `
 
 const schema = {
   simpleMutation,
-  simpleQuery,
+  pagedBillRecords,
 }
 
 export default schema

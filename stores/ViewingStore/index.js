@@ -39,6 +39,14 @@ const ViewingStore = t
     get accountInfo() {
       return self.root.accountInfo
     },
+    get isSelfViewing() {
+      const { isLogin } = self.root.accountInfo
+      if (!isLogin) return false
+
+      const { id: accountId } = self.root.accountInfo
+      const { id: userId } = self.user
+      return accountId === userId
+    },
     get viewingData() {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {

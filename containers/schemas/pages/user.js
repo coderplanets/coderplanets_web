@@ -22,19 +22,14 @@ export const user = `
       huaban
       followersCount
       followingsCount
-
       viewerHasFollowed @include(if: $userHasLogin)
-
       achievement {
-        reputation
-        contentsStaredCount
-        contentsFavoritedCount
+        ${F.achievement}
         sourceContribute {
           web
           server
         }
       }
-
       workBackgrounds {
         company
         title
@@ -92,6 +87,9 @@ export const sessionState = `
         githubProfile {
           htmlUrl
           login
+        }
+        achievement {
+          ${F.achievement}
         }
       }
     }

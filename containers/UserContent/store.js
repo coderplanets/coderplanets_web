@@ -31,6 +31,9 @@ const UserContent = t
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
+    get isSelfViewing() {
+      return self.root.viewing.isSelfViewing
+    },
   }))
   .actions(self => ({
     authWarning(options) {

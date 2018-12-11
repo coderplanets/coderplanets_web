@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
   }
   .typewriter-mentionSuggestionsEntry:active {
-    background-color: tomato;
+    background-color: ${theme('baseColor.error')};
   }
   .typewriter-mentionSuggestionsEntryFocused {
     background-color: ${theme('comment.mentionActiveBg')};

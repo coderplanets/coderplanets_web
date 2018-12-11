@@ -3,18 +3,10 @@
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
-import initRootStore from '../../stores/init'
-import { GAWraper } from '../../components'
-
-import {
-  makeGQClient,
-  queryStringToJSON,
-  nilOrEmpty,
-  getSubPath,
-  BStore,
-  ROUTE,
-} from '../../utils'
+import initRootStore from '../stores/init'
+import { GAWraper } from '../components'
 
 import {
   ThemeWrapper,
@@ -28,9 +20,19 @@ import {
   Banner,
   Content,
   Footer,
-} from '../../containers'
+} from '../containers'
 
-import { P } from '../../containers/schemas'
+import {
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  getSubPath,
+  BStore,
+  ROUTE,
+  ssrAmbulance,
+} from '../utils'
+
+import { P } from '../containers/schemas'
 
 /* import PostsThreadSchema from '../containers/PostsThread/schema' */
 
@@ -38,13 +40,14 @@ import { P } from '../../containers/schemas'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+async function fetchData(props, opt) {
+  const { realname } = R.merge({ realname: true }, opt)
+
+  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
   const subPath = getSubPath(props)
   const category = subPath !== '' ? subPath : 'pl'
-  console.log('category meet: ', category)
 
   const { asPath } = props
 
@@ -75,29 +78,30 @@ async function fetchData(props) {
 
 export default class Index extends React.Component {
   static async getInitialProps(props) {
-    const { req, asPath } = props
-    const isServer = !!req
-    if (!isServer) return {}
-
+    /*
+    const { asPath } = props
     console.log(
       'SSR (communities) queryStringToJSON: ',
       queryStringToJSON(asPath)
     )
-    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
+    */
+
+    let resp
+    try {
+      resp = await fetchData(props)
+    } catch ({ response: { errors } }) {
+      if (ssrAmbulance.hasLoginError(errors)) {
+        resp = await fetchData(props, { realname: false })
+      }
+    }
+
     const {
       category,
       sessionState,
       pagedCategories,
       pagedCommunities,
       subscribedCommunities,
-    } = await fetchData(props)
-    // console.log('communities ->> ', pagedCommunities)
-
-    /* const { locale, messages } = req || Global.__NEXT_DATA__.props */
-    /* const langSetup = {} */
-    /* langSetup[locale] = messages */
-    /* eslint-enable no-undef */
-    /* console.log('partialTags --> ', partialTags) */
+    } = resp
 
     return {
       langSetup: {},

@@ -23,6 +23,9 @@ const UserSettings = t
     get accountInfo() {
       return self.root.accountInfo
     },
+    get isSelfViewing() {
+      return self.root.viewing.isSelfViewing
+    },
   }))
   .actions(self => ({
     changeTheme(name) {

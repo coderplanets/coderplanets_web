@@ -5,7 +5,7 @@ import { cs, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-end')};
-  margin-left: 4vw;
+  margin-left: 4%;
 `
 
 export const CommunityLogo = styled(Img)`

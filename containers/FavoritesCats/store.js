@@ -62,6 +62,9 @@ const FavoritesCats = t
     get viewingUser() {
       return stripMobx(self.root.viewing.user)
     },
+    get isSelfViewing() {
+      return self.root.viewing.isSelfViewing
+    },
     // NOTE: can't not use root's viewingData because the
     // activeThread is not right on user's page
     // and it's passible set/unset favrites on user's page

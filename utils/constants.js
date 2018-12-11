@@ -38,6 +38,8 @@ export const EVENT = {
   SET_FAVORITE_CONTENT: 'SET_FAVORITE_CONTENT',
   // customization
   SET_C11N: 'SET_C11N',
+  // bills
+  NEW_BILLS: 'NEW_BILLS',
 }
 
 export const TYPE = {
@@ -216,6 +218,18 @@ export const C11N = {
   DIGEST: 'digest',
   LIST: 'list',
   BRIEF: 'brief',
+}
+
+export const PAYMENT_USAGE = {
+  SENIOR: 'SENIOR',
+  GIRLS_CODE_TOO_PLAN: 'GirlsCodeTooPlan',
+  DONATE: 'DONATE',
+  SPONSOR: 'SPONSOR',
+}
+
+export const PAYMENT_METHOD = {
+  ALIPAY: 'ALIPAY',
+  WECHAT: 'WECHAT',
 }
 
 /* some svg icon are sensitive to fill color */

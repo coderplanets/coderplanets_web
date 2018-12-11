@@ -17,16 +17,20 @@ const debug = makeDebugger('C:UserStared')
 /* eslint-enable no-unused-vars */
 
 class UserStaredContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { userStared } = props
+  componentDidMount() {
+    const { userStared } = this.props
     logic.init(userStared)
   }
 
   render() {
     const { userStared } = this.props
-    const { pagedData, curView, curThread, viewingUser } = userStared
+    const {
+      pagedData,
+      curView,
+      curThread,
+      viewingUser,
+      accountInfo,
+    } = userStared
 
     const { totalCount } = pagedData
 
@@ -46,6 +50,7 @@ class UserStaredContainer extends React.Component {
           data={pagedData}
           thread={curThread}
           curView={curView}
+          accountInfo={accountInfo}
           emptyPrefix={`未找到 ${viewingUser.nickname} 喜欢的`}
           onPageChange={logic.reload}
           onTitleSelect={logic.onTitleSelect}

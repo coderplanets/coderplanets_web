@@ -5,29 +5,31 @@ import { Button } from 'antd'
 import { FormItem } from '../../components'
 import { Wrapper, Desc, BtnWrapper } from './styles/payment_confirm'
 
-import { transferAccountChange } from './logic'
+import { transferAccountChange, onPaymentConfirm } from './logic'
 
 const trans = {
-  wechat: '微信支付',
-  alipay: '支付宝',
+  WECHAT: '微信支付',
+  ALIPAY: '支付宝',
 }
 
-const PaymentConfirm = ({ payMethod, transferAccount }) => (
+const PaymentConfirm = ({ paymentMethod, transferAccount }) => (
   <Wrapper>
     <FormItem
       size="default"
       value={transferAccount}
-      placeholder={`${trans[payMethod]}账号`}
+      placeholder={`${trans[paymentMethod]}账号`}
       onChange={transferAccountChange}
       bottom="0"
     />
     <Desc>
-      请填写您的
-      {trans[payMethod]}
-      账号，我们将在一个工作日内绑定。
+      感谢资助！最后请正确填写您的
+      {trans[paymentMethod]}
+      账户名以便核实，我们将在 0~24 小时内为您办理相关服务。
     </Desc>
     <BtnWrapper>
-      <Button type="primary">提交</Button>
+      <Button type="primary" onClick={onPaymentConfirm}>
+        提交
+      </Button>
     </BtnWrapper>
   </Wrapper>
 )

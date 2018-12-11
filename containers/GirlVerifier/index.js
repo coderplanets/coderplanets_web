@@ -46,7 +46,7 @@ class GirlVerifierContainer extends React.Component {
               <SectionLabel
                 title={` 你好哇, ${accountInfo.nickname}`}
                 iconSrc={`${ICON_CMD}/smile.svg`}
-                desc="请提供一下你的其他公开社交账号/主页等，以便于核实你的女生身份。"
+                desc="请提供一下你在其他平台的 账号/主页 等，以便于证明你的女生身份。为避免不必要的麻烦以及你对隐私的顾虑，请尽量提供公开的账号信息。"
               />
             </Wrapper>
 
@@ -54,7 +54,7 @@ class GirlVerifierContainer extends React.Component {
               <TextArea
                 value={message}
                 onChange={logic.onMessageChange}
-                placeholder="比如: 微博/QQ空间/Instagram/Facebook/Twitter ... 等等"
+                placeholder="比如但不限于: 微博 / 知乎 / QQ / Instagram / Facebook / Twitter ... 等等"
                 autosize={{ minRows: 4, maxRows: 5 }}
               />
               <Footer>

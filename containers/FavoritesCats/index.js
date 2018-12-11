@@ -47,6 +47,7 @@ class FavoritesCatsContainer extends React.Component {
       showModal,
       editCategoryData,
       pagedCategoriesData,
+      isSelfViewing,
     } = favoritesCats
 
     const { entries, totalCount } = pagedCategoriesData
@@ -59,10 +60,16 @@ class FavoritesCatsContainer extends React.Component {
             iconSrc={`${ICON_CMD}/folder.svg`}
             desc={`当前共有收藏夹 ${totalCount} 个。`}
             addonNode={
-              <AdderWrapper onClick={logic.changeViewTo.bind(this, 'creator')}>
-                <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
-                <AdderText>创建</AdderText>
-              </AdderWrapper>
+              <React.Fragment>
+                {isSelfViewing ? (
+                  <AdderWrapper
+                    onClick={logic.changeViewTo.bind(this, 'creator')}
+                  >
+                    <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
+                    <AdderText>创建</AdderText>
+                  </AdderWrapper>
+                ) : null}
+              </React.Fragment>
             }
           />
         ) : null}

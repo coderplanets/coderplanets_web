@@ -114,12 +114,15 @@ export const achievement = `
   reputation
   contentsStaredCount
   contentsFavoritedCount
+  donateMember
+  seniorMember
+  sponsorMember
 `
 export const userBackgrounds = `
-workBackgrounds {
-  company
-  title
-}
+  workBackgrounds {
+    company
+    title
+  }
   educationBackgrounds {
     school
     major

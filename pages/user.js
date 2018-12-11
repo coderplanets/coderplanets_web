@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
@@ -32,6 +33,7 @@ import {
   /* BStore, */
   ROUTE,
   pagedFilter,
+  ssrAmbulance,
 } from '../utils'
 
 import { P } from '../containers/schemas'
@@ -40,18 +42,21 @@ import { P } from '../containers/schemas'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+async function fetchData(props, opt) {
+  const { realname } = R.merge({ realname: true }, opt)
+
+  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
+  // console.log('userHasLogin: ', userHasLogin)
+  // console.log('token: ', token)
   /* console.log('user page props: ', props) */
   const userId = getSubPath(props)
+  // console.log('userId =============== ', userId)
 
   const sessionState = gqClient.request(P.sessionState)
-  const user = gqClient
-    .request(P.user, { id: userId, userHasLogin })
-    .catch(e => console.log('SSR: user page error', e))
+  const user = gqClient.request(P.user, { id: userId, userHasLogin })
 
   const filter = pagedFilter(1)
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
@@ -75,8 +80,16 @@ export default class UserPage extends React.Component {
 
     const query = queryStringToJSON(asPath)
 
-    const { sessionState, user, subscribedCommunities } = await fetchData(props)
-    // console.log('fetchData user-->: ', user)
+    let resp
+    try {
+      resp = await fetchData(props)
+    } catch ({ response: { errors } }) {
+      if (ssrAmbulance.hasLoginError(errors)) {
+        resp = await fetchData(props, { realname: false })
+      }
+    }
+
+    const { sessionState, user, subscribedCommunities } = resp
 
     return {
       langSetup: {},

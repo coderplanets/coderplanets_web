@@ -28,26 +28,19 @@ const debug = makeDebugger('L:Header')
 
 let store = null
 let sub$ = null
-/* const sub$ = null */
-/* const user_token = */
 
-export function previewState() {
+export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ROOT_STORE,
   })
-}
 
-// to avoid page-cache in server
-export function checkSesstionState() {
-  sr71$.query(S.sessionState, {})
-  // store.confirmSessionState()
-}
-
-export function previewAccount() {
+export const previewAccount = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
   })
-}
+
+// to avoid page-cache in server
+export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
 export function onThreadChange(thread) {
   const activeThread = thread.raw
@@ -85,9 +78,8 @@ const DataSolver = [
   {
     // TODO: notify user if failed
     match: asyncRes('setCustomization'),
-    action: ({ setCustomization }) => {
-      debug('set setCustomization done: ', setCustomization)
-    },
+    action: () => {},
+    // debug('set setCustomization done: ', setCustomization)
   },
 ]
 
@@ -113,11 +105,10 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
-  // if (sub$) sub$.unsubscribe()
-  /* sub$ = sr71$.data().subscribe(handleData) */
-  // sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  if (sub$) sub$.unsubscribe()
+
+  if (sub$) return checkSesstionState()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  checkSesstionState()
 }

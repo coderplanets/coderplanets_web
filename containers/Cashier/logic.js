@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
@@ -9,10 +9,12 @@ import {
   Global,
   EVENT,
   ERR,
+  errorForHuman,
+  dispatchEvent,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
-// import S from './schema'
+import SR71 from '../../utils/network/sr71'
+import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.CALL_CASHIER],
@@ -28,13 +30,31 @@ let store = null
 export const sidebarViewOnChange = sidebarView =>
   store.markState({ sidebarView, contentView: sidebarView })
 
-export const payMethodOnChange = payMethod => store.markState({ payMethod })
+export const paymentMethodOnChange = paymentMethod =>
+  store.markState({ paymentMethod })
 
 export const subContentViewOnChange = subContentView =>
   store.markState({ subContentView })
 
 export const transferAccountChange = ({ target: { value } }) =>
   store.markState({ transferAccount: value })
+
+export const onPaymentConfirm = () => {
+  if (!store.isLogin) return store.authWarning({ hideToast: true })
+  if (R.isEmpty(store.transferAccount))
+    return store.toastError({ title: '提交失败', msg: '请填写转账信息' })
+
+  const { paymentMethod, paymentUsage, amount, transferAccount: note } = store
+
+  const args = {
+    paymentMethod,
+    paymentUsage,
+    amount: parseFloat(amount),
+    note,
+  }
+  debug('onPaymentConfirm: ', args)
+  sr71$.mutate(S.createBill, args)
+}
 
 export const onClose = () => {
   const confirmed = Global.confirm('若已付款，请确保您填写了账户信息')
@@ -54,13 +74,25 @@ const DataSolver = [
       holdPage()
     },
   },
+  {
+    match: asyncRes('createBill'),
+    action: ({ createBill }) => {
+      debug('createBill done: ', createBill)
+      store.markState({ show: false, subContentView: 'pay' })
+      store.toastDone({
+        title: 'CPS 团队感谢您的支持!',
+        msg: '我们会尽快为您办理',
+      })
+      dispatchEvent(EVENT.NEW_BILLS)
+    },
+  },
 ]
+
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    action: ({ details }) =>
+      store.toastError({ title: '提交失败', msg: errorForHuman(details) }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
@@ -77,10 +109,8 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

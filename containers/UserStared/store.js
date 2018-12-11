@@ -61,6 +61,9 @@ const UserStared = t
         }
       }
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
   }))
   .actions(self => ({
     markPagedData(pagedData) {

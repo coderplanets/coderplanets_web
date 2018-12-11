@@ -38,6 +38,13 @@ const cyan = {
   bodyBg: contentBg,
   selectionBg: '#A0BBBC',
   avatarOpacity: 1,
+  baseColor: {
+    error: 'tomato !important',
+    green: 'yellowgreen !important',
+    pink: '#f59dba !important',
+    pinkLite: '#ffafc9',
+    pinkBtnText: '#fff !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -256,7 +263,7 @@ const cyan = {
   },
   tabs: {
     headerActive: primaryColor,
-    header: lighten(0.15, primaryColor),
+    header: lighten(0.08, primaryColor),
     contentBg: '#FFFFFF',
     headerBg: '#F7F9F9',
     headerActiveTop: primaryColor,
@@ -296,6 +303,13 @@ const cyan = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#fff',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#e8e8e8',
+    hoverBg: '#fffef1',
   },
 }
 

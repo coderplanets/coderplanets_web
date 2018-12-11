@@ -9,7 +9,7 @@ import { Split } from './styles/source_contribute_info'
 
 const SourceContributeInfo = ({ data }) => (
   <AttactWrapper>
-    <AttactIcon src={`${ICON_CMD}/contributer.svg`} />
+    <AttactIcon src={`${ICON_CMD}/member_contributor.svg`} />
     本站源码贡献者(
     {data.web ? (
       <AttactLink

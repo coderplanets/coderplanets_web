@@ -119,14 +119,10 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return loadPosts()
-  }
   store = _store
+  loadPosts()
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
   loadPosts()
 }

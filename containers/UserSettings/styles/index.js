@@ -35,3 +35,7 @@ export const LabelDescLink = styled.div`
     cursor: pointer;
   }
 `
+
+export const ErrText = styled.div`
+  color: ${theme('baseColor.error')};
+`

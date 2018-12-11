@@ -43,7 +43,7 @@ export const SiteDesc = styled.a`
   margin-bottom: 5px;
 
   &:hover {
-    color: ${theme('footer.title')};
+    color: ${theme('footer.hover')};
     text-decoration: underline;
     cursor: pointer;
   }
@@ -80,7 +80,7 @@ export const Item = styled.a`
   margin-top: ${({ offsetTop }) => offsetTop || '0'};
 
   &:hover {
-    color: ${theme('footer.title')};
+    color: ${theme('footer.hover')};
     text-decoration: underline;
     cursor: pointer;
   }

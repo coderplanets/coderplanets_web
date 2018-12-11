@@ -37,13 +37,16 @@ const AvatarsRow = ({
   }
 
   users = R.filter(validUser, users)
+
   return (
     <Avatars height={height}>
       {total <= 1 ? (
         <span />
       ) : (
         <AvatarsItem onClick={onTotalSelect.bind(this, { users, total })}>
-          <AvatarsMore>{prettyNum(total)}</AvatarsMore>
+          <Tooltip title={`所有评论共 ${total} 条`}>
+            <AvatarsMore total={total}>{prettyNum(total)}</AvatarsMore>
+          </Tooltip>
         </AvatarsItem>
       )}
 

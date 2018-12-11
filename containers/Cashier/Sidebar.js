@@ -9,8 +9,8 @@ import { Wrapper } from './styles/sidebar'
 const Sidebar = ({
   accountInfo,
   sidebarView,
-  faceValue,
-  payMethod,
+  amount,
+  paymentMethod,
   subContentView,
 }) => {
   switch (sidebarView) {
@@ -26,8 +26,8 @@ const Sidebar = ({
         <Wrapper>
           <PaymentSidebar
             accountInfo={accountInfo}
-            payMethod={payMethod}
-            faceValue={faceValue}
+            paymentMethod={paymentMethod}
+            amount={amount}
             subContentView={subContentView}
           />
         </Wrapper>

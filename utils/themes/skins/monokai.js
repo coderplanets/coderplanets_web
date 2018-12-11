@@ -40,6 +40,13 @@ const monokai = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: '#a24e3f !important',
+    green: '#699411 !important',
+    pink: '#966475 !important',
+    pinkLite: '#82606b',
+    pinkBtnText: '#ded0d0 !important',
+  },
   header: {
     fg: descText,
     bg: bannerBg,
@@ -291,6 +298,13 @@ const monokai = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 

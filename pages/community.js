@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
@@ -31,6 +32,7 @@ import {
   ssrPagedSchema,
   ssrContentsThread,
   addTopicIfNeed,
+  ssrAmbulance,
 } from '../utils'
 
 import { P } from '../containers/schemas'
@@ -43,8 +45,10 @@ const debug = makeDebugger('page:community')
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+async function fetchData(props, opt) {
+  const { realname } = R.merge({ realname: true }, opt)
+
+  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
@@ -81,7 +85,7 @@ async function fetchData(props) {
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
-      size: 30,
+      size: PAGE_SIZE.M,
     },
   })
 
@@ -97,35 +101,25 @@ async function fetchData(props) {
 
 export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
-    const { req, asPath } = props
-    const isServer = !!req
-    if (!isServer) return {}
-
-    debug(
-      'SSR (community--) queryStringToJSON l: ',
-      queryStringToJSON(asPath, { pagi: 'number' })
-    )
-    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
     const subPath = getSubPath(props)
     const thread = extractThreadFromPath(props)
-    // console.log('getSubPath thread: ', thread)
 
     let resp
     try {
       resp = await fetchData(props)
-    } catch (error) {
-      console.error('TODO: error handling:')
-      // JSON.stringify(error, undefined, 2)
+    } catch ({ response: { errors } }) {
+      if (ssrAmbulance.hasLoginError(errors)) {
+        resp = await fetchData(props, { realname: false })
+      }
     }
 
     const { sessionState, partialTags, community, subscribedCommunities } = resp
-
     const contentsThread = ssrContentsThread(resp, thread)
 
+    // init state on server side
     return R.merge(
       {
         langSetup: {},
-        // account: { user: { subscribedCommunities } },
         account: {
           user: sessionState.user || {},
           isValidSession: sessionState.isValid,

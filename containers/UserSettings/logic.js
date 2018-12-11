@@ -12,23 +12,13 @@ const debug = makeDebugger('L:UserSettings')
 
 let store = null
 
-export function changeTheme(theme) {
-  store.changeTheme(theme)
-}
+export const changeTheme = theme => store.changeTheme(theme)
 
-export function c11nOnChange(part, e) {
-  console.log('c11nOnChange --> ', part)
-  console.log('c11nOnChange --> e', e.target.value)
-
+export const c11nOnChange = (part, e) =>
   store.updateC11N({ [part]: e.target.value })
-}
 
-export function upgradeHepler() {
-  store.upgradeHepler()
-}
-export function sponsorHepler() {
-  store.sponsorHepler()
-}
+export const upgradeHepler = () => store.upgradeHepler()
+export const sponsorHepler = () => store.sponsorHepler()
 
 // ###############################
 // Data & Error handlers
@@ -38,10 +28,8 @@ const DataSolver = []
 const ErrSolver = []
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

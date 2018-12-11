@@ -40,18 +40,24 @@ export const AvatarsImg = styled.img`
   text-align: center;
 `
 
+const moreTextSize = total => {
+  if (total < 99) return '14px'
+  if (total >= 100 && total <= 999) return '12px'
+  return '10px'
+}
+
 export const AvatarsMore = styled.span`
-  background-color: #e6edf3;
-  font-size: 11px;
-  border: 2px solid #f9fcfc;
+  ${cs.flex('align-center')};
+  justify-content: center;
+  font-size: ${({ total }) => moreTextSize(total)};
+
+  border-color: ${theme('thread.articleHover')};
+  color: ${theme('thread.articleTitle')};
+  background-color: ${theme('thread.articleHover')};
   border-radius: 100px 100px 100px 100px;
-  color: grey;
-  display: block;
   font-family: sans-serif;
-  font-weight: 100;
+  font-weight: ${({ total }) => (total >= 1000 ? 600 : 200)};
   height: 30px;
   width: 30px;
-  padding-top: 7px;
-  padding-left: 2px;
-  text-align: center;
+  padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
 `

@@ -8,10 +8,10 @@ import { Wrapper, Linker, SocialIcon, PopInfo } from './styles/social_icons'
 import { nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 
 const DisplayIcon = ({ user, social }) => {
-  if (social.siteUrl) {
+  if (user[social.key]) {
     return (
       <Linker
-        href={`${social.siteUrl}/${user[social.key]}`}
+        href={`${user[social.key]}`}
         target="_blank"
         rel="noopener noreferrer"
       >

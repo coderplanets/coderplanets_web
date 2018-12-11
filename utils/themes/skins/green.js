@@ -40,6 +40,13 @@ const green = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: 'tomato !important',
+    green: 'yellowgreen !important',
+    pink: '#f59dba !important',
+    pinkLite: '#ffafc9',
+    pinkBtnText: '#fff !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -287,6 +294,13 @@ const green = {
     errorBar: '#f59381',
     successBar: '#9dd035',
     warnBar: '#f5a30e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 

@@ -38,6 +38,13 @@ const github = {
   bodyBg: contentBg,
   selectionBg: 'tomato',
   avatarOpacity: 1,
+  baseColor: {
+    error: 'tomato !important',
+    green: 'yellowgreen !important',
+    pink: '#f59dba !important',
+    pinkLite: '#ffafc9',
+    pinkBtnText: '#fff !important',
+  },
   header: {
     fg: '#8c8c8c',
     bg: bannerBg,
@@ -297,6 +304,13 @@ const github = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 

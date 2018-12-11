@@ -35,14 +35,15 @@ export const LinkFrom = styled.a`
 export const RefinedLabel = styled.div`
   ${cs.flex('align-center')};
 
-  color: tomato;
-  border: 1px dashed tomato;
+  color: ${theme('baseColor.error')};
+  border: 1px dashed;
+  border-color: ${theme('baseColor.error')};
   padding: 0 5px;
   margin-right: 10px;
   border-radius: 5px;
 `
 export const RefinedIcon = styled(Img)`
-  fill: tomato;
+  fill: ${theme('baseColor.error')};
   width: 15px;
   height: 15px;
   margin-right: 5px;

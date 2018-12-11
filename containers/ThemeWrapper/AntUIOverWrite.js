@@ -82,11 +82,11 @@ const AntUIOverWrite = createGlobalStyle`
     padding: 0;
   }
   .ant-popover .ant-popover-content .ant-popover-inner {
-    background: tomato;
+    background: ${theme('baseColor.error')};
   }
 
   .ant-popover-inner {
-    background: tomato !important;
+    background: ${theme('baseColor.error')};
   }
 
   // popover end
@@ -276,12 +276,12 @@ const AntUIOverWrite = createGlobalStyle`
 
   .ant-btn-red {
     color: white;
-    background-color: tomato;
-    border-color: tomato;
+    background-color: ${theme('baseColor.error')};
+    border-color: ${theme('baseColor.error')};
   }
   .ant-btn-background-ghost.ant-btn-red {
-    color: tomato;
-    border-color: tomato;
+    color: ${theme('baseColor.error')};
+    border-color: ${theme('baseColor.error')};
   }
 
   .ant-btn-clicked:after {
@@ -291,6 +291,9 @@ const AntUIOverWrite = createGlobalStyle`
 
   .ant-tabs-bar {
     border-bottom: ${theme('tabs.headerActive')};
+  }
+  .ant-tabs {
+    width: 100%;
   }
   .tabs-with-bottom {
     .ant-tabs-nav-container {
@@ -344,6 +347,42 @@ const AntUIOverWrite = createGlobalStyle`
   }
   .ant-tag .anticon-cross {
     color: ${theme('tagger.closeBtn')};
+  }
+  // table
+  .ant-table-small > .ant-table-content > .ant-table-header > table, .ant-table-small > .ant-table-content > .ant-table-body > table, .ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-header > table, .ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-body > table, .ant-table-small > .ant-table-content > .ant-table-fixed-left > .ant-table-header > table, .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-header > table, .ant-table-small > .ant-table-content > .ant-table-fixed-left > .ant-table-body-outer > .ant-table-body-inner > table, .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-body-outer > .ant-table-body-inner > table {
+    padding: 0;
+  }
+  .ant-table-small > .ant-table-content > .ant-table-header > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-header > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-scroll > .ant-table-body > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-fixed-left > .ant-table-header > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-header > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-fixed-left > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-thead > tr > th, .ant-table-small > .ant-table-content > .ant-table-fixed-right > .ant-table-body-outer > .ant-table-body-inner > table > .ant-table-thead > tr > th {
+    background: ${theme('table.headerBg')};
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('table.border')};
+  }
+  .ant-table {
+    color: ${theme('table.text')};
+  }
+  .ant-table-tbody > tr > td {
+    border-top: 1px solid;
+    border-color: ${theme('table.border')};
+    transition: none;
+  }
+  .ant-table-small > .ant-table-content .ant-table-placeholder, .ant-table-small > .ant-table-content .ant-table-row:last-child td {
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('table.border')};
+  }
+  .ant-table-small {
+    border: 1px solid;
+    border-color: ${theme('table.border')};
+  }
+  .ant-table-thead > tr > th {
+    color: ${theme('table.headTitle')};
+  }
+  .ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td {
+   background: ${theme('table.hoverBg')};
+  }
+  .ant-table-placeholder {
+    background: ${theme('table.headerBg')};
+    color: ${theme('table.text')};
+    opacity: 0.6;
   }
 `
 

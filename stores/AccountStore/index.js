@@ -11,7 +11,6 @@ import {
   makeDebugger,
   stripMobx,
   /* BStore, */
-  Global,
   BStore,
 } from '../../utils'
 
@@ -56,7 +55,6 @@ const AccountStore = t
     logout() {
       self.root.preview.close()
       self.sessionCleanup()
-      Global.location.reload(false)
     },
     updateAccount(sobj) {
       const user = R.merge(stripMobx(self.user), { ...sobj })
@@ -66,23 +64,15 @@ const AccountStore = t
     updateSesstion({ isValid, user }) {
       self.isValidSession = isValid
       if (isValid) {
-        self.updateAccount(user || {})
+        self.setSession(user, BStore.get('token'))
+        return self.updateAccount(user || {})
       }
-    },
-    confirmSessionState() {
-      debug('confirmSessionState self.isValidSession: ', self.isValidSession)
-      // if (!self.isValidSession) return self.sessionCleanup()
-
-      const token = BStore.get('token')
-      if (token) {
-        BStore.cookie.set('jwtToken', token)
-      }
+      return self.sessionCleanup()
     },
     setSession(user, token) {
-      debug('setSession user: ', user)
-      debug('setSession token: ', token)
-      // if (!token || !user) return false
-      // self.isValidSession = true
+      // debug('setSession user: ', user)
+      // debug('setSession token: ', token)
+
       BStore.set('user', user)
       BStore.set('token', token)
       BStore.cookie.set('jwtToken', token)

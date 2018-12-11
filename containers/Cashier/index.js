@@ -22,8 +22,7 @@ const debug = makeDebugger('C:Cashier')
 /* eslint-enable no-unused-vars */
 
 class CashierContainer extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     const { cashier } = this.props
     logic.init(cashier)
   }
@@ -36,8 +35,8 @@ class CashierContainer extends React.Component {
       sidebarView,
       contentView,
       subContentView,
-      payMethod,
-      faceValue,
+      paymentMethod,
+      amount,
       transferAccount,
     } = cashier
 
@@ -48,14 +47,14 @@ class CashierContainer extends React.Component {
             accountInfo={accountInfo}
             sidebarView={sidebarView}
             subContentView={subContentView}
-            payMethod={payMethod}
-            faceValue={faceValue}
+            paymentMethod={paymentMethod}
+            amount={amount}
           />
           <Content
             contentView={contentView}
             subContentView={subContentView}
-            faceValue={faceValue}
-            payMethod={payMethod}
+            amount={amount}
+            paymentMethod={paymentMethod}
             transferAccount={transferAccount}
           />
         </Wrapper>

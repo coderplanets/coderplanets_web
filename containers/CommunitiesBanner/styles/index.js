@@ -7,7 +7,7 @@ export const BannerContainer = styled.div`
 
   position: relative;
   min-height: 170px;
-  border-bottom: 1px solid tomato;
+  border-bottom: 1px solid;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
   @media (max-height: 800px) {

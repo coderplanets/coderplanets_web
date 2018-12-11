@@ -12,7 +12,7 @@ const fontColor = primaryColor
 const sidebarBg = '#222029'
 const markdownFont = '#7F8189'
 
-const descText = '#4a455a'
+const descText = '#514a67'
 const primaryMate = '#a7674d'
 
 const purple = {
@@ -39,6 +39,13 @@ const purple = {
   bodyBg: contentBg,
   selectionBg: '#839496',
   avatarOpacity: 0.8,
+  baseColor: {
+    error: '#a24e3f !important',
+    green: '#699411 !important',
+    pink: '#966475 !important',
+    pinkLite: '#82606b',
+    pinkBtnText: '#ded0d0 !important',
+  },
   header: {
     fg: primaryColor,
     bg: bannerBg,
@@ -89,7 +96,7 @@ const purple = {
     text: descText,
     hover: lighten(0.1, descText),
     title: '#77706B',
-    bottomBg: '#252325',
+    bottomBg: '#1f1d1f',
   },
   sidebar: {
     bg: sidebarBg,
@@ -295,6 +302,13 @@ const purple = {
     border: '#ffe58f',
     bg: '#fffbe6',
     text: '#c3ae8e',
+  },
+  table: {
+    headerBg: '#024858',
+    headTitle: '#83a7ad',
+    text: '#83a7ad',
+    border: '#004657',
+    hoverBg: '#285769',
   },
 }
 
