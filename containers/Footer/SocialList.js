@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Popover from '../../components/Popover'
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, EMAIL_SUPPORT } from '../../config'
 import { Wrapper, Item, Icon, PopInfo } from './styles/social_list'
 
 const SocialList = () => (
   <Wrapper>
-    <a href="mailto:support@group.coderplanets.com">
+    <a href={`mailto:${EMAIL_SUPPORT}`}>
       <Item>
         <Icon src={`${ICON_CMD}/social_email.svg`} />
       </Item>

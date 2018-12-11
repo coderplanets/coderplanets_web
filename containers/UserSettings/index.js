@@ -45,10 +45,9 @@ class UserSettingsContainer extends React.Component {
 
   render() {
     const { userSettings } = this.props
-    const { curTheme, accountInfo } = userSettings
-    const { customization, isSelfViewing } = accountInfo
+    const { curTheme, accountInfo, isSelfViewing } = userSettings
+    const { customization } = accountInfo
 
-    // debug('accountInfo -** ', customization)
     return (
       <React.Fragment>
         {isSelfViewing ? (

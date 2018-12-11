@@ -12,6 +12,7 @@ import { ICON_CMD } from '../../config'
 import { SectionLabel } from '../../components'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
+import TableSectionDesc from './TableSectionDesc'
 
 import { Wrapper, ErrText } from './styles'
 
@@ -30,18 +31,19 @@ class UserBillingContainer extends React.Component {
 
   render() {
     const { userBilling } = this.props
-    const { pagedBillRecordsData, isSelfViewing } = userBilling
+    const { pagedBillRecordsData, accountInfo, isSelfViewing } = userBilling
+    debug('accountInfo: ', accountInfo.achievement)
 
     return (
       <Wrapper>
         {isSelfViewing ? (
           <React.Fragment>
-            <UpgradeMenu />
+            <UpgradeMenu achievement={accountInfo.achievement} />
             <br />
             <SectionLabel
               title="历史账单"
               iconSrc={`${ICON_CMD}/bill_history.svg`}
-              desc="没有查询到付费记录, 欢迎升级体验。"
+              node={<TableSectionDesc data={pagedBillRecordsData} />}
             />
             <BillsTable data={pagedBillRecordsData} />
           </React.Fragment>

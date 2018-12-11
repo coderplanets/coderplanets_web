@@ -19,17 +19,15 @@ export const BannerContainer = styled.nav`
 `
 
 export const BannerContentWrapper = styled.div`
-  ${cs.flex()};
+  ${cs.flex('justify-between')};
   margin-left: 8%;
   margin-right: 8%;
 `
-
 export const UserBriefWrapper = styled.div`
-  flex-grow: 1;
+  width: 60%;
 `
 export const UserContributesWrapper = styled.div`
-  width: 40%;
+  width: 36%;
   max-width: 450px;
-  margin-right: 20px;
   margin-top: 10px;
 `

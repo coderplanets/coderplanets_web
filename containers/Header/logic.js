@@ -28,25 +28,19 @@ const debug = makeDebugger('L:Header')
 
 let store = null
 let sub$ = null
-/* const sub$ = null */
-/* const user_token = */
 
-export function previewState() {
+export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ROOT_STORE,
   })
-}
 
-// to avoid page-cache in server
-export function checkSesstionState() {
-  sr71$.query(S.sessionState, {})
-}
-
-export function previewAccount() {
+export const previewAccount = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_ACCOUNT_VIEW,
   })
-}
+
+// to avoid page-cache in server
+export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
 export function onThreadChange(thread) {
   const activeThread = thread.raw
@@ -63,11 +57,7 @@ export const upgradeHepler = () => store.upgradeHepler()
 const DataSolver = [
   {
     match: asyncRes('sessionState'),
-    action: ({ sessionState: state }) => {
-      debug('client side check sessionState: ', state)
-
-      store.updateSesstion(state)
-    },
+    action: ({ sessionState: state }) => store.updateSesstion(state),
   },
   {
     match: asyncRes(EVENT.SET_C11N),
@@ -88,9 +78,8 @@ const DataSolver = [
   {
     // TODO: notify user if failed
     match: asyncRes('setCustomization'),
-    action: ({ setCustomization }) => {
-      debug('set setCustomization done: ', setCustomization)
-    },
+    action: () => {},
+    // debug('set setCustomization done: ', setCustomization)
   },
 ]
 

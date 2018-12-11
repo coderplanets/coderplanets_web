@@ -55,9 +55,9 @@ export const Achievement = t.model('Achievement', {
     weApp: false,
     h5: false,
   }),
-  // donateMember: t.optional(t.boolean, false),
-  // seniorMember: t.optional(t.boolean, false),
-  // sponsorMember: t.optional(t.boolean, false),
+  donateMember: t.optional(t.boolean, false),
+  seniorMember: t.optional(t.boolean, false),
+  sponsorMember: t.optional(t.boolean, false),
 })
 
 const Customization = t.model('Customization', {

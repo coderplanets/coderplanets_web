@@ -7,6 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 import { PAGE_SIZE } from '../../config'
 
+import { emptyPagiData } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -34,7 +35,7 @@ const PagedBillRecords = t.model('PagedBillRecords', {
 
 const UserBilling = t
   .model('UserBilling', {
-    pagedBillRecords: t.maybeNull(PagedBillRecords),
+    pagedBillRecords: t.optional(PagedBillRecords, emptyPagiData),
   })
   .views(self => ({
     get root() {
@@ -42,6 +43,9 @@ const UserBilling = t
     },
     get pagedBillRecordsData() {
       return stripMobx(self.pagedBillRecords)
+    },
+    get accountInfo() {
+      return self.root.accountInfo
     },
     get isSelfViewing() {
       return self.root.viewing.isSelfViewing

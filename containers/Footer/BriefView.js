@@ -1,6 +1,7 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+import { EMAIL_BUSINESS } from '../../config'
+
 import {
   Wrapper,
   MainInfos,
@@ -56,13 +57,7 @@ const BriefView = ({ toggleSponsorHelper }) => (
           API
         </Item>
         <Divider>|</Divider>
-        <Item
-          href="http://www.miitbeian.gov.cn"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          商务合作
-        </Item>
+        <Item href={`mailto:${EMAIL_BUSINESS}`}>商务合作</Item>
 
         <Divider>|</Divider>
         <Support onClick={toggleSponsorHelper}>打赏</Support>
