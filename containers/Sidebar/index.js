@@ -32,8 +32,7 @@ class SidebarContainer extends React.Component {
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
     const activeRaw = curCommunity.raw
 
-    debug('communitiesData ', communitiesData)
-
+    // debug('communitiesData ', communitiesData)
     return (
       <Container pin={pin}>
         <Header pin={pin} />

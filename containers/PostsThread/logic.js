@@ -201,4 +201,6 @@ export function init(_store) {
 
 export function uninit() {
   debug('===== uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }
