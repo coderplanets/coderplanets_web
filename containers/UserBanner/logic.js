@@ -16,7 +16,7 @@ let store = null
 
 export const loadUser = () => {
   const userHasLogin = store.isLogin
-  sr71$.query(S.user, { id: store.viewingUser.id, userHasLogin })
+  sr71$.query(S.user, { login: store.viewingUser.login, userHasLogin })
 }
 // ###############################
 // Data & Error handlers

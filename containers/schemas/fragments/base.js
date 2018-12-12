@@ -80,8 +80,9 @@ export const tag = `
 `
 export const author = `
   id
-  avatar
+  login
   nickname
+  avatar
 `
 export const user = `
   ${author}

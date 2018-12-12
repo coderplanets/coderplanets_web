@@ -32,7 +32,7 @@ export const loadAccount = () => {
 
 export const loadUser = user => {
   store.markState({ viewingType: 'user', viewingUser: user })
-  sr71$.query(S.user, { id: user.id })
+  sr71$.query(S.user, { login: user.login })
 }
 
 export const changeTheme = name => store.changeTheme(name)
