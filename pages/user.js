@@ -6,7 +6,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import initRootStore from '../stores/init'
-import { GAWraper } from '../components'
+import { GAWraper, ErrorPage } from '../components'
 
 // import UserBannerSchema from '../containers/UserBanner/schema'
 import {
@@ -73,8 +73,6 @@ async function fetchData(props, opt) {
 export default class UserPage extends React.Component {
   static async getInitialProps(props) {
     const { asPath } = props
-    // const isServer = !!req
-    // if (!isServer) return {}
 
     const query = queryStringToJSON(asPath)
 
@@ -85,6 +83,8 @@ export default class UserPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       }
+
+      return { statusCode: 404 }
     }
 
     const { sessionState, user, subscribedCommunities } = resp
@@ -104,26 +104,40 @@ export default class UserPage extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ ...props })
+
+    const store = props.statusCode
+      ? initRootStore({ langSetup: {} })
+      : initRootStore({ ...props })
+
+    this.store = store
+    // this.store = initRootStore({ ...props })
   }
 
   render() {
+    const { statusCode } = this.props
+
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            <Route />
-            <MultiLanguage>
-              <Sidebar />
-              <Preview />
-              <Doraemon />
-              <BodyLayout>
-                <Header />
-                <Banner />
-                <Content />
-                <Footer />
-              </BodyLayout>
-            </MultiLanguage>
+            {statusCode ? (
+              <ErrorPage errorCode={statusCode} />
+            ) : (
+              <React.Fragment>
+                <Route />
+                <MultiLanguage>
+                  <Sidebar />
+                  <Preview />
+                  <Doraemon />
+                  <BodyLayout>
+                    <Header />
+                    <Banner />
+                    <Content />
+                    <Footer />
+                  </BodyLayout>
+                </MultiLanguage>
+              </React.Fragment>
+            )}
           </ThemeWrapper>
         </GAWraper>
       </Provider>

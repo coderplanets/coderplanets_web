@@ -17,7 +17,7 @@ export default class Error extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ langSetup: '' })
+    this.store = initRootStore({ langSetup: {} })
   }
 
   render() {
