@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { User } from '../../stores/SharedModel'
+import { User, EmptyUser } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:AccountViewerStore')
@@ -14,7 +14,7 @@ const debug = makeDebugger('S:AccountViewerStore')
 
 const AccountViewerStore = t
   .model('AccountViewerStore', {
-    viewingUser: t.maybeNull(User),
+    viewingUser: t.optional(User, EmptyUser),
     viewingType: t.optional(
       t.enumeration('viewingType', ['account', 'user']),
       'account'
