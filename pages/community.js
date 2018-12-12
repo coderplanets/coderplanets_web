@@ -4,7 +4,8 @@ import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
-import { GAWraper } from '../components'
+
+import { GAWraper, ErrorPage } from '../components'
 
 import {
   ThemeWrapper,
@@ -110,6 +111,8 @@ export default class PageCommunity extends React.Component {
     } catch ({ response: { errors } }) {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
+      } else {
+        return { statusCode: 404, target: subPath }
       }
     }
 
@@ -143,26 +146,43 @@ export default class PageCommunity extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ ...props })
+    const store = props.statusCode
+      ? initRootStore({ langSetup: {} })
+      : initRootStore({ ...props })
+
+    this.store = store
+    // this.store = initRootStore({ ...props })
   }
 
   render() {
+    const { statusCode, target } = this.props
+
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            <Route />
-            <MultiLanguage>
-              <Sidebar />
-              <Preview />
-              <Doraemon />
-              <BodyLayout>
-                <Header />
-                <Banner />
-                <Content />
-                <Footer />
-              </BodyLayout>
-            </MultiLanguage>
+            {statusCode ? (
+              <ErrorPage
+                errorCode={statusCode}
+                page="community"
+                target={target}
+              />
+            ) : (
+              <React.Fragment>
+                <Route />
+                <MultiLanguage>
+                  <Sidebar />
+                  <Preview />
+                  <Doraemon />
+                  <BodyLayout>
+                    <Header />
+                    <Banner />
+                    <Content />
+                    <Footer />
+                  </BodyLayout>
+                </MultiLanguage>
+              </React.Fragment>
+            )}
           </ThemeWrapper>
         </GAWraper>
       </Provider>

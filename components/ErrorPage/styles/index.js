@@ -32,13 +32,13 @@ export const TextWrapper = styled.div`
 `
 export const HintTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
 `
 export const HintDesc = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: 4px;
-  font-size: 1.1rem;
+  font-size: ${({ small }) => (small ? '1rem' : '1.1rem')};
 `
 
 export const Error404Icon = styled(Img)`
@@ -77,7 +77,7 @@ export const IssueLink = styled.a`
   text-decoration: underline;
   font-weight: bolder;
   transition: color 0.3s;
-  color: ${theme('thread.articleDigest')};
+  color: ${theme('banner.title')};
   margin-left: 5px;
 
   &:hover {

@@ -8,7 +8,6 @@ import R from 'ramda'
 import initRootStore from '../stores/init'
 import { GAWraper, ErrorPage } from '../components'
 
-// import UserBannerSchema from '../containers/UserBanner/schema'
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -82,9 +81,9 @@ export default class UserPage extends React.Component {
     } catch ({ response: { errors } }) {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
+      } else {
+        return { statusCode: 404, target: getSubPath(props) }
       }
-
-      return { statusCode: 404, target: getSubPath(props) }
     }
 
     const { sessionState, user, subscribedCommunities } = resp
@@ -117,13 +116,13 @@ export default class UserPage extends React.Component {
     const { statusCode, target } = this.props
 
     return (
-      <React.Fragment>
-        {statusCode ? (
-          <ErrorPage errorCode={statusCode} page="user" target={target} />
-        ) : (
-          <Provider store={this.store}>
-            <GAWraper>
-              <ThemeWrapper>
+      <Provider store={this.store}>
+        <GAWraper>
+          <ThemeWrapper>
+            {statusCode ? (
+              <ErrorPage errorCode={statusCode} page="user" target={target} />
+            ) : (
+              <React.Fragment>
                 <Route />
                 <MultiLanguage>
                   <Sidebar />
@@ -136,11 +135,11 @@ export default class UserPage extends React.Component {
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
-              </ThemeWrapper>
-            </GAWraper>
-          </Provider>
-        )}
-      </React.Fragment>
+              </React.Fragment>
+            )}
+          </ThemeWrapper>
+        </GAWraper>
+      </Provider>
     )
   }
 }
