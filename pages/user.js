@@ -52,11 +52,10 @@ async function fetchData(props, opt) {
   // console.log('userHasLogin: ', userHasLogin)
   // console.log('token: ', token)
   /* console.log('user page props: ', props) */
-  const login = getSubPath(props)
+  const login = R.toLower(getSubPath(props))
   // console.log('login =============== ', login)
 
   const sessionState = gqClient.request(P.sessionState)
-  console.log('=== args: ', { login, userHasLogin })
   const user = gqClient.request(P.user, { login, userHasLogin })
 
   const filter = pagedFilter(1)

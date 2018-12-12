@@ -58,7 +58,7 @@ class UserBrief extends React.Component {
     return (
       <Wrapper>
         <AvatarWrapper>
-          <Link href={`/user/${user.id}`}>
+          <Link href={`/user/${user.login}`}>
             <div>
               <Avatar
                 src={user.avatar || DEFAULT_USER_AVATAR}
