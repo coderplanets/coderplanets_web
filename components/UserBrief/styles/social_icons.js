@@ -30,8 +30,3 @@ export const SocialIcon = styled(Img)`
 
   transition: fill 0.3s;
 `
-
-export const PopInfo = styled.div`
-  padding: 5px 10px;
-  color: ${theme('thread.articleTitle')};
-`

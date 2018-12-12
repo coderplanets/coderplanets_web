@@ -75,7 +75,7 @@ class UserBrief extends React.Component {
           <UserTitle>
             {user.nickname}
             {viewingType === 'account' ? (
-              <Operators show={showEdit} onClick={onEdit} onLogout={onLogout} />
+              <Operators show={showEdit} onEdit={onEdit} onLogout={onLogout} />
             ) : null}
           </UserTitle>
 

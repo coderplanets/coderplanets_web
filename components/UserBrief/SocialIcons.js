@@ -1,14 +1,16 @@
 import React from 'react'
+import R from 'ramda'
+import ReactTooltip from 'react-tooltip'
 
 import { ICON_CMD } from '../../config'
 
-import Popover from '../Popover'
-
-import { Wrapper, Linker, SocialIcon, PopInfo } from './styles/social_icons'
+import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 import { nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 
+const tooltipOffset = JSON.stringify({ left: 3 })
+
 const DisplayIcon = ({ user, social }) => {
-  if (user[social.key]) {
+  if (user[social.key] && !R.contains(social.key, ['qq', 'weichat'])) {
     return (
       <Linker
         href={`${user[social.key]}`}
@@ -23,23 +25,17 @@ const DisplayIcon = ({ user, social }) => {
     )
   }
   return (
-    <Popover
-      placement="bottom"
-      trigger="hover"
-      content={
-        <PopInfo>
-          {social.label}
-          {user[social.key]}
-        </PopInfo>
-      }
+    <div
+      key={social.key}
+      data-tip={user[social.key]}
+      data-for="social_icons"
+      data-offset={tooltipOffset}
     >
-      <div>
-        <SocialIcon
-          src={`${ICON_CMD}/${social.key}.svg`}
-          active={!nilOrEmpty(user[social.key])}
-        />
-      </div>
-    </Popover>
+      <SocialIcon
+        src={`${ICON_CMD}/${social.key}.svg`}
+        active={!nilOrEmpty(user[social.key])}
+      />
+    </div>
   )
 }
 
@@ -48,6 +44,7 @@ const SocialIcons = ({ user }) => (
     {SOCIAL_LISTS.map(social => (
       <DisplayIcon key={social.key} user={user} social={social} />
     ))}
+    <ReactTooltip effect="solid" place="bottom" id="social_icons" />
   </Wrapper>
 )
 
