@@ -6,6 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 
 import { withTheme } from 'styled-components'
 
@@ -26,12 +27,30 @@ import {
   FooterWrapper,
   IssueLink,
 } from './styles'
+
 import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:ErrorPage:index')
 /* eslint-enable no-unused-vars */
 
-const ErrorPage = ({ errorCode }) => (
+const NotFoundMessage = ({ page, target }) => {
+  switch (page) {
+    case 'user': {
+      return (
+        <HintTitle>
+          未找到该用户
+          {!R.isEmpty(target) ? <span>: {target}</span> : null}
+        </HintTitle>
+      )
+    }
+    default: {
+      return <HintTitle>页面未找到</HintTitle>
+    }
+  }
+}
+
+const ErrorPage = ({ errorCode, page, target }) => (
   <Container>
     <LogoWrapper>
       <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
@@ -44,7 +63,7 @@ const ErrorPage = ({ errorCode }) => (
       </IconsWrapper>
       <TextWrapper>
         {errorCode === 404 ? (
-          <HintTitle>页面未找到</HintTitle>
+          <NotFoundMessage page={page} target={target} />
         ) : (
           <HintTitle>服务器发生错误</HintTitle>
         )}
@@ -67,10 +86,14 @@ const ErrorPage = ({ errorCode }) => (
 
 ErrorPage.propTypes = {
   errorCode: PropTypes.number,
+  page: PropTypes.string,
+  target: PropTypes.string,
 }
 
 ErrorPage.defaultProps = {
   errorCode: 404,
+  page: '',
+  target: '',
 }
 
 export default withTheme(ErrorPage)

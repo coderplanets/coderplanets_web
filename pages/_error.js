@@ -21,21 +21,13 @@ export default class Error extends React.Component {
   }
 
   render() {
-    const { statusCode } = this.props
-
-    /*
-       <p>
-       {statusCode
-       ? `An error ${statusCode} occurred on server`
-       : `n error ${statusCode} occurred on client`}
-       </p>
-     */
+    const { statusCode, page, target } = this.props
 
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            <ErrorPage errorCode={statusCode} />
+            <ErrorPage errorCode={statusCode} page={page} target={target} />
           </ThemeWrapper>
         </GAWraper>
       </Provider>

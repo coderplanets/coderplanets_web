@@ -84,7 +84,7 @@ export default class UserPage extends React.Component {
         resp = await fetchData(props, { realname: false })
       }
 
-      return { statusCode: 404 }
+      return { statusCode: 404, target: getSubPath(props) }
     }
 
     const { sessionState, user, subscribedCommunities } = resp
@@ -114,16 +114,16 @@ export default class UserPage extends React.Component {
   }
 
   render() {
-    const { statusCode } = this.props
+    const { statusCode, target } = this.props
 
     return (
-      <Provider store={this.store}>
-        <GAWraper>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage errorCode={statusCode} />
-            ) : (
-              <React.Fragment>
+      <React.Fragment>
+        {statusCode ? (
+          <ErrorPage errorCode={statusCode} page="user" target={target} />
+        ) : (
+          <Provider store={this.store}>
+            <GAWraper>
+              <ThemeWrapper>
                 <Route />
                 <MultiLanguage>
                   <Sidebar />
@@ -136,11 +136,11 @@ export default class UserPage extends React.Component {
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </GAWraper>
-      </Provider>
+              </ThemeWrapper>
+            </GAWraper>
+          </Provider>
+        )}
+      </React.Fragment>
     )
   }
 }
