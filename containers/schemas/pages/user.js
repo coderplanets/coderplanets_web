@@ -1,8 +1,8 @@
 import F from '../fragments'
 
 export const user = `
-  query user($id: ID!, $userHasLogin: Boolean!) {
-    user(id: $id) {
+  query user($login: String!, $userHasLogin: Boolean!) {
+    user(login: $login) {
       ${F.author}
       views
       bio

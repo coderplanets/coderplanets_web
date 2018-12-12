@@ -83,6 +83,7 @@ export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
   id: t.maybeNull(t.string),
+  login: t.maybeNull(t.string),
   nickname: t.maybeNull(t.string),
   bio: t.maybeNull(t.string),
   avatar: t.maybeNull(t.string),
@@ -132,6 +133,7 @@ export const User = t.model('User', {
 
 export const SimpleUser = t.model('SimpleUser2', {
   id: t.maybeNull(t.string),
+  login: t.maybeNull(t.string),
   nickname: t.maybeNull(t.string),
   bio: t.maybeNull(t.string),
   avatar: t.maybeNull(t.string),
@@ -140,6 +142,7 @@ export const SimpleUser = t.model('SimpleUser2', {
 export const EmptyUser = {
   id: '',
   nickname: '',
+  login: '',
   bio: '',
   avatar: '',
   fromGithub: false,
