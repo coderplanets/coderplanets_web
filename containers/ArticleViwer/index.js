@@ -35,11 +35,13 @@ const Viwer = ({ type, data, loading, accountInfo }) => {
 }
 
 class ArticleViwerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { articleViwer, attachment } = props
+  componentDidMount() {
+    const { articleViwer, attachment } = this.props
     logic.init(articleViwer, attachment)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

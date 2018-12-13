@@ -25,6 +25,7 @@ const MailsViewer = t
       ]),
       'mentions'
     ),
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

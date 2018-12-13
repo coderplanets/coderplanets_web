@@ -20,7 +20,7 @@ const ArticleViwerStore = t
       ]),
       TYPE.PREVIEW_POST_VIEW
     ),
-    postLoading: t.optional(t.boolean, false),
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

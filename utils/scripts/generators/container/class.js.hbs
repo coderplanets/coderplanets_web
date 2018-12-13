@@ -27,6 +27,10 @@ class {{ properCase name }}Container extends React.Component {
     logic.init({{ camelCase name }})
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     return (
       <div>

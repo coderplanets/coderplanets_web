@@ -19,7 +19,7 @@ export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
 export function loadMentions(page = 1) {
-  // debug('loadMentions')
+  markLoading(false)
   const read = store.readState
   sr71$.query(S.mentions, {
     filter: { page, size: PAGE_SIZE.M, read },
@@ -31,6 +31,8 @@ export const toggleReadState = () => {
   loadMentions()
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -39,6 +41,7 @@ const DataSolver = [
   {
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
+      markLoading(false)
       store.markState({ pagedMentions })
     },
   },
@@ -48,27 +51,37 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return loadMentions()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  loadMentions()
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

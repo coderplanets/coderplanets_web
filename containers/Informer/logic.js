@@ -73,17 +73,16 @@ const ErrSolver = [
   },
 ]
 
-export function unInit() {
-  store.markState({
-    curView: 'overview',
-  })
+export function uninit() {
+  store.markState({ curView: 'overview' })
+  sub$.unsubscribe()
+  sub$ = null
 }
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
   debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

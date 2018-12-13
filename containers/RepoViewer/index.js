@@ -16,15 +16,19 @@ import { GithubRepoPage } from '../../components'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:RepoViewer')
 /* eslint-enable no-unused-vars */
 
 class RepoViewerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { repoViewer, attachment } = props
+  componentDidMount() {
+    const { repoViewer, attachment } = this.props
     logic.init(repoViewer, attachment)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

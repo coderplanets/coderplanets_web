@@ -7,27 +7,30 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Comments from '../Comments'
 import { ArticleHeader } from '../../components'
+
+import Comments from '../Comments'
+import PlayWindow from './PlayWindow'
+import InfoBoard from './InfoBoard'
+import BodyHeader from './BodyHeader'
 
 import { Wrapper, CommentsWrapper } from './styles'
 
-import PlayWindow from './PlayWindow'
-import InfoBoard from './InfoBoard'
-
-import BodyHeader from './BodyHeader'
-
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideoViewer')
 /* eslint-enable no-unused-vars */
 
 class VideoViewerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { videoViewer, attachment } = props
+  componentDidMount() {
+    const { videoViewer, attachment } = this.props
     logic.init(videoViewer, attachment)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

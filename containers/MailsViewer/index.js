@@ -42,14 +42,13 @@ const mailTabs = [
 ]
 
 class MailsViewerContainer extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     const { mailsViewer } = this.props
     logic.init(mailsViewer)
   }
 
-  componentDidMount() {
-    logic.loadMentions()
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

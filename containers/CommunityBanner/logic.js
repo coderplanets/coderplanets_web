@@ -26,9 +26,10 @@ const debug = makeDebugger('L:CommunityBanner')
 let store = null
 
 export function loadCommunity() {
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  sr71$.query(S.community, { raw: mainPath })
+  markLoading(true)
+
+  const { raw } = store.curCommunity
+  sr71$.query(S.community, { raw })
 }
 
 export function tabberChange(activeThread) {
@@ -52,16 +53,17 @@ export function showEditorList() {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
+
 // ###############################
 // Data & Error handlers
 // ###############################
 
-// TODO: load cur community
-// 两种情形: 1. 浏览器刷新页面. 2. 事件： Switch_Community
 const DataSolver = [
   {
     match: asyncRes('community'),
     action: ({ community }) => {
+      markLoading(false)
       const { subPath } = store.curRoute
       store.setViewing({
         community,
@@ -79,41 +81,35 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
 
-/*
-   const loadIfNeed = () => {
-   const { viewing, curRoute } = banner
-   const community = viewing.community.raw
-   const { mainPath } = curRoute
-
-   if (community !== mainPath) {
-   debug('>>>>>>>>> need load banner')
-   loadCommunity()
-   }
-   }
- */
-
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
 
-  /* loadIfNeed() */
+export function uninit() {
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

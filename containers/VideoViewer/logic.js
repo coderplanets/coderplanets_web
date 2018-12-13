@@ -24,7 +24,7 @@ let store = null
 function loadVideo({ id }) {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
-  /* loading() */
+  markLoading(true)
   sr71$.query(S.video, variables)
 }
 
@@ -52,6 +52,7 @@ const openAttachment = att => {
   }
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -60,6 +61,7 @@ const DataSolver = [
   {
     match: asyncRes('video'),
     action: ({ video }) => {
+      markLoading(false)
       store.setViewing({ video: R.merge(store.viewingData, video) })
       /* loading(false) */
     },
@@ -75,29 +77,36 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
 
 export function init(_store, attachment) {
-  if (store) {
-    return openAttachment(attachment)
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return openAttachment(attachment)
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

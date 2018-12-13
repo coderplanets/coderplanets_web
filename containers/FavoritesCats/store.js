@@ -51,6 +51,7 @@ const FavoritesCats = t
         THREAD.POST
       )
     ),
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

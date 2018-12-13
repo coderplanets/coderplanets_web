@@ -12,6 +12,7 @@ import {
   scrollIntoEle,
   asyncRes,
   dispatchEvent,
+  notEmpty,
 } from '../../utils'
 
 import S from './schema'
@@ -29,17 +30,10 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
-
 export function loadVideos(page = 1) {
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const { curCommunity } = store
   const userHasLogin = store.isLogin
+
   store.markState({ curView: TYPE.LOADING })
 
   const args = {
@@ -48,12 +42,12 @@ export function loadVideos(page = 1) {
       size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
-      community,
+      community: curCommunity.raw,
     },
     userHasLogin,
   }
 
-  args.filter = validFilter(args.filter)
+  args.filter = R.pickBy(notEmpty, args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   debug('load videos --> ', args)
@@ -147,4 +141,11 @@ export function init(_store) {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

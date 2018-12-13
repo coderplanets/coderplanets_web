@@ -47,6 +47,7 @@ export function onCategoryDelete() {
 export const loadCategories = (page = 1) => {
   const userId = store.viewingUser.id
 
+  markLoading(true)
   sr71$.query(S.favoriteCategories, {
     userId,
     filter: { page, size: PAGE_SIZE.M },
@@ -100,6 +101,8 @@ export const unSetContent = categoryId => {
   sr71$.mutate(S.unsetFavorites, args)
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -109,6 +112,7 @@ const DataSolver = [
     match: asyncRes('favoriteCategories'),
     action: ({ favoriteCategories: pagedCategories }) => {
       // const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      markLoading(false)
       store.markState({ pagedCategories })
       // store.closePreview()
       // dispatchEvent(EVENT.REFRESH_VIDEOS)
@@ -175,33 +179,43 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       store.changesetErr({ title: '已经存在了', msg: details[0].detail })
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
 
+const initStates = displayMode => {
+  store.markState({ displayMode })
+  return loadCategories()
+}
+
 export function init(_store, displayMode) {
-  if (store) {
-    store.markState({ displayMode })
-    return loadCategories()
-  }
   store = _store
 
   debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return initStates(displayMode)
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  store.markState({ displayMode })
-  loadCategories()
+  initStates(displayMode)
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

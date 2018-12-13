@@ -1,4 +1,5 @@
 import R from 'ramda'
+
 import {
   asyncRes,
   asyncErr,
@@ -11,6 +12,7 @@ import {
   THREAD,
   $solver,
   scrollIntoEle,
+  notEmpty,
   // GA,
 } from '../../utils'
 
@@ -29,29 +31,16 @@ const debug = makeDebugger('L:JobsThread')
 let store = null
 let sub$ = null
 
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
-
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadJobs(page = 1) {
-  /* const { mainPath, subPath } = store.curRoute */
-  scrollIntoEle(TYPE.APP_HEADER_ID)
-  // NOTE: do not use viewing.community, it's too slow
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const { curCommunity } = store
   const userHasLogin = store.isLogin
-
-  debug('userHasLogin ====> ', userHasLogin)
 
   store.markState({ curView: TYPE.LOADING })
 
-  let args = {
+  const args = {
     filter: {
       page,
       size: PAGE_SIZE.M,
@@ -61,14 +50,17 @@ export function loadJobs(page = 1) {
     userHasLogin,
   }
 
-  args.filter = validFilter(args.filter)
-  if (community !== ROUTE.HOME) {
-    args = R.merge(args, { community })
+  // if is not home community, load spec job in that community
+  if (curCommunity.raw !== ROUTE.HOME) {
+    args.filter = R.merge(args.filter, { community: curCommunity.raw })
   }
 
+  args.filter = R.pickBy(notEmpty, args.filter)
+  scrollIntoEle(TYPE.APP_HEADER_ID)
+
   debug('######## loadJobs args: ', args)
-  store.markRoute({ page })
   sr71$.query(S.pagedJobs, args)
+  store.markRoute({ page })
 }
 
 export function onTitleSelect(data) {
@@ -155,4 +147,11 @@ export function init(_store) {
 
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

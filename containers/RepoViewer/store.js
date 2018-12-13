@@ -12,7 +12,9 @@ const debug = makeDebugger('S:RepoViewer')
 /* eslint-enable no-unused-vars */
 
 const RepoViewer = t
-  .model('RepoViewer', {})
+  .model('RepoViewer', {
+    loading: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)

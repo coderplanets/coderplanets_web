@@ -14,6 +14,7 @@ import {
   COMMUNITY_SPEC_THREADS,
   $solver,
   scrollIntoEle,
+  notEmpty,
 } from '../../utils'
 
 import S from './schema'
@@ -34,23 +35,12 @@ const debug = makeDebugger('L:PostsThread')
 let store = null
 let sub$ = null
 
-// TODO: move to utils
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
-
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadPosts(page = 1) {
-  // NOTE: do not use viewing.community, it's too slow
   const { curCommunity } = store
   const { subPath: topic } = store.curRoute
-  // const { curCommunity: community, curThread } = store
-
   const userHasLogin = store.isLogin
 
   store.markState({ curView: TYPE.LOADING })
@@ -70,7 +60,7 @@ export function loadPosts(page = 1) {
     args.filter = R.merge(args.filter, { topic })
   }
 
-  args.filter = validFilter(args.filter)
+  args.filter = R.pickBy(notEmpty, args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   sr71$.query(S.pagedPosts, args)
@@ -200,9 +190,8 @@ export function init(_store) {
 }
 
 export function uninit() {
-  if (store.curView !== TYPE.LOADING) {
-    debug('===== do uninit')
-    sub$.unsubscribe()
-    sub$ = null
-  }
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

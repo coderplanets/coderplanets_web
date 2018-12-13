@@ -142,11 +142,17 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
   store.copyAccountInfo()
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  // if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

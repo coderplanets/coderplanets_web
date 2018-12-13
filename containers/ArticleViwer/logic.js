@@ -52,21 +52,17 @@ export function gotoPostPage(data) {
   store.markRoute({ mainPath: ROUTE.POST, subPath: id })
 }
 
-function loading(maybe = true) {
-  store.markState({ postLoading: maybe })
-}
-
 function loadPost({ id }) {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
-  loading()
+  markLoading()
   sr71$.query(S.post, variables)
 }
 
 function loadJob({ id }) {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
-  loading()
+  markLoading()
   debug('loadJob variables: ', variables)
   sr71$.query(S.job, variables)
 }
@@ -149,6 +145,8 @@ const openAttachment = att => {
   }
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -164,7 +162,7 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       sr71$.stop()
-      loading(false)
+      markLoading(false)
       // store.setViewing({ post: {} })
     },
   },
@@ -172,9 +170,8 @@ const DataSolver = [
     match: asyncRes('post'),
     action: ({ post }) => {
       store.setViewing({ post: R.merge(store.viewingData, post) })
-      console.log('before  syncViewingItem post: ', post)
       store.syncViewingItem(post)
-      loading(false)
+      markLoading(false)
     },
   },
   {
@@ -182,7 +179,7 @@ const DataSolver = [
     action: ({ job }) => {
       store.setViewing({ job: R.merge(store.viewingData, job) })
       store.syncViewingItem(job)
-      loading(false)
+      markLoading(false)
     },
   },
   {
@@ -242,12 +239,16 @@ const ErrSolver = [
 ]
 
 export function init(_store, attachment) {
-  if (store) {
-    return openAttachment(attachment)
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return openAttachment(attachment)
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

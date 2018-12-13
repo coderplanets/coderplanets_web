@@ -26,6 +26,7 @@ let store = null
 let sub$ = null
 
 export const loadAccount = () => {
+  markLoading(true)
   store.markState({ viewingType: 'account' })
   return sr71$.query(S.user, {})
 }
@@ -49,10 +50,16 @@ export const onLogout = () => {
   // dispatchEvent(EVENT.LOGOUT)
 }
 
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
+
+// ###############################
+// Data & Error handlers
+// ###############################
 const DataSolver = [
   {
     match: asyncRes('user'),
     action: ({ user }) => {
+      markLoading(false)
       if (store.viewingType === 'user') {
         return store.markState({ viewingUser: user })
       }
@@ -70,18 +77,21 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
@@ -98,4 +108,11 @@ export function init(_store, user) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   return loadUserInfo(user)
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

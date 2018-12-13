@@ -132,13 +132,17 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return loadPosts()
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return loadPosts()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  return loadPosts()
+  loadPosts()
+}
+
+export function uninit() {
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

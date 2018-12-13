@@ -19,6 +19,7 @@ const AccountViewerStore = t
       t.enumeration('viewingType', ['account', 'user']),
       'account'
     ),
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

@@ -18,18 +18,19 @@ const debug = makeDebugger('C:CommunityBanner')
 /* eslint-enable no-unused-vars */
 
 class CommunityBannerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { communityBanner } = props
+  componentDidMount() {
+    const { communityBanner } = this.props
     logic.init(communityBanner)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
     const { communityBanner } = this.props
     const {
-      accountInfo: {
-        customization: { bannerLayout },
-      },
+      accountInfo: { customization: { bannerLayout } },
       viewing: { community, activeThread },
     } = communityBanner
 

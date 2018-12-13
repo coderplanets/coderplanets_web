@@ -43,6 +43,10 @@ class AccountViewerContainer extends React.Component {
     }, 2000)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { accountViewer } = this.props
     const {

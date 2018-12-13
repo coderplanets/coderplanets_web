@@ -15,11 +15,12 @@ const debug = makeDebugger('L:UsersThread')
 let store = null
 
 export function loadGeoData() {
-  store.markState({ geoDataLoading: true })
+  markLoading(true)
   const { id } = store.curCommunity
   sr71$.query(S.communityGeoInfo, { id })
 }
 
+const markLoading = (maybe = true) => store.markState({ geoDataLoading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -27,12 +28,10 @@ export function loadGeoData() {
 const DataSolver = [
   {
     match: asyncRes('communityGeoInfo'),
-    action: ({ communityGeoInfo }) => {
-      debug('communityGeoInfo->:  ', communityGeoInfo)
-      store.markState({
-        geoInfos: communityGeoInfo,
-        geoDataLoading: false,
-      })
+    action: ({ communityGeoInfo: geoInfos }) => {
+      debug('communityGeoInfo->:  ', geoInfos)
+      markLoading(false)
+      store.markState({ geoInfos })
     },
   },
 ]
@@ -41,26 +40,36 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
 
 export function init(_store) {
   store = _store
-  loadGeoData()
 
-  if (sub$) return false
+  if (sub$) return loadGeoData()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadGeoData()
+}
+
+export function uninit() {
+  if (store.geoDataLoading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

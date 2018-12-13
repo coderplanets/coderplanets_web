@@ -38,15 +38,21 @@ export const previewUser = user => {
   })
 }
 
-export const loadMailboxStates = () => sr71$.query(S.mailBoxStatus, {})
+export const loadMailboxStates = () => {
+  markLoading(true)
+  sr71$.query(S.mailBoxStatus, {})
+}
 
 export function loadMentions() {
   // debug('loadMentions')
+  markLoading(true)
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
 
 export const seeAll = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
+
+const markLoading = (maybe = true) => store.markState({ loading: maybe })
 
 // ###############################
 // Data & Error handlers
@@ -56,6 +62,7 @@ const DataSolver = [
   {
     match: asyncRes('user'),
     action: ({ user: { mailBox: mailStatus } }) => {
+      markLoading(false)
       store.markState({ mailStatus })
     },
   },
@@ -63,6 +70,7 @@ const DataSolver = [
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
       debug('get pagedMentions: ', pagedMentions)
+      markLoading(false)
       store.markState({ pagedMentions })
       loadMailboxStates()
     },
@@ -91,12 +99,16 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) {
-    return loadMailboxStates()
-  }
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return loadMailboxStates()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  return loadMailboxStates()
+  loadMailboxStates()
+}
+
+export function uninit() {
+  if (store.loading) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

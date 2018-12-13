@@ -12,7 +12,9 @@ const debug = makeDebugger('S:VideoViewer')
 /* eslint-enable no-unused-vars */
 
 const VideoViewer = t
-  .model('VideoViewer', {})
+  .model('VideoViewer', {
+    loading: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)

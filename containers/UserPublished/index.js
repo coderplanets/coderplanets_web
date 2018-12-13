@@ -17,10 +17,13 @@ const debug = makeDebugger('C:UserPublished')
 /* eslint-enable no-unused-vars */
 
 class UserPublishedContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { userPublished } = props
+  componentDidMount() {
+    const { userPublished } = this.props
     logic.init(userPublished)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

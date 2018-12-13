@@ -42,6 +42,10 @@ class ReposThreadContainer extends React.Component {
     logic.init(reposThread)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { reposThread } = this.props
 

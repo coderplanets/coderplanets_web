@@ -22,11 +22,16 @@ const debug = makeDebugger('C:MailBox')
 class MailBoxContainer extends React.Component {
   constructor(props) {
     super(props)
-
-    const { mailBox } = props
-    logic.init(mailBox)
-
     this.state = { visible: false }
+  }
+
+  componentDidMount() {
+    const { mailBox } = this.props
+    logic.init(mailBox)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   onVisibleChange(visible) {

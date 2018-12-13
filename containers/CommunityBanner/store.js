@@ -12,7 +12,9 @@ const debug = makeDebugger('S:CommunityBanner')
 /* eslint-enable no-unused-vars */
 
 const CommunityBanner = t
-  .model('CommunityBanner', {})
+  .model('CommunityBanner', {
+    loading: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)
@@ -25,6 +27,9 @@ const CommunityBanner = t
     },
     get accountInfo() {
       return self.root.accountInfo
+    },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
     },
   }))
   .actions(self => ({

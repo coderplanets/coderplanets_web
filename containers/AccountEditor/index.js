@@ -85,11 +85,13 @@ const FormItem = ({ label, textarea, value, onChange }) => (
 )
 
 class AccountEditorContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { accountEditor } = props
+  componentDidMount() {
+    const { accountEditor } = this.props
     logic.init(accountEditor)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

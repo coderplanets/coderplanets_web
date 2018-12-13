@@ -11,6 +11,7 @@ import {
   THREAD,
   scrollIntoEle,
   asyncRes,
+  notEmpty,
 } from '../../utils'
 
 import S from './schema'
@@ -19,27 +20,19 @@ import SR71 from '../../utils/network/sr71'
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
-let sub$ = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:ReposThread')
 /* eslint-enable no-unused-vars */
 
+let sub$ = null
 let store = null
-
-const validFilter = R.pickBy(
-  R.compose(
-    R.not,
-    R.isEmpty
-  )
-)
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export function loadRepos(page = 1) {
-  const { mainPath } = store.curRoute
-  const community = mainPath
+  const { curCommunity } = store
   const userHasLogin = store.isLogin
 
   store.markState({ curView: TYPE.LOADING })
@@ -50,12 +43,12 @@ export function loadRepos(page = 1) {
       size: PAGE_SIZE.D,
       ...store.filtersData,
       tag: store.activeTagData.raw,
-      community,
+      community: curCommunity.raw,
     },
     userHasLogin,
   }
 
-  args.filter = validFilter(args.filter)
+  args.filter = R.pickBy(notEmpty, args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   debug('load repos --> ', args)
@@ -82,7 +75,6 @@ export function onTagSelect() {
 }
 
 export const onFilterSelect = option => store.selectFilter(option)
-
 export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################
@@ -129,4 +121,11 @@ export function init(_store) {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  if (store.curView === TYPE.LOADING) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }
