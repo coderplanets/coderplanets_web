@@ -38,7 +38,7 @@ StrategicPartners.propTypes = {
 }
 
 StrategicPartners.defaultProps = {
-  show: true,
+  show: false,
   onClose: debug,
 }
 

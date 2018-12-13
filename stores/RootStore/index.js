@@ -289,6 +289,9 @@ const rootStore = t
     updateC11N(options) {
       self.account.updateC11N(options)
     },
+    isMemberOf(type) {
+      return self.account.isMemberOf(type)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },

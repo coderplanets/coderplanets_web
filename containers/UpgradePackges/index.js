@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD, SENIOR_AMOUNT_THRESHOLD } from '../../config'
+import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '../../config'
 
 import { Button, Modal, SectionLabel } from '../../components'
 import Support from './Support'
@@ -32,33 +32,31 @@ const debug = makeDebugger('C:UpgradePackges')
 const freeUserItems = [
   { title: '浏览,发帖,订阅' },
   { title: '点赞,收藏,关注' },
-  { title: '发布招聘,专栏' },
-  { title: '设置打赏' },
+  { title: '发布招聘' },
+  { title: '创建专栏(wip)' },
 ]
 
-const proUserItems = [
+const seniorItems = [
   { title: '关闭广告' },
   { title: '主题设置' },
-  { title: '首页发帖' },
-  { title: '发起投票' },
-  { title: '匿名发布' },
-  { title: '创建组织' },
-  { title: '侧边栏分组' },
+  // { title: '首页发帖' },
   { title: '私有收藏夹' },
-  { title: '付费专栏(免申请)' },
-  { title: '社区统计图表' },
+  { title: '发起投票(wip)' },
+  { title: '匿名发布(wip)' },
+  { title: '创建组织(wip)' },
+  { title: '文章打赏(wip)' },
+  { title: '订阅栏分组(wip)' },
+  { title: '运维统计(wip)' },
 ]
 
 const platinumUserItems = [
-  { title: '页脚 Logo 推广' },
+  { title: '页脚/边栏 Logo 推广' },
   { title: 'Github 特别鸣谢' },
 ]
 
 class UpgradePackgesContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { upgradePackges } = props
+  componentDidMount() {
+    const { upgradePackges } = this.props
     logic.init(upgradePackges)
   }
 
@@ -73,7 +71,7 @@ class UpgradePackgesContainer extends React.Component {
             <SectionLabel
               title="升级助手"
               iconSrc={`${ICON_CMD}/rocket.svg`}
-              desc="请注意：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善, 届时会恢复原价, 介意的朋友请慎拍, 谢谢理解。"
+              desc="注意：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。项目早期各方面开销较大，需要资金支持, 谢谢理解。"
             />
           </LabelWrapper>
           <ContentWrapper>
@@ -82,7 +80,7 @@ class UpgradePackgesContainer extends React.Component {
               <TitleDivider />
               <ItemsWrapper>
                 <Support items={freeUserItems} />
-                <Support not items={proUserItems} />
+                <Support not items={seniorItems} />
                 <Support not items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
@@ -95,22 +93,26 @@ class UpgradePackgesContainer extends React.Component {
               <TitleDivider />
               <ItemsWrapper>
                 <Support items={freeUserItems} />
-                <Support items={proUserItems} />
+                <Support items={seniorItems} />
                 <Support not items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
-              <Button type="red">￥{SENIOR_AMOUNT_THRESHOLD} 元</Button>
+              <Button type="red" onClick={logic.upgrade}>
+                ￥{SENIOR_AMOUNT_THRESHOLD} 元
+              </Button>
             </Dashboard>
             <Dashboard>
               <PkgTitle>赞助商</PkgTitle>
               <TitleDivider />
               <ItemsWrapper>
                 <Support items={freeUserItems} />
-                <Support items={proUserItems} />
+                <Support items={seniorItems} />
                 <Support items={platinumUserItems} />
               </ItemsWrapper>
               <TitleDivider />
-              <Button type="red">￥1999 元</Button>
+              <a href={`mailto:${EMAIL_BUSINESS}`}>
+                <Button type="red">邮件咨询</Button>
+              </a>
             </Dashboard>
           </ContentWrapper>
         </Wrapper>

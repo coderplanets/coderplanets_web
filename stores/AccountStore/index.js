@@ -56,6 +56,11 @@ const AccountStore = t
       self.root.preview.close()
       self.sessionCleanup()
     },
+    isMemberOf(type) {
+      const { achievement } = stripMobx(self.user)
+      if (!achievement) return false
+      return achievement[type] || false
+    },
     updateAccount(sobj) {
       const user = R.merge(stripMobx(self.user), { ...sobj })
 

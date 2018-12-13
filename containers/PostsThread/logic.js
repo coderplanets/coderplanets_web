@@ -112,6 +112,15 @@ export const onCustomChange = option => {
   store.updateC11N(option)
 }
 
+export const onAdsClose = () => {
+  debug('onAdsClose')
+  if (store.isMemberOf('seniorMember') || store.isMemberOf('sponsorMember')) {
+    return debug('do custom ads')
+  }
+
+  store.upgradeHepler()
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

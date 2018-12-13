@@ -21,6 +21,9 @@ const UpgradePackges = t
     },
   }))
   .actions(self => ({
+    cashierHelper(opt) {
+      self.root.cashierHelper(opt)
+    },
     upgradeHepler() {
       self.show = true
     },

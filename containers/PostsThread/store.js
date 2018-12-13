@@ -70,6 +70,12 @@ const PostsThreadStore = t
     toastInfo(options) {
       self.root.toast('info', R.merge({ position: 'topCenter' }, options))
     },
+    isMemberOf(type) {
+      return self.root.isMemberOf(type)
+    },
+    upgradeHepler() {
+      self.root.upgradeHepler()
+    },
     authWarning(options) {
       self.root.authWarning(options)
     },

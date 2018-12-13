@@ -113,7 +113,7 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onTagSelect}
                 active={activeTagData}
               />
-              <StrategicPartners />
+              <StrategicPartners onClose={logic.onAdsClose} />
             </Affix>
           </React.Fragment>
         </RightPart>
