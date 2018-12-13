@@ -1,9 +1,9 @@
 export { default as GAWraper } from './GAWraper'
 // Basic component
 /*
-* NOTE: should import Img in absolute path
-* import { Img } from '..component' will cause next.js build error in production
-*/
+ * NOTE: should import Img in absolute path
+ * import { Img } from '..component' will cause next.js build error in production
+ */
 // export { default as Img } from './Img'
 
 export { default as EmptyThread } from './EmptyThread'
@@ -62,6 +62,8 @@ export { default as AuthorCard } from './AuthorCard'
 export { default as ContentSourceCard } from './ContentSourceCard'
 export { default as CommunityStatesPad } from './CommunityStatesPad'
 export { default as DiscussLinker } from './DiscussLinker'
+
+export { default as StrategicPartners } from './StrategicPartners'
 
 // loading component
 export {

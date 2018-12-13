@@ -15,6 +15,7 @@ import {
   ContentFilter,
   PublishLabel,
   PagedContents,
+  StrategicPartners,
 } from '../../components'
 
 import {
@@ -112,6 +113,7 @@ class PostsThreadContainer extends React.Component {
                 onSelect={logic.onTagSelect}
                 active={activeTagData}
               />
+              <StrategicPartners />
             </Affix>
           </React.Fragment>
         </RightPart>
