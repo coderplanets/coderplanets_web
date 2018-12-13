@@ -105,7 +105,7 @@ export function init(_store, attachment) {
 }
 
 export function uninit() {
-  if (store.loading) return false
+  if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

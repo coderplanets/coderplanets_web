@@ -151,7 +151,7 @@ export function init(_store) {
 }
 
 export function uninit() {
-  // if (store.loading) return false
+  if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

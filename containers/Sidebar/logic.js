@@ -129,7 +129,8 @@ export function init(_store) {
 }
 
 export function uninit() {
-  // if (store.curView === TYPE.LOADING) return false
+  if (!sub$) return false
+
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

@@ -10,7 +10,7 @@ import { uid } from '../../utils'
 const LoadingWrapper = styled.div`
   width: 100%;
   height: 100px;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
   overflow: hidden;
 `
 
@@ -24,7 +24,6 @@ const LoadingItem = ({ theme }) => (
   >
     <rect x="38" y="5.58" rx="4" ry="4" width="195.55" height="8.69" />
     <rect x="38" y="19.93" rx="3" ry="3" width="130.05" height="5.36" />
-    <rect x="38" y="48.02" rx="3" ry="3" width="329.47" height="5.3" />
     <rect x="38" y="35.16" rx="3" ry="3" width="454.96" height="6.05" />
     <circle cx="16.8" cy="19" r="15" />
     <circle cx="449" cy="14" r="8" />

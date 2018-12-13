@@ -214,7 +214,7 @@ export function init(_store, displayMode) {
 }
 
 export function uninit() {
-  if (store.loading) return false
+  if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
