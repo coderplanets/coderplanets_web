@@ -16,6 +16,8 @@ const debug = makeDebugger('L:UpgradePackges')
 let store = null
 
 export const upgrade = () => {
+  if (!store.isLogin) return store.authWarning()
+
   store.cashierHelper({
     paymentUsage: PAYMENT_USAGE.SENIOR,
     amount: SENIOR_AMOUNT_THRESHOLD,

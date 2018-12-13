@@ -16,11 +16,17 @@ const UpgradePackges = t
     show: t.optional(t.boolean, false),
   })
   .views(self => ({
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get root() {
       return getParent(self)
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },
