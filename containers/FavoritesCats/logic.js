@@ -31,12 +31,14 @@ export const categoryOnChange = R.curry((part, e) =>
 
 export function onCategoryCreate() {
   if (!store.validator('publish')) return false
-  sr71$.mutate(S.createFavoriteCategory, { ...store.editCategoryData })
+  console.log('store.editCategoryData: ', store.editCategoryData)
+
+  sr71$.mutate(S.createFavoriteCategory, store.editCategoryData)
 }
 
 export function onCategoryUpdate() {
   if (!store.validator('publish')) return false
-  sr71$.mutate(S.updateFavoriteCategory, { ...store.editCategoryData })
+  sr71$.mutate(S.updateFavoriteCategory, store.editCategoryData)
 }
 
 export function onCategoryDelete() {

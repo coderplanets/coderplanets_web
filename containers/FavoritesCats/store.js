@@ -104,10 +104,16 @@ const FavoritesCats = t
       const { showModal, showUpdater, showCreator, showSetter } = self
       return showModal && showSetter && !showCreator && !showUpdater
     },
+    get hasLockAuth() {
+      return self.isMemberOf('seniorMember') || self.isMemberOf('sponsorMember')
+    },
   }))
   .actions(self => ({
     authWarning(options) {
       self.root.authWarning(options)
+    },
+    isMemberOf(type) {
+      return self.root.isMemberOf(type)
     },
     changesetErr(options) {
       self.root.changesetErr(R.merge({ position: 'topCenter' }, options))

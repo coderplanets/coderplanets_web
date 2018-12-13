@@ -28,9 +28,8 @@ const DynamicBuyMeChuanChuan = dynamic({
 })
 
 class FooterContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { footer } = props
+  componentDidMount() {
+    const { footer } = this.props
     logic.init(footer)
   }
 
@@ -47,11 +46,7 @@ class FooterContainer extends React.Component {
           onPay={logic.onPay}
         />
 
-        {curView === 'DIGEST' ? (
-          <DigestView toggleSponsorHelper={logic.toggleSponsorHelper} />
-        ) : (
-          <BriefView toggleSponsorHelper={logic.toggleSponsorHelper} />
-        )}
+        {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
       </React.Fragment>
     )
   }

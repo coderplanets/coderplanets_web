@@ -53,6 +53,9 @@ const Footer = t
     sponsorHepler() {
       self.showSponsor = true
     },
+    upgradeHepler() {
+      self.root.upgradeHepler()
+    },
     closeSponsor() {
       self.showSponsor = false
     },

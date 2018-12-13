@@ -50,6 +50,7 @@ class FavoritesCatsContainer extends React.Component {
       editCategoryData,
       pagedCategoriesData,
       isSelfViewing,
+      hasLockAuth,
     } = favoritesCats
 
     const { entries, totalCount } = pagedCategoriesData
@@ -60,7 +61,7 @@ class FavoritesCatsContainer extends React.Component {
           <SectionLabel
             title="收藏夹"
             iconSrc={`${ICON_CMD}/folder.svg`}
-            desc={`当前共有收藏夹 ${totalCount} 个。`}
+            desc={`收藏夹共 ${totalCount} 个。`}
             addonNode={
               <React.Fragment>
                 {isSelfViewing ? (
@@ -85,9 +86,18 @@ class FavoritesCatsContainer extends React.Component {
             entries={entries}
             show={isSetterView}
             selectedId={viewingData.favoritedCategoryId}
+            hasLockAuth={hasLockAuth}
           />
-          <Creator data={editCategoryData} show={isCreatorView} />
-          <Updater data={editCategoryData} show={isUpdaterView} />
+          <Creator
+            data={editCategoryData}
+            show={isCreatorView}
+            hasLockAuth={hasLockAuth}
+          />
+          <Updater
+            data={editCategoryData}
+            show={isUpdaterView}
+            hasLockAuth={hasLockAuth}
+          />
         </Modal>
         {displayMode === 'list' ? (
           <BoxView data={pagedCategoriesData} onSelect={onSelect} />

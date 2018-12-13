@@ -148,6 +148,12 @@ const AntUIOverWrite = createGlobalStyle`
     color: ${theme('button.primary')};
   }
 
+  .ant-radio-wrapper:hover .ant-radio .ant-radio-inner,
+  .ant-radio:hover .ant-radio-inner,
+  .ant-radio-focused .ant-radio-inner {
+    border-color: ${theme('button.primary')};
+  }
+
   .ant-radio-checked .ant-radio-inner {
     border-color: ${theme('button.primary')};
   }
@@ -213,6 +219,7 @@ const AntUIOverWrite = createGlobalStyle`
 
   .ant-btn:focus,
   .ant-btn:hover {
+    color: ${theme('button.fg')};
     background-color: ${theme('button.hoverBg')};
   }
   .ant-btn:active {

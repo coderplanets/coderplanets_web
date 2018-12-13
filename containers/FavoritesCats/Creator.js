@@ -2,7 +2,6 @@ import React from 'react'
 import { Input, Radio } from 'antd'
 
 import { ICON_CMD } from '../../config'
-
 import { SectionLabel, Space, Button } from '../../components'
 
 import {
@@ -25,7 +24,7 @@ const debug = makeDebugger('C:FavoritesCats:Creator')
 const { TextArea } = Input
 const RadioGroup = Radio.Group
 
-const Creator = ({ data, show }) => (
+const Creator = ({ data, show, hasLockAuth }) => (
   <Wrapper show={show} className="normal-form">
     <SectionLabel title="创建收藏夹" iconSrc={`${ICON_CMD}/edit.svg`} />
     <EditWrapper>
@@ -52,15 +51,20 @@ const Creator = ({ data, show }) => (
         </FormInput>
       </FormItemWrapper>
 
-      <FormItemWrapper>
-        <FormLable>加锁</FormLable>
-        <RadiosWrapper>
-          <RadioGroup onChange={debug} value={1}>
-            <Radio value={1}>公开</Radio>
-            <Radio value={2}>不公开</Radio>
-          </RadioGroup>
-        </RadiosWrapper>
-      </FormItemWrapper>
+      {hasLockAuth ? (
+        <FormItemWrapper>
+          <FormLable>隐私</FormLable>
+          <RadiosWrapper>
+            <RadioGroup
+              onChange={categoryOnChange('private')}
+              value={data.private}
+            >
+              <Radio value={false}>公开</Radio>
+              <Radio value>不公开</Radio>
+            </RadioGroup>
+          </RadiosWrapper>
+        </FormItemWrapper>
+      ) : null}
     </EditWrapper>
     <Footer>
       <Button type="primary" ghost onClick={onModalClose}>

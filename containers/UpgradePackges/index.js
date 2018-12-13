@@ -71,7 +71,7 @@ class UpgradePackgesContainer extends React.Component {
             <SectionLabel
               title="升级助手"
               iconSrc={`${ICON_CMD}/rocket.svg`}
-              desc="注意：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。项目早期各方面开销较大，需要资金支持, 谢谢理解。"
+              desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。项目早期各方面开销较大，需要资金支持, 谢谢理解。"
             />
           </LabelWrapper>
           <ContentWrapper>

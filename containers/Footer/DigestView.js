@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, EMAIL_BUSINESS } from '../../config'
 
 import {
   Wrapper,
@@ -20,7 +20,9 @@ import SocialList from './SocialList'
 // import GitSource from './GitSource'
 import BottomInfo from './BottomInfo'
 
-const DigestView = ({ toggleSponsorHelper }) => (
+import { toggleSponsorHelper, toggleSeniorHelper } from './logic'
+
+const DigestView = () => (
   <Wrapper>
     <MainInfos>
       <MainColumn>
@@ -69,14 +71,14 @@ const DigestView = ({ toggleSponsorHelper }) => (
             加入我们
           </Item>
           <Item>使用帮助</Item>
-          <Item>商务合作</Item>
+          <Item href={`mailto:${EMAIL_BUSINESS}`}>商务合作</Item>
         </Body>
       </Column>
 
       <Column>
-        <Title>付费方案</Title>
+        <Title>增值服务</Title>
         <Body>
-          <Item>CPS会员</Item>
+          <Item onClick={toggleSeniorHelper}>CPS会员</Item>
           <Item onClick={toggleSponsorHelper}>打赏支持</Item>
         </Body>
       </Column>

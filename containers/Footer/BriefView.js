@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { EMAIL_BUSINESS } from '../../config'
+import BottomInfo from './BottomInfo'
 
 import {
   Wrapper,
@@ -11,9 +12,9 @@ import {
   Support,
 } from './styles/brief_view'
 
-import BottomInfo from './BottomInfo'
+import { toggleSponsorHelper } from './logic'
 
-const BriefView = ({ toggleSponsorHelper }) => (
+const BriefView = () => (
   <Wrapper>
     <MainInfos>
       <BaseInfo>
