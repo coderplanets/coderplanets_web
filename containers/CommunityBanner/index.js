@@ -30,7 +30,9 @@ class CommunityBannerContainer extends React.Component {
   render() {
     const { communityBanner } = this.props
     const {
-      accountInfo: { customization: { bannerLayout } },
+      accountInfo: {
+        customization: { bannerLayout },
+      },
       viewing: { community, activeThread },
     } = communityBanner
 
