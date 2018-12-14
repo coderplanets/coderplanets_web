@@ -111,7 +111,7 @@
     "shortid": "^2.2.8",
     "store": "^2.0.12",
     "styled-components": "4.0.3",
-    "timeago-react": "2.0.0"
+    "timeago-react": "2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
