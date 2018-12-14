@@ -150,7 +150,7 @@
     "jest": "23.4.2",
     "lint-staged": "7.2.0",
     "npm-run-all": "^4.1.1",
-    "plop": "2.0.0",
+    "plop": "2.2.0",
     "prettier": "1.14.0",
     "react-test-renderer": "16.4.2",
     "regenerator-runtime": "^0.13.1",
