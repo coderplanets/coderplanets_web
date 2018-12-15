@@ -5,7 +5,7 @@ import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  padding-left: 8px;
+  padding-left: 18px;
 `
 export const NoteWrapper = styled.div`
   ${cs.flexColumn()};

@@ -16,6 +16,9 @@ export const ssrPagedSchema = thread => {
     case THREAD.CHEATSHEET: {
       return P.cheatsheet
     }
+    case THREAD.WIKI: {
+      return P.wiki
+    }
     default: {
       return P.pagedPosts
     }
@@ -23,7 +26,8 @@ export const ssrPagedSchema = thread => {
 }
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
-  if (R.toLower(thread) === THREAD.CHEATSHEET) {
+  thread = R.toLower(thread)
+  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI) {
     return {
       community,
     }
@@ -83,6 +87,14 @@ export const ssrContentsThread = (resp, thread) => {
       return {
         cheatsheetThread: {
           cheatsheet: resp.cheatsheet,
+          curView: TYPE.RESULT,
+        },
+      }
+    }
+    case THREAD.WIKI: {
+      return {
+        wikiThread: {
+          wiki: resp.wiki,
           curView: TYPE.RESULT,
         },
       }

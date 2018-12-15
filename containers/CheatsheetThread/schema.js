@@ -1,22 +1,8 @@
 import gql from 'graphql-tag'
+import { P } from '../schemas'
 
 const cheatsheet = gql`
-  query($community: String!) {
-    cheatsheet(community: $community) {
-      id
-      views
-      readme
-      lastSync
-      contributors {
-        avatar
-        nickname
-        htmlUrl
-        bio
-        location
-        company
-      }
-    }
-  }
+  ${P.cheatsheet}
 `
 const syncCheatsheet = gql`
   mutation($communityId: ID!, $readme: String!, $lastSync: String!) {

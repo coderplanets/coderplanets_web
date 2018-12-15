@@ -1,3 +1,5 @@
+import R from 'ramda'
+
 import {
   makeDebugger,
   $solver,
@@ -47,7 +49,12 @@ export function syncCheatsheet(readme) {
 export function syncCheetsheetFromGithub() {
   githubApi
     .searchCheatsheet(store.curCommunity.raw)
-    .then(res => syncCheatsheet(res))
+    .then(res => {
+      if (!res || R.startsWith('404', res))
+        return store.markState({ curView: TYPE.NOT_FOUND })
+
+      syncCheatsheet(res)
+    })
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
@@ -68,11 +75,8 @@ export function addContributor(user) {
 const DataSolver = [
   {
     match: asyncRes('cheatsheet'),
-    action: ({ cheatsheet }) => {
-      debug('get the cheatsheet: ', cheatsheet)
-
-      store.markState({ cheatsheet, curView: TYPE.RESULT })
-    },
+    action: ({ cheatsheet }) =>
+      store.markState({ cheatsheet, curView: TYPE.RESULT }),
   },
   {
     match: asyncRes('syncCheatsheet'),
@@ -84,10 +88,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      debug('======= fucking COMMUNITY_CHANGE ')
-      loadCheatsheet()
-    },
+    action: () => loadCheatsheet(),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),

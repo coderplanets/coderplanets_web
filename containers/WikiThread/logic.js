@@ -1,4 +1,4 @@
-// import R from 'ramda'
+import R from 'ramda'
 
 import {
   makeDebugger,
@@ -8,6 +8,7 @@ import {
   EVENT,
   TYPE,
   ERR,
+  THREAD,
   githubApi,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
@@ -17,15 +18,15 @@ import S from './schema'
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
-let sub$ = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:WikiThread')
 /* eslint-enable no-unused-vars */
 
+let sub$ = null
 let store = null
 
-const getWiki = () => {
+const loadWiki = () => {
   const community = store.curCommunity.raw
 
   sr71$.query(S.wiki, { community })
@@ -44,7 +45,11 @@ const syncWiki = readme => {
 export function syncWikiFromGithub() {
   githubApi
     .searchWiki(store.curCommunity.raw)
-    .then(res => syncWiki(res))
+    .then(res => {
+      if (!res || R.startsWith('404', res))
+        return store.markState({ curView: TYPE.NOT_FOUND })
+      syncWiki(res)
+    })
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
@@ -63,23 +68,27 @@ export function addContributor(user) {
 const DataSolver = [
   {
     match: asyncRes('wiki'),
-    action: ({ wiki }) => store.markState({ wiki }),
+    action: ({ wiki }) => store.markState({ wiki, curView: TYPE.RESULT }),
   },
   {
     match: asyncRes('syncWiki'),
-    action: () => getWiki(),
+    action: () => loadWiki(),
   },
   {
     match: asyncRes('addWikiContributor'),
-    action: () => getWiki(),
+    action: () => loadWiki(),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => getWiki(),
+    action: () => loadWiki(),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
-    action: () => getWiki(),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      const { activeThread } = data
+      if (activeThread === THREAD.WIKI) return loadWiki()
+    },
   },
 ]
 const ErrSolver = [
@@ -110,6 +119,4 @@ export function init(_store) {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  getWiki()
 }

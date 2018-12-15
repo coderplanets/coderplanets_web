@@ -60,6 +60,8 @@ class WikiThreadContainer extends React.Component {
     const { wikiData, curView, curCommunity } = wikiThread
     const communityRaw = curCommunity.raw
 
+    debug('wikiData: ', wikiData)
+
     return (
       <Wrapper>
         <LeftPadding />
