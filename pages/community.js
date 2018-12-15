@@ -31,6 +31,7 @@ import {
   BStore,
   nilOrEmpty,
   ssrPagedSchema,
+  ssrPagedFilter,
   ssrContentsThread,
   addTopicIfNeed,
   ssrAmbulance,
@@ -60,7 +61,6 @@ async function fetchData(props, opt) {
   const community = getMainPath(props)
   const topic = getSubPath(props)
   const thread = extractThreadFromPath(props)
-  /* const thread = getSubPath(props) */
 
   let filter = addTopicIfNeed(
     {
@@ -77,10 +77,10 @@ async function fetchData(props, opt) {
   // query data
   const sessionState = gqClient.request(P.sessionState)
   const curCommunity = gqClient.request(P.community, { raw: community })
-  const pagedContents = gqClient.request(ssrPagedSchema(thread), {
-    filter,
-    userHasLogin,
-  })
+  const pagedContents = gqClient.request(
+    ssrPagedSchema(thread),
+    ssrPagedFilter(community, thread, filter, userHasLogin)
+  )
 
   const partialTags = gqClient.request(P.partialTags, { thread, community })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {

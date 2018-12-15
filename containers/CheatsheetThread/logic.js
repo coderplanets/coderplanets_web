@@ -5,26 +5,31 @@ import {
   asyncRes,
   TYPE,
   ERR,
+  EVENT,
+  THREAD,
   githubApi,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
-const sr71$ = new SR71()
-let sub$ = null
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+})
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:CheatsheetThread')
 /* eslint-enable no-unused-vars */
 
+let sub$ = null
 let store = null
 
-const getCheatsheet = () => {
+const loadCheatsheet = () => {
   const community = store.curCommunity.raw
   // const community = 'no-exsit'
   /* const community = 'elixir' */
 
+  debug('query cheatsheet: ', community)
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.cheatsheet, { community })
 }
@@ -63,16 +68,34 @@ export function addContributor(user) {
 const DataSolver = [
   {
     match: asyncRes('cheatsheet'),
-    action: ({ cheatsheet }) =>
-      store.markState({ cheatsheet, curView: TYPE.RESULT }),
+    action: ({ cheatsheet }) => {
+      debug('get the cheatsheet: ', cheatsheet)
+
+      store.markState({ cheatsheet, curView: TYPE.RESULT })
+    },
   },
   {
     match: asyncRes('syncCheatsheet'),
-    action: () => getCheatsheet(),
+    action: () => loadCheatsheet(),
   },
   {
     match: asyncRes('addCheatsheetContributor'),
-    action: () => getCheatsheet(),
+    action: () => loadCheatsheet(),
+  },
+  {
+    match: asyncRes(EVENT.COMMUNITY_CHANGE),
+    action: () => {
+      debug('======= fucking COMMUNITY_CHANGE ')
+      loadCheatsheet()
+    },
+  },
+  {
+    match: asyncRes(EVENT.TABBER_CHANGE),
+    action: res => {
+      const { data } = res[EVENT.TABBER_CHANGE]
+      const { activeThread } = data
+      if (activeThread === THREAD.CHEATSHEET) return loadCheatsheet()
+    },
   },
 ]
 const ErrSolver = [
@@ -103,5 +126,11 @@ export function init(_store) {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  getCheatsheet()
+}
+
+export function uninit() {
+  if (store.curView === TYPE.LOADING || !sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

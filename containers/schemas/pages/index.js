@@ -6,6 +6,7 @@ import { user, sessionState } from './user'
 import { community, subscribedCommunities, pagedCommunities } from './community'
 import { pagedComments } from './comment'
 import { pagedCategories, partialTags } from './misc'
+import cheatsheet from './cheatsheet'
 
 const P = {
   // community
@@ -32,6 +33,8 @@ const P = {
   // user
   user,
   sessionState,
+  // cheatsheet
+  cheatsheet,
 }
 
 export default P

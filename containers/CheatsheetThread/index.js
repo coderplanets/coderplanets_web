@@ -39,7 +39,6 @@ const renderView = (cheatsheetData, type, communityRaw) => {
     }
   }
 }
-// TODO: NOT_FOUND, parse_error
 
 class CheatsheetThreadContainer extends React.Component {
   componentDidMount() {
@@ -50,6 +49,10 @@ class CheatsheetThreadContainer extends React.Component {
     setTimeout(() => {
       Prism.highlightAll()
     }, 1000)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {

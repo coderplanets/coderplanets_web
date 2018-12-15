@@ -42,6 +42,7 @@ const solarizedDark = {
   avatarOpacity: 0.8,
   baseColor: {
     error: '#a24e3f !important',
+    errorBg: '#2b2219',
     green: '#699411 !important',
     pink: '#966475 !important',
     pinkLite: '#82606b',

@@ -3,7 +3,6 @@ import { P } from '../containers/schemas'
 import { TYPE, THREAD } from './constants'
 
 export const ssrPagedSchema = thread => {
-  console.log('getPagedSchema R.toLower(thread): ', R.toLower(thread))
   switch (R.toLower(thread)) {
     case THREAD.JOB: {
       return P.pagedJobs
@@ -14,9 +13,25 @@ export const ssrPagedSchema = thread => {
     case THREAD.REPO: {
       return P.pagedRepos
     }
+    case THREAD.CHEATSHEET: {
+      return P.cheatsheet
+    }
     default: {
       return P.pagedPosts
     }
+  }
+}
+
+export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
+  if (R.toLower(thread) === THREAD.CHEATSHEET) {
+    return {
+      community,
+    }
+  }
+
+  return {
+    filter,
+    userHasLogin,
   }
 }
 
@@ -61,6 +76,14 @@ export const ssrContentsThread = (resp, thread) => {
           pagedRepos: resp.pagedRepos,
           curView: getCurView(resp.pagedRepos),
           activeTag,
+        },
+      }
+    }
+    case THREAD.CHEATSHEET: {
+      return {
+        cheatsheetThread: {
+          cheatsheet: resp.cheatsheet,
+          curView: TYPE.RESULT,
         },
       }
     }
