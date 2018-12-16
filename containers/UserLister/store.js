@@ -49,6 +49,9 @@ const UserLister = t
     get pagedUsersData() {
       return stripMobx(self.pagedUsers)
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
   }))
   .actions(self => ({
     toggleHasFollow(userId) {

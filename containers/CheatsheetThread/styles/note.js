@@ -22,7 +22,7 @@ export const Text = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
 `
-export const JoinText = styled.div`
+export const JoinText = styled.a`
   flex-grow: 1;
   color: ${theme('thread.articleDigest')};
   &:hover {

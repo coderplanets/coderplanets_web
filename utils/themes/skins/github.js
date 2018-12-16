@@ -40,6 +40,7 @@ const github = {
   avatarOpacity: 1,
   baseColor: {
     error: 'tomato !important',
+    errorBg: '#FFF0F0',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',

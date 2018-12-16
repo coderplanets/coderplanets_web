@@ -55,7 +55,7 @@ export const TeamName = styled.a`
 
   &:hover {
     cursor: pointer;
-    color: ${theme('thread.title')};
+    color: ${theme('thread.articleTitle')};
     text-decoration: underline;
   }
 `

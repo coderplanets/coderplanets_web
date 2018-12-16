@@ -90,7 +90,12 @@ export {
   updateEditing,
 } from './mobx_helper'
 
-export { ssrPagedSchema, ssrContentsThread, addTopicIfNeed } from './ssr_helper'
+export {
+  ssrPagedSchema,
+  ssrPagedFilter,
+  ssrContentsThread,
+  addTopicIfNeed,
+} from './ssr_helper'
 
 export {
   pageGoTop,

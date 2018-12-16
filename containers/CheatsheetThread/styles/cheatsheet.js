@@ -28,11 +28,13 @@ export const CardWrapper = styled.div`
 export const ErrorWrapper = styled.div`
   ${cs.flexColumn()};
   padding: 20px 40px;
-  border: 1px solid #f5a799;
+  border: 1px solid;
   border-radius: 5px;
-  border-top: 3px solid #f5a799;
+  border-top: 3px solid;
+  border-color: ${theme('baseColor.error')};
   min-height: 100px;
   margin-bottom: 30px;
+  background: ${theme('baseColor.errorBg')};
 `
 export const ErrorTitle = styled.div`
   font-size: 1.2rem;
@@ -41,7 +43,7 @@ export const ErrorTitle = styled.div`
 `
 export const ErrorLink = styled.a`
   transition: color 0.3s;
-  color: #f5a799;
+  color: ${theme('baseColor.error')};
   font-size: 1rem;
 
   &:hover {

@@ -22,6 +22,17 @@ export const DescIcon = styled(Img)`
   margin-right: 5px;
   display: block;
 `
+export const DescLink = styled.a`
+  color: ${theme('thread.articleTitle')};
+  text-decoration: underline;
+
+  &:hover {
+    color: ${theme('banner.title')};
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  transition: color 0.3s;
+`
 export const EditorIcon = styled(DescIcon)`
   width: 15px;
   height: 15px;

@@ -170,10 +170,15 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export function uninit() {
+  if (!sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

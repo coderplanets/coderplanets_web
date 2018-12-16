@@ -1,22 +1,8 @@
 import gql from 'graphql-tag'
+import { P } from '../schemas'
 
 const wiki = gql`
-  query($community: String!) {
-    wiki(community: $community) {
-      id
-      views
-      readme
-      lastSync
-      contributors {
-        avatar
-        nickname
-        htmlUrl
-        bio
-        location
-        company
-      }
-    }
-  }
+  ${P.wiki}
 `
 const syncWiki = gql`
   mutation($communityId: ID!, $readme: String!, $lastSync: String!) {

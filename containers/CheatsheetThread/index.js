@@ -39,7 +39,6 @@ const renderView = (cheatsheetData, type, communityRaw) => {
     }
   }
 }
-// TODO: NOT_FOUND, parse_error
 
 class CheatsheetThreadContainer extends React.Component {
   componentDidMount() {
@@ -52,6 +51,10 @@ class CheatsheetThreadContainer extends React.Component {
     }, 1000)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { cheatsheetThread } = this.props
     const { cheatsheetData, curView, curCommunity } = cheatsheetThread
@@ -61,10 +64,9 @@ class CheatsheetThreadContainer extends React.Component {
       <Wrapper>
         {renderView(cheatsheetData, curView, communityRaw)}
         <Note
-          onSync={logic.syncCheetsheetFromGithub}
+          communityRaw={communityRaw}
           contributors={cheatsheetData.contributors}
           views={cheatsheetData.views}
-          addContributor={logic.addContributor}
           curView={curView}
         />
       </Wrapper>
