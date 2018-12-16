@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { COMMUNITY_CHEATSHEET } from '../../config'
 import { DotDivider, ContributorList, Button } from '../../components'
 
 import {
@@ -13,12 +14,20 @@ import {
 } from './styles/note'
 
 // import fakeusers from './fakeusers'
+import { syncCheetsheetFromGithub, addContributor } from './logic'
 
-const Note = ({ onSync, contributors, views, addContributor }) => (
+const Note = ({ communityRaw, contributors, views }) => (
   <Wrapper>
     <Divider />
     <Text>
-      <Title>本页贡献者</Title> <DotDivider /> <JoinText>参与编辑</JoinText>
+      <Title>本页贡献者</Title> <DotDivider />{' '}
+      <JoinText
+        href={`${COMMUNITY_CHEATSHEET}/${communityRaw}.md`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        参与编辑
+      </JoinText>
       <ViewsText>浏览: {views}</ViewsText>
     </Text>
     <ContributorList
@@ -27,7 +36,12 @@ const Note = ({ onSync, contributors, views, addContributor }) => (
       addContributor={addContributor}
     />
     <SyncWrapper>
-      <Button size="small" type="primary" ghost onClick={onSync}>
+      <Button
+        size="small"
+        type="primary"
+        ghost
+        onClick={syncCheetsheetFromGithub}
+      >
         同步 cheatseet
       </Button>
     </SyncWrapper>

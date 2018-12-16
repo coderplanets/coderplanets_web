@@ -19,7 +19,7 @@ const Note = () => (
   <NoteWrapper>
     <NoteTitle>本页贡献者</NoteTitle>
     <NoteDivider />
-    <NoteDesc>参与编辑后你的 GitHub 头像会同步在这里, 以示感谢.</NoteDesc>
+    <NoteDesc>参与编辑后你的 GitHub 头像会同步在这里, 特此感谢.</NoteDesc>
   </NoteWrapper>
 )
 

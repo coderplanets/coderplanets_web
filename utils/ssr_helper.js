@@ -87,7 +87,7 @@ export const ssrContentsThread = (resp, thread) => {
       return {
         cheatsheetThread: {
           cheatsheet: resp.cheatsheet,
-          curView: TYPE.RESULT,
+          curView: R.isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
     }
@@ -95,7 +95,7 @@ export const ssrContentsThread = (resp, thread) => {
       return {
         wikiThread: {
           wiki: resp.wiki,
-          curView: TYPE.RESULT,
+          curView: R.isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
     }

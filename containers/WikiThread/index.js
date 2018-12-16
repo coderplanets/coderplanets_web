@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, COMMUNITY_WIKI } from '../../config'
 
 import {
   PublishLabel,
@@ -55,12 +55,14 @@ class WikiThreadContainer extends React.Component {
     logic.init(wikiThread)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { wikiThread } = this.props
     const { wikiData, curView, curCommunity } = wikiThread
     const communityRaw = curCommunity.raw
-
-    debug('wikiData: ', wikiData)
 
     return (
       <Wrapper>
@@ -72,11 +74,17 @@ class WikiThreadContainer extends React.Component {
         </LeftPart>
         <RightPart>
           <React.Fragment>
-            <PublishBtn type="primary" onClick={debug}>
-              <PublishLabel
-                text="参与编辑"
-                iconSrc={`${ICON_CMD}/github.svg`}
-              />
+            <PublishBtn type="primary">
+              <a
+                href={`${COMMUNITY_WIKI}/${communityRaw}_wiki.md`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <PublishLabel
+                  text="参与编辑"
+                  iconSrc={`${ICON_CMD}/github.svg`}
+                />
+              </a>
             </PublishBtn>
             <Contributors
               users={wikiData.contributors}

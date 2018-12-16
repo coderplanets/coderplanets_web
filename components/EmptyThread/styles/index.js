@@ -20,11 +20,11 @@ export const Icon = styled.div``
 export const Text = styled.div`
   text-align: center;
 `
+
+// border-bottom: 1px solid;
+// border-bottom-color: ${theme('thread.articleDigest')}
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('thread.articleDigest')}
-  padding-bottom: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
   font-size: 1.4rem;

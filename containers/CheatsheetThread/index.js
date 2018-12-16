@@ -64,10 +64,9 @@ class CheatsheetThreadContainer extends React.Component {
       <Wrapper>
         {renderView(cheatsheetData, curView, communityRaw)}
         <Note
-          onSync={logic.syncCheetsheetFromGithub}
+          communityRaw={communityRaw}
           contributors={cheatsheetData.contributors}
           views={cheatsheetData.views}
-          addContributor={logic.addContributor}
           curView={curView}
         />
       </Wrapper>

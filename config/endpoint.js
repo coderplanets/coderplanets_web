@@ -37,6 +37,9 @@ export const ISSUE_ADDR = `${GITHUB_WEB_ADDR}/issues/new`
 export const MENTION_USER_ADDR = 'https://coderplanets.com/users/'
 
 export const COMMUNITY_WIKI =
+  'https://github.com/coderplanets/cps_wiki/blob/master'
+
+export const COMMUNITY_CHEATSHEET =
   'https://github.com/coderplanets/cps_cheatsheets/blob/master'
 
 export const DEFAULT_USER_AVATAR = `${ICON_CMD}/alien_user3.svg`

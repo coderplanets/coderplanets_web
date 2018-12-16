@@ -3,7 +3,7 @@ import Masonry from 'react-masonry-component'
 import Remarkable from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 // import Prism from 'mastani-codehighlight'
-import { COMMUNITY_WIKI } from '../../config'
+import { COMMUNITY_CHEATSHEET } from '../../config'
 
 import {
   Wrapper,
@@ -60,7 +60,7 @@ const Cheatsheet = ({ source, communityRaw }) => {
       <ErrorWrapper>
         <ErrorTitle>解析错误</ErrorTitle>
         <ErrorLink
-          href={`${COMMUNITY_WIKI}/${communityRaw}.md`}
+          href={`${COMMUNITY_CHEATSHEET}/${communityRaw}.md`}
           rel="noopener noreferrer"
           target="_blank"
         >
