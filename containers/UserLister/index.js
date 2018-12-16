@@ -49,11 +49,13 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
 }
 
 class UserListerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { userLister } = props
+  componentDidMount() {
+    const { userLister } = this.props
     logic.init(userLister)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
@@ -65,6 +67,7 @@ class UserListerContainer extends React.Component {
       brief,
       pagedUsersData,
       accountInfo,
+      curCommunity,
     } = userLister
 
     return (
@@ -74,6 +77,7 @@ class UserListerContainer extends React.Component {
             type={type}
             brief={brief}
             totalCount={pagedUsersData.totalCount}
+            curCommunity={curCommunity}
           />
 
           {renderContent(curView, pagedUsersData, accountInfo)}
