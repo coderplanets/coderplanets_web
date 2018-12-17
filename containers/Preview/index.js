@@ -74,6 +74,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DynamicAccountViewer />
     }
     case TYPE.PREVIEW_USER_VIEW: {
+      console.log('see fuck attUser: ', attUser)
       return <DynamicAccountViewer user={attUser} />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
