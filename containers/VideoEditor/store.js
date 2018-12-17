@@ -18,9 +18,6 @@ import {
 const debug = makeDebugger('S:VideoEditor')
 /* eslint-enable no-unused-vars */
 
-/* thumbnil: */
-/* 'https://coderplanets.oss-cn-beijing.aliyuncs.com/posts/2018_9/22/javascript--post--113--mydearxym-112--%E4%BF%84%E7%BD%97%E6%96%AF.jpg', */
-
 const VideoEditor = t
   .model('VideoEditor', {
     editVideo: t.optional(Video, { source: 'youtube' }),

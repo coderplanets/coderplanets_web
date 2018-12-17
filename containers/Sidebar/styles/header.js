@@ -33,6 +33,9 @@ export const SiteLogoWrapper = styled.div`
 export const SiteLogo = styled(Img)`
   width: 25px;
   height: 25px;
+  opacity: 0.7;
+  margin-top: -4px;
+  display: block;
 `
 export const PinIcon = styled(Img)`
   fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};

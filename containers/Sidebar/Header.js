@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ICON_BASE } from '../../config'
 import { Button } from '../../components'
 
 import {
@@ -11,6 +11,7 @@ import {
   ExploreContent,
   ExploreIcon,
   ExploreText,
+  SiteLogo,
 } from './styles/header'
 
 import PinButton from './PinButton'
@@ -19,16 +20,17 @@ const Header = ({ pin }) => (
   <Wrapper pin={pin}>
     <HeaderFuncs>
       <SiteLogoWrapper pin={pin}>
-        CPS
-        {/* <SiteLogo src={`${ICON_CMD}/keyboard_logo.svg`} /> */}
+        <SiteLogo src={`${ICON_BASE}/sidebar/everyday.png`} />
       </SiteLogoWrapper>
       <ExploreWrapper pin={pin}>
-        <Button size="small" type="primary" ghost>
-          <ExploreContent>
-            <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
-            <ExploreText>Explore</ExploreText>
-          </ExploreContent>
-        </Button>
+        <a href="/communities">
+          <Button size="small" type="primary" ghost>
+            <ExploreContent>
+              <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
+              <ExploreText>Explore</ExploreText>
+            </ExploreContent>
+          </Button>
+        </a>
       </ExploreWrapper>
     </HeaderFuncs>
     <PinButton pin={pin} />

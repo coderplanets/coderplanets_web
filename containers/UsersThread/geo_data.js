@@ -3,8 +3,7 @@
 import fetch from 'isomorphic-fetch'
 import { BStore } from '../../utils'
 
-const endpoint =
-  'https://coderplanets.oss-cn-beijing.aliyuncs.com/asia.geo.json'
+const endpoint = 'http://cps-oss.oss-cn-shanghai.aliyuncs.com/asia.geo.json'
 const bkey = 'asia.geo.data'
 
 const fetchGeoData = () =>
