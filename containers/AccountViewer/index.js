@@ -61,39 +61,43 @@ class AccountViewerContainer extends React.Component {
 
     return (
       <AccountWrapper>
-        <ReactTooltip effect="solid" place="bottom" />
-        <AccountContent>
-          <UserBrief
-            user={userInfoData}
-            displayStyle="sidebar"
-            showEdit
-            viewingType={viewingType}
-            onEdit={logic.editProfile}
-            onLogout={logic.onLogout}
-          />
-
-          <Divider top="20px" bottom="0px" />
-          <SiteSocial user={userInfoData} />
-          <Maybe test={!R.isEmpty(subscribedCommunities)}>
-            <React.Fragment>
-              <Divider top="0px" bottom="20px" />
-              <Planets
-                subscribedCommunities={subscribedCommunities}
-                viewingType={viewingType}
-              />
-            </React.Fragment>
-          </Maybe>
-          <Divider top="10px" bottom="20px" />
-
-          <ContributeMap data={contributes} />
-        </AccountContent>
-
-        {viewingType === 'account' ? (
+        <Maybe test={userInfoData.id}>
           <React.Fragment>
-            <Divider top="10px" bottom="12px" />
-            <ThemeSection curTheme={curTheme} />
+            <ReactTooltip effect="solid" place="bottom" />
+            <AccountContent>
+              <UserBrief
+                user={userInfoData}
+                displayStyle="sidebar"
+                showEdit
+                viewingType={viewingType}
+                onEdit={logic.editProfile}
+                onLogout={logic.onLogout}
+              />
+
+              <Divider top="20px" bottom="0px" />
+              <SiteSocial user={userInfoData} />
+              <Maybe test={!R.isEmpty(subscribedCommunities)}>
+                <React.Fragment>
+                  <Divider top="0px" bottom="20px" />
+                  <Planets
+                    subscribedCommunities={subscribedCommunities}
+                    viewingType={viewingType}
+                  />
+                </React.Fragment>
+              </Maybe>
+              <Divider top="10px" bottom="20px" />
+
+              <ContributeMap data={contributes} />
+            </AccountContent>
+
+            <Maybe test={viewingType === 'account'}>
+              <React.Fragment>
+                <Divider top="10px" bottom="12px" />
+                <ThemeSection curTheme={curTheme} />
+              </React.Fragment>
+            </Maybe>
           </React.Fragment>
-        ) : null}
+        </Maybe>
       </AccountWrapper>
     )
   }
