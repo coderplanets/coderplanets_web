@@ -18,6 +18,17 @@ const user = gql`
       contributes {
         ${F.userContributes}
       }
+      subscribedCommunities {
+        entries {
+          id
+          title
+          logo
+          raw
+          index
+        }
+        pageSize
+        totalCount
+      }
     }
   }
 `

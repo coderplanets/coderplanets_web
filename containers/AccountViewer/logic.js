@@ -33,8 +33,6 @@ export const loadAccount = () => {
 }
 
 export const loadUser = user => {
-  debug('loadAccount fucking user: ', user)
-
   store.markState({ viewingType: 'user', viewingUser: user })
   sr71$.query(S.user, { login: user.login })
 }

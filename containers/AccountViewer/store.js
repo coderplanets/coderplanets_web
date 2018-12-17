@@ -26,7 +26,11 @@ const AccountViewerStore = t
       return getParent(self)
     },
     get subscribedCommunities() {
-      return self.root.account.subscribedCommunities
+      if (self.viewingType === 'user') {
+        return stripMobx(self.viewingUser.subscribedCommunities)
+      }
+
+      return stripMobx(self.root.account.subscribedCommunities)
     },
     get accountInfo() {
       return self.root.account.accountInfo
