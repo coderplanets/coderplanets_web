@@ -27,11 +27,14 @@ let sub$ = null
 
 export const loadAccount = () => {
   markLoading(true)
+
   store.markState({ viewingType: 'account' })
   return sr71$.query(S.user, {})
 }
 
 export const loadUser = user => {
+  debug('loadAccount fucking user: ', user)
+
   store.markState({ viewingType: 'user', viewingUser: user })
   sr71$.query(S.user, { login: user.login })
 }
