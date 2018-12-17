@@ -57,11 +57,11 @@ class AccountViewerContainer extends React.Component {
     } = accountViewer
 
     const { contributes } = userInfoData // accountInfo
-    debug('userInfoData --> ', userInfoData)
+    debug('userInfoData ---> ', userInfoData)
 
     return (
       <AccountWrapper>
-        <Maybe test={userInfoData.id}>
+        {R.isEmpty(userInfoData.id) ? null : (
           <React.Fragment>
             <ReactTooltip effect="solid" place="bottom" />
             <AccountContent>
@@ -97,7 +97,7 @@ class AccountViewerContainer extends React.Component {
               </React.Fragment>
             </Maybe>
           </React.Fragment>
-        </Maybe>
+        )}
       </AccountWrapper>
     )
   }
