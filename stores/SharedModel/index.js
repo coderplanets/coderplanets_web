@@ -22,6 +22,7 @@ export { default as Cheatsheet } from './Cheatsheet'
 
 export {
   EmptyUser,
+  EmptyAchievement,
   User,
   PagedUsers,
   SimpleUser,

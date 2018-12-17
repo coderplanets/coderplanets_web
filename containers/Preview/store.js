@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { User } from '../../stores/SharedModel'
+import { User, EmptyAchievement } from '../../stores/SharedModel'
 import { markStates, TYPE, stripMobx, unholdPage, THREAD } from '../../utils'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
@@ -92,13 +92,9 @@ const PreviewStore = t
   }))
   .actions(self => ({
     open({ type, data, thread }) {
-      self.visible = true
-      self.type = type
-
       // NOTE: currently the attachment is only used for article-like content
       if (type === TYPE.PREVIEW_USER_VIEW) {
-        console.log('skip for user view: ', data)
-        self.attUser = data
+        self.attUser = R.merge(data, EmptyAchievement)
       } else if (data) {
         self.attachment = R.merge({ type }, data)
       }
@@ -107,6 +103,9 @@ const PreviewStore = t
       if ((thread, R.contains(thread, PREVIEWABLE_THREADS))) {
         self.setViewing({ [thread]: data, viewingThread: thread })
       }
+
+      self.visible = true
+      self.type = type
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)

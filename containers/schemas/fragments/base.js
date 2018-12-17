@@ -148,6 +148,7 @@ export const comment = `
     id
     nickname
     avatar
+    login
   }
   likesCount
   dislikesCount

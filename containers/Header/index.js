@@ -26,6 +26,10 @@ class HeaderContainer extends React.Component {
     logic.init(header)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   /* eslint-disable class-methods-use-this */
   @keydown(['ctrl+p'])
   openDoraemon() {

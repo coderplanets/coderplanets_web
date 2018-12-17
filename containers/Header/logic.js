@@ -112,3 +112,10 @@ export function init(_store) {
 
   checkSesstionState()
 }
+
+export function uninit() {
+  if (!sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
+}

@@ -45,9 +45,7 @@ export const pagedPosts = `
         copyRight
         commentsCount
         commentsParticipators(filter: { first: 5 }) {
-          id
-          nickname
-          avatar
+          ${F.author}
         }
         tags {
           ${F.tag}

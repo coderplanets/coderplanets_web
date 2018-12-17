@@ -137,10 +137,8 @@ const Viewer = ({ type, root, attachment, attUser }) => {
 }
 
 class PreviewContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { preview } = props
+  componentDidMount() {
+    const { preview } = this.props
     logic.init(preview)
   }
 

@@ -13,7 +13,7 @@
     "build.prod": "cross-env GOAL=production next build",
     "build.dev": "cross-env GOAL=dev next build",
     "launch": "cross-env GOAL=production next start -p ${SERVE_PORT}",
-    "launch:dev": "cross-env NODE_ENV=dev SERVE_PORT=${SERVE_PORT} node server",
+    "launch.dev": "cross-env NODE_ENV=dev SERVE_PORT=${SERVE_PORT} node server",
     "launch.prod": "cross-env NODE_ENV=production SERVE_PORT=${SERVE_PORT} node server",
     "dist": "npm run i18n && next build && next export -o \"build\"",
     "i18n": "shjs ./utils/scripts/create_default_lang.js && shjs ./utils/scripts/cp_locales.js",

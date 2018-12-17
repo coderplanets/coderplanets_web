@@ -151,6 +151,10 @@ export const EmptyUser = {
   contributes: {},
   githubProfile: null,
   // cmsPassportString: '{}',
+  ...EmptyAchievement,
+}
+
+export const EmptyAchievement = {
   achievement: {
     reputation: 0,
     contentsStaredCount: 0,
