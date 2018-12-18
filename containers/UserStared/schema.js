@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { F } from '../schemas'
 
 const staredPosts = gql`
   query($userId: ID!, $filter: PagedFilter!) {
@@ -11,15 +12,11 @@ const staredPosts = gql`
         updatedAt
         views
         author {
-          id
-          avatar
-          nickname
+          ${F.author}
         }
         commentsParticipatorsCount
         commentsParticipators(filter: { first: 5 }) {
-          id
-          nickname
-          avatar
+          ${F.author}
         }
       }
       totalPages

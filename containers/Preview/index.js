@@ -63,10 +63,6 @@ const CloseBtn = ({ type }) => (
   </PreviewCloser>
 )
 
-// const Viewer = ({ type, root, themeKeys, curTheme }) => {
-// <AccountViewer2 themeKeys={themeKeys} curTheme={curTheme} />
-
-// TODO: post edit viewer
 const Viewer = ({ type, root, attachment, attUser }) => {
   switch (type) {
     // account

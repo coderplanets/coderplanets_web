@@ -31,9 +31,6 @@ export const ThemeStore = t
     get themeData() {
       return themeSkins[self.curTheme]
     },
-    get themeKeys() {
-      return R.keys(themeSkins)
-    },
   }))
   .actions(self => ({
     changeTheme(name) {

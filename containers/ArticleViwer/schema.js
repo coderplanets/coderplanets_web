@@ -1,6 +1,16 @@
 import gql from 'graphql-tag'
 import { F } from '../schemas'
 
+/*
+communities {
+  ${F.community}
+}
+
+commentsParticipators {
+  ${F.author}
+}
+*/
+
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
@@ -11,14 +21,6 @@ const post = gql`
       }
       tags {
         ${F.tag}
-      }
-      communities {
-        ${F.community}
-      }
-      commentsParticipators {
-        id
-        nickname
-        avatar
       }
       commentsCount
       linkAddr
@@ -37,9 +39,7 @@ const postComment = gql`
     post(id: $id) {
       id
       commentsParticipators {
-        id
-        nickname
-        avatar
+        ${F.author}
       }
       commentsCount
     }

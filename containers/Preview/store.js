@@ -77,9 +77,6 @@ const PreviewStore = t
     get root() {
       return getParent(self)
     },
-    get themeKeys() {
-      return self.root.theme.themeKeys
-    },
     get curTheme() {
       return self.root.theme.curTheme
     },
