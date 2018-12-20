@@ -35,7 +35,7 @@ class InformerContainer extends React.Component {
   }
 
   render() {
-    const { informer, title } = this.props
+    const { informer, title, children } = this.props
     const { showModal, curView, viewingData, type, message } = informer
 
     return (
@@ -55,10 +55,16 @@ class InformerContainer extends React.Component {
             )}
           </React.Fragment>
         </Modal>
-        <Wrapper onClick={logic.toggleModal}>
-          <Icon src={`${ICON_CMD}/flag.svg`} />
-          <Title>{title}</Title>
-        </Wrapper>
+        <React.Fragment>
+          {children ? (
+            <React.Fragment>{children}</React.Fragment>
+          ) : (
+            <Wrapper onClick={logic.toggleModal}>
+              <Icon src={`${ICON_CMD}/flag.svg`} />
+              <Title>{title}</Title>
+            </Wrapper>
+          )}
+        </React.Fragment>
       </React.Fragment>
     )
   }
@@ -68,10 +74,12 @@ InformerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
   title: PropTypes.string,
   informer: PropTypes.any.isRequired,
+  children: PropTypes.node,
 }
 
 InformerContainer.defaultProps = {
   title: '举报内容',
+  children: null,
 }
 
 export default inject(storePlug('informer'))(observer(InformerContainer))

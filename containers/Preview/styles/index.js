@@ -59,7 +59,7 @@ export const PreviewWrapper = styled.div`
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
-  z-index: 2000;
+  z-index: 1000;
 `
 export const PreviewContent = styled.div`
   width: 90%;

@@ -14,21 +14,17 @@ const debug = makeDebugger('L:Informer')
 
 let store = null
 
-export function toggleModal() {
+export const toggleModal = () =>
   store.markState({
     showModal: !store.showModal,
   })
-}
 
-export function backToOverview() {
+export const backToOverview = () =>
   store.markState({
     curView: 'overview',
   })
-}
 
-export function onMessageChange(e) {
-  store.markState({ message: e.target.value })
-}
+export const onMessageChange = e => store.markState({ message: e.target.value })
 
 export function onConfirm() {
   debug('onConfirm')

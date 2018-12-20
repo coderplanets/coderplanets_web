@@ -47,6 +47,9 @@ const ArticleViwerStore = t
     },
   }))
   .actions(self => ({
+    callInformer() {
+      self.root.callInformer()
+    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

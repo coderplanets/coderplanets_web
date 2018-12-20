@@ -99,6 +99,8 @@ export function onEdit(thread) {
   }
 }
 
+export const callInformer = () => store.callInformer()
+
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
