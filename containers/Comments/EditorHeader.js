@@ -57,7 +57,7 @@ const EditorHeader = ({
     <Wrapper>
       <UserAvatar src={accountInfo.avatar || DEFAULT_USER_AVATAR} />
       <LeaveResponseText onClick={openInputBox}>
-        来都来了, 留条评论吧...
+        来都来了, 留条评论吧 ...
       </LeaveResponseText>
     </Wrapper>
   )
