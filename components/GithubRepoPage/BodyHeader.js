@@ -25,7 +25,7 @@ const BodyHeader = () => (
     <MoreWrapper>
       <Popover content={<div>...</div>} placement="bottomLeft" trigger="click">
         <div>
-          <MoreIcon src={`${ICON_CMD}/more.svg`} />
+          <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
         </div>
       </Popover>
     </MoreWrapper>

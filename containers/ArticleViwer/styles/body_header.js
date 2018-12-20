@@ -17,9 +17,12 @@ export const MoreWrapper = styled.div`
   cursor: pointer;
 `
 export const MoreIcon = styled(Img)`
-  fill: #6a868a;
+  fill: ${theme('thread.articleDigest')};
   width: 15px;
   height: 15px;
+  &:hover {
+    fill: ${theme('thread.articleTitle')};
+  }
 `
 export const LinkFrom = styled.a`
   ${cs.flex()};

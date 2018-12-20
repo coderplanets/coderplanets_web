@@ -29,7 +29,7 @@ const BodyHeader = ({ data, thread }) => {
           trigger="click"
         >
           <div>
-            <MoreIcon src={`${ICON_CMD}/more.svg`} />
+            <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
           </div>
         </Popover>
       </MoreWrapper>
