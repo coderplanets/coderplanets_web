@@ -12,6 +12,7 @@ import { Modal } from '../../components'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
 import CommentReplyEditor from './CommentReplyEditor'
+import LockedMessage from './LockedMessage'
 
 import { Wrapper } from './styles'
 
@@ -37,7 +38,7 @@ class CommentsContainer extends React.Component {
   }
 
   render() {
-    const { comments } = this.props
+    const { comments, locked } = this.props
     const {
       pagedCommentsData,
       referUsersData,
@@ -64,12 +65,17 @@ class CommentsContainer extends React.Component {
           )}
         </Modal>
 
-        <CommentEditor
-          onCreate={this.onCreate.bind(this)}
-          accountInfo={accountInfo}
-          referUsers={referUsersData}
-          restProps={{ ...comments }}
-        />
+        {locked ? (
+          <LockedMessage />
+        ) : (
+          <CommentEditor
+            onCreate={this.onCreate.bind(this)}
+            accountInfo={accountInfo}
+            referUsers={referUsersData}
+            restProps={{ ...comments }}
+          />
+        )}
+
         <CommentsList
           accountInfo={accountInfo}
           pagedComments={pagedCommentsData}
@@ -84,11 +90,13 @@ CommentsContainer.propTypes = {
   onCreate: PropTypes.func,
   ssr: PropTypes.bool,
   comments: PropTypes.any.isRequired,
+  locked: PropTypes.bool,
 }
 
 CommentsContainer.defaultProps = {
   onCreate: debug,
   ssr: false,
+  locked: false,
 }
 
 export default inject(storePlug('comments'))(observer(CommentsContainer))
