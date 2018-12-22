@@ -102,13 +102,18 @@ const ErrSolver = [
 
 export function init(_store) {
   store = _store
+  debug('===== do init')
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
 export function uninit() {
-  if (store.curView === TYPE.LOADING || !sub$) return false
+  /* debug('===== before uninit store.curView: ', store.loading) */
+  debug('===== before uninit sub$: ', !sub$)
+  debug('condition: ', store.loading || !sub$)
+
+  if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
