@@ -42,7 +42,6 @@ export const MenuRow = styled.div`
   align-items: center;
   font-size: 1rem;
 `
-
 export const MenuItemTitle = styled.div`
   display: ${({ pin }) => (pin ? 'block' : 'none')};
   color: ${theme('sidebar.menuLink')};

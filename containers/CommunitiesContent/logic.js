@@ -89,7 +89,6 @@ const DataSolver = [
   {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
-      console.log('subscribeCommunity done: ', subscribeCommunity)
       store.addSubscribedCommunity(subscribeCommunity)
       store.markState({ subscribing: false })
     },

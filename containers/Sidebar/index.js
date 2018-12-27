@@ -12,7 +12,7 @@ import { Container } from './styles'
 import Header from './Header'
 import MenuList from './MenuList'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -23,6 +23,9 @@ class SidebarContainer extends React.Component {
   componentDidMount() {
     const { sidebar } = this.props
     logic.init(sidebar)
+    // call forceUpdate to force rerender, otherwise the logo src in
+    // communitiesData will be choas, dig later
+    this.forceUpdate()
   }
 
   componentWillUnmount() {
@@ -37,8 +40,9 @@ class SidebarContainer extends React.Component {
     const activeRaw = curCommunity.raw
 
     // debug('communitiesData ', communitiesData)
+
     return (
-      <Container pin={pin}>
+      <Container pin={pin} key={uid.gen()}>
         <Header pin={pin} />
         <MenuList
           items={communitiesData}
