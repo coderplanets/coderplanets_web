@@ -6,12 +6,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
+import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '../../config'
 
 import { Wrapper, InputFile } from './styles'
 
-import { makeDebugger, storePlug, uid } from '../../utils'
+import { makeDebugger, storePlug, uid, Global } from '../../utils'
 import { init, onUploadError, getOSSDir, getOSSFileName } from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -41,15 +42,27 @@ class DocUploaderContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { docUploader } = this.props
+    const { docUploader, pasteImage } = this.props
     init(docUploader)
+
     this.initOssClient()
+    if (pasteImage) this.initPasteWatcher()
   }
 
   componentWillUnmount() {
+    debug('componentWillUnmount')
     /* eslint-disable */
     delete this.state.ossClient
     /* eslint-enable */
+    const { pasteImage } = this.props
+    if (pasteImage) {
+      Global.removeEventListener('paste', this.handlePaste.bind(this), true)
+    }
+  }
+
+  initPasteWatcher() {
+    debug('initPasteWatcher')
+    Global.addEventListener('paste', this.handlePaste.bind(this), true)
   }
 
   initOssClient() {
@@ -74,6 +87,11 @@ class DocUploaderContainer extends React.Component {
     /* eslint-enable */
   }
 
+  handlePaste({ clipboardData: { files } }) {
+    const file = files[0]
+    this.doUploadFile(file)
+  }
+
   onUploadDone(url) {
     /* eslint-disable */
     this.props.onUploadDone(url)
@@ -82,32 +100,37 @@ class DocUploaderContainer extends React.Component {
     this.initOssClient()
   }
 
-  /* eslint-disable */
-  handleCHange(e) {
-    console.log('handleCHange e: ', e)
-    const files = e.target.files
-    /* console.log('handleCHange files: ', files) */
-    const theFile = files[0]
-    if (!theFile) return false
+  handleInputChange({ target: { files } }) {
+    console.log('handleInputChange e: ', files)
+    // const {files} = e.target.files
+    const file = files[0]
 
-    const FileSize = theFile.size / 1024 / 1024
-    if (FileSize > 2) {
+    this.doUploadFile(file)
+  }
+
+  doUploadFile(file) {
+    if (!file || !R.startsWith('image/', file.type)) return false
+    console.log('is Image!')
+
+    const fileSize = file.size / 1024 / 1024
+    if (fileSize > 2) {
       return alert('资源有限，请不要上传大于 2MB 的文件')
     }
+    const { onUploadStart, onUploadError } = this.props
+    const { ossClient } = this.state
 
-    this.props.onUploadStart()
-    const filename = theFile.name
+    onUploadStart()
+    const filename = file.name
     const fullpath = `${getOSSDir()}/${getOSSFileName(filename)}`
 
-    this.state.ossClient
-      .multipartUpload(fullpath, theFile)
+    ossClient
+      .multipartUpload(fullpath, file)
       .then(result => {
         const url = `${ASSETS_ENDPOINT}/${result.name}`
         this.onUploadDone(url)
       })
-      .catch(err => this.props.onUploadError(err))
+      .catch(err => onUploadError(err))
   }
-  /* eslint-enable */
 
   render() {
     const { children } = this.props
@@ -120,7 +143,7 @@ class DocUploaderContainer extends React.Component {
           name={`file-${uniqueId}`}
           id={`file-${uniqueId}`}
           accept="image/*"
-          onChange={this.handleCHange.bind(this)}
+          onChange={this.handleInputChange.bind(this)}
         />
         {/* eslint-disable */}
         <label htmlFor={`file-${uniqueId}`}>{children}</label>
@@ -136,12 +159,14 @@ DocUploaderContainer.propTypes = {
   onUploadError: PropTypes.func,
   onUploadDone: PropTypes.func,
   docUploader: PropTypes.any.isRequired,
+  pasteImage: PropTypes.bool,
 }
 
 DocUploaderContainer.defaultProps = {
   onUploadStart: debug,
   onUploadDone: debug,
   onUploadError,
+  pasteImage: true,
 }
 
 export default inject(storePlug('docUploader'))(observer(DocUploaderContainer))
