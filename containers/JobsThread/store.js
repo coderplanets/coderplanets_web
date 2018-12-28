@@ -93,6 +93,16 @@ const JobsThreadStore = t
         self.pagedJobs.entries[index].viewerHasViewed = true
       }
     },
+    updateItem(item) {
+      const { entries } = self.pagedJobsData
+      const index = R.findIndex(R.propEq('id', item.id), entries)
+      if (index >= 0) {
+        self.pagedJobs.entries[index] = R.merge(
+          stripMobx(self.pagedJobs.entries[index]),
+          item
+        )
+      }
+    },
     updateC11N(option) {
       self.root.updateC11N(option)
     },

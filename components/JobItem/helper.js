@@ -27,7 +27,7 @@ export const renderReadMark = (entry, accountInfo) => {
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
-    return <ReadedLabel>已读</ReadedLabel>
+    return <ReadedLabel>阅</ReadedLabel>
   }
 
   return null

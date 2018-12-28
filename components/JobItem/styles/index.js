@@ -25,8 +25,8 @@ export const Wrapper = styled.article`
 export const ReadedLabel = styled.div`
   position: absolute;
   top: 10px;
-  left: -30px;
-  font-size: 0.75rem;
+  left: -20px;
+  font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
 `

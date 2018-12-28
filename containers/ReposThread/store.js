@@ -91,6 +91,16 @@ const ReposThread = t
         self.pagedRepos.entries[index].viewerHasViewed = true
       }
     },
+    updateItem(item) {
+      const { entries } = self.pagedReposData
+      const index = R.findIndex(R.propEq('id', item.id), entries)
+      if (index >= 0) {
+        self.pagedRepos.entries[index] = R.merge(
+          stripMobx(self.pagedRepos.entries[index]),
+          item
+        )
+      }
+    },
     updateC11N(option) {
       self.root.updateC11N(option)
     },

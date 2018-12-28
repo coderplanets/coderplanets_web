@@ -89,6 +89,16 @@ const VideosThread = t
         self.pagedVideos.entries[index].viewerHasViewed = true
       }
     },
+    updateItem(item) {
+      const { entries } = self.pagedVideosData
+      const index = R.findIndex(R.propEq('id', item.id), entries)
+      if (index >= 0) {
+        self.pagedVideos.entries[index] = R.merge(
+          stripMobx(self.pagedVideos.entries[index]),
+          item
+        )
+      }
+    },
     updateC11N(option) {
       self.root.updateC11N(option)
     },
