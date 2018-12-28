@@ -32,5 +32,5 @@ export const PublishBtn = styled(Button)`
 export const FilterWrapper = styled.div`
   margin-bottom: 8px;
   margin-left: 8px;
-  display: ${({ show }) => (show ? 'flex' : 'none')};
+  display: flex;
 `

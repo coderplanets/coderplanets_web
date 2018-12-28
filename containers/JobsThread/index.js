@@ -29,7 +29,7 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -68,7 +68,7 @@ class JobsThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper show={curView === TYPE.RESULT}>
+          <FilterWrapper>
             <ContentFilter
               thread={THREAD.JOB}
               onSelect={logic.onFilterSelect}
