@@ -1,6 +1,13 @@
 /*
  *
  * MarkDownRender
+ * add following css to _document
+   see: https://github.com/bradhowes/remarkable-katex/issues/1
+   <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+   crossOrigin="anonymous"
+   />
  *
  */
 import React from 'react'
@@ -10,6 +17,7 @@ import PropTypes from 'prop-types'
 import Remarkable from 'remarkable'
 import emojiPlugin from 'remarkable-emoji'
 import mentionsPlugin from 'remarkable-mentions'
+import latexPlugin from 'remarkable-katex'
 import Prism from 'mastani-codehighlight'
 
 import { MENTION_USER_ADDR } from '../../config'
@@ -28,6 +36,11 @@ const md = new Remarkable('full', {
 
 md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(emojiPlugin)
+md.use(latexPlugin)
+
+const mdWithNoMath = new Remarkable()
+mdWithNoMath.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
+mdWithNoMath.use(emojiPlugin)
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:MarkDownRender:index')
@@ -61,7 +74,13 @@ class MarkDownRender extends React.Component {
        this is the most mother fucking disgusting bug i ever seen
      */
     const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body || '')
-    const html = md.render(safeBody)
+    let html = ''
+    try {
+      html = md.render(safeBody)
+    } catch (e) {
+      // usually caused by math parse
+      html = mdWithNoMath.render(safeBody)
+    }
 
     return (
       <PreviewerContainer>
