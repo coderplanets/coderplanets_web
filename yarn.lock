@@ -6571,6 +6571,12 @@ junk@^1.0.1:
   version "1.0.3"
   resolved "http://r.cnpmjs.org/junk/download/junk-1.0.3.tgz#87be63488649cbdca6f53ab39bec9ccd2347f592"
 
+katex@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.npmjs.org/katex/-/katex-0.7.1.tgz#06bb5298efad05e1e7228035ba8e1591f3061b8f"
+  dependencies:
+    match-at "^0.1.0"
+
 keypress@^0.2.1:
   version "0.2.1"
   resolved "http://r.cnpmjs.org/keypress/download/keypress-0.2.1.tgz#1e80454250018dbad4c3fe94497d6e67b6269c77"
@@ -7093,6 +7099,10 @@ masonry-layout@^4.2.0:
 mastani-codehighlight@0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/mastani-codehighlight/-/mastani-codehighlight-0.0.7.tgz#d264898ca5e3a2ca2a8709b6a20d52fffdf4776d"
+
+match-at@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
 
 maximatch@^0.1.0:
   version "0.1.0"
@@ -9530,6 +9540,12 @@ regjsparser@^0.3.0:
 remarkable-emoji@^0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/remarkable-emoji/-/remarkable-emoji-0.1.3.tgz#38c7dba14f725dbd2672686805ae7abb04432eb3"
+
+remarkable-katex@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/remarkable-katex/-/remarkable-katex-1.0.1.tgz#558acbf81625ff482ce0fa875e0f937a03efe3c8"
+  dependencies:
+    katex "^0.7.1"
 
 remarkable-mentions@^0.1.0:
   version "0.1.0"
