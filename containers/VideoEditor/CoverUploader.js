@@ -23,7 +23,10 @@ import { inputOnChange } from './logic'
 
 const CoverUploader = ({ thumbnil, poster }) => (
   <Wrapper>
-    <DocUploader onUploadDone={inputOnChange.bind(this, 'thumbnil')}>
+    <DocUploader
+      onUploadDone={inputOnChange.bind(this, 'thumbnil')}
+      pasteImage={false}
+    >
       {nilOrEmpty(thumbnil) ? (
         <Thumbnil>
           <UploaderLabel>
@@ -41,7 +44,10 @@ const CoverUploader = ({ thumbnil, poster }) => (
 
     {nilOrEmpty(poster) ? (
       <Poster>
-        <DocUploader onUploadDone={inputOnChange.bind(this, 'poster')}>
+        <DocUploader
+          onUploadDone={inputOnChange.bind(this, 'poster')}
+          pasteImage={false}
+        >
           <UploaderLabel>
             <UploaderIcon src={`${ICON_CMD}/image_upload.svg`} />
             <UploaderText>上传封面图</UploaderText>
@@ -59,7 +65,10 @@ const CoverUploader = ({ thumbnil, poster }) => (
       </Poster>
     ) : (
       <Poster>
-        <DocUploader onUploadDone={inputOnChange.bind(this, 'poster')}>
+        <DocUploader
+          onUploadDone={inputOnChange.bind(this, 'poster')}
+          pasteImage={false}
+        >
           <React.Fragment>
             <PosterCermeraIcon src={`${ICON_CMD}/camera.svg`} />
             <CoverImg src={poster} />

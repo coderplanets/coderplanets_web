@@ -110,12 +110,10 @@ class DocUploaderContainer extends React.Component {
 
   doUploadFile(file) {
     if (!file || !R.startsWith('image/', file.type)) return false
-    console.log('is Image!')
 
     const fileSize = file.size / 1024 / 1024
-    if (fileSize > 2) {
-      return alert('资源有限，请不要上传大于 2MB 的文件')
-    }
+    if (fileSize > 2) return alert('资源有限，请不要上传大于 2MB 的文件')
+
     const { onUploadStart, onUploadError } = this.props
     const { ossClient } = this.state
 

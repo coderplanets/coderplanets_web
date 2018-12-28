@@ -21,7 +21,10 @@ const CompanyInfoEditor = ({
 }) => (
   <Wrapper>
     <Content>
-      <DocUploader onUploadDone={inputOnChange.bind(this, 'companyLogo')}>
+      <DocUploader
+        onUploadDone={inputOnChange.bind(this, 'companyLogo')}
+        pasteImage={false}
+      >
         {R.isEmpty(companyLogo) ? (
           <LogoUploadBox>
             <UploadHint>公司 Logo</UploadHint>
