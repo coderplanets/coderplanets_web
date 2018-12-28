@@ -27,7 +27,7 @@ export const ContentFilter = t.model('ContentFilter', {
     ]),
     ''
   ),
-  wordLength: t.optional(
+  length: t.optional(
     t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     ''
   ),

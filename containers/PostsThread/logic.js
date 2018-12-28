@@ -64,10 +64,15 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   sr71$.query(S.pagedPosts, args)
-  store.markRoute({ page })
+  store.markRoute({ page, ...store.filtersData })
 }
 
-export const onFilterSelect = option => store.selectFilter(option)
+export const onFilterSelect = option => {
+  store.selectFilter(option)
+  debug('cur filter: ', store.filtersData)
+  store.markRoute({ ...store.filtersData })
+  loadPosts()
+}
 
 export function onTagSelect(tag) {
   store.selectTag(tag)

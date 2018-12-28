@@ -57,7 +57,7 @@ const PostsThreadStore = t
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(self.filters)
+      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
     get activeTagData() {
       return stripMobx(self.activeTag) || { title: '', color: '' }

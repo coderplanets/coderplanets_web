@@ -52,7 +52,7 @@ ContentFilter.propTypes = {
   activeFilter: PropTypes.shape({
     when: PropTypes.string,
     sort: PropTypes.string,
-    wordLength: PropTypes.string,
+    length: PropTypes.string,
     readState: PropTypes.string,
     // job
     jobSalary: PropTypes.string,
@@ -83,7 +83,7 @@ ContentFilter.defaultProps = {
     // general,
     when: '',
     sort: '',
-    wordLength: '',
+    length: '',
     readState: '',
 
     // job

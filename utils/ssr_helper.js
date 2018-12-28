@@ -51,7 +51,7 @@ const getActiveTag = (tagTitle, tagList) => {
   return tagList[index]
 }
 
-export const ssrContentsThread = (resp, thread) => {
+export const ssrContentsThread = (resp, thread, filters = {}) => {
   // console.log('filter in resp: ', resp.filter)
   const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
 
@@ -105,6 +105,7 @@ export const ssrContentsThread = (resp, thread) => {
           pagedPosts: resp.pagedPosts,
           curView: getCurView(resp.pagedPosts),
           activeTag,
+          filters,
         },
       }
     }
