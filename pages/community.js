@@ -72,10 +72,19 @@ async function fetchData(props, opt) {
   )
 
   filter = R.pick(
-    ['page', 'size', 'community', 'topic', 'tag', 'length', 'sort', 'when'],
+    [
+      'page',
+      'size',
+      'community',
+      'topic',
+      'tag',
+      'length',
+      'sort',
+      'when',
+      'read',
+    ],
     filter
   )
-  // console.log('the page community filter ->: ', filter)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)

@@ -21,6 +21,7 @@ const filterDict = {
   MOST_FORK: '最多Fork',
   MOST_WATCH: '最多Watch',
   //
+  TRUE: '已读',
   READ: '只显已读',
   UNREAD: '只显未读',
 }

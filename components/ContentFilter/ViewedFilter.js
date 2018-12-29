@@ -21,23 +21,23 @@ const ViewedFilter = ({ activeFilter, onSelect }) => (
     </SelectLable>
     <LabelDivider />
     <SelectItem
-      active={activeFilter.readState === FILTER.READ}
-      onClick={onSelect.bind(this, { readState: FILTER.READ })}
+      active={activeFilter.read === FILTER.READ}
+      onClick={onSelect.bind(this, { read: FILTER.READ })}
     >
       已读
     </SelectItem>
     {/*
       <SelectItem
-        active={activeFilter.readState === FILTER.ALL}
-        onClick={onSelect.bind(this, { readState: FILTER.ALL })}
+        active={activeFilter.read === FILTER.ALL}
+        onClick={onSelect.bind(this, { read: FILTER.ALL })}
         >
         全部
       </SelectItem>
       */}
     {/*
         <SelectItem
-        active={activeFilter.readState === FILTER.UNREAD}
-        onClick={onSelect.bind(this, { readState: FILTER.UNREAD })}
+        active={activeFilter.read === FILTER.UNREAD}
+        onClick={onSelect.bind(this, { read: FILTER.UNREAD })}
         >
         未读
         </SelectItem>

@@ -209,8 +209,8 @@ export const FILTER = {
   LEAST_WORDS: 'LEAST_WORDS',
 
   // READ
-  READ: 'READ',
-  UNREAD: 'UNREAD',
+  READ: 'TRUE',
+  UNREAD: 'FLASE',
   ALL: 'ALL',
 }
 

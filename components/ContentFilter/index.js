@@ -53,7 +53,7 @@ ContentFilter.propTypes = {
     when: PropTypes.string,
     sort: PropTypes.string,
     length: PropTypes.string,
-    readState: PropTypes.string,
+    read: PropTypes.string,
     // job
     jobSalary: PropTypes.string,
     jobExp: PropTypes.string,
@@ -84,7 +84,7 @@ ContentFilter.defaultProps = {
     when: '',
     sort: '',
     length: '',
-    readState: '',
+    read: '',
 
     // job
     jobSalary: '',
