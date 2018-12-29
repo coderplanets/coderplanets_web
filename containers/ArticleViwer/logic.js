@@ -78,6 +78,33 @@ function reloadReactions(id, thread) {
   }
 }
 
+export function onPin(thread) {
+  const { subPath: topic } = store.curRoute
+  const args = {
+    id: store.viewingData.id,
+    communityId: store.curCommunity.id,
+    topic,
+  }
+  debug('onPin: ', thread)
+  debug('args ..', args)
+
+  sr71$.mutate(S.pinPost, args)
+}
+
+export function onUnDoPin(thread) {
+  console.log('onunPin ', thread)
+
+  const { subPath: topic } = store.curRoute
+  const args = {
+    id: store.viewingData.id,
+    communityId: store.curCommunity.id,
+    topic,
+  }
+  debug('onPin: ', thread)
+  debug('args ..', args)
+  sr71$.mutate(S.undoPinPost, args)
+}
+
 export function onEdit(thread) {
   /* debug('onEdit', store.viewingPost) */
   switch (thread) {
@@ -177,6 +204,20 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('pinPost'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('undoPinPost'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
     match: asyncRes('job'),
     action: ({ job }) => {
       store.setViewing({ job: R.merge(store.viewingData, job) })
@@ -243,7 +284,7 @@ const ErrSolver = [
 export function init(_store, attachment) {
   store = _store
 
-  if (sub$) return openAttachment(attachment)
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
 }

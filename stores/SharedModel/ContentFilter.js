@@ -41,7 +41,7 @@ export const ContentFilter = t.model('ContentFilter', {
   // video
   videoSource: t.optional(t.string, ''),
   readState: t.optional(
-    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
+    t.enumeration('readState', ['', FILTER.READ, FILTER.UNREAD]),
     ''
   ),
 })

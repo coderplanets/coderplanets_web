@@ -24,7 +24,7 @@ const BodyHeader = ({ data, thread }) => {
     <Wrapper>
       <MoreWrapper>
         <Popover
-          content={<ArticleOptions thread={thread} />}
+          content={<ArticleOptions thread={thread} data={data} />}
           placement="bottomLeft"
           trigger="click"
         >

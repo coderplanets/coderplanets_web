@@ -2,14 +2,14 @@ import gql from 'graphql-tag'
 import { F } from '../schemas'
 
 /*
-communities {
-  ${F.community}
-}
+   communities {
+   ${F.community}
+   }
 
-commentsParticipators {
-  ${F.author}
-}
-*/
+   commentsParticipators {
+   ${F.author}
+   }
+ */
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
@@ -126,6 +126,22 @@ const unsetTag = gql`
   }
 `
 
+const pinPost = gql`
+  mutation($id: ID!, $communityId: ID!, $topic: String) {
+    pinPost(id: $id, communityId: $communityId, topic: $topic) {
+      id
+    }
+  }
+`
+
+const undoPinPost = gql`
+  mutation($id: ID!, $communityId: ID!, $topic: String) {
+    undoPinPost(id: $id, communityId: $communityId, topic: $topic) {
+      id
+    }
+  }
+`
+
 const schema = {
   post,
   postComment,
@@ -137,6 +153,8 @@ const schema = {
   undoReaction,
   setTag,
   unsetTag,
+  pinPost,
+  undoPinPost,
 }
 
 export default schema

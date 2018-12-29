@@ -41,6 +41,7 @@ export const Repo = t.model('Reop', {
 
   author: t.maybeNull(User),
   views: t.optional(t.number, 0),
+  pin: t.maybeNull(t.boolean),
 
   favoritedCount: t.optional(t.number, 0),
   viewerHasFavorited: t.optional(t.boolean, false),

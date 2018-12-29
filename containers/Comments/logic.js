@@ -337,15 +337,18 @@ const ErrSolver = [
 ]
 
 export function init(_store, ssr = false) {
-  if (store) {
-    if (!ssr) return loadComents()
-    return false
-  }
-
   store = _store
+  debug('>>>>>>> init sub$: ', sub$)
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   if (!ssr) return loadComents()
+}
+
+export function uninit() {
+  if (store.loading || store.loadingFresh || !sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }

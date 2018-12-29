@@ -37,6 +37,7 @@ export const pagedRepos = `
     pagedRepos(filter: $filter) {
       entries {
         ${F.repo}
+        pin
         views
         releaseTag
         author {

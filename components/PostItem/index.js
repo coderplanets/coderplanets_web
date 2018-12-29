@@ -12,7 +12,8 @@ import { Wrapper } from './styles'
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import { renderReadMark, getOpacity } from './helper'
+import PrefixLabel from './PrefixLabel'
+import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -28,9 +29,7 @@ const PostItem = ({
   accountInfo,
 }) => {
   // debug('customization --> ', customization)
-  const {
-    customization: { contentsLayout, contentDivider },
-  } = accountInfo
+  const { customization: { contentsLayout, contentDivider } } = accountInfo
 
   /*
      debug('entry --> ', entry)
@@ -47,7 +46,7 @@ const PostItem = ({
       opacity={getOpacity(entry, active, accountInfo)}
       divider={contentDivider}
     >
-      {renderReadMark(entry, accountInfo)}
+      <PrefixLabel entry={entry} accountInfo={accountInfo} />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView
           entry={entry}

@@ -40,6 +40,7 @@ export const pagedPosts = `
     pagedPosts(filter: $filter) {
       entries {
         ${F.post}
+        pin
         digest
         linkAddr
         copyRight
