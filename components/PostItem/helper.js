@@ -1,5 +1,8 @@
 export const getOpacity = (entry, active, accountInfo) => {
-  const { isLogin, customization: { markViewed } } = accountInfo
+  const {
+    isLogin,
+    customization: { markViewed },
+  } = accountInfo
   const { viewerHasViewed } = entry
 
   if (active.id) {

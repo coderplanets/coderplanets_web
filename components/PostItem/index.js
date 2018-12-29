@@ -29,7 +29,9 @@ const PostItem = ({
   accountInfo,
 }) => {
   // debug('customization --> ', customization)
-  const { customization: { contentsLayout, contentDivider } } = accountInfo
+  const {
+    customization: { contentsLayout, contentDivider },
+  } = accountInfo
 
   /*
      debug('entry --> ', entry)

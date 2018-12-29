@@ -6,7 +6,10 @@ import { ReadedLabel, PinIcon } from './styles/prefix_label'
 
 const ReadLabel = ({ entry, accountInfo }) => {
   const { viewerHasViewed } = entry
-  const { isLogin, customization: { markViewed } } = accountInfo
+  const {
+    isLogin,
+    customization: { markViewed },
+  } = accountInfo
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
