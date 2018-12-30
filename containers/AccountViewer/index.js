@@ -24,12 +24,6 @@ import * as logic from './logic'
 const debug = makeDebugger('C:AccountViewer')
 /* eslint-enable no-unused-vars */
 
-const ThemeSection = ({ curTheme }) => (
-  <ThemeWrapper>
-    <ThemeSelector curTheme={curTheme} changeTheme={logic.changeTheme} />
-  </ThemeWrapper>
-)
-
 class AccountViewerContainer extends React.Component {
   componentDidMount() {
     const { accountViewer, user } = this.props
@@ -92,7 +86,12 @@ class AccountViewerContainer extends React.Component {
             <Maybe test={viewingType === 'account'}>
               <React.Fragment>
                 <Divider top="10px" bottom="12px" />
-                <ThemeSection curTheme={curTheme} />
+                <ThemeWrapper>
+                  <ThemeSelector
+                    curTheme={curTheme}
+                    changeTheme={logic.changeTheme}
+                  />
+                </ThemeWrapper>
               </React.Fragment>
             </Maybe>
           </React.Fragment>

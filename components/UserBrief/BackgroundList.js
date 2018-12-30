@@ -17,7 +17,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
     return (
       <BackgroundItem>
         {bg.company}
-        <BackgroundDivider />
+        {bg.title ? <BackgroundDivider /> : null}
         {bg.title}
       </BackgroundItem>
     )
@@ -27,7 +27,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
       {workBackgrounds.map(bg => (
         <BackgroundDetailItem key={uid.gen()}>
           {bg.company}
-          <BackgroundDivider />
+          {bg.title ? <BackgroundDivider /> : null}
           {bg.title}
         </BackgroundDetailItem>
       ))}
@@ -43,7 +43,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
     return (
       <BackgroundItem>
         {bg.school}
-        <BackgroundDivider />
+        {bg.major ? <BackgroundDivider /> : null}
         {bg.major}
       </BackgroundItem>
     )
@@ -53,7 +53,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
       {educationBackgrounds.map(bg => (
         <BackgroundDetailItem key={uid.gen()}>
           {bg.school}
-          <BackgroundDivider />
+          {bg.major ? <BackgroundDivider /> : null}
           {bg.major}
         </BackgroundDetailItem>
       ))}
