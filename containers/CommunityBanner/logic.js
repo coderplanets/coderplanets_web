@@ -110,9 +110,6 @@ export function init(_store) {
 
 export function uninit() {
   /* debug('===== before uninit store.curView: ', store.loading) */
-  debug('===== before uninit sub$: ', !sub$)
-  debug('condition: ', store.loading || !sub$)
-
   if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

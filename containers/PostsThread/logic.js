@@ -147,10 +147,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      debug('======= fucking COMMUNITY_CHANGE ')
-      loadPosts()
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
