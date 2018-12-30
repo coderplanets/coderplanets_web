@@ -16,7 +16,7 @@ import DotDivider from '../DotDivider'
 import { Space } from '../BaseStyled'
 import InlineTags from '../InlineTags'
 
-import PrefixLabel from './PrefixLabel'
+import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 
 import {
   Wrapper,
@@ -47,7 +47,7 @@ const debug = makeDebugger('c:VideoItem:index')
 
 const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    <PrefixLabel entry={entry} accountInfo={accountInfo} />
+    <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
     <PosterWrapper>
       <Poster src={entry.poster} alt="poster" />
       <Duration>{entry.duration}</Duration>

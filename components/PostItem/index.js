@@ -7,12 +7,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+
 import { Wrapper } from './styles'
 
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import PrefixLabel from './PrefixLabel'
 import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
@@ -48,7 +49,7 @@ const PostItem = ({
       opacity={getOpacity(entry, active, accountInfo)}
       divider={contentDivider}
     >
-      <PrefixLabel entry={entry} accountInfo={accountInfo} />
+      <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView
           entry={entry}

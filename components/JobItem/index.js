@@ -14,7 +14,7 @@ import { Wrapper } from './styles'
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import PrefixLabel from './PrefixLabel'
+import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 
 import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
@@ -34,7 +34,7 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
       divider={contentDivider}
       onClick={onTitleSelect}
     >
-      <PrefixLabel entry={entry} accountInfo={accountInfo} />
+      <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView entry={entry} />
       ) : (

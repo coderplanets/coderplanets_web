@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ReadedLabel, PinIcon } from './styles/prefix_label'
+import { ReadedLabel } from './styles'
 
 const ReadLabel = ({ entry, accountInfo }) => {
   const { viewerHasViewed } = entry
@@ -17,10 +17,4 @@ const ReadLabel = ({ entry, accountInfo }) => {
   return null
 }
 
-const PrefixLabel = ({ entry, accountInfo }) => {
-  if (entry.pin) return <PinIcon />
-
-  return <ReadLabel entry={entry} accountInfo={accountInfo} />
-}
-
-export default PrefixLabel
+export default ReadLabel
