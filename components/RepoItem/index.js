@@ -23,7 +23,11 @@ const debug = makeDebugger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
+    <ArticleItemPrefixLabel
+      entry={entry}
+      accountInfo={accountInfo}
+      topOffset="22px"
+    />
     <Header entry={entry} onTitleSelect={onTitleSelect.bind(this, entry)} />
     <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
     <Footer
