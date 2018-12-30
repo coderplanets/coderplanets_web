@@ -79,30 +79,33 @@ function reloadReactions(id, thread) {
 }
 
 export function onPin(thread) {
-  const { subPath: topic } = store.curRoute
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
-    topic,
   }
   debug('onPin: ', thread)
   debug('args ..', args)
 
-  sr71$.mutate(S.pinPost, args)
+  if (thread === THREAD.JOB) {
+    sr71$.mutate(S.pinJob, args)
+  } else {
+    const { subPath: topic } = store.curRoute
+    sr71$.mutate(S.pinPost, R.merge(args, { topic }))
+  }
 }
 
 export function onUnDoPin(thread) {
-  console.log('onunPin ', thread)
-
-  const { subPath: topic } = store.curRoute
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
-    topic,
   }
-  debug('onPin: ', thread)
-  debug('args ..', args)
-  sr71$.mutate(S.undoPinPost, args)
+
+  if (thread === THREAD.JOB) {
+    sr71$.mutate(S.undoPinJob, args)
+  } else {
+    const { subPath: topic } = store.curRoute
+    sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
+  }
 }
 
 export function onEdit(thread) {
@@ -214,6 +217,20 @@ const DataSolver = [
     match: asyncRes('undoPinPost'),
     action: () => {
       dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('pinJob'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_JOBS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('undoPinJob'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_JOBS)
       closePreviewer()
     },
   },

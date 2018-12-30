@@ -125,7 +125,6 @@ const unsetTag = gql`
     }
   }
 `
-
 const pinPost = gql`
   mutation($id: ID!, $communityId: ID!, $topic: String) {
     pinPost(id: $id, communityId: $communityId, topic: $topic) {
@@ -133,10 +132,23 @@ const pinPost = gql`
     }
   }
 `
-
 const undoPinPost = gql`
   mutation($id: ID!, $communityId: ID!, $topic: String) {
     undoPinPost(id: $id, communityId: $communityId, topic: $topic) {
+      id
+    }
+  }
+`
+const pinJob = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    pinJob(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+const undoPinJob = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    undoPinJob(id: $id, communityId: $communityId) {
       id
     }
   }
@@ -155,6 +167,8 @@ const schema = {
   unsetTag,
   pinPost,
   undoPinPost,
+  pinJob,
+  undoPinJob,
 }
 
 export default schema
