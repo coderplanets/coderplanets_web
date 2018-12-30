@@ -140,7 +140,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, fileType } = this.props
     const { uniqueId } = this.state
 
     return (
@@ -149,7 +149,7 @@ class DocUploaderContainer extends React.Component {
           type="file"
           name={`file-${uniqueId}`}
           id={`file-${uniqueId}`}
-          accept="image/*"
+          accept={fileType}
           onChange={this.handleInputChange.bind(this)}
         />
         {/* eslint-disable */}
@@ -167,6 +167,7 @@ DocUploaderContainer.propTypes = {
   onUploadDone: PropTypes.func,
   docUploader: PropTypes.any.isRequired,
   pasteImage: PropTypes.bool,
+  fileType: PropTypes.oneOf(['image/*']),
 }
 
 DocUploaderContainer.defaultProps = {
@@ -174,6 +175,7 @@ DocUploaderContainer.defaultProps = {
   onUploadDone: debug,
   onUploadError,
   pasteImage: true,
+  fileType: 'image/*',
 }
 
 export default inject(storePlug('docUploader'))(observer(DocUploaderContainer))
