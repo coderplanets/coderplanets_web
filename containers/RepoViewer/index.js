@@ -37,7 +37,7 @@ class RepoViewerContainer extends React.Component {
 
     debug('viewingData ', viewingData)
     return (
-      <div>
+      <React.Fragment>
         <FavoritesCats />
         <GithubRepoPage
           repo={viewingData}
@@ -47,7 +47,7 @@ class RepoViewerContainer extends React.Component {
         <CommentsWrapper>
           <Comments />
         </CommentsWrapper>
-      </div>
+      </React.Fragment>
     )
   }
 }
