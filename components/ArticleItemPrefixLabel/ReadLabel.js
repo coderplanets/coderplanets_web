@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ReadedLabel } from './styles'
 
-const ReadLabel = ({ entry, accountInfo, topOffset }) => {
+const ReadLabel = ({ entry, accountInfo, topoffset }) => {
   const { viewerHasViewed } = entry
   const {
     isLogin,
@@ -11,7 +11,7 @@ const ReadLabel = ({ entry, accountInfo, topOffset }) => {
 
   if (!isLogin) return null
   if (markViewed && viewerHasViewed) {
-    return <ReadedLabel topOffset={topOffset}>阅</ReadedLabel>
+    return <ReadedLabel topoffset={topoffset}>阅</ReadedLabel>
   }
 
   return null

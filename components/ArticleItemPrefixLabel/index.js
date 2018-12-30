@@ -16,11 +16,11 @@ import { makeDebugger } from '../../utils'
 const debug = makeDebugger('c:ArticleItemPrefixLabel:index')
 /* eslint-enable no-unused-vars */
 
-const ArticleItemPrefixLabel = ({ entry, accountInfo, topOffset }) => {
-  if (entry.pin) return <PinIcon topOffset={topOffset} />
+const ArticleItemPrefixLabel = ({ entry, accountInfo, topoffset }) => {
+  if (entry.pin) return <PinIcon topoffset={topoffset} />
 
   return (
-    <ReadLabel entry={entry} accountInfo={accountInfo} topOffset={topOffset} />
+    <ReadLabel entry={entry} accountInfo={accountInfo} topoffset={topoffset} />
   )
 }
 
@@ -35,11 +35,11 @@ ArticleItemPrefixLabel.propTypes = {
     viewerHasViewed: PropTypes.bool,
     pin: PropTypes.bool,
   }).isRequired,
-  topOffset: PropTypes.string,
+  topoffset: PropTypes.string,
 }
 
 ArticleItemPrefixLabel.defaultProps = {
-  topOffset: '14px',
+  topoffset: '14px',
 }
 
 export default React.memo(ArticleItemPrefixLabel)

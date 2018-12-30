@@ -6,7 +6,7 @@ import { theme } from '../../../utils'
 export const ReadedLabel = styled.div`
   color: ${theme('thread.articleDigest')};
   position: absolute;
-  top: ${({ topOffset }) => topOffset};
+  top: ${({ topoffset }) => topoffset};
   left: -18px;
   font-size: 0.9rem;
   opacity: 0.9;
@@ -17,6 +17,6 @@ export const PinIcon = styled(PinSVG)`
   position: absolute;
   width: 22px;
   height: 22px;
-  top: ${({ topOffset }) => topOffset};
+  top: ${({ topoffset }) => topoffset};
   left: -22px;
 `
