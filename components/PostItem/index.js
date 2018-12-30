@@ -8,11 +8,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
-
-import { Wrapper } from './styles'
-
 import DigestView from './DigestView'
 import ListView from './ListView'
+
+import { Wrapper } from './styles'
 
 import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
