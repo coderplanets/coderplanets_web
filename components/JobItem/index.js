@@ -14,7 +14,9 @@ import { Wrapper } from './styles'
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import { renderReadMark, getOpacity } from './helper'
+import PrefixLabel from './PrefixLabel'
+
+import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -32,7 +34,7 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
       divider={contentDivider}
       onClick={onTitleSelect}
     >
-      {renderReadMark(entry, accountInfo)}
+      <PrefixLabel entry={entry} accountInfo={accountInfo} />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView entry={entry} />
       ) : (
