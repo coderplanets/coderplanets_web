@@ -7,14 +7,14 @@ export const Wrapper = styled.div`
   ${cs.flexColumn()};
   margin-top: 30px;
   margin-left: 10px;
-  padding-left: 10%;
+  padding-left: 5%;
 `
 export const TagItem = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 14px;
 `
 export const AllTagIcon = styled(Img)`
-  fill: #6b8688;
+  fill: ${theme('banner.desc')};
   margin-right: 10px;
   margin-top: 2px;
   width: 14px;
@@ -36,6 +36,7 @@ export const TagDot = styled.div`
 // ${props => (props.active === props.title ? 1 : 0.7)}
 
 export const TagTitle = styled.div`
+  flex-grow: 1;
   color: ${theme('tags.text')};
   font-size: 0.95rem;
   opacity: 0.9;
@@ -44,5 +45,11 @@ export const TagTitle = styled.div`
   &:hover {
     cursor: pointer;
     opacity: 1;
+  }
+`
+export const TagOptionsWrapper = styled.div`
+  display: none;
+  ${TagItem}:hover & {
+    display: block;
   }
 `
