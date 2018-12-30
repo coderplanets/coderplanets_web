@@ -64,17 +64,15 @@ const CoverUploader = ({ thumbnil, poster }) => (
         </Maybe>
       </Poster>
     ) : (
-      <Poster>
-        <DocUploader
-          onUploadDone={inputOnChange.bind(this, 'poster')}
-          pasteImage={false}
-        >
-          <React.Fragment>
-            <PosterCermeraIcon src={`${ICON_CMD}/camera.svg`} />
-            <CoverImg src={poster} />
-          </React.Fragment>
-        </DocUploader>
-      </Poster>
+      <DocUploader
+        onUploadDone={inputOnChange.bind(this, 'poster')}
+        pasteImage={false}
+      >
+        <Poster>
+          <PosterCermeraIcon src={`${ICON_CMD}/camera.svg`} />
+          <CoverImg src={poster} />
+        </Poster>
+      </DocUploader>
     )}
   </Wrapper>
 )

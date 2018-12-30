@@ -114,7 +114,7 @@ class VideoEditorContainer extends React.Component {
             ratKey={ratKey}
             value={editVideoData.publishAt}
             onChange={inputOnChange.bind(this, 'publishAt')}
-            placeholder="原视频发布日期, 格式 YYYY-MM-DD #必填#"
+            placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
           />
           <FormItem
             label="描述:"

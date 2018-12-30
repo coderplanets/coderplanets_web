@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const Thumbnil = styled.div`
   ${cs.flex('align-center')};
   align-self: center;
+  justify-content: center;
 
   position: relative;
   height: 100px;
@@ -28,7 +29,7 @@ export const Thumbnil = styled.div`
 `
 export const Poster = styled.div`
   ${cs.flexColumnGrow('align-both')};
-
+  height: 200px;
   position: relative;
   margin-left: 10px;
   border: 1px dashed;
