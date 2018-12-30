@@ -49,3 +49,7 @@ export const SyncButton = styled(Button)`
   margin-right: 10px;
 `
 export const PublishButton = styled(Button)``
+
+export const ReadonlyHolder = styled.div`
+  margin-bottom: 10px;
+`

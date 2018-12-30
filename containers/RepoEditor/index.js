@@ -29,6 +29,7 @@ const View = ({ curView, searching, searchValue, repo }) => {
           onPublish={logic.onPublish}
           showSearchBtn
           showPublishBtn
+          readOnly
         />
       )
     }
