@@ -12,7 +12,9 @@ import { Wrapper, BodyDigest } from './styles'
 import Header from './Header'
 import Footer from './Footer'
 
-import { renderReadMark, getOpacity } from './helper'
+import PrefixLabel from './PrefixLabel'
+
+import { getOpacity } from './helper'
 import { makeDebugger, cutFrom, C11N } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:RepoItem:index')
@@ -20,8 +22,7 @@ const debug = makeDebugger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    {renderReadMark(entry, accountInfo)}
-
+    <PrefixLabel entry={entry} accountInfo={accountInfo} />
     <Header entry={entry} onTitleSelect={onTitleSelect.bind(this, entry)} />
     <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
     <Footer
