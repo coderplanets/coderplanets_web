@@ -41,6 +41,7 @@ const GithubRepoPage = ({
   showPublishBtn,
   showSearchBtn,
   showSyncBtn,
+  actionsPanel,
 }) => (
   <Wrapper>
     <ArticleHeader
@@ -53,7 +54,7 @@ const GithubRepoPage = ({
       onListReactionUsers={onListReactionUsers}
     />
     <BodyWrapper>
-      <BodyHeader />
+      <BodyHeader actionsPanel={actionsPanel} />
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}
@@ -96,6 +97,8 @@ GithubRepoPage.propTypes = {
   showPublishBtn: PropTypes.bool,
   showSearchBtn: PropTypes.bool,
   showSyncBtn: PropTypes.bool,
+
+  actionsPanel: PropTypes.node,
 }
 
 GithubRepoPage.defaultProps = {
@@ -109,6 +112,7 @@ GithubRepoPage.defaultProps = {
   showPublishBtn: false,
   showSearchBtn: false,
   showSyncBtn: false,
+  actionsPanel: <div>loading</div>,
 }
 
 export default GithubRepoPage

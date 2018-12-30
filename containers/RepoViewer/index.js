@@ -11,9 +11,9 @@ import { CommentsWrapper } from './styles'
 
 import FavoritesCats from '../FavoritesCats'
 import Comments from '../Comments'
-import { GithubRepoPage } from '../../components'
+import { GithubRepoPage, ArticleActionsPanel } from '../../components'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 
@@ -43,6 +43,16 @@ class RepoViewerContainer extends React.Component {
           repo={viewingData}
           onReaction={logic.onReaction}
           onListReactionUsers={logic.onListReactionUsers}
+          actionsPanel={
+            <ArticleActionsPanel
+              thread={THREAD.REPO}
+              entry={viewingData}
+              onEdit={debug}
+              onPin={logic.onPin}
+              onUndoPin={logic.onUndoPin}
+              onInform={debug}
+            />
+          }
         />
         <CommentsWrapper>
           <Comments />
