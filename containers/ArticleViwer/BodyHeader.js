@@ -2,9 +2,7 @@ import React from 'react'
 import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-import { Popover } from '../../components'
-
-import ArticleOptions from './ArticleOptions'
+import { Popover, ArticleActionsPanel } from '../../components'
 
 import {
   Wrapper,
@@ -17,6 +15,8 @@ import {
   RefinedText,
 } from './styles/body_header'
 
+import * as logic from './logic'
+
 const BodyHeader = ({ data, thread }) => {
   const isRefined = R.contains('refined', R.pluck('title', data.tags))
 
@@ -24,7 +24,16 @@ const BodyHeader = ({ data, thread }) => {
     <Wrapper>
       <MoreWrapper>
         <Popover
-          content={<ArticleOptions thread={thread} data={data} />}
+          content={
+            <ArticleActionsPanel
+              thread={thread}
+              entry={data}
+              onEdit={logic.onEdit}
+              onPin={logic.onPin}
+              onUndoPin={logic.onUndoPin}
+              onInform={logic.callInformer}
+            />
+          }
           placement="bottomLeft"
           trigger="click"
         >

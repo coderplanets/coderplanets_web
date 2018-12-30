@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { Input } from 'antd'
+import { Input, Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
-import { SectionLabel, Button, Space } from '../../components'
+import SectionLabel from '../../components/SectionLabel'
+import { Space } from '../../components/BaseStyled'
+
 import { Wrapper, Footer, Back, Submit } from './styles/form'
 
 import { backToOverview, onMessageChange, onConfirm } from './logic'

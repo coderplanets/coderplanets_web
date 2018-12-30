@@ -65,6 +65,7 @@ export { default as DiscussLinker } from './DiscussLinker'
 
 export { default as StrategicPartners } from './StrategicPartners'
 export { default as ArticleItemPrefixLabel } from './ArticleItemPrefixLabel'
+export { default as ArticleActionsPanel } from './ArticleActionsPanel'
 
 // loading component
 export {

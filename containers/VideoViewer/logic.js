@@ -99,7 +99,7 @@ const ErrSolver = [
 export function init(_store, attachment) {
   store = _store
 
-  if (sub$) return openAttachment(attachment)
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
 }

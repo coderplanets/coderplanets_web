@@ -94,7 +94,7 @@ export function onPin(thread) {
   }
 }
 
-export function onUnDoPin(thread) {
+export function onUndoPin(thread) {
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
