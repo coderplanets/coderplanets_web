@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '../../config'
 
 import Labeler from '../Labeler'
-import { Popover } from '../../components'
+import { Popover, ArticleActionsPanel } from '../../components'
 
 // import ArticleOptions from '../../containers/ArticleViwer/ArticleOptions'
 import {
@@ -16,14 +16,23 @@ import {
   RefinedText,
 } from './styles/body_header'
 
-// import { Wrapper } from './styles/body_header'
+import * as logic from './logic'
 
-/* content={<ArticleOptions thread={thread} />} */
-
-const BodyHeader = () => (
+const BodyHeader = ({ thread, data }) => (
   <Wrapper>
     <MoreWrapper>
-      <Popover content={<div>...</div>} placement="bottomLeft" trigger="click">
+      <Popover
+        content={
+          <ArticleActionsPanel
+            thread={thread}
+            entry={data}
+            onPin={logic.onPin}
+            onUndoPin={logic.onUndoPin}
+          />
+        }
+        placement="bottomLeft"
+        trigger="click"
+      >
         <div>
           <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
         </div>

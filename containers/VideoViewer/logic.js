@@ -7,6 +7,9 @@ import {
   asyncErr,
   ERR,
   TYPE,
+  EVENT,
+  dispatchEvent,
+  closePreviewer,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -29,18 +32,29 @@ function loadVideo({ id }) {
 }
 
 export function onReaction(thread, action, userDid, { id }) {
-  /*
-     debug('onReaction thread: ', thread)
-     debug('onReaction action: ', action)
-     debug('onReaction userDid: ', store.isLogin)
-     debug('onReaction id: ', id)
-   */
-
   const args = { id, thread: R.toUpper(thread), action }
 
   return userDid
     ? sr71$.mutate(S.undoReaction, args)
     : sr71$.mutate(S.reaction, args)
+}
+
+export function onPin() {
+  const args = {
+    id: store.viewingData.id,
+    communityId: store.curCommunity.id,
+  }
+
+  sr71$.mutate(S.pinVideo, args)
+}
+
+export function onUndoPin() {
+  const args = {
+    id: store.viewingData.id,
+    communityId: store.curCommunity.id,
+  }
+
+  sr71$.mutate(S.undoPinVideo, args)
 }
 
 const openAttachment = att => {
@@ -70,6 +84,20 @@ const DataSolver = [
     match: asyncRes('reaction'),
     action: ({ reaction }) =>
       sr71$.query(S.videoReactionRes, { id: reaction.id }),
+  },
+  {
+    match: asyncRes('pinVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('undoPinVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
   },
 ]
 const ErrSolver = [
