@@ -23,8 +23,6 @@ const ReposThread = t
   .model('ReposThread', {
     pagedRepos: t.optional(PagedRepos, emptyPagiData),
     filters: t.optional(ContentFilter, {}),
-    /* tags: t.optional(t.map(Tag), {}), */
-    tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
@@ -55,14 +53,16 @@ const ReposThread = t
     get isLogin() {
       return self.root.account.isLogin
     },
-    get tagsData() {
-      return stripMobx(self.tags)
-    },
     get filtersData() {
-      return stripMobx(self.filters)
+      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || {}
+    },
+    get tagQuery() {
+      const curTag = stripMobx(self.activeTag)
+      if (R.isEmpty(curTag)) return {}
+      return { tag: curTag.title }
     },
     get activeRepo() {
       return stripMobx(self.root.viewing.repo)

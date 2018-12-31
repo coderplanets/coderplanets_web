@@ -42,7 +42,7 @@ export function loadRepos(page = 1) {
       page,
       size: PAGE_SIZE.D,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
       community: curCommunity.raw,
     },
     userHasLogin,
@@ -63,15 +63,23 @@ export function onTitleSelect(data) {
     thread: THREAD.REPO,
     data,
   })
+
+  store.markRoute({
+    preview: THREAD.REPO,
+    id: data.id,
+    ...store.tagQuery,
+    ...store.filtersData,
+  })
 }
 
 export function createContent() {
-  debug('createContent')
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
-export function onTagSelect() {
-  debug('onTagSelect')
+export function onTagSelect(tag) {
+  store.selectTag(tag)
+  loadRepos()
+  store.markRoute({ tag: tag.title })
 }
 
 export const onFilterSelect = option => store.selectFilter(option)
@@ -111,7 +119,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.setViewing({ repo: {} }),
+    action: () => {
+      store.setViewing({ repo: {} })
+      store.markRoute({ ...store.filtersData, ...store.tagQuery })
+    },
   },
 ]
 const ErrSolver = []
