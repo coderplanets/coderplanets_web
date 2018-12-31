@@ -45,7 +45,7 @@ export function loadJobs(page = 1) {
       page,
       size: PAGE_SIZE.M,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
     },
     userHasLogin,
   }

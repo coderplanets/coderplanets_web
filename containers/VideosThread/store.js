@@ -13,7 +13,14 @@ import {
   emptyPagiData,
 } from '../../stores/SharedModel'
 
-import { makeDebugger, markStates, stripMobx, TYPE } from '../../utils'
+import {
+  makeDebugger,
+  markStates,
+  stripMobx,
+  TYPE,
+  nilOrEmpty,
+} from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:VideosThread')
 /* eslint-enable no-unused-vars */
@@ -60,7 +67,7 @@ const VideosThread = t
     },
     get tagQuery() {
       const curTag = stripMobx(self.activeTag)
-      if (R.isEmpty(curTag)) return {}
+      if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
     get activeVideo() {

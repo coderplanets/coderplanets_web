@@ -32,6 +32,10 @@ export const SalaryWrapper = styled.div`
 export const BackgroundWrapper = styled.div`
   ${cs.flex()};
 `
+export const TagsWrapper = styled.div`
+  margin-top: 11px;
+`
+
 export const Background = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};

@@ -34,7 +34,11 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
       divider={contentDivider}
       onClick={onTitleSelect}
     >
-      <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
+      <ArticleItemPrefixLabel
+        entry={entry}
+        accountInfo={accountInfo}
+        topoffset="9px"
+      />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView entry={entry} />
       ) : (

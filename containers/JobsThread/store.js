@@ -13,7 +13,13 @@ import {
   emptyPagiData,
 } from '../../stores/SharedModel'
 
-import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
+import {
+  markStates,
+  makeDebugger,
+  stripMobx,
+  TYPE,
+  nilOrEmpty,
+} from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:JobsThreadStore')
@@ -65,7 +71,7 @@ const JobsThreadStore = t
     },
     get tagQuery() {
       const curTag = stripMobx(self.activeTag)
-      if (R.isEmpty(curTag)) return {}
+      if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
 
