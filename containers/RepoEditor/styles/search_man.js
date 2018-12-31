@@ -37,11 +37,43 @@ export const InputWrapper = styled.div`
   width: 85%;
   margin-left: 15%;
 `
+export const TokeInputWrapper = styled.div`
+  width: 60%;
+  margin-bottom: -10px;
+`
 export const Footer = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('banner.desc')};
   font-size: 0.9rem;
+`
+
+export const SetTokenWapper = styled.span`
+  margin-left: 3px;
+  margin-right: 3px;
+  color: ${theme('banner.desc')};
+  font-weight: bold;
   opacity: 0.8;
   &:hover {
+    color: ${theme('banner.title')};
     opacity: 1;
+    cursor: pointer;
+  }
+`
+
+export const SetTokenDesc = styled.div`
+  color: ${theme('banner.desc')};
+  margin-bottom: 15px;
+`
+
+export const SetTokenIssue = styled.a`
+  margin-left: 3px;
+  margin-right: 3px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: ${theme('banner.desc')};
+  transition: color 0.3s;
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('banner.title')};
   }
 `

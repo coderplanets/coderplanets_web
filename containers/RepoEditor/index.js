@@ -12,14 +12,21 @@ import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, uid } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:RepoEditor')
 /* eslint-enable no-unused-vars */
 
-const View = ({ curView, searching, searchValue, repo }) => {
+const View = ({
+  curView,
+  searching,
+  searchValue,
+  repo,
+  subView,
+  tokenValue,
+}) => {
   switch (curView) {
     case 'show': {
       return (
@@ -40,6 +47,8 @@ const View = ({ curView, searching, searchValue, repo }) => {
           onSearch={logic.onGithubSearch}
           onChange={logic.searchOnChange}
           searching={Boolean(searching)}
+          subView={subView}
+          tokenValue={tokenValue}
         />
       )
     }
@@ -47,24 +56,36 @@ const View = ({ curView, searching, searchValue, repo }) => {
 }
 
 class RepoEditorContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { repoEditor } = props
+  componentDidMount() {
+    const { repoEditor } = this.props
     logic.init(repoEditor)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
     const { repoEditor } = this.props
-    const { curView, searching, searchValue, editRepoData } = repoEditor
+    const {
+      curView,
+      searching,
+      searchValue,
+      editRepoData,
+      subView,
+      tokenValue,
+    } = repoEditor
 
     return (
       <Wrapper>
         <View
+          key={uid.gen()}
           curView={curView}
           searching={searching}
           searchValue={searchValue}
           repo={editRepoData}
+          subView={subView}
+          tokenValue={tokenValue}
         />
       </Wrapper>
     )

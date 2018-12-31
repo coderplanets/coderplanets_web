@@ -1,23 +1,29 @@
 import React from 'react'
 
-import { FormItem, Button } from '../../components'
+// import { FormItem, Button } from '../../components'
+import { ISSUE_ADDR } from '../../config'
+
+import SearchInputer from './SearchInputer'
+import TokenSetter from './TokenSetter'
 
 import {
   Wrapper,
   SearchTitle,
-  InputWrapper,
   FormWrapper,
   Letter,
   Footer,
+  SetTokenWapper,
+  SetTokenIssue,
 } from './styles/search_man'
 
+import { changeSubView } from './logic'
 import { makeDebugger } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:RepoEditor')
 /* eslint-enable no-unused-vars */
 
-const SearchMan = ({ value, searching, onSearch, onChange }) => (
+const SearchMan = ({ value, searching, subView, tokenValue }) => (
   <Wrapper>
     <FormWrapper>
       <SearchTitle>
@@ -28,33 +34,25 @@ const SearchMan = ({ value, searching, onSearch, onChange }) => (
         <Letter color="#10A859">u</Letter>
         <Letter color="#F3423D">b</Letter>
       </SearchTitle>
-      <InputWrapper>
-        <FormItem
-          value={value}
-          size="large"
-          onChange={onChange.bind(this)}
-          placeholder="Github 仓库地址，如: https://github.com/coderplanets/coderplanets_web"
-          disabled={Boolean(searching)}
-        />
-      </InputWrapper>
-
-      {searching ? (
-        <Button size="default" type="primary" ghost>
-          正在搜索..
-        </Button>
+      {subView === 'search' ? (
+        <SearchInputer value={value} searhing={searching} />
       ) : (
-        <Button
-          size="default"
-          type="primary"
-          ghost
-          onClick={onSearch.bind(this)}
-        >
-          Github 搜索
-        </Button>
+        <TokenSetter value={tokenValue} />
       )}
     </FormWrapper>
     <Footer>
-      搜索使用当前登录的 Github token, 请注意不要意外发布您的私有项目。
+      若有问题请尝试
+      <SetTokenWapper onClick={changeSubView.bind(this, 'token')}>
+        重新设置token
+      </SetTokenWapper>
+      或{' '}
+      <SetTokenIssue
+        href={`${ISSUE_ADDR}/323`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        报告issue
+      </SetTokenIssue>
     </Footer>
   </Wrapper>
 )

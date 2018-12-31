@@ -1,3 +1,5 @@
+import R from 'ramda'
+
 import {
   makeDebugger,
   dispatchEvent,
@@ -8,6 +10,7 @@ import {
   ERR,
   githubApi,
   closePreviewer,
+  BStore,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -52,8 +55,23 @@ export function onGithubSearch() {
 }
 
 export const changeView = curView => store.markState({ curView })
+export const changeSubView = subView => store.markState({ subView })
+
 export const searchOnChange = ({ target: { value: searchValue } }) =>
   store.markState({ searchValue })
+
+export const tokenOnChange = ({ target: { value: tokenValue } }) =>
+  store.markState({ tokenValue })
+
+export const setGithubToken = () => {
+  if (!store.validator('tokenValue')) return false
+  BStore.set('github_token', store.tokenValue)
+  store.markState({ subView: 'search' })
+  store.toast('success', {
+    title: '设置成功',
+    msg: '请刷新页面后重新尝试。',
+  })
+}
 
 /*
    export const searchOnChange = ({ target: { e: searchValue } }) =>
@@ -101,10 +119,19 @@ const ErrSolver = [
 ]
 
 export function init(_store) {
-  if (store) return false
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  const tokenValue = BStore.get('github_token') || ''
+  const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
+  store.markState({ tokenValue, subView })
+}
+
+export function uninit() {
+  if (store.searching || !sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }
