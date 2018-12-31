@@ -6,10 +6,9 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-
 import { Radio } from 'antd'
-// import { } from './styles'
-import { ICON_CMD } from '../../config'
+
+import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
 import {
   ThemeSelector,
@@ -142,10 +141,7 @@ class UserSettingsContainer extends React.Component {
               placement="bottom"
               trigger="hover"
               content={
-                <DiscussLinker
-                  title="打赏设置"
-                  addr="https://github.com/coderplanets/coderplanets_web/issues/268"
-                />
+                <DiscussLinker title="打赏设置" addr={`${ISSUE_ADDR}/268`} />
               }
             >
               <OptionsWrapper>
@@ -166,10 +162,7 @@ class UserSettingsContainer extends React.Component {
               placement="bottom"
               trigger="hover"
               content={
-                <DiscussLinker
-                  title="邮件订阅"
-                  addr="https://github.com/coderplanets/coderplanets_web/issues/267"
-                />
+                <DiscussLinker title="邮件订阅" addr={`${ISSUE_ADDR}/267`} />
               }
             >
               <OptionsWrapper>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
+import { ISSUE_ADDR } from '../../config'
 import Popover from '../Popover'
 import DiscussLinker from '../DiscussLinker'
 
@@ -20,12 +21,7 @@ const MainEntries = () => (
     <Popover
       placement="bottom"
       trigger="hover"
-      content={
-        <DiscussLinker
-          title="专栏"
-          addr="https://github.com/coderplanets/coderplanets_web/issues/265"
-        />
-      }
+      content={<DiscussLinker title="专栏" addr={`${ISSUE_ADDR}/265`} />}
     >
       <SiteLink>专栏</SiteLink>
     </Popover>
@@ -33,12 +29,7 @@ const MainEntries = () => (
     <Popover
       placement="bottom"
       trigger="hover"
-      content={
-        <DiscussLinker
-          title="团队"
-          addr="https://github.com/coderplanets/coderplanets_web/issues/264"
-        />
-      }
+      content={<DiscussLinker title="团队" addr={`${ISSUE_ADDR}/264`} />}
     >
       <SiteLink>团队</SiteLink>
     </Popover>

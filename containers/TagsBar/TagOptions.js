@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
 import { Popover, DiscussLinker } from '../../components'
 
@@ -18,12 +18,7 @@ const TagOptions = ({ onInclude }) => (
     <Popover
       placement="bottom"
       trigger="click"
-      content={
-        <DiscussLinker
-          title="不看"
-          addr="https://github.com/coderplanets/coderplanets_web/issues/322"
-        />
-      }
+      content={<DiscussLinker title="不看" addr={`${ISSUE_ADDR}/322`} />}
     >
       <ExcludeOption>不看</ExcludeOption>
     </Popover>

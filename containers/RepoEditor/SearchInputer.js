@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { GITHUB_WEB_ADDR } from '../../config'
 import { FormItem, Button } from '../../components'
 // import { Wrapper } from './styles'
 
@@ -14,7 +15,7 @@ const SearchInputer = ({ value, searching }) => (
         value={value}
         size="large"
         onChange={searchOnChange}
-        placeholder="Github 仓库地址，如: https://github.com/coderplanets/coderplanets_web"
+        placeholder={`Github 仓库地址，如: ${GITHUB_WEB_ADDR}`}
         disabled={Boolean(searching)}
       />
     </InputWrapper>

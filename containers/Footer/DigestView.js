@@ -1,6 +1,13 @@
 import React from 'react'
 
-import { ICON_CMD, EMAIL_BUSINESS } from '../../config'
+import {
+  ICON_CMD,
+  EMAIL_BUSINESS,
+  GITHUB_WEB_ADDR,
+  GITHUB_SERVER_ADDR,
+  API_SERVER_ADDR,
+  ISSUE_ADDR,
+} from '../../config'
 
 import {
   Wrapper,
@@ -57,7 +64,7 @@ const DigestView = () => (
         <Body>
           <Item>关于CPS</Item>
           <Item
-            href="https://github.com/coderplanets/coderplanets_web/issues"
+            href={`${ISSUE_ADDR}`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -88,21 +95,21 @@ const DigestView = () => (
         <Body>
           <Item>开发文档</Item>
           <Item
-            href="http://api.coderplanets.com/graphiql"
+            href={`${API_SERVER_ADDR}`}
             rel="noopener noreferrer"
             target="_blank"
           >
             Developer API
           </Item>
           <Item
-            href="https://github.com/coderplanets/coderplanets_web"
+            href={`${GITHUB_WEB_ADDR}`}
             rel="noopener noreferrer"
             target="_blank"
           >
             Source Code(F)
           </Item>
           <Item
-            href="https://github.com/coderplanets/coderplanets_server"
+            href={`${GITHUB_SERVER_ADDR}`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -122,14 +129,14 @@ const DigestView = () => (
         <Title>客户端</Title>
         <Body>
           <Item
-            href="https://github.com/coderplanets/coderplanets_web/issues/269"
+            href={`${ISSUE_ADDR}/269`}
             rel="noopener noreferrer"
             target="_blank"
           >
             APP
           </Item>
           <Item
-            href="https://github.com/coderplanets/coderplanets_web/issues/270"
+            href={`${ISSUE_ADDR}/270`}
             rel="noopener noreferrer"
             target="_blank"
           >

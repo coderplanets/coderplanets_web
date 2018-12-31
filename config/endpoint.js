@@ -26,6 +26,9 @@ export const GITHUB_WEB_ADDR =
   'https://github.com/coderplanets/coderplanets_web'
 export const GITHUB_SERVER_ADDR =
   'https://github.com/coderplanets/coderplanets_server'
+
+export const API_SERVER_ADDR = 'http://api.coderplanets.com/graphiql'
+
 export const GITHUB_ME = 'https://github.com/mydearxym'
 export const GITHUB_CPS_TEAM = 'https://github.com/orgs/coderplanets/people'
 export const ISSUE_ADDR = `${GITHUB_WEB_ADDR}/issues`

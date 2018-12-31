@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-// import { ICON_CMD } from '../../config'
+import { ISSUE_ADDR } from '../../config'
 import { HintTitle, IssueLink } from './styles'
 
 const NotFoundMessage = ({ page, target }) => {
@@ -33,7 +33,7 @@ const NotFoundMessage = ({ page, target }) => {
           {!R.isEmpty(target) ? <span>: {target}</span> : null},
           如果你觉得该社区很重要，欢迎
           <IssueLink
-            href="https://github.com/coderplanets/coderplanets_web/issues/280"
+            href={`${ISSUE_ADDR}/280`}
             rel="noopener noreferrer"
             target="_blank"
           >
