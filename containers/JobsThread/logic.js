@@ -70,15 +70,23 @@ export function onTitleSelect(data) {
     thread: THREAD.JOB,
     data,
   })
+
+  store.markRoute({
+    preview: THREAD.JOB,
+    id: data.id,
+    ...store.tagQuery,
+    ...store.filtersData,
+  })
 }
 
 export function createContent() {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
-export function onTagSelect(obj) {
-  store.selectTag(obj)
+export function onTagSelect(tag) {
+  store.selectTag(tag)
   loadJobs()
+  store.markRoute({ tag: tag.title })
 }
 
 export const onFilterSelect = option => store.selectFilter(option)

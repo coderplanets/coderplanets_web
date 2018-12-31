@@ -23,7 +23,6 @@ const JobsThreadStore = t
   .model('JobsThreadStore', {
     pagedJobs: t.optional(PagedJobs, emptyPagiData),
     filters: t.optional(ContentFilter, {}),
-    tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
@@ -51,21 +50,25 @@ const JobsThreadStore = t
     get pagedJobsData() {
       return stripMobx(self.pagedJobs)
     },
-    get tagsData() {
-      return stripMobx(self.tags)
-    },
     get accountInfo() {
       return self.root.account.accountInfo
     },
     get isLogin() {
       return self.root.account.isLogin
     },
+
     get filtersData() {
-      return stripMobx(self.filters)
+      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || {}
     },
+    get tagQuery() {
+      const curTag = stripMobx(self.activeTag)
+      if (R.isEmpty(curTag)) return {}
+      return { tag: curTag.title }
+    },
+
     get activeJob() {
       return stripMobx(self.root.viewing.job)
     },
