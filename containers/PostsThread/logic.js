@@ -96,14 +96,12 @@ export function onTitleSelect(data) {
     data,
   })
 
-  store.markRoute({ preview: THREAD.POST, id: data.id })
-  /*
-  GA.event({
-    action: data.title,
-    category: '浏览',
-    label: '社区',
+  store.markRoute({
+    preview: THREAD.POST,
+    id: data.id,
+    ...store.tagQuery,
+    ...store.filtersData,
   })
-  */
 }
 
 export const createContent = () => {
@@ -166,7 +164,7 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       store.setViewing({ post: {} })
-      store.markRoute({})
+      store.markRoute({ ...store.filtersData, ...store.tagQuery })
     },
   },
 ]

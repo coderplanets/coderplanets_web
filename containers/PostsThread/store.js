@@ -60,7 +60,12 @@ const PostsThreadStore = t
       return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || {}
+    },
+    get tagQuery() {
+      const curTag = stripMobx(self.activeTag)
+      if (R.isEmpty(curTag)) return {}
+      return { tag: curTag.title }
     },
     get activePost() {
       return stripMobx(self.root.viewing.post)
