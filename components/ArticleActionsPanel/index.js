@@ -26,6 +26,7 @@ const ArticleActionsPanel = ({
   onPin,
   onEdit,
   onInform,
+  onDelete,
 }) => (
   <Wrapper>
     {entry.pin ? (
@@ -44,18 +45,18 @@ const ArticleActionsPanel = ({
       <ItemTitle>编辑</ItemTitle>
     </Item>
     {/*
-      <Item>
-      <ItemIcon src={`${ICON_CMD}/diamond.svg`} />
-      <ItemTitle>置为精华</ItemTitle>
-      </Item>
-    */}
+        <Item>
+        <ItemIcon src={`${ICON_CMD}/diamond.svg`} />
+        <ItemTitle>置为精华</ItemTitle>
+        </Item>
+      */}
     <Informer>
       <Item onClick={onInform}>
         <ItemIcon src={`${ICON_CMD}/flag.svg`} />
         <ItemTitle>举报该内容</ItemTitle>
       </Item>
     </Informer>
-    <Item red>
+    <Item red onClick={onDelete}>
       <ItemIcon src={`${ICON_CMD}/delete.svg`} red />
       <ItemTitle>删除该内容</ItemTitle>
     </Item>
@@ -69,6 +70,7 @@ ArticleActionsPanel.propTypes = {
   }).isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
   onInform: PropTypes.func,
+  onDelete: PropTypes.func,
   onEdit: PropTypes.func,
   onPin: PropTypes.func,
   onUndoPin: PropTypes.func,
@@ -77,6 +79,7 @@ ArticleActionsPanel.propTypes = {
 ArticleActionsPanel.defaultProps = {
   thread: THREAD.POST,
   onInform: debug,
+  onDelete: debug,
   onEdit: debug,
   onPin: debug,
   onUndoPin: debug,

@@ -31,7 +31,8 @@ const BodyHeader = ({ data, thread }) => {
               onEdit={logic.onEdit}
               onPin={logic.onPin}
               onUndoPin={logic.onUndoPin}
-              onInform={logic.callInformer}
+              onInform={logic.onInform}
+              onDelete={logic.onDelete}
             />
           }
           placement="bottomLeft"

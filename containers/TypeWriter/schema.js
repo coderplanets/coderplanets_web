@@ -33,6 +33,29 @@ const createPost = gql`
   }
 `
 
+const updatePost = gql`
+  mutation(
+    $id: ID!
+    $title: String
+    $body: String
+    $copyRight: String
+    $linkAddr: String
+  ) {
+    updatePost(
+      id: $id
+      title: $title
+      body: $body
+      copyRight: $copyRight
+      linkAddr: $linkAddr
+    ) {
+      id
+      title
+      body
+      copyRight
+    }
+  }
+`
+
 const createJob = gql`
   mutation(
     $title: String!
@@ -98,6 +121,7 @@ const searchUsers = gql`
 
 const schema = {
   createPost,
+  updatePost,
   createJob,
   searchUsers,
 }

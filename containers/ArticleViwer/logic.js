@@ -129,7 +129,15 @@ export function onEdit(thread) {
   }
 }
 
-export const callInformer = () => store.callInformer()
+export const onInform = () => store.callInformer()
+export const onDelete = () => {
+  const { id } = store.viewingData
+  debug('onDelete', id)
+
+  if (store.activeThread === THREAD.POST) {
+    return sr71$.mutate(S.deletePost, { id })
+  }
+}
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
@@ -163,7 +171,6 @@ const openAttachment = att => {
   const { type } = att
 
   if (type === TYPE.PREVIEW_POST_VIEW) {
-    debug('================= load post =====================')
     loadPost(att)
 
     store.markState({ type })
@@ -215,6 +222,13 @@ const DataSolver = [
   },
   {
     match: asyncRes('undoPinPost'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('deletePost'),
     action: () => {
       dispatchEvent(EVENT.REFRESH_POSTS)
       closePreviewer()

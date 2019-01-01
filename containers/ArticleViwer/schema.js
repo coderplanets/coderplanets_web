@@ -153,11 +153,18 @@ const undoPinJob = gql`
     }
   }
 `
-
+const deletePost = gql`
+  mutation($id: ID!) {
+    deletePost(id: $id) {
+      id
+    }
+  }
+`
 const schema = {
   post,
   postComment,
   postReactionRes,
+  deletePost,
   job,
   jobReactionRes,
   // viewerReactions,
