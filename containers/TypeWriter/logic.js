@@ -9,6 +9,7 @@ import {
   THREAD,
   EVENT,
   ERR,
+  TYPE,
   meteorState,
   countWords,
   extractAttachments,
@@ -31,9 +32,7 @@ const debug = makeDebugger('L:TypeWriter')
 let store = null
 let sub$ = null
 
-export function changeView(curView) {
-  store.markState({ curView })
-}
+export const changeView = curView => store.markState({ curView })
 
 const getDigest = body => {
   /* eslint-disable no-undef */
@@ -81,8 +80,6 @@ function publishPost() {
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
 
-  console.log('create post --> ', variables)
-
   if (isEdit) {
     return sr71$.mutate(S.updatePost, variables)
   }
@@ -98,6 +95,8 @@ function publishJob() {
     return false
   }
 
+  const { isEdit } = store
+
   const { body } = store.editData
   publishing()
 
@@ -112,6 +111,10 @@ function publishJob() {
     communityId: store.viewing.community.id,
   }
 
+  if (isEdit) {
+    return console.log('do fucking job update')
+  }
+
   sr71$.mutate(S.createJob, variables)
 }
 
@@ -120,8 +123,6 @@ export const canclePublish = () => {
   // store.reset()
   closePreviewer()
 }
-
-const publishing = (maybe = true) => store.markState({ publishing: maybe })
 
 export const onUploadImageDone = url =>
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
@@ -147,10 +148,17 @@ export const onMentionSearch = value => {
 
 export const onMention = user => store.addReferUser(user)
 
+const loadJob = id => sr71$.query(S.job, { id })
+
 const openAttachment = att => {
   if (!att) return false
   // const { id, title, body, digest } = att
-  debug('openAttachment: ', att)
+  const { type } = att
+  debug('openAttachment-->: ', att)
+  if (type === TYPE.PREVIEW_JOB_EDIT) {
+    debug('laod the fucking job: ', att)
+    loadJob(att.id)
+  }
 
   store.updateEditing(att)
   store.markState({ isEdit: true })
@@ -170,6 +178,9 @@ export const bodyInputOnChange = content => {
   // extractMentions: extractMentions(content)
   updateEditing(store, 'body', content)
 }
+
+const publishing = (maybe = true) => store.markState({ publishing: maybe })
+const cancleLoading = () => store.markState({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -216,6 +227,13 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('job'),
+    action: ({ job }) => {
+      debug('job load done -->: ', job)
+      store.updateEditing(job)
+    },
+  },
+  {
     match: asyncRes('searchUsers'),
     action: ({ searchUsers: { entries } }) => {
       debug('searchUsers done--: ', entries)
@@ -223,8 +241,6 @@ const DataSolver = [
     },
   },
 ]
-
-const cancleLoading = () => store.markState({ publishing: false })
 
 const ErrSolver = [
   {

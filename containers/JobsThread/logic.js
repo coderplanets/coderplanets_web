@@ -125,7 +125,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.setViewing({ job: {} }),
+    action: () => {
+      store.setViewing({ job: {} })
+      store.markRoute({ ...store.filtersData, ...store.tagQuery })
+    },
   },
 ]
 

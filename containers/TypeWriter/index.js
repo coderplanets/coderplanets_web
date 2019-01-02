@@ -49,6 +49,7 @@ const View = ({ curView, thread, editData, mentionList }) => {
 
 // TODO: use input in old IE
 class TypeWriterContainer extends React.Component {
+  // must use constructor, Draft thing
   constructor(props) {
     super(props)
     const { typeWriter, attachment } = props

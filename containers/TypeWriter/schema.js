@@ -109,9 +109,25 @@ const createJob = gql`
     }
   }
 `
+
+const job = gql`
+  query($id: ID!) {
+    job(id: $id) {
+      ${F.job}
+      body
+      author {
+        ${F.author}
+      }
+      tags {
+        ${F.tag}
+      }
+    }
+  }
+`
+
 const searchUsers = gql`
-  query($name: String!) {
-    searchUsers(name: $name) {
+query($name: String!) {
+  searchUsers(name: $name) {
       entries {
         ${F.author}
       }
@@ -124,6 +140,7 @@ const schema = {
   updatePost,
   createJob,
   searchUsers,
+  job,
 }
 
 export default schema

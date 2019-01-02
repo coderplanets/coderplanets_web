@@ -19,6 +19,7 @@ export const job = `
   desc
   company
   companyLogo
+  companyLink
   views
   linkAddr
   copyRight
