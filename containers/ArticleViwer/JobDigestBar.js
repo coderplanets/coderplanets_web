@@ -1,4 +1,5 @@
 import React from 'react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
@@ -6,21 +7,21 @@ import Labeler from '../Labeler'
 
 import { Wrapper, Divider } from './styles/job_digest_bar'
 
-const JobDigestBar = () => (
+const JobDigestBar = ({ data }) => (
   <Wrapper>
-    <Labeler label="city" selected={['成都']} readonly />
+    <Labeler label="city" selected={R.pluck('title', data.tags)} readonly />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="salary" selected={['2k-5k']} readonly />
+    <Labeler label="salary" selected={[data.salary]} readonly />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="education" selected={['本科']} readonly />
+    <Labeler label="education" selected={[data.education]} readonly />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="finance" selected={['C轮']} readonly />
+    <Labeler label="finance" selected={[data.finance]} readonly />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="scale" selected={['50-100人']} readonly />
+    <Labeler label="scale" selected={[data.scale]} readonly />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="field" selected={['互联网']} readonly multi />
+    <Labeler label="field" selected={[data.field]} readonly multi />
     <Divider src={`${ICON_CMD}/more.svg`} />
-    <Labeler label="exp" selected={['1-3年']} readonly />
+    <Labeler label="exp" selected={[data.exp]} readonly />
   </Wrapper>
 )
 

@@ -39,7 +39,7 @@ const JobViewer = ({ data, loading }) => {
         <BodyHeader data={data} thread={THREAD.JOB} />
         <ArticleTitle>{data.title}</ArticleTitle>
         <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
-          <JobDigestBar />
+          <JobDigestBar data={data} />
           <ArticleBody>
             <MarkDownRender body={data.body} />
           </ArticleBody>
