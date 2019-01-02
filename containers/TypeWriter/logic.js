@@ -112,7 +112,8 @@ function publishJob() {
   }
 
   if (isEdit) {
-    return console.log('do fucking job update')
+    console.log('labelsData: ', variables)
+    return sr71$.mutate(S.updateJob, variables)
   }
 
   sr71$.mutate(S.createJob, variables)
@@ -227,6 +228,20 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('updateJob'),
+    action: () => {
+      store.toast('success', {
+        title: '更新成功',
+        msg: '.',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
+      dispatchEvent(EVENT.REFRESH_JOBS)
+    },
+  },
+
+  {
     match: asyncRes('job'),
     action: ({ job }) => {
       debug('job load done -->: ', job)
@@ -280,6 +295,7 @@ export function init(_store, attachment) {
 export function uninit() {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
+  store.markState({ editPost: {}, editJob: {} })
   sub$.unsubscribe()
   sub$ = null
   /*

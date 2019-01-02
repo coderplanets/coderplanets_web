@@ -110,6 +110,48 @@ const createJob = gql`
   }
 `
 
+const updateJob = gql`
+  mutation(
+    $id: ID!
+    $title: String
+    $body: String
+    $desc: String
+    $digest: String
+    $length: Int
+    $company: String
+    $companyLogo: String
+    $companyLink: String
+    $copyRight: String
+    $salary: String
+    $exp: String
+    $education: String
+    $finance: String
+    $scale: String
+    $field: String
+  ) {
+    updateJob(
+      id: $id
+      title: $title
+      body: $body
+      desc: $desc
+      digest: $digest
+      length: $length
+      company: $company
+      companyLogo: $companyLogo
+      companyLink: $companyLink
+      copyRight: $copyRight
+      salary: $salary
+      exp: $exp
+      education: $education
+      finance: $finance
+      scale: $scale
+      field: $field
+    ) {
+      id
+    }
+  }
+`
+
 const job = gql`
   query($id: ID!) {
     job(id: $id) {
@@ -126,8 +168,8 @@ const job = gql`
 `
 
 const searchUsers = gql`
-query($name: String!) {
-  searchUsers(name: $name) {
+  query($name: String!) {
+    searchUsers(name: $name) {
       entries {
         ${F.author}
       }
@@ -139,6 +181,7 @@ const schema = {
   createPost,
   updatePost,
   createJob,
+  updateJob,
   searchUsers,
   job,
 }
