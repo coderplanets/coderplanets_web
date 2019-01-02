@@ -36,17 +36,56 @@ const createVideo = gql`
     }
   }
 `
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
+const updateVideo = gql`
+  mutation(
+    $id: ID!
+    $title: String
+    $poster: String
+    $thumbnil: String
+    $desc: String
+    $duration: String
+    $durationSec: Int
+    $source: String
+    $link: String
+    $originalAuthor: String
+    $originalAuthorLink: String
+    $publishAt: String
+  ) {
+    updateVideo(
+      id: $id
+      title: $title
+      poster: $poster
+      thumbnil: $thumbnil
+      desc: $desc
+      duration: $duration
+      durationSec: $durationSec
+      source: $source
+      link: $link
+      originalAuthor: $originalAuthor
+      originalAuthorLink: $originalAuthorLink
+      publishAt: $publishAt
+    ) {
       id
+      title
     }
   }
 `
 
-const schema = {
-  createVideo,
-  simpleQuery,
-}
+export const updatableFields = [
+  'id',
+  'title',
+  'poster',
+  'thumbnil',
+  'desc',
+  'duration',
+  'durationSec',
+  'source',
+  'link',
+  'originalAuthor',
+  'originalAuthorLink',
+]
 
-export default schema
+export const S = {
+  createVideo,
+  updateVideo,
+}

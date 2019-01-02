@@ -21,7 +21,7 @@ const debug = makeDebugger('S:VideoEditor')
 const VideoEditor = t
   .model('VideoEditor', {
     editVideo: t.optional(Video, { source: 'youtube' }),
-    isEditMode: t.optional(t.boolean, false),
+    isEdit: t.optional(t.boolean, false),
     publishing: t.optional(t.boolean, false),
 
     /* for StatusBox */
@@ -56,6 +56,7 @@ const VideoEditor = t
       switch (type) {
         case 'publish': {
           const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
+
           const result = changeset(self.editVideoData)
             .exsit({ thumbnil: '缩略图' }, self.changesetErr)
             .exsit({ thumbnil: '视频封面' }, self.changesetErr)
@@ -75,8 +76,16 @@ const VideoEditor = t
             .min({ desc: '视频描述' }, 10, self.changesetErr, opt)
             .exsit({ duration: '时长' }, self.changesetErr, opt)
             .durationFmt({ duration: '时长' }, self.changesetErr)
-            .exsit({ publishAt: '发布日期' }, self.changesetErr, opt)
-            .dateFmt({ publishAt: '发布日期' }, self.changesetErr)
+            .exsit(
+              { publishAt: '发布日期' },
+              self.changesetErr,
+              R.merge(opt, { skip: self.isEdit })
+            )
+            .dateFmt(
+              { publishAt: '发布日期' },
+              self.changesetErr,
+              R.merge(opt, { skip: self.isEdit })
+            )
             .done()
 
           // const format1 = /^([01]?[0-9]|[0-5][0-9]):[0-5][0-9]$/
@@ -89,6 +98,11 @@ const VideoEditor = t
           return false
         }
       }
+    },
+    reset() {
+      self.isEdit = false
+      self.editVideo = { source: 'youtube' }
+      self.publishing = false
     },
     markState(sobj) {
       markStates(sobj, self)

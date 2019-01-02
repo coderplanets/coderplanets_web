@@ -49,7 +49,7 @@ const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
     <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
     <PosterWrapper>
-      <Poster src={entry.poster} alt="poster" />
+      <Poster src={entry.thumbnil} alt="poster" />
       <Duration>{entry.duration}</Duration>
     </PosterWrapper>
     <Main>

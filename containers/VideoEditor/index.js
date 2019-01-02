@@ -18,18 +18,20 @@ import SourceOptions from './SourceOptions'
 import { Wrapper, Title, FormWrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-import { init, inputOnChange } from './logic'
+import { init, uninit, inputOnChange } from './logic'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideoEditor')
 /* eslint-enable no-unused-vars */
 
 class VideoEditorContainer extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
+    const { videoEditor, attachment } = this.props
+    init(videoEditor, attachment)
+  }
 
-    const { videoEditor } = props
-    init(videoEditor)
+  componentWillUnmount() {
+    uninit()
   }
 
   render() {
@@ -43,11 +45,12 @@ class VideoEditorContainer extends React.Component {
       warn,
       statusMsg,
       ratKey,
+      isEdit,
     } = videoEditor
 
     return (
       <Wrapper>
-        <Title>发布视频链接</Title>
+        {!isEdit ? <Title>发布视频链接</Title> : <Title>更新视频链接</Title>}
         <AlertMessage />
         <CoverUploader
           thumbnil={editVideoData.thumbnil}
@@ -108,14 +111,16 @@ class VideoEditorContainer extends React.Component {
             onChange={inputOnChange.bind(this, 'duration')}
             placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
-          <FormItem
-            label="发布日期:"
-            raw="publishAt"
-            ratKey={ratKey}
-            value={editVideoData.publishAt}
-            onChange={inputOnChange.bind(this, 'publishAt')}
-            placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
-          />
+          {!isEdit ? (
+            <FormItem
+              label="发布日期:"
+              raw="publishAt"
+              ratKey={ratKey}
+              value={editVideoData.publishAt}
+              onChange={inputOnChange.bind(this, 'publishAt')}
+              placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
+            />
+          ) : null}
           <FormItem
             label="描述:"
             raw="desc"
@@ -135,7 +140,7 @@ class VideoEditorContainer extends React.Component {
         </FormWrapper>
 
         <Footer
-          isEdit={false}
+          isEdit={isEdit}
           publishing={publishing}
           success={success}
           error={error}

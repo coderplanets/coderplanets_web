@@ -45,6 +45,7 @@ const Attachment = t.model('Attachment', {
 
   // video spec
   poster: t.maybeNull(t.string),
+  thumbnil: t.maybeNull(t.string),
   desc: t.maybeNull(t.string),
   duration: t.maybeNull(t.string),
   publishAt: t.maybeNull(t.string),
@@ -93,7 +94,7 @@ const PreviewStore = t
       if (type === TYPE.PREVIEW_USER_VIEW) {
         self.attUser = R.merge(data, EmptyAchievement)
       } else if (data) {
-        self.attachment = R.merge({ type }, data)
+        self.attachment = R.merge(data, { type })
       }
       // if (data) self.attachment = R.merge({ type }, data)
 

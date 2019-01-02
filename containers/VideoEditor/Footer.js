@@ -33,7 +33,7 @@ const Footer = ({ isEdit, publishing, success, error, warn, statusMsg }) => (
             取消
           </Button>
           <Space right="15px" />
-          <Button size="default" type="primary" disabled>
+          <Button size="default" type="primary">
             <Icon type="loading" />
             正在
             <DoingText isEdit={isEdit} />

@@ -6,14 +6,17 @@ import {
   asyncRes,
   $solver,
   asyncErr,
+  cast,
+  TYPE,
   ERR,
   EVENT,
   updateEditing,
   closePreviewer,
 } from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
 
-import S from './schema'
+import { S, updatableFields } from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
@@ -24,9 +27,12 @@ const debug = makeDebugger('L:VideoEditor')
 
 let store = null
 
-export function onPublish() {
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
+
+export const onPublish = () => {
   if (!store.validator('publish')) return false
-  debug('onPublish editVideoData: ', store.editVideoData)
+
+  const { isEdit } = store
 
   const communityId = store.curCommunity.id
   const publishAt = new Date(store.editVideoData.publishAt).toISOString()
@@ -37,57 +43,90 @@ export function onPublish() {
     durationSec,
   })
 
-  debug('args: ', args)
+  store.markState({ publishing: true })
+  if (isEdit) {
+    const args = cast(updatableFields, store.editVideoData)
+    return sr71$.mutate(S.updateVideo, args)
+  }
   sr71$.mutate(S.createVideo, args)
 }
 
-export function canclePublish() {}
+export const canclePublish = () => {
+  store.markState({ publishing: false })
+  sr71$.stop()
+}
 
-export const inputOnChange = (part, e) => updateEditing(store, part, e)
+export const usePosterAsThumbnil = () =>
+  store.updateEditing({ poster: store.editVideoData.thumbnil })
 
 // ###############################
 // Data & Error handlers
 // ###############################
-
 const DataSolver = [
   {
     match: asyncRes('createVideo'),
     action: () => {
-      // cancelLoading()
-      /* store.markState({ createVideo }) */
-      debug('createVideo done')
-      // store.reset()
       closePreviewer()
       dispatchEvent(EVENT.REFRESH_VIDEOS)
+      store.reset()
+    },
+  },
+  {
+    match: asyncRes('updateVideo'),
+    action: () => {
+      closePreviewer()
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      store.reset()
     },
   },
 ]
+
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      store.markState({ publishing: false })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      store.markState({ publishing: false })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      store.markState({ publishing: false })
     },
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+const openAttachment = att => {
+  if (!att) return false
+  const { type } = att
+  if (type === TYPE.PREVIEW_VIDEO_EDIT) {
+    debug('edit the fuck', att)
+    store.markState({ editVideo: att, isEdit: true })
+    /* loadVideo(att) */
+    /* store.setViewing({ video: att }) */
+  }
+}
+
+export function init(_store, attachment) {
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  openAttachment(attachment)
+}
+
+export function uninit() {
+  if (store.publishing || !sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
 }
