@@ -56,7 +56,6 @@ const VideoEditor = t
       switch (type) {
         case 'publish': {
           const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
-          console.log('self.editVideoData', self.editVideoData)
 
           const result = changeset(self.editVideoData)
             .exsit({ thumbnil: '缩略图' }, self.changesetErr)

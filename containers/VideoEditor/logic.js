@@ -56,6 +56,9 @@ export const canclePublish = () => {
   sr71$.stop()
 }
 
+export const usePosterAsThumbnil = () =>
+  store.updateEditing({ poster: store.editVideoData.thumbnil })
+
 // ###############################
 // Data & Error handlers
 // ###############################

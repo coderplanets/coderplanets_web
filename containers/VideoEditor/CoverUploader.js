@@ -19,7 +19,7 @@ import {
 
 import { nilOrEmpty } from '../../utils'
 
-import { inputOnChange } from './logic'
+import { inputOnChange, usePosterAsThumbnil } from './logic'
 
 const CoverUploader = ({ thumbnil, poster }) => (
   <Wrapper>
@@ -57,7 +57,7 @@ const CoverUploader = ({ thumbnil, poster }) => (
         <Maybe test={!nilOrEmpty(thumbnil)}>
           <UploaderLabel>
             <UploaderIcon src={`${ICON_CMD}/copy.svg`} />
-            <UploaderText onClick={inputOnChange.bind(this, 'thumbnil')}>
+            <UploaderText onClick={usePosterAsThumbnil}>
               使用缩略图
             </UploaderText>
           </UploaderLabel>
