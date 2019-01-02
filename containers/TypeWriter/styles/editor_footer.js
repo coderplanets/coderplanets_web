@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   ${cs.flex('align-both')};
   flex-wrap: wrap;
 `
-
 export const Item = styled.div`
   ${cs.flex()};
   color: ${theme('editor.footer')};

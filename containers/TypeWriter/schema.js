@@ -68,6 +68,7 @@ const createJob = gql`
     $companyLogo: String!
     $companyLink: String
     $copyRight: String
+    $linkAddr: String
     $salary: String!
     $exp: String!
     $education: String!
@@ -87,6 +88,7 @@ const createJob = gql`
       companyLogo: $companyLogo
       companyLink: $companyLink
       copyRight: $copyRight
+      linkAddr: $linkAddr
       salary: $salary
       exp: $exp
       education: $education
@@ -109,6 +111,64 @@ const createJob = gql`
     }
   }
 `
+
+const updateJob = gql`
+  mutation(
+    $id: ID!
+    $title: String
+    $body: String
+    $desc: String
+    $digest: String
+    $length: Int
+    $company: String
+    $companyLogo: String
+    $companyLink: String
+    $copyRight: String
+    $salary: String
+    $exp: String
+    $education: String
+    $finance: String
+    $scale: String
+    $field: String
+  ) {
+    updateJob(
+      id: $id
+      title: $title
+      body: $body
+      desc: $desc
+      digest: $digest
+      length: $length
+      company: $company
+      companyLogo: $companyLogo
+      companyLink: $companyLink
+      copyRight: $copyRight
+      salary: $salary
+      exp: $exp
+      education: $education
+      finance: $finance
+      scale: $scale
+      field: $field
+    ) {
+      id
+    }
+  }
+`
+
+const job = gql`
+  query($id: ID!) {
+    job(id: $id) {
+      ${F.job}
+      body
+      author {
+        ${F.author}
+      }
+      tags {
+        ${F.tag}
+      }
+    }
+  }
+`
+
 const searchUsers = gql`
   query($name: String!) {
     searchUsers(name: $name) {
@@ -119,11 +179,42 @@ const searchUsers = gql`
   }
 `
 
-const schema = {
+export const updatablePostFields = [
+  'id',
+  'title',
+  'body',
+  'copyRight',
+  'linkAddr',
+  // TODO: 'mentionUsers',
+]
+
+export const updatableJobFields = [
+  'id',
+  'title',
+  'body',
+  'desc',
+  'digest',
+  'length',
+  'company',
+  'companyLogo',
+  'companyLink',
+  'copyRight',
+  'linkAddr',
+  'salary',
+  'exp',
+  'education',
+  'finance',
+  'scale',
+  'field',
+  // TODO: 'mentionUsers',
+  // TODO: 'tags',
+]
+
+export const S = {
   createPost,
   updatePost,
   createJob,
+  updateJob,
   searchUsers,
+  job,
 }
-
-export default schema

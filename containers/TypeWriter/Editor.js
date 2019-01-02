@@ -10,6 +10,7 @@ import BodyEditor from './BodyEditor'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
+
 import {
   inputOnChange,
   bodyInputOnChange,

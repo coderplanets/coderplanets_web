@@ -14,9 +14,7 @@ import {
   updateEditing,
 } from '../../utils'
 
-import { updateFields } from './metrics'
-
-import S from './schema'
+import { S, updateFields } from './schema'
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71()
@@ -67,8 +65,7 @@ export function sexChange(sex) {
 export const updateConfirm = () => {
   if (!store.statusClean) return false
   let profile = cast(updateFields, store.editUserData)
-  // const origin = cast(updateFields, store.accountOrigin)
-  // if (R.equals(editing, origin)) return meteorState(store, 'warn', 3)
+
   const educationBackgrounds = R.clone(profile.educationBackgrounds)
   const workBackgrounds = R.clone(profile.workBackgrounds)
 
