@@ -33,7 +33,7 @@ export const EduBackground = t.model('EduBackground', {
 
 export const WorkBackground = t.model('WorkBackground', {
   company: t.optional(t.string, ''),
-  title: t.optional(t.string, ''),
+  title: t.maybeNull(t.string),
 })
 
 const SourceContribute = t.model('SourceContribute', {

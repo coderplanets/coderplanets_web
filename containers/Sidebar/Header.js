@@ -20,7 +20,7 @@ const Header = ({ pin }) => (
   <Wrapper pin={pin}>
     <HeaderFuncs>
       <SiteLogoWrapper pin={pin}>
-        <SiteLogo src={`${ICON_BASE}/sidebar/everyday.png`} />
+        <SiteLogo src={`${ICON_BASE}/sidebar/everyday.svg`} />
       </SiteLogoWrapper>
       <ExploreWrapper pin={pin}>
         <a href="/communities">

@@ -8,7 +8,7 @@ import React from 'react'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
 import {
   Container,
@@ -50,7 +50,7 @@ const OauthHinter = () => {
       <FooterWrapper>
         please{' '}
         <IssueLink
-          href="https://github.com/coderplanets/coderplanets_server/issues/new"
+          href={`${ISSUE_ADDR}/new`}
           rel="noopener noreferrer"
           target="_blank"
         >

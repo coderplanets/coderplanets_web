@@ -1,6 +1,3 @@
-import React from 'react'
-import { ReadedLabel } from './styles'
-
 export const getOpacity = (entry, active, accountInfo) => {
   const {
     isLogin,
@@ -18,17 +15,4 @@ export const getOpacity = (entry, active, accountInfo) => {
   return 1
 }
 
-export const renderReadMark = (entry, accountInfo) => {
-  const { viewerHasViewed } = entry
-  const {
-    isLogin,
-    customization: { markViewed },
-  } = accountInfo
-
-  if (!isLogin) return null
-  if (markViewed && viewerHasViewed) {
-    return <ReadedLabel>阅</ReadedLabel>
-  }
-
-  return null
-}
+export const holder = 1

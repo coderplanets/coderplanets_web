@@ -6,6 +6,7 @@ import { theme, cs } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   flex-grow: 1;
+  width: 30%;
 `
 export const TopHalf = styled.div`
   ${cs.flex()};

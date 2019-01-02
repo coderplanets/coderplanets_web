@@ -22,11 +22,5 @@ export const Wrapper = styled.article`
     background: ${theme('thread.articleHover')};
   }
 `
-export const ReadedLabel = styled.div`
-  position: absolute;
-  top: 10px;
-  left: -20px;
-  font-size: 0.8rem;
-  color: ${theme('thread.articleDigest')};
-  opacity: 0.8;
-`
+
+export const holder = 1

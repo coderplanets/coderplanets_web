@@ -1,49 +1,29 @@
-// import R from 'ramda'
-
-import {
-  makeDebugger,
-  getMainPath,
-  getSubPath,
-  onClient,
-  Global,
-  // queryStringToJSON /*  isEmptyNil, getParameterByName */,
-} from '../../utils'
+import { makeDebugger, getMainPath, getSubPath, Global } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:Route')
 /* eslint-enable no-unused-vars */
 let store = null
 
-export function routeChange() {
-  if (onClient) {
-    const browserMainPath = getMainPath({ asPath: Global.location.pathname })
-    const browserSubPath = getSubPath({ asPath: Global.location.pathname })
-
-    /*
-       debug('browserMainPath -> ', browserMainPath)
-       debug('browserSubPath -> ', browserSubPath)
-
-       debug('store.mainPath: ', store.mainPath)
-       debug('store.subPath: ', store.subPath)
-     */
-
-    const pathChange =
-      store.mainPath !== browserMainPath || store.subPath !== browserSubPath
-
-    if (pathChange) {
-      store.markState({ mainPath: browserMainPath, subPath: browserSubPath })
-    }
-  }
+// function will fire only when browser history btn clicked
+// see https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onpopstate
+const browserHistoryBtnClicked = popstate => {
+  Global.location = popstate.state.as
 }
 
 export function init(_store, routeObj) {
   if (store) return false
-  store = _store
 
+  store = _store
   // sync init router info
   const mainPath = getMainPath(routeObj)
   const subPath = getSubPath(routeObj)
   const { query } = routeObj
 
   store.markState({ mainPath, subPath, query })
+
+  debug('>>>>> init')
+  Global.onpopstate = browserHistoryBtnClicked
 }
+
+export function uninit() {}

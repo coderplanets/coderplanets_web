@@ -34,8 +34,6 @@ class CommunitiesBannerContainer extends React.Component {
     logic.init(communitiesBanner)
   }
 
-  // https://github.com/coderplanets/coderplanets_web/issues/265
-
   render() {
     const { communitiesBanner } = this.props
     const {

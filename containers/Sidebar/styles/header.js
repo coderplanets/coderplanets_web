@@ -31,10 +31,12 @@ export const SiteLogoWrapper = styled.div`
   }
 `
 export const SiteLogo = styled(Img)`
+  fill: ${theme('banner.title')};
   width: 25px;
   height: 25px;
-  opacity: 0.7;
+  opacity: 0.6;
   display: block;
+  margin-top: -2px;
 `
 export const PinIcon = styled(Img)`
   fill: ${({ pin }) => (pin ? theme('sidebar.pinActive') : 'grey')};

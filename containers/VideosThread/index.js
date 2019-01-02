@@ -50,7 +50,6 @@ class VideosThreadContainer extends React.Component {
     const {
       pagedVideosData,
       filtersData,
-      tagsData,
       curRoute,
       curView,
       activeVideo,
@@ -97,7 +96,6 @@ class VideosThreadContainer extends React.Component {
             <Affix offsetTop={50}>
               <TagsBar
                 thread={THREAD.VIDEO}
-                tags={tagsData}
                 active={activeTagData}
                 onSelect={logic.onTagSelect}
               />

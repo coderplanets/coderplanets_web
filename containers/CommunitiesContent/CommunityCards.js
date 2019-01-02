@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-// import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles'
+import { ISSUE_ADDR } from '../../config'
+/* import { Wrapper } from './styles' */
 import { TrendLine, CommunityHolder } from '../../components'
 import SubscribeBtn from './SubscribeBtn'
 
@@ -65,7 +65,7 @@ const CommnityCards = ({ entries, restProps }) => {
           <EmptyDesc>
             若没有你感兴趣的社区, 你可以
             <IssueLink
-              href="https://github.com/coderplanets/coderplanets_web/issues/280"
+              href={`${ISSUE_ADDR}/280`}
               rel="noopener noreferrer"
               target="_blank"
             >

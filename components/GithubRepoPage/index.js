@@ -24,6 +24,7 @@ import {
   SearchButton,
   SyncButton,
   PublishButton,
+  ReadonlyHolder,
 } from './styles'
 
 import { makeDebugger, THREAD } from '../../utils'
@@ -41,19 +42,25 @@ const GithubRepoPage = ({
   showPublishBtn,
   showSearchBtn,
   showSyncBtn,
+  actionsPanel,
+  readOnly,
 }) => (
   <Wrapper>
-    <ArticleHeader
-      data={repo}
-      author={repo.author}
-      thread={THREAD.REPO}
-      showStar={false}
-      showLastSync
-      onReaction={onReaction}
-      onListReactionUsers={onListReactionUsers}
-    />
+    {!readOnly ? (
+      <ArticleHeader
+        data={repo}
+        author={repo.author}
+        thread={THREAD.REPO}
+        showStar={false}
+        showLastSync
+        onReaction={onReaction}
+        onListReactionUsers={onListReactionUsers}
+      />
+    ) : (
+      <ReadonlyHolder />
+    )}
     <BodyWrapper>
-      <BodyHeader />
+      {!readOnly ? <BodyHeader actionsPanel={actionsPanel} /> : null}
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}
@@ -96,6 +103,9 @@ GithubRepoPage.propTypes = {
   showPublishBtn: PropTypes.bool,
   showSearchBtn: PropTypes.bool,
   showSyncBtn: PropTypes.bool,
+
+  actionsPanel: PropTypes.node,
+  readOnly: PropTypes.bool,
 }
 
 GithubRepoPage.defaultProps = {
@@ -109,6 +119,9 @@ GithubRepoPage.defaultProps = {
   showPublishBtn: false,
   showSearchBtn: false,
   showSyncBtn: false,
+  actionsPanel: <div>loading</div>,
+
+  readOnly: false,
 }
 
 export default GithubRepoPage

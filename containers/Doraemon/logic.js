@@ -1,6 +1,7 @@
 import R from 'ramda'
 import Router from 'next/router'
 
+import { ISSUE_ADDR } from '../../config'
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
@@ -144,8 +145,7 @@ const initSpecCmdResolver = () => {
           case 'twitter':
           case 'google':
           case 'weixin': {
-            const url =
-              'https://github.com/coderplanets/coderplanets_web/issues/251'
+            const url = `${ISSUE_ADDR}/251`
             const win = window.open(url, '_blank')
 
             // see https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window-using-javascript

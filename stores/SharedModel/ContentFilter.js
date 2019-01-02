@@ -27,7 +27,7 @@ export const ContentFilter = t.model('ContentFilter', {
     ]),
     ''
   ),
-  wordLength: t.optional(
+  length: t.optional(
     t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     ''
   ),
@@ -40,10 +40,7 @@ export const ContentFilter = t.model('ContentFilter', {
   jobScale: t.optional(t.string, ''),
   // video
   videoSource: t.optional(t.string, ''),
-  readState: t.optional(
-    t.enumeration('readState', ['', FILTER.READED, FILTER.UNREAD]),
-    ''
-  ),
+  read: t.optional(t.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })
 
 export const holder = 1

@@ -14,7 +14,6 @@ import TagsBar from '../TagsBar'
 import {
   Affix,
   ContentFilter,
-  Maybe,
   PublishLabel,
   PagedContents,
 } from '../../components'
@@ -51,7 +50,6 @@ class ReposThreadContainer extends React.Component {
 
     const {
       pagedReposData,
-      tagsData,
       curView,
       filtersData,
       activeTagData,
@@ -68,18 +66,16 @@ class ReposThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={totalCount !== 0}>
-            <FilterWrapper>
-              <ContentFilter
-                thread={THREAD.REPO}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-                accountInfo={accountInfo}
-                totalCount={totalCount}
-                onCustomChange={logic.onCustomChange}
-              />
-            </FilterWrapper>
-          </Maybe>
+          <FilterWrapper>
+            <ContentFilter
+              thread={THREAD.REPO}
+              onSelect={logic.onFilterSelect}
+              activeFilter={filtersData}
+              accountInfo={accountInfo}
+              totalCount={totalCount}
+              onCustomChange={logic.onCustomChange}
+            />
+          </FilterWrapper>
 
           <PagedContents
             data={pagedReposData}
@@ -101,7 +97,6 @@ class ReposThreadContainer extends React.Component {
           <Affix offsetTop={50}>
             <TagsBar
               thread={THREAD.REPO}
-              tags={tagsData}
               active={activeTagData}
               onSelect={logic.onTagSelect}
             />

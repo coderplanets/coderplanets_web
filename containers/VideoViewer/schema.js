@@ -42,12 +42,28 @@ const undoReaction = gql`
     }
   }
 `
+const pinVideo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    pinVideo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+const undoPinVideo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    undoPinVideo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
 
 const schema = {
   video,
   reaction,
   undoReaction,
   videoReactionRes,
+  pinVideo,
+  undoPinVideo,
 }
 
 export default schema

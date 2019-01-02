@@ -11,7 +11,7 @@ const ErrorDesc = ({ errorCode }) => {
         <HintDesc>
           如果你觉得是站点的问题, 可以在
           <IssueLink
-            href={`${ISSUE_ADDR}`}
+            href={`${ISSUE_ADDR}/new`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -26,7 +26,7 @@ const ErrorDesc = ({ errorCode }) => {
           <HintDesc>
             抱歉带给您糟糕的体验, 恳请您
             <IssueLink
-              href={`${ISSUE_ADDR}`}
+              href={`${ISSUE_ADDR}/new`}
               rel="noopener noreferrer"
               target="_blank"
             >

@@ -71,8 +71,20 @@ async function fetchData(props, opt) {
     topic
   )
 
-  filter = R.pick(['page', 'size', 'community', 'topic', 'tag'], filter)
-  // console.log('the page community filter ->: ', filter)
+  filter = R.pick(
+    [
+      'page',
+      'size',
+      'community',
+      'topic',
+      'tag',
+      'length',
+      'sort',
+      'when',
+      'read',
+    ],
+    filter
+  )
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -116,9 +128,16 @@ export default class PageCommunity extends React.Component {
       }
     }
 
-    const { sessionState, partialTags, community, subscribedCommunities } = resp
-    const contentsThread = ssrContentsThread(resp, thread)
+    const {
+      filter,
+      sessionState,
+      partialTags,
+      community,
+      subscribedCommunities,
+    } = resp
+    const contentsThread = ssrContentsThread(resp, thread, filter)
 
+    console.log('the filter: ', filter)
     // init state on server side
     return R.merge(
       {

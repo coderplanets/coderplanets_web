@@ -21,6 +21,7 @@ export const Dot = styled.div`
   ${cs.circle('10px')};
   margin-right: 4px;
   background-color: ${({ color }) => color};
+  margin-top: -1px;
 
   opacity: ${theme('tags.dotOpacity')};
 `

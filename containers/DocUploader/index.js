@@ -39,6 +39,7 @@ class DocUploaderContainer extends React.Component {
     ossClient: null,
     // use unique id to init the file input, otherwise it will be the some instance
     uniqueId: uid.gen(),
+    initTimestamp: Date.now() / 1000,
   }
 
   componentDidMount() {
@@ -115,7 +116,15 @@ class DocUploaderContainer extends React.Component {
     if (fileSize > 2) return alert('资源有限，请不要上传大于 2MB 的文件')
 
     const { onUploadStart, onUploadError } = this.props
-    const { ossClient } = this.state
+    const { ossClient, initTimestamp } = this.state
+
+    const curTimeStamp = Date.now() / 1000
+    if (curTimeStamp - initTimestamp <= 3) {
+      console.log('upload too often!')
+      return false
+    }
+
+    this.setState({ initTimestamp: curTimeStamp })
 
     onUploadStart()
     const filename = file.name
@@ -131,7 +140,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, fileType } = this.props
     const { uniqueId } = this.state
 
     return (
@@ -140,7 +149,7 @@ class DocUploaderContainer extends React.Component {
           type="file"
           name={`file-${uniqueId}`}
           id={`file-${uniqueId}`}
-          accept="image/*"
+          accept={fileType}
           onChange={this.handleInputChange.bind(this)}
         />
         {/* eslint-disable */}
@@ -158,6 +167,7 @@ DocUploaderContainer.propTypes = {
   onUploadDone: PropTypes.func,
   docUploader: PropTypes.any.isRequired,
   pasteImage: PropTypes.bool,
+  fileType: PropTypes.oneOf(['image/*']),
 }
 
 DocUploaderContainer.defaultProps = {
@@ -165,6 +175,7 @@ DocUploaderContainer.defaultProps = {
   onUploadDone: debug,
   onUploadError,
   pasteImage: true,
+  fileType: 'image/*',
 }
 
 export default inject(storePlug('docUploader'))(observer(DocUploaderContainer))

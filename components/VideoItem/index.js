@@ -16,6 +16,8 @@ import DotDivider from '../DotDivider'
 import { Space } from '../BaseStyled'
 import InlineTags from '../InlineTags'
 
+import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+
 import {
   Wrapper,
   PosterWrapper,
@@ -36,7 +38,7 @@ import {
   InsertTime,
 } from './styles'
 
-import { renderReadMark, getOpacity } from './helper'
+import { getOpacity } from './helper'
 import { makeDebugger, cutFrom, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -45,7 +47,7 @@ const debug = makeDebugger('c:VideoItem:index')
 
 const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
-    {renderReadMark(entry, accountInfo)}
+    <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
     <PosterWrapper>
       <Poster src={entry.poster} alt="poster" />
       <Duration>{entry.duration}</Duration>

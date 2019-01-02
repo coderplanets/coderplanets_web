@@ -55,7 +55,7 @@ const getDigest = body => {
   return digest
 }
 
-export function onPublish() {
+export const onPublish = () => {
   if (store.activeThread === THREAD.JOB) {
     return publishJob()
   }
@@ -66,6 +66,7 @@ function publishPost() {
   if (!store.validator('general')) return false
   const { subPath: topic } = store.curRoute
   const { body } = store.editData
+  const { isEdit } = store
   publishing()
 
   const digest = getDigest(body)
@@ -79,16 +80,13 @@ function publishPost() {
     topic,
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
-  /*
-     if (store.viewing.community.raw === ROUTE.HOME) {
-     debug('add topic on it: ', ROUTE.HOME)
-     variables = R.merge(variables, { topic })
-     }
-   */
 
   console.log('create post --> ', variables)
-  // TODO: topic
-  sr71$.mutate(S.createPost, variables)
+
+  if (isEdit) {
+    return sr71$.mutate(S.updatePost, variables)
+  }
+  sr71$.mutate(S.updatePost, variables)
 }
 
 function publishJob() {
@@ -159,11 +157,10 @@ const openAttachment = att => {
   // TODO: load if needed
 }
 
-const cancleMutate = () => store.reset()
 const doneCleanUp = () => {
+  closePreviewer()
   store.reset()
   cancleLoading()
-  closePreviewer()
 }
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
@@ -185,6 +182,19 @@ const DataSolver = [
       store.toast('success', {
         title: '帖子已发布',
         msg: 'have a good day :)',
+        position: 'topCenter',
+      })
+
+      doneCleanUp()
+      dispatchEvent(EVENT.REFRESH_POSTS)
+    },
+  },
+  {
+    match: asyncRes('updatePost'),
+    action: () => {
+      store.toast('success', {
+        title: '已更新',
+        msg: '.',
         position: 'topCenter',
       })
 
@@ -243,21 +253,24 @@ const ErrSolver = [
 ]
 
 export function init(_store, attachment) {
-  if (store) return openAttachment(attachment)
-
+  // if (store) return openAttachment(attachment)
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
 }
 
 export function uninit() {
+  if (store.publishing || !sub$) return false
+  debug('===== do uninit')
+  sub$.unsubscribe()
+  sub$ = null
   /*
-  store.toast('info', {
-    title: 'todo',
-    msg: '草稿已保存',
-  })
-  */
-  cancleMutate()
+     store.toast('info', {
+     title: 'todo',
+     msg: '草稿已保存',
+     })
+   */
+  // cancleMutate()
 }

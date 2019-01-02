@@ -18,5 +18,9 @@ export const TabberWrapper = styled.div`
   width: 80vw;
   margin-left: 250px;
   margin-top: 4px;
+
+  @media (min-width: 1600px) {
+    margin-left: 270px;
+  }
 `
 export const BannerContentWrapper = styled(BaseBannerContent)``

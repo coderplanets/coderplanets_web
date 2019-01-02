@@ -13,7 +13,14 @@ import {
   emptyPagiData,
 } from '../../stores/SharedModel'
 
-import { makeDebugger, markStates, stripMobx, TYPE } from '../../utils'
+import {
+  makeDebugger,
+  markStates,
+  stripMobx,
+  TYPE,
+  nilOrEmpty,
+} from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:VideosThread')
 /* eslint-enable no-unused-vars */
@@ -22,7 +29,6 @@ const VideosThread = t
   .model('VideosThread', {
     pagedVideos: t.optional(PagedVideos, emptyPagiData),
     filters: t.optional(ContentFilter, {}),
-    tags: t.optional(t.array(Tag), []),
     activeTag: t.maybeNull(Tag),
     curView: t.optional(
       t.enumeration('curView', [
@@ -47,20 +53,22 @@ const VideosThread = t
     get isLogin() {
       return self.root.account.isLogin
     },
+    get pagedVideosData() {
+      return stripMobx(self.pagedVideos)
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
-    },
-    get tagsData() {
-      return stripMobx(self.tags)
     },
     get filtersData() {
       return stripMobx(self.filters)
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || {}
     },
-    get pagedVideosData() {
-      return stripMobx(self.pagedVideos)
+    get tagQuery() {
+      const curTag = stripMobx(self.activeTag)
+      if (nilOrEmpty(curTag)) return {}
+      return { tag: curTag.title }
     },
     get activeVideo() {
       return stripMobx(self.root.viewing.video)

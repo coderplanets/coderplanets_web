@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding-bottom: 0;
 `
 export const Item = styled.div`
-  ${cs.flex('align-start')};
+  ${cs.flex('align-center')};
   color: ${theme('banner.desc')};
   margin-bottom: 8px;
 
@@ -25,6 +25,8 @@ export const ItemIcon = styled(Img)`
   width: 18px;
   height: 18px;
   margin-right: 6px;
+  display: block;
+  transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
   ${Item}:hover & {
     fill: ${({ red }) => (red ? 'tomato' : theme('banner.title'))};
   }

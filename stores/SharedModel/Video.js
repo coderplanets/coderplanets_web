@@ -23,6 +23,7 @@ export const Video = t.model('Video', {
   originalAuthorLink: t.maybeNull(t.string),
 
   views: t.optional(t.number, 0),
+  pin: t.maybeNull(t.boolean),
 
   communities: t.optional(t.array(Community), []),
   tags: t.optional(t.array(Tag), []),

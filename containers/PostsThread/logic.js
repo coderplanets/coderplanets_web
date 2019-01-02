@@ -64,10 +64,15 @@ export function loadPosts(page = 1) {
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
   sr71$.query(S.pagedPosts, args)
-  store.markRoute({ page })
+  store.markRoute({ page, ...store.filtersData })
 }
 
-export const onFilterSelect = option => store.selectFilter(option)
+export const onFilterSelect = option => {
+  store.selectFilter(option)
+  debug('cur filter: ', store.filtersData)
+  store.markRoute({ ...store.filtersData })
+  loadPosts()
+}
 
 export function onTagSelect(tag) {
   store.selectTag(tag)
@@ -91,14 +96,12 @@ export function onTitleSelect(data) {
     data,
   })
 
-  store.markRoute({ preview: THREAD.POST, id: data.id })
-  /*
-  GA.event({
-    action: data.title,
-    category: '浏览',
-    label: '社区',
+  store.markRoute({
+    preview: THREAD.POST,
+    id: data.id,
+    ...store.tagQuery,
+    ...store.filtersData,
   })
-  */
 }
 
 export const createContent = () => {
@@ -142,10 +145,7 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => {
-      debug('======= fucking COMMUNITY_CHANGE ')
-      loadPosts()
-    },
+    action: () => loadPosts(),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
@@ -164,7 +164,7 @@ const DataSolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSED),
     action: () => {
       store.setViewing({ post: {} })
-      store.markRoute({})
+      store.markRoute({ ...store.filtersData, ...store.tagQuery })
     },
   },
 ]

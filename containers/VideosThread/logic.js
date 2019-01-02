@@ -41,7 +41,7 @@ export function loadVideos(page = 1) {
       page,
       size: PAGE_SIZE.D,
       ...store.filtersData,
-      tag: store.activeTagData.raw,
+      tag: store.activeTagData.title,
       community: curCommunity.raw,
     },
     userHasLogin,
@@ -63,6 +63,13 @@ export function onTitleSelect(data) {
     thread: THREAD.VIDEO,
     data,
   })
+
+  store.markRoute({
+    preview: THREAD.VIDEO,
+    id: data.id,
+    ...store.tagQuery,
+    ...store.filtersData,
+  })
 }
 
 export function createContent() {
@@ -70,8 +77,10 @@ export function createContent() {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
-export function onTagSelect() {
-  debug('onTagSelect')
+export function onTagSelect(tag) {
+  store.selectTag(tag)
+  loadVideos()
+  store.markRoute({ tag: tag.title })
 }
 
 export const onFilterSelect = option => store.selectFilter(option)
@@ -107,7 +116,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),
-    action: () => store.setViewing({ video: {} }),
+    action: () => {
+      store.setViewing({ video: {} })
+      store.markRoute({ ...store.filtersData, ...store.tagQuery })
+    },
   },
   {
     match: asyncRes('partialTags'),

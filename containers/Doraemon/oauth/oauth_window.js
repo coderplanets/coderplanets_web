@@ -47,7 +47,6 @@ const popup = authUrl => {
       authWindow.location.search === undefined &&
       authWindow.location.href === undefined
     ) {
-      console.log('close for user close')
       clearInterval(scanTimer)
     }
     window.postMessage(
@@ -55,14 +54,6 @@ const popup = authUrl => {
       window.location.href
     )
   }, 1000)
-
-  // beforeunload not work here casue there is a redirect
-  /*
-     window[eventMethod]('beforeunload', () => {
-     console.log('user close authWindow 2 ??')
-     clearInterval(scanTimer)
-     })
-   */
 
   // Listen to message from child window
   const authPromise = new Promise((resolve, reject) => {

@@ -14,7 +14,7 @@ export const BaseBanner = styled.nav`
   border-bottom: 1px solid;
   border-bottom-color: ${theme('banner.spliter')};
   @media (max-height: 800px) {
-    min-height: 130px;
+    // min-height: 130px;
   }
 `
 export const BaseTabber = styled.div`

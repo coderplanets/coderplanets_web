@@ -5,8 +5,6 @@ import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-between')};
-  flex-wrap: wrap;
-
   width: 100%;
   margin-top: 15px;
   margin-bottom: 10px;
@@ -39,7 +37,7 @@ export const Label = styled.div`
   transition: color 0.2s;
 `
 export const Number = styled.div`
-  font-size: ${({ small }) => (small ? 1.1 : '1.3rem')};
+  font-size: ${({ small }) => (small ? '0.8rem' : '1.3rem')};
   color: ${theme('banner.title')};
 `
 

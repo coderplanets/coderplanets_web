@@ -20,10 +20,10 @@ import {
 // import { Wrapper } from './styles/body_header'
 
 // content={<ArticleOptions thread={thread} />}
-const BodyHeader = () => (
+const BodyHeader = ({ actionsPanel }) => (
   <Wrapper>
     <MoreWrapper>
-      <Popover content={<div>...</div>} placement="bottomLeft" trigger="click">
+      <Popover content={actionsPanel} placement="bottomLeft" trigger="click">
         <div>
           <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
         </div>

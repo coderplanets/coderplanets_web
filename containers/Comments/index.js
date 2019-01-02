@@ -26,9 +26,19 @@ const debug = makeDebugger('C:Comments')
 class CommentsContainer extends React.Component {
   constructor(props) {
     super(props)
-
     const { comments, ssr } = props
     logic.init(comments, ssr)
+  }
+
+  /*
+  componentDidMount() {
+    const { comments, ssr } = this.props
+    logic.init(comments, ssr)
+  }
+  */
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   onCreate() {

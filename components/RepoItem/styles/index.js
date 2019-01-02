@@ -20,15 +20,6 @@ export const Wrapper = styled.article`
     background: ${theme('thread.articleHover')};
   }
 `
-export const ReadedLabel = styled.div`
-  color: ${theme('thread.articleDigest')};
-  position: absolute;
-  top: 22px;
-  left: -16px;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  font-style: italic;
-`
 export const BodyDigest = styled.li`
   color: ${theme('thread.articleDigest')};
   margin-left: 10px;

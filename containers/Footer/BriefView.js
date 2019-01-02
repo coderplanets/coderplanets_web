@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EMAIL_BUSINESS } from '../../config'
+import { EMAIL_BUSINESS, ISSUE_ADDR, API_SERVER_ADDR } from '../../config'
 import BottomInfo from './BottomInfo'
 
 import {
@@ -42,16 +42,12 @@ const BriefView = () => (
           使用帮助
         </Item>
         <Divider>|</Divider>
-        <Item
-          href="https://github.com/coderplanets/coderplanets_web/issues"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
           反馈与建议
         </Item>
         <Divider>|</Divider>
         <Item
-          href="http://api.coderplanets.com/graphiql"
+          href={`${API_SERVER_ADDR}`}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -64,7 +60,7 @@ const BriefView = () => (
         <Support onClick={toggleSponsorHelper}>打赏</Support>
         <Divider>|</Divider>
         <Item
-          href="https://github.com/coderplanets/coderplanets_web/issues/269"
+          href={`${ISSUE_ADDR}/269`}
           rel="noopener noreferrer"
           target="_blank"
         >

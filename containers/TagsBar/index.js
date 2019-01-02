@@ -11,7 +11,16 @@ import { inject, observer } from 'mobx-react'
 import { ICON_CMD } from '../../config'
 import { withGuardian } from '../../components/HOC'
 
-import { Wrapper, TagItem, TagDot, TagTitle, AllTagIcon } from './styles'
+import TagOptions from './TagOptions'
+
+import {
+  Wrapper,
+  TagItem,
+  TagDot,
+  TagTitle,
+  AllTagIcon,
+  TagOptionsWrapper,
+} from './styles'
 
 import {
   makeDebugger,
@@ -22,6 +31,7 @@ import {
   Trans,
 } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:TagsBar')
 /* eslint-enable no-unused-vars */
@@ -59,26 +69,38 @@ class TagsBarContainer extends React.Component {
         ) : null}
 
         {sortedTags.map(tag => (
-          <TagItem
-            key={tag.id}
-            onClick={this.onSelect.bind(this, {
-              id: tag.id,
-              title: tag.title,
-              color: tag.color,
-            })}
-          >
+          <TagItem key={tag.id}>
             <TagDot
               color={tag.color}
               active={activeTagData.title}
               title={tag.title}
+              onClick={this.onSelect.bind(this, {
+                id: tag.id,
+                title: tag.title,
+                color: tag.color,
+              })}
             />
             <TagTitle
               active={activeTagData.title}
               title={tag.title}
               color={tag.color}
+              onClick={this.onSelect.bind(this, {
+                id: tag.id,
+                title: tag.title,
+                color: tag.color,
+              })}
             >
               {Trans(tag.title)}
             </TagTitle>
+            <TagOptionsWrapper>
+              <TagOptions
+                onInclude={this.onSelect.bind(this, {
+                  id: tag.id,
+                  title: tag.title,
+                  color: tag.color,
+                })}
+              />
+            </TagOptionsWrapper>
           </TagItem>
         ))}
       </Wrapper>

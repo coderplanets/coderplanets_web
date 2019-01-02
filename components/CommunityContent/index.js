@@ -24,9 +24,6 @@ const debug = makeDebugger('c:CommunityContent:index')
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute
   switch (subPath) {
-    case ROUTE.POSTS: {
-      return <PostsThread />
-    }
     case ROUTE.REPOS: {
       return <ReposThread />
     }
@@ -51,16 +48,13 @@ const ComunityContent = ({ curRoute }) => {
   }
 }
 
-const CommunityContent = ({ curRoute }) => {
-  return (
-    <Wrapper>
-      <ComunityContent curRoute={curRoute} />
-    </Wrapper>
-  )
-}
+const CommunityContent = ({ curRoute }) => (
+  <Wrapper>
+    <ComunityContent curRoute={curRoute} />
+  </Wrapper>
+)
 
 CommunityContent.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   curRoute: PropTypes.object.isRequired,
 }
 

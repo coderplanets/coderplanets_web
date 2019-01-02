@@ -1,12 +1,12 @@
 /*
-* VideoViewer store
-*
-*/
+ * VideoViewer store
+ *
+ */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:VideoViewer')
 /* eslint-enable no-unused-vars */
@@ -24,6 +24,9 @@ const VideoViewer = t
     },
     get viewingData() {
       return self.root.viewingData
+    },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
     },
   }))
   .actions(self => ({

@@ -51,7 +51,6 @@ class JobsThreadContainer extends React.Component {
 
     const {
       pagedJobsData,
-      tagsData,
       curView,
       filtersData,
       activeTagData,
@@ -99,7 +98,6 @@ class JobsThreadContainer extends React.Component {
           <Affix offsetTop={50}>
             <TagsBar
               thread={THREAD.JOB}
-              tags={tagsData}
               active={activeTagData}
               onSelect={logic.onTagSelect}
             />

@@ -58,7 +58,7 @@ export const DescIconLable = styled(Img)`
   width: 16px;
   height: 16px;
   margin-right: 10px;
-  margin-top: 4px;
+  display: block;
 `
 export const BackgroundDivider = styled.div`
   ${cs.circle('5px')};

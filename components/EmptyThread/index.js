@@ -32,7 +32,11 @@ const DescContent = ({ community, thread }) => (
     </div>
     <div>
       若是网站的问题，恳请你
-      <IssueLink href={ISSUE_ADDR} rel="noopener noreferrer" target="_blank">
+      <IssueLink
+        href={`${ISSUE_ADDR}/new`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         提交issue
       </IssueLink>
       ，以便于开发者排查修复。

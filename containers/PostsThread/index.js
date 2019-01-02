@@ -42,6 +42,8 @@ const LabelText = {
 
 // see https://stackoverflow.com/questions/38137740/which-kinds-of-initialization-is-more-appropriate-in-constructor-vs-componentwil/
 class PostsThreadContainer extends React.Component {
+  // has to use componentDidMount not constructor
+  // because when router change, constructor will not be called
   componentDidMount() {
     const { postsThread } = this.props
     logic.init(postsThread)

@@ -45,7 +45,7 @@ class VideoViewerContainer extends React.Component {
           onReaction={logic.onReaction}
           thread={THREAD.VIDEO}
         />
-        <BodyHeader />
+        <BodyHeader data={viewingData} thread={THREAD.VIDEO} />
         {viewingData.poster ? <PlayWindow poster={viewingData.poster} /> : null}
         <InfoBoard data={viewingData} />
         <CommentsWrapper>

@@ -21,23 +21,6 @@ export const Wrapper = styled.article`
     background: ${theme('thread.articleHover')};
   }
 `
-export const ReadedLabel = styled.div`
-  color: ${theme('thread.articleDigest')};
-  position: absolute;
-  top: 14px;
-  left: -18px;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  font-style: italic;
-`
-export const ReadedLabelIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  top: 14px;
-  left: -22px;
-`
 export const Main = styled.div`
   ${cs.flexColumnGrow()};
 `

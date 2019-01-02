@@ -13,7 +13,13 @@ import {
   emptyPagiData,
 } from '../../stores/SharedModel'
 
-import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
+import {
+  markStates,
+  makeDebugger,
+  stripMobx,
+  TYPE,
+  nilOrEmpty,
+} from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostsThreadStore')
@@ -57,10 +63,15 @@ const PostsThreadStore = t
       return self.root.account.isLogin
     },
     get filtersData() {
-      return stripMobx(self.filters)
+      return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
     get activeTagData() {
-      return stripMobx(self.activeTag) || { title: '', color: '' }
+      return stripMobx(self.activeTag) || {}
+    },
+    get tagQuery() {
+      const curTag = stripMobx(self.activeTag)
+      if (nilOrEmpty(curTag)) return {}
+      return { tag: curTag.title }
     },
     get activePost() {
       return stripMobx(self.root.viewing.post)

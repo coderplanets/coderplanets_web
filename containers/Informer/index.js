@@ -10,7 +10,7 @@ import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
 
-import { Modal } from '../../components'
+import Modal from '../../components/Modal'
 import { Wrapper, Title, Icon } from './styles'
 
 import Header from './Header'

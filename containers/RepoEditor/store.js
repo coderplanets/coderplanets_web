@@ -22,12 +22,19 @@ const RepoEditor = t
   .model('RepoEditor', {
     editRepo: t.maybeNull(Repo),
     curView: t.optional(t.enumeration('curView', ['search', 'show']), 'search'),
+    subView: t.optional(
+      t.enumeration('curView', ['search', 'token']),
+      'search'
+    ),
     searchValue: t.optional(t.string, ''),
     searching: t.optional(t.boolean, false),
     // repo owner
     owner: t.optional(t.string, ''),
     // repo name
     name: t.optional(t.string, ''),
+
+    // github api token
+    tokenValue: t.optional(t.string, ''),
 
     // errorType
     errorType: t.maybeNull(t.string),
@@ -44,6 +51,9 @@ const RepoEditor = t
     },
   }))
   .actions(self => ({
+    toast(type, options) {
+      self.root.toast(type, options)
+    },
     changesetErr(options) {
       self.root.changesetErr(options)
     },
@@ -100,6 +110,13 @@ const RepoEditor = t
             self.changesetErr({ title: 'Github仓库地址', msg: '解析错误' })
             return false
           }
+        }
+        case 'tokenValue': {
+          const result = changeset({ tokenValue: self.tokenValue })
+            .exsit({ tokenValue: 'Github Token' }, self.changesetErr)
+            .done()
+
+          return result.passed
         }
         default: {
           return false

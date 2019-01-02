@@ -38,6 +38,7 @@ export const pagedVideos = `
     pagedVideos(filter: $filter) {
       entries {
        ${F.video}
+        pin
         author {
           ${F.author}
         }

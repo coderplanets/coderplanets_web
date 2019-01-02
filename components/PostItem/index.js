@@ -7,12 +7,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper } from './styles'
-
+import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import { renderReadMark, getOpacity } from './helper'
+import { Wrapper } from './styles'
+
+import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -47,7 +48,7 @@ const PostItem = ({
       opacity={getOpacity(entry, active, accountInfo)}
       divider={contentDivider}
     >
-      {renderReadMark(entry, accountInfo)}
+      <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
       {contentsLayout === C11N.DIGEST ? (
         <DigestView
           entry={entry}
