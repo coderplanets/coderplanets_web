@@ -39,7 +39,7 @@ export function onReaction(thread, action, userDid, { id }) {
     : sr71$.mutate(S.reaction, args)
 }
 
-export function onPin() {
+export const onPin = () => {
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
@@ -48,7 +48,7 @@ export function onPin() {
   sr71$.mutate(S.pinVideo, args)
 }
 
-export function onUndoPin() {
+export const onUndoPin = () => {
   const args = {
     id: store.viewingData.id,
     communityId: store.curCommunity.id,
@@ -57,14 +57,18 @@ export function onUndoPin() {
   sr71$.mutate(S.undoPinVideo, args)
 }
 
-const openAttachment = att => {
-  if (!att) return false
-  const { type } = att
-  if (type === TYPE.PREVIEW_VIDEO_VIEW) {
-    loadVideo(att)
-    store.setViewing({ video: att })
-  }
+export const onEdit = () => {
+  debug('onEdit', store.viewingData.id)
+  debug('onEdit', store.viewingData)
+
+  return dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_VIDEO_EDIT,
+    data: store.viewingData, // maybe need clone
+  })
 }
+
+export const onDelete = () =>
+  sr71$.mutate(S.deleteVideo, { id: store.viewingData.id })
 
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
 // ###############################
@@ -99,6 +103,13 @@ const DataSolver = [
       closePreviewer()
     },
   },
+  {
+    match: asyncRes('deleteVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
+  },
 ]
 const ErrSolver = [
   {
@@ -123,6 +134,15 @@ const ErrSolver = [
     },
   },
 ]
+
+const openAttachment = att => {
+  if (!att) return false
+  const { type } = att
+  if (type === TYPE.PREVIEW_VIDEO_VIEW) {
+    loadVideo(att)
+    store.setViewing({ video: att })
+  }
+}
 
 export function init(_store, attachment) {
   store = _store

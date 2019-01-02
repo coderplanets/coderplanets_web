@@ -37,6 +37,7 @@ export const video = `
   id
   title
   poster
+  thumbnil
   desc
   duration
   source

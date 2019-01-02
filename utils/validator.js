@@ -61,17 +61,20 @@ const valueOf = R.compose(
 )
 
 export const changeset = source => ({
-  exsit: (obj, cb, opt = {}) => {
+  exsit: (obj, cb, opt = { skip: false }) => {
     if (source.__dirty__) return changeset(source)
+    if (opt.skip) return changeset(source)
 
     const field = keyOf(obj)
     const trans = valueOf(obj)
     let isInValid = false
+
     if (emptyArray(source[field])) {
       isInValid = true
     } else if (!Array.isArray(source[field]) && nilOrEmpty(source[field])) {
       isInValid = true
     }
+
     if (isInValid) {
       const title = trans
       const msg = opt.msg || '不能为空'
@@ -149,13 +152,13 @@ export const changeset = source => ({
     cb({ title, msg })
     return changeset(R.merge(source, { __dirty__: true, __rat__: field }))
   },
-  dateFmt: (obj, cb) => {
+  dateFmt: (obj, cb, opt = { skip: false }) => {
     if (source.__dirty__) return changeset(source)
+    if (opt.skip) return changeset(source)
 
     const field = keyOf(obj)
     const trans = valueOf(obj)
 
-    /* const regex = /[0-9]{4}[/][0-9]{2}[/][0-9]{2}$/ */
     const regex = /[0-9]{4}[/][0-9][0-9][/][0-3][0-9]$/
     const isValidDate = !Number.isNaN(Date.parse(source[field]))
 

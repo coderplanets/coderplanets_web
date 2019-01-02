@@ -57,6 +57,14 @@ const undoPinVideo = gql`
   }
 `
 
+const deleteVideo = gql`
+  mutation($id: ID!) {
+    deleteVideo(id: $id) {
+      id
+    }
+  }
+`
+
 const schema = {
   video,
   reaction,
@@ -64,6 +72,7 @@ const schema = {
   videoReactionRes,
   pinVideo,
   undoPinVideo,
+  deleteVideo,
 }
 
 export default schema

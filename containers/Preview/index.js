@@ -70,7 +70,6 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DynamicAccountViewer />
     }
     case TYPE.PREVIEW_USER_VIEW: {
-      console.log('see fuck attUser: ', attUser)
       return <DynamicAccountViewer user={attUser} />
     }
     case TYPE.PREVIEW_ACCOUNT_EDIT: {
@@ -115,7 +114,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // video
     case TYPE.PREVIEW_VIDEO_EDIT: {
-      return <h3>PREVIEW_VIDEO_EDIT</h3>
+      return <VideoEditor attachment={attachment} />
     }
     case TYPE.PREVIEW_VIDEO_VIEW: {
       return <VideoViewer attachment={attachment} />
