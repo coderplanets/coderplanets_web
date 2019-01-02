@@ -39,8 +39,14 @@ const validObjects = R.compose(
 
 const emptyArray = obj => Array.isArray(obj) && obj.length === 0
 
+// avoid trim on int
+const trimIfNeed = v => {
+  if (isString(v)) return R.trim(v)
+  return v
+}
+
 const validValues = R.compose(
-  R.map(R.trim),
+  R.map(trimIfNeed),
   R.pickBy(notNil),
   R.reject(isObject)
 )

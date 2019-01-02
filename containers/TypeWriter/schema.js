@@ -68,6 +68,7 @@ const createJob = gql`
     $companyLogo: String!
     $companyLink: String
     $copyRight: String
+    $linkAddr: String
     $salary: String!
     $exp: String!
     $education: String!
@@ -87,6 +88,7 @@ const createJob = gql`
       companyLogo: $companyLogo
       companyLink: $companyLink
       copyRight: $copyRight
+      linkAddr: $linkAddr
       salary: $salary
       exp: $exp
       education: $education
@@ -177,7 +179,38 @@ const searchUsers = gql`
   }
 `
 
-const schema = {
+export const updatablePostFields = [
+  'id',
+  'title',
+  'body',
+  'copyRight',
+  'linkAddr',
+  // TODO: 'mentionUsers',
+]
+
+export const updatableJobFields = [
+  'id',
+  'title',
+  'body',
+  'desc',
+  'digest',
+  'length',
+  'company',
+  'companyLogo',
+  'companyLink',
+  'copyRight',
+  'linkAddr',
+  'salary',
+  'exp',
+  'education',
+  'finance',
+  'scale',
+  'field',
+  // TODO: 'mentionUsers',
+  // TODO: 'tags',
+]
+
+export const S = {
   createPost,
   updatePost,
   createJob,
@@ -185,5 +218,3 @@ const schema = {
   searchUsers,
   job,
 }
-
-export default schema

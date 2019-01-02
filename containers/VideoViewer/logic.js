@@ -57,15 +57,11 @@ export const onUndoPin = () => {
   sr71$.mutate(S.undoPinVideo, args)
 }
 
-export const onEdit = () => {
-  debug('onEdit', store.viewingData.id)
-  debug('onEdit', store.viewingData)
-
-  return dispatchEvent(EVENT.PREVIEW_OPEN, {
+export const onEdit = () =>
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_EDIT,
     data: store.viewingData, // maybe need clone
   })
-}
 
 export const onDelete = () =>
   sr71$.mutate(S.deleteVideo, { id: store.viewingData.id })

@@ -17,9 +17,10 @@ import {
   updateEditing,
   errorForHuman,
   closePreviewer,
+  cast,
 } from '../../utils'
 
-import S from './schema'
+import { S, updatableJobFields, updatablePostFields } from './schema'
 import SR71 from '../../utils/network/sr71'
 // import testMentions from './test_mentions'
 
@@ -81,7 +82,8 @@ function publishPost() {
   }
 
   if (isEdit) {
-    return sr71$.mutate(S.updatePost, variables)
+    const args = cast(updatablePostFields, variables)
+    return sr71$.mutate(S.updatePost, args)
   }
   sr71$.mutate(S.updatePost, variables)
 }
@@ -112,8 +114,8 @@ function publishJob() {
   }
 
   if (isEdit) {
-    console.log('labelsData: ', variables)
-    return sr71$.mutate(S.updateJob, variables)
+    const args = cast(updatableJobFields, variables)
+    return sr71$.mutate(S.updateJob, args)
   }
 
   sr71$.mutate(S.createJob, variables)
