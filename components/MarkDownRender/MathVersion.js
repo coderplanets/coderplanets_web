@@ -88,7 +88,7 @@ class MarkDownRender extends React.Component {
           <div className="markdown-body">
             {/* eslint-disable react/no-danger */}
             <div
-              id="typewriter-preview-container"
+              id="article-editor-preview-container"
               dangerouslySetInnerHTML={{
                 __html: html,
               }}

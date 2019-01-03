@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 // mentions
-  .typewriter-mention {
+  .article-editor-mention {
     color: ${theme('comment.mentionText')};
     background: ${theme('comment.mentionTextBg')};
     cursor: pointer;
@@ -50,14 +50,14 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 3px;
     text-decoration: none;
   }
-  .typewriter-mention:hover,
-  .typewriter-mention:focus {
+  .article-editor-mention:hover,
+  .article-editor-mention:focus {
     color: ${theme('comment.mentionText')};
     background: ${theme('comment.mentionTextBg')};
     outline: 0; /* reset for :focus */
   }
 
-  .typewriter-suggestions {
+  .article-editor-suggestions {
     border: 1px solid;
     border-color: ${theme('comment.mentionBorder')};
     background: ${theme('comment.mentionBg')};
@@ -78,22 +78,22 @@ const GlobalStyle = createGlobalStyle`
     -webkit-transform: scale(0);
     transform: scale(0);
   }
-  .typewriter-mentionSuggestionsEntry {
+  .article-editor-mentionSuggestionsEntry {
     transition: background-color 0.4s cubic-bezier(0.27, 1.27, 0.48, 0.56);
     padding: 7px 10px 3px 10px;
     padding-left: 10px;
     display: flex;
   }
-  .typewriter-mentionSuggestionsEntry:active {
+  .article-editor-mentionSuggestionsEntry:active {
     background-color: ${theme('baseColor.error')};
   }
-  .typewriter-mentionSuggestionsEntryFocused {
+  .article-editor-mentionSuggestionsEntryFocused {
     background-color: ${theme('comment.mentionActiveBg')};
     padding: 7px 10px 3px 10px;
     display: flex;
   }
 
-  .typewriter-mentionSuggestionsEntryText {
+  .article-editor-mentionSuggestionsEntryText {
     display: inline-block;
     margin-left: 8px;
 
@@ -104,14 +104,14 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme('thread.articleTitle')};
   }
 
-  .typewriter-mentionSuggestionsEntryAvatar {
+  .article-editor-mentionSuggestionsEntryAvatar {
     display: inline-block;
     width: 24px;
     height: 24px;
     border-radius: 12px;
   }
 
-  .typewriter-link {
+  .article-editor-link {
     color: ${theme('markdown.link')};
 
     &:hover {

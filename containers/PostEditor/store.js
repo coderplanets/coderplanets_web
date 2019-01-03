@@ -1,5 +1,5 @@
 /*
- * TypeWriterStore store
+ * PostEditor store
  *
  */
 
@@ -11,7 +11,7 @@ import { Post } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:TypeWriterStore')
+const debug = makeDebugger('S:PostEditorf')
 /* eslint-enable no-unused-vars */
 
 const Mention = t.model('Mention', {
@@ -20,8 +20,8 @@ const Mention = t.model('Mention', {
   avatar: t.string,
 })
 
-const TypeWriterStore = t
-  .model('TypeWriterStore', {
+const PostEditor = t
+  .model('PostEditor', {
     editPost: t.optional(Post, {}),
 
     mentionList: t.optional(t.array(Mention), []),
@@ -150,4 +150,4 @@ const TypeWriterStore = t
     },
   }))
 
-export default TypeWriterStore
+export default PostEditor

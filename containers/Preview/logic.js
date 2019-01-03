@@ -24,7 +24,7 @@ export function closePreview() {
   unholdPage()
   store.close()
 
-  // force call Typewriter's componentWillUnmount to store the draft
+  // force call MDEditor's componentWillUnmount to store the draft
   // wait until preview move out of the screean
   setTimeout(() => {
     store.markState({ type: null })

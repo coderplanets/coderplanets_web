@@ -27,7 +27,7 @@ import SR71 from '../../utils/network/sr71'
 const sr71$ = new SR71()
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:TypeWriter')
+const debug = makeDebugger('L:PostEditor')
 /* eslint-enable no-unused-vars */
 
 let store = null
@@ -38,7 +38,7 @@ export const changeView = curView => store.markState({ curView })
 const getDigest = body => {
   /* eslint-disable no-undef */
   const digestContainer = document.getElementById(
-    'typewriter-preview-container'
+    'article-editor-preview-container'
   )
   /* eslint-enable no-undef */
   const innerImagesLength = extractAttachments(body).length

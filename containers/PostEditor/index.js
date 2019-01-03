@@ -1,6 +1,6 @@
 /*
  *
- * TypeWriter
+ * PostEditor
  *
  */
 

@@ -18,16 +18,17 @@ import { Wrapper } from './styles'
 import { EVENT, makeDebugger } from '../../utils'
 
 const linkifyPlugin = createLinkifyPlugin({
-  theme: { link: 'typewriter-link' },
+  theme: { link: 'article-editor-link' },
 })
 
 const mentionThemeClass = {
-  mention: 'typewriter-mention',
-  mentionSuggestions: 'typewriter-suggestions',
-  mentionSuggestionsEntry: 'typewriter-mentionSuggestionsEntry',
-  mentionSuggestionsEntryFocused: 'typewriter-mentionSuggestionsEntryFocused',
-  mentionSuggestionsEntryAvatar: 'typewriter-mentionSuggestionsEntryAvatar',
-  mentionSuggestionsEntryText: 'typewriter-mentionSuggestionsEntryText',
+  mention: 'article-editor-mention',
+  mentionSuggestions: 'article-editor-suggestions',
+  mentionSuggestionsEntry: 'article-editor-mentionSuggestionsEntry',
+  mentionSuggestionsEntryFocused:
+    'article-editor-mentionSuggestionsEntryFocused',
+  mentionSuggestionsEntryAvatar: 'article-editor-mentionSuggestionsEntryAvatar',
+  mentionSuggestionsEntryText: 'article-editor-mentionSuggestionsEntryText',
 }
 
 /* eslint-disable no-unused-vars */
