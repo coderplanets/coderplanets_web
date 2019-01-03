@@ -15,7 +15,6 @@ import {
   BackToEditHint,
 } from './styles/header'
 
-import { THREAD } from '../../utils'
 import * as logic from './logic'
 
 const DoingText = ({ isEdit }) => {
@@ -25,24 +24,8 @@ const DoingText = ({ isEdit }) => {
     <React.Fragment>发布</React.Fragment>
   )
 }
-const ThreadText = ({ thread }) => {
-  switch (thread) {
-    case THREAD.JOB: {
-      return '工作'
-    }
-    case THREAD.SHARE: {
-      return '分享'
-    }
-    case THREAD.RADAR: {
-      return '信息'
-    }
-    default: {
-      return '帖子'
-    }
-  }
-}
 
-const Header = ({ isEdit, curView, thread, referUsers }) => {
+const Header = ({ isEdit, curView, referUsers }) => {
   switch (curView) {
     case 'MARKDOWN_HELP_VIEW': {
       return (
@@ -60,7 +43,7 @@ const Header = ({ isEdit, curView, thread, referUsers }) => {
         <Wrapper>
           <UsageText>
             <DoingText isEdit={isEdit} />
-            <ThreadText thread={thread} />
+            工作
             {!R.isEmpty(referUsers) ? (
               <RefUsersWrapper>
                 <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />

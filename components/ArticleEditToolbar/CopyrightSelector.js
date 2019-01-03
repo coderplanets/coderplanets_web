@@ -3,8 +3,7 @@ import R from 'ramda'
 // import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
-
-import { Popover } from '../../components'
+import Popover from '../Popover'
 
 import {
   Wrapper,
@@ -18,7 +17,6 @@ import {
 } from './styles/copyright_selector'
 
 import { THREAD } from '../../utils'
-import { inputOnChange } from './logic'
 
 const FullOptions = [
   {
@@ -48,12 +46,12 @@ const getOptions = thread => {
 const getCpTitle = cptype =>
   R.path(['title'], R.find(R.propEq('value', cptype), FullOptions))
 
-const CopyrightContent = ({ active, thread }) => (
+const CopyrightContent = ({ active, thread, onCopyrightChange }) => (
   <Wrapper>
     {getOptions(thread).map(opt => (
       <Selector
         key={opt.value}
-        onClick={inputOnChange.bind(this, 'copyRight', opt.value)}
+        onClick={onCopyrightChange.bind(this, opt.value)}
       >
         <CheckText>{opt.title}</CheckText>
         <CheckIcon
@@ -65,9 +63,15 @@ const CopyrightContent = ({ active, thread }) => (
   </Wrapper>
 )
 
-const CopyrightSelector = ({ copyRight, thread }) => (
+const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => (
   <Popover
-    content={<CopyrightContent active={copyRight} thread={thread} />}
+    content={
+      <CopyrightContent
+        active={copyRight}
+        thread={thread}
+        onCopyrightChange={onCopyrightChange}
+      />
+    }
     placement="right"
     trigger="hover"
   >

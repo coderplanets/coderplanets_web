@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '../../../utils'
 
-export const FooterWrapper = styled.div`
+export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   margin-top: 30px;
   margin-left: 35px;

@@ -5,8 +5,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-import EditorHeader from './EditorHeader'
-import BodyEditor from './BodyEditor'
+import { ArticleEditor, ArticleEditToolbar } from '../../components'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
@@ -16,6 +15,7 @@ import {
   bodyInputOnChange,
   onMention,
   onMentionSearch,
+  changeView,
 } from './logic'
 
 const Editor = ({ thread, editData, mentionList }) => {
@@ -23,7 +23,14 @@ const Editor = ({ thread, editData, mentionList }) => {
 
   return (
     <Wrapper>
-      <EditorHeader thread={thread} editData={editData} />
+      <ArticleEditToolbar
+        thread={thread}
+        editData={editData}
+        onCopyrightChange={inputOnChange.bind(this, 'copyRight')}
+        onLinkAddrChange={inputOnChange.bind(this, 'linkAddr')}
+        onPreview={changeView.bind(this, 'PREVIEW_VIEW')}
+      />
+
       <TitleInput
         placeholder="标 题."
         defaultValue=""
@@ -32,7 +39,7 @@ const Editor = ({ thread, editData, mentionList }) => {
       />
 
       <br />
-      <BodyEditor
+      <ArticleEditor
         onChange={bodyInputOnChange}
         body={body}
         mentionList={mentionList}

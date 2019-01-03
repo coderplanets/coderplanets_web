@@ -13,7 +13,7 @@ import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
 import toRawString from './exportContent'
-import { Wrapper } from './styles/body_editor'
+import { Wrapper } from './styles'
 
 import { EVENT, makeDebugger } from '../../utils'
 
@@ -31,13 +31,13 @@ const mentionThemeClass = {
 }
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:BodyEditor')
+const debug = makeDebugger('C:ArticleEditor')
 /* eslint-enable no-unused-vars */
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
 
-class BodyEditor extends React.Component {
+class ArticleEditor extends React.Component {
   constructor(props) {
     super(props)
 
@@ -192,7 +192,7 @@ class BodyEditor extends React.Component {
   }
 }
 
-BodyEditor.propTypes = {
+ArticleEditor.propTypes = {
   mentionList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -206,7 +206,7 @@ BodyEditor.propTypes = {
   onChange: PropTypes.func,
 }
 
-BodyEditor.defaultProps = {
+ArticleEditor.defaultProps = {
   body: '',
   mentionList: [],
   onMention: debug,
@@ -214,4 +214,4 @@ BodyEditor.defaultProps = {
   onChange: debug,
 }
 
-export default BodyEditor
+export default ArticleEditor

@@ -8,15 +8,16 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
+import { ArticleEditFooter } from '../../components'
+
 import Editor from './Editor'
 import Preview from './Preview'
 import MarkDownHelper from './MarkDownHelper'
 import Header from './Header'
-import Footer from './Footer'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { init, uninit, changeView } from './logic'
+import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 import { makeDebugger, storePlug } from '../../utils'
 
 /* eslint-disable no-unused-vars */
@@ -82,12 +83,7 @@ class JobEditorContainer extends React.Component {
 
     return (
       <Wrapper>
-        <Header
-          isEdit={isEdit}
-          curView={curView}
-          thread={thread}
-          referUsers={referUsersData}
-        />
+        <Header isEdit={isEdit} curView={curView} referUsers={referUsersData} />
         <View
           curView={curView}
           editData={editData}
@@ -95,13 +91,15 @@ class JobEditorContainer extends React.Component {
           copyRight={copyRight}
           mentionList={mentionListData}
         />
-        <Footer
+        <ArticleEditFooter
           isEdit={isEdit}
           publishing={publishing}
           success={success}
           error={error}
           warn={warn}
           statusMsg={statusMsg}
+          onCancle={canclePublish}
+          onPublish={onPublish}
         />
       </Wrapper>
     )
