@@ -45,6 +45,14 @@ const DynamicTypeWriter = dynamic({
   ssr: false,
 })
 
+const DynamicJobWriter = dynamic({
+  loader: () => import('../JobEditor'),
+  /* eslint-disable */
+  loading: () => <TypeWriterLoading />,
+  /* eslint-enable */
+  ssr: false,
+})
+
 const DynamicAccountViewer = dynamic({
   loader: () => import('../AccountViewer'),
   ssr: false,
@@ -92,14 +100,14 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // job
     case TYPE.PREVIEW_JOB_CREATE: {
-      return <DynamicTypeWriter onClose={logic.closePreview} />
+      return <DynamicJobWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_JOB_VIEW: {
       return <ArticleViwer attachment={attachment} />
     }
     case TYPE.PREVIEW_JOB_EDIT: {
       return (
-        <DynamicTypeWriter
+        <DynamicJobWriter
           onClose={logic.closePreview}
           attachment={attachment}
         />
