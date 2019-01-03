@@ -21,7 +21,7 @@ export { default as VideoItem } from './VideoItem'
 
 // Utils component
 export { withGuardian } from './HOC'
-export { default as ArticleEditor } from './ArticleEditor'
+export { default as MarkdownEditor } from './MarkdownEditor'
 export { default as ArticleEditToolbar } from './ArticleEditToolbar'
 export { default as ArticleEditFooter } from './ArticleEditFooter'
 

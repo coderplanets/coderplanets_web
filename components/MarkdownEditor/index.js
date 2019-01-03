@@ -18,27 +18,28 @@ import { Wrapper } from './styles'
 import { EVENT, makeDebugger } from '../../utils'
 
 const linkifyPlugin = createLinkifyPlugin({
-  theme: { link: 'article-editor-link' },
+  theme: { link: 'markdown-editor-link' },
 })
 
 const mentionThemeClass = {
-  mention: 'article-editor-mention',
-  mentionSuggestions: 'article-editor-suggestions',
-  mentionSuggestionsEntry: 'article-editor-mentionSuggestionsEntry',
+  mention: 'markdown-editor-mention',
+  mentionSuggestions: 'markdown-editor-suggestions',
+  mentionSuggestionsEntry: 'markdown-editor-mentionSuggestionsEntry',
   mentionSuggestionsEntryFocused:
-    'article-editor-mentionSuggestionsEntryFocused',
-  mentionSuggestionsEntryAvatar: 'article-editor-mentionSuggestionsEntryAvatar',
-  mentionSuggestionsEntryText: 'article-editor-mentionSuggestionsEntryText',
+    'markdown-editor-mentionSuggestionsEntryFocused',
+  mentionSuggestionsEntryAvatar:
+    'markdown-editor-mentionSuggestionsEntryAvatar',
+  mentionSuggestionsEntryText: 'markdown-editor-mentionSuggestionsEntryText',
 }
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('C:ArticleEditor')
+const debug = makeDebugger('C:MarkdownEditor')
 /* eslint-enable no-unused-vars */
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
 
-class ArticleEditor extends React.Component {
+class MarkdownEditor extends React.Component {
   constructor(props) {
     super(props)
 
@@ -193,7 +194,7 @@ class ArticleEditor extends React.Component {
   }
 }
 
-ArticleEditor.propTypes = {
+MarkdownEditor.propTypes = {
   mentionList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -207,7 +208,7 @@ ArticleEditor.propTypes = {
   onChange: PropTypes.func,
 }
 
-ArticleEditor.defaultProps = {
+MarkdownEditor.defaultProps = {
   body: '',
   mentionList: [],
   onMention: debug,
@@ -215,4 +216,4 @@ ArticleEditor.defaultProps = {
   onChange: debug,
 }
 
-export default ArticleEditor
+export default MarkdownEditor

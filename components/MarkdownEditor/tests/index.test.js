@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import ArticleEditor from '../index'
+// import MarkdownEditor from '../index'
 
-describe('TODO <ArticleEditor />', () => {
+describe('TODO <MarkdownEditor />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

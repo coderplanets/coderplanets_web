@@ -17,7 +17,7 @@ import EditorHeader from './EditorHeader'
 import EditorFooter from './EditorFooter'
 
 const DynamicBodyEditor = dynamic({
-  loader: () => import('../../components/ArticleEditor'),
+  loader: () => import('../../components/MarkdownEditor'),
   /* eslint-disable */
   loading: () => <div>loading</div>,
   /* eslint-enable */

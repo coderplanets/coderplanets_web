@@ -5,7 +5,7 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
-import { ArticleEditor, ArticleEditToolbar } from '../../components'
+import { MarkdownEditor, ArticleEditToolbar } from '../../components'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'
@@ -39,7 +39,7 @@ const Editor = ({ thread, editData, mentionList }) => {
       />
 
       <br />
-      <ArticleEditor
+      <MarkdownEditor
         onChange={bodyInputOnChange}
         body={body}
         mentionList={mentionList}

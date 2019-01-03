@@ -36,7 +36,7 @@ export const changeView = curView => store.markState({ curView })
 const getDigest = body => {
   /* eslint-disable no-undef */
   const digestContainer = document.getElementById(
-    'article-editor-preview-container'
+    'markdown-editor-preview-container'
   )
   /* eslint-enable no-undef */
   const innerImagesLength = extractAttachments(body).length
