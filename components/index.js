@@ -79,7 +79,7 @@ export {
   VideoItemLoading,
   RepoItemLoading,
   JobItemLoading,
-  TypeWriterLoading,
+  EditorLoading,
   ArticleContentLoading,
   CommunityHolder,
 } from './LoadingEffects'

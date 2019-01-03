@@ -30,19 +30,19 @@ const Loading = ({ theme }) => (
   </ContentLoader>
 )
 
-const TypeWriterLoading = ({ num, theme }) =>
+const EditorLoading = ({ num, theme }) =>
   R.range(0, num).map(() => (
     <LoadingWrapper key={uid.gen()}>
       <Loading uniquekey={uid.gen()} theme={theme} />
     </LoadingWrapper>
   ))
 
-TypeWriterLoading.propTypes = {
+EditorLoading.propTypes = {
   num: PropTypes.number,
 }
 
-TypeWriterLoading.defaultProps = {
+EditorLoading.defaultProps = {
   num: 1,
 }
 
-export default withTheme(TypeWriterLoading)
+export default withTheme(EditorLoading)

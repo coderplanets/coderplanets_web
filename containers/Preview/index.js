@@ -19,7 +19,7 @@ import MailsViewer from '../MailsViewer'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
-import { StateTree, TypeWriterLoading } from '../../components'
+import { StateTree, EditorLoading } from '../../components'
 
 import {
   PreviewOverlay,
@@ -40,7 +40,7 @@ const debug = makeDebugger('C:Preview')
 const DynamicPostWriter = dynamic({
   loader: () => import('../PostEditor'),
   /* eslint-disable */
-  loading: () => <TypeWriterLoading />,
+  loading: () => <EditorLoading />,
   /* eslint-enable */
   ssr: false,
 })
@@ -48,7 +48,7 @@ const DynamicPostWriter = dynamic({
 const DynamicJobWriter = dynamic({
   loader: () => import('../JobEditor'),
   /* eslint-disable */
-  loading: () => <TypeWriterLoading />,
+  loading: () => <EditorLoading />,
   /* eslint-enable */
   ssr: false,
 })
