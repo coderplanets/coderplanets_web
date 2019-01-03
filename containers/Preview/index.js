@@ -37,8 +37,8 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Preview')
 /* eslint-enable no-unused-vars */
 
-const DynamicTypeWriter = dynamic({
-  loader: () => import('../TypeWriter'),
+const DynamicPostWriter = dynamic({
+  loader: () => import('../PostEditor'),
   /* eslint-disable */
   loading: () => <TypeWriterLoading />,
   /* eslint-enable */
@@ -88,11 +88,11 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <ArticleViwer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
-      return <DynamicTypeWriter onClose={logic.closePreview} />
+      return <DynamicPostWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_POST_EDIT: {
       return (
-        <DynamicTypeWriter
+        <DynamicPostWriter
           onClose={logic.closePreview}
           attachment={attachment}
         />
