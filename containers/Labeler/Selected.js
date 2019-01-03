@@ -39,8 +39,9 @@ const renderItems = items => {
 
 const renderReadonlyItems = items => {
   if (!items) return null
+  const itemsLength = items.length
 
-  if (items.length === 1) {
+  if (itemsLength === 1) {
     return (
       <Item>
         <Hightlight>{Trans(items[0])}</Hightlight>
@@ -50,9 +51,11 @@ const renderReadonlyItems = items => {
 
   return (
     <Item>
-      {items.map(item => (
-        <Hightlight key={uid.gen()}>{Trans(item)}</Hightlight>
+      {items.slice(0, itemsLength - 1).map(item => (
+        <Hightlight key={uid.gen()}>{Trans(item)}, </Hightlight>
       ))}
+
+      <Hightlight>{Trans(items[itemsLength - 1])}</Hightlight>
     </Item>
   )
 }

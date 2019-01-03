@@ -19,7 +19,7 @@ import MailsViewer from '../MailsViewer'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
-import { StateTree, TypeWriterLoading } from '../../components'
+import { StateTree, EditorLoading } from '../../components'
 
 import {
   PreviewOverlay,
@@ -37,10 +37,18 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Preview')
 /* eslint-enable no-unused-vars */
 
-const DynamicTypeWriter = dynamic({
-  loader: () => import('../TypeWriter'),
+const DynamicPostWriter = dynamic({
+  loader: () => import('../PostEditor'),
   /* eslint-disable */
-  loading: () => <TypeWriterLoading />,
+  loading: () => <EditorLoading />,
+  /* eslint-enable */
+  ssr: false,
+})
+
+const DynamicJobWriter = dynamic({
+  loader: () => import('../JobEditor'),
+  /* eslint-disable */
+  loading: () => <EditorLoading />,
   /* eslint-enable */
   ssr: false,
 })
@@ -80,11 +88,11 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <ArticleViwer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
-      return <DynamicTypeWriter onClose={logic.closePreview} />
+      return <DynamicPostWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_POST_EDIT: {
       return (
-        <DynamicTypeWriter
+        <DynamicPostWriter
           onClose={logic.closePreview}
           attachment={attachment}
         />
@@ -92,14 +100,14 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // job
     case TYPE.PREVIEW_JOB_CREATE: {
-      return <DynamicTypeWriter onClose={logic.closePreview} />
+      return <DynamicJobWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_JOB_VIEW: {
       return <ArticleViwer attachment={attachment} />
     }
     case TYPE.PREVIEW_JOB_EDIT: {
       return (
-        <DynamicTypeWriter
+        <DynamicJobWriter
           onClose={logic.closePreview}
           attachment={attachment}
         />

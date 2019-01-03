@@ -21,6 +21,10 @@ export { default as VideoItem } from './VideoItem'
 
 // Utils component
 export { withGuardian } from './HOC'
+export { default as MarkdownEditor } from './MarkdownEditor'
+export { default as ArticleEditToolbar } from './ArticleEditToolbar'
+export { default as ArticleEditFooter } from './ArticleEditFooter'
+
 export { default as ContentBanner } from './ContentBanner'
 export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
@@ -75,7 +79,7 @@ export {
   VideoItemLoading,
   RepoItemLoading,
   JobItemLoading,
-  TypeWriterLoading,
+  EditorLoading,
   ArticleContentLoading,
   CommunityHolder,
 } from './LoadingEffects'

@@ -10,7 +10,7 @@ export { default as PostItemLoading } from './PostItemLoading'
 export { default as VideoItemLoading } from './VideoItemLoading'
 export { default as RepoItemLoading } from './RepoItemLoading'
 export { default as JobItemLoading } from './JobItemLoading'
-export { default as TypeWriterLoading } from './TypeWriterLoading'
+export { default as EditorLoading } from './EditorLoading'
 
 export { default as ArticleContentLoading } from './ArticleContentLoading'
 export { default as CommunityHolder } from './CommunityHolder'
