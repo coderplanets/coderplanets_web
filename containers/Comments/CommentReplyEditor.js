@@ -18,7 +18,7 @@ import { debounce } from '../../utils'
 import * as logic from './logic'
 
 const DynamicBodyEditor = dynamic({
-  loader: () => import('../TypeWriter/BodyEditor'),
+  loader: () => import('../../components/ArticleEditor'),
   /* eslint-disable */
   loading: () => <div>loading</div>,
   /* eslint-enable */
