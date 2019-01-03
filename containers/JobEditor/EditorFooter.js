@@ -46,11 +46,11 @@ const EditorFooter = ({ editData }) => (
           multi
         />
         <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="salary" selected={[editData.salary]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
         <Labeler label="education" selected={[editData.education]} />
         <Divider src={`${ICON_CMD}/more.svg`} />
         <Labeler label="exp" selected={[editData.exp]} />
+        <Divider src={`${ICON_CMD}/more.svg`} />
+        <Labeler label="salary" selected={[editData.salary]} />
         <Divider src={`${ICON_CMD}/more.svg`} />
         <Labeler label="field" selected={[editData.field]} />
         <Divider src={`${ICON_CMD}/more.svg`} />
