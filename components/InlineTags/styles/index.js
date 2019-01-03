@@ -17,6 +17,11 @@ export const Title = styled.div`
   opacity: 0.8;
   font-size: 0.8rem;
 `
+
+export const MoreText = styled.div`
+  margin-top: -8px;
+  font-weight: bold;
+`
 export const Dot = styled.div`
   ${cs.circle('10px')};
   margin-right: 4px;
@@ -24,4 +29,9 @@ export const Dot = styled.div`
   margin-top: -1px;
 
   opacity: ${theme('tags.dotOpacity')};
+`
+export const PopoverInfo = styled.div`
+  padding: 10px;
+  padding-top: 12px;
+  padding-bottom: 5px;
 `
