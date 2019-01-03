@@ -58,6 +58,7 @@ const Labeler = t
     get labelEntriesData() {
       return stripMobx(self.labelEntries)
     },
+    // TODO: refactor those shit code below
     // return the label map key-value
     get labelsData() {
       const labelList = stripMobx(self.labelEntries)
@@ -65,11 +66,20 @@ const Labeler = t
       const mapData = { tags: [] }
       R.forEach(label => {
         if (label.label === 'city' || label.label === 'default') {
-          const tagId = self.root.tagsBar.getTagIdByTitle(label.selected[0])
-          if (tagId !== false) {
-            mapData.tags.push({ id: tagId })
+          if (label.multi) {
+            R.forEach(selectedLabel => {
+              const tagId = self.root.tagsBar.getTagIdByTitle(selectedLabel)
+              if (tagId !== false) {
+                mapData.tags.push({ id: tagId })
+              }
+            }, label.selected)
+          } else {
+            const tagId = self.root.tagsBar.getTagIdByTitle(label.selected[0])
+            if (tagId !== false) {
+              mapData.tags.push({ id: tagId })
+            }
+            return false
           }
-          return false
         }
 
         if (label.multi) {

@@ -4,6 +4,7 @@ import { theme } from '../../../utils'
 // margin: -20px;
 export const ContentContainer = styled.div`
   margin-top: -8px;
+  margin-left: -6px;
   border-radius: 2px;
   background: ${theme('popover.bg')};
   border: 1px solid;

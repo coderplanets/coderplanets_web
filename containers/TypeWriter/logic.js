@@ -98,9 +98,7 @@ function publishJob() {
   }
 
   const { isEdit } = store
-
   const { body } = store.editData
-  publishing()
 
   const digest = getDigest(body)
   const length = countWords(body)
@@ -113,8 +111,12 @@ function publishJob() {
     communityId: store.viewing.community.id,
   }
 
+  publishing()
   if (isEdit) {
-    const args = cast(updatableJobFields, variables)
+    const args = cast(
+      updatableJobFields,
+      R.merge(variables, { tags: store.labelsData.tags })
+    )
     return sr71$.mutate(S.updateJob, args)
   }
 

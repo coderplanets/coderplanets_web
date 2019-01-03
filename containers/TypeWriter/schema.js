@@ -130,6 +130,7 @@ const updateJob = gql`
     $finance: String
     $scale: String
     $field: String
+    $tags: [Ids]
   ) {
     updateJob(
       id: $id
@@ -148,6 +149,7 @@ const updateJob = gql`
       finance: $finance
       scale: $scale
       field: $field
+      tags: $tags
     ) {
       id
     }
@@ -207,7 +209,7 @@ export const updatableJobFields = [
   'scale',
   'field',
   // TODO: 'mentionUsers',
-  // TODO: 'tags',
+  'tags',
 ]
 
 export const S = {

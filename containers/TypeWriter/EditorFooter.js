@@ -58,6 +58,7 @@ const EditorFooter = ({ thread, editData }) => {
               <Labeler
                 label="city"
                 selected={R.pluck('title', editData.tags)}
+                multi
               />
               <Divider src={`${ICON_CMD}/more.svg`} />
               <Labeler label="salary" selected={[editData.salary]} />
