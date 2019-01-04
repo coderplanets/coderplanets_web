@@ -24,8 +24,8 @@ const JobEducationFilter = ({ activeFilter, onSelect }) => (
     {LABEL_POOL.education.data.map(item => (
       <SelectItem
         key={item}
-        active={activeFilter.jobEducation === item}
-        onClick={onSelect.bind(this, { jobEducation: item })}
+        active={activeFilter.education === item}
+        onClick={onSelect.bind(this, { education: item })}
       >
         {item}
       </SelectItem>

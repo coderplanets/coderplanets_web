@@ -62,6 +62,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           pagedJobs: resp.pagedJobs,
           curView: getCurView(resp.pagedJobs),
           activeTag,
+          filters,
         },
       }
     }
@@ -71,6 +72,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           pagedVideos: resp.pagedVideos,
           curView: getCurView(resp.pagedVideos),
           activeTag,
+          filters,
         },
       }
     }
@@ -119,3 +121,24 @@ export const addTopicIfNeed = (source, thread, topic) => {
   }
   return source
 }
+
+export const validCommunityFilters = [
+  'page',
+  'size',
+  'community',
+  'topic',
+  'tag',
+  'length',
+  'sort',
+  'when',
+  'read',
+  // jobs spec
+  'salary',
+  'exp',
+  'field',
+  'finance',
+  'scale',
+  'education',
+  // videos
+  'source',
+]

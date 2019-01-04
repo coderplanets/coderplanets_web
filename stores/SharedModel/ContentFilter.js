@@ -32,14 +32,14 @@ export const ContentFilter = t.model('ContentFilter', {
     ''
   ),
   // job
-  jobSalary: t.optional(t.string, ''),
-  jobExp: t.optional(t.string, ''),
-  jobEducation: t.optional(t.string, ''),
-  jobField: t.optional(t.string, ''),
-  jobFinace: t.optional(t.string, ''),
-  jobScale: t.optional(t.string, ''),
+  salary: t.optional(t.string, ''),
+  exp: t.optional(t.string, ''),
+  education: t.optional(t.string, ''),
+  field: t.optional(t.string, ''),
+  finance: t.optional(t.string, ''),
+  scale: t.optional(t.string, ''),
   // video
-  videoSource: t.optional(t.string, ''),
+  source: t.optional(t.string, ''),
   read: t.optional(t.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })
 

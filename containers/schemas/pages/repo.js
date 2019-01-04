@@ -33,7 +33,7 @@ export const repo = `
 `
 
 export const pagedRepos = `
-  query($filter: PagedArticleFilter, $userHasLogin: Boolean!) {
+  query($filter: PagedReposFilter, $userHasLogin: Boolean!) {
     pagedRepos(filter: $filter) {
       entries {
         ${F.repo}

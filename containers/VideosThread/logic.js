@@ -52,7 +52,7 @@ export function loadVideos(page = 1) {
 
   debug('load videos --> ', args)
   sr71$.query(S.pagedVideos, args)
-  store.markRoute({ page })
+  store.markRoute({ page, ...store.filtersData })
 }
 
 export function onTitleSelect(data) {
@@ -83,7 +83,11 @@ export function onTagSelect(tag) {
   store.markRoute({ tag: tag.title })
 }
 
-export const onFilterSelect = option => store.selectFilter(option)
+export const onFilterSelect = option => {
+  store.selectFilter(option)
+  store.markRoute({ ...store.filtersData })
+  loadVideos()
+}
 export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################

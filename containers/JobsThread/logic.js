@@ -19,11 +19,11 @@ import {
 import { PAGE_SIZE } from '../../config'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:JobsThread')
 /* eslint-enable no-unused-vars */
@@ -60,7 +60,7 @@ export function loadJobs(page = 1) {
 
   debug('######## loadJobs args: ', args)
   sr71$.query(S.pagedJobs, args)
-  store.markRoute({ page })
+  store.markRoute({ page, ...store.filtersData })
 }
 
 export function onTitleSelect(data) {
@@ -89,7 +89,11 @@ export function onTagSelect(tag) {
   store.markRoute({ tag: tag.title })
 }
 
-export const onFilterSelect = option => store.selectFilter(option)
+export const onFilterSelect = option => {
+  store.selectFilter(option)
+  store.markRoute({ ...store.filtersData })
+  loadJobs()
+}
 export const onCustomChange = option => store.updateC11N(option)
 
 // ###############################

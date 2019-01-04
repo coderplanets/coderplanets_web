@@ -26,8 +26,8 @@ const JobScaleFilter = ({ activeFilter, onSelect }) => (
       {LABEL_POOL.scale.data.map(item => (
         <SelectItem
           key={item}
-          active={activeFilter.jobScale === item}
-          onClick={onSelect.bind(this, { jobScale: item })}
+          active={activeFilter.scale === item}
+          onClick={onSelect.bind(this, { scale: item })}
         >
           {item}
         </SelectItem>

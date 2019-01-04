@@ -26,8 +26,8 @@ const JobSalaryFilter = ({ activeFilter, onSelect }) => (
       {LABEL_POOL.salary.data.map(item => (
         <SelectItem
           key={item}
-          active={activeFilter.jobSalary === item}
-          onClick={onSelect.bind(this, { jobSalary: item })}
+          active={activeFilter.salary === item}
+          onClick={onSelect.bind(this, { salary: item })}
         >
           {item}
         </SelectItem>

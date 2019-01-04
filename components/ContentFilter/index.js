@@ -55,14 +55,14 @@ ContentFilter.propTypes = {
     length: PropTypes.string,
     read: PropTypes.string,
     // job
-    jobSalary: PropTypes.string,
-    jobExp: PropTypes.string,
-    jobEducation: PropTypes.string,
-    jobField: PropTypes.string,
-    jobFinace: PropTypes.string,
-    jobScale: PropTypes.string,
+    salary: PropTypes.string,
+    exp: PropTypes.string,
+    education: PropTypes.string,
+    field: PropTypes.string,
+    finance: PropTypes.string,
+    scale: PropTypes.string,
     // video
-    videoSource: PropTypes.string,
+    source: PropTypes.string,
   }),
   onSelect: PropTypes.func.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
@@ -87,14 +87,14 @@ ContentFilter.defaultProps = {
     read: '',
 
     // job
-    jobSalary: '',
-    jobExp: '',
-    jobEducation: '',
-    jobField: '',
-    jobFinace: '',
-    jobScale: '',
+    salary: '',
+    exp: '',
+    education: '',
+    field: '',
+    finance: '',
+    scale: '',
     // video
-    videoSource: '',
+    source: '',
   },
   thread: THREAD.POST,
   accountInfo: {
