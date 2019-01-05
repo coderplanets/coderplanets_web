@@ -26,8 +26,8 @@ const JobExpFilter = ({ activeFilter, onSelect }) => (
       {LABEL_POOL.exp.data.map(item => (
         <SelectItem
           key={item}
-          active={activeFilter.jobExp === item}
-          onClick={onSelect.bind(this, { jobExp: item })}
+          active={activeFilter.exp === item}
+          onClick={onSelect.bind(this, { exp: item })}
         >
           {item}
         </SelectItem>

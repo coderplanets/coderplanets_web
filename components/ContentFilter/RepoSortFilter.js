@@ -24,21 +24,21 @@ const RepoSortFilter = ({ activeFilter, onSelect }) => (
 
     <LeftAlignWrapper offset="10px">
       <SelectItem
-        active={activeFilter.sort === FILTER.MOST_STAR}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_STAR })}
+        active={activeFilter.sort === FILTER.MOST_GITHUB_STAR}
+        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_STAR })}
       >
         最多Star
       </SelectItem>
       <SelectItem
-        active={activeFilter.sort === FILTER.MOST_FORK}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_FORK })}
+        active={activeFilter.sort === FILTER.MOST_GITHUB_FORK}
+        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_FORK })}
       >
         最多Fork
       </SelectItem>
 
       <SelectItem
-        active={activeFilter.sort === FILTER.MOST_WATCH}
-        onClick={onSelect.bind(this, { sort: FILTER.MOST_WATCH })}
+        active={activeFilter.sort === FILTER.MOST_GITHUB_WATCH}
+        onClick={onSelect.bind(this, { sort: FILTER.MOST_GITHUB_WATCH })}
       >
         最多Watch
       </SelectItem>

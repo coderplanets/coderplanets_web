@@ -34,7 +34,7 @@ export const video = `
   }
 `
 export const pagedVideos = `
-  query($filter: PagedArticleFilter, $userHasLogin: Boolean!) {
+  query($filter: PagedVideosFilter, $userHasLogin: Boolean!) {
     pagedVideos(filter: $filter) {
       entries {
        ${F.video}

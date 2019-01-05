@@ -19,25 +19,25 @@ const VideoSourceFilter = ({ activeFilter, onSelect }) => (
     </SelectLable>
     <LabelDivider />
     <SelectItem
-      active={activeFilter.videoSource === 'youtube'}
-      onClick={onSelect.bind(this, { videoSource: 'youtube' })}
+      active={activeFilter.source === 'youtube'}
+      onClick={onSelect.bind(this, { source: 'youtube' })}
     >
       youtube
     </SelectItem>
     <SelectItem
-      active={activeFilter.videoSource === 'vimeo'}
-      onClick={onSelect.bind(this, { videoSource: 'vimeo' })}
+      active={activeFilter.source === 'vimeo'}
+      onClick={onSelect.bind(this, { source: 'vimeo' })}
     >
       vimeo
     </SelectItem>
     <SelectItem
-      active={activeFilter.videoSource === 'bilibili'}
-      onClick={onSelect.bind(this, { videoSource: 'bilibili' })}
+      active={activeFilter.source === 'bilibili'}
+      onClick={onSelect.bind(this, { source: 'bilibili' })}
     >
       B站
     </SelectItem>
     <SelectItem
-      active={activeFilter.videoSource === 'other'}
+      active={activeFilter.source === 'other'}
       onClick={onSelect.bind(this, { videoSource: 'other' })}
     >
       其他网站

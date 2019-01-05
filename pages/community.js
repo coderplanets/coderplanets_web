@@ -35,6 +35,7 @@ import {
   ssrContentsThread,
   addTopicIfNeed,
   ssrAmbulance,
+  validCommunityFilters,
 } from '../utils'
 
 import { P } from '../containers/schemas'
@@ -71,20 +72,7 @@ async function fetchData(props, opt) {
     topic
   )
 
-  filter = R.pick(
-    [
-      'page',
-      'size',
-      'community',
-      'topic',
-      'tag',
-      'length',
-      'sort',
-      'when',
-      'read',
-    ],
-    filter
-  )
+  filter = R.pick(validCommunityFilters, filter)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)

@@ -95,6 +95,7 @@ export {
   ssrPagedFilter,
   ssrContentsThread,
   addTopicIfNeed,
+  validCommunityFilters,
 } from './ssr_helper'
 
 export {
