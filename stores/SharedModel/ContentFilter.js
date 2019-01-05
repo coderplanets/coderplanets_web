@@ -21,9 +21,9 @@ export const ContentFilter = t.model('ContentFilter', {
       FILTER.MOST_FAVORITES,
       FILTER.MOST_STARS,
       FILTER.MOST_COMMENTS,
-      FILTER.MOST_STAR,
-      FILTER.MOST_FORK,
-      FILTER.MOST_WATCH,
+      FILTER.MOST_GITHUB_STAR,
+      FILTER.MOST_GITHUB_FORK,
+      FILTER.MOST_GITHUB_WATCH,
     ]),
     ''
   ),

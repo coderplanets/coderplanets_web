@@ -17,9 +17,9 @@ const filterDict = {
   MOST_WORDS: '字数最多',
   LEAST_WORDS: '字数最少',
   // repo
-  MOST_STAR: '最多Star',
-  MOST_FORK: '最多Fork',
-  MOST_WATCH: '最多Watch',
+  MOST_GITHUB_STAR: '最多Star',
+  MOST_GITHUB_FORK: '最多Fork',
+  MOST_GITHUB_WATCH: '最多Watch',
   //
   TRUE: '已读',
   READ: '只显已读',

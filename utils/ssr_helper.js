@@ -82,6 +82,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           pagedRepos: resp.pagedRepos,
           curView: getCurView(resp.pagedRepos),
           activeTag,
+          filters,
         },
       }
     }
