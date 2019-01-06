@@ -22,6 +22,9 @@ const post = gql`
       tags {
         ${F.tag}
       }
+      commentsParticipators {
+        ${F.author}
+      }
       commentsCount
       linkAddr
       insertedAt
@@ -59,6 +62,9 @@ const job = gql`
       }
       communities {
         ${F.community}
+      }
+      commentsParticipators {
+        ${F.author}
       }
       favoritedCount
       viewerHasViewed @include(if: $userHasLogin)

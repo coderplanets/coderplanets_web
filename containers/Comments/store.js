@@ -25,6 +25,8 @@ import {
 const debug = makeDebugger('S:CommentsStore')
 /* eslint-enable no-unused-vars */
 
+const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
+
 const CommentsStore = t
   .model('CommentsStore', {
     // toggle main comment box
@@ -99,19 +101,23 @@ const CommentsStore = t
       )
     },
     get participators() {
-      return [
+      const { commentsParticipators } = self.root.viewing.viewingData
+      /*
+      const commentsParticipators = [
         {
           id: '112',
-          name: 'mydearxym',
+          nickname: 'mydearxym',
           avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
         },
         {
           id: '113',
-          name: 'Julian',
+          nickname: 'Julian',
           avatar:
             'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
         },
       ]
+      */
+      return R.map(mentionMapper, commentsParticipators)
     },
     get mentionListData() {
       return stripMobx(self.mentionList)
@@ -174,10 +180,13 @@ const CommentsStore = t
     },
     updateMentionList(mentionArray) {
       const curMentionList = R.clone(self.mentionList)
-      const uniqList = R.uniq(R.concat(curMentionList, mentionArray))
-      const mentionList = R.map(m => ({ ...m, name: m.nickname }), uniqList)
-      // TODO: add comments participators
-      self.mentionList = mentionList
+      const uniqList = R.concat(curMentionList, mentionArray)
+      const mentionList = R.map(mentionMapper, uniqList)
+
+      // debug('mentionList: ', mentionList)
+      // debug('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
+
+      self.mentionList = R.uniq(R.concat(mentionList, self.participators))
     },
     updateOneComment(id, comment = {}) {
       const index = R.findIndex(R.propEq('id', id), self.entriesData)
