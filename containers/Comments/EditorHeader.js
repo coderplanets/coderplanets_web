@@ -9,8 +9,9 @@ import {
   UserAvatar,
   LeaveResponseText,
   LeaveResponseUsername,
-  ReplyAvatars,
-  ReferToIcon,
+  RefUsersWrapper,
+  RefUserList,
+  AtSignIcon,
 } from './styles/editor_header'
 
 import { openInputBox } from './logic'
@@ -29,16 +30,18 @@ const EditorHeader = ({
         <UserAvatar src={accountInfo.avatar} />
         <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
         {referUsers.length > 0 ? (
-          <div style={{ display: 'flex' }}>
-            <ReferToIcon src={`${ICON_CMD}/refer.svg`} />
-            <ReplyAvatars>
+          <RefUsersWrapper>
+            <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
+            <RefUserList>
               <AvatarsRow
                 users={referUsers}
                 total={referUsers.length}
                 height="20px"
+                limit={10}
+                reverse={false}
               />
-            </ReplyAvatars>
-          </div>
+            </RefUserList>
+          </RefUsersWrapper>
         ) : null}
         <SpaceGrow />
         <WordsCounter countCurrent={countCurrent} />
@@ -57,7 +60,7 @@ const EditorHeader = ({
     <Wrapper>
       <UserAvatar src={accountInfo.avatar || DEFAULT_USER_AVATAR} />
       <LeaveResponseText onClick={openInputBox}>
-        来都来了, 留条评论吧 ...
+        来都来了, 说点什么吧 ...
       </LeaveResponseText>
     </Wrapper>
   )

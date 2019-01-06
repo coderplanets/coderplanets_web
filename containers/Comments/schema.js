@@ -93,6 +93,15 @@ const undoDislikeComment = gql`
     }
   }
 `
+const searchUsers = gql`
+  query($name: String!) {
+    searchUsers(name: $name) {
+      entries {
+        ${F.author}
+      }
+    }
+  }
+`
 
 const schema = {
   pagedComments,
@@ -103,6 +112,7 @@ const schema = {
   undoLikeComment,
   dislikeComment,
   undoDislikeComment,
+  searchUsers,
 }
 
 export default schema

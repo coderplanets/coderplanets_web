@@ -27,7 +27,7 @@ export const BodyWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 export const CommentsWrapper = styled.div`
-  min-height: 600px;
+  min-height: 400px;
   margin-top: 32px;
   margin-left: 4%;
   margin-right: 4%;

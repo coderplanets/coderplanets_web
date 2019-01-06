@@ -72,6 +72,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
                     total={referUsers.length}
                     height="20px"
                     limit={12}
+                    reverse={false}
                   />
                 </RefUserList>
               </RefUsersWrapper>

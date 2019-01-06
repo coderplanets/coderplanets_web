@@ -95,16 +95,12 @@ export function insertCode() {
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
-export const onMentionSearch = value => {
-  // const mentionList = R.map(m => ({ ...m, name: m.nickname }), testMentions)
-  if (value && value.length >= 2) {
-    debug('search user for ', value)
-    sr71$.query(S.searchUsers, { name: value })
+export const onMentionSearch = name => {
+  if (name && name.length >= 2) {
+    sr71$.query(S.searchUsers, { name })
   } else {
     store.markState({ mentionList: [] })
-    // sr71$.query(S.commentParti..., { name: value })
   }
-  // store.markState({ mentionList })
 }
 
 export const onMention = user => store.addReferUser(user)

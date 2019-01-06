@@ -6,19 +6,13 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post } from '../../stores/SharedModel'
+import { Post, Mention } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:PostEditorf')
 /* eslint-enable no-unused-vars */
-
-const Mention = t.model('Mention', {
-  id: t.string,
-  name: t.string,
-  avatar: t.string,
-})
 
 const PostEditor = t
   .model('PostEditor', {

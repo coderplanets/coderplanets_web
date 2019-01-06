@@ -11,7 +11,7 @@ import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '../../config/general'
 
-import { Avatars, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
+import { Wrapper, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
 
 import { makeDebugger, prettyNum } from '../../utils'
 
@@ -31,15 +31,17 @@ const AvatarsRow = ({
   limit,
   onUserSelect,
   onTotalSelect,
+  reverse,
 }) => {
   if (users.length === 0) {
     return <span />
   }
 
   users = R.filter(validUser, users)
+  const sortedUsers = reverse ? users : R.reverse(users)
 
   return (
-    <Avatars height={height}>
+    <Wrapper height={height}>
       {total <= 1 ? (
         <span />
       ) : (
@@ -50,14 +52,14 @@ const AvatarsRow = ({
         </AvatarsItem>
       )}
 
-      {R.slice(0, limit, users).map(user => (
+      {R.slice(0, limit, sortedUsers).map(user => (
         <AvatarsItem key={user.id} onClick={onUserSelect.bind(this, user)}>
           <Tooltip title={user.nickname}>
             <AvatarsImg src={user.avatar} />
           </Tooltip>
         </AvatarsItem>
       ))}
-    </Avatars>
+    </Wrapper>
   )
 }
 
@@ -75,6 +77,7 @@ AvatarsRow.propTypes = {
   limit: PropTypes.number,
   onUserSelect: PropTypes.func,
   onTotalSelect: PropTypes.func,
+  reverse: PropTypes.bool,
 }
 
 AvatarsRow.defaultProps = {
@@ -83,6 +86,7 @@ AvatarsRow.defaultProps = {
   limit: ATATARS_LIST_LENGTH.POSTS,
   onUserSelect: debug,
   onTotalSelect: debug,
+  reverse: true,
 }
 
 export default AvatarsRow
