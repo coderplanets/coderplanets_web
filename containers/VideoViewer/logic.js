@@ -7,9 +7,6 @@ import {
   asyncErr,
   ERR,
   TYPE,
-  EVENT,
-  dispatchEvent,
-  closePreviewer,
 } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
@@ -39,33 +36,6 @@ export function onReaction(thread, action, userDid, { id }) {
     : sr71$.mutate(S.reaction, args)
 }
 
-export const onPin = () => {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-
-  sr71$.mutate(S.pinVideo, args)
-}
-
-export const onUndoPin = () => {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-
-  sr71$.mutate(S.undoPinVideo, args)
-}
-
-export const onEdit = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_VIDEO_EDIT,
-    data: store.viewingData, // maybe need clone
-  })
-
-export const onDelete = () =>
-  sr71$.mutate(S.deleteVideo, { id: store.viewingData.id })
-
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
 // ###############################
 // Data & Error handlers
@@ -84,27 +54,6 @@ const DataSolver = [
     match: asyncRes('reaction'),
     action: ({ reaction }) =>
       sr71$.query(S.videoReactionRes, { id: reaction.id }),
-  },
-  {
-    match: asyncRes('pinVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('undoPinVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('deleteVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
   },
 ]
 const ErrSolver = [

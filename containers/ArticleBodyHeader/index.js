@@ -7,21 +7,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 import { Popover, ArticleActionsPanel } from '../../components'
 
-import {
-  Wrapper,
-  MoreWrapper,
-  MoreIcon,
-  LinkFrom,
-  RefinedLabel,
-  LinkSource,
-  RefinedIcon,
-  RefinedText,
-} from './styles'
+import Labeler from '../Labeler'
+
+import Linker from './Linker'
+import RefinedLabel from './RefinedLabel'
+
+import { Wrapper, MoreWrapper, MoreIcon } from './styles'
 
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
@@ -41,8 +36,7 @@ class ArticleBodyHeaderContainer extends React.Component {
   }
 
   render() {
-    const { data, thread } = this.props
-    const isRefined = R.contains('refined', R.pluck('title', data.tags))
+    const { data, thread, middle } = this.props
 
     return (
       <Wrapper>
@@ -67,24 +61,10 @@ class ArticleBodyHeaderContainer extends React.Component {
             </div>
           </Popover>
         </MoreWrapper>
-        {data.linkAddr ? (
-          <LinkFrom
-            href={data.linkAddr}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div>转载自:&nbsp;</div>
-            <LinkSource>{data.linkAddr}</LinkSource>
-          </LinkFrom>
-        ) : null}
-        {isRefined ? (
-          <RefinedLabel>
-            <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
-            <RefinedText>精 华</RefinedText>
-          </RefinedLabel>
-        ) : (
-          <div />
-        )}
+
+        {middle === 'linker' ? <Linker addr={data.linkAddr} /> : null}
+        {middle === 'labeler' ? <Labeler /> : null}
+        <RefinedLabel tags={data.tags} />
       </Wrapper>
     )
   }
@@ -98,10 +78,12 @@ ArticleBodyHeaderContainer.propTypes = {
     tags: PropTypes.object,
     linkAddr: PropTypes.string,
   }).isRequired,
+  middle: PropTypes.oneOf(['linker', 'labeler']),
 }
 
 ArticleBodyHeaderContainer.defaultProps = {
   thread: THREAD.POST,
+  middle: 'linker',
 }
 
 export default inject(storePlug('articleBodyHeader'))(

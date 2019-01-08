@@ -7,14 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import { ArticleHeader } from '../../components'
 
 import Comments from '../Comments'
 import PlayWindow from './PlayWindow'
 import InfoBoard from './InfoBoard'
-import BodyHeader from './BodyHeader'
 
-import { Wrapper, CommentsWrapper } from './styles'
+import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
@@ -45,7 +45,13 @@ class VideoViewerContainer extends React.Component {
           onReaction={logic.onReaction}
           thread={THREAD.VIDEO}
         />
-        <BodyHeader data={viewingData} thread={THREAD.VIDEO} />
+        <BodyHeaderWrapper>
+          <ArticleBodyHeader
+            data={viewingData}
+            thread={THREAD.VIDEO}
+            middle="labeler"
+          />
+        </BodyHeaderWrapper>
         {viewingData.poster ? <PlayWindow poster={viewingData.poster} /> : null}
         <InfoBoard data={viewingData} />
         <CommentsWrapper>

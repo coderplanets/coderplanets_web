@@ -33,6 +33,12 @@ export const onEdit = thread => {
         data: store.viewingData,
       })
     }
+    case THREAD.VIDEO: {
+      return dispatchEvent(EVENT.PREVIEW_OPEN, {
+        type: TYPE.PREVIEW_VIDEO_EDIT,
+        data: store.viewingData,
+      })
+    }
     default: {
       return dispatchEvent(EVENT.PREVIEW_OPEN, {
         type: TYPE.PREVIEW_POST_EDIT,
@@ -52,6 +58,9 @@ export const onPin = thread => {
     case THREAD.JOB: {
       return sr71$.mutate(S.pinJob, args)
     }
+    case THREAD.VIDEO: {
+      return sr71$.mutate(S.pinVideo, args)
+    }
     default: {
       const { subPath: topic } = store.curRoute
       return sr71$.mutate(S.pinPost, R.merge(args, { topic }))
@@ -69,6 +78,9 @@ export const onUndoPin = thread => {
     case THREAD.JOB: {
       return sr71$.mutate(S.undoPinJob, args)
     }
+    case THREAD.VIDEO: {
+      return sr71$.mutate(S.undoPinVideo, args)
+    }
     default: {
       const { subPath: topic } = store.curRoute
       return sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
@@ -83,6 +95,9 @@ export const onDelete = () => {
   switch (store.activeThread) {
     case THREAD.JOB: {
       return sr71$.mutate(S.deleteJob, { id })
+    }
+    case THREAD.VIDEO: {
+      return sr71$.mutate(S.deleteVideo, { id })
     }
     default: {
       return sr71$.mutate(S.deletePost, { id })
@@ -138,6 +153,28 @@ const DataSolver = [
     match: asyncRes('deleteJob'),
     action: () => {
       dispatchEvent(EVENT.REFRESH_JOBS)
+      closePreviewer()
+    },
+  },
+  // video
+  {
+    match: asyncRes('pinVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('undoPinVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('deleteVideo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_VIDEOS)
       closePreviewer()
     },
   },

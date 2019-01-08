@@ -1,5 +1,6 @@
 import gql from 'graphql-tag'
 
+// post
 const pinPost = gql`
   mutation($id: ID!, $communityId: ID!, $topic: String) {
     pinPost(id: $id, communityId: $communityId, topic: $topic) {
@@ -14,6 +15,14 @@ const undoPinPost = gql`
     }
   }
 `
+const deletePost = gql`
+  mutation($id: ID!) {
+    deletePost(id: $id) {
+      id
+    }
+  }
+`
+// job
 const pinJob = gql`
   mutation($id: ID!, $communityId: ID!) {
     pinJob(id: $id, communityId: $communityId) {
@@ -28,13 +37,6 @@ const undoPinJob = gql`
     }
   }
 `
-const deletePost = gql`
-  mutation($id: ID!) {
-    deletePost(id: $id) {
-      id
-    }
-  }
-`
 const deleteJob = gql`
   mutation($id: ID!) {
     deleteJob(id: $id) {
@@ -42,16 +44,43 @@ const deleteJob = gql`
     }
   }
 `
+// video
+const pinVideo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    pinVideo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+const undoPinVideo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    undoPinVideo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+
+const deleteVideo = gql`
+  mutation($id: ID!) {
+    deleteVideo(id: $id) {
+      id
+    }
+  }
+`
 
 const schema = {
+  // post
   pinPost,
   undoPinPost,
-
+  deletePost,
   // job
   pinJob,
   undoPinJob,
-  deletePost,
   deleteJob,
+  // video
+  pinVideo,
+  undoPinVideo,
+  deleteVideo,
 }
 
 export default schema
