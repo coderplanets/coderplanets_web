@@ -28,8 +28,12 @@ const CompanyCard = ({ data }) => (
         <Title>{cutFrom(data.company, 9)}</Title>
         <HomePage>
           <LinkIcon src={`${ICON_CMD}/home.svg`} />
-          <Link href="xxx" rel="noopener noreferrer" target="_blank">
-            --
+          <Link
+            href={data.companyLink}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {cutFrom(data.companyLink, 30)}
           </Link>
         </HomePage>
       </CompanyLabel>
@@ -39,15 +43,15 @@ const CompanyCard = ({ data }) => (
     <CompanyStates>
       <StateLabel>
         <StateIcon src={`${ICON_CMD}/stock2.svg`} />
-        <StateText>B轮</StateText>
+        <StateText>{data.finance}</StateText>
       </StateLabel>
       <StateLabel>
         <StateIcon src={`${ICON_CMD}/footer_field.svg`} />
-        <StateText>企业服务，电子商务</StateText>
+        <StateText>{data.field}</StateText>
       </StateLabel>
       <StateLabel>
         <StateIcon src={`${ICON_CMD}/footer_scale.svg`} />
-        <StateText>20-100人</StateText>
+        <StateText>{data.scale}</StateText>
       </StateLabel>
     </CompanyStates>
   </Wrapper>
