@@ -52,7 +52,7 @@ class JobContentContainer extends React.Component {
                 <MarkDownRender body={viewingJobData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
-                <Comments />
+                <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
             <SideCards data={viewingJobData} />
