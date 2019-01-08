@@ -56,6 +56,7 @@ import {
   // footer
   FooterStore,
   // viewers
+  PostViewerStore,
   ArticleViwerStore,
   ArticleBodyHeaderStore,
   AccountViewerStore,
@@ -171,6 +172,7 @@ const rootStore = t
     cashier: t.optional(CashierStore, {}),
 
     // viewers (for preview usage)
+    postViewer: t.optional(PostViewerStore, {}),
     articleViwer: t.optional(ArticleViwerStore, {}),
     articleBodyHeader: t.optional(ArticleBodyHeaderStore, {}),
     accountViewer: t.optional(AccountViewerStore, {}),

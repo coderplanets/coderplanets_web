@@ -91,6 +91,8 @@ export { default as LabelerStore } from '../containers/Labeler/store'
 
 // viewers store
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
+export { default as PostViewerStore } from '../containers/PostViewer/store'
+
 export {
   default as ArticleBodyHeaderStore,
 } from '../containers/ArticleBodyHeader/store'

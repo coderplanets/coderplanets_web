@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic'
 
 // viewers
 import ArticleViwer from '../ArticleViwer'
+import PostViewer from '../PostViewer'
 // import AccountViewer from '../AccountViewer'
 import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
@@ -85,7 +86,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // post
     case TYPE.PREVIEW_POST_VIEW: {
-      return <ArticleViwer attachment={attachment} />
+      return <PostViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
       return <DynamicPostWriter onClose={logic.closePreview} />
