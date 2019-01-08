@@ -32,26 +32,9 @@ const repoReactionRes = gql`
   }
 `
 
-const pinRepo = gql`
-  mutation($id: ID!, $communityId: ID!) {
-    pinRepo(id: $id, communityId: $communityId) {
-      id
-    }
-  }
-`
-const undoPinRepo = gql`
-  mutation($id: ID!, $communityId: ID!) {
-    undoPinRepo(id: $id, communityId: $communityId) {
-      id
-    }
-  }
-`
-
 const schema = {
   repo,
   repoReactionRes,
-  pinRepo,
-  undoPinRepo,
 }
 
 export default schema

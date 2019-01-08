@@ -3,7 +3,6 @@ import R from 'ramda'
 import {
   makeDebugger,
   dispatchEvent,
-  closePreviewer,
   $solver,
   asyncRes,
   asyncErr,
@@ -44,24 +43,6 @@ export function onReaction(thread, action) {
   }
 }
 
-export function onPin() {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-
-  sr71$.mutate(S.pinRepo, args)
-}
-
-export function onUndoPin() {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-
-  sr71$.mutate(S.undoPinRepo, args)
-}
-
 export const onListReactionUsers = (type, data) =>
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
@@ -87,20 +68,6 @@ const DataSolver = [
     action: ({ repo }) => {
       markLoading(false)
       store.setViewing({ repo: R.merge(store.viewingData, repo) })
-    },
-  },
-  {
-    match: asyncRes('pinRepo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_REPOS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('undoPinRepo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_REPOS)
-      closePreviewer()
     },
   },
   {

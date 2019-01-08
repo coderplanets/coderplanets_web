@@ -26,24 +26,24 @@ const debug = makeDebugger('L:ArticleBodyHeader')
 let store = null
 
 export const onEdit = thread => {
+  let type = TYPE.PREVIEW_POST_EDIT
+  const data = store.viewingData
+
   switch (thread) {
     case THREAD.JOB: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, {
-        type: TYPE.PREVIEW_JOB_EDIT,
-        data: store.viewingData,
-      })
+      type = TYPE.PREVIEW_JOB_EDIT
+      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
     }
     case THREAD.VIDEO: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, {
-        type: TYPE.PREVIEW_VIDEO_EDIT,
-        data: store.viewingData,
-      })
+      type = TYPE.PREVIEW_VIDEO_EDIT
+      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+    }
+    case THREAD.REPO: {
+      type = TYPE.PREVIEW_REPO_EDIT
+      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
     }
     default: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, {
-        type: TYPE.PREVIEW_POST_EDIT,
-        data: store.viewingData,
-      })
+      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
     }
   }
 }
@@ -60,6 +60,9 @@ export const onPin = thread => {
     }
     case THREAD.VIDEO: {
       return sr71$.mutate(S.pinVideo, args)
+    }
+    case THREAD.REPO: {
+      return sr71$.mutate(S.pinRepo, args)
     }
     default: {
       const { subPath: topic } = store.curRoute
@@ -81,6 +84,9 @@ export const onUndoPin = thread => {
     case THREAD.VIDEO: {
       return sr71$.mutate(S.undoPinVideo, args)
     }
+    case THREAD.REPO: {
+      return sr71$.mutate(S.undoPinRepo, args)
+    }
     default: {
       const { subPath: topic } = store.curRoute
       return sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
@@ -98,6 +104,9 @@ export const onDelete = () => {
     }
     case THREAD.VIDEO: {
       return sr71$.mutate(S.deleteVideo, { id })
+    }
+    case THREAD.REPO: {
+      return sr71$.mutate(S.deleteRepo, { id })
     }
     default: {
       return sr71$.mutate(S.deletePost, { id })
@@ -175,6 +184,28 @@ const DataSolver = [
     match: asyncRes('deleteVideo'),
     action: () => {
       dispatchEvent(EVENT.REFRESH_VIDEOS)
+      closePreviewer()
+    },
+  },
+  // repo
+  {
+    match: asyncRes('pinRepo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_REPOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('undoPinRepo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_REPOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('deleteRepo'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_REPOS)
       closePreviewer()
     },
   },

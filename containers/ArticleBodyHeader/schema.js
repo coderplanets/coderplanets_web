@@ -68,6 +68,29 @@ const deleteVideo = gql`
   }
 `
 
+// repo
+const pinRepo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    pinRepo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+const undoPinRepo = gql`
+  mutation($id: ID!, $communityId: ID!) {
+    undoPinRepo(id: $id, communityId: $communityId) {
+      id
+    }
+  }
+`
+const deleteRepo = gql`
+  mutation($id: ID!) {
+    deleteRepo(id: $id) {
+      id
+    }
+  }
+`
+
 const schema = {
   // post
   pinPost,
@@ -81,6 +104,10 @@ const schema = {
   pinVideo,
   undoPinVideo,
   deleteVideo,
+  // repo
+  pinRepo,
+  undoPinRepo,
+  deleteRepo,
 }
 
 export default schema

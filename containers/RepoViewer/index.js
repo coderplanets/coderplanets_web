@@ -7,11 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import { CommentsWrapper } from './styles'
 
 import FavoritesCats from '../FavoritesCats'
 import Comments from '../Comments'
-import { GithubRepoPage, ArticleActionsPanel } from '../../components'
+import { GithubRepoPage } from '../../components'
 
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
@@ -35,7 +36,6 @@ class RepoViewerContainer extends React.Component {
     const { repoViewer } = this.props
     const { viewingData } = repoViewer
 
-    debug('viewingData ', viewingData)
     return (
       <React.Fragment>
         <FavoritesCats />
@@ -43,14 +43,11 @@ class RepoViewerContainer extends React.Component {
           repo={viewingData}
           onReaction={logic.onReaction}
           onListReactionUsers={logic.onListReactionUsers}
-          actionsPanel={
-            <ArticleActionsPanel
+          bodyHeader={
+            <ArticleBodyHeader
+              data={viewingData}
               thread={THREAD.REPO}
-              entry={viewingData}
-              onEdit={debug}
-              onPin={logic.onPin}
-              onUndoPin={logic.onUndoPin}
-              onInform={debug}
+              middle="labeler"
             />
           }
         />

@@ -10,7 +10,6 @@ import PropTypes from 'prop-types'
 import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
 import ArticleHeader from '../ArticleHeader'
-import BodyHeader from './BodyHeader'
 import Header from './Header'
 import StatesContainers from './StatesContainers'
 
@@ -42,7 +41,7 @@ const GithubRepoPage = ({
   showPublishBtn,
   showSearchBtn,
   showSyncBtn,
-  actionsPanel,
+  bodyHeader,
   readOnly,
 }) => (
   <Wrapper>
@@ -60,7 +59,7 @@ const GithubRepoPage = ({
       <ReadonlyHolder />
     )}
     <BodyWrapper>
-      {!readOnly ? <BodyHeader actionsPanel={actionsPanel} /> : null}
+      {!readOnly ? <React.Fragment>{bodyHeader} </React.Fragment> : null}
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}
@@ -104,7 +103,8 @@ GithubRepoPage.propTypes = {
   showSearchBtn: PropTypes.bool,
   showSyncBtn: PropTypes.bool,
 
-  actionsPanel: PropTypes.node,
+  bodyHeader: PropTypes.node,
+
   readOnly: PropTypes.bool,
 }
 
@@ -119,7 +119,7 @@ GithubRepoPage.defaultProps = {
   showPublishBtn: false,
   showSearchBtn: false,
   showSyncBtn: false,
-  actionsPanel: <div>loading</div>,
+  bodyHeader: <div />,
 
   readOnly: false,
 }
