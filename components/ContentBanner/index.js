@@ -29,27 +29,31 @@ const debug = makeDebugger('c:ContentBanner:index')
 /* eslint-enable no-unused-vars */
 
 // TODO: add a Loading effect
-const ContentBanner = ({ data, middleNode }) => (
-  <BannerContainer>
-    {R.isNil(data.id) ? null : (
-      <BannerContentWrapper>
-        <PostBrief>
-          <Title>{data.title}</Title>
-          <React.Fragment>
-            {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
-          </React.Fragment>
-          <Desc>
-            <MarkTag>精华帖</MarkTag>
-            <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
-            <DotDivider />
-            字数: {data.length}
-          </Desc>
-        </PostBrief>
-        <ReactionNumbers data={data} />
-      </BannerContentWrapper>
-    )}
-  </BannerContainer>
-)
+const ContentBanner = ({ data, middleNode }) => {
+  const isRefined = R.contains('refined', R.pluck('title', data.tags))
+
+  return (
+    <BannerContainer>
+      {R.isNil(data.id) ? null : (
+        <BannerContentWrapper>
+          <PostBrief>
+            <Title>{data.title}</Title>
+            <React.Fragment>
+              {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
+            </React.Fragment>
+            <Desc>
+              {isRefined ? <MarkTag>精华</MarkTag> : <div />}
+              <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+              <DotDivider />
+              字数: {data.length}
+            </Desc>
+          </PostBrief>
+          <ReactionNumbers data={data} />
+        </BannerContentWrapper>
+      )}
+    </BannerContainer>
+  )
+}
 
 ContentBanner.propTypes = {
   data: PropTypes.shape({

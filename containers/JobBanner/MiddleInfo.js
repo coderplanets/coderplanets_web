@@ -1,15 +1,21 @@
 import React from 'react'
 
 import { DotDivider } from '../../components'
+import CityList from './CityList'
 import { Wrapper, Salary, Text } from './styles/middle_info'
 
-const MiddleInfo = () => (
+const MiddleInfo = ({ data }) => (
   <Wrapper>
-    <Salary>15k-25k</Salary>
+    <Salary>{data.salary}</Salary>
     <DotDivider />
-    <Text>本科</Text>
+    <Text>{data.education}</Text>
     <DotDivider />
-    <Text>经验: 3-5年</Text>
+    <Text>
+      经验
+      {data.exp}
+    </Text>
+    <DotDivider />
+    <CityList data={data.tags} />
   </Wrapper>
 )
 
