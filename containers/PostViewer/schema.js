@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F, P } from '../schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
@@ -28,40 +28,18 @@ const post = gql`
   }
 `
 const reaction = gql`
-  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
-    reaction(id: $id, action: $action, thread: $thread) {
-      id
-    }
-  }
+  ${P.reaction}
 `
 const undoReaction = gql`
-  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
-    undoReaction(id: $id, action: $action, thread: $thread) {
-      id
-    }
-  }
+  ${P.undoReaction}
 `
 const setTag = gql`
-  mutation($thread: String!, $id: ID!, $tagId: ID!, $communityId: ID!) {
-    setTag(thread: $thread, id: $id, tagId: $tagId, communityId: $communityId) {
-      id
-      title
-    }
-  }
+  ${P.setTag}
 `
 const unsetTag = gql`
-  mutation($thread: String!, $id: ID!, $tagId: ID!, $communityId: ID!) {
-    unsetTag(
-      thread: $thread
-      id: $id
-      tagId: $tagId
-      communityId: $communityId
-    ) {
-      id
-      title
-    }
-  }
+  ${P.unsetTag}
 `
+
 const postReactionRes = gql`
   query($id: ID!) {
     post(id: $id) {
