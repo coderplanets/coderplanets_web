@@ -92,6 +92,10 @@ export { default as LabelerStore } from '../containers/Labeler/store'
 // viewers store
 export { default as ArticleViwerStore } from '../containers/ArticleViwer/store'
 export { default as PostViewerStore } from '../containers/PostViewer/store'
+export { default as JobViewerStore } from '../containers/JobViewer/store'
+export { default as VideoViewerStore } from '../containers/VideoViewer/store'
+export { default as RepoViewerStore } from '../containers/RepoViewer/store'
+export { default as MailsViewerStore } from '../containers/MailsViewer/store'
 
 export {
   default as ArticleBodyHeaderStore,
@@ -100,10 +104,6 @@ export {
 export {
   default as AccountViewerStore,
 } from '../containers/AccountViewer/store'
-
-export { default as VideoViewerStore } from '../containers/VideoViewer/store'
-export { default as RepoViewerStore } from '../containers/RepoViewer/store'
-export { default as MailsViewerStore } from '../containers/MailsViewer/store'
 
 // user page
 export {

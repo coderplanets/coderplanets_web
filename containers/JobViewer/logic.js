@@ -1,41 +1,38 @@
 import R from 'ramda'
 
+import SR71 from '../../utils/network/sr71'
+
+import S from './schema'
+
 import {
-  makeDebugger,
-  $solver,
   asyncRes,
   asyncErr,
+  makeDebugger,
   dispatchEvent,
   closePreviewer,
   EVENT,
   ERR,
   TYPE,
+  $solver,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
-
-import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
 })
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:PostViewer')
+const debug = makeDebugger('L:JobViewer')
 /* eslint-enable no-unused-vars */
 
 let sub$ = null
 let store = null
 
 export function onReaction(thread, action, userDid, { id }) {
-  /* debug('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
-    // call favoriteSetter
     return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
       data: { thread },
     })
   }
-  // debug('onReaction userDid: ', store.isLogin)
-  /* debug('onReaction id: ', id) */
 
   const args = { id, thread: R.toUpper(thread), action }
 
@@ -63,16 +60,12 @@ export const onTagUnselect = tagId => {
   sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
 }
 
-export const onCommentCreate = () => {
-  const { id } = store.viewingData
-  return sr71$.query(S.postComment, { id })
-}
-
-const loadPost = ({ id }) => {
+const loadJob = ({ id }) => {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
   markLoading()
-  sr71$.query(S.post, variables)
+  debug('loadJob variables: ', variables)
+  sr71$.query(S.job, variables)
 }
 
 const openAttachment = att => {
@@ -80,11 +73,10 @@ const openAttachment = att => {
 
   const { type } = att
 
-  if (type === TYPE.PREVIEW_POST_VIEW) {
-    loadPost(att)
-
+  if (type === TYPE.PREVIEW_JOB_VIEW) {
+    loadJob(att)
     store.markState({ type })
-    store.setViewing({ post: att })
+    store.setViewing({ job: att })
   }
 }
 
@@ -95,10 +87,10 @@ const markLoading = (maybe = true) => store.markState({ loading: maybe })
 
 const DataSolver = [
   {
-    match: asyncRes('post'),
-    action: ({ post }) => {
-      store.setViewing({ post: R.merge(store.viewingData, post) })
-      store.syncViewingItem(post)
+    match: asyncRes('job'),
+    action: ({ job }) => {
+      store.setViewing({ job: R.merge(store.viewingData, job) })
+      store.syncViewingItem(job)
       markLoading(false)
     },
   },
@@ -106,7 +98,7 @@ const DataSolver = [
     match: asyncRes(EVENT.REFRESH_REACTIONS),
     action: e => {
       const { id } = e[EVENT.REFRESH_REACTIONS].data
-      return sr71$.query(S.postReactionRes, { id })
+      return sr71$.query(S.jobReactionRes, { id })
     },
   },
   {
@@ -119,24 +111,23 @@ const DataSolver = [
   },
   {
     match: asyncRes('reaction'),
-    action: ({ reaction: { id } }) => sr71$.query(S.postReactionRes, { id }),
+    action: ({ reaction: { id } }) => sr71$.query(S.jobReactionRes, { id }),
   },
   {
     match: asyncRes('undoReaction'),
-    action: ({ undoReaction: { id } }) =>
-      sr71$.query(S.postReactionRes, { id }),
+    action: ({ undoReaction: { id } }) => sr71$.query(S.jobReactionRes, { id }),
   },
   {
     match: asyncRes('setTag'),
     action: () => {
-      loadPost(store.viewingData)
+      loadJob(store.viewingData)
       closePreviewer()
     },
   },
   {
     match: asyncRes('unsetTag'),
     action: () => {
-      loadPost(store.viewingData)
+      loadJob(store.viewingData)
       closePreviewer()
     },
   },
@@ -171,8 +162,7 @@ export function init(_store, attachment) {
 }
 
 export function uninit() {
-  if (store.loading || !sub$) return false
-
+  if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
