@@ -56,7 +56,10 @@ import {
   // footer
   FooterStore,
   // viewers
-  ArticleViwerStore,
+  PostViewerStore,
+  JobViewerStore,
+  // ArticleViwerStore,
+  ArticleBodyHeaderStore,
   AccountViewerStore,
   VideoViewerStore,
   RepoViewerStore,
@@ -169,12 +172,16 @@ const rootStore = t
     girlVerifier: t.optional(GirlVerifierStore, {}),
     cashier: t.optional(CashierStore, {}),
 
+    articleBodyHeader: t.optional(ArticleBodyHeaderStore, {}),
     // viewers (for preview usage)
-    articleViwer: t.optional(ArticleViwerStore, {}),
-    accountViewer: t.optional(AccountViewerStore, {}),
+    postViewer: t.optional(PostViewerStore, {}),
+    jobViewer: t.optional(JobViewerStore, {}),
     videoViewer: t.optional(VideoViewerStore, {}),
     repoViewer: t.optional(RepoViewerStore, {}),
     mailsViewer: t.optional(MailsViewerStore, {}),
+    // articleViwer: t.optional(ArticleViwerStore, {}),
+    accountViewer: t.optional(AccountViewerStore, {}),
+
     // user page
     userPublished: t.optional(UserPublishedStore, {}),
     userPublishedComments: t.optional(UserPublishedCommentsStore, {}),

@@ -10,6 +10,7 @@ import R from 'ramda'
 
 import Comments from '../Comments'
 import { MarkDownRender } from '../../components'
+import CopyrightHeader from './CopyrightHeader'
 
 import {
   Container,
@@ -28,11 +29,13 @@ const debug = makeDebugger('C:JobContent')
 /* eslint-enable no-unused-vars */
 
 class JobContentContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { jobContent } = props
+  componentDidMount() {
+    const { jobContent } = this.props
     logic.init(jobContent)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
@@ -45,10 +48,11 @@ class JobContentContainer extends React.Component {
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
+                <CopyrightHeader data={viewingJobData} />
                 <MarkDownRender body={viewingJobData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
-                <Comments />
+                <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
             <SideCards data={viewingJobData} />

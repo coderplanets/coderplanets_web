@@ -37,7 +37,7 @@ export const LinkIcon = styled(Img)`
   width: 15px;
   height: 15px;
   display: block;
-  margin-right: 10px;
+  margin-right: 5px;
 `
 export const Link = styled.a`
   transition: color 0.3s;

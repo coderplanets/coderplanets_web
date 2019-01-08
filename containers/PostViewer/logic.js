@@ -1,18 +1,17 @@
 import R from 'ramda'
-import SR71 from '../../utils/network/sr71'
 
 import {
+  makeDebugger,
+  $solver,
   asyncRes,
   asyncErr,
-  makeDebugger,
   dispatchEvent,
   closePreviewer,
   EVENT,
   ERR,
   TYPE,
-  THREAD,
-  $solver,
 } from '../../utils'
+import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
@@ -21,11 +20,11 @@ const sr71$ = new SR71({
 })
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:ArticleViwer')
+const debug = makeDebugger('L:PostViewer')
 /* eslint-enable no-unused-vars */
 
-let store = null
 let sub$ = null
+let store = null
 
 export function onReaction(thread, action, userDid, { id }) {
   /* debug('onReaction thread: ', thread) */
@@ -45,31 +44,8 @@ export function onReaction(thread, action, userDid, { id }) {
     : sr71$.mutate(S.reaction, args)
 }
 
-function loadPost({ id }) {
-  const userHasLogin = store.isLogin
-  const variables = { id, userHasLogin }
-  markLoading()
-  sr71$.query(S.post, variables)
-}
-
-function loadJob({ id }) {
-  const userHasLogin = store.isLogin
-  const variables = { id, userHasLogin }
-  markLoading()
-  debug('loadJob variables: ', variables)
-  sr71$.query(S.job, variables)
-}
-
-function reloadReactions(id, thread) {
-  switch (thread) {
-    case THREAD.JOB: {
-      return sr71$.query(S.jobReactionRes, { id })
-    }
-    default: {
-      return sr71$.query(S.postReactionRes, { id })
-    }
-  }
-}
+export const onListReactionUsers = (type, data) =>
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
@@ -87,14 +63,16 @@ export const onTagUnselect = tagId => {
   sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
 }
 
-export const onListReactionUsers = (type, data) =>
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
-
 export const onCommentCreate = () => {
   const { id } = store.viewingData
-  if (store.activeThread === THREAD.POST) {
-    return sr71$.query(S.postComment, { id })
-  }
+  return sr71$.query(S.postComment, { id })
+}
+
+const loadPost = ({ id }) => {
+  const userHasLogin = store.isLogin
+  const variables = { id, userHasLogin }
+  markLoading()
+  sr71$.query(S.post, variables)
 }
 
 const openAttachment = att => {
@@ -108,25 +86,27 @@ const openAttachment = att => {
     store.markState({ type })
     store.setViewing({ post: att })
   }
-
-  if (type === TYPE.PREVIEW_JOB_VIEW) {
-    loadJob(att)
-    store.markState({ type })
-    store.setViewing({ job: att })
-  }
 }
 
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
-
 // ###############################
 // Data & Error handlers
 // ###############################
+
 const DataSolver = [
+  {
+    match: asyncRes('post'),
+    action: ({ post }) => {
+      store.setViewing({ post: R.merge(store.viewingData, post) })
+      store.syncViewingItem(post)
+      markLoading(false)
+    },
+  },
   {
     match: asyncRes(EVENT.REFRESH_REACTIONS),
     action: e => {
-      const { id, thread } = e[EVENT.REFRESH_REACTIONS].data
-      reloadReactions(id, thread)
+      const { id } = e[EVENT.REFRESH_REACTIONS].data
+      return sr71$.query(S.postReactionRes, { id })
     },
   },
   {
@@ -138,56 +118,29 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('post'),
-    action: ({ post }) => {
-      store.setViewing({ post: R.merge(store.viewingData, post) })
-      store.syncViewingItem(post)
-      markLoading(false)
-    },
-  },
-  {
-    match: asyncRes('job'),
-    action: ({ job }) => {
-      store.setViewing({ job: R.merge(store.viewingData, job) })
-      store.syncViewingItem(job)
-      markLoading(false)
-    },
-  },
-  {
     match: asyncRes('reaction'),
-    action: ({ reaction: { id } }) => reloadReactions(id, store.activeThread),
+    action: ({ reaction: { id } }) => sr71$.query(S.postReactionRes, { id }),
   },
   {
     match: asyncRes('undoReaction'),
     action: ({ undoReaction: { id } }) =>
-      reloadReactions(id, store.activeThread),
+      sr71$.query(S.postReactionRes, { id }),
   },
   {
     match: asyncRes('setTag'),
     action: () => {
-      if (store.activeThread === THREAD.JOB) {
-        loadJob(store.viewingData)
-      } else {
-        loadPost(store.viewingData)
-      }
-      // dispatchEvent(EVENT.REFRESH_POSTS)
+      loadPost(store.viewingData)
       closePreviewer()
     },
   },
   {
     match: asyncRes('unsetTag'),
     action: () => {
-      if (store.activeThread === THREAD.JOB) {
-        loadJob(store.viewingData)
-      } else {
-        loadPost(store.viewingData)
-      }
-      // dispatchEvent(EVENT.REFRESH_POSTS)
+      loadPost(store.viewingData)
       closePreviewer()
     },
   },
 ]
-
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
@@ -219,6 +172,7 @@ export function init(_store, attachment) {
 
 export function uninit() {
   if (store.loading || !sub$) return false
+
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

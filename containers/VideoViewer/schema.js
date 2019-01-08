@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F, P } from '../schemas'
 
 const video = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
@@ -28,20 +28,14 @@ const videoReactionRes = gql`
     }
   }
 `
+
 const reaction = gql`
-  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
-    reaction(id: $id, action: $action, thread: $thread) {
-      id
-    }
-  }
+  ${P.reaction}
 `
 const undoReaction = gql`
-  mutation($id: ID!, $action: String!, $thread: CmsThread!) {
-    undoReaction(id: $id, action: $action, thread: $thread) {
-      id
-    }
-  }
+  ${P.undoReaction}
 `
+
 const pinVideo = gql`
   mutation($id: ID!, $communityId: ID!) {
     pinVideo(id: $id, communityId: $communityId) {

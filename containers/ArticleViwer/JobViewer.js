@@ -1,6 +1,8 @@
 import React from 'react'
 import Comments from '../Comments'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
+
 import {
   ArticleHeader,
   MarkDownRender,
@@ -16,7 +18,6 @@ import {
 } from './styles/body'
 
 import JobDigestBar from './JobDigestBar'
-import BodyHeader from './BodyHeader'
 // import BodyFooter from './BodyFooter'
 
 import { THREAD } from '../../utils'
@@ -36,7 +37,7 @@ const JobViewer = ({ data, loading }) => {
         showStar={false}
       />
       <BodyWrapper>
-        <BodyHeader data={data} thread={THREAD.JOB} />
+        <ArticleBodyHeader data={data} thread={THREAD.JOB} />
         <ArticleTitle>{data.title}</ArticleTitle>
         <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
           <JobDigestBar data={data} />

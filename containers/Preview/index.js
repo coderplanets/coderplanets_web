@@ -9,7 +9,9 @@ import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
 // viewers
-import ArticleViwer from '../ArticleViwer'
+// import ArticleViwer from '../ArticleViwer'
+import PostViewer from '../PostViewer'
+import JobViewer from '../JobViewer'
 // import AccountViewer from '../AccountViewer'
 import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
@@ -85,7 +87,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // post
     case TYPE.PREVIEW_POST_VIEW: {
-      return <ArticleViwer attachment={attachment} />
+      return <PostViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
       return <DynamicPostWriter onClose={logic.closePreview} />
@@ -103,7 +105,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DynamicJobWriter onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_JOB_VIEW: {
-      return <ArticleViwer attachment={attachment} />
+      return <JobViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_JOB_EDIT: {
       return (

@@ -6,12 +6,12 @@ import SR71 from '../../utils/network/sr71'
 // import S from './schema'
 
 const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:{{ properCase name }}')
 /* eslint-enable no-unused-vars */
 
+let sub$ = null
 let store = null
 
 export function someMethod() {}
@@ -50,7 +50,7 @@ export function init(_store) {
 }
 
 export function uninit() {
-  // if (store.curView === TYPE.LOADING) return false
+  if(!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
