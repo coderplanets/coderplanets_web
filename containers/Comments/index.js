@@ -24,18 +24,17 @@ const debug = makeDebugger('C:Comments')
 /* eslint-enable no-unused-vars */
 
 class CommentsContainer extends React.Component {
+  // need constructor here for draft.js issue
   constructor(props) {
     super(props)
     const { comments, ssr } = props
     logic.init(comments, ssr)
   }
 
-  /*
   componentDidMount() {
-    const { comments, ssr } = this.props
-    logic.init(comments, ssr)
+    const { comments } = this.props
+    logic.init(comments, false)
   }
-  */
 
   componentWillUnmount() {
     logic.uninit()
@@ -56,6 +55,7 @@ class CommentsContainer extends React.Component {
       showReplyBox,
       showReplyEditor,
       showReplyPreview,
+      mentionListData,
     } = comments
 
     return (
@@ -82,6 +82,7 @@ class CommentsContainer extends React.Component {
             onCreate={this.onCreate.bind(this)}
             accountInfo={accountInfo}
             referUsers={referUsersData}
+            mentionList={mentionListData}
             restProps={{ ...comments }}
           />
         )}

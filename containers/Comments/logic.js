@@ -212,9 +212,13 @@ export function insertCode() {
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
-export function onMention(user) {
-  debug('onMention: ', user)
-  store.addReferUser(user)
+export const onMention = user => store.addReferUser(user)
+export const onMentionSearch = name => {
+  if (name && name.length >= 1) {
+    sr71$.query(S.searchUsers, { name })
+  } else {
+    store.updateMentionList([])
+  }
 }
 
 export function deleteComment() {
@@ -312,6 +316,10 @@ const DataSolver = [
       scrollIntoEle('lists-info')
       loadComents({ filter: { page: 1 }, fresh: true })
     },
+  },
+  {
+    match: asyncRes('searchUsers'),
+    action: ({ searchUsers: { entries } }) => store.updateMentionList(entries),
   },
 ]
 

@@ -7,25 +7,25 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import {
+  Comment,
+  PagedComments,
+  emptyPagiData,
+  Mention,
+} from '../../stores/SharedModel'
+
+import {
   markStates,
   makeDebugger,
   stripMobx,
   TYPE,
   changeset,
-  // THREAD,
-  // subPath2Thread,
 } from '../../utils'
-import { Comment, PagedComments, emptyPagiData } from '../../stores/SharedModel'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:CommentsStore')
 /* eslint-enable no-unused-vars */
 
-const Mention = t.model('Mention', {
-  id: t.string,
-  nickname: t.string,
-  avatar: t.string,
-})
+const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
 const CommentsStore = t
   .model('CommentsStore', {
@@ -70,6 +70,9 @@ const CommentsStore = t
     // parrent comment of current reply
     replyToComment: t.maybeNull(Comment),
 
+    // mention users in content
+    mentionList: t.optional(t.array(Mention), []),
+
     // toggle loading for creating comment
     creating: t.optional(t.boolean, false),
     // toggle loading for creating reply comment
@@ -93,9 +96,31 @@ const CommentsStore = t
       const referUsers = stripMobx(self.referUsers)
       const extractMentions = stripMobx(self.extractMentions)
       return R.filter(
-        user => R.contains(user.nickname, extractMentions),
+        user => R.contains(user.name, extractMentions),
         referUsers
       )
+    },
+    get participators() {
+      const { commentsParticipators } = self.root.viewing.viewingData
+      /*
+      const commentsParticipators = [
+        {
+          id: '112',
+          nickname: 'mydearxym',
+          avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
+        },
+        {
+          id: '113',
+          nickname: 'Julian',
+          avatar:
+            'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
+        },
+      ]
+      */
+      return R.map(mentionMapper, commentsParticipators)
+    },
+    get mentionListData() {
+      return stripMobx(self.mentionList)
     },
     get pagedCommentsData() {
       return stripMobx(self.pagedComments)
@@ -148,10 +173,20 @@ const CommentsStore = t
       if (index === -1) {
         self.referUsers.push({
           id: String(user.id),
-          nickname: user.name,
+          name: user.name,
           avatar: user.avatar,
         })
       }
+    },
+    updateMentionList(mentionArray) {
+      const curMentionList = R.clone(self.mentionList)
+      const uniqList = R.concat(curMentionList, mentionArray)
+      const mentionList = R.map(mentionMapper, uniqList)
+
+      // debug('mentionList: ', mentionList)
+      // debug('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
+
+      self.mentionList = R.uniq(R.concat(mentionList, self.participators))
     },
     updateOneComment(id, comment = {}) {
       const index = R.findIndex(R.propEq('id', id), self.entriesData)

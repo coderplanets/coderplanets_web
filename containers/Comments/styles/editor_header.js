@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   height: 60px;
   margin-right: 20px;
 `
-
 export const UserAvatar = styled.img`
   ${cs.circle('36px')};
   fill: ${theme('thread.articleTitle')};
@@ -26,12 +25,18 @@ export const LeaveResponseUsername = styled.div`
   margin-right: 10px;
   color: ${theme('comment.username')};
 `
-export const ReferToIcon = styled(Img)`
+
+export const RefUsersWrapper = styled.div`
+  ${cs.flex('align-center')};
+`
+export const AtSignIcon = styled(Img)`
   fill: ${theme('comment.username')};
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 5px;
-  margin-top: 5px;
+  display: block;
 `
 
-export const ReplyAvatars = styled.div``
+export const RefUserList = styled.div`
+  margin-top: -10px;
+`

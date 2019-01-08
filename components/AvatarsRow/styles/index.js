@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '../../../utils'
 
-export const Avatars = styled.ul`
+export const Wrapper = styled.ul`
   ${cs.flex()};
   flex-direction: row-reverse;
   list-style-type: none;
@@ -20,7 +20,7 @@ export const AvatarsItem = styled.li`
   &:hover {
     opacity: 1;
   }
-  ${Avatars}:hover & {
+  ${Wrapper}:hover & {
     margin-left: 5px;
   }
   transition: all 0.3s;

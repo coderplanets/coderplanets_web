@@ -20,6 +20,7 @@ const createJob = gql`
     $finance: String!
     $scale: String!
     $field: String!
+    $mentionUsers: [Ids]
     $tags: [Ids]
   ) {
     createJob(
@@ -40,6 +41,7 @@ const createJob = gql`
       finance: $finance
       scale: $scale
       field: $field
+      mentionUsers: $mentionUsers
       tags: $tags
     ) {
       id

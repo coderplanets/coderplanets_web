@@ -12,9 +12,6 @@ import {
   MoreWrapper,
   MoreIcon,
   LablerWrapper,
-  RefinedLabel,
-  RefinedIcon,
-  RefinedText,
 } from './styles/body_header'
 
 // import { Wrapper } from './styles/body_header'
@@ -32,10 +29,7 @@ const BodyHeader = ({ actionsPanel }) => (
     <LablerWrapper>
       <Labeler />
     </LablerWrapper>
-    <RefinedLabel>
-      <RefinedIcon src={`${ICON_CMD}/diamond_frame.svg`} />
-      <RefinedText>精 华</RefinedText>
-    </RefinedLabel>
+    <div />
   </Wrapper>
 )
 

@@ -1,3 +1,5 @@
+import { types as t } from 'mobx-state-tree'
+
 export { Community, PagedCommunities } from './Community'
 export { default as Article } from './Article'
 export {
@@ -41,3 +43,9 @@ export const emptyPagiData = {
   totalCount: 0,
   totalPages: 0,
 }
+
+export const Mention = t.model('Mention', {
+  id: t.string,
+  name: t.string,
+  avatar: t.string,
+})

@@ -18,18 +18,25 @@ const debug = makeDebugger('C:JobBanner')
 /* eslint-enable no-unused-vars */
 
 class JobBannerContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { jobBanner } = props
+  componentDidMount() {
+    const { jobBanner } = this.props
     logic.init(jobBanner)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
     const { jobBanner } = this.props
     const { viewingJobData } = jobBanner
 
-    return <ContentBanner data={viewingJobData} middleNode={<MiddleInfo />} />
+    return (
+      <ContentBanner
+        data={viewingJobData}
+        middleNode={<MiddleInfo data={viewingJobData} />}
+      />
+    )
   }
 }
 
