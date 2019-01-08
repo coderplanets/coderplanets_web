@@ -78,67 +78,6 @@ function reloadReactions(id, thread) {
   }
 }
 
-export function onPin(thread) {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-  debug('onPin: ', thread)
-  debug('args ..', args)
-
-  if (thread === THREAD.JOB) {
-    sr71$.mutate(S.pinJob, args)
-  } else {
-    const { subPath: topic } = store.curRoute
-    sr71$.mutate(S.pinPost, R.merge(args, { topic }))
-  }
-}
-
-export function onUndoPin(thread) {
-  const args = {
-    id: store.viewingData.id,
-    communityId: store.curCommunity.id,
-  }
-
-  if (thread === THREAD.JOB) {
-    sr71$.mutate(S.undoPinJob, args)
-  } else {
-    const { subPath: topic } = store.curRoute
-    sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
-  }
-}
-
-export function onEdit(thread) {
-  /* debug('onEdit', store.viewingPost) */
-  switch (thread) {
-    case THREAD.POST: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, {
-        type: TYPE.PREVIEW_POST_EDIT,
-        data: store.viewingData, // maybe need clone
-      })
-    }
-    case THREAD.JOB: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, {
-        type: TYPE.PREVIEW_JOB_EDIT,
-        data: store.viewingData, // maybe need clone
-      })
-    }
-    default: {
-      debug('unsupported thread')
-    }
-  }
-}
-
-export const onInform = () => store.callInformer()
-export const onDelete = () => {
-  const { id } = store.viewingData
-  debug('onDelete', id)
-
-  if (store.activeThread === THREAD.POST) {
-    return sr71$.mutate(S.deletePost, { id })
-  }
-}
-
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
   const communityId = store.curCommunity.id
@@ -211,41 +150,6 @@ const DataSolver = [
       store.setViewing({ post: R.merge(store.viewingData, post) })
       store.syncViewingItem(post)
       markLoading(false)
-    },
-  },
-  {
-    match: asyncRes('pinPost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('undoPinPost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('deletePost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('pinJob'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_JOBS)
-      closePreviewer()
-    },
-  },
-  {
-    match: asyncRes('undoPinJob'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_JOBS)
-      closePreviewer()
     },
   },
   {

@@ -3,6 +3,7 @@ import R from 'ramda'
 import Comments from '../Comments'
 // import Header from './Header'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import {
   Maybe,
   ArticleHeader,
@@ -19,8 +20,6 @@ import {
   ArticleBody,
   Footer,
 } from './styles/body'
-
-import BodyHeader from './BodyHeader'
 
 import { THREAD } from '../../utils'
 import * as logic from './logic'
@@ -39,7 +38,7 @@ const PostViewer = ({ data, loading }) => {
       />
 
       <BodyWrapper>
-        <BodyHeader data={data} thread={THREAD.POST} />
+        <ArticleBodyHeader data={data} thread={THREAD.POST} />
         <ArticleTitle>{data.title}</ArticleTitle>
         <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
           <ArticleBody>
