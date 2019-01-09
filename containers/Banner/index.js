@@ -10,7 +10,6 @@ import { inject, observer } from 'mobx-react'
 import UserBanner from '../UserBanner'
 
 import ArticleBanner from '../ArticleBanner'
-import JobBanner from '../JobBanner'
 import VideoBanner from '../VideoBanner'
 import RepoBanner from '../RepoBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
@@ -44,7 +43,7 @@ const BannerContent = ({ curRoute }) => {
       return <ArticleBanner />
     }
     case ROUTE.JOB: {
-      return <JobBanner />
+      return <ArticleBanner showStar={false} />
     }
     case ROUTE.VIDEO: {
       return <VideoBanner />

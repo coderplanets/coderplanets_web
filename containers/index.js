@@ -27,9 +27,8 @@ export { default as MailsViewer } from './MailsViewer'
 
 export { default as FavoritesCats } from './FavoritesCats'
 /* banners */
+export { default as ArticleBanner } from './ArticleBanner'
 export { default as UserBanner } from './UserBanner'
-export { default as PostBanner } from './PostBanner'
-export { default as JobBanner } from './JobBanner'
 export { default as CommunityBanner } from './CommunityBanner'
 export { default as CommunitiesBanner } from './CommunitiesBanner'
 /* contents */

@@ -13,6 +13,7 @@ import TimeAgo from 'timeago-react'
 import FavoritesCats from '../FavoritesCats'
 import { DotDivider } from '../../components'
 import ReactionNumbers from './ReactionNumbers'
+import MiddleInfo from './MiddleInfo'
 
 import {
   Wrapper,
@@ -41,9 +42,13 @@ class ArticleBannerContainer extends React.Component {
   }
 
   render() {
-    const { middleNode } = this.props
-    const { articleBanner } = this.props
-    const { viewingData, starLoading, favoriteLoading } = articleBanner
+    const { articleBanner, showStar } = this.props
+    const {
+      activeThread,
+      viewingData,
+      starLoading,
+      favoriteLoading,
+    } = articleBanner
 
     const isRefined = R.contains('refined', R.pluck('title', viewingData.tags))
 
@@ -54,9 +59,7 @@ class ArticleBannerContainer extends React.Component {
           <BannerContent>
             <PostBrief>
               <Title>{viewingData.title}</Title>
-              <React.Fragment>
-                {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
-              </React.Fragment>
+              <MiddleInfo thread={activeThread} data={viewingData} />
               <Desc>
                 {isRefined ? <MarkTag>精华</MarkTag> : <div />}
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
@@ -68,6 +71,7 @@ class ArticleBannerContainer extends React.Component {
               data={viewingData}
               starLoading={starLoading}
               favoriteLoading={favoriteLoading}
+              showStar={showStar}
             />
           </BannerContent>
         )}
@@ -78,11 +82,11 @@ class ArticleBannerContainer extends React.Component {
 
 ArticleBannerContainer.propTypes = {
   articleBanner: PropTypes.object.isRequired,
-  middleNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  showStar: PropTypes.bool,
 }
 
 ArticleBannerContainer.defaultProps = {
-  middleNode: '',
+  showStar: true,
 }
 
 export default inject(storePlug('articleBanner'))(

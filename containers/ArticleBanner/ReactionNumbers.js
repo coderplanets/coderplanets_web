@@ -13,7 +13,7 @@ import {
 
 import { prettyNum } from '../../utils'
 
-const ReactionNumbers = ({ data, starLoading, favoriteLoading }) => {
+const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
   const { views } = data
 
   return (
@@ -23,7 +23,7 @@ const ReactionNumbers = ({ data, starLoading, favoriteLoading }) => {
         <NumberItem readonly>{prettyNum(views)}</NumberItem>
       </NumberSection>
       <NumberDivider />
-      <StarReaction data={data} loading={starLoading} />
+      {showStar ? <StarReaction data={data} loading={starLoading} /> : null}
       <FavoriteReaction data={data} loading={favoriteLoading} />
       {/*
           <NumberDivider />
