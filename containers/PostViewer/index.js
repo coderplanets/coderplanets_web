@@ -11,15 +11,10 @@ import R from 'ramda'
 
 import Comments from '../Comments'
 import Labeler from '../Labeler'
+import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
-import FavoritesCats from '../FavoritesCats'
 
-import {
-  Maybe,
-  ArticleHeader,
-  MarkDownRender,
-  ArticleContentLoading,
-} from '../../components'
+import { Maybe, MarkDownRender, ArticleContentLoading } from '../../components'
 
 import {
   BodyWrapper,
@@ -54,15 +49,7 @@ class PostViewerContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <FavoritesCats />
-
-        <ArticleHeader
-          data={viewingData}
-          author={viewingData.author}
-          onReaction={logic.onReaction}
-          onListReactionUsers={logic.onListReactionUsers}
-        />
-
+        <ArticleViewerHeader data={viewingData} author={viewingData.author} />
         <BodyWrapper>
           <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
           <ArticleTitle>{viewingData.title}</ArticleTitle>
