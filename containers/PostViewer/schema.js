@@ -34,18 +34,6 @@ const unsetTag = gql`
   ${P.unsetTag}
 `
 
-const postReactionRes = gql`
-  query($id: ID!) {
-    post(id: $id) {
-      id
-      favoritedCount
-      starredCount
-      viewerHasFavorited
-      viewerHasStarred
-      favoritedCategoryId
-    }
-  }
-`
 const postComment = gql`
   query post($id: ID!) {
     post(id: $id) {
@@ -60,7 +48,6 @@ const postComment = gql`
 
 const schema = {
   post,
-  postReactionRes,
   setTag,
   unsetTag,
   postComment,

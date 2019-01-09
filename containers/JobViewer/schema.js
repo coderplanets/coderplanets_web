@@ -25,16 +25,6 @@ const job = gql`
     }
   }
 `
-const jobReactionRes = gql`
-  query($id: ID!) {
-    job(id: $id) {
-      id
-      favoritedCount
-      viewerHasFavorited
-      favoritedCategoryId
-    }
-  }
-`
 const setTag = gql`
   ${P.setTag}
 `
@@ -44,7 +34,6 @@ const unsetTag = gql`
 
 const schema = {
   job,
-  jobReactionRes,
   setTag,
   unsetTag,
 }

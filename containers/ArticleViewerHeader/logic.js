@@ -19,13 +19,20 @@ import S from './schema'
 const debug = makeDebugger('L:ArticleViewerHeader')
 /* eslint-enable no-unused-vars */
 
-const sr71$ = new SR71()
+// EVENT.REFRESH_REACTIONS handles FAVORITE action when
+// user set it from FavoriteSetter
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_REACTIONS],
+})
+
 let sub$ = null
 let store = null
 
 export function onReaction(thread, action, userDid, { id }) {
   if (!store.isLogin) return store.authWarning()
+  if (store.loading) return false
 
+  store.markState({ action })
   /* debug('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
@@ -33,9 +40,8 @@ export function onReaction(thread, action, userDid, { id }) {
       data: { thread },
     })
   }
-  // debug('onReaction userDid: ', store.isLogin)
-  /* debug('onReaction id: ', id) */
 
+  markLoading(true)
   const args = { id, thread: R.toUpper(thread), action }
 
   return userDid
@@ -103,24 +109,35 @@ const DataSolver = [
     match: asyncRes('undoReaction'),
     action: ({ undoReaction: { id } }) => afterReaction(id),
   },
+  {
+    match: asyncRes(EVENT.REFRESH_REACTIONS),
+    action: e => {
+      markLoading(true)
+      const { id } = e[EVENT.REFRESH_REACTIONS].data
+      afterReaction(id)
+    },
+  },
 ]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
+      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
+      markLoading(false)
     },
   },
 ]
@@ -133,7 +150,7 @@ export function init(_store) {
 }
 
 export function uninit() {
-  if (!sub$) return false
+  if (!sub$ || store.loading) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

@@ -9,6 +9,7 @@ import {
   Reaction,
   ReactionAction,
   ReactionName,
+  ReactionLoading,
   LikeIcon,
   ReactionUserNum,
   Divider,
@@ -17,7 +18,7 @@ import {
 import { onReaction, onListReactionUsers } from './logic'
 import { TYPE, THREAD } from '../../utils'
 
-const StarReaction = ({ data, show, thread }) => (
+const StarReaction = ({ data, show, thread, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
@@ -35,16 +36,21 @@ const StarReaction = ({ data, show, thread }) => (
           {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
         </ReactionName>
       </ReactionAction>
-      <ReactionUserNum
-        onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
-          thread,
-          id: data.id,
-          action: TYPE.STAR,
-          brief: data.title || '',
-        })}
-      >
-        {data.starredCount}
-      </ReactionUserNum>
+      {loading ? (
+        <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
+      ) : (
+        <ReactionUserNum
+          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
+            thread,
+            id: data.id,
+            action: TYPE.STAR,
+            brief: data.title || '',
+          })}
+        >
+          {data.starredCount}
+        </ReactionUserNum>
+      )}
+
       <Divider />
     </Reaction>
   </Maybe>
@@ -59,11 +65,13 @@ StarReaction.propTypes = {
     starredCount: PropTypes.number,
   }).isRequired,
   show: PropTypes.bool,
+  loading: PropTypes.bool,
 }
 
 StarReaction.defaultProps = {
   thread: THREAD.POST,
   show: true,
+  loading: false,
 }
 
 export default StarReaction

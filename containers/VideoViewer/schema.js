@@ -17,21 +17,9 @@ const video = gql`
     }
   }
 `
-const videoReactionRes = gql`
-  query($id: ID!) {
-    video(id: $id) {
-      id
-      favoritedCount
-      starredCount
-      viewerHasFavorited
-      viewerHasStarred
-    }
-  }
-`
 
 const schema = {
   video,
-  videoReactionRes,
 }
 
 export default schema

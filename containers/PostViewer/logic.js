@@ -15,7 +15,7 @@ import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
+  resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
 /* eslint-disable no-unused-vars */
@@ -78,13 +78,6 @@ const DataSolver = [
       store.setViewing({ post: R.merge(store.viewingData, post) })
       store.syncViewingItem(post)
       markLoading(false)
-    },
-  },
-  {
-    match: asyncRes(EVENT.REFRESH_REACTIONS),
-    action: e => {
-      const { id } = e[EVENT.REFRESH_REACTIONS].data
-      return sr71$.query(S.postReactionRes, { id })
     },
   },
   {

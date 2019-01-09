@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger, TYPE } from '../../utils'
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('S:ArticleViewerHeader')
 /* eslint-enable no-unused-vars */
@@ -14,6 +14,10 @@ const debug = makeDebugger('S:ArticleViewerHeader')
 const ArticleViewerHeader = t
   .model('ArticleViewerHeader', {
     loading: t.optional(t.boolean, false),
+    action: t.optional(
+      t.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
+      TYPE.FAVORITE
+    ),
   })
   .views(self => ({
     get root() {
@@ -31,6 +35,16 @@ const ArticleViewerHeader = t
     get activeThread() {
       const { activeThread } = self.root.viewing
       return activeThread
+    },
+    get starLoading() {
+      const { action, loading } = self
+      if (action === TYPE.STAR && loading) return true
+      return false
+    },
+    get favoriteLoading() {
+      const { action, loading } = self
+      if (action === TYPE.FAVORITE && loading) return true
+      return false
     },
   }))
   .actions(self => ({

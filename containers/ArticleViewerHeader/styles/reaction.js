@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '../../../components/Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs, animate } from '../../../utils'
 
 export const Divider = styled.div`
   border-right: 1px solid;
@@ -59,6 +59,17 @@ const ReactionIcon = styled(Img)`
   display: block;
   margin-right: 2px;
 `
+
+export const ReactionLoading = styled(Img)`
+  fill: ${theme('article.reactionTitle')};
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin-right: 2px;
+  margin-left: 4px;
+  animation: ${animate.rotate360Rule};
+`
+
 export const CollectIcon = styled(ReactionIcon)`
   margin-top: -2px;
 `

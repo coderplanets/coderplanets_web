@@ -21,20 +21,8 @@ const repo = gql`
   }
 `
 
-const repoReactionRes = gql`
-  query($id: ID!) {
-    repo(id: $id) {
-      id
-      favoritedCategoryId
-      viewerHasFavorited
-      favoritedCount
-    }
-  }
-`
-
 const schema = {
   repo,
-  repoReactionRes,
 }
 
 export default schema

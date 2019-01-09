@@ -9,6 +9,7 @@ import {
   Reaction,
   ReactionAction,
   ReactionName,
+  ReactionLoading,
   CollectIcon,
   ReactionUserNum,
   Divider,
@@ -17,7 +18,7 @@ import {
 import { onReaction, onListReactionUsers } from './logic'
 import { TYPE, THREAD } from '../../utils'
 
-const FavoriteReation = ({ data, thread, show }) => (
+const FavoriteReation = ({ data, thread, show, loading }) => (
   <Maybe test={show}>
     <Reaction>
       <ReactionAction
@@ -35,16 +36,20 @@ const FavoriteReation = ({ data, thread, show }) => (
           {data.viewerHasFavorited ? <span>已收藏</span> : <span>收藏</span>}
         </ReactionName>
       </ReactionAction>
-      <ReactionUserNum
-        onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_FAVORITES, {
-          thread,
-          id: data.id,
-          action: TYPE.FAVORITE,
-          brief: data.title || '',
-        })}
-      >
-        {data.favoritedCount}
-      </ReactionUserNum>
+      {loading ? (
+        <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
+      ) : (
+        <ReactionUserNum
+          onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_FAVORITES, {
+            thread,
+            id: data.id,
+            action: TYPE.FAVORITE,
+            brief: data.title || '',
+          })}
+        >
+          {data.favoritedCount}
+        </ReactionUserNum>
+      )}
       <Divider />
     </Reaction>
   </Maybe>
@@ -59,11 +64,13 @@ FavoriteReation.propTypes = {
     favoritedCount: PropTypes.number,
   }).isRequired,
   show: PropTypes.bool,
+  loading: PropTypes.bool,
 }
 
 FavoriteReation.defaultProps = {
   thread: THREAD.POST,
   show: true,
+  loading: false,
 }
 
 export default FavoriteReation
