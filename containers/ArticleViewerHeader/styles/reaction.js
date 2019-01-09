@@ -1,20 +1,8 @@
 import styled from 'styled-components'
 
-import Img from '../../Img'
+import Img from '../../../components/Img'
 import { theme, cs } from '../../../utils'
 
-export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
-
-  padding-left: 35px;
-  padding-right: 30px;
-  padding-top: 10px;
-  padding-bottom: 6px;
-`
-export const ReactionWrapper = styled.div`
-  ${cs.flex('align-center')};
-  margin-right: 5px;
-`
 export const Divider = styled.div`
   border-right: 1px solid;
   border-color: ${theme('banner.desc')};

@@ -28,14 +28,6 @@ function loadVideo({ id }) {
   sr71$.query(S.video, variables)
 }
 
-export function onReaction(thread, action, userDid, { id }) {
-  const args = { id, thread: R.toUpper(thread), action }
-
-  return userDid
-    ? sr71$.mutate(S.undoReaction, args)
-    : sr71$.mutate(S.reaction, args)
-}
-
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
 // ###############################
 // Data & Error handlers
@@ -49,11 +41,6 @@ const DataSolver = [
       store.setViewing({ video: R.merge(store.viewingData, video) })
       /* loading(false) */
     },
-  },
-  {
-    match: asyncRes('reaction'),
-    action: ({ reaction }) =>
-      sr71$.query(S.videoReactionRes, { id: reaction.id }),
   },
 ]
 const ErrSolver = [

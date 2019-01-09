@@ -27,12 +27,6 @@ const post = gql`
     }
   }
 `
-const reaction = gql`
-  ${P.reaction}
-`
-const undoReaction = gql`
-  ${P.undoReaction}
-`
 const setTag = gql`
   ${P.setTag}
 `
@@ -67,8 +61,6 @@ const postComment = gql`
 const schema = {
   post,
   postReactionRes,
-  reaction,
-  undoReaction,
   setTag,
   unsetTag,
   postComment,

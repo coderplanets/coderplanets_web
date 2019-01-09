@@ -1,33 +1,23 @@
 /*
- * ArticleViwerStore store
- *
- */
+* ArticleViewerHeader store
+*
+*/
 
 import { types as t, getParent } from 'mobx-state-tree'
-import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
+// import R from 'ramda'
+
+import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('S:ArticleViwerStore')
+const debug = makeDebugger('S:ArticleViewerHeader')
 /* eslint-enable no-unused-vars */
 
-const ArticleViwerStore = t
-  .model('ArticleViwerStore', {
-    type: t.optional(
-      t.enumeration('type', [
-        TYPE.PREVIEW_POST_VIEW,
-        TYPE.PREVIEW_JOB_VIEW,
-        TYPE.PREVIEW_REPO_VIEW,
-        TYPE.PREVIEW_VIDEO_VIEW,
-      ]),
-      TYPE.PREVIEW_POST_VIEW
-    ),
+const ArticleViewerHeader = t
+  .model('ArticleViewerHeader', {
     loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
       return getParent(self)
-    },
-    get curRoute() {
-      return self.root.curRoute
     },
     get isLogin() {
       return self.root.account.isLogin
@@ -38,30 +28,21 @@ const ArticleViwerStore = t
     get viewingData() {
       return self.root.viewingData
     },
-    get curCommunity() {
-      return stripMobx(self.root.viewing.community)
-    },
     get activeThread() {
       const { activeThread } = self.root.viewing
       return activeThread
     },
   }))
   .actions(self => ({
-    callInformer() {
-      self.root.callInformer()
-    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
     syncViewingItem(item) {
       self.root.viewing.syncViewingItem(item)
     },
-    markRoute(query) {
-      self.root.markRoute(query)
-    },
     markState(sobj) {
       markStates(sobj, self)
     },
   }))
 
-export default ArticleViwerStore
+export default ArticleViewerHeader

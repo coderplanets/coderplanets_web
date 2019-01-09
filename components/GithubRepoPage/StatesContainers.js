@@ -78,7 +78,7 @@ const StatesContainers = ({ repo }) => (
     >
       <BoxWrapper>
         <Label>Release</Label>
-        <Number small={repo.releaseTag.length > 10}>
+        <Number small={repo.releaseTag ? true : repo.releaseTag.length > 10}>
           {repo.releaseTag || '--'}
         </Number>
       </BoxWrapper>

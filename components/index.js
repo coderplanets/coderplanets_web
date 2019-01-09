@@ -26,7 +26,6 @@ export { default as ArticleEditToolbar } from './ArticleEditToolbar'
 export { default as ArticleEditFooter } from './ArticleEditFooter'
 
 export { default as ContentBanner } from './ContentBanner'
-export { default as ArticleHeader } from './ArticleHeader'
 export { default as Maybe } from './Maybe'
 export { default as DotDivider } from './DotDivider'
 export { default as PublishLabel } from './PublishLabel'

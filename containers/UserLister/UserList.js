@@ -51,7 +51,7 @@ const UsersTable = ({ entries, accountId }) => (
                 onUndoFollow={undoFollow}
               />
             ) : (
-              <div>(本人)</div>
+              <div>(本尊)</div>
             )}
           </Action>
         </UserBrief>

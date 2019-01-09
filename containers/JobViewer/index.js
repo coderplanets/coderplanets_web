@@ -8,17 +8,10 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
-// import Labeler from '../Labeler'
+
+import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
-import FavoritesCats from '../FavoritesCats'
-
-import {
-  Maybe,
-  ArticleHeader,
-  MarkDownRender,
-  ArticleContentLoading,
-} from '../../components'
-
+import { Maybe, MarkDownRender, ArticleContentLoading } from '../../components'
 import DigestBar from './DigestBar'
 
 import {
@@ -56,12 +49,10 @@ class JobViewerContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <FavoritesCats />
-        <ArticleHeader
+        <ArticleViewerHeader
           data={viewingData}
           company={company}
           author={viewingData.author}
-          onReaction={logic.onReaction}
           thread={THREAD.JOB}
           showStar={false}
         />

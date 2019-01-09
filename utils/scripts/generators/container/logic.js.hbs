@@ -5,12 +5,11 @@ import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
 
-const sr71$ = new SR71()
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:{{ properCase name }}')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
@@ -50,7 +49,7 @@ export function init(_store) {
 }
 
 export function uninit() {
-  if(!sub$) return false
+  if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
