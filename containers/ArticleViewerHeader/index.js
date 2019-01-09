@@ -48,6 +48,9 @@ class ArticleViewerHeaderContainer extends React.Component {
       showStar,
     } = this.props
 
+    const { articleViewerHeader } = this.props
+    const { starLoading, favoriteLoading } = articleViewerHeader
+
     return (
       <Wrapper>
         <FavoritesCats />
@@ -62,8 +65,18 @@ class ArticleViewerHeaderContainer extends React.Component {
           />
         </Maybe>
         <ReactionWrapper>
-          <FavoriteReaction show={showFavorite} data={data} thread={thread} />
-          <StarReaction show={showStar} data={data} thread={thread} />
+          <FavoriteReaction
+            show={showFavorite}
+            data={data}
+            thread={thread}
+            loading={favoriteLoading}
+          />
+          <StarReaction
+            show={showStar}
+            data={data}
+            thread={thread}
+            loading={starLoading}
+          />
           <ViewCounter data={data} />
           <LastSyncInfo show={showLastSync} data={data} />
         </ReactionWrapper>

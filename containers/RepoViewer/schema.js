@@ -13,7 +13,9 @@ const repo = gql`
       issuesCount
       releaseTag
       lastSync
+      favoritedCount
       favoritedCategoryId @include(if: $userHasLogin)
+      viewerHasFavorited @include(if: $userHasLogin)
       author {
         ${F.author}
       }
@@ -21,20 +23,8 @@ const repo = gql`
   }
 `
 
-const repoReactionRes = gql`
-  query($id: ID!) {
-    repo(id: $id) {
-      id
-      favoritedCategoryId
-      viewerHasFavorited
-      favoritedCount
-    }
-  }
-`
-
 const schema = {
   repo,
-  repoReactionRes,
 }
 
 export default schema

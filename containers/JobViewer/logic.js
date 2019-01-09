@@ -20,7 +20,7 @@ const debug = makeDebugger('L:JobViewer')
 /* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
+  resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
 let sub$ = null
@@ -74,13 +74,6 @@ const DataSolver = [
       store.setViewing({ job: R.merge(store.viewingData, job) })
       store.syncViewingItem(job)
       markLoading(false)
-    },
-  },
-  {
-    match: asyncRes(EVENT.REFRESH_REACTIONS),
-    action: e => {
-      const { id } = e[EVENT.REFRESH_REACTIONS].data
-      return sr71$.query(S.jobReactionRes, { id })
     },
   },
   {

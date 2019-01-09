@@ -14,34 +14,33 @@ import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-const sr71$ = new SR71({
-  resv_event: [EVENT.SET_FAVORITE_CONTENT],
-})
-let sub$ = null
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:FavoritesCats')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71({
+  resv_event: [EVENT.SET_FAVORITE_CONTENT],
+})
+
+let sub$ = null
 let store = null
 
 export const categoryOnChange = R.curry((part, e) =>
   store.updateEditing({ [part]: e.target.value })
 )
 
-export function onCategoryCreate() {
+export const onCategoryCreate = () => {
   if (!store.validator('publish')) return false
-  console.log('store.editCategoryData: ', store.editCategoryData)
 
   sr71$.mutate(S.createFavoriteCategory, store.editCategoryData)
 }
 
-export function onCategoryUpdate() {
+export const onCategoryUpdate = () => {
   if (!store.validator('publish')) return false
   sr71$.mutate(S.updateFavoriteCategory, store.editCategoryData)
 }
 
-export function onCategoryDelete() {
+export const onCategoryDelete = () => {
   const { id } = store.editCategoryData
   sr71$.mutate(S.deleteFavoriteCategory, { id })
 }
@@ -80,6 +79,8 @@ export const onModalClose = () => {
 }
 
 export const setContent = categoryId => {
+  if (store.doing) return false
+
   const { id } = store.viewingData
   const { thread } = store
 
@@ -88,10 +89,13 @@ export const setContent = categoryId => {
     thread: R.toUpper(thread),
     categoryId,
   }
+  store.markState({ doing: true })
   sr71$.mutate(S.setFavorites, args)
 }
 
 export const unSetContent = categoryId => {
+  if (store.doing) return false
+
   const { id } = store.viewingData
   const { thread } = store
 
@@ -100,10 +104,12 @@ export const unSetContent = categoryId => {
     thread: R.toUpper(thread),
     categoryId,
   }
+  store.markState({ doing: true })
   sr71$.mutate(S.unsetFavorites, args)
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) =>
+  store.markState({ loading: maybe, doing: false })
 
 // ###############################
 // Data & Error handlers
@@ -154,6 +160,7 @@ const DataSolver = [
       const { id } = store.viewingData
       const { thread } = store
       dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      store.markState({ doing: false })
     },
   },
   {
@@ -164,6 +171,7 @@ const DataSolver = [
       const { id } = store.viewingData
       const { thread } = store
       dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      store.markState({ doing: false })
     },
   },
   {

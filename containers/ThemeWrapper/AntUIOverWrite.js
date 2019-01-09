@@ -289,6 +289,7 @@ const AntUIOverWrite = createGlobalStyle`
   .ant-btn-background-ghost.ant-btn-red {
     color: ${theme('baseColor.error')};
     border-color: ${theme('baseColor.error')};
+    background: transparent !important;
   }
 
   .ant-btn-clicked:after {
