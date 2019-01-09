@@ -84,6 +84,7 @@ import {
   InformerStore,
   GirlVerifierStore,
   CashierStore,
+  ArticleAuthorCardStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -169,6 +170,7 @@ const rootStore = t
     informer: t.optional(InformerStore, {}),
     girlVerifier: t.optional(GirlVerifierStore, {}),
     cashier: t.optional(CashierStore, {}),
+    articleAuthorCard: t.optional(ArticleAuthorCardStore, {}),
 
     articleViewerHeader: t.optional(ArticleViewerHeader, {}),
     articleBodyHeader: t.optional(ArticleBodyHeaderStore, {}),

@@ -23,6 +23,10 @@ export { default as UserListerStore } from '../containers/UserLister/store'
 export { default as InformerStore } from '../containers/Informer/store'
 export { default as GirlVerifierStore } from '../containers/GirlVerifier/store'
 export { default as CashierStore } from '../containers/Cashier/store'
+
+export {
+  default as ArticleAuthorCardStore,
+} from '../containers/ArticleAuthorCard/store'
 //
 export {
   default as FavoritesCatsStore,
