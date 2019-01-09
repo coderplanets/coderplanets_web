@@ -8,7 +8,6 @@ import {
   asyncRes,
   asyncErr,
   makeDebugger,
-  dispatchEvent,
   closePreviewer,
   EVENT,
   ERR,
@@ -16,33 +15,16 @@ import {
   $solver,
 } from '../../utils'
 
-const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
-})
-
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:JobViewer')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71({
+  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.REFRESH_REACTIONS],
+})
+
 let sub$ = null
 let store = null
-
-export function onReaction(thread, action, userDid, { id }) {
-  if (action === TYPE.FAVORITE) {
-    return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
-      data: { thread },
-    })
-  }
-
-  const args = { id, thread: R.toUpper(thread), action }
-
-  return userDid
-    ? sr71$.mutate(S.undoReaction, args)
-    : sr71$.mutate(S.reaction, args)
-}
-
-export const onListReactionUsers = (type, data) =>
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
@@ -108,14 +90,6 @@ const DataSolver = [
       markLoading(false)
       // store.setViewing({ post: {} })
     },
-  },
-  {
-    match: asyncRes('reaction'),
-    action: ({ reaction: { id } }) => sr71$.query(S.jobReactionRes, { id }),
-  },
-  {
-    match: asyncRes('undoReaction'),
-    action: ({ undoReaction: { id } }) => sr71$.query(S.jobReactionRes, { id }),
   },
   {
     match: asyncRes('setTag'),

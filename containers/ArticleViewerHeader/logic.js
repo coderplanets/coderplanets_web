@@ -78,6 +78,14 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('job'),
+    action: ({ job }) => {
+      store.setViewing({ job: R.merge(store.viewingData, job) })
+      store.syncViewingItem(job)
+      markLoading(false)
+    },
+  },
+  {
     match: asyncRes('reaction'),
     action: ({ reaction: { id } }) => afterReaction(id),
   },

@@ -35,12 +35,6 @@ const jobReactionRes = gql`
     }
   }
 `
-const reaction = gql`
-  ${P.reaction}
-`
-const undoReaction = gql`
-  ${P.undoReaction}
-`
 const setTag = gql`
   ${P.setTag}
 `
@@ -51,8 +45,6 @@ const unsetTag = gql`
 const schema = {
   job,
   jobReactionRes,
-  reaction,
-  undoReaction,
   setTag,
   unsetTag,
 }

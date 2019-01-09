@@ -55,7 +55,6 @@ class ArticleViewerHeaderContainer extends React.Component {
           <UserInfo author={author} insertedAt={data.insertedAt} />
         </Maybe>
         <Maybe test={company}>
-          <div>company info</div>
           <CompanyInfo
             company={company}
             insertedAt={data.insertedAt}
