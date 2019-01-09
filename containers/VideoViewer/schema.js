@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F } from '../schemas'
 
 const video = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
@@ -28,17 +28,9 @@ const videoReactionRes = gql`
     }
   }
 `
-const reaction = gql`
-  ${P.reaction}
-`
-const undoReaction = gql`
-  ${P.undoReaction}
-`
 
 const schema = {
   video,
-  reaction,
-  undoReaction,
   videoReactionRes,
 }
 

@@ -86,6 +86,14 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('video'),
+    action: ({ video }) => {
+      markLoading(false)
+      store.setViewing({ video: R.merge(store.viewingData, video) })
+      // store.syncViewingItem(video)
+    },
+  },
+  {
     match: asyncRes('reaction'),
     action: ({ reaction: { id } }) => afterReaction(id),
   },

@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
-import { ArticleHeader } from '../../components'
 
 import Comments from '../Comments'
 import PlayWindow from './PlayWindow'
@@ -39,10 +39,9 @@ class VideoViewerContainer extends React.Component {
 
     return (
       <Wrapper>
-        <ArticleHeader
+        <ArticleViewerHeader
           data={viewingData}
           author={viewingData.author}
-          onReaction={logic.onReaction}
           thread={THREAD.VIDEO}
         />
         <BodyHeaderWrapper>
