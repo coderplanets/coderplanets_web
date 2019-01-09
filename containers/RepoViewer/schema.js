@@ -13,7 +13,9 @@ const repo = gql`
       issuesCount
       releaseTag
       lastSync
+      favoritedCount
       favoritedCategoryId @include(if: $userHasLogin)
+      viewerHasFavorited @include(if: $userHasLogin)
       author {
         ${F.author}
       }

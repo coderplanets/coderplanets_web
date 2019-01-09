@@ -52,6 +52,7 @@ const FavoritesCats = t
       )
     ),
     loading: t.optional(t.boolean, false),
+    doing: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

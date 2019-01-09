@@ -38,6 +38,7 @@ const video = gql`
       starredCount
       viewerHasFavorited
       viewerHasStarred
+      favoritedCategoryId
     }
   }
 `

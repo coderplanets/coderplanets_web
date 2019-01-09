@@ -102,6 +102,14 @@ const DataSolver = [
     },
   },
   {
+    match: asyncRes('repo'),
+    action: ({ repo }) => {
+      store.setViewing({ repo: R.merge(store.viewingData, repo) })
+      store.syncViewingItem(repo)
+      markLoading(false)
+    },
+  },
+  {
     match: asyncRes('reaction'),
     action: ({ reaction: { id } }) => afterReaction(id),
   },
