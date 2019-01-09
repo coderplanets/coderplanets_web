@@ -3,24 +3,22 @@ import R from 'ramda'
 import {
   makeDebugger,
   $solver,
+  dispatchEvent,
   asyncRes,
   asyncErr,
-  dispatchEvent,
-  ERR,
   TYPE,
+  ERR,
   EVENT,
   THREAD,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
+import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:ArticleViewerHeader')
+const debug = makeDebugger('L:ArticleBanner')
 /* eslint-enable no-unused-vars */
 
-// EVENT.REFRESH_REACTIONS handles FAVORITE action when
-// user set it from FavoriteSetter
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REACTIONS],
 })
@@ -28,10 +26,9 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export function onReaction(action, userDid, { id }) {
+export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()
   if (store.loading) return false
-
   const thread = store.activeThread
 
   store.markState({ action })
@@ -136,21 +133,18 @@ const ErrSolver = [
     match: asyncErr(ERR.CRAPHQL),
     action: ({ details }) => {
       debug('ERR.CRAPHQL -->', details)
-      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       debug('ERR.TIMEOUT -->', details)
-      markLoading(false)
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
-      markLoading(false)
     },
   },
 ]
@@ -163,7 +157,7 @@ export function init(_store) {
 }
 
 export function uninit() {
-  if (!sub$ || store.loading) return false
+  if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null

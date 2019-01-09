@@ -51,7 +51,7 @@ async function fetchData(props, opt) {
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id: postId })
+  const post = gqClient.request(P.post, { id: postId, userHasLogin })
   const pagedComments = gqClient.request(P.pagedComments, {
     id: postId,
     userHasLogin,

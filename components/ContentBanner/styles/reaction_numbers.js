@@ -17,16 +17,17 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: ${({ dead }) => (dead ? '' : theme('banner.numberHoverBg'))};
-    cursor: ${({ dead }) => (dead ? '' : 'pointer')};
+    background: ${({ readonly }) =>
+      readonly ? '' : theme('banner.numberHoverBg')};
+    cursor: ${({ readonly }) => (readonly ? '' : 'pointer')};
   }
 `
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   text-align: center;
   &:hover {
-    color: ${({ dead }) => (dead ? '' : '#f1c48f')};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
+    color: ${({ readonly }) => (readonly ? '' : '#f1c48f')};
+    text-decoration: ${({ readonly }) => (readonly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
 `
@@ -36,8 +37,8 @@ export const NumberItem = styled.div`
 
   color: ${theme('banner.number')};
   &:hover {
-    color: ${({ dead }) => (dead ? '' : '#f1c48f')};
-    text-decoration: ${({ dead }) => (dead ? '' : 'underline')};
+    color: ${({ readonly }) => (readonly ? '' : '#f1c48f')};
+    text-decoration: ${({ readonly }) => (readonly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
 `
