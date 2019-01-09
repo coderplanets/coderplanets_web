@@ -17,10 +17,12 @@ export { default as Doraemon } from './Doraemon'
 export { default as UpgradePackges } from './UpgradePackges'
 
 // viewers
-export { default as AccountEditor } from './AccountEditor'
-export { default as AccountViewer } from './AccountViewer'
+export { default as PostViewer } from './PostViewer'
+export { default as JobViewer } from './JobViewer'
 export { default as VideoViewer } from './VideoViewer'
 export { default as RepoViewer } from './RepoViewer'
+export { default as AccountEditor } from './AccountEditor'
+export { default as AccountViewer } from './AccountViewer'
 export { default as MailsViewer } from './MailsViewer'
 
 export { default as FavoritesCats } from './FavoritesCats'
