@@ -75,7 +75,7 @@ ArticleBodyHeaderContainer.propTypes = {
   thread: PropTypes.string,
   data: PropTypes.shape({
     id: PropTypes.string,
-    tags: PropTypes.object,
+    tags: PropTypes.array,
     linkAddr: PropTypes.string,
   }).isRequired,
   middle: PropTypes.oneOf(['linker', 'labeler']),
