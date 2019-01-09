@@ -1,20 +1,28 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  dispatchEvent,
+  ERR,
+  EVENT,
+} from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
 
-const sr71$ = new SR71()
-let sub$ = null
-
 /* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:JobBanner')
+const debug = makeDebugger('L:ArticleAuthorCard')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71()
+let sub$ = null
 let store = null
 
-export function someMethod() {}
+export const onListUsers = (type, data) =>
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 // ###############################
 // Data & Error handlers
@@ -44,14 +52,15 @@ const ErrSolver = [
 
 export function init(_store) {
   store = _store
-  debug(store)
 
+  debug(store)
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
 export function uninit() {
   if (!sub$) return false
+  debug('===== do uninit')
   sub$.unsubscribe()
   sub$ = null
 }

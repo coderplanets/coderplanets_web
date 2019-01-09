@@ -1,13 +1,14 @@
 import React from 'react'
 
 import Informer from '../Informer'
+import ArticleAuthorCard from '../ArticleAuthorCard'
 
-import { AuthorCard, ContentSourceCard } from '../../components'
+import { ContentSourceCard } from '../../components'
 import { Wrapper, ReportWrapper } from './styles/side_cards'
 
 const SideCards = ({ data }) => (
   <Wrapper>
-    <AuthorCard user={data.author} />
+    <ArticleAuthorCard user={data.author} />
     <ContentSourceCard data={data} />
     <ReportWrapper>
       <Informer />

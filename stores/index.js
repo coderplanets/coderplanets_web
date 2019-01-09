@@ -23,6 +23,10 @@ export { default as UserListerStore } from '../containers/UserLister/store'
 export { default as InformerStore } from '../containers/Informer/store'
 export { default as GirlVerifierStore } from '../containers/GirlVerifier/store'
 export { default as CashierStore } from '../containers/Cashier/store'
+
+export {
+  default as ArticleAuthorCardStore,
+} from '../containers/ArticleAuthorCard/store'
 //
 export {
   default as FavoritesCatsStore,
@@ -39,10 +43,9 @@ export {
 } from '../containers/CommunitiesBanner/store'
 export { default as UserBannerStore } from '../containers/UserBanner/store'
 
-// post page banner
-export { default as PostBannerStore } from '../containers/PostBanner/store'
-// job page banner
-export { default as JobBannerStore } from '../containers/JobBanner/store'
+export {
+  default as ArticleBannerStore,
+} from '../containers/ArticleBanner/store'
 // video page banner
 export { default as VideoBannerStore } from '../containers/VideoBanner/store'
 // video page banner

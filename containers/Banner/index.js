@@ -8,8 +8,8 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import UserBanner from '../UserBanner'
-import PostBanner from '../PostBanner'
-import JobBanner from '../JobBanner'
+
+import ArticleBanner from '../ArticleBanner'
 import VideoBanner from '../VideoBanner'
 import RepoBanner from '../RepoBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
@@ -40,10 +40,10 @@ const BannerContent = ({ curRoute }) => {
       return <ActivitiesRootBanner />
     }
     case ROUTE.POST: {
-      return <PostBanner />
+      return <ArticleBanner />
     }
     case ROUTE.JOB: {
-      return <JobBanner />
+      return <ArticleBanner showStar={false} />
     }
     case ROUTE.VIDEO: {
       return <VideoBanner />

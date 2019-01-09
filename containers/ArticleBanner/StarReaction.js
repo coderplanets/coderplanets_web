@@ -5,46 +5,39 @@ import { ICON_CMD } from '../../config'
 import { Maybe } from '../../components'
 
 import {
-  Reaction,
-  ReactionAction,
-  ReactionName,
-  ReactionLoading,
-  LikeIcon,
-  ReactionUserNum,
-  Divider,
-} from './styles/reaction'
+  NumberSection,
+  NumberDivider,
+  NumberTitle,
+  NumberItem,
+  NumberLoading,
+} from './styles/reaction_numbers'
 
 import { onReaction, onListReactionUsers } from './logic'
-import { TYPE } from '../../utils'
+import { numberWithCommas, TYPE } from '../../utils'
 
 const StarReaction = ({ data, show, loading }) => (
   <Maybe test={show}>
-    <Reaction>
-      <ReactionAction
-        active={data.viewerHasStarred}
+    <NumberSection active={data.viewerHasStarred}>
+      <NumberTitle
         onClick={onReaction.bind(this, TYPE.STAR, data.viewerHasStarred, data)}
       >
-        <LikeIcon src={`${ICON_CMD}/like.svg`} />
-        <ReactionName>
-          {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
-        </ReactionName>
-      </ReactionAction>
+        {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
+      </NumberTitle>
       {loading ? (
-        <ReactionLoading src={`${ICON_CMD}/reaction_loading.svg`} />
+        <NumberLoading src={`${ICON_CMD}/reaction_loading.svg`} />
       ) : (
-        <ReactionUserNum
+        <NumberItem
           onClick={onListReactionUsers.bind(this, TYPE.USER_LISTER_STARS, {
             id: data.id,
             action: TYPE.STAR,
             brief: data.title || '',
           })}
         >
-          {data.starredCount}
-        </ReactionUserNum>
+          {numberWithCommas(data.starredCount)}
+        </NumberItem>
       )}
-
-      <Divider />
-    </Reaction>
+    </NumberSection>
+    <NumberDivider />
   </Maybe>
 )
 

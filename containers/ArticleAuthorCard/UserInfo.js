@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Wrapper, Avatar, Brief, Nickname, Bio } from './styles/user_info'
 import { cutFrom } from '../../utils'
@@ -12,5 +13,16 @@ const UserInfo = ({ user }) => (
     </Brief>
   </Wrapper>
 )
+
+UserInfo.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.string,
+    avatar: PropTypes.string,
+    nickname: PropTypes.string,
+    bio: PropTypes.string,
+  }).isRequired,
+}
+
+UserInfo.defaultProps = {}
 
 export default UserInfo

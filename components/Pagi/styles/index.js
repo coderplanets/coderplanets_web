@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { theme } from '../../../utils'
 
 export const PagiWrapper = styled.div`
   text-align: center;
@@ -8,8 +9,9 @@ export const PagiWrapper = styled.div`
 `
 
 export const BottomMsg = styled.div`
-  font-size: 1.4em;
-  color: #afaeae;
+  font-size: 1.1rem;
+  color: ${theme('thread.articleDigest')};
+  opacity: 0.7;
   &:before {
     content: '~~';
     margin-right: 10px;

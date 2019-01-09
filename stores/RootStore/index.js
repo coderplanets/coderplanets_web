@@ -38,8 +38,7 @@ import {
   CheatsheetThreadStore,
   // banners
   BannerStore,
-  PostBannerStore,
-  JobBannerStore,
+  ArticleBannerStore,
   VideoBannerStore,
   RepoBannerStore,
   CommunityBannerStore,
@@ -85,6 +84,7 @@ import {
   InformerStore,
   GirlVerifierStore,
   CashierStore,
+  ArticleAuthorCardStore,
   // user page
   UserPublishedStore,
   UserPublishedCommentsStore,
@@ -137,8 +137,7 @@ const rootStore = t
 
     // banners
     banner: t.optional(BannerStore, {}),
-    postBanner: t.optional(PostBannerStore, {}),
-    jobBanner: t.optional(JobBannerStore, {}),
+    articleBanner: t.optional(ArticleBannerStore, {}),
     videoBanner: t.optional(VideoBannerStore, {}),
     repoBanner: t.optional(RepoBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
@@ -171,6 +170,7 @@ const rootStore = t
     informer: t.optional(InformerStore, {}),
     girlVerifier: t.optional(GirlVerifierStore, {}),
     cashier: t.optional(CashierStore, {}),
+    articleAuthorCard: t.optional(ArticleAuthorCardStore, {}),
 
     articleViewerHeader: t.optional(ArticleViewerHeader, {}),
     articleBodyHeader: t.optional(ArticleBodyHeaderStore, {}),

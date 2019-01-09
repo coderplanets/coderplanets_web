@@ -1,7 +1,7 @@
 import F from '../fragments'
 
 export const post = `
-  query post($id: ID!) {
+  query post($id: ID!, $userHasLogin: Boolean!) {
     post(id: $id) {
       ${F.post}
       body
@@ -19,7 +19,10 @@ export const post = `
         followingsCount
       }
       favoritedCount
+      viewerHasFavorited @include(if: $userHasLogin)
       starredCount
+      viewerHasStarred @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
         entries {
           ${F.author}

@@ -1,7 +1,7 @@
 import F from '../fragments'
 
 export const job = `
-  query job($id: ID!) {
+  query job($id: ID!, $userHasLogin: Boolean!) {
     job(id: $id) {
       ${F.job}
       body
@@ -17,6 +17,8 @@ export const job = `
         followingsCount
       }
       favoritedCount
+      viewerHasFavorited @include(if: $userHasLogin)
+      favoritedCategoryId @include(if: $userHasLogin)
       pagedCommentsParticipators {
         entries {
           ${F.author}

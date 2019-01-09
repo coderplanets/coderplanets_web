@@ -1,11 +1,12 @@
 import React from 'react'
-import FollowButton from '../FollowButton'
+
+import { FollowButton } from '../../components'
 
 import { Wrapper, Title, FollowWrapper } from './styles/header'
 
-const Header = ({ header }) => (
+const Header = ({ title }) => (
   <Wrapper>
-    <Title>{header}</Title>
+    <Title>{title}</Title>
     <FollowWrapper>
       <FollowButton />
     </FollowWrapper>
