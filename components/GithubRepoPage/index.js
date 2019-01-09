@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 
 import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
-import ArticleHeader from '../ArticleHeader'
 import Header from './Header'
 import StatesContainers from './StatesContainers'
 
@@ -26,7 +25,8 @@ import {
   ReadonlyHolder,
 } from './styles'
 
-import { makeDebugger, THREAD } from '../../utils'
+import { makeDebugger } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('c:GithubRepoPage:index')
 /* eslint-enable no-unused-vars */
@@ -36,25 +36,16 @@ const GithubRepoPage = ({
   onSearch,
   onPublish,
   onSync,
-  onReaction,
-  onListReactionUsers,
   showPublishBtn,
   showSearchBtn,
   showSyncBtn,
+  viewerHeader,
   bodyHeader,
   readOnly,
 }) => (
   <Wrapper>
     {!readOnly ? (
-      <ArticleHeader
-        data={repo}
-        author={repo.author}
-        thread={THREAD.REPO}
-        showStar={false}
-        showLastSync
-        onReaction={onReaction}
-        onListReactionUsers={onListReactionUsers}
-      />
+      <React.Fragment>{viewerHeader}</React.Fragment>
     ) : (
       <ReadonlyHolder />
     )}
@@ -96,13 +87,11 @@ GithubRepoPage.propTypes = {
   onSearch: PropTypes.func,
   onSync: PropTypes.func,
 
-  onReaction: PropTypes.func,
-  onListReactionUsers: PropTypes.func,
-
   showPublishBtn: PropTypes.bool,
   showSearchBtn: PropTypes.bool,
   showSyncBtn: PropTypes.bool,
 
+  viewerHeader: PropTypes.node,
   bodyHeader: PropTypes.node,
 
   readOnly: PropTypes.bool,
@@ -113,12 +102,10 @@ GithubRepoPage.defaultProps = {
   onSearch: debug,
   onSync: debug,
 
-  onReaction: debug,
-  onListReactionUsers: debug,
-
   showPublishBtn: false,
   showSearchBtn: false,
   showSyncBtn: false,
+  viewerHeader: <div />,
   bodyHeader: <div />,
 
   readOnly: false,

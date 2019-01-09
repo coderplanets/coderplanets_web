@@ -2,7 +2,6 @@ import R from 'ramda'
 
 import {
   makeDebugger,
-  dispatchEvent,
   $solver,
   asyncRes,
   asyncErr,
@@ -30,21 +29,6 @@ export function loadRepo(id) {
   const userHasLogin = store.isLogin
   sr71$.query(S.repo, { id, userHasLogin })
 }
-
-function reloadReactions(id) {
-  return sr71$.query(S.repoReactionRes, { id })
-}
-
-export function onReaction(thread, action) {
-  if (action === TYPE.FAVORITE) {
-    return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
-      data: { thread },
-    })
-  }
-}
-
-export const onListReactionUsers = (type, data) =>
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 const openAttachment = att => {
   if (!att) return false
@@ -74,7 +58,7 @@ const DataSolver = [
     match: asyncRes(EVENT.REFRESH_REACTIONS),
     action: e => {
       const { id } = e[EVENT.REFRESH_REACTIONS].data
-      reloadReactions(id)
+      return sr71$.query(S.repoReactionRes, { id })
     },
   },
 ]

@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import { CommentsWrapper } from './styles'
 
@@ -41,8 +42,15 @@ class RepoViewerContainer extends React.Component {
         <FavoritesCats />
         <GithubRepoPage
           repo={viewingData}
-          onReaction={logic.onReaction}
-          onListReactionUsers={logic.onListReactionUsers}
+          viewerHeader={
+            <ArticleViewerHeader
+              data={viewingData}
+              author={viewingData.author}
+              thread={THREAD.REPO}
+              showStar={false}
+              showLastSync
+            />
+          }
           bodyHeader={
             <ArticleBodyHeader
               data={viewingData}
