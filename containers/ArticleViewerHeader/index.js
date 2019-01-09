@@ -7,35 +7,22 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
-import TimeAgo from 'timeago-react'
-
-import { ICON_CMD } from '../../config'
 
 import FavoritesCats from '../FavoritesCats'
-import { Maybe, Popover } from '../../components'
+import { Maybe } from '../../components'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'
+import FavoriteReaction from './FavoriteReaction'
+import StarReaction from './StarReaction'
+import ViewCounter from './ViewCounter'
+import LastSyncInfo from './LastSyncInfo'
 
-import {
-  Wrapper,
-  ReactionWrapper,
-  Reaction,
-  PlainAction,
-  ReactionAction,
-  ReactionName,
-  CollectIcon,
-  LikeIcon,
-  PlainUserNum,
-  SyncTime,
-  PopInfo,
-  ReactionUserNum,
-  Divider,
-} from './styles'
-
-import { makeDebugger, storePlug, TYPE, THREAD } from '../../utils'
+import { Wrapper, ReactionWrapper } from './styles'
 
 import * as logic from './logic'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:ArticleViewerHeader')
 /* eslint-enable no-unused-vars */
@@ -64,119 +51,22 @@ class ArticleViewerHeaderContainer extends React.Component {
     return (
       <Wrapper>
         <FavoritesCats />
-        {author && !company ? (
+        <Maybe test={author && !company}>
           <UserInfo author={author} insertedAt={data.insertedAt} />
-        ) : null}
-        {company ? (
+        </Maybe>
+        <Maybe test={company}>
+          <div>company info</div>
           <CompanyInfo
             company={company}
             insertedAt={data.insertedAt}
             author={author}
           />
-        ) : null}
+        </Maybe>
         <ReactionWrapper>
-          <Maybe text={showFavorite}>
-            <Reaction>
-              <ReactionAction
-                active={data.viewerHasFavorited}
-                onClick={logic.onReaction.bind(
-                  this,
-                  thread,
-                  TYPE.FAVORITE,
-                  data.viewerHasFavorited,
-                  data
-                )}
-              >
-                <CollectIcon src={`${ICON_CMD}/uncollect.svg`} />
-                <ReactionName>
-                  {data.viewerHasFavorited ? (
-                    <span>已收藏</span>
-                  ) : (
-                    <span>收藏</span>
-                  )}
-                </ReactionName>
-              </ReactionAction>
-              <ReactionUserNum
-                onClick={logic.onListReactionUsers.bind(
-                  this,
-                  TYPE.USER_LISTER_FAVORITES,
-                  {
-                    thread,
-                    id: data.id,
-                    action: TYPE.FAVORITE,
-                    brief: data.title || '',
-                  }
-                )}
-              >
-                {data.favoritedCount}
-              </ReactionUserNum>
-              <Divider />
-            </Reaction>
-          </Maybe>
-
-          <Maybe test={showStar}>
-            <Reaction>
-              <ReactionAction
-                active={data.viewerHasStarred}
-                onClick={logic.onReaction.bind(
-                  this,
-                  thread,
-                  TYPE.STAR,
-                  data.viewerHasStarred,
-                  data
-                )}
-              >
-                <LikeIcon src={`${ICON_CMD}/like.svg`} />
-                <ReactionName>
-                  {data.viewerHasStarred ? <span>已赞</span> : <span>赞</span>}
-                </ReactionName>
-              </ReactionAction>
-              <ReactionUserNum
-                onClick={logic.onListReactionUsers.bind(
-                  this,
-                  TYPE.USER_LISTER_STARS,
-                  {
-                    thread,
-                    id: data.id,
-                    action: TYPE.STAR,
-                    brief: data.title || '',
-                  }
-                )}
-              >
-                {data.starredCount}
-              </ReactionUserNum>
-              <Divider />
-            </Reaction>
-          </Maybe>
-
-          <Reaction>
-            <PlainAction>
-              <ReactionName>浏览:</ReactionName>
-            </PlainAction>
-            <PlainUserNum>{data.views}</PlainUserNum>
-          </Reaction>
-
-          <Maybe test={showLastSync}>
-            <Popover
-              placement="bottomLeft"
-              trigger="hover"
-              content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
-            >
-              <Reaction>
-                <Divider />
-                <PlainAction>
-                  <ReactionName>同步于:</ReactionName>
-                </PlainAction>
-                <SyncTime>
-                  {data.lastSync ? (
-                    <TimeAgo datetime={data.lastSync} locale="zh_CN" />
-                  ) : (
-                    '--'
-                  )}
-                </SyncTime>
-              </Reaction>
-            </Popover>
-          </Maybe>
+          <FavoriteReaction show={showFavorite} data={data} thread={thread} />
+          <StarReaction show={showStar} data={data} thread={thread} />
+          <ViewCounter data={data} />
+          <LastSyncInfo show={showLastSync} data={data} />
         </ReactionWrapper>
       </Wrapper>
     )
@@ -186,7 +76,7 @@ class ArticleViewerHeaderContainer extends React.Component {
 ArticleViewerHeaderContainer.propTypes = {
   articleViewerHeader: PropTypes.any.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
-  author: PropTypes.object.isRequired,
+  author: PropTypes.object,
   company: PropTypes.any,
   data: PropTypes.any,
   showFavorite: PropTypes.bool,
@@ -196,7 +86,8 @@ ArticleViewerHeaderContainer.propTypes = {
 
 ArticleViewerHeaderContainer.defaultProps = {
   thread: THREAD.POST,
-  company: {},
+  author: null,
+  company: null,
   data: {},
   showStar: true,
   showFavorite: true,

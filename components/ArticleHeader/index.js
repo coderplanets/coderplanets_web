@@ -62,7 +62,7 @@ const ArticleHeader = ({
         />
       ) : null}
       <ReactionWrapper>
-        <Maybe text={showFavorite}>
+        <Maybe test={showFavorite}>
           <Reaction>
             <ReactionAction
               active={data.viewerHasFavorited}
