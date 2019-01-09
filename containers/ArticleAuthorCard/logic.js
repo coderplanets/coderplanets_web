@@ -1,6 +1,14 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  dispatchEvent,
+  ERR,
+  EVENT,
+} from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
@@ -13,7 +21,8 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export function someMethod() {}
+export const onListUsers = (type, data) =>
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 
 // ###############################
 // Data & Error handlers
