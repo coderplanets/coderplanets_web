@@ -10,7 +10,6 @@ import { inject, observer } from 'mobx-react'
 import UserBanner from '../UserBanner'
 
 import ArticleBanner from '../ArticleBanner'
-// import PostBanner from '../PostBanner'
 import JobBanner from '../JobBanner'
 import VideoBanner from '../VideoBanner'
 import RepoBanner from '../RepoBanner'

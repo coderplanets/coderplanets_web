@@ -42,8 +42,6 @@ export { default as UserBannerStore } from '../containers/UserBanner/store'
 export {
   default as ArticleBannerStore,
 } from '../containers/ArticleBanner/store'
-// post page banner
-export { default as PostBannerStore } from '../containers/PostBanner/store'
 // job page banner
 export { default as JobBannerStore } from '../containers/JobBanner/store'
 // video page banner

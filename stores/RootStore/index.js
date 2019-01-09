@@ -39,7 +39,6 @@ import {
   // banners
   BannerStore,
   ArticleBannerStore,
-  PostBannerStore,
   JobBannerStore,
   VideoBannerStore,
   RepoBannerStore,
@@ -139,7 +138,6 @@ const rootStore = t
     // banners
     banner: t.optional(BannerStore, {}),
     articleBanner: t.optional(ArticleBannerStore, {}),
-    postBanner: t.optional(PostBannerStore, {}),
     jobBanner: t.optional(JobBannerStore, {}),
     videoBanner: t.optional(VideoBannerStore, {}),
     repoBanner: t.optional(RepoBannerStore, {}),
