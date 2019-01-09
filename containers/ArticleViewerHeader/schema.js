@@ -8,7 +8,7 @@ const undoReaction = gql`
   ${P.undoReaction}
 `
 
-const postReactionRes = gql`
+const post = gql`
   query($id: ID!) {
     post(id: $id) {
       id
@@ -20,7 +20,7 @@ const postReactionRes = gql`
     }
   }
 `
-const jobReactionRes = gql`
+const job = gql`
   query($id: ID!) {
     job(id: $id) {
       id
@@ -30,7 +30,7 @@ const jobReactionRes = gql`
     }
   }
 `
-const videoReactionRes = gql`
+const video = gql`
   query($id: ID!) {
     video(id: $id) {
       id
@@ -41,7 +41,7 @@ const videoReactionRes = gql`
     }
   }
 `
-const repoReactionRes = gql`
+const repo = gql`
   query($id: ID!) {
     repo(id: $id) {
       id
@@ -55,10 +55,10 @@ const repoReactionRes = gql`
 const schema = {
   reaction,
   undoReaction,
-  postReactionRes,
-  jobReactionRes,
-  videoReactionRes,
-  repoReactionRes,
+  post,
+  job,
+  video,
+  repo,
 }
 
 export default schema

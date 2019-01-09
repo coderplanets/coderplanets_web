@@ -34,6 +34,9 @@ const ArticleViewerHeader = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },

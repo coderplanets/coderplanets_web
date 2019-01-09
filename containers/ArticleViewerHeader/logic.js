@@ -24,6 +24,8 @@ let sub$ = null
 let store = null
 
 export function onReaction(thread, action, userDid, { id }) {
+  if (!store.isLogin) return store.authWarning()
+
   /* debug('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
@@ -48,16 +50,16 @@ const afterReaction = id => {
   const thread = store.activeThread
   switch (thread) {
     case THREAD.JOB: {
-      return sr71$.query(S.jobReactionRes, { id })
+      return sr71$.query(S.job, { id })
     }
     case THREAD.VIDEO: {
-      return sr71$.query(S.videoReactionRes, { id })
+      return sr71$.query(S.video, { id })
     }
     case THREAD.REPO: {
-      return sr71$.query(S.repoReactionRes, { id })
+      return sr71$.query(S.repo, { id })
     }
     default: {
-      return sr71$.query(S.postReactionRes, { id })
+      return sr71$.query(S.post, { id })
     }
   }
 }
