@@ -10,6 +10,7 @@ import { GAWraper, ErrorPage } from '../components'
 import {
   makeGQClient,
   getSubPath,
+  getThirdPath,
   ROUTE,
   THREAD,
   TYPE,
@@ -21,14 +22,13 @@ import {
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  JobContent,
   Footer,
 } from '../containers'
 
@@ -44,7 +44,7 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const jobId = getSubPath(props)
+  const jobId = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -120,13 +120,12 @@ export default class Index extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner showStar={false} />
+                    <JobContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>

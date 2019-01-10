@@ -43,7 +43,7 @@ app.prepare().then(() => {
     return renderAndCache(req, res, '/post', req.query)
   })
 
-  server.get('/job/:id', (req, res) => {
+  server.get('/:community/job/:id', (req, res) => {
     /* return app.render(req, res, '/job', req.query) */
     return renderAndCache(req, res, '/job', req.query)
   })
