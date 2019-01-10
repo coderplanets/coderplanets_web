@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '../../../utils'
 
-export const Container = styled.article`
+export const Wrapper = styled.article`
   ${cs.flex()};
   padding: 20px;
   min-height: 300px;

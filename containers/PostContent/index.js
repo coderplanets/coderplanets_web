@@ -5,18 +5,12 @@
  */
 
 import React from 'react'
-import R from 'ramda'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
-import { MarkDownRender } from '../../components'
+import { MarkDownRender, Maybe } from '../../components'
 
-import {
-  Container,
-  MainWrapper,
-  ArticleWrapper,
-  CommentsWrapper,
-} from './styles'
+import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 
 import SideCards from './SideCards'
 
@@ -42,8 +36,8 @@ class PostContentContainer extends React.Component {
     const { viewingPostData } = postContent
 
     return (
-      <Container>
-        {R.isNil(viewingPostData.id) ? null : (
+      <Wrapper>
+        <Maybe test={viewingPostData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
@@ -55,8 +49,8 @@ class PostContentContainer extends React.Component {
             </MainWrapper>
             <SideCards data={viewingPostData} />
           </React.Fragment>
-        )}
-      </Container>
+        </Maybe>
+      </Wrapper>
     )
   }
 }

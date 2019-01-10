@@ -6,31 +6,28 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
 
 import Comments from '../Comments'
-
-import {
-  Container,
-  MainWrapper,
-  ArticleWrapper,
-  CommentsWrapper,
-} from './styles'
-
+import { Maybe } from '../../components'
 import SideCards from './SideCards'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:VideoContent')
 /* eslint-enable no-unused-vars */
 
 class VideoContentContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { videoContent } = props
+  componentDidMount() {
+    const { videoContent } = this.props
     logic.init(videoContent)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   render() {
@@ -38,8 +35,8 @@ class VideoContentContainer extends React.Component {
     const { viewingVideoData } = videoContent
 
     return (
-      <Container>
-        {R.isNil(viewingVideoData.id) ? null : (
+      <Wrapper>
+        <Maybe test={viewingVideoData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>xxx video</ArticleWrapper>
@@ -49,8 +46,8 @@ class VideoContentContainer extends React.Component {
             </MainWrapper>
             <SideCards data={viewingVideoData} />
           </React.Fragment>
-        )}
-      </Container>
+        </Maybe>
+      </Wrapper>
     )
   }
 }

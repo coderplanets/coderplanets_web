@@ -6,18 +6,12 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
 
 import Comments from '../Comments'
-import { MarkDownRender } from '../../components'
+import { MarkDownRender, Maybe } from '../../components'
 import CopyrightHeader from './CopyrightHeader'
 
-import {
-  Container,
-  MainWrapper,
-  ArticleWrapper,
-  CommentsWrapper,
-} from './styles'
+import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 
 import SideCards from './SideCards'
 
@@ -43,8 +37,8 @@ class JobContentContainer extends React.Component {
     const { viewingJobData } = jobContent
 
     return (
-      <Container>
-        {R.isNil(viewingJobData.id) ? null : (
+      <Wrapper>
+        <Maybe test={viewingJobData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
@@ -57,8 +51,8 @@ class JobContentContainer extends React.Component {
             </MainWrapper>
             <SideCards data={viewingJobData} />
           </React.Fragment>
-        )}
-      </Container>
+        </Maybe>
+      </Wrapper>
     )
   }
 }

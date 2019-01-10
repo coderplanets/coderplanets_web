@@ -6,23 +6,16 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import R from 'ramda'
 
 import Comments from '../Comments'
-import { MarkDownRender } from '../../components'
-
-import {
-  Container,
-  MainWrapper,
-  ArticleWrapper,
-  CommentsWrapper,
-} from './styles'
-
+import { MarkDownRender, Maybe } from '../../components'
 import SideCards from './SideCards'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:RepoContent')
 /* eslint-enable no-unused-vars */
@@ -42,8 +35,8 @@ class RepoContentContainer extends React.Component {
     const { viewingRepoData } = repoContent
 
     return (
-      <Container>
-        {R.isNil(viewingRepoData.id) ? null : (
+      <Wrapper>
+        <Maybe test={viewingRepoData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
@@ -55,8 +48,8 @@ class RepoContentContainer extends React.Component {
             </MainWrapper>
             <SideCards data={viewingRepoData} />
           </React.Fragment>
-        )}
-      </Container>
+        </Maybe>
+      </Wrapper>
     )
   }
 }
