@@ -9,6 +9,8 @@ import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
 import { Maybe } from '../../components'
+import PlayWindow from './PlayWindow'
+import InfoBoard from './InfoBoard'
 import SideCards from './SideCards'
 
 import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
@@ -39,7 +41,12 @@ class VideoContentContainer extends React.Component {
         <Maybe test={viewingVideoData.id}>
           <React.Fragment>
             <MainWrapper>
-              <ArticleWrapper>xxx video</ArticleWrapper>
+              <ArticleWrapper>
+                <Maybe test={viewingVideoData.poster}>
+                  <PlayWindow poster={viewingVideoData.poster} />
+                  <InfoBoard data={viewingVideoData} />
+                </Maybe>
+              </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>

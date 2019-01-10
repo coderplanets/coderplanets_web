@@ -11,15 +11,16 @@ export const MainWrapper = styled.div`
   width: 68%;
   margin-left: 2.5rem;
 `
-/* background: ${theme('preview.articleBg')}; */
+// padding: 35px 40px;
+
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
   margin-left: 2vw;
   margin-right: 1.6vw;
   background: ${theme('preview.articleBg')};
   border-radius: 5px;
-  padding: 35px 40px;
-  min-height: 60vh;
+  padding-top: 30px;
+  min-height: 40vh;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 
