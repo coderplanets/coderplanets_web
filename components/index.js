@@ -69,6 +69,8 @@ export { default as StrategicPartners } from './StrategicPartners'
 export { default as ArticleItemPrefixLabel } from './ArticleItemPrefixLabel'
 export { default as ArticleActionsPanel } from './ArticleActionsPanel'
 
+export { default as VideoPoster } from './VideoPoster'
+
 // loading component
 export {
   CommentLoading,

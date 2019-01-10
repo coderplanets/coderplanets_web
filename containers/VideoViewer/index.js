@@ -10,8 +10,9 @@ import { inject, observer } from 'mobx-react'
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 
+import { VideoPoster, Maybe } from '../../components'
+
 import Comments from '../Comments'
-import PlayWindow from './PlayWindow'
 import InfoBoard from './InfoBoard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
@@ -51,7 +52,9 @@ class VideoViewerContainer extends React.Component {
             middle="labeler"
           />
         </BodyHeaderWrapper>
-        {viewingData.poster ? <PlayWindow poster={viewingData.poster} /> : null}
+        <Maybe test={viewingData.poster}>
+          <VideoPoster poster={viewingData.poster} />
+        </Maybe>
         <InfoBoard data={viewingData} />
         <CommentsWrapper>
           <Comments />

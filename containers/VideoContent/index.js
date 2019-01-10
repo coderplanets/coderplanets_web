@@ -8,8 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
-import { Maybe } from '../../components'
-import PlayWindow from './PlayWindow'
+import { Maybe, VideoPoster } from '../../components'
 import InfoBoard from './InfoBoard'
 import SideCards from './SideCards'
 
@@ -43,7 +42,7 @@ class VideoContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <Maybe test={viewingVideoData.poster}>
-                  <PlayWindow poster={viewingVideoData.poster} />
+                  <VideoPoster poster={viewingVideoData.poster} />
                   <InfoBoard data={viewingVideoData} />
                 </Maybe>
               </ArticleWrapper>
