@@ -2,15 +2,15 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import initRootStore from '../stores/init'
-import { GAWraper } from '../components'
+import { GAWraper, ErrorPage } from '../components'
 
 import {
   makeGQClient,
-  queryStringToJSON,
   getSubPath,
   ROUTE,
   THREAD,
   BStore,
+  ssrAmbulance,
 } from '../utils'
 
 import {
@@ -57,13 +57,18 @@ async function fetchData(props) {
 
 export default class Index extends React.Component {
   static async getInitialProps(props) {
-    const { req, asPath } = props
-    const isServer = !!req
-    if (!isServer) return {}
+    let resp
+    try {
+      resp = await fetchData(props)
+    } catch ({ response: { errors } }) {
+      if (ssrAmbulance.hasLoginError(errors)) {
+        resp = await fetchData(props, { realname: false })
+      } else {
+        return { statusCode: 404, target: getSubPath(props) }
+      }
+    }
 
-    console.log('SSR (repo--) queryStringToJSON: ', queryStringToJSON(asPath))
-    /* console.log('SSR extractThreadFromPath -> ', extractThreadFromPath(props)) */
-    const { sessionState, repo, subscribedCommunities } = await fetchData(props)
+    const { sessionState, repo, subscribedCommunities } = resp
 
     /* const repoId = getSubPath(props) */
     /* console.log('getSubPath --> thread: ', thread) */
@@ -86,26 +91,38 @@ export default class Index extends React.Component {
 
   constructor(props) {
     super(props)
-    this.store = initRootStore({ ...props })
+    const store = props.statusCode
+      ? initRootStore({ langSetup: {} })
+      : initRootStore({ ...props })
+
+    this.store = store
   }
 
   render() {
+    const { statusCode, target } = this.props
+
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            <Route />
-            <MultiLanguage>
-              <Sidebar />
-              <Preview />
-              <Doraemon />
-              <BodyLayout>
-                <Header />
-                <Banner />
-                <Content />
-                <Footer />
-              </BodyLayout>
-            </MultiLanguage>
+            {statusCode ? (
+              <ErrorPage errorCode={statusCode} page="post" target={target} />
+            ) : (
+              <React.Fragment>
+                <Route />
+                <MultiLanguage>
+                  <Sidebar />
+                  <Preview />
+                  <Doraemon />
+                  <BodyLayout>
+                    <Header />
+                    <Banner />
+                    <Content />
+                    <Footer />
+                  </BodyLayout>
+                </MultiLanguage>
+              </React.Fragment>
+            )}
           </ThemeWrapper>
         </GAWraper>
       </Provider>
