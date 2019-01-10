@@ -18,7 +18,6 @@ const githubApi = {
   searchCheatsheet: raw => searchCheatsheeetPromise(raw),
 
   parseError: e => {
-    // console.log('parseError e: ', e)
     if (e instanceof TimeoutError) return ERR.TIMEOUT
     if (!e || !e.response) return ERR.UNKOWN
     switch (e.response.status) {

@@ -70,9 +70,6 @@ const ViewingStore = t
       self.markState(sobj)
     },
     updateViewingIfNeed(type, sobj) {
-      // console.log('updateViewingIfNeed: type: ', type)
-      // console.log('updateViewingIfNeed: sobj: ', sobj)
-
       switch (type) {
         case 'user': {
           if (self.user.id !== self.accountInfo.id) return false

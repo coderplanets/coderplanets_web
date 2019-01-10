@@ -78,14 +78,6 @@ async function fetchData(props, opt) {
 
 export default class Index extends React.Component {
   static async getInitialProps(props) {
-    /*
-    const { asPath } = props
-    console.log(
-      'SSR (communities) queryStringToJSON: ',
-      queryStringToJSON(asPath)
-    )
-    */
-
     let resp
     try {
       resp = await fetchData(props)

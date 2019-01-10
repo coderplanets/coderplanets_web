@@ -22,7 +22,6 @@ global.Intl = require('intl')
 
 export default class Index extends React.Component {
   static async getInitialProps() {
-    // console.log('SSR (index) queryStringToJSON: ')
     // const { subscribedCommunities, sessionState } = await fetchData(props)
 
     return {

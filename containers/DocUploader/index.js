@@ -102,7 +102,6 @@ class DocUploaderContainer extends React.Component {
   }
 
   handleInputChange({ target: { files } }) {
-    console.log('handleInputChange e: ', files)
     // const {files} = e.target.files
     const file = files[0]
 
@@ -120,7 +119,6 @@ class DocUploaderContainer extends React.Component {
 
     const curTimeStamp = Date.now() / 1000
     if (curTimeStamp - initTimestamp <= 3) {
-      console.log('upload too often!')
       return false
     }
 

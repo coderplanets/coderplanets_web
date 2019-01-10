@@ -125,7 +125,6 @@ export default class PageCommunity extends React.Component {
     } = resp
     const contentsThread = ssrContentsThread(resp, thread, filter)
 
-    console.log('the filter: ', filter)
     // init state on server side
     return R.merge(
       {

@@ -73,9 +73,6 @@ export const queryStringToJSON = (path, opt = { pagi: 'string' }) => {
   // if (splited.length !== 1) return mergeRouteQuery({}, opt)
   if (splited.length === 1) return mergeRouteQuery({}, opt)
 
-  // splited = mergeRouteQuery({}, opt)
-  // console.log('splited2 --> ', splited)
-
   const result = {}
   const paris = splited[1].split('&')
 

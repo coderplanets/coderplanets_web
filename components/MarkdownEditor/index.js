@@ -122,14 +122,12 @@ class MarkdownEditor extends React.Component {
     const { onChange } = this.props
     // const oldString = toRawString(this.state.editorState.getCurrentContent())
     const newString = toRawString(editorState.getCurrentContent())
-    // console.log('onChange raw: ', newString)
 
     onChange(newString)
     this.setState({ editorState })
   }
 
   onSearchChange = ({ value }) => {
-    /* console.log('onSearchChange value: ', value) */
     const { onMentionSearch } = this.props
     onMentionSearch(value)
 
@@ -169,9 +167,6 @@ class MarkdownEditor extends React.Component {
     const { MentionSuggestions } = this.mentionPlugin
     const plugins = [this.mentionPlugin, linkifyPlugin]
     const { editorState, suggestions } = this.state
-
-    /* console.log('mentionList-> ', this.props.mentionList) */
-    //  console.log('suggestions : ', suggestions)
 
     return (
       <Wrapper onClick={this.focus}>

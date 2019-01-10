@@ -37,9 +37,7 @@ export const callInformer = () => store.callInformer()
 const DataSolver = [
   {
     match: asyncRes('post'),
-    action: ({ post }) => {
-      store.setViewing({ post })
-    },
+    action: ({ post }) => store.setViewing({ post }),
   },
   {
     match: asyncRes(EVENT.REFRESH_POSTS),

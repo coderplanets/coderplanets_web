@@ -55,7 +55,6 @@ import {
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
   if (!R.isEmpty(selectText)) {
-    /* console.log('getSelection', selectText) */
     // TODO: then use window.getSelection().getRangeAt(0).getBoundingClientRect() to draw a button
   }
 }
@@ -76,8 +75,6 @@ const DeleteMask = ({ show }) => (
 )
 
 const ActionBottom = ({ data, accountInfo }) => {
-  /* console.log('actionBottom data: ', data.author.id) */
-  /* console.log('accountInfo --dd -->', accountInfo) */
   if (String(data.author.id) === accountInfo.id) {
     return (
       <div style={{ display: 'flex' }}>

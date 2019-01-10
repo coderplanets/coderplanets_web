@@ -7,16 +7,13 @@ import {
   HomepageLink,
 } from './styles/repo_middle_info'
 
-const RepoMiddleInfo = ({ data }) => {
-  console.log('RepoMiddleInfo data: ', data)
-  return (
-    <Wrapper>
-      <DescriptionWrapper>
-        {data.desc}
-        <HomepageLink>{data.homepageUrl}</HomepageLink>
-      </DescriptionWrapper>
-    </Wrapper>
-  )
-}
+const RepoMiddleInfo = ({ data }) => (
+  <Wrapper>
+    <DescriptionWrapper>
+      {data.desc}
+      <HomepageLink>{data.homepageUrl}</HomepageLink>
+    </DescriptionWrapper>
+  </Wrapper>
+)
 
 export default RepoMiddleInfo

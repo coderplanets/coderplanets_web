@@ -70,9 +70,6 @@ export default class Index extends React.Component {
 
     const { sessionState, repo, subscribedCommunities } = resp
 
-    /* const repoId = getSubPath(props) */
-    /* console.log('getSubPath --> thread: ', thread) */
-
     return {
       langSetup: {},
       account: {

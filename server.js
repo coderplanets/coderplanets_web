@@ -30,56 +30,46 @@ app.prepare().then(() => {
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
   server.get('/', (req, res) => {
-    // fconsole.log('match me root')
-
     return res.redirect(HOME_PAGE)
   })
 
   server.get('/user/:userId', (req, res) => {
-    // console.log('match me user')
     // return app.render(req, res, '/user', req.query)
     return renderAndCache(req, res, '/user', req.query)
   })
 
   server.get('/post/:id', (req, res) => {
-    // console.log('match me post')
     /* return app.render(req, res, '/post', req.query) */
     return renderAndCache(req, res, '/post', req.query)
   })
 
   server.get('/job/:id', (req, res) => {
-    // console.log('match me job')
     /* return app.render(req, res, '/job', req.query) */
     return renderAndCache(req, res, '/job', req.query)
   })
 
   server.get('/video/:id', (req, res) => {
-    // console.log('match me video')
     /* return app.render(req, res, '/video', req.query) */
     return renderAndCache(req, res, '/video', req.query)
   })
 
   server.get('/repo/:id', (req, res) => {
-    // console.log('match me repo')
     /* return app.render(req, res, '/repo', req.query) */
     return renderAndCache(req, res, '/repo', req.query)
   })
 
   server.get('/communities', (req, res) => {
-    // console.log('match me communities index')
     /* return app.render(req, res, '/communities', req.query) */
     return res.redirect('/communities/pl')
     // return renderAndCache(req, res, '/communities/pl', req.query)
   })
 
   server.get('/communities/:category', (req, res) => {
-    // console.log('match me communities: ', req.query)
     /* return app.render(req, res, '/communities', req.query) */
     return renderAndCache(req, res, '/communities', req.query)
   })
 
   server.get('/:community/:thread', (req, res) => {
-    // console.log('match me community: ', req.query)
     if (R.has('preview', req.query) && R.has('id', req.query)) {
       const { preview, id } = req.query
       return res.redirect(`/${preview}/${id}`)
