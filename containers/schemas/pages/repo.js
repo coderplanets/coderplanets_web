@@ -15,6 +15,7 @@ export const repo = `
         followersCount
         followingsCount
       }
+      lastSync
       favoritedCount
       pagedCommentsParticipators {
         entries {

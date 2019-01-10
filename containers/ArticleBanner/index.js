@@ -11,7 +11,7 @@ import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { DotDivider, Space } from '../../components'
+import { DotDivider, Maybe, Space } from '../../components'
 
 import Title from './Title'
 import ReactionNumbers from './ReactionNumbers'
@@ -37,7 +37,7 @@ class ArticleBannerContainer extends React.Component {
   }
 
   render() {
-    const { articleBanner, showStar, showWordCount } = this.props
+    const { articleBanner, showStar, showWordCount, showLastSync } = this.props
     const {
       activeThread,
       viewingData,
@@ -60,12 +60,24 @@ class ArticleBannerContainer extends React.Component {
                 发布于:
                 <Space left="3px" right="3px" />
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
-                {showWordCount ? (
+                <Maybe test={showWordCount}>
                   <React.Fragment>
                     <DotDivider />
                     字数: {viewingData.length}
                   </React.Fragment>
-                ) : null}
+                </Maybe>
+                <Maybe test={showLastSync}>
+                  <React.Fragment>
+                    <DotDivider />
+                    最后同步:
+                    <Space left="3px" right="3px" />
+                    {viewingData.lastSync ? (
+                      <TimeAgo datetime={viewingData.lastSync} locale="zh_CN" />
+                    ) : (
+                      <span>--</span>
+                    )}
+                  </React.Fragment>
+                </Maybe>
               </Desc>
             </Brief>
             <ReactionNumbers
@@ -85,11 +97,13 @@ ArticleBannerContainer.propTypes = {
   articleBanner: PropTypes.object.isRequired,
   showStar: PropTypes.bool,
   showWordCount: PropTypes.bool,
+  showLastSync: PropTypes.bool,
 }
 
 ArticleBannerContainer.defaultProps = {
   showStar: true,
   showWordCount: true,
+  showLastSync: false,
 }
 
 export default inject(storePlug('articleBanner'))(

@@ -48,7 +48,9 @@ const BannerContent = ({ curRoute }) => {
       return <VideoBanner />
     }
     case ROUTE.REPO: {
-      return <ArticleBanner showStar={false} showWordCount={false} />
+      return (
+        <ArticleBanner showStar={false} showWordCount={false} showLastSync />
+      )
     }
     case ROUTE.USER: {
       return <UserBanner />
