@@ -7,15 +7,21 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
 import { MarkDownRender, Maybe } from '../../components'
-import CopyrightHeader from './CopyrightHeader'
 
-import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
+import {
+  Wrapper,
+  MainWrapper,
+  ArticleWrapper,
+  BodyHeaderWrapper,
+  CommentsWrapper,
+} from './styles'
 
 import SideCards from './SideCards'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -42,7 +48,9 @@ class JobContentContainer extends React.Component {
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <CopyrightHeader data={viewingData} />
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader data={viewingData} thread={THREAD.JOB} />
+                </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>
               <CommentsWrapper>

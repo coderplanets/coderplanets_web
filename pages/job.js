@@ -93,7 +93,7 @@ export default class Index extends React.Component {
         userSubscribedCommunities: subscribedCommunities,
       },
       route: { mainPath: ROUTE.JOB, subPath: job.id },
-      viewing: { job, activeThread: THREAD.JOB },
+      viewing: { job, activeThread: THREAD.JOB, community: job.communities[0] },
       comments: { pagedComments },
     }
   }
