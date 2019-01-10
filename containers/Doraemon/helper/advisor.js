@@ -127,7 +127,6 @@ export class Advisor {
     from(new Promise(resolve => resolve(this.relateSuggestions(q))))
 
   specialSuggestions = val => {
-    // console.log('this.getSuggestionPath(val): ', this.getSuggestionPath(val))
     return {
       prefix: R.head(val),
       data: [

@@ -77,10 +77,6 @@ app.prepare().then(() => {
     const accept = accepts(req)
     const locale = accept.language(supportLanguages) // 'zh'
 
-    /* console.log('server pathname: ', pathname) */
-    /* console.log('server query: ', query) */
-    console.log('what is res.send: ', res.send)
-
     if (localeQuery(pathname)) {
       res.setHeader('Content-Type', 'application/json;charset=utf-8')
       return res.end(JSON.stringify(getMessages(localeQuery(pathname).lang)))

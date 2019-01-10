@@ -1,11 +1,11 @@
 import gql from 'graphql-tag'
 import { P } from '../schemas'
 
-const video = gql`
-  ${P.video}
+const post = gql`
+  ${P.post}
 `
 const schema = {
-  video,
+  post,
 }
 
 export default schema

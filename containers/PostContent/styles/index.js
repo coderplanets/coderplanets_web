@@ -23,6 +23,11 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 `
 
+export const BodyHeaderWrapper = styled.div`
+  margin-top: -18px;
+  margin-bottom: 18px;
+`
+
 export const CommentsWrapper = styled.div`
   margin-top: 30px;
   margin: 25px;

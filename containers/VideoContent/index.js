@@ -7,13 +7,20 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
 import { Maybe, VideoPoster, VideoInfoCard } from '../../components'
 import SideCards from './SideCards'
 
-import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
+import {
+  Wrapper,
+  MainWrapper,
+  ArticleWrapper,
+  BodyHeaderWrapper,
+  CommentsWrapper,
+} from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -32,24 +39,27 @@ class VideoContentContainer extends React.Component {
 
   render() {
     const { videoContent } = this.props
-    const { viewingVideoData } = videoContent
+    const { viewingData } = videoContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingVideoData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <Maybe test={viewingVideoData.poster}>
-                  <VideoPoster poster={viewingVideoData.poster} />
-                  <VideoInfoCard data={viewingVideoData} />
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader data={viewingData} thread={THREAD.VIDEO} />
+                </BodyHeaderWrapper>
+                <Maybe test={viewingData.poster}>
+                  <VideoPoster poster={viewingData.poster} />
+                  <VideoInfoCard data={viewingData} />
                 </Maybe>
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingVideoData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>

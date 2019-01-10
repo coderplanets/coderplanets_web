@@ -33,7 +33,6 @@ const trimLower = R.compose(
 )
 
 const SourceOptions = ({ active, sourceOnSelect }) => {
-  /* console.log('map: ', R.map(R.trim(), R.pluck('title', recommands))) */
   if (!active) active = ''
 
   const otherOption =

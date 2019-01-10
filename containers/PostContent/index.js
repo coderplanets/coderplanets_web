@@ -7,15 +7,22 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Comments from '../Comments'
 import { MarkDownRender, Maybe } from '../../components'
 
-import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
-
+import ArticleBodyHeader from '../ArticleBodyHeader'
+import Comments from '../Comments'
 import SideCards from './SideCards'
 
+import {
+  Wrapper,
+  MainWrapper,
+  ArticleWrapper,
+  BodyHeaderWrapper,
+  CommentsWrapper,
+} from './styles'
+
 import * as logic from './logic'
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostContent')
@@ -33,21 +40,24 @@ class PostContentContainer extends React.Component {
 
   render() {
     const { postContent } = this.props
-    const { viewingPostData } = postContent
+    const { viewingData } = postContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingPostData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <MarkDownRender body={viewingPostData.body} />
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
+                </BodyHeaderWrapper>
+                <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingPostData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>

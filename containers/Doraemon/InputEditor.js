@@ -26,7 +26,6 @@ export default class InputEditor extends React.Component {
   // https://stackoverflow.com/questions/1080532/prevent-default-behavior-in-text-input-while-pressing-arrow-up
   @keydown(['ctrl+p'])
   up(e) {
-    // console.log('keydown ctrl+p')
     logic.navSuggestion('up')
     e.preventDefault()
   }

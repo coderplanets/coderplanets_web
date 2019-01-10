@@ -1,26 +1,63 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  EVENT,
+  ERR,
+} from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
-
-// import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
+import S from './schema'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:JobContent')
 /* eslint-enable no-unused-vars */
 
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_JOBS],
+})
+
+let sub$ = null
 let store = null
 
-export function someMethod() {}
+const loadJob = () => {
+  const { id } = store.viewingData
+  sr71$.query(S.job, { id, userHasLogin: store.isLogin })
+}
+
+/*
+   NOTE: in job page, if you want to update the job content
+   you need load tags by your self, because the this ssr dones't
+   load the the partialTags(cities infos) for you
+ */
+const loadCityTags = () => {
+  if (!store.isLogin) return false
+  const community = store.curCommunity.raw
+  // tagsBar: { tags: partialTags },
+  sr71$.query(S.partialTags, { community, thread: 'JOB' })
+}
 
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('job'),
+    action: ({ job }) => store.setViewing({ job }),
+  },
+  {
+    match: asyncRes('partialTags'),
+    action: ({ partialTags }) => store.updateTagsBar(partialTags),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_JOBS),
+    action: () => loadJob(),
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),
@@ -48,6 +85,7 @@ export const init = _store => {
   debug(store)
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  loadCityTags()
 }
 
 export const uninit = () => {

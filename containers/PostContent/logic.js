@@ -1,27 +1,69 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver } from '../../utils'
-import SR71 from '../../utils/network/sr71'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  EVENT,
+  ERR,
+} from '../../utils'
 
-const sr71$ = new SR71()
-let sub$ = null
+import SR71 from '../../utils/network/sr71'
+import S from './schema'
+
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_POSTS],
+})
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:PostContent')
 /* eslint-enable no-unused-vars */
 
+let sub$ = null
 let store = null
 
-export function callInformer() {
-  store.callInformer()
+const loadPost = () => {
+  const { id } = store.viewingData
+  sr71$.query(S.post, { id, userHasLogin: store.isLogin })
 }
+
+export const callInformer = () => store.callInformer()
 
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
-const ErrSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('post'),
+    action: ({ post }) => store.setViewing({ post }),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_POSTS),
+    action: () => loadPost(),
+  },
+]
+const ErrSolver = [
+  {
+    match: asyncErr(ERR.CRAPHQL),
+    action: ({ details }) => {
+      debug('ERR.CRAPHQL -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.TIMEOUT),
+    action: ({ details }) => {
+      debug('ERR.TIMEOUT -->', details)
+    },
+  },
+  {
+    match: asyncErr(ERR.NETWORK),
+    action: ({ details }) => {
+      debug('ERR.NETWORK -->', details)
+    },
+  },
+]
 
 export function init(_store) {
   store = _store

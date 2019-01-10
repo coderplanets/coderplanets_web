@@ -1,26 +1,46 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  EVENT,
+  ERR,
+} from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
+import S from './schema'
 
-// import S from './schema'
-
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_VIDEOS],
+})
 let sub$ = null
+let store = null
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('L:VideoContent')
 /* eslint-enable no-unused-vars */
 
-let store = null
-
-export function someMethod() {}
+const loadVideo = () => {
+  const { id } = store.viewingData
+  sr71$.query(S.video, { id, userHasLogin: store.isLogin })
+}
 
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
+const DataSolver = [
+  {
+    match: asyncRes('video'),
+    action: ({ video }) => store.setViewing({ video }),
+  },
+  {
+    match: asyncRes(EVENT.REFRESH_VIDEOS),
+    action: () => loadVideo(),
+  },
+]
 const ErrSolver = [
   {
     match: asyncErr(ERR.CRAPHQL),

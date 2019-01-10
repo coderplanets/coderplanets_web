@@ -47,12 +47,7 @@ async function fetchData(props, opt) {
   const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-
-  // console.log('userHasLogin: ', userHasLogin)
-  // console.log('token: ', token)
-  /* console.log('user page props: ', props) */
   const login = R.toLower(getSubPath(props))
-  // console.log('login =============== ', login)
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })

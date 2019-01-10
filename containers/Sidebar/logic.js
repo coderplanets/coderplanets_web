@@ -33,8 +33,6 @@ export function setPin() {
 }
 
 export function onCommunitySelect(community) {
-  // console.log('onCommunitySelect --> ', community)
-  // store.setViewing({ community, post: {}, job: {}, video: {}, repo: {} })
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
   store.markRoute({

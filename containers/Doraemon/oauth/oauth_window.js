@@ -41,8 +41,6 @@ const popup = authUrl => {
   // detect code here
   const scanTimer = setInterval(() => {
     /* const scanTimer = setTimeout(() => { */
-    // console.log('authWindow.location.search: ', authWindow.location.search)
-    // console.log('authWindow.location.location href: ', authWindow.location.href)
     if (
       authWindow.location.search === undefined &&
       authWindow.location.href === undefined

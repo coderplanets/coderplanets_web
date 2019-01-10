@@ -1,23 +1,15 @@
 import gql from 'graphql-tag'
+import { P } from '../schemas'
 
-const simpleMutation = gql`
-  mutation($id: ID!) {
-    post(id: $id) {
-      id
-    }
-  }
+const job = gql`
+  ${P.job}
 `
-const simpleQuery = gql`
-  query($filter: filter!) {
-    post(id: $id) {
-      id
-    }
-  }
+const partialTags = gql`
+  ${P.partialTags}
 `
-
 const schema = {
-  simpleMutation,
-  simpleQuery,
+  job,
+  partialTags,
 }
 
 export default schema
