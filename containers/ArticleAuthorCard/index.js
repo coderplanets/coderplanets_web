@@ -23,8 +23,8 @@ const debug = makeDebugger('C:ArticleAuthorCard')
 
 class ArticleAuthorCardContainer extends React.Component {
   componentDidMount() {
-    const { articleAuthorCard } = this.props
-    logic.init(articleAuthorCard)
+    const { articleAuthorCard, user } = this.props
+    logic.init(articleAuthorCard, user)
   }
 
   componentWillUnmount() {
@@ -33,10 +33,16 @@ class ArticleAuthorCardContainer extends React.Component {
 
   render() {
     const { introTitle, user } = this.props
+    const { articleAuthorCard } = this.props
+    const { userData, isSelfViewing } = articleAuthorCard
 
     return (
       <Wrapper>
-        <Header title={introTitle} />
+        <Header
+          title={introTitle}
+          user={userData}
+          isSelfViewing={isSelfViewing}
+        />
         <Divider />
         <UserInfo user={user} />
         <ReactionNumbers user={user} />
@@ -50,6 +56,7 @@ ArticleAuthorCardContainer.propTypes = {
   articleAuthorCard: PropTypes.object.isRequired,
   user: PropTypes.shape({
     id: PropTypes.string,
+    login: PropTypes.string,
     avatar: PropTypes.string,
     nickname: PropTypes.string,
     bio: PropTypes.string,

@@ -34,15 +34,8 @@ export function onClose() {
   unholdPage()
 }
 
-export function onFollow(userId) {
-  debug('onFollow userId: ', userId)
-
-  sr71$.mutate(S.follow, { userId })
-}
-
-export function undoFollow(userId) {
-  sr71$.mutate(S.undoFollow, { userId })
-}
+export const onFollow = userId => sr71$.mutate(S.follow, { userId })
+export const undoFollow = userId => sr71$.mutate(S.undoFollow, { userId })
 
 const loadUsers = (type, data, page = 1) => {
   // debug('loadUsers type: ', type)

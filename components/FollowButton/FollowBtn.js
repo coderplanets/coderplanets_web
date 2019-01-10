@@ -11,7 +11,7 @@ const FollowBtn = ({ size, loading, onClick }) => {
       {loading ? (
         <Button size={size} type="primary" ghost>
           <BtnWrapper>
-            <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} />
+            <LoadingIcon src={`${ICON_CMD}/reaction_loading.svg`} />
             <div>关注中...</div>
           </BtnWrapper>
         </Button>

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F, P } from '../schemas'
 
 const pagedUsers = gql`
   query($filter: PagedUsersFilter!) {
@@ -69,21 +69,11 @@ const reactionUsers = gql`
 `
 
 const follow = gql`
-  mutation($userId: ID!) {
-    follow(userId: $userId) {
-      id
-      viewerHasFollowed
-    }
-  }
+  ${P.follow}
 `
 
 const undoFollow = gql`
-  mutation($userId: ID!) {
-    undoFollow(userId: $userId) {
-      id
-      viewerHasFollowed
-    }
-  }
+  ${P.undoFollow}
 `
 
 const schema = {

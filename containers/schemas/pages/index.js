@@ -9,7 +9,14 @@ import { pagedCategories, partialTags } from './misc'
 import cheatsheet from './cheatsheet'
 import wiki from './wiki'
 
-import { reaction, undoReaction, setTag, unsetTag } from './action'
+import {
+  reaction,
+  undoReaction,
+  setTag,
+  unsetTag,
+  follow,
+  undoFollow,
+} from './action'
 
 const P = {
   // community
@@ -45,6 +52,8 @@ const P = {
   undoReaction,
   setTag,
   unsetTag,
+  follow,
+  undoFollow,
 }
 
 export default P

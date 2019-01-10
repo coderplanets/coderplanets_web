@@ -12,7 +12,7 @@ const FollowingBtn = ({ size, loading, onClick }) => {
       {loading ? (
         <Button size={size} type="primary">
           <BtnWrapper>
-            <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} light />
+            <LoadingIcon src={`${ICON_CMD}/reaction_loading.svg`} light />
             <div>取关中...</div>
           </BtnWrapper>
         </Button>

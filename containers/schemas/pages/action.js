@@ -33,3 +33,21 @@ export const unsetTag = `
     }
   }
 `
+
+export const follow = `
+  mutation($userId: ID!) {
+    follow(userId: $userId) {
+      id
+      viewerHasFollowed
+    }
+  }
+`
+
+export const undoFollow = `
+  mutation($userId: ID!) {
+    undoFollow(userId: $userId) {
+      id
+      viewerHasFollowed
+    }
+  }
+`

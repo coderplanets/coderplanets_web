@@ -7,14 +7,12 @@ export const BtnWrapper = styled.div`
   ${cs.flex('align-center')};
 `
 const BtnIcon = styled(Img)`
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   display: block;
   margin-right: 3px;
 `
 export const WatchIcon = styled(BtnIcon)`
-  height: 12px;
-  width: 12px;
   fill: ${theme('button.fg')};
 `
 export const WatchedIcon = styled(BtnIcon)`
@@ -29,7 +27,7 @@ export const LoadingIcon = styled(BtnIcon)`
   fill: ${({ light }) =>
     light ? theme('button.fg') : theme('thread.articleTitle')};
 
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   animation: ${animate.rotate360Rule};
 `

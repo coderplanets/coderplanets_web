@@ -16,45 +16,50 @@ const debug = makeDebugger('c:FollowButton:index')
 /* eslint-enable no-unused-vars */
 
 class FollowButton extends React.Component {
-  state = { loading: false }
+  state = { simuLoading: false }
 
   onFollow() {
-    const { userId, onFollow } = this.props
+    const { userId, onFollow, fakeLoading } = this.props
 
-    this.fakeLoading()
+    if (fakeLoading) {
+      this.doFakeLoading()
+    }
     onFollow(userId)
   }
 
   onUndoFollow() {
-    const { userId, onUndoFollow } = this.props
+    const { userId, onUndoFollow, fakeLoading } = this.props
 
-    this.fakeLoading()
+    if (fakeLoading) {
+      this.doFakeLoading()
+    }
     onUndoFollow(userId)
   }
 
-  fakeLoading() {
-    this.setState({ loading: true })
+  doFakeLoading() {
+    this.setState({ simuLoading: true })
     setTimeout(() => {
-      this.setState({ loading: false })
+      this.setState({ simuLoading: false })
     }, 1000)
   }
 
   render() {
-    const { hasFollowd, size } = this.props
-    const { loading } = this.state
+    const { hasFollowd, size, loading, fakeLoading } = this.props
+    const { simuLoading } = this.state
+    const isLoading = fakeLoading ? simuLoading : loading
 
     return (
       <React.Fragment>
         {hasFollowd ? (
           <FollowingBtn
             size={size}
-            loading={loading}
+            loading={isLoading}
             onClick={this.onUndoFollow.bind(this)}
           />
         ) : (
           <FollowBtn
             size={size}
-            loading={loading}
+            loading={isLoading}
             onClick={this.onFollow.bind(this)}
           />
         )}
@@ -69,12 +74,16 @@ FollowButton.propTypes = {
   size: PropTypes.oneOf(['small', 'default', 'large']),
   onFollow: PropTypes.func,
   onUndoFollow: PropTypes.func,
+  fakeLoading: PropTypes.bool,
+  loading: PropTypes.bool,
 }
 
 FollowButton.defaultProps = {
   size: 'small',
   onFollow: debug,
   onUndoFollow: debug,
+  fakeLoading: false,
+  loading: false,
 }
 
 export default FollowButton
