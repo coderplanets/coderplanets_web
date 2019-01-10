@@ -45,9 +45,6 @@ export { default as UserBannerStore } from '../containers/UserBanner/store'
 export {
   default as ArticleBannerStore,
 } from '../containers/ArticleBanner/store'
-// video page banner
-export { default as VideoBannerStore } from '../containers/VideoBanner/store'
-// video page banner
 
 // contents store
 export {
