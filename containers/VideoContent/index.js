@@ -32,24 +32,24 @@ class VideoContentContainer extends React.Component {
 
   render() {
     const { videoContent } = this.props
-    const { viewingVideoData } = videoContent
+    const { viewingData } = videoContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingVideoData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <Maybe test={viewingVideoData.poster}>
-                  <VideoPoster poster={viewingVideoData.poster} />
-                  <VideoInfoCard data={viewingVideoData} />
+                <Maybe test={viewingData.poster}>
+                  <VideoPoster poster={viewingData.poster} />
+                  <VideoInfoCard data={viewingData} />
                 </Maybe>
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingVideoData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>

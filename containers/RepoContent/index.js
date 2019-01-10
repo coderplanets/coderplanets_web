@@ -32,21 +32,21 @@ class RepoContentContainer extends React.Component {
 
   render() {
     const { repoContent } = this.props
-    const { viewingRepoData } = repoContent
+    const { viewingData } = repoContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingRepoData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <MarkDownRender body={viewingRepoData.readme} />
+                <MarkDownRender body={viewingData.readme} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingRepoData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>

@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 const loadPost = () => {
-  const { id } = store.viewingPostData
+  const { id } = store.viewingData
   sr71$.query(S.post, { id, userHasLogin: store.isLogin })
 }
 

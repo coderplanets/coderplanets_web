@@ -40,27 +40,24 @@ class PostContentContainer extends React.Component {
 
   render() {
     const { postContent } = this.props
-    const { viewingPostData } = postContent
+    const { viewingData } = postContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingPostData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader
-                    data={viewingPostData}
-                    thread={THREAD.POST}
-                  />
+                  <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
                 </BodyHeaderWrapper>
-                <MarkDownRender body={viewingPostData.body} />
+                <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingPostData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>

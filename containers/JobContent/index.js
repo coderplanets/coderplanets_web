@@ -34,22 +34,22 @@ class JobContentContainer extends React.Component {
 
   render() {
     const { jobContent } = this.props
-    const { viewingJobData } = jobContent
+    const { viewingData } = jobContent
 
     return (
       <Wrapper>
-        <Maybe test={viewingJobData.id}>
+        <Maybe test={viewingData.id}>
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
-                <CopyrightHeader data={viewingJobData} />
-                <MarkDownRender body={viewingJobData.body} />
+                <CopyrightHeader data={viewingData} />
+                <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>
               <CommentsWrapper>
                 <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingJobData} />
+            <SideCards data={viewingData} />
           </React.Fragment>
         </Maybe>
       </Wrapper>
