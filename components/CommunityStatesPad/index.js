@@ -39,13 +39,13 @@ const CommunityStatesPad = ({ community, onShowEditorList }) => {
         <NumberItem>{prettyNum(subscribersCount)}</NumberItem>
       </NumberSection>
       <NumberDivider />
-      <NumberSection readonly>
-        <NumberTitle readonly>内容</NumberTitle>
-        <NumberItem readonly>{prettyNum(contentsCount)}</NumberItem>
+      <NumberSection readOnly>
+        <NumberTitle readOnly>内容</NumberTitle>
+        <NumberItem readOnly>{prettyNum(contentsCount)}</NumberItem>
       </NumberSection>
       <NumberDivider />
       <NumberSection>
-        <NumberTitle readonly>编辑</NumberTitle>
+        <NumberTitle readOnly>编辑</NumberTitle>
         <NumberItem onClick={onShowEditorList}>
           {prettyNum(editorsCount)}
         </NumberItem>

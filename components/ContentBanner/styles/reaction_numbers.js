@@ -17,17 +17,17 @@ export const NumberSection = styled.div`
   border-radius: 4px;
 
   &:hover {
-    background: ${({ readonly }) =>
-      readonly ? '' : theme('banner.numberHoverBg')};
-    cursor: ${({ readonly }) => (readonly ? '' : 'pointer')};
+    background: ${({ readOnly }) =>
+      readOnly ? '' : theme('banner.numberHoverBg')};
+    cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 `
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
   text-align: center;
   &:hover {
-    color: ${({ readonly }) => (readonly ? '' : '#f1c48f')};
-    text-decoration: ${({ readonly }) => (readonly ? '' : 'underline')};
+    color: ${({ readOnly }) => (readOnly ? '' : '#f1c48f')};
+    text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
 `
@@ -37,8 +37,8 @@ export const NumberItem = styled.div`
 
   color: ${theme('banner.number')};
   &:hover {
-    color: ${({ readonly }) => (readonly ? '' : '#f1c48f')};
-    text-decoration: ${({ readonly }) => (readonly ? '' : 'underline')};
+    color: ${({ readOnly }) => (readOnly ? '' : '#f1c48f')};
+    text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
 `

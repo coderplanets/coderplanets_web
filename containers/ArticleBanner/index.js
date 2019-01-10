@@ -11,18 +11,13 @@ import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { DotDivider } from '../../components'
+import { DotDivider, Space } from '../../components'
+
+import Title from './Title'
 import ReactionNumbers from './ReactionNumbers'
 import MiddleInfo from './MiddleInfo'
 
-import {
-  Wrapper,
-  BannerContent,
-  PostBrief,
-  Title,
-  Desc,
-  MarkTag,
-} from './styles'
+import { Wrapper, BannerContent, Brief, Desc, MarkTag } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
 
@@ -42,7 +37,7 @@ class ArticleBannerContainer extends React.Component {
   }
 
   render() {
-    const { articleBanner, showStar } = this.props
+    const { articleBanner, showStar, showWordCount } = this.props
     const {
       activeThread,
       viewingData,
@@ -57,16 +52,22 @@ class ArticleBannerContainer extends React.Component {
         <FavoritesCats />
         {R.isNil(viewingData.id) ? null : (
           <BannerContent>
-            <PostBrief>
-              <Title>{viewingData.title}</Title>
+            <Brief>
+              <Title thread={activeThread} data={viewingData} />
               <MiddleInfo thread={activeThread} data={viewingData} />
               <Desc>
                 {isRefined ? <MarkTag>精华</MarkTag> : <div />}
+                发布于:
+                <Space left="3px" right="3px" />
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
-                <DotDivider />
-                字数: {viewingData.length}
+                {showWordCount ? (
+                  <React.Fragment>
+                    <DotDivider />
+                    字数: {viewingData.length}
+                  </React.Fragment>
+                ) : null}
               </Desc>
-            </PostBrief>
+            </Brief>
             <ReactionNumbers
               data={viewingData}
               starLoading={starLoading}
@@ -83,10 +84,12 @@ class ArticleBannerContainer extends React.Component {
 ArticleBannerContainer.propTypes = {
   articleBanner: PropTypes.object.isRequired,
   showStar: PropTypes.bool,
+  showWordCount: PropTypes.bool,
 }
 
 ArticleBannerContainer.defaultProps = {
   showStar: true,
+  showWordCount: true,
 }
 
 export default inject(storePlug('articleBanner'))(

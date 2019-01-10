@@ -12,9 +12,9 @@ import { prettyNum, numberWithCommas } from '../../utils'
 
 const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
   <NumbersInfo>
-    <NumberSection readonly>
-      <NumberTitle readonly>浏览</NumberTitle>
-      <NumberItem readonly>{prettyNum(views)}</NumberItem>
+    <NumberSection readOnly>
+      <NumberTitle readOnly>浏览</NumberTitle>
+      <NumberItem readOnly>{prettyNum(views)}</NumberItem>
     </NumberSection>
     <NumberDivider />
     {starredCount >= 0 ? (

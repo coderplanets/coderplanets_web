@@ -31,6 +31,11 @@ export const TitleLink = styled.a`
     cursor: pointer;
   }
 `
+export const Slash = styled.div`
+  color: ${theme('banner.title')};
+  margin-left: 4px;
+  margin-right: 4px;
+`
 export const CountsWrapper = styled.div`
   ${cs.flex()};
 `

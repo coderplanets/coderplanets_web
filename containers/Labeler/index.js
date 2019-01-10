@@ -64,7 +64,7 @@ class LabelerContainer extends React.Component {
 
   render() {
     const { uniqId } = this.state
-    const { labeler, label, readonly } = this.props
+    const { labeler, label, readOnly } = this.props
     /* const { tagsData, popVisible, selectedData, labelEntriesData } = labeler */
     const { labelEntriesData } = labeler
     const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(
@@ -75,7 +75,7 @@ class LabelerContainer extends React.Component {
 
     return (
       <Wrapper>
-        <Maybe test={readonly}>
+        <Maybe test={readOnly}>
           <Popover
             content={<PopHint>{trans[label]}</PopHint>}
             placement="bottom"
@@ -84,12 +84,12 @@ class LabelerContainer extends React.Component {
             <LabelItem>
               <LabelIcon src={LABEL_POOL[label].iconSrc} />
               <Title>
-                <Selected items={selected} readonly={readonly} />
+                <Selected items={selected} readOnly={readOnly} />
               </Title>
             </LabelItem>
           </Popover>
         </Maybe>
-        <Maybe test={!readonly}>
+        <Maybe test={!readOnly}>
           {targetIndex >= 0 ? (
             <Popover
               content={
@@ -109,7 +109,7 @@ class LabelerContainer extends React.Component {
                 <LabelIcon src={LABEL_POOL[label].iconSrc} />
                 <Title>
                   {trans[label]}
-                  <Selected items={selected} readonly={readonly} />
+                  <Selected items={selected} readOnly={readOnly} />
                 </Title>
               </LabelItem>
             </Popover>
@@ -139,7 +139,7 @@ LabelerContainer.propTypes = {
 
   onTagSelect: PropTypes.func,
   onTagUnselect: PropTypes.func,
-  readonly: PropTypes.bool,
+  readOnly: PropTypes.bool,
 }
 
 LabelerContainer.defaultProps = {
@@ -147,7 +147,7 @@ LabelerContainer.defaultProps = {
   labeler: {},
   multi: false,
   selected: [],
-  readonly: false,
+  readOnly: false,
   onTagSelect: debug,
   onTagUnselect: debug,
 }

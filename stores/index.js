@@ -49,7 +49,6 @@ export {
 // video page banner
 export { default as VideoBannerStore } from '../containers/VideoBanner/store'
 // video page banner
-export { default as RepoBannerStore } from '../containers/RepoBanner/store'
 
 // contents store
 export {

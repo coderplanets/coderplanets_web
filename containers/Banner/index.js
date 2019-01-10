@@ -11,7 +11,6 @@ import UserBanner from '../UserBanner'
 
 import ArticleBanner from '../ArticleBanner'
 import VideoBanner from '../VideoBanner'
-import RepoBanner from '../RepoBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
 import CommunityBanner from '../CommunityBanner'
 
@@ -49,7 +48,7 @@ const BannerContent = ({ curRoute }) => {
       return <VideoBanner />
     }
     case ROUTE.REPO: {
-      return <RepoBanner />
+      return <ArticleBanner showStar={false} showWordCount={false} />
     }
     case ROUTE.USER: {
       return <UserBanner />

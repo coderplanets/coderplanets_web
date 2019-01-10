@@ -60,6 +60,9 @@ export const repo = `
   forkCount
   starCount
   license
+  ownerUrl
+  repoUrl
+  homepageUrl
   primaryLanguage {
     color
     name

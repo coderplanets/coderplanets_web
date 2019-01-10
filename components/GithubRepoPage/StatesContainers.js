@@ -17,6 +17,8 @@ import {
   PopNickname,
 } from './styles/states_containers'
 
+import { nilOrEmpty } from '../../utils'
+
 const BuilderList = ({ entries }) => (
   <BuilderWrapper>
     {entries.map(builder => (
@@ -78,7 +80,11 @@ const StatesContainers = ({ repo }) => (
     >
       <BoxWrapper>
         <Label>Release</Label>
-        <Number small={repo.releaseTag ? true : repo.releaseTag.length > 10}>
+        <Number
+          small={
+            nilOrEmpty(repo.releaseTag) ? true : repo.releaseTag.length > 10
+          }
+        >
           {repo.releaseTag || '--'}
         </Number>
       </BoxWrapper>

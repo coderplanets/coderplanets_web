@@ -7,8 +7,6 @@ export const Wrapper = styled.article`
   ${cs.flexColumnGrow()};
 
   position: relative;
-  padding-left: 8px;
-  padding-right: 8px;
   padding-top: 18px;
   padding-bottom: 18px;
   border-radius: 4px;

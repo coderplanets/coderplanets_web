@@ -21,16 +21,9 @@ export const BannerContent = styled.div`
   margin-left: 8%;
   margin-right: 8%;
 `
-export const PostBrief = styled.div`
+export const Brief = styled.div`
   ${cs.flexColumnGrow()};
   width: 60%;
-`
-
-export const Title = styled.div`
-  font-size: 1.5em;
-  color: ${theme('thread.articleTitle')};
-
-  ${cs.truncate('100%')};
 `
 export const Desc = styled.div`
   ${cs.flex('align-center')};

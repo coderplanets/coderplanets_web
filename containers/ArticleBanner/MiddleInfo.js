@@ -1,11 +1,22 @@
 import React from 'react'
 
 import JobMiddleInfo from './JobMiddleInfo'
+import RepoMiddleInfo from './RepoMiddleInfo'
+
 import { THREAD } from '../../utils'
 
 const MiddleInfo = ({ thread, data }) => {
-  if (thread === THREAD.JOB) return <JobMiddleInfo data={data} />
-  return null
+  switch (thread) {
+    case THREAD.REPO: {
+      return <RepoMiddleInfo data={data} />
+    }
+    case THREAD.JOB: {
+      return <JobMiddleInfo data={data} />
+    }
+    default: {
+      return null
+    }
+  }
 }
 
 export default MiddleInfo

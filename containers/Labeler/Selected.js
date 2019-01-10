@@ -60,12 +60,12 @@ const renderReadonlyItems = items => {
   )
 }
 
-const Selected = ({ items, readonly }) => (
+const Selected = ({ items, readOnly }) => (
   <Maybe test={!R.isEmpty(items)}>
-    <Maybe test={!readonly}>
+    <Maybe test={!readOnly}>
       <Wrapper>{renderItems(items)}</Wrapper>
     </Maybe>
-    <Maybe test={readonly}>
+    <Maybe test={readOnly}>
       <Wrapper>{renderReadonlyItems(items)}</Wrapper>
     </Maybe>
   </Maybe>

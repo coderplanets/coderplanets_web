@@ -18,9 +18,9 @@ const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
 
   return (
     <NumbersInfo>
-      <NumberSection readonly>
-        <NumberTitle readonly>浏览</NumberTitle>
-        <NumberItem readonly>{prettyNum(views)}</NumberItem>
+      <NumberSection readOnly>
+        <NumberTitle readOnly>浏览</NumberTitle>
+        <NumberItem readOnly>{prettyNum(views)}</NumberItem>
       </NumberSection>
       <NumberDivider />
       {showStar ? <StarReaction data={data} loading={starLoading} /> : null}
