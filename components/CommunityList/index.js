@@ -13,9 +13,8 @@ import { Wrapper, Logo, PopoverInfo } from './styles'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityList:index')
-/* eslint-enable no-unused-vars */
 
 const CommunityList = ({ items, emptyHint }) => {
   if (R.isEmpty(items)) {

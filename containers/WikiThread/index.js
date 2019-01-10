@@ -31,9 +31,8 @@ import Contributors from './Contributors'
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:WikiThread')
-/* eslint-enable no-unused-vars */
 
 const renderView = (wikiData, type, communityRaw) => {
   switch (type) {

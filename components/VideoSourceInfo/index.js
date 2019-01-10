@@ -14,9 +14,8 @@ import Maybe from '../Maybe'
 import { Wrapper, LinkIcon, LogoIcon } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoSourceInfo:index')
-/* eslint-enable no-unused-vars */
 
 const recommandSources = ['youtube', 'vimeo', 'bilibili']
 const colorMaps = {

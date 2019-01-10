@@ -15,9 +15,8 @@ import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
 
 import { makeDebugger, THREAD, C11N } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentFilter:index')
-/* eslint-enable no-unused-vars */
 
 const ContentFilter = ({
   thread,

@@ -9,9 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { Wiki } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:WikiThread')
-/* eslint-enable no-unused-vars */
 
 const WikiThread = t
   .model('WikiThread', {

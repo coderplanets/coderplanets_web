@@ -24,9 +24,8 @@ import DigestBoard from './DigestBoard'
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserContent')
-/* eslint-enable no-unused-vars */
 
 const BaseTaberThreads = [
   {

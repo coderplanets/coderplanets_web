@@ -28,9 +28,8 @@ const sr71$ = new SR71({
     EVENT.TABBER_CHANGE,
   ],
 })
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:PostsThread')
-/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null

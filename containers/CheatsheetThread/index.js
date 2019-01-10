@@ -17,9 +17,8 @@ import Note from './Note'
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:CheatsheetThread')
-/* eslint-enable no-unused-vars */
 
 const renderView = (cheatsheetData, type, communityRaw) => {
   switch (type) {

@@ -15,9 +15,8 @@ import AvatarAdder from '../../containers/AvatarAdder'
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ContributorList:index')
-/* eslint-enable no-unused-vars */
 
 const ContributorList = ({ users, showAdder, addContributor }) => (
   <Wrapper>

@@ -8,9 +8,8 @@ import ContentLoader from 'react-content-loader'
 import { Wrapper, CheatsheetCard } from './styles'
 
 import { makeDebugger, uid } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:LoadingEffects:index')
-/* eslint-enable no-unused-vars */
 
 const LoadingBlock = ({ theme }) => (
   <CheatsheetCard>

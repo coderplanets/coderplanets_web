@@ -11,9 +11,8 @@ import { ICON_CMD } from '../../config'
 
 import { Wrapper, Icon, Title } from './styles'
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:EmptyLabel:index')
-/* eslint-enable no-unused-vars */
 
 const EmptyLabel = ({ text, iconSrc, size }) => (
   <Wrapper>

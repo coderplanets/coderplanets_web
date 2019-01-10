@@ -16,9 +16,8 @@ import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleEditFooter:index')
-/* eslint-enable no-unused-vars */
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (

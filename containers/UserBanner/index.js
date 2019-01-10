@@ -22,9 +22,8 @@ import UserContributeMap from './UserContributeMap'
 
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserBanner')
-/* eslint-enable no-unused-vars */
 
 /*
 // use for turning the theme

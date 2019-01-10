@@ -92,9 +92,8 @@ import {
   FavoritesCatsStore,
 } from '../index'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:rootStore')
-/* eslint-enable no-unused-vars */
 
 const rootStore = t
   .model({

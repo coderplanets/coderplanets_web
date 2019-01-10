@@ -24,9 +24,8 @@ import {
 } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Popconfirm:index')
-/* eslint-enable no-unused-vars */
 
 const Hint = ({ content, closeIt, onConfirm }) => (
   <Wrapper>

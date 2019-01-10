@@ -19,9 +19,8 @@ import { Wrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Comments')
-/* eslint-enable no-unused-vars */
 
 class CommentsContainer extends React.Component {
   // need constructor here for draft.js issue

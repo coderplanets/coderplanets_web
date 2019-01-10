@@ -12,9 +12,8 @@ import BriefView from './BriefView'
 
 import { makeDebugger, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Navigator:index')
-/* eslint-enable no-unused-vars */
 
 const Navigator = ({ curCommunity, layout }) => (
   <React.Fragment>

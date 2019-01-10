@@ -10,9 +10,8 @@ import { Post, Mention } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:PostEditorf')
-/* eslint-enable no-unused-vars */
 
 const PostEditor = t
   .model('PostEditor', {

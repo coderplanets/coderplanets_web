@@ -23,9 +23,8 @@ import {
 } from './styles'
 
 import { makeDebugger, nilOrEmpty } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:GithubUserCard:index')
-/* eslint-enable no-unused-vars */
 
 const GithubUserCard = ({ user }) => (
   <Wrapper>

@@ -19,9 +19,8 @@ import {
   DescWrapper,
   IssueLink,
 } from './styles'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:EmptyThread:index')
-/* eslint-enable no-unused-vars */
 
 const DescContent = ({ community, thread }) => (
   <React.Fragment>

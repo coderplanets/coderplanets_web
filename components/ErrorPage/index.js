@@ -29,9 +29,8 @@ import {
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ErrorPage:index')
-/* eslint-enable no-unused-vars */
 
 const ErrorPage = ({ errorCode, page, target }) => (
   <Container>

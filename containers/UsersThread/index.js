@@ -13,9 +13,8 @@ import MapLoading from './MapLoading'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UsersThread')
-/* eslint-enable no-unused-vars */
 
 let GeoMapSSR = null
 

@@ -25,9 +25,8 @@ import {
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UpgradePackges')
-/* eslint-enable no-unused-vars */
 
 const freeUserItems = [
   { title: '浏览,发帖,订阅' },

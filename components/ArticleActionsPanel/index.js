@@ -15,9 +15,8 @@ import { Wrapper, Item, ItemIcon, ItemTitle } from './styles'
 
 import { makeDebugger, THREAD } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleActionsPanel:index')
-/* eslint-enable no-unused-vars */
 
 const ArticleActionsPanel = ({
   entry,

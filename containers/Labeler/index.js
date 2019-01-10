@@ -18,9 +18,8 @@ import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
 import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Labeler')
-/* eslint-enable no-unused-vars */
 
 const trans = {
   default: '标签',

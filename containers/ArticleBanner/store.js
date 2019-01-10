@@ -8,9 +8,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger, TYPE } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:ArticleBanner')
-/* eslint-enable no-unused-vars */
 
 const ArticleBanner = t
   .model('ArticleBanner', {

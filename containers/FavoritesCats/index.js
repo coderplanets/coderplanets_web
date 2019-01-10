@@ -21,9 +21,8 @@ import Setter from './Setter'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:FavoritesCats')
-/* eslint-enable no-unused-vars */
 
 class FavoritesCatsContainer extends React.Component {
   componentDidMount() {

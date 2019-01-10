@@ -32,9 +32,8 @@ import {
 } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:TagsBar')
-/* eslint-enable no-unused-vars */
 
 class TagsBarContainer extends React.Component {
   constructor(props) {

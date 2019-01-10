@@ -24,9 +24,8 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Sidebar')
-/* eslint-enable no-unused-vars */
 
 export function setPin() {
   store.markState({ pin: !store.pin })

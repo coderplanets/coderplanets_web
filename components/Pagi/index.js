@@ -11,9 +11,8 @@ import PropTypes from 'prop-types'
 import { PagiWrapper, BottomMsg } from './styles'
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Pagi:index')
-/* eslint-enable no-unused-vars */
 
 const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
 

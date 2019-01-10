@@ -10,9 +10,8 @@ import { PAGE_SIZE } from '../../config'
 import { emptyPagiData } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:UserBilling')
-/* eslint-enable no-unused-vars */
 
 const Bill = t.model('Bill', {
   id: t.string,

@@ -12,9 +12,8 @@ import { ThreadWrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserPublished')
-/* eslint-enable no-unused-vars */
 
 class UserPublishedContainer extends React.Component {
   componentDidMount() {

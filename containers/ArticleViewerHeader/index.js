@@ -23,9 +23,8 @@ import { Wrapper, ReactionWrapper } from './styles'
 import * as logic from './logic'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleViewerHeader')
-/* eslint-enable no-unused-vars */
 
 class ArticleViewerHeaderContainer extends React.Component {
   componentDidMount() {

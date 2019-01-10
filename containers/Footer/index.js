@@ -16,9 +16,8 @@ import DigestView from './DigestView'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Footer')
-/* eslint-enable no-unused-vars */
 
 const DynamicBuyMeChuanChuan = dynamic({
   loader: () => import('../../components/BuyMeChuanChuan'),

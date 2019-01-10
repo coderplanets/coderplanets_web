@@ -21,9 +21,8 @@ import {
   nilOrEmpty,
 } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:VideosThread')
-/* eslint-enable no-unused-vars */
 
 const VideosThread = t
   .model('VideosThread', {

@@ -18,9 +18,8 @@ import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoViewer')
-/* eslint-enable no-unused-vars */
 
 class VideoViewerContainer extends React.Component {
   componentDidMount() {

@@ -13,9 +13,8 @@ import PartnerBanner from './PartnerBanner'
 import { Wrapper, Header, Title, Closer } from './styles'
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:StrategicPartners:index')
-/* eslint-enable no-unused-vars */
 
 const StrategicPartners = ({ show, onClose }) => (
   <Wrapper>

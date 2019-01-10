@@ -12,9 +12,8 @@ import ReadLabel from './ReadLabel'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleItemPrefixLabel:index')
-/* eslint-enable no-unused-vars */
 
 const ArticleItemPrefixLabel = ({ entry, accountInfo, topoffset }) => {
   if (entry.pin) return <PinIcon topoffset={topoffset} />

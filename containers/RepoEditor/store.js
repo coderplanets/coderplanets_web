@@ -14,9 +14,8 @@ import {
   changeset,
   stripMobx,
 } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:RepoEditor')
-/* eslint-enable no-unused-vars */
 
 const RepoEditor = t
   .model('RepoEditor', {

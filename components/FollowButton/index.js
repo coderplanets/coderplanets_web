@@ -11,9 +11,8 @@ import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:FollowButton:index')
-/* eslint-enable no-unused-vars */
 
 class FollowButton extends React.Component {
   state = { simuLoading: false }

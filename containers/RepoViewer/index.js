@@ -19,9 +19,8 @@ import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:RepoViewer')
-/* eslint-enable no-unused-vars */
 
 class RepoViewerContainer extends React.Component {
   componentDidMount() {

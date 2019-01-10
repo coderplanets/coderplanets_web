@@ -21,9 +21,8 @@ import {
 import Panel from './Panel'
 
 import { makeDebugger, THREAD, Trans } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ThreadSelector:index')
-/* eslint-enable no-unused-vars */
 
 const ThreadSelector = ({
   options,

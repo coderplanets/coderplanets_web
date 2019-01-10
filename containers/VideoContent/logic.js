@@ -18,9 +18,8 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:VideoContent')
-/* eslint-enable no-unused-vars */
 
 const loadVideo = () => {
   const { id } = store.viewingData

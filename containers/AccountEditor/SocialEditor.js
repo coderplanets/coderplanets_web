@@ -24,9 +24,8 @@ import {
 import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:AccountEditor')
-/* eslint-enable no-unused-vars */
 
 const SocialPrefix = ({ prefix }) => <AddonAddr>{prefix}</AddonAddr>
 

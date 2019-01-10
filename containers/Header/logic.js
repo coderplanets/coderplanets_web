@@ -22,9 +22,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.SET_C11N],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Header')
-/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null

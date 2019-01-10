@@ -6,9 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:BodylayoutStore')
-/* eslint-enable no-unused-vars */
 
 const BodylayoutStore = t
   .model('BodylayoutStore', {})

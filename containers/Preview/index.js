@@ -35,9 +35,8 @@ import {
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Preview')
-/* eslint-enable no-unused-vars */
 
 const DynamicPostWriter = dynamic({
   loader: () => import('../PostEditor'),

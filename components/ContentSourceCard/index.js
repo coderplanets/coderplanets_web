@@ -16,9 +16,8 @@ import UserList from './UserList'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentSourceCard:index')
-/* eslint-enable no-unused-vars */
 
 const ContentSourceCard = ({
   data: { communities, pagedCommentsParticipators: users },

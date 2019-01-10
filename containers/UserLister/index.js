@@ -16,9 +16,8 @@ import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserLister')
-/* eslint-enable no-unused-vars */
 
 const renderContent = (curView, pagedUsersData, accountInfo) => {
   switch (curView) {

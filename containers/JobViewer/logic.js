@@ -15,9 +15,8 @@ import {
   $solver,
 } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:JobViewer')
-/* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED],

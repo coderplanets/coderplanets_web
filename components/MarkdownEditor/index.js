@@ -32,9 +32,8 @@ const mentionThemeClass = {
   mentionSuggestionsEntryText: 'markdown-editor-mentionSuggestionsEntryText',
 }
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:MarkdownEditor')
-/* eslint-enable no-unused-vars */
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)

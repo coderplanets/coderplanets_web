@@ -24,9 +24,8 @@ import {
 /* import { makeDebugger, uid, isObject } from '../../utils' */
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:StatusBox:index')
-/* eslint-enable no-unused-vars */
 
 function getDefaultMsg(success, error) {
   if (success) {

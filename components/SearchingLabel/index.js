@@ -11,9 +11,8 @@ import { ICON_CMD } from '../../config'
 import { Wrapper, LoadingIcon, LoadingText } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:SearchingLabel:index')
-/* eslint-enable no-unused-vars */
 
 const SearchingLabel = ({ iconSrc, text }) => (
   <Wrapper>

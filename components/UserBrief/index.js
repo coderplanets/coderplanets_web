@@ -27,9 +27,8 @@ import Operators from './Operators'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:UserBrief')
-/* eslint-enable no-unused-vars */
 
 class UserBrief extends React.Component {
   constructor(props) {

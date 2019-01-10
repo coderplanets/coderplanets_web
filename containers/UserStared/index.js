@@ -12,9 +12,8 @@ import { ThreadSelector, PagedContents } from '../../components'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserStared')
-/* eslint-enable no-unused-vars */
 
 class UserStaredContainer extends React.Component {
   componentDidMount() {

@@ -9,9 +9,8 @@ import Router from 'next/router'
 
 import { PAGE_SIZE } from '../../config'
 import { onClient, markStates, makeDebugger, serializeQuery } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:RouteStore')
-/* eslint-enable no-unused-vars */
 
 const Query = t.model('Query', {
   page: t.optional(t.string, '1'),

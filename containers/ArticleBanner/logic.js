@@ -15,9 +15,8 @@ import {
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:ArticleBanner')
-/* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REACTIONS],

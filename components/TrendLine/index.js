@@ -11,9 +11,8 @@ import Trend from 'react-trend'
 import { withTheme } from 'styled-components'
 
 import { makeDebugger, theme as themeHelper } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:TrendLine:index')
-/* eslint-enable no-unused-vars */
 
 const TrendLine = ({ data, radius, width, theme }) => {
   const activityLowColor = themeHelper('heatmap.activityLow')({ theme })

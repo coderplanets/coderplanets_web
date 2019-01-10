@@ -24,9 +24,8 @@ import {
 import * as logic from './logic'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:PostContent')
-/* eslint-enable no-unused-vars */
 
 class PostContentContainer extends React.Component {
   componentDidMount() {

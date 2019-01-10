@@ -19,9 +19,8 @@ import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:JobItem:index')
-/* eslint-enable no-unused-vars */
 
 const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
   const {

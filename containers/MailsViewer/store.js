@@ -9,9 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { PagedMentionMessages, emptyPagiData } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:MailsViewer')
-/* eslint-enable no-unused-vars */
 
 const MailsViewer = t
   .model('MailsViewer', {

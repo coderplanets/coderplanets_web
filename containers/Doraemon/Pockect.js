@@ -20,9 +20,8 @@ import {
   Advisor,
 } from './helper/advisor'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Doraemon:pocket')
-/* eslint-enable no-unused-vars */
 
 export default class Pockect {
   constructor(store) {

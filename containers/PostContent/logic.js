@@ -16,9 +16,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_POSTS],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:PostContent')
-/* eslint-enable no-unused-vars */
 
 let sub$ = null
 let store = null

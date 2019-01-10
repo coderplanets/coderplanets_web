@@ -13,9 +13,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_OPEN, EVENT.PREVIEW_CLOSE],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Preview')
-/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null

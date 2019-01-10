@@ -15,9 +15,8 @@ import CommentsToContent from './CommentsToContent'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserPublishedComments')
-/* eslint-enable no-unused-vars */
 
 class UserPublishedCommentsContainer extends React.Component {
   constructor(props) {

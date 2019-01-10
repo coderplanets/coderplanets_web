@@ -8,9 +8,8 @@ import R from 'ramda'
 
 import { User } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:ArticleAuthorCard')
-/* eslint-enable no-unused-vars */
 
 const ArticleAuthorCard = t
   .model('ArticleAuthorCard', {

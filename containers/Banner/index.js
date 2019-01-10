@@ -19,9 +19,8 @@ import ActivitiesRootBanner from './ActivitiesRootBanner'
 import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import init from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Banner')
-/* eslint-enable no-unused-vars */
 
 const BannerContent = ({ curRoute }) => {
   const { mainPath } = curRoute

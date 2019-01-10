@@ -21,9 +21,8 @@ import { S, updatableFields } from './schema'
 const sr71$ = new SR71()
 let sub$ = null
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:VideoEditor')
-/* eslint-enable no-unused-vars */
 
 let store = null
 

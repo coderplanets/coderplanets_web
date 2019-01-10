@@ -15,9 +15,8 @@ import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:MailBox')
-/* eslint-enable no-unused-vars */
 
 class MailBoxContainer extends React.Component {
   constructor(props) {

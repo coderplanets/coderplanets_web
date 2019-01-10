@@ -13,9 +13,8 @@ import { withRouter } from 'next/router'
 import { makeDebugger, storePlug } from '../../utils'
 import { init, uninit } from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Route')
-/* eslint-enable no-unused-vars */
 
 class RouteContainer extends React.Component {
   componentDidMount() {

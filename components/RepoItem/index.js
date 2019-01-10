@@ -17,9 +17,8 @@ import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 import { getOpacity } from './helper'
 import { makeDebugger, cutFrom, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:RepoItem:index')
-/* eslint-enable no-unused-vars */
 
 const RepoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>

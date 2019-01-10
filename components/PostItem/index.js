@@ -16,9 +16,8 @@ import { Wrapper } from './styles'
 import { getOpacity } from './helper'
 import { makeDebugger, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:PostItem:index')
-/* eslint-enable no-unused-vars */
 
 const PostItem = ({
   entry,

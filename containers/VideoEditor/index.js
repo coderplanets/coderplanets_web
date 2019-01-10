@@ -20,9 +20,8 @@ import { Wrapper, Title, FormWrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import { init, uninit, inputOnChange } from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoEditor')
-/* eslint-enable no-unused-vars */
 
 class VideoEditorContainer extends React.Component {
   componentDidMount() {

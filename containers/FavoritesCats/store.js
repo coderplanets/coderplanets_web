@@ -19,9 +19,8 @@ import {
   changeset,
   THREAD,
 } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:FavoritesCats')
-/* eslint-enable no-unused-vars */
 
 const emptyCat = {
   id: '',

@@ -30,9 +30,8 @@ import {
 import { makeDebugger, storePlug, C11N } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:UserSettings')
-/* eslint-enable no-unused-vars */
 
 const RadioGroup = Radio.Group
 

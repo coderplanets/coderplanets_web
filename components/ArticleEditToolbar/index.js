@@ -23,9 +23,8 @@ import {
 
 import { makeDebugger, THREAD } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleEditToolbar:index')
-/* eslint-enable no-unused-vars */
 
 const ArticleEditToolbar = ({
   onLinkAddrChange,

@@ -19,9 +19,8 @@ import S from './schema'
 const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
 let sub$ = null
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:CommunityBanner')
-/* eslint-enable no-unused-vars */
 
 let store = null
 

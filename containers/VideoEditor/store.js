@@ -14,9 +14,8 @@ import {
   changeset,
   flashState,
 } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:VideoEditor')
-/* eslint-enable no-unused-vars */
 
 const VideoEditor = t
   .model('VideoEditor', {

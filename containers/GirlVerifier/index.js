@@ -15,9 +15,8 @@ import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:GirlVerifier')
-/* eslint-enable no-unused-vars */
 
 const { TextArea } = Input
 

@@ -24,9 +24,8 @@ import {
 import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:JobViewer')
-/* eslint-enable no-unused-vars */
 
 class JobViewerContainer extends React.Component {
   componentDidMount() {

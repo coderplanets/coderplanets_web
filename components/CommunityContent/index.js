@@ -17,9 +17,8 @@ import CheatsheetThread from '../../containers/CheatsheetThread'
 
 import { Wrapper } from './styles'
 import { makeDebugger, ROUTE } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityContent:index')
-/* eslint-enable no-unused-vars */
 
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute

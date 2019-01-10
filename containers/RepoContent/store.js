@@ -8,9 +8,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:RepoContent')
-/* eslint-enable no-unused-vars */
 
 const RepoContent = t
   .model('RepoContent', {})

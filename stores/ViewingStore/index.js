@@ -9,9 +9,8 @@ import R from 'ramda'
 import { User, Community, Post, Job, Video, Repo } from '../SharedModel'
 import { markStates, makeDebugger, THREAD, stripMobx } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:ViewingStore')
-/* eslint-enable no-unused-vars */
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 

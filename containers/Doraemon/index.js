@@ -19,9 +19,9 @@ import UtilsBar from './UtilsBar'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Doraemon')
-/* eslint-enable no-unused-vars */
+
 class DoraemonContainer extends React.Component {
   constructor(props) {
     super(props)

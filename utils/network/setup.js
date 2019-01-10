@@ -11,9 +11,8 @@ import fetch from 'isomorphic-fetch'
 import { makeDebugger, BStore } from '..'
 import { GRAPHQL_ENDPOINT } from '../../config'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('Network')
-/* eslint-enable no-unused-vars */
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 

@@ -11,9 +11,8 @@ import PropTypes from 'prop-types'
 import { Wrapper, Icon, TextWrapper, Text, Focus } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:FocusLine:index')
-/* eslint-enable no-unused-vars */
 
 const FocusLine = ({ iconSrc, before, focus, after }) => (
   <Wrapper>

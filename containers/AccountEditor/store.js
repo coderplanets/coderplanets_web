@@ -15,9 +15,8 @@ import {
 } from '../../utils'
 import { User, EduBackground, WorkBackground } from '../../stores/SharedModel'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:AccountEditorStore')
-/* eslint-enable no-unused-vars */
 
 const AccountEditorStore = t
   .model('AccountEditorStore', {

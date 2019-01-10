@@ -19,9 +19,8 @@ import {
 import { changeSubView } from './logic'
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:RepoEditor')
-/* eslint-enable no-unused-vars */
 
 const SearchMan = ({ value, searching, subView, tokenValue }) => (
   <Wrapper>

@@ -24,9 +24,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:JobsThread')
-/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null

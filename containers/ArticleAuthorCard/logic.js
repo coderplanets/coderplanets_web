@@ -14,9 +14,8 @@ import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:ArticleAuthorCard')
-/* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71()
 let sub$ = null

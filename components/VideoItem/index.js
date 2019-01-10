@@ -41,9 +41,8 @@ import {
 import { getOpacity } from './helper'
 import { makeDebugger, cutFrom, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoItem:index')
-/* eslint-enable no-unused-vars */
 
 const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>

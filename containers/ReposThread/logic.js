@@ -21,9 +21,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:ReposThread')
-/* eslint-enable no-unused-vars */
 
 let sub$ = null
 let store = null

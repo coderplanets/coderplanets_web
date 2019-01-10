@@ -9,9 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { markStates, makeDebugger } from '../../utils'
 /* import { Post } from '../SharedModel' */
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:BannerStore')
-/* eslint-enable no-unused-vars */
 
 const BannerStore = t
   .model('BannerStore', {})

@@ -16,9 +16,8 @@ import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:RepoContent')
-/* eslint-enable no-unused-vars */
 
 class RepoContentContainer extends React.Component {
   componentDidMount() {

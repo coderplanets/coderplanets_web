@@ -8,9 +8,8 @@ import R from 'ramda'
 import { makeDebugger, markStates, stripMobx, sortByIndex } from '../../utils'
 /* import MenuItem from './MenuItemStore' */
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:SidebarStore')
-/* eslint-enable no-unused-vars */
 
 const SidebarStore = t
   .model('SidebarStore', {

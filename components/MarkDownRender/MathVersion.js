@@ -42,9 +42,8 @@ const mdWithNoMath = new Remarkable()
 mdWithNoMath.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 mdWithNoMath.use(emojiPlugin)
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:MarkDownRender:index')
-/* eslint-enable no-unused-vars */
 
 class MarkDownRender extends React.Component {
   constructor(props) {

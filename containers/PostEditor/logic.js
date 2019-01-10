@@ -24,9 +24,8 @@ import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71()
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:PostEditor')
-/* eslint-enable no-unused-vars */
 
 let store = null
 let sub$ = null

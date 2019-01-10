@@ -20,9 +20,8 @@ import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:AccountViewer')
-/* eslint-enable no-unused-vars */
 
 class AccountViewerContainer extends React.Component {
   componentDidMount() {

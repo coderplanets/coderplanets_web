@@ -6,9 +6,8 @@ import SR71 from '../../utils/network/sr71'
 const sr71$ = new SR71()
 let sub$ = null
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:UserSettings')
-/* eslint-enable no-unused-vars */
 
 let store = null
 

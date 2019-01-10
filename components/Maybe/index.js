@@ -9,9 +9,8 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Maybe:index')
-/* eslint-enable no-unused-vars */
 
 const MaybeLoading = ({ loading }) => {
   if (R.isEmpty(loading)) return <div />

@@ -9,9 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { GithubUser } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:AvatarAdder')
-/* eslint-enable no-unused-vars */
 
 const AvatarAdder = t
   .model('AvatarAdder', {

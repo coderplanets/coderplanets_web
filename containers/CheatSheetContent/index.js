@@ -51,9 +51,8 @@ const cheatsheetData = {
   ],
 }
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:CheatSheetContent')
-/* eslint-enable no-unused-vars */
 
 const Langs = ({ base }) => {
   //   const base = 'orange' // '#8363B4' //'#68808D'

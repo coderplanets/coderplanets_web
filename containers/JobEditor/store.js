@@ -15,9 +15,8 @@ import {
   THREAD,
   changeset,
 } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:JobEditorStore')
-/* eslint-enable no-unused-vars */
 
 const Mention = t.model('Mention', {
   id: t.string,

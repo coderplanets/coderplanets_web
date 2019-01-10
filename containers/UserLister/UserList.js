@@ -25,9 +25,8 @@ import {
 import { onFollow, undoFollow } from './logic'
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:UserList:index')
-/* eslint-enable no-unused-vars */
 
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>

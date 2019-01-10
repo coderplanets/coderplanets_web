@@ -37,9 +37,8 @@ import {
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:AccountEditor')
-/* eslint-enable no-unused-vars */
 
 const { TextArea } = Input
 

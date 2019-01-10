@@ -6,9 +6,8 @@ import { of } from 'rxjs'
 import { makeDebugger, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('Network')
-/* eslint-enable no-unused-vars */
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,

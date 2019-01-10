@@ -12,9 +12,8 @@ import CardSelector from './CardSelector'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ThemeSelector:index')
-/* eslint-enable no-unused-vars */
 
 const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   return displayStyle === 'default' ? (

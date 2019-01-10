@@ -10,9 +10,8 @@ import PropTypes from 'prop-types'
 import { Wrapper } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:DotDivider:index')
-/* eslint-enable no-unused-vars */
 
 const DotDivider = ({ radius, space }) => (
   <Wrapper radius={radius} space={space} />

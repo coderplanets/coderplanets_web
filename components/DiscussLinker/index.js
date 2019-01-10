@@ -24,9 +24,8 @@ import {
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:DiscussLinker:index')
-/* eslint-enable no-unused-vars */
 
 const DiscussLinker = ({ title, desc, addr }) => (
   <Wrapper>

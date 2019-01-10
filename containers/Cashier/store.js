@@ -13,9 +13,8 @@ import {
   PAYMENT_METHOD,
 } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:Cashier')
-/* eslint-enable no-unused-vars */
 
 const Cashier = t
   .model('Cashier', {

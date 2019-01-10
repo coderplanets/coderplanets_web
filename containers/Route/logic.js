@@ -1,8 +1,8 @@
 import { makeDebugger, getMainPath, getSubPath, Global } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Route')
-/* eslint-enable no-unused-vars */
+
 let store = null
 
 // function will fire only when browser history btn clicked

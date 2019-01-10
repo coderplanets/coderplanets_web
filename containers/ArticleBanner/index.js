@@ -22,9 +22,8 @@ import { Wrapper, BannerContent, Brief, Desc, MarkTag } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleBanner')
-/* eslint-enable no-unused-vars */
 
 class ArticleBannerContainer extends React.Component {
   componentDidMount() {

@@ -15,9 +15,8 @@ import { Wrapper, InputFile } from './styles'
 import { makeDebugger, storePlug, uid, Global } from '../../utils'
 import { init, onUploadError, getOSSDir, getOSSFileName } from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:DocUploader')
-/* eslint-enable no-unused-vars */
 
 class DocUploaderContainer extends React.Component {
   /*

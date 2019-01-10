@@ -15,9 +15,8 @@ import MenuList from './MenuList'
 import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Sidebar:index')
-/* eslint-enable no-unused-vars */
 
 class SidebarContainer extends React.Component {
   componentDidMount() {

@@ -24,9 +24,8 @@ import ReactionNumbers from './ReactionNumbers'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentBanner:index')
-/* eslint-enable no-unused-vars */
 
 // TODO: add a Loading effect
 const ContentBanner = ({ data, middleNode }) => {

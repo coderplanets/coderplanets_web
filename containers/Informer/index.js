@@ -20,9 +20,8 @@ import Form from './Form'
 import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:Informer')
-/* eslint-enable no-unused-vars */
 
 class InformerContainer extends React.Component {
   componentDidMount() {

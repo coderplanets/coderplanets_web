@@ -11,9 +11,8 @@ import { makeDebugger } from '../../utils'
 import { ICON_CMD } from '../../config'
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Modal:index')
-/* eslint-enable no-unused-vars */
 
 const Modal = ({ children, show, width, showCloseBtn, onClose }) => (
   <Mask show={show} onClick={onClose}>

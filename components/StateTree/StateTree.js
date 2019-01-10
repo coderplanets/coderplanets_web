@@ -11,9 +11,8 @@ import ReactJson from 'react-json-view'
 /* import PropTypes from 'prop-types' */
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:StateTree:index')
-/* eslint-enable no-unused-vars */
 
 /* apathy flat ocean tube */
 const StateTree = ({ json }) => (

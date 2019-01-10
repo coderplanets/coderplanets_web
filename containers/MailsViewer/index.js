@@ -16,9 +16,8 @@ import { Wrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:MailsViewer')
-/* eslint-enable no-unused-vars */
 
 const mailTabs = [
   {

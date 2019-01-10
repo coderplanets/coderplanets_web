@@ -8,9 +8,8 @@ import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx } from '../../utils'
 import { PagedCommunities } from '../../stores/SharedModel'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:CommunitiesContentStore')
-/* eslint-enable no-unused-vars */
 
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {

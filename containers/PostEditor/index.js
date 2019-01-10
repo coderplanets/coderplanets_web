@@ -20,9 +20,8 @@ import { Wrapper, ViewerWrapper } from './styles'
 import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 import { makeDebugger, storePlug } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:PostEditor')
-/* eslint-enable no-unused-vars */
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
 const View = ({ curView, thread, editData, mentionList }) => {

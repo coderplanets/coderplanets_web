@@ -15,9 +15,8 @@ import { Wrapper, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
 
 import { makeDebugger, prettyNum } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:AvatarsRow:index')
-/* eslint-enable no-unused-vars */
 
 const validUser = R.compose(
   R.not,

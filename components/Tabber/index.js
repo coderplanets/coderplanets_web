@@ -11,9 +11,8 @@ import BriefView from './BriefView'
 import { mapAlias } from './alias'
 
 import { makeDebugger, THREAD, C11N, sortByIndex } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Tabber:index')
-/* eslint-enable no-unused-vars */
 
 const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)

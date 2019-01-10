@@ -10,9 +10,8 @@ import R from 'ramda'
 
 import { makeDebugger, BStore } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Guardian:index')
-/* eslint-enable no-unused-vars */
 
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component'

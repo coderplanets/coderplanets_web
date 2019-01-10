@@ -9,9 +9,8 @@ import R from 'ramda'
 import { DEFAULT_THEME } from '../../config'
 import { makeDebugger, markStates, themeSkins } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:ThemeStore')
-/* eslint-enable no-unused-vars */
 
 export const ThemeDefaults = {
   curTheme: DEFAULT_THEME,

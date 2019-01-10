@@ -13,9 +13,8 @@ import { Wrapper, PosterImage, PlayIcon } from './styles'
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoPoster:index')
-/* eslint-enable no-unused-vars */
 
 const VideoPoster = ({ poster }) => (
   <Wrapper>

@@ -1,17 +1,16 @@
 // import R from 'ramda'
 
 import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
-
 // import S from './schema'
-
-/* eslint-disable no-unused-vars */
-const debug = makeDebugger('L:{{ properCase name }}')
-/* eslint-enable no-unused-vars */
 
 const sr71$ = new SR71()
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:{{ properCase name }}')
 
 export function someMethod() {}
 
@@ -44,6 +43,7 @@ const ErrSolver = [
 export function init(_store) {
   store = _store
 
+  debug(store)
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

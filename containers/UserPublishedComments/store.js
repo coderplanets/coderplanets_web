@@ -14,9 +14,8 @@ import {
   emptyPagiData,
 } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:UserPublishedComments')
-/* eslint-enable no-unused-vars */
 
 const UserPublishedComments = t
   .model('UserPublishedComments', {

@@ -12,9 +12,8 @@ import ContentList from './ContentList'
 
 import { makeDebugger, THREAD, TYPE, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:PagedContents:index')
-/* eslint-enable no-unused-vars */
 
 const PagedContents = ({
   thread,

@@ -22,9 +22,8 @@ import {
 } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:SectionLabel:index')
-/* eslint-enable no-unused-vars */
 
 const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
   <Wrapper>

@@ -9,9 +9,8 @@ import R from 'ramda'
 import { Tag } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx, TOPIC } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:TagsBar')
-/* eslint-enable no-unused-vars */
 
 const TagsBar = t
   .model('TagsBar', {

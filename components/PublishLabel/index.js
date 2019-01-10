@@ -12,9 +12,8 @@ import { ICON_CMD } from '../../config'
 import { Wrapper, PublishIcon } from './styles'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:PublishLabel:index')
-/* eslint-enable no-unused-vars */
 
 const PublishLabel = ({ text, iconSrc }) => (
   <Wrapper>

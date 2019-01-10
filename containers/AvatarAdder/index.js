@@ -15,9 +15,8 @@ import AdderPanel from './AdderPanel'
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:AvatarAdder')
-/* eslint-enable no-unused-vars */
 
 class AvatarAdderContainer extends React.Component {
   constructor(props) {

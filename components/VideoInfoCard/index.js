@@ -31,9 +31,8 @@ import {
 
 import { makeDebugger, cutFrom } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoInfoCard:index')
-/* eslint-enable no-unused-vars */
 
 const VideoInfoCard = ({ data }) => {
   const {

@@ -27,9 +27,8 @@ import {
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:GithubRepoPage:index')
-/* eslint-enable no-unused-vars */
 
 const GithubRepoPage = ({
   repo,

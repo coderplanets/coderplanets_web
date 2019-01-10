@@ -32,9 +32,8 @@ import ChuanSelector from './ChuanSelector'
 import PaymentFooter from './PaymentFooter'
 
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:Footer:index')
-/* eslint-enable no-unused-vars */
 
 class BuyMeChuanChuan extends React.Component {
   constructor(props) {

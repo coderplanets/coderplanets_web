@@ -17,9 +17,8 @@ const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:RepoViewer')
-/* eslint-enable no-unused-vars */
 
 let sub$ = null
 let store = null

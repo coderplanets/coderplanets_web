@@ -10,9 +10,8 @@ import { Margin } from '../../components'
 import { MapWrapper } from './styles'
 import { makeDebugger, uid, theme as themeHelper } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:LocationMap')
-/* eslint-enable no-unused-vars */
 
 class LocationMap extends React.Component {
   constructor(props) {

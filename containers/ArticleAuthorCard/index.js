@@ -17,9 +17,8 @@ import { Wrapper, Divider } from './styles'
 import * as logic from './logic'
 import { makeDebugger, storePlug } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleAuthorCard')
-/* eslint-enable no-unused-vars */
 
 class ArticleAuthorCardContainer extends React.Component {
   componentDidMount() {

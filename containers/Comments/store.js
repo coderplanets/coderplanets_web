@@ -21,9 +21,8 @@ import {
   changeset,
 } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:CommentsStore')
-/* eslint-enable no-unused-vars */
 
 const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 

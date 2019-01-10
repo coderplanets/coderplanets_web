@@ -9,9 +9,8 @@ import R from 'ramda'
 import { PagedUsers, emptyPagiData } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx, TYPE } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:UserLister')
-/* eslint-enable no-unused-vars */
 
 const UserLister = t
   .model('UserLister', {

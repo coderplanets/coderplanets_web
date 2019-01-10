@@ -15,9 +15,8 @@ import {
 } from '../../stores/SharedModel'
 
 import { markStates, makeDebugger, stripMobx, TYPE, THREAD } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:UserPublished')
-/* eslint-enable no-unused-vars */
 
 const UserPublished = t
   .model('UserPublished', {

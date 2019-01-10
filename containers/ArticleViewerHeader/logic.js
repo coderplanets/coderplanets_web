@@ -15,9 +15,8 @@ import SR71 from '../../utils/network/sr71'
 
 import S from './schema'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:ArticleViewerHeader')
-/* eslint-enable no-unused-vars */
 
 // EVENT.REFRESH_REACTIONS handles FAVORITE action when
 // user set it from FavoriteSetter

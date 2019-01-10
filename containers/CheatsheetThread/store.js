@@ -9,9 +9,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { Cheatsheet } from '../../stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:CheatsheetThread')
-/* eslint-enable no-unused-vars */
 
 const CheatsheetThread = t
   .model('CheatsheetThread', {

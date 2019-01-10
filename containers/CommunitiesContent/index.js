@@ -15,9 +15,8 @@ import { Wrapper } from './styles'
 import * as logic from './logic'
 import { makeDebugger, storePlug } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunitiesContent')
-/* eslint-enable no-unused-vars */
 
 class CommunitiesContentContainer extends React.Component {
   constructor(props) {

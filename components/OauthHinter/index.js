@@ -26,9 +26,8 @@ import {
   IssueLink,
 } from './styles'
 import { makeDebugger } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:OauthHinter:index')
-/* eslint-enable no-unused-vars */
 
 const OauthHinter = () => {
   return (

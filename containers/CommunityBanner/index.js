@@ -13,9 +13,8 @@ import BriefView from './BriefView'
 import * as logic from './logic'
 import { makeDebugger, storePlug, C11N } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunityBanner')
-/* eslint-enable no-unused-vars */
 
 class CommunityBannerContainer extends React.Component {
   componentDidMount() {

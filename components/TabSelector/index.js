@@ -18,9 +18,8 @@ import {
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:TabSelector:index')
-/* eslint-enable no-unused-vars */
 
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>

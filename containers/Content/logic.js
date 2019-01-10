@@ -2,9 +2,8 @@
 
 import { makeDebugger } from '../../utils'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('L:Content')
-/* eslint-enable no-unused-vars */
 
 let store = null
 

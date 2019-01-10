@@ -12,9 +12,8 @@ import Maybe from '../Maybe'
 import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 
 import { makeDebugger, sortByColor, Trans } from '../../utils'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('c:InlineTags:index')
-/* eslint-enable no-unused-vars */
 
 const FullList = ({ data }) => (
   <Wrapper>

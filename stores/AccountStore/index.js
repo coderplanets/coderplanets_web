@@ -15,9 +15,8 @@ import {
 } from '../../utils'
 
 import { User, EmptyUser, PagedCommunities } from '../SharedModel'
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('S:AccountStore')
-/* eslint-enable no-unused-vars */
 
 const AccountStore = t
   .model('AccountStore', {

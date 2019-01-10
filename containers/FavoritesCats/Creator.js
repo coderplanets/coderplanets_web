@@ -17,9 +17,8 @@ import {
 import { makeDebugger } from '../../utils'
 import { categoryOnChange, onCategoryCreate, onModalClose } from './logic'
 
-/* eslint-disable no-unused-vars */
+/* eslint-disable-next-line */
 const debug = makeDebugger('C:FavoritesCats:Creator')
-/* eslint-enable no-unused-vars */
 
 const { TextArea } = Input
 const RadioGroup = Radio.Group
