@@ -1,0 +1,99 @@
+/*
+ *
+ * VideoInfoCard
+ *
+ */
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import TimeAgo from 'timeago-react'
+
+import { ICON_CMD } from '../../config'
+
+import DotDivider from '../DotDivider'
+import VideoSourceInfo from '../VideoSourceInfo'
+
+import {
+  Wrapper,
+  BaseInfo,
+  Title,
+  Desc,
+  Footer,
+  OriginAuthor,
+  OriginAuthorLink,
+  PublishTime,
+  OtherInfo,
+  Duration,
+  DurationIcon,
+  DurationText,
+  Source,
+} from './styles'
+
+import { makeDebugger, cutFrom } from '../../utils'
+
+/* eslint-disable no-unused-vars */
+const debug = makeDebugger('c:VideoInfoCard:index')
+/* eslint-enable no-unused-vars */
+
+const VideoInfoCard = ({ data }) => {
+  const {
+    title,
+    desc,
+    originalAuthor,
+    originalAuthorLink,
+    publishAt,
+    duration,
+    source,
+  } = data
+
+  return (
+    <Wrapper>
+      <BaseInfo>
+        <Title>{cutFrom(title, 40)}</Title>
+        <Desc>{desc}</Desc>
+        <Footer>
+          <OriginAuthor>
+            原作者:{' '}
+            <OriginAuthorLink
+              href={originalAuthorLink}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {originalAuthor}
+            </OriginAuthorLink>
+          </OriginAuthor>
+          <DotDivider />
+          <PublishTime>
+            发布于: <TimeAgo datetime={publishAt || ''} locale="zh_CN" />
+          </PublishTime>
+        </Footer>
+      </BaseInfo>
+      <OtherInfo>
+        <Source>
+          来源:
+          <VideoSourceInfo value={source || ''} />
+        </Source>
+        <Duration>
+          <DurationIcon src={`${ICON_CMD}/duration.svg`} />
+          <DurationText>{duration}</DurationText>
+        </Duration>
+      </OtherInfo>
+    </Wrapper>
+  )
+}
+
+VideoInfoCard.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    originalAuthor: PropTypes.string,
+    originalAuthorLink: PropTypes.string,
+    publishAt: PropTypes.string,
+    duration: PropTypes.string,
+    source: PropTypes.string,
+  }).isRequired,
+}
+
+VideoInfoCard.defaultProps = {}
+
+export default React.memo(VideoInfoCard)

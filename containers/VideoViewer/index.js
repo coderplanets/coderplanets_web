@@ -7,13 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { Maybe, VideoPoster, VideoInfoCard } from '../../components'
+
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
-
-import { VideoPoster, Maybe } from '../../components'
-
 import Comments from '../Comments'
-import InfoBoard from './InfoBoard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 
@@ -54,8 +52,8 @@ class VideoViewerContainer extends React.Component {
         </BodyHeaderWrapper>
         <Maybe test={viewingData.poster}>
           <VideoPoster poster={viewingData.poster} />
+          <VideoInfoCard data={viewingData} />
         </Maybe>
-        <InfoBoard data={viewingData} />
         <CommentsWrapper>
           <Comments />
         </CommentsWrapper>

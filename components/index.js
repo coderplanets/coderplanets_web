@@ -70,6 +70,7 @@ export { default as ArticleItemPrefixLabel } from './ArticleItemPrefixLabel'
 export { default as ArticleActionsPanel } from './ArticleActionsPanel'
 
 export { default as VideoPoster } from './VideoPoster'
+export { default as VideoInfoCard } from './VideoInfoCard'
 
 // loading component
 export {
