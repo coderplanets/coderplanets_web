@@ -99,7 +99,11 @@ export default class Index extends React.Component {
         userSubscribedCommunities: subscribedCommunities,
       },
       route: { mainPath: ROUTE.POST, subPath: post.id },
-      viewing: { post, activeThread: THREAD.POST },
+      viewing: {
+        post,
+        activeThread: THREAD.POST,
+        community: post.communities[0],
+      },
       comments: { pagedComments },
       /* curPost: { post }, */
     }

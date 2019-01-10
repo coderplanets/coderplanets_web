@@ -76,7 +76,11 @@ export default class Index extends React.Component {
         userSubscribedCommunities: subscribedCommunities,
       },
       route: { mainPath: ROUTE.REPO, subPath: repo.id },
-      viewing: { repo, activeThread: THREAD.REPO },
+      viewing: {
+        repo,
+        activeThread: THREAD.REPO,
+        community: repo.communities[0],
+      },
     }
   }
 

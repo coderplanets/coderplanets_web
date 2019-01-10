@@ -78,7 +78,11 @@ export default class Index extends React.Component {
         userSubscribedCommunities: subscribedCommunities,
       },
       route: { mainPath: ROUTE.VIDEO, subPath: video.id },
-      viewing: { video, activeThread: THREAD.VIDEO },
+      viewing: {
+        video,
+        activeThread: THREAD.VIDEO,
+        community: video.communities[0],
+      },
     }
   }
 
