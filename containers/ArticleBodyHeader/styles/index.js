@@ -28,9 +28,11 @@ export const MoreIcon = styled(Img)`
 `
 export const LinkFrom = styled.a`
   ${cs.flex()};
-
   color: ${theme('article.link')};
   margin-left: 5%;
+  font-size: 0.9rem;
+  margin-top: -2px;
+  margin-left: -10px;
   &:hover {
     cursor: pointer;
     color: ${theme('thread.extraInfo')};

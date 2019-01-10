@@ -7,15 +7,22 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Comments from '../Comments'
 import { MarkDownRender, Maybe } from '../../components'
 
-import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
-
+import ArticleBodyHeader from '../ArticleBodyHeader'
+import Comments from '../Comments'
 import SideCards from './SideCards'
 
+import {
+  Wrapper,
+  MainWrapper,
+  ArticleWrapper,
+  BodyHeaderWrapper,
+  CommentsWrapper,
+} from './styles'
+
 import * as logic from './logic'
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 /* eslint-disable no-unused-vars */
 const debug = makeDebugger('C:PostContent')
@@ -41,6 +48,12 @@ class PostContentContainer extends React.Component {
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader
+                    data={viewingPostData}
+                    thread={THREAD.POST}
+                  />
+                </BodyHeaderWrapper>
                 <MarkDownRender body={viewingPostData.body} />
               </ArticleWrapper>
               <CommentsWrapper>

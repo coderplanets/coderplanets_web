@@ -17,6 +17,9 @@ const PostContentStore = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get viewingPostData() {
       return stripMobx(self.root.viewing.post)
     },
@@ -24,6 +27,9 @@ const PostContentStore = t
   .actions(self => ({
     callInformer() {
       self.root.callInformer()
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)
