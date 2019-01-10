@@ -19,7 +19,6 @@ import {
 import {
   // domain
   RouteStore,
-  UsersStore,
   AccountStore,
   BodylayoutStore,
   HeaderStore,
@@ -102,7 +101,6 @@ const rootStore = t
   .model({
     // domain stores
     account: t.optional(AccountStore, {}),
-    users: t.maybeNull(UsersStore),
     route: t.optional(RouteStore, {}),
     viewing: t.optional(ViewingStore, {}),
     comments: t.optional(CommentsStore, {}),
