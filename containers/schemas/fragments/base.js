@@ -63,6 +63,7 @@ export const repo = `
   ownerUrl
   repoUrl
   homepageUrl
+  releaseTag
   primaryLanguage {
     color
     name
