@@ -7,13 +7,20 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
 import { Maybe, VideoPoster, VideoInfoCard } from '../../components'
 import SideCards from './SideCards'
 
-import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
+import {
+  Wrapper,
+  MainWrapper,
+  ArticleWrapper,
+  BodyHeaderWrapper,
+  CommentsWrapper,
+} from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable no-unused-vars */
@@ -40,6 +47,9 @@ class VideoContentContainer extends React.Component {
           <React.Fragment>
             <MainWrapper>
               <ArticleWrapper>
+                <BodyHeaderWrapper>
+                  <ArticleBodyHeader data={viewingData} thread={THREAD.VIDEO} />
+                </BodyHeaderWrapper>
                 <Maybe test={viewingData.poster}>
                   <VideoPoster poster={viewingData.poster} />
                   <VideoInfoCard data={viewingData} />
