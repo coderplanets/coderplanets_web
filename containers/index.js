@@ -36,6 +36,8 @@ export { default as UserContent } from './UserContent'
 export { default as CommunitiesContent } from './CommunitiesContent'
 export { default as PostContent } from './PostContent'
 export { default as JobContent } from './JobContent'
+export { default as VideoContent } from './VideoContent'
+export { default as RepoContent } from './RepoContent'
 // footer
 export { default as Footer } from './Footer'
 /* threads */

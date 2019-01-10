@@ -41,6 +41,17 @@ export const getSubPath = routeObj => {
   return subPath
 }
 
+export const getThirdPath = routeObj => {
+  if (R.isEmpty(routeObj)) return INDEX
+  if (routeObj.asPath === '/') return INDEX
+
+  const asPathList = parsePathList(routeObj)
+  // const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
+  const subPath = asPathList.length > 2 ? asPathList[2] : ''
+
+  return subPath
+}
+
 export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)
   const subPath = pathList.length > 1 ? pathList[1] : pathList[0]
