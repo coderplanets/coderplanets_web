@@ -25,9 +25,9 @@ const Footer = t
       return self.root.curRoute
     },
     get curView() {
-      const { mainPath } = self.root.curRoute
+      const { subPath } = self.root.curRoute
       if (
-        R.contains(mainPath, [
+        R.contains(subPath, [
           ROUTE.USER,
           ROUTE.POST,
           ROUTE.JOB,

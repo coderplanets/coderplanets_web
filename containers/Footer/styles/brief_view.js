@@ -7,7 +7,7 @@ export const Wrapper = styled.footer`
 `
 export const MainInfos = styled.footer`
   ${cs.flexColumn()};
-  margin-left: 6%;
+  margin-left: 8%;
   margin-bottom: 20px;
 `
 
