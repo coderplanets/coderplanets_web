@@ -70,6 +70,19 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
         </Wrapper>
       )
     }
+    case TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS: {
+      return (
+        <Wrapper>
+          <Title>
+            关注中 ({totalCount}
+            人)
+          </Title>
+          <DescLabel>
+            <DescText>关注 {brief} 社区的人 </DescText>
+          </DescLabel>
+        </Wrapper>
+      )
+    }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
       return (
         <Wrapper>

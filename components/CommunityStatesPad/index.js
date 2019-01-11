@@ -20,7 +20,11 @@ import { makeDebugger, prettyNum } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityStatesPad:index')
 
-const CommunityStatesPad = ({ community, onShowEditorList }) => {
+const CommunityStatesPad = ({
+  community,
+  onShowEditorList,
+  onShowSubscriberList,
+}) => {
   const {
     editorsCount,
     subscribersCount,
@@ -35,7 +39,9 @@ const CommunityStatesPad = ({ community, onShowEditorList }) => {
     <Wrapper>
       <NumberSection>
         <NumberTitle>关注</NumberTitle>
-        <NumberItem>{prettyNum(subscribersCount)}</NumberItem>
+        <NumberItem onClick={onShowSubscriberList}>
+          {prettyNum(subscribersCount)}
+        </NumberItem>
       </NumberSection>
       <NumberDivider />
       <NumberSection readOnly>
@@ -63,6 +69,7 @@ CommunityStatesPad.propTypes = {
     jobsCount: PropTypes.number,
   }),
   onShowEditorList: PropTypes.func,
+  onShowSubscriberList: PropTypes.func,
 }
 
 CommunityStatesPad.defaultProps = {
@@ -75,6 +82,7 @@ CommunityStatesPad.defaultProps = {
     jobsCount: 0,
   },
   onShowEditorList: debug,
+  onShowSubscriberList: debug,
 }
 
 export default React.memo(CommunityStatesPad)

@@ -71,9 +71,22 @@ const loadUsers = (type, data, page = 1) => {
       return sr71$.query(S.pagedFollowers, args)
     }
     case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
-      const args = { ...data, filter: { page, size: PAGE_SIZE.D } }
+      const args = {
+        ...data,
+        filter: { page, size: PAGE_SIZE.D },
+        userHasLogin: store.isLogin,
+      }
 
       return sr71$.query(S.communityEditors, args)
+    }
+    case TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS: {
+      const args = {
+        ...data,
+        filter: { page, size: PAGE_SIZE.D },
+        userHasLogin: store.isLogin,
+      }
+
+      return sr71$.query(S.communitySubscribers, args)
     }
     default: {
       return sr71$.query(S.pagedUsers, {
@@ -120,6 +133,11 @@ const DataSolver = [
   {
     match: asyncRes('communityEditors'),
     action: ({ communityEditors: pagedUsers }) => handleUsersRes(pagedUsers),
+  },
+  {
+    match: asyncRes('communitySubscribers'),
+    action: ({ communitySubscribers: pagedUsers }) =>
+      handleUsersRes(pagedUsers),
   },
   {
     match: asyncRes('pagedUsers'),

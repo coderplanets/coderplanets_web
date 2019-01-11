@@ -12,6 +12,20 @@ const pagedUsers = gql`
     }
   }
 `
+
+const communitySubscribers = gql`
+  query($id: ID, $community: String, $filter: PagedFilter!, $userHasLogin: Boolean!) {
+    communitySubscribers(id: $id, community: $community, filter: $filter) {
+      entries {
+        ${F.author}
+        location
+        viewerHasFollowed @include(if: $userHasLogin)
+      }
+      ${F.pagedCounts}
+    }
+  }
+`
+
 const pagedFollowers = gql`
   query($userId: ID, $filter: PagedFilter!, $userHasLogin: Boolean!) {
     pagedFollowers(userId: $userId, filter: $filter) {
@@ -38,11 +52,12 @@ const pagedFollowings = gql`
   }
 `
 const communityEditors = gql`
-  query($id: ID!, $filter: PagedFilter!) {
+  query($id: ID!, $filter: PagedFilter!, $userHasLogin: Boolean!) {
     communityEditors(id: $id, filter: $filter) {
       entries {
         ${F.author}
         location
+        viewerHasFollowed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}
     }
@@ -78,6 +93,7 @@ const undoFollow = gql`
 
 const schema = {
   pagedUsers,
+  communitySubscribers,
   reactionUsers,
   pagedFollowers,
   pagedFollowings,

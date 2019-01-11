@@ -24,14 +24,14 @@ const debug = makeDebugger('L:CommunityBanner')
 
 let store = null
 
-export function loadCommunity() {
+const loadCommunity = () => {
   markLoading(true)
 
   const { raw } = store.curCommunity
   sr71$.query(S.community, { raw })
 }
 
-export function tabberChange(activeThread) {
+export const tabberChange = activeThread => {
   const subPath = thread2Subpath(activeThread)
   // debug('EVENT.activeThread -----> ', activeThread)
   // debug('EVENT.subPath -----> ', subPath)
@@ -42,8 +42,18 @@ export function tabberChange(activeThread) {
   dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
-export function showEditorList() {
+export const onShowEditorList = () => {
   const type = TYPE.USER_LISTER_COMMUNITY_EDITORS
+  const data = {
+    id: store.viewing.community.id,
+    brief: store.viewing.community.title,
+  }
+
+  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+}
+
+export const onShowSubscriberList = () => {
+  const type = TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS
   const data = {
     id: store.viewing.community.id,
     brief: store.viewing.community.title,
