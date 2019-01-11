@@ -78,6 +78,7 @@ app.prepare().then(() => {
       const { community, preview, id } = req.query
       return res.redirect(`/${community}/${preview}/${id}`)
     }
+    console.log('=== community page')
     /* return app.render(req, res, '/community', req.query) */
     return renderAndCache(req, res, '/community', req.query)
   })

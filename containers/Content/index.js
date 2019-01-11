@@ -7,15 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import CommunityContent from '../CommunityContent'
 import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
-import PostContent from '../PostContent'
-import JobContent from '../JobContent'
-import VideoContent from '../VideoContent'
-import RepoContent from '../RepoContent'
 import UserContent from '../UserContent'
 
-import CommunityContent from '../../components/CommunityContent'
 import { Wrapper } from './styles'
 
 import { makeDebugger, storePlug, ROUTE } from '../../utils'
@@ -33,23 +29,11 @@ const renderContent = curRoute => {
     case ROUTE.COMMUNITIES: {
       return <CommunitiesContent />
     }
-    case ROUTE.POST: {
-      return <PostContent />
-    }
-    case ROUTE.JOB: {
-      return <JobContent />
-    }
-    case ROUTE.VIDEO: {
-      return <VideoContent />
-    }
-    case ROUTE.REPO: {
-      return <RepoContent />
-    }
     case ROUTE.USER: {
       return <UserContent />
     }
     default: {
-      return <CommunityContent curRoute={curRoute} />
+      return <CommunityContent />
     }
   }
 }
