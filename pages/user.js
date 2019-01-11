@@ -11,7 +11,6 @@ import { GAWraper, ErrorPage } from '../components'
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
@@ -120,10 +119,9 @@ export default class UserPage extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
                     <UserBanner />
                     <UserContent />
