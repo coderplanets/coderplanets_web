@@ -37,10 +37,10 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
-  const repoId = getThirdPath(props)
+  const id = getThirdPath(props)
 
   const sessionState = gqClient.request(P.sessionState)
-  const repo = gqClient.request(P.repo, { id: repoId })
+  const repo = gqClient.request(P.repo, { id })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,

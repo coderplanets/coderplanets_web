@@ -47,14 +47,13 @@ async function fetchData(props, opt) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  // const postId = getSubPath(props)
-  const postId = getThirdPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id: postId, userHasLogin })
+  const post = gqClient.request(P.post, { id, userHasLogin })
   const pagedComments = gqClient.request(P.pagedComments, {
-    id: postId,
+    id,
     userHasLogin,
     thread: R.toUpper(THREAD.POST),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },

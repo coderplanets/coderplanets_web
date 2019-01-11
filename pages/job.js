@@ -44,13 +44,13 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const jobId = getThirdPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const job = gqClient.request(P.job, { id: jobId, userHasLogin })
+  const job = gqClient.request(P.job, { id, userHasLogin })
   const pagedComments = gqClient.request(P.pagedComments, {
-    id: jobId,
+    id,
     userHasLogin,
     thread: R.toUpper(THREAD.JOB),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },

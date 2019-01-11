@@ -37,11 +37,11 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
-  const videoId = getThirdPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const video = gqClient.request(P.video, { id: videoId })
+  const video = gqClient.request(P.video, { id })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
