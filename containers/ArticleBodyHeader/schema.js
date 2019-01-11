@@ -15,6 +15,7 @@ const undoPinPost = gql`
     }
   }
 `
+
 const deletePost = gql`
   mutation($id: ID!) {
     deletePost(id: $id) {
@@ -91,6 +92,34 @@ const deleteRepo = gql`
   }
 `
 
+// refined tag
+const setRefinedTag = gql`
+  mutation($communityId: ID!, $thread: CmsThread, $topic: String, $id: ID!) {
+    setRefinedTag(
+      communityId: $communityId
+      thread: $thread
+      topic: $topic
+      id: $id
+    ) {
+      id
+      title
+    }
+  }
+`
+const unsetRefinedTag = gql`
+  mutation($communityId: ID!, $thread: CmsThread, $topic: String, $id: ID!) {
+    unsetRefinedTag(
+      communityId: $communityId
+      thread: $thread
+      topic: $topic
+      id: $id
+    ) {
+      id
+      title
+    }
+  }
+`
+
 const schema = {
   // post
   pinPost,
@@ -108,6 +137,9 @@ const schema = {
   pinRepo,
   undoPinRepo,
   deleteRepo,
+  // refined tag
+  setRefinedTag,
+  unsetRefinedTag,
 }
 
 export default schema

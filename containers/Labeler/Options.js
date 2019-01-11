@@ -29,13 +29,13 @@ const OptionItems = ({ items, selected, onOptionSelect }) => (
   </OptionWrapper>
 )
 
-const renderOptions = (label, tagsData, selected, onOptionSelect) => {
+const renderOptions = (label, items, selected, onOptionSelect) => {
   switch (label) {
     case 'default':
     case 'city': {
       return (
         <TagList
-          data={tagsData}
+          items={items}
           selected={selected}
           onOptionSelect={onOptionSelect}
         />
@@ -53,9 +53,9 @@ const renderOptions = (label, tagsData, selected, onOptionSelect) => {
   }
 }
 
-const Options = ({ label, tagsData, selected, onOptionSelect }) => (
+const Options = ({ label, items, selected, onOptionSelect }) => (
   <React.Fragment>
-    {renderOptions(label, tagsData, selected, onOptionSelect)}
+    {renderOptions(label, items, selected, onOptionSelect)}
   </React.Fragment>
 )
 

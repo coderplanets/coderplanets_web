@@ -93,6 +93,27 @@ export const onUndoPin = thread => {
   }
 }
 
+const getRefinedArgs = thread => {
+  let args = {
+    id: store.viewingData.id,
+    communityId: store.curCommunity.id,
+    thread: R.toUpper(thread),
+  }
+
+  if (thread === THREAD.POST) {
+    const { subPath: topic } = store.curRoute
+    args = R.merge(args, { topic })
+  }
+
+  return args
+}
+
+export const onSetRefined = thread =>
+  sr71$.mutate(S.setRefinedTag, getRefinedArgs(thread))
+
+export const onUnsetRefined = thread =>
+  sr71$.mutate(S.unsetRefinedTag, getRefinedArgs(thread))
+
 export const onDelete = () => {
   const { id } = store.viewingData
   debug('onDelete', id)
@@ -205,6 +226,31 @@ const DataSolver = [
     match: asyncRes('deleteRepo'),
     action: () => {
       dispatchEvent(EVENT.REFRESH_REPOS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('setRefinedTag'),
+    action: () => {
+      dispatchEvent(EVENT.REFRESH_POSTS)
+      closePreviewer()
+    },
+  },
+  {
+    match: asyncRes('unsetRefinedTag'),
+    action: () => {
+      let REFRESH_EVENT
+      if (store.activeThread === THREAD.POST) {
+        REFRESH_EVENT = EVENT.REFRESH_POSTS
+      } else if (store.activeThread === THREAD.JOB) {
+        REFRESH_EVENT = EVENT.REFRESH_JOBS
+      } else if (store.activeThread === THREAD.VIDEO) {
+        REFRESH_EVENT = EVENT.REFRESH_VIDEOS
+      } else if (store.activeThread === THREAD.REPO) {
+        REFRESH_EVENT = EVENT.REFRESH_REPOS
+      }
+
+      dispatchEvent(REFRESH_EVENT)
       closePreviewer()
     },
   },

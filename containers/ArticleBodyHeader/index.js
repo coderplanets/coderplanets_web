@@ -44,10 +44,12 @@ class ArticleBodyHeaderContainer extends React.Component {
             content={
               <ArticleActionsPanel
                 thread={thread}
-                entry={data}
+                data={data}
                 onEdit={logic.onEdit}
                 onPin={logic.onPin}
                 onUndoPin={logic.onUndoPin}
+                onSetRefined={logic.onSetRefined}
+                onUnsetRefined={logic.onUnsetRefined}
                 onInform={logic.onInform}
                 onDelete={logic.onDelete}
               />
@@ -74,7 +76,14 @@ ArticleBodyHeaderContainer.propTypes = {
   thread: PropTypes.string,
   data: PropTypes.shape({
     id: PropTypes.string,
-    tags: PropTypes.array,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        color: PropTypes.string,
+        raw: PropTypes.string,
+      })
+    ),
     linkAddr: PropTypes.string,
   }).isRequired,
   middle: PropTypes.oneOf(['linker', 'labeler']),
