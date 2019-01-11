@@ -86,6 +86,10 @@ export default class Index extends React.Component {
     const mainPath = getMainPath(props)
     const { sessionState, pagedComments, subscribedCommunities, job } = resp
 
+    if (!R.contains(mainPath, R.pluck('raw', job.communities))) {
+      return { statusCode: 404, target: getSubPath(props) }
+    }
+
     return {
       langSetup: {},
       account: {
