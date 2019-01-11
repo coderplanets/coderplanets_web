@@ -6,8 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import R from 'ramda'
 import { inject, observer } from 'mobx-react'
+import R from 'ramda'
 
 import { LABEL_POOL } from '../../config'
 
@@ -71,6 +71,7 @@ class LabelerContainer extends React.Component {
     )
 
     const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
+    const tagsList = R.reject(t => t.title === 'refined', tags)
 
     return (
       <Wrapper>
@@ -94,7 +95,7 @@ class LabelerContainer extends React.Component {
               content={
                 <Options
                   label={label}
-                  tagsData={tags}
+                  items={tagsList}
                   selected={selected}
                   onOptionSelect={this.onTagSelect.bind(this, uniqId)}
                 />

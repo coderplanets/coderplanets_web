@@ -8,9 +8,9 @@ import { Wrapper, TagItem, TagDot, TagTitle } from './styles/tag_list'
 
 import { uid, sortByColor, Trans } from '../../utils'
 
-const TagList = ({ data, selected, onOptionSelect }) => (
+const TagList = ({ items, selected, onOptionSelect }) => (
   <Wrapper>
-    {sortByColor(data).map(tag => (
+    {sortByColor(items).map(tag => (
       <TagItem key={uid.gen()} onClick={onOptionSelect.bind(this, tag.title)}>
         <OptionCheckIcon
           src={`${ICON_CMD}/check.svg`}
