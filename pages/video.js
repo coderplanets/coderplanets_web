@@ -4,19 +4,6 @@ import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
-
-import {
-  nilOrEmpty,
-  makeGQClient,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  BStore,
-  ssrAmbulance,
-} from '../utils'
 
 import {
   ThemeWrapper,
@@ -30,6 +17,20 @@ import {
   VideoContent,
   Footer,
 } from '../containers'
+import { GAWraper, ErrorPage } from '../components'
+
+import {
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  TYPE,
+  ROUTE,
+  THREAD,
+  BStore,
+  ssrAmbulance,
+} from '../utils'
 
 import { P } from '../containers/schemas'
 
@@ -81,6 +82,7 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
     return {
@@ -90,7 +92,7 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.VIDEO, subPath: video.id },
+      route: { mainPath, subPath: ROUTE.VIDEO },
       viewing: {
         video,
         activeThread: THREAD.VIDEO,

@@ -4,19 +4,6 @@ import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
-
-import {
-  nilOrEmpty,
-  makeGQClient,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  BStore,
-  ssrAmbulance,
-} from '../utils'
 
 import {
   ThemeWrapper,
@@ -30,6 +17,20 @@ import {
   RepoContent,
   Footer,
 } from '../containers'
+import { GAWraper, ErrorPage } from '../components'
+
+import {
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  TYPE,
+  ROUTE,
+  THREAD,
+  BStore,
+  ssrAmbulance,
+} from '../utils'
 
 import { P } from '../containers/schemas'
 
@@ -82,6 +83,7 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
     return {
@@ -91,7 +93,7 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.REPO, subPath: repo.id },
+      route: { mainPath, subPath: ROUTE.REPO },
       viewing: {
         repo,
         activeThread: THREAD.REPO,

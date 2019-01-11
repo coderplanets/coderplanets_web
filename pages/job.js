@@ -3,21 +3,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
-
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
-
-import {
-  makeGQClient,
-  getSubPath,
-  getThirdPath,
-  ROUTE,
-  THREAD,
-  TYPE,
-  BStore,
-  nilOrEmpty,
-  ssrAmbulance,
-} from '../utils'
 
 import {
   ThemeWrapper,
@@ -31,6 +17,20 @@ import {
   JobContent,
   Footer,
 } from '../containers'
+import { GAWraper, ErrorPage } from '../components'
+
+import {
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  ROUTE,
+  THREAD,
+  TYPE,
+  BStore,
+  nilOrEmpty,
+  ssrAmbulance,
+} from '../utils'
 
 import { P } from '../containers/schemas'
 
@@ -83,6 +83,7 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, pagedComments, subscribedCommunities, job } = resp
 
     return {
@@ -92,7 +93,7 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.JOB, subPath: job.id },
+      route: { mainPath, subPath: ROUTE.JOB },
       viewing: { job, activeThread: THREAD.JOB, community: job.communities[0] },
       comments: { pagedComments },
     }

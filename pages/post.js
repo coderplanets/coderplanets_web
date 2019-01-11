@@ -3,9 +3,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
-
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
 
 import {
   ThemeWrapper,
@@ -19,13 +17,12 @@ import {
   PostContent,
   Footer,
 } from '../containers'
-
-import { P } from '../containers/schemas'
+import { GAWraper, ErrorPage } from '../components'
 
 import {
   nilOrEmpty,
   makeGQClient,
-  // queryStringToJSON,
+  getMainPath,
   getSubPath,
   getThirdPath,
   TYPE,
@@ -34,6 +31,8 @@ import {
   BStore,
   ssrAmbulance,
 } from '../utils'
+
+import { P } from '../containers/schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -87,6 +86,7 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, post, pagedComments, subscribedCommunities } = resp
 
     return {
@@ -96,7 +96,7 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.POST, subPath: post.id },
+      route: { mainPath, subPath: ROUTE.POST },
       viewing: {
         post,
         activeThread: THREAD.POST,
