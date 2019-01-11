@@ -19,16 +19,18 @@ import { makeDebugger, THREAD } from '../../utils'
 const debug = makeDebugger('c:ArticleActionsPanel:index')
 
 const ArticleActionsPanel = ({
-  entry,
+  data,
   thread,
   onUndoPin,
   onPin,
+  onSetRefined,
+  onUnsetRefined,
   onEdit,
   onInform,
   onDelete,
 }) => (
   <Wrapper>
-    {entry.pin ? (
+    {data.pin ? (
       <Item onClick={onUndoPin.bind(this, thread)}>
         <ItemIcon src={`${ICON_CMD}/pin.svg`} reverse />
         <ItemTitle>取消置顶</ItemTitle>
@@ -36,19 +38,24 @@ const ArticleActionsPanel = ({
     ) : (
       <Item onClick={onPin.bind(this, thread)}>
         <ItemIcon src={`${ICON_CMD}/pin.svg`} />
-        <ItemTitle>置顶</ItemTitle>
+        <ItemTitle>置顶显示</ItemTitle>
+      </Item>
+    )}
+    {R.contains('refined', R.pluck('title', data.tags)) ? (
+      <Item onClick={onUnsetRefined.bind(this, thread)}>
+        <ItemIcon src={`${ICON_CMD}/diamond_frame.svg`} />
+        <ItemTitle>取消精华</ItemTitle>
+      </Item>
+    ) : (
+      <Item onClick={onSetRefined.bind(this, thread)}>
+        <ItemIcon src={`${ICON_CMD}/diamond_frame.svg`} />
+        <ItemTitle>设为精华</ItemTitle>
       </Item>
     )}
     <Item onClick={onEdit.bind(this, thread)}>
       <ItemIcon src={`${ICON_CMD}/edit.svg`} />
       <ItemTitle>编辑</ItemTitle>
     </Item>
-    {/*
-        <Item>
-        <ItemIcon src={`${ICON_CMD}/diamond.svg`} />
-        <ItemTitle>置为精华</ItemTitle>
-        </Item>
-      */}
     <Informer>
       <Item onClick={onInform}>
         <ItemIcon src={`${ICON_CMD}/flag.svg`} />
@@ -63,9 +70,17 @@ const ArticleActionsPanel = ({
 )
 
 ArticleActionsPanel.propTypes = {
-  entry: PropTypes.shape({
+  data: PropTypes.shape({
     id: PropTypes.string,
     pin: PropTypes.bool,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        color: PropTypes.string,
+        raw: PropTypes.string,
+      })
+    ),
   }).isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
   onInform: PropTypes.func,
@@ -73,6 +88,8 @@ ArticleActionsPanel.propTypes = {
   onEdit: PropTypes.func,
   onPin: PropTypes.func,
   onUndoPin: PropTypes.func,
+  onSetRefined: PropTypes.func,
+  onUnsetRefined: PropTypes.func,
 }
 
 ArticleActionsPanel.defaultProps = {
@@ -82,6 +99,8 @@ ArticleActionsPanel.defaultProps = {
   onEdit: debug,
   onPin: debug,
   onUndoPin: debug,
+  onSetRefined: debug,
+  onUnsetRefined: debug,
 }
 
 export default React.memo(ArticleActionsPanel)
