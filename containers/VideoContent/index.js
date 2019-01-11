@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
-import { Maybe, VideoPoster, VideoInfoCard } from '../../components'
+import { Maybe, VideoPoster, VideoInfoCard, Affix } from '../../components'
 import SideCards from './SideCards'
 
 import {
@@ -58,7 +58,9 @@ class VideoContentContainer extends React.Component {
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingData} />
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
           </React.Fragment>
         </Maybe>
       </Wrapper>

@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
-import { MarkDownRender, Maybe } from '../../components'
+import { MarkDownRender, Maybe, Affix } from '../../components'
 
 import {
   Wrapper,
@@ -56,7 +56,9 @@ class JobContentContainer extends React.Component {
                 <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingData} />
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
           </React.Fragment>
         </Maybe>
       </Wrapper>

@@ -75,7 +75,7 @@ export const onPublish = () => {
     const args = cast(updatablePostFields, variables)
     return sr71$.mutate(S.updatePost, args)
   }
-  sr71$.mutate(S.updatePost, variables)
+  sr71$.mutate(S.createPost, variables)
 }
 
 export const canclePublish = () => {

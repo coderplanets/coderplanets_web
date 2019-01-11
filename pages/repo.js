@@ -1,31 +1,36 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
+import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
-
-import {
-  makeGQClient,
-  getSubPath,
-  ROUTE,
-  THREAD,
-  BStore,
-  ssrAmbulance,
-} from '../utils'
 
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  RepoContent,
   Footer,
 } from '../containers'
+import { GAWraper, ErrorPage } from '../components'
+
+import {
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  TYPE,
+  ROUTE,
+  THREAD,
+  BStore,
+  ssrAmbulance,
+} from '../utils'
 
 import { P } from '../containers/schemas'
 
@@ -33,14 +38,23 @@ import { P } from '../containers/schemas'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
-  const gqClient = makeGQClient(token)
+async function fetchData(props, opt) {
+  const { realname } = R.merge({ realname: true }, opt)
 
-  const repoId = getSubPath(props)
+  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
+  const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
+
+  const id = getThirdPath(props)
 
   const sessionState = gqClient.request(P.sessionState)
-  const repo = gqClient.request(P.repo, { id: repoId })
+  const repo = gqClient.request(P.repo, { id })
+  const pagedComments = gqClient.request(P.pagedComments, {
+    id,
+    userHasLogin,
+    thread: R.toUpper(THREAD.POST),
+    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -51,6 +65,7 @@ async function fetchData(props) {
   return {
     ...(await sessionState),
     ...(await repo),
+    ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
@@ -68,7 +83,12 @@ export default class Index extends React.Component {
       }
     }
 
-    const { sessionState, repo, subscribedCommunities } = resp
+    const mainPath = getMainPath(props)
+    const { sessionState, repo, pagedComments, subscribedCommunities } = resp
+
+    if (!R.contains(mainPath, R.pluck('raw', repo.communities))) {
+      return { statusCode: 404, target: getSubPath(props) }
+    }
 
     return {
       langSetup: {},
@@ -77,12 +97,13 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.REPO, subPath: repo.id },
+      route: { mainPath, subPath: ROUTE.REPO },
       viewing: {
         repo,
         activeThread: THREAD.REPO,
         community: repo.communities[0],
       },
+      comments: { pagedComments },
     }
   }
 
@@ -108,13 +129,16 @@ export default class Index extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner
+                      showStar={false}
+                      showWordCount={false}
+                      showLastSync
+                    />
+                    <RepoContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>

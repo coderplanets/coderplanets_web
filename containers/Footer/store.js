@@ -25,17 +25,14 @@ const Footer = t
       return self.root.curRoute
     },
     get curView() {
-      const { mainPath } = self.root.curRoute
+      const { mainPath, subPath } = self.root.curRoute
       if (
         R.contains(mainPath, [
           ROUTE.USER,
-          ROUTE.POST,
-          ROUTE.JOB,
-          ROUTE.VIDEO,
-          ROUTE.REPO,
           ROUTE.COMMUNITIES,
           ROUTE.CHEATSHEET,
-        ])
+        ]) ||
+        R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
       ) {
         return 'BRIEF'
       }

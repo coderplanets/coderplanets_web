@@ -5,8 +5,8 @@ import { theme, cs } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   justify-content: space-between;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 6%;
+  padding-right: 6%;
   background: ${theme('footer.bottomBg')};
   height: 40px;
   width: 100%;

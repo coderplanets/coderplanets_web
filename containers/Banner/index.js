@@ -9,7 +9,6 @@ import { inject, observer } from 'mobx-react'
 
 import UserBanner from '../UserBanner'
 
-import ArticleBanner from '../ArticleBanner'
 import CommunitiesBanner from '../CommunitiesBanner'
 import CommunityBanner from '../CommunityBanner'
 
@@ -36,6 +35,7 @@ const BannerContent = ({ curRoute }) => {
     case ROUTE.ACTIVITIES: {
       return <ActivitiesRootBanner />
     }
+    /*
     case ROUTE.POST: {
       return <ArticleBanner />
     }
@@ -50,6 +50,8 @@ const BannerContent = ({ curRoute }) => {
         <ArticleBanner showStar={false} showWordCount={false} showLastSync />
       )
     }
+      */
+
     case ROUTE.USER: {
       return <UserBanner />
     }

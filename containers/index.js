@@ -32,10 +32,13 @@ export { default as UserBanner } from './UserBanner'
 export { default as CommunityBanner } from './CommunityBanner'
 export { default as CommunitiesBanner } from './CommunitiesBanner'
 /* contents */
-export { default as UserContent } from './UserContent'
+export { default as CommunityContent } from './CommunityContent'
 export { default as CommunitiesContent } from './CommunitiesContent'
+export { default as UserContent } from './UserContent'
 export { default as PostContent } from './PostContent'
 export { default as JobContent } from './JobContent'
+export { default as VideoContent } from './VideoContent'
+export { default as RepoContent } from './RepoContent'
 // footer
 export { default as Footer } from './Footer'
 /* threads */

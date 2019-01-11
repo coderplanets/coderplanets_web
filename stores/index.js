@@ -48,6 +48,10 @@ export {
 
 // contents store
 export {
+  default as CommunityContentStore,
+} from '../containers/CommunityContent/store'
+
+export {
   default as CommunitiesContentStore,
 } from '../containers/CommunitiesContent/store'
 export {

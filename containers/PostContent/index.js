@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { MarkDownRender, Maybe } from '../../components'
+import { MarkDownRender, Maybe, Affix } from '../../components'
 
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
@@ -56,7 +56,9 @@ class PostContentContainer extends React.Component {
                 <Comments ssr />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingData} />
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
           </React.Fragment>
         </Maybe>
       </Wrapper>

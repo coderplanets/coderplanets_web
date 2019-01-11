@@ -42,6 +42,7 @@ import {
   CommunitiesBannerStore,
   UserBannerStore,
   // content
+  CommunityContentStore,
   PostContentStore,
   JobContentStore,
   VideoContentStore,
@@ -138,6 +139,8 @@ const rootStore = t
     userBanner: t.optional(UserBannerStore, {}),
 
     // content
+    communityContent: t.optional(CommunityContentStore, {}),
+
     communitiesContent: t.optional(CommunitiesContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),

@@ -2,10 +2,9 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 // transition: background-color 0.2s;
-const Body = styled.div`
+const Wrapper = styled.div`
   ${cs.flexColumn()};
-
-  padding-left: 56px;
+  padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
   position: relative;
   height: 100%;
   min-height: 100vh;
@@ -16,4 +15,4 @@ const Body = styled.div`
 `
 /* overflow-x: hidden; */
 
-export default Body
+export default Wrapper

@@ -73,6 +73,7 @@ export function onTitleSelect(data) {
   store.markRoute({
     preview: THREAD.JOB,
     id: data.id,
+    community: store.curCommunity.raw,
     ...store.tagQuery,
     ...store.filtersData,
   })

@@ -38,22 +38,22 @@ app.prepare().then(() => {
     return renderAndCache(req, res, '/user', req.query)
   })
 
-  server.get('/post/:id', (req, res) => {
+  server.get('/:community/post/:id', (req, res) => {
     /* return app.render(req, res, '/post', req.query) */
     return renderAndCache(req, res, '/post', req.query)
   })
 
-  server.get('/job/:id', (req, res) => {
+  server.get('/:community/job/:id', (req, res) => {
     /* return app.render(req, res, '/job', req.query) */
     return renderAndCache(req, res, '/job', req.query)
   })
 
-  server.get('/video/:id', (req, res) => {
+  server.get('/:community/video/:id', (req, res) => {
     /* return app.render(req, res, '/video', req.query) */
     return renderAndCache(req, res, '/video', req.query)
   })
 
-  server.get('/repo/:id', (req, res) => {
+  server.get('/:community/repo/:id', (req, res) => {
     /* return app.render(req, res, '/repo', req.query) */
     return renderAndCache(req, res, '/repo', req.query)
   })
@@ -70,10 +70,15 @@ app.prepare().then(() => {
   })
 
   server.get('/:community/:thread', (req, res) => {
-    if (R.has('preview', req.query) && R.has('id', req.query)) {
-      const { preview, id } = req.query
-      return res.redirect(`/${preview}/${id}`)
+    if (
+      R.has('preview', req.query) &&
+      R.has('id', req.query) &&
+      R.has('community', req.query)
+    ) {
+      const { community, preview, id } = req.query
+      return res.redirect(`/${community}/${preview}/${id}`)
     }
+    console.log('=== community page')
     /* return app.render(req, res, '/community', req.query) */
     return renderAndCache(req, res, '/community', req.query)
   })

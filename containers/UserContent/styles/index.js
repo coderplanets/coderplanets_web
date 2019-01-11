@@ -17,7 +17,7 @@ export const MainWrapper = styled.div`
   background: ${theme('preview.articleBg')};
   margin-right: 35px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  width: 68%;
+  width: 70%;
 `
 export const TabberWrapper = styled.div`
   ${cs.flex()};

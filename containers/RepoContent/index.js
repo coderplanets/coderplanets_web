@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Comments from '../Comments'
-import { MarkDownRender, Maybe } from '../../components'
+import { MarkDownRender, Maybe, Affix } from '../../components'
 import SideCards from './SideCards'
 
 import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
@@ -45,7 +45,9 @@ class RepoContentContainer extends React.Component {
                 <Comments />
               </CommentsWrapper>
             </MainWrapper>
-            <SideCards data={viewingData} />
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
           </React.Fragment>
         </Maybe>
       </Wrapper>

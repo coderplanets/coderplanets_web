@@ -1,31 +1,36 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
+import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
-
-import {
-  makeGQClient,
-  getSubPath,
-  ROUTE,
-  THREAD,
-  BStore,
-  ssrAmbulance,
-} from '../utils'
 
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  VideoContent,
   Footer,
 } from '../containers'
+import { GAWraper, ErrorPage } from '../components'
+
+import {
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  TYPE,
+  ROUTE,
+  THREAD,
+  BStore,
+  ssrAmbulance,
+} from '../utils'
 
 import { P } from '../containers/schemas'
 
@@ -36,12 +41,19 @@ global.Intl = require('intl')
 async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
 
-  const videoId = getSubPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const video = gqClient.request(P.video, { id: videoId })
+  const video = gqClient.request(P.video, { id })
+  const pagedComments = gqClient.request(P.pagedComments, {
+    id,
+    userHasLogin,
+    thread: R.toUpper(THREAD.JOB),
+    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -52,6 +64,7 @@ async function fetchData(props) {
   return {
     ...(await sessionState),
     ...(await video),
+    ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
@@ -69,7 +82,12 @@ export default class Index extends React.Component {
       }
     }
 
-    const { sessionState, video, subscribedCommunities } = resp
+    const mainPath = getMainPath(props)
+    const { sessionState, video, pagedComments, subscribedCommunities } = resp
+
+    if (!R.contains(mainPath, R.pluck('raw', video.communities))) {
+      return { statusCode: 404, target: getSubPath(props) }
+    }
 
     return {
       langSetup: {},
@@ -78,12 +96,13 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.VIDEO, subPath: video.id },
+      route: { mainPath, subPath: ROUTE.VIDEO },
       viewing: {
         video,
         activeThread: THREAD.VIDEO,
         community: video.communities[0],
       },
+      comments: { pagedComments },
     }
   }
 
@@ -104,18 +123,17 @@ export default class Index extends React.Component {
         <GAWraper>
           <ThemeWrapper>
             {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="post" target={target} />
+              <ErrorPage errorCode={statusCode} page="video" target={target} />
             ) : (
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner />
+                    <VideoContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>

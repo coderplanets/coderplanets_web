@@ -1,39 +1,38 @@
 import React from 'react'
-import R from 'ramda'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
-
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
 
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  PostContent,
   Footer,
 } from '../containers'
-
-import { P } from '../containers/schemas'
+import { GAWraper, ErrorPage } from '../components'
 
 import {
   nilOrEmpty,
   makeGQClient,
-  // queryStringToJSON,
+  getMainPath,
   getSubPath,
+  getThirdPath,
   TYPE,
   ROUTE,
   THREAD,
   BStore,
   ssrAmbulance,
 } from '../utils'
+
+import { P } from '../containers/schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -47,13 +46,13 @@ async function fetchData(props, opt) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const postId = getSubPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id: postId, userHasLogin })
+  const post = gqClient.request(P.post, { id, userHasLogin })
   const pagedComments = gqClient.request(P.pagedComments, {
-    id: postId,
+    id,
     userHasLogin,
     thread: R.toUpper(THREAD.POST),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
@@ -87,7 +86,12 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, post, pagedComments, subscribedCommunities } = resp
+
+    if (!R.contains(mainPath, R.pluck('raw', post.communities))) {
+      return { statusCode: 404, target: getSubPath(props) }
+    }
 
     return {
       langSetup: {},
@@ -96,14 +100,13 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.POST, subPath: post.id },
+      route: { mainPath, subPath: ROUTE.POST },
       viewing: {
         post,
         activeThread: THREAD.POST,
         community: post.communities[0],
       },
       comments: { pagedComments },
-      /* curPost: { post }, */
     }
   }
 
@@ -128,13 +131,12 @@ export default class Index extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner />
+                    <PostContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>

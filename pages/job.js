@@ -3,13 +3,27 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
-
 import initRootStore from '../stores/init'
+
+import {
+  ThemeWrapper,
+  MultiLanguage,
+  Preview,
+  Doraemon,
+  Route,
+  BodyLayout,
+  Header,
+  ArticleBanner,
+  JobContent,
+  Footer,
+} from '../containers'
 import { GAWraper, ErrorPage } from '../components'
 
 import {
   makeGQClient,
+  getMainPath,
   getSubPath,
+  getThirdPath,
   ROUTE,
   THREAD,
   TYPE,
@@ -17,20 +31,6 @@ import {
   nilOrEmpty,
   ssrAmbulance,
 } from '../utils'
-
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Sidebar,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  Banner,
-  Content,
-  Footer,
-} from '../containers'
 
 import { P } from '../containers/schemas'
 
@@ -44,13 +44,13 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const jobId = getSubPath(props)
+  const id = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const job = gqClient.request(P.job, { id: jobId, userHasLogin })
+  const job = gqClient.request(P.job, { id, userHasLogin })
   const pagedComments = gqClient.request(P.pagedComments, {
-    id: jobId,
+    id,
     userHasLogin,
     thread: R.toUpper(THREAD.JOB),
     filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
@@ -83,7 +83,12 @@ export default class Index extends React.Component {
       }
     }
 
+    const mainPath = getMainPath(props)
     const { sessionState, pagedComments, subscribedCommunities, job } = resp
+
+    if (!R.contains(mainPath, R.pluck('raw', job.communities))) {
+      return { statusCode: 404, target: getSubPath(props) }
+    }
 
     return {
       langSetup: {},
@@ -92,7 +97,7 @@ export default class Index extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.JOB, subPath: job.id },
+      route: { mainPath, subPath: ROUTE.JOB },
       viewing: { job, activeThread: THREAD.JOB, community: job.communities[0] },
       comments: { pagedComments },
     }
@@ -120,13 +125,12 @@ export default class Index extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner showStar={false} />
+                    <JobContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
