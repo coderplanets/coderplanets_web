@@ -7,6 +7,7 @@ import { GAWraper, ErrorPage } from '../components'
 import {
   makeGQClient,
   getSubPath,
+  getThirdPath,
   ROUTE,
   THREAD,
   BStore,
@@ -16,14 +17,13 @@ import {
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  RepoContent,
   Footer,
 } from '../containers'
 
@@ -37,7 +37,7 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
-  const repoId = getSubPath(props)
+  const repoId = getThirdPath(props)
 
   const sessionState = gqClient.request(P.sessionState)
   const repo = gqClient.request(P.repo, { id: repoId })
@@ -108,13 +108,16 @@ export default class Index extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner
+                      showStar={false}
+                      showWordCount={false}
+                      showLastSync
+                    />
+                    <RepoContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>

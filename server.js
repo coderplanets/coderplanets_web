@@ -53,7 +53,7 @@ app.prepare().then(() => {
     return renderAndCache(req, res, '/video', req.query)
   })
 
-  server.get('/repo/:id', (req, res) => {
+  server.get('/:community/repo/:id', (req, res) => {
     /* return app.render(req, res, '/repo', req.query) */
     return renderAndCache(req, res, '/repo', req.query)
   })
