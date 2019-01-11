@@ -7,6 +7,7 @@ import { GAWraper, ErrorPage } from '../components'
 import {
   makeGQClient,
   getSubPath,
+  getThirdPath,
   ROUTE,
   THREAD,
   BStore,
@@ -16,14 +17,13 @@ import {
 import {
   ThemeWrapper,
   MultiLanguage,
-  Sidebar,
   Preview,
   Doraemon,
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  ArticleBanner,
+  VideoContent,
   Footer,
 } from '../containers'
 
@@ -37,7 +37,7 @@ async function fetchData(props) {
   const token = BStore.cookie.from_req(props.req, 'jwtToken')
   const gqClient = makeGQClient(token)
 
-  const videoId = getSubPath(props)
+  const videoId = getThirdPath(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -104,18 +104,17 @@ export default class Index extends React.Component {
         <GAWraper>
           <ThemeWrapper>
             {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="post" target={target} />
+              <ErrorPage errorCode={statusCode} page="video" target={target} />
             ) : (
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
                   <Preview />
                   <Doraemon />
-                  <BodyLayout>
+                  <BodyLayout noSidebar>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <ArticleBanner />
+                    <VideoContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
