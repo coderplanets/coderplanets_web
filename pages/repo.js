@@ -1,13 +1,17 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
+import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
 import { GAWraper, ErrorPage } from '../components'
 
 import {
+  nilOrEmpty,
   makeGQClient,
   getSubPath,
   getThirdPath,
+  TYPE,
   ROUTE,
   THREAD,
   BStore,
@@ -33,14 +37,23 @@ import { P } from '../containers/schemas'
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
 
-async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+async function fetchData(props, opt) {
+  const { realname } = R.merge({ realname: true }, opt)
+
+  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
   const gqClient = makeGQClient(token)
+  const userHasLogin = nilOrEmpty(token) === false
 
   const id = getThirdPath(props)
 
   const sessionState = gqClient.request(P.sessionState)
   const repo = gqClient.request(P.repo, { id })
+  const pagedComments = gqClient.request(P.pagedComments, {
+    id,
+    userHasLogin,
+    thread: R.toUpper(THREAD.POST),
+    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
     filter: {
       page: 1,
@@ -51,6 +64,7 @@ async function fetchData(props) {
   return {
     ...(await sessionState),
     ...(await repo),
+    ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
@@ -68,7 +82,7 @@ export default class Index extends React.Component {
       }
     }
 
-    const { sessionState, repo, subscribedCommunities } = resp
+    const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
     return {
       langSetup: {},
@@ -83,6 +97,7 @@ export default class Index extends React.Component {
         activeThread: THREAD.REPO,
         community: repo.communities[0],
       },
+      comments: { pagedComments },
     }
   }
 

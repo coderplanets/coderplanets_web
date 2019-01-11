@@ -1,6 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import { Provider } from 'mobx-react'
+import R from 'ramda'
 
 import { PAGE_SIZE } from '../config'
 
@@ -103,7 +103,6 @@ export default class Index extends React.Component {
         community: post.communities[0],
       },
       comments: { pagedComments },
-      /* curPost: { post }, */
     }
   }
 
