@@ -17,8 +17,8 @@ import {
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  UserBanner,
+  UserContent,
   Footer,
 } from '../containers'
 
@@ -125,8 +125,8 @@ export default class UserPage extends React.Component {
                   <Doraemon />
                   <BodyLayout>
                     <Header />
-                    <Banner />
-                    <Content />
+                    <UserBanner />
+                    <UserContent />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
