@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const Header = styled.div``
 export const Middle = styled.div`
-  ${cs.flex()};
+  ${cs.flex('align-center')};
   padding: 5px 0;
   margin-bottom: 2px;
 `
@@ -25,20 +25,22 @@ export const Title = styled.div`
   width: 90%;
 `
 export const SalaryWrapper = styled.div`
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: ${theme('contrastFg')};
-  margin-right: 20px;
+  margin-right: 16px;
+  margin-top: -1px;
 `
 export const BackgroundWrapper = styled.div`
   ${cs.flex()};
 `
 export const TagsWrapper = styled.div`
-  margin-top: 11px;
+  margin-top: -1px;
 `
 
 export const Background = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
+  font-size: 0.85rem;
 `
 export const Degree = styled.div``
 export const Exp = styled.div``

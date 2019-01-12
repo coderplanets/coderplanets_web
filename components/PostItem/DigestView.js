@@ -17,6 +17,7 @@ import {
   SecondHalf,
   BodyDigest,
   Extra,
+  TagListWrapper,
 } from './styles'
 
 // import { Wrapper } from './styles'
@@ -41,7 +42,9 @@ const DigestView = ({ entry, cover, onTitleSelect, onUserSelect }) => (
               <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
             </TitleLink>
           ) : null}
-          <InlineTags data={entry.tags} />
+          <TagListWrapper>
+            <InlineTags data={entry.tags} />
+          </TagListWrapper>
         </Breif>
         <div>
           <AvatarsRow

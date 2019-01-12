@@ -5,11 +5,11 @@ import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
+  align-items: flex-end;
   margin-left: 10px;
 `
 export const Tag = styled.div`
   ${cs.flex('align-center')};
-  margin-top: -8px;
   margin-right: 4px;
 `
 export const Title = styled.div`
@@ -17,11 +17,7 @@ export const Title = styled.div`
   opacity: 0.8;
   font-size: 0.8rem;
 `
-
-export const MoreText = styled.div`
-  margin-top: -8px;
-  font-weight: bold;
-`
+export const MoreText = styled.div``
 export const Dot = styled.div`
   ${cs.circle('10px')};
   margin-right: 4px;

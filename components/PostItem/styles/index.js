@@ -109,3 +109,6 @@ export const CommentNum = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
 `
+export const TagListWrapper = styled.div`
+  margin-top: 2px;
+`

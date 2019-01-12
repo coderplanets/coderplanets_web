@@ -60,9 +60,9 @@ const renderReadonlyItems = items => {
 
   return (
     <Item>
-      {tagsList
-        .slice(0, totalLength - 1)
-        .map(tag => <Hightlight key={uid.gen()}>{Trans(tag)}, </Hightlight>)}
+      {tagsList.slice(0, totalLength - 1).map(tag => (
+        <Hightlight key={uid.gen()}>{Trans(tag)}, </Hightlight>
+      ))}
 
       <Hightlight>{Trans(tagsList[totalLength - 1])}</Hightlight>
     </Item>
