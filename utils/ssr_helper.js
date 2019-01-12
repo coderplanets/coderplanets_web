@@ -27,16 +27,15 @@ export const ssrPagedSchema = thread => {
 
 export const ssrPagedFilter = (community, thread, filter, userHasLogin) => {
   thread = R.toLower(thread)
-  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI) {
-    return {
-      community,
-    }
+  if (thread === THREAD.CHEATSHEET || thread === THREAD.WIKI)
+    return { community }
+
+  if (community === 'home' && thread === THREAD.JOB) {
+    filter = R.omit(['community'], filter)
+    return { filter, userHasLogin }
   }
 
-  return {
-    filter,
-    userHasLogin,
-  }
+  return { filter, userHasLogin }
 }
 
 const getCurView = source =>
