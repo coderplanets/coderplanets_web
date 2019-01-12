@@ -17,7 +17,6 @@ import VideoViewer from '../VideoViewer'
 import RepoViewer from '../RepoViewer'
 import MailsViewer from '../MailsViewer'
 // eiditors
-// import AccountEditor from '../AccountEditor'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
@@ -38,31 +37,10 @@ import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Preview')
 
-const DynamicPostWriter = dynamic({
-  loader: () => import('../PostEditor'),
-  /* eslint-disable */
-  loading: () => <EditorLoading />,
-  /* eslint-enable */
-  ssr: false,
-})
-
-const DynamicJobWriter = dynamic({
-  loader: () => import('../JobEditor'),
-  /* eslint-disable */
-  loading: () => <EditorLoading />,
-  /* eslint-enable */
-  ssr: false,
-})
-
-const DynamicAccountViewer = dynamic({
-  loader: () => import('../AccountViewer'),
-  ssr: false,
-})
-
-const DynamicAccountEditor = dynamic({
-  loader: () => import('../AccountEditor'),
-  ssr: false,
-})
+let DynamicPostEditor = null
+let DynamicJobEditor = null
+let DynamicAccountViewer = null
+let DynamicAccountEditor = null
 
 const CloseBtn = ({ type }) => (
   <PreviewCloser onClick={logic.closePreview}>
@@ -89,11 +67,11 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <PostViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
-      return <DynamicPostWriter onClose={logic.closePreview} />
+      return <DynamicPostEditor onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_POST_EDIT: {
       return (
-        <DynamicPostWriter
+        <DynamicPostEditor
           onClose={logic.closePreview}
           attachment={attachment}
         />
@@ -101,14 +79,14 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // job
     case TYPE.PREVIEW_JOB_CREATE: {
-      return <DynamicJobWriter onClose={logic.closePreview} />
+      return <DynamicJobEditor onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_JOB_VIEW: {
       return <JobViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_JOB_EDIT: {
       return (
-        <DynamicJobWriter
+        <DynamicJobEditor
           onClose={logic.closePreview}
           attachment={attachment}
         />
@@ -145,6 +123,30 @@ class PreviewContainer extends React.Component {
   componentDidMount() {
     const { preview } = this.props
     logic.init(preview)
+
+    DynamicPostEditor = dynamic({
+      loader: () => import('../PostEditor'),
+      /* eslint-disable-next-line */
+      loading: () => <EditorLoading />,
+      ssr: false,
+    })
+
+    DynamicJobEditor = dynamic({
+      loader: () => import('../JobEditor'),
+      /* eslint-disable-next-line */
+      loading: () => <EditorLoading />,
+      ssr: false,
+    })
+
+    DynamicAccountViewer = dynamic({
+      loader: () => import('../AccountViewer'),
+      ssr: false,
+    })
+
+    DynamicAccountEditor = dynamic({
+      loader: () => import('../AccountEditor'),
+      ssr: false,
+    })
   }
 
   render() {
