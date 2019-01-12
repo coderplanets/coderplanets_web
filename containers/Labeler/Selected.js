@@ -7,12 +7,16 @@ import { uid, Trans } from '../../utils'
 
 const renderItems = items => {
   if (!items) return null
+  const tagsList = R.reject(t => t === 'refined', items)
 
-  switch (items.length) {
+  switch (tagsList.length) {
+    case 0: {
+      return <Item>(--)</Item>
+    }
     case 1: {
       return (
         <Item>
-          (<Hightlight>{Trans(items[0])}</Hightlight>)
+          (<Hightlight>{Trans(tagsList[0])}</Hightlight>)
         </Item>
       )
     }
@@ -21,7 +25,7 @@ const renderItems = items => {
         <Item>
           (
           <Hightlight>
-            {Trans(items[0])}, {Trans(items[1])}
+            {Trans(tagsList[0])}, {Trans(tagsList[1])}
           </Hightlight>
           )
         </Item>
@@ -30,7 +34,7 @@ const renderItems = items => {
     default: {
       return (
         <Item>
-          (<Hightlight>{Trans(items[0])}, ..</Hightlight>)
+          (<Hightlight>{Trans(tagsList[0])}, ..</Hightlight>)
         </Item>
       )
     }
@@ -39,23 +43,28 @@ const renderItems = items => {
 
 const renderReadonlyItems = items => {
   if (!items) return null
-  const itemsLength = items.length
+  const tagsList = R.reject(t => t === 'refined', items)
 
-  if (itemsLength === 1) {
+  const totalLength = tagsList.length
+
+  if (totalLength === 0) {
+    return <Item>(--)</Item>
+  }
+  if (totalLength === 1) {
     return (
       <Item>
-        <Hightlight>{Trans(items[0])}</Hightlight>
+        <Hightlight>{Trans(tagsList[0])}</Hightlight>
       </Item>
     )
   }
 
   return (
     <Item>
-      {items.slice(0, itemsLength - 1).map(item => (
-        <Hightlight key={uid.gen()}>{Trans(item)}, </Hightlight>
-      ))}
+      {tagsList
+        .slice(0, totalLength - 1)
+        .map(tag => <Hightlight key={uid.gen()}>{Trans(tag)}, </Hightlight>)}
 
-      <Hightlight>{Trans(items[itemsLength - 1])}</Hightlight>
+      <Hightlight>{Trans(tagsList[totalLength - 1])}</Hightlight>
     </Item>
   )
 }
