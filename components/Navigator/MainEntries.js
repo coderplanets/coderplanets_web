@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 import { ISSUE_ADDR } from '../../config'
 import Popover from '../Popover'
@@ -10,9 +9,9 @@ import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
 const splitMargin = '8px'
 const MainEntries = () => (
   <Wrapper>
-    <Link href="/home/posts">
+    <a href="/home/posts">
       <SiteLink>首页</SiteLink>
-    </Link>
+    </a>
     <DotDivider space={splitMargin} />
     <a href="/communities">
       <SiteLink>社区</SiteLink>

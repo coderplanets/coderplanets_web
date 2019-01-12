@@ -17,8 +17,8 @@ import {
   Route,
   BodyLayout,
   Header,
-  Banner,
-  Content,
+  CommunitiesBanner,
+  CommunitiesContent,
   Footer,
 } from '../containers'
 
@@ -133,8 +133,8 @@ export default class Index extends React.Component {
               <Doraemon />
               <BodyLayout>
                 <Header />
-                <Banner />
-                <Content />
+                <CommunitiesBanner />
+                <CommunitiesContent />
                 <Footer />
               </BodyLayout>
             </MultiLanguage>

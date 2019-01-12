@@ -14,8 +14,8 @@ import {
   Route,
   BodyLayout,
   Header,
-  CommunityBanner,
-  CommunityContent,
+  Banner,
+  Content,
   Footer,
 } from '../containers'
 
@@ -70,8 +70,8 @@ export default class PageCommunity extends React.Component {
                   <Doraemon />
                   <BodyLayout>
                     <Header />
-                    <CommunityBanner />
-                    <CommunityContent />
+                    <Banner />
+                    <Content />
                     <Footer />
                   </BodyLayout>
                 </MultiLanguage>
