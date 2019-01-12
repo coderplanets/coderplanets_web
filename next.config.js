@@ -24,6 +24,16 @@ module.exports = {
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/)
     )
 
+    /*
+       // see https://github.com/RubyLouvre/anu/issues/640
+       config.resolve.alias = {
+       react: 'anujs',
+       'react-dom': 'anujs',
+       'prop-types': 'anujs/lib/ReactPropTypes',
+       'create-react-class': 'anujs/lib/createClass',
+       }
+     */
+
     if (ANALYZE) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
