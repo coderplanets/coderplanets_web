@@ -35,7 +35,11 @@ const CompanyInfo = ({
       </BaseInfo>
       <CompanyLogo src={companyLogo} />
     </TopHalf>
-    <Footer>&quot; {R.isEmpty(desc) ? '---' : desc} &quot;</Footer>
+    <Footer>
+      &quot;
+      {R.isEmpty(desc) ? '---' : desc}
+      &quot;
+    </Footer>
   </Wrapper>
 )
 

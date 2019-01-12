@@ -50,7 +50,7 @@ const CompanyInfoEditor = ({
         </div>
         <div>
           <LinkInputer
-            placeholder="不打卡,双休,五险一金,美女多 ..."
+            placeholder="不加班,福利好,美女多.."
             value={desc}
             onChange={inputOnChange.bind(this, 'desc')}
           />

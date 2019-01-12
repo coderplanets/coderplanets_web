@@ -35,29 +35,37 @@ const PicUploader = ({ divider }) => (
   </React.Fragment>
 )
 
-const EditorFooter = ({ editData }) => (
+const LabelList = ({ data }) => (
+  <Wrapper>
+    <Labeler label="city" selected={R.pluck('title', data.tags)} multi />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="education" selected={[data.education]} />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="exp" selected={[data.exp]} />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="salary" selected={[data.salary]} />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="field" selected={[data.field]} />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="finance" selected={[data.finance]} />
+    <Divider src={`${ICON_CMD}/more.svg`} />
+    <Labeler label="scale" selected={[data.scale]} />
+  </Wrapper>
+)
+
+/*
+   NOTE, the uid.gen is a magic fix and i don't kown why..
+   if not use uid.gen, the labels in create/edit is choas
+ */
+const EditorFooter = ({ isEdit, editData }) => (
   <div>
     <CompanyInfoEditor editData={editData} />
     <Wrapper>
-      <Wrapper key={uid.gen()}>
-        <Labeler
-          label="city"
-          selected={R.pluck('title', editData.tags)}
-          multi
-        />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="education" selected={[editData.education]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="exp" selected={[editData.exp]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="salary" selected={[editData.salary]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="field" selected={[editData.field]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="finance" selected={[editData.finance]} />
-        <Divider src={`${ICON_CMD}/more.svg`} />
-        <Labeler label="scale" selected={[editData.scale]} />
-      </Wrapper>
+      {isEdit ? (
+        <LabelList key={uid.gen()} data={editData} />
+      ) : (
+        <LabelList data={editData} />
+      )}
       <PicUploader />
     </Wrapper>
   </div>

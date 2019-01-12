@@ -18,6 +18,7 @@ import {
   errorForHuman,
   closePreviewer,
   cast,
+  nilOrEmpty,
 } from '../../utils'
 
 import { S, updatableJobFields } from './schema'
@@ -27,7 +28,7 @@ import SR71 from '../../utils/network/sr71'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:PostEditor')
+const debug = makeDebugger('L:JobEditor')
 
 let store = null
 let sub$ = null
@@ -77,6 +78,8 @@ export const onPublish = () => {
     communityId: store.viewing.community.id,
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
+
+  if (nilOrEmpty(variables.desc)) variables.desc = '不加班,福利好,美女多..'
 
   publishing()
   if (isEdit) {

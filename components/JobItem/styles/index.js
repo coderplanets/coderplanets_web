@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.article`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-start')};
 
   position: relative;
   padding-left: 8px;

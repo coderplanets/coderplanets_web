@@ -24,12 +24,13 @@ import { makeDebugger, storePlug } from '../../utils'
 const debug = makeDebugger('C:JobEditor')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
-const View = ({ curView, thread, editData, mentionList }) => {
+const View = ({ isEdit, curView, thread, editData, mentionList }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
         <ViewerWrapper active={curView === 'CREATE_VIEW'}>
           <Editor
+            isEdit={isEdit}
             thread={thread}
             editData={editData}
             mentionList={mentionList}
@@ -80,10 +81,13 @@ class JobEditorContainer extends React.Component {
       referUsersData,
     } = jobEditor
 
+    debug('editData: ', editData)
+
     return (
       <Wrapper>
         <Header isEdit={isEdit} curView={curView} referUsers={referUsersData} />
         <View
+          isEdit={isEdit}
           curView={curView}
           editData={editData}
           thread={thread}

@@ -18,7 +18,7 @@ import {
   changeView,
 } from './logic'
 
-const Editor = ({ thread, editData, mentionList }) => {
+const Editor = ({ isEdit, thread, editData, mentionList }) => {
   const { title, body } = editData
 
   return (
@@ -47,7 +47,7 @@ const Editor = ({ thread, editData, mentionList }) => {
         onMentionSearch={onMentionSearch}
       />
       <FooterWrapper>
-        <EditorFooter thread={thread} editData={editData} />
+        <EditorFooter isEdit={isEdit} thread={thread} editData={editData} />
       </FooterWrapper>
     </Wrapper>
   )

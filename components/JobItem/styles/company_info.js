@@ -13,6 +13,7 @@ export const TopHalf = styled.div`
 `
 export const BaseInfo = styled.div`
   flex-grow: 1;
+  margin-bottom: 4px;
 `
 export const CompanyLogo = styled(Img)`
   width: 50px;
@@ -22,9 +23,7 @@ export const CompanyLogo = styled(Img)`
 export const Header = styled.div``
 export const Middle = styled.div`
   ${cs.flex()};
-  padding: 5px 0;
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: 3px;
 `
 export const Footer = styled.div`
   font-size: 0.8rem;
@@ -32,7 +31,7 @@ export const Footer = styled.div`
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1rem;
+  font-size: 0.9rem;
 `
 export const StatesWrapper = styled.div`
   ${cs.flex()};
