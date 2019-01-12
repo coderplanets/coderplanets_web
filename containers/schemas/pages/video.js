@@ -42,6 +42,9 @@ export const pagedVideos = `
         author {
           ${F.author}
         }
+        tags {
+          ${F.tag}
+        }
         viewerHasViewed @include(if: $userHasLogin)
       }
       ${F.pagedCounts}

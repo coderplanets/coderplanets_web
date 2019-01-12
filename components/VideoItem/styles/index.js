@@ -39,7 +39,6 @@ export const Duration = styled.div`
   padding: 0 4px;
 `
 export const Title = styled.div`
-  margin-bottom: 10px;
   font-size: 1rem;
 
   &:hover {
@@ -69,8 +68,9 @@ export const SecondHalf = styled.ul`
   flex-grow: 1;
 `
 export const Breif = styled.div`
-  ${cs.flexGrow()};
+  ${cs.flexGrow('align-center')};
   margin-left: 10px;
+  margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
 export const ViewInfo = styled.div`

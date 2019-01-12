@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
+import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 import { Popover, ArticleActionsPanel } from '../../components'
@@ -36,6 +37,7 @@ class ArticleBodyHeaderContainer extends React.Component {
 
   render() {
     const { data, thread, middle } = this.props
+    const tagTitleList = R.pluck('title', data.tags)
 
     return (
       <Wrapper>
@@ -64,7 +66,13 @@ class ArticleBodyHeaderContainer extends React.Component {
         </MoreWrapper>
 
         {middle === 'linker' ? <Linker addr={data.linkAddr} /> : null}
-        {middle === 'labeler' ? <Labeler /> : null}
+        {middle === 'labeler' ? (
+          <Labeler
+            onTagSelect={logic.onTagSelect}
+            onTagUnselect={logic.onTagUnselect}
+            selected={tagTitleList}
+          />
+        ) : null}
         <RefinedLabel tags={data.tags} />
       </Wrapper>
     )

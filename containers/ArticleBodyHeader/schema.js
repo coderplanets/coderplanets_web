@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import { P } from '../schemas'
 
 // post
 const pinPost = gql`
@@ -120,6 +121,13 @@ const unsetRefinedTag = gql`
   }
 `
 
+const setTag = gql`
+  ${P.setTag}
+`
+const unsetTag = gql`
+  ${P.unsetTag}
+`
+
 const schema = {
   // post
   pinPost,
@@ -140,6 +148,9 @@ const schema = {
   // refined tag
   setRefinedTag,
   unsetRefinedTag,
+  // tag
+  setTag,
+  unsetTag,
 }
 
 export default schema

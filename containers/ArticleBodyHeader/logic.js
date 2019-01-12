@@ -134,7 +134,39 @@ export const onDelete = () => {
   }
 }
 
+export const onTagSelect = tagId => {
+  const { id } = store.viewingData
+  const communityId = store.curCommunity.id
+  const thread = R.toUpper(store.activeThread)
+
+  sr71$.mutate(S.setTag, { thread, id, tagId, communityId })
+}
+
+export const onTagUnselect = tagId => {
+  const { id } = store.viewingData
+  const communityId = store.curCommunity.id
+  const thread = R.toUpper(store.activeThread)
+
+  sr71$.mutate(S.unsetTag, { thread, id, tagId, communityId })
+}
+
 export const onInform = () => store.callInformer()
+
+const backToParentThread = () => {
+  let REFRESH_EVENT
+  if (store.activeThread === THREAD.POST) {
+    REFRESH_EVENT = EVENT.REFRESH_POSTS
+  } else if (store.activeThread === THREAD.JOB) {
+    REFRESH_EVENT = EVENT.REFRESH_JOBS
+  } else if (store.activeThread === THREAD.VIDEO) {
+    REFRESH_EVENT = EVENT.REFRESH_VIDEOS
+  } else if (store.activeThread === THREAD.REPO) {
+    REFRESH_EVENT = EVENT.REFRESH_REPOS
+  }
+
+  dispatchEvent(REFRESH_EVENT)
+  closePreviewer()
+}
 
 // ###############################
 // Data & Error handlers
@@ -144,115 +176,70 @@ const DataSolver = [
   // post
   {
     match: asyncRes('pinPost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('undoPinPost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('deletePost'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   // job
   {
     match: asyncRes('pinJob'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_JOBS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('undoPinJob'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_JOBS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('deleteJob'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_JOBS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   // video
   {
     match: asyncRes('pinVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('undoPinVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('deleteVideo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   // repo
   {
     match: asyncRes('pinRepo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_REPOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('undoPinRepo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_REPOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('deleteRepo'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_REPOS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('setRefinedTag'),
-    action: () => {
-      dispatchEvent(EVENT.REFRESH_POSTS)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
   },
   {
     match: asyncRes('unsetRefinedTag'),
-    action: () => {
-      let REFRESH_EVENT
-      if (store.activeThread === THREAD.POST) {
-        REFRESH_EVENT = EVENT.REFRESH_POSTS
-      } else if (store.activeThread === THREAD.JOB) {
-        REFRESH_EVENT = EVENT.REFRESH_JOBS
-      } else if (store.activeThread === THREAD.VIDEO) {
-        REFRESH_EVENT = EVENT.REFRESH_VIDEOS
-      } else if (store.activeThread === THREAD.REPO) {
-        REFRESH_EVENT = EVENT.REFRESH_REPOS
-      }
-
-      dispatchEvent(REFRESH_EVENT)
-      closePreviewer()
-    },
+    action: () => backToParentThread(),
+  },
+  {
+    match: asyncRes('setTag'),
+    action: () => backToParentThread(),
+  },
+  {
+    match: asyncRes('unsetTag'),
+    action: () => backToParentThread(),
   },
 ]
 

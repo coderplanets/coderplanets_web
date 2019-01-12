@@ -8,9 +8,6 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleLink')};
   margin-left: 10px;
   opacity: 0.8;
-  line-height: 1;
-  height: 1.6rem;
-  font-size: 0.8rem;
 `
 export const LinkIcon = styled(Img)`
   fill: ${theme('thread.articleLink')};
