@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const Header = styled.div``
 export const Middle = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-end')};
   padding: 5px 0;
   margin-bottom: 2px;
 `
