@@ -44,9 +44,6 @@ export const pagedRepos = `
         author {
           ${F.author}
         }
-        communities {
-          ${F.community}
-        }
         tags {
           ${F.tag}
         }

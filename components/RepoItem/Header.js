@@ -4,6 +4,7 @@ import { ICON_CMD } from '../../config'
 
 import Popover from '../Popover'
 import { Space } from '../BaseStyled'
+import InlineTags from '../InlineTags'
 
 import {
   Wrapper,
@@ -12,8 +13,7 @@ import {
   Title,
   Owner,
   RepoName,
-  TitleTag,
-  TitleTagDot,
+  TagsWrapper,
   StatusInfo,
   StatusSection,
   StarIcon,
@@ -35,11 +35,10 @@ const Header = ({ entry, onTitleSelect }) => (
       </Popover>
       <Owner>{entry.ownerName}</Owner>
       <RepoName> / {cutFrom(entry.title, 20)}</RepoName>
+      <TagsWrapper>
+        <InlineTags data={entry.tags} />
+      </TagsWrapper>
     </Title>
-    <TitleTag>
-      <TitleTagDot />
-      音频
-    </TitleTag>
     <StatusInfo>
       <StatusSection>
         <StarIcon src={`${ICON_CMD}/repo_star.svg`} />

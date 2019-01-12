@@ -8,11 +8,10 @@ export const Wrapper = styled.div`
   margin-left: 10px;
 `
 export const Title = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flexGrow('align-center')};
 
   margin-bottom: 10px;
   font-size: 1.2rem;
-  max-width: 450px;
   &:hover {
     cursor: pointer;
   }
@@ -39,23 +38,9 @@ export const RepoName = styled.div`
     color: ${theme('banner.title')};
   }
 `
-export const TitleTag = styled.div`
-  color: ${theme('thread.articleTag')};
-  margin-left: 10px;
+export const TagsWrapper = styled.div`
   margin-top: 4px;
-  opacity: 0.8;
-  font-size: 0.9rem;
-  flex-grow: 1;
 `
-
-export const TitleTagDot = styled.span`
-  ${cs.circle('10px')};
-  margin-right: 4px;
-  background-color: #9cd090;
-  display: inline-block;
-  opacity: ${theme('tags.dotOpacity')};
-`
-
 export const StatusInfo = styled.div`
   ${cs.flex()};
   margin-top: 3px;
