@@ -9,8 +9,8 @@ import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 
 import { ICON_CMD } from '../../config'
-
 import TagsBar from '../TagsBar'
+import PublishNote from './PublishNote'
 
 import {
   Affix,
@@ -55,10 +55,10 @@ class JobsThreadContainer extends React.Component {
       activeTagData,
       activeJob,
       accountInfo,
-      curRoute,
+      curCommunity,
+      showPublishNote,
     } = jobsThread
 
-    const { mainPath } = curRoute
     const { totalCount } = pagedJobsData
 
     return (
@@ -79,7 +79,7 @@ class JobsThreadContainer extends React.Component {
 
           <PagedContents
             data={pagedJobsData}
-            community={mainPath}
+            community={curCommunity.raw}
             thread={THREAD.JOB}
             curView={curView}
             active={activeJob}
@@ -90,6 +90,7 @@ class JobsThreadContainer extends React.Component {
         </LeftPart>
 
         <RightPart>
+          <PublishNote show={showPublishNote} />
           <PublishBtn type="primary" onClick={logic.createContent}>
             <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
           </PublishBtn>
