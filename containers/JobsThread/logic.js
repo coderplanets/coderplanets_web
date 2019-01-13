@@ -94,7 +94,7 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadJobs()
 }
-export const onCustomChange = option => {
+export const onC11NChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 }

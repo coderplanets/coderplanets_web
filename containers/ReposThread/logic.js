@@ -87,7 +87,7 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadRepos()
 }
-export const onCustomChange = option => store.updateC11N(option)
+export const onC11NChange = option => store.updateC11N(option)
 
 // ###############################
 // Data & Error handlers

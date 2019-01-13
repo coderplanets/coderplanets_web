@@ -72,7 +72,7 @@ class ReposThreadContainer extends React.Component {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
+              onC11NChange={logic.onC11NChange}
             />
           </FilterWrapper>
 

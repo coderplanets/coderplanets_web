@@ -84,7 +84,7 @@ class PostsThreadContainer extends React.Component {
               isLogin={isLogin}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
+              onC11NChange={logic.onC11NChange}
             />
           </FilterWrapper>
 

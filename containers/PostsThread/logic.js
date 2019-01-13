@@ -110,7 +110,7 @@ export const createContent = () => {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
-export const onCustomChange = option => {
+export const onC11NChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 }
