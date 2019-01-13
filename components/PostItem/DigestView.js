@@ -23,7 +23,7 @@ import {
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
-const DigestView = ({ entry, cover, onTitleSelect, onUserSelect }) => (
+const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
   <React.Fragment>
     {cover === 'avatar' ? (
       <Avatar src={entry.author.avatar} />
@@ -34,7 +34,7 @@ const DigestView = ({ entry, cover, onTitleSelect, onUserSelect }) => (
     )}
     <Main>
       <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
+        <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{entry.title}</Title>
           {entry.linkAddr ? (
             <TitleLink>

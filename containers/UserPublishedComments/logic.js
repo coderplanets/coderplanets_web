@@ -73,9 +73,9 @@ export function onThreadChange(curThread) {
   }
 }
 
-export function onTitleSelect(data) {
+export function onPreview(data) {
   const thread = store.curThread
-  debug('onTitleSelect data: ', data[thread])
+  debug('onPreview data: ', data[thread])
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],

@@ -44,7 +44,7 @@ import { makeDebugger, cutFrom, C11N } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoItem:index')
 
-const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
+const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
     <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
     <PosterWrapper>
@@ -53,7 +53,7 @@ const VideoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
     </PosterWrapper>
     <Main>
       <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
+        <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{entry.title}</Title>
           <VideoSourceInfo value={entry.source} />
           <InlineTags data={entry.tags} />
@@ -106,11 +106,11 @@ VideoItem.propTypes = {
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
-  onTitleSelect: PropTypes.func,
+  onPreview: PropTypes.func,
 }
 
 VideoItem.defaultProps = {
-  onTitleSelect: debug,
+  onPreview: debug,
   active: {},
   accountInfo: {
     isLogin: false,

@@ -22,7 +22,7 @@ const PagedContents = ({
   data: { entries, pageNumber, pageSize, totalCount },
   curView,
   onPageChange,
-  onTitleSelect,
+  onPreview,
   onUserSelect,
   emptyPrefix,
   community,
@@ -37,7 +37,7 @@ const PagedContents = ({
       curView={curView}
       emptyPrefix={emptyPrefix}
       community={community}
-      onTitleSelect={onTitleSelect}
+      onPreview={onPreview}
       onUserSelect={onUserSelect}
       accountInfo={accountInfo}
     />
@@ -72,7 +72,7 @@ PagedContents.propTypes = {
   emptyPrefix: PropTypes.string,
   community: PropTypes.string,
   onPageChange: PropTypes.func,
-  onTitleSelect: PropTypes.func,
+  onPreview: PropTypes.func,
   onUserSelect: PropTypes.func,
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
@@ -92,7 +92,7 @@ PagedContents.defaultProps = {
   emptyPrefix: '',
   community: 'javascript',
   onPageChange: debug,
-  onTitleSelect: debug,
+  onPreview: debug,
   onUserSelect: debug,
   accountInfo: {
     isLogin: false,

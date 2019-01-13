@@ -22,7 +22,7 @@ import { makeDebugger, C11N } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:JobItem:index')
 
-const JobItem = ({ entry, active, onTitleSelect, accountInfo, community }) => {
+const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
   const {
     customization: { contentsLayout, contentDivider },
   } = accountInfo
@@ -38,13 +38,9 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo, community }) => {
         topoffset="9px"
       />
       {contentsLayout === C11N.DIGEST ? (
-        <DigestView
-          entry={entry}
-          onPreview={onTitleSelect}
-          community={community}
-        />
+        <DigestView entry={entry} onPreview={onPreview} community={community} />
       ) : (
-        <ListView entry={entry} onPreview={onTitleSelect} />
+        <ListView entry={entry} onPreview={onPreview} />
       )}
     </Wrapper>
   )
@@ -85,11 +81,11 @@ JobItem.propTypes = {
     }),
   }),
   community: PropTypes.string.isRequired,
-  onTitleSelect: PropTypes.func,
+  onPreview: PropTypes.func,
 }
 
 JobItem.defaultProps = {
-  onTitleSelect: debug,
+  onPreview: debug,
   active: {},
   accountInfo: {
     isLogin: false,

@@ -75,9 +75,9 @@ export function onThreadChange(curThread) {
   reload()
 }
 
-export function onTitleSelect(data) {
-  debug('onTitleSelect --> ', data)
-  debug('onTitleSelect thread --> ', store.curThread)
+export function onPreview(data) {
+  debug('onPreview --> ', data)
+  debug('onPreview thread --> ', store.curThread)
   const { curThread: thread } = store
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {

@@ -85,8 +85,8 @@ export const onUserSelect = user =>
     data: user,
   })
 
-export function onTitleSelect(data) {
-  // debug('onTitleSelect publish post: ', data)
+export function onPreview(data) {
+  // debug('onPreview publish post: ', data)
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {

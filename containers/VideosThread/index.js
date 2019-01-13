@@ -81,7 +81,7 @@ class VideosThreadContainer extends React.Component {
             curView={curView}
             active={activeVideo}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadVideos}
           />
         </LeftPart>

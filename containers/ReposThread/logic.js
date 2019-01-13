@@ -55,7 +55,7 @@ export function loadRepos(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onTitleSelect(data) {
+export function onPreview(data) {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
