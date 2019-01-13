@@ -103,7 +103,7 @@ class PostsThreadContainer extends React.Component {
 
         <RightPart>
           <React.Fragment>
-            <PublishBtn type="primary" onClick={logic.createContent}>
+            <PublishBtn type="primary" onClick={logic.onContentCreate}>
               <PublishLabel text={LabelText[subPath] || '发布帖子'} />
             </PublishBtn>
 

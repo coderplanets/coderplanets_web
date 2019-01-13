@@ -79,7 +79,7 @@ export const onPreview = data => {
   })
 }
 
-export const createContent = () => {
+export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
   if (store.curCommunity.raw === 'home') {

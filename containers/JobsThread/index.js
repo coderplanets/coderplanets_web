@@ -91,7 +91,7 @@ class JobsThreadContainer extends React.Component {
 
         <RightPart>
           <PublishNote show={showPublishNote} />
-          <PublishBtn type="primary" onClick={logic.createContent}>
+          <PublishBtn type="primary" onClick={logic.onContentCreate}>
             <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
           </PublishBtn>
 

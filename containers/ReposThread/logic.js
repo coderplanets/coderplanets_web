@@ -72,7 +72,7 @@ export const onPreview = data => {
   })
 }
 
-export const createContent = () =>
+export const onContentCreate = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 
 export const onTagSelect = tag => {
