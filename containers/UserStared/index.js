@@ -52,7 +52,7 @@ class UserStaredContainer extends React.Component {
           accountInfo={accountInfo}
           emptyPrefix={`未找到 ${viewingUser.nickname} 喜欢的`}
           onPageChange={logic.reload}
-          onTitleSelect={logic.onTitleSelect}
+          onPreview={logic.onPreview}
         />
       </React.Fragment>
     )

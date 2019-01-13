@@ -68,7 +68,7 @@ export function onThreadChange(curThread) {
   reload()
 }
 
-export function onTitleSelect(data) {
+export function onPreview(data) {
   const { curThread: thread } = store
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {

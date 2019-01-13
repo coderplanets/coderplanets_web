@@ -84,7 +84,7 @@ class JobsThreadContainer extends React.Component {
             curView={curView}
             active={activeJob}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadJobs}
           />
         </LeftPart>

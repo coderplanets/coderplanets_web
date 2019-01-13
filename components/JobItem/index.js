@@ -22,7 +22,7 @@ import { makeDebugger, C11N } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:JobItem:index')
 
-const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
+const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
   const {
     customization: { contentsLayout, contentDivider },
   } = accountInfo
@@ -31,7 +31,6 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
       divider={contentDivider}
-      onClick={onTitleSelect}
     >
       <ArticleItemPrefixLabel
         entry={entry}
@@ -39,9 +38,9 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
         topoffset="9px"
       />
       {contentsLayout === C11N.DIGEST ? (
-        <DigestView entry={entry} />
+        <DigestView entry={entry} onPreview={onPreview} community={community} />
       ) : (
-        <ListView entry={entry} onTitleSelect={onTitleSelect} />
+        <ListView entry={entry} onPreview={onPreview} />
       )}
     </Wrapper>
   )
@@ -49,18 +48,30 @@ const JobItem = ({ entry, active, onTitleSelect, accountInfo }) => {
 
 JobItem.propTypes = {
   active: PropTypes.object,
-
   entry: PropTypes.shape({
     title: PropTypes.string,
     digest: PropTypes.string,
     views: PropTypes.number,
-
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        color: PropTypes.string,
+        raw: PropTypes.string,
+      })
+    ),
+    communities: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        title: PropTypes.string,
+        logo: PropTypes.string,
+      })
+    ),
     author: PropTypes.shape({
       nickname: PropTypes.string,
       avatar: PropTypes.string,
     }),
   }).isRequired,
-
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
     customization: PropTypes.shape({
@@ -69,11 +80,12 @@ JobItem.propTypes = {
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
-  onTitleSelect: PropTypes.func,
+  community: PropTypes.string.isRequired,
+  onPreview: PropTypes.func,
 }
 
 JobItem.defaultProps = {
-  onTitleSelect: debug,
+  onPreview: debug,
   active: {},
   accountInfo: {
     isLogin: false,

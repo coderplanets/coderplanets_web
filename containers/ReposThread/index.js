@@ -83,7 +83,7 @@ class ReposThreadContainer extends React.Component {
             curView={curView}
             active={activeRepo}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadRepos}
           />
         </LeftPart>

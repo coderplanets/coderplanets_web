@@ -23,7 +23,7 @@ const PostItem = ({
   entry,
   cover,
   active,
-  onTitleSelect,
+  onPreview,
   onUserSelect,
   accountInfo,
 }) => {
@@ -52,11 +52,11 @@ const PostItem = ({
         <DigestView
           entry={entry}
           cover={cover}
-          onTitleSelect={onTitleSelect}
+          onPreview={onPreview}
           onUserSelect={onUserSelect}
         />
       ) : (
-        <ListView entry={entry} cover={cover} onTitleSelect={onTitleSelect} />
+        <ListView entry={entry} cover={cover} onPreview={onPreview} />
       )}
     </Wrapper>
   )
@@ -84,12 +84,12 @@ PostItem.propTypes = {
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
-  onTitleSelect: PropTypes.func,
+  onPreview: PropTypes.func,
   onUserSelect: PropTypes.func,
 }
 
 PostItem.defaultProps = {
-  onTitleSelect: debug,
+  onPreview: debug,
   onUserSelect: debug,
   active: {},
   cover: 'avatar',

@@ -62,7 +62,7 @@ export function loadJobs(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onTitleSelect(data) {
+export function onPreview(data) {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
@@ -94,7 +94,10 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadJobs()
 }
-export const onCustomChange = option => store.updateC11N(option)
+export const onCustomChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+}
 
 // ###############################
 // Data & Error handlers

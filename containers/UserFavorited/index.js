@@ -57,7 +57,7 @@ class UserFavoritesContainer extends React.Component {
               curView={curView}
               emptyPrefix={`未找到 ${viewingUser.nickname} 收藏的`}
               onPageChange={logic.reload}
-              onTitleSelect={logic.onTitleSelect}
+              onPreview={logic.onPreview}
             />
           </React.Fragment>
         )}

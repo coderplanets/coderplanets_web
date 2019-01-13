@@ -22,12 +22,12 @@ import {
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
-const ListView = ({ entry, onTitleSelect }) => (
+const ListView = ({ entry, onPreview }) => (
   <React.Fragment>
     <SmallAvatar src={entry.author.avatar} />
     <Main>
       <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
+        <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{cutFrom(entry.title, 45)}</Title>
           {entry.linkAddr ? (
             <TitleLink>
