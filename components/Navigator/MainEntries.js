@@ -19,7 +19,7 @@ const MainEntries = () => (
     <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
-      trigger="hover"
+      trigger="click"
       content={<DiscussLinker title="专栏" addr={`${ISSUE_ADDR}/265`} />}
     >
       <SiteLink>专栏</SiteLink>
@@ -27,7 +27,7 @@ const MainEntries = () => (
     <DotDivider space={splitMargin} />
     <Popover
       placement="bottom"
-      trigger="hover"
+      trigger="click"
       content={<DiscussLinker title="团队" addr={`${ISSUE_ADDR}/264`} />}
     >
       <SiteLink>团队</SiteLink>
