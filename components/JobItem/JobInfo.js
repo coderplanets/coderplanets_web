@@ -2,6 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 // import { ICON_CMD } from '../../config'
+import InlineCommunities from '../InlineCommunities'
 import InlineTags from '../InlineTags'
 import DotDivider from '../DotDivider'
 
@@ -11,6 +12,7 @@ import {
   Middle,
   Footer,
   Title,
+  CommunitiesWrapper,
   SalaryWrapper,
   Background,
   TagsWrapper,
@@ -23,13 +25,28 @@ import {
 import { cutFrom } from '../../utils'
 
 const JobInfo = ({
-  entry: { author, insertedAt, views, title, salary, education, exp, tags },
+  entry: {
+    author,
+    insertedAt,
+    views,
+    title,
+    salary,
+    education,
+    exp,
+    tags,
+    communities,
+    onPreview,
+  },
+  community,
 }) => (
   <Wrapper>
     <Header>
-      <Title>{cutFrom(title, 30)}</Title>
+      <Title onClick={onPreview}>{cutFrom(title, 30)}</Title>
+      <CommunitiesWrapper>
+        <InlineCommunities data={communities} show={community === 'home'} />
+      </CommunitiesWrapper>
     </Header>
-    <Middle>
+    <Middle onClick={onPreview}>
       <SalaryWrapper>{salary}</SalaryWrapper>
       <Background>
         <Degree>{education}</Degree>
@@ -40,7 +57,7 @@ const JobInfo = ({
         <InlineTags data={tags} />
       </TagsWrapper>
     </Middle>
-    <Footer>
+    <Footer onClick={onPreview}>
       <Extra>
         {author.nickname} <DotDivider />
         <TimeAgo datetime={insertedAt} locale="zh_CN" />

@@ -29,6 +29,7 @@ const JobsList = ({ props }) => {
             <JobItem
               key={entry.id}
               entry={entry}
+              community={community}
               active={active}
               accountInfo={accountInfo}
               onTitleSelect={onTitleSelect.bind(this, entry)}
