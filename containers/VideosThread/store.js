@@ -74,6 +74,9 @@ const VideosThread = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = R.merge(curfilter, option)

@@ -72,8 +72,11 @@ export const onPreview = data => {
   })
 }
 
-export const onContentCreate = () =>
+export const onContentCreate = () => {
+  if (!store.isLogin) return store.authWarning()
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
+}
 
 export const onTagSelect = tag => {
   store.selectTag(tag)
