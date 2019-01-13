@@ -30,7 +30,7 @@ let store = null
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
-export function loadRepos(page = 1) {
+export const loadRepos = (page = 1) => {
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -55,7 +55,7 @@ export function loadRepos(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onPreview(data) {
+export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
@@ -72,11 +72,10 @@ export function onPreview(data) {
   })
 }
 
-export function createContent() {
+export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
-}
 
-export function onTagSelect(tag) {
+export const onTagSelect = tag => {
   store.selectTag(tag)
   loadRepos()
   store.markRoute({ tag: tag.title })
@@ -131,14 +130,14 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

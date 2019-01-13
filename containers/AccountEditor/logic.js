@@ -57,9 +57,7 @@ export const removeEduBg = (school, major) => {
   store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
 }
 
-export function sexChange(sex) {
-  store.updateEditing({ sex })
-}
+export const sexChange = sex => store.updateEditing({ sex })
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
@@ -81,22 +79,17 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export function cancleEdit() {
-  dispatchEvent(EVENT.PREVIEW_CLOSE)
-}
+export const cancleEdit = () => dispatchEvent(EVENT.PREVIEW_CLOSE)
 
-export function updateDone() {
+export const updateDone = () => {
   const editing = cast(updateFields, store.editUserData)
   store.updateAccount(editing)
 }
 
-export function toggleSocials() {
+export const toggleSocials = () =>
   store.markState({ showSocials: !store.showSocials })
-}
 
-const cancleLoading = () => {
-  store.markState({ updating: false })
-}
+const cancleLoading = () => store.markState({ updating: false })
 
 const DataSolver = [
   {
@@ -137,16 +130,15 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
-
-  store.copyAccountInfo()
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  store.copyAccountInfo()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

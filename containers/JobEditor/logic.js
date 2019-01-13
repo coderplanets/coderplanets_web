@@ -102,7 +102,7 @@ export const canclePublish = () => {
 export const onUploadImageDone = url =>
   dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
-export function insertCode() {
+export const insertCode = () => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
@@ -225,7 +225,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, attachment) {
+export const init = (_store, attachment) => {
   // if (store) return openAttachment(attachment)
   store = _store
 
@@ -234,7 +234,7 @@ export function init(_store, attachment) {
   openAttachment(attachment)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
   store.markState({ editJob: {} })

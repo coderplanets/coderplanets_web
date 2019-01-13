@@ -264,14 +264,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   // if (store.curView === TYPE.LOADING) return false
   debug('===== do uninit')
   sub$.unsubscribe()

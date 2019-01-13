@@ -28,7 +28,7 @@ const debug = makeDebugger('L:UserLister')
 
 let store = null
 
-export function onClose() {
+export const onClose = () => {
   store.markState({ show: false })
   unholdPage()
 }
@@ -179,14 +179,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

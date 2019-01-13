@@ -42,7 +42,7 @@ export const loadMailboxStates = () => {
   sr71$.query(S.mailBoxStatus, {})
 }
 
-export function loadMentions() {
+export const loadMentions = () => {
   // debug('loadMentions')
   markLoading(true)
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
@@ -97,7 +97,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return loadMailboxStates()
@@ -105,7 +105,7 @@ export function init(_store) {
   loadMailboxStates()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

@@ -29,7 +29,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-export function loadVideos(page = 1) {
+export const loadVideos = (page = 1) => {
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -54,7 +54,7 @@ export function loadVideos(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onPreview(data) {
+export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -72,12 +72,10 @@ export function onPreview(data) {
   })
 }
 
-export function createContent() {
-  debug('createContent')
+export const createContent = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
-}
 
-export function onTagSelect(tag) {
+export const onTagSelect = tag => {
   store.selectTag(tag)
   loadVideos()
   store.markRoute({ tag: tag.title })
@@ -152,14 +150,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

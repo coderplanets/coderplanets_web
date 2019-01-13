@@ -85,7 +85,7 @@ export const numberWithCommas = x =>
 
 // from https://stackoverflow.com/questions/20396456/how-to-do-word-counts-for-a-mixture-of-english-and-chinese-in-javascript
 // count both chinese-word and english-words
-export function countWords(str) {
+export const countWords = str => {
   const matches = str.match(/[\u00ff-\uffff]|\S+/g)
   return matches ? matches.length : 0
 }
@@ -108,7 +108,7 @@ export const closePreviewer = (type = '') => {
 }
 
 /* eslint-disable */
-export function debounce(func, wait, immediate) {
+export const debounce = (func, wait, immediate) => {
   let timeout
   return function() {
     const context = this
@@ -125,7 +125,7 @@ export function debounce(func, wait, immediate) {
 }
 /* eslint-enable */
 
-export function extractMentions(text) {
+export const extractMentions = text => {
   const mentionsRegex = new RegExp('@([a-zA-Z0-9_.-]+)', 'gim')
 
   let matches = text.match(mentionsRegex)

@@ -23,7 +23,7 @@ const debug = makeDebugger('L:RepoViewer')
 let sub$ = null
 let store = null
 
-export function loadRepo(id) {
+export const loadRepo = id => {
   markLoading(true)
   const userHasLogin = store.isLogin
   sr71$.query(S.repo, { id, userHasLogin })
@@ -78,7 +78,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, attachment) {
+export const init = (_store, attachment) => {
   store = _store
 
   if (sub$) return openAttachment(attachment)
@@ -86,7 +86,7 @@ export function init(_store, attachment) {
   openAttachment(attachment)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

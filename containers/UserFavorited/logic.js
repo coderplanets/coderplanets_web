@@ -31,7 +31,7 @@ export const onCatSelect = curCategory => {
   loadPosts()
 }
 
-const beforeQuery = page => {
+const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
   // args
   return {
@@ -41,27 +41,19 @@ const beforeQuery = page => {
   }
 }
 
-export function loadPosts(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.favoritedPosts, args)
-}
+export const loadPosts = (page = 1) =>
+  sr71$.query(S.favoritedPosts, getQueryArgs(page))
 
-export function loadJobs(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.favoritedJobs, args)
-}
+export const loadJobs = (page = 1) =>
+  sr71$.query(S.favoritedJobs, getQueryArgs(page))
 
-export function loadVideos(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.favoritedVideos, args)
-}
+export const loadVideos = (page = 1) =>
+  sr71$.query(S.favoritedVideos, getQueryArgs(page))
 
-export function loadRepos(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.favoritedRepos, args)
-}
+export const loadRepos = (page = 1) =>
+  sr71$.query(S.favoritedRepos, getQueryArgs(page))
 
-export function reload(page) {
+export const reload = page => {
   switch (store.curThread) {
     case THREAD.JOB: {
       return loadJobs(page)
@@ -84,7 +76,7 @@ export const changeFavoriteThread = curThread => {
   reload()
 }
 
-export function onPreview(data) {
+export const onPreview = data => {
   const { curThread: thread } = store
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -118,7 +110,7 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false

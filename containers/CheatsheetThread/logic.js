@@ -35,7 +35,7 @@ const loadCheatsheet = () => {
   sr71$.query(S.cheatsheet, { community })
 }
 
-export function syncCheatsheet(readme) {
+export const syncCheatsheet = readme => {
   const args = {
     readme,
     lastSync: new Date().toISOString(),
@@ -45,7 +45,7 @@ export function syncCheatsheet(readme) {
   sr71$.mutate(S.syncCheatsheet, args)
 }
 
-export function syncCheetsheetFromGithub() {
+export const syncCheetsheetFromGithub = () => {
   githubApi
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {
@@ -57,15 +57,13 @@ export function syncCheetsheetFromGithub() {
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
-export function addContributor(user) {
+export const addContributor = user => {
   const args = {
     id: store.cheatsheetData.id,
     contributor: user,
   }
   sr71$.mutate(S.addCheatsheetContributor, args)
 }
-
-// export function someMethod() {}
 
 // ###############################
 // Data & Error handlers
@@ -121,14 +119,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

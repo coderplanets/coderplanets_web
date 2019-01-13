@@ -13,7 +13,7 @@ const debug = makeDebugger('L:UsersThread')
 
 let store = null
 
-export function loadGeoData() {
+export const loadGeoData = () => {
   markLoading(true)
   const { id } = store.curCommunity
   sr71$.query(S.communityGeoInfo, { id })
@@ -58,7 +58,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return loadGeoData()
@@ -66,7 +66,7 @@ export function init(_store) {
   loadGeoData()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.geoDataLoading) return false
   debug('===== do uninit')
   sub$.unsubscribe()

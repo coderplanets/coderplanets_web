@@ -9,7 +9,7 @@ let store = null
 
 export const holder = false
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
   /* debug('content', content) */

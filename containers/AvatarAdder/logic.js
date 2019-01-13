@@ -13,7 +13,7 @@ const debug = makeDebugger('L:AvatarAdder')
 
 let store = null
 
-export function onSearch(e) {
+export const onSearch = e => {
   if (e.key === 'Enter') {
     debug('store.searchValue: ', store.searchValue)
     store.markState({ searching: true, searchValue: e.target.value })
@@ -28,13 +28,12 @@ export function onSearch(e) {
   }
 }
 
-export function onConfirm() {
+export const onConfirm = () =>
   store.markState({
     searching: false,
     githubUser: null,
     popoverVisiable: false,
   })
-}
 
 export const inputOnChange = e =>
   store.markState({ searchValue: e.target.value })
@@ -75,7 +74,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
 

@@ -13,7 +13,7 @@ const debug = makeDebugger('L:Labeler')
 
 let store = null
 
-export function loadTags(uniqId) {
+export const loadTags = uniqId => {
   const communityId = store.curCommunity.id
   const thread = R.toUpper(store.curThread)
 
@@ -25,7 +25,7 @@ export function loadTags(uniqId) {
     .catch(() => store.toast('error', { title: 'tag 加载失败', msg: '--' }))
 }
 
-export function onOptionSelect(uniqId, item) {
+export const onOptionSelect = (uniqId, item) => {
   const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
   if (index < 0) return false
   // return false
@@ -52,7 +52,7 @@ export const getSelectedTagId = label => {
   return store.getSelectedTagId(label)
 }
 
-export function onVisibleChange(uniqId, popVisible) {
+export const onVisibleChange = (uniqId, popVisible) => {
   store.markUniqState(uniqId, { popVisible })
 
   const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
@@ -82,7 +82,7 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export function init(_store, uniqId, options) {
+export const init = (_store, uniqId, options) => {
   if (store) {
     return store.markUniqState(uniqId, options)
     // return store.markState({ ...options })
@@ -97,6 +97,4 @@ export function init(_store, uniqId, options) {
   // return store.markState({ ...options })
 }
 
-export function uninit(uniqId) {
-  store.uninit(uniqId)
-}
+export const uninit = uniqId => store.uninit(uniqId)

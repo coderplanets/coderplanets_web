@@ -11,7 +11,7 @@ const browserHistoryBtnClicked = popstate => {
   Global.location = popstate.state.as
 }
 
-export function init(_store, routeObj) {
+export const init = (_store, routeObj) => {
   if (store) return false
 
   store = _store
@@ -22,8 +22,7 @@ export function init(_store, routeObj) {
 
   store.markState({ mainPath, subPath, query })
 
-  debug('>>>>> init')
   Global.onpopstate = browserHistoryBtnClicked
 }
 
-export function uninit() {}
+export const uninit = () => {}

@@ -13,13 +13,11 @@ const debug = makeDebugger('L:DocUploader')
 
 let store = null
 
-export function onUploadError(error) {
-  debug('onUploadError: ', error)
+export const onUploadError = () =>
   store.toast('error', {
     title: '暂时无法上传图片',
     msg: '请检查 OSS key 配置',
   })
-}
 
 export const getOSSDir = () => {
   const thread = store.curThread
@@ -69,7 +67,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
 

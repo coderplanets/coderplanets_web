@@ -27,11 +27,9 @@ let sub$ = null
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Sidebar')
 
-export function setPin() {
-  store.markState({ pin: !store.pin })
-}
+export const setPin = () => store.markState({ pin: !store.pin })
 
-export function onCommunitySelect(community) {
+export const onCommunitySelect = community => {
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
   store.markRoute({
@@ -44,7 +42,7 @@ export function onCommunitySelect(community) {
 
 const mapIndexed = R.addIndex(R.map)
 
-export function onSortMenuEnd({ oldIndex, newIndex }) {
+export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
   // TODO: sync to server
   setC11N(sortedCommunities)
@@ -72,7 +70,7 @@ const setC11N = sortedCommunities => {
   sr71$.mutate(S.setCustomization, args)
 }
 
-export function loadCommunities() {
+export const loadCommunities = () => {
   const args = { filter: { page: 1, size: 30 } }
   sr71$.query(S.subscribedCommunities, args)
 }
@@ -118,14 +116,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$) return false
 
   debug('===== do uninit')

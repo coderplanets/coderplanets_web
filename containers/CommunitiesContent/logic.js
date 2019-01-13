@@ -22,7 +22,7 @@ const debug = makeDebugger('L:CommunitiesContent')
 let store = null
 let sub$ = null
 
-export function loadCommunities(page = 1) {
+export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
   const category = !R.isEmpty(subPath) ? subPath : 'pl'
 
@@ -36,18 +36,15 @@ export function loadCommunities(page = 1) {
   sr71$.query(S.pagedCommunities, args)
 }
 
-function searchCommunities(title) {
+const searchCommunities = title => {
   const args = { title, userHasLogin: store.isLogin }
 
   sr71$.query(S.searchCommunities, args)
 }
 
-export function pageChange(page) {
-  // TODO: merge category args
-  loadCommunities(page)
-}
+export const pageChange = page => loadCommunities(page)
 
-export function subscribe(id) {
+export const subscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
@@ -57,7 +54,7 @@ export function subscribe(id) {
   })
 }
 
-export function unSubscribe(id) {
+export const unSubscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
@@ -68,12 +65,11 @@ export function unSubscribe(id) {
 }
 
 /* when error occured cancle all the loading state */
-const cancleLoading = () => {
+const cancleLoading = () =>
   store.markState({
     subscribing: false,
     searching: false,
   })
-}
 
 const DataSolver = [
   {
@@ -153,12 +149,10 @@ const loadIfNeed = () => {
   }
 }
 
-export function init(_store) {
-  if (store) return loadIfNeed()
-
+export const init = _store => {
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   loadIfNeed()
 }

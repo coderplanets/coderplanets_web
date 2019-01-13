@@ -89,7 +89,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, user) {
+export const init = (_store, user) => {
   store = _store
 
   debug(store)
@@ -98,7 +98,7 @@ export function init(_store, user) {
   loadUser(user)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

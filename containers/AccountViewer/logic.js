@@ -101,7 +101,7 @@ export const loadUserInfo = user => {
   loadAccount()
 }
 
-export function init(_store, user) {
+export const init = (_store, user) => {
   store = _store
 
   if (sub$) return loadUserInfo(user)
@@ -110,7 +110,7 @@ export function init(_store, user) {
   return loadUserInfo(user)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

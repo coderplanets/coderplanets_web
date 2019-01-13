@@ -37,7 +37,7 @@ let sub$ = null
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
-export function loadPosts(page = 1) {
+export const loadPosts = (page = 1) => {
   const { curCommunity } = store
   const { subPath: topic } = store.curRoute
   const userHasLogin = store.isLogin
@@ -73,7 +73,7 @@ export const onFilterSelect = option => {
   loadPosts()
 }
 
-export function onTagSelect(tag) {
+export const onTagSelect = tag => {
   store.selectTag(tag)
   loadPosts()
   store.markRoute({ tag: tag.title })
@@ -85,7 +85,7 @@ export const onUserSelect = user =>
     data: user,
   })
 
-export function onPreview(data) {
+export const onPreview = data => {
   // debug('onPreview publish post: ', data)
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
@@ -190,7 +190,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   debug('======== init')
 
   store = _store
@@ -198,7 +198,7 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

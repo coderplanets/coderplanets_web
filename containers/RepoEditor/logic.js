@@ -26,7 +26,7 @@ const debug = makeDebugger('L:RepoEditor')
 
 let store = null
 
-export function onPublish() {
+export const onPublish = () => {
   const args = {
     communityId: store.viewing.community.id,
     ...store.editRepoData,
@@ -36,7 +36,7 @@ export function onPublish() {
   sr71$.mutate(S.createRepo, args)
 }
 
-export function onGithubSearch() {
+export const onGithubSearch = () => {
   if (!store.validator('searchValue')) return false
   const { owner, name } = store
 
@@ -117,7 +117,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
@@ -128,7 +128,7 @@ export function init(_store) {
   store.markState({ tokenValue, subView })
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.searching || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

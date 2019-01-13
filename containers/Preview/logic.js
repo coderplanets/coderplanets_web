@@ -19,7 +19,7 @@ const debug = makeDebugger('L:Preview')
 let store = null
 let sub$ = null
 
-export function closePreview() {
+export const closePreview = () => {
   unholdPage()
   store.close()
 
@@ -48,7 +48,7 @@ const DataResolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
 

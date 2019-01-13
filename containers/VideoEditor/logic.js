@@ -115,7 +115,7 @@ const openAttachment = att => {
   }
 }
 
-export function init(_store, attachment) {
+export const init = (_store, attachment) => {
   store = _store
 
   if (sub$) return false
@@ -123,7 +123,7 @@ export function init(_store, attachment) {
   openAttachment(attachment)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

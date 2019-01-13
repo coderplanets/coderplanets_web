@@ -32,11 +32,10 @@ export const close = () => store.markState({ show: !store.show })
 const DataSolver = []
 const ErrSolver = []
 
-export function init(_store) {
-  if (store) return false
+export const init = _store => {
   store = _store
 
   debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

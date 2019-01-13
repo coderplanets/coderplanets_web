@@ -28,7 +28,7 @@ export const onTagSelect = tag => store.selectTag(tag)
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
-export function loadTags(topic = TOPIC.POST) {
+export const loadTags = (topic = TOPIC.POST) => {
   const { curThread } = store
   if (R.contains(curThread, NO_TAG_THREADS)) return false
 
@@ -83,7 +83,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, thread, topic, active) {
+export const init = (_store, thread, topic, active) => {
   let activeTag = R.pick(['id', 'title', 'color'], active)
   if (R.isEmpty(activeTag.title)) activeTag = null
 

@@ -27,7 +27,7 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export function onReaction(action, userDid, { id }) {
+export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()
   if (store.loading) return false
 
@@ -154,14 +154,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$ || store.loading) return false
   debug('===== do uninit')
   sub$.unsubscribe()

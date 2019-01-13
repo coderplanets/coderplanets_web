@@ -11,12 +11,12 @@ const debug = makeDebugger('L:CheatSheetContent')
 let store = null
 let sub$ = null
 
-export function someMethod() {}
+export const someMethod = () => {}
 
 const DataSolver = []
 const ErrSolver = []
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
 

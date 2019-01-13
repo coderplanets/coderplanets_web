@@ -17,9 +17,8 @@ const debug = makeDebugger('L:CommunitiesBanner')
 
 let store = null
 
-export function loadCategories() {
+export const loadCategories = () =>
   sr71$.query(S.pagedCategories, { filter: {} })
-}
 
 export const searchChange = e => {
   updateEditing(store, 'searchValue', e)
@@ -29,7 +28,7 @@ export const searchChange = e => {
   })
 }
 
-export function tabOnChange(activeTab) {
+export const tabOnChange = activeTab => {
   store.markRoute({ subPath: activeTab })
   store.markState({ activeTab })
   dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
@@ -52,7 +51,7 @@ const loadIfNeed = () => {
   }
 }
 
-export function init(_store) {
+export const init = _store => {
   if (store) return loadIfNeed()
   store = _store
 
