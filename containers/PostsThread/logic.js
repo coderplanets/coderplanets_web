@@ -104,7 +104,7 @@ export const onPreview = data => {
   })
 }
 
-export const createContent = () => {
+export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })

@@ -79,8 +79,17 @@ export const onPreview = data => {
   })
 }
 
-export const createContent = () =>
+export const onContentCreate = () => {
+  if (!store.isLogin) return store.authWarning()
+
+  if (store.curCommunity.raw === 'home') {
+    return store.markState({ showPublishNote: true })
+  }
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
+}
+
+export const onNoteClose = () => store.markState({ showPublishNote: false })
 
 export const onTagSelect = tag => {
   store.selectTag(tag)

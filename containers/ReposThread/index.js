@@ -89,7 +89,7 @@ class ReposThreadContainer extends React.Component {
         </LeftPart>
 
         <RightPart>
-          <PublishBtn type="primary" onClick={logic.createContent}>
+          <PublishBtn type="primary" onClick={logic.onContentCreate}>
             <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
           </PublishBtn>
 

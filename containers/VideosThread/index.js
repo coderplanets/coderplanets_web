@@ -88,7 +88,7 @@ class VideosThreadContainer extends React.Component {
 
         <RightPart>
           <React.Fragment>
-            <PublishBtn type="primary" onClick={logic.createContent}>
+            <PublishBtn type="primary" onClick={logic.onContentCreate}>
               <PublishLabel text="发布视频" iconSrc={`${ICON_CMD}/link2.svg`} />
             </PublishBtn>
 
