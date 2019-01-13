@@ -16,6 +16,7 @@ import {
   Breif,
   Title,
   SecondHalf,
+  TagsWrapper,
   Extra,
   CommentWrapper,
   CommentIcon,
@@ -39,7 +40,9 @@ const ListView = ({ entry, onPreview }) => (
               <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
             </TitleLink>
           ) : null}
-          <InlineTags data={entry.tags} />
+          <TagsWrapper>
+            <InlineTags data={entry.tags} />
+          </TagsWrapper>
         </Breif>
         <CommentWrapper>
           <CommentIcon src={`${ICON_CMD}/list_comments.svg`} />

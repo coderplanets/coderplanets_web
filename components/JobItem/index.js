@@ -23,7 +23,9 @@ import { makeDebugger, C11N } from '../../utils'
 const debug = makeDebugger('c:JobItem:index')
 
 const JobItem = ({ entry, active, onTitleSelect, accountInfo, community }) => {
-  const { customization: { contentsLayout, contentDivider } } = accountInfo
+  const {
+    customization: { contentsLayout, contentDivider },
+  } = accountInfo
 
   return (
     <Wrapper
