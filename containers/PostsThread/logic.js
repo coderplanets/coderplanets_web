@@ -151,6 +151,10 @@ const DataSolver = [
     match: asyncRes(EVENT.TABBER_CHANGE),
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
+
+      if ((R.contains(data.activeThread), [THREAD.GROUP, THREAD.COMPANY]))
+        return false
+
       if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
         loadPosts()
       }

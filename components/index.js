@@ -7,6 +7,7 @@ export { default as GAWraper } from './GAWraper'
 // export { default as Img } from './Img'
 
 export { default as EmptyThread } from './EmptyThread'
+export { default as ConstructingThread } from './ConstructingThread'
 export { default as NotFound } from './NotFound'
 export { default as Modal } from './Modal'
 export { default as Popover } from './Popover'
