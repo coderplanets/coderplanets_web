@@ -21,7 +21,13 @@ import {
 } from './styles/digest_view'
 
 import { NON_FILL_COMMUNITY } from '../../utils'
-import { tabberChange, onShowEditorList, onShowSubscriberList } from './logic'
+import {
+  tabberChange,
+  onSubscribe,
+  onUndoSubscribe,
+  onShowEditorList,
+  onShowSubscriberList,
+} from './logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -55,6 +61,8 @@ const DigestView = ({ community, activeThread, layout }) => (
         <CommunityBrief content={community} />
         <CommunityStatesPad
           community={community}
+          onSubscribe={onSubscribe}
+          onUndoSubscribe={onUndoSubscribe}
           onShowEditorList={onShowEditorList}
           onShowSubscriberList={onShowSubscriberList}
         />

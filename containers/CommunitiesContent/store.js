@@ -57,9 +57,11 @@ const CommunitiesContentStore = t
     },
     addSubscribedCommunity(community) {
       self.root.account.addSubscribedCommunity(community)
+      self.root.communitiesContent.toggleSubscribe(community)
     },
     removeSubscribedCommunity(community) {
       self.root.account.removeSubscribedCommunity(community)
+      self.root.communitiesContent.toggleSubscribe(community)
     },
     markState(sobj) {
       markStates(sobj, self)
