@@ -100,7 +100,7 @@ const AccountStore = t
       self.userSubscribedCommunities.entries = R.insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
 
-      self.root.communitiesContent.toggleSubscribe(community)
+      // self.root.communitiesContent.toggleSubscribe(community)
 
       /*
 
@@ -126,7 +126,7 @@ const AccountStore = t
       self.userSubscribedCommunities.entries = R.remove(index, 1, entries)
       self.userSubscribedCommunities.totalCount -= 1
 
-      self.root.communitiesContent.toggleSubscribe(community)
+      // self.root.communitiesContent.toggleSubscribe(community)
       /*
          const { user: { subscribedCommunities: { entries } } } = self
 

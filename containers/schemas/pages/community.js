@@ -13,9 +13,10 @@ export const subscribedCommunities = `
   }
 `
 export const community = `
-  query community($id: ID, $raw: String) {
+  query community($id: ID, $raw: String, $userHasLogin: Boolean!) {
     community(id: $id, raw: $raw) {
       ${F.community}
+      viewerHasSubscribed @include(if: $userHasLogin)
       threads {
         title
         raw

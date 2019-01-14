@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
 `
 export const NumberSection = styled.div`
   ${cs.flexColumn('justify-center')};
+  background-color: ${({ active }) =>
+    active ? theme('banner.numberHoverBg') : ''};
 
   padding: 0 5px;
   border-radius: 4px;

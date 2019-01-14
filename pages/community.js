@@ -75,7 +75,10 @@ async function fetchData(props, opt) {
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const curCommunity = gqClient.request(P.community, { raw: community })
+  const curCommunity = gqClient.request(P.community, {
+    raw: community,
+    userHasLogin,
+  })
   const pagedContents = gqClient.request(
     ssrPagedSchema(thread),
     ssrPagedFilter(community, thread, filter, userHasLogin)
