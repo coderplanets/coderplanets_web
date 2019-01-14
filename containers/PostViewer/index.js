@@ -14,7 +14,9 @@ import Labeler from '../Labeler'
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 
-import { Maybe, MarkDownRender, ArticleContentLoading } from '../../components'
+import Maybe from '../../components/Maybe'
+import MarkDownRender from '../../components/MarkDownRender'
+import ArticleContentLoading from '../../components/LoadingEffects'
 
 import {
   BodyWrapper,

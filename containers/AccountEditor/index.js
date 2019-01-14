@@ -6,12 +6,12 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Input } from 'antd'
+import { Input, Button, Icon } from 'antd'
 
 import { ICON_CMD } from '../../config'
 // import Link from 'next/link'
 
-import { Button, Icon, StatusBox } from '../../components'
+import StatusBox from '../../components/StatusBox'
 
 import WorkEditor from './WorkEditor'
 import EducationEditor from './EducationEditor'

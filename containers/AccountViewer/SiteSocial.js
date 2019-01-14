@@ -2,8 +2,9 @@ import React from 'react'
 
 import { ICON_CMD } from '../../config'
 
-import { FocusLine } from '../../components'
+import FocusLine from '../../components/FocusLine'
 import NumSection from './NumSection'
+
 import {
   Wrapper,
   LeftPart,

@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
 
-import { SectionLabel } from '../../components'
+import SectionLabel from '../../components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
 import TableSectionDesc from './TableSectionDesc'

@@ -9,12 +9,12 @@ import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '../../config'
 
-import {
-  PublishLabel,
-  MarkDownRender,
-  EmptyThread,
-  ArticleContentLoading,
-} from '../../components'
+import PublishLabel from '../../components/PublishLabel'
+import MarkDownRender from '../../components/MarkDownRender'
+import EmptyThread from '../../components/EmptyThread'
+import { ArticleContentLoading } from '../../components/LoadingEffects'
+
+import Contributors from './Contributors'
 
 import {
   Wrapper,
@@ -26,11 +26,9 @@ import {
   PublishBtn,
 } from './styles'
 
-import Contributors from './Contributors'
-
 import { makeDebugger, storePlug, TYPE } from '../../utils'
-
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:WikiThread')
 

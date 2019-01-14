@@ -1,7 +1,8 @@
 import React from 'react'
+import { Button, Icon } from 'antd'
 
-import { Space, StatusBox, Button, Icon } from '../../components'
-import { canclePublish, onPublish } from './logic'
+import { Space } from '../../components/BaseStyled'
+import StatusBox from '../../components/StatusBox'
 
 import {
   FooterWrapper,
@@ -9,6 +10,8 @@ import {
   PublishBtns,
   Divider,
 } from './styles/footer'
+
+import { canclePublish, onPublish } from './logic'
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (

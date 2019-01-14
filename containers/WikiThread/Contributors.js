@@ -1,7 +1,9 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
+import { Button } from 'antd'
 
-import { DotDivider, Button, ContributorList } from '../../components'
+import DotDivider from '../../components/DotDivider'
+import ContributorList from '../../components/ContributorList'
 
 import {
   Wrapper,

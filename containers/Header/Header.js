@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Navigator } from '../../components'
 import MailBox from '../MailBox'
 import UserLister from '../UserLister'
 import Cashier from '../Cashier'
 import UpgradePackges from '../UpgradePackges'
+
+import Navigator from '../../components/Navigator'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'

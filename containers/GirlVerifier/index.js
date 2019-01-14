@@ -6,10 +6,13 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Input } from 'antd'
+import { Button, Input } from 'antd'
 
 import { ICON_CMD } from '../../config'
-import { Modal, SectionLabel, Button, Space } from '../../components'
+import Modal from '../../components/Modal'
+import SectionLabel from '../../components/SectionLabel'
+import { Space } from '../../components/BaseStyled'
+
 import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'

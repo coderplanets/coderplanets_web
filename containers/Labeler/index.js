@@ -11,7 +11,9 @@ import R from 'ramda'
 
 import { LABEL_POOL } from '../../config'
 
-import { Popover, Maybe } from '../../components'
+import Popover from '../../components/Popover'
+import Maybe from '../../components/Maybe'
+
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'

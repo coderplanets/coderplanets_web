@@ -9,7 +9,9 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD } from '../../config'
-import { Modal, SectionLabel } from '../../components'
+
+import Modal from '../../components/Modal'
+import SectionLabel from '../../components/SectionLabel'
 
 import { AdderWrapper, AdderText, AdderIcon } from './styles'
 

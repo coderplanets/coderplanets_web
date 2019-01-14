@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
+import { Affix } from 'antd'
 
-import { Affix } from '../../components'
 import Header from './Header'
 
 import { AffixHeader, RawHeader } from './styles'

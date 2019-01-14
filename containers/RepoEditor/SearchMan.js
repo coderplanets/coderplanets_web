@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { FormItem, Button } from '../../components'
 import { ISSUE_ADDR } from '../../config'
 
 import SearchInputer from './SearchInputer'
@@ -16,8 +15,8 @@ import {
   SetTokenIssue,
 } from './styles/search_man'
 
-import { changeSubView } from './logic'
 import { makeDebugger } from '../../utils'
+import { changeSubView } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:RepoEditor')

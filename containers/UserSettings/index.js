@@ -6,17 +6,14 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Radio } from 'antd'
+import { Button, Radio } from 'antd'
 
 import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
-import {
-  ThemeSelector,
-  SectionLabel,
-  Popover,
-  DiscussLinker,
-  Button,
-} from '../../components'
+import ThemeSelector from '../../components/ThemeSelector'
+import SectionLabel from '../../components/SectionLabel'
+import Popover from '../../components/Popover'
+import DiscussLinker from '../../components/DiscussLinker'
 
 import {
   Wrapper,

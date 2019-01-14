@@ -6,16 +6,14 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Affix } from 'antd'
 
 import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
 
 import {
   Wrapper,

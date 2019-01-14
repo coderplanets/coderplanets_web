@@ -7,13 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Pagi } from '../../components'
+import Pagi from '../../components/Pagi'
 import CommunityCards from './CommunityCards'
 
 import { Wrapper } from './styles'
 
-import * as logic from './logic'
 import { makeDebugger, storePlug } from '../../utils'
+import * as logic from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunitiesContent')

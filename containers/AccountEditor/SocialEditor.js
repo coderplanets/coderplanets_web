@@ -1,7 +1,8 @@
 import React from 'react'
+import { Input } from 'antd'
 
 import { ICON_CMD } from '../../config'
-import { Input } from '../../components'
+
 import {
   Wrapper,
   InputWrapper,

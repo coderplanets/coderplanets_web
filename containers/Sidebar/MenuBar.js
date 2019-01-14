@@ -1,9 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TrendLine } from '../../components'
-// import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles'
+import TrendLine from '../../components/TrendLine'
+
 import {
   Wrapper,
   MenuRow,

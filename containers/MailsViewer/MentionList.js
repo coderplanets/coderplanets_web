@@ -1,7 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { EmptyLabel, Pagi } from '../../components'
+import EmptyLabel from '../../components/EmptyLabel'
+import Pagi from '../../components/Pagi'
+
 import ToggleInfo from './ToggleInfo'
 
 import {

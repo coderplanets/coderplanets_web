@@ -20,7 +20,8 @@ import MailsViewer from '../MailsViewer'
 import VideoEditor from '../VideoEditor'
 import RepoEditor from '../RepoEditor'
 
-import { StateTree, EditorLoading } from '../../components'
+import StateTree from '../../components/StateTree'
+import { EditorLoading } from '../../components/LoadingEffects'
 
 import {
   PreviewOverlay,

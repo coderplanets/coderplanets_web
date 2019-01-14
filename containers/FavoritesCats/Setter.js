@@ -1,7 +1,8 @@
 import React from 'react'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
-import { SectionLabel, Button } from '../../components'
+import SectionLabel from '../../components/SectionLabel'
 
 import {
   Wrapper,

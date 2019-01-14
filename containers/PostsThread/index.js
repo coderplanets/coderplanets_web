@@ -8,18 +8,16 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 import R from 'ramda'
+import { Affix } from 'antd'
 
 import CityList from './CityList'
 import TagsBar from '../TagsBar'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-  StrategicPartners,
-  ConstructingThread,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
+import StrategicPartners from '../../components/StrategicPartners'
+import ConstructingThread from '../../components/ConstructingThread'
 
 import {
   Wrapper,

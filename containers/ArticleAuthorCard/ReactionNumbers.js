@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ISSUE_ADDR } from '../../config'
-import { Popover, DiscussLinker } from '../../components'
+import Popover from '../../components/Popover'
+import DiscussLinker from '../../components/DiscussLinker'
 
 import {
   Wrapper,
@@ -12,8 +13,8 @@ import {
   ReadOnlyNumber,
 } from './styles/reaction_numbers'
 
-import { onListUsers } from './logic'
 import { TYPE } from '../../utils'
+import { onListUsers } from './logic'
 
 const ReactionNumbers = ({ user }) => {
   // early user has no reutation

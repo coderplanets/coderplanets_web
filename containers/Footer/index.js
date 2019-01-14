@@ -10,12 +10,12 @@ import dynamic from 'next/dynamic'
 
 // import {} from './styles'
 
-// import { BuyMeChuanChuan } from '../../components'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 
 import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Footer')
 
