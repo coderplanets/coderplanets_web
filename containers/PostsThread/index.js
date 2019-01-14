@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
+import R from 'ramda'
 
 import TagsBar from '../TagsBar'
 
@@ -16,6 +17,7 @@ import {
   PublishLabel,
   PagedContents,
   StrategicPartners,
+  ConstructingThread,
 } from '../../components'
 
 import {
@@ -64,60 +66,70 @@ class PostsThreadContainer extends React.Component {
       accountInfo,
       isLogin,
       activeTagData,
+      curThread,
     } = postsThread
 
     const { mainPath, subPath } = curRoute
     const { totalCount } = pagedPostsData
     const topic = subPath
 
+    debug('curThread: ', curThread)
+
     return (
       <Wrapper>
         <LeftPadding />
-        <LeftPart>
-          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper>
-            {/* TODO: show when url has tag query and totalCount = 0 */}
-            <ContentFilter
-              thread={THREAD.POST}
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-              isLogin={isLogin}
-              accountInfo={accountInfo}
-              totalCount={totalCount}
-              onC11NChange={logic.onC11NChange}
-            />
-          </FilterWrapper>
-
-          <PagedContents
-            data={pagedPostsData}
-            community={mainPath}
-            thread={THREAD.POST}
-            curView={curView}
-            active={activePost}
-            accountInfo={accountInfo}
-            onUserSelect={logic.onUserSelect}
-            onPreview={logic.onPreview}
-            onPageChange={logic.loadPosts}
-          />
-        </LeftPart>
-
-        <RightPart>
+        {R.contains(curThread, [THREAD.GROUP, THREAD.COMPANY]) ? (
+          <ConstructingThread thread={curThread} />
+        ) : (
           <React.Fragment>
-            <PublishBtn type="primary" onClick={logic.onContentCreate}>
-              <PublishLabel text={LabelText[subPath] || '发布帖子'} />
-            </PublishBtn>
+            <LeftPart>
+              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+              <FilterWrapper>
+                {/* TODO: show when url has tag query and totalCount = 0 */}
+                <ContentFilter
+                  thread={THREAD.POST}
+                  onSelect={logic.onFilterSelect}
+                  activeFilter={filtersData}
+                  isLogin={isLogin}
+                  accountInfo={accountInfo}
+                  totalCount={totalCount}
+                  onC11NChange={logic.onC11NChange}
+                />
+              </FilterWrapper>
 
-            <Affix offsetTop={50}>
-              <TagsBar
+              <PagedContents
+                data={pagedPostsData}
+                community={mainPath}
                 thread={THREAD.POST}
-                topic={topic}
-                onSelect={logic.onTagSelect}
-                active={activeTagData}
+                curView={curView}
+                active={activePost}
+                accountInfo={accountInfo}
+                onUserSelect={logic.onUserSelect}
+                onPreview={logic.onPreview}
+                onPageChange={logic.loadPosts}
               />
-              <StrategicPartners onClose={logic.onAdsClose} />
-            </Affix>
+            </LeftPart>
+
+            <RightPart>
+              <React.Fragment>
+                <PublishBtn type="primary" onClick={logic.onContentCreate}>
+                  <PublishLabel text={LabelText[subPath] || '发布帖子'} />
+                </PublishBtn>
+
+                <Affix offsetTop={50}>
+                  <TagsBar
+                    thread={THREAD.POST}
+                    topic={topic}
+                    onSelect={logic.onTagSelect}
+                    active={activeTagData}
+                  />
+                  <StrategicPartners onClose={logic.onAdsClose} />
+                </Affix>
+              </React.Fragment>
+            </RightPart>
           </React.Fragment>
-        </RightPart>
+        )}
+
         <RightPadding />
       </Wrapper>
     )
