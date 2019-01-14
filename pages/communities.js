@@ -8,6 +8,19 @@ import R from 'ramda'
 import initRootStore from '../stores/init'
 import { GAWraper } from '../components'
 
+import ThemeWrapper from '../containers/ThemeWrapper'
+import MultiLanguage from '../containers/MultiLanguage'
+import Sidebar from '../containers/Sidebar'
+import Preview from '../containers/Preview'
+import Doraemon from '../containers/Doraemon'
+import Route from '../containers/Route'
+import BodyLayout from '../containers/BodyLayout'
+import Header from '../containers/Header'
+import CommunitiesBanner from '../containers/CommunitiesBanner'
+import CommunitiesContent from '../containers/CommunitiesContent'
+import Footer from '../containers/Footer'
+
+/*
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -21,6 +34,7 @@ import {
   CommunitiesContent,
   Footer,
 } from '../containers'
+*/
 
 import {
   makeGQClient,

@@ -6,8 +6,19 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import initRootStore from '../stores/init'
-import { GAWraper, ErrorPage } from '../components'
 
+import ThemeWrapper from '../containers/ThemeWrapper'
+import MultiLanguage from '../containers/MultiLanguage'
+import Preview from '../containers/Preview'
+import Doraemon from '../containers/Doraemon'
+import Route from '../containers/Route'
+import BodyLayout from '../containers/BodyLayout'
+import Header from '../containers/Header'
+import UserBanner from '../containers/UserBanner'
+import UserContent from '../containers/UserContent'
+import Footer from '../containers/Footer'
+
+/*
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -20,6 +31,11 @@ import {
   UserContent,
   Footer,
 } from '../containers'
+*/
+
+import GAWraper from '../components/GAWraper'
+import ErrorPage from '../components/ErrorPage'
+// import { GAWraper, ErrorPage } from '../components'
 
 import {
   BStore,
