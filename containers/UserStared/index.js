@@ -8,10 +8,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { ThreadWrapper } from './styles'
-import { ThreadSelector, PagedContents } from '../../components'
-import { makeDebugger, storePlug, THREAD } from '../../utils'
+import ThreadSelector from '../../components/ThreadSelector'
+import PagedContents from '../../components/PagedContents'
 
+import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserStared')
 

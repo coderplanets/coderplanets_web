@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import FavoritesCats from '../FavoritesCats'
-import { Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'
@@ -20,8 +20,8 @@ import LastSyncInfo from './LastSyncInfo'
 
 import { Wrapper, ReactionWrapper } from './styles'
 
-import * as logic from './logic'
 import { makeDebugger, storePlug, THREAD } from '../../utils'
+import * as logic from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleViewerHeader')

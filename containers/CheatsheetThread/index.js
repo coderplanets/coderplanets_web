@@ -8,15 +8,17 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Prism from 'mastani-codehighlight'
 
-import { Wrapper } from './styles'
-
-import { EmptyThread, CheatSheetLoading } from '../../components'
+import EmptyThread from '../../components/EmptyThread'
+import { CheatSheetLoading } from '../../components/LoadingEffects'
 
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
+import { Wrapper } from './styles'
+
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CheatsheetThread')
 

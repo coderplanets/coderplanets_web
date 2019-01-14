@@ -7,6 +7,7 @@
 import React from 'react'
 // import R from 'ramda'
 import { inject, observer } from 'mobx-react'
+import { Affix } from 'antd'
 
 import UserPublished from '../UserPublished'
 import UserPublishedComments from '../UserPublishedComments'
@@ -15,11 +16,11 @@ import UserSettings from '../UserSettings'
 import UserStared from '../UserStared'
 import UserFavorited from '../UserFavorited'
 
-import { Affix, Tabber } from '../../components'
-
-import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
+import Tabber from '../../components/Tabber'
 
 import DigestBoard from './DigestBoard'
+
+import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
 
 import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'

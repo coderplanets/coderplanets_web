@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { DotDivider } from '../../components'
+import DotDivider from '../../components/DotDivider'
 import CityList from './CityList'
 import { Wrapper, Salary, Text } from './styles/job_middle_info'
 

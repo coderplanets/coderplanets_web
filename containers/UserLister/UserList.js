@@ -8,7 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
-import { Pagi, FollowButton } from '../../components'
+import Pagi from '../../components/Pagi'
+import FollowButton from '../../components/FollowButton'
 
 import {
   TableWrapper,
@@ -22,8 +23,8 @@ import {
   Action,
 } from './styles/user_list'
 
-import { onFollow, undoFollow } from './logic'
 import { makeDebugger } from '../../utils'
+import { onFollow, undoFollow } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:UserList:index')

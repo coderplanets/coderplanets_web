@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
-import { Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
 
 import {
   NumberSection,
@@ -12,8 +12,8 @@ import {
   NumberLoading,
 } from './styles/reaction_numbers'
 
-import { onReaction, onListReactionUsers } from './logic'
 import { numberWithCommas, TYPE } from '../../utils'
+import { onReaction, onListReactionUsers } from './logic'
 
 const StarReaction = ({ data, show, loading }) => (
   <Maybe test={show}>

@@ -4,9 +4,9 @@ import R from 'ramda'
 import { ICON_CMD } from '../../config'
 
 import DocUploader from '../DocUploader'
+import Labeler from '../Labeler'
 
-import { Labeler } from '..'
-import { Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
 
 import {
   Wrapper,

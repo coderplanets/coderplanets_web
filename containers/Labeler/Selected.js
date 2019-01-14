@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
 import { Wrapper, Item, Hightlight } from './styles/selected'
 import { uid, Trans } from '../../utils'
 

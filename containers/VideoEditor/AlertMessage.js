@@ -3,7 +3,7 @@ import { Alert } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
-import { Margin } from '../../components'
+import { Margin } from '../../components/BaseStyled'
 
 import {
   Wrapper,

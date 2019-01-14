@@ -1,7 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { MarkDownRender, CommentLoading, EmptyLabel } from '../../components'
+import MarkDownRender from '../../components/MarkDownRender'
+import EmptyLabel from '../../components/EmptyLabel'
+import { CommentLoading } from '../../components/LoadingEffects'
+
 import {
   Wrapper,
   CommentBlock,

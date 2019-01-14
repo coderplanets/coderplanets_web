@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Popover } from '../../components'
+import Popover from '../../components/Popover'
 
 import {
   Wrapper,
@@ -9,8 +9,6 @@ import {
   Text,
   CommunityPopinfo,
 } from './styles/community_editor_info'
-
-// import { uid } from '../../utils'
 
 const CommunityEditorInfo = ({ user: { editableCommunities } }) => {
   if (!editableCommunities || editableCommunities.totalCount === 0) return null

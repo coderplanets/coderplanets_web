@@ -3,14 +3,16 @@ import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
-import { DotDivider, Space, FollowButton } from '../../components'
 
-import { CardWrapper, AttactWrapper, AttactIcon } from './styles/digest_board'
+import DotDivider from '../../components/DotDivider'
+import FollowButton from '../../components/FollowButton'
+import { Space } from '../../components/BaseStyled'
 
 import AchieveCard from './AchieveCard'
 import NumbersCard from './NumbersCard'
-
 import SourceContributeInfo from './SourceContributeInfo'
+
+import { CardWrapper, AttactWrapper, AttactIcon } from './styles/digest_board'
 
 import * as logic from './logic'
 

@@ -3,7 +3,9 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
-import { Tabber, CommunityStatesPad, CommunityHolder } from '../../components'
+import Tabber from '../../components/Tabber'
+import CommunityStatesPad from '../../components/CommunityStatesPad'
+import { CommunityHolder } from '../../components/LoadingEffects'
 
 import {
   Wrapper,

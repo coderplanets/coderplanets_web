@@ -2,7 +2,8 @@ import React from 'react'
 
 import Informer from '../Informer'
 import ArticleAuthorCard from '../ArticleAuthorCard'
-import { ContentSourceCard } from '../../components'
+
+import ContentSourceCard from '../../components/ContentSourceCard'
 
 import CompanyCard from './CommunityCard'
 import { Wrapper, ReportWrapper } from './styles/side_cards'

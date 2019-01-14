@@ -1,9 +1,11 @@
 import React from 'react'
-import { Input, Radio } from 'antd'
+import { Button, Input, Radio } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
-import { SectionLabel, Space, Button, Popconfirm } from '../../components'
+import SectionLabel from '../../components/SectionLabel'
+import Popconfirm from '../../components/Popconfirm'
+import { Space } from '../../components/BaseStyled'
 
 import {
   Wrapper,

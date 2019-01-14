@@ -2,8 +2,9 @@ import React from 'react'
 import R from 'ramda'
 
 import { ISSUE_ADDR } from '../../config'
-/* import { Wrapper } from './styles' */
-import { TrendLine, CommunityHolder } from '../../components'
+
+import TrendLine from '../../components/TrendLine'
+import { CommunityHolder } from '../../components/LoadingEffects'
 import SubscribeBtn from './SubscribeBtn'
 
 import {

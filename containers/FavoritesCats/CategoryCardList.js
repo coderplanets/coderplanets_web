@@ -2,7 +2,7 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '../../config'
-import { Pagi } from '../../components'
+import Pagi from '../../components/Pagi'
 
 import {
   Wrapper,

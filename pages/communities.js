@@ -6,7 +6,8 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import initRootStore from '../stores/init'
-import { GAWraper } from '../components'
+
+import GAWraper from '../components/GAWraper'
 
 import ThemeWrapper from '../containers/ThemeWrapper'
 import MultiLanguage from '../containers/MultiLanguage'
@@ -21,20 +22,20 @@ import CommunitiesContent from '../containers/CommunitiesContent'
 import Footer from '../containers/Footer'
 
 /*
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Sidebar,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  CommunitiesBanner,
-  CommunitiesContent,
-  Footer,
-} from '../containers'
-*/
+   import {
+   ThemeWrapper,
+   MultiLanguage,
+   Sidebar,
+   Preview,
+   Doraemon,
+   Route,
+   BodyLayout,
+   Header,
+   CommunitiesBanner,
+   CommunitiesContent,
+   Footer,
+   } from '../containers'
+ */
 
 import {
   makeGQClient,

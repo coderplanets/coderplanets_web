@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import Labeler from '../Labeler'
-import { FormItem } from '../../components'
+import FormItem from '../../components/FormItem'
 
 import AlertMessage from './AlertMessage'
 import CoverUploader from './CoverUploader'

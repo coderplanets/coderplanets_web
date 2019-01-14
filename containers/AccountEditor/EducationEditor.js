@@ -1,7 +1,10 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import { FormItem, Maybe, Space } from '../../components'
+
+import FormItem from '../../components/FormItem'
+import Maybe from '../../components/Maybe'
+import { Space } from '../../components/BaseStyled'
 
 import {
   Wrapper,

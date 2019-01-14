@@ -10,9 +10,11 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-import { Popover, ArticleActionsPanel } from '../../components'
 
 import Labeler from '../Labeler'
+
+import Popover from '../../components/Popover'
+import ArticleActionsPanel from '../../components/ArticleActionsPanel'
 
 import Linker from './Linker'
 import RefinedLabel from './RefinedLabel'
@@ -20,8 +22,8 @@ import RefinedLabel from './RefinedLabel'
 import { Wrapper, MoreWrapper, MoreIcon } from './styles'
 
 import { makeDebugger, storePlug, THREAD } from '../../utils'
-
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleBodyHeader')
 

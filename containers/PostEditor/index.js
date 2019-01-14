@@ -8,7 +8,7 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { ArticleEditFooter } from '../../components'
+import ArticleEditFooter from '../../components/ArticleEditFooter'
 
 import Editor from './Editor'
 import Preview from './Preview'
@@ -17,8 +17,8 @@ import Header from './Header'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 import { makeDebugger, storePlug } from '../../utils'
+import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostEditor')

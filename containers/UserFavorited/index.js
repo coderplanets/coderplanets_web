@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { PagedContents } from '../../components'
+import PagedContents from '../../components/PagedContents'
 
 import Breadcrumbs from './Breadcrumbs'
 

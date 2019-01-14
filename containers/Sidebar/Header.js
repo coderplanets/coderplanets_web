@@ -1,7 +1,9 @@
 import React from 'react'
+import { Button } from 'antd'
 
 import { ICON_CMD, ICON_BASE } from '../../config'
-import { Button } from '../../components'
+
+import PinButton from './PinButton'
 
 import {
   Wrapper,
@@ -13,8 +15,6 @@ import {
   ExploreText,
   SiteLogo,
 } from './styles/header'
-
-import PinButton from './PinButton'
 
 const Header = ({ pin }) => (
   <Wrapper pin={pin}>

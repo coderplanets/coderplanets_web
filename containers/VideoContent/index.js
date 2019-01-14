@@ -6,10 +6,15 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Affix } from 'antd'
 
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
-import { Maybe, VideoPoster, VideoInfoCard, Affix } from '../../components'
+
+import Maybe from '../../components/Maybe'
+import VideoPoster from '../../components/VideoPoster'
+import VideoInfoCard from '../../components/VideoInfoCard'
+
 import SideCards from './SideCards'
 
 import {
