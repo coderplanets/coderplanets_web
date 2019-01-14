@@ -14,19 +14,6 @@ const pagedCommunities = gql`
     }
   }
 `
-const pagedCommunitiesRaw = `
-  query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {
-    pagedCommunities(filter: $filter) {
-      entries {
-        ${F.community}
-        contributesDigest
-        subscribersCount
-        viewerHasSubscribed @include(if: $userHasLogin)
-      }
-      ${F.pagedCounts}
-    }
-  }
-`
 
 const searchCommunities = gql`
   query($title: String!, $userHasLogin: Boolean!) {
@@ -64,7 +51,6 @@ const unsubscribeCommunity = gql`
 
 const schema = {
   pagedCommunities,
-  pagedCommunitiesRaw,
   searchCommunities,
   subscribeCommunity,
   unsubscribeCommunity,

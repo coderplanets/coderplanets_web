@@ -11,6 +11,7 @@ import {
   Tag,
   ContentFilter,
   emptyPagiData,
+  PagedCommunities,
 } from '../../stores/SharedModel'
 
 import {
@@ -38,6 +39,7 @@ const PostsThreadStore = t
       ]),
       TYPE.RESULT
     ),
+    pagedCityCommunities: t.optional(PagedCommunities, emptyPagiData),
   })
   .views(self => ({
     get root() {
@@ -75,10 +77,8 @@ const PostsThreadStore = t
     get activePost() {
       return stripMobx(self.root.viewing.post)
     },
-    // TODO: tmp, for ui
-    get communitiesData() {
-      const { subscribedCommunities } = self.root.account
-      return subscribedCommunities ? subscribedCommunities.entries : []
+    get pagedCityCommunitiesData() {
+      return stripMobx(self.pagedCityCommunities)
     },
   }))
   .actions(self => ({

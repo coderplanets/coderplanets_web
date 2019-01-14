@@ -56,7 +56,7 @@ const isSpecThread = (community, thread) => {
 
 const SpecThread = ({ community, thread, cityCommunities }) => {
   if (community === ROUTE.HOME && thread === THREAD.CITY) {
-    return <CityList items={cityCommunities} />
+    return <CityList items={cityCommunities.entries} />
   }
 
   return <ConstructingThread thread={thread} />
@@ -89,14 +89,12 @@ class PostsThreadContainer extends React.Component {
       activeTagData,
       curCommunity,
       curThread,
-      communitiesData,
+      pagedCityCommunitiesData,
     } = postsThread
 
     const { subPath } = curRoute
     const { totalCount } = pagedPostsData
     const topic = subPath
-
-    debug('curThread: ', curThread)
 
     return (
       <Wrapper>
@@ -105,7 +103,7 @@ class PostsThreadContainer extends React.Component {
           <SpecThread
             community={curCommunity.raw}
             thread={curThread}
-            cityCommunities={communitiesData}
+            cityCommunities={pagedCityCommunitiesData}
           />
         ) : (
           <React.Fragment>

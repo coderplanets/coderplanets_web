@@ -131,6 +131,15 @@ export const onAdsClose = () => {
   store.upgradeHepler()
 }
 
+const loadCityCommunities = () => {
+  const { curCommunity, curRoute } = store
+  if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
+    const args = { filter: { page: 1, size: 30, category: 'city' } }
+
+    sr71$.query(S.pagedCommunities, args)
+  }
+}
+
 export const onCommunitySelect = community => {
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
@@ -162,6 +171,11 @@ const DataSolver = [
     action: ({ partialTags: tags }) => store.markState({ tags }),
   },
   {
+    match: asyncRes('pagedCommunities'),
+    action: ({ pagedCommunities }) =>
+      store.markState({ pagedCityCommunities: pagedCommunities }),
+  },
+  {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => loadPosts(),
   },
@@ -172,6 +186,11 @@ const DataSolver = [
 
       if (R.contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
         return false
+
+      const { curCommunity, curRoute } = store
+      if (curCommunity.raw === ROUTE.HOME && curRoute.subPath === THREAD.CITY) {
+        return loadCityCommunities()
+      }
 
       if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
         loadPosts()
@@ -218,6 +237,12 @@ export const init = _store => {
   store = _store
   if (sub$) return false // sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  /*
+     NOTE: city communities list is not supported by SSR
+     need load manully
+   */
+  loadCityCommunities()
 }
 
 export const uninit = () => {
