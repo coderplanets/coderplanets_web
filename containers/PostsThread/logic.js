@@ -15,6 +15,7 @@ import {
   $solver,
   scrollIntoEle,
   notEmpty,
+  thread2Subpath,
 } from '../../utils'
 
 import S from './schema'
@@ -40,6 +41,11 @@ export const outAnchor = () => store.setHeaderFix(true)
 export const loadPosts = (page = 1) => {
   const { curCommunity } = store
   const { subPath: topic } = store.curRoute
+
+  // display same-city list instead
+  // TODO: load same-city communities
+  if (curCommunity.raw === ROUTE.HOME && topic === THREAD.CITY) return false
+
   const userHasLogin = store.isLogin
 
   store.markState({ curView: TYPE.LOADING })
@@ -62,6 +68,7 @@ export const loadPosts = (page = 1) => {
   args.filter = R.pickBy(notEmpty, args.filter)
   scrollIntoEle(TYPE.APP_HEADER_ID)
 
+  debug('args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -124,6 +131,17 @@ export const onAdsClose = () => {
   store.upgradeHepler()
 }
 
+export const onCommunitySelect = community => {
+  store.setViewing({ community, activeThread: THREAD.POST, post: {} })
+
+  store.markRoute({
+    mainPath: community.raw,
+    subPath: thread2Subpath(THREAD.POST),
+  })
+
+  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -152,7 +170,7 @@ const DataSolver = [
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
 
-      if ((R.contains(data.activeThread), [THREAD.GROUP, THREAD.COMPANY]))
+      if (R.contains(data.activeThread, [THREAD.GROUP, THREAD.COMPANY]))
         return false
 
       if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {

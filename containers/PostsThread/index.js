@@ -9,6 +9,7 @@ import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 import R from 'ramda'
 
+import CityList from './CityList'
 import TagsBar from '../TagsBar'
 
 import {
@@ -30,7 +31,7 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
+import { makeDebugger, storePlug, ROUTE, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostsThread')
@@ -39,6 +40,26 @@ const LabelText = {
   radar: '采集信息',
   share: '我要分享',
   city: '发布同城帖',
+}
+
+const isSpecThread = (community, thread) => {
+  if (R.contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
+    return true
+  }
+
+  if (community === ROUTE.HOME && thread === THREAD.CITY) {
+    return true
+  }
+
+  return false
+}
+
+const SpecThread = ({ community, thread, cityCommunities }) => {
+  if (community === ROUTE.HOME && thread === THREAD.CITY) {
+    return <CityList items={cityCommunities} />
+  }
+
+  return <ConstructingThread thread={thread} />
 }
 
 // see https://stackoverflow.com/questions/38137740/which-kinds-of-initialization-is-more-appropriate-in-constructor-vs-componentwil/
@@ -66,10 +87,12 @@ class PostsThreadContainer extends React.Component {
       accountInfo,
       isLogin,
       activeTagData,
+      curCommunity,
       curThread,
+      communitiesData,
     } = postsThread
 
-    const { mainPath, subPath } = curRoute
+    const { subPath } = curRoute
     const { totalCount } = pagedPostsData
     const topic = subPath
 
@@ -78,8 +101,12 @@ class PostsThreadContainer extends React.Component {
     return (
       <Wrapper>
         <LeftPadding />
-        {R.contains(curThread, [THREAD.GROUP, THREAD.COMPANY]) ? (
-          <ConstructingThread thread={curThread} />
+        {isSpecThread(curCommunity.raw, curThread) ? (
+          <SpecThread
+            community={curCommunity.raw}
+            thread={curThread}
+            cityCommunities={communitiesData}
+          />
         ) : (
           <React.Fragment>
             <LeftPart>
@@ -99,7 +126,7 @@ class PostsThreadContainer extends React.Component {
 
               <PagedContents
                 data={pagedPostsData}
-                community={mainPath}
+                community={curCommunity.raw}
                 thread={THREAD.POST}
                 curView={curView}
                 active={activePost}

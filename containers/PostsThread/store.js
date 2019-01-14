@@ -75,6 +75,11 @@ const PostsThreadStore = t
     get activePost() {
       return stripMobx(self.root.viewing.post)
     },
+    // TODO: tmp, for ui
+    get communitiesData() {
+      const { subscribedCommunities } = self.root.account
+      return subscribedCommunities ? subscribedCommunities.entries : []
+    },
   }))
   .actions(self => ({
     toastInfo(options) {
