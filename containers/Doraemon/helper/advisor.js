@@ -3,7 +3,7 @@
  */
 import R from 'ramda'
 
-import { from } from 'rxjs/observable/of'
+import { from } from 'rxjs'
 
 import { ICON_CMD } from '../../../config'
 import { notEmpty } from '../../../utils'
