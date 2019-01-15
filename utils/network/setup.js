@@ -57,16 +57,19 @@ const link = ApolloLink.from([retryLink, errorLink, graphLink])
 // disable cache in apollo-client
 // sse https://www.apollographql.com/docs/react/essentials/queries.html#graphql-config-options-fetchPolicy
 // see https://stackoverflow.com/questions/47879016/how-to-disable-cache-in-apollo-link-or-apollo-client
-const defaultOptions = {
-  watchQuery: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'ignore',
-  },
-  query: {
-    fetchPolicy: 'network-only',
-    errorPolicy: 'all',
-  },
-}
+/*
+   const defaultOptions = {
+   watchQuery: {
+   fetchPolicy: 'network-only',
+   errorPolicy: 'ignore',
+   },
+   query: {
+   fetchPolicy: 'network-only',
+   errorPolicy: 'all',
+   },
+   }
+ */
+
 // single-instance-pattern
 // see: https://k94n.com/es6-modules-single-instance-pattern
 export const client = new ApolloClient({
@@ -75,5 +78,5 @@ export const client = new ApolloClient({
   cache: new InMemoryCache(),
   connectToDevTools: true,
   /* shouldBatch: false, */
-  defaultOptions,
+  // defaultOptions,
 })
