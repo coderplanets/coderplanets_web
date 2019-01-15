@@ -6,6 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withTheme } from 'styled-components'
 
 import { ICON_BASE, ISSUE_ADDR } from '../../config'
 import { makeDebugger, Trans } from '../../utils'
@@ -43,10 +44,17 @@ const DescContent = ({ community, thread }) => (
   </React.Fragment>
 )
 
-const EmptyThread = ({ community, thread }) => (
+const getLogoAddr = theme => {
+  if (theme.name === 'cyan') return theme.name
+
+  return 'solarizedDark'
+}
+
+// <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
+const EmptyThread = ({ community, thread, theme }) => (
   <Wrapper>
     <Icon>
-      <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
+      <Icon404 src={`${ICON_BASE}/404/not-found-${getLogoAddr(theme)}.png`} />
     </Icon>
     <Text>
       <Title>
@@ -64,9 +72,10 @@ EmptyThread.propTypes = {
   // https://www.npmjs.com/package/prop-types
   community: PropTypes.string.isRequired,
   thread: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 }
 
 EmptyThread.defaultProps = {}
 
 // 如果你发现是网站的问题，恳请你在这里提交
-export default EmptyThread
+export default withTheme(EmptyThread)

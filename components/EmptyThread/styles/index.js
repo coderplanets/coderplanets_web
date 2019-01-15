@@ -6,14 +6,15 @@ import { theme, cs } from '../../../utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   width: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
   margin-bottom: 30px;
 `
 
+// TODO: media size
 export const Icon404 = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
 `
 
 export const Icon = styled.div``
@@ -27,7 +28,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-bottom: 10px;
   margin-top: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 `
 
 export const DescWrapper = styled.div`

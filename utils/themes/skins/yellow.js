@@ -16,6 +16,7 @@ const descText = '#c5b297'
 const primaryMate = '#B84E20'
 
 const yellow = {
+  name: 'yellow',
   logoText: '#d2bca1',
   cover: bannerBg,
   coverIndex: primaryMate,

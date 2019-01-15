@@ -17,6 +17,7 @@ const threadTitle = '#7b7878'
 // const primaryMate = 'orange'
 
 const github = {
+  name: 'github',
   logoText: descText,
   cover: 'white',
   coverIndex: '#F9FCFC',

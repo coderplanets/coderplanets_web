@@ -17,6 +17,7 @@ const descText = '#a3bbbd'
 const primaryMate = 'orange'
 
 const cyan = {
+  name: 'cyan',
   logoText: descText,
   cover: primaryColor,
   coverIndex: '#F9FCFC',

@@ -17,6 +17,7 @@ const markdownFont = '#B4C7C6'
 const descText = '#7EA7AC'
 
 const iconGreen = {
+  name: 'iconGreen',
   logoText: descText,
   cover: bannerBg,
   coverIndex: '#F9FCFC',
