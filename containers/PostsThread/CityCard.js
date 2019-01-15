@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TrendLine from '../../components/TrendLine'
-import CommunityHolder from '../../components/LoadingEffects'
+import { CommunityHolder } from '../../components/LoadingEffects'
 
 import {
   Wrapper,

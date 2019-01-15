@@ -16,7 +16,7 @@ import ArticleBodyHeader from '../ArticleBodyHeader'
 
 import Maybe from '../../components/Maybe'
 import MarkDownRender from '../../components/MarkDownRender'
-import ArticleContentLoading from '../../components/LoadingEffects'
+import { ArticleContentLoading } from '../../components/LoadingEffects'
 
 import {
   BodyWrapper,
