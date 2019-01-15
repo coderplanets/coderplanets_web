@@ -46,11 +46,6 @@ const DescContent = ({ community, thread }) => (
   </React.Fragment>
 )
 
-const getLogoAddr = theme => {
-  if (theme.name === 'cyan') return theme.name
-
-  return 'solarizedDark'
-}
 const rotateAngles = [
   'rotate(0deg)',
   'rotate(30deg)',
@@ -74,7 +69,7 @@ const EmptyThread = ({ community, thread, theme }) => (
   <Wrapper>
     <Icon>
       <Icon404
-        src={`${ICON_BASE}/404/not-found-${getLogoAddr(theme)}.png`}
+        src={`${ICON_BASE}/404/not-found-${theme.name}.png`}
         angle={getRandomAngle()}
       />
     </Icon>

@@ -17,6 +17,7 @@ const bannerTitle = '#708e7a'
 const primaryMate = '#b57a5b'
 
 const green = {
+  name: 'green',
   logoText: bannerTitle,
   cover: '#B4C9B2',
   coverIndex: '#9e96c3',
