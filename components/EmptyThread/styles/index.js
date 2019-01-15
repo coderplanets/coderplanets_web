@@ -15,6 +15,7 @@ export const Icon404 = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: 320px;
   height: 320px;
+  transform: ${({ angle }) => angle};
 `
 
 export const Icon = styled.div``

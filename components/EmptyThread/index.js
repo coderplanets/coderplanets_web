@@ -9,7 +9,6 @@ import PropTypes from 'prop-types'
 import { withTheme } from 'styled-components'
 
 import { ICON_BASE, ISSUE_ADDR } from '../../config'
-import { makeDebugger, Trans } from '../../utils'
 
 import {
   Icon404,
@@ -20,6 +19,9 @@ import {
   DescWrapper,
   IssueLink,
 } from './styles'
+
+import { makeDebugger, Trans, getRandomInt } from '../../utils'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:EmptyThread:index')
 
@@ -49,12 +51,32 @@ const getLogoAddr = theme => {
 
   return 'solarizedDark'
 }
+const rotateAngles = [
+  'rotate(0deg)',
+  'rotate(30deg)',
+  'rotate(60deg)',
+  'rotate(90deg)',
+  'rotate(120deg)',
+  'rotate(150deg)',
+  'rotate(180deg)',
+  'rotate(210deg)',
+  'rotate(240deg)',
+  'rotate(270deg)',
+  'rotate(300deg)',
+  'rotate(330deg)',
+]
+
+const getRandomAngle = () =>
+  rotateAngles[getRandomInt(0, rotateAngles.length - 1)]
 
 // <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
 const EmptyThread = ({ community, thread, theme }) => (
   <Wrapper>
     <Icon>
-      <Icon404 src={`${ICON_BASE}/404/not-found-${getLogoAddr(theme)}.png`} />
+      <Icon404
+        src={`${ICON_BASE}/404/not-found-${getLogoAddr(theme)}.png`}
+        angle={getRandomAngle()}
+      />
     </Icon>
     <Text>
       <Title>
