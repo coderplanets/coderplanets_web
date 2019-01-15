@@ -1,6 +1,6 @@
 /* cool version */
 
-import { Subject } from 'rxjs/Subject'
+import { Subject } from 'rxjs'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/debounceTime'
