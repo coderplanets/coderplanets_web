@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
-import { from } from 'rxjs'
+
+import { from } from 'rxjs/observable/from'
 
 /* import { makeDebugger } from '../../utils' */
 import { client, context } from './setup'
