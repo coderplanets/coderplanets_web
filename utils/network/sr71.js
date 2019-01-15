@@ -1,6 +1,8 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
-import { Subject, timer } from 'rxjs'
+
+import { Subject } from 'rxjs/Subject'
+import { timer } from 'rxjs/observable/timer'
 
 // debounceTime,
 import {
@@ -10,9 +12,6 @@ import {
   merge,
   timeoutWith,
 } from 'rxjs/operators'
-
-// import 'rxjs/add/observable/of'
-// import 'rxjs/add/observable/fromEventPattern'
 
 /*
    import 'rxjs/add/operator/debounceTime'
