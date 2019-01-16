@@ -13,18 +13,21 @@ import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:DotDivider:index')
 
-const DotDivider = ({ radius, space }) => (
-  <Wrapper radius={radius} space={space} />
+const DotDivider = ({ radius, space, className }) => (
+  <Wrapper radius={radius} space={space} className={className} />
 )
 
 DotDivider.propTypes = {
   radius: PropTypes.string,
   space: PropTypes.string,
+  // just for clean styled-component warnings
+  className: PropTypes.string,
 }
 
 DotDivider.defaultProps = {
   radius: '5px',
   space: '5px',
+  className: 'dot-divider-class',
 }
 
 export default DotDivider
