@@ -20,7 +20,7 @@ import {
   Operations,
 } from './styles/header'
 
-// import { uid, Trans } from '../../utils'
+import { TYPE } from '../../utils'
 import { openDoraemon } from './logic'
 
 const Header = ({
@@ -33,7 +33,7 @@ const Header = ({
   curCommunity,
 }) => (
   <Wrapper id="whereCallShowDoraemon" leftOffset={leftOffset} fixed={fixed}>
-    <InnerWrapper>
+    <InnerWrapper id={TYPE.APP_HEADER_ID}>
       <RouterWrapper>
         {fixed ? (
           <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />

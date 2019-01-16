@@ -10,10 +10,9 @@ import keydown from 'react-keydown'
 import { Affix } from 'antd'
 
 import Header from './Header'
-
 import { AffixHeader, RawHeader } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -50,7 +49,7 @@ class HeaderContainer extends React.Component {
     } = header
 
     return (
-      <div id={TYPE.APP_HEADER_ID}>
+      <React.Fragment>
         <AffixHeader fixed={fixed}>
           <Affix>
             <Header
@@ -75,7 +74,7 @@ class HeaderContainer extends React.Component {
             curCommunity={curCommunity}
           />
         </RawHeader>
-      </div>
+      </React.Fragment>
     )
   }
 }
