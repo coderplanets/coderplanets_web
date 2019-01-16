@@ -21,6 +21,13 @@ export const DynamicAccountViewer = dynamic({
   ssr: false,
 })
 
+export const DynamicPostViewer = dynamic({
+  loader: () => import('../PostViewer'),
+  /* eslint-disable-next-line */
+  loading: () => <CommonLoading />,
+  ssr: false,
+})
+
 export const DynamicJobViewer = dynamic({
   loader: () => import('../JobViewer'),
   /* eslint-disable-next-line */

@@ -7,11 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-// viewers
-import PostViewer from '../PostViewer'
-
 import {
   DynamicAccountViewer,
+  DynamicPostViewer,
   DynamicJobViewer,
   DynamicMailsViewer,
   DynamicRepoViewer,
@@ -62,7 +60,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // post
     case TYPE.PREVIEW_POST_VIEW: {
-      return <PostViewer attachment={attachment} />
+      return <DynamicPostViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_POST_CREATE: {
       return <DynamicPostEditor onClose={logic.closePreview} />
