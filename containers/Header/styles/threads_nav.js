@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
 import { cs, theme } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -8,11 +8,10 @@ export const Wrapper = styled.div`
   margin-left: 4%;
 `
 
-export const CommunityLogo = styled(Img)`
+export const CommunityLogo = styled(CommunityFaceLogo)`
   width: 22px;
   height: 22px;
   margin-right: 22px;
-  display: block;
   margin-bottom: 4px;
 `
 

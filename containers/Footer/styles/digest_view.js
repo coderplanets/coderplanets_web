@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.footer`
@@ -50,10 +50,9 @@ export const SiteDesc = styled.a`
   transition: color 0.2s;
 `
 
-export const SiteLogo = styled(Img)`
+export const SiteLogo = styled(CommunityFaceLogo)`
   width: 20px;
   height: 20px;
-  display: block;
   margin-right: 8px;
 `
 export const SiteTitle = styled.div`

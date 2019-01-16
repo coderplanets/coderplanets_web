@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
+import CommunityFaceLogo from '../../CommunityFaceLogo'
 import Img from '../../Img'
+
 import { theme, cs } from '../../../utils'
 
 export const Breadcrumbs = styled.div`
@@ -9,10 +11,10 @@ export const Breadcrumbs = styled.div`
   margin-left: 3vw;
   height: 100%;
 `
-export const Logo = styled(Img)`
+export const Logo = styled(CommunityFaceLogo)`
   height: 22px;
-  margin-top: -5px;
   width: 22px;
+  margin-top: -5px;
   opacity: 0.7;
 `
 // font-family: cursive; // not general

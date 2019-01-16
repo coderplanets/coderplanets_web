@@ -20,6 +20,7 @@ const MenuBar = ({ pin, item, activeRaw }) => (
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
+          raw={item.raw}
           src={item.logo}
         />
         {/* eslint-disable jsx-a11y/anchor-is-valid */}
