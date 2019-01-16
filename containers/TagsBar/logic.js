@@ -84,17 +84,20 @@ const ErrSolver = [
 ]
 
 export const init = (_store, thread, topic, active) => {
-  let activeTag = R.pick(['id', 'title', 'color'], active)
-  if (R.isEmpty(activeTag.title)) activeTag = null
-
-  if (store) {
-    return store.markState({ thread, topic, activeTag })
-  }
-
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+  let activeTag = R.pick(['id', 'title', 'color'], active)
+  if (R.isEmpty(activeTag.title)) activeTag = null
   store.markState({ thread, topic, activeTag })
+}
+
+export const uninit = () => {
+  if (!sub$) return false
+  debug('===== do uninit')
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
 }

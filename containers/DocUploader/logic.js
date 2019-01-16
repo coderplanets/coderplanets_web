@@ -73,3 +73,11 @@ export const init = _store => {
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
+
+export const uninit = () => {
+  if (!sub$) return false
+  debug('===== do uninit')
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
+}
