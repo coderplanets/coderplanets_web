@@ -54,7 +54,7 @@ class MarkDownRender extends React.Component {
   }
 
   render() {
-    const { body } = this.props
+    const { body, contentDomId } = this.props
     /*
        NOTE: the '---' in normal markdown will break the render process
        this is the most mother fucking disgusting bug i ever seen
@@ -68,7 +68,7 @@ class MarkDownRender extends React.Component {
           <div className="markdown-body">
             {/* eslint-disable react/no-danger */}
             <div
-              id="markdown-editor-preview-container"
+              id={contentDomId}
               dangerouslySetInnerHTML={{
                 __html: html,
               }}
@@ -86,10 +86,12 @@ class MarkDownRender extends React.Component {
 MarkDownRender.propTypes = {
   // https://www.npmjs.com/package/prop-types
   body: PropTypes.string,
+  contentDomId: PropTypes.string,
 }
 
 MarkDownRender.defaultProps = {
   body: '',
+  contentDomId: 'markdown-content-dom-id',
 }
 
 export default MarkDownRender

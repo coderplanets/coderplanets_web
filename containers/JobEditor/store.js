@@ -43,6 +43,7 @@ const JobEditorStore = t
       ]),
       'CREATE_VIEW'
     ),
+    contentDomId: t.optional(t.string, 'job_editor_content_id'),
 
     publishing: t.optional(t.boolean, false),
     isEdit: t.optional(t.boolean, false),

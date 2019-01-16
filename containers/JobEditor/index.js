@@ -24,7 +24,14 @@ import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 const debug = makeDebugger('C:JobEditor')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
-const View = ({ isEdit, curView, thread, editData, mentionList }) => {
+const View = ({
+  isEdit,
+  curView,
+  thread,
+  editData,
+  mentionList,
+  contentDomId,
+}) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -39,6 +46,7 @@ const View = ({ isEdit, curView, thread, editData, mentionList }) => {
         <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
             editData={editData}
+            contentDomId={contentDomId}
             onBack={changeView.bind(this, 'CREATE_VIEW')}
           />
         </ViewerWrapper>
@@ -79,9 +87,8 @@ class JobEditorContainer extends React.Component {
       editData,
       mentionListData,
       referUsersData,
+      contentDomId,
     } = jobEditor
-
-    debug('editData: ', editData)
 
     return (
       <Wrapper>
@@ -93,6 +100,7 @@ class JobEditorContainer extends React.Component {
           thread={thread}
           copyRight={copyRight}
           mentionList={mentionListData}
+          contentDomId={contentDomId}
         />
         <ArticleEditFooter
           isEdit={isEdit}

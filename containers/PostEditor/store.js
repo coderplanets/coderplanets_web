@@ -32,6 +32,7 @@ const PostEditor = t
       ]),
       'CREATE_VIEW'
     ),
+    contentDomId: t.optional(t.string, 'post_editor_content_id'),
 
     publishing: t.optional(t.boolean, false),
     // TODO: rename to isEditMode

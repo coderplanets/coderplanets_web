@@ -24,7 +24,7 @@ import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 const debug = makeDebugger('C:PostEditor')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
-const View = ({ curView, thread, editData, mentionList }) => {
+const View = ({ curView, thread, editData, mentionList, contentDomId }) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -38,6 +38,7 @@ const View = ({ curView, thread, editData, mentionList }) => {
         <ViewerWrapper active={curView === 'PREVIEW_VIEW'}>
           <Preview
             editData={editData}
+            contentDomId={contentDomId}
             onBack={changeView.bind(this, 'CREATE_VIEW')}
           />
         </ViewerWrapper>
@@ -78,6 +79,7 @@ class PostEditorContainer extends React.Component {
       editData,
       mentionListData,
       referUsersData,
+      contentDomId,
     } = postEditor
 
     return (
@@ -94,6 +96,7 @@ class PostEditorContainer extends React.Component {
           thread={thread}
           copyRight={copyRight}
           mentionList={mentionListData}
+          contentDomId={contentDomId}
         />
         <ArticleEditFooter
           isEdit={isEdit}
