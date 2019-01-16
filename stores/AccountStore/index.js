@@ -5,6 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
+import { PAGE_SIZE } from '../../config'
 
 import {
   markStates,
@@ -48,6 +49,11 @@ const AccountStore = t
     },
     get isLogin() {
       return self.isValidSession
+    },
+    get pageDensity() {
+      if (!self.isLogin) return PAGE_SIZE.D
+
+      return parseInt(self.user.customization.displayDensity, 10)
     },
   }))
   .actions(self => ({

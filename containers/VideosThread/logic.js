@@ -1,6 +1,5 @@
 import R from 'ramda'
 
-import { PAGE_SIZE } from '../../config'
 import {
   makeDebugger,
   asyncErr,
@@ -38,7 +37,7 @@ export const loadVideos = (page = 1) => {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.D,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community: curCommunity.raw,
@@ -89,7 +88,14 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadVideos()
 }
-export const onC11NChange = option => store.updateC11N(option)
+export const onC11NChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadVideos(store.pagedVideos.pageNumber)
+  }
+}
 
 // ###############################
 // Data & Error handlers

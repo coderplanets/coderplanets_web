@@ -1,5 +1,4 @@
 import R from 'ramda'
-import { PAGE_SIZE } from '../../config'
 
 import {
   asyncRes,
@@ -53,7 +52,7 @@ export const loadPosts = (page = 1) => {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.D,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community: curCommunity.raw,
@@ -120,6 +119,10 @@ export const onContentCreate = () => {
 export const onC11NChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadPosts(store.pagedPosts.pageNumber)
+  }
 }
 
 export const onAdsClose = () => {

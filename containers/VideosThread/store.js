@@ -72,6 +72,9 @@ const VideosThread = t
     get activeVideo() {
       return stripMobx(self.root.viewing.video)
     },
+    get pageDensity() {
+      return self.root.account.pageDensity
+    },
   }))
   .actions(self => ({
     authWarning(options) {
