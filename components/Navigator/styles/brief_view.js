@@ -42,7 +42,7 @@ export const CommunityInfo = styled.div`
   margin-top: -2px;
 `
 export const LogoText = styled.div`
-  color: ${theme('header.cardLogo')};
+  color: ${theme('header.cardLogoText')};
   font-size: 0.8rem;
   font-family: Cursive, Helvetica;
 `

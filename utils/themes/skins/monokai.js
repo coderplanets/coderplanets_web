@@ -58,7 +58,7 @@ const monokai = {
     tabOthers: descText,
     cardBg: '#39363a',
     cardBorder: '#555356',
-    cardLogo: descText,
+    cardLogoText: descText,
     cardTitle: primaryColor,
   },
   banner: {
