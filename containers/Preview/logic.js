@@ -49,9 +49,8 @@ const DataResolver = [
 ]
 
 export const init = _store => {
-  if (store) return false
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 }

@@ -113,6 +113,7 @@ export const init = (_store, user) => {
 export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

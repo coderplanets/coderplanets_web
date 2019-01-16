@@ -207,6 +207,7 @@ export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
   store.markState({ editPost: {} })
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
   /*

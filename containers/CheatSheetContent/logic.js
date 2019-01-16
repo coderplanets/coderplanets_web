@@ -20,6 +20,6 @@ export const init = _store => {
   if (store) return false
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

@@ -71,6 +71,7 @@ export const init = _store => {
 
 export const uninit = () => {
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

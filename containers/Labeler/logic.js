@@ -83,18 +83,12 @@ const DataSolver = [
 const ErrSolver = []
 
 export const init = (_store, uniqId, options) => {
-  if (store) {
-    return store.markUniqState(uniqId, options)
-    // return store.markState({ ...options })
-  }
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  return store.markUniqState(uniqId, options)
-  // return store.markState({ ...options })
+  store.markUniqState(uniqId, options)
 }
 
 export const uninit = uniqId => store.uninit(uniqId)

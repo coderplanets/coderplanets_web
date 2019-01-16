@@ -67,16 +67,17 @@ const ErrSolver = [
   },
 ]
 
-export const uninit = () => {
-  store.markState({ curView: 'overview' })
-  sub$.unsubscribe()
-  sub$ = null
-}
-
 export const init = _store => {
   store = _store
 
-  debug(store)
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export const uninit = () => {
+  if (!sub$) return false
+  store.markState({ curView: 'overview' })
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
 }

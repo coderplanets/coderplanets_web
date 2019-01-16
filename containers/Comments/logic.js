@@ -340,6 +340,7 @@ export const init = (_store, ssr = false) => {
 export const uninit = () => {
   if (store.loading || store.loadingFresh || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

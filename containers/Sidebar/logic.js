@@ -127,6 +127,7 @@ export const uninit = () => {
   if (!sub$) return false
 
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }
