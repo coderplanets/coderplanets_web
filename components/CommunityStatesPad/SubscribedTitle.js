@@ -19,7 +19,7 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
           </PopoverInfo>
         }
       >
-        <NumberTitle onClick={onUndoSubscribe.bind(this, community)}>
+        <NumberTitle onClick={onUndoSubscribe.bind(this, community)} small>
           已关注
         </NumberTitle>
       </Popover>
