@@ -35,8 +35,8 @@ const JobInfo = ({
     exp,
     tags,
     communities,
-    onPreview,
   },
+  onPreview,
   community,
 }) => (
   <Wrapper>
