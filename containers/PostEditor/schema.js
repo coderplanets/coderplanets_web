@@ -38,6 +38,7 @@ const updatePost = gql`
     $id: ID!
     $title: String
     $body: String
+    $digest: String
     $copyRight: String
     $linkAddr: String
   ) {
@@ -45,6 +46,7 @@ const updatePost = gql`
       id: $id
       title: $title
       body: $body
+      digest: $digest
       copyRight: $copyRight
       linkAddr: $linkAddr
     ) {
@@ -69,6 +71,7 @@ const searchUsers = gql`
 export const updatablePostFields = [
   'id',
   'title',
+  'digest',
   'body',
   'copyRight',
   'linkAddr',
