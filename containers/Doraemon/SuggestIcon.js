@@ -43,6 +43,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
           <Icon
             round={round}
             src={logo || DEFAULT_ICON}
+            raw={raw}
             nonFill={R.contains(raw, NON_FILL_COMMUNITY)}
           />
         </Wrapper>

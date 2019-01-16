@@ -56,9 +56,9 @@ const green = {
     fixed: contentBg,
     tabActive: bannerTitle,
     tabOthers: descText,
-    cardBg: '#e6ecec',
+    cardBg: '#d4dfcf',
     cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
+    cardLogoText: '#A0BBBD',
     cardTitle: '#a0b5b9',
   },
   banner: {

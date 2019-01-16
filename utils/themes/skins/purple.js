@@ -55,10 +55,10 @@ const purple = {
     fixed: bannerBg,
     tabActive: primaryColor, // articleTitle
     tabOthers: darken(0.1, primaryColor),
-    cardBg: '#e6ecec',
-    cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
-    cardTitle: '#a0b5b9',
+    cardBg: '#2a2835',
+    cardBorder: '#55516b',
+    cardLogoText: '#57526f',
+    cardTitle: '#615c7a',
   },
   banner: {
     title: primaryColor,

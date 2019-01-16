@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
 import { Container } from './index'
 import { theme, cs } from '../../../utils'
 
@@ -23,12 +23,10 @@ export const MenuItemBar = styled.div`
   box-sizing: border-box;
   color: ${theme('sidebar.menuLink')};
 `
-export const MenuItemIcon = styled(Img)`
-  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
+export const MenuItemIcon = styled(CommunityFaceLogo)`
   opacity: ${({ active }) => (active ? 1 : 0.5)};
   width: 22px;
   height: 22px;
-  display: block;
   margin-right: 10px;
 
   ${MenuRow}:hover & {

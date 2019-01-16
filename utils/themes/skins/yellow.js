@@ -9,7 +9,7 @@ const bannerBg = '#f7f1e2' // '#EFE8D6'
 const contentBg = '#F7F4EE'
 const contentBoxBg = '#FCFBF7'
 const fontColor = primaryColor
-const sidebarBg = '#2C4E57'
+const sidebarBg = '#2f1802'
 const markdownFont = '#c5b297'
 
 const descText = '#c5b297'
@@ -57,7 +57,7 @@ const yellow = {
     tabOthers: lighten(0.1, primaryColor),
     cardBg: '#fbf7ea',
     cardBorder: '#eadbbd',
-    cardLogo: '#dac6ae',
+    cardLogoText: '#dac6ae',
     cardTitle: '#d68364',
   },
   banner: {

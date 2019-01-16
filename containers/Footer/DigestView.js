@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  ICON_CMD,
   EMAIL_BUSINESS,
   GITHUB_WEB_ADDR,
   GITHUB_SERVER_ADDR,
@@ -34,7 +33,7 @@ const DigestView = () => (
     <MainInfos>
       <MainColumn>
         <SiteInfo>
-          <SiteLogo src={`${ICON_CMD}/keyboard_logo.png`} />
+          <SiteLogo />
           <SiteTitle>coderplanets</SiteTitle>
         </SiteInfo>
         <div>

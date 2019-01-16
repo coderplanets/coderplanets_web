@@ -40,6 +40,7 @@ const CommunityBrief = ({ content }) => (
         <CommunityLogo
           nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
           src={content.logo}
+          raw={content.raw}
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (

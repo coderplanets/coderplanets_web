@@ -7,7 +7,7 @@ import { onThreadChange } from './logic'
 
 const ThreadsNav = ({ activeInfo: { community, activeThread } }) => (
   <Wrapper>
-    <CommunityLogo src={community.logo} />
+    <CommunityLogo src={community.logo} raw={community.raw} />
     <React.Fragment>
       {community.threads.map(t => (
         <MiniTab
