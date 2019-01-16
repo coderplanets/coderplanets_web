@@ -80,6 +80,9 @@ const PostsThreadStore = t
     get pagedCityCommunitiesData() {
       return stripMobx(self.pagedCityCommunities)
     },
+    get pageDensity() {
+      return self.root.account.pageDensity
+    },
   }))
   .actions(self => ({
     toastInfo(options) {
