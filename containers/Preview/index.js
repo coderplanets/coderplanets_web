@@ -6,22 +6,25 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import dynamic from 'next/dynamic'
 
 // viewers
-// import ArticleViwer from '../ArticleViwer'
 import PostViewer from '../PostViewer'
-import JobViewer from '../JobViewer'
-// import AccountViewer from '../AccountViewer'
-import VideoViewer from '../VideoViewer'
-import RepoViewer from '../RepoViewer'
-import MailsViewer from '../MailsViewer'
-// eiditors
-import VideoEditor from '../VideoEditor'
-import RepoEditor from '../RepoEditor'
 
-import StateTree from '../../components/StateTree'
-import { EditorLoading } from '../../components/LoadingEffects'
+import {
+  DynamicAccountViewer,
+  DynamicJobViewer,
+  DynamicMailsViewer,
+  DynamicRepoViewer,
+  DynamicVideoViewer,
+  // editors
+  DynamicAccountEditor,
+  DynamicPostEditor,
+  DynamicJobEditor,
+  DynamicVideoEditor,
+  DynamicRepoEditor,
+  //
+  DynamicStateTree,
+} from './DynamicComps'
 
 import {
   PreviewOverlay,
@@ -38,11 +41,6 @@ import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Preview')
 
-let DynamicPostEditor = null
-let DynamicJobEditor = null
-let DynamicAccountViewer = null
-let DynamicAccountEditor = null
-
 const CloseBtn = ({ type }) => (
   <PreviewCloser onClick={logic.closePreview}>
     <Closer type={type}>
@@ -53,7 +51,6 @@ const CloseBtn = ({ type }) => (
 
 const Viewer = ({ type, root, attachment, attUser }) => {
   switch (type) {
-    // account
     case TYPE.PREVIEW_ACCOUNT_VIEW: {
       return <DynamicAccountViewer />
     }
@@ -83,7 +80,7 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DynamicJobEditor onClose={logic.closePreview} />
     }
     case TYPE.PREVIEW_JOB_VIEW: {
-      return <JobViewer attachment={attachment} />
+      return <DynamicJobViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_JOB_EDIT: {
       return (
@@ -95,27 +92,27 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     }
     // repo
     case TYPE.PREVIEW_REPO_VIEW: {
-      return <RepoViewer attachment={attachment} />
+      return <DynamicRepoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_REPO_CREATE: {
-      return <RepoEditor />
+      return <DynamicRepoEditor />
     }
     // video
     case TYPE.PREVIEW_VIDEO_EDIT: {
-      return <VideoEditor attachment={attachment} />
+      return <DynamicVideoEditor attachment={attachment} />
     }
     case TYPE.PREVIEW_VIDEO_VIEW: {
-      return <VideoViewer attachment={attachment} />
+      return <DynamicVideoViewer attachment={attachment} />
     }
     case TYPE.PREVIEW_VIDEO_CREATE: {
-      return <VideoEditor />
+      return <DynamicVideoEditor />
     }
     case TYPE.PREVIEW_MAILS_VIEW: {
-      return <MailsViewer />
+      return <DynamicMailsViewer />
     }
     // utils
     default: {
-      return <StateTree json={root.toJSON()} />
+      return <DynamicStateTree json={root.toJSON()} />
     }
   }
 }
@@ -124,30 +121,6 @@ class PreviewContainer extends React.Component {
   componentDidMount() {
     const { preview } = this.props
     logic.init(preview)
-
-    DynamicPostEditor = dynamic({
-      loader: () => import('../PostEditor'),
-      /* eslint-disable-next-line */
-      loading: () => <EditorLoading />,
-      ssr: false,
-    })
-
-    DynamicJobEditor = dynamic({
-      loader: () => import('../JobEditor'),
-      /* eslint-disable-next-line */
-      loading: () => <EditorLoading />,
-      ssr: false,
-    })
-
-    DynamicAccountViewer = dynamic({
-      loader: () => import('../AccountViewer'),
-      ssr: false,
-    })
-
-    DynamicAccountEditor = dynamic({
-      loader: () => import('../AccountEditor'),
-      ssr: false,
-    })
   }
 
   render() {
