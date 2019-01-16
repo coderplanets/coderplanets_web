@@ -76,6 +76,9 @@ const JobsThreadStore = t
     get activeJob() {
       return stripMobx(self.root.viewing.job)
     },
+    get pageDensity() {
+      return self.root.account.pageDensity
+    },
   }))
   .actions(self => ({
     selectFilter(option) {

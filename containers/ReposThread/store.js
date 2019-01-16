@@ -72,6 +72,9 @@ const ReposThread = t
     get activeRepo() {
       return stripMobx(self.root.viewing.repo)
     },
+    get pageDensity() {
+      return self.root.account.pageDensity
+    },
   }))
   .actions(self => ({
     authWarning(options) {

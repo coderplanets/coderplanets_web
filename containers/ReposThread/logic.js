@@ -1,7 +1,5 @@
 import R from 'ramda'
 
-import { PAGE_SIZE } from '../../config'
-
 import {
   makeDebugger,
   $solver,
@@ -39,7 +37,7 @@ export const loadRepos = (page = 1) => {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.D,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community: curCommunity.raw,
@@ -89,7 +87,14 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadRepos()
 }
-export const onC11NChange = option => store.updateC11N(option)
+export const onC11NChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadRepos(store.pagedRepos.pageNumber)
+  }
+}
 
 // ###############################
 // Data & Error handlers

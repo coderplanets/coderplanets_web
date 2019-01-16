@@ -16,7 +16,6 @@ import {
   // GA,
 } from '../../utils'
 
-import { PAGE_SIZE } from '../../config'
 import S from './schema'
 import SR71 from '../../utils/network/sr71'
 
@@ -42,7 +41,7 @@ export const loadJobs = (page = 1) => {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.M,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
     },
@@ -105,6 +104,10 @@ export const onFilterSelect = option => {
 export const onC11NChange = option => {
   dispatchEvent(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadJobs(store.pagedJobs.pageNumber)
+  }
 }
 
 // ###############################
