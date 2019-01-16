@@ -7,12 +7,14 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
+import dynamic from 'next/dynamic'
 
 import ArticleEditFooter from '../../components/ArticleEditFooter'
+import { ArticleContentLoading } from '../../components/LoadingEffects'
 
 import Editor from './Editor'
 import Preview from './Preview'
-import MarkDownHelper from './MarkDownHelper'
+// import MarkDownHelper from './MarkDownHelper'
 import Header from './Header'
 
 import { Wrapper, ViewerWrapper } from './styles'
@@ -20,6 +22,12 @@ import { Wrapper, ViewerWrapper } from './styles'
 import { makeDebugger, storePlug } from '../../utils'
 import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 
+export const DynamicMarkDownHelper = dynamic({
+  loader: () => import('./MarkDownHelper'),
+  /* eslint-disable-next-line */
+  loading: () => <ArticleContentLoading />,
+  ssr: false,
+})
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:JobEditor')
 
@@ -53,7 +61,7 @@ const View = ({
       </React.Fragment>
     )
   }
-  return <MarkDownHelper />
+  return <DynamicMarkDownHelper />
 }
 
 // TODO: use input in old IE
