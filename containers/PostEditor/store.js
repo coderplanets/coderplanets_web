@@ -121,7 +121,6 @@ const PostEditor = t
     reset() {
       self.markState({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
-      self.editJob = { title: '', body: '' }
     },
     updateMentionList(mentionArray) {
       const curMentionList = R.clone(self.mentionList)
