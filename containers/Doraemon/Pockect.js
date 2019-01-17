@@ -1,6 +1,7 @@
-import { Subject, of } from 'rxjs'
 import R from 'ramda'
 import PubSub from 'pubsub-js'
+
+import { Subject, of } from 'rxjs'
 
 import {
   catchError,

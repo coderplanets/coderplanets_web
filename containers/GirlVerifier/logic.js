@@ -13,17 +13,14 @@ const debug = makeDebugger('L:GirlVerifier')
 
 let store = null
 
-export function toggleModal() {
+export const toggleModal = () =>
   store.markState({
     showModal: !store.showModal,
   })
-}
 
-export function onMessageChange(e) {
-  store.markState({ message: e.target.value })
-}
+export const onMessageChange = e => store.markState({ message: e.target.value })
 
-export function onConfirm() {
+export const onConfirm = () => {
   store.toastDone({
     title: '感谢提交',
     msg: '我们会尽快核实你提交的资料。',
@@ -56,11 +53,9 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+export const init = _store => {
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

@@ -5,21 +5,37 @@ import R from 'ramda'
 import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
 
-import { GAWraper, ErrorPage } from '../components'
+import ThemeWrapper from '../containers/ThemeWrapper'
+import MultiLanguage from '../containers/MultiLanguage'
+import Sidebar from '../containers/Sidebar'
+import Preview from '../containers/Preview'
+import Doraemon from '../containers/Doraemon'
+import Route from '../containers/Route'
+import BodyLayout from '../containers/BodyLayout'
+import Header from '../containers/Header'
+import CommunityBanner from '../containers/CommunityBanner'
+import CommunityContent from '../containers/CommunityContent'
+import Footer from '../containers/Footer'
 
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Sidebar,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  CommunityBanner,
-  CommunityContent,
-  Footer,
-} from '../containers'
+/*
+   import {
+   ThemeWrapper,
+   MultiLanguage,
+   Sidebar,
+   Preview,
+   Doraemon,
+   Route,
+   BodyLayout,
+   Header,
+   CommunityBanner,
+   CommunityContent,
+   Footer,
+   } from '../containers'
+ */
+
+import GAWraper from '../components/GAWraper'
+import ErrorPage from '../components/ErrorPage'
+// import { GAWraper, ErrorPage } from '../components'
 
 import {
   makeGQClient,
@@ -75,7 +91,10 @@ async function fetchData(props, opt) {
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
-  const curCommunity = gqClient.request(P.community, { raw: community })
+  const curCommunity = gqClient.request(P.community, {
+    raw: community,
+    userHasLogin,
+  })
   const pagedContents = gqClient.request(
     ssrPagedSchema(thread),
     ssrPagedFilter(community, thread, filter, userHasLogin)

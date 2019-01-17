@@ -28,7 +28,7 @@ export const onTagSelect = tag => store.selectTag(tag)
 
 const NO_TAG_THREADS = [THREAD.USER, THREAD.CHEATSHEET, THREAD.WIKI]
 
-export function loadTags(topic = TOPIC.POST) {
+export const loadTags = (topic = TOPIC.POST) => {
   const { curThread } = store
   if (R.contains(curThread, NO_TAG_THREADS)) return false
 
@@ -83,18 +83,21 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store, thread, topic, active) {
-  let activeTag = R.pick(['id', 'title', 'color'], active)
-  if (R.isEmpty(activeTag.title)) activeTag = null
-
-  if (store) {
-    return store.markState({ thread, topic, activeTag })
-  }
-
+export const init = (_store, thread, topic, active) => {
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+  let activeTag = R.pick(['id', 'title', 'color'], active)
+  if (R.isEmpty(activeTag.title)) activeTag = null
   store.markState({ thread, topic, activeTag })
+}
+
+export const uninit = () => {
+  if (!sub$) return false
+  debug('===== do uninit')
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
 }

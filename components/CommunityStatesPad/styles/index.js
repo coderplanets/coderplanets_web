@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
 `
 export const NumberSection = styled.div`
   ${cs.flexColumn('justify-center')};
+  background-color: ${({ active }) =>
+    active ? theme('banner.numberHoverBg') : ''};
 
   padding: 0 5px;
   border-radius: 4px;
@@ -21,6 +23,8 @@ export const NumberSection = styled.div`
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
+  font-size: ${({ small }) => (small ? '0.7rem' : '0.8rem')};
+  margin-top: ${({ small }) => (small ? '4px' : '0')};
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
     animation: ${animate.pulseRule};

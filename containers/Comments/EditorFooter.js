@@ -1,9 +1,10 @@
 import React from 'react'
+import { Button, Icon } from 'antd'
 
 import { ICON_CMD } from '../../config'
 
 import DocUploader from '../DocUploader'
-import { Space, Button, Icon } from '../../components'
+import { Space } from '../../components/BaseStyled'
 
 import * as logic from './logic'
 

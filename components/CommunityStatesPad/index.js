@@ -7,6 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import SubscribedTitle from './SubscribedTitle'
+
 import {
   Wrapper,
   NumberSection,
@@ -22,6 +24,8 @@ const debug = makeDebugger('c:CommunityStatesPad:index')
 
 const CommunityStatesPad = ({
   community,
+  onSubscribe,
+  onUndoSubscribe,
   onShowEditorList,
   onShowSubscriberList,
 }) => {
@@ -32,13 +36,18 @@ const CommunityStatesPad = ({
     videosCount,
     reposCount,
     jobsCount,
+    viewerHasSubscribed,
   } = community
   const contentsCount = postsCount + videosCount + reposCount + jobsCount
 
   return (
     <Wrapper>
-      <NumberSection>
-        <NumberTitle>关注</NumberTitle>
+      <NumberSection active={viewerHasSubscribed}>
+        <SubscribedTitle
+          community={community}
+          onSubscribe={onSubscribe}
+          onUndoSubscribe={onUndoSubscribe}
+        />
         <NumberItem onClick={onShowSubscriberList}>
           {prettyNum(subscribersCount)}
         </NumberItem>
@@ -67,7 +76,10 @@ CommunityStatesPad.propTypes = {
     videosCount: PropTypes.number,
     reposCount: PropTypes.number,
     jobsCount: PropTypes.number,
+    viewerHasSubscribed: PropTypes.bool,
   }),
+  onSubscribe: PropTypes.func,
+  onUndoSubscribe: PropTypes.func,
   onShowEditorList: PropTypes.func,
   onShowSubscriberList: PropTypes.func,
 }
@@ -80,7 +92,10 @@ CommunityStatesPad.defaultProps = {
     videosCount: 0,
     reposCount: 0,
     jobsCount: 0,
+    viewerHasSubscribed: false,
   },
+  onSubscribe: debug,
+  onUndoSubscribe: debug,
   onShowEditorList: debug,
   onShowSubscriberList: debug,
 }

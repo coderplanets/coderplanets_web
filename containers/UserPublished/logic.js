@@ -24,7 +24,7 @@ const debug = makeDebugger('L:UserPublished')
 
 let store = null
 
-const beforeQuery = page => {
+const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
   // args
   return {
@@ -32,27 +32,19 @@ const beforeQuery = page => {
     filter: pagedFilter(page),
   }
 }
-export const loadPosts = (page = 1) => {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedPosts, args)
-}
+export const loadPosts = (page = 1) =>
+  sr71$.query(S.publishedPosts, getQueryArgs(page))
 
-export const loadJobs = (page = 1) => {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedJobs, args)
-}
+export const loadJobs = (page = 1) =>
+  sr71$.query(S.publishedJobs, getQueryArgs(page))
 
-export const loadVideos = (page = 1) => {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedVideos, args)
-}
+export const loadVideos = (page = 1) =>
+  sr71$.query(S.publishedVideos, getQueryArgs(page))
 
-export const loadRepos = (page = 1) => {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedRepos, args)
-}
+export const loadRepos = (page = 1) =>
+  sr71$.query(S.publishedRepos, getQueryArgs(page))
 
-export function reload(page) {
+export const reload = page => {
   switch (store.curThread) {
     case THREAD.JOB: {
       return loadJobs(page)
@@ -69,15 +61,12 @@ export function reload(page) {
   }
 }
 
-export function onThreadChange(curThread) {
-  // TODO: markRoute
+export const onThreadChange = curThread => {
   store.markState({ curThread })
   reload()
 }
 
-export function onTitleSelect(data) {
-  debug('onTitleSelect --> ', data)
-  debug('onTitleSelect thread --> ', store.curThread)
+export const onPreview = data => {
   const { curThread: thread } = store
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -130,7 +119,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return loadPosts()
@@ -139,9 +128,10 @@ export function init(_store) {
   loadPosts()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

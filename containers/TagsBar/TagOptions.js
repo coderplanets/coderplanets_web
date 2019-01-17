@@ -2,7 +2,8 @@ import React from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '../../config'
 
-import { Popover, DiscussLinker } from '../../components'
+import Popover from '../../components/Popover'
+import DiscussLinker from '../../components/DiscussLinker'
 
 import {
   Wrapper,

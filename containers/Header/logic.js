@@ -41,7 +41,7 @@ export const previewAccount = () =>
 // to avoid page-cache in server
 export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
-export function onThreadChange(thread) {
+export const onThreadChange = thread => {
   const activeThread = thread.raw
 
   /* store.markRoute({ community, thread: thread2Subpath(activeThread) }) */
@@ -103,18 +103,19 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
-  if (sub$) return checkSesstionState()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   checkSesstionState()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (!sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

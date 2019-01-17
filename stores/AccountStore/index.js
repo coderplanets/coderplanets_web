@@ -5,14 +5,9 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
+// import { PAGE_SIZE } from '../../config'
 
-import {
-  markStates,
-  makeDebugger,
-  stripMobx,
-  /* BStore, */
-  BStore,
-} from '../../utils'
+import { markStates, makeDebugger, stripMobx, BStore } from '../../utils'
 
 import { User, EmptyUser, PagedCommunities } from '../SharedModel'
 /* eslint-disable-next-line */
@@ -48,6 +43,9 @@ const AccountStore = t
     },
     get isLogin() {
       return self.isValidSession
+    },
+    get pageDensity() {
+      return parseInt(self.user.customization.displayDensity, 10)
     },
   }))
   .actions(self => ({
@@ -100,7 +98,7 @@ const AccountStore = t
       self.userSubscribedCommunities.entries = R.insert(0, community, entries)
       self.userSubscribedCommunities.totalCount += 1
 
-      self.root.communitiesContent.toggleSubscribe(community)
+      // self.root.communitiesContent.toggleSubscribe(community)
 
       /*
 
@@ -126,7 +124,7 @@ const AccountStore = t
       self.userSubscribedCommunities.entries = R.remove(index, 1, entries)
       self.userSubscribedCommunities.totalCount -= 1
 
-      self.root.communitiesContent.toggleSubscribe(community)
+      // self.root.communitiesContent.toggleSubscribe(community)
       /*
          const { user: { subscribedCommunities: { entries } } } = self
 

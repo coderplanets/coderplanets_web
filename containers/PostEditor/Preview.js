@@ -3,12 +3,13 @@
  */
 
 import React from 'react'
+import { Button } from 'antd'
 
-import { Button, MarkDownRender } from '../../components'
+import MarkDownRender from '../../components/MarkDownRender'
 import { Wrapper, Header, BackToEditBtn, PreviewHeader } from './styles/preview'
 
 /* eslint-disable react/no-danger */
-const Preview = ({ onBack, editData: { title, body } }) => (
+const Preview = ({ onBack, editData: { title, body }, contentDomId }) => (
   <Wrapper>
     <Header>
       <BackToEditBtn>
@@ -19,7 +20,7 @@ const Preview = ({ onBack, editData: { title, body } }) => (
     </Header>
     <PreviewHeader>{title}</PreviewHeader>
 
-    <MarkDownRender body={body} />
+    <MarkDownRender body={body} contentDomId={contentDomId} />
   </Wrapper>
 )
 /* eslint-enable react/no-danger */

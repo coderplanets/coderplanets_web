@@ -13,7 +13,7 @@ import { ASSETS_ENDPOINT } from '../../config'
 import { Wrapper, InputFile } from './styles'
 
 import { makeDebugger, storePlug, uid, Global } from '../../utils'
-import { init, onUploadError, getOSSDir, getOSSFileName } from './logic'
+import { init, uninit, onUploadError, getOSSDir, getOSSFileName } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:DocUploader')
@@ -58,6 +58,7 @@ class DocUploaderContainer extends React.Component {
     if (pasteImage) {
       Global.removeEventListener('paste', this.handlePaste.bind(this), true)
     }
+    uninit()
   }
 
   initPasteWatcher() {

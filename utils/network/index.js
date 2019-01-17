@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+
 import { from } from 'rxjs'
 
 /* import { makeDebugger } from '../../utils' */
@@ -29,7 +30,12 @@ const doMutate = (mutation, variables) =>
       variables,
       context,
     })
-    .then(res => res.data)
+    .then(res => {
+      // once login user has mutation to server
+      // then clear all the cache store in Apollo client.
+      client.clearStore()
+      return res.data
+    })
     .catch(formatGraphErrors)
 
 const GET = url =>

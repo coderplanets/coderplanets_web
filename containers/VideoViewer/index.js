@@ -7,11 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Maybe, VideoPoster, VideoInfoCard } from '../../components'
-
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
+
+import Maybe from '../../components/Maybe'
+import VideoPoster from '../../components/VideoPoster'
+import VideoInfoCard from '../../components/VideoInfoCard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 

@@ -5,7 +5,7 @@ import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 import fetchGeoData from './geo_data'
 
-import { Margin } from '../../components'
+import { Margin } from '../../components/BaseStyled'
 
 import { MapWrapper } from './styles'
 import { makeDebugger, uid, theme as themeHelper } from '../../utils'

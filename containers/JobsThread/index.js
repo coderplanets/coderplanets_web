@@ -7,17 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
+import { Affix } from 'antd'
 
 import { ICON_CMD } from '../../config'
-
 import TagsBar from '../TagsBar'
+import PublishNote from './PublishNote'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
 
 import {
   Wrapper,
@@ -55,10 +53,10 @@ class JobsThreadContainer extends React.Component {
       activeTagData,
       activeJob,
       accountInfo,
-      curRoute,
+      curCommunity,
+      showPublishNote,
     } = jobsThread
 
-    const { mainPath } = curRoute
     const { totalCount } = pagedJobsData
 
     return (
@@ -73,24 +71,25 @@ class JobsThreadContainer extends React.Component {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
+              onC11NChange={logic.onC11NChange}
             />
           </FilterWrapper>
 
           <PagedContents
             data={pagedJobsData}
-            community={mainPath}
+            community={curCommunity.raw}
             thread={THREAD.JOB}
             curView={curView}
             active={activeJob}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadJobs}
           />
         </LeftPart>
 
         <RightPart>
-          <PublishBtn type="primary" onClick={logic.createContent}>
+          <PublishNote show={showPublishNote} />
+          <PublishBtn type="primary" onClick={logic.onContentCreate}>
             <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
           </PublishBtn>
 

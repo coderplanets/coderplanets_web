@@ -6,10 +6,13 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Button } from 'antd'
 
 import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '../../config'
 
-import { Button, Modal, SectionLabel } from '../../components'
+import Modal from '../../components/Modal'
+import SectionLabel from '../../components/SectionLabel'
+
 import Support from './Support'
 
 import {
@@ -23,8 +26,8 @@ import {
 } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UpgradePackges')
 

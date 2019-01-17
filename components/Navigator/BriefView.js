@@ -21,23 +21,23 @@ import MainEntries from './MainEntries'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ curCommunity }) => (
+const BriefView = ({ community }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
       trigger="hover"
-      content={<CardPopover community={curCommunity} />}
+      content={<CardPopover community={community} />}
     >
       <CardWrapper>
         <CommunityWrapper>
-          {curCommunity.logo ? (
-            <CommunityLogo src={curCommunity.logo} />
+          {community.logo ? (
+            <CommunityLogo src={community.logo} raw={community.raw} />
           ) : (
             <LogoHolder src={CommunityLogoHolder} />
           )}
           <CommunityInfo>
             <LogoText>coderplanets</LogoText>
-            <CommunityTitle>{curCommunity.title}</CommunityTitle>
+            <CommunityTitle>{community.title}</CommunityTitle>
           </CommunityInfo>
         </CommunityWrapper>
       </CardWrapper>

@@ -1,23 +1,23 @@
 import R from 'ramda'
 import React from 'react'
 import TimeAgo from 'timeago-react'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '../../config'
 /* import { fakeUsers, getRandomInt, Global, prettyNum } from '../../utils' */
 import { Global, prettyNum } from '../../utils'
 
-import {
-  AvatarsRow,
-  Button,
-  SpaceGrow,
-  Pagi,
-  CommentLoading,
-  MarkDownRender,
-} from '../../components'
+import AvatarsRow from '../../components/AvatarsRow'
+import Pagi from '../../components/Pagi'
+import { SpaceGrow } from '../../components/BaseStyled'
+import { CommentLoading } from '../../components/LoadingEffects'
+import MarkDownRender from '../../components/MarkDownRender'
 
-import * as logic from './logic'
 import CommentsFilter from './CommentsFilter'
 
+import * as logic from './logic'
+
+// TODO: split
 import {
   ListsContainer,
   ListTitle,

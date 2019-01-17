@@ -17,6 +17,7 @@ const descText = '#126682'
 const primaryMate = '#2CB4AA'
 
 const solarizedDark = {
+  name: 'solarizedDark',
   logoText: primaryColor,
   cover: lighten(0.08, bannerBg),
   coverIndex: primaryMate,
@@ -57,7 +58,7 @@ const solarizedDark = {
     tabOthers: darken(0.1, primaryColor),
     cardBg: '#002A34',
     cardBorder: '#003B49',
-    cardLogo: '#006177',
+    cardLogoText: '#006177',
     cardTitle: '#007373',
   },
   banner: {

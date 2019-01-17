@@ -25,10 +25,12 @@ const debug = makeDebugger('L:CommunityBanner')
 let store = null
 
 const loadCommunity = () => {
+  const userHasLogin = store.isLogin
+  const { raw } = store.curCommunity
+
   markLoading(true)
 
-  const { raw } = store.curCommunity
-  sr71$.query(S.community, { raw })
+  sr71$.query(S.community, { raw, userHasLogin })
 }
 
 export const tabberChange = activeThread => {
@@ -40,6 +42,24 @@ export const tabberChange = activeThread => {
   store.setViewing({ activeThread })
 
   dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
+}
+
+export const onSubscribe = community => {
+  if (!store.isLogin) return store.authWarning()
+  if (store.subscribeLoading) return false
+
+  // debug('onSubscribe: ', community)
+  store.markState({ subscribeLoading: true })
+  sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
+}
+
+export const onUndoSubscribe = community => {
+  if (!store.isLogin) return store.authWarning()
+  if (store.subscribeLoading) return false
+
+  // debug('onUndoSubscribe: ', community)
+  store.markState({ subscribeLoading: true })
+  sr71$.mutate(S.unsubscribeCommunity, { communityId: community.id })
 }
 
 export const onShowEditorList = () => {
@@ -62,7 +82,8 @@ export const onShowSubscriberList = () => {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) =>
+  store.markState({ loading: maybe, subscribeLoading: maybe })
 
 // ###############################
 // Data & Error handlers
@@ -78,6 +99,20 @@ const DataSolver = [
         community,
         activeThread: subPath2Thread(subPath),
       })
+    },
+  },
+  {
+    match: asyncRes('subscribeCommunity'),
+    action: ({ subscribeCommunity }) => {
+      store.addSubscribedCommunity(subscribeCommunity)
+      loadCommunity()
+    },
+  },
+  {
+    match: asyncRes('unsubscribeCommunity'),
+    action: ({ unsubscribeCommunity }) => {
+      store.removeSubscribedCommunity(unsubscribeCommunity)
+      loadCommunity()
     },
   },
   {
@@ -109,7 +144,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
   debug('===== do init')
 
@@ -117,10 +152,11 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   /* debug('===== before uninit store.curView: ', store.loading) */
   if (store.loading || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

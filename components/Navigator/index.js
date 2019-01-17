@@ -20,7 +20,7 @@ const Navigator = ({ curCommunity, layout }) => (
     {layout === C11N.DIGEST ? (
       <DigestView />
     ) : (
-      <BriefView curCommunity={curCommunity} />
+      <BriefView community={curCommunity} />
     )}
   </React.Fragment>
 )

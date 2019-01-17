@@ -1,6 +1,5 @@
 import R from 'ramda'
 
-import { PAGE_SIZE } from '../../config'
 import {
   makeDebugger,
   asyncErr,
@@ -29,7 +28,7 @@ const debug = makeDebugger('L:VideosThread')
 
 let store = null
 
-export function loadVideos(page = 1) {
+export const loadVideos = (page = 1) => {
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -38,7 +37,7 @@ export function loadVideos(page = 1) {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.D,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community: curCommunity.raw,
@@ -54,7 +53,7 @@ export function loadVideos(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onTitleSelect(data) {
+export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -72,12 +71,13 @@ export function onTitleSelect(data) {
   })
 }
 
-export function createContent() {
-  debug('createContent')
+export const onContentCreate = () => {
+  if (!store.isLogin) return store.authWarning()
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
-export function onTagSelect(tag) {
+export const onTagSelect = tag => {
   store.selectTag(tag)
   loadVideos()
   store.markRoute({ tag: tag.title })
@@ -88,7 +88,14 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadVideos()
 }
-export const onCustomChange = option => store.updateC11N(option)
+export const onC11NChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadVideos(store.pagedVideos.pageNumber)
+  }
+}
 
 // ###############################
 // Data & Error handlers
@@ -152,16 +159,17 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

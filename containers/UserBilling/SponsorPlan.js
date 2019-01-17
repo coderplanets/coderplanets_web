@@ -1,6 +1,6 @@
 import React from 'react'
+import { Button } from 'antd'
 
-import { Button } from '../../components'
 import { ICON_CMD, SPONSOR_AMOUNT_THRESHOLD } from '../../config'
 
 import {

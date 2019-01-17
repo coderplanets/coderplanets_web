@@ -5,6 +5,18 @@ import R from 'ramda'
 import { PAGE_SIZE } from '../config'
 import initRootStore from '../stores/init'
 
+import ThemeWrapper from '../containers/ThemeWrapper'
+import MultiLanguage from '../containers/MultiLanguage'
+import Preview from '../containers/Preview'
+import Doraemon from '../containers/Doraemon'
+import Route from '../containers/Route'
+import BodyLayout from '../containers/BodyLayout'
+import Header from '../containers/Header'
+import ArticleBanner from '../containers/ArticleBanner'
+import JobContent from '../containers/JobContent'
+import Footer from '../containers/Footer'
+
+/*
 import {
   ThemeWrapper,
   MultiLanguage,
@@ -17,7 +29,12 @@ import {
   JobContent,
   Footer,
 } from '../containers'
-import { GAWraper, ErrorPage } from '../components'
+*/
+
+import GAWraper from '../components/GAWraper'
+import ErrorPage from '../components/ErrorPage'
+
+// import { GAWraper, ErrorPage } from '../components'
 
 import {
   makeGQClient,

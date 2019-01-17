@@ -89,7 +89,9 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
       return {
         cheatsheetThread: {
           cheatsheet: resp.cheatsheet,
-          curView: R.isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
+          curView: R.isEmpty(resp.cheatsheet.readme)
+            ? TYPE.NOT_FOUND
+            : TYPE.RESULT,
         },
       }
     }

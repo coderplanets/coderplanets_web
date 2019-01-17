@@ -17,6 +17,7 @@ const primaryMate = '#cc8651'
 
 // https://www.slant.co/topics/7880/viewpoints/10/~dark-themes-for-text-editors~monokai-pro
 const monokai = {
+  name: 'monokai',
   logoText: descText,
   cover: '#2B292C',
   coverIndex: '#9e96c3',
@@ -57,7 +58,7 @@ const monokai = {
     tabOthers: descText,
     cardBg: '#39363a',
     cardBorder: '#555356',
-    cardLogo: descText,
+    cardLogoText: descText,
     cardTitle: primaryColor,
   },
   banner: {

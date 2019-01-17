@@ -1,9 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TrendLine } from '../../components'
-// import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles'
+import TrendLine from '../../components/TrendLine'
+
 import {
   Wrapper,
   MenuRow,
@@ -21,6 +20,7 @@ const MenuBar = ({ pin, item, activeRaw }) => (
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           active={activeRaw === R.toLower(item.raw)}
+          raw={item.raw}
           src={item.logo}
         />
         {/* eslint-disable jsx-a11y/anchor-is-valid */}

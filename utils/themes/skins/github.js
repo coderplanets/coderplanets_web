@@ -17,6 +17,7 @@ const threadTitle = '#7b7878'
 // const primaryMate = 'orange'
 
 const github = {
+  name: 'github',
   logoText: descText,
   cover: 'white',
   coverIndex: '#F9FCFC',
@@ -53,10 +54,10 @@ const github = {
     fixed: contentBoxBg,
     tabActive: '#EB6224', // articleTitle
     tabOthers: lighten(0.1, '#849ca0'),
-    cardBg: '#e6ecec',
-    cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
-    cardTitle: '#a0b5b9',
+    cardBg: '#ffffff',
+    cardBorder: '#e6e6e6',
+    cardLogoText: 'lightgrey',
+    cardTitle: 'darkgrey',
   },
   banner: {
     title: '#949494',
@@ -227,14 +228,14 @@ const github = {
     bg: darken(0.05, contentBoxBg),
   },
   shell: {
-    link: lighten(0.3, primaryColor),
-    searchInput: lighten(0.3, primaryColor),
-    searchIcon: lighten(0.3, primaryColor),
-    barBg: darken(0.03, primaryColor),
-    border: darken(0.05, primaryColor),
-    title: lighten(0.3, bannerBg),
-    desc: lighten(0.2, primaryColor),
-    activeBg: darken(0.1, primaryColor),
+    link: '#bbb9b7',
+    searchInput: '#bbb9b7',
+    searchIcon: '#bbb9b7',
+    barBg: '#F0F0F0',
+    border: darken(0.05, '#F0F0F0'),
+    title: '#949494',
+    desc: '#bbb9b7',
+    activeBg: '#e6e6e6',
   },
   button: {
     primary: primaryColor,

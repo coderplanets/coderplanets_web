@@ -1,8 +1,10 @@
 import React from 'react'
-import { Input, Radio } from 'antd'
+import { Button, Input, Radio } from 'antd'
 
 import { ICON_CMD } from '../../config'
-import { SectionLabel, Space, Button } from '../../components'
+
+import SectionLabel from '../../components/SectionLabel'
+import { Space } from '../../components/BaseStyled'
 
 import {
   Wrapper,

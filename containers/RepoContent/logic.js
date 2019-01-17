@@ -13,7 +13,7 @@ const debug = makeDebugger('L:RepoContent')
 
 let store = null
 
-export function someMethod() {}
+export const someMethod = () => {}
 
 // ###############################
 // Data & Error handlers
@@ -41,7 +41,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   debug('init store: ', store)
@@ -49,8 +49,9 @@ export function init(_store) {
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

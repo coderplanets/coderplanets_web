@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-// import { Img } from '../../../components'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -9,7 +8,9 @@ export const Wrapper = styled.div`
   width: 48%;
   max-width: 60%;
 `
-export const Header = styled.div``
+export const Header = styled.div`
+  ${cs.flex('align-center')};
+`
 export const Middle = styled.div`
   ${cs.flex('align-end')};
   padding: 5px 0;
@@ -18,11 +19,13 @@ export const Middle = styled.div`
 export const Footer = styled.div`
   color: ${theme('thread.articleDigest')};
 `
-
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1rem;
-  width: 90%;
+`
+export const CommunitiesWrapper = styled.div`
+  margin-left: 5px;
+  margin-top: -1px;
 `
 export const SalaryWrapper = styled.div`
   font-size: 0.9rem;

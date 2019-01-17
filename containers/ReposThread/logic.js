@@ -1,7 +1,5 @@
 import R from 'ramda'
 
-import { PAGE_SIZE } from '../../config'
-
 import {
   makeDebugger,
   $solver,
@@ -30,7 +28,7 @@ let store = null
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
-export function loadRepos(page = 1) {
+export const loadRepos = (page = 1) => {
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -39,7 +37,7 @@ export function loadRepos(page = 1) {
   const args = {
     filter: {
       page,
-      size: PAGE_SIZE.D,
+      size: store.pageDensity,
       ...store.filtersData,
       tag: store.activeTagData.title,
       community: curCommunity.raw,
@@ -55,7 +53,7 @@ export function loadRepos(page = 1) {
   store.markRoute({ page, ...store.filtersData })
 }
 
-export function onTitleSelect(data) {
+export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
@@ -72,11 +70,13 @@ export function onTitleSelect(data) {
   })
 }
 
-export function createContent() {
+export const onContentCreate = () => {
+  if (!store.isLogin) return store.authWarning()
+
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
-export function onTagSelect(tag) {
+export const onTagSelect = tag => {
   store.selectTag(tag)
   loadRepos()
   store.markRoute({ tag: tag.title })
@@ -87,7 +87,14 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadRepos()
 }
-export const onCustomChange = option => store.updateC11N(option)
+export const onC11NChange = option => {
+  dispatchEvent(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+
+  if (R.has('displayDensity', option)) {
+    loadRepos(store.pagedRepos.pageNumber)
+  }
+}
 
 // ###############################
 // Data & Error handlers
@@ -131,16 +138,17 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

@@ -24,7 +24,7 @@ const debug = makeDebugger('L:UserPublishedComments')
 
 let store = null
 
-const beforeQuery = page => {
+const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
   // args
   return {
@@ -33,27 +33,19 @@ const beforeQuery = page => {
   }
 }
 
-export function loadPostComments(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedPostComments, args)
-}
+export const loadPostComments = (page = 1) =>
+  sr71$.query(S.publishedPostComments, getQueryArgs(page))
 
-export function loadJobComments(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedJobComments, args)
-}
+export const loadJobComments = (page = 1) =>
+  sr71$.query(S.publishedJobComments, getQueryArgs(page))
 
-export function loadVideoComments(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedVideoComments, args)
-}
+export const loadVideoComments = (page = 1) =>
+  sr71$.query(S.publishedVideoComments, getQueryArgs(page))
 
-export function loadRepoComments(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.publishedRepoComments, args)
-}
+export const loadRepoComments = (page = 1) =>
+  sr71$.query(S.publishedRepoComments, getQueryArgs(page))
 
-export function onThreadChange(curThread) {
+export const onThreadChange = curThread => {
   // TODO: markRoute
   store.markState({ curThread })
   // reload()
@@ -73,9 +65,9 @@ export function onThreadChange(curThread) {
   }
 }
 
-export function onTitleSelect(data) {
+export const onPreview = data => {
   const thread = store.curThread
-  debug('onTitleSelect data: ', data[thread])
+  debug('onPreview data: ', data[thread])
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
@@ -134,14 +126,10 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) {
-    return loadPostComments()
-  }
+export const init = _store => {
   store = _store
 
-  debug(store)
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
   loadPostComments()

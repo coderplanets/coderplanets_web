@@ -20,14 +20,14 @@ import { makeDebugger, cutFrom, C11N } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:RepoItem:index')
 
-const RepoItem = ({ entry, active, onTitleSelect, accountInfo }) => (
+const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
     <ArticleItemPrefixLabel
       entry={entry}
       accountInfo={accountInfo}
       topoffset="22px"
     />
-    <Header entry={entry} onTitleSelect={onTitleSelect.bind(this, entry)} />
+    <Header entry={entry} onPreview={onPreview.bind(this, entry)} />
     <BodyDigest>{cutFrom(entry.desc, 180)}</BodyDigest>
     <Footer
       contributors={entry.contributors}
@@ -59,11 +59,11 @@ RepoItem.propTypes = {
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
-  onTitleSelect: PropTypes.func,
+  onPreview: PropTypes.func,
 }
 
 RepoItem.defaultProps = {
-  onTitleSelect: debug,
+  onPreview: debug,
   active: {},
   accountInfo: {
     isLogin: false,

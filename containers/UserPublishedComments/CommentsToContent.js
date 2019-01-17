@@ -1,7 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { MarkDownRender, CommentLoading, EmptyLabel } from '../../components'
+import MarkDownRender from '../../components/MarkDownRender'
+import EmptyLabel from '../../components/EmptyLabel'
+import { CommentLoading } from '../../components/LoadingEffects'
+
 import {
   Wrapper,
   CommentBlock,
@@ -19,7 +22,7 @@ import Parent from './Parent'
 
 import { TYPE, Trans } from '../../utils'
 
-const CommentsToContent = ({ data, thread, curView, onTitleSelect }) => {
+const CommentsToContent = ({ data, thread, curView, onPreview }) => {
   const { entries } = data
 
   switch (curView) {
@@ -28,7 +31,7 @@ const CommentsToContent = ({ data, thread, curView, onTitleSelect }) => {
         <Wrapper>
           {entries.map(comment => (
             <div key={comment.id}>
-              <CommentBlock onClick={onTitleSelect.bind(this, comment)}>
+              <CommentBlock onClick={onPreview.bind(this, comment)}>
                 <Parent data={comment} thread={thread} />
                 <CommentBox>
                   <CommentHeader>

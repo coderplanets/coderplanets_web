@@ -18,7 +18,7 @@ const PostsList = ({ props }) => {
     community,
     thread,
     emptyPrefix,
-    onTitleSelect,
+    onPreview,
     onUserSelect,
     accountInfo,
   } = props
@@ -35,7 +35,7 @@ const PostsList = ({ props }) => {
               active={active}
               accountInfo={accountInfo}
               onUserSelect={onUserSelect}
-              onTitleSelect={onTitleSelect.bind(this, entry)}
+              onPreview={onPreview.bind(this, entry)}
             />
           ))}
         </React.Fragment>

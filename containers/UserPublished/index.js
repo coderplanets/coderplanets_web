@@ -7,11 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ThreadSelector, PagedContents } from '../../components'
-import { ThreadWrapper } from './styles'
-import { makeDebugger, storePlug } from '../../utils'
+import ThreadSelector from '../../components/ThreadSelector'
+import PagedContents from '../../components/PagedContents'
 
+import { ThreadWrapper } from './styles'
+
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserPublished')
 
@@ -55,7 +58,7 @@ class UserPublishedContainer extends React.Component {
           accountInfo={accountInfo}
           emptyPrefix={`未找到 ${viewingUser.nickname} 发布的`}
           onPageChange={logic.reload}
-          onTitleSelect={logic.onTitleSelect}
+          onPreview={logic.onPreview}
         />
       </React.Fragment>
     )

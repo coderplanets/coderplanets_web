@@ -1,6 +1,6 @@
 import styled from 'styled-components'
+import { Input } from 'antd'
 
-import { Input } from '../../../components'
 import { theme, cs } from '../../../utils'
 
 export const ViewerWrapper = styled.div`

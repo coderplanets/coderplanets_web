@@ -11,17 +11,6 @@ import {
   timeoutWith,
 } from 'rxjs/operators'
 
-// import 'rxjs/add/observable/of'
-// import 'rxjs/add/observable/fromEventPattern'
-
-/*
-   import 'rxjs/add/operator/debounceTime'
-   import 'rxjs/add/operator/do'
-   import 'rxjs/add/operator/switchMap'
-   import 'rxjs/add/operator/merge'
-   import 'rxjs/add/operator/timeoutWith'
- */
-
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
 

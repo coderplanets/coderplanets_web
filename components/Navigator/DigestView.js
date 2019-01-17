@@ -16,7 +16,7 @@ import MainEntries from './MainEntries'
 
 const DigestView = () => (
   <Breadcrumbs>
-    <Logo src={`${ICON_CMD}/keyboard_logo.png`} />
+    <Logo />
     <Popover
       placement="bottom"
       trigger="hover"

@@ -3,7 +3,9 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
-import { Tabber, CommunityStatesPad, CommunityHolder } from '../../components'
+import Tabber from '../../components/Tabber'
+import CommunityStatesPad from '../../components/CommunityStatesPad'
+import { CommunityHolder } from '../../components/LoadingEffects'
 
 import {
   Wrapper,
@@ -21,7 +23,13 @@ import {
 } from './styles/digest_view'
 
 import { NON_FILL_COMMUNITY } from '../../utils'
-import { tabberChange, onShowEditorList, onShowSubscriberList } from './logic'
+import {
+  tabberChange,
+  onSubscribe,
+  onUndoSubscribe,
+  onShowEditorList,
+  onShowSubscriberList,
+} from './logic'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
@@ -32,6 +40,7 @@ const CommunityBrief = ({ content }) => (
         <CommunityLogo
           nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
           src={content.logo}
+          raw={content.raw}
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (
@@ -55,6 +64,8 @@ const DigestView = ({ community, activeThread, layout }) => (
         <CommunityBrief content={community} />
         <CommunityStatesPad
           community={community}
+          onSubscribe={onSubscribe}
+          onUndoSubscribe={onUndoSubscribe}
           onShowEditorList={onShowEditorList}
           onShowSubscriberList={onShowSubscriberList}
         />

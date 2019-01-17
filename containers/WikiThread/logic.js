@@ -41,7 +41,7 @@ const syncWiki = readme => {
   sr71$.mutate(S.syncWiki, args)
 }
 
-export function syncWikiFromGithub() {
+export const syncWikiFromGithub = () => {
   githubApi
     .searchWiki(store.curCommunity.raw)
     .then(res => {
@@ -52,7 +52,7 @@ export function syncWikiFromGithub() {
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
-export function addContributor(user) {
+export const addContributor = user => {
   const args = {
     id: store.wikiData.id,
     contributor: user,
@@ -113,14 +113,14 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.curView === TYPE.LOADING || !sub$) return false
   debug('===== do uninit')
   sub$.unsubscribe()

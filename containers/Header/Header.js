@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Navigator } from '../../components'
 import MailBox from '../MailBox'
 import UserLister from '../UserLister'
 import Cashier from '../Cashier'
 import UpgradePackges from '../UpgradePackges'
+
+import Navigator from '../../components/Navigator'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
@@ -19,7 +20,7 @@ import {
   Operations,
 } from './styles/header'
 
-// import { uid, Trans } from '../../utils'
+import { TYPE } from '../../utils'
 import { openDoraemon } from './logic'
 
 const Header = ({
@@ -32,7 +33,7 @@ const Header = ({
   curCommunity,
 }) => (
   <Wrapper id="whereCallShowDoraemon" leftOffset={leftOffset} fixed={fixed}>
-    <InnerWrapper>
+    <InnerWrapper id={TYPE.APP_HEADER_ID}>
       <RouterWrapper>
         {fixed ? (
           <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />

@@ -9,4 +9,8 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/cypress',
   ],
+  transform: {
+    '^.+\\.jsx$': 'babel-jest',
+    '^.+\\.js$': 'babel-jest',
+  },
 }

@@ -227,7 +227,7 @@ const doNavigate = () => {
   debug('doNavigate cmd: ', store.activeSuggestion)
 }
 
-export function handleShortCuts(e) {
+export const handleShortCuts = e => {
   switch (e.key) {
     case 'Tab': {
       SAK.completeInput()
@@ -272,19 +272,19 @@ export const selectSuggestion = () => {
   doSpecCmd()
 }
 
-export function inputOnBlur() {
+export const inputOnBlur = () => {
   if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
     hidePanel()
   }
 }
 
-export function hidePanel() {
+export const hidePanel = () => {
   emptySearchStates()
   store.hideDoraemon()
   pockect$.stop()
 }
 
-export function inputOnChange({ target: { value: inputValue } }) {
+export const inputOnChange = ({ target: { value: inputValue } }) => {
   store.markState({ inputValue, cmdChain: null })
   queryPocket()
 }
@@ -464,7 +464,7 @@ const emptySearchStates = () => {
   })
 }
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
 
   store = _store

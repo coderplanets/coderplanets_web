@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
-import { BaseBanner, BaseTabber } from './index'
 import Img from '../../../components/Img'
+import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
+
+import { BaseBanner, BaseTabber } from './index'
 import { theme, cs, MEDIA_MAX_WIDTH } from '../../../utils'
 
 export const Wrapper = styled(BaseBanner)`
@@ -39,11 +41,9 @@ export const LogoWrapper = styled.div`
     margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
   }
 `
-export const CommunityLogo = styled(Img)`
-  fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};
+export const CommunityLogo = styled(CommunityFaceLogo)`
   width: 60px;
   height: 60px;
-  display: block;
   @media (max-height: 800px) {
     width: 50px;
     height: 50px;

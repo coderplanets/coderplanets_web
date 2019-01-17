@@ -3,7 +3,8 @@ import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
 
-import { AvatarsRow } from '../../components'
+import AvatarsRow from '../../components/AvatarsRow'
+
 import {
   Wrapper,
   UsageText,

@@ -7,16 +7,17 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
+import R from 'ramda'
+import { Affix } from 'antd'
 
+import CityList from './CityList'
 import TagsBar from '../TagsBar'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-  StrategicPartners,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
+import StrategicPartners from '../../components/StrategicPartners'
+import ConstructingThread from '../../components/ConstructingThread'
 
 import {
   Wrapper,
@@ -28,7 +29,7 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
+import { makeDebugger, storePlug, ROUTE, THREAD } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostsThread')
@@ -37,6 +38,26 @@ const LabelText = {
   radar: '采集信息',
   share: '我要分享',
   city: '发布同城帖',
+}
+
+const isSpecThread = (community, thread) => {
+  if (R.contains(thread, [THREAD.GROUP, THREAD.COMPANY])) {
+    return true
+  }
+
+  if (community === ROUTE.HOME && thread === THREAD.CITY) {
+    return true
+  }
+
+  return false
+}
+
+const SpecThread = ({ community, thread, cityCommunities }) => {
+  if (community === ROUTE.HOME && thread === THREAD.CITY) {
+    return <CityList items={cityCommunities.entries} />
+  }
+
+  return <ConstructingThread thread={thread} />
 }
 
 // see https://stackoverflow.com/questions/38137740/which-kinds-of-initialization-is-more-appropriate-in-constructor-vs-componentwil/
@@ -64,60 +85,74 @@ class PostsThreadContainer extends React.Component {
       accountInfo,
       isLogin,
       activeTagData,
+      curCommunity,
+      curThread,
+      pagedCityCommunitiesData,
     } = postsThread
 
-    const { mainPath, subPath } = curRoute
+    const { subPath } = curRoute
     const { totalCount } = pagedPostsData
     const topic = subPath
 
     return (
       <Wrapper>
         <LeftPadding />
-        <LeftPart>
-          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper>
-            {/* TODO: show when url has tag query and totalCount = 0 */}
-            <ContentFilter
-              thread={THREAD.POST}
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-              isLogin={isLogin}
-              accountInfo={accountInfo}
-              totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
-            />
-          </FilterWrapper>
-
-          <PagedContents
-            data={pagedPostsData}
-            community={mainPath}
-            thread={THREAD.POST}
-            curView={curView}
-            active={activePost}
-            accountInfo={accountInfo}
-            onUserSelect={logic.onUserSelect}
-            onTitleSelect={logic.onTitleSelect}
-            onPageChange={logic.loadPosts}
+        {isSpecThread(curCommunity.raw, curThread) ? (
+          <SpecThread
+            community={curCommunity.raw}
+            thread={curThread}
+            cityCommunities={pagedCityCommunitiesData}
           />
-        </LeftPart>
-
-        <RightPart>
+        ) : (
           <React.Fragment>
-            <PublishBtn type="primary" onClick={logic.createContent}>
-              <PublishLabel text={LabelText[subPath] || '发布帖子'} />
-            </PublishBtn>
+            <LeftPart>
+              <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
+              <FilterWrapper>
+                {/* TODO: show when url has tag query and totalCount = 0 */}
+                <ContentFilter
+                  thread={THREAD.POST}
+                  onSelect={logic.onFilterSelect}
+                  activeFilter={filtersData}
+                  isLogin={isLogin}
+                  accountInfo={accountInfo}
+                  totalCount={totalCount}
+                  onC11NChange={logic.onC11NChange}
+                />
+              </FilterWrapper>
 
-            <Affix offsetTop={50}>
-              <TagsBar
+              <PagedContents
+                data={pagedPostsData}
+                community={curCommunity.raw}
                 thread={THREAD.POST}
-                topic={topic}
-                onSelect={logic.onTagSelect}
-                active={activeTagData}
+                curView={curView}
+                active={activePost}
+                accountInfo={accountInfo}
+                onUserSelect={logic.onUserSelect}
+                onPreview={logic.onPreview}
+                onPageChange={logic.loadPosts}
               />
-              <StrategicPartners onClose={logic.onAdsClose} />
-            </Affix>
+            </LeftPart>
+
+            <RightPart>
+              <React.Fragment>
+                <PublishBtn type="primary" onClick={logic.onContentCreate}>
+                  <PublishLabel text={LabelText[subPath] || '发布帖子'} />
+                </PublishBtn>
+
+                <Affix offsetTop={50}>
+                  <TagsBar
+                    thread={THREAD.POST}
+                    topic={topic}
+                    onSelect={logic.onTagSelect}
+                    active={activeTagData}
+                  />
+                  <StrategicPartners onClose={logic.onAdsClose} />
+                </Affix>
+              </React.Fragment>
+            </RightPart>
           </React.Fragment>
-        </RightPart>
+        )}
+
         <RightPadding />
       </Wrapper>
     )

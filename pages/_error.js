@@ -5,7 +5,7 @@ import GAWraper from '../components/GAWraper'
 import initRootStore from '../stores/init'
 import ThemeWrapper from '../containers/ThemeWrapper'
 
-import { ErrorPage } from '../components'
+import ErrorPage from '../components/ErrorPage'
 
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {

@@ -13,10 +13,14 @@ const debug = makeDebugger('S:CommunityBanner')
 const CommunityBanner = t
   .model('CommunityBanner', {
     loading: t.optional(t.boolean, false),
+    subscribeLoading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+    get isLogin() {
+      return self.root.account.isLogin
     },
     get curRoute() {
       return self.root.curRoute
@@ -32,11 +36,20 @@ const CommunityBanner = t
     },
   }))
   .actions(self => ({
+    authWarning(options) {
+      self.root.authWarning(options)
+    },
     markRoute(query) {
       self.root.markRoute(query)
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
+    },
+    addSubscribedCommunity(community) {
+      self.root.account.addSubscribedCommunity(community)
+    },
+    removeSubscribedCommunity(community) {
+      self.root.account.removeSubscribedCommunity(community)
     },
     markState(sobj) {
       markStates(sobj, self)

@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Modal } from '../../components'
+import Modal from '../../components/Modal'
 // import PaymentView from './PaymentView'
 import Sidebar from './Sidebar'
 import Content from './Content'

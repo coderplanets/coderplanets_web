@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import FavoritesCats from '../FavoritesCats'
-import { PagedContents } from '../../components'
+import PagedContents from '../../components/PagedContents'
 
 import Breadcrumbs from './Breadcrumbs'
 
@@ -57,7 +57,7 @@ class UserFavoritesContainer extends React.Component {
               curView={curView}
               emptyPrefix={`未找到 ${viewingUser.nickname} 收藏的`}
               onPageChange={logic.reload}
-              onTitleSelect={logic.onTitleSelect}
+              onPreview={logic.onPreview}
             />
           </React.Fragment>
         )}

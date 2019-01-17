@@ -21,6 +21,9 @@ export const SecondHalf = styled.div`
   margin-left: 10px;
   margin-top: -3px;
 `
+export const TagsWrapper = styled.div`
+  margin-top: 2px;
+`
 export const CompanyLogo = styled(Img)`
   width: 45px;
   height: 45px;
@@ -29,14 +32,14 @@ export const CompanyLogo = styled(Img)`
   display: block;
 `
 export const Breif = styled.div`
-  ${cs.flex()};
+  ${cs.flex('align-center')};
   flex-grow: 1;
   margin-left: 10px;
+  margin-bottom: 10px;
   color: ${theme('thread.articleTitle')};
 `
 
 export const Title = styled.div`
-  margin-bottom: 10px;
   font-size: 1rem;
   @media (max-width: 1450px) {
     max-width: 500px;

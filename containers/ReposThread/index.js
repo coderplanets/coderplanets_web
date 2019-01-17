@@ -7,16 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
+import { Affix } from 'antd'
 
 import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
 
 import {
   Wrapper,
@@ -72,7 +70,7 @@ class ReposThreadContainer extends React.Component {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
+              onC11NChange={logic.onC11NChange}
             />
           </FilterWrapper>
 
@@ -83,13 +81,13 @@ class ReposThreadContainer extends React.Component {
             curView={curView}
             active={activeRepo}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadRepos}
           />
         </LeftPart>
 
         <RightPart>
-          <PublishBtn type="primary" onClick={logic.createContent}>
+          <PublishBtn type="primary" onClick={logic.onContentCreate}>
             <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
           </PublishBtn>
 

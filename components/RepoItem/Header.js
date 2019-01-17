@@ -23,8 +23,8 @@ import {
 
 import { cutFrom, numberWithCommas } from '../../utils'
 
-const Header = ({ entry, onTitleSelect }) => (
-  <Wrapper onClick={onTitleSelect.bind(this, entry)}>
+const Header = ({ entry, onPreview }) => (
+  <Wrapper onClick={onPreview.bind(this, entry)}>
     <Title>
       <Popover
         placement="bottom"

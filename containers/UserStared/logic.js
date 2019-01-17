@@ -24,7 +24,7 @@ const debug = makeDebugger('L:UserStared')
 
 let store = null
 
-const beforeQuery = page => {
+const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
   // args
   return {
@@ -33,22 +33,16 @@ const beforeQuery = page => {
   }
 }
 
-export function loadPosts(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.staredPosts, args)
-}
+export const loadPosts = (page = 1) =>
+  sr71$.query(S.staredPosts, getQueryArgs(page))
 
-export function loadJobs(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.staredJobs, args)
-}
+export const loadJobs = (page = 1) =>
+  sr71$.query(S.staredJobs, getQueryArgs(page))
 
-export function loadVideos(page = 1) {
-  const args = beforeQuery(page)
-  sr71$.query(S.staredVideos, args)
-}
+export const loadVideos = (page = 1) =>
+  sr71$.query(S.staredVideos, getQueryArgs(page))
 
-export function reload(page) {
+export const reload = page => {
   switch (store.curThread) {
     case THREAD.JOB: {
       return loadJobs(page)
@@ -62,18 +56,18 @@ export function reload(page) {
   }
 }
 
-export function onThreadChange(curThread) {
+export const onThreadChange = curThread => {
   // TODO: markRoute
   store.markState({ curThread })
   reload()
 }
 
-export function onTitleSelect(data) {
+export const onPreview = data => {
   const { curThread: thread } = store
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
-    thread,
+    thread: store.curThread,
     data,
   })
 }
@@ -117,9 +111,8 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
-  loadPosts()
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

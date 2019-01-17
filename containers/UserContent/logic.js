@@ -22,19 +22,19 @@ const debug = makeDebugger('L:UserContent')
 
 let store = null
 
-export function followUser(userId) {
+export const followUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.follow, { userId })
 }
 
-export function undoFollowUser(userId) {
+export const undoFollowUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.undoFollow, { userId })
 }
 
-export function showFollowings(user) {
+export const showFollowings = user => {
   const type = TYPE.USER_LISTER_FOLLOWINGS
   const data = {
     id: user.id,
@@ -44,7 +44,7 @@ export function showFollowings(user) {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export function showFollowers(user) {
+export const showFollowers = user => {
   const type = TYPE.USER_LISTER_FOLLOWERS
   const data = {
     id: user.id,
@@ -54,7 +54,7 @@ export function showFollowers(user) {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export function tabChange(activeThread) {
+export const tabChange = activeThread => {
   store.markState({ activeThread })
   store.markRoute({ tab: activeThread })
 }
@@ -93,7 +93,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return false

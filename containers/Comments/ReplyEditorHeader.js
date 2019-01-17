@@ -1,7 +1,10 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
-import { AvatarsRow, SpaceGrow } from '../../components'
+
+import AvatarsRow from '../../components/AvatarsRow'
+import { SpaceGrow } from '../../components/BaseStyled'
+
 import WordsCounter from './WordsCounter'
 
 import {

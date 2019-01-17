@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '../../config'
-import { Maybe } from '../../components'
+import Maybe from '../../components/Maybe'
 
 import {
   Reaction,
@@ -14,8 +14,8 @@ import {
   Divider,
 } from './styles/reaction'
 
-import { onReaction, onListReactionUsers } from './logic'
 import { TYPE } from '../../utils'
+import { onReaction, onListReactionUsers } from './logic'
 
 const StarReaction = ({ data, show, loading }) => (
   <Maybe test={show}>

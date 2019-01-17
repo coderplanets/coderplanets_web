@@ -23,13 +23,13 @@ const SettingMenu = ({
     markViewed,
     displayDensity,
   },
-  onCustomChange,
+  onC11NChange,
 }) => (
   <Wrapper>
     <React.Fragment>
       <Title>视图显示</Title>
       <Option
-        onClick={onCustomChange.bind(this, {
+        onClick={onC11NChange.bind(this, {
           bannerLayout: bannerLayout === C11N.DIGEST ? C11N.BRIEF : C11N.DIGEST,
         })}
       >
@@ -46,7 +46,7 @@ const SettingMenu = ({
       {!R.contains(thread, [THREAD.VIDEO, THREAD.REPO]) ? (
         <React.Fragment>
           <Option
-            onClick={onCustomChange.bind(this, { contentsLayout: C11N.LIST })}
+            onClick={onC11NChange.bind(this, { contentsLayout: C11N.LIST })}
           >
             <OptionText>列表视图</OptionText>
             <OptionIcon
@@ -55,7 +55,7 @@ const SettingMenu = ({
             />
           </Option>
           <Option
-            onClick={onCustomChange.bind(this, { contentsLayout: C11N.DIGEST })}
+            onClick={onC11NChange.bind(this, { contentsLayout: C11N.DIGEST })}
           >
             <OptionText active>摘要视图</OptionText>
             <OptionIcon
@@ -71,7 +71,7 @@ const SettingMenu = ({
     </React.Fragment>
 
     <Title>阅读辅助</Title>
-    <Option onClick={onCustomChange.bind(this, { markViewed: !markViewed })}>
+    <Option onClick={onC11NChange.bind(this, { markViewed: !markViewed })}>
       <OptionText>已读标记</OptionText>
       <OptionIcon
         src={
@@ -86,7 +86,7 @@ const SettingMenu = ({
     {R.contains(thread, [THREAD.POST, THREAD.JOB]) ? (
       <React.Fragment>
         <Option
-          onClick={onCustomChange.bind(this, {
+          onClick={onC11NChange.bind(this, {
             contentDivider: !contentDivider,
           })}
         >
@@ -107,21 +107,21 @@ const SettingMenu = ({
     )}
 
     <Title>显示密度</Title>
-    <Option onClick={onCustomChange.bind(this, { displayDensity: '20' })}>
+    <Option onClick={onC11NChange.bind(this, { displayDensity: '20' })}>
       <OptionText>20条 / 页</OptionText>
       <OptionIcon
         src={`${ICON_CMD}/check2.svg`}
         active={displayDensity === '20'}
       />
     </Option>
-    <Option onClick={onCustomChange.bind(this, { displayDensity: '25' })}>
+    <Option onClick={onC11NChange.bind(this, { displayDensity: '25' })}>
       <OptionText>25条 / 页</OptionText>
       <OptionIcon
         src={`${ICON_CMD}/check2.svg`}
         active={displayDensity === '25'}
       />
     </Option>
-    <Option onClick={onCustomChange.bind(this, { displayDensity: '30' })}>
+    <Option onClick={onC11NChange.bind(this, { displayDensity: '30' })}>
       <OptionText>30条 / 页</OptionText>
       <OptionIcon
         src={`${ICON_CMD}/check2.svg`}

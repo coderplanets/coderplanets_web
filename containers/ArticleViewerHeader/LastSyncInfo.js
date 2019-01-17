@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { Maybe, Popover } from '../../components'
-// import { ICON_CMD } from '../../config'
+import Maybe from '../../components/Maybe'
+import Popover from '../../components/Popover'
+
 import {
   Reaction,
   PlainAction,

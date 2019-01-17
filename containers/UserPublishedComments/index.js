@@ -7,14 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ThreadSelector } from '../../components'
-import { ThreadWrapper } from './styles'
-
+import ThreadSelector from '../../components/ThreadSelector'
 import CommentsToContent from './CommentsToContent'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { ThreadWrapper } from './styles'
 
+import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserPublishedComments')
 
@@ -47,7 +47,7 @@ class UserPublishedCommentsContainer extends React.Component {
           thread={curThread}
           curView={curView}
           data={pagedCommentsData}
-          onTitleSelect={logic.onTitleSelect}
+          onPreview={logic.onPreview}
         />
       </div>
     )

@@ -25,7 +25,7 @@ export const backToOverview = () =>
 
 export const onMessageChange = e => store.markState({ message: e.target.value })
 
-export function onConfirm() {
+export const onConfirm = () => {
   debug('onConfirm')
   store.toastDone({
     title: '感谢提交',
@@ -35,12 +35,11 @@ export function onConfirm() {
   toggleModal()
 }
 
-export function yesReport(type) {
+export const yesReport = type =>
   store.markState({
     curView: 'form',
     type,
   })
-}
 
 // ###############################
 // Data & Error handlers
@@ -68,16 +67,17 @@ const ErrSolver = [
   },
 ]
 
-export function uninit() {
-  store.markState({ curView: 'overview' })
-  sub$.unsubscribe()
-  sub$ = null
-}
-
-export function init(_store) {
+export const init = _store => {
   store = _store
 
-  debug(store)
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+}
+
+export const uninit = () => {
+  if (!sub$) return false
+  store.markState({ curView: 'overview' })
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
 }

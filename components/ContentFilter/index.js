@@ -24,7 +24,7 @@ const ContentFilter = ({
   onSelect,
   accountInfo: { isLogin, customization },
   totalCount,
-  onCustomChange,
+  onC11NChange,
 }) => (
   <Wrapper>
     <MainFilterWrapper>
@@ -41,7 +41,7 @@ const ContentFilter = ({
       thread={thread}
       totalCount={totalCount}
       customization={customization}
-      onCustomChange={onCustomChange}
+      onC11NChange={onC11NChange}
     />
   </Wrapper>
 )
@@ -74,7 +74,7 @@ ContentFilter.propTypes = {
     }),
   }),
   totalCount: PropTypes.number,
-  onCustomChange: PropTypes.func,
+  onC11NChange: PropTypes.func,
 }
 
 ContentFilter.defaultProps = {
@@ -105,7 +105,7 @@ ContentFilter.defaultProps = {
     }),
   },
   totalCount: 0,
-  onCustomChange: debug,
+  onC11NChange: debug,
 }
 
 export default ContentFilter

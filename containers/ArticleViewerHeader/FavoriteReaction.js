@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '../../config'
-import { Maybe } from '../../components'
+
+import Maybe from '../../components/Maybe'
 
 import {
   Reaction,
@@ -15,8 +16,8 @@ import {
   Divider,
 } from './styles/reaction'
 
-import { onReaction, onListReactionUsers } from './logic'
 import { TYPE, THREAD } from '../../utils'
+import { onReaction, onListReactionUsers } from './logic'
 
 const FavoriteReation = ({ data, thread, show, loading }) => (
   <Maybe test={show}>

@@ -6,16 +6,14 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
+import { Affix } from 'antd'
 
 import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
-import {
-  Affix,
-  ContentFilter,
-  PublishLabel,
-  PagedContents,
-} from '../../components'
+import ContentFilter from '../../components/ContentFilter'
+import PublishLabel from '../../components/PublishLabel'
+import PagedContents from '../../components/PagedContents'
 
 import {
   Wrapper,
@@ -70,7 +68,7 @@ class VideosThreadContainer extends React.Component {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onCustomChange={logic.onCustomChange}
+              onC11NChange={logic.onC11NChange}
             />
           </FilterWrapper>
 
@@ -81,14 +79,14 @@ class VideosThreadContainer extends React.Component {
             curView={curView}
             active={activeVideo}
             accountInfo={accountInfo}
-            onTitleSelect={logic.onTitleSelect}
+            onPreview={logic.onPreview}
             onPageChange={logic.loadVideos}
           />
         </LeftPart>
 
         <RightPart>
           <React.Fragment>
-            <PublishBtn type="primary" onClick={logic.createContent}>
+            <PublishBtn type="primary" onClick={logic.onContentCreate}>
               <PublishLabel text="发布视频" iconSrc={`${ICON_CMD}/link2.svg`} />
             </PublishBtn>
 

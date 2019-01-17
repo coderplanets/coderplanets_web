@@ -32,6 +32,7 @@ const PostEditor = t
       ]),
       'CREATE_VIEW'
     ),
+    contentDomId: t.optional(t.string, 'post_editor_content_id'),
 
     publishing: t.optional(t.boolean, false),
     // TODO: rename to isEditMode
@@ -120,7 +121,6 @@ const PostEditor = t
     reset() {
       self.markState({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
-      self.editJob = { title: '', body: '' }
     },
     updateMentionList(mentionArray) {
       const curMentionList = R.clone(self.mentionList)

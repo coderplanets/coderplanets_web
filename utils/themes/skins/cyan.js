@@ -17,6 +17,7 @@ const descText = '#a3bbbd'
 const primaryMate = 'orange'
 
 const cyan = {
+  name: 'cyan',
   logoText: descText,
   cover: primaryColor,
   coverIndex: '#F9FCFC',
@@ -55,7 +56,7 @@ const cyan = {
     tabOthers: lighten(0.1, '#849ca0'),
     cardBg: '#e6ecec',
     cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
+    cardLogoText: '#A0BBBD',
     cardTitle: '#a0b5b9',
   },
   banner: {

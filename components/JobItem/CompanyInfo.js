@@ -18,8 +18,9 @@ import { cutFrom } from '../../utils'
 
 const CompanyInfo = ({
   entry: { company, companyLogo, desc, field, finance, scale },
+  onPreview,
 }) => (
-  <Wrapper>
+  <Wrapper onClick={onPreview}>
     <TopHalf>
       <BaseInfo>
         <Header>

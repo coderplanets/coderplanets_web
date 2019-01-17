@@ -212,7 +212,7 @@ const initStates = displayMode => {
   return loadCategories()
 }
 
-export function init(_store, displayMode) {
+export const init = (_store, displayMode) => {
   store = _store
 
   debug(store)
@@ -222,9 +222,10 @@ export function init(_store, displayMode) {
   initStates(displayMode)
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

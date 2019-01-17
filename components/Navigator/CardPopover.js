@@ -17,7 +17,7 @@ import {
 const CardPopover = ({ community }) => (
   <Wrapper>
     <Body>
-      <CommunityLogo src={community.logo} />
+      <CommunityLogo src={community.logo} raw={community.raw} />
       <CommunityInfo>
         <Title>{community.title}</Title>
         <Desc>{community.desc}</Desc>

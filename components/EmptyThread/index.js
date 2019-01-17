@@ -6,9 +6,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withTheme } from 'styled-components'
 
 import { ICON_BASE, ISSUE_ADDR } from '../../config'
-import { makeDebugger, Trans } from '../../utils'
 
 import {
   Icon404,
@@ -19,6 +19,9 @@ import {
   DescWrapper,
   IssueLink,
 } from './styles'
+
+import { makeDebugger, Trans, getRandomInt } from '../../utils'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:EmptyThread:index')
 
@@ -43,10 +46,32 @@ const DescContent = ({ community, thread }) => (
   </React.Fragment>
 )
 
-const EmptyThread = ({ community, thread }) => (
+const rotateAngles = [
+  'rotate(0deg)',
+  'rotate(30deg)',
+  'rotate(60deg)',
+  'rotate(90deg)',
+  'rotate(120deg)',
+  'rotate(150deg)',
+  'rotate(180deg)',
+  'rotate(210deg)',
+  'rotate(240deg)',
+  'rotate(270deg)',
+  'rotate(300deg)',
+  'rotate(330deg)',
+]
+
+const getRandomAngle = () =>
+  rotateAngles[getRandomInt(0, rotateAngles.length - 1)]
+
+// <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
+const EmptyThread = ({ community, thread, theme }) => (
   <Wrapper>
     <Icon>
-      <Icon404 src={`${ICON_BASE}/404/nofound1.svg`} />
+      <Icon404
+        src={`${ICON_BASE}/404/not-found-${theme.name}.png`}
+        angle={getRandomAngle()}
+      />
     </Icon>
     <Text>
       <Title>
@@ -64,9 +89,10 @@ EmptyThread.propTypes = {
   // https://www.npmjs.com/package/prop-types
   community: PropTypes.string.isRequired,
   thread: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 }
 
 EmptyThread.defaultProps = {}
 
 // 如果你发现是网站的问题，恳请你在这里提交
-export default EmptyThread
+export default withTheme(EmptyThread)

@@ -16,6 +16,7 @@ import {
   Breif,
   Title,
   SecondHalf,
+  TagsWrapper,
   Extra,
   CommentWrapper,
   CommentIcon,
@@ -24,12 +25,12 @@ import {
 // import { Wrapper } from './styles'
 import { cutFrom, getDomain } from '../../utils'
 
-const ListView = ({ entry, onTitleSelect }) => (
+const ListView = ({ entry, onPreview }) => (
   <Wrapper>
     <CompanyLogo src={entry.companyLogo} />
     <Main>
       <TopHalf>
-        <Breif onClick={onTitleSelect.bind(this, entry)}>
+        <Breif onClick={onPreview.bind(this, entry)}>
           <Title>
             【 {entry.company} 】{cutFrom(entry.title, 45)}
           </Title>
@@ -39,7 +40,9 @@ const ListView = ({ entry, onTitleSelect }) => (
               <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
             </TitleLink>
           ) : null}
-          <InlineTags data={entry.tags} />
+          <TagsWrapper>
+            <InlineTags data={entry.tags} />
+          </TagsWrapper>
         </Breif>
         <CommentWrapper>
           <CommentIcon src={`${ICON_CMD}/list_comments.svg`} />

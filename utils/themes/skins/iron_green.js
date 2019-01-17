@@ -17,6 +17,7 @@ const markdownFont = '#B4C7C6'
 const descText = '#7EA7AC'
 
 const iconGreen = {
+  name: 'ironGreen',
   logoText: descText,
   cover: bannerBg,
   coverIndex: '#F9FCFC',
@@ -47,16 +48,16 @@ const iconGreen = {
     pinkBtnText: '#fff !important',
   },
   header: {
-    fg: primaryColor,
+    fg: descText,
     bg: bannerBg,
     spliter: darken(0.04, bannerBg),
     fixed: bannerBg,
     tabActive: darken(0.05, primaryColor),
     tabOthers: lighten(0.08, descText),
-    cardBg: '#e6ecec',
-    cardBorder: '#ccd8d6',
-    cardLogo: '#A0BBBD',
-    cardTitle: '#a0b5b9',
+    cardBg: '#578187',
+    cardBorder: '#578ba5',
+    cardLogoText: '#82a7ad',
+    cardTitle: '#82a7ad',
   },
   banner: {
     title: '#c3cdd0',
@@ -253,7 +254,7 @@ const iconGreen = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.8,
+    dotOpacity: 0.5,
     text: lighten(0.05, descText),
   },
   tabs: {

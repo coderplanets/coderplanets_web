@@ -17,7 +17,7 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
-export function loadMentions(page = 1) {
+export const loadMentions = (page = 1) => {
   markLoading(false)
   const read = store.readState
   sr71$.query(S.mentions, {
@@ -69,7 +69,7 @@ const ErrSolver = [
   },
 ]
 
-export function init(_store) {
+export const init = _store => {
   store = _store
 
   if (sub$) return loadMentions()
@@ -78,9 +78,10 @@ export function init(_store) {
   loadMentions()
 }
 
-export function uninit() {
+export const uninit = () => {
   if (store.loading || !sub$) return false
   debug('===== do uninit')
+  sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
 }

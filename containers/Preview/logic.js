@@ -19,7 +19,7 @@ const debug = makeDebugger('L:Preview')
 let store = null
 let sub$ = null
 
-export function closePreview() {
+export const closePreview = () => {
   unholdPage()
   store.close()
 
@@ -48,10 +48,9 @@ const DataResolver = [
   },
 ]
 
-export function init(_store) {
-  if (store) return false
+export const init = _store => {
   store = _store
 
-  if (sub$) sub$.unsubscribe()
+  if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 }

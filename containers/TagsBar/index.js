@@ -36,11 +36,13 @@ import * as logic from './logic'
 const debug = makeDebugger('C:TagsBar')
 
 class TagsBarContainer extends React.Component {
-  constructor(props) {
-    super(props)
-
-    const { tagsBar, thread, topic, active } = props
+  componentDidMount() {
+    const { tagsBar, thread, topic, active } = this.props
     logic.init(tagsBar, thread, topic, active)
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
   }
 
   onSelect(tag) {

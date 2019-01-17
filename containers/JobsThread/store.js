@@ -38,6 +38,7 @@ const JobsThreadStore = t
       ]),
       TYPE.RESULT
     ),
+    showPublishNote: t.optional(t.boolean, false),
     // runtime: ..
     // data: ...
     // TODO: rename to activeArticle
@@ -61,7 +62,6 @@ const JobsThreadStore = t
     get isLogin() {
       return self.root.account.isLogin
     },
-
     get filtersData() {
       return stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
     },
@@ -73,15 +73,20 @@ const JobsThreadStore = t
       if (nilOrEmpty(curTag)) return {}
       return { tag: curTag.title }
     },
-
     get activeJob() {
       return stripMobx(self.root.viewing.job)
+    },
+    get pageDensity() {
+      return self.root.account.pageDensity
     },
   }))
   .actions(self => ({
     selectFilter(option) {
       const curfilter = self.filtersData
       self.filters = R.merge(curfilter, option)
+    },
+    authWarning(options) {
+      self.root.authWarning(options)
     },
     selectTag(tag) {
       const cur = tag.title === '' ? null : tag

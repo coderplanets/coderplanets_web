@@ -17,7 +17,7 @@ const JobsList = ({ props }) => {
     community,
     thread,
     emptyPrefix,
-    onTitleSelect,
+    onPreview,
     accountInfo,
   } = props
 
@@ -29,9 +29,10 @@ const JobsList = ({ props }) => {
             <JobItem
               key={entry.id}
               entry={entry}
+              community={community}
               active={active}
               accountInfo={accountInfo}
-              onTitleSelect={onTitleSelect.bind(this, entry)}
+              onPreview={onPreview.bind(this, entry)}
             />
           ))}
         </React.Fragment>

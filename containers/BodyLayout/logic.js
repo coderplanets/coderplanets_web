@@ -5,11 +5,9 @@ const debug = makeDebugger('L:BodyLayout')
 
 let store = null
 
-export function openDoraemon() {
-  store.openDoraemon()
-}
+export const openDoraemon = () => store.openDoraemon()
 
-export function init(_store) {
+export const init = _store => {
   if (store) return false
   store = _store
 }

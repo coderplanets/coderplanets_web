@@ -1,7 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { EmptyLabel } from '../../components'
+import EmptyLabel from '../../components/EmptyLabel'
+
 import {
   Wrapper,
   ListsWrapper,
