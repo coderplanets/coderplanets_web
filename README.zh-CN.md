@@ -39,7 +39,7 @@
   - [单元测试](docs/testing/unit-testing.zh-CN.md)
   - [段对端测试](docs/testing/e2e-testing.zh-CN.md)
 - [统计分析](docs/analysis)
-  - [Apollo Engine](docs/analysis/apollo-engine.zh-CN.md)
+  - [Apollo 引擎](docs/analysis/apollo-engine.zh-CN.md)
   - [错误追踪](docs/analysis/error-tracking.zh-CN.md)
   - [谷歌分析](docs/analysis/google-analysis.zh-CN.md)
 - [路线图](docs/Roadmap.md)
@@ -58,5 +58,5 @@ logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&po
 
 ## 协议
 
-本项目使用 Apache License v2 协议, 详细内容请查看 LICENSE.md
+本项目使用 GNU General Public License v3.0 协议, 详细内容请查看 [LICENSE.md](https://github.com/coderplanets/coderplanets_web/blob/docs/LICENSE)
 
