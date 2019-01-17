@@ -8,9 +8,9 @@
 [![cps badge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://github.com/coderplanets/coderplanets_server)
 
 
-## As advertising: the author is looking for a job :)
+#### 插播广告: 作者正在找工作，如果贵团伙有成都或远程的坑位，求收留 :)
 
-English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/README.zh-CN.md) 
+[English](https://github.com/coderplanets/coderplanets_web/blob/docs/README.md) | 中文 
 
 ## credit 
 
@@ -21,3 +21,4 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 ## License
 
 This project is licensed under the Apache License v2. For more information see LICENSE.md.
+
