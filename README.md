@@ -56,4 +56,7 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 
 ## License
 
-This project is licensed under the Apache License v2. For more information see LICENSE.md.
+This project is licensed under the GNU General Public License v3.0. For more
+information see
+[LICENSE.md](https://github.com/coderplanets/coderplanets_web/blob/docs/LICENSE)
+
