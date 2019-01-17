@@ -5,15 +5,9 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { PAGE_SIZE } from '../../config'
+// import { PAGE_SIZE } from '../../config'
 
-import {
-  markStates,
-  makeDebugger,
-  stripMobx,
-  /* BStore, */
-  BStore,
-} from '../../utils'
+import { markStates, makeDebugger, stripMobx, BStore } from '../../utils'
 
 import { User, EmptyUser, PagedCommunities } from '../SharedModel'
 /* eslint-disable-next-line */
@@ -51,8 +45,6 @@ const AccountStore = t
       return self.isValidSession
     },
     get pageDensity() {
-      if (!self.isLogin) return PAGE_SIZE.D
-
       return parseInt(self.user.customization.displayDensity, 10)
     },
   }))
