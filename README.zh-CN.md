@@ -8,44 +8,44 @@
 [![cps badge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://github.com/coderplanets/coderplanets_server)
 
 
-## As advertising: the author is looking for a job :)
+#### 插播广告: 作者正在找工作，如果贵团伙有成都或远程的坑位，求收留 :)
 
-English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/README.zh-CN.md) 
+[English](https://github.com/coderplanets/coderplanets_web/blob/docs/README.md) | 中文 
 
 
 ## Documentation
 
 - [Architecture](docs/architecture)
-  - [intro](docs/architecture/intro.md)
+  - [intro](docs/architecture/intro.zh-CN.md)
 - [General](docs/general)
-  - [Generator](docs/general/generator.md)
-  - [PWA](docs/general/pwa.md)
-  - [debugging](docs/general/debugging.md)
-  - [Env](docs/general/env.md)
-  - [Deployment](docs/general/deployment.md)
-  - [SEO](docs/general/seo.md)
-- [Styling](docs/styling/intro.md)
-  - [Intro](docs/styling/intro.md)
-  - [Styled-Component](docs/styling/styled-component.md)
-  - [Theme](docs/styling/theming.md)
+  - [Generator](docs/general/generator.zh-CN.md)
+  - [PWA](docs/general)
+  - [debugging](docs/general/debugging.zh-CN.md)
+  - [Env](docs/general/env.zh-CN.md)
+  - [Deployment](docs/general/deployment.zh-CN.md)
+  - [SEO](docs/general/seo.zh-CN.md)
+- [Styling](docs/styling/intro.zh-CN.md)
+  - [Intro](docs/styling/intro.zh-CN.md)
+  - [Styled-Component](docs/styling/styled-component.zh-CN.md)
+  - [Theme](docs/styling/theming.zh-CN.md)
 - [JS](docs/js)
-  - [Intro](docs/js/intro.md)
-  - [GraphQL](docs/js/GrqphQL.md)
-  - [State Management](docs/js/state-management.md)
-  - [Network](docs/js/network.md)
-  - [I18n](docs/js/i18n.md)
-  - [Routing](docs/js/routing.md)
+  - [Intro](docs/js/intro.zh-CN.md)
+  - [GraphQL](docs/js/GrqphQL.zh-CN.md)
+  - [State Management](docs/js/state-management.zh-CN.md)
+  - [Network](docs/js/network.zh-CN.md)
+  - [I18n](docs/js/i18n.zh-CN.md)
+  - [Routing](docs/js/routing.zh-CN.md)
 - [Testing](docs/testing)
-  - [Unit Testing](docs/testing/unit-testing.md)
-  - [E2E Testing](docs/testing/e2e-testing.md)
+  - [Unit Testing](docs/testing/unit-testing.zh-CN.md)
+  - [E2E Testing](docs/testing/e2e-testing.zh-CN.md)
 - [Analysis](docs/analysis)
-  - [Apollo Engine](docs/analysis/apollo-engine.md)
-  - [Error Tracking](docs/analysis/error-tracking.md)
-  - [Google Analysis](docs/analysis/google-analysis.md)
+  - [Apollo Engine](docs/analysis/apollo-engine.zh-CN.md)
+  - [Error Tracking](docs/analysis/error-tracking.zh-CN.md)
+  - [Google Analysis](docs/analysis/google-analysis.zh-CN.md)
 - [Roadmap](docs/Roadmap.md)
-- [FAQ](docs/FAQ.md)
-- [Contributing](docs/Contributing.md)
-- [Troubleshooting](docs/Troubleshooting.md)
+- [FAQ](docs/FAQ.zh-CN.md)
+- [Contributing](docs/Contributing.zh-CN.md)
+- [Troubleshooting](docs/Troubleshooting.zh-CN.md)
 
 
 ## credit 
@@ -57,3 +57,4 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 ## License
 
 This project is licensed under the Apache License v2. For more information see LICENSE.md.
+
