@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTheme } from 'styled-components'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD, ICON_BASE } from '../../config'
 
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
@@ -27,19 +27,40 @@ import {
   FooterWrapper,
 } from './styles'
 
-import { makeDebugger } from '../../utils'
+import { makeDebugger, getRandomInt } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ErrorPage:index')
 
-const ErrorPage = ({ errorCode, page, target }) => (
+const rotateAngles = [
+  'rotate(0deg)',
+  'rotate(30deg)',
+  'rotate(60deg)',
+  'rotate(90deg)',
+  'rotate(120deg)',
+  'rotate(150deg)',
+  'rotate(180deg)',
+  'rotate(210deg)',
+  'rotate(240deg)',
+  'rotate(270deg)',
+  'rotate(300deg)',
+  'rotate(330deg)',
+]
+
+const getRandomAngle = () =>
+  rotateAngles[getRandomInt(0, rotateAngles.length - 1)]
+
+const ErrorPage = ({ errorCode, page, target, theme }) => (
   <Container>
     <LogoWrapper>
       <CPSMdLogo src={`${ICON_CMD}/cps_logo_md.png`} />
     </LogoWrapper>
     <HintWrapper>
       <IconsWrapper>
-        <Error404Icon src={`${ICON_CMD}/cry.svg`} />
+        <Error404Icon
+          src={`${ICON_BASE}/404/not-found-${theme.name}.png`}
+          angle={getRandomAngle()}
+        />
         <ErrorDivider />
         <ErrorNumber>{errorCode}</ErrorNumber>
       </IconsWrapper>
@@ -60,6 +81,7 @@ ErrorPage.propTypes = {
   errorCode: PropTypes.number,
   page: PropTypes.string,
   target: PropTypes.string,
+  theme: PropTypes.object.isRequired,
 }
 
 ErrorPage.defaultProps = {
