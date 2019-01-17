@@ -24,15 +24,16 @@ export const CPSMdLogo = styled(Img)`
 `
 export const IconsWrapper = styled.div`
   ${cs.flex('justify-center')};
+  align-items: center;
 `
 
 export const TextWrapper = styled.div`
   ${cs.flexColumn('align-center')};
-  margin-top: 20px;
+  margin-top: 40px;
 `
 export const HintTitle = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 `
 export const HintDesc = styled.div`
@@ -43,21 +44,23 @@ export const HintDesc = styled.div`
 
 export const Error404Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 100px;
-  height: 100px;
+  width: 240px;
+  height: 240px;
+  display: block;
+  transform: ${({ angle }) => angle};
 `
 
 export const ErrorDivider = styled.div`
   border-right: 1px solid;
   border-color: ${theme('thread.articleDigest')};
-  height: 100px;
+  height: 150px;
   margin-left: 25px;
   margin-right: 25px;
 `
 
 export const ErrorNumber = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 3.8rem;
+  font-size: 4rem;
   align-self: center;
   font-weight: bolder;
 `
