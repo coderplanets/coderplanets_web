@@ -12,6 +12,42 @@
 
 [English](https://github.com/coderplanets/coderplanets_web/blob/docs/README.md) | 中文 
 
+
+## Documentation
+
+- [Architecture](docs/architecture)
+  - [intro](docs/architecture/intro.zh-CN.md)
+- [General](docs/general)
+  - [Generator](docs/general/generator.zh-CN.md)
+  - [PWA](docs/general)
+  - [debugging](docs/general/debugging.zh-CN.md)
+  - [Env](docs/general/env.zh-CN.md)
+  - [Deployment](docs/general/deployment.zh-CN.md)
+  - [SEO](docs/general/seo.zh-CN.md)
+- [Styling](docs/styling/intro.zh-CN.md)
+  - [Intro](docs/styling/intro.zh-CN.md)
+  - [Styled-Component](docs/styling/styled-component.zh-CN.md)
+  - [Theme](docs/styling/theming.zh-CN.md)
+- [JS](docs/js)
+  - [Intro](docs/js/intro.zh-CN.md)
+  - [GraphQL](docs/js/GrqphQL.zh-CN.md)
+  - [State Management](docs/js/state-management.zh-CN.md)
+  - [Network](docs/js/network.zh-CN.md)
+  - [I18n](docs/js/i18n.zh-CN.md)
+  - [Routing](docs/js/routing.zh-CN.md)
+- [Testing](docs/testing)
+  - [Unit Testing](docs/testing/unit-testing.zh-CN.md)
+  - [E2E Testing](docs/testing/e2e-testing.zh-CN.md)
+- [Analysis](docs/analysis)
+  - [Apollo Engine](docs/analysis/apollo-engine.zh-CN.md)
+  - [Error Tracking](docs/analysis/error-tracking.zh-CN.md)
+  - [Google Analysis](docs/analysis/google-analysis.zh-CN.md)
+- [Roadmap](docs/Roadmap.md)
+- [FAQ](docs/FAQ.zh-CN.md)
+- [Contributing](docs/Contributing.zh-CN.md)
+- [Troubleshooting](docs/Troubleshooting.zh-CN.md)
+
+
 ## credit 
 
 [keyboard logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&position=88) is made by
