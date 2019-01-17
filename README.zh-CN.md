@@ -5,7 +5,7 @@
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
 [![CodeFactor](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web/badge)](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web)
 [![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
-[![cps badge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://github.com/coderplanets/coderplanets_server)
+[![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
 
 
 #### 插播广告: 作者正在找工作，如果贵团伙有成都或远程的坑位，求收留 :)
