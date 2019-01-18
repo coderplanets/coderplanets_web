@@ -23,7 +23,7 @@ import {
   CommentNum,
 } from './styles/list_view'
 // import { Wrapper } from './styles'
-import { cutFrom, getDomain } from '../../utils'
+import { cutFrom, parseDomain } from '../../utils'
 
 const ListView = ({ entry, onPreview }) => (
   <Wrapper>
@@ -37,7 +37,9 @@ const ListView = ({ entry, onPreview }) => (
           {entry.linkAddr ? (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
-              <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
+              <span style={{ marginLeft: 9 }}>
+                {parseDomain(entry.linkAddr)}
+              </span>
             </TitleLink>
           ) : null}
           <TagsWrapper>

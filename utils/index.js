@@ -74,7 +74,7 @@ export {
   queryStringToJSON,
   mergeRouteQuery,
   serializeQuery,
-  getDomain,
+  parseDomain,
   extractThreadFromPath,
   subPath2Thread,
   thread2Subpath,
