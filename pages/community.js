@@ -16,6 +16,7 @@ import Header from '../containers/Header'
 import CommunityBanner from '../containers/CommunityBanner'
 import CommunityContent from '../containers/CommunityContent'
 import Footer from '../containers/Footer'
+import ErrorBox from '../containers/ErrorBox'
 
 /*
    import {
@@ -198,6 +199,7 @@ export default class PageCommunity extends React.Component {
                   <Sidebar />
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout>
                     <Header />
                     <CommunityBanner />

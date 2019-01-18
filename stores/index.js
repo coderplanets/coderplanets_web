@@ -7,6 +7,7 @@ export { ThemeStore, ThemeDefaults } from './ThemeStore'
 
 // utils store
 export { default as BodylayoutStore } from '../containers/BodyLayout/store'
+export { default as ErrorBoxStore } from '../containers/ErrorBox/store'
 export { default as SidebarStore } from '../containers/Sidebar/store'
 export { default as PreviewStore } from '../containers/Preview/store'
 export { default as DoraemonStore } from '../containers/Doraemon/store'

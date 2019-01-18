@@ -3,7 +3,6 @@ import { F } from '../schemas'
 
 const createPost = gql`
   mutation(
-    $title: String!
     $body: String!
     $digest: String!
     $length: Int!
