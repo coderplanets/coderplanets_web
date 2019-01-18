@@ -3,6 +3,7 @@ const dev = process.env.NODE_ENV !== 'production'
 
 const next = require('next')
 const express = require('express')
+const wwwRedirect = require('express-naked-redirect')
 const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
@@ -26,6 +27,7 @@ app.prepare().then(() => {
   const server = express()
   server.use(express.static('static'))
   server.use(helmet())
+  server.use(wwwRedirect(true))
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
