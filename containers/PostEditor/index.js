@@ -12,15 +12,25 @@ import dynamic from 'next/dynamic'
 import ArticleEditFooter from '../../components/ArticleEditFooter'
 import { ArticleContentLoading } from '../../components/LoadingEffects'
 
+import Modal from '../../components/Modal'
+
 import Editor from './Editor'
 import Preview from './Preview'
 // import MarkDownHelper from './MarkDownHelper'
 import Header from './Header'
+import RadarNote from './RadarNote'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-import { init, uninit, changeView, onPublish, canclePublish } from './logic'
+import {
+  init,
+  uninit,
+  changeView,
+  onPublish,
+  canclePublish,
+  onRadarNoteCLose,
+} from './logic'
 
 export const DynamicMarkDownHelper = dynamic({
   loader: () => import('./MarkDownHelper'),
@@ -89,10 +99,19 @@ class PostEditorContainer extends React.Component {
       mentionListData,
       referUsersData,
       contentDomId,
+      showRadarNote,
     } = postEditor
 
     return (
       <Wrapper>
+        <Modal
+          width="600px"
+          show={showRadarNote}
+          showCloseBtn
+          onClose={onRadarNoteCLose}
+        >
+          <RadarNote />
+        </Modal>
         <Header
           isEdit={isEdit}
           curView={curView}

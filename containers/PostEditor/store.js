@@ -42,6 +42,9 @@ const PostEditor = t
     error: t.optional(t.boolean, false),
     warn: t.optional(t.boolean, false),
     statusMsg: t.optional(t.string, ''),
+
+    /* show radar note if radar source not supported */
+    showRadarNote: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

@@ -17,6 +17,7 @@ import {
   errorForHuman,
   closePreviewer,
   cast,
+  parseDomain,
 } from '../../utils'
 
 import { S, updatablePostFields } from './schema'
@@ -52,8 +53,24 @@ const getDigest = body => {
   return digest
 }
 
+export const onRadarNoteCLose = () => store.markState({ showRadarNote: false })
+const supportedRadarSource = ['wanqu', 'solidot', 'techcrunch']
+const specCheck = () => {
+  if (store.activeThread === THREAD.RADAR) {
+    const domain = parseDomain(store.editPost.linkAddr)
+    console.log('domain: ', domain)
+    if (!R.contains(domain, supportedRadarSource)) {
+      store.markState({ showRadarNote: true })
+      return false
+    }
+  }
+  return true
+}
+
 export const onPublish = () => {
   if (!store.validator('general')) return false
+  if (!specCheck()) return false
+
   const { subPath: topic } = store.curRoute
   const { body } = store.editData
   const { isEdit } = store
