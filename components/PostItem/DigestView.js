@@ -29,7 +29,7 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
       <Avatar src={entry.author.avatar} />
     ) : (
       <Avatar
-        src={entry.sourceLogo || `${ICON_BASE}/radar_source/default.svg`}
+        src={entry.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}
       />
     )}
     <Main>

@@ -8,6 +8,7 @@ import {
   dispatchEvent,
   EVENT,
   ERR,
+  THREAD,
   meteorState,
   countWords,
   extractAttachments,
@@ -104,8 +105,13 @@ export const onMentionSearch = name => {
 export const onMention = user => store.addReferUser(user)
 
 const openAttachment = att => {
+  if (store.activeThread === THREAD.RADAR) {
+    store.updateEditing({ copyRight: 'reprint' })
+  }
+
   if (!att) return false
   // const { id, title, body, digest } = att
+
   store.updateEditing(att)
   store.markState({ isEdit: true })
 }

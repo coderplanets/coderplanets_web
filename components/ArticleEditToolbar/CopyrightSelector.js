@@ -38,6 +38,9 @@ const getOptions = thread => {
     case THREAD.JOB: {
       return R.reject(o => o.value === 'translate', FullOptions)
     }
+    case THREAD.RADAR: {
+      return R.reject(o => o.value === 'original', FullOptions)
+    }
     default:
       return FullOptions
   }
