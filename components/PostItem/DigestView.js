@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 // import { Wrapper } from './styles'
-import { cutFrom, getDomain } from '../../utils'
+import { cutFrom, parseDomain } from '../../utils'
 
 const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
   <React.Fragment>
@@ -39,7 +39,9 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
           {entry.linkAddr ? (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
-              <span style={{ marginLeft: 9 }}>{getDomain(entry.linkAddr)}</span>
+              <span style={{ marginLeft: 9 }}>
+                {parseDomain(entry.linkAddr)}
+              </span>
             </TitleLink>
           ) : null}
           <TagListWrapper>
