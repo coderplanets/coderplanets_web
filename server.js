@@ -21,11 +21,21 @@ const ssrCache = new LRUCache({
 
 mobxReact.useStaticRendering(true)
 
+const wwwRedirect = (req, res, next) => {
+  if (req.headers.host.slice(0, 4) === 'www.') {
+    const newHost = req.headers.host.slice(4)
+    /* eslint-disable-next-line */
+    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl)
+  }
+  next()
+}
+
 const HOME_PAGE = '/home/posts'
 app.prepare().then(() => {
   const server = express()
   server.use(express.static('static'))
   server.use(helmet())
+  server.use(wwwRedirect)
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
