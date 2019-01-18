@@ -26,24 +26,18 @@ app.prepare().then(() => {
   const server = express()
   server.use(express.static('static'))
   server.use(helmet())
+
   server.use((req, res, next) => {
     const str = 'www.'
-    const newUrl = `${req.protocol}://${req.host.slice(str.length)}:80${
+    const newUrl = `${req.protocol}://${req.hostname.slice(str.length)}:80${
       req.originalUrl
     }`
 
-    console.log('host: ', req.host)
-    if (req.host.indexOf(str) === 0) {
+    console.log('host: ', req.hostname)
+    if (req.hostname.indexOf(str) === 0) {
       console.log('originalUrl: ', req.originalUrl)
       console.log('should redirect to: ', newUrl)
-
-      /*
-         res.redirect(
-         301,
-         `${req.protocol}://${req.host.slice(str.length)}:80${req.originalUrl}`
-         )
-       */
-      next()
+      res.redirect(301, newUrl)
     } else {
       next()
     }
