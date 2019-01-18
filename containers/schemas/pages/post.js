@@ -7,6 +7,7 @@ export const post = `
       body
       length
       linkAddr
+      linkIcon
       copyRight
       author {
         ${F.author}
@@ -46,6 +47,7 @@ export const pagedPosts = `
         pin
         digest
         linkAddr
+        linkIcon
         copyRight
         commentsCount
         commentsParticipators(filter: { first: 5 }) {

@@ -122,6 +122,7 @@ class PostsThreadContainer extends React.Component {
 
               <PagedContents
                 data={pagedPostsData}
+                cover={curThread === THREAD.RADAR ? 'source' : 'avatar'}
                 community={curCommunity.raw}
                 thread={THREAD.POST}
                 curView={curView}
