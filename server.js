@@ -33,10 +33,7 @@ app.prepare().then(() => {
       req.originalUrl
     }`
 
-    console.log('host: ', req.hostname)
     if (req.hostname.indexOf(str) === 0) {
-      console.log('originalUrl: ', req.originalUrl)
-      console.log('should redirect to: ', newUrl)
       res.redirect(301, newUrl)
     } else {
       next()
