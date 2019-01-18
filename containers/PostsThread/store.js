@@ -83,6 +83,12 @@ const PostsThreadStore = t
     get pageDensity() {
       return self.root.account.pageDensity
     },
+    get showFilterBar() {
+      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const pagedPosts = stripMobx(self.pagedPosts)
+
+      return !R.isEmpty(curFilter) || !R.isEmpty(pagedPosts.entries)
+    },
   }))
   .actions(self => ({
     toastInfo(options) {

@@ -13,6 +13,7 @@ import { Affix } from 'antd'
 import CityList from './CityList'
 import TagsBar from '../TagsBar'
 
+import Maybe from '../../components/Maybe'
 import ContentFilter from '../../components/ContentFilter'
 import PublishLabel from '../../components/PublishLabel'
 import PagedContents from '../../components/PagedContents'
@@ -88,6 +89,7 @@ class PostsThreadContainer extends React.Component {
       curCommunity,
       curThread,
       pagedCityCommunitiesData,
+      showFilterBar,
     } = postsThread
 
     const { subPath } = curRoute
@@ -107,18 +109,19 @@ class PostsThreadContainer extends React.Component {
           <React.Fragment>
             <LeftPart>
               <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-              <FilterWrapper>
-                {/* TODO: show when url has tag query and totalCount = 0 */}
-                <ContentFilter
-                  thread={THREAD.POST}
-                  onSelect={logic.onFilterSelect}
-                  activeFilter={filtersData}
-                  isLogin={isLogin}
-                  accountInfo={accountInfo}
-                  totalCount={totalCount}
-                  onC11NChange={logic.onC11NChange}
-                />
-              </FilterWrapper>
+              <Maybe test={showFilterBar}>
+                <FilterWrapper>
+                  <ContentFilter
+                    thread={THREAD.POST}
+                    onSelect={logic.onFilterSelect}
+                    activeFilter={filtersData}
+                    isLogin={isLogin}
+                    accountInfo={accountInfo}
+                    totalCount={totalCount}
+                    onC11NChange={logic.onC11NChange}
+                  />
+                </FilterWrapper>
+              </Maybe>
 
               <PagedContents
                 data={pagedPostsData}

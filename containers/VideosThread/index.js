@@ -11,6 +11,7 @@ import { Affix } from 'antd'
 import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
+import Maybe from '../../components/Maybe'
 import ContentFilter from '../../components/ContentFilter'
 import PublishLabel from '../../components/PublishLabel'
 import PagedContents from '../../components/PagedContents'
@@ -52,6 +53,7 @@ class VideosThreadContainer extends React.Component {
       activeVideo,
       activeTagData,
       accountInfo,
+      showFilterBar,
     } = videosThread
 
     const { mainPath } = curRoute
@@ -61,16 +63,18 @@ class VideosThreadContainer extends React.Component {
       <Wrapper>
         <LeftPadding />
         <LeftPart>
-          <FilterWrapper>
-            <ContentFilter
-              thread={THREAD.VIDEO}
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-              accountInfo={accountInfo}
-              totalCount={totalCount}
-              onC11NChange={logic.onC11NChange}
-            />
-          </FilterWrapper>
+          <Maybe test={showFilterBar}>
+            <FilterWrapper>
+              <ContentFilter
+                thread={THREAD.VIDEO}
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
+                accountInfo={accountInfo}
+                totalCount={totalCount}
+                onC11NChange={logic.onC11NChange}
+              />
+            </FilterWrapper>
+          </Maybe>
 
           <PagedContents
             data={pagedVideosData}
