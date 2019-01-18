@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import PromptIcon from '../../PromptIcon'
 import Img from '../../Img'
 import { theme, cs } from '../../../utils'
 
@@ -42,12 +43,9 @@ export const HintDesc = styled.div`
   font-size: ${({ small }) => (small ? '1rem' : '1.1rem')};
 `
 
-export const Error404Icon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
+export const Error404Icon = styled(PromptIcon)`
   width: 240px;
   height: 240px;
-  display: block;
-  transform: ${({ angle }) => angle};
 `
 
 export const ErrorDivider = styled.div`
