@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '../../Img'
+import PromptIcon from '../../PromptIcon'
 import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
@@ -11,11 +11,9 @@ export const Wrapper = styled.div`
 `
 
 // TODO: media size
-export const Icon404 = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
+export const Icon404 = styled(PromptIcon)`
   width: 320px;
   height: 320px;
-  transform: ${({ angle }) => angle};
 `
 
 export const Icon = styled.div``
