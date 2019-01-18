@@ -32,6 +32,7 @@ app.prepare().then(() => {
       req.originalUrl
     }`
 
+    console.log('host: ', req.host)
     if (req.host.indexOf(str) === 0) {
       console.log('originalUrl: ', req.originalUrl)
       console.log('should redirect to: ', newUrl)
