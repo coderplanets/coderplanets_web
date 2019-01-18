@@ -63,7 +63,7 @@ const VideoInfoCard = ({ data }) => {
           </OriginAuthor>
           <DotDivider />
           <PublishTime>
-            发布于: <TimeAgo datetime={publishAt || ''} locale="zh_CN" />
+            搬运于: <TimeAgo datetime={publishAt || ''} locale="zh_CN" />
           </PublishTime>
         </Footer>
       </BaseInfo>

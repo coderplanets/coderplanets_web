@@ -56,7 +56,12 @@ const ListView = ({ entry, onPreview }) => (
         <Extra>
           <Salary>{entry.salary}</Salary>
           <DotDivider />
-          {entry.author.nickname} 发布于:{' '}
+          {entry.author.nickname}
+          {entry.copyRight === 'original' ? (
+            <span>&nbsp;发布于:</span>
+          ) : (
+            <span>&nbsp;搬运于:</span>
+          )}
           <TimeAgo datetime={entry.insertedAt} locale="zh_CN" />
         </Extra>
       </SecondHalf>
