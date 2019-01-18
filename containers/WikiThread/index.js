@@ -34,15 +34,14 @@ const debug = makeDebugger('C:WikiThread')
 
 const renderView = (wikiData, type, communityRaw) => {
   switch (type) {
-    case TYPE.LOADING: {
+    case TYPE.LOADING:
       return <ArticleContentLoading />
-    }
-    case TYPE.NOT_FOUND: {
+
+    case TYPE.NOT_FOUND:
       return <EmptyThread community={communityRaw} thread="wiki" />
-    }
-    default: {
+
+    default:
       return <MarkDownRender body={wikiData.readme} />
-    }
   }
 }
 

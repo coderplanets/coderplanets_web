@@ -26,27 +26,26 @@ const debug = makeDebugger('C:CommunityContent')
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute
   switch (subPath) {
-    case ROUTE.REPOS: {
+    case ROUTE.REPOS:
       return <ReposThread />
-    }
-    case ROUTE.USERS: {
+
+    case ROUTE.USERS:
       return <UsersThread />
-    }
-    case ROUTE.VIDEOS: {
+
+    case ROUTE.VIDEOS:
       return <VideosThread />
-    }
-    case ROUTE.JOBS: {
+
+    case ROUTE.JOBS:
       return <JobsThread />
-    }
-    case ROUTE.WIKI: {
+
+    case ROUTE.WIKI:
       return <WikiThread />
-    }
-    case ROUTE.CHEATSHEET: {
+
+    case ROUTE.CHEATSHEET:
       return <CheatsheetThread />
-    }
-    default: {
+
+    default:
       return <PostsThread />
-    }
   }
 }
 

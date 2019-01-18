@@ -61,24 +61,23 @@ const FullTaberThreads = [
 
 const TabberContent = ({ active }) => {
   switch (active) {
-    case USER_THREAD.COMMENTS: {
+    case USER_THREAD.COMMENTS:
       return <UserPublishedComments />
-    }
-    case USER_THREAD.FAVORITES: {
+
+    case USER_THREAD.FAVORITES:
       return <UserFavorited />
-    }
-    case USER_THREAD.LINKS: {
+
+    case USER_THREAD.LINKS:
       return <UserStared />
-    }
-    case USER_THREAD.BILLING: {
+
+    case USER_THREAD.BILLING:
       return <UserBilling />
-    }
-    case USER_THREAD.SETTINGS: {
+
+    case USER_THREAD.SETTINGS:
       return <UserSettings />
-    }
-    default: {
+
+    default:
       return <UserPublished />
-    }
   }
 }
 

@@ -14,10 +14,10 @@ const Componet = ({
   transferAccount,
 }) => {
   switch (contentView) {
-    case 'question': {
+    case 'question':
       return <QuestionContent />
-    }
-    default: {
+
+    default:
       return (
         <Wrapper>
           <PaymentContent
@@ -28,7 +28,6 @@ const Componet = ({
           />
         </Wrapper>
       )
-    }
   }
 }
 

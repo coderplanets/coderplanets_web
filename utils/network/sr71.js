@@ -28,7 +28,6 @@ class SR71 {
     this.resv_event = opts.resv_event
 
     this.initEventSubscription()
-    /* this.query$ = this.queryInput$.debounceTime(300).switchMap(q => */
     this.query$ = this.queryInput$.pipe(
       debounce(() => timer(300)),
       switchMap(q =>
@@ -39,7 +38,6 @@ class SR71 {
       )
     )
 
-    /* this.mutate$ = this.mutateInput$.debounceTime(300).switchMap(q => */
     this.mutate$ = this.mutateInput$.pipe(
       debounce(() => timer(300)),
       switchMap(q =>
@@ -50,7 +48,6 @@ class SR71 {
       )
     )
 
-    /* this.restGet$ = this.getInput$.debounceTime(300).switchMap(q => */
     this.restGet$ = this.getInput$.pipe(
       debounce(() => timer(300)),
       switchMap(q =>

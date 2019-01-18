@@ -35,10 +35,10 @@ const FormContent = ({
   disabled,
 }) => {
   switch (type) {
-    case 'node': {
+    case 'node':
       return <NodeWrapper>{node}</NodeWrapper>
-    }
-    case 'textarea': {
+
+    case 'textarea':
       return (
         <FormInput>
           <TextAreaer
@@ -51,8 +51,8 @@ const FormContent = ({
           />
         </FormInput>
       )
-    }
-    default: {
+
+    default:
       return (
         <FormInput>
           <Inputer
@@ -66,7 +66,6 @@ const FormContent = ({
           <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
-    }
   }
 }
 

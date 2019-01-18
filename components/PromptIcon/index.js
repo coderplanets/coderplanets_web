@@ -16,12 +16,11 @@ const debug = makeDebugger('c:PromptIcon:index')
 
 const PromptIcon = ({ type, className }) => {
   switch (type) {
-    case 'planet-driver': {
+    case 'planet-driver':
       return <PlanetDriver className={className} />
-    }
-    default: {
+
+    default:
       return <h3>other pics</h3>
-    }
   }
 }
 

@@ -46,7 +46,7 @@ const ThreadText = ({ thread }) => {
 
 const Header = ({ isEdit, curView, referUsers }) => {
   switch (curView) {
-    case 'MARKDOWN_HELP_VIEW': {
+    case 'MARKDOWN_HELP_VIEW':
       return (
         <Wrapper>
           <UsageText>Github Flavor Markdown</UsageText>
@@ -56,7 +56,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
           </BackToEditHint>
         </Wrapper>
       )
-    }
+
     default:
       return (
         <Wrapper>

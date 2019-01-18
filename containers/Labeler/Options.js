@@ -32,7 +32,7 @@ const OptionItems = ({ items, selected, onOptionSelect }) => (
 const renderOptions = (label, items, selected, onOptionSelect) => {
   switch (label) {
     case 'default':
-    case 'city': {
+    case 'city':
       return (
         <TagList
           items={items}
@@ -40,8 +40,8 @@ const renderOptions = (label, items, selected, onOptionSelect) => {
           onOptionSelect={onOptionSelect}
         />
       )
-    }
-    default: {
+
+    default:
       return (
         <OptionItems
           items={LABEL_POOL[label].data}
@@ -49,7 +49,6 @@ const renderOptions = (label, items, selected, onOptionSelect) => {
           onOptionSelect={onOptionSelect}
         />
       )
-    }
   }
 }
 

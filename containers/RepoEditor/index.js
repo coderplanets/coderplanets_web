@@ -27,7 +27,7 @@ const View = ({
   tokenValue,
 }) => {
   switch (curView) {
-    case 'show': {
+    case 'show':
       return (
         <GithubRepoPage
           repo={repo}
@@ -38,8 +38,8 @@ const View = ({
           readOnly
         />
       )
-    }
-    default: {
+
+    default:
       return (
         <SearchMan
           value={searchValue}
@@ -50,7 +50,6 @@ const View = ({
           tokenValue={tokenValue}
         />
       )
-    }
   }
 }
 

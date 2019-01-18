@@ -7,15 +7,14 @@ import { THREAD } from '../../utils'
 
 const MiddleInfo = ({ thread, data }) => {
   switch (thread) {
-    case THREAD.REPO: {
+    case THREAD.REPO:
       return <RepoMiddleInfo data={data} />
-    }
-    case THREAD.JOB: {
+
+    case THREAD.JOB:
       return <JobMiddleInfo data={data} />
-    }
-    default: {
+
+    default:
       return null
-    }
   }
 }
 

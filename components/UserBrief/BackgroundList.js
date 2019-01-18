@@ -63,12 +63,11 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
 
 const BackgroundList = ({ type, user, first }) => {
   switch (type) {
-    case 'work': {
+    case 'work':
       return <WorkBackgroundList user={user} first={first} />
-    }
-    case 'education': {
+
+    case 'education':
       return <EduBackgroundList user={user} first={first} />
-    }
 
     default:
       return <div>unknow background option</div>

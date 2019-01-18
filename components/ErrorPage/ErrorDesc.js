@@ -20,7 +20,7 @@ const ErrorDesc = ({ errorCode }) => {
           , 我们会第一时间处理。
         </HintDesc>
       )
-    default: {
+    default:
       return (
         <React.Fragment>
           <HintDesc>
@@ -44,7 +44,6 @@ const ErrorDesc = ({ errorCode }) => {
           </HintDesc>
         </React.Fragment>
       )
-    }
   }
 }
 

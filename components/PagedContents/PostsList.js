@@ -24,7 +24,7 @@ const PostsList = ({ props }) => {
   } = props
 
   switch (curView) {
-    case TYPE.RESULT: {
+    case TYPE.RESULT:
       return (
         <React.Fragment>
           {entries.map(entry => (
@@ -40,8 +40,8 @@ const PostsList = ({ props }) => {
           ))}
         </React.Fragment>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
           {R.isEmpty(emptyPrefix) ? (
@@ -54,7 +54,7 @@ const PostsList = ({ props }) => {
           )}
         </React.Fragment>
       )
-    }
+
     default:
       return <PostItemLoading num={4} />
   }

@@ -24,21 +24,21 @@ const debug = makeDebugger('C:UserLister')
 
 const renderContent = (curView, pagedUsersData, accountInfo) => {
   switch (curView) {
-    case TYPE.LOADING: {
+    case TYPE.LOADING:
       return (
         <MsgWrapper>
           <SearchingLabel />
         </MsgWrapper>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <MsgWrapper>
           <EmptyLabel text="没有找到你要找的人呢" />
         </MsgWrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <UserList
           data={pagedUsersData}
@@ -46,7 +46,6 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
           onPageChange={logic.onPageChange}
         />
       )
-    }
   }
 }
 

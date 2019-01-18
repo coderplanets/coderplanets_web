@@ -25,26 +25,28 @@ const debug = makeDebugger('L:ArticleBodyHeader')
 let store = null
 
 export const onEdit = thread => {
-  let type = TYPE.PREVIEW_POST_EDIT
   const data = store.viewingData
+  let type
 
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       type = TYPE.PREVIEW_JOB_EDIT
-      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
-    }
-    case THREAD.VIDEO: {
+      break
+
+    case THREAD.VIDEO:
       type = TYPE.PREVIEW_VIDEO_EDIT
-      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
-    }
-    case THREAD.REPO: {
+      break
+
+    case THREAD.REPO:
       type = TYPE.PREVIEW_REPO_EDIT
-      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
-    }
+      break
+
     default: {
-      return dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+      type = TYPE.PREVIEW_POST_EDIT
     }
   }
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
 }
 
 export const onPin = thread => {
@@ -54,15 +56,15 @@ export const onPin = thread => {
   }
 
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return sr71$.mutate(S.pinJob, args)
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.mutate(S.pinVideo, args)
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.mutate(S.pinRepo, args)
-    }
+
     default: {
       const { subPath: topic } = store.curRoute
       return sr71$.mutate(S.pinPost, R.merge(args, { topic }))
@@ -77,15 +79,15 @@ export const onUndoPin = thread => {
   }
 
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return sr71$.mutate(S.undoPinJob, args)
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.mutate(S.undoPinVideo, args)
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.mutate(S.undoPinRepo, args)
-    }
+
     default: {
       const { subPath: topic } = store.curRoute
       return sr71$.mutate(S.undoPinPost, R.merge(args, { topic }))
@@ -119,18 +121,17 @@ export const onDelete = () => {
   debug('onDelete', id)
 
   switch (store.activeThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return sr71$.mutate(S.deleteJob, { id })
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.mutate(S.deleteVideo, { id })
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.mutate(S.deleteRepo, { id })
-    }
-    default: {
+
+    default:
       return sr71$.mutate(S.deletePost, { id })
-    }
   }
 }
 

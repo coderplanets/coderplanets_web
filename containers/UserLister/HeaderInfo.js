@@ -16,7 +16,7 @@ import { TYPE } from '../../utils'
 
 const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
   switch (type) {
-    case TYPE.USER_LISTER_FAVORITES: {
+    case TYPE.USER_LISTER_FAVORITES:
       return (
         <Wrapper>
           <Title>
@@ -29,8 +29,8 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    case TYPE.USER_LISTER_STARS: {
+
+    case TYPE.USER_LISTER_STARS:
       return (
         <Wrapper>
           <Title>
@@ -43,8 +43,8 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    case TYPE.USER_LISTER_FOLLOWERS: {
+
+    case TYPE.USER_LISTER_FOLLOWERS:
       return (
         <Wrapper>
           <Title>
@@ -56,8 +56,8 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    case TYPE.USER_LISTER_FOLLOWINGS: {
+
+    case TYPE.USER_LISTER_FOLLOWINGS:
       return (
         <Wrapper>
           <Title>
@@ -69,8 +69,8 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    case TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS: {
+
+    case TYPE.USER_LISTER_COMMUNITY_SUBSCRIBERS:
       return (
         <Wrapper>
           <Title>
@@ -82,8 +82,8 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    case TYPE.USER_LISTER_COMMUNITY_EDITORS: {
+
+    case TYPE.USER_LISTER_COMMUNITY_EDITORS:
       return (
         <Wrapper>
           <Title>
@@ -106,10 +106,9 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
           </DescLabel>
         </Wrapper>
       )
-    }
-    default: {
+
+    default:
       return <Title>WTF ?</Title>
-    }
   }
 }
 

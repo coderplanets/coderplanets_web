@@ -28,7 +28,7 @@ class ErrorBoxContainer extends React.Component {
 
   render() {
     return (
-      <Modal width="600px" show={true} showCloseBtn onClose={console.log}>
+      <Modal width="600px" show showCloseBtn onClose={console.log}>
         <div>the fucking error messge</div>
       </Modal>
     )

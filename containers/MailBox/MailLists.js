@@ -6,12 +6,12 @@ import MentionList from './MentionList'
 
 const MailLists = ({ activeRaw, pagedMentions }) => {
   switch (activeRaw) {
-    case 'notifications': {
+    case 'notifications':
       return <NotificationList data={[]} />
-    }
-    case 'sys_notifications': {
+
+    case 'sys_notifications':
       return <SysNotificationList data={[]} />
-    }
+
     default:
       return <MentionList data={pagedMentions} />
   }

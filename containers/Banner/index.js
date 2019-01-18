@@ -26,15 +26,15 @@ const BannerContent = ({ curRoute }) => {
   // debug('BannerContent mainPath: ', mainPath)
   // debug('ROUTE.COMMUNITIES: ', ROUTE.COMMUNITIES)
   switch (mainPath) {
-    case ROUTE.CHEATSHEETS: {
+    case ROUTE.CHEATSHEETS:
       return <CheatsheetRootBanner />
-    }
-    case ROUTE.COMMUNITIES: {
+
+    case ROUTE.COMMUNITIES:
       return <CommunitiesBanner />
-    }
-    case ROUTE.ACTIVITIES: {
+
+    case ROUTE.ACTIVITIES:
       return <ActivitiesRootBanner />
-    }
+
     /*
     case ROUTE.POST: {
       return <ArticleBanner />
@@ -52,9 +52,9 @@ const BannerContent = ({ curRoute }) => {
     }
       */
 
-    case ROUTE.USER: {
+    case ROUTE.USER:
       return <UserBanner />
-    }
+
     default:
       return <CommunityBanner />
   }

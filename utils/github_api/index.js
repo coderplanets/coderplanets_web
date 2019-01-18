@@ -21,15 +21,14 @@ const githubApi = {
     if (e instanceof TimeoutError) return ERR.TIMEOUT
     if (!e || !e.response) return ERR.UNKOWN
     switch (e.response.status) {
-      case 200: {
+      case 200:
         return ERR.NOT_FOUND
-      }
-      case 401: {
+
+      case 401:
         return ERR.AUTH
-      }
-      default: {
+
+      default:
         return ERR.UNKOWN
-      }
     }
   },
 }

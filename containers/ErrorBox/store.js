@@ -10,7 +10,6 @@ import { markStates, makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:ErrorBox')
 
-
 // NOTE: add me to ../../stores/index && ../../stores/RootStore/index
 const ErrorBox = t
   .model('ErrorBox', {})

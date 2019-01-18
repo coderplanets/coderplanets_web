@@ -36,15 +36,14 @@ const columns = [
     /* eslint-disable-next-line */
     render: text => {
       switch (text) {
-        case 'done': {
+        case 'done':
           return <ColorCell color="yellowgreen">{Trans(text)}</ColorCell>
-        }
-        case 'reject': {
+
+        case 'reject':
           return <ColorCell color="tomato">{Trans(text)}</ColorCell>
-        }
-        default: {
+
+        default:
           return <ColorCell>{Trans(text)}</ColorCell>
-        }
       }
     },
   },
