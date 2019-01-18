@@ -5,7 +5,7 @@
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
 [![CodeFactor](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web/badge)](https://www.codefactor.io/repository/github/coderplanets/coderplanets_web)
 [![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
-[![cps badge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://github.com/coderplanets/coderplanets_server)
+[![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
 
 
 ## As advertising: the author is looking for a job :)
@@ -56,4 +56,7 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 
 ## License
 
-This project is licensed under the Apache License v2. For more information see LICENSE.md.
+This project is licensed under the GNU General Public License v3.0. For more
+information see
+[LICENSE.md](https://github.com/coderplanets/coderplanets_web/blob/docs/LICENSE)
+
