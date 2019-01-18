@@ -75,6 +75,12 @@ const VideosThread = t
     get pageDensity() {
       return self.root.account.pageDensity
     },
+    get showFilterBar() {
+      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const pagedVideos = stripMobx(self.pagedVideos)
+
+      return !R.isEmpty(curFilter) || !R.isEmpty(pagedVideos.entries)
+    },
   }))
   .actions(self => ({
     authWarning(options) {

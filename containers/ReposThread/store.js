@@ -75,6 +75,12 @@ const ReposThread = t
     get pageDensity() {
       return self.root.account.pageDensity
     },
+    get showFilterBar() {
+      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const pagedRepos = stripMobx(self.pagedRepos)
+
+      return !R.isEmpty(curFilter) || !R.isEmpty(pagedRepos.entries)
+    },
   }))
   .actions(self => ({
     authWarning(options) {

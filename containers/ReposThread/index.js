@@ -12,6 +12,7 @@ import { Affix } from 'antd'
 import { ICON_CMD } from '../../config'
 import TagsBar from '../TagsBar'
 
+import Maybe from '../../components/Maybe'
 import ContentFilter from '../../components/ContentFilter'
 import PublishLabel from '../../components/PublishLabel'
 import PagedContents from '../../components/PagedContents'
@@ -53,6 +54,7 @@ class ReposThreadContainer extends React.Component {
       activeRepo,
       curRoute,
       accountInfo,
+      showFilterBar,
     } = reposThread
 
     const { mainPath } = curRoute
@@ -63,16 +65,18 @@ class ReposThreadContainer extends React.Component {
         <LeftPadding />
         <LeftPart>
           <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <FilterWrapper>
-            <ContentFilter
-              thread={THREAD.REPO}
-              onSelect={logic.onFilterSelect}
-              activeFilter={filtersData}
-              accountInfo={accountInfo}
-              totalCount={totalCount}
-              onC11NChange={logic.onC11NChange}
-            />
-          </FilterWrapper>
+          <Maybe test={showFilterBar}>
+            <FilterWrapper>
+              <ContentFilter
+                thread={THREAD.REPO}
+                onSelect={logic.onFilterSelect}
+                activeFilter={filtersData}
+                accountInfo={accountInfo}
+                totalCount={totalCount}
+                onC11NChange={logic.onC11NChange}
+              />
+            </FilterWrapper>
+          </Maybe>
 
           <PagedContents
             data={pagedReposData}

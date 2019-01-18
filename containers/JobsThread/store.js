@@ -79,6 +79,12 @@ const JobsThreadStore = t
     get pageDensity() {
       return self.root.account.pageDensity
     },
+    get showFilterBar() {
+      const curFilter = stripMobx(R.pickBy(v => !R.isEmpty(v), self.filters))
+      const pagedJobs = stripMobx(self.pagedJobs)
+
+      return !R.isEmpty(curFilter) || !R.isEmpty(pagedJobs.entries)
+    },
   }))
   .actions(self => ({
     selectFilter(option) {
