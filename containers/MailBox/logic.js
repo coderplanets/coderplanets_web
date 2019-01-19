@@ -30,14 +30,14 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
-export const previewUser = user => {
+export const previewUser = user =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
-}
 
 export const loadMailboxStates = () => {
+  if (!store.isLogin) return false
   markLoading(true)
   sr71$.query(S.mailBoxStatus, {})
 }

@@ -22,9 +22,6 @@ class SidebarContainer extends React.Component {
   componentDidMount() {
     const { sidebar } = this.props
     logic.init(sidebar)
-    // call forceUpdate to force rerender, otherwise the logo src in
-    // communitiesData will be choas, dig later
-    this.forceUpdate()
   }
 
   componentWillUnmount() {

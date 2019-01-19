@@ -13,7 +13,7 @@ const NormalView = ({ source, active, onChange }) => (
       <TabPane
         tab={
           <LableWrapper>
-            <TabIcon raw={item.raw} active={active === item.raw} />
+            <TabIcon raw={item.raw} active={String(active === item.raw)} />
             {item.alias ? item.alias : Trans(item.title)}
           </LableWrapper>
         }
