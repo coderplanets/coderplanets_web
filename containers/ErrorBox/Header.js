@@ -5,8 +5,7 @@ import { Wrapper, ErrorIcon, Info, Title, Desc } from './styles/header'
 
 import { ERR } from '../../utils'
 
-const Header = () => {
-  const type = ERR.CRAPHQL
+const Header = ({ type, operation }) => {
   switch (type) {
     case ERR.NETWORK:
       return (
@@ -14,7 +13,7 @@ const Header = () => {
           <ErrorIcon src={`${ICON_CMD}/error-network.svg`} />
           <Info>
             <Title>网络错误 (NETWORK)</Title>
-            <Desc>container/xxxx</Desc>
+            <Desc>{operation}</Desc>
           </Info>
         </Wrapper>
       )
@@ -25,7 +24,7 @@ const Header = () => {
           <ErrorIcon src={`${ICON_CMD}/error-timeout.svg`} />
           <Info>
             <Title>超时错误 (TIMEOUT)</Title>
-            <Desc>container/xxxx</Desc>
+            <Desc>{operation}</Desc>
           </Info>
         </Wrapper>
       )
@@ -36,7 +35,7 @@ const Header = () => {
           <ErrorIcon src={`${ICON_CMD}/error-graphql.svg`} />
           <Info>
             <Title>GraphQL 请求错误 (QUERY)</Title>
-            <Desc>container/xxxx</Desc>
+            <Desc>{operation}</Desc>
           </Info>
         </Wrapper>
       )

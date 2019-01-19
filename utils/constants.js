@@ -11,6 +11,9 @@ export const ERR = {
 export const EVENT = {
   LOGIN_PANEL: 'LOGIN_PANEL',
   LOGIN: 'LOGIN',
+  // error
+  ERR_RESCUE: 'ERR_RESCUE',
+
   LOGOUT: 'LOGOUT',
   // preview
   PREVIEW_OPEN: 'PREVIEW_OPEN',

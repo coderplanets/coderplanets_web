@@ -5,6 +5,8 @@ import { onError } from 'apollo-link-error'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-fetch'
+import { errRescue } from '../functions'
+import { ERR } from '../constants'
 
 /* import { onError } from 'apollo-link-error' */
 
@@ -34,11 +36,24 @@ const retryLink = new RetryLink({
 })
 
 /* const errorLink = onError(({ operation, graphQLErrors }) => { */
-const errorLink = onError(({ graphQLErrors }) => {
+const errorLink = onError(({ operation, graphQLErrors }) => {
   if (graphQLErrors) {
     /* graphQLErrors.map(({ message, path, detail }) => */
-    debug('[GraphQL error happend]: ')
-    graphQLErrors.map(({ message }) => debug(`[error detail--> ]:  ${message}`))
+    // ERR.GRAPHQL_PARSE
+    const { operationName } = operation
+    // const message = R.pluck('message', graphQLErrors)
+    /* debug('[GraphQL error operation]: ', operation) */
+    debug('operationName: ', operationName)
+    /* debug('[GraphQL error graphQLErrors]: ', graphQLErrors) */
+    // debug('message: ', message)
+
+    // const location = operation.operationName
+    // const { messages } = R.pluck('message', graphQLErrors)
+    errRescue({
+      type: ERR.CRAPHQL,
+      operation: operationName,
+      details: graphQLErrors,
+    })
   }
 })
 

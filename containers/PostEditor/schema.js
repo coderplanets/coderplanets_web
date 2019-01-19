@@ -2,7 +2,8 @@ import gql from 'graphql-tag'
 import { F } from '../schemas'
 
 const createPost = gql`
-  mutation(
+  mutation createPost(
+    $title: String!
     $body: String!
     $digest: String!
     $length: Int!

@@ -31,10 +31,19 @@ class ErrorBoxContainer extends React.Component {
   }
 
   render() {
+    const { errorBox } = this.props
+    const { show, type, operation } = errorBox
+
     return (
-      <Modal width="520px" show mode="error" showCloseBtn onClose={console.log}>
+      <Modal
+        width="520px"
+        show={show}
+        mode="error"
+        showCloseBtn
+        onClose={logic.onClose}
+      >
         <Wrapper>
-          <Header />
+          <Header type={type} operation={operation} />
           <br />
           <Details />
           <Footer />

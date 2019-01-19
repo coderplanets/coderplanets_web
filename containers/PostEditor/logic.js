@@ -210,8 +210,10 @@ const ErrSolver = [
     match: asyncErr(ERR.NETWORK),
     action: ({ details }) => {
       debug('ERR.NETWORK -->', details)
-      // rescue({type: ERR.NETWORK, })
+      // rescue({type: ERR.NETWORK })
       cancleLoading()
+
+      // errRescue({type: ERR.NETWORK, operation: "postEditor"})
     },
   },
 ]
