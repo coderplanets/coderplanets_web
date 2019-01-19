@@ -14,8 +14,8 @@ const ErrorBox = t
   .model('ErrorBox', {
     show: t.optional(t.boolean, false),
     type: t.optional(
-      t.enumeration('type', [ERR.CRAPHQL, ERR.NETWORK, ERR.TIMEOUT]),
-      ERR.CRAPHQL
+      t.enumeration('type', [ERR.GRAPHQL, ERR.NETWORK, ERR.TIMEOUT]),
+      ERR.GRAPHQL
     ),
     operation: t.optional(t.string, '--'),
   })

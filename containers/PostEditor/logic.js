@@ -191,7 +191,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
       // const errMsg = details[0].detail
       const errMsg = errorForHuman(details)

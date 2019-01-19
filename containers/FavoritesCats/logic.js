@@ -185,7 +185,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
       store.changesetErr({ title: '已经存在了', msg: details[0].detail })
       markLoading(false)

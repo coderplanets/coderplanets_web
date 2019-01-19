@@ -109,7 +109,7 @@ export const closePreviewer = (type = '') =>
 export const errRescue = ({ type, operation, details }) =>
   dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details } })
 
-// errRescue({type: ERR.CRAPHQL, operation: operationName, details: graphQLErrors})
+// errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 
 /* eslint-disable */
 export const debounce = (func, wait, immediate) => {

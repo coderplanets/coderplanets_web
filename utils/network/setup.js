@@ -50,7 +50,7 @@ const errorLink = onError(({ operation, graphQLErrors }) => {
     // const location = operation.operationName
     // const { messages } = R.pluck('message', graphQLErrors)
     errRescue({
-      type: ERR.CRAPHQL,
+      type: ERR.GRAPHQL,
       operation: operationName,
       details: graphQLErrors,
     })

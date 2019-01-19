@@ -40,14 +40,14 @@ const formatDetail = errors => {
 
 export const formatGraphErrors = error => {
   if (Array.isArray(error)) {
-    return { error: ERR.CRAPHQL, details: formatDetail(error) }
+    return { error: ERR.GRAPHQL, details: formatDetail(error) }
   }
 
   const { graphQLErrors } = error
   if (!R.isEmpty(graphQLErrors)) {
     // graphQLErrors may not catch in graph query (wrang sytax etc ...)
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-    return { error: ERR.CRAPHQL, details: formatDetail(graphQLErrors) }
+    return { error: ERR.GRAPHQL, details: formatDetail(graphQLErrors) }
   }
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }
