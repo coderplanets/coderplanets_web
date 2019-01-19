@@ -255,7 +255,7 @@ const monokai = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.7,
+    dotOpacity: 0.5,
     text: '#77726a',
   },
   tabs: {

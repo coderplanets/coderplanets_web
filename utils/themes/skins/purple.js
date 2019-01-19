@@ -7,7 +7,7 @@ const primaryColor = '#615c79'
 
 const bannerBg = '#2f2c3c'
 const contentBg = '#242029'
-const contentBoxBg = '#27212d'
+const contentBoxBg = '#27232d'
 const fontColor = primaryColor
 const sidebarBg = '#222029'
 const markdownFont = '#7F8189'
