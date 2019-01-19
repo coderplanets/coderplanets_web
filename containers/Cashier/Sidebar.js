@@ -14,14 +14,14 @@ const Sidebar = ({
   subContentView,
 }) => {
   switch (sidebarView) {
-    case 'question': {
+    case 'question':
       return (
         <Wrapper>
           <QuestionSidebar />
         </Wrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <Wrapper>
           <PaymentSidebar
@@ -32,7 +32,6 @@ const Sidebar = ({
           />
         </Wrapper>
       )
-    }
   }
 }
 

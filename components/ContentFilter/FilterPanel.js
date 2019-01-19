@@ -21,7 +21,7 @@ import { THREAD } from '../../utils'
 
 const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {
-    case THREAD.POST: {
+    case THREAD.POST:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -32,8 +32,8 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           ) : null}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -44,8 +44,8 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           ) : null}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -55,8 +55,8 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           ) : null}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.JOB: {
+
+    case THREAD.JOB:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -72,8 +72,8 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           ) : null}
         </FiltrPanelWrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -81,7 +81,6 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
         </FiltrPanelWrapper>
       )
-    }
   }
 }
 

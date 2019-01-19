@@ -43,79 +43,78 @@ import {
 
 const TabIcon = ({ raw, active, small }) => {
   switch (raw) {
-    case 'tech': {
+    case 'tech':
       return <TabTechIcon active={active} small={small} />
-    }
-    case 'radar': {
+
+    case 'radar':
       return <TabRadarIcon active={active} small={small} />
-    }
-    case 'share': {
+
+    case 'share':
       return <TabShareIcon active={active} small={small} />
-    }
-    case 'user': {
+
+    case 'user':
       return <TabUserIcon active={active} small={small} />
-    }
-    case 'job': {
+
+    case 'job':
       return <TabJobIcon active={active} small={small} />
-    }
-    case 'city': {
+
+    case 'city':
       return <TabCityIcon active={active} small={small} />
-    }
-    case 'wiki': {
+
+    case 'wiki':
       return <TabWikiIcon active={active} small={small} />
-    }
-    case 'video': {
+
+    case 'video':
       return <TabVideoIcon active={active} small={small} />
-    }
-    case 'repo': {
+
+    case 'repo':
       return <TabRepoIcon active={active} small={small} />
-    }
-    case 'cheatsheet': {
+
+    case 'cheatsheet':
       return <TabCheatsheetIcon active={active} small={small} />
-    }
+
     // communities
-    case 'pl': {
+    case 'pl':
       return <TabPlIcon active={active} small={small} />
-    }
-    case 'frontend': {
+
+    case 'frontend':
       return <TabFrontendIcon active={active} small={small} />
-    }
-    case 'backend': {
+
+    case 'backend':
       return <TabBackendIcon active={active} small={small} />
-    }
-    case 'mobile': {
+
+    case 'mobile':
       return <TabMobileIcon active={active} small={small} />
-    }
-    case 'ai': {
+
+    case 'ai':
       return <TabAIIcon active={active} small={small} />
-    }
-    case 'design': {
+
+    case 'design':
       return <TabDesignIcon active={active} small={small} />
-    }
-    case 'blockchain': {
+
+    case 'blockchain':
       return <TabBlockChainIcon active={active} small={small} />
-    }
-    case 'favorites': {
+
+    case 'favorites':
       return <TabFavoritesIcon active={active} small={small} />
-    }
-    case 'likes': {
+
+    case 'likes':
       return <TabLikesIcon active={active} small={small} />
-    }
-    case 'publish': {
+
+    case 'publish':
       return <TabPublishIcon active={active} small={small} />
-    }
-    case 'billing': {
+
+    case 'billing':
       return <TabBillingIcon active={active} small={small} />
-    }
-    case 'comments': {
+
+    case 'comments':
       return <TabCommentsIcon active={active} small={small} />
-    }
-    case 'settings': {
+
+    case 'settings':
       return <TabSettingsIcon active={active} small={small} />
-    }
-    default: {
+
+    default:
       return <TabPostIcon active={active} small={small} />
-    }
   }
 }
 

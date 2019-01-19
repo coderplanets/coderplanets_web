@@ -44,15 +44,14 @@ export const loadVideos = (page = 1) =>
 
 export const reload = page => {
   switch (store.curThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return loadJobs(page)
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return loadVideos(page)
-    }
-    default: {
+
+    default:
       return loadPosts(page)
-    }
   }
 }
 

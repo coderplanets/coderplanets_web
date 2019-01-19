@@ -74,18 +74,17 @@ const UserPublishedComments = t
         pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return self.markState({ curView, pagedJobComments: pagedData })
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return self.markState({ curView, pagedVideoComments: pagedData })
-        }
-        case THREAD.REPO: {
+
+        case THREAD.REPO:
           return self.markState({ curView, pagedRepoComments: pagedData })
-        }
-        default: {
+
+        default:
           return self.markState({ curView, pagedPostComments: pagedData })
-        }
       }
     },
     markState(sobj) {

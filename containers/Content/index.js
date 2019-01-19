@@ -23,18 +23,17 @@ const debug = makeDebugger('C:Content')
 const renderContent = curRoute => {
   const { mainPath } = curRoute
   switch (mainPath) {
-    case ROUTE.CHEATSHEETS: {
+    case ROUTE.CHEATSHEETS:
       return <CheatSheetContent />
-    }
-    case ROUTE.COMMUNITIES: {
+
+    case ROUTE.COMMUNITIES:
       return <CommunitiesContent />
-    }
-    case ROUTE.USER: {
+
+    case ROUTE.USER:
       return <UserContent />
-    }
-    default: {
+
+    default:
       return <CommunityContent />
-    }
   }
 }
 

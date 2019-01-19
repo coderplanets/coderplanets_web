@@ -26,7 +26,7 @@ const CommentsToContent = ({ data, thread, curView, onPreview }) => {
   const { entries } = data
 
   switch (curView) {
-    case TYPE.RESULT: {
+    case TYPE.RESULT:
       return (
         <Wrapper>
           {entries.map(comment => (
@@ -54,17 +54,16 @@ const CommentsToContent = ({ data, thread, curView, onPreview }) => {
           ))}
         </Wrapper>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
           <EmptyLabel text={`未找到评论的${Trans(thread)}信息`} size="large" />
         </React.Fragment>
       )
-    }
-    default: {
+
+    default:
       return <CommentLoading />
-    }
   }
 }
 

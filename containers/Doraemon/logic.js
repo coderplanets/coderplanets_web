@@ -37,24 +37,23 @@ const queryPocket = () => pockect$.query(store.inputValue)
 
 export const searchContents = title => {
   switch (store.searchThread) {
-    case THREAD.POST: {
+    case THREAD.POST:
       return sr71$.query(S.searchPosts, { title })
-    }
-    case THREAD.JOB: {
+
+    case THREAD.JOB:
       return sr71$.query(S.searchJobs, { title })
-    }
-    case THREAD.USER: {
+
+    case THREAD.USER:
       return sr71$.query(S.searchUsers, { name: title })
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.query(S.searchVideos, { title })
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.query(S.searchRepos, { title })
-    }
-    default: {
+
+    default:
       return sr71$.query(S.searchCommunities, { title })
-    }
   }
 }
 

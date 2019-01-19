@@ -50,18 +50,17 @@ export const onThreadChange = curThread => {
   store.markState({ curThread })
   // reload()
   switch (store.curThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return loadJobComments()
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return loadVideoComments()
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return loadRepoComments()
-    }
-    default: {
+
+    default:
       return loadPostComments()
-    }
   }
 }
 

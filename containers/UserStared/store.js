@@ -49,15 +49,14 @@ const UserStared = t
     },
     get pagedData() {
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return stripMobx(self.pagedJobs)
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return stripMobx(self.pagedVideos)
-        }
-        default: {
+
+        default:
           return stripMobx(self.pagedPosts)
-        }
       }
     },
     get accountInfo() {

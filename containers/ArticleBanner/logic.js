@@ -56,18 +56,17 @@ export const onListReactionUsers = (type, data) =>
 const afterReaction = id => {
   const thread = store.activeThread
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return sr71$.query(S.job, { id })
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.query(S.video, { id })
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.query(S.repo, { id })
-    }
-    default: {
+
+    default:
       return sr71$.query(S.post, { id })
-    }
   }
 }
 

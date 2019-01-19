@@ -22,7 +22,7 @@ const ReposList = ({ props }) => {
   } = props
 
   switch (curView) {
-    case TYPE.RESULT: {
+    case TYPE.RESULT:
       return (
         <React.Fragment>
           {entries.map(entry => (
@@ -36,8 +36,8 @@ const ReposList = ({ props }) => {
           ))}
         </React.Fragment>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
           {R.isEmpty(emptyPrefix) ? (
@@ -50,7 +50,7 @@ const ReposList = ({ props }) => {
           )}
         </React.Fragment>
       )
-    }
+
     default:
       return <RepoItemLoading num={4} />
   }

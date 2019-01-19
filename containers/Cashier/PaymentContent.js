@@ -40,16 +40,15 @@ const PaymentContent = ({
   transferAccount,
 }) => {
   switch (subContentView) {
-    case 'confirm': {
+    case 'confirm':
       return (
         <PaymentConfirm
           paymentMethod={paymentMethod}
           transferAccount={transferAccount}
         />
       )
-    }
 
-    default: {
+    default:
       return (
         <Wrapper>
           <CountDesc>
@@ -64,7 +63,6 @@ const PaymentContent = ({
           </NextDesc>
         </Wrapper>
       )
-    }
   }
 }
 // <Button type="primary">下一步</Button>

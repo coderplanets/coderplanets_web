@@ -42,15 +42,15 @@ export const toast = {
 
 export const toastBarColor = (type, themeData) => {
   switch (type) {
-    case 'success': {
+    case 'success':
       return themeData.toast.successBar
-    }
-    case 'error': {
+
+    case 'error':
       return themeData.toast.errorBar
-    }
-    case 'warn': {
+
+    case 'warn':
       return themeData.toast.warnBar
-    }
+
     default:
       return themeData.toast.infoBar
   }
