@@ -82,6 +82,12 @@ const rotate360 = keyframes`
   }
 `
 
+const breath = keyframes`
+  0%    {opacity: 0.3;}
+  60%   {opacity:   1;}
+  100%  {opacity: 0.2;}
+`
+
 const shakeRule = css`
   ${shake} 0.3s linear;
 `
@@ -103,6 +109,9 @@ const rotate360Rule = css`
 const rotate360CloseRule = css`
   ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
 `
+const breathRule = css`
+  ${breath} 4s linear infinite;
+`
 
 const animate = {
   // fadeInRight,
@@ -118,6 +127,8 @@ const animate = {
   // rotate360,
   rotate360Rule,
   rotate360CloseRule,
+  // breath
+  breathRule,
 }
 
 export default animate
