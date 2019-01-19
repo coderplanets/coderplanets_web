@@ -25,6 +25,7 @@ const ssrCache = new LRUCache({
 
 app.prepare().then(() => {
   const server = express()
+  // redirect all the www request to non-www addr
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
   server.use(helmet())
@@ -69,8 +70,7 @@ app.prepare().then(() => {
       const { community, preview, id } = req.query
       return res.redirect(`/${community}/${preview}/${id}`)
     }
-    console.log('=== community page')
-    /* return app.render(req, res, '/community', req.query) */
+
     return renderAndCache(req, res, '/community', req.query)
   })
 
@@ -82,7 +82,7 @@ app.prepare().then(() => {
   })
 })
 
-// redirect all the www request to non-www version
+// redirect all the www request to non-www addr
 const reDirectToNakedUrl = (req, res, next) => {
   const w3 = 'www.'
   const { protocol: ptl, hostname: host, originalUrl } = req

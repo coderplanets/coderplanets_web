@@ -58,7 +58,6 @@ const supportedRadarSource = ['wanqu', 'solidot', 'techcrunch']
 const specCheck = () => {
   if (store.activeThread === THREAD.RADAR) {
     const domain = parseDomain(store.editPost.linkAddr)
-    console.log('domain: ', domain)
     if (!R.contains(domain, supportedRadarSource)) {
       store.markState({ showRadarNote: true })
       return false
