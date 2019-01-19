@@ -12,6 +12,9 @@ const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
 
+// SSR for mobx
+mobxReact.useStaticRendering(true)
+
 // This is where we cache our rendered HTML pages
 const ssrCache = new LRUCache({
   max: 1000, // cache item count
@@ -19,26 +22,25 @@ const ssrCache = new LRUCache({
   maxAge: 1000 * 30, // 30 ses
 })
 
-mobxReact.useStaticRendering(true)
+// redirect all the www request to non-www version
+const reDirectToNakedUrl = (req, res, next) => {
+  const w3 = 'www.'
+  const { protocol: ptl, hostname: host, originalUrl } = req
+
+  if (host.indexOf(w3) === 0) {
+    const nakedUrl = `${ptl}://${host.slice(w3.length)}:80${originalUrl}`
+    return res.redirect(301, nakedUrl)
+  }
+
+  next()
+}
 
 const HOME_PAGE = '/home/posts'
 app.prepare().then(() => {
   const server = express()
+  server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
   server.use(helmet())
-
-  server.use((req, res, next) => {
-    const str = 'www.'
-    const newUrl = `${req.protocol}://${req.hostname.slice(str.length)}:80${
-      req.originalUrl
-    }`
-
-    if (req.hostname.indexOf(str) === 0) {
-      res.redirect(301, newUrl)
-    } else {
-      next()
-    }
-  })
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
