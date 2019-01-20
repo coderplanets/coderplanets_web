@@ -7,7 +7,7 @@ const primaryColor = '#615c79'
 
 const bannerBg = '#2f2c3c'
 const contentBg = '#242029'
-const contentBoxBg = '#27212d'
+const contentBoxBg = '#27232d'
 const fontColor = primaryColor
 const sidebarBg = '#222029'
 const markdownFont = '#7F8189'
@@ -42,7 +42,7 @@ const purple = {
   avatarOpacity: 0.8,
   baseColor: {
     error: '#a24e3f !important',
-    errorBg: '#2b2219',
+    errorBg: '#2d231f',
     green: '#699411 !important',
     pink: '#966475 !important',
     pinkLite: '#82606b',

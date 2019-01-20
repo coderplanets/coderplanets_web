@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import { makeDebugger, $solver, asyncErr, ERR, errRescue } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
 // import S from './schema'
@@ -14,6 +14,8 @@ const debug = makeDebugger('L:{{ properCase name }}')
 
 export const someMethod = () => {}
 
+// const const cancleLoading = () => {}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -21,21 +23,23 @@ export const someMethod = () => {}
 const DataSolver = []
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {
+      // cancleLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      // cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, details, path: '{{ properCase name }}' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      // cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: '{{ properCase name }}' })
     },
   },
 ]

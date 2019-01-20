@@ -30,14 +30,14 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
-export const previewUser = user => {
+export const previewUser = user =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
-}
 
 export const loadMailboxStates = () => {
+  if (!store.isLogin) return false
   markLoading(true)
   sr71$.query(S.mailBoxStatus, {})
 }
@@ -78,9 +78,9 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
+      debug('ERR.GRAPHQL -->', details)
     },
   },
   {

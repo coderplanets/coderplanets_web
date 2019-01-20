@@ -1,44 +1,80 @@
-// import R from 'ramda'
+import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  ERR,
+  EVENT,
+  isObject,
+} from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
-// import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.ERR_RESCUE],
+})
 let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:ErrorBox')
 
-export const someMethod = () => {}
+export const onClose = () => store.markState({ show: false })
+
+const classifyGQErrors = errors => {
+  if (!Array.isArray(errors)) {
+    return debug('invalid errors: ', errors)
+  }
+
+  if (R.has('path', errors[0])) {
+    if (isObject(errors[0].message)) {
+      return store.markState({
+        graphqlType: 'changeset',
+        changesetError: errors,
+      })
+    }
+    return store.markState({
+      graphqlType: 'custom',
+      customError: errors,
+    })
+  }
+
+  store.markState({ graphqlType: 'parse', parseError: errors })
+}
 
 // ###############################
 // Data & Error handlers
 // ###############################
 
-const DataSolver = []
-const ErrSolver = [
+const DataSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
-  },
-  {
-    match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
-  },
-  {
-    match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    match: asyncRes(EVENT.ERR_RESCUE),
+    action: res => {
+      const {
+        type,
+        data: { operation, details, path },
+      } = res[EVENT.ERR_RESCUE]
+
+      switch (type) {
+        case ERR.GRAPHQL:
+          classifyGQErrors(details)
+          break
+
+        case ERR.TIMEOUT:
+          store.markState({ timeoutError: details, path })
+          break
+
+        default:
+          debug('default')
+      }
+
+      store.markState({ show: true, type, operation, path })
     },
   },
 ]
+
+const ErrSolver = []
 
 export const init = _store => {
   store = _store

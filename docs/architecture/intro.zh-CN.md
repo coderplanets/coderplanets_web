@@ -311,7 +311,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) =>  cancleLoading()
   },
   {

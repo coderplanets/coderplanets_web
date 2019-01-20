@@ -35,6 +35,9 @@ const MailBox = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get mailStatusData() {
       return stripMobx(self.mailStatus)
     },

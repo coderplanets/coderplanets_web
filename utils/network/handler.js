@@ -11,7 +11,9 @@ const debug = makeDebugger('Network')
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,
-  details: `server has no-response in ${TIMEOUT_THRESHOLD} secs`,
+  details: `server has no-response in ${Math.round(
+    (TIMEOUT_THRESHOLD / 1000) * 100
+  ) / 100} secs`,
 })
 
 // refator later
@@ -40,14 +42,14 @@ const formatDetail = errors => {
 
 export const formatGraphErrors = error => {
   if (Array.isArray(error)) {
-    return { error: ERR.CRAPHQL, details: formatDetail(error) }
+    return { error: ERR.GRAPHQL, details: formatDetail(error) }
   }
 
   const { graphQLErrors } = error
   if (!R.isEmpty(graphQLErrors)) {
     // graphQLErrors may not catch in graph query (wrang sytax etc ...)
     // checkout this issue https://github.com/apollographql/apollo-client/issues/2810
-    return { error: ERR.CRAPHQL, details: formatDetail(graphQLErrors) }
+    return { error: ERR.GRAPHQL, details: formatDetail(graphQLErrors) }
   }
   return { error: ERR.NETWORK, details: 'checkout your server or network' }
 }

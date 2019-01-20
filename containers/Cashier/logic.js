@@ -89,7 +89,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) =>
       store.toastError({ title: '提交失败', msg: errorForHuman(details) }),
   },

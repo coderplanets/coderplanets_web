@@ -26,7 +26,8 @@ export const Wrapper = styled.div`
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
   border: 1px solid;
   border-top: 3px solid;
-  border-color: ${theme('modal.border')};
+  border-color: ${({ mode }) =>
+    mode === 'normal' ? theme('modal.border') : theme('baseColor.error')};
   animation: ${animate.zoomInRule};
 `
 export const ChildrenWrapper = styled.div`
@@ -36,7 +37,8 @@ export const ChildrenWrapper = styled.div`
   overflow-y: scroll;
 `
 export const CloseBtn = styled(Img)`
-  fill: ${theme('font')};
+  fill: ${({ mode }) =>
+    mode === 'normal' ? theme('font') : theme('baseColor.error')};
   position: absolute;
   width: 30px;
   height: 30px;

@@ -108,7 +108,7 @@ const encodeGqError = errObj => {
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
       meteorState(store, 'error', 5, encodeGqError(details))
       cancleLoading()

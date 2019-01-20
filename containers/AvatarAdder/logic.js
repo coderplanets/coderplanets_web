@@ -55,9 +55,9 @@ export const onPopoverVisible = visable => {
 const DataSolver = []
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
+      debug('ERR.GRAPHQL -->', details)
     },
   },
   {

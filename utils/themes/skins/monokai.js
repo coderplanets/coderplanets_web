@@ -43,7 +43,7 @@ const monokai = {
   avatarOpacity: 0.8,
   baseColor: {
     error: '#a24e3f !important',
-    errorBg: '#2b2219 !important',
+    errorBg: '#2d261e',
     green: '#699411 !important',
     pink: '#966475 !important',
     pinkLite: '#82606b',
@@ -255,7 +255,7 @@ const monokai = {
     boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
-    dotOpacity: 0.7,
+    dotOpacity: 0.5,
     text: '#77726a',
   },
   tabs: {

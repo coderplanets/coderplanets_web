@@ -5,6 +5,8 @@ import { onError } from 'apollo-link-error'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-fetch'
+import { errRescue } from '../functions'
+import { ERR } from '../constants'
 
 /* import { onError } from 'apollo-link-error' */
 
@@ -16,10 +18,17 @@ const debug = makeDebugger('Network')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
-export const TIMEOUT_THRESHOLD = 15000 // 5 sec
-export const GRAPHQL_TIMEOUT = 15000
-export const MUTIATION_TIMEOUT = 15000
-export const QUERY_TIMEOUT = 15000
+/* // for debug
+   export const TIMEOUT_THRESHOLD = 10 // 10 sec
+   export const GRAPHQL_TIMEOUT = 10 // 10 sec
+   export const MUTIATION_TIMEOUT = 10 // 10 sec
+   export const QUERY_TIMEOUT = 10 // 10 sec
+ */
+
+export const TIMEOUT_THRESHOLD = 10000 // 10 sec
+export const GRAPHQL_TIMEOUT = 10000 // 10 sec
+export const MUTIATION_TIMEOUT = 10000 // 10 sec
+export const QUERY_TIMEOUT = 10000 // 10 sec
 
 const retryLink = new RetryLink({
   delay: {
@@ -34,11 +43,15 @@ const retryLink = new RetryLink({
 })
 
 /* const errorLink = onError(({ operation, graphQLErrors }) => { */
-const errorLink = onError(({ graphQLErrors }) => {
+const errorLink = onError(({ operation, graphQLErrors }) => {
   if (graphQLErrors) {
-    /* graphQLErrors.map(({ message, path, detail }) => */
-    debug('[GraphQL error happend]: ')
-    graphQLErrors.map(({ message }) => debug(`[error detail--> ]:  ${message}`))
+    const { operationName } = operation
+
+    errRescue({
+      type: ERR.GRAPHQL,
+      operation: operationName,
+      details: graphQLErrors,
+    })
   }
 })
 

@@ -35,6 +35,7 @@ export {
   Rlog,
   countWords,
   closePreviewer,
+  errRescue,
   debounce,
   extractMentions,
   extractAttachments,
