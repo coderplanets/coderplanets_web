@@ -32,7 +32,16 @@ class ErrorBoxContainer extends React.Component {
 
   render() {
     const { errorBox } = this.props
-    const { show, type, operation } = errorBox
+    const {
+      show,
+      type,
+      operation,
+      timeoutError,
+      graphqlType,
+      changesetErrorData,
+      parseErrorData,
+      customErrorData,
+    } = errorBox
 
     return (
       <Modal
@@ -43,9 +52,16 @@ class ErrorBoxContainer extends React.Component {
         onClose={logic.onClose}
       >
         <Wrapper>
-          <Header type={type} operation={operation} />
+          <Header type={type} operation={operation} graphqlType={graphqlType} />
           <br />
-          <Details />
+          <Details
+            type={type}
+            timeoutError={timeoutError}
+            graphqlType={graphqlType}
+            changesetError={changesetErrorData}
+            parseError={parseErrorData}
+            customError={customErrorData}
+          />
           <Footer />
         </Wrapper>
       </Modal>

@@ -9,15 +9,14 @@ import {
   EVENT,
   ERR,
   THREAD,
-  meteorState,
   countWords,
   extractAttachments,
   extractMentions,
   updateEditing,
-  errorForHuman,
   closePreviewer,
   cast,
   parseDomain,
+  errRescue,
 } from '../../utils'
 
 import { S, updatablePostFields } from './schema'
@@ -193,27 +192,27 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) => {
-      // const errMsg = details[0].detail
-      const errMsg = errorForHuman(details)
-      meteorState(store, 'error', 5, errMsg)
+      debug('asyncErr: ', details)
+      /*
+         const errMsg = errorForHuman(details)
+         meteorState(store, 'error', 5, errMsg)
+       */
       cancleLoading()
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      sr71$.stop()
       cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, operation: 'postEditor', details })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-      // rescue({type: ERR.NETWORK })
+    action: () => {
       cancleLoading()
-
-      // errRescue({type: ERR.NETWORK, operation: "postEditor"})
+      errRescue({ type: ERR.NETWORK, operation: 'postEditor' })
     },
   },
 ]

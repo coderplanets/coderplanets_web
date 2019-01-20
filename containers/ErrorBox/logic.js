@@ -11,7 +11,6 @@ import {
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
-// import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.ERR_RESCUE],
@@ -33,14 +32,19 @@ const graphqlTypes = gqErrors => {
   }
 
   if (R.has('path', gqErrors[0])) {
-    debug('server side error: ', gqErrors)
     if (isObject(gqErrors[0].message)) {
-      return debug('changeset error: ', gqErrors)
+      return store.markState({
+        graphqlType: 'changeset',
+        changesetError: gqErrors,
+      })
     }
-    return debug('custom error: ', gqErrors)
+    return store.markState({
+      graphqlType: 'custom',
+      customError: gqErrors,
+    })
   }
 
-  debug('graphql parse error: ', gqErrors)
+  store.markState({ graphqlType: 'parse', parseError: gqErrors })
 }
 
 // ###############################
@@ -51,9 +55,28 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const { type, data: { operation, details } } = res[EVENT.ERR_RESCUE]
+      const {
+        type,
+        data: { operation, details },
+      } = res[EVENT.ERR_RESCUE]
+
       debug('get yohoo: ', res[EVENT.ERR_RESCUE])
-      debug('graphqlTypes: ', graphqlTypes(details))
+
+      switch (type) {
+        case ERR.GRAPHQL:
+          graphqlTypes(details)
+          break
+
+        case ERR.TIMEOUT:
+          debug('get timeout error: ', details)
+          store.markState({ timeoutError: details })
+          break
+
+        default:
+          debug('default')
+      }
+
+      // graphqlTypes(details)
       store.markState({ show: true, type, operation })
     },
   },

@@ -18,10 +18,10 @@ const debug = makeDebugger('Network')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
-export const TIMEOUT_THRESHOLD = 15000 // 5 sec
-export const GRAPHQL_TIMEOUT = 15000
-export const MUTIATION_TIMEOUT = 15000
-export const QUERY_TIMEOUT = 15000
+export const TIMEOUT_THRESHOLD = 10000 // 10 sec
+export const GRAPHQL_TIMEOUT = 10000 // 10 sec
+export const MUTIATION_TIMEOUT = 10000 // 10 sec
+export const QUERY_TIMEOUT = 10000 // 10 sec
 
 const retryLink = new RetryLink({
   delay: {
@@ -38,17 +38,8 @@ const retryLink = new RetryLink({
 /* const errorLink = onError(({ operation, graphQLErrors }) => { */
 const errorLink = onError(({ operation, graphQLErrors }) => {
   if (graphQLErrors) {
-    /* graphQLErrors.map(({ message, path, detail }) => */
-    // ERR.GRAPHQL_PARSE
     const { operationName } = operation
-    // const message = R.pluck('message', graphQLErrors)
-    /* debug('[GraphQL error operation]: ', operation) */
-    debug('operationName: ', operationName)
-    /* debug('[GraphQL error graphQLErrors]: ', graphQLErrors) */
-    // debug('message: ', message)
 
-    // const location = operation.operationName
-    // const { messages } = R.pluck('message', graphQLErrors)
     errRescue({
       type: ERR.GRAPHQL,
       operation: operationName,

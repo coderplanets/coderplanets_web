@@ -1,11 +1,14 @@
 import React from 'react'
 
 import { ICON_CMD } from '../../config'
+
+import GraphQLTitle from './GraphqlTitle'
+
 import { Wrapper, ErrorIcon, Info, Title, Desc } from './styles/header'
 
 import { ERR } from '../../utils'
 
-const Header = ({ type, operation }) => {
+const Header = ({ type, operation, graphqlType }) => {
   switch (type) {
     case ERR.NETWORK:
       return (
@@ -34,7 +37,7 @@ const Header = ({ type, operation }) => {
         <Wrapper>
           <ErrorIcon src={`${ICON_CMD}/error-graphql.svg`} />
           <Info>
-            <Title>GraphQL 请求错误 (QUERY)</Title>
+            <GraphQLTitle type={graphqlType} />
             <Desc>{operation}</Desc>
           </Info>
         </Wrapper>

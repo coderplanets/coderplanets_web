@@ -11,7 +11,9 @@ const debug = makeDebugger('Network')
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,
-  details: `server has no-response in ${TIMEOUT_THRESHOLD} secs`,
+  details: `server has no-response in ${Math.round(
+    (TIMEOUT_THRESHOLD / 1000) * 100
+  ) / 100} secs`,
 })
 
 // refator later

@@ -25,4 +25,5 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('baseColor.error')};
   opacity: 0.7;
+  margin-left: 10px;
 `
