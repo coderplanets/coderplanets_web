@@ -4,7 +4,6 @@ import {
   makeDebugger,
   $solver,
   asyncRes,
-  asyncErr,
   ERR,
   EVENT,
   isObject,
@@ -21,30 +20,27 @@ let store = null
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:ErrorBox')
 
-export const onClose = () => {
-  // TODO: reset
-  store.markState({ show: false })
-}
+export const onClose = () => store.markState({ show: false })
 
-const graphqlTypes = gqErrors => {
-  if (!Array.isArray(gqErrors)) {
-    return debug('非法的 gqErrors: ', gqErrors)
+const classifyGQErrors = errors => {
+  if (!Array.isArray(errors)) {
+    return debug('invalid errors: ', errors)
   }
 
-  if (R.has('path', gqErrors[0])) {
-    if (isObject(gqErrors[0].message)) {
+  if (R.has('path', errors[0])) {
+    if (isObject(errors[0].message)) {
       return store.markState({
         graphqlType: 'changeset',
-        changesetError: gqErrors,
+        changesetError: errors,
       })
     }
     return store.markState({
       graphqlType: 'custom',
-      customError: gqErrors,
+      customError: errors,
     })
   }
 
-  store.markState({ graphqlType: 'parse', parseError: gqErrors })
+  store.markState({ graphqlType: 'parse', parseError: errors })
 }
 
 // ###############################
@@ -55,20 +51,14 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const {
-        type,
-        data: { operation, details },
-      } = res[EVENT.ERR_RESCUE]
-
-      debug('get yohoo: ', res[EVENT.ERR_RESCUE])
+      const { type, data: { operation, details } } = res[EVENT.ERR_RESCUE]
 
       switch (type) {
         case ERR.GRAPHQL:
-          graphqlTypes(details)
+          classifyGQErrors(details)
           break
 
         case ERR.TIMEOUT:
-          debug('get timeout error: ', details)
           store.markState({ timeoutError: details })
           break
 
@@ -76,32 +66,12 @@ const DataSolver = [
           debug('default')
       }
 
-      // graphqlTypes(details)
       store.markState({ show: true, type, operation })
     },
   },
 ]
 
-const ErrSolver = [
-  {
-    match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
-  },
-  {
-    match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
-  },
-  {
-    match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
-  },
-]
+const ErrSolver = []
 
 export const init = _store => {
   store = _store

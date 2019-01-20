@@ -34,3 +34,10 @@ export const IssueLinker = styled.a`
     color: ${theme('baseColor.error')};
   }
 `
+
+export const Divider = styled.div`
+  opacity: 0.5;
+  color: ${theme('baseColor.error')};
+  margin-right: 4px;
+  margin-left: 4px;
+`

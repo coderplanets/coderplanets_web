@@ -18,6 +18,13 @@ const debug = makeDebugger('Network')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
+/* // for debug
+   export const TIMEOUT_THRESHOLD = 10 // 10 sec
+   export const GRAPHQL_TIMEOUT = 10 // 10 sec
+   export const MUTIATION_TIMEOUT = 10 // 10 sec
+   export const QUERY_TIMEOUT = 10 // 10 sec
+ */
+
 export const TIMEOUT_THRESHOLD = 10000 // 10 sec
 export const GRAPHQL_TIMEOUT = 10000 // 10 sec
 export const MUTIATION_TIMEOUT = 10000 // 10 sec

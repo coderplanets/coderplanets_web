@@ -191,18 +191,13 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('asyncErr: ', details)
-      /*
-         const errMsg = errorForHuman(details)
-         meteorState(store, 'error', 5, errMsg)
-       */
-      cancleLoading()
-    },
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
+      debug('ERR.TIMEOUT')
+
       sr71$.stop()
       cancleLoading()
       errRescue({ type: ERR.TIMEOUT, operation: 'postEditor', details })

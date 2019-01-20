@@ -6,6 +6,7 @@ import {
   Selector,
   Issue,
   GithubIcon,
+  Divider,
   IssueLinker,
 } from './styles/footer'
 
@@ -14,6 +15,14 @@ const Footer = () => (
     <Selector />
     <Issue>
       <GithubIcon src={`${ICON_CMD}/github.svg`} />
+      <IssueLinker
+        href={`${ISSUE_ADDR}/340`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        意见或建议
+      </IssueLinker>
+      <Divider>|</Divider>
       <IssueLinker
         href={`${ISSUE_ADDR}/new`}
         rel="noopener noreferrer"
