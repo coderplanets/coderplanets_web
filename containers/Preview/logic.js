@@ -22,6 +22,7 @@ let sub$ = null
 export const closePreview = () => {
   unholdPage()
   store.close()
+  store.markState({ imageUploading: false })
 
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until preview move out of the screean
@@ -50,6 +51,10 @@ const DataResolver = [
 
 export const init = _store => {
   store = _store
+
+  setTimeout(() => {
+    store.markState({ imageUploading: true })
+  }, 5000)
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataResolver, []))
