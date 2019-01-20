@@ -51,7 +51,10 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const { type, data: { operation, details } } = res[EVENT.ERR_RESCUE]
+      const {
+        type,
+        data: { operation, details, path },
+      } = res[EVENT.ERR_RESCUE]
 
       switch (type) {
         case ERR.GRAPHQL:
@@ -59,14 +62,14 @@ const DataSolver = [
           break
 
         case ERR.TIMEOUT:
-          store.markState({ timeoutError: details })
+          store.markState({ timeoutError: details, path })
           break
 
         default:
           debug('default')
       }
 
-      store.markState({ show: true, type, operation })
+      store.markState({ show: true, type, operation, path })
     },
   },
 ]

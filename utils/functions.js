@@ -106,8 +106,8 @@ export const dispatchEvent = (msg, data = {}) => {
 export const closePreviewer = (type = '') =>
   dispatchEvent(EVENT.PREVIEW_CLOSE, { type })
 
-export const errRescue = ({ type, operation, details }) =>
-  dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details } })
+export const errRescue = ({ type, operation, details, path }) =>
+  dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 

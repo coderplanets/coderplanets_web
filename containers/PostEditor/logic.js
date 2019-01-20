@@ -196,18 +196,15 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT')
-
-      sr71$.stop()
       cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, operation: 'postEditor', details })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'PostEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       cancleLoading()
-      errRescue({ type: ERR.NETWORK, operation: 'postEditor' })
+      errRescue({ type: ERR.NETWORK, path: 'PostEditor' })
     },
   },
 ]

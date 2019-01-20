@@ -36,6 +36,7 @@ class ErrorBoxContainer extends React.Component {
       show,
       type,
       operation,
+      path,
       timeoutError,
       graphqlType,
       changesetErrorData,
@@ -52,7 +53,12 @@ class ErrorBoxContainer extends React.Component {
         onClose={logic.onClose}
       >
         <Wrapper>
-          <Header type={type} operation={operation} graphqlType={graphqlType} />
+          <Header
+            type={type}
+            operation={operation}
+            path={path}
+            graphqlType={graphqlType}
+          />
           <br />
           <Details
             type={type}

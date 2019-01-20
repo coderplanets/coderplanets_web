@@ -8,7 +8,13 @@ import { Wrapper, ErrorIcon, Info, Title, Desc } from './styles/header'
 
 import { ERR } from '../../utils'
 
-const Header = ({ type, operation, graphqlType }) => {
+const getPath = path => {
+  if (!path) return '---'
+
+  return `containers/${path}/logic`
+}
+
+const Header = ({ type, operation, path, graphqlType }) => {
   switch (type) {
     case ERR.NETWORK:
       return (
@@ -16,7 +22,7 @@ const Header = ({ type, operation, graphqlType }) => {
           <ErrorIcon src={`${ICON_CMD}/error-network.svg`} />
           <Info>
             <Title>网络错误 (NETWORK)</Title>
-            <Desc>{operation}</Desc>
+            <Desc>{getPath(path)}</Desc>
           </Info>
         </Wrapper>
       )
@@ -27,7 +33,7 @@ const Header = ({ type, operation, graphqlType }) => {
           <ErrorIcon src={`${ICON_CMD}/error-timeout.svg`} />
           <Info>
             <Title>超时错误 (TIMEOUT)</Title>
-            <Desc>{operation}</Desc>
+            <Desc>{getPath(path)}</Desc>
           </Info>
         </Wrapper>
       )

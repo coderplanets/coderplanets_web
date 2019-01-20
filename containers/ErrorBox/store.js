@@ -30,6 +30,7 @@ const ErrorBox = t
       ERR.GRAPHQL
     ),
     operation: t.optional(t.string, '--'),
+    path: t.maybeNull(t.string),
 
     timeoutError: t.optional(t.string, '--'),
     // spec type of ERR.GRAPHQL
