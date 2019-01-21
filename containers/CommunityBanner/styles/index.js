@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '../../../components/Img'
-/* import { Img } from '../../../components' */
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 export const BaseBanner = styled.nav`
   ${cs.flexColumn('justify-center')};

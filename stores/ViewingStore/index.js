@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { markStates, makeDebugger, THREAD, stripMobx } from 'utils'
 import { User, Community, Post, Job, Video, Repo } from '../SharedModel'
-import { markStates, makeDebugger, THREAD, stripMobx } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:ViewingStore')

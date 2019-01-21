@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EMAIL_BUSINESS, ISSUE_ADDR, API_SERVER_ADDR } from '../../config'
+import { EMAIL_BUSINESS, ISSUE_ADDR, API_SERVER_ADDR } from 'config'
 import BottomInfo from './BottomInfo'
 
 import {

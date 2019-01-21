@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { ERR } from 'utils'
 import GraphQLTitle from './GraphqlTitle'
 
 import { Wrapper, ErrorIcon, Info, Title, Desc } from './styles/header'
-
-import { ERR } from '../../utils'
 
 const getPath = path => {
   if (!path) return '---'

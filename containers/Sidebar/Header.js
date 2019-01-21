@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { ICON_CMD, ICON_BASE } from '../../config'
+import { ICON_CMD, ICON_BASE } from 'config'
 
 import PinButton from './PinButton'
 

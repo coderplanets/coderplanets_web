@@ -12,7 +12,7 @@ import {
   stripMobx,
   changeset,
   flashState,
-} from '../../utils'
+} from 'utils'
 import { User, EduBackground, WorkBackground } from '../../stores/SharedModel'
 
 /* eslint-disable-next-line */

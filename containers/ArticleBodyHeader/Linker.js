@@ -1,8 +1,8 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
+import { cutFrom } from 'utils'
 import { LinkFrom, LinkSource } from './styles'
-import { cutFrom } from '../../utils'
 
 const Linker = ({ addr }) => (
   <React.Fragment>

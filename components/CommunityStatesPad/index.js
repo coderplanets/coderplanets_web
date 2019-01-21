@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, prettyNum } from 'utils'
 import SubscribedTitle from './SubscribedTitle'
 
 import {
@@ -16,8 +17,6 @@ import {
   NumberTitle,
   NumberItem,
 } from './styles'
-
-import { makeDebugger, prettyNum } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityStatesPad:index')

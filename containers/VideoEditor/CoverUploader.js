@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import Maybe from 'components/Maybe'
+import { ICON_CMD } from 'config'
 
-import Maybe from '../../components/Maybe'
+import { nilOrEmpty } from 'utils'
 import DocUploader from '../DocUploader'
 
 import {
@@ -17,7 +18,6 @@ import {
   PosterCermeraIcon,
 } from './styles/cover_uploader'
 
-import { nilOrEmpty } from '../../utils'
 import { inputOnChange, usePosterAsThumbnil } from './logic'
 
 const CoverUploader = ({ thumbnil, poster }) => (

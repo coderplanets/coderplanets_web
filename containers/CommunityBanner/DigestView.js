@@ -1,12 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import Tabber from 'components/Tabber'
+import CommunityStatesPad from 'components/CommunityStatesPad'
+import { CommunityHolder } from 'components/LoadingEffects'
+import { ICON_CMD } from 'config'
 
-import Tabber from '../../components/Tabber'
-import CommunityStatesPad from '../../components/CommunityStatesPad'
-import { CommunityHolder } from '../../components/LoadingEffects'
-
+import { NON_FILL_COMMUNITY } from 'utils'
 import {
   Wrapper,
   InnerWrapper,
@@ -22,7 +22,6 @@ import {
   LogoHolder,
 } from './styles/digest_view'
 
-import { NON_FILL_COMMUNITY } from '../../utils'
 import {
   tabberChange,
   onSubscribe,

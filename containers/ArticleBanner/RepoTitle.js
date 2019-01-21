@@ -1,7 +1,8 @@
 import React from 'react'
 
-import Popover from '../../components/Popover'
+import Popover from 'components/Popover'
 
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   LanguageDot,
@@ -9,8 +10,6 @@ import {
   TitleLink,
   Slash,
 } from './styles/repo_title'
-
-import { cutFrom } from '../../utils'
 
 const RepoTitle = ({ repo }) => (
   <Wrapper>

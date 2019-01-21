@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from 'antd'
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
 
-import FormItem from '../../components/FormItem'
+import FormItem from 'components/FormItem'
 import { Wrapper, Desc, BtnWrapper } from './styles/payment_confirm'
 
 import { transferAccountChange, onPaymentConfirm } from './logic'

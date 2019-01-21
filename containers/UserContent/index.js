@@ -9,6 +9,8 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
+import Tabber from 'components/Tabber'
+import { makeDebugger, storePlug, USER_THREAD } from 'utils'
 import UserPublished from '../UserPublished'
 import UserPublishedComments from '../UserPublishedComments'
 import UserBilling from '../UserBilling'
@@ -16,13 +18,10 @@ import UserSettings from '../UserSettings'
 import UserStared from '../UserStared'
 import UserFavorited from '../UserFavorited'
 
-import Tabber from '../../components/Tabber'
-
 import DigestBoard from './DigestBoard'
 
 import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
 
-import { makeDebugger, storePlug, USER_THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

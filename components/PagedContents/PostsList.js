@@ -1,13 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
+import { TYPE, Trans } from 'utils'
 import { PostItemLoading } from '../LoadingEffects'
 import PostItem from '../PostItem'
 
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
-
-import { TYPE, Trans } from '../../utils'
 
 const PostsList = ({ props }) => {
   const {

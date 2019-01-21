@@ -7,16 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import GithubRepoPage from 'components/GithubRepoPage'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import FavoritesCats from '../FavoritesCats'
 import Comments from '../Comments'
 
-import GithubRepoPage from '../../components/GithubRepoPage'
-
 import { CommentsWrapper } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

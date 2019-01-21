@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { theme, cs } from '../../../utils'
-
-import Img from '../../../components/Img'
+import Img from 'components/Img'
+import { theme, cs } from 'utils'
 
 export const PkgItem = styled.div`
   ${cs.flex()};

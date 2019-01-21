@@ -5,7 +5,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import MarkDownRender from '../../components/MarkDownRender'
+import MarkDownRender from 'components/MarkDownRender'
 import { Wrapper, Header, BackToEditBtn, PreviewHeader } from './styles/preview'
 
 /* eslint-disable react/no-danger */

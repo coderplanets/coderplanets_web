@@ -7,8 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger, nilOrEmpty } from 'utils'
 import {
   Wrapper,
   PopAvatarWrapper,
@@ -22,7 +23,6 @@ import {
   LabelText,
 } from './styles'
 
-import { makeDebugger, nilOrEmpty } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:GithubUserCard:index')
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config/assets'
+import { ICON_CMD } from 'config/assets'
 import * as logic from './logic'
 
 import { Wrapper, DefaultUserIcon, AvatarIcon } from './styles/user_account'

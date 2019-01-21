@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Popover from '../../components/Popover'
-import { ICON_CMD, EMAIL_SUPPORT } from '../../config'
+import Popover from 'components/Popover'
+import { ICON_CMD, EMAIL_SUPPORT } from 'config'
 import { Wrapper, Item, Icon, PopInfo } from './styles/social_list'
 
 const SocialList = () => (

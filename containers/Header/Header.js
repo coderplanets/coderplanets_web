@@ -1,11 +1,11 @@
 import React from 'react'
 
+import Navigator from 'components/Navigator'
+import { TYPE } from 'utils'
 import MailBox from '../MailBox'
 import UserLister from '../UserLister'
 import Cashier from '../Cashier'
 import UpgradePackges from '../UpgradePackges'
-
-import Navigator from '../../components/Navigator'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
@@ -20,7 +20,6 @@ import {
   Operations,
 } from './styles/header'
 
-import { TYPE } from '../../utils'
 import { openDoraemon } from './logic'
 
 const Header = ({

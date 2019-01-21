@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, ROUTE } from 'utils'
 import PostsThread from '../PostsThread'
 import VideosThread from '../VideosThread'
 import ReposThread from '../ReposThread'
@@ -17,7 +18,6 @@ import CheatsheetThread from '../CheatsheetThread'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

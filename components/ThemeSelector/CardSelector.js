@@ -1,7 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
+import { themeMeta } from 'utils'
 
 import {
   Wrapper,
@@ -14,8 +15,6 @@ import {
   AuthorIcon,
   AuthorName,
 } from './style/card_selector'
-
-import { themeMeta } from '../../utils'
 
 const CardSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>

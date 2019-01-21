@@ -8,12 +8,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
+import Maybe from 'components/Maybe'
+import VideoPoster from 'components/VideoPoster'
+import VideoInfoCard from 'components/VideoInfoCard'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
-
-import Maybe from '../../components/Maybe'
-import VideoPoster from '../../components/VideoPoster'
-import VideoInfoCard from '../../components/VideoInfoCard'
 
 import SideCards from './SideCards'
 
@@ -25,7 +25,6 @@ import {
   CommentsWrapper,
 } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

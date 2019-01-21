@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ISSUE_ADDR } from '../../config'
+import { ISSUE_ADDR } from 'config'
 import { HintTitle, IssueLink } from './styles'
 
 const NotFoundMessage = ({ page, target }) => {

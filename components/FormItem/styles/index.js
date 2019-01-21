@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Input } from 'antd'
 
 // import Img from '../../Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 const { TextArea } = Input
 

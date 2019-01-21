@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751

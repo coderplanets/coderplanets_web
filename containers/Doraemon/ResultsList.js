@@ -1,8 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { THREAD } from 'utils'
 import {
   InfoBar,
   Wrapper,
@@ -17,7 +18,6 @@ import {
 import SuggestIcon from './SuggestIcon'
 
 import { navToSuggestion, selectSuggestion } from './logic'
-import { THREAD } from '../../utils'
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {

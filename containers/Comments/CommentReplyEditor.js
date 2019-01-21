@@ -2,7 +2,8 @@ import React from 'react'
 import withClickOutside from 'react-click-outside'
 import dynamic from 'next/dynamic'
 
-import MarkDownRender from '../../components/MarkDownRender'
+import MarkDownRender from 'components/MarkDownRender'
+import { debounce } from 'utils'
 import ReplyToBar from './ReplyToBar'
 import ReplyEditorHeader from './ReplyEditorHeader'
 
@@ -14,11 +15,10 @@ import {
 
 import EditorFooter from './EditorFooter'
 
-import { debounce } from '../../utils'
 import * as logic from './logic'
 
 const DynamicBodyEditor = dynamic({
-  loader: () => import('../../components/MarkdownEditor'),
+  loader: () => import('components/MarkdownEditor'),
   /* eslint-disable */
   loading: () => <div>loading</div>,
   /* eslint-enable */

@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, ROUTE } from 'utils'
 import UserBanner from '../UserBanner'
 
 import CommunitiesBanner from '../CommunitiesBanner'
@@ -15,7 +16,6 @@ import CommunityBanner from '../CommunityBanner'
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import init from './logic'
 
 /* eslint-disable-next-line */

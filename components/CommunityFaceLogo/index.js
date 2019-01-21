@@ -8,10 +8,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
+import { makeDebugger } from 'utils'
 import HomeLogo from './HomeLogo'
 
 import { Logo } from './styles'
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityFaceLogo:index')

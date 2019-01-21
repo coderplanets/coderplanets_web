@@ -1,10 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import DotDivider from 'components/DotDivider'
+import { ICON_CMD } from 'config'
 
-import DotDivider from '../../components/DotDivider'
-
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   Logo,
@@ -15,8 +15,6 @@ import {
   HomeIcon,
   HomepageLink,
 } from './styles/company_info'
-
-import { cutFrom } from '../../utils'
 
 const CompanyInfo = ({ company, insertedAt, author }) => (
   <Wrapper>

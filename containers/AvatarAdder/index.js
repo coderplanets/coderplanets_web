@@ -7,12 +7,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 
-import Popover from '../../components/Popover'
+import Popover from 'components/Popover'
 
+import { makeDebugger, storePlug } from 'utils'
 import { Wrapper, AddText } from './styles'
 import AdderPanel from './AdderPanel'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

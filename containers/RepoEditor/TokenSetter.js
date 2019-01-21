@@ -1,9 +1,8 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { ISSUE_ADDR } from '../../config'
-
-import FormItem from '../../components/FormItem'
+import FormItem from 'components/FormItem'
+import { ISSUE_ADDR } from 'config'
 
 import {
   TokeInputWrapper,

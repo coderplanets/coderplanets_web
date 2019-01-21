@@ -93,7 +93,7 @@ export const DynamicRepoEditor = dynamic({
 })
 
 export const DynamicStateTree = dynamic({
-  loader: () => import('../../components/StateTree'),
+  loader: () => import('components/StateTree'),
   /* eslint-disable-next-line */
   loading: () => <CommonLoading />,
   ssr: false,

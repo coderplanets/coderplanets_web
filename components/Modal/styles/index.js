@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { theme, animate } from 'utils'
 import Img from '../../Img'
-import { theme, animate } from '../../../utils'
 
 // display: ${props => (props.show ? 'block' : 'none')};
 export const Mask = styled.div`

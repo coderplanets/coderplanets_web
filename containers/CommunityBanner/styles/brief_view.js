@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
+import { cs } from 'utils'
 import { BaseBanner } from './index'
-import { cs } from '../../../utils'
 
 export const Wrapper = styled(BaseBanner)`
   min-height: 45px;

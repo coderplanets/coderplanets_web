@@ -6,12 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  makeDebugger,
-  PAYMENT_USAGE,
-  PAYMENT_METHOD,
-} from '../../utils'
+import { markStates, makeDebugger, PAYMENT_USAGE, PAYMENT_METHOD } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:Cashier')

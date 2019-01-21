@@ -7,14 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+import { ArticleContentLoading } from 'components/LoadingEffects'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 import Comments from '../Comments'
 
 import ArticleViewerHeader from '../ArticleViewerHeader'
 import ArticleBodyHeader from '../ArticleBodyHeader'
-
-import Maybe from '../../components/Maybe'
-import MarkDownRender from '../../components/MarkDownRender'
-import { ArticleContentLoading } from '../../components/LoadingEffects'
 
 import DigestBar from './DigestBar'
 
@@ -24,8 +24,6 @@ import {
   ArticleTitle,
   ArticleBody,
 } from './styles'
-
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */

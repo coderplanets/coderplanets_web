@@ -8,7 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD, GITHUB_CPS_TEAM } from '../../config'
+import { ICON_CMD, GITHUB_CPS_TEAM } from 'config'
+import { makeDebugger } from 'utils'
 
 import Modal from '../Modal'
 import UserCell from '../UserCell'
@@ -31,7 +32,6 @@ import UnloginNote from './UnloginNote'
 import ChuanSelector from './ChuanSelector'
 import PaymentFooter from './PaymentFooter'
 
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Footer:index')
 

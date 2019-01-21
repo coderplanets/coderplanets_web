@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
-import Popover from '../../components/Popover'
+import Popover from 'components/Popover'
+import { ICON_CMD } from 'config'
 
+import { TYPE } from 'utils'
 import {
   FilterWraper,
   MenuWrapper,
@@ -12,7 +13,6 @@ import {
   RecentlyIcon,
 } from './styles/comments_filter'
 
-import { TYPE } from '../../utils'
 import * as logic from './logic'
 
 const filterDict = {

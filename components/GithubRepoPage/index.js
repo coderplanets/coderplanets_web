@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import Maybe from '../Maybe'
 import MarkDownRender from '../MarkDownRender'
 import Header from './Header'
@@ -24,8 +25,6 @@ import {
   PublishButton,
   ReadonlyHolder,
 } from './styles'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:GithubRepoPage:index')

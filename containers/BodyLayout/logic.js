@@ -1,4 +1,4 @@
-import { makeDebugger } from '../../utils'
+import { makeDebugger } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:BodyLayout')

@@ -1,13 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
+import { TYPE, Trans } from 'utils'
 import { VideoItemLoading } from '../LoadingEffects'
 import VideoItem from '../VideoItem'
 
 import EmptyThread from '../EmptyThread'
 import EmptyLabel from '../EmptyLabel'
-
-import { TYPE, Trans } from '../../utils'
 
 const VideosList = ({ props }) => {
   const {

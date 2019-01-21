@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 // import Img from '../../Img'
+import { theme, cs } from 'utils'
 import TabPostSVG from '../../SvgIcons/TabPostSVG'
 import TabTechSVG from '../../SvgIcons/TabTechSVG'
 import TabRadarSVG from '../../SvgIcons/TabRadarSVG'
@@ -28,8 +29,6 @@ import TabBillingSVG from '../../SvgIcons/TabBillingSVG'
 import TabCommentsSVG from '../../SvgIcons/TabCommentsSVG'
 import TabSettingsSVG from '../../SvgIcons/TabSettingsSVG'
 import TabFavoritesSVG from '../../SvgIcons/TabFavoritesSVG'
-
-import { theme, cs } from '../../../utils'
 
 export const LableWrapper = styled.div`
   ${cs.flex('align-center')};

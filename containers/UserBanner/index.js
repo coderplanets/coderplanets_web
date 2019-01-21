@@ -7,7 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import UserBrief from '../../components/UserBrief'
+import UserBrief from 'components/UserBrief'
+
+import { makeDebugger, storePlug } from 'utils'
 
 import {
   BannerContainer,
@@ -18,7 +20,6 @@ import {
 
 import UserContributeMap from './UserContributeMap'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

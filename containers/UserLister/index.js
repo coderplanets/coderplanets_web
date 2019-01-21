@@ -7,16 +7,16 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Modal from '../../components/Modal'
-import SearchingLabel from '../../components/SearchingLabel'
-import EmptyLabel from '../../components/EmptyLabel'
+import EmptyLabel from 'components/EmptyLabel'
+import Modal from 'components/Modal'
+import SearchingLabel from 'components/SearchingLabel'
 
+import { makeDebugger, storePlug, TYPE } from 'utils'
 import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import { Wrapper, MsgWrapper } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

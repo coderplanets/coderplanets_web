@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import {
   Wrapper,
   OptisonsWrapper,
@@ -15,8 +16,6 @@ import {
   Title,
   HeaderDivider,
 } from './styles'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:TabSelector:index')

@@ -1,4 +1,5 @@
 import R from 'ramda'
+import { PAGE_SIZE } from 'config'
 import {
   asyncRes,
   asyncErr,
@@ -12,10 +13,9 @@ import {
   dispatchEvent,
   extractMentions,
   errRescue,
-} from '../../utils'
+} from 'utils'
 
-import { PAGE_SIZE } from '../../config'
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()

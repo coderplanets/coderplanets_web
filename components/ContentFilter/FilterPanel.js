@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { THREAD } from 'utils'
 import { FiltrPanelWrapper } from './styles'
 
 import TimeFilter from './TimeFilter'
@@ -16,8 +17,6 @@ import JobFinaceFilter from './JobFinaceFilter'
 import JobScaleFilter from './JobScaleFilter'
 // video
 import VideoSourceFilter from './VideoSourceFilter'
-
-import { THREAD } from '../../utils'
 
 const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {

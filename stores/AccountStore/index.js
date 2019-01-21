@@ -5,9 +5,9 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-// import { PAGE_SIZE } from '../../config'
+// import { PAGE_SIZE } from 'config'
 
-import { markStates, makeDebugger, stripMobx, BStore } from '../../utils'
+import { markStates, makeDebugger, stripMobx, BStore } from 'utils'
 
 import { User, EmptyUser, PagedCommunities } from '../SharedModel'
 /* eslint-disable-next-line */

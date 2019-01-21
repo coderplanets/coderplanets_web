@@ -2,7 +2,7 @@
    index of all the containers
  */
 export { default as ThemeWrapper } from './ThemeWrapper'
-/* import ThemeWrapper from '../containers/ThemeWrapper' */
+/* import ThemeWrapper from 'containers/ThemeWrapper' */
 export { default as MultiLanguage } from './MultiLanguage'
 
 export { default as Route } from './Route'

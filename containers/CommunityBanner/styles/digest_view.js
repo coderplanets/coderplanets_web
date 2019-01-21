@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
+import { theme, cs, MEDIA_MAX_WIDTH } from 'utils'
+
+import Img from 'components/Img'
+import CommunityFaceLogo from 'components/CommunityFaceLogo'
 
 import { BaseBanner, BaseTabber } from './index'
-import { theme, cs, MEDIA_MAX_WIDTH } from '../../../utils'
 
 export const Wrapper = styled(BaseBanner)`
   min-height: 125px;

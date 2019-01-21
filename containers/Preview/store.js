@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { markStates, TYPE, stripMobx, unholdPage, THREAD } from 'utils'
 import { User, EmptyAchievement } from '../../stores/SharedModel'
-import { markStates, TYPE, stripMobx, unholdPage, THREAD } from '../../utils'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 /* const debug = makeDebugger('S:PreviewStore') */

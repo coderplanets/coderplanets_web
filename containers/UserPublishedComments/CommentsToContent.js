@@ -1,10 +1,11 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import MarkDownRender from '../../components/MarkDownRender'
-import EmptyLabel from '../../components/EmptyLabel'
-import { CommentLoading } from '../../components/LoadingEffects'
+import EmptyLabel from 'components/EmptyLabel'
+import MarkDownRender from 'components/MarkDownRender'
+import { CommentLoading } from 'components/LoadingEffects'
 
+import { TYPE, Trans } from 'utils'
 import {
   Wrapper,
   CommentBlock,
@@ -19,8 +20,6 @@ import {
 } from './styles/comments_to_content'
 
 import Parent from './Parent'
-
-import { TYPE, Trans } from '../../utils'
 
 const CommentsToContent = ({ data, thread, curView, onPreview }) => {
   const { entries } = data

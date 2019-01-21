@@ -8,6 +8,7 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, hasValue } from 'utils'
 import Maybe from '../Maybe'
 import {
   FormItemWrapper,
@@ -17,8 +18,6 @@ import {
   Inputer,
   TextAreaer,
 } from './styles'
-
-import { makeDebugger, hasValue } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:FormItem:index')

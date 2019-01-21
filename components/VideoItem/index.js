@@ -8,8 +8,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger, cutFrom, C11N } from 'utils'
 import VideoSourceInfo from '../VideoSourceInfo'
 
 import DotDivider from '../DotDivider'
@@ -39,7 +40,6 @@ import {
 } from './styles'
 
 import { getOpacity } from './helper'
-import { makeDebugger, cutFrom, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoItem:index')

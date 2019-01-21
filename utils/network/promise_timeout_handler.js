@@ -4,7 +4,7 @@ import R from 'ramda'
 
 import { Observable } from 'rxjs/Observable'
 
-import { makeDebugger, notEmpty } from '../../utils'
+import { makeDebugger, notEmpty } from 'utils'
 import { TIMEOUT_THRESHOLD, GRAPHQL_TIMEOUT } from './setup'
 
 const debug = makeDebugger('Network')

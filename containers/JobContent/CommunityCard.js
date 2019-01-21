@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   Divider,
@@ -17,8 +18,6 @@ import {
   StateIcon,
   StateText,
 } from './styles/company_card'
-
-import { cutFrom } from '../../utils'
 
 const CompanyCard = ({ data }) => (
   <Wrapper>

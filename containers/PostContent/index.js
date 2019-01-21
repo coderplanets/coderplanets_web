@@ -8,9 +8,10 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import MarkDownRender from '../../components/MarkDownRender'
-import Maybe from '../../components/Maybe'
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
 
+import { makeDebugger, storePlug, THREAD } from 'utils'
 import ArticleBodyHeader from '../ArticleBodyHeader'
 import Comments from '../Comments'
 import SideCards from './SideCards'
@@ -24,7 +25,6 @@ import {
 } from './styles'
 
 import * as logic from './logic'
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostContent')

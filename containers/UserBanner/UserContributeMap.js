@@ -9,6 +9,7 @@ import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 // import R from 'ramda'
 
+import { makeDebugger } from 'utils'
 import {
   Wrapper,
   /* TitleWrapper, */
@@ -19,8 +20,6 @@ import {
   ColorDot,
   DotList,
 } from './styles/contribute_map'
-
-import { makeDebugger } from '../../utils'
 
 const debug = makeDebugger('C:Comments')
 

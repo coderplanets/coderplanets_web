@@ -6,15 +6,15 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import cmds from './helper/defaultSuggestion'
-
 import {
   markStates,
   focusDoraemonBar,
   hideDoraemonBarRecover,
   THREAD,
   stripMobx,
-} from '../../utils'
+} from 'utils'
+import cmds from './helper/defaultSuggestion'
+
 // const debug = makeDebugger('S:DoraemonStore')
 
 const convertThreadsToMaps = com => {

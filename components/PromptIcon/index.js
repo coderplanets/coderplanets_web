@@ -7,9 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import PlanetDriver from './PlanetDriver'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:PromptIcon:index')

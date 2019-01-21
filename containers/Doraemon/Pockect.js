@@ -13,7 +13,7 @@ import {
   merge,
 } from 'rxjs/operators'
 
-import { makeDebugger, isEmptyValue, EVENT } from '../../utils'
+import { makeDebugger, isEmptyValue, EVENT } from 'utils'
 import {
   searchablePrefix,
   startWithSpecialPrefix,

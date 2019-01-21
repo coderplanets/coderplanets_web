@@ -9,11 +9,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
-import ArticleEditFooter from '../../components/ArticleEditFooter'
-import { ArticleContentLoading } from '../../components/LoadingEffects'
+import ArticleEditFooter from 'components/ArticleEditFooter'
+import { ArticleContentLoading } from 'components/LoadingEffects'
 
-import Modal from '../../components/Modal'
+import Modal from 'components/Modal'
 
+import { makeDebugger, storePlug } from 'utils'
 import Editor from './Editor'
 import Preview from './Preview'
 // import MarkDownHelper from './MarkDownHelper'
@@ -22,7 +23,6 @@ import RadarNote from './RadarNote'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import {
   init,
   uninit,

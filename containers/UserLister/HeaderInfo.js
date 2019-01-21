@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD, EMAIL_SUPPORT } from '../../config'
+import { ICON_CMD, EMAIL_SUPPORT } from 'config'
 
+import { TYPE } from 'utils'
 import {
   Wrapper,
   Title,
@@ -11,8 +12,6 @@ import {
   DescText,
   DescLink,
 } from './styles/header_info'
-
-import { TYPE } from '../../utils'
 
 const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
   switch (type) {

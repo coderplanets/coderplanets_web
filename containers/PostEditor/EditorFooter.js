@@ -1,12 +1,11 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import Maybe from 'components/Maybe'
+import { ICON_CMD } from 'config'
 
 import DocUploader from '../DocUploader'
 import Labeler from '../Labeler'
-
-import Maybe from '../../components/Maybe'
 
 import {
   Wrapper,

@@ -9,10 +9,10 @@ import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
 import { Affix } from 'antd'
 
+import { makeDebugger, storePlug } from 'utils'
 import Header from './Header'
 import { AffixHeader, RawHeader } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

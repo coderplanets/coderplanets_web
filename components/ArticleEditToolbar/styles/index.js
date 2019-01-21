@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Input } from 'antd'
 // import Img from '../../Img'
-import { cs, theme } from '../../../utils'
+import { cs, theme } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-between')};

@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-/* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils' */
+/* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from 'utils' */
+import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from 'utils'
 import {
   PagedPosts,
   PagedJobs,
@@ -16,7 +17,6 @@ import {
   FavoriteCategory,
 } from '../../stores/SharedModel'
 
-import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserFavorited')
 

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactTooltip from 'react-tooltip'
 import R from 'ramda'
 
+import { sortByIndex } from 'utils'
 import {
   Wrapper,
   HeaderWrapper,
@@ -10,8 +11,6 @@ import {
   IconList,
   PlanetsIcon,
 } from './styles/planets'
-
-import { sortByIndex } from '../../utils'
 
 const tooltipOffset = JSON.stringify({ top: 10, left: 5 })
 const Planets = ({ subscribedCommunities, viewingType }) => {

@@ -1,10 +1,8 @@
 import R from 'ramda'
 import Router from 'next/router'
 
-import { ISSUE_ADDR } from '../../config'
-import SR71 from '../../utils/network/sr71'
-import S from './schema'
-
+import { ISSUE_ADDR } from 'config'
+import SR71 from 'utils/network/sr71'
 import {
   makeDebugger,
   Global,
@@ -19,7 +17,8 @@ import {
   THREAD,
   cutFrom,
   errRescue,
-} from '../../utils'
+} from 'utils'
+import S from './schema'
 
 import Pockect from './Pockect'
 import { SwissArmyKnife } from './helper/swissArmyKnife'

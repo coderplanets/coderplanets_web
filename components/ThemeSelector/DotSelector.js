@@ -1,9 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
+import { themeMeta } from 'utils'
 import { Wrapper, ThemeDot } from './style/dot_selector'
-
-import { themeMeta } from '../../utils'
 
 const DotSelector = ({ curTheme, changeTheme }) => (
   <Wrapper>

@@ -7,10 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
-import Pagi from '../../components/Pagi'
-import FollowButton from '../../components/FollowButton'
+import Pagi from 'components/Pagi'
+import FollowButton from 'components/FollowButton'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger } from 'utils'
 import {
   TableWrapper,
   UserWrapper,
@@ -23,7 +24,6 @@ import {
   Action,
 } from './styles/user_list'
 
-import { makeDebugger } from '../../utils'
 import { onFollow, undoFollow } from './logic'
 
 /* eslint-disable-next-line */

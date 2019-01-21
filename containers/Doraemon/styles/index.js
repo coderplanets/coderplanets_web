@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 export const PageOverlay = styled.div`
   bottom: 0;

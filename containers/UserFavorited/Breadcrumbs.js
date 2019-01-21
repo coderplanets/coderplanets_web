@@ -1,8 +1,8 @@
 import React from 'react'
-import { ICON_CMD } from '../../config'
+import ThreadSelector from 'components/ThreadSelector'
+import { ICON_CMD } from 'config'
 
-import ThreadSelector from '../../components/ThreadSelector'
-
+import { THREAD } from 'utils'
 import {
   Wrapper,
   TitleList,
@@ -14,7 +14,6 @@ import {
   LabelSlash,
 } from './styles/breadcrumbs'
 
-import { THREAD } from '../../utils'
 // iconSrc={`${ICON_CMD}/folder.svg`}
 const Breadcrumbs = ({
   gotoParent,

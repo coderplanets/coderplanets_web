@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme } from 'utils'
 
 // margin: -20px;
 export const ContentContainer = styled.div`

@@ -2,8 +2,8 @@ import React from 'react'
 import R from 'ramda'
 import { Tag } from 'antd'
 
+import { isEmptyValue } from 'utils'
 import { Wrapper, TagWrapper } from './styles/selected_tags'
-import { isEmptyValue } from '../../utils'
 
 const filterDict = {
   TODAY: '今天',

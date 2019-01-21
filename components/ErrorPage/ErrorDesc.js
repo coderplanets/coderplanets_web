@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ISSUE_ADDR, EMAIL_SUPPORT } from '../../config'
+import { ISSUE_ADDR, EMAIL_SUPPORT } from 'config'
 
 import { HintDesc, IssueLink } from './styles'
 

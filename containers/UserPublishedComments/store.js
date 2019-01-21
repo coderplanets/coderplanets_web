@@ -6,6 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
+import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from 'utils'
 import {
   PagedPostComments,
   PagedJobComments,
@@ -13,7 +14,6 @@ import {
   PagedRepoComments,
   emptyPagiData,
 } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserPublishedComments')
 

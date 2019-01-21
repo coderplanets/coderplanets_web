@@ -5,9 +5,9 @@ import { withTheme } from 'styled-components'
 
 import ContentLoader from 'react-content-loader'
 
+import { makeDebugger, uid } from 'utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
-import { makeDebugger, uid } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:LoadingEffects:index')
 

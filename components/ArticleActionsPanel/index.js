@@ -8,12 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
-import Informer from '../../containers/Informer'
+import Informer from 'containers/Informer'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger, THREAD } from 'utils'
 import { Wrapper, Item, ItemIcon, ItemTitle } from './styles'
-
-import { makeDebugger, THREAD } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleActionsPanel:index')

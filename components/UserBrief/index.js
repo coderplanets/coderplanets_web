@@ -7,8 +7,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-import { DEFAULT_USER_AVATAR } from '../../config'
+import { DEFAULT_USER_AVATAR } from 'config'
 
+import { makeDebugger } from 'utils'
 import {
   Wrapper,
   AvatarWrapper,
@@ -24,8 +25,6 @@ import BadgeInfo from './BadgeInfo'
 import DetailView from './DetailView'
 import DigestView from './DigestView'
 import Operators from './Operators'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:UserBrief')

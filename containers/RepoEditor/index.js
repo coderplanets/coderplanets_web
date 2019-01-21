@@ -7,12 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import GithubRepoPage from '../../components/GithubRepoPage'
+import GithubRepoPage from 'components/GithubRepoPage'
+import { makeDebugger, storePlug, uid } from 'utils'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

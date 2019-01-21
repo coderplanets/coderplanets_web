@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 import { Wrapper, ToggleIcon, ToggleTitle } from './styles/toggle_read_button'
 import { toggleReadState } from './logic'
 

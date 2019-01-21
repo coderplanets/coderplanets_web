@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { prettyNum } from 'utils'
 import {
   Wrapper,
   Divider,
@@ -9,8 +10,6 @@ import {
   RepTitle,
   RepNumber,
 } from './styles/numbers_card'
-
-import { prettyNum } from '../../utils'
 
 const NumbersCard = ({ user, showFollowers, showFollowings }) => (
   <Wrapper>

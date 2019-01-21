@@ -8,8 +8,9 @@ import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
+import Maybe from 'components/Maybe'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 import FavoritesCats from '../FavoritesCats'
-import Maybe from '../../components/Maybe'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'
@@ -20,7 +21,6 @@ import LastSyncInfo from './LastSyncInfo'
 
 import { Wrapper, ReactionWrapper } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
