@@ -107,6 +107,10 @@ class PreviewContainer extends React.Component {
     logic.init(preview)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { preview } = this.props
     const {

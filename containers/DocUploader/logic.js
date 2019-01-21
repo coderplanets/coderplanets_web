@@ -1,6 +1,13 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import {
+  makeDebugger,
+  dispatchEvent,
+  $solver,
+  asyncErr,
+  ERR,
+  EVENT,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
@@ -39,6 +46,14 @@ export const getOSSFileName = filename => {
   const id = store.viewingData.id || 'new'
 
   return `${community}-${thread}-${id}-${userName}-${userId}-${filename}`
+}
+
+export const sendEvent = (state = 'start') => {
+  if (state === 'start') {
+    return dispatchEvent(EVENT.UPLOAD_IMG_START)
+  }
+
+  return dispatchEvent(EVENT.UPLOAD_IMG_FINISH)
 }
 
 // ###############################

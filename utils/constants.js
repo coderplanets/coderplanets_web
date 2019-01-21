@@ -43,6 +43,10 @@ export const EVENT = {
   SET_C11N: 'SET_C11N',
   // bills
   NEW_BILLS: 'NEW_BILLS',
+
+  // upload
+  UPLOAD_IMG_START: 'UPLOAD_IMG_START',
+  UPLOAD_IMG_FINISH: 'UPLOAD_IMG_FINISH',
 }
 
 export const TYPE = {

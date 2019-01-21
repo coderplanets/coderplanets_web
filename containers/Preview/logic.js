@@ -10,7 +10,12 @@ import {
 import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_OPEN, EVENT.PREVIEW_CLOSE],
+  resv_event: [
+    EVENT.PREVIEW_OPEN,
+    EVENT.PREVIEW_CLOSE,
+    EVENT.UPLOAD_IMG_START,
+    EVENT.UPLOAD_IMG_FINISH,
+  ],
 })
 
 /* eslint-disable-next-line */
@@ -47,15 +52,30 @@ const DataResolver = [
     match: asyncRes(EVENT.PREVIEW_CLOSE),
     action: () => closePreview(),
   },
+  {
+    match: asyncRes(EVENT.UPLOAD_IMG_START),
+    action: () => store.markState({ imageUploading: true }),
+  },
+  {
+    match: asyncRes(EVENT.UPLOAD_IMG_FINISH),
+    action: () => {
+      setTimeout(() => {
+        store.markState({ imageUploading: false })
+      }, 500)
+    },
+  },
 ]
 
 export const init = _store => {
   store = _store
 
-  setTimeout(() => {
-    store.markState({ imageUploading: true })
-  }, 5000)
-
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataResolver, []))
+}
+
+export const uninit = () => {
+  if (!sub$) return false
+  sr71$.stop()
+  sub$.unsubscribe()
+  sub$ = null
 }
