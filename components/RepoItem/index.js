@@ -21,7 +21,10 @@ import { makeDebugger, cutFrom, C11N } from '../../utils'
 const debug = makeDebugger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
-  <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
+  <Wrapper
+    opacity={getOpacity(entry, active, accountInfo)}
+    hover={accountInfo.customization.contentHover}
+  >
     <ArticleItemPrefixLabel
       entry={entry}
       accountInfo={accountInfo}
@@ -56,6 +59,7 @@ RepoItem.propTypes = {
     customization: PropTypes.shape({
       contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
+      contentHover: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
@@ -69,6 +73,7 @@ RepoItem.defaultProps = {
     isLogin: false,
     customization: PropTypes.shape({
       contentsLayout: C11N.DIGEST,
+      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

@@ -29,22 +29,13 @@ const PostItem = ({
 }) => {
   // debug('customization --> ', customization)
   const {
-    customization: { contentsLayout, contentDivider },
+    customization: { contentsLayout, contentDivider, contentHover },
   } = accountInfo
-
-  /*
-     debug('entry --> ', entry)
-     debug('active --> ', active)
-
-     debug('accountInfo.isLogin --> ', accountInfo.isLogin)
-     debug('accountInfo.markViewed --> ', accountInfo.customization.markViewed)
-     debug('get opacity: ', getOpacity(entry, active, accountInfo))
-     debug('=========================================================')
-   */
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
+      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
@@ -81,6 +72,8 @@ PostItem.propTypes = {
     customization: PropTypes.shape({
       contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
+      contentDivider: PropTypes.bool,
+      contentHover: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
@@ -97,6 +90,8 @@ PostItem.defaultProps = {
     isLogin: false,
     customization: PropTypes.shape({
       contentsLayout: C11N.DIGEST,
+      contentDivider: false,
+      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

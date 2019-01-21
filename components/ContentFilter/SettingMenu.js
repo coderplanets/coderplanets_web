@@ -20,6 +20,7 @@ const SettingMenu = ({
     bannerLayout,
     contentsLayout,
     contentDivider,
+    contentHover,
     markViewed,
     displayDensity,
   },
@@ -76,6 +77,18 @@ const SettingMenu = ({
       <OptionIcon
         src={
           markViewed === true
+            ? `${ICON_CMD}/turn_on.svg`
+            : `${ICON_CMD}/turn_off.svg`
+        }
+        active
+      />
+    </Option>
+
+    <Option onClick={onC11NChange.bind(this, { contentHover: !contentHover })}>
+      <OptionText>悬停提示</OptionText>
+      <OptionIcon
+        src={
+          contentHover === true
             ? `${ICON_CMD}/turn_on.svg`
             : `${ICON_CMD}/turn_off.svg`
         }

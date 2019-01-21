@@ -15,7 +15,7 @@ export const Wrapper = styled.article`
   opacity: ${({ opacity }) => opacity};
 
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `
 export const BodyDigest = styled.li`

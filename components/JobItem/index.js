@@ -24,12 +24,13 @@ const debug = makeDebugger('c:JobItem:index')
 
 const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
   const {
-    customization: { contentsLayout, contentDivider },
+    customization: { contentsLayout, contentDivider, contentHover },
   } = accountInfo
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
+      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel
@@ -77,6 +78,8 @@ JobItem.propTypes = {
     customization: PropTypes.shape({
       contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
+      contentDivider: PropTypes.bool,
+      contentHover: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
@@ -91,6 +94,8 @@ JobItem.defaultProps = {
     isLogin: false,
     customization: PropTypes.shape({
       contentsLayout: C11N.DIGEST,
+      contentDivider: false,
+      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),
