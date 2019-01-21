@@ -71,6 +71,8 @@ const PreviewStore = t
     ),
     attUser: t.maybeNull(User),
     attachment: t.maybeNull(Attachment),
+
+    imageUploading: t.optional(t.boolean, false),
     // header:
     // body:
   })

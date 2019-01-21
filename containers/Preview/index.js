@@ -24,28 +24,15 @@ import {
   DynamicStateTree,
 } from './DynamicComps'
 
-import {
-  PreviewOverlay,
-  PreviewWrapper,
-  PreviewCloser,
-  PreviewContent,
-  Closer,
-  CloserInner,
-} from './styles'
+import AddOn from './AddOn'
+
+import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
 
 import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Preview')
-
-const CloseBtn = ({ type }) => (
-  <PreviewCloser onClick={logic.closePreview}>
-    <Closer type={type}>
-      <CloserInner />
-    </Closer>
-  </PreviewCloser>
-)
 
 const Viewer = ({ type, root, attachment, attUser }) => {
   switch (type) {
@@ -120,15 +107,26 @@ class PreviewContainer extends React.Component {
     logic.init(preview)
   }
 
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
   render() {
     const { preview } = this.props
-    const { visible, type, root, attachmentData, attUserData } = preview
+    const {
+      visible,
+      type,
+      root,
+      attachmentData,
+      attUserData,
+      imageUploading,
+    } = preview
 
     return (
       <React.Fragment>
         <PreviewOverlay visible={visible} onClick={logic.closePreview} />
         <PreviewWrapper visible={visible} type={type}>
-          <CloseBtn type={type} />
+          <AddOn type={type} imageUploading={imageUploading} />
           <PreviewContent>
             <Viewer
               type={type}
