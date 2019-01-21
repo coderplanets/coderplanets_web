@@ -31,7 +31,8 @@
         "config":"./config",
         "stores":"./stores",
         "utils":"./utils",
-        "Img": "./components/Img"
+        "Img": "./components/Img",
+        "SvgIcons": "./components/SvgIcons"
       }
     }]
   ],
