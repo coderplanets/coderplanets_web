@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
+import Img from 'Img'
 import PromptIcon from '../../PromptIcon'
-import Img from '../../Img'
 
 export const Container = styled.div`
   ${cs.flexColumn('align-center')};

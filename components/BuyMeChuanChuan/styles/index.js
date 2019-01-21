@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
-import Img from '../../Img'
+import Img from 'Img'
 
 // background: #f9fcfc;
 export const Wrapper = styled.div`

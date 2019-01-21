@@ -30,7 +30,8 @@
         "components":"./components",
         "config":"./config",
         "stores":"./stores",
-        "utils":"./utils"
+        "utils":"./utils",
+        "Img": "./components/Img"
       }
     }]
   ],

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
+import Img from 'Img'
 import { Dot } from './index'
-import Img from '../../Img'
 
 export const Wrapper = styled.div`
   ${cs.flex()};

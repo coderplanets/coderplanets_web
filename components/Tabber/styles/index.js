@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '../../Img'
+// import Img from 'Img'
 import { theme, cs } from 'utils'
 import TabPostSVG from '../../SvgIcons/TabPostSVG'
 import TabTechSVG from '../../SvgIcons/TabTechSVG'

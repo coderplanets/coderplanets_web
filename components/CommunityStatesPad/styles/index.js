@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '../../Img'
+// import Img from 'Img'
 import { theme, cs, animate } from 'utils'
 
 export const Wrapper = styled.div`
