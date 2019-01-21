@@ -12,6 +12,7 @@ import {
   dispatchEvent,
   thread2Subpath,
   THREAD,
+  errRescue,
 } from '../../utils'
 
 import S from './schema'
@@ -98,21 +99,16 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Sidebar' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'Sidebar' }),
   },
 ]
 

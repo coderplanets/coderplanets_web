@@ -11,6 +11,7 @@ import {
   countWords,
   dispatchEvent,
   extractMentions,
+  errRescue,
 } from '../../utils'
 
 import { PAGE_SIZE } from '../../config'
@@ -19,11 +20,10 @@ import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Comments')
-
-let store = null
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
@@ -309,21 +309,17 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Comments' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'Comments' }),
   },
 ]
 

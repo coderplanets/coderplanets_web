@@ -11,9 +11,10 @@ import {
   dispatchEvent,
   subPath2Thread,
   thread2Subpath,
+  errRescue,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
+import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
@@ -123,23 +124,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      markLoading(false)
-    },
+    action: () => markLoading(false),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'CommunityBanner' })
     },
   },
 ]

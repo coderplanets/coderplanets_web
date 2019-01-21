@@ -9,18 +9,18 @@ import {
   TYPE,
   EVENT,
   ERR,
+  errRescue,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
+import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:MailBox')
-
-let store = null
 
 /*
    export const panelVisiableOnChange = panelVisiable =>
@@ -79,21 +79,16 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'MailBox' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'MailBox' }),
   },
 ]
 

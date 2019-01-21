@@ -9,6 +9,7 @@ import {
   EVENT,
   TYPE,
   Global,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -75,23 +76,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      markLoading(false)
-    },
+    action: () => markLoading(false),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AccountViewer' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'AccountViewer' })
     },
   },
 ]

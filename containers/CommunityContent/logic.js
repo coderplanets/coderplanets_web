@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import { makeDebugger, $solver, asyncErr, ERR, errRescue } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
 // import S from './schema'
@@ -22,20 +22,18 @@ const DataSolver = []
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CommunityContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'CommunityContent' })
     },
   },
 ]

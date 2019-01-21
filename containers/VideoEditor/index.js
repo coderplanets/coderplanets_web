@@ -9,16 +9,16 @@ import { inject, observer } from 'mobx-react'
 
 import Labeler from '../Labeler'
 import FormItem from '../../components/FormItem'
+import ArticleEditFooter from '../../components/ArticleEditFooter'
 
 import AlertMessage from './AlertMessage'
 import CoverUploader from './CoverUploader'
-import Footer from './Footer'
 import SourceOptions from './SourceOptions'
 
 import { Wrapper, Title, FormWrapper } from './styles'
 
 import { makeDebugger, storePlug } from '../../utils'
-import { init, uninit, inputOnChange } from './logic'
+import { init, uninit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoEditor')
@@ -36,16 +36,7 @@ class VideoEditorContainer extends React.Component {
   render() {
     const { videoEditor } = this.props
 
-    const {
-      editVideoData,
-      publishing,
-      success,
-      error,
-      warn,
-      statusMsg,
-      ratKey,
-      isEdit,
-    } = videoEditor
+    const { editVideoData, publishing, ratKey, isEdit } = videoEditor
 
     return (
       <Wrapper>
@@ -138,13 +129,11 @@ class VideoEditorContainer extends React.Component {
           />
         </FormWrapper>
 
-        <Footer
+        <ArticleEditFooter
           isEdit={isEdit}
           publishing={publishing}
-          success={success}
-          error={error}
-          warn={warn}
-          statusMsg={statusMsg}
+          onCancle={canclePublish}
+          onPublish={onPublish}
         />
       </Wrapper>
     )

@@ -31,7 +31,6 @@ export const DynamicMarkDownHelper = dynamic({
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:JobEditor')
 
-// const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
 const View = ({
   isEdit,
   curView,
@@ -64,7 +63,6 @@ const View = ({
   return <DynamicMarkDownHelper />
 }
 
-// TODO: use input in old IE
 class JobEditorContainer extends React.Component {
   // must use constructor, Draft thing
   constructor(props) {
@@ -87,11 +85,7 @@ class JobEditorContainer extends React.Component {
       thread,
       curView,
       publishing,
-      success,
-      error,
-      warn,
       isEdit,
-      statusMsg,
       editData,
       mentionListData,
       referUsersData,
@@ -113,10 +107,6 @@ class JobEditorContainer extends React.Component {
         <ArticleEditFooter
           isEdit={isEdit}
           publishing={publishing}
-          success={success}
-          error={error}
-          warn={warn}
-          statusMsg={statusMsg}
           onCancle={canclePublish}
           onPublish={onPublish}
         />

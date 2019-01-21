@@ -11,6 +11,7 @@ import {
   ERR,
   errorForHuman,
   dispatchEvent,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -95,15 +96,12 @@ const ErrSolver = [
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Cashier' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'Cashier' }),
   },
 ]
 

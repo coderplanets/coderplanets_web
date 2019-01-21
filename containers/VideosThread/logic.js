@@ -12,6 +12,7 @@ import {
   asyncRes,
   dispatchEvent,
   notEmpty,
+  errRescue,
 } from '../../utils'
 
 import S from './schema'
@@ -22,11 +23,10 @@ const sr71$ = new SR71({
 })
 
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:VideosThread')
-
-let store = null
 
 export const loadVideos = (page = 1) => {
   const { curCommunity } = store
@@ -141,21 +141,17 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'VideosThread' }),
   },
 ]
 

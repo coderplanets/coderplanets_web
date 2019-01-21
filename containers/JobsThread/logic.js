@@ -13,6 +13,7 @@ import {
   $solver,
   scrollIntoEle,
   notEmpty,
+  errRescue,
   // GA,
 } from '../../utils'
 
@@ -23,11 +24,11 @@ const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:JobsThread')
-
 let store = null
 let sub$ = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:JobsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -153,21 +154,16 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'JobsThread' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'JobsThread' }),
   },
 ]
 

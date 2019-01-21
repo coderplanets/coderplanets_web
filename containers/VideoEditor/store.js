@@ -23,11 +23,6 @@ const VideoEditor = t
     isEdit: t.optional(t.boolean, false),
     publishing: t.optional(t.boolean, false),
 
-    /* for StatusBox */
-    success: t.optional(t.boolean, false),
-    error: t.optional(t.boolean, false),
-    warn: t.optional(t.boolean, false),
-    statusMsg: t.optional(t.string, ''),
     ratKey: t.optional(t.string, ''),
   })
   .views(self => ({

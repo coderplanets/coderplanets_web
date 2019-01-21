@@ -11,6 +11,7 @@ import {
   githubApi,
   closePreviewer,
   BStore,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -20,11 +21,10 @@ const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED],
 })
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:RepoEditor')
-
-let store = null
 
 export const onPublish = () => {
   const args = {
@@ -99,21 +99,17 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'RepoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'RepoEditor' }),
   },
 ]
 
