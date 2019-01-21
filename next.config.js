@@ -24,14 +24,21 @@ module.exports = {
       new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /(en)/)
     )
 
+    // see https://github.com/RubyLouvre/anu/issues/640
     /*
-       // see https://github.com/RubyLouvre/anu/issues/640
        config.resolve.alias = {
        react: 'anujs',
        'react-dom': 'anujs',
        'prop-types': 'anujs/lib/ReactPropTypes',
        'create-react-class': 'anujs/lib/createClass',
        }
+     */
+
+    // .babelrc
+    /*
+       "react-dom/server": "./node_modules/anujs/dist/React/server",
+       "react": "./node_modules/anujs",
+       "prop-types": "./node_modules/anujs/lib/ReactPropTypes"
      */
 
     if (ANALYZE) {
