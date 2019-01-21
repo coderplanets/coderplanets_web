@@ -47,11 +47,6 @@ const JobEditorStore = t
 
     publishing: t.optional(t.boolean, false),
     isEdit: t.optional(t.boolean, false),
-    /* for StatusBox */
-    success: t.optional(t.boolean, false),
-    error: t.optional(t.boolean, false),
-    warn: t.optional(t.boolean, false),
-    statusMsg: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
@@ -59,10 +54,6 @@ const JobEditorStore = t
     },
     get curRoute() {
       return self.root.curRoute
-    },
-    get statusClean() {
-      const { success, error, warn } = self
-      return !success && !error && !warn
     },
     get viewing() {
       return stripMobx(self.root.viewing)

@@ -90,11 +90,7 @@ class PostEditorContainer extends React.Component {
       thread,
       curView,
       publishing,
-      success,
-      error,
-      warn,
       isEdit,
-      statusMsg,
       editData,
       mentionListData,
       referUsersData,
@@ -129,10 +125,6 @@ class PostEditorContainer extends React.Component {
         <ArticleEditFooter
           isEdit={isEdit}
           publishing={publishing}
-          success={success}
-          error={error}
-          warn={warn}
-          statusMsg={statusMsg}
           onCancle={canclePublish}
           onPublish={onPublish}
         />

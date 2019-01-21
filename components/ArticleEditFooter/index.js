@@ -6,12 +6,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { Button, Icon } from 'antd'
 
 import { Space } from '../BaseStyled'
-import StatusBox from '../StatusBox'
-
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 
 import { makeDebugger } from '../../utils'
@@ -27,21 +24,9 @@ const DoingText = ({ isEdit }) => {
   )
 }
 
-const ArticleEditFooter = ({
-  isEdit,
-  publishing,
-  success,
-  error,
-  warn,
-  statusMsg,
-  onCancle,
-  onPublish,
-}) => (
+const ArticleEditFooter = ({ isEdit, publishing, onCancle, onPublish }) => (
   <Wrapper>
-    <StatusBox success={success} error={error} warn={warn} msg={statusMsg} />
-    <RespectText show={!success && !warn && !error}>
-      请尊重自己和他人的时间，不要发布无意义的内容。
-    </RespectText>
+    <RespectText>请尊重自己和他人的时间，不要发布无意义的内容。</RespectText>
     <Divider />
     <PublishBtns>
       {publishing ? (
@@ -75,10 +60,6 @@ const ArticleEditFooter = ({
 ArticleEditFooter.propTypes = {
   isEdit: PropTypes.bool,
   publishing: PropTypes.bool,
-  success: PropTypes.bool,
-  error: PropTypes.bool,
-  warn: PropTypes.bool,
-  statusMsg: PropTypes.string,
 
   onCancle: PropTypes.func,
   onPublish: PropTypes.func,
@@ -87,10 +68,6 @@ ArticleEditFooter.propTypes = {
 ArticleEditFooter.defaultProps = {
   isEdit: false,
   publishing: false,
-  success: false,
-  error: false,
-  warn: false,
-  statusMsg: '',
 
   onCancle: debug,
   onPublish: debug,

@@ -10,15 +10,14 @@ import {
   EVENT,
   ERR,
   TYPE,
-  meteorState,
   countWords,
   extractAttachments,
   extractMentions,
   updateEditing,
-  errorForHuman,
   closePreviewer,
   cast,
   nilOrEmpty,
+  errRescue,
 } from '../../utils'
 
 import { S, updatableJobFields } from './schema'
@@ -200,25 +199,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      // const errMsg = details[0].detail
-      const errMsg = errorForHuman(details)
-      meteorState(store, 'error', 5, errMsg)
-      cancleLoading()
-    },
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, details, path: 'PostEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: 'JobEditor' })
     },
   },
 ]
