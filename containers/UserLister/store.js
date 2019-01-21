@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE } from 'utils'
-import { PagedUsers, emptyPagiData } from '../../stores/SharedModel'
+import { PagedUsers, emptyPagiData } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserLister')

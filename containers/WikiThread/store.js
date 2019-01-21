@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, TYPE, ERR } from 'utils'
-import { Wiki } from '../../stores/SharedModel'
+import { Wiki } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:WikiThread')

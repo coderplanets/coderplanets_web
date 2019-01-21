@@ -12,7 +12,7 @@ import {
   PagedComments,
   emptyPagiData,
   Mention,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:CommentsStore')

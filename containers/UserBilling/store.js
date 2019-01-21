@@ -8,7 +8,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { PAGE_SIZE } from 'config'
 
 import { markStates, makeDebugger, stripMobx } from 'utils'
-import { emptyPagiData } from '../../stores/SharedModel'
+import { emptyPagiData } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserBilling')

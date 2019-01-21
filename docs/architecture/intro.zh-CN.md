@@ -217,7 +217,7 @@ store.js 类似于 MVC 架构下的 M 层，基于 [mobx-state-tree](https://git
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from '../../stores/SharedModel'
+import { Post, Mention } from 'stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
 
 /* eslint-disable-next-line */

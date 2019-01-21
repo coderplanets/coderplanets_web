@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx } from 'utils'
-import { PagedCommunities } from '../../stores/SharedModel'
+import { PagedCommunities } from 'stores/SharedModel'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:CommunitiesContentStore')
 

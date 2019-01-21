@@ -13,7 +13,7 @@ import {
   changeset,
   flashState,
 } from 'utils'
-import { User, EduBackground, WorkBackground } from '../../stores/SharedModel'
+import { User, EduBackground, WorkBackground } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:AccountEditorStore')

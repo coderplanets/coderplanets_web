@@ -220,7 +220,7 @@ Store.js is similar to the M layer under the MVC architecture, based on [mobx-st
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from '../../stores/SharedModel'
+import { Post, Mention } from 'stores/SharedModel'
 import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
 
 /* eslint-disable-next-line */

@@ -13,7 +13,7 @@ import {
   PagedVideoComments,
   PagedRepoComments,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserPublishedComments')
 

@@ -13,7 +13,7 @@ import {
   changeset,
   flashState,
 } from 'utils'
-import { Video } from '../../stores/SharedModel'
+import { Video } from 'stores/SharedModel'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:VideoEditor')
 

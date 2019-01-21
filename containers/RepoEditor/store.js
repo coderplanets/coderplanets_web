@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, ERR, makeDebugger, changeset, stripMobx } from 'utils'
-import { Repo } from '../../stores/SharedModel'
+import { Repo } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:RepoEditor')

@@ -11,7 +11,7 @@ import {
   FavoriteCategory,
   PagedFavoriteCategories,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:FavoritesCats')

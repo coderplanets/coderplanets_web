@@ -15,7 +15,7 @@ import {
   PagedRepos,
   emptyPagiData,
   FavoriteCategory,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserFavorited')
