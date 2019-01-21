@@ -19,7 +19,7 @@ export const Wrapper = styled.article`
 
   &:hover {
     cursor: pointer;
-    background: ${theme('thread.articleHover')};
+    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `
 
