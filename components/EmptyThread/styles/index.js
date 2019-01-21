@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
-import PromptIcon from '../../PromptIcon'
+import PromptIcon from 'components/PromptIcon'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};

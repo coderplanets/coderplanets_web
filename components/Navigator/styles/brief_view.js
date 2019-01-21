@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
 import Img from 'Img'
-import CommunityFaceLogo from '../../CommunityFaceLogo'
+import CommunityFaceLogo from 'components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
