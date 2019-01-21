@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import { Wrapper } from './styles'
 
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:DotDivider:index')
 

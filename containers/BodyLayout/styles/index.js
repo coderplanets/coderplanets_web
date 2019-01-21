@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 // transition: background-color 0.2s;
 const Wrapper = styled.div`

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import HeaderMailSVG from '../../../components/SvgIcons/HeaderMailSVG'
-import { theme } from '../../../utils'
+import HeaderMailSVG from 'components/SvgIcons/HeaderMailSVG'
+import { theme } from 'utils'
 
 export const Wrapper = styled.div`
   padding-top: 8px;

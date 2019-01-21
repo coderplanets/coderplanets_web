@@ -8,14 +8,14 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+import { makeDebugger, storePlug } from 'utils'
 import Comments from '../Comments'
-import MarkDownRender from '../../components/MarkDownRender'
-import Maybe from '../../components/Maybe'
 import SideCards from './SideCards'
 
 import { Wrapper, MainWrapper, ArticleWrapper, CommentsWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

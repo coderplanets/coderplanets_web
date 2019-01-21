@@ -8,8 +8,8 @@ import React from 'react'
 import { Pagination } from 'antd'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import { PagiWrapper, BottomMsg } from './styles'
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Pagi:index')

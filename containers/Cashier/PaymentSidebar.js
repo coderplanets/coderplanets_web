@@ -1,8 +1,9 @@
 import React from 'react'
 import { Icon } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { PAYMENT_METHOD } from 'utils'
 import {
   Wrapper,
   TransWrapper,
@@ -21,7 +22,6 @@ import {
   FaceValueNum,
 } from './styles/payment_sidebar'
 
-import { PAYMENT_METHOD } from '../../utils'
 import { sidebarViewOnChange, paymentMethodOnChange } from './logic'
 
 const PaymentSidebar = ({

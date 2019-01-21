@@ -8,9 +8,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
-import { withGuardian } from '../../components/HOC'
+import { withGuardian } from 'components/HOC'
+import { ICON_CMD } from 'config'
 
+import {
+  makeDebugger,
+  storePlug,
+  sortByColor,
+  THREAD,
+  TOPIC,
+  Trans,
+} from 'utils'
 import TagOptions from './TagOptions'
 
 import {
@@ -22,14 +30,6 @@ import {
   TagOptionsWrapper,
 } from './styles'
 
-import {
-  makeDebugger,
-  storePlug,
-  sortByColor,
-  THREAD,
-  TOPIC,
-  Trans,
-} from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

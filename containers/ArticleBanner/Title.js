@@ -1,10 +1,9 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
+import { THREAD } from 'utils'
 import RepoTitle from './RepoTitle'
 import { Wrapper } from './styles/title'
-
-import { THREAD } from '../../utils'
 
 const Title = ({ thread, data }) => {
   switch (thread) {

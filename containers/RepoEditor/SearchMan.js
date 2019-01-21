@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from '../../config'
+import { ISSUE_ADDR } from 'config'
 
+import { makeDebugger } from 'utils'
 import SearchInputer from './SearchInputer'
 import TokenSetter from './TokenSetter'
 
@@ -15,7 +16,6 @@ import {
   SetTokenIssue,
 } from './styles/search_man'
 
-import { makeDebugger } from '../../utils'
 import { changeSubView } from './logic'
 
 /* eslint-disable-next-line */

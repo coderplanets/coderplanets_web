@@ -17,10 +17,10 @@ import {
   cast,
   parseDomain,
   errRescue,
-} from '../../utils'
+} from 'utils'
 
+import SR71 from 'utils/network/sr71'
 import { S, updatablePostFields } from './schema'
-import SR71 from '../../utils/network/sr71'
 // import testMentions from './test_mentions'
 
 const sr71$ = new SR71()

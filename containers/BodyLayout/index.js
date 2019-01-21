@@ -11,7 +11,7 @@ import keydown from 'react-keydown'
 
 // import Link from 'next/link'
 
-import { storePlug } from '../../utils'
+import { storePlug } from 'utils'
 
 import Wrapper from './styles'
 import * as logic from './logic'

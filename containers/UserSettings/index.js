@@ -8,13 +8,14 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Button, Radio } from 'antd'
 
-import { ICON_CMD, ISSUE_ADDR } from '../../config'
+import ThemeSelector from 'components/ThemeSelector'
+import Popover from 'components/Popover'
 
-import ThemeSelector from '../../components/ThemeSelector'
-import SectionLabel from '../../components/SectionLabel'
-import Popover from '../../components/Popover'
-import DiscussLinker from '../../components/DiscussLinker'
+import SectionLabel from 'components/SectionLabel'
+import DiscussLinker from 'components/DiscussLinker'
+import { ICON_CMD, ISSUE_ADDR } from 'config'
 
+import { makeDebugger, storePlug, C11N } from 'utils'
 import {
   Wrapper,
   LabelDescWrapper,
@@ -24,7 +25,6 @@ import {
   ErrText,
 } from './styles'
 
-import { makeDebugger, storePlug, C11N } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

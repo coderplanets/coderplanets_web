@@ -8,10 +8,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
+import { makeDebugger } from 'utils'
 import Popover from '../Popover'
 import { Wrapper, Logo, PopoverInfo } from './styles'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityList:index')

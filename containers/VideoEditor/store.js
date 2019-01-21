@@ -6,14 +6,14 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Video } from '../../stores/SharedModel'
 import {
   markStates,
   makeDebugger,
   stripMobx,
   changeset,
   flashState,
-} from '../../utils'
+} from 'utils'
+import { Video } from 'stores/SharedModel'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:VideoEditor')
 

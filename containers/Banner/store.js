@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '../../utils'
+import { markStates, makeDebugger } from 'utils'
 /* import { Post } from '../SharedModel' */
 
 /* eslint-disable-next-line */

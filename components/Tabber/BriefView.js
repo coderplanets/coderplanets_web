@@ -1,9 +1,8 @@
 import React from 'react'
 
+import { Trans, sortByIndex } from 'utils'
 import { Wrapper, TabItem } from './styles/brief_view'
 import TabIcon from './TabIcon'
-
-import { Trans, sortByIndex } from '../../utils'
 
 const BriefView = ({ source, active, onChange }) => (
   <Wrapper>

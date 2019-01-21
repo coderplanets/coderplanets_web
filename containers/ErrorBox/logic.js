@@ -1,15 +1,8 @@
 import R from 'ramda'
 
-import {
-  makeDebugger,
-  $solver,
-  asyncRes,
-  ERR,
-  EVENT,
-  isObject,
-} from '../../utils'
+import { makeDebugger, $solver, asyncRes, ERR, EVENT, isObject } from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/network/sr71'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.ERR_RESCUE],

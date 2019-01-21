@@ -8,7 +8,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { makeDebugger, BStore } from '../../utils'
+import { makeDebugger, BStore } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Guardian:index')

@@ -1,9 +1,9 @@
 import React from 'react'
 
+import ContentSourceCard from 'components/ContentSourceCard'
 import Informer from '../Informer'
 import ArticleAuthorCard from '../ArticleAuthorCard'
 
-import ContentSourceCard from '../../components/ContentSourceCard'
 import { Wrapper, ReportWrapper } from './styles/side_cards'
 
 const SideCards = ({ data }) => (

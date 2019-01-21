@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import FocusLine from 'components/FocusLine'
+import { ICON_CMD } from 'config'
 
-import FocusLine from '../../components/FocusLine'
 import CommunityEditorInfo from './CommunityEditorInfo'
 
 import { Wrapper, Title } from './styles/achieve_card'

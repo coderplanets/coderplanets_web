@@ -8,13 +8,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
+import { makeDebugger, THREAD, C11N } from 'utils'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
 
-import { makeDebugger, THREAD, C11N } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentFilter:index')
 

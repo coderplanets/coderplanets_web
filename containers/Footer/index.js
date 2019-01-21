@@ -10,17 +10,17 @@ import dynamic from 'next/dynamic'
 
 // import {} from './styles'
 
+import { makeDebugger, storePlug } from 'utils'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Footer')
 
 const DynamicBuyMeChuanChuan = dynamic({
-  loader: () => import('../../components/BuyMeChuanChuan'),
+  loader: () => import('components/BuyMeChuanChuan'),
   /* eslint-disable */
   loading: () => <div />,
   /* eslint-enable */

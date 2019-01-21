@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
+import { ICON_CMD, LABEL_POOL } from 'config'
+import { uid } from 'utils'
 import TagList from './TagList'
-
-import { ICON_CMD, LABEL_POOL } from '../../config'
 
 import {
   OptionWrapper,
@@ -10,8 +10,6 @@ import {
   OptionCheckIcon,
   OptionText,
 } from './styles/options'
-
-import { uid } from '../../utils'
 
 const OptionItems = ({ items, selected, onOptionSelect }) => (
   <OptionWrapper>

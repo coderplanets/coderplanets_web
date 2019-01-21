@@ -7,8 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '../../utils'
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
+import { makeDebugger } from 'utils'
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */

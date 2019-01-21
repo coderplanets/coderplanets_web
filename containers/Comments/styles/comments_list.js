@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import Img from 'components/Img'
+import { theme, animate, cs } from 'utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
-
-import { theme, animate, cs } from '../../../utils'
 
 export const ReplyBar = styled(ReplyBarBase)`
   margin-left: -2px;

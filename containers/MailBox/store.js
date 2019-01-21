@@ -6,13 +6,13 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
+import { markStates, makeDebugger, stripMobx } from 'utils'
 import {
   MailStatus,
   PagedMentionMessages,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
-import { markStates, makeDebugger, stripMobx } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:MailBox')
 

@@ -1,41 +1,24 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import initRootStore from '../stores/init'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Sidebar from 'containers/Sidebar'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import Banner from 'containers/Banner'
+import Content from 'containers/Content'
+import Footer from 'containers/Footer'
 
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Sidebar from '../containers/Sidebar'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import Banner from '../containers/Banner'
-import Content from '../containers/Content'
-import Footer from '../containers/Footer'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
+import initRootStore from 'stores/init'
+// import { GAWraper, ErrorPage } from 'components'
 
-/*
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Sidebar,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  Banner,
-  Content,
-  Footer,
-} from '../containers'
-*/
-
-import GAWraper from '../components/GAWraper'
-import ErrorPage from '../components/ErrorPage'
-// import { GAWraper, ErrorPage } from '../components'
-
-import { makeDebugger } from '../utils'
+import { makeDebugger } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')

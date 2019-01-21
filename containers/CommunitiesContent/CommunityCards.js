@@ -1,10 +1,11 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ISSUE_ADDR } from '../../config'
+import TrendLine from 'components/TrendLine'
+import { CommunityHolder } from 'components/LoadingEffects'
+import { ISSUE_ADDR } from 'config'
 
-import TrendLine from '../../components/TrendLine'
-import { CommunityHolder } from '../../components/LoadingEffects'
+import { NON_FILL_COMMUNITY, prettyNum, cutFrom } from 'utils'
 import SubscribeBtn from './SubscribeBtn'
 
 import {
@@ -23,8 +24,6 @@ import {
   Divider,
   CardFooter,
 } from './styles/community_cards'
-
-import { NON_FILL_COMMUNITY, prettyNum, cutFrom } from '../../utils'
 
 const CommunityCard = ({ community, restProps }) => (
   <Card>

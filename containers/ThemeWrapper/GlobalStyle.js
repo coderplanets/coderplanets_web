@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
+import { theme, cs } from 'utils'
 import normalize from './normalize'
-import { theme, cs } from '../../utils'
 
 const GlobalStyle = createGlobalStyle`
   ${normalize};

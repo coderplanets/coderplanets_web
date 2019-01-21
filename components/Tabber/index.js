@@ -5,12 +5,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, THREAD, C11N, sortByIndex } from 'utils'
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 
 import { mapAlias } from './alias'
 
-import { makeDebugger, THREAD, C11N, sortByIndex } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Tabber:index')
 

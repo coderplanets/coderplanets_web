@@ -1,8 +1,9 @@
 import React from 'react'
 import { Input } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from 'utils'
 import {
   Wrapper,
   InputWrapper,
@@ -22,7 +23,6 @@ import {
   TogglerText,
 } from './styles/social_editor'
 
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

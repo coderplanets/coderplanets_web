@@ -1,9 +1,9 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
 // import { Wrapper } from './styles'
+import { uid, nilOrEmpty } from 'utils'
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
-import { uid, nilOrEmpty } from '../../utils'
 
 const ChangesetMessages = ({ items }) => {
   if (nilOrEmpty(items)) return null

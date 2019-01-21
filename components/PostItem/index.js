@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, C11N } from 'utils'
 import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
 import DigestView from './DigestView'
 import ListView from './ListView'
@@ -14,7 +15,6 @@ import ListView from './ListView'
 import { Wrapper } from './styles'
 
 import { getOpacity } from './helper'
-import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:PostItem:index')

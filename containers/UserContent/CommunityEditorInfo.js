@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Popover from '../../components/Popover'
+import Popover from 'components/Popover'
 
 import {
   Wrapper,

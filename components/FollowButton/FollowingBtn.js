@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 import Popover from '../Popover'
 
 import { BtnWrapper, WatchedIcon, Popinfo, LoadingIcon } from './styles'

@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTheme } from 'styled-components'
 
-import { ICON_BASE } from '../../config'
+import { ICON_BASE } from 'config'
 
+import { getRandomInt } from 'utils'
 import { PlanetDriverIcon } from './styles'
-import { getRandomInt } from '../../utils'
 
 const getRandomAngle = () =>
   rotateAngles[getRandomInt(0, rotateAngles.length - 1)]

@@ -7,14 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import AvatarAdder from 'containers/AvatarAdder'
+import { makeDebugger } from 'utils'
 import Maybe from '../Maybe'
 import Popover from '../Popover'
 import GithubUserCard from '../GithubUserCard'
-import AvatarAdder from '../../containers/AvatarAdder'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContributorList:index')
 

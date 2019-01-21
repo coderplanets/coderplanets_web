@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../../utils'
+import { theme } from 'utils'
 
 export const StateViewerWrapper = styled.div`
   padding: 25px;

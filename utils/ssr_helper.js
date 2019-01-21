@@ -1,5 +1,5 @@
 import R from 'ramda'
-import { P } from '../containers/schemas'
+import { P } from 'containers/schemas'
 import { TYPE, THREAD } from './constants'
 
 export const ssrPagedSchema = thread => {

@@ -8,19 +8,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
+import Modal from 'components/Modal'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
-import Modal from '../../components/Modal'
-import SectionLabel from '../../components/SectionLabel'
-
+import { makeDebugger, storePlug } from 'utils'
 import { AdderWrapper, AdderText, AdderIcon } from './styles'
 
 import BoxView from './BoxView'
 import Creator from './Creator'
 import Updater from './Updater'
 import Setter from './Setter'
-
-import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */

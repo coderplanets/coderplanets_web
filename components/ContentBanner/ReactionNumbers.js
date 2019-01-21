@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { prettyNum, numberWithCommas } from 'utils'
 import {
   NumbersInfo,
   NumberSection,
@@ -7,8 +8,6 @@ import {
   NumberTitle,
   NumberItem,
 } from './styles/reaction_numbers'
-
-import { prettyNum, numberWithCommas } from '../../utils'
 
 const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
   <NumbersInfo>

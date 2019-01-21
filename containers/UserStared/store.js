@@ -5,14 +5,14 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
+import { markStates, makeDebugger, THREAD, TYPE, stripMobx } from 'utils'
 import {
   PagedPosts,
   PagedJobs,
   PagedVideos,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
-import { markStates, makeDebugger, THREAD, TYPE, stripMobx } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserStared')
 

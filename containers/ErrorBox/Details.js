@@ -1,10 +1,10 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
+import { ERR } from 'utils'
 import GraphqlDetail from './GraphqlDetail'
 
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
-import { ERR } from '../../utils'
 
 const Details = ({
   type,

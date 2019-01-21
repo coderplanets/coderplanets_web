@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
+import { makeDebugger } from 'utils'
 import DotDivider from '../DotDivider'
 
 import {
@@ -21,8 +22,6 @@ import {
 } from './styles'
 
 import ReactionNumbers from './ReactionNumbers'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentBanner:index')

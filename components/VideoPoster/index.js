@@ -7,11 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger } from 'utils'
 import { Wrapper, PosterImage, PlayIcon } from './styles'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoPoster:index')

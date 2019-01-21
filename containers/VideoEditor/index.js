@@ -7,9 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import FormItem from 'components/FormItem'
+import ArticleEditFooter from 'components/ArticleEditFooter'
+import { makeDebugger, storePlug } from 'utils'
 import Labeler from '../Labeler'
-import FormItem from '../../components/FormItem'
-import ArticleEditFooter from '../../components/ArticleEditFooter'
 
 import AlertMessage from './AlertMessage'
 import CoverUploader from './CoverUploader'
@@ -17,7 +18,6 @@ import SourceOptions from './SourceOptions'
 
 import { Wrapper, Title, FormWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import { init, uninit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */

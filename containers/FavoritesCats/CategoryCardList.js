@@ -1,9 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
-import Pagi from '../../components/Pagi'
+import Pagi from 'components/Pagi'
+import { ICON_CMD } from 'config'
 
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   CardListWrapper,
@@ -19,7 +20,6 @@ import {
   Desc,
 } from './styles/category_card_list'
 
-import { cutFrom } from '../../utils'
 import { loadCategories, switchToUpdater } from './logic'
 
 const CategoryCardList = ({

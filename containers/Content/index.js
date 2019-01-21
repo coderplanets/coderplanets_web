@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, ROUTE } from 'utils'
 import CommunityContent from '../CommunityContent'
 import CommunitiesContent from '../CommunitiesContent'
 import CheatSheetContent from '../CheatSheetContent'
@@ -14,7 +15,6 @@ import UserContent from '../UserContent'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

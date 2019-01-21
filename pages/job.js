@@ -2,19 +2,16 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { PAGE_SIZE } from '../config'
-import initRootStore from '../stores/init'
-
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import ArticleBanner from '../containers/ArticleBanner'
-import JobContent from '../containers/JobContent'
-import Footer from '../containers/Footer'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import ArticleBanner from 'containers/ArticleBanner'
+import JobContent from 'containers/JobContent'
+import Footer from 'containers/Footer'
 
 /*
 import {
@@ -31,11 +28,13 @@ import {
 } from '../containers'
 */
 
-import GAWraper from '../components/GAWraper'
-import ErrorPage from '../components/ErrorPage'
+import { P } from 'containers/schemas'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
 
-// import { GAWraper, ErrorPage } from '../components'
+// import { GAWraper, ErrorPage } from 'components'
 
+import { PAGE_SIZE } from 'config'
 import {
   makeGQClient,
   getMainPath,
@@ -49,7 +48,7 @@ import {
   ssrAmbulance,
 } from '../utils'
 
-import { P } from '../containers/schemas'
+import initRootStore from '../stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

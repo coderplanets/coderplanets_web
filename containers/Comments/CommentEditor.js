@@ -1,7 +1,7 @@
 import React from 'react'
 import withClickOutside from 'react-click-outside'
 
-import MarkDownRender from '../../components/MarkDownRender'
+import MarkDownRender from 'components/MarkDownRender'
 import CommentBodyEditor from './CommentBodyEditor'
 
 import { Container, PreviewerWrapper } from './styles/comment_editor'

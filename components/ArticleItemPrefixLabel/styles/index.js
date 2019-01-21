@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import PinSVG from '../../SvgIcons/PinSVG'
-import { theme } from '../../../utils'
+import { theme } from 'utils'
+import PinSVG from 'SvgIcons/PinSVG'
 
 export const ReadedLabel = styled.div`
   color: ${theme('thread.articleDigest')};

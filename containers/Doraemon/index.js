@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug } from 'utils'
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -16,7 +17,6 @@ import ThreadSelectBar from './ThreadSelectBar'
 import AlertBar from './AlertBar'
 import UtilsBar from './UtilsBar'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

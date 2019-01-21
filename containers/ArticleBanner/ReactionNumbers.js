@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { prettyNum } from 'utils'
 import StarReaction from './StarReaction'
 import FavoriteReaction from './FavoriteReaction'
 
@@ -10,8 +11,6 @@ import {
   NumberTitle,
   NumberItem,
 } from './styles/reaction_numbers'
-
-import { prettyNum } from '../../utils'
 
 const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
   const { views } = data

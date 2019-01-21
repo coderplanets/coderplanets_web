@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-// import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+// import Img from 'components/Img'
+import { theme } from 'utils'
 
 export const PlanDivider = styled.div`
   border-bottom: 1px solid;

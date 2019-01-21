@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { setLightness, setSaturation, opacify } from 'polished'
 
-import { cs } from '../../../utils'
+import { cs } from 'utils'
 
 export const CategoryWrapper = styled.div`
   ${cs.flex()};

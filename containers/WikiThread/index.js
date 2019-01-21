@@ -7,13 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD, COMMUNITY_WIKI } from '../../config'
+import EmptyThread from 'components/EmptyThread'
 
-import PublishLabel from '../../components/PublishLabel'
-import MarkDownRender from '../../components/MarkDownRender'
-import EmptyThread from '../../components/EmptyThread'
-import { ArticleContentLoading } from '../../components/LoadingEffects'
+import PublishLabel from 'components/PublishLabel'
+import MarkDownRender from 'components/MarkDownRender'
+import { ArticleContentLoading } from 'components/LoadingEffects'
+import { ICON_CMD, COMMUNITY_WIKI } from 'config'
 
+import { makeDebugger, storePlug, TYPE } from 'utils'
 import Contributors from './Contributors'
 
 import {
@@ -26,7 +27,6 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

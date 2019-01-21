@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { Trans } from 'utils'
 import { Wrapper, CommunityLogo, MiniTab } from './styles/threads_nav'
 
-import { Trans } from '../../utils'
 import { onThreadChange } from './logic'
 
 const ThreadsNav = ({ activeInfo: { community, activeThread } }) => (

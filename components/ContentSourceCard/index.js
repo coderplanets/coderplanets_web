@@ -7,14 +7,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import CommunityList from '../CommunityList'
 
 import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
 import UserList from './UserList'
 // import TagList from './TagList'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentSourceCard:index')

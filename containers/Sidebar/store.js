@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { makeDebugger, markStates, stripMobx, sortByIndex } from '../../utils'
+import { makeDebugger, markStates, stripMobx, sortByIndex } from 'utils'
 /* import MenuItem from './MenuItemStore' */
 
 /* eslint-disable-next-line */

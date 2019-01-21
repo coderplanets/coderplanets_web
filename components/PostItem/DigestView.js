@@ -1,8 +1,9 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD, ICON_BASE } from '../../config'
+import { ICON_CMD, ICON_BASE } from 'config'
 
+import { cutFrom, parseDomain } from 'utils'
 import AvatarsRow from '../AvatarsRow'
 import InlineTags from '../InlineTags'
 
@@ -21,7 +22,6 @@ import {
 } from './styles'
 
 // import { Wrapper } from './styles'
-import { cutFrom, parseDomain } from '../../utils'
 
 const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
   <React.Fragment>

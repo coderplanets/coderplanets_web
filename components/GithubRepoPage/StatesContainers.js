@@ -1,6 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
+import { nilOrEmpty } from 'utils'
 import Maybe from '../Maybe'
 import Popover from '../Popover'
 
@@ -16,8 +17,6 @@ import {
   PopAvatar,
   PopNickname,
 } from './styles/states_containers'
-
-import { nilOrEmpty } from '../../utils'
 
 const BuilderList = ({ entries }) => (
   <BuilderWrapper>

@@ -1,9 +1,8 @@
 import React from 'react'
 
+import { THREAD } from 'utils'
 import JobMiddleInfo from './JobMiddleInfo'
 import RepoMiddleInfo from './RepoMiddleInfo'
-
-import { THREAD } from '../../utils'
 
 const MiddleInfo = ({ thread, data }) => {
   switch (thread) {

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import CommunityFaceLogo from '../../../components/CommunityFaceLogo'
+import CommunityFaceLogo from 'components/CommunityFaceLogo'
+import { theme, cs } from 'utils'
 import { Container } from './index'
-import { theme, cs } from '../../../utils'
 
 export const Wrapper = styled.div`
   display: block;

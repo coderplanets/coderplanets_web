@@ -7,12 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import ThreadSelector from '../../components/ThreadSelector'
-import PagedContents from '../../components/PagedContents'
+import PagedContents from 'components/PagedContents'
+import ThreadSelector from 'components/ThreadSelector'
 
+import { makeDebugger, storePlug } from 'utils'
 import { ThreadWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import Maybe from 'components/Maybe'
+import { ICON_CMD } from 'config'
 
-import Maybe from '../../components/Maybe'
-
+import { TYPE, THREAD } from 'utils'
 import {
   Reaction,
   ReactionAction,
@@ -16,7 +16,6 @@ import {
   Divider,
 } from './styles/reaction'
 
-import { TYPE, THREAD } from '../../utils'
 import { onReaction, onListReactionUsers } from './logic'
 
 const FavoriteReation = ({ data, thread, show, loading }) => (

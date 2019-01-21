@@ -7,8 +7,8 @@ import {
   ERR,
   githubApi,
   errRescue,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+} from 'utils'
+import SR71 from 'utils/network/sr71'
 
 // import S from './schema'
 

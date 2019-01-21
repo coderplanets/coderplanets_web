@@ -15,6 +15,11 @@ module.exports = {
     jest: true,
     'cypress/globals': true,
   },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
+  },
   rules: {
     'arrow-body-style': 0,
     // need for _store init

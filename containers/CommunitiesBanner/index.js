@@ -7,8 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Tabber from '../../components/Tabber'
+import Tabber from 'components/Tabber'
 
+import { makeDebugger, storePlug } from 'utils'
 import {
   BannerContainer,
   BannerContentWrapper,
@@ -19,7 +20,6 @@ import {
 
 import SearchBox from './SearchBox'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

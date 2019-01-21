@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import Popconfirm from 'components/Popconfirm'
+import { Space } from 'components/BaseStyled'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
-import SectionLabel from '../../components/SectionLabel'
-import Popconfirm from '../../components/Popconfirm'
-import { Space } from '../../components/BaseStyled'
-
+import { makeDebugger } from 'utils'
 import {
   Wrapper,
   EditWrapper,
@@ -17,7 +17,6 @@ import {
   Footer,
 } from './styles/editor'
 
-import { makeDebugger } from '../../utils'
 import { categoryOnChange, onCategoryUpdate, onCategoryDelete } from './logic'
 
 /* eslint-disable-next-line */

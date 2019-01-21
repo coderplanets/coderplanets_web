@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch'
 
 import { from } from 'rxjs'
 
-/* import { makeDebugger } from '../../utils' */
+/* import { makeDebugger } from 'utils' */
 import { client, context } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'

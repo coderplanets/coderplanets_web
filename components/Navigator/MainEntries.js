@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from '../../config'
+import { ISSUE_ADDR } from 'config'
 import Popover from '../Popover'
 import DiscussLinker from '../DiscussLinker'
 

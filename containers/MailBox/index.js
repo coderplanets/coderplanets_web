@@ -7,12 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Popover from '../../components/Popover'
+import Popover from 'components/Popover'
+import { makeDebugger, storePlug } from 'utils'
 import MailsPanel from './MailsPanel'
 
 import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

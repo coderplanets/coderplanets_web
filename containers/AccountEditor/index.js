@@ -8,11 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Input, Button, Icon } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import StatusBox from 'components/StatusBox'
+import { ICON_CMD } from 'config'
 // import Link from 'next/link'
 
-import StatusBox from '../../components/StatusBox'
-
+import { makeDebugger, storePlug } from 'utils'
 import WorkEditor from './WorkEditor'
 import EducationEditor from './EducationEditor'
 import SocialEditor from './SocialEditor'
@@ -34,7 +34,6 @@ import {
   GirlIcon,
 } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

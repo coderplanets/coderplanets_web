@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import HeaderStatesSVG from '../../../components/SvgIcons/HeaderStatesSVG'
-import { theme, cs } from '../../../utils'
+import HeaderStatesSVG from 'components/SvgIcons/HeaderStatesSVG'
+import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};

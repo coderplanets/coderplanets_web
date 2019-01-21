@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 
 import { Button } from 'antd'
 
+import { makeDebugger, THREAD } from 'utils'
 import Maybe from '../Maybe'
 import CopyrightSelector from './CopyrightSelector'
 
@@ -20,8 +21,6 @@ import {
   CopyRightWrapper,
   PreviewBtn,
 } from './styles'
-
-import { makeDebugger, THREAD } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleEditToolbar:index')

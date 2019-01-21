@@ -7,10 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, C11N } from 'utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
-
-import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Navigator:index')

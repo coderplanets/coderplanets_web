@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { FILTER } from 'utils'
 import {
   ColumnWrapper,
   SelectLable,
@@ -11,8 +12,6 @@ import {
   SelectTitle,
   SelectItem,
 } from './styles'
-
-import { FILTER } from '../../utils'
 
 const RepoSortFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>

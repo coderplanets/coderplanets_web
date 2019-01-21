@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, TYPE } from 'utils'
 import {
   DynamicAccountViewer,
   DynamicPostViewer,
@@ -28,7 +29,6 @@ import AddOn from './AddOn'
 
 import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

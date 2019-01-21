@@ -5,8 +5,8 @@
    cheatsheet -- TODO
    login --
  */
-import { ICON_CMD, ICON_BASE } from '../../../config'
-import { themeMeta } from '../../../utils'
+import { ICON_CMD, ICON_BASE } from 'config'
+import { themeMeta } from 'utils'
 
 const cmds = {
   theme: {
