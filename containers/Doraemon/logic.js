@@ -18,6 +18,7 @@ import {
   prettyNum,
   THREAD,
   cutFrom,
+  errRescue,
 } from '../../utils'
 
 import Pockect from './Pockect'
@@ -432,23 +433,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      store.markState({ searching: false })
-    },
+    action: () => store.markState({ searching: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       store.markState({ searching: false })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Doraemon' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
+    action: () => {
       store.markState({ searching: false })
-      debug('ERR.NETWORK -->', details)
+      errRescue({ type: ERR.NETWORK, path: 'Doraemon' })
     },
   },
 ]

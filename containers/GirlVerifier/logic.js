@@ -1,22 +1,19 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR } from '../../utils'
+import { makeDebugger, $solver, asyncErr, ERR, errRescue } from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:GirlVerifier')
 
-let store = null
-
 export const toggleModal = () =>
-  store.markState({
-    showModal: !store.showModal,
-  })
+  store.markState({ showModal: !store.showModal })
 
 export const onMessageChange = e => store.markState({ message: e.target.value })
 
@@ -35,20 +32,18 @@ const DataSolver = []
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'GirlVerifier' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'GirlVerifier' })
     },
   },
 ]

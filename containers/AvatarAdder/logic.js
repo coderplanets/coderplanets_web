@@ -1,17 +1,23 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR, githubApi } from '../../utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  ERR,
+  githubApi,
+  errRescue,
+} from '../../utils'
 import SR71 from '../../utils/network/sr71'
 
 // import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:AvatarAdder')
-
-let store = null
 
 export const onSearch = e => {
   if (e.key === 'Enter') {
@@ -56,20 +62,18 @@ const DataSolver = []
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AvatarAdder' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'AvatarAdder' })
     },
   },
 ]

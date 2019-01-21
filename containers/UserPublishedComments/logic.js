@@ -11,6 +11,7 @@ import {
   EVENT,
   ERR,
   pagedFilter,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -18,11 +19,10 @@ import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:UserPublishedComments')
-
-let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -107,21 +107,18 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UserPublishedComments' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () =>
+      errRescue({ type: ERR.NETWORK, path: 'UserPublishedComments' }),
   },
 ]
 

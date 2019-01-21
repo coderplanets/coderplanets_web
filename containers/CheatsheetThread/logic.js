@@ -10,6 +10,7 @@ import {
   EVENT,
   THREAD,
   githubApi,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
@@ -18,19 +19,17 @@ import S from './schema'
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
+let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:CheatsheetThread')
-
-let sub$ = null
-let store = null
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw
   // const community = 'no-exsit'
   /* const community = 'elixir' */
 
-  debug('query cheatsheet: ', community)
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.cheatsheet, { community })
 }
@@ -99,23 +98,16 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      // TODO: add CODE to NOT_FOUND in server
-      store.markState({ curView: TYPE.NOT_FOUND })
-    },
+    action: () => store.markState({ curView: TYPE.NOT_FOUND }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CheatsheetThread' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'CheatsheetThread' }),
   },
 ]
 

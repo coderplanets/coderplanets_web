@@ -9,13 +9,11 @@ import {
   asyncErr,
   ERR,
   EVENT,
+  errRescue,
 } from '../../utils'
+
 import SR71 from '../../utils/network/sr71'
-
 import S from './schema'
-
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:FavoritesCats')
 
 const sr71$ = new SR71({
   resv_event: [EVENT.SET_FAVORITE_CONTENT],
@@ -23,6 +21,9 @@ const sr71$ = new SR71({
 
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:FavoritesCats')
 
 export const categoryOnChange = R.curry((part, e) =>
   store.updateEditing({ [part]: e.target.value })
@@ -194,15 +195,15 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'FavoritesCats' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'FavoritesCats' })
     },
   },
 ]

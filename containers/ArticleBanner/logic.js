@@ -10,13 +10,11 @@ import {
   ERR,
   EVENT,
   THREAD,
+  errRescue,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
 import S from './schema'
-
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleBanner')
 
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REACTIONS],
@@ -24,6 +22,9 @@ const sr71$ = new SR71({
 
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:ArticleBanner')
 
 export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()
@@ -129,21 +130,16 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'ArticleBanner' }),
   },
 ]
 

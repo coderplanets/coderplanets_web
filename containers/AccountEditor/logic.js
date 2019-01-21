@@ -12,6 +12,7 @@ import {
   cast,
   meteorState,
   updateEditing,
+  errRescue,
 } from '../../utils'
 
 import { S, updateFields } from './schema'
@@ -91,6 +92,10 @@ export const toggleSocials = () =>
 
 const cancleLoading = () => store.markState({ updating: false })
 
+// ###############################
+// Data & Error handlers
+// ###############################
+
 const DataSolver = [
   {
     match: asyncRes('updateProfile'),
@@ -102,30 +107,23 @@ const DataSolver = [
   },
 ]
 
-const encodeGqError = errObj => {
-  return JSON.stringify(errObj)
-}
-
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      meteorState(store, 'error', 5, encodeGqError(details))
-      cancleLoading()
-    },
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },
 ]

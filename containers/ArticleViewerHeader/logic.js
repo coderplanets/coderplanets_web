@@ -10,9 +10,10 @@ import {
   TYPE,
   EVENT,
   THREAD,
+  errRescue,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
+import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -132,23 +133,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      markLoading(false)
-    },
+    action: () => markLoading(false),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ArticleViewerHeader' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'ArticleViewerHeader' })
     },
   },
 ]

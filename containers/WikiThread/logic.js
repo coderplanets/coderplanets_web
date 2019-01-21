@@ -10,20 +10,21 @@ import {
   ERR,
   THREAD,
   githubApi,
+  errRescue,
 } from '../../utils'
-import SR71 from '../../utils/network/sr71'
 
+import SR71 from '../../utils/network/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:WikiThread')
-
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw
@@ -93,22 +94,20 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-      // TODO: add CODE to NOT_FOUND in server
+    action: () => {
       store.markState({ curView: TYPE.NOT_FOUND })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'WikiThread' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'WikiThread' })
     },
   },
 ]

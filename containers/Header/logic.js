@@ -11,22 +11,22 @@ import {
   $solver,
   thread2Subpath,
   atomizeValues,
+  errRescue,
   // getParameterByName,
 } from '../../utils'
 
 import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.SET_C11N],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:Header')
-
 let store = null
 let sub$ = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:Header')
 
 export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -85,20 +85,18 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.GRAPHQL -->', details)
-    },
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Header' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK ?-->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'Header' })
     },
   },
 ]
