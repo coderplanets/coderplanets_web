@@ -15,21 +15,7 @@ import Header from 'containers/Header'
 import UserBanner from 'containers/UserBanner'
 import UserContent from 'containers/UserContent'
 import Footer from 'containers/Footer'
-
-/*
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  UserBanner,
-  UserContent,
-  Footer,
-} from '../containers'
-*/
+import ErrorBox from 'containers/ErrorBox'
 
 import { P } from 'containers/schemas'
 import GAWraper from 'components/GAWraper'
@@ -136,6 +122,7 @@ export default class UserPage extends React.Component {
                 <MultiLanguage>
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout noSidebar>
                     <Header />
                     <UserBanner />

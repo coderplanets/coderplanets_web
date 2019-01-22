@@ -15,6 +15,7 @@ import Header from 'containers/Header'
 import ArticleBanner from 'containers/ArticleBanner'
 import RepoContent from 'containers/RepoContent'
 import Footer from 'containers/Footer'
+import ErrorBox from 'containers/ErrorBox'
 
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
@@ -131,6 +132,7 @@ export default class Index extends React.Component {
                 <MultiLanguage>
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout noSidebar>
                     <Header />
                     <ArticleBanner
