@@ -7,7 +7,7 @@ import {
   JobItemLoading,
   VideoItemLoading,
   RepoItemLoading,
-} from '../LoadingEffects'
+} from 'components/LoadingEffects'
 
 /* eslint-disable */
 const DynamicPostsList = dynamic({

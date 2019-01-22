@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F, P } from 'schemas'
 
 const job = gql`
   query($id: ID!, $userHasLogin: Boolean!) {

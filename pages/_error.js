@@ -4,7 +4,8 @@ import { Provider } from 'mobx-react'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
-import initRootStore from '../stores/init'
+
+import initRootStore from 'stores/init'
 
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {

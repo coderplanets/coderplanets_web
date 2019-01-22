@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Popover from '../Popover'
+import Popover from 'components/Popover'
 import { Wrapper, Avatar, PopInfo } from './styles/user_list'
 
 const UserList = ({ items }) => (

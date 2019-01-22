@@ -7,12 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import GithubRepoPage from 'components/GithubRepoPage'
 import { makeDebugger, storePlug, THREAD } from 'utils'
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import FavoritesCats from '../FavoritesCats'
-import Comments from '../Comments'
+
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import FavoritesCats from 'containers/FavoritesCats'
+import Comments from 'containers/Comments'
+import GithubRepoPage from 'components/GithubRepoPage'
 
 import { CommentsWrapper } from './styles'
 

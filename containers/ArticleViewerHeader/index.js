@@ -8,9 +8,10 @@ import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import Maybe from 'components/Maybe'
 import { makeDebugger, storePlug, THREAD } from 'utils'
-import FavoritesCats from '../FavoritesCats'
+
+import FavoritesCats from 'containers/FavoritesCats'
+import Maybe from 'components/Maybe'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'

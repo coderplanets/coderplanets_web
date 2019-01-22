@@ -9,7 +9,8 @@ import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import { makeDebugger, hasValue } from 'utils'
-import Maybe from '../Maybe'
+import Maybe from 'components/Maybe'
+
 import {
   FormItemWrapper,
   FormLable,

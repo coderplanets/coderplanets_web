@@ -8,10 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug, ROUTE } from 'utils'
-import CommunityContent from '../CommunityContent'
-import CommunitiesContent from '../CommunitiesContent'
-import CheatSheetContent from '../CheatSheetContent'
-import UserContent from '../UserContent'
+
+import CommunityContent from 'containers/CommunityContent'
+import CommunitiesContent from 'containers/CommunitiesContent'
+import CheatSheetContent from 'containers/CheatSheetContent'
+import UserContent from 'containers/UserContent'
 
 import { Wrapper } from './styles'
 

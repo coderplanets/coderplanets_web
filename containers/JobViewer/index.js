@@ -7,14 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, THREAD } from 'utils'
+
+import Comments from 'containers/Comments'
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+
 import Maybe from 'components/Maybe'
 import MarkDownRender from 'components/MarkDownRender'
 import { ArticleContentLoading } from 'components/LoadingEffects'
-import { makeDebugger, storePlug, THREAD } from 'utils'
-import Comments from '../Comments'
-
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
 
 import DigestBar from './DigestBar'
 

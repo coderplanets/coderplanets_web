@@ -3,9 +3,9 @@ import TimeAgo from 'timeago-react'
 
 // import { ICON_CMD } from 'config'
 import { cutFrom } from 'utils'
-import InlineCommunities from '../InlineCommunities'
-import InlineTags from '../InlineTags'
-import DotDivider from '../DotDivider'
+import InlineCommunities from 'components/InlineCommunities'
+import InlineTags from 'components/InlineTags'
+import DotDivider from 'components/DotDivider'
 
 import {
   Wrapper,

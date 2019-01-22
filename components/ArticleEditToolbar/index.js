@@ -11,7 +11,8 @@ import { Button } from 'antd'
 import { SITE_URL } from 'config'
 
 import { makeDebugger, THREAD } from 'utils'
-import Maybe from '../Maybe'
+import Maybe from 'components/Maybe'
+
 import CopyrightSelector from './CopyrightSelector'
 
 import {

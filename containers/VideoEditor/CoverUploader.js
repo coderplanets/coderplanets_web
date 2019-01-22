@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Maybe from 'components/Maybe'
 import { ICON_CMD } from 'config'
-
 import { nilOrEmpty } from 'utils'
-import DocUploader from '../DocUploader'
+
+import DocUploader from 'containers/DocUploader'
+import Maybe from 'components/Maybe'
 
 import {
   Wrapper,

@@ -20,7 +20,7 @@ import UserContent from 'containers/UserContent'
 import Footer from 'containers/Footer'
 import ErrorBox from 'containers/ErrorBox'
 
-import { P } from 'containers/schemas'
+import { P } from 'schemas'
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
 // import { GAWraper, ErrorPage } from 'components'
@@ -36,9 +36,9 @@ import {
   ROUTE,
   pagedFilter,
   ssrAmbulance,
-} from '../utils'
+} from 'utils'
 
-import initRootStore from '../stores/init'
+import initRootStore from 'stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

@@ -7,15 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// import { ICON_CMD } from 'config'
-
 import { makeDebugger, C11N } from 'utils'
-import { Wrapper } from './styles'
+
+import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+import { Wrapper } from './styles'
 
 import { getOpacity } from './helper'
 

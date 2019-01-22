@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import { ICON_CMD } from 'config'
 
 import { makeDebugger, THREAD, Trans } from 'utils'
-import Popover from '../Popover'
+import Popover from 'components/Popover'
 import {
   Wrapper,
   Label,

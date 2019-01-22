@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import { ICON_CMD } from 'config'
 
 import { cutFrom, parseDomain } from 'utils'
-import InlineTags from '../InlineTags'
+import InlineTags from 'components/InlineTags'
 
 import {
   SmallAvatar,

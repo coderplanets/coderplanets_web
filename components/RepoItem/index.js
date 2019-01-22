@@ -8,12 +8,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { makeDebugger, cutFrom, C11N } from 'utils'
-import { Wrapper, BodyDigest } from './styles'
+import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
 
 import Header from './Header'
 import Footer from './Footer'
 
-import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+import { Wrapper, BodyDigest } from './styles'
 
 import { getOpacity } from './helper'
 
