@@ -34,14 +34,14 @@ const ListView = ({ entry, onPreview }) => (
           <Title>
             【 {entry.company} 】{cutFrom(entry.title, 45)}
           </Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <TagsWrapper>
             <InlineTags data={entry.tags} />
           </TagsWrapper>

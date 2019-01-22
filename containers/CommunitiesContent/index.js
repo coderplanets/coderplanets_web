@@ -32,7 +32,7 @@ class CommunitiesContentContainer extends React.Component {
 
     return (
       <Wrapper>
-        {pagedCommunitiesData ? (
+        {pagedCommunitiesData && (
           <React.Fragment>
             <CommunityCards
               entries={pagedCommunitiesData.entries}
@@ -46,7 +46,7 @@ class CommunitiesContentContainer extends React.Component {
               onChange={logic.pageChange}
             />
           </React.Fragment>
-        ) : null}
+        )}
       </Wrapper>
     )
   }

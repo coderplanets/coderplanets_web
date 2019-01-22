@@ -16,7 +16,7 @@ const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
       <NumberItem readOnly>{prettyNum(views)}</NumberItem>
     </NumberSection>
     <NumberDivider />
-    {starredCount >= 0 ? (
+    {starredCount >= 0 && (
       <React.Fragment>
         <NumberSection>
           <NumberTitle>喜欢</NumberTitle>
@@ -24,13 +24,13 @@ const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
         </NumberSection>
         <NumberDivider />
       </React.Fragment>
-    ) : null}
-    {favoritedCount >= 0 ? (
+    )}
+    {favoritedCount >= 0 && (
       <NumberSection>
         <NumberTitle>收藏</NumberTitle>
         <NumberItem>{numberWithCommas(favoritedCount)}</NumberItem>
       </NumberSection>
-    ) : null}
+    )}
     {/*
         <NumberDivider />
         <NumberSection>

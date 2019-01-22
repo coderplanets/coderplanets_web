@@ -30,7 +30,7 @@ const ContentSourceCard = ({
       />
     </Desc>
 
-    {users.totalCount !== 0 ? (
+    {users.totalCount !== 0 && (
       <React.Fragment>
         <Didiver />
         <Title>参与讨论 ({users.totalCount})</Title>
@@ -38,7 +38,7 @@ const ContentSourceCard = ({
           <UserList items={users.entries} />
         </Desc>
       </React.Fragment>
-    ) : null}
+    )}
 
     {/*
         <Desc column noBottom>

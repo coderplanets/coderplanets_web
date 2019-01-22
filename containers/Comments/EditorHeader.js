@@ -32,7 +32,7 @@ const EditorHeader = ({
       <Wrapper>
         <UserAvatar src={accountInfo.avatar} />
         <LeaveResponseUsername>{accountInfo.nickname}</LeaveResponseUsername>
-        {referUsers.length > 0 ? (
+        {referUsers.length > 0 && (
           <RefUsersWrapper>
             <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
             <RefUserList>
@@ -45,7 +45,7 @@ const EditorHeader = ({
               />
             </RefUserList>
           </RefUsersWrapper>
-        ) : null}
+        )}
         <SpaceGrow />
         <WordsCounter countCurrent={countCurrent} />
       </Wrapper>

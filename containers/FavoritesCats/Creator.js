@@ -51,7 +51,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
         </FormInput>
       </FormItemWrapper>
 
-      {hasLockAuth ? (
+      {hasLockAuth && (
         <FormItemWrapper>
           <FormLable>隐私</FormLable>
           <RadiosWrapper>
@@ -64,7 +64,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
             </RadioGroup>
           </RadiosWrapper>
         </FormItemWrapper>
-      ) : null}
+      )}
     </EditWrapper>
     <Footer>
       <Button type="primary" ghost onClick={onModalClose}>

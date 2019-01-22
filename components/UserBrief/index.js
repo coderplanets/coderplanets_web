@@ -66,15 +66,15 @@ class UserBrief extends React.Component {
             </div>
           </Link>
 
-          {displayStyle === 'sidebar' ? <BadgeInfo user={user} /> : null}
+          {displayStyle === 'sidebar' && <BadgeInfo user={user} />}
         </AvatarWrapper>
 
         <BriefTextWrapper>
           <UserTitle>
             {user.nickname}
-            {viewingType === 'account' ? (
+            {viewingType === 'account' && (
               <Operators show={showEdit} onEdit={onEdit} onLogout={onLogout} />
-            ) : null}
+            )}
           </UserTitle>
 
           {showDetail ? (

@@ -59,18 +59,16 @@ class DoraemonContainer extends React.Component {
             prefix={prefix}
           />
 
-          {showThreadSelector ? (
-            <ThreadSelectBar active={searchThread} />
-          ) : null}
-          {showAlert ? (
+          {showThreadSelector && <ThreadSelectBar active={searchThread} />}
+          {showAlert && (
             <AlertBar value={inputValue} searchThread={searchThread} />
-          ) : null}
+          )}
           <ResultsList
             suggestions={suggestions}
             activeRaw={activeRaw}
             searchThread={searchThread}
           />
-          {showUtils ? <UtilsBar total={searchedTotalCount} /> : null}
+          {showUtils && <UtilsBar total={searchedTotalCount} />}
         </PanelContainer>
       </React.Fragment>
     )

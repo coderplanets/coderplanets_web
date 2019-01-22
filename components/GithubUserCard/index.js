@@ -33,19 +33,19 @@ const GithubUserCard = ({ user }) => (
     </PopAvatarWrapper>
     <UserPopInfo>
       <Username>{user.nickname}</Username>
-      {!nilOrEmpty(user.bio) ? <UserBio>{user.bio}</UserBio> : null}
-      {!nilOrEmpty(user.location) ? (
+      {!nilOrEmpty(user.bio) && <UserBio>{user.bio}</UserBio>}
+      {!nilOrEmpty(user.location) && (
         <UserLocation>
           <LabelIcon src={`${ICON_CMD}/city_map.svg`} />
           <LabelText> {user.location}</LabelText>
         </UserLocation>
-      ) : null}
-      {!nilOrEmpty(user.company) ? (
+      )}
+      {!nilOrEmpty(user.company) && (
         <UserCompany>
           <LabelIcon src={`${ICON_CMD}/profile_company.svg`} />
           <LabelText> {user.company}</LabelText>
         </UserCompany>
-      ) : null}
+      )}
     </UserPopInfo>
   </Wrapper>
 )

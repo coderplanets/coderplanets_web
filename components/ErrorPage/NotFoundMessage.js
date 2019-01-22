@@ -10,7 +10,7 @@ const NotFoundMessage = ({ page, target }) => {
       return (
         <HintTitle>
           未找到该用户
-          {!R.isEmpty(target) ? <span>: {target}</span> : null}
+          {!R.isEmpty(target) && <span>: {target}</span>}
         </HintTitle>
       )
 
@@ -30,7 +30,7 @@ const NotFoundMessage = ({ page, target }) => {
       return (
         <HintTitle>
           未找到社区
-          {!R.isEmpty(target) ? <span>: {target}</span> : null},
+          {!R.isEmpty(target) && <span>: {target}</span>},
           如果你觉得该社区很重要，欢迎
           <IssueLink
             href={`${ISSUE_ADDR}/280`}

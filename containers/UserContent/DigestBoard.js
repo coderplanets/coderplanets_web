@@ -21,7 +21,7 @@ const DigestBoard = ({ user, accountId }) => (
   <React.Fragment>
     <CardWrapper>
       <AchieveCard user={user} />
-      {user.id !== accountId ? (
+      {user.id !== accountId && (
         <FollowButton
           hasFollowd={user.viewerHasFollowed}
           userId={user.id}
@@ -29,7 +29,7 @@ const DigestBoard = ({ user, accountId }) => (
           onFollow={logic.followUser}
           undoFollowUser={logic.undoFollowUser}
         />
-      ) : null}
+      )}
     </CardWrapper>
     <CardWrapper>
       <NumbersCard
@@ -51,29 +51,30 @@ const DigestBoard = ({ user, accountId }) => (
       主页被浏览 {user.views} 次
     </AttactWrapper>
 
-    {anyTrue(user.achievement.sourceContribute) ? (
+    {anyTrue(user.achievement.sourceContribute) && (
       <SourceContributeInfo data={user.achievement.sourceContribute} />
-    ) : null}
+    )}
 
-    {user.achievement.donateMember && !user.achievement.seniorMember ? (
-      <AttactWrapper>
-        <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
-        <div>热心打赏</div>
-      </AttactWrapper>
-    ) : null}
+    {user.achievement.donateMember &&
+      !user.achievement.seniorMember && (
+        <AttactWrapper>
+          <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
+          <div>热心打赏</div>
+        </AttactWrapper>
+      )}
 
-    {user.achievement.seniorMember ? (
+    {user.achievement.seniorMember && (
       <AttactWrapper>
         <AttactIcon src={`${ICON_CMD}/member_senior.svg`} />
         <div>CPS 会员</div>
       </AttactWrapper>
-    ) : null}
-    {user.achievement.sponsorMember ? (
+    )}
+    {user.achievement.sponsorMember && (
       <AttactWrapper>
         <AttactIcon src={`${ICON_CMD}/member_sponsor.svg`} />
         <div>特别赞助</div>
       </AttactWrapper>
-    ) : null}
+    )}
   </React.Fragment>
 )
 

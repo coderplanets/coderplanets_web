@@ -56,25 +56,25 @@ class FavoritesCatsContainer extends React.Component {
 
     return (
       <React.Fragment>
-        {displayMode === 'list' ? (
+        {displayMode === 'list' && (
           <SectionLabel
             title="收藏夹"
             iconSrc={`${ICON_CMD}/folder.svg`}
             desc={`收藏夹共 ${totalCount} 个。`}
             addonNode={
               <React.Fragment>
-                {isSelfViewing ? (
+                {isSelfViewing && (
                   <AdderWrapper
                     onClick={logic.changeViewTo.bind(this, 'creator')}
                   >
                     <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
                     <AdderText>创建</AdderText>
                   </AdderWrapper>
-                ) : null}
+                )}
               </React.Fragment>
             }
           />
-        ) : null}
+        )}
         <Modal
           width="420px"
           show={showModal}
@@ -98,9 +98,9 @@ class FavoritesCatsContainer extends React.Component {
             hasLockAuth={hasLockAuth}
           />
         </Modal>
-        {displayMode === 'list' ? (
+        {displayMode === 'list' && (
           <BoxView data={pagedCategoriesData} onSelect={onSelect} />
-        ) : null}
+        )}
       </React.Fragment>
     )
   }

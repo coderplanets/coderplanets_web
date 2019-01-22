@@ -5,26 +5,21 @@ import React from 'react'
 import { uid, nilOrEmpty } from 'utils'
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 
-const ChangesetMessages = ({ items }) => {
-  if (nilOrEmpty(items)) return null
-
-  return (
-    <React.Fragment>
-      {items.map(item => (
+const ChangesetMessages = ({ items }) => (
+  <React.Fragment>
+    {!nilOrEmpty(items) &&
+      items.map(item => (
         <Desc key={uid.gen()}>
           {item.key}: {item.message}
         </Desc>
       ))}
-    </React.Fragment>
-  )
-}
+  </React.Fragment>
+)
 
-const ChangesetDetails = ({ errors }) => {
-  if (nilOrEmpty(errors)) return null
-
-  return (
-    <React.Fragment>
-      {errors.map(item => (
+const ChangesetDetails = ({ errors }) => (
+  <React.Fragment>
+    {!nilOrEmpty(errors) &&
+      errors.map(item => (
         <div key={uid.gen()}>
           <TitleWrapper>
             <Dot />
@@ -36,16 +31,13 @@ const ChangesetDetails = ({ errors }) => {
           <ChangesetMessages items={item.message} />
         </div>
       ))}
-    </React.Fragment>
-  )
-}
+  </React.Fragment>
+)
 
-const ParseDetails = ({ errors }) => {
-  if (nilOrEmpty(errors)) return null
-
-  return (
-    <React.Fragment>
-      {errors.map((item, idx) => (
+const ParseDetails = ({ errors }) => (
+  <React.Fragment>
+    {!nilOrEmpty(errors) &&
+      errors.map((item, idx) => (
         <div key={uid.gen()}>
           <TitleWrapper>
             <Dot />
@@ -54,16 +46,13 @@ const ParseDetails = ({ errors }) => {
           </TitleWrapper>
         </div>
       ))}
-    </React.Fragment>
-  )
-}
+  </React.Fragment>
+)
 
-const CustomDetails = ({ errors }) => {
-  if (nilOrEmpty(errors)) return null
-
-  return (
-    <React.Fragment>
-      {errors.map(item => (
+const CustomDetails = ({ errors }) => (
+  <React.Fragment>
+    {!nilOrEmpty(errors) &&
+      errors.map(item => (
         <div key={uid.gen()}>
           <TitleWrapper>
             <Dot />
@@ -72,9 +61,8 @@ const CustomDetails = ({ errors }) => {
           </TitleWrapper>
         </div>
       ))}
-    </React.Fragment>
-  )
-}
+  </React.Fragment>
+)
 
 const GraphqlDetail = ({
   graphqlType,
