@@ -124,7 +124,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
               {data.author.nickname}
               <FloorNum>#{data.floor}</FloorNum>
             </CommentUserName>
-            {data.repliesCount !== 0 ? (
+            {data.repliesCount !== 0 && (
               <ReplyUsers>
                 <ReplyTitle>收到回复:</ReplyTitle>
                 <AvatarsRow
@@ -133,21 +133,21 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
                   total={data.repliesCount}
                 />
               </ReplyUsers>
-            ) : null}
+            )}
           </CommentHeaderFirst>
           <TimeStamps>
             <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
           </TimeStamps>
         </CommentHeader>
         <CommentContent>
-          {data.replyTo ? (
+          {data.replyTo && (
             <ReplyBar>
               回复&nbsp;
               {data.replyTo.author.nickname}:
               <ReplyToBody>{data.replyTo.body}</ReplyToBody>
               <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
             </ReplyBar>
-          ) : null}
+          )}
           <MarkDownRender body={data.body} />
         </CommentContent>
         <CommentFooter>
@@ -196,11 +196,11 @@ const Lists = ({ entries, tobeDeleteId, accountInfo }) => (
 
 const TotalCountText = ({ count }) => (
   <TotalCountWrapper>
-    {count > 0 ? (
+    {count > 0 && (
       <ListTitle id="lists-info">
         共收到 <TotalNum>{count}</TotalNum> 条评论:
       </ListTitle>
-    ) : null}
+    )}
   </TotalCountWrapper>
 )
 
@@ -214,7 +214,7 @@ const CommentsList = ({
       <TotalCountText count={totalCount} />
       <CommentsFilter filterType={filterType} show={totalCount >= 2} />
     </TotalHeader>
-    {!loadingFresh ? null : (
+    {loadingFresh && (
       <CommentBlock>
         <CommentLoading />
       </CommentBlock>

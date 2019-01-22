@@ -18,7 +18,7 @@ const debug = makeDebugger('c:StrategicPartners:index')
 
 const StrategicPartners = ({ show, onClose }) => (
   <Wrapper>
-    {show ? (
+    {show && (
       <React.Fragment>
         <Header>
           <Title>特别赞助:</Title>
@@ -26,7 +26,7 @@ const StrategicPartners = ({ show, onClose }) => (
         </Header>
         <PartnerBanner />
       </React.Fragment>
-    ) : null}
+    )}
   </Wrapper>
 )
 

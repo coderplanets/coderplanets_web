@@ -55,7 +55,7 @@ const Updater = ({ data, show, hasLockAuth }) => (
         </FormInput>
       </FormItemWrapper>
 
-      {hasLockAuth ? (
+      {hasLockAuth && (
         <FormItemWrapper>
           <FormLable>加锁</FormLable>
           <RadiosWrapper>
@@ -68,7 +68,7 @@ const Updater = ({ data, show, hasLockAuth }) => (
             </RadioGroup>
           </RadiosWrapper>
         </FormItemWrapper>
-      ) : null}
+      )}
     </EditWrapper>
     <Footer>
       <Popconfirm

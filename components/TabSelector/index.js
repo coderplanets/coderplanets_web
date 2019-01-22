@@ -32,7 +32,7 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
           <Icon src={opt.icon} active={activeRaw === opt.raw} />
           <Title>
             {opt.title}
-            {opt.count > 0 ? <span>({opt.count})</span> : null}
+            {opt.count > 0 && <span>({opt.count})</span>}
           </Title>
         </Option>
       ))}

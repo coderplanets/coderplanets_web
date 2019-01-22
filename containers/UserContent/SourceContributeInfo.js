@@ -11,7 +11,7 @@ const SourceContributeInfo = ({ data }) => (
   <AttactWrapper>
     <AttactIcon src={`${ICON_CMD}/member_contributor.svg`} />
     本站源码贡献者(
-    {data.web ? (
+    {data.web && (
       <AttactLink
         href={`${GITHUB_WEB_ADDR}/graphs/contributors`}
         rel="noopener noreferrer"
@@ -19,9 +19,9 @@ const SourceContributeInfo = ({ data }) => (
       >
         web
       </AttactLink>
-    ) : null}
-    {data.web && data.server ? <Split>,</Split> : null}
-    {data.server ? (
+    )}
+    {data.web && data.server && <Split>,</Split>}
+    {data.server && (
       <AttactLink
         href={`${GITHUB_SERVER_ADDR}/graphs/contributors`}
         rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const SourceContributeInfo = ({ data }) => (
       >
         server
       </AttactLink>
-    ) : null}
+    )}
     )
   </AttactWrapper>
 )

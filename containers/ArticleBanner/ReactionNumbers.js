@@ -22,7 +22,7 @@ const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
         <NumberItem readOnly>{prettyNum(views)}</NumberItem>
       </NumberSection>
       <NumberDivider />
-      {showStar ? <StarReaction data={data} loading={starLoading} /> : null}
+      {showStar && <StarReaction data={data} loading={starLoading} />}
       <FavoriteReaction data={data} loading={favoriteLoading} />
       {/*
           <NumberDivider />

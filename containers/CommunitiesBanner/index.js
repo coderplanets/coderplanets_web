@@ -56,15 +56,16 @@ class CommunitiesBannerContainer extends React.Component {
               searching={searching}
             />
           </ContentWrapper>
-          {!isSearchMode && pagedCategoriesData ? (
-            <TabberWrapper>
-              <Tabber
-                source={pagedCategoriesData.entries}
-                active={activeTab}
-                onChange={logic.tabOnChange}
-              />
-            </TabberWrapper>
-          ) : null}
+          {!isSearchMode &&
+            pagedCategoriesData && (
+              <TabberWrapper>
+                <Tabber
+                  source={pagedCategoriesData.entries}
+                  active={activeTab}
+                  onChange={logic.tabOnChange}
+                />
+              </TabberWrapper>
+            )}
         </BannerContentWrapper>
       </BannerContainer>
     )

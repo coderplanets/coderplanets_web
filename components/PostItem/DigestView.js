@@ -36,14 +36,14 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
       <TopHalf>
         <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{entry.title}</Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <TagListWrapper>
             <InlineTags data={entry.tags} />
           </TagListWrapper>

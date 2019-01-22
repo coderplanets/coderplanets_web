@@ -29,14 +29,14 @@ const ListView = ({ entry, onPreview }) => (
       <TopHalf>
         <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{cutFrom(entry.title, 45)}</Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <InlineTags data={entry.tags} />
         </Breif>
         <CommentWrapper>

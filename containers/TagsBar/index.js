@@ -60,14 +60,14 @@ class TagsBarContainer extends React.Component {
 
     return (
       <Wrapper>
-        {activeTagData.title ? (
+        {activeTagData.title && (
           <TagItem
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
             <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
             <TagTitle>全部</TagTitle>
           </TagItem>
-        ) : null}
+        )}
 
         {sortedTags.map(tag => (
           <TagItem key={tag.id}>

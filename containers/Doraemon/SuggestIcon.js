@@ -38,7 +38,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
   // normal icons
   return (
     <React.Fragment>
-      {logo ? (
+      {logo && (
         <Wrapper>
           <Icon
             round={round}
@@ -47,7 +47,7 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
             nonFill={R.contains(raw, NON_FILL_COMMUNITY)}
           />
         </Wrapper>
-      ) : null}
+      )}
     </React.Fragment>
   )
 }

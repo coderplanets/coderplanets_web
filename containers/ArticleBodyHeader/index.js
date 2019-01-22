@@ -66,14 +66,14 @@ class ArticleBodyHeaderContainer extends React.Component {
           </Popover>
         </MoreWrapper>
 
-        {middle === 'linker' ? <Linker addr={data.linkAddr} /> : null}
-        {middle === 'labeler' ? (
+        {middle === 'linker' && <Linker addr={data.linkAddr} />}
+        {middle === 'labeler' && (
           <Labeler
             onTagSelect={logic.onTagSelect}
             onTagUnselect={logic.onTagUnselect}
             selected={tagTitleList}
           />
-        ) : null}
+        )}
         <RefinedLabel tags={data.tags} />
       </Wrapper>
     )

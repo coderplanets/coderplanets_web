@@ -101,7 +101,7 @@ class VideoEditorContainer extends React.Component {
             onChange={inputOnChange.bind(this, 'duration')}
             placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
-          {!isEdit ? (
+          {!isEdit && (
             <FormItem
               label="发布日期:"
               raw="publishAt"
@@ -110,7 +110,7 @@ class VideoEditorContainer extends React.Component {
               onChange={inputOnChange.bind(this, 'publishAt')}
               placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
             />
-          ) : null}
+          )}
           <FormItem
             label="描述:"
             raw="desc"

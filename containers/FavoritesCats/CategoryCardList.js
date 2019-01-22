@@ -33,7 +33,7 @@ const CategoryCardList = ({
           <Header>
             <Title onClick={onSelect.bind(this, cat)}>
               <TitleText>{cutFrom(cat.title, 10)}</TitleText>
-              {cat.private ? <LockIcon src={`${ICON_CMD}/lock.svg`} /> : null}
+              {cat.private && <LockIcon src={`${ICON_CMD}/lock.svg`} />}
             </Title>
             <div onClick={switchToUpdater.bind(this, cat)}>
               <EditIcon src={`${ICON_CMD}/edit.svg`} />

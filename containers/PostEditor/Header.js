@@ -63,7 +63,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
           <UsageText>
             <DoingText isEdit={isEdit} />
             帖子
-            {!R.isEmpty(referUsers) ? (
+            {!R.isEmpty(referUsers) && (
               <RefUsersWrapper>
                 <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
                 <RefUserList>
@@ -76,7 +76,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
                   />
                 </RefUserList>
               </RefUsersWrapper>
-            ) : null}
+            )}
           </UsageText>
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}

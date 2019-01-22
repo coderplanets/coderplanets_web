@@ -32,12 +32,12 @@ const ContentBanner = ({ data, middleNode }) => {
 
   return (
     <BannerContainer>
-      {R.isNil(data.id) ? null : (
+      {!R.isNil(data.id) && (
         <BannerContentWrapper>
           <PostBrief>
             <Title>{data.title}</Title>
             <React.Fragment>
-              {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
+              {!R.isEmpty(middleNode) && <div>{middleNode}</div>}
             </React.Fragment>
             <Desc>
               {isRefined ? <MarkTag>精华</MarkTag> : <div />}

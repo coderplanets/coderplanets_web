@@ -45,7 +45,7 @@ export const withGuardian = WrappedComponent => {
 
       return (
         <React.Fragment>
-          {isValid ? <WrappedComponent {...this.props} /> : null}
+          {isValid && <WrappedComponent {...this.props} />}
         </React.Fragment>
       )
     }

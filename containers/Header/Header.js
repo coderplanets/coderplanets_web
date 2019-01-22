@@ -49,7 +49,7 @@ const Header = ({
           <HeaderSearchIcon offsettop="-1px" />
         </Search>
 
-        {isLogin ? <MailBox /> : null}
+        {isLogin && <MailBox />}
 
         <UpgradePackges />
         <UserLister />

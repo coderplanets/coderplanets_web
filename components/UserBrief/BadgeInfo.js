@@ -14,24 +14,24 @@ const BadgeInfo = ({ user: { achievement } }) => {
 
   return (
     <Wrapper>
-      {seniorMember ? (
+      {seniorMember && (
         <BadgeWrapper>
           <BadgeIcon src={`${ICON_CMD}/member_senior.svg`} />
           <BadgeTitle>CPS会员</BadgeTitle>
         </BadgeWrapper>
-      ) : null}
-      {donateMember ? (
+      )}
+      {donateMember && (
         <BadgeWrapper>
           <BadgeIcon src={`${ICON_CMD}/member_donor.svg`} />
           <BadgeTitle>热心打赏</BadgeTitle>
         </BadgeWrapper>
-      ) : null}
-      {sponsorMember ? (
+      )}
+      {sponsorMember && (
         <BadgeWrapper>
           <BadgeIcon src={`${ICON_CMD}/member_sponsor.svg`} />
           <BadgeTitle>赞助商</BadgeTitle>
         </BadgeWrapper>
-      ) : null}
+      )}
     </Wrapper>
   )
 }
