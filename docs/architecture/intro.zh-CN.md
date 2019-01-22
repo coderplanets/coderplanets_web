@@ -347,7 +347,7 @@ logic 层在即可使用 sr71$.query(S.post, {...}) 进行异步请求。
 
 ```js
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F, P } from 'schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {

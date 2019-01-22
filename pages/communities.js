@@ -17,7 +17,7 @@ import CommunitiesBanner from 'containers/CommunitiesBanner'
 import CommunitiesContent from 'containers/CommunitiesContent'
 import Footer from 'containers/Footer'
 
-import { P } from 'containers/schemas'
+import { P } from 'schemas'
 import GAWraper from 'components/GAWraper'
 import {
   makeGQClient,

@@ -30,6 +30,7 @@
         "components":"./components",
         "config":"./config",
         "stores":"./stores",
+        "schemas":"./containers/schemas",
         "utils":"./utils",
         "Img": "./components/Img",
         "SvgIcons": "./components/SvgIcons"

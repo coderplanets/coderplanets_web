@@ -349,7 +349,7 @@ The sys layer can make asynchronous requests using sr71$.query(S.post, {...})
 
 ```js
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F, P } from 'schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {

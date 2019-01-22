@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F } from 'schemas'
 
 const video = gql`
   query($id: ID!, $userHasLogin: Boolean!) {

@@ -39,7 +39,7 @@ import {
   validCommunityFilters,
 } from 'utils'
 
-import { P } from 'containers/schemas'
+import { P } from 'schemas'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')

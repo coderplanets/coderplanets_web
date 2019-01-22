@@ -17,7 +17,7 @@ import JobContent from 'containers/JobContent'
 import Footer from 'containers/Footer'
 import ErrorBox from 'containers/ErrorBox'
 
-import { P } from 'containers/schemas'
+import { P } from 'schemas'
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
 

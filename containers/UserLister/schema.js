@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F, P } from 'schemas'
 
 const pagedUsers = gql`
   query($filter: PagedUsersFilter!) {

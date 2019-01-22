@@ -34,7 +34,7 @@ import {
   ssrAmbulance,
 } from 'utils'
 
-import { P } from 'containers/schemas'
+import { P } from 'schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
