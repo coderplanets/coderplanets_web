@@ -19,6 +19,7 @@
     "apollo-link-http": "1.5.5",
     "apollo-link-retry": "2.2.5",
     "chalk": "^2.4.1",
+    "core-js": "^2.6.2",
     "debug": "3.1.0",
     "draft-js": "^0.10.5",
     "draft-js-linkify-plugin": "^2.0.1",
