@@ -21,7 +21,7 @@ export { default as RepoItem } from './RepoItem'
 export { default as VideoItem } from './VideoItem'
 
 // Utils component
-export { withGuardian } from './HOC'
+// export { withGuardian } from './HOC'
 export { default as MarkdownEditor } from './MarkdownEditor'
 export { default as ArticleEditToolbar } from './ArticleEditToolbar'
 export { default as ArticleEditFooter } from './ArticleEditFooter'
