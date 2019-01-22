@@ -40,6 +40,7 @@ const Header = ({
         ) : (
           <Navigator
             curCommunity={curCommunity}
+            subPath={curRoute.subPath}
             layout={accountInfo.customization.bannerLayout}
           />
         )}
