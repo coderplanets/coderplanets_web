@@ -1,10 +1,11 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { BlogJsonLd } from 'next-seo'
 
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE, SITE_URL } from 'config'
+
 import initRootStore from 'stores/init'
-
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
@@ -118,6 +119,11 @@ export default class Index extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { video },
+      route,
+    } = this.props
+    const { mainPath } = route
 
     return (
       <Provider store={this.store}>
@@ -127,6 +133,15 @@ export default class Index extends React.Component {
               <ErrorPage errorCode={statusCode} page="video" target={target} />
             ) : (
               <React.Fragment>
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/video/${video.id}`}
+                  title={`${video.title}`}
+                  datePublished={`${video.insertedAt}`}
+                  dateModified={`${video.updatedAt}`}
+                  authorName={`${video.author.nickname}`}
+                  description={`${video.desc}`}
+                  images={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { BlogJsonLd } from 'next-seo'
+
+import { PAGE_SIZE, SITE_URL } from 'config'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
@@ -20,7 +23,6 @@ import ErrorPage from 'components/ErrorPage'
 
 // import { GAWraper, ErrorPage } from 'components'
 
-import { PAGE_SIZE } from 'config'
 import {
   makeGQClient,
   getMainPath,
@@ -116,6 +118,11 @@ export default class Index extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { job },
+      route,
+    } = this.props
+    const { mainPath } = route
 
     return (
       <Provider store={this.store}>
@@ -125,6 +132,15 @@ export default class Index extends React.Component {
               <ErrorPage errorCode={statusCode} page="job" target={target} />
             ) : (
               <React.Fragment>
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/job/${job.id}`}
+                  title={`${job.title}`}
+                  datePublished={`${job.insertedAt}`}
+                  dateModified={`${job.updatedAt}`}
+                  authorName={`${job.author.nickname}`}
+                  description={`${job.title}`}
+                  images={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />

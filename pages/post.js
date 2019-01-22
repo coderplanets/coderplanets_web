@@ -1,8 +1,9 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { BlogJsonLd } from 'next-seo'
 
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE, SITE_URL } from 'config'
 import initRootStore from 'stores/init'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
@@ -122,6 +123,12 @@ export default class Index extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { post },
+      route,
+    } = this.props
+    const { mainPath } = route
+
     return (
       <Provider store={this.store}>
         <GAWraper>
@@ -130,6 +137,15 @@ export default class Index extends React.Component {
               <ErrorPage errorCode={statusCode} page="post" target={target} />
             ) : (
               <React.Fragment>
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/post/${post.id}`}
+                  title={`${post.title}`}
+                  datePublished={`${post.insertedAt}`}
+                  dateModified={`${post.updatedAt}`}
+                  authorName={`${post.author.nickname}`}
+                  description={`${post.title}`}
+                  images={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />

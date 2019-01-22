@@ -4,6 +4,9 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { SocialProfileJsonLd } from 'next-seo'
+
+import { SITE_URL } from 'config'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
@@ -104,11 +107,13 @@ export default class UserPage extends React.Component {
       : initRootStore({ ...props })
 
     this.store = store
-    // this.store = initRootStore({ ...props })
   }
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { user },
+    } = this.props
 
     return (
       <Provider store={this.store}>
@@ -118,6 +123,12 @@ export default class UserPage extends React.Component {
               <ErrorPage errorCode={statusCode} page="user" target={target} />
             ) : (
               <React.Fragment>
+                <SocialProfileJsonLd
+                  type="Person"
+                  name={`${user.nickname}`}
+                  url={`${SITE_URL}/user/${user.login}`}
+                  sameAs={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />

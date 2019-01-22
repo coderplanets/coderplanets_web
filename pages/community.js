@@ -1,8 +1,9 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import NextSeo from 'next-seo'
 
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE, SITE_URL } from 'config'
 import initRootStore from 'stores/init'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
@@ -164,6 +165,11 @@ export default class PageCommunity extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { community },
+      route,
+    } = this.props
+    const { mainPath, subPath } = route
 
     return (
       <Provider store={this.store}>
@@ -177,6 +183,13 @@ export default class PageCommunity extends React.Component {
               />
             ) : (
               <React.Fragment>
+                <NextSeo
+                  config={{
+                    url: `${SITE_URL}/${mainPath}/${subPath}`,
+                    title: `coderplanets ${community.raw}社区`,
+                    description: `${community.desc}`,
+                  }}
+                />
                 <Route />
                 <MultiLanguage>
                   <Sidebar />

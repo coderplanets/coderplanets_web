@@ -15,6 +15,8 @@ const getGraphQLEndpoint = () => {
 }
 
 export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
+
+export const SITE_URL = 'https://coderplanets.com'
 export const GITHUB_WEB_ADDR =
   'https://github.com/coderplanets/coderplanets_web'
 export const GITHUB_SERVER_ADDR =
