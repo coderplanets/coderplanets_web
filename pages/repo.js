@@ -1,8 +1,9 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { BlogJsonLd } from 'next-seo'
 
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE, SITE_URL } from 'config'
 import initRootStore from 'stores/init'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
@@ -119,6 +120,11 @@ export default class Index extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { repo },
+      route,
+    } = this.props
+    const { mainPath } = route
 
     return (
       <Provider store={this.store}>
@@ -128,6 +134,15 @@ export default class Index extends React.Component {
               <ErrorPage errorCode={statusCode} page="post" target={target} />
             ) : (
               <React.Fragment>
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/repo/${repo.id}`}
+                  title={`${repo.title}`}
+                  datePublished={`${repo.insertedAt}`}
+                  dateModified={`${repo.updatedAt}`}
+                  authorName={`${repo.author.nickname}`}
+                  description={`${repo.desc}`}
+                  images={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />

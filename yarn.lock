@@ -7641,6 +7641,10 @@ neo-async@^2.5.0:
   version "2.5.2"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
 
+next-seo@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.npmjs.org/next-seo/-/next-seo-1.9.0.tgz#5bef18979393fa8ac889cab0db750c5ca37f9715"
+
 next@7.0.2:
   version "7.0.2"
   resolved "https://registry.npmjs.org/next/-/next-7.0.2.tgz#5ff6b3f0e6cf03ce539d5779a55dc1f8fb1759d7"

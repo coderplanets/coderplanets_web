@@ -9,6 +9,7 @@ export {
 } from './general'
 
 export {
+  SITE_URL,
   GRAPHQL_ENDPOINT,
   ISSUE_ADDR,
   GITHUB_WEB_ADDR,
