@@ -1,12 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
-import Maybe from 'components/Maybe'
 import { ICON_CMD } from 'config'
-
 import { uid } from 'utils'
-import DocUploader from '../DocUploader'
-import Labeler from '../Labeler'
+
+import DocUploader from 'containers/DocUploader'
+import Labeler from 'containers/Labeler'
+import Maybe from 'components/Maybe'
 
 import CompanyInfoEditor from './CompanyInfoEditor'
 

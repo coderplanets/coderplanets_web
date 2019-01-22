@@ -7,11 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AvatarAdder from 'containers/AvatarAdder'
 import { makeDebugger } from 'utils'
-import Maybe from '../Maybe'
-import Popover from '../Popover'
-import GithubUserCard from '../GithubUserCard'
+
+import AvatarAdder from 'containers/AvatarAdder'
+import Maybe from 'components/Maybe'
+import Popover from 'components/Popover'
+import GithubUserCard from 'components/GithubUserCard'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 

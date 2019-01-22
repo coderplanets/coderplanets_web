@@ -17,22 +17,6 @@ import CommunitiesBanner from 'containers/CommunitiesBanner'
 import CommunitiesContent from 'containers/CommunitiesContent'
 import Footer from 'containers/Footer'
 
-/*
-   import {
-   ThemeWrapper,
-   MultiLanguage,
-   Sidebar,
-   Preview,
-   Doraemon,
-   Route,
-   BodyLayout,
-   Header,
-   CommunitiesBanner,
-   CommunitiesContent,
-   Footer,
-   } from '../containers'
- */
-
 import { P } from 'containers/schemas'
 import GAWraper from 'components/GAWraper'
 import {
@@ -43,8 +27,9 @@ import {
   BStore,
   ROUTE,
   ssrAmbulance,
-} from '../utils'
-import initRootStore from '../stores/init'
+} from 'utils'
+
+import initRootStore from 'stores/init'
 
 /* import PostsThreadSchema from 'containers/PostsThread/schema' */
 

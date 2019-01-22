@@ -9,7 +9,8 @@ import R from 'ramda'
 
 import { markStates, makeDebugger, stripMobx, BStore } from 'utils'
 
-import { User, EmptyUser, PagedCommunities } from '../SharedModel'
+import { User, EmptyUser, PagedCommunities } from 'stores/SharedModel'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:AccountStore')
 

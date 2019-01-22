@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from 'config'
 
 import { numberWithCommas, cutFrom } from 'utils'
-import Popover from '../Popover'
+import Popover from 'components/Popover'
 
 import {
   Wrapper,

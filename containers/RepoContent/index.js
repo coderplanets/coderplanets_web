@@ -8,9 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
+import { makeDebugger, storePlug } from 'utils'
+
 import Maybe from 'components/Maybe'
 import MarkDownRender from 'components/MarkDownRender'
-import { makeDebugger, storePlug } from 'utils'
+
 import Comments from '../Comments'
 import SideCards from './SideCards'
 

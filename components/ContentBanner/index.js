@@ -10,7 +10,7 @@ import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
 import { makeDebugger } from 'utils'
-import DotDivider from '../DotDivider'
+import DotDivider from 'components/DotDivider'
 
 import {
   BannerContainer,

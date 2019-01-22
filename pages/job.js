@@ -34,9 +34,9 @@ import {
   BStore,
   nilOrEmpty,
   ssrAmbulance,
-} from '../utils'
+} from 'utils'
 
-import initRootStore from '../stores/init'
+import initRootStore from 'stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

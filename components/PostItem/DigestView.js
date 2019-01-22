@@ -4,8 +4,8 @@ import TimeAgo from 'timeago-react'
 import { ICON_CMD, ICON_BASE } from 'config'
 
 import { cutFrom, parseDomain } from 'utils'
-import AvatarsRow from '../AvatarsRow'
-import InlineTags from '../InlineTags'
+import AvatarsRow from 'components/AvatarsRow'
+import InlineTags from 'components/InlineTags'
 
 import {
   Avatar,

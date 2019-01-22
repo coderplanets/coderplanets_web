@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { ICON_CMD } from 'config'
 // import { Wrapper } from './styles'
-import Popover from '../Popover'
+import Popover from 'components/Popover'
 import { NumberTitle } from './styles'
 import { PopoverInfo, PopTitle, PopDesc } from './styles/subscribed_title'
 

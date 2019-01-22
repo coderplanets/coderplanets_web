@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { makeDebugger } from 'utils'
-import Popover from '../Popover'
+import Popover from 'components/Popover'
 import { Wrapper, Logo, PopoverInfo } from './styles'
 
 /* eslint-disable-next-line */
