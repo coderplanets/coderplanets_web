@@ -8,12 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { makeDebugger } from 'utils'
-import CommunityList from '../CommunityList'
-
-import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
+import CommunityList from 'components/CommunityList'
 
 import UserList from './UserList'
-// import TagList from './TagList'
+
+import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentSourceCard:index')

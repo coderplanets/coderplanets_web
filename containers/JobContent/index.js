@@ -42,7 +42,9 @@ class JobContentContainer extends React.Component {
 
   render() {
     const { jobContent } = this.props
-    const { viewingData } = jobContent
+    const { curRoute, viewingData } = jobContent
+
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -51,7 +53,11 @@ class JobContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.JOB} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.JOB}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>

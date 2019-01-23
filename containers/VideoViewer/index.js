@@ -36,7 +36,7 @@ class VideoViewerContainer extends React.Component {
 
   render() {
     const { videoViewer } = this.props
-    const { viewingData } = videoViewer
+    const { curCommunity, viewingData } = videoViewer
 
     return (
       <Wrapper>
@@ -47,8 +47,9 @@ class VideoViewerContainer extends React.Component {
         />
         <BodyHeaderWrapper>
           <ArticleBodyHeader
-            data={viewingData}
+            communityRaw={curCommunity.raw}
             thread={THREAD.VIDEO}
+            data={viewingData}
             middle="labeler"
           />
         </BodyHeaderWrapper>
