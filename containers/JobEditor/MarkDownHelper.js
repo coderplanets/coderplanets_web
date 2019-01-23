@@ -7,7 +7,8 @@ import R from 'ramda'
 
 import { MENTION_USER_ADDR } from 'config'
 import { uid } from 'utils'
-import MarkDownStyle from '../ThemeWrapper/MarkDownStyle'
+
+import MarkDownStyle from 'containers/ThemeWrapper/MarkDownStyle'
 
 import fullEmojis from './emojis'
 import { Wrapper, EmojiWraper, EmojiItem } from './styles/markdown_helper'
