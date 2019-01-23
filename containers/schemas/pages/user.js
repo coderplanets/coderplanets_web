@@ -81,6 +81,7 @@ export const sessionState = `
         weichat
         sex
         cmsPassport
+        subscribedCommunitiesCount
         customization {
           ${F.c11n}
         }
