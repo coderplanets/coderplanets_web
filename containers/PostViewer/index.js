@@ -65,6 +65,9 @@ class PostViewerContainer extends React.Component {
           </Maybe>
           <Footer>
             <Labeler
+              passport={`owner;${curCommunity.raw}->${THREAD.POST}.tag.set`}
+              ownerId={viewingData.author.id}
+              fallbackProps="readOnly"
               onTagSelect={logic.onTagSelect}
               onTagUnselect={logic.onTagUnselect}
               selected={tagTitleList}

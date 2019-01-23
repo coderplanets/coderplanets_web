@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
+import withGuardian from 'components/HOC/withGuardian'
 import Maybe from 'components/Maybe'
 import Popover from 'components/Popover'
 import { LABEL_POOL } from 'config'
@@ -153,4 +154,6 @@ LabelerContainer.defaultProps = {
   onTagUnselect: debug,
 }
 
-export default inject(storePlug('labeler'))(observer(LabelerContainer))
+export default withGuardian(
+  inject(storePlug('labeler'))(observer(LabelerContainer))
+)

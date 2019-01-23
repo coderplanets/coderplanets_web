@@ -7,6 +7,7 @@
 
 import React from 'react'
 import R from 'ramda'
+import PropTypes from 'prop-types'
 
 import { makeDebugger, BStore } from 'utils'
 
@@ -28,10 +29,6 @@ const getRawPassport = passport => {
  * auth hoc, the wrappered component just pass the passport props
  * with the format: "xxx->xxx.xxx"
  *
- * by default this HOC takes to 2 args
-   1. passport(string): general check
-   2. ownerId(string): author check
- *
  */
 
 const withGuardian = WrappedComponent => {
@@ -47,8 +44,8 @@ const withGuardian = WrappedComponent => {
       debug('passport: ', passport)
       // valid by default if no passport pass in
       // or root
-      if (!passport || accountPassports.root) {
-        // if (!passport) {
+      // if (nilOrEmpty(passport) || accountPassports.root) {
+      if (!passport) {
         isValid = true
       } else if (R.startsWith('owner', passport)) {
         // check if owner is login user ...
@@ -62,15 +59,45 @@ const withGuardian = WrappedComponent => {
       this.state = { isValid }
     }
 
-    render() {
+    renderWappedChild() {
       const { isValid } = this.state
+      const { fallbackProps } = this.props
 
-      return (
-        <React.Fragment>
-          {isValid && <WrappedComponent {...this.props} />}
-        </React.Fragment>
-      )
+      if (isValid) {
+        return <WrappedComponent {...this.props} />
+      }
+
+      if (
+        !isValid &&
+        !R.isEmpty(fallbackProps) &&
+        fallbackProps === 'readOnly'
+      ) {
+        return <WrappedComponent {...this.props} readOnly />
+      }
+
+      return null
     }
+
+    render() {
+      return <React.Fragment>{this.renderWappedChild()}</React.Fragment>
+    }
+  }
+
+  WithGuardian.propTypes = {
+    // general check
+    // passport format should be: "community.thread.action"
+    // example: 'javascript.post.pin'
+    passport: PropTypes.string,
+    // author check
+    ownerId: PropTypes.string,
+    // if fallbackProps provide, then render the WrappedComp along with this props
+    fallbackProps: PropTypes.oneOf(['readOnly']),
+  }
+
+  WithGuardian.defaultProps = {
+    passport: '',
+    ownerId: '',
+    fallbackProps: '',
   }
 
   WithGuardian.displayName = `WithGuardian(${getDisplayName(WrappedComponent)})`
