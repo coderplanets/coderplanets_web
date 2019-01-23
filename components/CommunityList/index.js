@@ -10,16 +10,24 @@ import R from 'ramda'
 
 import { makeDebugger } from 'utils'
 import Popover from 'components/Popover'
-import { Wrapper, Logo, PopoverInfo } from './styles'
+
+import {
+  Wrapper,
+  Linker,
+  Logo,
+  PopoverInfo,
+  PopCommunityLogo,
+  PopCommnityInfo,
+  PopCommnityTitle,
+  PopCommnityDesc,
+} from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityList:index')
 
 const CommunityList = ({ items, emptyHint }) => {
   if (R.isEmpty(items)) {
-    return !R.isEmpty(emptyHint) ? (
-      <React.Fragment>{emptyHint}</React.Fragment>
-    ) : null
+    return !R.isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
   }
 
   return (
@@ -29,11 +37,19 @@ const CommunityList = ({ items, emptyHint }) => {
           key={community.id}
           placement="bottom"
           trigger="hover"
-          content={<PopoverInfo>{community.title}</PopoverInfo>}
+          content={
+            <PopoverInfo>
+              <PopCommunityLogo src={community.logo} />
+              <PopCommnityInfo>
+                <PopCommnityTitle>{community.title}</PopCommnityTitle>
+                <PopCommnityDesc>{community.desc}</PopCommnityDesc>
+              </PopCommnityInfo>
+            </PopoverInfo>
+          }
         >
-          <div>
+          <Linker href={`/${community.raw}/posts`}>
             <Logo src={community.logo} />
-          </div>
+          </Linker>
         </Popover>
       ))}
     </Wrapper>
