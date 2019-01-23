@@ -44,7 +44,8 @@ class VideoContentContainer extends React.Component {
 
   render() {
     const { videoContent } = this.props
-    const { viewingData } = videoContent
+    const { curRoute, viewingData } = videoContent
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -53,7 +54,11 @@ class VideoContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.VIDEO} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.VIDEO}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <Maybe test={viewingData.poster}>
                   <VideoPoster poster={viewingData.poster} />

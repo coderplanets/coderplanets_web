@@ -34,7 +34,7 @@ class RepoViewerContainer extends React.Component {
 
   render() {
     const { repoViewer } = this.props
-    const { viewingData } = repoViewer
+    const { curCommunity, viewingData } = repoViewer
 
     return (
       <React.Fragment>
@@ -52,8 +52,9 @@ class RepoViewerContainer extends React.Component {
           }
           bodyHeader={
             <ArticleBodyHeader
-              data={viewingData}
+              communityRaw={curCommunity.raw}
               thread={THREAD.REPO}
+              data={viewingData}
               middle="labeler"
             />
           }

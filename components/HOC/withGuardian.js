@@ -48,6 +48,7 @@ const withGuardian = WrappedComponent => {
       // valid by default if no passport pass in
       // or root
       if (!passport || accountPassports.root) {
+        // if (!passport) {
         isValid = true
       } else if (R.startsWith('owner', passport)) {
         // check if owner is login user ...

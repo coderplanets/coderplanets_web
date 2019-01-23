@@ -44,7 +44,7 @@ class PostViewerContainer extends React.Component {
 
   render() {
     const { postViewer } = this.props
-    const { viewingData, loading } = postViewer
+    const { curCommunity, viewingData, loading } = postViewer
 
     const tagTitleList = R.pluck('title', viewingData.tags)
 
@@ -52,7 +52,11 @@ class PostViewerContainer extends React.Component {
       <React.Fragment>
         <ArticleViewerHeader data={viewingData} author={viewingData.author} />
         <BodyWrapper>
-          <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
+          <ArticleBodyHeader
+            communityRaw={curCommunity.raw}
+            thread={THREAD.POST}
+            data={viewingData}
+          />
           <ArticleTitle>{viewingData.title}</ArticleTitle>
           <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
             <ArticleBody>

@@ -42,7 +42,7 @@ class JobViewerContainer extends React.Component {
 
   render() {
     const { jobViewer } = this.props
-    const { viewingData, loading } = jobViewer
+    const { curCommunity, viewingData, loading } = jobViewer
 
     const company = {
       title: viewingData.company,
@@ -59,7 +59,11 @@ class JobViewerContainer extends React.Component {
           showStar={false}
         />
         <BodyWrapper>
-          <ArticleBodyHeader data={viewingData} thread={THREAD.JOB} />
+          <ArticleBodyHeader
+            communityRaw={curCommunity.raw}
+            thread={THREAD.JOB}
+            data={viewingData}
+          />
           <ArticleTitle>{viewingData.title}</ArticleTitle>
           <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
             <DigestBar data={viewingData} />

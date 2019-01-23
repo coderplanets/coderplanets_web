@@ -42,7 +42,8 @@ class PostContentContainer extends React.Component {
 
   render() {
     const { postContent } = this.props
-    const { viewingData } = postContent
+    const { curRoute, viewingData } = postContent
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -51,7 +52,11 @@ class PostContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.POST}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>

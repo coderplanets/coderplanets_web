@@ -17,6 +17,9 @@ const JobContent = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get isLogin() {
       return self.root.account.isLogin
     },

@@ -8,17 +8,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import Informer from 'containers/Informer'
 import { ICON_CMD } from 'config'
-
 import { makeDebugger, THREAD } from 'utils'
-import { Wrapper, Item, ItemIcon, ItemTitle } from './styles'
+
+import Informer from 'containers/Informer'
+import PinOption from './PinOption'
+import RefineOption from './RefineOption'
+import EditOption from './EditOption'
+
+import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleActionsPanel:index')
 
 const ArticleActionsPanel = ({
   data,
+  communityRaw,
   thread,
   onUndoPin,
   onPin,
@@ -29,42 +34,38 @@ const ArticleActionsPanel = ({
   onDelete,
 }) => (
   <Wrapper>
-    {data.pin ? (
-      <Item onClick={onUndoPin.bind(this, thread)}>
-        <ItemIcon src={`${ICON_CMD}/pin.svg`} reverse />
-        <ItemTitle>取消置顶</ItemTitle>
-      </Item>
-    ) : (
-      <Item onClick={onPin.bind(this, thread)}>
-        <ItemIcon src={`${ICON_CMD}/pin.svg`} />
-        <ItemTitle>置顶显示</ItemTitle>
-      </Item>
-    )}
-    {R.contains('refined', R.pluck('title', data.tags)) ? (
-      <Item onClick={onUnsetRefined.bind(this, thread)}>
-        <ItemIcon src={`${ICON_CMD}/diamond_frame.svg`} />
-        <ItemTitle>取消精华</ItemTitle>
-      </Item>
-    ) : (
-      <Item onClick={onSetRefined.bind(this, thread)}>
-        <ItemIcon src={`${ICON_CMD}/diamond_frame.svg`} />
-        <ItemTitle>设为精华</ItemTitle>
-      </Item>
-    )}
-    <Item onClick={onEdit.bind(this, thread)}>
-      <ItemIcon src={`${ICON_CMD}/edit.svg`} />
-      <ItemTitle>编辑</ItemTitle>
-    </Item>
+    <PinOption
+      passport={`${communityRaw}->${thread}.pin`}
+      data={data}
+      thread={thread}
+      onPin={onPin}
+      onUndoPin={onUndoPin}
+    />
+    <RefineOption
+      passport={`${communityRaw}->${thread}.refinedtag.set`}
+      data={data}
+      thread={thread}
+      onSetRefined={onSetRefined}
+      onUnsetRefined={onUnsetRefined}
+    />
+
+    <EditOption
+      passport="owner"
+      ownerId={data.author.id}
+      onEdit={onEdit}
+      thread={thread}
+    />
+
     <Informer>
-      <Item onClick={onInform}>
-        <ItemIcon src={`${ICON_CMD}/flag.svg`} />
-        <ItemTitle>举报该内容</ItemTitle>
-      </Item>
+      <Option onClick={onInform}>
+        <OptionIcon src={`${ICON_CMD}/flag.svg`} />
+        <OptionTitle>举报该内容</OptionTitle>
+      </Option>
     </Informer>
-    <Item red onClick={onDelete}>
-      <ItemIcon src={`${ICON_CMD}/delete.svg`} red />
-      <ItemTitle>删除该内容</ItemTitle>
-    </Item>
+    <Option red onClick={onDelete}>
+      <OptionIcon src={`${ICON_CMD}/delete.svg`} red />
+      <OptionTitle>删除该内容</OptionTitle>
+    </Option>
   </Wrapper>
 )
 
@@ -72,6 +73,9 @@ ArticleActionsPanel.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
     pin: PropTypes.bool,
+    author: PropTypes.shape({
+      id: PropTypes.string,
+    }),
     tags: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,
@@ -81,6 +85,7 @@ ArticleActionsPanel.propTypes = {
       })
     ),
   }).isRequired,
+  communityRaw: PropTypes.string.isRequired,
   thread: PropTypes.oneOf(R.values(THREAD)),
   onInform: PropTypes.func,
   onDelete: PropTypes.func,

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding-left: 15px;
   padding-bottom: 0;
 `
-export const Item = styled.div`
+export const Option = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('banner.desc')};
   margin-bottom: 8px;
@@ -20,17 +20,17 @@ export const Item = styled.div`
     cursor: pointer;
   }
 `
-export const ItemIcon = styled(Img)`
+export const OptionIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   width: 18px;
   height: 18px;
   margin-right: 6px;
   display: block;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
-  ${Item}:hover & {
+  ${Option}:hover & {
     fill: ${({ red }) => (red ? 'tomato' : theme('banner.title'))};
   }
 `
-export const ItemTitle = styled.div`
+export const OptionTitle = styled.div`
   font-size: 0.9rem;
 `
