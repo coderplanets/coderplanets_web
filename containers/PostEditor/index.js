@@ -5,19 +5,18 @@
  */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+/* import PropTypes from 'prop-types' */
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
+import { makeDebugger, storePlug } from 'utils'
+
 import ArticleEditFooter from 'components/ArticleEditFooter'
 import { ArticleContentLoading } from 'components/LoadingEffects'
-
 import Modal from 'components/Modal'
 
-import { makeDebugger, storePlug } from 'utils'
 import Editor from './Editor'
 import Preview from './Preview'
-// import MarkDownHelper from './MarkDownHelper'
 import Header from './Header'
 import RadarNote from './RadarNote'
 
