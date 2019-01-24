@@ -10,8 +10,9 @@
 
 更多用法请查看  [next-seo](https://github.com/garmeeh/next-seo) 文档
 
+另外，本人对 SEO 的认识仅仅局限于 "好的内容就是最好的 SEO", 非常表层，如果您有 SEO 技巧或优化方面的经验，恳请分享和赐教。
 
-另外，鉴于百度令人 XX 和 XXX 以及 XXXX 的种种行为，本项目在 /static/robot.txt 中默认屏蔽了百度的爬虫(#344), 特此说明。
+需要指出的是，鉴于百度令人 XX 和 XXX 以及 XXXX 的种种行为，本项目在 /static/robot.txt 中默认屏蔽了百度的爬虫(#344), 特此说明。
 
 
 
