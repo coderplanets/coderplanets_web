@@ -41,7 +41,7 @@
   - [路由](docs/js/routing.zh-CN.md)
 - [测试](docs/testing)
   - [单元测试](docs/testing/unit-testing.zh-CN.md)
-  - [段对端测试](docs/testing/e2e-testing.zh-CN.md)
+  - [端对端测试](docs/testing/e2e-testing.zh-CN.md)
 - [统计分析](docs/analysis)
   - [Apollo 引擎](docs/analysis/apollo-engine.zh-CN.md)
   - [错误追踪](docs/analysis/error-tracking.zh-CN.md)
