@@ -1,4 +1,4 @@
-得益于 [Next.js](https://github.com/zeit/next.js)  强大而优雅的实现， coderplanets 默认支持服务端渲染。 同时为了更精准的匹配各搜索引擎的 spider, 使用了 [next-seo](https://github.com/garmeeh/next-seo) 作为增强，
+得益于 [Next.js](https://github.com/zeit/next.js)  强大而优雅的实现， coderplanets 默认支持服务端渲染。 同时为了更精准的匹配搜索引擎的 spider, 使用了 [next-seo](https://github.com/garmeeh/next-seo) 作为增强，
 
 以 community 页面为例：
 
