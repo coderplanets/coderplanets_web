@@ -1,3 +1,5 @@
+[English](https://github.com/coderplanets/coderplanets_web/blob/docs//docs/README.md) | 中文 
+
 ## 文档目录
 
 - [整体架构](architecture)

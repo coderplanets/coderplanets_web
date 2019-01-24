@@ -1,3 +1,5 @@
+English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/docs/README.zh-CN.md) 
+
 ## Table of Contents
 
 - [Architecture](architecture)
