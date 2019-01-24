@@ -85,7 +85,7 @@ import {
 } from 'utils'
 
 // 3. import aysnc mudule
-import SR71 from 'utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 // 4. import graphql schema
 import S from './schema'
 

@@ -7,7 +7,7 @@ import { makeDebugger, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('Network')
+const debug = makeDebugger('Async')
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,

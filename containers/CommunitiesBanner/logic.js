@@ -6,7 +6,7 @@ import {
   updateEditing,
   EVENT,
 } from 'utils'
-import SR71 from 'utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()

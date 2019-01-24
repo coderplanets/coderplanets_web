@@ -2,7 +2,7 @@ import R from 'ramda'
 import Router from 'next/router'
 
 import { ISSUE_ADDR } from 'config'
-import SR71 from 'utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import {
   makeDebugger,
   Global,

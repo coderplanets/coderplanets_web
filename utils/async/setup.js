@@ -14,7 +14,7 @@ import { ERR } from '../constants'
 import { makeDebugger, BStore } from '..'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('Network')
+const debug = makeDebugger('Async')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 

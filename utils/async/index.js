@@ -1,14 +1,13 @@
+import { from } from 'rxjs'
 import fetch from 'isomorphic-fetch'
 
-import { from } from 'rxjs'
-
-/* import { makeDebugger } from 'utils' */
+import { makeDebugger } from 'utils'
 import { client, context } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
 /* eslint-disable-next-line */
-/* const debug = makeDebugger('Network') */
+const debug = makeDebugger('Async')
 
 const doQuery = (query, variables) =>
   client
@@ -50,14 +49,3 @@ export const mutatePromise = ({ mutation, variables }) =>
   from(doMutate(mutation, variables))
 
 export const restGetPromise = url => from(GET(url))
-
-/*
-
-const network = {
-  query,
-  mutate,
-  GET,
-}
-
-export default network
-*/
