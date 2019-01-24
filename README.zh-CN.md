@@ -36,6 +36,7 @@
   - [状态管理](docs/js/state-management.zh-CN.md)
   - [权限机制](docs/js/auth.zh-CN.md)
   - [异步处理](docs/js/async.zh-CN.md)
+  - [组件通信](docs/js/communication.zh-CN.md)
   - [I18n](docs/js/i18n.zh-CN.md)
   - [路由](docs/js/routing.zh-CN.md)
 - [测试](docs/testing)
