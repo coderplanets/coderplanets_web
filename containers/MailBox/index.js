@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Popover from 'components/Popover'
 import { makeDebugger, storePlug } from 'utils'
+import Popover from 'components/Popover'
 import MailsPanel from './MailsPanel'
 
 import { Wrapper, NofityDot, HeaderMailIcon } from './styles'

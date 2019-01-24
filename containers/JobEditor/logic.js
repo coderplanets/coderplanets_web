@@ -20,7 +20,7 @@ import {
   errRescue,
 } from 'utils'
 
-import SR71 from 'utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import { S, updatableJobFields } from './schema'
 // import testMentions from './test_mentions'
 

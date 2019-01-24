@@ -33,6 +33,7 @@ import {
 } from './styles'
 
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostsThread')
 

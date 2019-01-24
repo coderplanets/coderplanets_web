@@ -7,7 +7,7 @@ import {
   unholdPage,
   dispatchEvent,
 } from 'utils'
-import SR71 from 'utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 
 const sr71$ = new SR71({
   resv_event: [
