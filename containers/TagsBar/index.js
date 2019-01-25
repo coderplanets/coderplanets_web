@@ -8,7 +8,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import withGuardian from 'components/HOC/withGuardian'
 import { ICON_CMD } from 'config'
 
 import {
@@ -143,6 +142,4 @@ TagsBarContainer.defaultProps = {
   active: {},
 }
 
-export default withGuardian(
-  inject(storePlug('tagsBar'))(observer(TagsBarContainer))
-)
+export default inject(storePlug('tagsBar'))(observer(TagsBarContainer))
