@@ -26,6 +26,7 @@ const WikiThread = t
     ),
     // errorType
     errorType: t.maybeNull(t.string),
+    showSyncWarning: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

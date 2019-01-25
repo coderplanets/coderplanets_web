@@ -7,14 +7,16 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { ICON_CMD, COMMUNITY_WIKI } from 'config'
+import { makeDebugger, storePlug, TYPE } from 'utils'
+
 import EmptyThread from 'components/EmptyThread'
 
 import PublishLabel from 'components/PublishLabel'
 import MarkDownRender from 'components/MarkDownRender'
 import { ArticleContentLoading } from 'components/LoadingEffects'
-import { ICON_CMD, COMMUNITY_WIKI } from 'config'
+import GithubSyncWarning from 'components/GithubSyncWarning'
 
-import { makeDebugger, storePlug, TYPE } from 'utils'
 import Contributors from './Contributors'
 
 import {
@@ -57,11 +59,15 @@ class WikiThreadContainer extends React.Component {
 
   render() {
     const { wikiThread } = this.props
-    const { wikiData, curView, curCommunity } = wikiThread
+    const { wikiData, curView, curCommunity, showSyncWarning } = wikiThread
     const communityRaw = curCommunity.raw
 
     return (
       <Wrapper>
+        <GithubSyncWarning
+          show={showSyncWarning}
+          onClose={logic.syncWarnOnClose}
+        />
         <LeftPadding />
         <LeftPart>
           <WikiWrapper>

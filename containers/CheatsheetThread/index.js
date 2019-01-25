@@ -8,10 +8,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Prism from 'mastani-codehighlight'
 
+import { makeDebugger, storePlug, TYPE } from 'utils'
+
 import EmptyThread from 'components/EmptyThread'
 import { CheatSheetLoading } from 'components/LoadingEffects'
+import GithubSyncWarning from 'components/GithubSyncWarning'
 
-import { makeDebugger, storePlug, TYPE } from 'utils'
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
@@ -58,11 +60,20 @@ class CheatsheetThreadContainer extends React.Component {
 
   render() {
     const { cheatsheetThread } = this.props
-    const { cheatsheetData, curView, curCommunity } = cheatsheetThread
+    const {
+      cheatsheetData,
+      curView,
+      curCommunity,
+      showSyncWarning,
+    } = cheatsheetThread
     const communityRaw = curCommunity.raw
 
     return (
       <Wrapper>
+        <GithubSyncWarning
+          show={showSyncWarning}
+          onClose={logic.syncWarnOnClose}
+        />
         {renderView(cheatsheetData, curView, communityRaw)}
         <Note
           communityRaw={communityRaw}

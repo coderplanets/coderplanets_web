@@ -11,6 +11,8 @@ import {
   THREAD,
   githubApi,
   errRescue,
+  BStore,
+  nilOrEmpty,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -44,7 +46,13 @@ export const syncCheatsheet = readme => {
   sr71$.mutate(S.syncCheatsheet, args)
 }
 
+export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+
 export const syncCheetsheetFromGithub = () => {
+  if (nilOrEmpty(BStore.get('github_token'))) {
+    return store.markState({ showSyncWarning: true })
+  }
+
   githubApi
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {

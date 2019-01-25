@@ -11,6 +11,8 @@ import {
   THREAD,
   githubApi,
   errRescue,
+  BStore,
+  nilOrEmpty,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -42,7 +44,13 @@ const syncWiki = readme => {
   sr71$.mutate(S.syncWiki, args)
 }
 
+export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+
 export const syncWikiFromGithub = () => {
+  if (nilOrEmpty(BStore.get('github_token'))) {
+    return store.markState({ showSyncWarning: true })
+  }
+
   githubApi
     .searchWiki(store.curCommunity.raw)
     .then(res => {
