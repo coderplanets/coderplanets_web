@@ -33,6 +33,16 @@ export const UserNickname = styled.div`
     color: ${theme('banner.title')};
   }
 `
+
+export const MessageLinker = styled.a`
+  color: ${theme('thread.articleTitle')};
+  margin-top: 5px;
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
+`
+
 export const Message = styled.div`
   ${cs.flexColumn()};
   padding: 6px 5px;
