@@ -18,7 +18,7 @@ import {
 // import fakeusers from './fakeusers'
 import { syncCheetsheetFromGithub, addContributor } from './logic'
 
-const Note = ({ communityRaw, contributors, views }) => (
+const Note = ({ isLogin, communityRaw, contributors, views }) => (
   <Wrapper>
     <Divider />
     <Text>
@@ -39,14 +39,16 @@ const Note = ({ communityRaw, contributors, views }) => (
       addContributor={addContributor}
     />
     <SyncWrapper>
-      <Button
-        size="small"
-        type="primary"
-        ghost
-        onClick={syncCheetsheetFromGithub}
-      >
-        同步 cheatseet
-      </Button>
+      {isLogin && (
+        <Button
+          size="small"
+          type="primary"
+          ghost
+          onClick={syncCheetsheetFromGithub}
+        >
+          同步 cheatseet
+        </Button>
+      )}
     </SyncWrapper>
   </Wrapper>
 )

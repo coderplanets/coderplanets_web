@@ -65,7 +65,9 @@ class CheatsheetThreadContainer extends React.Component {
       curView,
       curCommunity,
       showSyncWarning,
+      isLogin,
     } = cheatsheetThread
+
     const communityRaw = curCommunity.raw
 
     return (
@@ -76,6 +78,7 @@ class CheatsheetThreadContainer extends React.Component {
         />
         {renderView(cheatsheetData, curView, communityRaw)}
         <Note
+          isLogin={isLogin}
           communityRaw={communityRaw}
           contributors={cheatsheetData.contributors}
           views={cheatsheetData.views}

@@ -32,6 +32,9 @@ const WikiThread = t
     get root() {
       return getParent(self)
     },
+    get isLogin() {
+      return self.root.account.isLogin
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },

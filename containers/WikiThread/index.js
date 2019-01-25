@@ -59,7 +59,13 @@ class WikiThreadContainer extends React.Component {
 
   render() {
     const { wikiThread } = this.props
-    const { wikiData, curView, curCommunity, showSyncWarning } = wikiThread
+    const {
+      wikiData,
+      curView,
+      curCommunity,
+      showSyncWarning,
+      isLogin,
+    } = wikiThread
     const communityRaw = curCommunity.raw
 
     return (
@@ -89,6 +95,7 @@ class WikiThreadContainer extends React.Component {
               </a>
             </PublishBtn>
             <Contributors
+              isLogin={isLogin}
               users={wikiData.contributors}
               views={wikiData.views}
               lastSync={wikiData.lastSync}

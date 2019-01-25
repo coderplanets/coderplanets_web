@@ -25,7 +25,7 @@ const Note = () => (
   </NoteWrapper>
 )
 
-const Contributors = ({ users, views, lastSync }) => (
+const Contributors = ({ isLogin, users, views, lastSync }) => (
   <Wrapper>
     <Note />
     <ContributorList
@@ -43,14 +43,16 @@ const Contributors = ({ users, views, lastSync }) => (
         <TimeAgo datetime={lastSync || ''} locale="zh_CN" />
       </SycNote>
       <br />
-      <Button
-        size="small"
-        type="primary"
-        ghost
-        onClick={logic.syncWikiFromGithub}
-      >
-        同步 wiki
-      </Button>
+      {isLogin && (
+        <Button
+          size="small"
+          type="primary"
+          ghost
+          onClick={logic.syncWikiFromGithub}
+        >
+          同步 wiki
+        </Button>
+      )}
     </FootNote>
   </Wrapper>
 )
