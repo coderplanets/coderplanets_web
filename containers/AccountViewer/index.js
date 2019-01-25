@@ -56,14 +56,13 @@ class AccountViewerContainer extends React.Component {
 
     return (
       <AccountWrapper>
-        {R.isEmpty(userInfoData.id) ? null : (
+        {!R.isEmpty(userInfoData.id) && (
           <React.Fragment>
             <ReactTooltip effect="solid" place="bottom" />
             <AccountContent>
               <UserBrief
                 user={userInfoData}
                 displayStyle="sidebar"
-                showEdit
                 viewingType={viewingType}
                 onEdit={logic.editProfile}
                 onLogout={logic.onLogout}
