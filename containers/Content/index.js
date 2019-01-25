@@ -7,14 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import CommunityContent from '../CommunityContent'
-import CommunitiesContent from '../CommunitiesContent'
-import CheatSheetContent from '../CheatSheetContent'
-import UserContent from '../UserContent'
+import { makeDebugger, storePlug, ROUTE } from 'utils'
+
+import CommunityContent from 'containers/CommunityContent'
+import CommunitiesContent from 'containers/CommunitiesContent'
+import CheatSheetContent from 'containers/CheatSheetContent'
+import UserContent from 'containers/UserContent'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -23,18 +24,17 @@ const debug = makeDebugger('C:Content')
 const renderContent = curRoute => {
   const { mainPath } = curRoute
   switch (mainPath) {
-    case ROUTE.CHEATSHEETS: {
+    case ROUTE.CHEATSHEETS:
       return <CheatSheetContent />
-    }
-    case ROUTE.COMMUNITIES: {
+
+    case ROUTE.COMMUNITIES:
       return <CommunitiesContent />
-    }
-    case ROUTE.USER: {
+
+    case ROUTE.USER:
       return <UserContent />
-    }
-    default: {
+
+    default:
       return <CommunityContent />
-    }
   }
 }
 

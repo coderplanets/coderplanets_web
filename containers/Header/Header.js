@@ -1,11 +1,12 @@
 import React from 'react'
 
-import MailBox from '../MailBox'
-import UserLister from '../UserLister'
-import Cashier from '../Cashier'
-import UpgradePackges from '../UpgradePackges'
+import { TYPE } from 'utils'
 
-import Navigator from '../../components/Navigator'
+import MailBox from 'containers/MailBox'
+import UserLister from 'containers/UserLister'
+import Cashier from 'containers/Cashier'
+import UpgradePackges from 'containers/UpgradePackges'
+import Navigator from 'components/Navigator'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
@@ -20,7 +21,6 @@ import {
   Operations,
 } from './styles/header'
 
-import { TYPE } from '../../utils'
 import { openDoraemon } from './logic'
 
 const Header = ({
@@ -40,6 +40,7 @@ const Header = ({
         ) : (
           <Navigator
             curCommunity={curCommunity}
+            subPath={curRoute.subPath}
             layout={accountInfo.customization.bannerLayout}
           />
         )}
@@ -50,7 +51,7 @@ const Header = ({
           <HeaderSearchIcon offsettop="-1px" />
         </Search>
 
-        {isLogin ? <MailBox /> : null}
+        {isLogin && <MailBox />}
 
         <UpgradePackges />
         <UserLister />

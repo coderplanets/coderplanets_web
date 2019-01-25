@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { Wiki } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '../../utils'
+import { markStates, makeDebugger, stripMobx, TYPE, ERR } from 'utils'
+import { Wiki } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:WikiThread')
@@ -26,10 +26,14 @@ const WikiThread = t
     ),
     // errorType
     errorType: t.maybeNull(t.string),
+    showSyncWarning: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+    get isLogin() {
+      return self.root.account.isLogin
     },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
@@ -46,27 +50,26 @@ const WikiThread = t
       debug(errorType)
       self.markState({ errorType, searching: false })
       switch (errorType) {
-        case ERR.NOT_FOUND: {
+        case ERR.NOT_FOUND:
           return self.changesetErr({
             title: '仓库未找到',
             msg: '请确认输入的仓库地址',
           })
-        }
-        case ERR.AUTH: {
+
+        case ERR.AUTH:
           return self.changesetErr({
             title: 'Github 鉴权出错',
             msg: 'token 可能过期，请尝试重新登录',
           })
-        }
-        case ERR.TIMEOUT: {
+
+        case ERR.TIMEOUT:
           return self.changesetErr({
             title: 'Github 超时',
             msg: '特殊国情，请稍后重试',
           })
-        }
-        default: {
+
+        default:
           return self.changesetErr({ title: '未知错误', msg: '...' })
-        }
       }
     },
     markState(sobj) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '../../Img'
-import { theme, cs } from '../../../utils'
+// import Img from 'Img'
+import { theme, cs } from 'utils'
 
 export const Wrapper = styled.article`
   ${cs.flex('align-start')};
@@ -19,7 +19,7 @@ export const Wrapper = styled.article`
 
   &:hover {
     cursor: pointer;
-    background: ${theme('thread.articleHover')};
+    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `
 

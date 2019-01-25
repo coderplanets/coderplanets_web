@@ -7,13 +7,13 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config/assets'
+import TabSelector from 'components/TabSelector'
+import { ICON_CMD } from 'config/assets'
 
-import TabSelector from '../../components/TabSelector'
+import { makeDebugger, storePlug } from 'utils'
 import MailLists from './MailLists'
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

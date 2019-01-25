@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F } from 'schemas'
 
 const mentions = gql`
   query($filter: MessagesFilter!) {
@@ -12,9 +12,11 @@ const mentions = gql`
           avatar
           nickname
         }
+        sourceId
         sourceTitle
         sourcePreview
         sourceType
+        community
         read
       }
       ${F.pagedCounts}

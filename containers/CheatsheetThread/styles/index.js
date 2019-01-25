@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '../../../components/Img'
-import { theme, cs } from '../../../utils'
+// import Img from 'components/Img'
+import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
@@ -25,4 +25,8 @@ export const CardWrapper = styled.div`
   @media (max-width: 1100px) {
     width: 350px;
   }
+`
+
+export const EmptyOffset = styled.div`
+  margin-left: -5%;
 `

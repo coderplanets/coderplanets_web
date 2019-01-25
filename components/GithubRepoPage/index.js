@@ -7,8 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Maybe from '../Maybe'
-import MarkDownRender from '../MarkDownRender'
+import { makeDebugger } from 'utils'
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+
 import Header from './Header'
 import StatesContainers from './StatesContainers'
 
@@ -24,8 +26,6 @@ import {
   PublishButton,
   ReadonlyHolder,
 } from './styles'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:GithubRepoPage:index')
@@ -49,7 +49,7 @@ const GithubRepoPage = ({
       <ReadonlyHolder />
     )}
     <BodyWrapper>
-      {!readOnly ? <React.Fragment>{bodyHeader} </React.Fragment> : null}
+      {!readOnly && <React.Fragment>{bodyHeader} </React.Fragment>}
       <Header repo={repo} />
       <DescriptionWrapper>
         {repo.desc}

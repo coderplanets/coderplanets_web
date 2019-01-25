@@ -1,8 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { uid } from 'utils'
 import {
   BannerContainer,
   BannerContentWrapper,
@@ -14,8 +15,6 @@ import {
   DayWeek,
   DayNumber,
 } from './styles/activities_root_banner'
-
-import { uid } from '../../utils'
 
 const MonthSelector = () => (
   <MonthWrapper>

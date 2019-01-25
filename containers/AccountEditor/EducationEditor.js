@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import FormItem from 'components/FormItem'
+import Maybe from 'components/Maybe'
+import { Space } from 'components/BaseStyled'
+import { ICON_CMD } from 'config'
 
-import FormItem from '../../components/FormItem'
-import Maybe from '../../components/Maybe'
-import { Space } from '../../components/BaseStyled'
-
+import { uid } from 'utils'
 import {
   Wrapper,
   Adder,
@@ -20,7 +20,6 @@ import {
   DeleteIcon,
 } from './styles/education_editor'
 
-import { uid } from '../../utils'
 import * as logic from './logic'
 
 const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (

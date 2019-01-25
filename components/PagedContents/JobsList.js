@@ -1,13 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
-import { JobItemLoading } from '../LoadingEffects'
-import JobItem from '../JobItem'
+import { TYPE, Trans } from 'utils'
+import { JobItemLoading } from 'components/LoadingEffects'
 
-import EmptyThread from '../EmptyThread'
-import EmptyLabel from '../EmptyLabel'
-
-import { TYPE, Trans } from '../../utils'
+import JobItem from 'components/JobItem'
+import EmptyThread from 'components/EmptyThread'
+import EmptyLabel from 'components/EmptyLabel'
 
 const JobsList = ({ props }) => {
   const {
@@ -22,7 +21,7 @@ const JobsList = ({ props }) => {
   } = props
 
   switch (curView) {
-    case TYPE.RESULT: {
+    case TYPE.RESULT:
       return (
         <React.Fragment>
           {entries.map(entry => (
@@ -37,8 +36,8 @@ const JobsList = ({ props }) => {
           ))}
         </React.Fragment>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
           {R.isEmpty(emptyPrefix) ? (
@@ -51,7 +50,7 @@ const JobsList = ({ props }) => {
           )}
         </React.Fragment>
       )
-    }
+
     default:
       return <JobItemLoading num={4} />
   }

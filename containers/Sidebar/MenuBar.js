@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import TrendLine from '../../components/TrendLine'
+import TrendLine from 'components/TrendLine'
 
 import {
   Wrapper,

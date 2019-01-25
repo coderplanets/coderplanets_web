@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { cutFrom } from 'utils'
 import { Wrapper, Avatar, Brief, Nickname, Bio } from './styles/user_info'
-import { cutFrom } from '../../utils'
 
 const UserInfo = ({ user }) => (
   <Wrapper>

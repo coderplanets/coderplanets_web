@@ -7,17 +7,18 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import PostsThread from '../PostsThread'
-import VideosThread from '../VideosThread'
-import ReposThread from '../ReposThread'
-import WikiThread from '../WikiThread'
-import JobsThread from '../JobsThread'
-import UsersThread from '../UsersThread'
-import CheatsheetThread from '../CheatsheetThread'
+import { makeDebugger, storePlug, ROUTE } from 'utils'
+
+import PostsThread from 'containers//PostsThread'
+import VideosThread from 'containers/VideosThread'
+import ReposThread from 'containers/ReposThread'
+import WikiThread from 'containers/WikiThread'
+import JobsThread from 'containers/JobsThread'
+import UsersThread from 'containers/UsersThread'
+import CheatsheetThread from 'containers/CheatsheetThread'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -26,27 +27,26 @@ const debug = makeDebugger('C:CommunityContent')
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute
   switch (subPath) {
-    case ROUTE.REPOS: {
+    case ROUTE.REPOS:
       return <ReposThread />
-    }
-    case ROUTE.USERS: {
+
+    case ROUTE.USERS:
       return <UsersThread />
-    }
-    case ROUTE.VIDEOS: {
+
+    case ROUTE.VIDEOS:
       return <VideosThread />
-    }
-    case ROUTE.JOBS: {
+
+    case ROUTE.JOBS:
       return <JobsThread />
-    }
-    case ROUTE.WIKI: {
+
+    case ROUTE.WIKI:
       return <WikiThread />
-    }
-    case ROUTE.CHEATSHEET: {
+
+    case ROUTE.CHEATSHEET:
       return <CheatsheetThread />
-    }
-    default: {
+
+    default:
       return <PostsThread />
-    }
   }
 }
 

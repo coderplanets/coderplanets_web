@@ -1,8 +1,9 @@
 import React from 'react'
 
-import TrendLine from '../../components/TrendLine'
-import { CommunityHolder } from '../../components/LoadingEffects'
+import TrendLine from 'components/TrendLine'
+import { CommunityHolder } from 'components/LoadingEffects'
 
+import { prettyNum } from 'utils'
 import {
   Wrapper,
   CommunityIcon,
@@ -13,7 +14,6 @@ import {
   CardFooter,
 } from './styles/city_card'
 
-import { prettyNum } from '../../utils'
 import { onCommunitySelect } from './logic'
 
 const CityCard = ({ community }) => (

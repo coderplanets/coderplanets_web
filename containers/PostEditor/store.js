@@ -6,9 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from '../../stores/SharedModel'
-
-import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
+import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
+import { Post, Mention } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:PostEditorf')
@@ -37,12 +36,6 @@ const PostEditor = t
     publishing: t.optional(t.boolean, false),
     // TODO: rename to isEditMode
     isEdit: t.optional(t.boolean, false),
-    /* for StatusBox */
-    success: t.optional(t.boolean, false),
-    error: t.optional(t.boolean, false),
-    warn: t.optional(t.boolean, false),
-    statusMsg: t.optional(t.string, ''),
-
     /* show radar note if radar source not supported */
     showRadarNote: t.optional(t.boolean, false),
   })
@@ -52,10 +45,6 @@ const PostEditor = t
     },
     get curRoute() {
       return self.root.curRoute
-    },
-    get statusClean() {
-      const { success, error, warn } = self
-      return !success && !error && !warn
     },
     get viewing() {
       return stripMobx(self.root.viewing)

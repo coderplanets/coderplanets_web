@@ -1,10 +1,11 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD, ICON_BASE } from '../../config'
+import { ICON_CMD, ICON_BASE } from 'config'
 
-import AvatarsRow from '../AvatarsRow'
-import InlineTags from '../InlineTags'
+import { cutFrom, parseDomain } from 'utils'
+import AvatarsRow from 'components/AvatarsRow'
+import InlineTags from 'components/InlineTags'
 
 import {
   Avatar,
@@ -21,7 +22,6 @@ import {
 } from './styles'
 
 // import { Wrapper } from './styles'
-import { cutFrom, parseDomain } from '../../utils'
 
 const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
   <React.Fragment>
@@ -36,14 +36,14 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
       <TopHalf>
         <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{entry.title}</Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <TagListWrapper>
             <InlineTags data={entry.tags} />
           </TagListWrapper>

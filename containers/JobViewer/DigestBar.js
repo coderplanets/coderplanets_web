@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import Labeler from '../Labeler'
+import Labeler from 'containers/Labeler'
 
 import { Wrapper, Divider } from './styles/digest_bar'
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import { cs, theme } from '../../../utils'
+import Img from 'components/Img'
+import { cs, theme } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
@@ -33,6 +33,16 @@ export const UserNickname = styled.div`
     color: ${theme('banner.title')};
   }
 `
+
+export const MessageLinker = styled.a`
+  color: ${theme('thread.articleTitle')};
+  margin-top: 5px;
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
+`
+
 export const Message = styled.div`
   ${cs.flexColumn()};
   padding: 6px 5px;

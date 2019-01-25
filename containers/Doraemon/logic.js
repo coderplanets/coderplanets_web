@@ -1,10 +1,8 @@
 import R from 'ramda'
 import Router from 'next/router'
 
-import { ISSUE_ADDR } from '../../config'
-import SR71 from '../../utils/network/sr71'
-import S from './schema'
-
+import { ISSUE_ADDR } from 'config'
+import SR71 from 'utils/async/sr71'
 import {
   makeDebugger,
   Global,
@@ -18,7 +16,9 @@ import {
   prettyNum,
   THREAD,
   cutFrom,
-} from '../../utils'
+  errRescue,
+} from 'utils'
+import S from './schema'
 
 import Pockect from './Pockect'
 import { SwissArmyKnife } from './helper/swissArmyKnife'
@@ -37,24 +37,23 @@ const queryPocket = () => pockect$.query(store.inputValue)
 
 export const searchContents = title => {
   switch (store.searchThread) {
-    case THREAD.POST: {
+    case THREAD.POST:
       return sr71$.query(S.searchPosts, { title })
-    }
-    case THREAD.JOB: {
+
+    case THREAD.JOB:
       return sr71$.query(S.searchJobs, { title })
-    }
-    case THREAD.USER: {
+
+    case THREAD.USER:
       return sr71$.query(S.searchUsers, { name: title })
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.query(S.searchVideos, { title })
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.query(S.searchRepos, { title })
-    }
-    default: {
+
+    default:
       return sr71$.query(S.searchCommunities, { title })
-    }
   }
 }
 
@@ -432,24 +431,21 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      store.markState({ searching: false })
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => store.markState({ searching: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       store.markState({ searching: false })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Doraemon' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
+    action: () => {
       store.markState({ searching: false })
-      debug('ERR.NETWORK -->', details)
+      errRescue({ type: ERR.NETWORK, path: 'Doraemon' })
     },
   },
 ]

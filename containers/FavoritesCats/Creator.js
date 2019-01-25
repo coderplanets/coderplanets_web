@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { Space } from 'components/BaseStyled'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
-import SectionLabel from '../../components/SectionLabel'
-import { Space } from '../../components/BaseStyled'
-
+import { makeDebugger } from 'utils'
 import {
   Wrapper,
   EditWrapper,
@@ -16,7 +16,6 @@ import {
   Footer,
 } from './styles/editor'
 
-import { makeDebugger } from '../../utils'
 import { categoryOnChange, onCategoryCreate, onModalClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -52,7 +51,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
         </FormInput>
       </FormItemWrapper>
 
-      {hasLockAuth ? (
+      {hasLockAuth && (
         <FormItemWrapper>
           <FormLable>隐私</FormLable>
           <RadiosWrapper>
@@ -65,7 +64,7 @@ const Creator = ({ data, show, hasLockAuth }) => (
             </RadioGroup>
           </RadiosWrapper>
         </FormItemWrapper>
-      ) : null}
+      )}
     </EditWrapper>
     <Footer>
       <Button type="primary" ghost onClick={onModalClose}>

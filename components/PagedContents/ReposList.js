@@ -1,13 +1,12 @@
 import React from 'react'
 import R from 'ramda'
 
-import { RepoItemLoading } from '../LoadingEffects'
-import RepoItem from '../RepoItem'
+import { TYPE, Trans } from 'utils'
+import { RepoItemLoading } from 'components/LoadingEffects'
+import RepoItem from 'components/RepoItem'
 
-import EmptyThread from '../EmptyThread'
-import EmptyLabel from '../EmptyLabel'
-
-import { TYPE, Trans } from '../../utils'
+import EmptyThread from 'components/EmptyThread'
+import EmptyLabel from 'components/EmptyLabel'
 
 const ReposList = ({ props }) => {
   const {
@@ -22,7 +21,7 @@ const ReposList = ({ props }) => {
   } = props
 
   switch (curView) {
-    case TYPE.RESULT: {
+    case TYPE.RESULT:
       return (
         <React.Fragment>
           {entries.map(entry => (
@@ -36,8 +35,8 @@ const ReposList = ({ props }) => {
           ))}
         </React.Fragment>
       )
-    }
-    case TYPE.RESULT_EMPTY: {
+
+    case TYPE.RESULT_EMPTY:
       return (
         <React.Fragment>
           {R.isEmpty(emptyPrefix) ? (
@@ -50,7 +49,7 @@ const ReposList = ({ props }) => {
           )}
         </React.Fragment>
       )
-    }
+
     default:
       return <RepoItemLoading num={4} />
   }

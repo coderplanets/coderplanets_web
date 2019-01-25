@@ -7,10 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger, THREAD, TYPE, C11N } from 'utils'
 import Pagi from '../Pagi'
 import ContentList from './ContentList'
-
-import { makeDebugger, THREAD, TYPE, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:PagedContents:index')

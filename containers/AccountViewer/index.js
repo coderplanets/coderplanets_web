@@ -9,9 +9,11 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 import ReactTooltip from 'react-tooltip'
 
-import ThemeSelector from '../../components/ThemeSelector'
-import UserBrief from '../../components/UserBrief'
-import Maybe from '../../components/Maybe'
+import Maybe from 'components/Maybe'
+import ThemeSelector from 'components/ThemeSelector'
+import UserBrief from 'components/UserBrief'
+
+import { makeDebugger, storePlug } from 'utils'
 
 import SiteSocial from './SiteSocial'
 import Planets from './Planets'
@@ -19,7 +21,6 @@ import ContributeMap from './ContributeMap'
 
 import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -55,14 +56,13 @@ class AccountViewerContainer extends React.Component {
 
     return (
       <AccountWrapper>
-        {R.isEmpty(userInfoData.id) ? null : (
+        {!R.isEmpty(userInfoData.id) && (
           <React.Fragment>
             <ReactTooltip effect="solid" place="bottom" />
             <AccountContent>
               <UserBrief
                 user={userInfoData}
                 displayStyle="sidebar"
-                showEdit
                 viewingType={viewingType}
                 onEdit={logic.editProfile}
                 onLogout={logic.onLogout}

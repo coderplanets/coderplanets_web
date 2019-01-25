@@ -9,11 +9,10 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import { Tooltip } from 'antd'
 
-import { ATATARS_LIST_LENGTH } from '../../config/general'
+import { ATATARS_LIST_LENGTH } from 'config/general'
 
+import { makeDebugger, prettyNum } from 'utils'
 import { Wrapper, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
-
-import { makeDebugger, prettyNum } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:AvatarsRow:index')

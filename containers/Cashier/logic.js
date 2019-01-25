@@ -11,9 +11,10 @@ import {
   ERR,
   errorForHuman,
   dispatchEvent,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
@@ -89,21 +90,18 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) =>
       store.toastError({ title: '提交失败', msg: errorForHuman(details) }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Cashier' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'Cashier' }),
   },
 ]
 

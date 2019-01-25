@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { numberWithCommas } from 'utils'
 import {
   Wrapper,
   CountItem,
@@ -9,8 +10,6 @@ import {
   StarIcon,
   CountText,
 } from './styles/repo_counters'
-
-import { numberWithCommas } from '../../utils'
 
 const RepoCounters = ({ repo }) => (
   <Wrapper>

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme } from '../../utils'
+import { theme } from 'utils'
 
 // move ant style to seperate file
 const AntUIOverWrite = createGlobalStyle`

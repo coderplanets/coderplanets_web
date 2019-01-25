@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../Img'
-import { theme, animate, cs } from '../../../utils'
+import { theme, animate, cs } from 'utils'
+import Img from 'Img'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-both')};

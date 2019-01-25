@@ -1,8 +1,7 @@
 import { types as t } from 'mobx-state-tree'
+import { PAGE_SIZE } from 'config'
+import { C11N } from 'utils'
 import { Community /* PagedCommunities */ } from './Community'
-
-import { C11N } from '../../utils'
-import { PAGE_SIZE } from '../../config'
 
 const PagedCommunities = t.model('pagedCommunities', {
   entries: t.optional(t.array(Community), []),
@@ -70,6 +69,7 @@ const Customization = t.model('Customization', {
     C11N.DIGEST
   ),
   contentDivider: t.optional(t.boolean, false),
+  contentHover: t.optional(t.boolean, true),
   markViewed: t.optional(t.boolean, true),
   displayDensity: t.optional(
     t.enumeration('displayDensity', ['20', '25', '30']),

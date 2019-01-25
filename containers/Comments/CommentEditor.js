@@ -1,7 +1,7 @@
 import React from 'react'
 import withClickOutside from 'react-click-outside'
 
-import MarkDownRender from '../../components/MarkDownRender'
+import MarkDownRender from 'components/MarkDownRender'
 import CommentBodyEditor from './CommentBodyEditor'
 
 import { Container, PreviewerWrapper } from './styles/comment_editor'
@@ -43,7 +43,7 @@ class CommentEditor extends React.Component {
           countCurrent={countCurrent}
           referUsers={referUsers}
         />
-        {showInputEditor ? (
+        {showInputEditor && (
           <CommentBodyEditor
             mentionList={mentionList}
             showInputPreview={showInputPreview}
@@ -52,8 +52,8 @@ class CommentEditor extends React.Component {
             onCreate={onCreate}
             restProps={{ ...this.props }}
           />
-        ) : null}
-        {showInputPreview ? (
+        )}
+        {showInputPreview && (
           <div>
             <PreviewerWrapper>
               <MarkDownRender body={editContent} />
@@ -66,7 +66,7 @@ class CommentEditor extends React.Component {
               onPreview={logic.createCommentPreview}
             />
           </div>
-        ) : null}
+        )}
       </Container>
     )
   }

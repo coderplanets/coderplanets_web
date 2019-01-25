@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import { animate, theme, cs } from '../../../utils'
+import Img from 'components/Img'
+import { animate, theme, cs } from 'utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;

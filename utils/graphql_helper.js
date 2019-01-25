@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { request, GraphQLClient } from 'graphql-request'
 
-import { GRAPHQL_ENDPOINT, PAGE_SIZE } from '../config'
+import { GRAPHQL_ENDPOINT, PAGE_SIZE } from 'config'
 import { nilOrEmpty, isString } from './validator'
 
 export const asyncRes = R.curry((key, obj) => R.and(obj[key], R.has(key, obj)))

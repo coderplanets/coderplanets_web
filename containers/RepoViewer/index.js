@@ -7,16 +7,16 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import FavoritesCats from '../FavoritesCats'
-import Comments from '../Comments'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import GithubRepoPage from '../../components/GithubRepoPage'
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import FavoritesCats from 'containers/FavoritesCats'
+import Comments from 'containers/Comments'
+import GithubRepoPage from 'components/GithubRepoPage'
 
 import { CommentsWrapper } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -34,7 +34,7 @@ class RepoViewerContainer extends React.Component {
 
   render() {
     const { repoViewer } = this.props
-    const { viewingData } = repoViewer
+    const { curCommunity, viewingData } = repoViewer
 
     return (
       <React.Fragment>
@@ -52,8 +52,9 @@ class RepoViewerContainer extends React.Component {
           }
           bodyHeader={
             <ArticleBodyHeader
-              data={viewingData}
+              communityRaw={curCommunity.raw}
               thread={THREAD.REPO}
+              data={viewingData}
               middle="labeler"
             />
           }

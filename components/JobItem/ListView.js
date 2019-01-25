@@ -1,9 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
-import InlineTags from '../InlineTags'
-import DotDivider from '../DotDivider'
+import { ICON_CMD } from 'config'
+import { cutFrom, parseDomain } from 'utils'
+import InlineTags from 'components/InlineTags'
+import DotDivider from 'components/DotDivider'
 
 import {
   Wrapper,
@@ -23,7 +24,6 @@ import {
   CommentNum,
 } from './styles/list_view'
 // import { Wrapper } from './styles'
-import { cutFrom, parseDomain } from '../../utils'
 
 const ListView = ({ entry, onPreview }) => (
   <Wrapper>
@@ -34,14 +34,14 @@ const ListView = ({ entry, onPreview }) => (
           <Title>
             【 {entry.company} 】{cutFrom(entry.title, 45)}
           </Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <TagsWrapper>
             <InlineTags data={entry.tags} />
           </TagsWrapper>

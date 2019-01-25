@@ -1,7 +1,7 @@
 import React from 'react'
 import { Icon } from 'antd'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
 import {
   Wrapper,
   BackBtnWrapper,

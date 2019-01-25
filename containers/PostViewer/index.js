@@ -9,14 +9,16 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
-import Comments from '../Comments'
-import Labeler from '../Labeler'
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import Maybe from '../../components/Maybe'
-import MarkDownRender from '../../components/MarkDownRender'
-import { ArticleContentLoading } from '../../components/LoadingEffects'
+import Comments from 'containers/Comments'
+import Labeler from 'containers/Labeler'
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+import { ArticleContentLoading } from 'components/LoadingEffects'
 
 import {
   BodyWrapper,
@@ -25,8 +27,6 @@ import {
   ArticleBody,
   Footer,
 } from './styles'
-
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
@@ -44,7 +44,7 @@ class PostViewerContainer extends React.Component {
 
   render() {
     const { postViewer } = this.props
-    const { viewingData, loading } = postViewer
+    const { curCommunity, viewingData, loading } = postViewer
 
     const tagTitleList = R.pluck('title', viewingData.tags)
 
@@ -52,7 +52,11 @@ class PostViewerContainer extends React.Component {
       <React.Fragment>
         <ArticleViewerHeader data={viewingData} author={viewingData.author} />
         <BodyWrapper>
-          <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
+          <ArticleBodyHeader
+            communityRaw={curCommunity.raw}
+            thread={THREAD.POST}
+            data={viewingData}
+          />
           <ArticleTitle>{viewingData.title}</ArticleTitle>
           <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
             <ArticleBody>
@@ -61,6 +65,9 @@ class PostViewerContainer extends React.Component {
           </Maybe>
           <Footer>
             <Labeler
+              passport={`owner;${curCommunity.raw}->${THREAD.POST}.tag.set`}
+              ownerId={viewingData.author.id}
+              fallbackProps="readOnly"
               onTagSelect={logic.onTagSelect}
               onTagUnselect={logic.onTagUnselect}
               selected={tagTitleList}

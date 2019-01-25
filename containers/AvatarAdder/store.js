@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { GithubUser } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, ERR } from '../../utils'
+import { markStates, makeDebugger, stripMobx, ERR } from 'utils'
+import { GithubUser } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:AvatarAdder')
@@ -37,27 +37,26 @@ const AvatarAdder = t
     handleError(errorType) {
       self.markState({ errorType, searching: false })
       switch (errorType) {
-        case ERR.NOT_FOUND: {
+        case ERR.NOT_FOUND:
           return self.changesetErr({
             title: '用户未找到',
             msg: '请输入正确的 github 登陆用户名',
           })
-        }
-        case ERR.AUTH: {
+
+        case ERR.AUTH:
           return self.changesetErr({
             title: 'Github 鉴权出错',
             msg: 'token 可能过期，请尝试重新登录',
           })
-        }
-        case ERR.TIMEOUT: {
+
+        case ERR.TIMEOUT:
           return self.changesetErr({
             title: 'Github 超时',
             msg: '特殊国情，请稍后重试',
           })
-        }
-        default: {
+
+        default:
           return self.changesetErr({ title: '未知错误', msg: '...' })
-        }
       }
     },
     markState(sobj) {

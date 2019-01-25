@@ -8,7 +8,9 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import Maybe from '../Maybe'
+import { makeDebugger, hasValue } from 'utils'
+import Maybe from 'components/Maybe'
+
 import {
   FormItemWrapper,
   FormLable,
@@ -17,8 +19,6 @@ import {
   Inputer,
   TextAreaer,
 } from './styles'
-
-import { makeDebugger, hasValue } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:FormItem:index')
@@ -35,10 +35,10 @@ const FormContent = ({
   disabled,
 }) => {
   switch (type) {
-    case 'node': {
+    case 'node':
       return <NodeWrapper>{node}</NodeWrapper>
-    }
-    case 'textarea': {
+
+    case 'textarea':
       return (
         <FormInput>
           <TextAreaer
@@ -51,8 +51,8 @@ const FormContent = ({
           />
         </FormInput>
       )
-    }
-    default: {
+
+    default:
       return (
         <FormInput>
           <Inputer
@@ -66,7 +66,6 @@ const FormContent = ({
           <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
       )
-    }
   }
 }
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
-import Pagi from '../../components/Pagi'
+import Pagi from 'components/Pagi'
+import { ICON_CMD } from 'config'
 
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   CardListWrapper,
@@ -19,7 +20,6 @@ import {
   Desc,
 } from './styles/category_card_list'
 
-import { cutFrom } from '../../utils'
 import { loadCategories, switchToUpdater } from './logic'
 
 const CategoryCardList = ({
@@ -33,7 +33,7 @@ const CategoryCardList = ({
           <Header>
             <Title onClick={onSelect.bind(this, cat)}>
               <TitleText>{cutFrom(cat.title, 10)}</TitleText>
-              {cat.private ? <LockIcon src={`${ICON_CMD}/lock.svg`} /> : null}
+              {cat.private && <LockIcon src={`${ICON_CMD}/lock.svg`} />}
             </Title>
             <div onClick={switchToUpdater.bind(this, cat)}>
               <EditIcon src={`${ICON_CMD}/edit.svg`} />

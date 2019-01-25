@@ -10,10 +10,11 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
+import DotDivider from 'components/DotDivider'
+import Maybe from 'components/Maybe'
+import { Space } from 'components/BaseStyled'
+import { makeDebugger, storePlug } from 'utils'
 import FavoritesCats from '../FavoritesCats'
-import DotDivider from '../../components/DotDivider'
-import Maybe from '../../components/Maybe'
-import { Space } from '../../components/BaseStyled'
 
 import Title from './Title'
 import ReactionNumbers from './ReactionNumbers'
@@ -21,7 +22,6 @@ import MiddleInfo from './MiddleInfo'
 
 import { Wrapper, BannerContent, Brief, Desc, MarkTag } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

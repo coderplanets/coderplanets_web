@@ -5,38 +5,20 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import initRootStore from '../stores/init'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Sidebar from 'containers/Sidebar'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import CommunitiesBanner from 'containers/CommunitiesBanner'
+import CommunitiesContent from 'containers/CommunitiesContent'
+import Footer from 'containers/Footer'
 
-import GAWraper from '../components/GAWraper'
-
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Sidebar from '../containers/Sidebar'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import CommunitiesBanner from '../containers/CommunitiesBanner'
-import CommunitiesContent from '../containers/CommunitiesContent'
-import Footer from '../containers/Footer'
-
-/*
-   import {
-   ThemeWrapper,
-   MultiLanguage,
-   Sidebar,
-   Preview,
-   Doraemon,
-   Route,
-   BodyLayout,
-   Header,
-   CommunitiesBanner,
-   CommunitiesContent,
-   Footer,
-   } from '../containers'
- */
-
+import { P } from 'schemas'
+import GAWraper from 'components/GAWraper'
 import {
   makeGQClient,
   queryStringToJSON,
@@ -45,11 +27,11 @@ import {
   BStore,
   ROUTE,
   ssrAmbulance,
-} from '../utils'
+} from 'utils'
 
-import { P } from '../containers/schemas'
+import initRootStore from 'stores/init'
 
-/* import PostsThreadSchema from '../containers/PostsThread/schema' */
+/* import PostsThreadSchema from 'containers/PostsThread/schema' */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

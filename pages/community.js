@@ -1,41 +1,26 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import NextSeo from 'next-seo'
 
-import { PAGE_SIZE } from '../config'
-import initRootStore from '../stores/init'
+import { PAGE_SIZE, SITE_URL } from 'config'
+import initRootStore from 'stores/init'
 
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Sidebar from '../containers/Sidebar'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import CommunityBanner from '../containers/CommunityBanner'
-import CommunityContent from '../containers/CommunityContent'
-import Footer from '../containers/Footer'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Sidebar from 'containers/Sidebar'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import CommunityBanner from 'containers/CommunityBanner'
+import CommunityContent from 'containers/CommunityContent'
+import Footer from 'containers/Footer'
+import ErrorBox from 'containers/ErrorBox'
 
-/*
-   import {
-   ThemeWrapper,
-   MultiLanguage,
-   Sidebar,
-   Preview,
-   Doraemon,
-   Route,
-   BodyLayout,
-   Header,
-   CommunityBanner,
-   CommunityContent,
-   Footer,
-   } from '../containers'
- */
-
-import GAWraper from '../components/GAWraper'
-import ErrorPage from '../components/ErrorPage'
-// import { GAWraper, ErrorPage } from '../components'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
 
 import {
   makeGQClient,
@@ -52,9 +37,9 @@ import {
   addTopicIfNeed,
   ssrAmbulance,
   validCommunityFilters,
-} from '../utils'
+} from 'utils'
 
-import { P } from '../containers/schemas'
+import { P } from 'schemas'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')
@@ -180,6 +165,11 @@ export default class PageCommunity extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { community },
+      route,
+    } = this.props
+    const { mainPath, subPath } = route
 
     return (
       <Provider store={this.store}>
@@ -193,11 +183,19 @@ export default class PageCommunity extends React.Component {
               />
             ) : (
               <React.Fragment>
+                <NextSeo
+                  config={{
+                    url: `${SITE_URL}/${mainPath}/${subPath}`,
+                    title: `coderplanets ${community.raw}社区`,
+                    description: `${community.desc}`,
+                  }}
+                />
                 <Route />
                 <MultiLanguage>
                   <Sidebar />
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout>
                     <Header />
                     <CommunityBanner />

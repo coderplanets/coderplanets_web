@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import Popover from '../Popover'
+import { numberWithCommas, cutFrom } from 'utils'
+import Popover from 'components/Popover'
 
 import {
   Wrapper,
@@ -18,8 +19,6 @@ import {
   CountText,
   CountDivider,
 } from './styles/header'
-
-import { numberWithCommas, cutFrom } from '../../utils'
 
 const TitlesInfo = ({ repo }) => (
   <TitlesWrapper>

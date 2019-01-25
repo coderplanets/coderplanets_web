@@ -7,21 +7,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import PlanetDriver from './PlanetDriver'
-
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:PromptIcon:index')
 
 const PromptIcon = ({ type, className }) => {
   switch (type) {
-    case 'planet-driver': {
+    case 'planet-driver':
       return <PlanetDriver className={className} />
-    }
-    default: {
+
+    default:
       return <h3>other pics</h3>
-    }
   }
 }
 

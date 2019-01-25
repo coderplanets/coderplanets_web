@@ -1,16 +1,15 @@
 import React from 'react'
 
-import DotDivider from '../../components/DotDivider'
-import CommunityList from '../../components/CommunityList'
+import DotDivider from 'components/DotDivider'
+import CommunityList from 'components/CommunityList'
+import { THREAD } from 'utils'
 import { Wrapper, Title } from './styles/parent'
 
 import CommentCount from './CommentsCount'
 
-import { THREAD } from '../../utils'
-
 const Parent = ({ thread, data }) => {
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return (
         <Wrapper>
           <Title>
@@ -21,8 +20,8 @@ const Parent = ({ thread, data }) => {
           <CommunityList items={data.job.communities} />
         </Wrapper>
       )
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return (
         <Wrapper>
           <Title>
@@ -33,8 +32,8 @@ const Parent = ({ thread, data }) => {
           <CommunityList items={data.repo.communities} />
         </Wrapper>
       )
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return (
         <Wrapper>
           <Title>{data.video.title}</Title>
@@ -43,8 +42,8 @@ const Parent = ({ thread, data }) => {
           <CommunityList items={data.video.communities} />
         </Wrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <Wrapper>
           <Title>{data.post.title}</Title>
@@ -53,7 +52,6 @@ const Parent = ({ thread, data }) => {
           <CommunityList items={data.post.communities} />
         </Wrapper>
       )
-    }
   }
 }
 

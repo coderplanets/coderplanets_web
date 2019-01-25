@@ -42,7 +42,7 @@ const yellow = {
   avatarOpacity: 0.8,
   baseColor: {
     error: 'tomato !important',
-    errorBg: '#FFF0F0',
+    errorBg: '#ffe8e8',
     green: 'yellowgreen !important',
     pink: '#f59dba !important',
     pinkLite: '#ffafc9',
@@ -271,7 +271,7 @@ const yellow = {
     bottomLine: '#e4e0d6',
   },
   modal: {
-    bg: bannerBg,
+    bg: '#FCFBF7',
     border: primaryColor,
     innerSelectBg: '#f7f0e0',
   },

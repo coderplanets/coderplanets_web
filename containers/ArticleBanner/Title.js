@@ -1,19 +1,17 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
+import { THREAD } from 'utils'
 import RepoTitle from './RepoTitle'
 import { Wrapper } from './styles/title'
 
-import { THREAD } from '../../utils'
-
 const Title = ({ thread, data }) => {
   switch (thread) {
-    case THREAD.REPO: {
+    case THREAD.REPO:
       return <RepoTitle repo={data} />
-    }
-    default: {
+
+    default:
       return <Wrapper>{data.title}</Wrapper>
-    }
   }
 }
 

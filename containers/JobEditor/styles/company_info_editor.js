@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import { theme, cs } from '../../../utils'
+import Img from 'components/Img'
+import { theme, cs } from 'utils'
 import { TitleInput } from './editor'
 
 export const Wrapper = styled.div`

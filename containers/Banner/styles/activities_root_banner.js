@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
+import Img from 'components/Img'
+import { cs } from 'utils'
 import { BaseBanner, BaseBannerContent } from './index'
-import { cs } from '../../../utils'
 
 export const BannerContainer = styled(BaseBanner)``
 export const BannerContentWrapper = styled(BaseBannerContent)``

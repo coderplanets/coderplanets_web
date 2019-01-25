@@ -1,40 +1,27 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { BlogJsonLd } from 'next-seo'
 
-import { PAGE_SIZE } from '../config'
-import initRootStore from '../stores/init'
+import { PAGE_SIZE, SITE_URL } from 'config'
 
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import ArticleBanner from '../containers/ArticleBanner'
-import JobContent from '../containers/JobContent'
-import Footer from '../containers/Footer'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import ArticleBanner from 'containers/ArticleBanner'
+import JobContent from 'containers/JobContent'
+import Footer from 'containers/Footer'
+import ErrorBox from 'containers/ErrorBox'
 
-/*
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  ArticleBanner,
-  JobContent,
-  Footer,
-} from '../containers'
-*/
+import { P } from 'schemas'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
 
-import GAWraper from '../components/GAWraper'
-import ErrorPage from '../components/ErrorPage'
-
-// import { GAWraper, ErrorPage } from '../components'
+// import { GAWraper, ErrorPage } from 'components'
 
 import {
   makeGQClient,
@@ -47,9 +34,9 @@ import {
   BStore,
   nilOrEmpty,
   ssrAmbulance,
-} from '../utils'
+} from 'utils'
 
-import { P } from '../containers/schemas'
+import initRootStore from 'stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -131,6 +118,11 @@ export default class Index extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { job },
+      route,
+    } = this.props
+    const { mainPath } = route
 
     return (
       <Provider store={this.store}>
@@ -140,10 +132,20 @@ export default class Index extends React.Component {
               <ErrorPage errorCode={statusCode} page="job" target={target} />
             ) : (
               <React.Fragment>
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/job/${job.id}`}
+                  title={`${job.title}`}
+                  datePublished={`${job.insertedAt}`}
+                  dateModified={`${job.updatedAt}`}
+                  authorName={`${job.author.nickname}`}
+                  description={`${job.title}`}
+                  images={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout noSidebar>
                     <Header />
                     <ArticleBanner showStar={false} />

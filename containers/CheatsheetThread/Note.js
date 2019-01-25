@@ -1,9 +1,10 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { COMMUNITY_CHEATSHEET } from '../../config'
-import DotDivider from '../../components/DotDivider'
-import ContributorList from '../../components/ContributorList'
+import { COMMUNITY_CHEATSHEET } from 'config'
+
+import DotDivider from 'components/DotDivider'
+import ContributorList from 'components/ContributorList'
 
 import {
   Wrapper,
@@ -18,7 +19,7 @@ import {
 // import fakeusers from './fakeusers'
 import { syncCheetsheetFromGithub, addContributor } from './logic'
 
-const Note = ({ communityRaw, contributors, views }) => (
+const Note = ({ isLogin, communityRaw, contributors, views }) => (
   <Wrapper>
     <Divider />
     <Text>
@@ -30,22 +31,25 @@ const Note = ({ communityRaw, contributors, views }) => (
       >
         参与编辑
       </JoinText>
-      <ViewsText>浏览: {views}</ViewsText>
+      {views && <ViewsText>浏览: {views}</ViewsText>}
     </Text>
     <ContributorList
+      passport="root"
+      fallbackProps="readOnly"
       users={contributors}
-      showAdder
       addContributor={addContributor}
     />
     <SyncWrapper>
-      <Button
-        size="small"
-        type="primary"
-        ghost
-        onClick={syncCheetsheetFromGithub}
-      >
-        同步 cheatseet
-      </Button>
+      {isLogin && (
+        <Button
+          size="small"
+          type="primary"
+          ghost
+          onClick={syncCheetsheetFromGithub}
+        >
+          同步 cheatseet
+        </Button>
+      )}
     </SyncWrapper>
   </Wrapper>
 )

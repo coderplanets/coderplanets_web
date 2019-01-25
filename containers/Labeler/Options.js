@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
+import { ICON_CMD, LABEL_POOL } from 'config'
+import { uid } from 'utils'
 import TagList from './TagList'
-
-import { ICON_CMD, LABEL_POOL } from '../../config'
 
 import {
   OptionWrapper,
@@ -10,8 +10,6 @@ import {
   OptionCheckIcon,
   OptionText,
 } from './styles/options'
-
-import { uid } from '../../utils'
 
 const OptionItems = ({ items, selected, onOptionSelect }) => (
   <OptionWrapper>
@@ -32,7 +30,7 @@ const OptionItems = ({ items, selected, onOptionSelect }) => (
 const renderOptions = (label, items, selected, onOptionSelect) => {
   switch (label) {
     case 'default':
-    case 'city': {
+    case 'city':
       return (
         <TagList
           items={items}
@@ -40,8 +38,8 @@ const renderOptions = (label, items, selected, onOptionSelect) => {
           onOptionSelect={onOptionSelect}
         />
       )
-    }
-    default: {
+
+    default:
       return (
         <OptionItems
           items={LABEL_POOL[label].data}
@@ -49,7 +47,6 @@ const renderOptions = (label, items, selected, onOptionSelect) => {
           onOptionSelect={onOptionSelect}
         />
       )
-    }
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
 import {
   LoadingIcon,
@@ -10,35 +10,32 @@ import {
 } from './styles/input_prefix'
 
 const InputPrefix = ({ prefix, searching }) => {
-  if (searching) {
-    return <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} />
-  }
+  if (searching) return <LoadingIcon src={`${ICON_CMD}/loading_sand.svg`} />
 
   switch (prefix) {
-    case '': {
+    case '':
       return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
-    }
-    case '#': {
+
+    case '#':
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_focus.svg`} />
-    }
-    case '@': {
+
+    case '@':
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_user.svg`} />
-    }
-    case '?': {
+
+    case '?':
       return <PrefixSearchIcon src={`${ICON_CMD}/shell_help.svg`} />
-    }
-    case '/': {
+
+    case '/':
       return <PrefixMagicIcon src={`${ICON_CMD}/doraemon_cat.svg`} />
-    }
-    case 'login': {
+
+    case 'login':
       return <PrefixIcon src={`${ICON_CMD}/login.svg`} />
-    }
-    case 'theme': {
+
+    case 'theme':
       return <PrefixIcon src={`${ICON_CMD}/themes.svg`} />
-    }
-    default: {
+
+    default:
       return <PrefixSearchIcon src={`${ICON_CMD}/search.svg`} />
-    }
   }
 }
 

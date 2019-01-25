@@ -8,15 +8,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
+import { makeDebugger, cutFrom, C11N } from 'utils'
 
-import VideoSourceInfo from '../VideoSourceInfo'
-
-import DotDivider from '../DotDivider'
-import { Space } from '../BaseStyled'
-import InlineTags from '../InlineTags'
-
-import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+import DotDivider from 'components/DotDivider'
+import VideoSourceInfo from 'components/VideoSourceInfo'
+import { Space } from 'components/BaseStyled'
+import InlineTags from 'components/InlineTags'
+import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
 
 import {
   Wrapper,
@@ -39,13 +38,15 @@ import {
 } from './styles'
 
 import { getOpacity } from './helper'
-import { makeDebugger, cutFrom, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoItem:index')
 
 const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
-  <Wrapper opacity={getOpacity(entry, active, accountInfo)}>
+  <Wrapper
+    opacity={getOpacity(entry, active, accountInfo)}
+    hover={accountInfo.customization.contentHover}
+  >
     <ArticleItemPrefixLabel entry={entry} accountInfo={accountInfo} />
     <PosterWrapper>
       <Poster src={entry.thumbnil} alt="poster" />
@@ -103,6 +104,7 @@ VideoItem.propTypes = {
     customization: PropTypes.shape({
       contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
+      contentHover: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
@@ -116,6 +118,7 @@ VideoItem.defaultProps = {
     isLogin: false,
     customization: PropTypes.shape({
       contentsLayout: C11N.DIGEST,
+      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

@@ -7,15 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import UserBanner from '../UserBanner'
+import { makeDebugger, storePlug, ROUTE } from 'utils'
 
-import CommunitiesBanner from '../CommunitiesBanner'
-import CommunityBanner from '../CommunityBanner'
+import UserBanner from 'containers/UserBanner'
+import CommunitiesBanner from 'containers/CommunitiesBanner'
+import CommunityBanner from 'containers/CommunityBanner'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import { makeDebugger, storePlug, ROUTE } from '../../utils'
 import init from './logic'
 
 /* eslint-disable-next-line */
@@ -26,15 +26,15 @@ const BannerContent = ({ curRoute }) => {
   // debug('BannerContent mainPath: ', mainPath)
   // debug('ROUTE.COMMUNITIES: ', ROUTE.COMMUNITIES)
   switch (mainPath) {
-    case ROUTE.CHEATSHEETS: {
+    case ROUTE.CHEATSHEETS:
       return <CheatsheetRootBanner />
-    }
-    case ROUTE.COMMUNITIES: {
+
+    case ROUTE.COMMUNITIES:
       return <CommunitiesBanner />
-    }
-    case ROUTE.ACTIVITIES: {
+
+    case ROUTE.ACTIVITIES:
       return <ActivitiesRootBanner />
-    }
+
     /*
     case ROUTE.POST: {
       return <ArticleBanner />
@@ -52,9 +52,9 @@ const BannerContent = ({ curRoute }) => {
     }
       */
 
-    case ROUTE.USER: {
+    case ROUTE.USER:
       return <UserBanner />
-    }
+
     default:
       return <CommunityBanner />
   }

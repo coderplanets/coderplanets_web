@@ -10,19 +10,18 @@ import {
   EVENT,
   ERR,
   TYPE,
-  meteorState,
   countWords,
   extractAttachments,
   extractMentions,
   updateEditing,
-  errorForHuman,
   closePreviewer,
   cast,
   nilOrEmpty,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import { S, updatableJobFields } from './schema'
-import SR71 from '../../utils/network/sr71'
 // import testMentions from './test_mentions'
 
 const sr71$ = new SR71()
@@ -199,26 +198,21 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      // const errMsg = details[0].detail
-      const errMsg = errorForHuman(details)
-      meteorState(store, 'error', 5, errMsg)
-      cancleLoading()
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, details, path: 'PostEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: 'JobEditor' })
     },
   },
 ]

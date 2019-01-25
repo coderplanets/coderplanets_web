@@ -7,8 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:UserCell:index')

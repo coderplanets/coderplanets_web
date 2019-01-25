@@ -7,8 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Popover from '../Popover'
-import Maybe from '../Maybe'
+import { makeDebugger, Trans } from 'utils'
+import Popover from 'components/Popover'
+import Maybe from 'components/Maybe'
+
 import {
   Wrapper,
   PopoverInfo,
@@ -17,8 +19,6 @@ import {
   MoreText,
   Linker,
 } from './styles'
-
-import { makeDebugger, Trans } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:InlineCommunities:index')

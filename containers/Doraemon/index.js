@@ -7,6 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug } from 'utils'
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -16,7 +17,6 @@ import ThreadSelectBar from './ThreadSelectBar'
 import AlertBar from './AlertBar'
 import UtilsBar from './UtilsBar'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -59,18 +59,16 @@ class DoraemonContainer extends React.Component {
             prefix={prefix}
           />
 
-          {showThreadSelector ? (
-            <ThreadSelectBar active={searchThread} />
-          ) : null}
-          {showAlert ? (
+          {showThreadSelector && <ThreadSelectBar active={searchThread} />}
+          {showAlert && (
             <AlertBar value={inputValue} searchThread={searchThread} />
-          ) : null}
+          )}
           <ResultsList
             suggestions={suggestions}
             activeRaw={activeRaw}
             searchThread={searchThread}
           />
-          {showUtils ? <UtilsBar total={searchedTotalCount} /> : null}
+          {showUtils && <UtilsBar total={searchedTotalCount} />}
         </PanelContainer>
       </React.Fragment>
     )

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '../../Img'
-import { theme, cs } from '../../../utils'
+// import Img from 'Img'
+import { theme, cs } from 'utils'
 
 export const Wrapper = styled.article`
   ${cs.flexColumnGrow()};
@@ -15,7 +15,7 @@ export const Wrapper = styled.article`
   opacity: ${({ opacity }) => opacity};
 
   &:hover {
-    background: ${theme('thread.articleHover')};
+    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `
 export const BodyDigest = styled.li`

@@ -2,10 +2,10 @@ import React from 'react'
 import R from 'ramda'
 import ReactTooltip from 'react-tooltip'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { nilOrEmpty, SOCIAL_LISTS } from 'utils'
 import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
-import { nilOrEmpty, SOCIAL_LISTS } from '../../utils'
 
 const tooltipOffset = JSON.stringify({ left: 3 })
 

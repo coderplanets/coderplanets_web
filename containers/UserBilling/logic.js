@@ -1,5 +1,5 @@
 // import R from 'ramda'
-import { PAGE_SIZE } from '../../config'
+import { PAGE_SIZE } from 'config'
 
 import {
   makeDebugger,
@@ -9,20 +9,20 @@ import {
   EVENT,
   PAYMENT_USAGE,
   asyncRes,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.NEW_BILLS],
 })
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:UserBilling')
-
-let store = null
 
 export const upgradeHepler = () => store.upgradeHepler()
 export const sponsorHepler = () => store.sponsorHepler()
@@ -54,29 +54,22 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UserBilling' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'UserBilling' }),
   },
 ]
 
 export const init = _store => {
   store = _store
-
-  loadBilRecords()
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))

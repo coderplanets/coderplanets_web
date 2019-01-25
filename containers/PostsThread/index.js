@@ -10,15 +10,17 @@ import Waypoint from 'react-waypoint'
 import R from 'ramda'
 import { Affix } from 'antd'
 
-import CityList from './CityList'
-import TagsBar from '../TagsBar'
+import { makeDebugger, storePlug, ROUTE, THREAD } from 'utils'
 
-import Maybe from '../../components/Maybe'
-import ContentFilter from '../../components/ContentFilter'
-import PublishLabel from '../../components/PublishLabel'
-import PagedContents from '../../components/PagedContents'
-import StrategicPartners from '../../components/StrategicPartners'
-import ConstructingThread from '../../components/ConstructingThread'
+import TagsBar from 'containers/TagsBar'
+import Maybe from 'components/Maybe'
+import PagedContents from 'components/PagedContents'
+import ContentFilter from 'components/ContentFilter'
+import PublishLabel from 'components/PublishLabel'
+import ConstructingThread from 'components/ConstructingThread'
+import StrategicPartners from 'components/StrategicPartners'
+
+import CityList from './CityList'
 
 import {
   Wrapper,
@@ -30,8 +32,8 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, ROUTE, THREAD } from '../../utils'
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostsThread')
 

@@ -10,9 +10,10 @@ import {
   TYPE,
   EVENT,
   THREAD,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -59,18 +60,17 @@ export const onListReactionUsers = (type, data) =>
 const afterReaction = id => {
   const thread = store.activeThread
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return sr71$.query(S.job, { id })
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return sr71$.query(S.video, { id })
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return sr71$.query(S.repo, { id })
-    }
-    default: {
+
+    default:
       return sr71$.query(S.post, { id })
-    }
   }
 }
 
@@ -132,24 +132,21 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      markLoading(false)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => markLoading(false),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ArticleViewerHeader' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'ArticleViewerHeader' })
     },
   },
 ]

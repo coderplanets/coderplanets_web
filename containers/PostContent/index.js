@@ -8,11 +8,13 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import MarkDownRender from '../../components/MarkDownRender'
-import Maybe from '../../components/Maybe'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import Comments from '../Comments'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from 'containers/Comments'
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+
 import SideCards from './SideCards'
 
 import {
@@ -24,7 +26,6 @@ import {
 } from './styles'
 
 import * as logic from './logic'
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostContent')
@@ -41,7 +42,8 @@ class PostContentContainer extends React.Component {
 
   render() {
     const { postContent } = this.props
-    const { viewingData } = postContent
+    const { curRoute, viewingData } = postContent
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -50,7 +52,11 @@ class PostContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.POST} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.POST}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>

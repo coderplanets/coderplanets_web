@@ -1,14 +1,13 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
+import { THREAD } from 'utils'
 import {
   PostItemLoading,
   JobItemLoading,
   VideoItemLoading,
   RepoItemLoading,
-} from '../LoadingEffects'
-
-import { THREAD } from '../../utils'
+} from 'components/LoadingEffects'
 
 /* eslint-disable */
 const DynamicPostsList = dynamic({
@@ -33,18 +32,17 @@ const ContentList = props => {
   const { thread } = props
 
   switch (thread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return <DynamicJobsList props={props} />
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return <DynamicVideosList props={props} />
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return <DynamicReposList props={props} />
-    }
-    default: {
+
+    default:
       return <DynamicPostsList props={props} />
-    }
   }
 }
 

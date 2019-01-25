@@ -6,10 +6,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { Button } from 'antd'
 
-import Maybe from '../Maybe'
+import { SITE_URL } from 'config'
+
+import { makeDebugger, THREAD } from 'utils'
+import Maybe from 'components/Maybe'
+
 import CopyrightSelector from './CopyrightSelector'
 
 import {
@@ -20,8 +23,6 @@ import {
   CopyRightWrapper,
   PreviewBtn,
 } from './styles'
-
-import { makeDebugger, THREAD } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ArticleEditToolbar:index')
@@ -46,7 +47,7 @@ const ArticleEditToolbar = ({
       <SourceLink>
         <LinkLabel>原地址:</LinkLabel>
         <LinkInput
-          placeholder="请填写url地址, 比如: https://coderplanets.com/post/1"
+          placeholder={`请填写url地址, 比如: ${SITE_URL}`}
           value={linkAddr}
           onChange={onLinkAddrChange}
         />

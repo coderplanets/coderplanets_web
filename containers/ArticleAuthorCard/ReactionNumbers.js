@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ISSUE_ADDR } from '../../config'
-import Popover from '../../components/Popover'
-import DiscussLinker from '../../components/DiscussLinker'
+import Popover from 'components/Popover'
+import DiscussLinker from 'components/DiscussLinker'
+import { ISSUE_ADDR } from 'config'
 
+import { TYPE } from 'utils'
 import {
   Wrapper,
   ReactionNum,
@@ -13,7 +14,6 @@ import {
   ReadOnlyNumber,
 } from './styles/reaction_numbers'
 
-import { TYPE } from '../../utils'
 import { onListUsers } from './logic'
 
 const ReactionNumbers = ({ user }) => {

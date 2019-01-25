@@ -1,8 +1,8 @@
 import React from 'react'
 
-import DotDivider from '../DotDivider'
+import { Trans } from 'utils'
+import DotDivider from 'components/DotDivider'
 import { Wrapper, Item, DotWrapper } from './styles/panel'
-import { Trans } from '../../utils'
 
 const Panel = ({ options, active, onSelect }) => (
   <Wrapper>

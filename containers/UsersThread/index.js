@@ -8,9 +8,9 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
+import { makeDebugger, storePlug } from 'utils'
 import MapLoading from './MapLoading'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

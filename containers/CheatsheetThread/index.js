@@ -8,15 +8,17 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Prism from 'mastani-codehighlight'
 
-import EmptyThread from '../../components/EmptyThread'
-import { CheatSheetLoading } from '../../components/LoadingEffects'
+import { makeDebugger, storePlug, TYPE } from 'utils'
+
+import EmptyThread from 'components/EmptyThread'
+import { CheatSheetLoading } from 'components/LoadingEffects'
+import GithubSyncWarning from 'components/GithubSyncWarning'
 
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
-import { Wrapper } from './styles'
+import { Wrapper, EmptyOffset } from './styles'
 
-import { makeDebugger, storePlug, TYPE } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -27,8 +29,19 @@ const renderView = (cheatsheetData, type, communityRaw) => {
     case TYPE.LOADING: {
       return <CheatSheetLoading />
     }
+    case TYPE.RESULT_EMPTY: {
+      return (
+        <EmptyOffset>
+          <EmptyThread community={communityRaw} thread="cheatsheet" />
+        </EmptyOffset>
+      )
+    }
     case TYPE.NOT_FOUND: {
-      return <EmptyThread community={communityRaw} thread="cheatsheet" />
+      return (
+        <EmptyOffset>
+          <EmptyThread community={communityRaw} thread="cheatsheet" />
+        </EmptyOffset>
+      )
     }
     default: {
       return (
@@ -58,13 +71,25 @@ class CheatsheetThreadContainer extends React.Component {
 
   render() {
     const { cheatsheetThread } = this.props
-    const { cheatsheetData, curView, curCommunity } = cheatsheetThread
+    const {
+      cheatsheetData,
+      curView,
+      curCommunity,
+      showSyncWarning,
+      isLogin,
+    } = cheatsheetThread
+
     const communityRaw = curCommunity.raw
 
     return (
       <Wrapper>
+        <GithubSyncWarning
+          show={showSyncWarning}
+          onClose={logic.syncWarnOnClose}
+        />
         {renderView(cheatsheetData, curView, communityRaw)}
         <Note
+          isLogin={isLogin}
           communityRaw={communityRaw}
           contributors={cheatsheetData.contributors}
           views={cheatsheetData.views}

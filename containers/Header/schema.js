@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-// import { F } from '../schemas'
+import { P } from 'schemas'
 
 const setCustomization = gql`
   mutation($customization: CustomizationInput!) {
@@ -8,6 +8,7 @@ const setCustomization = gql`
       customization {
         bannerLayout
         contentDivider
+        contentHover
         markViewed
         displayDensity
       }
@@ -16,17 +17,7 @@ const setCustomization = gql`
 `
 
 const sessionState = gql`
-  query {
-    sessionState {
-      isValid
-      user {
-        id
-        geoCity
-        nickname
-        avatar
-      }
-    }
-  }
+  ${P.sessionState}
 `
 
 const schema = {

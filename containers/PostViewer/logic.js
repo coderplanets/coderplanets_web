@@ -9,20 +9,21 @@ import {
   EVENT,
   ERR,
   TYPE,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:PostViewer')
-
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:PostViewer')
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
@@ -104,22 +105,17 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'PostViewer' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'PostViewer' }),
   },
 ]
 

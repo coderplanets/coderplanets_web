@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
 import PaymentSidebar from './PaymentSidebar'
 import QuestionSidebar from './QuestionSidebar'
 
@@ -14,14 +14,14 @@ const Sidebar = ({
   subContentView,
 }) => {
   switch (sidebarView) {
-    case 'question': {
+    case 'question':
       return (
         <Wrapper>
           <QuestionSidebar />
         </Wrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <Wrapper>
           <PaymentSidebar
@@ -32,7 +32,6 @@ const Sidebar = ({
           />
         </Wrapper>
       )
-    }
   }
 }
 

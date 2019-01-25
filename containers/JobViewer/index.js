@@ -7,14 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Comments from '../Comments'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
+import Comments from 'containers/Comments'
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
 
-import Maybe from '../../components/Maybe'
-import MarkDownRender from '../../components/MarkDownRender'
-import { ArticleContentLoading } from '../../components/LoadingEffects'
+import Maybe from 'components/Maybe'
+import MarkDownRender from 'components/MarkDownRender'
+import { ArticleContentLoading } from 'components/LoadingEffects'
 
 import DigestBar from './DigestBar'
 
@@ -24,8 +25,6 @@ import {
   ArticleTitle,
   ArticleBody,
 } from './styles'
-
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
@@ -43,7 +42,7 @@ class JobViewerContainer extends React.Component {
 
   render() {
     const { jobViewer } = this.props
-    const { viewingData, loading } = jobViewer
+    const { curCommunity, viewingData, loading } = jobViewer
 
     const company = {
       title: viewingData.company,
@@ -60,7 +59,11 @@ class JobViewerContainer extends React.Component {
           showStar={false}
         />
         <BodyWrapper>
-          <ArticleBodyHeader data={viewingData} thread={THREAD.JOB} />
+          <ArticleBodyHeader
+            communityRaw={curCommunity.raw}
+            thread={THREAD.JOB}
+            data={viewingData}
+          />
           <ArticleTitle>{viewingData.title}</ArticleTitle>
           <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
             <DigestBar data={viewingData} />

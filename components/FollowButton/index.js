@@ -7,10 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:FollowButton:index')
 

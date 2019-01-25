@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { User, EmptyAchievement } from '../../stores/SharedModel'
-import { markStates, TYPE, stripMobx, unholdPage, THREAD } from '../../utils'
+import { markStates, TYPE, stripMobx, unholdPage, THREAD } from 'utils'
+import { User, EmptyAchievement } from 'stores/SharedModel'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 /* const debug = makeDebugger('S:PreviewStore') */
@@ -71,6 +71,8 @@ const PreviewStore = t
     ),
     attUser: t.maybeNull(User),
     attachment: t.maybeNull(Attachment),
+
+    imageUploading: t.optional(t.boolean, false),
     // header:
     // body:
   })

@@ -8,19 +8,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import Popover from '../Popover'
-import { Wrapper, Logo, PopoverInfo } from './styles'
+import { makeDebugger } from 'utils'
+import Popover from 'components/Popover'
 
-import { makeDebugger } from '../../utils'
+import {
+  Wrapper,
+  Linker,
+  Logo,
+  PopoverInfo,
+  PopCommunityLogo,
+  PopCommnityInfo,
+  PopCommnityTitle,
+  PopCommnityDesc,
+} from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityList:index')
 
-const CommunityList = ({ items, emptyHint }) => {
+const CommunityList = ({ items, size, bottom, emptyHint }) => {
   if (R.isEmpty(items)) {
-    return !R.isEmpty(emptyHint) ? (
-      <React.Fragment>{emptyHint}</React.Fragment>
-    ) : null
+    return !R.isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
   }
 
   return (
@@ -30,11 +37,19 @@ const CommunityList = ({ items, emptyHint }) => {
           key={community.id}
           placement="bottom"
           trigger="hover"
-          content={<PopoverInfo>{community.title}</PopoverInfo>}
+          content={
+            <PopoverInfo>
+              <PopCommunityLogo src={community.logo} />
+              <PopCommnityInfo>
+                <PopCommnityTitle>{community.title}</PopCommnityTitle>
+                <PopCommnityDesc>{community.desc}</PopCommnityDesc>
+              </PopCommnityInfo>
+            </PopoverInfo>
+          }
         >
-          <div>
-            <Logo src={community.logo} />
-          </div>
+          <Linker href={`/${community.raw}/posts`} bottom={bottom}>
+            <Logo src={community.logo} size={size} />
+          </Linker>
         </Popover>
       ))}
     </Wrapper>
@@ -50,12 +65,16 @@ CommunityList.propTypes = {
       logo: PropTypes.string,
     })
   ),
+  size: PropTypes.string,
+  bottom: PropTypes.string,
   emptyHint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 CommunityList.defaultProps = {
   items: [],
   emptyHint: '',
+  size: '24px',
+  bottom: '0',
 }
 
 export default CommunityList

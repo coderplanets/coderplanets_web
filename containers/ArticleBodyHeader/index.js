@@ -9,19 +9,18 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import Labeler from '../Labeler'
-
-import Popover from '../../components/Popover'
-import ArticleActionsPanel from '../../components/ArticleActionsPanel'
+import Labeler from 'containers/Labeler'
+import Popover from 'components/Popover'
+import ArticleActionsPanel from 'components/ArticleActionsPanel'
 
 import Linker from './Linker'
 import RefinedLabel from './RefinedLabel'
 
 import { Wrapper, MoreWrapper, MoreIcon } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -38,7 +37,7 @@ class ArticleBodyHeaderContainer extends React.Component {
   }
 
   render() {
-    const { data, thread, middle } = this.props
+    const { communityRaw, thread, data, middle } = this.props
     const tagTitleList = R.pluck('title', data.tags)
 
     return (
@@ -47,6 +46,7 @@ class ArticleBodyHeaderContainer extends React.Component {
           <Popover
             content={
               <ArticleActionsPanel
+                communityRaw={communityRaw}
                 thread={thread}
                 data={data}
                 onEdit={logic.onEdit}
@@ -67,14 +67,17 @@ class ArticleBodyHeaderContainer extends React.Component {
           </Popover>
         </MoreWrapper>
 
-        {middle === 'linker' ? <Linker addr={data.linkAddr} /> : null}
-        {middle === 'labeler' ? (
+        {middle === 'linker' && <Linker addr={data.linkAddr} />}
+        {middle === 'labeler' && (
           <Labeler
+            passport={`owner;${communityRaw}->${thread}.tag.set`}
+            ownerId={data.author.id}
+            fallbackProps="readOnly"
             onTagSelect={logic.onTagSelect}
             onTagUnselect={logic.onTagUnselect}
             selected={tagTitleList}
           />
-        ) : null}
+        )}
         <RefinedLabel tags={data.tags} />
       </Wrapper>
     )
@@ -83,9 +86,13 @@ class ArticleBodyHeaderContainer extends React.Component {
 
 ArticleBodyHeaderContainer.propTypes = {
   articleBodyHeader: PropTypes.any.isRequired,
+  communityRaw: PropTypes.string.isRequired,
   thread: PropTypes.string,
   data: PropTypes.shape({
     id: PropTypes.string,
+    author: PropTypes.shape({
+      id: PropTypes.string,
+    }),
     tags: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string,

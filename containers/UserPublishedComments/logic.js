@@ -11,18 +11,18 @@ import {
   EVENT,
   ERR,
   pagedFilter,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:UserPublishedComments')
-
-let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -50,18 +50,17 @@ export const onThreadChange = curThread => {
   store.markState({ curThread })
   // reload()
   switch (store.curThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return loadJobComments()
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return loadVideoComments()
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return loadRepoComments()
-    }
-    default: {
+
+    default:
       return loadPostComments()
-    }
   }
 }
 
@@ -107,22 +106,19 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UserPublishedComments' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () =>
+      errRescue({ type: ERR.NETWORK, path: 'UserPublishedComments' }),
   },
 ]
 

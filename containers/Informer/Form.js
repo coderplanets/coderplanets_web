@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Input, Button } from 'antd'
 
-import { ICON_CMD } from '../../config'
-import SectionLabel from '../../components/SectionLabel'
-import { Space } from '../../components/BaseStyled'
+import { Space } from 'components/BaseStyled'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
 import { Wrapper, Footer, Back, Submit } from './styles/form'
 
@@ -14,27 +14,26 @@ const { TextArea } = Input
 
 const CurLabel = ({ type }) => {
   switch (type) {
-    case 'pirate': {
+    case 'pirate':
       return (
         <SectionLabel
           title="侵权/盗版举报"
           iconSrc={`${ICON_CMD}/police1.svg`}
         />
       )
-    }
-    case 'sensitive': {
+
+    case 'sensitive':
       return (
         <SectionLabel
           title="违法信息举报"
           iconSrc={`${ICON_CMD}/police2.svg`}
         />
       )
-    }
-    default: {
+
+    default:
       return (
         <SectionLabel title="杠精举报" iconSrc={`${ICON_CMD}/gangjing.svg`} />
       )
-    }
   }
 }
 

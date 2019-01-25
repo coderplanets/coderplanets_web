@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { User, Community, Post, Job, Video, Repo } from '../SharedModel'
-import { markStates, makeDebugger, THREAD, stripMobx } from '../../utils'
+import { markStates, makeDebugger, THREAD, stripMobx } from 'utils'
+import { User, Community, Post, Job, Video, Repo } from 'stores/SharedModel'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:ViewingStore')
@@ -49,18 +49,14 @@ const ViewingStore = t
     get viewingData() {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return stripMobx(self.job)
-        }
-        case THREAD.REPO: {
+        case THREAD.REPO:
           return stripMobx(self.repo)
-        }
-        case THREAD.VIDEO: {
+        case THREAD.VIDEO:
           return stripMobx(self.video)
-        }
-        default: {
+        default:
           return stripMobx(self.post)
-        }
       }
     },
   }))
@@ -82,15 +78,12 @@ const ViewingStore = t
     syncViewingItem(item) {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return self.root.jobsThread.updateItem(item)
-        }
-        case THREAD.REPO: {
+        case THREAD.REPO:
           return self.root.reposThread.updateItem(item)
-        }
-        case THREAD.VIDEO: {
+        case THREAD.VIDEO:
           return self.root.videosThread.updateItem(item)
-        }
         default: {
           return self.root.postsThread.updateItem(item)
         }

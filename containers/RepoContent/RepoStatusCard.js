@@ -19,7 +19,7 @@ const RepoStatusCard = ({ data }) => (
     </ReleaseWrapper>
     <Divider />
     <Label>Build by</Label>
-    <ContributorList items={data.contributors} />
+    <ContributorList items={data.contributors} readOnly />
     <Divider />
     <RepoCounters repo={data} />
   </Wrapper>

@@ -5,9 +5,10 @@ import mentions from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 import R from 'ramda'
 
-import { MENTION_USER_ADDR } from '../../config'
-import MarkDownStyle from '../ThemeWrapper/MarkDownStyle'
-import { uid } from '../../utils'
+import { MENTION_USER_ADDR } from 'config'
+import { uid } from 'utils'
+
+import MarkDownStyle from 'containers/ThemeWrapper/MarkDownStyle'
 
 import fullEmojis from './emojis'
 import { Wrapper, EmojiWraper, EmojiItem } from './styles/markdown_helper'

@@ -8,11 +8,12 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import Comments from '../Comments'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import MarkDownRender from '../../components/MarkDownRender'
-import Maybe from '../../components/Maybe'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from 'containers/Comments'
+import MarkDownRender from 'components/MarkDownRender'
+import Maybe from 'components/Maybe'
 
 import {
   Wrapper,
@@ -24,7 +25,6 @@ import {
 
 import SideCards from './SideCards'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -42,7 +42,9 @@ class JobContentContainer extends React.Component {
 
   render() {
     const { jobContent } = this.props
-    const { viewingData } = jobContent
+    const { curRoute, viewingData } = jobContent
+
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -51,7 +53,11 @@ class JobContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.JOB} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.JOB}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>

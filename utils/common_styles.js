@@ -31,33 +31,33 @@ const circle = (width = '30px') => `
  */
 const flexOpts = opt => {
   switch (opt) {
-    case 'align-both': {
+    case 'align-both':
       return 'align-items: center;justify-content: center;'
-    }
-    case 'align-center': {
+
+    case 'align-center':
       return 'align-items: center;'
-    }
-    case 'align-start': {
+
+    case 'align-start':
       return 'align-items: flex-start;'
-    }
-    case 'align-end': {
+
+    case 'align-end':
       return 'align-items: flex-end;'
-    }
-    case 'justify-center': {
+
+    case 'justify-center':
       return 'justify-content: center;'
-    }
-    case 'justify-end': {
+
+    case 'justify-end':
       return 'justify-content: flex-end;'
-    }
-    case 'justify-between': {
+
+    case 'justify-between':
       return 'justify-content: space-between;'
-    }
-    case 'justify-around': {
+
+    case 'justify-around':
       return 'justify-content: space-around;'
-    }
-    case 'justify-evenly': {
+
+    case 'justify-evenly':
       return 'justify-content: space-evenly;'
-    }
+
     default: {
       return ''
     }

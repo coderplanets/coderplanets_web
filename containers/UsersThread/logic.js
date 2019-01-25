@@ -1,17 +1,23 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes, asyncErr, ERR } from '../../utils'
-import SR71 from '../../utils/network/sr71'
+import {
+  makeDebugger,
+  $solver,
+  asyncRes,
+  asyncErr,
+  ERR,
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:UsersThread')
-
-let store = null
 
 export const loadGeoData = () => {
   markLoading(true)
@@ -36,24 +42,21 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      markLoading(false)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => markLoading(false),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       markLoading(false)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UsersThread' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       markLoading(false)
+      errRescue({ type: ERR.NETWORK, path: 'UsersThread' })
     },
   },
 ]

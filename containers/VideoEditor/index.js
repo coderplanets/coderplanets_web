@@ -7,18 +7,19 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Labeler from '../Labeler'
-import FormItem from '../../components/FormItem'
+import { makeDebugger, storePlug } from 'utils'
+
+import Labeler from 'containers/Labeler'
+import FormItem from 'components/FormItem'
+import ArticleEditFooter from 'components/ArticleEditFooter'
 
 import AlertMessage from './AlertMessage'
 import CoverUploader from './CoverUploader'
-import Footer from './Footer'
 import SourceOptions from './SourceOptions'
 
 import { Wrapper, Title, FormWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
-import { init, uninit, inputOnChange } from './logic'
+import { init, uninit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoEditor')
@@ -36,16 +37,7 @@ class VideoEditorContainer extends React.Component {
   render() {
     const { videoEditor } = this.props
 
-    const {
-      editVideoData,
-      publishing,
-      success,
-      error,
-      warn,
-      statusMsg,
-      ratKey,
-      isEdit,
-    } = videoEditor
+    const { editVideoData, publishing, ratKey, isEdit } = videoEditor
 
     return (
       <Wrapper>
@@ -110,7 +102,7 @@ class VideoEditorContainer extends React.Component {
             onChange={inputOnChange.bind(this, 'duration')}
             placeholder="mm:ss 或 hh:mm:ss #必填#"
           />
-          {!isEdit ? (
+          {!isEdit && (
             <FormItem
               label="发布日期:"
               raw="publishAt"
@@ -119,7 +111,7 @@ class VideoEditorContainer extends React.Component {
               onChange={inputOnChange.bind(this, 'publishAt')}
               placeholder="原视频发布日期, 格式 YYYY/MM/DD #必填#"
             />
-          ) : null}
+          )}
           <FormItem
             label="描述:"
             raw="desc"
@@ -138,13 +130,11 @@ class VideoEditorContainer extends React.Component {
           />
         </FormWrapper>
 
-        <Footer
+        <ArticleEditFooter
           isEdit={isEdit}
           publishing={publishing}
-          success={success}
-          error={error}
-          warn={warn}
-          statusMsg={statusMsg}
+          onCancle={canclePublish}
+          onPublish={onPublish}
         />
       </Wrapper>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { prettyNum } from 'utils'
 import StarReaction from './StarReaction'
 import FavoriteReaction from './FavoriteReaction'
 
@@ -11,8 +12,6 @@ import {
   NumberItem,
 } from './styles/reaction_numbers'
 
-import { prettyNum } from '../../utils'
-
 const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
   const { views } = data
 
@@ -23,7 +22,7 @@ const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
         <NumberItem readOnly>{prettyNum(views)}</NumberItem>
       </NumberSection>
       <NumberDivider />
-      {showStar ? <StarReaction data={data} loading={starLoading} /> : null}
+      {showStar && <StarReaction data={data} loading={starLoading} />}
       <FavoriteReaction data={data} loading={favoriteLoading} />
       {/*
           <NumberDivider />

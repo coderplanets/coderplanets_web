@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Button } from 'antd'
-import { cs } from '../../../utils'
+import { cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};

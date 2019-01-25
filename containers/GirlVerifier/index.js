@@ -8,14 +8,13 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Button, Input } from 'antd'
 
-import { ICON_CMD } from '../../config'
-import Modal from '../../components/Modal'
-import SectionLabel from '../../components/SectionLabel'
-import { Space } from '../../components/BaseStyled'
+import { Space } from 'components/BaseStyled'
+import Modal from 'components/Modal'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
+import { makeDebugger, storePlug } from 'utils'
 import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
-
-import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */

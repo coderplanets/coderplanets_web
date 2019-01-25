@@ -1,6 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
+import { cutFrom } from 'utils'
 import {
   Wrapper,
   TopHalf,
@@ -13,8 +14,6 @@ import {
   StatesWrapper,
   StateItem,
 } from './styles/company_info'
-
-import { cutFrom } from '../../utils'
 
 const CompanyInfo = ({
   entry: { company, companyLogo, desc, field, finance, scale },

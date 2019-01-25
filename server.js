@@ -8,9 +8,16 @@ const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
 
+// import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
+const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
+const HOME_PAGE = '/home/posts'
+
+// SSR for mobx
+mobxReact.useStaticRendering(true)
 
 // SSR for mobx
 mobxReact.useStaticRendering(true)
@@ -22,7 +29,70 @@ const ssrCache = new LRUCache({
   maxAge: 1000 * 30, // 30 ses
 })
 
-// redirect all the www request to non-www version
+app.prepare().then(() => {
+  const server = express()
+  // redirect all the www request to non-www addr
+  server.use(reDirectToNakedUrl)
+  server.use(express.static('static'))
+  server.use(helmet())
+  server.use(
+    '/model-graphs',
+    voyagerMiddleware({ endpointUrl: 'https://api.coderplanets.com/graphiql' })
+  )
+
+  server.get('/_next/:page?', (req, res) => handle(req, res))
+
+  server.get('/', (req, res) => res.redirect(HOME_PAGE))
+
+  // app.render(req, res, '/user', req.query)
+  server.get('/user/:userId', (req, res) =>
+    renderAndCache(req, res, '/user', req.query)
+  )
+
+  server.get('/:community/post/:id', (req, res) =>
+    renderAndCache(req, res, '/post', req.query)
+  )
+
+  server.get('/:community/job/:id', (req, res) =>
+    renderAndCache(req, res, '/job', req.query)
+  )
+
+  server.get('/:community/video/:id', (req, res) =>
+    renderAndCache(req, res, '/video', req.query)
+  )
+
+  server.get('/:community/repo/:id', (req, res) =>
+    renderAndCache(req, res, '/repo', req.query)
+  )
+
+  server.get('/communities', (req, res) => res.redirect('/communities/pl'))
+
+  server.get('/communities/:category', (req, res) =>
+    renderAndCache(req, res, '/communities', req.query)
+  )
+
+  server.get('/:community/:thread', (req, res) => {
+    if (
+      R.has('preview', req.query) &&
+      R.has('id', req.query) &&
+      R.has('community', req.query)
+    ) {
+      const { community, preview, id } = req.query
+      return res.redirect(`/${community}/${preview}/${id}`)
+    }
+
+    return renderAndCache(req, res, '/community', req.query)
+  })
+
+  server.get('*', (req, res) => handle(req, res))
+
+  server.listen(SERVE_PORT, err => {
+    if (err) throw err
+    console.log(`> Ready on http://localhost:${SERVE_PORT}`)
+  })
+})
+
+// redirect all the www request to non-www addr
 const reDirectToNakedUrl = (req, res, next) => {
   const w3 = 'www.'
   const { protocol: ptl, hostname: host, originalUrl } = req
@@ -35,84 +105,11 @@ const reDirectToNakedUrl = (req, res, next) => {
   next()
 }
 
-const HOME_PAGE = '/home/posts'
-app.prepare().then(() => {
-  const server = express()
-  server.use(reDirectToNakedUrl)
-  server.use(express.static('static'))
-  server.use(helmet())
-
-  server.get('/_next/:page?', (req, res) => handle(req, res))
-
-  server.get('/', (req, res) => {
-    return res.redirect(HOME_PAGE)
-  })
-
-  server.get('/user/:userId', (req, res) => {
-    // return app.render(req, res, '/user', req.query)
-    return renderAndCache(req, res, '/user', req.query)
-  })
-
-  server.get('/:community/post/:id', (req, res) => {
-    /* return app.render(req, res, '/post', req.query) */
-    return renderAndCache(req, res, '/post', req.query)
-  })
-
-  server.get('/:community/job/:id', (req, res) => {
-    /* return app.render(req, res, '/job', req.query) */
-    return renderAndCache(req, res, '/job', req.query)
-  })
-
-  server.get('/:community/video/:id', (req, res) => {
-    /* return app.render(req, res, '/video', req.query) */
-    return renderAndCache(req, res, '/video', req.query)
-  })
-
-  server.get('/:community/repo/:id', (req, res) => {
-    /* return app.render(req, res, '/repo', req.query) */
-    return renderAndCache(req, res, '/repo', req.query)
-  })
-
-  server.get('/communities', (req, res) => {
-    /* return app.render(req, res, '/communities', req.query) */
-    return res.redirect('/communities/pl')
-    // return renderAndCache(req, res, '/communities/pl', req.query)
-  })
-
-  server.get('/communities/:category', (req, res) => {
-    /* return app.render(req, res, '/communities', req.query) */
-    return renderAndCache(req, res, '/communities', req.query)
-  })
-
-  server.get('/:community/:thread', (req, res) => {
-    if (
-      R.has('preview', req.query) &&
-      R.has('id', req.query) &&
-      R.has('community', req.query)
-    ) {
-      const { community, preview, id } = req.query
-      return res.redirect(`/${community}/${preview}/${id}`)
-    }
-    console.log('=== community page')
-    /* return app.render(req, res, '/community', req.query) */
-    return renderAndCache(req, res, '/community', req.query)
-  })
-
-  server.get('*', (req, res) => handle(req, res))
-
-  server.listen(SERVE_PORT, err => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${SERVE_PORT}`)
-  })
-})
-
 /*
  * NB: make sure to modify this to take into account anything that should trigger
  * an immediate page change (e.g a locale stored in req.session)
  */
-function getCacheKey(req) {
-  return `${req.url}`
-}
+const getCacheKey = req => `${req.url}`
 
 async function renderAndCache(req, res, pagePath, queryParams) {
   const key = getCacheKey(req)

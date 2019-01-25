@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-/* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '../../utils' */
+/* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from 'utils' */
+import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from 'utils'
 import {
   PagedPosts,
   PagedJobs,
@@ -14,9 +15,8 @@ import {
   PagedRepos,
   emptyPagiData,
   FavoriteCategory,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
-import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserFavorited')
 
@@ -68,18 +68,17 @@ const UserFavorited = t
     },
     get pagedData() {
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return stripMobx(self.pagedJobs)
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return stripMobx(self.pagedVideos)
-        }
-        case THREAD.REPO: {
+
+        case THREAD.REPO:
           return stripMobx(self.pagedRepos)
-        }
-        default: {
+
+        default:
           return stripMobx(self.pagedPosts)
-        }
       }
     },
     get pagedPostsData() {
@@ -92,18 +91,17 @@ const UserFavorited = t
         pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return self.markState({ curView, pagedJobs: pagedData })
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return self.markState({ curView, pagedVideos: pagedData })
-        }
-        case THREAD.REPO: {
+
+        case THREAD.REPO:
           return self.markState({ curView, pagedRepos: pagedData })
-        }
-        default: {
+
+        default:
           return self.markState({ curView, pagedPosts: pagedData })
-        }
       }
     },
     markState(sobj) {

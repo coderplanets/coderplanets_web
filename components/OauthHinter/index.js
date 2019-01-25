@@ -8,8 +8,9 @@ import React from 'react'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_CMD, ISSUE_ADDR } from '../../config'
+import { ICON_CMD, ISSUE_ADDR } from 'config'
 
+import { makeDebugger } from 'utils'
 import {
   Container,
   HintWrapper,
@@ -25,7 +26,6 @@ import {
   FooterWrapper,
   IssueLink,
 } from './styles'
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:OauthHinter:index')
 

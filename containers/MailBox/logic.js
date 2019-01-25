@@ -9,18 +9,18 @@ import {
   TYPE,
   EVENT,
   ERR,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:MailBox')
-
-let store = null
 
 /*
    export const panelVisiableOnChange = panelVisiable =>
@@ -30,14 +30,14 @@ let store = null
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
-export const previewUser = user => {
+export const previewUser = user =>
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
-}
 
 export const loadMailboxStates = () => {
+  if (!store.isLogin) return false
   markLoading(true)
   sr71$.query(S.mailBoxStatus, {})
 }
@@ -78,22 +78,17 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'MailBox' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'MailBox' }),
   },
 ]
 

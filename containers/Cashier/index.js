@@ -7,14 +7,14 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Modal from '../../components/Modal'
+import Modal from 'components/Modal'
 // import PaymentView from './PaymentView'
+import { makeDebugger, storePlug } from 'utils'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

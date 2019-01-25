@@ -7,9 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import Popover from '../Popover'
+import { makeDebugger, THREAD, Trans } from 'utils'
+import Popover from 'components/Popover'
 import {
   Wrapper,
   Label,
@@ -20,7 +21,6 @@ import {
 } from './styles'
 import Panel from './Panel'
 
-import { makeDebugger, THREAD, Trans } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ThreadSelector:index')
 

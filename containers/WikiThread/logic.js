@@ -10,24 +10,28 @@ import {
   ERR,
   THREAD,
   githubApi,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+  errRescue,
+  BStore,
+  nilOrEmpty,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:WikiThread')
-
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw
 
+  store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.wiki, { community })
 }
 
@@ -38,10 +42,17 @@ const syncWiki = readme => {
     communityId: store.curCommunity.id,
   }
 
+  store.markState({ curView: TYPE.LOADING })
   sr71$.mutate(S.syncWiki, args)
 }
 
+export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+
 export const syncWikiFromGithub = () => {
+  if (nilOrEmpty(BStore.get('github_token'))) {
+    return store.markState({ showSyncWarning: true })
+  }
+
   githubApi
     .searchWiki(store.curCommunity.raw)
     .then(res => {
@@ -67,7 +78,10 @@ export const addContributor = user => {
 const DataSolver = [
   {
     match: asyncRes('wiki'),
-    action: ({ wiki }) => store.markState({ wiki, curView: TYPE.RESULT }),
+    action: ({ wiki }) => {
+      const curView = R.isEmpty(wiki.readme) ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ wiki, curView })
+    },
   },
   {
     match: asyncRes('syncWiki'),
@@ -92,23 +106,21 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      // TODO: add CODE to NOT_FOUND in server
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {
       store.markState({ curView: TYPE.NOT_FOUND })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'WikiThread' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'WikiThread' })
     },
   },
 ]

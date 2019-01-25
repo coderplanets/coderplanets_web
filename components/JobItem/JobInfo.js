@@ -1,10 +1,11 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-// import { ICON_CMD } from '../../config'
-import InlineCommunities from '../InlineCommunities'
-import InlineTags from '../InlineTags'
-import DotDivider from '../DotDivider'
+// import { ICON_CMD } from 'config'
+import { cutFrom } from 'utils'
+import InlineCommunities from 'components/InlineCommunities'
+import InlineTags from 'components/InlineTags'
+import DotDivider from 'components/DotDivider'
 
 import {
   Wrapper,
@@ -21,8 +22,6 @@ import {
   ExpDivider,
   Extra,
 } from './styles/job_info'
-
-import { cutFrom } from '../../utils'
 
 const JobInfo = ({
   entry: {

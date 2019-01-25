@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
-import AvatarsRow from '../../components/AvatarsRow'
+import AvatarsRow from 'components/AvatarsRow'
+import { ICON_CMD } from 'config'
 
 import {
   Wrapper,
@@ -46,7 +46,7 @@ const ThreadText = ({ thread }) => {
 
 const Header = ({ isEdit, curView, referUsers }) => {
   switch (curView) {
-    case 'MARKDOWN_HELP_VIEW': {
+    case 'MARKDOWN_HELP_VIEW':
       return (
         <Wrapper>
           <UsageText>Github Flavor Markdown</UsageText>
@@ -56,14 +56,14 @@ const Header = ({ isEdit, curView, referUsers }) => {
           </BackToEditHint>
         </Wrapper>
       )
-    }
+
     default:
       return (
         <Wrapper>
           <UsageText>
             <DoingText isEdit={isEdit} />
             帖子
-            {!R.isEmpty(referUsers) ? (
+            {!R.isEmpty(referUsers) && (
               <RefUsersWrapper>
                 <AtSignIcon src={`${ICON_CMD}/typewriter_mention.svg`} />
                 <RefUserList>
@@ -76,7 +76,7 @@ const Header = ({ isEdit, curView, referUsers }) => {
                   />
                 </RefUserList>
               </RefUsersWrapper>
-            ) : null}
+            )}
           </UsageText>
           <MarkDownHint
             onClick={logic.changeView.bind(this, 'MARKDOWN_HELP_VIEW')}

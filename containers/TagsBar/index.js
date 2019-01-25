@@ -8,9 +8,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
-import { withGuardian } from '../../components/HOC'
+import withGuardian from 'components/HOC/withGuardian'
+import { ICON_CMD } from 'config'
 
+import {
+  makeDebugger,
+  storePlug,
+  sortByColor,
+  THREAD,
+  TOPIC,
+  Trans,
+} from 'utils'
 import TagOptions from './TagOptions'
 
 import {
@@ -22,14 +30,6 @@ import {
   TagOptionsWrapper,
 } from './styles'
 
-import {
-  makeDebugger,
-  storePlug,
-  sortByColor,
-  THREAD,
-  TOPIC,
-  Trans,
-} from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -60,14 +60,14 @@ class TagsBarContainer extends React.Component {
 
     return (
       <Wrapper>
-        {activeTagData.title ? (
+        {activeTagData.title && (
           <TagItem
             onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
           >
             <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
             <TagTitle>全部</TagTitle>
           </TagItem>
-        ) : null}
+        )}
 
         {sortedTags.map(tag => (
           <TagItem key={tag.id}>

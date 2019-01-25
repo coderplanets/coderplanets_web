@@ -114,7 +114,7 @@ const cyan = {
     font: primaryColor,
     bg: contentBg,
     shadow: '-5px 0px 14px 0px rgba(189,189,189,0.37)',
-    closerShadow: '-6px 4px 5px 2px rgba(156, 154, 154, 0.2)',
+    closerShadow: '-3px 3px 5px 1px rgba(156,154,154,0.2)',
     markdownHelperBg: '#F9FCFC',
     accountBg: '#F9FCFC',
     articleBg: '#F9FCFC',

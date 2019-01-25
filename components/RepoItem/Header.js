@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import Popover from '../Popover'
-import { Space } from '../BaseStyled'
-import InlineTags from '../InlineTags'
+import { cutFrom, numberWithCommas } from 'utils'
+import Popover from 'components/Popover'
+import { Space } from 'components/BaseStyled'
+import InlineTags from 'components/InlineTags'
 
 import {
   Wrapper,
@@ -20,8 +21,6 @@ import {
   StatusNum,
   ForkIcon,
 } from './styles/header'
-
-import { cutFrom, numberWithCommas } from '../../utils'
 
 const Header = ({ entry, onPreview }) => (
   <Wrapper onClick={onPreview.bind(this, entry)}>

@@ -7,18 +7,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { makeDebugger } from 'utils'
 import PartnerBanner from './PartnerBanner'
 // import Holder from './Holder'
 
 import { Wrapper, Header, Title, Closer } from './styles'
-import { makeDebugger } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:StrategicPartners:index')
 
 const StrategicPartners = ({ show, onClose }) => (
   <Wrapper>
-    {show ? (
+    {show && (
       <React.Fragment>
         <Header>
           <Title>特别赞助:</Title>
@@ -26,7 +26,7 @@ const StrategicPartners = ({ show, onClose }) => (
         </Header>
         <PartnerBanner />
       </React.Fragment>
-    ) : null}
+    )}
   </Wrapper>
 )
 

@@ -22,7 +22,20 @@
         "libraryName": "antd"
       }
     ],
-    "ramda"
+    "ramda",
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "containers":"./containers",
+        "components":"./components",
+        "config":"./config",
+        "stores":"./stores",
+        "schemas":"./containers/schemas",
+        "utils":"./utils",
+        "Img": "./components/Img",
+        "SvgIcons": "./components/SvgIcons"
+      }
+    }]
   ],
   "env": {
      "development": {

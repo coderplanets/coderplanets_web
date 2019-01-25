@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { P, F } from '../schemas'
+import { P, F } from 'schemas'
 
 const pagedPosts = gql`
   ${P.pagedPosts}

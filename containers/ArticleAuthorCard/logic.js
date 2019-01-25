@@ -8,18 +8,18 @@ import {
   dispatchEvent,
   ERR,
   EVENT,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
-
+import SR71 from 'utils/async/sr71'
 import S from './schema'
-
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleAuthorCard')
 
 const sr71$ = new SR71()
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:ArticleAuthorCard')
 
 export const loadUser = user => {
   if (!store.isLogin) return false
@@ -67,24 +67,21 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      store.markState({ following: false })
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => store.markState({ following: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
       store.markState({ following: false })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'ArticleAuthorCard' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
+    action: () => {
       store.markState({ following: false })
+      errRescue({ type: ERR.NETWORK, path: 'ArticleAuthorCard' })
     },
   },
 ]

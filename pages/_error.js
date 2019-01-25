@@ -1,11 +1,11 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import GAWraper from '../components/GAWraper'
-import initRootStore from '../stores/init'
-import ThemeWrapper from '../containers/ThemeWrapper'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
 
-import ErrorPage from '../components/ErrorPage'
+import initRootStore from 'stores/init'
 
 export default class Error extends React.Component {
   static getInitialProps({ res, err }) {

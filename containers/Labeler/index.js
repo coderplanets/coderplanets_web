@@ -9,16 +9,16 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
-import { LABEL_POOL } from '../../config'
+import withGuardian from 'components/HOC/withGuardian'
+import Maybe from 'components/Maybe'
+import Popover from 'components/Popover'
+import { LABEL_POOL } from 'config'
 
-import Popover from '../../components/Popover'
-import Maybe from '../../components/Maybe'
-
+import { makeDebugger, storePlug, uid } from 'utils'
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
-import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Labeler')
@@ -154,4 +154,6 @@ LabelerContainer.defaultProps = {
   onTagUnselect: debug,
 }
 
-export default inject(storePlug('labeler'))(observer(LabelerContainer))
+export default withGuardian(
+  inject(storePlug('labeler'))(observer(LabelerContainer))
+)

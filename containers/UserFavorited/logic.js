@@ -9,8 +9,8 @@ import {
   pagedFilter,
   THREAD,
   EVENT,
-} from '../../utils'
-import SR71 from '../../utils/network/sr71'
+} from 'utils'
+import SR71 from 'utils/async/sr71'
 
 import S from './schema'
 
@@ -55,18 +55,17 @@ export const loadRepos = (page = 1) =>
 
 export const reload = page => {
   switch (store.curThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return loadJobs(page)
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return loadVideos(page)
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return loadRepos(page)
-    }
-    default: {
+
+    default:
       return loadPosts(page)
-    }
   }
 }
 

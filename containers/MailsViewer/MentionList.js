@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import EmptyLabel from '../../components/EmptyLabel'
-import Pagi from '../../components/Pagi'
+import EmptyLabel from 'components/EmptyLabel'
+import Pagi from 'components/Pagi'
 
 import ToggleInfo from './ToggleInfo'
 
@@ -10,6 +10,7 @@ import {
   Wrapper,
   InfoWrapper,
   ListsWrapper,
+  MessageLinker,
   Message,
   MessageDivider,
   MessageHeader,
@@ -27,6 +28,13 @@ import {
 
 import { loadMentions } from './logic'
 
+const getLinkAddr = item => {
+  const { sourceType } = item
+  const thread = sourceType === 'posts' ? 'post' : sourceType
+
+  return `/${item.community}/${thread}/${item.sourceId}`
+}
+
 const MentionList = ({
   data: { entries, pageNumber, pageSize, totalCount },
   readState,
@@ -41,7 +49,12 @@ const MentionList = ({
 
       <ListsWrapper>
         {entries.map(item => (
-          <React.Fragment key={item.id}>
+          <MessageLinker
+            key={item.id}
+            href={`${getLinkAddr(item)}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Message>
               <MessageHeader>
                 <UserLabel>
@@ -61,7 +74,7 @@ const MentionList = ({
               </MessageBody>
             </Message>
             <MessageDivider />
-          </React.Fragment>
+          </MessageLinker>
         ))}
         <Pagi
           left="-20px"

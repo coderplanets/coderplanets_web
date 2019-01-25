@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { uid } from '../../utils'
+import { uid } from 'utils'
 
 import {
   BackgroundItem,
@@ -17,7 +17,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
     return (
       <BackgroundItem>
         {bg.company}
-        {bg.title ? <BackgroundDivider /> : null}
+        {bg.title && <BackgroundDivider />}
         {bg.title}
       </BackgroundItem>
     )
@@ -27,7 +27,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
       {workBackgrounds.map(bg => (
         <BackgroundDetailItem key={uid.gen()}>
           {bg.company}
-          {bg.title ? <BackgroundDivider /> : null}
+          {bg.title && <BackgroundDivider />}
           {bg.title}
         </BackgroundDetailItem>
       ))}
@@ -43,7 +43,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
     return (
       <BackgroundItem>
         {bg.school}
-        {bg.major ? <BackgroundDivider /> : null}
+        {bg.major && <BackgroundDivider />}
         {bg.major}
       </BackgroundItem>
     )
@@ -53,7 +53,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
       {educationBackgrounds.map(bg => (
         <BackgroundDetailItem key={uid.gen()}>
           {bg.school}
-          {bg.major ? <BackgroundDivider /> : null}
+          {bg.major && <BackgroundDivider />}
           {bg.major}
         </BackgroundDetailItem>
       ))}
@@ -63,12 +63,11 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
 
 const BackgroundList = ({ type, user, first }) => {
   switch (type) {
-    case 'work': {
+    case 'work':
       return <WorkBackgroundList user={user} first={first} />
-    }
-    case 'education': {
+
+    case 'education':
       return <EduBackgroundList user={user} first={first} />
-    }
 
     default:
       return <div>unknow background option</div>

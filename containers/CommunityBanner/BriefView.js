@@ -1,7 +1,7 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
-import Tabber from '../../components/Tabber'
+// import { ICON_CMD } from 'config'
+import Tabber from 'components/Tabber'
 
 import {
   Wrapper,

@@ -5,14 +5,14 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
+import { markStates, makeDebugger, THREAD, TYPE, stripMobx } from 'utils'
 import {
   PagedPosts,
   PagedJobs,
   PagedVideos,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
-import { markStates, makeDebugger, THREAD, TYPE, stripMobx } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserStared')
 
@@ -49,15 +49,14 @@ const UserStared = t
     },
     get pagedData() {
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return stripMobx(self.pagedJobs)
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return stripMobx(self.pagedVideos)
-        }
-        default: {
+
+        default:
           return stripMobx(self.pagedPosts)
-        }
       }
     },
     get accountInfo() {

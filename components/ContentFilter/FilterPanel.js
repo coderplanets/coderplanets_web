@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { THREAD } from 'utils'
 import { FiltrPanelWrapper } from './styles'
 
 import TimeFilter from './TimeFilter'
@@ -17,46 +18,44 @@ import JobScaleFilter from './JobScaleFilter'
 // video
 import VideoSourceFilter from './VideoSourceFilter'
 
-import { THREAD } from '../../utils'
-
 const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   switch (thread) {
-    case THREAD.POST: {
+    case THREAD.POST:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin ? (
+          {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
-          ) : null}
+          )}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <SortFilter activeFilter={activeFilter} onSelect={onSelect} />
           <VideoSourceFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin ? (
+          {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
-          ) : null}
+          )}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
           <RepoSortFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin ? (
+          {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
-          ) : null}
+          )}
         </FiltrPanelWrapper>
       )
-    }
-    case THREAD.JOB: {
+
+    case THREAD.JOB:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -67,13 +66,13 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           <JobFieldFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobFinaceFilter activeFilter={activeFilter} onSelect={onSelect} />
           <JobScaleFilter activeFilter={activeFilter} onSelect={onSelect} />
-          {isLogin ? (
+          {isLogin && (
             <ViewedFilter activeFilter={activeFilter} onSelect={onSelect} />
-          ) : null}
+          )}
         </FiltrPanelWrapper>
       )
-    }
-    default: {
+
+    default:
       return (
         <FiltrPanelWrapper>
           <TimeFilter activeFilter={activeFilter} onSelect={onSelect} />
@@ -81,7 +80,6 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
           <LengthFilter activeFilter={activeFilter} onSelect={onSelect} />
         </FiltrPanelWrapper>
       )
-    }
   }
 }
 

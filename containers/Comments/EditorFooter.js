@@ -1,12 +1,10 @@
 import React from 'react'
 import { Button, Icon } from 'antd'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import DocUploader from '../DocUploader'
-import { Space } from '../../components/BaseStyled'
-
-import * as logic from './logic'
+import { Space } from 'components/BaseStyled'
+import DocUploader from 'containers/DocUploader'
 
 import {
   InputFooter,
@@ -14,6 +12,8 @@ import {
   HelperIcon,
   InputSubmit,
 } from './styles/editor_footer'
+
+import * as logic from './logic'
 
 const EditorFooter = ({
   loading,

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../../components/Img'
-import { theme } from '../../../utils'
+import Img from 'components/Img'
+import { theme } from 'utils'
 
 import { Container } from './index'
 

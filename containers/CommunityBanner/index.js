@@ -7,11 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, C11N } from 'utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
 import * as logic from './logic'
-import { makeDebugger, storePlug, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunityBanner')

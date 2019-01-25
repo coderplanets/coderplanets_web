@@ -7,7 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_BASE, ISSUE_ADDR } from '../../config'
+import { ICON_BASE, ISSUE_ADDR } from 'config'
+import { makeDebugger, Trans } from 'utils'
 import {
   Wrapper,
   ConstructIcon,
@@ -17,8 +18,6 @@ import {
   DescWrapper,
   IssueLink,
 } from './styles'
-
-import { makeDebugger, Trans } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ConstructingThread:index')

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../Img'
-import { cs, theme } from '../../../utils'
+import { cs, theme } from 'utils'
+import Img from 'Img'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
@@ -34,7 +34,7 @@ export const LogoutText = styled.div`
   }
 `
 export const EditWrapper = styled.div`
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: block;
   flex-grow: 1;
 `
 export const EditIcon = styled(Img)`

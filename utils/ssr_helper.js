@@ -1,27 +1,26 @@
 import R from 'ramda'
-import { P } from '../containers/schemas'
+import { P } from 'schemas'
 import { TYPE, THREAD } from './constants'
 
 export const ssrPagedSchema = thread => {
   switch (R.toLower(thread)) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return P.pagedJobs
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return P.pagedVideos
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return P.pagedRepos
-    }
-    case THREAD.CHEATSHEET: {
+
+    case THREAD.CHEATSHEET:
       return P.cheatsheet
-    }
-    case THREAD.WIKI: {
+
+    case THREAD.WIKI:
       return P.wiki
-    }
-    default: {
+
+    default:
       return P.pagedPosts
-    }
   }
 }
 
@@ -55,7 +54,7 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
   const activeTag = getActiveTag(resp.filter.tag, resp.partialTags)
 
   switch (R.toLower(thread)) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return {
         jobsThread: {
           pagedJobs: resp.pagedJobs,
@@ -64,8 +63,8 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           filters,
         },
       }
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return {
         videosThread: {
           pagedVideos: resp.pagedVideos,
@@ -74,8 +73,8 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           filters,
         },
       }
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return {
         reposThread: {
           pagedRepos: resp.pagedRepos,
@@ -84,8 +83,8 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           filters,
         },
       }
-    }
-    case THREAD.CHEATSHEET: {
+
+    case THREAD.CHEATSHEET:
       return {
         cheatsheetThread: {
           cheatsheet: resp.cheatsheet,
@@ -94,16 +93,16 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
             : TYPE.RESULT,
         },
       }
-    }
-    case THREAD.WIKI: {
+
+    case THREAD.WIKI:
       return {
         wikiThread: {
           wiki: resp.wiki,
           curView: R.isEmpty(resp.wiki.readme) ? TYPE.NOT_FOUND : TYPE.RESULT,
         },
       }
-    }
-    default: {
+
+    default:
       return {
         postsThread: {
           pagedPosts: resp.pagedPosts,
@@ -112,7 +111,6 @@ export const ssrContentsThread = (resp, thread, filters = {}) => {
           filters,
         },
       }
-    }
   }
 }
 

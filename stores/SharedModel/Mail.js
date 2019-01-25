@@ -1,6 +1,6 @@
 import { types as t } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '../../config'
+import { PAGE_SIZE } from 'config'
 
 // avoid cicle import
 const SimpleUser = t.model('SimpleUser', {
@@ -21,8 +21,10 @@ export const MentionMsg = t.model('MentionMsg', {
   id: t.maybeNull(t.string),
   fromUser: SimpleUser,
   sourceTitle: t.string,
+  sourceId: t.string,
   sourcePreview: t.maybeNull(t.string),
   sourceType: t.maybeNull(t.string),
+  community: t.maybeNull(t.string),
   read: t.optional(t.boolean, false),
 })
 

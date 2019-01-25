@@ -11,18 +11,18 @@ import {
   ERR,
   THREAD,
   pagedFilter,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
 let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:UserPublished')
-
-let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -46,18 +46,17 @@ export const loadRepos = (page = 1) =>
 
 export const reload = page => {
   switch (store.curThread) {
-    case THREAD.JOB: {
+    case THREAD.JOB:
       return loadJobs(page)
-    }
-    case THREAD.VIDEO: {
+
+    case THREAD.VIDEO:
       return loadVideos(page)
-    }
-    case THREAD.REPO: {
+
+    case THREAD.REPO:
       return loadRepos(page)
-    }
-    default: {
+
+    default:
       return loadPosts(page)
-    }
   }
 }
 
@@ -100,22 +99,18 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UserPublished' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'UserPublished' }),
   },
 ]
 

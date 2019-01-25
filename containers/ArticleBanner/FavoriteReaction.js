@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
-import Maybe from '../../components/Maybe'
+import Maybe from 'components/Maybe'
+import { ICON_CMD } from 'config'
 
+import { numberWithCommas, TYPE } from 'utils'
 import {
   NumberSection,
   NumberTitle,
@@ -11,7 +12,6 @@ import {
   NumberLoading,
 } from './styles/reaction_numbers'
 
-import { numberWithCommas, TYPE } from '../../utils'
 import { onReaction, onListReactionUsers } from './logic'
 
 const FavoriteReaction = ({ data, show, loading }) => (

@@ -7,14 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import CommunityList from '../CommunityList'
-
-import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
+import { makeDebugger } from 'utils'
+import CommunityList from 'components/CommunityList'
 
 import UserList from './UserList'
-// import TagList from './TagList'
 
-import { makeDebugger } from '../../utils'
+import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentSourceCard:index')
@@ -31,7 +29,7 @@ const ContentSourceCard = ({
       />
     </Desc>
 
-    {users.totalCount !== 0 ? (
+    {users.totalCount !== 0 && (
       <React.Fragment>
         <Didiver />
         <Title>参与讨论 ({users.totalCount})</Title>
@@ -39,7 +37,7 @@ const ContentSourceCard = ({
           <UserList items={users.entries} />
         </Desc>
       </React.Fragment>
-    ) : null}
+    )}
 
     {/*
         <Desc column noBottom>

@@ -7,12 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug, uid } from 'utils'
 import { Container } from './styles'
 
 import Header from './Header'
 import MenuList from './MenuList'
 
-import { makeDebugger, storePlug, uid } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -22,9 +22,6 @@ class SidebarContainer extends React.Component {
   componentDidMount() {
     const { sidebar } = this.props
     logic.init(sidebar)
-    // call forceUpdate to force rerender, otherwise the logo src in
-    // communitiesData will be choas, dig later
-    this.forceUpdate()
   }
 
   componentWillUnmount() {

@@ -72,7 +72,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Wrapper } from './styles'
-import { makeDebugger } from '../../utils'
+import { makeDebugger } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:DotDivider:index')
@@ -104,7 +104,7 @@ SubComponent -> styles/sub_component.js
 
 ```jsx
 import styled from 'styled-components'
-import { theme } from '../../../utils'
+import { theme } from 'utils'
 
 export const Wrapper = styled.div`
   width: ${({ radius }) => radius};
@@ -160,7 +160,7 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
+import { makeDebugger, storePlug } from 'utils'
 import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 
 class PostEditorContainer extends React.Component {
@@ -217,8 +217,8 @@ store.js 类似于 MVC 架构下的 M 层，基于 [mobx-state-tree](https://git
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, changeset } from '../../utils'
+import { Post, Mention } from 'stores/SharedModel'
+import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:PostEditorf')
@@ -275,10 +275,10 @@ export default PostEditor
 ```js
 import R from 'ramda'
 
-import { asyncRes, asyncErr, $solver } from '../../utils'
+import { asyncRes, asyncErr, $solver } from 'utils'
 
 import { S, updatablePostFields } from './schema'
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 
 const sr71$ = new SR71()
 
@@ -311,7 +311,7 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
+    match: asyncErr(ERR.GRAPHQL),
     action: ({ details }) =>  cancleLoading()
   },
   {
@@ -347,7 +347,7 @@ logic 层在即可使用 sr71$.query(S.post, {...}) 进行异步请求。
 
 ```js
 import gql from 'graphql-tag'
-import { F, P } from '../schemas'
+import { F, P } from 'schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {

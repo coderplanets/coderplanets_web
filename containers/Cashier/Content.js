@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
+// import { ICON_CMD } from 'config'
 import PaymentContent from './PaymentContent'
 import QuestionContent from './QuestionContent'
 
@@ -14,10 +14,10 @@ const Componet = ({
   transferAccount,
 }) => {
   switch (contentView) {
-    case 'question': {
+    case 'question':
       return <QuestionContent />
-    }
-    default: {
+
+    default:
       return (
         <Wrapper>
           <PaymentContent
@@ -28,7 +28,6 @@ const Componet = ({
           />
         </Wrapper>
       )
-    }
   }
 }
 

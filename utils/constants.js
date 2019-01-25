@@ -1,5 +1,5 @@
 export const ERR = {
-  CRAPHQL: 'CRAPHQL',
+  GRAPHQL: 'GRAPHQL',
   PARSE_CHEATSHEET_MD: 'PARSE_CHEATSHEET_MD',
   NETWORK: 'NETWORK',
   NOT_FOUND: 'NOT_FOUND',
@@ -9,8 +9,13 @@ export const ERR = {
 }
 
 export const EVENT = {
+  // every time when session come back
+  SESSTION_ROUTINE: 'SESSTION_ROUTINE',
   LOGIN_PANEL: 'LOGIN_PANEL',
   LOGIN: 'LOGIN',
+  // error
+  ERR_RESCUE: 'ERR_RESCUE',
+
   LOGOUT: 'LOGOUT',
   // preview
   PREVIEW_OPEN: 'PREVIEW_OPEN',
@@ -40,6 +45,10 @@ export const EVENT = {
   SET_C11N: 'SET_C11N',
   // bills
   NEW_BILLS: 'NEW_BILLS',
+
+  // upload
+  UPLOAD_IMG_START: 'UPLOAD_IMG_START',
+  UPLOAD_IMG_FINISH: 'UPLOAD_IMG_FINISH',
 }
 
 export const TYPE = {

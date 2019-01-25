@@ -8,12 +8,13 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import Maybe from '../Maybe'
+import { makeDebugger } from 'utils'
+import Maybe from 'components/Maybe'
+
 import { Wrapper, LinkIcon, LogoIcon } from './styles'
 
-import { makeDebugger } from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoSourceInfo:index')
 

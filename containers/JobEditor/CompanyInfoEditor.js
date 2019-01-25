@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import DocUploader from '../DocUploader'
+import DocUploader from 'containers/DocUploader'
 
 import {
   Wrapper,

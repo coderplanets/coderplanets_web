@@ -8,6 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
+import { makeDebugger, storePlug } from 'utils'
 import Header from './Header'
 import UserInfo from './UserInfo'
 import ReactionNumbers from './ReactionNumbers'
@@ -15,7 +16,6 @@ import ReactionNumbers from './ReactionNumbers'
 import { Wrapper, Divider } from './styles'
 
 import * as logic from './logic'
-import { makeDebugger, storePlug } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleAuthorCard')

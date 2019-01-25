@@ -8,12 +8,14 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import Comments from '../Comments'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import Maybe from '../../components/Maybe'
-import VideoPoster from '../../components/VideoPoster'
-import VideoInfoCard from '../../components/VideoInfoCard'
+import Maybe from 'components/Maybe'
+import VideoPoster from 'components/VideoPoster'
+import VideoInfoCard from 'components/VideoInfoCard'
+
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from 'containers/Comments'
 
 import SideCards from './SideCards'
 
@@ -25,7 +27,6 @@ import {
   CommentsWrapper,
 } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -43,7 +44,8 @@ class VideoContentContainer extends React.Component {
 
   render() {
     const { videoContent } = this.props
-    const { viewingData } = videoContent
+    const { curRoute, viewingData } = videoContent
+    const { mainPath: communityRaw } = curRoute
 
     return (
       <Wrapper>
@@ -52,7 +54,11 @@ class VideoContentContainer extends React.Component {
             <MainWrapper>
               <ArticleWrapper>
                 <BodyHeaderWrapper>
-                  <ArticleBodyHeader data={viewingData} thread={THREAD.VIDEO} />
+                  <ArticleBodyHeader
+                    communityRaw={communityRaw}
+                    thread={THREAD.VIDEO}
+                    data={viewingData}
+                  />
                 </BodyHeaderWrapper>
                 <Maybe test={viewingData.poster}>
                   <VideoPoster poster={viewingData.poster} />

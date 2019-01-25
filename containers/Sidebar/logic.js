@@ -12,13 +12,14 @@ import {
   dispatchEvent,
   thread2Subpath,
   THREAD,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
+import SR71 from 'utils/async/sr71'
 import S from './schema'
-import SR71 from '../../utils/network/sr71'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGOUT, EVENT.LOGIN],
+  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null
@@ -75,6 +76,29 @@ export const loadCommunities = () => {
   sr71$.query(S.subscribedCommunities, args)
 }
 
+/*
+   this is a temp solution for server-side page cache
+   since client can not refresh server-side cache when user login/logout
+   we need manually refresh the subed communities
+ */
+const refreshSubedCommunitiesIfNeed = () => {
+  const subedLength = store.accountInfo.subscribedCommunitiesCount
+  const curSubedLength = store.communitiesData.length
+
+  debug('subedLength ', subedLength)
+  debug('curSubedLength ', curSubedLength)
+
+  if (store.isLogin && subedLength !== curSubedLength) {
+    debug('do refreshSubedCommunities login')
+    return loadCommunities()
+  }
+
+  if (!store.isLogin && subedLength === curSubedLength) {
+    debug('do refreshSubedCommunities not login')
+    return loadCommunities()
+  }
+}
+
 const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
@@ -93,26 +117,25 @@ const DataSolver = [
     match: asyncRes(EVENT.LOGIN),
     action: () => loadCommunities(),
   },
+  {
+    match: asyncRes(EVENT.SESSTION_ROUTINE),
+    action: () => refreshSubedCommunitiesIfNeed(),
+  },
 ]
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Sidebar' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'Sidebar' }),
   },
 ]
 

@@ -8,19 +8,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD } from '../../config'
+import Modal from 'components/Modal'
+import SectionLabel from 'components/SectionLabel'
+import { ICON_CMD } from 'config'
 
-import Modal from '../../components/Modal'
-import SectionLabel from '../../components/SectionLabel'
-
+import { makeDebugger, storePlug } from 'utils'
 import { AdderWrapper, AdderText, AdderIcon } from './styles'
 
 import BoxView from './BoxView'
 import Creator from './Creator'
 import Updater from './Updater'
 import Setter from './Setter'
-
-import { makeDebugger, storePlug } from '../../utils'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
@@ -58,25 +56,25 @@ class FavoritesCatsContainer extends React.Component {
 
     return (
       <React.Fragment>
-        {displayMode === 'list' ? (
+        {displayMode === 'list' && (
           <SectionLabel
             title="收藏夹"
             iconSrc={`${ICON_CMD}/folder.svg`}
             desc={`收藏夹共 ${totalCount} 个。`}
             addonNode={
               <React.Fragment>
-                {isSelfViewing ? (
+                {isSelfViewing && (
                   <AdderWrapper
                     onClick={logic.changeViewTo.bind(this, 'creator')}
                   >
                     <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
                     <AdderText>创建</AdderText>
                   </AdderWrapper>
-                ) : null}
+                )}
               </React.Fragment>
             }
           />
-        ) : null}
+        )}
         <Modal
           width="420px"
           show={showModal}
@@ -100,9 +98,9 @@ class FavoritesCatsContainer extends React.Component {
             hasLockAuth={hasLockAuth}
           />
         </Modal>
-        {displayMode === 'list' ? (
+        {displayMode === 'list' && (
           <BoxView data={pagedCategoriesData} onSelect={onSelect} />
-        ) : null}
+        )}
       </React.Fragment>
     )
   }

@@ -14,7 +14,7 @@ import {
   themeSkins,
   dispatchEvent,
   EVENT,
-} from '../../utils'
+} from 'utils'
 
 import {
   // domain
@@ -26,6 +26,7 @@ import {
   ViewingStore,
   ThemeStore,
   ThemeDefaults,
+  ErrorBoxStore,
 
   // threads
   PostsThreadStore,
@@ -130,6 +131,8 @@ const rootStore = t
     header: t.optional(HeaderStore, {}),
     content: t.optional(ContentStore, {}),
     // layouts end
+
+    errorBox: t.optional(ErrorBoxStore, {}),
 
     // banners
     banner: t.optional(BannerStore, {}),

@@ -1,9 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import InlineTags from '../InlineTags'
+import { cutFrom, parseDomain } from 'utils'
+import InlineTags from 'components/InlineTags'
 
 import {
   SmallAvatar,
@@ -20,7 +21,6 @@ import {
   CommentNum,
 } from './styles'
 // import { Wrapper } from './styles'
-import { cutFrom, parseDomain } from '../../utils'
 
 const ListView = ({ entry, onPreview }) => (
   <React.Fragment>
@@ -29,14 +29,14 @@ const ListView = ({ entry, onPreview }) => (
       <TopHalf>
         <Breif onClick={onPreview.bind(this, entry)}>
           <Title>{cutFrom(entry.title, 45)}</Title>
-          {entry.linkAddr ? (
+          {entry.linkAddr && (
             <TitleLink>
               <LinkIcon src={`${ICON_CMD}/link.svg`} />
               <span style={{ marginLeft: 9 }}>
                 {parseDomain(entry.linkAddr)}
               </span>
             </TitleLink>
-          ) : null}
+          )}
           <InlineTags data={entry.tags} />
         </Breif>
         <CommentWrapper>

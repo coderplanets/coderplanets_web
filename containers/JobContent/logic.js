@@ -1,5 +1,4 @@
 // import R from 'ramda'
-
 import {
   makeDebugger,
   $solver,
@@ -7,13 +6,11 @@ import {
   asyncErr,
   EVENT,
   ERR,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
-
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:JobContent')
 
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS],
@@ -21,6 +18,9 @@ const sr71$ = new SR71({
 
 let sub$ = null
 let store = null
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:JobContent')
 
 const loadJob = () => {
   const { id } = store.viewingData
@@ -59,22 +59,18 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'JobContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'JobContent' }),
   },
 ]
 

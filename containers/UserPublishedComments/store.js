@@ -6,14 +6,14 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
+import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from 'utils'
 import {
   PagedPostComments,
   PagedJobComments,
   PagedVideoComments,
   PagedRepoComments,
   emptyPagiData,
-} from '../../stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from '../../utils'
+} from 'stores/SharedModel'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:UserPublishedComments')
 
@@ -74,18 +74,17 @@ const UserPublishedComments = t
         pagedData.entries.length === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
 
       switch (self.curThread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return self.markState({ curView, pagedJobComments: pagedData })
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return self.markState({ curView, pagedVideoComments: pagedData })
-        }
-        case THREAD.REPO: {
+
+        case THREAD.REPO:
           return self.markState({ curView, pagedRepoComments: pagedData })
-        }
-        default: {
+
+        default:
           return self.markState({ curView, pagedPostComments: pagedData })
-        }
       }
     },
     markState(sobj) {

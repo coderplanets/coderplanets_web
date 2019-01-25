@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
-/* import { Img } from '../../../components' */
-import Img from '../../Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
+import Img from 'Img'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-both')};

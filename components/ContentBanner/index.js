@@ -9,7 +9,8 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import DotDivider from '../DotDivider'
+import { makeDebugger } from 'utils'
+import DotDivider from 'components/DotDivider'
 
 import {
   BannerContainer,
@@ -22,8 +23,6 @@ import {
 
 import ReactionNumbers from './ReactionNumbers'
 
-import { makeDebugger } from '../../utils'
-
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContentBanner:index')
 
@@ -33,12 +32,12 @@ const ContentBanner = ({ data, middleNode }) => {
 
   return (
     <BannerContainer>
-      {R.isNil(data.id) ? null : (
+      {!R.isNil(data.id) && (
         <BannerContentWrapper>
           <PostBrief>
             <Title>{data.title}</Title>
             <React.Fragment>
-              {!R.isEmpty(middleNode) ? <div>{middleNode}</div> : null}
+              {!R.isEmpty(middleNode) && <div>{middleNode}</div>}
             </React.Fragment>
             <Desc>
               {isRefined ? <MarkTag>精华</MarkTag> : <div />}

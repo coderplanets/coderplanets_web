@@ -1,9 +1,9 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
+import { TAG_COLOR_ORDER } from 'config'
 import { EVENT } from './constants'
 import { nilOrEmpty } from './validator'
-import { TAG_COLOR_ORDER } from '../config'
 
 /* eslint-disable */
 // TODO: document ?
@@ -103,9 +103,13 @@ export const dispatchEvent = (msg, data = {}) => {
   PubSub.publish(msg, data)
 }
 
-export const closePreviewer = (type = '') => {
+export const closePreviewer = (type = '') =>
   dispatchEvent(EVENT.PREVIEW_CLOSE, { type })
-}
+
+export const errRescue = ({ type, operation, details, path }) =>
+  dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
+
+// errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 
 /* eslint-disable */
 export const debounce = (func, wait, immediate) => {

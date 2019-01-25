@@ -1,10 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import {
-  ArticleContentLoading,
-  EditorLoading,
-} from '../../components/LoadingEffects'
+import { ArticleContentLoading, EditorLoading } from 'components/LoadingEffects'
 
 const CommonLoading = () => (
   <div>
@@ -93,7 +90,7 @@ export const DynamicRepoEditor = dynamic({
 })
 
 export const DynamicStateTree = dynamic({
-  loader: () => import('../../components/StateTree'),
+  loader: () => import('components/StateTree'),
   /* eslint-disable-next-line */
   loading: () => <CommonLoading />,
   ssr: false,

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const RespectText = styled.div`
   color: ${theme('editor.placeholder')};
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: block;
 `
 export const Divider = styled.div`
   border-top: 1px solid;

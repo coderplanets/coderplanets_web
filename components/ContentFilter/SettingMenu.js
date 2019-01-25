@@ -1,8 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
+import { THREAD, C11N } from 'utils'
 import {
   Wrapper,
   Title,
@@ -12,14 +13,13 @@ import {
   OptionText,
 } from './styles/setting_menu'
 
-import { THREAD, C11N } from '../../utils'
-
 const SettingMenu = ({
   thread,
   customization: {
     bannerLayout,
     contentsLayout,
     contentDivider,
+    contentHover,
     markViewed,
     displayDensity,
   },
@@ -76,6 +76,18 @@ const SettingMenu = ({
       <OptionIcon
         src={
           markViewed === true
+            ? `${ICON_CMD}/turn_on.svg`
+            : `${ICON_CMD}/turn_off.svg`
+        }
+        active
+      />
+    </Option>
+
+    <Option onClick={onC11NChange.bind(this, { contentHover: !contentHover })}>
+      <OptionText>悬停提示</OptionText>
+      <OptionIcon
+        src={
+          contentHover === true
             ? `${ICON_CMD}/turn_on.svg`
             : `${ICON_CMD}/turn_off.svg`
         }

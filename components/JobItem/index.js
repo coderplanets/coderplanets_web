@@ -7,29 +7,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// import { ICON_CMD } from '../../config'
+import { makeDebugger, C11N } from 'utils'
 
-import { Wrapper } from './styles'
+import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
 import ListView from './ListView'
 
-import ArticleItemPrefixLabel from '../ArticleItemPrefixLabel'
+import { Wrapper } from './styles'
 
 import { getOpacity } from './helper'
-import { makeDebugger, C11N } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:JobItem:index')
 
 const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
   const {
-    customization: { contentsLayout, contentDivider },
+    customization: { contentsLayout, contentDivider, contentHover },
   } = accountInfo
 
   return (
     <Wrapper
       opacity={getOpacity(entry, active, accountInfo)}
+      hover={contentHover}
       divider={contentDivider}
     >
       <ArticleItemPrefixLabel
@@ -77,6 +77,8 @@ JobItem.propTypes = {
     customization: PropTypes.shape({
       contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
       markViewed: PropTypes.bool,
+      contentDivider: PropTypes.bool,
+      contentHover: PropTypes.bool,
       displayDensity: PropTypes.oneOf(['20', '25', '30']),
     }),
   }),
@@ -91,6 +93,8 @@ JobItem.defaultProps = {
     isLogin: false,
     customization: PropTypes.shape({
       contentsLayout: C11N.DIGEST,
+      contentDivider: false,
+      contentHover: true,
       markViewed: true,
       displayDensity: '20',
     }),

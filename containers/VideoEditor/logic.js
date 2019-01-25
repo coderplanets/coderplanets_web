@@ -12,9 +12,10 @@ import {
   EVENT,
   updateEditing,
   closePreviewer,
-} from '../../utils'
+  errRescue,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 
 import { S, updatableFields } from './schema'
 
@@ -58,6 +59,8 @@ export const canclePublish = () => {
 export const usePosterAsThumbnil = () =>
   store.updateEditing({ poster: store.editVideoData.thumbnil })
 
+const cancleLoading = () => store.markState({ publishing: false })
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -82,24 +85,21 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      store.markState({ publishing: false })
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-      store.markState({ publishing: false })
+      cancleLoading()
+      errRescue({ type: ERR.TIMEOUT, details, path: 'VideoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-      store.markState({ publishing: false })
+    action: () => {
+      cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: 'VideoEditor' })
     },
   },
 ]
@@ -108,10 +108,7 @@ const openAttachment = att => {
   if (!att) return false
   const { type } = att
   if (type === TYPE.PREVIEW_VIDEO_EDIT) {
-    debug('edit the fuck', att)
     store.markState({ editVideo: att, isEdit: true })
-    /* loadVideo(att) */
-    /* store.setViewing({ video: att }) */
   }
 }
 

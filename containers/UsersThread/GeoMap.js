@@ -3,12 +3,11 @@ import React from 'react'
 // import G2 from 'g2'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
+import { Margin } from 'components/BaseStyled'
+import { makeDebugger, uid, theme as themeHelper } from 'utils'
 import fetchGeoData from './geo_data'
 
-import { Margin } from '../../components/BaseStyled'
-
 import { MapWrapper } from './styles'
-import { makeDebugger, uid, theme as themeHelper } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:LocationMap')

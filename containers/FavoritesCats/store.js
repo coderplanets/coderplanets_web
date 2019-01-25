@@ -6,19 +6,13 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { markStates, makeDebugger, stripMobx, changeset, THREAD } from 'utils'
 import {
   FavoriteCategory,
   PagedFavoriteCategories,
   emptyPagiData,
-} from '../../stores/SharedModel'
+} from 'stores/SharedModel'
 
-import {
-  markStates,
-  makeDebugger,
-  stripMobx,
-  changeset,
-  THREAD,
-} from '../../utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:FavoritesCats')
 
@@ -71,18 +65,17 @@ const FavoritesCats = t
     // and it's passible set/unset favrites on user's page
     get viewingData() {
       switch (self.thread) {
-        case THREAD.JOB: {
+        case THREAD.JOB:
           return stripMobx(self.root.viewing.job)
-        }
-        case THREAD.REPO: {
+
+        case THREAD.REPO:
           return stripMobx(self.root.viewing.repo)
-        }
-        case THREAD.VIDEO: {
+
+        case THREAD.VIDEO:
           return stripMobx(self.root.viewing.video)
-        }
-        default: {
+
+        default:
           return stripMobx(self.root.viewing.post)
-        }
       }
     },
 
@@ -154,30 +147,29 @@ const FavoritesCats = t
       if (!self.isLogin) return self.authWarning()
 
       switch (view) {
-        case 'setter': {
+        case 'setter':
           return self.markState({
             showModal: true,
             showSetter: true,
             showUpdater: false,
             showCreator: false,
           })
-        }
-        case 'updater': {
+
+        case 'updater':
           return self.markState({
             showModal: true,
             showUpdater: true,
             showCreator: false,
             showSetter: false,
           })
-        }
-        default: {
+
+        default:
           return self.markState({
             showModal: true,
             showCreator: true,
             showUpdater: false,
             showSetter: false,
           })
-        }
       }
     },
     cleanEditData() {

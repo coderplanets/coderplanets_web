@@ -7,17 +7,18 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import ArticleViewerHeader from '../ArticleViewerHeader'
-import ArticleBodyHeader from '../ArticleBodyHeader'
-import Comments from '../Comments'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import Maybe from '../../components/Maybe'
-import VideoPoster from '../../components/VideoPoster'
-import VideoInfoCard from '../../components/VideoInfoCard'
+import ArticleViewerHeader from 'containers/ArticleViewerHeader'
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from 'containers/Comments'
+
+import Maybe from 'components/Maybe'
+import VideoPoster from 'components/VideoPoster'
+import VideoInfoCard from 'components/VideoInfoCard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -35,7 +36,7 @@ class VideoViewerContainer extends React.Component {
 
   render() {
     const { videoViewer } = this.props
-    const { viewingData } = videoViewer
+    const { curCommunity, viewingData } = videoViewer
 
     return (
       <Wrapper>
@@ -46,8 +47,9 @@ class VideoViewerContainer extends React.Component {
         />
         <BodyHeaderWrapper>
           <ArticleBodyHeader
-            data={viewingData}
+            communityRaw={curCommunity.raw}
             thread={THREAD.VIDEO}
+            data={viewingData}
             middle="labeler"
           />
         </BodyHeaderWrapper>

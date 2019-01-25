@@ -11,32 +11,28 @@ import {
   $solver,
   thread2Subpath,
   atomizeValues,
+  errRescue,
   // getParameterByName,
-} from '../../utils'
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
-// import sr71$ from '../../utils/network/sr71_simple'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.SET_C11N],
 })
 
-/* eslint-disable-next-line */
-const debug = makeDebugger('L:Header')
-
 let store = null
 let sub$ = null
 
+/* eslint-disable-next-line */
+const debug = makeDebugger('L:Header')
+
 export const previewState = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_ROOT_STORE,
-  })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
 
 export const previewAccount = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_ACCOUNT_VIEW,
-  })
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 // to avoid page-cache in server
 export const checkSesstionState = () => sr71$.query(S.sessionState, {})
@@ -56,7 +52,10 @@ export const upgradeHepler = () => store.upgradeHepler()
 const DataSolver = [
   {
     match: asyncRes('sessionState'),
-    action: ({ sessionState: state }) => store.updateSesstion(state),
+    action: ({ sessionState: state }) => {
+      store.updateSesstion(state)
+      dispatchEvent(EVENT.SESSTION_ROUTINE)
+    },
   },
   {
     match: asyncRes(EVENT.SET_C11N),
@@ -84,21 +83,19 @@ const DataSolver = [
 
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => {},
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
+      errRescue({ type: ERR.TIMEOUT, details, path: 'Header' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK ?-->', details)
+    action: () => {
+      errRescue({ type: ERR.NETWORK, path: 'Header' })
     },
   },
 ]

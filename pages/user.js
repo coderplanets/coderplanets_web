@@ -4,38 +4,26 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
+import { SocialProfileJsonLd } from 'next-seo'
 
-import initRootStore from '../stores/init'
+import { SITE_URL } from 'config'
 
-import ThemeWrapper from '../containers/ThemeWrapper'
-import MultiLanguage from '../containers/MultiLanguage'
-import Preview from '../containers/Preview'
-import Doraemon from '../containers/Doraemon'
-import Route from '../containers/Route'
-import BodyLayout from '../containers/BodyLayout'
-import Header from '../containers/Header'
-import UserBanner from '../containers/UserBanner'
-import UserContent from '../containers/UserContent'
-import Footer from '../containers/Footer'
+import ThemeWrapper from 'containers/ThemeWrapper'
+import MultiLanguage from 'containers/MultiLanguage'
+import Preview from 'containers/Preview'
+import Doraemon from 'containers/Doraemon'
+import Route from 'containers/Route'
+import BodyLayout from 'containers/BodyLayout'
+import Header from 'containers/Header'
+import UserBanner from 'containers/UserBanner'
+import UserContent from 'containers/UserContent'
+import Footer from 'containers/Footer'
+import ErrorBox from 'containers/ErrorBox'
 
-/*
-import {
-  ThemeWrapper,
-  MultiLanguage,
-  Preview,
-  Doraemon,
-  Route,
-  BodyLayout,
-  Header,
-  UserBanner,
-  UserContent,
-  Footer,
-} from '../containers'
-*/
-
-import GAWraper from '../components/GAWraper'
-import ErrorPage from '../components/ErrorPage'
-// import { GAWraper, ErrorPage } from '../components'
+import { P } from 'schemas'
+import GAWraper from 'components/GAWraper'
+import ErrorPage from 'components/ErrorPage'
+// import { GAWraper, ErrorPage } from 'components'
 
 import {
   BStore,
@@ -48,9 +36,9 @@ import {
   ROUTE,
   pagedFilter,
   ssrAmbulance,
-} from '../utils'
+} from 'utils'
 
-import { P } from '../containers/schemas'
+import initRootStore from 'stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -119,11 +107,13 @@ export default class UserPage extends React.Component {
       : initRootStore({ ...props })
 
     this.store = store
-    // this.store = initRootStore({ ...props })
   }
 
   render() {
     const { statusCode, target } = this.props
+    const {
+      viewing: { user },
+    } = this.props
 
     return (
       <Provider store={this.store}>
@@ -133,10 +123,17 @@ export default class UserPage extends React.Component {
               <ErrorPage errorCode={statusCode} page="user" target={target} />
             ) : (
               <React.Fragment>
+                <SocialProfileJsonLd
+                  type="Person"
+                  name={`${user.nickname}`}
+                  url={`${SITE_URL}/user/${user.login}`}
+                  sameAs={[]}
+                />
                 <Route />
                 <MultiLanguage>
                   <Preview />
                   <Doraemon />
+                  <ErrorBox />
                   <BodyLayout noSidebar>
                     <Header />
                     <UserBanner />

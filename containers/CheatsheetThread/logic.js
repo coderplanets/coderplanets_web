@@ -10,27 +10,28 @@ import {
   EVENT,
   THREAD,
   githubApi,
-} from '../../utils'
+  errRescue,
+  BStore,
+  nilOrEmpty,
+} from 'utils'
 
-import SR71 from '../../utils/network/sr71'
+import SR71 from 'utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
+let sub$ = null
+let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:CheatsheetThread')
-
-let sub$ = null
-let store = null
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw
   // const community = 'no-exsit'
   /* const community = 'elixir' */
 
-  debug('query cheatsheet: ', community)
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.cheatsheet, { community })
 }
@@ -45,7 +46,13 @@ export const syncCheatsheet = readme => {
   sr71$.mutate(S.syncCheatsheet, args)
 }
 
+export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+
 export const syncCheetsheetFromGithub = () => {
+  if (nilOrEmpty(BStore.get('github_token'))) {
+    return store.markState({ showSyncWarning: true })
+  }
+
   githubApi
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {
@@ -72,8 +79,12 @@ export const addContributor = user => {
 const DataSolver = [
   {
     match: asyncRes('cheatsheet'),
-    action: ({ cheatsheet }) =>
-      store.markState({ cheatsheet, curView: TYPE.RESULT }),
+    action: ({ cheatsheet }) => {
+      const curView = R.isEmpty(cheatsheet.readme)
+        ? TYPE.RESULT_EMPTY
+        : TYPE.RESULT
+      store.markState({ cheatsheet, curView })
+    },
   },
   {
     match: asyncRes('syncCheatsheet'),
@@ -98,24 +109,17 @@ const DataSolver = [
 ]
 const ErrSolver = [
   {
-    match: asyncErr(ERR.CRAPHQL),
-    action: ({ details }) => {
-      debug('ERR.CRAPHQL -->', details)
-      // TODO: add CODE to NOT_FOUND in server
-      store.markState({ curView: TYPE.NOT_FOUND })
-    },
+    match: asyncErr(ERR.GRAPHQL),
+    action: () => store.markState({ curView: TYPE.NOT_FOUND }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      debug('ERR.TIMEOUT -->', details)
-    },
+    action: ({ details }) =>
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CheatsheetThread' }),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => {
-      debug('ERR.NETWORK -->', details)
-    },
+    action: () => errRescue({ type: ERR.NETWORK, path: 'CheatsheetThread' }),
   },
 ]
 

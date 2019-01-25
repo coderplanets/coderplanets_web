@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '../../Img'
-import { theme, cs } from '../../../utils'
+import { theme, cs } from 'utils'
+import Img from 'Img'
 
 export const Wrapper = styled.article`
   ${cs.flex()};
@@ -17,8 +17,7 @@ export const Wrapper = styled.article`
   border-bottom-color: ${theme('thread.articleDivider')};
 
   &:hover {
-    cursor: pointer;
-    background: ${theme('thread.articleHover')};
+    background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `
 export const Main = styled.div`
@@ -47,6 +46,9 @@ export const Breif = styled.div`
   ${cs.flexGrow()};
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const Title = styled.div`
   margin-bottom: 10px;

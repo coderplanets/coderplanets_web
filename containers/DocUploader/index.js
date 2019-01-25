@@ -8,12 +8,19 @@ import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ASSETS_ENDPOINT } from '../../config'
+import { ASSETS_ENDPOINT } from 'config'
 
+import { makeDebugger, storePlug, uid, Global } from 'utils'
 import { Wrapper, InputFile } from './styles'
 
-import { makeDebugger, storePlug, uid, Global } from '../../utils'
-import { init, uninit, onUploadError, getOSSDir, getOSSFileName } from './logic'
+import {
+  init,
+  uninit,
+  onUploadError,
+  getOSSDir,
+  getOSSFileName,
+  sendEvent,
+} from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:DocUploader')
@@ -124,6 +131,7 @@ class DocUploaderContainer extends React.Component {
 
     this.setState({ initTimestamp: curTimeStamp })
 
+    sendEvent('start')
     onUploadStart()
     const filename = file.name
     const fullpath = `${getOSSDir()}/${getOSSFileName(filename)}`
@@ -132,9 +140,13 @@ class DocUploaderContainer extends React.Component {
       .multipartUpload(fullpath, file)
       .then(result => {
         const url = `${ASSETS_ENDPOINT}/${result.name}`
+        sendEvent('finish')
         this.onUploadDone(url)
       })
-      .catch(err => onUploadError(err))
+      .catch(err => {
+        sendEvent('finish')
+        onUploadError(err)
+      })
   }
 
   render() {

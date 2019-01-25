@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import Maybe from '../../components/Maybe'
-import Popover from '../../components/Popover'
+import Maybe from 'components/Maybe'
+import Popover from 'components/Popover'
 
 import {
   Reaction,

@@ -1,26 +1,26 @@
 import React from 'react'
 import R from 'ramda'
 
-import Maybe from '../../components/Maybe'
+import Maybe from 'components/Maybe'
+import { uid, Trans } from 'utils'
 import { Wrapper, Item, Hightlight } from './styles/selected'
-import { uid, Trans } from '../../utils'
 
 const renderItems = items => {
   if (!items) return null
   const tagsList = R.reject(t => t === 'refined', items)
 
   switch (tagsList.length) {
-    case 0: {
+    case 0:
       return <Item>(--)</Item>
-    }
-    case 1: {
+
+    case 1:
       return (
         <Item>
           (<Hightlight>{Trans(tagsList[0])}</Hightlight>)
         </Item>
       )
-    }
-    case 2: {
+
+    case 2:
       return (
         <Item>
           (
@@ -30,14 +30,13 @@ const renderItems = items => {
           )
         </Item>
       )
-    }
-    default: {
+
+    default:
       return (
         <Item>
           (<Hightlight>{Trans(tagsList[0])}, ..</Hightlight>)
         </Item>
       )
-    }
   }
 }
 
@@ -47,9 +46,8 @@ const renderReadonlyItems = items => {
 
   const totalLength = tagsList.length
 
-  if (totalLength === 0) {
-    return <Item>(--)</Item>
-  }
+  if (totalLength === 0) return <Item>(--)</Item>
+
   if (totalLength === 1) {
     return (
       <Item>

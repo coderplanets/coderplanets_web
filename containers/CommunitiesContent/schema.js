@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '../schemas'
+import { F } from 'schemas'
 
 const pagedCommunities = gql`
   query($filter: CommunitiesFilter!, $userHasLogin: Boolean!) {

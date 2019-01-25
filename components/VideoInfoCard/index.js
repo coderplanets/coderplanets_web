@@ -8,10 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '../../config'
+import { ICON_CMD } from 'config'
 
-import DotDivider from '../DotDivider'
-import VideoSourceInfo from '../VideoSourceInfo'
+import { makeDebugger, cutFrom } from 'utils'
+import DotDivider from 'components/DotDivider'
+import VideoSourceInfo from 'components/VideoSourceInfo'
 
 import {
   Wrapper,
@@ -28,8 +29,6 @@ import {
   DurationText,
   Source,
 } from './styles'
-
-import { makeDebugger, cutFrom } from '../../utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoInfoCard:index')

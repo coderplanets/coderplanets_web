@@ -9,13 +9,14 @@ import { inject, observer } from 'mobx-react'
 import Waypoint from 'react-waypoint'
 import { Affix } from 'antd'
 
-import { ICON_CMD } from '../../config'
-import TagsBar from '../TagsBar'
+import { ICON_CMD } from 'config'
+import { makeDebugger, storePlug, THREAD } from 'utils'
 
-import Maybe from '../../components/Maybe'
-import ContentFilter from '../../components/ContentFilter'
-import PublishLabel from '../../components/PublishLabel'
-import PagedContents from '../../components/PagedContents'
+import PagedContents from 'components/PagedContents'
+import ContentFilter from 'components/ContentFilter'
+import PublishLabel from 'components/PublishLabel'
+import TagsBar from 'containers/TagsBar'
+import Maybe from 'components/Maybe'
 
 import {
   Wrapper,
@@ -27,7 +28,6 @@ import {
   PublishBtn,
 } from './styles'
 
-import { makeDebugger, storePlug, THREAD } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */

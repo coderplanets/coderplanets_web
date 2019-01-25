@@ -7,12 +7,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Pagi from '../../components/Pagi'
+import Pagi from 'components/Pagi'
+import { makeDebugger, storePlug } from 'utils'
 import CommunityCards from './CommunityCards'
 
 import { Wrapper } from './styles'
 
-import { makeDebugger, storePlug } from '../../utils'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -32,7 +32,7 @@ class CommunitiesContentContainer extends React.Component {
 
     return (
       <Wrapper>
-        {pagedCommunitiesData ? (
+        {pagedCommunitiesData && (
           <React.Fragment>
             <CommunityCards
               entries={pagedCommunitiesData.entries}
@@ -46,7 +46,7 @@ class CommunitiesContentContainer extends React.Component {
               onChange={logic.pageChange}
             />
           </React.Fragment>
-        ) : null}
+        )}
       </Wrapper>
     )
   }
