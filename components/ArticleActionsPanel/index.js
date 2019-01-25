@@ -15,6 +15,7 @@ import Informer from 'containers/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
+import DeleteOption from './DeleteOption'
 
 import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
 
@@ -62,10 +63,12 @@ const ArticleActionsPanel = ({
         <OptionTitle>举报该内容</OptionTitle>
       </Option>
     </Informer>
-    <Option red onClick={onDelete}>
-      <OptionIcon src={`${ICON_CMD}/delete.svg`} red />
-      <OptionTitle>删除该内容</OptionTitle>
-    </Option>
+
+    <DeleteOption
+      passport="owner"
+      ownerId={data.author.id}
+      onDelete={onDelete}
+    />
   </Wrapper>
 )
 
