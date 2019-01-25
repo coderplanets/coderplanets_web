@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from 'config'
+import withGuardian from 'components/HOC/withGuardian'
 
 import {
   Wrapper,
@@ -11,9 +12,9 @@ import {
   LogoutText,
 } from './styles/operators'
 
-const Opertors = ({ show, onEdit, onLogout }) => (
+const Opertors = ({ onEdit, onLogout }) => (
   <Wrapper>
-    <EditWrapper show={show} onClick={onEdit}>
+    <EditWrapper onClick={onEdit}>
       <EditIcon src={`${ICON_CMD}/edit.svg`} />
     </EditWrapper>
     <LogoutBtn onClick={onLogout}>
@@ -23,4 +24,4 @@ const Opertors = ({ show, onEdit, onLogout }) => (
   </Wrapper>
 )
 
-export default Opertors
+export default withGuardian(Opertors)

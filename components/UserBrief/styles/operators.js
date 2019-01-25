@@ -34,7 +34,7 @@ export const LogoutText = styled.div`
   }
 `
 export const EditWrapper = styled.div`
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: block;
   flex-grow: 1;
 `
 export const EditIcon = styled(Img)`

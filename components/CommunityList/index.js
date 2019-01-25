@@ -25,7 +25,7 @@ import {
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:CommunityList:index')
 
-const CommunityList = ({ items, emptyHint }) => {
+const CommunityList = ({ items, size, bottom, emptyHint }) => {
   if (R.isEmpty(items)) {
     return !R.isEmpty(emptyHint) && <React.Fragment>{emptyHint}</React.Fragment>
   }
@@ -47,8 +47,8 @@ const CommunityList = ({ items, emptyHint }) => {
             </PopoverInfo>
           }
         >
-          <Linker href={`/${community.raw}/posts`}>
-            <Logo src={community.logo} />
+          <Linker href={`/${community.raw}/posts`} bottom={bottom}>
+            <Logo src={community.logo} size={size} />
           </Linker>
         </Popover>
       ))}
@@ -65,12 +65,16 @@ CommunityList.propTypes = {
       logo: PropTypes.string,
     })
   ),
+  size: PropTypes.string,
+  bottom: PropTypes.string,
   emptyHint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 }
 
 CommunityList.defaultProps = {
   items: [],
   emptyHint: '',
+  size: '24px',
+  bottom: '0',
 }
 
 export default CommunityList

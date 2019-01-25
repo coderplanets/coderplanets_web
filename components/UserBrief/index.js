@@ -5,7 +5,6 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 
 import { DEFAULT_USER_AVATAR } from 'config'
 
@@ -44,19 +43,16 @@ class UserBrief extends React.Component {
 
   render() {
     const { showDetail } = this.state
-    const {
-      user,
-      displayStyle,
-      showEdit,
-      onEdit,
-      onLogout,
-      viewingType,
-    } = this.props
+    const { user, displayStyle, onEdit, onLogout, viewingType } = this.props
 
     return (
       <Wrapper>
         <AvatarWrapper>
-          <Link href={`/user/${user.login}`}>
+          <a
+            href={`/user/${user.login}`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <div>
               <Avatar
                 src={user.avatar || DEFAULT_USER_AVATAR}
@@ -64,7 +60,7 @@ class UserBrief extends React.Component {
                 hover={displayStyle === 'sidebar'}
               />
             </div>
-          </Link>
+          </a>
 
           {displayStyle === 'sidebar' && <BadgeInfo user={user} />}
         </AvatarWrapper>
@@ -73,7 +69,12 @@ class UserBrief extends React.Component {
           <UserTitle>
             {user.nickname}
             {viewingType === 'account' && (
-              <Operators show={showEdit} onEdit={onEdit} onLogout={onLogout} />
+              <Operators
+                passport="owner"
+                ownerId={user.id}
+                onEdit={onEdit}
+                onLogout={onLogout}
+              />
             )}
           </UserTitle>
 
@@ -102,13 +103,11 @@ UserBrief.propTypes = {
   user: PropTypes.object.isRequired,
   displayStyle: PropTypes.oneOf(['default', 'sidebar']),
   viewingType: PropTypes.oneOf(['account', 'user']),
-  showEdit: PropTypes.bool,
   onEdit: PropTypes.func,
   onLogout: PropTypes.func,
 }
 
 UserBrief.defaultProps = {
-  showEdit: false,
   displayStyle: 'default',
   viewingType: 'user',
   onEdit: debug,

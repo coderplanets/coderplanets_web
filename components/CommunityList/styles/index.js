@@ -5,17 +5,22 @@ import Img from 'Img'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
+  flex-wrap: wrap;
 `
 export const Linker = styled.a`
+  margin-bottom: ${({ bottom }) => bottom};
+  display: block;
   &:hover {
     text-decoration: underline;
   }
 `
 
 export const Logo = styled(Img)`
-  width: 24px;
-  height: 24px;
+  fill: ${theme('thread.articleTitle')};
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
   margin-left: 3px;
+  display: block;
 `
 export const PopoverInfo = styled.div`
   ${cs.flex()};
