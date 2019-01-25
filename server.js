@@ -9,7 +9,7 @@ const mobxReact = require('mobx-react')
 const R = require('ramda')
 
 // import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
-const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+// const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
 
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
@@ -35,10 +35,12 @@ app.prepare().then(() => {
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
   server.use(helmet())
+  /*
   server.use(
     '/model-graphs',
     voyagerMiddleware({ endpointUrl: 'https://api.coderplanets.com/graphiql' })
   )
+  */
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
@@ -99,6 +101,7 @@ const reDirectToNakedUrl = (req, res, next) => {
 
   if (host.indexOf(w3) === 0) {
     const nakedUrl = `${ptl}://${host.slice(w3.length)}:80${originalUrl}`
+    console.log('redirect nakedUrl: ', nakedUrl)
     return res.redirect(301, nakedUrl)
   }
 
