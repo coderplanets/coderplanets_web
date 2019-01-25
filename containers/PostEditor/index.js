@@ -15,8 +15,6 @@ import ArticleEditFooter from 'components/ArticleEditFooter'
 import { ArticleContentLoading } from 'components/LoadingEffects'
 import Modal from 'components/Modal'
 
-import Modal from '../../components/Modal'
-
 import Editor from './Editor'
 import Preview from './Preview'
 import Header from './Header'
