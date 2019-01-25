@@ -92,7 +92,13 @@ const DigestView = () => (
       <Column>
         <Title>开发者</Title>
         <Body>
-          <Item>开发文档</Item>
+          <Item
+            href={`${GITHUB_WEB_ADDR}/tree/dev/docs`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            开发文档
+          </Item>
           <Item
             href={`${API_SERVER_ADDR}`}
             rel="noopener noreferrer"
