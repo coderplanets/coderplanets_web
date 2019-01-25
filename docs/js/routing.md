@@ -1,4 +1,4 @@
-This project is built on [next.js] (https://github.com/zeit/next.js) and follows the basic [route rules] of next.js (https://github.com/zeit/next .js#routing).
+This project is built on [next.js](https://github.com/zeit/next.js) and follows the basic [next route rules](https://github.com/zeit/next .js#routing).
 
 Simply put, the `directory structure is the route`. The files under the pages directory are all the routes of the project. These pages support server-side rendering:
 
