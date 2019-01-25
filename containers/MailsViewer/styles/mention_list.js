@@ -41,6 +41,15 @@ export const UserNickname = styled.div`
     color: ${theme('banner.title')};
   }
 `
+export const MessageLinker = styled.a`
+  color: ${theme('thread.articleTitle')};
+  margin-top: 5px;
+  &:hover {
+    text-decoration: underline;
+    color: ${theme('thread.articleTitle')};
+  }
+`
+
 export const Message = styled.div`
   ${cs.flexColumn()};
   padding: 10px 15px;
@@ -87,8 +96,9 @@ export const SourcePreview = styled.div`
   }
 `
 export const PreviewBody = styled.div`
+  flex-grow: 1;
   font-style: italic;
-  ${cs.truncate('550px')};
+  ${cs.truncate('400px')};
 `
 export const AtLabel = styled.span`
   margin-left: 3px;

@@ -12,9 +12,11 @@ const mentions = gql`
           avatar
           nickname
         }
+        sourceId
         sourceTitle
         sourcePreview
         sourceType
+        community
         read
       }
       ${F.pagedCounts}
