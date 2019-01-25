@@ -8,6 +8,9 @@ const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
 
+// import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
+const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
@@ -29,6 +32,10 @@ app.prepare().then(() => {
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
   server.use(helmet())
+  server.use(
+    '/model-graphs',
+    voyagerMiddleware({ endpointUrl: 'https://api.coderplanets.com/graphiql' })
+  )
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
