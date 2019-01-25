@@ -34,7 +34,7 @@ export const client = new ApolloClient({
 })
 ```
 
-但是要非刷新页面的清理查询缓存比较麻烦，目前采用的策略是一旦用户发生 mutate 操作就清空所有缓存，重新从服务器获取([issue](https://github.com/coderplanets/coderplanets_web/issues/335)):
+但是要非刷新页面的清理查询缓存比较麻烦，目前采用的策略是一旦用户发生 mutate 操作就清空所有缓存，重新从服务器获取([查看相关issue](https://github.com/coderplanets/coderplanets_web/issues/335)):
 
 ```js
 const doMutate = (mutation, variables) =>
