@@ -29,9 +29,10 @@ const Contributors = ({ users, views, lastSync }) => (
   <Wrapper>
     <Note />
     <ContributorList
+      passport="root"
+      fallbackProps="readOnly"
       users={users}
       addContributor={logic.addContributor}
-      showAdder
     />
 
     <FootNote>

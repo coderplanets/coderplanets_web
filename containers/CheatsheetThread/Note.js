@@ -33,8 +33,9 @@ const Note = ({ communityRaw, contributors, views }) => (
       <ViewsText>浏览: {views}</ViewsText>
     </Text>
     <ContributorList
+      passport="root"
+      fallbackProps="readOnly"
       users={contributors}
-      showAdder
       addContributor={addContributor}
     />
     <SyncWrapper>

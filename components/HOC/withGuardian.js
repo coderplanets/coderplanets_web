@@ -9,7 +9,7 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, BStore } from 'utils'
+import { makeDebugger, BStore, nilOrEmpty } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Guardian:index')
@@ -40,12 +40,12 @@ const withGuardian = WrappedComponent => {
       const accountPassports = loginUser.cmsPassport || {}
       let isValid = false
 
-      debug('accountPassports: ', accountPassports)
-      debug('passport: ', passport)
+      // debug('accountPassports: ', accountPassports)
+      // debug('passport: ', passport)
       // valid by default if no passport pass in
       // or root
-      // if (nilOrEmpty(passport) || accountPassports.root) {
-      if (!passport) {
+      if (nilOrEmpty(passport) || accountPassports.root) {
+        // if (!passport) {
         isValid = true
       } else if (R.startsWith('owner', passport)) {
         // check if owner is login user ...

@@ -10,7 +10,8 @@ import PropTypes from 'prop-types'
 import { makeDebugger } from 'utils'
 
 import AvatarAdder from 'containers/AvatarAdder'
-import Maybe from 'components/Maybe'
+
+import withGuardian from 'components/HOC/withGuardian'
 import Popover from 'components/Popover'
 import GithubUserCard from 'components/GithubUserCard'
 
@@ -19,7 +20,7 @@ import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:ContributorList:index')
 
-const ContributorList = ({ users, showAdder, addContributor }) => (
+const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>
     {users.map(user => (
       <Popover
@@ -38,9 +39,7 @@ const ContributorList = ({ users, showAdder, addContributor }) => (
       </Popover>
     ))}
 
-    <Maybe test={showAdder}>
-      <AvatarAdder onConfirm={addContributor} />
-    </Maybe>
+    {!readOnly && <AvatarAdder onConfirm={addContributor} />}
   </Wrapper>
 )
 
@@ -56,12 +55,12 @@ ContributorList.propTypes = {
     })
   ).isRequired,
   addContributor: PropTypes.func,
-  showAdder: PropTypes.bool,
+  readOnly: PropTypes.bool,
 }
 
 ContributorList.defaultProps = {
   addContributor: debug,
-  showAdder: false,
+  readOnly: false,
 }
 
-export default ContributorList
+export default withGuardian(ContributorList)
