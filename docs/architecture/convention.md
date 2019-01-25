@@ -8,7 +8,7 @@ Component file files are named with a capital hump, such as PostEditor.js, and t
 #### sr71
 
 Sr71.js is the asynchronous module of the project (utils/aysnc/sr71.js), which is mainly responsible for network request/event response and so on.
-The name of the sr71 comes from the US military's sr71 blackbird reconnaissance plane. See the ansyc documentation for details.
+The name of the sr71 comes from the US military's sr71 blackbird reconnaissance plane. See the [ansyc documentation](https://github.com/coderplanets/coderplanets_web/blob/docs/docs/js/async.md) for details.
 
 #### Doramon
 
@@ -28,6 +28,33 @@ Mentioned:
   State unified external incoming
 - Synchronous or asynchronous logic should be extracted into the same directory's logic.js, React only does the view layer
 - All styles should be in the styles/ folder under the same directory, and the style file is named after stake_style
+
+
+### module import
+
+based on [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolver] 's config:
+
+```js
+"alias": {
+  "containers":"./containers",
+  "components":"./components",
+  "config":"./config",
+  "stores":"./stores",
+  "schemas":"./containers/schemas",
+  "utils":"./utils",
+  "Img": "./components/Img",
+  "SvgIcons": "./components/SvgIcons"
+}
+```
+we can easily import files like:
+
+```js
+import { ISSUE_WEB } from 'config'
+import { makeDebugger, storePlug } from 'utils'
+
+import ArticleEditFooter from 'components/ArticleEditFooter'
+...
+```
 
 ### Module reference order
 

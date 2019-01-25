@@ -9,7 +9,7 @@
 #### sr71
 
 sr71.js 为项目的异步模块(utils/aysnc/sr71.js), 主要负责网络请求/事件响应等等。
-sr71 的名字来源于美军的 sr71 黑鸟侦察机, 详见 ansyc 文档。
+sr71 的名字来源于美军的 sr71 黑鸟侦察机, 详见 [ansyc 文档](https://github.com/coderplanets/coderplanets_web/blob/docs/docs/js/async.zh-CN.md)。
 
 #### Doramon
 
@@ -29,6 +29,32 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
   态统一外部传入
 - 同步或异步逻辑都应该抽取到同目录的 logic.js 中, React 只做 view 层
 - 所有样式应在同目录下的 styles/ 文件夹，且样式文件的命名遵循 stake_style
+
+### 模块引用
+
+得益于 [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolver] 的配置:
+
+```js
+"alias": {
+  "containers":"./containers",
+  "components":"./components",
+  "config":"./config",
+  "stores":"./stores",
+  "schemas":"./containers/schemas",
+  "utils":"./utils",
+  "Img": "./components/Img",
+  "SvgIcons": "./components/SvgIcons"
+}
+```
+在项目中可以直接引用上述组件，比如： 
+
+```js
+import { ISSUE_WEB } from 'config'
+import { makeDebugger, storePlug } from 'utils'
+
+import ArticleEditFooter from 'components/ArticleEditFooter'
+...
+```
 
 ### 模块引用顺序
 
