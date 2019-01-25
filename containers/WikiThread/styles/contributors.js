@@ -5,7 +5,6 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  padding-left: 18px;
 `
 export const NoteWrapper = styled.div`
   ${cs.flexColumn()};
@@ -37,4 +36,17 @@ export const SycNote = styled.div`
   color: ${theme('thread.articleDigest')};
   opacity: 0.8;
   font-size: 0.8rem;
+`
+
+export const JoinText = styled.a`
+  color: ${theme('thread.articleDigest')};
+  text-decoration: underline;
+  margin-right: 3px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+  }
 `

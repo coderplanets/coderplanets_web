@@ -42,6 +42,9 @@ const renderView = (wikiData, type, communityRaw) => {
     case TYPE.NOT_FOUND:
       return <EmptyThread community={communityRaw} thread="wiki" />
 
+    case TYPE.RESULT_EMPTY:
+      return <EmptyThread community={communityRaw} thread="wiki" />
+
     default:
       return <MarkDownRender body={wikiData.readme} />
   }
@@ -95,6 +98,7 @@ class WikiThreadContainer extends React.Component {
               </a>
             </PublishBtn>
             <Contributors
+              communityRaw={communityRaw}
               isLogin={isLogin}
               users={wikiData.contributors}
               views={wikiData.views}

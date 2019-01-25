@@ -17,7 +17,7 @@ import GithubSyncWarning from 'components/GithubSyncWarning'
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
-import { Wrapper } from './styles'
+import { Wrapper, EmptyOffset } from './styles'
 
 import * as logic from './logic'
 
@@ -29,8 +29,19 @@ const renderView = (cheatsheetData, type, communityRaw) => {
     case TYPE.LOADING: {
       return <CheatSheetLoading />
     }
+    case TYPE.RESULT_EMPTY: {
+      return (
+        <EmptyOffset>
+          <EmptyThread community={communityRaw} thread="cheatsheet" />
+        </EmptyOffset>
+      )
+    }
     case TYPE.NOT_FOUND: {
-      return <EmptyThread community={communityRaw} thread="cheatsheet" />
+      return (
+        <EmptyOffset>
+          <EmptyThread community={communityRaw} thread="cheatsheet" />
+        </EmptyOffset>
+      )
     }
     default: {
       return (

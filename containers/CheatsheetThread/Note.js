@@ -1,9 +1,10 @@
 import React from 'react'
 import { Button } from 'antd'
 
+import { COMMUNITY_CHEATSHEET } from 'config'
+
 import DotDivider from 'components/DotDivider'
 import ContributorList from 'components/ContributorList'
-import { COMMUNITY_CHEATSHEET } from 'config'
 
 import {
   Wrapper,
@@ -30,7 +31,7 @@ const Note = ({ isLogin, communityRaw, contributors, views }) => (
       >
         参与编辑
       </JoinText>
-      <ViewsText>浏览: {views}</ViewsText>
+      {views && <ViewsText>浏览: {views}</ViewsText>}
     </Text>
     <ContributorList
       passport="root"

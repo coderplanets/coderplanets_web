@@ -2,6 +2,8 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 import { Button } from 'antd'
 
+import { COMMUNITY_WIKI } from 'config'
+
 import DotDivider from 'components/DotDivider'
 import ContributorList from 'components/ContributorList'
 
@@ -13,21 +15,31 @@ import {
   NoteDesc,
   FootNote,
   SycNote,
+  JoinText,
 } from './styles/contributors'
 
 import * as logic from './logic'
 
-const Note = () => (
+const Note = ({ communityRaw }) => (
   <NoteWrapper>
     <NoteTitle>本页贡献者</NoteTitle>
     <NoteDivider />
-    <NoteDesc>参与编辑后你的 GitHub 头像会同步在这里, 特此感谢.</NoteDesc>
+    <NoteDesc>
+      <JoinText
+        href={`${COMMUNITY_WIKI}/${communityRaw}_wiki.md`}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        参与编辑
+      </JoinText>
+      后你的 GitHub 头像会同步在这里, 特此感谢.
+    </NoteDesc>
   </NoteWrapper>
 )
 
-const Contributors = ({ isLogin, users, views, lastSync }) => (
+const Contributors = ({ isLogin, users, views, lastSync, communityRaw }) => (
   <Wrapper>
-    <Note />
+    <Note communityRaw={communityRaw} />
     <ContributorList
       passport="root"
       fallbackProps="readOnly"
@@ -36,12 +48,15 @@ const Contributors = ({ isLogin, users, views, lastSync }) => (
     />
 
     <FootNote>
-      <SycNote>
-        浏览: {views}
-        <DotDivider />
-        最后同步:&nbsp;
-        <TimeAgo datetime={lastSync || ''} locale="zh_CN" />
-      </SycNote>
+      {views && (
+        <SycNote>
+          浏览: {views}
+          <DotDivider />
+          最后同步:&nbsp;
+          <TimeAgo datetime={lastSync || ''} locale="zh_CN" />
+        </SycNote>
+      )}
+
       <br />
       {isLogin && (
         <Button

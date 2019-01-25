@@ -31,6 +31,7 @@ const debug = makeDebugger('L:WikiThread')
 const loadWiki = () => {
   const community = store.curCommunity.raw
 
+  store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.wiki, { community })
 }
 
@@ -41,6 +42,7 @@ const syncWiki = readme => {
     communityId: store.curCommunity.id,
   }
 
+  store.markState({ curView: TYPE.LOADING })
   sr71$.mutate(S.syncWiki, args)
 }
 
@@ -76,7 +78,10 @@ export const addContributor = user => {
 const DataSolver = [
   {
     match: asyncRes('wiki'),
-    action: ({ wiki }) => store.markState({ wiki, curView: TYPE.RESULT }),
+    action: ({ wiki }) => {
+      const curView = R.isEmpty(wiki.readme) ? TYPE.RESULT_EMPTY : TYPE.RESULT
+      store.markState({ wiki, curView })
+    },
   },
   {
     match: asyncRes('syncWiki'),

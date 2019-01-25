@@ -26,3 +26,7 @@ export const CardWrapper = styled.div`
     width: 350px;
   }
 `
+
+export const EmptyOffset = styled.div`
+  margin-left: -5%;
+`

@@ -79,8 +79,12 @@ export const addContributor = user => {
 const DataSolver = [
   {
     match: asyncRes('cheatsheet'),
-    action: ({ cheatsheet }) =>
-      store.markState({ cheatsheet, curView: TYPE.RESULT }),
+    action: ({ cheatsheet }) => {
+      const curView = R.isEmpty(cheatsheet.readme)
+        ? TYPE.RESULT_EMPTY
+        : TYPE.RESULT
+      store.markState({ cheatsheet, curView })
+    },
   },
   {
     match: asyncRes('syncCheatsheet'),
