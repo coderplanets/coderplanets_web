@@ -2,6 +2,7 @@ import React from 'react'
 import R from 'ramda'
 
 import TrendLine from 'components/TrendLine'
+import { uid } from 'utils'
 
 import {
   Wrapper,
@@ -19,6 +20,7 @@ const MenuBar = ({ pin, item, activeRaw }) => (
     <MenuItemBar>
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
+          key={uid.gen()}
           active={activeRaw === R.toLower(item.raw)}
           raw={item.raw}
           src={item.logo}

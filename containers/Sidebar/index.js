@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, uid } from 'utils'
+import { makeDebugger, storePlug } from 'utils'
 import { Container } from './styles'
 
 import Header from './Header'
@@ -19,9 +19,22 @@ import * as logic from './logic'
 const debug = makeDebugger('C:Sidebar:index')
 
 class SidebarContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    /* NOTE: this foreceReload state has no use, just forece community icons rerender */
+    /* otherwise some community logo will be misorder, reazon unknown ... */
+    /* eslint-disable-next-line */
+    this.state = { foreceReload: false }
+  }
+
   componentDidMount() {
     const { sidebar } = this.props
     logic.init(sidebar)
+    setTimeout(() => {
+      /* eslint-disable-next-line */
+      this.setState({ foreceReload: true })
+    }, 100)
   }
 
   componentWillUnmount() {
@@ -34,11 +47,12 @@ class SidebarContainer extends React.Component {
     //    onMouseLeave={logic.leaveSidebar}
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
     const activeRaw = curCommunity.raw
+    // console.log('foreceReload: ', this.state.foreceReload)
 
     // debug('communitiesData ', communitiesData)
 
     return (
-      <Container pin={pin} key={uid.gen()}>
+      <Container pin={pin}>
         <Header pin={pin} />
         <MenuList
           items={communitiesData}
