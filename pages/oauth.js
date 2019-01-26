@@ -1,11 +1,12 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import GAWraper from 'components/GAWraper'
-import initRootStore from '../stores/init'
 import ThemeWrapper from 'containers/ThemeWrapper'
 
-import { OauthHinter } from 'components'
+import GAWraper from 'components/GAWraper'
+import OauthHinter from 'components/OauthHinter'
+
+import initRootStore from 'stores/init'
 
 export default class Index extends React.Component {
   static getInitialProps() {
@@ -16,8 +17,6 @@ export default class Index extends React.Component {
     super(props)
     this.store = initRootStore({ langSetup: '' })
   }
-
-  //  <Doraemon />
 
   render() {
     return (
