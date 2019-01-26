@@ -84,6 +84,8 @@ export const init = (_store, thread, topic, active) => {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  debug('init tags: ', store.tagsData)
+  if (R.isEmpty(store.tagsData)) loadTags()
 
   let activeTag = R.pick(['id', 'title', 'color'], active)
   if (R.isEmpty(activeTag.title)) activeTag = null
