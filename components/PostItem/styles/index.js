@@ -43,7 +43,8 @@ export const SmallAvatar = styled(Avatar)`
   height: 35px;
 `
 export const Breif = styled.div`
-  ${cs.flexGrow()};
+  ${cs.flexGrow('align-center')};
+  margin-bottom: 10px;
   margin-left: 10px;
   color: ${theme('thread.articleTitle')};
   &:hover {
@@ -51,7 +52,6 @@ export const Breif = styled.div`
   }
 `
 export const Title = styled.div`
-  margin-bottom: 10px;
   font-size: 1rem;
   @media (max-width: 1450px) {
     max-width: 500px;
@@ -66,7 +66,7 @@ export const Title = styled.div`
 export const TitleLink = styled.div`
   position: relative;
   font-size: 0.9rem;
-  margin-top: 2px;
+  margin-top: -1px;
   color: ${theme('thread.articleLink')};
   margin-left: 10px;
   opacity: 0.8;
@@ -111,6 +111,4 @@ export const CommentNum = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
 `
-export const TagListWrapper = styled.div`
-  margin-top: 2px;
-`
+export const TagListWrapper = styled.div``
