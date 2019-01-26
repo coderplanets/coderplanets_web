@@ -25,7 +25,6 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
         active={data.viewerHasFavorited}
         onClick={onReaction.bind(
           this,
-          thread,
           TYPE.FAVORITE,
           data.viewerHasFavorited,
           data
