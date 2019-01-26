@@ -105,6 +105,7 @@ async function fetchData(props, opt) {
 
 export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
+    const mainPath = getMainPath(props)
     const subPath = getSubPath(props)
     const thread = extractThreadFromPath(props)
 
@@ -115,7 +116,12 @@ export default class PageCommunity extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: subPath }
+        return {
+          statusCode: 404,
+          target: mainPath,
+          viewing: { community: {} },
+          route: {},
+        }
       }
     }
 
@@ -170,6 +176,8 @@ export default class PageCommunity extends React.Component {
       route,
     } = this.props
     const { mainPath, subPath } = route
+
+    console.log('this.props: ', this.props)
 
     return (
       <Provider store={this.store}>
