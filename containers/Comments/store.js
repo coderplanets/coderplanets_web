@@ -181,8 +181,10 @@ const CommentsStore = t
       self.mentionList = R.uniq(R.concat(mentionList, self.participators))
     },
     updateOneComment(id, comment = {}) {
-      const index = R.findIndex(R.propEq('id', id), self.entriesData)
-      self.entries[index] = R.merge(self.entriesData[index], comment)
+      const { entries } = self.pagedCommentsData
+
+      const index = R.findIndex(R.propEq('id', id), entries)
+      self.pagedComments.entries[index] = R.merge(entries[index], comment)
     },
     markState(sobj) {
       markStates(sobj, self)

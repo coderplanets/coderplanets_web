@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from 'components/Img'
-import { animate, theme, cs } from 'utils'
+import { theme, cs } from 'utils'
 
 export const FilterWraper = styled.div`
   margin-right: 8px;
@@ -21,9 +21,7 @@ export const FilterIcon = styled(Img)`
   height: 20px;
   transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
 `
-export const RecentlyIcon = styled(FilterIcon)`
-  animation: ${animate.rotate360Rule};
-`
+export const RecentlyIcon = styled(FilterIcon)``
 export const MenuWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   width: 80px;

@@ -60,6 +60,7 @@ export const createComment = () => {
     id: store.viewingData.id,
     body: store.editContent,
     thread: store.activeThread,
+    community: store.curCommunity.raw,
   }
 
   debug('createComment args: ', args)
@@ -164,6 +165,7 @@ export const onFilterChange = filterType => {
 export const toggleLikeComment = comment => {
   // TODO: check login first
   debug('likeComment: ', comment)
+
   if (comment.viewerHasLiked) {
     return sr71$.mutate(S.undoLikeComment, {
       id: comment.id,
