@@ -127,6 +127,7 @@ export const init = _store => {
 export const uninit = () => {
   if (store.searching || !sub$) return false
   debug('===== do uninit')
+  store.markState({ curView: 'search', subView: 'search', searching: false })
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null

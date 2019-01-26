@@ -34,8 +34,8 @@ export const SearchTitle = styled.div`
   margin-bottom: 30px;
 `
 export const InputWrapper = styled.div`
-  width: 85%;
-  margin-left: 15%;
+  max-width: 550px;
+  width: 100%;
 `
 export const TokeInputWrapper = styled.div`
   width: 60%;

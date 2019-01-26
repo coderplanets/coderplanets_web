@@ -22,6 +22,6 @@ export const Divider = styled.div`
 `
 
 export const PublishBtns = styled.div`
-  width: 50%;
+  width: 80%;
   text-align: center;
 `
