@@ -61,7 +61,13 @@ class VideoContentContainer extends React.Component {
                   />
                 </BodyHeaderWrapper>
                 <Maybe test={viewingData.poster}>
-                  <VideoPoster poster={viewingData.poster} />
+                  <a
+                    href={viewingData.link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <VideoPoster poster={viewingData.poster} />
+                  </a>
                   <VideoInfoCard data={viewingData} />
                 </Maybe>
               </ArticleWrapper>
