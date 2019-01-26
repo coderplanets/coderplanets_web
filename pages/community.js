@@ -171,7 +171,10 @@ export default class PageCommunity extends React.Component {
 
   render() {
     const { statusCode, target } = this.props
-    const { viewing: { community }, route } = this.props
+    const {
+      viewing: { community },
+      route,
+    } = this.props
     const { mainPath, subPath } = route
 
     return (

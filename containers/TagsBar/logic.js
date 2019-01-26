@@ -38,7 +38,7 @@ export const loadTags = (topic = TOPIC.POST) => {
   const args = { community, thread, topic }
 
   /* debug('#### loadTags --> ', args) */
-  store.markStore({ loading: true })
+  store.markState({ loading: true })
   sr71$.query(S.partialTags, args)
 }
 
@@ -68,20 +68,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      store.markStore({ loading: false })
+      store.markState({ loading: false })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markStore({ loading: false })
+      store.markState({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markStore({ loading: false })
+      store.markState({ loading: false })
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },
@@ -103,6 +103,6 @@ export const uninit = () => {
   if (!sub$ || store.loading) return false
   debug('===== do uninit')
   sub$.unsubscribe()
-  sub$.stop()
+  sr71$.stop()
   sub$ = null
 }
