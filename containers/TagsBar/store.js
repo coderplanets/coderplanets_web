@@ -18,6 +18,8 @@ const TagsBar = t
     activeTag: t.maybeNull(Tag),
     thread: t.maybeNull(t.string),
     topic: t.optional(t.string, TOPIC.POST),
+
+    loading: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

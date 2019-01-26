@@ -38,6 +38,7 @@ export const loadTags = (topic = TOPIC.POST) => {
   const args = { community, thread, topic }
 
   /* debug('#### loadTags --> ', args) */
+  store.markStore({ loading: true })
   sr71$.query(S.partialTags, args)
 }
 
@@ -48,7 +49,8 @@ export const loadTags = (topic = TOPIC.POST) => {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) =>
+      store.markState({ tags, loading: false }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
@@ -65,17 +67,23 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      store.markStore({ loading: false })
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
+      store.markStore({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: () => errRescue({ type: ERR.NETWORK, path: 'AccountEditor' }),
+    action: () => {
+      store.markStore({ loading: false })
+      errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
+    },
   },
 ]
 
@@ -84,8 +92,7 @@ export const init = (_store, thread, topic, active) => {
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  debug('init tags: ', store.tagsData)
-  if (R.isEmpty(store.tagsData)) loadTags()
+  // if (R.isEmpty(store.tagsData)) loadTags()
 
   let activeTag = R.pick(['id', 'title', 'color'], active)
   if (R.isEmpty(activeTag.title)) activeTag = null
@@ -93,9 +100,9 @@ export const init = (_store, thread, topic, active) => {
 }
 
 export const uninit = () => {
-  if (!sub$) return false
+  if (!sub$ || store.loading) return false
   debug('===== do uninit')
-  sr71$.stop()
   sub$.unsubscribe()
+  sub$.stop()
   sub$ = null
 }
