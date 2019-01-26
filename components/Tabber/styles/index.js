@@ -37,7 +37,7 @@ export const LableWrapper = styled.div`
 const commonIcon = comp =>
   styled(comp)`
     fill: ${({ active }) =>
-      active ? theme('tabs.headerActive') : theme('tabs.header')};
+      active === 'true' ? theme('tabs.headerActive') : theme('tabs.header')};
     width: ${({ small }) => (small ? '13px' : '15px')};
     height: ${({ small }) => (small ? '13px' : '15px')};
     margin-right: 5px;
