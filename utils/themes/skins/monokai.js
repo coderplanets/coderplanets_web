@@ -188,12 +188,12 @@ const monokai = {
     scale_5: lighten(0.3, '#342e3a'),
   },
   geoMap: {
-    oceanColor: '#F9FCFC',
-    regionBg: '#A0BCBD',
-    restRegionBg: '#D9E6E5',
-    borderStroke: '#A0BBBD',
-    markerBg: '#C2DEB6',
-    markerShadow: '#C2DEB6',
+    oceanColor: darken(0.05, '#3D3B3E'),
+    regionBg: '#3D3B3E',
+    restRegionBg: darken(0.02, '#3D3B3E'),
+    borderStroke: darken(0.03, '#746F6D'),
+    markerBg: '#AD9960',
+    markerShadow: '#AD9960',
   },
   bannerHeatmap: {
     activityLow: '#007D7C',

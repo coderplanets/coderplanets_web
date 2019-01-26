@@ -186,12 +186,12 @@ const purple = {
     scale_5: lighten(0.3, '#342e3a'),
   },
   geoMap: {
-    oceanColor: '#F9FCFC',
-    regionBg: '#A0BCBD',
-    restRegionBg: '#D9E6E5',
-    borderStroke: '#A0BBBD',
-    markerBg: '#C2DEB6',
-    markerShadow: '#C2DEB6',
+    oceanColor: darken(0.03, '#3F3B4E'),
+    regionBg: darken(0.1, '#615C78'),
+    restRegionBg: '#2F2C3B',
+    borderStroke: '#514960',
+    markerBg: primaryMate,
+    markerShadow: primaryMate,
   },
   bannerHeatmap: {
     activityLow: '#007D7C',

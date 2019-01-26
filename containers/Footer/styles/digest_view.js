@@ -61,7 +61,7 @@ export const SiteTitle = styled.div`
 `
 
 export const Title = styled.div`
-  color: ${theme('thread.articleTitle')};
+  color: ${theme('footer.title')};
   margin-bottom: 12px;
   font-size: 0.9rem;
 `

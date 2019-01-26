@@ -187,12 +187,12 @@ const github = {
     scale_5: '#427583',
   },
   geoMap: {
-    oceanColor: '#F9FCFC',
-    regionBg: '#A0BCBD',
-    restRegionBg: '#D9E6E5',
-    borderStroke: '#A0BBBD',
-    markerBg: '#C2DEB6',
-    markerShadow: '#C2DEB6',
+    oceanColor: '#F8F8F8',
+    regionBg: '#D7D8D9',
+    restRegionBg: '#FAFBFC',
+    borderStroke: '#CFD3D7',
+    markerBg: '#F7B5A0',
+    markerShadow: '#F7B5A0',
   },
   bannerHeatmap: {
     activityLow: '#D6ECB2',

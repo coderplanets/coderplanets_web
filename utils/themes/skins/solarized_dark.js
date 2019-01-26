@@ -191,8 +191,8 @@ const solarizedDark = {
     regionBg: '#024a5d',
     restRegionBg: '#003B49',
     borderStroke: descText,
-    markerBg: '#41c7bd',
-    markerShadow: '#C2DEB6',
+    markerBg: darken(0.08, '#41c7bd'),
+    markerShadow: darken(0.08, '#41c7bd'),
   },
   bannerHeatmap: {
     activityLow: '#007D7C',

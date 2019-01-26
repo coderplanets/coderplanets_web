@@ -96,7 +96,7 @@ const cyan = {
   footer: {
     text: '#b3ccc9',
     hover: '#5c868b',
-    title: primaryColor,
+    title: '#a2c0c5',
     bottomBg: '#d9e6e5',
   },
   sidebar: {
