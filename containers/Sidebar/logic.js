@@ -12,6 +12,8 @@ import {
   dispatchEvent,
   thread2Subpath,
   THREAD,
+  ROUTE,
+  Global,
   errRescue,
 } from 'utils'
 
@@ -31,6 +33,13 @@ const debug = makeDebugger('L:Sidebar')
 export const setPin = () => store.markState({ pin: !store.pin })
 
 export const onCommunitySelect = community => {
+  // NOTE: check page, if current it's from communities then redirect whole page
+  const { mainPath } = store.curRoute
+  if (R.contains(mainPath, [ROUTE.COMMUNITIES])) {
+    Global.location.href = `/${community.raw}/posts`
+    return false
+  }
+
   store.setViewing({ community, activeThread: THREAD.POST, post: {} })
 
   store.markRoute({

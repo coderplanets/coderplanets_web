@@ -24,6 +24,9 @@ const SidebarStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },

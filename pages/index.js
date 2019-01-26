@@ -38,7 +38,7 @@ export default class PageCommunity extends React.Component {
     const mainPath = getMainPath(props)
     const subPath = getMainPath(props)
     const hideSidebar =
-      R.contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.USER]) ||
+      R.contains(mainPath, [ROUTE.USER]) ||
       R.contains(subPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
 
     return {
