@@ -32,6 +32,9 @@ const VideoEditor = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
+    get labelsData() {
+      return self.root.labeler.labelsData
+    },
     get editVideoData() {
       return {
         ...stripMobx(self.editVideo),

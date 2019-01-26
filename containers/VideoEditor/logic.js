@@ -43,6 +43,10 @@ export const onPublish = () => {
     durationSec,
   })
 
+  if (!R.isEmpty(store.labelsData.tags)) {
+    args.tags = store.labelsData.tags
+  }
+
   store.markState({ publishing: true })
   if (isEdit) {
     const args = cast(updatableFields, store.editVideoData)
@@ -54,6 +58,7 @@ export const onPublish = () => {
 export const canclePublish = () => {
   store.markState({ publishing: false })
   sr71$.stop()
+  closePreviewer()
 }
 
 export const usePosterAsThumbnil = () =>
@@ -123,6 +128,7 @@ export const init = (_store, attachment) => {
 export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
+  store.markState({ isEdit: false, editVideo: { source: 'youtube' } })
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null

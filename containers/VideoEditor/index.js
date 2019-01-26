@@ -121,13 +121,15 @@ class VideoEditorContainer extends React.Component {
             type="textarea"
             placeholder="视频描述信息 #必填#"
           />
-          <FormItem
-            label="标签:"
-            value=""
-            onChange={debug}
-            type="node"
-            node={<Labeler />}
-          />
+          {!isEdit && (
+            <FormItem
+              label="标签:"
+              value=""
+              onChange={debug}
+              type="node"
+              node={<Labeler />}
+            />
+          )}
         </FormWrapper>
 
         <ArticleEditFooter
