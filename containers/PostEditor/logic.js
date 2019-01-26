@@ -85,6 +85,12 @@ export const onPublish = () => {
     topic,
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
+  if (!R.isEmpty(store.labelsData.tags)) {
+    variables.tags = store.labelsData.tags
+  }
+
+  debug('onPublish labelsData: ', store.labelsData.tags)
+  debug('onPublish variables: ', variables)
 
   if (isEdit) {
     const args = cast(updatablePostFields, variables)
@@ -119,12 +125,17 @@ export const onMentionSearch = name => {
 
 export const onMention = user => store.addReferUser(user)
 
+// const loadPost = id => sr71$.query(S.post, { id })
+
 const openAttachment = att => {
   if (store.activeThread === THREAD.RADAR) {
     store.updateEditing({ copyRight: 'reprint' })
   }
 
   if (!att) return false
+  // const { type } = att
+  // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
+
   // const { id, title, body, digest } = att
 
   store.updateEditing(att)
@@ -180,11 +191,15 @@ const DataSolver = [
     },
   },
   {
-    match: asyncRes('searchUsers'),
-    action: ({ searchUsers: { entries } }) => {
-      debug('searchUsers done--: ', entries)
-      store.updateMentionList(entries)
+    match: asyncRes('post'),
+    action: ({ post }) => {
+      debug('before updateEditing: ', post)
+      store.updateEditing(post)
     },
+  },
+  {
+    match: asyncRes('searchUsers'),
+    action: ({ searchUsers: { entries } }) => store.updateMentionList(entries),
   },
 ]
 
@@ -221,7 +236,7 @@ export const init = (_store, attachment) => {
 export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
-  store.markState({ editPost: {} })
+  store.markState({ editPost: {}, isEdit: false })
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null

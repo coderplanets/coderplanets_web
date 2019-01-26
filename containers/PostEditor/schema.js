@@ -41,6 +41,7 @@ const updatePost = gql`
     $digest: String
     $copyRight: String
     $linkAddr: String
+    $tags: [Ids]
   ) {
     updatePost(
       id: $id
@@ -49,11 +50,22 @@ const updatePost = gql`
       digest: $digest
       copyRight: $copyRight
       linkAddr: $linkAddr
+      tags: $tags
     ) {
       id
       title
       body
       copyRight
+    }
+  }
+`
+
+const post = gql`
+  query($id: ID!) {
+    post(id: $id) {
+      tags {
+        ${F.tag}
+      }
     }
   }
 `
@@ -75,11 +87,13 @@ export const updatablePostFields = [
   'body',
   'copyRight',
   'linkAddr',
+  'tags',
   // TODO: 'mentionUsers',
 ]
 
 export const S = {
   createPost,
   updatePost,
+  post,
   searchUsers,
 }

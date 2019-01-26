@@ -43,9 +43,9 @@ const PicUploader = ({ divider }) => (
   </React.Fragment>
 )
 
-const EditorFooter = ({ editData }) => (
+const EditorFooter = ({ isEdit, editData }) => (
   <Wrapper>
-    <Labeler selected={R.pluck('title', editData.tags)} multi />
+    {!isEdit && <Labeler selected={R.pluck('title', editData.tags)} multi />}
     <Divider src={`${ICON_CMD}/more.svg`} />
     <CodeInputer divider />
     <Divider src={`${ICON_CMD}/more.svg`} />

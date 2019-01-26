@@ -42,7 +42,14 @@ export const DynamicMarkDownHelper = dynamic({
 const debug = makeDebugger('C:PostEditor')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
-const View = ({ curView, thread, editData, mentionList, contentDomId }) => {
+const View = ({
+  curView,
+  thread,
+  isEdit,
+  editData,
+  mentionList,
+  contentDomId,
+}) => {
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -50,6 +57,7 @@ const View = ({ curView, thread, editData, mentionList, contentDomId }) => {
           <Editor
             thread={thread}
             editData={editData}
+            isEdit={isEdit}
             mentionList={mentionList}
           />
         </ViewerWrapper>
@@ -116,6 +124,7 @@ class PostEditorContainer extends React.Component {
         <View
           curView={curView}
           editData={editData}
+          isEdit={isEdit}
           thread={thread}
           copyRight={copyRight}
           mentionList={mentionListData}

@@ -72,8 +72,6 @@ app.prepare().then(() => {
   )
 
   server.get('/:community/:thread', (req, res) => {
-    console.log('the fucking query: ', req.query)
-
     if (
       R.has('preview', req.query) &&
       R.has('id', req.query) &&

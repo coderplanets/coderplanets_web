@@ -122,10 +122,7 @@ const openAttachment = att => {
   if (!att) return false
   // const { id, title, body, digest } = att
   const { type } = att
-  if (type === TYPE.PREVIEW_JOB_EDIT) {
-    debug('laod the fucking job: ', att)
-    loadJob(att.id)
-  }
+  if (type === TYPE.PREVIEW_JOB_EDIT) loadJob(att.id)
 
   store.updateEditing(att)
   store.markState({ isEdit: true })
@@ -182,17 +179,11 @@ const DataSolver = [
 
   {
     match: asyncRes('job'),
-    action: ({ job }) => {
-      debug('job load done -->: ', job)
-      store.updateEditing(job)
-    },
+    action: ({ job }) => store.updateEditing(job),
   },
   {
     match: asyncRes('searchUsers'),
-    action: ({ searchUsers: { entries } }) => {
-      debug('searchUsers done--: ', entries)
-      store.updateMentionList(entries)
-    },
+    action: ({ searchUsers: { entries } }) => store.updateMentionList(entries),
   },
 ]
 
