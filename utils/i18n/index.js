@@ -70,6 +70,7 @@ const I18nDict = {
   wuhan: '武汉',
   xiamen: '厦门',
   oversea: '海外',
+  remote: '远程',
 }
 
 export const Trans = key => I18nDict[key] || key

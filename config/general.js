@@ -33,6 +33,7 @@ export const TAG_COLORS = [
   'dodgerblue',
   'yellowgreen',
   'brown',
+  'cadetblue',
   'grey',
 ]
 
@@ -47,5 +48,6 @@ export const TAG_COLOR_ORDER = {
   dodgerblue: 7,
   yellowgreen: 8,
   brown: 9,
-  grey: 10,
+  cadetblue: 10,
+  grey: 11,
 }
