@@ -59,9 +59,8 @@ const UserLister = t
 
       const index = R.findIndex(R.propEq('id', userId), entries)
       if (index >= 0) {
-        debug('found you! ', entries[index])
-        const curIsFollow = self.pagedUsers.entries[index].hasFollowd
-        self.pagedUsers.entries[index].hasFollowd = !curIsFollow
+        const curIsFollow = self.pagedUsers.entries[index].viewerHasFollowed
+        self.pagedUsers.entries[index].viewerHasFollowed = !curIsFollow
       }
     },
     markState(sobj) {

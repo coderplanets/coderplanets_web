@@ -11,7 +11,7 @@ import Pagi from 'components/Pagi'
 import FollowButton from 'components/FollowButton'
 import { ICON_CMD } from 'config'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger, cutFrom } from 'utils'
 import {
   TableWrapper,
   UserWrapper,
@@ -39,7 +39,7 @@ const UsersTable = ({ entries, accountId }) => (
             <Nickname>{user.nickname}</Nickname>
             <Location>
               <GeoIcon src={`${ICON_CMD}/city_map.svg`} />
-              {user.location || user.geoCity || '--'}
+              {cutFrom(user.location || user.geoCity || '--', 16)}
             </Location>
           </Title>
           <Action>

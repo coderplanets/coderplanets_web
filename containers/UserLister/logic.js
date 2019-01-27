@@ -145,17 +145,11 @@ const DataSolver = [
   },
   {
     match: asyncRes('follow'),
-    action: ({ follow: { id } }) => {
-      /* debug('follow done: ', follow) */
-      store.toggleHasFollow(id)
-    },
+    action: ({ follow: { id } }) => store.toggleHasFollow(id),
   },
   {
     match: asyncRes('undoFollow'),
-    action: ({ undoFollow: { id } }) => {
-      /* debug('undoFollow done: ', undoFollow) */
-      store.toggleHasFollow(id)
-    },
+    action: ({ undoFollow: { id } }) => store.toggleHasFollow(id),
   },
 ]
 const ErrSolver = [
