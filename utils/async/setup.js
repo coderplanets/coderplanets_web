@@ -43,17 +43,13 @@ const retryLink = new RetryLink({
 })
 
 /* const errorLink = onError(({ operation, graphQLErrors }) => { */
-const errorLink = onError(({ operation, graphQLErrors }) => {
-  if (graphQLErrors) {
-    const { operationName } = operation
-
-    errRescue({
-      type: ERR.GRAPHQL,
-      operation: operationName,
-      details: graphQLErrors,
-    })
-  }
-})
+const errorLink = onError(({ operation: { operationName }, graphQLErrors }) =>
+  errRescue({
+    type: ERR.GRAPHQL,
+    operation: operationName,
+    details: graphQLErrors,
+  })
+)
 
 const token = BStore.get('token') || ''
 export const context = {

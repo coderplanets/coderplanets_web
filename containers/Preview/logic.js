@@ -27,12 +27,11 @@ let sub$ = null
 export const closePreview = () => {
   unholdPage()
   store.close()
-  store.markState({ imageUploading: false })
+  store.markState({ imageUploading: false, type: null })
 
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until preview move out of the screean
   setTimeout(() => {
-    store.markState({ type: null })
     dispatchEvent(EVENT.PREVIEW_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
