@@ -8,6 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug, TYPE } from 'utils'
+
 import {
   DynamicAccountViewer,
   DynamicPostViewer,
@@ -26,6 +27,7 @@ import {
 } from './DynamicComps'
 
 import AddOn from './AddOn'
+import DefaultViewer from './DefaultViewer'
 
 import { PreviewOverlay, PreviewWrapper, PreviewContent } from './styles'
 
@@ -95,9 +97,11 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     case TYPE.PREVIEW_MAILS_VIEW:
       return <DynamicMailsViewer />
 
-    // utils
-    default:
+    case TYPE.PREVIEW_ROOT_STORE:
       return <DynamicStateTree json={root.toJSON()} />
+
+    default:
+      return <DefaultViewer />
   }
 }
 
