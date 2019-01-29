@@ -61,6 +61,7 @@ class CommentReplyEditor extends React.Component {
                 mentionList={mentionList}
                 onChange={debounce(logic.onReplyInputChange, 450)}
                 onMention={logic.onMention}
+                onMentionSearch={logic.onMentionSearch}
                 body={replyContent}
               />
             </InputEditorWrapper>
