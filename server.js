@@ -71,6 +71,10 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/communities', req.query)
   )
 
+  server.get('/:community/', (req, res) =>
+    res.redirect(`/${req.params.community}/posts`)
+  )
+
   server.get('/:community/:thread', (req, res) => {
     if (
       R.has('preview', req.query) &&
