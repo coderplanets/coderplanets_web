@@ -27,7 +27,7 @@ const BriefView = () => (
         </Item>
         <Divider>|</Divider>
         <Item
-          href="http://www.miitbeian.gov.cn"
+          href="https://coderplanets.com/home/post/1"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -35,7 +35,7 @@ const BriefView = () => (
         </Item>
         <Divider>|</Divider>
         <Item
-          href="http://www.miitbeian.gov.cn"
+          href="https://coderplanets.com/home/post/1"
           rel="noopener noreferrer"
           target="_blank"
         >

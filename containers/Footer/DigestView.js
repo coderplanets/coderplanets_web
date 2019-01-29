@@ -61,7 +61,13 @@ const DigestView = () => (
       <Column>
         <Title>About</Title>
         <Body>
-          <Item>关于CPS</Item>
+          <Item
+            href="https://coderplanets.com/home/post/1"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            关于CPS
+          </Item>
           <Item
             href={`${ISSUE_ADDR}`}
             rel="noopener noreferrer"
