@@ -24,19 +24,6 @@ const DynamicBodyEditor = dynamic({
   /* eslint-enable */
 })
 
-const mentions = [
-  {
-    id: 112,
-    name: 'mydearxym',
-    avatar: 'https://avatars2.githubusercontent.com/u/6184465?v=4',
-  },
-  {
-    id: 113,
-    name: 'Julian',
-    avatar: 'http://coderplanets.oss-cn-beijing.aliyuncs.com/mock/avatar4.png',
-  },
-]
-
 class CommentReplyEditor extends React.Component {
   /* eslint-disable */
   handleClickOutside() {
@@ -49,8 +36,10 @@ class CommentReplyEditor extends React.Component {
     const {
       referUsers,
       show,
+      isEdit,
       accountInfo,
       showReplyPreview,
+      mentionList,
       restProps: { countCurrent, replyContent, replyToComment, replying },
     } = this.props
 
@@ -62,12 +51,14 @@ class CommentReplyEditor extends React.Component {
           referUsers={referUsers}
           showPreview={showReplyPreview}
         />
-        <ReplyToBar comment={replyToComment} />
+
+        {!isEdit && <ReplyToBar comment={replyToComment} />}
+
         {show ? (
           <div className="comment-reply-editor">
             <InputEditorWrapper>
               <DynamicBodyEditor
-                mentions={mentions}
+                mentionList={mentionList}
                 onChange={debounce(logic.onReplyInputChange, 450)}
                 onMention={logic.onMention}
                 body={replyContent}

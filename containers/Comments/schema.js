@@ -46,6 +46,16 @@ const createComment = gql`
     }
   }
 `
+
+const updateComment = gql`
+  mutation($thread: CmsThread!, $id: ID!, $body: String!) {
+    updateComment(thread: $thread, id: $id, body: $body) {
+      id
+      body
+    }
+  }
+`
+
 const replyComment = gql`
   mutation($thread: CmsThread, $id: ID!, $body: String!) {
     replyComment(thread: $thread, id: $id, body: $body) {
@@ -99,18 +109,19 @@ const undoDislikeComment = gql`
   }
 `
 const searchUsers = gql`
-  query($name: String!) {
-    searchUsers(name: $name) {
-      entries {
-        ${F.author}
-      }
+query($name: String!) {
+  searchUsers(name: $name) {
+    entries {
+      ${F.author}
     }
   }
+}
 `
 
 const schema = {
   pagedComments,
   createComment,
+  updateComment,
   replyComment,
   deleteComment,
   likeComment,

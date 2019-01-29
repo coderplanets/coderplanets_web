@@ -78,7 +78,7 @@ const ActionBottom = ({ data, accountInfo }) => {
   if (String(data.author.id) === accountInfo.id) {
     return (
       <div style={{ display: 'flex' }}>
-        <ReplyAction>
+        <ReplyAction onClick={logic.openUpdateEditor.bind(this, data)}>
           <ReplyIcon src={`${ICON_CMD}/edit.svg`} />
           编辑
         </ReplyAction>
