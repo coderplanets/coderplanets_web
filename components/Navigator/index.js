@@ -15,8 +15,16 @@ import BriefView from './BriefView'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Navigator:index')
 
-const Navigator = ({ curCommunity, layout, subPath }) => {
-  if (R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])) {
+const Navigator = ({ curCommunity, layout, curRoute }) => {
+  if (
+    R.contains(curRoute.mainPath, [ROUTE.COMMUNITIES]) ||
+    R.contains(curRoute.subPath, [
+      ROUTE.POST,
+      ROUTE.JOB,
+      ROUTE.VIDEO,
+      ROUTE.REPO,
+    ])
+  ) {
     return <DigestView />
   }
 
@@ -34,7 +42,10 @@ const Navigator = ({ curCommunity, layout, subPath }) => {
 Navigator.propTypes = {
   curCommunity: PropTypes.object,
   layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  subPath: PropTypes.string.isRequired,
+  curRoute: PropTypes.shape({
+    mainPath: PropTypes.string,
+    subPath: PropTypes.string,
+  }).isRequired,
 }
 
 Navigator.defaultProps = {
