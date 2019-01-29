@@ -36,12 +36,3 @@ export const Avatar = styled.img`
   ${cs.circle('25px')};
   margin-right: 5px;
 `
-export const MarkTag = styled.div`
-  font-size: 0.8em;
-  padding: 1px 8px;
-  border-radius: 3px;
-  border: 1px solid;
-  border-color: ${theme('baseColor.error')};
-  color: ${theme('baseColor.error')};
-  margin-right: 8px;
-`

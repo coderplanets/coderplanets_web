@@ -11,6 +11,7 @@ export const Avatar = styled(Img)`
   ${cs.circle('20px')};
   display: block;
   margin-right: 5px;
+  margin-bottom: 6px;
 `
 export const PopInfo = styled.div`
   padding: 5px 10px;

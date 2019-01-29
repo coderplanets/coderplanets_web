@@ -20,7 +20,7 @@ import Title from './Title'
 import ReactionNumbers from './ReactionNumbers'
 import MiddleInfo from './MiddleInfo'
 
-import { Wrapper, BannerContent, Brief, Desc, MarkTag } from './styles'
+import { Wrapper, BannerContent, Brief, Desc } from './styles'
 
 import * as logic from './logic'
 
@@ -46,8 +46,6 @@ class ArticleBannerContainer extends React.Component {
       favoriteLoading,
     } = articleBanner
 
-    const isRefined = R.contains('refined', R.pluck('title', viewingData.tags))
-
     return (
       <Wrapper>
         <FavoritesCats />
@@ -57,7 +55,6 @@ class ArticleBannerContainer extends React.Component {
               <Title thread={activeThread} data={viewingData} />
               <MiddleInfo thread={activeThread} data={viewingData} />
               <Desc>
-                {isRefined ? <MarkTag>精华</MarkTag> : <div />}
                 发布于:
                 <Space left="3px" right="3px" />
                 <TimeAgo datetime={viewingData.insertedAt} locale="zh_CN" />
