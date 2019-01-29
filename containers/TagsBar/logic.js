@@ -54,13 +54,17 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadTags(),
+    action: () => {
+      loadTags()
+      store.markState({ activeTag: null })
+    },
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
     action: data => {
       const { topic } = data[EVENT.TABBER_CHANGE].data
       loadTags(topic)
+      store.markState({ activeTag: null })
     },
   },
 ]

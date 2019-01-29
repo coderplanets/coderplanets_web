@@ -182,7 +182,10 @@ const DataSolver = [
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
-    action: () => loadPosts(),
+    action: () => {
+      store.markState({ activeTag: null })
+      loadPosts()
+    },
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
@@ -198,6 +201,7 @@ const DataSolver = [
       }
 
       if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
+        store.markState({ activeTag: null })
         loadPosts()
       }
     },
