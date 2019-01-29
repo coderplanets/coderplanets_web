@@ -121,7 +121,10 @@ const DataSolver = [
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
-      if (activeThread === THREAD.REPO) return loadRepos()
+      if (activeThread === THREAD.REPO) {
+        store.markState({ activeTag: null })
+        return loadRepos()
+      }
     },
   },
   {

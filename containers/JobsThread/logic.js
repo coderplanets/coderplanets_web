@@ -134,8 +134,12 @@ const DataSolver = [
     match: asyncRes(EVENT.TABBER_CHANGE),
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
+
       const { activeThread } = data
-      if (activeThread === THREAD.JOB) return loadJobs()
+      if (activeThread === THREAD.JOB) {
+        store.markState({ activeTag: null })
+        return loadJobs()
+      }
     },
   },
   {

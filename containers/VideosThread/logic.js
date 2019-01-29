@@ -118,7 +118,10 @@ const DataSolver = [
     action: res => {
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
-      if (activeThread === THREAD.VIDEO) return loadVideos()
+      if (activeThread === THREAD.VIDEO) {
+        store.markState({ activeTag: null })
+        return loadVideos()
+      }
     },
   },
   {
