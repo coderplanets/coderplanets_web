@@ -107,9 +107,23 @@ export const onCommentInputBlur = () =>
 export const createReplyComment = () => {
   if (!store.validator('reply')) return false
 
+  console.log('createReplyComment isEdit: ', store.isEdit)
+  console.log('activeThread: ', store.activeThread)
+  console.log('createReplyComment editComment: ', store.editCommentData)
+  console.log('createReplyComment replyContent: ', store.replyContent)
+
+  if (store.isEdit) {
+    return sr71$.mutate(S.updateComment, {
+      id: store.editCommentData.id,
+      body: store.replyContent,
+      thread: store.activeThread,
+    })
+  }
+
   sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
+    thread: store.activeThread,
   })
 }
 
@@ -127,22 +141,31 @@ export const onReplyInputChange = replyContent =>
     replyContent,
   })
 
+export const openUpdateEditor = data =>
+  store.markState({
+    isEdit: true,
+    showReplyBox: true,
+    showReplyEditor: true,
+    showReplyPreview: false,
+    editComment: data,
+    replyContent: data.body,
+  })
+
 export const openReplyEditor = data =>
   store.markState({
     showReplyBox: true,
     showReplyEditor: true,
     showReplyPreview: false,
     replyToComment: data,
+    replyContent: '',
+    isEdit: false,
   })
 
-export const replyCommentPreview = () => {
-  debug('replyCommentPreview')
-
+export const replyCommentPreview = () =>
   store.markState({
     showReplyEditor: false,
     showReplyPreview: true,
   })
-}
 
 export const replyBackToEditor = () =>
   store.markState({
@@ -263,14 +286,25 @@ const DataSolver = [
   },
   {
     match: asyncRes('replyComment'),
-    action: ({ replyComment }) => {
-      debug('replyComment', replyComment)
+    action: () => {
       store.markState({
         showReplyBox: false,
         replyToComment: null,
       })
       scrollIntoEle('lists-info')
       loadComents({ filter: { page: 1 }, fresh: true })
+    },
+  },
+  {
+    match: asyncRes('updateComment'),
+    action: ({ updateComment: { id, body } }) => {
+      store.markState({
+        showReplyBox: false,
+        isEdit: false,
+        editComment: null,
+        replyContent: '',
+      })
+      store.updateOneComment(id, { body })
     },
   },
   {

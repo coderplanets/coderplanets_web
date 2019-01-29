@@ -54,6 +54,9 @@ const CommentsStore = t
     // comments pagination data of current COMMUNITY / PART
     pagedComments: t.optional(PagedComments, emptyPagiData),
 
+    isEdit: t.optional(t.boolean, false),
+    editComment: t.maybeNull(Comment),
+
     // current "@user" in valid array format
     referUsers: t.optional(t.array(Mention), []),
     // current "@user" in string list
@@ -129,6 +132,9 @@ const CommentsStore = t
     },
     get viewingData() {
       return self.root.viewingData
+    },
+    get editCommentData() {
+      return stripMobx(self.editComment)
     },
   }))
   .actions(self => ({

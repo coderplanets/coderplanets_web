@@ -55,6 +55,7 @@ class CommentsContainer extends React.Component {
       showReplyEditor,
       showReplyPreview,
       mentionListData,
+      isEdit,
     } = comments
 
     return (
@@ -63,10 +64,12 @@ class CommentsContainer extends React.Component {
           {/* NOTE: this is used for react-clickouside */}
           {showReplyBox ? (
             <CommentReplyEditor
+              isEdit={isEdit}
+              show={showReplyEditor}
               accountInfo={accountInfo}
               referUsers={referUsersData}
               restProps={{ ...comments }}
-              show={showReplyEditor}
+              mentionList={mentionListData}
               showReplyPreview={showReplyPreview}
             />
           ) : (
