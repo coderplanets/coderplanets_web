@@ -44,6 +44,8 @@ app.prepare().then(() => {
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
+  server.get('/oauth/', (req, res) => res.render(req, res, '/oauth', req.query))
+
   // app.render(req, res, '/user', req.query)
   server.get('/user/:userId', (req, res) =>
     renderAndCache(req, res, '/user', req.query)
