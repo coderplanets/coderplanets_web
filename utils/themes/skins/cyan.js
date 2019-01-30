@@ -11,7 +11,7 @@ const contentBg = '#E4EEED'
 const contentBoxBg = '#f9fcfc'
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
-const markdownFont = '#9eb8bd'
+const markdownFont = '#98afb3'
 
 const descText = '#a3bbbd'
 const primaryMate = 'orange'
@@ -73,15 +73,15 @@ const cyan = {
   thread: {
     bg: contentBoxBg,
     filterResultHint: descText,
-    articleTitle: '#83a7ad',
+    articleTitle: '#75979c',
     articleHover: '#f3f6f9',
     articleStrip: contentBoxBg,
-    articleDigest: '#a2c0c5',
+    articleDigest: '#91b4b9',
     articleTag: '#71979a',
     articleLink: descText,
     articleDivider: '#dce5e6',
     commentsUserBorder: contentBoxBg,
-    extraInfo: '#84C3C8',
+    extraInfo: '#80b5b9',
     articleSpliter: '#dee8ea',
     // like github
     repoTitle: '#83a7ad',
@@ -94,9 +94,9 @@ const cyan = {
     cardBorderHover: primaryColor,
   },
   footer: {
-    text: '#b3ccc9',
+    text: '#99afac',
     hover: '#5c868b',
-    title: '#a2c0c5',
+    title: '#90acb1',
     bottomBg: '#d9e6e5',
   },
   sidebar: {
@@ -212,7 +212,7 @@ const cyan = {
     titleBottom: lighten(0.3, primaryColor),
     hrColor: '#154452',
     blockquoteBorder: '#b8d0ce',
-    blockquoteFg: darken(0.09, markdownFont),
+    blockquoteFg: lighten(0.09, markdownFont),
     strongFg: '#7c999c',
     strongBg: contentBoxBg,
     link: '#c5ba78',

@@ -48,10 +48,12 @@ skins/
 └── yellow.js
 ```
 
+你和在 "搜索框" 中(或点击自己的头像进入用户中心)切换其他主题主题: 
 
 
+![image](https://user-images.githubusercontent.com/6184465/51956903-69c03d00-2484-11e9-9c2a-b8ae844b5b3f.png)
 
-![image](https://user-images.githubusercontent.com/6184465/51738138-5fd7bc00-20c9-11e9-9242-4f730f42eab8.png)
+![image](https://user-images.githubusercontent.com/6184465/51957049-fc60dc00-2484-11e9-89cf-ca3f56b07c34.png)
 
-![image](https://user-images.githubusercontent.com/6184465/51738172-767e1300-20c9-11e9-8a0f-d9089d671ace.png)
+![image](https://user-images.githubusercontent.com/6184465/51956956-a2f8ad00-2484-11e9-9546-e73a75d9fb5f.png)
 
