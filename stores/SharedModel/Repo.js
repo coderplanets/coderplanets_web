@@ -35,7 +35,7 @@ export const Repo = t.model('Reop', {
   watchCount: t.optional(t.number, 0),
 
   primaryLanguage: t.optional(Language, { name: '', color: 'grey' }),
-  license: t.optional(t.string, 'MIT'),
+  license: t.maybeNull(t.string),
   releaseTag: t.maybeNull(t.string),
   contributors: t.array(Contributor),
 
