@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 import { Button } from 'antd'
 
 import { ICON_CMD } from 'config'
-import { Global, prettyNum } from 'utils'
+import { Global, prettyNum, cutFrom } from 'utils'
 
 import Pagi from 'components/Pagi'
 import AvatarsRow from 'components/AvatarsRow'
@@ -143,7 +143,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
           {data.replyTo && (
             <ReplyBar>
               回复&nbsp;
-              {data.replyTo.author.nickname}:
+              {cutFrom(data.replyTo.author.nickname, 10)}:
               <ReplyToBody>{data.replyTo.body}</ReplyToBody>
               <ReplyToFloor>#{data.replyTo.floor}</ReplyToFloor>
             </ReplyBar>
