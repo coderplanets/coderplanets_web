@@ -36,6 +36,7 @@ const MenuBar = ({ pin, item, activeRaw, forceRerender }) => (
 
         <MiniChartWrapper pin={pin}>
           <TrendLine
+            key={uid.gen()}
             data={item.contributesDigest}
             duration={300}
             radius={15}
