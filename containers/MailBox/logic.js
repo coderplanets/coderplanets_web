@@ -68,7 +68,6 @@ const DataSolver = [
   {
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
-      debug('get pagedMentions: ', pagedMentions)
       markLoading(false)
       store.markState({ pagedMentions })
       loadMailboxStates()

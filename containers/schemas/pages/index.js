@@ -8,6 +8,7 @@ import { pagedComments } from './comment'
 import { pagedCategories, partialTags } from './misc'
 import cheatsheet from './cheatsheet'
 import wiki from './wiki'
+import { mentions } from './mail'
 
 import {
   reaction,
@@ -48,6 +49,8 @@ const P = {
   // wiki
   wiki,
   // action
+  // mentions
+  mentions,
   reaction,
   undoReaction,
   setTag,
