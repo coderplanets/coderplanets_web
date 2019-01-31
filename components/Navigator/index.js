@@ -17,7 +17,7 @@ const debug = makeDebugger('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout, curRoute }) => {
   if (
-    R.contains(curRoute.mainPath, [ROUTE.COMMUNITIES]) ||
+    R.contains(curRoute.mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
     R.contains(curRoute.subPath, [
       ROUTE.POST,
       ROUTE.JOB,
