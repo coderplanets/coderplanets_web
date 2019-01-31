@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver } from 'utils'
+import { makeDebugger, $solver, dispatchEvent, EVENT } from 'utils'
 import SR71 from 'utils/async/sr71'
 
 const sr71$ = new SR71()
@@ -11,7 +11,10 @@ const debug = makeDebugger('L:UserSettings')
 
 let store = null
 
-export const changeTheme = theme => store.changeTheme(theme)
+export const changeTheme = theme => {
+  store.changeTheme(theme)
+  dispatchEvent(EVENT.SET_C11N, { data: { theme } })
+}
 
 export const c11nOnChange = (part, e) =>
   store.updateC11N({ [part]: e.target.value })
