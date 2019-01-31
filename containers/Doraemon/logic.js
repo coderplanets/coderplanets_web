@@ -129,6 +129,7 @@ const initSpecCmdResolver = () => {
       action: cmdpath => {
         const theme = R.last(cmdpath)
         store.changeTheme(theme)
+        dispatchEvent(EVENT.SET_C11N, { data: { theme } })
       },
     },
     {
