@@ -7,7 +7,7 @@ export const BodyWrapper = styled.div`
 
   padding: 20px;
   background: ${theme('preview.articleBg')};
-  min-height: 600px;
+  min-height: 400px;
   margin-top: 5px;
   margin-left: 4%;
   margin-right: 4%;

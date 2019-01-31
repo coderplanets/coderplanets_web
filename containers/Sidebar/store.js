@@ -15,10 +15,15 @@ const SidebarStore = t
   .model('SidebarStore', {
     // open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
-    // theme: t.string, // view staff
-    // curSelectItem: t.string, // view staff
-    // searchBox: t.string, // complex data
-    // loading: t.optional(t.boolean, false),
+
+    /*
+       this is a fix for wired svg icon in sidebar
+       when community icon is svg format, the svg loader only do it:s work
+       on client-side, which will case MenuBar UI choas
+
+       manulay force mobx rerender will tmp fix this, heck later
+     */
+    forceRerender: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

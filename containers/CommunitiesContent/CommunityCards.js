@@ -27,11 +27,17 @@ import {
 
 const CommunityCard = ({ community, restProps }) => (
   <Card>
-    <CommunityIcon
-      nonFill={R.contains(community.raw, NON_FILL_COMMUNITY)}
-      src={community.logo}
-      loading={<CommunityHolder text={community.raw} place="communities" />}
-    />
+    <a
+      href={`/${community.raw}/posts`}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <CommunityIcon
+        nonFill={R.contains(community.raw, NON_FILL_COMMUNITY)}
+        src={community.logo}
+        loading={<CommunityHolder text={community.raw} place="communities" />}
+      />
+    </a>
     <CardTitle>{community.title}</CardTitle>
     <CardDesc>{community.desc}</CardDesc>
     <ActivitySpark>
