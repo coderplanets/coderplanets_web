@@ -364,7 +364,7 @@ export const init = (_store, ssr = false) => {
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  if (!ssr) return loadComents()
+  if (!ssr) return loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
 }
 
 export const uninit = () => {
