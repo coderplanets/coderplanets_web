@@ -117,6 +117,7 @@ export const c11n = `
   contentHover
   markViewed
   displayDensity
+  theme
 `
 export const achievement = `
   reputation

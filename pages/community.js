@@ -37,6 +37,7 @@ import {
   addTopicIfNeed,
   ssrAmbulance,
   validCommunityFilters,
+  parseTheme,
 } from 'utils'
 
 import { P } from 'schemas'
@@ -138,6 +139,9 @@ export default class PageCommunity extends React.Component {
     return R.merge(
       {
         langSetup: {},
+        theme: {
+          curTheme: parseTheme(sessionState),
+        },
         account: {
           user: sessionState.user || {},
           isValidSession: sessionState.isValid,
