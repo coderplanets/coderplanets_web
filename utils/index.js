@@ -98,6 +98,7 @@ export {
   ssrContentsThread,
   addTopicIfNeed,
   validCommunityFilters,
+  parseTheme,
 } from './ssr_helper'
 
 export {

@@ -27,6 +27,7 @@ import {
   BStore,
   ROUTE,
   ssrAmbulance,
+  parseTheme,
 } from 'utils'
 
 import initRootStore from 'stores/init'
@@ -94,6 +95,9 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      theme: {
+        curTheme: parseTheme(sessionState),
+      },
       route: {
         mainPath: ROUTE.COMMUNITIES,
         subPath: category,

@@ -1,4 +1,6 @@
 import R from 'ramda'
+import { DEFAULT_THEME } from 'config'
+
 import { P } from 'schemas'
 import { TYPE, THREAD } from './constants'
 
@@ -142,3 +144,6 @@ export const validCommunityFilters = [
   // videos
   'source',
 ]
+
+export const parseTheme = sessionState =>
+  sessionState.user ? sessionState.user.customization.theme : DEFAULT_THEME

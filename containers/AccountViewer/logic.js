@@ -37,7 +37,10 @@ export const loadUser = user => {
   sr71$.query(S.user, { login: user.login })
 }
 
-export const changeTheme = name => store.changeTheme(name)
+export const changeTheme = name => {
+  store.changeTheme(name)
+  dispatchEvent(EVENT.SET_C11N, { data: { theme: name } })
+}
 
 export const editProfile = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
