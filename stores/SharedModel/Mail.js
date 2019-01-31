@@ -24,6 +24,11 @@ export const MentionMsg = t.model('MentionMsg', {
   sourceId: t.string,
   sourcePreview: t.maybeNull(t.string),
   sourceType: t.maybeNull(t.string),
+
+  parentId: t.maybeNull(t.string),
+  parentType: t.maybeNull(t.string),
+  floor: t.maybeNull(t.number),
+
   community: t.maybeNull(t.string),
   read: t.optional(t.boolean, false),
 })

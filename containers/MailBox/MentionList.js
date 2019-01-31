@@ -21,15 +21,45 @@ import {
   SourcePreview,
   PreviewBody,
   AtLabel,
+  FloorNum,
 } from './styles/mention_list'
 
 import { previewUser } from './logic'
 
 const getLinkAddr = item => {
-  const { sourceType } = item
-  const thread = sourceType === 'posts' ? 'post' : sourceType
+  const { community, parentType, parentId, sourceType, sourceId } = item
 
-  return `/${item.community}/${thread}/${item.sourceId}`
+  if (!R.isEmpty(parentType)) {
+    // comment
+    return `/${community}/${parentType}/${parentId}`
+  }
+
+  // article
+  const thread = sourceType === 'posts' ? 'post' : sourceType
+  return `/${community}/${thread}/${sourceId}`
+}
+
+const AtMessage = ({ item }) => {
+  const { parentType, floor, sourceType } = item
+  if (!R.isEmpty(parentType)) {
+    if (sourceType === 'comment_reply') {
+      return (
+        <span>
+          <FloorNum>{`#${floor}`}</FloorNum>
+          回复了你
+        </span>
+      )
+    }
+
+    return (
+      <span>
+        在<FloorNum>{`#${floor}`}</FloorNum>
+        @了你
+      </span>
+    )
+  }
+
+  return <span>中@了你</span>
 }
 
 const MentionList = ({ data }) => {
@@ -61,7 +91,9 @@ const MentionList = ({ data }) => {
               <MessageBody>
                 <SourcePreview>
                   <PreviewBody>{item.sourcePreview}</PreviewBody>
-                  <AtLabel>中@了你</AtLabel>
+                  <AtLabel>
+                    <AtMessage item={item} />
+                  </AtLabel>
                 </SourcePreview>
               </MessageBody>
             </Message>

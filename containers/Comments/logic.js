@@ -61,6 +61,7 @@ export const createComment = () => {
     body: store.editContent,
     thread: store.activeThread,
     community: store.curCommunity.raw,
+    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
 
   debug('createComment args: ', args)
@@ -107,11 +108,6 @@ export const onCommentInputBlur = () =>
 export const createReplyComment = () => {
   if (!store.validator('reply')) return false
 
-  console.log('createReplyComment isEdit: ', store.isEdit)
-  console.log('activeThread: ', store.activeThread)
-  console.log('createReplyComment editComment: ', store.editCommentData)
-  console.log('createReplyComment replyContent: ', store.replyContent)
-
   if (store.isEdit) {
     return sr71$.mutate(S.updateComment, {
       id: store.editCommentData.id,
@@ -123,7 +119,9 @@ export const createReplyComment = () => {
   sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
+    community: store.curCommunity.raw,
     thread: store.activeThread,
+    mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   })
 }
 
