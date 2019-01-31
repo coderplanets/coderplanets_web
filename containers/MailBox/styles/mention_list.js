@@ -91,6 +91,10 @@ export const PreviewBody = styled.div`
   ${cs.truncate('250px')};
 `
 export const AtLabel = styled.span`
-  margin-left: 3px;
   font-style: normal;
+`
+
+export const FloorNum = styled.span`
+  color: ${theme('comment.floor')};
+  margin-right: 2px;
 `

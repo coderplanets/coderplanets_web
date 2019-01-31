@@ -1,27 +1,8 @@
 import gql from 'graphql-tag'
-import { F } from 'schemas'
+import { P } from 'schemas'
 
 const mentions = gql`
-  query($filter: MessagesFilter!) {
-    mentions(filter: $filter) {
-      entries {
-        id
-        fromUser {
-          ${F.author}
-          id
-          avatar
-          nickname
-        }
-        sourceId
-        sourceTitle
-        sourcePreview
-        sourceType
-        community
-        read
-      }
-      ${F.pagedCounts}
-    }
-  }
+  ${P.mentions}
 `
 
 const schema = {

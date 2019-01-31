@@ -13,7 +13,7 @@ export const InfoWrapper = styled.div`
   margin-top: 6px;
   margin-bottom: 6px;
   margin-left: 15px;
-  margin-right: 35px;
+  margin-right: 15px;
 `
 
 export const ListsWrapper = styled.div`
@@ -103,4 +103,8 @@ export const PreviewBody = styled.div`
 export const AtLabel = styled.span`
   margin-left: 3px;
   font-style: normal;
+`
+export const FloorNum = styled.span`
+  color: ${theme('comment.floor')};
+  margin-right: 2px;
 `

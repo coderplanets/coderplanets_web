@@ -34,12 +34,19 @@ const pagedComments = gql`
   }
 `
 const createComment = gql`
-  mutation($community: String!, $thread: CmsThread, $id: ID!, $body: String!) {
+  mutation(
+    $community: String!
+    $thread: CmsThread
+    $id: ID!
+    $body: String!
+    $mentionUsers: [Ids]
+  ) {
     createComment(
       community: $community
       thread: $thread
       id: $id
       body: $body
+      mentionUsers: $mentionUsers
     ) {
       id
       body
@@ -57,8 +64,20 @@ const updateComment = gql`
 `
 
 const replyComment = gql`
-  mutation($thread: CmsThread, $id: ID!, $body: String!) {
-    replyComment(thread: $thread, id: $id, body: $body) {
+  mutation(
+    $community: String!
+    $thread: CmsThread
+    $id: ID!
+    $body: String!
+    $mentionUsers: [Ids]
+  ) {
+    replyComment(
+      community: $community
+      thread: $thread
+      id: $id
+      body: $body
+      mentionUsers: $mentionUsers
+    ) {
       id
       body
     }
@@ -109,13 +128,13 @@ const undoDislikeComment = gql`
   }
 `
 const searchUsers = gql`
-query($name: String!) {
-  searchUsers(name: $name) {
-    entries {
-      ${F.author}
+  query($name: String!) {
+    searchUsers(name: $name) {
+      entries {
+        ${F.author}
+      }
     }
   }
-}
 `
 
 const schema = {
