@@ -44,7 +44,7 @@ export const MenuItemTitle = styled.div`
   display: ${({ pin }) => (pin ? 'block' : 'none')};
   color: ${theme('sidebar.menuLink')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
-  letter-spacing: 1.3px;
+  letter-spacing: ${({ forceRerender }) => (forceRerender ? '1.3px' : '1.2px')};
   transition: opacity 0.2s;
   margin-right: 10px;
 

@@ -108,6 +108,9 @@ const refreshSubedCommunitiesIfNeed = () => {
   }
 }
 
+export const toggleForeceRerender = (forceRerender = true) =>
+  store.markState({ forceRerender })
+
 const DataSolver = [
   {
     match: asyncRes('subscribedCommunities'),
