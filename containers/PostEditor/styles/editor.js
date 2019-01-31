@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
   padding: 20px;
   background-color: ${theme('editor.contentBg')};
-  min-height: 600px;
+  min-height: 400px;
   margin-top: 5px;
   margin-left: 4%;
   margin-right: 4%;
