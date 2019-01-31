@@ -34,6 +34,7 @@ import {
   BStore,
   nilOrEmpty,
   ssrAmbulance,
+  parseTheme,
 } from 'utils'
 
 import initRootStore from 'stores/init'
@@ -96,6 +97,9 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      theme: {
+        curTheme: parseTheme(sessionState),
+      },
       account: {
         user: sessionState.user || {},
         isValidSession: sessionState.isValid,
