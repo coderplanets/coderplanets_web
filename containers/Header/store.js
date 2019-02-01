@@ -57,6 +57,9 @@ const HeaderStore = t
     },
   }))
   .actions(self => ({
+    logout() {
+      self.root.account.logout()
+    },
     updateSesstion(state) {
       self.root.account.updateSesstion(state)
     },
