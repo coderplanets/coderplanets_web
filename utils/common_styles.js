@@ -82,7 +82,7 @@ const flexColumnGrow = opt => `
 `
 
 const zIndex = {
-  popover: 2100,
+  popover: 3000,
   modalOverlay: 2500,
   previewOverlay: 2000,
   preview: 2001,
