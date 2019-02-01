@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme } from 'utils'
+import { theme, cs } from 'utils'
 
 // move ant style to seperate file
 const AntUIOverWrite = createGlobalStyle`
@@ -78,6 +78,9 @@ const AntUIOverWrite = createGlobalStyle`
 
   // ----
   // popover
+  .ant-popover {
+    z-index: ${cs.zIndex.popover};
+  }
   .ant-popover-inner-content {
     padding: 0;
   }

@@ -34,14 +34,10 @@ export const PreviewOverlay = styled.div`
   position: fixed;
   height: 100%;
   right: 0;
-  z-index: 998;
+  z-index: ${cs.zIndex.previewOverlay};
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
-// z-index: 1001;
-// z-index: ${props => (props.visible ? 1001 : -1)};
-// display: ${props => (props.visible ? 'block' : 'none')};
-// visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 
 export const PreviewWrapper = styled.div`
   ${cs.flex()};
@@ -59,7 +55,7 @@ export const PreviewWrapper = styled.div`
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;
-  z-index: 1000;
+  z-index: ${cs.zIndex.preview};
 `
 export const PreviewContent = styled.div`
   width: 90%;

@@ -81,6 +81,18 @@ const flexColumnGrow = opt => `
   flex-grow: 1;
 `
 
+const zIndex = {
+  popover: 2100,
+  modalOverlay: 2500,
+  previewOverlay: 2000,
+  preview: 2001,
+  doraemonOverlay: 2600,
+  doraemon: 2601,
+
+  //
+  sidebar: 1999,
+}
+
 const cs = {
   truncate,
   circle,
@@ -89,6 +101,7 @@ const cs = {
   flexGrow,
   flexColumn,
   flexColumnGrow,
+  zIndex,
 }
 
 export default cs
