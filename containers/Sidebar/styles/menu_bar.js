@@ -6,7 +6,7 @@ import { Container } from './index'
 
 export const Wrapper = styled.div`
   display: block;
-  z-index: 2001;
+  z-index: ${cs.zIndex.sidebar + 1};
   &:hover {
     background: ${theme('sidebar.menuHover')};
   }

@@ -14,7 +14,7 @@ export const Container = styled.aside`
   box-shadow: ${({ pin }) => (pin ? '3px 0 20px rgba(0, 0, 0, 0.2); ' : '')};
   background: ${theme('sidebar.bg')};
   border-color: ${theme('sidebar.borderColor')};
-  z-index: 2000;
+  z-index: ${cs.zIndex.sidebar};
   overflow: hidden;
 
   transition: width 0.2s, opacity 0.8s, box-shadow 0.1s linear 0.1s,

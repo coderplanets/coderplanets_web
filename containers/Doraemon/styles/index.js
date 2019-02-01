@@ -9,7 +9,7 @@ export const PageOverlay = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1001;
+  z-index: ${cs.zIndex.doraemonOverlay};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
@@ -19,7 +19,7 @@ export const PanelContainer = styled.div`
   max-width: 550px;
   position: fixed;
   top: 12vh;
-  z-index: 1002;
+  z-index: ${cs.zIndex.doraemon};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;
