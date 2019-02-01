@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate } from 'utils'
+import { theme, animate, cs } from 'utils'
 import Img from 'Img'
 
 // display: ${props => (props.show ? 'block' : 'none')};
@@ -11,7 +11,7 @@ export const Mask = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: ${cs.zIndex.modalOverlay};
   display: ${({ show }) => (show ? 'block' : 'none')};
 `
 
