@@ -14,6 +14,30 @@ export const InputFooter = styled.div`
 export const InputHelper = styled.div`
   ${cs.flexGrow()};
 `
+
+export const FoldBtn = styled.div`
+  ${cs.flex('align-center')};
+`
+export const FoldArrow = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin-right: 3px;
+  ${FoldBtn}:hover & {
+    cursor: pointer;
+    fill: ${theme('thread.articleTitle')};
+  }
+`
+
+export const FoldText = styled.div`
+  color: ${theme('thread.articleDigest')};
+  ${FoldBtn}:hover & {
+    cursor: pointer;
+    color: ${theme('thread.articleTitle')};
+  }
+`
+
 export const HelperIcon = styled(Img)`
   fill: ${theme('comment.placeholder')};
   width: 20px;
@@ -26,4 +50,6 @@ export const HelperIcon = styled(Img)`
   }
 `
 
-export const InputSubmit = styled.div``
+export const InputSubmit = styled.div`
+  ${cs.flex('align-center')};
+`

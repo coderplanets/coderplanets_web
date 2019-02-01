@@ -2,11 +2,10 @@ import React from 'react'
 
 import Modal from 'components/Modal'
 
-// import { ICON_CMD } from '../../config'
-// import { Wrapper } from './styles/modal_preview'
+import { closePreview } from './logic'
 
 const ModalPreview = ({ visible, children }) => (
-  <Modal width="700px" show={visible} onClose={console.log}>
+  <Modal width="700px" show={visible} onClose={closePreview}>
     <div>{children}</div>
   </Modal>
 )

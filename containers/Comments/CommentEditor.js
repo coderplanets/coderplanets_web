@@ -1,6 +1,4 @@
 import React from 'react'
-import withClickOutside from 'react-click-outside'
-
 import MarkDownRender from 'components/MarkDownRender'
 import CommentBodyEditor from './CommentBodyEditor'
 
@@ -11,65 +9,57 @@ import EditorFooter from './EditorFooter'
 
 import * as logic from './logic'
 
-class CommentEditor extends React.Component {
-  /* eslint-disable */
-  handleClickOutside() {
-    logic.onCommentInputBlur()
-  }
-  /* eslint-enable */
+const CommentEditor = props => {
+  const {
+    referUsers,
+    accountInfo,
+    onCreate,
+    mentionList,
+    restProps: {
+      countCurrent,
+      showInputBox,
+      showInputEditor,
+      showInputPreview,
+      editContent,
+      creating,
+    },
+  } = props
 
-  render() {
-    const {
-      referUsers,
-      accountInfo,
-      onCreate,
-      mentionList,
-      restProps: {
-        countCurrent,
-        showInputBox,
-        showInputEditor,
-        showInputPreview,
-        editContent,
-        creating,
-      },
-    } = this.props
-
-    return (
-      <Container show={showInputBox}>
-        <EditorHeader
-          accountInfo={accountInfo}
-          showInputEditor={showInputEditor}
+  return (
+    <Container show={showInputBox}>
+      <EditorHeader
+        accountInfo={accountInfo}
+        showInputEditor={showInputEditor}
+        showInputPreview={showInputPreview}
+        countCurrent={countCurrent}
+        referUsers={referUsers}
+      />
+      {showInputEditor && (
+        <CommentBodyEditor
+          mentionList={mentionList}
           showInputPreview={showInputPreview}
-          countCurrent={countCurrent}
-          referUsers={referUsers}
+          showInputEditor={showInputEditor}
+          body={editContent}
+          onCreate={onCreate}
+          restProps={{ ...props }}
         />
-        {showInputEditor && (
-          <CommentBodyEditor
-            mentionList={mentionList}
-            showInputPreview={showInputPreview}
-            showInputEditor={showInputEditor}
-            body={editContent}
+      )}
+      {showInputPreview && (
+        <div>
+          <PreviewerWrapper>
+            <MarkDownRender body={editContent} />
+          </PreviewerWrapper>
+          <EditorFooter
+            loading={creating}
+            showPreview={showInputPreview}
             onCreate={onCreate}
-            restProps={{ ...this.props }}
+            onBackEdit={logic.backToEditor}
+            onPreview={logic.createCommentPreview}
           />
-        )}
-        {showInputPreview && (
-          <div>
-            <PreviewerWrapper>
-              <MarkDownRender body={editContent} />
-            </PreviewerWrapper>
-            <EditorFooter
-              loading={creating}
-              showPreview={showInputPreview}
-              onCreate={onCreate}
-              onBackEdit={logic.backToEditor}
-              onPreview={logic.createCommentPreview}
-            />
-          </div>
-        )}
-      </Container>
-    )
-  }
+        </div>
+      )}
+    </Container>
+  )
 }
 
-export default withClickOutside(CommentEditor)
+export default CommentEditor

@@ -131,7 +131,7 @@ export const ReplyTitle = styled.div`
   margin-right: 5px;
 `
 export const VisiableAction = styled.div`
-  ${cs.flex()};
+  ${cs.flex('align-center')};
   color: ${theme('comment.action')};
   margin-right: 10px;
   &:hover {
@@ -156,12 +156,19 @@ export const UpIcon = styled(Img)`
   fill: ${({ viewerDid }) =>
     viewerDid ? theme('comment.didIcon') : theme('comment.icon')};
   margin-right: 3px;
-  margin-top: 2px;
   width: 20px;
   height: 20px;
-  transform: ${({ reverse }) => (reverse ? 'rotate(180deg)' : '')};
+  display: block;
   ${cs.smokey};
 `
+
+export const DownIcon = styled(UpIcon)`
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+`
+
 export const ReplyIcon = styled(Img)`
   fill: ${theme('comment.icon')};
   margin-right: 5px;
