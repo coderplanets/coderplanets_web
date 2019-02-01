@@ -12,6 +12,7 @@ import {
   thread2Subpath,
   atomizeValues,
   errRescue,
+  Global,
   // getParameterByName,
 } from 'utils'
 
@@ -45,7 +46,15 @@ export const onThreadChange = thread => {
   store.setViewing({ activeThread })
 }
 
-export const login = () => dispatchEvent(EVENT.LOGIN_PANEL)
+export const onLogin = () => dispatchEvent(EVENT.LOGIN_PANEL)
+export const onLogout = () => {
+  store.logout()
+
+  setTimeout(() => {
+    Global.location.reload(false)
+  }, 2000)
+}
+
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 

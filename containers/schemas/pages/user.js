@@ -69,10 +69,8 @@ export const sessionState = `
     sessionState {
       isValid
       user {
-        id
+        ${F.author}
         geoCity
-        nickname
-        avatar
         bio
         fromGithub
         location
