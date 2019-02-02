@@ -32,7 +32,8 @@ class PreviewContainer extends React.Component {
   render() {
     const { preview } = this.props
     const {
-      visible,
+      modalVisible,
+      slideVisible,
       type,
       root,
       attachmentData,
@@ -42,7 +43,7 @@ class PreviewContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <ModalPreview visible={false}>
+        <ModalPreview visible={modalVisible}>
           <Viewer
             type={type}
             root={root}
@@ -52,7 +53,7 @@ class PreviewContainer extends React.Component {
         </ModalPreview>
 
         <SliderPreview
-          visible={visible}
+          visible={slideVisible}
           type={type}
           imageUploading={imageUploading}
         >

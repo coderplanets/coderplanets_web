@@ -93,6 +93,10 @@ const zIndex = {
   sidebar: 1999,
 }
 
+const media = {
+  wideScreenBreakPoint: 1600,
+}
+
 const cs = {
   truncate,
   circle,
@@ -102,6 +106,7 @@ const cs = {
   flexColumn,
   flexColumnGrow,
   zIndex,
+  media,
 }
 
 export default cs

@@ -14,9 +14,23 @@ import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Modal:index')
 
-const Modal = ({ children, show, width, showCloseBtn, onClose, mode }) => (
+const Modal = ({
+  children,
+  show,
+  width,
+  showCloseBtn,
+  onClose,
+  mode,
+  background,
+  offsetTop,
+}) => (
   <Mask show={show} onClick={onClose}>
-    <Wrapper width={width} mode={mode}>
+    <Wrapper
+      width={width}
+      mode={mode}
+      background={background}
+      offsetTop={offsetTop}
+    >
       <CloseBtn
         mode={mode}
         src={`${ICON_CMD}/closeBtn.svg`}
@@ -37,7 +51,9 @@ Modal.propTypes = {
   onClose: PropTypes.func,
   width: PropTypes.string,
   showCloseBtn: PropTypes.bool,
-  mode: PropTypes.oneOf(['normal', 'error']),
+  mode: PropTypes.oneOf(['default', 'error']),
+  background: PropTypes.oneOf(['default', 'preview']),
+  offsetTop: PropTypes.string,
 }
 
 Modal.defaultProps = {
@@ -45,7 +61,9 @@ Modal.defaultProps = {
   onClose: debug,
   width: '600px',
   showCloseBtn: false,
-  mode: 'normal',
+  mode: 'default',
+  background: 'default',
+  offsetTop: '13%',
 }
 
 export default Modal
