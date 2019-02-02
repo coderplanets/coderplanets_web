@@ -82,7 +82,7 @@ const flexColumnGrow = opt => `
 `
 
 const zIndex = {
-  popover: 2100,
+  popover: 3000,
   modalOverlay: 2500,
   previewOverlay: 2000,
   preview: 2001,
@@ -91,6 +91,10 @@ const zIndex = {
 
   //
   sidebar: 1999,
+}
+
+const media = {
+  wideScreenBreakPoint: 1600,
 }
 
 const cs = {
@@ -102,6 +106,7 @@ const cs = {
   flexColumn,
   flexColumnGrow,
   zIndex,
+  media,
 }
 
 export default cs

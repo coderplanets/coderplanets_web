@@ -1,5 +1,4 @@
 import React from 'react'
-import withClickOutside from 'react-click-outside'
 import dynamic from 'next/dynamic'
 
 import MarkDownRender from 'components/MarkDownRender'
@@ -24,63 +23,50 @@ const DynamicBodyEditor = dynamic({
   /* eslint-enable */
 })
 
-class CommentReplyEditor extends React.Component {
-  /* eslint-disable */
-  handleClickOutside() {
-    logic.closeReplyBox()
-    logic.onCommentInputBlur()
-  }
-  /* eslint-enable */
+const CommentReplyEditor = ({
+  referUsers,
+  show,
+  isEdit,
+  accountInfo,
+  showReplyPreview,
+  mentionList,
+  restProps: { countCurrent, replyContent, replyToComment, replying },
+}) => (
+  <Wrapper>
+    <ReplyEditorHeader
+      accountInfo={accountInfo}
+      countCurrent={countCurrent}
+      referUsers={referUsers}
+      showPreview={showReplyPreview}
+    />
 
-  render() {
-    const {
-      referUsers,
-      show,
-      isEdit,
-      accountInfo,
-      showReplyPreview,
-      mentionList,
-      restProps: { countCurrent, replyContent, replyToComment, replying },
-    } = this.props
+    {!isEdit && <ReplyToBar comment={replyToComment} />}
 
-    return (
-      <Wrapper>
-        <ReplyEditorHeader
-          accountInfo={accountInfo}
-          countCurrent={countCurrent}
-          referUsers={referUsers}
-          showPreview={showReplyPreview}
-        />
+    {show ? (
+      <div className="comment-reply-editor">
+        <InputEditorWrapper>
+          <DynamicBodyEditor
+            mentionList={mentionList}
+            onChange={debounce(logic.onReplyInputChange, 450)}
+            onMention={logic.onMention}
+            onMentionSearch={logic.onMentionSearch}
+            body={replyContent}
+          />
+        </InputEditorWrapper>
+      </div>
+    ) : (
+      <PreviewWrapper>
+        <MarkDownRender body={replyContent} />
+      </PreviewWrapper>
+    )}
+    <EditorFooter
+      loading={replying}
+      showPreview={showReplyPreview}
+      onCreate={logic.createReplyComment}
+      onBackEdit={logic.replyBackToEditor}
+      onPreview={logic.replyCommentPreview}
+    />
+  </Wrapper>
+)
 
-        {!isEdit && <ReplyToBar comment={replyToComment} />}
-
-        {show ? (
-          <div className="comment-reply-editor">
-            <InputEditorWrapper>
-              <DynamicBodyEditor
-                mentionList={mentionList}
-                onChange={debounce(logic.onReplyInputChange, 450)}
-                onMention={logic.onMention}
-                onMentionSearch={logic.onMentionSearch}
-                body={replyContent}
-              />
-            </InputEditorWrapper>
-          </div>
-        ) : (
-          <PreviewWrapper>
-            <MarkDownRender body={replyContent} />
-          </PreviewWrapper>
-        )}
-        <EditorFooter
-          loading={replying}
-          showPreview={showReplyPreview}
-          onCreate={logic.createReplyComment}
-          onBackEdit={logic.replyBackToEditor}
-          onPreview={logic.replyCommentPreview}
-        />
-      </Wrapper>
-    )
-  }
-}
-
-export default withClickOutside(CommentReplyEditor)
+export default CommentReplyEditor

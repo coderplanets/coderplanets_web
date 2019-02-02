@@ -47,6 +47,7 @@ import {
   ReplyTitle,
   ActionNumber,
   UpIcon,
+  DownIcon,
   ReplyBar,
   ReplyToBody,
   ReplyToFloor,
@@ -163,9 +164,8 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
             </VisiableAction>
             <VisiableAction>
               <div onClick={logic.toggleDislikeComment.bind(this, data)}>
-                <UpIcon
-                  src={`${ICON_CMD}/up.svg`}
-                  reverse
+                <DownIcon
+                  src={`${ICON_CMD}/arrow-up-o.svg`}
                   viewerDid={data.viewerHasDisliked}
                 />
               </div>
