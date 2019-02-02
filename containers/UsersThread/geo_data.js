@@ -1,9 +1,10 @@
 //
 /* import { fetch } from 'whatwg-fetch' */
+import { ASSETS_ENDPOINT } from 'config'
 import fetch from 'isomorphic-fetch'
 import { BStore } from 'utils'
 
-const endpoint = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/asia.geo.json'
+const endpoint = `${ASSETS_ENDPOINT}/asia.geo.json`
 const bkey = 'asia.geo.data'
 
 const fetchGeoData = () =>
