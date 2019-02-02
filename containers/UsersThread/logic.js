@@ -25,6 +25,9 @@ export const loadGeoData = () => {
   sr71$.query(S.communityGeoInfo, { id })
 }
 
+export const ToggleNumBashboard = () =>
+  store.markState({ showNums: !store.showNums })
+
 const markLoading = (maybe = true) => store.markState({ geoDataLoading: maybe })
 // ###############################
 // Data & Error handlers
