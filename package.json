@@ -94,7 +94,6 @@
     "raven-js": "^3.26.4",
     "react": "16.6.0",
     "react-calendar-heatmap": "^1.6.3",
-    "react-click-outside": "^3.0.1",
     "react-content-loader": "3.1.2",
     "react-dom": "16.6.0",
     "react-intl": "2.4.0",

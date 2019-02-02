@@ -6,7 +6,16 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, TYPE, stripMobx, unholdPage, THREAD } from 'utils'
+import {
+  markStates,
+  TYPE,
+  stripMobx,
+  unholdPage,
+  THREAD,
+  Global,
+  cs,
+} from 'utils'
+
 import { User, EmptyAchievement } from 'stores/SharedModel'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
@@ -88,6 +97,14 @@ const PreviewStore = t
     },
     get attUserData() {
       return stripMobx(self.attUser)
+    },
+
+    get modalVisible() {
+      return self.visible && Global.innerWidth > cs.media.wideScreenBreakPoint
+    },
+
+    get slideVisible() {
+      return self.visible && Global.innerWidth < cs.media.wideScreenBreakPoint
     },
   }))
   .actions(self => ({

@@ -17,17 +17,18 @@ export const Mask = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
-  background: ${theme('modal.bg')};
+  background-color: ${({ background }) =>
+    background === 'default' ? theme('modal.bg') : theme('preview.bg')};
   margin: 0 auto;
-  top: 13%;
+  top: ${({ offsetTop }) => offsetTop};
   width: ${({ width }) => width};
   min-height: 320px;
-  max-height: 80vh;
+  max-height: 81vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
   border: 1px solid;
   border-top: 3px solid;
   border-color: ${({ mode }) =>
-    mode === 'normal' ? theme('modal.border') : theme('baseColor.error')};
+    mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
   animation: ${animate.zoomInRule};
 `
 export const ChildrenWrapper = styled.div`
@@ -38,7 +39,7 @@ export const ChildrenWrapper = styled.div`
 `
 export const CloseBtn = styled(Img)`
   fill: ${({ mode }) =>
-    mode === 'normal' ? theme('font') : theme('baseColor.error')};
+    mode === 'default' ? theme('font') : theme('baseColor.error')};
   position: absolute;
   width: 30px;
   height: 30px;
