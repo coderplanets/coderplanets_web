@@ -60,9 +60,8 @@ class CommentsContainer extends React.Component {
 
     return (
       <Wrapper>
-        <Modal show={showReplyBox}>
-          {/* NOTE: this is used for react-clickouside */}
-          {showReplyBox ? (
+        <Modal show={showReplyBox} onClose={logic.onReplyEditorClose}>
+          {showReplyBox && (
             <CommentReplyEditor
               isEdit={isEdit}
               show={showReplyEditor}
@@ -72,8 +71,6 @@ class CommentsContainer extends React.Component {
               mentionList={mentionListData}
               showReplyPreview={showReplyPreview}
             />
-          ) : (
-            <div />
           )}
         </Modal>
 

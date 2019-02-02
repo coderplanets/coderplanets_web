@@ -35,12 +35,13 @@ const CommentBodyEditor = ({
 
     <EditorFooter
       loading={creating}
+      showFold
       showPreview={showInputPreview}
       onCreate={onCreate}
       onBackEdit={logic.backToEditor}
       onPreview={logic.createCommentPreview}
+      onFold={logic.onCommentInputBlur}
     />
-    {/* <Footer loading={creating} showPreview={showInputPreview} /> */}
   </div>
 )
 

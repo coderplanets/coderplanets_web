@@ -269,6 +269,7 @@ export const init = _store => {
 
 export const uninit = () => {
   // if (store.curView === TYPE.LOADING) return false
+  if (!sub$) return false
   debug('===== do uninit')
   sr71$.stop()
   sub$.unsubscribe()

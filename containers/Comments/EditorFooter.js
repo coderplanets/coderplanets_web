@@ -11,6 +11,9 @@ import {
   InputHelper,
   HelperIcon,
   InputSubmit,
+  FoldBtn,
+  FoldArrow,
+  FoldText,
 } from './styles/editor_footer'
 
 import * as logic from './logic'
@@ -21,7 +24,11 @@ const EditorFooter = ({
   onCreate,
   onBackEdit,
   onPreview,
+  showFold,
+  onFold,
 }) => {
+  console.log('showFold: ', showFold)
+
   return (
     <InputFooter>
       {showPreview ? (
@@ -41,6 +48,13 @@ const EditorFooter = ({
       )}
 
       <InputSubmit>
+        {showFold && (
+          <FoldBtn onClick={onFold}>
+            <FoldArrow src={`${ICON_CMD}/arrow-up-o.svg`} />
+            <FoldText>收起</FoldText>
+          </FoldBtn>
+        )}
+        <Space right="14px" />
         {showPreview ? (
           <Button type="primary" ghost size="small" onClick={onBackEdit}>
             返回编辑

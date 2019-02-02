@@ -255,6 +255,12 @@ export const pageChange = (page = 1) => {
 const cancelLoading = () =>
   store.markState({ loading: false, loadingFresh: false, creating: false })
 
+export const onReplyEditorClose = () => {
+  console.log('onReplyEditorClose')
+  closeReplyBox()
+  onCommentInputBlur()
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
