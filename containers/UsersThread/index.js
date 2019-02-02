@@ -9,8 +9,11 @@ import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
 import { makeDebugger, storePlug } from 'utils'
+
+import NumDashboard from './NumDashboard'
 import MapLoading from './MapLoading'
 
+import { Wrapper } from './styles'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -52,18 +55,31 @@ class UsersThreadContainer extends React.Component {
 
   render() {
     const { usersThread } = this.props
-    const { geoInfosData, geoDataLoading, curTheme } = usersThread
+    const {
+      geoInfosData,
+      geoDataLoading,
+      curCommunity,
+      curTheme,
+      showNums,
+    } = usersThread
 
     const ready = GeoMapSSR !== null && !geoDataLoading
 
     return (
-      <React.Fragment>
+      <Wrapper>
+        {ready && (
+          <NumDashboard
+            expand={showNums}
+            total={curCommunity.subscribersCount}
+            geoData={geoInfosData}
+          />
+        )}
         {ready ? (
           <GeoMapSSR markers={geoInfosData} curTheme={curTheme} />
         ) : (
           <MapLoading />
         )}
-      </React.Fragment>
+      </Wrapper>
     )
   }
 }

@@ -22,6 +22,7 @@ const UsersThread = t
     geoInfos: t.optional(t.array(Geo), []),
     geoDataLoading: t.optional(t.boolean, false),
     // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
+    showNums: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
