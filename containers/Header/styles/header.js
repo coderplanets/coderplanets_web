@@ -20,6 +20,8 @@ export const InnerWrapper = styled.div`
   align-items: center;
   padding: 0 5vw;
   transition: all 0.2s;
+
+  ${cs.media.mobile`padding-right: 0`};
 `
 
 export const RouterWrapper = styled.div`

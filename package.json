@@ -115,7 +115,6 @@
     "shortid": "^2.2.8",
     "store": "^2.0.12",
     "styled-components": "4.0.3",
-    "styled-media-query": "^2.1.1",
     "timeago-react": "2.0.0"
   },
   "devDependencies": {

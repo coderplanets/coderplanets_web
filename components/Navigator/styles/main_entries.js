@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 
   margin-left: 10px;
   font-size: 0.9rem;
+  ${cs.media.mobile`display: none`};
 `
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};

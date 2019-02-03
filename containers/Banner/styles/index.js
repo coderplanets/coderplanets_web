@@ -26,6 +26,7 @@ export const BaseTabber = styled.div`
   position: absolute;
   bottom: -16px;
   width: 80vw;
+  ${cs.media.mobile`width: 100%`};
 `
 
 export const NumbersWrapper = styled.div`

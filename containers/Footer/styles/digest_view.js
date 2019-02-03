@@ -5,6 +5,7 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.footer`
   ${cs.flexColumn()};
+  ${cs.media.mobile`display: none;`};
 `
 
 export const MainInfos = styled.div`

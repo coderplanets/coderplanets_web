@@ -7,6 +7,7 @@ import { theme, TYPE, animate, cs } from 'utils'
 export const Wrapper = styled.div`
   width: 10%;
   ${cs.flexColumn('align-end')};
+  ${cs.media.mobile`display: none`};
 `
 
 const closeWith = '40px'

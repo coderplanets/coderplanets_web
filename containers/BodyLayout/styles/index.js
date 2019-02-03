@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};
   transition: all 0.2s;
   overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
+  ${cs.media.mobile`padding-left: 0`};
 `
 /* overflow-x: hidden; */
 
