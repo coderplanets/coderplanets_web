@@ -22,6 +22,7 @@ export const LeftPart = styled.div`
 export const RightPart = styled.div`
   width: 20vw;
   margin-left: 30px;
+  ${cs.media.mobile`display: none;`};
 `
 
 /* fill: ${theme('shell.searchIcon')}; */
