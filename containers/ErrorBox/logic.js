@@ -44,7 +44,10 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const { type, data: { operation, details, path } } = res[EVENT.ERR_RESCUE]
+      const {
+        type,
+        data: { operation, details, path },
+      } = res[EVENT.ERR_RESCUE]
 
       switch (type) {
         case ERR.GRAPHQL:
