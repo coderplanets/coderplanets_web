@@ -5,7 +5,6 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.footer`
   ${cs.flexColumn()};
-  ${cs.media.mobile`display: none;`};
 `
 
 export const MainInfos = styled.div`
@@ -21,6 +20,7 @@ export const MainInfos = styled.div`
     opacity: 1;
   }
   transition: opacity 0.3s;
+  ${cs.media.mobile`display: none;`};
 `
 
 export const Column = styled.div`

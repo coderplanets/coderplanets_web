@@ -22,6 +22,10 @@ export const ReplyToBodyBase = styled.div`
   font-style: italic;
 
   ${cs.truncate('350px')};
+
+  ${cs.media.mobile`
+    ${cs.truncate('120px')};
+  `};
 `
 export const ReplyToFloorBase = styled.div`
   color: ${theme('comment.floor')};
