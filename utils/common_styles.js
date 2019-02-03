@@ -4,6 +4,8 @@
  *
  */
 
+import { generateMedia } from 'styled-media-query'
+
 const smokey = (opt = 0.6) => `
   opacity: ${opt};
 
@@ -93,9 +95,19 @@ const zIndex = {
   sidebar: 1999,
 }
 
-const media = {
-  wideScreenBreakPoint: 1600,
+export const mediaBreakPoints = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1600px',
+  laptopLInt: 1600,
+  // laptopL: '1440px',
+  // desktop: '2560px'
 }
+
+export const media = generateMedia(mediaBreakPoints)
 
 const cs = {
   truncate,
@@ -106,6 +118,7 @@ const cs = {
   flexColumn,
   flexColumnGrow,
   zIndex,
+  mediaBreakPoints,
   media,
 }
 
