@@ -17,6 +17,8 @@ import VideoInfoCard from 'components/VideoInfoCard'
 import ArticleBodyHeader from 'containers/ArticleBodyHeader'
 import Comments from 'containers/Comments'
 
+import ArticleAuthorCard from 'containers/ArticleAuthorCard'
+import ContentSourceCard from 'components/ContentSourceCard'
 import SideCards from './SideCards'
 
 import {
@@ -25,6 +27,7 @@ import {
   ArticleWrapper,
   BodyHeaderWrapper,
   CommentsWrapper,
+  MobileWrapper,
 } from './styles'
 
 import * as logic from './logic'
@@ -71,6 +74,15 @@ class VideoContentContainer extends React.Component {
                   <VideoInfoCard data={viewingData} />
                 </Maybe>
               </ArticleWrapper>
+
+              <MobileWrapper>
+                <ArticleAuthorCard
+                  user={viewingData.author}
+                  introTitle="发布者"
+                />
+                <ContentSourceCard data={viewingData} />
+              </MobileWrapper>
+
               <CommentsWrapper>
                 <Comments />
               </CommentsWrapper>
