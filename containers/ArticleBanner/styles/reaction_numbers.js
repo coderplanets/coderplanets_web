@@ -33,6 +33,7 @@ export const NumberTitle = styled.div`
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
+  ${cs.media.mobile`font-size: 0.9rem`};
 `
 export const NumberItem = styled.div`
   font-size: 1.5rem;
@@ -44,6 +45,8 @@ export const NumberItem = styled.div`
     text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
     animation: ${animate.pulseRule};
   }
+
+  ${cs.media.mobile`font-size: 1rem`};
 `
 
 export const NumberLoading = styled(Img)`
@@ -61,4 +64,9 @@ export const NumberDivider = styled.div`
   align-self: center;
   margin-left: 10px;
   margin-right: 10px;
+  ${cs.media.mobile`
+    margin-left: 2px;
+    margin-right: 2px;
+    height: 50%;
+  `};
 `
