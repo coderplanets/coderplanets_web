@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
   background: ${theme('preview.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
+
+  ${cs.media.mobile`
+    width: 50%;
+    padding: 10px;
+`};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
@@ -22,6 +27,11 @@ export const Desc = styled.div`
   margin-bottom: 20px;
   flex-direction: ${({ column }) => (column ? 'column' : 'row')};
   flex-wrap: wrap;
+
+  ${cs.media.mobile`
+    margin-top: 6px;
+    margin-bottom: 10px;
+  `};
 `
 export const Didiver = styled.div`
   margin-top: 10px;

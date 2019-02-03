@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
 export const Avatar = styled(Img)`
   ${cs.circle('40px')};
   display: block;
+  ${cs.media.mobile`
+    ${cs.circle('30px')};
+  `};
 `
 export const Brief = styled.div`
   ${cs.flexColumn()};

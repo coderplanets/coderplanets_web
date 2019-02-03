@@ -19,6 +19,10 @@ export const BaseBannerContent = styled.div`
   ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
+  ${cs.media.mobile`
+    margin-left: 4%;
+    margin-right: 3%;
+  `};
 `
 
 export const BaseTabber = styled.div`
