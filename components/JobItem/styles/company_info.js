@@ -33,12 +33,15 @@ export const Footer = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
+  ${cs.media.mobile`
+    ${cs.truncate('100px')};
+  `};
 `
 export const StatesWrapper = styled.div`
   ${cs.flex()};
   color: ${theme('thread.articleDigest')};
 `
-export const StateItem = styled.div`
+const BaseState = styled.div`
   border: 1px solid;
   border-color: ${theme('thread.articleDigest')};
   border-radius: 5px;
@@ -46,3 +49,9 @@ export const StateItem = styled.div`
   padding: 0 5px;
   margin-right: 6px;
 `
+
+export const StateItem = styled(BaseState)`
+  ${cs.media.mobile`display: none`};
+`
+
+export const FinanceState = styled(BaseState)``

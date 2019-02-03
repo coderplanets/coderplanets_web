@@ -11,7 +11,7 @@ export const Wrapper = styled.ul`
   padding: 0px 8px 0px 0px;
 `
 // height: 49px;
-export const AvatarsItem = styled.li`
+const BaseAvatarItem = styled.li`
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   position: relative;
@@ -25,6 +25,27 @@ export const AvatarsItem = styled.li`
   }
   transition: all 0.3s;
 `
+
+export const AvatarsItem = styled(BaseAvatarItem)`
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  position: relative;
+  width: 25px;
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+  }
+  ${Wrapper}:hover & {
+    margin-left: 5px;
+  }
+  transition: all 0.3s;
+  ${cs.media.mobile`display: none`};
+`
+
+export const MoreItem = styled(BaseAvatarItem)`
+  ${cs.media.mobile`display: none`};
+`
+
 export const AvatarsImg = styled.img`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};

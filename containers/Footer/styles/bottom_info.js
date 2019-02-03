@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
   background: ${theme('footer.bottomBg')};
   height: 40px;
   width: 100%;
+
+  ${cs.media.mobile`display: none;`};
 `
 export const Copyrights = styled.div`
   color: ${theme('thread.articleDigest')};

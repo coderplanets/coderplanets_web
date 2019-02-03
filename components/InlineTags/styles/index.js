@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 export const Tag = styled.div`
   ${cs.flex('align-center')};
   margin-right: 4px;
+  min-width: 40px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTag')};

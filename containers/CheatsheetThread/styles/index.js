@@ -16,15 +16,9 @@ export const CardWrapper = styled.div`
   margin-right: 20px;
   overflow-y: scroll;
 
-  @media (max-width: 1450px) {
-    width: 500px;
-  }
-  @media (max-width: 1250px) {
-    width: 450px;
-  }
-  @media (max-width: 1100px) {
-    width: 350px;
-  }
+  ${cs.media.mobile`
+    width: 95%;
+  `};
 `
 
 export const EmptyOffset = styled.div`

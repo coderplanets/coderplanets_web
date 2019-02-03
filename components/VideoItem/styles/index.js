@@ -22,12 +22,21 @@ export const PosterWrapper = styled.div`
   position: relative;
   height: 138px;
   width: 246px;
+
+  ${cs.media.mobile`
+    height: 118px;
+    width: 136px;
+  `};
 `
 export const Poster = styled.img`
   height: 100%;
   width: 100%;
   min-width: 246px;
   opacity: ${theme('avatarOpacity')};
+
+  ${cs.media.mobile`
+    min-width: 146px;
+`};
 `
 export const Duration = styled.div`
   position: absolute;
@@ -100,6 +109,10 @@ export const BodyDigest = styled.li`
   &:hover {
     cursor: pointer;
   }
+
+  ${cs.media.mobile`
+    ${cs.truncate('200px')};
+  `};
 `
 export const OriginalAuthorLink = styled.a`
   transition: color 0.3s;

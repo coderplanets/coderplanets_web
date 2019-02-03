@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   background: ${theme('preview.articleBg')};
   min-height: 120px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  ${cs.media.mobile`
+    padding: 10px 0;
+    box-shadow: none;
+  `};
 `
 export const BaseInfo = styled.div`
   ${cs.flexColumnGrow()};
@@ -29,6 +33,9 @@ export const Footer = styled.div`
 `
 export const OriginAuthor = styled.div`
   font-size: 1rem;
+  ${cs.media.mobile`
+font-size: 0.9rem;
+`};
 `
 export const OriginAuthorLink = styled.a`
   color: ${theme('thread.articleDigest')};
@@ -44,6 +51,9 @@ export const OriginAuthorLink = styled.a`
 `
 export const PublishTime = styled.div`
   font-size: 1rem;
+  ${cs.media.mobile`
+font-size: 0.9rem;
+`};
 `
 export const OtherInfo = styled.div`
   ${cs.flexColumn('justify-between')};

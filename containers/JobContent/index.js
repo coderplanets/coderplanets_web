@@ -15,12 +15,18 @@ import Comments from 'containers/Comments'
 import MarkDownRender from 'components/MarkDownRender'
 import Maybe from 'components/Maybe'
 
+import ArticleAuthorCard from 'containers/ArticleAuthorCard'
+import ContentSourceCard from 'components/ContentSourceCard'
+import CompanyCard from './CommunityCard'
+
 import {
   Wrapper,
   MainWrapper,
   ArticleWrapper,
   BodyHeaderWrapper,
   CommentsWrapper,
+  MobileWrapper,
+  MobileContentCard,
 } from './styles'
 
 import SideCards from './SideCards'
@@ -61,6 +67,18 @@ class JobContentContainer extends React.Component {
                 </BodyHeaderWrapper>
                 <MarkDownRender body={viewingData.body} />
               </ArticleWrapper>
+
+              <MobileWrapper>
+                <CompanyCard data={viewingData} />
+                <MobileContentCard>
+                  <ArticleAuthorCard
+                    user={viewingData.author}
+                    introTitle="发布者"
+                  />
+                  <ContentSourceCard data={viewingData} />
+                </MobileContentCard>
+              </MobileWrapper>
+
               <CommentsWrapper>
                 <Comments ssr />
               </CommentsWrapper>

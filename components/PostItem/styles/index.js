@@ -37,6 +37,8 @@ export const Avatar = styled(Img)`
   opacity: ${theme('avatarOpacity')};
   display: block;
   margin-top: 2px;
+
+  ${cs.media.mobile`${cs.circle('34px')}`};
 `
 export const SmallAvatar = styled(Avatar)`
   width: 35px;
@@ -88,6 +90,14 @@ export const Extra = styled.li`
   font-size: 0.85rem;
   color: ${theme('thread.extraInfo')};
 `
+export const CommentsDiget = styled.span`
+  display: none;
+
+  ${cs.media.mobile`
+   display: inline;
+    margin-left: 3px;
+  `};
+`
 export const BodyDigest = styled.li`
   margin-top: 5px;
   color: ${theme('thread.articleDigest')};
@@ -95,6 +105,10 @@ export const BodyDigest = styled.li`
   white-space: normal;
   display: block;
   font-size: 0.85rem;
+
+  ${cs.media.mobile`
+    ${cs.truncate('350px')};
+  `};
 `
 export const CommentWrapper = styled.div`
   ${cs.flex('align-center')};

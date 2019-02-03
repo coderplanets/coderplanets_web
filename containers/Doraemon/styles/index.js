@@ -23,6 +23,10 @@ export const PanelContainer = styled.div`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;
+  ${cs.media.mobile`
+    width: 80vw;
+    left: 30%;
+  `};
 `
 // #001b21;
 export const BaseBar = styled.div`

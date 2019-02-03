@@ -14,15 +14,9 @@ export const CardWrapper = styled.div`
   margin-right: 20px;
   overflow-y: scroll;
 
-  @media (max-width: 1600px) {
-    width: 350px;
-  }
-  @media (max-width: 1450px) {
-    width: 500px;
-  }
-  @media (max-width: 1300px) {
-    width: 450px;
-  }
+  ${cs.media.mobile`
+    width: 95%;
+  `};
 `
 export const ErrorWrapper = styled.div`
   ${cs.flexColumn()};

@@ -19,6 +19,10 @@ export const BaseBannerContent = styled.div`
   ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
+  ${cs.media.mobile`
+    margin-left: 4%;
+    margin-right: 3%;
+  `};
 `
 
 export const BaseTabber = styled.div`
@@ -26,6 +30,7 @@ export const BaseTabber = styled.div`
   position: absolute;
   bottom: -16px;
   width: 80vw;
+  ${cs.media.mobile`width: 100%`};
 `
 
 export const NumbersWrapper = styled.div`
