@@ -3,6 +3,7 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-around')};
+  color: ${theme('thread.articleDigest')};
 `
 export const Divider = styled.div`
   border-left: 1px solid;

@@ -21,7 +21,13 @@ import Tabber from 'components/Tabber'
 
 import DigestBoard from './DigestBoard'
 
-import { Container, MainWrapper, TabberWrapper, SidebarWrapper } from './styles'
+import {
+  Container,
+  MainWrapper,
+  TabberWrapper,
+  SidebarWrapper,
+  MobileBottom,
+} from './styles'
 
 import * as logic from './logic'
 
@@ -108,6 +114,9 @@ class UserContentContainer extends React.Component {
             />
           </TabberWrapper>
           <TabberContent active={activeThread} />
+          <MobileBottom>
+            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
+          </MobileBottom>
         </MainWrapper>
         <SidebarWrapper>
           <Affix offsetTop={30}>
