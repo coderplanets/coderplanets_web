@@ -100,11 +100,11 @@ const PreviewStore = t
     },
 
     get modalVisible() {
-      return self.visible && Global.innerWidth > cs.media.wideScreenBreakPoint
+      return self.visible && Global.innerWidth > cs.mediaBreakPoints.laptopLInt
     },
 
     get slideVisible() {
-      return self.visible && Global.innerWidth < cs.media.wideScreenBreakPoint
+      return self.visible && Global.innerWidth < cs.mediaBreakPoints.laptopLInt
     },
   }))
   .actions(self => ({

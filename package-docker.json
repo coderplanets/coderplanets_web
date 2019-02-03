@@ -74,8 +74,8 @@
     "shortid": "^2.2.8",
     "store": "^2.0.12",
     "styled-components": "4.0.3",
-    "timeago-react": "2.0.0",
-    "whatwg-fetch": "^3.0.0"
+    "styled-media-query": "^2.1.1",
+    "timeago-react": "2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
