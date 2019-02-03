@@ -25,9 +25,11 @@ export const BannerContentWrapper = styled.div`
 `
 export const UserBriefWrapper = styled.div`
   width: 60%;
+  ${cs.media.mobile`width: 100%`};
 `
 export const UserContributesWrapper = styled.div`
   width: 36%;
   max-width: 450px;
   margin-top: 10px;
+  ${cs.media.mobile`display: none`};
 `

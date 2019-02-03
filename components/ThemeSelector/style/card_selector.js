@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { theme, cs } from 'utils'
 import Img from 'Img'
+import { theme, cs } from 'utils'
+
 import { Dot } from './index'
 
 export const Wrapper = styled.div`
@@ -30,6 +31,8 @@ export const IntroBox = styled.div`
     border-color: ${theme('banner.desc')};
   }
   transition: border 0.3s;
+
+  ${cs.media.mobile`width: 160px; margin-right: 10px;`};
 `
 
 export const IntroDesc = styled.div`
