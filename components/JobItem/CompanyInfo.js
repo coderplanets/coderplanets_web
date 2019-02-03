@@ -13,6 +13,7 @@ import {
   Title,
   StatesWrapper,
   StateItem,
+  FinanceState,
 } from './styles/company_info'
 
 const CompanyInfo = ({
@@ -28,7 +29,7 @@ const CompanyInfo = ({
         <Middle>
           <StatesWrapper>
             <StateItem>{field} </StateItem>
-            <StateItem>{finance}</StateItem>
+            <FinanceState>{finance}</FinanceState>
             <StateItem>{scale}</StateItem>
           </StatesWrapper>
         </Middle>

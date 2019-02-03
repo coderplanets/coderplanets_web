@@ -21,6 +21,7 @@ import {
   Exp,
   ExpDivider,
   Extra,
+  PublishInfo,
 } from './styles/job_info'
 
 const JobInfo = ({
@@ -28,6 +29,7 @@ const JobInfo = ({
     author,
     insertedAt,
     views,
+    commentsCount,
     title,
     salary,
     education,
@@ -58,14 +60,16 @@ const JobInfo = ({
     </Middle>
     <Footer onClick={onPreview}>
       <Extra>
-        {author.nickname} <DotDivider />
-        <TimeAgo datetime={insertedAt} locale="zh_CN" />
-        <DotDivider />
+        <PublishInfo>
+          {author.nickname} <DotDivider />
+          <TimeAgo datetime={insertedAt} locale="zh_CN" />
+          <DotDivider />
+        </PublishInfo>
         浏览:
         {views}
         <DotDivider />
         评论:
-        {views}
+        {commentsCount}
       </Extra>
     </Footer>
   </Wrapper>

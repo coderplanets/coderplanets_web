@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { uid } from 'utils'
+import { uid, cs } from 'utils'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
@@ -12,6 +12,10 @@ const LoadingWrapper = styled.div`
   height: 100px;
   margin-bottom: 26px;
   overflow: hidden;
+  ${cs.media.mobile`
+    height: 45px;
+    margin-bottom: 10px;
+  `};
 `
 
 const LoadingItem = ({ theme }) => (
