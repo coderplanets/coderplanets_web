@@ -44,10 +44,7 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const {
-        type,
-        data: { operation, details, path },
-      } = res[EVENT.ERR_RESCUE]
+      const { type, data: { operation, details, path } } = res[EVENT.ERR_RESCUE]
 
       switch (type) {
         case ERR.GRAPHQL:
@@ -62,7 +59,12 @@ const DataSolver = [
           debug('default')
       }
 
-      store.markState({ show: true, type, operation, path })
+      store.markState({
+        show: true,
+        type,
+        operation: operation || 'TODO: missing schema def',
+        path,
+      })
     },
   },
 ]

@@ -6,7 +6,7 @@ const community = gql`
 `
 
 const subscribeCommunity = gql`
-  mutation($communityId: ID!) {
+  mutation subscribeCommunity($communityId: ID!) {
     subscribeCommunity(communityId: $communityId) {
       ${F.community}
       contributesDigest
@@ -18,7 +18,7 @@ const subscribeCommunity = gql`
   }
 `
 const unsubscribeCommunity = gql`
-  mutation($communityId: ID!) {
+  mutation unsubscribeCommunity($communityId: ID!) {
     unsubscribeCommunity(communityId: $communityId) {
       id
     }
