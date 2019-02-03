@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EMAIL_BUSINESS, ISSUE_ADDR, API_SERVER_ADDR } from 'config'
+import { ISSUE_ADDR, API_SERVER_ADDR } from 'config'
 import BottomInfo from './BottomInfo'
 
 import {
@@ -12,7 +12,7 @@ import {
   Support,
 } from './styles/brief_view'
 
-import { toggleSponsorHelper } from './logic'
+import { toggleSponsorHelper, toggleBusBanner } from './logic'
 
 const BriefView = () => (
   <Wrapper>
@@ -54,7 +54,7 @@ const BriefView = () => (
           API
         </Item>
         <Divider>|</Divider>
-        <Item href={`mailto:${EMAIL_BUSINESS}`}>商务合作</Item>
+        <Item onClick={toggleBusBanner}>商务合作</Item>
 
         <Divider>|</Divider>
         <Support onClick={toggleSponsorHelper}>打赏</Support>
