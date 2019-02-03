@@ -62,7 +62,12 @@ const DataSolver = [
           debug('default')
       }
 
-      store.markState({ show: true, type, operation, path })
+      store.markState({
+        show: true,
+        type,
+        operation: operation || 'TODO: missing schema def',
+        path,
+      })
     },
   },
 ]

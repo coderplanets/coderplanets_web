@@ -27,9 +27,15 @@ export const RightPart = styled.div`
   width: 25vw;
   margin-left: 30px;
   padding-top: 5px;
+  ${cs.media.mobile`display: none;`};
 `
 export const PublishBtn = styled(Button)`
   width: 100%;
   max-width: 220px;
   margin-top: 10px;
+`
+
+export const MobileBottom = styled.div`
+  display: none;
+  ${cs.media.mobile`display: block;`};
 `

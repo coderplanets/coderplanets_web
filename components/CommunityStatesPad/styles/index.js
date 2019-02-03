@@ -20,6 +20,15 @@ export const NumberSection = styled.div`
       readOnly ? '' : theme('banner.numberHoverBg')};
   }
 `
+
+export const ContentSection = styled(NumberSection)`
+  ${cs.media.mobile`display: none`};
+`
+
+export const EditorSection = styled(NumberSection)`
+  ${cs.media.mobile`display: none`};
+`
+
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
@@ -49,4 +58,5 @@ export const NumberDivider = styled.div`
   align-self: center;
   margin-left: 10px;
   margin-right: 10px;
+  ${cs.media.mobile`display: none`};
 `

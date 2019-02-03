@@ -22,4 +22,5 @@ export const BaseTabber = styled.div`
   bottom: -16px;
   margin-left: -10px;
   width: 80vw;
+  ${cs.media.mobile`width: 95%;`};
 `

@@ -25,3 +25,7 @@ export const LogoIcon = styled(Img)`
   margin-left: 2px;
   display: block;
 `
+
+export const Text = styled.div`
+  ${cs.media.mobile`display: none`};
+`

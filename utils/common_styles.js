@@ -3,6 +3,7 @@
  * common styles used in styled-component
  *
  */
+import { css } from 'styled-components'
 
 const smokey = (opt = 0.6) => `
   opacity: ${opt};
@@ -93,9 +94,27 @@ const zIndex = {
   sidebar: 1999,
 }
 
-const media = {
-  wideScreenBreakPoint: 1600,
+export const mediaBreakPoints = {
+  // mobileS: '320px',
+  // mobileM: '375px',
+  mobile: 500,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 1600,
+  // laptopL: '1440px',
+  // desktop: '2560px'
 }
+
+const media = Object.keys(mediaBreakPoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${mediaBreakPoints[label]}px) {
+      ${css(...args)};
+    }
+  `
+  return acc
+}, {})
+
+// export const media = generateMedia({ ...mediaBreakPoints })
 
 const cs = {
   truncate,
@@ -106,6 +125,7 @@ const cs = {
   flexColumn,
   flexColumnGrow,
   zIndex,
+  mediaBreakPoints,
   media,
 }
 

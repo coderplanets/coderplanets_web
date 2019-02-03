@@ -24,6 +24,10 @@ export const Wrapper = styled.div`
     border-color: ${theme('content.cardBorderHover')};
     cursor: pointer;
   }
+  ${cs.media.mobile`
+    width: 160px;
+    height: 200px;
+  `};
 `
 
 export const CommunityIcon = styled(Img)`

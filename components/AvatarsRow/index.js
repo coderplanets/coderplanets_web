@@ -12,7 +12,13 @@ import { Tooltip } from 'antd'
 import { ATATARS_LIST_LENGTH } from 'config/general'
 
 import { makeDebugger, prettyNum } from 'utils'
-import { Wrapper, AvatarsItem, AvatarsImg, AvatarsMore } from './styles'
+import {
+  Wrapper,
+  AvatarsItem,
+  MoreItem,
+  AvatarsImg,
+  AvatarsMore,
+} from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:AvatarsRow:index')
@@ -43,11 +49,11 @@ const AvatarsRow = ({
       {total <= 1 ? (
         <span />
       ) : (
-        <AvatarsItem onClick={onTotalSelect.bind(this, { users, total })}>
+        <MoreItem onClick={onTotalSelect.bind(this, { users, total })}>
           <Tooltip title={`所有评论共 ${total} 条`}>
             <AvatarsMore total={total}>{prettyNum(total)}</AvatarsMore>
           </Tooltip>
-        </AvatarsItem>
+        </MoreItem>
       )}
 
       {R.slice(0, limit, sortedUsers).map(user => (

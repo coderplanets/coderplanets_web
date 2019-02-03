@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  EMAIL_BUSINESS,
   GITHUB_WEB_ADDR,
   GITHUB_SERVER_ADDR,
   API_SERVER_ADDR,
@@ -25,8 +24,13 @@ import {
 import SocialList from './SocialList'
 // import GitSource from './GitSource'
 import BottomInfo from './BottomInfo'
+import MobilBottomInfo from './MobilBottomInfo'
 
-import { toggleSponsorHelper, toggleSeniorHelper } from './logic'
+import {
+  toggleSponsorHelper,
+  toggleBusBanner,
+  toggleSeniorHelper,
+} from './logic'
 
 const DigestView = () => (
   <Wrapper>
@@ -83,7 +87,7 @@ const DigestView = () => (
             加入我们
           </Item>
           <Item>使用帮助</Item>
-          <Item href={`mailto:${EMAIL_BUSINESS}`}>商务合作</Item>
+          <Item onClick={toggleBusBanner}>商务合作</Item>
         </Body>
       </Column>
 
@@ -157,6 +161,7 @@ const DigestView = () => (
       </Column>
     </MainInfos>
     <BottomInfo />
+    <MobilBottomInfo />
   </Wrapper>
 )
 

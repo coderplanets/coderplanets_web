@@ -31,12 +31,19 @@ export const Owner = styled.div`
   ${Title}:hover & {
     color: ${theme('banner.title')};
   }
+
+  ${cs.media.mobile`
+    ${cs.truncate('60px')};
+`};
 `
 export const RepoName = styled.div`
   color: ${theme('thread.repoTitle')};
   ${Title}:hover & {
     color: ${theme('banner.title')};
   }
+  ${cs.media.mobile`
+    ${cs.truncate('80px')};
+  `};
 `
 export const TagsWrapper = styled.div`
   margin-top: 4px;

@@ -15,6 +15,15 @@ export const CommunityLogo = styled(CommunityFaceLogo)`
   margin-bottom: 4px;
 `
 
+export const MobileHint = styled.div`
+  ${cs.flex('align-center')};
+  color: ${theme('thread.articleTitle')};
+  margin-bottom: 4px;
+  margin-left: -10px;
+  display: none;
+  ${cs.media.mobile`display: flex`};
+`
+
 export const MiniTab = styled.div`
   border-bottom: ${({ active }) => (active ? '3px solid' : '')};
   border-bottom-color: ${({ active }) =>
@@ -26,4 +35,6 @@ export const MiniTab = styled.div`
   color: ${({ active }) =>
     active ? theme('header.tabActive') : theme('header.tabOthers')};
   cursor: pointer;
+
+  ${cs.media.mobile`display: none`};
 `

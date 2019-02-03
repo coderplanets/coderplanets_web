@@ -7,7 +7,7 @@ const BottomInfo = () => (
   <Wrapper>
     <Copyrights>©2018 All Rights Reserved</Copyrights>
     <Thanks>
-      <ThxTitle>特别鸣谢： (空缺中)</ThxTitle>
+      <ThxTitle>特别鸣谢： (求赞助)</ThxTitle>
     </Thanks>
   </Wrapper>
 )

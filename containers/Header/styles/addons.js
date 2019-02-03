@@ -5,6 +5,7 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
+  ${cs.media.mobile`display: none`};
 `
 
 export const HeaderStatesIcon = styled(HeaderStatesSVG)`

@@ -30,6 +30,8 @@ export const Wrapper = styled.div`
   border-color: ${({ mode }) =>
     mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
   animation: ${animate.zoomInRule};
+
+  ${cs.media.mobile`width: 400px`};
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;
