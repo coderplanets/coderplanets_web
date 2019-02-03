@@ -27,6 +27,7 @@ import {
   RightPart,
   RightPadding,
   PublishBtn,
+  MobileBottom,
 } from './styles'
 
 import * as logic from './logic'
@@ -82,6 +83,15 @@ class WikiThreadContainer extends React.Component {
           <WikiWrapper>
             {renderView(wikiData, curView, communityRaw)}
           </WikiWrapper>
+          <MobileBottom>
+            <Contributors
+              communityRaw={communityRaw}
+              isLogin={isLogin}
+              users={wikiData.contributors}
+              views={wikiData.views}
+              lastSync={wikiData.lastSync}
+            />
+          </MobileBottom>
         </LeftPart>
         <RightPart>
           <React.Fragment>
