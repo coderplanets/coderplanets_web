@@ -13,6 +13,7 @@ const debug = makeDebugger('S:Footer')
 const Footer = t
   .model('Footer', {
     showSponsor: t.optional(t.boolean, false),
+    showBusBanner: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

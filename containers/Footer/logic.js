@@ -19,6 +19,8 @@ export const toggleSponsorHelper = () =>
   })
 
 export const toggleSeniorHelper = () => store.upgradeHepler()
+export const toggleBusBanner = () =>
+  store.markState({ showBusBanner: !store.showBusBanner })
 
 export const onLogin = () => store.authWarning({ hideToast: true })
 export const onPay = num => {
