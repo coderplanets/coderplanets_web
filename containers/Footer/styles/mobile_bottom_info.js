@@ -3,10 +3,8 @@ import styled from 'styled-components'
 import { theme, cs } from 'utils'
 
 export const MainInfoWrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-both')};
   height: 50px;
-  padding-left: 6%;
-  padding-right: 6%;
   display: none;
   ${cs.media.mobile`display: flex;`};
 `
