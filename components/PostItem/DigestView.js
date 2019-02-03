@@ -16,6 +16,7 @@ import {
   Breif,
   Title,
   SecondHalf,
+  CommentsDiget,
   BodyDigest,
   Extra,
   TagListWrapper,
@@ -67,6 +68,7 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
           )}
           <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
           {entry.views}
+          <CommentsDiget>⁝ 评论: {entry.commentsCount}</CommentsDiget>
         </Extra>
         <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
       </SecondHalf>

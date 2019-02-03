@@ -13,6 +13,8 @@ import SubscribedTitle from './SubscribedTitle'
 import {
   Wrapper,
   NumberSection,
+  ContentSection,
+  EditorSection,
   NumberDivider,
   NumberTitle,
   NumberItem,
@@ -52,17 +54,17 @@ const CommunityStatesPad = ({
         </NumberItem>
       </NumberSection>
       <NumberDivider />
-      <NumberSection readOnly>
+      <ContentSection readOnly>
         <NumberTitle readOnly>内容</NumberTitle>
         <NumberItem readOnly>{prettyNum(contentsCount)}</NumberItem>
-      </NumberSection>
+      </ContentSection>
       <NumberDivider />
-      <NumberSection>
+      <EditorSection>
         <NumberTitle readOnly>编辑</NumberTitle>
         <NumberItem onClick={onShowEditorList}>
           {prettyNum(editorsCount)}
         </NumberItem>
-      </NumberSection>
+      </EditorSection>
     </Wrapper>
   )
 }
