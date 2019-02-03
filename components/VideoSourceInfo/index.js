@@ -13,7 +13,7 @@ import { ICON_CMD } from 'config'
 import { makeDebugger } from 'utils'
 import Maybe from 'components/Maybe'
 
-import { Wrapper, LinkIcon, LogoIcon } from './styles'
+import { Wrapper, LinkIcon, LogoIcon, Text } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:VideoSourceInfo:index')
@@ -33,7 +33,7 @@ const VideoSourceInfo = ({ value }) => (
     <Maybe test={R.contains(value, recommandSources)}>
       <LogoIcon src={`${ICON_CMD}/${value}.svg`} color={colorMaps[value]} />
     </Maybe>
-    <div>{value}</div>
+    <Text>{value}</Text>
   </Wrapper>
 )
 
