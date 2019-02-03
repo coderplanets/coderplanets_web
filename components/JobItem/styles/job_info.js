@@ -22,6 +22,9 @@ export const Footer = styled.div`
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 1rem;
+  ${cs.media.mobile`
+    ${cs.truncate('150px')};
+  `};
 `
 export const CommunitiesWrapper = styled.div`
   margin-left: 5px;
@@ -44,6 +47,7 @@ export const Background = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 0.85rem;
+  ${cs.media.mobile`display: none`};
 `
 export const Degree = styled.div``
 export const Exp = styled.div``
@@ -57,4 +61,10 @@ export const Extra = styled.div`
 export const ExpDivider = styled.div`
   margin-left: 4px;
   margin-right: 4px;
+`
+
+export const PublishInfo = styled.div`
+  ${cs.media.mobile`
+display: none;
+`};
 `

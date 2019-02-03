@@ -23,7 +23,10 @@ import {
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:AvatarsRow:index')
 
-const validUser = R.compose(R.not, R.isNil)
+const validUser = R.compose(
+  R.not,
+  R.isNil
+)
 
 const AvatarsRow = ({
   users,
