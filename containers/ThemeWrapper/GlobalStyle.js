@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
   html {
     background-color: ${theme('htmlBg')};
   }
+  body {
+    ${cs.media.mobile`
+      position: relative;
+    `};
+  }
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
   }
