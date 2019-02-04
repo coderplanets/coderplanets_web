@@ -6,6 +6,8 @@ import {
   holdPage,
   unholdPage,
   dispatchEvent,
+  Global,
+  cs,
 } from 'utils'
 import SR71 from 'utils/async/sr71'
 
@@ -42,8 +44,21 @@ const DataResolver = [
     match: asyncRes(EVENT.PREVIEW_OPEN),
     action: res => {
       const payload = res[EVENT.PREVIEW_OPEN]
-      holdPage()
 
+      /*
+         debug('should open payload thread: ', payload.thread)
+         debug('should open payload id: ', payload.data.id)
+         debug('payload curCommunity: ', store.curCommunity.raw)
+       */
+      Global.innerWidth <= cs.mediaBreakPoints.mobile
+      if (Global.innerWidth <= cs.mediaBreakPoints.mobile) {
+        const { thread, data } = payload
+        const targetUrl = `/${store.curCommunity.raw}/${thread}/${data.id}`
+        Global.location.href = targetUrl
+        return false
+      }
+
+      holdPage()
       store.open(payload)
     },
   },

@@ -18,6 +18,7 @@ import {
   SecondHalf,
   CommentsDiget,
   BodyDigest,
+  PublishLable,
   Extra,
   TagListWrapper,
 } from './styles'
@@ -62,9 +63,9 @@ const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
         <Extra>
           {entry.author.nickname}
           {entry.copyRight === 'original' ? (
-            <span>&nbsp;发布于:</span>
+            <PublishLable>&nbsp;发布于:</PublishLable>
           ) : (
-            <span>&nbsp;搬运于:</span>
+            <PublishLable>&nbsp;搬运于:</PublishLable>
           )}
           <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
           {entry.views}
