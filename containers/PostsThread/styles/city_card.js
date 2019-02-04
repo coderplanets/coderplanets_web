@@ -25,8 +25,9 @@ export const Wrapper = styled.div`
     cursor: pointer;
   }
   ${cs.media.mobile`
-    width: 160px;
+    width: 140px;
     height: 200px;
+    margin-right: 8px;
   `};
 `
 

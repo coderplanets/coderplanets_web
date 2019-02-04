@@ -14,11 +14,18 @@ export const TopHalf = styled.div`
 export const BaseInfo = styled.div`
   flex-grow: 1;
   margin-bottom: 6px;
+  ${cs.media.mobile`
+    max-width: 75%;
+`};
 `
 export const CompanyLogo = styled(Img)`
   width: 50px;
   height: 50px;
   border-radius: 4px;
+  ${cs.media.mobile`
+    width: 40px;
+    height: 40px;
+  `};
 `
 export const Header = styled.div``
 export const Middle = styled.div`
@@ -29,12 +36,15 @@ export const Middle = styled.div`
 export const Footer = styled.div`
   font-size: 0.8rem;
   color: ${theme('thread.articleDigest')};
+  ${cs.media.mobile`
+    ${cs.truncate('100px')};
+  `};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
   ${cs.media.mobile`
-    ${cs.truncate('100px')};
+    ${cs.truncate('90px')};
   `};
 `
 export const StatesWrapper = styled.div`
