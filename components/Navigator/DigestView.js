@@ -28,7 +28,7 @@ const DigestView = () => (
         </ShortAddr>
       }
     >
-      <LogoText>coderplanets</LogoText>
+      <LogoText href="/home/posts">coderplanets</LogoText>
     </Popover>
     <BetaLogo src={`${ICON_CMD}/beta.svg`} />
     <MainEntries />

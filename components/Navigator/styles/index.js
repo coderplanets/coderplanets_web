@@ -17,7 +17,7 @@ export const Logo = styled(CommunityFaceLogo)`
   opacity: 0.7;
 `
 // font-family: cursive; // not general
-export const LogoText = styled.div`
+export const LogoText = styled.a`
   color: ${theme('logoText')};
   font-family: Orbitron, Cursive, Helvetica;
   font-weight: bolder;
@@ -25,6 +25,12 @@ export const LogoText = styled.div`
   font-size: 0.9rem;
   margin-left: 6px;
   margin-top: 3px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: ${theme('logoText')};
+  }
 `
 
 export const BetaLogo = styled(Img)`

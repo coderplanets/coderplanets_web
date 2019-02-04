@@ -36,7 +36,7 @@ const BriefView = ({ community }) => (
             <LogoHolder src={CommunityLogoHolder} />
           )}
           <CommunityInfo>
-            <LogoText>coderplanets</LogoText>
+            <LogoText href="/home/posts">coderplanets</LogoText>
             <CommunityTitle>{community.title}</CommunityTitle>
           </CommunityInfo>
         </CommunityWrapper>
