@@ -22,7 +22,7 @@ export const BaseBannerContent = styled.div`
   margin-top: -2rem;
   ${cs.media.mobile`
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 3%;
     padding-left: 3%;
     padding-right: 3%;
   `};
@@ -99,7 +99,7 @@ export const Desc = styled.div`
   @media (max-height: 800px) {
     font-size: 1rem;
   }
-  ${cs.truncate('250px')};
+  ${cs.truncate('180px')};
 `
 export const LogoHolder = styled(Img)`
   fill: ${theme('banner.desc')};

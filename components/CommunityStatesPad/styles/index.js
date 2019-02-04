@@ -49,6 +49,8 @@ export const NumberItem = styled.div`
     animation: ${animate.pulseRule};
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
+
+  ${cs.media.mobile`font-size: 1.2rem;`};
 `
 export const NumberDivider = styled.div`
   border: 1px solid;

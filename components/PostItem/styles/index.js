@@ -107,8 +107,8 @@ export const BodyDigest = styled.li`
   font-size: 0.85rem;
 
   ${cs.media.mobile`
-    ${cs.truncate('350px')};
-  `};
+    ${cs.truncate('250px')};
+`};
 `
 export const CommentWrapper = styled.div`
   ${cs.flex('align-center')};
@@ -126,3 +126,11 @@ export const CommentNum = styled.div`
   font-size: 0.9rem;
 `
 export const TagListWrapper = styled.div``
+
+export const PublishLable = styled.span`
+  display: inline;
+  ${cs.media.mobile`
+    display: none;
+    margin-left: 3px;
+  `};
+`
