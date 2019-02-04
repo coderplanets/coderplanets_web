@@ -2,6 +2,14 @@ import { createGlobalStyle } from 'styled-components'
 import { theme, cs } from 'utils'
 import normalize from './normalize'
 
+/*
+body {
+  ${cs.media.mobile`
+      position: fixed;
+  `};
+}
+*/
+
 const GlobalStyle = createGlobalStyle`
   ${normalize};
   html {

@@ -89,6 +89,9 @@ const PreviewStore = t
     get root() {
       return getParent(self)
     },
+    get curCommunity() {
+      return stripMobx(self.root.viewing.community)
+    },
     get curTheme() {
       return self.root.theme.curTheme
     },
@@ -98,7 +101,6 @@ const PreviewStore = t
     get attUserData() {
       return stripMobx(self.attUser)
     },
-
     get modalVisible() {
       return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktop
     },
