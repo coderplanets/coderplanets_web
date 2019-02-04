@@ -16,7 +16,7 @@ export const BaseInfo = styled.div`
   margin-bottom: 6px;
   ${cs.media.mobile`
     max-width: 75%;
-`};
+ `};
 `
 export const CompanyLogo = styled(Img)`
   width: 50px;

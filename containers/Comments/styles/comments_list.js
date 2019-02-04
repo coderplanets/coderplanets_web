@@ -112,6 +112,10 @@ export const CommentBodyInfo = styled.div`
 `
 export const CommentContent = styled.div`
   font-size: 0.9rem;
+
+  ${cs.media.mobile`
+    max-width: 250px;
+  `};
 `
 export const CommentFooter = styled.div`
   ${cs.flex()};
