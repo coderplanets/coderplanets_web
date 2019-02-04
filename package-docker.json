@@ -94,6 +94,7 @@
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "regenerator-runtime": "^0.13.1",
     "cross-env": "^5.0.5",
+    "terser": "3.14",
     "webpack-bundle-analyzer": "3.0.2",
     "dotenv-webpack": "1.5.7"
   }
