@@ -38,8 +38,7 @@ const CompanyInfo = ({
     </TopHalf>
     <Footer>
       &quot;
-      {R.isEmpty(desc) ? '---' : desc}
-      &quot;
+      {R.isEmpty(desc) ? '---' : desc} &quot;
     </Footer>
   </Wrapper>
 )
