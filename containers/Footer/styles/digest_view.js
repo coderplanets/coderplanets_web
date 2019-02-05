@@ -20,7 +20,7 @@ export const MainInfos = styled.div`
     opacity: 1;
   }
   transition: opacity 0.3s;
-  ${cs.media.mobile`display: none;`};
+  ${cs.media.tablet`display: none;`};
 `
 
 export const Column = styled.div`

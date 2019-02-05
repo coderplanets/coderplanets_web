@@ -14,6 +14,11 @@ export const Wrapper = styled.div`
 export const Icon404 = styled(PromptIcon)`
   width: 320px;
   height: 320px;
+
+  ${cs.media.tablet`
+    width: 200px;
+    height: 200px;
+`};
 `
 
 export const Icon = styled.div``
@@ -28,12 +33,19 @@ export const Title = styled.div`
   margin-bottom: 10px;
   margin-top: 10px;
   font-size: 1.3rem;
+  ${cs.media.tablet`
+    font-size: 1.1rem;
+`};
 `
 
 export const DescWrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   margin-top: 0.6rem;
   font-size: 0.9rem;
+
+  ${cs.media.tablet`
+    font-size: 0.8rem;
+  `};
 `
 const Link = styled.a`
   text-decoration: none;

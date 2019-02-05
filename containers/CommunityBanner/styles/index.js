@@ -22,7 +22,7 @@ export const BaseTabber = styled.div`
   bottom: -16px;
   margin-left: -10px;
   width: 80vw;
-  ${cs.media.mobile`
+  ${cs.media.tablet`
     left: 10px;
     width: 100%;
   `};

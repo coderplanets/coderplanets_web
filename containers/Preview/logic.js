@@ -51,7 +51,7 @@ const DataResolver = [
          debug('payload curCommunity: ', store.curCommunity.raw)
        */
       Global.innerWidth <= cs.mediaBreakPoints.mobile
-      if (Global.innerWidth <= cs.mediaBreakPoints.mobile) {
+      if (Global.innerWidth <= cs.mediaBreakPoints.tablet) {
         const { thread, data } = payload
         const targetUrl = `/${store.curCommunity.raw}/${thread}/${data.id}`
         Global.location.href = targetUrl

@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
     width: 50%;
     padding: 10px;
   `};
+
+  ${cs.media.tablet`
+    width: 50%;
+  `};
 `
 
 export const Divider = styled.div`
