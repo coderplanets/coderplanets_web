@@ -34,6 +34,7 @@ export const NumberTitle = styled.div`
     animation: ${animate.pulseRule};
   }
   ${cs.media.mobile`font-size: 0.9rem`};
+  ${cs.media.tablet`font-size: 0.9rem`};
 `
 export const NumberItem = styled.div`
   font-size: 1.5rem;
@@ -47,6 +48,7 @@ export const NumberItem = styled.div`
   }
 
   ${cs.media.mobile`font-size: 1rem`};
+  ${cs.media.tablet`font-size: 1rem`};
 `
 
 export const NumberLoading = styled(Img)`
@@ -68,5 +70,11 @@ export const NumberDivider = styled.div`
     margin-left: 2px;
     margin-right: 2px;
     height: 50%;
+  `};
+
+  ${cs.media.tablet`
+      margin-left: 2px;
+      margin-right: 2px;
+      height: 50%;
   `};
 `

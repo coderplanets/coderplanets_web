@@ -12,10 +12,10 @@ export const Wrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
 
-  ${cs.media.mobile`
+  ${cs.media.tablet`
     width: 50%;
     padding: 10px;
-`};
+  `};
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};

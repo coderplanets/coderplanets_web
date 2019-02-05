@@ -25,7 +25,7 @@ export const RightPart = styled.div`
   width: 18vw;
   margin-left: 30px;
   padding-top: 5px;
-  ${cs.media.mobile`display: none;`};
+  ${cs.media.tablet`display: none;`};
 `
 /* fill: ${theme('shell.searchIcon')}; */
 // TODO: rename to PublishButn

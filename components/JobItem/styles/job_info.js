@@ -64,7 +64,7 @@ export const ExpDivider = styled.div`
 `
 
 export const PublishInfo = styled.div`
-  ${cs.media.mobile`
-display: none;
-`};
+  ${cs.media.tablet`
+    display: none;
+  `};
 `

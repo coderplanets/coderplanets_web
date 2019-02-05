@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   border-color: ${theme('content.border')};
   border-radius: 6px;
   padding: 1em;
-  ${cs.media.mobile`
+  ${cs.media.tablet`
     width: 100%;
     margin: 0;
     margin-top: 10px;

@@ -9,11 +9,14 @@ export const Wrapper = styled.article`
   ${cs.media.mobile`
     padding: 8px 0;
   `};
+  ${cs.media.tablet`
+    padding: 8px 0;
+  `};
 `
 export const MainWrapper = styled.div`
   width: 68%;
   margin-left: 2.5rem;
-  ${cs.media.mobile`
+  ${cs.media.tablet`
     width: 100%;
     margin-left: 0;
   `};
@@ -53,7 +56,7 @@ export const MobileWrapper = styled.div`
   width: 100%;
   display: none;
 
-  ${cs.media.mobile`
-    display: flex;
+  ${cs.media.tablet`
+    ${cs.flex('justify-center')};
   `};
 `
