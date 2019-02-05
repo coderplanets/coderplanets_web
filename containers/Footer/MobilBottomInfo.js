@@ -13,30 +13,18 @@ import {
   ThxTitle,
 } from './styles/mobile_bottom_info'
 
-import { toggleBusBanner } from './logic'
+import { toggleBusBanner, openDoraemon } from './logic'
 
 const MobileBottomInfo = () => (
   <React.Fragment>
     <LinkInfoWrapper>
-      <ItemBtn href="/communities" rel="noopener noreferrer" target="_blank">
+      <ItemBtn as="a" href="/communities" rel="noopener noreferrer">
         所有社区
       </ItemBtn>
       <DotDivider radius="4px" />
-      <ItemBtn href="/communities" rel="noopener noreferrer" target="_blank">
-        我的关注
-      </ItemBtn>
+      <ItemBtn onClick={openDoraemon.bind(this, '/')}>我的关注</ItemBtn>
       <DotDivider radius="4px" />
-      <ItemBtn
-        href={`${GITHUB_WEB_ADDR}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        主题
-      </ItemBtn>
-      <DotDivider radius="4px" />
-      <ItemBtn href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
-        打赏
-      </ItemBtn>
+      <ItemBtn onClick={openDoraemon.bind(this, '/theme/')}>切换主题</ItemBtn>
     </LinkInfoWrapper>
 
     <SiteInfoWrapper>

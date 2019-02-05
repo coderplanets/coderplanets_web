@@ -25,7 +25,9 @@ import { SwissArmyKnife } from './helper/swissArmyKnife'
 import githubLoginHandler from './oauth/github_handler'
 
 const debug = makeDebugger('L:Doraemon')
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.QUERY_DORAMON],
+})
 
 let sub$ = null
 let store = null
@@ -426,6 +428,15 @@ const DataSolver = [
       )
       const { totalCount } = searchRepos
       convert2Sugguestions(data, totalCount)
+    },
+  },
+  {
+    match: asyncRes(EVENT.QUERY_DORAMON),
+    action: res => {
+      const { data } = res[EVENT.QUERY_DORAMON]
+      store.open()
+      store.markState({ inputValue: data })
+      queryPocket()
     },
   },
 ]
