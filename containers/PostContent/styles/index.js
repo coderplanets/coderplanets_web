@@ -6,9 +6,6 @@ export const Wrapper = styled.article`
   ${cs.flex()};
   padding: 20px;
   min-height: 300px;
-  ${cs.media.mobile`
-    padding: 8px 0;
-  `};
   ${cs.media.tablet`
     padding: 8px 0;
   `};

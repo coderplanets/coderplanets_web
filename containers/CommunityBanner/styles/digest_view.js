@@ -101,12 +101,12 @@ export const Desc = styled.div`
   }
   ${cs.truncate('500px')};
 
-  ${cs.media.mobile`
-    ${cs.truncate('180px')};
-  `};
-
   ${cs.media.tablet`
     ${cs.truncate('220px')};
+  `};
+
+  ${cs.media.mobile`
+    ${cs.truncate('180px')};
   `};
 `
 export const LogoHolder = styled(Img)`
