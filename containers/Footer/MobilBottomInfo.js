@@ -4,9 +4,11 @@ import { GITHUB_WEB_ADDR, ISSUE_ADDR } from 'config'
 import DotDivider from 'components/DotDivider'
 
 import {
-  MainInfoWrapper,
+  SiteInfoWrapper,
+  LinkInfoWrapper,
   BannerWrapper,
   Item,
+  ItemBtn,
   Thanks,
   ThxTitle,
 } from './styles/mobile_bottom_info'
@@ -15,12 +17,30 @@ import { toggleBusBanner } from './logic'
 
 const MobileBottomInfo = () => (
   <React.Fragment>
-    <MainInfoWrapper>
-      <Item
-        href="https://coderplanets.com/home/post/1"
+    <LinkInfoWrapper>
+      <ItemBtn href="/communities" rel="noopener noreferrer" target="_blank">
+        所有社区
+      </ItemBtn>
+      <DotDivider radius="4px" />
+      <ItemBtn href="/communities" rel="noopener noreferrer" target="_blank">
+        我的关注
+      </ItemBtn>
+      <DotDivider radius="4px" />
+      <ItemBtn
+        href={`${GITHUB_WEB_ADDR}`}
         rel="noopener noreferrer"
         target="_blank"
       >
+        主题
+      </ItemBtn>
+      <DotDivider radius="4px" />
+      <ItemBtn href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
+        打赏
+      </ItemBtn>
+    </LinkInfoWrapper>
+
+    <SiteInfoWrapper>
+      <Item href="home/post/1" rel="noopener noreferrer" target="_blank">
         关于本站
       </Item>
       <DotDivider />
@@ -35,7 +55,7 @@ const MobileBottomInfo = () => (
       <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
         反馈与建议
       </Item>
-    </MainInfoWrapper>
+    </SiteInfoWrapper>
     <BannerWrapper>
       <Thanks onClick={toggleBusBanner}>
         <ThxTitle>广告位： (求赞助)</ThxTitle>
