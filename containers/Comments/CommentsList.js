@@ -33,6 +33,8 @@ import {
   CommentUserInfo,
   CommentAvatar,
   CommentHeader,
+  MobileAvatar,
+  HeaderBaseInfo,
   CommentUserName,
   TimeStamps,
   CommentContent,
@@ -120,25 +122,30 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
 
       <CommentBodyInfo onMouseUp={getSelection}>
         <CommentHeader>
-          <CommentHeaderFirst>
-            <CommentUserName>
-              {data.author.nickname}
-              <FloorNum>#{data.floor}</FloorNum>
-            </CommentUserName>
-            {data.repliesCount !== 0 && (
-              <ReplyUsers>
-                <ReplyTitle>收到回复:</ReplyTitle>
-                <AvatarsRow
-                  users={getAuthors(data)}
-                  onUserSelect={logic.previewReply}
-                  total={data.repliesCount}
-                />
-              </ReplyUsers>
-            )}
-          </CommentHeaderFirst>
-          <TimeStamps>
-            <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
-          </TimeStamps>
+          <MobileAvatar>
+            <CommentAvatar src={data.author.avatar} />
+          </MobileAvatar>
+          <HeaderBaseInfo>
+            <CommentHeaderFirst>
+              <CommentUserName>
+                {data.author.nickname}
+                <FloorNum>#{data.floor}</FloorNum>
+              </CommentUserName>
+              {data.repliesCount !== 0 && (
+                <ReplyUsers>
+                  <ReplyTitle>收到回复:</ReplyTitle>
+                  <AvatarsRow
+                    users={getAuthors(data)}
+                    onUserSelect={logic.previewReply}
+                    total={data.repliesCount}
+                  />
+                </ReplyUsers>
+              )}
+            </CommentHeaderFirst>
+            <TimeStamps>
+              <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
+            </TimeStamps>
+          </HeaderBaseInfo>
         </CommentHeader>
         <CommentContent>
           {data.replyTo && (
