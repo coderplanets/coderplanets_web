@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   padding: 0 5px;
   margin-right: 10px;
   border-radius: 5px;
+  font-size: 0.9rem;
 `
 export const RefinedIcon = styled(Img)`
   fill: ${theme('baseColor.error')};

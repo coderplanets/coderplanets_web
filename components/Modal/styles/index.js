@@ -32,6 +32,7 @@ export const Wrapper = styled.div`
   animation: ${animate.zoomInRule};
 
   ${cs.media.mobile`width: 300px`};
+  ${cs.media.mobile`width: 400px`};
 `
 export const ChildrenWrapper = styled.div`
   min-height: 320px;

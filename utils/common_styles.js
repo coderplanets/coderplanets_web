@@ -97,9 +97,9 @@ const zIndex = {
 export const mediaBreakPoints = {
   // mobileS: '320px',
   // mobileM: '375px',
-  mobile: 500,
+  mobile: 576,
   tablet: 768,
-  laptop: 1024,
+  laptop: 992,
   desktop: 1600,
   // laptopL: '1440px',
   // desktop: '2560px'

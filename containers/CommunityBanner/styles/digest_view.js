@@ -39,7 +39,7 @@ export const CommunityWrapper = styled.div`
   ${cs.flexGrow()};
   ${cs.media.mobile`
     margin-left: 5%;
-  `};
+`};
 `
 
 export const LogoWrapper = styled.div`
@@ -99,7 +99,15 @@ export const Desc = styled.div`
   @media (max-height: 800px) {
     font-size: 1rem;
   }
-  ${cs.truncate('180px')};
+  ${cs.truncate('500px')};
+
+  ${cs.media.mobile`
+    ${cs.truncate('180px')};
+  `};
+
+  ${cs.media.tablet`
+    ${cs.truncate('220px')};
+  `};
 `
 export const LogoHolder = styled(Img)`
   fill: ${theme('banner.desc')};

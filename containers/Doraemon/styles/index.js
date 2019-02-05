@@ -27,6 +27,11 @@ export const PanelContainer = styled.div`
     width: 80vw;
     left: 30%;
   `};
+
+  ${cs.media.tablet`
+    width: 80vw;
+    left: 30%;
+  `};
 `
 // #001b21;
 export const BaseBar = styled.div`
