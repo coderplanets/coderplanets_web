@@ -83,16 +83,31 @@ export const DeleteBtnGroup = styled.div`
 `
 export const CommentUserInfo = styled.div`
   margin-right: 15px;
+  ${cs.media.mobile`display: none`};
 `
 export const CommentAvatar = styled(Img)`
   ${cs.circle('38px')};
   opacity: ${theme('avatarOpacity')};
 `
 export const CommentHeader = styled.div`
-  ${cs.flexColumn()};
+  ${cs.flex()};
   margin-bottom: 5px;
   margin-top: -1px;
 `
+
+export const MobileAvatar = styled.div`
+  display: none;
+  ${cs.media.mobile`
+    display: block;
+    margin-top: 3px;
+    margin-right: 10px;
+  `};
+`
+
+export const HeaderBaseInfo = styled.div`
+  ${cs.flexColumn()};
+`
+
 export const CommentHeaderFirst = styled.div`
   ${cs.flex()};
 `
@@ -114,7 +129,7 @@ export const CommentContent = styled.div`
   font-size: 0.9rem;
 
   ${cs.media.mobile`
-    max-width: 250px;
+    max-width: 280px;
   `};
 `
 export const CommentFooter = styled.div`
