@@ -9,7 +9,6 @@ export const MainInfos = styled.footer`
   ${cs.flexColumn()};
   margin-left: 8%;
   margin-bottom: 20px;
-  ${cs.media.mobile`display: none;`};
   ${cs.media.tablet`display: none;`};
 `
 
