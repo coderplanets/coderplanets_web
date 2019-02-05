@@ -49,6 +49,9 @@ export const EVENT = {
   // upload
   UPLOAD_IMG_START: 'UPLOAD_IMG_START',
   UPLOAD_IMG_FINISH: 'UPLOAD_IMG_FINISH',
+
+  // doramon
+  QUERY_DORAMON: 'QUERY_DORAMON',
 }
 
 export const TYPE = {
