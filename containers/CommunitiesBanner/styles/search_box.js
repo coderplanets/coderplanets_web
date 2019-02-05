@@ -18,6 +18,12 @@ export const InputWrapper = styled.div`
     opacity: 1;
   }
   transition: all 0.2s ease-in;
+
+  ${cs.media.mobile`
+    width: 70%;
+    margin-left: 15%;
+    padding: 8px;
+  `};
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('banner.desc')};
