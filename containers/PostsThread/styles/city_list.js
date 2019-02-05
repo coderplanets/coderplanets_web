@@ -13,7 +13,7 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  ${cs.media.mobile`width: 100%`};
+  ${cs.media.tablet`width: 100%`};
 `
 export const LoadingWrapper = styled.div`
   ${cs.flexColumn()};
@@ -34,5 +34,5 @@ export const LoadingText = styled.div`
 `
 export const Sidebar = styled.div`
   width: 15%;
-  ${cs.media.mobile`display: none`};
+  ${cs.media.tablet`display: none`};
 `

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   height: 40px;
   width: 100%;
 
-  ${cs.media.mobile`display: none;`};
+  ${cs.media.tablet`display: none;`};
 `
 export const Copyrights = styled.div`
   color: ${theme('thread.articleDigest')};

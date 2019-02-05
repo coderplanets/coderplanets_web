@@ -27,7 +27,7 @@ export const RightPart = styled.div`
   width: 25vw;
   margin-left: 30px;
   padding-top: 5px;
-  ${cs.media.mobile`display: none;`};
+  ${cs.media.tablet`display: none;`};
 `
 export const PublishBtn = styled(Button)`
   width: 100%;
@@ -37,5 +37,5 @@ export const PublishBtn = styled(Button)`
 
 export const MobileBottom = styled.div`
   display: none;
-  ${cs.media.mobile`display: block;`};
+  ${cs.media.tablet`display: block;`};
 `

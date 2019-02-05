@@ -24,7 +24,7 @@ export const Container = styled.aside`
     width: 250px;
     box-shadow: 3px 0 20px rgba(0, 0, 0, 0.2);
   }
-  ${cs.media.mobile`display: none`};
+  ${cs.media.tablet`display: none`};
 `
 
 export const holder = 1

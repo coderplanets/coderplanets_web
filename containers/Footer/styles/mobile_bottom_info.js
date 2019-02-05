@@ -6,7 +6,7 @@ export const MainInfoWrapper = styled.div`
   ${cs.flex('align-both')};
   height: 50px;
   display: none;
-  ${cs.media.mobile`display: flex;`};
+  ${cs.media.tablet`display: flex;`};
 `
 
 export const Item = styled.a`
@@ -24,7 +24,7 @@ export const BannerWrapper = styled.div`
   height: 80px;
   width: 100%;
   display: none;
-  ${cs.media.mobile`display: flex;`};
+  ${cs.media.tablet`display: flex;`};
 `
 export const Thanks = styled.div`
   ${cs.flex('align-both')};
