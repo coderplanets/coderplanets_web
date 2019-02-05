@@ -1,6 +1,12 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, PAYMENT_USAGE } from 'utils'
+import {
+  makeDebugger,
+  $solver,
+  dispatchEvent,
+  EVENT,
+  PAYMENT_USAGE,
+} from 'utils'
 import SR71 from 'utils/async/sr71'
 
 // import S from './schema'
@@ -27,6 +33,9 @@ export const onPay = num => {
   if (!store.isLogin) return store.authWarning()
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
+
+export const openDoraemon = data => dispatchEvent(EVENT.QUERY_DORAMON, { data })
+
 // ###############################
 // Data & Error handlers
 // ###############################

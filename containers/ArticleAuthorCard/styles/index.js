@@ -12,13 +12,13 @@ export const Wrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
 
+  ${cs.media.tablet`
+    width: 50%;
+  `};
+
   ${cs.media.mobile`
     width: 50%;
     padding: 10px;
-  `};
-
-  ${cs.media.tablet`
-    width: 50%;
   `};
 `
 

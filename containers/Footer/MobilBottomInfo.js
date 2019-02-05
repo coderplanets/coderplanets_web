@@ -4,23 +4,31 @@ import { GITHUB_WEB_ADDR, ISSUE_ADDR } from 'config'
 import DotDivider from 'components/DotDivider'
 
 import {
-  MainInfoWrapper,
+  SiteInfoWrapper,
+  LinkInfoWrapper,
   BannerWrapper,
   Item,
+  ItemBtn,
   Thanks,
   ThxTitle,
 } from './styles/mobile_bottom_info'
 
-import { toggleBusBanner } from './logic'
+import { toggleBusBanner, openDoraemon } from './logic'
 
 const MobileBottomInfo = () => (
   <React.Fragment>
-    <MainInfoWrapper>
-      <Item
-        href="https://coderplanets.com/home/post/1"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+    <LinkInfoWrapper>
+      <ItemBtn as="a" href="/communities" rel="noopener noreferrer">
+        所有社区
+      </ItemBtn>
+      <DotDivider radius="4px" />
+      <ItemBtn onClick={openDoraemon.bind(this, '/')}>我的关注</ItemBtn>
+      <DotDivider radius="4px" />
+      <ItemBtn onClick={openDoraemon.bind(this, '/theme/')}>切换主题</ItemBtn>
+    </LinkInfoWrapper>
+
+    <SiteInfoWrapper>
+      <Item href="home/post/1" rel="noopener noreferrer" target="_blank">
         关于本站
       </Item>
       <DotDivider />
@@ -35,7 +43,7 @@ const MobileBottomInfo = () => (
       <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
         反馈与建议
       </Item>
-    </MainInfoWrapper>
+    </SiteInfoWrapper>
     <BannerWrapper>
       <Thanks onClick={toggleBusBanner}>
         <ThxTitle>广告位： (求赞助)</ThxTitle>

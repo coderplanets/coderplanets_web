@@ -50,8 +50,8 @@ export const NumberItem = styled.div`
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
 
-  ${cs.media.mobile`font-size: 1.2rem;`};
   ${cs.media.tablet`font-size: 1.2rem;`};
+  ${cs.media.mobile`font-size: 1.2rem;`};
 `
 export const NumberDivider = styled.div`
   border: 1px solid;
@@ -61,9 +61,9 @@ export const NumberDivider = styled.div`
   align-self: center;
   margin-left: 10px;
   margin-right: 10px;
-  ${cs.media.mobile`display: none`};
   ${cs.media.tablet`
     margin-left: 5px;
     margin-right: 5px;
   `};
+  ${cs.media.mobile`display: none`};
 `
