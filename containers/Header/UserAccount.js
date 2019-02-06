@@ -33,7 +33,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
             </LoginBadge>
             <MenuDivider />
             <MenuItem onClick={previewAccount.bind(this, 'account')}>
-              预览
+              主页面板
             </MenuItem>
             <MenuLink
               href={`/user/${accountInfo.login}`}

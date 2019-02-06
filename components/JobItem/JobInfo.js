@@ -38,6 +38,7 @@ const JobInfo = ({
     communities,
   },
   onPreview,
+  onAuthorSelect,
   community,
 }) => (
   <Wrapper>
@@ -58,9 +59,9 @@ const JobInfo = ({
         <InlineTags data={tags} />
       </TagsWrapper>
     </Middle>
-    <Footer onClick={onPreview}>
+    <Footer>
       <Extra>
-        <PublishInfo>
+        <PublishInfo onClick={onAuthorSelect.bind(this, author)}>
           {author.nickname} <DotDivider />
           <TimeAgo datetime={insertedAt} locale="zh_CN" />
           <DotDivider />

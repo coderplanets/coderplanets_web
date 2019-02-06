@@ -134,6 +134,7 @@ class PostsThreadContainer extends React.Component {
                 active={activePost}
                 accountInfo={accountInfo}
                 onUserSelect={logic.onUserSelect}
+                onAuthorSelect={logic.onUserSelect}
                 onPreview={logic.onPreview}
                 onPageChange={logic.loadPosts}
               />

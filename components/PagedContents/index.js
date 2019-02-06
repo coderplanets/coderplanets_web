@@ -23,6 +23,7 @@ const PagedContents = ({
   onPageChange,
   onPreview,
   onUserSelect,
+  onAuthorSelect,
   emptyPrefix,
   community,
   accountInfo,
@@ -38,6 +39,7 @@ const PagedContents = ({
       community={community}
       onPreview={onPreview}
       onUserSelect={onUserSelect}
+      onAuthorSelect={onAuthorSelect}
       accountInfo={accountInfo}
     />
 
@@ -73,6 +75,7 @@ PagedContents.propTypes = {
   onPageChange: PropTypes.func,
   onPreview: PropTypes.func,
   onUserSelect: PropTypes.func,
+  onAuthorSelect: PropTypes.func,
   accountInfo: PropTypes.shape({
     isLogin: PropTypes.bool,
     customization: PropTypes.shape({
@@ -93,6 +96,7 @@ PagedContents.defaultProps = {
   onPageChange: debug,
   onPreview: debug,
   onUserSelect: debug,
+  onAuthorSelect: debug,
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({
