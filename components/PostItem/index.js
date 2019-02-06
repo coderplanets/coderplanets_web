@@ -25,6 +25,7 @@ const PostItem = ({
   active,
   onPreview,
   onUserSelect,
+  onAuthorSelect,
   accountInfo,
 }) => {
   // debug('customization --> ', customization)
@@ -45,9 +46,15 @@ const PostItem = ({
           cover={cover}
           onPreview={onPreview}
           onUserSelect={onUserSelect}
+          onAuthorSelect={onAuthorSelect}
         />
       ) : (
-        <ListView entry={entry} cover={cover} onPreview={onPreview} />
+        <ListView
+          entry={entry}
+          cover={cover}
+          onPreview={onPreview}
+          onAuthorSelect={onAuthorSelect}
+        />
       )}
     </Wrapper>
   )
@@ -79,11 +86,13 @@ PostItem.propTypes = {
   }),
   onPreview: PropTypes.func,
   onUserSelect: PropTypes.func,
+  onAuthorSelect: PropTypes.func,
 }
 
 PostItem.defaultProps = {
   onPreview: debug,
   onUserSelect: debug,
+  onAuthorSelect: debug,
   active: {},
   cover: 'avatar',
   accountInfo: {

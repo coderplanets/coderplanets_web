@@ -17,6 +17,7 @@ const JobsList = ({ props }) => {
     thread,
     emptyPrefix,
     onPreview,
+    onAuthorSelect,
     accountInfo,
   } = props
 
@@ -32,6 +33,7 @@ const JobsList = ({ props }) => {
               active={active}
               accountInfo={accountInfo}
               onPreview={onPreview.bind(this, entry)}
+              onAuthorSelect={onAuthorSelect}
             />
           ))}
         </React.Fragment>

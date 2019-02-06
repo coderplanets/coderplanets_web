@@ -10,11 +10,17 @@ export const Wrapper = styled.div`
 `
 export const Header = styled.div`
   ${cs.flex('align-center')};
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const Middle = styled.div`
   ${cs.flex('align-end')};
   padding: 5px 0;
   margin-bottom: 2px;
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const Footer = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -64,7 +70,13 @@ export const ExpDivider = styled.div`
 `
 
 export const PublishInfo = styled.div`
+  ${cs.flex('align-center')};
   ${cs.media.tablet`
     display: none;
   `};
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
