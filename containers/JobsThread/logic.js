@@ -111,6 +111,12 @@ export const onC11NChange = option => {
   }
 }
 
+export const onUserSelect = user =>
+  dispatchEvent(EVENT.PREVIEW_OPEN, {
+    type: TYPE.PREVIEW_USER_VIEW,
+    data: user,
+  })
+
 // ###############################
 // Data & Error handlers
 // ###############################

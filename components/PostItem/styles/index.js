@@ -30,7 +30,11 @@ export const SecondHalf = styled.div`
   margin-left: 10px;
   margin-top: -10px;
 `
-
+export const AvatarWrapper = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`
 export const Avatar = styled(Img)`
   ${cs.circle('42px')};
   fill: ${theme('thread.articleTitle')};

@@ -8,6 +8,7 @@ import AvatarsRow from 'components/AvatarsRow'
 import InlineTags from 'components/InlineTags'
 
 import {
+  AvatarWrapper,
   Avatar,
   TitleLink,
   LinkIcon,
@@ -25,10 +26,18 @@ import {
 
 // import { Wrapper } from './styles'
 
-const DigestView = ({ entry, cover, onPreview, onUserSelect }) => (
+const DigestView = ({
+  entry,
+  cover,
+  onPreview,
+  onUserSelect,
+  onAuthorSelect,
+}) => (
   <React.Fragment>
     {cover === 'avatar' ? (
-      <Avatar src={entry.author.avatar} />
+      <AvatarWrapper onClick={onAuthorSelect.bind(this, entry.author)}>
+        <Avatar src={entry.author.avatar} />
+      </AvatarWrapper>
     ) : (
       <Avatar
         src={entry.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}

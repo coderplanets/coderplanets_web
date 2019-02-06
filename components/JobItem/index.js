@@ -21,7 +21,14 @@ import { getOpacity } from './helper'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:JobItem:index')
 
-const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
+const JobItem = ({
+  entry,
+  active,
+  onPreview,
+  onAuthorSelect,
+  accountInfo,
+  community,
+}) => {
   const {
     customization: { contentsLayout, contentDivider, contentHover },
   } = accountInfo
@@ -38,7 +45,12 @@ const JobItem = ({ entry, active, onPreview, accountInfo, community }) => {
         topoffset="9px"
       />
       {contentsLayout === C11N.DIGEST ? (
-        <DigestView entry={entry} onPreview={onPreview} community={community} />
+        <DigestView
+          entry={entry}
+          onPreview={onPreview}
+          onAuthorSelect={onAuthorSelect}
+          community={community}
+        />
       ) : (
         <ListView entry={entry} onPreview={onPreview} />
       )}
@@ -84,10 +96,12 @@ JobItem.propTypes = {
   }),
   community: PropTypes.string.isRequired,
   onPreview: PropTypes.func,
+  onAuthorSelect: PropTypes.func,
 }
 
 JobItem.defaultProps = {
   onPreview: debug,
+  onAuthorSelect: debug,
   active: {},
   accountInfo: {
     isLogin: false,
