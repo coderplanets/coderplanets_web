@@ -3,6 +3,7 @@ import {
   $solver,
   makeDebugger,
   EVENT,
+  TYPE,
   holdPage,
   unholdPage,
   dispatchEvent,
@@ -44,16 +45,21 @@ const DataResolver = [
     match: asyncRes(EVENT.PREVIEW_OPEN),
     action: res => {
       const payload = res[EVENT.PREVIEW_OPEN]
-
       /*
          debug('should open payload thread: ', payload.thread)
          debug('should open payload id: ', payload.data.id)
          debug('payload curCommunity: ', store.curCommunity.raw)
        */
-      Global.innerWidth <= cs.mediaBreakPoints.mobile
+
       if (Global.innerWidth <= cs.mediaBreakPoints.tablet) {
-        const { thread, data } = payload
-        const targetUrl = `/${store.curCommunity.raw}/${thread}/${data.id}`
+        const { thread, data, type } = payload
+        let targetUrl
+        if (type === TYPE.PREVIEW_USER_VIEW) {
+          targetUrl = `/user/${data.login}`
+        } else {
+          targetUrl = `/${store.curCommunity.raw}/${thread}/${data.id}`
+        }
+
         Global.location.href = targetUrl
         return false
       }
