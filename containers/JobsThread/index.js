@@ -88,6 +88,7 @@ class JobsThreadContainer extends React.Component {
             active={activeJob}
             accountInfo={accountInfo}
             onPreview={logic.onPreview}
+            onAuthorSelect={logic.onUserSelect}
             onPageChange={logic.loadJobs}
           />
         </LeftPart>

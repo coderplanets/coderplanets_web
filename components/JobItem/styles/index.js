@@ -18,7 +18,6 @@ export const Wrapper = styled.article`
   border-bottom-color: ${theme('thread.articleDivider')};
 
   &:hover {
-    cursor: pointer;
     background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
 `

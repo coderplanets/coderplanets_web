@@ -19,6 +19,7 @@ const PostsList = ({ props }) => {
     emptyPrefix,
     onPreview,
     onUserSelect,
+    onAuthorSelect,
     accountInfo,
   } = props
 
@@ -34,6 +35,7 @@ const PostsList = ({ props }) => {
               active={active}
               accountInfo={accountInfo}
               onUserSelect={onUserSelect}
+              onAuthorSelect={onAuthorSelect}
               onPreview={onPreview.bind(this, entry)}
             />
           ))}
