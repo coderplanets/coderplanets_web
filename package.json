@@ -161,7 +161,7 @@
     "npm-run-all": "^4.1.1",
     "plop": "2.0.0",
     "prettier": "1.14.0",
-    "react-test-renderer": "16.4.2",
+    "react-test-renderer": "16.8.1",
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
