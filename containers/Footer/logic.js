@@ -20,9 +20,7 @@ const debug = makeDebugger('L:Footer2')
 let store = null
 
 export const toggleSponsorHelper = () =>
-  store.markState({
-    showSponsor: !store.showSponsor,
-  })
+  store.markState({ showSponsor: !store.showSponsor })
 
 export const toggleSeniorHelper = () => store.upgradeHepler()
 export const toggleBusBanner = () =>
@@ -34,7 +32,8 @@ export const onPay = num => {
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
 
-export const openDoraemon = data => dispatchEvent(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = data =>
+  dispatchEvent(EVENT.QUERY_DORAMON, { data })
 
 // ###############################
 // Data & Error handlers
