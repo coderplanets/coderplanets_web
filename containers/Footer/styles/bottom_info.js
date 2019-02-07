@@ -18,5 +18,8 @@ export const Copyrights = styled.div`
 `
 export const Thanks = styled.div`
   color: ${theme('thread.articleDigest')};
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const ThxTitle = styled.div``
