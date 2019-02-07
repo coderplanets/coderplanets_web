@@ -13,7 +13,9 @@ import {
   EVENT,
   TYPE,
   ERR,
+  ROUTE,
   prettyNum,
+  thread2Subpath,
   THREAD,
   cutFrom,
   errRescue,
@@ -180,17 +182,29 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.communityLinker,
       action: cmdpath => {
-        debug('communityLinker: ', cmdpath)
+        const community = cmdpath[0]
+        const { mainPath, subPath } = store.curRoute
 
-        // Router.push(url, as)
-        // TODO: use route store  method
-        Router.push(
-          {
-            pathname: '/',
-            query: { main: cmdpath[0] },
-          },
-          cmdpath[0]
-        )
+        if (
+          R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+          R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+        ) {
+          Global.location.href = `/${community}/posts`
+          return hidePanel()
+        }
+
+        store.setViewing({
+          community: { raw: community },
+          activeThread: THREAD.POST,
+          post: {},
+        })
+
+        store.markRoute({
+          mainPath: community,
+          subPath: thread2Subpath(THREAD.POST),
+        })
+
+        dispatchEvent(EVENT.COMMUNITY_CHANGE)
         hidePanel()
       },
     },
@@ -206,6 +220,8 @@ const initSpecCmdResolver = () => {
 const doSpecCmd = () => {
   const cmd = store.curCmdChain
   if (!cmd) return
+
+  debug('doSpecCmd cmd: ', cmd)
 
   /* Do not use forEach, cause forEach will not break */
   for (let i = 0; i < cmdResolver.length; i += 1) {
@@ -434,7 +450,11 @@ const DataSolver = [
     match: asyncRes(EVENT.QUERY_DORAMON),
     action: res => {
       const { data } = res[EVENT.QUERY_DORAMON]
-      store.open()
+      const forcus = false
+      store.open(forcus)
+
+      /* "doraemonInputbar" */
+
       store.markState({ inputValue: data })
       queryPocket()
     },

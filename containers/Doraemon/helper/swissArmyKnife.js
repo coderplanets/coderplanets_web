@@ -1,20 +1,14 @@
 import R from 'ramda'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
-export const lengthE1 = R.compose(
-  R.equals(1),
-  R.length
-)
-export const lengthE2 = R.compose(
-  R.equals(2),
-  R.length
-)
+export const lengthE1 = R.compose(R.equals(1), R.length)
+export const lengthE2 = R.compose(R.equals(2), R.length)
 export const anyNil = R.any(R.isNil)
 
 export class SwissArmyKnife {
   constructor(store) {
     this.store = store
-    this.communities = R.keys(store.communities)
+    this.communities = R.pluck('raw', store.subscribedCommunities)
   }
 
   completeInput = (into = false) => {
@@ -71,8 +65,14 @@ export class SwissArmyKnife {
   }
 
   // TODO rename to linker
-  communityLinker = cmdpath =>
-    R.and(R.contains(R.head(cmdpath), this.communities), lengthE1(cmdpath))
+  communityLinker = cmdpath => {
+    // console.log('communityLinker: ', cmdpath)
+    // console.log('communityLinker this.communities: ', this.communities)
+    return R.and(
+      R.contains(R.head(cmdpath), this.communities),
+      lengthE1(cmdpath)
+    )
+  }
 
   communityInsideLinker = cmdpath =>
     R.and(R.contains(R.head(cmdpath), this.communities), lengthE2(cmdpath))
