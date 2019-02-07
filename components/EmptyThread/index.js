@@ -16,6 +16,7 @@ import {
   Icon,
   Text,
   Title,
+  DetailText,
   DescWrapper,
   IssueLink,
 } from './styles'
@@ -26,7 +27,7 @@ const debug = makeDebugger('c:EmptyThread:index')
 const DescContent = ({ community, thread }) => (
   <React.Fragment>
     <div>
-      如果你有 {community} 相关的优质
+      如果你有 {community} 相关的<DetailText>优质</DetailText>
       {Trans(thread)}
       ，欢迎一起分享 / 交流
     </div>
@@ -39,7 +40,7 @@ const DescContent = ({ community, thread }) => (
       >
         提交issue
       </IssueLink>
-      ，以便于开发者排查修复。
+      <DetailText>，以便于开发者排查修复。</DetailText>
     </div>
   </React.Fragment>
 )
@@ -51,7 +52,9 @@ const EmptyThread = ({ community, thread }) => (
     </Icon>
     <Text>
       <Title>
-        {community} 社区内未找到符合相关条件的
+        {community} 社区内未找到<DetailText>符合</DetailText>相关<DetailText>
+          条件的
+        </DetailText>
         {`${Trans(thread)}信息`}
       </Title>
       <DescWrapper>

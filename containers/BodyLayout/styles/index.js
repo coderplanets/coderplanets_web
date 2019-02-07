@@ -42,4 +42,5 @@ export const ExpanderIcon = styled(Img)`
   fill ${theme('banner.desc')};
   width: 18px;
   height: 20px;
+  display: block;
 `
