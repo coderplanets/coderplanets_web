@@ -15,3 +15,7 @@ export const Text = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 1rem;
 `
+
+export const ExpLabel = styled.span`
+  ${cs.media.tablet`display: none`};
+`

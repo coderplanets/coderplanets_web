@@ -31,6 +31,7 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   ${cs.media.mobile`
     padding: 30px 20px;
+    min-height: 20vh;
   `};
 `
 
@@ -43,8 +44,8 @@ export const CommentsWrapper = styled.div`
   margin-top: 30px;
   margin: 25px;
   ${cs.media.mobile`
-    margin: 10px;
-  `};
+margin: 10px;
+`};
 `
 
 export const MobileWrapper = styled.div`
@@ -54,6 +55,6 @@ export const MobileWrapper = styled.div`
   display: none;
 
   ${cs.media.tablet`
-    ${cs.flex('justify-center')};
+${cs.flex('justify-center')};
   `};
 `

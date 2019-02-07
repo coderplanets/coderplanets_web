@@ -12,6 +12,11 @@ export const Wrapper = styled.div`
 
 export const Contributors = styled.div`
   ${cs.flexGrow()};
+
+  ${cs.media.mobile`
+    max-width: 60%;
+    ${cs.truncate('160px')};
+  `};
 `
 export const Builder = styled.div``
 

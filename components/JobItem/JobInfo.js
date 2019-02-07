@@ -19,6 +19,7 @@ import {
   TagsWrapper,
   Degree,
   Exp,
+  ExpLabel,
   ExpDivider,
   Extra,
   PublishInfo,
@@ -53,7 +54,10 @@ const JobInfo = ({
       <Background>
         <Degree>{education}</Degree>
         <ExpDivider>&</ExpDivider>
-        <Exp>经验 {exp}</Exp>
+        <Exp>
+          <ExpLabel>经验 </ExpLabel>
+          {exp}
+        </Exp>
       </Background>
       <TagsWrapper>
         <InlineTags data={tags} />
