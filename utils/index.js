@@ -107,6 +107,7 @@ export {
   holdPage,
   unholdPage,
   focusDoraemonBar,
+  blurDoraemonBar,
   hideDoraemonBarRecover,
 } from './dom_operator'
 /*

@@ -76,6 +76,9 @@ const DoraemonStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
     get curCmdChain() {
       if (!self.cmdChain && self.activeRaw) {
         return [self.activeRaw]
@@ -126,6 +129,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -184,14 +190,12 @@ const DoraemonStore = t
         activeRaw: nextActiveRaw,
       })
     },
-    activeTo(raw) {
-      self.markState({
-        activeRaw: raw,
-      })
+    activeTo(activeRaw) {
+      self.markState({ activeRaw })
     },
-    open() {
+    open(forcus = true) {
       self.visible = true
-      focusDoraemonBar()
+      if (forcus) focusDoraemonBar()
     },
     handleLogin() {
       self.open()
@@ -204,6 +208,9 @@ const DoraemonStore = t
       self.cmdChain = null
       self.clearSuggestions()
       hideDoraemonBarRecover()
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

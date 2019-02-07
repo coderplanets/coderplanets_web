@@ -61,6 +61,20 @@ export const focusDoraemonBar = () => {
   }
 }
 
+export const blurDoraemonBar = () => {
+  const safeDocument = getDocument()
+
+  if (safeDocument) {
+    setTimeout(() => {
+      try {
+        safeDocument.getElementById('doraemonInputbar').blur()
+      } catch (e) {
+        console.error(e)
+      }
+    }, 0)
+  }
+}
+
 export const hideDoraemonBarRecover = () => {
   const safeDocument = getDocument()
 
