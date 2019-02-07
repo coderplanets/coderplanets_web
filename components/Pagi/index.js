@@ -9,7 +9,7 @@ import { Pagination } from 'antd'
 import PropTypes from 'prop-types'
 
 import { makeDebugger } from 'utils'
-import { PagiWrapper, BottomMsg } from './styles'
+import { PagiWrapper, CustomText, BottomMsg } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Pagi:index')
@@ -19,9 +19,9 @@ const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
 export const PagiCustomRender = (current, type, originalElement) => {
   /* eslint-disable */
   if (type === 'prev') {
-    return <a>上一页</a>
+    return <CustomText>上一页</CustomText>
   } else if (type === 'next') {
-    return <a>下一页</a>
+    return <CustomText>下一页</CustomText>
   }
   /* eslint-enable */
   return originalElement
