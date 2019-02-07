@@ -31,7 +31,8 @@ export const ArticleWrapper = styled.div`
 
   ${cs.media.tablet`
     padding: 30px 20px;
-`};
+    min-height: 40vh;
+  `};
 `
 export const BodyHeaderWrapper = styled.div`
   margin-top: -18px;
@@ -41,8 +42,8 @@ export const CommentsWrapper = styled.div`
   margin-top: 30px;
   margin: 25px;
   ${cs.media.tablet`
-    margin: 10px;
-  `};
+margin: 10px;
+`};
 `
 
 export const MobileWrapper = styled.div`
@@ -50,7 +51,7 @@ export const MobileWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   display: none;
   ${cs.media.tablet`
-    ${cs.flex()};
+${cs.flex()};
   `};
 `
 export const MobileContentCard = styled.div`

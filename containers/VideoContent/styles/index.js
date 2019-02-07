@@ -29,7 +29,7 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   ${cs.media.tablet`
     padding: 30px 20px;
-`};
+  `};
 `
 export const BodyHeaderWrapper = styled.div`
   margin-top: -18px;
