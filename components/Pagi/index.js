@@ -9,7 +9,14 @@ import { Pagination } from 'antd'
 import PropTypes from 'prop-types'
 
 import { makeDebugger } from 'utils'
-import { PagiWrapper, CustomText, BottomMsg } from './styles'
+import MobilePagination from './MobilePagination'
+import {
+  PagiWrapper,
+  DesktopPagiWrapper,
+  MobilePagiWrapper,
+  CustomText,
+  BottomMsg,
+} from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Pagi:index')
@@ -54,13 +61,26 @@ const Pagi = ({
   return (
     <PagiWrapper left={left} top={top} bottom={bottom}>
       {hasExtraPage(totalCount, pageSize) ? (
-        <Pagination
-          current={pageNumber}
-          pageSize={pageSize}
-          total={totalCount}
-          itemRender={PagiCustomRender}
-          onChange={onChange}
-        />
+        <React.Fragment>
+          <DesktopPagiWrapper>
+            <Pagination
+              current={pageNumber}
+              pageSize={pageSize}
+              total={totalCount}
+              itemRender={PagiCustomRender}
+              onChange={onChange}
+            />
+          </DesktopPagiWrapper>
+          <MobilePagiWrapper>
+            <MobilePagination
+              current={pageNumber}
+              pageSize={pageSize}
+              total={totalCount}
+              itemRender={PagiCustomRender}
+              onChange={onChange}
+            />
+          </MobilePagiWrapper>
+        </React.Fragment>
       ) : (
         <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
       )}

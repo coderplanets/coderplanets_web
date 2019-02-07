@@ -8,6 +8,18 @@ export const PagiWrapper = styled.div`
   margin-left: ${({ left }) => left};
 `
 
+export const DesktopPagiWrapper = styled.div`
+  ${cs.media.mobile`
+    display: none;
+  `};
+`
+export const MobilePagiWrapper = styled.div`
+  display: none;
+  ${cs.media.mobile`
+    display: block;
+  `};
+`
+
 export const CustomText = styled.a`
   ${cs.media.tablet`display: none`};
 `
