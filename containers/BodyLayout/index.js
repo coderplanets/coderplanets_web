@@ -1,8 +1,8 @@
 /*
-*
-* BodyLayout
-*
-*/
+ *
+ * BodyLayout
+ *
+ */
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -10,10 +10,11 @@ import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
 
 // import Link from 'next/link'
+import { ICON_CMD } from 'config'
 
 import { storePlug } from 'utils'
 
-import Wrapper from './styles'
+import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
 import * as logic from './logic'
 
 class BodyLayoutContainer extends React.Component {
@@ -38,6 +39,9 @@ class BodyLayoutContainer extends React.Component {
 
     return (
       <Wrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
+        <SubCommunitiesExpander onClick={logic.queryDoraemon.bind(this, '/')}>
+          <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
+        </SubCommunitiesExpander>
         {children}
       </Wrapper>
     )
