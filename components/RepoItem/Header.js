@@ -17,6 +17,7 @@ import {
   TagsWrapper,
   StatusInfo,
   StatusSection,
+  ForkSection,
   StarIcon,
   StatusNum,
   ForkIcon,
@@ -44,10 +45,10 @@ const Header = ({ entry, onPreview }) => (
         <StatusNum>{numberWithCommas(entry.starCount)}</StatusNum>
       </StatusSection>
       <Space right="3px" />
-      <StatusSection>
+      <ForkSection>
         <ForkIcon src={`${ICON_CMD}/repo_fork.svg`} />
         <StatusNum>{numberWithCommas(entry.forkCount)}</StatusNum>
-      </StatusSection>
+      </ForkSection>
     </StatusInfo>
   </Wrapper>
 )

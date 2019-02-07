@@ -9,9 +9,10 @@ export const BaseBanner = styled.nav`
   min-height: 140px;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
-  @media (max-height: 800px) {
-    min-height: 130px;
-  }
+
+  ${cs.media.mobile`
+    min-height: 100px;
+  `};
 `
 export const BaseBannerContent = styled.div`
   ${cs.flex()};

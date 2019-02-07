@@ -30,15 +30,16 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   ${cs.media.tablet`
     padding: 30px 20px;
-`};
+    min-height: 30vh;
+  `};
 `
 
 export const CommentsWrapper = styled.div`
   margin-top: 30px;
   margin: 25px;
   ${cs.media.tablet`
-    margin: 10px;
-  `};
+margin: 10px;
+`};
 `
 
 export const MobileWrapper = styled.div`
@@ -46,7 +47,7 @@ export const MobileWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   display: none;
   ${cs.media.tablet`
-    display: flex;
+display: flex;
   `};
 `
 export const MobileContentCard = styled.div`
