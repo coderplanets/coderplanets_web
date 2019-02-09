@@ -64,6 +64,7 @@ class DoraemonContainer extends React.Component {
             <AlertBar value={inputValue} searchThread={searchThread} />
           )}
           <ResultsList
+            searchValue={inputValue}
             suggestions={suggestions}
             activeRaw={activeRaw}
             searchThread={searchThread}
