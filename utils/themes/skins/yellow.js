@@ -311,6 +311,10 @@ const yellow = {
     border: '#004657',
     hoverBg: '#285769',
   },
+  searchHighlight: {
+    doramonFg: 'orange',
+    doramonBg: 'transparent',
+  },
 }
 
 export default yellow

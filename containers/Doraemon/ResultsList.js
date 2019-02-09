@@ -50,7 +50,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
           <ContentWraper>
             <Title>
               <Highlighter
-                highlightClassName="YourHighlightClass"
+                highlightClassName="doramon-search-highlighter"
                 searchWords={[searchValue]}
                 autoEscape
                 textToHighlight={suggestion.title}
