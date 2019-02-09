@@ -37,7 +37,7 @@ const SocialList = () => (
       target="_blank"
     >
       <Item>
-        <Icon src={`${ICON_CMD}/zhihu.svg`} />
+        <Icon src={`${ICON_CMD}/zhihu_solid.svg`} />
       </Item>
     </a>
   </Wrapper>
