@@ -183,29 +183,7 @@ const initSpecCmdResolver = () => {
       match: SAK.communityLinker,
       action: cmdpath => {
         const community = cmdpath[0]
-        const { mainPath, subPath } = store.curRoute
-
-        if (
-          R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
-          R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
-        ) {
-          Global.location.href = `/${community}/posts`
-          return hidePanel()
-        }
-
-        store.setViewing({
-          community: { raw: community },
-          activeThread: THREAD.POST,
-          post: {},
-        })
-
-        store.markRoute({
-          mainPath: community,
-          subPath: thread2Subpath(THREAD.POST),
-        })
-
-        dispatchEvent(EVENT.COMMUNITY_CHANGE)
-        hidePanel()
+        jumpToCommunity(community)
       },
     },
     {
@@ -218,6 +196,7 @@ const initSpecCmdResolver = () => {
 }
 
 const doSpecCmd = () => {
+  if (store.searching) return false
   const cmd = store.curCmdChain
   if (!cmd) return
 
@@ -233,16 +212,23 @@ const doSpecCmd = () => {
 }
 
 const doNavigate = () => {
-  const { id } = store.activeSuggestion
+  if (store.searching) return false
+  // const { id } = store.activeSuggestion
   if (R.startsWith('user-raw', store.activeSuggestion.raw)) {
+    const { raw } = store.activeSuggestion
+    const login = raw.split('user-raw-')[1]
     hidePanel()
+
     return dispatchEvent(EVENT.PREVIEW_OPEN, {
       type: TYPE.PREVIEW_USER_VIEW,
-      data: { id },
+      data: { login },
     })
   }
 
-  debug('doNavigate cmd: ', store.activeSuggestion)
+  if (store.searchThread === 'community') {
+    const { raw: communityRaw } = store.activeSuggestion
+    jumpToCommunity(communityRaw)
+  }
 }
 
 export const handleShortCuts = e => {
@@ -324,6 +310,32 @@ const convert2Sugguestions = (data, searchedTotalCount) => {
   store.loadSuggestions({ prefix: '', data })
 }
 
+const jumpToCommunity = communityRaw => {
+  const { mainPath, subPath } = store.curRoute
+
+  if (
+    R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+    R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
+  ) {
+    Global.location.href = `/${communityRaw}/posts`
+    return hidePanel()
+  }
+
+  store.setViewing({
+    community: { raw: communityRaw },
+    activeThread: THREAD.POST,
+    post: {},
+  })
+
+  store.markRoute({
+    mainPath: communityRaw,
+    subPath: thread2Subpath(THREAD.POST),
+  })
+
+  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  hidePanel()
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -352,7 +364,8 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.logo,
-          raw: `community-raw-${e.id}`,
+          // raw: `community-raw-${e.id}`,
+          raw: `${e.raw}`,
           title: e.title,
           desc: `${e.desc}`,
         }),
@@ -369,7 +382,7 @@ const DataSolver = [
         e => ({
           id: e.id,
           logo: e.avatar,
-          raw: `user-raw-${e.id}`,
+          raw: `user-raw-${e.login}`,
           title: e.nickname,
           desc: `${e.bio}`,
         }),
