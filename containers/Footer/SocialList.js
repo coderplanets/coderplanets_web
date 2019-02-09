@@ -31,6 +31,15 @@ const SocialList = () => (
         <Icon src={`${ICON_CMD}/github.svg`} />
       </Item>
     </a>
+    <a
+      href="https://zhuanlan.zhihu.com/coderplanets"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <Item>
+        <Icon src={`${ICON_CMD}/zhihu.svg`} />
+      </Item>
+    </a>
   </Wrapper>
 )
 
