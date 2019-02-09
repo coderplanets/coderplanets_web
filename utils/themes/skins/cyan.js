@@ -313,6 +313,10 @@ const cyan = {
     border: '#e8e8e8',
     hoverBg: '#fffef1',
   },
+  searchHighlight: {
+    doramonFg: '#F6DE38',
+    doramonBg: 'transparent',
+  },
 }
 
 export default cyan

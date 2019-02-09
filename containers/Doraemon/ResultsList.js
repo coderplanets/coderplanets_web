@@ -1,5 +1,6 @@
 import React from 'react'
 import R from 'ramda'
+import Highlighter from 'react-highlight-words'
 
 import { ICON_CMD } from 'config'
 
@@ -29,7 +30,7 @@ const HintIcon = ({ index, active, cur, length }) => {
   return null
 }
 
-const ResultsList = ({ searchThread, suggestions, activeRaw }) => (
+const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
   <Wrapper>
     <SuggestionWrapper empty={suggestions.length === 0}>
       {suggestions.map((suggestion, i) => (
@@ -47,7 +48,14 @@ const ResultsList = ({ searchThread, suggestions, activeRaw }) => (
             searchThread={searchThread}
           />
           <ContentWraper>
-            <Title>{suggestion.title}</Title>
+            <Title>
+              <Highlighter
+                highlightClassName="doramon-search-highlighter"
+                searchWords={[searchValue]}
+                autoEscape
+                textToHighlight={suggestion.title}
+              />
+            </Title>
             <Desc>{suggestion.desc}</Desc>
           </ContentWraper>
           <HintIcon

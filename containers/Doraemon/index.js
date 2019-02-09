@@ -35,6 +35,7 @@ class DoraemonContainer extends React.Component {
     const { doraemon } = this.props
     const {
       inputValue,
+      inputValueRaw,
       suggestions,
       activeRaw,
       prefix,
@@ -64,6 +65,7 @@ class DoraemonContainer extends React.Component {
             <AlertBar value={inputValue} searchThread={searchThread} />
           )}
           <ResultsList
+            searchValue={inputValueRaw}
             suggestions={suggestions}
             activeRaw={activeRaw}
             searchThread={searchThread}

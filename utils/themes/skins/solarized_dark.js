@@ -228,11 +228,11 @@ const solarizedDark = {
   },
   shell: {
     link: lighten(0.2, contentBg),
-    searchInput: lighten(0.1, contentBg),
+    searchInput: lighten(0.2, contentBg),
     searchIcon: lighten(0.1, contentBg),
     barBg: darken(0.01, contentBg),
     border: lighten(0.05, contentBg),
-    title: lighten(0.4, contentBg),
+    title: lighten(0.3, contentBg),
     desc: lighten(0.2, contentBg),
     activeBg: lighten(0.05, contentBg),
   },
@@ -312,6 +312,10 @@ const solarizedDark = {
     text: '#83a7ad',
     border: '#004657',
     hoverBg: '#285769',
+  },
+  searchHighlight: {
+    doramonFg: 'orange',
+    doramonBg: 'transparent',
   },
 }
 
