@@ -79,6 +79,14 @@ const DoraemonStore = t
     get curRoute() {
       return self.root.curRoute
     },
+    get inputValueRaw() {
+      if (R.startsWith('/', self.inputValue)) {
+        return R.last(self.inputValue.split('/'))
+      }
+      if (R.startsWith('@', self.inputValue)) return self.inputValue.slice(1)
+
+      return self.inputValue
+    },
     get curCmdChain() {
       if (!self.cmdChain && self.activeRaw) {
         return [self.activeRaw]

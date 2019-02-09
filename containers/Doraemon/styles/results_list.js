@@ -112,6 +112,11 @@ export const Title = styled.div`
   > a {
     color: ${theme('shell.link')};
   }
+
+  ${cs.truncate('400px')};
+  ${cs.media.mobile`
+    ${cs.truncate('200px')};
+  `};
 `
 export const Desc = styled.div`
   color: ${theme('shell.desc')};

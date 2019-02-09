@@ -27,6 +27,13 @@ export const Selector = styled.div`
   }
 `
 
+export const VideoSelector = styled(Selector)`
+  ${cs.media.mobile`display: none;`};
+`
+export const RepoSelector = styled(Selector)`
+  ${cs.media.mobile`display: none;`};
+`
+
 export const Info = styled.div`
   ${cs.flexGrow()};
 `
