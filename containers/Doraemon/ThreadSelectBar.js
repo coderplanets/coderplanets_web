@@ -2,7 +2,12 @@ import React from 'react'
 
 // import { ICON_CMD } from 'config'
 import { THREAD } from 'utils'
-import { Wrapper, Selector } from './styles/thread_select_bar'
+import {
+  Wrapper,
+  Selector,
+  VideoSelector,
+  RepoSelector,
+} from './styles/thread_select_bar'
 import { searchThreadOnChange } from './logic'
 
 const ThreadSelectBar = ({ active }) => (
@@ -19,18 +24,18 @@ const ThreadSelectBar = ({ active }) => (
     >
       帖子
     </Selector>
-    <Selector
+    <VideoSelector
       onClick={searchThreadOnChange.bind(this, THREAD.VIDEO)}
       active={active === THREAD.VIDEO}
     >
       视频
-    </Selector>
-    <Selector
+    </VideoSelector>
+    <RepoSelector
       onClick={searchThreadOnChange.bind(this, THREAD.REPO)}
       active={active === THREAD.REPO}
     >
       项目
-    </Selector>
+    </RepoSelector>
     <Selector
       onClick={searchThreadOnChange.bind(this, THREAD.JOB)}
       active={active === THREAD.JOB}
