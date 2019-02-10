@@ -106,7 +106,7 @@ export default class Index extends React.Component {
       viewing: {
         video,
         activeThread: THREAD.VIDEO,
-        community: video.communities[0],
+        community: video.origialCommunity,
       },
       comments: { pagedComments },
     }

@@ -107,7 +107,7 @@ export default class Index extends React.Component {
       viewing: {
         repo,
         activeThread: THREAD.REPO,
-        community: repo.communities[0],
+        community: repo.origialCommunity,
       },
       comments: { pagedComments },
     }
