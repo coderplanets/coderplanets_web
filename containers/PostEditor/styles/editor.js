@@ -43,4 +43,5 @@ export const TitleInput = styled(Input)`
 `
 export const FooterWrapper = styled.div`
   ${cs.flex('justify-center')};
+  margin-top: 25px;
 `
