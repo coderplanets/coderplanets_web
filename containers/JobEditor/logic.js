@@ -138,6 +138,7 @@ export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
   store.markState({ extractMentions: extractMentions(content) })
 
+  if (store.isEdit && content === '') return false
   // extractMentions: extractMentions(content)
   updateEditing(store, 'body', content)
 }
