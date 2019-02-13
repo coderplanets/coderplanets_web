@@ -125,8 +125,6 @@ export const onMentionSearch = name => {
 
 export const onMention = user => store.addReferUser(user)
 
-// const loadPost = id => sr71$.query(S.post, { id })
-
 const openAttachment = att => {
   if (store.activeThread === THREAD.RADAR) {
     store.updateEditing({ copyRight: 'reprint' })
@@ -135,8 +133,6 @@ const openAttachment = att => {
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
-
-  // const { id, title, body, digest } = att
 
   store.updateEditing(att)
   store.markState({ isEdit: true })
@@ -152,7 +148,10 @@ export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
   store.markState({ extractMentions: extractMentions(content) })
 
-  // extractMentions: extractMentions(content)
+  // draft.js will mis trigger onChange event with empty string.
+  // currently this is a bug: in edit can't update to empty.
+  if (store.isEdit && content === '') return false
+
   updateEditing(store, 'body', content)
 }
 
@@ -188,13 +187,6 @@ const DataSolver = [
 
       doneCleanUp()
       dispatchEvent(EVENT.REFRESH_POSTS)
-    },
-  },
-  {
-    match: asyncRes('post'),
-    action: ({ post }) => {
-      debug('before updateEditing: ', post)
-      store.updateEditing(post)
     },
   },
   {
