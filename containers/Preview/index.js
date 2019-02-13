@@ -43,27 +43,31 @@ class PreviewContainer extends React.Component {
 
     return (
       <React.Fragment>
-        <ModalPreview visible={modalVisible}>
-          <Viewer
-            type={type}
-            root={root}
-            attachment={attachmentData}
-            attUser={attUserData}
-          />
-        </ModalPreview>
+        {modalVisible && (
+          <ModalPreview visible={modalVisible}>
+            <Viewer
+              type={type}
+              root={root}
+              attachment={attachmentData}
+              attUser={attUserData}
+            />
+          </ModalPreview>
+        )}
 
-        <SliderPreview
-          visible={slideVisible}
-          type={type}
-          imageUploading={imageUploading}
-        >
-          <Viewer
+        {slideVisible && (
+          <SliderPreview
+            visible={slideVisible}
             type={type}
-            root={root}
-            attachment={attachmentData}
-            attUser={attUserData}
-          />
-        </SliderPreview>
+            imageUploading={imageUploading}
+          >
+            <Viewer
+              type={type}
+              root={root}
+              attachment={attachmentData}
+              attUser={attUserData}
+            />
+          </SliderPreview>
+        )}
       </React.Fragment>
     )
   }
