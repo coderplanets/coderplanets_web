@@ -44,8 +44,10 @@ export const getOSSFileName = filename => {
   const userName = store.accountInfo.nickname
   const userId = store.accountInfo.id
   const id = store.viewingData.id || 'new'
+  const curDate = new Date()
+  const curTime = curDate.getTime()
 
-  return `${community}-${thread}-${id}-${userName}-${userId}-${filename}`
+  return `${community}-${thread}-${id}-${userName}-${userId}-${curTime}-${filename}`
 }
 
 export const sendEvent = (state = 'start') => {
