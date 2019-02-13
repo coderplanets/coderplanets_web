@@ -27,20 +27,16 @@ const BriefView = () => (
           蜀ICP备17043722号-4
         </Item>
         <Divider>|</Divider>
-        <Item
-          href="https://coderplanets.com/home/post/1"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
           关于
         </Item>
         <Divider>|</Divider>
         <Item
-          href="https://coderplanets.com/home/post/1"
+          href="/cps-support/posts"
           rel="noopener noreferrer"
           target="_blank"
         >
-          使用帮助
+          使用指南
         </Item>
         <Divider>|</Divider>
         <Item href={`${ISSUE_ADDR}`} rel="noopener noreferrer" target="_blank">
