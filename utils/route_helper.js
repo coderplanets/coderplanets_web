@@ -52,6 +52,25 @@ export const getThirdPath = routeObj => {
   return subPath
 }
 
+export const akaTranslate = communityRaw => {
+  switch (communityRaw) {
+    case 'k8s':
+      return 'kubernetes'
+
+    case 'js':
+      return 'javascript'
+
+    case 'webassembly':
+      return 'wasm'
+
+    case 'rn':
+      return 'react-native'
+
+    default:
+      communityRaw
+  }
+}
+
 export const extractThreadFromPath = (props, uppper = true) => {
   const pathList = parsePathList(props)
   const subPath = pathList.length > 1 ? pathList[1] : pathList[0]

@@ -70,6 +70,7 @@ export {
   getMainPath,
   getSubPath,
   getThirdPath,
+  akaTranslate,
   getParameterByName,
   getQueryFromUrl,
   queryStringToJSON,

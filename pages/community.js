@@ -27,6 +27,7 @@ import {
   queryStringToJSON,
   getMainPath,
   getSubPath,
+  akaTranslate,
   extractThreadFromPath,
   makeDebugger,
   BStore,
@@ -60,7 +61,8 @@ async function fetchData(props, opt) {
   // schema
 
   // utils: filter, tags staff
-  const community = getMainPath(props)
+  const mainPath = getMainPath(props)
+  const community = akaTranslate(mainPath)
   const topic = getSubPath(props)
   const thread = extractThreadFromPath(props)
 
