@@ -67,7 +67,7 @@ export const akaTranslate = communityRaw => {
       return 'react-native'
 
     default:
-      communityRaw
+      return communityRaw
   }
 }
 
