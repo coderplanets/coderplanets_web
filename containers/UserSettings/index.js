@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Button, Radio } from 'antd'
+import { Radio } from 'antd'
 
 import ThemeSelector from 'components/ThemeSelector'
 import Popover from 'components/Popover'
@@ -151,15 +151,6 @@ class UserSettingsContainer extends React.Component {
                 </RadiosWrapper>
               </OptionsWrapper>
             </Popover>
-
-            <SectionLabel
-              title="Github 同步"
-              iconSrc={`${ICON_CMD}/github.svg`}
-              desc="将绑定的 Github 账户信息同步到最新状态, 上次同步时间: 3天前。"
-            />
-            <Button size="small" type="primary" ghost>
-              同步 Github
-            </Button>
           </Wrapper>
         ) : (
           <ErrText>请登录后查看本人的设置信息</ErrText>
