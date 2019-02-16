@@ -298,11 +298,11 @@ const green = {
     warnBar: '#f5a30e',
   },
   table: {
-    headerBg: '#024858',
-    headTitle: '#83a7ad',
-    text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    headerBg: '#D2DFD1',
+    headTitle: '#80A086',
+    text: '#8FAA94',
+    border: '#C3D3C2',
+    hoverBg: darken(0.03, '#DFE8DB'),
   },
   searchHighlight: {
     doramonFg: 'orange',

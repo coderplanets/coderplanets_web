@@ -306,11 +306,11 @@ const purple = {
     text: '#c3ae8e',
   },
   table: {
-    headerBg: '#024858',
-    headTitle: '#83a7ad',
-    text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    headerBg: '#3c3644',
+    headTitle: '#615C78',
+    text: '#5E5C78',
+    border: '#3c3644',
+    hoverBg: '#383342',
   },
   searchHighlight: {
     doramonFg: 'orange',

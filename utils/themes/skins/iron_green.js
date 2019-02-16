@@ -301,11 +301,11 @@ const iconGreen = {
     text: '#c3ae8e',
   },
   table: {
-    headerBg: '#024858',
+    headerBg: '#417478',
     headTitle: '#83a7ad',
     text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    border: '#5A8F93',
+    hoverBg: darken(0.03, '#4D8489'),
   },
   searchHighlight: {
     doramonFg: 'orange',
