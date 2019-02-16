@@ -27,7 +27,7 @@ const Header = ({ pin }) => (
           <Button size="small" type="primary" ghost>
             <ExploreContent>
               <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
-              <ExploreText>Explore</ExploreText>
+              <ExploreText>Explore All</ExploreText>
             </ExploreContent>
           </Button>
         </a>

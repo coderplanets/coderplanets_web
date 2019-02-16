@@ -26,7 +26,7 @@ const MobileBottomInfo = () => (
     </LinkInfoWrapper>
 
     <SiteInfoWrapper>
-      <Item href="home/post/1" rel="noopener noreferrer" target="_blank">
+      <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
         关于本站
       </Item>
       <DotDivider />

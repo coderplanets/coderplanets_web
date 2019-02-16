@@ -115,7 +115,6 @@ export class Advisor {
 
   relateSuggestions = val => {
     // sync with store allSuggestions
-    console.log('the fuck????')
     this.curSuggestions = this.store.allSuggestions
 
     return {
