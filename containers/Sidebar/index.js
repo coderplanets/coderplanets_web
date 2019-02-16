@@ -39,13 +39,6 @@ class SidebarContainer extends React.Component {
     //    onMouseLeave={logic.leaveSidebar}
     // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
     const activeRaw = curCommunity.raw
-    /*
-       const { forceRerender } = this.state
-       console.log('forceRerender: ', forceRerender)
-     */
-    console.log('forceRerender: ', forceRerender)
-
-    // debug('communitiesData ', communitiesData)
 
     return (
       <Container pin={pin}>
