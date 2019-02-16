@@ -16,14 +16,7 @@ import DiscussLinker from 'components/DiscussLinker'
 import { ICON_CMD, ISSUE_ADDR } from 'config'
 
 import { makeDebugger, storePlug, C11N } from 'utils'
-import {
-  Wrapper,
-  LabelDescWrapper,
-  LabelDescLink,
-  RadiosWrapper,
-  OptionsWrapper,
-  ErrText,
-} from './styles'
+import { Wrapper, RadiosWrapper, OptionsWrapper, ErrText } from './styles'
 
 import * as logic from './logic'
 
@@ -50,19 +43,7 @@ class UserSettingsContainer extends React.Component {
             <SectionLabel
               title="主题设置"
               iconSrc={`${ICON_CMD}/setting_theme.svg`}
-              node={
-                <LabelDescWrapper>
-                  普通用户仅支持预览，设置不会被保存，您可以选择
-                  <LabelDescLink onClick={logic.sponsorHepler}>
-                    赞助
-                  </LabelDescLink>{' '}
-                  或升级成
-                  <LabelDescLink onClick={logic.upgradeHepler}>
-                    CPS会员
-                  </LabelDescLink>
-                  解锁该功能。
-                </LabelDescWrapper>
-              }
+              desc="如果你有更好的配色灵感，欢迎反馈给社区。"
             />
             <ThemeSelector
               curTheme={curTheme}

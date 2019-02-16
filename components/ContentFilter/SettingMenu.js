@@ -84,7 +84,7 @@ const SettingMenu = ({
     </Option>
 
     <Option onClick={onC11NChange.bind(this, { contentHover: !contentHover })}>
-      <OptionText>悬停提示</OptionText>
+      <OptionText>悬停背景</OptionText>
       <OptionIcon
         src={
           contentHover === true
