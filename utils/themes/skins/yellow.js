@@ -305,11 +305,11 @@ const yellow = {
     text: '#c3ae8e',
   },
   table: {
-    headerBg: '#024858',
-    headTitle: '#83a7ad',
-    text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    headerBg: '#F7F4EE',
+    headTitle: '#998E90',
+    text: '#C7B299',
+    border: '#E4E0D6',
+    hoverBg: '#F7F4EE',
   },
   searchHighlight: {
     doramonFg: 'orange',

@@ -302,11 +302,11 @@ const monokai = {
     text: '#c3ae8e',
   },
   table: {
-    headerBg: '#024858',
-    headTitle: '#83a7ad',
-    text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    headerBg: '#484548',
+    headTitle: '#999088',
+    text: '#746F6F',
+    border: '#5a5542',
+    hoverBg: darken(0.05, '#484548'),
   },
   searchHighlight: {
     doramonFg: 'orange',
