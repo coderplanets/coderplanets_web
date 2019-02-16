@@ -277,6 +277,10 @@ export const selectSuggestion = () => {
 }
 
 export const inputOnBlur = () => {
+  if (R.contains(store.prefix, ['/', '?', '@'])) {
+    hidePanel()
+  }
+
   if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
     hidePanel()
   }
