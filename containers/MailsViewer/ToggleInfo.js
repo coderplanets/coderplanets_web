@@ -7,7 +7,7 @@ import { Wrapper, Info, Number } from './styles/toggle_info'
 const ToggleInfo = ({ readState, totalCount }) => (
   <Wrapper>
     <Info>
-      {!readState ? <span>未读消息共</span> : <span>已读消息共</span>}
+      {readState ? <span>未读消息共</span> : <span>已读消息共</span>}
       <Number>{totalCount}</Number>条
     </Info>
     <ToggleReadButton readState={readState} />
