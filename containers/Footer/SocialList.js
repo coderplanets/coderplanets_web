@@ -15,7 +15,7 @@ const SocialList = () => (
 
     <Popover
       placement="top"
-      trigger="click"
+      trigger="hover"
       content={<QRCodePic src={`${ICON_BASE}/cps_wechat_group.png`} />}
     >
       <Item>
