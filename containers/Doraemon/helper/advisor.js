@@ -8,26 +8,11 @@ import { from } from 'rxjs'
 import { ICON_CMD } from 'config'
 import { notEmpty } from 'utils'
 
-const cmdSplit = R.compose(
-  R.split('/'),
-  R.slice(1, Infinity)
-)
-const cmdFull = R.compose(
-  R.filter(notEmpty),
-  cmdSplit
-)
-const cmdHead = R.compose(
-  R.head,
-  cmdSplit
-)
-const cmdLast = R.compose(
-  R.last,
-  cmdFull
-)
-const cmdInit = R.compose(
-  R.init,
-  cmdFull
-)
+const cmdSplit = R.compose(R.split('/'), R.slice(1, Infinity))
+const cmdFull = R.compose(R.filter(notEmpty), cmdSplit)
+const cmdHead = R.compose(R.head, cmdSplit)
+const cmdLast = R.compose(R.last, cmdFull)
+const cmdInit = R.compose(R.init, cmdFull)
 
 export const startWithSlash = R.startsWith('/')
 
@@ -77,15 +62,9 @@ export class Advisor {
     return R.path(cmdChain, this.curSuggestions) || {}
   }
 
-  suggestionPathInit = R.compose(
-    this.getSuggestionPath,
-    cmdInit
-  )
+  suggestionPathInit = R.compose(this.getSuggestionPath, cmdInit)
 
-  suggestionPath = R.compose(
-    this.getSuggestionPath,
-    cmdFull
-  )
+  suggestionPath = R.compose(this.getSuggestionPath, cmdFull)
 
   suggestionPathThenStartsWith = val => {
     const init = this.suggestionPathInit(val)
@@ -105,10 +84,7 @@ export class Advisor {
   )
 
   getSuggestion = R.ifElse(
-    R.compose(
-      R.startsWith('/'),
-      R.tail
-    ), // avoid multi /, like /////
+    R.compose(R.startsWith('/'), R.tail), // avoid multi /, like /////
     () => R.identity([]),
     this.suggestionBreif
   )
@@ -131,10 +107,46 @@ export class Advisor {
       prefix: R.head(val),
       data: [
         {
-          title: 'Doraemon Pocket 说明书',
-          desc: '包含搜索，设置，跳转以及开发扩展等使用说明',
-          raw: 'doraemon_help',
-          logo: `${ICON_CMD}/doraemon_cat.svg`,
+          title: '关于本站',
+          desc: 'coderplanets 是什么?',
+          raw: 'help_1',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'CPS 内容发布守则白皮书',
+          desc: '社区守则，价值观等等',
+          raw: 'help_37',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'Home 社区指南',
+          desc: 'Home 社区即 coderplanets 首页社区..',
+          raw: 'help_38',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'CPS 个性化设置指南',
+          desc: '主题设置，阅读设置，等..',
+          raw: 'help_43',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'CPS 社区订阅指南',
+          desc: '子社区订阅，展现形式等',
+          raw: 'help_40',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'CPS 内容搜索指南',
+          desc: '怎样使用多功能搜索框',
+          raw: 'help_41',
+          logo: `${ICON_CMD}/shell_help.svg`,
+        },
+        {
+          title: 'CPS 开发者指南',
+          desc: '参与 CPS 本站或第三方客户端的开发',
+          raw: 'help_42',
+          logo: `${ICON_CMD}/shell_help.svg`,
         },
       ],
     }

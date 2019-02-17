@@ -192,7 +192,43 @@ const initSpecCmdResolver = () => {
         debug('communityInsideLinker: ', cmdpath)
       },
     },
+    {
+      match: SAK.stepOneCmd('help_1'),
+      action: () => {
+        Global.location.href = `/home/post/1`
+        hidePanel()
+      },
+    },
+    {
+      match: SAK.stepOneCmd('help_37'),
+      action: () => goToHelpPage('37'),
+    },
+    {
+      match: SAK.stepOneCmd('help_38'),
+      action: () => goToHelpPage('38'),
+    },
+    {
+      match: SAK.stepOneCmd('help_40'),
+      action: () => goToHelpPage('40'),
+    },
+    {
+      match: SAK.stepOneCmd('help_41'),
+      action: () => goToHelpPage('41'),
+    },
+    {
+      match: SAK.stepOneCmd('help_42'),
+      action: () => goToHelpPage('42'),
+    },
+    {
+      match: SAK.stepOneCmd('help_43'),
+      action: () => goToHelpPage('43'),
+    },
   ]
+}
+
+const goToHelpPage = id => {
+  Global.location.href = `/cps-support/post/${id}`
+  hidePanel()
 }
 
 const doSpecCmd = () => {
@@ -287,9 +323,9 @@ export const inputOnBlur = () => {
 }
 
 export const hidePanel = () => {
-  emptySearchStates()
-  store.hideDoraemon()
-  pockect$.stop()
+  // emptySearchStates()
+  // store.hideDoraemon()
+  // pockect$.stop()
 }
 
 export const inputOnChange = ({ target: { value: inputValue } }) => {
