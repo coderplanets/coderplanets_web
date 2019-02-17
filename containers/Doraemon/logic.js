@@ -323,9 +323,9 @@ export const inputOnBlur = () => {
 }
 
 export const hidePanel = () => {
-  // emptySearchStates()
-  // store.hideDoraemon()
-  // pockect$.stop()
+  emptySearchStates()
+  store.hideDoraemon()
+  pockect$.stop()
 }
 
 export const inputOnChange = ({ target: { value: inputValue } }) => {
