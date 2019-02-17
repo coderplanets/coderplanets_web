@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import keydown, { Keys } from 'react-keydown'
 import { inject, observer } from 'mobx-react'
 
 import Modal from 'components/Modal'
@@ -20,6 +21,8 @@ import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ErrorBox')
 
+const { ESC } = Keys
+
 class ErrorBoxContainer extends React.Component {
   componentDidMount() {
     const { errorBox } = this.props
@@ -28,6 +31,12 @@ class ErrorBoxContainer extends React.Component {
 
   componentWillUnmount() {
     logic.uninit()
+  }
+
+  @keydown(['ctrl+g', 'ctrl+c', ESC])
+  /* eslint-disable class-methods-use-this */
+  hide() {
+    logic.hide()
   }
 
   render() {

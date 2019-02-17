@@ -110,6 +110,7 @@ export {
   focusDoraemonBar,
   blurDoraemonBar,
   hideDoraemonBarRecover,
+  isBrowser,
 } from './dom_operator'
 /*
  * theme related

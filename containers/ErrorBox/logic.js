@@ -36,6 +36,10 @@ const classifyGQErrors = errors => {
   store.markState({ graphqlType: 'parse', parseError: errors })
 }
 
+export const hide = () => {
+  store.markState({ show: false })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -44,10 +48,7 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.ERR_RESCUE),
     action: res => {
-      const {
-        type,
-        data: { operation, details, path },
-      } = res[EVENT.ERR_RESCUE]
+      const { type, data: { operation, details, path } } = res[EVENT.ERR_RESCUE]
 
       switch (type) {
         case ERR.GRAPHQL:

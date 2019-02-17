@@ -18,7 +18,6 @@ export default class InputEditor extends React.Component {
   /* eslint-disable class-methods-use-this */
   @keydown(['ctrl+g', 'ctrl+c'])
   hidePanel() {
-    //     debug('this bitch? ')
     logic.hidePanel()
   }
 
