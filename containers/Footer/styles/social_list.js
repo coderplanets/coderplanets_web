@@ -25,3 +25,9 @@ export const PopInfo = styled.div`
   color: ${theme('thread.articleTitle')};
   padding: 5px 10px;
 `
+
+export const QRCodePic = styled(Img)`
+  display: block;
+  width: 300px;
+  height: auto;
+`
