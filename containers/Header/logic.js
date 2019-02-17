@@ -11,6 +11,7 @@ import {
   $solver,
   thread2Subpath,
   atomizeValues,
+  pageGoTop,
   errRescue,
   Global,
   // getParameterByName,
@@ -40,10 +41,13 @@ export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
 export const onThreadChange = thread => {
   const activeThread = thread.raw
+  const subPath = thread2Subpath(activeThread)
 
-  /* store.markRoute({ community, thread: thread2Subpath(activeThread) }) */
-  store.markRoute({ subPath: thread2Subpath(activeThread) })
+  pageGoTop()
+
+  store.markRoute({ subPath })
   store.setViewing({ activeThread })
+  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
 export const onLogin = () => dispatchEvent(EVENT.LOGIN_PANEL)
