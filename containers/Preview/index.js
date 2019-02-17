@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug, isBrowser } from 'utils'
 
 import SliderPreview from './SliderPreview'
 import ModalPreview from './ModalPreview'
@@ -19,14 +19,35 @@ import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Preview')
 
+const getDocument = () => (isBrowser() ? document : null)
+
 class PreviewContainer extends React.Component {
   componentDidMount() {
     const { preview } = this.props
     logic.init(preview)
+
+    const safeDocument = getDocument()
+    if (safeDocument) {
+      safeDocument.addEventListener('keydown', this.escHandler, false)
+    }
   }
 
   componentWillUnmount() {
     logic.uninit()
+
+    const safeDocument = getDocument()
+
+    if (safeDocument) {
+      safeDocument.removeEventListener('keydown', this.escHandler, false)
+    }
+  }
+
+  /* eslint-disable-next-line */
+  escHandler(event) {
+    if (event.keyCode === 27) {
+      debug('previewer keycode')
+      logic.closePreview()
+    }
   }
 
   render() {
