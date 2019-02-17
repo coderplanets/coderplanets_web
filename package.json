@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "accepts": "^1.3.4",
-    "antd": "3.8.4",
+    "antd": "3.13.3",
     "anujs": "1.5.0",
     "apollo-cache-inmemory": "1.3.9",
     "apollo-client": "2.4.5",
