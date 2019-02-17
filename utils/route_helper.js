@@ -95,6 +95,10 @@ export const mergeRouteQuery = (query = {}, opt = { pagi: 'string' }) => {
     defaultQuery = { page: 1, size: 20 }
   }
 
+  if (routeQuery.page && opt.pagi === 'number') {
+    routeQuery.page = parseInt(routeQuery.page, 10)
+  }
+
   return R.merge(defaultQuery, routeQuery)
 }
 
