@@ -92,6 +92,10 @@ const AntUIOverWrite = createGlobalStyle`
     background: ${theme('baseColor.error')};
   }
 
+  .ant-popover-placement-top {
+    padding-bottom: 0;
+  }
+
   // popover end
 
   // input

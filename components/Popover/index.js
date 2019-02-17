@@ -58,7 +58,13 @@ PopoverComponent.propTypes = {
   visible: PropTypes.bool,
   title: PropTypes.string,
   trigger: PropTypes.oneOf(['hover', 'click', 'focus']),
-  placement: PropTypes.oneOf(['bottomLeft', 'bottomRight', 'bottom', 'right']),
+  placement: PropTypes.oneOf([
+    'top',
+    'bottomLeft',
+    'bottomRight',
+    'bottom',
+    'right',
+  ]),
   onVisibleChange: PropTypes.func,
 }
 
