@@ -62,6 +62,9 @@ export const onLogout = () => {
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
+export const queryDoraemon = data =>
+  dispatchEvent(EVENT.QUERY_DORAMON, { data })
+
 const DataSolver = [
   {
     match: asyncRes('sessionState'),
