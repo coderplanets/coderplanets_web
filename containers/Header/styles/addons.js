@@ -3,18 +3,37 @@ import styled from 'styled-components'
 import HeaderStatesSVG from 'components/SvgIcons/HeaderStatesSVG'
 import { theme, cs } from 'utils'
 
+import { HeaderWrapper } from './header'
+
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   ${cs.media.tablet`display: none`};
 `
 
 export const HeaderStatesIcon = styled(HeaderStatesSVG)`
+  opacity: 0;
   fill: ${theme('header.fg')};
   width: 22px;
   height: 26px;
   cursor: pointer;
   margin-top: 5px;
-  transform: rotate(180deg);
+  transform: rotate(-360deg);
+
+  ${HeaderWrapper}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.3s;
+`
+
+export const ThemeDot = styled.div`
+  width: 16px;
+  height: 16px;
+  background-color: ${theme('cover')};
+  border: 1px solid;
+  border-color: ${theme('header.spliter')};
+  margin-left: 10px;
+  border-radius: 100%;
+  cursor: pointer;
 `
 
 export const Divider = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Wrapper, HeaderStatesIcon, Divider } from './styles/addons'
-import * as logic from './logic'
+import { Wrapper, HeaderStatesIcon, ThemeDot, Divider } from './styles/addons'
+import { previewState, queryDoraemon } from './logic'
 
 const AddOns = () => (
   <Wrapper>
@@ -12,9 +12,10 @@ const AddOns = () => (
         &nbsp;&nbsp;&nbsp;
         <DividerIcon src={`${ICON_CMD}/more.svg`} />
       */}
-    <div onClick={logic.previewState.bind(this, 'mst-state')}>
+    <div onClick={previewState.bind(this, 'mst-state')}>
       <HeaderStatesIcon />
     </div>
+    <ThemeDot onClick={queryDoraemon.bind(this, '/theme/')} />
     <Divider>&nbsp;</Divider>
   </Wrapper>
 )
