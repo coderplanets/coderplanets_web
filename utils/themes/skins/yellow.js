@@ -18,7 +18,7 @@ const primaryMate = '#B84E20'
 const yellow = {
   name: 'yellow',
   logoText: '#d2bca1',
-  cover: bannerBg,
+  cover: '#ece1c3',
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,

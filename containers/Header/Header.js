@@ -13,7 +13,7 @@ import UserAccount from './UserAccount'
 import AddOns from './AddOns'
 
 import {
-  Wrapper,
+  HeaderWrapper,
   InnerWrapper,
   RouterWrapper,
   Search,
@@ -32,7 +32,11 @@ const Header = ({
   accountInfo,
   curCommunity,
 }) => (
-  <Wrapper id="whereCallShowDoraemon" leftOffset={leftOffset} fixed={fixed}>
+  <HeaderWrapper
+    id="whereCallShowDoraemon"
+    leftOffset={leftOffset}
+    fixed={fixed}
+  >
     <InnerWrapper id={TYPE.APP_HEADER_ID}>
       <RouterWrapper>
         {fixed ? (
@@ -59,7 +63,7 @@ const Header = ({
         <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
       </Operations>
     </InnerWrapper>
-  </Wrapper>
+  </HeaderWrapper>
 )
 
 export default Header
