@@ -12,6 +12,9 @@ const job = gql`
       tags {
         ${F.tag}
       }
+      origialCommunity {
+        ${F.community}
+      }
       communities {
         ${F.community}
       }
