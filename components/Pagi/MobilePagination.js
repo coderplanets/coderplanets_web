@@ -36,7 +36,7 @@ const MobilePagination = ({ current, pageSize, total, onChange }) => (
           <CurPageNumber>{current}</CurPageNumber>
         )}
 
-      {current < Math.floor(total / pageSize) && (
+      {current <= Math.floor(total / pageSize) && (
         <Button type="primary" ghost onClick={onChange.bind(this, current + 1)}>
           下一页
         </Button>
