@@ -23,6 +23,7 @@ export const Job = t.model('Job', {
   copyRight: t.optional(t.string, 'original'),
 
   communities: t.optional(t.array(Community), []),
+  origialCommunity: t.optional(Community, {}),
   tags: t.optional(t.array(Tag), []),
   comments: t.optional(t.array(Comment), []),
 

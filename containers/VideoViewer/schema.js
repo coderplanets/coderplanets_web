@@ -9,6 +9,12 @@ const video = gql`
       author {
         ${F.author}
       }
+      tags {
+        ${F.tag}
+      }
+      origialCommunity {
+        ${F.community}
+      }
       favoritedCount
       starredCount
       viewerHasFavorited @include(if: $userHasLogin)

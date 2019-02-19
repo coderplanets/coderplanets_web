@@ -12,6 +12,9 @@ const post = gql`
       tags {
         ${F.tag}
       }
+      origialCommunity {
+        ${F.community}
+      }
       commentsParticipators {
         ${F.author}
       }

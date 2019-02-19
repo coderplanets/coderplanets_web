@@ -60,7 +60,7 @@ export const createComment = () => {
     id: store.viewingData.id,
     body: store.editContent,
     thread: store.activeThread,
-    community: store.curCommunity.raw,
+    community: store.communityRaw,
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
 
@@ -234,18 +234,12 @@ export const onMentionSearch = name => {
 export const deleteComment = () =>
   sr71$.mutate(S.deleteComment, {
     id: store.tobeDeleteId,
+    thread: store.activeThread,
   })
 
 // show delete confirm
-export const onDelete = comment =>
-  store.markState({
-    tobeDeleteId: comment.id,
-  })
-
-export const cancleDelete = () =>
-  store.markState({
-    tobeDeleteId: null,
-  })
+export const onDelete = comment => store.markState({ tobeDeleteId: comment.id })
+export const cancleDelete = () => store.markState({ tobeDeleteId: null })
 
 export const pageChange = (page = 1) => {
   scrollIntoEle('lists-info')
