@@ -21,7 +21,6 @@ import {
   CardTitle,
   CardDesc,
   ActivitySpark,
-  Divider,
   CardFooter,
 } from './styles/community_cards'
 
@@ -43,7 +42,6 @@ const CommunityCard = ({ community, restProps }) => (
     <ActivitySpark>
       <TrendLine data={community.contributesDigest} />
     </ActivitySpark>
-    <Divider />
     <CardFooter>
       <React.Fragment>
         {/* TODO: number color should be different when number grow large */}

@@ -102,16 +102,20 @@ export const CardDesc = styled.div`
   color: ${theme('banner.desc')};
 `
 export const ActivitySpark = styled.div`
-  width: 60%;
+  width: 100%;
+  height: 100%;
 `
 
 export const CardFooter = styled.div`
   ${cs.flex('justify-around')};
 
-  width: 100%;
+  width: 90%;
   position: absolute;
   bottom: 16px;
   color: ${theme('banner.desc')};
+  border-top: 1px solid;
+  border-top-color: ${theme('content.cardBorder')};
+  padding-top: 15px;
 `
 
 export const Divider = styled.div`
