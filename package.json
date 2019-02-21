@@ -137,7 +137,7 @@
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.8.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "commitizen": "^2.10.1",
+    "commitizen": "^3.0.6",
     "coveralls": "3.0.2",
     "cross-env": "^5.0.5",
     "cypress": "^3.0.2",
