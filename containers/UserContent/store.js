@@ -16,6 +16,7 @@ const UserContent = t
       t.enumeration('activeThread', R.values(USER_THREAD)),
       USER_THREAD.PUBLISH
     ),
+    following: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
@@ -37,6 +38,9 @@ const UserContent = t
   .actions(self => ({
     authWarning(options) {
       self.root.authWarning(options)
+    },
+    updateViewingUser(user) {
+      self.root.viewing.updateViewingUser(user)
     },
     markState(sobj) {
       markStates(sobj, self)
