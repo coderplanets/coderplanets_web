@@ -26,7 +26,7 @@ mobxReact.useStaticRendering(true)
 const ssrCache = new LRUCache({
   max: 1000, // cache item count
   // maxAge: 1000 * 60 * 60, // 1hour
-  maxAge: 1000 * 30, // 30 ses
+  maxAge: 1000 * 10, // 30 ses
 })
 
 app.prepare().then(() => {
