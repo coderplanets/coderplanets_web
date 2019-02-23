@@ -25,7 +25,7 @@ const DetailView = ({ user, toggleDetail }) => (
       <BackgroundList type="education" user={user} />
     </UserDetailDesc>
     <UserDetailDesc>
-      <DescLable>个人主页</DescLable> http://www.xxx.com/xxx
+      <DescLable>个人主页</DescLable> {user.github}
     </UserDetailDesc>
     <UserDetailDesc onClick={toggleDetail.bind(this)} clickable>
       <DescIconLable src={`${ICON_CMD}/profile_arrow.svg`} />
