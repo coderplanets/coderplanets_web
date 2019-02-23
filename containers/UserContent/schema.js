@@ -14,10 +14,20 @@ const undoFollow = gql`
     }
   }
 `
+const user = gql`
+  query user($login: String, $userHasLogin: Boolean!) {
+    user(login: $login) {
+      followersCount
+      followingsCount
+      viewerHasFollowed @include(if: $userHasLogin)
+    }
+  }
+`
 
 const schema = {
   follow,
   undoFollow,
+  user,
 }
 
 export default schema
