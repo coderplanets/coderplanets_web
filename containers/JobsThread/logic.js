@@ -11,7 +11,8 @@ import {
   ROUTE,
   THREAD,
   $solver,
-  scrollIntoEle,
+  // scrollIntoEle,
+  pageGoTop,
   notEmpty,
   errRescue,
   // GA,
@@ -55,7 +56,8 @@ export const loadJobs = (page = 1) => {
   }
 
   args.filter = R.pickBy(notEmpty, args.filter)
-  scrollIntoEle(TYPE.APP_HEADER_ID)
+  // scrollIntoEle(TYPE.APP_HEADER_ID)
+  pageGoTop()
 
   debug('######## loadJobs args: ', args)
   sr71$.query(S.pagedJobs, args)
