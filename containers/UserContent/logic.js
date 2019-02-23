@@ -25,13 +25,23 @@ const debug = makeDebugger('L:UserContent')
 export const followUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
+  debug('followUser: ', userId)
+  store.markState({ following: true })
   sr71$.mutate(S.follow, { userId })
 }
 
 export const undoFollowUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
+  debug('undoFollowUser: ', userId)
+  store.markState({ following: true })
   sr71$.mutate(S.undoFollow, { userId })
+}
+
+const getUserFollowStates = () => {
+  const { login } = store.viewingUser
+
+  sr71$.query(S.user, { login, userHasLogin: store.isLogin })
 }
 
 export const showFollowings = user => {
@@ -66,8 +76,17 @@ export const tabChange = activeThread => {
 const DataSolver = [
   {
     match: asyncRes('follow'),
-    action: () => {
-      debug('follow done ')
+    action: () => getUserFollowStates(),
+  },
+  {
+    match: asyncRes('undoFollow'),
+    action: () => getUserFollowStates(),
+  },
+  {
+    match: asyncRes('user'),
+    action: ({ user }) => {
+      store.updateViewingUser(user)
+      store.markState({ following: false })
     },
   },
 ]
@@ -75,16 +94,23 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => {
+      store.markState({ following: false })
+    },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) =>
-      errRescue({ type: ERR.TIMEOUT, details, path: 'UserContent' }),
+    action: ({ details }) => {
+      store.markState({ following: false })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'UserContent' })
+    },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: () => errRescue({ type: ERR.NETWORK, path: 'UserContent' }),
+    action: () => {
+      store.markState({ following: false })
+      errRescue({ type: ERR.NETWORK, path: 'UserContent' })
+    },
   },
 ]
 

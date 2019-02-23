@@ -68,12 +68,15 @@ const ViewingStore = t
       switch (type) {
         case 'user': {
           if (self.user.id !== self.accountInfo.id) return false
-          const user = R.merge(self.user, sobj)
-          return self.markState({ user })
+          return self.updateViewingUser(sobj)
         }
         default:
           return false
       }
+    },
+    updateViewingUser(sobj) {
+      const user = R.merge(self.user, sobj)
+      return self.markState({ user })
     },
     syncViewingItem(item) {
       const curThread = self.viewingThread || self.activeThread

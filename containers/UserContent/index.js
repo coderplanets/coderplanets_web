@@ -100,6 +100,7 @@ class UserContentContainer extends React.Component {
       viewingUser,
       accountInfo,
       isSelfViewing,
+      following,
     } = userContent
 
     const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
@@ -115,12 +116,20 @@ class UserContentContainer extends React.Component {
           </TabberWrapper>
           <TabberContent active={activeThread} />
           <MobileBottom>
-            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
+            <DigestBoard
+              user={viewingUser}
+              accountId={accountInfo.id}
+              following={following}
+            />
           </MobileBottom>
         </MainWrapper>
         <SidebarWrapper>
           <Affix offsetTop={30}>
-            <DigestBoard user={viewingUser} accountId={accountInfo.id} />
+            <DigestBoard
+              user={viewingUser}
+              accountId={accountInfo.id}
+              following={following}
+            />
           </Affix>
         </SidebarWrapper>
       </Container>
