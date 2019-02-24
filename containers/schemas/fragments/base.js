@@ -168,15 +168,13 @@ export const commentParent = `
   title
   commentsCount
   author {
-    id
-    nickname
-    avatar
+    ${author}
   }
   communities {
-    id
-    title
-    logo
-    raw
+    ${community}
+  }
+  origialCommunity {
+    ${community}
   }
 `
 export const pagedCounts = `
