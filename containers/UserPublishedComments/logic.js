@@ -12,6 +12,7 @@ import {
   ERR,
   pagedFilter,
   errRescue,
+  pageGoTop,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -61,6 +62,23 @@ export const onThreadChange = curThread => {
 
     default:
       return loadPostComments()
+  }
+}
+
+export const onPageChange = (page = 1) => {
+  pageGoTop()
+  switch (store.curThread) {
+    case THREAD.JOB:
+      return loadJobComments(page)
+
+    case THREAD.VIDEO:
+      return loadVideoComments(page)
+
+    case THREAD.REPO:
+      return loadRepoComments(page)
+
+    default:
+      return loadPostComments(page)
   }
 }
 
