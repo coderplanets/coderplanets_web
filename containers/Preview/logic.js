@@ -57,7 +57,10 @@ const DataResolver = [
         if (type === TYPE.PREVIEW_USER_VIEW) {
           targetUrl = `/user/${data.login}`
         } else {
-          targetUrl = `/${store.curCommunity.raw}/${thread}/${data.id}`
+          const communityRaw =
+            store.curCommunity.raw || data.origialCommunity.raw
+
+          targetUrl = `/${communityRaw}/${thread}/${data.id}`
         }
 
         Global.location.href = targetUrl

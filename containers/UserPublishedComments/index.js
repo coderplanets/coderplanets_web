@@ -47,7 +47,6 @@ class UserPublishedCommentsContainer extends React.Component {
           thread={curThread}
           curView={curView}
           data={pagedCommentsData}
-          onPreview={logic.onPreview}
         />
       </div>
     )

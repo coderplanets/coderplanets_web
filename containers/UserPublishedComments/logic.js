@@ -12,6 +12,7 @@ import {
   ERR,
   pagedFilter,
   errRescue,
+  pageGoTop,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -64,9 +65,25 @@ export const onThreadChange = curThread => {
   }
 }
 
+export const onPageChange = (page = 1) => {
+  pageGoTop()
+  switch (store.curThread) {
+    case THREAD.JOB:
+      return loadJobComments(page)
+
+    case THREAD.VIDEO:
+      return loadVideoComments(page)
+
+    case THREAD.REPO:
+      return loadRepoComments(page)
+
+    default:
+      return loadPostComments(page)
+  }
+}
+
 export const onPreview = data => {
   const thread = store.curThread
-  debug('onPreview data: ', data[thread])
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
