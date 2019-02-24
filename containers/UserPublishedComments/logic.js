@@ -66,7 +66,6 @@ export const onThreadChange = curThread => {
 
 export const onPreview = data => {
   const thread = store.curThread
-  debug('onPreview data: ', data[thread])
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],

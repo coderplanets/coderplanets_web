@@ -10,9 +10,8 @@ import { Tag } from './Tag'
 export const Post = t.model('Post', {
   id: t.maybeNull(t.string),
   title: t.optional(t.string, ''),
-  body: t.optional(t.string, ''),
-  digest: t.optional(t.string, ''),
-  // author: t.optional(User, {}),
+  body: t.maybeNull(t.string),
+  digest: t.maybeNull(t.string),
   author: t.maybeNull(User),
 
   linkAddr: t.maybeNull(t.string),
