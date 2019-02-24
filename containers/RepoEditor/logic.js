@@ -33,6 +33,7 @@ export const onPublish = () => {
   }
 
   debug('onPublish args: ', args)
+  store.markState({ publishing: true })
   sr71$.mutate(S.createRepo, args)
 }
 
@@ -76,6 +77,11 @@ export const setGithubToken = () => {
    export const searchOnChange = ({ target: { e: searchValue } }) =>
    store.markState({ searchValue })
  */
+const cancleLoading = () =>
+  store.markState({
+    searching: false,
+    publishing: false,
+  })
 
 // ###############################
 // Data & Error handlers
@@ -84,9 +90,7 @@ const DataSolver = [
   {
     match: asyncRes('createRepo'),
     action: () => {
-      debug('done!')
-      // cancleLoading()
-      // store.reset()
+      store.markState({ publishing: false })
       closePreviewer()
       dispatchEvent(EVENT.REFRESH_REPOS)
     },
@@ -99,17 +103,21 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
+    action: () => cancleLoading(),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
+      cancleLoading()
       errRescue({ type: ERR.TIMEOUT, details, path: 'RepoEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: () => errRescue({ type: ERR.NETWORK, path: 'RepoEditor' }),
+    action: () => {
+      cancleLoading()
+      errRescue({ type: ERR.NETWORK, path: 'RepoEditor' })
+    },
   },
 ]
 
