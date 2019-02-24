@@ -22,6 +22,7 @@ const View = ({
   curView,
   searching,
   searchValue,
+  publishing,
   repo,
   subView,
   tokenValue,
@@ -33,6 +34,7 @@ const View = ({
           repo={repo}
           onSearch={logic.changeView.bind(this, 'search')}
           onPublish={logic.onPublish}
+          publishing={publishing}
           showSearchBtn
           showPublishBtn
           readOnly
@@ -69,6 +71,7 @@ class RepoEditorContainer extends React.Component {
       curView,
       searching,
       searchValue,
+      publishing,
       editRepoData,
       subView,
       tokenValue,
@@ -81,6 +84,7 @@ class RepoEditorContainer extends React.Component {
           curView={curView}
           searching={searching}
           searchValue={searchValue}
+          publishing={publishing}
           repo={editRepoData}
           subView={subView}
           tokenValue={tokenValue}
