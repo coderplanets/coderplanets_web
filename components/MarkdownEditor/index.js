@@ -86,6 +86,7 @@ class MarkdownEditor extends React.Component {
 
   loadDraft = () => {
     const { body } = this.props
+    if (!body) return false
 
     // see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
     const editorState = EditorState.createWithContent(
