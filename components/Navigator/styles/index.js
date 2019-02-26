@@ -9,6 +9,9 @@ export const Breadcrumbs = styled.div`
   max-width: 520px;
   margin-left: 3vw;
   height: 100%;
+  ${cs.media.mobile`
+    margin-right: 0;
+  `};
 `
 export const Logo = styled(CommunityFaceLogo)`
   height: 22px;
