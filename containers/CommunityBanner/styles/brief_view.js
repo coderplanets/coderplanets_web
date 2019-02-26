@@ -22,5 +22,11 @@ export const TabberWrapper = styled.div`
   @media (min-width: 1600px) {
     margin-left: 270px;
   }
+
+  ${cs.media.mobile`
+    width: 55vw;
+    overflow: scroll;
+    margin-left: 45vw;
+  `};
 `
 export const BannerContentWrapper = styled(BaseBannerContent)``
