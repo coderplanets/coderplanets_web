@@ -5,6 +5,10 @@ import { theme, cs } from 'utils'
 
 export const Wrapper = styled.div`
   margin-right: 20px;
+
+  ${cs.media.mobile`
+    margin-right: 0;
+  `};
 `
 
 export const PopMenu = styled.div`
