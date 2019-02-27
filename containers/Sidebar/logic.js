@@ -98,7 +98,6 @@ const refreshSubedCommunitiesIfNeed = () => {
   debug('curSubedLength ', curSubedLength)
 
   if (store.isLogin && subedLength !== curSubedLength) {
-    debug('do refreshSubedCommunities login')
     return loadCommunities()
   }
 

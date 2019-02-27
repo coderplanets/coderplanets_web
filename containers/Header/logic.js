@@ -70,7 +70,9 @@ const DataSolver = [
     match: asyncRes('sessionState'),
     action: ({ sessionState: state }) => {
       store.updateSesstion(state)
-      dispatchEvent(EVENT.SESSTION_ROUTINE)
+      if (state.isValid !== store.accountInfo.isValidSession) {
+        dispatchEvent(EVENT.SESSTION_ROUTINE)
+      }
     },
   },
   {
