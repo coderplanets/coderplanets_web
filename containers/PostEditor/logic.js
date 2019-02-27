@@ -17,6 +17,7 @@ import {
   cast,
   parseDomain,
   errRescue,
+  BStore,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -30,6 +31,8 @@ const debug = makeDebugger('L:PostEditor')
 
 let store = null
 let sub$ = null
+
+let saveDraftTimmer = null
 
 export const changeView = curView => store.markState({ curView })
 
@@ -155,6 +158,15 @@ export const bodyInputOnChange = content => {
   updateEditing(store, 'body', content)
 }
 
+const saveDraftIfNeed = content => {
+  if (R.isEmpty(content)) return false
+  const curDraftContent = BStore.get('recentDraft')
+
+  if (curDraftContent !== content) BStore.set('recentDraft', content)
+}
+
+const clearDraft = () => BStore.set('recentDraft', '')
+
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 const cancleLoading = () => store.markState({ publishing: false })
 
@@ -173,6 +185,7 @@ const DataSolver = [
       })
 
       doneCleanUp()
+      clearDraft()
       dispatchEvent(EVENT.REFRESH_POSTS)
     },
   },
@@ -216,6 +229,17 @@ const ErrSolver = [
   },
 ]
 
+const initDraftTimmer = () => {
+  // only save draft in create mode
+  if (store.isEdit) return false
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
+  saveDraftTimmer = setInterval(
+    () => saveDraftIfNeed(store.editPost.body),
+    3000
+  )
+}
+
 export const init = (_store, attachment) => {
   // if (store) return openAttachment(attachment)
   store = _store
@@ -223,15 +247,20 @@ export const init = (_store, attachment) => {
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
+  initDraftTimmer()
 }
 
 export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
+  // TODO: hint about save draft
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
   store.markState({ editPost: {}, isEdit: false })
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
+
   /*
      store.toast('info', {
      title: 'todo',
