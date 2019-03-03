@@ -4,7 +4,6 @@ import {
   makeDebugger,
   EVENT,
   TYPE,
-  holdPage,
   unholdPage,
   dispatchEvent,
   Global,
@@ -67,7 +66,6 @@ const DataResolver = [
         return false
       }
 
-      holdPage()
       store.open(payload)
     },
   },
