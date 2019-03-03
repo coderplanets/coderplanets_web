@@ -60,6 +60,10 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/oauth', req.query)
   )
 
+  server.get('/sentry/', (req, res) =>
+    renderAndCache(req, res, '/sentry', req.query)
+  )
+
   // app.render(req, res, '/user', req.query)
   server.get('/user/:userId', (req, res) =>
     renderAndCache(req, res, '/user', req.query)
