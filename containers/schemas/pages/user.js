@@ -8,18 +8,9 @@ export const user = `
       bio
       sex
       location
-      qq
-      weibo
-      weichat
-      github
-      zhihu
-      douban
-      twitter
-      facebook
-      dribble
-      instagram
-      pinterest
-      huaban
+      social {
+        ${F.userSocial}
+      }
       followersCount
       followingsCount
       viewerHasFollowed @include(if: $userHasLogin)
@@ -74,9 +65,9 @@ export const sessionState = `
         bio
         fromGithub
         location
-        qq
-        weibo
-        weichat
+        social {
+          ${F.userSocial}
+        }
         sex
         cmsPassport
         subscribedCommunitiesCount
