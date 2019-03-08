@@ -31,6 +31,13 @@ export const goBack = () =>
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
+export const socialOnChange = (part, e) => {
+  const { editUserData: editUser } = store
+  editUser.social[part] = e.target.value
+
+  store.markState({ editUser })
+}
+
 export const updateBg = (key, part, { target: { value } }) =>
   store.markState({
     [key]: R.merge(store[key], { [part]: value }),
