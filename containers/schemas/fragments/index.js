@@ -17,6 +17,7 @@ import {
   author,
   tag,
   user,
+  userSocial,
   c11n,
   achievement,
   userBackgrounds,
@@ -42,6 +43,7 @@ const F = {
   pagedRepos,
 
   user,
+  userSocial,
   c11n,
   achievement,
   userBackgrounds,
