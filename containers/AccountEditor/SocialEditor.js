@@ -88,11 +88,12 @@ const SocialEditor = ({ show, user }) => (
       {/* set key to SocialItem will cause input lose focus */}
       {SOCIAL_LISTS.map(social => (
         <SocialItem
+          key={social.key}
           label={social.label}
           prefix={social.prefix}
           icon={social.key}
-          value={user[social.key]}
-          onChange={logic.inputOnChange.bind(this, social.key)}
+          value={user.social[social.key]}
+          onChange={logic.socialOnChange.bind(this, social.key)}
         />
       ))}
       {/* eslint-enable react/jsx-key */}
