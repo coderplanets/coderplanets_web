@@ -59,7 +59,7 @@ const SocialIconList = ({ show, user }) => (
         <SocialIcon
           key={social.key}
           src={`${ICON_CMD}/${social.key}.svg`}
-          active={!nilOrEmpty(user[social.key])}
+          active={!nilOrEmpty(user.social[social.key])}
         />
       ))}
 
