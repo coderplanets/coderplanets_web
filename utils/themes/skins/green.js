@@ -81,7 +81,7 @@ const green = {
     articleDigest: descText,
     articleTag: '#74a0ab',
     articleLink: descText,
-    articleDivider: '#dce5e6',
+    articleDivider: '#d0dbdc',
     commentsUserBorder: contentBoxBg,
     extraInfo: primaryMate,
     articleSpliter: '#BBCEBC',
