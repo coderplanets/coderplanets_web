@@ -21,16 +21,15 @@ export const PanelContainer = styled.div`
   top: 12vh;
   z-index: ${cs.zIndex.doraemon};
   display: ${({ visible }) => (visible ? 'block' : 'none')};
-  left: 50%;
-  margin-left: -19vw;
+  margin: auto;
+  left: 0;
+  right: 0;
   ${cs.media.mobile`
     width: 80vw;
-    left: 30%;
   `};
 
   ${cs.media.tablet`
     width: 80vw;
-    left: 30%;
   `};
 `
 // #001b21;
