@@ -8,7 +8,7 @@ const StateViewer = ({ json }) => (
   <StateViewerWrapper>
     <StateTreeHeader>
       应用状态树 -- 方便调试及 issue 报告， 仅在 beta 版
-      中默认显示，后期会作为插件形式供自定义显示, 更多详情。
+      中默认显示，后期会作为插件形式供自定义显示。
     </StateTreeHeader>
     <StateTree json={json} />
   </StateViewerWrapper>
