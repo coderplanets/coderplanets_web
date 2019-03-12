@@ -18,7 +18,7 @@ export const Avatar = styled(Img)`
     displayStyle === 'default' ? '120px' : '80px'};
   margin-top: 6px;
   margin-bottom: 8px;
-  cursor: ${({ hover }) => (hover ? 'pointer' : 'none')};
+  cursor: ${({ hover }) => (hover ? 'pointer' : 'default')};
 `
 export const BriefTextWrapper = styled.div`
   ${cs.flexColumn()};
