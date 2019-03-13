@@ -183,6 +183,7 @@ const initSpecCmdResolver = () => {
       match: SAK.communityLinker,
       action: cmdpath => {
         const community = cmdpath[0]
+        hidePanel()
         jumpToCommunity(community)
       },
     },
@@ -231,12 +232,38 @@ const goToHelpPage = id => {
   hidePanel()
 }
 
+// jump to content
+const jumpToContent = () => {
+  const { id, title } = store.activeSuggestion
+  const data = { id, title }
+  let type = TYPE.PREVIEW_POST_VIEW // default as post
+  let thread = THREAD.POST
+
+  // jump to job
+  if (R.startsWith('job-raw', store.activeSuggestion.raw)) {
+    type = TYPE.PREVIEW_JOB_VIEW
+    thread = THREAD.JOB
+  }
+
+  // jump to repo
+  if (R.startsWith('repo-raw', store.activeSuggestion.raw)) {
+    type = TYPE.PREVIEW_REPO_VIEW
+    thread = THREAD.REPO
+  }
+
+  // jump to video
+  if (R.startsWith('video-raw', store.activeSuggestion.raw)) {
+    type = TYPE.PREVIEW_VIDEO_VIEW
+    thread = THREAD.VIDEO
+  }
+
+  dispatchEvent(EVENT.PREVIEW_OPEN, { type, thread, data })
+}
+
 const doSpecCmd = () => {
   if (store.searching) return false
   const cmd = store.curCmdChain
   if (!cmd) return
-
-  debug('doSpecCmd cmd: ', cmd)
 
   /* Do not use forEach, cause forEach will not break */
   for (let i = 0; i < cmdResolver.length; i += 1) {
@@ -249,22 +276,29 @@ const doSpecCmd = () => {
 
 const doNavigate = () => {
   if (store.searching) return false
-  // const { id } = store.activeSuggestion
+
+  // jump to user
   if (R.startsWith('user-raw', store.activeSuggestion.raw)) {
     const { raw } = store.activeSuggestion
     const login = raw.split('user-raw-')[1]
-    hidePanel()
+    const data = { login }
+    const type = TYPE.PREVIEW_USER_VIEW
 
-    return dispatchEvent(EVENT.PREVIEW_OPEN, {
-      type: TYPE.PREVIEW_USER_VIEW,
-      data: { login },
-    })
+    dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+    return hidePanel()
   }
 
+  // jump to community
   if (store.searchThread === 'community') {
     const { raw: communityRaw } = store.activeSuggestion
+
     jumpToCommunity(communityRaw)
+    return hidePanel()
   }
+
+  jumpToContent()
+  // the sort is important
+  hidePanel()
 }
 
 export const handleShortCuts = e => {
@@ -358,7 +392,7 @@ const jumpToCommunity = communityRaw => {
     R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
     Global.location.href = `/${communityRaw}/posts`
-    return hidePanel()
+    return false
   }
 
   store.setViewing({
@@ -373,7 +407,6 @@ const jumpToCommunity = communityRaw => {
   })
 
   dispatchEvent(EVENT.COMMUNITY_CHANGE)
-  hidePanel()
 }
 
 // ###############################

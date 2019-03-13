@@ -46,6 +46,7 @@ class JobViewerContainer extends React.Component {
 
     const company = {
       title: viewingData.company,
+      link: viewingData.companyLink,
       logo: viewingData.companyLogo,
     }
 

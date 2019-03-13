@@ -71,7 +71,7 @@ class ArticleBodyHeaderContainer extends React.Component {
         {middle === 'labeler' && (
           <Labeler
             passport={`owner;${communityRaw}->${thread}.tag.set`}
-            ownerId={data.author.id}
+            ownerId={data.author && data.author.id}
             fallbackProps="readOnly"
             onTagSelect={logic.onTagSelect}
             onTagUnselect={logic.onTagUnselect}
