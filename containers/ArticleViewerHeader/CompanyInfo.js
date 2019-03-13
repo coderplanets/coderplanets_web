@@ -24,15 +24,15 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
       <HomtPage>
         <HomeIcon src={`${ICON_CMD}/home.svg`} />
         <HomepageLink
-          href="https://github.com"
+          href={company.link}
           rel="noopener noreferrer"
           target="_blank"
         >
-          https://github.com/mydearxym
+          {company.link || '--'}
         </HomepageLink>
       </HomtPage>
       <PublishAt>
-        <Username>{author.nickname}</Username>
+        <Username>{author && author.nickname}</Username>
         <DotDivider />
         发布于: <TimeAgo datetime={insertedAt} locale="zh_CN" />
       </PublishAt>
