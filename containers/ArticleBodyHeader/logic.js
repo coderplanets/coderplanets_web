@@ -167,6 +167,7 @@ const backToParentThread = () => {
 
   dispatchEvent(REFRESH_EVENT)
   closePreviewer()
+  store.setViewing({ post: {}, job: {}, repo: {}, video: {} })
 }
 
 // ###############################

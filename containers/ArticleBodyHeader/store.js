@@ -40,6 +40,9 @@ const ArticleBodyHeader = t
     callInformer() {
       self.root.callInformer()
     },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
+    },
     markState(sobj) {
       markStates(sobj, self)
     },
