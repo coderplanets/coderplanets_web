@@ -16,7 +16,7 @@ import {
   unholdPage,
 } from 'utils'
 
-import cmds from './helper/defaultSuggestion'
+import cmds from './logic/defaultSuggestion'
 
 // const debug = makeDebugger('S:DoraemonStore')
 
