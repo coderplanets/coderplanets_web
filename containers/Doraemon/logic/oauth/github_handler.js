@@ -1,7 +1,7 @@
 import { Global, getQueryFromUrl } from 'utils'
 
 import oauthPopup from './oauth_window'
-import S from '../schema'
+import S from '../../schema'
 
 const githubLoginHandler = (store, sr71$) => {
   const clientId = process.env.GITHUB_CLIENT_ID
