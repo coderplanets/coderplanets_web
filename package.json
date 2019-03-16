@@ -143,7 +143,7 @@
     "babel-plugin-styled-components": "1.8.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "commitizen": "^2.10.1",
-    "coveralls": "3.0.2",
+    "coveralls": "3.0.3",
     "cross-env": "^5.0.5",
     "cypress": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
