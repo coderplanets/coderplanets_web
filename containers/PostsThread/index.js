@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import Waypoint from 'react-waypoint'
+import { Waypoint } from 'react-waypoint'
 import R from 'ramda'
 import { Affix } from 'antd'
 
