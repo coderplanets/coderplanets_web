@@ -83,8 +83,7 @@ class BuyMeChuanChuan extends React.Component {
 
               <SelectDesc>
                 你的资助将主要用于 coderplanets
-                网站的开发和维护，使之更加稳定可靠。
-                同时，资助任意金额即可解锁所有精心设计的主题, 查看详情。
+                网站的开发和维护，使之更加稳定可靠。开源项目的巨大时间和物质成本无法仅靠情怀支撑，望理解。
               </SelectDesc>
 
               <ChuanSelector

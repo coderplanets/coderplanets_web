@@ -85,7 +85,6 @@ const DataSolver = [
     action: () => {
       sr71$.stop()
       markLoading(false)
-      // store.setViewing({ post: {} })
     },
   },
   {
@@ -93,6 +92,7 @@ const DataSolver = [
     action: () => {
       loadPost(store.viewingData)
       closePreviewer()
+      store.setViewing({ post: {} })
     },
   },
   {
@@ -100,6 +100,7 @@ const DataSolver = [
     action: () => {
       loadPost(store.viewingData)
       closePreviewer()
+      store.setViewing({ post: {} })
     },
   },
 ]

@@ -5,6 +5,12 @@ const repo = gql`
   query($id: ID!, $userHasLogin: Boolean!) {
     repo(id: $id) {
       ${F.repo}
+      tags {
+        ${F.tag}
+      }
+      origialCommunity {
+        ${F.community}
+      }
       watchCount
       ownerUrl
       repoUrl

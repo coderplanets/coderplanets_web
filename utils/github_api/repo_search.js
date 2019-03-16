@@ -1,6 +1,8 @@
 import R from 'ramda'
 import { timeout } from 'promise-timeout'
 
+import { ISSUE_ADDR } from 'config'
+
 import { TIMEOUT_SEC, restEndpoint } from './config'
 import { graphqlClient, restpClient } from './client'
 
@@ -63,6 +65,10 @@ export const transformRepo = res => {
     primaryLanguage,
   } = baseInfoRes
 
+  const readme = object
+    ? object.text
+    : `同步错误: 目前只同步源仓库中的 README.md 文件，如果源仓库中为 README.MD / readme.md / readme.MD 等格式可能会导致该错误。 如果是其他原因，[恳请提交 issue](${ISSUE_ADDR}/new)`
+
   return {
     title: name,
     ownerName: owner.login,
@@ -71,7 +77,7 @@ export const transformRepo = res => {
 
     desc: description,
     homepageUrl,
-    readme: object.text,
+    readme,
 
     issuesCount: issues.totalCount,
     prsCount: pullRequests.totalCount,
@@ -79,7 +85,7 @@ export const transformRepo = res => {
     forkCount,
     watchCount: watchers.totalCount,
 
-    primaryLanguage,
+    primaryLanguage: primaryLanguage || { name: 'html', color: '#EB4B31' },
     license: getLicense(licenseInfo),
     releaseTag: getRelaseTag(releases),
     contributors,

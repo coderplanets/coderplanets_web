@@ -6,12 +6,17 @@ import { toggleReadState } from './logic'
 
 const ToggleReadButton = ({ readState }) => (
   <Wrapper onClick={toggleReadState}>
-    {!readState ? (
+    {readState ? (
       <ToggleIcon src={`${ICON_CMD}/turn_on.svg`} />
     ) : (
       <ToggleIcon src={`${ICON_CMD}/turn_off.svg`} />
     )}
-    <ToggleTitle>显示未读</ToggleTitle>
+
+    {!readState ? (
+      <ToggleTitle>已读</ToggleTitle>
+    ) : (
+      <ToggleTitle>未读</ToggleTitle>
+    )}
   </Wrapper>
 )
 

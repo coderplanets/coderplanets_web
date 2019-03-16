@@ -126,6 +126,12 @@ const CommentsStore = t
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
+    get communityRaw() {
+      // const viewingCommunity = stripMobx(self.root.viewing.community)
+      // if (viewingCommunity.raw) return viewingCommunity.raw
+
+      return self.root.viewing.viewingData.origialCommunity.raw
+    },
     get activeThread() {
       const { activeThread, viewingThread } = self.root.viewing
       return R.toUpper(viewingThread || activeThread)

@@ -40,6 +40,7 @@ const GithubRepoPage = ({
   showSyncBtn,
   viewerHeader,
   bodyHeader,
+  publishing,
   readOnly,
 }) => (
   <Wrapper>
@@ -72,9 +73,13 @@ const GithubRepoPage = ({
         </SyncButton>
       </Maybe>
       <Maybe test={showPublishBtn}>
-        <PublishButton type="primary" onClick={onPublish}>
-          发布
-        </PublishButton>
+        {publishing ? (
+          <PublishButton type="primary">发布中...</PublishButton>
+        ) : (
+          <PublishButton type="primary" onClick={onPublish}>
+            发布
+          </PublishButton>
+        )}
       </Maybe>
     </Footer>
   </Wrapper>
@@ -93,6 +98,7 @@ GithubRepoPage.propTypes = {
   viewerHeader: PropTypes.node,
   bodyHeader: PropTypes.node,
 
+  publishing: PropTypes.bool,
   readOnly: PropTypes.bool,
 }
 
@@ -107,6 +113,7 @@ GithubRepoPage.defaultProps = {
   viewerHeader: <div />,
   bodyHeader: <div />,
 
+  publishing: false,
   readOnly: false,
 }
 

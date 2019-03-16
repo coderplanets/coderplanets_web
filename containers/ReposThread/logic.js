@@ -7,7 +7,8 @@ import {
   EVENT,
   TYPE,
   THREAD,
-  scrollIntoEle,
+  // scrollIntoEle,
+  pageGoTop,
   asyncRes,
   notEmpty,
 } from 'utils'
@@ -46,7 +47,8 @@ export const loadRepos = (page = 1) => {
   }
 
   args.filter = R.pickBy(notEmpty, args.filter)
-  scrollIntoEle(TYPE.APP_HEADER_ID)
+  // scrollIntoEle(TYPE.APP_HEADER_ID)
+  pageGoTop()
 
   debug('load repos --> ', args)
   sr71$.query(S.pagedRepos, args)

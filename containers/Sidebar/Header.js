@@ -23,11 +23,11 @@ const Header = ({ pin }) => (
         <SiteLogo src={`${ICON_BASE}/sidebar/everyday.svg`} />
       </SiteLogoWrapper>
       <ExploreWrapper pin={pin}>
-        <a href="/communities">
+        <a href="/communities" rel="noopener noreferrer" target="_blank">
           <Button size="small" type="primary" ghost>
             <ExploreContent>
               <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
-              <ExploreText>Explore</ExploreText>
+              <ExploreText>Explore All</ExploreText>
             </ExploreContent>
           </Button>
         </a>

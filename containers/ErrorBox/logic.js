@@ -36,6 +36,10 @@ const classifyGQErrors = errors => {
   store.markState({ graphqlType: 'parse', parseError: errors })
 }
 
+export const hide = () => {
+  store.markState({ show: false })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

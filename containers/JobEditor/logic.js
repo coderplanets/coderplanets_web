@@ -18,6 +18,7 @@ import {
   cast,
   nilOrEmpty,
   errRescue,
+  BStore,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -31,6 +32,8 @@ const debug = makeDebugger('L:JobEditor')
 
 let store = null
 let sub$ = null
+
+let saveDraftTimmer = null
 
 export const changeView = curView => store.markState({ curView })
 
@@ -138,9 +141,19 @@ export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
   store.markState({ extractMentions: extractMentions(content) })
 
+  if (store.isEdit && content === '') return false
   // extractMentions: extractMentions(content)
   updateEditing(store, 'body', content)
 }
+
+const saveDraftIfNeed = content => {
+  if (R.isEmpty(content)) return false
+  const curDraftContent = BStore.get('recentDraft')
+
+  if (curDraftContent !== content) BStore.set('recentDraft', content)
+}
+
+const clearDraft = () => BStore.set('recentDraft', '')
 
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 const cancleLoading = () => store.markState({ publishing: false })
@@ -160,6 +173,7 @@ const DataSolver = [
       })
 
       doneCleanUp()
+      clearDraft()
       dispatchEvent(EVENT.REFRESH_JOBS)
     },
   },
@@ -196,7 +210,7 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, details, path: 'PostEditor' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'JobEditor' })
     },
   },
   {
@@ -208,6 +222,14 @@ const ErrSolver = [
   },
 ]
 
+const initDraftTimmer = () => {
+  // only save draft in create mode
+  if (store.isEdit) return false
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
+  saveDraftTimmer = setInterval(() => saveDraftIfNeed(store.editJob.body), 3000)
+}
+
 export const init = (_store, attachment) => {
   // if (store) return openAttachment(attachment)
   store = _store
@@ -215,11 +237,14 @@ export const init = (_store, attachment) => {
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
+  initDraftTimmer()
 }
 
 export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
   store.markState({ editJob: {} })
   sr71$.stop()
   sub$.unsubscribe()

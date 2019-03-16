@@ -236,9 +236,9 @@ const MarkDownStyle = styled.div`
     height: 0;
     margin: 15px 0;
     overflow: hidden;
-    background: transparent;
     border: 0;
-    border-bottom: 1px solid #dfe2e5;
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('markdown.hrColor')};
   }
 
   .markdown-body hr::before {

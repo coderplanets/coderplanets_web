@@ -31,15 +31,14 @@ import * as logic from './logic'
 const debug = makeDebugger('C:UpgradePackges')
 
 const freeUserItems = [
-  { title: '浏览,发帖,订阅' },
+  { title: '发布各种内容' },
   { title: '点赞,收藏,关注' },
-  { title: '发布招聘' },
+  { title: '主题设置' },
   { title: '创建专栏(wip)' },
 ]
 
 const seniorItems = [
-  { title: '关闭广告' },
-  { title: '主题设置' },
+  /* { title: '关闭广告' }, */
   // { title: '首页发帖' },
   { title: '私有收藏夹' },
   { title: '发起投票(wip)' },
@@ -47,7 +46,7 @@ const seniorItems = [
   { title: '创建组织(wip)' },
   { title: '文章打赏(wip)' },
   { title: '订阅栏分组(wip)' },
-  { title: '运维统计(wip)' },
+  /* { title: '运维统计(wip)' }, */
 ]
 
 const platinumUserItems = [
@@ -72,7 +71,7 @@ class UpgradePackgesContainer extends React.Component {
             <SectionLabel
               title="升级助手"
               iconSrc={`${ICON_CMD}/rocket.svg`}
-              desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。项目早期各方面开销较大，需要资金支持, 谢谢理解。"
+              desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。开源项目需要付出巨大的物质和时间成本, 谢谢理解。"
             />
           </LabelWrapper>
           <ContentWrapper>

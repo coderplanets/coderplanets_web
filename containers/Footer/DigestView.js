@@ -65,11 +65,7 @@ const DigestView = () => (
       <Column>
         <Title>About</Title>
         <Body>
-          <Item
-            href="https://coderplanets.com/home/post/1"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
             关于CPS
           </Item>
           <Item
@@ -86,7 +82,13 @@ const DigestView = () => (
           >
             加入我们
           </Item>
-          <Item>使用帮助</Item>
+          <Item
+            href="/cps-support/posts"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            使用指南
+          </Item>
           <Item onClick={toggleBusBanner}>商务合作</Item>
         </Body>
       </Column>
@@ -103,11 +105,11 @@ const DigestView = () => (
         <Title>开发者</Title>
         <Body>
           <Item
-            href={`${GITHUB_WEB_ADDR}/tree/dev/docs`}
+            href="/cps-support/post/42"
             rel="noopener noreferrer"
             target="_blank"
           >
-            开发文档
+            开发者指南
           </Item>
           <Item
             href={`${API_SERVER_ADDR}`}

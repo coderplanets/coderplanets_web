@@ -79,6 +79,21 @@ const Customization = t.model('Customization', {
   // ...
 })
 
+const UserSocial = t.model('UserSocial', {
+  qq: t.maybeNull(t.string),
+  weibo: t.maybeNull(t.string),
+  weichat: t.maybeNull(t.string),
+  github: t.maybeNull(t.string),
+  zhihu: t.maybeNull(t.string),
+  douban: t.maybeNull(t.string),
+  twitter: t.maybeNull(t.string),
+  facebook: t.maybeNull(t.string),
+  dribble: t.maybeNull(t.string),
+  instagram: t.maybeNull(t.string),
+  pinterest: t.maybeNull(t.string),
+  huaban: t.maybeNull(t.string),
+})
+
 export const User = t.model('User', {
   // identifier is desiged to be immutable, this id would be updated when login
   /* id: t.optional(t.string, ''), */
@@ -96,19 +111,7 @@ export const User = t.model('User', {
   workBackgrounds: t.optional(t.array(WorkBackground), []),
   sex: t.maybeNull(t.string),
   // social
-  github: t.maybeNull(t.string),
-  zhihu: t.maybeNull(t.string),
-  douban: t.maybeNull(t.string),
-  twitter: t.maybeNull(t.string),
-  facebook: t.maybeNull(t.string),
-  dribble: t.maybeNull(t.string),
-  instagram: t.maybeNull(t.string),
-  pinterest: t.maybeNull(t.string),
-  huaban: t.maybeNull(t.string),
-  qq: t.maybeNull(t.string),
-  weichat: t.maybeNull(t.string),
-  weibo: t.maybeNull(t.string),
-
+  social: t.optional(UserSocial, {}),
   fromGithub: t.optional(t.boolean, false),
   /* fromWeixin: t.optional(t.boolean, false), */
   /* subscribedCommunities: t.optional(pagedCommunities, {}), */

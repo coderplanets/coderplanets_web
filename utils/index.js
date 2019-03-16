@@ -70,6 +70,7 @@ export {
   getMainPath,
   getSubPath,
   getThirdPath,
+  akaTranslate,
   getParameterByName,
   getQueryFromUrl,
   queryStringToJSON,
@@ -109,6 +110,7 @@ export {
   focusDoraemonBar,
   blurDoraemonBar,
   hideDoraemonBarRecover,
+  isBrowser,
 } from './dom_operator'
 /*
  * theme related

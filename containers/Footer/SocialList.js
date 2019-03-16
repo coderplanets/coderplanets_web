@@ -1,8 +1,9 @@
 import React from 'react'
 
 import Popover from 'components/Popover'
-import { ICON_CMD, EMAIL_SUPPORT } from 'config'
-import { Wrapper, Item, Icon, PopInfo } from './styles/social_list'
+import { ICON_CMD, ICON_BASE, EMAIL_SUPPORT } from 'config'
+
+import { Wrapper, Item, Icon, PopInfo, QRCodePic } from './styles/social_list'
 
 const SocialList = () => (
   <Wrapper>
@@ -11,6 +12,16 @@ const SocialList = () => (
         <Icon src={`${ICON_CMD}/social_email.svg`} />
       </Item>
     </a>
+
+    <Popover
+      placement="top"
+      trigger="hover"
+      content={<QRCodePic src={`${ICON_BASE}/cps_wechat_group.png`} />}
+    >
+      <Item>
+        <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
+      </Item>
+    </Popover>
 
     <Popover
       placement="bottom"

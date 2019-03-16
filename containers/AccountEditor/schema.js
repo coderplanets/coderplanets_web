@@ -3,11 +3,13 @@ import gql from 'graphql-tag'
 const updateProfile = gql`
   mutation(
     $profile: UserProfileInput!
+    $social: SocialInput
     $educationBackgrounds: [EduBackgroundInput]
     $workBackgrounds: [WorkBackgroundInput]
   ) {
     updateProfile(
       profile: $profile
+      social: $social
       educationBackgrounds: $educationBackgrounds
       workBackgrounds: $workBackgrounds
     ) {
@@ -23,18 +25,7 @@ export const updateFields = [
   'bio',
   'sex',
   // social
-  'qq',
-  'weibo',
-  'weichat',
-  'github',
-  'zhihu',
-  'douban',
-  'twitter',
-  'facebook',
-  'dribble',
-  'instagram',
-  'pinterest',
-  'huaban',
+  'social',
   // backgrounds
   'workBackgrounds',
   'educationBackgrounds',

@@ -8,6 +8,7 @@ const subscribedCommunities = gql`
         ${F.community}
         contributesDigest
       }
+      ${F.pagedCounts}
     }
   }
 `

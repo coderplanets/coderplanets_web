@@ -12,8 +12,11 @@ import {
   hideDoraemonBarRecover,
   THREAD,
   stripMobx,
+  holdPage,
+  unholdPage,
 } from 'utils'
-import cmds from './helper/defaultSuggestion'
+
+import cmds from './logic/defaultSuggestion'
 
 // const debug = makeDebugger('S:DoraemonStore')
 
@@ -204,6 +207,7 @@ const DoraemonStore = t
     open(forcus = true) {
       self.visible = true
       if (forcus) focusDoraemonBar()
+      holdPage()
     },
     handleLogin() {
       self.open()
@@ -216,6 +220,7 @@ const DoraemonStore = t
       self.cmdChain = null
       self.clearSuggestions()
       hideDoraemonBarRecover()
+      unholdPage()
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)

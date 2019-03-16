@@ -28,6 +28,7 @@ const AccountStore = t
       return {
         ...stripMobx(self.user),
         isLogin: self.isValidSession,
+        isValidSession: self.isValidSession,
       }
     },
     get subscribedCommunities() {

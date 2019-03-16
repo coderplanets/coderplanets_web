@@ -12,7 +12,7 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, makeDebugger } from 'utils'
+import { EVENT, makeDebugger, BStore } from 'utils'
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
 
@@ -87,9 +87,19 @@ class MarkdownEditor extends React.Component {
   loadDraft = () => {
     const { body } = this.props
 
+    const recentDraft = BStore.get('recentDraft')
+    if (!R.isEmpty(recentDraft) && !body) {
+      return this.loadDraftRaw(recentDraft)
+    }
+
+    if (body) this.loadDraftRaw(body)
+  }
+
+  loadDraftRaw = content => {
+    if (!content) return false
     // see: https://stackoverflow.com/questions/35884112/draftjs-how-to-initiate-an-editor-with-content
     const editorState = EditorState.createWithContent(
-      ContentState.createFromText(body)
+      ContentState.createFromText(content)
     )
 
     this.setState({ editorState }, () => {
