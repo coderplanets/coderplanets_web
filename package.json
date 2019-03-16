@@ -172,7 +172,7 @@
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
-    "terser": "~3.17.0",
-    "webpack-bundle-analyzer": "3.0.2"
+    "webpack-bundle-analyzer": "3.0.4",
+    "terser": "~3.17.0"
   }
 }
