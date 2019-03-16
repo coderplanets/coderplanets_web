@@ -12,7 +12,7 @@ import {
   THREAD,
   COMMUNITY_SPEC_THREADS,
   $solver,
-  scrollIntoEle,
+  pageGoTop,
   notEmpty,
   thread2Subpath,
   errRescue,
@@ -67,7 +67,8 @@ export const loadPosts = (page = 1) => {
   }
 
   args.filter = R.pickBy(notEmpty, args.filter)
-  scrollIntoEle(TYPE.APP_HEADER_ID)
+  // scrollIntoEle(TYPE.APP_HEADER_ID)
+  pageGoTop()
 
   debug('args: ', args)
   sr71$.query(S.pagedPosts, args)

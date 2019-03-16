@@ -175,16 +175,16 @@ const github = {
   },
 
   heatmap: {
-    activityLow: '#D6ECB2',
-    activityHight: '#4F966E',
+    activityLow: '#007D7C',
+    activityHight: '#26A9A0',
+    empty: '#efefef',
     borderHover: '#51abb2',
-    empty: '#E4EEED',
     monthLabel: '#c6dbde',
-    scale_1: '#bbd9da',
-    scale_2: '#a0c7ca',
-    scale_3: '#83bfc1',
-    scale_4: '#5092A4',
-    scale_5: '#427583',
+    scale_1: '#dbe290',
+    scale_2: '#99c06f',
+    scale_3: '#609d4c',
+    scale_4: '#61793e',
+    scale_5: '#37642c',
   },
   geoMap: {
     oceanColor: '#F8F8F8',
@@ -308,11 +308,15 @@ const github = {
     text: '#c3ae8e',
   },
   table: {
-    headerBg: '#024858',
-    headTitle: '#83a7ad',
-    text: '#83a7ad',
-    border: '#004657',
-    hoverBg: '#285769',
+    headerBg: '#F8F8F8',
+    headTitle: '#949494',
+    text: '#949497',
+    border: '#F0F0F0',
+    hoverBg: '#FAFBFC',
+  },
+  searchHighlight: {
+    doramonFg: 'orange',
+    doramonBg: 'transparent',
   },
 }
 

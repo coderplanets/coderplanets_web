@@ -43,7 +43,7 @@ export const RepoName = styled.div`
   }
   ${cs.media.mobile`
     ${cs.truncate('80px')};
-  `};
+`};
 `
 export const TagsWrapper = styled.div`
   margin-top: 4px;
@@ -57,6 +57,12 @@ export const StatusSection = styled.div`
   ${cs.flex()};
   margin-right: 6px;
 `
+export const ForkSection = styled(StatusSection)`
+  ${cs.media.mobile`
+    display: none;
+  `};
+`
+
 export const StatusNum = styled.div`
   color: ${theme('thread.articleDigest')};
 `

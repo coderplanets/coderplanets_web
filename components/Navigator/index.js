@@ -16,14 +16,11 @@ import BriefView from './BriefView'
 const debug = makeDebugger('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout, curRoute }) => {
+  const { mainPath, subPath } = curRoute
+
   if (
-    R.contains(curRoute.mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
-    R.contains(curRoute.subPath, [
-      ROUTE.POST,
-      ROUTE.JOB,
-      ROUTE.VIDEO,
-      ROUTE.REPO,
-    ])
+    R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
+    R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
     return <DigestView />
   }

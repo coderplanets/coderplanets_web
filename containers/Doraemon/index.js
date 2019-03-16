@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug, isBrowser } from 'utils'
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -22,19 +22,43 @@ import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Doraemon')
 
+const getDocument = () => (isBrowser() ? document : null)
+
 class DoraemonContainer extends React.Component {
   constructor(props) {
     super(props)
     const { doraemon } = props
     logic.init(doraemon)
   }
-  // ref={infobar => (this[`infobar${suggestion.title}`] = infobar)}
-  // ref={wraper => (this.wraper = wraper)}
+
+  /* eslint-disable-next-line */
+  escHandler(event) {
+    if (event.keyCode === 27) {
+      logic.hidePanel()
+    }
+  }
+
+  componentDidMount() {
+    const safeDocument = getDocument()
+
+    if (safeDocument) {
+      safeDocument.addEventListener('keydown', this.escHandler, false)
+    }
+  }
+
+  componentWillUnmount() {
+    const safeDocument = getDocument()
+
+    if (safeDocument) {
+      safeDocument.removeEventListener('keydown', this.escHandler, false)
+    }
+  }
 
   render() {
     const { doraemon } = this.props
     const {
       inputValue,
+      inputValueRaw,
       suggestions,
       activeRaw,
       prefix,
@@ -64,6 +88,7 @@ class DoraemonContainer extends React.Component {
             <AlertBar value={inputValue} searchThread={searchThread} />
           )}
           <ResultsList
+            searchValue={inputValueRaw}
             suggestions={suggestions}
             activeRaw={activeRaw}
             searchThread={searchThread}

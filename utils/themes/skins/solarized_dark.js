@@ -81,7 +81,7 @@ const solarizedDark = {
     articleDigest: '#6B7F83',
     articleTag: primaryColor,
     articleLink: descText,
-    articleDivider: '#dce5e6',
+    articleDivider: '#4a4a4a',
     commentsUserBorder: contentBoxBg,
     extraInfo: darken(0.04, primaryMate), // '#987d40',
     articleSpliter: '#014454',
@@ -207,10 +207,10 @@ const solarizedDark = {
     scale_5: '#01c3a5',
   },
   markdown: {
-    title: darken(0.05, '#DBE0E1'),
+    title: '#98a1a2',
     fg: markdownFont,
-    titleBottom: '1px solid #154452',
-    hrColor: '#154452',
+    titleBottom: '#154452',
+    hrColor: 'tomato', // #154452
     blockquoteBorder: '0.25em solid #34535C',
     blockquoteFg: darken(0.09, markdownFont),
     strongFg: lighten(0.2, markdownFont),
@@ -221,18 +221,18 @@ const solarizedDark = {
     tableborder: `1px solid ${lighten(0.07, contentBoxBg)}`,
     taskDone: '#528416',
     taskPeding: lighten(0.1, contentBoxBg),
-    br: '#e8e8e8',
+    br: '#29576b',
   },
   code: {
     bg: lighten(0.03, contentBoxBg),
   },
   shell: {
     link: lighten(0.2, contentBg),
-    searchInput: lighten(0.1, contentBg),
+    searchInput: lighten(0.2, contentBg),
     searchIcon: lighten(0.1, contentBg),
     barBg: darken(0.01, contentBg),
     border: lighten(0.05, contentBg),
-    title: lighten(0.4, contentBg),
+    title: lighten(0.3, contentBg),
     desc: lighten(0.2, contentBg),
     activeBg: lighten(0.05, contentBg),
   },
@@ -312,6 +312,10 @@ const solarizedDark = {
     text: '#83a7ad',
     border: '#004657',
     hoverBg: '#285769',
+  },
+  searchHighlight: {
+    doramonFg: 'orange',
+    doramonBg: 'transparent',
   },
 }
 

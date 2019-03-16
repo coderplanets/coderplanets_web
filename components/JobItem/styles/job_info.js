@@ -30,7 +30,7 @@ export const Title = styled.div`
   font-size: 1rem;
   ${cs.media.mobile`
     ${cs.truncate('150px')};
-  `};
+`};
 `
 export const CommunitiesWrapper = styled.div`
   margin-left: 5px;
@@ -57,6 +57,9 @@ export const Background = styled.div`
 `
 export const Degree = styled.div``
 export const Exp = styled.div``
+export const ExpLabel = styled.span`
+  ${cs.media.tablet`display: none`};
+`
 
 export const Extra = styled.div`
   ${cs.flex('align-center')};
@@ -72,8 +75,8 @@ export const ExpDivider = styled.div`
 export const PublishInfo = styled.div`
   ${cs.flex('align-center')};
   ${cs.media.tablet`
-    display: none;
-  `};
+display: none;
+`};
 
   &:hover {
     cursor: pointer;

@@ -31,7 +31,8 @@ export const holdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    el.style.overflowY = 'hidden'
+    // el.style.overflowY = 'hidden'
+    el.style.position = 'fixed'
   }
 }
 
@@ -40,7 +41,8 @@ export const unholdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    el.style.overflowY = 'auto'
+    /* el.style.overflowY = 'auto' */
+    el.style.position = ''
   }
 }
 
@@ -54,6 +56,20 @@ export const focusDoraemonBar = () => {
       // see: https://stackoverflow.com/questions/1096436/document-getelementbyidid-focus-is-not-working-for-firefox-or-chrome
       try {
         safeDocument.getElementById('doraemonInputbar').focus()
+      } catch (e) {
+        console.error(e)
+      }
+    }, 0)
+  }
+}
+
+export const blurDoraemonBar = () => {
+  const safeDocument = getDocument()
+
+  if (safeDocument) {
+    setTimeout(() => {
+      try {
+        safeDocument.getElementById('doraemonInputbar').blur()
       } catch (e) {
         console.error(e)
       }

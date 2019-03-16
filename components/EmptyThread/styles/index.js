@@ -35,7 +35,13 @@ export const Title = styled.div`
   font-size: 1.3rem;
   ${cs.media.tablet`
     font-size: 1.1rem;
-`};
+  `};
+`
+
+export const DetailText = styled.span`
+  ${cs.media.mobile`
+    display: none;
+  `};
 `
 
 export const DescWrapper = styled.div`

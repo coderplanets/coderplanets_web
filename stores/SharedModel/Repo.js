@@ -48,6 +48,7 @@ export const Repo = t.model('Reop', {
   favoritedCategoryId: t.maybeNull(t.string),
 
   communities: t.optional(t.array(Community), []),
+  origialCommunity: t.optional(Community, {}),
   tags: t.optional(t.array(Tag), []),
 
   lastSync: t.maybeNull(t.string),

@@ -17,6 +17,7 @@ import {
   cast,
   parseDomain,
   errRescue,
+  BStore,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -30,6 +31,8 @@ const debug = makeDebugger('L:PostEditor')
 
 let store = null
 let sub$ = null
+
+let saveDraftTimmer = null
 
 export const changeView = curView => store.markState({ curView })
 
@@ -125,8 +128,6 @@ export const onMentionSearch = name => {
 
 export const onMention = user => store.addReferUser(user)
 
-// const loadPost = id => sr71$.query(S.post, { id })
-
 const openAttachment = att => {
   if (store.activeThread === THREAD.RADAR) {
     store.updateEditing({ copyRight: 'reprint' })
@@ -135,8 +136,6 @@ const openAttachment = att => {
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
-
-  // const { id, title, body, digest } = att
 
   store.updateEditing(att)
   store.markState({ isEdit: true })
@@ -152,9 +151,21 @@ export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
   store.markState({ extractMentions: extractMentions(content) })
 
-  // extractMentions: extractMentions(content)
+  // draft.js will mis trigger onChange event with empty string.
+  // currently this is a bug: in edit can't update to empty.
+  if (store.isEdit && content === '') return false
+
   updateEditing(store, 'body', content)
 }
+
+const saveDraftIfNeed = content => {
+  if (R.isEmpty(content)) return false
+  const curDraftContent = BStore.get('recentDraft')
+
+  if (curDraftContent !== content) BStore.set('recentDraft', content)
+}
+
+const clearDraft = () => BStore.set('recentDraft', '')
 
 const publishing = (maybe = true) => store.markState({ publishing: maybe })
 const cancleLoading = () => store.markState({ publishing: false })
@@ -174,6 +185,7 @@ const DataSolver = [
       })
 
       doneCleanUp()
+      clearDraft()
       dispatchEvent(EVENT.REFRESH_POSTS)
     },
   },
@@ -188,13 +200,6 @@ const DataSolver = [
 
       doneCleanUp()
       dispatchEvent(EVENT.REFRESH_POSTS)
-    },
-  },
-  {
-    match: asyncRes('post'),
-    action: ({ post }) => {
-      debug('before updateEditing: ', post)
-      store.updateEditing(post)
     },
   },
   {
@@ -224,6 +229,17 @@ const ErrSolver = [
   },
 ]
 
+const initDraftTimmer = () => {
+  // only save draft in create mode
+  if (store.isEdit) return false
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
+  saveDraftTimmer = setInterval(
+    () => saveDraftIfNeed(store.editPost.body),
+    3000
+  )
+}
+
 export const init = (_store, attachment) => {
   // if (store) return openAttachment(attachment)
   store = _store
@@ -231,15 +247,20 @@ export const init = (_store, attachment) => {
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
   openAttachment(attachment)
+  initDraftTimmer()
 }
 
 export const uninit = () => {
   if (store.publishing || !sub$) return false
   debug('===== do uninit')
+  // TODO: hint about save draft
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+
   store.markState({ editPost: {}, isEdit: false })
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
+
   /*
      store.toast('info', {
      title: 'todo',

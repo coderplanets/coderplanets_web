@@ -11,18 +11,18 @@ export const Job = t.model('Job', {
   id: t.maybeNull(t.string),
   title: t.optional(t.string, ''),
   desc: t.maybeNull(t.string),
-  body: t.optional(t.string, ''),
+  body: t.maybeNull(t.string),
   company: t.optional(t.string, ''),
   companyLogo: t.optional(t.string, ''),
   companyLink: t.optional(t.string, ''),
-  digest: t.optional(t.string, ''),
-  // author: t.optional(User, {}),
+  digest: t.maybeNull(t.string),
   author: t.maybeNull(User),
 
   linkAddr: t.maybeNull(t.string),
   copyRight: t.optional(t.string, 'original'),
 
   communities: t.optional(t.array(Community), []),
+  origialCommunity: t.optional(Community, {}),
   tags: t.optional(t.array(Tag), []),
   comments: t.optional(t.array(Comment), []),
 

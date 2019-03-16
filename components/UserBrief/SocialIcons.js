@@ -19,7 +19,7 @@ const DisplayIcon = ({ user, social }) => {
       >
         <SocialIcon
           src={`${ICON_CMD}/${social.key}.svg`}
-          active={!nilOrEmpty(user[social.key])}
+          active={!nilOrEmpty(user.social[social.key])}
         />
       </Linker>
     )
@@ -27,13 +27,13 @@ const DisplayIcon = ({ user, social }) => {
   return (
     <div
       key={social.key}
-      data-tip={user[social.key]}
+      data-tip={user.social[social.key]}
       data-for="social_icons"
       data-offset={tooltipOffset}
     >
       <SocialIcon
         src={`${ICON_CMD}/${social.key}.svg`}
-        active={!nilOrEmpty(user[social.key])}
+        active={!nilOrEmpty(user.social[social.key])}
       />
     </div>
   )

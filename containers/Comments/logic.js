@@ -13,6 +13,7 @@ import {
   dispatchEvent,
   extractMentions,
   errRescue,
+  BStore,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -21,6 +22,8 @@ import S from './schema'
 const sr71$ = new SR71()
 let sub$ = null
 let store = null
+
+let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Comments')
@@ -60,7 +63,7 @@ export const createComment = () => {
     id: store.viewingData.id,
     body: store.editContent,
     thread: store.activeThread,
-    community: store.curCommunity.raw,
+    community: store.communityRaw,
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
 
@@ -87,16 +90,20 @@ export const previewReply = data => {
 export const openInputBox = () => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
 
+  initDraftTimmer()
   store.markState({
     showInputBox: true,
     showInputEditor: true,
   })
 }
 
-export const openCommentEditor = () =>
+export const openCommentEditor = () => {
+  initDraftTimmer()
+
   store.markState({
     showInputEditor: true,
   })
+}
 
 export const onCommentInputBlur = () =>
   store.markState({
@@ -149,7 +156,9 @@ export const openUpdateEditor = data =>
     replyContent: data.body,
   })
 
-export const openReplyEditor = data =>
+export const openReplyEditor = data => {
+  initDraftTimmer()
+
   store.markState({
     showReplyBox: true,
     showReplyEditor: true,
@@ -158,6 +167,7 @@ export const openReplyEditor = data =>
     replyContent: '',
     isEdit: false,
   })
+}
 
 export const replyCommentPreview = () =>
   store.markState({
@@ -171,12 +181,13 @@ export const replyBackToEditor = () =>
     showReplyPreview: false,
   })
 
-export const closeReplyBox = () =>
+export const closeReplyBox = () => {
   store.markState({
     showReplyBox: false,
     showReplyEditor: false,
     showReplyPreview: false,
   })
+}
 
 export const onFilterChange = filterType => {
   store.markState({ filterType })
@@ -234,18 +245,12 @@ export const onMentionSearch = name => {
 export const deleteComment = () =>
   sr71$.mutate(S.deleteComment, {
     id: store.tobeDeleteId,
+    thread: store.activeThread,
   })
 
 // show delete confirm
-export const onDelete = comment =>
-  store.markState({
-    tobeDeleteId: comment.id,
-  })
-
-export const cancleDelete = () =>
-  store.markState({
-    tobeDeleteId: null,
-  })
+export const onDelete = comment => store.markState({ tobeDeleteId: comment.id })
+export const cancleDelete = () => store.markState({ tobeDeleteId: null })
 
 export const pageChange = (page = 1) => {
   scrollIntoEle('lists-info')
@@ -256,10 +261,18 @@ const cancelLoading = () =>
   store.markState({ loading: false, loadingFresh: false, creating: false })
 
 export const onReplyEditorClose = () => {
-  console.log('onReplyEditorClose')
   closeReplyBox()
   onCommentInputBlur()
 }
+
+const saveDraftIfNeed = content => {
+  if (R.isEmpty(content)) return false
+  const curDraftContent = BStore.get('recentDraft')
+
+  if (curDraftContent !== content) BStore.set('recentDraft', content)
+}
+
+const clearDraft = () => BStore.set('recentDraft', '')
 
 // ###############################
 // Data & Error handlers
@@ -282,6 +295,8 @@ const DataSolver = [
         creating: false,
         loading: false,
       })
+      stopDraftTimmer()
+      clearDraft()
       loadComents({
         filter: { page: 1, sort: TYPE.DESC_INSERTED },
         fresh: true,
@@ -296,6 +311,8 @@ const DataSolver = [
         replyToComment: null,
       })
       scrollIntoEle('lists-info')
+      stopDraftTimmer()
+      clearDraft()
       loadComents({ filter: { page: 1 }, fresh: true })
     },
   },
@@ -363,9 +380,23 @@ const ErrSolver = [
   },
 ]
 
+const stopDraftTimmer = () => {
+  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+}
+
+const initDraftTimmer = () => {
+  stopDraftTimmer()
+
+  saveDraftTimmer = setInterval(() => {
+    const { showReplyEditor, editContent, replyContent } = store
+
+    if (showReplyEditor) return saveDraftIfNeed(replyContent)
+    saveDraftIfNeed(editContent)
+  }, 3000)
+}
+
 export const init = (_store, ssr = false) => {
   store = _store
-  debug('>>>>>>> init sub$: ', sub$)
 
   if (sub$) return false
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
@@ -375,7 +406,7 @@ export const init = (_store, ssr = false) => {
 
 export const uninit = () => {
   if (store.loading || store.loadingFresh || !sub$) return false
-  debug('===== do uninit')
+  stopDraftTimmer()
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null

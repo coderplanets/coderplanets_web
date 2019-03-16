@@ -12,8 +12,11 @@ import {
   hideDoraemonBarRecover,
   THREAD,
   stripMobx,
+  holdPage,
+  unholdPage,
 } from 'utils'
-import cmds from './helper/defaultSuggestion'
+
+import cmds from './logic/defaultSuggestion'
 
 // const debug = makeDebugger('S:DoraemonStore')
 
@@ -76,6 +79,17 @@ const DoraemonStore = t
     get root() {
       return getParent(self)
     },
+    get curRoute() {
+      return self.root.curRoute
+    },
+    get inputValueRaw() {
+      if (R.startsWith('/', self.inputValue)) {
+        return R.last(self.inputValue.split('/'))
+      }
+      if (R.startsWith('@', self.inputValue)) return self.inputValue.slice(1)
+
+      return self.inputValue
+    },
     get curCmdChain() {
       if (!self.cmdChain && self.activeRaw) {
         return [self.activeRaw]
@@ -126,6 +140,9 @@ const DoraemonStore = t
     },
   }))
   .actions(self => ({
+    markRoute(query) {
+      self.root.markRoute(query)
+    },
     toast(type, options) {
       self.root.toast(type, options)
     },
@@ -184,14 +201,13 @@ const DoraemonStore = t
         activeRaw: nextActiveRaw,
       })
     },
-    activeTo(raw) {
-      self.markState({
-        activeRaw: raw,
-      })
+    activeTo(activeRaw) {
+      self.markState({ activeRaw })
     },
-    open() {
+    open(forcus = true) {
       self.visible = true
-      focusDoraemonBar()
+      if (forcus) focusDoraemonBar()
+      holdPage()
     },
     handleLogin() {
       self.open()
@@ -204,6 +220,10 @@ const DoraemonStore = t
       self.cmdChain = null
       self.clearSuggestions()
       hideDoraemonBarRecover()
+      unholdPage()
+    },
+    setViewing(sobj) {
+      self.root.setViewing(sobj)
     },
     markState(sobj) {
       markStates(sobj, self)

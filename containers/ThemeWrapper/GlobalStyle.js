@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     ${cs.media.mobile`
       position: relative;
-    `};
+`};
   }
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
@@ -131,6 +131,12 @@ const GlobalStyle = createGlobalStyle`
       color: ${theme('markdown.link')};
       text-decoration: underline;
     }
+  }
+
+  .doramon-search-highlighter {
+    background-color: ${theme('searchHighlight.doramonBg')};
+    padding: 0 1px;
+    color: ${theme('searchHighlight.doramonFg')};
   }
 `
 

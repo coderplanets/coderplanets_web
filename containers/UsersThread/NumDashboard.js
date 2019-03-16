@@ -2,7 +2,9 @@ import React from 'react'
 import R from 'ramda'
 
 // import { ICON_CMD } from '../../config'
+import { uid } from 'utils'
 import DotDivider from 'components/DotDivider'
+
 import {
   Wrapper,
   SumWrapper,
@@ -37,7 +39,7 @@ const NumDashboard = ({ total, geoData, expand }) => {
       {expand && (
         <DashboardListWrapper>
           {sortGeo.map((item, idx) => (
-            <div key={item.lant + item.long}>
+            <div key={uid.gen()}>
               <DashItem>
                 <Title active={idx <= 2}>{item.city}</Title>
                 <DotDivider radius="3px" space="3px" />

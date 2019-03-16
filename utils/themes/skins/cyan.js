@@ -11,7 +11,7 @@ const contentBg = '#E4EEED'
 const contentBoxBg = '#f9fcfc'
 const fontColor = primaryColor
 const sidebarBg = '#1C4752'
-const markdownFont = '#98afb3'
+const markdownFont = '#7698A0'
 
 const descText = '#a3bbbd'
 const primaryMate = 'orange'
@@ -312,6 +312,10 @@ const cyan = {
     text: '#83a7ad',
     border: '#e8e8e8',
     hoverBg: '#fffef1',
+  },
+  searchHighlight: {
+    doramonFg: '#F6DE38',
+    doramonBg: 'transparent',
   },
 }
 

@@ -21,6 +21,7 @@ const RepoEditor = t
     ),
     searchValue: t.optional(t.string, ''),
     searching: t.optional(t.boolean, false),
+    publishing: t.optional(t.boolean, false),
     // repo owner
     owner: t.optional(t.string, ''),
     // repo name

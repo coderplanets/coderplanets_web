@@ -12,14 +12,15 @@ export const Wrapper = styled.nav`
   padding-top: 10px;
   padding-bottom: 10px;
 
-  @media (max-height: 800px) {
-    min-height: 130px;
-  }
+  ${cs.media.mobile`
+    min-height: 100px;
+  `};
 `
 export const BannerContent = styled.div`
   ${cs.flex()};
   margin-left: 8%;
   margin-right: 8%;
+
   ${cs.media.mobile`
     margin-left: 4%;
     margin-right: 3%;

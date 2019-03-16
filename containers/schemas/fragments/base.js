@@ -90,11 +90,7 @@ export const author = `
   nickname
   avatar
 `
-export const user = `
-  ${author}
-  bio
-  location
-  sex
+export const userSocial = `
   qq
   weibo
   weichat
@@ -107,6 +103,16 @@ export const user = `
   instagram
   pinterest
   huaban
+`
+
+export const user = `
+  sex
+  ${author}
+  bio
+  location
+  social {
+    ${userSocial}
+  }
   followersCount
   followingsCount
 `
@@ -168,15 +174,13 @@ export const commentParent = `
   title
   commentsCount
   author {
-    id
-    nickname
-    avatar
+    ${author}
   }
   communities {
-    id
-    title
-    logo
-    raw
+    ${community}
+  }
+  origialCommunity {
+    ${community}
   }
 `
 export const pagedCounts = `

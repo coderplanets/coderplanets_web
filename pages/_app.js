@@ -1,6 +1,8 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import Raven from 'raven-js'
+import sentry from 'utils/sentry'
+
+// import Raven from 'raven-js'
 import NextSeo from 'next-seo'
 
 /**
@@ -11,34 +13,95 @@ import NextSeo from 'next-seo'
  */
 import SEO from '../next-seo.config'
 
-const { SENTRY_TOKEN } = process.env
+const { Sentry, captureException } = sentry({
+  release: process.env.SENTRY_RELEASE,
+})
+
+// const { SENTRY_TOKEN } = process.env
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+  constructor() {
+    /* eslint-disable-next-line */
+    super(...arguments)
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+    this.state = {
+      hasError: false,
+      errorEventId: undefined,
     }
-
-    return { pageProps }
   }
 
-  constructor(...args) {
-    super(...args)
-    Raven.config(SENTRY_TOKEN).install()
+  static async getInitialProps({ Component, ctx }) {
+    try {
+      let pageProps = {}
+
+      if (Component.getInitialProps) {
+        pageProps = await Component.getInitialProps(ctx)
+      }
+
+      return { pageProps }
+    } catch (error) {
+      // Capture errors that happen during a page's getInitialProps.
+      // This will work on both client and server sides.
+      const errorEventId = captureException(error, ctx)
+      return {
+        hasError: true,
+        errorEventId,
+      }
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    // If there was an error generated within getInitialProps, and we haven't
+    // yet seen an error, we add it to this.state here
+    return {
+      hasError: props.hasError || state.hasError || false,
+      errorEventId: props.errorEventId || state.errorEventId || undefined,
+    }
+  }
+
+  static getDerivedStateFromError() {
+    // React Error Boundary here allows us to set state flagging the error (and
+    // later render a fallback UI).
+    return { hasError: true }
   }
 
   componentDidCatch(error, errorInfo) {
-    Raven.captureException(error, { extra: errorInfo })
+    const errorEventId = captureException(error, { errorInfo })
 
-    // This is needed to render errors correctly in development / production
-    super.componentDidCatch(error, errorInfo)
+    // Store the event id at this point as we don't have access to it within
+    // `getDerivedStateFromError`.
+    this.setState({ errorEventId })
   }
 
   render() {
+    const { hasError, errorEventId } = this.state
     const { Component, pageProps } = this.props
-    return (
+
+    /* eslint-disable */
+    return hasError ? (
+      <section>
+        <h1>There was an error!</h1>
+        <p>
+          <a
+            href="#"
+            onClick={() => Sentry.showReportDialog({ eventId: errorEventId })}
+          >
+            📣 Report this error
+          </a>
+        </p>
+        <p>
+          <a
+            href="#"
+            onClick={() => {
+              window.location.reload(true)
+            }}
+          >
+            Or, try reloading the page
+          </a>
+        </p>
+      </section>
+    ) : (
+      /* render normal next.js app */
       <Container>
         <NextSeo config={SEO} />
         <Component {...pageProps} />

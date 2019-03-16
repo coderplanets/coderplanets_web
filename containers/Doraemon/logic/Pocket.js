@@ -19,7 +19,7 @@ import {
   startWithSpecialPrefix,
   startWithSlash,
   Advisor,
-} from './helper/advisor'
+} from './advisor'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Doraemon:pocket')

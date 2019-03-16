@@ -13,6 +13,7 @@ import {
   meteorState,
   updateEditing,
   errRescue,
+  nilOrEmpty,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
@@ -30,6 +31,13 @@ export const goBack = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
+
+export const socialOnChange = (part, e) => {
+  const { editUserData: editUser } = store
+  editUser.social[part] = e.target.value
+
+  store.markState({ editUser })
+}
 
 export const updateBg = (key, part, { target: { value } }) =>
   store.markState({
@@ -66,17 +74,22 @@ export const updateConfirm = () => {
 
   const educationBackgrounds = R.clone(profile.educationBackgrounds)
   const workBackgrounds = R.clone(profile.workBackgrounds)
+  const social = R.reject(nilOrEmpty, R.clone(profile.social))
 
-  profile = R.omit(['educationBackgrounds', 'workBackgrounds'], profile)
+  profile = R.omit(
+    ['educationBackgrounds', 'workBackgrounds', 'social'],
+    profile
+  )
 
   const args = { profile }
 
   if (!R.isEmpty(educationBackgrounds))
     args.educationBackgrounds = educationBackgrounds
   if (!R.isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
+  if (!R.isEmpty(social)) args.social = social
 
   store.markState({ updating: true })
-  debug('profile: ', args)
+  debug('args: ', args)
   sr71$.mutate(S.updateProfile, args)
 }
 

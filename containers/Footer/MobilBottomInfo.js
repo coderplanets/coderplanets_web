@@ -13,7 +13,7 @@ import {
   ThxTitle,
 } from './styles/mobile_bottom_info'
 
-import { toggleBusBanner, openDoraemon } from './logic'
+import { toggleBusBanner, queryDoraemon } from './logic'
 
 const MobileBottomInfo = () => (
   <React.Fragment>
@@ -22,13 +22,11 @@ const MobileBottomInfo = () => (
         所有社区
       </ItemBtn>
       <DotDivider radius="4px" />
-      <ItemBtn onClick={openDoraemon.bind(this, '/')}>我的关注</ItemBtn>
-      <DotDivider radius="4px" />
-      <ItemBtn onClick={openDoraemon.bind(this, '/theme/')}>切换主题</ItemBtn>
+      <ItemBtn onClick={queryDoraemon.bind(this, '/theme/')}>切换主题</ItemBtn>
     </LinkInfoWrapper>
 
     <SiteInfoWrapper>
-      <Item href="home/post/1" rel="noopener noreferrer" target="_blank">
+      <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
         关于本站
       </Item>
       <DotDivider />

@@ -17,7 +17,7 @@ import * as logic from './logic'
 
 const anyTrue = obj => R.any(R.equals(true), R.values(obj))
 
-const DigestBoard = ({ user, accountId }) => (
+const DigestBoard = ({ user, accountId, following }) => (
   <React.Fragment>
     <CardWrapper>
       <AchieveCard user={user} />
@@ -27,7 +27,8 @@ const DigestBoard = ({ user, accountId }) => (
           userId={user.id}
           size="default"
           onFollow={logic.followUser}
-          undoFollowUser={logic.undoFollowUser}
+          onUndoFollow={logic.undoFollowUser}
+          loading={following}
         />
       )}
     </CardWrapper>

@@ -90,7 +90,7 @@ const withGuardian = WrappedComponent => {
     // author check
     ownerId: PropTypes.string,
     // if fallbackProps provide, then render the WrappedComp along with this props
-    fallbackProps: PropTypes.oneOf(['readOnly']),
+    fallbackProps: PropTypes.oneOf(['readOnly', '']),
   }
 
   WithGuardian.defaultProps = {

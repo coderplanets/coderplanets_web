@@ -3,6 +3,10 @@ const dev = process.env.NODE_ENV !== 'production'
 
 const next = require('next')
 const express = require('express')
+
+const cookieParser = require('cookie-parser')
+const uuidv4 = require('uuid/v4')
+
 const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
@@ -26,11 +30,19 @@ mobxReact.useStaticRendering(true)
 const ssrCache = new LRUCache({
   max: 1000, // cache item count
   // maxAge: 1000 * 60 * 60, // 1hour
-  maxAge: 1000 * 30, // 30 ses
+  maxAge: 1000 * 10, // 30 ses
 })
 
 app.prepare().then(() => {
   const server = express()
+  /* eslint-disable-next-line */
+  const { Sentry } = require('./utils/sentry')({ release: app.buildId })
+
+  server.use(Sentry.Handlers.requestHandler())
+  server.use(cookieParser())
+  server.use(sessionCookie)
+  server.get(/\.map$/, sourcemapsForSentryOnly(process.env.SENTRY_TOKEN))
+
   // redirect all the www request to non-www addr
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
@@ -44,7 +56,13 @@ app.prepare().then(() => {
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
-  server.get('/oauth/', (req, res) => res.render(req, res, '/oauth', req.query))
+  server.get('/oauth/', (req, res) =>
+    renderAndCache(req, res, '/oauth', req.query)
+  )
+
+  server.get('/sentry/', (req, res) =>
+    renderAndCache(req, res, '/sentry', req.query)
+  )
 
   // app.render(req, res, '/user', req.query)
   server.get('/user/:userId', (req, res) =>
@@ -145,4 +163,35 @@ async function renderAndCache(req, res, pagePath, queryParams) {
   } catch (err) {
     app.renderError(err, req, res, pagePath, queryParams)
   }
+}
+
+// for sentry
+function sessionCookie(req, res, next) {
+  const htmlPage =
+    !req.path.match(/^\/(_next|static)/) &&
+    !req.path.match(/\.(js|map)$/) &&
+    req.accepts('text/html', 'text/css', 'image/png') === 'text/html'
+
+  if (!htmlPage) {
+    next()
+    return
+  }
+
+  if (!req.cookies.sid || req.cookies.sid.length === 0) {
+    req.cookies.sid = uuidv4()
+    res.cookie('sid', req.cookies.sid)
+  }
+
+  next()
+}
+
+const sourcemapsForSentryOnly = token => (req, res, next) => {
+  // In production we only want to serve source maps for sentry
+  if (!dev && !!token && req.headers['x-sentry-token'] !== token) {
+    res
+      .status(401)
+      .send('Authentication access token is required to access the source map.')
+    return
+  }
+  next()
 }

@@ -1,11 +1,15 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
+import Pagi from 'components/Pagi'
 import EmptyLabel from 'components/EmptyLabel'
 import MarkDownRender from 'components/MarkDownRender'
 import { CommentLoading } from 'components/LoadingEffects'
 
 import { TYPE, Trans } from 'utils'
+
+import Parent from './Parent'
+
 import {
   Wrapper,
   CommentBlock,
@@ -19,9 +23,9 @@ import {
   CommentBody,
 } from './styles/comments_to_content'
 
-import Parent from './Parent'
+import { onPreview, onPageChange } from './logic'
 
-const CommentsToContent = ({ data, thread, curView, onPreview }) => {
+const CommentsToContent = ({ data, thread, curView }) => {
   const { entries } = data
 
   switch (curView) {
@@ -51,6 +55,14 @@ const CommentsToContent = ({ data, thread, curView, onPreview }) => {
               <CommentDivider />
             </div>
           ))}
+
+          <Pagi
+            left="-20px"
+            pageNumber={data.pageNumber}
+            pageSize={data.pageSize}
+            totalCount={data.totalCount}
+            onChange={onPageChange}
+          />
         </Wrapper>
       )
 
