@@ -9,11 +9,9 @@ import {
   CurPageNumber,
 } from './styles/mobile_pagination'
 
-const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
-
 const MobilePagination = ({ current, pageSize, total, onChange }) => (
   <Wrapper>
-    {current !== 1 && hasExtraPage(total, pageSize) ? (
+    {current !== 1 && total > pageSize ? (
       <IndexPage onClick={onChange.bind(this, 1)}>首页</IndexPage>
     ) : (
       <div />
@@ -42,11 +40,13 @@ const MobilePagination = ({ current, pageSize, total, onChange }) => (
         </Button>
       )}
     </SelectorWrapper>
-    {hasExtraPage(total, pageSize) && (
-      <IndexPage onClick={onChange.bind(this, Math.floor(total / pageSize))}>
+    {current < Math.ceil(total / pageSize) ? (
+      <IndexPage onClick={onChange.bind(this, Math.ceil(total / pageSize))}>
         末页(
-        {Math.floor(total / pageSize)})
+        {Math.ceil(total / pageSize)})
       </IndexPage>
+    ) : (
+      <div />
     )}
   </Wrapper>
 )
