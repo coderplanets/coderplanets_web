@@ -37,19 +37,16 @@
       }
     }]
   ],
+  "presets": [
+    ["next/babel", { "preset-env": { "targets": { "browsers": ["last 2 versions", "ie >= 10"] } } }]
+  ],
   "env": {
      "development": {
-       "presets": ["@babel/preset-env", "next/babel"],
        "plugins": ["inline-dotenv"]
     },
-    "local": {
-      "presets": ["@babel/preset-env", "next/babel"],
-    },
-    "production": {
-      "presets": ["@babel/preset-env", "next/babel"]
-    },
+    "local": {},
+    "production": {},
     "test": {
-      "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]],
       "plugins": ["inline-dotenv"]
     }
   }
