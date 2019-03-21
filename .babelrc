@@ -46,7 +46,7 @@
        "presets": ["next/babel"],
     },
     "production": {
-      "presets": ["next/babel"]
+      "presets": ["@babel/preset-es2015", "next/babel"]
     },
     "test": {
       "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]],
