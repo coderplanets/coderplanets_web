@@ -54,7 +54,7 @@ export default class InputEditor extends React.Component {
           autoCapitalize="off"
           autoCorrect="off"
           autoComplete="off"
-          onKeyDown={logic.handleShortCuts}
+          onKeyDown={logic.handleKeyDown}
           onBlur={logic.inputOnBlur}
           onChange={logic.inputOnChange}
           value={value}

@@ -153,7 +153,7 @@ class LocationMap extends React.Component {
           refreshMode="debounce"
           refreshRate={500}
           skipOnMount={false}
-          resizableElementId={this.chartId}
+          querySelector={`#${this.chartId}`}
           onResize={this.onResize.bind(this)}
         />
         <div id={this.chartId} />

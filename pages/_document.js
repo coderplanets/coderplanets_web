@@ -28,6 +28,8 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
+
+          <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" />
           {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
           <script
             async
