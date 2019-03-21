@@ -39,14 +39,14 @@
   ],
   "env": {
      "development": {
-       "presets": ["next/babel", "@babel/preset-env"],
+       "presets": ["@babel/preset-env", "next/babel"],
        "plugins": ["inline-dotenv"]
     },
     "local": {
-      "presets": ["next/babel", "@babel/preset-env"],
+      "presets": ["@babel/preset-env", "next/babel"],
     },
     "production": {
-      "presets": ["next/babel", "@babel/preset-env"]
+      "presets": ["@babel/preset-env", "next/babel"]
     },
     "test": {
       "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]],
