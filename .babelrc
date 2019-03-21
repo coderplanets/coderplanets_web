@@ -38,7 +38,13 @@
     }]
   ],
   "presets": [
-    ["next/babel", { "preset-env": { "targets": { "browsers": ["last 2 versions", "ie >= 10"] } } }]
+    ["next/babel", {
+      "preset-env": {
+        "targets": {
+          "ie": "10"
+        }
+      }
+    }]
   ],
   "env": {
      "development": {
