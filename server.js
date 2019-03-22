@@ -12,16 +12,13 @@ const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
 
-// import { express as voyagerMiddleware } from 'graphql-voyager/middleware'
+// inspect graphql model
 const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
 
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
 const HOME_PAGE = '/home/posts'
-
-// SSR for mobx
-mobxReact.useStaticRendering(true)
 
 // SSR for mobx
 mobxReact.useStaticRendering(true)
