@@ -14,7 +14,7 @@ const MainEntries = () => (
     </a>
     <DotDivider space={splitMargin} />
     <a href="/communities">
-      <SiteLink>社区</SiteLink>
+      <SiteLink>社.区</SiteLink>
     </a>
     <DotDivider space={splitMargin} />
     <Popover
