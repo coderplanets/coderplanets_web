@@ -52,7 +52,7 @@ const ArticleActionsPanel = ({
 
     <EditOption
       passport="owner"
-      ownerId={data.author.id}
+      ownerId={data.author && data.author.id}
       onEdit={onEdit}
       thread={thread}
     />
@@ -66,7 +66,7 @@ const ArticleActionsPanel = ({
 
     <DeleteOption
       passport="owner"
-      ownerId={data.author.id}
+      ownerId={data.author && data.author.id}
       onDelete={onDelete}
     />
   </Wrapper>
