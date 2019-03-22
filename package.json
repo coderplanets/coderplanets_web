@@ -98,7 +98,7 @@
     "pubsub-js": "^1.6.0",
     "ramda": "0.25.0",
     "randomcolor": "^0.5.3",
-    "react": "16.8.1",
+    "react": "16.8.5",
     "react-calendar-heatmap": "^1.6.3",
     "react-content-loader": "3.4.2",
     "react-dom": "16.8.1",
