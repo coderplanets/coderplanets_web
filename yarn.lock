@@ -736,11 +736,18 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4":
+"@babel/runtime@^7.3.4":
   version "7.3.4"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
   dependencies:
     regenerator-runtime "^0.12.0"
+
+"@babel/runtime@^7.4.2":
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.2.tgz#f5ab6897320f16decd855eed70b705908a313fe8"
+  integrity sha512-7Bl2rALb7HpvXFL7TETNzKSAeBVCPHELzc0C//9FCxN8nsiueWSJBqaF+2oIJScyILStASR/Cx5WMkXGYTiJFA==
+  dependencies:
+    regenerator-runtime "^0.13.2"
 
 "@babel/template@7.1.2", "@babel/template@^7.1.2":
   version "7.1.2"
@@ -1183,9 +1190,10 @@
     "@sentry/types" "4.5.3"
     tslib "^1.9.3"
 
-"@tanem/svg-injector@^7.0.6":
-  version "7.0.7"
-  resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-7.0.7.tgz#ac0cda4fd5eacd8c2dd7afcfb632cd408a2d32a3"
+"@tanem/svg-injector@^7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.8.tgz#2ad6c2f3f1cad5b14b555fbd3eb2011c42decd5a"
+  integrity sha512-95+RyjaDAp0Gk09VcY9uoMzz3O7CQn9BkWqF4T4b3KAjq1Vkp3jDAyWijW+JZwtcmpsP40jt7Q0BA93mRm1qGw==
   dependencies:
     "@babel/runtime" "^7.3.4"
 
@@ -9965,12 +9973,13 @@ react-sortable-hoc@1.7.1:
     invariant "^2.2.4"
     prop-types "^15.5.7"
 
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
+react-svg@8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.1.tgz#7d9cbcfb3d12588e9cf3d54a2bda3cdec8bfce82"
+  integrity sha512-3NjPSkls3RXblLW1UAzCZvhOLtgwbmCzB0MqVVnFATXfxNQzax1NrxeEHcJowQjrGMRP4XwWKwwWwKrdgIDc6w==
   dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
+    "@babel/runtime" "^7.4.2"
+    "@tanem/svg-injector" "^7.0.8"
     prop-types "^15.7.2"
 
 react-test-renderer@16.8.1:
@@ -10240,6 +10249,11 @@ regenerator-runtime@^0.12.0:
 regenerator-runtime@^0.13.1:
   version "0.13.1"
   resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.1.tgz#522ea2aafd9200a00eee143dc14219a35a0f3991"
+
+regenerator-runtime@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
+  integrity sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA==
 
 regenerator-transform@^0.13.3:
   version "0.13.3"
