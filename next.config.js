@@ -8,16 +8,9 @@ const path = require('path')
 const fs = require('fs')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
-
 /* eslint-enable */
 
 const { ANALYZE } = process.env
-
-/*
-   env: {
-   SENTRY_DSN: process.env.SENTRY_DSN
-   },
- */
 
 module.exports = nextSourceMaps({
   webpack: (config, { isServer, buildId }) => {
