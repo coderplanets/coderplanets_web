@@ -42,10 +42,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "resolutions": {
-    "terser": "3.17.0",
-    "ajv": "6.8.1"
-  },
   "dependencies": {
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
@@ -83,7 +79,7 @@
     "mobx-react": "5.4.3",
     "mobx-state-tree": "3.10.1",
     "module-alias": "^2.0.1",
-    "next": "8.0.3",
+    "next": "8.0.4-canary.26",
     "next-seo": "^1.9.0",
     "path-match": "^1.2.4",
     "polished": "2.3.1",
@@ -164,7 +160,6 @@
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
-    "terser": "3.17.0",
     "webpack-bundle-analyzer": "3.0.4"
   }
 }
