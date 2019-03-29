@@ -51,7 +51,15 @@
        "plugins": ["inline-dotenv"]
     },
     "local": {},
-    "production": {},
+    "production": {
+      "presets": [["next/babel", {
+      "preset-env": {
+        "targets": {
+          "ie": "11"
+        }
+      }
+    }]]
+    },
     "test": {
       "plugins": ["inline-dotenv"]
     }
