@@ -186,17 +186,7 @@ const DataSolver = [
     match: asyncRes('githubSignin'),
     action: ({ githubSignin: { user, token } }) => {
       store.setSession(user, token)
-      // Global.location.reload()
-
-      /* Global.location.href = Global.location.href */
-      // IMPORTANT
       Global.location.reload()
-      /*
-         setTimeout(() => {
-         debug('before refresh page: ', Global.location.href)
-         Global.location.reload()
-         }, 1000)
-       */
     },
   },
   {
