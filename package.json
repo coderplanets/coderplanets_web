@@ -19,7 +19,6 @@
     "i18n": "shjs ./utils/scripts/create_default_lang.js && shjs ./utils/scripts/cp_locales.js",
     "start": "NODE_ENV=production node server.js",
     "clean": "shjs ./utils/scripts/clean.js",
-    "precommit": "lint-staged",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
     "analyze": "cross-env ANALYZE=1 next build",
     "lint": "eslint --fix pages/**/*.js components/**/*.js containers/**/*.js stores/**/*.js utils/**/*.js",
@@ -41,11 +40,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "resolutions": {
