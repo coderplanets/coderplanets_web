@@ -69,7 +69,7 @@
     "js-cookie": "^2.2.0",
     "lru-cache": "^4.1.3",
     "mastani-codehighlight": "0.0.7",
-    "mobx": "4.9.3",
+    "mobx": "5.9.4",
     "mobx-react": "5.4.3",
     "mobx-state-tree": "3.10.1",
     "module-alias": "^2.0.1",
