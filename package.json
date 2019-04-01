@@ -37,7 +37,7 @@
     }
   },
   "dependencies": {
-    "@sentry/browser": "^4.6.4",
+    "@sentry/browser": "^5.0.0",
     "@sentry/node": "^4.6.4",
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "accepts": "^1.3.4",
