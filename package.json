@@ -71,7 +71,7 @@
     "mastani-codehighlight": "0.0.7",
     "mobx": "4.9.3",
     "mobx-react": "5.4.3",
-    "mobx-state-tree": "3.10.1",
+    "mobx-state-tree": "3.13.0",
     "module-alias": "^2.0.1",
     "next": "8.0.4-canary.26",
     "next-seo": "^1.9.0",
