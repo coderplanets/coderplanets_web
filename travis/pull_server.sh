@@ -8,5 +8,5 @@ git clone https://github.com/coderplanets/coderplanets_server.git
 
 cd coderplanets_server
 echo "> where i am?"
-ls
+pwd
 echo "> done"
