@@ -29,10 +29,18 @@ matrix:
       addons:
         postgresql: '9.4'
 
-      before_install:
+      install:
+        - mix local.rebar --force
+        - mix local.hex --force;
+
+      before_script:
         - sudo chown -R travis ./travis/pull_server.sh
         - sudo chmod +x ./travis/pull_server.sh
         - ./travis/pull_server.sh
+      cache:
+        directories:
+          - _build
+          - deps
 
 notifications:
   email:
