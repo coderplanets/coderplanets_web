@@ -6,4 +6,5 @@ echo "> Working dir: $WORKING_DIR"
 echo "> Getting data..."
 git clone https://github.com/coderplanets/coderplanets_server.git
 
+cd coderplanets_server
 echo "> done"

@@ -29,7 +29,7 @@ matrix:
       addons:
         postgresql: '9.4'
 
-      before_script:
+      before_install:
         - sudo chown -R travis ./travis/pull_server.sh
         - sudo chmod +x ./travis/pull_server.sh
         - ./travis/pull_server.sh
