@@ -2,13 +2,11 @@ language: node_js
 
 node_js:
   - 10
-  - 9
-  - 8
 
 before_script:
   - echo "before_script"
   - git clone https://github.com/coderplanets/coderplanets_server.git
-  - cd coderplanets_server && ls
+  - ls coderplanets_server
 
 before_install:
   - export CHROME_BIN=chromium-browser
