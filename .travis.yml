@@ -26,7 +26,6 @@ matrix:
         - 1.6.6
       otp_release:
         - 21.0
-      sudo: false
       addons:
         postgresql: '9.4'
 
