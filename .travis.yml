@@ -8,6 +8,7 @@ node_js:
 before_script:
   - echo "before_script"
   - git clone https://github.com/coderplanets/coderplanets_server.git
+  - cd coderplanets_server && ls
 
 before_install:
   - export CHROME_BIN=chromium-browser
