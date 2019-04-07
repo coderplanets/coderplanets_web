@@ -1,34 +1,33 @@
-language: node_js
+matrix:
+  include:
+    language: node_js
+    node_js:
+      - 10
+    before_install:
+      - export CHROME_BIN=chromium-browser
+      - export DISPLAY=:99.0
+      - sh -e /etc/init.d/xvfb start
+      - npm install -g @commitlint/travis-cli
 
-node_js:
-  - 10
+    install:
+      - npm install
+      - npm install -g codecov
+      - npm install -g eslint
+      - commitlint-travis
 
-before_script:
-  - sudo chown -R travis ./travis/pull_server.sh
-  - sudo chmod +x ./travis/pull_server.sh
-  - ./travis/pull_server.sh
+    before_script:
+      - sudo chown -R travis ./travis/pull_server.sh
+      - sudo chmod +x ./travis/pull_server.sh
+      - ./travis/pull_server.sh
 
-before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install -g @commitlint/travis-cli
-
-install:
-  - npm install
-  - npm install -g codecov
-  - npm install -g eslint
-  - commitlint-travis
-
-script:
-  - codecov
+    script:
+      - codecov
+    cache:
+      directories:
+        - node_modules
 
 notifications:
   email:
     on_failure: change
 
 # after_success: 'npm run coveralls'
-
-cache:
-  directories:
-    - node_modules
