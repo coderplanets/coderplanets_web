@@ -5,6 +5,10 @@ node_js:
   - 9
   - 8
 
+before_script:
+  - echo "before_script"
+  - git clone https://github.com/coderplanets/coderplanets_server.git
+
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
@@ -18,9 +22,6 @@ install:
   - commitlint-travis
 
 script:
-  - npm run lint
-  - npm run test
-  - npm run build
   - codecov
 
 notifications:
