@@ -15,8 +15,6 @@ install:
   - npm install
   - npm install -g codecov
   - npm install -g eslint
-  # pkg: react-beatiful-dnd cause the redux not found issue, fix later
-  - npm install --save redux
   - commitlint-travis
 
 script:
