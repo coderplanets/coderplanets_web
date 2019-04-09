@@ -21,7 +21,7 @@
     "clean": "shjs ./utils/scripts/clean.js",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
     "analyze": "cross-env ANALYZE=1 next build",
-    "lint": "eslint --fix pages/**/*.js components/**/*.js containers/**/*.js stores/**/*.js utils/**/*.js",
+    "lint": "./node_modules/.bin/eslint --fix pages/**/*.js components/**/*.js containers/**/*.js stores/**/*.js utils/**/*.js",
     "lint:staged": "git diff --cached --name-only --diff-filter=ACRM | grep \".js$\" | xargs ./node_modules/.bin/eslint",
     "lint:watch": "esw -w pages/**/*.js components/**/*.js containers/**/*.js stores/**/*.js utils/**/*.js",
     "test": "cross-env NODE_ENV=test GOAL=test jest --config .jest.config.js",

@@ -13,20 +13,21 @@ before_install:
   - npm install -g @commitlint/travis-cli
 
 install:
+  # node related
   - npm install
   - npm install -g codecov
-  - npm install -g eslint
   - commitlint-travis
+  # elixir/phoenix env
   - mix local.rebar --force
   - mix local.hex --force
-
-script:
-  - codecov
 
 before_script:
   - sudo chown -R travis ./travis/pull_server.sh
   - sudo chmod +x ./travis/pull_server.sh
   - ./travis/pull_server.sh
+
+script:
+  - codecov
 
 cache:
   directories:
