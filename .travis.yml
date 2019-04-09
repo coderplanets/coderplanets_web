@@ -1,68 +1,38 @@
-matrix:
-  include:
-    - language: node_js
-      env: ISOLATED=false
-      node_js:
-        - 10
-      before_install:
-        - export CHROME_BIN=chromium-browser
-        - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
-        - npm install -g @commitlint/travis-cli
+language: elixir
+elixir:
+  - 1.6.6
+otp_release:
+  - 21.0
+addons:
+  postgresql: '9.4'
 
-      install:
-        - npm install
-        - npm install -g codecov
-        - npm install -g eslint
-        - commitlint-travis
+before_install:
+  - sudo chown -R travis ./travis/install_node.sh
+  - sudo chmod +x ./travis/install_node.sh
+  - ./travis/install_node.sh
+  - npm install -g @commitlint/travis-cli
 
-      before_script:
-        - sudo chown -R travis ./travis/front_test.sh
-        - sudo chmod +x ./travis/front_test.sh
-        - ./travis/front_test.sh
+install:
+  - npm install
+  - npm install -g codecov
+  - npm install -g eslint
+  - commitlint-travis
+  - mix local.rebar --force
+  - mix local.hex --force
 
-      script:
-        - codecov
-      cache:
-        directories:
-          - node_modules
+script:
+  - codecov
 
-    - language: elixir
-      env: ISOLATED=false
-      elixir:
-        - 1.6.6
-      otp_release:
-        - 21.0
-      addons:
-        postgresql: '9.4'
+before_script:
+  - sudo chown -R travis ./travis/pull_server.sh
+  - sudo chmod +x ./travis/pull_server.sh
+  - ./travis/pull_server.sh
 
-      before_install:
-        - sudo chown -R travis ./travis/install_node.sh
-        - sudo chmod +x ./travis/install_node.sh
-        - ./travis/install_node.sh
-        - npm install -g @commitlint/travis-cli
-
-      install:
-        - npm install
-        - npm install -g codecov
-        - npm install -g eslint
-        - commitlint-travis
-        - mix local.rebar --force
-        - mix local.hex --force
-
-      script:
-        - codecov
-
-      before_script:
-        - sudo chown -R travis ./travis/pull_server.sh
-        - sudo chmod +x ./travis/pull_server.sh
-        - ./travis/pull_server.sh
-
-      cache:
-        directories:
-          - node_modules
-          - _build
-          - deps
+cache:
+  directories:
+    - node_modules
+    - _build
+    - dep
 
 notifications:
   email:
