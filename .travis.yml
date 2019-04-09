@@ -53,6 +53,10 @@ matrix:
           - _build
           - deps
 
+script:
+  - sudo chown -R travis ./travis/final.sh
+  - sudo chmod +x ./travis/final.sh
+
 notifications:
   email:
     on_failure: change
