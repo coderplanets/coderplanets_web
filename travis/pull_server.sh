@@ -6,7 +6,7 @@ cd ..
 touch server_touched_files
 echo "> install nvm"
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-source /home/travis/.bashrc
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 echo "> check nvm"
 nvm --version
 nvm install 10.10.0
