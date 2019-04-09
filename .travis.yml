@@ -15,6 +15,11 @@ matrix:
         - npm install -g eslint
         - commitlint-travis
 
+      before_script:
+        - sudo chown -R travis ./travis/front_test.sh
+        - sudo chmod +x ./travis/front_test.sh
+        - ./travis/front_test.sh
+
       script:
         - codecov
       cache:
