@@ -2,14 +2,7 @@
 
 export WORKING_DIR=`pwd`
 echo "> Working dir: $WORKING_DIR"
-cd ..
-touch server_touched_files
-echo "> install nvm"
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
-echo "> check nvm"
-nvm --version
-nvm install 10.10.0
+pwd
 echo "> pull server"
 git clone https://github.com/coderplanets/coderplanets_server.git
 pwd

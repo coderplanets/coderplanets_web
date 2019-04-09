@@ -36,6 +36,12 @@ matrix:
       addons:
         postgresql: '9.4'
 
+      before_install:
+        - sudo chown -R travis ./travis/install_node.sh
+        - sudo chmod +x ./travis/install_node.sh
+        - ./travis/install_node.sh
+        - npm install -g @commitlint/travis-cli
+
       install:
         - mix local.rebar --force
         - mix local.hex --force
