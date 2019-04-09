@@ -1,6 +1,7 @@
 matrix:
   include:
     - language: node_js
+      env: ISOLATED=false
       node_js:
         - 10
       before_install:
@@ -27,6 +28,7 @@ matrix:
           - node_modules
 
     - language: elixir
+      env: ISOLATED=false
       elixir:
         - 1.6.6
       otp_release:
