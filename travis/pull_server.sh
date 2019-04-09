@@ -7,6 +7,7 @@ touch server_touched_files
 echo "> install nvm"
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 echo "> check nvm"
+bash
 nvm --version
 nvm install 10.10.0
 echo "> pull server"
