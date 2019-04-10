@@ -8,6 +8,8 @@ cd ..
 git clone https://github.com/coderplanets/coderplanets_server.git
 cd coderplanets_server
 mix deps.get
+echo "> setup test server"
+MIX_ENV=test mix ecto.setup
 echo "> running test server"
 MIX_ENV=test mix phx.server
 cd ..
