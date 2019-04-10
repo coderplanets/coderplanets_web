@@ -8,7 +8,8 @@ cd ..
 git clone https://github.com/coderplanets/coderplanets_server.git
 cd coderplanets_server
 mix deps.get
-MIX_ENV=test mix phx.server &
+echo "> running test server"
+MIX_ENV=test mix phx.server
 cd ..
 pwd
 ls -ll
