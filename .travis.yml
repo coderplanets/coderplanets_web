@@ -13,9 +13,9 @@ before_install:
   - npm install -g @commitlint/travis-cli
 
 install:
-  # node related
+  # web related
   - npm install
-  - npm install -g codecov
+  # - npm install -g codecov
   - commitlint-travis
   # elixir/phoenix env
   - mix local.rebar --force
@@ -27,7 +27,8 @@ before_script:
   - ./travis/pull_server.sh
 
 script:
-  - codecov
+  # - codecov
+  - echo "script goes here"
 
 cache:
   directories:

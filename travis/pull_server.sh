@@ -11,7 +11,7 @@ mix deps.get
 echo "> setup test server"
 MIX_ENV=ci mix ecto.setup
 echo "> running test server"
-MIX_ENV=ci mix phx.server
+MIX_ENV=ci mix phx.server &
 cd ..
 pwd
 ls -ll
