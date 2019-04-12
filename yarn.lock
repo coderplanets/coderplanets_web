@@ -8636,9 +8636,10 @@ react-redux@^5.0.7:
     react-is "^16.6.0"
     react-lifecycles-compat "^3.0.0"
 
-react-resize-detector@4.0.5:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/react-resize-detector/-/react-resize-detector-4.0.5.tgz#25eb7df5f34fd69ee1ef2229b1f5e728e14e8300"
+react-resize-detector@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-4.1.0.tgz#df7b9590ed13d20f5c59d416989a425643b7d049"
+  integrity sha512-6BOujdzJ88ycQV9vjnBqTNMfRnW/WaonRMEQI8DVLFM6hvrH5koQFByxY5S+DLy5WUPRybsuZmD+00jCZQUXQA==
   dependencies:
     lodash "^4.17.11"
     lodash-es "^4.17.11"
