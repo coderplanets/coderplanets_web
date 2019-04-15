@@ -32,6 +32,7 @@ script:
 
 cache:
   directories:
+    - ~/.cache
     - node_modules
     - _build
     - dep
