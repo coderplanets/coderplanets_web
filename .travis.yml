@@ -14,12 +14,12 @@ before_install:
 
 install:
   # web related
-  - npm install
+  - npm install > /dev/null
   # - npm install -g codecov
   - commitlint-travis
   # elixir/phoenix env
-  - mix local.rebar --force
-  - mix local.hex --force
+  - mix local.rebar --force > /dev/null
+  - mix local.hex --force > /dev/null
 
 before_script:
   - sudo chown -R travis ./travis/pull_server.sh
