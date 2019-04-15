@@ -7,7 +7,7 @@ echo "> pull server"
 cd ..
 git clone https://github.com/coderplanets/coderplanets_server.git
 cd coderplanets_server
-mix deps.get
+mix deps.get > /dev/null
 echo "> setup test server"
 MIX_ENV=ci mix ecto.setup > /dev/null
 echo "> seed test data"

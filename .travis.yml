@@ -10,7 +10,7 @@ before_install:
   - sudo chown -R travis ./travis/install_node.sh
   - sudo chmod +x ./travis/install_node.sh
   - ./travis/install_node.sh
-  - npm install -g @commitlint/travis-cli
+  - npm install -g @commitlint/travis-cli > /dev/null
 
 install:
   # web related
