@@ -3,8 +3,8 @@
   "version": "0.4.0-canary.0",
   "license": "Apache License 2.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev run-p server lint:watch",
-    "prod": "cross-env NODE_ENV=production run-p server lint:watch",
+    "dev": "cross-env NODE_ENV=dev node server.js",
+    "prod": "cross-env NODE_ENV=production run-p server",
     "local": "cross-env NODE_ENV=local GOAL=local node server",
     "server": "npm run clean && node server.js",
     "build": "next build",
