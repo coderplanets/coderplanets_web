@@ -10,9 +10,10 @@ cd coderplanets_server
 mix deps.get
 echo "> setup test server"
 MIX_ENV=ci mix ecto.setup
+echo "> seed test data"
+MIX_ENV=ci mix run priv/mock/cps_seeds.exs
 echo "> running test server"
 MIX_ENV=ci mix phx.server &
 cd ..
 pwd
-ls -ll
-echo "> done"
+echo "> done: phoenix server is running"
