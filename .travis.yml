@@ -28,7 +28,7 @@ before_script:
 
 script:
   # - codecov
-  - npm run test:ci
+  - nvm exec 10.10 npm run test:ci
 
 cache:
   directories:
