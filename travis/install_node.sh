@@ -7,7 +7,7 @@ echo "> check nvm"
 nvm --version
 echo "> use node 10.10"
 nvm install 10.10.0
-nvm use 10.10.0
+nvm alias default 10.10.0
 echo "> install node done"
 node --version
 pwd
