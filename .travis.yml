@@ -1,36 +1,44 @@
-language: node_js
-
-node_js:
-  - 10
-  - 9
-  - 8
+language: elixir
+elixir:
+  - 1.8
+otp_release:
+  - 21.0
+addons:
+  postgresql: '9.4'
 
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install -g @commitlint/travis-cli
+  - sudo chown -R travis ./travis/install_node.sh
+  - sudo chmod +x ./travis/install_node.sh
+  - ./travis/install_node.sh
+  - npm install -g @commitlint/travis-cli > /dev/null
 
 install:
-  - npm install
-  - npm install -g codecov
-  - npm install -g eslint
-  # pkg: react-beatiful-dnd cause the redux not found issue, fix later
-  - npm install --save redux
+  # web related
+  - npm install > /dev/null
+  # - npm install -g codecov
   - commitlint-travis
+  # elixir/phoenix env
+  - mix local.rebar --force > /dev/null
+  - mix local.hex --force > /dev/null
+
+before_script:
+  - sudo chown -R travis ./travis/pull_server.sh
+  - sudo chmod +x ./travis/pull_server.sh
+  - ./travis/pull_server.sh
 
 script:
-  - npm run lint
-  - npm run test
-  - npm run build
-  - codecov
+  # - codecov
+  - nvm exec 10.10 npm run test:ci
+
+cache:
+  directories:
+    - ~/.cache
+    - node_modules
+    - _build
+    - dep
 
 notifications:
   email:
     on_failure: change
 
 # after_success: 'npm run coveralls'
-
-cache:
-  directories:
-    - node_modules
