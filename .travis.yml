@@ -28,7 +28,7 @@ before_script:
 
 script:
   # - codecov
-  - echo "script goes here"
+  - npm run test:ci
 
 cache:
   directories:
