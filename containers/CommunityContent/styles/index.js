@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flex('justify-center')};
   width: 95%;
   margin: 40px;
@@ -16,8 +18,8 @@ export const Wrapper = styled.div`
   border-radius: 6px;
   padding: 1em;
   ${cs.media.tablet`
-    width: 100%;
-    margin: 0;
+width: 100%;
+margin: 0;
     margin-top: 10px;
     padding: .6em;
     padding-right: 0;

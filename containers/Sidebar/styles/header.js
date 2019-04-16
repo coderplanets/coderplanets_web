@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 import Img from 'components/Img'
 import { theme, cs } from 'utils'
-import { Container } from './index'
+import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
   margin-top: 14px;
   margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     margin-bottom: 4px;
   }
 `
@@ -26,7 +26,7 @@ export const SiteLogoWrapper = styled.div`
   letter-spacing: 1px;
   margin-top: -4px;
   display: ${({ pin }) => (pin ? 'none' : 'block')};
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     display: none;
   }
 `
@@ -51,7 +51,7 @@ export const PinIcon = styled(Img)`
   &:hover {
     cursor: pointer;
   }
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     visibility: visible;
     opacity: 1;
   }
@@ -61,7 +61,7 @@ export const ExploreWrapper = styled.div`
   visibility: ${({ pin }) => (pin ? 'visible' : 'hidden')};
   opacity: ${({ pin }) => (pin ? 1 : 0)};
 
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     visibility: visible;
     opacity: 1;
   }

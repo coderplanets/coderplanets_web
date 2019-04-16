@@ -11,3 +11,4 @@ yarn-error.log
 .env*
 schema.graphql
 cypress//integration/examples
+cypress/videos/

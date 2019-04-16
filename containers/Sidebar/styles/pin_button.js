@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'components/Img'
 import { theme } from 'utils'
 
-import { Container } from './index'
+import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
   &:hover {
@@ -23,7 +23,7 @@ export const PinIcon = styled(Img)`
   &:hover {
     cursor: pointer;
   }
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     visibility: visible;
     opacity: 1;
   }

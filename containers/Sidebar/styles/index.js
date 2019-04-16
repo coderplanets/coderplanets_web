@@ -4,7 +4,9 @@ import { theme, cs } from 'utils'
 
 // 纯css，div隐藏滚动条，保留鼠标滚动效果。
 // http://blog.csdn.net/liusaint1992/article/details/51277751
-export const Container = styled.aside`
+export const Wrapper = styled.aside.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flexColumn()};
   border-right: 1px solid;
   position: fixed;
