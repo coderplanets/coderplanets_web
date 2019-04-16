@@ -36,7 +36,7 @@ class CommunityBannerContainer extends React.Component {
     } = communityBanner
 
     return (
-      <div>
+      <div data-testid="community-banner">
         {bannerLayout === C11N.DIGEST ? (
           <DigestView
             community={community}

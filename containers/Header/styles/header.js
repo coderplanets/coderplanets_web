@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import HeaderSearchSVG from 'components/SvgIcons/HeaderSearchSVG'
 import { theme, cs, MEDIA_MAX_WIDTH } from 'utils'
 
-export const HeaderWrapper = styled.header`
+export const Wrapper = styled.header.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flex('justify-center')};
   background: ${({ fixed }) =>
     fixed ? theme('header.fixed') : theme('header.bg')};
@@ -29,7 +31,9 @@ export const RouterWrapper = styled.div`
   height: 100%;
   margin-top: 1px;
 `
-export const HeaderSearchIcon = styled(HeaderSearchSVG)`
+export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs(props => ({
+  'data-testid': props.testid,
+}))`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
@@ -40,7 +44,9 @@ export const HeaderSearchIcon = styled(HeaderSearchSVG)`
 export const Operations = styled.div`
   ${cs.flex('align-center')};
 `
-export const Search = styled.div`
+export const Search = styled.div.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   color: ${theme('header.fg')};
   padding-top: 8px;
 `

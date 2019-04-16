@@ -65,7 +65,7 @@ class CommunityContentContainer extends React.Component {
     const { curRoute } = communityContent
 
     return (
-      <Wrapper>
+      <Wrapper testid="community-content">
         <ComunityContent curRoute={curRoute} />
       </Wrapper>
     )

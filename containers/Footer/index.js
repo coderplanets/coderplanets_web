@@ -8,11 +8,10 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
+import { makeDebugger, storePlug } from 'utils'
+
 import Modal from 'components/Modal'
 
-// import {} from './styles'
-
-import { makeDebugger, storePlug } from 'utils'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 
@@ -47,7 +46,7 @@ class FooterContainer extends React.Component {
     const { showSponsor, showBusBanner, curView } = footer
 
     return (
-      <React.Fragment>
+      <div data-testid="footer">
         <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
           <BussinessNote />
         </Modal>
@@ -60,7 +59,7 @@ class FooterContainer extends React.Component {
         />
 
         {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
-      </React.Fragment>
+      </div>
     )
   }
 }
