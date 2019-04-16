@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import CommunityFaceLogo from 'components/CommunityFaceLogo'
 import { theme, cs } from 'utils'
-import { Container } from './index'
+import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
   display: block;
@@ -54,7 +54,7 @@ export const MenuItemTitle = styled.div`
     opacity: 1;
     letter-spacing: 2px;
   }
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     display: block;
     max-width: 50%;
   }
@@ -67,7 +67,7 @@ export const MiniChartWrapper = styled.div`
   position: relative;
 
   display: ${({ pin }) => (pin ? 'flex' : 'none')};
-  ${Container}:hover & {
+  ${IndexWrapper}:hover & {
     display: flex;
   }
 `

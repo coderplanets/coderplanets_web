@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug } from 'utils'
-import { Container } from './styles'
+import { Wrapper } from './styles'
 
 import Header from './Header'
 import MenuList from './MenuList'
@@ -41,7 +41,7 @@ class SidebarContainer extends React.Component {
     const activeRaw = curCommunity.raw
 
     return (
-      <Container pin={pin}>
+      <Wrapper pin={pin} testid="sidebar">
         <Header pin={pin} />
         <MenuList
           items={communitiesData}
@@ -51,7 +51,7 @@ class SidebarContainer extends React.Component {
           onSortEnd={logic.onSortMenuEnd}
           distance={5}
         />
-      </Container>
+      </Wrapper>
     )
   }
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import HeaderStatesSVG from 'components/SvgIcons/HeaderStatesSVG'
 import { theme, cs } from 'utils'
 
-import { HeaderWrapper } from './header'
+import { Wrapper as HeaderWrapper } from './header'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};

@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import HeaderMailSVG from 'components/SvgIcons/HeaderMailSVG'
 import { theme } from 'utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   padding-top: 8px;
   position: relative;
 `

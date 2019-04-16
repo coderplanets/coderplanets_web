@@ -68,7 +68,7 @@ class MailBoxContainer extends React.Component {
         visible={visible}
         onVisibleChange={this.onVisibleChange.bind(this)}
       >
-        <Wrapper>
+        <Wrapper testid="account-mailbox">
           <NofityDot active={mailStatusData.hasMail} />
           <HeaderMailIcon />
         </Wrapper>
