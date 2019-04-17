@@ -2,9 +2,9 @@
 // core-js comes with Next.js. So, you can import it like below
 
 /* eslint-disable */
-import includes from 'core-js/library/fn/string/virtual/includes'
-import repeat from 'core-js/library/fn/string/virtual/repeat'
-import assign from 'core-js/library/fn/object/assign'
+import includes from 'core-js/stable/string/includes'
+import repeat from 'core-js/stable/string/repeat'
+import assign from 'core-js/stable/object/assign'
 /* eslint-enable */
 
 // Add your polyfills
