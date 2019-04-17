@@ -52,7 +52,7 @@
     "apollo-link-retry": "2.2.13",
     "chalk": "^2.4.1",
     "cookie-parser": "^1.4.4",
-    "core-js": "^2.6.2",
+    "core-js": "3.0.1",
     "debug": "4.1.1",
     "draft-js": "^0.10.5",
     "draft-js-linkify-plugin": "^2.0.1",
