@@ -141,7 +141,7 @@ const monokai = {
     number: primaryMate,
     floor: primaryMate,
     reply: primaryColor,
-    replyBg: '#3d3644',
+    replyBg: '#3e3d40',
     placeholder: descText,
     filter: descText,
     filterActive: primaryColor,
@@ -268,7 +268,7 @@ const monokai = {
     bottomLine: '#474548',
   },
   modal: {
-    bg: bannerBg,
+    bg: '#353337',
     border: primaryColor,
     innerSelectBg: '#333040',
   },
