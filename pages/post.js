@@ -32,6 +32,7 @@ import {
   THREAD,
   BStore,
   ssrAmbulance,
+  parseTheme,
 } from 'utils'
 
 import { P } from 'schemas'
@@ -97,6 +98,9 @@ export default class Index extends React.Component {
 
     return {
       langSetup: {},
+      theme: {
+        curTheme: parseTheme(sessionState),
+      },
       account: {
         user: sessionState.user || {},
         isValidSession: sessionState.isValid,
