@@ -56,6 +56,7 @@ class ArticleBodyHeaderContainer extends React.Component {
                 onUnsetRefined={logic.onUnsetRefined}
                 onInform={logic.onInform}
                 onDelete={logic.onDelete}
+                onCommunitySet={logic.onCommunitySet}
               />
             }
             placement="bottomLeft"
