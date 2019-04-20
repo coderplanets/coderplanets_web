@@ -15,7 +15,7 @@ import Informer from 'containers/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
-import CommunitySetter from './CommunitySetter'
+import CommunitySetterOption from './CommunitySetterOption'
 import DeleteOption from './DeleteOption'
 
 import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
@@ -59,7 +59,7 @@ const ArticleActionsPanel = ({
       thread={thread}
     />
 
-    <CommunitySetter onCommunitySet={onCommunitySet} />
+    <CommunitySetterOption onCommunitySet={onCommunitySet} />
 
     <Informer>
       <Option onClick={onInform}>

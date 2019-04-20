@@ -13,6 +13,7 @@ import { ICON_CMD } from 'config'
 import { makeDebugger, storePlug, THREAD } from 'utils'
 
 import Labeler from 'containers/Labeler'
+import CommunitySetter from 'containers/CommunitySetter'
 import Popover from 'components/Popover'
 import ArticleActionsPanel from 'components/ArticleActionsPanel'
 
@@ -67,6 +68,8 @@ class ArticleBodyHeaderContainer extends React.Component {
             </div>
           </Popover>
         </MoreWrapper>
+
+        <CommunitySetter />
 
         {middle === 'linker' && <Linker addr={data.linkAddr} />}
         {middle === 'labeler' && (
