@@ -11,8 +11,19 @@ const pagedCommunities = gql`
     }
   }
 `
+const searchCommunities = gql`
+  query($title: String!) {
+    searchCommunities(title: $title) {
+      entries {
+        ${F.community}
+      }
+      ${F.pagedCounts}
+    }
+  }
+`
 const schema = {
   pagedCommunities,
+  searchCommunities,
 }
 
 export default schema

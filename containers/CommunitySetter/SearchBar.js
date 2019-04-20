@@ -3,11 +3,16 @@ import React from 'react'
 import { ICON_CMD } from 'config'
 import { Wrapper, SearchInput, SearchIcon } from './styles/search_bar'
 
-import { onSearch } from './logic'
+import { onSearch, onSearchPress, onSearchChange } from './logic'
 
-const SearchBar = () => (
+const SearchBar = ({ value }) => (
   <Wrapper>
-    <SearchInput placeholder="搜索需要同步的社区" />
+    <SearchInput
+      placeholder="搜索需要同步的社区"
+      value={value}
+      onChange={onSearchChange}
+      onKeyPress={onSearchPress}
+    />
     <div onClick={onSearch}>
       <SearchIcon src={`${ICON_CMD}/search.svg`} />
     </div>
