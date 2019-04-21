@@ -15,6 +15,7 @@ import Informer from 'containers/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'
+import CommunitySetterOption from './CommunitySetterOption'
 import DeleteOption from './DeleteOption'
 
 import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
@@ -33,6 +34,7 @@ const ArticleActionsPanel = ({
   onEdit,
   onInform,
   onDelete,
+  onCommunitySet,
 }) => (
   <Wrapper>
     <PinOption
@@ -55,6 +57,11 @@ const ArticleActionsPanel = ({
       ownerId={data.author && data.author.id}
       onEdit={onEdit}
       thread={thread}
+    />
+
+    <CommunitySetterOption
+      passport={`${thread}.community.set`}
+      onCommunitySet={onCommunitySet}
     />
 
     <Informer>
@@ -97,6 +104,7 @@ ArticleActionsPanel.propTypes = {
   onUndoPin: PropTypes.func,
   onSetRefined: PropTypes.func,
   onUnsetRefined: PropTypes.func,
+  onCommunitySet: PropTypes.func,
 }
 
 ArticleActionsPanel.defaultProps = {
@@ -108,6 +116,7 @@ ArticleActionsPanel.defaultProps = {
   onUndoPin: debug,
   onSetRefined: debug,
   onUnsetRefined: debug,
+  onCommunitySet: PropTypes.func,
 }
 
 export default React.memo(ArticleActionsPanel)
