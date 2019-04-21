@@ -61,7 +61,7 @@ class ArticleBodyHeaderContainer extends React.Component {
               />
             }
             placement="bottomLeft"
-            trigger="click"
+            trigger="hover"
           >
             <div>
               <MoreIcon src={`${ICON_CMD}/article_more.svg`} />

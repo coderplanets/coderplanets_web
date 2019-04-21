@@ -33,10 +33,15 @@ class CommunitySetterContainer extends React.Component {
 
   render() {
     const { communitySetter } = this.props
-    const { curBelongIds, pagedCommunitiesData, searchValue } = communitySetter
+    const {
+      visible,
+      curBelongIds,
+      pagedCommunitiesData,
+      searchValue,
+    } = communitySetter
 
     return (
-      <Modal width="700px" show showCloseBtn>
+      <Modal width="700px" show={visible} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
           <SearchBar value={searchValue} />
           {pagedCommunitiesData ? (

@@ -59,7 +59,10 @@ const ArticleActionsPanel = ({
       thread={thread}
     />
 
-    <CommunitySetterOption onCommunitySet={onCommunitySet} />
+    <CommunitySetterOption
+      passport={`${thread}.community.set`}
+      onCommunitySet={onCommunitySet}
+    />
 
     <Informer>
       <Option onClick={onInform}>

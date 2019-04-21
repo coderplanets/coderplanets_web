@@ -49,9 +49,7 @@ export const onEdit = thread => {
   dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
 }
 
-export const onCommunitySet = () => {
-  console.log('onCommunitySet')
-}
+export const onCommunitySet = () => dispatchEvent(EVENT.COMMUNITY_MIRROR)
 
 export const onPin = thread => {
   const args = {

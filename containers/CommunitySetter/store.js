@@ -14,6 +14,7 @@ const debug = makeDebugger('S:CommunitySetter')
 
 const CommunitySetter = t
   .model('CommunitySetter', {
+    visible: t.optional(t.boolean, false),
     searchValue: t.optional(t.string, ''),
     pagedCommunities: t.maybeNull(PagedCommunities),
   })

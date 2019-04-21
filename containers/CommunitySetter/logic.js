@@ -7,18 +7,27 @@ import {
   asyncErr,
   ERR,
   THREAD,
+  EVENT,
   errRescue,
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
 import S from './schema'
 
-const sr71$ = new SR71()
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_MIRROR],
+})
+
 let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:CommunitySetter')
+
+export const onClose = () => {
+  store.markState({ visible: false })
+  sr71$.stop()
+}
 
 export const onSearchChange = e =>
   store.markState({ searchValue: e.target.value })
@@ -70,6 +79,13 @@ const refreshBelongsInfo = () => {
 // ###############################
 
 const DataSolver = [
+  {
+    match: asyncRes(EVENT.COMMUNITY_MIRROR),
+    action: () => {
+      store.markState({ visible: true })
+      loadCommunities()
+    },
+  },
   {
     match: asyncRes('pagedCommunities'),
     action: ({ pagedCommunities }) => store.markState({ pagedCommunities }),
