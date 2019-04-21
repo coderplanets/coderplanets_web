@@ -13,9 +13,10 @@ import Modal from 'components/Modal'
 import { ArticleContentLoading } from 'components/LoadingEffects'
 
 import SearchBar from './SearchBar'
+import Message from './Message'
 import CommunitiesList from './CommunitiesList'
 
-import { Wrapper } from './styles'
+import { Wrapper, ContentWrapper, Divider } from './styles'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
@@ -43,15 +44,21 @@ class CommunitySetterContainer extends React.Component {
     return (
       <Modal width="700px" show={visible} showCloseBtn onClose={logic.onClose}>
         <Wrapper>
-          <SearchBar value={searchValue} />
-          {pagedCommunitiesData ? (
-            <CommunitiesList
-              data={pagedCommunitiesData}
-              curBelongIds={curBelongIds}
-            />
-          ) : (
-            <ArticleContentLoading />
-          )}
+          <ContentWrapper>
+            <SearchBar value={searchValue} />
+          </ContentWrapper>
+          <Divider />
+          <Message />
+          <ContentWrapper>
+            {pagedCommunitiesData ? (
+              <CommunitiesList
+                data={pagedCommunitiesData}
+                curBelongIds={curBelongIds}
+              />
+            ) : (
+              <ArticleContentLoading />
+            )}
+          </ContentWrapper>
         </Wrapper>
       </Modal>
     )

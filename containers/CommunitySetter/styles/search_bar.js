@@ -6,6 +6,7 @@ import { cs, theme } from 'utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
+  margin-top: 18px;
 `
 export const SearchInput = styled(Input)`
   width: 30%;
