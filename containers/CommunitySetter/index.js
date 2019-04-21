@@ -33,16 +33,17 @@ class CommunitySetterContainer extends React.Component {
 
   render() {
     const { communitySetter } = this.props
-    const { pagedCommunitiesData, searchValue } = communitySetter
-
-    debug('pagedCommunitiesData: ', pagedCommunitiesData)
+    const { curBelongIds, pagedCommunitiesData, searchValue } = communitySetter
 
     return (
       <Modal width="700px" show showCloseBtn>
         <Wrapper>
           <SearchBar value={searchValue} />
           {pagedCommunitiesData ? (
-            <CommunitiesList data={pagedCommunitiesData} />
+            <CommunitiesList
+              data={pagedCommunitiesData}
+              curBelongIds={curBelongIds}
+            />
           ) : (
             <ArticleContentLoading />
           )}

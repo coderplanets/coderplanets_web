@@ -6,6 +6,7 @@ import {
   asyncRes,
   asyncErr,
   ERR,
+  THREAD,
   errRescue,
 } from 'utils'
 
@@ -37,11 +38,32 @@ export const onSearchPress = e => {
 }
 
 // load all communities
-const loadCommunities = (page = 1) =>
+export const loadCommunities = (page = 1) =>
   sr71$.query(S.pagedCommunities, { filter: { page, size: 20 } })
 
 // search spec communities
 const searchCommunities = title => sr71$.query(S.searchCommunities, { title })
+
+export const handleCommunityBelong = (belong, communityId) => {
+  const { id } = store.viewingData
+
+  return belong
+    ? sr71$.mutate(S.unsetCommunity, { id, communityId })
+    : sr71$.mutate(S.setCommunity, { id, communityId })
+}
+
+const refreshBelongsInfo = () => {
+  const { currentThread } = store
+  switch (currentThread) {
+    case THREAD.POST: {
+      const { id } = store.viewingData
+      return sr71$.query(S.post, { id })
+    }
+    default: {
+      return debug('unmatch')
+    }
+  }
+}
 
 // ###############################
 // Data & Error handlers
@@ -56,6 +78,19 @@ const DataSolver = [
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
       store.markState({ pagedCommunities }),
+  },
+  {
+    match: asyncRes('setCommunity'),
+    action: () => refreshBelongsInfo(),
+  },
+  {
+    match: asyncRes('unsetCommunity'),
+    action: () => refreshBelongsInfo(),
+  },
+  {
+    match: asyncRes('post'),
+    action: ({ post }) =>
+      store.setViewing({ post: R.merge(store.viewingData, post) }),
   },
 ]
 const ErrSolver = [
