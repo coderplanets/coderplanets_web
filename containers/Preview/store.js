@@ -51,6 +51,8 @@ const Attachment = t.model('Attachment', {
   body: t.maybeNull(t.string),
   digest: t.maybeNull(t.string),
   author: t.maybeNull(User),
+  copyRight: t.optional(t.string, 'original'),
+  linkAddr: t.maybeNull(t.string),
 
   // video spec
   poster: t.maybeNull(t.string),
