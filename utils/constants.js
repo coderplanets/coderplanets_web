@@ -52,6 +52,9 @@ export const EVENT = {
 
   // doramon
   QUERY_DORAMON: 'QUERY_DORAMON',
+
+  // set/unset community
+  COMMUNITY_MIRROR: 'COMMUNITY_MIRROR',
 }
 
 export const TYPE = {

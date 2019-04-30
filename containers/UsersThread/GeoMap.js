@@ -138,8 +138,6 @@ class LocationMap extends React.Component {
             shadowColor: markerShadow,
           })
         this.chart.render()
-        const curWidth = document.getElementById(this.chartId).offsetWidth
-        this.onResize(curWidth)
       })
       .catch(ex => debug('parsing failed', ex))
   }

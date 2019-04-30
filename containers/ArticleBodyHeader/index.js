@@ -13,6 +13,7 @@ import { ICON_CMD } from 'config'
 import { makeDebugger, storePlug, THREAD } from 'utils'
 
 import Labeler from 'containers/Labeler'
+import CommunitySetter from 'containers/CommunitySetter'
 import Popover from 'components/Popover'
 import ArticleActionsPanel from 'components/ArticleActionsPanel'
 
@@ -56,16 +57,19 @@ class ArticleBodyHeaderContainer extends React.Component {
                 onUnsetRefined={logic.onUnsetRefined}
                 onInform={logic.onInform}
                 onDelete={logic.onDelete}
+                onCommunitySet={logic.onCommunitySet}
               />
             }
             placement="bottomLeft"
-            trigger="click"
+            trigger="hover"
           >
             <div>
               <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
             </div>
           </Popover>
         </MoreWrapper>
+
+        <CommunitySetter />
 
         {middle === 'linker' && <Linker addr={data.linkAddr} />}
         {middle === 'labeler' && (

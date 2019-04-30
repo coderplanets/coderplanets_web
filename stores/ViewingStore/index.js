@@ -46,6 +46,9 @@ const ViewingStore = t
       const { id: userId } = self.user
       return accountId === userId
     },
+    get currentThread() {
+      return self.viewingThread || self.activeThread
+    },
     get viewingData() {
       const curThread = self.viewingThread || self.activeThread
       switch (curThread) {

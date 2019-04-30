@@ -129,14 +129,10 @@ export const onMentionSearch = name => {
 export const onMention = user => store.addReferUser(user)
 
 const openAttachment = att => {
-  if (store.activeThread === THREAD.RADAR) {
-    store.updateEditing({ copyRight: 'reprint' })
-  }
-
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
-
+  /* debug('openAttachment att: ', att) */
   store.updateEditing(att)
   store.markState({ isEdit: true })
 }
@@ -260,12 +256,4 @@ export const uninit = () => {
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null
-
-  /*
-     store.toast('info', {
-     title: 'todo',
-     msg: '草稿已保存',
-     })
-   */
-  // cancleMutate()
 }
