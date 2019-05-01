@@ -23,6 +23,7 @@ const cyan = {
   coverIndex: '#F9FCFC',
   contrastFg: '#eca014',
   htmlBg: bannerBg,
+  mobileTab: '#1D4751',
   loading: {
     basic: bannerBg,
     animate: lighten(0.03, bannerBg),

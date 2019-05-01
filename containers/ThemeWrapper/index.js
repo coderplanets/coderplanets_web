@@ -19,7 +19,7 @@ import GlobalStyle from './GlobalStyle'
 const ThemeObserver = ({ children, theme: { themeData } }) => (
   <ThemeProvider theme={themeData}>
     <React.Fragment>
-      <Helmet meta={[{ name: 'theme-color', content: themeData.banner.bg }]} />
+      <Helmet meta={[{ name: 'theme-color', content: themeData.mobileTab }]} />
       <div>{children}</div>
       <CodeSyxHighlight />
       <AntUIOverWrite />
