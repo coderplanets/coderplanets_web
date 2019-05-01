@@ -2,8 +2,8 @@ import React from 'react'
 import { Input } from 'antd'
 
 import { ICON_CMD } from 'config'
-
 import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from 'utils'
+
 import {
   Wrapper,
   InputWrapper,
@@ -21,9 +21,9 @@ import {
   TogglerDivider,
   TogglerLabelText,
   TogglerText,
-} from './styles/social_editor'
+} from './styles/social_inputer'
 
-import * as logic from './logic'
+import { toggleSocials, socialOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:AccountEditor')
@@ -63,7 +63,7 @@ const SocialIconList = ({ show, user }) => (
         />
       ))}
 
-      <TogglerTextWrapper onClick={logic.toggleSocials}>
+      <TogglerTextWrapper onClick={toggleSocials}>
         {show ? (
           <React.Fragment>
             <TogglerText>... 收起</TogglerText>
@@ -80,7 +80,7 @@ const SocialIconList = ({ show, user }) => (
   </FormItemWrapper>
 )
 
-const SocialEditor = ({ show, user }) => (
+const SocialInputer = ({ show, user }) => (
   <Wrapper>
     <SocialIconList show={show} user={user} />
     <InputWrapper show={show}>
@@ -93,13 +93,13 @@ const SocialEditor = ({ show, user }) => (
           prefix={social.prefix}
           icon={social.key}
           value={user.social[social.key]}
-          onChange={logic.socialOnChange.bind(this, social.key)}
+          onChange={socialOnChange(social.key)}
         />
       ))}
       {/* eslint-enable react/jsx-key */}
       <TogglerLabelWrapper show={show}>
         <TogglerDivider />
-        <TogglerLabelText onClick={logic.toggleSocials}>
+        <TogglerLabelText onClick={toggleSocials}>
           收起社交信息
         </TogglerLabelText>
         <TogglerDivider />
@@ -108,4 +108,4 @@ const SocialEditor = ({ show, user }) => (
   </Wrapper>
 )
 
-export default SocialEditor
+export default SocialInputer

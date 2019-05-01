@@ -1,11 +1,12 @@
 import React from 'react'
 
+import { ICON_CMD } from 'config'
+import { uid } from 'utils'
+
 import FormItem from 'components/FormItem'
 import Maybe from 'components/Maybe'
 import { Space } from 'components/BaseStyled'
-import { ICON_CMD } from 'config'
 
-import { uid } from 'utils'
 import {
   Wrapper,
   Adder,
@@ -18,9 +19,10 @@ import {
   BgDivider,
   BgDesc,
   DeleteIcon,
-} from './styles/education_editor'
+} from './styles/background_inputer'
 
-import * as logic from './logic'
+import { addBackground, removeWorkBackground, updateBackground } from './logic'
+// import * as logic from './logic'
 
 const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
   <FormItemWrapper>
@@ -29,22 +31,22 @@ const FormBar = ({ label, data, ratKey, mainChange, subChange }) => (
     <FormInput>
       <FormItem
         size="default"
-        value={data.school}
-        raw="school"
+        value={data.company}
+        raw="company"
         ratKey={ratKey}
-        placeholder="学校"
+        placeholder="公司"
         onChange={mainChange}
         bottom="0"
       />
       <Space right="8px" />
       <FormItem
         size="default"
-        value={data.major}
-        placeholder="专业"
+        value={data.title}
+        placeholder="职位"
         onChange={subChange}
         bottom="0"
       />
-      <div onClick={logic.addBg.bind(this, 'education')}>
+      <div onClick={addBackground('work')}>
         <Adder src={`${ICON_CMD}/add.svg`} />
       </div>
     </FormInput>
@@ -56,16 +58,14 @@ const BackgroundList = ({ list }) => (
     <BackgroundsWrapper>
       {list.map(item => (
         <BackgroundItem key={uid.gen()}>
-          <BgTitle>{item.school}</BgTitle>
-
-          <Maybe test={item.major}>
+          <BgTitle>{item.company}</BgTitle>
+          <Maybe test={item.title}>
             <React.Fragment>
               <BgDivider>·</BgDivider>
-              <BgDesc>{item.major}</BgDesc>
+              <BgDesc>{item.title}</BgDesc>
             </React.Fragment>
           </Maybe>
-
-          <div onClick={logic.removeEduBg.bind(this, item.school, item.major)}>
+          <div onClick={removeWorkBackground(item.company, item.title)}>
             <DeleteIcon src={`${ICON_CMD}/cross.svg`} />
           </div>
         </BackgroundItem>
@@ -74,17 +74,17 @@ const BackgroundList = ({ list }) => (
   </Maybe>
 )
 
-const EducationEditor = ({ user, ratKey, data }) => (
+const WorkBackgroundInputer = ({ user, ratKey, data }) => (
   <Wrapper>
     <FormBar
-      label="教育经历:"
+      label="工作经历:"
       data={data}
       ratKey={ratKey}
-      mainChange={logic.updateBg.bind(this, 'educationBg', 'school')}
-      subChange={logic.updateBg.bind(this, 'educationBg', 'major')}
+      mainChange={updateBackground('workBg', 'company')}
+      subChange={updateBackground('workBg', 'title')}
     />
-    <BackgroundList list={user.educationBackgrounds} />
+    <BackgroundList list={user.workBackgrounds} />
   </Wrapper>
 )
 
-export default EducationEditor
+export default WorkBackgroundInputer
