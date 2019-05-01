@@ -2,13 +2,13 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import GlobalLayout from 'containers/GlobalLayout'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Sidebar from 'containers/Sidebar'
 import Preview from 'containers/Preview'
 import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import Banner from 'containers/Banner'
 import Content from 'containers/Content'
@@ -78,12 +78,12 @@ export default class PageCommunity extends React.Component {
                   <Preview />
                   <Doraemon />
                   <ErrorBox />
-                  <BodyLayout noSidebar={hideSidebar}>
+                  <GlobalLayout noSidebar={hideSidebar}>
                     <Header />
                     <Banner />
                     <Content />
                     <Footer />
-                  </BodyLayout>
+                  </GlobalLayout>
                 </MultiLanguage>
               </React.Fragment>
             )}

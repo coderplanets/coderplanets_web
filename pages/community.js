@@ -6,13 +6,13 @@ import NextSeo from 'next-seo'
 import { PAGE_SIZE, SITE_URL } from 'config'
 import initRootStore from 'stores/init'
 
+import GlobalLayout from 'containers/GlobalLayout'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Sidebar from 'containers/Sidebar'
 import Preview from 'containers/Preview'
 import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import CommunityBanner from 'containers/CommunityBanner'
 import CommunityContent from 'containers/CommunityContent'
@@ -208,12 +208,12 @@ export default class PageCommunity extends React.Component {
                   <Preview />
                   <Doraemon />
                   <ErrorBox />
-                  <BodyLayout>
+                  <GlobalLayout>
                     <Header />
                     <CommunityBanner />
                     <CommunityContent />
                     <Footer />
-                  </BodyLayout>
+                  </GlobalLayout>
                 </MultiLanguage>
               </React.Fragment>
             )}

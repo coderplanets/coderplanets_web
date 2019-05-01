@@ -5,12 +5,12 @@ import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from 'config'
 
+import GlobalLayout from 'containers/GlobalLayout'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
 import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import ArticleBanner from 'containers/ArticleBanner'
 import JobContent from 'containers/JobContent'
@@ -150,12 +150,12 @@ export default class Index extends React.Component {
                   <Preview />
                   <Doraemon />
                   <ErrorBox />
-                  <BodyLayout noSidebar>
+                  <GlobalLayout noSidebar>
                     <Header />
                     <ArticleBanner showStar={false} />
                     <JobContent />
                     <Footer />
-                  </BodyLayout>
+                  </GlobalLayout>
                 </MultiLanguage>
               </React.Fragment>
             )}

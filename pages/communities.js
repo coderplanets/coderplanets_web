@@ -5,13 +5,13 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import GlobalLayout from 'containers/GlobalLayout'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Sidebar from 'containers/Sidebar'
 import Preview from 'containers/Preview'
 import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import CommunitiesBanner from 'containers/CommunitiesBanner'
 import CommunitiesContent from 'containers/CommunitiesContent'
@@ -132,12 +132,12 @@ export default class Index extends React.Component {
               <Sidebar />
               <Preview />
               <Doraemon />
-              <BodyLayout>
+              <GlobalLayout>
                 <Header />
                 <CommunitiesBanner />
                 <CommunitiesContent />
                 <Footer />
-              </BodyLayout>
+              </GlobalLayout>
             </MultiLanguage>
           </ThemeWrapper>
         </GAWraper>

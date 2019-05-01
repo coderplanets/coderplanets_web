@@ -8,12 +8,12 @@ import { SocialProfileJsonLd } from 'next-seo'
 
 import { SITE_URL } from 'config'
 
+import GlobalLayout from 'containers/GlobalLayout'
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
 import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import UserBanner from 'containers/UserBanner'
 import UserContent from 'containers/UserContent'
@@ -138,12 +138,12 @@ export default class UserPage extends React.Component {
                   <Preview />
                   <Doraemon />
                   <ErrorBox />
-                  <BodyLayout noSidebar>
+                  <GlobalLayout noSidebar>
                     <Header />
                     <UserBanner />
                     <UserContent />
                     <Footer />
-                  </BodyLayout>
+                  </GlobalLayout>
                 </MultiLanguage>
               </React.Fragment>
             )}

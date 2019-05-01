@@ -1,5 +1,5 @@
 /*
- * BodylayoutStore store
+ * GlobalLayoutStore store
  *
  */
 
@@ -7,10 +7,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { makeDebugger } from 'utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:BodylayoutStore')
+const debug = makeDebugger('S:GlobalLayoutStore')
 
-const BodylayoutStore = t
-  .model('BodylayoutStore', {})
+const GlobalLayoutStore = t
+  .model('GlobalLayoutStore', {})
   .views(self => ({
     get root() {
       return getParent(self)
@@ -26,4 +26,4 @@ const BodylayoutStore = t
     },
   }))
 
-export default BodylayoutStore
+export default GlobalLayoutStore

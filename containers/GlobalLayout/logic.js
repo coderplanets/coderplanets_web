@@ -1,7 +1,7 @@
 import { makeDebugger, dispatchEvent, EVENT } from 'utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:BodyLayout')
+const debug = makeDebugger('L:GlobalLayout')
 
 let store = null
 
