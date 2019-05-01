@@ -43,6 +43,7 @@ export default class MyDocument extends Document {
           {this.helmetHeadComponents}
           <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
+          <meta name="theme-color" content="#323344" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
