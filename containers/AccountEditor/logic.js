@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -30,14 +31,15 @@ let sub$ = null
 export const goBack = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
-export const inputOnChange = (part, e) => updateEditing(store, part, e)
+export const inputOnChange = R.curry((part, e) => updateEditing(store, part, e))
+export const sexChange = R.curry((sex, e) => store.updateEditing({ sex }))
 
-export const socialOnChange = (part, e) => {
+export const socialOnChange = R.curry((part, e) => {
   const { editUserData: editUser } = store
   editUser.social[part] = e.target.value
 
   store.markState({ editUser })
-}
+})
 
 export const updateBg = (key, part, { target: { value } }) =>
   store.markState({
@@ -65,8 +67,6 @@ export const removeEduBg = (school, major) => {
   )
   store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
 }
-
-export const sexChange = sex => store.updateEditing({ sex })
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
@@ -141,6 +141,28 @@ const ErrSolver = [
   },
 ]
 
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      store.copyAccountInfo()
+
+      return () => {
+        // debug('effect uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
+}
+
+/*
 export const init = _store => {
   store = _store
 
@@ -156,3 +178,4 @@ export const uninit = () => {
   sub$.unsubscribe()
   sub$ = null
 }
+*/
