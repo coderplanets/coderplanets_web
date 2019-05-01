@@ -23,6 +23,7 @@ const solarizedDark = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
     animate: lighten(0.03, bannerBg),
