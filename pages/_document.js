@@ -1,15 +1,33 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import Helmet from 'react-helmet'
 
 /* eslint-disable */
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet()
     const page = renderPage(App => props =>
       sheet.collectStyles(<App {...props} />)
     )
     const styleTags = sheet.getStyleElement()
-    return { ...page, styleTags }
+    return { ...page, styleTags, helmet: Helmet.renderStatic() }
+  }
+
+  // should render on <html>
+  get helmetHtmlAttrComponents() {
+    return this.props.helmet.htmlAttributes.toComponent()
+  }
+
+  // should render on <body>
+  get helmetBodyAttrComponents() {
+    return this.props.helmet.bodyAttributes.toComponent()
+  }
+
+  // should render on <head>
+  get hasyncelmetHeadComponents() {
+    return Object.keys(this.props.helmet)
+      .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
+      .map(el => this.props.helmet[el].toComponent())
   }
 
   render() {
@@ -20,8 +38,9 @@ export default class MyDocument extends Document {
      */
 
     return (
-      <html>
+      <html {...this.helmetHtmlAttrComponents}>
         <Head>
+          {this.helmetHeadComponents}
           <meta charSet="utf-8" />
           <meta name="renderer" content="webkit" />
           <meta
@@ -64,7 +83,7 @@ export default class MyDocument extends Document {
           />
           {this.props.styleTags}
         </Head>
-        <body id="body">
+        <body id="body" {...this.helmetBodyAttrComponents}>
           <Main />
           <NextScript />
         </body>

@@ -87,6 +87,7 @@
     "react-calendar-heatmap": "^1.6.3",
     "react-content-loader": "3.4.2",
     "react-dom": "16.8.1",
+    "react-helmet": "^5.2.1",
     "react-highlight-words": "^0.16.0",
     "react-intl": "2.8.0",
     "react-json-view": "1.19.1",
