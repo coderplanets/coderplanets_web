@@ -574,13 +574,6 @@
     "@babel/helper-regex" "^7.0.0"
     regexpu-core "^4.1.3"
 
-"@babel/polyfill@^7.0.0":
-  version "7.4.0"
-  resolved "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.4.0.tgz#90f9d68ae34ac42ab4b4aa03151848f536960218"
-  dependencies:
-    core-js "^2.6.5"
-    regenerator-runtime "^0.13.2"
-
 "@babel/preset-env@7.1.0":
   version "7.1.0"
   resolved "https://registry.npmjs.org/@babel/preset-env/-/preset-env-7.1.0.tgz#e67ea5b0441cfeab1d6f41e9b5c79798800e8d11"
@@ -663,7 +656,6 @@
     "@babel/code-frame" "^7.0.0"
     "@babel/parser" "^7.4.0"
     "@babel/types" "^7.4.0"
-<<<<<<< HEAD
 
 "@babel/traverse@^7.0.0", "@babel/traverse@^7.1.0", "@babel/traverse@^7.4.0":
   version "7.4.0"
@@ -679,23 +671,6 @@
     globals "^11.1.0"
     lodash "^4.17.11"
 
-=======
-
-"@babel/traverse@^7.0.0", "@babel/traverse@^7.1.0", "@babel/traverse@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.npmjs.org/@babel/traverse/-/traverse-7.4.0.tgz#14006967dd1d2b3494cdd650c686db9daf0ddada"
-  dependencies:
-    "@babel/code-frame" "^7.0.0"
-    "@babel/generator" "^7.4.0"
-    "@babel/helper-function-name" "^7.1.0"
-    "@babel/helper-split-export-declaration" "^7.4.0"
-    "@babel/parser" "^7.4.0"
-    "@babel/types" "^7.4.0"
-    debug "^4.1.0"
-    globals "^11.1.0"
-    lodash "^4.17.11"
-
->>>>>>> dev
 "@babel/types@^7.0.0", "@babel/types@^7.1.2", "@babel/types@^7.2.0", "@babel/types@^7.2.2", "@babel/types@^7.3.0", "@babel/types@^7.4.0":
   version "7.4.0"
   resolved "https://registry.npmjs.org/@babel/types/-/types-7.4.0.tgz#670724f77d24cce6cc7d8cf64599d511d164894c"
@@ -1032,14 +1007,10 @@
 "@types/node@*":
   version "11.12.1"
   resolved "https://registry.npmjs.org/@types/node/-/node-11.12.1.tgz#d90123f6c61fdf2f7cddd286ddae891586dd3488"
-<<<<<<< HEAD
-=======
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
-  integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
->>>>>>> dev
 
 "@types/prop-types@*":
   version "15.7.0"
@@ -2147,23 +2118,11 @@ brace-expansion@^1.1.7:
 braces@^1.8.2:
   version "1.8.5"
   resolved "https://registry.npmjs.org/braces/-/braces-1.8.5.tgz#ba77962e12dff969d6b76711e914b737857bf6a7"
-<<<<<<< HEAD
-=======
   dependencies:
     expand-range "^1.8.1"
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-braces@^2.3.1, braces@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/braces/-/braces-2.3.2.tgz#5979fd3f14cd531565e5fa2df1abfff1dfaee729"
->>>>>>> dev
-  dependencies:
-    expand-range "^1.8.1"
-    preserve "^0.2.0"
-    repeat-element "^1.1.2"
-
-<<<<<<< HEAD
 braces@^2.3.1, braces@^2.3.2:
   version "2.3.2"
   resolved "https://registry.npmjs.org/braces/-/braces-2.3.2.tgz#5979fd3f14cd531565e5fa2df1abfff1dfaee729"
@@ -2179,8 +2138,6 @@ braces@^2.3.1, braces@^2.3.2:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-=======
->>>>>>> dev
 brcast@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/brcast/-/brcast-3.0.1.tgz#6256a8349b20de9eed44257a9b24d71493cd48dd"
@@ -2500,7 +2457,7 @@ cheerio@^1.0.0-rc.2:
     lodash "^4.15.0"
     parse5 "^3.0.1"
 
-chokidar@^2.0.2, chokidar@^2.0.4:
+chokidar@^2.0.2:
   version "2.1.5"
   resolved "https://registry.npmjs.org/chokidar/-/chokidar-2.1.5.tgz#0ae8434d962281a5f56c72869e79cb6d9d86ad4d"
   dependencies:
@@ -2968,7 +2925,7 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.7, core-js@^2.6.5:
+core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.7:
   version "2.6.5"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
 
@@ -2985,16 +2942,9 @@ cosmiconfig@^4.0.0:
     parse-json "^4.0.0"
     require-from-string "^2.0.1"
 
-<<<<<<< HEAD
-cosmiconfig@^5.0.7:
-  version "5.2.0"
-  resolved "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
-=======
 cosmiconfig@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
-  integrity sha512-nxt+Nfc3JAqf4WIWd0jXLjTJZmsPLrA9DDc4nRw2KFJQJK7DNooqSXrNI7tzLG50CF8axczly5UV929tBmh/7g==
->>>>>>> dev
   dependencies:
     import-fresh "^2.0.0"
     is-directory "^0.3.1"
@@ -3868,16 +3818,9 @@ eslint-config-airbnb@17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-<<<<<<< HEAD
-eslint-config-prettier@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-3.4.0.tgz#97dd5bf33d4d85862fdadf2ea89b4d6cebf3ba4f"
-=======
 eslint-config-prettier@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
-  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
->>>>>>> dev
   dependencies:
     get-stdin "^6.0.0"
 
@@ -3977,22 +3920,6 @@ eslint-utils@^1.3.1:
 eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
-
-eslint-watch@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/eslint-watch/-/eslint-watch-5.0.0.tgz#18c07224b4ff0214c140f9e9b6d803fc5a0208eb"
-  dependencies:
-    "@babel/polyfill" "^7.0.0"
-    chokidar "^2.0.4"
-    debug "^4.1.0"
-    execa "^1.0.0"
-    keypress "^0.2.1"
-    lodash.isempty "^4.4.0"
-    lodash.isequal "^4.5.0"
-    lodash.kebabcase "^4.1.1"
-    lodash.unionwith "^4.6.0"
-    optionator "^0.8.2"
-    source-map-support "^0.5.9"
 
 eslint@5.14.0:
   version "5.14.0"
@@ -4177,6 +4104,10 @@ executable@4.1.1:
   resolved "https://registry.npmjs.org/executable/-/executable-4.1.1.tgz#41532bff361d3e57af4d763b70582db18f5d133c"
   dependencies:
     pify "^2.2.0"
+
+exenv@^1.2.1:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
 
 exit-hook@^1.0.0:
   version "1.1.1"
@@ -4761,7 +4692,6 @@ get-stdin@^6.0.0:
 get-stdin@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-7.0.0.tgz#8d5de98f15171a125c5e516643c7a6d0ea8a96f6"
-  integrity sha512-zRKcywvrXlXsA0v0i9Io4KDRaAw7+a1ZpjRwl9Wox8PFlVCCHra7E9c4kqXCoCM9nR5tBkaTTZRBoCm60bFqTQ==
 
 get-stream@^3.0.0:
   version "3.0.0"
@@ -5246,24 +5176,9 @@ https-proxy-agent@2.2.1:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-<<<<<<< HEAD
-husky@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/husky/-/husky-1.3.1.tgz#26823e399300388ca2afff11cfa8a86b0033fae0"
-  dependencies:
-    cosmiconfig "^5.0.7"
-    execa "^1.0.0"
-    find-up "^3.0.0"
-    get-stdin "^6.0.0"
-    is-ci "^2.0.0"
-    pkg-dir "^3.0.0"
-    please-upgrade-node "^3.1.1"
-    read-pkg "^4.0.1"
-=======
 husky@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-2.0.0.tgz#fdc232f6e44af8257d86602c34105673ce532c79"
-  integrity sha512-YvSQ5UQHNfqm+g+P1sFTkPI23nEe0gbKXdv5ZTRStYSVdAYyH1iypFilAMVqXLXnjGtb6lBuR/2Sf5FkwCNY2Q==
   dependencies:
     cosmiconfig "^5.2.0"
     execa "^1.0.0"
@@ -5273,7 +5188,6 @@ husky@^2.0.0:
     pkg-dir "^4.1.0"
     please-upgrade-node "^3.1.1"
     read-pkg "^5.0.0"
->>>>>>> dev
     run-node "^1.0.0"
     slash "^2.0.0"
 
@@ -6421,10 +6335,6 @@ katex@^0.7.1:
   dependencies:
     match-at "^0.1.0"
 
-keypress@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/keypress/-/keypress-0.2.1.tgz#1e80454250018dbad4c3fe94497d6e67b6269c77"
-
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -6661,17 +6571,9 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
 
-lodash.isempty@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.npmjs.org/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
-
 lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-
-lodash.kebabcase@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npmjs.org/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
 
 lodash.keys@^3.1.2:
   version "3.1.2"
@@ -6709,10 +6611,6 @@ lodash.templatesettings@^4.0.0:
 lodash.throttle@^4.0.0:
   version "4.1.1"
   resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-
-lodash.unionwith@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.npmjs.org/lodash.unionwith/-/lodash.unionwith-4.6.0.tgz#74d140b5ca8146e6c643c3724f5152538d9ac1f0"
 
 lodash@4.17.11, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.5, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1:
   version "4.17.11"
@@ -7424,11 +7322,7 @@ nopt@^4.0.1:
     abbrev "1"
     osenv "^0.1.4"
 
-<<<<<<< HEAD
-normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5:
-=======
 normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5, normalize-package-data@^2.5.0:
->>>>>>> dev
   version "2.5.0"
   resolved "https://registry.npmjs.org/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
   dependencies:
@@ -7852,19 +7746,11 @@ parse5-htmlparser2-tree-adapter@^5.1.0:
   resolved "https://registry.npmjs.org/parse5-htmlparser2-tree-adapter/-/parse5-htmlparser2-tree-adapter-5.1.0.tgz#a8244ee12bbd6b8937ad2a16ea43fe348aebcc86"
   dependencies:
     parse5 "^5.1.0"
-<<<<<<< HEAD
 
 parse5@4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
 
-=======
-
-parse5@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
-
->>>>>>> dev
 parse5@5.1.0, parse5@^5.1.0:
   version "5.1.0"
   resolved "https://registry.npmjs.org/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
@@ -8046,7 +7932,6 @@ pkg-dir@^3.0.0:
 pkg-dir@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-4.1.0.tgz#aaeb91c0d3b9c4f74a44ad849f4de34781ae01de"
-  integrity sha512-55k9QN4saZ8q518lE6EFgYiu95u3BWkSajCifhdQjvLvmr8IpnRbhI+UGpWJQfa0KzDguHeeWT1ccO1PmkOi3A==
   dependencies:
     find-up "^3.0.0"
 
@@ -8784,6 +8669,19 @@ react-event-listener@^0.6.2:
     prop-types "^15.6.0"
     warning "^4.0.1"
 
+react-fast-compare@^2.0.2:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+
+react-helmet@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.npmjs.org/react-helmet/-/react-helmet-5.2.1.tgz#16a7192fdd09951f8e0fe22ffccbf9bb3e591ffa"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.5.4"
+    react-fast-compare "^2.0.2"
+    react-side-effect "^1.1.0"
+
 react-highlight-words@^0.16.0:
   version "0.16.0"
   resolved "https://registry.npmjs.org/react-highlight-words/-/react-highlight-words-0.16.0.tgz#4b4b9824e3d2b98789d3e3b3aedb5e961ae1b7cf"
@@ -8867,6 +8765,13 @@ react-resize-detector@4.0.5:
     raf-schd "^4.0.0"
     resize-observer-polyfill "^1.5.1"
 
+react-side-effect@^1.1.0:
+  version "1.1.5"
+  resolved "https://registry.npmjs.org/react-side-effect/-/react-side-effect-1.1.5.tgz#f26059e50ed9c626d91d661b9f3c8bb38cd0ff2d"
+  dependencies:
+    exenv "^1.2.1"
+    shallowequal "^1.0.1"
+
 react-slick@~0.23.1:
   version "0.23.2"
   resolved "https://registry.npmjs.org/react-slick/-/react-slick-0.23.2.tgz#8d8bdbc77a6678e8ad36f50c32578c7c0f1c54f6"
@@ -8891,7 +8796,6 @@ react-ssr-prepass@1.0.2:
   resolved "https://registry.npmjs.org/react-ssr-prepass/-/react-ssr-prepass-1.0.2.tgz#f411414cbc043a90254cddcef0793b2aaf14b086"
   dependencies:
     object-is "^1.0.1"
-<<<<<<< HEAD
 
 react-svg@8.0.0:
   version "8.0.0"
@@ -8901,17 +8805,6 @@ react-svg@8.0.0:
     "@tanem/svg-injector" "^7.0.6"
     prop-types "^15.7.2"
 
-=======
-
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
-    prop-types "^15.7.2"
-
->>>>>>> dev
 react-test-renderer@16.8.1:
   version "16.8.1"
   resolved "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.8.1.tgz#72845ad9269be526126e97853311982f781767be"
@@ -9020,25 +8913,14 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-<<<<<<< HEAD
-read-pkg@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/read-pkg/-/read-pkg-4.0.1.tgz#963625378f3e1c4d48c85872b5a6ec7d5d093237"
-  dependencies:
-    normalize-package-data "^2.3.2"
-    parse-json "^4.0.0"
-    pify "^3.0.0"
-=======
 read-pkg@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.1.0.tgz#62b924384c4525a1a7a96e2d456b80df142b4390"
-  integrity sha512-NjNkqf8hlMuSxh+p8h8x8sCIfEv/MoRs/nYDmSRSAk879F9C94ADq+kHUJ4LTy5Nn0PYSmMYsy1mD4+lcXiBKg==
   dependencies:
     "@types/normalize-package-data" "^2.4.0"
     normalize-package-data "^2.5.0"
     parse-json "^4.0.0"
     type-fest "^0.4.1"
->>>>>>> dev
 
 "readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
@@ -9769,7 +9651,7 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
-source-map-support@^0.5.6, source-map-support@^0.5.9, source-map-support@~0.5.10, source-map-support@~0.5.9:
+source-map-support@^0.5.6, source-map-support@~0.5.10, source-map-support@~0.5.9:
   version "0.5.11"
   resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.11.tgz#efac2ce0800355d026326a0ca23e162aeac9a4e2"
   dependencies:
@@ -10416,14 +10298,10 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-<<<<<<< HEAD
-=======
 type-fest@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.4.1.tgz#8bdf77743385d8a4f13ba95f610f5ccd68c728f8"
-  integrity sha512-IwzA/LSfD2vC1/YDYMv/zHP4rDF1usCwllsDpbolT3D4fUepIO7f9K70jjmUewU/LmGUKJcwcVtDCpnKk4BPMw==
 
->>>>>>> dev
 type-is@~1.6.16:
   version "1.6.16"
   resolved "https://registry.npmjs.org/type-is/-/type-is-1.6.16.tgz#f89ce341541c672b25ee7ae3c73dee3b2be50194"
