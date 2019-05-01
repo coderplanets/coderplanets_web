@@ -32,8 +32,10 @@ export const goBack = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 export const inputOnChange = R.curry((part, e) => updateEditing(store, part, e))
+/* eslint-disable no-unused-vars */
 export const sexChange = R.curry((sex, e) => store.updateEditing({ sex }))
 
+/* eslint-disable no-unused-vars */
 export const socialOnChange = R.curry((part, e) => {
   const { editUserData: editUser } = store
   editUser.social[part] = e.target.value
@@ -41,14 +43,15 @@ export const socialOnChange = R.curry((part, e) => {
   store.markState({ editUser })
 })
 
-export const updateBg = (key, part, { target: { value } }) =>
-  store.markState({
-    [key]: R.merge(store[key], { [part]: value }),
-  })
+export const updateBackground = R.curry((key, part, { target: { value } }) =>
+  store.markState({ [key]: R.merge(store[key], { [part]: value }) })
+)
 
-export const addBg = type => store.addBg(type)
+/* eslint-disable no-unused-vars */
+export const addBackground = R.curry((type, e) => store.addBackground(type))
 
-export const removeWorkBg = (company, title) => {
+/* eslint-disable no-unused-vars */
+export const removeWorkBackground = R.curry((company, title, e) => {
   const { editUserData } = store
   const { workBackgrounds } = editUserData
   const newWorkBackgrounds = R.reject(
@@ -56,9 +59,10 @@ export const removeWorkBg = (company, title) => {
     workBackgrounds
   )
   store.updateEditing({ workBackgrounds: newWorkBackgrounds })
-}
+})
 
-export const removeEduBg = (school, major) => {
+/* eslint-disable no-unused-vars */
+export const removeEduBackground = R.curry((school, major, e) => {
   const { editUserData } = store
   const { educationBackgrounds } = editUserData
   const newEducationBackgrounds = R.reject(
@@ -66,7 +70,7 @@ export const removeEduBg = (school, major) => {
     educationBackgrounds
   )
   store.updateEditing({ educationBackgrounds: newEducationBackgrounds })
-}
+})
 
 export const updateConfirm = () => {
   if (!store.statusClean) return false
@@ -144,7 +148,7 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = _store =>
   useEffect(
     () => {
       store = _store
@@ -160,22 +164,3 @@ export const useInit = _store => {
     },
     [_store]
   )
-}
-
-/*
-export const init = _store => {
-  store = _store
-
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  store.copyAccountInfo()
-}
-
-export const uninit = () => {
-  if (!sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
-*/

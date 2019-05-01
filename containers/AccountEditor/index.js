@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
-import { Input, Button, Icon } from 'antd'
+import { Button, Icon } from 'antd'
 
 import StatusBox from 'components/StatusBox'
 import FormItem from 'components/FormItem'
@@ -15,8 +15,8 @@ import { ICON_CMD } from 'config'
 // import Link from 'next/link'
 
 import { makeDebugger, storePlug } from 'utils'
-import WorkEditor from './WorkEditor'
-import EducationEditor from './EducationEditor'
+import WorkBackgroundInputer from './WorkBackgroundInputer'
+import EducationBackgroundInputer from './EducationBackgroundInputer'
 import SocialInputer from './SocialInputer'
 import SexInputer from './SexInputer'
 
@@ -31,7 +31,6 @@ import {
 
 import {
   useInit,
-  sexChange,
   goBack,
   inputOnChange,
   cancleEdit,
@@ -40,8 +39,6 @@ import {
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:AccountEditor')
-
-const { TextArea } = Input
 
 const AccountEditorContainer = ({ accountEditor }) => {
   useInit(accountEditor)
@@ -66,7 +63,7 @@ const AccountEditorContainer = ({ accountEditor }) => {
         <BackIcon src={`${ICON_CMD}/goback.svg`} />
       </div>
       {/* eslint-enable */}
-      <AvatarPic src={editUserData.avatar} />
+      {editUserData.avatar && <AvatarPic src={editUserData.avatar} />}
       <FormsWrapper>
         <FormItem
           label="昵称:"
@@ -79,8 +76,12 @@ const AccountEditorContainer = ({ accountEditor }) => {
           onChange={inputOnChange('location')}
         />
 
-        <WorkEditor user={editUserData} data={workBgData} ratKey={ratKey} />
-        <EducationEditor
+        <WorkBackgroundInputer
+          user={editUserData}
+          data={workBgData}
+          ratKey={ratKey}
+        />
+        <EducationBackgroundInputer
           user={editUserData}
           data={educationBgData}
           ratKey={ratKey}
@@ -91,7 +92,7 @@ const AccountEditorContainer = ({ accountEditor }) => {
           onChange={inputOnChange('email')}
         />
         <SocialInputer show={showSocials} user={editUserData} />
-        <SexInputer value={editUserData.sex} />
+        {editUserData.sex && <SexInputer value={editUserData.sex} />}
         <FormItem
           label="简介:"
           textarea
