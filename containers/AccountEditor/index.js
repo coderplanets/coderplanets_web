@@ -12,7 +12,6 @@ import { Button, Icon } from 'antd'
 import StatusBox from 'components/StatusBox'
 import FormItem from 'components/FormItem'
 import { ICON_CMD } from 'config'
-// import Link from 'next/link'
 
 import { makeDebugger, storePlug } from 'utils'
 import WorkBackgroundInputer from './WorkBackgroundInputer'
@@ -58,11 +57,10 @@ const AccountEditorContainer = ({ accountEditor }) => {
 
   return (
     <Wrapper className="normal-form">
-      {/* eslint-disable */}
       <div onClick={goBack}>
         <BackIcon src={`${ICON_CMD}/goback.svg`} />
       </div>
-      {/* eslint-enable */}
+
       {editUserData.avatar && <AvatarPic src={editUserData.avatar} />}
       <FormsWrapper>
         <FormItem
