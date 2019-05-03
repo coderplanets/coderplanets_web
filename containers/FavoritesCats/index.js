@@ -6,13 +6,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+
+import { ICON_CMD } from 'config'
+import { makeDebugger, storePlug } from 'utils'
 
 import Modal from 'components/Modal'
 import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD } from 'config'
 
-import { makeDebugger, storePlug } from 'utils'
 import { AdderWrapper, AdderText, AdderIcon } from './styles'
 
 import BoxView from './BoxView'
@@ -20,10 +22,78 @@ import Creator from './Creator'
 import Updater from './Updater'
 import Setter from './Setter'
 
-import * as logic from './logic'
+import { useInit, onModalClose, changeViewTo } from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:FavoritesCats')
 
+const FavoritesCatsContainer = ({
+  favoritesCats,
+  onSelect,
+  displayMode: displayModeProp,
+}) => {
+  useInit(favoritesCats, displayModeProp)
+
+  const {
+    viewingData,
+    displayMode,
+    isCreatorView,
+    isUpdaterView,
+    isSetterView,
+    showModal,
+    editCategoryData,
+    pagedCategoriesData,
+    isSelfViewing,
+    hasLockAuth,
+  } = favoritesCats
+
+  const { entries, totalCount } = pagedCategoriesData
+
+  return (
+    <React.Fragment>
+      {displayMode === 'list' && (
+        <SectionLabel
+          title="收藏夹"
+          iconSrc={`${ICON_CMD}/folder.svg`}
+          desc={`收藏夹共 ${totalCount} 个。`}
+          addonNode={
+            <React.Fragment>
+              {isSelfViewing && (
+                <AdderWrapper onClick={changeViewTo('creator')}>
+                  <AdderIcon src={`${ICON_CMD}/add_circle.svg`} />
+                  <AdderText>创建</AdderText>
+                </AdderWrapper>
+              )}
+            </React.Fragment>
+          }
+        />
+      )}
+      <Modal width="420px" show={showModal} showCloseBtn onClose={onModalClose}>
+        <Setter
+          entries={entries}
+          show={isSetterView}
+          selectedId={viewingData.favoritedCategoryId}
+          hasLockAuth={hasLockAuth}
+        />
+        <Creator
+          data={editCategoryData}
+          show={isCreatorView}
+          hasLockAuth={hasLockAuth}
+        />
+        <Updater
+          data={editCategoryData}
+          show={isUpdaterView}
+          hasLockAuth={hasLockAuth}
+        />
+      </Modal>
+      {displayMode === 'list' && (
+        <BoxView data={pagedCategoriesData} onSelect={onSelect} />
+      )}
+    </React.Fragment>
+  )
+}
+
+/*
 class FavoritesCatsContainer extends React.Component {
   componentDidMount() {
     const { favoritesCats, displayMode } = this.props
@@ -105,6 +175,7 @@ class FavoritesCatsContainer extends React.Component {
     )
   }
 }
+*/
 
 FavoritesCatsContainer.propTypes = {
   onSelect: PropTypes.func,
