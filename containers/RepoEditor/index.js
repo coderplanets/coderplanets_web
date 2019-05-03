@@ -5,15 +5,17 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+
+import { makeDebugger, storePlug, uid } from 'utils'
 
 import GithubRepoPage from 'components/GithubRepoPage'
-import { makeDebugger, storePlug, uid } from 'utils'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'
 
-import * as logic from './logic'
+import { useInit, onPublish, changeView } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:RepoEditor')
@@ -32,8 +34,8 @@ const View = ({
       return (
         <GithubRepoPage
           repo={repo}
-          onSearch={logic.changeView.bind(this, 'search')}
-          onPublish={logic.onPublish}
+          onSearch={changeView('search')}
+          onPublish={onPublish}
           publishing={publishing}
           showSearchBtn
           showPublishBtn
@@ -45,8 +47,6 @@ const View = ({
       return (
         <SearchMan
           value={searchValue}
-          onSearch={logic.onGithubSearch}
-          onChange={logic.searchOnChange}
           searching={Boolean(searching)}
           subView={subView}
           tokenValue={tokenValue}
@@ -55,43 +55,33 @@ const View = ({
   }
 }
 
-class RepoEditorContainer extends React.Component {
-  componentDidMount() {
-    const { repoEditor } = this.props
-    logic.init(repoEditor)
-  }
+const RepoEditorContainer = ({ repoEditor }) => {
+  useInit(repoEditor)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const {
+    curView,
+    searching,
+    searchValue,
+    publishing,
+    editRepoData,
+    subView,
+    tokenValue,
+  } = repoEditor
 
-  render() {
-    const { repoEditor } = this.props
-    const {
-      curView,
-      searching,
-      searchValue,
-      publishing,
-      editRepoData,
-      subView,
-      tokenValue,
-    } = repoEditor
-
-    return (
-      <Wrapper>
-        <View
-          key={uid.gen()}
-          curView={curView}
-          searching={searching}
-          searchValue={searchValue}
-          publishing={publishing}
-          repo={editRepoData}
-          subView={subView}
-          tokenValue={tokenValue}
-        />
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <View
+        key={uid.gen()}
+        curView={curView}
+        searching={searching}
+        searchValue={searchValue}
+        publishing={publishing}
+        repo={editRepoData}
+        subView={subView}
+        tokenValue={tokenValue}
+      />
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('repoEditor'))(observer(RepoEditorContainer))

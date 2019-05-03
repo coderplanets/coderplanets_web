@@ -18,6 +18,7 @@ const SearchInputer = ({ value, searching }) => (
         onChange={searchOnChange}
         placeholder={`Github 仓库地址，如: ${GITHUB_WEB_ADDR}`}
         disabled={Boolean(searching)}
+        autoFocus
       />
     </InputWrapper>
 

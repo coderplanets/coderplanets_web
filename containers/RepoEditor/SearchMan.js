@@ -40,7 +40,7 @@ const SearchMan = ({ value, searching, subView, tokenValue }) => (
     </FormWrapper>
     <Footer>
       若有问题请尝试
-      <SetTokenWapper onClick={changeSubView.bind(this, 'token')}>
+      <SetTokenWapper onClick={changeSubView('token')}>
         重新设置token
       </SetTokenWapper>
       或{' '}

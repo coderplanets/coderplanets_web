@@ -33,6 +33,7 @@ const FormContent = ({
   node,
   att,
   disabled,
+  autoFocus,
 }) => {
   switch (type) {
     case 'node':
@@ -48,6 +49,7 @@ const FormContent = ({
             autosize={{ minRows: 3, maxRows: 6 }}
             onChange={onChange}
             disabled={disabled}
+            autoFocus={autoFocus}
           />
         </FormInput>
       )
@@ -62,6 +64,7 @@ const FormContent = ({
             onChange={onChange}
             placeholder={placeholder}
             disabled={disabled}
+            autoFocus={autoFocus}
           />
           <Maybe test={!R.isEmpty(att)}>{att}</Maybe>
         </FormInput>
@@ -82,6 +85,7 @@ const FormItem = ({
   att,
   bottom,
   disabled,
+  autoFocus,
 }) => (
   <FormItemWrapper className="normal-form" bottom={bottom}>
     <Maybe test={!R.isEmpty(label)}>
@@ -98,6 +102,7 @@ const FormItem = ({
       node={node}
       att={att}
       disabled={disabled}
+      autoFocus={autoFocus}
     />
   </FormItemWrapper>
 )
@@ -115,6 +120,7 @@ FormItem.propTypes = {
   size: PropTypes.oneOf(['small', 'default', 'large']),
   bottom: PropTypes.string,
   disabled: PropTypes.bool,
+  autoFocus: PropTypes.bool,
 }
 
 FormItem.defaultProps = {
@@ -130,6 +136,7 @@ FormItem.defaultProps = {
   onChange: debug,
   bottom: '25px',
   disabled: false,
+  autoFocus: false,
 }
 
 export default FormItem
