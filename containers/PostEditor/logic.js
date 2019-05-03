@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -236,24 +237,27 @@ const initDraftTimmer = () => {
   )
 }
 
-export const init = (_store, attachment) => {
-  // if (store) return openAttachment(attachment)
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = (_store, attachment) => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      openAttachment(attachment)
+      initDraftTimmer()
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  openAttachment(attachment)
-  initDraftTimmer()
-}
+      return () => {
+        // debug('effect uninit')
+        if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 
-export const uninit = () => {
-  if (store.publishing || !sub$) return false
-  debug('===== do uninit')
-  // TODO: hint about save draft
-  if (saveDraftTimmer) clearInterval(saveDraftTimmer)
-
-  store.markState({ editPost: {}, isEdit: false })
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+        store.markState({ editPost: {}, isEdit: false })
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store, attachment]
+  )
 }

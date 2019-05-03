@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -54,8 +55,12 @@ export const onGithubSearch = () => {
     .catch(e => store.handleError(githubApi.parseError(e)))
 }
 
-export const changeView = curView => store.markState({ curView })
-export const changeSubView = subView => store.markState({ subView })
+/* eslint-disable-next-line */
+export const changeView = R.curry((curView, e) => store.markState({ curView }))
+/* eslint-disable-next-line */
+export const changeSubView = R.curry((subView, e) =>
+  store.markState({ subView })
+)
 
 export const searchOnChange = ({ target: { value: searchValue } }) =>
   store.markState({ searchValue })
@@ -73,10 +78,6 @@ export const setGithubToken = () => {
   })
 }
 
-/*
-   export const searchOnChange = ({ target: { e: searchValue } }) =>
-   store.markState({ searchValue })
- */
 const cancleLoading = () =>
   store.markState({
     searching: false,
@@ -121,22 +122,29 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = (_store, attachment) => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      const tokenValue = BStore.get('github_token') || ''
+      const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
+      store.markState({ tokenValue, subView })
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  const tokenValue = BStore.get('github_token') || ''
-  const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
-  store.markState({ tokenValue, subView })
-}
-
-export const uninit = () => {
-  if (store.searching || !sub$) return false
-  debug('===== do uninit')
-  store.markState({ curView: 'search', subView: 'search', searching: false })
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        store.markState({
+          curView: 'search',
+          subView: 'search',
+          searching: false,
+        })
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store, attachment]
+  )
 }

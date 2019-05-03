@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -24,7 +25,7 @@ let store = null
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:RepoViewer')
 
-export const loadRepo = id => {
+const loadRepo = id => {
   markLoading(true)
   const userHasLogin = store.isLogin
   sr71$.query(S.repo, { id, userHasLogin })
@@ -76,18 +77,24 @@ const ErrSolver = [
   },
 ]
 
-export const init = (_store, attachment) => {
-  store = _store
+export const holder = 1
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = (_store, attachment) => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      openAttachment(attachment)
 
-  if (sub$) return openAttachment(attachment)
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  openAttachment(attachment)
-}
-
-export const uninit = () => {
-  if (store.loading || !sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        // debug('effect uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store, attachment]
+  )
 }
