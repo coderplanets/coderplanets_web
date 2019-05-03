@@ -5,7 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 
 import { makeDebugger, storePlug, THREAD } from 'utils'
 
@@ -19,52 +20,42 @@ import VideoInfoCard from 'components/VideoInfoCard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 
-import * as logic from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoViewer')
 
-class VideoViewerContainer extends React.Component {
-  componentDidMount() {
-    const { videoViewer, attachment } = this.props
-    logic.init(videoViewer, attachment)
-  }
+const VideoViewerContainer = ({ videoViewer, attachment }) => {
+  useInit(videoViewer, attachment)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { curCommunity, viewingData } = videoViewer
 
-  render() {
-    const { videoViewer } = this.props
-    const { curCommunity, viewingData } = videoViewer
-
-    return (
-      <Wrapper>
-        <ArticleViewerHeader
-          data={viewingData}
-          author={viewingData.author}
+  return (
+    <Wrapper>
+      <ArticleViewerHeader
+        data={viewingData}
+        author={viewingData.author}
+        thread={THREAD.VIDEO}
+      />
+      <BodyHeaderWrapper>
+        <ArticleBodyHeader
+          communityRaw={curCommunity.raw}
           thread={THREAD.VIDEO}
+          data={viewingData}
+          middle="labeler"
         />
-        <BodyHeaderWrapper>
-          <ArticleBodyHeader
-            communityRaw={curCommunity.raw}
-            thread={THREAD.VIDEO}
-            data={viewingData}
-            middle="labeler"
-          />
-        </BodyHeaderWrapper>
-        <Maybe test={viewingData.poster}>
-          <a href={viewingData.link} rel="noopener noreferrer" target="_blank">
-            <VideoPoster poster={viewingData.poster} />
-          </a>
-          <VideoInfoCard data={viewingData} />
-        </Maybe>
-        <CommentsWrapper>
-          <Comments />
-        </CommentsWrapper>
-      </Wrapper>
-    )
-  }
+      </BodyHeaderWrapper>
+      <Maybe test={viewingData.poster}>
+        <a href={viewingData.link} rel="noopener noreferrer" target="_blank">
+          <VideoPoster poster={viewingData.poster} />
+        </a>
+        <VideoInfoCard data={viewingData} />
+      </Maybe>
+      <CommentsWrapper>
+        <Comments />
+      </CommentsWrapper>
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('videoViewer'))(observer(VideoViewerContainer))
