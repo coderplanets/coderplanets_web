@@ -4,8 +4,9 @@
  *
  */
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
 import { makeDebugger, storePlug, THREAD } from 'utils'
@@ -22,67 +23,56 @@ import LastSyncInfo from './LastSyncInfo'
 
 import { Wrapper, ReactionWrapper } from './styles'
 
-import * as logic from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ArticleViewerHeader')
 
-class ArticleViewerHeaderContainer extends React.Component {
-  componentDidMount() {
-    const { articleViewerHeader } = this.props
-    logic.init(articleViewerHeader)
-  }
+const ArticleViewerHeaderContainer = ({
+  articleViewerHeader,
+  thread,
+  author,
+  company,
+  data,
+  showFavorite,
+  showLastSync,
+  showStar,
+}) => {
+  useInit(articleViewerHeader)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { starLoading, favoriteLoading } = articleViewerHeader
 
-  render() {
-    const {
-      thread,
-      author,
-      company,
-      data,
-      showFavorite,
-      showLastSync,
-      showStar,
-    } = this.props
-
-    const { articleViewerHeader } = this.props
-    const { starLoading, favoriteLoading } = articleViewerHeader
-
-    return (
-      <Wrapper>
-        <FavoritesCats />
-        <Maybe test={author && !company}>
-          <UserInfo author={author} insertedAt={data.insertedAt} />
-        </Maybe>
-        <Maybe test={company}>
-          <CompanyInfo
-            company={company}
-            insertedAt={data.insertedAt}
-            author={author}
-          />
-        </Maybe>
-        <ReactionWrapper>
-          <FavoriteReaction
-            show={showFavorite}
-            data={data}
-            thread={thread}
-            loading={favoriteLoading}
-          />
-          <StarReaction
-            show={showStar}
-            data={data}
-            thread={thread}
-            loading={starLoading}
-          />
-          <ViewCounter data={data} />
-          <LastSyncInfo show={showLastSync} data={data} />
-        </ReactionWrapper>
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <FavoritesCats />
+      <Maybe test={author && !company}>
+        <UserInfo author={author} insertedAt={data.insertedAt} />
+      </Maybe>
+      <Maybe test={company}>
+        <CompanyInfo
+          company={company}
+          insertedAt={data.insertedAt}
+          author={author}
+        />
+      </Maybe>
+      <ReactionWrapper>
+        <FavoriteReaction
+          show={showFavorite}
+          data={data}
+          thread={thread}
+          loading={favoriteLoading}
+        />
+        <StarReaction
+          show={showStar}
+          data={data}
+          thread={thread}
+          loading={starLoading}
+        />
+        <ViewCounter data={data} />
+        <LastSyncInfo show={showLastSync} data={data} />
+      </ReactionWrapper>
+    </Wrapper>
+  )
 }
 
 ArticleViewerHeaderContainer.propTypes = {
