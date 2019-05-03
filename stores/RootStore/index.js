@@ -20,7 +20,7 @@ import {
   // domain
   RouteStore,
   AccountStore,
-  BodylayoutStore,
+  GlobalLayoutStore,
   HeaderStore,
   ContentStore,
   ViewingStore,
@@ -128,7 +128,7 @@ const rootStore = t
 
     // layouts > xxx > papers
     // layouts
-    bodylayout: t.optional(BodylayoutStore, {}),
+    globalLayout: t.optional(GlobalLayoutStore, {}),
     header: t.optional(HeaderStore, {}),
     content: t.optional(ContentStore, {}),
     // layouts end

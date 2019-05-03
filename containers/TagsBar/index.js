@@ -6,7 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 
 import { ICON_CMD } from 'config'
 
@@ -29,106 +30,55 @@ import {
   TagOptionsWrapper,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit, onTagSelect } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:TagsBar')
 
-class TagsBarContainer extends React.Component {
-  componentDidMount() {
-    const { tagsBar, thread, topic, active } = this.props
-    logic.init(tagsBar, thread, topic, active)
-  }
+const TagsBarContainer = ({ tagsBar, thread, topic, active, onSelect }) => {
+  useInit(tagsBar, thread, topic, active)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { tagsData, activeTagData } = tagsBar
 
-  onSelect(tag) {
-    const { onSelect } = this.props
+  const sortedTags = sortByColor(tagsData)
+  const emptytag = { id: '', title: '', color: '' }
 
-    logic.onTagSelect(tag)
-    onSelect(tag)
-  }
+  return (
+    <Wrapper>
+      {activeTagData.title && (
+        <TagItem onClick={onTagSelect(emptytag, onSelect)}>
+          <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
+          <TagTitle>全部</TagTitle>
+        </TagItem>
+      )}
 
-  render() {
-    const { tagsBar } = this.props
-    const { tagsData, activeTagData } = tagsBar
-
-    const sortedTags = sortByColor(tagsData)
-
-    return (
-      <Wrapper>
-        {activeTagData.title && (
-          <TagItem
-            onClick={this.onSelect.bind(this, { id: '', title: '', color: '' })}
+      {sortedTags.map(({ id, color, title }) => (
+        <TagItem key={id}>
+          <TagDot color={color} active={activeTagData.title} title={title} />
+          <TagTitle
+            active={activeTagData.title}
+            title={title}
+            color={color}
+            onClick={onTagSelect({ id, title, color }, onSelect)}
           >
-            <AllTagIcon src={`${ICON_CMD}/all_tags.svg`} />
-            <TagTitle>全部</TagTitle>
-          </TagItem>
-        )}
-
-        {sortedTags.map(tag => (
-          <TagItem key={tag.id}>
-            <TagDot
-              color={tag.color}
-              active={activeTagData.title}
-              title={tag.title}
-              onClick={this.onSelect.bind(this, {
-                id: tag.id,
-                title: tag.title,
-                color: tag.color,
-              })}
+            {Trans(title)}
+          </TagTitle>
+          <TagOptionsWrapper>
+            <TagOptions
+              onInclude={onTagSelect({ id, title, color }, onSelect)}
             />
-            <TagTitle
-              active={activeTagData.title}
-              title={tag.title}
-              color={tag.color}
-              onClick={this.onSelect.bind(this, {
-                id: tag.id,
-                title: tag.title,
-                color: tag.color,
-              })}
-            >
-              {Trans(tag.title)}
-            </TagTitle>
-            <TagOptionsWrapper>
-              <TagOptions
-                onInclude={this.onSelect.bind(this, {
-                  id: tag.id,
-                  title: tag.title,
-                  color: tag.color,
-                })}
-              />
-            </TagOptionsWrapper>
-          </TagItem>
-        ))}
-      </Wrapper>
-    )
-  }
+          </TagOptionsWrapper>
+        </TagItem>
+      ))}
+    </Wrapper>
+  )
 }
 
 TagsBarContainer.propTypes = {
   tagsBar: PropTypes.object.isRequired,
   thread: PropTypes.string,
   topic: PropTypes.string,
-  /*
-     tags: PropTypes.arrayOf(
-     PropTypes.shape({
-     color: PropTypes.string,
-     title: PropTypes.string,
-     })
-     ).isRequired,
-   */
-
-  /*
-     active: PropTypes.shape({
-     color: PropTypes.string,
-     title: PropTypes.string,
-     }),
-   */
   onSelect: PropTypes.func.isRequired,
-  // https://www.npmjs.com/package/prop-types
   active: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,

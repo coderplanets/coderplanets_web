@@ -1010,7 +1010,7 @@
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
+  resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
 
 "@types/prop-types@*":
   version "15.7.0"
@@ -2944,7 +2944,7 @@ cosmiconfig@^4.0.0:
 
 cosmiconfig@^5.2.0:
   version "5.2.0"
-  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
+  resolved "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
   dependencies:
     import-fresh "^2.0.0"
     is-directory "^0.3.1"
@@ -3885,6 +3885,10 @@ eslint-plugin-prettier@3.0.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
+eslint-plugin-react-hooks@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.6.0.tgz#348efcda8fb426399ac7b8609607c7b4025a6f5f"
+
 eslint-plugin-react@7.11.0:
   version "7.11.0"
   resolved "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.11.0.tgz#b3124af974c4da978e62a57ea49a7bc26f11e76d"
@@ -4691,7 +4695,7 @@ get-stdin@^6.0.0:
 
 get-stdin@^7.0.0:
   version "7.0.0"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-7.0.0.tgz#8d5de98f15171a125c5e516643c7a6d0ea8a96f6"
+  resolved "https://registry.npmjs.org/get-stdin/-/get-stdin-7.0.0.tgz#8d5de98f15171a125c5e516643c7a6d0ea8a96f6"
 
 get-stream@^3.0.0:
   version "3.0.0"
@@ -5176,9 +5180,9 @@ https-proxy-agent@2.2.1:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-husky@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-2.0.0.tgz#fdc232f6e44af8257d86602c34105673ce532c79"
+husky@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/husky/-/husky-2.1.0.tgz#f486dd063596ad3aad4bbbcd8673ca5bface3caa"
   dependencies:
     cosmiconfig "^5.2.0"
     execa "^1.0.0"
@@ -6125,9 +6129,16 @@ js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.13.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
+js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
   version "3.13.0"
   resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-3.13.0.tgz#38ee7178ac0eea2c97ff6d96fff4b18c7d8cf98e"
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.13.0:
+  version "3.13.1"
+  resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -7015,6 +7026,10 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mobx-react-lite@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-1.2.0.tgz#c7f512f1387b70cbcfc6d9214fbff363a1f2d70b"
 
 mobx-react@5.4.3:
   version "5.4.3"
@@ -7931,7 +7946,7 @@ pkg-dir@^3.0.0:
 
 pkg-dir@^4.1.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-4.1.0.tgz#aaeb91c0d3b9c4f74a44ad849f4de34781ae01de"
+  resolved "https://registry.npmjs.org/pkg-dir/-/pkg-dir-4.1.0.tgz#aaeb91c0d3b9c4f74a44ad849f4de34781ae01de"
   dependencies:
     find-up "^3.0.0"
 
@@ -8914,8 +8929,8 @@ read-pkg@^3.0.0:
     path-type "^3.0.0"
 
 read-pkg@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.1.0.tgz#62b924384c4525a1a7a96e2d456b80df142b4390"
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/read-pkg/-/read-pkg-5.1.1.tgz#5cf234dde7a405c90c88a519ab73c467e9cb83f5"
   dependencies:
     "@types/normalize-package-data" "^2.4.0"
     normalize-package-data "^2.5.0"
@@ -10300,7 +10315,7 @@ type-check@~0.3.2:
 
 type-fest@^0.4.1:
   version "0.4.1"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.4.1.tgz#8bdf77743385d8a4f13ba95f610f5ccd68c728f8"
+  resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.4.1.tgz#8bdf77743385d8a4f13ba95f610f5ccd68c728f8"
 
 type-is@~1.6.16:
   version "1.6.16"

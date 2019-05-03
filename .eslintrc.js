@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['airbnb', 'plugin:react/recommended', 'prettier', 'prettier/react'],
-  plugins: ['prettier', 'react', 'cypress'],
+  plugins: ['prettier', 'react', 'cypress', 'react-hooks'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2016,
@@ -57,5 +57,7 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 }

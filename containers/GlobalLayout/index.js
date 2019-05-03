@@ -1,6 +1,6 @@
 /*
  *
- * BodyLayout
+ * GlobalLayout
  *
  */
 
@@ -17,12 +17,12 @@ import { storePlug } from 'utils'
 import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
 import * as logic from './logic'
 
-class BodyLayoutContainer extends React.Component {
+class GlobalLayoutContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    const { bodylayout } = props
-    logic.init(bodylayout)
+    const { globalLayout } = props
+    logic.init(globalLayout)
   }
 
   /* eslint-disable class-methods-use-this */
@@ -34,8 +34,8 @@ class BodyLayoutContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { bodylayout, children, noSidebar } = this.props
-    const { sidebarPin } = bodylayout
+    const { globalLayout, children, noSidebar } = this.props
+    const { sidebarPin } = globalLayout
 
     return (
       <Wrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
@@ -48,15 +48,17 @@ class BodyLayoutContainer extends React.Component {
   }
 }
 
-BodyLayoutContainer.propTypes = {
+GlobalLayoutContainer.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
-  bodylayout: PropTypes.object.isRequired,
+  globalLayout: PropTypes.object.isRequired,
   noSidebar: PropTypes.bool,
 }
 
-BodyLayoutContainer.defaultProps = {
+GlobalLayoutContainer.defaultProps = {
   children: <div />,
   noSidebar: false,
 }
 
-export default inject(storePlug('bodylayout'))(observer(BodyLayoutContainer))
+export default inject(storePlug('globalLayout'))(
+  observer(GlobalLayoutContainer)
+)

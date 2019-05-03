@@ -39,7 +39,15 @@ class LocationMap extends React.Component {
       setTimeout(() => {
         this.initG2()
       }, 500)
+
+      setTimeout(() => {
+        const curWidth = document.getElementById(this.chartId).offsetWidth
+        this.onResize(curWidth)
+      }, 1500)
+
+      return false
     }
+    return true
   }
 
   onResize(width) {
@@ -88,56 +96,60 @@ class LocationMap extends React.Component {
           map.push({ name })
         }
 
-        this.chart = new G2.Chart({
-          id: this.chartId,
-          height: 500,
-          plotCfg: {
-            margin: [10, 105],
-            border: {
-              fill: oceanColor,
+        try {
+          this.chart = new G2.Chart({
+            id: this.chartId,
+            height: 500,
+            plotCfg: {
+              margin: [10, 105],
+              border: {
+                fill: oceanColor,
+              },
             },
-          },
-        })
-
-        this.configG2()
-
-        const bgView = this.chart.createView()
-        bgView.source(map)
-        bgView.tooltip(false)
-        bgView.axis(false)
-        bgView
-          .polygon()
-          .position(Stat.map.region('name', mapData))
-          .color('name', val => {
-            if (val === 'China') {
-              return regionBg
-            }
-            return restRegionBg
-          })
-          .style({
-            stroke: borderStroke,
-            lineWidth: 1,
           })
 
-        const pointView = this.chart.createView()
+          this.configG2()
 
-        const { markers } = this.props
-        pointView.source(markers, {
-          value: { alias: '人数' },
-          city: { alias: '城市' },
-        })
-        pointView
-          .point()
-          .position(Stat.map.location('long*lant'))
-          .size('value', 12, 1)
-          .color('value', () => markerBg)
-          .tooltip('city*value')
-          .shape('value', () => 'circle')
-          .style({
-            shadowBlur: 5,
-            shadowColor: markerShadow,
+          const bgView = this.chart.createView()
+          bgView.source(map)
+          bgView.tooltip(false)
+          bgView.axis(false)
+          bgView
+            .polygon()
+            .position(Stat.map.region('name', mapData))
+            .color('name', val => {
+              if (val === 'China') {
+                return regionBg
+              }
+              return restRegionBg
+            })
+            .style({
+              stroke: borderStroke,
+              lineWidth: 1,
+            })
+
+          const pointView = this.chart.createView()
+
+          const { markers } = this.props
+          pointView.source(markers, {
+            value: { alias: '人数' },
+            city: { alias: '城市' },
           })
-        this.chart.render()
+          pointView
+            .point()
+            .position(Stat.map.location('long*lant'))
+            .size('value', 12, 1)
+            .color('value', () => markerBg)
+            .tooltip('city*value')
+            .shape('value', () => 'circle')
+            .style({
+              shadowBlur: 5,
+              shadowColor: markerShadow,
+            })
+          this.chart.render()
+        } catch (e) {
+          debug('init g2 chart error: ', e)
+        }
       })
       .catch(ex => debug('parsing failed', ex))
   }

@@ -18,12 +18,11 @@ export const Wrapper = styled.div`
   position: relative;
   animation: ${animate.fadeInRightRule};
 `
-
-export const AvatarPic = styled.img`
+export const AvatarPic = styled(Img)`
   ${cs.circle('70px')};
   margin-bottom: 30px;
+  display: block;
 `
-
 export const BackIcon = styled(Img)`
   fill: ${theme('font')};
   width: 20px;
@@ -39,57 +38,9 @@ export const BackIcon = styled(Img)`
   }
   transition: opacity 0.2s;
 `
-
-const SexIcon = styled(Img)`
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  margin-left: 5px;
-  cursor: pointer;
+export const FormsWrapper = styled.div`
+  ${cs.flexColumn('align-center')};
 `
-
-/* fill: ${props => */
-/* props.active === props.item ? theme('font', props) : 'grey'}; */
-export const Dude = styled.div``
-export const Girl = styled.div``
-export const DudeIcon = styled(SexIcon)`
-  fill: ${({ value }) =>
-    value === 'dude' ? '#869eec' : theme('preview.divider')};
-`
-
-export const GirlIcon = styled(SexIcon)`
-  fill: ${({ value }) =>
-    value === 'girl' ? 'pink' : theme('preview.divider')};
-  margin-top: 1px;
-`
-export const SexLable = styled.div`
-  font-size: 1em;
-  color: ${theme('form.label')};
-  margin-right: 10px;
-`
-
-export const SexInput = styled.div`
-  ${cs.flex()};
-  width: 250px;
-`
-
-export const FormItemWrapper = styled.div`
-  ${cs.flex()};
-  margin-bottom: 25px;
-`
-export const FormLable = styled.div`
-  font-size: 0.9rem;
-  color: ${theme('form.label')};
-  margin-right: 10px;
-  margin-top: 5px;
-  width: auto;
-  text-align: right;
-`
-
-export const FormInput = styled.div`
-  width: 250px;
-`
-
 export const Divider = styled.div`
   border-top: 1px solid;
   border-top-color: ${theme('preview.divider')};

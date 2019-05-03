@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import BodyLayout from '../index'
+// import GlobalLayout from '../index'
 
-describe('<BodyLayout />', () => {
+describe('<GlobalLayout />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })
