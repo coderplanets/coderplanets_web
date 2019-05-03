@@ -5,19 +5,21 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+
+import { makeDebugger, storePlug, TYPE } from 'utils'
 
 import EmptyLabel from 'components/EmptyLabel'
 import Modal from 'components/Modal'
 import SearchingLabel from 'components/SearchingLabel'
 
-import { makeDebugger, storePlug, TYPE } from 'utils'
 import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import { Wrapper, MsgWrapper } from './styles'
 
-import * as logic from './logic'
+import { useInit, onClose, onPageChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserLister')
@@ -43,49 +45,39 @@ const renderContent = (curView, pagedUsersData, accountInfo) => {
         <UserList
           data={pagedUsersData}
           accountInfo={accountInfo}
-          onPageChange={logic.onPageChange}
+          onPageChange={onPageChange}
         />
       )
   }
 }
 
-class UserListerContainer extends React.Component {
-  componentDidMount() {
-    const { userLister } = this.props
-    logic.init(userLister)
-  }
+const UserListerContainer = ({ userLister }) => {
+  useInit(userLister)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const {
+    curView,
+    show,
+    type,
+    brief,
+    pagedUsersData,
+    accountInfo,
+    curCommunity,
+  } = userLister
 
-  render() {
-    const { userLister } = this.props
-    const {
-      curView,
-      show,
-      type,
-      brief,
-      pagedUsersData,
-      accountInfo,
-      curCommunity,
-    } = userLister
+  return (
+    <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
+      <Wrapper>
+        <HeaderInfo
+          type={type}
+          brief={brief}
+          totalCount={pagedUsersData.totalCount}
+          curCommunity={curCommunity}
+        />
 
-    return (
-      <Modal width="700px" show={show} showCloseBtn onClose={logic.onClose}>
-        <Wrapper>
-          <HeaderInfo
-            type={type}
-            brief={brief}
-            totalCount={pagedUsersData.totalCount}
-            curCommunity={curCommunity}
-          />
-
-          {renderContent(curView, pagedUsersData, accountInfo)}
-        </Wrapper>
-      </Modal>
-    )
-  }
+        {renderContent(curView, pagedUsersData, accountInfo)}
+      </Wrapper>
+    </Modal>
+  )
 }
 
 export default inject(storePlug('userLister'))(observer(UserListerContainer))
