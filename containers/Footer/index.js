@@ -5,7 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import dynamic from 'next/dynamic'
 
 import { makeDebugger, storePlug } from 'utils'
@@ -18,7 +19,7 @@ import DigestView from './DigestView'
 import BussinessNote from './BussinessNote'
 
 import {
-  init,
+  useInit,
   toggleSponsorHelper,
   toggleBusBanner,
   onLogin,
@@ -35,33 +36,27 @@ const DynamicBuyMeChuanChuan = dynamic({
   /* eslint-enable */
 })
 
-class FooterContainer extends React.Component {
-  componentDidMount() {
-    const { footer } = this.props
-    init(footer)
-  }
+const FooterContainer = ({ footer }) => {
+  useInit(footer)
 
-  render() {
-    const { footer } = this.props
-    const { showSponsor, showBusBanner, curView } = footer
+  const { showSponsor, showBusBanner, curView } = footer
 
-    return (
-      <div data-testid="footer">
-        <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
-          <BussinessNote />
-        </Modal>
+  return (
+    <div data-testid="footer">
+      <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
+        <BussinessNote />
+      </Modal>
 
-        <DynamicBuyMeChuanChuan
-          show={showSponsor}
-          onClose={toggleSponsorHelper}
-          onLogin={onLogin}
-          onPay={onPay}
-        />
+      <DynamicBuyMeChuanChuan
+        show={showSponsor}
+        onClose={toggleSponsorHelper}
+        onLogin={onLogin}
+        onPay={onPay}
+      />
 
-        {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
-      </div>
-    )
-  }
+      {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
+    </div>
+  )
 }
 
 export default inject(storePlug('footer'))(observer(FooterContainer))
