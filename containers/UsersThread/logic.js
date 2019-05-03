@@ -37,7 +37,6 @@ const DataSolver = [
   {
     match: asyncRes('communityGeoInfo'),
     action: ({ communityGeoInfo: geoInfos }) => {
-      debug('communityGeoInfo->:  ', geoInfos)
       markLoading(false)
       store.markState({ geoInfos })
     },
