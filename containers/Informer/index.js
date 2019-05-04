@@ -6,66 +6,52 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+
+import { ICON_CMD } from 'config'
+import { makeDebugger, storePlug } from 'utils'
 
 import Modal from 'components/Modal'
-import { ICON_CMD } from 'config'
-
-import { makeDebugger, storePlug } from 'utils'
-import { Wrapper, Title, Icon } from './styles'
-
 import Header from './Header'
 import Overview from './Overview'
 import Form from './Form'
 
-import * as logic from './logic'
+import { Wrapper, Title, Icon } from './styles'
+import { useInit, toggleModal } from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Informer')
 
-class InformerContainer extends React.Component {
-  componentDidMount() {
-    const { informer } = this.props
-    logic.init(informer)
-  }
+const InformerContainer = ({ informer, title, children }) => {
+  useInit(informer)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { showModal, curView, viewingData, type, message } = informer
 
-  render() {
-    const { informer, title, children } = this.props
-    const { showModal, curView, viewingData, type, message } = informer
-
-    return (
-      <React.Fragment>
-        <Modal
-          width="500px"
-          show={showModal}
-          showCloseBtn
-          onClose={logic.toggleModal}
-        >
-          <React.Fragment>
-            <Header data={viewingData} />
-            {curView === 'form' ? (
-              <Form type={type} message={message} />
-            ) : (
-              <Overview />
-            )}
-          </React.Fragment>
-        </Modal>
+  return (
+    <React.Fragment>
+      <Modal width="500px" show={showModal} showCloseBtn onClose={toggleModal}>
         <React.Fragment>
-          {children ? (
-            <React.Fragment>{children}</React.Fragment>
+          <Header data={viewingData} />
+          {curView === 'form' ? (
+            <Form type={type} message={message} />
           ) : (
-            <Wrapper onClick={logic.toggleModal}>
-              <Icon src={`${ICON_CMD}/flag.svg`} />
-              <Title>{title}</Title>
-            </Wrapper>
+            <Overview />
           )}
         </React.Fragment>
+      </Modal>
+      <React.Fragment>
+        {children ? (
+          <React.Fragment>{children}</React.Fragment>
+        ) : (
+          <Wrapper onClick={toggleModal}>
+            <Icon src={`${ICON_CMD}/flag.svg`} />
+            <Title>{title}</Title>
+          </Wrapper>
+        )}
       </React.Fragment>
-    )
-  }
+    </React.Fragment>
+  )
 }
 
 InformerContainer.propTypes = {
