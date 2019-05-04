@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 // import R from 'ramda'
 
 import {
@@ -57,17 +58,23 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+export const holder = 1
 
-  debug(store)
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-}
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store =>
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-export const uninit = () => {
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
+      return () => {
+        // debug('effect uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
