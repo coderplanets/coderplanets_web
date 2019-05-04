@@ -5,62 +5,47 @@
  */
 
 import React from 'react'
-import keydown, { Keys } from 'react-keydown'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+import Hotkeys from 'react-hot-keys'
+
+import { makeDebugger, storePlug } from 'utils'
 
 import Modal from 'components/Modal'
-import { makeDebugger, storePlug } from 'utils'
 import Header from './Header'
 import Details from './Details'
 import Footer from './Footer'
 
 import { Wrapper } from './styles'
-
-import * as logic from './logic'
+import { useInit, hide, onClose } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ErrorBox')
 
-const { ESC } = Keys
+const ErrorBoxContainer = ({ errorBox }) => {
+  useInit(errorBox)
 
-class ErrorBoxContainer extends React.Component {
-  componentDidMount() {
-    const { errorBox } = this.props
-    logic.init(errorBox)
-  }
+  const {
+    show,
+    type,
+    operation,
+    path,
+    timeoutError,
+    graphqlType,
+    changesetErrorData,
+    parseErrorData,
+    customErrorData,
+  } = errorBox
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
-
-  @keydown(['ctrl+g', 'ctrl+c', ESC])
-  /* eslint-disable class-methods-use-this */
-  hide() {
-    logic.hide()
-  }
-
-  render() {
-    const { errorBox } = this.props
-    const {
-      show,
-      type,
-      operation,
-      path,
-      timeoutError,
-      graphqlType,
-      changesetErrorData,
-      parseErrorData,
-      customErrorData,
-    } = errorBox
-
-    return (
-      <Modal
-        width="520px"
-        show={show}
-        mode="error"
-        showCloseBtn
-        onClose={logic.onClose}
-      >
+  return (
+    <Modal
+      width="520px"
+      show={show}
+      mode="error"
+      showCloseBtn
+      onClose={onClose}
+    >
+      <Hotkeys keyName="ctrl+g,ctrl+c,esc" onKeyDown={hide}>
         <Wrapper>
           <Header
             type={type}
@@ -79,9 +64,9 @@ class ErrorBoxContainer extends React.Component {
           />
           <Footer />
         </Wrapper>
-      </Modal>
-    )
-  }
+      </Hotkeys>
+    </Modal>
+  )
 }
 
 export default inject(storePlug('errorBox'))(observer(ErrorBoxContainer))

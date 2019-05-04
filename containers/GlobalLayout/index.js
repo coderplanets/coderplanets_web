@@ -6,46 +6,32 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
-import keydown from 'react-keydown'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+import Hotkeys from 'react-hot-keys'
 
-// import Link from 'next/link'
 import { ICON_CMD } from 'config'
-
 import { storePlug } from 'utils'
 
 import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
-import * as logic from './logic'
 
-class GlobalLayoutContainer extends React.Component {
-  constructor(props) {
-    super(props)
+import { useInit, openDoraemon, queryDoraemon } from './logic'
 
-    const { globalLayout } = props
-    logic.init(globalLayout)
-  }
+const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
+  useInit(globalLayout)
 
-  /* eslint-disable class-methods-use-this */
-  @keydown(['ctrl+p'])
-  openDoraemon() {
-    // debug('openDoraemon')
-    logic.openDoraemon()
-  }
-  /* eslint-enable class-methods-use-this */
+  const { sidebarPin } = globalLayout
 
-  render() {
-    const { globalLayout, children, noSidebar } = this.props
-    const { sidebarPin } = globalLayout
-
-    return (
+  return (
+    <Hotkeys keyName="ctrl+p" onKeyDown={openDoraemon}>
       <Wrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
-        <SubCommunitiesExpander onClick={logic.queryDoraemon.bind(this, '/')}>
+        <SubCommunitiesExpander onClick={queryDoraemon('/')}>
           <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
         </SubCommunitiesExpander>
         {children}
       </Wrapper>
-    )
-  }
+    </Hotkeys>
+  )
 }
 
 GlobalLayoutContainer.propTypes = {

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -239,22 +240,28 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store =>
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  /*
-     NOTE: city communities list is not supported by SSR
-     need load manully
-   */
-  loadCityCommunities()
-}
+      /*
+         NOTE: city communities list is not supported by SSR
+         need load manully
+       */
+      loadCityCommunities()
 
-export const uninit = () => {
-  if (store.curView === TYPE.LOADING || !sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
+      return () => {
+        if (store.curView === TYPE.LOADING || !sub$) return false
+        // debug('===== do uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )

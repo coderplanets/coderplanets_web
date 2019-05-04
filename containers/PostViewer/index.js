@@ -6,7 +6,8 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
 import { makeDebugger, storePlug, THREAD } from 'utils'
@@ -28,59 +29,49 @@ import {
   Footer,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit, onTagSelect, onTagUnselect, onCommentCreate } from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:PostViewer')
 
-class PostViewerContainer extends React.Component {
-  componentDidMount() {
-    const { postViewer, attachment } = this.props
-    logic.init(postViewer, attachment)
-  }
+const PostViewerContainer = ({ postViewer, attachment }) => {
+  useInit(postViewer, attachment)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { curCommunity, viewingData, loading } = postViewer
+  const tagTitleList = R.pluck('title', viewingData.tags)
 
-  render() {
-    const { postViewer } = this.props
-    const { curCommunity, viewingData, loading } = postViewer
-
-    const tagTitleList = R.pluck('title', viewingData.tags)
-
-    return (
-      <React.Fragment>
-        <ArticleViewerHeader data={viewingData} author={viewingData.author} />
-        <BodyWrapper>
-          <ArticleBodyHeader
-            communityRaw={curCommunity.raw}
-            thread={THREAD.POST}
-            data={viewingData}
+  return (
+    <React.Fragment>
+      <ArticleViewerHeader data={viewingData} author={viewingData.author} />
+      <BodyWrapper>
+        <ArticleBodyHeader
+          communityRaw={curCommunity.raw}
+          thread={THREAD.POST}
+          data={viewingData}
+        />
+        <ArticleTitle>{viewingData.title}</ArticleTitle>
+        <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
+          <ArticleBody>
+            <MarkDownRender body={viewingData.body} />
+          </ArticleBody>
+        </Maybe>
+        <Footer>
+          <Labeler
+            passport={`${curCommunity.raw}->${THREAD.POST}.tag.set`}
+            ownerId={viewingData.author && viewingData.author.id}
+            fallbackProps="readOnly"
+            onTagSelect={onTagSelect}
+            onTagUnselect={onTagUnselect}
+            selected={tagTitleList}
           />
-          <ArticleTitle>{viewingData.title}</ArticleTitle>
-          <Maybe test={!loading} loading={<ArticleContentLoading num={2} />}>
-            <ArticleBody>
-              <MarkDownRender body={viewingData.body} />
-            </ArticleBody>
-          </Maybe>
-          <Footer>
-            <Labeler
-              passport={`${curCommunity.raw}->${THREAD.POST}.tag.set`}
-              ownerId={viewingData.author && viewingData.author.id}
-              fallbackProps="readOnly"
-              onTagSelect={logic.onTagSelect}
-              onTagUnselect={logic.onTagUnselect}
-              selected={tagTitleList}
-            />
-          </Footer>
-        </BodyWrapper>
+        </Footer>
+      </BodyWrapper>
 
-        <CommentsWrapper>
-          <Comments onCreate={logic.onCommentCreate} />
-        </CommentsWrapper>
-      </React.Fragment>
-    )
-  }
+      <CommentsWrapper>
+        <Comments onCreate={onCommentCreate} />
+      </CommentsWrapper>
+    </React.Fragment>
+  )
 }
 
 PostViewerContainer.propTypes = {

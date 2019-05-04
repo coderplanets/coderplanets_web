@@ -5,20 +5,21 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
 import { makeDebugger, storePlug, THREAD } from 'utils'
+
+import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from 'containers/Comments'
+import ArticleAuthorCard from 'containers/ArticleAuthorCard'
+import ContentSourceCard from 'components/ContentSourceCard'
 
 import Maybe from 'components/Maybe'
 import VideoPoster from 'components/VideoPoster'
 import VideoInfoCard from 'components/VideoInfoCard'
 
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
-import Comments from 'containers/Comments'
-
-import ArticleAuthorCard from 'containers/ArticleAuthorCard'
-import ContentSourceCard from 'components/ContentSourceCard'
 import SideCards from './SideCards'
 
 import {
@@ -30,71 +31,61 @@ import {
   MobileWrapper,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:VideoContent')
 
-class VideoContentContainer extends React.Component {
-  componentDidMount() {
-    const { videoContent } = this.props
-    logic.init(videoContent)
-  }
+const VideoContentContainer = ({ videoContent }) => {
+  useInit(videoContent)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { curRoute, viewingData } = videoContent
+  const { mainPath: communityRaw } = curRoute
 
-  render() {
-    const { videoContent } = this.props
-    const { curRoute, viewingData } = videoContent
-    const { mainPath: communityRaw } = curRoute
-
-    return (
-      <Wrapper>
-        <Maybe test={viewingData.id}>
-          <React.Fragment>
-            <MainWrapper>
-              <ArticleWrapper>
-                <BodyHeaderWrapper>
-                  <ArticleBodyHeader
-                    communityRaw={communityRaw}
-                    thread={THREAD.VIDEO}
-                    data={viewingData}
-                  />
-                </BodyHeaderWrapper>
-                <Maybe test={viewingData.poster}>
-                  <a
-                    href={viewingData.link}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <VideoPoster poster={viewingData.poster} />
-                  </a>
-                  <VideoInfoCard data={viewingData} />
-                </Maybe>
-              </ArticleWrapper>
-
-              <MobileWrapper>
-                <ArticleAuthorCard
-                  user={viewingData.author}
-                  introTitle="发布者"
+  return (
+    <Wrapper>
+      <Maybe test={viewingData.id}>
+        <React.Fragment>
+          <MainWrapper>
+            <ArticleWrapper>
+              <BodyHeaderWrapper>
+                <ArticleBodyHeader
+                  communityRaw={communityRaw}
+                  thread={THREAD.VIDEO}
+                  data={viewingData}
                 />
-                <ContentSourceCard data={viewingData} />
-              </MobileWrapper>
+              </BodyHeaderWrapper>
+              <Maybe test={viewingData.poster}>
+                <a
+                  href={viewingData.link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <VideoPoster poster={viewingData.poster} />
+                </a>
+                <VideoInfoCard data={viewingData} />
+              </Maybe>
+            </ArticleWrapper>
 
-              <CommentsWrapper>
-                <Comments />
-              </CommentsWrapper>
-            </MainWrapper>
-            <Affix offsetTop={30}>
-              <SideCards data={viewingData} />
-            </Affix>
-          </React.Fragment>
-        </Maybe>
-      </Wrapper>
-    )
-  }
+            <MobileWrapper>
+              <ArticleAuthorCard
+                user={viewingData.author}
+                introTitle="发布者"
+              />
+              <ContentSourceCard data={viewingData} />
+            </MobileWrapper>
+
+            <CommentsWrapper>
+              <Comments />
+            </CommentsWrapper>
+          </MainWrapper>
+          <Affix offsetTop={30}>
+            <SideCards data={viewingData} />
+          </Affix>
+        </React.Fragment>
+      </Maybe>
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('videoContent'))(

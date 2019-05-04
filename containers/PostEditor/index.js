@@ -6,8 +6,9 @@
 
 import React from 'react'
 /* import PropTypes from 'prop-types' */
-import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 
 import { makeDebugger, storePlug } from 'utils'
 
@@ -23,8 +24,7 @@ import RadarNote from './RadarNote'
 import { Wrapper, ViewerWrapper } from './styles'
 
 import {
-  init,
-  uninit,
+  useInit,
   changeView,
   onPublish,
   canclePublish,
@@ -74,71 +74,55 @@ const View = ({
   return <DynamicMarkDownHelper />
 }
 
-// TODO: use input in old IE
-class PostEditorContainer extends React.Component {
-  // must use constructor, Draft thing
-  constructor(props) {
-    super(props)
-    const { postEditor, attachment } = props
+const PostEditorContainer = ({ postEditor, attachment }) => {
+  useInit(postEditor, attachment)
 
-    init(postEditor, attachment)
-  }
+  const {
+    copyRight,
+    thread,
+    curView,
+    publishing,
+    isEdit,
+    editData,
+    mentionListData,
+    referUsersData,
+    contentDomId,
+    showRadarNote,
+  } = postEditor
 
-  componentWillUnmount() {
-    debug('TODO: store state to localstarange')
-    uninit()
-  }
-
-  render() {
-    const { postEditor } = this.props
-
-    const {
-      copyRight,
-      thread,
-      curView,
-      publishing,
-      isEdit,
-      editData,
-      mentionListData,
-      referUsersData,
-      contentDomId,
-      showRadarNote,
-    } = postEditor
-
-    return (
-      <Wrapper>
-        <Modal
-          width="600px"
-          show={showRadarNote}
-          showCloseBtn
-          onClose={onRadarNoteCLose}
-        >
-          <RadarNote />
-        </Modal>
-        <Header
-          isEdit={isEdit}
-          curView={curView}
-          thread={thread}
-          referUsers={referUsersData}
-        />
-        <View
-          curView={curView}
-          editData={editData}
-          isEdit={isEdit}
-          thread={thread}
-          copyRight={copyRight}
-          mentionList={mentionListData}
-          contentDomId={contentDomId}
-        />
-        <ArticleEditFooter
-          isEdit={isEdit}
-          publishing={publishing}
-          onCancle={canclePublish}
-          onPublish={onPublish}
-        />
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <Modal
+        width="600px"
+        show={showRadarNote}
+        showCloseBtn
+        onClose={onRadarNoteCLose}
+      >
+        <RadarNote />
+      </Modal>
+      <Header
+        isEdit={isEdit}
+        curView={curView}
+        thread={thread}
+        referUsers={referUsersData}
+      />
+      <View
+        curView={curView}
+        editData={editData}
+        isEdit={isEdit}
+        thread={thread}
+        copyRight={copyRight}
+        mentionList={mentionListData}
+        contentDomId={contentDomId}
+      />
+      <ArticleEditFooter
+        isEdit={isEdit}
+        publishing={publishing}
+        onCancle={canclePublish}
+        onPublish={onPublish}
+      />
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
