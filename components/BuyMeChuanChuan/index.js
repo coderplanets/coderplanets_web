@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
@@ -35,73 +35,52 @@ import {
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Footer:index')
 
-class BuyMeChuanChuan extends React.Component {
-  constructor(props) {
-    super(props)
+const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
+  const [activeChuan, setActiveChuan] = useState(1)
 
-    this.state = { activeChuan: 1 }
-  }
+  return (
+    <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
+      <Wrapper>
+        <Header>
+          {!R.isEmpty(fromUser) ? (
+            <UserCell user={fromUser} />
+          ) : (
+            <UnloginNote onLogin={onLogin} />
+          )}
+        </Header>
+        <BuyChuanChuan>
+          <ChuanChuanDesc>
+            <FoodPic src={`${ICON_CMD}/food.png`} />
+          </ChuanChuanDesc>
+          <ChuanChuanSelect>
+            <SelectTitle>
+              请{' '}
+              <TeamName
+                href={GITHUB_CPS_TEAM}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                开发者们
+                <NameLinkIcon src={`${ICON_CMD}/link2.svg`} />
+              </TeamName>{' '}
+              撸个串
+            </SelectTitle>
 
-  componentWillUnmount() {}
+            <SelectDesc>
+              你的资助将主要用于 coderplanets
+              网站的开发和维护，使之更加稳定可靠。开源项目的巨大时间和物质成本无法仅靠情怀支撑，望理解。
+            </SelectDesc>
 
-  onChuanSelect(activeChuan) {
-    this.setState({
-      activeChuan,
-    })
-  }
+            <ChuanSelector active={activeChuan} onSelect={setActiveChuan} />
+            <SelectHolder />
 
-  render() {
-    const { show, fromUser, onClose, onLogin, onPay } = this.props
-    const { activeChuan } = this.state
-    return (
-      <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
-        <Wrapper>
-          <Header>
-            {!R.isEmpty(fromUser) ? (
-              <UserCell user={fromUser} />
-            ) : (
-              <UnloginNote onLogin={onLogin} />
-            )}
-          </Header>
-          <BuyChuanChuan>
-            <ChuanChuanDesc>
-              <FoodPic src={`${ICON_CMD}/food.png`} />
-            </ChuanChuanDesc>
-            <ChuanChuanSelect>
-              <SelectTitle>
-                请{' '}
-                <TeamName
-                  href={GITHUB_CPS_TEAM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  开发者们
-                  <NameLinkIcon src={`${ICON_CMD}/link2.svg`} />
-                </TeamName>{' '}
-                撸个串
-              </SelectTitle>
-
-              <SelectDesc>
-                你的资助将主要用于 coderplanets
-                网站的开发和维护，使之更加稳定可靠。开源项目的巨大时间和物质成本无法仅靠情怀支撑，望理解。
-              </SelectDesc>
-
-              <ChuanSelector
-                active={activeChuan}
-                onSelect={this.onChuanSelect.bind(this)}
-              />
-              <SelectHolder />
-
-              <PaymentFooter num={activeChuan} onPay={onPay} />
-            </ChuanChuanSelect>
-          </BuyChuanChuan>
-        </Wrapper>
-      </Modal>
-    )
-  }
+            <PaymentFooter num={activeChuan} onPay={onPay} />
+          </ChuanChuanSelect>
+        </BuyChuanChuan>
+      </Wrapper>
+    </Modal>
+  )
 }
-
-export default BuyMeChuanChuan
 
 BuyMeChuanChuan.propTypes = {
   // https://www.npmjs.com/package/prop-types
@@ -123,3 +102,5 @@ BuyMeChuanChuan.defaultProps = {
   onLogin: debug,
   onPay: debug,
 }
+
+export default BuyMeChuanChuan
