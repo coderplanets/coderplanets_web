@@ -5,7 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
@@ -28,85 +29,84 @@ import {
   PublishBtn,
 } from './styles'
 
-import * as logic from './logic'
+import {
+  useInit,
+  inAnchor,
+  outAnchor,
+  onFilterSelect,
+  onC11NChange,
+  onPreview,
+  onContentCreate,
+  onTagSelect,
+  loadRepos,
+} from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:ReposThread')
 
-class ReposThreadContainer extends React.Component {
-  componentDidMount() {
-    const { reposThread } = this.props
-    logic.init(reposThread)
-  }
+const ReposThreadContainer = ({ reposThread }) => {
+  useInit(reposThread)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const {
+    pagedReposData,
+    curView,
+    filtersData,
+    activeTagData,
+    activeRepo,
+    curRoute,
+    accountInfo,
+    showFilterBar,
+  } = reposThread
 
-  render() {
-    const { reposThread } = this.props
+  const { mainPath } = curRoute
+  const { totalCount } = pagedReposData
 
-    const {
-      pagedReposData,
-      curView,
-      filtersData,
-      activeTagData,
-      activeRepo,
-      curRoute,
-      accountInfo,
-      showFilterBar,
-    } = reposThread
-
-    const { mainPath } = curRoute
-    const { totalCount } = pagedReposData
-
-    return (
-      <Wrapper>
-        <LeftPadding />
-        <LeftPart>
-          <Waypoint onEnter={logic.inAnchor} onLeave={logic.outAnchor} />
-          <Maybe test={showFilterBar}>
-            <FilterWrapper>
-              <ContentFilter
-                thread={THREAD.REPO}
-                onSelect={logic.onFilterSelect}
-                activeFilter={filtersData}
-                accountInfo={accountInfo}
-                totalCount={totalCount}
-                onC11NChange={logic.onC11NChange}
-              />
-            </FilterWrapper>
-          </Maybe>
-
-          <PagedContents
-            data={pagedReposData}
-            community={mainPath}
-            thread={THREAD.REPO}
-            curView={curView}
-            active={activeRepo}
-            accountInfo={accountInfo}
-            onPreview={logic.onPreview}
-            onPageChange={logic.loadRepos}
-          />
-        </LeftPart>
-
-        <RightPart>
-          <PublishBtn type="primary" onClick={logic.onContentCreate}>
-            <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
-          </PublishBtn>
-
-          <Affix offsetTop={50}>
-            <TagsBar
+  return (
+    <Wrapper>
+      <LeftPadding />
+      <LeftPart>
+        <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
+        <Maybe test={showFilterBar}>
+          <FilterWrapper>
+            <ContentFilter
               thread={THREAD.REPO}
-              active={activeTagData}
-              onSelect={logic.onTagSelect}
+              onSelect={onFilterSelect}
+              activeFilter={filtersData}
+              accountInfo={accountInfo}
+              totalCount={totalCount}
+              onC11NChange={onC11NChange}
             />
-          </Affix>
-        </RightPart>
-        <RightPadding />
-      </Wrapper>
-    )
-  }
+          </FilterWrapper>
+        </Maybe>
+
+        <PagedContents
+          data={pagedReposData}
+          community={mainPath}
+          thread={THREAD.REPO}
+          curView={curView}
+          active={activeRepo}
+          accountInfo={accountInfo}
+          onPreview={onPreview}
+          onPageChange={loadRepos}
+        />
+      </LeftPart>
+
+      <RightPart>
+        <PublishBtn type="primary" onClick={onContentCreate}>
+          <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
+        </PublishBtn>
+
+        <Affix offsetTop={50}>
+          <TagsBar
+            thread={THREAD.REPO}
+            active={activeTagData}
+            onSelect={onTagSelect}
+          />
+        </Affix>
+      </RightPart>
+      <RightPadding />
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('reposThread'))(observer(ReposThreadContainer))
