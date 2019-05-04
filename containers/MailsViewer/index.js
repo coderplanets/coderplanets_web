@@ -5,16 +5,17 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+
+import { ICON_CMD } from 'config/assets'
+import { makeDebugger, storePlug } from 'utils'
 
 import TabSelector from 'components/TabSelector'
-import { ICON_CMD } from 'config/assets'
-
-import { makeDebugger, storePlug } from 'utils'
 import MailLists from './MailLists'
-import { Wrapper } from './styles'
 
-import * as logic from './logic'
+import { Wrapper } from './styles'
+import { useInit, selectChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:MailsViewer')
@@ -40,36 +41,26 @@ const mailTabs = [
   },
 ]
 
-class MailsViewerContainer extends React.Component {
-  componentDidMount() {
-    const { mailsViewer } = this.props
-    logic.init(mailsViewer)
-  }
+const MailsViewerContainer = ({ mailsViewer }) => {
+  useInit(mailsViewer)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const { activeRaw, pagedMentionsData, readState } = mailsViewer
 
-  render() {
-    const { mailsViewer } = this.props
-    const { activeRaw, pagedMentionsData, readState } = mailsViewer
+  return (
+    <Wrapper>
+      <TabSelector
+        source={mailTabs}
+        activeRaw={activeRaw}
+        onChange={selectChange}
+      />
 
-    return (
-      <Wrapper>
-        <TabSelector
-          source={mailTabs}
-          activeRaw={activeRaw}
-          onChange={logic.selectChange}
-        />
-
-        <MailLists
-          activeRaw={activeRaw}
-          pagedMentions={pagedMentionsData}
-          readState={readState}
-        />
-      </Wrapper>
-    )
-  }
+      <MailLists
+        activeRaw={activeRaw}
+        pagedMentions={pagedMentionsData}
+        readState={readState}
+      />
+    </Wrapper>
+  )
 }
 
 export default inject(storePlug('mailsViewer'))(observer(MailsViewerContainer))
