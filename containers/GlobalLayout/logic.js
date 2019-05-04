@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import R from 'ramda'
+
 import { makeDebugger, dispatchEvent, EVENT } from 'utils'
 
 /* eslint-disable-next-line */
@@ -6,10 +9,19 @@ const debug = makeDebugger('L:GlobalLayout')
 let store = null
 
 export const openDoraemon = () => store.openDoraemon()
-export const queryDoraemon = data =>
+/* eslint-disable no-unused-vars */
+export const queryDoraemon = R.curry((data, e) =>
   dispatchEvent(EVENT.QUERY_DORAMON, { data })
+)
 
-export const init = _store => {
-  if (store) return false
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+    },
+    [_store]
+  )
 }
