@@ -157,7 +157,7 @@
     "react-test-renderer": "16.8.1",
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
-    "standard-version": "^4.4.0",
+    "standard-version": "^6.0.1",
     "start-server-and-test": "^1.7.13",
     "webpack-bundle-analyzer": "3.0.4"
   }
