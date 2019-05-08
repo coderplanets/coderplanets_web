@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
-import { ICON_CMD, LABEL_POOL } from 'config'
-import { uid } from 'utils'
+import { ICON_CMD, LABEL_POOL } from '@config'
+import { uid } from '@utils'
 import TagList from './TagList'
 
 import {

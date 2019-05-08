@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { WORD_LIMIT } from 'config'
+import { WORD_LIMIT } from '@config'
 
 // import { Wrapper } from './styles'
 import {

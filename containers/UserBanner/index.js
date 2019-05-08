@@ -8,9 +8,9 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import UserBrief from 'components/UserBrief'
+import UserBrief from '@components/UserBrief'
 import UserContributeMap from './UserContributeMap'
 
 import {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { prettyNum } from 'utils'
+import { prettyNum } from '@utils'
 import { Wrapper, Title, Number } from './styles/num_section'
 
 const NumSection = ({ title, num }) => (

@@ -9,10 +9,10 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 
-import FavoritesCats from 'containers/FavoritesCats'
-import Maybe from 'components/Maybe'
+import FavoritesCats from '@containers/FavoritesCats'
+import Maybe from '@components/Maybe'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'

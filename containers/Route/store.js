@@ -7,8 +7,8 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 import Router from 'next/router'
 
-import { PAGE_SIZE } from 'config'
-import { onClient, markStates, makeDebugger, serializeQuery } from 'utils'
+import { PAGE_SIZE } from '@config'
+import { onClient, markStates, makeDebugger, serializeQuery } from '@utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:RouteStore')
 

@@ -8,16 +8,16 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug, USER_THREAD } from 'utils'
+import { makeDebugger, storePlug, USER_THREAD } from '@utils'
 
-import UserPublished from 'containers/UserPublished'
-import UserPublishedComments from 'containers/UserPublishedComments'
-import UserBilling from 'containers/UserBilling'
-import UserSettings from 'containers/UserSettings'
-import UserStared from 'containers/UserStared'
-import UserFavorited from 'containers/UserFavorited'
+import UserPublished from '@containers/UserPublished'
+import UserPublishedComments from '@containers/UserPublishedComments'
+import UserBilling from '@containers/UserBilling'
+import UserSettings from '@containers/UserSettings'
+import UserStared from '@containers/UserStared'
+import UserFavorited from '@containers/UserFavorited'
 
-import Tabber from 'components/Tabber'
+import Tabber from '@components/Tabber'
 
 import DigestBoard from './DigestBoard'
 

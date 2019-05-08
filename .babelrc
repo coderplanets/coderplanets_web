@@ -26,14 +26,15 @@
     ["module-resolver", {
       "root": ["./"],
       "alias": {
-        "containers":"./containers",
-        "components":"./components",
-        "config":"./config",
-        "stores":"./stores",
-        "schemas":"./containers/schemas",
-        "utils":"./utils",
-        "Img": "./components/Img",
-        "SvgIcons": "./components/SvgIcons"
+        "@containers":"./containers",
+        "@components":"./components",
+        "@config":"./config",
+        "@stores":"./stores",
+        "@model":"./stores/SharedModel",
+        "@utils":"./utils",
+        "@schemas":"./containers/schemas",
+        "@Img": "./components/Img",
+        "@SvgIcons": "./components/SvgIcons"
       }
     }]
   ],

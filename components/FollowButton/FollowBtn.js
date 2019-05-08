@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
 import { BtnWrapper, WatchIcon, LoadingIcon } from './styles'
 

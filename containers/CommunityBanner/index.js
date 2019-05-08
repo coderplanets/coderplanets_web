@@ -8,7 +8,7 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, C11N } from 'utils'
+import { makeDebugger, storePlug, C11N } from '@utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 

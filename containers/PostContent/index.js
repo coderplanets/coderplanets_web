@@ -8,15 +8,15 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
-import Comments from 'containers/Comments'
-import Maybe from 'components/Maybe'
-import MarkDownRender from 'components/MarkDownRender'
+import ArticleBodyHeader from '@containers/ArticleBodyHeader'
+import Comments from '@containers/Comments'
+import Maybe from '@components/Maybe'
+import MarkDownRender from '@components/MarkDownRender'
 
-import ArticleAuthorCard from 'containers/ArticleAuthorCard'
-import ContentSourceCard from 'components/ContentSourceCard'
+import ArticleAuthorCard from '@containers/ArticleAuthorCard'
+import ContentSourceCard from '@components/ContentSourceCard'
 
 import SideCards from './SideCards'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 import { Wrapper, PinIcon } from './styles/pin_button'
 
 import { setPin } from './logic'

@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { uid } from 'utils'
+import { uid } from '@utils'
 import {
   BannerContainer,
   BannerContentWrapper,

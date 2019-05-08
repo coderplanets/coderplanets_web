@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Img from 'components/Img'
-import CommunityFaceLogo from 'components/CommunityFaceLogo'
-import { cs } from 'utils'
+import Img from '@components/Img'
+import CommunityFaceLogo from '@components/CommunityFaceLogo'
+import { cs } from '@utils'
 
 export const Wrapper = styled.div`
   width: 10%;

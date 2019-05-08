@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from 'components/Img'
-import { theme, cs, animate } from 'utils'
+import Img from '@components/Img'
+import { theme, cs, animate } from '@utils'
 
 export const NumbersWrapper = styled.div`
   ${cs.flex('align-center')};

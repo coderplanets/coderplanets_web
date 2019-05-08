@@ -1,13 +1,13 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { THREAD } from 'utils'
+import { THREAD } from '@utils'
 import {
   PostItemLoading,
   JobItemLoading,
   VideoItemLoading,
   RepoItemLoading,
-} from 'components/LoadingEffects'
+} from '@components/LoadingEffects'
 
 /* eslint-disable */
 const DynamicPostsList = dynamic({

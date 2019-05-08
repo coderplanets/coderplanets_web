@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
 
 /* eslint-disable-next-line */

@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, sortByColor, Trans } from 'utils'
-import Maybe from 'components/Maybe'
-import Popover from 'components/Popover'
+import { makeDebugger, sortByColor, Trans } from '@utils'
+import Maybe from '@components/Maybe'
+import Popover from '@components/Popover'
 
 import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 

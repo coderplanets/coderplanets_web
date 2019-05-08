@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from 'utils'
-import Img from 'Img'
+import { theme, animate, cs } from '@utils'
+import Img from '@Img'
 
 export const Container = styled.div`
   ${cs.flexColumn('justify-between')};

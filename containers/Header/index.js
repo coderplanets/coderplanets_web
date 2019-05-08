@@ -9,7 +9,7 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import Header from './Header'
 import { AffixHeader, RawHeader } from './styles'
 

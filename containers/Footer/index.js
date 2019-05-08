@@ -9,9 +9,9 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import dynamic from 'next/dynamic'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import Modal from 'components/Modal'
+import Modal from '@components/Modal'
 
 import BriefView from './BriefView'
 import DigestView from './DigestView'

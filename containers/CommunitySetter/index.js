@@ -7,10 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import Modal from 'components/Modal'
-import { ArticleContentLoading } from 'components/LoadingEffects'
+import Modal from '@components/Modal'
+import { ArticleContentLoading } from '@components/LoadingEffects'
 
 import SearchBar from './SearchBar'
 import Message from './Message'

@@ -8,7 +8,7 @@ import {
   ROUTE,
   thread2Subpath,
   THREAD,
-} from 'utils'
+} from '@utils'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute

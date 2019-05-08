@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import ThreadSelector from 'components/ThreadSelector'
-import { makeDebugger, storePlug } from 'utils'
+import ThreadSelector from '@components/ThreadSelector'
+import { makeDebugger, storePlug } from '@utils'
 import CommentsToContent from './CommentsToContent'
 
 import { ThreadWrapper } from './styles'

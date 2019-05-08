@@ -25,10 +25,9 @@ Mentioned:
 - Pure components (display components) are placed in the components directory
 - The container component is placed under the containers directory
 - The container or component should not contain an internal state. The container component state is uniformly distributed to the store.js in the same directory, pure component
-  State unified external incoming
+    State unified external incoming
 - Synchronous or asynchronous logic should be extracted into the same directory's logic.js, React only does the view layer
 - All styles should be in the styles/ folder under the same directory, and the style file is named after stake_style
-
 
 ### module import
 
@@ -46,13 +45,14 @@ based on [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolve
   "SvgIcons": "./components/SvgIcons"
 }
 ```
+
 we can easily import files like:
 
 ```js
-import { ISSUE_WEB } from 'config'
-import { makeDebugger, storePlug } from 'utils'
+import { ISSUE_WEB } from '@config'
+import { makeDebugger, storePlug } from '@utils'
 
-import ArticleEditFooter from 'components/ArticleEditFooter'
+import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
 ```
 
@@ -68,14 +68,14 @@ Import Waypoint from 'react-waypoint'
 Import R from 'ramda'
 
 // 2. import utils
-Import { makeDebugger, storePlug, ROUTE, THREAD } from 'utils'
+Import { makeDebugger, storePlug, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
-Import TagsBar from 'containers/TagsBar'
+Import TagsBar from '@containers/TagsBar'
 // 4. import global components
-Import Maybe from 'components/Maybe'
-Import PagedContents from 'components/PagedContents'
-Import ContentFilter from 'components/ContentFilter'
+Import Maybe from '@components/Maybe'
+Import PagedContents from '@components/PagedContents'
+Import ContentFilter from '@components/ContentFilter'
 
 // 5. import local components
 Import CityList from './CityList'
@@ -108,10 +108,10 @@ Import {
   TYPE,
   ROUTE,
   THREAD,
-} from 'utils'
+} from '@utils'
 
 // 3. import aysnc mudule
-Import SR71 from 'utils/async/sr71'
+Import SR71 from '@utils/async/sr71'
 // 4. import graphql schema
 Import S from './schema'
 
@@ -129,7 +129,6 @@ Let sub$ = null
 // 7. init debug
 /* eslint-disable-next-line */
 Const debug = makeDebugger('L:PostsThread')
-
 ```
 
 ### Component Communication

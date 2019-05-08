@@ -8,7 +8,7 @@ import React from 'react'
 import { Pagination } from 'antd'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import MobilePagination from './MobilePagination'
 import {
   PagiWrapper,

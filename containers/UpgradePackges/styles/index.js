@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, cs } from 'utils'
+import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};

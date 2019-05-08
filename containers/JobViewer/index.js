@@ -8,15 +8,15 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 
-import Comments from 'containers/Comments'
-import ArticleViewerHeader from 'containers/ArticleViewerHeader'
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from '@containers/Comments'
+import ArticleViewerHeader from '@containers/ArticleViewerHeader'
+import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 
-import Maybe from 'components/Maybe'
-import MarkDownRender from 'components/MarkDownRender'
-import { ArticleContentLoading } from 'components/LoadingEffects'
+import Maybe from '@components/Maybe'
+import MarkDownRender from '@components/MarkDownRender'
+import { ArticleContentLoading } from '@components/LoadingEffects'
 
 import DigestBar from './DigestBar'
 

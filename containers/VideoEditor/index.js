@@ -7,11 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import Labeler from 'containers/Labeler'
-import FormItem from 'components/FormItem'
-import ArticleEditFooter from 'components/ArticleEditFooter'
+import Labeler from '@containers/Labeler'
+import FormItem from '@components/FormItem'
+import ArticleEditFooter from '@components/ArticleEditFooter'
 
 import AlertMessage from './AlertMessage'
 import CoverUploader from './CoverUploader'

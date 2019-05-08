@@ -2,8 +2,8 @@ import React from 'react'
 import R from 'ramda'
 
 // import { ICON_CMD } from '../../config'
-import { uid } from 'utils'
-import DotDivider from 'components/DotDivider'
+import { uid } from '@utils'
+import DotDivider from '@components/DotDivider'
 
 import {
   Wrapper,

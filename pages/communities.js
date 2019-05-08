@@ -5,20 +5,20 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import GlobalLayout from 'containers/GlobalLayout'
-import ThemeWrapper from 'containers/ThemeWrapper'
-import MultiLanguage from 'containers/MultiLanguage'
-import Sidebar from 'containers/Sidebar'
-import Preview from 'containers/Preview'
-import Doraemon from 'containers/Doraemon'
-import Route from 'containers/Route'
-import Header from 'containers/Header'
-import CommunitiesBanner from 'containers/CommunitiesBanner'
-import CommunitiesContent from 'containers/CommunitiesContent'
-import Footer from 'containers/Footer'
+import GlobalLayout from '@containers/GlobalLayout'
+import ThemeWrapper from '@containers/ThemeWrapper'
+import MultiLanguage from '@containers/MultiLanguage'
+import Sidebar from '@containers/Sidebar'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import CommunitiesBanner from '@containers/CommunitiesBanner'
+import CommunitiesContent from '@containers/CommunitiesContent'
+import Footer from '@containers/Footer'
 
-import { P } from 'schemas'
-import GAWraper from 'components/GAWraper'
+import { P } from '@schemas'
+import GAWraper from '@components/GAWraper'
 import {
   makeGQClient,
   queryStringToJSON,
@@ -28,11 +28,11 @@ import {
   ROUTE,
   ssrAmbulance,
   parseTheme,
-} from 'utils'
+} from '@utils'
 
-import initRootStore from 'stores/init'
+import initRootStore from '@stores/init'
 
-/* import PostsThreadSchema from 'containers/PostsThread/schema' */
+/* import PostsThreadSchema from '@containers/PostsThread/schema' */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

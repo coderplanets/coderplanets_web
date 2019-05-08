@@ -7,10 +7,10 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD } from 'config'
+import SectionLabel from '@components/SectionLabel'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
 import TableSectionDesc from './TableSectionDesc'

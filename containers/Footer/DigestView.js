@@ -5,7 +5,7 @@ import {
   GITHUB_SERVER_ADDR,
   API_SERVER_ADDR,
   ISSUE_ADDR,
-} from 'config'
+} from '@config'
 
 import {
   Wrapper,

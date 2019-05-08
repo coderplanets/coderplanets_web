@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { COMMUNITY_CHEATSHEET } from 'config'
+import { COMMUNITY_CHEATSHEET } from '@config'
 
-import DotDivider from 'components/DotDivider'
-import ContributorList from 'components/ContributorList'
+import DotDivider from '@components/DotDivider'
+import ContributorList from '@components/ContributorList'
 
 import {
   Wrapper,

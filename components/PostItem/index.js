@@ -7,8 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, C11N } from 'utils'
-import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
+import { makeDebugger, C11N } from '@utils'
+import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
 import ListView from './ListView'

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from 'schemas'
+import { F } from '@schemas'
 
 const partialTags = gql`
   query($communityId: ID, $community: String, $thread: CmsThread!, $topic: String) {

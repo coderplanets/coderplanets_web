@@ -1,11 +1,11 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD, ICON_BASE } from 'config'
+import { ICON_CMD, ICON_BASE } from '@config'
 
-import { cutFrom, parseDomain } from 'utils'
-import AvatarsRow from 'components/AvatarsRow'
-import InlineTags from 'components/InlineTags'
+import { cutFrom, parseDomain } from '@utils'
+import AvatarsRow from '@components/AvatarsRow'
+import InlineTags from '@components/InlineTags'
 
 import {
   AvatarWrapper,

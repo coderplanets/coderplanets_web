@@ -1,8 +1,8 @@
 import React from 'react'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 // import { Wrapper } from './styles'
-import { cutFrom } from 'utils'
+import { cutFrom } from '@utils'
 import { ReplyBar, ReplyToBody, ReplyToFloor } from './styles/reply_to_bar'
 
 const ReplyToBar = ({ comment }) => {

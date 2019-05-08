@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { storePlug } from 'utils'
+import { storePlug } from '@utils'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'

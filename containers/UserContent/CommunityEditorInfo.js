@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CommunityList from 'components/CommunityList'
+import CommunityList from '@components/CommunityList'
 
 import { Wrapper, MoreText, Text } from './styles/community_editor_info'
 

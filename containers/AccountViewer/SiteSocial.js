@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FocusLine from 'components/FocusLine'
-import { ICON_CMD } from 'config'
+import FocusLine from '@components/FocusLine'
+import { ICON_CMD } from '@config'
 
 import NumSection from './NumSection'
 

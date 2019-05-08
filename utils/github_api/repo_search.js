@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { timeout } from 'promise-timeout'
 
-import { ISSUE_ADDR } from 'config'
+import { ISSUE_ADDR } from '@config'
 
 import { TIMEOUT_SEC, restEndpoint } from './config'
 import { graphqlClient, restpClient } from './client'

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
 
-import { Space } from 'components/BaseStyled'
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD } from 'config'
+import { Space } from '@components/BaseStyled'
+import SectionLabel from '@components/SectionLabel'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import {
   Wrapper,
   EditWrapper,

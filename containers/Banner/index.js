@@ -7,11 +7,11 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, ROUTE } from 'utils'
+import { makeDebugger, storePlug, ROUTE } from '@utils'
 
-import UserBanner from 'containers/UserBanner'
-import CommunitiesBanner from 'containers/CommunitiesBanner'
-import CommunityBanner from 'containers/CommunityBanner'
+import UserBanner from '@containers/UserBanner'
+import CommunitiesBanner from '@containers/CommunitiesBanner'
+import CommunityBanner from '@containers/CommunityBanner'
 
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'

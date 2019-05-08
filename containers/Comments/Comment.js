@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { Global } from 'utils'
+import { Global } from '@utils'
 
-import MarkDownRender from 'components/MarkDownRender'
+import MarkDownRender from '@components/MarkDownRender'
 
 import CommentHeader from './CommentHeader'
 import CommentReplyBar from './CommentReplyBar'

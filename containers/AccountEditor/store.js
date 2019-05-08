@@ -12,8 +12,8 @@ import {
   stripMobx,
   changeset,
   flashState,
-} from 'utils'
-import { User, EduBackground, WorkBackground } from 'stores/SharedModel'
+} from '@utils'
+import { User, EduBackground, WorkBackground } from '@model'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:AccountEditorStore')

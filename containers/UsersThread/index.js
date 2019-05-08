@@ -8,7 +8,7 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import dynamic from 'next/dynamic'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
 import NumDashboard from './NumDashboard'
 import MapLoading from './MapLoading'

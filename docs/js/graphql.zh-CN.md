@@ -1,5 +1,4 @@
-
-本文档假设你已经了解 GraphQL 的基础知识， 如果你对它还不太了解，请参考 *https://www.howtographql.com/*
+本文档假设你已经了解 GraphQL 的基础知识， 如果你对它还不太了解，请参考 _https://www.howtographql.com/_
 
 ### 概况
 
@@ -14,7 +13,7 @@ CPS 所有接口提供，并且只提供 GraphQL 接口。所有 GraphQL 请求�
 
 ```js
 import gql from 'graphql-tag'
-import { P, F } from 'schemas'
+import { P, F } from '@schemas'
 
 const pagedPosts = gql`
   ${P.pagedPosts}
@@ -44,6 +43,7 @@ const schema = {
 
 export default schema
 ```
+
 P, F 均为公用 schema 片段（注意不是严格意义上的 Fragment, 但很类似)。导出 Schema 后可以在同目录的 logic.js 中使用：
 
 ```js

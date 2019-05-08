@@ -1,7 +1,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { ArticleContentLoading, EditorLoading } from 'components/LoadingEffects'
+import {
+  ArticleContentLoading,
+  EditorLoading,
+} from '@components/LoadingEffects'
 
 const CommonLoading = () => (
   <div>

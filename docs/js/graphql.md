@@ -1,4 +1,4 @@
-This document assumes that you already know the basics of GraphQL. If you don't know much about it, please refer to *https://www.howtographql.com/*
+This document assumes that you already know the basics of GraphQL. If you don't know much about it, please refer to _https://www.howtographql.com/_
 
 ### Overview
 
@@ -13,7 +13,7 @@ Take `containers/PostsThread/schema.js` as an example:
 
 ```js
 Import gql from 'graphql-tag'
-Import { P, F } from 'schemas'
+Import { P, F } from '@schemas'
 
 Const pagedPosts = gql`
   ${P.pagedPosts}
@@ -43,6 +43,7 @@ Const schema = {
 
 Export default schema
 ```
+
 P, F are common schema fragments (note that not strictly Fragment, but very similar). After exporting the Schema, you can use it in the same directory's logic.js:
 
 ```js
@@ -59,7 +60,7 @@ You can open the `https://coderplanets.com/graphiql` using the online interactiv
 
 ![image](https://user-images.githubusercontent.com/6184465/51720977-ae199a80-208a-11e9-9e9e-2617f53a8616.png)
 
-For detailed usage, please refer to the [Reference Document] (https://github.com/prisma/graphql-playground)
+For detailed usage, please refer to the [Reference Document](https://github.com/prisma/graphql-playground)
 
 > Note: If you want to develop a third-party client, please do not use the main station for debugging. Please use https://dev.coderplanets.com for development.
 

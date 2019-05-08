@@ -1,5 +1,5 @@
 import { types as t } from 'mobx-state-tree'
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE } from '@config'
 
 // NOTE: the SimpleXXX version is to avoid circle import issue which cause MST error
 

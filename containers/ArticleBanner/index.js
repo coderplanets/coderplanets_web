@@ -11,11 +11,11 @@ import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import DotDivider from 'components/DotDivider'
-import Maybe from 'components/Maybe'
-import { Space } from 'components/BaseStyled'
+import DotDivider from '@components/DotDivider'
+import Maybe from '@components/Maybe'
+import { Space } from '@components/BaseStyled'
 import FavoritesCats from '../FavoritesCats'
 
 import Title from './Title'

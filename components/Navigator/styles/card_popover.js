@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, cs } from 'utils'
-import CommunityFaceLogo from 'components/CommunityFaceLogo'
+import { theme, cs } from '@utils'
+import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};

@@ -1,8 +1,8 @@
 //
 /* import { fetch } from 'whatwg-fetch' */
-import { ASSETS_ENDPOINT } from 'config'
+import { ASSETS_ENDPOINT } from '@config'
 import fetch from 'isomorphic-fetch'
-import { BStore } from 'utils'
+import { BStore } from '@utils'
 
 const endpoint = `${ASSETS_ENDPOINT}/asia.geo.json`
 const bkey = 'asia.geo.data'

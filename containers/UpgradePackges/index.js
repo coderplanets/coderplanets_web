@@ -8,11 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Button } from 'antd'
 
-import Modal from 'components/Modal'
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from 'config'
+import Modal from '@components/Modal'
+import SectionLabel from '@components/SectionLabel'
+import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@config'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import Support from './Support'
 
 import {

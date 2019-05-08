@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, prettyNum } from 'utils'
+import { makeDebugger, prettyNum } from '@utils'
 import SubscribedTitle from './SubscribedTitle'
 
 import {

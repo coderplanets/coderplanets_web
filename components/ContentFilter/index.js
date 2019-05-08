@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, THREAD, C11N } from 'utils'
+import { makeDebugger, THREAD, C11N } from '@utils'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 import FilterButton from './FilterButton'

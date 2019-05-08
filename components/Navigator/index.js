@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, C11N, ROUTE } from 'utils'
+import { makeDebugger, C11N, ROUTE } from '@utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 

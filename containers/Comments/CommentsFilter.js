@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Popover from 'components/Popover'
-import { ICON_CMD } from 'config'
+import Popover from '@components/Popover'
+import { ICON_CMD } from '@config'
 
-import { TYPE } from 'utils'
+import { TYPE } from '@utils'
 import {
   FilterWraper,
   MenuWrapper,

@@ -12,8 +12,8 @@ import {
   stripMobx,
   changeset,
   flashState,
-} from 'utils'
-import { Video } from 'stores/SharedModel'
+} from '@utils'
+import { Video } from '@model'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:VideoEditor')
 

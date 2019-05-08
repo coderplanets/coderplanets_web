@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD, EMAIL_SUPPORT } from 'config'
+import { ICON_CMD, EMAIL_SUPPORT } from '@config'
 
-import { TYPE } from 'utils'
+import { TYPE } from '@utils'
 import {
   Wrapper,
   Title,

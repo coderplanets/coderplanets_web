@@ -1,8 +1,8 @@
 import React from 'react'
 import { Alert } from 'antd'
 
-import { Margin } from 'components/BaseStyled'
-import { ICON_CMD } from 'config'
+import { Margin } from '@components/BaseStyled'
+import { ICON_CMD } from '@config'
 
 import {
   Wrapper,

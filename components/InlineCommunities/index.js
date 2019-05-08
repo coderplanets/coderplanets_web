@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, Trans } from 'utils'
-import Popover from 'components/Popover'
-import Maybe from 'components/Maybe'
+import { makeDebugger, Trans } from '@utils'
+import Popover from '@components/Popover'
+import Maybe from '@components/Maybe'
 
 import {
   Wrapper,

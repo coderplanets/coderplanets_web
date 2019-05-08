@@ -2,7 +2,7 @@ import React from 'react'
 import R from 'ramda'
 import { Tag } from 'antd'
 
-import { isEmptyValue } from 'utils'
+import { isEmptyValue } from '@utils'
 import { Wrapper, TagWrapper } from './styles/selected_tags'
 
 const filterDict = {
