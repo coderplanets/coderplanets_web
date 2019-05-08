@@ -20,8 +20,7 @@ import {
 } from './logic'
 
 const InputEditor = ({ searching, value, prefix }) => {
-  useShortcut('ctrl+c', hidePanel)
-  useShortcut('ctrl+g', hidePanel)
+  useShortcut(['ctrl+c', 'ctrl+g'], hidePanel)
   useShortcut('ctrl+p', () => navSuggestion('up'))
   useShortcut('ctrl+n', () => navSuggestion('down'))
 
