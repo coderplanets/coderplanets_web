@@ -6,11 +6,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
 import { ICON_CMD } from '@config'
-import { storePlug } from '@utils'
+import { connectStore } from '@utils'
 
 import { useShortcut } from '@components/Hooks'
 
@@ -44,6 +42,4 @@ GlobalLayoutContainer.defaultProps = {
   noSidebar: false,
 }
 
-export default inject(storePlug('globalLayout'))(
-  observer(GlobalLayoutContainer)
-)
+export default connectStore(GlobalLayoutContainer)

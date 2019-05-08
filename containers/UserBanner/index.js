@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import UserBrief from '@components/UserBrief'
 import UserContributeMap from './UserContributeMap'
@@ -44,4 +42,4 @@ const UserBannerContainer = ({ userBanner }) => {
   )
 }
 
-export default inject(storePlug('userBanner'))(observer(UserBannerContainer))
+export default connectStore(UserBannerContainer)
