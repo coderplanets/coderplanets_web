@@ -8,11 +8,11 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, TYPE } from 'utils'
+import { makeDebugger, storePlug, TYPE } from '@utils'
 
-import EmptyLabel from 'components/EmptyLabel'
-import Modal from 'components/Modal'
-import SearchingLabel from 'components/SearchingLabel'
+import EmptyLabel from '@components/EmptyLabel'
+import Modal from '@components/Modal'
+import SearchingLabel from '@components/SearchingLabel'
 
 import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'

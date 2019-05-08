@@ -6,9 +6,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { DEFAULT_USER_AVATAR } from 'config'
+import { DEFAULT_USER_AVATAR } from '@config'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import {
   Wrapper,
   AvatarWrapper,

@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'antd'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import { Space } from '../BaseStyled'
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 

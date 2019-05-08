@@ -7,15 +7,15 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { ICON_CMD, COMMUNITY_WIKI } from 'config'
-import { makeDebugger, storePlug, TYPE } from 'utils'
+import { ICON_CMD, COMMUNITY_WIKI } from '@config'
+import { makeDebugger, storePlug, TYPE } from '@utils'
 
-import EmptyThread from 'components/EmptyThread'
+import EmptyThread from '@components/EmptyThread'
 
-import PublishLabel from 'components/PublishLabel'
-import MarkDownRender from 'components/MarkDownRender'
-import { ArticleContentLoading } from 'components/LoadingEffects'
-import GithubSyncWarning from 'components/GithubSyncWarning'
+import PublishLabel from '@components/PublishLabel'
+import MarkDownRender from '@components/MarkDownRender'
+import { ArticleContentLoading } from '@components/LoadingEffects'
+import GithubSyncWarning from '@components/GithubSyncWarning'
 
 import Contributors from './Contributors'
 

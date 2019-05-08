@@ -1,6 +1,6 @@
 import { types as t } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from 'config'
+import { PAGE_SIZE } from '@config'
 
 import { User, PagedUsers } from './User'
 import { Community } from './Community'

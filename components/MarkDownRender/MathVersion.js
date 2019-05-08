@@ -20,9 +20,9 @@ import mentionsPlugin from 'remarkable-mentions'
 import latexPlugin from 'remarkable-katex'
 import Prism from 'mastani-codehighlight'
 
-import MarkDownStyle from 'containers/ThemeWrapper/MarkDownStyle'
-import { MENTION_USER_ADDR } from 'config'
-import { makeDebugger } from 'utils'
+import MarkDownStyle from '@containers/ThemeWrapper/MarkDownStyle'
+import { MENTION_USER_ADDR } from '@config'
+import { makeDebugger } from '@utils'
 import { PreviewerContainer } from './styles'
 
 // const latexPlugin = require('remarkable-katex')

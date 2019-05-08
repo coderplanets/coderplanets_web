@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:GlobalLayoutStore')
 

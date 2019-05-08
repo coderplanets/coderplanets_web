@@ -9,16 +9,16 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
-import Comments from 'containers/Comments'
-import ArticleAuthorCard from 'containers/ArticleAuthorCard'
-import ContentSourceCard from 'components/ContentSourceCard'
+import ArticleBodyHeader from '@containers/ArticleBodyHeader'
+import Comments from '@containers/Comments'
+import ArticleAuthorCard from '@containers/ArticleAuthorCard'
+import ContentSourceCard from '@components/ContentSourceCard'
 
-import Maybe from 'components/Maybe'
-import VideoPoster from 'components/VideoPoster'
-import VideoInfoCard from 'components/VideoInfoCard'
+import Maybe from '@components/Maybe'
+import VideoPoster from '@components/VideoPoster'
+import VideoInfoCard from '@components/VideoInfoCard'
 
 import SideCards from './SideCards'
 

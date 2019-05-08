@@ -1,8 +1,8 @@
 import React from 'react'
 import { Input } from 'antd'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from 'utils'
+import { ICON_CMD } from '@config'
+import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '@utils'
 
 import {
   Wrapper,

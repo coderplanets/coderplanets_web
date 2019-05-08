@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD, DEFAULT_USER_AVATAR } from 'config'
+import { ICON_CMD, DEFAULT_USER_AVATAR } from '@config'
 
-import AvatarsRow from 'components/AvatarsRow'
-import { SpaceGrow } from 'components/BaseStyled'
+import AvatarsRow from '@components/AvatarsRow'
+import { SpaceGrow } from '@components/BaseStyled'
 
 import WordsCounter from './WordsCounter'
 

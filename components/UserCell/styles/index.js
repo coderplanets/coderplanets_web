@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from 'utils'
+import { cs } from '@utils'
 
 export const UserCellWrapper = styled.div`
   ${cs.flex('justify-start')};

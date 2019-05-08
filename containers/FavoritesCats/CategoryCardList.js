@@ -1,10 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import Pagi from 'components/Pagi'
-import { ICON_CMD } from 'config'
+import Pagi from '@components/Pagi'
+import { ICON_CMD } from '@config'
 
-import { cutFrom } from 'utils'
+import { cutFrom } from '@utils'
 import {
   Wrapper,
   CardListWrapper,

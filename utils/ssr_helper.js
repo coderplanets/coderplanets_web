@@ -1,7 +1,7 @@
 import R from 'ramda'
-import { DEFAULT_THEME } from 'config'
+import { DEFAULT_THEME } from '@config'
 
-import { P } from 'schemas'
+import { P } from '@schemas'
 import { TYPE, THREAD } from './constants'
 
 export const ssrPagedSchema = thread => {

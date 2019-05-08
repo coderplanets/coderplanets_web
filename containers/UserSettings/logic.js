@@ -1,7 +1,7 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, dispatchEvent, EVENT } from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, $solver, dispatchEvent, EVENT } from '@utils'
+import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71()
 let sub$ = null

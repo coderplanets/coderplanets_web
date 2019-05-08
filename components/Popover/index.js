@@ -8,7 +8,7 @@ import React from 'react'
 import { Popover } from 'antd'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import { ContentContainer } from './styles'
 
 /* eslint-disable-next-line */

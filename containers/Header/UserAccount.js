@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config/assets'
-import Popover from 'components/Popover'
+import { ICON_CMD } from '@config/assets'
+import Popover from '@components/Popover'
 
 import { onLogin, onLogout, previewAccount } from './logic'
 

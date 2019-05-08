@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
-import { prettyNum } from 'utils'
+import { ICON_CMD } from '@config'
+import { prettyNum } from '@utils'
 // import { ICON_CMD } from '../../config'
 // import { Wrapper } from './styles'
-import { SpaceGrow } from 'components/BaseStyled'
+import { SpaceGrow } from '@components/BaseStyled'
 import Actions from './Actions'
 
 import {

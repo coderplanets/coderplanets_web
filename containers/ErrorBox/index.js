@@ -8,10 +8,10 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 
-import Modal from 'components/Modal'
-import { useShortcut } from 'components/Hooks'
+import Modal from '@components/Modal'
+import { useShortcut } from '@components/Hooks'
 
 import Header from './Header'
 import Details from './Details'

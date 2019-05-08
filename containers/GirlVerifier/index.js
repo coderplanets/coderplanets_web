@@ -9,12 +9,12 @@ import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 import { Button, Input } from 'antd'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, storePlug } from 'utils'
+import { ICON_CMD } from '@config'
+import { makeDebugger, storePlug } from '@utils'
 
-import { Space } from 'components/BaseStyled'
-import Modal from 'components/Modal'
-import SectionLabel from 'components/SectionLabel'
+import { Space } from '@components/BaseStyled'
+import Modal from '@components/Modal'
+import SectionLabel from '@components/SectionLabel'
 
 import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
 import { useInit, toggleModal, onMessageChange, onConfirm } from './logic'

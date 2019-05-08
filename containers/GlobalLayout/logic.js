@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import R from 'ramda'
 
-import { makeDebugger, dispatchEvent, EVENT } from 'utils'
+import { makeDebugger, dispatchEvent, EVENT } from '@utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:GlobalLayout')

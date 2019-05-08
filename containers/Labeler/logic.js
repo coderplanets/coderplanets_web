@@ -1,7 +1,7 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, makeGQClient } from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, $solver, makeGQClient } from '@utils'
+import SR71 from '@utils/async/sr71'
 
 import S from './schema'
 

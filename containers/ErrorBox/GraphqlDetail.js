@@ -1,8 +1,8 @@
 import React from 'react'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 // import { Wrapper } from './styles'
-import { uid, nilOrEmpty } from 'utils'
+import { uid, nilOrEmpty } from '@utils'
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'
 
 const ChangesetMessages = ({ items }) => (

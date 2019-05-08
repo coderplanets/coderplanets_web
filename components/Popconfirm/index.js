@@ -7,10 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger } from 'utils'
-import Popover from 'components/Popover'
+import { makeDebugger } from '@utils'
+import Popover from '@components/Popover'
 
 import {
   Wrapper,

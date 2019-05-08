@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { FILTER } from 'utils'
+import { FILTER } from '@utils'
 import {
   ColumnWrapper,
   SelectLable,

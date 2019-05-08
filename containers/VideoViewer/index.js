@@ -8,15 +8,15 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 
-import ArticleViewerHeader from 'containers/ArticleViewerHeader'
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
-import Comments from 'containers/Comments'
+import ArticleViewerHeader from '@containers/ArticleViewerHeader'
+import ArticleBodyHeader from '@containers/ArticleBodyHeader'
+import Comments from '@containers/Comments'
 
-import Maybe from 'components/Maybe'
-import VideoPoster from 'components/VideoPoster'
-import VideoInfoCard from 'components/VideoInfoCard'
+import Maybe from '@components/Maybe'
+import VideoPoster from '@components/VideoPoster'
+import VideoInfoCard from '@components/VideoInfoCard'
 
 import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 

@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from 'schemas'
+import { F } from '@schemas'
 
 const staredPosts = gql`
   query($userId: ID!, $filter: PagedFilter!) {

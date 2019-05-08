@@ -1,4 +1,3 @@
-
 和其他很多项目一样， 本项目也有一些约定俗成的惯例：
 
 ### 文件/模块命名
@@ -14,7 +13,7 @@ sr71 的名字来源于美军的 sr71 黑鸟侦察机, 详见 [ansyc 文档](htt
 #### Doramon
 
 Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能, Doramon 的名
-字来自哆啦A梦(机器猫)的英译, 希望它的口袋能随时给我们带来惊喜。
+字来自哆啦 A 梦(机器猫)的英译, 希望它的口袋能随时给我们带来惊喜。
 
 ### 功能划分
 
@@ -46,19 +45,20 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
   "SvgIcons": "./components/SvgIcons"
 }
 ```
-在项目中可以直接引用上述组件，比如： 
+
+在项目中可以直接引用上述组件，比如：
 
 ```js
-import { ISSUE_WEB } from 'config'
-import { makeDebugger, storePlug } from 'utils'
+import { ISSUE_WEB } from '@config'
+import { makeDebugger, storePlug } from '@utils'
 
-import ArticleEditFooter from 'components/ArticleEditFooter'
+import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
 ```
 
 ### 模块引用顺序
 
-容器组件请遵守如下引用顺序(1-8): 
+容器组件请遵守如下引用顺序(1-8):
 
 ```js
 // 1. import global deps
@@ -68,20 +68,20 @@ import Waypoint from 'react-waypoint'
 import R from 'ramda'
 
 // 2. import utils
-import { makeDebugger, storePlug, ROUTE, THREAD } from 'utils'
+import { makeDebugger, storePlug, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
-import TagsBar from 'containers/TagsBar'
+import TagsBar from '@containers/TagsBar'
 // 4. import global components
-import Maybe from 'components/Maybe'
-import PagedContents from 'components/PagedContents'
-import ContentFilter from 'components/ContentFilter'
+import Maybe from '@components/Maybe'
+import PagedContents from '@components/PagedContents'
+import ContentFilter from '@components/ContentFilter'
 
 // 5. import local components
 import CityList from './CityList'
 
 // 6. import styles
-import { Wrapper,LeftPadding, RightPadding } from './styles'
+import { Wrapper, LeftPadding, RightPadding } from './styles'
 
 // 7. import logics
 import * as logic from './logic'
@@ -91,7 +91,7 @@ import * as logic from './logic'
 const debug = makeDebugger('C:PostsThread')
 ```
 
-逻辑文件请遵守如下引用顺序(1-7): 
+逻辑文件请遵守如下引用顺序(1-7):
 
 ```js
 // 1. import global deps
@@ -108,18 +108,16 @@ import {
   TYPE,
   ROUTE,
   THREAD,
-} from 'utils'
+} from '@utils'
 
 // 3. import aysnc mudule
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 // 4. import graphql schema
 import S from './schema'
 
 // 5. init aysnc
 const sr71$ = new SR71({
-  resv_event: [
-    EVENT.REFRESH_POSTS,
-  ],
+  resv_event: [EVENT.REFRESH_POSTS],
 })
 
 // 6. init store
@@ -129,10 +127,8 @@ let sub$ = null
 // 7. init debug
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:PostsThread')
-
 ```
 
 ### 组件通信
 
 请参考组件通讯文档
-

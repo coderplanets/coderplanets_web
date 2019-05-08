@@ -8,11 +8,11 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD, GITHUB_CPS_TEAM } from 'config'
-import { makeDebugger } from 'utils'
+import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
+import { makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
-import UserCell from 'components/UserCell'
+import Modal from '@components/Modal'
+import UserCell from '@components/UserCell'
 
 import UnloginNote from './UnloginNote'
 import ChuanSelector from './ChuanSelector'

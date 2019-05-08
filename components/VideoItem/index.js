@@ -8,14 +8,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, cutFrom, C11N } from 'utils'
+import { ICON_CMD } from '@config'
+import { makeDebugger, cutFrom, C11N } from '@utils'
 
-import DotDivider from 'components/DotDivider'
-import VideoSourceInfo from 'components/VideoSourceInfo'
-import { Space } from 'components/BaseStyled'
-import InlineTags from 'components/InlineTags'
-import ArticleItemPrefixLabel from 'components/ArticleItemPrefixLabel'
+import DotDivider from '@components/DotDivider'
+import VideoSourceInfo from '@components/VideoSourceInfo'
+import { Space } from '@components/BaseStyled'
+import InlineTags from '@components/InlineTags'
+import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import {
   Wrapper,

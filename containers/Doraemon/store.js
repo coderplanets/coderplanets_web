@@ -14,7 +14,7 @@ import {
   stripMobx,
   holdPage,
   unholdPage,
-} from 'utils'
+} from '@utils'
 
 import cmds from './logic/defaultSuggestion'
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Maybe from 'components/Maybe'
-import { ICON_CMD } from 'config'
+import Maybe from '@components/Maybe'
+import { ICON_CMD } from '@config'
 
-import { TYPE } from 'utils'
+import { TYPE } from '@utils'
 import {
   Reaction,
   ReactionAction,

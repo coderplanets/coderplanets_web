@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Icon } from 'antd'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { Space } from 'components/BaseStyled'
-import DocUploader from 'containers/DocUploader'
+import { Space } from '@components/BaseStyled'
+import DocUploader from '@containers/DocUploader'
 
 import {
   InputFooter,

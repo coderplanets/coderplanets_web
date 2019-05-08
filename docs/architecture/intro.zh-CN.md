@@ -53,6 +53,7 @@
 "纯"组件在社区里也被叫做"贫血"组件， “笨”组件等等，自身不含有任何状态，只依赖于外部 props 传入的状态，输入一致则输出一致，类似于函数式编程概念里的纯函数。
 
 以一个最简单的 DotDivider 组件作为列子, 目录结构如下:
+
 ```bash
 .
 ├── index.js
@@ -60,7 +61,6 @@
 │   └── index.js
 └── tests
     └── index.test.js
-
 ```
 
 ### index.js
@@ -72,7 +72,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Wrapper } from './styles'
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:DotDivider:index')
@@ -96,15 +96,14 @@ export default DotDivider
 
 #### styles/index.js
 
-styles/index.js 为该组件的样式文件，和上级目录的组件一一对应，比如： 
+styles/index.js 为该组件的样式文件，和上级目录的组件一一对应，比如：
 
-index.js --> styles/index.js 
+index.js --> styles/index.js
 SubComponent -> styles/sub_component.js
-
 
 ```jsx
 import styled from 'styled-components'
-import { theme } from 'utils'
+import { theme } from '@utils'
 
 export const Wrapper = styled.div`
   width: ${({ radius }) => radius};
@@ -124,9 +123,7 @@ export const Other = 1
 
 tests 目录下包含该组件的基本单元测试。
 
-
 ### Containers
-
 
 容器组件，社区里也叫"充血"组件，“聪明”组件等等，自身包含状态管理，逻辑，多语言，GraphQL schema, 样式等，可以看成是一个小的闭环系统。
 
@@ -138,7 +135,7 @@ tests 目录下包含该组件的基本单元测试。
 ├── lang.js                  // i18n messages
 ├── logic.js                 // all the logic belongs to this cotainer
 ├── schema.js                // GraphQL schema
-├── store.js                 // state  management 
+├── store.js                 // state  management
 ├── styles                   // styles
 │   ├── editor.js
 │   ├── index.js
@@ -148,19 +145,18 @@ tests 目录下包含该组件的基本单元测试。
     └── store.test.js
 ```
 
-#### index.js 
+#### index.js
 
 index.js 除了和纯组件相同的展示/集成功能外，最大的不同是引入了`状态管理`和`逻辑`, 一个简化版的例子如下所示：
 
 ```jsx
-
 import Header from './Header'
 import Editor from './Editor'
 //  ...
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import { init, uninit, changeView, onPublish, canclePublish } from './logic'
 
 class PostEditorContainer extends React.Component {
@@ -187,7 +183,7 @@ class PostEditorContainer extends React.Component {
           thread={thread}
           referUsers={referUsersData}
         />
- 
+
         <ArticleEditFooter
           isEdit={isEdit}
           statusMsg={statusMsg}
@@ -217,8 +213,8 @@ store.js 类似于 MVC 架构下的 M 层，基于 [mobx-state-tree](https://git
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from 'stores/SharedModel'
-import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
+import { Post, Mention } from '@model'
+import { markStates, makeDebugger, stripMobx, changeset } from '@utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:PostEditorf')
@@ -266,7 +262,7 @@ const PostEditor = t
 export default PostEditor
 ```
 
-这里的所有状态都只被在这个 containers 目录里的组件使用，属于整个应用状态树上的一个子树，如果需要访问"主树"或其他"分支"的状态树可以使用 `get root` 方法，详见[MST文档](https://github.com/mobxjs/mobx-state-tree)。状态无法被 view 层直接更新，必须经由 logic 层调用 `store.markState` 或 store 上提供的其他 `action` 方法更新。
+这里的所有状态都只被在这个 containers 目录里的组件使用，属于整个应用状态树上的一个子树，如果需要访问"主树"或其他"分支"的状态树可以使用 `get root` 方法，详见[MST 文档](https://github.com/mobxjs/mobx-state-tree)。状态无法被 view 层直接更新，必须经由 logic 层调用 `store.markState` 或 store 上提供的其他 `action` 方法更新。
 
 #### logic.js
 
@@ -275,10 +271,10 @@ export default PostEditor
 ```js
 import R from 'ramda'
 
-import { asyncRes, asyncErr, $solver } from 'utils'
+import { asyncRes, asyncErr, $solver } from '@utils'
 
 import { S, updatablePostFields } from './schema'
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71()
 
@@ -287,7 +283,6 @@ const debug = makeDebugger('L:PostEditor')
 
 let store = null
 let sub$ = null
-
 
 export const onPublish = () => {
   if (!store.validator('general')) return false
@@ -312,15 +307,15 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: ({ details }) =>  cancleLoading()
+    action: ({ details }) => cancleLoading(),
   },
   {
     match: asyncErr(ERR.NETWORK),
-    action: ({ details }) => cancleLoading()
+    action: ({ details }) => cancleLoading(),
   },
 ]
 
-export const init = (_store) => {
+export const init = _store => {
   store = _store
 
   if (sub$) return false
@@ -332,13 +327,11 @@ export const uninit = () => {
   sub$.unsubscribe()
   sub$ = null
 }
-
 ```
 
-所有的 logic 文件都有[一些样板代码](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/scripts/generators/container/logic.js.hbs)(可以通过 make gen 自动生成)。得益于 Rx.js 强大而优雅的力量以及函数式编程中模式匹配概念的启发，在这个架构下，不论逻辑是异步的还是同步的，都可以统一的用 match-action 结构来处理。整个逻辑处理的流程可以简化为 
+所有的 logic 文件都有[一些样板代码](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/scripts/generators/container/logic.js.hbs)(可以通过 make gen 自动生成)。得益于 Rx.js 强大而优雅的力量以及函数式编程中模式匹配概念的启发，在这个架构下，不论逻辑是异步的还是同步的，都可以统一的用 match-action 结构来处理。整个逻辑处理的流程可以简化为
 
-`处理数据` -->  `更新状态树`  以及/或者 `响应数据` -->  `更新状态树` 
-
+`处理数据` --> `更新状态树` 以及/或者 `响应数据` --> `更新状态树`
 
 #### schema.js
 
@@ -347,7 +340,7 @@ logic 层在即可使用 sr71$.query(S.post, {...}) 进行异步请求。
 
 ```js
 import gql from 'graphql-tag'
-import { F, P } from 'schemas'
+import { F, P } from '@schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {
@@ -383,4 +376,3 @@ const schema = {
 
 export default schema
 ```
-

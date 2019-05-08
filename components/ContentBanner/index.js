@@ -9,8 +9,8 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { makeDebugger } from 'utils'
-import DotDivider from 'components/DotDivider'
+import { makeDebugger } from '@utils'
+import DotDivider from '@components/DotDivider'
 
 import {
   BannerContainer,

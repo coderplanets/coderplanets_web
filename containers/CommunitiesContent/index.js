@@ -7,8 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import Pagi from 'components/Pagi'
-import { makeDebugger, storePlug } from 'utils'
+import Pagi from '@components/Pagi'
+import { makeDebugger, storePlug } from '@utils'
 import CommunityCards from './CommunityCards'
 
 import { Wrapper } from './styles'

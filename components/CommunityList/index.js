@@ -8,8 +8,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger } from 'utils'
-import Popover from 'components/Popover'
+import { makeDebugger } from '@utils'
+import Popover from '@components/Popover'
 
 import {
   Wrapper,

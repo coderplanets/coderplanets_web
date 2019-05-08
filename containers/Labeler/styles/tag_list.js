@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from 'utils'
+import { theme, animate, cs } from '@utils'
 
 export const Wrapper = styled.div`
   padding: 10px;

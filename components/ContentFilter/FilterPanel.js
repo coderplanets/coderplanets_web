@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { THREAD } from 'utils'
+import { THREAD } from '@utils'
 import { FiltrPanelWrapper } from './styles'
 
 import TimeFilter from './TimeFilter'

@@ -11,7 +11,7 @@ import randomColor from 'randomcolor'
 import { Row, Col, Divider } from 'antd'
 // import Link from 'next/link'
 
-import { uid, makeDebugger, storePlug } from 'utils'
+import { uid, makeDebugger, storePlug } from '@utils'
 import { Entry, CheatsheetItem } from './styles'
 
 import * as logic from './logic'

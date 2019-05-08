@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { cutFrom, numberWithCommas } from 'utils'
-import Popover from 'components/Popover'
-import { Space } from 'components/BaseStyled'
-import InlineTags from 'components/InlineTags'
+import { cutFrom, numberWithCommas } from '@utils'
+import Popover from '@components/Popover'
+import { Space } from '@components/BaseStyled'
+import InlineTags from '@components/InlineTags'
 
 import {
   Wrapper,

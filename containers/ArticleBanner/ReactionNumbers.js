@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { prettyNum } from 'utils'
+import { prettyNum } from '@utils'
 import StarReaction from './StarReaction'
 import FavoriteReaction from './FavoriteReaction'
 

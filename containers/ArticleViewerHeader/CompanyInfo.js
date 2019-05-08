@@ -1,10 +1,10 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import DotDivider from 'components/DotDivider'
-import { ICON_CMD } from 'config'
+import DotDivider from '@components/DotDivider'
+import { ICON_CMD } from '@config'
 
-import { cutFrom } from 'utils'
+import { cutFrom } from '@utils'
 import {
   Wrapper,
   Logo,

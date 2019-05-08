@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import Header from './Header'
 import UserInfo from './UserInfo'
 import ReactionNumbers from './ReactionNumbers'

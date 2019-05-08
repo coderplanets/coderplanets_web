@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LABEL_POOL } from 'config'
+import { LABEL_POOL } from '@config'
 
 import {
   ColumnWrapper,
@@ -12,7 +12,7 @@ import {
   SelectItem,
 } from './styles'
 
-// import { uid } from 'utils'
+// import { uid } from '@utils'
 
 const JobFieldFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>

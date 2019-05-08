@@ -11,15 +11,15 @@ import { Waypoint } from 'react-waypoint'
 import R from 'ramda'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug, ROUTE, THREAD } from 'utils'
+import { makeDebugger, storePlug, ROUTE, THREAD } from '@utils'
 
-import TagsBar from 'containers/TagsBar'
-import Maybe from 'components/Maybe'
-import PagedContents from 'components/PagedContents'
-import ContentFilter from 'components/ContentFilter'
-import PublishLabel from 'components/PublishLabel'
-import ConstructingThread from 'components/ConstructingThread'
-import StrategicPartners from 'components/StrategicPartners'
+import TagsBar from '@containers/TagsBar'
+import Maybe from '@components/Maybe'
+import PagedContents from '@components/PagedContents'
+import ContentFilter from '@components/ContentFilter'
+import PublishLabel from '@components/PublishLabel'
+import ConstructingThread from '@components/ConstructingThread'
+import StrategicPartners from '@components/StrategicPartners'
 
 import CityList from './CityList'
 

@@ -14,7 +14,7 @@ import {
   themeSkins,
   dispatchEvent,
   EVENT,
-} from 'utils'
+} from '@utils'
 
 import {
   // domain

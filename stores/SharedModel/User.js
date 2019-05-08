@@ -1,6 +1,6 @@
 import { types as t } from 'mobx-state-tree'
-import { PAGE_SIZE } from 'config'
-import { C11N } from 'utils'
+import { PAGE_SIZE } from '@config'
+import { C11N } from '@utils'
 import { Community /* PagedCommunities */ } from './Community'
 
 const PagedCommunities = t.model('pagedCommunities', {
