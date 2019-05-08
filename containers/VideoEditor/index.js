@@ -5,9 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore } from '@utils'
 
 import Labeler from '@containers/Labeler'
 import FormItem from '@components/FormItem'
@@ -18,7 +17,6 @@ import CoverUploader from './CoverUploader'
 import SourceOptions from './SourceOptions'
 
 import { Wrapper, Title, FormWrapper } from './styles'
-
 import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
@@ -132,4 +130,4 @@ const VideoEditorContainer = ({ videoEditor, attachment }) => {
   )
 }
 
-export default inject(storePlug('videoEditor'))(observer(VideoEditorContainer))
+export default connectStore(VideoEditorContainer)

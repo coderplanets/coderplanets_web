@@ -5,13 +5,11 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger, storePlug, THREAD } from '@utils'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
@@ -109,4 +107,4 @@ const ReposThreadContainer = ({ reposThread }) => {
   )
 }
 
-export default inject(storePlug('reposThread'))(observer(ReposThreadContainer))
+export default connectStore(ReposThreadContainer)

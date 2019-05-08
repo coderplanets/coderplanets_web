@@ -5,11 +5,9 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
 import ContentSourceCard from '@components/ContentSourceCard'
@@ -71,4 +69,4 @@ const RepoContentContainer = ({ repoContent }) => {
   )
 }
 
-export default inject(storePlug('repoContent'))(observer(RepoContentContainer))
+export default connectStore(RepoContentContainer)
