@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, THREAD } from '@utils'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
@@ -17,7 +15,6 @@ import Comments from '@containers/Comments'
 import GithubRepoPage from '@components/GithubRepoPage'
 
 import { CommentsWrapper } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -58,4 +55,4 @@ const RepoViewerContainer = ({ repoViewer, attachment }) => {
   )
 }
 
-export default inject(storePlug('repoViewer'))(observer(RepoViewerContainer))
+export default connectStore(RepoViewerContainer)

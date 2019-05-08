@@ -83,6 +83,7 @@ export {
 } from './route_helper'
 
 export {
+  connectStore,
   storePlug,
   markStates,
   flashState,

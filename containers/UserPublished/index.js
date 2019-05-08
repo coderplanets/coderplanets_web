@@ -5,12 +5,11 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
 import PagedContents from '@components/PagedContents'
 import ThreadSelector from '@components/ThreadSelector'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 import { ThreadWrapper } from './styles'
 
 import * as logic from './logic'
@@ -65,6 +64,4 @@ class UserPublishedContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('userPublished'))(
-  observer(UserPublishedContainer)
-)
+export default connectStore(UserPublishedContainer)

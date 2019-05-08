@@ -6,16 +6,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
+
 import Header from './Header'
 import UserInfo from './UserInfo'
 import ReactionNumbers from './ReactionNumbers'
 
 import { Wrapper, Divider } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -67,6 +65,4 @@ ArticleAuthorCardContainer.defaultProps = {
   introTitle: '关于作者',
 }
 
-export default inject(storePlug('articleAuthorCard'))(
-  observer(ArticleAuthorCardContainer)
-)
+export default connectStore(ArticleAuthorCardContainer)
