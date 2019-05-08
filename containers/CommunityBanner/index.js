@@ -3,12 +3,10 @@
  * CommunityBanner
  *
  */
-
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, C11N } from '@utils'
+import { connectStore, makeDebugger, C11N } from '@utils'
+
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
@@ -46,6 +44,4 @@ const CommunityBannerContainer = ({ communityBanner }) => {
   )
 }
 
-export default inject(storePlug('communityBanner'))(
-  observer(CommunityBannerContainer)
-)
+export default connectStore(CommunityBannerContainer)

@@ -5,12 +5,10 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 import ReactTooltip from 'react-tooltip'
 
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import Maybe from '@components/Maybe'
 import ThemeSelector from '@components/ThemeSelector'
@@ -83,6 +81,4 @@ const AccountViewerContainer = ({ accountViewer, user }) => {
   )
 }
 
-export default inject(storePlug('accountViewer'))(
-  observer(AccountViewerContainer)
-)
+export default connectStore(AccountViewerContainer)

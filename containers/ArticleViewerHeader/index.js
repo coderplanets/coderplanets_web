@@ -5,11 +5,9 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
-import { makeDebugger, storePlug, THREAD } from '@utils'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
 import FavoritesCats from '@containers/FavoritesCats'
 import Maybe from '@components/Maybe'
@@ -22,7 +20,6 @@ import ViewCounter from './ViewCounter'
 import LastSyncInfo from './LastSyncInfo'
 
 import { Wrapper, ReactionWrapper } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -96,6 +93,4 @@ ArticleViewerHeaderContainer.defaultProps = {
   showLastSync: false,
 }
 
-export default inject(storePlug('articleViewerHeader'))(
-  observer(ArticleViewerHeaderContainer)
-)
+export default connectStore(ArticleViewerHeaderContainer)
