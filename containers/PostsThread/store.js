@@ -6,14 +6,14 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, nilOrEmpty } from 'utils'
+import { markStates, makeDebugger, stripMobx, TYPE, nilOrEmpty } from '@utils'
 import {
   PagedPosts,
   Tag,
   ContentFilter,
   emptyPagiData,
   PagedCommunities,
-} from 'stores/SharedModel'
+} from '@model'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:PostsThreadStore')

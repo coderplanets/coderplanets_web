@@ -8,10 +8,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'antd'
 
-import { SITE_URL } from 'config'
+import { SITE_URL } from '@config'
 
-import { makeDebugger, THREAD } from 'utils'
-import Maybe from 'components/Maybe'
+import { makeDebugger, THREAD } from '@utils'
+import Maybe from '@components/Maybe'
 
 import CopyrightSelector from './CopyrightSelector'
 

@@ -8,11 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger, cutFrom } from 'utils'
-import DotDivider from 'components/DotDivider'
-import VideoSourceInfo from 'components/VideoSourceInfo'
+import { makeDebugger, cutFrom } from '@utils'
+import DotDivider from '@components/DotDivider'
+import VideoSourceInfo from '@components/VideoSourceInfo'
 
 import {
   Wrapper,

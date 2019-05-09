@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import TrendLine from 'components/TrendLine'
-import { uid } from 'utils'
+import TrendLine from '@components/TrendLine'
+import { uid } from '@utils'
 
 import {
   Wrapper,

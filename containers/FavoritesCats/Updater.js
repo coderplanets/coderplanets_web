@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
 
-import Popconfirm from 'components/Popconfirm'
-import { Space } from 'components/BaseStyled'
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD } from 'config'
+import Popconfirm from '@components/Popconfirm'
+import { Space } from '@components/BaseStyled'
+import SectionLabel from '@components/SectionLabel'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import {
   Wrapper,
   EditWrapper,

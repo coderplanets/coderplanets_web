@@ -2,7 +2,7 @@ import React from 'react'
 import ReactTooltip from 'react-tooltip'
 import R from 'ramda'
 
-import { sortByIndex } from 'utils'
+import { sortByIndex } from '@utils'
 import {
   Wrapper,
   HeaderWrapper,

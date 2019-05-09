@@ -10,7 +10,7 @@ import Trend from 'react-trend'
 
 import { withTheme } from 'styled-components'
 
-import { makeDebugger, theme as themeHelper } from 'utils'
+import { makeDebugger, theme as themeHelper } from '@utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:TrendLine:index')
 

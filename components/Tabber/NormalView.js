@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tabs } from 'antd'
 
-import { Trans, sortByIndex } from 'utils'
+import { Trans, sortByIndex } from '@utils'
 import { LableWrapper } from './styles'
 import TabIcon from './TabIcon'
 

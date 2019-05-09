@@ -5,8 +5,8 @@ import R from 'ramda'
 
 import { from } from 'rxjs'
 
-import { ICON_CMD } from 'config'
-import { notEmpty } from 'utils'
+import { ICON_CMD } from '@config'
+import { notEmpty } from '@utils'
 
 const cmdSplit = R.compose(
   R.split('/'),

@@ -6,17 +6,16 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject, observer } from 'mobx-react'
 
-import Modal from 'components/Modal'
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
+
+import Modal from '@components/Modal'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
 import CommentReplyEditor from './CommentReplyEditor'
 import LockedMessage from './LockedMessage'
 
 import { Wrapper } from './styles'
-
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
@@ -109,4 +108,4 @@ CommentsContainer.defaultProps = {
   locked: false,
 }
 
-export default inject(storePlug('comments'))(observer(CommentsContainer))
+export default connectStore(CommentsContainer)

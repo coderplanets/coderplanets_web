@@ -6,16 +6,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import DotDivider from 'components/DotDivider'
-import Maybe from 'components/Maybe'
-import { Space } from 'components/BaseStyled'
+import DotDivider from '@components/DotDivider'
+import Maybe from '@components/Maybe'
+import { Space } from '@components/BaseStyled'
 import FavoritesCats from '../FavoritesCats'
 
 import Title from './Title'
@@ -23,7 +21,6 @@ import ReactionNumbers from './ReactionNumbers'
 import MiddleInfo from './MiddleInfo'
 
 import { Wrapper, BannerContent, Brief, Desc } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -101,6 +98,4 @@ ArticleBannerContainer.defaultProps = {
   showLastSync: false,
 }
 
-export default inject(storePlug('articleBanner'))(
-  observer(ArticleBannerContainer)
-)
+export default connectStore(ArticleBannerContainer)

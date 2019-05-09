@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger, nilOrEmpty } from 'utils'
+import { makeDebugger, nilOrEmpty } from '@utils'
 import {
   Wrapper,
   PopAvatarWrapper,

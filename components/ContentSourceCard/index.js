@@ -7,8 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from 'utils'
-import CommunityList from 'components/CommunityList'
+import { makeDebugger } from '@utils'
+import CommunityList from '@components/CommunityList'
 
 import UserList from './UserList'
 

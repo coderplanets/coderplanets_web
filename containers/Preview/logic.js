@@ -8,8 +8,8 @@ import {
   dispatchEvent,
   Global,
   cs,
-} from 'utils'
-import SR71 from 'utils/async/sr71'
+} from '@utils'
+import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71({
   resv_event: [

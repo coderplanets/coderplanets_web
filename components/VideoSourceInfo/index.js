@@ -8,10 +8,10 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { makeDebugger } from 'utils'
-import Maybe from 'components/Maybe'
+import { makeDebugger } from '@utils'
+import Maybe from '@components/Maybe'
 
 import { Wrapper, LinkIcon, LogoIcon, Text } from './styles'
 

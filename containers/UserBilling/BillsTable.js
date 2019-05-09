@@ -2,9 +2,9 @@ import React from 'react'
 import { Table } from 'antd'
 import TimeAgo from 'timeago-react'
 
-import { ArticleContentLoading } from 'components/LoadingEffects'
-// import { ICON_CMD } from 'config'
-import { Trans } from 'utils'
+import { ArticleContentLoading } from '@components/LoadingEffects'
+// import { ICON_CMD } from '@config'
+import { Trans } from '@utils'
 import { Wrapper, ColorCell } from './styles/bills_table'
 
 const columns = [

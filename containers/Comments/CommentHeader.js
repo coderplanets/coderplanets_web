@@ -5,7 +5,7 @@ import TimeAgo from 'timeago-react'
 // import { ICON_CMD } from '../../config'
 // import { Wrapper } from './styles'
 
-import AvatarsRow from 'components/AvatarsRow'
+import AvatarsRow from '@components/AvatarsRow'
 
 import {
   Wrapper,

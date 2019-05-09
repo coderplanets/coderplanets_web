@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Maybe from 'components/Maybe'
-import GithubUserCard from 'components/GithubUserCard'
-import SearchingLabel from 'components/SearchingLabel'
-import { ICON_CMD } from 'config'
+import Maybe from '@components/Maybe'
+import GithubUserCard from '@components/GithubUserCard'
+import SearchingLabel from '@components/SearchingLabel'
+import { ICON_CMD } from '@config'
 
 import {
   Wrapper,

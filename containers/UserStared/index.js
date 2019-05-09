@@ -7,9 +7,9 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import PagedContents from 'components/PagedContents'
-import ThreadSelector from 'components/ThreadSelector'
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import PagedContents from '@components/PagedContents'
+import ThreadSelector from '@components/ThreadSelector'
+import { makeDebugger, storePlug, THREAD } from '@utils'
 import { ThreadWrapper } from './styles'
 
 import * as logic from './logic'

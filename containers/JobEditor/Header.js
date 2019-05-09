@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import AvatarsRow from 'components/AvatarsRow'
-import { ICON_CMD } from 'config'
+import AvatarsRow from '@components/AvatarsRow'
+import { ICON_CMD } from '@config'
 
 import {
   Wrapper,

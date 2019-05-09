@@ -1,11 +1,11 @@
 import React from 'react'
 
-import FormItem from 'components/FormItem'
-import Maybe from 'components/Maybe'
-import { Space } from 'components/BaseStyled'
-import { ICON_CMD } from 'config'
+import FormItem from '@components/FormItem'
+import Maybe from '@components/Maybe'
+import { Space } from '@components/BaseStyled'
+import { ICON_CMD } from '@config'
 
-import { uid } from 'utils'
+import { uid } from '@utils'
 import {
   Wrapper,
   Adder,

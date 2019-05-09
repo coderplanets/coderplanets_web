@@ -1,22 +1,17 @@
-
 async 基于 [rx.js](https://github.com/reactivex/rxjs) 封装而来，目的是以统一的接口响应应用中的各种异步事件，如网络，消息，服务器推送等等, 并提供基本的防抖、超时，可取消等特性。
 
 每一个 logic.js 文件都会引入 sr71 模块：
 
 ```js
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 const sr71$ = new SR71()
 ```
 
-
 备注: sr71 为美军黑鸟侦察机的代号:
-
 
 ![image](https://user-images.githubusercontent.com/6184465/51725044-34d67380-209b-11e9-87a4-9edeec396958.png)
 
-
 ### 网络事件
-
 
 你可以在函数中调用网络请求, query 和 mutate 分别代表 GraphQL 中的 query 和 mutate 操作
 
@@ -55,9 +50,9 @@ const sr71$ = new SR71({
 })
 ```
 
-代表该容器组件接收 4 个消息， 分别是  EVENT.PREVIEW_OPEN, EVENT.PREVIEW_CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
+代表该容器组件接收 4 个消息， 分别是 EVENT.PREVIEW_OPEN, EVENT.PREVIEW_CLOSE, EVENT.UPLOAD_IMG_START, EVENT.UPLOAD_IMG_FINISH
 
-对应的 DataSolver: 
+对应的 DataSolver:
 
 ```js
 {
@@ -91,7 +86,6 @@ const sr71$ = new SR71({
 
 与之类似， TODO
 
-
 ### 错误处理
 
 错误处理的逻辑统一由 ErrSolver 内，以统一的方式分别响应 GraphQL 解析错误，请求错误，超时错误，网络错误等等。`errRescue`为全局的错误提示、显示组件([详情](https://github.com/coderplanets/coderplanets_web/issues/340)), 同时出错后一些组件内部的状态，如 loading 等等，也在这里处理。
@@ -120,14 +114,3 @@ const ErrSolver = [
 ```
 
 ![image](https://user-images.githubusercontent.com/6184465/51435747-e5b6ca00-1cb9-11e9-8da7-19e027675dd5.png)
-
-
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
-import withGuardian from 'components/HOC/withGuardian'
+import { ICON_CMD } from '@config'
+import withGuardian from '@components/HOC/withGuardian'
 
 import {
   Wrapper,

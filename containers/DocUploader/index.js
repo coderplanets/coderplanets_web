@@ -8,9 +8,9 @@ import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ASSETS_ENDPOINT } from 'config'
+import { ASSETS_ENDPOINT } from '@config'
 
-import { makeDebugger, storePlug, uid, Global } from 'utils'
+import { makeDebugger, storePlug, uid, Global } from '@utils'
 import { Wrapper, InputFile } from './styles'
 
 import {

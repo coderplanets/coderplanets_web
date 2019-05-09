@@ -1,9 +1,9 @@
 import React from 'react'
 
-import TrendLine from 'components/TrendLine'
-import { CommunityHolder } from 'components/LoadingEffects'
+import TrendLine from '@components/TrendLine'
+import { CommunityHolder } from '@components/LoadingEffects'
 
-import { prettyNum } from 'utils'
+import { prettyNum } from '@utils'
 import {
   Wrapper,
   CommunityIcon,

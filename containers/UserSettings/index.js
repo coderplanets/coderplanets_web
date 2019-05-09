@@ -8,14 +8,14 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Radio } from 'antd'
 
-import ThemeSelector from 'components/ThemeSelector'
-import Popover from 'components/Popover'
+import ThemeSelector from '@components/ThemeSelector'
+import Popover from '@components/Popover'
 
-import SectionLabel from 'components/SectionLabel'
-import DiscussLinker from 'components/DiscussLinker'
-import { ICON_CMD, ISSUE_ADDR } from 'config'
+import SectionLabel from '@components/SectionLabel'
+import DiscussLinker from '@components/DiscussLinker'
+import { ICON_CMD, ISSUE_ADDR } from '@config'
 
-import { makeDebugger, storePlug, C11N } from 'utils'
+import { makeDebugger, storePlug, C11N } from '@utils'
 import { Wrapper, RadiosWrapper, OptionsWrapper, ErrText } from './styles'
 
 import * as logic from './logic'

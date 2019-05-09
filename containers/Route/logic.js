@@ -1,4 +1,4 @@
-import { makeDebugger, getMainPath, getSubPath, Global } from 'utils'
+import { makeDebugger, getMainPath, getSubPath, Global } from '@utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Route')

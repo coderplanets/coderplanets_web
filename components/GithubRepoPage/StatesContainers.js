@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { nilOrEmpty } from 'utils'
-import Maybe from 'components/Maybe'
-import Popover from 'components/Popover'
+import { nilOrEmpty } from '@utils'
+import Maybe from '@components/Maybe'
+import Popover from '@components/Popover'
 
 import {
   Wrapper,

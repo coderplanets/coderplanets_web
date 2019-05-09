@@ -6,20 +6,18 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
-import Comments from 'containers/Comments'
-import Labeler from 'containers/Labeler'
-import ArticleViewerHeader from 'containers/ArticleViewerHeader'
-import ArticleBodyHeader from 'containers/ArticleBodyHeader'
+import Comments from '@containers/Comments'
+import Labeler from '@containers/Labeler'
+import ArticleViewerHeader from '@containers/ArticleViewerHeader'
+import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 
-import Maybe from 'components/Maybe'
-import MarkDownRender from 'components/MarkDownRender'
-import { ArticleContentLoading } from 'components/LoadingEffects'
+import Maybe from '@components/Maybe'
+import MarkDownRender from '@components/MarkDownRender'
+import { ArticleContentLoading } from '@components/LoadingEffects'
 
 import {
   BodyWrapper,
@@ -83,4 +81,4 @@ PostViewerContainer.defaultProps = {
   attachment: {},
 }
 
-export default inject(storePlug('postViewer'))(observer(PostViewerContainer))
+export default connectStore(PostViewerContainer)

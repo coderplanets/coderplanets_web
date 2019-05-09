@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { debounce } from 'utils'
+import { debounce } from '@utils'
 import { InputEditorWrapper } from './styles/comment_editor'
 import EditorFooter from './EditorFooter'
 

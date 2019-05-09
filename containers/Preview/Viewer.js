@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TYPE } from 'utils'
+import { TYPE } from '@utils'
 
 import {
   DynamicAccountViewer,

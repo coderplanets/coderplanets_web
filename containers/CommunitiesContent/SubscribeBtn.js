@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon, Tooltip } from 'antd'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 import { SubscribedBox } from './styles'
 import { subscribe, unSubscribe } from './logic'
 

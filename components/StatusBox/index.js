@@ -9,7 +9,7 @@ import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import { Icon } from 'antd'
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 import {
   Wrapper,
   Msg,
@@ -22,7 +22,7 @@ import {
   ErrorDetail,
 } from './styles'
 
-/* import { makeDebugger, uid, isObject } from 'utils' */
+/* import { makeDebugger, uid, isObject } from '@utils' */
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:StatusBox:index')

@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from 'config'
-import { themeMeta } from 'utils'
+import { ICON_CMD } from '@config'
+import { themeMeta } from '@utils'
 
 import {
   Wrapper,

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_BASE } from 'config'
+import { ICON_BASE } from '@config'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 import PaymentConfirm from './PaymentConfirm'
 
 import {

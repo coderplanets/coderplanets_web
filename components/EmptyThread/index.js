@@ -7,9 +7,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ISSUE_ADDR } from 'config'
+import { ISSUE_ADDR } from '@config'
 
-import { makeDebugger, Trans } from 'utils'
+import { makeDebugger, Trans } from '@utils'
 import {
   Icon404,
   Wrapper,

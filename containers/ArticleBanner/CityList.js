@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { uid, Trans, nilOrEmpty } from 'utils'
+import { uid, Trans, nilOrEmpty } from '@utils'
 import { Wrapper, Item, SlashDivider } from './styles/city_list'
 
 const CityList = ({ data }) => {

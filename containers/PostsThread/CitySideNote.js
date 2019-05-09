@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from 'config'
+import { ISSUE_ADDR } from '@config'
 import { Wrapper, Title, Divider, Desc, Linker } from './styles/city_side_note'
 
 const CitySideNote = () => (

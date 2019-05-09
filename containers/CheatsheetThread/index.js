@@ -8,11 +8,11 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import Prism from 'mastani-codehighlight'
 
-import { makeDebugger, storePlug, TYPE } from 'utils'
+import { makeDebugger, storePlug, TYPE } from '@utils'
 
-import EmptyThread from 'components/EmptyThread'
-import { CheatSheetLoading } from 'components/LoadingEffects'
-import GithubSyncWarning from 'components/GithubSyncWarning'
+import EmptyThread from '@components/EmptyThread'
+import { CheatSheetLoading } from '@components/LoadingEffects'
+import GithubSyncWarning from '@components/GithubSyncWarning'
 
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'

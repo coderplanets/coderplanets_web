@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 import { Wrapper, Copyrights, Thanks, ThxTitle } from './styles/bottom_info'
 import { toggleBusBanner } from './logic'
 

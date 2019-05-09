@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
-import { cutFrom, Trans } from 'utils'
+import { ICON_CMD } from '@config'
+import { cutFrom, Trans } from '@utils'
 import { Wrapper, WarningIcon, Info, Title, Desc } from './styles/alert_bar'
 
 const AlertBar = ({ value, searchThread }) => (

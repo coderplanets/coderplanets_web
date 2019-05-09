@@ -9,7 +9,7 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, BStore, nilOrEmpty } from 'utils'
+import { makeDebugger, BStore, nilOrEmpty } from '@utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:Guardian:index')

@@ -5,7 +5,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, THREAD, C11N, sortByIndex } from 'utils'
+import { makeDebugger, THREAD, C11N, sortByIndex } from '@utils'
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 

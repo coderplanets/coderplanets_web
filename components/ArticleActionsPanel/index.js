@@ -8,10 +8,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, THREAD } from 'utils'
+import { ICON_CMD } from '@config'
+import { makeDebugger, THREAD } from '@utils'
 
-import Informer from 'containers/Informer'
+import Informer from '@containers/Informer'
 import PinOption from './PinOption'
 import RefineOption from './RefineOption'
 import EditOption from './EditOption'

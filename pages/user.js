@@ -6,24 +6,24 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { SocialProfileJsonLd } from 'next-seo'
 
-import { SITE_URL } from 'config'
+import { SITE_URL } from '@config'
 
-import GlobalLayout from 'containers/GlobalLayout'
-import ThemeWrapper from 'containers/ThemeWrapper'
-import MultiLanguage from 'containers/MultiLanguage'
-import Preview from 'containers/Preview'
-import Doraemon from 'containers/Doraemon'
-import Route from 'containers/Route'
-import Header from 'containers/Header'
-import UserBanner from 'containers/UserBanner'
-import UserContent from 'containers/UserContent'
-import Footer from 'containers/Footer'
-import ErrorBox from 'containers/ErrorBox'
+import GlobalLayout from '@containers/GlobalLayout'
+import ThemeWrapper from '@containers/ThemeWrapper'
+import MultiLanguage from '@containers/MultiLanguage'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import UserBanner from '@containers/UserBanner'
+import UserContent from '@containers/UserContent'
+import Footer from '@containers/Footer'
+import ErrorBox from '@containers/ErrorBox'
 
-import { P } from 'schemas'
-import GAWraper from 'components/GAWraper'
-import ErrorPage from 'components/ErrorPage'
-// import { GAWraper, ErrorPage } from 'components'
+import { P } from '@schemas'
+import GAWraper from '@components/GAWraper'
+import ErrorPage from '@components/ErrorPage'
+// import { GAWraper, ErrorPage } from '@components'
 
 import {
   BStore,
@@ -37,9 +37,9 @@ import {
   pagedFilter,
   ssrAmbulance,
   parseTheme,
-} from 'utils'
+} from '@utils'
 
-import initRootStore from 'stores/init'
+import initRootStore from '@stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

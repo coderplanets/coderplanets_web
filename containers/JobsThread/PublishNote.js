@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Modal from 'components/Modal'
-import { DEFAULT_USER_AVATAR } from 'config'
+import Modal from '@components/Modal'
+import { DEFAULT_USER_AVATAR } from '@config'
 
-// import { ICON_CMD } from 'config'
+// import { ICON_CMD } from '@config'
 import { Wrapper, NoteIcon, NoteDesc, Linker } from './styles/publish_note'
 
 import { onNoteClose } from './logic'

@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import TabSelector from 'components/TabSelector'
-import { ICON_CMD } from 'config/assets'
+import TabSelector from '@components/TabSelector'
+import { ICON_CMD } from '@config/assets'
 
 import { Wrapper, SeeAllMessages } from './styles/mails_panel'
 import MailLists from './MailLists'

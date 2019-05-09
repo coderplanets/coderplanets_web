@@ -7,7 +7,7 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, isBrowser } from 'utils'
+import { makeDebugger, storePlug, isBrowser } from '@utils'
 
 import SliderPreview from './SliderPreview'
 import ModalPreview from './ModalPreview'

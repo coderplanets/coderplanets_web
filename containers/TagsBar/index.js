@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
 import {
   makeDebugger,
@@ -18,7 +18,7 @@ import {
   THREAD,
   TOPIC,
   Trans,
-} from 'utils'
+} from '@utils'
 import TagOptions from './TagOptions'
 
 import {

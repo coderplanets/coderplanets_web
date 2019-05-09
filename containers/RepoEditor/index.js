@@ -8,9 +8,9 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, uid } from 'utils'
+import { makeDebugger, storePlug, uid } from '@utils'
 
-import GithubRepoPage from 'components/GithubRepoPage'
+import GithubRepoPage from '@components/GithubRepoPage'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'

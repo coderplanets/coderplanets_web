@@ -1,8 +1,8 @@
 import React from 'react'
-import ThreadSelector from 'components/ThreadSelector'
-import { ICON_CMD } from 'config'
+import ThreadSelector from '@components/ThreadSelector'
+import { ICON_CMD } from '@config'
 
-import { THREAD } from 'utils'
+import { THREAD } from '@utils'
 import {
   Wrapper,
   TitleList,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 import { Wrapper, SearchInput, SearchIcon } from './styles/search_bar'
 
 import { onSearch, onSearchPress, onSearchChange } from './logic'

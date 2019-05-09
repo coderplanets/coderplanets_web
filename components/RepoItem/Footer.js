@@ -1,8 +1,8 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import Popover from 'components/Popover'
-import DotDivider from 'components/DotDivider'
+import Popover from '@components/Popover'
+import DotDivider from '@components/DotDivider'
 
 import {
   Wrapper,

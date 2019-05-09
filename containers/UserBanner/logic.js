@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncRes } from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, $solver, asyncRes } from '@utils'
+import SR71 from '@utils/async/sr71'
 
 import S from './schema'
 

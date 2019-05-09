@@ -12,7 +12,7 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, makeDebugger, BStore } from 'utils'
+import { EVENT, makeDebugger, BStore } from '@utils'
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
 

@@ -8,15 +8,15 @@ import React from 'react'
 import { inject } from 'mobx-react'
 import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, ROUTE } from 'utils'
+import { makeDebugger, storePlug, ROUTE } from '@utils'
 
-import PostsThread from 'containers//PostsThread'
-import VideosThread from 'containers/VideosThread'
-import ReposThread from 'containers/ReposThread'
-import WikiThread from 'containers/WikiThread'
-import JobsThread from 'containers/JobsThread'
-import UsersThread from 'containers/UsersThread'
-import CheatsheetThread from 'containers/CheatsheetThread'
+import PostsThread from '@containers//PostsThread'
+import VideosThread from '@containers/VideosThread'
+import ReposThread from '@containers/ReposThread'
+import WikiThread from '@containers/WikiThread'
+import JobsThread from '@containers/JobsThread'
+import UsersThread from '@containers/UsersThread'
+import CheatsheetThread from '@containers/CheatsheetThread'
 
 import { Wrapper } from './styles'
 

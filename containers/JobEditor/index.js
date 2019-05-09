@@ -6,13 +6,11 @@
 
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import ArticleEditFooter from 'components/ArticleEditFooter'
-import { ArticleContentLoading } from 'components/LoadingEffects'
+import ArticleEditFooter from '@components/ArticleEditFooter'
+import { ArticleContentLoading } from '@components/LoadingEffects'
 
 import Editor from './Editor'
 import Preview from './Preview'
@@ -108,4 +106,4 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
 
 // JobEditorContainer.defaultProps = {}
 
-export default inject(storePlug('jobEditor'))(observer(JobEditorContainer))
+export default connectStore(JobEditorContainer)

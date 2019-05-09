@@ -5,13 +5,11 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
-import { useShortcut } from 'components/Hooks'
+import Modal from '@components/Modal'
+import { useShortcut } from '@components/Hooks'
 
 import Header from './Header'
 import Details from './Details'
@@ -71,4 +69,4 @@ const ErrorBoxContainer = ({ errorBox }) => {
   )
 }
 
-export default inject(storePlug('errorBox'))(observer(ErrorBoxContainer))
+export default connectStore(ErrorBoxContainer)

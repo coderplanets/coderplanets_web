@@ -5,19 +5,17 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { ICON_CMD } from '@config'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
-import TagsBar from 'containers/TagsBar'
-import Maybe from 'components/Maybe'
-import PagedContents from 'components/PagedContents'
-import ContentFilter from 'components/ContentFilter'
-import PublishLabel from 'components/PublishLabel'
+import TagsBar from '@containers/TagsBar'
+import Maybe from '@components/Maybe'
+import PagedContents from '@components/PagedContents'
+import ContentFilter from '@components/ContentFilter'
+import PublishLabel from '@components/PublishLabel'
 
 import PublishNote from './PublishNote'
 
@@ -114,4 +112,4 @@ const JobsThreadContainer = ({ jobsThread }) => {
   )
 }
 
-export default inject(storePlug('jobsThread'))(observer(JobsThreadContainer))
+export default connectStore(JobsThreadContainer)

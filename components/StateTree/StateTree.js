@@ -11,7 +11,7 @@ import { withTheme } from 'styled-components'
 
 /* import PropTypes from 'prop-types' */
 
-import { makeDebugger } from 'utils'
+import { makeDebugger } from '@utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:StateTree:index')
 

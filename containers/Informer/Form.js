@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Input, Button } from 'antd'
 
-import { Space } from 'components/BaseStyled'
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD } from 'config'
+import { Space } from '@components/BaseStyled'
+import SectionLabel from '@components/SectionLabel'
+import { ICON_CMD } from '@config'
 
 import { Wrapper, Footer, Back, Submit } from './styles/form'
 

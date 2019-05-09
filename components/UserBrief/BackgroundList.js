@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { uid } from 'utils'
+import { uid } from '@utils'
 
 import {
   BackgroundItem,

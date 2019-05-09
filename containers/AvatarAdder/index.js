@@ -7,9 +7,9 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 
-import Popover from 'components/Popover'
+import Popover from '@components/Popover'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makeDebugger, storePlug } from '@utils'
 import { Wrapper, AddText } from './styles'
 import AdderPanel from './AdderPanel'
 

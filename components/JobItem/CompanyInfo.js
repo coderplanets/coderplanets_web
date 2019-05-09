@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { cutFrom } from 'utils'
+import { cutFrom } from '@utils'
 import {
   Wrapper,
   TopHalf,

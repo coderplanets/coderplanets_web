@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from 'components/Img'
-import { theme, animate } from 'utils'
+import Img from '@components/Img'
+import { theme, animate } from '@utils'
 
 export const PrefixIcon = styled(Img)`
   width: 30px;

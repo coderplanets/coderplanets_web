@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD, EMAIL_BUSINESS } from 'config'
+import { ICON_CMD, EMAIL_BUSINESS } from '@config'
 import { Wrapper, MailIcon, Title, MailLink } from './styles/bussiness_note'
 
 const BussinessNote = () => (
