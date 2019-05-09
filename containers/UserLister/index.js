@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, TYPE } from '@utils'
+import { connectStore, makeDebugger, TYPE } from '@utils'
 
 import EmptyLabel from '@components/EmptyLabel'
 import Modal from '@components/Modal'
@@ -18,7 +16,6 @@ import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'
 
 import { Wrapper, MsgWrapper } from './styles'
-
 import { useInit, onClose, onPageChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -80,4 +77,4 @@ const UserListerContainer = ({ userLister }) => {
   )
 }
 
-export default inject(storePlug('userLister'))(observer(UserListerContainer))
+export default connectStore(UserListerContainer)

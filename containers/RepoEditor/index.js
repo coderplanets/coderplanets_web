@@ -5,16 +5,13 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, uid } from '@utils'
+import { connectStore, makeDebugger, uid } from '@utils'
 
 import GithubRepoPage from '@components/GithubRepoPage'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'
-
 import { useInit, onPublish, changeView } from './logic'
 
 /* eslint-disable-next-line */
@@ -84,4 +81,4 @@ const RepoEditorContainer = ({ repoEditor }) => {
   )
 }
 
-export default inject(storePlug('repoEditor'))(observer(RepoEditorContainer))
+export default connectStore(RepoEditorContainer)

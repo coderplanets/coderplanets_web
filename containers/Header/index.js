@@ -5,14 +5,11 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug } from '@utils'
-import Header from './Header'
-import { AffixHeader, RawHeader } from './styles'
+import { connectStore, makeDebugger } from '@utils'
 
+import Header from './Header'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -33,8 +30,8 @@ const HeaderContainer = ({ header }) => {
 
   return (
     <React.Fragment>
-      <AffixHeader fixed={fixed}>
-        <Affix>
+      {fixed && (
+        <Affix onChange={debug}>
           <Header
             fixed={fixed}
             curRoute={curRoute}
@@ -45,8 +42,8 @@ const HeaderContainer = ({ header }) => {
             curCommunity={curCommunity}
           />
         </Affix>
-      </AffixHeader>
-      <RawHeader fixed={fixed}>
+      )}
+      {!fixed && (
         <Header
           fixed={fixed}
           curRoute={curRoute}
@@ -56,9 +53,9 @@ const HeaderContainer = ({ header }) => {
           activeInfo={activeInfo}
           curCommunity={curCommunity}
         />
-      </RawHeader>
+      )}
     </React.Fragment>
   )
 }
 
-export default inject(storePlug('header'))(observer(HeaderContainer))
+export default connectStore(HeaderContainer)

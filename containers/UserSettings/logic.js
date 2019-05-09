@@ -1,4 +1,5 @@
-// import R from 'ramda'
+import { useEffect } from 'react'
+import R from 'ramda'
 
 import { makeDebugger, $solver, dispatchEvent, EVENT } from '@utils'
 import SR71 from '@utils/async/sr71'
@@ -16,8 +17,9 @@ export const changeTheme = theme => {
   dispatchEvent(EVENT.SET_C11N, { data: { theme } })
 }
 
-export const c11nOnChange = (part, e) =>
+export const c11nOnChange = R.curry((part, e) => {
   store.updateC11N({ [part]: e.target.value })
+})
 
 export const upgradeHepler = () => store.upgradeHepler()
 export const sponsorHepler = () => store.sponsorHepler()
@@ -29,9 +31,20 @@ export const sponsorHepler = () => store.sponsorHepler()
 const DataSolver = []
 const ErrSolver = []
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      return () => {
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

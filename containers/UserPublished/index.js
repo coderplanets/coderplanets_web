@@ -6,62 +6,52 @@
 
 import React from 'react'
 
+import { connectStore, makeDebugger } from '@utils'
+
 import PagedContents from '@components/PagedContents'
 import ThreadSelector from '@components/ThreadSelector'
 
-import { connectStore, makeDebugger } from '@utils'
 import { ThreadWrapper } from './styles'
-
-import * as logic from './logic'
+import { useInit, onThreadChange, onReload, onPreview } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserPublished')
 
-class UserPublishedContainer extends React.Component {
-  componentDidMount() {
-    const { userPublished } = this.props
-    logic.init(userPublished)
-  }
+const UserPublishedContainer = ({ userPublished }) => {
+  useInit(userPublished)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const {
+    pagedData,
+    curView,
+    curThread,
+    viewingUser,
+    accountInfo,
+  } = userPublished
 
-  render() {
-    const { userPublished } = this.props
-    const {
-      pagedData,
-      curView,
-      curThread,
-      viewingUser,
-      accountInfo,
-    } = userPublished
+  const { totalCount } = pagedData
 
-    const { totalCount } = pagedData
-
-    return (
-      <React.Fragment>
-        <ThreadWrapper>
-          <ThreadSelector
-            active={curThread}
-            onSelect={logic.onThreadChange}
-            totalCount={totalCount}
-            lookLike="box"
-          />
-        </ThreadWrapper>
-
-        <PagedContents
-          data={pagedData}
-          thread={curThread}
-          curView={curView}
-          accountInfo={accountInfo}
-          emptyPrefix={`未找到 ${viewingUser.nickname} 发布的`}
-          onPageChange={logic.reload}
-          onPreview={logic.onPreview}
+  return (
+    <React.Fragment>
+      <ThreadWrapper>
+        <ThreadSelector
+          active={curThread}
+          onSelect={onThreadChange}
+          totalCount={totalCount}
+          lookLike="box"
         />
-      </React.Fragment>
-    )
-  }
+      </ThreadWrapper>
+
+      <PagedContents
+        data={pagedData}
+        thread={curThread}
+        curView={curView}
+        accountInfo={accountInfo}
+        emptyPrefix={`未找到 ${viewingUser.nickname} 发布的`}
+        onPageChange={onReload}
+        onPreview={onPreview}
+      />
+    </React.Fragment>
+  )
 }
 
 export default connectStore(UserPublishedContainer)

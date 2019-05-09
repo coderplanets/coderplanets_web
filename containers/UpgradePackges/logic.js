@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 // import R from 'ramda'
 import { SENIOR_AMOUNT_THRESHOLD } from '@config'
 
@@ -14,7 +15,7 @@ const debug = makeDebugger('L:UpgradePackges')
 
 let store = null
 
-export const upgrade = () => {
+export const onUpgrade = () => {
   if (!store.isLogin) return store.authWarning()
 
   store.cashierHelper({
@@ -23,7 +24,7 @@ export const upgrade = () => {
   })
 }
 
-export const close = () => store.markState({ show: !store.show })
+export const onClose = () => store.markState({ show: !store.show })
 
 // ###############################
 // Data & Error handlers
@@ -32,10 +33,16 @@ export const close = () => store.markState({ show: !store.show })
 const DataSolver = []
 const ErrSolver = []
 
-export const init = _store => {
-  store = _store
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  debug(store)
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      return () => {
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }
