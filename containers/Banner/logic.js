@@ -1,8 +1,15 @@
+import { useEffect } from 'react'
+
+/* eslint-disable-next-line */
 let store = null
 
-const init = _store => {
-  if (store) return false
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(() => {
+    store = _store
+  })
 }
 
-export default init
+export const holder = 1
