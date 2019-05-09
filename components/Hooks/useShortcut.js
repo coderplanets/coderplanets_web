@@ -24,12 +24,26 @@ const useShortcut = (combination, onKeyDownFn, onKeyUpFn) => {
         if (onKeyUpFn) onKeyUpFn()
       }
 
-      keyboardJs.bind(combination, down, up)
+      // support multi combination in array style
+      if (Array.isArray(combination)) {
+        for (let i = 0; i < combination.length; i += 1) {
+          keyboardJs.bind(combination[i], down, up)
+        }
+      } else {
+        keyboardJs.bind(combination, down, up)
+      }
+
       return () => {
-        keyboardJs.unbind(combination, down, up)
+        if (Array.isArray(combination)) {
+          for (let i = 0; i < combination.length; i += 1) {
+            keyboardJs.unbind(combination[i], down, up)
+          }
+        } else {
+          keyboardJs.unbind(combination, down, up)
+        }
       }
     },
-    [combination, keyboardJs]
+    [combination, keyboardJs, onKeyDownFn, onKeyUpFn]
   )
 
   return state

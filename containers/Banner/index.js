@@ -5,9 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, ROUTE } from '@utils'
+import { connectStore, makeDebugger, ROUTE } from '@utils'
 
 import UserBanner from '@containers/UserBanner'
 import CommunitiesBanner from '@containers/CommunitiesBanner'
@@ -16,7 +15,7 @@ import CommunityBanner from '@containers/CommunityBanner'
 import CheatsheetRootBanner from './CheatsheetRootBanner'
 import ActivitiesRootBanner from './ActivitiesRootBanner'
 
-import init from './logic'
+import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Banner')
@@ -60,22 +59,11 @@ const BannerContent = ({ curRoute }) => {
   }
 }
 
-class BannerContainer extends React.Component {
-  constructor(props) {
-    super(props)
+const BannerContainer = ({ banner }) => {
+  useInit(banner)
+  const { curRoute } = banner
 
-    const { banner } = props
-    init(banner)
-  }
-
-  render() {
-    const { banner } = this.props
-    const { curRoute } = banner
-    // const { mainPath } = curRoute
-    // debug('detail ---> ', detail)
-
-    return <BannerContent curRoute={curRoute} banner={banner} />
-  }
+  return <BannerContent curRoute={curRoute} banner={banner} />
 }
 
-export default inject(storePlug('banner'))(observer(BannerContainer))
+export default connectStore(BannerContainer)

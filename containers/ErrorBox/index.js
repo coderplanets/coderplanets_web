@@ -23,9 +23,7 @@ const debug = makeDebugger('C:ErrorBox')
 
 const ErrorBoxContainer = ({ errorBox }) => {
   useInit(errorBox)
-  useShortcut('ctrl+c', hide)
-  useShortcut('esc', hide)
-  useShortcut('ctrl+g', hide)
+  useShortcut(['ctrl+c', 'ctrl+g', 'esc'], hide)
 
   const {
     show,

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -42,7 +43,7 @@ export const loadJobs = (page = 1) =>
 export const loadVideos = (page = 1) =>
   sr71$.query(S.staredVideos, getQueryArgs(page))
 
-export const reload = page => {
+export const onReload = page => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
@@ -58,7 +59,7 @@ export const reload = page => {
 export const onThreadChange = curThread => {
   // TODO: markRoute
   store.markState({ curThread })
-  reload()
+  onReload()
 }
 
 export const onPreview = data => {
@@ -106,10 +107,22 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit handlers
+// ###############################
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadPosts()
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadPosts()
+      return () => {
+        if (!sub$) return false
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 // import R from 'ramda'
 
 import {
@@ -64,7 +65,7 @@ export const showFollowers = user => {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const tabChange = activeThread => {
+export const tabOnChange = activeThread => {
   store.markState({ activeThread })
   store.markRoute({ tab: activeThread })
 }
@@ -114,9 +115,21 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      return () => {
+        if (!sub$) return false
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }
