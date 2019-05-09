@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import R from 'ramda'
 
 import {
@@ -44,7 +45,7 @@ export const loadVideos = (page = 1) =>
 export const loadRepos = (page = 1) =>
   sr71$.query(S.publishedRepos, getQueryArgs(page))
 
-export const reload = page => {
+export const onReload = page => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
@@ -62,7 +63,7 @@ export const reload = page => {
 
 export const onThreadChange = curThread => {
   store.markState({ curThread })
-  reload()
+  onReload()
 }
 
 export const onPreview = data => {
@@ -114,19 +115,26 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadPosts()
 
-  if (sub$) return loadPosts()
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  loadPosts()
-}
-
-export const uninit = () => {
-  if (store.curView === TYPE.LOADING || !sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        // debug('effect uninit')
+        if (store.curView === TYPE.LOADING || !sub$) return false
+        debug('===== do uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+        sub$ = null
+      }
+    },
+    [_store]
+  )
 }

@@ -5,9 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
-import { makeDebugger, storePlug, ROUTE } from '@utils'
+import { connectStore, makeDebugger, ROUTE } from '@utils'
 
 import UserBanner from '@containers/UserBanner'
 import CommunitiesBanner from '@containers/CommunitiesBanner'
@@ -78,4 +77,4 @@ class BannerContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('banner'))(observer(BannerContainer))
+export default connectStore(BannerContainer)

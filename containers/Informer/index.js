@@ -6,11 +6,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import Modal from '@components/Modal'
 import Header from './Header'
@@ -66,4 +64,4 @@ InformerContainer.defaultProps = {
   children: null,
 }
 
-export default inject(storePlug('informer'))(observer(InformerContainer))
+export default connectStore(InformerContainer)
