@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import R from 'ramda'
-// const debug = makeDebugger('L:sidebar')
+import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 
 import {

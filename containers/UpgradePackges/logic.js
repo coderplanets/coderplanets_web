@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
 // import R from 'ramda'
-import { SENIOR_AMOUNT_THRESHOLD } from '@config'
+import { useEffect } from 'react'
 
+import { SENIOR_AMOUNT_THRESHOLD } from '@config'
 import { makeDebugger, $solver, PAYMENT_USAGE } from '@utils'
 
 import SR71 from '@utils/async/sr71'
