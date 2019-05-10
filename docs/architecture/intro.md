@@ -159,52 +159,40 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '@utils'
-import { init, uninit, changeView, onPublish, canclePublish } from './logic'
+import { connectStore, makeDebugger } from '@utils'
+import { useInit, changeView, onPublish, canclePublish } from './logic'
 
-class PostEditorContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { postEditor, attachment } = props
+const PostEditorContainer = ({ postEditor, attachment }) =>{
+  useInit(postEditor)
 
-    init(postEditor, attachment)
-  }
+  const { copyRight,  thread,   curView,    // ...   } = postEditor
 
-  componentWillUnmount() {
-    uninit()
-  }
+  return (
+    <Wrapper>
+      <Header
+        isEdit={isEdit}
+        curView={curView}
+        thread={thread}
+        referUsers={referUsersData}
+      />
 
-  render() {
-    const { postEditor } = this.props
-    const { copyRight,  thread,   curView,    // ...   } = postEditor
-
-    return (
-      <Wrapper>
-        <Header
-          isEdit={isEdit}
-          curView={curView}
-          thread={thread}
-          referUsers={referUsersData}
-        />
-
-        <ArticleEditFooter
-          isEdit={isEdit}
-          statusMsg={statusMsg}
-          onCancle={canclePublish}
-          onPublish={onPublish}
-        />
-      </Wrapper>
-    )
-  }
+      <ArticleEditFooter
+        isEdit={isEdit}
+        statusMsg={statusMsg}
+        onCancle={canclePublish}
+        onPublish={onPublish}
+      />
+    </Wrapper>
+  )
 }
 
-export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
+export default connectStore(PostEditorContainer)
 ```
 
 Based on my own experience and the actual situation of the project's evolution over the past year, I think the local state is bad. So all the states are handed to the external state management tool [Mobx-State-Tree](https://github.com/mobxjs/mobx-state-tree), and then the container is linked to the entire project state tree by the following function. Corresponding substate trees are linked together
 
 ```js
-export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
+export default connectStore(PostEditorContainer)
 ```
 
 #### store.js
