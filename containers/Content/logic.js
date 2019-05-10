@@ -1,16 +1,15 @@
-// import R from 'ramda'
-
-import { makeDebugger } from '@utils'
+import { useEffect } from 'react'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Content')
-
 let store = null
 
-export const holder = false
-
-export const init = _store => {
-  if (store) return false
-  store = _store
-  /* debug('content', content) */
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(() => {
+    store = _store
+  })
 }
+
+export const holder = 1

@@ -5,53 +5,41 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+
+import { connectStore, makeDebugger } from '@utils'
 
 import Pagi from '@components/Pagi'
-import { makeDebugger, storePlug } from '@utils'
 import CommunityCards from './CommunityCards'
 
 import { Wrapper } from './styles'
-
-import * as logic from './logic'
+import { useInit, pageOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunitiesContent')
 
-class CommunitiesContentContainer extends React.Component {
-  constructor(props) {
-    super(props)
+const CommunitiesContentContainer = ({ communitiesContent }) => {
+  useInit(communitiesContent)
+  const { pagedCommunitiesData } = communitiesContent
 
-    const { communitiesContent } = props
-    logic.init(communitiesContent)
-  }
-
-  render() {
-    const { communitiesContent } = this.props
-    const { pagedCommunitiesData } = communitiesContent
-
-    return (
-      <Wrapper>
-        {pagedCommunitiesData && (
-          <React.Fragment>
-            <CommunityCards
-              entries={pagedCommunitiesData.entries}
-              restProps={{ ...communitiesContent }}
-            />
-            <Pagi
-              left="-10px"
-              pageNumber={pagedCommunitiesData.pageNumber}
-              pageSize={pagedCommunitiesData.pageSize}
-              totalCount={pagedCommunitiesData.totalCount}
-              onChange={logic.pageChange}
-            />
-          </React.Fragment>
-        )}
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      {pagedCommunitiesData && (
+        <React.Fragment>
+          <CommunityCards
+            entries={pagedCommunitiesData.entries}
+            restProps={{ ...communitiesContent }}
+          />
+          <Pagi
+            left="-10px"
+            pageNumber={pagedCommunitiesData.pageNumber}
+            pageSize={pagedCommunitiesData.pageSize}
+            totalCount={pagedCommunitiesData.totalCount}
+            onChange={pageOnChange}
+          />
+        </React.Fragment>
+      )}
+    </Wrapper>
+  )
 }
 
-export default inject(storePlug('communitiesContent'))(
-  observer(CommunitiesContentContainer)
-)
+export default connectStore(CommunitiesContentContainer)

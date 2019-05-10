@@ -50,7 +50,7 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 
 ```js
 import { ISSUE_WEB } from '@config'
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
@@ -68,7 +68,7 @@ import Waypoint from 'react-waypoint'
 import R from 'ramda'
 
 // 2. import utils
-import { makeDebugger, storePlug, ROUTE, THREAD } from '@utils'
+import { connectStore, makeDebugger, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
 import TagsBar from '@containers/TagsBar'

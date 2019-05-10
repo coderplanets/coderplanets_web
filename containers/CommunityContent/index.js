@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug, ROUTE } from '@utils'
+import { connectStore, ROUTE } from '@utils'
 
 import PostsThread from '@containers//PostsThread'
 import VideosThread from '@containers/VideosThread'
@@ -19,7 +17,6 @@ import UsersThread from '@containers/UsersThread'
 import CheatsheetThread from '@containers/CheatsheetThread'
 
 import { Wrapper } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -63,6 +60,4 @@ const CommunityContentContainer = ({ communityContent }) => {
   )
 }
 
-export default inject(storePlug('communityContent'))(
-  observer(CommunityContentContainer)
-)
+export default connectStore(CommunityContentContainer)

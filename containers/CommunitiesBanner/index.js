@@ -5,11 +5,12 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+
+import { connectStore, makeDebugger } from '@utils'
 
 import Tabber from '@components/Tabber'
+import SearchBox from './SearchBox'
 
-import { makeDebugger, storePlug } from '@utils'
 import {
   BannerContainer,
   BannerContentWrapper,
@@ -18,60 +19,45 @@ import {
   // Title,
 } from './styles'
 
-import SearchBox from './SearchBox'
-
-import * as logic from './logic'
+import { useInit, tabOnChange, searchOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CommunitiesBanner')
 
-class CommunitiesBannerContainer extends React.Component {
-  constructor(props) {
-    super(props)
+const CommunitiesBannerContainer = ({ communitiesBanner }) => {
+  useInit(communitiesBanner)
 
-    const { communitiesBanner } = props
-    logic.init(communitiesBanner)
-  }
+  const {
+    pagedCategoriesData,
+    activeTab,
+    searchValue,
+    isSearchMode,
+    searching,
+  } = communitiesBanner
 
-  render() {
-    const { communitiesBanner } = this.props
-    const {
-      pagedCategoriesData,
-      activeTab,
-      searchValue,
-      isSearchMode,
-      searching,
-    } = communitiesBanner
-
-    // debug('searchValue: ', searchValue)
-    // debug('isSearchMode --> ', isSearchMode)
-
-    return (
-      <BannerContainer>
-        <BannerContentWrapper>
-          <ContentWrapper>
-            <SearchBox
-              onChange={logic.searchChange}
-              value={searchValue}
-              searching={searching}
-            />
-          </ContentWrapper>
-          {!isSearchMode &&
-            pagedCategoriesData && (
-              <TabberWrapper>
-                <Tabber
-                  source={pagedCategoriesData.entries}
-                  active={activeTab}
-                  onChange={logic.tabOnChange}
-                />
-              </TabberWrapper>
-            )}
-        </BannerContentWrapper>
-      </BannerContainer>
-    )
-  }
+  return (
+    <BannerContainer>
+      <BannerContentWrapper>
+        <ContentWrapper>
+          <SearchBox
+            onChange={searchOnChange}
+            value={searchValue}
+            searching={searching}
+          />
+        </ContentWrapper>
+        {!isSearchMode &&
+          pagedCategoriesData && (
+            <TabberWrapper>
+              <Tabber
+                source={pagedCategoriesData.entries}
+                active={activeTab}
+                onChange={tabOnChange}
+              />
+            </TabberWrapper>
+          )}
+      </BannerContentWrapper>
+    </BannerContainer>
+  )
 }
 
-export default inject(storePlug('communitiesBanner'))(
-  observer(CommunitiesBannerContainer)
-)
+export default connectStore(CommunitiesBannerContainer)
