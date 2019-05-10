@@ -643,9 +643,16 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
   version "7.4.2"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.4.2.tgz#f5ab6897320f16decd855eed70b705908a313fe8"
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
+  integrity sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -987,11 +994,12 @@
     "@sentry/types" "4.5.3"
     tslib "^1.9.3"
 
-"@tanem/svg-injector@^7.0.6":
-  version "7.0.8"
-  resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-7.0.8.tgz#2ad6c2f3f1cad5b14b555fbd3eb2011c42decd5a"
+"@tanem/svg-injector@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.2.tgz#b724eb55e659ccd0089b27f7e21ea9ee318f0f00"
+  integrity sha512-1pVz68lixWewqQLK8vg+P08bDrvU3p9eOLQ/RJoYdWY2XukTlWG6qTjsWVWhKNP3QrjqYwDqWag/cBL6ILgoHA==
   dependencies:
-    "@babel/runtime" "^7.3.4"
+    "@babel/runtime" "^7.4.4"
 
 "@types/jquery@^2.0.40":
   version "2.0.53"
@@ -8876,12 +8884,13 @@ react-ssr-prepass@1.0.2:
   dependencies:
     object-is "^1.0.1"
 
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
+react-svg@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-10.0.0.tgz#7cc9399f5575b6eb8d95f06e86c583b4d5a468c9"
+  integrity sha512-QlwtQtzEoiliLHcwAspe3I7duyjCgIE31KK4Dgk5Ts24UvW2rY+Tp326t8hJMJglxSdb96C1kxUgTyvZSDbOBg==
   dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
+    "@babel/runtime" "^7.4.4"
+    "@tanem/svg-injector" "^8.0.2"
     prop-types "^15.7.2"
 
 react-test-renderer@16.8.1:
