@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import {
   makeDebugger,
   asyncRes,
@@ -6,6 +8,7 @@ import {
   updateEditing,
   EVENT,
 } from '@utils'
+
 import SR71 from '@utils/async/sr71'
 import S from './schema'
 
@@ -20,7 +23,7 @@ let store = null
 export const loadCategories = () =>
   sr71$.query(S.pagedCategories, { filter: {} })
 
-export const searchChange = e => {
+export const searchOnChange = e => {
   updateEditing(store, 'searchValue', e)
   dispatchEvent(EVENT.REFRESH_COMMUNITIES, {
     type: 'search',
@@ -51,10 +54,23 @@ const loadIfNeed = () => {
   }
 }
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadIfNeed()
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadIfNeed()
+      return () => {
+        // debug('effect uninit')
+        if (!sub$) return false
+        debug('===== do uninit')
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }
