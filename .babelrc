@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "add-react-displayname",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "transform-inline-environment-variables",
     [
