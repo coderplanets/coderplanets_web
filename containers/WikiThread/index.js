@@ -5,13 +5,11 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '@config'
-import { makeDebugger, storePlug, TYPE } from '@utils'
+import { connectStore, makeDebugger, TYPE } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
-
 import PublishLabel from '@components/PublishLabel'
 import MarkDownRender from '@components/MarkDownRender'
 import { ArticleContentLoading } from '@components/LoadingEffects'
@@ -30,7 +28,7 @@ import {
   MobileBottom,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:WikiThread')
@@ -51,75 +49,61 @@ const renderView = (wikiData, type, communityRaw) => {
   }
 }
 
-class WikiThreadContainer extends React.Component {
-  componentDidMount() {
-    const { wikiThread } = this.props
-    logic.init(wikiThread)
-  }
+const WikiThreadContainer = ({ wikiThread }) => {
+  useInit(wikiThread)
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const {
+    wikiData,
+    curView,
+    curCommunity,
+    showSyncWarning,
+    isLogin,
+  } = wikiThread
 
-  render() {
-    const { wikiThread } = this.props
-    const {
-      wikiData,
-      curView,
-      curCommunity,
-      showSyncWarning,
-      isLogin,
-    } = wikiThread
-    const communityRaw = curCommunity.raw
+  const communityRaw = curCommunity.raw
 
-    return (
-      <Wrapper>
-        <GithubSyncWarning
-          show={showSyncWarning}
-          onClose={logic.syncWarnOnClose}
-        />
-        <LeftPadding />
-        <LeftPart>
-          <WikiWrapper>
-            {renderView(wikiData, curView, communityRaw)}
-          </WikiWrapper>
-          <MobileBottom>
-            <Contributors
-              communityRaw={communityRaw}
-              isLogin={isLogin}
-              users={wikiData.contributors}
-              views={wikiData.views}
-              lastSync={wikiData.lastSync}
-            />
-          </MobileBottom>
-        </LeftPart>
-        <RightPart>
-          <React.Fragment>
-            <PublishBtn type="primary">
-              <a
-                href={`${COMMUNITY_WIKI}/${communityRaw}_wiki.md`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <PublishLabel
-                  text="参与编辑"
-                  iconSrc={`${ICON_CMD}/github.svg`}
-                />
-              </a>
-            </PublishBtn>
-            <Contributors
-              communityRaw={communityRaw}
-              isLogin={isLogin}
-              users={wikiData.contributors}
-              views={wikiData.views}
-              lastSync={wikiData.lastSync}
-            />
-          </React.Fragment>
-        </RightPart>
-        <RightPadding />
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <GithubSyncWarning show={showSyncWarning} onClose={syncWarnOnClose} />
+      <LeftPadding />
+      <LeftPart>
+        <WikiWrapper>{renderView(wikiData, curView, communityRaw)}</WikiWrapper>
+        <MobileBottom>
+          <Contributors
+            communityRaw={communityRaw}
+            isLogin={isLogin}
+            users={wikiData.contributors}
+            views={wikiData.views}
+            lastSync={wikiData.lastSync}
+          />
+        </MobileBottom>
+      </LeftPart>
+      <RightPart>
+        <React.Fragment>
+          <PublishBtn type="primary">
+            <a
+              href={`${COMMUNITY_WIKI}/${communityRaw}_wiki.md`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <PublishLabel
+                text="参与编辑"
+                iconSrc={`${ICON_CMD}/github.svg`}
+              />
+            </a>
+          </PublishBtn>
+          <Contributors
+            communityRaw={communityRaw}
+            isLogin={isLogin}
+            users={wikiData.contributors}
+            views={wikiData.views}
+            lastSync={wikiData.lastSync}
+          />
+        </React.Fragment>
+      </RightPart>
+      <RightPadding />
+    </Wrapper>
+  )
 }
 
-export default inject(storePlug('wikiThread'))(observer(WikiThreadContainer))
+export default connectStore(WikiThreadContainer)
