@@ -50,7 +50,7 @@ we can easily import files like:
 
 ```js
 import { ISSUE_WEB } from '@config'
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
@@ -68,7 +68,7 @@ Import Waypoint from 'react-waypoint'
 Import R from 'ramda'
 
 // 2. import utils
-Import { makeDebugger, storePlug, ROUTE, THREAD } from '@utils'
+Import { connectStore, makeDebugger, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
 Import TagsBar from '@containers/TagsBar'

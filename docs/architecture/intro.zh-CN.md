@@ -156,52 +156,40 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { makeDebugger, storePlug } from '@utils'
-import { init, uninit, changeView, onPublish, canclePublish } from './logic'
+import { connectStore, makeDebugger } from '@utils'
+import { useInit, changeView, onPublish, canclePublish } from './logic'
 
-class PostEditorContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    const { postEditor, attachment } = props
+const PostEditorContainer = ({ postEditor, attachment }) =>{
+  useInit(postEditor)
 
-    init(postEditor, attachment)
-  }
+  const { copyRight,  thread,   curView,    // ...   } = postEditor
 
-  componentWillUnmount() {
-    uninit()
-  }
+  return (
+    <Wrapper>
+      <Header
+        isEdit={isEdit}
+        curView={curView}
+        thread={thread}
+        referUsers={referUsersData}
+      />
 
-  render() {
-    const { postEditor } = this.props
-    const { copyRight,  thread,   curView,    // ...   } = postEditor
-
-    return (
-      <Wrapper>
-        <Header
-          isEdit={isEdit}
-          curView={curView}
-          thread={thread}
-          referUsers={referUsersData}
-        />
-
-        <ArticleEditFooter
-          isEdit={isEdit}
-          statusMsg={statusMsg}
-          onCancle={canclePublish}
-          onPublish={onPublish}
-        />
-      </Wrapper>
-    )
-  }
+      <ArticleEditFooter
+        isEdit={isEdit}
+        statusMsg={statusMsg}
+        onCancle={canclePublish}
+        onPublish={onPublish}
+      />
+    </Wrapper>
+  )
 }
 
-export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
+export default connectStore(PostEditorContainer)
 ```
 
 根据我自己的一些经验和项目一年来演进的实际情况，我认为局部状态是糟糕的。所以所有的状态都交于外部的状态管理工具 [Mobx-State-Tree](https://github.com/mobxjs/mobx-state-tree), 然后通过下面函数将该容器与整个项目状态树中相对应的子状态树链接起来：
 
 ```js
-export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
+export default connectStore(PostEditorContainer)
 ```
 
 #### store.js
