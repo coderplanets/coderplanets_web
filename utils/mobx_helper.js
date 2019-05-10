@@ -37,9 +37,16 @@ export const storePlug = R.curry((selectedStore, props) => ({
  * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
  *
  */
-export const connectStore = container => {
-  const cname = R.head(R.split('Container', container.name))
-  const subStoreName = R.toLower(R.head(cname)) + cname.slice(1)
+export const connectStore = (container, store) => {
+  let subStoreName = ''
+  // console.log('container displayName: ', container.displayName)
+  if (store) {
+    subStoreName = store
+  } else {
+    // const cname = R.head(R.split('Container', container.name))
+    const cname = R.head(R.split('Container', container.displayName))
+    subStoreName = R.toLower(R.head(cname)) + cname.slice(1)
+  }
 
   return inject(storeFilter(subStoreName))(observer(container))
 }
