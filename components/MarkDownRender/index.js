@@ -23,6 +23,7 @@ import { PreviewerContainer } from './styles'
 const md = new Remarkable('full', {
   html: true,
   breaks: false,
+  linkTarget: '_blank',
 })
 
 md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))

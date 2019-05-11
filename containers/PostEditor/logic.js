@@ -146,11 +146,11 @@ const doneCleanUp = () => {
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
-  store.markState({ extractMentions: extractMentions(content) })
-
   // draft.js will mis trigger onChange event with empty string.
   // currently this is a bug: in edit can't update to empty.
+  if (!store) return false
   if (store.isEdit && content === '') return false
+  store.markState({ extractMentions: extractMentions(content) })
 
   updateEditing(store, 'body', content)
 }
@@ -243,8 +243,8 @@ const initDraftTimmer = () => {
 export const useInit = (_store, attachment) => {
   useEffect(
     () => {
-      store = _store
       // debug('effect init')
+      store = _store
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       openAttachment(attachment)
       initDraftTimmer()
