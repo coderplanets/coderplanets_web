@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, ROUTE } from '@utils'
+import { connectStore, makeDebugger, ROUTE } from '@utils'
 
 import PostsThread from '@containers//PostsThread'
 import VideosThread from '@containers/VideosThread'
