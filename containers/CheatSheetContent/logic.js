@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 /* import R from 'ramda' */
 
 import { makeDebugger, $solver } from '@utils'
@@ -16,10 +17,18 @@ export const someMethod = () => {}
 const DataSolver = []
 const ErrSolver = []
 
-export const init = _store => {
-  if (store) return false
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
 
-  if (sub$) false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      debug('sub$: ', sub$)
+      debug('store: ', store)
+    },
+    [_store]
+  )
 }

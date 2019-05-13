@@ -5,10 +5,8 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
-import Prism from 'mastani-codehighlight'
 
-import { makeDebugger, storePlug, TYPE } from '@utils'
+import { connectStore, makeDebugger, TYPE } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
 import { CheatSheetLoading } from '@components/LoadingEffects'
@@ -18,8 +16,7 @@ import Cheatsheet from './Cheatsheet'
 import Note from './Note'
 
 import { Wrapper, EmptyOffset } from './styles'
-
-import * as logic from './logic'
+import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:CheatsheetThread')
@@ -54,52 +51,32 @@ const renderView = (cheatsheetData, type, communityRaw) => {
   }
 }
 
-class CheatsheetThreadContainer extends React.Component {
-  componentDidMount() {
-    const { cheatsheetThread } = this.props
-    logic.init(cheatsheetThread)
+const CheatsheetThreadContainer = ({ cheatsheetThread }) => {
+  useInit(cheatsheetThread)
 
-    Prism.highlightAll()
-    setTimeout(() => {
-      Prism.highlightAll()
-    }, 1000)
-  }
+  const {
+    cheatsheetData,
+    curView,
+    curCommunity,
+    showSyncWarning,
+    isLogin,
+  } = cheatsheetThread
 
-  componentWillUnmount() {
-    logic.uninit()
-  }
+  const communityRaw = curCommunity.raw
 
-  render() {
-    const { cheatsheetThread } = this.props
-    const {
-      cheatsheetData,
-      curView,
-      curCommunity,
-      showSyncWarning,
-      isLogin,
-    } = cheatsheetThread
-
-    const communityRaw = curCommunity.raw
-
-    return (
-      <Wrapper>
-        <GithubSyncWarning
-          show={showSyncWarning}
-          onClose={logic.syncWarnOnClose}
-        />
-        {renderView(cheatsheetData, curView, communityRaw)}
-        <Note
-          isLogin={isLogin}
-          communityRaw={communityRaw}
-          contributors={cheatsheetData.contributors}
-          views={cheatsheetData.views}
-          curView={curView}
-        />
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      <GithubSyncWarning show={showSyncWarning} onClose={syncWarnOnClose} />
+      {renderView(cheatsheetData, curView, communityRaw)}
+      <Note
+        isLogin={isLogin}
+        communityRaw={communityRaw}
+        contributors={cheatsheetData.contributors}
+        views={cheatsheetData.views}
+        curView={curView}
+      />
+    </Wrapper>
+  )
 }
 
-export default inject(storePlug('cheatsheetThread'))(
-  observer(CheatsheetThreadContainer)
-)
+export default connectStore(CheatsheetThreadContainer)

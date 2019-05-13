@@ -4,64 +4,49 @@
  *
  */
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 import PropTypes from 'prop-types'
 
 import Popover from '@components/Popover'
 
-import { makeDebugger, storePlug } from '@utils'
-import { Wrapper, AddText } from './styles'
+import { connectStore, makeDebugger } from '@utils'
 import AdderPanel from './AdderPanel'
 
-import * as logic from './logic'
+import { Wrapper, AddText } from './styles'
+import { useInit, adderOnConfirm, onPopoverVisible } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:AvatarAdder')
 
-class AvatarAdderContainer extends React.Component {
-  constructor(props) {
-    super(props)
+const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
+  useInit(avatarAdder)
 
-    const { avatarAdder } = props
-    logic.init(avatarAdder)
-  }
+  const {
+    popoverVisiable,
+    githubUserData,
+    searching,
+    searchValue,
+  } = avatarAdder
 
-  onConfirm(user) {
-    const { onConfirm } = this.props
-    logic.onConfirm()
-    onConfirm(user)
-  }
-
-  render() {
-    const { avatarAdder } = this.props
-    const {
-      popoverVisiable,
-      githubUserData,
-      searching,
-      searchValue,
-    } = avatarAdder
-
-    return (
-      <Popover
-        visible={popoverVisiable}
-        content={
-          <AdderPanel
-            user={githubUserData}
-            searchValue={searchValue}
-            searching={searching}
-            onConfirm={this.onConfirm.bind(this, githubUserData)}
-          />
-        }
-        placement="bottom"
-        trigger="click"
-        onVisibleChange={logic.onPopoverVisible.bind(this)}
-      >
-        <Wrapper>
-          <AddText>+</AddText>
-        </Wrapper>
-      </Popover>
-    )
-  }
+  return (
+    <Popover
+      visible={popoverVisiable}
+      content={
+        <AdderPanel
+          user={githubUserData}
+          searchValue={searchValue}
+          searching={searching}
+          onConfirm={adderOnConfirm(githubUserData, onConfirm)}
+        />
+      }
+      placement="bottom"
+      trigger="click"
+      onVisibleChange={onPopoverVisible}
+    >
+      <Wrapper>
+        <AddText>+</AddText>
+      </Wrapper>
+    </Popover>
+  )
 }
 
 AvatarAdderContainer.propTypes = {
@@ -73,4 +58,4 @@ AvatarAdderContainer.defaultProps = {
   onConfirm: debug,
 }
 
-export default inject(storePlug('avatarAdder'))(observer(AvatarAdderContainer))
+export default connectStore(AvatarAdderContainer)

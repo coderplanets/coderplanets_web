@@ -5,12 +5,10 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Button, Input } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger, storePlug } from '@utils'
+import { connectStore, makeDebugger } from '@utils'
 
 import { Space } from '@components/BaseStyled'
 import Modal from '@components/Modal'
@@ -63,6 +61,4 @@ const GirlVerifierContainer = ({ girlVerifier }) => {
   )
 }
 
-export default inject(storePlug('girlVerifier'))(
-  observer(GirlVerifierContainer)
-)
+export default connectStore(GirlVerifierContainer)
