@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 // import R from 'ramda'
 
 import {
@@ -63,18 +64,24 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
 
-  if (sub$) return loadGeoData()
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadGeoData()
-}
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadGeoData()
 
-export const uninit = () => {
-  if (store.geoDataLoading) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        if (store.geoDataLoading) return false
+        debug('===== do uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }
