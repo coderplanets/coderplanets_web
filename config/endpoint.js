@@ -2,7 +2,7 @@
 import { ICON_CMD } from './assets'
 
 const getGraphQLEndpoint = () => {
-  switch (process.env.GOAL) {
+  switch (process.env.NODE_ENV) {
     case 'production':
       return 'https://api.coderplanets.com/graphiql'
 

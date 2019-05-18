@@ -3,8 +3,8 @@
   "version": "0.4.0",
   "license": "Apache License 2.0",
   "scripts": {
-    "build.prod": "cross-env GOAL=production next build",
-    "build.dev": "cross-env GOAL=dev next build",
+    "build.prod": "cross-env NODE_ENV=production next build",
+    "build.dev": "cross-env NODE_ENV=dev next build",
     "launch.dev": "cross-env NODE_ENV=dev SERVE_PORT=${SERVE_PORT} node server",
     "launch.prod": "cross-env NODE_ENV=production SERVE_PORT=${SERVE_PORT} node server"
   },
