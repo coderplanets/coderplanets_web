@@ -16,7 +16,9 @@ class LocationMap extends React.Component {
   constructor(props) {
     super(props)
     this.chart = null
-    this.chartId = uid.gen()
+    // if id start with number, is not valid
+    // see https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
+    this.chartId = `id-${uid.gen()}`
 
     const { curTheme } = props
     this.curTheme = curTheme
@@ -96,60 +98,56 @@ class LocationMap extends React.Component {
           map.push({ name })
         }
 
-        try {
-          this.chart = new G2.Chart({
-            id: this.chartId,
-            height: 500,
-            plotCfg: {
-              margin: [10, 105],
-              border: {
-                fill: oceanColor,
-              },
+        this.chart = new G2.Chart({
+          id: this.chartId,
+          height: 500,
+          plotCfg: {
+            margin: [10, 105],
+            border: {
+              fill: oceanColor,
             },
+          },
+        })
+
+        this.configG2()
+
+        const bgView = this.chart.createView()
+        bgView.source(map)
+        bgView.tooltip(false)
+        bgView.axis(false)
+        bgView
+          .polygon()
+          .position(Stat.map.region('name', mapData))
+          .color('name', val => {
+            if (val === 'China') {
+              return regionBg
+            }
+            return restRegionBg
+          })
+          .style({
+            stroke: borderStroke,
+            lineWidth: 1,
           })
 
-          this.configG2()
+        const pointView = this.chart.createView()
 
-          const bgView = this.chart.createView()
-          bgView.source(map)
-          bgView.tooltip(false)
-          bgView.axis(false)
-          bgView
-            .polygon()
-            .position(Stat.map.region('name', mapData))
-            .color('name', val => {
-              if (val === 'China') {
-                return regionBg
-              }
-              return restRegionBg
-            })
-            .style({
-              stroke: borderStroke,
-              lineWidth: 1,
-            })
-
-          const pointView = this.chart.createView()
-
-          const { markers } = this.props
-          pointView.source(markers, {
-            value: { alias: '人数' },
-            city: { alias: '城市' },
+        const { markers } = this.props
+        pointView.source(markers, {
+          value: { alias: '人数' },
+          city: { alias: '城市' },
+        })
+        pointView
+          .point()
+          .position(Stat.map.location('long*lant'))
+          .size('value', 12, 1)
+          .color('value', () => markerBg)
+          .tooltip('city*value')
+          .shape('value', () => 'circle')
+          .style({
+            shadowBlur: 5,
+            shadowColor: markerShadow,
           })
-          pointView
-            .point()
-            .position(Stat.map.location('long*lant'))
-            .size('value', 12, 1)
-            .color('value', () => markerBg)
-            .tooltip('city*value')
-            .shape('value', () => 'circle')
-            .style({
-              shadowBlur: 5,
-              shadowColor: markerShadow,
-            })
-          this.chart.render()
-        } catch (e) {
-          debug('init g2 chart error: ', e)
-        }
+        this.chart.render()
       })
       .catch(ex => debug('parsing failed', ex))
   }
