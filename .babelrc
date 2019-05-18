@@ -13,7 +13,7 @@
             "targets": {
               "ie": "11"
             },
-            "debug": true
+            "debug": false
           }
         }]
       ]
