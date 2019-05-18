@@ -31,9 +31,9 @@ const ContributorList = ({ users, readOnly, addContributor }) => (
         }
         placement="bottom"
         trigger="hover"
-        key={user.id}
+        key={user.avatar}
       >
-        <AvatarLink>
+        <AvatarLink href={user.htmlUrl} target="_blank">
           <Avatar src={user.avatar} />
         </AvatarLink>
       </Popover>

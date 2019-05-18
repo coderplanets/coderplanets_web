@@ -18,7 +18,7 @@ import {
   JoinText,
 } from './styles/contributors'
 
-import * as logic from './logic'
+import { addContributor, syncWikiFromGithub } from './logic'
 
 const Note = ({ communityRaw }) => (
   <NoteWrapper>
@@ -44,7 +44,7 @@ const Contributors = ({ isLogin, users, views, lastSync, communityRaw }) => (
       passport="root"
       fallbackProps="readOnly"
       users={users}
-      addContributor={logic.addContributor}
+      addContributor={addContributor}
     />
 
     <FootNote>
@@ -59,12 +59,7 @@ const Contributors = ({ isLogin, users, views, lastSync, communityRaw }) => (
 
       <br />
       {isLogin && (
-        <Button
-          size="small"
-          type="primary"
-          ghost
-          onClick={logic.syncWikiFromGithub}
-        >
+        <Button size="small" type="primary" ghost onClick={syncWikiFromGithub}>
           同步 wiki
         </Button>
       )}
