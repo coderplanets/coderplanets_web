@@ -1,4 +1,27 @@
 {
+  "presets": [
+    ["next/babel"]
+  ],
+  "env": {
+     "development": {
+       "plugins": ["inline-dotenv"]
+    },
+    "production": {
+      "presets": [
+        ["next/babel", {
+          "preset-env": {
+            "targets": {
+              "ie": "11"
+            },
+            "debug": true
+          }
+        }]
+      ]
+    },
+    "test": {
+      "plugins": ["inline-dotenv"]
+    }
+  },
   "plugins": [
     "add-react-displayname",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
@@ -38,32 +61,5 @@
         "@SvgIcons": "./components/SvgIcons"
       }
     }]
-  ],
-  "presets": [
-    ["next/babel", {
-      "preset-env": {
-        "targets": {
-          "ie": "11"
-        }
-      }
-    }]
-  ],
-  "env": {
-     "development": {
-       "plugins": ["inline-dotenv"]
-    },
-    "local": {},
-    "production": {
-      "presets": [["next/babel", {
-      "preset-env": {
-        "targets": {
-          "ie": "11"
-        }
-      }
-    }]]
-    },
-    "test": {
-      "plugins": ["inline-dotenv"]
-    }
-  }
+  ]
 }
