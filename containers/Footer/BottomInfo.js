@@ -6,7 +6,7 @@ import { toggleBusBanner } from './logic'
 
 const BottomInfo = () => (
   <Wrapper>
-    <Copyrights>©2018 All Rights Reserved</Copyrights>
+    <Copyrights>©2019 All Rights Reserved</Copyrights>
     <Thanks onClick={toggleBusBanner}>
       <ThxTitle>特别鸣谢： (求赞助)</ThxTitle>
     </Thanks>
