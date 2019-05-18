@@ -1,4 +1,6 @@
 import R from 'ramda'
+import { useEffect } from 'react'
+
 import { PAGE_SIZE } from '@config'
 import {
   asyncRes,
@@ -55,7 +57,8 @@ const markLoading = fresh => {
   return store.markState({ loading: true })
 }
 
-export const createComment = () => {
+/* eslint-disable-next-line */
+export const createComment = R.curry((cb, e) => {
   if (!store.validator('create')) return false
 
   store.markState({ creating: true })
@@ -69,7 +72,8 @@ export const createComment = () => {
 
   debug('createComment args: ', args)
   sr71$.mutate(S.createComment, args)
-}
+  cb()
+})
 
 export const createCommentPreview = () =>
   store.markState({
@@ -395,6 +399,33 @@ const initDraftTimmer = () => {
   }, 3000)
 }
 
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = (_store, ssr) => {
+  useEffect(
+    () => {
+      // debug('effect init')
+      store = _store
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+
+      return () => {
+        // debug('effect uninit')
+        if (store.loading || store.loadingFresh || !sub$) return false
+
+        stopDraftTimmer()
+        sr71$.stop()
+        sub$.unsubscribe()
+        sub$ = null
+      }
+    },
+    [_store, ssr]
+  )
+}
+
+/*
 export const init = (_store, ssr = false) => {
   store = _store
 
@@ -411,3 +442,4 @@ export const uninit = () => {
   sub$.unsubscribe()
   sub$ = null
 }
+*/
