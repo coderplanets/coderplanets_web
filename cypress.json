@@ -1,5 +1,5 @@
 {
   "baseUrl": "http://localhost:3000",
   "projectId": "w5dkjg",
-  "pageLoadTimeout": 100000
+  "pageLoadTimeout": 1000000
 }
