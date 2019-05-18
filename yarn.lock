@@ -2673,6 +2673,12 @@ compare-func@^1.3.1:
     array-ify "^1.0.0"
     dot-prop "^3.0.0"
 
+compatible-debug@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/compatible-debug/-/compatible-debug-1.0.0.tgz#2af65f11165551c46f00c2e2cc047064bb712bbc"
+  dependencies:
+    ms "^2.1.1"
+
 component-classes@1.x, component-classes@^1.2.5, component-classes@^1.2.6:
   version "1.2.6"
   resolved "https://registry.npmjs.org/component-classes/-/component-classes-1.2.6.tgz#c642394c3618a4d8b0b8919efccbbd930e5cd691"
