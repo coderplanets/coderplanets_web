@@ -5,13 +5,12 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
-import Hotkeys from 'react-hot-keys'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
+import Modal from '@components/Modal'
+import { useShortcut } from '@components/Hooks'
+
 import Header from './Header'
 import Details from './Details'
 import Footer from './Footer'
@@ -24,6 +23,7 @@ const debug = makeDebugger('C:ErrorBox')
 
 const ErrorBoxContainer = ({ errorBox }) => {
   useInit(errorBox)
+  useShortcut(['ctrl+c', 'ctrl+g', 'esc'], hide)
 
   const {
     show,
@@ -45,28 +45,26 @@ const ErrorBoxContainer = ({ errorBox }) => {
       showCloseBtn
       onClose={onClose}
     >
-      <Hotkeys keyName="ctrl+g,ctrl+c,esc" onKeyDown={hide}>
-        <Wrapper>
-          <Header
-            type={type}
-            operation={operation}
-            path={path}
-            graphqlType={graphqlType}
-          />
-          <br />
-          <Details
-            type={type}
-            timeoutError={timeoutError}
-            graphqlType={graphqlType}
-            changesetError={changesetErrorData}
-            parseError={parseErrorData}
-            customError={customErrorData}
-          />
-          <Footer />
-        </Wrapper>
-      </Hotkeys>
+      <Wrapper>
+        <Header
+          type={type}
+          operation={operation}
+          path={path}
+          graphqlType={graphqlType}
+        />
+        <br />
+        <Details
+          type={type}
+          timeoutError={timeoutError}
+          graphqlType={graphqlType}
+          changesetError={changesetErrorData}
+          parseError={parseErrorData}
+          customError={customErrorData}
+        />
+        <Footer />
+      </Wrapper>
     </Modal>
   )
 }
 
-export default inject(storePlug('errorBox'))(observer(ErrorBoxContainer))
+export default connectStore(ErrorBoxContainer)

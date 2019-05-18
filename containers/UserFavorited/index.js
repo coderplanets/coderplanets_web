@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 
-import PagedContents from 'components/PagedContents'
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
+
+import PagedContents from '@components/PagedContents'
 import FavoritesCats from '../FavoritesCats'
-
 import Breadcrumbs from './Breadcrumbs'
 
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserFavorited')
 
@@ -66,6 +66,4 @@ class UserFavoritesContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('userFavorited'))(
-  observer(UserFavoritesContainer)
-)
+export default connectStore(UserFavoritesContainer)

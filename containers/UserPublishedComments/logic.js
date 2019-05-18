@@ -1,4 +1,5 @@
 import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   makeDebugger,
@@ -13,9 +14,9 @@ import {
   pagedFilter,
   errRescue,
   pageGoTop,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
@@ -46,7 +47,7 @@ export const loadVideoComments = (page = 1) =>
 export const loadRepoComments = (page = 1) =>
   sr71$.query(S.publishedRepoComments, getQueryArgs(page))
 
-export const onThreadChange = curThread => {
+export const threadOnChange = curThread => {
   // TODO: markRoute
   store.markState({ curThread })
   // reload()
@@ -139,11 +140,24 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadPostComments()
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  loadPostComments()
+      return () => {
+        // debug('effect uninit')
+        if (!sub$) return false
+        // debug('===== do uninit')
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

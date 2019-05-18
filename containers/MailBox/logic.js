@@ -1,4 +1,5 @@
 // import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   makeDebugger,
@@ -10,9 +11,9 @@ import {
   EVENT,
   ERR,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
@@ -42,10 +43,16 @@ export const loadMailboxStates = () => {
   sr71$.query(S.mailBoxStatus, {})
 }
 
-export const loadMentions = () => {
+const loadMentions = () => {
   // debug('loadMentions')
   markLoading(true)
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
+}
+
+export const visibleOnChange = visible => {
+  if (visible) loadMentions()
+
+  store.markState({ visible })
 }
 
 export const seeAll = () =>
@@ -91,18 +98,26 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadMailboxStates()
 
-  if (sub$) return loadMailboxStates()
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadMailboxStates()
-}
-
-export const uninit = () => {
-  if (store.loading || !sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        // debug('effect uninit')
+        if (store.loading || !sub$) return false
+        debug('===== do uninit')
+        sr71$.stop()
+        sub$.unsubscribe()
+        sub$ = null
+      }
+    },
+    [_store]
+  )
 }

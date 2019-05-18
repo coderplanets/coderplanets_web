@@ -1,8 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import MarkDownRender from 'components/MarkDownRender'
-import { debounce } from 'utils'
+import MarkDownRender from '@components/MarkDownRender'
+import { debounce } from '@utils'
 import ReplyToBar from './ReplyToBar'
 import ReplyEditorHeader from './ReplyEditorHeader'
 

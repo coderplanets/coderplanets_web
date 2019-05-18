@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from 'config'
-import withGuardian from 'components/HOC/withGuardian'
+import { ICON_CMD } from '@config'
+import withGuardian from '@components/HOC/withGuardian'
 
 import { Option, OptionIcon, OptionTitle } from './styles'
 

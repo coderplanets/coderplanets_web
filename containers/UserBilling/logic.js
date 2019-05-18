@@ -1,5 +1,7 @@
 // import R from 'ramda'
-import { PAGE_SIZE } from 'config'
+import { useEffect } from 'react'
+
+import { PAGE_SIZE } from '@config'
 
 import {
   makeDebugger,
@@ -10,9 +12,9 @@ import {
   PAYMENT_USAGE,
   asyncRes,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
@@ -68,10 +70,21 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit handlers
+// ###############################
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadBilRecords()
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadBilRecords()
+      return () => {
+        if (!sub$) return false
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

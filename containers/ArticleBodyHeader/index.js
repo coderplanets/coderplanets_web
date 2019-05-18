@@ -6,17 +6,15 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import R from 'ramda'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { ICON_CMD } from '@config'
+import { connectStore, makeDebugger, THREAD } from '@utils'
 
-import Labeler from 'containers/Labeler'
-import CommunitySetter from 'containers/CommunitySetter'
-import Popover from 'components/Popover'
-import ArticleActionsPanel from 'components/ArticleActionsPanel'
+import Labeler from '@containers/Labeler'
+import CommunitySetter from '@containers/CommunitySetter'
+import Popover from '@components/Popover'
+import ArticleActionsPanel from '@components/ArticleActionsPanel'
 
 import Linker from './Linker'
 import RefinedLabel from './RefinedLabel'
@@ -124,6 +122,4 @@ ArticleBodyHeaderContainer.defaultProps = {
   middle: 'linker',
 }
 
-export default inject(storePlug('articleBodyHeader'))(
-  observer(ArticleBodyHeaderContainer)
-)
+export default connectStore(ArticleBodyHeaderContainer)

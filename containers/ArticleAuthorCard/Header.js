@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FollowButton from 'components/FollowButton'
+import FollowButton from '@components/FollowButton'
 
 import { Wrapper, Title, FollowWrapper } from './styles/header'
 import { onFollow, onUndoFollow } from './logic'

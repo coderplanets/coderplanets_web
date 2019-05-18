@@ -5,15 +5,13 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
-import { Wrapper } from './styles'
+import { connectStore, makeDebugger } from '@utils'
 
 import Header from './Header'
 import MenuList from './MenuList'
 
+import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
 
 /* eslint-disable-next-line */
@@ -43,4 +41,4 @@ const SidebarContainer = ({ sidebar }) => {
   )
 }
 
-export default inject(storePlug('sidebar'))(observer(SidebarContainer))
+export default connectStore(SidebarContainer)

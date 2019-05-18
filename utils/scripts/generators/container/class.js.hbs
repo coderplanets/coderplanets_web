@@ -5,17 +5,16 @@
 */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 {{#if wantMessages}}
   import { FormattedMessage } from 'react-intl'
   import messages from './messages'
 {{/if}}
 
+import { connectStore, makeDebugger } from '@utils'
+
 // import { } from './styles'
-
-import { makeDebugger, storePlug } from 'utils'
-
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:{{ properCase name }}')
 
@@ -43,4 +42,4 @@ class {{ properCase name }}Container extends React.Component {
   }
 }
 
-export default inject(storePlug('{{ camelCase name }}'))(observer({{ properCase name }}Container))
+export default connectStore({{ properCase name }}Container)

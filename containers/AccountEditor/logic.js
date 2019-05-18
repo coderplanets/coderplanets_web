@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   asyncRes,
@@ -15,9 +15,9 @@ import {
   updateEditing,
   errRescue,
   nilOrEmpty,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import { S, updateFields } from './schema'
 
 const sr71$ = new SR71()

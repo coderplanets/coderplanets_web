@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Popover from 'components/Popover'
+import Popover from '@components/Popover'
 
-import { cutFrom } from 'utils'
+import { cutFrom } from '@utils'
 import {
   Wrapper,
   LanguageDot,

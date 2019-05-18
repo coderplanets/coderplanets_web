@@ -1,7 +1,7 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
-import { TAG_COLOR_ORDER } from 'config'
+import { TAG_COLOR_ORDER } from '@config'
 import { EVENT } from './constants'
 import { nilOrEmpty } from './validator'
 

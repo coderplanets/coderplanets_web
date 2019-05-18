@@ -5,13 +5,11 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { ICON_CMD } from 'config/assets'
-import { makeDebugger, storePlug } from 'utils'
+import { ICON_CMD } from '@config/assets'
+import { connectStore, makeDebugger } from '@utils'
 
-import TabSelector from 'components/TabSelector'
+import TabSelector from '@components/TabSelector'
 import MailLists from './MailLists'
 
 import { Wrapper } from './styles'
@@ -63,4 +61,4 @@ const MailsViewerContainer = ({ mailsViewer }) => {
   )
 }
 
-export default inject(storePlug('mailsViewer'))(observer(MailsViewerContainer))
+export default connectStore(MailsViewerContainer)

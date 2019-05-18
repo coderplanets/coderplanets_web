@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Trans, sortByIndex } from 'utils'
+import { Trans, sortByIndex } from '@utils'
 import { Wrapper, TabItem } from './styles/brief_view'
 import TabIcon from './TabIcon'
 

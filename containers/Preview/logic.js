@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import {
   asyncRes,
   $solver,
@@ -8,8 +10,9 @@ import {
   dispatchEvent,
   Global,
   cs,
-} from 'utils'
-import SR71 from 'utils/async/sr71'
+} from '@utils'
+
+import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71({
   resv_event: [
@@ -87,16 +90,23 @@ const DataResolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataResolver, []))
-}
+      sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 
-export const uninit = () => {
-  if (!sub$) return false
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+      return () => {
+        if (!sub$) return false
+        sr71$.stop()
+        sub$.unsubscribe()
+        sub$ = null
+      }
+    },
+    [_store]
+  )
 }

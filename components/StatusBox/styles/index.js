@@ -1,6 +1,6 @@
 import styled from 'styled-components' //
 
-import { animate, cs, theme } from 'utils'
+import { animate, cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   min-height: 1rem;

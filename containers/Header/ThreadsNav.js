@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Trans } from 'utils'
-import DotDivider from 'components/DotDivider'
+import { Trans } from '@utils'
+import DotDivider from '@components/DotDivider'
 import {
   Wrapper,
   CommunityLogo,

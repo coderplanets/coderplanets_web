@@ -7,14 +7,12 @@
 import React from 'react'
 /* import PropTypes from 'prop-types' */
 import dynamic from 'next/dynamic'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import ArticleEditFooter from 'components/ArticleEditFooter'
-import { ArticleContentLoading } from 'components/LoadingEffects'
-import Modal from 'components/Modal'
+import ArticleEditFooter from '@components/ArticleEditFooter'
+import { ArticleContentLoading } from '@components/LoadingEffects'
+import Modal from '@components/Modal'
 
 import Editor from './Editor'
 import Preview from './Preview'
@@ -125,4 +123,4 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
   )
 }
 
-export default inject(storePlug('postEditor'))(observer(PostEditorContainer))
+export default connectStore(PostEditorContainer)

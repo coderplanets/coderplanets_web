@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { uid, cs } from 'utils'
+import { uid, cs } from '@utils'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`

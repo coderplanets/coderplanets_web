@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import TabCitySVG from 'components/SvgIcons/TabCitySVG'
-import { theme, cs } from 'utils'
+import TabCitySVG from '@SvgIcons/TabCitySVG'
+import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   display: flex;

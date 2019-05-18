@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import R from 'ramda'
-// const debug = makeDebugger('L:sidebar')
+import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 
 import {
@@ -16,9 +15,9 @@ import {
   ROUTE,
   Global,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({

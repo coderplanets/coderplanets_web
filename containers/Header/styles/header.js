@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import HeaderSearchSVG from 'components/SvgIcons/HeaderSearchSVG'
-import { theme, cs, MEDIA_MAX_WIDTH } from 'utils'
+import HeaderSearchSVG from '@SvgIcons/HeaderSearchSVG'
+import { theme, cs, MEDIA_MAX_WIDTH } from '@utils'
 
 export const Wrapper = styled.header.attrs(props => ({
   'data-testid': props.testid,

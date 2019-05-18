@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs, MEDIA_MAX_WIDTH } from 'utils'
+import { theme, cs, MEDIA_MAX_WIDTH } from '@utils'
 
-import Img from 'components/Img'
-import CommunityFaceLogo from 'components/CommunityFaceLogo'
+import Img from '@components/Img'
+import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 import { BaseBanner, BaseTabber } from './index'
 

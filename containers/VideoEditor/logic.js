@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   makeDebugger,
@@ -14,9 +14,9 @@ import {
   updateEditing,
   closePreviewer,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 
 import { S, updatableFields } from './schema'
 

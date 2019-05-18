@@ -7,10 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ISSUE_ADDR, ICON_CMD } from 'config'
-import { makeDebugger } from 'utils'
+import { ISSUE_ADDR, ICON_CMD } from '@config'
+import { makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
+import Modal from '@components/Modal'
 
 import { Wrapper, Logo, Header, Desc, FootLinker } from './styles'
 

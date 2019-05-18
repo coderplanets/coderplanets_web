@@ -3,19 +3,15 @@ Async is encapsulated based on [rx.js](https://github.com/reactivex/rxjs) in ord
 The sr71 module is introduced in every logic.js file:
 
 ```js
-Import SR71 from 'utils/async/sr71'
+Import SR71 from '@utils/async/sr71'
 Const sr71$ = new SR71()
 ```
 
-
 > sr71 is the code name of the US military blackbird reconnaissance plane:
-
 
 ![image](https://user-images.githubusercontent.com/6184465/51725044-34d67380-209b-11e9-87a4-9edeec396958.png)
 
-
 ### Network event
-
 
 You can call a network request in a function, query and mutate represent the query and mutate operations in GraphQL respectively.
 
@@ -89,7 +85,6 @@ Corresponding DataSolver:
 ### Push event
 
 Similar to TODO
-
 
 ### Error handling
 

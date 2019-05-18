@@ -2,10 +2,10 @@ import React from 'react'
 import TimeAgo from 'timeago-react'
 import { Button } from 'antd'
 
-import { COMMUNITY_WIKI } from 'config'
+import { COMMUNITY_WIKI } from '@config'
 
-import DotDivider from 'components/DotDivider'
-import ContributorList from 'components/ContributorList'
+import DotDivider from '@components/DotDivider'
+import ContributorList from '@components/ContributorList'
 
 import {
   Wrapper,

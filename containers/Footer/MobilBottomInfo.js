@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { GITHUB_WEB_ADDR, ISSUE_ADDR } from 'config'
-import DotDivider from 'components/DotDivider'
+import { GITHUB_WEB_ADDR, ISSUE_ADDR } from '@config'
+import DotDivider from '@components/DotDivider'
 
 import {
   SiteInfoWrapper,

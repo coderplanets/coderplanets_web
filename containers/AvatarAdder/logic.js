@@ -1,19 +1,8 @@
-// import R from 'ramda'
+import R from 'ramda'
+import { useEffect } from 'react'
 
-import {
-  makeDebugger,
-  $solver,
-  asyncErr,
-  ERR,
-  githubApi,
-  errRescue,
-} from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, githubApi } from '@utils'
 
-// import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
@@ -34,12 +23,16 @@ export const onSearch = e => {
   }
 }
 
-export const onConfirm = () =>
+/* eslint-disable-next-line */
+export const adderOnConfirm = R.curry((user, cb, e) => {
   store.markState({
     searching: false,
     githubUser: null,
     popoverVisiable: false,
   })
+
+  cb(user)
+})
 
 export const inputOnChange = e =>
   store.markState({ searchValue: e.target.value })
@@ -54,35 +47,15 @@ export const onPopoverVisible = visable => {
   }
   store.markState({ popoverVisiable: visable })
 }
+
 // ###############################
-// Data & Error handlers
+// init & uninit
 // ###############################
-
-const DataSolver = []
-const ErrSolver = [
-  {
-    match: asyncErr(ERR.GRAPHQL),
-    action: () => {},
-  },
-  {
-    match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      errRescue({ type: ERR.TIMEOUT, details, path: 'AvatarAdder' })
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
     },
-  },
-  {
-    match: asyncErr(ERR.NETWORK),
-    action: () => {
-      errRescue({ type: ERR.NETWORK, path: 'AvatarAdder' })
-    },
-  },
-]
-
-export const init = _store => {
-  store = _store
-
-  if (sub$) false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    [_store]
+  )
 }
-
-export const uninit = () => {}

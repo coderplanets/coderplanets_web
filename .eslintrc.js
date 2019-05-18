@@ -21,6 +21,8 @@ module.exports = {
     },
   },
   rules: {
+    // import/resolver 暂时识别不了 @xxx, 暂时关闭该检测
+    'import/no-extraneous-dependencies': 0,
     'arrow-body-style': 0,
     // need for _store init
     'no-underscore-dangle': 0,

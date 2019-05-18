@@ -5,17 +5,13 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import dynamic from 'next/dynamic'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
-
+import Modal from '@components/Modal'
 import BriefView from './BriefView'
 import DigestView from './DigestView'
-
 import BussinessNote from './BussinessNote'
 
 import {
@@ -59,4 +55,4 @@ const FooterContainer = ({ footer }) => {
   )
 }
 
-export default inject(storePlug('footer'))(observer(FooterContainer))
+export default connectStore(FooterContainer)

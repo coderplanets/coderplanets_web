@@ -1,4 +1,5 @@
 // import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   makeDebugger,
@@ -10,9 +11,9 @@ import {
   EVENT,
   ERR,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71()
@@ -64,7 +65,7 @@ export const showFollowers = user => {
   dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
-export const tabChange = activeThread => {
+export const tabOnChange = activeThread => {
   store.markState({ activeThread })
   store.markRoute({ tab: activeThread })
 }
@@ -114,9 +115,21 @@ const ErrSolver = [
   },
 ]
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      return () => {
+        if (!sub$) return false
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

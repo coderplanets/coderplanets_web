@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, themeCoverMap, themeCoverIndexMap, cs } from 'utils'
+import { theme, themeCoverMap, themeCoverIndexMap, cs } from '@utils'
 
 export const Dot = styled.div`
   ${cs.circle('25px')};

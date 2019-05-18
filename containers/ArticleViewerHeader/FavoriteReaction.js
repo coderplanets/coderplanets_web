@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import Maybe from 'components/Maybe'
-import { ICON_CMD } from 'config'
+import Maybe from '@components/Maybe'
+import { ICON_CMD } from '@config'
 
-import { TYPE, THREAD } from 'utils'
+import { TYPE, THREAD } from '@utils'
 import {
   Reaction,
   ReactionAction,

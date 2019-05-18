@@ -1,8 +1,9 @@
 import R from 'ramda'
+import { useEffect } from 'react'
 import Router from 'next/router'
 
-import { ISSUE_ADDR } from 'config'
-import SR71 from 'utils/async/sr71'
+import { ISSUE_ADDR } from '@config'
+import SR71 from '@utils/async/sr71'
 import {
   makeDebugger,
   Global,
@@ -17,7 +18,7 @@ import {
   THREAD,
   cutFrom,
   errRescue,
-} from 'utils'
+} from '@utils'
 
 // import S from '../schema'
 import { jumpToCommunity, jumpToContent, goToHelpPage } from './jumper'
@@ -493,7 +494,57 @@ const initSpecCmdResolver = () => {
   ]
 }
 
-export const init = _store => {
+// ###############################
+// init & uninit handlers
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+
+      pockect$ = new Pocket(store)
+      SAK = new SwissArmyKnife(store)
+
+      initSpecCmdResolver()
+
+      pockect$.search().subscribe(res => {
+        if (R.isEmpty(res)) return emptySearchStates()
+
+        store.markState({
+          searching: true,
+          showThreadSelector: true,
+          showAlert: false,
+          showUtils: false,
+        })
+        searchContents(store, sr71$, res)
+      })
+
+      pockect$.searchUser().subscribe(name => {
+        const nickname = R.slice(1, Infinity, name)
+        store.markState({
+          prefix: '@',
+          searchThread: THREAD.USER,
+          showThreadSelector: true,
+          showAlert: false,
+        })
+        if (R.isEmpty(nickname)) return false
+        searchContents(store, sr71$, nickname)
+      })
+
+      pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
+      pockect$.emptyInput().subscribe(() => store.clearSuggestions())
+
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+      return () => {
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
+}
+
+export const init2 = _store => {
   if (store) return false
 
   store = _store

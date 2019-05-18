@@ -5,14 +5,13 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 import { Button } from 'antd'
 
-import Modal from 'components/Modal'
-import SectionLabel from 'components/SectionLabel'
-import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from 'config'
+import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@config'
+import { connectStore, makeDebugger } from '@utils'
 
-import { makeDebugger, storePlug } from 'utils'
+import Modal from '@components/Modal'
+import SectionLabel from '@components/SectionLabel'
 import Support from './Support'
 
 import {
@@ -25,7 +24,7 @@ import {
   ItemsWrapper,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit, onClose, onUpgrade } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UpgradePackges')
@@ -54,73 +53,65 @@ const platinumUserItems = [
   { title: 'Github 特别鸣谢' },
 ]
 
-class UpgradePackgesContainer extends React.Component {
-  componentDidMount() {
-    const { upgradePackges } = this.props
-    logic.init(upgradePackges)
-  }
+const UpgradePackgesContainer = ({ upgradePackges }) => {
+  useInit(upgradePackges)
 
-  render() {
-    const { upgradePackges } = this.props
-    const { show } = upgradePackges
+  const { show } = upgradePackges
 
-    return (
-      <Modal width="800px" show={show} showCloseBtn onClose={logic.close}>
-        <Wrapper>
-          <LabelWrapper>
-            <SectionLabel
-              title="升级助手"
-              iconSrc={`${ICON_CMD}/rocket.svg`}
-              desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。开源项目需要付出巨大的物质和时间成本, 谢谢理解。"
-            />
-          </LabelWrapper>
-          <ContentWrapper>
-            <Dashboard>
-              <PkgTitle>普通用户</PkgTitle>
-              <TitleDivider />
-              <ItemsWrapper>
-                <Support items={freeUserItems} />
-                <Support not items={seniorItems} />
-                <Support not items={platinumUserItems} />
-              </ItemsWrapper>
-              <TitleDivider />
-              <Button type="primary" ghost>
-                免费
-              </Button>
-            </Dashboard>
-            <Dashboard>
-              <PkgTitle>CPS会员</PkgTitle>
-              <TitleDivider />
-              <ItemsWrapper>
-                <Support items={freeUserItems} />
-                <Support items={seniorItems} />
-                <Support not items={platinumUserItems} />
-              </ItemsWrapper>
-              <TitleDivider />
-              <Button type="red" onClick={logic.upgrade}>
-                ￥{SENIOR_AMOUNT_THRESHOLD} 元
-              </Button>
-            </Dashboard>
-            <Dashboard>
-              <PkgTitle>赞助商</PkgTitle>
-              <TitleDivider />
-              <ItemsWrapper>
-                <Support items={freeUserItems} />
-                <Support items={seniorItems} />
-                <Support items={platinumUserItems} />
-              </ItemsWrapper>
-              <TitleDivider />
-              <a href={`mailto:${EMAIL_BUSINESS}`}>
-                <Button type="red">邮件咨询</Button>
-              </a>
-            </Dashboard>
-          </ContentWrapper>
-        </Wrapper>
-      </Modal>
-    )
-  }
+  return (
+    <Modal width="800px" show={show} showCloseBtn onClose={onClose}>
+      <Wrapper>
+        <LabelWrapper>
+          <SectionLabel
+            title="升级助手"
+            iconSrc={`${ICON_CMD}/rocket.svg`}
+            desc="特别说明：(wip) 标签表示正在开发中的功能，会在 2-3 个月内逐步完善并可能涨价, 届时已付费的会员无需再次付款。开源项目需要付出巨大的物质和时间成本, 谢谢理解。"
+          />
+        </LabelWrapper>
+        <ContentWrapper>
+          <Dashboard>
+            <PkgTitle>普通用户</PkgTitle>
+            <TitleDivider />
+            <ItemsWrapper>
+              <Support items={freeUserItems} />
+              <Support not items={seniorItems} />
+              <Support not items={platinumUserItems} />
+            </ItemsWrapper>
+            <TitleDivider />
+            <Button type="primary" ghost>
+              免费
+            </Button>
+          </Dashboard>
+          <Dashboard>
+            <PkgTitle>CPS会员</PkgTitle>
+            <TitleDivider />
+            <ItemsWrapper>
+              <Support items={freeUserItems} />
+              <Support items={seniorItems} />
+              <Support not items={platinumUserItems} />
+            </ItemsWrapper>
+            <TitleDivider />
+            <Button type="red" onClick={onUpgrade}>
+              ￥{SENIOR_AMOUNT_THRESHOLD} 元
+            </Button>
+          </Dashboard>
+          <Dashboard>
+            <PkgTitle>赞助商</PkgTitle>
+            <TitleDivider />
+            <ItemsWrapper>
+              <Support items={freeUserItems} />
+              <Support items={seniorItems} />
+              <Support items={platinumUserItems} />
+            </ItemsWrapper>
+            <TitleDivider />
+            <a href={`mailto:${EMAIL_BUSINESS}`}>
+              <Button type="red">邮件咨询</Button>
+            </a>
+          </Dashboard>
+        </ContentWrapper>
+      </Wrapper>
+    </Modal>
+  )
 }
 
-export default inject(storePlug('upgradePackges'))(
-  observer(UpgradePackgesContainer)
-)
+export default connectStore(UpgradePackgesContainer)

@@ -5,15 +5,13 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Button, Icon } from 'antd'
 
-import StatusBox from 'components/StatusBox'
-import FormItem from 'components/FormItem'
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
+import { connectStore, makeDebugger } from '@utils'
 
-import { makeDebugger, storePlug } from 'utils'
+import StatusBox from '@components/StatusBox'
+import FormItem from '@components/FormItem'
 import WorkBackgroundInputer from './WorkBackgroundInputer'
 import EducationBackgroundInputer from './EducationBackgroundInputer'
 import SocialInputer from './SocialInputer'
@@ -126,6 +124,4 @@ const AccountEditorContainer = ({ accountEditor }) => {
   )
 }
 
-export default inject(storePlug('accountEditor'))(
-  observer(AccountEditorContainer)
-)
+export default connectStore(AccountEditorContainer)

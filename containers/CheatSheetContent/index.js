@@ -5,16 +5,14 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 import randomColor from 'randomcolor'
+
 // TODO: remove Row, Col, Divider
 import { Row, Col, Divider } from 'antd'
-// import Link from 'next/link'
 
-import { uid, makeDebugger, storePlug } from 'utils'
+import { connectStore, uid, makeDebugger } from '@utils'
 import { Entry, CheatsheetItem } from './styles'
-
-import * as logic from './logic'
+import { useInit } from './logic'
 
 const cheatsheetData = {
   langs: [
@@ -79,35 +77,26 @@ const Langs = ({ base }) => {
   )
 }
 
-class CheatSheetContentContainer extends React.Component {
-  constructor(props) {
-    super(props)
+const CheatSheetContentContainer = ({ cheatSheetContent }) => {
+  useInit(cheatSheetContent)
 
-    const { cheatSheetContent } = props
-    logic.init(cheatSheetContent)
-  }
-
-  render() {
-    return (
-      <div>
-        <Langs base="green" />
-        <Divider>前端</Divider>
-        <Langs base="yellow" />
-        <Divider>后端</Divider>
-        <Langs base="orange" />
-        <Divider>后端</Divider>
-        <Langs base="red" />
-        <Divider>后端</Divider>
-        <Langs base="pink" />
-        <Divider>后端</Divider>
-        <Langs base="blue" />
-        <Divider>后端</Divider>
-        <Langs base="purple" />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <Langs base="green" />
+      <Divider>前端</Divider>
+      <Langs base="yellow" />
+      <Divider>后端</Divider>
+      <Langs base="orange" />
+      <Divider>后端</Divider>
+      <Langs base="red" />
+      <Divider>后端</Divider>
+      <Langs base="pink" />
+      <Divider>后端</Divider>
+      <Langs base="blue" />
+      <Divider>后端</Divider>
+      <Langs base="purple" />
+    </div>
+  )
 }
 
-export default inject(storePlug('cheatSheetContent'))(
-  observer(CheatSheetContentContainer)
-)
+export default connectStore(CheatSheetContentContainer)

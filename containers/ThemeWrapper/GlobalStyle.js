@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme, cs } from 'utils'
+import { theme, cs } from '@utils'
 import normalize from './normalize'
 
 /*

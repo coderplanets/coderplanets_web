@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components'
 
 import ContentLoader from 'react-content-loader'
 
-import { makeDebugger, uid } from 'utils'
+import { makeDebugger, uid } from '@utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */

@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, changeset } from 'utils'
-import { Post, Mention } from 'stores/SharedModel'
+import { markStates, makeDebugger, stripMobx, changeset } from '@utils'
+import { Post, Mention } from '@model'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:PostEditorf')

@@ -7,8 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, THREAD, TYPE, C11N } from 'utils'
-import Pagi from 'components/Pagi'
+import { makeDebugger, THREAD, TYPE, C11N } from '@utils'
+import Pagi from '@components/Pagi'
 import ContentList from './ContentList'
 
 /* eslint-disable-next-line */

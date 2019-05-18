@@ -1,9 +1,9 @@
 import React from 'react'
 import { Icon } from 'antd'
 
-import { ICON_CMD } from 'config'
+import { ICON_CMD } from '@config'
 
-import { PAYMENT_METHOD } from 'utils'
+import { PAYMENT_METHOD } from '@utils'
 import {
   Wrapper,
   TransWrapper,

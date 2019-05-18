@@ -3,24 +3,24 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import NextSeo from 'next-seo'
 
-import { PAGE_SIZE, SITE_URL } from 'config'
-import initRootStore from 'stores/init'
+import { PAGE_SIZE, SITE_URL } from '@config'
+import initRootStore from '@stores/init'
 
-import GlobalLayout from 'containers/GlobalLayout'
-import ThemeWrapper from 'containers/ThemeWrapper'
-import MultiLanguage from 'containers/MultiLanguage'
-import Sidebar from 'containers/Sidebar'
-import Preview from 'containers/Preview'
-import Doraemon from 'containers/Doraemon'
-import Route from 'containers/Route'
-import Header from 'containers/Header'
-import CommunityBanner from 'containers/CommunityBanner'
-import CommunityContent from 'containers/CommunityContent'
-import Footer from 'containers/Footer'
-import ErrorBox from 'containers/ErrorBox'
+import GlobalLayout from '@containers/GlobalLayout'
+import ThemeWrapper from '@containers/ThemeWrapper'
+import MultiLanguage from '@containers/MultiLanguage'
+import Sidebar from '@containers/Sidebar'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import CommunityBanner from '@containers/CommunityBanner'
+import CommunityContent from '@containers/CommunityContent'
+import Footer from '@containers/Footer'
+import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from 'components/GAWraper'
-import ErrorPage from 'components/ErrorPage'
+import GAWraper from '@components/GAWraper'
+import ErrorPage from '@components/ErrorPage'
 
 import {
   makeGQClient,
@@ -39,9 +39,9 @@ import {
   ssrAmbulance,
   validCommunityFilters,
   parseTheme,
-} from 'utils'
+} from '@utils'
 
-import { P } from 'schemas'
+import { P } from '@schemas'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')

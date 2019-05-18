@@ -5,17 +5,14 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 
-import { makeDebugger, storePlug } from 'utils'
+import { connectStore, makeDebugger } from '@utils'
 
-import Modal from 'components/Modal'
+import Modal from '@components/Modal'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
 import { Wrapper } from './styles'
-
 import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -57,4 +54,4 @@ const CashierContainer = ({ cashier }) => {
   )
 }
 
-export default inject(storePlug('cashier'))(observer(CashierContainer))
+export default connectStore(CashierContainer)

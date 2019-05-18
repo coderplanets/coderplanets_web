@@ -6,8 +6,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { DEFAULT_ICON } from 'config/assets'
-import { themeCoverMap, NON_FILL_COMMUNITY } from 'utils'
+import { DEFAULT_ICON } from '@config/assets'
+import { themeCoverMap, NON_FILL_COMMUNITY } from '@utils'
 import {
   Wrapper,
   ThemeIconWrapper,

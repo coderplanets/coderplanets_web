@@ -7,10 +7,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ICON_CMD } from 'config'
-import { makeDebugger } from 'utils'
+import { ICON_CMD } from '@config'
+import { makeDebugger } from '@utils'
 
-import Maybe from 'components/Maybe'
+import Maybe from '@components/Maybe'
 
 import {
   Wrapper,

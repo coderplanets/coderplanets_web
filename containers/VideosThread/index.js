@@ -5,16 +5,15 @@
  */
 
 import React from 'react'
-import { inject } from 'mobx-react'
-import { observer } from 'mobx-react-lite'
 import { Affix } from 'antd'
 
-import Maybe from 'components/Maybe'
-import PagedContents from 'components/PagedContents'
-import ContentFilter from 'components/ContentFilter'
-import PublishLabel from 'components/PublishLabel'
-import { ICON_CMD } from 'config'
-import { makeDebugger, storePlug, THREAD } from 'utils'
+import { ICON_CMD } from '@config'
+import { connectStore, makeDebugger, THREAD } from '@utils'
+
+import Maybe from '@components/Maybe'
+import PagedContents from '@components/PagedContents'
+import ContentFilter from '@components/ContentFilter'
+import PublishLabel from '@components/PublishLabel'
 import TagsBar from '../TagsBar'
 
 import {
@@ -106,6 +105,4 @@ const VideosThreadContainer = ({ videosThread }) => {
   )
 }
 
-export default inject(storePlug('videosThread'))(
-  observer(VideosThreadContainer)
-)
+export default connectStore(VideosThreadContainer)

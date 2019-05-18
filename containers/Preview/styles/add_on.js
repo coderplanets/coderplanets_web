@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Img from 'components/Img'
-import { theme, TYPE, animate, cs } from 'utils'
-// import { theme } from 'utils'
+import Img from '@components/Img'
+import { theme, TYPE, animate, cs } from '@utils'
+// import { theme } from '@utils'
 
 export const Wrapper = styled.div`
   width: 10%;

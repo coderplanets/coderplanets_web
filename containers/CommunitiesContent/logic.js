@@ -1,4 +1,6 @@
 import R from 'ramda'
+import { useEffect } from 'react'
+
 import {
   asyncRes,
   asyncErr,
@@ -8,9 +10,9 @@ import {
   EVENT,
   pagedFilter,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
@@ -42,7 +44,7 @@ const searchCommunities = title => {
   sr71$.query(S.searchCommunities, args)
 }
 
-export const pageChange = page => loadCommunities(page)
+export const pageOnChange = page => loadCommunities(page)
 
 export const subscribe = id => {
   if (!store.isLogin) return store.authWarning()
@@ -146,10 +148,24 @@ const loadIfNeed = () => {
   }
 }
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(
+    () => {
+      store = _store
+      // debug('effect init')
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      loadIfNeed()
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-  loadIfNeed()
+      return () => {
+        // debug('effect uninit')
+        if (!sub$) return false
+        // debug('===== do uninit')
+        sub$.unsubscribe()
+      }
+    },
+    [_store]
+  )
 }

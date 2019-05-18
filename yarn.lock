@@ -1845,6 +1845,10 @@ babel-messages@^6.23.0:
   dependencies:
     babel-runtime "^6.22.0"
 
+babel-plugin-add-react-displayname@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/babel-plugin-add-react-displayname/-/babel-plugin-add-react-displayname-0.0.5.tgz#339d4cddb7b65fd62d1df9db9fe04de134122bd5"
+
 babel-plugin-dynamic-import-node@2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.2.0.tgz#c0adfb07d95f4a4495e9aaac6ec386c4d7c2524e"
@@ -2668,6 +2672,12 @@ compare-func@^1.3.1:
   dependencies:
     array-ify "^1.0.0"
     dot-prop "^3.0.0"
+
+compatible-debug@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/compatible-debug/-/compatible-debug-1.0.0.tgz#2af65f11165551c46f00c2e2cc047064bb712bbc"
+  dependencies:
+    ms "^2.1.1"
 
 component-classes@1.x, component-classes@^1.2.5, component-classes@^1.2.6:
   version "1.2.6"
@@ -3879,9 +3889,9 @@ eslint-plugin-jsx-a11y@6.1.1:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
-eslint-plugin-prettier@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.0.1.tgz#19d521e3981f69dd6d14f64aec8c6a6ac6eb0b0d"
+eslint-plugin-prettier@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.0.tgz#8695188f95daa93b0dc54b249347ca3b79c4686d"
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -5107,10 +5117,6 @@ hoopy@^0.1.2:
 hosted-git-info@^2.1.4:
   version "2.7.1"
   resolved "https://registry.npmjs.org/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
-
-hotkeys-js@^3.6.2:
-  version "3.6.4"
-  resolved "https://registry.npmjs.org/hotkeys-js/-/hotkeys-js-3.6.4.tgz#9ac32d116ba9408f81727a50e144ac4339ca930f"
 
 hpkp@2.0.0:
   version "2.0.0"
@@ -6349,6 +6355,10 @@ katex@^0.7.1:
   resolved "https://registry.npmjs.org/katex/-/katex-0.7.1.tgz#06bb5298efad05e1e7228035ba8e1591f3061b8f"
   dependencies:
     match-at "^0.1.0"
+
+keyboardjs@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.npmjs.org/keyboardjs/-/keyboardjs-2.5.1.tgz#2eb5d96bd1028e07136cd71919f607579edca716"
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -8709,12 +8719,6 @@ react-highlight-words@^0.16.0:
     memoize-one "^4.0.0"
     prop-types "^15.5.8"
 
-react-hot-keys@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/react-hot-keys/-/react-hot-keys-1.3.1.tgz#14a5ee29b38264790adfc84bde73e1d21fa5ae31"
-  dependencies:
-    hotkeys-js "^3.6.2"
-
 react-intl@2.8.0:
   version "2.8.0"
   resolved "https://registry.npmjs.org/react-intl/-/react-intl-2.8.0.tgz#20b0c1f01d1292427768aa8ec9e51ab7e36503ba"
@@ -8737,12 +8741,6 @@ react-json-view@1.19.1:
     react-base16-styling "^0.6.0"
     react-lifecycles-compat "^3.0.4"
     react-textarea-autosize "^6.1.0"
-
-react-keydown@1.9.8:
-  version "1.9.8"
-  resolved "https://registry.npmjs.org/react-keydown/-/react-keydown-1.9.8.tgz#2c11cf82b43aa57aec48539419c8f5f1d4008809"
-  dependencies:
-    core-js "^2.5.0"
 
 react-lazy-load@^3.0.12:
   version "3.0.13"

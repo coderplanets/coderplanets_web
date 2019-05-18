@@ -6,18 +6,15 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from 'utils'
-import {
-  MailStatus,
-  PagedMentionMessages,
-  emptyPagiData,
-} from 'stores/SharedModel'
+import { markStates, makeDebugger, stripMobx } from '@utils'
+import { MailStatus, PagedMentionMessages, emptyPagiData } from '@model'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('S:MailBox')
 
 const MailBox = t
   .model('MailBox', {
+    visible: t.optional(t.boolean, false),
     panelVisiable: t.optional(t.boolean, false),
     mailStatus: t.optional(MailStatus, {}),
     pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),

@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   makeDebugger,
@@ -12,9 +12,9 @@ import {
   EVENT,
   THREAD,
   errRescue,
-} from 'utils'
+} from '@utils'
 
-import SR71 from 'utils/async/sr71'
+import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */

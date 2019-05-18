@@ -1,12 +1,55 @@
-import { toJS } from 'mobx'
-import { inject, observer } from 'mobx-react'
-
 import R from 'ramda'
+import { inject } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
+import { toJS } from 'mobx'
+
 import { isObject } from './validator'
 
+/*
+* select sub store from root store
+* by design, one container should only access it's own store
+ *
+ * see: https://github.com/mobxjs/mobx-react Customizing inject
+ *
+ * 从根状态树中选出子状态树
+ * 一个容器组件只能连接到一个和它相关的子状态树
+ *
+ */
+const storeFilter = R.curry((selectedStore, props) => ({
+  [selectedStore]: R.path(['store', selectedStore], props),
+}))
+
+// TODO: remove it
 export const storePlug = R.curry((selectedStore, props) => ({
   [selectedStore]: R.path(['store', selectedStore], props),
 }))
+
+/*
+ * inject sub-store to container
+ * e.g: connectStore(HelloWorldContainer)
+   will make HelloWorldContainer connect to 'helloWorld' sub-store
+ *
+ * 将传入的 container 链接到相对应的子状态树
+ * 比如: onnectStore(HelloWorldContainer)
+ * 会将 HelloWorldContainer 链接到 'helloWorld' 的子状态树
+ *
+ * NOTE: container should be naming as XxxContainer (end with Container)
+ * 注意： 容器组件的命名需遵守 XxxContainer 的约定规则 (以 Container 结尾)
+ *
+ */
+export const connectStore = (container, store) => {
+  let subStoreName = ''
+  // console.log('container displayName: ', container.displayName)
+  if (store) {
+    subStoreName = store
+  } else {
+    // const cname = R.head(R.split('Container', container.name))
+    const cname = R.head(R.split('Container', container.displayName))
+    subStoreName = R.toLower(R.head(cname)) + cname.slice(1)
+  }
+
+  return inject(storeFilter(subStoreName))(observer(container))
+}
 
 /*
  * a helper to easly deal with sr71$ return data/error

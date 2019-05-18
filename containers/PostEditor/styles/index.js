@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Input } from 'antd'
 
-import { theme, cs } from 'utils'
+import { theme, cs } from '@utils'
 
 export const ViewerWrapper = styled.div`
   display: ${({ active }) => (active ? 'block' : 'none')};

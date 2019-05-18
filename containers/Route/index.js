@@ -32,4 +32,22 @@ class RouteContainer extends React.Component {
 }
 
 export default inject(storePlug('route'))(observer(withRouter(RouteContainer)))
-// export default inject(storePlug('route'))(observer(RouteContainer))
+
+/*
+import React from 'react'
+import { withRouter } from 'next/router'
+
+// import Link from 'next/link'
+
+import { connectStore, makeDebugger } from '@utils'
+import { useInit } from './logic'
+
+const RouteContainer = ({ route, router }) => {
+  useInit(route, router)
+
+  return <React.Fragment />
+}
+
+export default connectStore(withRouter(RouteContainer))
+
+*/

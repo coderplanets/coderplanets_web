@@ -5,20 +5,18 @@
  */
 
 import React from 'react'
-import { inject, observer } from 'mobx-react'
 import { Affix } from 'antd'
 
-import { makeDebugger, storePlug, USER_THREAD } from 'utils'
+import { connectStore, makeDebugger, USER_THREAD } from '@utils'
 
-import UserPublished from 'containers/UserPublished'
-import UserPublishedComments from 'containers/UserPublishedComments'
-import UserBilling from 'containers/UserBilling'
-import UserSettings from 'containers/UserSettings'
-import UserStared from 'containers/UserStared'
-import UserFavorited from 'containers/UserFavorited'
+import UserPublished from '@containers/UserPublished'
+import UserPublishedComments from '@containers/UserPublishedComments'
+import UserBilling from '@containers/UserBilling'
+import UserSettings from '@containers/UserSettings'
+import UserStared from '@containers/UserStared'
+import UserFavorited from '@containers/UserFavorited'
 
-import Tabber from 'components/Tabber'
-
+import Tabber from '@components/Tabber'
 import DigestBoard from './DigestBoard'
 
 import {
@@ -29,7 +27,7 @@ import {
   MobileBottom,
 } from './styles'
 
-import * as logic from './logic'
+import { useInit, tabOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:UserContent')
@@ -87,54 +85,49 @@ const TabberContent = ({ active }) => {
   }
 }
 
-class UserContentContainer extends React.Component {
-  componentDidMount() {
-    const { userContent } = this.props
-    logic.init(userContent)
-  }
+const UserContentContainer = ({ userContent }) => {
+  useInit(userContent)
 
-  render() {
-    const { userContent } = this.props
-    const {
-      activeThread,
-      viewingUser,
-      accountInfo,
-      isSelfViewing,
-      following,
-    } = userContent
+  const {
+    activeThread,
+    viewingUser,
+    accountInfo,
+    isSelfViewing,
+    following,
+  } = userContent
 
-    const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
-    return (
-      <Container>
-        <MainWrapper>
-          <TabberWrapper className="tabs-with-bottom">
-            <Tabber
-              source={taberSource}
-              onChange={logic.tabChange}
-              active={activeThread}
-            />
-          </TabberWrapper>
-          <TabberContent active={activeThread} />
-          <MobileBottom>
-            <DigestBoard
-              user={viewingUser}
-              accountId={accountInfo.id}
-              following={following}
-            />
-          </MobileBottom>
-        </MainWrapper>
-        <SidebarWrapper>
-          <Affix offsetTop={30}>
-            <DigestBoard
-              user={viewingUser}
-              accountId={accountInfo.id}
-              following={following}
-            />
-          </Affix>
-        </SidebarWrapper>
-      </Container>
-    )
-  }
+  const taberSource = isSelfViewing ? FullTaberThreads : BaseTaberThreads
+
+  return (
+    <Container>
+      <MainWrapper>
+        <TabberWrapper className="tabs-with-bottom">
+          <Tabber
+            source={taberSource}
+            onChange={tabOnChange}
+            active={activeThread}
+          />
+        </TabberWrapper>
+        <TabberContent active={activeThread} />
+        <MobileBottom>
+          <DigestBoard
+            user={viewingUser}
+            accountId={accountInfo.id}
+            following={following}
+          />
+        </MobileBottom>
+      </MainWrapper>
+      <SidebarWrapper>
+        <Affix offsetTop={30}>
+          <DigestBoard
+            user={viewingUser}
+            accountId={accountInfo.id}
+            following={following}
+          />
+        </Affix>
+      </SidebarWrapper>
+    </Container>
+  )
 }
 
-export default inject(storePlug('userContent'))(observer(UserContentContainer))
+export default connectStore(UserContentContainer)

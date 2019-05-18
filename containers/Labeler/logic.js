@@ -1,7 +1,7 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, makeGQClient } from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, $solver, makeGQClient } from '@utils'
+import SR71 from '@utils/async/sr71'
 
 import S from './schema'
 
@@ -74,11 +74,11 @@ export const onVisibleChange = (uniqId, popVisible) => {
 
 const DataSolver = [
   /*
-  {
-    match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markUniqState({ tags }),
-  },
-  */
+     {
+     match: asyncRes('partialTags'),
+     action: ({ partialTags: tags }) => store.markUniqState({ tags }),
+     },
+   */
 ]
 const ErrSolver = []
 
