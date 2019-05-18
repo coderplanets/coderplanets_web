@@ -4,23 +4,22 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
-import { LABEL_POOL } from '@config'
-import { makeDebugger, storePlug, uid } from '@utils'
-
 import withGuardian from '@components/HOC/withGuardian'
 import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
+import { LABEL_POOL } from '@config'
+
+import { makeDebugger, storePlug, uid } from '@utils'
 import Options from './Options'
 import Selected from './Selected'
-
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
-import { useInit, onVisibleChange, onTagSelect } from './logic'
 
+import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Labeler')
 
@@ -35,76 +34,94 @@ const trans = {
   field: '领域',
 }
 
-const LabelerContainer = ({
-  labeler,
-  label,
-  multi,
-  readOnly,
-  selected,
-  onTagSelect: onTagSelectCb,
-  onTagUnselect: onTagUnselectCb,
-}) => {
-  const [uniqId] = useState(uid.gen())
+class LabelerContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { uniqId: uid.gen() }
 
-  const options = { label, multi, selected }
-  useInit(labeler, uniqId, options)
+    const { labeler, label, multi, selected } = props
+    const { uniqId } = this.state
 
-  /* const { tagsData, popVisible, selectedData, labelEntriesData } = labeler */
-  const { labelEntriesData } = labeler
-  const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(labelEntriesData)
+    const options = { label, multi, selected }
+    logic.init(labeler, uniqId, options)
+  }
 
-  const { tags, popVisible, selected: selectedOnes } =
-    labelEntriesData[targetIndex] || {}
-  const tagsList = R.reject(t => t.title === 'refined', tags)
+  componentWillUnmount() {
+    const { uniqId } = this.state
+    logic.uninit(uniqId)
+  }
 
-  const callbacks = { onTagSelectCb, onTagUnselectCb }
+  onTagSelect(uniqId, item) {
+    const { selected, onTagSelect, onTagUnselect } = this.props
+    // const { labelsData, labelEntriesData } = labeler
+    logic.onOptionSelect(uniqId, item)
+    const tagId = logic.getSelectedTagId(item)
+    if (R.contains(item, selected)) {
+      onTagUnselect(tagId)
+    } else {
+      onTagSelect(tagId)
+    }
+  }
 
-  return (
-    <Wrapper>
-      <Maybe test={readOnly}>
-        <Popover
-          content={<PopHint>{trans[label]}</PopHint>}
-          placement="bottom"
-          trigger="hover"
-        >
-          <LabelItem>
-            <LabelIcon src={LABEL_POOL[label].iconSrc} />
-            <Title>
-              <Selected items={selectedOnes} readOnly={readOnly} />
-            </Title>
-          </LabelItem>
-        </Popover>
-      </Maybe>
-      <Maybe test={!readOnly}>
-        {targetIndex >= 0 ? (
+  render() {
+    const { uniqId } = this.state
+    const { labeler, label, readOnly } = this.props
+    /* const { tagsData, popVisible, selectedData, labelEntriesData } = labeler */
+    const { labelEntriesData } = labeler
+    const targetIndex = R.findIndex(R.propEq('uniqId', uniqId))(
+      labelEntriesData
+    )
+
+    const { tags, popVisible, selected } = labelEntriesData[targetIndex] || {}
+    const tagsList = R.reject(t => t.title === 'refined', tags)
+
+    return (
+      <Wrapper>
+        <Maybe test={readOnly}>
           <Popover
-            content={
-              <Options
-                label={label}
-                items={tagsList}
-                selected={selectedOnes}
-                onOptionSelect={onTagSelect(uniqId, selected, callbacks)}
-              />
-            }
-            placement="right"
-            trigger="click"
-            visible={popVisible}
-            onVisibleChange={onVisibleChange(uniqId)}
+            content={<PopHint>{trans[label]}</PopHint>}
+            placement="bottom"
+            trigger="hover"
           >
             <LabelItem>
               <LabelIcon src={LABEL_POOL[label].iconSrc} />
               <Title>
-                {trans[label]}
-                <Selected items={selectedOnes} readOnly={readOnly} />
+                <Selected items={selected} readOnly={readOnly} />
               </Title>
             </LabelItem>
           </Popover>
-        ) : (
-          <div />
-        )}
-      </Maybe>
-    </Wrapper>
-  )
+        </Maybe>
+        <Maybe test={!readOnly}>
+          {targetIndex >= 0 ? (
+            <Popover
+              content={
+                <Options
+                  label={label}
+                  items={tagsList}
+                  selected={selected}
+                  onOptionSelect={this.onTagSelect.bind(this, uniqId)}
+                />
+              }
+              placement="right"
+              trigger="click"
+              visible={popVisible}
+              onVisibleChange={logic.onVisibleChange.bind(this, uniqId)}
+            >
+              <LabelItem>
+                <LabelIcon src={LABEL_POOL[label].iconSrc} />
+                <Title>
+                  {trans[label]}
+                  <Selected items={selected} readOnly={readOnly} />
+                </Title>
+              </LabelItem>
+            </Popover>
+          ) : (
+            <div />
+          )}
+        </Maybe>
+      </Wrapper>
+    )
+  }
 }
 
 LabelerContainer.propTypes = {

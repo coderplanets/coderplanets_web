@@ -12,6 +12,22 @@ const browserHistoryBtnClicked = popstate => {
   Global.location = popstate.state.as
 }
 
+export const init = (_store, routeObj) => {
+  if (store) return false
+
+  store = _store
+  // sync init router info
+  const mainPath = getMainPath(routeObj)
+  const subPath = getSubPath(routeObj)
+  const { query } = routeObj
+
+  store.markState({ mainPath, subPath, query })
+
+  Global.onpopstate = browserHistoryBtnClicked
+}
+
+export const uninit = () => {}
+
 // ###############################
 // init & uninit
 // ###############################

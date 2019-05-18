@@ -1,9 +1,12 @@
 import R from 'ramda'
-import { useEffect } from 'react'
 
-import { makeDebugger, makeGQClient } from '@utils'
+import { makeDebugger, $solver, makeGQClient } from '@utils'
+import SR71 from '@utils/async/sr71'
 
 import S from './schema'
+
+const sr71$ = new SR71()
+let sub$ = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Labeler')
@@ -45,23 +48,11 @@ export const onOptionSelect = (uniqId, item) => {
   })
 }
 
-export const onTagSelect = R.curry((uniqId, selected, callbacks, item) => {
-  const { onTagSelectCb, onTagUnselectCb } = callbacks
-
-  onOptionSelect(uniqId, item)
-  const tagId = store.getSelectedTagId(item)
-  if (R.contains(item, selected)) {
-    onTagUnselectCb(tagId)
-  } else {
-    onTagSelectCb(tagId)
-  }
-})
-
 export const getSelectedTagId = label => {
   return store.getSelectedTagId(label)
 }
 
-export const onVisibleChange = R.curry((uniqId, popVisible) => {
+export const onVisibleChange = (uniqId, popVisible) => {
   store.markUniqState(uniqId, { popVisible })
 
   const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
@@ -75,21 +66,29 @@ export const onVisibleChange = R.curry((uniqId, popVisible) => {
     // logic.loadTagsIfNeed()
     loadTags(uniqId)
   }
-})
-
-// ###############################
-// init & uninit
-// ###############################
-export const useInit = (_store, uniqId, options) => {
-  useEffect(
-    () => {
-      store = _store
-      store.markUniqState(uniqId, options)
-
-      return () => {
-        store.uninit(uniqId)
-      }
-    },
-    [_store, uniqId, options]
-  )
 }
+
+// ###############################
+// Data & Error handlers
+// ###############################
+
+const DataSolver = [
+  /*
+     {
+     match: asyncRes('partialTags'),
+     action: ({ partialTags: tags }) => store.markUniqState({ tags }),
+     },
+   */
+]
+const ErrSolver = []
+
+export const init = (_store, uniqId, options) => {
+  store = _store
+
+  if (sub$) false
+  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+  store.markUniqState(uniqId, options)
+}
+
+export const uninit = uniqId => store.uninit(uniqId)
