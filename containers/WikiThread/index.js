@@ -25,7 +25,6 @@ import {
   RightPart,
   RightPadding,
   PublishBtn,
-  MobileBottom,
 } from './styles'
 
 import { useInit, syncWarnOnClose } from './logic'
@@ -68,15 +67,6 @@ const WikiThreadContainer = ({ wikiThread }) => {
       <LeftPadding />
       <LeftPart>
         <WikiWrapper>{renderView(wikiData, curView, communityRaw)}</WikiWrapper>
-        <MobileBottom>
-          <Contributors
-            communityRaw={communityRaw}
-            isLogin={isLogin}
-            users={wikiData.contributors}
-            views={wikiData.views}
-            lastSync={wikiData.lastSync}
-          />
-        </MobileBottom>
       </LeftPart>
       <RightPart>
         <React.Fragment>
