@@ -17,11 +17,14 @@ export const queryDoraemon = R.curry((data, e) =>
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store, extra) => {
   useEffect(
     () => {
       store = _store
+
+      const { online } = extra
+      store.markState({ online })
     },
-    [_store]
+    [_store, extra]
   )
 }

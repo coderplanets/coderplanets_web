@@ -19,6 +19,9 @@ const HeaderStore = t
     get root() {
       return getParent(self)
     },
+    get isOnline() {
+      return self.root.isOnline
+    },
     get curRoute() {
       return self.root.curRoute
     },

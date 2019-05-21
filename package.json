@@ -100,6 +100,7 @@
     "react-svg": "8.0.0",
     "react-tooltip": "^3.4.0",
     "react-trend": "^1.2.4",
+    "react-use": "^9.0.0",
     "react-waypoint": "9.0.2",
     "remarkable": "^1.7.1",
     "remarkable-emoji": "^0.1.3",

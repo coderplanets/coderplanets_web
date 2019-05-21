@@ -11,6 +11,7 @@ import Navigator from '@components/Navigator'
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'
 import AddOns from './AddOns'
+import OfflineAlert from './OfflineAlert'
 
 import {
   Wrapper,
@@ -24,6 +25,7 @@ import {
 import { openDoraemon } from './logic'
 
 const Header = ({
+  isOnline,
   activeInfo,
   curRoute,
   leftOffset,
@@ -49,6 +51,7 @@ const Header = ({
             layout={accountInfo.customization.bannerLayout}
           />
         )}
+        {!isOnline && <OfflineAlert />}
       </RouterWrapper>
       <AddOns />
       <Operations>
