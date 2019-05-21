@@ -193,6 +193,9 @@ const rootStore = t
     favoritesCats: t.optional(FavoritesCatsStore, {}),
   })
   .views(self => ({
+    get isOnline() {
+      return self.globalLayout.online
+    },
     get locale() {
       return self.appLocale
     },

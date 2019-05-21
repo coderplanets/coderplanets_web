@@ -19,6 +19,7 @@ const HeaderContainer = ({ header }) => {
   useInit(header)
 
   const {
+    isOnline,
     fixed,
     curRoute,
     leftOffset,
@@ -33,6 +34,7 @@ const HeaderContainer = ({ header }) => {
       {fixed && (
         <Affix onChange={debug}>
           <Header
+            isOnline={isOnline}
             fixed={fixed}
             curRoute={curRoute}
             leftOffset={leftOffset}
@@ -45,6 +47,7 @@ const HeaderContainer = ({ header }) => {
       )}
       {!fixed && (
         <Header
+          isOnline={isOnline}
           fixed={fixed}
           curRoute={curRoute}
           leftOffset={leftOffset}
