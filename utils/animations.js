@@ -83,9 +83,9 @@ const rotate360 = keyframes`
 `
 
 const breath = keyframes`
-  0%    {opacity: 0.3;}
+  0%    {opacity: 0.6;}
   60%   {opacity:   1;}
-  100%  {opacity: 0.2;}
+  100%  {opacity: 0.6;}
 `
 
 const shakeRule = css`
@@ -110,7 +110,7 @@ const rotate360CloseRule = css`
   ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
 `
 const breathRule = css`
-  ${breath} 4s linear infinite;
+  ${breath} 2s linear infinite;
 `
 
 const animate = {

@@ -27,7 +27,7 @@ export const InnerWrapper = styled.div`
 `
 
 export const RouterWrapper = styled.div`
-  ${cs.flexGrow()};
+  ${cs.flexGrow('align-center')};
   height: 100%;
   margin-top: 1px;
 `
