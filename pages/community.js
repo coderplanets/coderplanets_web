@@ -183,6 +183,11 @@ export default class PageCommunity extends React.Component {
     } = this.props
     const { mainPath, subPath } = route
 
+    const seoTitle =
+      community.raw === 'home'
+        ? `coderplanets 社区`
+        : `coderplanets ${community.raw}社区`
+
     return (
       <Provider store={this.store}>
         <GAWraper>
@@ -198,7 +203,7 @@ export default class PageCommunity extends React.Component {
                 <NextSeo
                   config={{
                     url: `${SITE_URL}/${mainPath}/${subPath}`,
-                    title: `coderplanets ${community.raw}社区`,
+                    title: seoTitle,
                     description: `${community.desc}`,
                   }}
                 />
