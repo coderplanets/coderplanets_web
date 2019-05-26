@@ -6,6 +6,7 @@ import { uid } from '@utils'
 
 import {
   Wrapper,
+  ActiveBar,
   MenuRow,
   MenuItemBar,
   MenuItemIcon,
@@ -17,6 +18,7 @@ import { onCommunitySelect } from './logic'
 
 const MenuBar = ({ pin, item, activeRaw, forceRerender }) => (
   <Wrapper onClick={onCommunitySelect.bind(this, item)}>
+    <ActiveBar pin={pin} active={activeRaw === R.toLower(item.raw)} />
     <MenuItemBar>
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
