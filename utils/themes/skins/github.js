@@ -103,6 +103,7 @@ const github = {
   },
   sidebar: {
     bg: sidebarBg,
+    activeBar: '#87a791',
     holder: lighten(0.15, sidebarBg),
     logoText: '#5e9aa2',
     menuHover: darken(0.1, sidebarBg),

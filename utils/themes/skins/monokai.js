@@ -105,6 +105,7 @@ const monokai = {
   },
   sidebar: {
     bg: sidebarBg,
+    activeBar: '#a29376',
     holder: lighten(0.15, sidebarBg),
     logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),

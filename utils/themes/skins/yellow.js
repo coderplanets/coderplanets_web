@@ -103,6 +103,7 @@ const yellow = {
   },
   sidebar: {
     bg: sidebarBg,
+    activeBar: '#c3b496',
     holder: lighten(0.15, sidebarBg),
     logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),
