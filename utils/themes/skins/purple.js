@@ -103,6 +103,7 @@ const purple = {
   },
   sidebar: {
     bg: sidebarBg,
+    activeBar: '#988ac1',
     holder: lighten(0.15, sidebarBg),
     logoText: primaryColor,
     menuHover: lighten(0.1, sidebarBg),
