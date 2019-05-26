@@ -17,16 +17,9 @@ import { LABEL_POOL } from '@config'
 import { makeDebugger, storePlug, uid, Trans } from '@utils'
 import Options from './Options'
 import Selected from './Selected'
-
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
-import {
-  init,
-  uninit,
-  onOptionSelect,
-  getSelectedTagId,
-  onVisibleChange,
-} from './logic'
 
+import * as logic from './logic'
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:Labeler')
 
@@ -39,19 +32,19 @@ class LabelerContainer extends React.Component {
     const { uniqId } = this.state
 
     const options = { label, multi, selected }
-    init(labeler, uniqId, options)
+    logic.init(labeler, uniqId, options)
   }
 
   componentWillUnmount() {
     const { uniqId } = this.state
-    uninit(uniqId)
+    logic.uninit(uniqId)
   }
 
   onTagSelect(uniqId, item) {
     const { selected, onTagSelect, onTagUnselect } = this.props
     // const { labelsData, labelEntriesData } = labeler
-    onOptionSelect(uniqId, item)
-    const tagId = getSelectedTagId(item)
+    logic.onOptionSelect(uniqId, item)
+    const tagId = logic.getSelectedTagId(item)
     if (R.contains(item, selected)) {
       onTagUnselect(tagId)
     } else {
@@ -101,7 +94,7 @@ class LabelerContainer extends React.Component {
               placement="right"
               trigger="click"
               visible={popVisible}
-              onVisibleChange={onVisibleChange.bind(this, uniqId)}
+              onVisibleChange={logic.onVisibleChange.bind(this, uniqId)}
             >
               <LabelItem>
                 <LabelIcon src={LABEL_POOL[label].iconSrc} />

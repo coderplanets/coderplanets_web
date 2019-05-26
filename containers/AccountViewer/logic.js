@@ -28,9 +28,7 @@ let store = null
 let sub$ = null
 
 export const loadAccount = () => {
-  markLoading(true)
-
-  store.markState({ viewingType: 'account' })
+  store.markState({ viewingType: 'account', loading: true })
   return sr71$.query(S.user, {})
 }
 
@@ -56,8 +54,6 @@ export const onLogout = () => {
   // dispatchEvent(EVENT.LOGOUT)
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
-
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -65,7 +61,7 @@ const DataSolver = [
   {
     match: asyncRes('user'),
     action: ({ user }) => {
-      markLoading(false)
+      store.markState({ loading: false })
       if (store.viewingType === 'user') {
         return store.markState({ viewingUser: user })
       }
@@ -81,19 +77,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => markLoading(false),
+    action: () => store.markState({ loading: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      markLoading(false)
+      store.markState({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountViewer' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      markLoading(false)
+      store.markState({ loading: false })
       errRescue({ type: ERR.NETWORK, path: 'AccountViewer' })
     },
   },

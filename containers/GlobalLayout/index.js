@@ -6,6 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import useNetwork from 'react-use/lib/useNetwork'
 
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
@@ -16,7 +17,8 @@ import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
 import { useInit, openDoraemon, queryDoraemon } from './logic'
 
 const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
-  useInit(globalLayout)
+  const { online } = useNetwork()
+  useInit(globalLayout, { online })
   useShortcut('ctrl+p', openDoraemon)
 
   const { sidebarPin } = globalLayout

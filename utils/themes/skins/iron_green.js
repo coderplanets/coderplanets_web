@@ -102,6 +102,7 @@ const iconGreen = {
   },
   sidebar: {
     bg: sidebarBg,
+    activeBar: '#356A6D',
     holder: lighten(0.15, sidebarBg),
     logoText: primaryColor,
     menuHover: darken(0.05, sidebarBg),

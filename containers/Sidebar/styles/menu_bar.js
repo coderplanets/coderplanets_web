@@ -6,9 +6,24 @@ import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
   display: block;
+  position: relative;
   z-index: ${cs.zIndex.sidebar + 1};
   &:hover {
     background: ${theme('sidebar.menuHover')};
+  }
+`
+export const ActiveBar = styled.div`
+  position: absolute;
+  opacity: ${({ active }) => (active ? 1 : 0)};
+  background: ${theme('sidebar.activeBar')};
+  width: 3px;
+  height: 12px;
+  top: ${({ pin }) => (pin ? '20px' : '4px')};
+  left: 0;
+  border-radius: 3px;
+
+  ${IndexWrapper}:hover & {
+    top: 20px;
   }
 `
 export const MenuItemBar = styled.div`
