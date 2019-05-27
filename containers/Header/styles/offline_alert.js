@@ -12,5 +12,7 @@ export const Wrapper = styled.div`
   padding: 0 16px;
   border-radius: 4px;
   animation: ${animate.breathRule};
+
+  ${cs.media.tablet`display: none;`};
 `
 export const Holder = 1
