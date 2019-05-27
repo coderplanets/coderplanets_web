@@ -196,6 +196,9 @@ const rootStore = t
     get isOnline() {
       return self.globalLayout.online
     },
+    get media() {
+      return self.globalLayout.media
+    },
     get locale() {
       return self.appLocale
     },

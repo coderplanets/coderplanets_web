@@ -9,7 +9,6 @@ import {
   unholdPage,
   dispatchEvent,
   Global,
-  cs,
 } from '@utils'
 
 import SR71 from '@utils/async/sr71'
@@ -53,7 +52,7 @@ const DataResolver = [
          debug('payload curCommunity: ', store.curCommunity.raw)
        */
 
-      if (Global.innerWidth <= cs.mediaBreakPoints.tablet) {
+      if (store.media.mobile || store.media.tablet) {
         const { thread, data, type } = payload
         let targetUrl
         if (type === TYPE.PREVIEW_USER_VIEW) {
