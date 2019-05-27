@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs, MEDIA_MAX_WIDTH } from '@utils'
+import { theme, cs } from '@utils'
 
 import Img from '@components/Img'
 import CommunityFaceLogo from '@components/CommunityFaceLogo'
@@ -11,7 +11,7 @@ export const Wrapper = styled(BaseBanner)`
   min-height: 125px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${MEDIA_MAX_WIDTH};
+  max-width: ${cs.MEDIA_MAX_WIDTH};
   width: 100%;
 `
 export const BaseBannerContent = styled.div`
