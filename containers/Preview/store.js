@@ -91,6 +91,9 @@ const PreviewStore = t
     get root() {
       return getParent(self)
     },
+    get media() {
+      return self.root.media
+    },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)
     },
