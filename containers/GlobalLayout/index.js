@@ -11,14 +11,16 @@ import useNetwork from 'react-use/lib/useNetwork'
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
 
-import { useShortcut } from '@components/Hooks'
+import { useShortcut, useMedia } from '@components/Hooks'
 
 import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
 import { useInit, openDoraemon, queryDoraemon } from './logic'
 
 const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
   const { online } = useNetwork()
-  useInit(globalLayout, { online })
+  const media = useMedia()
+
+  useInit(globalLayout, { online, media })
   useShortcut('ctrl+p', openDoraemon)
 
   const { sidebarPin } = globalLayout
