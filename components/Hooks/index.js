@@ -1,2 +1,2 @@
 export { default as useShortcut } from './useShortcut'
-export const holder = 1
+export { default as useMedia } from './useMedia'
