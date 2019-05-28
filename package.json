@@ -161,6 +161,6 @@
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
     "start-server-and-test": "^1.7.13",
-    "webpack-bundle-analyzer": "3.0.4"
+    "webpack-bundle-analyzer": "3.3.2"
   }
 }
