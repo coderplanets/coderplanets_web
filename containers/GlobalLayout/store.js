@@ -26,7 +26,7 @@ const Platform = t.model('Platform', {
 
 const GlobalLayoutStore = t
   .model('GlobalLayoutStore', {
-    online: t.optional(t.boolean, false),
+    online: t.optional(t.boolean, true),
     media: t.optional(Media, {}),
     platform: t.optional(Platform, {}),
   })
