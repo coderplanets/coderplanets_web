@@ -36,6 +36,11 @@ global.Intl = require('intl')
  */
 export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
+    const isServer = typeof window === 'undefined'
+    console.log('page:index isServer: ', isServer)
+
+    if (!isServer) return {}
+
     const mainPath = getMainPath(props)
     const subPath = getMainPath(props)
     const hideSidebar =

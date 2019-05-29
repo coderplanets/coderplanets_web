@@ -23,6 +23,7 @@ import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
 
 import {
+  getJwtToken,
   makeGQClient,
   queryStringToJSON,
   getMainPath,
@@ -30,7 +31,6 @@ import {
   akaTranslate,
   extractThreadFromPath,
   makeDebugger,
-  BStore,
   nilOrEmpty,
   ssrPagedSchema,
   ssrPagedFilter,
@@ -53,7 +53,7 @@ global.Intl = require('intl')
 async function fetchData(props, opt) {
   const { realname } = R.merge({ realname: true }, opt)
 
-  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
+  const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 

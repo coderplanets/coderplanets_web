@@ -95,6 +95,7 @@ export {
 } from './mobx_helper'
 
 export {
+  getJwtToken,
   ssrPagedSchema,
   ssrPagedFilter,
   ssrContentsThread,

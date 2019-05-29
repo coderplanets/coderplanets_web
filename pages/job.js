@@ -24,6 +24,7 @@ import ErrorPage from '@components/ErrorPage'
 // import { GAWraper, ErrorPage } from '@components'
 
 import {
+  getJwtToken,
   makeGQClient,
   getMainPath,
   getSubPath,
@@ -31,7 +32,6 @@ import {
   ROUTE,
   THREAD,
   TYPE,
-  BStore,
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
@@ -44,7 +44,7 @@ import initRootStore from '@stores/init'
 global.Intl = require('intl')
 
 async function fetchData(props) {
-  const token = BStore.cookie.from_req(props.req, 'jwtToken')
+  const token = getJwtToken(props)
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
