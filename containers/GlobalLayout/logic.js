@@ -22,8 +22,8 @@ export const useInit = (_store, extra) => {
     () => {
       store = _store
 
-      const { online, media } = extra
-      store.markState({ online, media })
+      const { online, media, platform } = extra
+      store.markState({ online, media, platform })
     },
     [_store, extra]
   )
