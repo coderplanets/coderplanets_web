@@ -26,13 +26,12 @@ import ErrorPage from '@components/ErrorPage'
 // import { GAWraper, ErrorPage } from '@components'
 
 import {
-  BStore,
+  getJwtToken,
   makeGQClient,
   queryStringToJSON,
   nilOrEmpty,
   getSubPath,
   USER_THREAD,
-  /* BStore, */
   ROUTE,
   pagedFilter,
   ssrAmbulance,
@@ -48,7 +47,7 @@ global.Intl = require('intl')
 async function fetchData(props, opt) {
   const { realname } = R.merge({ realname: true }, opt)
 
-  const token = realname ? BStore.cookie.from_req(props.req, 'jwtToken') : null
+  const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
   const login = R.toLower(getSubPath(props))
