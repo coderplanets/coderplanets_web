@@ -1,4 +1,4 @@
-FROM node:10.13
+FROM node:12.3.1
 
 RUN mkdir /root/web
 
