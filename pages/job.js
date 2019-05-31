@@ -75,7 +75,7 @@ async function fetchData(props) {
   }
 }
 
-export default class Index extends React.Component {
+export default class JobPage extends React.Component {
   static async getInitialProps(props) {
     let resp
     try {
