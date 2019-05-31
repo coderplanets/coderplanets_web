@@ -106,7 +106,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class PageCommunity extends React.Component {
+export default class CommunityPage extends React.Component {
   static async getInitialProps(props) {
     const mainPath = getMainPath(props)
     const subPath = getSubPath(props)

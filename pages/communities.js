@@ -74,7 +74,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class Index extends React.Component {
+export default class CommunitiesPage extends React.Component {
   static async getInitialProps(props) {
     let resp
     try {
