@@ -19,6 +19,7 @@ const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
 const HOME_PAGE = '/home/posts'
+/* const HOME_PAGE = '/home' */
 
 // SSR for mobx
 mobxReact.useStaticRendering(true)
@@ -52,6 +53,9 @@ app.prepare().then(() => {
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
+  server.get(HOME_PAGE, (req, res) =>
+    renderAndCache(req, res, '/home', req.query)
+  )
 
   server.get('/oauth/', (req, res) =>
     renderAndCache(req, res, '/oauth', req.query)
