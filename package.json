@@ -118,7 +118,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-decorators": "^7.1.0",
-    "@commitlint/cli": "^7.0.0",
+    "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^7.0.1",
     "babel-eslint": "9.0.0",
     "babel-jest": "^23.6.0",
