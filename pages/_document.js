@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components'
 import Helmet from 'react-helmet'
 
 /* eslint-disable */
-export default class MyDocument extends Document {
+export default class DocumentPage extends Document {
   static async getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet()
     const page = renderPage(App => props =>
