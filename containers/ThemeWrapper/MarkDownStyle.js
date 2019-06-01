@@ -186,7 +186,7 @@ const MarkDownStyle = styled.div`
   .markdown-body kbd,
   .markdown-body pre {
     font-family: monospace, monospace;
-    font-size: 1em;
+    font-size: 1.2rem;
   }
 
   .markdown-body hr {
@@ -508,7 +508,7 @@ const MarkDownStyle = styled.div`
 
   .markdown-body h1 {
     padding-bottom: 0.3em;
-    font-size: 2em;
+    font-size: 1.8em;
     border-bottom: 1px solid;
     border-bottom-color: ${theme('markdown.titleBottom')};
   }
