@@ -7228,6 +7228,21 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   version "2.6.0"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
 
+nerv-shared@1.3.7:
+  version "1.3.7"
+  resolved "https://registry.npmjs.org/nerv-shared/-/nerv-shared-1.3.7.tgz#7db2265d5428081c153592f8d8afd18812f40d76"
+
+nerv-utils@1.3.12:
+  version "1.3.12"
+  resolved "https://registry.npmjs.org/nerv-utils/-/nerv-utils-1.3.12.tgz#f08d26e46dfe84f4159654941e37392fc6ee2768"
+
+nervjs@^1.3.13:
+  version "1.3.13"
+  resolved "https://registry.npmjs.org/nervjs/-/nervjs-1.3.13.tgz#0f3d5d5d09ced9c9a2329c4172cd707b32a1cc42"
+  dependencies:
+    nerv-shared "1.3.7"
+    nerv-utils "1.3.12"
+
 next-seo@^1.9.0:
   version "1.11.1"
   resolved "https://registry.npmjs.org/next-seo/-/next-seo-1.11.1.tgz#fd17a522b84e3d21c367e5b54e801731c8c1c3ba"

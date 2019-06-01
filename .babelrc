@@ -50,6 +50,8 @@
     ["module-resolver", {
       "root": ["./"],
       "alias": {
+        "react": "nervjs",
+        "react-dom": "nervjs",
         "@containers":"./containers",
         "@components":"./components",
         "@config":"./config",
