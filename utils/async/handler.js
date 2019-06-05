@@ -3,11 +3,11 @@ import R from 'ramda'
 /* import { Observable } from 'rxjs/Observable' */
 import { of } from 'rxjs'
 
-import { makelogger, ERR } from '..'
+import { buildLog, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 /* eslint-disable-next-line */
-const log = makelogger('Async')
+const log = buildLog('Async')
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,

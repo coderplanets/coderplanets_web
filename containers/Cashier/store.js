@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, PAYMENT_USAGE, PAYMENT_METHOD } from '@utils'
+import { markStates, buildLog, PAYMENT_USAGE, PAYMENT_METHOD } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:Cashier')
+const log = buildLog('S:Cashier')
 
 const Cashier = t
   .model('Cashier', {

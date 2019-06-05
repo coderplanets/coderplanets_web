@@ -10,13 +10,13 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import Maybe from '@components/Maybe'
 
 import { Wrapper, LinkIcon, LogoIcon, Text } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:VideoSourceInfo:index')
+const log = buildLog('c:VideoSourceInfo:index')
 
 const recommandSources = ['youtube', 'vimeo', 'bilibili']
 const colorMaps = {

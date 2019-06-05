@@ -6,7 +6,7 @@ import {
   asyncErr,
   $solver,
   ERR,
-  makelogger,
+  buildLog,
   EVENT,
   pagedFilter,
   errRescue,
@@ -22,7 +22,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:CommunitiesContent')
+const log = buildLog('L:CommunitiesContent')
 
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute

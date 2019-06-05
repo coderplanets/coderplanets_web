@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   dispatchEvent,
   EVENT,
@@ -22,7 +22,7 @@ const sr71$ = new SR71({
 })
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ReposThread')
+const log = buildLog('L:ReposThread')
 
 let sub$ = null
 let store = null

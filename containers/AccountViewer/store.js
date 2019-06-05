@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger, stripMobx } from '@utils'
+import { markStates, buildLog, stripMobx } from '@utils'
 import { User, EmptyUser } from '@model'
 /* eslint-disable-next-line */
-const log = makelogger('S:AccountViewerStore')
+const log = buildLog('S:AccountViewerStore')
 
 const AccountViewerStore = t
   .model('AccountViewerStore', {

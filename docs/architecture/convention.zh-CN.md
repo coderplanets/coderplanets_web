@@ -50,7 +50,7 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 
 ```js
 import { ISSUE_WEB } from '@config'
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
@@ -68,7 +68,7 @@ import Waypoint from 'react-waypoint'
 import R from 'ramda'
 
 // 2. import utils
-import { connectStore, makelogger, ROUTE, THREAD } from '@utils'
+import { connectStore, buildLog, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
 import TagsBar from '@containers/TagsBar'
@@ -88,7 +88,7 @@ import * as logic from './logic'
 
 // 8. init log
 /* eslint-disable-next-line */
-const log = makelogger('C:PostsThread')
+const log = buildLog('C:PostsThread')
 ```
 
 逻辑文件请遵守如下引用顺序(1-7):
@@ -101,7 +101,7 @@ import R from 'ramda'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -126,7 +126,7 @@ let sub$ = null
 
 // 7. init log
 /* eslint-disable-next-line */
-const log = makelogger('L:PostsThread')
+const log = buildLog('L:PostsThread')
 ```
 
 ### 组件通信

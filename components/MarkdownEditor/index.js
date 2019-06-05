@@ -12,7 +12,7 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, makelogger, BStore } from '@utils'
+import { EVENT, buildLog, BStore } from '@utils'
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
 
@@ -32,7 +32,7 @@ const mentionThemeClass = {
 }
 
 /* eslint-disable-next-line */
-const log = makelogger('C:MarkdownEditor')
+const log = buildLog('C:MarkdownEditor')
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)

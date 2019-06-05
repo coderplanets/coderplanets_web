@@ -10,9 +10,9 @@ import Trend from 'react-trend'
 
 import { withTheme } from 'styled-components'
 
-import { makelogger, theme as themeHelper } from '@utils'
+import { buildLog, theme as themeHelper } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('c:TrendLine:index')
+const log = buildLog('c:TrendLine:index')
 
 const TrendLine = ({ data, radius, width, theme }) => {
   const activityLowColor = themeHelper('heatmap.activityLow')({ theme })

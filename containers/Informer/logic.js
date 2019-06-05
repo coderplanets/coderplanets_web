@@ -1,7 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makelogger, $solver, asyncErr, ERR, errRescue } from '@utils'
+import { buildLog, $solver, asyncErr, ERR, errRescue } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 // import S from './schema'
@@ -11,7 +11,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Informer')
+const log = buildLog('L:Informer')
 
 export const toggleModal = () =>
   store.markState({

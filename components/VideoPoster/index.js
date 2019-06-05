@@ -9,11 +9,11 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, PosterImage, PlayIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:VideoPoster:index')
+const log = buildLog('c:VideoPoster:index')
 
 const VideoPoster = ({ poster }) => (
   <Wrapper>

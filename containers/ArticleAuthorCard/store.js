@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx } from '@utils'
+import { markStates, buildLog, stripMobx } from '@utils'
 import { User } from '@model'
 /* eslint-disable-next-line */
-const log = makelogger('S:ArticleAuthorCard')
+const log = buildLog('S:ArticleAuthorCard')
 
 const ArticleAuthorCard = t
   .model('ArticleAuthorCard', {

@@ -5,11 +5,11 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { markStates, ERR, makelogger, changeset, stripMobx } from '@utils'
+import { markStates, ERR, buildLog, changeset, stripMobx } from '@utils'
 import { Repo } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:RepoEditor')
+const log = buildLog('S:RepoEditor')
 
 const RepoEditor = t
   .model('RepoEditor', {

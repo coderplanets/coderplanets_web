@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:PostViewer')
+const log = buildLog('L:PostViewer')
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData

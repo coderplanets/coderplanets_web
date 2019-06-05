@@ -1,12 +1,12 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makelogger, githubApi } from '@utils'
+import { buildLog, githubApi } from '@utils'
 
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:AvatarAdder')
+const log = buildLog('L:AvatarAdder')
 
 export const onSearch = e => {
   if (e.key === 'Enter') {

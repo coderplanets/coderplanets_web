@@ -8,9 +8,9 @@ import R from 'ramda'
 import Router from 'next/router'
 
 import { PAGE_SIZE } from '@config'
-import { onClient, markStates, makelogger, serializeQuery } from '@utils'
+import { onClient, markStates, buildLog, serializeQuery } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('S:RouteStore')
+const log = buildLog('S:RouteStore')
 
 const Query = t.model('Query', {
   page: t.optional(t.string, '1'),

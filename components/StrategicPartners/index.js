@@ -7,14 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import PartnerBanner from './PartnerBanner'
 // import Holder from './Holder'
 
 import { Wrapper, Header, Title, Closer } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:StrategicPartners:index')
+const log = buildLog('c:StrategicPartners:index')
 
 const StrategicPartners = ({ show, onClose }) => (
   <Wrapper>

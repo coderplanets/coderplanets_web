@@ -20,7 +20,7 @@ import { Wrapper, Title, FormWrapper } from './styles'
 import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:VideoEditor')
+const log = buildLog('C:VideoEditor')
 
 const VideoEditorContainer = ({ videoEditor, attachment }) => {
   useInit(videoEditor, attachment)

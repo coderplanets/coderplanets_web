@@ -8,7 +8,7 @@ import React from 'react'
 import { Radio } from 'antd'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
-import { connectStore, makelogger, C11N } from '@utils'
+import { connectStore, buildLog, C11N } from '@utils'
 
 import ThemeSelector from '@components/ThemeSelector'
 import Popover from '@components/Popover'
@@ -19,7 +19,7 @@ import { Wrapper, RadiosWrapper, OptionsWrapper, ErrText } from './styles'
 import { useInit, changeTheme, c11nOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:UserSettings')
+const log = buildLog('C:UserSettings')
 
 const RadioGroup = Radio.Group
 

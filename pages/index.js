@@ -20,10 +20,10 @@ import ErrorPage from '@components/ErrorPage'
 import initRootStore from '@stores/init'
 // import { GAWraper, ErrorPage } from '@components'
 
-import { makelogger, getMainPath, ROUTE } from '@utils'
+import { buildLog, getMainPath, ROUTE } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('page:community')
+const log = buildLog('page:community')
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

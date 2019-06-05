@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, Trans } from '@utils'
+import { buildLog, Trans } from '@utils'
 import Popover from '@components/Popover'
 import Maybe from '@components/Maybe'
 
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:InlineCommunities:index')
+const log = buildLog('c:InlineCommunities:index')
 
 const FullList = ({ data }) => (
   <Wrapper>

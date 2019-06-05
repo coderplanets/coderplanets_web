@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -25,7 +25,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:RepoEditor')
+const log = buildLog('L:RepoEditor')
 
 export const onPublish = () => {
   const args = {

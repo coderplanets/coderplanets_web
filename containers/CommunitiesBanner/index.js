@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Tabber from '@components/Tabber'
 import SearchBox from './SearchBox'
@@ -22,7 +22,7 @@ import {
 import { useInit, tabOnChange, searchOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:CommunitiesBanner')
+const log = buildLog('C:CommunitiesBanner')
 
 const CommunitiesBannerContainer = ({ communitiesBanner }) => {
   useInit(communitiesBanner)

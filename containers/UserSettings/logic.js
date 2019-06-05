@@ -1,14 +1,14 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makelogger, $solver, dispatchEvent, EVENT } from '@utils'
+import { buildLog, $solver, dispatchEvent, EVENT } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:UserSettings')
+const log = buildLog('L:UserSettings')
 
 let store = null
 

@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:FollowButton:index')
+const log = buildLog('c:FollowButton:index')
 
 class FollowButton extends React.Component {
   state = { simuLoading: false }

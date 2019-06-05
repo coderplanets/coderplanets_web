@@ -5,7 +5,7 @@ import {
   asyncRes,
   asyncErr,
   $solver,
-  makelogger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -28,7 +28,7 @@ import { S, updatablePostFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const log = makelogger('L:PostEditor')
+const log = buildLog('L:PostEditor')
 
 let store = null
 let sub$ = null

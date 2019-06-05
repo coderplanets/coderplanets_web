@@ -8,14 +8,14 @@ import PropTypes from 'prop-types'
 
 import Popover from '@components/Popover'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 import AdderPanel from './AdderPanel'
 
 import { Wrapper, AddText } from './styles'
 import { useInit, adderOnConfirm, onPopoverVisible } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:AvatarAdder')
+const log = buildLog('C:AvatarAdder')
 
 const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
   useInit(avatarAdder)

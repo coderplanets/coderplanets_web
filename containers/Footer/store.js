@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, ROUTE } from '@utils'
+import { markStates, buildLog, ROUTE } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('S:Footer')
+const log = buildLog('S:Footer')
 
 const Footer = t
   .model('Footer', {

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   $solver,
-  makelogger,
+  buildLog,
   EVENT,
   TYPE,
   unholdPage,
@@ -23,7 +23,7 @@ const sr71$ = new SR71({
 })
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Preview')
+const log = buildLog('L:Preview')
 
 let store = null
 let sub$ = null

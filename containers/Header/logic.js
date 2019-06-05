@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   dispatchEvent,
   EVENT,
   TYPE,
@@ -30,7 +30,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Header')
+const log = buildLog('L:Header')
 
 export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })

@@ -7,7 +7,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { connectStore, makelogger, THREAD } from '@utils'
+import { connectStore, buildLog, THREAD } from '@utils'
 
 import FavoritesCats from '@containers/FavoritesCats'
 import Maybe from '@components/Maybe'
@@ -23,7 +23,7 @@ import { Wrapper, ReactionWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:ArticleViewerHeader')
+const log = buildLog('C:ArticleViewerHeader')
 
 const ArticleViewerHeaderContainer = ({
   articleViewerHeader,

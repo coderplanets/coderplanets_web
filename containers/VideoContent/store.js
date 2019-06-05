@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger } from '@utils'
+import { markStates, buildLog } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:VideoContent')
+const log = buildLog('S:VideoContent')
 
 const VideoContent = t
   .model('VideoContent', {})

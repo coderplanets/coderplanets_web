@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, prettyNum } from '@utils'
+import { buildLog, prettyNum } from '@utils'
 import SubscribedTitle from './SubscribedTitle'
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:CommunityStatesPad:index')
+const log = buildLog('c:CommunityStatesPad:index')
 
 const CommunityStatesPad = ({
   community,

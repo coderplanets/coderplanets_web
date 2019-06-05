@@ -1,7 +1,7 @@
 // import R from 'ramda'
 
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncErr,
@@ -18,7 +18,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:DocUploader')
+const log = buildLog('L:DocUploader')
 
 export const onUploadError = () =>
   store.toast('error', {

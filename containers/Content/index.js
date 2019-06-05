@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger, ROUTE } from '@utils'
+import { connectStore, buildLog, ROUTE } from '@utils'
 
 import CommunityContent from '@containers/CommunityContent'
 import CommunitiesContent from '@containers/CommunitiesContent'
@@ -18,7 +18,7 @@ import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Content')
+const log = buildLog('C:Content')
 
 const renderContent = curRoute => {
   const { mainPath } = curRoute

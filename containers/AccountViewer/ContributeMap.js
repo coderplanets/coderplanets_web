@@ -10,7 +10,7 @@ import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 // import R from 'ramda'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   TitleWrapper,
@@ -22,7 +22,7 @@ import {
   DotList,
 } from './styles/contribute_map'
 
-const log = makelogger('C:Comments')
+const log = buildLog('C:Comments')
 
 const customTooltipDataAttrs = value => ({
   'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,

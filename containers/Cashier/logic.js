@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   holdPage,
   asyncRes,
@@ -24,7 +24,7 @@ const sr71$ = new SR71({
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Cashier')
+const log = buildLog('L:Cashier')
 
 let store = null
 

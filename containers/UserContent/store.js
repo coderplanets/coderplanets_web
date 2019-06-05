@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, USER_THREAD, stripMobx } from '@utils'
+import { markStates, buildLog, USER_THREAD, stripMobx } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('S:UserContent')
+const log = buildLog('S:UserContent')
 
 const UserContent = t
   .model('UserContent', {

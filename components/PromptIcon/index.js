@@ -7,11 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import PlanetDriver from './PlanetDriver'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:PromptIcon:index')
+const log = buildLog('c:PromptIcon:index')
 
 const PromptIcon = ({ type, className }) => {
   switch (type) {

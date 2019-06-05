@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, C11N } from '@utils'
+import { buildLog, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
@@ -17,7 +17,7 @@ import { getOpacity } from './helper'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:PostItem:index')
+const log = buildLog('c:PostItem:index')
 
 const PostItem = ({
   entry,

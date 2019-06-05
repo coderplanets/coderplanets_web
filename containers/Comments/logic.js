@@ -5,7 +5,7 @@ import { PAGE_SIZE } from '@config'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   EVENT,
   ERR,
   TYPE,
@@ -28,7 +28,7 @@ let store = null
 let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Comments')
+const log = buildLog('L:Comments')
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {

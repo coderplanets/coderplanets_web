@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   $solver,
   ERR,
   dispatchEvent,
@@ -18,7 +18,7 @@ import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = makelogger('L:AccountViewer')
+const log = buildLog('L:AccountViewer')
 
 const sr71$ = new SR71({
   resv_event: [EVENT.LOGIN],

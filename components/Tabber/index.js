@@ -5,14 +5,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, THREAD, C11N, sortByIndex } from '@utils'
+import { buildLog, THREAD, C11N, sortByIndex } from '@utils'
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 
 import { mapAlias } from './alias'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:Tabber:index')
+const log = buildLog('c:Tabber:index')
 
 const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)

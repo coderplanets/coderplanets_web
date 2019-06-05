@@ -14,14 +14,14 @@ import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
 import { LABEL_POOL } from '@config'
 
-import { makelogger, storePlug, uid, Trans } from '@utils'
+import { buildLog, storePlug, uid, Trans } from '@utils'
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
-const log = makelogger('C:Labeler')
+const log = buildLog('C:Labeler')
 
 class LabelerContainer extends React.Component {
   constructor(props) {

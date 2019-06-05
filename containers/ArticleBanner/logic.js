@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   dispatchEvent,
   asyncRes,
@@ -25,7 +25,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ArticleBanner')
+const log = buildLog('L:ArticleBanner')
 
 export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()

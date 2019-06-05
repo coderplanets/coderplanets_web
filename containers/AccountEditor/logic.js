@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   $solver,
   dispatchEvent,
   EVENT,
@@ -23,7 +23,7 @@ import { S, updateFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const log = makelogger('L:AccountEditor')
+const log = buildLog('L:AccountEditor')
 
 let store = null
 let sub$ = null

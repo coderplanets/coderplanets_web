@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger } from '@utils'
+import { markStates, buildLog } from '@utils'
 /* import { Post } from '../SharedModel' */
 
 /* eslint-disable-next-line */
-const log = makelogger('S:BannerStore')
+const log = buildLog('S:BannerStore')
 
 const BannerStore = t
   .model('BannerStore', {})

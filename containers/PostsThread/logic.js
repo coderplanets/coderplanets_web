@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -35,7 +35,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:PostsThread')
+const log = buildLog('L:PostsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)

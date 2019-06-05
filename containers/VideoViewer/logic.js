@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -19,7 +19,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:VideoViewer')
+const log = buildLog('L:VideoViewer')
 
 function loadVideo({ id }) {
   const userHasLogin = store.isLogin

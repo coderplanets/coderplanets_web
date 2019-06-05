@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { PAGE_SIZE } from '@config'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:UserLister')
+const log = buildLog('L:UserLister')
 
 export const onClose = () => {
   store.markState({ show: false })

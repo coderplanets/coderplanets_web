@@ -5,7 +5,7 @@ import {
   asyncRes,
   asyncErr,
   $solver,
-  makelogger,
+  buildLog,
   dispatchEvent,
   THREAD,
   EVENT,
@@ -29,7 +29,7 @@ import { S, updatableJobFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const log = makelogger('L:JobEditor')
+const log = buildLog('L:JobEditor')
 
 let store = null
 let sub$ = null

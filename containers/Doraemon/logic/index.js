@@ -5,7 +5,7 @@ import Router from 'next/router'
 import { ISSUE_ADDR } from '@config'
 import SR71 from '@utils/async/sr71'
 import {
-  makelogger,
+  buildLog,
   Global,
   dispatchEvent,
   asyncRes,
@@ -28,7 +28,7 @@ import Pocket from './Pocket'
 import { SwissArmyKnife } from './swissArmyKnife'
 import githubLoginHandler from './oauth/github_handler'
 
-const log = makelogger('L:Doraemon')
+const log = buildLog('L:Doraemon')
 const sr71$ = new SR71({
   resv_event: [EVENT.QUERY_DORAMON],
 })

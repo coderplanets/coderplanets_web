@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import UserBrief from '@components/UserBrief'
 import UserContributeMap from './UserContributeMap'
@@ -21,7 +21,7 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:UserBanner')
+const log = buildLog('C:UserBanner')
 
 const UserBannerContainer = ({ userBanner }) => {
   useInit(userBanner)

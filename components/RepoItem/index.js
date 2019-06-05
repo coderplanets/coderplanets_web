@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, cutFrom, C11N } from '@utils'
+import { buildLog, cutFrom, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import Header from './Header'
@@ -18,7 +18,7 @@ import { Wrapper, BodyDigest } from './styles'
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:RepoItem:index')
+const log = buildLog('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper

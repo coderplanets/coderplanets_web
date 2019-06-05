@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx, TYPE, changeset } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE, changeset } from '@utils'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:CommentsStore')
+const log = buildLog('S:CommentsStore')
 
 const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 

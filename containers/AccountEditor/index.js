@@ -8,7 +8,7 @@ import React from 'react'
 import { Button, Icon } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import StatusBox from '@components/StatusBox'
 import FormItem from '@components/FormItem'
@@ -35,7 +35,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:AccountEditor')
+const log = buildLog('C:AccountEditor')
 
 const AccountEditorContainer = ({ accountEditor }) => {
   useInit(accountEditor)

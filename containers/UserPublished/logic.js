@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:UserPublished')
+const log = buildLog('L:UserPublished')
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })

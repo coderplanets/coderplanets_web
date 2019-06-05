@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 
-import { makelogger, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
+import { buildLog, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'
@@ -13,7 +13,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:MailsViewer')
+const log = buildLog('L:MailsViewer')
 
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })

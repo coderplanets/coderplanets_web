@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx, TYPE, nilOrEmpty } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE, nilOrEmpty } from '@utils'
 import { PagedJobs, Tag, ContentFilter, emptyPagiData } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:JobsThreadStore')
+const log = buildLog('S:JobsThreadStore')
 
 const JobsThreadStore = t
   .model('JobsThreadStore', {

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makelogger,
+  buildLog,
   closePreviewer,
   EVENT,
   ERR,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:JobViewer')
+const log = buildLog('L:JobViewer')
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData

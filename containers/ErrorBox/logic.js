@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makelogger, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
+import { buildLog, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 
@@ -12,7 +12,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ErrorBox')
+const log = buildLog('L:ErrorBox')
 
 export const onClose = () => store.markState({ show: false })
 

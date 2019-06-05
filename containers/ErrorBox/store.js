@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger, ERR, stripMobx } from '@utils'
+import { markStates, buildLog, ERR, stripMobx } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:ErrorBox')
+const log = buildLog('S:ErrorBox')
 
 const Message = t.model('Message', {
   message: t.string,

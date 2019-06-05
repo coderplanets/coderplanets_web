@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger, stripMobx } from '@utils'
+import { markStates, buildLog, stripMobx } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('S:DocUploader')
+const log = buildLog('S:DocUploader')
 
 const DocUploader = t
   .model('DocUploader', {})

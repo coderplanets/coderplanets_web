@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Pagi from '@components/Pagi'
 import CommunityCards from './CommunityCards'
@@ -15,7 +15,7 @@ import { Wrapper } from './styles'
 import { useInit, pageOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:CommunitiesContent')
+const log = buildLog('C:CommunitiesContent')
 
 const CommunitiesContentContainer = ({ communitiesContent }) => {
   useInit(communitiesContent)

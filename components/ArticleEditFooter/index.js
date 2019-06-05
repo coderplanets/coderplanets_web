@@ -8,12 +8,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'antd'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { Space } from '../BaseStyled'
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ArticleEditFooter:index')
+const log = buildLog('c:ArticleEditFooter:index')
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (

@@ -7,7 +7,7 @@ import {
   asyncErr,
   $solver,
   ERR,
-  makelogger,
+  buildLog,
   EVENT,
   dispatchEvent,
   thread2Subpath,
@@ -28,7 +28,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Sidebar')
+const log = buildLog('L:Sidebar')
 
 export const setPin = () => store.markState({ pin: !store.pin })
 

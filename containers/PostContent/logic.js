@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -22,7 +22,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:PostContent')
+const log = buildLog('L:PostContent')
 
 const loadPost = () => {
   const { id } = store.viewingData

@@ -11,7 +11,7 @@ import Pagi from '@components/Pagi'
 import FollowButton from '@components/FollowButton'
 import { ICON_CMD } from '@config'
 
-import { makelogger, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@utils'
 import {
   TableWrapper,
   UserWrapper,
@@ -27,7 +27,7 @@ import {
 import { onFollow, undoFollow } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:UserList:index')
+const log = buildLog('c:UserList:index')
 
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>

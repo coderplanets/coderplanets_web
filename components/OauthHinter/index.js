@@ -10,7 +10,7 @@ import { withTheme } from 'styled-components'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Container,
   HintWrapper,
@@ -27,7 +27,7 @@ import {
   IssueLink,
 } from './styles'
 /* eslint-disable-next-line */
-const log = makelogger('c:OauthHinter:index')
+const log = buildLog('c:OauthHinter:index')
 
 const OauthHinter = () => (
   <Container>

@@ -7,7 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import BriefView from './BriefView'
@@ -23,7 +23,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Footer')
+const log = buildLog('C:Footer')
 
 const DynamicBuyMeChuanChuan = dynamic({
   loader: () => import('components/BuyMeChuanChuan'),

@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import FavoritesCats from '../FavoritesCats'
@@ -15,7 +15,7 @@ import Breadcrumbs from './Breadcrumbs'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:UserFavorited')
+const log = buildLog('C:UserFavorited')
 
 class UserFavoritesContainer extends React.Component {
   componentDidMount() {

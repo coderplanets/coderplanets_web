@@ -1,10 +1,10 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makelogger, dispatchEvent, EVENT } from '@utils'
+import { buildLog, dispatchEvent, EVENT } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('L:GlobalLayout')
+const log = buildLog('L:GlobalLayout')
 
 let store = null
 

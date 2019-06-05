@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@config'
-import { makelogger, cutFrom, C11N } from '@utils'
+import { buildLog, cutFrom, C11N } from '@utils'
 
 import DotDivider from '@components/DotDivider'
 import VideoSourceInfo from '@components/VideoSourceInfo'
@@ -40,7 +40,7 @@ import {
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:VideoItem:index')
+const log = buildLog('c:VideoItem:index')
 
 const VideoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper

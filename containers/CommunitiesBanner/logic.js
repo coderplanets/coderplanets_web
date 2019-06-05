@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   asyncRes,
   $solver,
   dispatchEvent,
@@ -16,7 +16,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:CommunitiesBanner')
+const log = buildLog('L:CommunitiesBanner')
 
 let store = null
 

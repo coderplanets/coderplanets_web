@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
@@ -28,7 +28,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:GithubRepoPage:index')
+const log = buildLog('c:GithubRepoPage:index')
 
 const GithubRepoPage = ({
   repo,

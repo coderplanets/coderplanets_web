@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:FavoritesCats')
+const log = buildLog('L:FavoritesCats')
 
 export const categoryOnChange = R.curry((part, e) =>
   store.updateEditing({ [part]: e.target.value })

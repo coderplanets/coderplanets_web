@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import Header from './Header'
@@ -19,7 +19,7 @@ import { Wrapper, Title, Icon } from './styles'
 import { useInit, toggleModal } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Informer')
+const log = buildLog('C:Informer')
 
 const InformerContainer = ({ informer, title, children }) => {
   useInit(informer)

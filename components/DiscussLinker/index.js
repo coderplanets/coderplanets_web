@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   Header,
@@ -24,7 +24,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:DiscussLinker:index')
+const log = buildLog('c:DiscussLinker:index')
 
 const DiscussLinker = ({ title, desc, addr }) => (
   <Wrapper>

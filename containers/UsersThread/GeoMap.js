@@ -4,13 +4,13 @@ import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 import { Margin } from '@components/BaseStyled'
-import { makelogger, uid, theme as themeHelper } from '@utils'
+import { buildLog, uid, theme as themeHelper } from '@utils'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:LocationMap')
+const log = buildLog('c:LocationMap')
 
 class LocationMap extends React.Component {
   constructor(props) {

@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import Popover from '@components/Popover'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:CommunityList:index')
+const log = buildLog('c:CommunityList:index')
 
 const CommunityList = ({ items, size, bottom, emptyHint }) => {
   if (R.isEmpty(items)) {

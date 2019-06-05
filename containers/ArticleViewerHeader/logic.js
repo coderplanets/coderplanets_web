@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -18,7 +18,7 @@ import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ArticleViewerHeader')
+const log = buildLog('L:ArticleViewerHeader')
 
 // EVENT.REFRESH_REACTIONS handles FAVORITE action when
 // user set it from FavoriteSetter

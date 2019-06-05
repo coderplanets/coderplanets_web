@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import UserInfo from './UserInfo'
@@ -17,7 +17,7 @@ import { Wrapper, Divider } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:ArticleAuthorCard')
+const log = buildLog('C:ArticleAuthorCard')
 
 const ArticleAuthorCardContainer = ({
   articleAuthorCard,

@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import SectionLabel from '@components/SectionLabel'
@@ -23,7 +23,7 @@ import Setter from './Setter'
 import { useInit, onModalClose, changeViewTo } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:FavoritesCats')
+const log = buildLog('C:FavoritesCats')
 
 const FavoritesCatsContainer = ({
   favoritesCats,

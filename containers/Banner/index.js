@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger, ROUTE } from '@utils'
+import { connectStore, buildLog, ROUTE } from '@utils'
 
 import UserBanner from '@containers/UserBanner'
 import CommunitiesBanner from '@containers/CommunitiesBanner'
@@ -18,7 +18,7 @@ import ActivitiesRootBanner from './ActivitiesRootBanner'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Banner')
+const log = buildLog('C:Banner')
 
 const BannerContent = ({ curRoute }) => {
   const { mainPath } = curRoute

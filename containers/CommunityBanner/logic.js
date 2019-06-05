@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -22,7 +22,7 @@ const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:CommunityBanner')
+const log = buildLog('L:CommunityBanner')
 
 let store = null
 
