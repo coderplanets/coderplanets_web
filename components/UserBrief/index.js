@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 import { DEFAULT_USER_AVATAR } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   AvatarWrapper,
@@ -26,7 +26,7 @@ import DigestView from './DigestView'
 import Operators from './Operators'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:UserBrief')
+const log = buildLog('c:UserBrief')
 
 class UserBrief extends React.Component {
   constructor(props) {
@@ -110,8 +110,8 @@ UserBrief.propTypes = {
 UserBrief.defaultProps = {
   displayStyle: 'default',
   viewingType: 'user',
-  onEdit: debug,
-  onLogout: debug,
+  onEdit: log,
+  onLogout: log,
 }
 
 export default UserBrief

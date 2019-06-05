@@ -8,11 +8,11 @@ import React from 'react'
 import { Popover } from 'antd'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { ContentContainer } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Popover:index')
+const log = buildLog('c:Popover:index')
 
 const renderContent = content => {
   return <ContentContainer>{content}</ContentContainer>

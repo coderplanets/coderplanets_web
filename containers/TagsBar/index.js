@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import {
-  makeDebugger,
+  buildLog,
   connectStore,
   sortByColor,
   THREAD,
@@ -31,7 +31,7 @@ import {
 import { useInit, onTagSelect } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:TagsBar')
+const log = buildLog('C:TagsBar')
 
 const TagsBarContainer = ({ tagsBar, thread, topic, active, onSelect }) => {
   useInit(tagsBar, thread, topic, active)

@@ -8,7 +8,7 @@ import React from 'react'
 import { Button, Input } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import { Space } from '@components/BaseStyled'
 import Modal from '@components/Modal'
@@ -18,7 +18,7 @@ import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
 import { useInit, toggleModal, onMessageChange, onConfirm } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:GirlVerifier')
+const log = buildLog('C:GirlVerifier')
 
 const { TextArea } = Input
 

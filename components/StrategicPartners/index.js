@@ -7,14 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import PartnerBanner from './PartnerBanner'
 // import Holder from './Holder'
 
 import { Wrapper, Header, Title, Closer } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:StrategicPartners:index')
+const log = buildLog('c:StrategicPartners:index')
 
 const StrategicPartners = ({ show, onClose }) => (
   <Wrapper>
@@ -38,7 +38,7 @@ StrategicPartners.propTypes = {
 
 StrategicPartners.defaultProps = {
   show: false,
-  onClose: debug,
+  onClose: log,
 }
 
 export default React.memo(StrategicPartners)

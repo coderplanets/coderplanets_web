@@ -8,11 +8,11 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, Icon, TextWrapper, Text, Focus } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:FocusLine:index')
+const log = buildLog('c:FocusLine:index')
 
 const FocusLine = ({ iconSrc, before, focus, after }) => (
   <Wrapper>

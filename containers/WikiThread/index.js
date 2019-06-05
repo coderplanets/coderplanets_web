@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '@config'
-import { connectStore, makeDebugger, TYPE } from '@utils'
+import { connectStore, buildLog, TYPE } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
 import PublishLabel from '@components/PublishLabel'
@@ -30,7 +30,7 @@ import {
 import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:WikiThread')
+const log = buildLog('C:WikiThread')
 
 const renderView = (wikiData, type, communityRaw) => {
   switch (type) {

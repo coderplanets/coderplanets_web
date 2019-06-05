@@ -1,7 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makeDebugger, $solver, asyncErr, ERR, errRescue } from '@utils'
+import { buildLog, $solver, asyncErr, ERR, errRescue } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 // import S from './schema'
@@ -11,7 +11,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Informer')
+const log = buildLog('L:Informer')
 
 export const toggleModal = () =>
   store.markState({
@@ -26,7 +26,7 @@ export const backToOverview = () =>
 export const onMessageChange = e => store.markState({ message: e.target.value })
 
 export const onConfirm = () => {
-  debug('onConfirm')
+  log('onConfirm')
   store.toastDone({
     title: '感谢提交',
     msg: '我们会尽快处理您举报的内容，为民除害。',
@@ -69,7 +69,7 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

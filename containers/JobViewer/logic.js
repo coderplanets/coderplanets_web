@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  buildLog,
   closePreviewer,
   EVENT,
   ERR,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:JobViewer')
+const log = buildLog('L:JobViewer')
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData
@@ -46,7 +46,7 @@ const loadJob = ({ id }) => {
   const userHasLogin = store.isLogin
   const variables = { id, userHasLogin }
   markLoading()
-  debug('loadJob variables: ', variables)
+  log('loadJob variables: ', variables)
   sr71$.query(S.job, variables)
 }
 
@@ -128,12 +128,12 @@ export const useInit = (_store, attachment) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       openAttachment(attachment)
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { PAGE_SIZE } from '@config'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserLister')
+const log = buildLog('L:UserLister')
 
 export const onClose = () => {
   store.markState({ show: false })
@@ -38,7 +38,7 @@ export const onFollow = userId => sr71$.mutate(S.follow, { userId })
 export const undoFollow = userId => sr71$.mutate(S.undoFollow, { userId })
 
 const loadUsers = (type, data, page = 1) => {
-  // debug('loadUsers type: ', type)
+  // log('loadUsers type: ', type)
 
   store.markState({ curView: TYPE.LOADING })
   switch (type) {
@@ -176,11 +176,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

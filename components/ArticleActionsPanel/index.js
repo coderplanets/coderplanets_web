@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger, THREAD } from '@utils'
+import { buildLog, THREAD } from '@utils'
 
 import Informer from '@containers/Informer'
 import PinOption from './PinOption'
@@ -21,7 +21,7 @@ import DeleteOption from './DeleteOption'
 import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ArticleActionsPanel:index')
+const log = buildLog('c:ArticleActionsPanel:index')
 
 const ArticleActionsPanel = ({
   data,
@@ -109,13 +109,13 @@ ArticleActionsPanel.propTypes = {
 
 ArticleActionsPanel.defaultProps = {
   thread: THREAD.POST,
-  onInform: debug,
-  onDelete: debug,
-  onEdit: debug,
-  onPin: debug,
-  onUndoPin: debug,
-  onSetRefined: debug,
-  onUnsetRefined: debug,
+  onInform: log,
+  onDelete: log,
+  onEdit: log,
+  onPin: log,
+  onUndoPin: log,
+  onSetRefined: log,
+  onUnsetRefined: log,
   onCommunitySet: PropTypes.func,
 }
 

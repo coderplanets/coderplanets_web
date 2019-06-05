@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -25,7 +25,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:RepoEditor')
+const log = buildLog('L:RepoEditor')
 
 export const onPublish = () => {
   const args = {
@@ -33,7 +33,7 @@ export const onPublish = () => {
     ...store.editRepoData,
   }
 
-  debug('onPublish args: ', args)
+  log('onPublish args: ', args)
   store.markState({ publishing: true })
   sr71$.mutate(S.createRepo, args)
 }
@@ -129,7 +129,7 @@ export const useInit = (_store, attachment) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       const tokenValue = BStore.get('github_token') || ''
       const subView = R.isEmpty(tokenValue) ? 'token' : 'search'

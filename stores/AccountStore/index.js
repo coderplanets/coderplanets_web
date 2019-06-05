@@ -7,12 +7,12 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import { PAGE_SIZE } from '@config'
 
-import { markStates, makeDebugger, stripMobx, BStore } from '@utils'
+import { markStates, buildLog, stripMobx, BStore } from '@utils'
 
 import { User, EmptyUser, PagedCommunities } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:AccountStore')
+const log = buildLog('S:AccountStore')
 
 const AccountStore = t
   .model('AccountStore', {
@@ -74,8 +74,8 @@ const AccountStore = t
       return self.sessionCleanup()
     },
     setSession(user, token) {
-      // debug('setSession user: ', user)
-      // debug('setSession token: ', token)
+      // log('setSession user: ', user)
+      // log('setSession token: ', token)
 
       BStore.set('user', user)
       BStore.set('token', token)

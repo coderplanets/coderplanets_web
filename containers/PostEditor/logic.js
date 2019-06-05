@@ -5,7 +5,7 @@ import {
   asyncRes,
   asyncErr,
   $solver,
-  makeDebugger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -28,7 +28,7 @@ import { S, updatablePostFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:PostEditor')
+const log = buildLog('L:PostEditor')
 
 let store = null
 let sub$ = null
@@ -93,8 +93,8 @@ export const onPublish = () => {
     variables.tags = store.labelsData.tags
   }
 
-  debug('onPublish labelsData: ', store.labelsData.tags)
-  debug('onPublish variables: ', variables)
+  log('onPublish labelsData: ', store.labelsData.tags)
+  log('onPublish variables: ', variables)
 
   if (isEdit) {
     const args = cast(updatablePostFields, variables)
@@ -133,7 +133,7 @@ const openAttachment = att => {
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
-  /* debug('openAttachment att: ', att) */
+  /* log('openAttachment att: ', att) */
   store.updateEditing(att)
   store.markState({ isEdit: true })
 }
@@ -243,14 +243,14 @@ const initDraftTimmer = () => {
 export const useInit = (_store, attachment) => {
   useEffect(
     () => {
-      // debug('effect init')
+      // log('effect init')
       store = _store
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       openAttachment(attachment)
       initDraftTimmer()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 
         store.markState({ editPost: {}, isEdit: false })

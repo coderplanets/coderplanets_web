@@ -1,14 +1,7 @@
 import { useEffect } from 'react'
 // import R from 'ramda'
 
-import {
-  makeDebugger,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  errRescue,
-} from '@utils'
+import { buildLog, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'
@@ -18,7 +11,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UsersThread')
+const log = buildLog('L:UsersThread')
 
 export const loadGeoData = () => {
   markLoading(true)
@@ -77,7 +70,7 @@ export const useInit = _store => {
 
       return () => {
         if (store.geoDataLoading) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

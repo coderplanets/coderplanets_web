@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import DotDivider from '@components/DotDivider'
 import Maybe from '@components/Maybe'
@@ -24,7 +24,7 @@ import { Wrapper, BannerContent, Brief, Desc } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:ArticleBanner')
+const log = buildLog('C:ArticleBanner')
 
 const ArticleBannerContainer = ({
   articleBanner,

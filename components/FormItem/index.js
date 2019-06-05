@@ -8,7 +8,7 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, hasValue } from '@utils'
+import { buildLog, hasValue } from '@utils'
 import Maybe from '@components/Maybe'
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:FormItem:index')
+const log = buildLog('c:FormItem:index')
 
 const FormContent = ({
   type,
@@ -133,7 +133,7 @@ FormItem.defaultProps = {
   type: 'input',
   node: <div />,
   att: '',
-  onChange: debug,
+  onChange: log,
   bottom: '25px',
   disabled: false,
   autoFocus: false,

@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CommunitySetter')
+const log = buildLog('L:CommunitySetter')
 
 export const onClose = () => {
   store.markState({ visible: false })
@@ -70,7 +70,7 @@ const refreshBelongsInfo = () => {
       return sr71$.query(S.post, { id })
     }
     default: {
-      return debug('unmatch')
+      return log('unmatch')
     }
   }
 }
@@ -114,7 +114,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: err => {
-      debug(err)
+      log(err)
       // cancleLoading()
     },
   },
@@ -141,12 +141,12 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
         if (!sub$) return false
-        // debug('===== do uninit')
+        // log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
         sub$ = null

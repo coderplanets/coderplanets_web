@@ -3,11 +3,11 @@ import R from 'ramda'
 /* import { Observable } from 'rxjs/Observable' */
 import { of } from 'rxjs'
 
-import { makeDebugger, ERR } from '..'
+import { buildLog, ERR } from '..'
 import { TIMEOUT_THRESHOLD } from './setup'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('Async')
+const log = buildLog('Async')
 
 export const TimoutObservable = of({
   error: ERR.TIMEOUT,
@@ -64,7 +64,7 @@ export const getThenHandler = res => {
         details: `${res.url}`,
       })
     default:
-      debug('unhandle error: ', res)
+      log('unhandle error: ', res)
       return Promise.reject({
         error: 10000,
         details: `${res.statusText}: unhandle`,

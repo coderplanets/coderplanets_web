@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, changeset } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE, changeset } from '@utils'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:CommentsStore')
+const log = buildLog('S:CommentsStore')
 
 const mentionMapper = m => ({ id: m.id, avatar: m.avatar, name: m.nickname })
 
@@ -182,8 +182,8 @@ const CommentsStore = t
       const uniqList = R.concat(curMentionList, mentionArray)
       const mentionList = R.map(mentionMapper, uniqList)
 
-      // debug('mentionList: ', mentionList)
-      // debug('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
+      // log('mentionList: ', mentionList)
+      // log('uniq: ', R.uniq(R.concat(mentionList, self.participators)))
 
       self.mentionList = R.uniq(R.concat(mentionList, self.participators))
     },

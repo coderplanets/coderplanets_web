@@ -7,7 +7,7 @@ import {
   asyncErr,
   $solver,
   ERR,
-  makeDebugger,
+  buildLog,
   EVENT,
   dispatchEvent,
   thread2Subpath,
@@ -28,7 +28,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Sidebar')
+const log = buildLog('L:Sidebar')
 
 export const setPin = () => store.markState({ pin: !store.pin })
 
@@ -94,15 +94,15 @@ const refreshSubedCommunitiesIfNeed = () => {
   const subedLength = store.accountInfo.subscribedCommunitiesCount
   const curSubedLength = store.communitiesData.length
 
-  debug('subedLength ', subedLength)
-  debug('curSubedLength ', curSubedLength)
+  log('subedLength ', subedLength)
+  log('curSubedLength ', curSubedLength)
 
   if (store.isLogin && subedLength !== curSubedLength) {
     return loadCommunities()
   }
 
   if (!store.isLogin && subedLength === curSubedLength) {
-    debug('do refreshSubedCommunities not login')
+    log('do refreshSubedCommunities not login')
     return loadCommunities()
   }
 }
@@ -157,7 +157,7 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       setTimeout(() => {
@@ -166,7 +166,7 @@ export const useInit = _store => {
       }, 1000)
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

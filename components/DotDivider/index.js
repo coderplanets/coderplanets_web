@@ -7,11 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:DotDivider:index')
+const log = buildLog('c:DotDivider:index')
 
 const DotDivider = ({ radius, space, className }) => (
   <Wrapper radius={radius} space={space} className={className} />

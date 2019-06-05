@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserPublished')
+const log = buildLog('L:UserPublished')
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -122,14 +122,14 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadPosts()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
         sub$ = null

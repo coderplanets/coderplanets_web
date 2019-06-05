@@ -6,7 +6,7 @@ import {
   asyncErr,
   $solver,
   ERR,
-  makeDebugger,
+  buildLog,
   EVENT,
   pagedFilter,
   errRescue,
@@ -22,7 +22,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CommunitiesContent')
+const log = buildLog('L:CommunitiesContent')
 
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
@@ -33,8 +33,8 @@ export const loadCommunities = (page = 1) => {
     userHasLogin: store.isLogin,
   }
 
-  // debug('.')
-  debug('loadCommunities ', args)
+  // log('.')
+  log('loadCommunities ', args)
   sr71$.query(S.pagedCommunities, args)
 }
 
@@ -155,14 +155,14 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadIfNeed()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (!sub$) return false
-        // debug('===== do uninit')
+        // log('===== do uninit')
         sub$.unsubscribe()
       }
     },

@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:TagsBar')
+const log = buildLog('L:TagsBar')
 
 /* eslint-disable no-unused-vars */
 export const onTagSelect = R.curry((tag, cb, e) => {
@@ -42,7 +42,7 @@ export const loadTags = (topic = TOPIC.POST) => {
 
   const args = { community, thread, topic }
 
-  /* debug('#### loadTags --> ', args) */
+  /* log('#### loadTags --> ', args) */
   store.markState({ loading: true })
   sr71$.query(S.partialTags, args)
 }
@@ -104,14 +104,14 @@ export const useInit = (_store, thread, topic, active) => {
   useEffect(
     () => {
       store = _store
-      debug('effect init')
+      log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       let activeTag = R.pick(['id', 'title', 'color'], active)
       if (R.isEmpty(activeTag.title)) activeTag = null
       store.markState({ thread, topic, activeTag })
 
       return () => {
-        debug('effect uninit')
+        log('effect uninit')
         sub$.unsubscribe()
         sr71$.stop()
       }

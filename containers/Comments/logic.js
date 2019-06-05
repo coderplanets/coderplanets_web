@@ -5,7 +5,7 @@ import { PAGE_SIZE } from '@config'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  buildLog,
   EVENT,
   ERR,
   TYPE,
@@ -28,7 +28,7 @@ let store = null
 let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Comments')
+const log = buildLog('L:Comments')
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
@@ -37,7 +37,7 @@ const defaultArgs = {
 }
 
 export const loadComents = (args = {}) => {
-  // debug('loadComents passed in: ', args)
+  // log('loadComents passed in: ', args)
   args = R.mergeDeepRight(defaultArgs, args)
   args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
@@ -46,7 +46,7 @@ export const loadComents = (args = {}) => {
   markLoading(args.fresh)
   store.markState({ filterType: args.filter.sort })
 
-  debug('pagedComments args: ', args)
+  log('pagedComments args: ', args)
   sr71$.query(S.pagedComments, args)
 }
 
@@ -70,7 +70,7 @@ export const createComment = R.curry((cb, e) => {
     mentionUsers: R.map(user => ({ id: user.id }), store.referUsersData),
   }
 
-  debug('createComment args: ', args)
+  log('createComment args: ', args)
   sr71$.mutate(S.createComment, args)
   cb()
 })
@@ -88,7 +88,7 @@ export const backToEditor = () =>
   })
 
 export const previewReply = data => {
-  debug('previewReply --> : ', data)
+  log('previewReply --> : ', data)
 }
 
 export const openInputBox = () => {
@@ -200,7 +200,7 @@ export const onFilterChange = filterType => {
 
 export const toggleLikeComment = comment => {
   // TODO: check login first
-  debug('likeComment: ', comment)
+  log('likeComment: ', comment)
 
   if (comment.viewerHasLiked) {
     return sr71$.mutate(S.undoLikeComment, {
@@ -355,7 +355,7 @@ const DataSolver = [
   {
     match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
-      debug('deleteComment', deleteComment)
+      log('deleteComment', deleteComment)
       store.markState({ tobeDeleteId: null })
       scrollIntoEle('lists-info')
       loadComents({ filter: { page: 1 }, fresh: true })
@@ -405,14 +405,14 @@ const initDraftTimmer = () => {
 export const useInit = (_store, ssr) => {
   useEffect(
     () => {
-      // debug('effect init')
+      // log('effect init')
       store = _store
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (store.loading || store.loadingFresh || !sub$) return false
 
         stopDraftTimmer()

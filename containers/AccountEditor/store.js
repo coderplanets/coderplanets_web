@@ -6,17 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  makeDebugger,
-  stripMobx,
-  changeset,
-  flashState,
-} from '@utils'
+import { markStates, buildLog, stripMobx, changeset, flashState } from '@utils'
 import { User, EduBackground, WorkBackground } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:AccountEditorStore')
+const log = buildLog('S:AccountEditorStore')
 
 const AccountEditorStore = t
   .model('AccountEditorStore', {
@@ -101,7 +95,7 @@ const AccountEditorStore = t
           return result.passed
         }
         default: {
-          debug('unknow validator')
+          log('unknow validator')
           return false
         }
       }

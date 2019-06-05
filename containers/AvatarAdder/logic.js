@@ -1,16 +1,16 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makeDebugger, githubApi } from '@utils'
+import { buildLog, githubApi } from '@utils'
 
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:AvatarAdder')
+const log = buildLog('L:AvatarAdder')
 
 export const onSearch = e => {
   if (e.key === 'Enter') {
-    debug('store.searchValue: ', store.searchValue)
+    log('store.searchValue: ', store.searchValue)
     store.markState({ searching: true, searchValue: e.target.value })
 
     githubApi

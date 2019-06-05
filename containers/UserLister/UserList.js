@@ -11,7 +11,7 @@ import Pagi from '@components/Pagi'
 import FollowButton from '@components/FollowButton'
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@utils'
 import {
   TableWrapper,
   UserWrapper,
@@ -27,7 +27,7 @@ import {
 import { onFollow, undoFollow } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:UserList:index')
+const log = buildLog('c:UserList:index')
 
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>
@@ -99,7 +99,7 @@ UserList.defaultProps = {
     totalCount: 0,
     totalPages: 0,
   },
-  onPageChange: debug,
+  onPageChange: log,
 }
 
 export default UserList

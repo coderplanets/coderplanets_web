@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -18,7 +18,7 @@ import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleViewerHeader')
+const log = buildLog('L:ArticleViewerHeader')
 
 // EVENT.REFRESH_REACTIONS handles FAVORITE action when
 // user set it from FavoriteSetter
@@ -36,7 +36,7 @@ export const onReaction = (action, userDid, { id }) => {
   const thread = store.activeThread
 
   store.markState({ action })
-  /* debug('onReaction thread: ', thread) */
+  /* log('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
     return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
@@ -159,11 +159,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

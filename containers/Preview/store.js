@@ -19,7 +19,7 @@ import {
 import { User, EmptyAchievement } from '@model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
-/* const debug = makeDebugger('S:PreviewStore') */
+/* const log = buildLog('S:PreviewStore') */
 const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.PREVIEW_POST_VIEW,

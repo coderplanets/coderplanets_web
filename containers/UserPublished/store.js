@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, THREAD } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE, THREAD } from '@utils'
 import {
   PagedPosts,
   PagedJobs,
@@ -16,7 +16,7 @@ import {
 } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:UserPublished')
+const log = buildLog('S:UserPublished')
 
 const UserPublished = t
   .model('UserPublished', {

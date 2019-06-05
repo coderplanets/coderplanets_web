@@ -5,9 +5,9 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { markStates, makeDebugger } from '@utils'
+import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:GlobalLayoutStore')
+const log = buildLog('S:GlobalLayoutStore')
 
 const Media = t.model('Media', {
   mobile: t.optional(t.boolean, false),

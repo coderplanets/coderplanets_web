@@ -8,11 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, LoadingIcon, LoadingText } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:SearchingLabel:index')
+const log = buildLog('c:SearchingLabel:index')
 
 const SearchingLabel = ({ iconSrc, text }) => (
   <Wrapper>

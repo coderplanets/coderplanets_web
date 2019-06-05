@@ -7,7 +7,7 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makeDebugger, USER_THREAD } from '@utils'
+import { connectStore, buildLog, USER_THREAD } from '@utils'
 
 import UserPublished from '@containers/UserPublished'
 import UserPublishedComments from '@containers/UserPublishedComments'
@@ -30,7 +30,7 @@ import {
 import { useInit, tabOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserContent')
+const log = buildLog('C:UserContent')
 
 const BaseTaberThreads = [
   {

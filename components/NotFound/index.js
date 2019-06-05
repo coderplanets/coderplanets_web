@@ -10,7 +10,7 @@ import R from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Icon404,
   Wrapper,
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:NotFound:index')
+const log = buildLog('c:NotFound:index')
 
 const DefaultDesc = () => (
   <React.Fragment>

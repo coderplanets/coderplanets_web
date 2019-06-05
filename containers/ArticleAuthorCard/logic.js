@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -20,7 +20,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleAuthorCard')
+const log = buildLog('L:ArticleAuthorCard')
 
 export const loadUser = user => {
   if (!store.isLogin) return false
@@ -99,7 +99,7 @@ export const useInit = (_store, user) => {
       loadUser(user)
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

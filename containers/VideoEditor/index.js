@@ -20,7 +20,7 @@ import { Wrapper, Title, FormWrapper } from './styles'
 import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:VideoEditor')
+const log = buildLog('C:VideoEditor')
 
 const VideoEditorContainer = ({ videoEditor, attachment }) => {
   useInit(videoEditor, attachment)
@@ -113,7 +113,7 @@ const VideoEditorContainer = ({ videoEditor, attachment }) => {
           <FormItem
             label="标签:"
             value=""
-            onChange={debug}
+            onChange={log}
             type="node"
             node={<Labeler />}
           />

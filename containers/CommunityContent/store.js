@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '@utils'
+import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:CommunityContent')
+const log = buildLog('S:CommunityContent')
 
 const CommunityContent = t
   .model('CommunityContent', {})

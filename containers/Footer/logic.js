@@ -1,13 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  makeDebugger,
-  $solver,
-  dispatchEvent,
-  EVENT,
-  PAYMENT_USAGE,
-} from '@utils'
+import { buildLog, $solver, dispatchEvent, EVENT, PAYMENT_USAGE } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 // import S from './schema'
@@ -16,7 +10,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Footer2')
+const log = buildLog('L:Footer2')
 
 let store = null
 
@@ -50,7 +44,7 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

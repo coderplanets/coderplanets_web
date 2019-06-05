@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import UserCell from '@components/UserCell'
@@ -33,7 +33,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Footer:index')
+const log = buildLog('c:Footer:index')
 
 const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
   const [activeChuan, setActiveChuan] = useState(1)
@@ -98,9 +98,9 @@ BuyMeChuanChuan.propTypes = {
 BuyMeChuanChuan.defaultProps = {
   fromUser: {},
   show: false,
-  onClose: debug,
-  onLogin: debug,
-  onPay: debug,
+  onClose: log,
+  onLogin: log,
+  onPay: log,
 }
 
 export default BuyMeChuanChuan

@@ -8,9 +8,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Maybe:index')
+const log = buildLog('c:Maybe:index')
 
 const MaybeLoading = ({ loading }) => {
   if (R.isEmpty(loading)) return <div />

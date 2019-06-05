@@ -14,7 +14,7 @@ import Prism from 'mastani-codehighlight'
 
 import MarkDownStyle from '@containers/ThemeWrapper/MarkDownStyle'
 import { MENTION_USER_ADDR } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { PreviewerContainer } from './styles'
 
 // const latexPlugin = require('remarkable-katex')
@@ -30,7 +30,7 @@ md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(emojiPlugin)
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:MarkDownRender:index')
+const log = buildLog('c:MarkDownRender:index')
 
 class MarkDownRender extends React.Component {
   constructor(props) {

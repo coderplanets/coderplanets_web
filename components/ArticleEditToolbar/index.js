@@ -10,7 +10,7 @@ import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
 
-import { makeDebugger, THREAD } from '@utils'
+import { buildLog, THREAD } from '@utils'
 import Maybe from '@components/Maybe'
 
 import CopyrightSelector from './CopyrightSelector'
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ArticleEditToolbar:index')
+const log = buildLog('c:ArticleEditToolbar:index')
 
 const ArticleEditToolbar = ({
   onLinkAddrChange,
@@ -75,9 +75,9 @@ ArticleEditToolbar.propTypes = {
 
 ArticleEditToolbar.defaultProps = {
   thread: THREAD.POST,
-  onLinkAddrChange: debug,
-  onCopyrightChange: debug,
-  onPreview: debug,
+  onLinkAddrChange: log,
+  onCopyrightChange: log,
+  onPreview: log,
 }
 
 export default React.memo(ArticleEditToolbar)

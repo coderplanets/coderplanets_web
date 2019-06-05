@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:FollowButton:index')
+const log = buildLog('c:FollowButton:index')
 
 class FollowButton extends React.Component {
   state = { simuLoading: false }
@@ -79,8 +79,8 @@ FollowButton.propTypes = {
 
 FollowButton.defaultProps = {
   size: 'small',
-  onFollow: debug,
-  onUndoFollow: debug,
+  onFollow: log,
+  onUndoFollow: log,
   fakeLoading: false,
   loading: false,
 }

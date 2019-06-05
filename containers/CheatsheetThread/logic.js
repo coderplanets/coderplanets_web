@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import Prism from 'mastani-codehighlight'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncErr,
   asyncRes,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CheatsheetThread')
+const log = buildLog('L:CheatsheetThread')
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw
@@ -140,7 +140,7 @@ export const useInit = _store => {
 
       return () => {
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

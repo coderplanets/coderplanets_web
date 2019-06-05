@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:WikiThread')
+const log = buildLog('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw
@@ -133,13 +133,13 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sub$.unsubscribe()
         sub$ = null
       }

@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, C11N } from '@utils'
+import { buildLog, C11N } from '@utils'
 
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
@@ -19,7 +19,7 @@ import { Wrapper } from './styles'
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:JobItem:index')
+const log = buildLog('c:JobItem:index')
 
 const JobItem = ({
   entry,
@@ -100,8 +100,8 @@ JobItem.propTypes = {
 }
 
 JobItem.defaultProps = {
-  onPreview: debug,
-  onAuthorSelect: debug,
+  onPreview: log,
+  onAuthorSelect: log,
   active: {},
   accountInfo: {
     isLogin: false,

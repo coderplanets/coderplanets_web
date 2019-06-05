@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, THREAD, changeset } from '@utils'
+import { markStates, buildLog, stripMobx, THREAD, changeset } from '@utils'
 import { Job } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:JobEditorStore')
+const log = buildLog('S:JobEditorStore')
 
 const Mention = t.model('Mention', {
   id: t.string,
@@ -125,7 +125,7 @@ const JobEditorStore = t
           return result.passed
         }
         default: {
-          debug('unknow validator')
+          log('unknow validator')
           return false
         }
       }

@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
@@ -28,7 +28,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:GithubRepoPage:index')
+const log = buildLog('c:GithubRepoPage:index')
 
 const GithubRepoPage = ({
   repo,
@@ -103,9 +103,9 @@ GithubRepoPage.propTypes = {
 }
 
 GithubRepoPage.defaultProps = {
-  onPublish: debug,
-  onSearch: debug,
-  onSync: debug,
+  onPublish: log,
+  onSearch: log,
+  onSync: log,
 
   showPublishBtn: false,
   showSearchBtn: false,

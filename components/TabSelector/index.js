@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   OptisonsWrapper,
@@ -18,7 +18,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:TabSelector:index')
+const log = buildLog('c:TabSelector:index')
 
 const TabSelector = ({ source, activeRaw, onChange }) => (
   <Wrapper>
@@ -55,7 +55,7 @@ TabSelector.propTypes = {
 }
 
 TabSelector.defaultProps = {
-  onChange: debug,
+  onChange: log,
 }
 
 export default React.memo(TabSelector)

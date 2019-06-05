@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, buildLog, THREAD } from '@utils'
 
 import Comments from '@containers/Comments'
 import Labeler from '@containers/Labeler'
@@ -30,7 +30,7 @@ import {
 import { useInit, onTagSelect, onTagUnselect, onCommentCreate } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:PostViewer')
+const log = buildLog('C:PostViewer')
 
 const PostViewerContainer = ({ postViewer, attachment }) => {
   useInit(postViewer, attachment)

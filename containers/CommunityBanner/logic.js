@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -22,7 +22,7 @@ const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CommunityBanner')
+const log = buildLog('L:CommunityBanner')
 
 let store = null
 
@@ -37,8 +37,8 @@ const loadCommunity = () => {
 
 export const tabberChange = activeThread => {
   const subPath = thread2Subpath(activeThread)
-  // debug('EVENT.activeThread -----> ', activeThread)
-  // debug('EVENT.subPath -----> ', subPath)
+  // log('EVENT.activeThread -----> ', activeThread)
+  // log('EVENT.subPath -----> ', subPath)
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
@@ -50,7 +50,7 @@ export const onSubscribe = community => {
   if (!store.isLogin) return store.authWarning()
   if (store.subscribeLoading) return false
 
-  // debug('onSubscribe: ', community)
+  // log('onSubscribe: ', community)
   store.markState({ subscribeLoading: true })
   sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
 }
@@ -59,7 +59,7 @@ export const onUndoSubscribe = community => {
   if (!store.isLogin) return store.authWarning()
   if (store.subscribeLoading) return false
 
-  // debug('onUndoSubscribe: ', community)
+  // log('onUndoSubscribe: ', community)
   store.markState({ subscribeLoading: true })
   sr71$.mutate(S.unsubscribeCommunity, { communityId: community.id })
 }
@@ -150,11 +150,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

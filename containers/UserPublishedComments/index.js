@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ThreadSelector from '@components/ThreadSelector'
 import CommentsToContent from './CommentsToContent'
@@ -15,7 +15,7 @@ import { ThreadWrapper } from './styles'
 import { useInit, threadOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserPublishedComments')
+const log = buildLog('C:UserPublishedComments')
 
 const UserPublishedCommentsContainer = ({ userPublishedComments }) => {
   useInit(userPublishedComments)

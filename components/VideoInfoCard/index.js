@@ -10,7 +10,7 @@ import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@utils'
 import DotDivider from '@components/DotDivider'
 import VideoSourceInfo from '@components/VideoSourceInfo'
 
@@ -31,7 +31,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:VideoInfoCard:index')
+const log = buildLog('c:VideoInfoCard:index')
 
 const VideoInfoCard = ({ data }) => {
   const {

@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, ERR } from '@utils'
+import { markStates, buildLog, stripMobx, ERR } from '@utils'
 import { GithubUser } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:AvatarAdder')
+const log = buildLog('S:AvatarAdder')
 
 const AvatarAdder = t
   .model('AvatarAdder', {
