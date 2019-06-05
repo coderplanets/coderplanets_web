@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, nilOrEmpty } from '@utils'
+import { makelogger, nilOrEmpty } from '@utils'
 import {
   Wrapper,
   PopAvatarWrapper,
@@ -24,7 +24,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:GithubUserCard:index')
+const log = makelogger('c:GithubUserCard:index')
 
 const GithubUserCard = ({ user }) => (
   <Wrapper>

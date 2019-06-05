@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   asyncErr,
   asyncRes,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleBodyHeader')
+const log = makelogger('L:ArticleBodyHeader')
 
 export const onEdit = thread => {
   const data = store.viewingData
@@ -121,7 +121,7 @@ export const onUnsetRefined = thread =>
 
 export const onDelete = () => {
   const { id } = store.viewingData
-  debug('onDelete', id)
+  log('onDelete', id)
 
   switch (store.activeThread) {
     case THREAD.JOB:
@@ -271,11 +271,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

@@ -9,7 +9,7 @@ import R from 'ramda'
 import PropTypes from 'prop-types'
 
 import { Icon } from 'antd'
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import {
   Wrapper,
   Msg,
@@ -22,10 +22,10 @@ import {
   ErrorDetail,
 } from './styles'
 
-/* import { makeDebugger, uid, isObject } from '@utils' */
+/* import { makelogger, uid, isObject } from '@utils' */
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:StatusBox:index')
+const log = makelogger('c:StatusBox:index')
 
 function getDefaultMsg(success, error) {
   if (success) {

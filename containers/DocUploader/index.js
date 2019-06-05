@@ -10,7 +10,7 @@ import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@config'
 
-import { makeDebugger, storePlug, uid, Global } from '@utils'
+import { makelogger, storePlug, uid, Global } from '@utils'
 import { Wrapper, InputFile } from './styles'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:DocUploader')
+const log = makelogger('C:DocUploader')
 
 class DocUploaderContainer extends React.Component {
   /*
@@ -57,7 +57,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    debug('componentWillUnmount')
+    log('componentWillUnmount')
     /* eslint-disable */
     delete this.state.ossClient
     /* eslint-enable */
@@ -69,7 +69,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   initPasteWatcher() {
-    debug('initPasteWatcher')
+    log('initPasteWatcher')
     Global.addEventListener('paste', this.handlePaste.bind(this), true)
   }
 
@@ -181,8 +181,8 @@ DocUploaderContainer.propTypes = {
 }
 
 DocUploaderContainer.defaultProps = {
-  onUploadStart: debug,
-  onUploadDone: debug,
+  onUploadStart: log,
+  onUploadDone: log,
   onUploadError,
   pasteImage: true,
   fileType: 'image/*',

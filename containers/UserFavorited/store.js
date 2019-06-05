@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-/* import { markStates, makeDebugger, stripMobx, TYPE, FILTER } from '@utils' */
-import { markStates, makeDebugger, TYPE, stripMobx, THREAD } from '@utils'
+/* import { markStates, makelogger, stripMobx, TYPE, FILTER } from '@utils' */
+import { markStates, makelogger, TYPE, stripMobx, THREAD } from '@utils'
 import {
   PagedPosts,
   PagedJobs,
@@ -18,7 +18,7 @@ import {
 } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:UserFavorited')
+const log = makelogger('S:UserFavorited')
 
 const UserFavorited = t
   .model('UserFavorited', {

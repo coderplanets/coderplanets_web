@@ -9,7 +9,7 @@ import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'
@@ -43,7 +43,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:JobsThread')
+const log = makelogger('C:JobsThread')
 
 const JobsThreadContainer = ({ jobsThread }) => {
   useInit(jobsThread)

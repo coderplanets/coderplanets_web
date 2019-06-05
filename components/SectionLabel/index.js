@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 
 import Maybe from '@components/Maybe'
 
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:SectionLabel:index')
+const log = makelogger('c:SectionLabel:index')
 
 const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
   <Wrapper>

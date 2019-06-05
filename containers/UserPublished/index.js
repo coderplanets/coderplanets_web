@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ThreadSelector from '@components/ThreadSelector'
@@ -15,7 +15,7 @@ import { ThreadWrapper } from './styles'
 import { useInit, onThreadChange, onReload, onPreview } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserPublished')
+const log = makelogger('C:UserPublished')
 
 const UserPublishedContainer = ({ userPublished }) => {
   useInit(userPublished)

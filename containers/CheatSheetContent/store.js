@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger } from '@utils'
+import { markStates, makelogger } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:CheatSheetContentStore')
+const log = makelogger('S:CheatSheetContentStore')
 
 const CheatSheetContentStore = t
   .model('CheatSheetContentStore', {})

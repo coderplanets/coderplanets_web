@@ -5,7 +5,7 @@ import Router from 'next/router'
 import { ISSUE_ADDR } from '@config'
 import SR71 from '@utils/async/sr71'
 import {
-  makeDebugger,
+  makelogger,
   Global,
   dispatchEvent,
   asyncRes,
@@ -28,7 +28,7 @@ import Pocket from './Pocket'
 import { SwissArmyKnife } from './swissArmyKnife'
 import githubLoginHandler from './oauth/github_handler'
 
-const debug = makeDebugger('L:Doraemon')
+const log = makelogger('L:Doraemon')
 const sr71$ = new SR71({
   resv_event: [EVENT.QUERY_DORAMON],
 })
@@ -81,7 +81,7 @@ export const handleKeyDown = e => {
       break
     }
     default: {
-      //  debug('onKeyPress: ', e.key)
+      //  log('onKeyPress: ', e.key)
       break
     }
   }
@@ -345,32 +345,32 @@ const initSpecCmdResolver = () => {
       },
     },
     {
-      match: SAK.stepOneCmd('debug'),
+      match: SAK.stepOneCmd('log'),
       action: () => {
         SAK.completeInput(true)
         queryPocket()
         store.markState({
           inputForOtherUse: true,
-          inputValue: Global.localStorage.getItem('debug'),
+          inputValue: Global.localStorage.getItem('log'),
         })
       },
     },
     {
       match: SAK.stepOneCmd('hforward'),
       action: () => {
-        debug('SAK.stepOneCmd hforward')
+        log('SAK.stepOneCmd hforward')
       },
     },
     {
       match: SAK.stepOneCmd('hbackward'),
       action: () => {
-        debug('SAK.stepOneCmd hbackward')
+        log('SAK.stepOneCmd hbackward')
       },
     },
     {
       match: SAK.stepOneCmd('cheatsheet'),
       action: () => {
-        debug('SAK.stepOneCmd cheatsheet')
+        log('SAK.stepOneCmd cheatsheet')
         Router.push(
           {
             pathname: '/',
@@ -384,7 +384,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.stepOneCmd('communities'),
       action: () => {
-        debug('SAK.stepOneCmd communities')
+        log('SAK.stepOneCmd communities')
         Router.push(
           {
             pathname: '/',
@@ -406,7 +406,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.stepTwoCmd('login'),
       action: cmdpath => {
-        debug('stepTwoCmd login->: ', cmdpath)
+        log('stepTwoCmd login->: ', cmdpath)
         switch (R.last(cmdpath)) {
           case 'github': {
             hidePanel()
@@ -423,7 +423,7 @@ const initSpecCmdResolver = () => {
             return win.focus()
           }
           default: {
-            debug('unsupported login method: ', cmdpath)
+            log('unsupported login method: ', cmdpath)
             return hidePanel()
           }
         }
@@ -435,13 +435,13 @@ const initSpecCmdResolver = () => {
       },
     },
     {
-      match: SAK.stepTwoCmd('debug'),
+      match: SAK.stepTwoCmd('log'),
       action: cmdpath => {
         const cmd = R.last(cmdpath)
         if (cmd === 'github') {
-          Global.window.open('https://github.com/visionmedia/debug', '_blank')
+          Global.window.open('https://github.com/visionmedia/log', '_blank')
         } else if (cmd === 'write') {
-          Global.localStorage.setItem('debug', store.inputValue)
+          Global.localStorage.setItem('log', store.inputValue)
           hidePanel()
         }
       },
@@ -457,7 +457,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.communityInsideLinker,
       action: cmdpath => {
-        debug('communityInsideLinker: ', cmdpath)
+        log('communityInsideLinker: ', cmdpath)
       },
     },
     {

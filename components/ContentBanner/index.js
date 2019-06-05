@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import DotDivider from '@components/DotDivider'
 
 import {
@@ -24,7 +24,7 @@ import {
 import ReactionNumbers from './ReactionNumbers'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContentBanner:index')
+const log = makelogger('c:ContentBanner:index')
 
 // TODO: add a Loading effect
 const ContentBanner = ({ data, middleNode }) => {

@@ -5,7 +5,7 @@
  */
 import React from 'react'
 
-import { connectStore, makeDebugger, C11N } from '@utils'
+import { connectStore, makelogger, C11N } from '@utils'
 
 import DigestView from './DigestView'
 import BriefView from './BriefView'
@@ -13,7 +13,7 @@ import BriefView from './BriefView'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CommunityBanner')
+const log = makelogger('C:CommunityBanner')
 
 const CommunityBannerContainer = ({ communityBanner }) => {
   useInit(communityBanner)

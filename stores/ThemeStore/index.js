@@ -7,10 +7,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { DEFAULT_THEME } from '@config'
-import { makeDebugger, markStates, themeSkins } from '@utils'
+import { makelogger, markStates, themeSkins } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:ThemeStore')
+const log = makelogger('S:ThemeStore')
 
 export const ThemeDefaults = {
   curTheme: DEFAULT_THEME,

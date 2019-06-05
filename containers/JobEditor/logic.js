@@ -5,7 +5,7 @@ import {
   asyncRes,
   asyncErr,
   $solver,
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   THREAD,
   EVENT,
@@ -29,7 +29,7 @@ import { S, updatableJobFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:JobEditor')
+const log = makelogger('L:JobEditor')
 
 let store = null
 let sub$ = null
@@ -238,13 +238,13 @@ export const useInit = (_store, attachment) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       openAttachment(attachment)
       initDraftTimmer()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (saveDraftTimmer) clearInterval(saveDraftTimmer)
         store.markState({ editJob: {} })
         sr71$.stop()

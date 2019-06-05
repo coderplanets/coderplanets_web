@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   asyncErr,
   $solver,
   ERR,
@@ -28,7 +28,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:VideosThread')
+const log = makelogger('L:VideosThread')
 
 export const loadVideos = (page = 1) => {
   const { curCommunity } = store
@@ -51,7 +51,7 @@ export const loadVideos = (page = 1) => {
   // scrollIntoEle(TYPE.APP_HEADER_ID)
   pageGoTop()
 
-  debug('load videos --> ', args)
+  log('load videos --> ', args)
   sr71$.query(S.pagedVideos, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -108,7 +108,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedVideos'),
     action: ({ pagedVideos }) => {
-      debug('========> pagedVideos: ', pagedVideos)
+      log('========> pagedVideos: ', pagedVideos)
       let curView = TYPE.RESULT
       if (pagedVideos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -168,12 +168,12 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

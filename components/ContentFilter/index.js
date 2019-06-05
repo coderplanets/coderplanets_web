@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, THREAD, C11N } from '@utils'
+import { makelogger, THREAD, C11N } from '@utils'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 import FilterButton from './FilterButton'
@@ -16,7 +16,7 @@ import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContentFilter:index')
+const log = makelogger('c:ContentFilter:index')
 
 const ContentFilter = ({
   thread,
@@ -105,7 +105,7 @@ ContentFilter.defaultProps = {
     }),
   },
   totalCount: 0,
-  onC11NChange: debug,
+  onC11NChange: log,
 }
 
 export default ContentFilter

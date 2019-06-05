@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, ROUTE } from '@utils'
+import { connectStore, makelogger, ROUTE } from '@utils'
 
 import UserBanner from '@containers/UserBanner'
 import CommunitiesBanner from '@containers/CommunitiesBanner'
@@ -18,12 +18,12 @@ import ActivitiesRootBanner from './ActivitiesRootBanner'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Banner')
+const log = makelogger('C:Banner')
 
 const BannerContent = ({ curRoute }) => {
   const { mainPath } = curRoute
-  // debug('BannerContent mainPath: ', mainPath)
-  // debug('ROUTE.COMMUNITIES: ', ROUTE.COMMUNITIES)
+  // log('BannerContent mainPath: ', mainPath)
+  // log('ROUTE.COMMUNITIES: ', ROUTE.COMMUNITIES)
   switch (mainPath) {
     case ROUTE.CHEATSHEETS:
       return <CheatsheetRootBanner />

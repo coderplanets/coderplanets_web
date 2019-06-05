@@ -8,14 +8,14 @@ import R from 'ramda'
 
 import {
   markStates,
-  makeDebugger,
+  makelogger,
   stripMobx,
   changeset,
   flashState,
 } from '@utils'
 import { Video } from '@model'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:VideoEditor')
+const log = makelogger('S:VideoEditor')
 
 const VideoEditor = t
   .model('VideoEditor', {

@@ -8,7 +8,7 @@ import React from 'react'
 import { Button } from 'antd'
 
 import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import Modal from '@components/Modal'
 import SectionLabel from '@components/SectionLabel'
@@ -27,7 +27,7 @@ import {
 import { useInit, onClose, onUpgrade } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UpgradePackges')
+const log = makelogger('C:UpgradePackges')
 
 const freeUserItems = [
   { title: '发布各种内容' },

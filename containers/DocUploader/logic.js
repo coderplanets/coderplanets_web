@@ -1,7 +1,7 @@
 // import R from 'ramda'
 
 import {
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   $solver,
   asyncErr,
@@ -18,7 +18,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:DocUploader')
+const log = makelogger('L:DocUploader')
 
 export const onUploadError = () =>
   store.toast('error', {
@@ -91,7 +91,7 @@ export const init = _store => {
 
 export const uninit = () => {
   if (!sub$) return false
-  debug('===== do uninit')
+  log('===== do uninit')
   sr71$.stop()
   sub$.unsubscribe()
   sub$ = null

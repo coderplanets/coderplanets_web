@@ -7,7 +7,7 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'
@@ -31,7 +31,7 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:PostContent')
+const log = makelogger('C:PostContent')
 
 const PostContentContainer = ({ postContent }) => {
   useInit()

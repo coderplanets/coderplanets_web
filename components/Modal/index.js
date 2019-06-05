@@ -8,11 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Modal:index')
+const log = makelogger('c:Modal:index')
 
 const Modal = ({
   children,
@@ -58,7 +58,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   show: false,
-  onClose: debug,
+  onClose: log,
   width: '600px',
   showCloseBtn: false,
   mode: 'default',

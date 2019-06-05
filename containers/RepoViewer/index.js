@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
@@ -18,7 +18,7 @@ import { CommentsWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:RepoViewer')
+const log = makelogger('C:RepoViewer')
 
 const RepoViewerContainer = ({ repoViewer, attachment }) => {
   useInit(repoViewer, attachment)

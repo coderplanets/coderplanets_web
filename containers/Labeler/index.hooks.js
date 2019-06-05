@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
 import { LABEL_POOL } from '@config'
-import { connectStore, makeDebugger, storePlug, uid } from '@utils'
+import { connectStore, makelogger, storePlug, uid } from '@utils'
 
 import withGuardian from '@components/HOC/withGuardian'
 import Maybe from '@components/Maybe'
@@ -22,7 +22,7 @@ import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 import { useInit, onVisibleChange, onTagSelect } from './logic'
 
-const debug = makeDebugger('C:Labeler')
+const log = makelogger('C:Labeler')
 
 const trans = {
   default: '标签',
@@ -47,8 +47,8 @@ const LabelerContainer = ({
   const [uniqId] = useState(uid.gen())
   const options = { label, multi, selected }
 
-  debug('uniqId: ', uniqId)
-  debug('options: ', options)
+  log('uniqId: ', uniqId)
+  log('options: ', options)
 
   useInit(labeler, '1001', options)
   // useInit(labeler, options)
@@ -59,9 +59,9 @@ const LabelerContainer = ({
   const { tags, popVisible, selected: selectedOnes } =
     labelEntriesData[targetIndex] || {}
 
-  debug('targetIndex --> ', targetIndex)
-  debug('labelEntriesData -> ', labelEntriesData)
-  debug('tags --> : ', tags)
+  log('targetIndex --> ', targetIndex)
+  log('labelEntriesData -> ', labelEntriesData)
+  log('tags --> : ', tags)
 
   const tagsList = tags ? R.reject(t => t.title === 'refined', tags) : []
 
@@ -96,8 +96,8 @@ LabelerContainer.defaultProps = {
   multi: false,
   selected: [],
   readOnly: false,
-  onTagSelect: debug,
-  onTagUnselect: debug,
+  onTagSelect: log,
+  onTagUnselect: log,
 }
 
 export default withGuardian(connectStore(LabelerContainer))

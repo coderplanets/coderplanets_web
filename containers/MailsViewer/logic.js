@@ -3,14 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 
-import {
-  makeDebugger,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  errRescue,
-} from '@utils'
+import { makelogger, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'
@@ -20,7 +13,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:MailsViewer')
+const log = makelogger('L:MailsViewer')
 
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
@@ -81,12 +74,12 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadMentions()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

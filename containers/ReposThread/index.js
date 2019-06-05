@@ -9,7 +9,7 @@ import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
@@ -40,7 +40,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:ReposThread')
+const log = makelogger('C:ReposThread')
 
 const ReposThreadContainer = ({ reposThread }) => {
   useInit(reposThread)

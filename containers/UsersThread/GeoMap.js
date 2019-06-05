@@ -4,13 +4,13 @@ import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 import { Margin } from '@components/BaseStyled'
-import { makeDebugger, uid, theme as themeHelper } from '@utils'
+import { makelogger, uid, theme as themeHelper } from '@utils'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:LocationMap')
+const log = makelogger('c:LocationMap')
 
 class LocationMap extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class LocationMap extends React.Component {
       this.initG2()
     } catch (e) {
       // TODO: tell toast
-      debug('G2 is not load', e)
+      log('G2 is not load', e)
     }
   }
 
@@ -149,7 +149,7 @@ class LocationMap extends React.Component {
           })
         this.chart.render()
       })
-      .catch(ex => debug('parsing failed', ex))
+      .catch(ex => log('parsing failed', ex))
   }
   /* eslint-enable no-undef */
 

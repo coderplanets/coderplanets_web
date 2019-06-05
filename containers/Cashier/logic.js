@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   holdPage,
   asyncRes,
@@ -24,7 +24,7 @@ const sr71$ = new SR71({
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Cashier')
+const log = makelogger('L:Cashier')
 
 let store = null
 
@@ -53,7 +53,7 @@ export const onPaymentConfirm = () => {
     amount: parseFloat(amount),
     note,
   }
-  debug('onPaymentConfirm: ', args)
+  log('onPaymentConfirm: ', args)
   sr71$.mutate(S.createBill, args)
 }
 
@@ -78,7 +78,7 @@ const DataSolver = [
   {
     match: asyncRes('createBill'),
     action: ({ createBill }) => {
-      debug('createBill done: ', createBill)
+      log('createBill done: ', createBill)
       store.markState({ show: false, subContentView: 'pay' })
       store.toastDone({
         title: 'CPS 团队感谢您的支持!',
@@ -113,11 +113,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

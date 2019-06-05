@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
@@ -21,7 +21,7 @@ import { Wrapper, BodyHeaderWrapper, CommentsWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:VideoViewer')
+const log = makelogger('C:VideoViewer')
 
 const VideoViewerContainer = ({ videoViewer, attachment }) => {
   useInit(videoViewer, attachment)

@@ -11,7 +11,7 @@ import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '@config/general'
 
-import { makeDebugger, prettyNum } from '@utils'
+import { makelogger, prettyNum } from '@utils'
 import {
   Wrapper,
   AvatarsItem,
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:AvatarsRow:index')
+const log = makelogger('c:AvatarsRow:index')
 
 const validUser = R.compose(
   R.not,
@@ -88,8 +88,8 @@ AvatarsRow.defaultProps = {
   height: '32px',
   users: [],
   limit: ATATARS_LIST_LENGTH.POSTS,
-  onUserSelect: debug,
-  onTotalSelect: debug,
+  onUserSelect: log,
+  onTotalSelect: log,
   reverse: true,
 }
 

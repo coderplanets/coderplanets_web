@@ -10,7 +10,7 @@ import randomColor from 'randomcolor'
 // TODO: remove Row, Col, Divider
 import { Row, Col, Divider } from 'antd'
 
-import { connectStore, uid, makeDebugger } from '@utils'
+import { connectStore, uid, makelogger } from '@utils'
 import { Entry, CheatsheetItem } from './styles'
 import { useInit } from './logic'
 
@@ -50,7 +50,7 @@ const cheatsheetData = {
 }
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CheatSheetContent')
+const log = makelogger('C:CheatSheetContent')
 
 const Langs = ({ base }) => {
   //   const base = 'orange' // '#8363B4' //'#68808D'

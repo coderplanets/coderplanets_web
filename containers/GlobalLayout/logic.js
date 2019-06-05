@@ -1,10 +1,10 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makeDebugger, dispatchEvent, EVENT } from '@utils'
+import { makelogger, dispatchEvent, EVENT } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:GlobalLayout')
+const log = makelogger('L:GlobalLayout')
 
 let store = null
 

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   $solver,
-  makeDebugger,
+  makelogger,
   EVENT,
   TYPE,
   unholdPage,
@@ -23,7 +23,7 @@ const sr71$ = new SR71({
 })
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Preview')
+const log = makelogger('L:Preview')
 
 let store = null
 let sub$ = null
@@ -47,9 +47,9 @@ const DataResolver = [
     action: res => {
       const payload = res[EVENT.PREVIEW_OPEN]
       /*
-         debug('should open payload thread: ', payload.thread)
-         debug('should open payload id: ', payload.data.id)
-         debug('payload curCommunity: ', store.curCommunity.raw)
+         log('should open payload thread: ', payload.thread)
+         log('should open payload id: ', payload.data.id)
+         log('payload curCommunity: ', store.curCommunity.raw)
        */
 
       if (store.media.mobile || store.media.tablet) {

@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import Comments from '@containers/Comments'
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
@@ -26,7 +26,7 @@ import {
 
 import { useInit } from './logic'
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:JobViewer')
+const log = makelogger('C:JobViewer')
 
 const JobViewerContainer = ({ jobViewer, attachment }) => {
   useInit(jobViewer, attachment)

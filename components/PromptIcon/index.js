@@ -7,11 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import PlanetDriver from './PlanetDriver'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:PromptIcon:index')
+const log = makelogger('c:PromptIcon:index')
 
 const PromptIcon = ({ type, className }) => {
   switch (type) {

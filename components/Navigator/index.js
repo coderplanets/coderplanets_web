@@ -8,12 +8,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, C11N, ROUTE } from '@utils'
+import { makelogger, C11N, ROUTE } from '@utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Navigator:index')
+const log = makelogger('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout, curRoute }) => {
   const { mainPath, subPath } = curRoute

@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 import Popover from '@components/Popover'
 import MailsPanel from './MailsPanel'
 
@@ -14,7 +14,7 @@ import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
 import { useInit, visibleOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:MailBox')
+const log = makelogger('C:MailBox')
 
 const MailBoxContainer = ({ mailBox }) => {
   useInit(mailBox)

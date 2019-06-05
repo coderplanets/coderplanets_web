@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import Popover from '@components/Popover'
 
 import {
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Popconfirm:index')
+const log = makelogger('c:Popconfirm:index')
 
 const Hint = ({ content, closeIt, onConfirm }) => (
   <Wrapper>
@@ -105,7 +105,7 @@ Popconfirm.defaultProps = {
   trigger: 'click',
   placement: 'bottom',
   content: '该操作不可逆，是否继续？',
-  onConfirm: debug,
+  onConfirm: log,
 }
 
 export default Popconfirm

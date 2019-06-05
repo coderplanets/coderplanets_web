@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   dispatchEvent,
   EVENT,
@@ -22,7 +22,7 @@ const sr71$ = new SR71({
 })
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ReposThread')
+const log = makelogger('L:ReposThread')
 
 let sub$ = null
 let store = null
@@ -51,7 +51,7 @@ export const loadRepos = (page = 1) => {
   // scrollIntoEle(TYPE.APP_HEADER_ID)
   pageGoTop()
 
-  debug('load repos --> ', args)
+  log('load repos --> ', args)
   sr71$.query(S.pagedRepos, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -107,7 +107,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedRepos'),
     action: ({ pagedRepos }) => {
-      debug('load pagedRepos -> ', pagedRepos)
+      log('load pagedRepos -> ', pagedRepos)
       let curView = TYPE.RESULT
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -151,12 +151,12 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }
