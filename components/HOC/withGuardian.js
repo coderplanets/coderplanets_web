@@ -9,10 +9,10 @@ import React from 'react'
 import R from 'ramda'
 import PropTypes from 'prop-types'
 
-import { makelogger, BStore, nilOrEmpty } from '@utils'
+import { buildLog, BStore, nilOrEmpty } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:Guardian:index')
+const log = buildLog('c:Guardian:index')
 
 const getDisplayName = WrappedComp =>
   WrappedComp.displayName || WrappedComp.name || 'Component'

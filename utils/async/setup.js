@@ -11,10 +11,10 @@ import { ERR } from '../constants'
 
 /* import { onError } from 'apollo-link-error' */
 
-import { makelogger, BStore } from '..'
+import { buildLog, BStore } from '..'
 
 /* eslint-disable-next-line */
-const log = makelogger('Async')
+const log = buildLog('Async')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 

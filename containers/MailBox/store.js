@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makelogger, stripMobx } from '@utils'
+import { markStates, buildLog, stripMobx } from '@utils'
 import { MailStatus, PagedMentionMessages, emptyPagiData } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:MailBox')
+const log = buildLog('S:MailBox')
 
 const MailBox = t
   .model('MailBox', {

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
 
@@ -28,7 +28,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ErrorPage:index')
+const log = buildLog('c:ErrorPage:index')
 
 const ErrorPage = ({ errorCode, page, target }) => (
   <Container>

@@ -18,7 +18,7 @@ export {
   PAYMENT_METHOD,
 } from './constants'
 
-export { makelogger } from './debug'
+export { buildLog } from './logger'
 
 export { default as uid } from './uid'
 export {

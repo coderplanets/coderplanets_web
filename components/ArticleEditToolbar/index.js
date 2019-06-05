@@ -10,7 +10,7 @@ import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
 
-import { makelogger, THREAD } from '@utils'
+import { buildLog, THREAD } from '@utils'
 import Maybe from '@components/Maybe'
 
 import CopyrightSelector from './CopyrightSelector'
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ArticleEditToolbar:index')
+const log = buildLog('c:ArticleEditToolbar:index')
 
 const ArticleEditToolbar = ({
   onLinkAddrChange,

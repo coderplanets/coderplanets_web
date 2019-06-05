@@ -8,13 +8,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import HomeLogo from './HomeLogo'
 
 import { Logo } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:CommunityFaceLogo:index')
+const log = buildLog('c:CommunityFaceLogo:index')
 
 const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
   if (raw === 'home' || R.isEmpty(src)) {

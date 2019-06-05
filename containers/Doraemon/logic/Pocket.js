@@ -13,7 +13,7 @@ import {
   merge,
 } from 'rxjs/operators'
 
-import { makelogger, isEmptyValue, EVENT } from '@utils'
+import { buildLog, isEmptyValue, EVENT } from '@utils'
 import {
   searchablePrefix,
   startWithSpecialPrefix,
@@ -22,7 +22,7 @@ import {
 } from './advisor'
 
 /* eslint-disable-next-line */
-const log = makelogger('L:Doraemon:pocket')
+const log = buildLog('L:Doraemon:pocket')
 
 export default class Pockect {
   constructor(store) {

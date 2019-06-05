@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx, TYPE, nilOrEmpty } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE, nilOrEmpty } from '@utils'
 import {
   PagedPosts,
   Tag,
@@ -16,7 +16,7 @@ import {
 } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:PostsThreadStore')
+const log = buildLog('S:PostsThreadStore')
 
 const PostsThreadStore = t
   .model('PostsThreadStore', {

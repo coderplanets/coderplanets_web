@@ -7,13 +7,13 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Header')
+const log = buildLog('C:Header')
 
 const HeaderContainer = ({ header }) => {
   useInit(header)

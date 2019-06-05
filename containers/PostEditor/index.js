@@ -8,7 +8,7 @@ import React from 'react'
 /* import PropTypes from 'prop-types' */
 import dynamic from 'next/dynamic'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 import { ArticleContentLoading } from '@components/LoadingEffects'
@@ -37,7 +37,7 @@ export const DynamicMarkDownHelper = dynamic({
 })
 
 /* eslint-disable-next-line */
-const log = makelogger('C:PostEditor')
+const log = buildLog('C:PostEditor')
 
 // const View = ({ curView, thread, copyRight, title, body, linkAddr }) => {
 const View = ({

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ISSUE_ADDR } from '@config'
 
-import { makelogger, Trans } from '@utils'
+import { buildLog, Trans } from '@utils'
 import {
   Icon404,
   Wrapper,
@@ -22,7 +22,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:EmptyThread:index')
+const log = buildLog('c:EmptyThread:index')
 
 const DescContent = ({ community, thread }) => (
   <React.Fragment>

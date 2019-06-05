@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 import { DEFAULT_USER_AVATAR } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   AvatarWrapper,
@@ -26,7 +26,7 @@ import DigestView from './DigestView'
 import Operators from './Operators'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:UserBrief')
+const log = buildLog('c:UserBrief')
 
 class UserBrief extends React.Component {
   constructor(props) {

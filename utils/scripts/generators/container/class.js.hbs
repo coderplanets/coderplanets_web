@@ -10,13 +10,13 @@ import React from 'react'
   import messages from './messages'
 {{/if}}
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 // import { } from './styles'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:{{ properCase name }}')
+const log = buildLog('C:{{ properCase name }}')
 
 
 class {{ properCase name }}Container extends React.Component {

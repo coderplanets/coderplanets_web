@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import { useShortcut } from '@components/Hooks'
 import SliderPreview from './SliderPreview'
@@ -16,7 +16,7 @@ import Viewer from './Viewer'
 import { useInit, closePreview } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Preview')
+const log = buildLog('C:Preview')
 
 const PreviewContainer = ({ preview }) => {
   useInit(preview)

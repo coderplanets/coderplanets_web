@@ -15,10 +15,10 @@ import { FormattedMessage } from 'react-intl'
 import messages from './messages'
 {{/if}}
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:{{ properCase name }}:index')
+const log = buildLog('c:{{ properCase name }}:index')
 
 
 class {{ properCase name }} extends React.PureComponent {

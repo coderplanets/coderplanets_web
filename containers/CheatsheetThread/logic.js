@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import Prism from 'mastani-codehighlight'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncErr,
   asyncRes,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:CheatsheetThread')
+const log = buildLog('L:CheatsheetThread')
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw

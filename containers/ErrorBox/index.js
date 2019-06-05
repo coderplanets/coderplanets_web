@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import { useShortcut } from '@components/Hooks'
@@ -19,7 +19,7 @@ import { Wrapper } from './styles'
 import { useInit, hide, onClose } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:ErrorBox')
+const log = buildLog('C:ErrorBox')
 
 const ErrorBoxContainer = ({ errorBox }) => {
   useInit(errorBox)

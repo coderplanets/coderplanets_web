@@ -7,7 +7,7 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makelogger, THREAD } from '@utils'
+import { connectStore, buildLog, THREAD } from '@utils'
 
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'
@@ -33,7 +33,7 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:JobContent')
+const log = buildLog('C:JobContent')
 
 const JobContentContainer = ({ jobContent }) => {
   useInit(jobContent)

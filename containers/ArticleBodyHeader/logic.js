@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncErr,
   asyncRes,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ArticleBodyHeader')
+const log = buildLog('L:ArticleBodyHeader')
 
 export const onEdit = thread => {
   const data = store.viewingData

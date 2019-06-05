@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -21,7 +21,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:VideoContent')
+const log = buildLog('L:VideoContent')
 
 const loadVideo = () => {
   const { id } = store.viewingData

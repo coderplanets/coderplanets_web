@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import SectionLabel from '@components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
@@ -18,7 +18,7 @@ import { Wrapper, ErrText } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:UserBilling')
+const log = buildLog('C:UserBilling')
 
 const UserBillingContainer = ({ userBilling }) => {
   useInit(userBilling)

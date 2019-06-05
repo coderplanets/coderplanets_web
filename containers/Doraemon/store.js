@@ -18,7 +18,7 @@ import {
 
 import cmds from './logic/defaultSuggestion'
 
-// const log = makelogger('S:DoraemonStore')
+// const log = buildLog('S:DoraemonStore')
 
 const convertThreadsToMaps = com => {
   const { title, desc, logo, raw } = com

@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger, THREAD, TYPE, C11N } from '@utils'
+import { buildLog, THREAD, TYPE, C11N } from '@utils'
 import Pagi from '@components/Pagi'
 import ContentList from './ContentList'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:PagedContents:index')
+const log = buildLog('c:PagedContents:index')
 
 const PagedContents = ({
   thread,

@@ -11,7 +11,7 @@ import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '@config/general'
 
-import { makelogger, prettyNum } from '@utils'
+import { buildLog, prettyNum } from '@utils'
 import {
   Wrapper,
   AvatarsItem,
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:AvatarsRow:index')
+const log = buildLog('c:AvatarsRow:index')
 
 const validUser = R.compose(
   R.not,

@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:TagsBar')
+const log = buildLog('L:TagsBar')
 
 /* eslint-disable no-unused-vars */
 export const onTagSelect = R.curry((tag, cb, e) => {

@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { PinIcon } from './styles'
 import ReadLabel from './ReadLabel'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ArticleItemPrefixLabel:index')
+const log = buildLog('c:ArticleItemPrefixLabel:index')
 
 const ArticleItemPrefixLabel = ({ entry, accountInfo, topoffset }) => {
   if (entry.pin) return <PinIcon topoffset={topoffset} />

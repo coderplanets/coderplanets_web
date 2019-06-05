@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx, changeset } from '@utils'
+import { markStates, buildLog, stripMobx, changeset } from '@utils'
 import { Post, Mention } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:PostEditorf')
+const log = buildLog('S:PostEditorf')
 
 const PostEditor = t
   .model('PostEditor', {

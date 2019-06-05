@@ -72,10 +72,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Wrapper } from './styles'
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:DotDivider:index')
+const log = buildLog('c:DotDivider:index')
 
 const DotDivider = ({ radius, space, className }) => (
   <Wrapper radius={radius} space={space} />
@@ -156,7 +156,7 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 import { useInit, changeView, onPublish, canclePublish } from './logic'
 
 const PostEditorContainer = ({ postEditor, attachment }) =>{
@@ -202,10 +202,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { Post, Mention } from '@model'
-import { markStates, makelogger, stripMobx, changeset } from '@utils'
+import { markStates, buildLog, stripMobx, changeset } from '@utils'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:PostEditorf')
+const log = buildLog('S:PostEditorf')
 
 const PostEditor = t
   .model('PostEditor', {
@@ -267,7 +267,7 @@ import SR71 from '@utils/async/sr71'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const log = makelogger('L:PostEditor')
+const log = buildLog('L:PostEditor')
 
 let store = null
 let sub$ = null

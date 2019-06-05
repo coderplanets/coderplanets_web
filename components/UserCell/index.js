@@ -7,11 +7,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:UserCell:index')
+const log = buildLog('c:UserCell:index')
 
 const UserCell = ({ user }) => {
   return (

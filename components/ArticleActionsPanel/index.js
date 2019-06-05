@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { makelogger, THREAD } from '@utils'
+import { buildLog, THREAD } from '@utils'
 
 import Informer from '@containers/Informer'
 import PinOption from './PinOption'
@@ -21,7 +21,7 @@ import DeleteOption from './DeleteOption'
 import { Wrapper, Option, OptionIcon, OptionTitle } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ArticleActionsPanel:index')
+const log = buildLog('c:ArticleActionsPanel:index')
 
 const ArticleActionsPanel = ({
   data,

@@ -8,7 +8,7 @@ import React from 'react'
 import { Pagination } from 'antd'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import MobilePagination from './MobilePagination'
 import {
   PagiWrapper,
@@ -19,7 +19,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:Pagi:index')
+const log = buildLog('c:Pagi:index')
 
 const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
 

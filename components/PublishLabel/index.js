@@ -9,11 +9,11 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, PublishIcon } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:PublishLabel:index')
+const log = buildLog('c:PublishLabel:index')
 
 const PublishLabel = ({ text, iconSrc }) => (
   <Wrapper>

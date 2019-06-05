@@ -7,7 +7,7 @@ import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
 
 import {
-  makelogger,
+  buildLog,
   markStates,
   toast,
   toastBarColor,
@@ -96,7 +96,7 @@ import {
 } from '../index'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:rootStore')
+const log = buildLog('S:rootStore')
 
 const rootStore = t
   .model({

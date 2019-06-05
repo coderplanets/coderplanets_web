@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import UserCell from '@components/UserCell'
@@ -33,7 +33,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:Footer:index')
+const log = buildLog('c:Footer:index')
 
 const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
   const [activeChuan, setActiveChuan] = useState(1)

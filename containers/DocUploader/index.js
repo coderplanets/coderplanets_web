@@ -10,7 +10,7 @@ import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@config'
 
-import { makelogger, storePlug, uid, Global } from '@utils'
+import { buildLog, storePlug, uid, Global } from '@utils'
 import { Wrapper, InputFile } from './styles'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:DocUploader')
+const log = buildLog('C:DocUploader')
 
 class DocUploaderContainer extends React.Component {
   /*

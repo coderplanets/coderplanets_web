@@ -11,9 +11,9 @@ import { withTheme } from 'styled-components'
 
 /* import PropTypes from 'prop-types' */
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 /* eslint-disable-next-line */
-const log = makelogger('c:StateTree:index')
+const log = buildLog('c:StateTree:index')
 
 // see all the options in:
 // https://mac-s-g.github.io/react-json-view/demo/dist/

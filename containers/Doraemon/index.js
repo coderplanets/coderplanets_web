@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -19,7 +19,7 @@ import UtilsBar from './UtilsBar'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:Doraemon')
+const log = buildLog('C:Doraemon')
 
 const DoraemonContainer = ({ doraemon }) => {
   logic.useInit(doraemon)

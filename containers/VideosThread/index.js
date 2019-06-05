@@ -8,7 +8,7 @@ import React from 'react'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makelogger, THREAD } from '@utils'
+import { connectStore, buildLog, THREAD } from '@utils'
 
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
@@ -37,7 +37,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:VideosThread')
+const log = buildLog('C:VideosThread')
 
 const VideosThreadContainer = ({ videosThread }) => {
   useInit(videosThread)

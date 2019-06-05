@@ -7,7 +7,7 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
 import ContentSourceCard from '@components/ContentSourceCard'
@@ -30,7 +30,7 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = makelogger('C:RepoContent')
+const log = buildLog('C:RepoContent')
 
 const RepoContentContainer = ({ repoContent }) => {
   useInit(repoContent)

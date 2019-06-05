@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 
 import AvatarAdder from '@containers/AvatarAdder'
 
@@ -18,7 +18,7 @@ import GithubUserCard from '@components/GithubUserCard'
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ContributorList:index')
+const log = buildLog('c:ContributorList:index')
 
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>

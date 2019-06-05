@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import DotSelector from './DotSelector'
 import CardSelector from './CardSelector'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ThemeSelector:index')
+const log = buildLog('c:ThemeSelector:index')
 
 const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   return displayStyle === 'default' ? (

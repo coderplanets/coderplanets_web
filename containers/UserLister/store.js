@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makelogger, stripMobx, TYPE } from '@utils'
+import { markStates, buildLog, stripMobx, TYPE } from '@utils'
 import { PagedUsers, emptyPagiData } from '@model'
 
 /* eslint-disable-next-line */
-const log = makelogger('S:UserLister')
+const log = buildLog('S:UserLister')
 
 const UserLister = t
   .model('UserLister', {

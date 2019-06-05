@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   asyncRes,
   $solver,
@@ -24,7 +24,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:VideoEditor')
+const log = buildLog('L:VideoEditor')
 
 let store = null
 

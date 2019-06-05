@@ -39,7 +39,7 @@ if (
  * debug('Some message')
  * @returns {Function}
  */
-export const makelogger = namespace => _debug(`${namespace}`)
+export const buildLog = namespace => _debug(`${namespace}`)
 
 /**
  * Default debugger, simple log.
@@ -47,4 +47,4 @@ export const makelogger = namespace => _debug(`${namespace}`)
  * import { debug } from 'src/lib'
  * debug('Some message')
  */
-export const log = makelogger('log')
+export const log = buildLog('log')

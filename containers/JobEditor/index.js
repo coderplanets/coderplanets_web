@@ -7,7 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, makelogger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 import { ArticleContentLoading } from '@components/LoadingEffects'
@@ -28,7 +28,7 @@ export const DynamicMarkDownHelper = dynamic({
   ssr: false,
 })
 /* eslint-disable-next-line */
-const log = makelogger('C:JobEditor')
+const log = buildLog('C:JobEditor')
 
 const View = ({
   isEdit,

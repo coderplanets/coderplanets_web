@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import R from 'ramda'
 
-import { makelogger, THREAD, C11N } from '@utils'
+import { buildLog, THREAD, C11N } from '@utils'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 import FilterButton from './FilterButton'
@@ -16,7 +16,7 @@ import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ContentFilter:index')
+const log = buildLog('c:ContentFilter:index')
 
 const ContentFilter = ({
   thread,

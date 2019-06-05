@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -20,7 +20,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:ArticleAuthorCard')
+const log = buildLog('L:ArticleAuthorCard')
 
 export const loadUser = user => {
   if (!store.isLogin) return false

@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
 import { LABEL_POOL } from '@config'
-import { connectStore, makelogger, storePlug, uid } from '@utils'
+import { connectStore, buildLog, storePlug, uid } from '@utils'
 
 import withGuardian from '@components/HOC/withGuardian'
 import Maybe from '@components/Maybe'
@@ -22,7 +22,7 @@ import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 import { useInit, onVisibleChange, onTagSelect } from './logic'
 
-const log = makelogger('C:Labeler')
+const log = buildLog('C:Labeler')
 
 const trans = {
   default: '标签',

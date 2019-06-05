@@ -9,10 +9,10 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, Icon, Title } from './styles'
 /* eslint-disable-next-line */
-const log = makelogger('c:EmptyLabel:index')
+const log = buildLog('c:EmptyLabel:index')
 
 const EmptyLabel = ({ text, iconSrc, size }) => (
   <Wrapper>

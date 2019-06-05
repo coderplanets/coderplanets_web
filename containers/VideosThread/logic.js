@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   asyncErr,
   $solver,
   ERR,
@@ -28,7 +28,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:VideosThread')
+const log = buildLog('L:VideosThread')
 
 export const loadVideos = (page = 1) => {
   const { curCommunity } = store

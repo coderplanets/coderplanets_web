@@ -1,7 +1,7 @@
 import R from 'ramda'
 
 import {
-  makelogger,
+  buildLog,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -18,7 +18,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:UserFavorited')
+const log = buildLog('L:UserFavorited')
 
 let store = null
 

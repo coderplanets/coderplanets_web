@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makelogger, THREAD, Trans } from '@utils'
+import { buildLog, THREAD, Trans } from '@utils'
 import Popover from '@components/Popover'
 import {
   Wrapper,
@@ -22,7 +22,7 @@ import {
 import Panel from './Panel'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:ThreadSelector:index')
+const log = buildLog('c:ThreadSelector:index')
 
 const ThreadSelector = ({
   options,

@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -27,7 +27,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:WikiThread')
+const log = buildLog('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw

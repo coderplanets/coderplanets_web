@@ -8,11 +8,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makelogger } from '@utils'
+import { buildLog } from '@utils'
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const log = makelogger('c:Modal:index')
+const log = buildLog('c:Modal:index')
 
 const Modal = ({
   children,

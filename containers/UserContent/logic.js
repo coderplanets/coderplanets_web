@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makelogger,
+  buildLog,
   asyncRes,
   asyncErr,
   $solver,
@@ -21,7 +21,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = makelogger('L:UserContent')
+const log = buildLog('L:UserContent')
 
 export const followUser = userId => {
   if (!store.isLogin) return store.authWarning()
