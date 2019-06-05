@@ -101,7 +101,7 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
 
 // JobEditorContainer.propTypes = {
 // https://www.npmjs.com/package/prop-types
-// closePreview: PropTypes.func.isRequired,
+// closePreview: T.func.isRequired,
 // }
 
 // JobEditorContainer.defaultProps = {}

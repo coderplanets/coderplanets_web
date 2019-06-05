@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import DotSelector from './DotSelector'
@@ -23,9 +23,9 @@ const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
 }
 
 ThemeSelector.propTypes = {
-  curTheme: PropTypes.string,
-  displayStyle: PropTypes.oneOf(['default', 'card']),
-  changeTheme: PropTypes.func.isRequired,
+  curTheme: T.string,
+  displayStyle: T.oneOf(['default', 'card']),
+  changeTheme: T.func.isRequired,
   // https://www.npmjs.com/package/prop-types
 }
 

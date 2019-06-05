@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import { PinIcon } from './styles'
@@ -23,17 +23,17 @@ const ArticleItemPrefixLabel = ({ entry, accountInfo, topoffset }) => {
 }
 
 ArticleItemPrefixLabel.propTypes = {
-  accountInfo: PropTypes.shape({
-    isLogin: PropTypes.bool,
-    customization: PropTypes.shape({
-      markViewed: PropTypes.bool,
+  accountInfo: T.shape({
+    isLogin: T.bool,
+    customization: T.shape({
+      markViewed: T.bool,
     }),
   }).isRequired,
-  entry: PropTypes.shape({
-    viewerHasViewed: PropTypes.bool,
-    pin: PropTypes.bool,
+  entry: T.shape({
+    viewerHasViewed: T.bool,
+    pin: T.bool,
   }).isRequired,
-  topoffset: PropTypes.string,
+  topoffset: T.string,
 }
 
 ArticleItemPrefixLabel.defaultProps = {

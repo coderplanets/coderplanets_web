@@ -4,7 +4,7 @@
  *
  */
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Popover from '@components/Popover'
 
@@ -50,8 +50,8 @@ const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
 }
 
 AvatarAdderContainer.propTypes = {
-  avatarAdder: PropTypes.object.isRequired,
-  onConfirm: PropTypes.func,
+  avatarAdder: T.object.isRequired,
+  onConfirm: T.func,
 }
 
 AvatarAdderContainer.defaultProps = {

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -38,7 +38,7 @@ const VideoSourceInfo = ({ value }) => (
 )
 
 VideoSourceInfo.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: T.string.isRequired,
 }
 
 VideoSourceInfo.defaultProps = {}

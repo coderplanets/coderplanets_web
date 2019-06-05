@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Pagi from '@components/Pagi'
 import FollowButton from '@components/FollowButton'
@@ -80,15 +80,15 @@ const UserList = ({
 
 UserList.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.shape({
-    entries: PropTypes.array,
-    pageNumber: PropTypes.number,
-    pageSize: PropTypes.number,
-    totalCount: PropTypes.number,
-    totalPages: PropTypes.number,
+  data: T.shape({
+    entries: T.array,
+    pageNumber: T.number,
+    pageSize: T.number,
+    totalCount: T.number,
+    totalPages: T.number,
   }),
-  onPageChange: PropTypes.func,
-  accountInfo: PropTypes.object.isRequired,
+  onPageChange: T.func,
+  accountInfo: T.object.isRequired,
 }
 
 UserList.defaultProps = {

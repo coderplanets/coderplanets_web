@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import withGuardian from '@components/HOC/withGuardian'
@@ -23,15 +23,15 @@ const PinOption = ({ data, thread, onPin, onUndoPin }) => (
 )
 
 PinOption.propTypes = {
-  data: PropTypes.shape({
-    pin: PropTypes.bool,
-    author: PropTypes.shape({
-      id: PropTypes.string,
+  data: T.shape({
+    pin: T.bool,
+    author: T.shape({
+      id: T.string,
     }),
   }).isRequired,
-  thread: PropTypes.string.isRequired,
-  onPin: PropTypes.func.isRequired,
-  onUndoPin: PropTypes.func.isRequired,
+  thread: T.string.isRequired,
+  onPin: T.func.isRequired,
+  onUndoPin: T.func.isRequired,
 }
 
 PinOption.defaultProps = {}

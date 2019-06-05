@@ -72,7 +72,7 @@ Index.js is the entry file for this component and is responsible for the basic i
 
 ```jsx
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { Wrapper } from './styles'
 import { buildLog } from '@utils'
@@ -85,8 +85,8 @@ const DotDivider = ({ radius, space, className }) => (
 )
 
 DotDivider.propTypes = {
-  radius: PropTypes.string,
-  space: PropTypes.string,
+  radius: T.string,
+  space: T.string,
 }
 
 DotDivider.defaultProps = {

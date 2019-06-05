@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import Maybe from '@components/Maybe'
@@ -39,10 +39,10 @@ const LastSyncInfo = ({ show, data }) => (
 )
 
 LastSyncInfo.propTypes = {
-  data: PropTypes.shape({
-    lastSync: PropTypes.string,
+  data: T.shape({
+    lastSync: T.string,
   }).isRequired,
-  show: PropTypes.bool,
+  show: T.bool,
 }
 
 LastSyncInfo.defaultProps = {

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { Button, Icon } from 'antd'
 
 import { buildLog } from '@utils'
@@ -57,11 +57,11 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancle, onPublish }) => (
 )
 
 ArticleEditFooter.propTypes = {
-  isEdit: PropTypes.bool,
-  publishing: PropTypes.bool,
+  isEdit: T.bool,
+  publishing: T.bool,
 
-  onCancle: PropTypes.func,
-  onPublish: PropTypes.func,
+  onCancle: T.func,
+  onPublish: T.func,
 }
 
 ArticleEditFooter.defaultProps = {

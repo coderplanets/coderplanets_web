@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Maybe from '@components/Maybe'
 import { ICON_CMD } from '@config'
@@ -45,14 +45,14 @@ const FavoriteReaction = ({ data, show, loading }) => (
 )
 
 FavoriteReaction.propTypes = {
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    viewerHasFavorited: PropTypes.bool,
-    favoritedCount: PropTypes.number,
+  data: T.shape({
+    id: T.string,
+    title: T.string,
+    viewerHasFavorited: T.bool,
+    favoritedCount: T.number,
   }).isRequired,
-  show: PropTypes.bool,
-  loading: PropTypes.bool,
+  show: T.bool,
+  loading: T.bool,
 }
 
 FavoriteReaction.defaultProps = {

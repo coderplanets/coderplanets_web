@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import Trend from 'react-trend'
 
 import { withTheme } from 'styled-components'
@@ -32,10 +32,10 @@ const TrendLine = ({ data, radius, width, theme }) => {
 
 TrendLine.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.array,
-  theme: PropTypes.object.isRequired,
-  width: PropTypes.number,
-  radius: PropTypes.number,
+  data: T.array,
+  theme: T.object.isRequired,
+  width: T.number,
+  radius: T.number,
 }
 
 TrendLine.defaultProps = {

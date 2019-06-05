@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import FollowingBtn from './FollowingBtn'
@@ -68,13 +68,13 @@ class FollowButton extends React.Component {
 }
 
 FollowButton.propTypes = {
-  hasFollowd: PropTypes.bool.isRequired,
-  userId: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'default', 'large']),
-  onFollow: PropTypes.func,
-  onUndoFollow: PropTypes.func,
-  fakeLoading: PropTypes.bool,
-  loading: PropTypes.bool,
+  hasFollowd: T.bool.isRequired,
+  userId: T.string.isRequired,
+  size: T.oneOf(['small', 'default', 'large']),
+  onFollow: T.func,
+  onUndoFollow: T.func,
+  fakeLoading: T.bool,
+  loading: T.bool,
 }
 
 FollowButton.defaultProps = {

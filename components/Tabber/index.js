@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, THREAD, C11N, sortByIndex } from '@utils'
 import NormalView from './NormalView'
@@ -30,11 +30,11 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
 }
 
 Tabber.propTypes = {
-  onChange: PropTypes.func,
-  source: PropTypes.array.isRequired,
-  active: PropTypes.string,
-  layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  communityRaw: PropTypes.string,
+  onChange: T.func,
+  source: T.array.isRequired,
+  active: T.string,
+  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  communityRaw: T.string,
 }
 
 Tabber.defaultProps = {

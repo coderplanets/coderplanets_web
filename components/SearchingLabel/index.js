@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
@@ -22,8 +22,8 @@ const SearchingLabel = ({ iconSrc, text }) => (
 )
 
 SearchingLabel.propTypes = {
-  iconSrc: PropTypes.string,
-  text: PropTypes.string,
+  iconSrc: T.string,
+  text: T.string,
 }
 
 SearchingLabel.defaultProps = {

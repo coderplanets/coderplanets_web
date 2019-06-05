@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import StateTree from './StateTree'
 import { StateViewerWrapper, StateTreeHeader } from './styles'
@@ -15,7 +15,7 @@ const StateViewer = ({ json }) => (
 )
 
 StateViewer.propTypes = {
-  json: PropTypes.object.isRequired,
+  json: T.object.isRequired,
 }
 
 StateViewer.defaultProps = {}

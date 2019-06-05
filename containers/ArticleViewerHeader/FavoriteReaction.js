@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import Maybe from '@components/Maybe'
@@ -55,15 +55,15 @@ const FavoriteReation = ({ data, thread, show, loading }) => (
 )
 
 FavoriteReation.propTypes = {
-  thread: PropTypes.oneOf(R.values(THREAD)),
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    viewerHasFavorited: PropTypes.bool,
-    favoritedCount: PropTypes.number,
+  thread: T.oneOf(R.values(THREAD)),
+  data: T.shape({
+    id: T.string,
+    title: T.string,
+    viewerHasFavorited: T.bool,
+    favoritedCount: T.number,
   }).isRequired,
-  show: PropTypes.bool,
-  loading: PropTypes.bool,
+  show: T.bool,
+  loading: T.bool,
 }
 
 FavoriteReation.defaultProps = {

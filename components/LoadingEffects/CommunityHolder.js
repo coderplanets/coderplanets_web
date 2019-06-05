@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import {
@@ -27,8 +27,8 @@ const CommunityHolder = ({ place, text }) => {
 }
 
 CommunityHolder.propTypes = {
-  text: PropTypes.string.isRequired,
-  place: PropTypes.oneOf(['banner', 'sidebar', 'communities']),
+  text: T.string.isRequired,
+  place: T.oneOf(['banner', 'sidebar', 'communities']),
 }
 
 CommunityHolder.defaultProps = {

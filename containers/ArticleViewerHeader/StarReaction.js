@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Maybe from '@components/Maybe'
 import { ICON_CMD } from '@config'
@@ -49,14 +49,14 @@ const StarReaction = ({ data, show, loading }) => (
 )
 
 StarReaction.propTypes = {
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    viewerHasStarred: PropTypes.bool,
-    starredCount: PropTypes.number,
+  data: T.shape({
+    id: T.string,
+    title: T.string,
+    viewerHasStarred: T.bool,
+    starredCount: T.number,
   }).isRequired,
-  show: PropTypes.bool,
-  loading: PropTypes.bool,
+  show: T.bool,
+  loading: T.bool,
 }
 
 StarReaction.defaultProps = {
