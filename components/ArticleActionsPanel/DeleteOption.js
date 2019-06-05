@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import withGuardian from '@components/HOC/withGuardian'
@@ -16,7 +16,7 @@ const DeleteOption = ({ onDelete }) => (
 )
 
 DeleteOption.propTypes = {
-  onDelete: PropTypes.func.isRequired,
+  onDelete: T.func.isRequired,
 }
 
 DeleteOption.defaultProps = {}

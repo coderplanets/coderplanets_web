@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -23,8 +23,8 @@ const PublishLabel = ({ text, iconSrc }) => (
 )
 
 PublishLabel.propTypes = {
-  text: PropTypes.string.isRequired,
-  iconSrc: PropTypes.string,
+  text: T.string.isRequired,
+  iconSrc: T.string,
 }
 
 PublishLabel.defaultProps = {

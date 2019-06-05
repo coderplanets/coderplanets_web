@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import {
   Reaction,
@@ -18,8 +18,8 @@ const ViewCounter = ({ data }) => (
 )
 
 ViewCounter.propTypes = {
-  data: PropTypes.shape({
-    views: PropTypes.number,
+  data: T.shape({
+    views: T.number,
   }).isRequired,
 }
 

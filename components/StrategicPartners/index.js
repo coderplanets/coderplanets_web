@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import PartnerBanner from './PartnerBanner'
@@ -32,8 +32,8 @@ const StrategicPartners = ({ show, onClose }) => (
 
 StrategicPartners.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  show: PropTypes.bool,
-  onClose: PropTypes.func,
+  show: T.bool,
+  onClose: T.func,
 }
 
 StrategicPartners.defaultProps = {

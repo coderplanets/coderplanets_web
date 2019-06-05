@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 
@@ -44,18 +44,18 @@ const ContributorList = ({ users, readOnly, addContributor }) => (
 )
 
 ContributorList.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string,
-      nickname: PropTypes.string,
-      bio: PropTypes.string,
-      company: PropTypes.string,
-      location: PropTypes.string,
-      htmlUrl: PropTypes.string,
+  users: T.arrayOf(
+    T.shape({
+      avatar: T.string,
+      nickname: T.string,
+      bio: T.string,
+      company: T.string,
+      location: T.string,
+      htmlUrl: T.string,
     })
   ).isRequired,
-  addContributor: PropTypes.func,
-  readOnly: PropTypes.bool,
+  addContributor: T.func,
+  readOnly: T.bool,
 }
 
 ContributorList.defaultProps = {

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -23,7 +23,7 @@ const VideoPoster = ({ poster }) => (
 )
 
 VideoPoster.propTypes = {
-  poster: PropTypes.string.isRequired,
+  poster: T.string.isRequired,
 }
 
 VideoPoster.defaultProps = {}

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog, C11N, ROUTE } from '@utils'
@@ -37,11 +37,11 @@ const Navigator = ({ curCommunity, layout, curRoute }) => {
 }
 
 Navigator.propTypes = {
-  curCommunity: PropTypes.object,
-  layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  curRoute: PropTypes.shape({
-    mainPath: PropTypes.string,
-    subPath: PropTypes.string,
+  curCommunity: T.object,
+  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  curRoute: T.shape({
+    mainPath: T.string,
+    subPath: T.string,
   }).isRequired,
 }
 

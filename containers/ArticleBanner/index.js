@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
@@ -86,10 +86,10 @@ const ArticleBannerContainer = ({
 }
 
 ArticleBannerContainer.propTypes = {
-  articleBanner: PropTypes.object.isRequired,
-  showStar: PropTypes.bool,
-  showWordCount: PropTypes.bool,
-  showLastSync: PropTypes.bool,
+  articleBanner: T.object.isRequired,
+  showStar: T.bool,
+  showWordCount: T.bool,
+  showLastSync: T.bool,
 }
 
 ArticleBannerContainer.defaultProps = {

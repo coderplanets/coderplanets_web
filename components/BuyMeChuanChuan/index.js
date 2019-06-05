@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
@@ -84,15 +84,15 @@ const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
 
 BuyMeChuanChuan.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  fromUser: PropTypes.shape({
-    id: PropTypes.string,
-    avatar: PropTypes.string,
-    nickname: PropTypes.string,
+  fromUser: T.shape({
+    id: T.string,
+    avatar: T.string,
+    nickname: T.string,
   }),
-  show: PropTypes.bool,
-  onClose: PropTypes.func,
-  onLogin: PropTypes.func,
-  onPay: PropTypes.func,
+  show: T.bool,
+  onClose: T.func,
+  onLogin: T.func,
+  onPay: T.func,
 }
 
 BuyMeChuanChuan.defaultProps = {

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { Icon } from 'antd'
 import { buildLog } from '@utils'
@@ -99,11 +99,11 @@ const StatusBox = ({ success, error, warn, msg }) => {
 
 StatusBox.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  // info: PropTypes.bool,
-  warn: PropTypes.bool,
-  success: PropTypes.bool,
-  error: PropTypes.bool,
-  msg: PropTypes.string,
+  // info: T.bool,
+  warn: T.bool,
+  success: T.bool,
+  error: T.bool,
+  msg: T.string,
 }
 
 StatusBox.defaultProps = {

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
@@ -96,25 +96,25 @@ const ArticleBodyHeaderContainer = ({
 }
 
 ArticleBodyHeaderContainer.propTypes = {
-  articleBodyHeader: PropTypes.any.isRequired,
-  communityRaw: PropTypes.string.isRequired,
-  thread: PropTypes.string,
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    author: PropTypes.shape({
-      id: PropTypes.string,
+  articleBodyHeader: T.any.isRequired,
+  communityRaw: T.string.isRequired,
+  thread: T.string,
+  data: T.shape({
+    id: T.string,
+    author: T.shape({
+      id: T.string,
     }),
-    tags: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
-        color: PropTypes.string,
-        raw: PropTypes.string,
+    tags: T.arrayOf(
+      T.shape({
+        id: T.string,
+        title: T.string,
+        color: T.string,
+        raw: T.string,
       })
     ),
-    linkAddr: PropTypes.string,
+    linkAddr: T.string,
   }).isRequired,
-  middle: PropTypes.oneOf(['linker', 'labeler']),
+  middle: T.oneOf(['linker', 'labeler']),
 }
 
 ArticleBodyHeaderContainer.defaultProps = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import { withTheme } from 'styled-components'
 
@@ -42,8 +42,8 @@ const CheatSheetLoading = ({ column, theme }) => (
 )
 
 CheatSheetLoading.propTypes = {
-  column: PropTypes.number,
-  theme: PropTypes.object.isRequired,
+  column: T.number,
+  theme: T.object.isRequired,
 }
 
 CheatSheetLoading.defaultProps = {

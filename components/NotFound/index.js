@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '@config'
@@ -68,8 +68,8 @@ const NotFound = ({ msg, desc }) => (
 
 NotFound.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  msg: PropTypes.string,
-  desc: PropTypes.string,
+  msg: T.string,
+  desc: T.string,
 }
 
 NotFound.defaultProps = {

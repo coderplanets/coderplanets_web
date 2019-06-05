@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
@@ -198,17 +198,17 @@ class MarkdownEditor extends React.Component {
 }
 
 MarkdownEditor.propTypes = {
-  mentionList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      avatar: PropTypes.string,
-      name: PropTypes.string,
+  mentionList: T.arrayOf(
+    T.shape({
+      id: T.string,
+      avatar: T.string,
+      name: T.string,
     })
   ),
-  body: PropTypes.string,
-  onMentionSearch: PropTypes.func,
-  onMention: PropTypes.func,
-  onChange: PropTypes.func,
+  body: T.string,
+  onMentionSearch: T.func,
+  onMention: T.func,
+  onChange: T.func,
 }
 
 MarkdownEditor.defaultProps = {

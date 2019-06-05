@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { connectStore, buildLog, THREAD } from '@utils'
@@ -73,8 +73,8 @@ const PostViewerContainer = ({ postViewer, attachment }) => {
 }
 
 PostViewerContainer.propTypes = {
-  postViewer: PropTypes.object.isRequired,
-  attachment: PropTypes.any,
+  postViewer: T.object.isRequired,
+  attachment: T.any,
 }
 
 PostViewerContainer.defaultProps = {

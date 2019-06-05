@@ -6,7 +6,7 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, hasValue } from '@utils'
 import Maybe from '@components/Maybe'
@@ -108,19 +108,19 @@ const FormItem = ({
 )
 
 FormItem.propTypes = {
-  value: PropTypes.string,
-  label: PropTypes.string,
-  raw: PropTypes.string,
-  ratKey: PropTypes.string,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  type: PropTypes.oneOf(['input', 'textarea', 'node']),
-  node: PropTypes.node,
-  att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  size: PropTypes.oneOf(['small', 'default', 'large']),
-  bottom: PropTypes.string,
-  disabled: PropTypes.bool,
-  autoFocus: PropTypes.bool,
+  value: T.string,
+  label: T.string,
+  raw: T.string,
+  ratKey: T.string,
+  placeholder: T.string,
+  onChange: T.func,
+  type: T.oneOf(['input', 'textarea', 'node']),
+  node: T.node,
+  att: T.oneOfType([T.string, T.node]),
+  size: T.oneOf(['small', 'default', 'large']),
+  bottom: T.string,
+  disabled: T.bool,
+  autoFocus: T.bool,
 }
 
 FormItem.defaultProps = {

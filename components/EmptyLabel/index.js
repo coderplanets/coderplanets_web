@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -22,9 +22,9 @@ const EmptyLabel = ({ text, iconSrc, size }) => (
 )
 
 EmptyLabel.propTypes = {
-  iconSrc: PropTypes.string,
-  text: PropTypes.string,
-  size: PropTypes.oneOf(['default', 'large']),
+  iconSrc: T.string,
+  text: T.string,
+  size: T.oneOf(['default', 'large']),
 }
 
 EmptyLabel.defaultProps = {

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, sortByColor, Trans } from '@utils'
 import Maybe from '@components/Maybe'
@@ -63,13 +63,13 @@ const InlineTags = ({ data, max }) => {
 
 InlineTags.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      color: PropTypes.string,
+  data: T.arrayOf(
+    T.shape({
+      title: T.string,
+      color: T.string,
     })
   ),
-  max: PropTypes.number,
+  max: T.number,
 }
 
 InlineTags.defaultProps = {

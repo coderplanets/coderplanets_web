@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
@@ -30,9 +30,9 @@ const Maybe = ({ children, test, loading }) => {
 
 Maybe.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  children: PropTypes.node.isRequired,
-  test: PropTypes.any,
-  loading: PropTypes.node,
+  children: T.node.isRequired,
+  test: T.any,
+  loading: T.node,
 }
 
 Maybe.defaultProps = {

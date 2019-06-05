@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -55,9 +55,9 @@ const ErrorPage = ({ errorCode, page, target }) => (
 )
 
 ErrorPage.propTypes = {
-  errorCode: PropTypes.number,
-  page: PropTypes.string,
-  target: PropTypes.string,
+  errorCode: T.number,
+  page: T.string,
+  target: T.string,
 }
 
 ErrorPage.defaultProps = {

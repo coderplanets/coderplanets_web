@@ -7,7 +7,7 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, BStore, nilOrEmpty } from '@utils'
 
@@ -86,11 +86,11 @@ const withGuardian = WrappedComponent => {
     // general check
     // passport format should be: "community.thread.action"
     // example: 'javascript.post.pin'
-    passport: PropTypes.string,
+    passport: T.string,
     // author check
-    ownerId: PropTypes.string,
+    ownerId: T.string,
     // if fallbackProps provide, then render the WrappedComp along with this props
-    fallbackProps: PropTypes.oneOf(['readOnly', '']),
+    fallbackProps: T.oneOf(['readOnly', '']),
   }
 
   WithGuardian.defaultProps = {

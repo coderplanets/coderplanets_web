@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import { Tooltip } from 'antd'
 
@@ -68,20 +68,20 @@ const AvatarsRow = ({
 }
 
 AvatarsRow.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      avatar: PropTypes.string,
-      nickname: PropTypes.string,
-      extra_id: PropTypes.string,
+  users: T.arrayOf(
+    T.shape({
+      id: T.string,
+      avatar: T.string,
+      nickname: T.string,
+      extra_id: T.string,
     })
   ),
-  total: PropTypes.number.isRequired,
-  height: PropTypes.string,
-  limit: PropTypes.number,
-  onUserSelect: PropTypes.func,
-  onTotalSelect: PropTypes.func,
-  reverse: PropTypes.bool,
+  total: T.number.isRequired,
+  height: T.string,
+  limit: T.number,
+  onUserSelect: T.func,
+  onTotalSelect: T.func,
+  reverse: T.bool,
 }
 
 AvatarsRow.defaultProps = {

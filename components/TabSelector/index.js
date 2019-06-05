@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import {
@@ -42,14 +42,14 @@ const TabSelector = ({ source, activeRaw, onChange }) => (
 )
 
 TabSelector.propTypes = {
-  onChange: PropTypes.func,
-  activeRaw: PropTypes.string.isRequired,
-  source: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
-      raw: PropTypes.string.isRequired,
-      count: PropTypes.number,
+  onChange: T.func,
+  activeRaw: T.string.isRequired,
+  source: T.arrayOf(
+    T.shape({
+      title: T.string.isRequired,
+      icon: T.string.isRequired,
+      raw: T.string.isRequired,
+      count: T.number,
     })
   ).isRequired,
 }
