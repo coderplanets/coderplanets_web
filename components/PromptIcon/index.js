@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import PlanetDriver from './PlanetDriver'
@@ -24,9 +24,9 @@ const PromptIcon = ({ type, className }) => {
 }
 
 PromptIcon.propTypes = {
-  type: PropTypes.oneOf(['planet-driver']),
+  type: T.oneOf(['planet-driver']),
   // just for clean styled-component warnings
-  className: PropTypes.string,
+  className: T.string,
 }
 
 PromptIcon.defaultProps = {

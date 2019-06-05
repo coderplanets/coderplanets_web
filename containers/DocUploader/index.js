@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@config'
@@ -171,13 +171,13 @@ class DocUploaderContainer extends React.Component {
 }
 
 DocUploaderContainer.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  onUploadStart: PropTypes.func,
-  onUploadError: PropTypes.func,
-  onUploadDone: PropTypes.func,
-  docUploader: PropTypes.any.isRequired,
-  pasteImage: PropTypes.bool,
-  fileType: PropTypes.oneOf(['image/*']),
+  children: T.oneOfType([T.string, T.node]).isRequired,
+  onUploadStart: T.func,
+  onUploadError: T.func,
+  onUploadDone: T.func,
+  docUploader: T.any.isRequired,
+  pasteImage: T.bool,
+  fileType: T.oneOf(['image/*']),
 }
 
 DocUploaderContainer.defaultProps = {

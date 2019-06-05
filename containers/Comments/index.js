@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { connectStore, buildLog } from '@utils'
 
@@ -149,10 +149,10 @@ class CommentsContainer extends React.Component {
 */
 
 CommentsContainer.propTypes = {
-  onCreate: PropTypes.func,
-  ssr: PropTypes.bool,
-  comments: PropTypes.any.isRequired,
-  locked: PropTypes.bool,
+  onCreate: T.func,
+  ssr: T.bool,
+  comments: T.any.isRequired,
+  locked: T.bool,
 }
 
 CommentsContainer.defaultProps = {

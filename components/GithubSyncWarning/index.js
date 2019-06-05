@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ISSUE_ADDR, ICON_CMD } from '@config'
 import { buildLog } from '@utils'
@@ -32,8 +32,8 @@ const GithubSyncWarning = ({ show, onClose }) => (
 )
 
 GithubSyncWarning.propTypes = {
-  show: PropTypes.bool,
-  onClose: PropTypes.func,
+  show: T.bool,
+  onClose: T.func,
 }
 
 GithubSyncWarning.defaultProps = {

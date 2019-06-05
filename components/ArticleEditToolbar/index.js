@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
@@ -63,14 +63,14 @@ const ArticleEditToolbar = ({
 )
 
 ArticleEditToolbar.propTypes = {
-  thread: PropTypes.oneOf([THREAD.POST, THREAD.JOB]),
-  editData: PropTypes.shape({
-    copyRight: PropTypes.string,
-    linkAddr: PropTypes.string,
+  thread: T.oneOf([THREAD.POST, THREAD.JOB]),
+  editData: T.shape({
+    copyRight: T.string,
+    linkAddr: T.string,
   }).isRequired,
-  onLinkAddrChange: PropTypes.func,
-  onCopyrightChange: PropTypes.func,
-  onPreview: PropTypes.func,
+  onLinkAddrChange: T.func,
+  onCopyrightChange: T.func,
+  onPreview: T.func,
 }
 
 ArticleEditToolbar.defaultProps = {

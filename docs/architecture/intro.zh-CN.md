@@ -69,7 +69,7 @@ index.js 为该组件的入口文件，负责基本的功能实现(如果结构�
 
 ```jsx
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { Wrapper } from './styles'
 import { buildLog } from '@utils'
@@ -82,8 +82,8 @@ const DotDivider = ({ radius, space, className }) => (
 )
 
 DotDivider.propTypes = {
-  radius: PropTypes.string,
-  space: PropTypes.string,
+  radius: T.string,
+  space: T.string,
 }
 
 DotDivider.defaultProps = {

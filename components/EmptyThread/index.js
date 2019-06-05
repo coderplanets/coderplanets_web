@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ISSUE_ADDR } from '@config'
 
@@ -69,8 +69,8 @@ const EmptyThread = ({ community, thread }) => (
 
 EmptyThread.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  community: PropTypes.string.isRequired,
-  thread: PropTypes.string.isRequired,
+  community: T.string.isRequired,
+  thread: T.string.isRequired,
 }
 
 EmptyThread.defaultProps = {}

@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import ReactSVG from 'react-svg'
 
 const NormalImg = ({ className, src, alt }) => (
@@ -27,10 +27,10 @@ const Img = ({ className, src, alt, loading }) => {
 }
 
 Img.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string,
-  className: PropTypes.string,
-  loading: PropTypes.any,
+  src: T.string.isRequired,
+  alt: T.string,
+  className: T.string,
+  loading: T.any,
 }
 
 Img.defaultProps = {

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { Popover } from 'antd'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import { ContentContainer } from './styles'
@@ -53,19 +53,13 @@ class PopoverComponent extends React.Component {
 }
 
 PopoverComponent.propTypes = {
-  children: PropTypes.node.isRequired,
-  content: PropTypes.node.isRequired,
-  visible: PropTypes.bool,
-  title: PropTypes.string,
-  trigger: PropTypes.oneOf(['hover', 'click', 'focus']),
-  placement: PropTypes.oneOf([
-    'top',
-    'bottomLeft',
-    'bottomRight',
-    'bottom',
-    'right',
-  ]),
-  onVisibleChange: PropTypes.func,
+  children: T.node.isRequired,
+  content: T.node.isRequired,
+  visible: T.bool,
+  title: T.string,
+  trigger: T.oneOf(['hover', 'click', 'focus']),
+  placement: T.oneOf(['top', 'bottomLeft', 'bottomRight', 'bottom', 'right']),
+  onVisibleChange: T.func,
 }
 
 PopoverComponent.defaultProps = {

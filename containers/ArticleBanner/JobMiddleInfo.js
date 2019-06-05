@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import DotDivider from '@components/DotDivider'
 import CityList from './CityList'
@@ -21,11 +21,11 @@ const JobMiddleInfo = ({ data }) => (
 )
 
 JobMiddleInfo.propTypes = {
-  data: PropTypes.shape({
-    salary: PropTypes.string,
-    education: PropTypes.string,
-    exp: PropTypes.string,
-    tags: PropTypes.array,
+  data: T.shape({
+    salary: T.string,
+    education: T.string,
+    exp: T.string,
+    tags: T.array,
   }).isRequired,
 }
 

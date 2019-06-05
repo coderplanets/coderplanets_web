@@ -4,7 +4,7 @@
  *
  */
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { DEFAULT_USER_AVATAR } from '@config'
 
@@ -100,11 +100,11 @@ class UserBrief extends React.Component {
 }
 
 UserBrief.propTypes = {
-  user: PropTypes.object.isRequired,
-  displayStyle: PropTypes.oneOf(['default', 'sidebar']),
-  viewingType: PropTypes.oneOf(['account', 'user']),
-  onEdit: PropTypes.func,
-  onLogout: PropTypes.func,
+  user: T.object.isRequired,
+  displayStyle: T.oneOf(['default', 'sidebar']),
+  viewingType: T.oneOf(['account', 'user']),
+  onEdit: T.func,
+  onLogout: T.func,
 }
 
 UserBrief.defaultProps = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import withGuardian from '@components/HOC/withGuardian'
@@ -16,8 +16,8 @@ const EditOption = ({ thread, onEdit }) => (
 )
 
 EditOption.propTypes = {
-  thread: PropTypes.string.isRequired,
-  onEdit: PropTypes.func.isRequired,
+  thread: T.string.isRequired,
+  onEdit: T.func.isRequired,
 }
 
 EditOption.defaultProps = {}

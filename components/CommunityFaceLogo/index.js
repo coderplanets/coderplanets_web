@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
@@ -33,12 +33,12 @@ const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
 }
 
 CommunityFaceLogo.propTypes = {
-  noFill: PropTypes.bool,
-  src: PropTypes.string,
-  raw: PropTypes.string,
+  noFill: T.bool,
+  src: T.string,
+  raw: T.string,
   // just for clean styled-component warnings
-  className: PropTypes.string,
-  loading: PropTypes.any,
+  className: T.string,
+  loading: T.any,
 }
 
 CommunityFaceLogo.defaultProps = {

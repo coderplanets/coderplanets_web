@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -49,9 +49,9 @@ const DiscussLinker = ({ title, desc, addr }) => (
 )
 
 DiscussLinker.propTypes = {
-  title: PropTypes.string,
-  desc: PropTypes.string,
-  addr: PropTypes.string.isRequired,
+  title: T.string,
+  desc: T.string,
+  addr: T.string.isRequired,
 }
 
 DiscussLinker.defaultProps = {

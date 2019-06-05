@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import withGuardian from '@components/HOC/withGuardian'
@@ -16,8 +16,8 @@ const CommunitySetterOption = ({ onCommunitySet }) => (
 )
 
 CommunitySetterOption.propTypes = {
-  // thread: PropTypes.string.isRequired,
-  onCommunitySet: PropTypes.func.isRequired,
+  // thread: T.string.isRequired,
+  onCommunitySet: T.func.isRequired,
 }
 
 CommunitySetterOption.defaultProps = {}

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
@@ -54,9 +54,9 @@ const InformerContainer = ({ informer, title, children }) => {
 
 InformerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  title: PropTypes.string,
-  informer: PropTypes.any.isRequired,
-  children: PropTypes.node,
+  title: T.string,
+  informer: T.any.isRequired,
+  children: T.node,
 }
 
 InformerContainer.defaultProps = {

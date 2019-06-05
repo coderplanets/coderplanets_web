@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+// import T from 'prop-types'
 
 import MarkdownEditor from '@components/MarkdownEditor'
 import ArticleEditToolbar from '@components/ArticleEditToolbar'

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, prettyNum } from '@utils'
 import SubscribedTitle from './SubscribedTitle'
@@ -70,19 +70,19 @@ const CommunityStatesPad = ({
 }
 
 CommunityStatesPad.propTypes = {
-  community: PropTypes.shape({
-    subscribersCount: PropTypes.number,
-    editorsCount: PropTypes.number,
-    postsCount: PropTypes.number,
-    videosCount: PropTypes.number,
-    reposCount: PropTypes.number,
-    jobsCount: PropTypes.number,
-    viewerHasSubscribed: PropTypes.bool,
+  community: T.shape({
+    subscribersCount: T.number,
+    editorsCount: T.number,
+    postsCount: T.number,
+    videosCount: T.number,
+    reposCount: T.number,
+    jobsCount: T.number,
+    viewerHasSubscribed: T.bool,
   }),
-  onSubscribe: PropTypes.func,
-  onUndoSubscribe: PropTypes.func,
-  onShowEditorList: PropTypes.func,
-  onShowSubscriberList: PropTypes.func,
+  onSubscribe: T.func,
+  onUndoSubscribe: T.func,
+  onShowEditorList: T.func,
+  onShowSubscriberList: T.func,
 }
 
 CommunityStatesPad.defaultProps = {

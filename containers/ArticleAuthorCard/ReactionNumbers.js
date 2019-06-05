@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Popover from '@components/Popover'
 import DiscussLinker from '@components/DiscussLinker'
@@ -59,12 +59,12 @@ const ReactionNumbers = ({ user }) => {
 }
 
 ReactionNumbers.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    achievement: PropTypes.shape({
-      reputation: PropTypes.number,
-      followersCount: PropTypes.number,
-      followingsCount: PropTypes.number,
+  user: T.shape({
+    id: T.string,
+    achievement: T.shape({
+      reputation: T.number,
+      followersCount: T.number,
+      followingsCount: T.number,
     }),
   }).isRequired,
 }

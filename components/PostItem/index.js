@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
@@ -61,32 +61,32 @@ const PostItem = ({
 }
 
 PostItem.propTypes = {
-  active: PropTypes.object,
-  entry: PropTypes.shape({
-    title: PropTypes.string,
-    digest: PropTypes.string,
-    views: PropTypes.number,
+  active: T.object,
+  entry: T.shape({
+    title: T.string,
+    digest: T.string,
+    views: T.number,
 
-    author: PropTypes.shape({
-      nickname: PropTypes.string,
-      avatar: PropTypes.string,
+    author: T.shape({
+      nickname: T.string,
+      avatar: T.string,
     }),
   }).isRequired,
-  cover: PropTypes.oneOf(['avatar', 'source']),
+  cover: T.oneOf(['avatar', 'source']),
 
-  accountInfo: PropTypes.shape({
-    isLogin: PropTypes.bool,
-    customization: PropTypes.shape({
-      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
-      markViewed: PropTypes.bool,
-      contentDivider: PropTypes.bool,
-      contentHover: PropTypes.bool,
-      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+  accountInfo: T.shape({
+    isLogin: T.bool,
+    customization: T.shape({
+      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
+      markViewed: T.bool,
+      contentDivider: T.bool,
+      contentHover: T.bool,
+      displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
-  onPreview: PropTypes.func,
-  onUserSelect: PropTypes.func,
-  onAuthorSelect: PropTypes.func,
+  onPreview: T.func,
+  onUserSelect: T.func,
+  onAuthorSelect: T.func,
 }
 
 PostItem.defaultProps = {
@@ -97,7 +97,7 @@ PostItem.defaultProps = {
   cover: 'avatar',
   accountInfo: {
     isLogin: false,
-    customization: PropTypes.shape({
+    customization: T.shape({
       contentsLayout: C11N.DIGEST,
       contentDivider: false,
       contentHover: true,

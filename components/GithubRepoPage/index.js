@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import Maybe from '@components/Maybe'
@@ -86,20 +86,20 @@ const GithubRepoPage = ({
 )
 
 GithubRepoPage.propTypes = {
-  repo: PropTypes.object.isRequired,
-  onPublish: PropTypes.func,
-  onSearch: PropTypes.func,
-  onSync: PropTypes.func,
+  repo: T.object.isRequired,
+  onPublish: T.func,
+  onSearch: T.func,
+  onSync: T.func,
 
-  showPublishBtn: PropTypes.bool,
-  showSearchBtn: PropTypes.bool,
-  showSyncBtn: PropTypes.bool,
+  showPublishBtn: T.bool,
+  showSearchBtn: T.bool,
+  showSyncBtn: T.bool,
 
-  viewerHeader: PropTypes.node,
-  bodyHeader: PropTypes.node,
+  viewerHeader: T.node,
+  bodyHeader: T.node,
 
-  publishing: PropTypes.bool,
-  readOnly: PropTypes.bool,
+  publishing: T.bool,
+  readOnly: T.bool,
 }
 
 GithubRepoPage.defaultProps = {

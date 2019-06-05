@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
@@ -80,31 +80,31 @@ const ArticleActionsPanel = ({
 )
 
 ArticleActionsPanel.propTypes = {
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    pin: PropTypes.bool,
-    author: PropTypes.shape({
-      id: PropTypes.string,
+  data: T.shape({
+    id: T.string,
+    pin: T.bool,
+    author: T.shape({
+      id: T.string,
     }),
-    tags: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
-        color: PropTypes.string,
-        raw: PropTypes.string,
+    tags: T.arrayOf(
+      T.shape({
+        id: T.string,
+        title: T.string,
+        color: T.string,
+        raw: T.string,
       })
     ),
   }).isRequired,
-  communityRaw: PropTypes.string.isRequired,
-  thread: PropTypes.oneOf(R.values(THREAD)),
-  onInform: PropTypes.func,
-  onDelete: PropTypes.func,
-  onEdit: PropTypes.func,
-  onPin: PropTypes.func,
-  onUndoPin: PropTypes.func,
-  onSetRefined: PropTypes.func,
-  onUnsetRefined: PropTypes.func,
-  onCommunitySet: PropTypes.func,
+  communityRaw: T.string.isRequired,
+  thread: T.oneOf(R.values(THREAD)),
+  onInform: T.func,
+  onDelete: T.func,
+  onEdit: T.func,
+  onPin: T.func,
+  onUndoPin: T.func,
+  onSetRefined: T.func,
+  onUnsetRefined: T.func,
+  onCommunitySet: T.func,
 }
 
 ArticleActionsPanel.defaultProps = {
@@ -116,7 +116,7 @@ ArticleActionsPanel.defaultProps = {
   onUndoPin: log,
   onSetRefined: log,
   onUnsetRefined: log,
-  onCommunitySet: PropTypes.func,
+  onCommunitySet: T.func,
 }
 
 export default React.memo(ArticleActionsPanel)

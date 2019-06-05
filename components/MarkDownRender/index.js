@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Remarkable from 'remarkable'
 import emojiPlugin from 'remarkable-emoji'
@@ -85,8 +85,8 @@ class MarkDownRender extends React.Component {
 
 MarkDownRender.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  body: PropTypes.string,
-  contentDomId: PropTypes.string,
+  body: T.string,
+  contentDomId: T.string,
 }
 
 MarkDownRender.defaultProps = {

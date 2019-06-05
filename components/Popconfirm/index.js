@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -94,11 +94,11 @@ class Popconfirm extends React.Component {
 
 Popconfirm.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  children: PropTypes.node.isRequired,
-  content: PropTypes.string,
-  trigger: PropTypes.string,
-  placement: PropTypes.oneOf(['bottomLeft', 'bottom', 'right']),
-  onConfirm: PropTypes.func,
+  children: T.node.isRequired,
+  content: T.string,
+  trigger: T.string,
+  placement: T.oneOf(['bottomLeft', 'bottom', 'right']),
+  onConfirm: T.func,
 }
 
 Popconfirm.defaultProps = {

@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import { Wrapper } from './styles'
@@ -18,10 +18,10 @@ const DotDivider = ({ radius, space, className }) => (
 )
 
 DotDivider.propTypes = {
-  radius: PropTypes.string,
-  space: PropTypes.string,
+  radius: T.string,
+  space: T.string,
   // just for clean styled-component warnings
-  className: PropTypes.string,
+  className: T.string,
 }
 
 DotDivider.defaultProps = {

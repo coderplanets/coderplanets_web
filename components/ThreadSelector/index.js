@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -56,11 +56,11 @@ const ThreadSelector = ({
 )
 
 ThreadSelector.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  active: PropTypes.string,
-  onSelect: PropTypes.func,
-  totalCount: PropTypes.number,
-  lookLike: PropTypes.oneOf(['text', 'box']),
+  options: T.arrayOf(T.string),
+  active: T.string,
+  onSelect: T.func,
+  totalCount: T.number,
+  lookLike: T.oneOf(['text', 'box']),
 }
 
 ThreadSelector.defaultProps = {

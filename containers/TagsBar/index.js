@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import {
@@ -73,14 +73,14 @@ const TagsBarContainer = ({ tagsBar, thread, topic, active, onSelect }) => {
 }
 
 TagsBarContainer.propTypes = {
-  tagsBar: PropTypes.object.isRequired,
-  thread: PropTypes.string,
-  topic: PropTypes.string,
-  onSelect: PropTypes.func.isRequired,
-  active: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    color: PropTypes.string,
+  tagsBar: T.object.isRequired,
+  thread: T.string,
+  topic: T.string,
+  onSelect: T.func.isRequired,
+  active: T.shape({
+    id: T.string,
+    title: T.string,
+    color: T.string,
   }),
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
@@ -30,8 +30,8 @@ const SexInputer = ({ label, value }) => (
 )
 
 SexInputer.propTypes = {
-  value: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  value: T.string.isRequired,
+  label: T.string,
 }
 
 SexInputer.defaultProps = {
