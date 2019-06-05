@@ -18,7 +18,7 @@ import {
 
 import cmds from './logic/defaultSuggestion'
 
-// const debug = makeDebugger('S:DoraemonStore')
+// const log = makelogger('S:DoraemonStore')
 
 const convertThreadsToMaps = com => {
   const { title, desc, logo, raw } = com
@@ -45,7 +45,7 @@ const Suggestion = t.model('Suggestion', {
   raw: t.string,
   id: t.maybeNull(t.string),
   logo: t.maybeNull(t.string),
-  cmd: t.maybeNull(t.enumeration('cmd', ['theme', 'debug'])),
+  cmd: t.maybeNull(t.enumeration('cmd', ['theme', 'log'])),
   descType: t.optional(
     t.enumeration('descType', ['text', 'component']),
     'text'
@@ -71,7 +71,7 @@ const DoraemonStore = t
     activeRaw: t.maybeNull(t.string),
     // TODO: prefix -> cmdPrefix, and prefix be a getter
     prefix: t.optional(t.string, ''),
-    // for debug config, input login/password ... etc
+    // for log config, input login/password ... etc
     inputForOtherUse: t.optional(t.boolean, false),
     cmdChain: t.maybeNull(t.array(t.string)),
   })

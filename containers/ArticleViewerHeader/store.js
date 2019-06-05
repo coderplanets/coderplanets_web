@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, TYPE } from '@utils'
+import { markStates, makelogger, TYPE } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:ArticleViewerHeader')
+const log = makelogger('S:ArticleViewerHeader')
 
 const ArticleViewerHeader = t
   .model('ArticleViewerHeader', {

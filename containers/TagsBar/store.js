@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TOPIC } from '@utils'
+import { markStates, makelogger, stripMobx, TOPIC } from '@utils'
 import { Tag } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:TagsBar')
+const log = makelogger('S:TagsBar')
 
 const TagsBar = t
   .model('TagsBar', {

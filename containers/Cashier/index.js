@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import Modal from '@components/Modal'
 import Sidebar from './Sidebar'
@@ -16,7 +16,7 @@ import { Wrapper } from './styles'
 import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Cashier')
+const log = makelogger('C:Cashier')
 
 const CashierContainer = ({ cashier }) => {
   useInit(cashier)

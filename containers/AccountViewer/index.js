@@ -8,7 +8,7 @@ import React from 'react'
 import R from 'ramda'
 import ReactTooltip from 'react-tooltip'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import Maybe from '@components/Maybe'
 import ThemeSelector from '@components/ThemeSelector'
@@ -23,7 +23,7 @@ import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
 import { useInit, editProfile, onLogout, changeTheme } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:AccountViewer')
+const log = makelogger('C:AccountViewer')
 
 const AccountViewerContainer = ({ accountViewer, user }) => {
   useInit(accountViewer, user)

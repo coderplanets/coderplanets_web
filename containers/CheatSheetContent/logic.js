@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 /* import R from 'ramda' */
 
-import { makeDebugger, $solver } from '@utils'
+import { makelogger, $solver } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CheatSheetContent')
+const log = makelogger('L:CheatSheetContent')
 
 let store = null
 let sub$ = null
@@ -26,8 +26,8 @@ export const useInit = _store => {
       store = _store
 
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      debug('sub$: ', sub$)
-      debug('store: ', store)
+      log('sub$: ', sub$)
+      log('store: ', store)
     },
     [_store]
   )

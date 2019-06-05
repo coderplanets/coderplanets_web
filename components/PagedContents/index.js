@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, THREAD, TYPE, C11N } from '@utils'
+import { makelogger, THREAD, TYPE, C11N } from '@utils'
 import Pagi from '@components/Pagi'
 import ContentList from './ContentList'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:PagedContents:index')
+const log = makelogger('c:PagedContents:index')
 
 const PagedContents = ({
   thread,
@@ -93,10 +93,10 @@ PagedContents.defaultProps = {
   curView: TYPE.LOADING,
   emptyPrefix: '',
   community: 'javascript',
-  onPageChange: debug,
-  onPreview: debug,
-  onUserSelect: debug,
-  onAuthorSelect: debug,
+  onPageChange: log,
+  onPreview: log,
+  onUserSelect: log,
+  onAuthorSelect: log,
   accountInfo: {
     isLogin: false,
     customization: PropTypes.shape({

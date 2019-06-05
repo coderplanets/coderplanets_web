@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   asyncRes,
   $solver,
   dispatchEvent,
@@ -16,7 +16,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:CommunitiesBanner')
+const log = makelogger('L:CommunitiesBanner')
 
 let store = null
 
@@ -65,9 +65,9 @@ export const useInit = _store => {
       loadIfNeed()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (!sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sub$.unsubscribe()
       }
     },

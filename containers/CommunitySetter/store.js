@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx } from '@utils'
+import { markStates, makelogger, stripMobx } from '@utils'
 import { PagedCommunities } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:CommunitySetter')
+const log = makelogger('S:CommunitySetter')
 
 const CommunitySetter = t
   .model('CommunitySetter', {

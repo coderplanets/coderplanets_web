@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, uid } from '@utils'
+import { connectStore, makelogger, uid } from '@utils'
 
 import GithubRepoPage from '@components/GithubRepoPage'
 import SearchMan from './SearchMan'
@@ -15,7 +15,7 @@ import { Wrapper } from './styles'
 import { useInit, onPublish, changeView } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:RepoEditor')
+const log = makelogger('C:RepoEditor')
 
 const View = ({
   curView,

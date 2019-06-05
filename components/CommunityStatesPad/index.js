@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, prettyNum } from '@utils'
+import { makelogger, prettyNum } from '@utils'
 import SubscribedTitle from './SubscribedTitle'
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:CommunityStatesPad:index')
+const log = makelogger('c:CommunityStatesPad:index')
 
 const CommunityStatesPad = ({
   community,
@@ -95,10 +95,10 @@ CommunityStatesPad.defaultProps = {
     jobsCount: 0,
     viewerHasSubscribed: false,
   },
-  onSubscribe: debug,
-  onUndoSubscribe: debug,
-  onShowEditorList: debug,
-  onShowSubscriberList: debug,
+  onSubscribe: log,
+  onUndoSubscribe: log,
+  onShowEditorList: log,
+  onShowSubscriberList: log,
 }
 
 export default React.memo(CommunityStatesPad)

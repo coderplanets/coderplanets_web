@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { makeDebugger, getMainPath, getSubPath, Global } from '@utils'
+import { makelogger, getMainPath, getSubPath, Global } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Route')
+const log = makelogger('L:Route')
 
 let store = null
 

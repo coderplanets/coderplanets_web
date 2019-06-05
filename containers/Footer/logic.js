@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   dispatchEvent,
   EVENT,
@@ -16,7 +16,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Footer2')
+const log = makelogger('L:Footer2')
 
 let store = null
 
@@ -50,7 +50,7 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

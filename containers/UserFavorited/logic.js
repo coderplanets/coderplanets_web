@@ -1,7 +1,7 @@
 import R from 'ramda'
 
 import {
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -18,7 +18,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserFavorited')
+const log = makelogger('L:UserFavorited')
 
 let store = null
 

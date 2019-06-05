@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { PAGE_SIZE } from '@config'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   asyncErr,
   ERR,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserBilling')
+const log = makelogger('L:UserBilling')
 
 export const upgradeHepler = () => store.upgradeHepler()
 export const sponsorHepler = () => store.sponsorHepler()

@@ -9,7 +9,7 @@ import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 // import R from 'ramda'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import {
   Wrapper,
   /* TitleWrapper, */
@@ -21,7 +21,7 @@ import {
   DotList,
 } from './styles/contribute_map'
 
-const debug = makeDebugger('C:Comments')
+const log = makelogger('C:Comments')
 
 const customTooltipDataAttrs = value => ({
   'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,
@@ -82,7 +82,7 @@ const UserContributeMap = ({ data }) => {
         startDate={data.startDate}
         endDate={data.endDate}
         showMonthLabels
-        onClick={value => debug(value)}
+        onClick={value => log(value)}
         gutterSize={3}
         tooltipDataAttrs={customTooltipDataAttrs}
         monthLabels={monthLabels}

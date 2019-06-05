@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, ROUTE } from '@utils'
+import { connectStore, makelogger, ROUTE } from '@utils'
 
 import PostsThread from '@containers//PostsThread'
 import VideosThread from '@containers/VideosThread'
@@ -20,7 +20,7 @@ import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CommunityContent')
+const log = makelogger('C:CommunityContent')
 
 const ComunityContent = ({ curRoute }) => {
   const { subPath } = curRoute

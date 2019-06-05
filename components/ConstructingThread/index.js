@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { ICON_BASE, ISSUE_ADDR } from '@config'
-import { makeDebugger, Trans } from '@utils'
+import { makelogger, Trans } from '@utils'
 import {
   Wrapper,
   ConstructIcon,
@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ConstructingThread:index')
+const log = makelogger('c:ConstructingThread:index')
 
 const ISSUE_NUM = {
   group: '330',

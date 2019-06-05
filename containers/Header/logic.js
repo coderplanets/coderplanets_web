@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   EVENT,
   TYPE,
@@ -30,7 +30,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Header')
+const log = makelogger('L:Header')
 
 export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
@@ -97,7 +97,7 @@ const DataSolver = [
     // TODO: notify user if failed
     match: asyncRes('setCustomization'),
     action: () => {},
-    // debug('set setCustomization done: ', setCustomization)
+    // log('set setCustomization done: ', setCustomization)
   },
 ]
 
@@ -127,7 +127,7 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       checkSesstionState()
 

@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config/assets'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import TabSelector from '@components/TabSelector'
 import MailLists from './MailLists'
@@ -16,7 +16,7 @@ import { Wrapper } from './styles'
 import { useInit, selectChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:MailsViewer')
+const log = makelogger('C:MailsViewer')
 
 const mailTabs = [
   {

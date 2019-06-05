@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import SectionLabel from '@components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
@@ -18,13 +18,13 @@ import { Wrapper, ErrText } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserBilling')
+const log = makelogger('C:UserBilling')
 
 const UserBillingContainer = ({ userBilling }) => {
   useInit(userBilling)
 
   const { pagedBillRecordsData, accountInfo, isSelfViewing } = userBilling
-  // debug('accountInfo: ', accountInfo.achievement)
+  // log('accountInfo: ', accountInfo.achievement)
   return (
     <Wrapper>
       {isSelfViewing ? (

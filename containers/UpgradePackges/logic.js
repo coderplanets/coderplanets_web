@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { SENIOR_AMOUNT_THRESHOLD } from '@config'
-import { makeDebugger, $solver, PAYMENT_USAGE } from '@utils'
+import { makelogger, $solver, PAYMENT_USAGE } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 /* import S from './schema' */
@@ -11,7 +11,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UpgradePackges')
+const log = makelogger('L:UpgradePackges')
 
 let store = null
 

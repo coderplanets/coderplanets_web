@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, THREAD, Trans } from '@utils'
+import { makelogger, THREAD, Trans } from '@utils'
 import Popover from '@components/Popover'
 import {
   Wrapper,
@@ -22,7 +22,7 @@ import {
 import Panel from './Panel'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ThreadSelector:index')
+const log = makelogger('c:ThreadSelector:index')
 
 const ThreadSelector = ({
   options,
@@ -66,7 +66,7 @@ ThreadSelector.propTypes = {
 ThreadSelector.defaultProps = {
   options: [THREAD.POST, THREAD.VIDEO, THREAD.REPO, THREAD.JOB],
   active: THREAD.POST,
-  onSelect: debug,
+  onSelect: log,
   totalCount: 0,
   lookLike: 'text',
 }

@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   asyncRes,
   $solver,
@@ -24,7 +24,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:VideoEditor')
+const log = makelogger('L:VideoEditor')
 
 let store = null
 
@@ -125,12 +125,12 @@ export const useInit = (_store, attachment) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       openAttachment(attachment)
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         store.markState({ isEdit: false, editVideo: { source: 'youtube' } })
         sr71$.stop()
         sub$.unsubscribe()

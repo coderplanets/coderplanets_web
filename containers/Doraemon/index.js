@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -19,7 +19,7 @@ import UtilsBar from './UtilsBar'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Doraemon')
+const log = makelogger('C:Doraemon')
 
 const DoraemonContainer = ({ doraemon }) => {
   logic.useInit(doraemon)
@@ -39,7 +39,7 @@ const DoraemonContainer = ({ doraemon }) => {
     searchedTotalCount,
   } = doraemon
 
-  // debug('suggestion.raw: ', suggestions.toJSON())
+  // log('suggestion.raw: ', suggestions.toJSON())
 
   return (
     <React.Fragment>

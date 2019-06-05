@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, cutFrom, C11N } from '@utils'
+import { makelogger, cutFrom, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import Header from './Header'
@@ -18,7 +18,7 @@ import { Wrapper, BodyDigest } from './styles'
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:RepoItem:index')
+const log = makelogger('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper
@@ -67,7 +67,7 @@ RepoItem.propTypes = {
 }
 
 RepoItem.defaultProps = {
-  onPreview: debug,
+  onPreview: log,
   active: {},
   accountInfo: {
     isLogin: false,

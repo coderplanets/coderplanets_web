@@ -12,7 +12,7 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, makeDebugger, BStore } from '@utils'
+import { EVENT, makelogger, BStore } from '@utils'
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
 
@@ -32,7 +32,7 @@ const mentionThemeClass = {
 }
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:MarkdownEditor')
+const log = makelogger('C:MarkdownEditor')
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
@@ -147,7 +147,7 @@ class MarkdownEditor extends React.Component {
   loadUserSuggestions = propsMentionList => {
     /* eslint-disable react/destructuring-assignment */
     const mentionList = propsMentionList || this.props.mentionList
-    // debug('loadUserSuggestions --->', mentionList)
+    // log('loadUserSuggestions --->', mentionList)
     this.setState({ suggestions: mentionList, mentionList })
     /* eslint-enable react/destructuring-assignment */
   }
@@ -214,9 +214,9 @@ MarkdownEditor.propTypes = {
 MarkdownEditor.defaultProps = {
   body: '',
   mentionList: [],
-  onMention: debug,
-  onMentionSearch: debug,
-  onChange: debug,
+  onMention: log,
+  onMentionSearch: log,
+  onChange: log,
 }
 
 export default MarkdownEditor

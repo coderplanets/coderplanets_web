@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 import {
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:FavoritesCats')
+const log = makelogger('L:FavoritesCats')
 
 export const categoryOnChange = R.curry((part, e) =>
   store.updateEditing({ [part]: e.target.value })
@@ -221,12 +221,12 @@ export const useInit = (_store, displayMode) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       initStates(displayMode)
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

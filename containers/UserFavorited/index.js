@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import FavoritesCats from '../FavoritesCats'
@@ -15,7 +15,7 @@ import Breadcrumbs from './Breadcrumbs'
 import * as logic from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserFavorited')
+const log = makelogger('C:UserFavorited')
 
 class UserFavoritesContainer extends React.Component {
   componentDidMount() {

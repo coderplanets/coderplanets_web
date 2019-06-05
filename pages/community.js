@@ -30,7 +30,7 @@ import {
   getSubPath,
   akaTranslate,
   extractThreadFromPath,
-  makeDebugger,
+  makelogger,
   nilOrEmpty,
   ssrPagedSchema,
   ssrPagedFilter,
@@ -44,7 +44,7 @@ import {
 import { P } from '@schemas'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('page:community')
+const log = makelogger('page:community')
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

@@ -8,12 +8,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'antd'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import { Space } from '../BaseStyled'
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ArticleEditFooter:index')
+const log = makelogger('c:ArticleEditFooter:index')
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (
@@ -68,8 +68,8 @@ ArticleEditFooter.defaultProps = {
   isEdit: false,
   publishing: false,
 
-  onCancle: debug,
-  onPublish: debug,
+  onCancle: log,
+  onPublish: log,
 }
 
 export default React.memo(ArticleEditFooter)

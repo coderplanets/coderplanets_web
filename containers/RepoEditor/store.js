@@ -5,11 +5,11 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { markStates, ERR, makeDebugger, changeset, stripMobx } from '@utils'
+import { markStates, ERR, makelogger, changeset, stripMobx } from '@utils'
 import { Repo } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:RepoEditor')
+const log = makelogger('S:RepoEditor')
 
 const RepoEditor = t
   .model('RepoEditor', {
@@ -52,7 +52,7 @@ const RepoEditor = t
       self.root.changesetErr(options)
     },
     handleError(errorType) {
-      debug(errorType)
+      log(errorType)
       self.markState({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:

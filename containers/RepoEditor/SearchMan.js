@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ISSUE_ADDR } from '@config'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import SearchInputer from './SearchInputer'
 import TokenSetter from './TokenSetter'
 
@@ -19,7 +19,7 @@ import {
 import { changeSubView } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:RepoEditor')
+const log = makelogger('C:RepoEditor')
 
 const SearchMan = ({ value, searching, subView, tokenValue }) => (
   <Wrapper>

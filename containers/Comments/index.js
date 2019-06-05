@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import Modal from '@components/Modal'
 import CommentEditor from './CommentEditor'
@@ -19,7 +19,7 @@ import { Wrapper } from './styles'
 import { useInit, createComment, onReplyEditorClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Comments')
+const log = makelogger('C:Comments')
 
 const CommentsContainer = ({ comments, ssr, locked, onCreate }) => {
   useInit(comments, ssr, locked)
@@ -156,7 +156,7 @@ CommentsContainer.propTypes = {
 }
 
 CommentsContainer.defaultProps = {
-  onCreate: debug,
+  onCreate: log,
   ssr: false,
   locked: false,
 }

@@ -7,12 +7,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import DotSelector from './DotSelector'
 import CardSelector from './CardSelector'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ThemeSelector:index')
+const log = makelogger('c:ThemeSelector:index')
 
 const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   return displayStyle === 'default' ? (

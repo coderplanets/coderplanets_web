@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, makeDebugger, THREAD, stripMobx } from '@utils'
+import { markStates, makelogger, THREAD, stripMobx } from '@utils'
 import { User, Community, Post, Job, Video, Repo } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:ViewingStore')
+const log = makelogger('S:ViewingStore')
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 

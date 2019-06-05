@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, THREAD, TYPE } from '@utils'
+import { markStates, makelogger, stripMobx, THREAD, TYPE } from '@utils'
 import {
   PagedPostComments,
   PagedJobComments,
@@ -15,7 +15,7 @@ import {
   emptyPagiData,
 } from '@model'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:UserPublishedComments')
+const log = makelogger('S:UserPublishedComments')
 
 const UserPublishedComments = t
   .model('UserPublishedComments', {

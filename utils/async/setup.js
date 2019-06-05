@@ -11,14 +11,14 @@ import { ERR } from '../constants'
 
 /* import { onError } from 'apollo-link-error' */
 
-import { makeDebugger, BStore } from '..'
+import { makelogger, BStore } from '..'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('Async')
+const log = makelogger('Async')
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
-/* // for debug
+/* // for log
    export const TIMEOUT_THRESHOLD = 10 // 10 sec
    export const GRAPHQL_TIMEOUT = 10 // 10 sec
    export const MUTIATION_TIMEOUT = 10 // 10 sec

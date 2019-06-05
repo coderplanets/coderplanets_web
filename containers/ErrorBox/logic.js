@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makeDebugger, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
+import { makelogger, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 
@@ -12,13 +12,13 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ErrorBox')
+const log = makelogger('L:ErrorBox')
 
 export const onClose = () => store.markState({ show: false })
 
 const classifyGQErrors = errors => {
   if (!Array.isArray(errors)) {
-    return debug('invalid errors: ', errors)
+    return log('invalid errors: ', errors)
   }
 
   if (R.has('path', errors[0])) {
@@ -62,7 +62,7 @@ const DataSolver = [
           break
 
         default:
-          debug('default')
+          log('default')
       }
 
       store.markState({
@@ -84,7 +84,7 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

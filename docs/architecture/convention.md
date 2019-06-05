@@ -50,7 +50,7 @@ we can easily import files like:
 
 ```js
 import { ISSUE_WEB } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 ...
@@ -68,7 +68,7 @@ Import Waypoint from 'react-waypoint'
 Import R from 'ramda'
 
 // 2. import utils
-Import { connectStore, makeDebugger, ROUTE, THREAD } from '@utils'
+Import { connectStore, makelogger, ROUTE, THREAD } from '@utils'
 
 // 3. import global containers
 Import TagsBar from '@containers/TagsBar'
@@ -86,9 +86,9 @@ Import { Wrapper,LeftPadding, RightPadding } from './styles'
 // 7. import logics
 Import * as logic from './logic'
 
-// 8. init debug
+// 8. init log
 /* eslint-disable-next-line */
-Const debug = makeDebugger('C:PostsThread')
+const log = makelogger('C:PostsThread')
 ```
 
 Please follow the following reference order (1-7) for logical files:
@@ -101,7 +101,7 @@ Import R from 'ramda'
 Import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   EVENT,
   ERR,
@@ -126,9 +126,9 @@ Const sr71$ = new SR71({
 Let store = null
 Let sub$ = null
 
-// 7. init debug
+// 7. init log
 /* eslint-disable-next-line */
-Const debug = makeDebugger('L:PostsThread')
+const log = makelogger('L:PostsThread')
 ```
 
 ### Component Communication

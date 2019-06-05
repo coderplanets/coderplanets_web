@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, TYPE } from '@utils'
+import { connectStore, makelogger, TYPE } from '@utils'
 
 import EmptyLabel from '@components/EmptyLabel'
 import Modal from '@components/Modal'
@@ -19,7 +19,7 @@ import { Wrapper, MsgWrapper } from './styles'
 import { useInit, onClose, onPageChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserLister')
+const log = makelogger('C:UserLister')
 
 const renderContent = (curView, pagedUsersData, accountInfo) => {
   switch (curView) {

@@ -8,7 +8,7 @@ import React from 'react'
 import { Radio } from 'antd'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
-import { connectStore, makeDebugger, C11N } from '@utils'
+import { connectStore, makelogger, C11N } from '@utils'
 
 import ThemeSelector from '@components/ThemeSelector'
 import Popover from '@components/Popover'
@@ -19,7 +19,7 @@ import { Wrapper, RadiosWrapper, OptionsWrapper, ErrText } from './styles'
 import { useInit, changeTheme, c11nOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:UserSettings')
+const log = makelogger('C:UserSettings')
 
 const RadioGroup = Radio.Group
 
@@ -116,7 +116,7 @@ const UserSettingsContainer = ({ userSettings }) => {
           >
             <OptionsWrapper>
               <RadiosWrapper>
-                <RadioGroup onChange={debug} value={2}>
+                <RadioGroup onChange={log} value={2}>
                   <Radio value={1}>开启</Radio>
                   <Radio value={2}>关闭</Radio>
                 </RadioGroup>
@@ -137,7 +137,7 @@ const UserSettingsContainer = ({ userSettings }) => {
           >
             <OptionsWrapper>
               <RadiosWrapper>
-                <RadioGroup onChange={debug} value={2}>
+                <RadioGroup onChange={log} value={2}>
                   <Radio value={1}>开启</Radio>
                   <Radio value={2}>关闭</Radio>
                 </RadioGroup>

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, makelogger, THREAD } from '@utils'
 
 import Labeler from '@containers/Labeler'
 import CommunitySetter from '@containers/CommunitySetter'
@@ -36,7 +36,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:ArticleBodyHeader')
+const log = makelogger('C:ArticleBodyHeader')
 
 const ArticleBodyHeaderContainer = ({
   articleBodyHeader,

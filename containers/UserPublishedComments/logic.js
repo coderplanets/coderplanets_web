@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   dispatchEvent,
   $solver,
   asyncRes,
@@ -24,7 +24,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserPublishedComments')
+const log = makelogger('L:UserPublishedComments')
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -116,7 +116,7 @@ const DataSolver = [
   {
     match: asyncRes('publishedRepoComments'),
     action: ({ publishedRepoComments }) => {
-      debug('get publishedRepoComments: ', publishedRepoComments)
+      log('get publishedRepoComments: ', publishedRepoComments)
       store.markPagedData(publishedRepoComments)
     },
   },
@@ -147,14 +147,14 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadPostComments()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (!sub$) return false
-        // debug('===== do uninit')
+        // log('===== do uninit')
         sub$.unsubscribe()
       }
     },

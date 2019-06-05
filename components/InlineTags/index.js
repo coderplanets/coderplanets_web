@@ -7,14 +7,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, sortByColor, Trans } from '@utils'
+import { makelogger, sortByColor, Trans } from '@utils'
 import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
 
 import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:InlineTags:index')
+const log = makelogger('c:InlineTags:index')
 
 const FullList = ({ data }) => (
   <Wrapper>

@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger, C11N } from '@utils'
+import { makelogger, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
@@ -17,7 +17,7 @@ import { getOpacity } from './helper'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:PostItem:index')
+const log = makelogger('c:PostItem:index')
 
 const PostItem = ({
   entry,
@@ -28,7 +28,7 @@ const PostItem = ({
   onAuthorSelect,
   accountInfo,
 }) => {
-  // debug('customization --> ', customization)
+  // log('customization --> ', customization)
   const {
     customization: { contentsLayout, contentDivider, contentHover },
   } = accountInfo
@@ -90,9 +90,9 @@ PostItem.propTypes = {
 }
 
 PostItem.defaultProps = {
-  onPreview: debug,
-  onUserSelect: debug,
-  onAuthorSelect: debug,
+  onPreview: log,
+  onUserSelect: log,
+  onAuthorSelect: log,
   active: {},
   cover: 'avatar',
   accountInfo: {

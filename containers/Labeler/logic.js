@@ -1,6 +1,6 @@
 import R from 'ramda'
 
-import { makeDebugger, $solver, makeGQClient } from '@utils'
+import { makelogger, $solver, makeGQClient } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 import S from './schema'
@@ -9,7 +9,7 @@ const sr71$ = new SR71()
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Labeler')
+const log = makelogger('L:Labeler')
 
 let store = null
 

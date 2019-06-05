@@ -18,7 +18,7 @@ export {
   PAYMENT_METHOD,
 } from './constants'
 
-export { makeDebugger } from './debug'
+export { makelogger } from './debug'
 
 export { default as uid } from './uid'
 export {

@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, stripMobx, TYPE, ERR } from '@utils'
+import { markStates, makelogger, stripMobx, TYPE, ERR } from '@utils'
 import { Wiki } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:WikiThread')
+const log = makelogger('S:WikiThread')
 
 const WikiThread = t
   .model('WikiThread', {
@@ -47,7 +47,7 @@ const WikiThread = t
       self.root.changesetErr(options)
     },
     handleError(errorType) {
-      debug(errorType)
+      log(errorType)
       self.markState({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:

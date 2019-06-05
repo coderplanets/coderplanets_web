@@ -5,7 +5,7 @@ import { Space } from '@components/BaseStyled'
 import SectionLabel from '@components/SectionLabel'
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 import {
   Wrapper,
   EditWrapper,
@@ -19,7 +19,7 @@ import {
 import { categoryOnChange, onCategoryCreate, onModalClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:FavoritesCats:Creator')
+const log = makelogger('C:FavoritesCats:Creator')
 
 const { TextArea } = Input
 const RadioGroup = Radio.Group

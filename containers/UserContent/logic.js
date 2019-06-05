@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   asyncRes,
   asyncErr,
   $solver,
@@ -21,12 +21,12 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:UserContent')
+const log = makelogger('L:UserContent')
 
 export const followUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
-  debug('followUser: ', userId)
+  log('followUser: ', userId)
   store.markState({ following: true })
   sr71$.mutate(S.follow, { userId })
 }
@@ -34,7 +34,7 @@ export const followUser = userId => {
 export const undoFollowUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
-  debug('undoFollowUser: ', userId)
+  log('undoFollowUser: ', userId)
   store.markState({ following: true })
   sr71$.mutate(S.undoFollow, { userId })
 }
@@ -122,7 +122,7 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

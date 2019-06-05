@@ -8,7 +8,7 @@ import R from 'ramda'
 
 import {
   markStates,
-  makeDebugger,
+  makelogger,
   stripMobx,
   changeset,
   flashState,
@@ -16,7 +16,7 @@ import {
 import { User, EduBackground, WorkBackground } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:AccountEditorStore')
+const log = makelogger('S:AccountEditorStore')
 
 const AccountEditorStore = t
   .model('AccountEditorStore', {
@@ -101,7 +101,7 @@ const AccountEditorStore = t
           return result.passed
         }
         default: {
-          debug('unknow validator')
+          log('unknow validator')
           return false
         }
       }

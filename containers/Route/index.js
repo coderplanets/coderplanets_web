@@ -10,11 +10,11 @@ import { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { makeDebugger, storePlug } from 'utils'
+import { makelogger, storePlug } from 'utils'
 import { init, uninit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Route')
+const log = makelogger('C:Route')
 
 class RouteContainer extends React.Component {
   componentDidMount() {
@@ -39,7 +39,7 @@ import { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, makelogger } from '@utils'
 import { useInit } from './logic'
 
 const RouteContainer = ({ route, router }) => {

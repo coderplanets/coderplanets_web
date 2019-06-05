@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  makelogger,
   $solver,
   asyncRes,
   asyncErr,
@@ -21,7 +21,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:MailBox')
+const log = makelogger('L:MailBox')
 
 /*
    export const panelVisiableOnChange = panelVisiable =>
@@ -44,7 +44,7 @@ export const loadMailboxStates = () => {
 }
 
 const loadMentions = () => {
-  // debug('loadMentions')
+  // log('loadMentions')
   markLoading(true)
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
@@ -105,14 +105,14 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      debug('effect init')
+      log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       loadMailboxStates()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         if (store.loading || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
         sub$ = null

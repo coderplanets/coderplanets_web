@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { makelogger } from '@utils'
 
 import AvatarAdder from '@containers/AvatarAdder'
 
@@ -18,7 +18,7 @@ import GithubUserCard from '@components/GithubUserCard'
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContributorList:index')
+const log = makelogger('c:ContributorList:index')
 
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>
@@ -59,7 +59,7 @@ ContributorList.propTypes = {
 }
 
 ContributorList.defaultProps = {
-  addContributor: debug,
+  addContributor: log,
   readOnly: false,
 }
 

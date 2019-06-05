@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { makeDebugger, markStates, stripMobx, TYPE, nilOrEmpty } from '@utils'
+import { makelogger, markStates, stripMobx, TYPE, nilOrEmpty } from '@utils'
 import { PagedVideos, Tag, ContentFilter, emptyPagiData } from '@model'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:VideosThread')
+const log = makelogger('S:VideosThread')
 
 const VideosThread = t
   .model('VideosThread', {
