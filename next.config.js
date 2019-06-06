@@ -1,18 +1,24 @@
 /* eslint-disable */
 const webpack = require('webpack')
-const nextSourceMaps = require('@zeit/next-source-maps')()
+
+const withPlugins = require('next-compose-plugins')
+const nextSourceMaps = require('@zeit/next-source-maps')
+const withProgressBar = require('next-progressbar')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 require('dotenv').config()
 
 const path = require('path')
 const fs = require('fs')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
 /* eslint-enable */
 
-const { ANALYZE } = process.env
+// const { ANALYZE } = process.env
 
-module.exports = nextSourceMaps({
+const nextConfig = {
   webpack: (config, { isServer, buildId }) => {
     config.plugins = config.plugins || []
 
@@ -30,16 +36,6 @@ module.exports = nextSourceMaps({
     )
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser'
-    }
-
-    if (ANALYZE) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
-          openAnalyzer: true,
-        })
-      )
     }
 
     if (fs.existsSync('./.env')) {
@@ -68,21 +64,9 @@ module.exports = nextSourceMaps({
 
     return config
   },
-})
+}
 
-// see https://github.com/RubyLouvre/anu/issues/640
-/*
-   config.resolve.alias = {
-   react: 'anujs',
-   'react-dom': 'anujs',
-   'prop-types': 'anujs/lib/ReactPropTypes',
-   'create-react-class': 'anujs/lib/createClass',
-   }
- */
-
-// .babelrc
-/*
-   "react-dom/server": "./node_modules/anujs/dist/React/server",
-   "react": "./node_modules/anujs",
-   "prop-types": "./node_modules/anujs/lib/ReactPropTypes"
- */
+module.exports = withPlugins(
+  [withProgressBar, withBundleAnalyzer, nextSourceMaps],
+  nextConfig
+)
