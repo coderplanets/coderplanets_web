@@ -8090,9 +8090,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@1.14.0:
-  version "1.14.0"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-1.14.0.tgz#847c235522035fd988100f1f43cf20a7d24f9372"
+prettier@1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.0.tgz#d1701ca9b2941864b52f3262b35946d2c9cd88f0"
+  integrity sha512-YsdAD29M0+WY2xXZk3i0PA16olY9qZss+AuODxglXcJ+2ZBwFv+6k5tE8GS8/HKAthaajlS/WqhdgcjumOrPlg==
 
 prettier@^1.14.3:
   version "1.16.4"
