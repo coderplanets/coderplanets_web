@@ -6,7 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
-import { Button, Icon } from 'antd'
+import { Button } from 'antd'
 
 import { buildLog } from '@utils'
 import { Space } from '../BaseStyled'
@@ -35,7 +35,6 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancle, onPublish }) => (
           </Button>
           <Space right="15px" />
           <Button size="default" type="primary">
-            <Icon type="loading" />
             正在
             <DoingText isEdit={isEdit} />
             ...

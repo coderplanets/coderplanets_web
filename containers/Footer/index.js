@@ -35,7 +35,7 @@ const DynamicBuyMeChuanChuan = dynamic({
 const FooterContainer = ({ footer }) => {
   useInit(footer)
 
-  const { showSponsor, showBusBanner, curView } = footer
+  const { showSponsor, showBusBanner, curView, accountInfo } = footer
 
   return (
     <div data-testid="footer">
@@ -45,6 +45,7 @@ const FooterContainer = ({ footer }) => {
 
       <DynamicBuyMeChuanChuan
         show={showSponsor}
+        accountInfo={accountInfo}
         onClose={toggleSponsorHelper}
         onLogin={onLogin}
         onPay={onPay}

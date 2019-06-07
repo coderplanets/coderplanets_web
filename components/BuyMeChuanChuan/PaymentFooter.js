@@ -1,5 +1,7 @@
 import React from 'react'
-import { Button, Icon } from 'antd'
+import { Button } from 'antd'
+
+import { ICON_CMD } from '@config'
 
 import {
   Wrapper,
@@ -7,6 +9,7 @@ import {
   AliPay,
   Weixin,
   MoneyNum,
+  PaymentIcon,
 } from './styles/payment_footer'
 
 const PaymentFooter = ({ num, onPay }) => (
@@ -14,12 +17,12 @@ const PaymentFooter = ({ num, onPay }) => (
     <PayDesc>
       支持:
       <AliPay>
-        <Icon type="alipay-circle" />
+        <PaymentIcon src={`${ICON_CMD}/alipay-color.svg`} />
         支付宝
       </AliPay>
       |
       <Weixin>
-        <Icon type="wechat" /> 微信支付
+        <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} /> 微信支付
       </Weixin>
     </PayDesc>
     <Button type="red" onClick={onPay.bind(this, num * 10.24)}>
