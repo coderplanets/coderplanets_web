@@ -44,6 +44,7 @@ app.prepare().then(() => {
   // redirect all the www request to non-www addr
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
+  server.use(express.static(`${__dirname}/.next/service-worker.js`))
   server.use(helmet())
   server.use(
     '/model-graphs',
@@ -63,6 +64,10 @@ app.prepare().then(() => {
 
   server.get('/sentry/', (req, res) =>
     renderAndCache(req, res, '/sentry', req.query)
+  )
+
+  server.get('/service-worker.js', (req, res) =>
+    res.sendFile(`${__dirname}/.next/service-worker.js`)
   )
 
   // app.render(req, res, '/user', req.query)
@@ -97,6 +102,7 @@ app.prepare().then(() => {
   )
 
   server.get('/:community/:thread', (req, res) => {
+    console.log('default community route')
     if (
       R.has('preview', req.query) &&
       R.has('id', req.query) &&
