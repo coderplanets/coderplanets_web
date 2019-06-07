@@ -6,7 +6,6 @@
 
 import React, { useState } from 'react'
 import T from 'prop-types'
-import R from 'ramda'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
 import { buildLog } from '@utils'
@@ -35,15 +34,16 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:Footer:index')
 
-const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
+const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
   const [activeChuan, setActiveChuan] = useState(1)
 
+  log('fromUser: ', accountInfo)
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
       <Wrapper>
         <Header>
-          {!R.isEmpty(fromUser) ? (
-            <UserCell user={fromUser} />
+          {accountInfo.isLogin ? (
+            <UserCell user={accountInfo} />
           ) : (
             <UnloginNote onLogin={onLogin} />
           )}
@@ -84,10 +84,11 @@ const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
 
 BuyMeChuanChuan.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  fromUser: T.shape({
+  accountInfo: T.shape({
     id: T.string,
     avatar: T.string,
     nickname: T.string,
+    isLogin: T.bool,
   }),
   show: T.bool,
   onClose: T.func,
@@ -96,7 +97,7 @@ BuyMeChuanChuan.propTypes = {
 }
 
 BuyMeChuanChuan.defaultProps = {
-  fromUser: {},
+  accountInfo: {},
   show: false,
   onClose: log,
   onLogin: log,
