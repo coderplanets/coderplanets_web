@@ -346,7 +346,7 @@ const MarkDownStyle = styled.div`
     margin-bottom: 0;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
       monospace;
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 
   .markdown-body .octicon {
