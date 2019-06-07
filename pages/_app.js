@@ -11,7 +11,7 @@ import NextSeo from 'next-seo'
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import SEO from '../next-seo.config'
+import SEO from '../config/next_seo'
 
 const { Sentry, captureException } = sentry({
   release: process.env.SENTRY_RELEASE,
