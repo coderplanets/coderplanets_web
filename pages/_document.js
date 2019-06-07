@@ -53,10 +53,8 @@ export default class DocumentPage extends Document {
             async
             src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
           />
-          <link
-            href="https://cdn.staticfile.org/antd/3.8.4/antd.css"
-            rel="stylesheet"
-          />
+          {/* https://cps-oss.oss-cn-shanghai.aliyuncs.com/antd-3.8.4-mini.css */}
+          <link href="/antd-3.8.4-mini.css" rel="stylesheet" />
           <link
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"
