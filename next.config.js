@@ -1,22 +1,19 @@
-/* eslint-disable */
 const webpack = require('webpack')
-
-const withPlugins = require('next-compose-plugins')
-const nextSourceMaps = require('@zeit/next-source-maps')
-const withProgressBar = require('next-progressbar')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-require('dotenv').config()
 
 const path = require('path')
 const fs = require('fs')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
-/* eslint-enable */
+require('dotenv').config()
 
-// const { ANALYZE } = process.env
+// next-plugins
+const withPlugins = require('next-compose-plugins')
+const withSourceMaps = require('@zeit/next-source-maps')
+const withProgressBar = require('next-progressbar')
+const withOffline = require('next-offline')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+// next-plugins end
 
 const nextConfig = {
   webpack: (config, { isServer, buildId }) => {
@@ -67,6 +64,56 @@ const nextConfig = {
 }
 
 module.exports = withPlugins(
-  [withProgressBar, withBundleAnalyzer, nextSourceMaps],
+  [
+    withProgressBar,
+    withBundleAnalyzer,
+    withSourceMaps,
+    [
+      withOffline,
+      // Cache strategies
+      // By default next-offline will precache all the Next.js webpack emitted files and the user-defined static ones (inside /static)
+      // see more: https://github.com/hanford/next-offline
+      {
+        workboxOpts: {
+          runtimeCaching: [
+            {
+              urlPattern: /\.(?:png|gif|jpg|jpeg|svg)$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'images',
+                expiration: {
+                  maxAgeSeconds: 7 * 24 * 60 * 60, // 7 Days
+                },
+              },
+            },
+            {
+              urlPattern: /\.(?:css)$/,
+              handler: 'StaleWhileRevalidate',
+            },
+            {
+              // google fonts
+              urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+              handler: 'CacheFirst',
+            },
+            {
+              // staticfile cdn
+              urlPattern: /^https:\/\/cdn\.staticfile\.org/,
+              handler: 'CacheFirst',
+            },
+            {
+              // ali cdn
+              urlPattern: /^https:\/\/gosspublic\.alicdn\.com/,
+              handler: 'CacheFirst',
+            },
+            {
+              // ali cdn
+              urlPattern: /^https:\/\/a\.alipayobjects\.com/,
+              handler: 'CacheFirst',
+            },
+          ],
+        },
+      },
+    ],
+  ],
   nextConfig
 )
