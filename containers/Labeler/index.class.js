@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
@@ -14,14 +14,14 @@ import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
 import { LABEL_POOL } from '@config'
 
-import { makeDebugger, storePlug, uid, Trans } from '@utils'
+import { buildLog, storePlug, uid, Trans } from '@utils'
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Labeler')
+const log = buildLog('C:Labeler')
 
 class LabelerContainer extends React.Component {
   constructor(props) {
@@ -114,7 +114,7 @@ class LabelerContainer extends React.Component {
 }
 
 LabelerContainer.propTypes = {
-  label: PropTypes.oneOf([
+  label: T.oneOf([
     'default',
     'salary',
     'city',
@@ -124,13 +124,13 @@ LabelerContainer.propTypes = {
     'scale',
     'field',
   ]),
-  labeler: PropTypes.any,
-  multi: PropTypes.bool,
-  selected: PropTypes.arrayOf(PropTypes.string),
+  labeler: T.any,
+  multi: T.bool,
+  selected: T.arrayOf(T.string),
 
-  onTagSelect: PropTypes.func,
-  onTagUnselect: PropTypes.func,
-  readOnly: PropTypes.bool,
+  onTagSelect: T.func,
+  onTagUnselect: T.func,
+  readOnly: T.bool,
 }
 
 LabelerContainer.defaultProps = {
@@ -139,8 +139,8 @@ LabelerContainer.defaultProps = {
   multi: false,
   selected: [],
   readOnly: false,
-  onTagSelect: debug,
-  onTagUnselect: debug,
+  onTagSelect: log,
+  onTagUnselect: log,
 }
 
 export default withGuardian(

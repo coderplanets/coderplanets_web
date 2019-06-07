@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import SectionLabel from '@components/SectionLabel'
@@ -23,7 +23,7 @@ import Setter from './Setter'
 import { useInit, onModalClose, changeViewTo } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:FavoritesCats')
+const log = buildLog('C:FavoritesCats')
 
 const FavoritesCatsContainer = ({
   favoritesCats,
@@ -176,13 +176,13 @@ class FavoritesCatsContainer extends React.Component {
 */
 
 FavoritesCatsContainer.propTypes = {
-  onSelect: PropTypes.func,
-  favoritesCats: PropTypes.any.isRequired,
-  displayMode: PropTypes.oneOf(['list', 'hide']),
+  onSelect: T.func,
+  favoritesCats: T.any.isRequired,
+  displayMode: T.oneOf(['list', 'hide']),
 }
 
 FavoritesCatsContainer.defaultProps = {
-  onSelect: debug,
+  onSelect: log,
   displayMode: 'hide',
 }
 

@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, THREAD, Trans } from '@utils'
+import { buildLog, THREAD, Trans } from '@utils'
 import Popover from '@components/Popover'
 import {
   Wrapper,
@@ -22,7 +22,7 @@ import {
 import Panel from './Panel'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ThreadSelector:index')
+const log = buildLog('c:ThreadSelector:index')
 
 const ThreadSelector = ({
   options,
@@ -56,17 +56,17 @@ const ThreadSelector = ({
 )
 
 ThreadSelector.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  active: PropTypes.string,
-  onSelect: PropTypes.func,
-  totalCount: PropTypes.number,
-  lookLike: PropTypes.oneOf(['text', 'box']),
+  options: T.arrayOf(T.string),
+  active: T.string,
+  onSelect: T.func,
+  totalCount: T.number,
+  lookLike: T.oneOf(['text', 'box']),
 }
 
 ThreadSelector.defaultProps = {
   options: [THREAD.POST, THREAD.VIDEO, THREAD.REPO, THREAD.JOB],
   active: THREAD.POST,
-  onSelect: debug,
+  onSelect: log,
   totalCount: 0,
   lookLike: 'text',
 }

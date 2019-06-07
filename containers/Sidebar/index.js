@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import MenuList from './MenuList'
@@ -15,7 +15,7 @@ import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Sidebar:index')
+const log = buildLog('C:Sidebar:index')
 
 const SidebarContainer = ({ sidebar }) => {
   useInit(sidebar)

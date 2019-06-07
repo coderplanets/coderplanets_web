@@ -5,16 +5,16 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import HomeLogo from './HomeLogo'
 
 import { Logo } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:CommunityFaceLogo:index')
+const log = buildLog('c:CommunityFaceLogo:index')
 
 const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
   if (raw === 'home' || R.isEmpty(src)) {
@@ -33,12 +33,12 @@ const CommunityFaceLogo = ({ noFill, src, raw, loading, className }) => {
 }
 
 CommunityFaceLogo.propTypes = {
-  noFill: PropTypes.bool,
-  src: PropTypes.string,
-  raw: PropTypes.string,
+  noFill: T.bool,
+  src: T.string,
+  raw: T.string,
   // just for clean styled-component warnings
-  className: PropTypes.string,
-  loading: PropTypes.any,
+  className: T.string,
+  loading: T.any,
 }
 
 CommunityFaceLogo.defaultProps = {

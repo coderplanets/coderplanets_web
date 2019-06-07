@@ -1,18 +1,21 @@
-/* eslint-disable */
 const webpack = require('webpack')
-const nextSourceMaps = require('@zeit/next-source-maps')()
-
-require('dotenv').config()
 
 const path = require('path')
 const fs = require('fs')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const Dotenv = require('dotenv-webpack')
-/* eslint-enable */
+require('dotenv').config()
 
-const { ANALYZE } = process.env
+// next-plugins
+const withPlugins = require('next-compose-plugins')
+const withSourceMaps = require('@zeit/next-source-maps')
+const withProgressBar = require('next-progressbar')
+const withOffline = require('next-offline')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+// next-plugins end
 
-module.exports = nextSourceMaps({
+const nextConfig = {
   webpack: (config, { isServer, buildId }) => {
     config.plugins = config.plugins || []
 
@@ -30,16 +33,6 @@ module.exports = nextSourceMaps({
     )
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser'
-    }
-
-    if (ANALYZE) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
-          openAnalyzer: true,
-        })
-      )
     }
 
     if (fs.existsSync('./.env')) {
@@ -68,21 +61,59 @@ module.exports = nextSourceMaps({
 
     return config
   },
-})
+}
 
-// see https://github.com/RubyLouvre/anu/issues/640
-/*
-   config.resolve.alias = {
-   react: 'anujs',
-   'react-dom': 'anujs',
-   'prop-types': 'anujs/lib/ReactPropTypes',
-   'create-react-class': 'anujs/lib/createClass',
-   }
- */
-
-// .babelrc
-/*
-   "react-dom/server": "./node_modules/anujs/dist/React/server",
-   "react": "./node_modules/anujs",
-   "prop-types": "./node_modules/anujs/lib/ReactPropTypes"
- */
+module.exports = withPlugins(
+  [
+    withProgressBar,
+    withBundleAnalyzer,
+    withSourceMaps,
+    [
+      withOffline,
+      // Cache strategies
+      // By default next-offline will precache all the Next.js webpack emitted files and the user-defined static ones (inside /static)
+      // see more: https://github.com/hanford/next-offline
+      {
+        workboxOpts: {
+          runtimeCaching: [
+            {
+              urlPattern: /\.(?:png|gif|jpg|jpeg|svg)$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'images',
+                expiration: {
+                  maxAgeSeconds: 7 * 24 * 60 * 60, // 7 Days
+                },
+              },
+            },
+            {
+              urlPattern: /\.(?:css)$/,
+              handler: 'StaleWhileRevalidate',
+            },
+            {
+              // google fonts
+              urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+              handler: 'CacheFirst',
+            },
+            {
+              // staticfile cdn
+              urlPattern: /^https:\/\/cdn\.staticfile\.org/,
+              handler: 'CacheFirst',
+            },
+            {
+              // ali cdn
+              urlPattern: /^https:\/\/gosspublic\.alicdn\.com/,
+              handler: 'CacheFirst',
+            },
+            {
+              // ali cdn
+              urlPattern: /^https:\/\/a\.alipayobjects\.com/,
+              handler: 'CacheFirst',
+            },
+          ],
+        },
+      },
+    ],
+  ],
+  nextConfig
+)

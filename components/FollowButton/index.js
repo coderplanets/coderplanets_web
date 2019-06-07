@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:FollowButton:index')
+const log = buildLog('c:FollowButton:index')
 
 class FollowButton extends React.Component {
   state = { simuLoading: false }
@@ -68,19 +68,19 @@ class FollowButton extends React.Component {
 }
 
 FollowButton.propTypes = {
-  hasFollowd: PropTypes.bool.isRequired,
-  userId: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'default', 'large']),
-  onFollow: PropTypes.func,
-  onUndoFollow: PropTypes.func,
-  fakeLoading: PropTypes.bool,
-  loading: PropTypes.bool,
+  hasFollowd: T.bool.isRequired,
+  userId: T.string.isRequired,
+  size: T.oneOf(['small', 'default', 'large']),
+  onFollow: T.func,
+  onUndoFollow: T.func,
+  fakeLoading: T.bool,
+  loading: T.bool,
 }
 
 FollowButton.defaultProps = {
   size: 'small',
-  onFollow: debug,
-  onUndoFollow: debug,
+  onFollow: log,
+  onUndoFollow: log,
   fakeLoading: false,
   loading: false,
 }

@@ -1,13 +1,13 @@
 import { from } from 'rxjs'
 import fetch from 'isomorphic-fetch'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { client, context } from './setup'
 
 import { getThenHandler, getCatchHandler, formatGraphErrors } from './handler'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('Async')
+const log = buildLog('Async')
 
 const doQuery = (query, variables) =>
   client

@@ -21,7 +21,7 @@
     "start": "NODE_ENV=production node server.js",
     "clean": "shjs ./utils/scripts/clean.js",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
-    "analyze": "cross-env ANALYZE=1 next build",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "./node_modules/.bin/eslint --fix pages/**/*.js components/**/*.js containers/**/*.js stores/**/*.js utils/**/*.js",
     "lint:staged": "git diff --cached --name-only --diff-filter=ACRM | grep \".js$\" | xargs ./node_modules/.bin/eslint",
     "test": "cross-env NODE_ENV=test jest --config .jest.config.js",
@@ -39,6 +39,7 @@
     }
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^8.1.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
     "@zeit/next-source-maps": "0.0.4-canary.1",
@@ -78,6 +79,9 @@
     "mobx-state-tree": "3.10.1",
     "module-alias": "^2.0.1",
     "next": "8.1",
+    "next-compose-plugins": "^2.2.0",
+    "next-offline": "^4.0.2",
+    "next-progressbar": "^1.0.0",
     "next-seo": "^1.9.0",
     "path-match": "^1.2.4",
     "polished": "2.3.1",
@@ -160,7 +164,6 @@
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
     "standard-version": "^4.4.0",
-    "start-server-and-test": "^1.7.13",
-    "webpack-bundle-analyzer": "3.3.2"
+    "start-server-and-test": "^1.7.13"
   }
 }

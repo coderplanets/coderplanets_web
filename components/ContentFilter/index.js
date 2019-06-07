@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, THREAD, C11N } from '@utils'
+import { buildLog, THREAD, C11N } from '@utils'
 import { Wrapper, MainFilterWrapper } from './styles'
 
 import FilterButton from './FilterButton'
@@ -16,7 +16,7 @@ import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContentFilter:index')
+const log = buildLog('c:ContentFilter:index')
 
 const ContentFilter = ({
   thread,
@@ -48,33 +48,33 @@ const ContentFilter = ({
 
 ContentFilter.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  activeFilter: PropTypes.shape({
-    when: PropTypes.string,
-    sort: PropTypes.string,
-    length: PropTypes.string,
-    read: PropTypes.string,
+  activeFilter: T.shape({
+    when: T.string,
+    sort: T.string,
+    length: T.string,
+    read: T.string,
     // job
-    salary: PropTypes.string,
-    exp: PropTypes.string,
-    education: PropTypes.string,
-    field: PropTypes.string,
-    finance: PropTypes.string,
-    scale: PropTypes.string,
+    salary: T.string,
+    exp: T.string,
+    education: T.string,
+    field: T.string,
+    finance: T.string,
+    scale: T.string,
     // video
-    source: PropTypes.string,
+    source: T.string,
   }),
-  onSelect: PropTypes.func.isRequired,
-  thread: PropTypes.oneOf(R.values(THREAD)),
-  accountInfo: PropTypes.shape({
-    isLogin: PropTypes.bool,
-    customization: PropTypes.shape({
-      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
-      markViewed: PropTypes.bool,
-      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+  onSelect: T.func.isRequired,
+  thread: T.oneOf(R.values(THREAD)),
+  accountInfo: T.shape({
+    isLogin: T.bool,
+    customization: T.shape({
+      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
+      markViewed: T.bool,
+      displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
-  totalCount: PropTypes.number,
-  onC11NChange: PropTypes.func,
+  totalCount: T.number,
+  onC11NChange: T.func,
 }
 
 ContentFilter.defaultProps = {
@@ -98,14 +98,14 @@ ContentFilter.defaultProps = {
   thread: THREAD.POST,
   accountInfo: {
     isLogin: false,
-    customization: PropTypes.shape({
+    customization: T.shape({
       contentsLayout: C11N.DIGEST,
       markViewed: true,
       displayDensity: '20',
     }),
   },
   totalCount: 0,
-  onC11NChange: debug,
+  onC11NChange: log,
 }
 
 export default ContentFilter

@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 import AvatarAdder from '@containers/AvatarAdder'
 
@@ -18,7 +18,7 @@ import GithubUserCard from '@components/GithubUserCard'
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContributorList:index')
+const log = buildLog('c:ContributorList:index')
 
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>
@@ -44,22 +44,22 @@ const ContributorList = ({ users, readOnly, addContributor }) => (
 )
 
 ContributorList.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string,
-      nickname: PropTypes.string,
-      bio: PropTypes.string,
-      company: PropTypes.string,
-      location: PropTypes.string,
-      htmlUrl: PropTypes.string,
+  users: T.arrayOf(
+    T.shape({
+      avatar: T.string,
+      nickname: T.string,
+      bio: T.string,
+      company: T.string,
+      location: T.string,
+      htmlUrl: T.string,
     })
   ).isRequired,
-  addContributor: PropTypes.func,
-  readOnly: PropTypes.bool,
+  addContributor: T.func,
+  readOnly: T.bool,
 }
 
 ContributorList.defaultProps = {
-  addContributor: debug,
+  addContributor: log,
   readOnly: false,
 }
 

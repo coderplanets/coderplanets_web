@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import CommunityList from '@components/CommunityList'
 
 import UserList from './UserList'
@@ -15,7 +15,7 @@ import UserList from './UserList'
 import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContentSourceCard:index')
+const log = buildLog('c:ContentSourceCard:index')
 
 const ContentSourceCard = ({
   data: { communities, pagedCommentsParticipators: users },
@@ -48,25 +48,25 @@ const ContentSourceCard = ({
 )
 
 ContentSourceCard.propTypes = {
-  data: PropTypes.shape({
-    communities: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
-        logo: PropTypes.string,
-        raw: PropTypes.string,
+  data: T.shape({
+    communities: T.arrayOf(
+      T.shape({
+        id: T.string,
+        title: T.string,
+        logo: T.string,
+        raw: T.string,
       })
     ),
-    pagedCommentsParticipators: PropTypes.shape({
-      entries: PropTypes.array,
-      totalCount: PropTypes.number,
+    pagedCommentsParticipators: T.shape({
+      entries: T.array,
+      totalCount: T.number,
     }),
-    tags: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
-        color: PropTypes.string,
-        raw: PropTypes.string,
+    tags: T.arrayOf(
+      T.shape({
+        id: T.string,
+        title: T.string,
+        color: T.string,
+        raw: T.string,
       })
     ),
   }),

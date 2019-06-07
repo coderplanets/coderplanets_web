@@ -5,17 +5,17 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ISSUE_ADDR, ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 
 import { Wrapper, Logo, Header, Desc, FootLinker } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:GithubSyncWarning:index')
+const log = buildLog('c:GithubSyncWarning:index')
 
 const GithubSyncWarning = ({ show, onClose }) => (
   <Modal width="480px" show={show} onClose={onClose} showCloseBtn>
@@ -32,13 +32,13 @@ const GithubSyncWarning = ({ show, onClose }) => (
 )
 
 GithubSyncWarning.propTypes = {
-  show: PropTypes.bool,
-  onClose: PropTypes.func,
+  show: T.bool,
+  onClose: T.func,
 }
 
 GithubSyncWarning.defaultProps = {
   show: false,
-  onClose: debug,
+  onClose: log,
 }
 
 export default React.memo(GithubSyncWarning)

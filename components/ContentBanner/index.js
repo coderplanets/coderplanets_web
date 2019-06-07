@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import DotDivider from '@components/DotDivider'
 
 import {
@@ -24,7 +24,7 @@ import {
 import ReactionNumbers from './ReactionNumbers'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ContentBanner:index')
+const log = buildLog('c:ContentBanner:index')
 
 // TODO: add a Loading effect
 const ContentBanner = ({ data, middleNode }) => {
@@ -54,18 +54,18 @@ const ContentBanner = ({ data, middleNode }) => {
 }
 
 ContentBanner.propTypes = {
-  data: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    insertedAt: PropTypes.string,
-    updatedAt: PropTypes.string,
-    views: PropTypes.number,
-    favoritedCount: PropTypes.number,
-    starredCount: PropTypes.number,
-    viewerHasFavorited: PropTypes.bool,
-    viewerHasStarred: PropTypes.bool,
+  data: T.shape({
+    id: T.string,
+    title: T.string,
+    insertedAt: T.string,
+    updatedAt: T.string,
+    views: T.number,
+    favoritedCount: T.number,
+    starredCount: T.number,
+    viewerHasFavorited: T.bool,
+    viewerHasStarred: T.bool,
   }),
-  middleNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  middleNode: T.oneOfType([T.string, T.node]),
 }
 
 ContentBanner.defaultProps = {

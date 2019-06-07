@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, nilOrEmpty } from '@utils'
+import { buildLog, nilOrEmpty } from '@utils'
 import {
   Wrapper,
   PopAvatarWrapper,
@@ -24,7 +24,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:GithubUserCard:index')
+const log = buildLog('c:GithubUserCard:index')
 
 const GithubUserCard = ({ user }) => (
   <Wrapper>
@@ -52,12 +52,12 @@ const GithubUserCard = ({ user }) => (
 
 GithubUserCard.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  user: PropTypes.shape({
-    nickname: PropTypes.string.isRequired,
-    avatar: PropTypes.string.isRequired,
-    bio: PropTypes.string,
-    location: PropTypes.string,
-    company: PropTypes.string,
+  user: T.shape({
+    nickname: T.string.isRequired,
+    avatar: T.string.isRequired,
+    bio: T.string,
+    location: T.string,
+    company: T.string,
   }),
 }
 

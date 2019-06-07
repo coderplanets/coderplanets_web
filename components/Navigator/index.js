@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger, C11N, ROUTE } from '@utils'
+import { buildLog, C11N, ROUTE } from '@utils'
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Navigator:index')
+const log = buildLog('c:Navigator:index')
 
 const Navigator = ({ curCommunity, layout, curRoute }) => {
   const { mainPath, subPath } = curRoute
@@ -37,11 +37,11 @@ const Navigator = ({ curCommunity, layout, curRoute }) => {
 }
 
 Navigator.propTypes = {
-  curCommunity: PropTypes.object,
-  layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  curRoute: PropTypes.shape({
-    mainPath: PropTypes.string,
-    subPath: PropTypes.string,
+  curCommunity: T.object,
+  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  curRoute: T.shape({
+    mainPath: T.string,
+    subPath: T.string,
   }).isRequired,
 }
 

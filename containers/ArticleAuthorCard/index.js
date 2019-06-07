@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import UserInfo from './UserInfo'
@@ -17,7 +17,7 @@ import { Wrapper, Divider } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:ArticleAuthorCard')
+const log = buildLog('C:ArticleAuthorCard')
 
 const ArticleAuthorCardContainer = ({
   articleAuthorCard,
@@ -44,21 +44,21 @@ const ArticleAuthorCardContainer = ({
 
 ArticleAuthorCardContainer.propTypes = {
   // later
-  articleAuthorCard: PropTypes.object.isRequired,
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    login: PropTypes.string,
-    avatar: PropTypes.string,
-    nickname: PropTypes.string,
-    bio: PropTypes.string,
+  articleAuthorCard: T.object.isRequired,
+  user: T.shape({
+    id: T.string,
+    login: T.string,
+    avatar: T.string,
+    nickname: T.string,
+    bio: T.string,
 
-    achievement: PropTypes.shape({
-      reputation: PropTypes.number,
-      followersCount: PropTypes.number,
-      followingsCount: PropTypes.number,
+    achievement: T.shape({
+      reputation: T.number,
+      followersCount: T.number,
+      followingsCount: T.number,
     }),
   }).isRequired,
-  introTitle: PropTypes.string,
+  introTitle: T.string,
 }
 
 ArticleAuthorCardContainer.defaultProps = {

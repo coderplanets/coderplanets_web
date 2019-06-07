@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, prettyNum } from '@utils'
+import { buildLog, prettyNum } from '@utils'
 import SubscribedTitle from './SubscribedTitle'
 
 import {
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:CommunityStatesPad:index')
+const log = buildLog('c:CommunityStatesPad:index')
 
 const CommunityStatesPad = ({
   community,
@@ -70,19 +70,19 @@ const CommunityStatesPad = ({
 }
 
 CommunityStatesPad.propTypes = {
-  community: PropTypes.shape({
-    subscribersCount: PropTypes.number,
-    editorsCount: PropTypes.number,
-    postsCount: PropTypes.number,
-    videosCount: PropTypes.number,
-    reposCount: PropTypes.number,
-    jobsCount: PropTypes.number,
-    viewerHasSubscribed: PropTypes.bool,
+  community: T.shape({
+    subscribersCount: T.number,
+    editorsCount: T.number,
+    postsCount: T.number,
+    videosCount: T.number,
+    reposCount: T.number,
+    jobsCount: T.number,
+    viewerHasSubscribed: T.bool,
   }),
-  onSubscribe: PropTypes.func,
-  onUndoSubscribe: PropTypes.func,
-  onShowEditorList: PropTypes.func,
-  onShowSubscriberList: PropTypes.func,
+  onSubscribe: T.func,
+  onUndoSubscribe: T.func,
+  onShowEditorList: T.func,
+  onShowSubscriberList: T.func,
 }
 
 CommunityStatesPad.defaultProps = {
@@ -95,10 +95,10 @@ CommunityStatesPad.defaultProps = {
     jobsCount: 0,
     viewerHasSubscribed: false,
   },
-  onSubscribe: debug,
-  onUndoSubscribe: debug,
-  onShowEditorList: debug,
-  onShowSubscriberList: debug,
+  onSubscribe: log,
+  onUndoSubscribe: log,
+  onShowEditorList: log,
+  onShowSubscriberList: log,
 }
 
 export default React.memo(CommunityStatesPad)

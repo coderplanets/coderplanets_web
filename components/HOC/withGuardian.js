@@ -7,12 +7,12 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, BStore, nilOrEmpty } from '@utils'
+import { buildLog, BStore, nilOrEmpty } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Guardian:index')
+const log = buildLog('c:Guardian:index')
 
 const getDisplayName = WrappedComp =>
   WrappedComp.displayName || WrappedComp.name || 'Component'
@@ -40,8 +40,8 @@ const withGuardian = WrappedComponent => {
       const accountPassports = loginUser.cmsPassport || {}
       let isValid = false
 
-      // debug('accountPassports: ', accountPassports)
-      // debug('passport: ', passport)
+      // log('accountPassports: ', accountPassports)
+      // log('passport: ', passport)
       // valid by default if no passport pass in
       // or root
       if (nilOrEmpty(passport) || accountPassports.root) {
@@ -86,11 +86,11 @@ const withGuardian = WrappedComponent => {
     // general check
     // passport format should be: "community.thread.action"
     // example: 'javascript.post.pin'
-    passport: PropTypes.string,
+    passport: T.string,
     // author check
-    ownerId: PropTypes.string,
+    ownerId: T.string,
     // if fallbackProps provide, then render the WrappedComp along with this props
-    fallbackProps: PropTypes.oneOf(['readOnly', '']),
+    fallbackProps: T.oneOf(['readOnly', '']),
   }
 
   WithGuardian.defaultProps = {

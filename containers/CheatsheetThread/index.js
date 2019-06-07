@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger, TYPE } from '@utils'
+import { connectStore, buildLog, TYPE } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
 import { CheatSheetLoading } from '@components/LoadingEffects'
@@ -19,7 +19,7 @@ import { Wrapper, EmptyOffset } from './styles'
 import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CheatsheetThread')
+const log = buildLog('C:CheatsheetThread')
 
 const renderView = (cheatsheetData, type, communityRaw) => {
   switch (type) {

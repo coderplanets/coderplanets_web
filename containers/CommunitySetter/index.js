@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import { ArticleContentLoading } from '@components/LoadingEffects'
@@ -19,7 +19,7 @@ import { Wrapper, ContentWrapper, Divider } from './styles'
 import { useInit, onClose } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CommunitySetter')
+const log = buildLog('C:CommunitySetter')
 
 const CommunitySetterContainer = ({ communitySetter }) => {
   useInit(communitySetter)

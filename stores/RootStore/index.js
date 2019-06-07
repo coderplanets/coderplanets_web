@@ -7,7 +7,7 @@ import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
 
 import {
-  makeDebugger,
+  buildLog,
   markStates,
   toast,
   toastBarColor,
@@ -96,7 +96,7 @@ import {
 } from '../index'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:rootStore')
+const log = buildLog('S:rootStore')
 
 const rootStore = t
   .model({

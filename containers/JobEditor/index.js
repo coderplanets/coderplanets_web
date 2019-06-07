@@ -7,7 +7,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleEditFooter from '@components/ArticleEditFooter'
 import { ArticleContentLoading } from '@components/LoadingEffects'
@@ -28,7 +28,7 @@ export const DynamicMarkDownHelper = dynamic({
   ssr: false,
 })
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:JobEditor')
+const log = buildLog('C:JobEditor')
 
 const View = ({
   isEdit,
@@ -101,7 +101,7 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
 
 // JobEditorContainer.propTypes = {
 // https://www.npmjs.com/package/prop-types
-// closePreview: PropTypes.func.isRequired,
+// closePreview: T.func.isRequired,
 // }
 
 // JobEditorContainer.defaultProps = {}

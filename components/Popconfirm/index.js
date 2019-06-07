@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import Popover from '@components/Popover'
 
 import {
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Popconfirm:index')
+const log = buildLog('c:Popconfirm:index')
 
 const Hint = ({ content, closeIt, onConfirm }) => (
   <Wrapper>
@@ -94,18 +94,18 @@ class Popconfirm extends React.Component {
 
 Popconfirm.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  children: PropTypes.node.isRequired,
-  content: PropTypes.string,
-  trigger: PropTypes.string,
-  placement: PropTypes.oneOf(['bottomLeft', 'bottom', 'right']),
-  onConfirm: PropTypes.func,
+  children: T.node.isRequired,
+  content: T.string,
+  trigger: T.string,
+  placement: T.oneOf(['bottomLeft', 'bottom', 'right']),
+  onConfirm: T.func,
 }
 
 Popconfirm.defaultProps = {
   trigger: 'click',
   placement: 'bottom',
   content: '该操作不可逆，是否继续？',
-  onConfirm: debug,
+  onConfirm: log,
 }
 
 export default Popconfirm

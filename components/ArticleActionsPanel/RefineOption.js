@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
@@ -24,17 +24,17 @@ const RefineOption = ({ data, thread, onSetRefined, onUnsetRefined }) => (
 )
 
 RefineOption.propTypes = {
-  data: PropTypes.shape({
-    tags: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string,
-        title: PropTypes.string,
+  data: T.shape({
+    tags: T.arrayOf(
+      T.shape({
+        id: T.string,
+        title: T.string,
       })
     ),
   }).isRequired,
-  thread: PropTypes.string.isRequired,
-  onSetRefined: PropTypes.func.isRequired,
-  onUnsetRefined: PropTypes.func.isRequired,
+  thread: T.string.isRequired,
+  onSetRefined: T.func.isRequired,
+  onUnsetRefined: T.func.isRequired,
 }
 
 RefineOption.defaultProps = {}

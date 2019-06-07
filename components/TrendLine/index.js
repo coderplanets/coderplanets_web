@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import Trend from 'react-trend'
 
 import { withTheme } from 'styled-components'
 
-import { makeDebugger, theme as themeHelper } from '@utils'
+import { buildLog, theme as themeHelper } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:TrendLine:index')
+const log = buildLog('c:TrendLine:index')
 
 const TrendLine = ({ data, radius, width, theme }) => {
   const activityLowColor = themeHelper('heatmap.activityLow')({ theme })
@@ -32,10 +32,10 @@ const TrendLine = ({ data, radius, width, theme }) => {
 
 TrendLine.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.array,
-  theme: PropTypes.object.isRequired,
-  width: PropTypes.number,
-  radius: PropTypes.number,
+  data: T.array,
+  theme: T.object.isRequired,
+  width: T.number,
+  radius: T.number,
 }
 
 TrendLine.defaultProps = {

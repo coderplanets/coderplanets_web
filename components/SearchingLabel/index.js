@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, LoadingIcon, LoadingText } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:SearchingLabel:index')
+const log = buildLog('c:SearchingLabel:index')
 
 const SearchingLabel = ({ iconSrc, text }) => (
   <Wrapper>
@@ -22,8 +22,8 @@ const SearchingLabel = ({ iconSrc, text }) => (
 )
 
 SearchingLabel.propTypes = {
-  iconSrc: PropTypes.string,
-  text: PropTypes.string,
+  iconSrc: T.string,
+  text: T.string,
 }
 
 SearchingLabel.defaultProps = {

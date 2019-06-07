@@ -3,16 +3,16 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, THREAD, C11N, sortByIndex } from '@utils'
+import { buildLog, THREAD, C11N, sortByIndex } from '@utils'
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 
 import { mapAlias } from './alias'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Tabber:index')
+const log = buildLog('c:Tabber:index')
 
 const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const aliasSource = mapAlias(source, communityRaw)
@@ -30,16 +30,16 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
 }
 
 Tabber.propTypes = {
-  onChange: PropTypes.func,
-  source: PropTypes.array.isRequired,
-  active: PropTypes.string,
-  layout: PropTypes.oneOf([C11N.DIGEST, C11N.BRIEF]),
-  communityRaw: PropTypes.string,
+  onChange: T.func,
+  source: T.array.isRequired,
+  active: T.string,
+  layout: T.oneOf([C11N.DIGEST, C11N.BRIEF]),
+  communityRaw: T.string,
 }
 
 Tabber.defaultProps = {
   active: THREAD.POST,
-  onChange: debug,
+  onChange: log,
   layout: C11N.DIGEST,
   communityRaw: 'home',
 }

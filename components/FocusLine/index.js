@@ -6,13 +6,13 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, Icon, TextWrapper, Text, Focus } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:FocusLine:index')
+const log = buildLog('c:FocusLine:index')
 
 const FocusLine = ({ iconSrc, before, focus, after }) => (
   <Wrapper>
@@ -24,10 +24,10 @@ const FocusLine = ({ iconSrc, before, focus, after }) => (
 )
 
 FocusLine.propTypes = {
-  iconSrc: PropTypes.string,
-  before: PropTypes.string.isRequired,
-  focus: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  after: PropTypes.string.isRequired,
+  iconSrc: T.string,
+  before: T.string.isRequired,
+  focus: T.oneOfType([T.number, T.string]).isRequired,
+  after: T.string.isRequired,
 }
 
 FocusLine.defaultProps = {

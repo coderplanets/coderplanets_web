@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { withTheme } from 'styled-components'
 
 import { ICON_BASE } from '@config'
@@ -34,8 +34,8 @@ const PlanetDriver = ({ theme, className }) => (
 )
 
 PlanetDriver.propTypes = {
-  theme: PropTypes.object.isRequired,
-  className: PropTypes.string.isRequired,
+  theme: T.object.isRequired,
+  className: T.string.isRequired,
 }
 
 PlanetDriver.defaultProps = {}

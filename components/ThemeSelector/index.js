@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import DotSelector from './DotSelector'
 import CardSelector from './CardSelector'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ThemeSelector:index')
+const log = buildLog('c:ThemeSelector:index')
 
 const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
   return displayStyle === 'default' ? (
@@ -23,9 +23,9 @@ const ThemeSelector = ({ displayStyle, curTheme, changeTheme }) => {
 }
 
 ThemeSelector.propTypes = {
-  curTheme: PropTypes.string,
-  displayStyle: PropTypes.oneOf(['default', 'card']),
-  changeTheme: PropTypes.func.isRequired,
+  curTheme: T.string,
+  displayStyle: T.oneOf(['default', 'card']),
+  changeTheme: T.func.isRequired,
   // https://www.npmjs.com/package/prop-types
 }
 

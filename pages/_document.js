@@ -48,7 +48,6 @@ export default class DocumentPage extends Document {
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
 
-          <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" />
           {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
           <script
             async
@@ -103,7 +102,9 @@ export default class DocumentPage extends Document {
           async
           src="https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
-        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <noscript>
+          You need to enable JavaScript to get this website runing.
+        </noscript>
       </html>
     )
   }

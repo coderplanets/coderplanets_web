@@ -5,11 +5,11 @@
  */
 
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import UserCell from '@components/UserCell'
@@ -33,7 +33,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Footer:index')
+const log = buildLog('c:Footer:index')
 
 const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
   const [activeChuan, setActiveChuan] = useState(1)
@@ -84,23 +84,23 @@ const BuyMeChuanChuan = ({ show, fromUser, onClose, onLogin, onPay }) => {
 
 BuyMeChuanChuan.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  fromUser: PropTypes.shape({
-    id: PropTypes.string,
-    avatar: PropTypes.string,
-    nickname: PropTypes.string,
+  fromUser: T.shape({
+    id: T.string,
+    avatar: T.string,
+    nickname: T.string,
   }),
-  show: PropTypes.bool,
-  onClose: PropTypes.func,
-  onLogin: PropTypes.func,
-  onPay: PropTypes.func,
+  show: T.bool,
+  onClose: T.func,
+  onLogin: T.func,
+  onPay: T.func,
 }
 
 BuyMeChuanChuan.defaultProps = {
   fromUser: {},
   show: false,
-  onClose: debug,
-  onLogin: debug,
-  onPay: debug,
+  onClose: log,
+  onLogin: log,
+  onPay: log,
 }
 
 export default BuyMeChuanChuan

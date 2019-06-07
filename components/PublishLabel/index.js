@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, PublishIcon } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:PublishLabel:index')
+const log = buildLog('c:PublishLabel:index')
 
 const PublishLabel = ({ text, iconSrc }) => (
   <Wrapper>
@@ -23,8 +23,8 @@ const PublishLabel = ({ text, iconSrc }) => (
 )
 
 PublishLabel.propTypes = {
-  text: PropTypes.string.isRequired,
-  iconSrc: PropTypes.string,
+  text: T.string.isRequired,
+  iconSrc: T.string,
 }
 
 PublishLabel.defaultProps = {

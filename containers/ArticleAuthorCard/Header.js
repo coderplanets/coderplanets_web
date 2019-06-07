@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import FollowButton from '@components/FollowButton'
 
@@ -24,12 +24,12 @@ const Header = ({ title, user: { id, viewerHasFollowed }, isSelfViewing }) => (
 )
 
 Header.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    viewerHasFollowed: PropTypes.bool,
+  user: T.shape({
+    id: T.string,
+    viewerHasFollowed: T.bool,
   }).isRequired,
-  title: PropTypes.string.isRequired,
-  isSelfViewing: PropTypes.bool,
+  title: T.string.isRequired,
+  isSelfViewing: T.bool,
 }
 
 Header.defaultProps = {

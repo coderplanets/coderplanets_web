@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, PosterImage, PlayIcon } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:VideoPoster:index')
+const log = buildLog('c:VideoPoster:index')
 
 const VideoPoster = ({ poster }) => (
   <Wrapper>
@@ -23,7 +23,7 @@ const VideoPoster = ({ poster }) => (
 )
 
 VideoPoster.propTypes = {
-  poster: PropTypes.string.isRequired,
+  poster: T.string.isRequired,
 }
 
 VideoPoster.defaultProps = {}

@@ -6,9 +6,9 @@
 
 import React from 'react'
 import { Pagination } from 'antd'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import MobilePagination from './MobilePagination'
 import {
   PagiWrapper,
@@ -19,7 +19,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:Pagi:index')
+const log = buildLog('c:Pagi:index')
 
 const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
 
@@ -89,18 +89,18 @@ const Pagi = ({
 }
 
 Pagi.propTypes = {
-  pageNumber: PropTypes.number.isRequired,
-  pageSize: PropTypes.number.isRequired,
-  totalCount: PropTypes.number.isRequired,
-  // showBottomMsg: PropTypes.bool,
-  emptyMsg: PropTypes.string,
-  noMoreMsg: PropTypes.string,
-  left: PropTypes.string,
-  top: PropTypes.string,
-  bottom: PropTypes.string,
-  showBottomMsg: PropTypes.bool,
+  pageNumber: T.number.isRequired,
+  pageSize: T.number.isRequired,
+  totalCount: T.number.isRequired,
+  // showBottomMsg: T.bool,
+  emptyMsg: T.string,
+  noMoreMsg: T.string,
+  left: T.string,
+  top: T.string,
+  bottom: T.string,
+  showBottomMsg: T.bool,
 
-  onChange: PropTypes.func.isRequired,
+  onChange: T.func.isRequired,
 }
 
 Pagi.defaultProps = {

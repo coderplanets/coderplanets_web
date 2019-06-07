@@ -5,12 +5,12 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
 
-import { makeDebugger, THREAD } from '@utils'
+import { buildLog, THREAD } from '@utils'
 import Maybe from '@components/Maybe'
 
 import CopyrightSelector from './CopyrightSelector'
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ArticleEditToolbar:index')
+const log = buildLog('c:ArticleEditToolbar:index')
 
 const ArticleEditToolbar = ({
   onLinkAddrChange,
@@ -63,21 +63,21 @@ const ArticleEditToolbar = ({
 )
 
 ArticleEditToolbar.propTypes = {
-  thread: PropTypes.oneOf([THREAD.POST, THREAD.JOB]),
-  editData: PropTypes.shape({
-    copyRight: PropTypes.string,
-    linkAddr: PropTypes.string,
+  thread: T.oneOf([THREAD.POST, THREAD.JOB]),
+  editData: T.shape({
+    copyRight: T.string,
+    linkAddr: T.string,
   }).isRequired,
-  onLinkAddrChange: PropTypes.func,
-  onCopyrightChange: PropTypes.func,
-  onPreview: PropTypes.func,
+  onLinkAddrChange: T.func,
+  onCopyrightChange: T.func,
+  onPreview: T.func,
 }
 
 ArticleEditToolbar.defaultProps = {
   thread: THREAD.POST,
-  onLinkAddrChange: debug,
-  onCopyrightChange: debug,
-  onPreview: debug,
+  onLinkAddrChange: log,
+  onCopyrightChange: log,
+  onPreview: log,
 }
 
 export default React.memo(ArticleEditToolbar)

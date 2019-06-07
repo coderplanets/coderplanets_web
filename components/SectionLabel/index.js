@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 import Maybe from '@components/Maybe'
 
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:SectionLabel:index')
+const log = buildLog('c:SectionLabel:index')
 
 const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
   <Wrapper>
@@ -44,11 +44,11 @@ const SectionLabel = ({ title, iconSrc, desc, node, addonNode }) => (
 
 SectionLabel.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  title: PropTypes.string.isRequired,
-  iconSrc: PropTypes.string,
-  desc: PropTypes.string,
-  node: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  addonNode: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  title: T.string.isRequired,
+  iconSrc: T.string,
+  desc: T.string,
+  node: T.oneOfType([T.string, T.node]),
+  addonNode: T.oneOfType([T.string, T.node]),
 }
 
 SectionLabel.defaultProps = {

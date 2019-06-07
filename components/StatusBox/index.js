@@ -6,10 +6,10 @@
 
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { Icon } from 'antd'
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   Msg,
@@ -22,10 +22,10 @@ import {
   ErrorDetail,
 } from './styles'
 
-/* import { makeDebugger, uid, isObject } from '@utils' */
+/* import { buildLog, uid, isObject } from '@utils' */
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:StatusBox:index')
+const log = buildLog('c:StatusBox:index')
 
 function getDefaultMsg(success, error) {
   if (success) {
@@ -99,11 +99,11 @@ const StatusBox = ({ success, error, warn, msg }) => {
 
 StatusBox.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  // info: PropTypes.bool,
-  warn: PropTypes.bool,
-  success: PropTypes.bool,
-  error: PropTypes.bool,
-  msg: PropTypes.string,
+  // info: T.bool,
+  warn: T.bool,
+  success: T.bool,
+  error: T.bool,
+  msg: T.string,
 }
 
 StatusBox.defaultProps = {

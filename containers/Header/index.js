@@ -7,13 +7,13 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Header')
+const log = buildLog('C:Header')
 
 const HeaderContainer = ({ header }) => {
   useInit(header)
@@ -32,7 +32,7 @@ const HeaderContainer = ({ header }) => {
   return (
     <React.Fragment>
       {fixed && (
-        <Affix onChange={debug}>
+        <Affix onChange={log}>
           <Header
             isOnline={isOnline}
             fixed={fixed}

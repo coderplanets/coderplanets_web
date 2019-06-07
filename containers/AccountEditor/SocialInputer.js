@@ -2,7 +2,7 @@ import React from 'react'
 import { Input } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { makeDebugger, nilOrEmpty, SOCIAL_LISTS } from '@utils'
+import { buildLog, nilOrEmpty, SOCIAL_LISTS } from '@utils'
 
 import {
   Wrapper,
@@ -26,7 +26,7 @@ import {
 import { toggleSocials, socialOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:AccountEditor')
+const log = buildLog('C:AccountEditor')
 
 const SocialPrefix = ({ prefix }) => <AddonAddr>{prefix}</AddonAddr>
 

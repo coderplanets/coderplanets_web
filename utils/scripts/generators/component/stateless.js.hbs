@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 {{#if wantStyle}}
 import { Wrapper } from './styles'
@@ -15,10 +15,10 @@ import { FormattedMessage as I18n } from 'react-intl'
 import lang from './lang'
 {{/if}}
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:{{ properCase name }}:index')
+const log = buildLog('c:{{ properCase name }}:index')
 
 
 const {{ properCase name }} = (props) => {

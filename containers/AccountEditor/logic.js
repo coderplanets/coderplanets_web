@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  buildLog,
   $solver,
   dispatchEvent,
   EVENT,
@@ -23,7 +23,7 @@ import { S, updateFields } from './schema'
 const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:AccountEditor')
+const log = buildLog('L:AccountEditor')
 
 let store = null
 let sub$ = null
@@ -93,7 +93,7 @@ export const updateConfirm = () => {
   if (!R.isEmpty(social)) args.social = social
 
   store.markState({ updating: true })
-  debug('args: ', args)
+  log('args: ', args)
   sr71$.mutate(S.updateProfile, args)
 }
 
@@ -152,12 +152,12 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       store.copyAccountInfo()
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

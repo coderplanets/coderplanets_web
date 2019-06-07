@@ -1,7 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { makeDebugger, $solver, asyncErr, ERR, errRescue } from '@utils'
+import { buildLog, $solver, asyncErr, ERR, errRescue } from '@utils'
 import SR71 from '@utils/async/sr71'
 
 // import S from './schema'
@@ -11,7 +11,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:GirlVerifier')
+const log = buildLog('L:GirlVerifier')
 
 export const toggleModal = () =>
   store.markState({ showModal: !store.showModal })
@@ -56,7 +56,7 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {

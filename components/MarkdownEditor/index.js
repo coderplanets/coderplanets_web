@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import PubSub from 'pubsub-js'
 
@@ -12,7 +12,7 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, makeDebugger, BStore } from '@utils'
+import { EVENT, buildLog, BStore } from '@utils'
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
 
@@ -32,7 +32,7 @@ const mentionThemeClass = {
 }
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:MarkdownEditor')
+const log = buildLog('C:MarkdownEditor')
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)
@@ -147,7 +147,7 @@ class MarkdownEditor extends React.Component {
   loadUserSuggestions = propsMentionList => {
     /* eslint-disable react/destructuring-assignment */
     const mentionList = propsMentionList || this.props.mentionList
-    // debug('loadUserSuggestions --->', mentionList)
+    // log('loadUserSuggestions --->', mentionList)
     this.setState({ suggestions: mentionList, mentionList })
     /* eslint-enable react/destructuring-assignment */
   }
@@ -198,25 +198,25 @@ class MarkdownEditor extends React.Component {
 }
 
 MarkdownEditor.propTypes = {
-  mentionList: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      avatar: PropTypes.string,
-      name: PropTypes.string,
+  mentionList: T.arrayOf(
+    T.shape({
+      id: T.string,
+      avatar: T.string,
+      name: T.string,
     })
   ),
-  body: PropTypes.string,
-  onMentionSearch: PropTypes.func,
-  onMention: PropTypes.func,
-  onChange: PropTypes.func,
+  body: T.string,
+  onMentionSearch: T.func,
+  onMention: T.func,
+  onChange: T.func,
 }
 
 MarkdownEditor.defaultProps = {
   body: '',
   mentionList: [],
-  onMention: debug,
-  onMentionSearch: debug,
-  onChange: debug,
+  onMention: log,
+  onMentionSearch: log,
+  onChange: log,
 }
 
 export default MarkdownEditor

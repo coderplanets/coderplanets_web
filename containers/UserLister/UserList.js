@@ -5,13 +5,13 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Pagi from '@components/Pagi'
 import FollowButton from '@components/FollowButton'
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@utils'
 import {
   TableWrapper,
   UserWrapper,
@@ -27,7 +27,7 @@ import {
 import { onFollow, undoFollow } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:UserList:index')
+const log = buildLog('c:UserList:index')
 
 const UsersTable = ({ entries, accountId }) => (
   <TableWrapper>
@@ -80,15 +80,15 @@ const UserList = ({
 
 UserList.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.shape({
-    entries: PropTypes.array,
-    pageNumber: PropTypes.number,
-    pageSize: PropTypes.number,
-    totalCount: PropTypes.number,
-    totalPages: PropTypes.number,
+  data: T.shape({
+    entries: T.array,
+    pageNumber: T.number,
+    pageSize: T.number,
+    totalCount: T.number,
+    totalPages: T.number,
   }),
-  onPageChange: PropTypes.func,
-  accountInfo: PropTypes.object.isRequired,
+  onPageChange: T.func,
+  accountInfo: T.object.isRequired,
 }
 
 UserList.defaultProps = {
@@ -99,7 +99,7 @@ UserList.defaultProps = {
     totalCount: 0,
     totalPages: 0,
   },
-  onPageChange: debug,
+  onPageChange: log,
 }
 
 export default UserList

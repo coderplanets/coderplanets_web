@@ -1,6 +1,6 @@
 import React from 'react'
 import R from 'ramda'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import styled from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
@@ -39,7 +39,7 @@ const TagListLoading = ({ num }) => {
 }
 
 TagListLoading.propTypes = {
-  num: PropTypes.number,
+  num: T.number,
 }
 
 TagListLoading.defaultProps = {

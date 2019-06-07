@@ -5,12 +5,12 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_BASE, ISSUE_ADDR } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Icon404,
   Wrapper,
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:NotFound:index')
+const log = buildLog('c:NotFound:index')
 
 const DefaultDesc = () => (
   <React.Fragment>
@@ -68,8 +68,8 @@ const NotFound = ({ msg, desc }) => (
 
 NotFound.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  msg: PropTypes.string,
-  desc: PropTypes.string,
+  msg: T.string,
+  desc: T.string,
 }
 
 NotFound.defaultProps = {

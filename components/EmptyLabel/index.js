@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, Icon, Title } from './styles'
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:EmptyLabel:index')
+const log = buildLog('c:EmptyLabel:index')
 
 const EmptyLabel = ({ text, iconSrc, size }) => (
   <Wrapper>
@@ -22,9 +22,9 @@ const EmptyLabel = ({ text, iconSrc, size }) => (
 )
 
 EmptyLabel.propTypes = {
-  iconSrc: PropTypes.string,
-  text: PropTypes.string,
-  size: PropTypes.oneOf(['default', 'large']),
+  iconSrc: T.string,
+  text: T.string,
+  size: T.oneOf(['default', 'large']),
 }
 
 EmptyLabel.defaultProps = {

@@ -34,12 +34,12 @@ if (
  * @param {String} namespace Usually a component name.
  * @example
  * import { makeDebugger } from 'src/lib'
- * const debug = makeDebugger('namespace')
+ * const log = makeDebugger('namespace')
  *
  * debug('Some message')
  * @returns {Function}
  */
-export const makeDebugger = namespace => _debug(`${namespace}`)
+export const buildLog = namespace => _debug(`${namespace}`)
 
 /**
  * Default debugger, simple log.
@@ -47,4 +47,4 @@ export const makeDebugger = namespace => _debug(`${namespace}`)
  * import { debug } from 'src/lib'
  * debug('Some message')
  */
-export const debug = makeDebugger('log')
+export const log = buildLog('log')

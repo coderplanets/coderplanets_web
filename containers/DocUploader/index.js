@@ -5,12 +5,12 @@
  */
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@config'
 
-import { makeDebugger, storePlug, uid, Global } from '@utils'
+import { buildLog, storePlug, uid, Global } from '@utils'
 import { Wrapper, InputFile } from './styles'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:DocUploader')
+const log = buildLog('C:DocUploader')
 
 class DocUploaderContainer extends React.Component {
   /*
@@ -57,7 +57,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    debug('componentWillUnmount')
+    log('componentWillUnmount')
     /* eslint-disable */
     delete this.state.ossClient
     /* eslint-enable */
@@ -69,7 +69,7 @@ class DocUploaderContainer extends React.Component {
   }
 
   initPasteWatcher() {
-    debug('initPasteWatcher')
+    log('initPasteWatcher')
     Global.addEventListener('paste', this.handlePaste.bind(this), true)
   }
 
@@ -171,18 +171,18 @@ class DocUploaderContainer extends React.Component {
 }
 
 DocUploaderContainer.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  onUploadStart: PropTypes.func,
-  onUploadError: PropTypes.func,
-  onUploadDone: PropTypes.func,
-  docUploader: PropTypes.any.isRequired,
-  pasteImage: PropTypes.bool,
-  fileType: PropTypes.oneOf(['image/*']),
+  children: T.oneOfType([T.string, T.node]).isRequired,
+  onUploadStart: T.func,
+  onUploadError: T.func,
+  onUploadDone: T.func,
+  docUploader: T.any.isRequired,
+  pasteImage: T.bool,
+  fileType: T.oneOf(['image/*']),
 }
 
 DocUploaderContainer.defaultProps = {
-  onUploadStart: debug,
-  onUploadDone: debug,
+  onUploadStart: log,
+  onUploadDone: log,
   onUploadError,
   pasteImage: true,
   fileType: 'image/*',

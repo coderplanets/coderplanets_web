@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { cutFrom } from '@utils'
 import { Wrapper, Avatar, Brief, Nickname, Bio } from './styles/user_info'
@@ -15,11 +15,11 @@ const UserInfo = ({ user }) => (
 )
 
 UserInfo.propTypes = {
-  user: PropTypes.shape({
-    id: PropTypes.string,
-    avatar: PropTypes.string,
-    nickname: PropTypes.string,
-    bio: PropTypes.string,
+  user: T.shape({
+    id: T.string,
+    avatar: T.string,
+    nickname: T.string,
+    bio: T.string,
   }).isRequired,
 }
 

@@ -5,23 +5,23 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:DotDivider:index')
+const log = buildLog('c:DotDivider:index')
 
 const DotDivider = ({ radius, space, className }) => (
   <Wrapper radius={radius} space={space} className={className} />
 )
 
 DotDivider.propTypes = {
-  radius: PropTypes.string,
-  space: PropTypes.string,
+  radius: T.string,
+  space: T.string,
   // just for clean styled-component warnings
-  className: PropTypes.string,
+  className: T.string,
 }
 
 DotDivider.defaultProps = {

@@ -4,18 +4,18 @@
  *
  */
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import Popover from '@components/Popover'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 import AdderPanel from './AdderPanel'
 
 import { Wrapper, AddText } from './styles'
 import { useInit, adderOnConfirm, onPopoverVisible } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:AvatarAdder')
+const log = buildLog('C:AvatarAdder')
 
 const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
   useInit(avatarAdder)
@@ -50,12 +50,12 @@ const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
 }
 
 AvatarAdderContainer.propTypes = {
-  avatarAdder: PropTypes.object.isRequired,
-  onConfirm: PropTypes.func,
+  avatarAdder: T.object.isRequired,
+  onConfirm: T.func,
 }
 
 AvatarAdderContainer.defaultProps = {
-  onConfirm: debug,
+  onConfirm: log,
 }
 
 export default connectStore(AvatarAdderContainer)

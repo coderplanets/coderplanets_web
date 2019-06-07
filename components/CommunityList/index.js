@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import Popover from '@components/Popover'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:CommunityList:index')
+const log = buildLog('c:CommunityList:index')
 
 const CommunityList = ({ items, size, bottom, emptyHint }) => {
   if (R.isEmpty(items)) {
@@ -57,17 +57,17 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
 }
 
 CommunityList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      raw: PropTypes.string,
-      title: PropTypes.string,
-      logo: PropTypes.string,
+  items: T.arrayOf(
+    T.shape({
+      id: T.string,
+      raw: T.string,
+      title: T.string,
+      logo: T.string,
     })
   ),
-  size: PropTypes.string,
-  bottom: PropTypes.string,
-  emptyHint: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  size: T.string,
+  bottom: T.string,
+  emptyHint: T.oneOfType([T.string, T.node]),
 }
 
 CommunityList.defaultProps = {

@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { Button, Icon } from 'antd'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import { Space } from '../BaseStyled'
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ArticleEditFooter:index')
+const log = buildLog('c:ArticleEditFooter:index')
 
 const DoingText = ({ isEdit }) => {
   return isEdit ? (
@@ -57,19 +57,19 @@ const ArticleEditFooter = ({ isEdit, publishing, onCancle, onPublish }) => (
 )
 
 ArticleEditFooter.propTypes = {
-  isEdit: PropTypes.bool,
-  publishing: PropTypes.bool,
+  isEdit: T.bool,
+  publishing: T.bool,
 
-  onCancle: PropTypes.func,
-  onPublish: PropTypes.func,
+  onCancle: T.func,
+  onPublish: T.func,
 }
 
 ArticleEditFooter.defaultProps = {
   isEdit: false,
   publishing: false,
 
-  onCancle: debug,
-  onPublish: debug,
+  onCancle: log,
+  onPublish: log,
 }
 
 export default React.memo(ArticleEditFooter)

@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Pagi from '@components/Pagi'
 import CommunityCards from './CommunityCards'
@@ -15,7 +15,7 @@ import { Wrapper } from './styles'
 import { useInit, pageOnChange } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:CommunitiesContent')
+const log = buildLog('C:CommunitiesContent')
 
 const CommunitiesContentContainer = ({ communitiesContent }) => {
   useInit(communitiesContent)

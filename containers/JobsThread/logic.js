@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -30,7 +30,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:JobsThread')
+const log = buildLog('L:JobsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -60,7 +60,7 @@ export const loadJobs = (page = 1) => {
   // scrollIntoEle(TYPE.APP_HEADER_ID)
   pageGoTop()
 
-  debug('######## loadJobs args: ', args)
+  log('######## loadJobs args: ', args)
   sr71$.query(S.pagedJobs, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -127,7 +127,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedJobs'),
     action: ({ pagedJobs }) => {
-      debug('pagedJobs --> ', pagedJobs)
+      log('pagedJobs --> ', pagedJobs)
       let curView = TYPE.RESULT
       if (pagedJobs.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -187,12 +187,12 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
         if (store.curView === TYPE.LOADING || !sub$) return false
-        debug('===== do uninit')
+        log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

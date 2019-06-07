@@ -4,10 +4,10 @@
  *
  */
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { connectStore, makeDebugger, THREAD } from '@utils'
+import { connectStore, buildLog, THREAD } from '@utils'
 
 import FavoritesCats from '@containers/FavoritesCats'
 import Maybe from '@components/Maybe'
@@ -23,7 +23,7 @@ import { Wrapper, ReactionWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:ArticleViewerHeader')
+const log = buildLog('C:ArticleViewerHeader')
 
 const ArticleViewerHeaderContainer = ({
   articleViewerHeader,
@@ -73,14 +73,14 @@ const ArticleViewerHeaderContainer = ({
 }
 
 ArticleViewerHeaderContainer.propTypes = {
-  articleViewerHeader: PropTypes.any.isRequired,
-  thread: PropTypes.oneOf(R.values(THREAD)),
-  author: PropTypes.object,
-  company: PropTypes.any,
-  data: PropTypes.any,
-  showFavorite: PropTypes.bool,
-  showLastSync: PropTypes.bool,
-  showStar: PropTypes.bool,
+  articleViewerHeader: T.any.isRequired,
+  thread: T.oneOf(R.values(THREAD)),
+  author: T.object,
+  company: T.any,
+  data: T.any,
+  showFavorite: T.bool,
+  showLastSync: T.bool,
+  showStar: T.bool,
 }
 
 ArticleViewerHeaderContainer.defaultProps = {

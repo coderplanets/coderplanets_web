@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 import { withTheme } from 'styled-components'
 
 import ContentLoader from 'react-content-loader'
 
-import { makeDebugger, uid } from '@utils'
+import { buildLog, uid } from '@utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:LoadingEffects:index')
+const log = buildLog('c:LoadingEffects:index')
 
 const LoadingBlock = ({ theme }) => (
   <CheatsheetCard>
@@ -42,8 +42,8 @@ const CheatSheetLoading = ({ column, theme }) => (
 )
 
 CheatSheetLoading.propTypes = {
-  column: PropTypes.number,
-  theme: PropTypes.object.isRequired,
+  column: T.number,
+  theme: T.object.isRequired,
 }
 
 CheatSheetLoading.defaultProps = {

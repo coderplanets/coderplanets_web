@@ -6,10 +6,10 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, makeDebugger, TYPE } from '@utils'
+import { markStates, buildLog, TYPE } from '@utils'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:ArticleBanner')
+const log = buildLog('S:ArticleBanner')
 
 const ArticleBanner = t
   .model('ArticleBanner', {

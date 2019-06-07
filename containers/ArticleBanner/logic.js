@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   dispatchEvent,
   asyncRes,
@@ -25,7 +25,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:ArticleBanner')
+const log = buildLog('L:ArticleBanner')
 
 export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()
@@ -33,7 +33,7 @@ export const onReaction = (action, userDid, { id }) => {
   const thread = store.activeThread
 
   store.markState({ action })
-  /* debug('onReaction thread: ', thread) */
+  /* log('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
     return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
@@ -151,11 +151,11 @@ export const useInit = _store => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       return () => {
-        // debug('effect uninit')
+        // log('effect uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

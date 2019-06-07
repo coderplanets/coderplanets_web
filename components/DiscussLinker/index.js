@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import {
   Wrapper,
   Header,
@@ -24,7 +24,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:DiscussLinker:index')
+const log = buildLog('c:DiscussLinker:index')
 
 const DiscussLinker = ({ title, desc, addr }) => (
   <Wrapper>
@@ -49,9 +49,9 @@ const DiscussLinker = ({ title, desc, addr }) => (
 )
 
 DiscussLinker.propTypes = {
-  title: PropTypes.string,
-  desc: PropTypes.string,
-  addr: PropTypes.string.isRequired,
+  title: T.string,
+  desc: T.string,
+  addr: T.string.isRequired,
 }
 
 DiscussLinker.defaultProps = {

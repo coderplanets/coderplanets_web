@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import useNetwork from 'react-use/lib/useNetwork'
 
 import { ICON_CMD } from '@config'
@@ -37,9 +37,9 @@ const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
 }
 
 GlobalLayoutContainer.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
-  globalLayout: PropTypes.object.isRequired,
-  noSidebar: PropTypes.bool,
+  children: T.arrayOf(T.element),
+  globalLayout: T.object.isRequired,
+  noSidebar: T.bool,
 }
 
 GlobalLayoutContainer.defaultProps = {

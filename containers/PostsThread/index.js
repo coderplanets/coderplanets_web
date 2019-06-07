@@ -9,7 +9,7 @@ import { Waypoint } from 'react-waypoint'
 import R from 'ramda'
 import { Affix } from 'antd'
 
-import { connectStore, makeDebugger, ROUTE, THREAD } from '@utils'
+import { connectStore, buildLog, ROUTE, THREAD } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'
@@ -46,7 +46,7 @@ import {
 } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:PostsThread')
+const log = buildLog('C:PostsThread')
 
 const LabelText = {
   radar: '采集信息',

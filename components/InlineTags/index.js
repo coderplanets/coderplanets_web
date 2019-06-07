@@ -5,16 +5,16 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, sortByColor, Trans } from '@utils'
+import { buildLog, sortByColor, Trans } from '@utils'
 import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
 
 import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:InlineTags:index')
+const log = buildLog('c:InlineTags:index')
 
 const FullList = ({ data }) => (
   <Wrapper>
@@ -63,13 +63,13 @@ const InlineTags = ({ data, max }) => {
 
 InlineTags.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      color: PropTypes.string,
+  data: T.arrayOf(
+    T.shape({
+      title: T.string,
+      color: T.string,
     })
   ),
-  max: PropTypes.number,
+  max: T.number,
 }
 
 InlineTags.defaultProps = {

@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { connectStore, makeDebugger } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
 import Header from './Header'
@@ -19,7 +19,7 @@ import { Wrapper, Title, Icon } from './styles'
 import { useInit, toggleModal } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:Informer')
+const log = buildLog('C:Informer')
 
 const InformerContainer = ({ informer, title, children }) => {
   useInit(informer)
@@ -54,9 +54,9 @@ const InformerContainer = ({ informer, title, children }) => {
 
 InformerContainer.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  title: PropTypes.string,
-  informer: PropTypes.any.isRequired,
-  children: PropTypes.node,
+  title: T.string,
+  informer: T.any.isRequired,
+  children: T.node,
 }
 
 InformerContainer.defaultProps = {

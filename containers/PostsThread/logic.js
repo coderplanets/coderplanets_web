@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import {
   asyncRes,
   asyncErr,
-  makeDebugger,
+  buildLog,
   dispatchEvent,
   EVENT,
   ERR,
@@ -35,7 +35,7 @@ let store = null
 let sub$ = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:PostsThread')
+const log = buildLog('L:PostsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
@@ -71,14 +71,14 @@ export const loadPosts = (page = 1) => {
   // scrollIntoEle(TYPE.APP_HEADER_ID)
   pageGoTop()
 
-  debug('args: ', args)
+  log('args: ', args)
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
 }
 
 export const onFilterSelect = option => {
   store.selectFilter(option)
-  debug('cur filter: ', store.filtersData)
+  log('cur filter: ', store.filtersData)
   store.markRoute({ ...store.filtersData })
   loadPosts()
 }
@@ -96,7 +96,7 @@ export const onUserSelect = user =>
   })
 
 export const onPreview = data => {
-  // debug('onPreview publish post: ', data)
+  // log('onPreview publish post: ', data)
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
@@ -130,9 +130,9 @@ export const onC11NChange = option => {
 }
 
 export const onAdsClose = () => {
-  debug('onAdsClose')
+  log('onAdsClose')
   if (store.isMemberOf('seniorMember') || store.isMemberOf('sponsorMember')) {
-    return debug('do custom ads')
+    return log('do custom ads')
   }
 
   store.upgradeHepler()
@@ -165,7 +165,7 @@ const DataSolver = [
   {
     match: asyncRes('pagedPosts'),
     action: ({ pagedPosts }) => {
-      debug('pagedPosts: ', pagedPosts)
+      log('pagedPosts: ', pagedPosts)
       let curView = TYPE.RESULT
       if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
@@ -247,7 +247,7 @@ export const useInit = _store =>
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
       /*
@@ -258,7 +258,7 @@ export const useInit = _store =>
 
       return () => {
         if (store.curView === TYPE.LOADING || !sub$) return false
-        // debug('===== do uninit')
+        // log('===== do uninit')
         sr71$.stop()
         sub$.unsubscribe()
       }

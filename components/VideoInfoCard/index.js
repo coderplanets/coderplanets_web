@@ -5,12 +5,12 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@utils'
 import DotDivider from '@components/DotDivider'
 import VideoSourceInfo from '@components/VideoSourceInfo'
 
@@ -31,7 +31,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:VideoInfoCard:index')
+const log = buildLog('c:VideoInfoCard:index')
 
 const VideoInfoCard = ({ data }) => {
   const {
@@ -81,14 +81,14 @@ const VideoInfoCard = ({ data }) => {
 }
 
 VideoInfoCard.propTypes = {
-  data: PropTypes.shape({
-    title: PropTypes.string,
-    desc: PropTypes.string,
-    originalAuthor: PropTypes.string,
-    originalAuthorLink: PropTypes.string,
-    publishAt: PropTypes.string,
-    duration: PropTypes.string,
-    source: PropTypes.string,
+  data: T.shape({
+    title: T.string,
+    desc: T.string,
+    originalAuthor: T.string,
+    originalAuthorLink: T.string,
+    publishAt: T.string,
+    duration: T.string,
+    source: T.string,
   }).isRequired,
 }
 

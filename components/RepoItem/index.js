@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, cutFrom, C11N } from '@utils'
+import { buildLog, cutFrom, C11N } from '@utils'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import Header from './Header'
@@ -18,7 +18,7 @@ import { Wrapper, BodyDigest } from './styles'
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:RepoItem:index')
+const log = buildLog('c:RepoItem:index')
 
 const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
   <Wrapper
@@ -41,37 +41,37 @@ const RepoItem = ({ entry, active, onPreview, accountInfo }) => (
 )
 
 RepoItem.propTypes = {
-  active: PropTypes.object,
+  active: T.object,
 
-  entry: PropTypes.shape({
-    title: PropTypes.string,
-    desc: PropTypes.string,
-    views: PropTypes.number,
+  entry: T.shape({
+    title: T.string,
+    desc: T.string,
+    views: T.number,
 
-    author: PropTypes.shape({
-      nickname: PropTypes.string,
-      avatar: PropTypes.string,
+    author: T.shape({
+      nickname: T.string,
+      avatar: T.string,
     }),
   }).isRequired,
 
-  accountInfo: PropTypes.shape({
-    isLogin: PropTypes.bool,
-    customization: PropTypes.shape({
-      contentsLayout: PropTypes.oneOf([C11N.DIGEST, C11N.LIST]),
-      markViewed: PropTypes.bool,
-      contentHover: PropTypes.bool,
-      displayDensity: PropTypes.oneOf(['20', '25', '30']),
+  accountInfo: T.shape({
+    isLogin: T.bool,
+    customization: T.shape({
+      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
+      markViewed: T.bool,
+      contentHover: T.bool,
+      displayDensity: T.oneOf(['20', '25', '30']),
     }),
   }),
-  onPreview: PropTypes.func,
+  onPreview: T.func,
 }
 
 RepoItem.defaultProps = {
-  onPreview: debug,
+  onPreview: log,
   active: {},
   accountInfo: {
     isLogin: false,
-    customization: PropTypes.shape({
+    customization: T.shape({
       contentsLayout: C11N.DIGEST,
       contentHover: true,
       markViewed: true,

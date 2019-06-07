@@ -5,11 +5,11 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
 
@@ -28,7 +28,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ErrorPage:index')
+const log = buildLog('c:ErrorPage:index')
 
 const ErrorPage = ({ errorCode, page, target }) => (
   <Container>
@@ -55,9 +55,9 @@ const ErrorPage = ({ errorCode, page, target }) => (
 )
 
 ErrorPage.propTypes = {
-  errorCode: PropTypes.number,
-  page: PropTypes.string,
-  target: PropTypes.string,
+  errorCode: T.number,
+  page: T.string,
+  target: T.string,
 }
 
 ErrorPage.defaultProps = {

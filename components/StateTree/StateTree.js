@@ -5,15 +5,15 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import ReactJson from 'react-json-view'
 import { withTheme } from 'styled-components'
 
-/* import PropTypes from 'prop-types' */
+/* import T from 'prop-types' */
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:StateTree:index')
+const log = buildLog('c:StateTree:index')
 
 // see all the options in:
 // https://mac-s-g.github.io/react-json-view/demo/dist/
@@ -45,8 +45,8 @@ const StateTree = ({ json, theme }) => (
 )
 
 StateTree.propTypes = {
-  json: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  json: T.object.isRequired,
+  theme: T.object.isRequired,
 }
 
 StateTree.defaultProps = {}

@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger } from '@utils'
+import { buildLog } from '@utils'
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
@@ -28,7 +28,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:GithubRepoPage:index')
+const log = buildLog('c:GithubRepoPage:index')
 
 const GithubRepoPage = ({
   repo,
@@ -86,26 +86,26 @@ const GithubRepoPage = ({
 )
 
 GithubRepoPage.propTypes = {
-  repo: PropTypes.object.isRequired,
-  onPublish: PropTypes.func,
-  onSearch: PropTypes.func,
-  onSync: PropTypes.func,
+  repo: T.object.isRequired,
+  onPublish: T.func,
+  onSearch: T.func,
+  onSync: T.func,
 
-  showPublishBtn: PropTypes.bool,
-  showSearchBtn: PropTypes.bool,
-  showSyncBtn: PropTypes.bool,
+  showPublishBtn: T.bool,
+  showSearchBtn: T.bool,
+  showSyncBtn: T.bool,
 
-  viewerHeader: PropTypes.node,
-  bodyHeader: PropTypes.node,
+  viewerHeader: T.node,
+  bodyHeader: T.node,
 
-  publishing: PropTypes.bool,
-  readOnly: PropTypes.bool,
+  publishing: T.bool,
+  readOnly: T.bool,
 }
 
 GithubRepoPage.defaultProps = {
-  onPublish: debug,
-  onSearch: debug,
-  onSync: debug,
+  onPublish: log,
+  onSearch: log,
+  onSync: log,
 
   showPublishBtn: false,
   showSearchBtn: false,

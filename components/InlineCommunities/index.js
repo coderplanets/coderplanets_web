@@ -5,9 +5,9 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
-import { makeDebugger, Trans } from '@utils'
+import { buildLog, Trans } from '@utils'
 import Popover from '@components/Popover'
 import Maybe from '@components/Maybe'
 
@@ -21,7 +21,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:InlineCommunities:index')
+const log = buildLog('c:InlineCommunities:index')
 
 const FullList = ({ data }) => (
   <Wrapper>
@@ -77,15 +77,15 @@ const InlineCommunities = ({ data, show, max }) => {
 }
 
 InlineCommunities.propTypes = {
-  show: PropTypes.bool,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      logo: PropTypes.string,
-      raw: PropTypes.string,
+  show: T.bool,
+  data: T.arrayOf(
+    T.shape({
+      title: T.string,
+      logo: T.string,
+      raw: T.string,
     })
   ),
-  max: PropTypes.number,
+  max: T.number,
 }
 
 InlineCommunities.defaultProps = {

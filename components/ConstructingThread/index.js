@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 
 import { ICON_BASE, ISSUE_ADDR } from '@config'
-import { makeDebugger, Trans } from '@utils'
+import { buildLog, Trans } from '@utils'
 import {
   Wrapper,
   ConstructIcon,
@@ -20,7 +20,7 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('c:ConstructingThread:index')
+const log = buildLog('c:ConstructingThread:index')
 
 const ISSUE_NUM = {
   group: '330',
@@ -54,7 +54,7 @@ const ConstructingThread = ({ thread }) => (
 
 ConstructingThread.propTypes = {
   // https://www.npmjs.com/package/prop-types
-  thread: PropTypes.string.isRequired,
+  thread: T.string.isRequired,
 }
 
 ConstructingThread.defaultProps = {}

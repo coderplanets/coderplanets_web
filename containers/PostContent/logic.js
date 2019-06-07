@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import {
-  makeDebugger,
+  buildLog,
   $solver,
   asyncRes,
   asyncErr,
@@ -22,7 +22,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:PostContent')
+const log = buildLog('L:PostContent')
 
 const loadPost = () => {
   const { id } = store.viewingData
@@ -68,7 +68,7 @@ export const useInit = (_store, attachment) => {
   useEffect(
     () => {
       store = _store
-      // debug('effect init')
+      // log('effect init')
 
       sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
       return () => {

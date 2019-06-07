@@ -13,7 +13,7 @@ import {
   merge,
 } from 'rxjs/operators'
 
-import { makeDebugger, isEmptyValue, EVENT } from '@utils'
+import { buildLog, isEmptyValue, EVENT } from '@utils'
 import {
   searchablePrefix,
   startWithSpecialPrefix,
@@ -22,7 +22,7 @@ import {
 } from './advisor'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('L:Doraemon:pocket')
+const log = buildLog('L:Doraemon:pocket')
 
 export default class Pockect {
   constructor(store) {
@@ -67,14 +67,14 @@ export default class Pockect {
   }
 
   query(term) {
-    // debug('inputForOtherUse: ', this.store.inputForOtherUse)
+    // log('inputForOtherUse: ', this.store.inputForOtherUse)
     if (!this.store.inputForOtherUse) {
       this.input$.next(term)
     }
   }
 
   stop() {
-    //    debug('stop ...')
+    //    log('stop ...')
     this.stop$.next()
   }
 
