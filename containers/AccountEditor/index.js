@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { Button, Icon } from 'antd'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
@@ -110,9 +110,7 @@ const AccountEditorContainer = ({ accountEditor }) => {
           </Button>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {updating ? (
-            <Button type="primary">
-              <Icon type="loading" /> 保存中
-            </Button>
+            <Button type="primary">保存中 ...</Button>
           ) : (
             <Button type="primary" onClick={updateConfirm}>
               保存

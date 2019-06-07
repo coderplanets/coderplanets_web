@@ -1,5 +1,4 @@
 import React from 'react'
-import { Icon } from 'antd'
 
 import { ICON_CMD } from '@config'
 
@@ -20,6 +19,8 @@ import {
   OptionTitle,
   FaceValueWrapper,
   FaceValueNum,
+  PaymentIcon,
+  QuestionIcon,
 } from './styles/payment_sidebar'
 
 import { sidebarViewOnChange, paymentMethodOnChange } from './logic'
@@ -47,7 +48,7 @@ const PaymentSidebar = ({
             active={paymentMethod === PAYMENT_METHOD.ALIPAY}
             display={paymentMethod === PAYMENT_METHOD.ALIPAY ? 'block' : 'none'}
           >
-            <Icon type="alipay-circle" />
+            <PaymentIcon src={`${ICON_CMD}/alipay-color.svg`} />
             <OptionTitle>支付宝</OptionTitle>
           </AliWrapper>
           <Holder margin="20px" />
@@ -55,7 +56,7 @@ const PaymentSidebar = ({
             active={paymentMethod === PAYMENT_METHOD.WECHAT}
             display={paymentMethod === PAYMENT_METHOD.WECHAT ? 'block' : 'none'}
           >
-            <Icon type="wechat" />
+            <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} /> 微信支付
             <OptionTitle>微信支付</OptionTitle>
           </WeixinWrapper>
 
@@ -74,19 +75,19 @@ const PaymentSidebar = ({
             active={paymentMethod === PAYMENT_METHOD.ALIPAY}
             onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.ALIPAY)}
           >
-            <Icon type="alipay-circle" />
+            <PaymentIcon src={`${ICON_CMD}/alipay-color.svg`} />
             <OptionTitle>支付宝</OptionTitle>
           </AliWrapper>
           <WeixinWrapper
             active={paymentMethod === PAYMENT_METHOD.WECHAT}
             onClick={paymentMethodOnChange.bind(this, PAYMENT_METHOD.WECHAT)}
           >
-            <Icon type="wechat" />
+            <PaymentIcon src={`${ICON_CMD}/weichat-color.svg`} />
             <OptionTitle>微信支付</OptionTitle>
           </WeixinWrapper>
           <Holder />
           <QuestionWrapper onClick={sidebarViewOnChange.bind(this, 'question')}>
-            <Icon type="question-circle" />
+            <QuestionIcon src={`${ICON_CMD}/question-mark.svg`} />
             <OptionTitle>常见问题</OptionTitle>
           </QuestionWrapper>
         </SelectorWrapper>

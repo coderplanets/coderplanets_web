@@ -1,10 +1,11 @@
 import React from 'react'
-import { Icon } from 'antd'
 
-// import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@config'
+
 import {
   Wrapper,
   BackBtnWrapper,
+  BackIcon,
   BackTitle,
   Holder,
 } from './styles/question_sidebar'
@@ -14,7 +15,7 @@ import { sidebarViewOnChange } from './logic'
 const QuestionSidebar = () => (
   <Wrapper>
     <BackBtnWrapper onClick={sidebarViewOnChange.bind(this, 'pay')}>
-      <Icon type="arrow-left" />
+      <BackIcon src={`${ICON_CMD}/arrow-back.svg`} />
       <BackTitle>返回付款</BackTitle>
     </BackBtnWrapper>
     <Holder />

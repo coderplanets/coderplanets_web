@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from 'antd'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
 
@@ -68,7 +68,7 @@ const EditorFooter = ({
         </Button>
       ) : (
         <Button type="primary" size="small">
-          <Icon type="loading" />提<Space right="5px" />交
+          提<Space right="5px" />交 <Space right="5px" /> ...
         </Button>
       )}
     </InputSubmit>

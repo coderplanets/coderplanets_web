@@ -49,6 +49,7 @@ export const TitleDivider = styled.div`
   opacity: 0.5;
 `
 const OptionWrapper = styled.div`
+  ${cs.flex('align-center')};
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
@@ -56,16 +57,17 @@ const OptionWrapper = styled.div`
 `
 export const WeixinWrapper = styled(OptionWrapper)`
   color: ${({ active }) => (active ? '#3eb64b' : theme('thread.articleTitle'))};
-  display: ${({ display }) => display || 'block'};
+  display: ${({ display }) => display || 'flex'};
 `
 export const AliWrapper = styled(OptionWrapper)`
   color: ${({ active }) => (active ? '#42abe1' : theme('thread.articleTitle'))};
-  display: ${({ display }) => display || 'block'};
+  display: ${({ display }) => display || 'flex'};
 `
 export const Holder = styled.div`
   margin-top: ${({ margin }) => margin || '80px'};
 `
 export const QuestionWrapper = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   &:hover {
     color: ${theme('thread.articeTitle')};
@@ -81,4 +83,12 @@ export const FaceValueWrapper = styled.div`
 export const FaceValueNum = styled.span`
   color: orange;
   font-weight: bold;
+`
+export const PaymentIcon = styled(Img)`
+  width: 16px;
+  height: 16px;
+  display: block;
+`
+export const QuestionIcon = styled(PaymentIcon)`
+  fill: ${theme('thread.articleDigest')};
 `

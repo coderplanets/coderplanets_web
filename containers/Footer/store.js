@@ -25,6 +25,9 @@ const Footer = t
     get curRoute() {
       return self.root.curRoute
     },
+    get accountInfo() {
+      return self.root.accountInfo
+    },
     get curView() {
       const { mainPath, subPath } = self.root.curRoute
       if (

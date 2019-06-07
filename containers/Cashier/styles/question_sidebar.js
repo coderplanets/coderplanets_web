@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@components/Img'
+import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   padding: 10px;
 `
 export const BackBtnWrapper = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('banner.title')};
   font-size: 1rem;
 
@@ -21,4 +22,10 @@ export const BackTitle = styled.span`
 `
 export const Holder = styled.div`
   margin-top: 100px;
+`
+export const BackIcon = styled(Img)`
+  fill: ${theme('banner.title')};
+  width: 18px;
+  height: 18px;
+  display: block;
 `
