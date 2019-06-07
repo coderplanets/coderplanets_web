@@ -1,8 +1,9 @@
 import React from 'react'
-import { Button, Icon, Tooltip } from 'antd'
+import { Button, Tooltip } from 'antd'
 
-// import { ICON_CMD } from '@config'
-import { SubscribedBox } from './styles'
+import { ICON_CMD } from '@config'
+
+import { SubscribedBox, BtnWrapper, PrefixIcon } from './styles'
 import { subscribe, unSubscribe } from './logic'
 
 const AlreadySubedBtn = ({ community }) => (
@@ -14,13 +15,17 @@ const AlreadySubedBtn = ({ community }) => (
         ghost
         onClick={unSubscribe.bind(this, community.id)}
       >
-        <Icon type="check" />
-        已关注
+        <BtnWrapper>
+          <PrefixIcon src={`${ICON_CMD}/check2.svg`} primary />
+          <div>已关注</div>
+        </BtnWrapper>
       </Button>
     ) : (
       <SubscribedBox>
-        <Icon type="check" />
-        &nbsp;已关注
+        <BtnWrapper>
+          <PrefixIcon src={`${ICON_CMD}/check2.svg`} primary />
+          <div>&nbsp;已关注</div>
+        </BtnWrapper>
       </SubscribedBox>
     )}
   </Tooltip>
@@ -32,11 +37,9 @@ const SubscribeBtn = ({
 }) => {
   if (subscribing && community.id === subscribingId) {
     return (
-      <div>
-        <Button size="small" type="primary">
-          <Icon type="loading" /> 关注
-        </Button>
-      </div>
+      <Button size="small" type="primary">
+        关注 ..
+      </Button>
     )
   }
   return (
@@ -49,8 +52,10 @@ const SubscribeBtn = ({
           type="primary"
           onClick={subscribe.bind(this, community.id)}
         >
-          <Icon type="plus" />
-          关注
+          <BtnWrapper>
+            <PrefixIcon src={`${ICON_CMD}/plus.svg`} />
+            <div>关注</div>
+          </BtnWrapper>
         </Button>
       )}
     </div>

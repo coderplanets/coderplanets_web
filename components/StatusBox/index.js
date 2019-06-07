@@ -8,8 +8,8 @@ import React from 'react'
 import R from 'ramda'
 import T from 'prop-types'
 
-import { Icon } from 'antd'
 import { buildLog } from '@utils'
+
 import {
   Wrapper,
   Msg,
@@ -17,8 +17,6 @@ import {
   ErrorMsgBox,
   WarningMsgBox,
   ErrorArrayWrapper,
-  // ErrorMsg,
-  // ErrorKey,
   ErrorDetail,
 } from './styles'
 
@@ -56,7 +54,6 @@ const ErrorMessages = ({ show, msg }) => {
   if (R.isEmpty(msg)) {
     return (
       <ErrorMsgBox show={show}>
-        <Icon type="close-circle" />
         <Msg>出错了</Msg>
       </ErrorMsgBox>
     )
@@ -85,11 +82,9 @@ const StatusBox = ({ success, error, warn, msg }) => {
   return (
     <Wrapper>
       <SuccessMsgBox show={success}>
-        <Icon type="check-circle" />
         <Msg>{hint}</Msg>
       </SuccessMsgBox>
       <WarningMsgBox show={warn}>
-        <Icon type="exclamation-circle" />
         <Msg>{hint}</Msg>
       </WarningMsgBox>
       <ErrorMessages show={error} msg={msg} />
