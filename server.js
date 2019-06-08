@@ -54,10 +54,6 @@ app.prepare().then(() => {
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
-  server.get(HOME_PAGE, (req, res) =>
-    renderAndCache(req, res, '/home/posts', req.query)
-  )
-
   server.get('/oauth/', (req, res) =>
     renderAndCache(req, res, '/oauth', req.query)
   )
@@ -102,7 +98,6 @@ app.prepare().then(() => {
   )
 
   server.get('/:community/:thread', (req, res) => {
-    console.log('default community route')
     if (
       R.has('preview', req.query) &&
       R.has('id', req.query) &&
