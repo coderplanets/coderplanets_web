@@ -1,11 +1,11 @@
 const dev = process.env.NODE_ENV !== 'production'
-// const goal = process.env.NODE_ENV
 
 const next = require('next')
 const express = require('express')
 
 const cookieParser = require('cookie-parser')
 const uuidv4 = require('uuid/v4')
+const responseTime = require('response-time')
 
 const LRUCache = require('lru-cache')
 const helmet = require('helmet')
@@ -19,7 +19,6 @@ const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
 const SERVE_PORT = process.env.SERVE_PORT || 3000
 const HOME_PAGE = '/home/posts'
-/* const HOME_PAGE = '/home' */
 
 // SSR for mobx
 mobxReact.useStaticRendering(true)
@@ -28,7 +27,7 @@ mobxReact.useStaticRendering(true)
 const ssrCache = new LRUCache({
   max: 1000, // cache item count
   // maxAge: 1000 * 60 * 60, // 1hour
-  maxAge: 1000 * 10, // 30 ses
+  maxAge: 1000 * 30, // 30 ses
 })
 
 app.prepare().then(() => {
@@ -38,6 +37,7 @@ app.prepare().then(() => {
 
   server.use(Sentry.Handlers.requestHandler())
   server.use(cookieParser())
+  server.use(responseTime())
   server.use(sessionCookie)
   server.get(/\.map$/, sourcemapsForSentryOnly(process.env.SENTRY_TOKEN))
 
@@ -53,6 +53,7 @@ app.prepare().then(() => {
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
+
   server.get(HOME_PAGE, (req, res) =>
     renderAndCache(req, res, '/home/posts', req.query)
   )

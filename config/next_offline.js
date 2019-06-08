@@ -15,6 +15,10 @@ module.exports = {
           },
         },
       },
+      // {
+      // urlPattern: /^https?.*/,
+      // handler: 'networkFirst',
+      // },
       {
         urlPattern: /\.(?:css)$/,
         handler: 'StaleWhileRevalidate',
