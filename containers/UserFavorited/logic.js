@@ -1,4 +1,5 @@
 import R from 'ramda'
+import { useEffect } from 'react'
 
 import {
   buildLog,
@@ -53,7 +54,7 @@ export const loadVideos = (page = 1) =>
 export const loadRepos = (page = 1) =>
   sr71$.query(S.favoritedRepos, getQueryArgs(page))
 
-export const reload = page => {
+export const onReload = page => {
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobs(page)
@@ -72,7 +73,7 @@ export const reload = page => {
 export const changeFavoriteThread = curThread => {
   store.markState({ curThread })
   // TODO:  change route
-  reload()
+  onReload()
 }
 
 export const onPreview = data => {
@@ -109,9 +110,18 @@ const DataSolver = [
 ]
 const ErrSolver = []
 
-export const init = _store => {
-  store = _store
+// ###############################
+// init & uninit
+// ###############################
+export const useInit = _store => {
+  useEffect(() => {
+    store = _store
+    if (sub$) return false
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    return () => {
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store])
 }
