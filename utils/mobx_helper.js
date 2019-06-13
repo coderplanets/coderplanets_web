@@ -6,8 +6,8 @@ import { toJS } from 'mobx'
 import { isObject } from './validator'
 
 /*
-* select sub store from root store
-* by design, one container should only access it's own store
+ * select sub store from root store
+ * by design, one container should only access it's own store
  *
  * see: https://github.com/mobxjs/mobx-react Customizing inject
  *
@@ -65,17 +65,16 @@ const matchResolver = (resolveArray, data) => {
   console.warn('unMatched resovle data: ', data)
 }
 
-export const $solver = R.curry(
-  (dataResolver, errResolver, data) =>
-    data.error
-      ? matchResolver(errResolver, data)
-      : matchResolver(dataResolver, data)
+export const $solver = R.curry((dataResolver, errResolver, data) =>
+  data.error
+    ? matchResolver(errResolver, data)
+    : matchResolver(dataResolver, data)
 )
 
 /*
  * a helper to update mobx state
  * just like setState in normal React component
-*/
+ */
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
     throw new Error('markState: invalid sobj, exepect a object')
