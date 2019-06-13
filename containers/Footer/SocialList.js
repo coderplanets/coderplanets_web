@@ -51,6 +51,15 @@ const SocialList = () => (
         <Icon src={`${ICON_CMD}/zhihu_solid.svg`} />
       </Item>
     </a>
+    <a
+      href="https://union.zhaodao.ai/#random"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <Item>
+        <Icon src={`${ICON_CMD}/footer-makers-union.svg`} />
+      </Item>
+    </a>
   </Wrapper>
 )
 
