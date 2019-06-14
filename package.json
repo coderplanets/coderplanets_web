@@ -48,7 +48,7 @@
     "apollo-cache-inmemory": "1.5.1",
     "apollo-client": "2.5.1",
     "apollo-link": "1.2.5",
-    "apollo-link-error": "^1.0.9",
+    "apollo-link-error": "^1.1.11",
     "apollo-link-http": "1.5.14",
     "apollo-link-retry": "2.2.13",
     "chalk": "^2.4.1",
