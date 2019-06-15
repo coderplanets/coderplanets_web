@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { TYPE } from '@utils'
-
 import MailBox from '@containers/MailBox'
 import UserLister from '@containers/UserLister'
 import Cashier from '@containers/Cashier'
@@ -40,7 +38,7 @@ const Header = ({
     fixed={fixed}
     testid="header"
   >
-    <InnerWrapper id={TYPE.APP_HEADER_ID}>
+    <InnerWrapper>
       <RouterWrapper>
         {fixed ? (
           <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />

@@ -105,8 +105,9 @@ export {
 } from './ssr_helper'
 
 export {
-  pageGoTop,
   scrollIntoEle,
+  scrollToHeader,
+  scrollToTabber,
   holdPage,
   unholdPage,
   focusDoraemonBar,
