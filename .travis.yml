@@ -28,7 +28,9 @@ before_script:
 
 script:
   # - codecov
-  - nvm exec 10.10 npm run test:ci
+  - rm -rf .next
+  - nvm exec 12.4.0 npm run build.ci
+  - nvm exec 12.4.0 npm run test:ci
 
 cache:
   directories:
@@ -40,5 +42,4 @@ cache:
 notifications:
   email:
     on_failure: change
-
 # after_success: 'npm run coveralls'

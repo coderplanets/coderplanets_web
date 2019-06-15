@@ -18,6 +18,18 @@
         }]
       ]
     },
+    "ci": {
+      "presets": [
+        ["next/babel", {
+          "preset-env": {
+            "targets": {
+              "ie": "11"
+            },
+            "debug": false
+          }
+        }]
+      ]
+    },
     "test": {
       "plugins": ["inline-dotenv"]
     }

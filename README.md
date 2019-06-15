@@ -1,5 +1,6 @@
 ![CPS Brand](https://github.com/mydearxym/mastani_server/blob/dev/docs/snapshots/cps_logo_md.png?raw=true)
-=========
+
+
 [![Build Status](https://travis-ci.org/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.org/coderplanets/coderplanets_web)
 [![codecov](https://codecov.io/gh/coderplanets/coderplanets_web/branch/dev/graph/badge.svg)](https://codecov.io/gh/coderplanets/coderplanets_web)
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
@@ -7,8 +8,9 @@
 [![Powerd by](https://badgen.now.sh/badge/mastani/powered/a871c1)](https://github.com/mastani-stack)
 [![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
 
-
-## As advertising: the author is looking for a job :)
+---
+![cps_intro](https://user-images.githubusercontent.com/6184465/59546312-a1c0ac00-8f5d-11e9-85cc-db681a16ff13.jpg)
+---
 
 English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/README.zh-CN.md) 
 
