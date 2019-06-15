@@ -1,3 +1,4 @@
+import { TYPE } from './constants'
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null
@@ -7,6 +8,7 @@ const hasWindow =
 export const isBrowser = () => hasDocument && hasWindow
 const getDocument = () => (isBrowser() ? document : null)
 
+/*
 export const pageGoTop = () => {
   const safeDocument = getDocument()
   if (safeDocument) {
@@ -14,6 +16,7 @@ export const pageGoTop = () => {
     safeDocument.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Oper
   }
 }
+*/
 
 // https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
 export const scrollIntoEle = eleID => {
@@ -25,6 +28,9 @@ export const scrollIntoEle = eleID => {
     e.scrollIntoView({ behavior: 'smooth' })
   }
 }
+
+export const scrollToHeader = () => scrollIntoEle(TYPE.APP_HEADER_ID)
+export const scrollToTabber = () => scrollIntoEle(TYPE.APP_TABBER_ID)
 
 export const holdPage = () => {
   const safeDocument = getDocument()

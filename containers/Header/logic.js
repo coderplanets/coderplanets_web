@@ -13,7 +13,7 @@ import {
   $solver,
   thread2Subpath,
   atomizeValues,
-  pageGoTop,
+  scrollToHeader,
   errRescue,
   Global,
   // getParameterByName,
@@ -45,7 +45,7 @@ export const onThreadChange = thread => {
   const activeThread = thread.raw
   const subPath = thread2Subpath(activeThread)
 
-  pageGoTop()
+  scrollToHeader()
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
@@ -124,18 +124,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      checkSesstionState()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    checkSesstionState()
 
-      return () => {
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

@@ -7,7 +7,7 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog, TYPE } from '@utils'
 
 import Header from './Header'
 import { useInit } from './logic'
@@ -30,7 +30,7 @@ const HeaderContainer = ({ header }) => {
   } = header
 
   return (
-    <React.Fragment>
+    <div id={TYPE.APP_HEADER_ID}>
       {fixed && (
         <Affix onChange={log}>
           <Header
@@ -57,7 +57,7 @@ const HeaderContainer = ({ header }) => {
           curCommunity={curCommunity}
         />
       )}
-    </React.Fragment>
+    </div>
   )
 }
 

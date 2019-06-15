@@ -5,7 +5,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, THREAD, C11N, sortByIndex } from '@utils'
+import { buildLog, THREAD, C11N, sortByIndex, TYPE } from '@utils'
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 
@@ -19,13 +19,13 @@ const Tabber = ({ source, active, onChange, layout, communityRaw }) => {
   const sortedSource = sortByIndex(aliasSource)
 
   return (
-    <React.Fragment>
+    <div id={TYPE.APP_TABBER_ID}>
       {layout === C11N.DIGEST ? (
         <NormalView source={sortedSource} active={active} onChange={onChange} />
       ) : (
         <BriefView source={sortedSource} active={active} onChange={onChange} />
       )}
-    </React.Fragment>
+    </div>
   )
 }
 

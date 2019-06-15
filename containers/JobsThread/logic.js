@@ -12,8 +12,7 @@ import {
   ROUTE,
   THREAD,
   $solver,
-  // scrollIntoEle,
-  pageGoTop,
+  scrollToTabber,
   notEmpty,
   errRescue,
   // GA,
@@ -36,10 +35,10 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export const loadJobs = (page = 1) => {
+  scrollToTabber()
+
   const { curCommunity } = store
   const userHasLogin = store.isLogin
-
-  store.markState({ curView: TYPE.LOADING })
 
   const args = {
     filter: {
@@ -57,10 +56,9 @@ export const loadJobs = (page = 1) => {
   }
 
   args.filter = R.pickBy(notEmpty, args.filter)
-  // scrollIntoEle(TYPE.APP_HEADER_ID)
-  pageGoTop()
 
   log('######## loadJobs args: ', args)
+  store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedJobs, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -184,18 +182,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
