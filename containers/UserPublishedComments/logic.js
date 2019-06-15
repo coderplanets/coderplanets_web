@@ -13,7 +13,7 @@ import {
   ERR,
   pagedFilter,
   errRescue,
-  pageGoTop,
+  scrollToHeader,
 } from '@utils'
 
 import SR71 from '@utils/async/sr71'
@@ -67,7 +67,7 @@ export const threadOnChange = curThread => {
 }
 
 export const onPageChange = (page = 1) => {
-  pageGoTop()
+  scrollToHeader()
   switch (store.curThread) {
     case THREAD.JOB:
       return loadJobComments(page)
@@ -144,20 +144,17 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadPostComments()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadPostComments()
 
-      return () => {
-        // log('effect uninit')
-        if (!sub$) return false
-        // log('===== do uninit')
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (!sub$) return false
+      // log('===== do uninit')
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

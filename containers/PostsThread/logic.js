@@ -13,10 +13,10 @@ import {
   THREAD,
   COMMUNITY_SPEC_THREADS,
   $solver,
-  pageGoTop,
   notEmpty,
   thread2Subpath,
   errRescue,
+  scrollToTabber,
 } from '@utils'
 
 import SR71 from '@utils/async/sr71'
@@ -41,6 +41,8 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export const loadPosts = (page = 1) => {
+  scrollToTabber()
+
   const { curCommunity } = store
   const { subPath: topic } = store.curRoute
 
@@ -49,8 +51,6 @@ export const loadPosts = (page = 1) => {
   if (curCommunity.raw === ROUTE.HOME && topic === THREAD.CITY) return false
 
   const userHasLogin = store.isLogin
-
-  store.markState({ curView: TYPE.LOADING })
 
   const args = {
     filter: {
@@ -66,12 +66,10 @@ export const loadPosts = (page = 1) => {
   if (curCommunity.raw === ROUTE.HOME) {
     args.filter = R.merge(args.filter, { topic })
   }
-
   args.filter = R.pickBy(notEmpty, args.filter)
-  // scrollIntoEle(TYPE.APP_HEADER_ID)
-  pageGoTop()
 
   log('args: ', args)
+  store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -244,24 +242,21 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      /*
+    /*
          NOTE: city communities list is not supported by SSR
          need load manully
        */
-      loadCityCommunities()
+    loadCityCommunities()
 
-      return () => {
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        // log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      // log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
