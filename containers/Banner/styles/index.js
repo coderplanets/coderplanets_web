@@ -31,6 +31,7 @@ export const BaseTabber = styled.div`
   bottom: -16px;
   width: 80vw;
   ${cs.media.mobile`width: 100%`};
+  overflow-y: scroll;
 `
 
 export const NumbersWrapper = styled.div`

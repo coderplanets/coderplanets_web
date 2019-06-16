@@ -1,6 +1,7 @@
 import React from 'react'
-import { Table } from 'antd'
 import TimeAgo from 'timeago-react'
+import { Table } from 'antd'
+import 'antd/lib/table/style/index.css'
 
 import { ArticleContentLoading } from '@components/LoadingEffects'
 // import { ICON_CMD } from '@config'
