@@ -22,6 +22,7 @@ export const BaseTabber = styled.div`
   bottom: -16px;
   margin-left: -10px;
   width: 80vw;
+  overflow-y: scroll;
   ${cs.media.tablet`
     left: 10px;
     width: 100%;
