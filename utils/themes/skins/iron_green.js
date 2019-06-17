@@ -313,6 +313,10 @@ const iconGreen = {
     doramonFg: 'orange',
     doramonBg: 'transparent',
   },
+  tooltip: {
+    text: '#F0F6FA',
+    bg: '#2B2B2B',
+  },
 }
 
 export default iconGreen

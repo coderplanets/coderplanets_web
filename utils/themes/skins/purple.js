@@ -318,6 +318,10 @@ const purple = {
     doramonFg: 'orange',
     doramonBg: 'transparent',
   },
+  tooltip: {
+    text: '#B7B1C1',
+    bg: '#56526E',
+  },
 }
 
 export default purple
