@@ -19,7 +19,6 @@
     "next-progressbar": "^1.0.0",
     "@next/bundle-analyzer": "^8.1.0",
     "accepts": "^1.3.4",
-    "acorn": "^6.1.1",
     "antd": "3.8.4",
     "apollo-cache-inmemory": "1.5.1",
     "apollo-client": "2.5.1",
