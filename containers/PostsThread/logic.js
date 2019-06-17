@@ -45,7 +45,6 @@ export const loadPosts = (page = 1) => {
   const { subPath: topic } = store.curRoute
 
   // display same-city list instead
-  // TODO: load same-city communities
   if (curCommunity.raw === ROUTE.HOME && topic === THREAD.CITY) return false
 
   const userHasLogin = store.isLogin
@@ -66,7 +65,6 @@ export const loadPosts = (page = 1) => {
   }
   args.filter = R.pickBy(notEmpty, args.filter)
 
-  log('args: ', args)
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
@@ -97,7 +95,6 @@ export const onUserSelect = user =>
   })
 
 export const onPreview = data => {
-  // log('onPreview publish post: ', data)
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
   dispatchEvent(EVENT.PREVIEW_OPEN, {
