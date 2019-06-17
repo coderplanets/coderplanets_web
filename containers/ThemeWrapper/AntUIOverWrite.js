@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme, cs } from '@utils'
+import { theme } from '@utils'
 
 // move ant style to seperate file
 const AntUIOverWrite = createGlobalStyle`
@@ -75,28 +75,6 @@ const AntUIOverWrite = createGlobalStyle`
     border-right: none;
     border-radius: 0;
   }
-
-  // ----
-  // popover
-  .ant-popover {
-    z-index: ${cs.zIndex.popover};
-  }
-  .ant-popover-inner-content {
-    padding: 0;
-  }
-  .ant-popover .ant-popover-content .ant-popover-inner {
-    background: ${theme('baseColor.error')};
-  }
-
-  .ant-popover-inner {
-    background: ${theme('baseColor.error')};
-  }
-
-  .ant-popover-placement-top {
-    padding-bottom: 0;
-  }
-
-  // popover end
 
   // input
   .normal-form {
