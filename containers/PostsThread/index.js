@@ -39,7 +39,7 @@ import {
   onC11NChange,
   onUserSelect,
   onPreview,
-  loadPosts,
+  onPageChange,
   onContentCreate,
   onTagSelect,
   onAdsClose,
@@ -134,7 +134,7 @@ const PostsThreadContainer = ({ postsThread }) => {
               onUserSelect={onUserSelect}
               onAuthorSelect={onUserSelect}
               onPreview={onPreview}
-              onPageChange={loadPosts}
+              onPageChange={onPageChange}
             />
           </LeftPart>
 

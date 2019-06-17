@@ -39,7 +39,7 @@ import {
   onPreview,
   onContentCreate,
   onTagSelect,
-  loadJobs,
+  onPageChange,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -89,7 +89,7 @@ const JobsThreadContainer = ({ jobsThread }) => {
           accountInfo={accountInfo}
           onPreview={onPreview}
           onAuthorSelect={onUserSelect}
-          onPageChange={loadJobs}
+          onPageChange={onPageChange}
         />
       </LeftPart>
 
