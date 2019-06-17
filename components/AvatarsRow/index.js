@@ -7,7 +7,6 @@
 import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
-// import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '@config/general'
 import { buildLog, prettyNum } from '@utils'
