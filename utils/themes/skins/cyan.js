@@ -319,6 +319,10 @@ const cyan = {
     doramonFg: '#F6DE38',
     doramonBg: 'transparent',
   },
+  tooltip: {
+    text: '#F8FBFC',
+    bg: '#54A1AA',
+  },
 }
 
 export default cyan

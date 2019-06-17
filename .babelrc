@@ -52,6 +52,7 @@
       "alias": {
         "@containers":"./containers",
         "@components":"./components",
+        "@hooks":"./components/Hooks",
         "@config":"./config",
         "@stores":"./stores",
         "@model":"./stores/SharedModel",

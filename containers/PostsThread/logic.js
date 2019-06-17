@@ -41,8 +41,6 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export const loadPosts = (page = 1) => {
-  scrollToTabber()
-
   const { curCommunity } = store
   const { subPath: topic } = store.curRoute
 
@@ -72,6 +70,11 @@ export const loadPosts = (page = 1) => {
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
+}
+
+export const onPageChange = page => {
+  scrollToTabber()
+  loadPosts(page)
 }
 
 export const onFilterSelect = option => {

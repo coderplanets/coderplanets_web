@@ -30,8 +30,6 @@ export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)
 
 export const loadRepos = (page = 1) => {
-  scrollToTabber()
-
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -52,6 +50,11 @@ export const loadRepos = (page = 1) => {
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedRepos, args)
   store.markRoute({ page, ...store.filtersData })
+}
+
+export const onPageChange = page => {
+  scrollToTabber()
+  loadRepos(page)
 }
 
 export const onPreview = data => {

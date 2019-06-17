@@ -7,11 +7,12 @@
 import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
-import { Tooltip } from 'antd'
 
 import { ATATARS_LIST_LENGTH } from '@config/general'
-
 import { buildLog, prettyNum } from '@utils'
+
+import Tooltip from '@components/Tooltip'
+
 import {
   Wrapper,
   AvatarsItem,
@@ -50,7 +51,7 @@ const AvatarsRow = ({
         <span />
       ) : (
         <MoreItem onClick={onTotalSelect.bind(this, { users, total })}>
-          <Tooltip title={`所有评论共 ${total} 条`}>
+          <Tooltip content={`所有评论共 ${total} 条`}>
             <AvatarsMore total={total}>{prettyNum(total)}</AvatarsMore>
           </Tooltip>
         </MoreItem>
@@ -58,7 +59,7 @@ const AvatarsRow = ({
 
       {R.slice(0, limit, sortedUsers).map(user => (
         <AvatarsItem key={user.id} onClick={onUserSelect.bind(this, user)}>
-          <Tooltip title={user.nickname}>
+          <Tooltip content={user.nickname} delay={200}>
             <AvatarsImg src={user.avatar} />
           </Tooltip>
         </AvatarsItem>

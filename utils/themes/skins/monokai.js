@@ -314,6 +314,10 @@ const monokai = {
     doramonFg: 'orange',
     doramonBg: 'transparent',
   },
+  tooltip: {
+    text: '#B0AFB0',
+    bg: '#676464',
+  },
 }
 
 export default monokai

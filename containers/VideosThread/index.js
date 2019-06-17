@@ -33,7 +33,7 @@ import {
   onPreview,
   onContentCreate,
   onTagSelect,
-  loadVideos,
+  onPageChange,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -81,7 +81,7 @@ const VideosThreadContainer = ({ videosThread }) => {
           active={activeVideo}
           accountInfo={accountInfo}
           onPreview={onPreview}
-          onPageChange={loadVideos}
+          onPageChange={onPageChange}
         />
       </LeftPart>
 

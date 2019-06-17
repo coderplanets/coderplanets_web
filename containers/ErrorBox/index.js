@@ -9,7 +9,7 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 
 import Modal from '@components/Modal'
-import { useShortcut } from '@components/Hooks'
+import { useShortcut } from '@hooks'
 
 import Header from './Header'
 import Details from './Details'

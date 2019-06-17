@@ -319,6 +319,10 @@ const solarizedDark = {
     doramonFg: 'orange',
     doramonBg: 'transparent',
   },
+  tooltip: {
+    text: '#95C1DD',
+    bg: '#075575',
+  },
 }
 
 export default solarizedDark

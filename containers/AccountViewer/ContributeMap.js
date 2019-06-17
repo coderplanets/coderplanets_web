@@ -26,7 +26,7 @@ const log = buildLog('C:Comments')
 
 const customTooltipDataAttrs = value => ({
   'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,
-  'data-for': 'user_comtribute_map',
+  'data-for': 'user_contribute_map',
   'data-offset': JSON.stringify({ right: 7 }),
 })
 
@@ -103,7 +103,7 @@ const ContributeMap = ({ data }) => {
         type="error"
         effect="solid"
         place="top"
-        id="user_comtribute_map"
+        id="user_contribute_map"
       />
       <DotWrapper>
         <DotList>

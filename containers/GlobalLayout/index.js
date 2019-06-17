@@ -11,7 +11,7 @@ import useNetwork from 'react-use/lib/useNetwork'
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
 
-import { useShortcut, useMedia, usePlatform } from '@components/Hooks'
+import { useShortcut, useMedia, usePlatform } from '@hooks'
 
 import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
 import { useInit, openDoraemon, queryDoraemon } from './logic'

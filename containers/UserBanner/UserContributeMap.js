@@ -25,7 +25,7 @@ const log = buildLog('C:Comments')
 
 const customTooltipDataAttrs = value => ({
   'data-tip': value.date === null ? '' : `${value.count} 次 (${value.date})`,
-  'data-for': 'user_comtribute_map',
+  'data-for': 'user_contribute_map',
   'data-offset': JSON.stringify({ right: 7 }),
 })
 
@@ -62,53 +62,39 @@ const getClass = value => {
   }
 }
 
-const UserContributeMap = ({ data }) => {
-  /* if don't jadge empty(first load), the tool tip will not work */
-  /*
-  if (R.isEmpty(data.records)) {
-    return null
-  }
-  */
-  /*
-     <TitleWrapper>
-     <Title>6个月内贡献 {data.totalCount} 次内容</Title>
-     <HelpText>记录规则？</HelpText>
-     </TitleWrapper>
-   */
+const UserContributeMap = ({ data }) => (
+  <Wrapper className="banner-heatmap">
+    <CalendarHeatmap
+      startDate={data.startDate}
+      endDate={data.endDate}
+      showMonthLabels
+      onClick={value => log(value)}
+      gutterSize={3}
+      tooltipDataAttrs={customTooltipDataAttrs}
+      monthLabels={monthLabels}
+      values={data.records}
+      classForValue={getClass}
+    />
+    <ReactTooltip
+      type="error"
+      effect="solid"
+      place="top"
+      id="user_contribute_map"
+    />
+    <DotWrapper>
+      <Title>6个月内创作 {data.totalCount} 次内容</Title>
+      <DotList>
+        <DotText>潜水&nbsp;&nbsp;</DotText>
+        <ColorDot scale="empty" />
+        <ColorDot scale="1" />
+        <ColorDot scale="2" />
+        <ColorDot scale="3" />
+        <ColorDot scale="4" />
+        <ColorDot scale="5" />
+        <DotText>&nbsp;高产</DotText>
+      </DotList>
+    </DotWrapper>
+  </Wrapper>
+)
 
-  return (
-    <Wrapper className="banner-heatmap">
-      <CalendarHeatmap
-        startDate={data.startDate}
-        endDate={data.endDate}
-        showMonthLabels
-        onClick={value => log(value)}
-        gutterSize={3}
-        tooltipDataAttrs={customTooltipDataAttrs}
-        monthLabels={monthLabels}
-        values={data.records}
-        classForValue={getClass}
-      />
-      <ReactTooltip
-        type="error"
-        effect="solid"
-        place="top"
-        id="user_comtribute_map"
-      />
-      <DotWrapper>
-        <Title>6个月内创作 {data.totalCount} 次内容</Title>
-        <DotList>
-          <DotText>潜水&nbsp;&nbsp;</DotText>
-          <ColorDot scale="empty" />
-          <ColorDot scale="1" />
-          <ColorDot scale="2" />
-          <ColorDot scale="3" />
-          <ColorDot scale="4" />
-          <ColorDot scale="5" />
-          <DotText>&nbsp;高产</DotText>
-        </DotList>
-      </DotWrapper>
-    </Wrapper>
-  )
-}
 export default UserContributeMap

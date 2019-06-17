@@ -36,7 +36,7 @@ import {
   onPreview,
   onContentCreate,
   onTagSelect,
-  loadRepos,
+  onPageChange,
 } from './logic'
 
 /* eslint-disable-next-line */
@@ -85,7 +85,7 @@ const ReposThreadContainer = ({ reposThread }) => {
           active={activeRepo}
           accountInfo={accountInfo}
           onPreview={onPreview}
-          onPageChange={loadRepos}
+          onPageChange={onPageChange}
         />
       </LeftPart>
 
