@@ -48,12 +48,6 @@ export default class DocumentPage extends Document {
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
 
-          {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
-          <script
-            async
-            src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
-          />
-          {/* https://cps-oss.oss-cn-shanghai.aliyuncs.com/antd-3.8.4-mini.css */}
           <link href="/antd-3.8.4-mini.css" rel="stylesheet" />
           <link
             href="https://fonts.googleapis.com/css?family=Orbitron"
@@ -63,9 +57,7 @@ export default class DocumentPage extends Document {
 
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${
-              process.env.GA_TRACING_ID
-            }`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACING_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -93,12 +85,6 @@ export default class DocumentPage extends Document {
         <link
           href="https://cdn.staticfile.org/izitoast/1.4.0/css/iziToast.css"
           rel="stylesheet"
-        />
-        {/* the ali-oss-sdk es6 import support sucks */}
-        {/* import from cdn is fine, it's not my money anyway */}
-        <script
-          async
-          src="https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
         <noscript>
           You need to enable JavaScript to get this website runing.

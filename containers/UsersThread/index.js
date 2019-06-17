@@ -8,6 +8,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 
 import { connectStore, buildLog } from '@utils'
+import { useScript } from '@hooks'
 
 import NumDashboard from './NumDashboard'
 import MapLoading from './MapLoading'
@@ -26,6 +27,11 @@ const GeoMapSSR = dynamic({
 })
 
 const UsersThreadContainer = ({ usersThread }) => {
+  /* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */
+  const [g2ScriptLoaded] = useScript(
+    'https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js'
+  )
+
   useInit(usersThread)
 
   const {
@@ -36,7 +42,7 @@ const UsersThreadContainer = ({ usersThread }) => {
     showNums,
   } = usersThread
 
-  const ready = GeoMapSSR !== null && !geoDataLoading
+  const ready = g2ScriptLoaded && GeoMapSSR !== null && !geoDataLoading
 
   return (
     <Wrapper>

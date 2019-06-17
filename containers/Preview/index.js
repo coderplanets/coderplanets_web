@@ -7,8 +7,8 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
+import { useShortcut } from '@hooks'
 
-import { useShortcut } from '@components/Hooks'
 import SliderPreview from './SliderPreview'
 import ModalPreview from './ModalPreview'
 import Viewer from './Viewer'
