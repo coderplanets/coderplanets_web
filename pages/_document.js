@@ -86,12 +86,6 @@ export default class DocumentPage extends Document {
           href="https://cdn.staticfile.org/izitoast/1.4.0/css/iziToast.css"
           rel="stylesheet"
         />
-        {/* the ali-oss-sdk es6 import support sucks */}
-        {/* import from cdn is fine, it's not my money anyway */}
-        <script
-          async
-          src="https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
-        />
         <noscript>
           You need to enable JavaScript to get this website runing.
         </noscript>

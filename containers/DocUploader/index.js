@@ -43,21 +43,27 @@ class DocUploaderContainer extends React.Component {
 
   state = {
     ossClient: null,
+    ossScriptAnchor: null,
+    ossScriptLoaded: false,
     // use unique id to init the file input, otherwise it will be the some instance
     uniqueId: uid.gen(),
     initTimestamp: Date.now() / 1000,
   }
 
   componentDidMount() {
+    this.loadScriptAndInitOSS()
+
     const { docUploader, pasteImage } = this.props
     init(docUploader)
 
-    this.initOssClient()
+    // if (ossScriptLoaded) this.initOssClient()
     if (pasteImage) this.initPasteWatcher()
   }
 
   componentWillUnmount() {
     log('componentWillUnmount')
+    const { ossScriptLoaded, ossScriptAnchor } = this.state
+
     /* eslint-disable */
     delete this.state.ossClient
     /* eslint-enable */
@@ -66,6 +72,31 @@ class DocUploaderContainer extends React.Component {
       Global.removeEventListener('paste', this.handlePaste.bind(this), true)
     }
     uninit()
+
+    if (ossScriptLoaded) {
+      ossScriptAnchor.removeEventListener('load', () => {
+        this.setState({ ossScriptLoaded: false })
+      })
+    }
+  }
+
+  loadScriptAndInitOSS() {
+    let { ossScriptAnchor } = this.state
+
+    ossScriptAnchor = document.createElement('script')
+    ossScriptAnchor.src =
+      'https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js'
+    ossScriptAnchor.async = true
+    document.getElementsByTagName('head')[0].appendChild(ossScriptAnchor)
+
+    ossScriptAnchor.addEventListener('load', () => {
+      log('load done')
+      this.initOssClient()
+      this.setState({ ossScriptLoaded: true, ossScriptAnchor })
+    })
+    ossScriptAnchor.addEventListener('error', () => {
+      this.setState({ ossScriptLoaded: false, ossScriptAnchor: null })
+    })
   }
 
   initPasteWatcher() {
@@ -116,6 +147,8 @@ class DocUploaderContainer extends React.Component {
   }
 
   doUploadFile(file) {
+    const { ossScriptLoaded } = this.state
+    if (!ossScriptLoaded) return alert('脚本未加载...')
     if (!file || !R.startsWith('image/', file.type)) return false
 
     const fileSize = file.size / 1024 / 1024
