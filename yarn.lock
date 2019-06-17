@@ -5310,11 +5310,11 @@ graphql-voyager@^1.0.0-rc.26:
     svg-pan-zoom "^3.6.0"
     viz.js "2.1.2"
 
-graphql@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.npmjs.org/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
+graphql@14.3.1:
+  version "14.3.1"
+  resolved "https://registry.npmjs.org/graphql/-/graphql-14.3.1.tgz#b3aa50e61a841ada3c1f9ccda101c483f8e8c807"
   dependencies:
-    iterall "^1.2.1"
+    iterall "^1.2.2"
 
 "growl@~> 1.10.0":
   version "1.10.5"
@@ -6268,7 +6268,7 @@ istanbul-reports@^1.5.1:
   dependencies:
     handlebars "^4.0.3"
 
-iterall@^1.2.1:
+iterall@^1.2.2:
   version "1.2.2"
   resolved "https://registry.npmjs.org/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
 

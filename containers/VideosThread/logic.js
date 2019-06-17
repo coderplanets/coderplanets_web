@@ -30,8 +30,6 @@ let store = null
 const log = buildLog('L:VideosThread')
 
 export const loadVideos = (page = 1) => {
-  scrollToTabber()
-
   const { curCommunity } = store
   const userHasLogin = store.isLogin
 
@@ -52,6 +50,11 @@ export const loadVideos = (page = 1) => {
   store.markState({ curView: TYPE.LOADING })
   sr71$.query(S.pagedVideos, args)
   store.markRoute({ page, ...store.filtersData })
+}
+
+export const onPageChange = page => {
+  scrollToTabber()
+  loadVideos(page)
 }
 
 export const onPreview = data => {
