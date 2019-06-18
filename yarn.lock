@@ -643,7 +643,7 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5":
   version "7.4.5"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   dependencies:
@@ -1027,11 +1027,12 @@
   version "0.3.2"
   resolved "https://registry.npmjs.org/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
 
-"@tanem/svg-injector@^7.0.6":
-  version "7.0.17"
-  resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-7.0.17.tgz#f7433ec5e1cbaa4ad4d2a3c13cfca7149a3a3b2d"
+"@tanem/svg-injector@^8.0.14":
+  version "8.0.14"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.14.tgz#d48aa17be2e67e8fac394bc57c2a00b7b2db6d50"
+  integrity sha512-qmF+DaH7k2FLrXhvGnnKZlsVmW0AkyI58QcaZFFIJ7RI0KDbp49ARkTgkv9YwNhCR6Zx9MY96PSrzMdx/weLYg==
   dependencies:
-    "@babel/runtime" "^7.4.4"
+    "@babel/runtime" "^7.4.5"
 
 "@testing-library/dom@^5.0.0":
   version "5.2.0"
@@ -9411,12 +9412,13 @@ react-ssr-prepass@1.0.2:
   dependencies:
     object-is "^1.0.1"
 
-react-svg@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/react-svg/-/react-svg-8.0.0.tgz#a929aed87371fe7bcf61eb9d14c1671c790e4a71"
+react-svg@10.0.9:
+  version "10.0.9"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-10.0.9.tgz#b8f5a3231243467799901132a2af7cd31ff7c610"
+  integrity sha512-da6qPsc+LZPBwncUZwIIpw9JOpzoThHBy64GqLYARFcWiAb8j793HGhTtamLw8hw1srulEJF2P6UOmjA0X3Uwg==
   dependencies:
-    "@babel/runtime" "^7.3.1"
-    "@tanem/svg-injector" "^7.0.6"
+    "@babel/runtime" "^7.4.5"
+    "@tanem/svg-injector" "^8.0.14"
     prop-types "^15.7.2"
 
 react-test-renderer@16.8.1:
