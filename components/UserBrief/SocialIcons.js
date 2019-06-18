@@ -1,13 +1,11 @@
 import React from 'react'
 import R from 'ramda'
-import ReactTooltip from 'react-tooltip'
 
 import { ICON_CMD } from '@config'
-
 import { nilOrEmpty, SOCIAL_LISTS } from '@utils'
-import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 
-const tooltipOffset = JSON.stringify({ left: 3 })
+import Tooltip from '@components/Tooltip'
+import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 
 const DisplayIcon = ({ user, social }) => {
   if (user[social.key] && !R.contains(social.key, ['qq', 'weichat'])) {
@@ -25,17 +23,18 @@ const DisplayIcon = ({ user, social }) => {
     )
   }
   return (
-    <div
+    <Tooltip
       key={social.key}
-      data-tip={user.social[social.key]}
-      data-for="social_icons"
-      data-offset={tooltipOffset}
+      content={user.social[social.key]}
+      placement="bottom"
     >
-      <SocialIcon
-        src={`${ICON_CMD}/${social.key}.svg`}
-        active={!nilOrEmpty(user.social[social.key])}
-      />
-    </div>
+      <div>
+        <SocialIcon
+          src={`${ICON_CMD}/${social.key}.svg`}
+          active={!nilOrEmpty(user.social[social.key])}
+        />
+      </div>
+    </Tooltip>
   )
 }
 
@@ -44,7 +43,6 @@ const SocialIcons = ({ user }) => (
     {SOCIAL_LISTS.map(social => (
       <DisplayIcon key={social.key} user={user} social={social} />
     ))}
-    <ReactTooltip effect="solid" place="bottom" id="social_icons" />
   </Wrapper>
 )
 

@@ -16,17 +16,17 @@ export const Wrapper = styled(Tippy)`
   }
   &[x-placement^='bottom'] {
     .tippy-arrow {
-      border-top-color: ${theme('tooltip.bg')};
+      border-bottom-color: ${theme('tooltip.bg')};
     }
   }
   &[x-placement^='left'] {
     .tippy-arrow {
-      border-top-color: ${theme('tooltip.bg')};
+      border-left-color: ${theme('tooltip.bg')};
     }
   }
   &[x-placement^='right'] {
     .tippy-arrow {
-      border-top-color: ${theme('tooltip.bg')};
+      border-right-color: ${theme('tooltip.bg')};
     }
   }
 `
