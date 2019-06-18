@@ -1,5 +1,6 @@
 import React from 'react'
 import { Alert } from 'antd'
+import 'antd/lib/alert/style/index.css'
 
 import { Margin } from '@components/BaseStyled'
 import { ICON_CMD } from '@config'
