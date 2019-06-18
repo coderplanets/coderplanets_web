@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactTooltip from 'react-tooltip'
 import R from 'ramda'
 
 import { sortByIndex } from '@utils'
+import Tooltip from '@components/Tooltip'
+
 import {
   Wrapper,
   HeaderWrapper,
@@ -12,7 +13,6 @@ import {
   PlanetsIcon,
 } from './styles/planets'
 
-const tooltipOffset = JSON.stringify({ top: 10, left: 5 })
 const Planets = ({ subscribedCommunities, viewingType }) => {
   if (!subscribedCommunities) return null
 
@@ -38,17 +38,17 @@ const Planets = ({ subscribedCommunities, viewingType }) => {
       </HeaderWrapper>
       <IconList>
         {sortedCommunities.map(community => (
-          <div
+          <Tooltip
             key={community.raw}
-            data-tip={community.title}
-            data-for="planet_icon"
-            data-offset={tooltipOffset}
+            content={community.title}
+            placement="top"
           >
-            <PlanetsIcon src={community.logo} />
-          </div>
+            <div>
+              <PlanetsIcon src={community.logo} />
+            </div>
+          </Tooltip>
         ))}
       </IconList>
-      <ReactTooltip effect="solid" place="bottom" id="planet_icon" />
     </Wrapper>
   )
 }
