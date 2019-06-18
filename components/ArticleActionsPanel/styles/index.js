@@ -5,8 +5,8 @@ import Img from '@Img'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  padding: 10px;
-  padding-left: 15px;
+  padding: 5px;
+  padding-left: 10px;
   padding-bottom: 0;
 `
 export const Option = styled.div`
