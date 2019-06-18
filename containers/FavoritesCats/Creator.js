@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
+import 'antd/lib/radio/style/index.css'
 
 import { Space } from '@components/BaseStyled'
 import SectionLabel from '@components/SectionLabel'
