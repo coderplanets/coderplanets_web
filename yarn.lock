@@ -5498,7 +5498,7 @@ hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.5:
   version "2.5.5"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.2.1, hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.2.1, hoist-non-react-statics@^3.3.0:
   version "3.3.0"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
   dependencies:
@@ -7514,16 +7514,17 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
-mobx-react-lite@^1.2.0:
+mobx-react-lite@1.4.0, mobx-react-lite@^1.2.0:
   version "1.4.0"
-  resolved "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
+  resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
+  integrity sha512-5xCuus+QITQpzKOjAOIQ/YxNhOl/En+PlNJF+5QU4Qxn9gnNMJBbweAdEW3HnuVQbfqDYEUnkGs5hmkIIStehg==
 
-mobx-react@5.4.3:
-  version "5.4.3"
-  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-5.4.3.tgz#6709b7dd89670c40e9815914ac2ca49cc02bfb47"
+mobx-react@6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.0.4.tgz#829697c7a4098567047555e1285cc619f4aa9be7"
+  integrity sha512-sLAMFNkkNp7p8CHOy6jXcFlvGcJeiAq9vusMdsITwwejDjz/1dOGQgWtTijQTWBWOcmZp7xbIRZi61jAlpGY4w==
   dependencies:
-    hoist-non-react-statics "^3.0.0"
-    react-lifecycles-compat "^3.0.2"
+    mobx-react-lite "1.4.0"
 
 mobx-state-tree@3.10.1:
   version "3.10.1"
