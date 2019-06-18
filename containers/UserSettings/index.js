@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { Radio } from 'antd'
+import 'antd/lib/radio/style/index.css'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
 import { connectStore, buildLog, C11N } from '@utils'

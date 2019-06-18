@@ -7,9 +7,8 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('align-start')};
 
   width: 110px;
-  padding: 15px;
+  padding: 10px;
   padding-right: 5px;
-  margin: 0 10px;
 `
 export const Title = styled.div`
   font-size: 0.9rem;

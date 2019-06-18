@@ -1,5 +1,6 @@
 import React from 'react'
 import { Alert } from 'antd'
+import 'antd/lib/alert/style/index.css'
 
 const Message = () => (
   <Alert

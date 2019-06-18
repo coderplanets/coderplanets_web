@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme } from '@utils'
+import { theme, cs } from '@utils'
 
 // move ant style to seperate file
 const AntUIOverWrite = createGlobalStyle`
@@ -376,6 +376,24 @@ const AntUIOverWrite = createGlobalStyle`
     background: ${theme('table.headerBg')};
     color: ${theme('table.text')};
     opacity: 0.6;
+  }
+
+  .ant-popover {
+    z-index: ${cs.zIndex.popover};
+  }
+  .ant-popover-inner {
+    background-color: ${theme('popover.bg')} !important;
+    border: 1px solid;
+    border-color: ${theme('popover.borderColor')} !important;
+    z-index: ${cs.zIndex.popover};
+  }
+  .ant-popover-arrow {
+    background-color: ${theme('popover.borderColor')} !important;
+    border-radius: 3px;
+    z-index: ${cs.zIndex.popover - 1};
+  }
+  .ant-popover-inner-content {
+    padding: 5px;
   }
 `
 
