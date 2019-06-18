@@ -1,5 +1,6 @@
 import React from 'react'
 import { Input } from 'antd'
+import 'antd/lib/input/style/index.css'
 
 import { ICON_CMD } from '@config'
 import { buildLog, nilOrEmpty, SOCIAL_LISTS } from '@utils'

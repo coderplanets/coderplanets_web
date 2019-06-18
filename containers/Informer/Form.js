@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Input, Button } from 'antd'
+import 'antd/lib/input/style/index.css'
 
 import { Space } from '@components/BaseStyled'
 import SectionLabel from '@components/SectionLabel'

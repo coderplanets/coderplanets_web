@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Input, Radio } from 'antd'
 import 'antd/lib/radio/style/index.css'
+import 'antd/lib/input/style/index.css'
 
 import Popconfirm from '@components/Popconfirm'
 import { Space } from '@components/BaseStyled'

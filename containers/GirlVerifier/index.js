@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { Button, Input } from 'antd'
+import 'antd/lib/input/style/index.css'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
