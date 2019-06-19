@@ -110,7 +110,10 @@ const rotate360CloseRule = css`
   ${rotate360} 2s cubic-bezier(0, 0.56, 0.24, 0.72);
 `
 const breathRule = css`
-  ${breath} 2s linear infinite;
+  ${breath} 1.5s linear infinite;
+`
+const updatingRule = css`
+  ${breath} 1.2s linear infinite;
 `
 
 const animate = {
@@ -129,6 +132,7 @@ const animate = {
   rotate360CloseRule,
   // breath
   breathRule,
+  updatingRule,
 }
 
 export default animate
