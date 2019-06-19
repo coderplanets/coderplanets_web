@@ -23,7 +23,7 @@ const log = buildLog('C:RepoViewer')
 const RepoViewerContainer = ({ repoViewer, attachment }) => {
   useInit(repoViewer, attachment)
 
-  const { curCommunity, viewingData } = repoViewer
+  const { curCommunity, viewingData, loading } = repoViewer
 
   return (
     <React.Fragment>
@@ -47,6 +47,7 @@ const RepoViewerContainer = ({ repoViewer, attachment }) => {
             middle="labeler"
           />
         }
+        updating={loading}
       />
       <CommentsWrapper>
         <Comments />

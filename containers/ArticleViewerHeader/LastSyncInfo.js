@@ -14,29 +14,33 @@ import {
   Divider,
 } from './styles/reaction'
 
-const LastSyncInfo = ({ show, data }) => (
-  <Maybe test={show}>
-    <Popover
-      placement="bottomLeft"
-      trigger="hover"
-      content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
-    >
-      <Reaction>
-        <Divider />
-        <PlainAction>
-          <ReactionName>同步于:</ReactionName>
-        </PlainAction>
-        <SyncTime>
-          {data.lastSync ? (
-            <TimeAgo datetime={data.lastSync} locale="zh_CN" />
-          ) : (
-            '--'
-          )}
-        </SyncTime>
-      </Reaction>
-    </Popover>
-  </Maybe>
-)
+const LastSyncInfo = ({ show, data }) => {
+  const lastSyncTime = data.lastSync || data.updatedAt || null
+
+  return (
+    <Maybe test={show}>
+      <Popover
+        placement="bottomLeft"
+        trigger="hover"
+        content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
+      >
+        <Reaction>
+          <Divider />
+          <PlainAction>
+            <ReactionName>同步于:</ReactionName>
+          </PlainAction>
+          <SyncTime>
+            {lastSyncTime ? (
+              <TimeAgo datetime={lastSyncTime} locale="zh_CN" />
+            ) : (
+              '--'
+            )}
+          </SyncTime>
+        </Reaction>
+      </Popover>
+    </Maybe>
+  )
+}
 
 LastSyncInfo.propTypes = {
   data: T.shape({
