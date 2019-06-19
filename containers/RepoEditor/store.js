@@ -64,7 +64,7 @@ const RepoEditor = t
         case ERR.AUTH:
           return self.changesetErr({
             title: 'Github 鉴权出错',
-            msg: 'token 可能过期，请尝试重新登录',
+            msg: 'Github token 可能过期，请重试或重新设置 Github Token',
           })
 
         case ERR.TIMEOUT:

@@ -6,7 +6,6 @@
 
 import React from 'react'
 import R from 'ramda'
-import ReactTooltip from 'react-tooltip'
 
 import { connectStore, buildLog } from '@utils'
 
@@ -41,7 +40,6 @@ const AccountViewerContainer = ({ accountViewer, user }) => {
     <AccountWrapper>
       {!R.isEmpty(userInfoData.id) && (
         <React.Fragment>
-          <ReactTooltip effect="solid" place="bottom" />
           <AccountContent>
             <UserBrief
               user={userInfoData}
