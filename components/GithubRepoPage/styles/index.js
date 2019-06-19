@@ -2,9 +2,11 @@ import styled from 'styled-components'
 import { Button } from 'antd'
 
 // import Img from '@Img'
-import { theme, cs } from '@utils'
+import { theme, cs, animate } from '@utils'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  animation: ${({ updating }) => (updating ? animate.updatingRule : '')};
+`
 
 export const BodyWrapper = styled.div`
   ${cs.flexColumn('align-center')};

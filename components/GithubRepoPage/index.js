@@ -32,6 +32,7 @@ const log = buildLog('c:GithubRepoPage:index')
 
 const GithubRepoPage = ({
   repo,
+  updating,
   onSearch,
   onPublish,
   onSync,
@@ -43,7 +44,7 @@ const GithubRepoPage = ({
   publishing,
   readOnly,
 }) => (
-  <Wrapper>
+  <Wrapper updating={updating}>
     {!readOnly ? (
       <React.Fragment>{viewerHeader}</React.Fragment>
     ) : (
@@ -87,6 +88,7 @@ const GithubRepoPage = ({
 
 GithubRepoPage.propTypes = {
   repo: T.object.isRequired,
+  updating: T.bool,
   onPublish: T.func,
   onSearch: T.func,
   onSync: T.func,
@@ -103,6 +105,7 @@ GithubRepoPage.propTypes = {
 }
 
 GithubRepoPage.defaultProps = {
+  updating: false,
   onPublish: log,
   onSearch: log,
   onSync: log,

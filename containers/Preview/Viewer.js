@@ -70,6 +70,9 @@ const Viewer = ({ type, root, attachment, attUser }) => {
     case TYPE.PREVIEW_REPO_CREATE:
       return <DynamicRepoEditor />
 
+    case TYPE.PREVIEW_REPO_EDIT:
+      return <DynamicRepoEditor />
+
     // video
     case TYPE.PREVIEW_VIDEO_EDIT:
       return <DynamicVideoEditor attachment={attachment} />
