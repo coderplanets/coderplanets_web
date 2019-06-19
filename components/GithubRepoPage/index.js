@@ -22,7 +22,6 @@ import {
   ReadmeWrapper,
   Footer,
   SearchButton,
-  SyncButton,
   PublishButton,
   ReadonlyHolder,
 } from './styles'
@@ -35,10 +34,8 @@ const GithubRepoPage = ({
   updating,
   onSearch,
   onPublish,
-  onSync,
   showPublishBtn,
   showSearchBtn,
-  showSyncBtn,
   viewerHeader,
   bodyHeader,
   publishing,
@@ -62,16 +59,11 @@ const GithubRepoPage = ({
         <MarkDownRender body={repo.readme || ''} />
       </ReadmeWrapper>
     </BodyWrapper>
-    <Footer show={showSearchBtn || showSyncBtn || showPublishBtn}>
+    <Footer show={showSearchBtn || showPublishBtn}>
       <Maybe test={showSearchBtn}>
         <SearchButton type="primary" ghost onClick={onSearch}>
           重新搜索
         </SearchButton>
-      </Maybe>
-      <Maybe test={showSyncBtn}>
-        <SyncButton type="primary" ghost onClick={onSync}>
-          同步仓库
-        </SyncButton>
       </Maybe>
       <Maybe test={showPublishBtn}>
         {publishing ? (
@@ -91,11 +83,9 @@ GithubRepoPage.propTypes = {
   updating: T.bool,
   onPublish: T.func,
   onSearch: T.func,
-  onSync: T.func,
 
   showPublishBtn: T.bool,
   showSearchBtn: T.bool,
-  showSyncBtn: T.bool,
 
   viewerHeader: T.node,
   bodyHeader: T.node,
@@ -108,11 +98,9 @@ GithubRepoPage.defaultProps = {
   updating: false,
   onPublish: log,
   onSearch: log,
-  onSync: log,
 
   showPublishBtn: false,
   showSearchBtn: false,
-  showSyncBtn: false,
   viewerHeader: <div />,
   bodyHeader: <div />,
 
