@@ -10,13 +10,14 @@ import {
   TYPE,
   EVENT,
   errRescue,
+  githubApi,
 } from '@utils'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED],
+  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
 })
 
 let sub$ = null
@@ -55,6 +56,28 @@ const DataSolver = [
       store.setViewing({ repo: R.merge(store.viewingData, repo) })
     },
   },
+  {
+    match: asyncRes('updateRepo'),
+    action: ({ updateRepo }) => {
+      markLoading(false)
+      store.setViewing({ repo: R.merge(store.viewingData, updateRepo) })
+    },
+  },
+  {
+    match: asyncRes(EVENT.SYNC_REPO),
+    action: () => {
+      markLoading(true)
+      log('should sync repo: ', store.viewingData)
+      const { id, ownerName, title } = store.viewingData
+
+      githubApi
+        .searchRepo(ownerName, title)
+        .then(res =>
+          sr71$.mutate(S.updateRepo, { id, ...githubApi.transformRepo(res) })
+        )
+        .catch(e => store.handleError(githubApi.parseError(e)))
+    },
+  },
 ]
 const ErrSolver = [
   {
@@ -82,19 +105,16 @@ export const holder = 1
 // init & uninit
 // ###############################
 export const useInit = (_store, attachment) => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      openAttachment(attachment)
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    openAttachment(attachment)
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, attachment]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, attachment])
 }

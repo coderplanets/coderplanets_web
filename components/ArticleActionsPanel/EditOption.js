@@ -12,7 +12,7 @@ const EditOption = ({ thread, onEdit }) => (
     <Option onClick={onEdit.bind(this, thread)}>
       <OptionIcon src={`${ICON_CMD}/edit.svg`} />
       {thread === THREAD.REPO ? (
-        <OptionTitle>更新 README.md</OptionTitle>
+        <OptionTitle>同步仓库信息</OptionTitle>
       ) : (
         <OptionTitle>编辑</OptionTitle>
       )}
