@@ -56,13 +56,12 @@ const DigestBoard = ({ user, accountId, following }) => (
       <SourceContributeInfo data={user.achievement.sourceContribute} />
     )}
 
-    {user.achievement.donateMember &&
-      !user.achievement.seniorMember && (
-        <AttactWrapper>
-          <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
-          <div>热心打赏</div>
-        </AttactWrapper>
-      )}
+    {user.achievement.donateMember && !user.achievement.seniorMember && (
+      <AttactWrapper>
+        <AttactIcon src={`${ICON_CMD}/member_donor.svg`} />
+        <div>热心打赏</div>
+      </AttactWrapper>
+    )}
 
     {user.achievement.seniorMember && (
       <AttactWrapper>

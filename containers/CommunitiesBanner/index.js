@@ -45,16 +45,15 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
             searching={searching}
           />
         </ContentWrapper>
-        {!isSearchMode &&
-          pagedCategoriesData && (
-            <TabberWrapper>
-              <Tabber
-                source={pagedCategoriesData.entries}
-                active={activeTab}
-                onChange={tabOnChange}
-              />
-            </TabberWrapper>
-          )}
+        {!isSearchMode && pagedCategoriesData && (
+          <TabberWrapper>
+            <Tabber
+              source={pagedCategoriesData.entries}
+              active={activeTab}
+              onChange={tabOnChange}
+            />
+          </TabberWrapper>
+        )}
       </BannerContentWrapper>
     </BannerContainer>
   )

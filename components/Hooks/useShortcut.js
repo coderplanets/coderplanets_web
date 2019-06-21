@@ -9,42 +9,39 @@ const useShortcut = (combination, onKeyDownFn, onKeyUpFn) => {
     import('keyboardjs').then(setKeyboardJs)
   }, [])
 
-  useEffect(
-    () => {
-      if (!keyboardJs) {
-        return
-      }
+  useEffect(() => {
+    if (!keyboardJs) {
+      return
+    }
 
-      const down = event => {
-        set([true, event])
-        if (onKeyDownFn) onKeyDownFn()
-      }
-      const up = event => {
-        set([false, event])
-        if (onKeyUpFn) onKeyUpFn()
-      }
+    const down = event => {
+      set([true, event])
+      if (onKeyDownFn) onKeyDownFn()
+    }
+    const up = event => {
+      set([false, event])
+      if (onKeyUpFn) onKeyUpFn()
+    }
 
-      // support multi combination in array style
+    // support multi combination in array style
+    if (Array.isArray(combination)) {
+      for (let i = 0; i < combination.length; i += 1) {
+        keyboardJs.bind(combination[i], down, up)
+      }
+    } else {
+      keyboardJs.bind(combination, down, up)
+    }
+
+    return () => {
       if (Array.isArray(combination)) {
         for (let i = 0; i < combination.length; i += 1) {
-          keyboardJs.bind(combination[i], down, up)
+          keyboardJs.unbind(combination[i], down, up)
         }
       } else {
-        keyboardJs.bind(combination, down, up)
+        keyboardJs.unbind(combination, down, up)
       }
-
-      return () => {
-        if (Array.isArray(combination)) {
-          for (let i = 0; i < combination.length; i += 1) {
-            keyboardJs.unbind(combination[i], down, up)
-          }
-        } else {
-          keyboardJs.unbind(combination, down, up)
-        }
-      }
-    },
-    [combination, keyboardJs, onKeyDownFn, onKeyUpFn]
-  )
+    }
+  }, [combination, keyboardJs, onKeyDownFn, onKeyUpFn])
 
   return state
 }

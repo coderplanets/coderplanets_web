@@ -21,14 +21,11 @@ const ErrSolver = []
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      log('sub$: ', sub$)
-      log('store: ', store)
-    },
-    [_store]
-  )
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    log('sub$: ', sub$)
+    log('store: ', store)
+  }, [_store])
 }

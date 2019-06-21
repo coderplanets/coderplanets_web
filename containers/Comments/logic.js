@@ -403,26 +403,23 @@ const initDraftTimmer = () => {
 // init & uninit
 // ###############################
 export const useInit = (_store, ssr) => {
-  useEffect(
-    () => {
-      // log('effect init')
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    // log('effect init')
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
 
-      return () => {
-        // log('effect uninit')
-        if (store.loading || store.loadingFresh || !sub$) return false
+    return () => {
+      // log('effect uninit')
+      if (store.loading || store.loadingFresh || !sub$) return false
 
-        stopDraftTimmer()
-        sr71$.stop()
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store, ssr]
-  )
+      stopDraftTimmer()
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store, ssr])
 }
 
 /*
