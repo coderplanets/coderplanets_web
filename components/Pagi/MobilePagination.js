@@ -29,10 +29,9 @@ const MobilePagination = ({ current, pageSize, total, onChange }) => (
           </Button>
         </React.Fragment>
       )}
-      {current !== 1 &&
-        current < Math.floor(total / pageSize) && (
-          <CurPageNumber>{current}</CurPageNumber>
-        )}
+      {current !== 1 && current < Math.floor(total / pageSize) && (
+        <CurPageNumber>{current}</CurPageNumber>
+      )}
 
       {current <= Math.floor(total / pageSize) && (
         <Button type="primary" ghost onClick={onChange.bind(this, current + 1)}>

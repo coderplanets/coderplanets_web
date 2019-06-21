@@ -129,22 +129,19 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    Prism.highlightAll()
+    setTimeout(() => {
       Prism.highlightAll()
-      setTimeout(() => {
-        Prism.highlightAll()
-      }, 1000)
+    }, 1000)
 
-      return () => {
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

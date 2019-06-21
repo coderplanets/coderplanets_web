@@ -185,7 +185,7 @@ export default class HomePage extends React.Component {
 
     const seoTitle =
       community.raw === 'home'
-        ? `coderplanets 社区`
+        ? 'coderplanets 社区'
         : `coderplanets ${community.raw}社区`
 
     return (

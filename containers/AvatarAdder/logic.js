@@ -52,10 +52,7 @@ export const onPopoverVisible = visable => {
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-    },
-    [_store]
-  )
+  useEffect(() => {
+    store = _store
+  }, [_store])
 }

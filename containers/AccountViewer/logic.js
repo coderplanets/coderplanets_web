@@ -104,18 +104,15 @@ export const loadUserInfo = user => {
 // init & uninit
 // ###############################
 export const useInit = (_store, user) => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      loadUserInfo(user)
+    loadUserInfo(user)
 
-      return () => {
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, user]
-  )
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, user])
 }

@@ -218,19 +218,16 @@ const initStates = displayMode => {
 // init & uninit
 // ###############################
 export const useInit = (_store, displayMode) => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      initStates(displayMode)
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    initStates(displayMode)
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, displayMode]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, displayMode])
 }

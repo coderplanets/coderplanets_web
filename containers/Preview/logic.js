@@ -93,19 +93,16 @@ const DataResolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      sub$ = sr71$.data().subscribe($solver(DataResolver, []))
+    sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 
-      return () => {
-        if (!sub$) return false
-        sr71$.stop()
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (!sub$) return false
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store])
 }

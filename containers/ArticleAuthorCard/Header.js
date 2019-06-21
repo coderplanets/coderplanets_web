@@ -10,15 +10,14 @@ const Header = ({ title, user: { id, viewerHasFollowed }, isSelfViewing }) => (
   <Wrapper>
     <Title>{title}</Title>
     <FollowWrapper>
-      {id &&
-        !isSelfViewing && (
-          <FollowButton
-            hasFollowd={viewerHasFollowed}
-            userId={id}
-            onFollow={onFollow}
-            onUndoFollow={onUndoFollow}
-          />
-        )}
+      {id && !isSelfViewing && (
+        <FollowButton
+          hasFollowd={viewerHasFollowed}
+          userId={id}
+          onFollow={onFollow}
+          onUndoFollow={onUndoFollow}
+        />
+      )}
     </FollowWrapper>
   </Wrapper>
 )

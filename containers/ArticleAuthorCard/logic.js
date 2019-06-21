@@ -91,19 +91,16 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = (_store, user) => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadUser(user)
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadUser(user)
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, user]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, user])
 }
