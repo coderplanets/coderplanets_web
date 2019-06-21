@@ -152,20 +152,17 @@ const loadIfNeed = () => {
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadIfNeed()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadIfNeed()
 
-      return () => {
-        // log('effect uninit')
-        if (!sub$) return false
-        // log('===== do uninit')
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (!sub$) return false
+      // log('===== do uninit')
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

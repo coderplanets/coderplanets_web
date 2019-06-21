@@ -61,20 +61,17 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadGeoData()
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadGeoData()
 
-      return () => {
-        if (store.geoDataLoading) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.geoDataLoading) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

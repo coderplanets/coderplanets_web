@@ -34,15 +34,12 @@ const DataSolver = []
 const ErrSolver = []
 
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

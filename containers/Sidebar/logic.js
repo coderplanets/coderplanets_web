@@ -154,23 +154,20 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      setTimeout(() => {
-        /* eslint-disable-next-line */
-        toggleForeceRerender(true)
-      }, 1000)
+    setTimeout(() => {
+      /* eslint-disable-next-line */
+      toggleForeceRerender(true)
+    }, 1000)
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

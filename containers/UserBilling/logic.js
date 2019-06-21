@@ -75,16 +75,13 @@ const ErrSolver = [
 // ###############################
 
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadBilRecords()
-      return () => {
-        if (!sub$) return false
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadBilRecords()
+    return () => {
+      if (!sub$) return false
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

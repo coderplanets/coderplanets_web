@@ -241,23 +241,20 @@ const initDraftTimmer = () => {
 // init & uninit
 // ###############################
 export const useInit = (_store, attachment) => {
-  useEffect(
-    () => {
-      // log('effect init')
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      openAttachment(attachment)
-      initDraftTimmer()
+  useEffect(() => {
+    // log('effect init')
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    openAttachment(attachment)
+    initDraftTimmer()
 
-      return () => {
-        // log('effect uninit')
-        if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+    return () => {
+      // log('effect uninit')
+      if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 
-        store.markState({ editPost: {}, isEdit: false })
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, attachment]
-  )
+      store.markState({ editPost: {}, isEdit: false })
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, attachment])
 }

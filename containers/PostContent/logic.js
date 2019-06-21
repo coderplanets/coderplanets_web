@@ -65,18 +65,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = (_store, attachment) => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
+  useEffect(() => {
+    store = _store
+    // log('effect init')
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      return () => {
-        if (!sub$) return false
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, attachment]
-  )
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    return () => {
+      if (!sub$) return false
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, attachment])
 }

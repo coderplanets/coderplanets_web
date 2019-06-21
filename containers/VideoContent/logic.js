@@ -64,17 +64,14 @@ export const holder = 1
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])

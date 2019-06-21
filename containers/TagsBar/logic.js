@@ -101,21 +101,18 @@ const ErrSolver = [
 // ###############################
 
 export const useInit = (_store, thread, topic, active) => {
-  useEffect(
-    () => {
-      store = _store
-      log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      let activeTag = R.pick(['id', 'title', 'color'], active)
-      if (R.isEmpty(activeTag.title)) activeTag = null
-      store.markState({ thread, topic, activeTag })
+  useEffect(() => {
+    store = _store
+    log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    let activeTag = R.pick(['id', 'title', 'color'], active)
+    if (R.isEmpty(activeTag.title)) activeTag = null
+    store.markState({ thread, topic, activeTag })
 
-      return () => {
-        log('effect uninit')
-        sub$.unsubscribe()
-        sr71$.stop()
-      }
-    },
-    [_store, thread, topic, active]
-  )
+    return () => {
+      log('effect uninit')
+      sub$.unsubscribe()
+      sr71$.stop()
+    }
+  }, [_store, thread, topic, active])
 }

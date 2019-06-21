@@ -126,25 +126,22 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = (_store, attachment) => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      const tokenValue = BStore.get('github_token') || ''
-      const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
-      store.markState({ tokenValue, subView })
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    const tokenValue = BStore.get('github_token') || ''
+    const subView = R.isEmpty(tokenValue) ? 'token' : 'search'
+    store.markState({ tokenValue, subView })
 
-      return () => {
-        store.markState({
-          curView: 'search',
-          subView: 'search',
-          searching: false,
-        })
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, attachment]
-  )
+    return () => {
+      store.markState({
+        curView: 'search',
+        subView: 'search',
+        searching: false,
+      })
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, attachment])
 }
