@@ -96,7 +96,6 @@
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@babel/plugin-proposal-decorators": "^7.1.0",
-    "babel-eslint": "9.0.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-import": "1.9.1",
