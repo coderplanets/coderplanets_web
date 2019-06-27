@@ -153,7 +153,7 @@
     "husky": "^2.1.0",
     "jest": "23.4.2",
     "npm-run-all": "^4.1.1",
-    "plop": "2.2.0",
+    "plop": "2.3.1",
     "prettier": "1.18.0",
     "pretty-quick": "^1.10.0",
     "react-test-renderer": "16.8.1",
