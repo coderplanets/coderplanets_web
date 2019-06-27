@@ -5353,7 +5353,7 @@ hammerjs@^2.0.8:
   version "2.0.8"
   resolved "https://registry.npmjs.org/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
 
-handlebars@^4.0.2, handlebars@^4.0.3, handlebars@^4.0.5:
+handlebars@^4.0.2, handlebars@^4.0.3, handlebars@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npmjs.org/handlebars/-/handlebars-4.1.2.tgz#b6b37c1ced0306b221e094fc7aca3ec23b131b67"
   dependencies:
@@ -5814,7 +5814,7 @@ inquirer@^6.0.0, inquirer@^6.2.2:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-interpret@^1.0.0:
+interpret@^1.0.0, interpret@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
 
@@ -6850,9 +6850,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-liftoff@^2.2.0:
+liftoff@^2.5.0:
   version "2.5.0"
-  resolved "https://registry.npmjs.org/liftoff/-/liftoff-2.5.0.tgz#2009291bb31cea861bbf10a7c15a28caf75c31ec"
+  resolved "https://registry.yarnpkg.com/liftoff/-/liftoff-2.5.0.tgz#2009291bb31cea861bbf10a7c15a28caf75c31ec"
+  integrity sha1-IAkpG7Mc6oYbvxCnwVooyvdcMew=
   dependencies:
     extend "^3.0.0"
     findup-sync "^2.0.0"
@@ -7842,16 +7843,17 @@ node-notifier@^5.2.1:
     shellwords "^0.1.1"
     which "^1.3.0"
 
-node-plop@=0.17.3:
-  version "0.17.3"
-  resolved "https://registry.npmjs.org/node-plop/-/node-plop-0.17.3.tgz#2e56543a159d6a378982cbebff81fcf08e9587f1"
+node-plop@~0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/node-plop/-/node-plop-0.18.0.tgz#b44647898ee9e387d46e691f13a01fac53bf49fe"
+  integrity sha512-in7Cg3wJ/1a1NFvCoqxEuEDZDs3op8A7PghGgwmujsS93o9dZWk0HpZ8wGg4pKw2JB2KBo8xwUMOtEwBUr0sIA==
   dependencies:
     change-case "^3.0.1"
     co "^4.6.0"
     core-js "^2.4.1"
     del "^3.0.0"
     globby "^8.0.0"
-    handlebars "^4.0.5"
+    handlebars "^4.1.0"
     inquirer "^6.0.0"
     isbinaryfile "^3.0.2"
     lodash.get "^4.4.2"
@@ -8525,15 +8527,16 @@ please-upgrade-node@^3.1.1:
   dependencies:
     semver-compare "^1.0.0"
 
-plop@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/plop/-/plop-2.2.0.tgz#1ee64b37ca6d615dbe332115ec58bb66ab5cab59"
+plop@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/plop/-/plop-2.3.1.tgz#6923ecaea749841181c03caef45e6ea22e4cb878"
+  integrity sha512-d4jSi96ilemKK0ydSbCravb1USpI9S/jU2gQdoBUi+m/QuEYpHwTkgEkqz0ztO1jZBJg7AurPAgPttpeXkR5iw==
   dependencies:
     chalk "^1.1.3"
-    interpret "^1.0.0"
-    liftoff "^2.2.0"
+    interpret "^1.2.0"
+    liftoff "^2.5.0"
     minimist "^1.2.0"
-    node-plop "=0.17.3"
+    node-plop "~0.18.0"
     ora "^3.0.0"
     v8flags "^2.0.10"
 
