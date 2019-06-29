@@ -5,6 +5,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import AnalysisService from '@services/Analysis'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,7 +20,7 @@ import CommunitiesContent from '@containers/CommunitiesContent'
 import Footer from '@containers/Footer'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
+
 import {
   getJwtToken,
   makeGQClient,
@@ -125,7 +127,7 @@ export default class CommunitiesPage extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             <Route />
             <MultiLanguage>
@@ -140,7 +142,7 @@ export default class CommunitiesPage extends React.Component {
               </GlobalLayout>
             </MultiLanguage>
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

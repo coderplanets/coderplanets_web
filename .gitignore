@@ -12,3 +12,4 @@ yarn-error.log
 schema.graphql
 cypress//integration/examples
 cypress/videos/
+.vscode/

@@ -5,6 +5,8 @@ import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
 
+import AnalysisService from '@services/Analysis'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,10 +20,9 @@ import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
 
-// import { GAWraper, ErrorPage } from '@components'
+// import { AnalysisService, ErrorPage } from '@components'
 
 import {
   getJwtToken,
@@ -130,7 +131,7 @@ export default class JobPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="job" target={target} />
@@ -160,7 +161,7 @@ export default class JobPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }
