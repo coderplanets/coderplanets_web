@@ -4,10 +4,10 @@ import { useEffect } from 'react'
 import { buildLog } from '@utils'
 import { githubApi } from '@services'
 
-let store = null
-
 /* eslint-disable-next-line */
 const log = buildLog('L:AvatarAdder')
+
+let store = null
 
 export const onSearch = e => {
   if (e.key === 'Enter') {

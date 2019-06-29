@@ -5,7 +5,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, THREAD, C11N, sortByIndex, TYPE } from '@utils'
+import { TYPE, THREAD } from '@constant'
+import { buildLog, C11N, sortByIndex } from '@utils'
+
 import NormalView from './NormalView'
 import BriefView from './BriefView'
 

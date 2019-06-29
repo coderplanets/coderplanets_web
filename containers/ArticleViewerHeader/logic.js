@@ -1,20 +1,9 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  dispatchEvent,
-  ERR,
-  TYPE,
-  EVENT,
-  THREAD,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -22,6 +11,7 @@ const log = buildLog('L:ArticleViewerHeader')
 
 // EVENT.REFRESH_REACTIONS handles FAVORITE action when
 // user set it from FavoriteSetter
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REACTIONS],
 })

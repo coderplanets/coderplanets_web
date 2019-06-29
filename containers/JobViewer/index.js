@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Comments from '@containers/Comments'
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
@@ -25,6 +26,7 @@ import {
 } from './styles'
 
 import { useInit } from './logic'
+
 /* eslint-disable-next-line */
 const log = buildLog('C:JobViewer')
 

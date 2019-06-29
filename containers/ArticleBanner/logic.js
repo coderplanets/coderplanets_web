@@ -1,31 +1,21 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  dispatchEvent,
-  asyncRes,
-  asyncErr,
-  TYPE,
-  ERR,
-  EVENT,
-  THREAD,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:ArticleBanner')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_REACTIONS],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:ArticleBanner')
 
 export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { TYPE } from '@utils'
+import { TYPE } from '@constant'
 
 import {
   DynamicAccountViewer,
@@ -20,7 +20,7 @@ import {
 } from './DynamicComps'
 
 import DefaultViewer from './DefaultViewer'
-import * as logic from './logic'
+import { closePreview } from './logic'
 
 const Viewer = ({ type, root, attachment, attUser }) => {
   switch (type) {
@@ -38,30 +38,22 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DynamicPostViewer attachment={attachment} />
 
     case TYPE.PREVIEW_POST_CREATE:
-      return <DynamicPostEditor onClose={logic.closePreview} />
+      return <DynamicPostEditor onClose={closePreview} />
 
     case TYPE.PREVIEW_POST_EDIT:
       return (
-        <DynamicPostEditor
-          onClose={logic.closePreview}
-          attachment={attachment}
-        />
+        <DynamicPostEditor onClose={closePreview} attachment={attachment} />
       )
 
     // job
     case TYPE.PREVIEW_JOB_CREATE:
-      return <DynamicJobEditor onClose={logic.closePreview} />
+      return <DynamicJobEditor onClose={closePreview} />
 
     case TYPE.PREVIEW_JOB_VIEW:
       return <DynamicJobViewer attachment={attachment} />
 
     case TYPE.PREVIEW_JOB_EDIT:
-      return (
-        <DynamicJobEditor
-          onClose={logic.closePreview}
-          attachment={attachment}
-        />
-      )
+      return <DynamicJobEditor onClose={closePreview} attachment={attachment} />
 
     // repo
     case TYPE.PREVIEW_REPO_VIEW:

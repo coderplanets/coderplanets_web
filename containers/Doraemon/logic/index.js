@@ -3,19 +3,13 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 
 import { ISSUE_ADDR } from '@config'
-import SR71 from '@utils/async/sr71'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
   Global,
   dispatchEvent,
-  asyncRes,
-  asyncErr,
-  $solver,
-  EVENT,
-  TYPE,
-  ERR,
   prettyNum,
-  THREAD,
   cutFrom,
   errRescue,
 } from '@utils'
@@ -29,6 +23,8 @@ import { SwissArmyKnife } from './swissArmyKnife'
 import githubLoginHandler from './oauth/github_handler'
 
 const log = buildLog('L:Doraemon')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.QUERY_DORAMON],
 })
@@ -463,7 +459,7 @@ const initSpecCmdResolver = () => {
     {
       match: SAK.stepOneCmd('help_1'),
       action: () => {
-        Global.location.href = `/home/post/1`
+        Global.location.href = '/home/post/1'
         hidePanel()
       },
     },
@@ -498,50 +494,47 @@ const initSpecCmdResolver = () => {
 // init & uninit handlers
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      pockect$ = new Pocket(store)
-      SAK = new SwissArmyKnife(store)
+    pockect$ = new Pocket(store)
+    SAK = new SwissArmyKnife(store)
 
-      initSpecCmdResolver()
+    initSpecCmdResolver()
 
-      pockect$.search().subscribe(res => {
-        if (R.isEmpty(res)) return emptySearchStates()
+    pockect$.search().subscribe(res => {
+      if (R.isEmpty(res)) return emptySearchStates()
 
-        store.markState({
-          searching: true,
-          showThreadSelector: true,
-          showAlert: false,
-          showUtils: false,
-        })
-        searchContents(store, sr71$, res)
+      store.markState({
+        searching: true,
+        showThreadSelector: true,
+        showAlert: false,
+        showUtils: false,
       })
+      searchContents(store, sr71$, res)
+    })
 
-      pockect$.searchUser().subscribe(name => {
-        const nickname = R.slice(1, Infinity, name)
-        store.markState({
-          prefix: '@',
-          searchThread: THREAD.USER,
-          showThreadSelector: true,
-          showAlert: false,
-        })
-        if (R.isEmpty(nickname)) return false
-        searchContents(store, sr71$, nickname)
+    pockect$.searchUser().subscribe(name => {
+      const nickname = R.slice(1, Infinity, name)
+      store.markState({
+        prefix: '@',
+        searchThread: THREAD.USER,
+        showThreadSelector: true,
+        showAlert: false,
       })
+      if (R.isEmpty(nickname)) return false
+      searchContents(store, sr71$, nickname)
+    })
 
-      pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
-      pockect$.emptyInput().subscribe(() => store.clearSuggestions())
+    pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
+    pockect$.emptyInput().subscribe(() => store.clearSuggestions())
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }
 
 export const init2 = _store => {

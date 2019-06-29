@@ -8,7 +8,6 @@ import R from 'ramda'
 // import { PAGE_SIZE } from '@config'
 
 import { markStates, buildLog, stripMobx, BStore } from '@utils'
-
 import { User, EmptyUser, PagedCommunities } from '@model'
 
 /* eslint-disable-next-line */

@@ -1,7 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE, Trans } from '@utils'
+import { TYPE } from '@constant'
+import { Trans } from '@utils'
 import { JobItemLoading } from '@components/LoadingEffects'
 
 import JobItem from '@components/JobItem'

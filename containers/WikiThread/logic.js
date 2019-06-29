@@ -1,30 +1,22 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  asyncSuit,
-  CONSTANT,
-  errRescue,
-  BStore,
-  nilOrEmpty,
-} from '@utils'
-
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
 import { githubApi } from '@services'
+
 import S from './schema'
 
-const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
-const { TYPE, EVENT, ERR, THREAD } = CONSTANT
+/* eslint-disable-next-line */
+const log = buildLog('L:WikiThread')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw

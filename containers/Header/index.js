@@ -7,7 +7,8 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import { useInit } from './logic'

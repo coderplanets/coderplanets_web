@@ -8,7 +8,8 @@ import React from 'react'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'

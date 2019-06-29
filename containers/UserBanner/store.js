@@ -7,6 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@utils'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:UserBanner')
 

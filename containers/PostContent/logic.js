@@ -1,19 +1,12 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  ERR,
-  errRescue,
-} from '@utils'
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_POSTS],
 })

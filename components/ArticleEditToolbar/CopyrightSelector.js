@@ -3,7 +3,8 @@ import R from 'ramda'
 // import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { THREAD } from '@utils'
+import { THREAD } from '@constant'
+
 import Popover from '@components/Popover'
 
 import {

@@ -2,18 +2,19 @@
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
+import { ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 
-import { buildLog, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
-
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:MailsViewer')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })

@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleViewerHeader from '@containers/ArticleViewerHeader'
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'

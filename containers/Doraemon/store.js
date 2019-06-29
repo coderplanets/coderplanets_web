@@ -6,11 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { THREAD } from '@constant'
 import {
   markStates,
   focusDoraemonBar,
   hideDoraemonBarRecover,
-  THREAD,
   stripMobx,
   holdPage,
   unholdPage,

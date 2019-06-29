@@ -2,9 +2,9 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
-import { THREAD } from '@utils'
-import withGuardian from '@components/HOC/withGuardian'
+import { THREAD } from '@constant'
 
+import withGuardian from '@components/HOC/withGuardian'
 import { Option, OptionIcon, OptionTitle } from './styles'
 
 const EditOption = ({ thread, onEdit }) => (

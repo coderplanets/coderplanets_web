@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 /* import R from 'ramda' */
 
-import { buildLog, $solver } from '@utils'
-import SR71 from '@utils/async/sr71'
-
-const sr71$ = new SR71()
+import { asyncSuit, buildLog } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CheatSheetContent')
+
+const { SR71, $solver } = asyncSuit
+const sr71$ = new SR71()
 
 let store = null
 let sub$ = null
