@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
+import AnalysisService from '@services/Analysis'
 import ThemeWrapper from '@containers/ThemeWrapper'
-import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 
 import initRootStore from '@stores/init'
