@@ -64,7 +64,7 @@ export {
   atomizeValues,
 } from './graphql_helper'
 
-export { default as githubApi } from './github_api'
+// export { default as githubApi } from './github_api'
 
 export {
   getMainPath,

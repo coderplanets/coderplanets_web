@@ -10,11 +10,11 @@ import {
   TYPE,
   ERR,
   THREAD,
-  githubApi,
   errRescue,
   BStore,
   nilOrEmpty,
 } from '@utils'
+import { githubApi } from '@services'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'

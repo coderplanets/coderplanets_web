@@ -1,5 +1,5 @@
 import { TimeoutError } from 'promise-timeout'
-import { ERR } from '../constants'
+import { ERR } from '@utils'
 
 import { searchRepoPromise, transformRepo } from './repo_search'
 import { searchUserPromise, ransformUser } from './user_search'

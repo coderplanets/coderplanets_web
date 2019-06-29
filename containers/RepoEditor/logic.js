@@ -9,11 +9,11 @@ import {
   asyncErr,
   EVENT,
   ERR,
-  githubApi,
   closePreviewer,
   BStore,
   errRescue,
 } from '@utils'
+import { githubApi } from '@services'
 
 import SR71 from '@utils/async/sr71'
 import S from './schema'

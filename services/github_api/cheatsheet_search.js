@@ -1,6 +1,6 @@
 import { timeout } from 'promise-timeout'
-import { TIMEOUT_SEC, contentEndpoint } from './config'
 
+import { TIMEOUT_SEC, contentEndpoint } from './config'
 import { restClient } from './client'
 
 export const searchCheatsheeetPromise = raw => {
