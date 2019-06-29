@@ -4,11 +4,10 @@
 // import SR71 from './async/sr71'
 // import { asyncErr, asyncRes } from './graphql_helper'
 // import { $solver } from './mobx_helper'
-import * as CONSTANT_CONFLICT from './constant'
 
 // aka network staff
 // export const asyncSuit = { SR71, asyncErr, asyncRes, $solver }
-export const CONSTANT = CONSTANT_CONFLICT
+export { default as CONSTANT } from './constant'
 
 export {
   EVENT,
