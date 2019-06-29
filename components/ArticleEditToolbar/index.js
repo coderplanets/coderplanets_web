@@ -9,10 +9,10 @@ import T from 'prop-types'
 import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
+import { THREAD } from '@constant'
+import { buildLog } from '@utils'
 
-import { buildLog, THREAD } from '@utils'
 import Maybe from '@components/Maybe'
-
 import CopyrightSelector from './CopyrightSelector'
 
 import {

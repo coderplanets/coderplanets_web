@@ -3,8 +3,9 @@ import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 
 import { ICON_CMD } from '@config'
+import { THREAD } from '@constant'
 
-import { THREAD } from '@utils'
+import SuggestIcon from './SuggestIcon'
 import {
   InfoBar,
   Wrapper,
@@ -15,8 +16,6 @@ import {
   Hint,
   HintEnter,
 } from './styles/results_list'
-
-import SuggestIcon from './SuggestIcon'
 
 import { navToSuggestion, selectSuggestion } from './logic'
 

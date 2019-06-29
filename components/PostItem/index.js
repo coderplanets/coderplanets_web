@@ -12,9 +12,9 @@ import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 
 import DigestView from './DigestView'
 import ListView from './ListView'
-import { getOpacity } from './helper'
 
 import { Wrapper } from './styles'
+import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PostItem:index')

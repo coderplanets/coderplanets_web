@@ -1,30 +1,26 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  $solver,
-  asyncRes,
-  asyncErr,
-  TYPE,
-  THREAD,
-  EVENT,
-  ERR,
   pagedFilter,
   errRescue,
   scrollToHeader,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserPublishedComments')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })

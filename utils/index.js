@@ -3,23 +3,9 @@
  */
 
 export { default as asyncSuit } from './async_suit'
-export { default as CONSTANT } from './constant'
 
 export {
-  EVENT,
-  ERR,
-  TYPE,
-  THREAD,
-  COMMUNITY_SPEC_THREADS,
-  TOPIC,
-  USER_THREAD,
-  ACTION,
-  FILTER,
-  ROUTE,
-  C11N,
-  NON_FILL_COMMUNITY,
-  PAYMENT_USAGE,
-  PAYMENT_METHOD,
+  C11N, // NON_FILL_COMMUNITY, // PAYMENT_USAGE, // PAYMENT_METHOD,
 } from './constants'
 
 export { buildLog } from './logger'

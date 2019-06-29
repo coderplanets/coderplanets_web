@@ -8,6 +8,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, buildLog, stripMobx } from '@utils'
 import { User, EmptyUser } from '@model'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:AccountViewerStore')
 

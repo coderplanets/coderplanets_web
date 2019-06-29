@@ -14,7 +14,6 @@ import Header from './Header'
 import Footer from './Footer'
 
 import { Wrapper, BodyDigest } from './styles'
-
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */

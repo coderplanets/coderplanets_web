@@ -1,6 +1,6 @@
 import { types as t } from 'mobx-state-tree'
 
-import { FILTER } from '@utils'
+import { FILTER } from '@constant'
 
 export const ContentFilter = t.model('ContentFilter', {
   when: t.optional(

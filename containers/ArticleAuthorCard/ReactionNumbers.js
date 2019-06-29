@@ -1,11 +1,12 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { ISSUE_ADDR } from '@config'
+import { TYPE } from '@constant'
+
 import Popover from '@components/Popover'
 import DiscussLinker from '@components/DiscussLinker'
-import { ISSUE_ADDR } from '@config'
 
-import { TYPE } from '@utils'
 import {
   Wrapper,
   ReactionNum,

@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, ROUTE } from '@utils'
+import { ROUTE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import CommunityContent from '@containers/CommunityContent'
 import CommunitiesContent from '@containers/CommunitiesContent'
@@ -14,7 +15,6 @@ import CheatSheetContent from '@containers/CheatSheetContent'
 import UserContent from '@containers/UserContent'
 
 import { Wrapper } from './styles'
-
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */

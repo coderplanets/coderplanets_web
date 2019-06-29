@@ -8,9 +8,12 @@ import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
+import { THREAD } from '@constant'
+import { buildLog, Trans } from '@utils'
 
-import { buildLog, THREAD, Trans } from '@utils'
 import Popover from '@components/Popover'
+import Panel from './Panel'
+
 import {
   Wrapper,
   Label,
@@ -19,7 +22,6 @@ import {
   LabelText,
   LabelCount,
 } from './styles'
-import Panel from './Panel'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ThreadSelector:index')

@@ -9,7 +9,8 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Labeler from '@containers/Labeler'
 import CommunitySetter from '@containers/CommunitySetter'

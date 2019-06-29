@@ -2,6 +2,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { ROUTE } from '@constant'
+import { buildLog, getMainPath } from '@utils'
 import AnalysisService from '@services/Analysis'
 
 import GlobalLayout from '@containers/GlobalLayout'
@@ -20,8 +22,6 @@ import ErrorBox from '@containers/ErrorBox'
 import ErrorPage from '@components/ErrorPage'
 import initRootStore from '@stores/init'
 // import { AnalysisService, ErrorPage } from '@components'
-
-import { buildLog, getMainPath, ROUTE } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('page:community')

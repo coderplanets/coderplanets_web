@@ -10,12 +10,10 @@ import T from 'prop-types'
 import { buildLog, C11N } from '@utils'
 
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
-
 import DigestView from './DigestView'
 import ListView from './ListView'
 
 import { Wrapper } from './styles'
-
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */

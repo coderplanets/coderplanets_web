@@ -1,29 +1,25 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  EVENT,
-  TYPE,
   dispatchEvent,
   subPath2Thread,
   thread2Subpath,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityBanner')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71({ resv_event: [EVENT.COMMUNITY_CHANGE] })
+
+let sub$ = null
 let store = null
 
 const loadCommunity = () => {

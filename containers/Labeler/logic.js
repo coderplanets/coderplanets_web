@@ -1,16 +1,15 @@
 import R from 'ramda'
 
-import { buildLog, $solver, makeGQClient } from '@utils'
-import SR71 from '@utils/async/sr71'
-
+import { buildLog, asyncSuit, makeGQClient } from '@utils'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Labeler')
 
+const { SR71, $solver } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const loadTags = uniqId => {

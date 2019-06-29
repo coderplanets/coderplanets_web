@@ -9,6 +9,7 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:Maybe:index')
 

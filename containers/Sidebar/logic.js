@@ -2,33 +2,28 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 
+import { EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
-  $solver,
-  ERR,
+  asyncSuit,
   buildLog,
-  EVENT,
   dispatchEvent,
   thread2Subpath,
-  THREAD,
-  ROUTE,
   Global,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:Sidebar')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null
 let sub$ = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:Sidebar')
 
 export const setPin = () => store.markState({ pin: !store.pin })
 

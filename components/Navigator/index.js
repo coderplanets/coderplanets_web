@@ -8,7 +8,9 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, C11N, ROUTE } from '@utils'
+import { ROUTE } from '@constant'
+import { buildLog, C11N } from '@utils'
+
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 

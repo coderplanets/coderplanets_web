@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON_CMD } from '@config'
-import { ERR } from '@utils'
+import { ERR } from '@constant'
 import GraphqlDetail from './GraphqlDetail'
 
 import { Wrapper, TitleWrapper, Dot, Title, Desc } from './styles/details'

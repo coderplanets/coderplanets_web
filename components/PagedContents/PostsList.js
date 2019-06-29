@@ -1,10 +1,11 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE, Trans } from '@utils'
+import { TYPE } from '@constant'
+import { Trans } from '@utils'
+
 import { PostItemLoading } from '@components/LoadingEffects'
 import PostItem from '@components/PostItem'
-
 import EmptyThread from '@components/EmptyThread'
 import EmptyLabel from '@components/EmptyLabel'
 

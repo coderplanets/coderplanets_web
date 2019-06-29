@@ -1,36 +1,30 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  EVENT,
-  TYPE,
-  /* Global, */
-  ERR,
-  $solver,
   thread2Subpath,
   atomizeValues,
   scrollToHeader,
   errRescue,
   Global,
-  // getParameterByName,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:Header')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.SET_C11N],
 })
 
 let store = null
 let sub$ = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:Header')
 
 export const previewState = () =>
   dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })

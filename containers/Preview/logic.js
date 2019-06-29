@@ -1,18 +1,12 @@
 import { useEffect } from 'react'
 
-import {
-  asyncRes,
-  $solver,
-  buildLog,
-  EVENT,
-  TYPE,
-  unholdPage,
-  dispatchEvent,
-  Global,
-} from '@utils'
+import { TYPE, EVENT } from '@constant'
+import { asyncSuit, buildLog, unholdPage, dispatchEvent, Global } from '@utils'
 
-import SR71 from '@utils/async/sr71'
+/* eslint-disable-next-line */
+const log = buildLog('L:Preview')
 
+const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [
     EVENT.PREVIEW_OPEN,
@@ -21,9 +15,6 @@ const sr71$ = new SR71({
     EVENT.UPLOAD_IMG_FINISH,
   ],
 })
-
-/* eslint-disable-next-line */
-const log = buildLog('L:Preview')
 
 let store = null
 let sub$ = null
