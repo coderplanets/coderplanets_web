@@ -14,7 +14,7 @@ import {
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
 
-import { queryPromise, mutatePromise, restGetPromise } from './index'
+import { queryPromise, mutatePromise, restGetPromise } from './methods'
 
 // import { debounceTime, switchMap, merge, timeoutWith } from 'rxjs/operator'
 

@@ -5,16 +5,19 @@ import { onError } from 'apollo-link-error'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-fetch'
-import { GRAPHQL_ENDPOINT } from '@config'
-import { errRescue } from '../functions'
-import { ERR } from '../constants'
 
 /* import { onError } from 'apollo-link-error' */
 
-import { buildLog, BStore } from '..'
+import { GRAPHQL_ENDPOINT } from '@config'
+
+import { errRescue } from '../functions'
+import constant from '../constant'
+import { buildLog } from '../logger'
+import BStore from '../bstore'
 
 /* eslint-disable-next-line */
 const log = buildLog('Async')
+const { ERR } = constant
 
 const graphLink = new HttpLink({ uri: GRAPHQL_ENDPOINT, fetch })
 
