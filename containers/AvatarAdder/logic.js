@@ -1,7 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, githubApi } from '@utils'
+import { buildLog } from '@utils'
+import { githubApi } from '@services'
 
 let store = null
 
