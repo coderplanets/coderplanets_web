@@ -5,6 +5,8 @@ import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
 
+import AnalysisService from '@services/Analysis'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,7 +20,6 @@ import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import { P } from '@schemas'
-import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 
 // import { AnalysisService, ErrorPage } from '@components'

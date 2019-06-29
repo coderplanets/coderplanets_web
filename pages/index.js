@@ -2,6 +2,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import AnalysisService from '@services/Analysis'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -15,7 +17,6 @@ import Content from '@containers/Content'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 import initRootStore from '@stores/init'
 // import { AnalysisService, ErrorPage } from '@components'

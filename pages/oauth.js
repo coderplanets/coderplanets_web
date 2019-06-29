@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 
 import ThemeWrapper from '@containers/ThemeWrapper'
 
-import AnalysisService from '@components/AnalysisService'
+import AnalysisService from '@services/Analysis'
 import OauthHinter from '@components/OauthHinter'
 
 import initRootStore from '@stores/init'
