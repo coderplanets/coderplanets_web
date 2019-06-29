@@ -19,7 +19,7 @@ import CommunityContent from '@containers/CommunityContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
+import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 
 import {
@@ -185,12 +185,12 @@ export default class CommunityPage extends React.Component {
 
     const seoTitle =
       community.raw === 'home'
-        ? `coderplanets 社区`
+        ? 'coderplanets 社区'
         : `coderplanets ${community.raw}社区`
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage
@@ -223,7 +223,7 @@ export default class CommunityPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

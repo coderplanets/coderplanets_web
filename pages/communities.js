@@ -18,7 +18,7 @@ import CommunitiesContent from '@containers/CommunitiesContent'
 import Footer from '@containers/Footer'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
+import AnalysisService from '@components/AnalysisService'
 import {
   getJwtToken,
   makeGQClient,
@@ -125,7 +125,7 @@ export default class CommunitiesPage extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             <Route />
             <MultiLanguage>
@@ -140,7 +140,7 @@ export default class CommunitiesPage extends React.Component {
               </GlobalLayout>
             </MultiLanguage>
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }
