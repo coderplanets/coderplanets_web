@@ -15,10 +15,10 @@ import Content from '@containers/Content'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
+import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 import initRootStore from '@stores/init'
-// import { GAWraper, ErrorPage } from '@components'
+// import { AnalysisService, ErrorPage } from '@components'
 
 import { buildLog, getMainPath, ROUTE } from '@utils'
 
@@ -67,7 +67,7 @@ export default class PageCommunity extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage
@@ -93,7 +93,7 @@ export default class PageCommunity extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

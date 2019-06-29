@@ -18,7 +18,7 @@ import RepoContent from '@containers/RepoContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
+import AnalysisService from '@components/AnalysisService'
 import ErrorPage from '@components/ErrorPage'
 
 import {
@@ -132,7 +132,7 @@ export default class RepoPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="post" target={target} />
@@ -166,7 +166,7 @@ export default class RepoPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }
