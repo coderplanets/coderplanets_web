@@ -1,7 +1,7 @@
 /*
-* RepoViewer store test
-*
-*/
+ * RepoViewer store test
+ *
+ */
 
 // import R from 'ramda'
 

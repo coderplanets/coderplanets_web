@@ -1,7 +1,7 @@
 /*
-* JobEditor store test
-*
-*/
+ * JobEditor store test
+ *
+ */
 
 // import R from 'ramda'
 

@@ -1,7 +1,7 @@
 /*
-* WikiThread store test
-*
-*/
+ * WikiThread store test
+ *
+ */
 
 // import R from 'ramda'
 

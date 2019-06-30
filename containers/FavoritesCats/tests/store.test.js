@@ -1,7 +1,7 @@
 /*
-* FavoritesCats store test
-*
-*/
+ * FavoritesCats store test
+ *
+ */
 
 // import R from 'ramda'
 

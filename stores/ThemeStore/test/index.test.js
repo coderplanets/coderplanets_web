@@ -1,7 +1,7 @@
 /*
-* ThemeStore store test
-*
-*/
+ * ThemeStore store test
+ *
+ */
 
 // import ThemeStore from '../index'
 

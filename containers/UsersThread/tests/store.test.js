@@ -1,7 +1,7 @@
 /*
-* UsersThread store test
-*
-*/
+ * UsersThread store test
+ *
+ */
 
 // import R from 'ramda'
 

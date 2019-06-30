@@ -1,7 +1,7 @@
 /*
-* CommunitySetter store test
-*
-*/
+ * CommunitySetter store test
+ *
+ */
 
 // import R from 'ramda'
 

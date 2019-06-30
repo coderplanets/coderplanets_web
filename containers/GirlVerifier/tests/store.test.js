@@ -1,7 +1,7 @@
 /*
-* GirlVerifier store test
-*
-*/
+ * GirlVerifier store test
+ *
+ */
 
 // import R from 'ramda'
 

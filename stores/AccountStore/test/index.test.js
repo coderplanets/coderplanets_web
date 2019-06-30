@@ -1,7 +1,7 @@
 /*
-* AccountStore store test
-*
-*/
+ * AccountStore store test
+ *
+ */
 
 // import R from 'ramda'
 
