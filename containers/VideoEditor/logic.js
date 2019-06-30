@@ -1,31 +1,26 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR } from '@constant'
 import {
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  asyncRes,
-  $solver,
-  asyncErr,
   cast,
-  TYPE,
-  ERR,
-  EVENT,
   updateEditing,
   closePreviewer,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
-
 import { S, updatableFields } from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:VideoEditor')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)

@@ -6,7 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx, TYPE, nilOrEmpty } from '@utils'
+import { TYPE } from '@constant'
+import { markStates, buildLog, stripMobx, nilOrEmpty } from '@utils'
+
 import {
   PagedPosts,
   Tag,

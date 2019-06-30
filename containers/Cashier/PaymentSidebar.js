@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+import { PAYMENT_METHOD } from '@constant'
 
-import { PAYMENT_METHOD } from '@utils'
 import {
   Wrapper,
   TransWrapper,

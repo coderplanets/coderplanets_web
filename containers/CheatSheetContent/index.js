@@ -14,6 +14,10 @@ import { connectStore, uid, buildLog } from '@utils'
 import { Entry, CheatsheetItem } from './styles'
 import { useInit } from './logic'
 
+/* eslint-disable-next-line */
+const log = buildLog('C:CheatSheetContent')
+
+// TODO:  ramdo color is slow
 const cheatsheetData = {
   langs: [
     { title: 'javascript', link: 'link' },
@@ -48,9 +52,6 @@ const cheatsheetData = {
     { title: 'vue', link: 'link' },
   ],
 }
-
-/* eslint-disable-next-line */
-const log = buildLog('C:CheatSheetContent')
 
 const Langs = ({ base }) => {
   //   const base = 'orange' // '#8363B4' //'#68808D'

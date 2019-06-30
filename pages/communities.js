@@ -5,7 +5,19 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { ROUTE } from '@constant'
+import {
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  getSubPath,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+
 import AnalysisService from '@services/Analysis'
+import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
@@ -20,19 +32,6 @@ import CommunitiesContent from '@containers/CommunitiesContent'
 import Footer from '@containers/Footer'
 
 import { P } from '@schemas'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
-  nilOrEmpty,
-  getSubPath,
-  ROUTE,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
 
 /* import PostsThreadSchema from '@containers/PostsThread/schema' */
 

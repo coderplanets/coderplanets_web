@@ -6,12 +6,13 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ThreadSelector from '@components/ThreadSelector'
-import { ThreadWrapper } from './styles'
 
+import { ThreadWrapper } from './styles'
 import { useInit, onThreadChange, onReload, onPreview } from './logic'
 
 /* eslint-disable-next-line */

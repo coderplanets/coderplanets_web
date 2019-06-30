@@ -1,29 +1,25 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  $solver,
-  asyncErr,
-  asyncRes,
   dispatchEvent,
   closePreviewer,
-  ERR,
-  TYPE,
-  EVENT,
-  THREAD,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ArticleBodyHeader')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 export const onEdit = thread => {
   const data = store.viewingData

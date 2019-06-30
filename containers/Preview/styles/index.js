@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 import R from 'ramda'
-import { theme, TYPE, animate, cs } from '@utils'
+
+import { TYPE } from '@constant'
+import { theme, animate, cs } from '@utils'
 
 const WIDE_CASE = [
   // post

@@ -9,6 +9,7 @@ import { Pagination } from 'antd'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
+
 import MobilePagination from './MobilePagination'
 import {
   PagiWrapper,

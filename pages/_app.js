@@ -1,9 +1,8 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import sentry from '@utils/sentry'
-
-// import Raven from 'raven-js'
 import NextSeo from 'next-seo'
+
+import { sentry } from '@services'
 
 /**
  * import default seo configuration

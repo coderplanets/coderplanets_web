@@ -4,6 +4,18 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  nilOrEmpty,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+import initRootStore from '@stores/init'
 
 import AnalysisService from '@services/Analysis'
 
@@ -23,23 +35,6 @@ import { P } from '@schemas'
 import ErrorPage from '@components/ErrorPage'
 
 // import { AnalysisService, ErrorPage } from '@components'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  ROUTE,
-  THREAD,
-  TYPE,
-  nilOrEmpty,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
-
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')

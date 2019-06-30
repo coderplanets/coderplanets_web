@@ -7,7 +7,8 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog, USER_THREAD } from '@utils'
+import { USER_THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import UserPublished from '@containers/UserPublished'
 import UserPublishedComments from '@containers/UserPublishedComments'

@@ -11,7 +11,6 @@ import { buildLog } from '@utils'
 import CommunityList from '@components/CommunityList'
 
 import UserList from './UserList'
-
 import { Wrapper, Didiver, Title, Desc, NomoreDesc } from './styles'
 
 /* eslint-disable-next-line */

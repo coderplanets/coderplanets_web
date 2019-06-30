@@ -1,30 +1,22 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  TYPE,
-  EVENT,
-  errRescue,
-  githubApi,
-} from '@utils'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
+import { githubApi } from '@services'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:RepoViewer')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:RepoViewer')
 
 const loadRepo = id => {
   markLoading(true)

@@ -9,7 +9,8 @@ import { Radio } from 'antd'
 import 'antd/lib/radio/style/index.css'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
-import { connectStore, buildLog, C11N } from '@utils'
+import { C11N } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import ThemeSelector from '@components/ThemeSelector'
 import Popover from '@components/Popover'

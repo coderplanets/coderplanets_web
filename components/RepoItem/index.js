@@ -7,14 +7,14 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, cutFrom, C11N } from '@utils'
-import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
+import { buildLog, cutFrom } from '@utils'
+import { C11N } from '@constant'
 
+import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 import Header from './Header'
 import Footer from './Footer'
 
 import { Wrapper, BodyDigest } from './styles'
-
 import { getOpacity } from './helper'
 
 /* eslint-disable-next-line */

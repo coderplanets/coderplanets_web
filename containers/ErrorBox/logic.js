@@ -1,18 +1,19 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
-
-import SR71 from '@utils/async/sr71'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.ERR_RESCUE],
-})
-let sub$ = null
-let store = null
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, isObject } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ErrorBox')
+
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.ERR_RESCUE],
+})
+
+let sub$ = null
+let store = null
 
 export const onClose = () => store.markState({ show: false })
 

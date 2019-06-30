@@ -9,7 +9,8 @@ import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import { ICON_CMD } from '@config'
-import { buildLog, cutFrom, C11N } from '@utils'
+import { C11N } from '@constant'
+import { buildLog, cutFrom } from '@utils'
 
 import DotDivider from '@components/DotDivider'
 import VideoSourceInfo from '@components/VideoSourceInfo'

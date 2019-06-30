@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { DEFAULT_THEME } from '@config'
-
+import { TYPE, THREAD } from '@constant'
 import { P } from '@schemas'
-import { TYPE, THREAD } from './constants'
+
 import BStore from './bstore'
 
 // get jwt from cookie or localStorage

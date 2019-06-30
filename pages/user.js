@@ -7,6 +7,18 @@ import R from 'ramda'
 import { SocialProfileJsonLd } from 'next-seo'
 
 import { SITE_URL } from '@config'
+import { ROUTE, USER_THREAD } from '@constant'
+import {
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  getSubPath,
+  pagedFilter,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+import initRootStore from '@stores/init'
 
 import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
@@ -24,21 +36,6 @@ import ErrorBox from '@containers/ErrorBox'
 import { P } from '@schemas'
 import ErrorPage from '@components/ErrorPage'
 // import { AnalysisService, ErrorPage } from '@components'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
-  nilOrEmpty,
-  getSubPath,
-  USER_THREAD,
-  ROUTE,
-  pagedFilter,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

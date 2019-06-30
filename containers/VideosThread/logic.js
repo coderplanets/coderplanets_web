@@ -1,33 +1,28 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  asyncErr,
-  $solver,
-  ERR,
-  TYPE,
-  EVENT,
-  THREAD,
   scrollToTabber,
-  asyncRes,
   dispatchEvent,
   notEmpty,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:VideosThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_VIDEOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:VideosThread')
 
 export const loadVideos = (page = 1) => {
   const { curCommunity } = store

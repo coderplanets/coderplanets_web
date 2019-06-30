@@ -7,7 +7,8 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'

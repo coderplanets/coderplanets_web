@@ -6,7 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { markStates, buildLog } from '@utils'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleViewerHeader')
 

@@ -2,26 +2,30 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  asyncRes,
-  asyncErr,
-  buildLog,
-  dispatchEvent,
+  TYPE,
   EVENT,
   ERR,
-  TYPE,
-  ROUTE,
   THREAD,
+  ROUTE,
   COMMUNITY_SPEC_THREADS,
-  $solver,
+} from '@constant'
+
+import {
+  asyncSuit,
+  buildLog,
+  dispatchEvent,
   notEmpty,
   thread2Subpath,
   errRescue,
   scrollToTabber,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:PostsThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [
     EVENT.REFRESH_POSTS,
@@ -33,9 +37,6 @@ const sr71$ = new SR71({
 
 let store = null
 let sub$ = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:PostsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)

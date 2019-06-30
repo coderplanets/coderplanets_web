@@ -3,8 +3,10 @@ import R from 'ramda'
 /* import { Observable } from 'rxjs/Observable' */
 import { of } from 'rxjs'
 
-import { buildLog, ERR } from '..'
+import { ERR } from '@constant'
+
 import { TIMEOUT_THRESHOLD } from './setup'
+import { buildLog } from '../logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('Async')

@@ -1,7 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, dispatchEvent, EVENT } from '@utils'
+import { EVENT } from '@constant'
+import { buildLog, dispatchEvent } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:GlobalLayout')

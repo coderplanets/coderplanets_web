@@ -1,8 +1,9 @@
 import R from 'ramda'
 import { types as t } from 'mobx-state-tree'
-import { TAG_COLORS, PAGE_SIZE } from '@config'
 
-import { THREAD } from '@utils'
+import { TAG_COLORS, PAGE_SIZE } from '@config'
+import { THREAD } from '@constant'
+
 import { Community } from './Community'
 
 export const Topic = t.model('Topic', {

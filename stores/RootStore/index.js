@@ -6,6 +6,7 @@
 import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { EVENT } from '@constant'
 import {
   buildLog,
   markStates,
@@ -13,7 +14,6 @@ import {
   toastBarColor,
   themeSkins,
   dispatchEvent,
-  EVENT,
 } from '@utils'
 
 import {

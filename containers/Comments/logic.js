@@ -2,14 +2,10 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
-  EVENT,
-  ERR,
-  TYPE,
-  $solver,
   scrollIntoEle,
   countWords,
   dispatchEvent,
@@ -18,17 +14,17 @@ import {
   BStore,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
-
-let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Comments')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
+let saveDraftTimmer = null
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {

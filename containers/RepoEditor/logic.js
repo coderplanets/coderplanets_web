@@ -1,31 +1,29 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { EVENT, ERR } from '@constant'
 import {
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  ERR,
-  githubApi,
   closePreviewer,
   BStore,
   errRescue,
 } from '@utils'
+import { githubApi } from '@services'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED],
-})
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:RepoEditor')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.PREVIEW_CLOSED],
+})
+
+let sub$ = null
+let store = null
 
 export const onPublish = () => {
   const args = {

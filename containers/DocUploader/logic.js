@@ -1,24 +1,17 @@
 // import R from 'ramda'
 
-import {
-  buildLog,
-  dispatchEvent,
-  $solver,
-  asyncErr,
-  ERR,
-  EVENT,
-  errRescue,
-} from '@utils'
-
-import SR71 from '@utils/async/sr71'
-// import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:DocUploader')
+
+// import S from './schema'
+const { SR71, $solver, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 export const onUploadError = () =>
   store.toast('error', {

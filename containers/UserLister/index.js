@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import EmptyLabel from '@components/EmptyLabel'
 import Modal from '@components/Modal'

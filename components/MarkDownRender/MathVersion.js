@@ -25,8 +25,10 @@ import { MENTION_USER_ADDR } from '@config'
 import { buildLog } from '@utils'
 import { PreviewerContainer } from './styles'
 
-// const latexPlugin = require('remarkable-katex')
+/* eslint-disable-next-line */
+const log = buildLog('c:MarkDownRender:index')
 
+// const latexPlugin = require('remarkable-katex')
 // const md = new Remarkable()
 const md = new Remarkable('full', {
   html: true,
@@ -40,9 +42,6 @@ md.use(latexPlugin)
 const mdWithNoMath = new Remarkable()
 mdWithNoMath.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 mdWithNoMath.use(emojiPlugin)
-
-/* eslint-disable-next-line */
-const log = buildLog('c:MarkDownRender:index')
 
 class MarkDownRender extends React.Component {
   constructor(props) {
