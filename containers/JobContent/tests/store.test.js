@@ -1,7 +1,7 @@
 /*
-* JobContent store test
-*
-*/
+ * JobContent store test
+ *
+ */
 
 // import R from 'ramda'
 

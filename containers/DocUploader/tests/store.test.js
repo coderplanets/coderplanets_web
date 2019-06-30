@@ -1,7 +1,7 @@
 /*
-* DocUploader store test
-*
-*/
+ * DocUploader store test
+ *
+ */
 
 // import R from 'ramda'
 

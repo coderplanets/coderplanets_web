@@ -1,7 +1,7 @@
 /*
-* CheatsheetThread store test
-*
-*/
+ * CheatsheetThread store test
+ *
+ */
 
 // import R from 'ramda'
 

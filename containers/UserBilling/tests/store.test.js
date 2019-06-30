@@ -1,7 +1,7 @@
 /*
-* UserBilling store test
-*
-*/
+ * UserBilling store test
+ *
+ */
 
 // import R from 'ramda'
 

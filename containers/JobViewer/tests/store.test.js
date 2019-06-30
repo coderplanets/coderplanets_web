@@ -1,7 +1,7 @@
 /*
-* JobViewer store test
-*
-*/
+ * JobViewer store test
+ *
+ */
 
 // import R from 'ramda'
 

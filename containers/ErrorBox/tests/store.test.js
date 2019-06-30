@@ -1,7 +1,7 @@
 /*
-* ErrorBox store test
-*
-*/
+ * ErrorBox store test
+ *
+ */
 
 // import R from 'ramda'
 

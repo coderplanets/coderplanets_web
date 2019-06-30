@@ -1,7 +1,7 @@
 /*
-* UserPublished store test
-*
-*/
+ * UserPublished store test
+ *
+ */
 
 // import R from 'ramda'
 

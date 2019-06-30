@@ -1,7 +1,7 @@
 /*
-* ReposThread store test
-*
-*/
+ * ReposThread store test
+ *
+ */
 
 // import R from 'ramda'
 

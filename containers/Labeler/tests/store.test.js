@@ -1,7 +1,7 @@
 /*
-* Labeler store test
-*
-*/
+ * Labeler store test
+ *
+ */
 
 // import R from 'ramda'
 

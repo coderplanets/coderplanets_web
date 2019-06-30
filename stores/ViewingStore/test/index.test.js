@@ -1,7 +1,7 @@
 /*
-* ViewingStore store test
-*
-*/
+ * ViewingStore store test
+ *
+ */
 
 // import R from 'ramda'
 
