@@ -1,10 +1,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import Maybe from '@components/Maybe'
 import { ICON_CMD } from '@config'
+import { TYPE } from '@constant'
+import { numberWithCommas } from '@utils'
 
-import { numberWithCommas, TYPE } from '@utils'
+import Maybe from '@components/Maybe'
 import {
   NumberSection,
   NumberDivider,

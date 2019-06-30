@@ -1,28 +1,20 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  ERR,
-  errRescue,
-} from '@utils'
-
-import SR71 from '@utils/async/sr71'
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:JobContent')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:JobContent')
 
 const loadJob = () => {
   const { id } = store.viewingData
@@ -82,16 +74,13 @@ export const holder = 1
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadCityTags()
-      return () => {
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadCityTags()
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])

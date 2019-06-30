@@ -1,18 +1,19 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, $solver, asyncRes, ERR, EVENT, isObject } from '@utils'
-
-import SR71 from '@utils/async/sr71'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.ERR_RESCUE],
-})
-let sub$ = null
-let store = null
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, isObject } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ErrorBox')
+
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.ERR_RESCUE],
+})
+
+let sub$ = null
+let store = null
 
 export const onClose = () => store.markState({ show: false })
 
@@ -81,16 +82,13 @@ const ErrSolver = []
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        if (!sub$) return false
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (!sub$) return false
+      sub$.unsubscribe()
+    }
+  }, [_store])

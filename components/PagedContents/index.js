@@ -7,7 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, THREAD, TYPE, C11N } from '@utils'
+import { TYPE, THREAD, C11N } from '@constant'
+import { buildLog } from '@utils'
+
 import Pagi from '@components/Pagi'
 import ContentList from './ContentList'
 

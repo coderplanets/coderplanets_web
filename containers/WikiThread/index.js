@@ -7,14 +7,14 @@
 import React from 'react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '@config'
-import { connectStore, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
 import PublishLabel from '@components/PublishLabel'
 import MarkDownRender from '@components/MarkDownRender'
 import { ArticleContentLoading } from '@components/LoadingEffects'
 import GithubSyncWarning from '@components/GithubSyncWarning'
-
 import Contributors from './Contributors'
 
 import {

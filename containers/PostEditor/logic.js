@@ -1,15 +1,11 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { EVENT, ERR, THREAD } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
-  $solver,
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  EVENT,
-  ERR,
-  THREAD,
   countWords,
   extractAttachments,
   extractMentions,
@@ -21,18 +17,16 @@ import {
   BStore,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import { S, updatablePostFields } from './schema'
-// import testMentions from './test_mentions'
-
-const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
 const log = buildLog('L:PostEditor')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
 let store = null
 let sub$ = null
-
 let saveDraftTimmer = null
 
 export const changeView = curView => store.markState({ curView })
@@ -241,23 +235,20 @@ const initDraftTimmer = () => {
 // init & uninit
 // ###############################
 export const useInit = (_store, attachment) => {
-  useEffect(
-    () => {
-      // log('effect init')
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      openAttachment(attachment)
-      initDraftTimmer()
+  useEffect(() => {
+    // log('effect init')
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    openAttachment(attachment)
+    initDraftTimmer()
 
-      return () => {
-        // log('effect uninit')
-        if (saveDraftTimmer) clearInterval(saveDraftTimmer)
+    return () => {
+      // log('effect uninit')
+      if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 
-        store.markState({ editPost: {}, isEdit: false })
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, attachment]
-  )
+      store.markState({ editPost: {}, isEdit: false })
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, attachment])
 }

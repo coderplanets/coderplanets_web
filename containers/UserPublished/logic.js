@@ -1,29 +1,25 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  TYPE,
-  ERR,
-  THREAD,
   pagedFilter,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserPublished')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -119,22 +115,19 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadPosts()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadPosts()
 
-      return () => {
-        // log('effect uninit')
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store])
 }

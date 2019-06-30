@@ -1,15 +1,11 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
   buildLog,
-  $solver,
+  asyncSuit,
   dispatchEvent,
-  EVENT,
-  ERR,
-  TYPE,
   cast,
   meteorState,
   updateEditing,
@@ -17,13 +13,13 @@ import {
   nilOrEmpty,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import { S, updateFields } from './schema'
-
-const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AccountEditor')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
 
 let store = null
 let sub$ = null
@@ -149,18 +145,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      store.copyAccountInfo()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    store.copyAccountInfo()
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])

@@ -6,6 +6,7 @@ import NextSeo from 'next-seo'
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
 
+import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,8 +19,6 @@ import CommunityBanner from '@containers/CommunityBanner'
 import CommunityContent from '@containers/CommunityContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
-
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
 
 import {
@@ -185,12 +184,12 @@ export default class CommunityPage extends React.Component {
 
     const seoTitle =
       community.raw === 'home'
-        ? `coderplanets 社区`
+        ? 'coderplanets 社区'
         : `coderplanets ${community.raw}社区`
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage
@@ -223,7 +222,7 @@ export default class CommunityPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

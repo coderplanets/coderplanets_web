@@ -1,33 +1,22 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  TYPE,
-  ERR,
-  THREAD,
-  githubApi,
-  errRescue,
-  BStore,
-  nilOrEmpty,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
+import { githubApi } from '@services'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:WikiThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:WikiThread')
 
 const loadWiki = () => {
   const community = store.curCommunity.raw
@@ -130,20 +119,17 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        // log('effect uninit')
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        log('===== do uninit')
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      log('===== do uninit')
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store])
 }

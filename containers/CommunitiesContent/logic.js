@@ -1,28 +1,21 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  asyncRes,
-  asyncErr,
-  $solver,
-  ERR,
-  buildLog,
-  EVENT,
-  pagedFilter,
-  errRescue,
-} from '@utils'
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, pagedFilter, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.REFRESH_COMMUNITIES],
-})
-let store = null
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunitiesContent')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.REFRESH_COMMUNITIES],
+})
+
+let store = null
+let sub$ = null
 
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
@@ -152,20 +145,17 @@ const loadIfNeed = () => {
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadIfNeed()
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadIfNeed()
 
-      return () => {
-        // log('effect uninit')
-        if (!sub$) return false
-        // log('===== do uninit')
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (!sub$) return false
+      // log('===== do uninit')
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

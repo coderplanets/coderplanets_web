@@ -1,7 +1,7 @@
 /*
-* UserContent store test
-*
-*/
+ * UserContent store test
+ *
+ */
 
 // import R from 'ramda'
 

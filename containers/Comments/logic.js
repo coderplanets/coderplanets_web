@@ -2,14 +2,10 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
-  EVENT,
-  ERR,
-  TYPE,
-  $solver,
   scrollIntoEle,
   countWords,
   dispatchEvent,
@@ -18,17 +14,17 @@ import {
   BStore,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
-
-let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Comments')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
+let saveDraftTimmer = null
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
@@ -403,26 +399,23 @@ const initDraftTimmer = () => {
 // init & uninit
 // ###############################
 export const useInit = (_store, ssr) => {
-  useEffect(
-    () => {
-      // log('effect init')
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    // log('effect init')
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
 
-      return () => {
-        // log('effect uninit')
-        if (store.loading || store.loadingFresh || !sub$) return false
+    return () => {
+      // log('effect uninit')
+      if (store.loading || store.loadingFresh || !sub$) return false
 
-        stopDraftTimmer()
-        sr71$.stop()
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store, ssr]
-  )
+      stopDraftTimmer()
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store, ssr])
 }
 
 /*

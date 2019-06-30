@@ -1,7 +1,7 @@
 /*
-* UserSettings store test
-*
-*/
+ * UserSettings store test
+ *
+ */
 
 // import R from 'ramda'
 

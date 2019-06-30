@@ -1,7 +1,7 @@
 /*
-* UpgradePackges store test
-*
-*/
+ * UpgradePackges store test
+ *
+ */
 
 // import R from 'ramda'
 

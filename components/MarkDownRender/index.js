@@ -12,13 +12,16 @@ import emojiPlugin from 'remarkable-emoji'
 import mentionsPlugin from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 
-import MarkDownStyle from '@containers/ThemeWrapper/MarkDownStyle'
 import { MENTION_USER_ADDR } from '@config'
 import { buildLog } from '@utils'
+
+import MarkDownStyle from '@containers/ThemeWrapper/MarkDownStyle'
 import { PreviewerContainer } from './styles'
 
-// const latexPlugin = require('remarkable-katex')
+/* eslint-disable-next-line */
+const log = buildLog('c:MarkDownRender:index')
 
+// const latexPlugin = require('remarkable-katex')
 // const md = new Remarkable()
 const md = new Remarkable('full', {
   html: true,
@@ -28,9 +31,6 @@ const md = new Remarkable('full', {
 
 md.use(mentionsPlugin({ url: MENTION_USER_ADDR }))
 md.use(emojiPlugin)
-
-/* eslint-disable-next-line */
-const log = buildLog('c:MarkDownRender:index')
 
 class MarkDownRender extends React.Component {
   constructor(props) {

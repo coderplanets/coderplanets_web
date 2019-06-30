@@ -1,22 +1,20 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { EVENT, ERR } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  $solver,
-  holdPage,
-  asyncRes,
-  asyncErr,
   Global,
-  EVENT,
-  ERR,
+  holdPage,
   errorForHuman,
   dispatchEvent,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 const sr71$ = new SR71({
   resv_event: [EVENT.CALL_CASHIER],
@@ -110,18 +108,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

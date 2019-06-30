@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Comments from '@containers/Comments'
 import Labeler from '@containers/Labeler'

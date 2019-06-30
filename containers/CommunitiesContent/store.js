@@ -8,6 +8,7 @@ import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@utils'
 import { PagedCommunities } from '@model'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
 

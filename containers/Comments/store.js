@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx, TYPE, changeset } from '@utils'
+import { TYPE } from '@constant'
+import { markStates, buildLog, stripMobx, changeset } from '@utils'
 import { Comment, PagedComments, emptyPagiData, Mention } from '@model'
 
 /* eslint-disable-next-line */

@@ -7,7 +7,20 @@ import R from 'ramda'
 import { SocialProfileJsonLd } from 'next-seo'
 
 import { SITE_URL } from '@config'
+import { ROUTE, USER_THREAD } from '@constant'
+import {
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  getSubPath,
+  pagedFilter,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+import initRootStore from '@stores/init'
 
+import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -21,24 +34,8 @@ import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
-// import { GAWraper, ErrorPage } from '@components'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
-  nilOrEmpty,
-  getSubPath,
-  USER_THREAD,
-  ROUTE,
-  pagedFilter,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
+// import { AnalysisService, ErrorPage } from '@components'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -120,7 +117,7 @@ export default class UserPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="user" target={target} />
@@ -147,7 +144,7 @@ export default class UserPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

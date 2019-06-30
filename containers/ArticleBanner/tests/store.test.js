@@ -1,7 +1,7 @@
 /*
-* ArticleBanner store test
-*
-*/
+ * ArticleBanner store test
+ *
+ */
 
 // import R from 'ramda'
 

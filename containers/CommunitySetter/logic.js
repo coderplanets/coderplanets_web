@@ -1,29 +1,20 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  THREAD,
-  EVENT,
-  errRescue,
-} from '@utils'
-
-import SR71 from '@utils/async/sr71'
+import { EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:CommunitySetter')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.COMMUNITY_MIRROR],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:CommunitySetter')
 
 export const onClose = () => {
   store.markState({ visible: false })
@@ -138,20 +129,17 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        if (!sub$) return false
-        // log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-        sub$ = null
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (!sub$) return false
+      // log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+      sub$ = null
+    }
+  }, [_store])
 }

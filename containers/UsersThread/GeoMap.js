@@ -1,13 +1,16 @@
 import React from 'react'
-// TODO import it globaly, g2 is too big to load in time (> 400KB)
-// import G2 from 'g2'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
-import { Margin } from '@components/BaseStyled'
+
 import { buildLog, uid, theme as themeHelper } from '@utils'
+
+import { Margin } from '@components/BaseStyled'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper } from './styles'
+
+// TODO import it globaly, g2 is too big to load in time (> 400KB)
+// import G2 from 'g2'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:LocationMap')

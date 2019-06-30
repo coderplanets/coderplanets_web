@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
+import AnalysisService from '@services/Analysis'
 import ThemeWrapper from '@containers/ThemeWrapper'
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
 
 import initRootStore from '@stores/init'
@@ -25,11 +25,11 @@ export default class TheErrorPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             <ErrorPage errorCode={statusCode} page={page} target={target} />
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

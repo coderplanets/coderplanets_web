@@ -5,7 +5,8 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 
-import { markStates, ERR, buildLog, changeset, stripMobx } from '@utils'
+import { ERR } from '@constant'
+import { markStates, buildLog, changeset, stripMobx } from '@utils'
 import { Repo } from '@model'
 
 /* eslint-disable-next-line */

@@ -1,17 +1,18 @@
 import { useEffect } from 'react'
 // import R from 'ramda'
 
-import { buildLog, $solver, asyncRes, asyncErr, ERR, errRescue } from '@utils'
-
-import SR71 from '@utils/async/sr71'
+import { ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UsersThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 export const loadGeoData = () => {
   markLoading(true)
@@ -61,20 +62,17 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadGeoData()
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadGeoData()
 
-      return () => {
-        if (store.geoDataLoading) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.geoDataLoading) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

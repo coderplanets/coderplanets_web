@@ -18,7 +18,6 @@ import Planets from './Planets'
 import ContributeMap from './ContributeMap'
 
 import { AccountWrapper, AccountContent, ThemeWrapper, Divider } from './styles'
-
 import { useInit, editProfile, onLogout, changeTheme } from './logic'
 
 /* eslint-disable-next-line */

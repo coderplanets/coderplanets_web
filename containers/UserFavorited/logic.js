@@ -1,26 +1,18 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  dispatchEvent,
-  $solver,
-  asyncRes,
-  TYPE,
-  pagedFilter,
-  THREAD,
-  EVENT,
-} from '@utils'
-import SR71 from '@utils/async/sr71'
+import { TYPE, EVENT, THREAD } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, pagedFilter } from '@utils'
 
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserFavorited')
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const backToCategoryList = () => {

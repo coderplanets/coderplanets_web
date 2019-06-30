@@ -2,32 +2,22 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import Prism from 'mastani-codehighlight'
 
-import {
-  buildLog,
-  $solver,
-  asyncErr,
-  asyncRes,
-  TYPE,
-  ERR,
-  EVENT,
-  THREAD,
-  githubApi,
-  errRescue,
-  BStore,
-  nilOrEmpty,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
 
-import SR71 from '@utils/async/sr71'
+import { githubApi } from '@services'
 import S from './schema'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
-})
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CheatsheetThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.COMMUNITY_CHANGE, EVENT.TABBER_CHANGE],
+})
+
+let sub$ = null
+let store = null
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw
@@ -129,22 +119,19 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    Prism.highlightAll()
+    setTimeout(() => {
       Prism.highlightAll()
-      setTimeout(() => {
-        Prism.highlightAll()
-      }, 1000)
+    }, 1000)
 
-      return () => {
-        if (store.curView === TYPE.LOADING || !sub$) return false
-        log('===== do uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      if (store.curView === TYPE.LOADING || !sub$) return false
+      log('===== do uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

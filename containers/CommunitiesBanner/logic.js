@@ -1,23 +1,17 @@
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  asyncRes,
-  $solver,
-  dispatchEvent,
-  updateEditing,
-  EVENT,
-} from '@utils'
+import { EVENT } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, updateEditing } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunitiesBanner')
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const loadCategories = () =>
@@ -58,19 +52,16 @@ const loadIfNeed = () => {
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      loadIfNeed()
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    loadIfNeed()
 
-      return () => {
-        // log('effect uninit')
-        if (!sub$) return false
-        log('===== do uninit')
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      if (!sub$) return false
+      log('===== do uninit')
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

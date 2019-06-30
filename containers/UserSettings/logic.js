@@ -1,15 +1,16 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, $solver, dispatchEvent, EVENT } from '@utils'
-import SR71 from '@utils/async/sr71'
-
-const sr71$ = new SR71()
-let sub$ = null
+import { EVENT } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserSettings')
 
+const { SR71, $solver } = asyncSuit
+
+const sr71$ = new SR71()
+let sub$ = null
 let store = null
 
 export const changeTheme = theme => {
@@ -35,16 +36,13 @@ const ErrSolver = []
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

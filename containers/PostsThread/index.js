@@ -9,7 +9,8 @@ import { Waypoint } from 'react-waypoint'
 import R from 'ramda'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog, ROUTE, THREAD } from '@utils'
+import { THREAD, ROUTE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'

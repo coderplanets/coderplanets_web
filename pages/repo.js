@@ -4,8 +4,20 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
 import initRootStore from '@stores/init'
 
+import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,22 +30,7 @@ import RepoContent from '@containers/RepoContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
-
-import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
 
 import { P } from '@schemas'
 
@@ -132,7 +129,7 @@ export default class RepoPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="post" target={target} />
@@ -166,7 +163,7 @@ export default class RepoPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

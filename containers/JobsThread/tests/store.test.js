@@ -1,7 +1,7 @@
 /*
-* JobsThreadStore store test
-*
-*/
+ * JobsThreadStore store test
+ *
+ */
 
 // import R from 'ramda'
 

@@ -1,21 +1,22 @@
 {
-  "presets": [
-    ["next/babel"]
-  ],
+  "presets": [["next/babel"]],
   "env": {
-     "development": {
-       "plugins": ["inline-dotenv"]
+    "development": {
+      "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": [
-        ["next/babel", {
-          "preset-env": {
-            "targets": {
-              "ie": "11"
-            },
-            "debug": false
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "targets": {
+                "ie": "11"
+              },
+              "debug": false
+            }
           }
-        }]
+        ]
       ]
     },
     "test": {
@@ -47,20 +48,25 @@
       }
     ],
     "ramda",
-    ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "@containers":"./containers",
-        "@components":"./components",
-        "@hooks":"./components/Hooks",
-        "@config":"./config",
-        "@stores":"./stores",
-        "@model":"./stores/SharedModel",
-        "@utils":"./utils",
-        "@schemas":"./containers/schemas",
-        "@Img": "./components/Img",
-        "@SvgIcons": "./components/SvgIcons"
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@containers": "./containers",
+          "@components": "./components",
+          "@services": "./services",
+          "@constant": "./utils/constant/",
+          "@hooks": "./components/Hooks",
+          "@config": "./config",
+          "@stores": "./stores",
+          "@model": "./stores/SharedModel",
+          "@utils": "./utils",
+          "@schemas": "./containers/schemas",
+          "@Img": "./components/Img",
+          "@SvgIcons": "./components/SvgIcons"
+        }
       }
-    }]
+    ]
   ]
 }

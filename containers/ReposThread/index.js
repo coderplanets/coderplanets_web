@@ -9,7 +9,8 @@ import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'

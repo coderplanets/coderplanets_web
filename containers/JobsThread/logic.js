@@ -1,35 +1,28 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
   dispatchEvent,
-  EVENT,
-  ERR,
-  TYPE,
-  ROUTE,
-  THREAD,
-  $solver,
   scrollToTabber,
   notEmpty,
   errRescue,
-  // GA,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:JobsThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let store = null
 let sub$ = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:JobsThread')
 
 export const inAnchor = () => store.setHeaderFix(false)
 export const outAnchor = () => store.setHeaderFix(true)

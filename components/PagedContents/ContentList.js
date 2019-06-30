@@ -1,7 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { THREAD } from '@utils'
+import { THREAD } from '@constant'
+
 import {
   PostItemLoading,
   JobItemLoading,

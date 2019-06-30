@@ -1,9 +1,8 @@
 import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
-import { withTheme } from 'styled-components'
-
 import ContentLoader from 'react-content-loader'
+import { withTheme } from 'styled-components'
 
 import { buildLog, uid } from '@utils'
 import { Wrapper, CheatsheetCard } from './styles'

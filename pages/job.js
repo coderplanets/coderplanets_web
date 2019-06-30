@@ -4,6 +4,20 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  nilOrEmpty,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+import initRootStore from '@stores/init'
+
+import AnalysisService from '@services/Analysis'
 
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
@@ -18,27 +32,9 @@ import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
 
-// import { GAWraper, ErrorPage } from '@components'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  ROUTE,
-  THREAD,
-  TYPE,
-  nilOrEmpty,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
-
+// import { AnalysisService, ErrorPage } from '@components'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
@@ -130,7 +126,7 @@ export default class JobPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="job" target={target} />
@@ -160,7 +156,7 @@ export default class JobPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

@@ -1,7 +1,7 @@
 /*
-* RepoContent store
-*
-*/
+ * RepoContent store
+ *
+ */
 
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'

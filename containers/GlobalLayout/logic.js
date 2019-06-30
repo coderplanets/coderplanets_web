@@ -1,7 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, dispatchEvent, EVENT } from '@utils'
+import { EVENT } from '@constant'
+import { buildLog, dispatchEvent } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:GlobalLayout')
@@ -18,13 +19,10 @@ export const queryDoraemon = R.curry((data, e) =>
 // init & uninit
 // ###############################
 export const useInit = (_store, extra) => {
-  useEffect(
-    () => {
-      store = _store
+  useEffect(() => {
+    store = _store
 
-      const { online, media, platform } = extra
-      store.markState({ online, media, platform })
-    },
-    [_store, extra]
-  )
+    const { online, media, platform } = extra
+    store.markState({ online, media, platform })
+  }, [_store, extra])
 }

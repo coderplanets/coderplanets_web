@@ -1,4 +1,4 @@
-import { THREAD } from '@utils'
+import { THREAD } from '@constant'
 import S from '../schema'
 
 // search contents: community, post, job, user ...

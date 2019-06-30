@@ -8,12 +8,14 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, THREAD, C11N } from '@utils'
-import { Wrapper, MainFilterWrapper } from './styles'
+import { THREAD, C11N } from '@constant'
+import { buildLog } from '@utils'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
 import FilterResult from './FilterResult'
+
+import { Wrapper, MainFilterWrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ContentFilter:index')

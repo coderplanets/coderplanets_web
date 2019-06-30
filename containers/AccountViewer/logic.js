@@ -1,25 +1,15 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  asyncRes,
-  asyncErr,
-  buildLog,
-  $solver,
-  ERR,
-  dispatchEvent,
-  EVENT,
-  TYPE,
-  Global,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, dispatchEvent, Global, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AccountViewer')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.LOGIN],
 })
@@ -104,18 +94,15 @@ export const loadUserInfo = user => {
 // init & uninit
 // ###############################
 export const useInit = (_store, user) => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      loadUserInfo(user)
+    loadUserInfo(user)
 
-      return () => {
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store, user]
-  )
+    return () => {
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store, user])
 }

@@ -2,17 +2,17 @@
 import { useEffect } from 'react'
 
 import { SENIOR_AMOUNT_THRESHOLD } from '@config'
-import { buildLog, $solver, PAYMENT_USAGE } from '@utils'
-
-import SR71 from '@utils/async/sr71'
+import { PAYMENT_USAGE } from '@constant'
+import { asyncSuit, buildLog } from '@utils'
 /* import S from './schema' */
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UpgradePackges')
 
+const { SR71, $solver } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const onUpgrade = () => {
@@ -34,15 +34,12 @@ const DataSolver = []
 const ErrSolver = []
 
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

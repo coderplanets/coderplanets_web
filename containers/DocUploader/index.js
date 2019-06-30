@@ -9,8 +9,8 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { ASSETS_ENDPOINT } from '@config'
-
 import { buildLog, storePlug, uid, Global } from '@utils'
+
 import { Wrapper, InputFile } from './styles'
 
 import {

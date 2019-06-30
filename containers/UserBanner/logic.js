@@ -1,17 +1,16 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, $solver, asyncRes } from '@utils'
-import SR71 from '@utils/async/sr71'
-
+import { asyncSuit, buildLog } from '@utils'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserBanner')
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const loadUser = () => {
@@ -34,12 +33,9 @@ const ErrSolver = []
 // init & uninit
 // ###############################
 export const useInit = _store =>
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-      return () => sub$.unsubscribe()
-    },
-    [_store]
-  )
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    return () => sub$.unsubscribe()
+  }, [_store])

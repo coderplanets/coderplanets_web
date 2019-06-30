@@ -9,6 +9,7 @@ import Router from 'next/router'
 
 import { PAGE_SIZE } from '@config'
 import { onClient, markStates, buildLog, serializeQuery } from '@utils'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')
 

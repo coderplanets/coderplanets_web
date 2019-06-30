@@ -33,20 +33,17 @@ export const uninit = () => {}
 // ###############################
 
 export const useInit = (_store, routeObj) => {
-  useEffect(
-    () => {
-      store = _store
-      // sync init router info
-      const mainPath = getMainPath(routeObj)
-      const subPath = getSubPath(routeObj)
-      const { query } = routeObj
+  useEffect(() => {
+    store = _store
+    // sync init router info
+    const mainPath = getMainPath(routeObj)
+    const subPath = getSubPath(routeObj)
+    const { query } = routeObj
 
-      store.markState({ mainPath, subPath, query })
+    store.markState({ mainPath, subPath, query })
 
-      Global.onpopstate = browserHistoryBtnClicked
-    },
-    [_store, routeObj]
-  )
+    Global.onpopstate = browserHistoryBtnClicked
+  }, [_store, routeObj])
 }
 
 export const holder = 1

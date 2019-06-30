@@ -1,27 +1,24 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  $solver,
   dispatchEvent,
-  EVENT,
-  TYPE,
-  THREAD,
   scrollToTabber,
-  asyncRes,
   notEmpty,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
-})
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ReposThread')
+
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71({
+  resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+})
 
 let sub$ = null
 let store = null

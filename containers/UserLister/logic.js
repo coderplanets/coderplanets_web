@@ -2,32 +2,21 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, holdPage, unholdPage, errRescue } from '@utils'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  holdPage,
-  unholdPage,
-  ERR,
-  EVENT,
-  TYPE,
-  errRescue,
-} from '@utils'
-
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:UserLister')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
   resv_event: [EVENT.USER_LISTER_OPEN],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:UserLister')
 
 export const onClose = () => {
   store.markState({ show: false })
@@ -173,18 +162,15 @@ const ErrSolver = [
 // init & uninit
 // ###############################
 export const useInit = _store => {
-  useEffect(
-    () => {
-      store = _store
-      // log('effect init')
-      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+  useEffect(() => {
+    store = _store
+    // log('effect init')
+    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
-      return () => {
-        // log('effect uninit')
-        sr71$.stop()
-        sub$.unsubscribe()
-      }
-    },
-    [_store]
-  )
+    return () => {
+      // log('effect uninit')
+      sr71$.stop()
+      sub$.unsubscribe()
+    }
+  }, [_store])
 }

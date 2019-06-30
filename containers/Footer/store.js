@@ -1,12 +1,14 @@
 /*
-* Footer2 store
-*
-*/
+ * Footer2 store
+ *
+ */
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, ROUTE } from '@utils'
+import { ROUTE } from '@constant'
+import { markStates, buildLog } from '@utils'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:Footer')
 
