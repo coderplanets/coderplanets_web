@@ -4,6 +4,17 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  nilOrEmpty,
+  makeGQClient,
+  getMainPath,
+  getSubPath,
+  getThirdPath,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
 import initRootStore from '@stores/init'
 
 import AnalysisService from '@services/Analysis'
@@ -20,21 +31,6 @@ import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import ErrorPage from '@components/ErrorPage'
-
-import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
 import { P } from '@schemas'
 
 // try to fix safari bug
