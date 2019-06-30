@@ -7,9 +7,9 @@ import { asyncSuit, buildLog, dispatchEvent } from '@utils'
 /* eslint-disable-next-line */
 const log = buildLog('L:UserSettings')
 
-const sr71$ = new SR71()
 const { SR71, $solver } = asyncSuit
 
+const sr71$ = new SR71()
 let sub$ = null
 let store = null
 

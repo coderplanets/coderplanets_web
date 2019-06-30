@@ -4,9 +4,7 @@
 
 export { default as asyncSuit } from './async_suit'
 
-export {
-  C11N, // NON_FILL_COMMUNITY, // PAYMENT_USAGE, // PAYMENT_METHOD,
-} from './constants'
+export { C11N } from './constants'
 
 export { buildLog } from './logger'
 

@@ -13,7 +13,8 @@ import {
   merge,
 } from 'rxjs/operators'
 
-import { buildLog, isEmptyValue, EVENT } from '@utils'
+import { EVENT } from '@constant'
+import { buildLog, isEmptyValue } from '@utils'
 import {
   searchablePrefix,
   startWithSpecialPrefix,
