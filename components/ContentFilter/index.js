@@ -8,8 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { THREAD } from '@constant'
-import { buildLog, C11N } from '@utils'
+import { THREAD, C11N } from '@constant'
+import { buildLog } from '@utils'
 
 import FilterButton from './FilterButton'
 import SelectedTags from './SelectedTags'
