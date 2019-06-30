@@ -2,8 +2,7 @@ import React from 'react'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
-import { C11N } from '@utils'
+import { THREAD, C11N } from '@constant'
 
 import {
   Wrapper,

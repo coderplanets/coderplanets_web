@@ -4,8 +4,6 @@
 
 export { default as asyncSuit } from './async_suit'
 
-export { C11N } from './constants'
-
 export { buildLog } from './logger'
 
 export { default as uid } from './uid'
