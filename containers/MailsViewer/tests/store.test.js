@@ -1,7 +1,7 @@
 /*
-* MailsViewer store test
-*
-*/
+ * MailsViewer store test
+ *
+ */
 
 // import R from 'ramda'
 

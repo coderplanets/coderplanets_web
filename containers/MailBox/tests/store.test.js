@@ -1,7 +1,7 @@
 /*
-* MailBox store test
-*
-*/
+ * MailBox store test
+ *
+ */
 
 // import R from 'ramda'
 

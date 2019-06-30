@@ -1,7 +1,7 @@
 /*
-* RepoEditor store test
-*
-*/
+ * RepoEditor store test
+ *
+ */
 
 // import R from 'ramda'
 

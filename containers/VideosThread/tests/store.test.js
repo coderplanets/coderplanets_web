@@ -1,7 +1,7 @@
 /*
-* VideosThread store test
-*
-*/
+ * VideosThread store test
+ *
+ */
 
 // import R from 'ramda'
 

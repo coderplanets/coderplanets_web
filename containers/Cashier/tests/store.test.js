@@ -1,7 +1,7 @@
 /*
-* Cashier store test
-*
-*/
+ * Cashier store test
+ *
+ */
 
 // import R from 'ramda'
 

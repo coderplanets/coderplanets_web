@@ -1,7 +1,7 @@
 /*
-* UserLister store test
-*
-*/
+ * UserLister store test
+ *
+ */
 
 // import R from 'ramda'
 
