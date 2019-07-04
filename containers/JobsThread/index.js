@@ -22,8 +22,6 @@ import PublishNote from './PublishNote'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -65,7 +63,6 @@ const JobsThreadContainer = ({ jobsThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
@@ -108,7 +105,6 @@ const JobsThreadContainer = ({ jobsThread }) => {
           />
         </Affix>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }

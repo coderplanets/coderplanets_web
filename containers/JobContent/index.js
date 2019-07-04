@@ -23,7 +23,9 @@ import SideCards from './SideCards'
 
 import {
   Wrapper,
+  InnerWrapper,
   MainWrapper,
+  SidebarWrapper,
   ArticleWrapper,
   BodyHeaderWrapper,
   CommentsWrapper,
@@ -45,7 +47,7 @@ const JobContentContainer = ({ jobContent }) => {
   return (
     <Wrapper>
       <Maybe test={viewingData.id}>
-        <React.Fragment>
+        <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
               <BodyHeaderWrapper>
@@ -73,10 +75,13 @@ const JobContentContainer = ({ jobContent }) => {
               <Comments ssr />
             </CommentsWrapper>
           </MainWrapper>
-          <Affix offsetTop={30}>
-            <SideCards data={viewingData} />
-          </Affix>
-        </React.Fragment>
+
+          <SidebarWrapper>
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
+          </SidebarWrapper>
+        </InnerWrapper>
       </Maybe>
     </Wrapper>
   )
