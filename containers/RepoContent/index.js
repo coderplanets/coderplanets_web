@@ -20,7 +20,9 @@ import RepoStatusCard from './RepoStatusCard'
 
 import {
   Wrapper,
+  InnerWrapper,
   MainWrapper,
+  SidebarWrapper,
   ArticleWrapper,
   CommentsWrapper,
   MobileWrapper,
@@ -40,7 +42,7 @@ const RepoContentContainer = ({ repoContent }) => {
   return (
     <Wrapper>
       <Maybe test={viewingData.id}>
-        <React.Fragment>
+        <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
               <MarkDownRender body={viewingData.readme} />
@@ -60,10 +62,12 @@ const RepoContentContainer = ({ repoContent }) => {
               <Comments />
             </CommentsWrapper>
           </MainWrapper>
-          <Affix offsetTop={30}>
-            <SideCards data={viewingData} />
-          </Affix>
-        </React.Fragment>
+          <SidebarWrapper>
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
+          </SidebarWrapper>
+        </InnerWrapper>
       </Maybe>
     </Wrapper>
   )

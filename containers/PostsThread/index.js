@@ -24,8 +24,6 @@ import CityList from './CityList'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -99,7 +97,6 @@ const PostsThreadContainer = ({ postsThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       {isSpecThread(curCommunity.raw, curThread) ? (
         <SpecThread
           community={curCommunity.raw}
@@ -158,8 +155,6 @@ const PostsThreadContainer = ({ postsThread }) => {
           </RightPart>
         </React.Fragment>
       )}
-
-      <RightPadding />
     </Wrapper>
   )
 }
