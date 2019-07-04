@@ -4,13 +4,11 @@ import Img from '@components/Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  margin-right: 20px;
-
   ${cs.media.mobile`
-    margin-right: 0;
+    padding: 0;
+    padding-right: 10px;
   `};
 `
-
 export const PopMenu = styled.div`
   ${cs.flexColumn()};
 `
@@ -71,7 +69,6 @@ export const AvatarIcon = styled.img`
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin-right: 12px;
   border-radius: 3px;
   opacity: ${theme('avatarOpacity')};
 `

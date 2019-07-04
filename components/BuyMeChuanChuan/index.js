@@ -37,7 +37,6 @@ const log = buildLog('c:Footer:index')
 const BuyMeChuanChuan = ({ show, accountInfo, onClose, onLogin, onPay }) => {
   const [activeChuan, setActiveChuan] = useState(1)
 
-  log('fromUser: ', accountInfo)
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
       <Wrapper>

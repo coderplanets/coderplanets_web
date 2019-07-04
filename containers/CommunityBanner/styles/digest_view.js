@@ -11,15 +11,17 @@ export const Wrapper = styled(BaseBanner)`
   min-height: 125px;
 `
 export const InnerWrapper = styled.div`
-  max-width: ${cs.MEDIA_MAX_WIDTH};
+  ${cs.flex('justify-center')};
   width: 100%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
 `
 export const BaseBannerContent = styled.div`
   ${cs.flex('align-center')};
+  width: 100%;
+  padding: 0 6vw;
 
-  margin-left: 8%;
-  margin-right: 7%;
   margin-top: -2rem;
+
   ${cs.media.mobile`
     margin-left: 0;
     margin-right: 3%;

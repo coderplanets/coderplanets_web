@@ -21,6 +21,9 @@ export const TimoutObservable = of({
 // refator later
 const formatDetail = errors => {
   const details = []
+  // NOTE:  eadge case, fix latter
+  if (!errors) return {}
+
   errors.map(({ message, path, key, code }) => {
     if (Array.isArray(message)) {
       return message.map(msg => {

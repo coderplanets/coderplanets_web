@@ -19,8 +19,6 @@ import TagsBar from '../TagsBar'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -59,7 +57,6 @@ const VideosThreadContainer = ({ videosThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Maybe test={showFilterBar}>
           <FilterWrapper>
@@ -101,7 +98,6 @@ const VideosThreadContainer = ({ videosThread }) => {
           </Affix>
         </React.Fragment>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }
