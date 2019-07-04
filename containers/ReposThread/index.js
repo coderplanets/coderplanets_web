@@ -20,8 +20,6 @@ import Maybe from '@components/Maybe'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -62,7 +60,6 @@ const ReposThreadContainer = ({ reposThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
@@ -103,7 +100,6 @@ const ReposThreadContainer = ({ reposThread }) => {
           />
         </Affix>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }
