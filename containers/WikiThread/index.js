@@ -17,16 +17,7 @@ import { ArticleContentLoading } from '@components/LoadingEffects'
 import GithubSyncWarning from '@components/GithubSyncWarning'
 import Contributors from './Contributors'
 
-import {
-  Wrapper,
-  LeftPart,
-  WikiWrapper,
-  LeftPadding,
-  RightPart,
-  RightPadding,
-  PublishBtn,
-} from './styles'
-
+import { Wrapper, LeftPart, WikiWrapper, RightPart, PublishBtn } from './styles'
 import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -64,7 +55,6 @@ const WikiThreadContainer = ({ wikiThread }) => {
   return (
     <Wrapper>
       <GithubSyncWarning show={showSyncWarning} onClose={syncWarnOnClose} />
-      <LeftPadding />
       <LeftPart>
         <WikiWrapper>{renderView(wikiData, curView, communityRaw)}</WikiWrapper>
       </LeftPart>
@@ -91,7 +81,6 @@ const WikiThreadContainer = ({ wikiThread }) => {
           />
         </React.Fragment>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }
