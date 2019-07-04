@@ -4,24 +4,17 @@ import { cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
-  max-width: 1400px;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
-`
-
-export const LeftPadding = styled.div`
-  width: 3vw;
-`
-export const RightPadding = styled.div`
-  width: 4vw;
 `
 export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
-
 export const RightPart = styled.div`
-  width: 20vw;
+  min-width: 200px;
   margin-left: 30px;
+  padding-top: 5px;
   ${cs.media.tablet`display: none;`};
 `
 
