@@ -126,7 +126,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.5.0",
-    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@groupher/eslint-config-web": "1.1.1",
