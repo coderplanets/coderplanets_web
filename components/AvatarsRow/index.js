@@ -56,11 +56,7 @@ const AvatarsRow = ({
     return <span />
   }
 
-<<<<<<< HEAD
   users = R.filter(validUser, getUniqueArray(users, 'id'))
-=======
-  users = R.filter(validUser, R.uniqBy(R.path('id'), users))
->>>>>>> fix(comments): dup init in logic & dup display in avatarRows
   const sortedUsers = reverse ? users : R.reverse(users)
 
   return (
