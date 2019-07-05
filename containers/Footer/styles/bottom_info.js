@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-between')};
+  align-items: center;
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.article`
-  ${cs.flex('justify-center')};
+  ${cs.flexGrow('justify-center')};
   padding: 20px;
   min-height: 300px;
   ${cs.media.tablet`
@@ -20,6 +20,7 @@ export const InnerWrapper = styled.div`
   `};
 `
 export const MainWrapper = styled.div`
+  flex-grow: 1;
   ${cs.media.tablet`
     width: 100%;
   `};
@@ -34,7 +35,7 @@ export const ArticleWrapper = styled.div`
   background: ${theme('preview.articleBg')};
   border-radius: 5px;
   padding: 35px 40px;
-  min-height: 60vh;
+  min-height: 200px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 
   ${cs.media.tablet`
@@ -60,7 +61,7 @@ export const MobileWrapper = styled.div`
   ${cs.flexColumn('align-center')};
   display: none;
   ${cs.media.tablet`
-${cs.flex()};
+    ${cs.flex()};
   `};
 `
 export const MobileContentCard = styled.div`
