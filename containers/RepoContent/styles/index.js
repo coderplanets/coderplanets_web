@@ -24,8 +24,9 @@ export const MainWrapper = styled.div`
     width: 100%;
   `};
 `
-export const SidebarWrapper = styled.div``
-
+export const SidebarWrapper = styled.div`
+  min-width: 250px;
+`
 /* background: ${theme('preview.articleBg')}; */
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;

@@ -24,8 +24,9 @@ export const MainWrapper = styled.div`
     width: 100%;
   `};
 `
-export const SidebarWrapper = styled.div``
-
+export const SidebarWrapper = styled.div`
+  min-width: 250px;
+`
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
   margin-right: 1.6vw;
