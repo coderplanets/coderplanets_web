@@ -4,12 +4,20 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.footer`
-  ${cs.flexColumn()};
+  ${cs.flexColumn('align-center')};
+  width: 100%;
 `
+export const InnerWrapper = styled.div`
+  width: 100%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  padding: 0 4vw;
 
+  ${cs.media.desktop`
+    padding: 0 5vw;
+  `};
+`
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};
-  margin-left: 8%;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -20,6 +28,7 @@ export const MainInfos = styled.div`
     opacity: 1;
   }
   transition: opacity 0.3s;
+
   ${cs.media.tablet`display: none;`};
 `
 
