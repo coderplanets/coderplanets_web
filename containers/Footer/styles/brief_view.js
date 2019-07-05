@@ -2,16 +2,20 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.footer`
-  ${cs.flexColumn()};
+  ${cs.flexColumn('align-center')};
+  width: 100%;
   margin-top: 15px;
+`
+export const InnerWrapper = styled.div`
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  width: 100%;
+  padding: 0 5vw;
 `
 export const MainInfos = styled.footer`
   ${cs.flexColumn()};
-  margin-left: 8%;
   margin-bottom: 20px;
   ${cs.media.tablet`display: none;`};
 `
-
 const Link = styled.a`
   text-decoration: none;
   font-weight: bolder;
