@@ -34,6 +34,7 @@ const defaultArgs = {
 
 export const loadComents = (args = {}) => {
   // log('loadComents passed in: ', args)
+  if (store.loading || store.loadingFresh) return false
   args = R.mergeDeepRight(defaultArgs, args)
   args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
@@ -123,7 +124,10 @@ export const createReplyComment = () => {
     })
   }
 
-  sr71$.mutate(S.replyComment, {
+  if (store.replying) return false
+
+  store.markState({ replying: true })
+  return sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
     community: store.curCommunity.raw,
@@ -308,6 +312,7 @@ const DataSolver = [
     action: () => {
       store.markState({
         showReplyBox: false,
+        replying: false,
         replyToComment: null,
       })
       scrollIntoEle('lists-info')
@@ -402,9 +407,10 @@ export const useInit = (_store, ssr) => {
   useEffect(() => {
     // log('effect init')
     store = _store
-    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-    if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    if (!sub$) {
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    }
 
     return () => {
       // log('effect uninit')
@@ -417,22 +423,3 @@ export const useInit = (_store, ssr) => {
     }
   }, [_store, ssr])
 }
-
-/*
-export const init = (_store, ssr = false) => {
-  store = _store
-
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  if (!ssr) return loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
-}
-
-export const uninit = () => {
-  if (store.loading || store.loadingFresh || !sub$) return false
-  stopDraftTimmer()
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
-*/
