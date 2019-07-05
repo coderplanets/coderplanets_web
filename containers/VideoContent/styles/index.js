@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.article`
-  ${cs.flex('justify-center')};
+  ${cs.flexGrow('justify-center')};
   padding: 20px;
   min-height: 300px;
   ${cs.media.tablet`
@@ -20,6 +20,7 @@ export const InnerWrapper = styled.div`
   `};
 `
 export const MainWrapper = styled.div`
+  flex-grow: 1;
   ${cs.media.tablet`
     width: 100%;
   `};

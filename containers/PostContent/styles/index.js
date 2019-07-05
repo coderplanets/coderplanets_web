@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.article`
-  ${cs.flex('justify-center')};
+  ${cs.flexGrow('justify-center')};
   padding-top: 20px;
   min-height: 300px;
 
@@ -21,6 +21,8 @@ export const InnerWrapper = styled.div`
   `};
 `
 export const MainWrapper = styled.div`
+  flex-grow: 1;
+
   ${cs.media.tablet`
     width: 100%;
   `};
@@ -36,6 +38,7 @@ export const ArticleWrapper = styled.div`
   border-radius: 5px;
   padding: 35px 40px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  min-height: 200px;
   ${cs.media.mobile`
     padding: 30px 20px;
     min-height: 20vh;
