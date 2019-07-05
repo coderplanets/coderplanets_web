@@ -42,7 +42,7 @@ const AvatarsRow = ({
     return <span />
   }
 
-  users = R.filter(validUser, users)
+  users = R.filter(validUser, R.uniqBy(R.path('id'), users))
   const sortedUsers = reverse ? users : R.reverse(users)
 
   return (
