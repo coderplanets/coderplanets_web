@@ -98,11 +98,11 @@ const PreviewStore = t
       return stripMobx(self.attUser)
     },
     get modalVisible() {
-      return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktop
+      return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktopL
     },
 
     get slideVisible() {
-      return self.visible && Global.innerWidth < cs.mediaBreakPoints.desktop
+      return self.visible && Global.innerWidth <= cs.mediaBreakPoints.desktopL
     },
   }))
   .actions(self => ({
