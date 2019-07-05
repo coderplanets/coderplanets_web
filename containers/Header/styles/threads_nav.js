@@ -5,16 +5,13 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-end')};
-  margin-left: 4%;
 `
-
 export const CommunityLogo = styled(CommunityFaceLogo)`
   width: 22px;
   height: 22px;
   margin-right: 22px;
   margin-bottom: 4px;
 `
-
 export const MobileHint = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleTitle')};
@@ -23,7 +20,6 @@ export const MobileHint = styled.div`
   display: none;
   ${cs.media.mobile`display: flex`};
 `
-
 export const MiniTab = styled.div`
   border-bottom: ${({ active }) => (active ? '3px solid' : '')};
   border-bottom-color: ${({ active }) =>
