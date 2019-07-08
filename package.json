@@ -40,7 +40,7 @@
     }
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^8.1.0",
+    "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
     "@tippy.js/react": "^2.2.1",
