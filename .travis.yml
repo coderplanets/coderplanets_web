@@ -14,7 +14,7 @@ before_install:
 
 install:
   # web related
-  - npm install > /dev/null
+  - npm install
   # - npm install -g codecov
   - commitlint-travis
   # elixir/phoenix env
