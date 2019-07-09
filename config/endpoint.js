@@ -13,8 +13,8 @@ const getGraphQLEndpoint = () => {
       return 'http://localhost:4001/graphiql'
 
     default:
-      return 'https://api.coderplanets.com/graphiql'
-    /* return 'http://localhost:4001/graphiql' */
+      // return 'https://api.coderplanets.com/graphiql'
+      return 'http://localhost:4001/graphiql'
   }
 }
 
