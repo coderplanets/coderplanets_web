@@ -4,7 +4,7 @@ export default {
   cannotical: 'https://coderplanets.com',
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'zh_cn',
     url: 'https://coderplanets.com',
     site_name: 'coderplanets',
     description: 'the sexiest community for developers, ever.',
