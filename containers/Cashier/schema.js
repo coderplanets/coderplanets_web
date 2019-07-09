@@ -5,11 +5,13 @@ const createBill = gql`
     $paymentMethod: PaymentMethodEnum!
     $paymentUsage: PaymentUsageEnum!
     $amount: Float!
+    $note: String
   ) {
     createBill(
       paymentMethod: $paymentMethod
       paymentUsage: $paymentUsage
       amount: $amount
+      note: $note
     ) {
       id
       state
@@ -17,6 +19,7 @@ const createBill = gql`
       hashId
       paymentUsage
       paymentMethod
+      note
     }
   }
 `
@@ -30,6 +33,7 @@ const pagedBillRecords = gql`
         hashId
         paymentUsage
         paymentMethod
+        note
       }
       totalPages
       totalCount
