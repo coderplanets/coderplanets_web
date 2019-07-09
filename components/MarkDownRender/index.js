@@ -24,7 +24,9 @@ const log = buildLog('c:MarkDownRender:index')
 // const latexPlugin = require('remarkable-katex')
 // const md = new Remarkable()
 const md = new Remarkable('full', {
-  html: true,
+  // NOTE:  html should always be false
+  // Enable HTML tags in source
+  html: false,
   breaks: false,
   linkTarget: '_blank',
 })
