@@ -19,10 +19,11 @@ import {
   DynamicStateTree,
 } from './DynamicComps'
 
+import { Wrapper } from './styles/viewer'
 import DefaultViewer from './DefaultViewer'
 import { closePreview } from './logic'
 
-const Viewer = ({ type, root, attachment, attUser }) => {
+const renderViewer = (type, root, attachment, attUser) => {
   switch (type) {
     case TYPE.PREVIEW_ACCOUNT_VIEW:
       return <DynamicAccountViewer />
@@ -82,5 +83,11 @@ const Viewer = ({ type, root, attachment, attUser }) => {
       return <DefaultViewer />
   }
 }
+
+const Viewer = ({ type, root, attachment, attUser }) => (
+  <Wrapper id="preview-viewer-scroller">
+    {renderViewer(type, root, attachment, attUser)}
+  </Wrapper>
+)
 
 export default Viewer

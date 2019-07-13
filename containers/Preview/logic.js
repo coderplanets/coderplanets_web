@@ -89,6 +89,9 @@ export const useInit = _store => {
 
     sub$ = sr71$.data().subscribe($solver(DataResolver, []))
 
+    /* eslint-disable no-undef */
+    OverlayScrollbars(document.getElementById('preview-viewer-scroller'), {})
+
     return () => {
       if (!sub$) return false
       sr71$.stop()
