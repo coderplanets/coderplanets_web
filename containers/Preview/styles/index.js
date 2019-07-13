@@ -40,7 +40,6 @@ export const PreviewOverlay = styled.div`
   top: 0;
   visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
 `
-
 export const PreviewWrapper = styled.div`
   ${cs.flex()};
   color: ${theme('preview.font')};
