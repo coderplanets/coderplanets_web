@@ -22,6 +22,14 @@ export const useInit = (_store, extra) => {
   useEffect(() => {
     store = _store
 
+    // FIXME:  do not show body scrollbar on mac
+    // plus this plugin will break antd's affix staff
+    /* eslint-disable no-undef */
+    // OverlayScrollbars(document.querySelectorAll('body'), {
+    // NOT WORK!
+    // scrollbars: { autoHide: 'scroll', autoHideDelay: 500 },
+    // })
+
     const { online, media, platform } = extra
     store.markState({ online, media, platform })
   }, [_store, extra])

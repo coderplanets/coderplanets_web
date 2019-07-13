@@ -30,7 +30,7 @@ const HintIcon = ({ index, active, cur, length }) => {
 }
 
 const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <Wrapper>
+  <Wrapper id="suggestion-scroller">
     <SuggestionWrapper empty={suggestions.length === 0}>
       {suggestions.map((suggestion, i) => (
         <InfoBar

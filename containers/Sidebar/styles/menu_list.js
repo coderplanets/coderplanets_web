@@ -5,8 +5,13 @@ export const Wrapper = styled.div`
   left: 0;
   position: relative;
   width: 260px;
-  height: 95vh;
-  overflow-y: scroll;
+  height: 100%;
+  // height: 95vh;
+  // overflow-y: scroll;
   transition: left 0.2s;
 `
-export const holder = 1
+export const ScrollWrapper = styled.div.attrs(({ id }) => ({
+  id,
+}))`
+  height: calc(100% - 20px);
+`

@@ -9,6 +9,7 @@ const inialPlatform = {
   isSafari: false,
   isIE: false,
   isEdge: false,
+  isMacOS: false,
 }
 
 // see https://stackoverflow.com/questions/49328382/browser-detection-in-reactjs/49328524
@@ -40,10 +41,18 @@ const usePlatform = (/* { breakpoint } */) => {
     const isChrome =
       !!Global.chrome && (!!Global.chrome.webstore || !!Global.chrome.runtime)
 
+    const isMacOS = Global.navigator.appVersion.indexOf('Mac') != -1
     /* eslint-enable */
 
     setPlatform(
-      R.merge(inialPlatform, { isFirefox, isSafari, isIE, isEdge, isChrome })
+      R.merge(inialPlatform, {
+        isFirefox,
+        isSafari,
+        isIE,
+        isEdge,
+        isChrome,
+        isMacOS,
+      })
     )
 
     return () => {}
