@@ -10,10 +10,8 @@ export const Wrapper = styled.div`
   // overflow-y: scroll;
   transition: left 0.2s;
 `
-export const ScrollWrapper = styled.div.attrs(() => ({
-  id: 'sidebar-scroller',
+export const ScrollWrapper = styled.div.attrs(({ id }) => ({
+  id,
 }))`
-  // max-height: calc(100% - 20px);
-  // height 500px;
   height: calc(100% - 20px);
 `
