@@ -3,6 +3,13 @@ import styled from 'styled-components'
 import Img from '@components/Img'
 import { theme, animate, cs } from '@utils'
 
+export const Wrapper = styled.div.attrs(() => ({
+  id: 'suggestion-scroller',
+}))`
+  width: 100%;
+  overflow: hidden;
+  max-height: 400px;
+`
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
   width: 30px;
@@ -40,18 +47,14 @@ export const PanelContainer = styled.div`
   left: 50%;
   margin-left: -19vw;
 `
-export const Wrapper = styled.div`
-  width: 100%;
-  overflow: hidden;
-`
 export const SuggestionWrapper = styled.div`
   position: relative;
   display: ${({ empty }) => (empty ? 'none' : 'flex')};
   flex-direction: column;
-  max-height: 60vh;
+  // max-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 102%;
+  width: 100%;
 `
 // #001b21;
 export const BaseBar = styled.div`
@@ -115,7 +118,7 @@ export const Title = styled.div`
 
   ${cs.truncate('400px')};
   ${cs.media.mobile`
-    ${cs.truncate('200px')};
+${cs.truncate('200px')};
   `};
 `
 export const Desc = styled.div`

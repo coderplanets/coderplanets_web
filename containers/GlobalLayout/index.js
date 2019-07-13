@@ -8,9 +8,11 @@ import React from 'react'
 import T from 'prop-types'
 import useNetwork from 'react-use/lib/useNetwork'
 
+import 'overlayscrollbars/js/OverlayScrollbars'
+import 'overlayscrollbars/css/OverlayScrollbars.css'
+
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
-
 import { useShortcut, useMedia, usePlatform } from '@hooks'
 
 import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
