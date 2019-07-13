@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Img from '@components/Img'
 import { theme, animate, cs } from '@utils'
 
-export const Wrapper = styled.div.attrs(() => ({
-  id: 'suggestion-scroller',
+export const Wrapper = styled.div.attrs(({ id }) => ({
+  id,
 }))`
   width: 100%;
   overflow: hidden;
