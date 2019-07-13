@@ -23,7 +23,7 @@ const MenuList = SortableContainer(
 
     return (
       <Wrapper>
-        <ScrollWrapper>
+        <ScrollWrapper id="sidebar-scroller">
           {homeCommunities.map(item => (
             <MenuBar
               key={item.raw}
