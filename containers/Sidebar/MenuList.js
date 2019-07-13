@@ -3,7 +3,7 @@ import R from 'ramda'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
 import MenuBar from './MenuBar'
-import { Wrapper } from './styles/menu_list'
+import { Wrapper, ScrollWrapper } from './styles/menu_list'
 
 const SortableMenuBar = SortableElement(
   ({ pin, item, activeRaw, forceRerender }) => (
@@ -23,19 +23,26 @@ const MenuList = SortableContainer(
 
     return (
       <Wrapper>
-        {homeCommunities.map(item => (
-          <MenuBar key={item.raw} pin={pin} item={item} activeRaw={activeRaw} />
-        ))}
-        {sortableCommunities.map((item, index) => (
-          <SortableMenuBar
-            index={index}
-            key={item.raw}
-            pin={pin}
-            item={item}
-            activeRaw={activeRaw}
-            forceRerender={forceRerender}
-          />
-        ))}
+        <ScrollWrapper>
+          {homeCommunities.map(item => (
+            <MenuBar
+              key={item.raw}
+              pin={pin}
+              item={item}
+              activeRaw={activeRaw}
+            />
+          ))}
+          {sortableCommunities.map((item, index) => (
+            <SortableMenuBar
+              index={index}
+              key={item.raw}
+              pin={pin}
+              item={item}
+              activeRaw={activeRaw}
+              forceRerender={forceRerender}
+            />
+          ))}
+        </ScrollWrapper>
       </Wrapper>
     )
   }

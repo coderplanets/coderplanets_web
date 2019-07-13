@@ -8184,6 +8184,10 @@ outlayer@^2.1.0:
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
 
+overlayscrollbars@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.npmjs.org/overlayscrollbars/-/overlayscrollbars-1.8.0.tgz#d2139207d2064efe58f1f528791429895cae0801"
+
 p-finally@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/p-finally/-/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"

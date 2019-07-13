@@ -500,6 +500,9 @@ export const useInit = _store => {
     pockect$ = new Pocket(store)
     SAK = new SwissArmyKnife(store)
 
+    /* eslint-disable no-undef */
+    OverlayScrollbars(document.getElementById('suggestion-scroller'), {})
+
     initSpecCmdResolver()
 
     pockect$.search().subscribe(res => {
@@ -536,6 +539,8 @@ export const useInit = _store => {
     }
   }, [_store])
 }
+
+/*
 
 export const init2 = _store => {
   if (store) return false
@@ -577,3 +582,4 @@ export const init2 = _store => {
   if (sub$) sub$.unsubscribe()
   sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
+*/
