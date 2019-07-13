@@ -154,6 +154,12 @@ export const useInit = _store => {
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+    /* eslint-disable no-undef */
+    OverlayScrollbars(document.getElementById('sidebar-scroller'), {
+      scrollbars: { autoHide: 'scroll', autoHideDelay: 200 },
+      className: 'os-theme-light',
+    })
+
     setTimeout(() => {
       /* eslint-disable-next-line */
       toggleForeceRerender(true)
