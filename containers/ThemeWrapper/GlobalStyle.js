@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import { theme, cs } from '@utils'
 import normalize from './normalize'
 
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     ${cs.media.mobile`
       position: relative;
-`};
+   `};
   }
   *::-moz-selection {
     background-color: ${theme('selectionBg')} !important;
@@ -138,6 +138,33 @@ const GlobalStyle = createGlobalStyle`
     padding: 0 1px;
     color: ${theme('searchHighlight.doramonFg')};
   }
+
+  ${({ isMacOS }) =>
+    isMacOS ||
+    css`
+      ::-webkit-scrollbar {
+        background: transparent;
+        width: 4px;
+      }
+      ::-webkit-scrollbar-button {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-track-piece {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: ${theme('banner.title')};
+      }
+      ::-webkit-scrollbar-corner {
+        background: grey;
+      }
+      ::-webkit-resizer {
+        background: grey;
+      }
+    `};
 `
 
 export default GlobalStyle
