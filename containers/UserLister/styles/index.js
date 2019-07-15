@@ -3,7 +3,9 @@ import styled from 'styled-components'
 // import Img from '@components/Img'
 import { cs } from '@utils'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(({ id }) => ({
+  id,
+}))`
   padding: 20px;
 `
 export const MsgWrapper = styled.div`

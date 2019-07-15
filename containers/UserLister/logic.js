@@ -167,6 +167,9 @@ export const useInit = _store => {
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 
+    /* eslint-disable no-undef */
+    // OverlayScrollbars(document.getElementById('userlist-scroller'), {})
+
     return () => {
       // log('effect uninit')
       sr71$.stop()
