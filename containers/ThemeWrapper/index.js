@@ -9,23 +9,32 @@ import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { connectStore } from '@utils'
+import { usePlatform } from '@hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'
 import AntUIOverWrite from './AntUIOverWrite'
 import GlobalStyle from './GlobalStyle'
 
-const ThemeContainer = ({ children, theme: { themeData } }) => (
-  <ThemeProvider theme={themeData}>
-    <React.Fragment>
-      <Helmet meta={[{ name: 'theme-color', content: themeData.mobileTab }]} />
-      <div>{children}</div>
-      <CodeSyxHighlight />
-      <AntUIOverWrite />
-      <GlobalStyle />
-    </React.Fragment>
-  </ThemeProvider>
-)
+const ThemeContainer = ({ children, theme: { themeData } }) => {
+  const { isMacOS } = usePlatform()
+
+  console.log('isMacOS: ', isMacOS)
+
+  return (
+    <ThemeProvider theme={themeData}>
+      <React.Fragment>
+        <Helmet
+          meta={[{ name: 'theme-color', content: themeData.mobileTab }]}
+        />
+        <div>{children}</div>
+        <CodeSyxHighlight />
+        <AntUIOverWrite />
+        <GlobalStyle isMacOS={isMacOS} />
+      </React.Fragment>
+    </ThemeProvider>
+  )
+}
 
 export default connectStore(ThemeContainer)
 

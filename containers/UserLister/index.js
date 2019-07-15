@@ -64,7 +64,7 @@ const UserListerContainer = ({ userLister }) => {
 
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
-      <Wrapper>
+      <Wrapper id="userlist-scroller">
         <HeaderInfo
           type={type}
           brief={brief}
