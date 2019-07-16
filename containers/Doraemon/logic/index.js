@@ -88,19 +88,22 @@ export const handleKeyDown = e => {
 export const navSuggestion = direction => SAK.navSuggestion(direction)
 // mounseEnter
 export const navToSuggestion = suggestion => SAK.navToSuggestion(suggestion)
-export const selectSuggestion = () => {
+export const suggestionOnSelect = () => {
   if (store.showThreadSelector) return doNavigate()
   doSpecCmd()
 }
 
 export const inputOnBlur = () => {
-  if (R.contains(store.prefix, ['/', '?', '@'])) {
-    hidePanel()
-  }
+  return false
+  // if (R.contains(store.prefix, ['/', '?', '@'])) {
+  //   log('11')
+  //   hidePanel()
+  // }
 
-  if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
-    hidePanel()
-  }
+  // if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
+  //   log('22')
+  //   hidePanel()
+  // }
 }
 
 // do dearch when thread changes
