@@ -88,19 +88,22 @@ export const handleKeyDown = e => {
 export const navSuggestion = direction => SAK.navSuggestion(direction)
 // mounseEnter
 export const navToSuggestion = suggestion => SAK.navToSuggestion(suggestion)
-export const selectSuggestion = () => {
+export const suggestionOnSelect = () => {
   if (store.showThreadSelector) return doNavigate()
   doSpecCmd()
 }
 
 export const inputOnBlur = () => {
-  if (R.contains(store.prefix, ['/', '?', '@'])) {
-    hidePanel()
-  }
+  return false
+  // if (R.contains(store.prefix, ['/', '?', '@'])) {
+  //   log('11')
+  //   hidePanel()
+  // }
 
-  if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
-    hidePanel()
-  }
+  // if (!store.showThreadSelector && R.isEmpty(store.prefix)) {
+  //   log('22')
+  //   hidePanel()
+  // }
 }
 
 // do dearch when thread changes
@@ -545,47 +548,3 @@ export const useInit = _store => {
     }
   }, [_store])
 }
-
-/*
-
-export const init2 = _store => {
-  if (store) return false
-
-  store = _store
-
-  pockect$ = new Pocket(store)
-  SAK = new SwissArmyKnife(store)
-
-  initSpecCmdResolver()
-
-  pockect$.search().subscribe(res => {
-    if (R.isEmpty(res)) return emptySearchStates()
-
-    store.markState({
-      searching: true,
-      showThreadSelector: true,
-      showAlert: false,
-      showUtils: false,
-    })
-    searchContents(store, sr71$, res)
-  })
-
-  pockect$.searchUser().subscribe(name => {
-    const nickname = R.slice(1, Infinity, name)
-    store.markState({
-      prefix: '@',
-      searchThread: THREAD.USER,
-      showThreadSelector: true,
-      showAlert: false,
-    })
-    if (R.isEmpty(nickname)) return false
-    searchContents(store, sr71$, nickname)
-  })
-
-  pockect$.cmdSuggesttion().subscribe(res => store.loadSuggestions(res))
-  pockect$.emptyInput().subscribe(() => store.clearSuggestions())
-
-  if (sub$) sub$.unsubscribe()
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-}
-*/
