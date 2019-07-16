@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE, THREAD } from '@constant'
-import { markStates, stripMobx, unholdPage, Global, cs } from '@utils'
+import { markStates, stripMobx, holdPage, unholdPage, Global, cs } from '@utils'
 import { User, EmptyAchievement } from '@model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
@@ -121,6 +121,7 @@ const PreviewStore = t
 
       self.visible = true
       self.type = type
+      holdPage()
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)
