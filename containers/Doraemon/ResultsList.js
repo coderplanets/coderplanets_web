@@ -17,7 +17,7 @@ import {
   HintEnter,
 } from './styles/results_list'
 
-import { navToSuggestion, selectSuggestion } from './logic'
+import { navToSuggestion, suggestionOnSelect } from './logic'
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
@@ -38,7 +38,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
           key={suggestion.raw}
           id={suggestion.raw}
           onMouseEnter={navToSuggestion.bind(this, suggestion)}
-          onClick={selectSuggestion}
+          onClick={suggestionOnSelect}
         >
           <SuggestIcon
             raw={suggestion.raw}
