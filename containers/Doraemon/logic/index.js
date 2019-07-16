@@ -493,15 +493,21 @@ const initSpecCmdResolver = () => {
 // ###############################
 // init & uninit handlers
 // ###############################
+export const useScrollbar = isMacOS => {
+  useEffect(() => {
+    if (isMacOS) {
+      /* eslint-disable no-undef */
+      OverlayScrollbars(document.getElementById('suggestion-scroller'), {})
+    }
+  }, [isMacOS])
+}
+
 export const useInit = _store => {
   useEffect(() => {
     store = _store
 
     pockect$ = new Pocket(store)
     SAK = new SwissArmyKnife(store)
-
-    /* eslint-disable no-undef */
-    OverlayScrollbars(document.getElementById('suggestion-scroller'), {})
 
     initSpecCmdResolver()
 
