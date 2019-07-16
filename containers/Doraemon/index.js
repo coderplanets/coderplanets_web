@@ -7,6 +7,8 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
+import { usePlatform } from '@hooks'
+
 import { PageOverlay, PanelContainer } from './styles'
 
 import InputEditor from './InputEditor'
@@ -16,13 +18,15 @@ import ThreadSelectBar from './ThreadSelectBar'
 import AlertBar from './AlertBar'
 import UtilsBar from './UtilsBar'
 
-import * as logic from './logic'
+import { useInit, useScrollbar, hidePanel } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Doraemon')
 
 const DoraemonContainer = ({ doraemon }) => {
-  logic.useInit(doraemon)
+  useInit(doraemon)
+  const { isMacOS } = usePlatform()
+  useScrollbar(isMacOS)
 
   const {
     inputValue,
@@ -43,7 +47,7 @@ const DoraemonContainer = ({ doraemon }) => {
 
   return (
     <React.Fragment>
-      <PageOverlay visible={visible} onClick={logic.hidePanel} />
+      <PageOverlay visible={visible} onClick={hidePanel} />
       <PanelContainer visible={visible}>
         <InputEditor value={inputValue} searching={searching} prefix={prefix} />
 
