@@ -37,8 +37,8 @@ export const holdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    // el.style.overflowY = 'hidden'
-    el.style.position = 'fixed'
+    el.style.overflowY = 'hidden'
+    /* el.style.position = 'fixed' */
   }
 }
 
@@ -47,8 +47,8 @@ export const unholdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    /* el.style.overflowY = 'auto' */
-    el.style.position = ''
+    el.style.overflowY = 'auto'
+    /* el.style.position = '' */
   }
 }
 
