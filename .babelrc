@@ -1,22 +1,21 @@
 {
-  "presets": [["next/babel"]],
+  "presets": [
+    ["next/babel"]
+  ],
   "env": {
     "development": {
       "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": [
-        [
-          "next/babel",
-          {
-            "preset-env": {
-              "targets": {
-                "ie": "11"
-              },
-              "debug": false
-            }
+        ["next/babel", {
+          "preset-env": {
+            "targets": {
+              "ie": "10"
+            },
+            "debug": true
           }
-        ]
+        }]
       ]
     },
     "test": {
