@@ -5,12 +5,14 @@ import { theme, cs } from '@utils'
 import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
   margin-top: 14px;
   margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
   ${IndexWrapper}:hover & {
     margin-bottom: 4px;
   }
+`
+export const InnerWrapper = styled.div`
+  ${cs.flex('align-center')};
 `
 export const HeaderFuncs = styled.div`
   ${cs.flexGrow()};

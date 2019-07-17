@@ -17,9 +17,8 @@ import AntUIOverWrite from './AntUIOverWrite'
 import GlobalStyle from './GlobalStyle'
 
 const ThemeContainer = ({ children, theme: { themeData } }) => {
-  const { isMacOS } = usePlatform()
-
-  console.log('isMacOS: ', isMacOS)
+  const { isMacOS, isMobile } = usePlatform()
+  const showCustomScrollbar = !isMacOS || !isMobile
 
   return (
     <ThemeProvider theme={themeData}>
@@ -30,7 +29,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         <div>{children}</div>
         <CodeSyxHighlight />
         <AntUIOverWrite />
-        <GlobalStyle isMacOS={isMacOS} />
+        <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
       </React.Fragment>
     </ThemeProvider>
   )
