@@ -139,8 +139,8 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme('searchHighlight.doramonFg')};
   }
 
-  ${({ isMacOS }) =>
-    isMacOS ||
+  ${({ showCustomScrollbar }) =>
+    showCustomScrollbar ||
     css`
       ::-webkit-scrollbar {
         background: transparent;
