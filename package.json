@@ -86,7 +86,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-offline": "^4.0.2",
     "next-progressbar": "^1.0.0",
-    "next-seo": "^1.9.0",
+    "next-seo": "^2.0.0",
     "overlayscrollbars": "^1.8.0",
     "path-match": "^1.2.4",
     "polished": "2.3.1",
