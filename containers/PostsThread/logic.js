@@ -38,8 +38,13 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const inAnchor = () => store.setHeaderFix(false)
-export const outAnchor = () => store.setHeaderFix(true)
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
+
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
 
 export const loadPosts = (page = 1) => {
   const { curCommunity } = store
@@ -247,7 +252,6 @@ export const useInit = _store =>
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
     /*
          NOTE: city communities list is not supported by SSR
          need load manully
