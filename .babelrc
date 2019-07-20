@@ -1,21 +1,22 @@
 {
-  "presets": [
-    ["next/babel"]
-  ],
+  "presets": [["next/babel"]],
   "env": {
     "development": {
       "plugins": ["inline-dotenv"]
     },
     "production": {
       "presets": [
-        ["next/babel", {
-          "preset-env": {
-            "targets": {
-              "ie": "10"
-            },
-            "debug": true
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "useBuiltIns": "usage",
+              "corejs": "3.1.4",
+              "targets": "> 0.25%, not dead",
+              "debug": false
+            }
           }
-        }]
+        ]
       ]
     },
     "test": {
