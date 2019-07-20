@@ -24,8 +24,13 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const inAnchor = () => store.setHeaderFix(false)
-export const outAnchor = () => store.setHeaderFix(true)
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
+
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
 
 export const loadJobs = (page = 1) => {
   const { curCommunity } = store
