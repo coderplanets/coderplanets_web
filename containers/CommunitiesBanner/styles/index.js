@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.div.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   ${cs.flexColumn('justify-center')};
 
   position: relative;

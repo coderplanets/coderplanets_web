@@ -36,7 +36,7 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
   } = communitiesBanner
 
   return (
-    <BannerContainer>
+    <BannerContainer testid="communities-banner">
       <BannerContentWrapper>
         <ContentWrapper>
           <SearchBox
