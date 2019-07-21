@@ -24,15 +24,15 @@ const Navigator = ({ curCommunity, layout, curRoute }) => {
     R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
     R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
-    return <DigestView />
+    return <DigestView curRoute={curRoute} />
   }
 
   return (
     <React.Fragment>
       {layout === C11N.DIGEST ? (
-        <DigestView />
+        <DigestView curRoute={curRoute} />
       ) : (
-        <BriefView community={curCommunity} />
+        <BriefView community={curCommunity} curRoute={curRoute} />
       )}
     </React.Fragment>
   )

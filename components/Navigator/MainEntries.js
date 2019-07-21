@@ -8,14 +8,15 @@ import DiscussLinker from '@components/DiscussLinker'
 import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
 
 const splitMargin = '8px'
-const MainEntries = () => (
+
+const MainEntries = ({ curRoute: { mainPath } }) => (
   <Wrapper>
     <Link href="/home/posts" prefetch passHref>
       <SiteLink>首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
     <Link href="/communities" prefetch passHref>
-      <SiteLink>社区</SiteLink>
+      <SiteLink active={mainPath === 'communities'}>社区</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
     <Popover

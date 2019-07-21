@@ -15,6 +15,13 @@ export const DotDivider = styled(DotDividerBase)`
 `
 export const SiteLink = styled.a`
   color: ${theme('banner.desc')};
+  background: ${({ active }) =>
+    active ? theme('banner.numberHoverBg') : 'transparent'};
+  padding: ${({ active }) => (active ? '5px 3px 3px 3px' : '0')};
+  border-bottom: ${({ active }) => (active ? '2px solid' : 'none')};
+  border-bottom-color: ${({ active }) =>
+    active ? theme('tabs.headerActive') : ''};
+
   cursor: pointer;
   &:hover {
     text-decoration: underline;
