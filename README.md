@@ -1,6 +1,5 @@
 ![CPS Brand](https://github.com/mydearxym/mastani_server/blob/dev/docs/snapshots/cps_logo_md.png?raw=true)
 
-
 [![Build Status](https://travis-ci.org/coderplanets/coderplanets_web.svg?branch=dev)](https://travis-ci.org/coderplanets/coderplanets_web)
 [![codecov](https://codecov.io/gh/coderplanets/coderplanets_web/branch/dev/graph/badge.svg)](https://codecov.io/gh/coderplanets/coderplanets_web)
 [![dev status](https://david-dm.org/coderplanets/coderplanets_web.svg)](https://david-dm.org/coderplanets/coderplanets_web)
@@ -9,11 +8,10 @@
 [![cpsbadge](https://badgen.net/badge/join%20community/on%20coderplanets/9cb77b)](https://coderplanets.com)
 
 ---
-![cps_intro](https://user-images.githubusercontent.com/6184465/59546312-a1c0ac00-8f5d-11e9-85cc-db681a16ff13.jpg)
----
 
-English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/README.zh-CN.md) 
+## ![cps_intro](https://user-images.githubusercontent.com/6184465/59546312-a1c0ac00-8f5d-11e9-85cc-db681a16ff13.jpg)
 
+English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/README.zh-CN.md)
 
 ## Documentation
 
@@ -52,8 +50,11 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 - [Contributing](docs/Contributing.md)
 - [Troubleshooting](docs/Troubleshooting.md)
 
+## social
 
-## credit 
+zhihu: https://www.zhihu.com/people/xie-yiming-75/activities
+
+## credit
 
 [keyboard logo](https://www.flaticon.com/free-icon/keyboard_211884#term=keyboard&page=8&position=88) is made by
 [freepik](https://www.flaticon.com/authors/freepik) from
@@ -64,4 +65,3 @@ English | [中文](https://github.com/coderplanets/coderplanets_web/blob/docs/RE
 This project is licensed under the GNU General Public License v3.0. For more
 information see
 [LICENSE.md](https://github.com/coderplanets/coderplanets_web/blob/docs/LICENSE)
-
