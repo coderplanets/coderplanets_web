@@ -27,8 +27,8 @@ before_script:
 script:
   # - codecov
   - rm -rf .next
-  - nvm exec 12.4.0 npm run build.ci
-  - nvm exec 12.4.0 npm run test:ci
+  - nvm exec 10.12.0 npm run build.ci
+  - nvm exec 10.12.0 npm run test:ci
 
 cache:
   directories:
