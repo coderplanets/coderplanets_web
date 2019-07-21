@@ -14,7 +14,7 @@ import {
 
 import MainEntries from './MainEntries'
 
-const DigestView = () => (
+const DigestView = ({ curRoute }) => (
   <Breadcrumbs>
     <Logo />
     <Popover
@@ -31,7 +31,7 @@ const DigestView = () => (
       <LogoText href="/home/posts">coderplanets</LogoText>
     </Popover>
     <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-    <MainEntries />
+    <MainEntries curRoute={curRoute} />
   </Breadcrumbs>
 )
 

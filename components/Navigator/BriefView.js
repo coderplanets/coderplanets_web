@@ -21,7 +21,7 @@ import MainEntries from './MainEntries'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ community }) => (
+const BriefView = ({ community, curRoute }) => (
   <Wrapper>
     <Popover
       placement="bottomLeft"
@@ -44,7 +44,7 @@ const BriefView = ({ community }) => (
     </Popover>
     <Breadcrumbs>
       <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-      <MainEntries />
+      <MainEntries curRoute={curRoute} />
     </Breadcrumbs>
   </Wrapper>
 )

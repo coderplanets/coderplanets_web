@@ -29,7 +29,6 @@ export const InnerWrapper = styled.div`
 export const RouterWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   height: 100%;
-  margin-top: 1px;
 `
 export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs(props => ({
   'data-testid': props.testid,
