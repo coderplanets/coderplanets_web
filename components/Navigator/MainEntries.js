@@ -12,11 +12,16 @@ const splitMargin = '8px'
 const MainEntries = ({ curRoute: { mainPath } }) => (
   <Wrapper>
     <Link href="/home/posts" prefetch passHref>
-      <SiteLink>首页</SiteLink>
+      <SiteLink testid="header-home-link">首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
     <Link href="/communities" prefetch passHref>
-      <SiteLink active={mainPath === 'communities'}>社区</SiteLink>
+      <SiteLink
+        active={mainPath === 'communities'}
+        testid="header-communities-link"
+      >
+        社区
+      </SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
     <Popover
