@@ -18,4 +18,14 @@ describe('basic layout', () => {
     cy.id('header-search').should('be.visible')
     cy.id('header-search-icon').should('be.visible')
   })
+
+  it('communities page', () => {
+    cy.visit('/communities')
+    cy.id('header-search').should('be.visible')
+    cy.id('header-search-icon').should('be.visible')
+
+    cy.id('communities-banner').should('be.visible')
+
+    cy.id('footer').should('be.visible')
+  })
 })
