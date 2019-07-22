@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { buildLog, getMainPath, getSubPath, Global } from '@utils'
+import { Global, buildLog, getMainPath, getSubPath } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Route')
@@ -12,6 +12,9 @@ const browserHistoryBtnClicked = popstate => {
   Global.location = popstate.state.as
 }
 
+// ###############################
+// init & uninit
+// ###############################
 export const init = (_store, routeObj) => {
   if (store) return false
 
@@ -28,10 +31,6 @@ export const init = (_store, routeObj) => {
 
 export const uninit = () => {}
 
-// ###############################
-// init & uninit
-// ###############################
-
 export const useInit = (_store, routeObj) => {
   useEffect(() => {
     store = _store
@@ -45,5 +44,3 @@ export const useInit = (_store, routeObj) => {
     Global.onpopstate = browserHistoryBtnClicked
   }, [_store, routeObj])
 }
-
-export const holder = 1
