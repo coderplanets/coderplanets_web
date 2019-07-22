@@ -8,7 +8,7 @@ import {
   Global,
   holdPage,
   errorForHuman,
-  dispatchEvent,
+  send,
   errRescue,
 } from '@utils'
 
@@ -17,7 +17,7 @@ import S from './schema'
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.CALL_CASHIER],
+  recieve: [EVENT.CALL_CASHIER],
 })
 let sub$ = null
 
@@ -82,7 +82,7 @@ const DataSolver = [
         title: 'CPS 团队感谢您的支持!',
         msg: '我们会尽快为您办理',
       })
-      dispatchEvent(EVENT.NEW_BILLS)
+      send(EVENT.NEW_BILLS)
     },
   },
 ]

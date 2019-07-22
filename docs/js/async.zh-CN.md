@@ -41,7 +41,7 @@ const DataSolver = [
 
 ```js
 const sr71$ = new SR71({
-  resv_event: [
+  recieve: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,

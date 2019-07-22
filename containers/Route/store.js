@@ -5,10 +5,10 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import Router from 'next/router'
+// import Router from 'next/router'
 
 import { PAGE_SIZE } from '@config'
-import { onClient, markStates, buildLog, serializeQuery } from '@utils'
+import { Global, onClient, markStates, buildLog, serializeQuery } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')
@@ -47,18 +47,20 @@ const RouteStore = t
 
       if (page && String(page) === '1') query = R.omit(['page'], query)
 
-      const allQueryString = serializeQuery(query)
+      // const allQueryString = serializeQuery(query)
       const queryString = serializeQuery(R.omit(['mainPath', 'subPath'], query))
 
-      const url = `/${allQueryString}`
+      // const url = `/${allQueryString}`
       const asPath = `/${self.mainPath}/${self.subPath}${queryString}`
 
       // NOTE: shallow option only works for same page url
       // if page is diffrent, it will cause page reload
       /* console.log('push url: ', url) */
-      Router.push(url, asPath, { shallow: true })
+      // Router.push(url, asPath, { shallow: true })
       // see: https://stackoverflow.com/questions/824349/modify-the-url-without-reloading-the-page
       /* return Global.history.pushState({}, null, url) */
+      // NOTE:  Router.push(url, asPath, { shallow: true }) is not working on pruction env
+      return Global.history.pushState({}, null, asPath)
     },
     markState(sobj) {
       markStates(sobj, self)

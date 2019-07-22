@@ -10,7 +10,7 @@ const log = buildLog('L:VideoContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_VIDEOS],
+  recieve: [EVENT.REFRESH_VIDEOS],
 })
 
 let sub$ = null

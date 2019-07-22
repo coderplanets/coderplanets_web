@@ -2,13 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
-import {
-  asyncSuit,
-  buildLog,
-  dispatchEvent,
-  closePreviewer,
-  errRescue,
-} from '@utils'
+import { asyncSuit, buildLog, send, closePreviewer, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -35,17 +29,17 @@ export const onEdit = thread => {
       break
 
     case THREAD.REPO:
-      return dispatchEvent(EVENT.SYNC_REPO)
+      return send(EVENT.SYNC_REPO)
 
     default: {
       type = TYPE.PREVIEW_POST_EDIT
     }
   }
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+  send(EVENT.PREVIEW_OPEN, { type, data })
 }
 
-export const onCommunitySet = () => dispatchEvent(EVENT.COMMUNITY_MIRROR)
+export const onCommunitySet = () => send(EVENT.COMMUNITY_MIRROR)
 
 export const onPin = thread => {
   const args = {
@@ -163,7 +157,7 @@ const backToParentThread = () => {
     REFRESH_EVENT = EVENT.REFRESH_REPOS
   }
 
-  dispatchEvent(REFRESH_EVENT)
+  send(REFRESH_EVENT)
   closePreviewer()
   store.setViewing({ post: {}, job: {}, repo: {}, video: {} })
 }

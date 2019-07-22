@@ -13,7 +13,7 @@ import {
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   notEmpty,
   thread2Subpath,
   errRescue,
@@ -27,7 +27,7 @@ const log = buildLog('L:PostsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [
+  recieve: [
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
@@ -95,7 +95,7 @@ export const onTagSelect = tag => {
 }
 
 export const onUserSelect = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -103,7 +103,7 @@ export const onUserSelect = user =>
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,
     thread: THREAD.POST,
     data,
@@ -121,11 +121,11 @@ export const onPreview = data => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {
@@ -159,7 +159,7 @@ export const onCommunitySelect = community => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 // ###############################

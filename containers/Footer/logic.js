@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { EVENT, PAYMENT_USAGE } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent } from '@utils'
+import { asyncSuit, buildLog, send } from '@utils'
 // import S from './schema'
 
 /* eslint-disable-next-line */
@@ -27,8 +27,7 @@ export const onPay = num => {
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
 
-export const queryDoraemon = data =>
-  dispatchEvent(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = data => send(EVENT.QUERY_DORAMON, { data })
 
 // ###############################
 // Data & Error handlers

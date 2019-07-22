@@ -287,7 +287,7 @@ const DataSolver = [
     match: asyncRes('createPost'),
     action: () => {
       doneCleanUp()
-      dispatchEvent(EVENT.REFRESH_POSTS)
+      send(EVENT.REFRESH_POSTS)
     },
   },
 ]
@@ -324,7 +324,7 @@ export const uninit = () => {
 #### schema.js
 
 所有 GraphQL 请求的 schema 定义都在这里，相同的 fragment 被提取到了上层目录的 'schemas' 下。
-logic 层在即可使用 sr71$.query(S.post, {...}) 进行异步请求。
+logic 层在即可使用 sr71\$.query(S.post, {...}) 进行异步请求。
 
 ```js
 import gql from 'graphql-tag'

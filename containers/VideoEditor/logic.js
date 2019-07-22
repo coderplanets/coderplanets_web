@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   cast,
   updateEditing,
   closePreviewer,
@@ -70,7 +70,7 @@ const DataSolver = [
     match: asyncRes('createVideo'),
     action: () => {
       closePreviewer()
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      send(EVENT.REFRESH_VIDEOS)
       store.reset()
     },
   },
@@ -78,7 +78,7 @@ const DataSolver = [
     match: asyncRes('updateVideo'),
     action: () => {
       closePreviewer()
-      dispatchEvent(EVENT.REFRESH_VIDEOS)
+      send(EVENT.REFRESH_VIDEOS)
       store.reset()
     },
   },

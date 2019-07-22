@@ -6,7 +6,7 @@ import { EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   thread2Subpath,
   Global,
   errRescue,
@@ -19,7 +19,7 @@ const log = buildLog('L:Sidebar')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
+  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null
@@ -42,7 +42,7 @@ export const onCommunitySelect = community => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 const mapIndexed = R.addIndex(R.map)

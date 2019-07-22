@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, Global, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, Global, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -11,7 +11,7 @@ const log = buildLog('L:AccountViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGIN],
+  recieve: [EVENT.LOGIN],
 })
 
 let store = null
@@ -29,11 +29,11 @@ export const loadUser = user => {
 
 export const changeTheme = name => {
   store.changeTheme(name)
-  dispatchEvent(EVENT.SET_C11N, { data: { theme: name } })
+  send(EVENT.SET_C11N, { data: { theme: name } })
 }
 
 export const editProfile = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_EDIT })
 
 export const onLogout = () => {
   store.logout()
@@ -41,7 +41,7 @@ export const onLogout = () => {
   setTimeout(() => {
     Global.location.reload(false)
   }, 2000)
-  // dispatchEvent(EVENT.LOGOUT)
+  // send(EVENT.LOGOUT)
 }
 
 // ###############################

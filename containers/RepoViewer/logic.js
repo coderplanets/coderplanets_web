@@ -12,7 +12,7 @@ const log = buildLog('L:RepoViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
+  recieve: [EVENT.PREVIEW_CLOSED, EVENT.SYNC_REPO],
 })
 
 let sub$ = null

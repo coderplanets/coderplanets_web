@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -12,7 +12,7 @@ const log = buildLog('L:FavoritesCats')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.SET_FAVORITE_CONTENT],
+  recieve: [EVENT.SET_FAVORITE_CONTENT],
 })
 
 let sub$ = null
@@ -116,7 +116,7 @@ const DataSolver = [
       markLoading(false)
       store.markState({ pagedCategories })
       // store.closePreview()
-      // dispatchEvent(EVENT.REFRESH_VIDEOS)
+      // send(EVENT.REFRESH_VIDEOS)
     },
   },
   {
@@ -152,7 +152,7 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
-      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.markState({ doing: false })
     },
   },
@@ -163,7 +163,7 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
-      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.markState({ doing: false })
     },
   },

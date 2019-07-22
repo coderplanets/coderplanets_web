@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent } from '@utils'
+import { asyncSuit, buildLog, send } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserSettings')
@@ -15,7 +15,7 @@ let store = null
 
 export const changeTheme = theme => {
   store.changeTheme(theme)
-  dispatchEvent(EVENT.SET_C11N, { data: { theme } })
+  send(EVENT.SET_C11N, { data: { theme } })
 }
 
 export const c11nOnChange = R.curry((part, e) => {
