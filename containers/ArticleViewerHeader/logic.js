@@ -13,7 +13,7 @@ const log = buildLog('L:ArticleViewerHeader')
 // user set it from FavoriteSetter
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_REACTIONS],
+  recieve: [EVENT.REFRESH_REACTIONS],
 })
 
 let sub$ = null

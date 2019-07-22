@@ -11,7 +11,7 @@ const log = buildLog('L:AccountViewer')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGIN],
+  recieve: [EVENT.LOGIN],
 })
 
 let store = null

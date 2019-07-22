@@ -26,7 +26,7 @@ const log = buildLog('L:Doraemon')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.QUERY_DORAMON],
+  recieve: [EVENT.QUERY_DORAMON],
 })
 
 let sub$ = null

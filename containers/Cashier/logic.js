@@ -17,7 +17,7 @@ import S from './schema'
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 
 const sr71$ = new SR71({
-  resv_event: [EVENT.CALL_CASHIER],
+  recieve: [EVENT.CALL_CASHIER],
 })
 let sub$ = null
 

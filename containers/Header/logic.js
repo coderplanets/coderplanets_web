@@ -20,7 +20,7 @@ const log = buildLog('L:Header')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.SET_C11N],
+  recieve: [EVENT.SET_C11N],
 })
 
 let store = null

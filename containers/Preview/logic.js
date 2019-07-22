@@ -8,7 +8,7 @@ const log = buildLog('L:Preview')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [
+  recieve: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,
