@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -44,7 +44,7 @@ export const showFollowings = user => {
     brief: user.nickname,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 export const showFollowers = user => {
@@ -54,7 +54,7 @@ export const showFollowers = user => {
     brief: user.nickname,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 export const tabOnChange = activeThread => {

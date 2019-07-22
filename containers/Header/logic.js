@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   thread2Subpath,
   atomizeValues,
   scrollToHeader,
@@ -27,10 +27,10 @@ let store = null
 let sub$ = null
 
 export const previewState = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ROOT_STORE })
 
 export const previewAccount = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 // to avoid page-cache in server
 export const checkSesstionState = () => sr71$.query(S.sessionState, {})
@@ -43,10 +43,10 @@ export const onThreadChange = thread => {
 
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
-  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
+  send(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
-export const onLogin = () => dispatchEvent(EVENT.LOGIN_PANEL)
+export const onLogin = () => send(EVENT.LOGIN_PANEL)
 export const onLogout = () => {
   store.logout()
 
@@ -58,8 +58,7 @@ export const onLogout = () => {
 export const openDoraemon = () => store.openDoraemon()
 export const upgradeHepler = () => store.upgradeHepler()
 
-export const queryDoraemon = data =>
-  dispatchEvent(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = data => send(EVENT.QUERY_DORAMON, { data })
 
 const DataSolver = [
   {
@@ -67,7 +66,7 @@ const DataSolver = [
     action: ({ sessionState: state }) => {
       store.updateSesstion(state)
       if (state.isValid !== store.accountInfo.isValidSession) {
-        dispatchEvent(EVENT.SESSTION_ROUTINE)
+        send(EVENT.SESSTION_ROUTINE)
       }
     },
   },

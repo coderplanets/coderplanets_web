@@ -8,7 +8,7 @@ import {
   asyncSuit,
   buildLog,
   Global,
-  dispatchEvent,
+  send,
   prettyNum,
   cutFrom,
   errRescue,
@@ -138,7 +138,7 @@ const doNavigate = () => {
     const data = { login }
     const type = TYPE.PREVIEW_USER_VIEW
 
-    dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+    send(EVENT.PREVIEW_OPEN, { type, data })
     return hidePanel()
   }
 
@@ -399,7 +399,7 @@ const initSpecCmdResolver = () => {
       action: cmdpath => {
         const theme = R.last(cmdpath)
         store.changeTheme(theme)
-        dispatchEvent(EVENT.SET_C11N, { data: { theme } })
+        send(EVENT.SET_C11N, { data: { theme } })
       },
     },
     {

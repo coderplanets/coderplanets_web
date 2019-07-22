@@ -102,7 +102,7 @@ Import {
   asyncRes,
   asyncErr,
   buildLog,
-  dispatchEvent,
+  send,
   EVENT,
   ERR,
   TYPE,

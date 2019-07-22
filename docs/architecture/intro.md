@@ -290,7 +290,7 @@ const DataSolver = [
     match: asyncRes('createPost'),
     action: () => {
       doneCleanUp()
-      dispatchEvent(EVENT.REFRESH_POSTS)
+      send(EVENT.REFRESH_POSTS)
     },
   },
 ]
@@ -327,7 +327,7 @@ All logic files have [some boilerplate code](https://github.com/coderplanets/cod
 #### schema.js
 
 The schema definition for all GraphQL requests is here, and the same fragment is extracted to the 'schemas' of the upper directory.
-The sys layer can make asynchronous requests using sr71$.query(S.post, {...})
+The sys layer can make asynchronous requests using sr71\$.query(S.post, {...})
 
 ```js
 import gql from 'graphql-tag'

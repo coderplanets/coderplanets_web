@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { EVENT } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, updateEditing } from '@utils'
+import { asyncSuit, buildLog, send, updateEditing } from '@utils'
 
 import S from './schema'
 
@@ -19,7 +19,7 @@ export const loadCategories = () =>
 
 export const searchOnChange = e => {
   updateEditing(store, 'searchValue', e)
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, {
+  send(EVENT.REFRESH_COMMUNITIES, {
     type: 'search',
     data: e.target.value,
   })
@@ -28,7 +28,7 @@ export const searchOnChange = e => {
 export const tabOnChange = activeTab => {
   store.markRoute({ subPath: activeTab })
   store.markState({ activeTab })
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
+  send(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
 }
 // ###############################
 // Data & Error handlers

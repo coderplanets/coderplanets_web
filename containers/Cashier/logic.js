@@ -8,7 +8,7 @@ import {
   Global,
   holdPage,
   errorForHuman,
-  dispatchEvent,
+  send,
   errRescue,
 } from '@utils'
 
@@ -82,7 +82,7 @@ const DataSolver = [
         title: 'CPS 团队感谢您的支持!',
         msg: '我们会尽快为您办理',
       })
-      dispatchEvent(EVENT.NEW_BILLS)
+      send(EVENT.NEW_BILLS)
     },
   },
 ]

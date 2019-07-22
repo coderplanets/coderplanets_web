@@ -6,7 +6,7 @@ import { EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   thread2Subpath,
   Global,
   errRescue,
@@ -42,7 +42,7 @@ export const onCommunitySelect = community => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 const mapIndexed = R.addIndex(R.map)

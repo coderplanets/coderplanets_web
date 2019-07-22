@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   subPath2Thread,
   thread2Subpath,
   errRescue,
@@ -39,7 +39,7 @@ export const tabberChange = activeThread => {
   store.markRoute({ subPath })
   store.setViewing({ activeThread })
 
-  dispatchEvent(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
+  send(EVENT.TABBER_CHANGE, { data: { activeThread, topic: subPath } })
 }
 
 export const onSubscribe = community => {
@@ -67,7 +67,7 @@ export const onShowEditorList = () => {
     brief: store.viewing.community.title,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 export const onShowSubscriberList = () => {
@@ -77,7 +77,7 @@ export const onShowSubscriberList = () => {
     brief: store.viewing.community.title,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 const markLoading = (maybe = true) =>

@@ -98,17 +98,16 @@ export const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export const dispatchEvent = (msg, data = {}) => {
+export const send = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
 }
 
-export const closePreviewer = (type = '') =>
-  dispatchEvent(EVENT.PREVIEW_CLOSE, { type })
+export const closePreviewer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
 
 export const errRescue = ({ type, operation, details, path }) =>
-  dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
+  send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 

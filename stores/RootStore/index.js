@@ -13,7 +13,7 @@ import {
   toast,
   toastBarColor,
   themeSkins,
-  dispatchEvent,
+  send,
 } from '@utils'
 
 import {
@@ -290,7 +290,7 @@ const rootStore = t
         self.toast('warn', R.merge(defaultOpt, options))
       }
 
-      dispatchEvent(EVENT.LOGIN_PANEL)
+      send(EVENT.LOGIN_PANEL)
       return false
     },
     changesetErr(options) {

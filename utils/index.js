@@ -9,7 +9,7 @@ export { buildLog } from './logger'
 export { default as uid } from './uid'
 
 export {
-  dispatchEvent,
+  send,
   mapKeys,
   getRandomInt,
   Global,

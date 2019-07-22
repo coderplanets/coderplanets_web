@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR } from '@constant'
 import {
   buildLog,
   asyncSuit,
-  dispatchEvent,
+  send,
   cast,
   meteorState,
   updateEditing,
@@ -25,7 +25,7 @@ let store = null
 let sub$ = null
 
 export const goBack = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 export const inputOnChange = R.curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */
@@ -93,7 +93,7 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export const cancleEdit = () => dispatchEvent(EVENT.PREVIEW_CLOSE)
+export const cancleEdit = () => send(EVENT.PREVIEW_CLOSE)
 
 export const updateDone = () => {
   const editing = cast(updateFields, store.editUserData)

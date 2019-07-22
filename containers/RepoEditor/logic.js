@@ -5,7 +5,7 @@ import { EVENT, ERR } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   closePreviewer,
   BStore,
   errRescue,
@@ -91,7 +91,7 @@ const DataSolver = [
     action: () => {
       store.markState({ publishing: false })
       closePreviewer()
-      dispatchEvent(EVENT.REFRESH_REPOS)
+      send(EVENT.REFRESH_REPOS)
     },
   },
   {
