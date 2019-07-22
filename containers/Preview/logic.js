@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT } from '@constant'
-import { asyncSuit, buildLog, unholdPage, dispatchEvent, Global } from '@utils'
+import { asyncSuit, buildLog, unholdPage, send, Global } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Preview')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [
+  recieve: [
     EVENT.PREVIEW_OPEN,
     EVENT.PREVIEW_CLOSE,
     EVENT.UPLOAD_IMG_START,
@@ -27,7 +27,7 @@ export const closePreview = () => {
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until preview move out of the screean
   setTimeout(() => {
-    dispatchEvent(EVENT.PREVIEW_CLOSED)
+    send(EVENT.PREVIEW_CLOSED)
     store.setViewing({ viewingThread: null })
   }, 200)
 }

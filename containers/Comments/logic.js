@@ -8,7 +8,7 @@ import {
   buildLog,
   scrollIntoEle,
   countWords,
-  dispatchEvent,
+  send,
   extractMentions,
   errRescue,
   BStore,
@@ -225,16 +225,16 @@ export const toggleDislikeComment = comment => {
 }
 
 export const onUploadImageDone = url =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertQuote = () =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
 
 export const insertCode = () => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export const onMention = user => store.addReferUser(user)

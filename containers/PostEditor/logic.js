@@ -5,7 +5,7 @@ import { EVENT, ERR, THREAD } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   countWords,
   extractAttachments,
   extractMentions,
@@ -104,13 +104,13 @@ export const canclePublish = () => {
 }
 
 export const onUploadImageDone = url =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertCode = () => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export const onMentionSearch = name => {
@@ -177,7 +177,7 @@ const DataSolver = [
 
       doneCleanUp()
       clearDraft()
-      dispatchEvent(EVENT.REFRESH_POSTS)
+      send(EVENT.REFRESH_POSTS)
     },
   },
   {
@@ -190,7 +190,7 @@ const DataSolver = [
       })
 
       doneCleanUp()
-      dispatchEvent(EVENT.REFRESH_POSTS)
+      send(EVENT.REFRESH_POSTS)
     },
   },
   {

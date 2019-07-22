@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT } from '@constant'
-import { buildLog, dispatchEvent } from '@utils'
+import { buildLog, send } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:GlobalLayout')
@@ -12,7 +12,7 @@ let store = null
 export const openDoraemon = () => store.openDoraemon()
 /* eslint-disable no-unused-vars */
 export const queryDoraemon = R.curry((data, e) =>
-  dispatchEvent(EVENT.QUERY_DORAMON, { data })
+  send(EVENT.QUERY_DORAMON, { data })
 )
 
 // ###############################

@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -19,7 +19,7 @@ export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
 export const previewUser = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -43,7 +43,7 @@ export const visibleOnChange = visible => {
 }
 
 export const seeAll = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
 
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
 

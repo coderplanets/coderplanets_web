@@ -8,7 +8,7 @@ import {
   asyncSuit,
   buildLog,
   Global,
-  dispatchEvent,
+  send,
   prettyNum,
   cutFrom,
   errRescue,
@@ -26,7 +26,7 @@ const log = buildLog('L:Doraemon')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.QUERY_DORAMON],
+  recieve: [EVENT.QUERY_DORAMON],
 })
 
 let sub$ = null
@@ -138,7 +138,7 @@ const doNavigate = () => {
     const data = { login }
     const type = TYPE.PREVIEW_USER_VIEW
 
-    dispatchEvent(EVENT.PREVIEW_OPEN, { type, data })
+    send(EVENT.PREVIEW_OPEN, { type, data })
     return hidePanel()
   }
 
@@ -399,7 +399,7 @@ const initSpecCmdResolver = () => {
       action: cmdpath => {
         const theme = R.last(cmdpath)
         store.changeTheme(theme)
-        dispatchEvent(EVENT.SET_C11N, { data: { theme } })
+        send(EVENT.SET_C11N, { data: { theme } })
       },
     },
     {

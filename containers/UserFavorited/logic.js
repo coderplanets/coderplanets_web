@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, THREAD } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, pagedFilter } from '@utils'
+import { asyncSuit, buildLog, send, pagedFilter } from '@utils'
 
 import S from './schema'
 
@@ -71,7 +71,7 @@ export const changeFavoriteThread = curThread => {
 export const onPreview = data => {
   const { curThread: thread } = store
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
     thread,
     data,

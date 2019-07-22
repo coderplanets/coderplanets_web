@@ -10,7 +10,7 @@ const log = buildLog('L:CommunitySetter')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.COMMUNITY_MIRROR],
+  recieve: [EVENT.COMMUNITY_MIRROR],
 })
 
 let sub$ = null

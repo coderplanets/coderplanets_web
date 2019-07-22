@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   pagedFilter,
   errRescue,
   scrollToHeader,
@@ -82,7 +82,7 @@ export const onPageChange = (page = 1) => {
 export const onPreview = data => {
   const thread = store.curThread
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
     data: data[thread],
     thread,

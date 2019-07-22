@@ -5,7 +5,7 @@ import { TYPE, EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
   asyncSuit,
   buildLog,
-  dispatchEvent,
+  send,
   scrollToTabber,
   notEmpty,
   errRescue,
@@ -18,7 +18,7 @@ const log = buildLog('L:JobsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let store = null
@@ -66,7 +66,7 @@ export const onPageChange = page => {
 
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
     thread: THREAD.JOB,
     data,
@@ -88,7 +88,7 @@ export const onContentCreate = () => {
     return store.markState({ showPublishNote: true })
   }
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 export const onNoteClose = () => store.markState({ showPublishNote: false })
@@ -105,7 +105,7 @@ export const onFilterSelect = option => {
   loadJobs()
 }
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {
@@ -114,7 +114,7 @@ export const onC11NChange = option => {
 }
 
 export const onUserSelect = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })

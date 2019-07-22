@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -24,7 +24,7 @@ export const loadUser = user => {
 }
 
 export const onListUsers = (type, data) =>
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 
 export const onFollow = userId => {
   store.markState({ following: true })

@@ -1,7 +1,7 @@
 // import R from 'ramda'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, dispatchEvent, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:DocUploader')
@@ -45,10 +45,10 @@ export const getOSSFileName = filename => {
 
 export const sendEvent = (state = 'start') => {
   if (state === 'start') {
-    return dispatchEvent(EVENT.UPLOAD_IMG_START)
+    return send(EVENT.UPLOAD_IMG_START)
   }
 
-  return dispatchEvent(EVENT.UPLOAD_IMG_FINISH)
+  return send(EVENT.UPLOAD_IMG_FINISH)
 }
 
 // ###############################

@@ -2,13 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { TYPE, EVENT, THREAD } from '@constant'
-import {
-  asyncSuit,
-  buildLog,
-  dispatchEvent,
-  scrollToTabber,
-  notEmpty,
-} from '@utils'
+import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@utils'
 
 import S from './schema'
 
@@ -17,7 +11,7 @@ const log = buildLog('L:ReposThread')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
@@ -61,7 +55,7 @@ export const onPageChange = page => {
 
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
     thread: THREAD.REPO,
     data,
@@ -79,7 +73,7 @@ export const onPreview = data => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
 export const onTagSelect = tag => {
@@ -94,7 +88,7 @@ export const onFilterSelect = option => {
   loadRepos()
 }
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {
