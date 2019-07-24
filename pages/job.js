@@ -72,7 +72,7 @@ async function fetchData(props) {
 export default class JobPage extends React.Component {
   static async getInitialProps(props) {
     let resp
-    const { mainPath, subPath } = parseURL(props)
+    const { communityPath, threadPath } = parseURL(props)
 
     try {
       resp = await fetchData(props)
@@ -80,7 +80,7 @@ export default class JobPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: subPath }
+        return { statusCode: 404, target: threadPath }
       }
     }
 
@@ -96,7 +96,12 @@ export default class JobPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.JOB },
+      route: {
+        communityPath,
+        mainPath: communityPath,
+        threadPath: ROUTE.JOB,
+        subPath: ROUTE.JOB,
+      },
       viewing: {
         job,
         activeThread: THREAD.JOB,
