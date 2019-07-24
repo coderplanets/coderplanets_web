@@ -68,7 +68,7 @@ async function fetchData(props) {
 
 export default class VideoPage extends React.Component {
   static async getInitialProps(props) {
-    const { mainPath, subPath } = parseURL(props)
+    const { communityPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -82,7 +82,7 @@ export default class VideoPage extends React.Component {
 
     const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
-    if (!R.contains(mainPath, R.pluck('raw', video.communities))) {
+    if (!R.contains(communityPath, R.pluck('raw', video.communities))) {
       return { statusCode: 404, target: subPath }
     }
 
@@ -96,7 +96,7 @@ export default class VideoPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.VIDEO },
+      route: { communityPath, mainPath: communityPath, subPath: ROUTE.VIDEO },
       viewing: {
         video,
         activeThread: THREAD.VIDEO,
@@ -121,7 +121,7 @@ export default class VideoPage extends React.Component {
       viewing: { video },
       route,
     } = this.props
-    const { mainPath } = route
+    const { communityPath } = route
 
     return (
       <Provider store={this.store}>
@@ -132,7 +132,7 @@ export default class VideoPage extends React.Component {
             ) : (
               <React.Fragment>
                 <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/video/${video.id}`}
+                  url={`${SITE_URL}/${communityPath}/video/${video.id}`}
                   title={`${video.title}`}
                   datePublished={`${video.insertedAt}`}
                   dateModified={`${video.updatedAt}`}

@@ -37,12 +37,13 @@ global.Intl = require('intl')
  */
 export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
-    if (!isServerSide()) return {}
+    if (!isServerSide) return {}
 
-    const { mainPath, subPath } = parseURL(props)
+    const { communityPath, threadPath } = parseURL(props)
+
     const hideSidebar =
-      R.contains(mainPath, [ROUTE.USER]) ||
-      R.contains(subPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
+      R.contains(communityPath, [ROUTE.USER]) ||
+      R.contains(threadPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
 
     return {
       hideSidebar,

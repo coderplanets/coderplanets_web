@@ -23,6 +23,8 @@ const Query = t.model('Query', {
 
 const RouteStore = t
   .model('RouteStore', {
+    communityPath: t.optional(t.string, ''),
+    threadPath: t.optional(t.string, ''),
     mainPath: t.optional(t.string, ''),
     subPath: t.optional(t.string, ''),
     query: t.optional(Query, {}),
@@ -32,11 +34,13 @@ const RouteStore = t
       return getParent(self)
     },
     get curRoute() {
-      const { mainPath, subPath } = self
-      return { mainPath, subPath }
+      const { communityPath, threadPath, mainPath, subPath } = self
+      return { communityPath, threadPath, mainPath, subPath }
     },
   }))
   .actions(self => ({
+    // TODO:  if current url is subdomain, then we should
+    // reload to that page directly
     markRoute(query) {
       if (!onClient) return false
       const { mainPath, subPath, page } = query
