@@ -7,11 +7,11 @@ import R from 'ramda'
 
 import { ROUTE } from '@constant'
 import {
+  parseURL,
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
   nilOrEmpty,
-  getSubPath,
   ssrAmbulance,
   parseTheme,
 } from '@utils'
@@ -45,7 +45,7 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const subPath = getSubPath(props)
+  const { subPath } = parseURL(props)
   const category = subPath !== '' ? subPath : 'pl'
 
   const { asPath } = props
