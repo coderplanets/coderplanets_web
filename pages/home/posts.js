@@ -25,8 +25,7 @@ import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
-  getMainPath,
-  getSubPath,
+  parseURL,
   akaTranslate,
   extractThreadFromPath,
   buildLog,
@@ -60,9 +59,8 @@ async function fetchData(props, opt) {
   // schema
 
   // utils: filter, tags staff
-  const mainPath = getMainPath(props)
+  const { mainPath, subPath: topic } = parseURL(props)
   const community = akaTranslate(mainPath)
-  const topic = getSubPath(props)
   const thread = extractThreadFromPath(props)
 
   let filter = addTopicIfNeed(
@@ -107,8 +105,7 @@ async function fetchData(props, opt) {
 
 export default class HomePage extends React.Component {
   static async getInitialProps(props) {
-    const mainPath = getMainPath(props)
-    const subPath = getSubPath(props)
+    const { mainPath, subPath } = parseURL(props)
     const thread = extractThreadFromPath(props)
 
     let resp
