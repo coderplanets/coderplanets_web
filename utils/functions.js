@@ -9,7 +9,6 @@ import { nilOrEmpty } from './validator'
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
-export const onClient = typeof window !== 'undefined' ? true : false
 /* eslint-enable */
 
 // see https://github.com/ramda/ramda/issues/1361

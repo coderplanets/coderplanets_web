@@ -8,7 +8,13 @@ import R from 'ramda'
 // import Router from 'next/router'
 
 import { PAGE_SIZE } from '@config'
-import { Global, onClient, markStates, buildLog, serializeQuery } from '@utils'
+import {
+  Global,
+  isClientSide,
+  markStates,
+  buildLog,
+  serializeQuery,
+} from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')
@@ -42,7 +48,7 @@ const RouteStore = t
     // TODO:  if current url is subdomain, then we should
     // reload to that page directly
     markRoute(query) {
-      if (!onClient) return false
+      if (!isClientSide) return false
       const { mainPath, subPath, page } = query
       query = R.pickBy(v => !R.isEmpty(v), query)
 

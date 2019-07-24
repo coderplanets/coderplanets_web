@@ -61,7 +61,7 @@ const getThirdPath = args => {
  */
 const parseSubDomain = args => {
   let communityPath = ''
-  if (isServerSide()) {
+  if (isServerSide) {
     // on server side
     const { subdomains } = args.req
     console.log('subdomains: ', subdomains)
@@ -94,20 +94,24 @@ export const parseURL = args => {
   let subPath = ''
   let thridPath = ''
   let communityPath = parseSubDomain(args)
+  let threadPath = ''
 
   if (communityPath === '') {
     mainPath = getMainPath(args)
     subPath = getSubPath(args)
     thridPath = getThirdPath(args)
     communityPath = mainPath
+    threadPath = subPath
   } else {
     mainPath = communityPath
     subPath = getMainPath(args)
     thridPath = getSubPath(args)
+    threadPath = subPath
   }
 
   return {
     communityPath,
+    threadPath,
     mainPath,
     subPath,
     thridPath,

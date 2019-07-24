@@ -13,7 +13,6 @@ export {
   mapKeys,
   getRandomInt,
   Global,
-  onClient,
   cutFrom,
   prettyNum,
   numberWithCommas,
@@ -81,6 +80,7 @@ export {
 
 export {
   isServerSide,
+  isClientSide,
   getJwtToken,
   ssrPagedSchema,
   ssrPagedFilter,
