@@ -8,9 +8,7 @@ import { TYPE, ROUTE, THREAD } from '@constant'
 import {
   getJwtToken,
   makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
@@ -45,7 +43,7 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -74,17 +72,18 @@ async function fetchData(props) {
 export default class JobPage extends React.Component {
   static async getInitialProps(props) {
     let resp
+    const { mainPath, subPath } = parseURL(props)
+
     try {
       resp = await fetchData(props)
     } catch ({ response: { errors } }) {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, pagedComments, subscribedCommunities, job } = resp
 
     return {

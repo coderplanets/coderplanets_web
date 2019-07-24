@@ -9,9 +9,7 @@ import {
   getJwtToken,
   nilOrEmpty,
   makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   ssrAmbulance,
   parseTheme,
 } from '@utils'
@@ -42,7 +40,7 @@ async function fetchData(props) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -70,6 +68,7 @@ async function fetchData(props) {
 
 export default class VideoPage extends React.Component {
   static async getInitialProps(props) {
+    const { mainPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -77,15 +76,14 @@ export default class VideoPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
     if (!R.contains(mainPath, R.pluck('raw', video.communities))) {
-      return { statusCode: 404, target: getSubPath(props) }
+      return { statusCode: 404, target: subPath }
     }
 
     return {

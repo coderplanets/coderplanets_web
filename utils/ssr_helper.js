@@ -5,11 +5,18 @@ import { P } from '@schemas'
 
 import BStore from './bstore'
 
+/*
+ * check if current is on server side
+ */
+export const isServerSide = () => {
+  const isOnserver = typeof window === 'undefined'
+  return isOnserver
+}
+
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
 export const getJwtToken = props => {
-  const isServer = typeof window === 'undefined'
-  if (isServer) return BStore.cookie.from_req(props.req, 'jwtToken')
+  if (isServerSide()) return BStore.cookie.from_req(props.req, 'jwtToken')
 
   return BStore.get('token')
 }

@@ -54,9 +54,7 @@ export {
 // export { default as githubApi } from './github_api'
 
 export {
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   akaTranslate,
   getParameterByName,
   getQueryFromUrl,
@@ -82,6 +80,7 @@ export {
 } from './mobx_helper'
 
 export {
+  isServerSide,
   getJwtToken,
   ssrPagedSchema,
   ssrPagedFilter,
