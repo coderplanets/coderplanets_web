@@ -13,7 +13,6 @@ export {
   mapKeys,
   getRandomInt,
   Global,
-  onClient,
   cutFrom,
   prettyNum,
   numberWithCommas,
@@ -54,9 +53,7 @@ export {
 // export { default as githubApi } from './github_api'
 
 export {
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   akaTranslate,
   getParameterByName,
   getQueryFromUrl,
@@ -82,6 +79,8 @@ export {
 } from './mobx_helper'
 
 export {
+  isServerSide,
+  isClientSide,
   getJwtToken,
   ssrPagedSchema,
   ssrPagedFilter,

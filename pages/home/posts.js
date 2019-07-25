@@ -25,8 +25,7 @@ import {
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
-  getMainPath,
-  getSubPath,
+  parseURL,
   akaTranslate,
   extractThreadFromPath,
   buildLog,
@@ -60,9 +59,8 @@ async function fetchData(props, opt) {
   // schema
 
   // utils: filter, tags staff
-  const mainPath = getMainPath(props)
-  const community = akaTranslate(mainPath)
-  const topic = getSubPath(props)
+  const { communityPath, subPath: topic } = parseURL(props)
+  const community = akaTranslate(communityPath)
   const thread = extractThreadFromPath(props)
 
   let filter = addTopicIfNeed(
@@ -107,8 +105,7 @@ async function fetchData(props, opt) {
 
 export default class HomePage extends React.Component {
   static async getInitialProps(props) {
-    const mainPath = getMainPath(props)
-    const subPath = getSubPath(props)
+    const { communityPath, threadPath } = parseURL(props)
     const thread = extractThreadFromPath(props)
 
     let resp
@@ -120,7 +117,7 @@ export default class HomePage extends React.Component {
       } else {
         return {
           statusCode: 404,
-          target: mainPath,
+          target: communityPath,
           viewing: { community: {} },
           route: {},
         }
@@ -157,7 +154,12 @@ export default class HomePage extends React.Component {
           repo: {},
           user: {},
         },
-        route: { mainPath: community.raw, subPath },
+        route: {
+          communityPath: community.raw,
+          mainPath: community.raw,
+          threadPath,
+          subPath: threadPath,
+        },
         tagsBar: { tags: partialTags },
       },
       contentsThread
@@ -180,7 +182,7 @@ export default class HomePage extends React.Component {
       viewing: { community },
       route,
     } = this.props
-    const { mainPath, subPath } = route
+    const { communityPath, subPath } = route
 
     const seoTitle =
       community.raw === 'home'
@@ -201,7 +203,7 @@ export default class HomePage extends React.Component {
               <React.Fragment>
                 <NextSeo
                   config={{
-                    url: `${SITE_URL}/${mainPath}/${subPath}`,
+                    url: `${SITE_URL}/${communityPath}/${subPath}`,
                     title: seoTitle,
                     description: `${community.desc}`,
                   }}

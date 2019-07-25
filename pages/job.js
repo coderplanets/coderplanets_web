@@ -8,9 +8,7 @@ import { TYPE, ROUTE, THREAD } from '@constant'
 import {
   getJwtToken,
   makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
@@ -45,7 +43,7 @@ async function fetchData(props) {
   const userHasLogin = nilOrEmpty(token) === false
 
   // schema
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -74,17 +72,18 @@ async function fetchData(props) {
 export default class JobPage extends React.Component {
   static async getInitialProps(props) {
     let resp
+    const { communityPath, threadPath } = parseURL(props)
+
     try {
       resp = await fetchData(props)
     } catch ({ response: { errors } }) {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: threadPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, pagedComments, subscribedCommunities, job } = resp
 
     return {
@@ -97,7 +96,12 @@ export default class JobPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.JOB },
+      route: {
+        communityPath,
+        mainPath: communityPath,
+        threadPath: ROUTE.JOB,
+        subPath: ROUTE.JOB,
+      },
       viewing: {
         job,
         activeThread: THREAD.JOB,

@@ -6,6 +6,25 @@ import NextSeo from 'next-seo'
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
 
+import {
+  isServerSide,
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  parseURL,
+  akaTranslate,
+  extractThreadFromPath,
+  buildLog,
+  nilOrEmpty,
+  ssrPagedSchema,
+  ssrPagedFilter,
+  ssrContentsThread,
+  addTopicIfNeed,
+  ssrAmbulance,
+  validCommunityFilters,
+  parseTheme,
+} from '@utils'
+
 import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
@@ -20,25 +39,6 @@ import CommunityContent from '@containers/CommunityContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 import ErrorPage from '@components/ErrorPage'
-
-import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
-  getMainPath,
-  getSubPath,
-  akaTranslate,
-  extractThreadFromPath,
-  buildLog,
-  nilOrEmpty,
-  ssrPagedSchema,
-  ssrPagedFilter,
-  ssrContentsThread,
-  addTopicIfNeed,
-  ssrAmbulance,
-  validCommunityFilters,
-  parseTheme,
-} from '@utils'
 
 import { P } from '@schemas'
 
@@ -59,10 +59,8 @@ async function fetchData(props, opt) {
   const { asPath } = props
   // schema
 
-  // utils: filter, tags staff
-  const mainPath = getMainPath(props)
-  const community = akaTranslate(mainPath)
-  const topic = getSubPath(props)
+  const { communityPath, threadPath: topic } = parseURL(props)
+  const community = akaTranslate(communityPath)
   const thread = extractThreadFromPath(props)
 
   let filter = addTopicIfNeed(
@@ -107,8 +105,9 @@ async function fetchData(props, opt) {
 
 export default class CommunityPage extends React.Component {
   static async getInitialProps(props) {
-    const mainPath = getMainPath(props)
-    const subPath = getSubPath(props)
+    if (!isServerSide) return {}
+
+    const { communityPath, threadPath } = parseURL(props)
     const thread = extractThreadFromPath(props)
 
     let resp
@@ -120,7 +119,7 @@ export default class CommunityPage extends React.Component {
       } else {
         return {
           statusCode: 404,
-          target: mainPath,
+          target: communityPath,
           viewing: { community: {} },
           route: {},
         }
@@ -157,7 +156,12 @@ export default class CommunityPage extends React.Component {
           repo: {},
           user: {},
         },
-        route: { mainPath: community.raw, subPath },
+        route: {
+          communityPath: community.raw,
+          mainPath: community.raw,
+          threadPath,
+          subPath: threadPath,
+        },
         tagsBar: { tags: partialTags },
       },
       contentsThread
@@ -180,7 +184,7 @@ export default class CommunityPage extends React.Component {
       viewing: { community },
       route,
     } = this.props
-    const { mainPath, subPath } = route
+    const { communityPath, threadPath } = route
 
     const seoTitle =
       community.raw === 'home'
@@ -201,7 +205,7 @@ export default class CommunityPage extends React.Component {
               <React.Fragment>
                 <NextSeo
                   config={{
-                    url: `${SITE_URL}/${mainPath}/${subPath}`,
+                    url: `${SITE_URL}/${communityPath}/${threadPath}`,
                     title: seoTitle,
                     description: `${community.desc}`,
                   }}
