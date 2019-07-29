@@ -2,29 +2,21 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
-import {
-  buildLog,
-  dispatchEvent,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  EVENT,
-  errRescue,
-} from '@utils'
+import { EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:FavoritesCats')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.SET_FAVORITE_CONTENT],
+  recieve: [EVENT.SET_FAVORITE_CONTENT],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:FavoritesCats')
 
 export const categoryOnChange = R.curry((part, e) =>
   store.updateEditing({ [part]: e.target.value })
@@ -124,7 +116,7 @@ const DataSolver = [
       markLoading(false)
       store.markState({ pagedCategories })
       // store.closePreview()
-      // dispatchEvent(EVENT.REFRESH_VIDEOS)
+      // send(EVENT.REFRESH_VIDEOS)
     },
   },
   {
@@ -160,7 +152,7 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
-      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.markState({ doing: false })
     },
   },
@@ -171,7 +163,7 @@ const DataSolver = [
       /* store.updateCategory(cat) */
       const { id } = store.viewingData
       const { thread } = store
-      dispatchEvent(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
+      send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
       store.markState({ doing: false })
     },
   },

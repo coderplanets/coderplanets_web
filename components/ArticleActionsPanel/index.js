@@ -9,7 +9,8 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { buildLog } from '@utils'
 
 import Informer from '@containers/Informer'
 import PinOption from './PinOption'

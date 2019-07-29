@@ -3,24 +3,33 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.article`
-  ${cs.flex()};
+  ${cs.flexGrow('justify-center')};
   padding: 20px;
   min-height: 300px;
   ${cs.media.tablet`
     padding: 8px 0;
   `};
 `
+export const InnerWrapper = styled.div`
+  ${cs.flex()};
+  width: 100%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  padding: 0 6vw;
+  ${cs.media.desktop`
+    padding: 0 4vw;
+  `};
+`
 export const MainWrapper = styled.div`
-  width: 68%;
-  margin-left: 2.5rem;
+  flex-grow: 1;
   ${cs.media.tablet`
     width: 100%;
-    margin-left: 0;
-`};
+  `};
+`
+export const SidebarWrapper = styled.div`
+  min-width: 250px;
 `
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
-  margin-left: 2vw;
   margin-right: 1.6vw;
   background: ${theme('preview.articleBg')};
   border-radius: 5px;

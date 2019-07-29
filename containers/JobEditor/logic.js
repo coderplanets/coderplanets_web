@@ -1,16 +1,11 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
-  $solver,
+  asyncSuit,
   buildLog,
-  dispatchEvent,
-  THREAD,
-  EVENT,
-  ERR,
-  TYPE,
+  send,
   countWords,
   extractAttachments,
   extractMentions,
@@ -22,18 +17,16 @@ import {
   BStore,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import { S, updatableJobFields } from './schema'
-// import testMentions from './test_mentions'
-
-const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
 const log = buildLog('L:JobEditor')
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
 let store = null
 let sub$ = null
-
 let saveDraftTimmer = null
 
 export const changeView = curView => store.markState({ curView })
@@ -101,13 +94,13 @@ export const canclePublish = () => {
 }
 
 export const onUploadImageDone = url =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertCode = () => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export const onMentionSearch = name => {
@@ -175,7 +168,7 @@ const DataSolver = [
 
       doneCleanUp()
       clearDraft()
-      dispatchEvent(EVENT.REFRESH_JOBS)
+      send(EVENT.REFRESH_JOBS)
     },
   },
   {
@@ -188,7 +181,7 @@ const DataSolver = [
       })
 
       doneCleanUp()
-      dispatchEvent(EVENT.REFRESH_JOBS)
+      send(EVENT.REFRESH_JOBS)
     },
   },
 

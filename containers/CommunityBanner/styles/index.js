@@ -4,9 +4,9 @@ import { theme, cs } from '@utils'
 
 export const BaseBanner = styled.nav`
   ${cs.flexColumn('justify-center')};
-  align-items: center;
-
   position: relative;
+
+  align-items: center;
   min-height: 140px;
   background: ${theme('banner.bg')};
   border-bottom: 1px solid;
@@ -24,6 +24,7 @@ export const BaseTabber = styled.div`
   width: 80vw;
   overflow-x: auto;
   overflow-y: hidden;
+
   ${cs.media.tablet`
     left: 10px;
     width: 100%;

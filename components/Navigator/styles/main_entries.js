@@ -13,8 +13,17 @@ export const Wrapper = styled.div`
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};
 `
-export const SiteLink = styled.a`
+export const SiteLink = styled.a.attrs(props => ({
+  'data-testid': props.testid,
+}))`
   color: ${theme('banner.desc')};
+  background: ${({ active }) =>
+    active ? theme('banner.numberHoverBg') : 'transparent'};
+  padding: ${({ active }) => (active ? '5px 3px 3px 3px' : '0')};
+  border-bottom: ${({ active }) => (active ? '2px solid' : 'none')};
+  border-bottom-color: ${({ active }) =>
+    active ? theme('tabs.headerActive') : ''};
+
   cursor: pointer;
   &:hover {
     text-decoration: underline;

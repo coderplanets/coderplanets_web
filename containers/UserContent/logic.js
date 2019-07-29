@@ -1,22 +1,14 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  asyncRes,
-  asyncErr,
-  $solver,
-  dispatchEvent,
-  TYPE,
-  EVENT,
-  ERR,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71()
+
 let sub$ = null
 let store = null
 
@@ -52,7 +44,7 @@ export const showFollowings = user => {
     brief: user.nickname,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 export const showFollowers = user => {
@@ -62,7 +54,7 @@ export const showFollowers = user => {
     brief: user.nickname,
   }
 
-  dispatchEvent(EVENT.USER_LISTER_OPEN, { type, data })
+  send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
 export const tabOnChange = activeThread => {

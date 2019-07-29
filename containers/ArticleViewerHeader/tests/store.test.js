@@ -1,7 +1,7 @@
 /*
-* ArticleViewerHeader store test
-*
-*/
+ * ArticleViewerHeader store test
+ *
+ */
 
 // import R from 'ramda'
 

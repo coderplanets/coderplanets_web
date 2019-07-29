@@ -12,9 +12,14 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT, buildLog, BStore } from '@utils'
+import { EVENT } from '@constant'
+import { buildLog, BStore } from '@utils'
+
 import toRawString from './exportContent'
 import { Wrapper } from './styles'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:MarkdownEditor')
 
 const linkifyPlugin = createLinkifyPlugin({
   theme: { link: 'markdown-editor-link' },
@@ -30,9 +35,6 @@ const mentionThemeClass = {
     'markdown-editor-mentionSuggestionsEntryAvatar',
   mentionSuggestionsEntryText: 'markdown-editor-mentionSuggestionsEntryText',
 }
-
-/* eslint-disable-next-line */
-const log = buildLog('C:MarkdownEditor')
 
 const mentionFilter = (value, mentions) =>
   R.filter(m => R.startsWith(value, R.toLower(m.name)), mentions)

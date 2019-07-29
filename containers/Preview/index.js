@@ -7,13 +7,13 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
-import { useShortcut } from '@hooks'
+import { useShortcut, usePlatform } from '@hooks'
 
 import SliderPreview from './SliderPreview'
 import ModalPreview from './ModalPreview'
 import Viewer from './Viewer'
 
-import { useInit, closePreview } from './logic'
+import { useInit, useScrollbar, closePreview } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:Preview')
@@ -21,6 +21,9 @@ const log = buildLog('C:Preview')
 const PreviewContainer = ({ preview }) => {
   useInit(preview)
   useShortcut('esc', closePreview)
+
+  const { isMacOS } = usePlatform()
+  useScrollbar(isMacOS)
 
   const {
     modalVisible,

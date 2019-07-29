@@ -1,7 +1,7 @@
 /*
-* RootStore store test
-*
-*/
+ * RootStore store test
+ *
+ */
 
 /* import RootStore from '../index' */
 /*  */

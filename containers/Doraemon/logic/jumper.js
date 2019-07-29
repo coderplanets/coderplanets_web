@@ -1,14 +1,7 @@
 import R from 'ramda'
 
-import {
-  Global,
-  dispatchEvent,
-  EVENT,
-  TYPE,
-  ROUTE,
-  thread2Subpath,
-  THREAD,
-} from '@utils'
+import { EVENT, TYPE, ROUTE, THREAD } from '@constant'
+import { Global, send, thread2Subpath } from '@utils'
 
 export const jumpToCommunity = (store, communityRaw) => {
   const { mainPath, subPath } = store.curRoute
@@ -32,7 +25,7 @@ export const jumpToCommunity = (store, communityRaw) => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 export const jumpToContent = store => {
@@ -59,7 +52,7 @@ export const jumpToContent = store => {
     thread = THREAD.VIDEO
   }
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type, thread, data })
+  send(EVENT.PREVIEW_OPEN, { type, thread, data })
 }
 
 export const goToHelpPage = id => {

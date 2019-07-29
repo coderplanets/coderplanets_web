@@ -6,23 +6,15 @@ import { cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
-  max-width: 1400px;
   padding-top: 8px;
   width: 100%;
-`
-
-export const LeftPadding = styled.div`
-  width: 3vw;
-`
-export const RightPadding = styled.div`
-  width: 4vw;
 `
 export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
 `
 export const RightPart = styled.div`
-  width: 18vw;
+  min-width: 200px;
   margin-left: 30px;
   padding-top: 5px;
   ${cs.media.tablet`display: none;`};

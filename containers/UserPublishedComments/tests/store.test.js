@@ -1,7 +1,7 @@
 /*
-* UserPublishedComments store test
-*
-*/
+ * UserPublishedComments store test
+ *
+ */
 
 // import R from 'ramda'
 

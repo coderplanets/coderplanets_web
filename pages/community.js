@@ -6,28 +6,12 @@ import NextSeo from 'next-seo'
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Sidebar from '@containers/Sidebar'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import CommunityBanner from '@containers/CommunityBanner'
-import CommunityContent from '@containers/CommunityContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
-
-import GAWraper from '@components/GAWraper'
-import ErrorPage from '@components/ErrorPage'
-
 import {
+  isServerSide,
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
-  getMainPath,
-  getSubPath,
+  parseURL,
   akaTranslate,
   extractThreadFromPath,
   buildLog,
@@ -40,6 +24,21 @@ import {
   validCommunityFilters,
   parseTheme,
 } from '@utils'
+
+import AnalysisService from '@services/Analysis'
+import GlobalLayout from '@containers/GlobalLayout'
+import ThemeWrapper from '@containers/ThemeWrapper'
+import MultiLanguage from '@containers/MultiLanguage'
+import Sidebar from '@containers/Sidebar'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import CommunityBanner from '@containers/CommunityBanner'
+import CommunityContent from '@containers/CommunityContent'
+import Footer from '@containers/Footer'
+import ErrorBox from '@containers/ErrorBox'
+import ErrorPage from '@components/ErrorPage'
 
 import { P } from '@schemas'
 
@@ -60,10 +59,8 @@ async function fetchData(props, opt) {
   const { asPath } = props
   // schema
 
-  // utils: filter, tags staff
-  const mainPath = getMainPath(props)
-  const community = akaTranslate(mainPath)
-  const topic = getSubPath(props)
+  const { communityPath, threadPath: topic } = parseURL(props)
+  const community = akaTranslate(communityPath)
   const thread = extractThreadFromPath(props)
 
   let filter = addTopicIfNeed(
@@ -108,8 +105,9 @@ async function fetchData(props, opt) {
 
 export default class CommunityPage extends React.Component {
   static async getInitialProps(props) {
-    const mainPath = getMainPath(props)
-    const subPath = getSubPath(props)
+    if (!isServerSide) return {}
+
+    const { communityPath, threadPath } = parseURL(props)
     const thread = extractThreadFromPath(props)
 
     let resp
@@ -121,7 +119,7 @@ export default class CommunityPage extends React.Component {
       } else {
         return {
           statusCode: 404,
-          target: mainPath,
+          target: communityPath,
           viewing: { community: {} },
           route: {},
         }
@@ -158,7 +156,12 @@ export default class CommunityPage extends React.Component {
           repo: {},
           user: {},
         },
-        route: { mainPath: community.raw, subPath },
+        route: {
+          communityPath: community.raw,
+          mainPath: community.raw,
+          threadPath,
+          subPath: threadPath,
+        },
         tagsBar: { tags: partialTags },
       },
       contentsThread
@@ -181,16 +184,16 @@ export default class CommunityPage extends React.Component {
       viewing: { community },
       route,
     } = this.props
-    const { mainPath, subPath } = route
+    const { communityPath, threadPath } = route
 
     const seoTitle =
       community.raw === 'home'
-        ? `coderplanets 社区`
+        ? 'coderplanets 社区'
         : `coderplanets ${community.raw}社区`
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage
@@ -202,7 +205,7 @@ export default class CommunityPage extends React.Component {
               <React.Fragment>
                 <NextSeo
                   config={{
-                    url: `${SITE_URL}/${mainPath}/${subPath}`,
+                    url: `${SITE_URL}/${communityPath}/${threadPath}`,
                     title: seoTitle,
                     description: `${community.desc}`,
                   }}
@@ -223,7 +226,7 @@ export default class CommunityPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

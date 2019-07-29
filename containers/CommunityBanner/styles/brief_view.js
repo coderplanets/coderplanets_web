@@ -8,20 +8,19 @@ export const Wrapper = styled(BaseBanner)`
 `
 export const BaseBannerContent = styled.div`
   ${cs.flex()};
-  margin-left: 8%;
-  margin-right: 8%;
 `
 export const BannerContainer = styled(BaseBanner)``
 
 export const TabberWrapper = styled.div`
   ${cs.flex()};
-  width: 80vw;
-  margin-left: 250px;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
   margin-top: 4px;
+  width: 100%;
+  padding: 0 15vw;
 
-  @media (min-width: 1600px) {
-    margin-left: 270px;
-  }
+  ${cs.media.desktop`
+    padding: 0 18vw;
+  `};
 
   ${cs.media.mobile`
     width: 55vw;
@@ -29,4 +28,7 @@ export const TabberWrapper = styled.div`
     margin-left: 45vw;
   `};
 `
-export const BannerContentWrapper = styled(BaseBannerContent)``
+export const BannerContentWrapper = styled(BaseBannerContent)`
+  width: 100%;
+  ${cs.flex('justify-center')};
+`

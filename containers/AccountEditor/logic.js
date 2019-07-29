@@ -1,15 +1,11 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
   buildLog,
-  $solver,
-  dispatchEvent,
-  EVENT,
-  ERR,
-  TYPE,
+  asyncSuit,
+  send,
   cast,
   meteorState,
   updateEditing,
@@ -17,19 +13,19 @@ import {
   nilOrEmpty,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import { S, updateFields } from './schema'
-
-const sr71$ = new SR71()
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AccountEditor')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
 
 let store = null
 let sub$ = null
 
 export const goBack = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_ACCOUNT_VIEW })
 
 export const inputOnChange = R.curry((part, e) => updateEditing(store, part, e))
 /* eslint-disable no-unused-vars */
@@ -97,7 +93,7 @@ export const updateConfirm = () => {
   sr71$.mutate(S.updateProfile, args)
 }
 
-export const cancleEdit = () => dispatchEvent(EVENT.PREVIEW_CLOSE)
+export const cancleEdit = () => send(EVENT.PREVIEW_CLOSE)
 
 export const updateDone = () => {
   const editing = cast(updateFields, store.editUserData)

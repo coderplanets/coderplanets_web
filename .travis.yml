@@ -1,22 +1,20 @@
 language: elixir
 elixir:
-  - 1.8
+  - 1.9
 otp_release:
   - 21.0
 addons:
-  postgresql: '9.4'
+  postgresql: '9.6'
 
 before_install:
   - sudo chown -R travis ./travis/install_node.sh
   - sudo chmod +x ./travis/install_node.sh
   - ./travis/install_node.sh
-  - npm install -g @commitlint/travis-cli > /dev/null
 
 install:
   # web related
-  - npm install > /dev/null
+  - npm install
   # - npm install -g codecov
-  - commitlint-travis
   # elixir/phoenix env
   - mix local.rebar --force > /dev/null
   - mix local.hex --force > /dev/null
@@ -29,8 +27,8 @@ before_script:
 script:
   # - codecov
   - rm -rf .next
-  - nvm exec 12.4.0 npm run build.ci
-  - nvm exec 12.4.0 npm run test:ci
+  - nvm exec 10.12.0 npm run build.ci
+  - nvm exec 10.12.0 npm run test:ci
 
 cache:
   directories:

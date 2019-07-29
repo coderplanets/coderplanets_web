@@ -7,7 +7,8 @@
 import React from 'react'
 import { Affix } from 'antd'
 
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'
@@ -21,7 +22,9 @@ import SideCards from './SideCards'
 
 import {
   Wrapper,
+  InnerWrapper,
   MainWrapper,
+  SidebarWrapper,
   ArticleWrapper,
   BodyHeaderWrapper,
   CommentsWrapper,
@@ -42,7 +45,7 @@ const PostContentContainer = ({ postContent }) => {
   return (
     <Wrapper>
       <Maybe test={viewingData.id}>
-        <React.Fragment>
+        <InnerWrapper>
           <MainWrapper>
             <ArticleWrapper>
               <BodyHeaderWrapper>
@@ -67,10 +70,12 @@ const PostContentContainer = ({ postContent }) => {
               <Comments ssr />
             </CommentsWrapper>
           </MainWrapper>
-          <Affix offsetTop={30}>
-            <SideCards data={viewingData} />
-          </Affix>
-        </React.Fragment>
+          <SidebarWrapper>
+            <Affix offsetTop={30}>
+              <SideCards data={viewingData} />
+            </Affix>
+          </SidebarWrapper>
+        </InnerWrapper>
       </Maybe>
     </Wrapper>
   )

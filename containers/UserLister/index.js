@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import EmptyLabel from '@components/EmptyLabel'
 import Modal from '@components/Modal'
@@ -63,7 +64,7 @@ const UserListerContainer = ({ userLister }) => {
 
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
-      <Wrapper>
+      <Wrapper id="userlist-scroller">
         <HeaderInfo
           type={type}
           brief={brief}

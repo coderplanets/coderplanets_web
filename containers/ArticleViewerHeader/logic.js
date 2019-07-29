@@ -1,20 +1,9 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  dispatchEvent,
-  ERR,
-  TYPE,
-  EVENT,
-  THREAD,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -22,8 +11,9 @@ const log = buildLog('L:ArticleViewerHeader')
 
 // EVENT.REFRESH_REACTIONS handles FAVORITE action when
 // user set it from FavoriteSetter
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_REACTIONS],
+  recieve: [EVENT.REFRESH_REACTIONS],
 })
 
 let sub$ = null
@@ -39,7 +29,7 @@ export const onReaction = (action, userDid, { id }) => {
   /* log('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
-    return dispatchEvent(EVENT.SET_FAVORITE_CONTENT, {
+    return send(EVENT.SET_FAVORITE_CONTENT, {
       data: { thread },
     })
   }
@@ -53,7 +43,7 @@ export const onReaction = (action, userDid, { id }) => {
 }
 
 export const onListReactionUsers = (type, data) =>
-  dispatchEvent(EVENT.USER_LISTER_OPEN, {
+  send(EVENT.USER_LISTER_OPEN, {
     type,
     data: { ...data, thread: store.activeThread },
   })

@@ -1,10 +1,8 @@
 import fetchJsonp from 'fetch-jsonp'
 import fetch from 'isomorphic-fetch'
-/* import { fetch } from 'whatwg-fetch' */
-import { graphqlEndpoint } from './config'
-import { makeGithubExplore } from '../graphql_helper'
 
-import BStore from '../bstore'
+import { BStore, makeGithubExplore } from '@utils'
+import { graphqlEndpoint } from './config'
 
 const token = BStore.get('github_token')
 

@@ -16,14 +16,21 @@ export const Wrapper = styled.div.attrs(props => ({
   border: 1px solid;
   border-color: ${theme('content.border')};
   border-radius: 6px;
-  padding: 1em;
+  padding: 1em 0;
+
   ${cs.media.tablet`
-width: 100%;
-margin: 0;
+    width: 100%;
+    margin: 0;
     margin-top: 10px;
     padding: .6em;
     padding-right: 0;
   `};
 `
-
-export const holder = 1
+export const InnerWrapper = styled.div`
+  width: 100%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  padding: 0 5vw;
+  ${cs.media.desktop`
+    padding: 0 3vw;
+  `};
+`

@@ -14,18 +14,18 @@ import {
 import { TimoutObservable } from './handler'
 import { TIMEOUT_THRESHOLD } from './setup'
 
-import { queryPromise, mutatePromise, restGetPromise } from './index'
+import { queryPromise, mutatePromise, restGetPromise } from './methods'
 
 // import { debounceTime, switchMap, merge, timeoutWith } from 'rxjs/operator'
 
 class SR71 {
-  constructor(opts = { resv_event: '' }) {
+  constructor(opts = { recieve: '' }) {
     this.getInput$ = new Subject()
     this.queryInput$ = new Subject()
     this.mutateInput$ = new Subject()
     this.stop$ = new Subject()
     this.eventInput$ = new Subject()
-    this.resv_event = opts.resv_event
+    this.recieve = opts.recieve
 
     this.initEventSubscription()
     this.query$ = this.queryInput$.pipe(
@@ -67,12 +67,12 @@ class SR71 {
 
   // Private
   initEventSubscription() {
-    if (Array.isArray(this.resv_event)) {
+    if (Array.isArray(this.recieve)) {
       R.forEach(event => {
         this.subscriptEvent(event)
-      }, this.resv_event)
+      }, this.recieve)
     } else {
-      this.subscriptEvent(this.resv_event)
+      this.subscriptEvent(this.recieve)
     }
   }
 

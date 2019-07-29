@@ -4,7 +4,6 @@ import { theme, cs } from '@utils'
 
 export const Wrapper = styled.nav`
   ${cs.flexColumn('justify-center')};
-
   position: relative;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
@@ -16,14 +15,19 @@ export const Wrapper = styled.nav`
     min-height: 100px;
   `};
 `
+export const InnerWrapper = styled.div`
+  ${cs.flex('justify-center')};
+  width: 100%;
+`
 export const BannerContent = styled.div`
   ${cs.flex()};
-  margin-left: 8%;
-  margin-right: 8%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  width: 100%;
+  padding: 0 6vw;
 
   ${cs.media.mobile`
-    margin-left: 4%;
-    margin-right: 3%;
+    padding: 0;
+    padding-right: 10px;
   `};
 `
 export const Brief = styled.div`

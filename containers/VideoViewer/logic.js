@@ -1,25 +1,18 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  ERR,
-  TYPE,
-  errRescue,
-} from '@utils'
-
-import SR71 from '@utils/async/sr71'
+import { TYPE, ERR } from '@constant'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:VideoViewer')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 function loadVideo({ id }) {
   const userHasLogin = store.isLogin

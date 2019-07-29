@@ -1,5 +1,6 @@
 import R from 'ramda'
 import { Global } from './functions'
+import { isServerSide } from './ssr_helper'
 
 // example: /getme/xxx?aa=bb&cc=dd
 const parseMainPath = R.compose(
@@ -23,33 +24,98 @@ const parsePathList = R.compose(
 )
 
 const INDEX = ''
-export const getMainPath = routeObj => {
-  if (R.isEmpty(routeObj)) return INDEX
-  if (routeObj.asPath === '/') return INDEX
+const getMainPath = args => {
+  // if (R.isEmpty(args)) return INDEX
+  if (args.asPath === '/') return INDEX
 
-  return parseMainPath(routeObj)
+  return parseMainPath(args)
 }
 
-export const getSubPath = routeObj => {
-  if (R.isEmpty(routeObj)) return INDEX
-  if (routeObj.asPath === '/') return INDEX
+const getSubPath = args => {
+  // if (R.isEmpty(args)) return INDEX
+  if (args.asPath === '/') return INDEX
 
-  const asPathList = parsePathList(routeObj)
+  const asPathList = parsePathList(args)
   // const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
   const subPath = asPathList.length > 1 ? asPathList[1] : ''
 
   return subPath
 }
 
-export const getThirdPath = routeObj => {
-  if (R.isEmpty(routeObj)) return INDEX
-  if (routeObj.asPath === '/') return INDEX
+const getThirdPath = args => {
+  // if (R.isEmpty(args)) return INDEX
+  if (args.asPath === '/') return INDEX
 
-  const asPathList = parsePathList(routeObj)
+  const asPathList = parsePathList(args)
   // const subPath = asPathList.length > 1 ? asPathList[1] : asPathList[0]
   const subPath = asPathList.length > 2 ? asPathList[2] : ''
 
   return subPath
+}
+
+/**
+ * parse subdomain of a url
+ * like emacs.coderplanets.com
+ * will return emacs
+ * otherwise will return ""
+ */
+const parseSubDomain = args => {
+  let communityPath = ''
+  if (isServerSide) {
+    // on server side
+    const { subdomains } = args.req
+    console.log('subdomains: ', subdomains)
+
+    // NOTE:  subdomains is reversed
+    // http://expressjs.com/en/4x/api.html#req.subdomains
+    if (!R.isEmpty(subdomains)) {
+      communityPath = subdomains[subdomains.length - 1]
+    }
+  } else {
+    // browser side
+    // eslint-disable-next-line no-useless-escape
+    const domain = /:\/\/([^\/]+)/.exec(window.location.href)[1]
+    const domainList = domain.split('.')
+
+    if (domainList.length >= 3) {
+      // eslint-disable-next-line prefer-destructuring
+      communityPath = domainList[0]
+    }
+    console.log('communityPath: ', communityPath)
+  }
+  return communityPath
+}
+
+export const parseURL = args => {
+  // const isServer = typeof window === 'undefined'
+  // props 可能来自服务端的 props
+  // props 也可能来自客户端的 routeObj
+  let mainPath = ''
+  let subPath = ''
+  let thridPath = ''
+  let communityPath = parseSubDomain(args)
+  let threadPath = ''
+
+  if (communityPath === '') {
+    mainPath = getMainPath(args)
+    subPath = getSubPath(args)
+    thridPath = getThirdPath(args)
+    communityPath = mainPath
+    threadPath = subPath
+  } else {
+    mainPath = communityPath
+    subPath = getMainPath(args)
+    thridPath = getSubPath(args)
+    threadPath = subPath
+  }
+
+  return {
+    communityPath,
+    threadPath,
+    mainPath,
+    subPath,
+    thridPath,
+  }
 }
 
 export const akaTranslate = communityRaw => {

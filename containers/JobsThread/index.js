@@ -9,7 +9,8 @@ import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'
@@ -21,8 +22,6 @@ import PublishNote from './PublishNote'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -64,7 +63,6 @@ const JobsThreadContainer = ({ jobsThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
@@ -107,7 +105,6 @@ const JobsThreadContainer = ({ jobsThread }) => {
           />
         </Affix>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }

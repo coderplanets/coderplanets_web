@@ -17,7 +17,7 @@ export const CardWrapper = styled.div`
   border: 1px solid;
   border-color: ${theme('header.cardBorder')};
   z-index: 1000;
-  top: 4px;
+  top: 14px;
 `
 export const CommunityWrapper = styled.div`
   ${cs.flex('align-both')};

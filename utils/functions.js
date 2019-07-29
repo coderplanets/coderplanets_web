@@ -2,13 +2,13 @@ import R from 'ramda'
 import PubSub from 'pubsub-js'
 
 import { TAG_COLOR_ORDER } from '@config'
-import { EVENT } from './constants'
+import { EVENT } from '@constant'
+
 import { nilOrEmpty } from './validator'
 
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
-export const onClient = typeof window !== 'undefined' ? true : false
 /* eslint-enable */
 
 // see https://github.com/ramda/ramda/issues/1361
@@ -97,17 +97,16 @@ export const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export const dispatchEvent = (msg, data = {}) => {
+export const send = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
 }
 
-export const closePreviewer = (type = '') =>
-  dispatchEvent(EVENT.PREVIEW_CLOSE, { type })
+export const closePreviewer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
 
 export const errRescue = ({ type, operation, details, path }) =>
-  dispatchEvent(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
+  send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })
 
 // errRescue({type: ERR.GRAPHQL, operation: operationName, details: graphQLErrors})
 

@@ -1,7 +1,7 @@
 /*
-* RepoContent store test
-*
-*/
+ * RepoContent store test
+ *
+ */
 
 // import R from 'ramda'
 

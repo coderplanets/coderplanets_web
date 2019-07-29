@@ -7,26 +7,17 @@
 import React from 'react'
 
 import { ICON_CMD, COMMUNITY_WIKI } from '@config'
-import { connectStore, buildLog, TYPE } from '@utils'
+import { TYPE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
 import PublishLabel from '@components/PublishLabel'
 import MarkDownRender from '@components/MarkDownRender'
 import { ArticleContentLoading } from '@components/LoadingEffects'
 import GithubSyncWarning from '@components/GithubSyncWarning'
-
 import Contributors from './Contributors'
 
-import {
-  Wrapper,
-  LeftPart,
-  WikiWrapper,
-  LeftPadding,
-  RightPart,
-  RightPadding,
-  PublishBtn,
-} from './styles'
-
+import { Wrapper, LeftPart, WikiWrapper, RightPart, PublishBtn } from './styles'
 import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -64,7 +55,6 @@ const WikiThreadContainer = ({ wikiThread }) => {
   return (
     <Wrapper>
       <GithubSyncWarning show={showSyncWarning} onClose={syncWarnOnClose} />
-      <LeftPadding />
       <LeftPart>
         <WikiWrapper>{renderView(wikiData, curView, communityRaw)}</WikiWrapper>
       </LeftPart>
@@ -91,7 +81,6 @@ const WikiThreadContainer = ({ wikiThread }) => {
           />
         </React.Fragment>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }

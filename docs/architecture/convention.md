@@ -102,7 +102,7 @@ Import {
   asyncRes,
   asyncErr,
   buildLog,
-  dispatchEvent,
+  send,
   EVENT,
   ERR,
   TYPE,
@@ -117,7 +117,7 @@ Import S from './schema'
 
 // 5. init aysnc
 Const sr71$ = new SR71({
-  Resv_event: [
+  recieve: [
     EVENT.REFRESH_POSTS,
   ],
 })

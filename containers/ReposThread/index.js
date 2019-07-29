@@ -9,7 +9,8 @@ import { Waypoint } from 'react-waypoint'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
@@ -19,8 +20,6 @@ import Maybe from '@components/Maybe'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -61,7 +60,6 @@ const ReposThreadContainer = ({ reposThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
         <Maybe test={showFilterBar}>
@@ -102,7 +100,6 @@ const ReposThreadContainer = ({ reposThread }) => {
           />
         </Affix>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }

@@ -94,7 +94,7 @@ const zIndex = {
   sidebar: 1999,
 }
 
-export const MEDIA_MAX_WIDTH = '1500px'
+export const MAX_CONTENT_WIDTH = '1520px'
 export const mediaBreakPoints = {
   // mobileS: '320px',
   // mobileM: '375px',
@@ -102,6 +102,8 @@ export const mediaBreakPoints = {
   tablet: 768,
   laptop: 992,
   desktop: 1600,
+  // currently used as forms of preview content (slideout/modal)
+  desktopL: 1920,
   // laptopL: '1440px',
   // desktop: '2560px'
 }
@@ -128,6 +130,7 @@ const cs = {
   zIndex,
   mediaBreakPoints,
   media,
+  MAX_CONTENT_WIDTH,
 }
 
 export default cs

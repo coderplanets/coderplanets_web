@@ -1,7 +1,7 @@
 /*
-* ArticleAuthorCard store test
-*
-*/
+ * ArticleAuthorCard store test
+ *
+ */
 
 // import R from 'ramda'
 

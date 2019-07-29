@@ -1,4 +1,4 @@
-import { TYPE } from './constants'
+import { TYPE } from '@constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null
@@ -37,8 +37,8 @@ export const holdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    // el.style.overflowY = 'hidden'
-    el.style.position = 'fixed'
+    el.style.overflowY = 'hidden'
+    /* el.style.position = 'fixed' */
   }
 }
 
@@ -47,8 +47,8 @@ export const unholdPage = () => {
 
   if (safeDocument) {
     const el = safeDocument.getElementById('body')
-    /* el.style.overflowY = 'auto' */
-    el.style.position = ''
+    el.style.overflowY = 'auto'
+    /* el.style.position = '' */
   }
 }
 

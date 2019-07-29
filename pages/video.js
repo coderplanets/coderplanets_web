@@ -4,8 +4,18 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  nilOrEmpty,
+  makeGQClient,
+  parseURL,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
 import initRootStore from '@stores/init'
 
+import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,23 +28,7 @@ import VideoContent from '@containers/VideoContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
-
-import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
 import { P } from '@schemas'
 
 // try to fix safari bug
@@ -46,7 +40,7 @@ async function fetchData(props) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   // query data
   const sessionState = gqClient.request(P.sessionState)
@@ -74,6 +68,7 @@ async function fetchData(props) {
 
 export default class VideoPage extends React.Component {
   static async getInitialProps(props) {
+    const { communityPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -81,15 +76,14 @@ export default class VideoPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, video, pagedComments, subscribedCommunities } = resp
 
-    if (!R.contains(mainPath, R.pluck('raw', video.communities))) {
-      return { statusCode: 404, target: getSubPath(props) }
+    if (!R.contains(communityPath, R.pluck('raw', video.communities))) {
+      return { statusCode: 404, target: subPath }
     }
 
     return {
@@ -102,7 +96,7 @@ export default class VideoPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.VIDEO },
+      route: { communityPath, mainPath: communityPath, subPath: ROUTE.VIDEO },
       viewing: {
         video,
         activeThread: THREAD.VIDEO,
@@ -127,18 +121,18 @@ export default class VideoPage extends React.Component {
       viewing: { video },
       route,
     } = this.props
-    const { mainPath } = route
+    const { communityPath } = route
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="video" target={target} />
             ) : (
               <React.Fragment>
                 <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/video/${video.id}`}
+                  url={`${SITE_URL}/${communityPath}/video/${video.id}`}
                   title={`${video.title}`}
                   datePublished={`${video.insertedAt}`}
                   dateModified={`${video.updatedAt}`}
@@ -161,7 +155,7 @@ export default class VideoPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

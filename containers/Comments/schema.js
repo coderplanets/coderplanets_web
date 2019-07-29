@@ -34,7 +34,7 @@ const pagedComments = gql`
   }
 `
 const createComment = gql`
-  mutation(
+  mutation createComment(
     $community: String!
     $thread: CmsThread
     $id: ID!
@@ -64,7 +64,7 @@ const updateComment = gql`
 `
 
 const replyComment = gql`
-  mutation(
+  mutation replyComment(
     $community: String!
     $thread: CmsThread
     $id: ID!

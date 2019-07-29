@@ -1,17 +1,17 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog, $solver, dispatchEvent, EVENT, PAYMENT_USAGE } from '@utils'
-import SR71 from '@utils/async/sr71'
-
+import { EVENT, PAYMENT_USAGE } from '@constant'
+import { asyncSuit, buildLog, send } from '@utils'
 // import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Footer2')
 
+const { SR71, $solver } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const toggleSponsorHelper = () =>
@@ -27,8 +27,7 @@ export const onPay = num => {
   store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
 
-export const queryDoraemon = data =>
-  dispatchEvent(EVENT.QUERY_DORAMON, { data })
+export const queryDoraemon = data => send(EVENT.QUERY_DORAMON, { data })
 
 // ###############################
 // Data & Error handlers

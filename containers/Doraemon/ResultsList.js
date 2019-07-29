@@ -3,8 +3,9 @@ import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 
 import { ICON_CMD } from '@config'
+import { THREAD } from '@constant'
 
-import { THREAD } from '@utils'
+import SuggestIcon from './SuggestIcon'
 import {
   InfoBar,
   Wrapper,
@@ -16,9 +17,7 @@ import {
   HintEnter,
 } from './styles/results_list'
 
-import SuggestIcon from './SuggestIcon'
-
-import { navToSuggestion, selectSuggestion } from './logic'
+import { navToSuggestion, suggestionOnSelect } from './logic'
 
 const HintIcon = ({ index, active, cur, length }) => {
   if (active === cur) {
@@ -31,7 +30,7 @@ const HintIcon = ({ index, active, cur, length }) => {
 }
 
 const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <Wrapper>
+  <Wrapper id="suggestion-scroller">
     <SuggestionWrapper empty={suggestions.length === 0}>
       {suggestions.map((suggestion, i) => (
         <InfoBar
@@ -39,7 +38,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
           key={suggestion.raw}
           id={suggestion.raw}
           onMouseEnter={navToSuggestion.bind(this, suggestion)}
-          onClick={selectSuggestion}
+          onClick={suggestionOnSelect}
         >
           <SuggestIcon
             raw={suggestion.raw}

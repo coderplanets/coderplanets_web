@@ -47,21 +47,6 @@ const nextConfig = {
       )
     }
 
-    // IE 11 polyfills
-    const originalEntry = config.entry
-    config.entry = async () => {
-      const entries = await originalEntry()
-
-      if (
-        entries['main.js'] &&
-        !entries['main.js'].includes('./utils/polyfills')
-      ) {
-        entries['main.js'].unshift('./utils/polyfills')
-      }
-
-      return entries
-    }
-
     return config
   },
 }

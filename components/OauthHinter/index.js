@@ -26,6 +26,7 @@ import {
   FooterWrapper,
   IssueLink,
 } from './styles'
+
 /* eslint-disable-next-line */
 const log = buildLog('c:OauthHinter:index')
 

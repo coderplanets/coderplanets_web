@@ -8,7 +8,9 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, C11N, ROUTE } from '@utils'
+import { ROUTE, C11N } from '@constant'
+import { buildLog } from '@utils'
+
 import DigestView from './DigestView'
 import BriefView from './BriefView'
 
@@ -22,15 +24,15 @@ const Navigator = ({ curCommunity, layout, curRoute }) => {
     R.contains(mainPath, [ROUTE.USER, ROUTE.COMMUNITIES]) ||
     R.contains(subPath, [ROUTE.POST, ROUTE.JOB, ROUTE.VIDEO, ROUTE.REPO])
   ) {
-    return <DigestView />
+    return <DigestView curRoute={curRoute} />
   }
 
   return (
     <React.Fragment>
       {layout === C11N.DIGEST ? (
-        <DigestView />
+        <DigestView curRoute={curRoute} />
       ) : (
-        <BriefView community={curCommunity} />
+        <BriefView community={curCommunity} curRoute={curRoute} />
       )}
     </React.Fragment>
   )

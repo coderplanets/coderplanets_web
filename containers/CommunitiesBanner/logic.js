@@ -1,23 +1,17 @@
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  asyncRes,
-  $solver,
-  dispatchEvent,
-  updateEditing,
-  EVENT,
-} from '@utils'
+import { EVENT } from '@constant'
+import { asyncSuit, buildLog, send, updateEditing } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunitiesBanner')
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
 let store = null
 
 export const loadCategories = () =>
@@ -25,7 +19,7 @@ export const loadCategories = () =>
 
 export const searchOnChange = e => {
   updateEditing(store, 'searchValue', e)
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, {
+  send(EVENT.REFRESH_COMMUNITIES, {
     type: 'search',
     data: e.target.value,
   })
@@ -34,7 +28,7 @@ export const searchOnChange = e => {
 export const tabOnChange = activeTab => {
   store.markRoute({ subPath: activeTab })
   store.markState({ activeTab })
-  dispatchEvent(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
+  send(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
 }
 // ###############################
 // Data & Error handlers

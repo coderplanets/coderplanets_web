@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, ROUTE } from '@utils'
+import { ROUTE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import UserBanner from '@containers/UserBanner'
 import CommunitiesBanner from '@containers/CommunitiesBanner'

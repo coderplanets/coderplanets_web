@@ -16,11 +16,11 @@ export const Wrapper = styled.header.attrs(props => ({
 `
 export const InnerWrapper = styled.div`
   ${cs.flex()};
-  max-width: ${cs.MEDIA_MAX_WIDTH};
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  padding: 0 6vw;
   width: 100%;
   height: 33px;
   align-items: center;
-  padding: 0 5vw;
   transition: all 0.2s;
 
   ${cs.media.mobile`padding-right: 0`};
@@ -29,7 +29,6 @@ export const InnerWrapper = styled.div`
 export const RouterWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   height: 100%;
-  margin-top: 1px;
 `
 export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs(props => ({
   'data-testid': props.testid,

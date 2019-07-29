@@ -2,33 +2,29 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
+import { TYPE, EVENT, ERR } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
-  EVENT,
-  ERR,
-  TYPE,
-  $solver,
   scrollIntoEle,
   countWords,
-  dispatchEvent,
+  send,
   extractMentions,
   errRescue,
   BStore,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
-
-let saveDraftTimmer = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Comments')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
+let saveDraftTimmer = null
 
 /* DESC_INSERTED, ASC_INSERTED */
 const defaultArgs = {
@@ -38,6 +34,7 @@ const defaultArgs = {
 
 export const loadComents = (args = {}) => {
   // log('loadComents passed in: ', args)
+  if (store.loading || store.loadingFresh) return false
   args = R.mergeDeepRight(defaultArgs, args)
   args.id = store.viewingData.id
   args.userHasLogin = store.isLogin
@@ -127,7 +124,10 @@ export const createReplyComment = () => {
     })
   }
 
-  sr71$.mutate(S.replyComment, {
+  if (store.replying) return false
+
+  store.markState({ replying: true })
+  return sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
     community: store.curCommunity.raw,
@@ -225,16 +225,16 @@ export const toggleDislikeComment = comment => {
 }
 
 export const onUploadImageDone = url =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: `![](${url})` })
 
 export const insertQuote = () =>
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data: '> ' })
 
 export const insertCode = () => {
   const communityRaw = store.curCommunity.raw
   const data = `\`\`\`${communityRaw}\n\n\`\`\``
 
-  dispatchEvent(EVENT.DRAFT_INSERT_SNIPPET, { data })
+  send(EVENT.DRAFT_INSERT_SNIPPET, { data })
 }
 
 export const onMention = user => store.addReferUser(user)
@@ -312,6 +312,7 @@ const DataSolver = [
     action: () => {
       store.markState({
         showReplyBox: false,
+        replying: false,
         replyToComment: null,
       })
       scrollIntoEle('lists-info')
@@ -406,9 +407,10 @@ export const useInit = (_store, ssr) => {
   useEffect(() => {
     // log('effect init')
     store = _store
-    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-    if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    if (!sub$) {
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+      if (!ssr) loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
+    }
 
     return () => {
       // log('effect uninit')
@@ -421,22 +423,3 @@ export const useInit = (_store, ssr) => {
     }
   }, [_store, ssr])
 }
-
-/*
-export const init = (_store, ssr = false) => {
-  store = _store
-
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-  if (!ssr) return loadComents({ filter: { sort: TYPE.DESC_INSERTED } })
-}
-
-export const uninit = () => {
-  if (store.loading || store.loadingFresh || !sub$) return false
-  stopDraftTimmer()
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
-*/

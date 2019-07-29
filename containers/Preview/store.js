@@ -6,20 +6,11 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import {
-  markStates,
-  TYPE,
-  stripMobx,
-  unholdPage,
-  THREAD,
-  Global,
-  cs,
-} from '@utils'
-
+import { TYPE, THREAD } from '@constant'
+import { markStates, stripMobx, holdPage, unholdPage, Global, cs } from '@utils'
 import { User, EmptyAchievement } from '@model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
-/* const log = buildLog('S:PreviewStore') */
 const THREAD_CONTENT_CURD_TYPES = [
   // post
   TYPE.PREVIEW_POST_VIEW,
@@ -107,11 +98,11 @@ const PreviewStore = t
       return stripMobx(self.attUser)
     },
     get modalVisible() {
-      return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktop
+      return self.visible && Global.innerWidth > cs.mediaBreakPoints.desktopL
     },
 
     get slideVisible() {
-      return self.visible && Global.innerWidth < cs.mediaBreakPoints.desktop
+      return self.visible && Global.innerWidth <= cs.mediaBreakPoints.desktopL
     },
   }))
   .actions(self => ({
@@ -130,6 +121,7 @@ const PreviewStore = t
 
       self.visible = true
       self.type = type
+      holdPage()
     },
     setViewing(sobj) {
       self.root.setViewing(sobj)

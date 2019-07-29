@@ -1,7 +1,7 @@
 /*
-* ArticleBodyHeader store test
-*
-*/
+ * ArticleBodyHeader store test
+ *
+ */
 
 // import R from 'ramda'
 

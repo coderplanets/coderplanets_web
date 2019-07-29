@@ -1,30 +1,21 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  asyncRes,
-  asyncErr,
-  buildLog,
-  closePreviewer,
-  EVENT,
-  ERR,
-  TYPE,
-  $solver,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, closePreviewer, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:JobViewer')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.PREVIEW_CLOSED],
+  recieve: [EVENT.PREVIEW_CLOSED],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:JobViewer')
 
 export const onTagSelect = tagId => {
   const { id } = store.viewingData

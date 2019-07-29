@@ -5,6 +5,20 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { ROUTE } from '@constant'
+import {
+  parseURL,
+  getJwtToken,
+  makeGQClient,
+  queryStringToJSON,
+  nilOrEmpty,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
+
+import AnalysisService from '@services/Analysis'
+import initRootStore from '@stores/init'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,19 +32,6 @@ import CommunitiesContent from '@containers/CommunitiesContent'
 import Footer from '@containers/Footer'
 
 import { P } from '@schemas'
-import GAWraper from '@components/GAWraper'
-import {
-  getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
-  nilOrEmpty,
-  getSubPath,
-  ROUTE,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
-
-import initRootStore from '@stores/init'
 
 /* import PostsThreadSchema from '@containers/PostsThread/schema' */
 
@@ -44,7 +45,7 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const subPath = getSubPath(props)
+  const { subPath } = parseURL(props)
   const category = subPath !== '' ? subPath : 'pl'
 
   const { asPath } = props
@@ -125,7 +126,7 @@ export default class CommunitiesPage extends React.Component {
   render() {
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             <Route />
             <MultiLanguage>
@@ -140,7 +141,7 @@ export default class CommunitiesPage extends React.Component {
               </GlobalLayout>
             </MultiLanguage>
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { markStates, buildLog, stripMobx, THREAD, TYPE } from '@utils'
+import { TYPE, THREAD } from '@constant'
+import { markStates, buildLog, stripMobx } from '@utils'
 import {
   PagedPostComments,
   PagedJobComments,
@@ -14,6 +15,7 @@ import {
   PagedRepoComments,
   emptyPagiData,
 } from '@model'
+
 /* eslint-disable-next-line */
 const log = buildLog('S:UserPublishedComments')
 

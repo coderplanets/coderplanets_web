@@ -9,8 +9,8 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
-import HomeLogo from './HomeLogo'
 
+import HomeLogo from './HomeLogo'
 import { Logo } from './styles'
 
 /* eslint-disable-next-line */

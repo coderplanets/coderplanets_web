@@ -2,28 +2,32 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import {
-  asyncRes,
-  asyncErr,
-  buildLog,
-  dispatchEvent,
+  TYPE,
   EVENT,
   ERR,
-  TYPE,
-  ROUTE,
   THREAD,
+  ROUTE,
   COMMUNITY_SPEC_THREADS,
-  $solver,
+} from '@constant'
+
+import {
+  asyncSuit,
+  buildLog,
+  send,
   notEmpty,
   thread2Subpath,
   errRescue,
   scrollToTabber,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:PostsThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [
+  recieve: [
     EVENT.REFRESH_POSTS,
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
@@ -34,11 +38,13 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-/* eslint-disable-next-line */
-const log = buildLog('L:PostsThread')
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
 
-export const inAnchor = () => store.setHeaderFix(false)
-export const outAnchor = () => store.setHeaderFix(true)
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
 
 export const loadPosts = (page = 1) => {
   const { curCommunity } = store
@@ -89,7 +95,7 @@ export const onTagSelect = tag => {
 }
 
 export const onUserSelect = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -97,7 +103,7 @@ export const onUserSelect = user =>
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_POST_VIEW,
     thread: THREAD.POST,
     data,
@@ -115,11 +121,11 @@ export const onPreview = data => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }
 
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {
@@ -153,7 +159,7 @@ export const onCommunitySelect = community => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 // ###############################
@@ -246,7 +252,6 @@ export const useInit = _store =>
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
     /*
          NOTE: city communities list is not supported by SSR
          need load manully

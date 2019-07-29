@@ -14,6 +14,7 @@ import BriefView from './BriefView'
 import DigestView from './DigestView'
 import BussinessNote from './BussinessNote'
 
+import { Wrapper } from './styles'
 import {
   useInit,
   toggleSponsorHelper,
@@ -38,7 +39,7 @@ const FooterContainer = ({ footer }) => {
   const { showSponsor, showBusBanner, curView, accountInfo } = footer
 
   return (
-    <div data-testid="footer">
+    <Wrapper data-testid="footer">
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BussinessNote />
       </Modal>
@@ -52,7 +53,7 @@ const FooterContainer = ({ footer }) => {
       />
 
       {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
-    </div>
+    </Wrapper>
   )
 }
 

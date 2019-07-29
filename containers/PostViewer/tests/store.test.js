@@ -1,7 +1,7 @@
 /*
-* PostViewer store test
-*
-*/
+ * PostViewer store test
+ *
+ */
 
 // import R from 'ramda'
 

@@ -1,7 +1,7 @@
 /*
-* Footer2 store test
-*
-*/
+ * Footer2 store test
+ *
+ */
 
 // import R from 'ramda'
 

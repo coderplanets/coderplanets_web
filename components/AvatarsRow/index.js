@@ -29,6 +29,20 @@ const validUser = R.compose(
   R.isNil
 )
 
+const getUniqueArray = (arr, comp) => {
+  const unique = arr
+    .map(e => e[comp])
+
+    // store the keys of the unique objects
+    .map((e, i, final) => final.indexOf(e) === i && i)
+
+    // eliminate the dead keys & store unique objects
+    .filter(e => arr[e])
+    .map(e => arr[e])
+
+  return unique
+}
+
 const AvatarsRow = ({
   users,
   total,
@@ -42,7 +56,7 @@ const AvatarsRow = ({
     return <span />
   }
 
-  users = R.filter(validUser, users)
+  users = R.filter(validUser, getUniqueArray(users, 'id'))
   const sortedUsers = reverse ? users : R.reverse(users)
 
   return (

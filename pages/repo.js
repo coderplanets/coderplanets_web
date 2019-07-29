@@ -4,8 +4,18 @@ import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
+import {
+  getJwtToken,
+  nilOrEmpty,
+  makeGQClient,
+  parseURL,
+  ssrAmbulance,
+  parseTheme,
+} from '@utils'
 import initRootStore from '@stores/init'
 
+import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -18,22 +28,7 @@ import RepoContent from '@containers/RepoContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import GAWraper from '@components/GAWraper'
 import ErrorPage from '@components/ErrorPage'
-
-import {
-  getJwtToken,
-  nilOrEmpty,
-  makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
-  TYPE,
-  ROUTE,
-  THREAD,
-  ssrAmbulance,
-  parseTheme,
-} from '@utils'
 
 import { P } from '@schemas'
 
@@ -48,7 +43,7 @@ async function fetchData(props, opt) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   const sessionState = gqClient.request(P.sessionState)
   const repo = gqClient.request(P.repo, { id })
@@ -75,6 +70,7 @@ async function fetchData(props, opt) {
 
 export default class RepoPage extends React.Component {
   static async getInitialProps(props) {
+    const { mainPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -82,15 +78,14 @@ export default class RepoPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
     if (!R.contains(mainPath, R.pluck('raw', repo.communities))) {
-      return { statusCode: 404, target: getSubPath(props) }
+      return { statusCode: 404, target: subPath }
     }
 
     return {
@@ -132,7 +127,7 @@ export default class RepoPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GAWraper>
+        <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
               <ErrorPage errorCode={statusCode} page="post" target={target} />
@@ -166,7 +161,7 @@ export default class RepoPage extends React.Component {
               </React.Fragment>
             )}
           </ThemeWrapper>
-        </GAWraper>
+        </AnalysisService>
       </Provider>
     )
   }

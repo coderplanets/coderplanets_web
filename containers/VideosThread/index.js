@@ -8,7 +8,8 @@ import React from 'react'
 import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
@@ -18,8 +19,6 @@ import TagsBar from '../TagsBar'
 
 import {
   Wrapper,
-  LeftPadding,
-  RightPadding,
   LeftPart,
   RightPart,
   FilterWrapper,
@@ -58,7 +57,6 @@ const VideosThreadContainer = ({ videosThread }) => {
 
   return (
     <Wrapper>
-      <LeftPadding />
       <LeftPart>
         <Maybe test={showFilterBar}>
           <FilterWrapper>
@@ -100,7 +98,6 @@ const VideosThreadContainer = ({ videosThread }) => {
           </Affix>
         </React.Fragment>
       </RightPart>
-      <RightPadding />
     </Wrapper>
   )
 }

@@ -1,29 +1,19 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  dispatchEvent,
-  $solver,
-  asyncRes,
-  asyncErr,
-  EVENT,
-  TYPE,
-  ERR,
-  THREAD,
-  pagedFilter,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { asyncSuit, buildLog, send, pagedFilter, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserPublished')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 const getQueryArgs = page => {
   store.markState({ curView: TYPE.LOADING })
@@ -69,7 +59,7 @@ export const onThreadChange = curThread => {
 export const onPreview = data => {
   const { curThread: thread } = store
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE[`PREVIEW_${R.toUpper(thread)}_VIEW`],
     thread,
     data,

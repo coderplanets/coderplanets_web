@@ -2,33 +2,28 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 
+import { EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
-  $solver,
-  ERR,
+  asyncSuit,
   buildLog,
-  EVENT,
-  dispatchEvent,
+  send,
   thread2Subpath,
-  THREAD,
-  ROUTE,
   Global,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:Sidebar')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
+  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.SESSTION_ROUTINE],
 })
 
 let store = null
 let sub$ = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:Sidebar')
 
 export const setPin = () => store.markState({ pin: !store.pin })
 
@@ -47,7 +42,7 @@ export const onCommunitySelect = community => {
     subPath: thread2Subpath(THREAD.POST),
   })
 
-  dispatchEvent(EVENT.COMMUNITY_CHANGE)
+  send(EVENT.COMMUNITY_CHANGE)
 }
 
 const mapIndexed = R.addIndex(R.map)
@@ -158,6 +153,12 @@ export const useInit = _store => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+
+    /* eslint-disable no-undef */
+    OverlayScrollbars(document.getElementById('sidebar-scroller'), {
+      scrollbars: { autoHide: 'scroll', autoHideDelay: 200 },
+      className: 'os-theme-light',
+    })
 
     setTimeout(() => {
       /* eslint-disable-next-line */

@@ -1,7 +1,7 @@
 /*
-* VideoEditor store test
-*
-*/
+ * VideoEditor store test
+ *
+ */
 
 // import R from 'ramda'
 

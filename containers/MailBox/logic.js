@@ -1,38 +1,25 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  asyncRes,
-  asyncErr,
-  dispatchEvent,
-  TYPE,
-  EVENT,
-  ERR,
-  errRescue,
-} from '@utils'
+import { TYPE, EVENT, ERR } from '@constant'
+import { asyncSuit, buildLog, send, errRescue } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
-let store = null
 
 /* eslint-disable-next-line */
 const log = buildLog('L:MailBox')
 
-/*
-   export const panelVisiableOnChange = panelVisiable =>
-   store.markState({ panelVisiable })
- */
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
+const sr71$ = new SR71()
+
+let sub$ = null
+let store = null
 
 export const selectChange = ({ raw: activeRaw }) =>
   store.markState({ activeRaw })
 
 export const previewUser = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })
@@ -56,7 +43,7 @@ export const visibleOnChange = visible => {
 }
 
 export const seeAll = () =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
 
 const markLoading = (maybe = true) => store.markState({ loading: maybe })
 

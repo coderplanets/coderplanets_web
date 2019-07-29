@@ -1,15 +1,20 @@
 import R from 'ramda'
 import { DEFAULT_THEME } from '@config'
-
+import { TYPE, THREAD } from '@constant'
 import { P } from '@schemas'
-import { TYPE, THREAD } from './constants'
+
 import BStore from './bstore'
+
+/*
+ * check if current is on server side
+ */
+export const isServerSide = typeof window === 'undefined'
+export const isClientSide = !isServerSide
 
 // get jwt from cookie or localStorage
 // props has to be getInitialProps's arg
 export const getJwtToken = props => {
-  const isServer = typeof window === 'undefined'
-  if (isServer) return BStore.cookie.from_req(props.req, 'jwtToken')
+  if (isServerSide) return BStore.cookie.from_req(props.req, 'jwtToken')
 
   return BStore.get('token')
 }

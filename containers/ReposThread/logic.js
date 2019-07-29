@@ -1,33 +1,29 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import {
-  buildLog,
-  $solver,
-  dispatchEvent,
-  EVENT,
-  TYPE,
-  THREAD,
-  scrollToTabber,
-  asyncRes,
-  notEmpty,
-} from '@utils'
+import { TYPE, EVENT, THREAD } from '@constant'
+import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
-
-const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
-})
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ReposThread')
 
+const { SR71, $solver, asyncRes } = asyncSuit
+const sr71$ = new SR71({
+  recieve: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+})
+
 let sub$ = null
 let store = null
 
-export const inAnchor = () => store.setHeaderFix(false)
-export const outAnchor = () => store.setHeaderFix(true)
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
+
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
 
 export const loadRepos = (page = 1) => {
   const { curCommunity } = store
@@ -59,7 +55,7 @@ export const onPageChange = page => {
 
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_REPO_VIEW,
     thread: THREAD.REPO,
     data,
@@ -77,7 +73,7 @@ export const onPreview = data => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_REPO_CREATE })
 }
 
 export const onTagSelect = tag => {
@@ -92,7 +88,7 @@ export const onFilterSelect = option => {
   loadRepos()
 }
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {

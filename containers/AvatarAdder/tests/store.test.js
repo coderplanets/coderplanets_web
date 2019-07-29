@@ -1,7 +1,7 @@
 /*
-* AvatarAdder store test
-*
-*/
+ * AvatarAdder store test
+ *
+ */
 
 // import R from 'ramda'
 

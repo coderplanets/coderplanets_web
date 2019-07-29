@@ -6,7 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx, changeset, THREAD } from '@utils'
+import { THREAD } from '@constant'
+import { markStates, buildLog, stripMobx, changeset } from '@utils'
+
 import {
   FavoriteCategory,
   PagedFavoriteCategories,

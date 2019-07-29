@@ -9,12 +9,6 @@ export const Wrapper = styled.div`
   ${cs.flex()};
   width: 100%;
 `
-export const LeftPadding = styled.div`
-  width: 3vw;
-`
-export const RightPadding = styled.div`
-  width: 4vw;
-`
 export const LeftPart = styled.div`
   flex-grow: 1;
   width: 100%;
@@ -23,9 +17,9 @@ export const WikiWrapper = styled.div`
   width: 90%;
 `
 export const RightPart = styled.div`
-  ${cs.flexColumn('align-center')};
-  width: 25vw;
-  margin-left: 30px;
+  ${cs.flexColumn('align-start')};
+  width: 280px;
+  margin-left: 50px;
   padding-top: 5px;
   ${cs.media.tablet`display: none;`};
 `

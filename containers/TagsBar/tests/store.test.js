@@ -1,7 +1,7 @@
 /*
-* TagsBar store test
-*
-*/
+ * TagsBar store test
+ *
+ */
 
 // import R from 'ramda'
 

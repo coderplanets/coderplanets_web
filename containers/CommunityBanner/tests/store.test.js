@@ -1,7 +1,7 @@
 /*
-* CommunityBanner store test
-*
-*/
+ * CommunityBanner store test
+ *
+ */
 
 // import R from 'ramda'
 

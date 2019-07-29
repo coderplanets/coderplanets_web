@@ -1,11 +1,13 @@
 import React from 'react'
 import R from 'ramda'
 
+import { ISSUE_ADDR } from '@config'
+import { NON_FILL_COMMUNITY } from '@constant'
+import { prettyNum, cutFrom } from '@utils'
+
 import TrendLine from '@components/TrendLine'
 import { CommunityHolder } from '@components/LoadingEffects'
-import { ISSUE_ADDR } from '@config'
 
-import { NON_FILL_COMMUNITY, prettyNum, cutFrom } from '@utils'
 import SubscribeBtn from './SubscribeBtn'
 
 import {

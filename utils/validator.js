@@ -112,7 +112,7 @@ export const changeset = source => ({
 
     if (R.length(R.filter(R.equals(target), pools)) > 0) {
       const title = trans
-      const msg = `已经存在了, 请核对。`
+      const msg = '已经存在了, 请核对。'
 
       cb({ title, msg })
       return changeset(R.merge(source, { __dirty__: true, __rat__: field }))

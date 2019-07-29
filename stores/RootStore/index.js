@@ -6,14 +6,14 @@
 import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { EVENT } from '@constant'
 import {
   buildLog,
   markStates,
   toast,
   toastBarColor,
   themeSkins,
-  dispatchEvent,
-  EVENT,
+  send,
 } from '@utils'
 
 import {
@@ -290,7 +290,7 @@ const rootStore = t
         self.toast('warn', R.merge(defaultOpt, options))
       }
 
-      dispatchEvent(EVENT.LOGIN_PANEL)
+      send(EVENT.LOGIN_PANEL)
       return false
     },
     changesetErr(options) {

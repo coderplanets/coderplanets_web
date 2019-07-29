@@ -1,38 +1,36 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD, ROUTE } from '@constant'
 import {
-  asyncRes,
-  asyncErr,
+  asyncSuit,
   buildLog,
-  dispatchEvent,
-  EVENT,
-  ERR,
-  TYPE,
-  ROUTE,
-  THREAD,
-  $solver,
+  send,
   scrollToTabber,
   notEmpty,
   errRescue,
-  // GA,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:JobsThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let store = null
 let sub$ = null
 
-/* eslint-disable-next-line */
-const log = buildLog('L:JobsThread')
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
 
-export const inAnchor = () => store.setHeaderFix(false)
-export const outAnchor = () => store.setHeaderFix(true)
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
 
 export const loadJobs = (page = 1) => {
   const { curCommunity } = store
@@ -68,7 +66,7 @@ export const onPageChange = page => {
 
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_JOB_VIEW,
     thread: THREAD.JOB,
     data,
@@ -90,7 +88,7 @@ export const onContentCreate = () => {
     return store.markState({ showPublishNote: true })
   }
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
 export const onNoteClose = () => store.markState({ showPublishNote: false })
@@ -107,7 +105,7 @@ export const onFilterSelect = option => {
   loadJobs()
 }
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {
@@ -116,7 +114,7 @@ export const onC11NChange = option => {
 }
 
 export const onUserSelect = user =>
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_USER_VIEW,
     data: user,
   })

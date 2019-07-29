@@ -3,8 +3,10 @@ import R from 'ramda'
 /* import { Observable } from 'rxjs/Observable' */
 import { of } from 'rxjs'
 
-import { buildLog, ERR } from '..'
+import { ERR } from '@constant'
+
 import { TIMEOUT_THRESHOLD } from './setup'
+import { buildLog } from '../logger'
 
 /* eslint-disable-next-line */
 const log = buildLog('Async')
@@ -19,6 +21,9 @@ export const TimoutObservable = of({
 // refator later
 const formatDetail = errors => {
   const details = []
+  // NOTE:  eadge case, fix latter
+  if (!errors) return {}
+
   errors.map(({ message, path, key, code }) => {
     if (Array.isArray(message)) {
       return message.map(msg => {

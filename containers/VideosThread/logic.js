@@ -1,33 +1,28 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
+  asyncSuit,
   buildLog,
-  asyncErr,
-  $solver,
-  ERR,
-  TYPE,
-  EVENT,
-  THREAD,
   scrollToTabber,
-  asyncRes,
-  dispatchEvent,
+  send,
   notEmpty,
   errRescue,
 } from '@utils'
 
-import SR71 from '@utils/async/sr71'
 import S from './schema'
 
+/* eslint-disable-next-line */
+const log = buildLog('L:VideosThread')
+
+const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  resv_event: [EVENT.REFRESH_VIDEOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [EVENT.REFRESH_VIDEOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
 })
 
 let sub$ = null
 let store = null
-
-/* eslint-disable-next-line */
-const log = buildLog('L:VideosThread')
 
 export const loadVideos = (page = 1) => {
   const { curCommunity } = store
@@ -60,7 +55,7 @@ export const onPageChange = page => {
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, {
+  send(EVENT.PREVIEW_OPEN, {
     type: TYPE.PREVIEW_VIDEO_VIEW,
     thread: THREAD.VIDEO,
     data,
@@ -78,7 +73,7 @@ export const onPreview = data => {
 export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
-  dispatchEvent(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
+  send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_VIDEO_CREATE })
 }
 
 export const onTagSelect = tag => {
@@ -93,7 +88,7 @@ export const onFilterSelect = option => {
   loadVideos()
 }
 export const onC11NChange = option => {
-  dispatchEvent(EVENT.SET_C11N, { data: option })
+  send(EVENT.SET_C11N, { data: option })
   store.updateC11N(option)
 
   if (R.has('displayDensity', option)) {

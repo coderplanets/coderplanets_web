@@ -9,17 +9,19 @@ import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
+import { LABEL_POOL } from '@config'
+import { buildLog, storePlug, uid, Trans } from '@utils'
+
 import withGuardian from '@components/HOC/withGuardian'
 import Maybe from '@components/Maybe'
 import Popover from '@components/Popover'
-import { LABEL_POOL } from '@config'
 
-import { buildLog, storePlug, uid, Trans } from '@utils'
 import Options from './Options'
 import Selected from './Selected'
 import { Wrapper, LabelItem, LabelIcon, Title, PopHint } from './styles'
 
 import * as logic from './logic'
+
 /* eslint-disable-next-line */
 const log = buildLog('C:Labeler')
 

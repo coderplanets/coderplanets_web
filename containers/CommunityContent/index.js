@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, ROUTE } from '@utils'
+import { ROUTE } from '@constant'
+import { connectStore, buildLog } from '@utils'
 
 import PostsThread from '@containers//PostsThread'
 import VideosThread from '@containers/VideosThread'
@@ -16,7 +17,7 @@ import JobsThread from '@containers/JobsThread'
 import UsersThread from '@containers/UsersThread'
 import CheatsheetThread from '@containers/CheatsheetThread'
 
-import { Wrapper } from './styles'
+import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -55,7 +56,9 @@ const CommunityContentContainer = ({ communityContent }) => {
 
   return (
     <Wrapper testid="community-content">
-      <ComunityContent curRoute={curRoute} />
+      <InnerWrapper>
+        <ComunityContent curRoute={curRoute} />
+      </InnerWrapper>
     </Wrapper>
   )
 }

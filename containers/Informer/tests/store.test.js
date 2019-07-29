@@ -1,7 +1,7 @@
 /*
-* Informer store test
-*
-*/
+ * Informer store test
+ *
+ */
 
 // import R from 'ramda'
 
