@@ -82,7 +82,7 @@
     "mobx-react-lite": "^1.2.0",
     "mobx-state-tree": "3.10.1",
     "module-alias": "^2.0.1",
-    "next": "9.0.2",
+    "next": "9.0.3",
     "next-compose-plugins": "^2.2.0",
     "next-offline": "^4.0.2",
     "next-progressbar": "^1.0.0",
