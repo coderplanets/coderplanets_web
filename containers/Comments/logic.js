@@ -161,8 +161,9 @@ export const openUpdateEditor = data =>
   })
 
 export const openReplyEditor = data => {
-  initDraftTimmer()
+  if (!store.isLogin) return store.authWarning()
 
+  initDraftTimmer()
   store.markState({
     showReplyBox: true,
     showReplyEditor: true,
