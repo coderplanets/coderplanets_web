@@ -5,6 +5,10 @@ otp_release:
   - 21.0
 addons:
   postgresql: '9.6'
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
 
 before_install:
   - sudo chown -R travis ./travis/install_node.sh
