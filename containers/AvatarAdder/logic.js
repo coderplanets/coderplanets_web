@@ -12,13 +12,13 @@ let store = null
 export const onSearch = e => {
   if (e.key === 'Enter') {
     log('store.searchValue: ', store.searchValue)
-    store.markState({ searching: true, searchValue: e.target.value })
+    store.mark({ searching: true, searchValue: e.target.value })
 
     githubApi
       .searchUser(store.searchValue)
       .then(res => {
-        store.markState({ githubUser: githubApi.transformUser(res) })
-        store.markState({ searching: false })
+        store.mark({ githubUser: githubApi.transformUser(res) })
+        store.mark({ searching: false })
       })
       .catch(e => store.handleError(githubApi.parseError(e)))
   }
@@ -26,7 +26,7 @@ export const onSearch = e => {
 
 /* eslint-disable-next-line */
 export const adderOnConfirm = R.curry((user, cb, e) => {
-  store.markState({
+  store.mark({
     searching: false,
     githubUser: null,
     popoverVisiable: false,
@@ -35,18 +35,17 @@ export const adderOnConfirm = R.curry((user, cb, e) => {
   cb(user)
 })
 
-export const inputOnChange = e =>
-  store.markState({ searchValue: e.target.value })
+export const inputOnChange = e => store.mark({ searchValue: e.target.value })
 
 export const onPopoverVisible = visable => {
   if (!visable) {
-    store.markState({
+    store.mark({
       searchValue: '',
       searching: false,
       githubUser: null,
     })
   }
-  store.markState({ popoverVisiable: visable })
+  store.mark({ popoverVisiable: visable })
 }
 
 // ###############################

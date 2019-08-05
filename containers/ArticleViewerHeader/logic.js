@@ -25,7 +25,7 @@ export const onReaction = (action, userDid, { id }) => {
 
   const thread = store.activeThread
 
-  store.markState({ action })
+  store.mark({ action })
   /* log('onReaction thread: ', thread) */
   if (action === TYPE.FAVORITE) {
     // call favoriteSetter
@@ -65,7 +65,7 @@ const afterReaction = id => {
   }
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 // ###############################
 // Data & Error handlers

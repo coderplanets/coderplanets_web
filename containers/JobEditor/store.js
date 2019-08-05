@@ -133,10 +133,10 @@ const JobEditorStore = t
     },
     updateEditing(sobj) {
       const editJob = R.merge(self.editData, { ...sobj })
-      return self.markState({ editJob })
+      return self.mark({ editJob })
     },
     reset() {
-      self.markState({ isEdit: false, mentionList: [] })
+      self.mark({ isEdit: false, mentionList: [] })
       self.editJob = { title: '', body: '' }
     },
     updateMentionList(mentionArray) {
@@ -155,7 +155,7 @@ const JobEditorStore = t
         })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -29,7 +29,7 @@ let store = null
 let sub$ = null
 let saveDraftTimmer = null
 
-export const changeView = curView => store.markState({ curView })
+export const changeView = curView => store.mark({ curView })
 
 const getDigest = body => {
   /* eslint-disable no-undef */
@@ -50,13 +50,13 @@ const getDigest = body => {
   return digest
 }
 
-export const onRadarNoteCLose = () => store.markState({ showRadarNote: false })
+export const onRadarNoteCLose = () => store.mark({ showRadarNote: false })
 const supportedRadarSource = ['wanqu', 'solidot', 'techcrunch']
 const specCheck = () => {
   if (store.activeThread === THREAD.RADAR) {
     const domain = parseDomain(store.editPost.linkAddr)
     if (!R.contains(domain, supportedRadarSource)) {
-      store.markState({ showRadarNote: true })
+      store.mark({ showRadarNote: true })
       return false
     }
   }
@@ -117,7 +117,7 @@ export const onMentionSearch = name => {
   if (name && name.length >= 2) {
     sr71$.query(S.searchUsers, { name })
   } else {
-    store.markState({ mentionList: [] })
+    store.mark({ mentionList: [] })
   }
 }
 
@@ -129,7 +129,7 @@ const openAttachment = att => {
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
   /* log('openAttachment att: ', att) */
   store.updateEditing(att)
-  store.markState({ isEdit: true })
+  store.mark({ isEdit: true })
 }
 
 const doneCleanUp = () => {
@@ -144,7 +144,7 @@ export const bodyInputOnChange = content => {
   // currently this is a bug: in edit can't update to empty.
   if (!store) return false
   if (store.isEdit && content === '') return false
-  store.markState({ extractMentions: extractMentions(content) })
+  store.mark({ extractMentions: extractMentions(content) })
 
   updateEditing(store, 'body', content)
 }
@@ -158,8 +158,8 @@ const saveDraftIfNeed = content => {
 
 const clearDraft = () => BStore.set('recentDraft', '')
 
-const publishing = (maybe = true) => store.markState({ publishing: maybe })
-const cancleLoading = () => store.markState({ publishing: false })
+const publishing = (maybe = true) => store.mark({ publishing: maybe })
+const cancleLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -246,7 +246,7 @@ export const useInit = (_store, attachment) => {
       // log('effect uninit')
       if (saveDraftTimmer) clearInterval(saveDraftTimmer)
 
-      store.markState({ editPost: {}, isEdit: false })
+      store.mark({ editPost: {}, isEdit: false })
       sr71$.stop()
       sub$.unsubscribe()
     }

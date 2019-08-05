@@ -16,7 +16,7 @@ let sub$ = null
 let store = null
 
 const getQueryArgs = page => {
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   // args
   return {
     userId: store.viewingUser.id,
@@ -52,7 +52,7 @@ export const onReload = page => {
 }
 
 export const onThreadChange = curThread => {
-  store.markState({ curThread })
+  store.mark({ curThread })
   onReload()
 }
 

@@ -24,7 +24,7 @@ const loadCheatsheet = () => {
   // const community = 'no-exsit'
   /* const community = 'elixir' */
 
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.cheatsheet, { community })
 }
 
@@ -38,18 +38,18 @@ export const syncCheatsheet = readme => {
   sr71$.mutate(S.syncCheatsheet, args)
 }
 
-export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+export const syncWarnOnClose = () => store.mark({ showSyncWarning: false })
 
 export const syncCheetsheetFromGithub = () => {
   if (nilOrEmpty(BStore.get('github_token'))) {
-    return store.markState({ showSyncWarning: true })
+    return store.mark({ showSyncWarning: true })
   }
 
   githubApi
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {
       if (!res || R.startsWith('404', res))
-        return store.markState({ curView: TYPE.NOT_FOUND })
+        return store.mark({ curView: TYPE.NOT_FOUND })
 
       syncCheatsheet(res)
     })
@@ -75,7 +75,7 @@ const DataSolver = [
       const curView = R.isEmpty(cheatsheet.readme)
         ? TYPE.RESULT_EMPTY
         : TYPE.RESULT
-      store.markState({ cheatsheet, curView })
+      store.mark({ cheatsheet, curView })
     },
   },
   {
@@ -102,7 +102,7 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => store.markState({ curView: TYPE.NOT_FOUND }),
+    action: () => store.mark({ curView: TYPE.NOT_FOUND }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),

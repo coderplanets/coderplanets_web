@@ -19,7 +19,7 @@ let sub$ = null
 let store = null
 
 export const onClose = () => {
-  store.markState({ show: false })
+  store.mark({ show: false })
   unholdPage()
 }
 
@@ -29,7 +29,7 @@ export const undoFollow = userId => sr71$.mutate(S.undoFollow, { userId })
 const loadUsers = (type, data, page = 1) => {
   // log('loadUsers type: ', type)
 
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   switch (type) {
     case TYPE.USER_LISTER_FAVORITES:
     case TYPE.USER_LISTER_STARS: {
@@ -93,7 +93,7 @@ export const onPageChange = page => {
 
 const handleUsersRes = pagedUsers => {
   const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
-  store.markState({ pagedUsers, curView })
+  store.mark({ pagedUsers, curView })
 }
 // ###############################
 // Data & Error handlers
@@ -103,7 +103,7 @@ const DataSolver = [
     match: asyncRes(EVENT.USER_LISTER_OPEN),
     action: res => {
       const { type, data } = res.USER_LISTER_OPEN
-      store.markState({ show: true, type, ...data })
+      store.mark({ show: true, type, ...data })
       loadUsers(type, data)
       holdPage()
     },

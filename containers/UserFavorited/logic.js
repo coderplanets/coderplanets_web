@@ -16,16 +16,16 @@ let sub$ = null
 let store = null
 
 export const backToCategoryList = () => {
-  store.markState({ parentView: 'CATEGORY_LIST' })
+  store.mark({ parentView: 'CATEGORY_LIST' })
 }
 
 export const onCatSelect = curCategory => {
-  store.markState({ curCategory, parentView: 'CATEGORY_DETAIL' })
+  store.mark({ curCategory, parentView: 'CATEGORY_DETAIL' })
   loadPosts()
 }
 
 const getQueryArgs = page => {
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   // args
   return {
     userId: store.viewingUser.id,
@@ -63,7 +63,7 @@ export const onReload = page => {
 }
 
 export const changeFavoriteThread = curThread => {
-  store.markState({ curThread })
+  store.mark({ curThread })
   // TODO:  change route
   onReload()
 }

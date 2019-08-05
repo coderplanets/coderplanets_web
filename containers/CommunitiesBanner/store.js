@@ -33,12 +33,12 @@ const CommunitiesBannerStore = t
   }))
   .actions(self => ({
     updateEditing(sobj) {
-      self.markState(sobj)
+      self.mark(sobj)
     },
     markRoute(query) {
       self.root.markRoute(query)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -62,7 +62,7 @@ const AccountStore = t
     updateAccount(sobj) {
       const user = R.merge(stripMobx(self.user), { ...sobj })
 
-      self.markState({ user })
+      self.mark({ user })
     },
     updateSesstion({ isValid, user }) {
       self.isValidSession = isValid
@@ -140,7 +140,7 @@ const AccountStore = t
       const curCustomization = R.clone(self.accountInfo.customization)
       self.user.customization = R.merge(curCustomization, options)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

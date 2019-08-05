@@ -70,13 +70,13 @@ const sr71$ = new SR71({
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),
-    action: () => store.markState({ imageUploading: true }),
+    action: () => store.mark({ imageUploading: true }),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_FINISH),
     action: () => {
       setTimeout(() => {
-        store.markState({ imageUploading: false })
+        store.mark({ imageUploading: false })
       }, 500)
     },
   },

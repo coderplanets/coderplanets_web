@@ -43,7 +43,7 @@ export const subscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.subscribeCommunity, { communityId: id })
-  store.markState({
+  store.mark({
     subscribing: true,
     subscribingId: id,
   })
@@ -53,7 +53,7 @@ export const unSubscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
   sr71$.mutate(S.unsubscribeCommunity, { communityId: id })
-  store.markState({
+  store.mark({
     subscribing: true,
     subscribingId: id,
   })
@@ -61,7 +61,7 @@ export const unSubscribe = id => {
 
 /* when error occured cancle all the loading state */
 const cancleLoading = () =>
-  store.markState({
+  store.mark({
     subscribing: false,
     searching: false,
   })
@@ -69,25 +69,25 @@ const cancleLoading = () =>
 const DataSolver = [
   {
     match: asyncRes('pagedCommunities'),
-    action: ({ pagedCommunities }) => store.markState({ pagedCommunities }),
+    action: ({ pagedCommunities }) => store.mark({ pagedCommunities }),
   },
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
-      store.markState({ pagedCommunities, searching: false }),
+      store.mark({ pagedCommunities, searching: false }),
   },
   {
     match: asyncRes('subscribeCommunity'),
     action: ({ subscribeCommunity }) => {
       store.addSubscribedCommunity(subscribeCommunity)
-      store.markState({ subscribing: false })
+      store.mark({ subscribing: false })
     },
   },
   {
     match: asyncRes('unsubscribeCommunity'),
     action: ({ unsubscribeCommunity }) => {
       store.removeSubscribedCommunity(unsubscribeCommunity)
-      store.markState({ subscribing: false })
+      store.mark({ subscribing: false })
     },
   },
   {
@@ -95,7 +95,7 @@ const DataSolver = [
     action: res => {
       const payload = res[EVENT.REFRESH_COMMUNITIES]
       if (payload.type === 'search' && !R.isEmpty(payload.data)) {
-        store.markState({ searchValue: payload.data, searching: true })
+        store.mark({ searchValue: payload.data, searching: true })
         return searchCommunities(payload.data)
       }
       loadCommunities()

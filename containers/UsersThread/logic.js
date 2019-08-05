@@ -21,9 +21,9 @@ export const loadGeoData = () => {
 }
 
 export const ToggleNumBashboard = () =>
-  store.markState({ showNums: !store.showNums })
+  store.mark({ showNums: !store.showNums })
 
-const markLoading = (maybe = true) => store.markState({ geoDataLoading: maybe })
+const markLoading = (maybe = true) => store.mark({ geoDataLoading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################
@@ -33,7 +33,7 @@ const DataSolver = [
     match: asyncRes('communityGeoInfo'),
     action: ({ communityGeoInfo: geoInfos }) => {
       markLoading(false)
-      store.markState({ geoInfos })
+      store.mark({ geoInfos })
     },
   },
 ]

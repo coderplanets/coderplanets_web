@@ -23,7 +23,7 @@ let sub$ = null
 let store = null
 
 const getQueryArgs = page => {
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   // args
   return {
     userId: store.viewingUser.id,
@@ -45,7 +45,7 @@ export const loadRepoComments = (page = 1) =>
 
 export const threadOnChange = curThread => {
   // TODO: markRoute
-  store.markState({ curThread })
+  store.mark({ curThread })
   // reload()
   switch (store.curThread) {
     case THREAD.JOB:

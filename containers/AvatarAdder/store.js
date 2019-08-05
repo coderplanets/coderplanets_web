@@ -36,7 +36,7 @@ const AvatarAdder = t
       self.root.changesetErr(options)
     },
     handleError(errorType) {
-      self.markState({ errorType, searching: false })
+      self.mark({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:
           return self.changesetErr({
@@ -60,7 +60,7 @@ const AvatarAdder = t
           return self.changesetErr({ title: '未知错误', msg: '...' })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

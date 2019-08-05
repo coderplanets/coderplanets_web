@@ -63,7 +63,7 @@ const UserBilling = t
     cashierHelper(opt) {
       self.root.cashierHelper(opt)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

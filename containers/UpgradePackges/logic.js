@@ -24,7 +24,7 @@ export const onUpgrade = () => {
   })
 }
 
-export const onClose = () => store.markState({ show: !store.show })
+export const onClose = () => store.mark({ show: !store.show })
 
 // ###############################
 // Data & Error handlers

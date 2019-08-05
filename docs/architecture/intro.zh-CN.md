@@ -235,14 +235,14 @@ const PostEditor = t
     },
     updateEditing(sobj) {
       const editPost = R.merge(self.editData, { ...sobj })
-      return self.markState({ editPost })
+      return self.mark({ editPost })
     },
     reset() {
-      self.markState({ isEdit: false, mentionList: [] })
+      self.mark({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
       ...
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))
@@ -250,7 +250,7 @@ const PostEditor = t
 export default PostEditor
 ```
 
-这里的所有状态都只被在这个 containers 目录里的组件使用，属于整个应用状态树上的一个子树，如果需要访问"主树"或其他"分支"的状态树可以使用 `get root` 方法，详见[MST 文档](https://github.com/mobxjs/mobx-state-tree)。状态无法被 view 层直接更新，必须经由 logic 层调用 `store.markState` 或 store 上提供的其他 `action` 方法更新。
+这里的所有状态都只被在这个 containers 目录里的组件使用，属于整个应用状态树上的一个子树，如果需要访问"主树"或其他"分支"的状态树可以使用 `get root` 方法，详见[MST 文档](https://github.com/mobxjs/mobx-state-tree)。状态无法被 view 层直接更新，必须经由 logic 层调用 `store.mark` 或 store 上提供的其他 `action` 方法更新。
 
 #### logic.js
 

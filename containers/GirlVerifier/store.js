@@ -34,7 +34,7 @@ const GirlVerifier = t
     toastError(options) {
       self.root.toast('error', R.merge({ position: 'topCenter' }, options))
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

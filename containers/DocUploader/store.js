@@ -33,7 +33,7 @@ const DocUploader = t
     toast(type, options) {
       self.root.toast(type, options)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

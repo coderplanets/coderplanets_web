@@ -44,7 +44,7 @@ const UserContent = t
     updateViewingUser(user) {
       self.root.viewing.updateViewingUser(user)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
     markRoute(query) {

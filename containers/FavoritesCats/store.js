@@ -115,7 +115,7 @@ const FavoritesCats = t
     },
     updateEditing(sobj) {
       const editCategory = R.merge(self.editCategoryData, { ...sobj })
-      self.markState({ editCategory })
+      self.mark({ editCategory })
     },
     validator(type) {
       switch (type) {
@@ -150,7 +150,7 @@ const FavoritesCats = t
 
       switch (view) {
         case 'setter':
-          return self.markState({
+          return self.mark({
             showModal: true,
             showSetter: true,
             showUpdater: false,
@@ -158,7 +158,7 @@ const FavoritesCats = t
           })
 
         case 'updater':
-          return self.markState({
+          return self.mark({
             showModal: true,
             showUpdater: true,
             showCreator: false,
@@ -166,7 +166,7 @@ const FavoritesCats = t
           })
 
         default:
-          return self.markState({
+          return self.mark({
             showModal: true,
             showCreator: true,
             showUpdater: false,
@@ -177,7 +177,7 @@ const FavoritesCats = t
     cleanEditData() {
       self.editCategory = emptyCat
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

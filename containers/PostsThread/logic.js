@@ -71,7 +71,7 @@ export const loadPosts = (page = 1) => {
   }
   args.filter = R.pickBy(notEmpty, args.filter)
 
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.pagedPosts, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -174,22 +174,22 @@ const DataSolver = [
       if (pagedPosts.totalCount === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      store.markState({ curView, pagedPosts })
+      store.mark({ curView, pagedPosts })
     },
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => store.mark({ tags }),
   },
   {
     match: asyncRes('pagedCommunities'),
     action: ({ pagedCommunities }) =>
-      store.markState({ pagedCityCommunities: pagedCommunities }),
+      store.mark({ pagedCityCommunities: pagedCommunities }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
-      store.markState({ activeTag: null })
+      store.mark({ activeTag: null })
       loadPosts()
     },
   },
@@ -207,7 +207,7 @@ const DataSolver = [
       }
 
       if (!R.contains(data.activeThread, R.values(COMMUNITY_SPEC_THREADS))) {
-        store.markState({ activeTag: null })
+        store.mark({ activeTag: null })
         loadPosts()
       }
     },
