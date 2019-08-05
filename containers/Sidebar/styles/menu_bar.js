@@ -38,6 +38,12 @@ export const MenuItemBar = styled.div`
   box-sizing: border-box;
   color: ${theme('sidebar.menuLink')};
 `
+export const MenuRow = styled.div`
+  ${cs.flex()};
+  justify-content: left;
+  align-items: center;
+  font-size: 1rem;
+`
 export const MenuItemIcon = styled(CommunityFaceLogo)`
   opacity: ${({ active }) => (active ? 1 : 0.5)};
   width: 22px;
@@ -48,12 +54,6 @@ export const MenuItemIcon = styled(CommunityFaceLogo)`
     opacity: 1;
   }
   transition: opacity 0.2s;
-`
-export const MenuRow = styled.div`
-  ${cs.flex()};
-  justify-content: left;
-  align-items: center;
-  font-size: 1rem;
 `
 export const MenuItemTitle = styled.div`
   display: ${({ pin }) => (pin ? 'block' : 'none')};
