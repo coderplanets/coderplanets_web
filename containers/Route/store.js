@@ -72,7 +72,7 @@ const RouteStore = t
       // NOTE:  Router.push(url, asPath, { shallow: true }) is not working on pruction env
       return Global.history.pushState({}, null, asPath)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

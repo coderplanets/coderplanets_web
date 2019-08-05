@@ -52,7 +52,7 @@ const CommunityBanner = t
     removeSubscribedCommunity(community) {
       self.root.account.removeSubscribedCommunity(community)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

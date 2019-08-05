@@ -15,7 +15,7 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export const onClose = () => store.markState({ show: false })
+export const onClose = () => store.mark({ show: false })
 
 const classifyGQErrors = errors => {
   if (!Array.isArray(errors)) {
@@ -24,21 +24,21 @@ const classifyGQErrors = errors => {
 
   if (R.has('path', errors[0])) {
     if (isObject(errors[0].message)) {
-      return store.markState({
+      return store.mark({
         graphqlType: 'changeset',
         changesetError: errors,
       })
     }
-    return store.markState({
+    return store.mark({
       graphqlType: 'custom',
       customError: errors,
     })
   }
 
-  store.markState({ graphqlType: 'parse', parseError: errors })
+  store.mark({ graphqlType: 'parse', parseError: errors })
 }
 
-export const hide = () => store.markState({ show: false })
+export const hide = () => store.mark({ show: false })
 
 // ###############################
 // Data & Error handlers
@@ -59,14 +59,14 @@ const DataSolver = [
           break
 
         case ERR.TIMEOUT:
-          store.markState({ timeoutError: details, path })
+          store.mark({ timeoutError: details, path })
           break
 
         default:
           log('default')
       }
 
-      store.markState({
+      store.mark({
         show: true,
         type,
         operation: operation || 'TODO: missing schema def',

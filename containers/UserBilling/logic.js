@@ -38,7 +38,7 @@ export const loadBilRecords = (page = 1) => {
 const DataSolver = [
   {
     match: asyncRes('pagedBillRecords'),
-    action: ({ pagedBillRecords }) => store.markState({ pagedBillRecords }),
+    action: ({ pagedBillRecords }) => store.mark({ pagedBillRecords }),
   },
   {
     match: asyncRes(EVENT.NEW_BILLS),

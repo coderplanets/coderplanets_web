@@ -23,7 +23,7 @@ export const init = (_store, routeObj) => {
   const { mainPath, subPath } = parseURL(routeObj)
   const { query } = routeObj
 
-  store.markState({ mainPath, subPath, query })
+  store.mark({ mainPath, subPath, query })
 
   Global.onpopstate = browserHistoryBtnClicked
 }
@@ -37,7 +37,7 @@ export const useInit = (_store, routeObj) => {
     const { mainPath, subPath } = parseURL(routeObj)
     const { query } = routeObj
 
-    store.markState({ mainPath, subPath, query })
+    store.mark({ mainPath, subPath, query })
 
     Global.onpopstate = browserHistoryBtnClicked
   }, [_store, routeObj])

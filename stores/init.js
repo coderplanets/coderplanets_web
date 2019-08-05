@@ -18,7 +18,7 @@ function initRootStore({ langSetup, ...restData }) {
     rootStore = createRootStore({ langSetup, ...restData })
   }
 
-  rootStore.markState({ ...restData })
+  rootStore.mark({ ...restData })
 
   return rootStore
 }

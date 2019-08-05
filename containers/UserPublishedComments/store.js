@@ -77,19 +77,19 @@ const UserPublishedComments = t
 
       switch (self.curThread) {
         case THREAD.JOB:
-          return self.markState({ curView, pagedJobComments: pagedData })
+          return self.mark({ curView, pagedJobComments: pagedData })
 
         case THREAD.VIDEO:
-          return self.markState({ curView, pagedVideoComments: pagedData })
+          return self.mark({ curView, pagedVideoComments: pagedData })
 
         case THREAD.REPO:
-          return self.markState({ curView, pagedRepoComments: pagedData })
+          return self.mark({ curView, pagedRepoComments: pagedData })
 
         default:
-          return self.markState({ curView, pagedPostComments: pagedData })
+          return self.mark({ curView, pagedPostComments: pagedData })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

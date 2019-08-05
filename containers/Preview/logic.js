@@ -22,7 +22,7 @@ let sub$ = null
 export const closePreview = () => {
   unholdPage()
   store.close()
-  store.markState({ imageUploading: false, type: null })
+  store.mark({ imageUploading: false, type: null })
 
   // force call MDEditor's componentWillUnmount to store the draft
   // wait until preview move out of the screean
@@ -68,13 +68,13 @@ const DataResolver = [
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_START),
-    action: () => store.markState({ imageUploading: true }),
+    action: () => store.mark({ imageUploading: true }),
   },
   {
     match: asyncRes(EVENT.UPLOAD_IMG_FINISH),
     action: () => {
       setTimeout(() => {
-        store.markState({ imageUploading: false })
+        store.mark({ imageUploading: false })
       }, 500)
     },
   },

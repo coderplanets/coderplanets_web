@@ -25,7 +25,7 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const setPin = () => store.markState({ pin: !store.pin })
+export const setPin = () => store.mark({ pin: !store.pin })
 
 export const onCommunitySelect = community => {
   // NOTE: check page, if current it's from communities then redirect whole page
@@ -103,7 +103,7 @@ const refreshSubedCommunitiesIfNeed = () => {
 }
 
 export const toggleForeceRerender = (forceRerender = true) =>
-  store.markState({ forceRerender })
+  store.mark({ forceRerender })
 
 const DataSolver = [
   {

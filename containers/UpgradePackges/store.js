@@ -33,7 +33,7 @@ const UpgradePackges = t
     upgradeHepler() {
       self.show = true
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
     close() {

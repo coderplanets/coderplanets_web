@@ -42,7 +42,7 @@ export const hidePanel = () => {
 }
 
 export const inputOnChange = ({ target: { value: inputValue } }) => {
-  store.markState({ inputValue, cmdChain: null })
+  store.mark({ inputValue, cmdChain: null })
   queryPocket()
 }
 
@@ -108,7 +108,7 @@ export const inputOnBlur = () => {
 
 // do dearch when thread changes
 export const searchThreadOnChange = searchThread => {
-  store.markState({ searchThread, showAlert: false })
+  store.mark({ searchThread, showAlert: false })
   searchContents(store, sr71$, store.inputValue)
 }
 
@@ -158,19 +158,19 @@ const doNavigate = () => {
 // load search suggestion and mark related search hint state
 const loadSearchSuggestions = (data, searchedTotalCount) => {
   if (searchedTotalCount === 0) {
-    store.markState({
+    store.mark({
       showAlert: true,
       showUtils: true,
       searchedTotalCount,
     })
   }
-  store.markState({ searching: false, showUtils: true, searchedTotalCount })
+  store.mark({ searching: false, showUtils: true, searchedTotalCount })
   store.loadSuggestions({ prefix: '', data })
 }
 
 // clean up state after search complete
 const emptySearchStates = () =>
-  store.markState({
+  store.mark({
     searching: false,
     showThreadSelector: false,
     showAlert: false,
@@ -300,7 +300,7 @@ const DataSolver = [
 
       /* "doraemonInputbar" */
 
-      store.markState({ inputValue: data })
+      store.mark({ inputValue: data })
       queryPocket()
     },
   },
@@ -309,19 +309,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => store.markState({ searching: false }),
+    action: () => store.mark({ searching: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markState({ searching: false })
+      store.mark({ searching: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'Doraemon' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markState({ searching: false })
+      store.mark({ searching: false })
       errRescue({ type: ERR.NETWORK, path: 'Doraemon' })
     },
   },
@@ -348,7 +348,7 @@ const initSpecCmdResolver = () => {
       action: () => {
         SAK.completeInput(true)
         queryPocket()
-        store.markState({
+        store.mark({
           inputForOtherUse: true,
           inputValue: Global.localStorage.getItem('log'),
         })
@@ -517,7 +517,7 @@ export const useInit = _store => {
     pockect$.search().subscribe(res => {
       if (R.isEmpty(res)) return emptySearchStates()
 
-      store.markState({
+      store.mark({
         searching: true,
         showThreadSelector: true,
         showAlert: false,
@@ -528,7 +528,7 @@ export const useInit = _store => {
 
     pockect$.searchUser().subscribe(name => {
       const nickname = R.slice(1, Infinity, name)
-      store.markState({
+      store.mark({
         prefix: '@',
         searchThread: THREAD.USER,
         showThreadSelector: true,

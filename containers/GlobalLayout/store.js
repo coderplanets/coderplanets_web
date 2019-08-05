@@ -43,7 +43,7 @@ const GlobalLayoutStore = t
     openDoraemon() {
       self.root.openDoraemon()
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

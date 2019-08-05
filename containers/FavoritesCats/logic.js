@@ -49,7 +49,7 @@ export const loadCategories = (page = 1) => {
 }
 
 export const switchToUpdater = editCategory => {
-  store.markState({ editCategory })
+  store.mark({ editCategory })
   store.changeViewTo('updater')
 }
 
@@ -57,17 +57,17 @@ export const switchToUpdater = editCategory => {
 export const changeViewTo = R.curry((view, e) => store.changeViewTo(view))
 
 export const onSetterCreateCat = () => {
-  store.markState({ createfromSetter: true })
+  store.mark({ createfromSetter: true })
   store.changeViewTo('creator')
 }
 
 export const onModalClose = () => {
   if (store.createfromSetter) {
-    store.markState({ createfromSetter: false })
+    store.mark({ createfromSetter: false })
     return store.changeViewTo('setter')
   }
 
-  store.markState({ showModal: false })
+  store.mark({ showModal: false })
   store.cleanEditData()
 }
 
@@ -82,7 +82,7 @@ export const setContent = categoryId => {
     thread: R.toUpper(thread),
     categoryId,
   }
-  store.markState({ doing: true })
+  store.mark({ doing: true })
   sr71$.mutate(S.setFavorites, args)
 }
 
@@ -97,12 +97,12 @@ export const unSetContent = categoryId => {
     thread: R.toUpper(thread),
     categoryId,
   }
-  store.markState({ doing: true })
+  store.mark({ doing: true })
   sr71$.mutate(S.unsetFavorites, args)
 }
 
 const markLoading = (maybe = true) =>
-  store.markState({ loading: maybe, doing: false })
+  store.mark({ loading: maybe, doing: false })
 
 // ###############################
 // Data & Error handlers
@@ -114,7 +114,7 @@ const DataSolver = [
     action: ({ favoriteCategories: pagedCategories }) => {
       // const curView = pagedUsers.totalCount === 0 ? TYPE.RESULT_EMPTY : TYPE.RESULT
       markLoading(false)
-      store.markState({ pagedCategories })
+      store.mark({ pagedCategories })
       // store.closePreview()
       // send(EVENT.REFRESH_VIDEOS)
     },
@@ -125,7 +125,7 @@ const DataSolver = [
       // createfromSetter
       loadCategories()
       if (store.createfromSetter) {
-        store.markState({ createfromSetter: false })
+        store.mark({ createfromSetter: false })
         return store.changeViewTo('setter')
       }
       return onModalClose()
@@ -153,7 +153,7 @@ const DataSolver = [
       const { id } = store.viewingData
       const { thread } = store
       send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
-      store.markState({ doing: false })
+      store.mark({ doing: false })
     },
   },
   {
@@ -164,7 +164,7 @@ const DataSolver = [
       const { id } = store.viewingData
       const { thread } = store
       send(EVENT.REFRESH_REACTIONS, { data: { id, thread } })
-      store.markState({ doing: false })
+      store.mark({ doing: false })
     },
   },
   {
@@ -172,7 +172,7 @@ const DataSolver = [
     action: e => {
       const { thread } = e[EVENT.SET_FAVORITE_CONTENT].data
       store.changeViewTo('setter')
-      store.markState({ thread, createfromSetter: true })
+      store.mark({ thread, createfromSetter: true })
     },
   },
 ]
@@ -202,7 +202,7 @@ const ErrSolver = [
 ]
 
 const initStates = displayMode => {
-  store.markState({ displayMode })
+  store.mark({ displayMode })
   return loadCategories()
 }
 

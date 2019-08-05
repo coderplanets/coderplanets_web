@@ -53,12 +53,12 @@ const openAttachment = att => {
   if (type === TYPE.PREVIEW_POST_VIEW) {
     loadPost(att)
 
-    store.markState({ type })
+    store.mark({ type })
     store.setViewing({ post: att })
   }
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################

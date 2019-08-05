@@ -64,7 +64,7 @@ const CommunitiesContentStore = t
       self.root.account.removeSubscribedCommunity(community)
       self.root.communitiesContent.toggleSubscribe(community)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

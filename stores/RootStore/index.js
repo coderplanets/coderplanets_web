@@ -308,7 +308,7 @@ const rootStore = t
     isMemberOf(type) {
       return self.account.isMemberOf(type)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

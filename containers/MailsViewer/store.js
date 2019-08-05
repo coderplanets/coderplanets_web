@@ -35,7 +35,7 @@ const MailsViewer = t
     },
   }))
   .actions(self => ({
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

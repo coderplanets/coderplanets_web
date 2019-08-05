@@ -123,7 +123,7 @@ const Labeler = t
         self.labelEntriesData
       )
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))
