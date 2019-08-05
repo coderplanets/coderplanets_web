@@ -93,19 +93,19 @@ const UserFavorited = t
 
       switch (self.curThread) {
         case THREAD.JOB:
-          return self.markState({ curView, pagedJobs: pagedData })
+          return self.mark({ curView, pagedJobs: pagedData })
 
         case THREAD.VIDEO:
-          return self.markState({ curView, pagedVideos: pagedData })
+          return self.mark({ curView, pagedVideos: pagedData })
 
         case THREAD.REPO:
-          return self.markState({ curView, pagedRepos: pagedData })
+          return self.mark({ curView, pagedRepos: pagedData })
 
         default:
-          return self.markState({ curView, pagedPosts: pagedData })
+          return self.mark({ curView, pagedPosts: pagedData })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

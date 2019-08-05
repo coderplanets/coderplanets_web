@@ -64,7 +64,7 @@ const UserLister = t
         self.pagedUsers.entries[index].viewerHasFollowed = !curIsFollow
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

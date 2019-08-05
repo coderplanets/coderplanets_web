@@ -18,12 +18,12 @@ let store = null
 let sub$ = null
 
 export const loadAccount = () => {
-  store.markState({ viewingType: 'account', loading: true })
+  store.mark({ viewingType: 'account', loading: true })
   return sr71$.query(S.user, {})
 }
 
 export const loadUser = user => {
-  store.markState({ viewingType: 'user', viewingUser: user })
+  store.mark({ viewingType: 'user', viewingUser: user })
   sr71$.query(S.user, { login: user.login })
 }
 
@@ -51,9 +51,9 @@ const DataSolver = [
   {
     match: asyncRes('user'),
     action: ({ user }) => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
       if (store.viewingType === 'user') {
-        return store.markState({ viewingUser: user })
+        return store.mark({ viewingUser: user })
       }
       return store.updateAccount(user)
     },
@@ -67,19 +67,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => store.markState({ loading: false }),
+    action: () => store.mark({ loading: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountViewer' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
       errRescue({ type: ERR.NETWORK, path: 'AccountViewer' })
     },
   },

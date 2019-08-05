@@ -47,7 +47,7 @@ export const onSubscribe = community => {
   if (store.subscribeLoading) return false
 
   // log('onSubscribe: ', community)
-  store.markState({ subscribeLoading: true })
+  store.mark({ subscribeLoading: true })
   sr71$.mutate(S.subscribeCommunity, { communityId: community.id })
 }
 
@@ -56,7 +56,7 @@ export const onUndoSubscribe = community => {
   if (store.subscribeLoading) return false
 
   // log('onUndoSubscribe: ', community)
-  store.markState({ subscribeLoading: true })
+  store.mark({ subscribeLoading: true })
   sr71$.mutate(S.unsubscribeCommunity, { communityId: community.id })
 }
 
@@ -81,7 +81,7 @@ export const onShowSubscriberList = () => {
 }
 
 const markLoading = (maybe = true) =>
-  store.markState({ loading: maybe, subscribeLoading: maybe })
+  store.mark({ loading: maybe, subscribeLoading: maybe })
 
 // ###############################
 // Data & Error handlers

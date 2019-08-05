@@ -70,13 +70,13 @@ Corresponding DataSolver:
   },
   {
     Match: asyncRes(EVENT.UPLOAD_IMG_START),
-    Action: () => store.markState({ imageUploading: true }),
+    Action: () => store.mark({ imageUploading: true }),
   },
   {
     Match: asyncRes(EVENT.UPLOAD_IMG_FINISH),
     Action: () => {
       setTimeout(() => {
-        store.markState({ imageUploading: false })
+        store.mark({ imageUploading: false })
       }, 500)
     },
   },

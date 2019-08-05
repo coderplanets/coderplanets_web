@@ -15,8 +15,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const selectChange = ({ raw: activeRaw }) =>
-  store.markState({ activeRaw })
+export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
 export const previewUser = user =>
   send(EVENT.PREVIEW_OPEN, {
@@ -39,13 +38,13 @@ const loadMentions = () => {
 export const visibleOnChange = visible => {
   if (visible) loadMentions()
 
-  store.markState({ visible })
+  store.mark({ visible })
 }
 
 export const seeAll = () =>
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_MAILS_VIEW })
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 // ###############################
 // Data & Error handlers
@@ -56,14 +55,14 @@ const DataSolver = [
     match: asyncRes('user'),
     action: ({ user: { mailBox: mailStatus } }) => {
       markLoading(false)
-      store.markState({ mailStatus })
+      store.mark({ mailStatus })
     },
   },
   {
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
       markLoading(false)
-      store.markState({ pagedMentions })
+      store.mark({ pagedMentions })
       loadMailboxStates()
     },
   },

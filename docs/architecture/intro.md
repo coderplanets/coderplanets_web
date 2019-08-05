@@ -238,14 +238,14 @@ const PostEditor = t
     },
     updateEditing(sobj) {
       const editPost = R.merge(self.editData, { ...sobj })
-      return self.markState({ editPost })
+      return self.mark({ editPost })
     },
     reset() {
-      self.markState({ isEdit: false, mentionList: [] })
+      self.mark({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
       ...
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))
@@ -253,7 +253,7 @@ const PostEditor = t
 export default PostEditor
 ```
 
-All the states here are only used by components in this container directory, belonging to a subtree on the entire application state tree. If you need to access the "main tree" or other "branch" state tree, you can use the `get root` method. See [MST Document](https://github.com/mobxjs/mobx-state-tree) for details. The state cannot be directly updated by the view layer and must be updated via the logic layer by calling `store.markState` or other `action` methods provided on the store.
+All the states here are only used by components in this container directory, belonging to a subtree on the entire application state tree. If you need to access the "main tree" or other "branch" state tree, you can use the `get root` method. See [MST Document](https://github.com/mobxjs/mobx-state-tree) for details. The state cannot be directly updated by the view layer and must be updated via the logic layer by calling `store.mark` or other `action` methods provided on the store.
 
 #### logic.js
 

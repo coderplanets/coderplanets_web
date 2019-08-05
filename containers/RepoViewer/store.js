@@ -39,7 +39,7 @@ const RepoViewer = t
     },
     handleError(errorType) {
       log(errorType)
-      self.markState({ errorType, loading: false })
+      self.mark({ errorType, loading: false })
       switch (errorType) {
         case ERR.NOT_FOUND:
           return self.changesetErr({
@@ -64,7 +64,7 @@ const RepoViewer = t
         }
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

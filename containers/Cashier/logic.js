@@ -27,16 +27,16 @@ const log = buildLog('L:Cashier')
 let store = null
 
 export const sidebarViewOnChange = sidebarView =>
-  store.markState({ sidebarView, contentView: sidebarView })
+  store.mark({ sidebarView, contentView: sidebarView })
 
 export const paymentMethodOnChange = paymentMethod =>
-  store.markState({ paymentMethod })
+  store.mark({ paymentMethod })
 
 export const subContentViewOnChange = subContentView =>
-  store.markState({ subContentView })
+  store.mark({ subContentView })
 
 export const transferAccountChange = ({ target: { value } }) =>
-  store.markState({ transferAccount: value })
+  store.mark({ transferAccount: value })
 
 export const onPaymentConfirm = () => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
@@ -58,7 +58,7 @@ export const onPaymentConfirm = () => {
 export const onClose = () => {
   const confirmed = Global.confirm('若已付款，请确保您填写了账户信息')
 
-  if (confirmed) return store.markState({ show: false, subContentView: 'pay' })
+  if (confirmed) return store.mark({ show: false, subContentView: 'pay' })
 }
 
 // ###############################
@@ -69,7 +69,7 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.CALL_CASHIER),
     action: () => {
-      store.markState({ show: true })
+      store.mark({ show: true })
       holdPage()
     },
   },
@@ -77,7 +77,7 @@ const DataSolver = [
     match: asyncRes('createBill'),
     action: ({ createBill }) => {
       log('createBill done: ', createBill)
-      store.markState({ show: false, subContentView: 'pay' })
+      store.mark({ show: false, subContentView: 'pay' })
       store.toastDone({
         title: 'CPS 团队感谢您的支持!',
         msg: '我们会尽快为您办理',

@@ -49,7 +49,7 @@ const WikiThread = t
     },
     handleError(errorType) {
       log(errorType)
-      self.markState({ errorType, searching: false })
+      self.mark({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:
           return self.changesetErr({
@@ -73,7 +73,7 @@ const WikiThread = t
           return self.changesetErr({ title: '未知错误', msg: '...' })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

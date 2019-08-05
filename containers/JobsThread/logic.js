@@ -54,7 +54,7 @@ export const loadJobs = (page = 1) => {
   args.filter = R.pickBy(notEmpty, args.filter)
 
   log('######## loadJobs args: ', args)
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.pagedJobs, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -85,13 +85,13 @@ export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
   if (store.curCommunity.raw === 'home') {
-    return store.markState({ showPublishNote: true })
+    return store.mark({ showPublishNote: true })
   }
 
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_JOB_CREATE })
 }
 
-export const onNoteClose = () => store.markState({ showPublishNote: false })
+export const onNoteClose = () => store.mark({ showPublishNote: false })
 
 export const onTagSelect = tag => {
   store.selectTag(tag)
@@ -131,12 +131,12 @@ const DataSolver = [
       if (pagedJobs.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      store.markState({ curView, pagedJobs })
+      store.mark({ curView, pagedJobs })
     },
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => store.mark({ tags }),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
@@ -145,7 +145,7 @@ const DataSolver = [
 
       const { activeThread } = data
       if (activeThread === THREAD.JOB) {
-        store.markState({ activeTag: null })
+        store.mark({ activeTag: null })
         return loadJobs()
       }
     },

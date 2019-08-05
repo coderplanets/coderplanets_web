@@ -17,12 +17,11 @@ let sub$ = null
 let store = null
 
 export const onClose = () => {
-  store.markState({ visible: false })
+  store.mark({ visible: false })
   sr71$.stop()
 }
 
-export const onSearchChange = e =>
-  store.markState({ searchValue: e.target.value })
+export const onSearchChange = e => store.mark({ searchValue: e.target.value })
 
 export const onSearch = () => {
   const { searchValue } = store
@@ -74,18 +73,18 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.COMMUNITY_MIRROR),
     action: () => {
-      store.markState({ visible: true })
+      store.mark({ visible: true })
       loadCommunities()
     },
   },
   {
     match: asyncRes('pagedCommunities'),
-    action: ({ pagedCommunities }) => store.markState({ pagedCommunities }),
+    action: ({ pagedCommunities }) => store.mark({ pagedCommunities }),
   },
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
-      store.markState({ pagedCommunities }),
+      store.mark({ pagedCommunities }),
   },
   {
     match: asyncRes('setCommunity'),

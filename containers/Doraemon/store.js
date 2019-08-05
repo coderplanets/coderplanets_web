@@ -182,7 +182,7 @@ const DoraemonStore = t
         nextActiveRaw = self.suggestions[self.suggestionCount - 1].raw
       }
 
-      self.markState({
+      self.mark({
         activeRaw: nextActiveRaw,
       })
     },
@@ -197,12 +197,12 @@ const DoraemonStore = t
         nextActiveRaw = self.suggestions[0].raw
       }
 
-      self.markState({
+      self.mark({
         activeRaw: nextActiveRaw,
       })
     },
     activeTo(activeRaw) {
-      self.markState({ activeRaw })
+      self.mark({ activeRaw })
     },
     open(forcus = true) {
       self.visible = true
@@ -225,7 +225,7 @@ const DoraemonStore = t
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

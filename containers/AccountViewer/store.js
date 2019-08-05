@@ -55,7 +55,7 @@ const AccountViewerStore = t
     updateAccount(data) {
       self.root.account.updateAccount(data)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -34,7 +34,7 @@ const openAttachment = att => {
   }
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 // ###############################
 // Data & Error handlers

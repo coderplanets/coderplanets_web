@@ -43,7 +43,7 @@ const PostViewer = t
     syncViewingItem(item) {
       self.root.viewing.syncViewingItem(item)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -40,7 +40,7 @@ const UserSettings = t
     sponsorHepler() {
       self.root.sponsorHepler()
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

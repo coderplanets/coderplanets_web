@@ -67,7 +67,7 @@ const Cashier = t
       self.paymentUsage = paymentUsage
       self.amount = String(amount)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))
