@@ -1,6 +1,6 @@
 {
   "name": "coderplanets_web",
-  "version": "0.4.2",
+  "version": "0.5.1",
   "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev node server.js",
@@ -145,7 +145,7 @@
     "commitizen": "3.1.2",
     "coveralls": "3.0.3",
     "cross-env": "^5.0.5",
-    "cypress": "^3.0.2",
+    "cypress": "3.4.1",
     "cz-conventional-changelog": "^3.0.0",
     "dotenv": "6.2.0",
     "dotenv-webpack": "1.6.0",
@@ -163,7 +163,7 @@
     "react-test-renderer": "16.8.1",
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
-    "standard-version": "^4.4.0",
+    "standard-version": "^7.0.0",
     "start-server-and-test": "^1.7.13"
   }
 }
