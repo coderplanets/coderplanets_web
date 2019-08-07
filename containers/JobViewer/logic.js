@@ -48,12 +48,12 @@ const openAttachment = att => {
 
   if (type === TYPE.PREVIEW_JOB_VIEW) {
     loadJob(att)
-    store.markState({ type })
+    store.mark({ type })
     store.setViewing({ job: att })
   }
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################

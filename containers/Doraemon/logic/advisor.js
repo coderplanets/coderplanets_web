@@ -73,7 +73,7 @@ export class Advisor {
       return R.path(p, this.curSuggestions)
     }
     const cmdChain = insertBetweenPath(p)
-    this.store.markState({ cmdChain })
+    this.store.mark({ cmdChain })
     return R.path(cmdChain, this.curSuggestions) || {}
   }
 

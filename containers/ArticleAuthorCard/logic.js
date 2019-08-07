@@ -19,7 +19,7 @@ export const loadUser = user => {
   if (!store.isLogin) return false
   const { login } = user
 
-  store.markState({ user })
+  store.mark({ user })
   sr71$.query(S.user, { login, userHasLogin: store.isLogin })
 }
 
@@ -27,11 +27,11 @@ export const onListUsers = (type, data) =>
   send(EVENT.USER_LISTER_OPEN, { type, data })
 
 export const onFollow = userId => {
-  store.markState({ following: true })
+  store.mark({ following: true })
   sr71$.mutate(S.follow, { userId })
 }
 export const onUndoFollow = userId => {
-  store.markState({ following: true })
+  store.mark({ following: true })
   sr71$.mutate(S.undoFollow, { userId })
 }
 
@@ -47,14 +47,14 @@ const DataSolver = [
   {
     match: asyncRes('follow'),
     action: ({ follow: user }) => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       store.updateUser(user)
     },
   },
   {
     match: asyncRes('undoFollow'),
     action: ({ undoFollow: user }) => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       store.updateUser(user)
     },
   },
@@ -62,19 +62,19 @@ const DataSolver = [
 const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
-    action: () => store.markState({ following: false }),
+    action: () => store.mark({ following: false }),
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'ArticleAuthorCard' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       errRescue({ type: ERR.NETWORK, path: 'ArticleAuthorCard' })
     },
   },

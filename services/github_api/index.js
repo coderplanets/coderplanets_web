@@ -7,7 +7,7 @@ import { searchUserPromise, ransformUser } from './user_search'
 import { searchWikiPromise } from './wiki_search'
 import { searchCheatsheeetPromise } from './cheatsheet_search'
 
-const githubApi = {
+const githubAPI = {
   // search repo
   searchRepo: (owner, name) => searchRepoPromise(owner, name),
   transformRepo: res => transformRepo(res),
@@ -34,4 +34,4 @@ const githubApi = {
   },
 }
 
-export default githubApi
+export default githubAPI

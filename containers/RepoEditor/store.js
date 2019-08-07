@@ -54,7 +54,7 @@ const RepoEditor = t
     },
     handleError(errorType) {
       log(errorType)
-      self.markState({ errorType, searching: false })
+      self.mark({ errorType, searching: false })
       switch (errorType) {
         case ERR.NOT_FOUND:
           return self.changesetErr({
@@ -118,7 +118,7 @@ const RepoEditor = t
         }
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -57,7 +57,7 @@ const TagsBar = t
       }
       return false
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -144,6 +144,17 @@ export const SimpleUser = t.model('SimpleUser2', {
   avatar: t.maybeNull(t.string),
 })
 
+export const EmptyAchievement = {
+  achievement: {
+    reputation: 0,
+    contentsStaredCount: 0,
+    contentsFavoritedCount: 0,
+    donateMember: false,
+    seniorMember: false,
+    sponsorMember: false,
+  },
+}
+
 export const EmptyUser = {
   id: '',
   nickname: '',
@@ -157,17 +168,6 @@ export const EmptyUser = {
   githubProfile: null,
   // cmsPassportString: '{}',
   ...EmptyAchievement,
-}
-
-export const EmptyAchievement = {
-  achievement: {
-    reputation: 0,
-    contentsStaredCount: 0,
-    contentsFavoritedCount: 0,
-    donateMember: false,
-    seniorMember: false,
-    sponsorMember: false,
-  },
 }
 
 export const PagedUsers = t.model('PagedUsers', {

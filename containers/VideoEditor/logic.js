@@ -43,7 +43,7 @@ export const onPublish = () => {
     args.tags = store.labelsData.tags
   }
 
-  store.markState({ publishing: true })
+  store.mark({ publishing: true })
   if (isEdit) {
     const args = cast(updatableFields, store.editVideoData)
     return sr71$.mutate(S.updateVideo, args)
@@ -52,7 +52,7 @@ export const onPublish = () => {
 }
 
 export const canclePublish = () => {
-  store.markState({ publishing: false })
+  store.mark({ publishing: false })
   sr71$.stop()
   closePreviewer()
 }
@@ -60,7 +60,7 @@ export const canclePublish = () => {
 export const usePosterAsThumbnil = () =>
   store.updateEditing({ poster: store.editVideoData.thumbnil })
 
-const cancleLoading = () => store.markState({ publishing: false })
+const cancleLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -109,7 +109,7 @@ const openAttachment = att => {
   if (!att) return false
   const { type } = att
   if (type === TYPE.PREVIEW_VIDEO_EDIT) {
-    store.markState({ editVideo: att, isEdit: true })
+    store.mark({ editVideo: att, isEdit: true })
   }
 }
 
@@ -125,7 +125,7 @@ export const useInit = (_store, attachment) => {
 
     return () => {
       // log('effect uninit')
-      store.markState({ isEdit: false, editVideo: { source: 'youtube' } })
+      store.mark({ isEdit: false, editVideo: { source: 'youtube' } })
       sr71$.stop()
       sub$.unsubscribe()
     }

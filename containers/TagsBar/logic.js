@@ -35,7 +35,7 @@ export const loadTags = (topic = TOPIC.POST) => {
   const args = { community, thread, topic }
 
   /* log('#### loadTags --> ', args) */
-  store.markState({ loading: true })
+  store.mark({ loading: true })
   sr71$.query(S.partialTags, args)
 }
 
@@ -46,14 +46,13 @@ export const loadTags = (topic = TOPIC.POST) => {
 const DataSolver = [
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) =>
-      store.markState({ tags, loading: false }),
+    action: ({ partialTags: tags }) => store.mark({ tags, loading: false }),
   },
   {
     match: asyncRes(EVENT.COMMUNITY_CHANGE),
     action: () => {
       loadTags()
-      store.markState({ activeTag: null })
+      store.mark({ activeTag: null })
     },
   },
   {
@@ -61,7 +60,7 @@ const DataSolver = [
     action: data => {
       const { topic } = data[EVENT.TABBER_CHANGE].data
       loadTags(topic)
-      store.markState({ activeTag: null })
+      store.mark({ activeTag: null })
     },
   },
 ]
@@ -69,20 +68,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'AccountEditor' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markState({ loading: false })
+      store.mark({ loading: false })
       errRescue({ type: ERR.NETWORK, path: 'AccountEditor' })
     },
   },
@@ -99,7 +98,7 @@ export const useInit = (_store, thread, topic, active) => {
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     let activeTag = R.pick(['id', 'title', 'color'], active)
     if (R.isEmpty(activeTag.title)) activeTag = null
-    store.markState({ thread, topic, activeTag })
+    store.mark({ thread, topic, activeTag })
 
     return () => {
       log('effect uninit')

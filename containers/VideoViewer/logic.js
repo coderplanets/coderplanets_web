@@ -21,7 +21,7 @@ function loadVideo({ id }) {
   sr71$.query(S.video, variables)
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 // ###############################
 // Data & Error handlers
 // ###############################

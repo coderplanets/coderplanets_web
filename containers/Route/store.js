@@ -8,7 +8,13 @@ import R from 'ramda'
 // import Router from 'next/router'
 
 import { PAGE_SIZE } from '@config'
-import { Global, onClient, markStates, buildLog, serializeQuery } from '@utils'
+import {
+  Global,
+  isClientSide,
+  markStates,
+  buildLog,
+  serializeQuery,
+} from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')
@@ -23,6 +29,8 @@ const Query = t.model('Query', {
 
 const RouteStore = t
   .model('RouteStore', {
+    communityPath: t.optional(t.string, ''),
+    threadPath: t.optional(t.string, ''),
     mainPath: t.optional(t.string, ''),
     subPath: t.optional(t.string, ''),
     query: t.optional(Query, {}),
@@ -32,13 +40,15 @@ const RouteStore = t
       return getParent(self)
     },
     get curRoute() {
-      const { mainPath, subPath } = self
-      return { mainPath, subPath }
+      const { communityPath, threadPath, mainPath, subPath } = self
+      return { communityPath, threadPath, mainPath, subPath }
     },
   }))
   .actions(self => ({
+    // TODO:  if current url is subdomain, then we should
+    // reload to that page directly
     markRoute(query) {
-      if (!onClient) return false
+      if (!isClientSide) return false
       const { mainPath, subPath, page } = query
       query = R.pickBy(v => !R.isEmpty(v), query)
 
@@ -62,7 +72,7 @@ const RouteStore = t
       // NOTE:  Router.push(url, asPath, { shallow: true }) is not working on pruction env
       return Global.history.pushState({}, null, asPath)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

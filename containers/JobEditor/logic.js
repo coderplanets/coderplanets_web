@@ -29,7 +29,7 @@ let store = null
 let sub$ = null
 let saveDraftTimmer = null
 
-export const changeView = curView => store.markState({ curView })
+export const changeView = curView => store.mark({ curView })
 
 const getDigest = body => {
   /* eslint-disable no-undef */
@@ -107,7 +107,7 @@ export const onMentionSearch = name => {
   if (name && name.length >= 2) {
     sr71$.query(S.searchUsers, { name })
   } else {
-    store.markState({ mentionList: [] })
+    store.mark({ mentionList: [] })
   }
 }
 
@@ -122,7 +122,7 @@ const openAttachment = att => {
   if (type === TYPE.PREVIEW_JOB_EDIT) loadJob(att.id)
 
   store.updateEditing(att)
-  store.markState({ isEdit: true })
+  store.mark({ isEdit: true })
 }
 
 const doneCleanUp = () => {
@@ -133,7 +133,7 @@ const doneCleanUp = () => {
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 export const bodyInputOnChange = content => {
-  store.markState({ extractMentions: extractMentions(content) })
+  store.mark({ extractMentions: extractMentions(content) })
 
   if (store.isEdit && content === '') return false
   // extractMentions: extractMentions(content)
@@ -149,8 +149,8 @@ const saveDraftIfNeed = content => {
 
 const clearDraft = () => BStore.set('recentDraft', '')
 
-const publishing = (maybe = true) => store.markState({ publishing: maybe })
-const cancleLoading = () => store.markState({ publishing: false })
+const publishing = (maybe = true) => store.mark({ publishing: maybe })
+const cancleLoading = () => store.mark({ publishing: false })
 
 // ###############################
 // Data & Error handlers
@@ -238,7 +238,7 @@ export const useInit = (_store, attachment) => {
     return () => {
       // log('effect uninit')
       if (saveDraftTimmer) clearInterval(saveDraftTimmer)
-      store.markState({ editJob: {} })
+      store.mark({ editJob: {} })
       sr71$.stop()
       sub$.unsubscribe()
     }

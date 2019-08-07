@@ -66,7 +66,7 @@ const ViewingStore = t
   }))
   .actions(self => ({
     setViewing(sobj) {
-      self.markState(sobj)
+      self.mark(sobj)
     },
     updateViewingIfNeed(type, sobj) {
       switch (type) {
@@ -80,7 +80,7 @@ const ViewingStore = t
     },
     updateViewingUser(sobj) {
       const user = R.merge(self.user, sobj)
-      return self.markState({ user })
+      return self.mark({ user })
     },
     syncViewingItem(item) {
       const curThread = self.viewingThread || self.activeThread
@@ -96,7 +96,7 @@ const ViewingStore = t
         }
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

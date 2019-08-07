@@ -38,9 +38,9 @@ const JobContent = t
       self.root.setViewing(sobj)
     },
     updateTagsBar(tags) {
-      self.root.tagsBar.markState({ tags })
+      self.root.tagsBar.mark({ tags })
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

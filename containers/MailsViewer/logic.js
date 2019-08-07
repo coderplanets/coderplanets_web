@@ -16,8 +16,7 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const selectChange = ({ raw: activeRaw }) =>
-  store.markState({ activeRaw })
+export const selectChange = ({ raw: activeRaw }) => store.mark({ activeRaw })
 
 export const loadMentions = (page = 1) => {
   markLoading(false)
@@ -28,11 +27,11 @@ export const loadMentions = (page = 1) => {
   /* sr71$.query(S.mentions, { filter: { page: 1, size: 10 } }) */
 }
 export const toggleReadState = () => {
-  store.markState({ readState: !store.readState })
+  store.mark({ readState: !store.readState })
   loadMentions()
 }
 
-const markLoading = (maybe = true) => store.markState({ loading: maybe })
+const markLoading = (maybe = true) => store.mark({ loading: maybe })
 
 // ###############################
 // Data & Error handlers
@@ -43,7 +42,7 @@ const DataSolver = [
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
       markLoading(false)
-      store.markState({ pagedMentions })
+      store.mark({ pagedMentions })
     },
   },
 ]

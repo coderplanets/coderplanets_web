@@ -194,7 +194,7 @@ const CommentsStore = t
       const index = R.findIndex(R.propEq('id', id), entries)
       self.pagedComments.entries[index] = R.merge(entries[index], comment)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

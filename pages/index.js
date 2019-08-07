@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 
 import { ROUTE } from '@constant'
-import { buildLog, getMainPath } from '@utils'
+import { buildLog, parseURL, isServerSide } from '@utils'
 import AnalysisService from '@services/Analysis'
 
 import GlobalLayout from '@containers/GlobalLayout'
@@ -37,16 +37,13 @@ global.Intl = require('intl')
  */
 export default class PageCommunity extends React.Component {
   static async getInitialProps(props) {
-    const isServer = typeof window === 'undefined'
-    console.log('page:index isServer: ', isServer)
+    if (!isServerSide) return {}
 
-    if (!isServer) return {}
+    const { communityPath, threadPath } = parseURL(props)
 
-    const mainPath = getMainPath(props)
-    const subPath = getMainPath(props)
     const hideSidebar =
-      R.contains(mainPath, [ROUTE.USER]) ||
-      R.contains(subPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
+      R.contains(communityPath, [ROUTE.USER]) ||
+      R.contains(threadPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
 
     return {
       hideSidebar,

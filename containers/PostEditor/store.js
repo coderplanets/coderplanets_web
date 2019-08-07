@@ -108,10 +108,10 @@ const PostEditor = t
     },
     updateEditing(sobj) {
       const editPost = R.merge(self.editData, { ...sobj })
-      return self.markState({ editPost })
+      return self.mark({ editPost })
     },
     reset() {
-      self.markState({ isEdit: false, mentionList: [] })
+      self.mark({ isEdit: false, mentionList: [] })
       self.editPost = { title: '', body: '' }
     },
     updateMentionList(mentionArray) {
@@ -130,7 +130,7 @@ const PostEditor = t
         })
       }
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

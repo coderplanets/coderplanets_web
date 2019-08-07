@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 
 import S from './schema'
 
@@ -21,7 +21,7 @@ let store = null
 const loadWiki = () => {
   const community = store.curCommunity.raw
 
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.wiki, { community })
 }
 
@@ -32,25 +32,25 @@ const syncWiki = readme => {
     communityId: store.curCommunity.id,
   }
 
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.mutate(S.syncWiki, args)
 }
 
-export const syncWarnOnClose = () => store.markState({ showSyncWarning: false })
+export const syncWarnOnClose = () => store.mark({ showSyncWarning: false })
 
 export const syncWikiFromGithub = () => {
   if (nilOrEmpty(BStore.get('github_token'))) {
-    return store.markState({ showSyncWarning: true })
+    return store.mark({ showSyncWarning: true })
   }
 
-  githubApi
+  githubAPI
     .searchWiki(store.curCommunity.raw)
     .then(res => {
       if (!res || R.startsWith('404', res))
-        return store.markState({ curView: TYPE.NOT_FOUND })
+        return store.mark({ curView: TYPE.NOT_FOUND })
       syncWiki(res)
     })
-    .catch(e => store.handleError(githubApi.parseError(e)))
+    .catch(e => store.handleError(githubAPI.parseError(e)))
 }
 
 export const addContributor = user => {
@@ -70,7 +70,7 @@ const DataSolver = [
     match: asyncRes('wiki'),
     action: ({ wiki }) => {
       const curView = R.isEmpty(wiki.readme) ? TYPE.RESULT_EMPTY : TYPE.RESULT
-      store.markState({ wiki, curView })
+      store.mark({ wiki, curView })
     },
   },
   {
@@ -98,7 +98,7 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      store.markState({ curView: TYPE.NOT_FOUND })
+      store.mark({ curView: TYPE.NOT_FOUND })
     },
   },
   {

@@ -9,9 +9,7 @@ import {
   getJwtToken,
   nilOrEmpty,
   makeGQClient,
-  getMainPath,
-  getSubPath,
-  getThirdPath,
+  parseURL,
   ssrAmbulance,
   parseTheme,
 } from '@utils'
@@ -45,7 +43,7 @@ async function fetchData(props, opt) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  const id = getThirdPath(props)
+  const { thridPath: id } = parseURL(props)
 
   const sessionState = gqClient.request(P.sessionState)
   const repo = gqClient.request(P.repo, { id })
@@ -72,6 +70,7 @@ async function fetchData(props, opt) {
 
 export default class RepoPage extends React.Component {
   static async getInitialProps(props) {
+    const { mainPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -79,15 +78,14 @@ export default class RepoPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 
-    const mainPath = getMainPath(props)
     const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
     if (!R.contains(mainPath, R.pluck('raw', repo.communities))) {
-      return { statusCode: 404, target: getSubPath(props) }
+      return { statusCode: 404, target: subPath }
     }
 
     return {

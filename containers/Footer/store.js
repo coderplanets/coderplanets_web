@@ -61,7 +61,7 @@ const Footer = t
     closeSponsor() {
       self.showSponsor = false
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

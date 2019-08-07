@@ -41,7 +41,7 @@ export const loadComents = (args = {}) => {
   args.thread = store.activeThread
 
   markLoading(args.fresh)
-  store.markState({ filterType: args.filter.sort })
+  store.mark({ filterType: args.filter.sort })
 
   log('pagedComments args: ', args)
   sr71$.query(S.pagedComments, args)
@@ -49,16 +49,16 @@ export const loadComents = (args = {}) => {
 
 const markLoading = fresh => {
   if (fresh) {
-    return store.markState({ loadingFresh: true })
+    return store.mark({ loadingFresh: true })
   }
-  return store.markState({ loading: true })
+  return store.mark({ loading: true })
 }
 
 /* eslint-disable-next-line */
 export const createComment = R.curry((cb, e) => {
   if (!store.validator('create')) return false
 
-  store.markState({ creating: true })
+  store.mark({ creating: true })
   const args = {
     id: store.viewingData.id,
     body: store.editContent,
@@ -73,13 +73,13 @@ export const createComment = R.curry((cb, e) => {
 })
 
 export const createCommentPreview = () =>
-  store.markState({
+  store.mark({
     showInputEditor: false,
     showInputPreview: true,
   })
 
 export const backToEditor = () =>
-  store.markState({
+  store.mark({
     showInputEditor: true,
     showInputPreview: false,
   })
@@ -92,7 +92,7 @@ export const openInputBox = () => {
   if (!store.isLogin) return store.authWarning({ hideToast: true })
 
   initDraftTimmer()
-  store.markState({
+  store.mark({
     showInputBox: true,
     showInputEditor: true,
   })
@@ -101,13 +101,13 @@ export const openInputBox = () => {
 export const openCommentEditor = () => {
   initDraftTimmer()
 
-  store.markState({
+  store.mark({
     showInputEditor: true,
   })
 }
 
 export const onCommentInputBlur = () =>
-  store.markState({
+  store.mark({
     showInputBox: false,
     showInputPreview: false,
     showInputEditor: false,
@@ -126,7 +126,7 @@ export const createReplyComment = () => {
 
   if (store.replying) return false
 
-  store.markState({ replying: true })
+  store.mark({ replying: true })
   return sr71$.mutate(S.replyComment, {
     id: store.replyToComment.id,
     body: store.replyContent,
@@ -137,21 +137,21 @@ export const createReplyComment = () => {
 }
 
 export const onCommentInputChange = editContent =>
-  store.markState({
+  store.mark({
     countCurrent: countWords(editContent),
     extractMentions: extractMentions(editContent),
     editContent,
   })
 
 export const onReplyInputChange = replyContent =>
-  store.markState({
+  store.mark({
     countCurrent: countWords(replyContent),
     extractMentions: extractMentions(replyContent),
     replyContent,
   })
 
 export const openUpdateEditor = data =>
-  store.markState({
+  store.mark({
     isEdit: true,
     showReplyBox: true,
     showReplyEditor: true,
@@ -161,9 +161,10 @@ export const openUpdateEditor = data =>
   })
 
 export const openReplyEditor = data => {
-  initDraftTimmer()
+  if (!store.isLogin) return store.authWarning()
 
-  store.markState({
+  initDraftTimmer()
+  store.mark({
     showReplyBox: true,
     showReplyEditor: true,
     showReplyPreview: false,
@@ -174,19 +175,19 @@ export const openReplyEditor = data => {
 }
 
 export const replyCommentPreview = () =>
-  store.markState({
+  store.mark({
     showReplyEditor: false,
     showReplyPreview: true,
   })
 
 export const replyBackToEditor = () =>
-  store.markState({
+  store.mark({
     showReplyEditor: true,
     showReplyPreview: false,
   })
 
 export const closeReplyBox = () => {
-  store.markState({
+  store.mark({
     showReplyBox: false,
     showReplyEditor: false,
     showReplyPreview: false,
@@ -194,7 +195,7 @@ export const closeReplyBox = () => {
 }
 
 export const onFilterChange = filterType => {
-  store.markState({ filterType })
+  store.mark({ filterType })
   loadComents({ filter: { page: 1, sort: filterType } })
 }
 
@@ -253,8 +254,8 @@ export const deleteComment = () =>
   })
 
 // show delete confirm
-export const onDelete = comment => store.markState({ tobeDeleteId: comment.id })
-export const cancleDelete = () => store.markState({ tobeDeleteId: null })
+export const onDelete = comment => store.mark({ tobeDeleteId: comment.id })
+export const cancleDelete = () => store.mark({ tobeDeleteId: null })
 
 export const pageChange = (page = 1) => {
   scrollIntoEle('lists-info')
@@ -262,7 +263,7 @@ export const pageChange = (page = 1) => {
 }
 
 const cancelLoading = () =>
-  store.markState({ loading: false, loadingFresh: false, creating: false })
+  store.mark({ loading: false, loadingFresh: false, creating: false })
 
 export const onReplyEditorClose = () => {
   closeReplyBox()
@@ -286,13 +287,13 @@ const DataSolver = [
     match: asyncRes('pagedComments'),
     action: ({ pagedComments }) => {
       cancelLoading()
-      store.markState({ pagedComments })
+      store.mark({ pagedComments })
     },
   },
   {
     match: asyncRes('createComment'),
     action: () => {
-      store.markState({
+      store.mark({
         showInputBox: false,
         showInputEditor: false,
         editContent: '',
@@ -310,7 +311,7 @@ const DataSolver = [
   {
     match: asyncRes('replyComment'),
     action: () => {
-      store.markState({
+      store.mark({
         showReplyBox: false,
         replying: false,
         replyToComment: null,
@@ -324,7 +325,7 @@ const DataSolver = [
   {
     match: asyncRes('updateComment'),
     action: ({ updateComment: { id, body } }) => {
-      store.markState({
+      store.mark({
         showReplyBox: false,
         isEdit: false,
         editComment: null,
@@ -357,7 +358,7 @@ const DataSolver = [
     match: asyncRes('deleteComment'),
     action: ({ deleteComment }) => {
       log('deleteComment', deleteComment)
-      store.markState({ tobeDeleteId: null })
+      store.mark({ tobeDeleteId: null })
       scrollIntoEle('lists-info')
       loadComents({ filter: { page: 1 }, fresh: true })
     },

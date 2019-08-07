@@ -117,7 +117,7 @@ const JobsThreadStore = t
     markRoute(query) {
       self.root.markRoute(query)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

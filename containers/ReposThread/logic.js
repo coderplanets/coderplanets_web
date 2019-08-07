@@ -43,7 +43,7 @@ export const loadRepos = (page = 1) => {
   args.filter = R.pickBy(notEmpty, args.filter)
 
   log('load repos --> ', args)
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.pagedRepos, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -109,12 +109,12 @@ const DataSolver = [
       if (pagedRepos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      store.markState({ curView, pagedRepos })
+      store.mark({ curView, pagedRepos })
     },
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => store.mark({ tags }),
   },
   {
     match: asyncRes(EVENT.TABBER_CHANGE),
@@ -122,7 +122,7 @@ const DataSolver = [
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.REPO) {
-        store.markState({ activeTag: null })
+        store.mark({ activeTag: null })
         return loadRepos()
       }
     },

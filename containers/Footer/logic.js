@@ -15,11 +15,11 @@ let sub$ = null
 let store = null
 
 export const toggleSponsorHelper = () =>
-  store.markState({ showSponsor: !store.showSponsor })
+  store.mark({ showSponsor: !store.showSponsor })
 
 export const toggleSeniorHelper = () => store.upgradeHepler()
 export const toggleBusBanner = () =>
-  store.markState({ showBusBanner: !store.showBusBanner })
+  store.mark({ showBusBanner: !store.showBusBanner })
 
 export const onLogin = () => store.authWarning({ hideToast: true })
 export const onPay = num => {

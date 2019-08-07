@@ -27,7 +27,7 @@ export const searchOnChange = e => {
 
 export const tabOnChange = activeTab => {
   store.markRoute({ subPath: activeTab })
-  store.markState({ activeTab })
+  store.mark({ activeTab })
   send(EVENT.REFRESH_COMMUNITIES, { data: activeTab })
 }
 // ###############################
@@ -37,7 +37,7 @@ export const tabOnChange = activeTab => {
 const DataSolver = [
   {
     match: asyncRes('pagedCategories'),
-    action: ({ pagedCategories }) => store.markState({ pagedCategories }),
+    action: ({ pagedCategories }) => store.mark({ pagedCategories }),
   },
 ]
 const ErrSolver = []

@@ -13,7 +13,7 @@ import {
   makeGQClient,
   queryStringToJSON,
   nilOrEmpty,
-  getSubPath,
+  parseURL,
   pagedFilter,
   ssrAmbulance,
   parseTheme,
@@ -47,7 +47,8 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const login = R.toLower(getSubPath(props))
+  const { subPath } = parseURL(props)
+  const login = R.toLower(subPath)
 
   const sessionState = gqClient.request(P.sessionState)
   const user = gqClient.request(P.user, { login, userHasLogin })
@@ -69,6 +70,7 @@ export default class UserPage extends React.Component {
     const { asPath } = props
 
     const query = queryStringToJSON(asPath)
+    const { subPath } = parseURL(props)
 
     let resp
     try {
@@ -77,7 +79,7 @@ export default class UserPage extends React.Component {
       if (ssrAmbulance.hasLoginError(errors)) {
         resp = await fetchData(props, { realname: false })
       } else {
-        return { statusCode: 404, target: getSubPath(props) }
+        return { statusCode: 404, target: subPath }
       }
     }
 

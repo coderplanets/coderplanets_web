@@ -19,7 +19,7 @@ export const followUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
   log('followUser: ', userId)
-  store.markState({ following: true })
+  store.mark({ following: true })
   sr71$.mutate(S.follow, { userId })
 }
 
@@ -27,7 +27,7 @@ export const undoFollowUser = userId => {
   if (!store.isLogin) return store.authWarning()
 
   log('undoFollowUser: ', userId)
-  store.markState({ following: true })
+  store.mark({ following: true })
   sr71$.mutate(S.undoFollow, { userId })
 }
 
@@ -58,7 +58,7 @@ export const showFollowers = user => {
 }
 
 export const tabOnChange = activeThread => {
-  store.markState({ activeThread })
+  store.mark({ activeThread })
   store.markRoute({ tab: activeThread })
 }
 
@@ -79,7 +79,7 @@ const DataSolver = [
     match: asyncRes('user'),
     action: ({ user }) => {
       store.updateViewingUser(user)
-      store.markState({ following: false })
+      store.mark({ following: false })
     },
   },
 ]
@@ -88,20 +88,20 @@ const ErrSolver = [
   {
     match: asyncErr(ERR.GRAPHQL),
     action: () => {
-      store.markState({ following: false })
+      store.mark({ following: false })
     },
   },
   {
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       errRescue({ type: ERR.TIMEOUT, details, path: 'UserContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
-      store.markState({ following: false })
+      store.mark({ following: false })
       errRescue({ type: ERR.NETWORK, path: 'UserContent' })
     },
   },

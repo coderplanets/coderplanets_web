@@ -42,7 +42,7 @@ const VideoEditor = t
     },
     updateEditing(sobj) {
       const editVideo = R.merge(self.editVideoData, { ...sobj })
-      self.markState({ editVideo })
+      self.mark({ editVideo })
     },
     validator(type) {
       switch (type) {
@@ -96,7 +96,7 @@ const VideoEditor = t
       self.editVideo = { source: 'youtube' }
       self.publishing = false
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Global, buildLog, getMainPath, getSubPath } from '@utils'
+import { Global, buildLog, parseURL } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Route')
@@ -20,11 +20,10 @@ export const init = (_store, routeObj) => {
 
   store = _store
   // sync init router info
-  const mainPath = getMainPath(routeObj)
-  const subPath = getSubPath(routeObj)
+  const { mainPath, subPath } = parseURL(routeObj)
   const { query } = routeObj
 
-  store.markState({ mainPath, subPath, query })
+  store.mark({ mainPath, subPath, query })
 
   Global.onpopstate = browserHistoryBtnClicked
 }
@@ -35,11 +34,10 @@ export const useInit = (_store, routeObj) => {
   useEffect(() => {
     store = _store
     // sync init router info
-    const mainPath = getMainPath(routeObj)
-    const subPath = getSubPath(routeObj)
+    const { mainPath, subPath } = parseURL(routeObj)
     const { query } = routeObj
 
-    store.markState({ mainPath, subPath, query })
+    store.mark({ mainPath, subPath, query })
 
     Global.onpopstate = browserHistoryBtnClicked
   }, [_store, routeObj])

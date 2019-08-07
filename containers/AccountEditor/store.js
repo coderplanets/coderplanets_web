@@ -115,7 +115,7 @@ const AccountEditorStore = t
 
     updateEditing(sobj) {
       const editUser = R.merge(self.editUser, { ...sobj })
-      self.markState({ editUser })
+      self.mark({ editUser })
     },
 
     addBackground(type) {
@@ -126,7 +126,7 @@ const AccountEditorStore = t
         workBackgrounds = R.concat([self.workBgData], workBackgrounds)
 
         self.updateEditing({ workBackgrounds })
-        return self.markState({ workBg: { company: '', title: '' } })
+        return self.mark({ workBg: { company: '', title: '' } })
       }
 
       let educationBackgrounds = R.clone(self.editUserData.educationBackgrounds)
@@ -135,9 +135,9 @@ const AccountEditorStore = t
         educationBackgrounds
       )
       self.updateEditing({ educationBackgrounds })
-      self.markState({ educationBg: { school: '', major: '' } })
+      self.mark({ educationBg: { school: '', major: '' } })
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

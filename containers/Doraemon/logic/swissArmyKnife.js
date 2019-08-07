@@ -33,7 +33,7 @@ export class SwissArmyKnife {
 
     if (into) inputValue = `${inputValue}/`
     // log('new input: ', newInput)
-    this.store.markState({
+    this.store.mark({
       inputValue,
     })
   }

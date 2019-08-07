@@ -42,7 +42,7 @@ export const loadVideos = (page = 1) => {
   args.filter = R.pickBy(notEmpty, args.filter)
 
   log('load videos --> ', args)
-  store.markState({ curView: TYPE.LOADING })
+  store.mark({ curView: TYPE.LOADING })
   sr71$.query(S.pagedVideos, args)
   store.markRoute({ page, ...store.filtersData })
 }
@@ -109,7 +109,7 @@ const DataSolver = [
       if (pagedVideos.entries.length === 0) {
         curView = TYPE.RESULT_EMPTY
       }
-      store.markState({ curView, pagedVideos })
+      store.mark({ curView, pagedVideos })
     },
   },
   {
@@ -118,7 +118,7 @@ const DataSolver = [
       const { data } = res[EVENT.TABBER_CHANGE]
       const { activeThread } = data
       if (activeThread === THREAD.VIDEO) {
-        store.markState({ activeTag: null })
+        store.mark({ activeTag: null })
         return loadVideos()
       }
     },
@@ -136,7 +136,7 @@ const DataSolver = [
   },
   {
     match: asyncRes('partialTags'),
-    action: ({ partialTags: tags }) => store.markState({ tags }),
+    action: ({ partialTags: tags }) => store.mark({ tags }),
   },
 ]
 

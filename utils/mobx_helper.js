@@ -77,7 +77,7 @@ export const $solver = R.curry((dataResolver, errResolver, data) =>
  */
 export const markStates = (sobj, self) => {
   if (!isObject(sobj)) {
-    throw new Error('markState: invalid sobj, exepect a object')
+    throw new Error('mark: invalid sobj, exepect a object')
   }
   const selfKeys = R.keys(self)
 
@@ -102,9 +102,9 @@ export const markStates = (sobj, self) => {
 }
 
 export const flashState = (store, state, value, secs = 5) => {
-  store.markState({ [state]: value })
+  store.mark({ [state]: value })
   setTimeout(() => {
-    store.markState({ [state]: '' })
+    store.mark({ [state]: '' })
   }, secs * 1000)
 }
 
@@ -120,13 +120,13 @@ export const meteorState = (store, state, secs, statusMsg = '') => {
     return false
   }
 
-  store.markState({
+  store.mark({
     [state]: true,
     statusMsg,
   })
 
   setTimeout(() => {
-    store.markState({
+    store.mark({
       [state]: false,
       statusMsg: '',
     })

@@ -54,7 +54,7 @@ export const ThemeStore = t
       self.curTheme = name
       // self.checkSetable()
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

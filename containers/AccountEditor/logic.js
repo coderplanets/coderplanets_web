@@ -36,11 +36,11 @@ export const socialOnChange = R.curry((part, e) => {
   const { editUserData: editUser } = store
   editUser.social[part] = e.target.value
 
-  store.markState({ editUser })
+  store.mark({ editUser })
 })
 
 export const updateBackground = R.curry((key, part, { target: { value } }) =>
-  store.markState({ [key]: R.merge(store[key], { [part]: value }) })
+  store.mark({ [key]: R.merge(store[key], { [part]: value }) })
 )
 
 /* eslint-disable no-unused-vars */
@@ -88,7 +88,7 @@ export const updateConfirm = () => {
   if (!R.isEmpty(workBackgrounds)) args.workBackgrounds = workBackgrounds
   if (!R.isEmpty(social)) args.social = social
 
-  store.markState({ updating: true })
+  store.mark({ updating: true })
   log('args: ', args)
   sr71$.mutate(S.updateProfile, args)
 }
@@ -101,9 +101,9 @@ export const updateDone = () => {
 }
 
 export const toggleSocials = () =>
-  store.markState({ showSocials: !store.showSocials })
+  store.mark({ showSocials: !store.showSocials })
 
-const cancleLoading = () => store.markState({ updating: false })
+const cancleLoading = () => store.mark({ updating: false })
 
 // ###############################
 // Data & Error handlers

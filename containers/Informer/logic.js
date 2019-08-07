@@ -15,16 +15,16 @@ let sub$ = null
 let store = null
 
 export const toggleModal = () =>
-  store.markState({
+  store.mark({
     showModal: !store.showModal,
   })
 
 export const backToOverview = () =>
-  store.markState({
+  store.mark({
     curView: 'overview',
   })
 
-export const onMessageChange = e => store.markState({ message: e.target.value })
+export const onMessageChange = e => store.mark({ message: e.target.value })
 
 export const onConfirm = () => {
   log('onConfirm')
@@ -37,7 +37,7 @@ export const onConfirm = () => {
 }
 
 export const yesReport = type =>
-  store.markState({
+  store.mark({
     curView: 'form',
     type,
   })
@@ -74,7 +74,7 @@ export const useInit = _store =>
 
     return () => {
       if (!sub$) return false
-      store.markState({ curView: 'overview' })
+      store.mark({ curView: 'overview' })
       sr71$.stop()
       sub$.unsubscribe()
       sub$ = null

@@ -32,7 +32,7 @@ const VideoViewer = t
     setViewing(sobj) {
       self.root.setViewing(sobj)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

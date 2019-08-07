@@ -13,10 +13,9 @@ const sr71$ = new SR71()
 let sub$ = null
 let store = null
 
-export const toggleModal = () =>
-  store.markState({ showModal: !store.showModal })
+export const toggleModal = () => store.mark({ showModal: !store.showModal })
 
-export const onMessageChange = e => store.markState({ message: e.target.value })
+export const onMessageChange = e => store.mark({ message: e.target.value })
 
 export const onConfirm = () => {
   store.toastDone({
