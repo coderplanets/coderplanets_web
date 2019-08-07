@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@constant'
 import { asyncSuit, buildLog, errRescue } from '@utils'
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 
 import S from './schema'
 
@@ -62,12 +62,12 @@ const DataSolver = [
       log('should sync repo: ', store.viewingData)
       const { id, ownerName, title } = store.viewingData
 
-      githubApi
+      githubAPI
         .searchRepo(ownerName, title)
         .then(res =>
-          sr71$.mutate(S.updateRepo, { id, ...githubApi.transformRepo(res) })
+          sr71$.mutate(S.updateRepo, { id, ...githubAPI.transformRepo(res) })
         )
-        .catch(e => store.handleError(githubApi.parseError(e)))
+        .catch(e => store.handleError(githubAPI.parseError(e)))
     },
   },
 ]

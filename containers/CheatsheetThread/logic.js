@@ -5,7 +5,7 @@ import Prism from 'mastani-codehighlight'
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
 
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 import S from './schema'
 
 /* eslint-disable-next-line */
@@ -45,7 +45,7 @@ export const syncCheetsheetFromGithub = () => {
     return store.mark({ showSyncWarning: true })
   }
 
-  githubApi
+  githubAPI
     .searchCheatsheet(store.curCommunity.raw)
     .then(res => {
       if (!res || R.startsWith('404', res))
@@ -53,7 +53,7 @@ export const syncCheetsheetFromGithub = () => {
 
       syncCheatsheet(res)
     })
-    .catch(e => store.handleError(githubApi.parseError(e)))
+    .catch(e => store.handleError(githubAPI.parseError(e)))
 }
 
 export const addContributor = user => {
