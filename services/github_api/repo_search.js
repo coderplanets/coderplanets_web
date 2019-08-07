@@ -1,27 +1,31 @@
 import R from 'ramda'
 import { timeout } from 'promise-timeout'
 
-import { ISSUE_ADDR } from '@config'
-
 import { TIMEOUT_SEC, restEndpoint } from './config'
-import { graphqlClient, restpClient } from './client'
+import { graphqlClient, restClient } from './client'
 
 import S from './schema'
 
-const baseInfoQuery = (owner, name) =>
-  graphqlClient.request(S.repository, { owner, name })
+const baseInfoQuery = (owner, name) => {
+  return graphqlClient.request(S.repository, { owner, name })
+}
 
 const contributorsQuery = (owner, name) => {
   const path = 'contributors?page=1&per_page=8'
   const api = `${restEndpoint}/repos/${owner}/${name}/${path}`
 
-  return restpClient(`${api}`)
+  return restClient(`${api}`)
+}
+
+const readmeQuery = (owner, name) => {
+  return restClient(`${restEndpoint}/repos/${owner}/${name}/readme`, 'raw')
 }
 
 export const searchRepoPromise = (owner, name) =>
   Promise.all([
     timeout(baseInfoQuery(owner, name), TIMEOUT_SEC),
     timeout(contributorsQuery(owner, name), TIMEOUT_SEC),
+    timeout(readmeQuery(owner, name), TIMEOUT_SEC),
   ])
 
 const getRelaseTag = releases => {
@@ -37,7 +41,8 @@ const getLicense = value => {
 // transform to match our model
 export const transformRepo = res => {
   const baseInfoRes = res[0].repository
-  const contributorsRes = res[1].data
+  const contributorsRes = res[1]
+  const readme = res[2]
   const contributors = []
 
   R.forEach(user => {
@@ -61,13 +66,8 @@ export const transformRepo = res => {
     licenseInfo,
     homepageUrl,
     releases,
-    object,
     primaryLanguage,
   } = baseInfoRes
-
-  const readme = object
-    ? object.text
-    : `同步错误: 目前只同步源仓库中的 README.md 文件，如果源仓库中为 README.MD / readme.md / readme.MD 等格式可能会导致该错误。 如果是其他原因，[恳请提交 issue](${ISSUE_ADDR}/new)`
 
   return {
     title: name,

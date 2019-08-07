@@ -13,6 +13,7 @@ const user = `
     }
   }
 `
+
 const repository = `
   query($owner: String!, $name: String!) {
     repository(owner: $owner, name: $name) {
@@ -21,11 +22,6 @@ const repository = `
       url
       licenseInfo {
         key
-      }
-      object(expression: "master:README.md") {
-        ... on Blob {
-          text
-        }
       }
       forkCount
       stargazers {
