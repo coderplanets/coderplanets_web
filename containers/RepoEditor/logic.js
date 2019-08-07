@@ -10,7 +10,7 @@ import {
   BStore,
   errRescue,
 } from '@utils'
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 
 import S from './schema'
 
@@ -41,16 +41,16 @@ export const onGithubSearch = () => {
   const { owner, name } = store
 
   store.mark({ searching: true })
-  githubApi
+  githubAPI
     .searchRepo(owner, name)
     .then(res => {
       store.mark({
-        editRepo: githubApi.transformRepo(res),
+        editRepo: githubAPI.transformRepo(res),
         searching: false,
         curView: 'show',
       })
     })
-    .catch(e => store.handleError(githubApi.parseError(e)))
+    .catch(e => store.handleError(githubAPI.parseError(e)))
 }
 
 /* eslint-disable-next-line */
