@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 
 import S from './schema'
 
@@ -43,14 +43,14 @@ export const syncWikiFromGithub = () => {
     return store.mark({ showSyncWarning: true })
   }
 
-  githubApi
+  githubAPI
     .searchWiki(store.curCommunity.raw)
     .then(res => {
       if (!res || R.startsWith('404', res))
         return store.mark({ curView: TYPE.NOT_FOUND })
       syncWiki(res)
     })
-    .catch(e => store.handleError(githubApi.parseError(e)))
+    .catch(e => store.handleError(githubAPI.parseError(e)))
 }
 
 export const addContributor = user => {

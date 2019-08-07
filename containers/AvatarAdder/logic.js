@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { buildLog } from '@utils'
-import { githubApi } from '@services'
+import { githubAPI } from '@services'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AvatarAdder')
@@ -14,13 +14,13 @@ export const onSearch = e => {
     log('store.searchValue: ', store.searchValue)
     store.mark({ searching: true, searchValue: e.target.value })
 
-    githubApi
+    githubAPI
       .searchUser(store.searchValue)
       .then(res => {
-        store.mark({ githubUser: githubApi.transformUser(res) })
+        store.mark({ githubUser: githubAPI.transformUser(res) })
         store.mark({ searching: false })
       })
-      .catch(e => store.handleError(githubApi.parseError(e)))
+      .catch(e => store.handleError(githubAPI.parseError(e)))
   }
 }
 

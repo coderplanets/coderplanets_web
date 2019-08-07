@@ -50,7 +50,7 @@ export {
   atomizeValues,
 } from './graphql_helper'
 
-// export { default as githubApi } from './github_api'
+// export { default as githubAPI } from './github_api'
 
 export {
   parseURL,
