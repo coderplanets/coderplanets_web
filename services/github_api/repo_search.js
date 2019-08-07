@@ -14,13 +14,21 @@ const contributorsQuery = (owner, name) => {
   const path = 'contributors?page=1&per_page=8'
   const api = `${restEndpoint}/repos/${owner}/${name}/${path}`
 
-  return restClient(`${api}`)
+  return restClient(`${api}`, 'json')
 }
 
 const readmeQuery = (owner, name) => {
   return restClient(`${restEndpoint}/repos/${owner}/${name}/readme`, 'raw')
 }
 
+/**
+ * @param {string} owner: repo owner
+ * @param {string} name: repo name
+ *
+ * NOTE:  use readmeQuery for readme instead of graphql is readme
+ * has a lots of ext, like readme.md | readme.markdown ...
+ *
+ */
 export const searchRepoPromise = (owner, name) =>
   Promise.all([
     timeout(baseInfoQuery(owner, name), TIMEOUT_SEC),

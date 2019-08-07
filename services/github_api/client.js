@@ -24,10 +24,16 @@ const jsonOptions = {
 // graphql client
 export const graphqlClient = makeGithubExplore(graphqlEndpoint, token)
 
-export const restClient = (api, fmt = 'json') => {
-  if (fmt === 'json') {
-    return fetch(`${api}`, jsonOptions).then(r => r.json())
+export const restClient = (api, fmt = 'default') => {
+  switch (fmt) {
+    case 'json': {
+      return fetch(`${api}`, jsonOptions).then(r => r.json())
+    }
+    case 'raw': {
+      return fetch(`${api}`, rawOptions).then(r => r.text())
+    }
+    default: {
+      return fetch(`${api}`).then(r => r.text())
+    }
   }
-
-  return fetch(`${api}`, rawOptions).then(r => r.text())
 }
