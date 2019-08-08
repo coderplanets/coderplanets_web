@@ -1,5 +1,5 @@
 import React from 'react'
-import Remarkable from 'remarkable'
+import { Remarkable } from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 import mentions from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
