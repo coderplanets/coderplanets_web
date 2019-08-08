@@ -1,6 +1,6 @@
 import React from 'react'
 import Masonry from 'react-masonry-component'
-import Remarkable from 'remarkable'
+import { Remarkable } from 'remarkable'
 import remarkableemoj from 'remarkable-emoji'
 // import Prism from 'mastani-codehighlight'
 import { COMMUNITY_CHEATSHEET } from '@config'

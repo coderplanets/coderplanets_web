@@ -7,7 +7,7 @@ import React from 'react'
 import R from 'ramda'
 import T from 'prop-types'
 
-import Remarkable from 'remarkable'
+import { Remarkable } from 'remarkable'
 import emojiPlugin from 'remarkable-emoji'
 import mentionsPlugin from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
