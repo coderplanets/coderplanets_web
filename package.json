@@ -120,6 +120,7 @@
     "sentry-testkit": "^2.1.0",
     "shortid": "^2.2.8",
     "store": "^2.0.12",
+    "stringz": "^2.0.0",
     "styled-components": "4.3.2",
     "timeago-react": "2.0.0",
     "uuid": "^3.3.2"
