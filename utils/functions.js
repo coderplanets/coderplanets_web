@@ -1,5 +1,6 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
+import { limit, length } from 'stringz'
 
 import { TAG_COLOR_ORDER } from '@config'
 import { EVENT } from '@constant'
@@ -46,16 +47,7 @@ export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
  * @param {*number} len 需要显示多少个汉字，两个英文字母相当于一个汉字
  */
 export const cutFrom = (str, len = 20) => {
-  const reg = /[\u4e00-\u9fa5]/g // 匹配中文
-  const slice = str && str.substring(0, len)
-  // eslint-disable-next-line no-bitwise
-  const chineseCharNum = ~~(
-    slice &&
-    slice.match(reg) &&
-    slice.match(reg).length
-  )
-  const realen = slice && slice.length * 2 - chineseCharNum
-  return str && str.substr(0, realen) + (realen < str.length ? '...' : '')
+  return len >= length(str) ? str : `${limit(str, len, '')}...`
 }
 
 // https://stackoverflow.com/questions/9461621/how-to-format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900-in-javascrip
