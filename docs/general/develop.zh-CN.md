@@ -1,17 +1,16 @@
 本项目采用 Makefile 构建，所有的命令可通过在根目录运行 `make` 或 `make help` 查看:
 
-
 ```bash
 
-  [valid launch commands]
+  [valid serve commands]
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   dev         : start web server in local env
               | HMR is enabled
   .....................................................
-  launch.dev  : start web server in development env
+  serve.dev  : start web server in development env
               | HMR is disenabled
   .....................................................
-  launch.prod : start web server in produnction env
+  serve.prod : start web server in produnction env
               | HMR is disenabled
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

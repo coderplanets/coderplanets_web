@@ -1,7 +1,7 @@
 include Makefile.include.mk
 
 help:
-	$(call launch.help)
+	$(call serve.help)
 	$(call gen.help)
 	$(call commit.help)
 	$(call release.help)
@@ -18,7 +18,7 @@ init:
 dep:
 	npm install # for commitizen
 
-# shortcut for launch.local
+# shortcut for serve.local
 dev:
 	npm run local
 
@@ -31,18 +31,18 @@ build.dev:
 build.prod:
 	npm run build.prod
 
-launch.help:
-	$(call launch.help)
+serve.help:
+	$(call serve.help)
 	@echo "\n"
-launch:
-	$(call launch.help)
+serve:
+	$(call serve.help)
 	@echo "\n"
-launch.local:
+serve.local:
 	npm run local
-launch.dev:
-	npm run launch.dev
-launch.prod:
-	npm run launch.prod
+serve.dev:
+	npm run serve.dev
+serve.prod:
+	npm run serve.prod
 
 gen.help:
 	$(call gen.help)

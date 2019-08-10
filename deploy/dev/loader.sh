@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd /root/web/
-# npm run launch:dev &
-pm2-runtime start npm --name "coderplanets_web" -- run launch:dev &
+# npm run serve:dev &
+pm2-runtime start npm --name "coderplanets_web" -- run serve:dev &
 
 while true
 do
