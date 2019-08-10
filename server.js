@@ -34,7 +34,7 @@ const ssrCache = new LRUCache({
 app.prepare().then(() => {
   const server = express()
   /* eslint-disable-next-line */
-  const { Sentry } = require('./services/sentry')({ release: app.buildId })
+  const { Sentry } = require('./src/services/sentry')({ release: app.buildId })
 
   server.use(Sentry.Handlers.requestHandler())
   server.use(cookieParser())
