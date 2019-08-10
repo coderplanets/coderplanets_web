@@ -1,4 +1,6 @@
-export const ASSETS_ENDPOINT = 'https://cps-oss.oss-cn-shanghai.aliyuncs.com'
+import * as CONFIG from './config.json'
+
+export const { ASSETS_ENDPOINT } = CONFIG
 // process.env.ALI_OSS_ADDR
 // export const ASSETS_ENDPOINT = 'https://coderplanets.oss-cn-beijing.aliyuncs.com'
 
