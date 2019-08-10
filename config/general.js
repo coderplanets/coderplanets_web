@@ -1,17 +1,7 @@
 /*
    general behavior of the site
+   TODO:  move those to config
  */
-
-export const DEFAULT_THEME = 'cyan'
-export const SENIOR_AMOUNT_THRESHOLD = 51.2
-export const SPONSOR_AMOUNT_THRESHOLD = 5999
-
-export const PAGE_SIZE = {
-  S: 10,
-  D: 20,
-  M: 30,
-  L: 40,
-}
 
 export const WORD_LIMIT = {
   COMMENT: 300,

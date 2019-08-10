@@ -1,12 +1,14 @@
-export {
+import * as CONFIG from './config.json'
+
+export const { EMAIL_CLUB, EMAIL_SUPPORT, EMAIL_HELLO, EMAIL_BUSINESS } = CONFIG
+export const {
   DEFAULT_THEME,
   SENIOR_AMOUNT_THRESHOLD,
   SPONSOR_AMOUNT_THRESHOLD,
   PAGE_SIZE,
-  WORD_LIMIT,
-  TAG_COLORS,
-  TAG_COLOR_ORDER,
-} from './general'
+} = CONFIG
+
+export { WORD_LIMIT, TAG_COLORS, TAG_COLOR_ORDER } from './general'
 
 export {
   SITE_URL,
@@ -23,13 +25,5 @@ export {
   DEFAULT_USER_AVATAR,
 } from './endpoint'
 
-export {
-  EMAIL_CLUB,
-  EMAIL_SUPPORT,
-  EMAIL_HELLO,
-  EMAIL_BUSINESS,
-} from './contacts'
-
 export { ASSETS_ENDPOINT, ICON_BASE, ICON_CMD, DEFAULT_ICON } from './assets'
-
 export { default as LABEL_POOL } from './label_pool'

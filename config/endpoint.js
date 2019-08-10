@@ -1,24 +1,8 @@
 /* config for different envs */
 import { ICON_CMD } from './assets'
+import * as CONFIG from './config.json'
 
-const getGraphQLEndpoint = () => {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return 'https://api.coderplanets.com/graphiql'
-
-    case 'dev':
-      return 'https://devapi.coderplanets.com/graphiql'
-
-    case 'ci':
-      return 'http://localhost:4001/graphiql'
-
-    default:
-      return 'https://api.coderplanets.com/graphiql'
-    /* return 'http://localhost:4001/graphiql' */
-  }
-}
-
-export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
+export const { GRAPHQL_ENDPOINT } = CONFIG // getGraphQLEndpoint()
 
 export const SITE_URL = 'https://coderplanets.com'
 export const GITHUB_WEB_ADDR =

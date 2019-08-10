@@ -31,6 +31,7 @@ before_script:
 script:
   # - codecov
   - rm -rf .next
+  - cp config/config.ci.json config/config.json
   - nvm exec 10.12.0 npm run build.ci
   - nvm exec 10.12.0 npm run test:ci
 
