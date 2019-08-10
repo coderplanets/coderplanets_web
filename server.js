@@ -12,9 +12,10 @@ const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
-
 // inspect graphql model
 const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+
+const CONFIG = require('./config/config.json')
 
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
@@ -48,7 +49,7 @@ app.prepare().then(() => {
   server.use(helmet())
   server.use(
     '/model-graphs',
-    voyagerMiddleware({ endpointUrl: 'https://api.coderplanets.com/graphiql' })
+    voyagerMiddleware({ endpointUrl: CONFIG.GRAPHQL_ENDPOINT })
   )
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
