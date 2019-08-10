@@ -3,7 +3,7 @@
 cd /root/web/
 
 # make build.prod
-pm2-runtime start npm --name "coderplanets_web" -- run launch.prod &
+pm2-runtime start npm --name "coderplanets_web" -- run serve.prod &
 
 while true
 do

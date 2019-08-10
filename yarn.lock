@@ -3501,7 +3501,7 @@ create-react-context@^0.2.2:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-cross-env@^5.0.5:
+cross-env@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/cross-env/-/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
   dependencies:
