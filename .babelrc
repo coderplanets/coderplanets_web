@@ -53,18 +53,19 @@
       {
         "root": ["./"],
         "alias": {
-          "@containers": "./containers",
-          "@components": "./components",
-          "@services": "./services",
+          "@containers": "./src/containers",
+          "@components": "./src/components",
+          "@services": "./src/services",
           "@constant": "./utils/constant/",
-          "@hooks": "./components/Hooks",
+          "@hooks": "./src/hooks",
+          "@hoc": "./src/hoc",
           "@config": "./config",
-          "@stores": "./stores",
-          "@model": "./stores/SharedModel",
+          "@stores": "./src/stores",
+          "@model": "./src/stores/SharedModel",
           "@utils": "./utils",
-          "@schemas": "./containers/schemas",
-          "@Img": "./components/Img",
-          "@SvgIcons": "./components/SvgIcons"
+          "@schemas": "./src/schemas",
+          "@Img": "./src/components/Img",
+          "@SvgIcons": "./src/components/SvgIcons"
         }
       }
     ]

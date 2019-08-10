@@ -63,13 +63,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/index.js',
+        path: '../../../src/components/{{properCase name}}/index.js',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/tests/index.test.js',
+        path: '../../../src/components/{{properCase name}}/tests/index.test.js',
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
@@ -79,7 +79,7 @@ module.exports = {
     if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/lang.js',
+        path: '../../../src/components/{{properCase name}}/lang.js',
         templateFile: './component/lang.js.hbs',
         abortOnFail: true,
       })
@@ -88,7 +88,7 @@ module.exports = {
     if (data.wantStyle) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/styles/index.js',
+        path: '../../../src/components/{{properCase name}}/styles/index.js',
         templateFile: './component/styles.js.hbs',
         abortOnFail: true,
       })

@@ -20,15 +20,18 @@ dep:
 
 # shortcut for serve.local
 dev:
+	cp config/config.local.json config/config.json
 	npm run local
 
 build:
 	npm build
 
 build.dev:
+	cp config/config.dev.json config/config.json
 	npm run build.dev
 
 build.prod:
+	cp config/config.prod.json config/config.json
 	npm run build.prod
 
 serve.help:
