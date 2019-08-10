@@ -10,6 +10,8 @@
    />
  *
  */
+/*
+
 import React from 'react'
 import R from 'ramda'
 import T from 'prop-types'
@@ -25,7 +27,6 @@ import { MENTION_USER_ADDR } from '@config'
 import { buildLog } from '@utils'
 import { PreviewerContainer } from './styles'
 
-/* eslint-disable-next-line */
 const log = buildLog('c:MarkDownRender:index')
 
 // const latexPlugin = require('remarkable-katex')
@@ -66,10 +67,6 @@ class MarkDownRender extends React.Component {
 
   render() {
     const { body } = this.props
-    /*
-       NOTE: the '---' in normal markdown will break the render process
-       this is the most mother fucking disgusting bug i ever seen
-     */
     const safeBody = R.replace(/---(\r\n|\r|\n)/g, '----', body || '')
     let html = ''
     try {
@@ -83,14 +80,12 @@ class MarkDownRender extends React.Component {
       <PreviewerContainer>
         <MarkDownStyle>
           <div className="markdown-body">
-            {/* eslint-disable react/no-danger */}
             <div
               id="markdown-content-dom-id"
               dangerouslySetInnerHTML={{
                 __html: html,
               }}
             />
-            {/* eslint-enable react/no-danger */}
           </div>
         </MarkDownStyle>
       </PreviewerContainer>
@@ -110,3 +105,5 @@ MarkDownRender.defaultProps = {
 }
 
 export default MarkDownRender
+
+*/

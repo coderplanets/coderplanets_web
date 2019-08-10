@@ -21,7 +21,6 @@ import { PreviewerContainer } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:MarkDownRender:index')
 
-// const latexPlugin = require('remarkable-katex')
 // const md = new Remarkable()
 const md = new Remarkable('full', {
   // NOTE:  html should always be false
