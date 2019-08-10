@@ -992,12 +992,7 @@
 
 "@formatjs/intl-relativetimeformat@^2.5.0":
   version "2.5.2"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
-  integrity sha512-n/t9Si2pvCgoYnYzRsb6DgjIC09wrOM2t+E+r79WAvur/ESdU/cSse6w26gfiQUijFoU8x8AyTZ8rArBXLiDtA==
-=======
   resolved "https://registry.npmjs.org/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
->>>>>>> chore(deps): update cypress to latest
 
 "@groupher/eslint-config-web@1.1.1":
   version "1.1.1"
@@ -1247,24 +1242,14 @@
 
 "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
-  integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
-=======
   resolved "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
->>>>>>> chore(deps): update cypress to latest
   dependencies:
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
 "@types/invariant@^2.2.30":
   version "2.2.30"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/@types/invariant/-/invariant-2.2.30.tgz#20efa342807606ada5483731a8137cb1561e5fe9"
-  integrity sha512-98fB+yo7imSD2F7PF7GIpELNgtLNgo5wjivu0W5V4jx+KVVJxo6p/qN4zdzSTBWy4/sN3pPyXwnhRSD28QX+ag==
-=======
   resolved "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.30.tgz#20efa342807606ada5483731a8137cb1561e5fe9"
->>>>>>> chore(deps): update cypress to latest
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
@@ -1328,14 +1313,8 @@
     csstype "^2.2.0"
 
 "@types/react@^16.0.0":
-<<<<<<< HEAD
-  version "16.8.25"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.25.tgz#0247613ab58b1b11ba10fed662e1947c5f2bb89c"
-  integrity sha512-ydAAkLnNTC4oYSxJ3zwK/4QcVmEecACJ4ZdxXITbxz/dhahBSDKY6OQ1uawAW6rE/7kfHccxulYLSAIZVrSq0A==
-=======
   version "16.8.24"
   resolved "https://registry.npmjs.org/@types/react/-/react-16.8.24.tgz#8d1ea1fcbfa214220da3d3c04e506f1077b0deac"
->>>>>>> chore(deps): update cypress to latest
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -2092,7 +2071,6 @@ autodll-webpack-plugin@0.4.2:
 autolinker@^3.11.0:
   version "3.11.0"
   resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.11.0.tgz#209c4632550eed32285058eaac51f1382dae023a"
-  integrity sha512-VMTEjE3jeBK5MinTZiuVE07O4wMVmXhpzmc5sCc8cap6exsVzjmQJgtH8NqHsFru58ujUieBA9Dmwiz+E5KWEA==
   dependencies:
     tslib "^1.9.3"
 
@@ -3421,9 +3399,9 @@ core-js-pure@3.1.4:
   version "3.1.4"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.1.4.tgz#5fa17dc77002a169a3566cc48dc774d2e13e3769"
 
-core-js@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.1.4.tgz#3a2837fc48e582e1ae25907afcd6cf03b0cc7a07"
+core-js@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/core-js/-/core-js-3.2.0.tgz#0a835fdf6aa677fff83a823a7b5276c9e7cebb76"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -3449,7 +3427,6 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.2.0, cosmiconfig@^5.2.1:
 coveralls@3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.0.6.tgz#5c63b2759b6781118e7439bd870ba5e9ee428b25"
-  integrity sha512-Pgh4v3gCI4T/9VijVrm8Ym5v0OgjvGLKj3zTUwkvsCiwqae/p6VLzpsFNjQS2i6ewV7ef+DjFJ5TSKxYt/mCrA==
   dependencies:
     growl "~> 1.10.0"
     js-yaml "^3.13.1"
@@ -6077,40 +6054,16 @@ intersperse@^1.0.0:
 
 intl-format-cache@^4.1.4, intl-format-cache@^4.1.6:
   version "4.1.6"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.1.6.tgz#a1f7101f435fa06cc2fe3a968f4b393663ca92a4"
-  integrity sha512-A9iI5F9NgWINJ4gKZs0trME5UV/EBWq4DwSSUUijcHN6KdYDznr9pLzpuAk00orXbJi/e9SWHkKBEwEAVGNMGg==
-
-intl-locales-supported@^1.4.2:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.4.3.tgz#2cbfebe94e3954350622b518b7e1d42324ff69c9"
-  integrity sha512-vkjv1mbUHy9N0gATGQ6P/ZxkxCeJfD6fBDEdwdYG3MfQfwGC5rjAFBZglH58UtGUhA22Pr/ZDxwkhr/34V8VPw==
-=======
   resolved "https://registry.npmjs.org/intl-format-cache/-/intl-format-cache-4.1.6.tgz#a1f7101f435fa06cc2fe3a968f4b393663ca92a4"
 
 intl-locales-supported@^1.4.2:
   version "1.4.3"
   resolved "https://registry.npmjs.org/intl-locales-supported/-/intl-locales-supported-1.4.3.tgz#2cbfebe94e3954350622b518b7e1d42324ff69c9"
->>>>>>> chore(deps): update cypress to latest
 
 intl-messageformat-parser@^2.1.2:
   version "2.1.3"
   resolved "https://registry.npmjs.org/intl-messageformat-parser/-/intl-messageformat-parser-2.1.3.tgz#c918e36a08bd7ff01349d8ea3736262c986aaeb1"
 
-<<<<<<< HEAD
-intl-messageformat-parser@^3.0.1, intl-messageformat-parser@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-3.0.3.tgz#0ed87b9ecaaab737a209aa19d9929953ae5799f6"
-  integrity sha512-YC9Hc3xw/6QQcdXYSEpe9FC7KCqsogbh2ChKeiXJVEeda5NK9jp35NaxEs9C/sF5WiAmi5EQJFUhXitukBnJGg==
-
-intl-messageformat@^6.0.1:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-6.0.4.tgz#e1d074d92b530d8bc182e3ef0cc659d61d4d6c7a"
-  integrity sha512-wPK2HYfwYK1cUDkUG5ro6dtYxaSaPOGa88nn2uhIF2Uis0pGJr7RxD+3La/gmfGGZDlJXP2qLThNWjBnK1/CJw==
-  dependencies:
-    intl-format-cache "^4.1.6"
-    intl-messageformat-parser "^3.0.3"
-=======
 intl-messageformat-parser@^3.0.1, intl-messageformat-parser@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/intl-messageformat-parser/-/intl-messageformat-parser-3.0.2.tgz#87d26e25c5435355174ae2b7de63eaba77a0af38"
@@ -6121,7 +6074,6 @@ intl-messageformat@^6.0.1:
   dependencies:
     intl-format-cache "^4.1.6"
     intl-messageformat-parser "^3.0.2"
->>>>>>> chore(deps): update cypress to latest
 
 intl@^1.2.5:
   version "1.2.5"
@@ -7052,12 +7004,6 @@ jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.1.0:
   dependencies:
     array-includes "^3.0.3"
 
-katex@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/katex/-/katex-0.7.1.tgz#06bb5298efad05e1e7228035ba8e1591f3061b8f"
-  dependencies:
-    match-at "^0.1.0"
-
 keyboardjs@^2.5.1:
   version "2.5.1"
   resolved "https://registry.npmjs.org/keyboardjs/-/keyboardjs-2.5.1.tgz#2eb5d96bd1028e07136cd71919f607579edca716"
@@ -7506,10 +7452,6 @@ mastani-codehighlight@0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/mastani-codehighlight/-/mastani-codehighlight-0.0.7.tgz#d264898ca5e3a2ca2a8709b6a20d52fffdf4776d"
 
-match-at@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
-
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.npmjs.org/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -7813,9 +7755,9 @@ mobx-react-lite@1.4.0, mobx-react-lite@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
 
-mobx-react@6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.0.4.tgz#829697c7a4098567047555e1285cc619f4aa9be7"
+mobx-react@6.1.2:
+  version "6.1.2"
+  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-6.1.2.tgz#ed705566edca4baf1c6d87c3eff3dcd17ba09573"
   dependencies:
     mobx-react-lite "1.4.0"
 
@@ -9579,14 +9521,14 @@ react-content-loader@3.4.2:
   version "3.4.2"
   resolved "https://registry.npmjs.org/react-content-loader/-/react-content-loader-3.4.2.tgz#187fbec2aa389635e4613faa046713f196173f40"
 
-react-dom@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.8.1.tgz#ec860f98853d09d39bafd3a6f1e12389d283dbb4"
+react-dom@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.1"
+    scheduler "^0.15.0"
 
 react-error-overlay@5.1.6:
   version "5.1.6"
@@ -9623,12 +9565,7 @@ react-highlight-words@^0.16.0:
 
 react-intl@3.0.0:
   version "3.0.0"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-3.0.0.tgz#c883b8f84919800fc0ea63b877ee48ca45e4eefc"
-  integrity sha512-63DBQ7oNv8P/hRqxyFw/nDtZU9vLTQbXFtK72Vy81PL24znY2/DxtxKecZd4dR/FynqZUlT4paXyzimZTo2fjg==
-=======
   resolved "https://registry.npmjs.org/react-intl/-/react-intl-3.0.0.tgz#c883b8f84919800fc0ea63b877ee48ca45e4eefc"
->>>>>>> chore(deps): update cypress to latest
   dependencies:
     "@formatjs/intl-relativetimeformat" "^2.5.0"
     "@types/hoist-non-react-statics" "^3.3.1"
@@ -9646,6 +9583,10 @@ react-intl@3.0.0:
 react-is@16.8.6, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
+
+react-is@^16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
 
 react-json-view@1.19.1:
   version "1.19.1"
@@ -9724,14 +9665,14 @@ react-svg@8.0.0:
     "@tanem/svg-injector" "^7.0.6"
     prop-types "^15.7.2"
 
-react-test-renderer@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.8.1.tgz#72845ad9269be526126e97853311982f781767be"
+react-test-renderer@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.9.0.tgz#7ed657a374af47af88f66f33a3ef99c9610c8ae9"
   dependencies:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    react-is "^16.8.1"
-    scheduler "^0.13.1"
+    react-is "^16.9.0"
+    scheduler "^0.15.0"
 
 react-test-renderer@^16.0.0-0:
   version "16.8.6"
@@ -9794,23 +9735,17 @@ react-waypoint@9.0.2:
     prop-types "^15.0.0"
     react-is "^16.6.3"
 
-react@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react/-/react-16.8.1.tgz#ae11831f6cb2a05d58603a976afc8a558e852c4a"
+react@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.1"
 
 react@^16.3.0:
   version "16.8.6"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
-  integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
-=======
   resolved "https://registry.npmjs.org/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
->>>>>>> chore(deps): update cypress to latest
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10036,12 +9971,6 @@ remarkable-emoji@^0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/remarkable-emoji/-/remarkable-emoji-0.1.3.tgz#38c7dba14f725dbd2672686805ae7abb04432eb3"
 
-remarkable-katex@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/remarkable-katex/-/remarkable-katex-1.0.1.tgz#558acbf81625ff482ce0fa875e0f937a03efe3c8"
-  dependencies:
-    katex "^0.7.1"
-
 remarkable-mentions@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/remarkable-mentions/-/remarkable-mentions-0.1.0.tgz#d20266bebe0be1711331b922b1642234a2ac9c60"
@@ -10052,7 +9981,6 @@ remarkable-mentions@^0.1.0:
 remarkable@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/remarkable/-/remarkable-2.0.0.tgz#795f965bede8300362ce51a716edc322d9e7a4ca"
-  integrity sha512-3gvKFAgL4xmmVRKAMNm6UzDo/rO2gPVkZrWagp6AXEA4JvCcMcRx9aapYbb7AJAmLLvi/u06+EhzqoS7ha9qOg==
   dependencies:
     argparse "^1.0.10"
     autolinker "^3.11.0"
@@ -10328,9 +10256,16 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-scheduler@^0.13.1, scheduler@^0.13.6:
+scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10947,7 +10882,6 @@ stringify-package@1.0.0:
 stringz@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/stringz/-/stringz-2.0.0.tgz#0a092bc64ed9b42eff2936d0401d2398393d54e9"
-  integrity sha512-pRWc5RGpedKEDvQ/ukYs8kS8tKj+cKu5ayOoyOvsavbpiLBcm1dGX6p1o5IagaN11cbfN8tKGpgQ4fHdEq5LBA==
   dependencies:
     unicode-astral-regex "^1.0.1"
 
@@ -11442,7 +11376,6 @@ unfetch@4.1.0:
 unicode-astral-regex@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/unicode-astral-regex/-/unicode-astral-regex-1.0.1.tgz#2cab8529480646f9614ddbc7b62158ad05123feb"
-  integrity sha512-UP6cmDeiWi8bMDmkyXLRsDuVPTvPjh8Wsz+pHu1VkGgTBl4pUceYAdHXY0cdc6Q3+Z2q7QMzi/0E7L/S/yOvFw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
