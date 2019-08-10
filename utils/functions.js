@@ -1,10 +1,9 @@
 import R from 'ramda'
 import PubSub from 'pubsub-js'
+import { limit, length } from 'stringz'
 
 import { TAG_COLOR_ORDER } from '@config'
 import { EVENT } from '@constant'
-
-import { nilOrEmpty } from './validator'
 
 /* eslint-disable */
 // TODO: document ?
@@ -41,14 +40,14 @@ const log = (...args) => data => {
 // reference: https://blog.carbonfive.com/2017/12/20/easy-pipeline-debugging-with-curried-console-log/
 export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
 
-export const cutFrom = (val, cutnumber = 20) => {
-  if (nilOrEmpty(val)) {
-    return ''
-  }
-  if (val.length <= cutnumber) {
-    return val
-  }
-  return `${R.slice(0, cutnumber, val)} ...`
+/**
+ * cut extra length of a string
+ * 截取固定长度字符串，并添加省略号（...）
+ * @param {*string} str 需要进行处理的字符串，可含汉字
+ * @param {*number} len 需要显示多少个汉字，两个英文字母相当于一个汉字
+ */
+export const cutFrom = (str, len = 20) => {
+  return len >= length(str) ? str : `${limit(str, len, '')}...`
 }
 
 // https://stackoverflow.com/questions/9461621/how-to-format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900-in-javascrip

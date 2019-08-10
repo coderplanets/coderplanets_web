@@ -1847,18 +1847,11 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@^1.0.7:
+argparse@^1.0.10, argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.npmjs.org/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   dependencies:
     sprintf-js "~1.0.2"
-
-argparse@~0.1.15:
-  version "0.1.16"
-  resolved "https://registry.npmjs.org/argparse/-/argparse-0.1.16.tgz#cfd01e0fbba3d6caed049fbd758d40f65196f57c"
-  dependencies:
-    underscore "~1.7.0"
-    underscore.string "~2.4.0"
 
 aria-query@3.0.0, aria-query@^3.0.0:
   version "3.0.0"
@@ -2075,9 +2068,11 @@ autodll-webpack-plugin@0.4.2:
     webpack-merge "^4.1.0"
     webpack-sources "^1.0.1"
 
-autolinker@~0.15.0:
-  version "0.15.3"
-  resolved "https://registry.npmjs.org/autolinker/-/autolinker-0.15.3.tgz#342417d8f2f3461b14cf09088d5edf8791dc9832"
+autolinker@^3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.11.0.tgz#209c4632550eed32285058eaac51f1382dae023a"
+  dependencies:
+    tslib "^1.9.3"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
@@ -3404,9 +3399,9 @@ core-js-pure@3.1.4:
   version "3.1.4"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.1.4.tgz#5fa17dc77002a169a3566cc48dc774d2e13e3769"
 
-core-js@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.npmjs.org/core-js/-/core-js-3.1.4.tgz#3a2837fc48e582e1ae25907afcd6cf03b0cc7a07"
+core-js@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/core-js/-/core-js-3.2.0.tgz#0a835fdf6aa677fff83a823a7b5276c9e7cebb76"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -3429,12 +3424,12 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.2.0, cosmiconfig@^5.2.1:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-coveralls@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/coveralls/-/coveralls-3.0.3.tgz#83b1c64aea1c6afa69beaf50b55ac1bc4d13e2b8"
+coveralls@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.0.6.tgz#5c63b2759b6781118e7439bd870ba5e9ee428b25"
   dependencies:
     growl "~> 1.10.0"
-    js-yaml "^3.11.0"
+    js-yaml "^3.13.1"
     lcov-parse "^0.0.10"
     log-driver "^1.2.7"
     minimist "^1.2.0"
@@ -3483,7 +3478,7 @@ create-react-context@^0.2.2:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-cross-env@^5.0.5:
+cross-env@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/cross-env/-/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
   dependencies:
@@ -6840,7 +6835,7 @@ js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-js-yaml@^3.11.0, js-yaml@^3.13.1, js-yaml@^3.7.0:
+js-yaml@^3.13.1, js-yaml@^3.7.0:
   version "3.13.1"
   resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   dependencies:
@@ -7008,12 +7003,6 @@ jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.1.0:
   resolved "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.1.0.tgz#0ee4e2c971fb9601c67b5641b71be80faecf0b36"
   dependencies:
     array-includes "^3.0.3"
-
-katex@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/katex/-/katex-0.7.1.tgz#06bb5298efad05e1e7228035ba8e1591f3061b8f"
-  dependencies:
-    match-at "^0.1.0"
 
 keyboardjs@^2.5.1:
   version "2.5.1"
@@ -7463,10 +7452,6 @@ mastani-codehighlight@0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/mastani-codehighlight/-/mastani-codehighlight-0.0.7.tgz#d264898ca5e3a2ca2a8709b6a20d52fffdf4776d"
 
-match-at@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
-
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.npmjs.org/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -7770,9 +7755,9 @@ mobx-react-lite@1.4.0, mobx-react-lite@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/mobx-react-lite/-/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
 
-mobx-react@6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-6.0.4.tgz#829697c7a4098567047555e1285cc619f4aa9be7"
+mobx-react@6.1.2:
+  version "6.1.2"
+  resolved "https://registry.npmjs.org/mobx-react/-/mobx-react-6.1.2.tgz#ed705566edca4baf1c6d87c3eff3dcd17ba09573"
   dependencies:
     mobx-react-lite "1.4.0"
 
@@ -9536,14 +9521,14 @@ react-content-loader@3.4.2:
   version "3.4.2"
   resolved "https://registry.npmjs.org/react-content-loader/-/react-content-loader-3.4.2.tgz#187fbec2aa389635e4613faa046713f196173f40"
 
-react-dom@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.8.1.tgz#ec860f98853d09d39bafd3a6f1e12389d283dbb4"
+react-dom@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.1"
+    scheduler "^0.15.0"
 
 react-error-overlay@5.1.6:
   version "5.1.6"
@@ -9598,6 +9583,10 @@ react-intl@3.0.0:
 react-is@16.8.6, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
+
+react-is@^16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
 
 react-json-view@1.19.1:
   version "1.19.1"
@@ -9676,14 +9665,14 @@ react-svg@8.0.0:
     "@tanem/svg-injector" "^7.0.6"
     prop-types "^15.7.2"
 
-react-test-renderer@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.8.1.tgz#72845ad9269be526126e97853311982f781767be"
+react-test-renderer@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.9.0.tgz#7ed657a374af47af88f66f33a3ef99c9610c8ae9"
   dependencies:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    react-is "^16.8.1"
-    scheduler "^0.13.1"
+    react-is "^16.9.0"
+    scheduler "^0.15.0"
 
 react-test-renderer@^16.0.0-0:
   version "16.8.6"
@@ -9746,14 +9735,13 @@ react-waypoint@9.0.2:
     prop-types "^15.0.0"
     react-is "^16.6.3"
 
-react@16.8.1:
-  version "16.8.1"
-  resolved "https://registry.npmjs.org/react/-/react-16.8.1.tgz#ae11831f6cb2a05d58603a976afc8a558e852c4a"
+react@16.9.0:
+  version "16.9.0"
+  resolved "https://registry.npmjs.org/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.1"
 
 react@^16.3.0:
   version "16.8.6"
@@ -9983,12 +9971,6 @@ remarkable-emoji@^0.1.3:
   version "0.1.3"
   resolved "https://registry.npmjs.org/remarkable-emoji/-/remarkable-emoji-0.1.3.tgz#38c7dba14f725dbd2672686805ae7abb04432eb3"
 
-remarkable-katex@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/remarkable-katex/-/remarkable-katex-1.0.1.tgz#558acbf81625ff482ce0fa875e0f937a03efe3c8"
-  dependencies:
-    katex "^0.7.1"
-
 remarkable-mentions@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/remarkable-mentions/-/remarkable-mentions-0.1.0.tgz#d20266bebe0be1711331b922b1642234a2ac9c60"
@@ -9996,12 +9978,12 @@ remarkable-mentions@^0.1.0:
     extend-shallow "^2.0.1"
     to-mention-link "^0.1.0"
 
-remarkable@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.npmjs.org/remarkable/-/remarkable-1.7.1.tgz#aaca4972100b66a642a63a1021ca4bac1be3bff6"
+remarkable@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/remarkable/-/remarkable-2.0.0.tgz#795f965bede8300362ce51a716edc322d9e7a4ca"
   dependencies:
-    argparse "~0.1.15"
-    autolinker "~0.15.0"
+    argparse "^1.0.10"
+    autolinker "^3.11.0"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
@@ -10274,9 +10256,16 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-scheduler@^0.13.1, scheduler@^0.13.6:
+scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10890,6 +10879,12 @@ stringify-package@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/stringify-package/-/stringify-package-1.0.0.tgz#e02828089333d7d45cd8c287c30aa9a13375081b"
 
+stringz@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/stringz/-/stringz-2.0.0.tgz#0a092bc64ed9b42eff2936d0401d2398393d54e9"
+  dependencies:
+    unicode-astral-regex "^1.0.1"
+
 strip-ansi@5.2.0, strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
@@ -11374,17 +11369,13 @@ unc-path-regex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.npmjs.org/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
 
-underscore.string@~2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
-
-underscore@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmjs.org/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
-
 unfetch@4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/unfetch/-/unfetch-4.1.0.tgz#6ec2dd0de887e58a4dee83a050ded80ffc4137db"
+
+unicode-astral-regex@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/unicode-astral-regex/-/unicode-astral-regex-1.0.1.tgz#2cab8529480646f9614ddbc7b62158ad05123feb"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

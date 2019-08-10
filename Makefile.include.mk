@@ -39,17 +39,17 @@ define browse
 	$(BROWSER_TOOL) "$(1)"
 endef
 
-define launch.help
+define serve.help
 	@echo "\n"
-	@echo "  [valid launch commands]"
+	@echo "  [valid serve commands]"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	@echo "  dev         : start web server in local env"
 	@echo "              | HMR is enabled"
 	@echo "  ....................................................."
-	@echo "  launch.dev  : start web server in development env"
+	@echo "  serve.dev  : start web server in development env"
 	@echo "              | HMR is disenabled"
 	@echo "  ....................................................."
-	@echo "  launch.prod : start web server in produnction env"
+	@echo "  serve.prod : start web server in produnction env"
 	@echo "              | HMR is disenabled"
 	@echo "  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 endef
