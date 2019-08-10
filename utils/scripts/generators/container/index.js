@@ -44,37 +44,37 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/index.js',
+        path: '../../../src/containers/{{properCase name}}/index.js',
         templateFile: './container/class.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/logic.js',
+        path: '../../../src/containers/{{properCase name}}/logic.js',
         templateFile: './container/logic.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/store.js',
+        path: '../../../src/containers/{{properCase name}}/store.js',
         templateFile: './container/store.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/styles/index.js',
+        path: '../../../src/containers/{{properCase name}}/styles/index.js',
         templateFile: './container/styles.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/tests/index.test.js',
+        path: '../../../src/containers/{{properCase name}}/tests/index.test.js',
         templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../containers/{{properCase name}}/tests/store.test.js',
+        path: '../../../src/containers/{{properCase name}}/tests/store.test.js',
         templateFile: './container/store.test.js.hbs',
         abortOnFail: true,
       },
@@ -83,7 +83,7 @@ module.exports = {
     if (data.wantSchema) {
       actions.push({
         type: 'add',
-        path: '../../../containers/{{properCase name}}/schema.js',
+        path: '../../../src/containers/{{properCase name}}/schema.js',
         templateFile: './container/schema.js.hbs',
         abortOnFail: true,
       })
@@ -93,7 +93,7 @@ module.exports = {
     if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../../containers/{{properCase name}}/lang.js',
+        path: '../../../src/containers/{{properCase name}}/lang.js',
         templateFile: './container/lang.js.hbs',
         abortOnFail: true,
       })
