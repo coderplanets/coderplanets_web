@@ -1,8 +1,6 @@
 // From https://gist.github.com/gauravtiwari/2ae9f44aee281c759fe5a66d5c2721a2
 // By https://gist.github.com/gauravtiwari
 
-/* global window */
-
 /* eslint-disable */
 const popup = authUrl => {
   const windowArea = {
