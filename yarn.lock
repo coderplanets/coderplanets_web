@@ -7482,7 +7482,7 @@ mem@^1.1.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-memoize-one@^4.0.0, memoize-one@^4.0.2:
+memoize-one@^4.0.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/memoize-one/-/memoize-one-4.1.0.tgz#a2387c58c03fff27ca390c31b764a79addf3f906"
 
@@ -9510,11 +9510,11 @@ react-base16-styling@^0.6.0:
     lodash.flow "^3.3.0"
     pure-color "^1.2.0"
 
-react-calendar-heatmap@^1.6.3:
-  version "1.8.0"
-  resolved "https://registry.npmjs.org/react-calendar-heatmap/-/react-calendar-heatmap-1.8.0.tgz#7672fc697c792c3ab71cb6d8ecb19362ace14ed1"
+react-calendar-heatmap@1.8.1:
+  version "1.8.1"
+  resolved "https://registry.npmjs.org/react-calendar-heatmap/-/react-calendar-heatmap-1.8.1.tgz#8370151f6cf7477d49cb3459596d6d046bdfc704"
   dependencies:
-    memoize-one "^4.0.2"
+    memoize-one "^5.0.0"
     prop-types "^15.6.2"
 
 react-content-loader@3.4.2:
