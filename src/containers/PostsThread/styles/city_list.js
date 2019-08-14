@@ -17,6 +17,7 @@ export const ListWrapper = styled.div`
 `
 export const LoadingWrapper = styled.div`
   ${cs.flexColumn()};
+  margin-top: 15%;
   height: 100%;
   width: 100%;
   justify-content: center;
