@@ -1,4 +1,6 @@
-import { ICON_CMD } from './assets'
+import * as CONFIG from './config.json'
+
+const { ICON_CMD } = CONFIG
 
 const LABEL_POOL = {
   default: {

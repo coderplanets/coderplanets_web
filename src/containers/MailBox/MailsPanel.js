@@ -1,8 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
+// eslint-disable-next-line import/named
+import { ICON_CMD } from '@config'
 import TabSelector from '@components/TabSelector'
-import { ICON_CMD } from '@config/assets'
 
 import { Wrapper, SeeAllMessages } from './styles/mails_panel'
 import MailLists from './MailLists'
