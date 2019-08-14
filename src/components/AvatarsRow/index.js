@@ -8,7 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ATATARS_LIST_LENGTH } from '@config/general'
+// eslint-disable-next-line import/named
+import { ATATARS_LIST_LENGTH } from '@config'
 import { buildLog, prettyNum } from '@utils'
 
 import Tooltip from '@components/Tooltip'
