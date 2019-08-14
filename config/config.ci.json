@@ -1,22 +1,4 @@
 {
-  "// endpoint configs //": "--------------------------------",
-  "ASSETS_ENDPOINT": "https://cps-oss.oss-cn-shanghai.aliyuncs.com",
-  "GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
-
-  "// general configs //": "--------------------------------",
-  "DEFAULT_THEME": "cyan",
-  "SENIOR_AMOUNT_THRESHOLD": 51.2,
-  "SPONSOR_AMOUNT_THRESHOLD": 3999,
-  "PAGE_SIZE": {
-    "S": 10,
-    "D": 20,
-    "M": 30,
-    "L": 40
-  },
-
-  "// contact configs //": "--------------------------------",
-  "EMAIL_CLUB": "club@group.coderplanets.com",
-  "EMAIL_SUPPORT": "support@group.coderplanets.com",
-  "EMAIL_HELLO": "hello@group.coderplanets.com",
-  "EMAIL_BUSINESS": "business@group.coderplanets.com"
+  "//--- endpoint configs ---//": "",
+  "GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql"
 }

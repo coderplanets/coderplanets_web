@@ -27,12 +27,15 @@ GITHUB_APP_LINK = "https://github.com/settings/applications/689577"
 
 ifeq ($(OS),Darwin)  # Mac OS X
 		BROWSER_TOOL = open
+		JSON_CLI=./utils/bin/jq-mac
 endif
 ifeq ($(OS),Linux)
 		BROWSER_TOOL = google-chrome
+		JSON_CLI=./utils/bin/jq-linux
 endif
 ifeq ($(OS),Windows)
 		BROWSER_TOOL = explorer
+		JSON_CLI=./utils/bin/jq-win
 endif
 
 define browse
