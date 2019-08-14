@@ -11,6 +11,9 @@ addons:
       - libgconf-2-4
 
 before_install:
+  - mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ~/bin/jq
+  - export PATH=$PATH:~/bin
+  - jq --version
   - sudo chown -R travis ./travis/install_node.sh
   - sudo chmod +x ./travis/install_node.sh
   - ./travis/install_node.sh
