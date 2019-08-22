@@ -38,6 +38,16 @@ const View = ({
   mentionList,
   contentDomId,
 }) => {
+  if (!editData.body) {
+    return (
+      <React.Fragment>
+        <ArticleContentLoading />
+        <br />
+        <ArticleContentLoading />
+      </React.Fragment>
+    )
+  }
+
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>

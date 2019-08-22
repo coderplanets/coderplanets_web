@@ -49,7 +49,13 @@ const View = ({
   contentDomId,
 }) => {
   if (!editData.body) {
-    return <div>loading...</div>
+    return (
+      <React.Fragment>
+        <ArticleContentLoading />
+        <br />
+        <ArticleContentLoading />
+      </React.Fragment>
+    )
   }
 
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
