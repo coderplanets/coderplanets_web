@@ -48,6 +48,10 @@ const View = ({
   mentionList,
   contentDomId,
 }) => {
+  if (!editData.body) {
+    return <div>loading...</div>
+  }
+
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
