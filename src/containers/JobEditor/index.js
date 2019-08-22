@@ -77,6 +77,10 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
     contentDomId,
   } = jobEditor
 
+  log('editData in views: ', editData)
+
+  if (!editData.body) return <ArticleContentLoading />
+
   return (
     <Wrapper>
       <Header isEdit={isEdit} curView={curView} referUsers={referUsersData} />

@@ -88,6 +88,10 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
     showRadarNote,
   } = postEditor
 
+  log('editData in views: ', editData)
+
+  if (!editData.body) return <ArticleContentLoading />
+
   return (
     <Wrapper>
       <Modal

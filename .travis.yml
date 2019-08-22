@@ -11,9 +11,6 @@ addons:
       - libgconf-2-4
 
 before_install:
-  - mkdir -p ~/bin && curl -sSL -o ~/bin/jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/bin/jq
-  - export PATH=$PATH:~/bin
-  - jq --version
   - sudo chown -R travis ./travis/install_node.sh
   - sudo chmod +x ./travis/install_node.sh
   - ./travis/install_node.sh
@@ -34,7 +31,9 @@ before_script:
 script:
   # - codecov
   - rm -rf .next
-  - cp config/config.ci.json config/config.json
+  - chmod +x ./utils/bin/jq-linux
+  - ./utils/bin/jq-linux -s '.[0] * .[1]' config/config.json config/config.ci.json > /tmp/config.json
+  - cp /tmp/config.json ./config/config.json
   - nvm exec 10.12.0 npm run build.ci
   - nvm exec 10.12.0 npm run test:ci
 

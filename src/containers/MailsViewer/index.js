@@ -6,7 +6,8 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config/assets'
+// eslint-disable-next-line import/named
+import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
 import TabSelector from '@components/TabSelector'

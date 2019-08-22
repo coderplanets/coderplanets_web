@@ -1,5 +1,8 @@
 include Makefile.include.mk
 
+before_action:
+	@chmod 755 $(JSON_CLI)
+
 help:
 	$(call serve.help)
 	$(call gen.help)
@@ -19,19 +22,22 @@ dep:
 	npm install # for commitizen
 
 # shortcut for serve.local
-dev:
-	cp config/config.local.json config/config.json
+dev: before_action
+	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.local.json > /tmp/config.json
+	@cp /tmp/config.json ./config/config.json
 	npm run local
 
 build:
 	npm build
 
-build.dev:
-	cp config/config.dev.json config/config.json
+build.dev: before_action
+	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.dev.json > /tmp/config.json
+	@cp /tmp/config.json ./config/config.json
 	npm run build.dev
 
-build.prod:
-	cp config/config.prod.json config/config.json
+build.prod: before_action
+	@$(JSON_CLI) -s '.[0] * .[1]' config/config.json config/config.prod.json > /tmp/config.json
+	@cp /tmp/config.json ./config/config.json
 	npm run build.prod
 
 serve.help:

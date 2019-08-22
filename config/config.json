@@ -1,10 +1,5 @@
 {
-  "// endpoint configs //": "--------------------------------",
-  "ASSETS_ENDPOINT": "https://cps-oss.oss-cn-shanghai.aliyuncs.com",
-  "GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
-  "//GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
-
-  "// general configs //": "--------------------------------",
+  "//--- general configs ---//": "",
   "DEFAULT_THEME": "cyan",
   "SENIOR_AMOUNT_THRESHOLD": 51.2,
   "SPONSOR_AMOUNT_THRESHOLD": 3999,
@@ -14,10 +9,62 @@
     "M": 30,
     "L": 40
   },
-
-  "// contact configs //": "--------------------------------",
+  "WORD_LIMIT": {
+    "COMMENT": 300
+  },
+  "ATATARS_LIST_LENGTH": {
+    "POSTS": 4,
+    "COMMENTS": 5
+  },
+  "TAG_COLORS": [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "cyan",
+    "blue",
+    "purple",
+    "dodgerblue",
+    "yellowgreen",
+    "brown",
+    "cadetblue",
+    "grey"
+  ],
+  "TAG_COLOR_ORDER": {
+    "red": 0,
+    "orange": 1,
+    "yellow": 2,
+    "green": 3,
+    "cyan": 4,
+    "blue": 5,
+    "purple": 6,
+    "dodgerblue": 7,
+    "yellowgreen": 8,
+    "brown": 9,
+    "cadetblue": 10,
+    "grey": 11
+  },
+  "//--- endpoint configs ---//": "",
+  "ASSETS_ENDPOINT": "https://cps-oss.oss-cn-shanghai.aliyuncs.com",
+  "ICON_BASE": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons",
+  "ICON_CMD": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd",
+  "DEFAULT_ICON": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/cheatsheet.svg",
+  "DEFAULT_USER_AVATAR": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/alien_user3.svg",
+  "GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
+  "SITE_URL": "https://coderplanets.com",
+  "GITHUB_WEB_ADDR": "https://github.com/coderplanets/coderplanets_web",
+  "GITHUB_SERVER_ADDR": "https://github.com/coderplanets/coderplanets_server",
+  "API_SERVER_ADDR": "http://api.coderplanets.com/graphiql",
+  "GITHUB_ME": "https://github.com/mydearxym",
+  "GITHUB_CPS_TEAM": "https://github.com/orgs/coderplanets/people",
+  "ISSUE_ADDR": "https://github.com/coderplanets/coderplanets_web/issues",
+  "MENTION_USER_ADDR": "https://coderplanets.com/users/",
+  "COMMUNITY_WIKI": "https://github.com/coderplanets/cps_wiki/blob/master",
+  "COMMUNITY_CHEATSHEET": "https://github.com/coderplanets/cps_cheatsheets/blob/master",
+  "//--- contact configs ---//": "",
   "EMAIL_CLUB": "club@group.coderplanets.com",
   "EMAIL_SUPPORT": "support@group.coderplanets.com",
   "EMAIL_HELLO": "hello@group.coderplanets.com",
-  "EMAIL_BUSINESS": "business@group.coderplanets.com"
+  "EMAIL_BUSINESS": "business@group.coderplanets.com",
+  "// GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql"
 }

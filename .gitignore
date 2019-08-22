@@ -2,7 +2,6 @@
 node_modules/
 npm-debug.log
 build
-bin
 
 lang/.messages/
 coverage/
