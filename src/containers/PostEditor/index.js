@@ -48,16 +48,6 @@ const View = ({
   mentionList,
   contentDomId,
 }) => {
-  if (!editData.body) {
-    return (
-      <React.Fragment>
-        <ArticleContentLoading />
-        <br />
-        <ArticleContentLoading />
-      </React.Fragment>
-    )
-  }
-
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -97,6 +87,10 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
     contentDomId,
     showRadarNote,
   } = postEditor
+
+  log('editData in views: ', editData)
+
+  if (!editData.body) return <ArticleContentLoading />
 
   return (
     <Wrapper>

@@ -38,16 +38,6 @@ const View = ({
   mentionList,
   contentDomId,
 }) => {
-  if (!editData.body) {
-    return (
-      <React.Fragment>
-        <ArticleContentLoading />
-        <br />
-        <ArticleContentLoading />
-      </React.Fragment>
-    )
-  }
-
   if (curView === 'CREATE_VIEW' || curView === 'PREVIEW_VIEW') {
     return (
       <React.Fragment>
@@ -86,6 +76,10 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
     referUsersData,
     contentDomId,
   } = jobEditor
+
+  log('editData in views: ', editData)
+
+  if (!editData.body) return <ArticleContentLoading />
 
   return (
     <Wrapper>
