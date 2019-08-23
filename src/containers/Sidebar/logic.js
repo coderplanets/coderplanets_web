@@ -27,6 +27,16 @@ let sub$ = null
 
 export const setPin = () => store.mark({ pin: !store.pin })
 
+export const scrollOnTop = () => {
+  store.mark({ showHomeBarShadow: false })
+  log('scrollTop ... On')
+}
+
+export const scrollOffTop = () => {
+  store.mark({ showHomeBarShadow: true })
+  log('scrollTop ... Off')
+}
+
 export const onCommunitySelect = community => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute
