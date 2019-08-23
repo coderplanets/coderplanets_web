@@ -111,6 +111,8 @@ const solarizedDark = {
     pinActive: '#849804',
     menuLink: '#93A1A1',
     borderColor: '#14363E',
+    topShadow: '-2px 1px 6px 0px rgb(1,21,25)',
+    topShadowBorderBottom: '1px solid #06495a',
   },
   preview: {
     title: primaryColor,
