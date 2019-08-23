@@ -26,6 +26,8 @@ export const ActiveBar = styled.div`
     top: 20px;
   }
 `
+// box-shadow: 0px 6px 4px 0px rgba(0,0,0,0.2);
+// border-bottom: 1px dashed #316d7b;
 export const MenuItemBar = styled.div`
   cursor: pointer;
   opacity: 1;
@@ -37,6 +39,11 @@ export const MenuItemBar = styled.div`
   width: 100%;
   box-sizing: border-box;
   color: ${theme('sidebar.menuLink')};
+
+  box-shadow: ${({ dropShadow }) =>
+    dropShadow ? '0px 6px 4px 0px rgba(0,0,0,0.2)' : 'none'};
+  border-bottom: ${({ dropShadow }) =>
+    dropShadow ? '1px dashed #316d7b' : ''};
 `
 export const MenuRow = styled.div`
   ${cs.flex()};
