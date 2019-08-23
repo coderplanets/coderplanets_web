@@ -111,6 +111,8 @@ const green = {
     pinActive: contentBg,
     menuLink: '#A6BBAF',
     borderColor: lighten(0.05, sidebarBg),
+    topShadow: '-2px 2px 2px 0px rgb(39, 53, 45)',
+    topShadowBorderBottom: '1px solid #576957',
   },
   preview: {
     title: bannerTitle,

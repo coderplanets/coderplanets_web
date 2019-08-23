@@ -16,10 +16,10 @@ import {
 
 import { onCommunitySelect } from './logic'
 
-const MenuBar = ({ pin, item, activeRaw, forceRerender }) => (
+const MenuBar = ({ pin, item, activeRaw, forceRerender, dropShadow }) => (
   <Wrapper onClick={onCommunitySelect.bind(this, item)}>
     <ActiveBar pin={pin} active={activeRaw === R.toLower(item.raw)} />
-    <MenuItemBar>
+    <MenuItemBar dropShadow={dropShadow}>
       <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
         <MenuItemIcon
           key={uid.gen()}

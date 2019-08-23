@@ -20,7 +20,13 @@ const log = buildLog('C:Sidebar:index')
 const SidebarContainer = ({ sidebar }) => {
   useInit(sidebar)
 
-  const { curCommunity, pin, communitiesData, forceRerender } = sidebar
+  const {
+    curCommunity,
+    pin,
+    showHomeBarShadow,
+    communitiesData,
+    forceRerender,
+  } = sidebar
 
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
@@ -32,6 +38,7 @@ const SidebarContainer = ({ sidebar }) => {
       <MenuList
         items={communitiesData}
         pin={pin}
+        showHomeBarShadow={showHomeBarShadow}
         forceRerender={forceRerender}
         activeRaw={activeRaw}
         onSortEnd={onSortMenuEnd}

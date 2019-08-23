@@ -110,6 +110,8 @@ const yellow = {
     pinActive: '#6AB3B1',
     menuLink: '#b6cecd',
     borderColor: lighten(0.05, sidebarBg),
+    topShadow: '0px 6px 4px 0px rgba(0,0,0,0.2)',
+    topShadowBorderBottom: '1px dashed #88755b',
   },
   preview: {
     title: primaryColor,
