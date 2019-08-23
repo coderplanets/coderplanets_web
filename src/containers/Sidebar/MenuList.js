@@ -2,6 +2,8 @@ import React from 'react'
 import R from 'ramda'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
+
 import MenuBar from './MenuBar'
 import { Wrapper, ScrollWrapper } from './styles/menu_list'
 
@@ -23,26 +25,26 @@ const MenuList = SortableContainer(
 
     return (
       <Wrapper>
-        <ScrollWrapper id="sidebar-scroller">
-          {homeCommunities.map(item => (
-            <MenuBar
-              key={item.raw}
-              pin={pin}
-              item={item}
-              activeRaw={activeRaw}
-            />
-          ))}
-          {sortableCommunities.map((item, index) => (
-            <SortableMenuBar
-              index={index}
-              key={item.raw}
-              pin={pin}
-              item={item}
-              activeRaw={activeRaw}
-              forceRerender={forceRerender}
-            />
-          ))}
-        </ScrollWrapper>
+        {homeCommunities.map(item => (
+          <MenuBar key={item.raw} pin={pin} item={item} activeRaw={activeRaw} />
+        ))}
+        <OverlayScrollbarsComponent
+          options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
+          className="os-theme-light"
+        >
+          <ScrollWrapper>
+            {sortableCommunities.map((item, index) => (
+              <SortableMenuBar
+                index={index}
+                key={item.raw}
+                pin={pin}
+                item={item}
+                activeRaw={activeRaw}
+                forceRerender={forceRerender}
+              />
+            ))}
+          </ScrollWrapper>
+        </OverlayScrollbarsComponent>
       </Wrapper>
     )
   }
