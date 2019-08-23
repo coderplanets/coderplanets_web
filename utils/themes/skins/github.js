@@ -107,7 +107,7 @@ const github = {
     holder: lighten(0.15, sidebarBg),
     logoText: '#5e9aa2',
     menuHover: darken(0.1, sidebarBg),
-    pinActive: primaryColor,
+    pinActive: 'yellowgreen',
     menuLink: '#D9E6E5',
     borderColor: '#14363E',
     topShadow: '0px 6px 4px 0px rgba(0,0,0,0.2)',
@@ -179,8 +179,8 @@ const github = {
   },
 
   heatmap: {
-    activityLow: '#007D7C',
-    activityHight: '#26A9A0',
+    activityLow: darken(0.2, '#6EC385'),
+    activityHight: 'yellowgreen',
     empty: '#efefef',
     borderHover: '#51abb2',
     monthLabel: '#c6dbde',
