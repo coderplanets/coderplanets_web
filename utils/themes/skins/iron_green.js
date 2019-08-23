@@ -109,6 +109,8 @@ const iconGreen = {
     pinActive: '#54848B',
     menuLink: '#F0F9F8',
     borderColor: '#14363E',
+    topShadow: '-1px 6px 2px 0px rgb(9, 171, 165)',
+    topShadowBorderBottom: '1px solid #668d90',
   },
   preview: {
     title: '#C2CDD0',
