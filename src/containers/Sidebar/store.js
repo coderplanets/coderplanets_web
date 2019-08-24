@@ -5,8 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { buildLog, markStates, stripMobx, sortByIndex } from '@utils'
-/* import MenuItem from './MenuItemStore' */
+import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:SidebarStore')
@@ -17,6 +16,7 @@ const SidebarStore = t
     pin: t.optional(t.boolean, false),
     // add shadow effect when user scroll the communities list
     showHomeBarShadow: t.optional(t.boolean, false),
+    searchCommunityValue: t.optional(t.string, ''),
 
     /*
        this is a fix for wired svg icon in sidebar
@@ -56,7 +56,16 @@ const SidebarStore = t
       return self.root.langMessages
     },
     get communitiesData() {
+      const { searchCommunityValue } = self
       const { subscribedCommunities } = self.root.account
+
+      if (notEmpty(R.trim(searchCommunityValue))) {
+        return R.filter(
+          item => R.contains(searchCommunityValue, R.prop('title', item)),
+          subscribedCommunities.entries
+        )
+      }
+
       return subscribedCommunities
         ? sortByIndex(subscribedCommunities.entries)
         : []

@@ -23,6 +23,7 @@ const SidebarContainer = ({ sidebar }) => {
   const {
     curCommunity,
     pin,
+    searchCommunityValue,
     showHomeBarShadow,
     communitiesData,
     forceRerender,
@@ -34,7 +35,7 @@ const SidebarContainer = ({ sidebar }) => {
 
   return (
     <Wrapper pin={pin} testid="sidebar">
-      <Header pin={pin} />
+      <Header pin={pin} searchCommunityValue={searchCommunityValue} />
       <MenuList
         items={communitiesData}
         pin={pin}
