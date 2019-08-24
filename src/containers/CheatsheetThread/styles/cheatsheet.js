@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `
 // width: 550px;
 export const CardWrapper = styled.div`
-  width: 550px;
+  width: 450px;
   height: auto;
   background: ${theme('code.bg')};
   margin: 10px;

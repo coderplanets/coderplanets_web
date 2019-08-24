@@ -316,7 +316,7 @@ const CheatSheetStyles = styled.div`
   .cheatsheet-body code {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
       monospace;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .cheatsheet-body pre {
@@ -324,7 +324,7 @@ const CheatSheetStyles = styled.div`
     margin-bottom: 0;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
       monospace;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .cheatsheet-body .octicon {
