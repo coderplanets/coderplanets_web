@@ -11,6 +11,9 @@ export const Wrapper = styled.div`
   background: ${theme('preview.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;
+  ${cs.media.mobile`
+    width: 100%;
+  `};
 `
 export const ReleaseWrapper = styled.div`
   ${cs.flex('justify-between')};

@@ -27,6 +27,9 @@ export const MainWrapper = styled.div`
 `
 export const SidebarWrapper = styled.div`
   min-width: 250px;
+  ${cs.media.mobile`
+    display: none;
+  `};
 `
 /* background: ${theme('preview.articleBg')}; */
 export const ArticleWrapper = styled.div`
@@ -39,8 +42,9 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 
   ${cs.media.tablet`
-    padding: 30px 20px;
+    padding: 30px 10px;
     min-height: 40vh;
+    margin-right: 0;
   `};
 `
 export const BodyHeaderWrapper = styled.div`
