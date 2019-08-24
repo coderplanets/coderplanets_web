@@ -27,6 +27,9 @@ export const MainWrapper = styled.div`
 `
 export const SidebarWrapper = styled.div`
   min-width: 250px;
+  ${cs.media.mobile`
+    display: none;
+  `};
 `
 export const ArticleWrapper = styled.div`
   font-size: 1.1rem;
@@ -38,6 +41,7 @@ export const ArticleWrapper = styled.div`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   ${cs.media.tablet`
     padding: 30px 20px;
+    margin-right: 0;
   `};
 `
 export const BodyHeaderWrapper = styled.div`
