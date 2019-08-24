@@ -1,8 +1,9 @@
 import React from 'react'
 import Masonry from 'react-masonry-component'
 import { Remarkable } from 'remarkable'
-import remarkableemoj from 'remarkable-emoji'
 // import Prism from 'mastani-codehighlight'
+
+// eslint-disable-next-line import/named
 import { COMMUNITY_CHEATSHEET } from '@config'
 
 import { uid } from '@utils'
@@ -17,7 +18,6 @@ import parser from './parser'
 import CheatSheetStyle from './styles/CheatsheetMarkStyles'
 
 const md = new Remarkable()
-md.use(remarkableemoj)
 
 const Cards = ({ cards }) =>
   cards.map(item => (

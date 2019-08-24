@@ -28,13 +28,11 @@ let sub$ = null
 export const setPin = () => store.mark({ pin: !store.pin })
 
 export const scrollOnTop = () => {
-  store.mark({ showHomeBarShadow: false })
-  log('scrollTop ... On')
+  if (store) store.mark({ showHomeBarShadow: false })
 }
 
 export const scrollOffTop = () => {
-  store.mark({ showHomeBarShadow: true })
-  log('scrollTop ... Off')
+  if (store) store.mark({ showHomeBarShadow: true })
 }
 
 export const onCommunitySelect = community => {
