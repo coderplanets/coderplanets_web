@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button } from 'antd'
-
+// eslint-disable-next-line import/named
 import { ICON_CMD, ICON_BASE } from '@config'
 
 import PinButton from './PinButton'
@@ -10,30 +9,37 @@ import {
   InnerWrapper,
   HeaderFuncs,
   SiteLogoWrapper,
-  ExploreWrapper,
-  ExploreContent,
-  ExploreIcon,
-  ExploreText,
+  SearchWrapper,
+  SearchContent,
+  SearchInput,
+  SearchIcon,
   SiteLogo,
 } from './styles/header'
+import {
+  searchOnBlur,
+  searchOnFocus,
+  searchCommunityValueOnChange,
+} from './logic'
 
-const Header = ({ pin }) => (
+const Header = ({ pin, searchCommunityValue }) => (
   <Wrapper pin={pin}>
     <InnerWrapper>
       <HeaderFuncs>
         <SiteLogoWrapper pin={pin}>
           <SiteLogo src={`${ICON_BASE}/sidebar/everyday.svg`} />
         </SiteLogoWrapper>
-        <ExploreWrapper pin={pin}>
-          <a href="/communities" rel="noopener noreferrer" target="_blank">
-            <Button size="small" type="primary" ghost>
-              <ExploreContent>
-                <ExploreIcon src={`${ICON_CMD}/telescope.svg`} />
-                <ExploreText>Explore All</ExploreText>
-              </ExploreContent>
-            </Button>
-          </a>
-        </ExploreWrapper>
+        <SearchWrapper pin={pin}>
+          <SearchContent>
+            <SearchIcon src={`${ICON_CMD}/search.svg`} />
+            <SearchInput
+              value={searchCommunityValue}
+              onChange={e => searchCommunityValueOnChange(e)}
+              placeholder="订阅的社区"
+              onBlur={searchOnBlur}
+              onFocus={searchOnFocus}
+            />
+          </SearchContent>
+        </SearchWrapper>
       </HeaderFuncs>
       <PinButton pin={pin} />
     </InnerWrapper>

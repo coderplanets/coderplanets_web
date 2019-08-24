@@ -111,6 +111,9 @@ const cyan = {
     borderColor: '#14363E',
     topShadow: '0px 6px 4px 0px rgba(0,0,0,0.2)',
     topShadowBorderBottom: '1px dashed #316d7b',
+    searchInputBottom: '#2b6775',
+    searchInputBottomActive: '#61ABB2',
+    searchInputHolder: '#3a7786',
   },
   preview: {
     title: '#83a2a5',

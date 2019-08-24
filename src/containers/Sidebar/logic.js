@@ -35,6 +35,17 @@ export const scrollOffTop = () => {
   if (store) store.mark({ showHomeBarShadow: true })
 }
 
+export const searchOnBlur = () => {
+  log('searchOnBlur')
+}
+
+export const searchOnFocus = () => {
+  store.mark({ pin: true })
+}
+
+export const searchCommunityValueOnChange = e =>
+  store.mark({ searchCommunityValue: e.target.value })
+
 export const onCommunitySelect = community => {
   // NOTE: check page, if current it's from communities then redirect whole page
   const { mainPath } = store.curRoute

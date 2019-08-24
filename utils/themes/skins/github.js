@@ -112,6 +112,9 @@ const github = {
     borderColor: '#14363E',
     topShadow: '0px 6px 4px 0px rgba(0,0,0,0.2)',
     topShadowBorderBottom: '1px dashed #3d5a51',
+    searchInputBottom: '#3A3948',
+    searchInputBottomActive: '#3B8250',
+    searchInputHolder: '#3B3948',
   },
   preview: {
     title: threadTitle,

@@ -112,6 +112,9 @@ const purple = {
     borderColor: lighten(0.05, sidebarBg),
     topShadow: '-2px 1px 6px 0px rgb(1,21,25)',
     topShadowBorderBottom: '1px solid #615b79',
+    searchInputBottom: '#3A3948',
+    searchInputBottomActive: '#5F5C75',
+    searchInputHolder: '#3B3948',
   },
   preview: {
     title: primaryColor,
