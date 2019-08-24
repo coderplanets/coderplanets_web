@@ -113,6 +113,9 @@ const green = {
     borderColor: lighten(0.05, sidebarBg),
     topShadow: '-2px 2px 2px 0px rgb(39, 53, 45)',
     topShadowBorderBottom: '1px solid #576957',
+    searchInputBottom: '#606f64',
+    searchInputBottomActive: '#92C446',
+    searchInputHolder: '#607765',
   },
   preview: {
     title: bannerTitle,
