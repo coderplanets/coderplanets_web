@@ -10,6 +10,7 @@ import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import MenuList from './MenuList'
+import Footer from './Footer'
 
 import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
@@ -24,7 +25,9 @@ const SidebarContainer = ({ sidebar }) => {
     curCommunity,
     pin,
     searchCommunityValue,
-    showHomeBarShadow,
+    showHeaderShadow,
+    showFooterShadow,
+    sortOptActive,
     communitiesData,
     forceRerender,
   } = sidebar
@@ -39,11 +42,17 @@ const SidebarContainer = ({ sidebar }) => {
       <MenuList
         items={communitiesData}
         pin={pin}
-        showHomeBarShadow={showHomeBarShadow}
+        sortOptActive={sortOptActive}
+        showHeaderShadow={showHeaderShadow}
         forceRerender={forceRerender}
         activeRaw={activeRaw}
         onSortEnd={onSortMenuEnd}
         distance={5}
+      />
+      <Footer
+        pin={pin}
+        showFooterShadow={showFooterShadow}
+        sortOptActive={sortOptActive}
       />
     </Wrapper>
   )

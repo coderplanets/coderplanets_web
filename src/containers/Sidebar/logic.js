@@ -27,21 +27,23 @@ let sub$ = null
 
 export const setPin = () => store.mark({ pin: !store.pin })
 
-export const scrollOnTop = () => {
-  if (store) store.mark({ showHomeBarShadow: false })
+export const anchorTop = () => {
+  if (store) store.mark({ showHeaderShadow: false })
 }
 
-export const scrollOffTop = () => {
-  if (store) store.mark({ showHomeBarShadow: true })
+export const anchorOffTop = () => {
+  if (store) store.mark({ showHeaderShadow: true })
 }
 
-export const searchOnBlur = () => {
-  log('searchOnBlur')
+export const anchorBottom = () => {
+  if (store) store.mark({ showFooterShadow: false })
 }
 
-export const searchOnFocus = () => {
-  store.mark({ pin: true })
+export const anchorOffBottom = () => {
+  if (store) store.mark({ showFooterShadow: true })
 }
+
+export const searchOnFocus = () => store.mark({ pin: true })
 
 export const searchCommunityValueOnChange = e =>
   store.mark({ searchCommunityValue: e.target.value })
@@ -64,11 +66,16 @@ export const onCommunitySelect = community => {
   send(EVENT.COMMUNITY_CHANGE)
 }
 
-const mapIndexed = R.addIndex(R.map)
+export const sortBtnOnClick = () => {
+  if (!store.sortOptActive) {
+    store.mark({ pin: true })
+  }
+  store.mark({ sortOptActive: !store.sortOptActive })
+}
 
+const mapIndexed = R.addIndex(R.map)
 export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
-  // TODO: sync to server
   setC11N(sortedCommunities)
   store.onSortCommunities(sortedCommunities)
 }
@@ -77,7 +84,6 @@ const setC11N = sortedCommunities => {
   const { isLogin } = store
   if (!isLogin) return store.authWarning()
 
-  // TODO: check login
   sortedCommunities = R.reject(R.propEq('raw', 'home'), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
     (c, index) => ({ community: c.raw, index }),

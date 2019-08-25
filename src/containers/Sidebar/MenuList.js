@@ -1,63 +1,62 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import R from 'ramda'
-import { Waypoint } from 'react-waypoint'
-import { SortableContainer, SortableElement } from 'react-sortable-hoc'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import MenuBar from './MenuBar'
-import { scrollOnTop, scrollOffTop } from './logic'
-import { Wrapper, ScrollWrapper } from './styles/menu_list'
+import NormalMenuList from './NormalMenuList'
+// import SortableMenuList from './SortableMenuList'
 
-const SortableMenuBar = SortableElement(
-  ({ pin, item, activeRaw, forceRerender }) => (
-    <MenuBar
-      pin={pin}
-      item={item}
-      activeRaw={activeRaw}
-      forceRerender={forceRerender}
-    />
+import { Wrapper } from './styles/menu_list'
+import { onSortMenuEnd } from './logic'
+
+const DynamicSortableMenuList = dynamic({
+  loader: () => import('./SortableMenuList'),
+  /* eslint-disable */
+  loading: () => <div>..</div>,
+  /* eslint-enable */
+})
+
+const MenuList = ({
+  items,
+  pin,
+  sortOptActive,
+  activeRaw,
+  forceRerender,
+  showHeaderShadow,
+}) => {
+  const pinedCommunities = R.filter(R.propEq('raw', 'home'), items)
+  const sortableCommunities = R.reject(R.propEq('raw', 'home'), items)
+
+  return (
+    <Wrapper>
+      {pinedCommunities.map(item => (
+        <MenuBar
+          key={item.raw}
+          pin={pin}
+          item={item}
+          activeRaw={activeRaw}
+          dropShadow={showHeaderShadow}
+        />
+      ))}
+      {!sortOptActive ? (
+        <NormalMenuList
+          communities={sortableCommunities}
+          pin={pin}
+          activeRaw={activeRaw}
+          forceRerender={forceRerender}
+        />
+      ) : (
+        <DynamicSortableMenuList
+          communities={sortableCommunities}
+          sortOptActive={sortOptActive}
+          pin={pin}
+          activeRaw={activeRaw}
+          forceRerender={forceRerender}
+          onSortEnd={onSortMenuEnd}
+        />
+      )}
+    </Wrapper>
   )
-)
-
-const MenuList = SortableContainer(
-  ({ items, pin, activeRaw, forceRerender, showHomeBarShadow }) => {
-    const homeCommunities = R.filter(R.propEq('raw', 'home'), items)
-    const sortableCommunities = R.reject(R.propEq('raw', 'home'), items)
-
-    return (
-      <Wrapper>
-        {homeCommunities.map(item => (
-          <MenuBar
-            key={item.raw}
-            pin={pin}
-            item={item}
-            activeRaw={activeRaw}
-            dropShadow={showHomeBarShadow}
-          />
-        ))}
-        <OverlayScrollbarsComponent
-          options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-          className="os-theme-light"
-        >
-          <ScrollWrapper>
-            <React.Fragment>
-              <Waypoint onEnter={scrollOnTop} onLeave={scrollOffTop} />
-              {sortableCommunities.map((item, index) => (
-                <SortableMenuBar
-                  index={index}
-                  key={item.raw}
-                  pin={pin}
-                  item={item}
-                  activeRaw={activeRaw}
-                  forceRerender={forceRerender}
-                />
-              ))}
-            </React.Fragment>
-          </ScrollWrapper>
-        </OverlayScrollbarsComponent>
-      </Wrapper>
-    )
-  }
-)
+}
 
 export default MenuList

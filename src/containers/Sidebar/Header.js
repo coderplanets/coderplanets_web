@@ -15,11 +15,7 @@ import {
   SearchIcon,
   SiteLogo,
 } from './styles/header'
-import {
-  searchOnBlur,
-  searchOnFocus,
-  searchCommunityValueOnChange,
-} from './logic'
+import { searchOnFocus, searchCommunityValueOnChange } from './logic'
 
 const Header = ({ pin, searchCommunityValue }) => (
   <Wrapper pin={pin}>
@@ -35,7 +31,6 @@ const Header = ({ pin, searchCommunityValue }) => (
               value={searchCommunityValue}
               onChange={e => searchCommunityValueOnChange(e)}
               placeholder="订阅的社区"
-              onBlur={searchOnBlur}
               onFocus={searchOnFocus}
             />
           </SearchContent>
