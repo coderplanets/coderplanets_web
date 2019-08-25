@@ -1,7 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
+// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 
@@ -30,43 +32,47 @@ const HintIcon = ({ index, active, cur, length }) => {
 }
 
 const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <Wrapper id="suggestion-scroller">
-    <SuggestionWrapper empty={suggestions.length === 0}>
-      {suggestions.map((suggestion, i) => (
-        <InfoBar
-          active={activeRaw === suggestion.raw}
-          key={suggestion.raw}
-          id={suggestion.raw}
-          onMouseEnter={navToSuggestion.bind(this, suggestion)}
-          onClick={suggestionOnSelect}
-        >
-          <SuggestIcon
-            raw={suggestion.raw}
-            suggestion={suggestion}
-            round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
-            searchThread={searchThread}
-          />
-          <ContentWraper>
-            <Title>
-              <Highlighter
-                highlightClassName="doramon-search-highlighter"
-                searchWords={[searchValue]}
-                autoEscape
-                textToHighlight={suggestion.title}
-              />
-            </Title>
-            <Desc>{suggestion.desc}</Desc>
-          </ContentWraper>
-          <HintIcon
-            index={i}
-            active={activeRaw}
-            cur={suggestion.raw}
-            length={suggestions.length}
-          />
-        </InfoBar>
-      ))}
-    </SuggestionWrapper>
-  </Wrapper>
+  <OverlayScrollbarsComponent
+    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
+  >
+    <Wrapper>
+      <SuggestionWrapper empty={suggestions.length === 0}>
+        {suggestions.map((suggestion, i) => (
+          <InfoBar
+            active={activeRaw === suggestion.raw}
+            key={suggestion.raw}
+            id={suggestion.raw}
+            onMouseEnter={navToSuggestion.bind(this, suggestion)}
+            onClick={suggestionOnSelect}
+          >
+            <SuggestIcon
+              raw={suggestion.raw}
+              suggestion={suggestion}
+              round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
+              searchThread={searchThread}
+            />
+            <ContentWraper>
+              <Title>
+                <Highlighter
+                  highlightClassName="doramon-search-highlighter"
+                  searchWords={[searchValue]}
+                  autoEscape
+                  textToHighlight={suggestion.title}
+                />
+              </Title>
+              <Desc>{suggestion.desc}</Desc>
+            </ContentWraper>
+            <HintIcon
+              index={i}
+              active={activeRaw}
+              cur={suggestion.raw}
+              length={suggestions.length}
+            />
+          </InfoBar>
+        ))}
+      </SuggestionWrapper>
+    </Wrapper>
+  </OverlayScrollbarsComponent>
 )
 
 export default ResultsList

@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
 `
 export const ListsWrapper = styled.div`
   width: 340px;
-  min-height: 280px;
-  max-height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
 `
 export const UserLabel = styled.div`
   ${cs.flex('align-center')};

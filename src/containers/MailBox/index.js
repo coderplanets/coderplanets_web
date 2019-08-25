@@ -8,6 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
 import Popover from '@components/Popover'
+
 import MailsPanel from './MailsPanel'
 
 import { Wrapper, NofityDot, HeaderMailIcon } from './styles'
