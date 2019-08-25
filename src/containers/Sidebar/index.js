@@ -10,6 +10,7 @@ import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import MenuList from './MenuList'
+import Footer from './Footer'
 
 import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
@@ -45,6 +46,7 @@ const SidebarContainer = ({ sidebar }) => {
         onSortEnd={onSortMenuEnd}
         distance={5}
       />
+      <Footer pin={pin} />
     </Wrapper>
   )
 }
