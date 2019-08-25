@@ -3,11 +3,8 @@ import styled from 'styled-components'
 import Img from '@components/Img'
 import { theme, animate, cs } from '@utils'
 
-export const Wrapper = styled.div.attrs(({ id }) => ({
-  id,
-}))`
+export const Wrapper = styled.div`
   width: 100%;
-  overflow: hidden;
   max-height: 400px;
 `
 export const LoadingIcon = styled(Img)`

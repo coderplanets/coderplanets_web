@@ -2,6 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import Router from 'next/router'
 
+// eslint-disable-next-line import/named
 import { ISSUE_ADDR } from '@config'
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {
@@ -496,15 +497,6 @@ const initSpecCmdResolver = () => {
 // ###############################
 // init & uninit handlers
 // ###############################
-export const useScrollbar = isMacOS => {
-  useEffect(() => {
-    if (isMacOS) {
-      /* eslint-disable no-undef */
-      OverlayScrollbars(document.getElementById('suggestion-scroller'), {})
-    }
-  }, [isMacOS])
-}
-
 export const useInit = _store => {
   useEffect(() => {
     store = _store
