@@ -1,4 +1,5 @@
 import React from 'react'
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { TYPE } from '@constant'
 
@@ -85,9 +86,11 @@ const renderViewer = (type, root, attachment, attUser) => {
 }
 
 const Viewer = ({ type, root, attachment, attUser }) => (
-  <Wrapper id="preview-viewer-scroller">
-    {renderViewer(type, root, attachment, attUser)}
-  </Wrapper>
+  <OverlayScrollbarsComponent
+    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
+  >
+    <Wrapper>{renderViewer(type, root, attachment, attUser)}</Wrapper>
+  </OverlayScrollbarsComponent>
 )
 
 export default Viewer

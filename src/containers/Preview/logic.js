@@ -83,15 +83,6 @@ const DataResolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useScrollbar = isMacOS => {
-  useEffect(() => {
-    if (isMacOS) {
-      /* eslint-disable no-undef */
-      OverlayScrollbars(document.getElementById('preview-viewer-scroller'), {})
-    }
-  }, [isMacOS])
-}
-
 export const useInit = _store => {
   useEffect(() => {
     store = _store
