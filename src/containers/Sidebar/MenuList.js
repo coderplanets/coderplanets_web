@@ -1,12 +1,20 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import R from 'ramda'
 
 import MenuBar from './MenuBar'
 import NormalMenuList from './NormalMenuList'
-import SortableMenuList from './SortableMenuList'
+// import SortableMenuList from './SortableMenuList'
 
 import { Wrapper } from './styles/menu_list'
 import { onSortMenuEnd } from './logic'
+
+const DynamicSortableMenuList = dynamic({
+  loader: () => import('./SortableMenuList'),
+  /* eslint-disable */
+  loading: () => <div>..</div>,
+  /* eslint-enable */
+})
 
 const MenuList = ({
   items,
@@ -38,7 +46,7 @@ const MenuList = ({
           forceRerender={forceRerender}
         />
       ) : (
-        <SortableMenuList
+        <DynamicSortableMenuList
           communities={sortableCommunities}
           sortOptActive={sortOptActive}
           pin={pin}
