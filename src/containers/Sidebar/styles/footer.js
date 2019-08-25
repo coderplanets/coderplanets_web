@@ -9,9 +9,9 @@ export const Wrapper = styled.div`
   background: ${theme('sidebar.bg')};
 
   box-shadow: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.bottomShadow') : 'none'};
+    dropShadow ? theme('sidebar.footerShadow') : 'none'};
   border-bottom: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.bottomShadowBorderBottom') : ''};
+    dropShadow ? theme('sidebar.footerShadowBorderBottom') : ''};
 
   z-index: 1;
 `

@@ -4,8 +4,8 @@ import { ICON_CMD } from '@config'
 
 import { Wrapper, InnerWrapper, SettingIcon } from './styles/footer'
 
-const Footer = ({ pin, showFooterBarShadow }) => (
-  <Wrapper pin={pin} dropShadow={showFooterBarShadow}>
+const Footer = ({ pin, showFooterShadow }) => (
+  <Wrapper pin={pin} dropShadow={showFooterShadow}>
     <InnerWrapper pin={pin}>
       <SettingIcon src={`${ICON_CMD}/setting.svg`} />
     </InnerWrapper>

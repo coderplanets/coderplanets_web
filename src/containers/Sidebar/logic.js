@@ -28,19 +28,19 @@ let sub$ = null
 export const setPin = () => store.mark({ pin: !store.pin })
 
 export const anchorTop = () => {
-  if (store) store.mark({ showHomeBarShadow: false })
+  if (store) store.mark({ showHeaderShadow: false })
 }
 
 export const anchorOffTop = () => {
-  if (store) store.mark({ showHomeBarShadow: true })
+  if (store) store.mark({ showHeaderShadow: true })
 }
 
 export const anchorBottom = () => {
-  if (store) store.mark({ showFooterBarShadow: false })
+  if (store) store.mark({ showFooterShadow: false })
 }
 
 export const anchorOffBottom = () => {
-  if (store) store.mark({ showFooterBarShadow: true })
+  if (store) store.mark({ showFooterShadow: true })
 }
 
 export const searchOnFocus = () => store.mark({ pin: true })

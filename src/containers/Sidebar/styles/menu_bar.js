@@ -41,9 +41,9 @@ export const MenuItemBar = styled.div`
   color: ${theme('sidebar.menuLink')};
 
   box-shadow: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.topShadow') : 'none'};
+    dropShadow ? theme('sidebar.headerShadow') : 'none'};
   border-bottom: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.topShadowBorderBottom') : ''};
+    dropShadow ? theme('sidebar.headerShadowBorderBottom') : ''};
 `
 export const MenuRow = styled.div`
   ${cs.flex()};

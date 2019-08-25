@@ -20,7 +20,7 @@ const SortableMenuBar = SortableElement(
 )
 
 const MenuList = SortableContainer(
-  ({ items, pin, activeRaw, forceRerender, showHomeBarShadow }) => {
+  ({ items, pin, activeRaw, forceRerender, showHeaderShadow }) => {
     const homeCommunities = R.filter(R.propEq('raw', 'home'), items)
     const sortableCommunities = R.reject(R.propEq('raw', 'home'), items)
 
@@ -32,7 +32,7 @@ const MenuList = SortableContainer(
             pin={pin}
             item={item}
             activeRaw={activeRaw}
-            dropShadow={showHomeBarShadow}
+            dropShadow={showHeaderShadow}
           />
         ))}
         <OverlayScrollbarsComponent
