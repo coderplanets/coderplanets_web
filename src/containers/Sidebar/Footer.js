@@ -1,6 +1,9 @@
 import React from 'react'
 // eslint-disable-next-line import/named
-import { ICON_CMD } from '@config'
+import { ICON_CMD, ISSUE_ADDR } from '@config'
+
+import Popover from '@components/Popover'
+import DiscussLinker from '@components/DiscussLinker'
 
 import {
   Wrapper,
@@ -22,7 +25,13 @@ const Footer = ({ pin, showFooterShadow, sortOptActive }) => (
           排序
         </OptionItem>
         <OptionDivider />
-        <OptionItem>分组</OptionItem>
+        <Popover
+          placement="top"
+          trigger="hover"
+          content={<DiscussLinker title="分组" addr={`${ISSUE_ADDR}/597`} />}
+        >
+          <OptionItem>分组</OptionItem>
+        </Popover>
       </OptionWrapper>
     </InnerWrapper>
   </Wrapper>
