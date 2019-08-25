@@ -14,8 +14,10 @@ const SidebarStore = t
   .model('SidebarStore', {
     // open: t.optional(t.boolean, false),
     pin: t.optional(t.boolean, false),
-    // add shadow effect when user scroll the communities list
+    // add shadow effect to homebar when user scroll the communities list
     showHomeBarShadow: t.optional(t.boolean, false),
+    // add shadow effect to footer when user scroll the communities list
+    showFooterBarShadow: t.optional(t.boolean, false),
     searchCommunityValue: t.optional(t.string, ''),
 
     /*

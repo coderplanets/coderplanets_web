@@ -7,8 +7,12 @@ export const Wrapper = styled.div`
   // margin-bottom: ${({ pin }) => (pin ? '0' : '20px')};
   margin-top: -20px;
   background: ${theme('sidebar.bg')};
-  box-shadow: -1px -4px 4px 0px rgba(0,0,0,0.2);
-  border-top: 1px dashed #316d7b;
+
+  box-shadow: ${({ dropShadow }) =>
+    dropShadow ? theme('sidebar.bottomShadow') : 'none'};
+  border-bottom: ${({ dropShadow }) =>
+    dropShadow ? theme('sidebar.bottomShadowBorderBottom') : ''};
+
   z-index: 1;
 `
 export const InnerWrapper = styled.div`

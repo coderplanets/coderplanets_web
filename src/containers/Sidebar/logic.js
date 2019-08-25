@@ -27,21 +27,23 @@ let sub$ = null
 
 export const setPin = () => store.mark({ pin: !store.pin })
 
-export const scrollOnTop = () => {
+export const anchorTop = () => {
   if (store) store.mark({ showHomeBarShadow: false })
 }
 
-export const scrollOffTop = () => {
+export const anchorOffTop = () => {
   if (store) store.mark({ showHomeBarShadow: true })
 }
 
-export const searchOnBlur = () => {
-  log('searchOnBlur')
+export const anchorBottom = () => {
+  if (store) store.mark({ showFooterBarShadow: false })
 }
 
-export const searchOnFocus = () => {
-  store.mark({ pin: true })
+export const anchorOffBottom = () => {
+  if (store) store.mark({ showFooterBarShadow: true })
 }
+
+export const searchOnFocus = () => store.mark({ pin: true })
 
 export const searchCommunityValueOnChange = e =>
   store.mark({ searchCommunityValue: e.target.value })

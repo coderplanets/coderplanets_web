@@ -5,7 +5,7 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import MenuBar from './MenuBar'
-import { scrollOnTop, scrollOffTop } from './logic'
+import { anchorTop, anchorOffTop, anchorBottom, anchorOffBottom } from './logic'
 import { Wrapper, ScrollWrapper } from './styles/menu_list'
 
 const SortableMenuBar = SortableElement(
@@ -41,7 +41,7 @@ const MenuList = SortableContainer(
         >
           <ScrollWrapper>
             <React.Fragment>
-              <Waypoint onEnter={scrollOnTop} onLeave={scrollOffTop} />
+              <Waypoint onEnter={anchorTop} onLeave={anchorOffTop} />
               {sortableCommunities.map((item, index) => (
                 <SortableMenuBar
                   index={index}
@@ -52,6 +52,7 @@ const MenuList = SortableContainer(
                   forceRerender={forceRerender}
                 />
               ))}
+              <Waypoint onEnter={anchorBottom} onLeave={anchorOffBottom} />
             </React.Fragment>
           </ScrollWrapper>
         </OverlayScrollbarsComponent>
