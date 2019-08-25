@@ -1,12 +1,15 @@
 import React from 'react'
 import R from 'ramda'
 
+// eslint-disable-next-line import/named
+import { ICON_CMD } from '@config'
 import TrendLine from '@components/TrendLine'
 import { uid } from '@utils'
 
 import {
   Wrapper,
   ActiveBar,
+  DragIcon,
   MenuRow,
   MenuItemBar,
   MenuItemIcon,
@@ -16,11 +19,26 @@ import {
 
 import { onCommunitySelect } from './logic'
 
-const MenuBar = ({ pin, item, activeRaw, forceRerender, dropShadow }) => (
+const MenuBar = ({
+  pin,
+  sortOptActive,
+  item,
+  activeRaw,
+  forceRerender,
+  dropShadow,
+}) => (
   <Wrapper onClick={onCommunitySelect.bind(this, item)}>
-    <ActiveBar pin={pin} active={activeRaw === R.toLower(item.raw)} />
+    <ActiveBar
+      pin={pin}
+      active={!sortOptActive && activeRaw === R.toLower(item.raw)}
+    />
+    <DragIcon src={`${ICON_CMD}/drag.svg`} show={sortOptActive} />
     <MenuItemBar dropShadow={dropShadow}>
-      <MenuRow pin={pin} active={activeRaw === R.toLower(item.raw)}>
+      <MenuRow
+        pin={pin}
+        sortOptActive={sortOptActive}
+        active={!sortOptActive && activeRaw === R.toLower(item.raw)}
+      >
         <MenuItemIcon
           key={uid.gen()}
           active={activeRaw === R.toLower(item.raw)}

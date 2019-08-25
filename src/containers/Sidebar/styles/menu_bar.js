@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { theme, cs } from '@utils'
+import Img from '@Img'
+import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`
@@ -25,6 +26,16 @@ export const ActiveBar = styled.div`
   ${IndexWrapper}:hover & {
     top: 20px;
   }
+`
+export const DragIcon = styled(Img)`
+  cursor: pointer;
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  position: absolute;
+  top: 15px;
+  left: 0;
+  fill: ${theme('sidebar.menuLink')};
+  width: 15px;
+  height: 20px;
 `
 // box-shadow: 0px 6px 4px 0px rgba(0,0,0,0.2);
 // border-bottom: 1px dashed #316d7b;
@@ -50,6 +61,7 @@ export const MenuRow = styled.div`
   justify-content: left;
   align-items: center;
   font-size: 1rem;
+  margin-left: ${({ sortOptActive }) => (sortOptActive ? '10px' : '0')};
 `
 export const MenuItemIcon = styled(CommunityFaceLogo)`
   opacity: ${({ active }) => (active ? 1 : 0.5)};

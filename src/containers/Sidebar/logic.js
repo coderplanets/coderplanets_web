@@ -66,11 +66,16 @@ export const onCommunitySelect = community => {
   send(EVENT.COMMUNITY_CHANGE)
 }
 
-const mapIndexed = R.addIndex(R.map)
+export const sortBtnOnClick = () => {
+  if (!store.sortOptActive) {
+    store.mark({ pin: true })
+  }
+  store.mark({ sortOptActive: !store.sortOptActive })
+}
 
+const mapIndexed = R.addIndex(R.map)
 export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
   const sortedCommunities = arrayMove(store.communitiesData, oldIndex, newIndex)
-  // TODO: sync to server
   setC11N(sortedCommunities)
   store.onSortCommunities(sortedCommunities)
 }
@@ -79,7 +84,6 @@ const setC11N = sortedCommunities => {
   const { isLogin } = store
   if (!isLogin) return store.authWarning()
 
-  // TODO: check login
   sortedCommunities = R.reject(R.propEq('raw', 'home'), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
     (c, index) => ({ community: c.raw, index }),

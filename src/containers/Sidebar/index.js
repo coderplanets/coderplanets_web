@@ -27,6 +27,7 @@ const SidebarContainer = ({ sidebar }) => {
     searchCommunityValue,
     showHeaderShadow,
     showFooterShadow,
+    sortOptActive,
     communitiesData,
     forceRerender,
   } = sidebar
@@ -41,13 +42,18 @@ const SidebarContainer = ({ sidebar }) => {
       <MenuList
         items={communitiesData}
         pin={pin}
+        sortOptActive={sortOptActive}
         showHeaderShadow={showHeaderShadow}
         forceRerender={forceRerender}
         activeRaw={activeRaw}
         onSortEnd={onSortMenuEnd}
         distance={5}
       />
-      <Footer pin={pin} showFooterShadow={showFooterShadow} />
+      <Footer
+        pin={pin}
+        showFooterShadow={showFooterShadow}
+        sortOptActive={sortOptActive}
+      />
     </Wrapper>
   )
 }

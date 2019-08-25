@@ -19,6 +19,8 @@ const SidebarStore = t
     // add shadow effect to footer when user scroll the communities list
     showFooterShadow: t.optional(t.boolean, false),
     searchCommunityValue: t.optional(t.string, ''),
+    // after user click custom sort option in footer
+    sortOptActive: t.optional(t.boolean, false),
 
     /*
        this is a fix for wired svg icon in sidebar
