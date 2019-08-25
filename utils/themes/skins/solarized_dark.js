@@ -113,6 +113,8 @@ const solarizedDark = {
     borderColor: '#14363E',
     headerShadow: '-2px 1px 6px 0px rgb(1,21,25)',
     headerShadowBorderBottom: '1px solid #06495a',
+    footerShadow: '-1px -4px 4px 0px rgb(1,21,25)',
+    footerShadowBorderBottom: '1px dashed #06495a',
     searchInputBottom: '#154964',
     searchInputBottomActive: '#2e78a4',
     searchInputHolder: '#17414E',

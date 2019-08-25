@@ -113,7 +113,6 @@ const cyan = {
     headerShadowBorderBottom: '1px dashed #316d7b',
     footerShadow: '-1px -4px 4px 0px rgba(0,0,0,0.2)',
     footerShadowBorderBottom: '1px dashed #316d7b',
-
     searchInputBottom: '#2b6775',
     searchInputBottomActive: '#61ABB2',
     searchInputHolder: '#3a7786',

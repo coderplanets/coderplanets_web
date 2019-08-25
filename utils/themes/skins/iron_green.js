@@ -111,6 +111,8 @@ const iconGreen = {
     borderColor: '#14363E',
     headerShadow: '-1px 6px 2px 0px rgb(9, 171, 165)',
     headerShadowBorderBottom: '1px solid #668d90',
+    footerShadow: '-1px -4px 4px 0px rgb(9, 171, 165)',
+    footerShadowBorderBottom: '1px dashed #668d90',
     searchInputBottom: '#8ED5B4',
     searchInputBottomActive: '#BFE4B4',
     searchInputHolder: '#8ED5B4',

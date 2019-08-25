@@ -113,6 +113,8 @@ const green = {
     borderColor: lighten(0.05, sidebarBg),
     headerShadow: '-2px 2px 2px 0px rgb(39, 53, 45)',
     headerShadowBorderBottom: '1px solid #576957',
+    footerShadow: '-1px -4px 4px 0px rgb(39, 53, 45)',
+    footerShadowBorderBottom: '1px dashed #576957',
     searchInputBottom: '#606f64',
     searchInputBottomActive: '#92C446',
     searchInputHolder: '#607765',

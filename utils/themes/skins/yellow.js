@@ -112,6 +112,8 @@ const yellow = {
     borderColor: lighten(0.05, sidebarBg),
     headerShadow: '0px 6px 4px 0px rgba(0,0,0,0.2)',
     headerShadowBorderBottom: '1px dashed #88755b',
+    footerShadow: '-1px -4px 4px 0px rgba(0,0,0,0.2)',
+    footerShadowBorderBottom: '1px dashed #88755b',
     searchInputBottom: '#5D4833',
     searchInputBottomActive: '#A4644B',
     searchInputHolder: '#5D4833',

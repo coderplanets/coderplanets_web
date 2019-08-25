@@ -114,6 +114,8 @@ const monokai = {
     borderColor: lighten(0.05, sidebarBg),
     headerShadow: '-2px 1px 6px 0px rgb(1,21,25)',
     headerShadowBorderBottom: '1px solid #6b5f34',
+    footerShadow: '-1px -4px 4px 0px rgb(1,21,25)',
+    footerShadowBorderBottom: '1px dashed #6b5f34',
     searchInputBottom: '#3A3948',
     searchInputBottomActive: '#877853',
     searchInputHolder: '#3B3948',
