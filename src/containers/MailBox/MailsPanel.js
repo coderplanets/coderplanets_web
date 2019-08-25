@@ -1,11 +1,12 @@
 import React from 'react'
 import R from 'ramda'
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 // eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import TabSelector from '@components/TabSelector'
 
-import { Wrapper, SeeAllMessages } from './styles/mails_panel'
+import { Wrapper, ContentWrapper, SeeAllMessages } from './styles/mails_panel'
 import MailLists from './MailLists'
 
 import { selectChange, seeAll } from './logic'
@@ -48,7 +49,13 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
         activeRaw={activeRaw}
         onChange={selectChange}
       />
-      <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
+      <OverlayScrollbarsComponent
+        options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
+      >
+        <ContentWrapper>
+          <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
+        </ContentWrapper>
+      </OverlayScrollbarsComponent>
       <SeeAllMessages onClick={seeAll}>查看全部消息</SeeAllMessages>
     </Wrapper>
   )

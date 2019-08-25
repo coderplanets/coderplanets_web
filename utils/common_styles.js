@@ -89,6 +89,7 @@ const zIndex = {
   preview: 2001,
   doraemonOverlay: 2600,
   doraemon: 2601,
+  modalCloseBtn: 2000,
 
   //
   sidebar: 1999,

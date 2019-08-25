@@ -49,6 +49,7 @@ export const CloseBtn = styled(Img)`
   right: 15px;
   top: 15px;
   display: ${({ show }) => (show ? 'block' : 'none')};
+  z-index: ${cs.zIndex.modalCloseBtn};
 
   &:hover {
     animation: ${animate.rotate360CloseRule};

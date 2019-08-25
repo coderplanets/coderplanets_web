@@ -1,6 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 import { TYPE, EVENT, ERR } from '@constant'
 import { asyncSuit, buildLog, holdPage, unholdPage, errRescue } from '@utils'
@@ -166,9 +167,6 @@ export const useInit = _store => {
     store = _store
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-
-    /* eslint-disable no-undef */
-    // OverlayScrollbars(document.getElementById('userlist-scroller'), {})
 
     return () => {
       // log('effect uninit')
