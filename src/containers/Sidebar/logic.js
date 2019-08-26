@@ -67,6 +67,8 @@ export const onCommunitySelect = community => {
 }
 
 export const sortBtnOnClick = () => {
+  if (!store.isLogin) return store.authWarning()
+
   if (!store.sortOptActive) {
     store.mark({ pin: true })
   }
@@ -81,8 +83,7 @@ export const onSortMenuEnd = ({ oldIndex, newIndex }) => {
 }
 
 const setC11N = sortedCommunities => {
-  const { isLogin } = store
-  if (!isLogin) return store.authWarning()
+  if (!store.isLogin) return store.authWarning()
 
   sortedCommunities = R.reject(R.propEq('raw', 'home'), sortedCommunities)
   const sidebarCommunitiesIndex = mapIndexed(
