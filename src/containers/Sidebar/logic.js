@@ -25,7 +25,12 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
-export const setPin = () => store.mark({ pin: !store.pin })
+export const setPin = () => {
+  if (store.pin) {
+    store.mark({ sortOptActive: false })
+  }
+  store.mark({ pin: !store.pin })
+}
 
 export const anchorTop = () => {
   if (store) store.mark({ showHeaderShadow: false })
