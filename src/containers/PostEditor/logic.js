@@ -127,7 +127,6 @@ const openAttachment = att => {
   if (!att) return false
   // const { type } = att
   // if (type === TYPE.PREVIEW_POST_EDIT) loadPost(att.id)
-  /* log('openAttachment att: ', att) */
   store.updateEditing(att)
   store.mark({ isEdit: true })
 }

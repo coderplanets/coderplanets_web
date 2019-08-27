@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react'
 import dynamic from 'next/dynamic'
 
@@ -15,86 +16,74 @@ const CommonLoading = () => (
 
 // viewers
 export const DynamicAccountViewer = dynamic({
-  loader: () => import('../AccountViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/AccountViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostViewer = dynamic({
-  loader: () => import('../PostViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/PostViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicJobViewer = dynamic({
-  loader: () => import('../JobViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/JobViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicMailsViewer = dynamic({
-  loader: () => import('../MailsViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/MailsViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoViewer = dynamic({
-  loader: () => import('../RepoViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/RepoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicVideoViewer = dynamic({
-  loader: () => import('../VideoViewer'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/VideoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 // editors
 export const DynamicAccountEditor = dynamic({
-  loader: () => import('../AccountEditor'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/AccountEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostEditor = dynamic({
-  loader: () => import('../PostEditor'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/PostEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicJobEditor = dynamic({
-  loader: () => import('../JobEditor'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/JobEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicVideoEditor = dynamic({
-  loader: () => import('../VideoEditor'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/VideoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoEditor = dynamic({
-  loader: () => import('../RepoEditor'),
-  /* eslint-disable-next-line */
+  loader: () => import('@containers/RepoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicStateTree = dynamic({
   loader: () => import('@components/StateTree'),
-  /* eslint-disable-next-line */
   loading: () => <CommonLoading />,
   ssr: false,
 })

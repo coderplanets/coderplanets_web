@@ -79,12 +79,11 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
 
   log('editData in views: ', editData)
 
-  if (!editData.body) return <ArticleContentLoading />
-
   return (
     <Wrapper>
       <Header isEdit={isEdit} curView={curView} referUsers={referUsersData} />
       <View
+        key={editData.body}
         isEdit={isEdit}
         curView={curView}
         editData={editData}

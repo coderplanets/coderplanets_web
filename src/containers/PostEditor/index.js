@@ -90,8 +90,6 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
 
   log('editData in views: ', editData)
 
-  if (!editData.body) return <ArticleContentLoading />
-
   return (
     <Wrapper>
       <Modal
@@ -109,6 +107,7 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
         referUsers={referUsersData}
       />
       <View
+        key={editData.body}
         curView={curView}
         editData={editData}
         isEdit={isEdit}
