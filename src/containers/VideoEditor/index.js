@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { connectStore } from '@utils'
+import { connectStore, buildLog } from '@utils'
 
 import Labeler from '@containers/Labeler'
 import FormItem from '@components/FormItem'
@@ -23,12 +23,14 @@ import { useInit, inputOnChange, canclePublish, onPublish } from './logic'
 const log = buildLog('C:VideoEditor')
 
 const VideoEditorContainer = ({ videoEditor, attachment }) => {
+  log('VideoEditorContainer come')
   useInit(videoEditor, attachment)
 
   const { editVideoData, publishing, ratKey, isEdit } = videoEditor
 
   return (
     <Wrapper>
+      <div>jjj</div>
       {!isEdit ? <Title>发布视频链接</Title> : <Title>更新视频链接</Title>}
       <AlertMessage />
       <CoverUploader

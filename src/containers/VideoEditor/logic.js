@@ -122,6 +122,7 @@ export const useInit = (_store, attachment) => {
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     openAttachment(attachment)
+    log('啊啊啊')
 
     return () => {
       // log('effect uninit')
