@@ -30,7 +30,6 @@ const VideoEditorContainer = ({ videoEditor, attachment }) => {
 
   return (
     <Wrapper>
-      <div>jjj</div>
       {!isEdit ? <Title>发布视频链接</Title> : <Title>更新视频链接</Title>}
       <AlertMessage />
       <CoverUploader

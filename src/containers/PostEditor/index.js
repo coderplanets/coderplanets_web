@@ -107,7 +107,7 @@ const PostEditorContainer = ({ postEditor, attachment }) => {
         referUsers={referUsersData}
       />
       <View
-        key={editData.body}
+        key={isEdit}
         curView={curView}
         editData={editData}
         isEdit={isEdit}
