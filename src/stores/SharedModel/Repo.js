@@ -1,5 +1,6 @@
 import { types as t } from 'mobx-state-tree'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 
 import { User, PagedUsers } from './User'
@@ -19,7 +20,7 @@ const Language = t.model('Language', {
 
 export const Repo = t.model('Reop', {
   id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
+  title: t.optional(t.string, ''),
   ownerName: t.maybeNull(t.string),
   ownerUrl: t.maybeNull(t.string),
   repoUrl: t.maybeNull(t.string),
