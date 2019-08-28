@@ -83,7 +83,7 @@ const JobEditorContainer = ({ jobEditor, attachment }) => {
     <Wrapper>
       <Header isEdit={isEdit} curView={curView} referUsers={referUsersData} />
       <View
-        key={editData.body}
+        key={isEdit}
         isEdit={isEdit}
         curView={curView}
         editData={editData}
