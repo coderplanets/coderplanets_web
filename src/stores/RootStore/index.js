@@ -107,7 +107,7 @@ const rootStore = t
     comments: t.optional(CommentsStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
-    appLangs: t.map(t.frozen),
+    appLangs: t.map(t.frozen()),
     // domain end
 
     // toolbox
