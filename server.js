@@ -56,6 +56,10 @@ app.prepare().then(() => {
 
   server.get('/', (req, res) => res.redirect(HOME_PAGE))
 
+  server.get('/editor', (req, res) =>
+    app.render(req, res, '/editor', req.query)
+  )
+
   server.get('/oauth/', (req, res) =>
     renderAndCache(req, res, '/oauth', req.query)
   )
