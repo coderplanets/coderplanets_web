@@ -21,6 +21,7 @@ import {
   RouteStore,
   AccountStore,
   GlobalLayoutStore,
+  RichEditorStore,
   HeaderStore,
   ContentStore,
   ViewingStore,
@@ -129,6 +130,7 @@ const rootStore = t
     // layouts > xxx > papers
     // layouts
     globalLayout: t.optional(GlobalLayoutStore, {}),
+    richEditor: t.optional(RichEditorStore, {}),
     header: t.optional(HeaderStore, {}),
     content: t.optional(ContentStore, {}),
     // layouts end
