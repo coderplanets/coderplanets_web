@@ -10,6 +10,7 @@
     "serve.prod": "cross-env NODE_ENV=production SERVE_PORT=${SERVE_PORT} node server"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.15.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
     "@tippy.js/react": "^2.2.1",

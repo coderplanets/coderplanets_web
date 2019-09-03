@@ -944,6 +944,12 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@editorjs/editorjs@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.15.0.tgz#7bb1cd38863e613be904a7e3d048a99590c9f5d9"
+  dependencies:
+    codex-notifier "^1.1.2"
+
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.1.tgz#6fb3ae2d24f07c8cd090f233e45771d9cd826d48"
@@ -2963,6 +2969,10 @@ co@^4.6.0:
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
+
+codex-notifier@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/codex-notifier/-/codex-notifier-1.1.2.tgz#a733079185f4c927fa296f1d71eb8753fe080895"
 
 collection-visit@^1.0.0:
   version "1.0.0"

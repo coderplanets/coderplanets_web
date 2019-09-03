@@ -40,6 +40,7 @@
     }
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.15.0",
     "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
