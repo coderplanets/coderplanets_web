@@ -12,6 +12,8 @@ import { useScript } from '@hooks'
 import { useInit } from './logic'
 // import * as logic from './logic'
 
+import { Wrapper } from './styles'
+
 /* eslint-disable-next-line */
 const log = buildLog('C:RichEditor')
 
@@ -23,11 +25,10 @@ const RichEditorContainer = ({ richEditor }) => {
   useInit(richEditor, loaded)
 
   return (
-    <div>
-      <h2>RichEditor container!</h2>
-      <div>impress me!</div>
+    <Wrapper>
+      <h3>hello</h3>
       <div id="codex-editor" />
-    </div>
+    </Wrapper>
   )
 }
 
