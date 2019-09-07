@@ -1,7 +1,33 @@
 import { createGlobalStyle } from 'styled-components'
 // import { theme, cs } from '@utils'
 
+// header see: https://github.com/editor-js/header
+// quote see: https://github.com/editor-js/quote
+// list see: https://github.com/editor-js/list
+// marker see: https://github.com/editor-js/marker
+
 const RichEditorStyle = createGlobalStyle`
+
+  .cdx-quote__text {
+    min-height: 0 !important;
+  }
+
+  .cdx-input {
+    border: none;
+    border-left: 3px solid #00A5FA;
+    box-shadow: none;
+  }
+
+  .cdx-list__item {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      border-bottom: 1px solid #00C3FB;
+      color: #00C3FB;
+      padding-bottom: 1px;
+    }
+  }
+
   .cps-viewer {
     padding: 10px;
     background: white;
