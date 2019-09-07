@@ -950,6 +950,22 @@
   dependencies:
     codex-notifier "^1.1.2"
 
+"@editorjs/header@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@editorjs/header/-/header-2.3.0.tgz#ce48414e3d8b39b1ed5633d35e3684b158fb9e98"
+
+"@editorjs/list@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/@editorjs/list/-/list-1.4.0.tgz#e92459a8ac2305bc4385245e329c8b5c8437456a"
+
+"@editorjs/marker@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@editorjs/marker/-/marker-1.2.1.tgz#c0d8ebcc7a421e659b5d01c1e59c8aec911c7818"
+
+"@editorjs/quote@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@editorjs/quote/-/quote-2.3.0.tgz#5585cf93a87a1fd4e0c72ba08c90eb8eb06b518d"
+
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.1.tgz#6fb3ae2d24f07c8cd090f233e45771d9cd826d48"
