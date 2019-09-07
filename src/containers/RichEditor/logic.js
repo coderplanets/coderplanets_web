@@ -1,5 +1,9 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
+import Header from '@editorjs/header'
+import Quote from '@editorjs/quote'
+import List from '@editorjs/list'
+import Marker from '@editorjs/marker'
 
 // import { TYPE, EVENT, ERR } from '@constant'
 import { buildLog } from '@utils'
@@ -32,6 +36,17 @@ export const useInit = (_store, loaded) => {
          * Id of Element that should contain Editor instance
          */
         holderId: 'codex-editor',
+        tools: {
+          header: Header,
+          quote: Quote,
+          list: {
+            class: List,
+            inlineToolbar: true,
+          },
+          marker: {
+            class: Marker,
+          },
+        },
         data: {
           time: 1552744582955,
           blocks: [
