@@ -1,6 +1,6 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
-import Header from '@editorjs/header'
+import Header from '@groupher/editor-header'
 import Quote from '@editorjs/quote'
 import List from '@editorjs/list'
 import Marker from '@editorjs/marker'
