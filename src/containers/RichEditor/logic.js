@@ -4,6 +4,9 @@ import Header from '@editorjs/header'
 import Quote from '@editorjs/quote'
 import List from '@editorjs/list'
 import Marker from '@editorjs/marker'
+import Checklist from '@editorjs/checklist'
+import Delimiter from '@editorjs/delimiter'
+import InlineCode from '@editorjs/inline-code'
 
 // import { TYPE, EVENT, ERR } from '@constant'
 import { buildLog } from '@utils'
@@ -46,6 +49,12 @@ export const useInit = (_store, loaded) => {
           marker: {
             class: Marker,
           },
+          checklist: {
+            class: Checklist,
+            inlineToolbar: true,
+          },
+          delimiter: Delimiter,
+          inlineCode: InlineCode,
         },
         data: {
           time: 1552744582955,
