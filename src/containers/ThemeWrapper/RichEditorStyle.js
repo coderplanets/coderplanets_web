@@ -28,6 +28,17 @@ const RichEditorStyle = createGlobalStyle`
     }
   }
 
+  .ce-delimiter:before {
+    display: inline-block;
+    content: " " !important;
+    font-size: 15px;
+    width: 150px;
+    border-bottom: 1px solid;
+    border-bottom-color: lightgrey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
   .cps-viewer {
     padding: 10px;
     background: white;

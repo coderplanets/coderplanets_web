@@ -944,6 +944,14 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@editorjs/checklist@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@editorjs/checklist/-/checklist-1.1.0.tgz#1c5a083a48852f3d86d6086d2e1a6057ac5b0429"
+
+"@editorjs/delimiter@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@editorjs/delimiter/-/delimiter-1.1.0.tgz#f61808ea92e4e289607d54441964f1cb8605410a"
+
 "@editorjs/editorjs@^2.15.0":
   version "2.15.0"
   resolved "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.15.0.tgz#7bb1cd38863e613be904a7e3d048a99590c9f5d9"
@@ -953,6 +961,10 @@
 "@editorjs/header@^2.3.0":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@editorjs/header/-/header-2.3.0.tgz#ce48414e3d8b39b1ed5633d35e3684b158fb9e98"
+
+"@editorjs/inline-code@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/@editorjs/inline-code/-/inline-code-1.3.0.tgz#66b915d2c128ba520ba4b245067d40851d78355a"
 
 "@editorjs/list@^1.4.0":
   version "1.4.0"
