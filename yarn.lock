@@ -1032,6 +1032,10 @@
   version "2.3.0"
   resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
 
+"@groupher/editor-quote@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@groupher/editor-quote/-/editor-quote-2.3.0.tgz#6bdf7c702f7c98c34d14915d19285e36e30541a2"
+
 "@groupher/eslint-config-web@1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@groupher/eslint-config-web/-/eslint-config-web-1.1.1.tgz#69372fedc3d68560546f1618f973483b3d0cd413"
