@@ -1028,6 +1028,10 @@
   version "2.5.2"
   resolved "https://registry.npmjs.org/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
 
+"@groupher/editor-header@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
+
 "@groupher/eslint-config-web@1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@groupher/eslint-config-web/-/eslint-config-web-1.1.1.tgz#69372fedc3d68560546f1618f973483b3d0cd413"

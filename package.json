@@ -48,6 +48,7 @@
     "@editorjs/list": "^1.4.0",
     "@editorjs/marker": "^1.2.1",
     "@editorjs/quote": "^2.3.0",
+    "@groupher/editor-header": "^2.3.0",
     "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
