@@ -119,7 +119,7 @@ export const onPreview = data => {
 }
 
 export const onContentCreate = () => {
-  if (!store.isLogin) return store.authWarning()
+  // if (!store.isLogin) return store.authWarning()
 
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
 }

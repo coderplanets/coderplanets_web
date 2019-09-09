@@ -64,6 +64,12 @@ export const DynamicPostEditor = dynamic({
   ssr: false,
 })
 
+export const DynamicPostEditor2 = dynamic({
+  loader: () => import('@containers/PostEditor2'),
+  loading: () => <EditorLoading />,
+  ssr: false,
+})
+
 export const DynamicJobEditor = dynamic({
   loader: () => import('@containers/JobEditor'),
   loading: () => <EditorLoading />,
