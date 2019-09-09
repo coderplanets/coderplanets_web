@@ -13,6 +13,7 @@ import {
   // editors
   DynamicAccountEditor,
   DynamicPostEditor,
+  DynamicPostEditor2,
   DynamicJobEditor,
   DynamicVideoEditor,
   DynamicRepoEditor,
@@ -40,7 +41,8 @@ const renderViewer = (type, root, attachment, attUser) => {
       return <DynamicPostViewer attachment={attachment} />
 
     case TYPE.PREVIEW_POST_CREATE:
-      return <DynamicPostEditor onClose={closePreview} />
+      return <DynamicPostEditor2 onClose={closePreview} />
+    // return <DynamicPostEditor onClose={closePreview} />
 
     case TYPE.PREVIEW_POST_EDIT:
       return (

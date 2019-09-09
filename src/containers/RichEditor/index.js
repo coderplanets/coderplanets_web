@@ -26,7 +26,6 @@ const RichEditorContainer = ({ richEditor }) => {
 
   return (
     <Wrapper>
-      <h3>hello2</h3>
       <div id="codex-editor" />
     </Wrapper>
   )

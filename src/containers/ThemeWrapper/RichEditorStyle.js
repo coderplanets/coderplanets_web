@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-// import { theme, cs } from '@utils'
+import { theme } from '@utils'
 
 // header see: https://github.com/editor-js/header
 // quote see: https://github.com/editor-js/quote
@@ -10,11 +10,13 @@ const RichEditorStyle = createGlobalStyle`
 
   .cdx-quote__text {
     min-height: 0 !important;
+    border-left: 3px solid !important;
+    border-left-color: ${theme('richEditor.blockquoteBorder')} !important;
+    color: ${theme('richEditor.blockquoteFg')};
   }
 
   .cdx-input {
     border: none;
-    border-left: 3px solid #00A5FA;
     box-shadow: none;
   }
 
