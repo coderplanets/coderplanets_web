@@ -7,6 +7,7 @@ import Marker from '@editorjs/marker'
 import Checklist from '@editorjs/checklist'
 import Delimiter from '@editorjs/delimiter'
 import InlineCode from '@editorjs/inline-code'
+import LinkTool from '@editorjs/link'
 
 // import { TYPE, EVENT, ERR } from '@constant'
 import { buildLog } from '@utils'
@@ -55,6 +56,9 @@ export const useInit = (_store, loaded) => {
           },
           delimiter: Delimiter,
           inlineCode: InlineCode,
+          linkTool: {
+            class: LinkTool,
+          },
         },
         data: {
           time: 1552744582955,
