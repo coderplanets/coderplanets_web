@@ -58,6 +58,9 @@ export const useInit = (_store, loaded) => {
           inlineCode: InlineCode,
           linkTool: {
             class: LinkTool,
+            config: {
+              endpoint: 'http://localhost:4001/api/og-info',
+            },
           },
         },
         data: {
