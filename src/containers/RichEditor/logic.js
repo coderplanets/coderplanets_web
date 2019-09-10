@@ -1,13 +1,14 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
-import Header from '@groupher/editor-header'
-import Quote from '@groupher/editor-quote'
+
 import List from '@editorjs/list'
 import Marker from '@editorjs/marker'
 import Checklist from '@editorjs/checklist'
 import Delimiter from '@editorjs/delimiter'
 import InlineCode from '@editorjs/inline-code'
-import LinkTool from '@editorjs/link'
+import Header from '@groupher/editor-header'
+import Quote from '@groupher/editor-quote'
+import LinkTool from '@groupher/editor-link'
 
 // import { TYPE, EVENT, ERR } from '@constant'
 import { buildLog } from '@utils'
