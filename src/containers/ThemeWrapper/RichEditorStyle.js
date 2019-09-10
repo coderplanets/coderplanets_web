@@ -9,8 +9,8 @@ import { theme } from '@utils'
 const RichEditorStyle = createGlobalStyle`
   // tmp
   .link-tool__input {
-    border: 1px solid #e6e3e3;
-    border-radius: 12px;
+    border: 1px solid #e6e3e3 !important;
+    border-radius: 12px !important;
   }
 
   .link-tool__content--rendered {
