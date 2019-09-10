@@ -7,6 +7,39 @@ import { theme } from '@utils'
 // marker see: https://github.com/editor-js/marker
 
 const RichEditorStyle = createGlobalStyle`
+  // tmp
+  .link-tool__input {
+    border: 1px solid #e6e3e3;
+    border-radius: 12px;
+  }
+
+  .link-tool__content--rendered {
+    border-radius: 15px;
+    height: 120px;
+    max-height: 140px;
+    padding: 10px 20px;
+    width: 65%;
+    margin-left: 15%;
+    min-height: 120px;
+    max-height: 150px;
+    padding: 12px 20px !important;
+    background-color: hsla(0,0%,96.5%,.88) !important;
+  }
+
+  .link-tool__title {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .link-tool__description {
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #c5c5c5;
+  }
 
   .cdx-quote__text {
     min-height: 0 !important;
