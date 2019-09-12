@@ -114,7 +114,6 @@
     "babel-plugin-styled-components": "1.10.3",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "regenerator-runtime": "^0.13.1",
-    "dotenv-webpack": "1.6.0",
-    "start-server-and-test": "^1.7.13"
+    "dotenv-webpack": "1.6.0"
   }
 }
