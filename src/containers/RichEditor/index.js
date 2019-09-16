@@ -18,11 +18,11 @@ import { Wrapper } from './styles'
 const log = buildLog('C:RichEditor')
 
 const RichEditorContainer = ({ richEditor }) => {
-  const [loaded] = useScript(
-    'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest'
+  const [uploaderLoaded] = useScript(
+    'https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js'
   )
 
-  useInit(richEditor, loaded)
+  useInit(richEditor, uploaderLoaded)
 
   return (
     <Wrapper>

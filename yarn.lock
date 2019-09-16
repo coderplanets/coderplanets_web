@@ -982,15 +982,14 @@
 "@editorjs/code@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@editorjs/code/-/code-2.4.1.tgz#a1851c781c9ead9a84bd921f04df172a2383f550"
-  integrity sha512-R4UUApkm6FLuxrQoqISg6GL73t0WWOdoPdAmAa36xarmtmBRkxu4AfxIwzW2CtUD1CqG1T7Be6jnv4ZeUoMNYQ==
 
 "@editorjs/delimiter@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@editorjs/delimiter/-/delimiter-1.1.0.tgz#f61808ea92e4e289607d54441964f1cb8605410a"
 
-"@editorjs/editorjs@^2.15.0":
-  version "2.15.0"
-  resolved "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.15.0.tgz#7bb1cd38863e613be904a7e3d048a99590c9f5d9"
+"@editorjs/editorjs@^2.15.1":
+  version "2.15.1"
+  resolved "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.15.1.tgz#7e55640a46ca25f6992ad571a5c3302eb3f9b9e6"
   dependencies:
     codex-notifier "^1.1.2"
 
@@ -1060,9 +1059,19 @@
   version "2.5.2"
   resolved "https://registry.npmjs.org/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
 
+"@groupher/editor-code@^1.0.0":
+  version "1.0.17"
+  resolved "https://registry.npmjs.org/@groupher/editor-code/-/editor-code-1.0.17.tgz#5915b571a854ac391678950a0cd9999345d9389c"
+  dependencies:
+    prismjs "^1.17.1"
+
 "@groupher/editor-header@^2.3.0":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
+
+"@groupher/editor-image@^1.0.0":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@groupher/editor-image/-/editor-image-1.0.6.tgz#4391f24194c96d0967451a945c75b854fbbaeba2"
 
 "@groupher/editor-link@^2.1.3":
   version "2.1.4"
@@ -1071,8 +1080,8 @@
     "@babel/runtime" "^7.3.1"
 
 "@groupher/editor-quote@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@groupher/editor-quote/-/editor-quote-2.3.0.tgz#6bdf7c702f7c98c34d14915d19285e36e30541a2"
+  version "2.3.1"
+  resolved "https://registry.npmjs.org/@groupher/editor-quote/-/editor-quote-2.3.1.tgz#bf64b0ae5293fc60ffa4b934da7380f6d1ece296"
 
 "@groupher/eslint-config-web@1.1.1":
   version "1.1.1"
@@ -3040,7 +3049,7 @@ cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
 
-clipboard@^2.0.4:
+clipboard@^2.0.0, clipboard@^2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
   dependencies:
@@ -9035,6 +9044,12 @@ pretty-quick@^1.10.0:
 pretty-time@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
+
+prismjs@^1.17.1:
+  version "1.17.1"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
+  optionalDependencies:
+    clipboard "^2.0.0"
 
 private@^0.1.6, private@^0.1.8:
   version "0.1.8"
