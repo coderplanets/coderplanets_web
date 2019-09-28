@@ -753,7 +753,7 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@7.4.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5":
+"@babel/runtime@7.4.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4":
   version "7.4.5"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   dependencies:
@@ -1115,14 +1115,6 @@
   dependencies:
     "@hapi/hoek" "6.x.x"
 
-"@jest/types@^24.8.0":
-  version "24.8.0"
-  resolved "https://registry.npmjs.org/@jest/types/-/types-24.8.0.tgz#f31e25948c58f0abd8c845ae26fcea1491dea7ad"
-  dependencies:
-    "@types/istanbul-lib-coverage" "^2.0.0"
-    "@types/istanbul-reports" "^1.1.1"
-    "@types/yargs" "^12.0.9"
-
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
   resolved "https://registry.npmjs.org/@marionebl/sander/-/sander-0.6.1.tgz#1958965874f24bc51be48875feb50d642fc41f7b"
@@ -1259,40 +1251,19 @@
     "@sentry/types" "4.5.3"
     tslib "^1.9.3"
 
-"@sheerun/mutationobserver-shim@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
-
 "@tanem/svg-injector@^7.0.6":
   version "7.0.17"
   resolved "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-7.0.17.tgz#f7433ec5e1cbaa4ad4d2a3c13cfca7149a3a3b2d"
   dependencies:
     "@babel/runtime" "^7.4.4"
 
-"@testing-library/dom@^5.0.0":
-  version "5.2.0"
-  resolved "https://registry.npmjs.org/@testing-library/dom/-/dom-5.2.0.tgz#450bd09f93ddd8865eec98fc5e81fceb2bccdf9c"
+"@tippy.js/react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@tippy.js/react/-/react-3.0.0.tgz#bacc4af0ff4446b693a60cddd074ae59fa2d4df6"
+  integrity sha512-MrvHIJQ/DhjCHiNL4iTRje0zNAQixL2TKNhViU/lPyrOSx1GnVmbEomB/PWwmWbqzNqx3hca+fhWggH9jyTrhw==
   dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@sheerun/mutationobserver-shim" "^0.3.2"
-    aria-query "3.0.0"
-    pretty-format "^24.8.0"
-    wait-for-expect "^1.2.0"
-
-"@testing-library/react@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.npmjs.org/@testing-library/react/-/react-8.0.1.tgz#91c254adf855b13de50020613cb5d3915f9f7875"
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    "@testing-library/dom" "^5.0.0"
-
-"@tippy.js/react@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@tippy.js/react/-/react-2.2.1.tgz#3826ecb318b4045a09d4cd1385a77d0538f4ac0e"
-  dependencies:
-    "@testing-library/react" "^8.0.1"
     prop-types "^15.6.2"
-    tippy.js "^4.3.0"
+    tippy.js "^5.0.0"
 
 "@types/babel__core@^7.1.2":
   version "7.1.2"
@@ -1333,23 +1304,6 @@
 "@types/invariant@^2.2.30":
   version "2.2.30"
   resolved "https://registry.npmjs.org/@types/invariant/-/invariant-2.2.30.tgz#20efa342807606ada5483731a8137cb1561e5fe9"
-
-"@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
-
-"@types/istanbul-lib-report@*":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@types/istanbul-lib-report/-/istanbul-lib-report-1.1.1.tgz#e5471e7fa33c61358dd38426189c037a58433b8c"
-  dependencies:
-    "@types/istanbul-lib-coverage" "*"
-
-"@types/istanbul-reports@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@types/istanbul-reports/-/istanbul-reports-1.1.1.tgz#7a8cbf6a406f36c8add871625b278eaf0b0d255a"
-  dependencies:
-    "@types/istanbul-lib-coverage" "*"
-    "@types/istanbul-lib-report" "*"
 
 "@types/jquery@^2.0.40":
   version "2.0.53"
@@ -1405,10 +1359,6 @@
 "@types/stack-trace@0.0.29":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/stack-trace/-/stack-trace-0.0.29.tgz#eb7a7c60098edb35630ed900742a5ecb20cfcb4d"
-
-"@types/yargs@^12.0.9":
-  version "12.0.12"
-  resolved "https://registry.npmjs.org/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
 
 "@types/zen-observable@0.8.0", "@types/zen-observable@^0.8.0":
   version "0.8.0"
@@ -1737,7 +1687,7 @@ ansi-regex@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/ansi-regex/-/ansi-regex-3.0.0.tgz#ed0317c322064f79466c02966bddb605ab37d998"
 
-ansi-regex@^4.0.0, ansi-regex@^4.1.0:
+ansi-regex@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/ansi-regex/-/ansi-regex-4.1.0.tgz#8b9f8f08cf1acb843756a839ca8c7e3168c51997"
 
@@ -1925,7 +1875,7 @@ argparse@^1.0.10, argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
-aria-query@3.0.0, aria-query@^3.0.0:
+aria-query@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/aria-query/-/aria-query-3.0.0.tgz#65b3fcc1ca1155a8c9ae64d6eee297f15d5133cc"
   dependencies:
@@ -8891,9 +8841,10 @@ polished@2.3.1:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-popper.js@^1.14.1, popper.js@^1.14.7:
+popper.js@^1.14.1, popper.js@^1.15.0:
   version "1.15.0"
-  resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
+  integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -8994,15 +8945,6 @@ pretty-format@^23.6.0:
   dependencies:
     ansi-regex "^3.0.0"
     ansi-styles "^3.2.0"
-
-pretty-format@^24.8.0:
-  version "24.8.0"
-  resolved "https://registry.npmjs.org/pretty-format/-/pretty-format-24.8.0.tgz#8dae7044f58db7cb8be245383b565a963e3c27f2"
-  dependencies:
-    "@jest/types" "^24.8.0"
-    ansi-regex "^4.0.0"
-    ansi-styles "^3.2.0"
-    react-is "^16.8.4"
 
 pretty-quick@^1.10.0:
   version "1.11.1"
@@ -9698,7 +9640,7 @@ react-intl@3.0.0:
     react "^16.3.0"
     shallow-equal "^1.1.0"
 
-react-is@16.8.6, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
+react-is@16.8.6, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
 
@@ -11291,11 +11233,12 @@ tiny-emitter@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
 
-tippy.js@^4.3.0:
-  version "4.3.4"
-  resolved "https://registry.npmjs.org/tippy.js/-/tippy.js-4.3.4.tgz#9a91fd5ce8c401f181b7adaa6b2c27f3d105f3ba"
+tippy.js@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-5.0.0.tgz#770a02e58bebc27a71f4977de0e4e984af0ca2a5"
+  integrity sha512-X+oueol2IDOpYxPP8rRpNlWaFbRRij9hit1DJ2aZfSTz0q4HgD3Q3U6pPUcXMsFUDik19sujxknAPPCRLnRZ2Q==
   dependencies:
-    popper.js "^1.14.7"
+    popper.js "^1.15.0"
 
 title-case@^2.1.0:
   version "2.1.1"
@@ -11672,10 +11615,6 @@ w3c-hr-time@^1.0.1:
   resolved "https://registry.npmjs.org/w3c-hr-time/-/w3c-hr-time-1.0.1.tgz#82ac2bff63d950ea9e3189a58a65625fedf19045"
   dependencies:
     browser-process-hrtime "^0.1.2"
-
-wait-for-expect@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/wait-for-expect/-/wait-for-expect-1.2.0.tgz#fdab6a26e87d2039101db88bff3d8158e5c3e13f"
 
 wait-on@3.3.0:
   version "3.3.0"
