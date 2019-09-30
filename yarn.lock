@@ -8023,9 +8023,10 @@ next-progressbar@^1.0.0:
   dependencies:
     webpackbar "^2.6.1"
 
-next-seo@1.11.1:
-  version "1.11.1"
-  resolved "https://registry.npmjs.org/next-seo/-/next-seo-1.11.1.tgz#fd17a522b84e3d21c367e5b54e801731c8c1c3ba"
+next-seo@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-2.1.1.tgz#3451c5628b0f186a5b0e231363170cf2848f11f9"
+  integrity sha512-Uge9KT+ugublhcSa2TqRnux61+YNCl5dEC1Bh25zQDuV85H8pKXl3MWFt9n/VZ3BTNne4cWWGI+/g9apnfNfBg==
 
 next-server@9.0.4:
   version "9.0.4"
