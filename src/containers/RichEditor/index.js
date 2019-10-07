@@ -5,6 +5,8 @@
  */
 
 import React from 'react'
+// import Editor from '@stfy/react-editor.js'
+import Editor from '@groupher/react-editor'
 
 import { connectStore, buildLog } from '@utils'
 import { useScript } from '@hooks'
@@ -27,6 +29,8 @@ const RichEditorContainer = ({ richEditor }) => {
   return (
     <Wrapper>
       <div id="codex-editor" />
+      <div id="editorjs-container" />
+      <Editor holder="editorjs-container" />
     </Wrapper>
   )
 }

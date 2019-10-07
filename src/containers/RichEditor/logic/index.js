@@ -1,7 +1,8 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import EditorJS from '@editorjs/editorjs'
+// import EditorJS from '@editorjs/editorjs'
+import EditorJS from '@groupher/editor'
 import List from '@editorjs/list'
 import Marker from '@editorjs/marker'
 import Checklist from '@editorjs/checklist'
