@@ -7,6 +7,51 @@ import { theme } from '@utils'
 // marker see: https://github.com/editor-js/marker
 
 const RichEditorStyle = createGlobalStyle`
+  .ce-toolbox__button--active {
+      -webkit-animation: bounceIn .35s .5;
+      animation: bounceIn .35s .5;
+  }
+  .ce-toolbar__plus--active, .ce-toolbar__plus:hover {
+    color: ${theme('richEditor.iconActive')};
+  }
+  .ce-inline-tool--active, .ce-inline-tool:hover {
+    color: ${theme('richEditor.iconActive')};
+    background-color: ${theme('richEditor.iconActiveBg')};
+  }
+  .ce-inline-tool {
+    color: ${theme('richEditor.icon')};
+  }
+
+  .ce-toolbox__button--active, .ce-toolbox__button:hover {
+    color: ${theme('richEditor.iconActive')};
+    background-color: ${theme('richEditor.iconActiveBg')};
+    border-radius: 6px;
+  }
+
+  .ce-conversion-toolbar, .ce-inline-toolbar {
+    background-color: ${theme('richEditor.toolbarBg')};
+    border: 1px solid;
+    border-color: ${theme('richEditor.borderColor')};
+  }
+
+  .ce-conversion-toolbar:before, .ce-inline-toolbar:before {
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-top-color: ${theme('richEditor.borderColor')};
+    border-right-color: ${theme('richEditor.borderColor')};
+
+    border-top-right-radius: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: ${theme('richEditor.arrowBg')};
+    border-radius: 100%;
+  }
+
+  .ce-delimiter:before {
+    border-bottom: 1px solid;
+    border-bottom-color: ${theme('richEditor.delimiter')};
+  }
+
   // tmp
   .link-tool__input {
     border: 1px solid #e6e3e3 !important;
@@ -63,16 +108,6 @@ const RichEditorStyle = createGlobalStyle`
     }
   }
 
-  .ce-delimiter:before {
-    display: inline-block;
-    content: " " !important;
-    font-size: 15px;
-    width: 150px;
-    border-bottom: 1px solid;
-    border-bottom-color: lightgrey;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
 
   .cps-viewer {
     padding: 10px;

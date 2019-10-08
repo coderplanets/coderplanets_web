@@ -232,6 +232,15 @@ const cyan = {
     br: '#e8e8e8',
   },
   richEditor: {
+    icon: '#898989',
+    iconActive: '#32A198 !important',
+    iconActiveBg: '#E8F4F4',
+
+    toolbarBg: '#fff',
+    borderColor: '#c5d7d8',
+    delimiter: 'lightgrey',
+    arrowBg: '#70b0b5',
+    //
     title: primaryColor,
     fg: markdownFont,
     titleBottom: lighten(0.3, primaryColor),
