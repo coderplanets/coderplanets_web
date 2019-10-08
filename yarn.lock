@@ -1059,7 +1059,14 @@
   version "2.5.2"
   resolved "https://registry.npmjs.org/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
 
-"@groupher/editor-code@^1.0.0", "@groupher/editor-code@^1.0.17":
+"@groupher/editor-code@1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-code/-/editor-code-1.0.18.tgz#96eb4e1be85dc22bad25995179476b1711041bf3"
+  integrity sha512-0QLOI5v94ptLWpIaCwEYaTopKXhzIXr/dOScsCZ1i4xX//OVaokQq21S4aQerEw5nbLJyrN+JxS0nrAClrlYHA==
+  dependencies:
+    prismjs "^1.17.1"
+
+"@groupher/editor-code@^1.0.0":
   version "1.0.17"
   resolved "https://registry.npmjs.org/@groupher/editor-code/-/editor-code-1.0.17.tgz#5915b571a854ac391678950a0cd9999345d9389c"
   dependencies:
@@ -1069,6 +1076,19 @@
   version "1.1.4"
   resolved "https://registry.npm.taobao.org/@groupher/editor-delimiter/download/@groupher/editor-delimiter-1.1.4.tgz#b4c72b9f9c8da70f6fd479aa70740b25db2d0783"
 
+"@groupher/editor-embed@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-embed/-/editor-embed-1.0.1.tgz#db52e38b52ef56a20e8f9b6debc010b6d2dae41c"
+  integrity sha512-aGQtMCkeXRXwvN0RhnkzX8yexmTxq1HQ3Jf5/CQaRTA4PH+hGtaesaMychzOK0zVtvB+V33QRo6DjZwpYgcD7g==
+  dependencies:
+    svg-inline-loader "^0.8.0"
+    tippy.js "^5.0.1"
+
+"@groupher/editor-header@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-header/-/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
+  integrity sha512-6cUgZNZxJzDdHcxC0ZoGozAkxw1EoGN6qhB7En5KWCGlrZgHMZVAO/k0I+aPklEDCM3+H7QKufuiuCeBUPcAsA==
+
 "@groupher/editor-header@^2.3.0":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
@@ -1077,19 +1097,33 @@
   version "1.0.6"
   resolved "https://registry.npmjs.org/@groupher/editor-image/-/editor-image-1.0.6.tgz#4391f24194c96d0967451a945c75b854fbbaeba2"
 
-"@groupher/editor-link@^2.1.3", "@groupher/editor-link@^2.1.4":
+"@groupher/editor-link@2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-link/-/editor-link-2.1.6.tgz#9b4bbadef9e4f48eb1916c00f1c6712e285e341a"
+  integrity sha512-oQmVnZYBjuFBZG9HCVJPB447dG/sC3mf48muj9dM8AEQ+1WUs4f1oqvYsqMDAnd7xq2YCLh3HCvEXhbgxqnsdA==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
+"@groupher/editor-link@^2.1.3":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@groupher/editor-link/-/editor-link-2.1.4.tgz#79758ef5689a98a0aee903e5aca3a5189ace5b26"
   dependencies:
     "@babel/runtime" "^7.3.1"
 
-"@groupher/editor-quote@^2.3.0", "@groupher/editor-quote@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@groupher/editor-quote/-/editor-quote-2.3.1.tgz#bf64b0ae5293fc60ffa4b934da7380f6d1ece296"
+"@groupher/editor-quote@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.2.tgz#145754462955ff3c4d2c9eba5808cb9fcca783cd"
+  integrity sha512-ltRxBy3ZpdMOy5QCacnttvnKjJorzARWx9T9wuYJr0Df1lJFIr7+HQvGF6FfrOvvZKVvZoXz55+0RB/NAyMOzg==
 
-"@groupher/editor@^2.15.2":
-  version "2.15.2"
-  resolved "https://registry.npm.taobao.org/@groupher/editor/download/@groupher/editor-2.15.2.tgz#c92887b44acd9003d599482b2866d0fe8a519565"
+"@groupher/editor-warning@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-warning/-/editor-warning-1.0.1.tgz#34c5edc75b9b7a9149924bfa52eb773824c31290"
+  integrity sha512-7bKc5V9iIXvqsgujbdtLgZl4JGlV3gANnQtWZ+B+rVbH4RhtBjSxK6xAoCVFRYemmS8Ht2Dm2knwrQ0iLKeMMQ==
+
+"@groupher/editor@2.15.3":
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/@groupher/editor/-/editor-2.15.3.tgz#ee64ddead127d1aadb3aa3a8acf4823acf6fd904"
+  integrity sha512-yKBUO+o4nMBf1hhYLUZNnNGJ3q6DCSDyhSqp08CLVMTofEe31ThzmssON9AaZr5shDLm8GatZpy9Uda14FQmzg==
   dependencies:
     codex-notifier "^1.1.2"
 
@@ -1109,17 +1143,20 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
 
-"@groupher/react-editor@1.0.21":
-  version "1.0.21"
-  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.21.tgz#a644fba0a5fe5b878dea85c36ad5859ad9ae9a44"
+"@groupher/react-editor@1.0.29":
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/@groupher/react-editor/-/react-editor-1.0.29.tgz#1fec8b3c9cc9bc68408d9a6f14a1d9a5dedc76b0"
+  integrity sha512-BxGM2YZw4eU2ClXmn9PQv3gBk9p0JiwBnzvBpaJFDPhqhBK07RpbFMRRbkmCssCElcNhDBFUlpcmug1czXvNYQ==
   dependencies:
     "@editorjs/inline-code" "^1.3.0"
-    "@groupher/editor" "^2.15.2"
-    "@groupher/editor-code" "^1.0.17"
+    "@groupher/editor" "2.15.3"
+    "@groupher/editor-code" "1.0.18"
     "@groupher/editor-delimiter" "1.1.4"
-    "@groupher/editor-header" "^2.3.0"
-    "@groupher/editor-link" "^2.1.4"
-    "@groupher/editor-quote" "^2.3.1"
+    "@groupher/editor-embed" "^1.0.1"
+    "@groupher/editor-header" "2.3.1"
+    "@groupher/editor-link" "2.1.6"
+    "@groupher/editor-quote" "2.3.2"
+    "@groupher/editor-warning" "^1.0.1"
     react "^16.8.6"
     react-dom "^16.8.6"
 
@@ -2542,6 +2579,11 @@ bfj@^6.1.1:
     check-types "^7.3.0"
     hoopy "^0.1.2"
     tryer "^1.0.0"
+
+big.js@^3.1.3:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
+  integrity sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q==
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -7083,7 +7125,7 @@ json2mq@^0.2.0:
   dependencies:
     string-convert "^0.2.0"
 
-json5@^0.5.1:
+json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.npmjs.org/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
@@ -7336,6 +7378,16 @@ loader-utils@1.2.3, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.
     big.js "^5.2.2"
     emojis-list "^2.0.0"
     json5 "^1.0.1"
+
+loader-utils@^0.2.11:
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
+  integrity sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=
+  dependencies:
+    big.js "^3.1.3"
+    emojis-list "^2.0.0"
+    json5 "^0.5.0"
+    object-assign "^4.0.1"
 
 locate-path@^2.0.0:
   version "2.0.0"
@@ -8949,7 +9001,7 @@ polished@2.3.1:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-popper.js@^1.14.1, popper.js@^1.14.7:
+popper.js@^1.14.1, popper.js@^1.14.7, popper.js@^1.15.0:
   version "1.15.0"
   resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
 
@@ -10668,6 +10720,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+simple-html-tokenizer@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
+  integrity sha1-BcLuxXn//+FFoDCsJs/qYbmA+r4=
+
 sisteransi@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/sisteransi/-/sisteransi-0.1.1.tgz#5431447d5f7d1675aac667ccd0b865a4994cb3ce"
@@ -11208,6 +11265,15 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
+svg-inline-loader@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/svg-inline-loader/-/svg-inline-loader-0.8.0.tgz#7e9d905d80d0b4e68d2df21afcd08ee9e9a3ea6e"
+  integrity sha512-rynplY2eXFrdNomL1FvyTFQlP+dx0WqbzHglmNtA9M4IHRC3no2aPAl3ny9lUpJzFzFMZfWRK5YIclNU+FRePA==
+  dependencies:
+    loader-utils "^0.2.11"
+    object-assign "^4.0.1"
+    simple-html-tokenizer "^0.1.1"
+
 svg-pan-zoom@^3.6.0:
   version "3.6.0"
   resolved "https://registry.npmjs.org/svg-pan-zoom/-/svg-pan-zoom-3.6.0.tgz#31d8137d7e079e8f059effd85c7605b0567b6e4b"
@@ -11392,6 +11458,13 @@ tippy.js@^4.3.0:
   resolved "https://registry.npmjs.org/tippy.js/-/tippy.js-4.3.4.tgz#9a91fd5ce8c401f181b7adaa6b2c27f3d105f3ba"
   dependencies:
     popper.js "^1.14.7"
+
+tippy.js@^5.0.1:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-5.0.2.tgz#83cdfdceb14e7e4c5afab6ae3ffb0b10f9310c23"
+  integrity sha512-Zj7ihX2/uImDudNkfxw9jgcbtg9sUKT3QRmuH9WJtKkX6M96SwMG8FPdiObholc4SJP6wlnqk0nqByjXb8QZSA==
+  dependencies:
+    popper.js "^1.15.0"
 
 title-case@^2.1.0:
   version "2.1.1"
