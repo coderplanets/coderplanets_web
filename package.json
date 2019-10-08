@@ -53,7 +53,7 @@
     "@groupher/editor-image": "^1.0.0",
     "@groupher/editor-link": "^2.1.3",
     "@groupher/editor-quote": "2.3.2",
-    "@groupher/react-editor": "1.0.29",
+    "@groupher/react-editor": "1.0.32",
     "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",
