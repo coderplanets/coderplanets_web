@@ -157,7 +157,7 @@
     "cz-conventional-changelog": "^3.0.0",
     "dotenv": "8.1.0",
     "dotenv-webpack": "1.6.0",
-    "enzyme": "3.9.0",
+    "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.9.1",
     "enzyme-to-json": "^3.3.4",
     "eslint": "6.2.0",
