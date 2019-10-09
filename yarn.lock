@@ -1056,9 +1056,15 @@
   version "2.5.2"
   resolved "https://registry.npmjs.org/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-2.5.2.tgz#4d00198b411688a2ee128a7df92ddb3b741779d6"
 
-"@groupher/editor-code@1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-code/-/editor-code-1.0.18.tgz#96eb4e1be85dc22bad25995179476b1711041bf3"
+"@groupher/editor-checklist@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-checklist/-/editor-checklist-1.1.1.tgz#8fc96eed51bbbd0596ff132faa4565ac11f7e921"
+  integrity sha512-xShJFIkUCl6Wjw0EMiievndK72qyury9Ra9Rk9jGMb3KzGSUs1mwisyHxjp8u23SPjP5drHrw+UXkmE8kkdR+A==
+
+"@groupher/editor-code@1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-code/-/editor-code-1.0.19.tgz#9139e3ec6af7e89852635c1220e610ed14ca353c"
+  integrity sha512-aFkvCxIf5QZuZi5RRbaVOYwcp+dY7PI0LdKsL4a6CBMXkFwytjy4lCCNNdD3KoLDxZeLGHX/dgGdIiDAZVRQrw==
   dependencies:
     prismjs "^1.17.1"
 
@@ -1087,6 +1093,11 @@
   version "2.3.0"
   resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
 
+"@groupher/editor-image@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-image/-/editor-image-1.0.11.tgz#b60943cd99fb672cbed129253724cc06719b048f"
+  integrity sha512-gpaCLnCo6+ZigAVZOo6cYVlXB/q5QjKO88/uZvE2XrA0hSkTPn8ECGuC3LCya+PWvAoni+1iLLXNLdmsoHS7DQ==
+
 "@groupher/editor-image@^1.0.0":
   version "1.0.6"
   resolved "https://registry.npmjs.org/@groupher/editor-image/-/editor-image-1.0.6.tgz#4391f24194c96d0967451a945c75b854fbbaeba2"
@@ -1103,9 +1114,19 @@
   dependencies:
     "@babel/runtime" "^7.3.1"
 
+"@groupher/editor-list@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-list/-/editor-list-1.4.1.tgz#bb6a5044665bb7f8bc8d2424a08e322f368ec67c"
+  integrity sha512-8dbXTeqb6ZvNJlqrbzp3hYy74izvVpBt91m2zd1KTlpTMes4QQCmjMPuBBOe6rZYwdlRWiJMi3l++sl/RgsjtQ==
+
 "@groupher/editor-quote@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.2.tgz#145754462955ff3c4d2c9eba5808cb9fcca783cd"
+
+"@groupher/editor-quote@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.3.tgz#0f51c8168e3c81a21dd57dbedae89435604e65d9"
+  integrity sha512-EGan3S3oALIIl3w56I27j8uqaNVo4vo0MgdgATurQ1Chw82IPYWPoQsrc6yMhoSAdGjEHm/8uqnGKG82s/7xsg==
 
 "@groupher/editor-table@^1.0.1":
   version "1.0.1"
@@ -1137,18 +1158,22 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
 
-"@groupher/react-editor@1.0.32":
-  version "1.0.32"
-  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.32.tgz#a6e0d1ccf92d7c4f9754fcc1828daf1d7d1dcc0e"
+"@groupher/react-editor@1.0.39":
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/@groupher/react-editor/-/react-editor-1.0.39.tgz#e8602825dfc82bc49d175e662a45324ee233960c"
+  integrity sha512-vnEVbiBll4b+O+hKxXeHVbowO36rar5mwWfUxR8hsCX+Jw95sGD/jg2bP9DezPmxITPzdwLcVaatIX6U4FrFbA==
   dependencies:
     "@editorjs/inline-code" "^1.3.0"
     "@groupher/editor" "2.15.3"
-    "@groupher/editor-code" "1.0.18"
+    "@groupher/editor-checklist" "1.1.1"
+    "@groupher/editor-code" "1.0.19"
     "@groupher/editor-delimiter" "1.1.4"
     "@groupher/editor-embed" "^1.0.1"
     "@groupher/editor-header" "2.3.1"
+    "@groupher/editor-image" "1.0.11"
     "@groupher/editor-link" "2.1.6"
-    "@groupher/editor-quote" "2.3.2"
+    "@groupher/editor-list" "1.4.1"
+    "@groupher/editor-quote" "^2.3.3"
     "@groupher/editor-table" "^1.0.1"
     "@groupher/editor-warning" "1.0.3"
     react "^16.8.6"
