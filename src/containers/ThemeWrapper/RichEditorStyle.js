@@ -126,7 +126,7 @@ const RichEditorStyle = createGlobalStyle`
   .tippy-tooltip[data-placement^=bottom] .tippy-arrow {
     border-width: none !important;
     border-bottom-color: none !important;
-    margin: 0 4px !important;
+    margin: 0 -4px !important;
     transform-origin: 50% 7px;
     top: -5px !important;
   }
