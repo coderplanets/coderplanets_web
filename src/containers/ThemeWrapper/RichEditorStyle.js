@@ -108,6 +108,28 @@ const RichEditorStyle = createGlobalStyle`
     }
   }
 
+  .tippy-tooltip.light-theme {
+    box-shadow: 0 6px 12px -6px rgba(131,147,173,.46), 5px -12px 34px -13px rgba(97,105,134,.6), 0 26px 52px 3px rgba(147,165,186,.24);
+    border: 1px solid;
+    border-color: ${theme('richEditor.borderColor')};
+  }
+
+  .tippy-tooltip.light-theme[data-placement^=bottom] .tippy-arrow {
+    border-width: 0 !important;
+    border-bottom-color: transparent !important;
+    width: 8px;
+    height: 8px;
+    background-color: ${theme('richEditor.arrowBg')};
+    border-radius: 100%;
+  }
+
+  .tippy-tooltip[data-placement^=bottom] .tippy-arrow {
+    border-width: none !important;
+    border-bottom-color: none !important;
+    margin: 0 4px !important;
+    transform-origin: 50% 7px;
+    top: -5px !important;
+  }
 
   .cps-viewer {
     padding: 10px;
