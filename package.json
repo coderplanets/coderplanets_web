@@ -51,7 +51,7 @@
     "@groupher/editor-quote": "^2.3.0",
     "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
-    "@sentry/node": "^4.6.4",
+    "@sentry/node": "^5.7.0",
     "@tippy.js/react": "^2.2.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "0.0.4-canary.1",
