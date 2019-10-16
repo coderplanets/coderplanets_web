@@ -155,7 +155,7 @@
     "coveralls": "3.0.6",
     "cypress": "3.4.1",
     "cz-conventional-changelog": "^3.0.0",
-    "dotenv": "8.1.0",
+    "dotenv": "8.2.0",
     "dotenv-webpack": "1.6.0",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.9.1",
