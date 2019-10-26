@@ -108,6 +108,11 @@ const RichEditorStyle = createGlobalStyle`
     }
   }
 
+  .cdx-checklist__item--checked .cdx-checklist__item-checkbox {
+    background: ${theme('richEditor.checklistBg')};
+    border-color: ${theme('richEditor.checklistBorder')};
+  }
+
   .tippy-tooltip.light-theme {
     box-shadow: 0 6px 12px -6px rgba(131,147,173,.46), 5px -12px 34px -13px rgba(97,105,134,.6), 0 26px 52px 3px rgba(147,165,186,.24);
     border: 1px solid;
@@ -194,6 +199,23 @@ const RichEditorStyle = createGlobalStyle`
     .cdx-marker {
       background-color: #FCF9D8;
     }
+  }
+
+  .embed-top-success {
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    border-top: 3px solid #2aa198 !important;
+  }
+
+  .embed-top-error {
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    border-top: 3px solid tomato !important;
+  }
+
+  .embed-top-default {
+    border: 1px solid !important;
+    border-color: #e4e4e4 !important;
   }
 `
 

@@ -236,6 +236,11 @@ const cyan = {
     iconActive: '#32A198 !important',
     iconActiveBg: '#E8F4F4',
 
+    // checklist
+    checklistBg: `${primaryColor} !important`,
+    checklistBorder: `${primaryColor} !important`,
+
+    // toolbar
     toolbarBg: '#fff',
     borderColor: '#c5d7d8',
     delimiter: 'lightgrey',

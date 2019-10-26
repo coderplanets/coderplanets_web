@@ -973,39 +973,9 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@editorjs/checklist@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@editorjs/checklist/-/checklist-1.1.0.tgz#1c5a083a48852f3d86d6086d2e1a6057ac5b0429"
-
-"@editorjs/code@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@editorjs/code/-/code-2.4.1.tgz#a1851c781c9ead9a84bd921f04df172a2383f550"
-
-"@editorjs/delimiter@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/@editorjs/delimiter/-/delimiter-1.1.0.tgz#f61808ea92e4e289607d54441964f1cb8605410a"
-
-"@editorjs/editorjs@^2.12.4", "@editorjs/editorjs@^2.15.1":
-  version "2.15.1"
-  resolved "https://registry.npmjs.org/@editorjs/editorjs/-/editorjs-2.15.1.tgz#7e55640a46ca25f6992ad571a5c3302eb3f9b9e6"
-  dependencies:
-    codex-notifier "^1.1.2"
-
-"@editorjs/header@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@editorjs/header/-/header-2.3.0.tgz#ce48414e3d8b39b1ed5633d35e3684b158fb9e98"
-
 "@editorjs/inline-code@^1.3.0":
   version "1.3.0"
   resolved "https://registry.npmjs.org/@editorjs/inline-code/-/inline-code-1.3.0.tgz#66b915d2c128ba520ba4b245067d40851d78355a"
-
-"@editorjs/list@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/@editorjs/list/-/list-1.4.0.tgz#e92459a8ac2305bc4385245e329c8b5c8437456a"
-
-"@editorjs/marker@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/@editorjs/marker/-/marker-1.2.1.tgz#c0d8ebcc7a421e659b5d01c1e59c8aec911c7818"
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.1"
@@ -1069,17 +1039,12 @@
   dependencies:
     prismjs "^1.17.1"
 
-"@groupher/editor-code@^1.0.0":
-  version "1.0.17"
-  resolved "https://registry.npmjs.org/@groupher/editor-code/-/editor-code-1.0.17.tgz#5915b571a854ac391678950a0cd9999345d9389c"
-  dependencies:
-    prismjs "^1.17.1"
-
 "@groupher/editor-delimiter@1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@groupher/editor-delimiter/-/editor-delimiter-1.1.4.tgz#b4c72b9f9c8da70f6fd479aa70740b25db2d0783"
   integrity sha512-8QgSDx2KXFtfYW+THXKGs8tU8RhkwFosTQpjOTnlJj+alLlIm2qSnTdTCM9W8Z2JqgC3UAmcfn171WE9sfteYA==
 
+<<<<<<< HEAD
 "@groupher/editor-embed@1.0.2":
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.2.tgz#1adb08c71c73d699a68b4d58d1fff4e861328ff8"
@@ -1091,6 +1056,11 @@
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@groupher/editor-embed/-/editor-embed-1.0.4.tgz#ce256acf307c5feeccf50b81da9691d6d006725d"
   integrity sha512-LUi/kCDci+w0fTLZ+UBv1ePVxMoO0MuBbPiN8ys4twUVE9q561NAZORNGxle7dAUDvkQvIGdvlzu1onyEzXvxA==
+=======
+"@groupher/editor-embed@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.8.tgz?cache=0&sync_timestamp=1571143607100&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40groupher%2Feditor-embed%2Fdownload%2F%40groupher%2Feditor-embed-1.0.8.tgz#ac8e5a2d312810e6180c7539e90dcc1bbe9cc179"
+>>>>>>> feat(editor): rm plugin deps & update global styles
   dependencies:
     svg-inline-loader "^0.8.0"
     tippy.js "^5.0.1"
@@ -1100,29 +1070,15 @@
   resolved "https://registry.yarnpkg.com/@groupher/editor-header/-/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
   integrity sha512-6cUgZNZxJzDdHcxC0ZoGozAkxw1EoGN6qhB7En5KWCGlrZgHMZVAO/k0I+aPklEDCM3+H7QKufuiuCeBUPcAsA==
 
-"@groupher/editor-header@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/@groupher/editor-header/-/editor-header-2.3.0.tgz#6dfc73c6dea000ccfa7a0979655d2480d0114a40"
-
 "@groupher/editor-image@1.0.11":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@groupher/editor-image/-/editor-image-1.0.11.tgz#b60943cd99fb672cbed129253724cc06719b048f"
   integrity sha512-gpaCLnCo6+ZigAVZOo6cYVlXB/q5QjKO88/uZvE2XrA0hSkTPn8ECGuC3LCya+PWvAoni+1iLLXNLdmsoHS7DQ==
 
-"@groupher/editor-image@^1.0.0":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@groupher/editor-image/-/editor-image-1.0.6.tgz#4391f24194c96d0967451a945c75b854fbbaeba2"
-
 "@groupher/editor-link@2.1.6":
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/@groupher/editor-link/-/editor-link-2.1.6.tgz#9b4bbadef9e4f48eb1916c00f1c6712e285e341a"
   integrity sha512-oQmVnZYBjuFBZG9HCVJPB447dG/sC3mf48muj9dM8AEQ+1WUs4f1oqvYsqMDAnd7xq2YCLh3HCvEXhbgxqnsdA==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-
-"@groupher/editor-link@^2.1.3":
-  version "2.1.4"
-  resolved "https://registry.npmjs.org/@groupher/editor-link/-/editor-link-2.1.4.tgz#79758ef5689a98a0aee903e5aca3a5189ace5b26"
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -1136,9 +1092,13 @@
   resolved "https://registry.yarnpkg.com/@groupher/editor-paragraph/-/editor-paragraph-1.0.4.tgz#d7fdaa6e7d91fd63a3367018ada227013c1d7af0"
   integrity sha512-KeIY7U7TJokNVc+NLV1BKnBI+ajqFhH35K8UdCE9OSr6exaVJneE3NE5mo5nN6iba/PZiJp8U4RdKdsfjAWkrg==
 
-"@groupher/editor-quote@2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.2.tgz#145754462955ff3c4d2c9eba5808cb9fcca783cd"
+"@groupher/editor-marker@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-marker/download/@groupher/editor-marker-1.0.1.tgz#3a4779229bdfa7d8d6e004a192a886a3138b500c"
+
+"@groupher/editor-paragraph@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-paragraph/download/@groupher/editor-paragraph-1.0.11.tgz#50b462176205f5944bcce130a4c6ba602be6061e"
 
 "@groupher/editor-quote@^2.3.3":
   version "2.3.3"
@@ -1150,10 +1110,9 @@
   resolved "https://registry.yarnpkg.com/@groupher/editor-table/-/editor-table-1.0.1.tgz#b578f4bf9ad942841edcbd9a759f25c9d0ec73d4"
   integrity sha512-mjphzVzLm6M6ihnG8JKHbqeLVdIhYPR53S9JdcN5oCp+yMM+gYuv3Vbz0wc+tr+qkbH5XnT7BVHh1d6tP6ZyFg==
 
-"@groupher/editor-warning@1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-warning/-/editor-warning-1.0.3.tgz#8e75367f8ec0beadb15f5c99c16157d7e127151b"
-  integrity sha512-3AfquOv4fMqsBTfyMt+40LUWIFXAhW6QsAeUr20F8Bc4WaRYbAE72W1q4mABxDeO6h4ClW+xXswaH5eWZIlYuQ==
+"@groupher/editor-warning@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-warning/download/@groupher/editor-warning-1.0.10.tgz#14592f0e8aeb4107da594c6479a42004449c7310"
 
 "@groupher/editor@2.15.3":
   version "2.15.3"
@@ -1178,25 +1137,36 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
 
+<<<<<<< HEAD
 "@groupher/react-editor@1.0.45":
   version "1.0.45"
   resolved "https://registry.yarnpkg.com/@groupher/react-editor/-/react-editor-1.0.45.tgz#cf7766ec9374c4c4dce70b2e4409ef2d87456bc0"
   integrity sha512-LnUcDABQXUpCrZfIYzvq1HpgfK1+G0OfUPGnK3SD2V6dsHe8QlKk8eI15xSIBvQ6wurwceSTUVeeWzA3x8Amzg==
+=======
+"@groupher/react-editor@1.0.55":
+  version "1.0.55"
+  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.55.tgz#e0665616f3db286acbb1f6daa98af0717726dc33"
+>>>>>>> feat(editor): rm plugin deps & update global styles
   dependencies:
     "@editorjs/inline-code" "^1.3.0"
     "@groupher/editor" "2.15.3"
     "@groupher/editor-checklist" "1.1.1"
     "@groupher/editor-code" "1.0.19"
     "@groupher/editor-delimiter" "1.1.4"
-    "@groupher/editor-embed" "1.0.4"
+    "@groupher/editor-embed" "1.0.8"
     "@groupher/editor-header" "2.3.1"
     "@groupher/editor-image" "1.0.11"
     "@groupher/editor-link" "2.1.6"
     "@groupher/editor-list" "1.4.1"
+<<<<<<< HEAD
     "@groupher/editor-paragraph" "1.0.4"
+=======
+    "@groupher/editor-marker" "1.0.1"
+    "@groupher/editor-paragraph" "1.0.11"
+>>>>>>> feat(editor): rm plugin deps & update global styles
     "@groupher/editor-quote" "^2.3.3"
     "@groupher/editor-table" "^1.0.1"
-    "@groupher/editor-warning" "1.0.3"
+    "@groupher/editor-warning" "1.0.10"
     react "^16.8.6"
     react-dom "^16.8.6"
 
@@ -1386,14 +1356,6 @@
 "@sheerun/mutationobserver-shim@^0.3.2":
   version "0.3.2"
   resolved "https://registry.npmjs.org/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
-
-"@stfy/react-editor.js@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npm.taobao.org/@stfy/react-editor.js/download/@stfy/react-editor.js-1.0.3.tgz#1b004b88983771a796d181a5350eae237fd3aaee"
-  dependencies:
-    "@editorjs/editorjs" "^2.12.4"
-    react "^16.8.6"
-    react-dom "^16.8.6"
 
 "@tanem/svg-injector@^7.0.6":
   version "7.0.17"

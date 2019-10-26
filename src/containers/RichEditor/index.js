@@ -5,13 +5,12 @@
  */
 
 import React from 'react'
-// import Editor from '@stfy/react-editor.js'
 import Editor from '@groupher/react-editor'
 
 import { connectStore, buildLog } from '@utils'
 import { useScript } from '@hooks'
 
-import { useInit } from './logic'
+import { useInit, onChange } from './logic'
 // import * as logic from './logic'
 
 import { Wrapper } from './styles'
@@ -28,9 +27,7 @@ const RichEditorContainer = ({ richEditor }) => {
 
   return (
     <Wrapper>
-      <div id="codex-editor" />
-      <div id="editorjs-container" />
-      <Editor holder="editorjs-container" />
+      <Editor onData={onChange} />
     </Wrapper>
   )
 }
