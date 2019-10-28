@@ -1044,23 +1044,9 @@
   resolved "https://registry.yarnpkg.com/@groupher/editor-delimiter/-/editor-delimiter-1.1.4.tgz#b4c72b9f9c8da70f6fd479aa70740b25db2d0783"
   integrity sha512-8QgSDx2KXFtfYW+THXKGs8tU8RhkwFosTQpjOTnlJj+alLlIm2qSnTdTCM9W8Z2JqgC3UAmcfn171WE9sfteYA==
 
-<<<<<<< HEAD
-"@groupher/editor-embed@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.2.tgz#1adb08c71c73d699a68b4d58d1fff4e861328ff8"
-  dependencies:
-    svg-inline-loader "^0.8.0"
-    tippy.js "^5.0.1"
-
-"@groupher/editor-embed@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-embed/-/editor-embed-1.0.4.tgz#ce256acf307c5feeccf50b81da9691d6d006725d"
-  integrity sha512-LUi/kCDci+w0fTLZ+UBv1ePVxMoO0MuBbPiN8ys4twUVE9q561NAZORNGxle7dAUDvkQvIGdvlzu1onyEzXvxA==
-=======
 "@groupher/editor-embed@1.0.8":
   version "1.0.8"
   resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.8.tgz?cache=0&sync_timestamp=1571143607100&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40groupher%2Feditor-embed%2Fdownload%2F%40groupher%2Feditor-embed-1.0.8.tgz#ac8e5a2d312810e6180c7539e90dcc1bbe9cc179"
->>>>>>> feat(editor): rm plugin deps & update global styles
   dependencies:
     svg-inline-loader "^0.8.0"
     tippy.js "^5.0.1"
