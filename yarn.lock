@@ -758,8 +758,7 @@
 
 "@babel/runtime@^7.3.1":
   version "7.6.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
-  integrity sha512-kq6anf9JGjW8Nt5rYfEuGRaEAaH1mkv3Bbu6rYvLOpPh/RusSJXuKPEAoZ7L7gybZkchE8+NV5g9vKF4AGAtsA==
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -975,7 +974,7 @@
 
 "@editorjs/inline-code@^1.3.0":
   version "1.3.0"
-  resolved "https://registry.npmjs.org/@editorjs/inline-code/-/inline-code-1.3.0.tgz#66b915d2c128ba520ba4b245067d40851d78355a"
+  resolved "https://registry.npm.taobao.org/@editorjs/inline-code/download/@editorjs/inline-code-1.3.0.tgz#66b915d2c128ba520ba4b245067d40851d78355a"
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.1"
@@ -1029,54 +1028,44 @@
 
 "@groupher/editor-checklist@1.1.1":
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-checklist/-/editor-checklist-1.1.1.tgz#8fc96eed51bbbd0596ff132faa4565ac11f7e921"
-  integrity sha512-xShJFIkUCl6Wjw0EMiievndK72qyury9Ra9Rk9jGMb3KzGSUs1mwisyHxjp8u23SPjP5drHrw+UXkmE8kkdR+A==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-checklist/download/@groupher/editor-checklist-1.1.1.tgz#8fc96eed51bbbd0596ff132faa4565ac11f7e921"
 
 "@groupher/editor-code@1.0.19":
   version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-code/-/editor-code-1.0.19.tgz#9139e3ec6af7e89852635c1220e610ed14ca353c"
-  integrity sha512-aFkvCxIf5QZuZi5RRbaVOYwcp+dY7PI0LdKsL4a6CBMXkFwytjy4lCCNNdD3KoLDxZeLGHX/dgGdIiDAZVRQrw==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-code/download/@groupher/editor-code-1.0.19.tgz#9139e3ec6af7e89852635c1220e610ed14ca353c"
   dependencies:
     prismjs "^1.17.1"
 
-"@groupher/editor-delimiter@1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-delimiter/-/editor-delimiter-1.1.4.tgz#b4c72b9f9c8da70f6fd479aa70740b25db2d0783"
-  integrity sha512-8QgSDx2KXFtfYW+THXKGs8tU8RhkwFosTQpjOTnlJj+alLlIm2qSnTdTCM9W8Z2JqgC3UAmcfn171WE9sfteYA==
+"@groupher/editor-delimiter@1.1.6":
+  version "1.1.6"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-delimiter/download/@groupher/editor-delimiter-1.1.6.tgz#0b5895336c04cdf90e38b158c0f9a326d2c644d2"
+  dependencies:
+    svg-inline-loader "^0.8.0"
 
-"@groupher/editor-embed@1.0.8":
-  version "1.0.8"
-  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.8.tgz?cache=0&sync_timestamp=1571143607100&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40groupher%2Feditor-embed%2Fdownload%2F%40groupher%2Feditor-embed-1.0.8.tgz#ac8e5a2d312810e6180c7539e90dcc1bbe9cc179"
+"@groupher/editor-embed@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.10.tgz#7847dd816ff0953f2ddc2268a9ce636b573dedd1"
   dependencies:
     svg-inline-loader "^0.8.0"
     tippy.js "^5.0.1"
 
 "@groupher/editor-header@2.3.1":
   version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-header/-/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
-  integrity sha512-6cUgZNZxJzDdHcxC0ZoGozAkxw1EoGN6qhB7En5KWCGlrZgHMZVAO/k0I+aPklEDCM3+H7QKufuiuCeBUPcAsA==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-header/download/@groupher/editor-header-2.3.1.tgz#68a6631969c9bcf229c497729d81de199ed0f8c3"
 
 "@groupher/editor-image@1.0.11":
   version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-image/-/editor-image-1.0.11.tgz#b60943cd99fb672cbed129253724cc06719b048f"
-  integrity sha512-gpaCLnCo6+ZigAVZOo6cYVlXB/q5QjKO88/uZvE2XrA0hSkTPn8ECGuC3LCya+PWvAoni+1iLLXNLdmsoHS7DQ==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-image/download/@groupher/editor-image-1.0.11.tgz#b60943cd99fb672cbed129253724cc06719b048f"
 
 "@groupher/editor-link@2.1.6":
   version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-link/-/editor-link-2.1.6.tgz#9b4bbadef9e4f48eb1916c00f1c6712e285e341a"
-  integrity sha512-oQmVnZYBjuFBZG9HCVJPB447dG/sC3mf48muj9dM8AEQ+1WUs4f1oqvYsqMDAnd7xq2YCLh3HCvEXhbgxqnsdA==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-link/download/@groupher/editor-link-2.1.6.tgz#9b4bbadef9e4f48eb1916c00f1c6712e285e341a"
   dependencies:
     "@babel/runtime" "^7.3.1"
 
 "@groupher/editor-list@1.4.1":
   version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-list/-/editor-list-1.4.1.tgz#bb6a5044665bb7f8bc8d2424a08e322f368ec67c"
-  integrity sha512-8dbXTeqb6ZvNJlqrbzp3hYy74izvVpBt91m2zd1KTlpTMes4QQCmjMPuBBOe6rZYwdlRWiJMi3l++sl/RgsjtQ==
-
-"@groupher/editor-paragraph@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-paragraph/-/editor-paragraph-1.0.4.tgz#d7fdaa6e7d91fd63a3367018ada227013c1d7af0"
-  integrity sha512-KeIY7U7TJokNVc+NLV1BKnBI+ajqFhH35K8UdCE9OSr6exaVJneE3NE5mo5nN6iba/PZiJp8U4RdKdsfjAWkrg==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-list/download/@groupher/editor-list-1.4.1.tgz#bb6a5044665bb7f8bc8d2424a08e322f368ec67c"
 
 "@groupher/editor-marker@1.0.1":
   version "1.0.1"
@@ -1088,13 +1077,11 @@
 
 "@groupher/editor-quote@^2.3.3":
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-quote/-/editor-quote-2.3.3.tgz#0f51c8168e3c81a21dd57dbedae89435604e65d9"
-  integrity sha512-EGan3S3oALIIl3w56I27j8uqaNVo4vo0MgdgATurQ1Chw82IPYWPoQsrc6yMhoSAdGjEHm/8uqnGKG82s/7xsg==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-quote/download/@groupher/editor-quote-2.3.3.tgz#0f51c8168e3c81a21dd57dbedae89435604e65d9"
 
 "@groupher/editor-table@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@groupher/editor-table/-/editor-table-1.0.1.tgz#b578f4bf9ad942841edcbd9a759f25c9d0ec73d4"
-  integrity sha512-mjphzVzLm6M6ihnG8JKHbqeLVdIhYPR53S9JdcN5oCp+yMM+gYuv3Vbz0wc+tr+qkbH5XnT7BVHh1d6tP6ZyFg==
+  resolved "https://registry.npm.taobao.org/@groupher/editor-table/download/@groupher/editor-table-1.0.1.tgz#b578f4bf9ad942841edcbd9a759f25c9d0ec73d4"
 
 "@groupher/editor-warning@1.0.10":
   version "1.0.10"
@@ -1102,8 +1089,7 @@
 
 "@groupher/editor@2.15.3":
   version "2.15.3"
-  resolved "https://registry.yarnpkg.com/@groupher/editor/-/editor-2.15.3.tgz#ee64ddead127d1aadb3aa3a8acf4823acf6fd904"
-  integrity sha512-yKBUO+o4nMBf1hhYLUZNnNGJ3q6DCSDyhSqp08CLVMTofEe31ThzmssON9AaZr5shDLm8GatZpy9Uda14FQmzg==
+  resolved "https://registry.npm.taobao.org/@groupher/editor/download/@groupher/editor-2.15.3.tgz#ee64ddead127d1aadb3aa3a8acf4823acf6fd904"
   dependencies:
     codex-notifier "^1.1.2"
 
@@ -1123,33 +1109,22 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
 
-<<<<<<< HEAD
-"@groupher/react-editor@1.0.45":
-  version "1.0.45"
-  resolved "https://registry.yarnpkg.com/@groupher/react-editor/-/react-editor-1.0.45.tgz#cf7766ec9374c4c4dce70b2e4409ef2d87456bc0"
-  integrity sha512-LnUcDABQXUpCrZfIYzvq1HpgfK1+G0OfUPGnK3SD2V6dsHe8QlKk8eI15xSIBvQ6wurwceSTUVeeWzA3x8Amzg==
-=======
-"@groupher/react-editor@1.0.55":
-  version "1.0.55"
-  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.55.tgz#e0665616f3db286acbb1f6daa98af0717726dc33"
->>>>>>> feat(editor): rm plugin deps & update global styles
+"@groupher/react-editor@1.0.59":
+  version "1.0.59"
+  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.59.tgz#4b4680ce450bfd1b43ea98165a5a5379f01f7284"
   dependencies:
     "@editorjs/inline-code" "^1.3.0"
     "@groupher/editor" "2.15.3"
     "@groupher/editor-checklist" "1.1.1"
     "@groupher/editor-code" "1.0.19"
-    "@groupher/editor-delimiter" "1.1.4"
-    "@groupher/editor-embed" "1.0.8"
+    "@groupher/editor-delimiter" "1.1.6"
+    "@groupher/editor-embed" "1.0.10"
     "@groupher/editor-header" "2.3.1"
     "@groupher/editor-image" "1.0.11"
     "@groupher/editor-link" "2.1.6"
     "@groupher/editor-list" "1.4.1"
-<<<<<<< HEAD
-    "@groupher/editor-paragraph" "1.0.4"
-=======
     "@groupher/editor-marker" "1.0.1"
     "@groupher/editor-paragraph" "1.0.11"
->>>>>>> feat(editor): rm plugin deps & update global styles
     "@groupher/editor-quote" "^2.3.3"
     "@groupher/editor-table" "^1.0.1"
     "@groupher/editor-warning" "1.0.10"
@@ -2563,8 +2538,7 @@ bfj@^6.1.1:
 
 big.js@^3.1.3:
   version "3.2.0"
-  resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
-  integrity sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q==
+  resolved "https://registry.npm.taobao.org/big.js/download/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -3104,7 +3078,6 @@ cli-width@^2.0.0:
 clipboard@^2.0.0, clipboard@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
-  integrity sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
   dependencies:
     good-listener "^1.2.2"
     select "^1.1.2"
@@ -3140,8 +3113,7 @@ code-point-at@^1.0.0:
 
 codex-notifier@^1.1.2:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/codex-notifier/-/codex-notifier-1.1.2.tgz#a733079185f4c927fa296f1d71eb8753fe080895"
-  integrity sha512-DCp6xe/LGueJ1N5sXEwcBc3r3PyVkEEDNWCVigfvywAkeXcZMk9K41a31tkEFBW0Ptlwji6/JlAb49E3Yrxbtg==
+  resolved "https://registry.npm.taobao.org/codex-notifier/download/codex-notifier-1.1.2.tgz#a733079185f4c927fa296f1d71eb8753fe080895"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -4064,8 +4036,7 @@ delayed-stream@~1.0.0:
 
 delegate@^3.1.2:
   version "3.2.0"
-  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
-  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
+  resolved "https://registry.npm.taobao.org/delegate/download/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -4387,8 +4358,7 @@ emoji-regex@^7.0.1, emoji-regex@^7.0.2:
 
 emojis-list@^2.0.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
-  integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
+  resolved "https://registry.npm.taobao.org/emojis-list/download/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
 
 encodeurl@~1.0.2:
   version "1.0.2"
@@ -5705,8 +5675,7 @@ globby@^8.0.0:
 
 good-listener@^1.2.2:
   version "1.2.2"
-  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  resolved "https://registry.npm.taobao.org/good-listener/download/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
   dependencies:
     delegate "^3.1.2"
 
@@ -7012,8 +6981,7 @@ js-levenshtein@^1.1.3:
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
-  integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+  resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
 
 js-tokens@^3.0.2:
   version "3.0.2"
@@ -7108,7 +7076,6 @@ json2mq@^0.2.0:
 json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
-  integrity sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=
 
 json5@^1.0.1:
   version "1.0.1"
@@ -7361,8 +7328,7 @@ loader-utils@1.2.3, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.
 
 loader-utils@^0.2.11:
   version "0.2.17"
-  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
-  integrity sha1-+G5jdNQyBabmxg6RlvF8Apm/s0g=
+  resolved "https://registry.npm.taobao.org/loader-utils/download/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   dependencies:
     big.js "^3.1.3"
     emojis-list "^2.0.0"
@@ -7539,8 +7505,7 @@ longest@^2.0.1:
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
-  integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
+  resolved "https://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
@@ -8389,8 +8354,7 @@ oauth-sign@~0.9.0:
 
 object-assign@4.x, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+  resolved "https://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object-copy@^0.1.0:
   version "0.1.0"
@@ -8978,10 +8942,13 @@ polished@2.3.1:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-popper.js@^1.14.1, popper.js@^1.14.7, popper.js@^1.15.0:
+popper.js@^1.14.1, popper.js@^1.14.7:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
-  integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
+
+popper.js@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.npm.taobao.org/popper.js/download/popper.js-1.16.0.tgz#2e1816bcbbaa518ea6c2e15a466f4cb9c6e2fbb3"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -9109,8 +9076,7 @@ pretty-time@^1.1.0:
 
 prismjs@^1.17.1:
   version "1.17.1"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
-  integrity sha512-PrEDJAFdUGbOP6xK/UsfkC5ghJsPJviKgnQOoxaDbBjwc8op68Quupwt1DeAFoG8GImPhiKXAvvsH7wDSLsu1Q==
+  resolved "https://registry.npm.taobao.org/prismjs/download/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
   optionalDependencies:
     clipboard "^2.0.0"
 
@@ -9167,8 +9133,7 @@ prop-types-exact@1.2.0, prop-types-exact@^1.2.0:
 
 prop-types@15.7.2, prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
-  integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+  resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
@@ -9745,14 +9710,13 @@ react-dom@16.9.0:
     scheduler "^0.15.0"
 
 react-dom@^16.8.6:
-  version "16.10.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.10.2.tgz#4840bce5409176bc3a1f2bd8cb10b92db452fda6"
-  integrity sha512-kWGDcH3ItJK4+6Pl9DZB16BXYAZyrYQItU4OMy0jAkv5aNqc+mAKb4TpFtAteI6TJZu+9ZlNhaeNQSVQDHJzkw==
+  version "16.11.0"
+  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.16.2"
+    scheduler "^0.17.0"
 
 react-error-overlay@5.1.6:
   version "5.1.6"
@@ -9809,9 +9773,8 @@ react-is@16.8.6, react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0, react-is@
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
 
 react-is@^16.8.1:
-  version "16.10.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
-  integrity sha512-INBT1QEgtcCCgvccr5/86CfD71fw9EPmDxgiJX4I2Ddr6ZsV6iFXsuby+qWJPtmNuMY0zByTsG4468P7nHuNWA==
+  version "16.11.0"
+  resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
 
 react-is@^16.9.0:
   version "16.9.0"
@@ -9982,9 +9945,8 @@ react@^16.3.0:
     scheduler "^0.13.6"
 
 react@^16.8.6:
-  version "16.10.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.10.2.tgz#a5ede5cdd5c536f745173c8da47bda64797a4cf0"
-  integrity sha512-MFVIq0DpIhrHFyqLU0S3+4dIcBhhOvBE8bJ/5kHPVOVaGdo0KuiQzpcjCPsf585WvhypqtrMILyoE2th6dT+Lw==
+  version "16.11.0"
+  resolved "https://registry.npm.taobao.org/react/download/react-16.11.0.tgz#d294545fe62299ccee83363599bf904e4a07fdbb"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10141,8 +10103,7 @@ regenerator-runtime@^0.13.1:
 
 regenerator-runtime@^0.13.2:
   version "0.13.3"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
-  integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
+  resolved "https://registry.npm.taobao.org/regenerator-runtime/download/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
 
 regenerator-transform@^0.14.0:
   version "0.14.0"
@@ -10513,10 +10474,9 @@ scheduler@^0.15.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-scheduler@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.16.2.tgz#f74cd9d33eff6fc554edfb79864868e4819132c1"
-  integrity sha512-BqYVWqwz6s1wZMhjFvLfVR5WXP7ZY32M/wYPo04CcuPM7XZEbV2TBNW7Z0UkguPTl0dWMA59VbNXxK6q+pHItg==
+scheduler@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.17.0.tgz#7c9c673e4ec781fac853927916d1c426b6f3ddfe"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10541,8 +10501,7 @@ scroll-into-view-if-needed@1.5.0:
 
 select@^1.1.2:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
+  resolved "https://registry.npm.taobao.org/select/download/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
 
 semver-compare@^1.0.0:
   version "1.0.0"
@@ -10708,8 +10667,7 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
 
 simple-html-tokenizer@^0.1.1:
   version "0.1.1"
-  resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
-  integrity sha1-BcLuxXn//+FFoDCsJs/qYbmA+r4=
+  resolved "https://registry.npm.taobao.org/simple-html-tokenizer/download/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
 
 sisteransi@^0.1.1:
   version "0.1.1"
@@ -11251,8 +11209,7 @@ supports-color@^6.1.0:
 
 svg-inline-loader@^0.8.0:
   version "0.8.0"
-  resolved "https://registry.yarnpkg.com/svg-inline-loader/-/svg-inline-loader-0.8.0.tgz#7e9d905d80d0b4e68d2df21afcd08ee9e9a3ea6e"
-  integrity sha512-rynplY2eXFrdNomL1FvyTFQlP+dx0WqbzHglmNtA9M4IHRC3no2aPAl3ny9lUpJzFzFMZfWRK5YIclNU+FRePA==
+  resolved "https://registry.npm.taobao.org/svg-inline-loader/download/svg-inline-loader-0.8.0.tgz#7e9d905d80d0b4e68d2df21afcd08ee9e9a3ea6e"
   dependencies:
     loader-utils "^0.2.11"
     object-assign "^4.0.1"
@@ -11433,8 +11390,7 @@ timers-browserify@^2.0.4:
 
 tiny-emitter@^2.0.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+  resolved "https://registry.npm.taobao.org/tiny-emitter/download/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
 
 tippy.js@^4.3.0:
   version "4.3.4"
@@ -11443,11 +11399,10 @@ tippy.js@^4.3.0:
     popper.js "^1.14.7"
 
 tippy.js@^5.0.1:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-5.0.2.tgz#83cdfdceb14e7e4c5afab6ae3ffb0b10f9310c23"
-  integrity sha512-Zj7ihX2/uImDudNkfxw9jgcbtg9sUKT3QRmuH9WJtKkX6M96SwMG8FPdiObholc4SJP6wlnqk0nqByjXb8QZSA==
+  version "5.1.0"
+  resolved "https://registry.npm.taobao.org/tippy.js/download/tippy.js-5.1.0.tgz#80c99a79f005767008a799bd354c36e2b53c87db"
   dependencies:
-    popper.js "^1.15.0"
+    popper.js "^1.16.0"
 
 title-case@^2.1.0:
   version "2.1.1"
