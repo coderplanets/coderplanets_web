@@ -40,7 +40,7 @@
     }
   },
   "dependencies": {
-    "@groupher/react-editor": "1.0.59",
+    "@groupher/react-editor": "1.0.60",
     "@next/bundle-analyzer": "^9.0.0",
     "@sentry/browser": "^4.6.4",
     "@sentry/node": "^4.6.4",

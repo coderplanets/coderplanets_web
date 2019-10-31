@@ -1042,9 +1042,9 @@
   dependencies:
     svg-inline-loader "^0.8.0"
 
-"@groupher/editor-embed@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.10.tgz#7847dd816ff0953f2ddc2268a9ce636b573dedd1"
+"@groupher/editor-embed@1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npm.taobao.org/@groupher/editor-embed/download/@groupher/editor-embed-1.0.11.tgz#3cd4d1678857512aa4c3cce6a7a750ac302b7786"
   dependencies:
     svg-inline-loader "^0.8.0"
     tippy.js "^5.0.1"
@@ -1109,16 +1109,16 @@
     eslint-plugin-react-hooks "^1.6.0"
     prettier "^1.18.2"
 
-"@groupher/react-editor@1.0.59":
-  version "1.0.59"
-  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.59.tgz#4b4680ce450bfd1b43ea98165a5a5379f01f7284"
+"@groupher/react-editor@1.0.60":
+  version "1.0.60"
+  resolved "https://registry.npm.taobao.org/@groupher/react-editor/download/@groupher/react-editor-1.0.60.tgz#b92945df2c4cd8aa2020c8db4c660e5cfcc026ba"
   dependencies:
     "@editorjs/inline-code" "^1.3.0"
     "@groupher/editor" "2.15.3"
     "@groupher/editor-checklist" "1.1.1"
     "@groupher/editor-code" "1.0.19"
     "@groupher/editor-delimiter" "1.1.6"
-    "@groupher/editor-embed" "1.0.10"
+    "@groupher/editor-embed" "1.0.11"
     "@groupher/editor-header" "2.3.1"
     "@groupher/editor-image" "1.0.11"
     "@groupher/editor-link" "2.1.6"

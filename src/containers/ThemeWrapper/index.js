@@ -24,9 +24,13 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
   return (
     <ThemeProvider theme={themeData}>
       <React.Fragment>
-        <Helmet
-          meta={[{ name: 'theme-color', content: themeData.mobileTab }]}
-        />
+        <Helmet meta={[{ name: 'theme-color', content: themeData.mobileTab }]}>
+          <style className="embedly-css">{`
+            .card .title {
+              margin-top: 5px;
+            }
+         `}</style>
+        </Helmet>
         <div>{children}</div>
         <CodeSyxHighlight />
         <AntUIOverWrite />
