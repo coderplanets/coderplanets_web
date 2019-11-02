@@ -16,6 +16,9 @@ const markdownFont = '#7698A0'
 const descText = '#a3bbbd'
 const primaryMate = 'orange'
 
+const selectionBg = '#FEDEB6'
+const selectionFg = '#251A1A'
+
 const cyan = {
   name: 'cyan',
   logoText: descText,
@@ -38,7 +41,7 @@ const cyan = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: '#A0BBBC',
+  selectionBg,
   avatarOpacity: 1,
   baseColor: {
     error: '#fd7f68 !important',
@@ -261,6 +264,16 @@ const cyan = {
     taskDone: '#528416',
     taskPeding: darken(0.1, contentBoxBg),
     br: '#e8e8e8',
+    // embed
+    embed: {
+      title: '#75979c',
+      digest: '#75979c',
+      selectionBg,
+      selectionFg,
+      link: '#dcb27c',
+      linkHover: '#d49451',
+      providerName: '#696565',
+    },
   },
   code: {
     bg: darken(0.05, contentBoxBg),

@@ -12,6 +12,7 @@ import { connectStore } from '@utils'
 import { usePlatform } from '@hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
+import getEmbedHeadStyle from './EditorEmbedCustom'
 import CodeSyxHighlight from './CodeSyxHighlight'
 import AntUIOverWrite from './AntUIOverWrite'
 import GlobalStyle from './GlobalStyle'
@@ -25,11 +26,9 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
     <ThemeProvider theme={themeData}>
       <React.Fragment>
         <Helmet meta={[{ name: 'theme-color', content: themeData.mobileTab }]}>
-          <style className="embedly-css">{`
-            .card .title {
-              margin-top: 5px;
-            }
-         `}</style>
+          <style className="embedly-css">{`${getEmbedHeadStyle(
+            themeData
+          )}`}</style>
         </Helmet>
         <div>{children}</div>
         <CodeSyxHighlight />
