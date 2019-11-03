@@ -18,6 +18,13 @@ export const DynamicRichEditor = dynamic({
 const Editor = () => {
   const store = initRootStore({ langSetup: {} })
 
+  // const html = "<pre><code><script>alert('hello world')</script></code></pre>" // 'hello world'
+  // const html =
+  //   "<pre><code>&lt;script&gt;alert('hello world')&lt;/script&gt;</code></pre>"
+
+  const html =
+    '<pre><code>&lt;script&gt;alert(&quot;hello world&quot;)&lt;/script&gt;\n</code></pre>'
+
   return (
     <Provider store={store}>
       <ThemeWrapper>
@@ -32,11 +39,12 @@ const Editor = () => {
         >
           <br />
           <DynamicRichEditor />
-          {/* <div
+          <br />
+          <div
             dangerouslySetInnerHTML={{
               __html: html,
             }}
-          /> */}
+          />
           <hr />
         </div>
       </ThemeWrapper>

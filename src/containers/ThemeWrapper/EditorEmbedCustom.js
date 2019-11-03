@@ -16,6 +16,18 @@ const getEmbedHeadStyle = themeData => {
   } = themeData.richEditor.embed
 
   return `
+    .embedly-card {
+      padding-top: 6px;
+    }
+
+    .ui-widget-content {
+      display: none !important;
+    }
+
+    .embedly-card-hug {
+      margin-bottom: 0;
+    }
+
     .card .title {
       margin-top: 15px;
     }
