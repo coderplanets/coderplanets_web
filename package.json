@@ -63,7 +63,7 @@
     "apollo-link-error": "^1.0.9",
     "apollo-link-http": "1.5.14",
     "apollo-link-retry": "2.2.13",
-    "chalk": "^2.4.1",
+    "chalk": "^3.0.0",
     "compatible-debug": "^1.0.0",
     "cookie-parser": "^1.4.4",
     "core-js": "3.2.1",
