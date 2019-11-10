@@ -26,7 +26,7 @@ const RichEditorContainer = ({ richEditor }) => {
   useInit(richEditor, uploaderLoaded)
 
   return (
-    <Wrapper>
+    <Wrapper className="cps-viewer">
       <Editor onData={onChange} />
     </Wrapper>
   )
