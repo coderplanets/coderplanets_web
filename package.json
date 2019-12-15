@@ -126,7 +126,7 @@
     "response-time": "^2.3.2",
     "rxjs": "6.2.2",
     "scroll-into-view-if-needed": "1.5.0",
-    "sentry-testkit": "^2.1.0",
+    "sentry-testkit": "^3.1.0",
     "shortid": "^2.2.8",
     "store": "^2.0.12",
     "stringz": "^2.0.0",
