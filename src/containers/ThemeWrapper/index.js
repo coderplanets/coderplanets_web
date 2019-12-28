@@ -15,6 +15,7 @@ import { usePlatform } from '@hooks'
 import CodeSyxHighlight from './CodeSyxHighlight'
 import AntUIOverWrite from './AntUIOverWrite'
 import GlobalStyle from './GlobalStyle'
+import RichEditorStyle from './RichEditorStyle'
 
 const ThemeContainer = ({ children, theme: { themeData } }) => {
   const { isMacOS, isMobile } = usePlatform()
@@ -29,6 +30,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         <div>{children}</div>
         <CodeSyxHighlight />
         <AntUIOverWrite />
+        <RichEditorStyle />
         <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
       </React.Fragment>
     </ThemeProvider>
