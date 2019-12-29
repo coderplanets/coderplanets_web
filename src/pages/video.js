@@ -3,6 +3,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
 import {

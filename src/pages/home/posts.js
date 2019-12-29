@@ -1,13 +1,28 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import NextSeo from 'next-seo'
+import { NextSeo } from 'next-seo'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
+import AnalysisService from '@services/Analysis'
+
+import GlobalLayout from '@containers/GlobalLayout'
+import ThemeWrapper from '@containers/ThemeWrapper'
+import MultiLanguage from '@containers/MultiLanguage'
+import Sidebar from '@containers/Sidebar'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import CommunityBanner from '@containers/CommunityBanner'
+import CommunityContent from '@containers/CommunityContent'
+import Footer from '@containers/Footer'
+import ErrorBox from '@containers/ErrorBox'
+import ErrorPage from '@components/ErrorPage'
 
 import {
-  isServerSide,
   getJwtToken,
   makeGQClient,
   queryStringToJSON,
@@ -24,21 +39,6 @@ import {
   validCommunityFilters,
   parseTheme,
 } from '@utils'
-
-import AnalysisService from '@services/Analysis'
-import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Sidebar from '@containers/Sidebar'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import CommunityBanner from '@containers/CommunityBanner'
-import CommunityContent from '@containers/CommunityContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
-import ErrorPage from '@components/ErrorPage'
 
 import { P } from '@schemas'
 
@@ -59,7 +59,8 @@ async function fetchData(props, opt) {
   const { asPath } = props
   // schema
 
-  const { communityPath, threadPath: topic } = parseURL(props)
+  // utils: filter, tags staff
+  const { communityPath, subPath: topic } = parseURL(props)
   const community = akaTranslate(communityPath)
   const thread = extractThreadFromPath(props)
 
@@ -103,10 +104,8 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class CommunityPage extends React.Component {
+export default class HomePage extends React.Component {
   static async getInitialProps(props) {
-    if (!isServerSide) return {}
-
     const { communityPath, threadPath } = parseURL(props)
     const thread = extractThreadFromPath(props)
 
@@ -184,7 +183,7 @@ export default class CommunityPage extends React.Component {
       viewing: { community },
       route,
     } = this.props
-    const { communityPath, threadPath } = route
+    const { communityPath, subPath } = route
 
     const seoTitle =
       community.raw === 'home'
@@ -205,7 +204,7 @@ export default class CommunityPage extends React.Component {
               <React.Fragment>
                 <NextSeo
                   config={{
-                    url: `${SITE_URL}/${communityPath}/${threadPath}`,
+                    url: `${SITE_URL}/${communityPath}/${subPath}`,
                     title: seoTitle,
                     description: `${community.desc}`,
                   }}

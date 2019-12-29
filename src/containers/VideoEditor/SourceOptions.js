@@ -1,6 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
+// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { Wrapper, ItemWrapper, Title, Icon } from './styles/source_options'
 
@@ -27,10 +28,7 @@ const other = {
   icon: `${ICON_CMD}/more.svg`,
 }
 
-const trimLower = R.compose(
-  R.trim,
-  R.toLower
-)
+const trimLower = R.compose(R.trim, R.toLower)
 
 const SourceOptions = ({ active, sourceOnSelect }) => {
   if (!active) active = ''

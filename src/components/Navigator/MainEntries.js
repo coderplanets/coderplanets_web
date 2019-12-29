@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 
+// eslint-disable-next-line import/named
 import { ISSUE_ADDR } from '@config'
+
 import Popover from '@components/Popover'
 import DiscussLinker from '@components/DiscussLinker'
 
@@ -11,11 +13,11 @@ const splitMargin = '8px'
 
 const MainEntries = ({ curRoute: { mainPath } }) => (
   <Wrapper>
-    <Link href="/home/posts" prefetch passHref>
+    <Link href="/home/posts" passHref>
       <SiteLink testid="header-home-link">首页</SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Link href="/communities" prefetch passHref>
+    <Link href="/communities" passHref>
       <SiteLink
         active={mainPath === 'communities'}
         testid="header-communities-link"
