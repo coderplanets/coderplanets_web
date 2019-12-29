@@ -1,7 +1,10 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
+// eslint-disable-next-line import/named
+import { CUR_VERION } from '@config'
 import { TYPE, EVENT, ERR } from '@constant'
+
 import {
   asyncSuit,
   buildLog,
@@ -122,6 +125,7 @@ export const useInit = _store => {
     // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     checkSesstionState()
+    if (window) window.CUR_VERION = CUR_VERION
 
     return () => {
       sr71$.stop()
