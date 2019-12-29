@@ -1,14 +1,8 @@
 import R from 'ramda'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 
-export const lengthE1 = R.compose(
-  R.equals(1),
-  R.length
-)
-export const lengthE2 = R.compose(
-  R.equals(2),
-  R.length
-)
+export const lengthE1 = R.compose(R.equals(1), R.length)
+export const lengthE2 = R.compose(R.equals(2), R.length)
 export const anyNil = R.any(R.isNil)
 
 export class SwissArmyKnife {

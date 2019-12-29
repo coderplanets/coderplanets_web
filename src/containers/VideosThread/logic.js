@@ -52,22 +52,18 @@ export const onPageChange = page => {
   loadVideos(page)
 }
 
+/**
+ * preview the current article
+ *
+ * @param {*} data {id: string, title: string}
+ */
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
+  const type = TYPE.PREVIEW_VIDEO_VIEW
+  const thread = THREAD.VIDEO
 
-  send(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_VIDEO_VIEW,
-    thread: THREAD.VIDEO,
-    data,
-  })
-
-  store.markRoute({
-    preview: THREAD.VIDEO,
-    id: data.id,
-    community: store.curCommunity.raw,
-    ...store.tagQuery,
-    ...store.filtersData,
-  })
+  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {

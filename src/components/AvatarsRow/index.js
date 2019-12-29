@@ -25,10 +25,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:AvatarsRow:index')
 
-const validUser = R.compose(
-  R.not,
-  R.isNil
-)
+const validUser = R.compose(R.not, R.isNil)
 
 const getUniqueArray = (arr, comp) => {
   const unique = arr

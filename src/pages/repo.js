@@ -3,6 +3,7 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
 import {
@@ -16,7 +17,6 @@ import {
 import initRootStore from '@stores/init'
 
 import AnalysisService from '@services/Analysis'
-
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -25,11 +25,12 @@ import Doraemon from '@containers/Doraemon'
 import Route from '@containers/Route'
 import Header from '@containers/Header'
 import ArticleBanner from '@containers/ArticleBanner'
-import PostContent from '@containers/PostContent'
+import RepoContent from '@containers/RepoContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
 import ErrorPage from '@components/ErrorPage'
+
 import { P } from '@schemas'
 
 // try to fix safari bug
@@ -43,12 +44,10 @@ async function fetchData(props, opt) {
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
 
-  // schema
   const { thridPath: id } = parseURL(props)
 
-  // query data
   const sessionState = gqClient.request(P.sessionState)
-  const post = gqClient.request(P.post, { id, userHasLogin })
+  const repo = gqClient.request(P.repo, { id })
   const pagedComments = gqClient.request(P.pagedComments, {
     id,
     userHasLogin,
@@ -62,16 +61,15 @@ async function fetchData(props, opt) {
     },
   })
 
-  // TODO: comments
   return {
     ...(await sessionState),
-    ...(await post),
+    ...(await repo),
     ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
 
-export default class PostPage extends React.Component {
+export default class RepoPage extends React.Component {
   static async getInitialProps(props) {
     const { mainPath, subPath } = parseURL(props)
     let resp
@@ -85,9 +83,9 @@ export default class PostPage extends React.Component {
       }
     }
 
-    const { sessionState, post, pagedComments, subscribedCommunities } = resp
+    const { sessionState, repo, pagedComments, subscribedCommunities } = resp
 
-    if (!R.contains(mainPath, R.pluck('raw', post.communities))) {
+    if (!R.contains(mainPath, R.pluck('raw', repo.communities))) {
       return { statusCode: 404, target: subPath }
     }
 
@@ -101,11 +99,11 @@ export default class PostPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.POST },
+      route: { mainPath, subPath: ROUTE.REPO },
       viewing: {
-        post,
-        activeThread: THREAD.POST,
-        community: post.origialCommunity,
+        repo,
+        activeThread: THREAD.REPO,
+        community: repo.origialCommunity,
       },
       comments: { pagedComments },
     }
@@ -123,7 +121,7 @@ export default class PostPage extends React.Component {
   render() {
     const { statusCode, target } = this.props
     const {
-      viewing: { post },
+      viewing: { repo },
       route,
     } = this.props
     const { mainPath } = route
@@ -137,12 +135,12 @@ export default class PostPage extends React.Component {
             ) : (
               <React.Fragment>
                 <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/post/${post.id}`}
-                  title={`${post.title}`}
-                  datePublished={`${post.insertedAt}`}
-                  dateModified={`${post.updatedAt}`}
-                  authorName={`${post.author.nickname}`}
-                  description={`${post.title}`}
+                  url={`${SITE_URL}/${mainPath}/repo/${repo.id}`}
+                  title={`${repo.title}`}
+                  datePublished={`${repo.insertedAt}`}
+                  dateModified={`${repo.updatedAt}`}
+                  authorName={`${repo.author.nickname}`}
+                  description={`${repo.desc}`}
                   images={[]}
                 />
                 <Route />
@@ -152,8 +150,12 @@ export default class PostPage extends React.Component {
                   <ErrorBox />
                   <GlobalLayout noSidebar>
                     <Header />
-                    <ArticleBanner />
-                    <PostContent />
+                    <ArticleBanner
+                      showStar={false}
+                      showWordCount={false}
+                      showLastSync
+                    />
+                    <RepoContent />
                     <Footer />
                   </GlobalLayout>
                 </MultiLanguage>

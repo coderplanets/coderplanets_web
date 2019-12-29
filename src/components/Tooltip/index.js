@@ -7,8 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { Wrapper } from './styles'
 import { buildLog } from '@utils'
+import { Wrapper } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')

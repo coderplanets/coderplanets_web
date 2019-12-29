@@ -1,6 +1,6 @@
 import React from 'react'
-import App, { Container } from 'next/app'
-import NextSeo from 'next-seo'
+import App from 'next/app'
+import { NextSeo } from 'next-seo'
 
 import { sentry } from '@services'
 
@@ -10,7 +10,7 @@ import { sentry } from '@services'
  * that will apply to every page. Full info on how the default works
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
-import SEO from '../config/next_seo'
+import SEO from '@config/next_seo'
 
 const { Sentry, captureException } = sentry({
   release: process.env.SENTRY_RELEASE,
@@ -101,10 +101,10 @@ export default class AppPage extends App {
       </section>
     ) : (
       /* render normal next.js app */
-      <Container>
+      <React.Fragment>
         <NextSeo config={SEO} />
         <Component {...pageProps} />
-      </Container>
+      </React.Fragment>
     )
   }
 }
