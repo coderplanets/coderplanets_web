@@ -64,21 +64,18 @@ export const onPageChange = page => {
   loadJobs(page)
 }
 
+/**
+ * preview the current article
+ *
+ * @param {*} data {id: string, title: string}
+ */
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
-  send(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_JOB_VIEW,
-    thread: THREAD.JOB,
-    data,
-  })
+  const type = TYPE.PREVIEW_JOB_VIEW
+  const thread = THREAD.JOB
 
-  store.markRoute({
-    preview: THREAD.JOB,
-    id: data.id,
-    community: store.curCommunity.raw,
-    ...store.tagQuery,
-    ...store.filtersData,
-  })
+  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {

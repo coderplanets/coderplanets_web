@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
+import { TYPE, THREAD } from '@constant'
 import { buildLog, markStates, stripMobx, nilOrEmpty } from '@utils'
 import { PagedVideos, Tag, ContentFilter, emptyPagiData } from '@model'
 
@@ -110,8 +110,16 @@ const VideosThread = t
     updateC11N(option) {
       self.root.updateC11N(option)
     },
-    markRoute(query) {
-      self.root.markRoute(query)
+    markRoute(id) {
+      const query = {
+        id,
+        preview: THREAD.VIDEO,
+        community: self.curCommunity.raw,
+        ...self.tagQuery,
+        ...self.filtersData,
+      }
+
+      self.root.markRoute(query, { onlyDesktop: true })
     },
     mark(sobj) {
       markStates(sobj, self)

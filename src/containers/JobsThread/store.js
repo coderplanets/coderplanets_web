@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
+import { TYPE, THREAD } from '@constant'
 import { markStates, buildLog, stripMobx, nilOrEmpty } from '@utils'
 import { PagedJobs, Tag, ContentFilter, emptyPagiData } from '@model'
 
@@ -114,8 +114,16 @@ const JobsThreadStore = t
     updateC11N(option) {
       self.root.updateC11N(option)
     },
-    markRoute(query) {
-      self.root.markRoute(query)
+    markRoute(id) {
+      const query = {
+        id,
+        preview: THREAD.JOB,
+        community: self.curCommunity.raw,
+        ...self.tagQuery,
+        ...self.filtersData,
+      }
+
+      self.root.markRoute(query, { onlyDesktop: true })
     },
     mark(sobj) {
       markStates(sobj, self)

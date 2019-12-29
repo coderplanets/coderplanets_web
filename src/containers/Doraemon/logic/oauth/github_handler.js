@@ -6,7 +6,7 @@ import S from '../../schema'
 const githubLoginHandler = (store, sr71$) => {
   const clientId = process.env.GITHUB_CLIENT_ID
   const info = 'from_github'
-  const cb = 'https://www.coderplanets.com/oauth'
+  const cb = 'https://coderplanets.com/oauth'
   const github = 'https://github.com/login/oauth/authorize'
   const url = `${github}?client_id=${clientId}&state=${info}&redirect_uri=${cb}`
 

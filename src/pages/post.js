@@ -1,26 +1,23 @@
-/*
-   this page is for /user/xxx
- */
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { SocialProfileJsonLd } from 'next-seo'
+import { BlogJsonLd } from 'next-seo'
 
-import { SITE_URL } from '@config'
-import { ROUTE, USER_THREAD } from '@constant'
+// eslint-disable-next-line import/named
+import { PAGE_SIZE, SITE_URL } from '@config'
+import { TYPE, ROUTE, THREAD } from '@constant'
 import {
   getJwtToken,
-  makeGQClient,
-  queryStringToJSON,
   nilOrEmpty,
+  makeGQClient,
   parseURL,
-  pagedFilter,
   ssrAmbulance,
   parseTheme,
 } from '@utils'
 import initRootStore from '@stores/init'
 
 import AnalysisService from '@services/Analysis'
+
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
@@ -28,14 +25,13 @@ import Preview from '@containers/Preview'
 import Doraemon from '@containers/Doraemon'
 import Route from '@containers/Route'
 import Header from '@containers/Header'
-import UserBanner from '@containers/UserBanner'
-import UserContent from '@containers/UserContent'
+import ArticleBanner from '@containers/ArticleBanner'
+import PostContent from '@containers/PostContent'
 import Footer from '@containers/Footer'
 import ErrorBox from '@containers/ErrorBox'
 
-import { P } from '@schemas'
 import ErrorPage from '@components/ErrorPage'
-// import { AnalysisService, ErrorPage } from '@components'
+import { P } from '@schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
@@ -47,31 +43,38 @@ async function fetchData(props, opt) {
   const token = realname ? getJwtToken(props) : null
   const gqClient = makeGQClient(token)
   const userHasLogin = nilOrEmpty(token) === false
-  const { subPath } = parseURL(props)
-  const login = R.toLower(subPath)
 
+  // schema
+  const { thridPath: id } = parseURL(props)
+
+  // query data
   const sessionState = gqClient.request(P.sessionState)
-  const user = gqClient.request(P.user, { login, userHasLogin })
-
-  const filter = pagedFilter(1)
+  const post = gqClient.request(P.post, { id, userHasLogin })
+  const pagedComments = gqClient.request(P.pagedComments, {
+    id,
+    userHasLogin,
+    thread: R.toUpper(THREAD.POST),
+    filter: { page: 1, size: PAGE_SIZE.D, sort: TYPE.ASC_INSERTED },
+  })
   const subscribedCommunities = gqClient.request(P.subscribedCommunities, {
-    filter,
+    filter: {
+      page: 1,
+      size: 30,
+    },
   })
 
+  // TODO: comments
   return {
     ...(await sessionState),
-    ...(await user),
+    ...(await post),
+    ...(await pagedComments),
     ...(await subscribedCommunities),
   }
 }
 
-export default class UserPage extends React.Component {
+export default class PostPage extends React.Component {
   static async getInitialProps(props) {
-    const { asPath } = props
-
-    const query = queryStringToJSON(asPath)
-    const { subPath } = parseURL(props)
-
+    const { mainPath, subPath } = parseURL(props)
     let resp
     try {
       resp = await fetchData(props)
@@ -83,7 +86,11 @@ export default class UserPage extends React.Component {
       }
     }
 
-    const { sessionState, user, subscribedCommunities } = resp
+    const { sessionState, post, pagedComments, subscribedCommunities } = resp
+
+    if (!R.contains(mainPath, R.pluck('raw', post.communities))) {
+      return { statusCode: 404, target: subPath }
+    }
 
     return {
       langSetup: {},
@@ -95,15 +102,18 @@ export default class UserPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath: ROUTE.USER, subPath: user.id, query },
-      userContent: { activeThread: query.tab || USER_THREAD.PUBLISH },
-      viewing: { user },
+      route: { mainPath, subPath: ROUTE.POST },
+      viewing: {
+        post,
+        activeThread: THREAD.POST,
+        community: post.origialCommunity,
+      },
+      comments: { pagedComments },
     }
   }
 
   constructor(props) {
     super(props)
-
     const store = props.statusCode
       ? initRootStore({ langSetup: {} })
       : initRootStore({ ...props })
@@ -114,22 +124,27 @@ export default class UserPage extends React.Component {
   render() {
     const { statusCode, target } = this.props
     const {
-      viewing: { user },
+      viewing: { post },
+      route,
     } = this.props
+    const { mainPath } = route
 
     return (
       <Provider store={this.store}>
         <AnalysisService>
           <ThemeWrapper>
             {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="user" target={target} />
+              <ErrorPage errorCode={statusCode} page="post" target={target} />
             ) : (
               <React.Fragment>
-                <SocialProfileJsonLd
-                  type="Person"
-                  name={`${user.nickname}`}
-                  url={`${SITE_URL}/user/${user.login}`}
-                  sameAs={[]}
+                <BlogJsonLd
+                  url={`${SITE_URL}/${mainPath}/post/${post.id}`}
+                  title={`${post.title}`}
+                  datePublished={`${post.insertedAt}`}
+                  dateModified={`${post.updatedAt}`}
+                  authorName={`${post.author.nickname}`}
+                  description={`${post.title}`}
+                  images={[]}
                 />
                 <Route />
                 <MultiLanguage>
@@ -138,8 +153,8 @@ export default class UserPage extends React.Component {
                   <ErrorBox />
                   <GlobalLayout noSidebar>
                     <Header />
-                    <UserBanner />
-                    <UserContent />
+                    <ArticleBanner />
+                    <PostContent />
                     <Footer />
                   </GlobalLayout>
                 </MultiLanguage>

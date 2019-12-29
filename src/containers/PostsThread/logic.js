@@ -100,22 +100,18 @@ export const onUserSelect = user =>
     data: user,
   })
 
+/**
+ * preview the current article
+ *
+ * @param {*} data {id: string, title: string}
+ */
 export const onPreview = data => {
   setTimeout(() => store.setViewedFlag(data.id), 1500)
+  const type = TYPE.PREVIEW_POST_VIEW
+  const thread = THREAD.POST
 
-  send(EVENT.PREVIEW_OPEN, {
-    type: TYPE.PREVIEW_POST_VIEW,
-    thread: THREAD.POST,
-    data,
-  })
-
-  store.markRoute({
-    preview: THREAD.POST,
-    id: data.id,
-    community: store.curCommunity.raw,
-    ...store.tagQuery,
-    ...store.filtersData,
-  })
+  send(EVENT.PREVIEW_OPEN, { type, thread, data })
+  store.markRoute(data.id)
 }
 
 export const onContentCreate = () => {
@@ -250,7 +246,6 @@ const ErrSolver = [
 export const useInit = _store =>
   useEffect(() => {
     store = _store
-    // log('effect init')
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     /*
          NOTE: city communities list is not supported by SSR
