@@ -230,8 +230,8 @@ const rootStore = t
     afterCreate() {
       // self.communities.load()
     },
-    markRoute(query) {
-      self.route.markRoute(query)
+    markRoute(query, opt) {
+      self.route.markRoute(query, opt)
     },
     setHeaderFix(fix) {
       self.header.setFix(fix)

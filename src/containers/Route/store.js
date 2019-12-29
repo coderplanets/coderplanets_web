@@ -7,6 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import Router from 'next/router'
 
+// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 import {
   Global,
@@ -43,12 +44,35 @@ const RouteStore = t
       const { communityPath, threadPath, mainPath, subPath } = self
       return { communityPath, threadPath, mainPath, subPath }
     },
+    get isNotDesktop() {
+      const {
+        media: { mobile, tablet },
+      } = self.root
+
+      return mobile || tablet
+    },
   }))
   .actions(self => ({
-    // TODO:  if current url is subdomain, then we should
-    // reload to that page directly
-    markRoute(query) {
+    /**
+     * sync query to current url
+     * - if current url is subdomain, then we should
+     * - reload to that page directly
+     * @param {*} query
+     * @param {boolean} [opt={ onlyDesktop: false }] if onlyDescktop set to true
+     *        then just leave it, otherwise it will mislead the history back btn in mobile
+     *        在手机上会导致触发两次才返回
+     *
+     * @returns {boolean}
+     */
+    markRoute(query, opt) {
+      const defaultOpt = { onlyDesktop: false }
+      const option = R.merge(defaultOpt, opt)
+
       if (!isClientSide) return false
+      if (option.onlyDesktop && self.isNotDesktop) {
+        return false
+      }
+
       const { mainPath, subPath, page } = query
       query = R.pickBy(v => !R.isEmpty(v), query)
 
