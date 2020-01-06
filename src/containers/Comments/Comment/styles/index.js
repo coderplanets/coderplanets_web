@@ -20,15 +20,6 @@ export const CommentWrapper = styled.div`
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 
-export const CommentUserInfo = styled.div`
-  margin-right: 15px;
-  ${cs.media.mobile`display: none`};
-`
-export const CommentAvatar = styled(Img)`
-  ${cs.circle('38px')};
-  opacity: ${theme('avatarOpacity')};
-`
-
 export const CommentBodyInfo = styled.div`
   ${cs.flexColumn()};
   width: 100%;

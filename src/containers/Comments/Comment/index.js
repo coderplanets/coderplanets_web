@@ -5,20 +5,19 @@ import { Global } from '@utils'
 
 import MarkDownRender from '@components/MarkDownRender'
 
-import CommentHeader from './CommentHeader'
-import CommentReplyBar from './CommentReplyBar'
+import UpInfo from './UpInfo'
+import Header from './Header'
+import ReplyBar from './ReplyBar'
 import DeleteMask from './DeleteMask'
-import Reactions from './Reactions'
+import Footer from './Footer'
 
 import {
   Wrapper,
   CommentWrapper,
-  CommentUserInfo,
-  CommentAvatar,
   CommentContent,
   CommentBodyInfo,
   CommentFooter,
-} from './styles/comment'
+} from './styles'
 
 const getSelection = () => {
   const selectText = Global.getSelection().toString()
@@ -31,19 +30,16 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
   <Wrapper>
     <DeleteMask show={data.id === tobeDeleteId} />
     <CommentWrapper tobeDelete={data.id === tobeDeleteId}>
-      <CommentUserInfo>
-        <CommentAvatar src={data.author.avatar} />
-      </CommentUserInfo>
+      <UpInfo data={data} />
 
       <CommentBodyInfo onMouseUp={getSelection}>
-        <CommentHeader data={data} />
+        <Header data={data} />
         <CommentContent>
-          {data.replyTo && <CommentReplyBar data={data.replyTo} />}
+          {data.replyTo && <ReplyBar data={data.replyTo} />}
           <MarkDownRender body={data.body} />
         </CommentContent>
-        <CommentFooter>
-          <Reactions data={data} accountInfo={accountInfo} />
-        </CommentFooter>
+
+        <Footer data={data} accountInfo={accountInfo}></Footer>
       </CommentBodyInfo>
     </CommentWrapper>
   </Wrapper>
