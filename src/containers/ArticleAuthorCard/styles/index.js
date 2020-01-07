@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  width: 100%;
-  min-height: 140px;
-  padding: 20px;
+  min-height: 50px;
+  padding: 10px;
+  margin-top: 20px;
+
   max-width: 300px;
   flex-wrap: wrap;
-  background: ${theme('preview.articleBg')};
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  margin-bottom: 15px;
 
   ${cs.media.tablet`
     width: 50%;

@@ -9,9 +9,8 @@ import T from 'prop-types'
 
 import { connectStore, buildLog } from '@utils'
 
-import Header from './Header'
 import UserInfo from './UserInfo'
-import ReactionNumbers from './ReactionNumbers'
+// import ReactionNumbers from './ReactionNumbers'
 
 import { Wrapper, Divider } from './styles'
 import { useInit } from './logic'
@@ -30,14 +29,8 @@ const ArticleAuthorCardContainer = ({
 
   return (
     <Wrapper>
-      <Header
-        title={introTitle}
-        user={userData}
-        isSelfViewing={isSelfViewing}
-      />
-      <Divider />
-      <UserInfo user={user} />
-      <ReactionNumbers user={user} />
+      <UserInfo user={user} isSelfViewing={isSelfViewing} />
+      {/* <ReactionNumbers user={user} /> */}
     </Wrapper>
   )
 }

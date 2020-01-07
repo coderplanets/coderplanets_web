@@ -133,6 +133,8 @@ const purple = {
     topLine: '#c387e8',
     icon: '#845145',
     divider: darken(0.07, descText),
+    /* single article page sidebar divider */
+    sideDivider: '#413d54',
   },
   article: {
     link: primaryMate,

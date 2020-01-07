@@ -38,7 +38,7 @@ const cyan = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: '#A0BBBC',
+  selectionBg: '#f8f7dc',
   avatarOpacity: 1,
   baseColor: {
     error: '#fd7f68 !important',
@@ -132,6 +132,8 @@ const cyan = {
     topLine: primaryColor,
     icon: 'tomato',
     divider: '#e0e6e5',
+    /* single article page sidebar divider */
+    sideDivider: '#b9d0cc',
   },
   article: {
     link: '#b5ccce',

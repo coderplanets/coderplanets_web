@@ -133,6 +133,8 @@ const yellow = {
     topLine: '#4EAFA5',
     icon: '#4EAFA5',
     divider: '#eae7de',
+    /* single article page sidebar divider */
+    sideDivider: '#e4ddd2',
   },
   article: {
     link: primaryMate,

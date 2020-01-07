@@ -134,6 +134,8 @@ const solarizedDark = {
     topLine: '#41c7bd',
     icon: '#41c7bd',
     divider: '#005255',
+    /* single article page sidebar divider */
+    sideDivider: '#094556',
   },
   article: {
     link: '#276788',
@@ -147,7 +149,7 @@ const solarizedDark = {
     title: '#62868a',
     username: '#62868a',
     number: '#00A59B',
-    floor: '#00A59B',
+    floor: '#5c8186',
     reply: '#638688',
     replyBg: '#004c5f',
     placeholder: '#62868a',

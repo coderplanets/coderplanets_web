@@ -45,7 +45,7 @@ const UsersTable = ({ entries, accountId }) => (
           <Action>
             {accountId !== user.id ? (
               <FollowButton
-                hasFollowd={user.viewerHasFollowed}
+                hasFollowed={user.viewerHasFollowed}
                 userId={user.id}
                 onFollow={onFollow}
                 onUndoFollow={undoFollow}

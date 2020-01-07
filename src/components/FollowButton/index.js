@@ -43,13 +43,13 @@ class FollowButton extends React.Component {
   }
 
   render() {
-    const { hasFollowd, size, loading, fakeLoading } = this.props
+    const { hasFollowed, size, loading, fakeLoading } = this.props
     const { simuLoading } = this.state
     const isLoading = fakeLoading ? simuLoading : loading
 
     return (
       <React.Fragment>
-        {hasFollowd ? (
+        {hasFollowed ? (
           <FollowingBtn
             size={size}
             loading={isLoading}
@@ -68,7 +68,7 @@ class FollowButton extends React.Component {
 }
 
 FollowButton.propTypes = {
-  hasFollowd: T.bool.isRequired,
+  hasFollowed: T.bool.isRequired,
   userId: T.string.isRequired,
   size: T.oneOf(['small', 'default', 'large']),
   onFollow: T.func,
