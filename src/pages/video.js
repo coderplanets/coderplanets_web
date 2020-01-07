@@ -147,7 +147,7 @@ export default class VideoPage extends React.Component {
                   <Doraemon />
                   <ErrorBox />
                   <GlobalLayout noSidebar>
-                    <Header />
+                    <Header metric="article" />
                     <ArticleBanner />
                     <VideoContent />
                     <Footer />

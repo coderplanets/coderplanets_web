@@ -17,7 +17,8 @@ export const Wrapper = styled.header.attrs(props => ({
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 0 6vw;
+  max-width: ${({ metric }) => metric.maxWidth};
+  padding: ${({ metric }) => metric.padding};
   width: 100%;
   height: 33px;
   align-items: center;

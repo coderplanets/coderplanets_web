@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  font-size: 1.3em;
+  font-size: 22px;
   color: ${theme('thread.articleTitle')};
 
   ${cs.truncate('100%')};

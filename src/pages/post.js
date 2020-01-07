@@ -152,7 +152,7 @@ export default class PostPage extends React.Component {
                   <Doraemon />
                   <ErrorBox />
                   <GlobalLayout noSidebar>
-                    <Header />
+                    <Header metric="article" />
                     <ArticleBanner />
                     <PostContent />
                     <Footer />

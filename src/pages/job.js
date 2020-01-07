@@ -152,7 +152,7 @@ export default class JobPage extends React.Component {
                   <Doraemon />
                   <ErrorBox />
                   <GlobalLayout noSidebar>
-                    <Header />
+                    <Header metric="article" />
                     <ArticleBanner showStar={false} />
                     <JobContent />
                     <Footer />

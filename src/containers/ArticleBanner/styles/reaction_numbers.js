@@ -5,7 +5,7 @@ import { theme, cs, animate } from '@utils'
 
 export const NumbersWrapper = styled.div`
   ${cs.flex('align-center')};
-  margin-top: -2.1rem;
+  margin-top: -6px;
 `
 export const NumbersInfo = styled(NumbersWrapper)`
   margin-top: 0;

@@ -13,7 +13,7 @@ export const Wrapper = styled.article`
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   padding: 0 6vw;
   ${cs.media.desktop`
     padding: 0 4vw;

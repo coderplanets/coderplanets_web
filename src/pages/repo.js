@@ -149,7 +149,7 @@ export default class RepoPage extends React.Component {
                   <Doraemon />
                   <ErrorBox />
                   <GlobalLayout noSidebar>
-                    <Header />
+                    <Header metric="article" />
                     <ArticleBanner
                       showStar={false}
                       showWordCount={false}
