@@ -16,7 +16,6 @@ import {
   CommentWrapper,
   CommentContent,
   CommentBodyInfo,
-  CommentFooter,
 } from './styles'
 
 const getSelection = () => {
@@ -39,7 +38,7 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
           <MarkDownRender body={data.body} />
         </CommentContent>
 
-        <Footer data={data} accountInfo={accountInfo}></Footer>
+        <Footer data={data} accountInfo={accountInfo} />
       </CommentBodyInfo>
     </CommentWrapper>
   </Wrapper>

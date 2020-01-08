@@ -12,20 +12,16 @@ import { connectStore, buildLog } from '@utils'
 import UserInfo from './UserInfo'
 // import ReactionNumbers from './ReactionNumbers'
 
-import { Wrapper, Divider } from './styles'
+import { Wrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleAuthorCard')
 
-const ArticleAuthorCardContainer = ({
-  articleAuthorCard,
-  introTitle,
-  user,
-}) => {
+const ArticleAuthorCardContainer = ({ articleAuthorCard, user }) => {
   useInit(articleAuthorCard, user)
 
-  const { userData, isSelfViewing } = articleAuthorCard
+  const { isSelfViewing } = articleAuthorCard
 
   return (
     <Wrapper>
@@ -51,11 +47,8 @@ ArticleAuthorCardContainer.propTypes = {
       followingsCount: T.number,
     }),
   }).isRequired,
-  introTitle: T.string,
 }
 
-ArticleAuthorCardContainer.defaultProps = {
-  introTitle: '关于作者',
-}
+ArticleAuthorCardContainer.defaultProps = {}
 
 export default connectStore(ArticleAuthorCardContainer)

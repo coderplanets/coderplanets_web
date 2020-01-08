@@ -41,7 +41,7 @@ const ReactionNumbers = ({ user }) => {
             brief: user.nickname,
           })}
         >
-          {user.followersCount}
+          {user.achievement.followersCount}
         </Number>
       </ReactionNum>
       <ReactionNum>
@@ -52,7 +52,7 @@ const ReactionNumbers = ({ user }) => {
             brief: user.nickname,
           })}
         >
-          {user.followingsCount}
+          {user.achievement.followingsCount}
         </Number>
       </ReactionNum>
     </Wrapper>
@@ -62,6 +62,7 @@ const ReactionNumbers = ({ user }) => {
 ReactionNumbers.propTypes = {
   user: T.shape({
     id: T.string,
+    nickname: T.string,
     achievement: T.shape({
       reputation: T.number,
       followersCount: T.number,

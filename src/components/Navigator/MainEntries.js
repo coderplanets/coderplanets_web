@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-// eslint-disable-next-line import/named
 import { ISSUE_ADDR } from '@config'
 
 import Popover from '@components/Popover'

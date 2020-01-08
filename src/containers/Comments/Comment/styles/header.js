@@ -39,11 +39,6 @@ export const CommentUserName = styled.div`
   font-size: 1rem;
 `
 
-export const TimeStamps = styled.div`
-  color: ${theme('comment.placeholder')};
-  font-size: 0.9rem;
-`
-
 export const ReplyUsers = styled.div`
   ${cs.flex()};
   margin-top: -4px;

@@ -68,7 +68,7 @@ class FollowButton extends React.Component {
 }
 
 FollowButton.propTypes = {
-  hasFollowed: T.bool.isRequired,
+  hasFollowed: T.bool,
   userId: T.string.isRequired,
   size: T.oneOf(['small', 'default', 'large']),
   onFollow: T.func,
@@ -83,6 +83,7 @@ FollowButton.defaultProps = {
   onUndoFollow: log,
   fakeLoading: false,
   loading: false,
+  hasFollowed: false,
 }
 
 export default FollowButton

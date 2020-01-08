@@ -2,7 +2,6 @@ import React from 'react'
 import R from 'ramda'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import TabSelector from '@components/TabSelector'
 

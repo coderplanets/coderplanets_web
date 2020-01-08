@@ -25,7 +25,6 @@ const doNotify = (options = {}) => {
 
   /* eslint-disable no-undef */
   iziToast.show(R.merge(defaultOptions, R.reject(nilOrEmpty, options)))
-  /* eslint-enable no-def */
   return false
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import R from 'ramda'
-import TimeAgo from 'timeago-react'
 
 import AvatarsRow from '@components/AvatarsRow'
 import DotDivider from '@components/DotDivider'
@@ -11,7 +10,6 @@ import {
   Avatar,
   HeaderBaseInfo,
   CommentUserName,
-  TimeStamps,
   CommentHeaderFirst,
   ReplyUsers,
   ReplyTitle,
@@ -50,9 +48,6 @@ const CommentHeader = ({ data }) => (
           </ReplyUsers>
         )}
       </CommentHeaderFirst>
-      {/* <TimeStamps>
-        <TimeAgo datetime={data.insertedAt} locale="zh_CN" />
-      </TimeStamps> */}
     </HeaderBaseInfo>
   </Wrapper>
 )

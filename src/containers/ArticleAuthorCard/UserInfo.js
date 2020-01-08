@@ -32,9 +32,13 @@ UserInfo.propTypes = {
     avatar: T.string,
     nickname: T.string,
     bio: T.string,
+    viewerHasFollowed: T.bool,
   }).isRequired,
+  isSelfViewing: T.bool,
 }
 
-UserInfo.defaultProps = {}
+UserInfo.defaultProps = {
+  isSelfViewing: false,
+}
 
 export default UserInfo

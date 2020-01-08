@@ -31,10 +31,6 @@ export const CommentContent = styled.div`
     max-width: 280px;
   `};
 `
-export const CommentFooter = styled.div`
-  ${cs.flex()};
-  margin-top: 15px;
-`
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};
   margin-right: 3px;

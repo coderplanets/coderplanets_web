@@ -3,7 +3,6 @@ import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 

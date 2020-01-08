@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-
-import { Wrapper, ReplyIcon, ReplyAction } from './styles/actions'
+import { Wrapper, ReplyAction } from './styles/actions'
 import { openUpdateEditor, openReplyEditor, onDelete } from '../logic'
 
 const Actions = ({ data, accountInfo }) => {

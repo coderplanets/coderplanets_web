@@ -3,10 +3,9 @@ import Masonry from 'react-masonry-component'
 import { Remarkable } from 'remarkable'
 // import Prism from 'mastani-codehighlight'
 
-// eslint-disable-next-line import/named
 import { COMMUNITY_CHEATSHEET } from '@config'
-
 import { uid } from '@utils'
+
 import {
   Wrapper,
   CardWrapper,
@@ -25,6 +24,7 @@ const Cards = ({ cards }) =>
       <CheatSheetStyle>
         <div
           className="cheatsheet-body"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: md.render(item),
           }}

@@ -21,8 +21,6 @@ const SortableMenuBar = SortableElement(
 
 const SortableMenuList = SortableContainer(
   ({ communities, pin, sortOptActive, activeRaw, forceRerender }) => {
-    console.log(' sortOptActive --> ', sortOptActive)
-
     return (
       <OverlayScrollbarsComponent
         options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}

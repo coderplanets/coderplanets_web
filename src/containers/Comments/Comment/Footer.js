@@ -1,8 +1,6 @@
 import React from 'react'
-import R from 'ramda'
 import TimeAgo from 'timeago-react'
 
-import { Global } from '@utils'
 import { SpaceGrow } from '@components/BaseStyled'
 import DotDivider from '@components/DotDivider'
 
