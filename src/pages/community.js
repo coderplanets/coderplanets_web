@@ -3,7 +3,6 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { NextSeo } from 'next-seo'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
 

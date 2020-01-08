@@ -1,5 +1,5 @@
 import React from 'react'
-// eslint-disable-next-line import/named
+
 import { ICON_CMD, ICON_BASE } from '@config'
 
 import PinButton from './PinButton'

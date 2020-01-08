@@ -6,7 +6,6 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { SocialProfileJsonLd } from 'next-seo'
 
-// eslint-disable-next-line import/named
 import { SITE_URL } from '@config'
 import { ROUTE, USER_THREAD } from '@constant'
 import {

@@ -133,6 +133,8 @@ const github = {
     topLine: '#22292E',
     icon: 'tomato',
     divider: '#e0e6e5',
+    /* single article page sidebar divider */
+    sideDivider: '#e4e4e4',
   },
   article: {
     link: '#b5ccce',
@@ -141,18 +143,18 @@ const github = {
     reactionHoverBg: '#f3f7f7',
   },
   comment: {
-    icon: '#62868a',
+    icon: 'grey',
     didIcon: 'orange',
-    title: '#62868a',
+    title: 'grey',
     username: '#7FA7AC',
     number: '#efbc60',
-    floor: '#efbc60',
+    floor: '#b1b1b1',
     reply: '#93b3b5',
-    replyBg: '#e8f1f2',
+    replyBg: '#f3f3f3',
     placeholder: '#C0D9DA',
-    filter: '#62868a',
+    filter: 'grey',
     filterActive: primaryColor,
-    action: '#62868a',
+    action: '#a7a7a7',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',

@@ -134,6 +134,8 @@ const green = {
     topLine: primaryColor,
     icon: '#845145',
     divider: '#ced8c6',
+    /* single article page sidebar divider */
+    sideDivider: '#b2c3b0',
   },
   article: {
     link: primaryMate,

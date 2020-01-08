@@ -45,6 +45,7 @@ const LastSyncInfo = ({ show, data }) => {
 LastSyncInfo.propTypes = {
   data: T.shape({
     lastSync: T.string,
+    updatedAt: T.string,
   }).isRequired,
   show: T.bool,
 }

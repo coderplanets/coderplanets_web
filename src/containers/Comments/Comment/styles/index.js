@@ -20,15 +20,6 @@ export const CommentWrapper = styled.div`
   filter: ${({ tobeDelete }) => (tobeDelete ? 'blur(3px)' : '')};
 `
 
-export const CommentUserInfo = styled.div`
-  margin-right: 15px;
-  ${cs.media.mobile`display: none`};
-`
-export const CommentAvatar = styled(Img)`
-  ${cs.circle('38px')};
-  opacity: ${theme('avatarOpacity')};
-`
-
 export const CommentBodyInfo = styled.div`
   ${cs.flexColumn()};
   width: 100%;
@@ -39,10 +30,6 @@ export const CommentContent = styled.div`
   ${cs.media.mobile`
     max-width: 280px;
   `};
-`
-export const CommentFooter = styled.div`
-  ${cs.flex()};
-  margin-top: 15px;
 `
 export const LikeIcon = styled(Img)`
   fill: ${theme('comment.icon')};

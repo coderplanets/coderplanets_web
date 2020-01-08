@@ -35,6 +35,7 @@ const ContentSourceCard = ({
         <Desc noBottom>
           <UserList items={users.entries} />
         </Desc>
+        <Didiver />
       </React.Fragment>
     )}
 

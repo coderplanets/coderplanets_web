@@ -19,10 +19,18 @@ const ArticleBanner = t
       t.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
       TYPE.FAVORITE
     ),
+    headerFixed: t.optional(t.boolean, false),
+    scrollDirection: t.optional(
+      t.enumeration('scrollDirection', ['up', 'down']),
+      'down'
+    ),
   })
   .views(self => ({
     get root() {
       return getParent(self)
+    },
+    get isHeaderFixed() {
+      return self.headerFixed && self.scrollDirection === 'up'
     },
     get isLogin() {
       return self.root.account.isLogin
@@ -54,6 +62,9 @@ const ArticleBanner = t
     },
     syncViewingItem(item) {
       self.root.viewing.syncViewingItem(item)
+    },
+    setHeaderFix(fix) {
+      self.headerFixed = fix
     },
     mark(sobj) {
       markStates(sobj, self)

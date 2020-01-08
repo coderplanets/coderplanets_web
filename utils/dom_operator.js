@@ -63,6 +63,7 @@ export const focusDoraemonBar = () => {
       try {
         safeDocument.getElementById('doraemonInputbar').focus()
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.error(e)
       }
     }, 0)
@@ -77,6 +78,7 @@ export const blurDoraemonBar = () => {
       try {
         safeDocument.getElementById('doraemonInputbar').blur()
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.error(e)
       }
     }, 0)

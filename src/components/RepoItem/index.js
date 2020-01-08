@@ -47,6 +47,8 @@ RepoItem.propTypes = {
     title: T.string,
     desc: T.string,
     views: T.number,
+    insertedAt: T.string,
+    contributors: T.any, // TODO:
 
     author: T.shape({
       nickname: T.string,

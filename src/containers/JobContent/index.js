@@ -63,10 +63,7 @@ const JobContentContainer = ({ jobContent }) => {
             <MobileWrapper>
               <CompanyCard data={viewingData} />
               <MobileContentCard>
-                <ArticleAuthorCard
-                  user={viewingData.author}
-                  introTitle="发布者"
-                />
+                <ArticleAuthorCard user={viewingData.author} />
                 <ContentSourceCard data={viewingData} />
               </MobileContentCard>
             </MobileWrapper>

@@ -6,7 +6,7 @@ import { CommentLoading } from '@components/LoadingEffects'
 import CommentsFilter from './CommentsFilter'
 import Comment from './Comment'
 
-import * as logic from './logic'
+import { pageChange } from './logic'
 
 import {
   ListsContainer,
@@ -75,7 +75,7 @@ const CommentsList = ({
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}
-      onChange={logic.pageChange}
+      onChange={pageChange}
       showBottomMsg
       noMoreMsg="没有更多的评论了"
       emptyMsg="目前还没有评论"

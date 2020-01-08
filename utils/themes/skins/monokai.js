@@ -135,6 +135,8 @@ const monokai = {
     topLine: '#c387e8',
     icon: '#845145',
     divider: darken(0.07, descText),
+    /* single article page sidebar divider */
+    sideDivider: '#4d4b4e',
   },
   article: {
     link: primaryMate,

@@ -1,7 +1,6 @@
 import React from 'react'
 import R from 'ramda'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { Wrapper, ItemWrapper, Title, Icon } from './styles/source_options'
 

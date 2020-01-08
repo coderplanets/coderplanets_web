@@ -38,7 +38,7 @@ const cyan = {
   link: 'orange',
   main: '#7DC0C5',
   bodyBg: contentBg,
-  selectionBg: '#A0BBBC',
+  selectionBg: '#f8f7dc',
   avatarOpacity: 1,
   baseColor: {
     error: '#fd7f68 !important',
@@ -132,6 +132,8 @@ const cyan = {
     topLine: primaryColor,
     icon: 'tomato',
     divider: '#e0e6e5',
+    /* single article page sidebar divider */
+    sideDivider: '#b9d0cc',
   },
   article: {
     link: '#b5ccce',
@@ -145,13 +147,13 @@ const cyan = {
     title: '#62868a',
     username: '#7FA7AC',
     number: '#efbc60',
-    floor: '#efbc60',
+    floor: '#91b4b9',
     reply: '#93b3b5',
     replyBg: '#e8f1f2',
     placeholder: '#C0D9DA',
     filter: '#62868a',
     filterActive: primaryColor,
-    action: '#62868a',
+    action: '#9eb7bb',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#fcffdb',

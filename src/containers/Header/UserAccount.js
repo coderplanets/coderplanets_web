@@ -1,6 +1,5 @@
 import React from 'react'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import Popover from '@components/Popover'
 

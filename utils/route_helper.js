@@ -64,6 +64,7 @@ const parseSubDomain = args => {
   if (isServerSide) {
     // on server side
     const { subdomains } = args.req
+    // eslint-disable-next-line no-console
     console.log('subdomains: ', subdomains)
 
     // NOTE:  subdomains is reversed
@@ -81,6 +82,7 @@ const parseSubDomain = args => {
       // eslint-disable-next-line prefer-destructuring
       communityPath = domainList[0]
     }
+    // eslint-disable-next-line no-console
     console.log('communityPath: ', communityPath)
   }
   return communityPath

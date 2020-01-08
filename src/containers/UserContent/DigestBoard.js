@@ -23,7 +23,7 @@ const DigestBoard = ({ user, accountId, following }) => (
       <AchieveCard user={user} />
       {user.id !== accountId && (
         <FollowButton
-          hasFollowd={user.viewerHasFollowed}
+          hasFollowed={user.viewerHasFollowed}
           userId={user.id}
           size="default"
           onFollow={logic.followUser}

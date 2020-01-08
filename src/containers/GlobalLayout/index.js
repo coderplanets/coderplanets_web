@@ -12,7 +12,6 @@ import useNetwork from 'react-use/lib/useNetwork'
 // see: https://github.com/KingSora/OverlayScrollbars/tree/master/packages/overlayscrollbars-react
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
 import { useShortcut, useMedia, usePlatform } from '@hooks'

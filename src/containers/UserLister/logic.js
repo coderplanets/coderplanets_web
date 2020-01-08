@@ -1,7 +1,6 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 import { TYPE, EVENT, ERR } from '@constant'
 import { asyncSuit, buildLog, holdPage, unholdPage, errRescue } from '@utils'

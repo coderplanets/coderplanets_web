@@ -5,11 +5,9 @@ import { theme, cs, animate } from '@utils'
 
 export const NumbersWrapper = styled.div`
   ${cs.flex('align-center')};
-  margin-top: -2.1rem;
+  margin-top: -10px;
 `
-export const NumbersInfo = styled(NumbersWrapper)`
-  margin-top: 0;
-`
+export const NumbersInfo = styled(NumbersWrapper)``
 // background: ${theme('banner.numberHoverBg')};
 export const NumberSection = styled.div`
   ${cs.flexColumn('justify-center')};

@@ -132,6 +132,8 @@ const iconGreen = {
     topLine: sidebarBg,
     icon: primaryColor,
     divider: descText,
+    /* single article page sidebar divider */
+    sideDivider: '#6e9a9e',
   },
   article: {
     link: primaryColor,

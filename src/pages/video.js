@@ -3,7 +3,6 @@ import { Provider } from 'mobx-react'
 import R from 'ramda'
 import { BlogJsonLd } from 'next-seo'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
 import {
@@ -147,7 +146,7 @@ export default class VideoPage extends React.Component {
                   <Doraemon />
                   <ErrorBox />
                   <GlobalLayout noSidebar>
-                    <Header />
+                    <Header metric="article" />
                     <ArticleBanner />
                     <VideoContent />
                     <Footer />

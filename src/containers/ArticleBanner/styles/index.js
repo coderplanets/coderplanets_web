@@ -7,7 +7,7 @@ export const Wrapper = styled.nav`
   position: relative;
   background: ${theme('banner.bg')};
   border-bottom: ${theme('banner.spliter')};
-  min-height: 100px;
+  min-height: 120px;
   padding-top: 10px;
   padding-bottom: 10px;
 
@@ -21,9 +21,9 @@ export const InnerWrapper = styled.div`
 `
 export const BannerContent = styled.div`
   ${cs.flex()};
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   width: 100%;
-  padding: 0 6vw;
+  padding: 0 5vw;
 
   ${cs.media.mobile`
     padding: 0;
