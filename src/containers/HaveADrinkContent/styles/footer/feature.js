@@ -4,15 +4,12 @@ import Img from '@components/Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-center')}
-  justify-content: center;
+  ${cs.flex('align-center')}
   width: 20%;
   padding-left: 6px;
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
-  transform: ${({ reverse }) =>
-    reverse ? 'rotateY(180deg) rotateX(30deg)' : ''};
   display: block;
   width: 18px;
   height: 18px;

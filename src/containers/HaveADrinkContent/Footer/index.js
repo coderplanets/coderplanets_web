@@ -21,8 +21,8 @@ const log = buildLog('C:HaveADrinkContent')
 const Footer = () => {
   return (
     <Wrapper>
-      <Contributor />
       <Feature />
+      <Contributor />
       <Share />
     </Wrapper>
   )

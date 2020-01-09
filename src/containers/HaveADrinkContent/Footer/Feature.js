@@ -21,7 +21,7 @@ const Feature = () => {
     <Wrapper>
       <Icon src={`${ICON_CMD}/drink_setting.svg`} />
       <DotDivider space="10px" radius="3px" />
-      <Icon src={`${ICON_CMD}/drink_fill.svg`} reverse />
+      <Icon src={`${ICON_CMD}/drink_write.svg`} />
     </Wrapper>
   )
 }

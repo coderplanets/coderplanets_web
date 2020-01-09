@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@components/Img'
+import Img from '@components/Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -9,4 +9,17 @@ export const Wrapper = styled.div`
   width: 40%;
   color: ${theme('thread.articleDigest')};
 `
-export const holder = styled.div``
+export const Icon = styled(Img)`
+  fill: ${theme('thread.articleDigest')};
+  display: block;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+
+  &:hover {
+    fill: ${theme('thread.articleTitle')};
+    cursor: pointer;
+    opacity: 1;
+  }
+  transition: all 0.2s;
+`
