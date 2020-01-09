@@ -15,7 +15,11 @@ import {
 } from '@utils'
 import { useShortcut } from '@hooks'
 
-import { Wrapper, InnerWrapper, Title, Desc } from './styles'
+import Header from './Header'
+import Body from './Body'
+import Footer from './Footer'
+
+import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -34,8 +38,9 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Title>看见一个算命大师，我刚坐下他就问我，你算什么东西？</Title>
-        <Desc>按「空格」键或「点击」刷新</Desc>
+        <Header />
+        <Body />
+        <Footer />
       </InnerWrapper>
     </Wrapper>
   )

@@ -104,6 +104,7 @@ export const InputBar = styled.input`
 export const ContentWraper = styled.div`
   text-align: left;
   flex-grow: 1;
+  max-width: 80%;
 `
 export const Title = styled.div`
   color: ${theme('shell.title')};
