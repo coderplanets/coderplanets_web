@@ -13,10 +13,6 @@ export const Text = styled.span`
   opacity: 0.7;
   font-size: 12px;
 `
-export const CurNum = styled.span`
-  margin-right: 4px;
-  margin-left: 2px;
-`
 export const TotalNum = styled.span`
   margin-left: 4px;
   margin-right: 3px;

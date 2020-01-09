@@ -8,13 +8,9 @@ import React from 'react'
 
 import { buildLog } from '@utils'
 
-import {
-  Wrapper,
-  Text,
-  CurNum,
-  TotalNum,
-  TagText,
-} from '../styles/header/index_status'
+import Dropdown from '@components/Dropdown'
+
+import { Wrapper, Text, TotalNum, TagText } from '../styles/header/index_status'
 // import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -24,7 +20,7 @@ const IndexStatus = () => {
   return (
     <Wrapper>
       <Text>共收录</Text>
-      <CurNum>56</CurNum> / <TotalNum>8430</TotalNum>
+      <Dropdown size="12px">56</Dropdown>&nbsp;/ <TotalNum>8430</TotalNum>
       <Text>条</Text>
       <TagText>毒鸡汤</TagText>
     </Wrapper>
