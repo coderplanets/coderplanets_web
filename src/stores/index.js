@@ -91,3 +91,6 @@ export { default as UserStaredStore } from '@containers/UserStared/store'
 export { default as UserBillingStore } from '@containers/UserBilling/store'
 export { default as UserSettingsStore } from '@containers/UserSettings/store'
 export { default as UserFavoritedStore } from '@containers/UserFavorited/store'
+
+// have a drink
+export { default as HaveADrinkContentStore } from '@containers/HaveADrinkContent/store'

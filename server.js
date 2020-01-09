@@ -68,6 +68,10 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/sentry', req.query)
   )
 
+  server.get('/have-a-drink', (req, res) =>
+    renderAndCache(req, res, '/have-a-drink', req.query)
+  )
+
   server.get('/service-worker.js', (req, res) =>
     res.sendFile(`${__dirname}/.next/service-worker.js`)
   )

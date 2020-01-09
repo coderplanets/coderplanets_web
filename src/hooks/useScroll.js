@@ -10,7 +10,7 @@ const inialState = {
 
 // detect the scroll derection
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScroll = () => {
+const useScroll = cb => {
   const [sroll, setScroll] = useState(inialState)
 
   /* eslint-disable */
@@ -24,6 +24,8 @@ const useScroll = () => {
 
       // saves the new position for iteration.
       scrollPos = document.body.getBoundingClientRect().top
+
+      if (cb) cb()
 
       setScroll(
         R.merge(inialState, {

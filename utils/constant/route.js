@@ -20,6 +20,8 @@ const ROUTE = {
   JOB: 'job',
   VIDEO: 'video',
   REPO: 'repo',
+
+  HAVE_A_DRINK: 'have-a-drink',
 }
 
 export default ROUTE

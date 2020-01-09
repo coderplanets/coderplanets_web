@@ -94,6 +94,7 @@ export {
   scrollIntoEle,
   scrollToHeader,
   scrollToTabber,
+  scrollToTop,
   holdPage,
   unholdPage,
   focusDoraemonBar,
