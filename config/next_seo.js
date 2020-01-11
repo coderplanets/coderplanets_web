@@ -1,13 +1,14 @@
 export default {
   title: 'coderplanets',
-  description: 'the sexiest community for developers, ever.',
+  description:
+    '最性感的开发者社区 | the sexiest community for developers, ever.',
   cannotical: 'https://coderplanets.com',
   openGraph: {
     type: 'website',
     locale: 'zh_cn',
     url: 'https://coderplanets.com',
     site_name: 'coderplanets',
-    description: 'the sexiest community for developers, ever.',
+    description: '最性感的开发者社区',
   },
   /*
      twitter: {

@@ -48,6 +48,7 @@ const GlobalLayoutContainer = ({
   errorPath,
   children,
   noSidebar,
+  metric,
 }) => {
   const { online } = useNetwork()
 
@@ -77,7 +78,7 @@ const GlobalLayoutContainer = ({
                 <Preview />
                 <Doraemon />
                 <ErrorBox />
-                <Header />
+                <Header metric={metric} />
                 {children}
                 <Footer />
               </InnerWrapper>
@@ -95,13 +96,17 @@ GlobalLayoutContainer.propTypes = {
   seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
   page: T.string.isRequired,
-  errorCode: T.oneOf([null, 404, 500]).isRequired,
-  errorPath: T.oneOfType([T.string, T.instanceOf(null)]).isRequired,
+  metric: T.oneOf(['default', 'article']),
+  errorCode: T.oneOf([null, 404, 500]),
+  errorPath: T.oneOfType([T.string, T.instanceOf(null)]),
 }
 
 GlobalLayoutContainer.defaultProps = {
   children: <div />,
   noSidebar: false,
+  errorCode: null,
+  errorPath: null,
+  metric: 'default',
 }
 
 export default connectStore(GlobalLayoutContainer)

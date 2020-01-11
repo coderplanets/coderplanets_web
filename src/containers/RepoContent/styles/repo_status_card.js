@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding: 20px;
   padding-bottom: 0;
   max-width: 300px;
+  width: 100%;
   flex-wrap: wrap;
   background: ${theme('preview.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
