@@ -29,15 +29,8 @@ import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
 import ThemeWrapper from '@containers/ThemeWrapper'
 import MultiLanguage from '@containers/MultiLanguage'
-import Sidebar from '@containers/Sidebar'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
 import CommunityBanner from '@containers/CommunityBanner'
 import CommunityContent from '@containers/CommunityContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
 import ErrorPage from '@components/ErrorPage'
 
 import { P } from '@schemas'
@@ -210,17 +203,10 @@ export default class CommunityPage extends React.Component {
                     description: `${community.desc}`,
                   }}
                 />
-                <Route />
                 <MultiLanguage>
-                  <Sidebar />
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
                   <GlobalLayout>
-                    <Header />
                     <CommunityBanner />
                     <CommunityContent />
-                    <Footer />
                   </GlobalLayout>
                 </MultiLanguage>
               </React.Fragment>

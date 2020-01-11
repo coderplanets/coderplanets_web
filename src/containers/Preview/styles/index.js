@@ -42,6 +42,8 @@ export const PreviewOverlay = styled.div`
 `
 export const PreviewWrapper = styled.div`
   ${cs.flex()};
+  display: ${({ visible }) => (visible ? 'flex' : 'none')};
+
   color: ${theme('preview.font')};
   box-sizing: border-box;
   transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -52,7 +54,7 @@ export const PreviewWrapper = styled.div`
   width: ${({ type }) =>
     R.contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
   max-width: 1000px;
-  right: 0;
+  right: ${({ rightOffset }) => rightOffset};
   position: fixed;
   transform: ${({ visible }) => doTransform(visible)};
   top: 0px;

@@ -12,6 +12,14 @@ import useNetwork from 'react-use/lib/useNetwork'
 // see: https://github.com/KingSora/OverlayScrollbars/tree/master/packages/overlayscrollbars-react
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
+import Sidebar from '@containers/Sidebar'
+import Preview from '@containers/Preview'
+import Doraemon from '@containers/Doraemon'
+import Route from '@containers/Route'
+import Header from '@containers/Header'
+import ErrorBox from '@containers/ErrorBox'
+import Footer from '@containers/Footer'
+
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
 import { useShortcut, useMedia, usePlatform } from '@hooks'
@@ -41,7 +49,14 @@ const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
         <SubCommunitiesExpander onClick={queryDoraemon('/')}>
           <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
         </SubCommunitiesExpander>
+        <Route />
+        <Sidebar />
+        <Preview />
+        <Doraemon />
+        <ErrorBox />
+        <Header />
         {children}
+        <Footer />
       </InnerWrapper>
     </Wrapper>
   )

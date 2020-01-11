@@ -77,11 +77,11 @@ export default class PageCommunity extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  {!hideSidebar && <Sidebar />}
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
                   <GlobalLayout noSidebar={hideSidebar}>
+                    {!hideSidebar && <Sidebar />}
+                    <Preview />
+                    <Doraemon />
+                    <ErrorBox />
                     <Header />
                     <Banner />
                     <Content />

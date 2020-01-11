@@ -83,10 +83,13 @@ const DataResolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store, windowWidth) => {
   useEffect(() => {
     store = _store
-    sub$ = sr71$.data().subscribe($solver(DataResolver, []))
+    if (!sub$) {
+      sub$ = sr71$.data().subscribe($solver(DataResolver, []))
+    }
+    store.mark({ windowWidth })
 
     return () => {
       if (!sub$) return false
@@ -94,5 +97,5 @@ export const useInit = _store => {
       sub$.unsubscribe()
       sub$ = null
     }
-  }, [_store])
+  }, [_store, windowWidth])
 }

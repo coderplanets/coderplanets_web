@@ -140,6 +140,7 @@ const cs = {
   mediaBreakPoints,
   media,
   MAX_CONTENT_WIDTH,
+  GLOBAL_MAX_WIDTH,
   ARTICLE_PAGE_MAX_CONTENT_WIDTH,
 }
 

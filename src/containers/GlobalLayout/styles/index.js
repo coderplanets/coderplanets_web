@@ -15,7 +15,11 @@ export const InnerWrapper = styled.div`
   ${cs.flexColumn()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
+
+/*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
+ */
+
   position: relative;
   height: 100%;
   min-height: 100vh;

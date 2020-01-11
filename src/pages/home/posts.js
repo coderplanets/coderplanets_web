@@ -210,11 +210,11 @@ export default class HomePage extends React.Component {
                 />
                 <Route />
                 <MultiLanguage>
-                  <Sidebar />
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
                   <GlobalLayout>
+                    <Sidebar />
+                    <Preview />
+                    <Doraemon />
+                    <ErrorBox />
                     <Header />
                     <CommunityBanner />
                     <CommunityContent />
