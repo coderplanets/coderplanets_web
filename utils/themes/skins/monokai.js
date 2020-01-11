@@ -23,6 +23,7 @@ const monokai = {
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1b1919',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,

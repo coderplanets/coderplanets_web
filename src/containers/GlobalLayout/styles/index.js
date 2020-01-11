@@ -7,8 +7,9 @@ import { theme, cs } from '@utils'
 // background: #3b5456;
 export const Wrapper = styled.div`
   ${cs.flex('justify-center')};
-  background-color: #183d46;
+  background-color: ${theme('spaceBg')};
   background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
+  background-attachment: fixed;
 `
 // transition: background-color 0.2s;
 export const InnerWrapper = styled.div`

@@ -23,6 +23,7 @@ const iconGreen = {
   coverIndex: '#F9FCFC',
   contrastFg: 'orange',
   htmlBg: bannerBg,
+  spaceBg: '#22393c',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
