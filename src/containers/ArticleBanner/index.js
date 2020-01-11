@@ -8,7 +8,9 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 import TimeAgo from 'timeago-react'
+import { Waypoint } from 'react-waypoint'
 
+import { useScroll } from '@hooks'
 import { connectStore, buildLog } from '@utils'
 
 import FavoritesCats from '@containers/FavoritesCats'
@@ -16,12 +18,13 @@ import DotDivider from '@components/DotDivider'
 import Maybe from '@components/Maybe'
 import { Space } from '@components/BaseStyled'
 
+import FloatHeader from './FloatHeader'
 import Title from './Title'
 import ReactionNumbers from './ReactionNumbers'
 import MiddleInfo from './MiddleInfo'
 
 import { Wrapper, InnerWrapper, BannerContent, Brief, Desc } from './styles'
-import { useInit } from './logic'
+import { useInit, inAnchor, outAnchor } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:ArticleBanner')
@@ -32,18 +35,21 @@ const ArticleBannerContainer = ({
   showWordCount,
   showLastSync,
 }) => {
-  useInit(articleBanner)
+  const { direction: scrollDirection } = useScroll()
+  useInit(articleBanner, scrollDirection)
 
   const {
     activeThread,
     viewingData,
     starLoading,
     favoriteLoading,
+    isHeaderFixed,
   } = articleBanner
 
   return (
     <Wrapper>
       <FavoritesCats />
+      <FloatHeader show={isHeaderFixed} data={viewingData} />
       {!R.isNil(viewingData.id) && (
         <InnerWrapper>
           <BannerContent>
@@ -83,6 +89,7 @@ const ArticleBannerContainer = ({
           </BannerContent>
         </InnerWrapper>
       )}
+      <Waypoint onEnter={inAnchor} onLeave={outAnchor} />
     </Wrapper>
   )
 }

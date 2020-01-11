@@ -199,8 +199,15 @@ export const onFilterChange = filterType => {
   loadComents({ filter: { page: 1, sort: filterType } })
 }
 
+/**
+ * toggle like action
+ *
+ * @param {object} comment
+ * @param {comment.id} string
+ * @returns
+ */
 export const toggleLikeComment = comment => {
-  // TODO: check login first
+  if (!store.isLogin) return store.authWarning()
   log('likeComment: ', comment)
 
   if (comment.viewerHasLiked) {
@@ -209,18 +216,6 @@ export const toggleLikeComment = comment => {
     })
   }
   return sr71$.mutate(S.likeComment, {
-    id: comment.id,
-  })
-}
-
-export const toggleDislikeComment = comment => {
-  // TODO: check login first
-  if (comment.viewerHasDisliked) {
-    return sr71$.mutate(S.undoDislikeComment, {
-      id: comment.id,
-    })
-  }
-  return sr71$.mutate(S.dislikeComment, {
     id: comment.id,
   })
 }

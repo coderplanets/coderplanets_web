@@ -59,10 +59,7 @@ const PostContentContainer = ({ postContent }) => {
             </ArticleWrapper>
 
             <MobileWrapper>
-              <ArticleAuthorCard
-                user={viewingData.author}
-                introTitle="发布者"
-              />
+              <ArticleAuthorCard user={viewingData.author} />
               <ContentSourceCard data={viewingData} />
             </MobileWrapper>
 

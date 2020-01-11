@@ -5,7 +5,6 @@ import R from 'ramda'
 
 import { from } from 'rxjs'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
 import { notEmpty } from '@utils'
 

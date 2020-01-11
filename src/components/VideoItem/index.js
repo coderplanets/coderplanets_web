@@ -93,6 +93,15 @@ VideoItem.propTypes = {
   entry: T.shape({
     title: T.string,
     views: T.number,
+    publishAt: T.string,
+    insertedAt: T.string,
+    desc: T.string,
+    source: T.string,
+    tags: T.object,
+    duration: T.string,
+    thumbnil: T.string,
+    originalAuthor: T.string,
+    originalAuthorLink: T.string,
 
     author: T.shape({
       nickname: T.string,

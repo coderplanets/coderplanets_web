@@ -1,9 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { BlogJsonLd } from 'next-seo'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
 import {
@@ -16,20 +14,10 @@ import {
 } from '@utils'
 import initRootStore from '@stores/init'
 
-import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
 import ArticleBanner from '@containers/ArticleBanner'
 import VideoContent from '@containers/VideoContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
 
-import ErrorPage from '@components/ErrorPage'
 import { P } from '@schemas'
 
 // try to fix safari bug
@@ -122,41 +110,31 @@ export default class VideoPage extends React.Component {
       viewing: { video },
       route,
     } = this.props
-    const { communityPath } = route
+    const { mainPath } = route
+
+    const seoConfig = {
+      url: `${SITE_URL}/${mainPath}/video/${video.id}`,
+      title: `${video.title}`,
+      datePublished: `${video.insertedAt}`,
+      dateModified: `${video.updatedAt}`,
+      authorName: `${video.author.nickname}`,
+      description: `${video.title}`,
+      images: [],
+    }
 
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="video" target={target} />
-            ) : (
-              <React.Fragment>
-                <BlogJsonLd
-                  url={`${SITE_URL}/${communityPath}/video/${video.id}`}
-                  title={`${video.title}`}
-                  datePublished={`${video.insertedAt}`}
-                  dateModified={`${video.updatedAt}`}
-                  authorName={`${video.author.nickname}`}
-                  description={`${video.desc}`}
-                  images={[]}
-                />
-                <Route />
-                <MultiLanguage>
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar>
-                    <Header />
-                    <ArticleBanner />
-                    <VideoContent />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          page="video"
+          metric="article"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+          noSidebar
+        >
+          <ArticleBanner showStar={false} />
+          <VideoContent />
+        </GlobalLayout>
       </Provider>
     )
   }

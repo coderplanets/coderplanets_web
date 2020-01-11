@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-// eslint-disable-next-line import/named
 import { ICON_CMD } from '@config'
-import TrendLine from '@components/TrendLine'
 import { uid } from '@utils'
+
+import TrendLine from '@components/TrendLine'
 
 import {
   Wrapper,

@@ -17,6 +17,14 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
+export const inAnchor = () => {
+  if (store) store.setHeaderFix(false)
+}
+
+export const outAnchor = () => {
+  if (store) store.setHeaderFix(true)
+}
+
 export const onReaction = (action, userDid, { id }) => {
   if (!store.isLogin) return store.authWarning()
   if (store.loading) return false
@@ -137,16 +145,20 @@ const ErrSolver = [
 // ###############################
 // init & uninit
 // ###############################
-export const useInit = _store => {
+export const useInit = (_store, scrollDirection) => {
   useEffect(() => {
     store = _store
     // log('effect init')
-    sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    if (!sub$) {
+      sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
+    }
+
+    store.mark({ scrollDirection })
 
     return () => {
       // log('effect uninit')
       sr71$.stop()
       sub$.unsubscribe()
     }
-  }, [_store])
+  }, [_store, scrollDirection])
 }

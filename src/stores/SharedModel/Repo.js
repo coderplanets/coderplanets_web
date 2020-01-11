@@ -1,6 +1,5 @@
 import { types as t } from 'mobx-state-tree'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 
 import { User, PagedUsers } from './User'

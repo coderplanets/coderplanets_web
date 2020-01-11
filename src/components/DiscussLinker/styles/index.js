@@ -6,6 +6,7 @@ import Img from '@Img'
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
   max-width: 300px;
+  width: 100%;
   padding: 10px;
 `
 export const Header = styled.div`

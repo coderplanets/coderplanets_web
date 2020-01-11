@@ -7,7 +7,6 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import Router from 'next/router'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE } from '@config'
 import {
   Global,

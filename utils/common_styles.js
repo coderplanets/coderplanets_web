@@ -95,7 +95,15 @@ const zIndex = {
   sidebar: 1999,
 }
 
+// global max width
+export const GLOBAL_MAX_WIDTH = '1520px'
+
+// home page, communities page
 export const MAX_CONTENT_WIDTH = '1520px'
+
+// single post/job page
+export const ARTICLE_PAGE_MAX_CONTENT_WIDTH = '1160px'
+
 export const mediaBreakPoints = {
   // mobileS: '320px',
   // mobileM: '375px',
@@ -132,6 +140,8 @@ const cs = {
   mediaBreakPoints,
   media,
   MAX_CONTENT_WIDTH,
+  GLOBAL_MAX_WIDTH,
+  ARTICLE_PAGE_MAX_CONTENT_WIDTH,
 }
 
 export default cs

@@ -2,7 +2,6 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import Router from 'next/router'
 
-// eslint-disable-next-line import/named
 import { ISSUE_ADDR } from '@config'
 import { TYPE, EVENT, ERR, THREAD } from '@constant'
 import {

@@ -1,12 +1,26 @@
 import styled from 'styled-components'
+
+import { ASSETS_ENDPOINT } from '@config'
+import Img from '@components/Img'
 import { theme, cs } from '@utils'
 
-import Img from '@components/Img'
-
-// transition: background-color 0.2s;
+// background: #3b5456;
 export const Wrapper = styled.div`
+  ${cs.flex('justify-center')};
+  background-color: ${theme('spaceBg')};
+  background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
+  background-attachment: fixed;
+`
+// transition: background-color 0.2s;
+export const InnerWrapper = styled.div`
   ${cs.flexColumn()};
+  max-width: ${cs.MAX_CONTENT_WIDTH};
+  width: 100%;
+
+/*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
+ */
+
   position: relative;
   height: 100%;
   min-height: 100vh;

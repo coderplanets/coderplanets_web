@@ -22,6 +22,7 @@ const purple = {
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1a181f',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
@@ -133,6 +134,8 @@ const purple = {
     topLine: '#c387e8',
     icon: '#845145',
     divider: darken(0.07, descText),
+    /* single article page sidebar divider */
+    sideDivider: '#413d54',
   },
   article: {
     link: primaryMate,
@@ -141,6 +144,7 @@ const purple = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: '#28262d',
     icon: primaryColor,
     didIcon: primaryMate,
     title: primaryColor,
@@ -152,7 +156,7 @@ const purple = {
     placeholder: descText,
     filter: descText,
     filterActive: primaryColor,
-    action: primaryColor,
+    action: darken(0.1, primaryColor),
     // mention text displayed in article
     mentionText: '#70768B',
     mentionTextBg: '#423a4a',

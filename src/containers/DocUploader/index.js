@@ -148,10 +148,12 @@ class DocUploaderContainer extends React.Component {
 
   doUploadFile(file) {
     const { ossScriptLoaded } = this.state
+    // eslint-disable-next-line no-alert
     if (!ossScriptLoaded) return alert('脚本未加载...')
     if (!file || !R.startsWith('image/', file.type)) return false
 
     const fileSize = file.size / 1024 / 1024
+    // eslint-disable-next-line no-alert
     if (fileSize > 2) return alert('资源有限，请不要上传大于 2MB 的文件')
 
     const { onUploadStart, onUploadError } = this.props

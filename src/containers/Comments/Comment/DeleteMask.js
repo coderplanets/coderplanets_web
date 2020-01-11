@@ -7,7 +7,7 @@ import {
   DeleteBtnGroup,
 } from './styles/delete_mask'
 
-import { cancleDelete, deleteComment } from './logic'
+import { cancleDelete, deleteComment } from '../logic'
 
 const DeleteMask = ({ show }) => (
   <DeleteOverlay show={show}>
