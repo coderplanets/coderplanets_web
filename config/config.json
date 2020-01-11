@@ -1,6 +1,6 @@
 {
   "//--- general configs ---//": "",
-  "DEFAULT_THEME": "cyan",
+  "DEFAULT_THEME": "solarizedDark",
   "SENIOR_AMOUNT_THRESHOLD": 51.2,
   "SPONSOR_AMOUNT_THRESHOLD": 3999,
   "PAGE_SIZE": {

@@ -143,6 +143,7 @@ const cyan = {
     reactionHoverBg: '#f3f7f7',
   },
   comment: {
+    bg: '#F9FCFC',
     icon: '#62868a',
     didIcon: 'orange',
     title: '#62868a',

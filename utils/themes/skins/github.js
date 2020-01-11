@@ -144,6 +144,7 @@ const github = {
     reactionHoverBg: '#f3f7f7',
   },
   comment: {
+    bg: contentBg,
     icon: 'grey',
     didIcon: 'orange',
     title: 'grey',

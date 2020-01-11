@@ -144,6 +144,7 @@ const yellow = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBoxBg,
     icon: lighten(0.06, primaryColor),
     didIcon: primaryMate,
     title: lighten(0.06, primaryColor),
