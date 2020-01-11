@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid;
   border-bottom-color: ${theme('header.spliter')};
   width: 100%;
-  max-width: ${cs.MAX_CONTENT_WIDTH};
+  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   position: fixed;
   top: 0;
   z-index: 1;
@@ -31,7 +31,7 @@ export const ArticleWrapper = styled.div`
   ${cs.flex('align-center')};
   width: 100%;
   height: 100%;
-  max-width: calc(${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH} - 380px);
+  max-width: calc(${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH} - 40%);
 `
 
 export const Title = styled.div`
