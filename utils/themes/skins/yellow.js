@@ -22,6 +22,7 @@ const yellow = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1f0f02',
   mobileTab: '#AF9A82',
   loading: {
     basic: bannerBg,

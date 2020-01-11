@@ -23,6 +23,7 @@ const solarizedDark = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#062129',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,

@@ -22,6 +22,7 @@ const purple = {
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1a181f',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,

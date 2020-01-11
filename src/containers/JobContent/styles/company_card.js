@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   min-height: 140px;
   padding: 20px;
   max-width: 300px;
+  width: 100%;
   background: ${theme('preview.articleBg')};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 15px;

@@ -7,10 +7,9 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
-import { useShortcut } from '@hooks'
+import { useShortcut, useResize } from '@hooks'
 
 import SliderPreview from './SliderPreview'
-import ModalPreview from './ModalPreview'
 import Viewer from './Viewer'
 
 import { useInit, closePreview } from './logic'
@@ -19,48 +18,67 @@ import { useInit, closePreview } from './logic'
 const log = buildLog('C:Preview')
 
 const PreviewContainer = ({ preview }) => {
-  useInit(preview)
+  const { width: windowWidth } = useResize()
+  useInit(preview, windowWidth)
   useShortcut('esc', closePreview)
 
   const {
-    modalVisible,
     slideVisible,
     type,
     root,
     attachmentData,
     attUserData,
     imageUploading,
+    rightOffset,
   } = preview
 
   return (
     <React.Fragment>
-      {modalVisible && (
-        <ModalPreview visible={modalVisible}>
-          <Viewer
-            type={type}
-            root={root}
-            attachment={attachmentData}
-            attUser={attUserData}
-          />
-        </ModalPreview>
-      )}
-
-      {slideVisible && (
-        <SliderPreview
-          visible={slideVisible}
+      <SliderPreview
+        visible={slideVisible}
+        rightOffset={rightOffset}
+        type={type}
+        imageUploading={imageUploading}
+      >
+        <Viewer
           type={type}
-          imageUploading={imageUploading}
-        >
-          <Viewer
-            type={type}
-            root={root}
-            attachment={attachmentData}
-            attUser={attUserData}
-          />
-        </SliderPreview>
-      )}
+          root={root}
+          attachment={attachmentData}
+          attUser={attUserData}
+        />
+      </SliderPreview>
     </React.Fragment>
   )
 }
 
 export default connectStore(PreviewContainer)
+
+/*
+
+{modalVisible && (
+  <ModalPreview visible={modalVisible}>
+    <Viewer
+      type={type}
+      root={root}
+      attachment={attachmentData}
+      attUser={attUserData}
+    />
+  </ModalPreview>
+)}
+
+{slideVisible && (
+  <SliderPreview
+    visible={slideVisible}
+    rightOffset={rightOffset}
+    type={type}
+    imageUploading={imageUploading}
+  >
+    <Viewer
+      type={type}
+      root={root}
+      attachment={attachmentData}
+      attUser={attUserData}
+    />
+  </SliderPreview>
+)}
+ */
