@@ -19,8 +19,5 @@ export const TotalNum = styled.span`
   color: ${theme('thread.articleTitle')};
 `
 export const TagText = styled.span`
-  color: ${theme('thread.articleTitle')};
   font-size: 13px;
-  margin-left: 2px;
-  font-weight: bold;
 `
