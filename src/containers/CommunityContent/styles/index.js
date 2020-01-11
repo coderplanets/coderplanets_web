@@ -29,8 +29,5 @@ export const Wrapper = styled.div.attrs(props => ({
 export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 0 5vw;
-  ${cs.media.desktop`
-    padding: 0 3vw;
-  `};
+  padding: 0 3vw;
 `
