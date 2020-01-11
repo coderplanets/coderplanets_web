@@ -146,6 +146,7 @@ const monokai = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: '#302f31',
     icon: primaryColor,
     didIcon: primaryMate,
     title: primaryColor,

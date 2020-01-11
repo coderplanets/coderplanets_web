@@ -143,6 +143,7 @@ const iconGreen = {
     reactionHoverBg: contentBg,
   },
   comment: {
+    bg: contentBg,
     icon: '#62868a',
     didIcon: primaryColor,
     title: '#AAC1C1',

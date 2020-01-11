@@ -145,6 +145,7 @@ const solarizedDark = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: '#08303c',
     icon: '#62868a',
     didIcon: 'orange',
     title: '#62868a',
@@ -152,11 +153,11 @@ const solarizedDark = {
     number: '#00A59B',
     floor: '#5c8186',
     reply: '#638688',
-    replyBg: '#004c5f',
+    replyBg: '#023c4a',
     placeholder: '#62868a',
     filter: '#62868a',
     filterActive: primaryColor,
-    action: '#62868a',
+    action: '#4d6a6d',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#115267',

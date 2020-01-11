@@ -145,6 +145,7 @@ const green = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBg,
     icon: bannerTitle,
     didIcon: primaryMate,
     title: bannerTitle,

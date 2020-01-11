@@ -144,6 +144,7 @@ const purple = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: '#28262d',
     icon: primaryColor,
     didIcon: primaryMate,
     title: primaryColor,
@@ -155,7 +156,7 @@ const purple = {
     placeholder: descText,
     filter: descText,
     filterActive: primaryColor,
-    action: primaryColor,
+    action: darken(0.1, primaryColor),
     // mention text displayed in article
     mentionText: '#70768B',
     mentionTextBg: '#423a4a',
