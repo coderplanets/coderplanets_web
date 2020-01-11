@@ -1,7 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { NextSeo } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
@@ -25,13 +24,9 @@ import {
   parseTheme,
 } from '@utils'
 
-import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
 import CommunityBanner from '@containers/CommunityBanner'
 import CommunityContent from '@containers/CommunityContent'
-import ErrorPage from '@components/ErrorPage'
 
 import { P } from '@schemas'
 
@@ -177,42 +172,29 @@ export default class CommunityPage extends React.Component {
       viewing: { community },
       route,
     } = this.props
+
     const { communityPath, threadPath } = route
 
-    const seoTitle =
-      community.raw === 'home'
-        ? 'coderplanets 社区'
-        : `coderplanets ${community.raw}社区`
+    const seoConfig = {
+      url: `${SITE_URL}/${communityPath}/${threadPath}`,
+      title:
+        community.raw === 'home'
+          ? 'coderplanets 社区'
+          : `coderplanets ${community.raw}社区`,
+      description: `${community.desc}`,
+    }
 
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage
-                errorCode={statusCode}
-                page="community"
-                target={target}
-              />
-            ) : (
-              <React.Fragment>
-                <NextSeo
-                  config={{
-                    url: `${SITE_URL}/${communityPath}/${threadPath}`,
-                    title: seoTitle,
-                    description: `${community.desc}`,
-                  }}
-                />
-                <MultiLanguage>
-                  <GlobalLayout>
-                    <CommunityBanner />
-                    <CommunityContent />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          page="community"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+        >
+          <CommunityBanner />
+          <CommunityContent />
+        </GlobalLayout>
       </Provider>
     )
   }
