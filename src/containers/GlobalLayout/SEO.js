@@ -61,7 +61,7 @@ const SEO = (page, config) => {
 
 SEO.propTypes = {
   page: T.string.isRequired,
-  seoConfig: T.object.isRequired, // TODO:
+  config: T.object.isRequired, // TODO:
 }
 
 export default SEO
