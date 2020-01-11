@@ -16,7 +16,12 @@ import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
 import { useShortcut, useMedia, usePlatform } from '@hooks'
 
-import { Wrapper, SubCommunitiesExpander, ExpanderIcon } from './styles'
+import {
+  Wrapper,
+  InnerWrapper,
+  SubCommunitiesExpander,
+  ExpanderIcon,
+} from './styles'
 import { useInit, openDoraemon, queryDoraemon } from './logic'
 
 const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
@@ -31,11 +36,13 @@ const GlobalLayoutContainer = ({ globalLayout, children, noSidebar }) => {
   const { sidebarPin } = globalLayout
 
   return (
-    <Wrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
-      <SubCommunitiesExpander onClick={queryDoraemon('/')}>
-        <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
-      </SubCommunitiesExpander>
-      {children}
+    <Wrapper>
+      <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
+        <SubCommunitiesExpander onClick={queryDoraemon('/')}>
+          <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
+        </SubCommunitiesExpander>
+        {children}
+      </InnerWrapper>
     </Wrapper>
   )
 }
