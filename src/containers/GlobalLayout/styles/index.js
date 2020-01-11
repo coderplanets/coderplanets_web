@@ -25,13 +25,23 @@ export const InnerWrapper = styled.div`
   height: 100%;
   min-height: 100vh;
   background: ${theme('bodyBg')};
-  margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')};
+  /* margin-left: ${({ sidebarPin }) => (sidebarPin ? '180px' : '0')}; */
   transition: all 0.2s;
   overflow-x: ${({ sidebarPin }) => (sidebarPin ? 'hidden' : '')};
   ${cs.media.tablet`
     position: relative;
     padding-left: 0;
   `};
+`
+
+// 180 is the sidebar full width
+export const ContentPinWrapper = styled.div`
+  margin-left: ${({ offset }) => (offset ? '180px' : '0')};
+`
+
+// 56 is the sidebar width
+export const ContentWrapper = styled.div`
+  margin-left: ${({ offset }) => (offset ? '56px' : '0')};
 `
 export const SubCommunitiesExpander = styled.div`
   display: none;

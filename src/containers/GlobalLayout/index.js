@@ -35,6 +35,8 @@ import SEO from './SEO'
 import {
   Wrapper,
   InnerWrapper,
+  ContentWrapper,
+  ContentPinWrapper,
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
@@ -78,9 +80,13 @@ const GlobalLayoutContainer = ({
                 <Preview />
                 <Doraemon />
                 <ErrorBox />
-                <Header metric={metric} />
-                {children}
-                <Footer />
+                <ContentPinWrapper offset={sidebarPin}>
+                  <ContentWrapper offset={page === 'community'}>
+                    <Header metric={metric} />
+                    {children}
+                    <Footer />
+                  </ContentWrapper>
+                </ContentPinWrapper>
               </InnerWrapper>
             </MultiLanguage>
           )}
