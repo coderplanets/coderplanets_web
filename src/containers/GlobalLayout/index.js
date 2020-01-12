@@ -89,6 +89,9 @@ const GlobalLayoutContainer = ({
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
             <MultiLanguage>
+              <SubCommunitiesExpander onClick={queryDoraemon('/')}>
+                <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
+              </SubCommunitiesExpander>
               <SEO page={page} config={seoConfig} />
               <InnerWrapper
                 sidebarPin={sidebarPin}
@@ -96,9 +99,6 @@ const GlobalLayoutContainer = ({
                 ref={innerWrapperRef}
                 minWidth={innerMinWidth}
               >
-                <SubCommunitiesExpander onClick={queryDoraemon('/')}>
-                  <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
-                </SubCommunitiesExpander>
                 <Route />
                 {!noSidebar && <Sidebar />}
                 <Preview />
