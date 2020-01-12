@@ -11,12 +11,11 @@ export const Wrapper = styled.div`
   background-image: url(${ASSETS_ENDPOINT}/space-background.svg);
   background-attachment: fixed;
 `
-// transition: background-color 0.2s;
 export const InnerWrapper = styled.div`
   ${cs.flexColumn()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
   width: 100%;
-
+  min-width: ${({ minWidth }) => minWidth};
 /*
   padding-left: ${({ noSidebar }) => (noSidebar ? '0' : '56px')};
  */
