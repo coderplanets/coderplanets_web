@@ -4,7 +4,10 @@ import styled from 'styled-components'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  width: 100%;
+  /* 
+   * magic number, if set 100% the map will jump in laptop screen 
+   */
+  width: 99%;
   position: relative;
   ${cs.media.mobile`overflow: scroll`};
 `
