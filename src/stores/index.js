@@ -51,13 +51,13 @@ export { default as UserContentStore } from '@containers/UserContent/store'
 export { default as FooterStore } from '@containers/Footer/store'
 
 // threads store
-export { default as PostsThreadStore } from '@containers/PostsThread/store'
-export { default as VideosThreadStore } from '@containers/VideosThread/store'
-export { default as ReposThreadStore } from '@containers/ReposThread/store'
-export { default as WikiThreadStore } from '@containers/WikiThread/store'
-export { default as JobsThreadStore } from '@containers/JobsThread/store'
-export { default as UsersThreadStore } from '@containers/UsersThread/store'
-export { default as CheatsheetThreadStore } from '@containers/CheatsheetThread/store'
+export { default as PostsThreadStore } from '@containers/thread/PostsThread/store'
+export { default as VideosThreadStore } from '@containers/thread/VideosThread/store'
+export { default as ReposThreadStore } from '@containers/thread/ReposThread/store'
+export { default as WikiThreadStore } from '@containers/thread/WikiThread/store'
+export { default as JobsThreadStore } from '@containers/thread/JobsThread/store'
+export { default as UsersThreadStore } from '@containers/thread/UsersThread/store'
+export { default as CheatsheetThreadStore } from '@containers/thread/CheatsheetThread/store'
 
 export { default as TagsBarStore } from '@containers/TagsBar/store'
 
