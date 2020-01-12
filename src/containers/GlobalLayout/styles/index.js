@@ -41,6 +41,10 @@ export const ContentPinWrapper = styled.div`
 // 56 is the sidebar width
 export const ContentWrapper = styled.div`
   margin-left: ${({ offsetLeft }) => (offsetLeft ? '56px' : '0')};
+
+  ${cs.media.mobile`
+    margin-left: 0;
+  `};
 `
 export const SubCommunitiesExpander = styled.div`
   display: none;
