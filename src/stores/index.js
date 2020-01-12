@@ -18,7 +18,7 @@ export { default as UpgradePackgesStore } from '@containers/UpgradePackges/store
 export { default as MailBoxStore } from '@containers/MailBox/store'
 export { default as AvatarAdderStore } from '@containers/AvatarAdder/store'
 
-export { default as UserListerStore } from '@containers/UserLister/store'
+export { default as UserListerStore } from '@containers/user/UserLister/store'
 export { default as InformerStore } from '@containers/Informer/store'
 export { default as GirlVerifierStore } from '@containers/GirlVerifier/store'
 export { default as CashierStore } from '@containers/Cashier/store'
@@ -85,9 +85,9 @@ export { default as ArticleBodyHeaderStore } from '@containers/ArticleBodyHeader
 export { default as AccountViewerStore } from '@containers/AccountViewer/store'
 
 // user page
-export { default as UserPublishedStore } from '@containers/UserPublished/store'
-export { default as UserPublishedCommentsStore } from '@containers/UserPublishedComments/store'
-export { default as UserStaredStore } from '@containers/UserStared/store'
-export { default as UserBillingStore } from '@containers/UserBilling/store'
-export { default as UserSettingsStore } from '@containers/UserSettings/store'
-export { default as UserFavoritedStore } from '@containers/UserFavorited/store'
+export { default as UserPublishedStore } from '@containers/user/UserPublished/store'
+export { default as UserPublishedCommentsStore } from '@containers/user/UserPublishedComments/store'
+export { default as UserStaredStore } from '@containers/user/UserStared/store'
+export { default as UserBillingStore } from '@containers/user/UserBilling/store'
+export { default as UserSettingsStore } from '@containers/user/UserSettings/store'
+export { default as UserFavoritedStore } from '@containers/user/UserFavorited/store'

@@ -10,7 +10,7 @@ import { Affix } from 'antd'
 import { USER_THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
-import UserPublished from '@containers/user/UserPublished'
+import UserPublished from '@containers/UserPublished'
 import UserPublishedComments from '@containers/user/UserPublishedComments'
 import UserBilling from '@containers/user/UserBilling'
 import UserSettings from '@containers/user/UserSettings'
