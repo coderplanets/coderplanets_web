@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
 
 import useNetwork from 'react-use/lib/useNetwork'
@@ -15,7 +15,7 @@ import 'overlayscrollbars/css/OverlayScrollbars.css'
 
 import { ICON_CMD } from '@config'
 import { connectStore } from '@utils'
-import { useShortcut, useMedia, usePlatform } from '@hooks'
+import { useShortcut, useMedia, usePlatform, useResize } from '@hooks'
 
 import AnalysisService from '@services/Analysis'
 import ThemeWrapper from '@containers/ThemeWrapper'
@@ -40,7 +40,7 @@ import {
   SubCommunitiesExpander,
   ExpanderIcon,
 } from './styles'
-import { useInit, openDoraemon, queryDoraemon } from './logic'
+import { useInit, openDoraemon, queryDoraemon, calcInitWidth } from './logic'
 
 const GlobalLayoutContainer = ({
   globalLayout,
@@ -52,6 +52,8 @@ const GlobalLayoutContainer = ({
   noSidebar,
   metric,
 }) => {
+  const [innerMinWidth, setInnerMinWidth] = useState('100%')
+
   const { online } = useNetwork()
 
   const media = useMedia()
@@ -62,6 +64,23 @@ const GlobalLayoutContainer = ({
   useShortcut('ctrl+p', openDoraemon)
   const { sidebarPin } = globalLayout
 
+  /*
+   * solve page jump when switch beteen threads
+   * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
+   * 时，由于 loading 效果的不同会导致页面横向跳动
+   */
+  let innerWrapperRef = React.createRef()
+
+  useEffect(() => {
+    setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  }, [])
+
+  useEffect(() => {
+    setInnerMinWidth(calcInitWidth(innerWrapperRef))
+  }, [innerMinWidth])
+
+  useResize(() => setInnerMinWidth('none'))
+
   return (
     <AnalysisService>
       <ThemeWrapper>
@@ -71,7 +90,12 @@ const GlobalLayoutContainer = ({
           ) : (
             <MultiLanguage>
               <SEO page={page} config={seoConfig} />
-              <InnerWrapper sidebarPin={sidebarPin} noSidebar={noSidebar}>
+              <InnerWrapper
+                sidebarPin={sidebarPin}
+                noSidebar={noSidebar}
+                ref={innerWrapperRef}
+                minWidth={innerMinWidth}
+              >
                 <SubCommunitiesExpander onClick={queryDoraemon('/')}>
                   <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
                 </SubCommunitiesExpander>
@@ -80,8 +104,8 @@ const GlobalLayoutContainer = ({
                 <Preview />
                 <Doraemon />
                 <ErrorBox />
-                <ContentPinWrapper offset={sidebarPin}>
-                  <ContentWrapper offset={page === 'community'}>
+                <ContentPinWrapper offsetLeft={sidebarPin}>
+                  <ContentWrapper offsetLeft={!!(page === 'community')}>
                     <Header metric={metric} />
                     {children}
                     <Footer />

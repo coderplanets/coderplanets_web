@@ -67,5 +67,5 @@
   "EMAIL_HELLO": "hello@group.coderplanets.com",
   "EMAIL_BUSINESS": "business@group.coderplanets.com",
   "// GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
-  "CUR_VERION": "0.8.0"
+  "CUR_VERION": "0.8.1"
 }
