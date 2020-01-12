@@ -135,7 +135,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "7.5.5",
+    "@babel/core": "7.8.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
