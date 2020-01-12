@@ -73,11 +73,11 @@ const GlobalLayoutContainer = ({
 
   useEffect(() => {
     setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [])
+  }, [innerWrapperRef])
 
   useEffect(() => {
     setInnerMinWidth(calcInitWidth(innerWrapperRef))
-  }, [innerMinWidth])
+  }, [innerMinWidth, innerWrapperRef])
 
   useResize(() => setInnerMinWidth('none'))
 

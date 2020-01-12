@@ -30,7 +30,7 @@ const useWindowSize = cb => {
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, []) // Empty array ensures that effect is only run on mount and unmount
+  }, [cb, getSize, isClient]) // Empty array ensures that effect is only run on mount and unmount
 
   return windowSize
 }
