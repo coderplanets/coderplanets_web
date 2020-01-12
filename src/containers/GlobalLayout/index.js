@@ -69,7 +69,7 @@ const GlobalLayoutContainer = ({
    * 要给 innerWrapper 一个最小宽度，否则在切换不同 Threads
    * 时，由于 loading 效果的不同会导致页面横向跳动
    */
-  let innerWrapperRef = React.createRef()
+  const innerWrapperRef = React.createRef()
 
   useEffect(() => {
     setInnerMinWidth(calcInitWidth(innerWrapperRef))
