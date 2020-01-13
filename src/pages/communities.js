@@ -21,8 +21,8 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CommunitiesBanner from '@containers/CommunitiesBanner'
-import CommunitiesContent from '@containers/CommunitiesContent'
+import CommunitiesBanner from '@containers/banner/CommunitiesBanner'
+import CommunitiesContent from '@containers/content/CommunitiesContent'
 
 import { P } from '@schemas'
 

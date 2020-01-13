@@ -14,7 +14,7 @@ import ContentSourceCard from '@components/ContentSourceCard'
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
-import Comments from '../Comments'
+import Comments from '@containers/Comments'
 import SideCards from './SideCards'
 import RepoStatusCard from './RepoStatusCard'
 

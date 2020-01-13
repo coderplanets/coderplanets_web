@@ -27,22 +27,22 @@ export { default as ArticleAuthorCardStore } from '@containers/ArticleAuthorCard
 export { default as FavoritesCatsStore } from '@containers/FavoritesCats/store'
 
 // pages banners store
-export { default as CommunityBannerStore } from '@containers/CommunityBanner/store'
-export { default as CommunitiesBannerStore } from '@containers/CommunitiesBanner/store'
-export { default as UserBannerStore } from '@containers/UserBanner/store'
+export { default as CommunityBannerStore } from '@containers/banner/CommunityBanner/store'
+export { default as CommunitiesBannerStore } from '@containers/banner/CommunitiesBanner/store'
+export { default as UserBannerStore } from '@containers/banner/UserBanner/store'
 
-export { default as ArticleBannerStore } from '@containers/ArticleBanner/store'
+export { default as ArticleBannerStore } from '@containers/banner/ArticleBanner/store'
 
 // contents store
-export { default as CommunityContentStore } from '@containers/CommunityContent/store'
+export { default as CommunityContentStore } from '@containers/content/CommunityContent/store'
 
-export { default as CommunitiesContentStore } from '@containers/CommunitiesContent/store'
-export { default as CheatSheetContentStore } from '@containers/CheatSheetContent/store'
-export { default as PostContentStore } from '@containers/PostContent/store'
-export { default as JobContentStore } from '@containers/JobContent/store'
-export { default as VideoContentStore } from '@containers/VideoContent/store'
-export { default as RepoContentStore } from '@containers/RepoContent/store'
-export { default as UserContentStore } from '@containers/UserContent/store'
+export { default as CommunitiesContentStore } from '@containers/content/CommunitiesContent/store'
+export { default as CheatSheetContentStore } from '@containers/content/CheatSheetContent/store'
+export { default as PostContentStore } from '@containers/content/PostContent/store'
+export { default as JobContentStore } from '@containers/content/JobContent/store'
+export { default as VideoContentStore } from '@containers/content/VideoContent/store'
+export { default as RepoContentStore } from '@containers/content/RepoContent/store'
+export { default as UserContentStore } from '@containers/content/UserContent/store'
 
 // footer
 export { default as FooterStore } from '@containers/Footer/store'
