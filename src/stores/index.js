@@ -13,7 +13,6 @@ export { default as SidebarStore } from '@containers/Sidebar/store'
 export { default as PreviewStore } from '@containers/Preview/store'
 export { default as DoraemonStore } from '@containers/Doraemon/store'
 export { default as HeaderStore } from '@containers/Header/store'
-export { default as ContentStore } from '@containers/Content/store'
 export { default as UpgradePackgesStore } from '@containers/UpgradePackges/store'
 export { default as MailBoxStore } from '@containers/MailBox/store'
 export { default as AvatarAdderStore } from '@containers/AvatarAdder/store'
@@ -28,8 +27,6 @@ export { default as ArticleAuthorCardStore } from '@containers/ArticleAuthorCard
 export { default as FavoritesCatsStore } from '@containers/FavoritesCats/store'
 
 // pages banners store
-export { default as BannerStore } from '@containers/Banner/store'
-
 export { default as CommunityBannerStore } from '@containers/CommunityBanner/store'
 export { default as CommunitiesBannerStore } from '@containers/CommunitiesBanner/store'
 export { default as UserBannerStore } from '@containers/UserBanner/store'

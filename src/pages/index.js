@@ -7,8 +7,10 @@ import { ROUTE } from '@constant'
 import { buildLog, parseURL, isServerSide } from '@utils'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import Banner from '@containers/Banner'
-import Content from '@containers/Content'
+import CommunityBanner from '@containers/CommunityBanner'
+import CommunityContent from '@containers/CommunityContent'
+// import Banner from '@containers/Banner'
+// import Content from '@containers/Content'
 
 import initRootStore from '@stores/init'
 // import { AnalysisService, ErrorPage } from '@components'
@@ -68,8 +70,10 @@ export default class PageCommunity extends React.Component {
           errorCode={statusCode}
           errorPath={target}
         >
-          <Banner />
-          <Content />
+          <CommunityBanner />
+          <CommunityContent />
+          {/* <Banner />
+          <Content /> */}
         </GlobalLayout>
       </Provider>
     )
