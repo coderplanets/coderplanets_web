@@ -6,8 +6,8 @@ import { PAGE_SIZE, SITE_URL } from '@config'
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CommunityBanner from '@containers/CommunityBanner'
-import CommunityContent from '@containers/CommunityContent'
+import CommunityBanner from '@containers/banner/CommunityBanner'
+import CommunityContent from '@containers/content/CommunityContent'
 
 import {
   getJwtToken,

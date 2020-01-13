@@ -11,11 +11,11 @@ import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
+import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
 import PublishLabel from '@components/PublishLabel'
-import TagsBar from '../TagsBar'
 
 import {
   Wrapper,

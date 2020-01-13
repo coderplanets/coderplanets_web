@@ -9,12 +9,13 @@ import { Affix } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
 
+import Comments from '@containers/Comments'
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
 import ContentSourceCard from '@components/ContentSourceCard'
+
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
-import Comments from '../Comments'
 import SideCards from './SideCards'
 import RepoStatusCard from './RepoStatusCard'
 

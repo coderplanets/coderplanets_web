@@ -25,8 +25,8 @@ import {
 } from '@utils'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CommunityBanner from '@containers/CommunityBanner'
-import CommunityContent from '@containers/CommunityContent'
+import CommunityBanner from '@containers/banner/CommunityBanner'
+import CommunityContent from '@containers/content/CommunityContent'
 
 import { P } from '@schemas'
 

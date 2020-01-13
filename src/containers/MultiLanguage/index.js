@@ -17,7 +17,7 @@ const IntlObserver = observerHoc(selector, ({ children, locale, messages }) => {
   return (
     // key is important, see https://github.com/yahoo/react-intl/issues/234
     <IntlProvider key={locale} locale={locale} messages={messages}>
-      <div>{children}</div>
+      {children}
     </IntlProvider>
   )
 })

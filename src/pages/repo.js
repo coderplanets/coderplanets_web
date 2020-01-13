@@ -15,8 +15,8 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import ArticleBanner from '@containers/ArticleBanner'
-import RepoContent from '@containers/RepoContent'
+import ArticleBanner from '@containers/banner/ArticleBanner'
+import RepoContent from '@containers/content/RepoContent'
 
 import { P } from '@schemas'
 
