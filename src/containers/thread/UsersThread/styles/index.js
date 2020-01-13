@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   /* 
    * magic number, if set 100% the map will jump in laptop screen 
    */
-  width: 99%;
+  width: 98%;
   position: relative;
   ${cs.media.mobile`overflow: scroll`};
 `
