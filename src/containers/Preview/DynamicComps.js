@@ -16,37 +16,37 @@ const CommonLoading = () => (
 
 // viewers
 export const DynamicAccountViewer = dynamic({
-  loader: () => import('@containers/AccountViewer'),
+  loader: () => import('@containers/viewer/AccountViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostViewer = dynamic({
-  loader: () => import('@containers/PostViewer'),
+  loader: () => import('@containers/viewer/PostViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicJobViewer = dynamic({
-  loader: () => import('@containers/JobViewer'),
+  loader: () => import('@containers/viewer/JobViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicMailsViewer = dynamic({
-  loader: () => import('@containers/MailsViewer'),
+  loader: () => import('@containers/viewer/MailsViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoViewer = dynamic({
-  loader: () => import('@containers/RepoViewer'),
+  loader: () => import('@containers/viewer/RepoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicVideoViewer = dynamic({
-  loader: () => import('@containers/VideoViewer'),
+  loader: () => import('@containers/viewer/VideoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })

@@ -73,16 +73,16 @@ export { default as LabelerStore } from '@containers/Labeler/store'
 export { default as CommunitySetterStore } from '@containers/CommunitySetter/store'
 
 // viewers store
-export { default as PostViewerStore } from '@containers/PostViewer/store'
-export { default as JobViewerStore } from '@containers/JobViewer/store'
-export { default as VideoViewerStore } from '@containers/VideoViewer/store'
-export { default as RepoViewerStore } from '@containers/RepoViewer/store'
-export { default as MailsViewerStore } from '@containers/MailsViewer/store'
+export { default as PostViewerStore } from '@containers/viewer/PostViewer/store'
+export { default as JobViewerStore } from '@containers/viewer/JobViewer/store'
+export { default as VideoViewerStore } from '@containers/viewer/VideoViewer/store'
+export { default as RepoViewerStore } from '@containers/viewer/RepoViewer/store'
+export { default as MailsViewerStore } from '@containers/viewer/MailsViewer/store'
 
 export { default as ArticleViewerHeader } from '@containers/ArticleViewerHeader/store'
 export { default as ArticleBodyHeaderStore } from '@containers/ArticleBodyHeader/store'
 
-export { default as AccountViewerStore } from '@containers/AccountViewer/store'
+export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/store'
 
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'
