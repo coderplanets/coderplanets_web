@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
 export const Title = styled.div``
 
 export const MapWrapper = styled.div`
-  width: 100%;
+  /* 
+   * magic number, if set 100% the map will jump in laptop screen 
+   */
+  width: 99%;
   ${cs.media.mobile`width: 250%;`};
 `
