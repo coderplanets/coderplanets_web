@@ -53,31 +53,31 @@ export const DynamicVideoViewer = dynamic({
 
 // editors
 export const DynamicAccountEditor = dynamic({
-  loader: () => import('@containers/AccountEditor'),
+  loader: () => import('@containers/editor/AccountEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostEditor = dynamic({
-  loader: () => import('@containers/PostEditor'),
+  loader: () => import('@containers/editor/PostEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicJobEditor = dynamic({
-  loader: () => import('@containers/JobEditor'),
+  loader: () => import('@containers/editor/JobEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicVideoEditor = dynamic({
-  loader: () => import('@containers/VideoEditor'),
+  loader: () => import('@containers/editor/VideoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoEditor = dynamic({
-  loader: () => import('@containers/RepoEditor'),
+  loader: () => import('@containers/editor/RepoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })

@@ -7,7 +7,7 @@ export { ThemeStore, ThemeDefaults } from './ThemeStore'
 
 // utils store
 export { default as GlobalLayoutStore } from '@containers/GlobalLayout/store'
-export { default as RichEditorStore } from '@containers/RichEditor/store'
+export { default as RichEditorStore } from '@containers/editor/RichEditor/store'
 export { default as ErrorBoxStore } from '@containers/ErrorBox/store'
 export { default as SidebarStore } from '@containers/Sidebar/store'
 export { default as PreviewStore } from '@containers/Preview/store'
@@ -60,12 +60,12 @@ export { default as TagsBarStore } from '@containers/TagsBar/store'
 
 // toolbox
 export { default as DocUploaderStore } from '@containers/DocUploader/store'
-export { default as JobEditorStore } from '@containers/JobEditor/store'
-export { default as PostEditorStore } from '@containers/PostEditor/store'
-export { default as VideoEditorStore } from '@containers/VideoEditor/store'
-export { default as RepoEditorStore } from '@containers/RepoEditor/store'
+export { default as JobEditorStore } from '@containers/editor/JobEditor/store'
+export { default as PostEditorStore } from '@containers/editor/PostEditor/store'
+export { default as VideoEditorStore } from '@containers/editor/VideoEditor/store'
+export { default as RepoEditorStore } from '@containers/editor/RepoEditor/store'
 export { default as CommentsStore } from '@containers/Comments/store'
-export { default as AccountEditorStore } from '@containers/AccountEditor/store'
+export { default as AccountEditorStore } from '@containers/editor/AccountEditor/store'
 export { default as LabelerStore } from '@containers/Labeler/store'
 export { default as CommunitySetterStore } from '@containers/CommunitySetter/store'
 
