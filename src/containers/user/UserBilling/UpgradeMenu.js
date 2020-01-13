@@ -13,7 +13,7 @@ import TipingDevsPlan from './TipingDevsPlan'
 import { PlanDivider } from './styles/upgrade_menu'
 
 const DynamicGirlVerifier = dynamic({
-  loader: () => import('../GirlVerifier'),
+  loader: () => import('@containers/GirlVerifier'),
 })
 
 const labelText = isSeniorMember => {
