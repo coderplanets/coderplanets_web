@@ -16,68 +16,68 @@ const CommonLoading = () => (
 
 // viewers
 export const DynamicAccountViewer = dynamic({
-  loader: () => import('@containers/AccountViewer'),
+  loader: () => import('@containers/viewer/AccountViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostViewer = dynamic({
-  loader: () => import('@containers/PostViewer'),
+  loader: () => import('@containers/viewer/PostViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicJobViewer = dynamic({
-  loader: () => import('@containers/JobViewer'),
+  loader: () => import('@containers/viewer/JobViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicMailsViewer = dynamic({
-  loader: () => import('@containers/MailsViewer'),
+  loader: () => import('@containers/viewer/MailsViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoViewer = dynamic({
-  loader: () => import('@containers/RepoViewer'),
+  loader: () => import('@containers/viewer/RepoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicVideoViewer = dynamic({
-  loader: () => import('@containers/VideoViewer'),
+  loader: () => import('@containers/viewer/VideoViewer'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 // editors
 export const DynamicAccountEditor = dynamic({
-  loader: () => import('@containers/AccountEditor'),
+  loader: () => import('@containers/editor/AccountEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicPostEditor = dynamic({
-  loader: () => import('@containers/PostEditor'),
+  loader: () => import('@containers/editor/PostEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicJobEditor = dynamic({
-  loader: () => import('@containers/JobEditor'),
+  loader: () => import('@containers/editor/JobEditor'),
   loading: () => <EditorLoading />,
   ssr: false,
 })
 
 export const DynamicVideoEditor = dynamic({
-  loader: () => import('@containers/VideoEditor'),
+  loader: () => import('@containers/editor/VideoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })
 
 export const DynamicRepoEditor = dynamic({
-  loader: () => import('@containers/RepoEditor'),
+  loader: () => import('@containers/editor/RepoEditor'),
   loading: () => <CommonLoading />,
   ssr: false,
 })

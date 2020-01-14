@@ -95,6 +95,9 @@ const zIndex = {
   sidebar: 1999,
 }
 
+// global max width
+export const GLOBAL_MAX_WIDTH = '1520px'
+
 // home page, communities page
 export const MAX_CONTENT_WIDTH = '1520px'
 
@@ -137,6 +140,7 @@ const cs = {
   mediaBreakPoints,
   media,
   MAX_CONTENT_WIDTH,
+  GLOBAL_MAX_WIDTH,
   ARTICLE_PAGE_MAX_CONTENT_WIDTH,
 }
 

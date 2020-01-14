@@ -23,6 +23,7 @@ const github = {
   coverIndex: '#F9FCFC',
   contrastFg: '#eca014',
   htmlBg: bannerBg,
+  spaceBg: '#181c1f',
   mobileTab: '#323344',
   loading: {
     basic: darken(0.05, contentBg),
@@ -143,6 +144,7 @@ const github = {
     reactionHoverBg: '#f3f7f7',
   },
   comment: {
+    bg: contentBg,
     icon: 'grey',
     didIcon: 'orange',
     title: 'grey',

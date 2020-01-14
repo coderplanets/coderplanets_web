@@ -23,7 +23,6 @@ import {
   GlobalLayoutStore,
   RichEditorStore,
   HeaderStore,
-  ContentStore,
   ViewingStore,
   ThemeStore,
   ThemeDefaults,
@@ -38,7 +37,6 @@ import {
   UsersThreadStore,
   CheatsheetThreadStore,
   // banners
-  BannerStore,
   ArticleBannerStore,
   CommunityBannerStore,
   CommunitiesBannerStore,
@@ -134,13 +132,11 @@ const rootStore = t
     globalLayout: t.optional(GlobalLayoutStore, {}),
     richEditor: t.optional(RichEditorStore, {}),
     header: t.optional(HeaderStore, {}),
-    content: t.optional(ContentStore, {}),
     // layouts end
 
     errorBox: t.optional(ErrorBoxStore, {}),
 
     // banners
-    banner: t.optional(BannerStore, {}),
     articleBanner: t.optional(ArticleBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
     communitiesBanner: t.optional(CommunitiesBannerStore, {}),

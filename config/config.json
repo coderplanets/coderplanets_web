@@ -1,6 +1,6 @@
 {
   "//--- general configs ---//": "",
-  "DEFAULT_THEME": "cyan",
+  "DEFAULT_THEME": "solarizedDark",
   "SENIOR_AMOUNT_THRESHOLD": 51.2,
   "SPONSOR_AMOUNT_THRESHOLD": 3999,
   "PAGE_SIZE": {
@@ -66,5 +66,6 @@
   "EMAIL_SUPPORT": "support@group.coderplanets.com",
   "EMAIL_HELLO": "hello@group.coderplanets.com",
   "EMAIL_BUSINESS": "business@group.coderplanets.com",
-  "// GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql"
+  "// GRAPHQL_ENDPOINT": "http://localhost:4001/graphiql",
+  "CUR_VERION": "0.8.1"
 }

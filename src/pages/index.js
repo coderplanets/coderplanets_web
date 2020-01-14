@@ -2,24 +2,16 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { SITE_URL } from '@config'
 import { ROUTE } from '@constant'
 import { buildLog, parseURL, isServerSide } from '@utils'
-import AnalysisService from '@services/Analysis'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Sidebar from '@containers/Sidebar'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import Banner from '@containers/Banner'
-import Content from '@containers/Content'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
+import CommunityBanner from '@containers/banner/CommunityBanner'
+import CommunityContent from '@containers/content/CommunityContent'
+// import Banner from '@containers/Banner'
+// import Content from '@containers/Content'
 
-import ErrorPage from '@components/ErrorPage'
 import initRootStore from '@stores/init'
 // import { AnalysisService, ErrorPage } from '@components'
 
@@ -63,35 +55,26 @@ export default class PageCommunity extends React.Component {
   render() {
     const { statusCode, target, hideSidebar } = this.props
 
+    const seoConfig = {
+      url: `${SITE_URL}`,
+      title: 'coderplanets 社区',
+      description: '最性感的开发者社区',
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage
-                errorCode={statusCode}
-                page="community"
-                target={target}
-              />
-            ) : (
-              <React.Fragment>
-                <Route />
-                <MultiLanguage>
-                  {!hideSidebar && <Sidebar />}
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar={hideSidebar}>
-                    <Header />
-                    <Banner />
-                    <Content />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          noSidebar={hideSidebar}
+          page="community"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+        >
+          <CommunityBanner />
+          <CommunityContent />
+          {/* <Banner />
+          <Content /> */}
+        </GlobalLayout>
       </Provider>
     )
   }

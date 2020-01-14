@@ -23,6 +23,7 @@ const green = {
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#212d26',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
@@ -144,6 +145,7 @@ const green = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBg,
     icon: bannerTitle,
     didIcon: primaryMate,
     title: bannerTitle,

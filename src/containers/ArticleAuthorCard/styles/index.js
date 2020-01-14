@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   margin-top: 20px;
 
   max-width: 300px;
+  width: 100%;
   flex-wrap: wrap;
 
   ${cs.media.tablet`

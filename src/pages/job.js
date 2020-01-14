@@ -1,7 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
@@ -15,22 +14,11 @@ import {
 } from '@utils'
 import initRootStore from '@stores/init'
 
-import AnalysisService from '@services/Analysis'
-
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import ArticleBanner from '@containers/ArticleBanner'
-import JobContent from '@containers/JobContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
+import ArticleBanner from '@containers/banner/ArticleBanner'
+import JobContent from '@containers/content/JobContent'
 
 import { P } from '@schemas'
-import ErrorPage from '@components/ErrorPage'
 
 // import { AnalysisService, ErrorPage } from '@components'
 // try to fix safari bug
@@ -128,39 +116,29 @@ export default class JobPage extends React.Component {
     } = this.props
     const { mainPath } = route
 
+    const seoConfig = {
+      url: `${SITE_URL}/${mainPath}/job/${job.id}`,
+      title: `${job.title}`,
+      datePublished: `${job.insertedAt}`,
+      dateModified: `${job.updatedAt}`,
+      authorName: `${job.author.nickname}`,
+      description: `${job.title}`,
+      images: [],
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="job" target={target} />
-            ) : (
-              <React.Fragment>
-                <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/job/${job.id}`}
-                  title={`${job.title}`}
-                  datePublished={`${job.insertedAt}`}
-                  dateModified={`${job.updatedAt}`}
-                  authorName={`${job.author.nickname}`}
-                  description={`${job.title}`}
-                  images={[]}
-                />
-                <Route />
-                <MultiLanguage>
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar>
-                    <Header metric="article" />
-                    <ArticleBanner showStar={false} />
-                    <JobContent />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          page="job"
+          metric="article"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+          noSidebar
+        >
+          <ArticleBanner showStar={false} />
+          <JobContent />
+        </GlobalLayout>
       </Provider>
     )
   }

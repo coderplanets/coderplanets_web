@@ -1,7 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { BlogJsonLd } from 'next-seo'
 
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
@@ -15,21 +14,10 @@ import {
 } from '@utils'
 import initRootStore from '@stores/init'
 
-import AnalysisService from '@services/Analysis'
-
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import ArticleBanner from '@containers/ArticleBanner'
-import PostContent from '@containers/PostContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
+import ArticleBanner from '@containers/banner/ArticleBanner'
+import PostContent from '@containers/content/PostContent'
 
-import ErrorPage from '@components/ErrorPage'
 import { P } from '@schemas'
 
 // try to fix safari bug
@@ -128,39 +116,29 @@ export default class PostPage extends React.Component {
     } = this.props
     const { mainPath } = route
 
+    const seoConfig = {
+      url: `${SITE_URL}/${mainPath}/post/${post.id}`,
+      title: `${post.title}`,
+      datePublished: `${post.insertedAt}`,
+      dateModified: `${post.updatedAt}`,
+      authorName: `${post.author.nickname}`,
+      description: `${post.title}`,
+      images: [],
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="post" target={target} />
-            ) : (
-              <React.Fragment>
-                <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/post/${post.id}`}
-                  title={`${post.title}`}
-                  datePublished={`${post.insertedAt}`}
-                  dateModified={`${post.updatedAt}`}
-                  authorName={`${post.author.nickname}`}
-                  description={`${post.title}`}
-                  images={[]}
-                />
-                <Route />
-                <MultiLanguage>
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar>
-                    <Header metric="article" />
-                    <ArticleBanner />
-                    <PostContent />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          page="post"
+          metric="article"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+          noSidebar
+        >
+          <ArticleBanner />
+          <PostContent />
+        </GlobalLayout>
       </Provider>
     )
   }

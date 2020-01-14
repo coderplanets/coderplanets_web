@@ -1,6 +1,6 @@
 {
   "name": "coderplanets_web",
-  "version": "0.7.0",
+  "version": "0.8.1",
   "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev node server.js",
@@ -24,6 +24,7 @@
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "./node_modules/.bin/eslint --ext .js --fix src/ utils/",
+    "lint2": "./node_modules/.bin/eslint --ext .js --fix src/containers/MultiLanguage/index.js",
     "lint:staged": "git diff --cached --name-only --diff-filter=ACRM | grep \".js$\" | xargs ./node_modules/.bin/eslint --ext .js",
     "test": "cross-env NODE_ENV=test jest --config .jest.config.js",
     "test:dev": "cross-env NODE_ENV=test jest --config .jest.config.js",
@@ -94,7 +95,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-offline": "4.0.6",
     "next-progressbar": "^1.0.0",
-    "next-seo": "3.2.0",
+    "next-seo": "3.3.0",
     "overlayscrollbars": "1.9.1",
     "overlayscrollbars-react": "^0.1.0",
     "path-match": "^1.2.4",
@@ -161,6 +162,7 @@
     "enzyme-adapter-react-16": "1.9.1",
     "enzyme-to-json": "^3.3.4",
     "eslint": "6.4.0",
+    "eslint-import-resolver-babel-module": "^5.1.1",
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^3.0.0",
     "jest": "23.4.2",

@@ -22,6 +22,7 @@ const yellow = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1f0f02',
   mobileTab: '#AF9A82',
   loading: {
     basic: bannerBg,
@@ -143,6 +144,7 @@ const yellow = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBoxBg,
     icon: lighten(0.06, primaryColor),
     didIcon: primaryMate,
     title: lighten(0.06, primaryColor),
