@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CoolNaviContent from '@containers/CoolNaviContent'
+import CoolNaviContent from '@containers/content/CoolNaviContent'
 
 import { P } from '@schemas'
 

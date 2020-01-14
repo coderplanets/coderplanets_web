@@ -82,9 +82,9 @@ export { default as ArticleBodyHeaderStore } from '@containers/ArticleBodyHeader
 export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/store'
 
 // have a drink
-export { default as HaveADrinkContentStore } from '@containers/HaveADrinkContent/store'
+export { default as HaveADrinkContentStore } from '@containers/content/HaveADrinkContent/store'
 // cool navi
-export { default as CoolNaviContentStore } from '@containers/CoolNaviContent/store'
+export { default as CoolNaviContentStore } from '@containers/content/CoolNaviContent/store'
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'
 export { default as UserPublishedCommentsStore } from '@containers/user/UserPublishedComments/store'

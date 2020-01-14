@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import HaveADrinkContent from '@containers/HaveADrinkContent'
+import HaveADrinkContent from '@containers/content/HaveADrinkContent'
 
 import { P } from '@schemas'
 
