@@ -2,7 +2,9 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { SITE_URL } from '@config'
 import { ROUTE } from '@constant'
+
 import {
   getJwtToken,
   makeGQClient,
@@ -11,21 +13,10 @@ import {
   parseTheme,
 } from '@utils'
 import initRootStore from '@stores/init'
-import AnalysisService from '@services/Analysis'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
-
 import HaveADrinkContent from '@containers/HaveADrinkContent'
 
-import ErrorPage from '@components/ErrorPage'
 import { P } from '@schemas'
 
 // try to fix safari bug
@@ -95,33 +86,24 @@ export default class PostPage extends React.Component {
   render() {
     const { statusCode, target } = this.props
 
+    const seoConfig = {
+      url: `${SITE_URL}/have-a-drink`,
+      title: 'coderplanets 社区',
+      description: '最性感的开发者社区',
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage
-                errorCode={statusCode}
-                page="have-a-drink"
-                target={target}
-              />
-            ) : (
-              <React.Fragment>
-                <Route />
-                <MultiLanguage>
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar>
-                    <Header metric="article" />
-                    <HaveADrinkContent />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          noSidebar
+          metric="article"
+          page="have-a-drink"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+        >
+          <HaveADrinkContent />
+        </GlobalLayout>
       </Provider>
     )
   }

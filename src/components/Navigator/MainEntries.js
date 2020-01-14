@@ -31,7 +31,7 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
     <DotDivider space={splitMargin} />
     <SiteLink>活动</SiteLink>
     <DotDivider space={splitMargin} />
-    <SiteLink>周边</SiteLink>
+    <SiteLink>小周边</SiteLink>
     {/* <Popover
       placement="bottom"
       trigger="click"

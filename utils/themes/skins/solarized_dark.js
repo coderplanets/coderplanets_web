@@ -334,6 +334,17 @@ const solarizedDark = {
     text: '#95C1DD',
     bg: '#075575',
   },
+  dropdown: {
+    bg: '#0a4d61',
+  },
+  // pages
+  haveADrinkPage: {
+    bg: '#01313e',
+    sentence: '#6f8b96',
+    hint: '#577079',
+    divider: '#27424c',
+    dropdownBg: '#0a4d61',
+  },
 }
 
 export default solarizedDark

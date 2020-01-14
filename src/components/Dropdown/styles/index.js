@@ -6,7 +6,7 @@ import { theme, cs } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flex()};
   font-size: ${({ size }) => size};
-  background: #eaf5f3;
+  background: ${theme('dropdown.bg')};
   padding: 0 3px;
   border-radius: 5px;
   cursor: pointer;

@@ -6,7 +6,7 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};
-  max-width: 520px;
+  max-width: 580px;
   height: 100%;
   ${cs.media.mobile`
     margin-right: 0;
@@ -26,7 +26,6 @@ export const LogoText = styled.a`
   letter-spacing: 1.5px;
   font-size: 0.9rem;
   margin-left: 6px;
-  margin-top: 3px;
   text-decoration: none;
 
   &:hover {

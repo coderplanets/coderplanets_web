@@ -17,6 +17,6 @@ export const InnerWrapper = styled.div`
   height: 92%;
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   border-radius: 8px;
-  background: ${theme('thread.bg')};
+  background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
