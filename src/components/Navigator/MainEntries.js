@@ -40,19 +40,19 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
       <SiteLink>专栏</SiteLink>
     </Popover> */}
     <DotDivider space={splitMargin} />
-    <SiteLink>酷导航</SiteLink>
-    {/* <Popover
-      placement="bottom"
-      trigger="click"
-      content={<DiscussLinker title="团队" addr={`${ISSUE_ADDR}/264`} />}
-    >
-      <SiteLink>团队</SiteLink>
-    </Popover> */}
+    <Link href={`/${ROUTE.COOL_NAVI}`} passHref>
+      <SiteLink
+        active={mainPath === ROUTE.COOL_NAVI}
+        testid={`header-${ROUTE.COOL_NAVI}`}
+      >
+        酷导航
+      </SiteLink>
+    </Link>
     <DotDivider space={splitMargin} />
     <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
       <SiteLink
         active={mainPath === ROUTE.HAVE_A_DRINK}
-        testid="header-have-a-drink-link"
+        testid={`header-${ROUTE.HAVE_A_DRINK}`}
       >
         来一杯
       </SiteLink>

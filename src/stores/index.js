@@ -83,6 +83,8 @@ export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/
 
 // have a drink
 export { default as HaveADrinkContentStore } from '@containers/HaveADrinkContent/store'
+// cool navi
+export { default as CoolNaviContentStore } from '@containers/CoolNaviContent/store'
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'
 export { default as UserPublishedCommentsStore } from '@containers/user/UserPublishedComments/store'

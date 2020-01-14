@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import HaveADrinkContent from '@containers/HaveADrinkContent'
+import CoolNaviContent from '@containers/CoolNaviContent'
 
 import { P } from '@schemas'
 
@@ -87,7 +87,7 @@ export default class PostPage extends React.Component {
     const { statusCode, target } = this.props
 
     const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.HAVE_A_DRINK}`,
+      url: `${SITE_URL}/${ROUTE.COOL_NAVI}`,
       title: 'coderplanets 社区',
       description: '最性感的开发者社区',
     }
@@ -97,12 +97,12 @@ export default class PostPage extends React.Component {
         <GlobalLayout
           noSidebar
           metric="article"
-          page={ROUTE.HAVE_A_DRINK}
+          page={ROUTE.COOL_NAVI}
           seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}
         >
-          <HaveADrinkContent />
+          <CoolNaviContent />
         </GlobalLayout>
       </Provider>
     )

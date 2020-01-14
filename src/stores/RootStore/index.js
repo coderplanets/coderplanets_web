@@ -94,6 +94,7 @@ import {
   FavoritesCatsStore,
   //
   HaveADrinkContentStore,
+  CoolNaviContentStore,
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -194,6 +195,7 @@ const rootStore = t
 
     // have a drink
     haveADrinkContentStore: t.optional(HaveADrinkContentStore, {}),
+    coolNaviContentStore: t.optional(CoolNaviContentStore, {}),
   })
   .views(self => ({
     get isOnline() {

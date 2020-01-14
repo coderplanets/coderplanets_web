@@ -22,6 +22,7 @@ const ROUTE = {
   REPO: 'repo',
 
   HAVE_A_DRINK: 'have-a-drink',
+  COOL_NAVI: 'cool-navi',
 }
 
 export default ROUTE
