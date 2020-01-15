@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 // import Img from '@components/Img'
-import { theme } from '@utils'
+import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  width: 100%;
+  ${cs.flexGrow()};
   min-height: 90vh;
-  color: ${theme('thread.articleTitle')};
-  background: ${theme('haveADrinkPage.bg')};
-  padding: 20px;
+  margin-top: 10px;
+  overflow-x: scroll;
 `
 
 export const holder = 1

@@ -9,15 +9,15 @@ export const Wrapper = styled.div`
 `
 export const InnerWrapper = styled.div`
   ${cs.flex()};
-  padding: 15px 25px;
-  width: 90%;
-  margin-top: 20px;
-  max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
+  padding: 10px 6vw;
+  margin-top: 12px;
+  width: 100%;
+  max-width: ${cs.MAX_CONTENT_WIDTH};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
 
 export const ContentWrapper = styled.div`
-  width: 100%;
-  ${cs.flexColumn()};
+  ${cs.flexColumnGrow()};
+  max-width: calc(100% - 160px);
 `

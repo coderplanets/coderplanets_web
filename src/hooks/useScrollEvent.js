@@ -10,7 +10,7 @@ const inialState = {
 
 // detect the scroll derection
 // see https://codepen.io/lehollandaisvolant/pen/ryrrGx?editors=1010
-const useScroll = cb => {
+const useScrollEvent = cb => {
   const [sroll, setScroll] = useState(inialState)
 
   /* eslint-disable */
@@ -45,4 +45,4 @@ const useScroll = cb => {
   return sroll
 }
 
-export default useScroll
+export default useScrollEvent
