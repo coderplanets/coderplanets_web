@@ -4,14 +4,21 @@ import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
-  width: 100%;
   color: ${theme('thread.articleDigest')};
   background: #022935;
   border: 1px solid;
-  height: auto;
+  height: 75px;
   border-color: #013648;
-  overflow: scroll;
+  overflow: hidden;
+`
+// see: https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+export const InnerWrapper = styled.div`
+  ${cs.flex()};
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
+  padding-bottom: 17px;
+  box-sizing: content-box;
 `
 export const Header = styled.div`
   ${cs.flex()};
@@ -21,6 +28,13 @@ export const Header = styled.div`
 export const Block = styled.div`
   ${cs.flexColumn('align-both')};
   padding: 10px 2px;
+
+  border-left: ${({ leftBorder }) => (leftBorder ? '1px solid' : 'none')};
+  border-left-color: ${({ leftBorder }) => (leftBorder ? '#327FAF' : 'none')};
+
+  border-right: ${({ rightBorder }) => (rightBorder ? '1px solid' : 'none')};
+  border-right-color: ${({ rightBorder }) =>
+    rightBorder ? '#327FAF' : 'none'};
 
   &:hover {
     cursor: pointer;

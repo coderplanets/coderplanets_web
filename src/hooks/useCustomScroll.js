@@ -9,7 +9,9 @@ import OverlayScrollbars from 'overlayscrollbars'
  */
 const useCustomScroll = (
   ref,
-  option = { scrollbars: { autoHide: 'scroll' } }
+  option = {
+    scrollbars: { autoHide: 'scroll' },
+  }
 ) => {
   useEffect(() => {
     if (OverlayScrollbars && ref.current) {

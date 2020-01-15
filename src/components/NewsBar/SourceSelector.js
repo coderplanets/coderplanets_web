@@ -10,7 +10,13 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { Wrapper, Icon, Block, Title } from './styles/source_selector'
+import {
+  Wrapper,
+  InnerWrapper,
+  Icon,
+  Block,
+  Title,
+} from './styles/source_selector'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:SourceSelector:index')
@@ -51,12 +57,18 @@ const sources = [
 const SourceSelector = () => {
   return (
     <Wrapper>
-      {sources.map(item => (
-        <Block key={item.id}>
-          <Icon src={item.icon} />
-          <Title>{item.title}</Title>
-        </Block>
-      ))}
+      <InnerWrapper>
+        {sources.map((item, index) => (
+          <Block
+            key={item.id}
+            leftBorder={index === 0}
+            rightBorder={index === sources.length - 1}
+          >
+            <Icon src={item.icon} />
+            <Title>{item.title}</Title>
+          </Block>
+        ))}
+      </InnerWrapper>
     </Wrapper>
   )
 }
