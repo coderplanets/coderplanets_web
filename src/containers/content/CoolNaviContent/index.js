@@ -10,8 +10,9 @@ import { connectStore, buildLog } from '@utils'
 
 import Sidebar from './Sidebar'
 import Content from './Content'
+import ThankBoard from './ThankBoard'
 
-import { Wrapper, InnerWrapper } from './styles'
+import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -24,7 +25,10 @@ const CoolNaviContentContainer = ({ coolNaviContent }) => {
     <Wrapper>
       <InnerWrapper>
         <Sidebar />
-        <Content />
+        <ContentWrapper>
+          <Content />
+          <ThankBoard />
+        </ContentWrapper>
       </InnerWrapper>
     </Wrapper>
   )
