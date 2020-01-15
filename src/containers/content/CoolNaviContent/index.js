@@ -8,7 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
 
-import Sidebar from './Sidebar'
+import NaviMenu from '@components/NaviMenu'
 import Content from './Content'
 import ThankBoard from './ThankBoard'
 
@@ -24,7 +24,7 @@ const CoolNaviContentContainer = ({ coolNaviContent }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Sidebar />
+        <NaviMenu />
         <ContentWrapper>
           <Content />
           <ThankBoard />

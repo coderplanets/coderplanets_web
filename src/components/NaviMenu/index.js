@@ -1,15 +1,20 @@
 /*
  *
- * Sidebar
+ * NaviMenu
  *
  */
 
 import React from 'react'
+// import T from 'prop-types'
 
+import { buildLog } from '@utils'
 import { ICON_CMD } from '@config'
 
 import { SpaceGrow } from '@components/BaseStyled'
-import { Wrapper, Item, Icon /* ActiveDot */ } from './styles/sidebar'
+import { Wrapper, Item, Icon /* ActiveDot */ } from './styles'
+
+/* eslint-disable-next-line */
+const log = buildLog('c:NaviMenu:index')
 
 const menu = [
   {
@@ -110,7 +115,7 @@ const menu = [
 ]
 
 /* <ActiveDot /> */
-const Sidebar = () => {
+const NaviMenu = () => {
   return (
     <Wrapper>
       {menu.map(item => (
@@ -124,4 +129,10 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+NaviMenu.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+}
+
+NaviMenu.defaultProps = {}
+
+export default React.memo(NaviMenu)
