@@ -26,7 +26,20 @@ export const Icon = styled(Img)`
   ${cs.circle('13px')};
   margin-right: 6px;
 `
+export const InfoIcon = styled(Img)`
+  ${cs.circle('13px')};
+  display: block;
+  fill: ${theme('thread.articleDigest')};
+  margin-left: 5px;
+  opacity: 0;
 
+  ${Header}:hover & {
+    fill: ${theme('thread.articleTitle')};
+    cursor: pointer;
+    opacity: 1;
+  }
+  transition: all 0.2s;
+`
 export const Timestamp = styled.div`
   ${cs.flex()};
   color: ${theme('thread.articleDigest')};

@@ -16,6 +16,7 @@ import {
   ListItemWrapper,
   Header,
   Icon,
+  InfoIcon,
   Timestamp,
   Title,
 } from './styles/list'
@@ -30,6 +31,7 @@ const List = () => {
         <Header>
           <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
           hackernews
+          <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
           <SpaceGrow />
           <Timestamp>3天前</Timestamp>
         </Header>
@@ -50,6 +52,7 @@ const List = () => {
         <Header>
           <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
           infoQ 中文站
+          <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
           <SpaceGrow />
           <Timestamp>2天前</Timestamp>
         </Header>

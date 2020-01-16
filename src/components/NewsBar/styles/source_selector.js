@@ -35,6 +35,7 @@ export const Block = styled.div`
   border-right: ${({ rightBorder }) => (rightBorder ? '1px solid' : 'none')};
   border-right-color: ${({ rightBorder }) =>
     rightBorder ? '#327FAF' : 'none'};
+  border-radius: 2px;
 
   &:hover {
     cursor: pointer;
