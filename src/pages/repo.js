@@ -1,9 +1,7 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
-import { BlogJsonLd } from 'next-seo'
 
-// eslint-disable-next-line import/named
 import { PAGE_SIZE, SITE_URL } from '@config'
 import { TYPE, ROUTE, THREAD } from '@constant'
 import {
@@ -16,20 +14,9 @@ import {
 } from '@utils'
 import initRootStore from '@stores/init'
 
-import AnalysisService from '@services/Analysis'
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import ArticleBanner from '@containers/ArticleBanner'
-import RepoContent from '@containers/RepoContent'
-import Footer from '@containers/Footer'
-import ErrorBox from '@containers/ErrorBox'
-
-import ErrorPage from '@components/ErrorPage'
+import ArticleBanner from '@containers/banner/ArticleBanner'
+import RepoContent from '@containers/content/RepoContent'
 
 import { P } from '@schemas'
 
@@ -126,43 +113,29 @@ export default class RepoPage extends React.Component {
     } = this.props
     const { mainPath } = route
 
+    const seoConfig = {
+      url: `${SITE_URL}/${mainPath}/repo/${repo.id}`,
+      title: `${repo.title}`,
+      datePublished: `${repo.insertedAt}`,
+      dateModified: `${repo.updatedAt}`,
+      authorName: `${repo.author.nickname}`,
+      description: `${repo.title}`,
+      images: [],
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage errorCode={statusCode} page="post" target={target} />
-            ) : (
-              <React.Fragment>
-                <BlogJsonLd
-                  url={`${SITE_URL}/${mainPath}/repo/${repo.id}`}
-                  title={`${repo.title}`}
-                  datePublished={`${repo.insertedAt}`}
-                  dateModified={`${repo.updatedAt}`}
-                  authorName={`${repo.author.nickname}`}
-                  description={`${repo.desc}`}
-                  images={[]}
-                />
-                <Route />
-                <MultiLanguage>
-                  <Preview />
-                  <Doraemon />
-                  <ErrorBox />
-                  <GlobalLayout noSidebar>
-                    <Header />
-                    <ArticleBanner
-                      showStar={false}
-                      showWordCount={false}
-                      showLastSync
-                    />
-                    <RepoContent />
-                    <Footer />
-                  </GlobalLayout>
-                </MultiLanguage>
-              </React.Fragment>
-            )}
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout
+          page="repo"
+          metric="article"
+          seoConfig={seoConfig}
+          errorCode={statusCode}
+          errorPath={target}
+          noSidebar
+        >
+          <ArticleBanner showStar={false} showWordCount={false} showLastSync />
+          <RepoContent />
+        </GlobalLayout>
       </Provider>
     )
   }

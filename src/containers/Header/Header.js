@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { cs } from '@utils'
+
 import MailBox from '@containers/MailBox'
-import UserLister from '@containers/UserLister'
+import UserLister from '@containers/user/UserLister'
 import Cashier from '@containers/Cashier'
 import UpgradePackges from '@containers/UpgradePackges'
 import Navigator from '@components/Navigator'
@@ -22,7 +24,21 @@ import {
 
 import { openDoraemon } from './logic'
 
+// different view has different size
+const METRIC_MAP = {
+  default: {
+    maxWidth: cs.MAX_CONTENT_WIDTH,
+    padding: '0 6vw',
+  },
+
+  article: {
+    maxWidth: cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH,
+    padding: '0 5vw',
+  },
+}
+
 const Header = ({
+  metric,
   isOnline,
   activeInfo,
   curRoute,
@@ -38,7 +54,7 @@ const Header = ({
     fixed={fixed}
     testid="header"
   >
-    <InnerWrapper>
+    <InnerWrapper metric={METRIC_MAP[metric]}>
       <RouterWrapper>
         {fixed ? (
           <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />

@@ -64,6 +64,8 @@ ContentBanner.propTypes = {
     starredCount: T.number,
     viewerHasFavorited: T.bool,
     viewerHasStarred: T.bool,
+    length: T.bool,
+    tags: T.object,
   }),
   middleNode: T.oneOfType([T.string, T.node]),
 }

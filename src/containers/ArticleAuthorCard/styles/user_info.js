@@ -4,24 +4,27 @@ import Img from '@components/Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex()};
+  ${cs.flexColumn()};
 `
 export const Avatar = styled(Img)`
-  ${cs.circle('40px')};
+  ${cs.circle('25px')};
   display: block;
+  margin-right: 10px;
+
   ${cs.media.mobile`
-    ${cs.circle('30px')};
+    ${cs.circle('25px')};
   `};
 `
 export const Brief = styled.div`
-  ${cs.flexColumn()};
-  margin-left: 12px;
+  ${cs.flex()};
 `
 export const Nickname = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 1rem;
+  font-size: 16px;
+  flex-grow: 1;
 `
 export const Bio = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 0.8rem;
+  font-size: 15px;
+  margin-top: 10px;
 `

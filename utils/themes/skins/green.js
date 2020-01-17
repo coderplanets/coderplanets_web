@@ -23,6 +23,7 @@ const green = {
   coverIndex: '#9e96c3',
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#212d26',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
@@ -134,6 +135,8 @@ const green = {
     topLine: primaryColor,
     icon: '#845145',
     divider: '#ced8c6',
+    /* single article page sidebar divider */
+    sideDivider: '#b2c3b0',
   },
   article: {
     link: primaryMate,
@@ -142,6 +145,7 @@ const green = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBg,
     icon: bannerTitle,
     didIcon: primaryMate,
     title: bannerTitle,

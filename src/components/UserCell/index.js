@@ -26,11 +26,11 @@ const UserCell = ({ user }) => {
 }
 
 UserCell.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   user: T.shape({
     id: T.string,
     avatar: T.string,
     nickname: T.string,
+    bio: T.string,
   }).isRequired,
 }
 

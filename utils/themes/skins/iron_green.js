@@ -23,6 +23,7 @@ const iconGreen = {
   coverIndex: '#F9FCFC',
   contrastFg: 'orange',
   htmlBg: bannerBg,
+  spaceBg: '#22393c',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
@@ -132,6 +133,8 @@ const iconGreen = {
     topLine: sidebarBg,
     icon: primaryColor,
     divider: descText,
+    /* single article page sidebar divider */
+    sideDivider: '#6e9a9e',
   },
   article: {
     link: primaryColor,
@@ -140,6 +143,7 @@ const iconGreen = {
     reactionHoverBg: contentBg,
   },
   comment: {
+    bg: contentBg,
     icon: '#62868a',
     didIcon: primaryColor,
     title: '#AAC1C1',

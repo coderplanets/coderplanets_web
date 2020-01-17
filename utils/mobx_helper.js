@@ -62,6 +62,7 @@ const matchResolver = (resolveArray, data) => {
     }
   }
 
+  // eslint-disable-next-line no-console
   console.warn('unMatched resovle data: ', data)
 }
 
@@ -157,6 +158,7 @@ export const stripMobx = obj => {
 export const updateEditing = (store, part, e) => {
   if (!store) return false
   if (!store.updateEditing)
+    // eslint-disable-next-line no-console
     return console.warn('Error: updateEditing not found in store: ', store)
 
   let value = e

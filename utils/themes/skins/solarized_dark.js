@@ -23,6 +23,7 @@ const solarizedDark = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#062129',
   mobileTab: bannerBg,
   loading: {
     basic: bannerBg,
@@ -134,6 +135,8 @@ const solarizedDark = {
     topLine: '#41c7bd',
     icon: '#41c7bd',
     divider: '#005255',
+    /* single article page sidebar divider */
+    sideDivider: '#094556',
   },
   article: {
     link: '#276788',
@@ -142,18 +145,19 @@ const solarizedDark = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: '#08303c',
     icon: '#62868a',
     didIcon: 'orange',
     title: '#62868a',
     username: '#62868a',
     number: '#00A59B',
-    floor: '#00A59B',
+    floor: '#5c8186',
     reply: '#638688',
-    replyBg: '#004c5f',
+    replyBg: '#023c4a',
     placeholder: '#62868a',
     filter: '#62868a',
     filterActive: primaryColor,
-    action: '#62868a',
+    action: '#4d6a6d',
     // mention text displayed in article
     mentionText: '#91a4b5',
     mentionTextBg: '#115267',

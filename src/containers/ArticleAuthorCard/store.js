@@ -14,7 +14,7 @@ const log = buildLog('S:ArticleAuthorCard')
 
 const ArticleAuthorCard = t
   .model('ArticleAuthorCard', {
-    hasFollowd: t.optional(t.boolean, false),
+    hasFollowed: t.optional(t.boolean, false),
     following: t.optional(t.boolean, false),
     user: t.optional(User, {}),
   })

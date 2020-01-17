@@ -60,6 +60,7 @@ const Attachment = t.model('Attachment', {
 const PreviewStore = t
   .model('PreviewStore', {
     visible: t.optional(t.boolean, false),
+    windowWidth: t.optional(t.number, 1520),
     type: t.maybeNull(
       t.enumeration('previewType', [
         TYPE.PREVIEW_ROOT_STORE,
@@ -84,6 +85,14 @@ const PreviewStore = t
     },
     get media() {
       return self.root.media
+    },
+    // 预览面板从最右侧滑出的偏移量
+    get rightOffset() {
+      const { windowWidth } = self
+      const { GLOBAL_MAX_WIDTH } = cs
+      const MAX_WIDTH = Number(GLOBAL_MAX_WIDTH.slice(0, -2))
+
+      return `${windowWidth <= MAX_WIDTH ? 0 : (windowWidth - MAX_WIDTH) / 2}px`
     },
     get curCommunity() {
       return stripMobx(self.root.viewing.community)

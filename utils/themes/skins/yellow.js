@@ -22,6 +22,7 @@ const yellow = {
   coverIndex: primaryMate,
   contrastFg: 'orange',
   htmlBg: contentBoxBg,
+  spaceBg: '#1f0f02',
   mobileTab: '#AF9A82',
   loading: {
     basic: bannerBg,
@@ -133,6 +134,8 @@ const yellow = {
     topLine: '#4EAFA5',
     icon: '#4EAFA5',
     divider: '#eae7de',
+    /* single article page sidebar divider */
+    sideDivider: '#e4ddd2',
   },
   article: {
     link: primaryMate,
@@ -141,6 +144,7 @@ const yellow = {
     reactionHoverBg: lighten(0.04, contentBg),
   },
   comment: {
+    bg: contentBoxBg,
     icon: lighten(0.06, primaryColor),
     didIcon: primaryMate,
     title: lighten(0.06, primaryColor),

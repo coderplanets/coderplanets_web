@@ -5,7 +5,9 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
+import { SITE_URL } from '@config'
 import { ROUTE } from '@constant'
+
 import {
   parseURL,
   getJwtToken,
@@ -16,20 +18,11 @@ import {
   parseTheme,
 } from '@utils'
 
-import AnalysisService from '@services/Analysis'
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import MultiLanguage from '@containers/MultiLanguage'
-import Sidebar from '@containers/Sidebar'
-import Preview from '@containers/Preview'
-import Doraemon from '@containers/Doraemon'
-import Route from '@containers/Route'
-import Header from '@containers/Header'
-import CommunitiesBanner from '@containers/CommunitiesBanner'
-import CommunitiesContent from '@containers/CommunitiesContent'
-import Footer from '@containers/Footer'
+import CommunitiesBanner from '@containers/banner/CommunitiesBanner'
+import CommunitiesContent from '@containers/content/CommunitiesContent'
 
 import { P } from '@schemas'
 
@@ -124,24 +117,18 @@ export default class CommunitiesPage extends React.Component {
   }
 
   render() {
+    const seoConfig = {
+      url: `${SITE_URL}/communities`,
+      title: 'coderplanets | 社区索引',
+      description: 'coderplanets | 社区索引',
+    }
+
     return (
       <Provider store={this.store}>
-        <AnalysisService>
-          <ThemeWrapper>
-            <Route />
-            <MultiLanguage>
-              <Sidebar />
-              <Preview />
-              <Doraemon />
-              <GlobalLayout>
-                <Header />
-                <CommunitiesBanner />
-                <CommunitiesContent />
-                <Footer />
-              </GlobalLayout>
-            </MultiLanguage>
-          </ThemeWrapper>
-        </AnalysisService>
+        <GlobalLayout page="communities" seoConfig={seoConfig}>
+          <CommunitiesBanner />
+          <CommunitiesContent />
+        </GlobalLayout>
       </Provider>
     )
   }
