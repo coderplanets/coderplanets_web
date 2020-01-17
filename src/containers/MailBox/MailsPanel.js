@@ -1,6 +1,5 @@
 import React from 'react'
 import R from 'ramda'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { ICON_CMD } from '@config'
 import TabSelector from '@components/TabSelector'
@@ -48,13 +47,10 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
         activeRaw={activeRaw}
         onChange={selectChange}
       />
-      <OverlayScrollbarsComponent
-        options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-      >
-        <ContentWrapper>
-          <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
-        </ContentWrapper>
-      </OverlayScrollbarsComponent>
+
+      <ContentWrapper>
+        <MailLists activeRaw={activeRaw} pagedMentions={pagedMentions} />
+      </ContentWrapper>
       <SeeAllMessages onClick={seeAll}>查看全部消息</SeeAllMessages>
     </Wrapper>
   )

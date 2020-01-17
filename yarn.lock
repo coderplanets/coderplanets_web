@@ -8617,10 +8617,6 @@ outlayer@^2.1.0:
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
 
-overlayscrollbars-react@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npm.taobao.org/overlayscrollbars-react/download/overlayscrollbars-react-0.1.0.tgz#54ae394b07fc9ef9c3ce084b7f0dcbad7569605f"
-
 overlayscrollbars@1.9.1:
   version "1.9.1"
   resolved "https://registry.npm.taobao.org/overlayscrollbars/download/overlayscrollbars-1.9.1.tgz#46f5f275e3966b11dbf147f6c441e777c313af76"
