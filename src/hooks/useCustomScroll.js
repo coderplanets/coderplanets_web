@@ -7,15 +7,14 @@ import OverlayScrollbars from 'overlayscrollbars'
  *
  * @returns
  */
-const useCustomScroll = (
-  ref,
-  option = {
-    scrollbars: { autoHide: 'scroll' },
-  }
-) => {
+const useCustomScroll = (ref, option = {}) => {
   useEffect(() => {
     if (OverlayScrollbars && ref.current) {
-      OverlayScrollbars(ref.current, option)
+      const defaultOption = {
+        scrollbars: { autoHide: 'scroll' },
+        className: 'os-theme-light',
+      }
+      OverlayScrollbars(ref.current, Object.assign(defaultOption, option))
     }
   }, [ref]) // Empty array ensures that effect is only run on mount and unmount
 }

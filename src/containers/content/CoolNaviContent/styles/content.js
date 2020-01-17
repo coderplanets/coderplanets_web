@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow()};
-  min-height: 90vh;
   margin-top: 10px;
-  overflow-x: scroll;
+  min-height: 90vh;
+  width: 100%;
 `
-
-export const holder = 1
+export const InnerWrapper = styled.div`
+  ${cs.flexGrow()};
+  height: 100%;
+`
