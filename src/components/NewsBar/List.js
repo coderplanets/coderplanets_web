@@ -181,7 +181,7 @@ const List = ({ setHeaderShadow }) => {
       <ListItemWrapper>
         <Header>
           <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          infoQ 中文站
+          Footer
           <SpaceGrow />
           <Timestamp>2天前</Timestamp>
         </Header>

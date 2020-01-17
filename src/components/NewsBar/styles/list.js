@@ -5,7 +5,9 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   padding: 5px;
-  height: 100%;
+  /* here must be a specific number */
+  height: 71vh;
+  overflow-y: scroll;
 `
 export const ListItemWrapper = styled.div`
   width: 100%;
