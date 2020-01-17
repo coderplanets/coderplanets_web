@@ -5,6 +5,7 @@
  */
 
 import React, { useRef } from 'react'
+import { Waypoint } from 'react-waypoint'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
@@ -25,12 +26,16 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NewsBar:index')
 
-const List = () => {
+const List = ({ setHeaderShadow }) => {
   const ref = useRef(null)
   useCustomScroll(ref)
 
   return (
     <Wrapper ref={ref}>
+      <Waypoint
+        onEnter={() => setHeaderShadow(false)}
+        onLeave={() => setHeaderShadow(true)}
+      />
       <ListItemWrapper>
         <Header>
           <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />

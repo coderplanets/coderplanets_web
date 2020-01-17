@@ -50,3 +50,25 @@ export const Title = styled.div`
   font-weight: bold;
   color: ${theme('thread.articleTitle')};
 `
+
+// box-shadow: ${({ dropShadow }) =>
+// dropShadow ? theme('sidebar.headerShadow') : 'none'};
+// border-bottom: ${({ dropShadow }) =>
+// dropShadow ? theme('sidebar.headerShadowBorderBottom') : ''};
+export const HeaderShadow = styled.div`
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    bottom: 0px;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    height: 50%;
+    border-radius: 100%;
+  }
+`

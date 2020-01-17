@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
@@ -14,12 +14,24 @@ import { SpaceGrow } from '@components/BaseStyled'
 import SourceSelector from './SourceSelector'
 import List from './List'
 
-import { Wrapper, Header, NumIcon, FunctionIcon, Footer, Title } from './styles'
+import {
+  Wrapper,
+  Header,
+  HeaderShadow,
+  NumIcon,
+  FunctionIcon,
+  Footer,
+  Title,
+} from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NewsBar:index')
 
 const NewsBar = ({ title, numIndex }) => {
+  const [headerShadow, setHeaderShadow] = useState(false)
+
+  console.log('headerShadow: ', headerShadow)
+
   return (
     <Wrapper>
       <Header>
@@ -29,7 +41,8 @@ const NewsBar = ({ title, numIndex }) => {
         <FunctionIcon src={`${ICON_CMD}/hot/info.svg`} />
       </Header>
       <SourceSelector />
-      <List />
+      <HeaderShadow dropShadow={headerShadow} />
+      <List setHeaderShadow={setHeaderShadow} />
       <Footer />
     </Wrapper>
   )
