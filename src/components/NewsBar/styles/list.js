@@ -5,6 +5,7 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   padding: 5px;
+  height: 100%;
 `
 export const ListItemWrapper = styled.div`
   width: 100%;

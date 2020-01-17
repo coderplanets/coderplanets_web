@@ -10,13 +10,13 @@ export const Wrapper = styled.div`
   color: ${theme('thread.articleDigest')};
   /* background: #02303e; */
   height: 90vh;
-  overflow: scroll;
   margin-right: 15px;
   flex-shrink: 0;
   border: 1px solid;
   border-color: ${bgColor};
   background-color: ${bgColor};
   border-radius: 3px;
+  overflow-y: scroll;
 `
 export const Header = styled.div`
   ${cs.flex('align-center')};

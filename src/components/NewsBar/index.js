@@ -4,12 +4,11 @@
  *
  */
 
-import React, { useRef } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
-import { useCustomScroll } from '@hooks'
 
 import { SpaceGrow } from '@components/BaseStyled'
 import SourceSelector from './SourceSelector'
@@ -21,12 +20,8 @@ import { Wrapper, Header, NumIcon, FunctionIcon, Footer, Title } from './styles'
 const log = buildLog('c:NewsBar:index')
 
 const NewsBar = ({ title, numIndex }) => {
-  // const ref = React.createRef()
-  const ref = useRef(null)
-  useCustomScroll(ref)
-
   return (
-    <Wrapper ref={ref}>
+    <Wrapper>
       <Header>
         <NumIcon src={`${ICON_CMD}/hot/num_${numIndex}.svg`} />
         <Title>{title}</Title>

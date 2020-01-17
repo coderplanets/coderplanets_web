@@ -4,10 +4,11 @@
  *
  */
 
-import React from 'react'
+import React, { useRef } from 'react'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
+import { useCustomScroll } from '@hooks'
 
 import { SpaceGrow } from '@components/BaseStyled'
 
@@ -25,8 +26,11 @@ import {
 const log = buildLog('c:NewsBar:index')
 
 const List = () => {
+  const ref = useRef(null)
+  useCustomScroll(ref)
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <ListItemWrapper>
         <Header>
           <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
@@ -53,6 +57,66 @@ const List = () => {
           <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
           infoQ 中文站
           <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
+          <SpaceGrow />
+          <Timestamp>2天前</Timestamp>
+        </Header>
+        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
+      </ListItemWrapper>
+
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
+          hackernews
+          <SpaceGrow />
+          <Timestamp>3天前</Timestamp>
+        </Header>
+        <Title>Thank HN: You helped me get a new job</Title>
+      </ListItemWrapper>
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
+          techcrunch
+          <SpaceGrow />
+          <Timestamp>3天前</Timestamp>
+        </Header>
+        <Title>
+          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
+        </Title>
+      </ListItemWrapper>
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
+          infoQ 中文站
+          <SpaceGrow />
+          <Timestamp>2天前</Timestamp>
+        </Header>
+        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
+      </ListItemWrapper>
+
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
+          hackernews
+          <SpaceGrow />
+          <Timestamp>3天前</Timestamp>
+        </Header>
+        <Title>Thank HN: You helped me get a new job</Title>
+      </ListItemWrapper>
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
+          techcrunch
+          <SpaceGrow />
+          <Timestamp>3天前</Timestamp>
+        </Header>
+        <Title>
+          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
+        </Title>
+      </ListItemWrapper>
+      <ListItemWrapper>
+        <Header>
+          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
+          infoQ 中文站
           <SpaceGrow />
           <Timestamp>2天前</Timestamp>
         </Header>
