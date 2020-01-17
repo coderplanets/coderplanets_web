@@ -19,21 +19,14 @@ import {
 
 import { onCommunitySelect } from './logic'
 
-const MenuBar = ({
-  pin,
-  sortOptActive,
-  item,
-  activeRaw,
-  forceRerender,
-  dropShadow,
-}) => (
+const MenuBar = ({ pin, sortOptActive, item, activeRaw, forceRerender }) => (
   <Wrapper onClick={onCommunitySelect.bind(this, item)}>
     <ActiveBar
       pin={pin}
       active={!sortOptActive && activeRaw === R.toLower(item.raw)}
     />
     <DragIcon src={`${ICON_CMD}/drag.svg`} show={sortOptActive} />
-    <MenuItemBar dropShadow={dropShadow}>
+    <MenuItemBar>
       <MenuRow
         pin={pin}
         sortOptActive={sortOptActive}
@@ -68,4 +61,4 @@ const MenuBar = ({
   </Wrapper>
 )
 
-export default MenuBar
+export default React.memo(MenuBar)
