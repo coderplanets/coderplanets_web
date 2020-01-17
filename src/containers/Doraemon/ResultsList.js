@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
+import { useCustomScroll } from '@hooks'
 
 import SuggestIcon from './SuggestIcon'
 import {
@@ -29,44 +30,49 @@ const HintIcon = ({ index, active, cur, length }) => {
   return null
 }
 
-const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <Wrapper>
-    <SuggestionWrapper empty={suggestions.length === 0}>
-      {suggestions.map((suggestion, i) => (
-        <InfoBar
-          active={activeRaw === suggestion.raw}
-          key={suggestion.raw}
-          id={suggestion.raw}
-          onMouseEnter={navToSuggestion.bind(this, suggestion)}
-          onClick={suggestionOnSelect}
-        >
-          <SuggestIcon
-            raw={suggestion.raw}
-            suggestion={suggestion}
-            round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
-            searchThread={searchThread}
-          />
-          <ContentWraper>
-            <Title>
-              <Highlighter
-                highlightClassName="doramon-search-highlighter"
-                searchWords={[searchValue]}
-                autoEscape
-                textToHighlight={suggestion.title}
-              />
-            </Title>
-            <Desc>{suggestion.desc}</Desc>
-          </ContentWraper>
-          <HintIcon
-            index={i}
-            active={activeRaw}
-            cur={suggestion.raw}
-            length={suggestions.length}
-          />
-        </InfoBar>
-      ))}
-    </SuggestionWrapper>
-  </Wrapper>
-)
+const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
+  const ref = useRef(null)
+  useCustomScroll(ref, { scrollbars: { autoHide: 'never' } })
+
+  return (
+    <Wrapper ref={ref}>
+      <SuggestionWrapper empty={suggestions.length === 0}>
+        {suggestions.map((suggestion, i) => (
+          <InfoBar
+            active={activeRaw === suggestion.raw}
+            key={suggestion.raw}
+            id={suggestion.raw}
+            onMouseEnter={navToSuggestion.bind(this, suggestion)}
+            onClick={suggestionOnSelect}
+          >
+            <SuggestIcon
+              raw={suggestion.raw}
+              suggestion={suggestion}
+              round={R.contains(searchThread, [THREAD.POST, THREAD.USER])}
+              searchThread={searchThread}
+            />
+            <ContentWraper>
+              <Title>
+                <Highlighter
+                  highlightClassName="doramon-search-highlighter"
+                  searchWords={[searchValue]}
+                  autoEscape
+                  textToHighlight={suggestion.title}
+                />
+              </Title>
+              <Desc>{suggestion.desc}</Desc>
+            </ContentWraper>
+            <HintIcon
+              index={i}
+              active={activeRaw}
+              cur={suggestion.raw}
+              length={suggestions.length}
+            />
+          </InfoBar>
+        ))}
+      </SuggestionWrapper>
+    </Wrapper>
+  )
+}
 
 export default ResultsList
