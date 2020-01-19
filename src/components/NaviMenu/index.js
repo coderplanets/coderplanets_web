@@ -23,6 +23,11 @@ const menu = [
     icon: `${ICON_CMD}/navi_fire.svg`,
   },
   {
+    id: '101',
+    title: '酷工具 / 服务',
+    icon: `${ICON_CMD}/navi_china.svg`,
+  },
+  {
     id: '1',
     title: 'Github 国区',
     icon: `${ICON_CMD}/navi_china.svg`,
@@ -72,21 +77,21 @@ const menu = [
     title: '命令行',
     icon: `${ICON_CMD}/navi_shell.svg`,
   },
-  {
-    id: '11',
-    title: '酷社区',
-    icon: `${ICON_CMD}/navi_community.svg`,
-  },
+  // {
+  //   id: '11',
+  //   title: '酷社区',
+  //   icon: `${ICON_CMD}/navi_community.svg`,
+  // },
   {
     id: '12',
     title: '酷团队',
     icon: `${ICON_CMD}/navi_group.svg`,
   },
-  {
-    id: '13',
-    title: '客户端',
-    icon: `${ICON_CMD}/navi_client.svg`,
-  },
+  // {
+  //   id: '13',
+  //   title: '客户端',
+  //   icon: `${ICON_CMD}/navi_client.svg`,
+  // },
   {
     id: '14',
     title: '值得订阅',
@@ -99,17 +104,17 @@ const menu = [
   },
   {
     id: '16',
-    title: '影/剧/纪录片',
+    title: '影剧 / Talks',
     icon: `${ICON_CMD}/navi_movie.svg`,
   },
   {
     id: '17',
-    title: '研究报告',
+    title: '趋势 / 报告',
     icon: `${ICON_CMD}/navi_glasses.svg`,
   },
   {
     id: '18',
-    title: '文体圈',
+    title: '文体娱乐',
     icon: `${ICON_CMD}/navi_sport.svg`,
   },
 ]

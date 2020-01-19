@@ -20,7 +20,6 @@ import {
   HeaderShadow,
   NumIcon,
   FunctionIcon,
-  Footer,
   Title,
 } from './styles'
 
@@ -29,8 +28,6 @@ const log = buildLog('c:NewsBar:index')
 
 const NewsBar = ({ title, numIndex }) => {
   const [headerShadow, setHeaderShadow] = useState(false)
-
-  console.log('headerShadow: ', headerShadow)
 
   return (
     <Wrapper>
@@ -43,7 +40,6 @@ const NewsBar = ({ title, numIndex }) => {
       <SourceSelector />
       <HeaderShadow dropShadow={headerShadow} />
       <List setHeaderShadow={setHeaderShadow} />
-      <Footer />
     </Wrapper>
   )
 }

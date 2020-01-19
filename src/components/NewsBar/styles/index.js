@@ -42,12 +42,6 @@ export const FunctionIcon = styled(NumIcon)`
     cursor: pointer;
   }
 `
-export const Footer = styled.div`
-  margin-top: 20px;
-  width: 100%;
-  border-bottom: 1px solid;
-  border-bottom-color: ${theme('logoText')};
-`
 export const Title = styled.div`
   font-weight: bold;
   color: ${theme('thread.articleTitle')};
