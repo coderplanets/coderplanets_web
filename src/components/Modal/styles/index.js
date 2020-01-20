@@ -22,6 +22,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   top: ${({ offsetTop }) => offsetTop};
   width: ${({ width }) => width};
+  border-radius: 8px;
   min-height: 320px;
   max-height: 81vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
