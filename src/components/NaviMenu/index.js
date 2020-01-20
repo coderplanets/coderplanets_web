@@ -28,6 +28,17 @@ const menu = [
     icon: `${ICON_CMD}/navi_china.svg`,
   },
   {
+    // 非 IT，设计类的网站
+    id: '103',
+    title: '精品网站',
+    icon: `${ICON_CMD}/navi_china.svg`,
+  },
+  {
+    id: '12',
+    title: '酷团队',
+    icon: `${ICON_CMD}/navi_group.svg`,
+  },
+  {
     id: '1',
     title: 'Github 国区',
     icon: `${ICON_CMD}/navi_china.svg`,
@@ -64,14 +75,14 @@ const menu = [
   },
   {
     id: '8',
-    title: '技术开发者',
+    title: '独立开发者',
     icon: `${ICON_CMD}/navi_hammer.svg`,
   },
-  {
-    id: '9',
-    title: '编辑器圣战',
-    icon: `${ICON_CMD}/navi_jesus.svg`,
-  },
+  // {
+  //   id: '9',
+  //   title: '编辑器圣战',
+  //   icon: `${ICON_CMD}/navi_jesus.svg`,
+  // },
   {
     id: '10',
     title: '命令行',
@@ -82,11 +93,6 @@ const menu = [
   //   title: '酷社区',
   //   icon: `${ICON_CMD}/navi_community.svg`,
   // },
-  {
-    id: '12',
-    title: '酷团队',
-    icon: `${ICON_CMD}/navi_group.svg`,
-  },
   // {
   //   id: '13',
   //   title: '客户端',
