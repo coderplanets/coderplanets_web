@@ -14,6 +14,7 @@ import useNetwork from 'react-use/lib/useNetwork'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
 import { ICON_CMD } from '@config'
+import { TYPE } from '@constant'
 import { connectStore } from '@utils'
 import { useShortcut, useMedia, usePlatform, useResize } from '@hooks'
 
@@ -84,7 +85,7 @@ const GlobalLayoutContainer = ({
   return (
     <AnalysisService>
       <ThemeWrapper>
-        <Wrapper>
+        <Wrapper id={TYPE.GLOBAL_LAYOUT_ID}>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (

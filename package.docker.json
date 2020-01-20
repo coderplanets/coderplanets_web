@@ -88,6 +88,7 @@
     "react-tooltip": "^3.4.0",
     "react-trend": "^1.2.4",
     "react-use": "^9.0.0",
+    "react-useportal": "^1.0.13",
     "react-waypoint": "9.0.2",
     "remarkable": "2.0.0",
     "remarkable-emoji": "^0.1.3",

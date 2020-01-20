@@ -10269,6 +10269,12 @@ react-use@^9.0.0:
     throttle-debounce "^2.0.1"
     ts-easing "^0.2.0"
 
+react-useportal@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.npm.taobao.org/react-useportal/download/react-useportal-1.0.13.tgz#abfc29f8128756cd7382bff7c81a4f446b792199"
+  dependencies:
+    use-ssr "^1.0.19"
+
 react-wait@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npm.taobao.org/react-wait/download/react-wait-0.3.0.tgz#0cdd4d919012451a5bc3ab0a16d00c6fd9a8c10b"
@@ -12050,6 +12056,10 @@ url@0.11.0, url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-ssr@^1.0.19:
+  version "1.0.22"
+  resolved "https://registry.npm.taobao.org/use-ssr/download/use-ssr-1.0.22.tgz#a43c2587b1907fabda61c6542b80542c619228fe"
 
 use-subscription@1.1.1:
   version "1.1.1"
