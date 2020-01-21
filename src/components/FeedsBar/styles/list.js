@@ -5,8 +5,8 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   padding: 5px;
-  /* here must be a specific number */
-  height: 71vh;
+  /* here must be a specific number, otherwise custom scorllbar will flash */
+  height: 74vh;
   overflow-y: scroll;
 `
 export const ListItemWrapper = styled.div`

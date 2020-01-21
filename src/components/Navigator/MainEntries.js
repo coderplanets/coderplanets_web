@@ -7,7 +7,9 @@ import Link from 'next/link'
 // import DiscussLinker from '@components/DiscussLinker'
 
 import { ROUTE } from '@constant'
+import Popover from '@components/Popover'
 
+import MoreContent from './MoreContent'
 import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
 
 const splitMargin = '8px'
@@ -26,8 +28,8 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
         社区
       </SiteLink>
     </Link>
-    <DotDivider space={splitMargin} />
-    <SiteLink>专栏</SiteLink>
+    {/* <DotDivider space={splitMargin} />
+    <SiteLink>专栏</SiteLink> */}
     <DotDivider space={splitMargin} />
     <SiteLink>活动</SiteLink>
     <DotDivider space={splitMargin} />
@@ -58,14 +60,9 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
       </SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
-      <SiteLink
-        active={mainPath === ROUTE.HAVE_A_DRINK}
-        testid={`header-${ROUTE.HAVE_A_DRINK}`}
-      >
-        更多..
-      </SiteLink>
-    </Link>
+    <Popover content={<MoreContent />} placement="bottom" trigger="click">
+      <SiteLink>更多..</SiteLink>
+    </Popover>
   </Wrapper>
 )
 

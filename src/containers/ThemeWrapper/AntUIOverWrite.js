@@ -386,6 +386,7 @@ const AntUIOverWrite = createGlobalStyle`
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important;
     z-index: ${cs.zIndex.popover};
+    box-shadow: ${theme('popover.boxShadow')}; 
   }
   .ant-popover-arrow {
     background-color: ${theme('popover.borderColor')} !important;
@@ -393,7 +394,7 @@ const AntUIOverWrite = createGlobalStyle`
     z-index: ${cs.zIndex.popover - 1};
   }
   .ant-popover-inner-content {
-    padding: 5px;
+    padding: 0;
   }
 `
 
