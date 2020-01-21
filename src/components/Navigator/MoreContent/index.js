@@ -34,7 +34,7 @@ const MoreContent = () => (
         <Logo src={`${ICON_CMD}/header/more_job.svg`} />
         <Intro>
           <Title>酷工作</Title>
-          <Desc>找工作，职场交流，酷团队</Desc>
+          <Desc>工作机会，职场交流，酷团队</Desc>
         </Intro>
       </Entry>
       <Entry>
@@ -43,21 +43,21 @@ const MoreContent = () => (
           <Title>
             周刊订阅 <Wip>开发中</Wip>
           </Title>
-          <Desc>站点动态，各社区周刊..</Desc>
+          <Desc>站点动态，各社区周刊等</Desc>
         </Intro>
       </Entry>
       <Entry>
         <Logo src={`${ICON_CMD}/header/more_data.svg`} />
         <Intro>
           <Title>社区统计</Title>
-          <Desc>活跃度，成员排行..</Desc>
+          <Desc>各社区活跃度，成员排行等</Desc>
         </Intro>
       </Entry>
       <Entry>
         <Logo src={`${ICON_CMD}/header/more_vip.svg`} />
         <Intro>
           <Title>高级会员</Title>
-          <Desc>升级高级会员，体验更好服务</Desc>
+          <Desc>升级高级会员，获得更好体验</Desc>
         </Intro>
       </Entry>
       <Entry>
