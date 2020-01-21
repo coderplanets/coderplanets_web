@@ -24,7 +24,7 @@ import {
 } from './styles/list'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NewsBar:index')
+const log = buildLog('c:FeedsBar:index')
 
 const List = ({ setHeaderShadow }) => {
   const ref = useRef(null)

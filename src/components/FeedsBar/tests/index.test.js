@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import NewsBar from '../index'
+// import FeedsBar from '../index'
 
-describe('TODO <NewsBar />', () => {
+describe('TODO <FeedsBar />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

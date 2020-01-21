@@ -6,7 +6,7 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};
-  max-width: 580px;
+  max-width: 650px;
   height: 100%;
   ${cs.media.mobile`
     margin-right: 0;

@@ -57,6 +57,15 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
         来一杯
       </SiteLink>
     </Link>
+    <DotDivider space={splitMargin} />
+    <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
+      <SiteLink
+        active={mainPath === ROUTE.HAVE_A_DRINK}
+        testid={`header-${ROUTE.HAVE_A_DRINK}`}
+      >
+        更多..
+      </SiteLink>
+    </Link>
   </Wrapper>
 )
 

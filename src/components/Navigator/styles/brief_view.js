@@ -63,7 +63,7 @@ export const CommunityTitle = styled.div`
 `
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};
-  max-width: 580px;
+  max-width: 650px;
   margin-left: 160px;
   height: 100%;
 `

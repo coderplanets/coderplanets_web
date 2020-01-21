@@ -1,6 +1,6 @@
 /*
  *
- * NewsBar
+ * FeedsBar
  *
  */
 
@@ -24,9 +24,9 @@ import {
 } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NewsBar:index')
+const log = buildLog('c:FeedsBar:index')
 
-const NewsBar = ({ title, numIndex }) => {
+const FeedsBar = ({ title, numIndex }) => {
   const [headerShadow, setHeaderShadow] = useState(false)
 
   return (
@@ -44,14 +44,14 @@ const NewsBar = ({ title, numIndex }) => {
   )
 }
 
-NewsBar.propTypes = {
+FeedsBar.propTypes = {
   title: T.string.isRequired,
   // https://www.npmjs.com/package/prop-types
   numIndex: T.number,
 }
 
-NewsBar.defaultProps = {
+FeedsBar.defaultProps = {
   numIndex: 0,
 }
 
-export default React.memo(NewsBar)
+export default React.memo(FeedsBar)

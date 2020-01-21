@@ -19,7 +19,7 @@ const log = buildLog('c:NaviMenu:index')
 const menu = [
   {
     id: '0',
-    title: '今日热议',
+    title: '本周热议',
     icon: `${ICON_CMD}/navi_fire.svg`,
   },
   {
@@ -40,7 +40,7 @@ const menu = [
   },
   {
     id: '1',
-    title: 'Github 国区',
+    title: 'Github',
     icon: `${ICON_CMD}/navi_china.svg`,
   },
   {
@@ -88,11 +88,11 @@ const menu = [
     title: '命令行',
     icon: `${ICON_CMD}/navi_shell.svg`,
   },
-  // {
-  //   id: '11',
-  //   title: '酷社区',
-  //   icon: `${ICON_CMD}/navi_community.svg`,
-  // },
+  {
+    id: '11',
+    title: '酷发明',
+    icon: `${ICON_CMD}/navi_community.svg`,
+  },
   // {
   //   id: '13',
   //   title: '客户端',
