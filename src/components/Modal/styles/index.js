@@ -27,7 +27,8 @@ export const Wrapper = styled.div`
   max-height: 81vh;
   box-shadow: -5px 6px 37px -8px rgba(0, 0, 0, 0.42);
   /* border: 1px solid; */
-  border-top: 3px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
   border-color: ${({ mode }) =>
     mode === 'default' ? theme('modal.border') : theme('baseColor.error')};
   animation: ${animate.zoomInRule};
