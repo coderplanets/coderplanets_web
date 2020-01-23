@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
+import Img from '@components/Img'
 import DotDividerBase from '@components/DotDivider'
 
 export const Wrapper = styled.div`
@@ -16,6 +17,7 @@ export const DotDivider = styled(DotDividerBase)`
 export const SiteLink = styled.a.attrs(props => ({
   'data-testid': props.testid,
 }))`
+  ${cs.flex('align-center')};
   color: ${({ active }) =>
     active ? theme('banner.title') : theme('banner.desc')};
   background: ${({ active }) =>
@@ -33,4 +35,11 @@ export const SiteLink = styled.a.attrs(props => ({
     border-bottom-color: theme('tabs.headerActive');
     padding: 5px 3px 3px 3px;
   }
+`
+export const Icon = styled(Img)`
+  fill: ${theme('banner.desc')};
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  display: block;
 `

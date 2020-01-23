@@ -1,16 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 
-// import { ISSUE_ADDR } from '@config'
-
-// import Popover from '@components/Popover'
-// import DiscussLinker from '@components/DiscussLinker'
-
+import { ICON_CMD } from '@config'
 import { ROUTE } from '@constant'
 import Popover from '@components/Popover'
 
 import MoreContent from './MoreContent'
-import { Wrapper, DotDivider, SiteLink } from './styles/main_entries'
+import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
 const splitMargin = '8px'
 
@@ -61,7 +57,9 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
     </Link>
     <DotDivider space={splitMargin} />
     <Popover content={<MoreContent />} placement="bottom" trigger="click">
-      <SiteLink>更多..</SiteLink>
+      <SiteLink>
+        更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
+      </SiteLink>
     </Popover>
   </Wrapper>
 )
