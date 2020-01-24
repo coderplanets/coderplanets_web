@@ -6,8 +6,11 @@ export const Wrapper = styled.div`
   border-right: 1px solid #003847;
   border-left: 1px solid #003847;
   background: #042833;
-  padding-top: 5px;
-  padding-bottom: 6px;
+  padding-top: ${({ active }) => (active ? '5px' : '0')};
+  padding-bottom: ${({ active }) => (active ? '6px' : '0')};
+  max-height: ${({ active }) => (active ? '500px' : '0')};
+  overflow: hidden;
+  transition: max-height 0.2s ease;
 `
 export const Item = styled.div`
   ${cs.flex('justify-end')};

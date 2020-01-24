@@ -21,11 +21,16 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const ChildrenItems = ({ items }) => {
+const ChildrenItems = ({ activeMenuId, parentId, items, itemOnClick }) => {
+  // if (activeMenuId !== parentId) {
+  //   return <div />
+  // }
+  const menuItems = items || []
+
   return (
-    <Wrapper>
-      {items.map(item => (
-        <div key={item.id}>
+    <Wrapper active={activeMenuId === parentId}>
+      {menuItems.map(item => (
+        <div key={item.id} onClick={() => itemOnClick(parentId, item.id)}>
           <Item active={item.id === '101'}>
             {item.id === '101' && <ActiveDot />}
 
@@ -39,9 +44,15 @@ const ChildrenItems = ({ items }) => {
 }
 
 ChildrenItems.propTypes = {
-  items: T.object.isRequired,
+  activeMenuId: T.oneOfType([T.string, T.instanceOf(null)]),
+  parentId: T.string.isRequired,
+  // TODO:  more spec
+  items: T.arrayOf(T.object).isRequired,
+  itemOnClick: T.func.isRequired,
 }
 
-ChildrenItems.defaultProps = {}
+ChildrenItems.defaultProps = {
+  activeMenuId: null,
+}
 
 export default React.memo(ChildrenItems)

@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 // import T from 'prop-types'
 
 import { buildLog } from '@utils'
@@ -68,15 +68,15 @@ const menu = [
     icon: `${ICON_CMD}/navi_fire.svg`,
   },
   {
+    id: '12',
+    title: '公共数据',
+    icon: `${ICON_CMD}/navi_group.svg`,
+  },
+  {
     // 非 IT，设计类的网站
     id: '103',
     title: '创投服务',
     icon: `${ICON_CMD}/navi_china.svg`,
-  },
-  {
-    id: '12',
-    title: 'API / 数据集',
-    icon: `${ICON_CMD}/navi_group.svg`,
   },
   {
     id: '14',
@@ -102,16 +102,30 @@ const menu = [
 
 /* <ActiveDot /> */
 const Catalog = () => {
+  const [activeMenuId, setActiveMenuId] = useState(null)
+
   return (
     <Wrapper>
       {menu.map(item => (
         <div key={item.id}>
-          <Item active={item.id === '0'}>
+          <Item
+            active={item.id === '0'}
+            onClick={() => setActiveMenuId(item.id)}
+          >
             <Icon active={item.id === '0'} src={item.icon} />
             <SpaceGrow />
             {item.title}
           </Item>
-          {item.children && <ChildrenItems items={item.children} />}
+          {item.children && (
+            <ChildrenItems
+              activeMenuId={activeMenuId}
+              parentId={item.id}
+              items={item.children}
+              itemOnClick={id => {
+                console.log('click child item d: ', id)
+              }}
+            />
+          )}
         </div>
       ))}
     </Wrapper>
