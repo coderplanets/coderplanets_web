@@ -13,6 +13,8 @@ export const Wrapper = styled.div`
 `
 export const DotDivider = styled(DotDividerBase)`
   background-color: ${theme('banner.desc')};
+  width: 4px;
+  height: 4px;
 `
 export const SiteLink = styled.a.attrs(props => ({
   'data-testid': props.testid,

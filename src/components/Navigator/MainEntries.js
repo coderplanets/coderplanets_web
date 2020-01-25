@@ -8,7 +8,7 @@ import Popover from '@components/Popover'
 import MoreContent from './MoreContent'
 import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
-const splitMargin = '8px'
+const splitMargin = '7px'
 
 const MainEntries = ({ curRoute: { mainPath } }) => (
   <Wrapper>

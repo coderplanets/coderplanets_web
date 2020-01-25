@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
 import Img from '@Img'
+import DotDividerBase from '@components/DotDivider'
 import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
@@ -17,6 +18,15 @@ export const Logo = styled(CommunityFaceLogo)`
   width: 22px;
   margin-top: -5px;
   opacity: 0.7;
+`
+export const LogoLink = styled.a`
+  margin-right: 10px;
+`
+export const DotDivider = styled(DotDividerBase)`
+  background-color: ${theme('banner.desc')};
+  margin-right: 0;
+  width: 4px;
+  height: 4px;
 `
 // font-family: cursive; // not general
 export const LogoText = styled.a`
