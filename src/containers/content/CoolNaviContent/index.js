@@ -10,7 +10,7 @@ import { connectStore, buildLog } from '@utils'
 
 import NaviMenu from '@components/NaviMenu'
 import Content from './Content'
-import ThankBoard from './ThankBoard'
+import Footer from './Footer'
 
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
@@ -27,7 +27,7 @@ const CoolNaviContentContainer = ({ coolNaviContent }) => {
         <NaviMenu />
         <ContentWrapper>
           <Content />
-          <ThankBoard />
+          <Footer />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>
