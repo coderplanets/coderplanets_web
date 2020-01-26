@@ -43,7 +43,7 @@ const MoreContent = () => (
           <Title>
             周刊订阅 <Wip>开发中</Wip>
           </Title>
-          <Desc>站点动态，各社区周刊等</Desc>
+          <Desc>社区 RSS 订阅，专题周刊等</Desc>
         </Intro>
       </Entry>
       <Entry>

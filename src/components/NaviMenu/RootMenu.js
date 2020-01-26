@@ -45,8 +45,13 @@ const menu = [
     icon: `${ICON_CMD}/navi_china.svg`,
   },
   {
+    id: '17',
+    title: '数据酷', // '趋势 / 报告',
+    icon: `${ICON_CMD}/navi_glasses.svg`,
+  },
+  {
     id: '2',
-    title: '播客',
+    title: 'Podcast(播客)',
     icon: `${ICON_CMD}/navi_podcast.svg`,
   },
   {
@@ -56,24 +61,24 @@ const menu = [
   },
   {
     id: '4',
-    title: '教程 / 资源', // 技术书籍，中文文档, 翻译文章
+    title: '教程 / 资源', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
     icon: `${ICON_CMD}/navi_translate.svg`,
   },
-  // {
-  //   id: '5',
-  //   title: '技术书籍',
-  //   icon: `${ICON_CMD}/navi_book.svg`,
-  // },
+  {
+    id: '41',
+    title: 'IT 博物馆',
+    icon: `${ICON_CMD}/navi_translate.svg`,
+  },
   {
     id: '6',
-    title: 'IT 名人堂',
+    title: '计算机名人堂',
     icon: `${ICON_CMD}/navi_famous.svg`,
   },
-  {
-    id: '7',
-    title: '独立博客',
-    icon: `${ICON_CMD}/navi_blog.svg`,
-  },
+  // {
+  //   id: '7',
+  //   title: '独立博客', // --> 转移到 值得关注
+  //   icon: `${ICON_CMD}/navi_blog.svg`,
+  // },
   {
     id: '8',
     title: '独立开发者',
@@ -101,7 +106,7 @@ const menu = [
   // },
   {
     id: '14',
-    title: '值得订阅',
+    title: '值得订阅/关注', // 专栏，公众号，twitter, 微博 等等
     icon: `${ICON_CMD}/navi_subscribe.svg`,
   },
   // {
@@ -113,11 +118,6 @@ const menu = [
     id: '16',
     title: '影剧 / Talks',
     icon: `${ICON_CMD}/navi_movie.svg`,
-  },
-  {
-    id: '17',
-    title: '趋势 / 报告',
-    icon: `${ICON_CMD}/navi_glasses.svg`,
   },
   {
     id: '18',
