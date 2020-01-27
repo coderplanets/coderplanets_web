@@ -10,9 +10,21 @@ import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:HaveADrinkContent')
 
-// NOTE: add me to stores/index && stores/RootStore/index
 const HaveADrinkContent = t
-  .model('HaveADrinkContent', {})
+  .model('HaveADrinkContent', {
+    // current sub-view of the drink page
+    view: t.optional(
+      t.enumeration('view', [
+        'default',
+        'catalog',
+        'setting',
+        'edit',
+        'share',
+        'comment',
+      ]),
+      'default'
+    ),
+  })
   .views(self => ({
     get root() {
       return getParent(self)

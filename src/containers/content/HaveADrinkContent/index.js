@@ -35,12 +35,15 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
     setTimeout(() => unholdPage(), 1000)
   })
 
+  console.log('haveADrinkContent: ', haveADrinkContent)
+  const { view } = haveADrinkContent
+
   return (
     <Wrapper>
       <InnerWrapper>
-        <Header />
-        <Body />
-        <Footer />
+        <Header view={view} />
+        <Body view={view} />
+        <Footer view={view} />
       </InnerWrapper>
     </Wrapper>
   )

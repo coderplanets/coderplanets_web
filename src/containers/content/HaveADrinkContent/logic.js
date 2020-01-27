@@ -14,7 +14,9 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
 
-export const someMethod = () => {}
+export const setView = view => {
+  store.mark({ view })
+}
 
 // const const cancleLoading = () => {}
 

@@ -194,8 +194,8 @@ const rootStore = t
     favoritesCats: t.optional(FavoritesCatsStore, {}),
 
     // have a drink
-    haveADrinkContentStore: t.optional(HaveADrinkContentStore, {}),
-    coolNaviContentStore: t.optional(CoolNaviContentStore, {}),
+    haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
+    coolNaviContent: t.optional(CoolNaviContentStore, {}),
   })
   .views(self => ({
     get isOnline() {

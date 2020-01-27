@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-end')}
+  ${cs.flex('align-start')}
   color: ${theme('thread.articleDigest')};
   width: 40%;
 `
@@ -14,10 +14,24 @@ export const Text = styled.span`
   font-size: 12px;
 `
 export const TotalNum = styled.span`
+  margin-top: -2px;
   margin-left: 4px;
-  margin-right: 3px;
+  margin-right: 5px;
   color: ${theme('thread.articleTitle')};
 `
-export const TagText = styled.span`
-  font-size: 13px;
+export const Divider = styled.div`
+  margin-left: 5px;
+  margin-right: 2px;
+  margin-top: -2px;
+`
+export const UnderlineBtn = styled.div`
+  border-bottom: 1px dashed grey;
+  margin-top: -2px;
+  margin-left: 2px;
+  margin-right: 2px;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
 `
