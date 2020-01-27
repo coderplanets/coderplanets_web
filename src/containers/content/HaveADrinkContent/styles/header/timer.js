@@ -12,21 +12,19 @@ export const Wrapper = styled.div`
 export const IconWrapper = styled.div`
   position: relative;
 `
-export const OptionsWrapper = styled.div`
-  position: absolute;
-  left: 28px;
-  top: 1px;
-  width: 60px;
-  opacity: 0;
-
-  ${IconWrapper}:hover & {
-    opacity: 1;
-  }
-  transition: all 0.2s;
+export const SettingPanelWrapper = styled.div`
+  padding: 10px;
+  width: 140px;
 `
-export const HintMsg = styled.div`
-  font-size: 12px;
+export const SettingItem = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
+  margin-bottom: 4px;
+
+  &:hover {
+    color: ${theme('thread.articleTitle')};
+    cursor: pointer;
+  }
 `
 export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
