@@ -3,7 +3,7 @@ const ROUTE = {
   HOME: 'home',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
-  ACTIVITIES: 'activities',
+  // ACTIVITIES: 'activities',
   POSTS: 'posts',
   JOBS: 'jobs',
   VIDEOS: 'videos',
@@ -21,6 +21,7 @@ const ROUTE = {
   VIDEO: 'video',
   REPO: 'repo',
 
+  ACTIVITIES: 'activities',
   HAVE_A_DRINK: 'have-a-drink',
   COOL_NAVI: 'cool-navi',
 }

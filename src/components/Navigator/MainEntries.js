@@ -27,7 +27,9 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
     {/* <DotDivider space={splitMargin} />
     <SiteLink>专栏</SiteLink> */}
     <DotDivider space={splitMargin} />
-    <SiteLink>活动</SiteLink>
+    <Link href={`/${ROUTE.ACTIVITIES}`} passHref>
+      <SiteLink active={mainPath === ROUTE.ACTIVITIES}>活动</SiteLink>
+    </Link>
     <DotDivider space={splitMargin} />
     <SiteLink>小周边</SiteLink>
     {/* <Popover

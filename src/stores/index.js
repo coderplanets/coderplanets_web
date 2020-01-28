@@ -81,10 +81,13 @@ export { default as ArticleBodyHeaderStore } from '@containers/ArticleBodyHeader
 
 export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/store'
 
-// have a drink
+// activities page
+export { default as ActivitiesContentStore } from '@containers/content/ActivitiesContent/store'
+// have a drink page
 export { default as HaveADrinkContentStore } from '@containers/content/HaveADrinkContent/store'
-// cool navi
+// cool navi page
 export { default as CoolNaviContentStore } from '@containers/content/CoolNaviContent/store'
+
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'
 export { default as UserPublishedCommentsStore } from '@containers/user/UserPublishedComments/store'
