@@ -19,7 +19,7 @@ import { setView } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ view }) => {
+const View = ({ view, ...restProps }) => {
   switch (view) {
     case 'catalog': {
       return (
@@ -34,7 +34,7 @@ const View = ({ view }) => {
       return (
         <React.Fragment>
           <IndexStatus />
-          <Timer />
+          <Timer {...restProps} />
           <Reaction />
         </React.Fragment>
       )
@@ -42,10 +42,10 @@ const View = ({ view }) => {
   }
 }
 
-const Header = ({ view }) => {
+const Header = ({ ...restProps }) => {
   return (
     <Wrapper>
-      <View view={view} />
+      <View {...restProps} />
     </Wrapper>
   )
 }

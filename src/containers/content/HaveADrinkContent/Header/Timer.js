@@ -18,32 +18,61 @@ import {
   Icon,
   SettingPanelWrapper,
   SettingItem,
+  SettingDivider,
+  SelectIcon,
+  SelectDot,
 } from '../styles/header/timer'
-// import { useInit } from './logic'
+
+import { toggleTimer, setTimerInterval } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const SettingPanel = () => {
+// `${ICON_CMD}/turn_on.svg`
+const SettingPanel = ({ timer, timerInterval }) => {
   return (
     <SettingPanelWrapper>
-      <SettingItem>定时刷新</SettingItem>
-      <SettingItem>间隔 3 秒</SettingItem>
-      <SettingItem>间隔 5 秒</SettingItem>
-      <SettingItem>间隔 10 秒</SettingItem>
+      <SettingItem onClick={toggleTimer}>
+        <div>定时刷新</div>
+        {timer === null ? (
+          <SelectIcon src={`${ICON_CMD}/turn_off.svg`} />
+        ) : (
+          <SelectIcon src={`${ICON_CMD}/turn_on.svg`} />
+        )}
+      </SettingItem>
+
+      {timer && (
+        <React.Fragment>
+          <SettingDivider />
+          <SettingItem onClick={() => setTimerInterval('3s')}>
+            <div>间隔 3 秒</div>
+            {timerInterval === '3s' && <SelectDot />}
+          </SettingItem>
+          <SettingItem onClick={() => setTimerInterval('5s')}>
+            间隔 5 秒{timerInterval === '5s' && <SelectDot />}
+          </SettingItem>
+          <SettingItem onClick={() => setTimerInterval('10s')}>
+            间隔 10 秒{timerInterval === '10s' && <SelectDot />}
+          </SettingItem>
+        </React.Fragment>
+      )}
     </SettingPanelWrapper>
   )
 }
 
-const Timer = ({ type }) => {
+const Timer = ({ timer, timerInterval }) => {
   return (
     <Wrapper>
-      <Popover placement="bottom" trigger="hover" content={<SettingPanel />}>
+      <Popover
+        placement="bottom"
+        trigger="hover"
+        content={<SettingPanel timer={timer} timerInterval={timerInterval} />}
+      >
         <IconWrapper>
-          {type === 'default' ? (
+          {timer === null ? (
             <Icon src={`${ICON_CMD}/timer.svg`} />
           ) : (
-            <RunningTimer />
+            <RunningTimer interval={timerInterval} />
           )}
         </IconWrapper>
       </Popover>
@@ -52,11 +81,13 @@ const Timer = ({ type }) => {
 }
 
 Timer.propTypes = {
-  type: T.oneOf(['default', 'running']),
+  timer: T.oneOfType([T.number, T.instanceOf(null)]),
+  timerInterval: T.oneOf(['3s', '5s', '10s']),
 }
 
 Timer.defaultProps = {
-  type: 'default',
+  timer: null,
+  timerInterval: '3s',
 }
 
 export default Timer

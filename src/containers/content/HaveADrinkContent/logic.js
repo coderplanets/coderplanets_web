@@ -14,11 +14,58 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
 
-export const setView = view => {
-  store.mark({ view })
+/**
+ * change the main view type
+ *
+ * @param {string} view, view type
+ */
+export const setView = view => store.mark({ view })
+
+/**
+ * start the refresh internal timer
+ * @private
+ */
+const startTimer = () => {
+  const { timerIntervalVal } = store
+  let { timer } = store
+
+  timer = setInterval(() => {
+    console.log('setInterval: ', timer)
+  }, timerIntervalVal)
+
+  store.mark({ timer })
 }
 
-// const const cancleLoading = () => {}
+/**
+ * stop the refresh internal timer
+ * @private
+ */
+const stopTimer = () => {
+  const { timer } = store
+
+  clearInterval(timer)
+  store.mark({ timer: null })
+}
+
+/**
+ * toggle the refresh internal timer
+ * @private
+ */
+export const toggleTimer = () => {
+  const { timer } = store
+  timer ? stopTimer() : startTimer()
+}
+
+/**
+ * set the internal val of the timer
+ * @param {string} timerInterval, interval of the timer: 3s | 5s | 10s
+ * @private
+ */
+export const setTimerInterval = timerInterval => {
+  stopTimer()
+  store.mark({ timerInterval })
+  startTimer()
+}
 
 // ###############################
 // Data & Error handlers
