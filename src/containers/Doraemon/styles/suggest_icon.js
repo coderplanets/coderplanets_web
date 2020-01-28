@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@components/Img'
+import Img from '@Img'
 import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { cs } from '@utils'
 

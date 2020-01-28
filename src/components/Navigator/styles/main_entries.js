@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
-import Img from '@components/Img'
+import Img from '@Img'
 import DotDividerBase from '@components/DotDivider'
 
 export const Wrapper = styled.div`
