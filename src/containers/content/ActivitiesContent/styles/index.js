@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-both')}
+  ${cs.flex()}
   width: 100%;
 `
 export const InnerWrapper = styled.div`
@@ -19,6 +19,8 @@ export const InnerWrapper = styled.div`
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
 export const ContentWrapper = styled.div`
-  ${cs.flexColumnGrow()};
+  ${cs.flex()};
+  align-content: start;
+  flex-wrap: wrap;
   max-width: calc(100% - 160px);
 `
