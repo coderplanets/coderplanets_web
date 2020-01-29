@@ -58,25 +58,52 @@ const DateSelector = () => {
         </MonthWrapper>
       </SelectorRow>
 
-      <DatesWrapper>
-        {items.map(item => (
-          <DateItem key={item.id} active={R.contains(item.id, activitiesDates)}>
-            <Head>
-              {item.date}
-              {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
-              {R.contains(item.id, activitiesDates) &&
-                !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
-            </Head>
-            {R.contains(item.id, activitiesDates) && (
-              <Foot>
-                <DotDivider radius="2px" space="2px" />
-                <DotDivider radius="2px" space="2px" />
-                <DotDivider radius="2px" space="2px" />
-              </Foot>
-            )}
-          </DateItem>
-        ))}
-      </DatesWrapper>
+      <div>
+        <DatesWrapper>
+          {items.slice(0, 15).map(item => (
+            <DateItem
+              key={item.id}
+              active={R.contains(item.id, activitiesDates)}
+            >
+              <Head>
+                {item.date}
+                {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
+                {R.contains(item.id, activitiesDates) &&
+                  !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
+              </Head>
+              {R.contains(item.id, activitiesDates) && (
+                <Foot>
+                  <DotDivider radius="2px" space="2px" />
+                  <DotDivider radius="2px" space="2px" />
+                  <DotDivider radius="2px" space="2px" />
+                </Foot>
+              )}
+            </DateItem>
+          ))}
+        </DatesWrapper>
+        <DatesWrapper>
+          {items.slice(15, 31).map(item => (
+            <DateItem
+              key={item.id}
+              active={R.contains(item.id, activitiesDates)}
+            >
+              <Head>
+                {item.date}
+                {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
+                {R.contains(item.id, activitiesDates) &&
+                  !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
+              </Head>
+              {R.contains(item.id, activitiesDates) && (
+                <Foot>
+                  <DotDivider radius="2px" space="2px" />
+                  <DotDivider radius="2px" space="2px" />
+                  <DotDivider radius="2px" space="2px" />
+                </Foot>
+              )}
+            </DateItem>
+          ))}
+        </DatesWrapper>
+      </div>
     </Wrapper>
   )
 }
