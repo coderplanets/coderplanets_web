@@ -6,16 +6,42 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   color: ${theme('thread.articleDigest')};
 `
 export const SelectorRow = styled.div`
+  position: relative;
   ${cs.flexColumn('align-end')};
   width: 100px;
   height: 100%;
+  margin-right: 10px;
   padding-top: 10px;
   padding-right: 10px;
   background: #043a48;
+  border-top: 2px solid;
+  border-top-color: #327faf;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 6px;
+    background: #327faf;
+    top: -4px;
+    left: 25px;
+    border-radius: 3px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 6px;
+    background: #327faf;
+    top: -4px;
+    right: 25px;
+    border-radius: 3px;
+  }
 `
 export const YearWrapper = styled.div`
   ${cs.flex()};

@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+import { cutFrom } from '@utils'
+
 import DotDivider from '@components/DotDivider'
 
 import {
@@ -10,6 +12,8 @@ import {
   Week,
   IntroWrapper,
   Title,
+  TitleText,
+  Tag,
   BodyWrapper,
   Icon,
 } from './styles/activity_card'
@@ -22,7 +26,10 @@ const ActivityCard = ({ item }) => {
         <Week>{item.week}</Week>
       </DatetimeWrapper>
       <IntroWrapper>
-        <Title>{item.title}</Title>
+        <Title>
+          <Tag>{item.type || '前端'}</Tag>
+          <TitleText>{cutFrom(item.title, 40)}</TitleText>
+        </Title>
         <BodyWrapper>
           {item.company} <DotDivider radius="3px" />
           <Icon src={`${ICON_CMD}/activity/activity_money.svg`} /> 200-300
