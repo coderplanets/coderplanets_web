@@ -93,7 +93,7 @@ import {
   UserStaredStore,
   FavoritesCatsStore,
   //
-  ActivitiesContentStore,
+  MeetupsContentStore,
   HaveADrinkContentStore,
   CoolNaviContentStore,
 } from '../index'
@@ -195,7 +195,7 @@ const rootStore = t
     favoritesCats: t.optional(FavoritesCatsStore, {}),
 
     // have a drink
-    activitiesContent: t.optional(ActivitiesContentStore, {}),
+    meetupsContent: t.optional(MeetupsContentStore, {}),
     haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
     coolNaviContent: t.optional(CoolNaviContentStore, {}),
   })

@@ -13,7 +13,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = buildLog('L:ActivitiesContent')
+const log = buildLog('L:MeetupsContent')
 
 export const someMethod = () => {}
 
@@ -35,14 +35,14 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       // cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, details, path: 'ActivitiesContent' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'MeetupsContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       // cancleLoading()
-      errRescue({ type: ERR.NETWORK, path: 'ActivitiesContent' })
+      errRescue({ type: ERR.NETWORK, path: 'MeetupsContent' })
     },
   },
 ]

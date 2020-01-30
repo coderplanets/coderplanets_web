@@ -109,8 +109,8 @@ const items = [
   },
 ]
 
-const ActivitiesContentContainer = ({ activitiesContent }) => {
-  useInit(activitiesContent)
+const MeetupsContentContainer = ({ meetupsContent }) => {
+  useInit(meetupsContent)
 
   return (
     <Wrapper>
@@ -127,4 +127,4 @@ const ActivitiesContentContainer = ({ activitiesContent }) => {
   )
 }
 
-export default connectStore(ActivitiesContentContainer)
+export default connectStore(MeetupsContentContainer)

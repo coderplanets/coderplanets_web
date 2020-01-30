@@ -1,5 +1,5 @@
 /*
- * ActivitiesContent store
+ * MeetupsContent store
  *
  */
 
@@ -8,11 +8,11 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
-const log = buildLog('S:ActivitiesContent')
+const log = buildLog('S:MeetupsContent')
 
 // NOTE: add me to stores/index && stores/RootStore/index
-const ActivitiesContent = t
-  .model('ActivitiesContent', {})
+const MeetupsContent = t
+  .model('MeetupsContent', {})
   .views(self => ({
     get root() {
       return getParent(self)
@@ -24,4 +24,4 @@ const ActivitiesContent = t
     },
   }))
 
-export default ActivitiesContent
+export default MeetupsContent

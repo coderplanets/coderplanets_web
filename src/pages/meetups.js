@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import ActivitiesContent from '@containers/content/ActivitiesContent'
+import MeetupsContent from '@containers/content/MeetupsContent'
 
 import { P } from '@schemas'
 
@@ -102,7 +102,7 @@ export default class PostPage extends React.Component {
           errorCode={statusCode}
           errorPath={target}
         >
-          <ActivitiesContent />
+          <MeetupsContent />
         </GlobalLayout>
       </Provider>
     )

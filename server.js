@@ -68,8 +68,8 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/sentry', req.query)
   )
 
-  server.get('/activities', (req, res) =>
-    renderAndCache(req, res, '/activities', req.query)
+  server.get('/meetups', (req, res) =>
+    renderAndCache(req, res, '/meetups', req.query)
   )
 
   server.get('/have-a-drink', (req, res) =>
