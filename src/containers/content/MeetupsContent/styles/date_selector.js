@@ -9,75 +9,6 @@ export const Wrapper = styled.div`
   margin-bottom: 25px;
   color: ${theme('thread.articleDigest')};
 `
-export const SelectorRow = styled.div`
-  position: relative;
-  ${cs.flexColumn('align-end')};
-  width: 100px;
-  height: 100%;
-  margin-right: 10px;
-  padding-top: 10px;
-  padding-right: 10px;
-  background: #043a48;
-  border-top: 2px solid;
-  border-top-color: #327faf;
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 6px;
-    background: #327faf;
-    top: -4px;
-    left: 25px;
-    border-radius: 3px;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 6px;
-    background: #327faf;
-    top: -4px;
-    right: 25px;
-    border-radius: 3px;
-  }
-`
-export const YearWrapper = styled.div`
-  ${cs.flex()};
-  align-items: baseline;
-`
-export const YearVal = styled.div`
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 5px;
-  border-bottom: 1px dashed;
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-export const YearUnit = styled.div`
-  font-size: 14px;
-`
-export const MonthWrapper = styled.div`
-  ${cs.flex()};
-  align-items: baseline;
-  margin-top: 5px;
-`
-export const MonthVal = styled.div`
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 5px;
-  border-bottom: 1px dashed;
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-export const MonthUnit = styled.div`
-  font-size: 14px;
-`
 export const DatesWrapper = styled.div`
   ${cs.flex()}
   flex-wrap: wrap;
@@ -97,16 +28,22 @@ export const WeekName = styled.div`
 export const DateItem = styled.div`
   ${cs.flexColumn('justify-between')};
   border: 1px solid;
-  border-color: #043a48;
-  width: 50px;
+  border-color: #004354;
+  width: 55px;
   height: 45px;
   padding-left: 3px;
-  background: ${({ active }) => (active ? '#05323e' : '')};
+  background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
+  border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
+  margin-right: ${({ margin }) => (margin ? '25px' : '')};
 `
 export const Head = styled.div`
   ${cs.flex('justify-between')};
   align-items: center;
   padding-right: 3px;
+`
+export const DateText = styled.div`
+  color: ${({ active }) => (active ? '#27908f' : '')};
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
 `
 export const WeekHint = styled.div`
   font-size: 10px;

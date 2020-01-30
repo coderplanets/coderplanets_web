@@ -58,7 +58,7 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
       </SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Popover content={<MoreContent />} placement="bottom" trigger="click">
+    <Popover content={<MoreContent />} placement="bottom" trigger="hover">
       <SiteLink>
         更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
       </SiteLink>

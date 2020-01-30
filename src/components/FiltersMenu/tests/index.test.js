@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import FiltersMenu from '../index'
+// import NaviMenu from '../index'
 
-describe('TODO <FiltersMenu />', () => {
+describe('TODO <NaviMenu />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

@@ -14,16 +14,10 @@ import {
   DatesWrapper,
   DateItem,
   Head,
+  DateText,
   Foot,
   WeekHint,
   WeekendHint,
-  SelectorRow,
-  YearWrapper,
-  YearVal,
-  YearUnit,
-  MonthWrapper,
-  MonthVal,
-  MonthUnit,
 } from './styles/date_selector'
 
 let dates = []
@@ -43,67 +37,35 @@ const DateSelector = () => {
   const items = dates
 
   const weekends = [5, 6, 18, 19, 27, 28]
+  const sunday = [6, 19, 28]
   const activitiesDates = [3, 4, 19, 23, 24]
 
+  // TODO:  每逢周日隔开，就是一周一隔的
   return (
     <Wrapper>
-      <SelectorRow>
-        <YearWrapper>
-          <YearVal>2020</YearVal>
-          <YearUnit>年</YearUnit>
-        </YearWrapper>
-        <MonthWrapper>
-          <MonthVal>09</MonthVal>
-          <MonthUnit>月</MonthUnit>
-        </MonthWrapper>
-      </SelectorRow>
-
-      <div>
-        <DatesWrapper>
-          {items.slice(0, 15).map(item => (
-            <DateItem
-              key={item.id}
-              active={R.contains(item.id, activitiesDates)}
-            >
-              <Head>
-                {item.date}
-                {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
-                {R.contains(item.id, activitiesDates) &&
-                  !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
-              </Head>
-              {R.contains(item.id, activitiesDates) && (
-                <Foot>
-                  <DotDivider radius="2px" space="2px" />
-                  <DotDivider radius="2px" space="2px" />
-                  <DotDivider radius="2px" space="2px" />
-                </Foot>
-              )}
-            </DateItem>
-          ))}
-        </DatesWrapper>
-        <DatesWrapper>
-          {items.slice(15, 31).map(item => (
-            <DateItem
-              key={item.id}
-              active={R.contains(item.id, activitiesDates)}
-            >
-              <Head>
-                {item.date}
-                {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
-                {R.contains(item.id, activitiesDates) &&
-                  !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
-              </Head>
-              {R.contains(item.id, activitiesDates) && (
-                <Foot>
-                  <DotDivider radius="2px" space="2px" />
-                  <DotDivider radius="2px" space="2px" />
-                  <DotDivider radius="2px" space="2px" />
-                </Foot>
-              )}
-            </DateItem>
-          ))}
-        </DatesWrapper>
-      </div>
+      <DatesWrapper>
+        {items.map(item => (
+          <DateItem
+            key={item.id}
+            active={R.contains(item.id, activitiesDates)}
+            margin={R.contains(item.id, sunday)}
+          >
+            <Head>
+              <DateText active={item.id === 9}>{item.date}</DateText>
+              {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}
+              {R.contains(item.id, activitiesDates) &&
+                !R.contains(item.id, weekends) && <WeekHint>四</WeekHint>}
+            </Head>
+            {R.contains(item.id, activitiesDates) && (
+              <Foot>
+                <DotDivider radius="2px" space="2px" />
+                <DotDivider radius="2px" space="2px" />
+                <DotDivider radius="2px" space="2px" />
+              </Foot>
+            )}
+          </DateItem>
+        ))}
+      </DatesWrapper>
     </Wrapper>
   )
 }

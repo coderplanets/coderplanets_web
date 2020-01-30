@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { ASSETS_ENDPOINT } from '@config'
-import Img from '@components/Img'
+import Img from '@Img'
 import { theme, cs } from '@utils'
 
 // background: #3b5456;
