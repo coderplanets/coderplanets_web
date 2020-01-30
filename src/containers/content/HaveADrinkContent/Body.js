@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import { AnimateOnChange } from 'react-animation'
 
 import { buildLog } from '@utils'
 
@@ -16,7 +17,7 @@ import { Wrapper, Sentence, Hint } from './styles/body'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ view }) => {
+const View = ({ view, sentence }) => {
   switch (view) {
     case 'catalog': {
       return <Catalog />
@@ -26,8 +27,16 @@ const View = ({ view }) => {
       return (
         <React.Fragment>
           <Sentence>
-            看见一个算命大师，我刚坐下他就问我，你算什么东西？
+            <AnimateOnChange
+              animationIn="bounceIn"
+              animationOut="bounceOut"
+              durationOut={1000}
+              // durationOut="100"
+            >
+              {sentence}
+            </AnimateOnChange>
           </Sentence>
+
           <Hint>按「空格」键或「点击」刷新</Hint>
         </React.Fragment>
       )
@@ -35,10 +44,10 @@ const View = ({ view }) => {
   }
 }
 
-const Body = ({ view }) => {
+const Body = ({ view, sentence }) => {
   return (
     <Wrapper>
-      <View view={view} />
+      <View view={view} sentence={sentence} />
     </Wrapper>
   )
 }

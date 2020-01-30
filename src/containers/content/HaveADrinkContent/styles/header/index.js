@@ -12,8 +12,8 @@ export const GoBackWrapper = styled.div`
 `
 export const BackIcon = styled(Img)`
   fill: #708b96;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: block;
   margin-right: 10px;
 
@@ -26,7 +26,7 @@ export const BackIcon = styled(Img)`
 `
 export const BackText = styled.div`
   color: #708b96;
-  font-size: 18px;
+  font-size: 16px;
 
   ${GoBackWrapper}:hover & {
     color: #327faf;

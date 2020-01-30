@@ -74,6 +74,7 @@
     "ramda": "0.25.0",
     "randomcolor": "^0.5.3",
     "react": "16.9.0",
+    "react-animation": "^1.2.2",
     "react-calendar-heatmap": "1.8.1",
     "react-content-loader": "3.4.2",
     "react-dom": "16.9.0",

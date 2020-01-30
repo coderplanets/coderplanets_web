@@ -14,12 +14,35 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
 
+// class name of the animate timer components
+export const ANIMATE_TIMER_CLASS = 'animate-timer'
+
 /**
  * change the main view type
  *
  * @param {string} view, view type
  */
 export const setView = view => store.mark({ view })
+
+/**
+ * restart element's animation
+ * see: https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
+ * @param {string} elementClassName
+ * @return void
+ * @priate
+ */
+const resetAnimation = elementClassName => {
+  const elements = document.querySelectorAll(`.${elementClassName}`)
+
+  // first timer switch the animate part is not visiable
+  if (elements.length === 0) return
+
+  elements.forEach(el => {
+    el.style.animation = 'none'
+    el.offsetHeight /* trigger reflow */
+    el.style.animation = null
+  })
+}
 
 /**
  * start the refresh internal timer
@@ -29,8 +52,10 @@ const startTimer = () => {
   const { timerIntervalVal } = store
   let { timer } = store
 
+  resetAnimation(ANIMATE_TIMER_CLASS)
+
   timer = setInterval(() => {
-    console.log('setInterval: ', timer)
+    refreshSentence()
   }, timerIntervalVal)
 
   store.mark({ timer })
@@ -65,6 +90,20 @@ export const setTimerInterval = timerInterval => {
   stopTimer()
   store.mark({ timerInterval })
   startTimer()
+}
+
+export const refreshSentence = () => {
+  const { pool, poolIdx } = store
+
+  let nextPoolIdx
+  if (poolIdx >= pool.length - 1) {
+    nextPoolIdx = 0
+  } else {
+    nextPoolIdx = poolIdx + 1 // pool.length
+  }
+
+  store.mark({ poolIdx: nextPoolIdx })
+  // return  pool[poolIdx]
 }
 
 // ###############################

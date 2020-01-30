@@ -16,7 +16,7 @@ import {
   PieFiller,
   Mask,
 } from '../styles/header/running_timer'
-// import { useInit } from './logic'
+import { ANIMATE_TIMER_CLASS } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -24,10 +24,10 @@ const log = buildLog('C:HaveADrinkContent')
 const RunningTimer = ({ interval }) => {
   return (
     <Wrapper>
-      <TopHandlerBar />
-      <PieSpinner interval={interval} />
-      <PieFiller interval={interval} />
-      <Mask interval={interval} />
+      <TopHandlerBar className={ANIMATE_TIMER_CLASS} />
+      <PieSpinner className={ANIMATE_TIMER_CLASS} interval={interval} />
+      <PieFiller className={ANIMATE_TIMER_CLASS} interval={interval} />
+      <Mask className={ANIMATE_TIMER_CLASS} interval={interval} />
     </Wrapper>
   )
 }

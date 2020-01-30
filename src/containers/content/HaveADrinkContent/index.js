@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import dynamic from 'next/dynamic'
 
 import {
   connectStore,
@@ -16,11 +17,16 @@ import {
 import { useShortcut } from '@hooks'
 
 import Header from './Header'
-import Body from './Body'
+// import Body from './Body'
 import Footer from './Footer'
 
 import { Wrapper, InnerWrapper } from './styles'
-import { useInit } from './logic'
+import { useInit, refreshSentence } from './logic'
+
+const Body = dynamic({
+  loader: () => import('./Body'),
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
@@ -31,17 +37,17 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
   useShortcut('space', () => {
     scrollToTop()
     holdPage()
-    log('TODO:  refresh')
+    refreshSentence()
     setTimeout(() => unholdPage(), 1000)
   })
 
-  const { view, timer, timerInterval } = haveADrinkContent
+  const { view, timer, timerInterval, curSentence } = haveADrinkContent
 
   return (
     <Wrapper>
       <InnerWrapper>
         <Header view={view} timer={timer} timerInterval={timerInterval} />
-        <Body view={view} />
+        <Body view={view} sentence={curSentence} />
         <Footer view={view} />
       </InnerWrapper>
     </Wrapper>
