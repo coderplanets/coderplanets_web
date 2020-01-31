@@ -18,25 +18,32 @@ import { LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
-const View = ({ view, sentence }) => {
+const View = ({ view, sentence, settingOptions }) => {
   const { VIEW } = LN
+
+  const animate = {
+    fade: {
+      durationOut: 200,
+    },
+    bounce: {
+      animationIn: 'bounceIn',
+      animationOut: 'bounceOut',
+      durationOut: 1000,
+    },
+  }
+
   switch (view) {
     case VIEW.CATALOG: {
       return <Catalog />
     }
     case VIEW.SETTING: {
-      return <Setting />
+      return <Setting settingOptions={settingOptions} />
     }
     default: {
       return (
         <React.Fragment>
-          <Sentence>
-            <AnimateOnChange
-              // animationIn="bounceIn"
-              // animationOut="bounceOut"
-              // durationOut={1000}
-              durationOut="200"
-            >
+          <Sentence fontSize={settingOptions.fontSize}>
+            <AnimateOnChange {...animate[settingOptions.animateType]}>
               {sentence}
             </AnimateOnChange>
           </Sentence>
@@ -48,10 +55,10 @@ const View = ({ view, sentence }) => {
   }
 }
 
-const Body = ({ view, sentence }) => {
+const Body = ({ ...restProps }) => {
   return (
     <Wrapper>
-      <View view={view} sentence={sentence} />
+      <View {...restProps} />
     </Wrapper>
   )
 }
