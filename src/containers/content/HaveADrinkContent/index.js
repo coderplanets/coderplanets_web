@@ -24,9 +24,10 @@ import { useInit, refreshSentence } from './logic'
 
 const Body = dynamic({
   loader: () => import('./Body'),
+  // eslint-disable-next-line react/display-name
   loading: () => (
     <LoadingSentence>
-      everyday is the opportunity you don't get back, so live life to the
+      everyday is the opportunity you don&apos;t get back, so live life to the
       fullest.
     </LoadingSentence>
   ),
