@@ -14,8 +14,19 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:HaveADrinkContent')
 
-// class name of the animate timer components
-export const ANIMATE_TIMER_CLASS = 'animate-timer'
+// local namespace
+export const LN = {
+  // class name of the animate timer components
+  ANIMATE_TIMER_CLASS: 'animate-timer',
+  VIEW: {
+    DEFAULT: 'default',
+    CATALOG: 'catalog',
+    SETTING: 'setting',
+    EDIT: 'edit',
+    SHARE: 'share',
+    COMMENT: 'comment',
+  },
+}
 
 /**
  * change the main view type
@@ -52,7 +63,7 @@ const startTimer = () => {
   const { timerIntervalVal } = store
   let { timer } = store
 
-  resetAnimation(ANIMATE_TIMER_CLASS)
+  resetAnimation(LN.ANIMATE_TIMER_CLASS)
 
   timer = setInterval(() => {
     refreshSentence()

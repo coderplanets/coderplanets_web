@@ -7,6 +7,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog } from '@utils'
+
+import { LN } from './logic'
+
+const { VIEW } = LN
 /* eslint-disable-next-line */
 const log = buildLog('S:HaveADrinkContent')
 
@@ -15,14 +19,14 @@ const HaveADrinkContent = t
     // current sub-view of the drink page
     view: t.optional(
       t.enumeration('view', [
-        'default',
-        'catalog',
-        'setting',
-        'edit',
-        'share',
-        'comment',
+        VIEW.DEFAULT,
+        VIEW.CATALOG,
+        VIEW.SETTING,
+        VIEW.EDIT,
+        VIEW.SHARE,
+        VIEW.COMMENT,
       ]),
-      'default'
+      VIEW.DEFAULT
     ),
     // refresh timer
     pool: t.optional(t.array(t.string), [

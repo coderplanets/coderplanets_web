@@ -13,14 +13,16 @@ import Feature from './Feature'
 import Share from './Share'
 
 import { Wrapper } from '../styles/header'
-// import { useInit } from './logic'
+import { LN } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ view }) => {
+  const { VIEW } = LN
+
   switch (view) {
-    case 'default': {
+    case VIEW.DEFAULT: {
       return (
         <React.Fragment>
           <Feature />

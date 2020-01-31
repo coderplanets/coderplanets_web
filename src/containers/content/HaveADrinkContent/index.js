@@ -17,14 +17,19 @@ import {
 import { useShortcut } from '@hooks'
 
 import Header from './Header'
-// import Body from './Body'
 import Footer from './Footer'
 
-import { Wrapper, InnerWrapper } from './styles'
+import { Wrapper, InnerWrapper, LoadingSentence } from './styles'
 import { useInit, refreshSentence } from './logic'
 
 const Body = dynamic({
   loader: () => import('./Body'),
+  loading: () => (
+    <LoadingSentence>
+      everyday is the opportunity you don't get back, so live life to the
+      fullest.
+    </LoadingSentence>
+  ),
   ssr: false,
 })
 

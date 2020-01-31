@@ -20,3 +20,8 @@ export const InnerWrapper = styled.div`
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
+
+export const LoadingSentence = styled.div`
+  font-size: 18px;
+  color: ${theme('thread.articleTitle')};
+`

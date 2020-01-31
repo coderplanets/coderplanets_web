@@ -14,29 +14,30 @@ import Timer from './Timer'
 import Reaction from './Reaction'
 
 import { Wrapper, GoBackWrapper, BackText, BackIcon } from '../styles/header'
-import { setView } from '../logic'
+import { setView, LN } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const View = ({ view, ...restProps }) => {
+  const { VIEW } = LN
   switch (view) {
-    case 'catalog': {
-      return (
-        <GoBackWrapper onClick={() => setView('default')}>
-          <BackIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
-          <BackText>返回</BackText>
-        </GoBackWrapper>
-      )
-    }
-
-    default: {
+    case VIEW.DEFAULT: {
       return (
         <React.Fragment>
           <IndexStatus />
           <Timer {...restProps} />
           <Reaction />
         </React.Fragment>
+      )
+    }
+
+    default: {
+      return (
+        <GoBackWrapper onClick={() => setView('default')}>
+          <BackIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
+          <BackText>返回</BackText>
+        </GoBackWrapper>
       )
     }
   }

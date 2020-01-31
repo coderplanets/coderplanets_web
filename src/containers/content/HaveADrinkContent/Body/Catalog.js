@@ -19,7 +19,7 @@ import {
   Title,
   Desc,
   Icon,
-} from '../styles/catalog'
+} from '../styles/body/catalog'
 // import { useInit } from './logic'
 
 /* eslint-disable-next-line */

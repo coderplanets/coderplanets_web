@@ -16,12 +16,13 @@ import {
   PieFiller,
   Mask,
 } from '../styles/header/running_timer'
-import { ANIMATE_TIMER_CLASS } from '../logic'
+import { LN } from '../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const RunningTimer = ({ interval }) => {
+  const { ANIMATE_TIMER_CLASS } = LN
   return (
     <Wrapper>
       <TopHandlerBar className={ANIMATE_TIMER_CLASS} />

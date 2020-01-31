@@ -122,7 +122,7 @@ const GlobalLayoutContainer = ({
 }
 
 GlobalLayoutContainer.propTypes = {
-  children: T.arrayOf(T.element),
+  children: T.element,
   globalLayout: T.object.isRequired,
   seoConfig: T.object.isRequired, // TODO:
   noSidebar: T.bool,
