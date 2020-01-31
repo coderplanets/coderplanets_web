@@ -47,13 +47,28 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
     setTimeout(() => unholdPage(), 1000)
   })
 
-  const { view, timer, timerInterval, curSentence } = haveADrinkContent
+  const {
+    view,
+    timer,
+    timerInterval,
+    curSentence,
+    settingOptions,
+  } = haveADrinkContent
 
   return (
     <Wrapper>
       <InnerWrapper>
-        <Header view={view} timer={timer} timerInterval={timerInterval} />
-        <Body view={view} sentence={curSentence} />
+        <Header
+          view={view}
+          timer={timer}
+          timerInterval={timerInterval}
+          settingOptions={settingOptions}
+        />
+        <Body
+          view={view}
+          sentence={curSentence}
+          settingOptions={settingOptions}
+        />
         <Footer view={view} />
       </InnerWrapper>
     </Wrapper>

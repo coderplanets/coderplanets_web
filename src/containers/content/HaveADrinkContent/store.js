@@ -37,7 +37,10 @@ const HaveADrinkContent = t
       '比你优秀的人还在努力，你努力有什么用呢 ？',
     ]),
     poolIdx: t.optional(t.number, 0),
-
+    // setting
+    fontSize: t.optional(t.enumeration(['24px', '27px']), '24px'),
+    animateType: t.optional(t.enumeration(['fade', 'bounce']), 'fade'),
+    // timmer
     timer: t.maybeNull(t.number),
     timerInterval: t.optional(
       t.enumeration('timerInterval', ['3s', '5s', '10s']),
@@ -52,6 +55,11 @@ const HaveADrinkContent = t
       const { pool, poolIdx } = self
 
       return pool[poolIdx]
+    },
+    get settingOptions() {
+      const { fontSize, animateType } = self
+
+      return { fontSize, animateType }
     },
     get timerIntervalVal() {
       const { timerInterval } = self

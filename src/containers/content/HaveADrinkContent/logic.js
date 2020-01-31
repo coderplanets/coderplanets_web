@@ -36,6 +36,17 @@ export const LN = {
 export const setView = view => store.mark({ view })
 
 /**
+ * change the setting
+ *
+ * @param {key} optionObj, setting key
+ * @param {val} string, setting value
+ */
+export const setSetting = (key, val) => {
+  store.mark({ [key]: val })
+  setView('default')
+}
+
+/**
  * restart element's animation
  * see: https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
  * @param {string} elementClassName

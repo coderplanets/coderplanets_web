@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 export const Sentence = styled.div`
   color: ${theme('haveADrinkPage.sentence')};
   font-size: 24px;
+  font-size: ${({ fontSize }) => fontSize};
 `
 export const Hint = styled.p`
   color: ${theme('haveADrinkPage.hint')};
