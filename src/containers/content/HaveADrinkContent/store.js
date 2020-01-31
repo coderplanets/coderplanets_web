@@ -22,6 +22,7 @@ const HaveADrinkContent = t
         VIEW.DEFAULT,
         VIEW.CATALOG,
         VIEW.SETTING,
+        VIEW.ABOUT,
         VIEW.EDIT,
         VIEW.SHARE,
         VIEW.COMMENT,

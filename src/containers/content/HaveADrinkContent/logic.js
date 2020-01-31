@@ -22,6 +22,7 @@ export const LN = {
     DEFAULT: 'default',
     CATALOG: 'catalog',
     SETTING: 'setting',
+    ABOUT: 'about',
     EDIT: 'edit',
     SHARE: 'share',
     COMMENT: 'comment',

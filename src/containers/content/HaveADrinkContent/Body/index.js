@@ -11,6 +11,7 @@ import { buildLog } from '@utils'
 
 import Catalog from './Catalog'
 import Setting from './Setting'
+import About from './About'
 
 import { Wrapper, Sentence, Hint } from '../styles/body'
 import { LN } from '../logic'
@@ -38,6 +39,9 @@ const View = ({ view, sentence, settingOptions }) => {
     }
     case VIEW.SETTING: {
       return <Setting settingOptions={settingOptions} />
+    }
+    case VIEW.ABOUT: {
+      return <About />
     }
     default: {
       return (

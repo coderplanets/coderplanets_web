@@ -12,18 +12,22 @@ import { buildLog } from '@utils'
 import DotDivider from '@components/DotDivider'
 
 import { Wrapper, Icon } from '../styles/footer/feature'
-import { setView } from '../logic'
+import { setView, LN } from '../logic'
 // import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:HaveADrinkContent')
 
 const Feature = () => {
+  const { VIEW } = LN
+
   return (
     <Wrapper>
-      <Icon src={`${ICON_CMD}/drink_info.svg`} />
+      <div onClick={() => setView(VIEW.ABOUT)}>
+        <Icon src={`${ICON_CMD}/drink_info.svg`} />
+      </div>
       <DotDivider space="10px" radius="3px" />
-      <div onClick={() => setView('setting')}>
+      <div onClick={() => setView(VIEW.SETTING)}>
         <Icon src={`${ICON_CMD}/drink_setting.svg`} />
       </div>
       <DotDivider space="10px" radius="3px" />
