@@ -3,7 +3,6 @@ const ROUTE = {
   HOME: 'home',
   COMMUNITIES: 'communities',
   CHEATSHEETS: 'cheatsheets',
-  ACTIVITIES: 'activities',
   POSTS: 'posts',
   JOBS: 'jobs',
   VIDEOS: 'videos',
@@ -20,6 +19,10 @@ const ROUTE = {
   JOB: 'job',
   VIDEO: 'video',
   REPO: 'repo',
+
+  MEETUPS: 'meetups',
+  HAVE_A_DRINK: 'have-a-drink',
+  COOL_NAVI: 'cool-navi',
 }
 
 export default ROUTE

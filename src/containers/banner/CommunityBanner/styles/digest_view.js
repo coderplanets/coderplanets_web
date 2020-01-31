@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
 
-import Img from '@components/Img'
+import Img from '@Img'
 import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 import { BaseBanner, BaseTabber } from './index'

@@ -265,7 +265,7 @@ const monokai = {
   popover: {
     bg: bannerBg,
     borderColor: primaryColor,
-    boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
     dotOpacity: 0.5,

@@ -2,11 +2,12 @@ import styled from 'styled-components'
 
 import { theme, cs } from '@utils'
 import Img from '@Img'
+import DotDividerBase from '@components/DotDivider'
 import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};
-  max-width: 520px;
+  max-width: 650px;
   height: 100%;
   ${cs.media.mobile`
     margin-right: 0;
@@ -18,6 +19,15 @@ export const Logo = styled(CommunityFaceLogo)`
   margin-top: -5px;
   opacity: 0.7;
 `
+export const LogoLink = styled.a`
+  margin-right: 10px;
+`
+export const DotDivider = styled(DotDividerBase)`
+  background-color: ${theme('banner.desc')};
+  margin-right: 0;
+  width: 4px;
+  height: 4px;
+`
 // font-family: cursive; // not general
 export const LogoText = styled.a`
   color: ${theme('logoText')};
@@ -26,7 +36,6 @@ export const LogoText = styled.a`
   letter-spacing: 1.5px;
   font-size: 0.9rem;
   margin-left: 6px;
-  margin-top: 3px;
   text-decoration: none;
 
   &:hover {

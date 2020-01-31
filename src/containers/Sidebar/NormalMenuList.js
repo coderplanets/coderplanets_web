@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Waypoint } from 'react-waypoint'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
+
+import { useCustomScroll } from '@hooks'
 
 import MenuBar from './MenuBar'
-import { anchorTop, anchorOffTop, anchorBottom, anchorOffBottom } from './logic'
 import { ScrollWrapper } from './styles/menu_list'
 
-const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => (
-  <OverlayScrollbarsComponent
-    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-    className="os-theme-light"
-  >
-    <ScrollWrapper>
+import { anchorTop, anchorOffTop, anchorBottom, anchorOffBottom } from './logic'
+
+const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
+  const ref = useRef(null)
+  useCustomScroll(ref)
+
+  return (
+    <ScrollWrapper ref={ref}>
       <React.Fragment>
         <Waypoint onEnter={anchorTop} onLeave={anchorOffTop} />
         {communities.map(item => (
@@ -26,7 +28,7 @@ const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => (
         <Waypoint onEnter={anchorBottom} onLeave={anchorOffBottom} />
       </React.Fragment>
     </ScrollWrapper>
-  </OverlayScrollbarsComponent>
-)
+  )
+}
 
 export default NormalMenuList

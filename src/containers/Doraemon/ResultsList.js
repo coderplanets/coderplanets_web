@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
+import { useCustomScroll } from '@hooks'
 
 import SuggestIcon from './SuggestIcon'
 import {
@@ -30,11 +30,12 @@ const HintIcon = ({ index, active, cur, length }) => {
   return null
 }
 
-const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <OverlayScrollbarsComponent
-    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-  >
-    <Wrapper>
+const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
+  const ref = useRef(null)
+  useCustomScroll(ref, { scrollbars: { autoHide: 'never' } })
+
+  return (
+    <Wrapper ref={ref}>
       <SuggestionWrapper empty={suggestions.length === 0}>
         {suggestions.map((suggestion, i) => (
           <InfoBar
@@ -71,7 +72,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
         ))}
       </SuggestionWrapper>
     </Wrapper>
-  </OverlayScrollbarsComponent>
-)
+  )
+}
 
 export default ResultsList

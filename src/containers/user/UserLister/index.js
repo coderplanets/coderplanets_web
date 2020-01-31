@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { TYPE } from '@constant'
 import { connectStore, buildLog } from '@utils'
@@ -65,20 +64,16 @@ const UserListerContainer = ({ userLister }) => {
 
   return (
     <Modal width="700px" show={show} showCloseBtn onClose={onClose}>
-      <OverlayScrollbarsComponent
-        options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-      >
-        <Wrapper>
-          <HeaderInfo
-            type={type}
-            brief={brief}
-            totalCount={pagedUsersData.totalCount}
-            curCommunity={curCommunity}
-          />
+      <Wrapper>
+        <HeaderInfo
+          type={type}
+          brief={brief}
+          totalCount={pagedUsersData.totalCount}
+          curCommunity={curCommunity}
+        />
 
-          {renderContent(curView, pagedUsersData, accountInfo)}
-        </Wrapper>
-      </OverlayScrollbarsComponent>
+        {renderContent(curView, pagedUsersData, accountInfo)}
+      </Wrapper>
     </Modal>
   )
 }

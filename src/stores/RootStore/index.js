@@ -92,6 +92,10 @@ import {
   UserFavoritedStore,
   UserStaredStore,
   FavoritesCatsStore,
+  //
+  MeetupsContentStore,
+  HaveADrinkContentStore,
+  CoolNaviContentStore,
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -189,6 +193,11 @@ const rootStore = t
     userStared: t.optional(UserStaredStore, {}),
     userFavorited: t.optional(UserFavoritedStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
+
+    // have a drink
+    meetupsContent: t.optional(MeetupsContentStore, {}),
+    haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
+    coolNaviContent: t.optional(CoolNaviContentStore, {}),
   })
   .views(self => ({
     get isOnline() {

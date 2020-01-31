@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@components/Img'
+import Img from '@Img'
 import { theme, animate, cs } from '@utils'
 
 export const Wrapper = styled.div`
@@ -104,6 +104,7 @@ export const InputBar = styled.input`
 export const ContentWraper = styled.div`
   text-align: left;
   flex-grow: 1;
+  max-width: 80%;
 `
 export const Title = styled.div`
   color: ${theme('shell.title')};

@@ -4,11 +4,16 @@
  *
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import T from 'prop-types'
+import usePortal from 'react-useportal'
 
 import { ICON_CMD } from '@config'
+import { TYPE } from '@constant'
 import { buildLog } from '@utils'
+
+import Belt from './Belt'
+
 import { Mask, Wrapper, CloseBtn, ChildrenWrapper } from './styles'
 
 /* eslint-disable-next-line */
@@ -23,26 +28,47 @@ const Modal = ({
   mode,
   background,
   offsetTop,
-}) => (
-  <Mask show={show} onClick={onClose}>
-    <Wrapper
-      width={width}
-      mode={mode}
-      background={background}
-      offsetTop={offsetTop}
-    >
-      <CloseBtn
-        mode={mode}
-        src={`${ICON_CMD}/closeBtn.svg`}
-        show={showCloseBtn}
-        onClick={onClose}
-      />
-      <ChildrenWrapper onClick={e => e.stopPropagation()}>
-        {children}
-      </ChildrenWrapper>
-    </Wrapper>
-  </Mask>
-)
+}) => {
+  const { Portal } = usePortal()
+
+  useEffect(() => {
+    const globalEl = document.getElementById(TYPE.GLOBAL_LAYOUT_ID)
+
+    if (show) {
+      globalEl.classList.add('global_blur')
+    } else {
+      globalEl.classList.remove('global_blur')
+    }
+  }, [show])
+
+  return (
+    <React.Fragment>
+      {show && (
+        <Portal>
+          <Mask show={show} onClick={onClose}>
+            <Belt />
+            <Wrapper
+              width={width}
+              mode={mode}
+              background={background}
+              offsetTop={offsetTop}
+            >
+              <CloseBtn
+                mode={mode}
+                src={`${ICON_CMD}/closeBtn.svg`}
+                show={showCloseBtn}
+                onClick={onClose}
+              />
+              <ChildrenWrapper onClick={e => e.stopPropagation()}>
+                {children}
+              </ChildrenWrapper>
+            </Wrapper>
+          </Mask>
+        </Portal>
+      )}
+    </React.Fragment>
+  )
+}
 
 Modal.propTypes = {
   // https://www.npmjs.com/package/prop-types
@@ -66,4 +92,4 @@ Modal.defaultProps = {
   offsetTop: '13%',
 }
 
-export default Modal
+export default React.memo(Modal)

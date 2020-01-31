@@ -265,7 +265,7 @@ const github = {
   popover: {
     bg: '#f9fcfc',
     borderColor: '#51abb2',
-    boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.15)',
   },
   tags: {
     dotOpacity: 0.4,

@@ -8,17 +8,24 @@ const hasWindow =
 export const isBrowser = () => hasDocument && hasWindow
 const getDocument = () => (isBrowser() ? document : null)
 
-/*
-export const pageGoTop = () => {
+/**
+ * scroll to page top
+ * @return {void}
+ */
+export const scrollToTop = () => {
   const safeDocument = getDocument()
   if (safeDocument) {
     safeDocument.body.scrollTop = 0 // For Safari
     safeDocument.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Oper
   }
 }
-*/
 
-// https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+/**
+ * scroll to page top
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+ * @param {string} eleID element id
+ * @return
+ */
 export const scrollIntoEle = eleID => {
   const safeDocument = getDocument()
   if (!safeDocument) return false
