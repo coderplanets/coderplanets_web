@@ -5,6 +5,7 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
+  justify-content: flex-end;
   width: 100%;
   margin-bottom: 25px;
   color: ${theme('thread.articleDigest')};
@@ -12,9 +13,8 @@ export const Wrapper = styled.div`
 export const SelectorRow = styled.div`
   position: relative;
   ${cs.flexColumn('align-end')};
-  width: calc(100% - 22px);
+  width: 100%;
   height: 90px;
-  margin-right: 10px;
   padding-top: 10px;
   padding-right: 10px;
   background: #08323e;

@@ -21,16 +21,39 @@ export const BannerContainer = styled.div.attrs(props => ({
 export const IntroWraper = styled.div`
   ${cs.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
-  border: 1px solid;
   border-color: #043b49;
   width: 100%;
-  height: 200px;
+  height: 250px;
 `
 export const IntroTitle = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+`
+export const IntroDesc = styled.div`
+  ${cs.flex('align-center')};
+  color: ${theme('thread.articleDigest')};
+  font-size: 15px;
+  margin-left: 10px;
+  opacity: 0.9;
+`
+export const SlogenTextWrapper = styled.div`
+  margin-left: 3px;
+  margin-right: 3px;
+
+  font-weight: ${({ highlight }) => (highlight ? 'bold' : '')};
+  color: ${({ highlight }) =>
+    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+`
+export const CreateButton = styled.div`
+  color: #327faf;
+  margin-right: 3px;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
 `
 export const SearchIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};

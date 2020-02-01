@@ -16,6 +16,10 @@ export const InnerWrapper = styled.div`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
+export const SidebarWrapper = styled.div`
+  ${cs.flexColumn()};
+  margin-right: 20px;
+`
 export const ContentWrapper = styled.div`
   ${cs.flex()};
   align-content: start;
@@ -29,7 +33,6 @@ export const NaviFooter = styled.div`
   padding-top: 20px;
   color: ${theme('thread.articleDigest')};
   height: 300px;
-  margin-right: 22px;
   margin-left: 10px;
   margin-top: 50px;
 `

@@ -48,7 +48,7 @@ const CommunityCard = ({ community, restProps }) => (
       <React.Fragment>
         {/* TODO: number color should be different when number grow large */}
         {prettyNum(community.subscribersCount)}{' '}
-        {community.subscribersCount < 1000 ? '人关注' : '关注'}
+        {community.subscribersCount < 1000 ? '人加入' : '加入'}
       </React.Fragment>
 
       <SubscribeBtn community={community} restProps={restProps} />

@@ -17,7 +17,7 @@ const BaseCard = styled.div`
   padding-top: 12px;
   padding: 10px;
   padding-bottom: 0;
-  width: 230px;
+  width: 200px;
   height: 250px;
   margin-right: 30px;
   background: ${theme('content.cardBg')};
@@ -31,11 +31,9 @@ export const Card = styled(BaseCard)`
   &:hover {
     border: 1px solid;
     border-color: ${theme('content.cardBorderHover')};
-    border-top: 2px solid;
-    border-top-color: ${theme('content.cardBorderHover')};
-    margin-top: -8px;
+    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15);
   }
-  transition: margin 0.2s;
+  transition: all 0.25s;
 `
 
 export const EmptyCard = styled(BaseCard)`

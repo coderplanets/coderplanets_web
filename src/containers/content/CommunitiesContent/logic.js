@@ -31,6 +31,9 @@ export const loadCommunities = (page = 1) => {
   sr71$.query(S.pagedCommunities, args)
 }
 
+export const loadCategories = () =>
+  sr71$.query(S.pagedCategories, { filter: {} })
+
 const searchCommunities = title => {
   const args = { title, userHasLogin: store.isLogin }
 
@@ -70,6 +73,10 @@ const DataSolver = [
   {
     match: asyncRes('pagedCommunities'),
     action: ({ pagedCommunities }) => store.mark({ pagedCommunities }),
+  },
+  {
+    match: asyncRes('pagedCategories'),
+    action: ({ pagedCategories }) => store.mark({ pagedCategories }),
   },
   {
     match: asyncRes('searchCommunities'),
@@ -138,6 +145,9 @@ const loadIfNeed = () => {
     store.pagedCommunitiesData.totalCount === 0
   ) {
     loadCommunities()
+  }
+  if (!store.pagedCategoriesData) {
+    loadCategories()
   }
 }
 

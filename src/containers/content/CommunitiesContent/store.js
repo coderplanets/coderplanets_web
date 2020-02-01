@@ -7,7 +7,7 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@utils'
-import { PagedCommunities } from '@model'
+import { PagedCommunities, PagedCategories } from '@model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
@@ -22,6 +22,7 @@ const CommunitiesContentStore = t
     // for UI loading state
     subscribing: t.optional(t.boolean, false),
     subscribingId: t.maybeNull(t.string),
+    pagedCategories: t.maybeNull(PagedCategories),
   })
   .views(self => ({
     get root() {
@@ -35,6 +36,9 @@ const CommunitiesContentStore = t
     },
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)
+    },
+    get pagedCategoriesData() {
+      return stripMobx(self.pagedCategories)
     },
   }))
   .actions(self => ({

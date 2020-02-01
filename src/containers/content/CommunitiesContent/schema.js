@@ -48,12 +48,29 @@ const unsubscribeCommunity = gql`
     }
   }
 `
+const pagedCategories = gql`
+  query($filter: PagedFilter!) {
+    pagedCategories(filter: $filter) {
+      entries {
+        id
+        title
+        raw
+        index
+      }
+      totalCount
+      totalPages
+      pageSize
+      pageNumber
+    }
+  }
+`
 
 const schema = {
   pagedCommunities,
   searchCommunities,
   subscribeCommunity,
   unsubscribeCommunity,
+  pagedCategories,
 }
 
 export default schema

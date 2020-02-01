@@ -107,6 +107,7 @@ export default class CommunitiesPage extends React.Component {
       },
       communitiesContent: {
         pagedCommunities,
+        pagedCategories,
       },
     }
   }

@@ -21,7 +21,9 @@ export const Wrapper = styled.div`
 
   &:hover {
     cursor: pointer;
-    border: 1px solid #327faf;
+    border: 1px solid;
+    border-color: ${theme('content.cardBorderHover')};
+    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15);
   }
   transition: all 0.25s;
 `

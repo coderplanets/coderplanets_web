@@ -4,8 +4,8 @@ import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  width: 130px;
-  margin-right: 22px;
+  width: 100%;
+  min-width: 110px;
 `
 export const ItemWrapper = styled.div`
   ${cs.flexColumn()};
@@ -24,7 +24,7 @@ export const Item = styled.div`
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: ${({ active }) => (active ? '15px' : '14px')};
   padding: 8px 6px;
-  padding-bottom: 5px;
+  padding-bottom: ${({ noFilter }) => (noFilter ? '10px' : '5px')};
 
   &:hover {
     color: ${theme('thread.articleTitle')};

@@ -20,6 +20,7 @@ import ActivityCard from './ActivityCard'
 import {
   Wrapper,
   InnerWrapper,
+  SidebarWrapper,
   ContentWrapper,
   NaviFooter,
   Terms,
@@ -201,7 +202,7 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        <div>
+        <SidebarWrapper>
           <CalendarCard />
           <Affix offsetTop={20}>
             <FiltersMenu items={filtersItems} />
@@ -217,7 +218,7 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
               </Terms>
             </NaviFooter>
           </Affix>
-        </div>
+        </SidebarWrapper>
         <ContentWrapper>
           <DateSelector />
           {items.map(item => (

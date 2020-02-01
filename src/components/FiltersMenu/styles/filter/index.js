@@ -27,5 +27,5 @@ export const SmallRadio = styled(Radio)`
 export const Item = styled.div`
   ${cs.flex('align-center')};
   justify-content: flex-end;
-  width: 130px;
+  width: 100%;
 `

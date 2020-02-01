@@ -10,7 +10,7 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
   if (community.raw === 'home') {
     return (
       <NumberTitle small readOnly>
-        已关注
+        已加入
       </NumberTitle>
     )
   }
@@ -21,13 +21,13 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
       trigger="hover"
       content={
         <PopoverInfo>
-          <PopTitle>点击可取消关注</PopTitle>
-          <PopDesc>取消关注后该社区将不会出现在你的左侧列表中</PopDesc>
+          <PopTitle>点击可退出</PopTitle>
+          <PopDesc>退出后该社区将不会出现在你的左侧列表中</PopDesc>
         </PopoverInfo>
       }
     >
       <NumberTitle onClick={onUndoSubscribe.bind(this, community)} small>
-        已关注
+        已加入
       </NumberTitle>
     </Popover>
   )
@@ -43,13 +43,13 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
         trigger="hover"
         content={
           <PopoverInfo>
-            <PopTitle>点击可关注</PopTitle>
-            <PopDesc>关注后该社区将会出现在你的左侧列表中</PopDesc>
+            <PopTitle>点击加入</PopTitle>
+            <PopDesc>加入后该社区将会出现在你的左侧列表中</PopDesc>
           </PopoverInfo>
         }
       >
         <NumberTitle onClick={onSubscribe.bind(this, community)}>
-          关注
+          加入
         </NumberTitle>
       </Popover>
     )}

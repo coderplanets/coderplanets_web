@@ -14,10 +14,7 @@ const AlreadySubedBtn = ({ community }) => (
     {community.raw !== 'home' ? (
       <Tooltip
         content={
-          <Hinter
-            title="取消关注"
-            desc="之后该社区将不会出现在左侧订阅列表中"
-          />
+          <Hinter title="退出" desc="之后该社区将不会出现在左侧订阅列表中" />
         }
         animation="perspective"
         delay={1000}
@@ -31,7 +28,7 @@ const AlreadySubedBtn = ({ community }) => (
           >
             <BtnWrapper>
               <PrefixIcon src={`${ICON_CMD}/check2.svg`} primary />
-              <div>已关注</div>
+              <div>已加入</div>
             </BtnWrapper>
           </Button>
         </div>
@@ -40,7 +37,7 @@ const AlreadySubedBtn = ({ community }) => (
       <SubscribedBox>
         <BtnWrapper>
           <PrefixIcon src={`${ICON_CMD}/check2.svg`} primary />
-          <div>&nbsp;已关注</div>
+          <div>&nbsp;已加入</div>
         </BtnWrapper>
       </SubscribedBox>
     )}
@@ -54,7 +51,7 @@ const SubscribeBtn = ({
   if (subscribing && community.id === subscribingId) {
     return (
       <Button size="small" type="primary">
-        关注 ..
+        加入 ..
       </Button>
     )
   }
@@ -65,7 +62,7 @@ const SubscribeBtn = ({
       ) : (
         <Tooltip
           content={
-            <Hinter title="关注" desc="之后该社区将会出现在左侧订阅列表中" />
+            <Hinter title="加入" desc="之后该社区将会出现在左侧订阅列表中" />
           }
           animation="perspective"
           delay={1000}
@@ -78,7 +75,7 @@ const SubscribeBtn = ({
             >
               <BtnWrapper>
                 <PrefixIcon src={`${ICON_CMD}/plus.svg`} />
-                <div>关注</div>
+                <div>加入</div>
               </BtnWrapper>
             </Button>
           </div>

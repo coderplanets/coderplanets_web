@@ -5,8 +5,7 @@
  */
 
 import React from 'react'
-
-import { Button } from 'antd'
+import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
@@ -18,6 +17,10 @@ import {
   BannerContainer,
   IntroWraper,
   IntroTitle,
+  IntroDesc,
+  SlogenTextWrapper,
+  // SlogenText,
+  CreateButton,
   BannerContentWrapper,
   ContentWrapper,
   TabberWrapper,
@@ -27,6 +30,12 @@ import {
 
 import { useInit, tabOnChange, searchOnChange } from './logic'
 
+const SlogenText = dynamic({
+  loader: () => import('./SlogenText'),
+  // eslint-disable-next-line react/display-name
+  loading: () => <SlogenTextWrapper>心爱的作品</SlogenTextWrapper>,
+  ssr: false,
+})
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
@@ -53,9 +62,14 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
           value={searchValue}
           searching={searching}
         />
-        <Button ghost type="primary" size="small">
-          + &nbsp;建立新社区
-        </Button>
+        <IntroDesc>
+          或者，来为你
+          <SlogenText />
+          <CreateButton>建立一个新社区</CreateButton>吧！
+          {/* <Button ghost type="primary" size="small">
+          建立新社区
+        </Button> */}
+        </IntroDesc>
       </IntroWraper>
       <BannerContentWrapper>
         <ContentWrapper>
