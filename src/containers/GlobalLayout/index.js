@@ -106,7 +106,11 @@ const GlobalLayoutContainer = ({
                 <Doraemon />
                 <ErrorBox />
                 <ContentPinWrapper offsetLeft={sidebarPin}>
-                  <ContentWrapper offsetLeft={!!(page === 'community')}>
+                  <ContentWrapper
+                    offsetLeft={
+                      !!(page === 'community' || page === 'communities')
+                    }
+                  >
                     <Header metric={metric} />
                     {children}
                     <Footer />

@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { theme, cs, animate } from '@utils'
+// import Img from '@Img'
+import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   display: flex;
+  margin-bottom: 10px;
 `
 export const InputWrapper = styled.div`
   ${cs.flex('align-center')};
-  border-radius: 6px;
+  border-radius: 20px;
   padding: 10px 18px;
   background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
@@ -25,21 +26,8 @@ export const InputWrapper = styled.div`
     padding: 8px;
   `};
 `
-export const SearchIcon = styled(Img)`
-  fill: ${theme('banner.desc')};
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-  display: block;
-`
-
-export const LoadingIcon = styled(SearchIcon)`
-  width: 22px;
-  height: 22px;
-  animation: ${animate.rotate360Rule};
-`
-
 export const InputBar = styled.input`
+  text-align: center;
   caret-color: ${theme('banner.title')};
   flex-grow: 1;
   font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',

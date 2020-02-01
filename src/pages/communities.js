@@ -125,7 +125,7 @@ export default class CommunitiesPage extends React.Component {
 
     return (
       <Provider store={this.store}>
-        <GlobalLayout page="communities" seoConfig={seoConfig}>
+        <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
           <CommunitiesBanner />
           <CommunitiesContent />
         </GlobalLayout>
