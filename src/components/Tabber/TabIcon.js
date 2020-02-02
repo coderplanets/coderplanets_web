@@ -11,14 +11,6 @@ import {
   TabVideoIcon,
   TabRepoIcon,
   TabCheatsheetIcon,
-  // communities
-  TabPlIcon,
-  TabFrontendIcon,
-  TabBackendIcon,
-  TabMobileIcon,
-  TabAIIcon,
-  TabDesignIcon,
-  TabBlockChainIcon,
   // user
   TabLikesIcon,
   TabPublishIcon,
@@ -72,28 +64,6 @@ const TabIcon = ({ raw, active, small }) => {
 
     case 'cheatsheet':
       return <TabCheatsheetIcon active={active} small={small} />
-
-    // communities
-    case 'pl':
-      return <TabPlIcon active={active} small={small} />
-
-    case 'frontend':
-      return <TabFrontendIcon active={active} small={small} />
-
-    case 'backend':
-      return <TabBackendIcon active={active} small={small} />
-
-    case 'mobile':
-      return <TabMobileIcon active={active} small={small} />
-
-    case 'ai':
-      return <TabAIIcon active={active} small={small} />
-
-    case 'design':
-      return <TabDesignIcon active={active} small={small} />
-
-    case 'blockchain':
-      return <TabBlockChainIcon active={active} small={small} />
 
     case 'favorites':
       return <TabFavoritesIcon active={active} small={small} />

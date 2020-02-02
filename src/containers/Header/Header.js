@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ROUTE } from '@constant'
 import { cs } from '@utils'
 
 import MailBox from '@containers/MailBox'
@@ -47,41 +48,46 @@ const Header = ({
   isLogin,
   accountInfo,
   curCommunity,
-}) => (
-  <Wrapper
-    id="whereCallShowDoraemon"
-    leftOffset={leftOffset}
-    fixed={fixed}
-    testid="header"
-  >
-    <InnerWrapper metric={METRIC_MAP[metric]}>
-      <RouterWrapper>
-        {fixed ? (
-          <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
-        ) : (
-          <Navigator
-            curCommunity={curCommunity}
-            curRoute={curRoute}
-            layout={accountInfo.customization.bannerLayout}
-          />
-        )}
-        {!isOnline && <OfflineAlert />}
-      </RouterWrapper>
-      <AddOns />
-      <Operations>
-        <Search onClick={openDoraemon} testid="header-search">
-          <HeaderSearchIcon offsettop="-1px" testid="header-search-icon" />
-        </Search>
+}) => {
+  const { mainPath } = curRoute
 
-        {isLogin && <MailBox />}
+  return (
+    <Wrapper
+      id="whereCallShowDoraemon"
+      leftOffset={leftOffset}
+      fixed={fixed}
+      noBorder={mainPath === ROUTE.COMMUNITIES}
+      testid="header"
+    >
+      <InnerWrapper metric={METRIC_MAP[metric]}>
+        <RouterWrapper>
+          {fixed ? (
+            <ThreadsNav activeInfo={activeInfo} curRoute={curRoute} />
+          ) : (
+            <Navigator
+              curCommunity={curCommunity}
+              curRoute={curRoute}
+              layout={accountInfo.customization.bannerLayout}
+            />
+          )}
+          {!isOnline && <OfflineAlert />}
+        </RouterWrapper>
+        <AddOns />
+        <Operations>
+          <Search onClick={openDoraemon} testid="header-search">
+            <HeaderSearchIcon offsettop="-1px" testid="header-search-icon" />
+          </Search>
 
-        <UpgradePackges />
-        <UserLister />
-        <Cashier />
-        <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
-      </Operations>
-    </InnerWrapper>
-  </Wrapper>
-)
+          {isLogin && <MailBox />}
+
+          <UpgradePackges />
+          <UserLister />
+          <Cashier />
+          <UserAccount isLogin={isLogin} accountInfo={accountInfo} />
+        </Operations>
+      </InnerWrapper>
+    </Wrapper>
+  )
+}
 
 export default Header

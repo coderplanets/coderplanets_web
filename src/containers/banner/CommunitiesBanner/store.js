@@ -6,15 +6,12 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx } from '@utils'
-import { PagedCategories } from '@model'
+import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesBannerStore')
 
 const CommunitiesBannerStore = t
   .model('CommunitiesBannerStore', {
-    pagedCategories: t.maybeNull(PagedCategories),
-    activeTab: t.optional(t.string, 'pl'),
     searchValue: t.optional(t.string, ''),
   })
   .views(self => ({
@@ -26,9 +23,6 @@ const CommunitiesBannerStore = t
     },
     get searching() {
       return self.root.communitiesContent.searching
-    },
-    get pagedCategoriesData() {
-      return stripMobx(self.pagedCategories)
     },
   }))
   .actions(self => ({

@@ -40,6 +40,13 @@ const searchCommunities = title => {
   sr71$.query(S.searchCommunities, args)
 }
 
+export const menuOnChange = ({ id, raw }) => {
+  console.log('menuOnChange active: ', raw)
+  store.markRoute({ subPath: raw })
+  loadCommunities()
+  store.mark({ activeCatalogId: id })
+}
+
 export const pageOnChange = page => loadCommunities(page)
 
 export const subscribe = id => {

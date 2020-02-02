@@ -73,6 +73,7 @@ const solarizedDark = {
     numberDesc: descText,
     numberDivider: '#1b475d',
     numberHoverBg: '#0d475a',
+    linearGradient: 'linear-gradient(#043B49, #022A35)',
   },
   thread: {
     bg: contentBoxBg,

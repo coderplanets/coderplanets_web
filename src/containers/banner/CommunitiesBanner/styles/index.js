@@ -21,7 +21,8 @@ export const BannerContainer = styled.div.attrs(props => ({
 export const IntroWraper = styled.div`
   ${cs.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
-  border-color: #043b49;
+  /* background-image: linear-gradient(#043B49, #022A35); */
+  background-image: ${theme('banner.linearGradient')};
   width: 100%;
   height: 250px;
 `
@@ -62,30 +63,7 @@ export const SearchIcon = styled(Img)`
   display: block;
   margin-right: 6px;
 `
-
-// margin-left: -28px; is for center offset when doraemon popout
-export const ContentWrapper = styled.div`
-  ${cs.flexColumn('align-center')};
-  justify-content: center;
-  width: 100%;
-  margin-top: -30px;
-  margin-left: -28px;
-`
 export const Title = styled.div`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
-`
-export const TabberWrapper = styled.div`
-  ${cs.flex('justify-center')};
-
-  position: absolute;
-  bottom: -16px;
-  width: 80vw;
-`
-
-export const BannerContentWrapper = styled.div`
-  ${cs.flex()};
-  display: none;
-  margin-left: 8%;
-  margin-right: 8%;
 `

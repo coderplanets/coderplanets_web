@@ -6,7 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx } from '@utils'
+import { ICON_CMD } from '@config'
+import { markStates, buildLog, stripMobx, Trans } from '@utils'
 import { PagedCommunities, PagedCategories } from '@model'
 
 /* eslint-disable-next-line */
@@ -14,6 +15,8 @@ const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
+    // current active sidbar menu id
+    activeCatalogId: t.maybeNull(t.string),
     pagedCommunities: t.maybeNull(PagedCommunities),
     searchValue: t.optional(t.string, ''),
     searching: t.optional(t.boolean, false),
@@ -37,8 +40,18 @@ const CommunitiesContentStore = t
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)
     },
+    get activeMenuId() {
+      const { entries } = stripMobx(self.pagedCategories)
+      return self.activeCatalogId || entries[0].id
+    },
     get pagedCategoriesData() {
-      return stripMobx(self.pagedCategories)
+      const { entries } = stripMobx(self.pagedCategories)
+      return entries.map(item => ({
+        id: item.id,
+        raw: item.raw,
+        title: Trans(item.title),
+        icon: `${ICON_CMD}/catalogs/${item.raw}.svg`,
+      }))
     },
   }))
   .actions(self => ({
@@ -67,6 +80,9 @@ const CommunitiesContentStore = t
     removeSubscribedCommunity(community) {
       self.root.account.removeSubscribedCommunity(community)
       self.root.communitiesContent.toggleSubscribe(community)
+    },
+    markRoute(query) {
+      self.root.markRoute(query)
     },
     mark(sobj) {
       markStates(sobj, self)

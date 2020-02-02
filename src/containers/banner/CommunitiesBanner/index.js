@@ -10,7 +10,6 @@ import dynamic from 'next/dynamic'
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
-import Tabber from '@components/Tabber'
 import SearchBox from './SearchBox'
 
 import {
@@ -21,14 +20,11 @@ import {
   SlogenTextWrapper,
   // SlogenText,
   CreateButton,
-  BannerContentWrapper,
-  ContentWrapper,
-  TabberWrapper,
   SearchIcon,
   // Title,
 } from './styles'
 
-import { useInit, tabOnChange, searchOnChange } from './logic'
+import { useInit, searchOnChange } from './logic'
 
 const SlogenText = dynamic({
   loader: () => import('./SlogenText'),
@@ -43,10 +39,8 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
   useInit(communitiesBanner)
 
   const {
-    pagedCategoriesData,
-    activeTab,
     searchValue,
-    isSearchMode,
+    // isSearchMode,
     searching,
   } = communitiesBanner
 
@@ -71,24 +65,6 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
         </Button> */}
         </IntroDesc>
       </IntroWraper>
-      <BannerContentWrapper>
-        <ContentWrapper>
-          <SearchBox
-            onChange={searchOnChange}
-            value={searchValue}
-            searching={searching}
-          />
-        </ContentWrapper>
-        {!isSearchMode && pagedCategoriesData && (
-          <TabberWrapper>
-            <Tabber
-              source={pagedCategoriesData.entries}
-              active={activeTab}
-              onChange={tabOnChange}
-            />
-          </TabberWrapper>
-        )}
-      </BannerContentWrapper>
     </BannerContainer>
   )
 }

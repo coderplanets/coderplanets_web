@@ -14,14 +14,7 @@ import TabWikiSVG from '@SvgIcons/TabWikiSVG'
 import TabVideoSVG from '@SvgIcons/TabVideoSVG'
 import TabRepoSVG from '@SvgIcons/TabRepoSVG'
 import TabCheatsheetSVG from '@SvgIcons/TabCheatsheetSVG'
-//
-import TabPlSVG from '@SvgIcons/TabPlSVG'
-import TabFrontendSVG from '@SvgIcons/TabFrontendSVG'
-import TabBackendSVG from '@SvgIcons/TabBackendSVG'
-import TabMobileSVG from '@SvgIcons/TabMobileSVG'
-import TabAISVG from '@SvgIcons/TabAISVG'
-import TabDesignSVG from '@SvgIcons/TabDesignSVG'
-import TabBlockChainSVG from '@SvgIcons/TabBlockChainSVG'
+
 // user page
 import TabLikesSVG from '@SvgIcons/TabLikesSVG'
 import TabPublishSVG from '@SvgIcons/TabPublishSVG'
@@ -55,14 +48,6 @@ export const TabWikiIcon = commonIcon(TabWikiSVG)
 export const TabVideoIcon = commonIcon(TabVideoSVG)
 export const TabRepoIcon = commonIcon(TabRepoSVG)
 export const TabCheatsheetIcon = commonIcon(TabCheatsheetSVG)
-// communities
-export const TabPlIcon = commonIcon(TabPlSVG)
-export const TabFrontendIcon = commonIcon(TabFrontendSVG)
-export const TabBackendIcon = commonIcon(TabBackendSVG)
-export const TabMobileIcon = commonIcon(TabMobileSVG)
-export const TabAIIcon = commonIcon(TabAISVG)
-export const TabDesignIcon = commonIcon(TabDesignSVG)
-export const TabBlockChainIcon = commonIcon(TabBlockChainSVG)
 
 // user page
 export const TabLikesIcon = commonIcon(TabLikesSVG)

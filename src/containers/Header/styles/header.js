@@ -9,7 +9,7 @@ export const Wrapper = styled.header.attrs(props => ({
   ${cs.flex('justify-center')};
   background: ${({ fixed }) =>
     fixed ? theme('header.fixed') : theme('header.bg')};
-  border-bottom: 1px solid;
+  border-bottom: ${({ noBorder }) => (noBorder ? 'none' : '1px solid')};
   border-bottom-color: ${theme('header.spliter')};
   margin-left: ${({ leftOffset }) => leftOffset};
   box-shadow: ${theme('preview.shadow')};

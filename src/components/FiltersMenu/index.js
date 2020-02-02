@@ -19,7 +19,7 @@ import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 const log = buildLog('c:FiltersMenu:index')
 
 /* <ActiveDot /> */
-const FiltersMenu = ({ items, noFilter }) => {
+const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
   const [activeItemId, setActiveItemId] = useState(null)
 
   return (
@@ -28,13 +28,14 @@ const FiltersMenu = ({ items, noFilter }) => {
         <ItemWrapper
           key={item.id}
           onClick={() => {
+            onItemClick(item)
             item.id === activeItemId
               ? setActiveItemId(null)
               : setActiveItemId(item.id)
           }}
         >
-          <Item active={item.id === '0'} noFilter={noFilter}>
-            <Icon active={item.id === '0'} src={item.icon} />
+          <Item active={item.id === activeId} noFilter={noFilter}>
+            <Icon active={item.id === activeId} src={item.icon} />
             <SpaceGrow />
             {item.title}
           </Item>
@@ -55,10 +56,14 @@ FiltersMenu.propTypes = {
   // TODO:
   items: T.arrayOf(T.object).isRequired,
   noFilter: T.bool,
+  onItemClick: T.func,
+  activeId: T.string,
 }
 
 FiltersMenu.defaultProps = {
   noFilter: false,
+  onItemClick: log,
+  activeId: '0',
 }
 
 export default React.memo(FiltersMenu)
