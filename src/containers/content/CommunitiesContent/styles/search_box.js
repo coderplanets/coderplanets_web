@@ -8,17 +8,21 @@ export const Wrapper = styled.div`
   margin-bottom: 10px;
 `
 export const InputWrapper = styled.div`
+  position: relative;
   ${cs.flex('align-center')};
   border-radius: 20px;
   padding: 10px 18px;
   background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
   opacity: 0.8;
+  border: 1px solid #1e6184;
   &:hover {
     background-color: ${theme('content.cardBg')};
     opacity: 1;
+    border: 1px solid #327faf;
   }
-  transition: all 0.2s ease-in;
+
+  transition: all 0.25s ease-in;
 
   ${cs.media.mobile`
     width: 70%;
@@ -26,12 +30,23 @@ export const InputWrapper = styled.div`
     padding: 8px;
   `};
 `
+export const InputMask = styled.div`
+  ${cs.flex('align-both')};
+  position: absolute;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  top: 0;
+  left: 18px;
+  width: 400px;
+  height: 40px;
+`
+export const MaskNumer = styled.span`
+  color: #327faf;
+  margin-right: 4px;
+`
 export const InputBar = styled.input`
   text-align: center;
   caret-color: ${theme('banner.title')};
   flex-grow: 1;
-  font-family: '.SFNSText-Light', 'SF UI Text', 'Helvetica Neue', 'Arial',
-    'Lucida Grande', 'Segoe UI', Noto Sans, sans-serif;
   height: 100%;
   width: auto;
   min-width: 420px;
@@ -43,8 +58,4 @@ export const InputBar = styled.input`
   border: 0;
   border-radius: 0;
   transition: all 400ms ease;
-  ::placeholder {
-    color: ${theme('banner.desc')};
-    opacity: 0.6;
-  }
 `

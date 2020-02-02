@@ -31,6 +31,7 @@ export const IntroTitle = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   margin-bottom: 20px;
+  margin-left: -14px;
 `
 export const IntroDesc = styled.div`
   ${cs.flex('align-center')};

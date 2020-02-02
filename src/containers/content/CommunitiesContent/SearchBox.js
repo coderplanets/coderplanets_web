@@ -1,17 +1,39 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
-import { Wrapper, InputWrapper, InputBar } from './styles/search_box'
+import {
+  Wrapper,
+  InputWrapper,
+  InputMask,
+  MaskNumer,
+  InputBar,
+} from './styles/search_box'
 
-const SearchBox = ({ value, onChange }) => (
-  <Wrapper>
-    <InputWrapper>
-      <InputBar
-        placeholder="输入关键字, 寻找你感兴趣的社区.."
-        onChange={onChange}
-        value={value}
-      />
-    </InputWrapper>
-  </Wrapper>
-)
+const SearchBox = ({ value, onChange }) => {
+  const ref = useRef(null)
+
+  const [maskvisible, setMaskvisible] = useState(true)
+
+  return (
+    <Wrapper>
+      <InputWrapper>
+        <InputMask
+          show={maskvisible}
+          onClick={() => {
+            setMaskvisible(false)
+            ref.current.focus()
+          }}
+        >
+          <MaskNumer>120+</MaskNumer> 社区
+        </InputMask>
+        <InputBar
+          ref={ref}
+          onChange={onChange}
+          value={value}
+          onBlur={() => setMaskvisible(true)}
+        />
+      </InputWrapper>
+    </Wrapper>
+  )
+}
 
 export default SearchBox
