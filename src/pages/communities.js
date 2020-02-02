@@ -21,7 +21,6 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CommunitiesBanner from '@containers/banner/CommunitiesBanner'
 import CommunitiesContent from '@containers/content/CommunitiesContent'
 
 import { P } from '@schemas'
@@ -101,10 +100,6 @@ export default class CommunitiesPage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      communitiesBanner: {
-        pagedCategories,
-        activeTab: category,
-      },
       communitiesContent: {
         pagedCommunities,
         pagedCategories,
@@ -127,7 +122,6 @@ export default class CommunitiesPage extends React.Component {
     return (
       <Provider store={this.store}>
         <GlobalLayout page={ROUTE.COMMUNITIES} seoConfig={seoConfig}>
-          <CommunitiesBanner />
           <CommunitiesContent />
         </GlobalLayout>
       </Provider>

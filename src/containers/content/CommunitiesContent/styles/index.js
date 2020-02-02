@@ -6,6 +6,9 @@ import Img from '@Img'
 // import Img from '@components/Img'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
+`
+export const ContentWrapper = styled.div`
   ${cs.flex('align-both')};
   margin-top: 45px;
 `

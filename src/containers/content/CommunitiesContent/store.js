@@ -15,10 +15,10 @@ const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
+    searchValue: t.optional(t.string, ''),
     // current active sidbar menu id
     activeCatalogId: t.maybeNull(t.string),
     pagedCommunities: t.maybeNull(PagedCommunities),
-    searchValue: t.optional(t.string, ''),
     searching: t.optional(t.boolean, false),
     // cur active category
     /* category: t.optional(t.string, ''), */
@@ -55,6 +55,9 @@ const CommunitiesContentStore = t
     },
   }))
   .actions(self => ({
+    updateEditing(sobj) {
+      self.mark(sobj)
+    },
     authWarning(options) {
       self.root.authWarning(options)
     },

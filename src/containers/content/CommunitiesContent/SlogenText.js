@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { SlogenTextWrapper } from './styles'
+import { SlogenTextWrapper } from './styles/banner'
 
 const coolThings = ['心爱的作品', '骄傲的团队', '沉淀的知识']
 const SWITCH_INTERVAL = 3000

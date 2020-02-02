@@ -39,7 +39,6 @@ import {
   // banners
   ArticleBannerStore,
   CommunityBannerStore,
-  CommunitiesBannerStore,
   UserBannerStore,
   // content
   CommunityContentStore,
@@ -141,7 +140,6 @@ const rootStore = t
     // banners
     articleBanner: t.optional(ArticleBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
-    communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
 
     // content

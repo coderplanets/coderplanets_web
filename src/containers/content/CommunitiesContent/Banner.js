@@ -8,7 +8,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { buildLog } from '@utils'
 
 import SearchBox from './SearchBox'
 
@@ -18,13 +18,11 @@ import {
   IntroTitle,
   IntroDesc,
   SlogenTextWrapper,
-  // SlogenText,
   CreateButton,
   SearchIcon,
-  // Title,
-} from './styles'
+} from './styles/banner'
 
-import { useInit, searchOnChange } from './logic'
+import { searchOnChange } from './logic'
 
 const SlogenText = dynamic({
   loader: () => import('./SlogenText'),
@@ -35,15 +33,7 @@ const SlogenText = dynamic({
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const CommunitiesBannerContainer = ({ communitiesBanner }) => {
-  useInit(communitiesBanner)
-
-  const {
-    searchValue,
-    // isSearchMode,
-    searching,
-  } = communitiesBanner
-
+const Banner = ({ searchValue }) => {
   return (
     <BannerContainer testid="communities-banner">
       <IntroWraper>
@@ -54,7 +44,7 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
         <SearchBox
           onChange={searchOnChange}
           value={searchValue}
-          searching={searching}
+          searching={false}
         />
         <IntroDesc>
           或者，来为你
@@ -69,4 +59,4 @@ const CommunitiesBannerContainer = ({ communitiesBanner }) => {
   )
 }
 
-export default connectStore(CommunitiesBannerContainer)
+export default Banner

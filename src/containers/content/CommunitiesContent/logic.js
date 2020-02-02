@@ -2,7 +2,13 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, pagedFilter, errRescue } from '@utils'
+import {
+  asyncSuit,
+  buildLog,
+  pagedFilter,
+  errRescue,
+  updateEditing,
+} from '@utils'
 
 import S from './schema'
 
@@ -11,7 +17,7 @@ const log = buildLog('L:CommunitiesContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.REFRESH_COMMUNITIES],
+  recieve: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
 let store = null
@@ -34,14 +40,24 @@ export const loadCommunities = (page = 1) => {
 export const loadCategories = () =>
   sr71$.query(S.pagedCategories, { filter: {} })
 
-const searchCommunities = title => {
+const searchCommunities = () => {
+  const { searchValue: title } = store
   const args = { title, userHasLogin: store.isLogin }
 
   sr71$.query(S.searchCommunities, args)
 }
 
+/**
+ * search for communities
+ * @param {e} htmlEvent
+ * @return {void}
+ */
+export const searchOnChange = e => {
+  updateEditing(store, 'searchValue', e)
+  searchCommunities()
+}
+
 export const menuOnChange = ({ id, raw }) => {
-  console.log('menuOnChange active: ', raw)
   store.markRoute({ subPath: raw })
   loadCommunities()
   store.mark({ activeCatalogId: id })
@@ -102,17 +118,6 @@ const DataSolver = [
     action: ({ unsubscribeCommunity }) => {
       store.removeSubscribedCommunity(unsubscribeCommunity)
       store.mark({ subscribing: false })
-    },
-  },
-  {
-    match: asyncRes(EVENT.REFRESH_COMMUNITIES),
-    action: res => {
-      const payload = res[EVENT.REFRESH_COMMUNITIES]
-      if (payload.type === 'search' && !R.isEmpty(payload.data)) {
-        store.mark({ searchValue: payload.data, searching: true })
-        return searchCommunities(payload.data)
-      }
-      loadCommunities()
     },
   },
   {
