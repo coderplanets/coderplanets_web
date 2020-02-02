@@ -11,6 +11,7 @@ import { connectStore, buildLog } from '@utils'
 
 import FiltersMenu from '@components/FiltersMenu'
 import Pagi from '@components/Pagi'
+import PagiFooter from '@components/PagiFooter'
 
 import Banner from './Banner'
 import CommunityCards from './CommunityCards'
@@ -59,6 +60,12 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                 <CommunityCards
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...communitiesContent }}
+                />
+                <PagiFooter
+                  pageNumber={pagedCommunitiesData.pageNumber}
+                  pageSize={pagedCommunitiesData.pageSize}
+                  totalCount={pagedCommunitiesData.totalCount}
+                  onChange={pageOnChange}
                 />
                 <Pagi
                   left="-10px"
