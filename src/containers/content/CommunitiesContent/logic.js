@@ -23,6 +23,11 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
+/**
+ * load communities by page and cataglog type
+ * @param {page} number
+ * @ppublic
+ */
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
   const category = !R.isEmpty(subPath) ? subPath : 'pl'
@@ -40,12 +45,22 @@ export const loadCommunities = (page = 1) => {
 export const loadCategories = () =>
   sr71$.query(S.pagedCategories, { filter: {} })
 
+/**
+ * search communities by current searchValue in store
+ * @private
+ */
 const searchCommunities = () => {
   const { searchValue: title } = store
   const args = { title, userHasLogin: store.isLogin }
 
   sr71$.query(S.searchCommunities, args)
 }
+
+/**
+ * change search status
+ * @ppublic
+ */
+export const changeSearchStatus = status => store.mark({ ...status })
 
 /**
  * search for communities
@@ -57,14 +72,31 @@ export const searchOnChange = e => {
   searchCommunities()
 }
 
+/**
+ * sidebar menu on select
+ * @param {item} object
+ * @param {item.id} string
+ * @param {item.raw} string
+ * @public
+ */
 export const menuOnChange = ({ id, raw }) => {
   store.markRoute({ subPath: raw })
   loadCommunities()
   store.mark({ activeCatalogId: id })
 }
 
+/**
+ * pagination on change
+ * @param {page} number
+ * @public
+ */
 export const pageOnChange = page => loadCommunities(page)
 
+/**
+ * subscrib / join a community
+ * @param {id} string
+ * @public
+ */
 export const subscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
@@ -75,6 +107,11 @@ export const subscribe = id => {
   })
 }
 
+/**
+ * unsubscrib/ / quit a community
+ * @param {id} string
+ * @public
+ */
 export const unSubscribe = id => {
   if (!store.isLogin) return store.authWarning()
 

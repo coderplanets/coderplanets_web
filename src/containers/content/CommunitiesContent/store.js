@@ -15,7 +15,6 @@ const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('CommunitiesContentStore', {
-    searchValue: t.optional(t.string, ''),
     // current active sidbar menu id
     activeCatalogId: t.maybeNull(t.string),
     pagedCommunities: t.maybeNull(PagedCommunities),
@@ -26,6 +25,14 @@ const CommunitiesContentStore = t
     subscribing: t.optional(t.boolean, false),
     subscribingId: t.maybeNull(t.string),
     pagedCategories: t.maybeNull(PagedCategories),
+    // search status
+    isSearchMode: t.optional(t.boolean, false),
+    searchResultCount: t.optional(t.number, 0),
+    searchValue: t.optional(t.string, ''),
+    showSearchMask: t.optional(t.boolean, true),
+    showCreateHint: t.optional(t.boolean, true),
+    showSearchHint: t.optional(t.boolean, false),
+    searchfocused: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {
@@ -36,6 +43,31 @@ const CommunitiesContentStore = t
     },
     get curRoute() {
       return self.root.curRoute
+    },
+    get searchStatus() {
+      const { searchValue, searchfocused } = self
+      let { showSearchMask, showCreateHint, showSearchHint } = self
+
+      const isSearchMode = searchValue.length !== 0
+      // is has search value, then do not show mask even is input is blur
+      showSearchMask = searchValue.length === 0 ? showSearchMask : false
+
+      const searchResultCount = self.pagedCommunities.totalCount
+
+      showCreateHint = !searchfocused
+      showSearchHint = !showCreateHint && !isSearchMode
+      const showSearchResultHint = isSearchMode
+
+      return {
+        isSearchMode,
+        searchValue,
+        showSearchMask,
+        showCreateHint,
+        showSearchHint,
+        showSearchResultHint,
+        searchfocused,
+        searchResultCount,
+      }
     },
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)

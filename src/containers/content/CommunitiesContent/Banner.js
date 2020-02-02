@@ -33,7 +33,16 @@ const SlogenText = dynamic({
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const Banner = ({ searchValue }) => {
+const Banner = ({
+  searchStatus: {
+    searchValue,
+    showSearchMask,
+    showCreateHint,
+    showSearchHint,
+    showSearchResultHint,
+    searchResultCount,
+  },
+}) => {
   return (
     <BannerContainer testid="communities-banner">
       <IntroWraper>
@@ -42,18 +51,30 @@ const Banner = ({ searchValue }) => {
           寻找你感兴趣的社区
         </IntroTitle>
         <SearchBox
+          showSearchMask={showSearchMask}
           onChange={searchOnChange}
           value={searchValue}
           searching={false}
         />
-        <IntroDesc>
-          或者，来为你
-          <SlogenText />
-          <CreateButton>建立一个新社区</CreateButton>吧！
-          {/* <Button ghost type="primary" size="small">
-          建立新社区
-        </Button> */}
-        </IntroDesc>
+
+        {showSearchResultHint && (
+          <IntroDesc>
+            共找到 &apos;{searchValue} &apos; 相关社区 {searchResultCount} 个
+          </IntroDesc>
+        )}
+        {showSearchHint && (
+          <IntroDesc>
+            可用关键字搜索社区，比如: &apos;react&apos;, &apos;elixir&apos; 等
+          </IntroDesc>
+        )}
+
+        {showCreateHint && (
+          <IntroDesc>
+            或者，来为你
+            <SlogenText />
+            <CreateButton>建立一个新社区</CreateButton>吧！
+          </IntroDesc>
+        )}
       </IntroWraper>
     </BannerContainer>
   )

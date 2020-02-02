@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 
 import {
   Wrapper,
@@ -8,18 +8,21 @@ import {
   InputBar,
 } from './styles/search_box'
 
-const SearchBox = ({ value, onChange }) => {
-  const ref = useRef(null)
+import { changeSearchStatus } from './logic'
 
-  const [maskvisible, setMaskvisible] = useState(true)
+const SearchBox = ({ showSearchMask, value, onChange }) => {
+  const ref = useRef(null)
 
   return (
     <Wrapper>
       <InputWrapper>
         <InputMask
-          show={maskvisible}
+          show={showSearchMask}
           onClick={() => {
-            setMaskvisible(false)
+            changeSearchStatus({
+              showSearchMask: false,
+              searchfocused: true,
+            })
             ref.current.focus()
           }}
         >
@@ -29,7 +32,12 @@ const SearchBox = ({ value, onChange }) => {
           ref={ref}
           onChange={onChange}
           value={value}
-          onBlur={() => setMaskvisible(true)}
+          onBlur={() =>
+            changeSearchStatus({
+              showSearchMask: true,
+              searchfocused: false,
+            })
+          }
         />
       </InputWrapper>
     </Wrapper>

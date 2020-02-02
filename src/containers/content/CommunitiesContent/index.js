@@ -30,18 +30,20 @@ const log = buildLog('C:CommunitiesContent')
 const CommunitiesContentContainer = ({ communitiesContent }) => {
   useInit(communitiesContent)
   const {
-    searchValue,
+    searchStatus,
     pagedCommunitiesData,
     pagedCategoriesData,
     activeMenuId,
   } = communitiesContent
 
+  const { isSearchMode } = searchStatus
+
   return (
     <Wrapper>
-      <Banner searchValue={searchValue} />
-      <ContentWrapper>
+      <Banner searchStatus={searchStatus} />
+      <ContentWrapper center={isSearchMode}>
         <InnerWrapper>
-          <FiltersWrapper>
+          <FiltersWrapper show={!isSearchMode}>
             <Affix offsetTop={60}>
               <FiltersMenu
                 items={pagedCategoriesData}
@@ -51,7 +53,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
               />
             </Affix>
           </FiltersWrapper>
-          <ContentsWrapper>
+          <ContentsWrapper center={isSearchMode}>
             {pagedCommunitiesData && (
               <React.Fragment>
                 <CommunityCards

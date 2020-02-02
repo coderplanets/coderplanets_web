@@ -31,13 +31,13 @@ export const IntroTitle = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   margin-bottom: 20px;
-  margin-left: -14px;
+  margin-left: -10px;
 `
 export const IntroDesc = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: 15px;
-  margin-left: 10px;
+  margin-left: -10px;
   opacity: 0.9;
 `
 export const SlogenTextWrapper = styled.div`
