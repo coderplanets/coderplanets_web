@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   height: 60px;
   width: 100%;
+  margin-top: ${({ margin: { top } }) => top};
+  margin-bottom: ${({ margin: { bottom } }) => bottom};
+  margin-left: ${({ margin: { left } }) => left};
+  margin-right: ${({ margin: { right } }) => right};
 `
 export const ArrowIcon = styled(Img)`
   fill: #196780;

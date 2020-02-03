@@ -64,12 +64,13 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...communitiesContent }}
                 />
-                <PagiFooter {...pagiInfo} onChange={pageOnChange}>
+                <PagiFooter
+                  {...pagiInfo}
+                  onChange={pageOnChange}
+                  margin={{ bottom: '60px' }}
+                >
                   <div>社区行动指南</div>
                 </PagiFooter>
-                <br />
-                <br />
-                <br />
               </React.Fragment>
             ) : (
               <NotFound searchValue={searchValue} />

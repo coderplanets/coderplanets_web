@@ -31,14 +31,11 @@ const PagiFooter = ({
   pageNumber,
   pageSize,
   totalCount,
+  margin,
   onChange,
 }) => {
-  log('pageNumber: ', pageNumber)
-  log('pageSize: ', pageSize)
-  log('totalCount: ', totalCount)
-
   return (
-    <Wrapper>
+    <Wrapper margin={margin}>
       <Perv
         onChange={onChange}
         disabled={pageNumber === 1}
@@ -59,6 +56,12 @@ PagiFooter.propTypes = {
   pageNumber: T.number,
   pageSize: T.number,
   totalCount: T.number,
+  margin: T.shape({
+    top: T.string,
+    bottom: T.string,
+    left: T.string,
+    right: T.string,
+  }),
   onChange: T.func,
 }
 
@@ -68,6 +71,12 @@ PagiFooter.defaultProps = {
   pageSize: 0,
   totalCount: 0,
   onChange: log,
+  margin: {
+    top: '0',
+    bottom: '0',
+    left: '0',
+    right: '0',
+  },
 }
 
 export default React.memo(PagiFooter)
