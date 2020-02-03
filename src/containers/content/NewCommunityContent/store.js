@@ -10,11 +10,21 @@ import { ICON_CMD } from '@config'
 import { markStates, buildLog, stripMobx, Trans } from '@utils'
 import { PagedCommunities, PagedCategories } from '@model'
 
+import { LN } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('NewCommunityContentStore', {
+    communityType: t.maybeNull(
+      t.enumeration([
+        LN.communityType.STANDER,
+        LN.communityType.CITY,
+        LN.communityType.WORK,
+        LN.communityType.TEAM,
+      ])
+    ),
+
     // current active sidbar menu id
     activeCatalogId: t.maybeNull(t.string),
     pagedCommunities: t.maybeNull(PagedCommunities),

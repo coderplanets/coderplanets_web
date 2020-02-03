@@ -16,6 +16,25 @@ const sr71$ = new SR71({
 let store = null
 let sub$ = null
 
+// local namespace
+export const LN = {
+  communityType: {
+    STANDER: 'STANDER',
+    CITY: 'CITY',
+    WORK: 'WORK',
+    TEAM: 'TEAM',
+  },
+}
+
+/**
+ * change the type of the creating community
+ * 改变创建社区类型
+ * @public
+ */
+export const communityTypeOnChange = communityType => {
+  store.mark({ communityType })
+}
+
 /**
  * search communities by current searchValue in store
  * @private

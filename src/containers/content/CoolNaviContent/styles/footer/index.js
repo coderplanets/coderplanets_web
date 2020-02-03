@@ -27,7 +27,6 @@ const Block = styled.div`
 export const AboutBlock = styled(Block)`
   width: 250px;
   margin-right: 18px;
-  cursor: pointer;
 `
 export const ContributorBlock = styled(Block)`
   width: calc(100% - 500px);
@@ -42,33 +41,6 @@ export const Avatar = styled(Img)`
   display: block;
   margin-right: 10px;
   border-radius: 100%;
-`
-export const MoreLink = styled.div`
-  ${cs.flex('align-center')};
-
-  &:hover {
-    cursor: pointer;
-    color: ${theme('thread.articleTitle')};
-  }
-`
-export const MoreText = styled.div`
-  ${Block}:hover & {
-    color: #327ca1;
-  }
-`
-export const ArrowIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  width: 18px;
-  height: 18px;
-  display: block;
-  transform: rotate(180deg);
-  margin-left: 6px;
-
-  ${Block}:hover & {
-    margin-left: 10px;
-    fill: #327ca1;
-  }
-  transition: all 0.2s;
 `
 export const Desc = styled.div`
   margin-top: -10px;

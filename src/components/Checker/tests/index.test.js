@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import PublishButton from '../index'
+// import Checker from '../index'
 
-describe('TODO <PublishButton />', () => {
+describe('TODO <Checker />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

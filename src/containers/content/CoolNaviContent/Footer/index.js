@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
+import { ArrowButton } from '@components/FanceButtons'
 
 import {
   Wrapper,
@@ -15,9 +15,6 @@ import {
   ContributorsWrapper,
   Desc,
   Avatar,
-  MoreLink,
-  MoreText,
-  ArrowIcon,
 } from '../styles/footer'
 
 const FAKE_AVATAR =
@@ -29,18 +26,12 @@ const Footer = () => {
       <AboutBlock>
         关于酷导航
         <Desc>共收录信息 3485 条，最后更新：3小时前</Desc>
-        <MoreLink>
-          <MoreText>查看详细</MoreText>
-          <ArrowIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
-        </MoreLink>
+        <ArrowButton>参与贡献</ArrowButton>
       </AboutBlock>
       <AboutBlock>
         关于本周热榜
         <Desc>共有 RSS 源 334 个，最后抓取：3小时前</Desc>
-        <MoreLink>
-          <MoreText>查看详细</MoreText>
-          <ArrowIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
-        </MoreLink>
+        <ArrowButton>参与贡献</ArrowButton>
       </AboutBlock>
       <ContributorBlock>
         本条目贡献者
@@ -51,10 +42,7 @@ const Footer = () => {
           <Avatar src={FAKE_AVATAR} />
           <Avatar src={FAKE_AVATAR} />
         </ContributorsWrapper>
-        <MoreLink>
-          <MoreText>参与贡献</MoreText>
-          <ArrowIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
-        </MoreLink>
+        <ArrowButton>参与贡献</ArrowButton>
       </ContributorBlock>
     </Wrapper>
   )

@@ -13,9 +13,12 @@ export const ContentWrapper = styled.div`
   margin-top: 45px;
   margin-left: ${({ center }) => (center ? '5%' : 'none')};
   transition: all 0.25s;
+  min-height: 80vh;
+  /* TODO:  tmp */
+  color: ${theme('thread.articleDigest')};
 `
 export const InnerWrapper = styled.div`
-  ${cs.flex()};
+  ${cs.flexColumn()};
   width: 100%;
   height: 100%;
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};

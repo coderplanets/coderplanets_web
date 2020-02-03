@@ -11,7 +11,7 @@ import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
 import Tooltip from '@components/Tooltip'
-import { Wrapper, Label, ActionLink, Icon } from './styles'
+import { Wrapper, Label, ActionLink, Icon } from './styles/publish_button'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PublishButton:index')

@@ -5,9 +5,11 @@
  */
 
 import React from 'react'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@config'
+import { ROUTE } from '@constant'
 import { buildLog } from '@utils'
 
 import SearchBox from './SearchBox'
@@ -18,7 +20,7 @@ import {
   IntroTitle,
   IntroDesc,
   SlogenTextWrapper,
-  CreateButton,
+  CreateCommunityLink,
   SearchIcon,
 } from './styles/banner'
 
@@ -72,7 +74,10 @@ const Banner = ({
           <IntroDesc>
             或者，来为你
             <SlogenText />
-            <CreateButton>建立一个新社区</CreateButton>吧！
+            <Link href={`${ROUTE.COMMUNITIES}/new`} passHref>
+              <CreateCommunityLink>建立一个新社区</CreateCommunityLink>
+            </Link>
+            吧！
           </IntroDesc>
         )}
       </IntroWraper>

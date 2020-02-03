@@ -5,38 +5,35 @@
  */
 
 import React from 'react'
-import dynamic from 'next/dynamic'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import SearchBox from './SearchBox'
+import { ArrowButton } from '@components/FanceButtons'
+
+// import SearchBox from './SearchBox'
 
 import {
   BannerContainer,
   IntroWraper,
   IntroTitle,
   IntroDesc,
-  SlogenTextWrapper,
   CreateButton,
-  SearchIcon,
+  AddNewIcon,
+  NextBtn,
 } from './styles/banner'
 
-import { searchOnChange } from './logic'
+import SelectBoxes from './SelectBoxes'
+// import { searchOnChange } from './logic'
 
-const SlogenText = dynamic({
-  loader: () => import('./SlogenText'),
-  // eslint-disable-next-line react/display-name
-  loading: () => <SlogenTextWrapper>心爱的作品</SlogenTextWrapper>,
-  ssr: false,
-})
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
 const Banner = ({
+  communityType,
   searchStatus: {
     searchValue,
-    showSearchMask,
+    // showSearchMask,
     showCreateHint,
     showSearchHint,
     showSearchResultHint,
@@ -47,15 +44,20 @@ const Banner = ({
     <BannerContainer testid="communities-banner">
       <IntroWraper>
         <IntroTitle>
-          <SearchIcon src={`${ICON_CMD}/search.svg`} />
-          寻找你感兴趣的社区
+          <AddNewIcon src={`${ICON_CMD}/community_new.svg`} />
+          你想创建一个什么类型的社区?
         </IntroTitle>
-        <SearchBox
+        <SelectBoxes communityType={communityType} />
+        {/* <SearchBox
           showSearchMask={showSearchMask}
           onChange={searchOnChange}
           value={searchValue}
           searching={false}
-        />
+        /> */}
+
+        <NextBtn>
+          <ArrowButton size="large">下一步</ArrowButton>
+        </NextBtn>
 
         {showSearchResultHint && (
           <IntroDesc>
@@ -71,7 +73,6 @@ const Banner = ({
         {showCreateHint && (
           <IntroDesc>
             或者，来为你
-            <SlogenText />
             <CreateButton>建立一个新社区</CreateButton>吧！
           </IntroDesc>
         )}

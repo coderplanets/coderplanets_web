@@ -48,13 +48,14 @@ export const SlogenTextWrapper = styled.div`
   color: ${({ highlight }) =>
     highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 `
-export const CreateButton = styled.div`
+export const CreateCommunityLink = styled.a`
   color: #327faf;
   margin-right: 3px;
 
   &:hover {
     cursor: pointer;
     font-weight: bold;
+    text-decoration: underline;
   }
 `
 export const SearchIcon = styled(Img)`

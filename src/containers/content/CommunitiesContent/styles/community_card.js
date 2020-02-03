@@ -22,10 +22,17 @@ export const Wrapper = styled(BaseCard)`
   margin-bottom: 60px;
 
   &:hover {
+    cursor: pointer;
+    border: 1px solid #327faf;
+    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15); /* same with the popover */
+  }
+/*
+  &:hover {
     border: 1px solid;
     border-color: ${theme('content.cardBorderHover')};
     box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15);
   }
+   */
   transition: all 0.25s;
 `
 

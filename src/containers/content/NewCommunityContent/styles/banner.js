@@ -19,12 +19,13 @@ export const BannerContainer = styled.div.attrs(props => ({
   }
 `
 export const IntroWraper = styled.div`
+  position: relative;
   ${cs.flexColumn('align-both')};
   color: ${theme('thread.articleDigest')};
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 250px;
+  height: 340px;
 `
 export const IntroTitle = styled.div`
   ${cs.flex('align-center')};
@@ -57,14 +58,20 @@ export const CreateButton = styled.div`
     font-weight: bold;
   }
 `
-export const SearchIcon = styled(Img)`
+export const AddNewIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   display: block;
-  margin-right: 6px;
+  margin-right: 10px;
+  transform: rotate(-90deg);
+  margin-top: -1px;
 `
 export const Title = styled.div`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
+`
+export const NextBtn = styled.div`
+  position: absolute;
+  bottom: 5px;
 `
