@@ -24,7 +24,7 @@ export const NaviInfo = styled.div`
   margin-right: 10px;
 
   ${Wrapper}:hover & {
-    margin-right: 8px;
+    margin-right: ${({ disabled }) => (disabled ? '10px' : '8px')};
   }
   transition: all 0.25s;
 `

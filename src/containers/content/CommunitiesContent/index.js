@@ -10,7 +10,6 @@ import { Affix } from 'antd'
 import { connectStore, buildLog } from '@utils'
 
 import FiltersMenu from '@components/FiltersMenu'
-import Pagi from '@components/Pagi'
 import PagiFooter from '@components/PagiFooter'
 
 import Banner from './Banner'
@@ -35,6 +34,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
     pagedCommunitiesData,
     pagedCategoriesData,
     activeMenuId,
+    pagiInfo,
   } = communitiesContent
 
   const { isSearchMode } = searchStatus
@@ -61,19 +61,12 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...communitiesContent }}
                 />
-                <PagiFooter
-                  pageNumber={pagedCommunitiesData.pageNumber}
-                  pageSize={pagedCommunitiesData.pageSize}
-                  totalCount={pagedCommunitiesData.totalCount}
-                  onChange={pageOnChange}
-                />
-                <Pagi
-                  left="-10px"
-                  pageNumber={pagedCommunitiesData.pageNumber}
-                  pageSize={pagedCommunitiesData.pageSize}
-                  totalCount={pagedCommunitiesData.totalCount}
-                  onChange={pageOnChange}
-                />
+                <PagiFooter {...pagiInfo} onChange={pageOnChange}>
+                  <div>社区行动指南</div>
+                </PagiFooter>
+                <br />
+                <br />
+                <br />
               </React.Fragment>
             )}
           </ContentsWrapper>

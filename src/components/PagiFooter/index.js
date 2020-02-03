@@ -40,13 +40,13 @@ const PagiFooter = ({
   return (
     <Wrapper>
       <Perv
-        onClick={onChange}
+        onChange={onChange}
         disabled={pageNumber === 1}
         pageNumber={pageNumber}
       />
       <div>{children}</div>
       <Next
-        onClick={onChange}
+        onChange={onChange}
         disabled={pageNumber >= roundUp(totalCount / pageSize)}
         pageNumber={pageNumber}
       />
@@ -63,7 +63,7 @@ PagiFooter.propTypes = {
 }
 
 PagiFooter.defaultProps = {
-  children: <div>Middle Child</div>,
+  children: <div />,
   pageNumber: 0,
   pageSize: 0,
   totalCount: 0,

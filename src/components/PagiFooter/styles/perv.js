@@ -25,7 +25,7 @@ export const NaviInfo = styled.div`
   ${cs.flexColumn('align-center')};
   margin-left: 10px;
   ${Wrapper}:hover & {
-    margin-left: 8px;
+    margin-left: ${({ disabled }) => (disabled ? '10px' : '8px')};
   }
 `
 export const Navi = styled(CommonNavi)``

@@ -72,6 +72,15 @@ const CommunitiesContentStore = t
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)
     },
+    get pagiInfo() {
+      const { pageNumber, pageSize, totalCount } = self.pagedCommunitiesData
+
+      return {
+        pageNumber,
+        pageSize,
+        totalCount,
+      }
+    },
     get activeMenuId() {
       const { entries } = stripMobx(self.pagedCategories)
       return self.activeCatalogId || entries[0].id

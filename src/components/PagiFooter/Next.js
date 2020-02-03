@@ -11,17 +11,31 @@ import {
   Hint,
 } from './styles/next'
 
-const Next = ({ pageNumber, disabled }) => {
+const Next = ({ pageNumber, disabled, onChange }) => {
   return (
-    <Wrapper disabled={disabled}>
-      <NaviInfo>
-        <Hint>第 {disabled ? pageNumber : pageNumber + 1} 页</Hint>
-        <Navi>下一页</Navi>
-      </NaviInfo>
-      <ArrowWrapper>
-        <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
-      </ArrowWrapper>
-    </Wrapper>
+    <React.Fragment>
+      {disabled ? (
+        <Wrapper disabled>
+          <NaviInfo disabled>
+            <Hint>第 {pageNumber} 页</Hint>
+            <Navi>下一页</Navi>
+          </NaviInfo>
+          <ArrowWrapper>
+            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+          </ArrowWrapper>
+        </Wrapper>
+      ) : (
+        <Wrapper onClick={() => onChange(pageNumber + 1)}>
+          <NaviInfo>
+            <Hint>第 {pageNumber + 1} 页</Hint>
+            <Navi>下一页</Navi>
+          </NaviInfo>
+          <ArrowWrapper>
+            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+          </ArrowWrapper>
+        </Wrapper>
+      )}
+    </React.Fragment>
   )
 }
 
