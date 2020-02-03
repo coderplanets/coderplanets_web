@@ -106,6 +106,9 @@ app.prepare().then(() => {
   )
 
   server.get('/communities', (req, res) => res.redirect('/communities/pl'))
+  server.get('/communities/new', (req, res) =>
+    renderAndCache(req, res, '/communities/new', req.query)
+  )
 
   server.get('/communities/:category', (req, res) =>
     renderAndCache(req, res, '/communities', req.query)

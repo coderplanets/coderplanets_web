@@ -47,6 +47,7 @@ import {
   VideoContentStore,
   RepoContentStore,
   CommunitiesContentStore,
+  NewCommunityContentStore,
   CheatSheetContentStore,
   UserContentStore,
   // footer
@@ -146,6 +147,7 @@ const rootStore = t
     communityContent: t.optional(CommunityContentStore, {}),
 
     communitiesContent: t.optional(CommunitiesContentStore, {}),
+    newCommunityContent: t.optional(NewCommunityContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
     jobContent: t.optional(JobContentStore, {}),

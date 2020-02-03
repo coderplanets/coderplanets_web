@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import R from 'ramda'
 import { Affix } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
@@ -13,7 +14,8 @@ import FiltersMenu from '@components/FiltersMenu'
 import PagiFooter from '@components/PagiFooter'
 
 import Banner from './Banner'
-import CommunityCards from './CommunityCards'
+import CommunityList from './CommunityList'
+import NotFound from './NotFound'
 
 import {
   Wrapper,
@@ -35,16 +37,17 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
     pagedCategoriesData,
     activeMenuId,
     pagiInfo,
+    showFilterSidebar,
   } = communitiesContent
 
-  const { isSearchMode } = searchStatus
+  const { isSearchMode, searchValue } = searchStatus
 
   return (
     <Wrapper>
       <Banner searchStatus={searchStatus} />
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper>
-          <FiltersWrapper show={!isSearchMode}>
+          <FiltersWrapper show={showFilterSidebar}>
             <Affix offsetTop={60}>
               <FiltersMenu
                 items={pagedCategoriesData}
@@ -55,9 +58,9 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
             </Affix>
           </FiltersWrapper>
           <ContentsWrapper center={isSearchMode}>
-            {pagedCommunitiesData && (
+            {!R.isEmpty(pagedCommunitiesData.entries) ? (
               <React.Fragment>
-                <CommunityCards
+                <CommunityList
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...communitiesContent }}
                 />
@@ -68,6 +71,8 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                 <br />
                 <br />
               </React.Fragment>
+            ) : (
+              <NotFound searchValue={searchValue} />
             )}
           </ContentsWrapper>
         </InnerWrapper>

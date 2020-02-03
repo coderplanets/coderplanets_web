@@ -8,16 +8,16 @@ import R from 'ramda'
 
 import { ICON_CMD } from '@config'
 import { markStates, buildLog, stripMobx, Trans } from '@utils'
-import { PagedCommunities, PagedCategories, emptyPagiData } from '@model'
+import { PagedCommunities, PagedCategories } from '@model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
-  .model('CommunitiesContentStore', {
+  .model('NewCommunityContentStore', {
     // current active sidbar menu id
     activeCatalogId: t.maybeNull(t.string),
-    pagedCommunities: t.optional(PagedCommunities, emptyPagiData),
+    pagedCommunities: t.maybeNull(PagedCommunities),
     searching: t.optional(t.boolean, false),
     // cur active category
     /* category: t.optional(t.string, ''), */
@@ -45,37 +45,10 @@ const CommunitiesContentStore = t
       return self.root.curRoute
     },
     get searchStatus() {
-      const { searchValue, searchfocused } = self
-      let { showSearchMask, showCreateHint, showSearchHint } = self
-
-      const isSearchMode = searchValue.length !== 0
-      // is has search value, then do not show mask even is input is blur
-      showSearchMask = searchValue.length === 0 ? showSearchMask : false
-
-      const searchResultCount = self.pagedCommunities.totalCount
-
-      showCreateHint = !searchfocused && !isSearchMode
-      showSearchHint = !showCreateHint && !isSearchMode
-      const showSearchResultHint = isSearchMode
-
-      return {
-        isSearchMode,
-        searchValue,
-        showSearchMask,
-        showCreateHint,
-        showSearchHint,
-        showSearchResultHint,
-        searchfocused,
-        searchResultCount,
-      }
+      return {}
     },
     get pagedCommunitiesData() {
       return stripMobx(self.pagedCommunities)
-    },
-    get showFilterSidebar() {
-      // if (self.pagedCommunitiesData.entries.length === 0) return false
-      // const isSearchMode = searchValue.length !== 0
-      return self.searchValue.length === 0
     },
     get pagiInfo() {
       const { pageNumber, pageSize, totalCount } = self.pagedCommunitiesData
