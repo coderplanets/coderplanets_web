@@ -9,13 +9,9 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 
 import Banner from './Banner'
+import Content from './Content'
 
-import {
-  Wrapper,
-  ContentWrapper,
-  InnerWrapper,
-  ContentsWrapper, // move out
-} from './styles'
+import { Wrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -25,17 +21,11 @@ const NewCommunityContentContainer = ({ newCommunityContent }) => {
   useInit(newCommunityContent)
   const { searchStatus, communityType } = newCommunityContent
 
-  const { isSearchMode } = searchStatus
-
   return (
     <Wrapper>
       <Banner searchStatus={searchStatus} communityType={communityType} />
-      <ContentWrapper center={isSearchMode}>
-        <InnerWrapper>
-          <ContentsWrapper center={isSearchMode}>
-            <div>contents</div>
-          </ContentsWrapper>
-        </InnerWrapper>
+      <ContentWrapper>
+        <Content />
       </ContentWrapper>
     </Wrapper>
   )

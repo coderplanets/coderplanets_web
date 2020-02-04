@@ -18,11 +18,15 @@ let sub$ = null
 
 // local namespace
 export const LN = {
-  communityType: {
+  COMMUNITY_TYPE: {
     STANDER: 'STANDER',
     CITY: 'CITY',
     WORK: 'WORK',
     TEAM: 'TEAM',
+  },
+  STEP: {
+    SELECT_TYPE: 'SELECT_TYPE',
+    SETUP_NAME: 'SETUP_NAME',
   },
 }
 

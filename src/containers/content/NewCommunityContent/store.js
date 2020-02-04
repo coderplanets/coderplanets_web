@@ -18,11 +18,15 @@ const CommunitiesContentStore = t
   .model('NewCommunityContentStore', {
     communityType: t.maybeNull(
       t.enumeration([
-        LN.communityType.STANDER,
-        LN.communityType.CITY,
-        LN.communityType.WORK,
-        LN.communityType.TEAM,
+        LN.COMMUNITY_TYPE.STANDER,
+        LN.COMMUNITY_TYPE.CITY,
+        LN.COMMUNITY_TYPE.WORK,
+        LN.COMMUNITY_TYPE.TEAM,
       ])
+    ),
+    step: t.optional(
+      t.enumeration([LN.STEP.SELECT_TYPE, LN.STEP.SETUP_NAME]),
+      LN.STEP.SELECT_TYPE
     ),
 
     // current active sidbar menu id

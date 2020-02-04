@@ -7,13 +7,13 @@ import {
   HeaderText,
   MainText,
   FooterText,
-} from './styles/select_boxes'
+} from '../../styles/banner/select_type/type_boxes'
 
-import { LN, communityTypeOnChange } from './logic'
+import { LN, communityTypeOnChange } from '../../logic'
 
-const SelectBoxes = ({ communityType }) => {
+const TypeBoxes = ({ communityType }) => {
   const {
-    communityType: { STANDER, CITY, WORK, TEAM },
+    COMMUNITY_TYPE: { STANDER, CITY, WORK, TEAM },
   } = LN
   return (
     <Wrapper>
@@ -65,4 +65,4 @@ const SelectBoxes = ({ communityType }) => {
   )
 }
 
-export default SelectBoxes
+export default TypeBoxes
