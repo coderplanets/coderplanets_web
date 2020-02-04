@@ -13,7 +13,7 @@ import { buildLog } from '@utils'
 import { Wrapper, Text, ArrowIcon } from './styles/arrow_button'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:FanceButtons:index')
+const log = buildLog('c:FancyButtons:index')
 
 const SISE_MAP = {
   small: {
@@ -30,7 +30,7 @@ const SISE_MAP = {
   },
 }
 
-const FanceButtons = ({ children, size }) => {
+const FancyButtons = ({ children, size }) => {
   return (
     <Wrapper>
       <Text size={SISE_MAP[size].text}>{children}</Text>
@@ -42,14 +42,14 @@ const FanceButtons = ({ children, size }) => {
   )
 }
 
-FanceButtons.propTypes = {
+FancyButtons.propTypes = {
   children: T.oneOfType(T.string, T.node),
   size: T.oneOf(['small', 'medium', 'large']),
 }
 
-FanceButtons.defaultProps = {
+FancyButtons.defaultProps = {
   children: '下一步',
   size: 'small',
 }
 
-export default React.memo(FanceButtons)
+export default React.memo(FancyButtons)

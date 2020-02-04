@@ -9,7 +9,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { ArrowButton } from '@components/FanceButtons'
+import { ArrowButton } from '@components/FancyButtons'
 // import SearchBox from './SearchBox'
 import {
   Wrapper,

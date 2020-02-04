@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { ArrowButton } from '@components/FanceButtons'
+import { ArrowButton } from '@components/FancyButtons'
 
 import {
   Wrapper,
