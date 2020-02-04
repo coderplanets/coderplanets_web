@@ -25,7 +25,7 @@ const NewCommunityContentContainer = ({ newCommunityContent }) => {
     <Wrapper>
       <Banner searchStatus={searchStatus} communityType={communityType} />
       <ContentWrapper>
-        <Content />
+        <Content communityType={communityType} />
       </ContentWrapper>
     </Wrapper>
   )

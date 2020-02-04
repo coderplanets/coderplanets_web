@@ -8,7 +8,7 @@ import Img from '@Img'
 export const Wrapper = styled.div`
   ${cs.flex('justify-between')};
   width: 700px;
-  margin-top: 30px;
+  margin-top: 60px;
   min-height: 300px;
 `
 const Block = styled.div`
@@ -21,10 +21,11 @@ export const LeftBlock = styled(Block)`
 `
 export const RightBlock = styled(Block)`
   padding-right: 0;
+  padding-left: 40px;
 `
 export const Header = styled.div`
   ${cs.flex('align-center')};
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 `
 const Icon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -48,4 +49,11 @@ export const Title = styled.div`
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   line-height: 1.7;
+`
+
+export const CommunityDemoWrapper = styled.div`
+  ${cs.flex('align-center')};
+  flex-wrap: wrap;
+  margin-left: 5px;
+  margin-bottom: 5px;
 `
