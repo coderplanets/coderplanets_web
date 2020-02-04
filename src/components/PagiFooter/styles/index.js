@@ -14,13 +14,21 @@ export const Wrapper = styled.div`
   margin-left: ${({ margin: { left } }) => left};
   margin-right: ${({ margin: { right } }) => right};
 `
-export const ArrowIcon = styled(Img)`
+export const CommonCenterArrowIcon = styled(Img)`
   fill: #196780;
   width: 30px;
   height: 30px;
   display: block;
   transition: all 0.25s;
 `
+export const CommonBottomArrowIcon = styled(Img)`
+  fill: #196780;
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin-bottom: 5px;
+`
+
 export const CommonNavi = styled.div`
   font-size: 18px;
   color: #327faf;
@@ -30,6 +38,6 @@ export const CommonNavi = styled.div`
   }
 `
 export const CommonHint = styled.div`
-  font-size: 13px;
-  margin-bottom: 4px;
+  font-size: 12px;
+  margin-bottom: 2px;
 `

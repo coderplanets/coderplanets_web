@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 import { cs } from '@utils'
 
-import { ArrowIcon, CommonNavi, CommonHint } from './index'
+import { CommonNavi, CommonHint, CommonBottomArrowIcon } from '../index'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-end')};
   color: #196780;
 
   opacity: ${({ disabled }) => (disabled ? '0.6' : '1')};
@@ -13,20 +13,17 @@ export const Wrapper = styled.div`
 `
 export const ArrowWrapper = styled.div`
   position: relative;
+  margin-right: 15px;
 `
-export const Icon = styled(ArrowIcon)`
-  transform: rotate(180deg);
+export const Icon = styled(CommonBottomArrowIcon)`
   ${Wrapper}:hover & {
     fill: #327faf;
   }
 `
-
 export const NaviInfo = styled.div`
-  ${cs.flexColumn('align-center')};
-  margin-left: 10px;
-  ${Wrapper}:hover & {
-    margin-left: ${({ disabled }) => (disabled ? '10px' : '8px')};
-  }
+  ${cs.flexColumn('align-start')};
 `
 export const Navi = styled(CommonNavi)``
-export const Hint = styled(CommonHint)``
+export const Hint = styled(CommonHint)`
+  margin-left: 5px;
+`

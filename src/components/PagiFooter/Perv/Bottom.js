@@ -8,15 +8,15 @@ import {
   NaviInfo,
   Navi,
   Hint,
-} from './styles/perv'
+} from '../styles/perv/bottom'
 
-const Perv = ({ disabled, pageNumber, onChange }) => {
+const Bottom = ({ disabled, pageNumber, onChange }) => {
   return (
     <React.Fragment>
       {disabled ? (
         <Wrapper disabled>
           <ArrowWrapper>
-            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+            <Icon src={`${ICON_CMD}/footer-navi-arrow-bottom.svg`} />
           </ArrowWrapper>
           <NaviInfo disabled>
             <Hint>第 1 页</Hint>
@@ -26,7 +26,7 @@ const Perv = ({ disabled, pageNumber, onChange }) => {
       ) : (
         <Wrapper onClick={() => onChange(pageNumber - 1)}>
           <ArrowWrapper>
-            <Icon src={`${ICON_CMD}/footer-navi-arrow.svg`} />
+            <Icon src={`${ICON_CMD}/footer-navi-arrow-bottom.svg`} />
           </ArrowWrapper>
           <NaviInfo>
             <Hint>第 {pageNumber - 1} 页</Hint>
@@ -38,4 +38,4 @@ const Perv = ({ disabled, pageNumber, onChange }) => {
   )
 }
 
-export default React.memo(Perv)
+export default React.memo(Bottom)

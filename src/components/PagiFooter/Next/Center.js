@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-
 import {
   Wrapper,
   ArrowWrapper,
@@ -9,9 +8,9 @@ import {
   NaviInfo,
   Navi,
   Hint,
-} from './styles/next'
+} from '../styles/next/center'
 
-const Next = ({ pageNumber, disabled, onChange }) => {
+const Center = ({ disabled, pageNumber, onChange }) => {
   return (
     <React.Fragment>
       {disabled ? (
@@ -39,4 +38,4 @@ const Next = ({ pageNumber, disabled, onChange }) => {
   )
 }
 
-export default React.memo(Next)
+export default React.memo(Center)

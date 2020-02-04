@@ -28,6 +28,7 @@ const roundUp = (num, precision = 0) => {
 
 const PagiFooter = ({
   children,
+  type,
   pageNumber,
   pageSize,
   totalCount,
@@ -37,12 +38,14 @@ const PagiFooter = ({
   return (
     <Wrapper margin={margin}>
       <Perv
+        type={type}
         onChange={onChange}
         disabled={pageNumber === 1}
         pageNumber={pageNumber}
       />
       <div>{children}</div>
       <Next
+        type={type}
         onChange={onChange}
         disabled={pageNumber >= roundUp(totalCount / pageSize)}
         pageNumber={pageNumber}
@@ -53,6 +56,7 @@ const PagiFooter = ({
 
 PagiFooter.propTypes = {
   children: T.node,
+  type: T.oneOf(['bottom', 'center']),
   pageNumber: T.number,
   pageSize: T.number,
   totalCount: T.number,
@@ -67,6 +71,7 @@ PagiFooter.propTypes = {
 
 PagiFooter.defaultProps = {
   children: <div />,
+  type: 'bottom',
   pageNumber: 0,
   pageSize: 0,
   totalCount: 0,
