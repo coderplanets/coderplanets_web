@@ -26,6 +26,7 @@ export const Community = styled.div`
   }
 `
 export const Logo = styled(Img)`
+  fill: #317faf;
   position: absolute;
   top: 2px;
   left: -5px;
