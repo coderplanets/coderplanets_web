@@ -11,7 +11,7 @@ import { buildLog } from '@utils'
 
 import { ArrowButton } from '@components/FancyButtons'
 
-// import SearchBox from './SearchBox'
+import TypeBoxes from './TypeBoxes'
 
 import {
   Wrapper,
@@ -20,13 +20,12 @@ import {
   NextBtn,
 } from '../../styles/banner/select_type'
 
-import TypeBoxes from './TypeBoxes'
-// import { searchOnChange } from './logic'
+import { nextStep } from '../../logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const SelectType = ({ communityType }) => {
+const SelectType = ({ status: { communityType } }) => {
   return (
     <Wrapper>
       <IntroTitle>
@@ -37,7 +36,9 @@ const SelectType = ({ communityType }) => {
 
       {communityType && (
         <NextBtn>
-          <ArrowButton size="large">下一步</ArrowButton>
+          <ArrowButton size="large" onClick={nextStep}>
+            下一步
+          </ArrowButton>
         </NextBtn>
       )}
     </Wrapper>

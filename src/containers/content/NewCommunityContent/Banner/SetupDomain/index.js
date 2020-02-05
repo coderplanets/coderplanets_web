@@ -14,7 +14,11 @@ import {
   NextBtn,
 } from '../../styles/banner/setup_domain'
 
-const SetupDomain = () => {
+import { pervStep, doaminOnChange } from '../../logic'
+
+const SetupDomain = ({ status }) => {
+  const { setupDomainValue } = status
+
   return (
     <Wrapper>
       <IntroTitle>
@@ -22,9 +26,14 @@ const SetupDomain = () => {
         社区的专有域名是?
         <StepHint>2 / 4</StepHint>
       </IntroTitle>
-      <InputBox onChange={console.log} />
+      <InputBox value={setupDomainValue} onChange={doaminOnChange} autoFocus />
       <NextBtn>
-        <ArrowButton size="medium" direction="left" transparentFirst>
+        <ArrowButton
+          size="medium"
+          direction="left"
+          transparentFirst
+          onClick={pervStep}
+        >
           上一步
         </ArrowButton>
         <ArrowButton size="large">下一步</ArrowButton>

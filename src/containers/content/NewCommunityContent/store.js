@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { markStates, buildLog, stripMobx, Trans } from '@utils'
+// stripMobx
+import { markStates, buildLog } from '@utils'
 import { PagedCommunities, PagedCategories } from '@model'
 
 import { LN } from './logic'
@@ -16,6 +16,11 @@ const log = buildLog('S:CommunitiesContentStore')
 
 const CommunitiesContentStore = t
   .model('NewCommunityContentStore', {
+    step: t.optional(
+      t.enumeration([LN.STEP.SELECT_TYPE, LN.STEP.SETUP_DOMAIN]),
+      LN.STEP.SELECT_TYPE // SETUP_DOMAIN // STEP.SELECT_TYPE
+    ),
+
     communityType: t.maybeNull(
       t.enumeration([
         LN.COMMUNITY_TYPE.STANDER,
@@ -24,10 +29,8 @@ const CommunitiesContentStore = t
         LN.COMMUNITY_TYPE.TEAM,
       ])
     ),
-    step: t.optional(
-      t.enumeration([LN.STEP.SELECT_TYPE, LN.STEP.SETUP_DOMAIN]),
-      LN.STEP.SETUP_DOMAIN // STEP.SELECT_TYPE
-    ),
+
+    domainValue: t.optional(t.string, ''),
 
     // current active sidbar menu id
     activeCatalogId: t.maybeNull(t.string),
@@ -58,33 +61,18 @@ const CommunitiesContentStore = t
     get curRoute() {
       return self.root.curRoute
     },
+    get selectTypeStatus() {
+      const { communityType } = self
+
+      return { communityType }
+    },
+    get setupDomainStatus() {
+      const { domainValue } = self
+
+      return { domainValue }
+    },
     get searchStatus() {
       return {}
-    },
-    get pagedCommunitiesData() {
-      return stripMobx(self.pagedCommunities)
-    },
-    get pagiInfo() {
-      const { pageNumber, pageSize, totalCount } = self.pagedCommunitiesData
-
-      return {
-        pageNumber,
-        pageSize,
-        totalCount,
-      }
-    },
-    get activeMenuId() {
-      const { entries } = stripMobx(self.pagedCategories)
-      return self.activeCatalogId || entries[0].id
-    },
-    get pagedCategoriesData() {
-      const { entries } = stripMobx(self.pagedCategories)
-      return entries.map(item => ({
-        id: item.id,
-        raw: item.raw,
-        title: Trans(item.title),
-        icon: `${ICON_CMD}/catalogs/${item.raw}.svg`,
-      }))
     },
   }))
   .actions(self => ({

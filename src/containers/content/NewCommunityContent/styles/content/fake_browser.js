@@ -130,3 +130,7 @@ export const Input = styled.div`
   padding-left: 4px;
   font-size: 14px;
 `
+export const DomainText = styled.span`
+  color: #309999;
+  margin-left: 1px;
+`

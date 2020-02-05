@@ -33,7 +33,7 @@ const log = buildLog('C:NewCommunitiesContent')
 
 // import { LN } from '../logic'
 
-const SelectType = ({ communityType }) => {
+const SelectType = ({ status: { communityType } }) => {
   if (!communityType) return null
   const intro = COMMUNITY_INTRO[communityType]
   return (

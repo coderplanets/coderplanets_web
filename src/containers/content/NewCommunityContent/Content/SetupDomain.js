@@ -3,10 +3,11 @@ import React from 'react'
 import FakeBrowser from './FakeBrowser'
 import { Wrapper } from '../styles/content/setup_domain'
 
-const SetupDomain = () => {
+const SetupDomain = ({ status }) => {
+  const { domainValue: domain } = status
   return (
     <Wrapper>
-      <FakeBrowser />
+      <FakeBrowser domain={domain} />
     </Wrapper>
   )
 }

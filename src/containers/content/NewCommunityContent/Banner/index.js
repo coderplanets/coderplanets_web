@@ -18,17 +18,17 @@ import { LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesBanner')
 
-const Banner = ({ step, communityType }) => {
+const Banner = ({ step, selectTypeStatus, setupDomainStatus }) => {
   const { STEP } = LN
   let stepComp
 
   switch (step) {
     case STEP.SELECT_TYPE: {
-      stepComp = <SelectType communityType={communityType} />
+      stepComp = <SelectType status={selectTypeStatus} />
       break
     }
     default: {
-      stepComp = <SetupDomain />
+      stepComp = <SetupDomain status={setupDomainStatus} />
     }
   }
 

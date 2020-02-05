@@ -30,9 +30,15 @@ const SISE_MAP = {
   },
 }
 
-const FancyButtons = ({ children, size, direction, transparentFirst }) => {
+const FancyButtons = ({
+  children,
+  onClick,
+  size,
+  direction,
+  transparentFirst,
+}) => {
   return (
-    <Wrapper transparentFirst={transparentFirst}>
+    <Wrapper onClick={onClick} transparentFirst={transparentFirst}>
       {direction === 'left' ? (
         <React.Fragment>
           <LeftIcon
@@ -59,6 +65,7 @@ FancyButtons.propTypes = {
   size: T.oneOf(['small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
   transparentFirst: T.bool,
+  onClick: T.func,
 }
 
 FancyButtons.defaultProps = {
@@ -66,6 +73,7 @@ FancyButtons.defaultProps = {
   size: 'small',
   direction: 'right',
   transparentFirst: false,
+  onClick: console.log,
 }
 
 export default React.memo(FancyButtons)

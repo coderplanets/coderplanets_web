@@ -43,15 +43,20 @@ export const MaskNumer = styled.span`
   color: #327faf;
   margin-right: 4px;
 `
-export const InputBar = styled.input`
+export const InputBar = styled.input.attrs(() => ({
+  spellCheck: 'false',
+  autoComplete: 'off',
+  autoCorrect: 'off',
+  autoCapitalize: 'off',
+}))`
   text-align: center;
-  caret-color: ${theme('banner.title')};
+  caret-color: #33b7b3;
   flex-grow: 1;
   height: 100%;
   width: auto;
   min-width: 420px;
   outline: none;
-  color: ${theme('banner.desc')};
+  color: #33b7b3;
   font-size: 1.1rem;
   max-height: none;
   background-color: transparent;

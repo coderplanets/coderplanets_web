@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue, updateEditing } from '@utils'
+import { asyncSuit, buildLog, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -30,20 +30,45 @@ export const LN = {
   },
 }
 
+export const pervStep = () => {
+  const { COMMUNITY_TYPE, STEP } = LN
+  const { step, communityType } = store
+
+  if (communityType === COMMUNITY_TYPE.WORK) {
+    if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
+  }
+}
+
+export const nextStep = () => {
+  const { COMMUNITY_TYPE, STEP } = LN
+  const { step, communityType } = store
+
+  if (communityType === COMMUNITY_TYPE.WORK) {
+    if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
+  }
+}
+
 /**
  * change the type of the creating community
  * 改变创建社区类型
  * @public
  */
-export const communityTypeOnChange = communityType => {
+export const communityTypeOnChange = communityType =>
   store.mark({ communityType })
-}
+
+/**
+ * community domain on change
+ * 设置域名
+ * @public
+ */
+export const doaminOnChange = ({ target: { value: domainValue } }) =>
+  store.mark({ domainValue })
 
 /**
  * search communities by current searchValue in store
  * @private
  */
-const searchCommunities = () => {
+export const searchCommunities = () => {
   const { searchValue: title } = store
   const args = { title, userHasLogin: store.isLogin }
 
@@ -56,16 +81,6 @@ const searchCommunities = () => {
  */
 export const changeSearchStatus = status => store.mark({ ...status })
 
-/**
- * search for communities
- * @param {e} htmlEvent
- * @return {void}
- */
-export const searchOnChange = e => {
-  updateEditing(store, 'searchValue', e)
-  searchCommunities()
-}
-
 /* when error occured cancle all the loading state */
 const cancleLoading = () =>
   store.mark({
@@ -74,14 +89,6 @@ const cancleLoading = () =>
   })
 
 const DataSolver = [
-  {
-    match: asyncRes('pagedCommunities'),
-    action: ({ pagedCommunities }) => store.mark({ pagedCommunities }),
-  },
-  {
-    match: asyncRes('pagedCategories'),
-    action: ({ pagedCategories }) => store.mark({ pagedCategories }),
-  },
   {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
