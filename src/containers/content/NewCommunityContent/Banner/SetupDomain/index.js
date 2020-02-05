@@ -26,7 +26,12 @@ const SetupDomain = ({ status }) => {
         社区的专有域名是?
         <StepHint>2 / 4</StepHint>
       </IntroTitle>
-      <InputBox value={setupDomainValue} onChange={doaminOnChange} autoFocus />
+      <InputBox
+        value={setupDomainValue}
+        placeholder="your-domain"
+        onChange={doaminOnChange}
+        autoFocus
+      />
       <NextBtn>
         <ArrowButton
           size="medium"

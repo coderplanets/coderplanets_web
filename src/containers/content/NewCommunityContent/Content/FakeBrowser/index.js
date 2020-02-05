@@ -4,6 +4,8 @@ import R from 'ramda'
 
 import { ICON_CMD } from '@config'
 
+import Content from './Content'
+
 import {
   Wrapper,
   Header,
@@ -16,9 +18,9 @@ import {
   Form,
   Input,
   DomainText,
-} from '../styles/content/fake_browser'
+} from '../../styles/content/fake_browser'
 
-const FakeBrowser = ({ domain, title }) => {
+const FakeBrowser = ({ domain, title, showContent }) => {
   const tabTitle = title || domain || 'coderplanets'
 
   return (
@@ -59,6 +61,12 @@ const FakeBrowser = ({ domain, title }) => {
           <ToolIcon src={`${ICON_CMD}/new_community/more.svg`} />
         </ToolbarWrapper>
       </AddressBar>
+      {showContent && (
+        <Content
+          title="javascript"
+          desc="the only lang works on every device on earch"
+        />
+      )}
     </Wrapper>
   )
 }
@@ -66,11 +74,13 @@ const FakeBrowser = ({ domain, title }) => {
 FakeBrowser.propTypes = {
   domain: T.string,
   title: T.string,
+  showContent: T.bool,
 }
 
 FakeBrowser.defaultProps = {
   domain: '',
   title: '',
+  showContent: false,
 }
 
 export default React.memo(FakeBrowser)

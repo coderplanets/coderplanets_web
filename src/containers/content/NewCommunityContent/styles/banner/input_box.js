@@ -15,11 +15,12 @@ export const InputWrapper = styled.div`
   background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
   opacity: 0.8;
-  border: 1px solid #1e6184;
+  border: 1px solid;
+  border-color: ${theme('content.cardBg')};
   &:hover {
     background-color: ${theme('content.cardBg')};
     opacity: 1;
-    border: 1px solid #327faf;
+    border: 1px solid #1e6184;
   }
 
   transition: all 0.25s ease-in;
@@ -63,4 +64,8 @@ export const InputBar = styled.input.attrs(() => ({
   border: 0;
   border-radius: 0;
   transition: all 400ms ease;
+
+  ::placeholder {
+    color: #238481;
+  }
 `

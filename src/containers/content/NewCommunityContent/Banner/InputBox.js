@@ -10,7 +10,13 @@ import {
 
 import { changeSearchStatus } from '../logic'
 
-const InputBox = ({ showSearchMask, value, autoFocus, onChange }) => {
+const InputBox = ({
+  showSearchMask,
+  placeholder,
+  value,
+  autoFocus,
+  onChange,
+}) => {
   const ref = useRef(null)
 
   return (
@@ -26,13 +32,14 @@ const InputBox = ({ showSearchMask, value, autoFocus, onChange }) => {
             ref.current.focus()
           }}
         >
-          <MaskNumer>120+</MaskNumer> 社区
+          <MaskNumer>--</MaskNumer> xxx
         </InputMask>
         <InputBar
           ref={ref}
           onChange={onChange}
           value={value}
           autoFocus={autoFocus}
+          placeholder={placeholder}
           onBlur={() =>
             changeSearchStatus({
               showSearchMask: true,
