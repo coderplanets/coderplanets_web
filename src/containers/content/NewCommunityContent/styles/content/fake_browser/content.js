@@ -19,7 +19,10 @@ export const IconBlock = styled.div`
   height: 52px;
   margin-top: -20px;
   margin-right: 20px;
-  background: #042a35; /* browser tab bg */
+  background: #083542; /* browser header bg */
+  border: 1px solid;
+  border-color: #042a35; /* browser tab bg */
+  border-radius: 3px;
   display: block;
 `
 export const Intro = styled.div`
@@ -29,6 +32,7 @@ export const Intro = styled.div`
 export const Title = styled.div`
   /* color: ${theme('banner.title')}; */
   font-size: 17px;
+  margin-bottom: 4px;
 `
 export const Desc = styled.div`
   font-size: 14px;

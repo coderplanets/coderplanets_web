@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const InputWrapper = styled.div`
   position: relative;
   ${cs.flex('align-center')};
-  border-radius: 20px;
+  border-radius: ${({ noRound }) => (noRound ? '6px' : '20px')};
   padding: 10px 18px;
   background-color: ${theme('content.cardBg')};
   margin-bottom: 8px;
@@ -66,6 +66,6 @@ export const InputBar = styled.input.attrs(() => ({
   transition: all 400ms ease;
 
   ::placeholder {
-    color: #238481;
+    color: #135868;
   }
 `

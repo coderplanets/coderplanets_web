@@ -10,6 +10,7 @@ import { buildLog } from '@utils'
 
 import SelectType from './SelectType'
 import SetupDomain from './SetupDomain'
+import SetupInfo from './SetupInfo'
 
 import { Wrapper } from '../styles/content'
 import { LN } from '../logic'
@@ -17,7 +18,12 @@ import { LN } from '../logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:NewCommunitiesContent')
 
-const Content = ({ step, selectTypeStatus, setupDomainStatus }) => {
+const Content = ({
+  step,
+  selectTypeStatus,
+  setupDomainStatus,
+  setupInfoStatus,
+}) => {
   const { STEP } = LN
   let stepComp
 
@@ -28,6 +34,10 @@ const Content = ({ step, selectTypeStatus, setupDomainStatus }) => {
     }
     case STEP.SETUP_DOMAIN: {
       stepComp = <SetupDomain status={setupDomainStatus} />
+      break
+    }
+    case STEP.SETUP_INFO: {
+      stepComp = <SetupInfo status={setupInfoStatus} />
       break
     }
     default: {

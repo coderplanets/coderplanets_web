@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import T from 'prop-types'
 
 import {
   Wrapper,
@@ -8,27 +9,23 @@ import {
   InputBar,
 } from '../styles/banner/input_box'
 
-import { changeSearchStatus } from '../logic'
-
 const InputBox = ({
-  showSearchMask,
+  showMask,
   placeholder,
   value,
   autoFocus,
   onChange,
+  noRound,
+  onBlur,
 }) => {
   const ref = useRef(null)
 
   return (
     <Wrapper>
-      <InputWrapper>
+      <InputWrapper noRound={noRound}>
         <InputMask
-          show={showSearchMask}
+          show={showMask}
           onClick={() => {
-            changeSearchStatus({
-              showSearchMask: false,
-              searchfocused: true,
-            })
             ref.current.focus()
           }}
         >
@@ -40,16 +37,31 @@ const InputBox = ({
           value={value}
           autoFocus={autoFocus}
           placeholder={placeholder}
-          onBlur={() =>
-            changeSearchStatus({
-              showSearchMask: true,
-              searchfocused: false,
-            })
-          }
+          onBlur={onBlur}
         />
       </InputWrapper>
     </Wrapper>
   )
+}
+
+InputBox.propTypes = {
+  showMask: T.bool,
+  placeholder: T.string,
+  value: T.string,
+  autoFocus: T.bool,
+  onChange: T.func,
+  onBlur: T.func,
+  noRound: T.bool,
+}
+
+InputBox.defaultProps = {
+  showMask: false,
+  value: '',
+  placeholder: '',
+  autoFocus: false,
+  onChange: console.log,
+  onBlur: console.log,
+  noRound: false,
 }
 
 export default InputBox

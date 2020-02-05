@@ -16,21 +16,28 @@ import {
 
 import { pervStep, nextStep, inputOnChange } from '../../logic'
 
-const SetupDomain = ({ status }) => {
-  const { domainValue } = status
+const SetupInfo = ({ status }) => {
+  const { titleValue, descValue } = status
 
   return (
     <Wrapper>
       <IntroTitle>
         <TitleIcon src={`${ICON_CMD}/new_community/domain.svg`} />
-        社区的专有域名是?
-        <StepHint>2 / 4</StepHint>
+        请填写社区基本信息
+        <StepHint>3 / 4</StepHint>
       </IntroTitle>
       <InputBox
-        value={domainValue}
-        placeholder="your-domain"
-        onChange={inputOnChange.bind(this, 'domainValue')}
+        value={titleValue}
+        placeholder="社区名称"
+        onChange={inputOnChange.bind(this, 'titleValue')}
         autoFocus
+        noRound
+      />
+      <InputBox
+        value={descValue}
+        placeholder="社区一句话描述"
+        onChange={inputOnChange.bind(this, 'descValue')}
+        noRound
       />
       <NextBtn>
         <ArrowButton
@@ -49,4 +56,4 @@ const SetupDomain = ({ status }) => {
   )
 }
 
-export default SetupDomain
+export default SetupInfo

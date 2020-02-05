@@ -10,6 +10,7 @@ import {
   Wrapper,
   Header,
   Tab,
+  TabIcon,
   TabContent,
   AddressBar,
   ToolbarWrapper,
@@ -20,13 +21,14 @@ import {
   DomainText,
 } from '../../styles/content/fake_browser'
 
-const FakeBrowser = ({ domain, title, showContent }) => {
+const FakeBrowser = ({ domain, title, desc, showContent }) => {
   const tabTitle = title || domain || 'coderplanets'
 
   return (
     <Wrapper>
       <Header>
         <Tab>
+          {title && <TabIcon />}
           <TabContent>{tabTitle}</TabContent>
         </Tab>
       </Header>
@@ -61,12 +63,7 @@ const FakeBrowser = ({ domain, title, showContent }) => {
           <ToolIcon src={`${ICON_CMD}/new_community/more.svg`} />
         </ToolbarWrapper>
       </AddressBar>
-      {showContent && (
-        <Content
-          title="javascript"
-          desc="the only lang works on every device on earch"
-        />
-      )}
+      {showContent && <Content title={title} desc={desc} />}
     </Wrapper>
   )
 }
@@ -74,12 +71,14 @@ const FakeBrowser = ({ domain, title, showContent }) => {
 FakeBrowser.propTypes = {
   domain: T.string,
   title: T.string,
+  desc: T.string,
   showContent: T.bool,
 }
 
 FakeBrowser.defaultProps = {
   domain: '',
   title: '',
+  desc: '',
   showContent: false,
 }
 

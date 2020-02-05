@@ -28,13 +28,12 @@ export const Header = styled.div`
   background: ${headerBg};
 `
 export const Tab = styled.div`
+  ${cs.flex('align-center')};
+  flex-basis: 218px;
   background: ${taberBg};
   border-bottom: 1px solid;
   border-bottom-color: ${taberBg};
   height: 29px;
-  flex-basis: 218px;
-  display: -ms-flexbox;
-  display: flex;
   min-width: 0;
   position: relative;
   margin: 0 5px;
@@ -70,6 +69,13 @@ export const Tab = styled.div`
     transform: skewx(25deg);
     transform-origin: right top;
   }
+`
+export const TabIcon = styled.div`
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: ${headerBg};
+  margin-left: 15px;
 `
 export const TabContent = styled.div`
   z-index: 100;

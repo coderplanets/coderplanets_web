@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue } from '@utils'
+import { asyncSuit, buildLog, errRescue, updateEditing } from '@utils'
 
 import S from './schema'
 
@@ -27,24 +27,37 @@ export const LN = {
   STEP: {
     SELECT_TYPE: 'SELECT_TYPE',
     SETUP_DOMAIN: 'SETUP_DOMAIN',
+    SETUP_INFO: 'SETUP_INFO',
   },
 }
 
+/**
+ * pervious step based on current step
+ * 当前流程的上一步流程
+ * @public
+ */
 export const pervStep = () => {
   const { COMMUNITY_TYPE, STEP } = LN
   const { step, communityType } = store
 
   if (communityType === COMMUNITY_TYPE.WORK) {
     if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SELECT_TYPE })
+    if (step === STEP.SETUP_INFO) store.mark({ step: STEP.SETUP_DOMAIN })
   }
 }
 
+/**
+ * next step based on current step
+ * 当前流程的下一步流程
+ * @public
+ */
 export const nextStep = () => {
   const { COMMUNITY_TYPE, STEP } = LN
   const { step, communityType } = store
 
   if (communityType === COMMUNITY_TYPE.WORK) {
     if (step === STEP.SELECT_TYPE) store.mark({ step: STEP.SETUP_DOMAIN })
+    if (step === STEP.SETUP_DOMAIN) store.mark({ step: STEP.SETUP_INFO })
   }
 }
 
@@ -57,12 +70,12 @@ export const communityTypeOnChange = communityType =>
   store.mark({ communityType })
 
 /**
- * community domain on change
- * 设置域名
+ * handle input field change
+ * @param {part} string field name
+ * @param {e} htmlEvent
  * @public
  */
-export const doaminOnChange = ({ target: { value: domainValue } }) =>
-  store.mark({ domainValue })
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 /**
  * search communities by current searchValue in store
@@ -74,12 +87,6 @@ export const searchCommunities = () => {
 
   sr71$.query(S.searchCommunities, args)
 }
-
-/**
- * change search status
- * @ppublic
- */
-export const changeSearchStatus = status => store.mark({ ...status })
 
 /* when error occured cancle all the loading state */
 const cancleLoading = () =>
