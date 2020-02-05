@@ -11,9 +11,10 @@ export const Wrapper = styled.div`
   /* background-image: linear-gradient(#043B49, #022A35); */
   background-image: ${theme('banner.linearGradient')};
   width: 100%;
-  height: 340px;
+  height: 280px;
 `
 export const IntroTitle = styled.div`
+  position: relative;
   ${cs.flex('align-center')};
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
@@ -28,20 +29,30 @@ export const SlogenTextWrapper = styled.div`
   color: ${({ highlight }) =>
     highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
 `
-export const AddNewIcon = styled(Img)`
+export const TitleIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
   width: 18px;
   height: 18px;
   display: block;
   margin-right: 10px;
-  transform: rotate(-90deg);
-  margin-top: -1px;
 `
 export const Title = styled.div`
   color: ${theme('banner.title')};
   font-size: 1.1rem;
 `
+export const StepHint = styled.div`
+  position: absolute;
+  color: ${theme('thread.articleTitle')};
+  font-size: 15px;
+  top: -35px;
+  left: 41%;
+  opacity: 0.5;
+`
 export const NextBtn = styled.div`
   position: absolute;
+  ${cs.flex('align-center')};
+  width: 200px;
+  justify-content: space-around;
   bottom: 5px;
+  margin-left: -2px;
 `

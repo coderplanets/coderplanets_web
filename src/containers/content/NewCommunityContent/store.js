@@ -25,8 +25,8 @@ const CommunitiesContentStore = t
       ])
     ),
     step: t.optional(
-      t.enumeration([LN.STEP.SELECT_TYPE, LN.STEP.SETUP_NAME]),
-      LN.STEP.SELECT_TYPE
+      t.enumeration([LN.STEP.SELECT_TYPE, LN.STEP.SETUP_DOMAIN]),
+      LN.STEP.SETUP_DOMAIN // STEP.SELECT_TYPE
     ),
 
     // current active sidbar menu id

@@ -19,13 +19,13 @@ const log = buildLog('C:CommunitiesContent')
 
 const NewCommunityContentContainer = ({ newCommunityContent }) => {
   useInit(newCommunityContent)
-  const { searchStatus, communityType } = newCommunityContent
+  const { step, communityType } = newCommunityContent
 
   return (
     <Wrapper>
-      <Banner searchStatus={searchStatus} communityType={communityType} />
+      <Banner step={step} communityType={communityType} />
       <ContentWrapper>
-        <Content communityType={communityType} />
+        <Content step={step} communityType={communityType} />
       </ContentWrapper>
     </Wrapper>
   )

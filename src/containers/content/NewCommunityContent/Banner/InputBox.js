@@ -6,11 +6,11 @@ import {
   InputMask,
   MaskNumer,
   InputBar,
-} from './styles/search_box'
+} from '../styles/banner/input_box'
 
-import { changeSearchStatus } from './logic'
+import { changeSearchStatus } from '../logic'
 
-const SearchBox = ({ showSearchMask, value, onChange }) => {
+const InputBox = ({ showSearchMask, value, onChange }) => {
   const ref = useRef(null)
 
   return (
@@ -44,4 +44,4 @@ const SearchBox = ({ showSearchMask, value, onChange }) => {
   )
 }
 
-export default SearchBox
+export default InputBox

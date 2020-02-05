@@ -26,7 +26,7 @@ export const LN = {
   },
   STEP: {
     SELECT_TYPE: 'SELECT_TYPE',
-    SETUP_NAME: 'SETUP_NAME',
+    SETUP_DOMAIN: 'SETUP_DOMAIN',
   },
 }
 

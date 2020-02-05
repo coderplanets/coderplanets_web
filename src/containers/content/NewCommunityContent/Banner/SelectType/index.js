@@ -14,7 +14,7 @@ import { ArrowButton } from '@components/FancyButtons'
 // import SearchBox from './SearchBox'
 
 import {
-  IntroWraper,
+  Wrapper,
   IntroTitle,
   AddNewIcon,
   NextBtn,
@@ -28,7 +28,7 @@ const log = buildLog('C:CommunitiesBanner')
 
 const SelectType = ({ communityType }) => {
   return (
-    <IntroWraper>
+    <Wrapper>
       <IntroTitle>
         <AddNewIcon src={`${ICON_CMD}/community_new.svg`} />
         你想创建一个什么类型的社区?
@@ -40,7 +40,7 @@ const SelectType = ({ communityType }) => {
           <ArrowButton size="large">下一步</ArrowButton>
         </NextBtn>
       )}
-    </IntroWraper>
+    </Wrapper>
   )
 }
 

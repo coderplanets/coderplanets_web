@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { Wrapper, Text, ArrowIcon } from './styles/arrow_button'
+import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FancyButtons:index')
@@ -30,14 +30,26 @@ const SISE_MAP = {
   },
 }
 
-const FancyButtons = ({ children, size }) => {
+const FancyButtons = ({ children, size, direction, transparentFirst }) => {
   return (
-    <Wrapper>
-      <Text size={SISE_MAP[size].text}>{children}</Text>
-      <ArrowIcon
-        size={SISE_MAP[size].icon}
-        src={`${ICON_CMD}/navi/navi_back.svg`}
-      />
+    <Wrapper transparentFirst={transparentFirst}>
+      {direction === 'left' ? (
+        <React.Fragment>
+          <LeftIcon
+            size={SISE_MAP[size].icon}
+            src={`${ICON_CMD}/navi/navi_back.svg`}
+          />
+          <Text size={SISE_MAP[size].text}>{children}</Text>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Text size={SISE_MAP[size].text}>{children}</Text>
+          <RightIcon
+            size={SISE_MAP[size].icon}
+            src={`${ICON_CMD}/navi/navi_back.svg`}
+          />
+        </React.Fragment>
+      )}
     </Wrapper>
   )
 }
@@ -45,11 +57,15 @@ const FancyButtons = ({ children, size }) => {
 FancyButtons.propTypes = {
   children: T.oneOfType(T.string, T.node),
   size: T.oneOf(['small', 'medium', 'large']),
+  direction: T.oneOf(['left', 'right']),
+  transparentFirst: T.bool,
 }
 
 FancyButtons.defaultProps = {
   children: '下一步',
   size: 'small',
+  direction: 'right',
+  transparentFirst: false,
 }
 
 export default React.memo(FancyButtons)
