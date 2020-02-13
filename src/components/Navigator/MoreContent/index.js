@@ -47,10 +47,17 @@ const MoreContent = () => (
         </Intro>
       </Entry>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_data.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_chart.svg`} />
         <Intro>
           <Title>社区统计</Title>
-          <Desc>各社区活跃度，成员排行等</Desc>
+          <Desc>各社区各项统计数据</Desc>
+        </Intro>
+      </Entry>
+      <Entry>
+        <Logo src={`${ICON_CMD}/header/more_data.svg`} />
+        <Intro>
+          <Title>Trending</Title>
+          <Desc>各社区近期精华内容</Desc>
         </Intro>
       </Entry>
       <Entry>
