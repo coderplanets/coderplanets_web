@@ -10,8 +10,9 @@ import T from 'prop-types'
 import { TYPE, THREAD, C11N } from '@constant'
 import { buildLog } from '@utils'
 
-import Pagi from '@components/Pagi'
+import PagiFooter from '@components/PagiFooter'
 import ContentList from './ContentList'
+import CommunityRecommends from './CommunityRecommends'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PagedContents:index')
@@ -29,31 +30,39 @@ const PagedContents = ({
   emptyPrefix,
   community,
   accountInfo,
-}) => (
-  <React.Fragment>
-    <ContentList
-      thread={thread}
-      cover={cover}
-      active={active}
-      entries={entries}
-      curView={curView}
-      emptyPrefix={emptyPrefix}
-      community={community}
-      onPreview={onPreview}
-      onUserSelect={onUserSelect}
-      onAuthorSelect={onAuthorSelect}
-      accountInfo={accountInfo}
-    />
+}) => {
+  const pagiInfo = {
+    pageNumber,
+    pageSize,
+    totalCount,
+  }
 
-    <Pagi
-      left="-20px"
-      pageNumber={pageNumber}
-      pageSize={pageSize}
-      totalCount={totalCount}
-      onChange={onPageChange}
-    />
-  </React.Fragment>
-)
+  return (
+    <React.Fragment>
+      <ContentList
+        thread={thread}
+        cover={cover}
+        active={active}
+        entries={entries}
+        curView={curView}
+        emptyPrefix={emptyPrefix}
+        community={community}
+        onPreview={onPreview}
+        onUserSelect={onUserSelect}
+        onAuthorSelect={onAuthorSelect}
+        accountInfo={accountInfo}
+      />
+
+      <PagiFooter
+        {...pagiInfo}
+        onChange={onPageChange}
+        margin={{ bottom: '60px', top: '60px' }}
+      >
+        <CommunityRecommends />
+      </PagiFooter>
+    </React.Fragment>
+  )
+}
 
 PagedContents.propTypes = {
   thread: T.oneOf([THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]),
