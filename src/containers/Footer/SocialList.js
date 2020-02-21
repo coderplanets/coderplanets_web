@@ -3,7 +3,7 @@ import React from 'react'
 import Popover from '@components/Popover'
 import { ICON_CMD, ICON_BASE, EMAIL_SUPPORT } from '@config'
 
-import { Wrapper, Item, Icon, PopInfo, QRCodePic } from './styles/social_list'
+import { Wrapper, Item, Icon, QRCodePic } from './styles/social_list'
 
 const SocialList = () => (
   <Wrapper>
@@ -20,16 +20,6 @@ const SocialList = () => (
     >
       <Item>
         <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
-      </Item>
-    </Popover>
-
-    <Popover
-      placement="bottom"
-      trigger="hover"
-      content={<PopInfo>群号: 955466153</PopInfo>}
-    >
-      <Item>
-        <Icon src={`${ICON_CMD}/qq.svg`} />
       </Item>
     </Popover>
 
