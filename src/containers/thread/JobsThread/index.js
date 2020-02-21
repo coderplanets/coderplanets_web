@@ -13,10 +13,10 @@ import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+import { PublishButton } from '@components/FancyButtons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
-import PublishLabel from '@components/PublishLabel'
 
 import PublishNote from './PublishNote'
 
@@ -25,7 +25,7 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  PublishBtn,
+  PublisherWrapper,
 } from './styles'
 
 import {
@@ -93,9 +93,13 @@ const JobsThreadContainer = ({ jobsThread }) => {
 
       <RightPart>
         <PublishNote show={showPublishNote} />
-        <PublishBtn type="primary" onClick={onContentCreate}>
-          <PublishLabel text="招贤纳士" iconSrc={`${ICON_CMD}/look_sb.svg`} />
-        </PublishBtn>
+        <PublisherWrapper>
+          <PublishButton
+            label="招贤纳士"
+            labelIconSrc={`${ICON_CMD}/look_sb.svg`}
+            onPublish={onContentCreate}
+          />
+        </PublisherWrapper>
 
         <Affix offsetTop={50}>
           <TagsBar

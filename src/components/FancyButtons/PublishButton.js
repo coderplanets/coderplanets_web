@@ -11,32 +11,48 @@ import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
 import Tooltip from '@components/Tooltip'
-import { Wrapper, Label, ActionLink, Icon } from './styles/publish_button'
+import {
+  Wrapper,
+  Label,
+  LabelIcon,
+  ActionLink,
+  Icon,
+} from './styles/publish_button'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:PublishButton:index')
 
-const PublishButton = ({ label }) => {
+const PublishButton = ({
+  label,
+  labelIconSrc,
+  onPublish,
+  onVote,
+  onImport,
+  onFAQ,
+}) => {
   return (
     <Wrapper>
-      <Label>{label}</Label>
+      <Label>
+        <div>{label}</div>
+        <LabelIcon src={labelIconSrc} />
+      </Label>
       <Tooltip content="发布帖子" placement="bottom">
-        <ActionLink>
+        <ActionLink onClick={onPublish}>
           <Icon src={`${ICON_CMD}/publish_write.svg`} />
         </ActionLink>
       </Tooltip>
-      <Tooltip content="导入内容" placement="bottom">
-        <ActionLink>
-          <Icon src={`${ICON_CMD}/publish_import.svg`} />
-        </ActionLink>
-      </Tooltip>
       <Tooltip content="发布投票" placement="bottom">
-        <ActionLink>
+        <ActionLink onClick={onVote}>
           <Icon src={`${ICON_CMD}/publish_vote.svg`} />
         </ActionLink>
       </Tooltip>
+      <Tooltip content="导入内容" placement="bottom">
+        <ActionLink onClick={onImport}>
+          <Icon src={`${ICON_CMD}/publish_import.svg`} />
+        </ActionLink>
+      </Tooltip>
       <Tooltip content="发帖礼仪" placement="bottom">
-        <ActionLink>
+        <ActionLink onClick={onFAQ}>
           <Icon src={`${ICON_CMD}/publish_faq.svg`} />
         </ActionLink>
       </Tooltip>
@@ -46,10 +62,20 @@ const PublishButton = ({ label }) => {
 
 PublishButton.propTypes = {
   label: T.string,
+  labelIconSrc: T.string,
+  onPublish: T.func,
+  onVote: T.func,
+  onImport: T.func,
+  onFAQ: T.func,
 }
 
 PublishButton.defaultProps = {
   label: '发布帖子 ',
+  labelIconSrc: `${ICON_CMD}/publish_pen.svg`,
+  onPublish: console.log,
+  onVote: console.log,
+  onImport: console.log,
+  onFAQ: console.log,
 }
 
 export default React.memo(PublishButton)

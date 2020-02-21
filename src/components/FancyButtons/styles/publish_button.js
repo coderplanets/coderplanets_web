@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 import Img from '@Img'
-// import { theme } from '@utils'
+import { cs, theme } from '@utils'
+
 // see example: https://codepen.io/mydearxym2/pen/qBEvvpo
 
 const commonHoverAffix = `
@@ -10,7 +11,6 @@ const commonHoverAffix = `
   top: 0;
   display: flex;
   align-items: center;
-  width: 50%;
   height: 100%;
   transition: 0.25s linear;
   z-index: 1;
@@ -22,9 +22,9 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 180px;
-  height: 40px;
+  height: 32px;
   background-color: #3680ad; /* 消失的时候背景色 */
-  border-radius: 8px;
+  border-radius: 3px;
   /* 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   */
@@ -33,7 +33,9 @@ export const Wrapper = styled.div`
 
   &:hover {
     background-color: #22637e; /* #46627f; */
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    /*
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+     */
   }
 
   &:hover span {
@@ -51,6 +53,7 @@ export const Wrapper = styled.div`
 
   &:before {
     ${commonHoverAffix};
+    width: 70%;
 
     left: 0;
     justify-content: flex-end;
@@ -59,6 +62,7 @@ export const Wrapper = styled.div`
 
   &:after {
     ${commonHoverAffix};
+    width: 30%;
 
     right: 0;
     justify-content: flex-start;
@@ -66,21 +70,28 @@ export const Wrapper = styled.div`
   }
 `
 export const Label = styled.span`
+  ${cs.flex('align-center')};
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
-  color: whitesmoke;
+  color: ${theme('button.fg')};
   font-family: 'Fira Mono', monospace;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 4px;
   opacity: 1;
   transition: opacity 0.25s;
   z-index: 2;
+`
+export const LabelIcon = styled(Img)`
+  fill: ${theme('button.fg')};
+  width: 14px;
+  height: 14px;
+  display: block;
 `
 export const ActionLink = styled.a`
   position: relative;
@@ -99,16 +110,16 @@ export const ActionLink = styled.a`
   }
 `
 export const Icon = styled(Img)`
-  fill: #97c0d7;
-  width: 20px;
-  height: 20px;
+  fill: ${theme('button.fg')};
+  width: 16px;
+  height: 16px;
   display: block;
 
   ${ActionLink}:hover & {
-    fill: white;
+    fill: ${theme('button.hoverBg')};
     cursor: pointer;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
   }
   transition: all 0.25s;
 `

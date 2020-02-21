@@ -11,13 +11,19 @@ import { TYPE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
-import PublishLabel from '@components/PublishLabel'
+import { PublishButton } from '@components/FancyButtons'
 import MarkDownRender from '@components/MarkDownRender'
 import { ArticleContentLoading } from '@components/LoadingEffects'
 import GithubSyncWarning from '@components/GithubSyncWarning'
 import Contributors from './Contributors'
 
-import { Wrapper, LeftPart, WikiWrapper, RightPart, PublishBtn } from './styles'
+import {
+  Wrapper,
+  LeftPart,
+  WikiWrapper,
+  RightPart,
+  PublisherWrapper,
+} from './styles'
 import { useInit, syncWarnOnClose } from './logic'
 
 /* eslint-disable-next-line */
@@ -60,18 +66,15 @@ const WikiThreadContainer = ({ wikiThread }) => {
       </LeftPart>
       <RightPart>
         <React.Fragment>
-          <PublishBtn type="primary">
-            <a
-              href={`${COMMUNITY_WIKI}/${communityRaw}_wiki.md`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <PublishLabel
-                text="参与编辑"
-                iconSrc={`${ICON_CMD}/github.svg`}
-              />
-            </a>
-          </PublishBtn>
+          <PublisherWrapper>
+            <PublishButton
+              label="参与编辑"
+              labelIconSrc={`${ICON_CMD}/github.svg`}
+              onPublish={() =>
+                alert(`goto  ${COMMUNITY_WIKI}/${communityRaw}_wiki.md`)
+              }
+            />
+          </PublisherWrapper>
           <Contributors
             communityRaw={communityRaw}
             isLogin={isLogin}

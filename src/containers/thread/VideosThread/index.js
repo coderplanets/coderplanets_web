@@ -12,17 +12,17 @@ import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+import { PublishButton } from '@components/FancyButtons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
-import PublishLabel from '@components/PublishLabel'
 
 import {
   Wrapper,
   LeftPart,
   RightPart,
   FilterWrapper,
-  PublishBtn,
+  PublisherWrapper,
 } from './styles'
 
 import {
@@ -85,9 +85,13 @@ const VideosThreadContainer = ({ videosThread }) => {
 
       <RightPart>
         <React.Fragment>
-          <PublishBtn type="primary" onClick={onContentCreate}>
-            <PublishLabel text="发布视频" iconSrc={`${ICON_CMD}/link2.svg`} />
-          </PublishBtn>
+          <PublisherWrapper>
+            <PublishButton
+              label="发布视频"
+              labelIconSrc={`${ICON_CMD}/link2.svg`}
+              onPublish={onContentCreate}
+            />
+          </PublisherWrapper>
 
           <Affix offsetTop={50}>
             <TagsBar
