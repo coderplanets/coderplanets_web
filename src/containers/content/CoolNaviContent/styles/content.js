@@ -11,5 +11,5 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${cs.flexGrow()};
   /* here must be a specific number, otherwise custom scorllbar will flash */
-  height: 90vh;
+  /* height: 90vh; */
 `
