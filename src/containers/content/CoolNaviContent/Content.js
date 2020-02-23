@@ -9,7 +9,7 @@ import React, { useRef } from 'react'
 // import { useCustomScroll } from '@hooks'
 
 // import NewsBoard from './NewsBoard'
-import ShowcaseList from './ShowcaseList'
+import NormalList from './NormalList'
 
 import { Wrapper, InnerWrapper } from './styles/content'
 
@@ -21,8 +21,7 @@ const Content = () => {
     <Wrapper ref={ref}>
       <InnerWrapper>
         {/* <NewsBoard /> */}
-        <ShowcaseList />
-        <br />
+        <NormalList />
       </InnerWrapper>
     </Wrapper>
   )

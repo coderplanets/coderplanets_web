@@ -34,8 +34,16 @@ export const Header = styled.div`
 `
 export const LinkHead = styled.div`
   ${cs.flex('align-center')};
+  justify-content: space-between;
   font-size: 12px;
   margin-bottom: 5px;
+`
+export const LinkerWrapper = styled.div`
+  display: none;
+
+  ${LinkHead}:hover & {
+    display: block;
+  }
 `
 export const IntroHead = styled.div`
   ${cs.flex('align-center')};

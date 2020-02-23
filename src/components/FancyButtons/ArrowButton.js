@@ -16,6 +16,10 @@ import { Wrapper, Text, LeftIcon, RightIcon } from './styles/arrow_button'
 const log = buildLog('c:FancyButtons:index')
 
 const SISE_MAP = {
+  tiny: {
+    text: '12px',
+    icon: '12px',
+  },
   small: {
     text: '14px',
     icon: '14px',
@@ -62,7 +66,7 @@ const FancyButtons = ({
 
 FancyButtons.propTypes = {
   children: T.oneOfType(T.string, T.node),
-  size: T.oneOf(['small', 'medium', 'large']),
+  size: T.oneOf(['tiny', 'small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
   transparentFirst: T.bool,
   onClick: T.func,
