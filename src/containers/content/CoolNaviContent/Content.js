@@ -4,24 +4,19 @@
  *
  */
 
-import React, { useRef } from 'react'
+import React from 'react'
 
-// import { useCustomScroll } from '@hooks'
-
-// import NewsBoard from './NewsBoard'
-import NormalList from './NormalList'
+import NewsBoard from './NewsBoard'
+// import NormalList from './NormalList'
 
 import { Wrapper, InnerWrapper } from './styles/content'
 
 const Content = () => {
-  const ref = useRef(null)
-  // useCustomScroll(ref, { scrollbars: { autoHide: 'never' } })
-
   return (
-    <Wrapper ref={ref}>
+    <Wrapper>
       <InnerWrapper>
-        {/* <NewsBoard /> */}
-        <NormalList />
+        <NewsBoard />
+        {/* <NormalList /> */}
       </InnerWrapper>
     </Wrapper>
   )
