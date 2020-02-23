@@ -1,6 +1,6 @@
 /*
  *
- * ProductIntroList
+ * ProductList
  *
  */
 
@@ -28,7 +28,7 @@ import {
   UpVoteIcon,
   ViewIcon,
   Number,
-} from './styles'
+} from './styles/product_list'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ProductIntroList:index')
@@ -117,7 +117,7 @@ const tmpItems = [
   },
 ]
 
-const ProductIntroList = ({ items }) => {
+const ProductList = ({ items }) => {
   return (
     <Wrapper>
       {items.map((item, index) => (
@@ -156,12 +156,12 @@ const ProductIntroList = ({ items }) => {
   )
 }
 
-ProductIntroList.propTypes = {
+ProductList.propTypes = {
   items: T.arrayOf(T.object),
 }
 
-ProductIntroList.defaultProps = {
+ProductList.defaultProps = {
   items: tmpItems,
 }
 
-export default React.memo(ProductIntroList)
+export default React.memo(ProductList)
