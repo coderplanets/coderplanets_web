@@ -11,7 +11,12 @@ import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
 // import { SpaceGrow } from '@components/BaseStyled'
-import { Wrapper, Footer, PadIcon } from '../styles/children_menu/dashboard'
+import {
+  Wrapper,
+  Footer,
+  FilterOption,
+  OptionIcon,
+} from '../styles/children_menu/dashboard'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
@@ -22,25 +27,24 @@ const Dashboard = ({ view, setView }) => {
     <Wrapper>
       酷服务 / 工具
       <Footer>
-        <div onClick={() => setView('catalog')}>
-          <PadIcon
-            src={`${ICON_CMD}/navi/navi_list.svg`}
-            active={view === 'catalog'}
-          />
-        </div>
-        <div onClick={() => setView('filter')}>
-          <PadIcon
-            src={`${ICON_CMD}/navi/navi_filter.svg`}
-            active={view === 'filter'}
-          />
-        </div>
-        <div onClick={() => setView('more')}>
-          <PadIcon
+        <FilterOption
+          onClick={() => setView('catalog')}
+          active={view === 'catalog'}
+        >
+          <OptionIcon src={`${ICON_CMD}/navi/navi_list.svg`} />
+        </FilterOption>
+        <FilterOption
+          onClick={() => setView('filter')}
+          active={view === 'filter'}
+        >
+          <OptionIcon src={`${ICON_CMD}/navi/navi_filter.svg`} />
+        </FilterOption>
+        <FilterOption onClick={() => setView('more')} active={view === 'more'}>
+          <OptionIcon
             src={`${ICON_CMD}/navi/navi_more.svg`}
-            active={view === 'more'}
             onClick={() => setView('more')}
           />
-        </div>
+        </FilterOption>
         {/* 
           info | add | 提交 bug 说明 
         */}

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('align-end')};
   justify-content: space-between;
   width: 130px;
-  height: 66px;
+  height: 70px;
   color: #7c8f90;
   background: #003948;
   padding: 6px;
@@ -20,15 +20,18 @@ export const Wrapper = styled.div`
 export const Footer = styled.div`
   ${cs.flex()};
 `
-export const PadIcon = styled(Img)`
-  fill: #7c8f90;
-  width: 18px;
-  height: 18px;
-  display: block;
-  margin-left: 8px;
+export const FilterOption = styled.div`
   border-bottom: 2px solid;
   border-bottom-color: ${({ active }) => (active ? '#7c8f90' : 'transparent')};
-  padding-bottom: 2px;
+  margin-left: 8px;
+  padding-bottom: 5px;
+`
+
+export const OptionIcon = styled(Img)`
+  fill: #7c8f90;
+  width: 16px;
+  height: 16px;
+  display: block;
 
   &:hover {
     cursor: pointer;

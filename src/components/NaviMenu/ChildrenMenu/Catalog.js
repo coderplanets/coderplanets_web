@@ -63,28 +63,6 @@ const menu = [
     icon: `${ICON_CMD}/navi_china.svg`,
   },
   {
-    id: '108',
-    title: '基础设施',
-    icon: `${ICON_CMD}/navi_fire.svg`,
-    children: [
-      {
-        id: '101',
-        title: '全部',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '102',
-        title: '数据库',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '103',
-        title: '操作系统 ',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-    ],
-  },
-  {
     id: '102',
     title: '云服务',
     icon: `${ICON_CMD}/navi_fire.svg`,
