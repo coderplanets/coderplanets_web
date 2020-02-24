@@ -31,6 +31,7 @@ const HaveADrinkContent = t
     ),
     // refresh timer
     pool: t.optional(t.array(t.string), [
+      '图像处理算法中使用最广的一幅图片来自《花花公子》杂志',
       '看见一个算命大师，我刚坐下他就问我，你算什么东西？',
       '傻人有傻福，但是傻逼没有。',
       '一个人如果没有梦想，跟无忧无虑有什么区别呢？',

@@ -29,6 +29,11 @@ const menu = [
     icon: `${ICON_CMD}/navi_china.svg`,
   },
   {
+    id: '102',
+    title: '基础设施', // 操作系统，数据库，网络协议，编程语言，重要算法。等等
+    icon: `${ICON_CMD}/navi_china.svg`,
+  },
+  {
     // 非 IT，设计类的网站
     id: '103',
     title: '设计灵感',

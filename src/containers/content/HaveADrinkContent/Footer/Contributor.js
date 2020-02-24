@@ -26,7 +26,7 @@ const IndexStatus = () => {
       <Text>共收录</Text>
       <CurNum>56</CurNum> / <TotalNum>8430</TotalNum>
       <Text>条</Text>
-      <TagText>毒鸡汤</TagText>
+      <TagText>IT 冷知识</TagText>
     </Wrapper>
   )
 }

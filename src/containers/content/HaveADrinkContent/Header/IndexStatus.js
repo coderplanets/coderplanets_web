@@ -30,7 +30,7 @@ const IndexStatus = () => {
       <TotalNum>8430</TotalNum>
       <Text>杯</Text>
       &nbsp;
-      <UnderlineBtn onClick={() => setView('catalog')}>毒鸡汤</UnderlineBtn>
+      <UnderlineBtn onClick={() => setView('catalog')}>it 冷知识</UnderlineBtn>
     </Wrapper>
   )
 }
