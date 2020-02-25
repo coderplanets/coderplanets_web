@@ -12,7 +12,7 @@ import NaviMenu from '@components/NaviMenu'
 import Content from './Content'
 
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
-import { useInit } from './logic'
+import { useInit, menuOnSelect } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolNaviContent')
@@ -20,12 +20,14 @@ const log = buildLog('C:CoolNaviContent')
 const CoolNaviContentContainer = ({ coolNaviContent }) => {
   useInit(coolNaviContent)
 
+  const { displayType } = coolNaviContent
+
   return (
     <Wrapper>
       <InnerWrapper>
-        <NaviMenu />
+        <NaviMenu onSelect={(id, type) => menuOnSelect(id, type)} />
         <ContentWrapper>
-          <Content />
+          <Content displayType={displayType} />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

@@ -5,10 +5,10 @@
  */
 
 import React, { useState } from 'react'
-// import T from 'prop-types'
+import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog, nilOrEmpty } from '@utils'
 
 import RootMenu from './RootMenu'
 import ChildrenMenu from './ChildrenMenu'
@@ -20,7 +20,7 @@ import { Wrapper /* ActiveDot */ } from './styles'
 const log = buildLog('c:NaviMenu:index')
 
 /* <ActiveDot /> */
-const NaviMenu = () => {
+const NaviMenu = ({ onSelect }) => {
   const [menuMode, setMenuMode] = useState('root')
   const [parentMenuId, setParentMenuId] = useState('')
 
@@ -32,10 +32,7 @@ const NaviMenu = () => {
   const childMenuItems =
     parentMenuIndex >= 0 ? menuItems[parentMenuIndex].childMenu : []
 
-  console.log('childMenuItems:  ', childMenuItems)
-  // console.log('setParentMenuId: ', parentMenuId)
-  // console.log('menuItems[parentMenuIndex]: ', menuItems[parentMenuIndex])
-
+  // onSelect(item.id, item.displayType)
   return (
     <Wrapper>
       {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
@@ -44,10 +41,13 @@ const NaviMenu = () => {
           onSelect={item => {
             setParentMenuId(item.id)
             setMenuMode('child')
+
+            nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
           }}
         />
       ) : (
         <ChildrenMenu
+          onSelect={onSelect}
           parentMenuItem={menuItems[parentMenuIndex]}
           menuItems={childMenuItems}
           goBack={() => setMenuMode('root')}
@@ -58,9 +58,12 @@ const NaviMenu = () => {
 }
 
 NaviMenu.propTypes = {
+  onSelect: T.func,
   // https://www.npmjs.com/package/prop-types
 }
 
-NaviMenu.defaultProps = {}
+NaviMenu.defaultProps = {
+  onSelect: log,
+}
 
 export default React.memo(NaviMenu)

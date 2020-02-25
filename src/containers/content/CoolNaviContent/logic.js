@@ -14,7 +14,15 @@ let store = null
 /* eslint-disable-next-line */
 const log = buildLog('L:CoolNaviContent')
 
-export const someMethod = () => {}
+/**
+ * navi menu on select
+ *
+ * @param {string} activeMenuId, actived menu id
+ * @param {string} displayType, content display type
+ */
+export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
+  store.mark({ activeMenuId, displayType })
+}
 
 // const const cancleLoading = () => {}
 

@@ -62,7 +62,7 @@ const tmpItems = [
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/fame-people/yao-qi-zhi.jpg',
   },
   {
-    id: '1',
+    id: '2',
     addr: '理查德·马修·斯托曼',
     birthPlace: 'american',
     nationality: 'american',

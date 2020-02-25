@@ -13,3 +13,6 @@ export const InnerWrapper = styled.div`
   /* here must be a specific number, otherwise custom scorllbar will flash */
   /* height: 90vh; */
 `
+export const NormalListWrapper = styled.div`
+  width: 100%;
+`

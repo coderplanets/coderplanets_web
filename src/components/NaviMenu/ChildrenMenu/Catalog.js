@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog, nilOrEmpty } from '@utils'
 import { SpaceGrow } from '@components/BaseStyled'
 
 import ChildrenItems from './ChildrenItems'
@@ -19,7 +19,7 @@ import { Wrapper, Item, Icon } from '../styles/children_menu/catalog'
 const log = buildLog('c:NaviMenu:index')
 
 /* <ActiveDot /> */
-const Catalog = ({ menuItems }) => {
+const Catalog = ({ menuItems, onSelect }) => {
   const [activeMenuId, setActiveMenuId] = useState(null)
 
   return (
@@ -28,7 +28,10 @@ const Catalog = ({ menuItems }) => {
         <div key={item.id}>
           <Item
             active={item.id === '0'}
-            onClick={() => setActiveMenuId(item.id)}
+            onClick={() => {
+              setActiveMenuId(item.id)
+              nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
+            }}
           >
             <Icon active={item.id === '0'} src={item.icon} />
             <SpaceGrow />
@@ -39,8 +42,8 @@ const Catalog = ({ menuItems }) => {
               activeMenuId={activeMenuId}
               parentId={item.id}
               items={item.childMenu}
-              itemOnClick={id => {
-                console.log('click child item d: ', id)
+              onSelect={id => {
+                onSelect(id, item.displayType)
               }}
             />
           )}
@@ -51,6 +54,7 @@ const Catalog = ({ menuItems }) => {
 }
 
 Catalog.propTypes = {
+  onSelect: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   // goBack: T.func.isRequired,
 }

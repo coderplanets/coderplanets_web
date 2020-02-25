@@ -21,7 +21,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const ChildrenItems = ({ activeMenuId, parentId, items, itemOnClick }) => {
+const ChildrenItems = ({ activeMenuId, parentId, items, onSelect }) => {
   // if (activeMenuId !== parentId) {
   //   return <div />
   // }
@@ -30,8 +30,13 @@ const ChildrenItems = ({ activeMenuId, parentId, items, itemOnClick }) => {
   return (
     <Wrapper active={activeMenuId === parentId}>
       {menuItems.map(item => (
-        <div key={item.id} onClick={() => itemOnClick(parentId, item.id)}>
-          <Item active={item.id === '101'}>
+        <div key={item.id}>
+          <Item
+            active={item.id === '101'}
+            onClick={() => {
+              onSelect(item.id, item.displayType)
+            }}
+          >
             {item.id === '101' && <ActiveDot />}
 
             <SpaceGrow />
@@ -48,7 +53,7 @@ ChildrenItems.propTypes = {
   parentId: T.string.isRequired,
   // TODO:  more spec
   items: T.arrayOf(T.object).isRequired,
-  itemOnClick: T.func.isRequired,
+  onSelect: T.func.isRequired,
 }
 
 ChildrenItems.defaultProps = {

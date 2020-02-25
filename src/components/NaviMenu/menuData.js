@@ -5,6 +5,8 @@ const menu = [
     id: '0',
     title: '本周热议',
     icon: `${ICON_CMD}/navi_fire.svg`,
+    displayType: 'NEWS_FEED',
+    childMenu: [],
   },
   {
     id: '101',
@@ -31,7 +33,7 @@ const menu = [
         ],
       },
       {
-        id: '101',
+        id: '1',
         title: '设计工具/资源',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
@@ -56,14 +58,14 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
-            id: '0',
+            id: '5',
             title: '字体',
             icon: `${ICON_CMD}/navi_china.svg`,
           },
         ],
       },
       {
-        id: '1018',
+        id: '2',
         title: '客户端',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
@@ -86,18 +88,18 @@ const menu = [
         ],
       },
       {
-        id: '1011',
+        id: '3',
         title: '隐私、安全',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [],
       },
       {
-        id: '102',
+        id: '4',
         title: '云服务',
         icon: `${ICON_CMD}/navi_fire.svg`,
       },
       {
-        id: '1021',
+        id: '5',
         title: '行业软件',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
@@ -167,6 +169,28 @@ const menu = [
         id: '1',
         title: '数据库',
         icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '全部',
+          },
+          {
+            id: '1',
+            title: '关系型数据库',
+          },
+          {
+            id: '2',
+            title: '时序数据库',
+          },
+          {
+            id: '3',
+            title: '文档数据库',
+          },
+          {
+            id: '4',
+            title: '内存数据库',
+          },
+        ],
       },
       {
         id: '2',
@@ -177,6 +201,21 @@ const menu = [
         id: '3',
         title: '网络',
         icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '4',
+        title: '基础软件',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '浏览器',
+          },
+          {
+            id: '1',
+            title: '办公软件',
+          },
+        ],
       },
     ],
   },
@@ -285,6 +324,7 @@ const menu = [
       {
         id: '0',
         title: '图灵奖',
+        displayType: 'FAME_PEOPLE',
         icon: `${ICON_CMD}/navi_hammer.svg`,
       },
       {
@@ -303,12 +343,12 @@ const menu = [
         icon: `${ICON_CMD}/navi_hammer.svg`,
         childMenu: [
           {
-            id: '3',
+            id: '1',
             title: '前端',
             icon: `${ICON_CMD}/navi_hammer.svg`,
           },
           {
-            id: '3',
+            id: '2',
             title: '后端',
             icon: `${ICON_CMD}/navi_hammer.svg`,
           },

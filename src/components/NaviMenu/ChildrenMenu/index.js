@@ -21,7 +21,7 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Content = ({ view, menuItems }) => {
+const Content = ({ view, menuItems, onSelect }) => {
   switch (view) {
     case 'filter': {
       return <ChildrenFilter />
@@ -30,13 +30,13 @@ const Content = ({ view, menuItems }) => {
       return <MoreOptions />
     }
     default: {
-      return <Catalog menuItems={menuItems} />
+      return <Catalog menuItems={menuItems} onSelect={onSelect} />
     }
   }
 }
 
 /* <ActiveDot /> */
-const ChildrenMenu = ({ menuItems, parentMenuItem, goBack }) => {
+const ChildrenMenu = ({ menuItems, parentMenuItem, onSelect, goBack }) => {
   const [dashView, setDashView] = useState('catalog')
 
   return (
@@ -47,12 +47,13 @@ const ChildrenMenu = ({ menuItems, parentMenuItem, goBack }) => {
         setView={setDashView}
         parentMenuItem={parentMenuItem}
       />
-      <Content view={dashView} menuItems={menuItems} />
+      <Content view={dashView} menuItems={menuItems} onSelect={onSelect} />
     </Wrapper>
   )
 }
 
 ChildrenMenu.propTypes = {
+  onSelect: T.func.isRequired,
   goBack: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   parentMenuItem: T.any.isRequired, // TODO
