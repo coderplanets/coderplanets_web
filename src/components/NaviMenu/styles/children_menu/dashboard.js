@@ -6,11 +6,12 @@ import { cs } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-end')};
   justify-content: space-between;
-  width: 130px;
+  width: 140px;
   height: 70px;
   color: #7c8f90;
   background: #003948;
   padding: 6px;
+  padding-right: 10px;
   padding-bottom: 0;
   margin-top: 5px;
   margin-bottom: 0;

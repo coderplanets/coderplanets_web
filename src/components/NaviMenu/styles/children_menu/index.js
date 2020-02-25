@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  width: 130px;
+  width: 140px;
   margin-right: 22px;
 `
 

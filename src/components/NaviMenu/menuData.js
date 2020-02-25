@@ -89,7 +89,7 @@ const menu = [
       },
       {
         id: '3',
-        title: '隐私、安全',
+        title: '隐私 / 安全',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [],
       },
@@ -98,34 +98,33 @@ const menu = [
         title: '云服务',
         icon: `${ICON_CMD}/navi_fire.svg`,
       },
-      {
-        id: '5',
-        title: '行业软件',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '模型仿真',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-          {
-            id: '1',
-            title: 'CAD制作',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-        ],
-      },
+      // {
+      //   id: '5',
+      //   title: '行业软件',
+      //   icon: `${ICON_CMD}/navi_china.svg`,
+      //   childMenu: [
+      //     {
+      //       id: '0',
+      //       title: '模型仿真',
+      //       icon: `${ICON_CMD}/navi_china.svg`,
+      //     },
+      //     {
+      //       id: '1',
+      //       title: 'CAD制作',
+      //       icon: `${ICON_CMD}/navi_china.svg`,
+      //     },
+      //   ],
+      // },
       {
         id: '12',
         title: '公共数据',
         icon: `${ICON_CMD}/navi_group.svg`,
       },
-      {
-        // 非 IT，设计类的网站
-        id: '103',
-        title: '创投服务',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
+      // {
+      //   id: '103',
+      //   title: '创投服务',
+      //   icon: `${ICON_CMD}/navi_china.svg`,
+      // },
       {
         id: '14',
         title: '数据可视化',

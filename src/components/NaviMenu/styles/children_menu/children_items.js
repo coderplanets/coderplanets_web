@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@utils'
 
+// border-right: 1px solid #003847;
+// border-left: 1px solid #003847;
 export const Wrapper = styled.div`
-  border-right: 1px solid #003847;
-  border-left: 1px solid #003847;
   background: #042833;
   padding-top: ${({ active }) => (active ? '5px' : '0')};
   padding-bottom: ${({ active }) => (active ? '6px' : '0')};

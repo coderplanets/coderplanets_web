@@ -19,6 +19,7 @@ export const Block = styled.div`
   border-top: ${({ borderTop }) => (borderTop ? '1px solid' : 'none')};
   border-color: #0d4353;
   padding: 15px;
+  padding-left: 24px;
 
   :last-child {
     border-right: none;

@@ -15,7 +15,7 @@ export const Item = styled.div`
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
   font-size: 14px;
-  padding: 8px 6px;
+  padding: 8px 10px;
 
   &:hover {
     color: ${theme('thread.articleTitle')};

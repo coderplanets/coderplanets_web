@@ -53,7 +53,8 @@ const tmpItems = [
     id: '2',
     addr: 'clojure-lang.com',
     title: 'clojure',
-    desc: '最性感的开发者社区',
+    desc:
+      '最性感的开发者社区少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
   },
   {
@@ -78,7 +79,8 @@ const tmpItems = [
     id: '5',
     addr: 'whatthefuck.com',
     title: 'whatever',
-    desc: '最性感的开发者社区',
+    desc:
+      '一切工作都可以从Teambition开始。无论是策划活动、研发软件、制造机器人、建设发电站或者发射卫星,团队成员以更高效的协作方式,为目标不断创造成果。',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
   },
   {
