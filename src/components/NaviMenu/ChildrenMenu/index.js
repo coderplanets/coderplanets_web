@@ -21,7 +21,7 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Content = ({ view }) => {
+const Content = ({ view, menuItems }) => {
   switch (view) {
     case 'filter': {
       return <ChildrenFilter />
@@ -30,26 +30,32 @@ const Content = ({ view }) => {
       return <MoreOptions />
     }
     default: {
-      return <Catalog />
+      return <Catalog menuItems={menuItems} />
     }
   }
 }
 
 /* <ActiveDot /> */
-const ChildrenMenu = ({ goBack }) => {
+const ChildrenMenu = ({ menuItems, parentMenuItem, goBack }) => {
   const [dashView, setDashView] = useState('catalog')
 
   return (
     <Wrapper>
       <GoBack goBack={goBack} />
-      <Dashboard view={dashView} setView={setDashView} />
-      <Content view={dashView} />
+      <Dashboard
+        view={dashView}
+        setView={setDashView}
+        parentMenuItem={parentMenuItem}
+      />
+      <Content view={dashView} menuItems={menuItems} />
     </Wrapper>
   )
 }
 
 ChildrenMenu.propTypes = {
   goBack: T.func.isRequired,
+  menuItems: T.arrayOf(T.any).isRequired,
+  parentMenuItem: T.any.isRequired, // TODO
 }
 
 ChildrenMenu.defaultProps = {}

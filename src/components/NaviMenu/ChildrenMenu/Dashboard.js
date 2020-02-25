@@ -22,10 +22,10 @@ import {
 const log = buildLog('c:NaviMenu:index')
 
 /* <ActiveDot /> */
-const Dashboard = ({ view, setView }) => {
+const Dashboard = ({ view, setView, parentMenuItem }) => {
   return (
     <Wrapper>
-      酷服务 / 工具
+      {parentMenuItem.title}
       <Footer>
         <FilterOption
           onClick={() => setView('catalog')}
@@ -56,6 +56,7 @@ const Dashboard = ({ view, setView }) => {
 Dashboard.propTypes = {
   view: T.oneOf(['catalog', 'filter', 'more']),
   setView: T.func.isRequired,
+  parentMenuItem: T.any.isRequired, // TODO
 }
 
 Dashboard.defaultProps = {
