@@ -4,12 +4,12 @@
  *
  */
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
 import { ATATARS_LIST_LENGTH } from '@config'
-import { buildLog, prettyNum } from '@utils'
+import { buildLog, prettyNum, o2s, s2o } from '@utils'
 
 import Tooltip from '@components/Tooltip'
 
@@ -49,6 +49,14 @@ const AvatarsRow = ({
   onTotalSelect,
   reverse,
 }) => {
+  const handleUserSelect = useCallback(
+    e => {
+      const user = s2o(e.target.dataset.user)
+      onUserSelect(user)
+    },
+    [onUserSelect]
+  )
+
   if (users.length === 0) {
     return <span />
   }
@@ -69,9 +77,13 @@ const AvatarsRow = ({
       )}
 
       {R.slice(0, limit, sortedUsers).map(user => (
-        <AvatarsItem key={user.id} onClick={onUserSelect.bind(this, user)}>
+        <AvatarsItem key={user.id}>
           <Tooltip content={user.nickname} delay={200}>
-            <AvatarsImg src={user.avatar} />
+            <AvatarsImg
+              src={user.avatar}
+              data-user={o2s(user)}
+              onClick={handleUserSelect}
+            />
           </Tooltip>
         </AvatarsItem>
       ))}
