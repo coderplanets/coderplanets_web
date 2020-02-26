@@ -12,7 +12,7 @@ let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
-const log = buildLog('L:CoolNaviContent')
+const log = buildLog('L:CoolGuideContent')
 
 /**
  * navi menu on select
@@ -42,14 +42,14 @@ const ErrSolver = [
     match: asyncErr(ERR.TIMEOUT),
     action: ({ details }) => {
       // cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, details, path: 'CoolNaviContent' })
+      errRescue({ type: ERR.TIMEOUT, details, path: 'CoolGuideContent' })
     },
   },
   {
     match: asyncErr(ERR.NETWORK),
     action: () => {
       // cancleLoading()
-      errRescue({ type: ERR.NETWORK, path: 'CoolNaviContent' })
+      errRescue({ type: ERR.NETWORK, path: 'CoolGuideContent' })
     },
   },
 ]

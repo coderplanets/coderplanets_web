@@ -1,6 +1,6 @@
 /*
  *
- * CoolNaviContent
+ * CoolGuideContent
  *
  */
 
@@ -15,12 +15,12 @@ import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit, menuOnSelect } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CoolNaviContent')
+const log = buildLog('C:CoolGuideContent')
 
-const CoolNaviContentContainer = ({ coolNaviContent }) => {
-  useInit(coolNaviContent)
+const CoolGuideContentContainer = ({ coolGuideContent }) => {
+  useInit(coolGuideContent)
 
-  const { displayType } = coolNaviContent
+  const { displayType } = coolGuideContent
 
   return (
     <Wrapper>
@@ -34,4 +34,4 @@ const CoolNaviContentContainer = ({ coolNaviContent }) => {
   )
 }
 
-export default connectStore(CoolNaviContentContainer)
+export default connectStore(CoolGuideContentContainer)

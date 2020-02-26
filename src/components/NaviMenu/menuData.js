@@ -30,6 +30,10 @@ const menu = [
             id: '104',
             title: '编辑器圣战',
           },
+          {
+            id: '105',
+            title: 'Github',
+          },
         ],
       },
       {
@@ -267,12 +271,6 @@ const menu = [
     id: '12',
     title: '酷团队',
     icon: `${ICON_CMD}/navi_group.svg`,
-    childMenu: [],
-  },
-  {
-    id: '1',
-    title: 'Github',
-    icon: `${ICON_CMD}/navi_china.svg`,
     childMenu: [],
   },
   {

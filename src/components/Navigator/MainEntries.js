@@ -40,12 +40,12 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
       <SiteLink>专栏</SiteLink>
     </Popover> */}
     <DotDivider space={splitMargin} />
-    <Link href={`/${ROUTE.COOL_NAVI}`} passHref>
+    <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
       <SiteLink
-        active={mainPath === ROUTE.COOL_NAVI}
-        testid={`header-${ROUTE.COOL_NAVI}`}
+        active={mainPath === ROUTE.COOL_GUIDE}
+        testid={`header-${ROUTE.COOL_GUIDE}`}
       >
-        酷导航
+        酷导游
       </SiteLink>
     </Link>
     <DotDivider space={splitMargin} />

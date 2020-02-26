@@ -95,7 +95,7 @@ import {
   //
   MeetupsContentStore,
   HaveADrinkContentStore,
-  CoolNaviContentStore,
+  CoolGuideContentStore,
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -197,7 +197,7 @@ const rootStore = t
     // have a drink
     meetupsContent: t.optional(MeetupsContentStore, {}),
     haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
-    coolNaviContent: t.optional(CoolNaviContentStore, {}),
+    coolGuideContent: t.optional(CoolGuideContentStore, {}),
   })
   .views(self => ({
     get isOnline() {

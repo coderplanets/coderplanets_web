@@ -24,7 +24,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <AboutBlock>
-        关于酷导航
+        关于酷导游
         <Desc>共收录信息 3485 条，最后更新：3小时前</Desc>
         <ArrowButton>参与贡献</ArrowButton>
       </AboutBlock>

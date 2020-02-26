@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CoolNaviContent from '@containers/content/CoolNaviContent'
+import CoolGuideContent from '@containers/content/CoolGuideContent'
 
 import { P } from '@schemas'
 
@@ -44,7 +44,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class PostPage extends React.Component {
+export default class CoolGuidePage extends React.Component {
   static async getInitialProps(props) {
     const { mainPath, subPath } = parseURL(props)
     let resp
@@ -87,7 +87,7 @@ export default class PostPage extends React.Component {
     const { statusCode, target } = this.props
 
     const seoConfig = {
-      url: `${SITE_URL}/${ROUTE.COOL_NAVI}`,
+      url: `${SITE_URL}/${ROUTE.COOL_GUIDE}`,
       title: 'coderplanets 社区',
       description: '最性感的开发者社区',
     }
@@ -97,12 +97,12 @@ export default class PostPage extends React.Component {
         <GlobalLayout
           noSidebar
           metric="article"
-          page={ROUTE.COOL_NAVI}
+          page={ROUTE.COOL_GUIDE}
           seoConfig={seoConfig}
           errorCode={statusCode}
           errorPath={target}
         >
-          <CoolNaviContent />
+          <CoolGuideContent />
         </GlobalLayout>
       </Provider>
     )

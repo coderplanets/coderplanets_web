@@ -85,8 +85,8 @@ export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/
 export { default as MeetupsContentStore } from '@containers/content/MeetupsContent/store'
 // have a drink page
 export { default as HaveADrinkContentStore } from '@containers/content/HaveADrinkContent/store'
-// cool navi page
-export { default as CoolNaviContentStore } from '@containers/content/CoolNaviContent/store'
+// cool guide page
+export { default as CoolGuideContentStore } from '@containers/content/CoolGuideContent/store'
 
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'

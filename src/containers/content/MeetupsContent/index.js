@@ -1,6 +1,6 @@
 /*
  *
- * CoolNaviContent
+ * CoolGuideContent
  *
  */
 
@@ -29,7 +29,7 @@ import {
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
-const log = buildLog('C:CoolNaviContent')
+const log = buildLog('C:CoolGuideContent')
 
 const items = [
   {

@@ -1,6 +1,6 @@
 /*
  *
- * CoolNaviContent
+ * CoolGuideContent
  *
  */
 

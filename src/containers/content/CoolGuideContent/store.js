@@ -1,5 +1,5 @@
 /*
- * CoolNaviContent store
+ * CoolGuideContent store
  *
  */
 
@@ -9,10 +9,10 @@ import { types as t, getParent } from 'mobx-state-tree'
 import { NAVI } from '@constant'
 import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
-const log = buildLog('S:CoolNaviContent')
+const log = buildLog('S:CoolGuideContent')
 
-const CoolNaviContent = t
-  .model('CoolNaviContent', {
+const CoolGuideContent = t
+  .model('CoolGuideContent', {
     activeMenuId: t.maybeNull(t.string),
     displayType: t.optional(
       t.enumeration([NAVI.NEWS_FEED, NAVI.FAME_PEOPLE, NAVI.DEFAULT]),
@@ -30,4 +30,4 @@ const CoolNaviContent = t
     },
   }))
 
-export default CoolNaviContent
+export default CoolGuideContent

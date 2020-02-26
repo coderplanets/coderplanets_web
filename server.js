@@ -76,8 +76,8 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/have-a-drink', req.query)
   )
 
-  server.get('/cool-navi', (req, res) =>
-    renderAndCache(req, res, '/cool-navi', req.query)
+  server.get('/cool-guide', (req, res) =>
+    renderAndCache(req, res, '/cool-guide', req.query)
   )
 
   server.get('/service-worker.js', (req, res) =>
