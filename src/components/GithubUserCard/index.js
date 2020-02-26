@@ -69,4 +69,4 @@ GithubUserCard.defaultProps = {
   },
 }
 
-export default GithubUserCard
+export default React.memo(GithubUserCard)

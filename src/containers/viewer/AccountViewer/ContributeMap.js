@@ -120,4 +120,4 @@ const ContributeMap = ({ data }) => {
     </Wrapper>
   )
 }
-export default ContributeMap
+export default React.memo(ContributeMap)

@@ -67,4 +67,4 @@ const Body = ({ ...restProps }) => {
   )
 }
 
-export default Body
+export default React.memo(Body)

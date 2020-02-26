@@ -65,4 +65,4 @@ const SourceOptions = ({ active, sourceOnSelect }) => {
   )
 }
 
-export default SourceOptions
+export default React.memo(SourceOptions)

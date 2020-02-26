@@ -19,4 +19,4 @@ const Footer = ({ data, accountInfo }) => (
   </Wrapper>
 )
 
-export default Footer
+export default React.memo(Footer)

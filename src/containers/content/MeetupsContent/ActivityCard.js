@@ -44,4 +44,4 @@ const ActivityCard = ({ item }) => {
   )
 }
 
-export default ActivityCard
+export default React.memo(ActivityCard)

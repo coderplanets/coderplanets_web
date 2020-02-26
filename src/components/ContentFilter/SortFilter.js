@@ -47,4 +47,4 @@ const SortFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default SortFilter
+export default React.memo(SortFilter)

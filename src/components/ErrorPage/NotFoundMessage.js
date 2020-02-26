@@ -48,4 +48,4 @@ const NotFoundMessage = ({ page, target }) => {
   }
 }
 
-export default NotFoundMessage
+export default React.memo(NotFoundMessage)

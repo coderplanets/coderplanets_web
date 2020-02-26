@@ -57,4 +57,4 @@ const ListView = ({ entry, onPreview }) => (
   </React.Fragment>
 )
 
-export default ListView
+export default React.memo(ListView)

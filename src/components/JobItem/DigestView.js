@@ -15,4 +15,4 @@ const DigestView = ({ entry, community, onPreview, onAuthorSelect }) => (
   </React.Fragment>
 )
 
-export default DigestView
+export default React.memo(DigestView)

@@ -127,4 +127,4 @@ const MentionList = ({
   )
 }
 
-export default MentionList
+export default React.memo(MentionList)

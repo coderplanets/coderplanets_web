@@ -53,4 +53,4 @@ const Setting = ({ settingOptions: { animateType, fontSize } }) => {
   )
 }
 
-export default Setting
+export default React.memo(Setting)

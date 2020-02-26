@@ -35,4 +35,4 @@ const CalendarCard = () => {
   )
 }
 
-export default CalendarCard
+export default React.memo(CalendarCard)

@@ -56,4 +56,4 @@ const CompanyCard = ({ data }) => (
   </Wrapper>
 )
 
-export default CompanyCard
+export default React.memo(CompanyCard)

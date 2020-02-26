@@ -31,4 +31,4 @@ const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
   )
 }
 
-export default NormalMenuList
+export default React.memo(NormalMenuList)

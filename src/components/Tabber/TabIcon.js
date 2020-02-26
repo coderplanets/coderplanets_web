@@ -88,4 +88,4 @@ const TabIcon = ({ raw, active, small }) => {
   }
 }
 
-export default TabIcon
+export default React.memo(TabIcon)

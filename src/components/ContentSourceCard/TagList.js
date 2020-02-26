@@ -18,4 +18,4 @@ const TagList = ({ items }) => {
   )
 }
 
-export default TagList
+export default React.memo(TagList)

@@ -39,4 +39,4 @@ const InputPrefix = ({ prefix, searching }) => {
   }
 }
 
-export default InputPrefix
+export default React.memo(InputPrefix)

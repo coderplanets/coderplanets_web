@@ -70,4 +70,4 @@ const DateSelector = () => {
   )
 }
 
-export default DateSelector
+export default React.memo(DateSelector)

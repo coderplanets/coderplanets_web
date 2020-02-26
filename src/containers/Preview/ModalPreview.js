@@ -16,4 +16,4 @@ const ModalPreview = ({ visible, children }) => (
   </Modal>
 )
 
-export default ModalPreview
+export default React.memo(ModalPreview)

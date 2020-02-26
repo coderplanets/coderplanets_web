@@ -34,4 +34,4 @@ const DemoCommunity = ({ title, type = 'pl' }) => {
   )
 }
 
-export default DemoCommunity
+export default React.memo(DemoCommunity)

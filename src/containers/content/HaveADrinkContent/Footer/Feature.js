@@ -36,4 +36,4 @@ const Feature = () => {
   )
 }
 
-export default Feature
+export default React.memo(Feature)

@@ -53,4 +53,4 @@ const Planets = ({ subscribedCommunities, viewingType }) => {
   )
 }
 
-export default Planets
+export default React.memo(Planets)

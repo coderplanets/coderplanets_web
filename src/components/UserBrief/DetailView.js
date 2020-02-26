@@ -34,4 +34,4 @@ const DetailView = ({ user, toggleDetail }) => (
   </React.Fragment>
 )
 
-export default DetailView
+export default React.memo(DetailView)

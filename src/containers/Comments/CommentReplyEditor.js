@@ -69,4 +69,4 @@ const CommentReplyEditor = ({
   </Wrapper>
 )
 
-export default CommentReplyEditor
+export default React.memo(CommentReplyEditor)

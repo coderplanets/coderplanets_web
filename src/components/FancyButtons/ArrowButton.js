@@ -77,7 +77,7 @@ FancyButtons.defaultProps = {
   size: 'small',
   direction: 'right',
   transparentFirst: false,
-  onClick: console.log,
+  onClick: log,
 }
 
 export default React.memo(FancyButtons)

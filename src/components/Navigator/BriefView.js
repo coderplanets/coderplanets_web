@@ -49,4 +49,4 @@ const BriefView = ({ community, curRoute }) => (
   </Wrapper>
 )
 
-export default BriefView
+export default React.memo(BriefView)

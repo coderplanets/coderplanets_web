@@ -69,4 +69,4 @@ const EditorHeader = ({
   )
 }
 
-export default EditorHeader
+export default React.memo(EditorHeader)

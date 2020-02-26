@@ -18,4 +18,4 @@ const GraphQLTitle = ({ type }) => {
   }
 }
 
-export default GraphQLTitle
+export default React.memo(GraphQLTitle)

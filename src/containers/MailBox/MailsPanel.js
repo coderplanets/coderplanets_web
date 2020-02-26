@@ -56,4 +56,4 @@ const MailsPannel = ({ activeRaw, mailStatus, pagedMentions }) => {
   )
 }
 
-export default MailsPannel
+export default React.memo(MailsPannel)

@@ -25,4 +25,4 @@ const RepoStatusCard = ({ data }) => (
   </Wrapper>
 )
 
-export default RepoStatusCard
+export default React.memo(RepoStatusCard)

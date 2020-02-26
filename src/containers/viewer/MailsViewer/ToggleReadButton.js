@@ -20,4 +20,4 @@ const ToggleReadButton = ({ readState }) => (
   </Wrapper>
 )
 
-export default ToggleReadButton
+export default React.memo(ToggleReadButton)

@@ -41,4 +41,4 @@ const TokenSetter = ({ value, searching }) => (
   </React.Fragment>
 )
 
-export default TokenSetter
+export default React.memo(TokenSetter)

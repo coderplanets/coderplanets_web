@@ -11,4 +11,4 @@ const DefaultViewer = () => (
   </Wrapper>
 )
 
-export default DefaultViewer
+export default React.memo(DefaultViewer)

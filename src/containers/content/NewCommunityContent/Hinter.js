@@ -10,4 +10,4 @@ const Hinter = ({ title, desc }) => (
   </Wrapper>
 )
 
-export default Hinter
+export default React.memo(Hinter)

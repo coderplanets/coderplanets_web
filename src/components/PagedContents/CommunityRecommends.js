@@ -53,4 +53,4 @@ const CommunityRecommends = () => {
   )
 }
 
-export default CommunityRecommends
+export default React.memo(CommunityRecommends)

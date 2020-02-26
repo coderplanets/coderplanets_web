@@ -191,4 +191,4 @@ const List = ({ setHeaderShadow }) => {
   )
 }
 
-export default List
+export default React.memo(List)

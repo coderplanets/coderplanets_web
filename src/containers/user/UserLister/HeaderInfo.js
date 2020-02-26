@@ -109,4 +109,4 @@ const HeaderInfo = ({ type, totalCount, brief, curCommunity }) => {
   }
 }
 
-export default HeaderInfo
+export default React.memo(HeaderInfo)

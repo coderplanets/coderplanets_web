@@ -56,4 +56,4 @@ const VideosList = ({ props }) => {
   }
 }
 
-export default VideosList
+export default React.memo(VideosList)

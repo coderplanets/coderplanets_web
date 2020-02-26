@@ -56,4 +56,4 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
   </React.Fragment>
 )
 
-export default SubscribedTitle
+export default React.memo(SubscribedTitle)

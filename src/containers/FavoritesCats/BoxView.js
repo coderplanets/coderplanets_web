@@ -22,4 +22,4 @@ const BoxView = ({ data, onSelect }) => {
   )
 }
 
-export default BoxView
+export default React.memo(BoxView)

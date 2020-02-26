@@ -85,4 +85,4 @@ const SubscribeBtn = ({
   )
 }
 
-export default SubscribeBtn
+export default React.memo(SubscribeBtn)

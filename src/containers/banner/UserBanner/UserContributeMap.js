@@ -97,4 +97,4 @@ const UserContributeMap = ({ data }) => (
   </Wrapper>
 )
 
-export default UserContributeMap
+export default React.memo(UserContributeMap)

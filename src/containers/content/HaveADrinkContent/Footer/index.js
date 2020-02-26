@@ -45,4 +45,4 @@ const Footer = ({ view }) => {
   )
 }
 
-export default Footer
+export default React.memo(Footer)

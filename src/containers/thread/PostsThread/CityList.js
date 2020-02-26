@@ -39,4 +39,4 @@ const CityList = ({ items }) => (
   </Wrapper>
 )
 
-export default CityList
+export default React.memo(CityList)

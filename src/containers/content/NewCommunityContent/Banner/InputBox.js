@@ -64,4 +64,4 @@ InputBox.defaultProps = {
   noRound: false,
 }
 
-export default InputBox
+export default React.memo(InputBox)

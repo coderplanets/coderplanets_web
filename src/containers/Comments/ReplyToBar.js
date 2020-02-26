@@ -17,4 +17,4 @@ const ReplyToBar = ({ comment }) => {
   )
 }
 
-export default ReplyToBar
+export default React.memo(ReplyToBar)

@@ -48,4 +48,4 @@ const Content = ({
   return <Wrapper>{stepComp}</Wrapper>
 }
 
-export default Content
+export default React.memo(Content)

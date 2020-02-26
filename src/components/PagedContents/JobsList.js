@@ -59,4 +59,4 @@ const JobsList = ({ props }) => {
   }
 }
 
-export default JobsList
+export default React.memo(JobsList)

@@ -22,4 +22,4 @@ const Reaction = () => {
   )
 }
 
-export default Reaction
+export default React.memo(Reaction)

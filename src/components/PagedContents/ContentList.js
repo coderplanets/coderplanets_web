@@ -47,4 +47,4 @@ const ContentList = props => {
   }
 }
 
-export default ContentList
+export default React.memo(ContentList)

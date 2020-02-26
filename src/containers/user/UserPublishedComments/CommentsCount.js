@@ -8,4 +8,4 @@ const CommentCount = ({ floor, total }) => (
   </Wrapper>
 )
 
-export default CommentCount
+export default React.memo(CommentCount)

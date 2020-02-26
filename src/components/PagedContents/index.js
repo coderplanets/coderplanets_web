@@ -118,4 +118,4 @@ PagedContents.defaultProps = {
   },
 }
 
-export default PagedContents
+export default React.memo(PagedContents)

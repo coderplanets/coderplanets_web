@@ -56,4 +56,4 @@ const AdderPanel = ({ user, searchValue, searching, onConfirm }) => (
   </Wrapper>
 )
 
-export default AdderPanel
+export default React.memo(AdderPanel)

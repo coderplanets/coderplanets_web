@@ -48,4 +48,4 @@ const SelectedTags = ({ onSelect, activeFilter }) => (
   </Wrapper>
 )
 
-export default SelectedTags
+export default React.memo(SelectedTags)

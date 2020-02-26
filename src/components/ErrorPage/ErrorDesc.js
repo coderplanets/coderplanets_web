@@ -47,4 +47,4 @@ const ErrorDesc = ({ errorCode }) => {
   }
 }
 
-export default ErrorDesc
+export default React.memo(ErrorDesc)

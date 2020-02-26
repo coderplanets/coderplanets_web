@@ -31,4 +31,4 @@ const PaymentFooter = ({ num, onPay }) => (
   </Wrapper>
 )
 
-export default PaymentFooter
+export default React.memo(PaymentFooter)

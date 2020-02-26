@@ -29,4 +29,4 @@ const Support = ({ items, not }) => (
   </React.Fragment>
 )
 
-export default Support
+export default React.memo(Support)

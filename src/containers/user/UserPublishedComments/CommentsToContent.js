@@ -79,4 +79,4 @@ const CommentsToContent = ({ data, thread, curView }) => {
   }
 }
 
-export default CommentsToContent
+export default React.memo(CommentsToContent)

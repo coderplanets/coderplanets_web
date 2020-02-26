@@ -30,4 +30,4 @@ const PartnerBanner = () => (
   </Wrapper>
 )
 
-export default PartnerBanner
+export default React.memo(PartnerBanner)

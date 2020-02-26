@@ -77,4 +77,4 @@ InlineTags.defaultProps = {
   max: 3,
 }
 
-export default InlineTags
+export default React.memo(InlineTags)

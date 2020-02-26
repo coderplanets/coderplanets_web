@@ -87,4 +87,4 @@ const Updater = ({ data, show, hasLockAuth }) => (
   </Wrapper>
 )
 
-export default Updater
+export default React.memo(Updater)

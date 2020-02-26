@@ -84,4 +84,4 @@ const FilterPanel = ({ thread, activeFilter, onSelect, isLogin }) => {
   }
 }
 
-export default FilterPanel
+export default React.memo(FilterPanel)

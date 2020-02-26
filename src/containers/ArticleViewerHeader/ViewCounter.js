@@ -25,4 +25,4 @@ ViewCounter.propTypes = {
 
 ViewCounter.defaultProps = {}
 
-export default ViewCounter
+export default React.memo(ViewCounter)

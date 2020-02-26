@@ -60,4 +60,4 @@ const Content = () => (
   </Wrapper>
 )
 
-export default Content
+export default React.memo(Content)

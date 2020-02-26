@@ -58,4 +58,4 @@ const Content = ({ displayType }) => {
   )
 }
 
-export default Content
+export default React.memo(Content)

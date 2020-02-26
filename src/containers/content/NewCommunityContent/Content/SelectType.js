@@ -67,4 +67,4 @@ const SelectType = ({ status: { communityType } }) => {
   )
 }
 
-export default SelectType
+export default React.memo(SelectType)

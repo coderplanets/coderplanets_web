@@ -37,4 +37,4 @@ const Footer = ({ pin, showFooterShadow, sortOptActive }) => (
   </Wrapper>
 )
 
-export default Footer
+export default React.memo(Footer)

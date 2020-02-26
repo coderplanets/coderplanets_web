@@ -50,4 +50,4 @@ const SlogenText = () => {
   )
 }
 
-export default SlogenText
+export default React.memo(SlogenText)

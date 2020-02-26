@@ -30,4 +30,4 @@ DotDivider.defaultProps = {
   className: 'dot-divider-class',
 }
 
-export default DotDivider
+export default React.memo(DotDivider)

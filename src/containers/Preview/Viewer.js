@@ -88,4 +88,4 @@ const Viewer = ({ type, root, attachment, attUser }) => (
   <Wrapper>{renderViewer(type, root, attachment, attUser)}</Wrapper>
 )
 
-export default Viewer
+export default React.memo(Viewer)

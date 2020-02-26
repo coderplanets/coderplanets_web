@@ -36,4 +36,4 @@ const JobScaleFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default JobScaleFilter
+export default React.memo(JobScaleFilter)

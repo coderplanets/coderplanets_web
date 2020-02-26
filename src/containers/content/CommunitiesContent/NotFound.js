@@ -31,4 +31,4 @@ const NotFound = ({ searchValue }) => {
   )
 }
 
-export default NotFound
+export default React.memo(NotFound)

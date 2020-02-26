@@ -170,4 +170,4 @@ const DigestView = () => (
   </Wrapper>
 )
 
-export default DigestView
+export default React.memo(DigestView)

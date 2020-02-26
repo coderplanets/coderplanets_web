@@ -9,4 +9,4 @@ const SysNotificationList = ({ data }) => {
   return <h3>SysNotificationList</h3>
 }
 
-export default SysNotificationList
+export default React.memo(SysNotificationList)

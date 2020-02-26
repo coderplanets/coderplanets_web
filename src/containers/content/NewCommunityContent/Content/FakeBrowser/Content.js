@@ -54,4 +54,4 @@ Content.defaultProps = {
   desc: '',
 }
 
-export default Content
+export default React.memo(Content)

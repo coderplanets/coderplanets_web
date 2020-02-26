@@ -56,4 +56,4 @@ const Parent = ({ thread, data }) => {
   }
 }
 
-export default Parent
+export default React.memo(Parent)

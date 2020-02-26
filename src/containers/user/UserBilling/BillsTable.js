@@ -66,4 +66,4 @@ const BillsTable = ({ data }) => (
   </Wrapper>
 )
 
-export default BillsTable
+export default React.memo(BillsTable)

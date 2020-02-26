@@ -32,4 +32,4 @@ const CommunitiesList = ({
   </Wrapper>
 )
 
-export default CommunitiesList
+export default React.memo(CommunitiesList)

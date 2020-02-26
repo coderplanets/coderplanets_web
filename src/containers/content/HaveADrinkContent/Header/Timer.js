@@ -90,4 +90,4 @@ Timer.defaultProps = {
   timerInterval: '3s',
 }
 
-export default Timer
+export default React.memo(Timer)

@@ -34,4 +34,4 @@ FocusLine.defaultProps = {
   iconSrc: '',
 }
 
-export default FocusLine
+export default React.memo(FocusLine)

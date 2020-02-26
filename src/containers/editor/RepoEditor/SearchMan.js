@@ -55,4 +55,4 @@ const SearchMan = ({ value, searching, subView, tokenValue }) => (
   </Wrapper>
 )
 
-export default SearchMan
+export default React.memo(SearchMan)

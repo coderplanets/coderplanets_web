@@ -25,4 +25,4 @@ const JobDigestBar = ({ data }) => (
   </Wrapper>
 )
 
-export default JobDigestBar
+export default React.memo(JobDigestBar)

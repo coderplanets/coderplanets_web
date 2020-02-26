@@ -48,4 +48,4 @@ const FilterResult = ({ thread, totalCount, customization, onC11NChange }) => (
   </Wrapper>
 )
 
-export default FilterResult
+export default React.memo(FilterResult)

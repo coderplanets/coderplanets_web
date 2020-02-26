@@ -34,4 +34,4 @@ const SearchInputer = ({ value, searching }) => (
   </React.Fragment>
 )
 
-export default SearchInputer
+export default React.memo(SearchInputer)

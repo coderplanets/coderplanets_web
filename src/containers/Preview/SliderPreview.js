@@ -23,4 +23,4 @@ const SliderPreview = ({
   </React.Fragment>
 )
 
-export default SliderPreview
+export default React.memo(SliderPreview)

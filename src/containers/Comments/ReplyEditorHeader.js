@@ -43,4 +43,4 @@ const ReplyEditorHeader = ({
   </Wrapper>
 )
 
-export default ReplyEditorHeader
+export default React.memo(ReplyEditorHeader)

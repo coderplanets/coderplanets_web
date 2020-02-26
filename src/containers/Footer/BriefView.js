@@ -77,4 +77,4 @@ const BriefView = () => (
   </Wrapper>
 )
 
-export default BriefView
+export default React.memo(BriefView)

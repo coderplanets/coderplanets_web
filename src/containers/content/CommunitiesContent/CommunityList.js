@@ -18,4 +18,4 @@ const CommnityList = ({ entries, restProps }) => {
   )
 }
 
-export default CommnityList
+export default React.memo(CommnityList)

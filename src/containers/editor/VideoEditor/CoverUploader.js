@@ -76,4 +76,4 @@ const CoverUploader = ({ thumbnil, poster }) => (
   </Wrapper>
 )
 
-export default CoverUploader
+export default React.memo(CoverUploader)

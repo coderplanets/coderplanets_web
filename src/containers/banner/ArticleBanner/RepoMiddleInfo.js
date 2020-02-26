@@ -16,4 +16,4 @@ const RepoMiddleInfo = ({ data }) => (
   </Wrapper>
 )
 
-export default RepoMiddleInfo
+export default React.memo(RepoMiddleInfo)

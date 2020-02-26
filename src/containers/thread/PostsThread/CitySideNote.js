@@ -35,4 +35,4 @@ const CitySideNote = () => (
   </Wrapper>
 )
 
-export default CitySideNote
+export default React.memo(CitySideNote)

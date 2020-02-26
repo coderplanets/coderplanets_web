@@ -34,4 +34,4 @@ const QuestionContent = () => (
   </Wrapper>
 )
 
-export default QuestionContent
+export default React.memo(QuestionContent)

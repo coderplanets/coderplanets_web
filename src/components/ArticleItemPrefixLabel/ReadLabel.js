@@ -17,4 +17,4 @@ const ReadLabel = ({ entry, accountInfo, topoffset }) => {
   return null
 }
 
-export default ReadLabel
+export default React.memo(ReadLabel)

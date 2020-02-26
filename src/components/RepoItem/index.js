@@ -82,4 +82,4 @@ RepoItem.defaultProps = {
   },
 }
 
-export default RepoItem
+export default React.memo(RepoItem)

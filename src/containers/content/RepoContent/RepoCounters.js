@@ -40,4 +40,4 @@ const RepoCounters = ({ repo }) => (
   </Wrapper>
 )
 
-export default RepoCounters
+export default React.memo(RepoCounters)

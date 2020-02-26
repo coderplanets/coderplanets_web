@@ -44,4 +44,4 @@ const SearchBox = ({ showSearchMask, value, onChange }) => {
   )
 }
 
-export default SearchBox
+export default React.memo(SearchBox)

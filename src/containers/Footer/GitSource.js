@@ -19,4 +19,4 @@ const GitSourceTag = ({ title, addr }) => (
   </Wrapper>
 )
 
-export default GitSourceTag
+export default React.memo(GitSourceTag)

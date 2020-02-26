@@ -13,4 +13,4 @@ const UtilsBar = ({ total }) => (
   </Wrapper>
 )
 
-export default UtilsBar
+export default React.memo(UtilsBar)

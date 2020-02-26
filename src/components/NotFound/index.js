@@ -78,4 +78,4 @@ NotFound.defaultProps = {
 }
 
 // 如果你发现是网站的问题，恳请你在这里提交
-export default NotFound
+export default React.memo(NotFound)

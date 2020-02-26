@@ -97,4 +97,4 @@ const GraphqlDetail = ({
   }
 }
 
-export default GraphqlDetail
+export default React.memo(GraphqlDetail)

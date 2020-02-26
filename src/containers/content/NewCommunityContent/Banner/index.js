@@ -45,4 +45,4 @@ const Banner = ({
   return <Wrapper testid="communities-banner">{stepComp}</Wrapper>
 }
 
-export default Banner
+export default React.memo(Banner)

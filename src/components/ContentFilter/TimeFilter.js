@@ -46,4 +46,4 @@ const TimeFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default TimeFilter
+export default React.memo(TimeFilter)

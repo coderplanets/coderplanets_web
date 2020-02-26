@@ -105,4 +105,4 @@ const MentionList = ({ data }) => {
   )
 }
 
-export default MentionList
+export default React.memo(MentionList)

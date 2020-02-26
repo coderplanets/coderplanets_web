@@ -17,4 +17,4 @@ const Panel = ({ options, active, onSelect }) => (
   </Wrapper>
 )
 
-export default Panel
+export default React.memo(Panel)

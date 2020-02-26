@@ -50,4 +50,4 @@ const MobileBottomInfo = () => (
   </React.Fragment>
 )
 
-export default MobileBottomInfo
+export default React.memo(MobileBottomInfo)

@@ -12,4 +12,4 @@ const SetupDomain = ({ status }) => {
   )
 }
 
-export default SetupDomain
+export default React.memo(SetupDomain)

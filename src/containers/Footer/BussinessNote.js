@@ -11,4 +11,4 @@ const BussinessNote = () => (
   </Wrapper>
 )
 
-export default BussinessNote
+export default React.memo(BussinessNote)

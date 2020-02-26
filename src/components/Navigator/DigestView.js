@@ -43,4 +43,4 @@ const DigestView = ({ curRoute }) => (
   </Breadcrumbs>
 )
 
-export default DigestView
+export default React.memo(DigestView)

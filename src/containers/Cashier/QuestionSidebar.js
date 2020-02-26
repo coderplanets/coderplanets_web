@@ -22,4 +22,4 @@ const QuestionSidebar = () => (
   </Wrapper>
 )
 
-export default QuestionSidebar
+export default React.memo(QuestionSidebar)

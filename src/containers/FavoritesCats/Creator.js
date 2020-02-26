@@ -80,4 +80,4 @@ const Creator = ({ data, show, hasLockAuth }) => (
   </Wrapper>
 )
 
-export default Creator
+export default React.memo(Creator)

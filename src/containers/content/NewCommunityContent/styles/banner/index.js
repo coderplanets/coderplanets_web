@@ -16,4 +16,11 @@ export const Wrapper = styled.div.attrs(props => ({
     min-height: 160px;
   }
 `
-export const holder = 1
+export const SlogenTextWrapper = styled.div`
+  margin-left: 3px;
+  margin-right: 3px;
+
+  font-weight: ${({ highlight }) => (highlight ? 'bold' : '')};
+  color: ${({ highlight }) =>
+    highlight ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+`

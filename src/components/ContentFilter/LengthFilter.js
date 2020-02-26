@@ -34,4 +34,4 @@ const LengthFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default LengthFilter
+export default React.memo(LengthFilter)

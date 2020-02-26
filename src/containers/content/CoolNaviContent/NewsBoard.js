@@ -35,4 +35,4 @@ const NewsBoard = () => {
   )
 }
 
-export default NewsBoard
+export default React.memo(NewsBoard)

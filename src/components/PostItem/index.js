@@ -108,4 +108,4 @@ PostItem.defaultProps = {
   },
 }
 
-export default PostItem
+export default React.memo(PostItem)

@@ -78,4 +78,4 @@ const DigestBoard = ({ user, accountId, following }) => (
   </React.Fragment>
 )
 
-export default DigestBoard
+export default React.memo(DigestBoard)

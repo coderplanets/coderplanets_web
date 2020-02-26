@@ -56,4 +56,4 @@ const SetupInfo = ({ status }) => {
   )
 }
 
-export default SetupInfo
+export default React.memo(SetupInfo)

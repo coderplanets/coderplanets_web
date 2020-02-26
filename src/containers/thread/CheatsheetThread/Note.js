@@ -54,4 +54,4 @@ const Note = ({ isLogin, communityRaw, contributors, views }) => (
   </Wrapper>
 )
 
-export default Note
+export default React.memo(Note)

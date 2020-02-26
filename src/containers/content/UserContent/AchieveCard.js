@@ -27,4 +27,4 @@ const AchieveCard = ({ user }) => (
   </Wrapper>
 )
 
-export default AchieveCard
+export default React.memo(AchieveCard)

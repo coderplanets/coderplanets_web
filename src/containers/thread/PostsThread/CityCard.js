@@ -38,4 +38,4 @@ const CityCard = ({ community }) => (
   </Wrapper>
 )
 
-export default CityCard
+export default React.memo(CityCard)

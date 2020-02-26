@@ -72,10 +72,10 @@ PublishButton.propTypes = {
 PublishButton.defaultProps = {
   label: '发布帖子 ',
   labelIconSrc: `${ICON_CMD}/publish_pen.svg`,
-  onPublish: console.log,
-  onVote: console.log,
-  onImport: console.log,
-  onFAQ: console.log,
+  onPublish: log,
+  onVote: log,
+  onImport: log,
+  onFAQ: log,
 }
 
 export default React.memo(PublishButton)

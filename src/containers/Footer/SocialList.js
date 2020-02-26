@@ -53,4 +53,4 @@ const SocialList = () => (
   </Wrapper>
 )
 
-export default SocialList
+export default React.memo(SocialList)

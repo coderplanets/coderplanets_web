@@ -63,4 +63,4 @@ const SponsorPlan = ({ joined }) => {
   )
 }
 
-export default SponsorPlan
+export default React.memo(SponsorPlan)

@@ -34,4 +34,4 @@ const SourceContributeInfo = ({ data }) => (
   </AttactWrapper>
 )
 
-export default SourceContributeInfo
+export default React.memo(SourceContributeInfo)

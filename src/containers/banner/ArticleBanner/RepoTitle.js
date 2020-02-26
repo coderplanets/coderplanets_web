@@ -30,4 +30,4 @@ const RepoTitle = ({ repo }) => (
   </Wrapper>
 )
 
-export default RepoTitle
+export default React.memo(RepoTitle)

@@ -66,4 +66,4 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
   </Wrapper>
 )
 
-export default MainEntries
+export default React.memo(MainEntries)

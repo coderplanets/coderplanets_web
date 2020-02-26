@@ -34,4 +34,4 @@ const GirlsCodeTooPlan = ({ joined }) => {
   )
 }
 
-export default GirlsCodeTooPlan
+export default React.memo(GirlsCodeTooPlan)

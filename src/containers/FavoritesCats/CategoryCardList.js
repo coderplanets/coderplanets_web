@@ -63,4 +63,4 @@ const CategoryCardList = ({
   </Wrapper>
 )
 
-export default CategoryCardList
+export default React.memo(CategoryCardList)

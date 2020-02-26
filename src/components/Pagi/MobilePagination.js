@@ -50,4 +50,4 @@ const MobilePagination = ({ current, pageSize, total, onChange }) => (
   </Wrapper>
 )
 
-export default MobilePagination
+export default React.memo(MobilePagination)

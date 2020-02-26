@@ -80,4 +80,4 @@ const JobInfo = ({
   </Wrapper>
 )
 
-export default JobInfo
+export default React.memo(JobInfo)

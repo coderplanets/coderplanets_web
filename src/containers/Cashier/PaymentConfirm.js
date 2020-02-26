@@ -34,4 +34,4 @@ const PaymentConfirm = ({ paymentMethod, transferAccount }) => (
   </Wrapper>
 )
 
-export default PaymentConfirm
+export default React.memo(PaymentConfirm)

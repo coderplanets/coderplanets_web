@@ -71,4 +71,4 @@ const ListView = ({ entry, onPreview }) => (
   </Wrapper>
 )
 
-export default ListView
+export default React.memo(ListView)

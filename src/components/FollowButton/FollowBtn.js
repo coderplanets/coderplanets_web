@@ -27,4 +27,4 @@ const FollowBtn = ({ size, loading, onClick }) => {
   )
 }
 
-export default FollowBtn
+export default React.memo(FollowBtn)

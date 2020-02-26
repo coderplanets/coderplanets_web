@@ -30,4 +30,4 @@ const CardPopover = ({ community }) => (
   </Wrapper>
 )
 
-export default CardPopover
+export default React.memo(CardPopover)

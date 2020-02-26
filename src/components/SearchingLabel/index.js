@@ -32,4 +32,4 @@ SearchingLabel.defaultProps = {
   iconSrc: `${ICON_CMD}/loading_sand.svg`,
 }
 
-export default SearchingLabel
+export default React.memo(SearchingLabel)

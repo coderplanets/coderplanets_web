@@ -41,4 +41,4 @@ const UpgradeMenu = ({ achievement }) => (
   </React.Fragment>
 )
 
-export default UpgradeMenu
+export default React.memo(UpgradeMenu)

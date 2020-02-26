@@ -52,4 +52,4 @@ const FloatHeader = ({ show, data }) => {
   )
 }
 
-export default FloatHeader
+export default React.memo(FloatHeader)

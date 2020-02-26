@@ -34,4 +34,4 @@ const TipingDevsPlan = () => (
   </Wrapper>
 )
 
-export default TipingDevsPlan
+export default React.memo(TipingDevsPlan)

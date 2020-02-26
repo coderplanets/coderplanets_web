@@ -45,4 +45,4 @@ const InputEditor = ({ searching, value, prefix }) => {
   )
 }
 
-export default InputEditor
+export default React.memo(InputEditor)

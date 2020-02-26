@@ -58,4 +58,4 @@ SectionLabel.defaultProps = {
   addonNode: '',
 }
 
-export default SectionLabel
+export default React.memo(SectionLabel)

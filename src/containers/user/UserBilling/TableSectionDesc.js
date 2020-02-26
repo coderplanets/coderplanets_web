@@ -19,4 +19,4 @@ const TableSectionDesc = ({ data: { totalCount } }) => {
   )
 }
 
-export default TableSectionDesc
+export default React.memo(TableSectionDesc)

@@ -79,4 +79,4 @@ const MoreContent = () => (
   </Wrapper>
 )
 
-export default MoreContent
+export default React.memo(MoreContent)

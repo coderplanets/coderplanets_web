@@ -83,4 +83,4 @@ ContentBanner.defaultProps = {
   middleNode: '',
 }
 
-export default ContentBanner
+export default React.memo(ContentBanner)

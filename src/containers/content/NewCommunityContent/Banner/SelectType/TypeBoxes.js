@@ -65,4 +65,4 @@ const TypeBoxes = ({ communityType }) => {
   )
 }
 
-export default TypeBoxes
+export default React.memo(TypeBoxes)

@@ -66,4 +66,4 @@ ErrorPage.defaultProps = {
   target: '',
 }
 
-export default ErrorPage
+export default React.memo(ErrorPage)

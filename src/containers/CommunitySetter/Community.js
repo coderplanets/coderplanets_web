@@ -12,4 +12,4 @@ const Community = ({ entry: { id, logo, title }, belong }) => (
   </Wrapper>
 )
 
-export default Community
+export default React.memo(Community)

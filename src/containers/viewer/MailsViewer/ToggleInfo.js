@@ -14,4 +14,4 @@ const ToggleInfo = ({ readState, totalCount }) => (
   </Wrapper>
 )
 
-export default ToggleInfo
+export default React.memo(ToggleInfo)

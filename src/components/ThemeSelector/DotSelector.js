@@ -17,4 +17,4 @@ const DotSelector = ({ curTheme, changeTheme }) => (
   </Wrapper>
 )
 
-export default DotSelector
+export default React.memo(DotSelector)

@@ -83,4 +83,4 @@ const CommentsList = ({
   </React.Fragment>
 )
 
-export default CommentsList
+export default React.memo(CommentsList)

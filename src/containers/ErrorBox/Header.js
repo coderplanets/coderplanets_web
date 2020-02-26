@@ -50,4 +50,4 @@ const Header = ({ type, operation, path, graphqlType }) => {
   }
 }
 
-export default Header
+export default React.memo(Header)

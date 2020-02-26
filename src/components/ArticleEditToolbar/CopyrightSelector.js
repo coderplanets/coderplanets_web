@@ -86,4 +86,4 @@ const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => (
   </Popover>
 )
 
-export default CopyrightSelector
+export default React.memo(CopyrightSelector)

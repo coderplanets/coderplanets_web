@@ -105,4 +105,4 @@ AvatarsRow.defaultProps = {
   reverse: true,
 }
 
-export default AvatarsRow
+export default React.memo(AvatarsRow)

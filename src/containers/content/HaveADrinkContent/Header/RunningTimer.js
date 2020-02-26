@@ -41,4 +41,4 @@ RunningTimer.defaultProps = {
   interval: '3s',
 }
 
-export default RunningTimer
+export default React.memo(RunningTimer)

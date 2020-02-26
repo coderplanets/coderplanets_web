@@ -20,4 +20,4 @@ StateViewer.propTypes = {
 
 StateViewer.defaultProps = {}
 
-export default StateViewer
+export default React.memo(StateViewer)

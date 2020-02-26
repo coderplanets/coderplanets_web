@@ -42,4 +42,4 @@ const SortableMenuList = SortableContainer(
   }
 )
 
-export default SortableMenuList
+export default React.memo(SortableMenuList)

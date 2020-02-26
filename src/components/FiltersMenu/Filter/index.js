@@ -32,4 +32,4 @@ const Filter = ({ id, activeItemId, data }) => {
   )
 }
 
-export default Filter
+export default React.memo(Filter)

@@ -66,4 +66,4 @@ const SeniorPlan = ({ joined }) => {
   )
 }
 
-export default SeniorPlan
+export default React.memo(SeniorPlan)

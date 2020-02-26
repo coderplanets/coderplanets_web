@@ -48,4 +48,4 @@ const CommunityCard = ({ community, restProps }) => (
   </Wrapper>
 )
 
-export default CommunityCard
+export default React.memo(CommunityCard)

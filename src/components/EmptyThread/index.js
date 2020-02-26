@@ -76,4 +76,4 @@ EmptyThread.propTypes = {
 EmptyThread.defaultProps = {}
 
 // 如果你发现是网站的问题，恳请你在这里提交
-export default EmptyThread
+export default React.memo(EmptyThread)

@@ -75,4 +75,4 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
   )
 }
 
-export default ResultsList
+export default React.memo(ResultsList)

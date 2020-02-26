@@ -15,4 +15,4 @@ const Title = ({ thread, data }) => {
   }
 }
 
-export default Title
+export default React.memo(Title)

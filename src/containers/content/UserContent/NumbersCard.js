@@ -30,4 +30,4 @@ const NumbersCard = ({ user, showFollowers, showFollowings }) => (
   </Wrapper>
 )
 
-export default NumbersCard
+export default React.memo(NumbersCard)

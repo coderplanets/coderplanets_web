@@ -37,4 +37,4 @@ const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default JobSalaryFilter
+export default React.memo(JobSalaryFilter)

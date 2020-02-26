@@ -35,4 +35,4 @@ const IndexStatus = () => {
   )
 }
 
-export default IndexStatus
+export default React.memo(IndexStatus)

@@ -40,4 +40,4 @@ const CompanyInfo = ({ company, insertedAt, author }) => (
   </Wrapper>
 )
 
-export default CompanyInfo
+export default React.memo(CompanyInfo)

@@ -54,4 +54,4 @@ const SuggestIcon = ({ round, suggestion: { raw, logo, cmd } }) => {
   )
 }
 
-export default SuggestIcon
+export default React.memo(SuggestIcon)
