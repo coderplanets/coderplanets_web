@@ -4,11 +4,11 @@
  *
  */
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, nilOrEmpty } from '@utils'
+import { buildLog, nilOrEmpty, o2s, s2o } from '@utils'
 import { SpaceGrow } from '@components/BaseStyled'
 
 import ChildrenItems from './ChildrenItems'
@@ -22,16 +22,23 @@ const log = buildLog('c:NaviMenu:index')
 const Catalog = ({ menuItems, onSelect }) => {
   const [activeMenuId, setActiveMenuId] = useState(null)
 
+  const handleSelect = useCallback(
+    e => {
+      const item = s2o(e.target.dataset.item)
+      setActiveMenuId(item.id)
+      nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
+    },
+    [onSelect]
+  )
+
   return (
     <Wrapper>
       {menuItems.map(item => (
         <div key={item.id}>
           <Item
+            data-item={o2s(item)}
             active={item.id === '0'}
-            onClick={() => {
-              setActiveMenuId(item.id)
-              nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
-            }}
+            onClick={handleSelect}
           >
             <Icon active={item.id === '0'} src={item.icon} />
             <SpaceGrow />
@@ -42,9 +49,7 @@ const Catalog = ({ menuItems, onSelect }) => {
               activeMenuId={activeMenuId}
               parentId={item.id}
               items={item.childMenu}
-              onSelect={id => {
-                onSelect(id, item.displayType)
-              }}
+              onSelect={onSelect}
             />
           )}
         </div>

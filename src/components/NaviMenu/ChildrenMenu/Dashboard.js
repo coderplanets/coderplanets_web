@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
@@ -23,27 +23,38 @@ const log = buildLog('c:NaviMenu:index')
 
 /* <ActiveDot /> */
 const Dashboard = ({ view, setView, parentMenuItem }) => {
+  const handleViewChange = useCallback(
+    e => {
+      const { view } = e.target.dataset
+      setView(view)
+    },
+    [setView]
+  )
+
   return (
     <Wrapper>
       {parentMenuItem.title}
       <Footer>
         <FilterOption
-          onClick={() => setView('catalog')}
+          data-view="catalog"
+          onClick={handleViewChange}
           active={view === 'catalog'}
         >
           <OptionIcon src={`${ICON_CMD}/navi/navi_list.svg`} />
         </FilterOption>
         <FilterOption
-          onClick={() => setView('filter')}
+          data-view="filter"
+          onClick={handleViewChange}
           active={view === 'filter'}
         >
           <OptionIcon src={`${ICON_CMD}/navi/navi_filter.svg`} />
         </FilterOption>
-        <FilterOption onClick={() => setView('more')} active={view === 'more'}>
-          <OptionIcon
-            src={`${ICON_CMD}/navi/navi_more.svg`}
-            onClick={() => setView('more')}
-          />
+        <FilterOption
+          data-view="more"
+          onClick={handleViewChange}
+          active={view === 'more'}
+        >
+          <OptionIcon src={`${ICON_CMD}/navi/navi_more.svg`} />
         </FilterOption>
         {/* 
           info | add | 提交 bug 说明 

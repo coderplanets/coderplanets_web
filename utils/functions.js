@@ -10,6 +10,10 @@ import { EVENT } from '@constant'
 export const Global = typeof window !== 'undefined' ? window : global
 /* eslint-enable */
 
+// those two function used to encode/decode the value in element dataset
+export const o2s = JSON.stringify
+export const s2o = JSON.parse
+
 // see https://github.com/ramda/ramda/issues/1361
 export const mapKeys = R.curry((fn, obj) => {
   return R.reduce(

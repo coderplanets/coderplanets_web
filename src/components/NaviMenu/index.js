@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
@@ -19,11 +19,8 @@ import { Wrapper /* ActiveDot */ } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-/* <ActiveDot /> */
-const NaviMenu = ({ onSelect }) => {
-  const [menuMode, setMenuMode] = useState('root')
-  const [parentMenuId, setParentMenuId] = useState('')
-
+// get parrentMenuIndex and child menu items
+const getMenuinfo = (menuItems, parentMenuId) => {
   const parentMenuIndex = R.findIndex(
     item => item.id === parentMenuId,
     menuItems
@@ -32,25 +29,37 @@ const NaviMenu = ({ onSelect }) => {
   const childMenuItems =
     parentMenuIndex >= 0 ? menuItems[parentMenuIndex].childMenu : []
 
-  // onSelect(item.id, item.displayType)
+  return [parentMenuIndex, childMenuItems]
+}
+
+const NaviMenu = ({ onSelect }) => {
+  const [menuMode, setMenuMode] = useState('root')
+  const [parentMenuId, setParentMenuId] = useState('')
+
+  const [parentMenuIndex, childMenuItems] = getMenuinfo(menuItems, parentMenuId)
+
+  // handlers
+  const handleGoback = useCallback(() => setMenuMode('root'), [])
+  const handleSelect = useCallback(
+    item => {
+      setParentMenuId(item.id)
+      setMenuMode('child')
+
+      nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
+    },
+    [onSelect]
+  )
+
   return (
     <Wrapper>
       {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
-        <RootMenu
-          menuItems={menuItems}
-          onSelect={item => {
-            setParentMenuId(item.id)
-            setMenuMode('child')
-
-            nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
-          }}
-        />
+        <RootMenu menuItems={menuItems} onSelect={handleSelect} />
       ) : (
         <ChildrenMenu
           onSelect={onSelect}
           parentMenuItem={menuItems[parentMenuIndex]}
           menuItems={childMenuItems}
-          goBack={() => setMenuMode('root')}
+          goBack={handleGoback}
         />
       )}
     </Wrapper>
@@ -59,7 +68,6 @@ const NaviMenu = ({ onSelect }) => {
 
 NaviMenu.propTypes = {
   onSelect: T.func,
-  // https://www.npmjs.com/package/prop-types
 }
 
 NaviMenu.defaultProps = {

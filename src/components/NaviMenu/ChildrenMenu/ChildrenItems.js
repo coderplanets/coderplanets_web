@@ -4,10 +4,10 @@
  *
  */
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog, s2o, o2s } from '@utils'
 // import { ICON_CMD } from '@config'
 
 import { SpaceGrow } from '@components/BaseStyled'
@@ -22,20 +22,24 @@ import {
 const log = buildLog('c:NaviMenu:index')
 
 const ChildrenItems = ({ activeMenuId, parentId, items, onSelect }) => {
-  // if (activeMenuId !== parentId) {
-  //   return <div />
-  // }
   const menuItems = items || []
+
+  const handleSelect = useCallback(
+    e => {
+      const item = s2o(e.target.dataset.item)
+      onSelect(item.id, item.displayType)
+    },
+    [onSelect]
+  )
 
   return (
     <Wrapper active={activeMenuId === parentId}>
       {menuItems.map(item => (
         <div key={item.id}>
           <Item
+            data-item={o2s(item)}
             active={item.id === '101'}
-            onClick={() => {
-              onSelect(item.id, item.displayType)
-            }}
+            onClick={handleSelect}
           >
             {item.id === '101' && <ActiveDot />}
 
