@@ -96,7 +96,7 @@ export default class PostPage extends React.Component {
       <Provider store={this.store}>
         <GlobalLayout
           noSidebar
-          metric="article"
+          metric="default"
           page={ROUTE.COOL_GUIDE}
           seoConfig={seoConfig}
           errorCode={statusCode}
