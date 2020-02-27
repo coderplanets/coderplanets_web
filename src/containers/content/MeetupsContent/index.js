@@ -90,6 +90,7 @@ const items = [
     week: '周二',
     title: '技术沙龙：数据库异构升迁',
     company: '腾讯',
+    finished: true,
   },
   {
     id: 9,
@@ -97,6 +98,7 @@ const items = [
     week: '周二',
     title: 'SOFAChannel#11：从一个例子开始体验轻量级类隔离容器 SOFAArk',
     company: '腾讯',
+    finished: true,
   },
   {
     id: 10,
@@ -104,6 +106,7 @@ const items = [
     week: '周二',
     title: '技术沙龙：数据库异构升迁',
     company: '腾讯',
+    finished: true,
   },
   {
     id: 11,
@@ -111,6 +114,7 @@ const items = [
     week: '周二',
     title: '技术沙龙：数据库异构升迁',
     company: '腾讯',
+    finished: true,
   },
   {
     id: 12,
@@ -118,6 +122,7 @@ const items = [
     week: '周二',
     title: '技术沙龙：数据库异构升迁',
     company: '腾讯',
+    finished: true,
   },
 ]
 

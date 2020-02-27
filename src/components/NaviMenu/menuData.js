@@ -274,6 +274,12 @@ const menu = [
     childMenu: [],
   },
   {
+    id: '121',
+    title: '新世界', // 非工具类的社区等
+    icon: `${ICON_CMD}/navi_group.svg`,
+    childMenu: [],
+  },
+  {
     id: '2',
     title: 'Podcast(播客)',
     icon: `${ICON_CMD}/navi_podcast.svg`,
@@ -295,12 +301,12 @@ const menu = [
       },
     ],
   },
-  {
-    id: '3',
-    title: '代码技巧',
-    icon: `${ICON_CMD}/navi_tips.svg`,
-    childMenu: [],
-  },
+  // {
+  //   id: '3',
+  //   title: '代码技巧',
+  //   icon: `${ICON_CMD}/navi_tips.svg`,
+  //   childMenu: [],
+  // },
   {
     id: '4',
     title: '教程 / 资源', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/

@@ -18,13 +18,13 @@ export const InnerWrapper = styled.div`
 `
 export const SidebarWrapper = styled.div`
   ${cs.flexColumn()};
-  margin-right: 20px;
+  margin-right: 25px;
 `
 export const ContentWrapper = styled.div`
   ${cs.flex()};
   align-content: start;
   flex-wrap: wrap;
-  max-width: calc(100% - 160px);
+  max-width: calc(100% - 170px);
 `
 export const NaviFooter = styled.div`
   ${cs.flexColumn('align-end')};

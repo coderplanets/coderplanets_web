@@ -16,11 +16,12 @@ import {
   Tag,
   BodyWrapper,
   Icon,
+  FinishedHole,
 } from './styles/activity_card'
 
 const ActivityCard = ({ item }) => {
   return (
-    <Wrapper>
+    <Wrapper finished={item.finished}>
       <DatetimeWrapper>
         <Date>{item.date}</Date>
         <Week>{item.week}</Week>
@@ -28,7 +29,9 @@ const ActivityCard = ({ item }) => {
       <IntroWrapper>
         <Title>
           <Tag>{item.type || '前端'}</Tag>
-          <TitleText>{cutFrom(item.title, 40)}</TitleText>
+          <TitleText finished={item.finished}>
+            {cutFrom(item.title, 40)}
+          </TitleText>
         </Title>
         <BodyWrapper>
           {item.company} <DotDivider radius="3px" />
@@ -40,6 +43,7 @@ const ActivityCard = ({ item }) => {
           深圳（南山区）
         </BodyWrapper>
       </IntroWrapper>
+      {item.finished && <FinishedHole />}
     </Wrapper>
   )
 }

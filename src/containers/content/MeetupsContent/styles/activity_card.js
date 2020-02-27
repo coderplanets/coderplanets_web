@@ -5,10 +5,12 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')}
+  position: relative;
   width: calc(50% - 10px);
   height: 85px;
   background: #003a49;
-  border: 1px solid #003a49;
+  border: 1px solid;
+  border-color: ${({ finished }) => (finished ? 'none' : '#003a49')};
   padding: 0 12px;
   padding-right: 8px;
   margin-right: 18px;
@@ -22,8 +24,10 @@ export const Wrapper = styled.div`
   &:hover {
     cursor: pointer;
     border: 1px solid;
-    border-color: ${theme('content.cardBorderHover')};
-    box-shadow: 0px 7px 20px 10px rgba(0, 0, 0, 0.15);
+    border-color: ${({ finished }) =>
+      finished ? 'none' : theme('content.cardBorderHover')};
+    box-shadow: ${({ finished }) =>
+      finished ? 'none' : '0px 7px 20px 10px rgba(0, 0, 0, 0.15)'};
   }
   transition: all 0.25s;
 `
@@ -59,7 +63,7 @@ export const TitleText = styled.div`
   font-size: 15px;
 
   ${Wrapper}:hover & {
-    font-weight: bold;
+    font-weight: ${({ finished }) => (finished ? 'normal' : 'bold')};
   }
 `
 export const Tag = styled.div`
@@ -84,4 +88,15 @@ export const Icon = styled(Img)`
   height: 12px;
   display: block;
   margin-right: 3px;
+`
+export const FinishedHole = styled.div`
+  position: absolute;
+  background: #002a34;
+  border: 1px solid;
+  border-color: #00576c;
+  width: 20px;
+  height: 20px;
+  bottom: 10px;
+  right: 12px;
+  border-radius: 50%;
 `

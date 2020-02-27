@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 
 // import Img from '@Img'
-import { cs, theme } from '@utils'
+import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
-  width: 100%;
-  margin-bottom: 25px;
-  color: ${theme('thread.articleDigest')};
+  ${cs.flexColumn('justify-between')};
+  border: 1px solid;
+  border-color: #004354;
+  width: 55px;
+  height: 45px;
+  padding-left: 3px;
+  background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
+  border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
+  margin-right: ${({ margin }) => (margin ? '25px' : '')};
 `
-export const DatesWrapper = styled.div`
-  ${cs.flex()}
-  flex-wrap: wrap;
-  width: 100%;
-`
+
 export const WeekName = styled.div`
   width: 14px;
   height: 14px;
@@ -25,17 +26,7 @@ export const WeekName = styled.div`
   color: white;
   align-items: center;
 `
-export const DateItem = styled.div`
-  ${cs.flexColumn('justify-between')};
-  border: 1px solid;
-  border-color: #004354;
-  width: 55px;
-  height: 45px;
-  padding-left: 3px;
-  background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
-  border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
-  margin-right: ${({ margin }) => (margin ? '25px' : '')};
-`
+
 export const Head = styled.div`
   ${cs.flex('justify-between')};
   align-items: center;
