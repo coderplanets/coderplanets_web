@@ -69,6 +69,43 @@ const menu = [
         ],
       },
       {
+        id: '11',
+        title: 'web 开发',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '3',
+            title: 'WebAssembly',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '5',
+            title: 'Web 动画',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '1',
+            title: '数据可视化',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '2',
+            title: 'VR / AR',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '0',
+            title: '富文本编辑器',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '4',
+            title: 'Web 3.0',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+        ],
+      },
+      {
         id: '2',
         title: '客户端',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -129,11 +166,6 @@ const menu = [
       //   title: '创投服务',
       //   icon: `${ICON_CMD}/navi_china.svg`,
       // },
-      {
-        id: '14',
-        title: '数据可视化',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
       {
         id: '15',
         title: '运营分析',
