@@ -74,6 +74,11 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
+            id: '6',
+            title: '基础知识',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
             id: '3',
             title: 'WebAssembly',
             icon: `${ICON_CMD}/navi_china.svg`,
