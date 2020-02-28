@@ -171,7 +171,7 @@
     "plop": "2.3.1",
     "prettier": "1.19.0",
     "pretty-quick": "^1.10.0",
-    "react-test-renderer": "16.10.0",
+    "react-test-renderer": "16.13.0",
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
     "standard-version": "^7.0.0",
