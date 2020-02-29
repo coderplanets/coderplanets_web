@@ -8,19 +8,21 @@ export const Wrapper = styled.div`
   margin-right: 25px;
 `
 
+const activeColor = '#009C9E'
 export const Item = styled.div`
   ${cs.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? activeColor : theme('thread.articleDigest')};
   font-size: ${({ active }) => (active ? '15px' : '14px')};
   border-bottom: 1px solid;
   border-bottom-color: #094354;
   padding: 8px 6px;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: ${({ active }) =>
+      active ? activeColor : theme('thread.articleTitle')};
     cursor: pointer;
   }
 

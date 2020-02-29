@@ -6,19 +6,22 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   background: #05303e;
   padding-top: 10px;
-  padding-bottom: 10px;
+  border-bottom: 1px solid;
+  border-color: #00303d;
 `
+const activeColor = '#009C9E'
 export const Item = styled.div`
   ${cs.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;
   padding: 8px 10px;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: ${({ active }) =>
+      active ? activeColor : theme('thread.articleDigest')};
     cursor: pointer;
   }
 

@@ -34,11 +34,38 @@ const menu = [
             id: '105',
             title: 'Github',
           },
+          {
+            id: '106',
+            title: '写作 / 笔记',
+          },
+        ],
+      },
+      {
+        id: '10611',
+        title: '信息获取',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: 'RSS',
+          },
+          {
+            id: '1',
+            title: '电子邮件',
+          },
+          {
+            id: '2',
+            title: '播客',
+          },
+          {
+            id: '3',
+            title: '搜索引擎',
+          },
         ],
       },
       {
         id: '1',
-        title: '设计工具/资源',
+        title: '设计工具 / 资源',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
@@ -67,6 +94,12 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
         ],
+      },
+      {
+        id: '1111',
+        title: 'Awesome-X',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [],
       },
       {
         id: '11',
@@ -106,27 +139,10 @@ const menu = [
         ],
       },
       {
-        id: '2',
-        title: '客户端',
+        id: '12',
+        title: '区块链', // or move to 基础设施 ?
         icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: 'RSS',
-          },
-          {
-            id: '1',
-            title: '电子邮件',
-          },
-          {
-            id: '2',
-            title: '播客',
-          },
-          {
-            id: '3',
-            title: '写作、笔记类',
-          },
-        ],
+        childMenu: [],
       },
       {
         id: '3',
@@ -136,8 +152,18 @@ const menu = [
       },
       {
         id: '4',
-        title: '云服务',
+        title: '实用 SaaS', // 建站工具，
         icon: `${ICON_CMD}/navi_fire.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '建站工具', // wix / wordpress ...
+          },
+          {
+            id: '1',
+            title: '社区工具',
+          },
+        ],
       },
       // {
       //   id: '5',
@@ -170,6 +196,16 @@ const menu = [
         id: '15',
         title: '运营分析',
         icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '访问统计',
+          },
+          {
+            id: '1',
+            title: '问卷调查',
+          },
+        ],
       },
       {
         id: '16',
@@ -234,7 +270,12 @@ const menu = [
       },
       {
         id: '3',
-        title: '网络',
+        title: '云服务', // CDN, 云主机， 等等
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '5',
+        title: '区块链',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
@@ -309,7 +350,31 @@ const menu = [
     id: '121',
     title: '新世界', // 非工具类的社区等
     icon: `${ICON_CMD}/navi_group.svg`,
-    childMenu: [],
+    childMenu: [
+      // 各种未归类
+      {
+        id: '0',
+        title: '难分类',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '1',
+        title: '行业软件',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '模型仿真',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '1',
+            title: 'CAD制作',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+        ],
+      },
+    ],
   },
   {
     id: '2',
@@ -341,7 +406,7 @@ const menu = [
   // },
   {
     id: '4',
-    title: '教程 / 资源', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
+    title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
     icon: `${ICON_CMD}/navi_translate.svg`,
     childMenu: [],
   },
