@@ -17,7 +17,7 @@ export const NewsInnerWrapper = styled.div`
 `
 const ShadowBar = styled.div`
   position: absolute;
-  top: 5px;
+  top: 1px;
   height: 88vh;
   width: 50px;
   background: -webkit-radial-gradient(

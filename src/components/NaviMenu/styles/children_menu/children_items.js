@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding-bottom: ${({ active }) => (active ? '6px' : '0')};
   max-height: ${({ active }) => (active ? '500px' : '0')};
   overflow: hidden;
-  transition: max-height 0.2s ease;
+  transition: ${({ active }) => (active ? 'max-height 1s ease' : 'none')};
 `
 export const Item = styled.div`
   ${cs.flex('justify-end')};

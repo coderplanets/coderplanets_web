@@ -14,25 +14,17 @@ import { SpaceGrow } from '@components/BaseStyled'
 import SourceSelector from './SourceSelector'
 import List from './List'
 
-import {
-  Wrapper,
-  Header,
-  HeaderShadow,
-  NumIcon,
-  FunctionIcon,
-  Title,
-} from './styles'
+import { Wrapper, Header, HeaderShadow, FunctionIcon, Title } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
-const FeedsBar = ({ title, numIndex }) => {
+const FeedsBar = ({ title }) => {
   const [headerShadow, setHeaderShadow] = useState(false)
 
   return (
     <Wrapper>
       <Header>
-        <NumIcon src={`${ICON_CMD}/hot/num_${numIndex}.svg`} />
         <Title>{title}</Title>
         <SpaceGrow />
         <FunctionIcon src={`${ICON_CMD}/hot/info.svg`} />
@@ -46,12 +38,8 @@ const FeedsBar = ({ title, numIndex }) => {
 
 FeedsBar.propTypes = {
   title: T.string.isRequired,
-  // https://www.npmjs.com/package/prop-types
-  numIndex: T.number,
 }
 
-FeedsBar.defaultProps = {
-  numIndex: 0,
-}
+FeedsBar.defaultProps = {}
 
 export default React.memo(FeedsBar)

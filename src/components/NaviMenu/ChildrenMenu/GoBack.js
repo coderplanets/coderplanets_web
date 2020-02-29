@@ -23,7 +23,7 @@ const GoBack = ({ goBack }) => {
     <Wrapper onClick={goBack}>
       <BackIcon src={`${ICON_CMD}/navi/navi_back.svg`} />
       <SpaceGrow />
-      <div>全部导航</div>
+      <div>返回全部</div>
     </Wrapper>
   )
 }

@@ -20,32 +20,39 @@ export const Wrapper = styled.div`
   overflow-y: hidden;
 `
 export const Header = styled.div`
+  position: relative;
   ${cs.flex('align-center')};
-  padding: 10px;
-  padding-left: 0px;
-  padding-right: 5px;
+  padding: 6px 8px 5px 0;
   color: ${theme('thread.articleDigest')};
-  border-top: 1px solid;
-  border-top-color: ${theme('logoText')};
 `
-export const NumIcon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  width: 20px;
-  height: 20px;
-  display: block;
-`
-export const FunctionIcon = styled(NumIcon)`
+export const FunctionIcon = styled(Img)`
   width: 18px;
   height: 18px;
+  fill: ${theme('thread.articleDigest')};
   &:hover {
     fill: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
 `
 export const Title = styled.div`
-  font-weight: bold;
-  color: ${theme('thread.articleTitle')};
+  position: absolute;
+  top: -2px;
+  left: 0;
+  background: #0d4152;
+  padding: 2px 10px;
+  color: #92a4a5;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  ${Wrapper}:hover & {
+    font-weight: bold;
+  }
+  transition: all 0.25s;
 `
+// color: #cecece;
+// padding: 8px 10px;
+// color: #cecece;
+// background: #006f74;
 
 export const HeaderShadow = styled.div`
   box-shadow: -1px 3px 6px 2px rgba(0, 0, 0, 0.42);

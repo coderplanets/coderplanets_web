@@ -19,12 +19,12 @@ const menu = [
         icon: `${ICON_CMD}/navi_fire.svg`,
         childMenu: [
           {
-            id: '102',
-            title: '项目管理',
-          },
-          {
             id: '103',
             title: 'GTD 工具',
+          },
+          {
+            id: '102',
+            title: '项目管理',
           },
           {
             id: '104',
@@ -37,6 +37,10 @@ const menu = [
           {
             id: '106',
             title: '写作 / 笔记',
+          },
+          {
+            id: '10222',
+            title: '格式转换',
           },
         ],
       },
@@ -107,6 +111,16 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
+            id: '00',
+            title: '开发语言',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '000',
+            title: 'UI 框架',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
             id: '3',
             title: 'WebAssembly',
             icon: `${ICON_CMD}/navi_china.svg`,
@@ -134,6 +148,11 @@ const menu = [
           {
             id: '4',
             title: 'Web 3.0',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '5',
+            title: '奇奇怪怪',
             icon: `${ICON_CMD}/navi_china.svg`,
           },
         ],
@@ -183,7 +202,7 @@ const menu = [
       //   ],
       // },
       {
-        id: '12',
+        id: '1222222',
         title: '公共数据',
         icon: `${ICON_CMD}/navi_group.svg`,
       },
@@ -303,12 +322,17 @@ const menu = [
     childMenu: [
       {
         id: '0',
-        title: '科幻迷',
+        title: '科幻 UI',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
         id: '1',
         title: 'LOGOs',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '1111',
+        title: '创意广告',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
@@ -318,8 +342,14 @@ const menu = [
       },
       {
         id: '3',
-        title: '地域特色',
+        title: '国家队',
         icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '中国风',
+          },
+        ],
       },
       {
         id: '4',
@@ -338,6 +368,11 @@ const menu = [
           },
         ],
       },
+      {
+        id: '5',
+        title: '奇奇怪怪',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
     ],
   },
   {
@@ -351,10 +386,14 @@ const menu = [
     title: '新世界', // 非工具类的社区等
     icon: `${ICON_CMD}/navi_group.svg`,
     childMenu: [
-      // 各种未归类
       {
         id: '0',
-        title: '难分类',
+        title: '酷硬件',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '00',
+        title: '建筑设计',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
@@ -373,6 +412,12 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
         ],
+      },
+      // 各种未归类
+      {
+        id: '999',
+        title: '奇奇怪怪',
+        icon: `${ICON_CMD}/navi_china.svg`,
       },
     ],
   },
