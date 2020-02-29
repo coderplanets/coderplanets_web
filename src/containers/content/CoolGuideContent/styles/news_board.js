@@ -29,6 +29,10 @@ const ShadowBar = styled.div`
   border-left: 1px solid;
   border-color: #084255;
   z-index: 1;
+  opacity: 0;
+
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: all 0.5s;
 `
 export const LeftShadowBar = styled(ShadowBar)`
   left: 0px;

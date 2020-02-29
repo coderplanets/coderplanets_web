@@ -32,7 +32,7 @@ const NewsBoard = () => {
 
   return (
     <Wrapper>
-      {showLeftShadow && <LeftShadowBar />}
+      <LeftShadowBar show={showLeftShadow} />
       <NewsWrapper ref={ref}>
         <NewsInnerWrapper>
           <Waypoint
@@ -54,7 +54,7 @@ const NewsBoard = () => {
           />
         </NewsInnerWrapper>
       </NewsWrapper>
-      {showRightShadow && <RightShadowBar />}
+      <RightShadowBar show={showRightShadow} />
       <FooterWrapper>
         <Footer />
       </FooterWrapper>
