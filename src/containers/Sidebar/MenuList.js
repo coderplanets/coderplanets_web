@@ -2,7 +2,6 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import R from 'ramda'
 
-import MenuBar from './MenuBar'
 import NormalMenuList from './NormalMenuList'
 // import SortableMenuList from './SortableMenuList'
 

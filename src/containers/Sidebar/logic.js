@@ -32,22 +32,6 @@ export const setPin = () => {
   store.mark({ pin: !store.pin })
 }
 
-export const anchorTop = () => {
-  if (store) store.mark({ showHeaderShadow: false })
-}
-
-export const anchorOffTop = () => {
-  if (store) store.mark({ showHeaderShadow: true })
-}
-
-export const anchorBottom = () => {
-  if (store) store.mark({ showFooterShadow: false })
-}
-
-export const anchorOffBottom = () => {
-  if (store) store.mark({ showFooterShadow: true })
-}
-
 export const searchOnFocus = () => store.mark({ pin: true })
 
 export const searchCommunityValueOnChange = e =>

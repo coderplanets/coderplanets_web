@@ -28,10 +28,4 @@ export const Wrapper = styled.aside.attrs(props => ({
   }
   ${cs.media.tablet`display: none`};
 `
-
-export const HeaderShadow = styled.div`
-  box-shadow: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.headerShadow') : 'none'};
-  border-bottom: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.headerShadowBorderBottom') : ''};
-`
+export const holder = 1

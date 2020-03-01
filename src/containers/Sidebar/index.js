@@ -14,7 +14,7 @@ import MenuList from './MenuList'
 import MenuBar from './MenuBar'
 import Footer from './Footer'
 
-import { Wrapper, HeaderShadow } from './styles'
+import { Wrapper } from './styles'
 import { useInit, onSortMenuEnd } from './logic'
 
 /* eslint-disable-next-line */
@@ -27,8 +27,6 @@ const SidebarContainer = ({ sidebar }) => {
     curCommunity,
     pin,
     searchCommunityValue,
-    showHeaderShadow,
-    showFooterShadow,
     sortOptActive,
     communitiesData,
     forceRerender,
@@ -47,23 +45,17 @@ const SidebarContainer = ({ sidebar }) => {
         move home community out of menulist to avoid rerender
          */}
       <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
-      <HeaderShadow dropShadow={showHeaderShadow} />
 
       <MenuList
         items={communitiesData}
         pin={pin}
         sortOptActive={sortOptActive}
-        showHeaderShadow={false}
         forceRerender={forceRerender}
         activeRaw={activeRaw}
         onSortEnd={onSortMenuEnd}
         distance={5}
       />
-      <Footer
-        pin={pin}
-        showFooterShadow={showFooterShadow}
-        sortOptActive={sortOptActive}
-      />
+      <Footer pin={pin} sortOptActive={sortOptActive} />
     </Wrapper>
   )
 }

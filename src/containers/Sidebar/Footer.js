@@ -16,8 +16,8 @@ import {
 
 import { sortBtnOnClick } from './logic'
 
-const Footer = ({ pin, showFooterShadow, sortOptActive }) => (
-  <Wrapper pin={pin} dropShadow={showFooterShadow}>
+const Footer = ({ pin, sortOptActive }) => (
+  <Wrapper pin={pin}>
     <InnerWrapper pin={pin}>
       <SettingIcon src={`${ICON_CMD}/setting.svg`} />
       <OptionWrapper pin={pin}>

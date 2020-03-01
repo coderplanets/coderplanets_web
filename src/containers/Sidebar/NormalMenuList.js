@@ -1,33 +1,21 @@
-import React, { useRef } from 'react'
-import { Waypoint } from 'react-waypoint'
+import React from 'react'
 
-import { useCustomScroll } from '@hooks'
-
+import { VerticalScroller } from '@components/CustomScroller'
 import MenuBar from './MenuBar'
-import { ScrollWrapper } from './styles/menu_list'
-
-import { anchorTop, anchorOffTop, anchorBottom, anchorOffBottom } from './logic'
 
 const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
-  const ref = useRef(null)
-  useCustomScroll(ref)
-
   return (
-    <ScrollWrapper ref={ref}>
-      <React.Fragment>
-        <Waypoint onEnter={anchorTop} onLeave={anchorOffTop} />
-        {communities.map(item => (
-          <MenuBar
-            key={item.raw}
-            pin={pin}
-            item={item}
-            activeRaw={activeRaw}
-            forceRerender={forceRerender}
-          />
-        ))}
-        <Waypoint onEnter={anchorBottom} onLeave={anchorOffBottom} />
-      </React.Fragment>
-    </ScrollWrapper>
+    <VerticalScroller height="84vh" withBorder>
+      {communities.map(item => (
+        <MenuBar
+          key={item.raw}
+          pin={pin}
+          item={item}
+          activeRaw={activeRaw}
+          forceRerender={forceRerender}
+        />
+      ))}
+    </VerticalScroller>
   )
 }
 

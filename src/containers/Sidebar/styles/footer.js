@@ -9,11 +9,6 @@ export const Wrapper = styled.div`
   margin-top: -20px;
   background: ${theme('sidebar.bg')};
 
-  box-shadow: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.footerShadow') : 'none'};
-  border-bottom: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.footerShadowBorderBottom') : ''};
-
   z-index: 1;
 `
 export const InnerWrapper = styled.div`
