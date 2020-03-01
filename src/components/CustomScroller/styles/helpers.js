@@ -45,7 +45,7 @@ export const getShadowWidth = type => {
 export const ScrollbarHeight = type => {
   switch (type) {
     case 'small': {
-      return '6px'
+      return '5px'
     }
     case 'medium': {
       return '8px;'

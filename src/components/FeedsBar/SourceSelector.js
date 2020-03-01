@@ -8,7 +8,7 @@ import React from 'react'
 // import T from 'prop-types'
 
 import { buildLog } from '@utils'
-import CustomScroller from '@components/CustomScroller'
+import { HorizontalScroller } from '@components/CustomScroller'
 import { Wrapper, Icon, Block, Title } from './styles/source_selector'
 
 import sources from './fakeSources'
@@ -19,14 +19,14 @@ const log = buildLog('c:SourceSelector:index')
 const SourceSelector = () => {
   return (
     <Wrapper>
-      <CustomScroller innerHeight="70px" shadowEffect autoHide={false}>
+      <HorizontalScroller innerHeight="70px">
         {sources.map(item => (
           <Block key={item.id}>
             <Icon src={item.icon} />
             <Title>{item.title}</Title>
           </Block>
         ))}
-      </CustomScroller>
+      </HorizontalScroller>
     </Wrapper>
   )
 }
