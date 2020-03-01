@@ -326,21 +326,6 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
-        id: '1',
-        title: 'LOGOs',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '1111',
-        title: '创意广告',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '2334b',
-        title: '酷网站',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
         id: '333',
         title: '建筑之美',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -364,6 +349,21 @@ const menu = [
         ],
       },
       {
+        id: '3lie',
+        title: '复古服饰',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '中国风',
+          },
+          {
+            id: '0',
+            title: '古罗马',
+          },
+        ],
+      },
+      {
         id: '333fji',
         title: '工业设计',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -381,6 +381,21 @@ const menu = [
             title: '奇奇怪怪',
           },
         ],
+      },
+      {
+        id: '2334b',
+        title: '网站 / App',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '1',
+        title: 'LOGO / 图腾',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '1111',
+        title: '创意广告',
+        icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
         id: 'fei',
@@ -405,17 +420,6 @@ const menu = [
         id: '2',
         title: '地图控',
         icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '3',
-        title: '国家队',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '中国风',
-          },
-        ],
       },
       {
         id: '4',
