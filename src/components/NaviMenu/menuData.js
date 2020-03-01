@@ -336,6 +336,72 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
+        id: '2334b',
+        title: '酷网站',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '333',
+        title: '建筑之美',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '宗教',
+          },
+          {
+            id: '1',
+            title: '大学',
+          },
+          {
+            id: '2',
+            title: '体育场馆',
+          },
+          {
+            id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
+        id: '333fji',
+        title: '工业设计',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '日用品',
+          },
+          {
+            id: '0',
+            title: '球鞋',
+          },
+          {
+            id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
+        id: 'fei',
+        title: '机械之美',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '13i',
+            title: '汽车',
+          },
+          {
+            id: '1',
+            title: '摩托',
+          },
+          {
+            id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
         id: '2',
         title: '地图控',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -443,17 +509,16 @@ const menu = [
       },
     ],
   },
-  // {
-  //   id: '3',
-  //   title: '代码技巧',
-  //   icon: `${ICON_CMD}/navi_tips.svg`,
-  //   childMenu: [],
-  // },
   {
     id: '4',
     title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
     icon: `${ICON_CMD}/navi_translate.svg`,
-    childMenu: [],
+    childMenu: [
+      {
+        id: '0',
+        title: '中文文档',
+      },
+    ],
   },
   {
     id: '41',
@@ -571,11 +636,6 @@ const menu = [
       },
     ],
   },
-  // {
-  //   id: '15',
-  //   title: '中文文档',
-  //   icon: `${ICON_CMD}/navi_eat.svg`,
-  // },
   {
     id: '16',
     title: '影剧 / Talks',
