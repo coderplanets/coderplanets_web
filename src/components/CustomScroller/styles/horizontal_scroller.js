@@ -2,22 +2,19 @@ import styled from 'styled-components'
 
 import { cs } from '@utils'
 
-import { getShadowBackground, getShadowWidth, ScrollbarHeight } from './helpers'
+import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
 
-export const Wrapper = styled.div`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+import { getShadowBackground, getShadowSize, getScrollbarThin } from './helpers'
 
+export const Wrapper = styled(WrapperBase)`
   .os-theme-dark > .os-scrollbar-horizontal,
   .os-theme-light > .os-scrollbar-horizontal {
-    height: ${({ shadowSize }) => `${ScrollbarHeight(shadowSize)} !important`};
+    height: ${({ shadowSize }) =>
+      `${getScrollbarThin(shadowSize, 'horizontal')} !important`};
   }
 `
-export const ScrollWrapper = styled.div`
-  ${cs.flex()};
-  width: 100%;
-  height: 100%;
-`
+export const ScrollWrapper = styled(ScrollWrapperBase)``
+
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
@@ -25,21 +22,12 @@ export const InnerWrapper = styled.div`
   box-sizing: content-box;
 `
 
-const ShadowBar = styled.div`
-  position: absolute;
+const ShadowBar = styled(ShadowBarBase)`
   top: 0;
-  /* todo */
   height: ${({ height }) => height};
-  width: ${({ shadowSize }) => getShadowWidth(shadowSize)};
-  /* todo */
-  background: ${({ shadowSize }) => getShadowBackground(shadowSize)};
-  border-left: 1px solid;
-  border-color: #084255;
-  z-index: 1;
-  opacity: 0;
-
-  opacity: ${({ show }) => (show ? 1 : 0)};
-  transition: all 0.5s;
+  width: ${({ shadowSize }) => getShadowSize(shadowSize)};
+  background: ${({ shadowSize }) =>
+    getShadowBackground(shadowSize, 'horizontal')};
 `
 export const LeftShadowBar = styled(ShadowBar)`
   left: 0px;

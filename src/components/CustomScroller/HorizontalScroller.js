@@ -31,6 +31,7 @@ const HorizontalScroller = ({
   shadowSize,
   children,
   autoHide,
+  withBorder,
 }) => {
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
@@ -52,6 +53,7 @@ const HorizontalScroller = ({
         show={showLeftShadow}
         height={height}
         shadowSize={shadowSize}
+        withBorder={withBorder}
       />
       <ScrollWrapper ref={ref}>
         <InnerWrapper innerHeight={innerHeight}>
@@ -72,6 +74,7 @@ const HorizontalScroller = ({
         show={showRightShadow}
         height={height}
         shadowSize={shadowSize}
+        withBorder={withBorder}
       />
     </Wrapper>
   )
@@ -86,6 +89,7 @@ HorizontalScroller.propTypes = {
   // hack for custom scrollbar
   innerHeight: T.string,
   autoHide: T.bool,
+  withBorder: T.bool,
 }
 
 HorizontalScroller.defaultProps = {
@@ -94,6 +98,7 @@ HorizontalScroller.defaultProps = {
   shadowSize: 'small',
   innerHeight: '100%',
   autoHide: false,
+  withBorder: false,
 }
 
 export default React.memo(HorizontalScroller)

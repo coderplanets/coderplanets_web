@@ -10,7 +10,12 @@ import { Wrapper, ShadowBarHolder, FooterWrapper } from './styles/news_board'
 const NewsBoard = () => {
   return (
     <Wrapper>
-      <HorizontalScroller height="90vh" innerHeight="89vh" shadowSize="large">
+      <HorizontalScroller
+        height="90vh"
+        innerHeight="89vh"
+        shadowSize="large"
+        withBorder
+      >
         <FeedsBar title="Github Trending" numIndex={0} />
         <FeedsBar title="国外社区动态" numIndex={1} />
         <FeedsBar title="国内社区动态" numIndex={2} />

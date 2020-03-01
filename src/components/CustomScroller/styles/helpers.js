@@ -1,11 +1,12 @@
-// horizontal getShadowBackground
-export const getShadowBackground = type => {
+const ShadowBgColor = '#022029'
+
+const horizontalShadowBg = type => {
   switch (type) {
     case 'small': {
       return `-webkit-radial-gradient(
         0% 50%,
         100% 100%,
-        #022029 0%,
+        ${ShadowBgColor} 0%,
         transparent 100%
       )`
     }
@@ -16,16 +17,39 @@ export const getShadowBackground = type => {
       -webkit-radial-gradient(
         0% 50%,
         100% 60%,
-        #022029 0%,
+        ${ShadowBgColor} 0%,
         transparent 100%
       )
        `
     }
   }
 }
+const verticalShadowBg = type => {
+  switch (type) {
+    case 'small': {
+      return `
+      -webkit-radial-gradient(50% 0%, 50% 18px, ${ShadowBgColor} 0%, transparent 100%);
+      `
+    }
+
+    // large
+    default: {
+      return `
+      -webkit-radial-gradient(50% 0%, 50% 18px, ${ShadowBgColor} 0%, transparent 100%);
+       `
+    }
+  }
+}
+
+// horizontal getShadowBackground
+export const getShadowBackground = (type, direction = 'horizontal') => {
+  return direction === 'horizontal'
+    ? horizontalShadowBg(type)
+    : verticalShadowBg(type)
+}
 
 // horizontal getShadowWidth
-export const getShadowWidth = type => {
+export const getShadowSize = type => {
   switch (type) {
     case 'small': {
       return '30px'
@@ -40,9 +64,23 @@ export const getShadowWidth = type => {
   }
 }
 
-// horizontal ScrollbarHeight
-// see https://kingsora.github.io/OverlayScrollbars/#!documentation/classnames
-export const ScrollbarHeight = type => {
+// vertical getShadowWidth
+export const getShadowHeight = type => {
+  switch (type) {
+    case 'small': {
+      return '20px'
+    }
+    case 'medium': {
+      return '40px;'
+    }
+    // large
+    default: {
+      return '20px'
+    }
+  }
+}
+
+const horizontalScrollbarHeight = type => {
   switch (type) {
     case 'small': {
       return '5px'
@@ -55,4 +93,24 @@ export const ScrollbarHeight = type => {
       return '10px'
     }
   }
+}
+
+const verticalScrollbarWidth = type => {
+  switch (type) {
+    case 'small': {
+      return '7px'
+    }
+    // default
+    default: {
+      return '10px'
+    }
+  }
+}
+
+// horizontal ScrollbarHeight
+// see https://kingsora.github.io/OverlayScrollbars/#!documentation/classnames
+export const getScrollbarThin = (type, direction) => {
+  return direction === 'horizontal'
+    ? horizontalScrollbarHeight(type)
+    : verticalScrollbarWidth(type)
 }

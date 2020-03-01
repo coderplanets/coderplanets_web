@@ -4,9 +4,8 @@
  *
  */
 
-// import React, { useState, useRef, useCallback } from 'react'
-import React, { useRef } from 'react'
-// import { Waypoint } from 'react-waypoint'
+import React, { useState, useRef, useCallback } from 'react'
+import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
@@ -16,9 +15,9 @@ import {
   Wrapper,
   //
   ScrollWrapper,
-  // LeftShadowBar,
-  // RightShadowBar,
-} from './styles/horizontal_scroller'
+  TopShadowBar,
+  BottomShadowBar,
+} from './styles/vertical_scroller'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:CustomScroller:index')
@@ -30,15 +29,22 @@ const VerticalScroller = ({
   shadowSize,
   children,
   autoHide,
+  withBorder,
 }) => {
-  // const [showLeftShadow, setShowLeftShadow] = useState(false)
-  // const [showRightShadow, setShowRightShadow] = useState(true)
+  const [showTopShadow, setShowTopShadow] = useState(false)
+  const [showBottomShadow, setShowBottomShadow] = useState(true)
 
-  // const handleShowLeftShadow = useCallback(() => setShowLeftShadow(true), [])
-  // const handleHideLeftShadow = useCallback(() => setShowLeftShadow(false), [])
+  const handleShowTopShadow = useCallback(() => setShowTopShadow(true), [])
+  const handleHideTopShadow = useCallback(() => setShowTopShadow(false), [])
 
-  // const handleShowRightShadow = useCallback(() => setShowRightShadow(true), [])
-  // const handleHideRightShadow = useCallback(() => setShowRightShadow(false), [])
+  const handleShowBottomShadow = useCallback(
+    () => setShowBottomShadow(true),
+    []
+  )
+  const handleHideBottomShadow = useCallback(
+    () => setShowBottomShadow(false),
+    []
+  )
 
   const ref = useRef(null)
   useCustomScroll(ref, {
@@ -47,29 +53,26 @@ const VerticalScroller = ({
 
   return (
     <Wrapper height={height} width={width} shadowSize={shadowSize}>
-      {/* <LeftShadowBar
-        show={showLeftShadow}
+      <TopShadowBar
+        show={showTopShadow}
         height={height}
         shadowSize={shadowSize}
-      /> */}
+        withBorder={withBorder}
+      />
       <ScrollWrapper ref={ref}>
-        {/* <Waypoint
-            horizontal
-            onEnter={handleHideLeftShadow}
-            onLeave={handleShowLeftShadow}
-          /> */}
+        <Waypoint onEnter={handleHideTopShadow} onLeave={handleShowTopShadow} />
         {children}
-        {/* <Waypoint
-            horizontal
-            onEnter={handleHideRightShadow}
-            onLeave={handleShowRightShadow}
-          /> */}
+        <Waypoint
+          onEnter={handleHideBottomShadow}
+          onLeave={handleShowBottomShadow}
+        />
       </ScrollWrapper>
-      {/* <RightShadowBar
-        show={showRightShadow}
+      <BottomShadowBar
+        show={showBottomShadow}
         height={height}
         shadowSize={shadowSize}
-      /> */}
+        withBorder={withBorder}
+      />
     </Wrapper>
   )
 }
@@ -82,6 +85,7 @@ VerticalScroller.propTypes = {
   shadowSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   autoHide: T.bool,
+  withBorder: T.bool,
 }
 
 VerticalScroller.defaultProps = {
@@ -89,6 +93,7 @@ VerticalScroller.defaultProps = {
   width: '100%',
   shadowSize: 'small',
   autoHide: true,
+  withBorder: false,
 }
 
 export default React.memo(VerticalScroller)
