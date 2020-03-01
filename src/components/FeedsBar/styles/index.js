@@ -53,9 +53,3 @@ export const Title = styled.div`
 // padding: 8px 10px;
 // color: #cecece;
 // background: #006f74;
-
-export const HeaderShadow = styled.div`
-  box-shadow: -1px 3px 6px 2px rgba(0, 0, 0, 0.42);
-  box-shadow: ${({ dropShadow }) =>
-    dropShadow ? '-1px 3px 6px 2px rgba(0, 0, 0, 0.42)' : 'none'};
-`

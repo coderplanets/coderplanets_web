@@ -1,2 +1,2 @@
 export { default as HorizontalScroller } from './HorizontalScroller'
-export const holder = 1
+export { default as VerticalScroller } from './VerticalScroller'

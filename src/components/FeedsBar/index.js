@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
@@ -14,14 +14,12 @@ import { SpaceGrow } from '@components/BaseStyled'
 import SourceSelector from './SourceSelector'
 import List from './List'
 
-import { Wrapper, Header, HeaderShadow, FunctionIcon, Title } from './styles'
+import { Wrapper, Header, FunctionIcon, Title } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
 const FeedsBar = ({ title }) => {
-  const [headerShadow, setHeaderShadow] = useState(false)
-
   return (
     <Wrapper>
       <Header>
@@ -30,8 +28,7 @@ const FeedsBar = ({ title }) => {
         <FunctionIcon src={`${ICON_CMD}/hot/info.svg`} />
       </Header>
       <SourceSelector />
-      <HeaderShadow dropShadow={headerShadow} />
-      <List setHeaderShadow={setHeaderShadow} />
+      <List />
     </Wrapper>
   )
 }

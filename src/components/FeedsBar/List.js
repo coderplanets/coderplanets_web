@@ -4,17 +4,15 @@
  *
  */
 
-import React, { useRef } from 'react'
-import { Waypoint } from 'react-waypoint'
+import React from 'react'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
-import { useCustomScroll } from '@hooks'
 
+import { VerticalScroller } from '@components/CustomScroller'
 import { SpaceGrow } from '@components/BaseStyled'
 
 import {
-  Wrapper,
   ListItemWrapper,
   Header,
   Icon,
@@ -26,16 +24,9 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
-const List = ({ setHeaderShadow }) => {
-  const ref = useRef(null)
-  useCustomScroll(ref)
-
+const FakeList = () => {
   return (
-    <Wrapper ref={ref}>
-      <Waypoint
-        onEnter={() => setHeaderShadow(false)}
-        onLeave={() => setHeaderShadow(true)}
-      />
+    <React.Fragment>
       <ListItemWrapper>
         <Header>
           <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
@@ -187,7 +178,15 @@ const List = ({ setHeaderShadow }) => {
         </Header>
         <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
       </ListItemWrapper>
-    </Wrapper>
+    </React.Fragment>
+  )
+}
+
+const List = () => {
+  return (
+    <VerticalScroller height="75vh">
+      <FakeList />
+    </VerticalScroller>
   )
 }
 
