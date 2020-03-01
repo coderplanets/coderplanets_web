@@ -39,3 +39,20 @@ export const getShadowWidth = type => {
     }
   }
 }
+
+// horizontal ScrollbarHeight
+// see https://kingsora.github.io/OverlayScrollbars/#!documentation/classnames
+export const ScrollbarHeight = type => {
+  switch (type) {
+    case 'small': {
+      return '6px'
+    }
+    case 'medium': {
+      return '8px;'
+    }
+    // default
+    default: {
+      return '10px'
+    }
+  }
+}

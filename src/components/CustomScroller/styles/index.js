@@ -2,11 +2,16 @@ import styled from 'styled-components'
 
 import { cs } from '@utils'
 
-import { getShadowBackground, getShadowWidth } from './helpers'
+import { getShadowBackground, getShadowWidth, ScrollbarHeight } from './helpers'
 
 export const Wrapper = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+
+  .os-theme-dark > .os-scrollbar-horizontal,
+  .os-theme-light > .os-scrollbar-horizontal {
+    height: ${({ shadowSize }) => `${ScrollbarHeight(shadowSize)} !important`};
+  }
 `
 export const ScrollWrapper = styled.div`
   ${cs.flex()};
@@ -16,7 +21,7 @@ export const ScrollWrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
-  height: 100%;
+  height: ${({ innerHeight }) => innerHeight};
   box-sizing: content-box;
 `
 

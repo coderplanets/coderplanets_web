@@ -19,7 +19,7 @@ const log = buildLog('c:SourceSelector:index')
 const SourceSelector = () => {
   return (
     <Wrapper>
-      <CustomScroller shadowEffect autoHide={false}>
+      <CustomScroller innerHeight="70px" shadowEffect autoHide={false}>
         {sources.map(item => (
           <Block key={item.id}>
             <Icon src={item.icon} />

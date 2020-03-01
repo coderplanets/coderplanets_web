@@ -24,7 +24,13 @@ import {
 const log = buildLog('c:CustomScroller:index')
 
 // horizontal version
-const CustomScroller = ({ height, width, shadowSize, children }) => {
+const CustomScroller = ({
+  height,
+  width,
+  innerHeight,
+  shadowSize,
+  children,
+}) => {
   const [showLeftShadow, setShowLeftShadow] = useState(false)
   const [showRightShadow, setShowRightShadow] = useState(true)
 
@@ -38,14 +44,14 @@ const CustomScroller = ({ height, width, shadowSize, children }) => {
   useCustomScroll(ref, { scrollbars: { autoHide: 'never' } })
 
   return (
-    <Wrapper height={height} width={width}>
+    <Wrapper height={height} width={width} shadowSize={shadowSize}>
       <LeftShadowBar
         show={showLeftShadow}
         height={height}
         shadowSize={shadowSize}
       />
       <ScrollWrapper ref={ref}>
-        <InnerWrapper>
+        <InnerWrapper innerHeight={innerHeight}>
           <Waypoint
             horizontal
             onEnter={handleHideLeftShadow}
@@ -73,14 +79,16 @@ CustomScroller.propTypes = {
   children: T.node.isRequired,
   height: T.string,
   width: T.string,
-
   shadowSize: T.oneOf(['small', 'medium', 'large']),
+  // hack for custom scrollbar
+  innerHeight: T.string,
 }
 
 CustomScroller.defaultProps = {
   height: '100%',
   width: '100%',
   shadowSize: 'small',
+  innerHeight: '100%',
 }
 
 export default React.memo(CustomScroller)

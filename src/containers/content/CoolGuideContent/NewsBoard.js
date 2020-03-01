@@ -12,6 +12,7 @@ const NewsBoard = () => {
     <Wrapper>
       <CustomScroller
         height="90vh"
+        innerHeight="89vh"
         shadowSize="large"
         shadowEffect
         autoHide={false}
