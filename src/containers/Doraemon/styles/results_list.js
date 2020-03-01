@@ -4,8 +4,10 @@ import Img from '@Img'
 import { theme, animate, cs } from '@utils'
 
 export const Wrapper = styled.div`
+  position: relative;
+  display: ${({ empty }) => (empty ? 'none' : 'flex')};
+  flex-direction: column;
   width: 100%;
-  max-height: 400px;
 `
 export const LoadingIcon = styled(Img)`
   fill: ${theme('shell.searchIcon')};
@@ -43,15 +45,6 @@ export const PanelContainer = styled.div`
   display: ${({ visible }) => (visible ? 'block' : 'none')};
   left: 50%;
   margin-left: -19vw;
-`
-export const SuggestionWrapper = styled.div`
-  position: relative;
-  display: ${({ empty }) => (empty ? 'none' : 'flex')};
-  flex-direction: column;
-  // max-height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 100%;
 `
 // #001b21;
 export const BaseBar = styled.div`

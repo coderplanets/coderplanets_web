@@ -1,16 +1,15 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
-import { useCustomScroll } from '@hooks'
 
+import { VerticalScroller } from '@components/CustomScroller'
 import SuggestIcon from './SuggestIcon'
 import {
-  InfoBar,
   Wrapper,
-  SuggestionWrapper,
+  InfoBar,
   ContentWraper,
   Title,
   Desc,
@@ -31,12 +30,9 @@ const HintIcon = ({ index, active, cur, length }) => {
 }
 
 const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
-  const ref = useRef(null)
-  useCustomScroll(ref, { scrollbars: { autoHide: 'never' } })
-
   return (
-    <Wrapper ref={ref}>
-      <SuggestionWrapper empty={suggestions.length === 0}>
+    <VerticalScroller height="400px">
+      <Wrapper empty={suggestions.length === 0}>
         {suggestions.map((suggestion, i) => (
           <InfoBar
             active={activeRaw === suggestion.raw}
@@ -70,8 +66,8 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
             />
           </InfoBar>
         ))}
-      </SuggestionWrapper>
-    </Wrapper>
+      </Wrapper>
+    </VerticalScroller>
   )
 }
 
