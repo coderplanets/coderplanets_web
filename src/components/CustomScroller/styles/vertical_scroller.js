@@ -23,6 +23,8 @@ const ShadowBar = styled(ShadowBarBase)`
   width: 100%;
   background: ${({ shadowSize }) =>
     getShadowBackground(shadowSize, 'vertical')};
+  border-top: ${({ withBorder }) => (withBorder ? '1px solid' : 'none')};
+  border-color: ${({ withBorder }) => (withBorder ? '#084255' : 'none')};
 `
 export const TopShadowBar = styled(ShadowBar)`
   top: 0;

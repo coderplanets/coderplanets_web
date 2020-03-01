@@ -12,8 +12,6 @@ export const ScrollWrapperBase = styled.div`
 `
 export const ShadowBarBase = styled.div`
   position: absolute;
-  border-top: ${({ withBorder }) => (withBorder ? '1px solid' : 'none')};
-  border-color: ${({ withBorder }) => (withBorder ? '#084255' : 'none')};
   z-index: 1;
   opacity: 0;
 

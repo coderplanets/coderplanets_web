@@ -28,6 +28,8 @@ const ShadowBar = styled(ShadowBarBase)`
   width: ${({ shadowSize }) => getShadowSize(shadowSize)};
   background: ${({ shadowSize }) =>
     getShadowBackground(shadowSize, 'horizontal')};
+  border-left: ${({ withBorder }) => (withBorder ? '1px solid' : 'none')};
+  border-color: ${({ withBorder }) => (withBorder ? '#084255' : 'none')};
 `
 export const LeftShadowBar = styled(ShadowBar)`
   left: 0px;

@@ -78,7 +78,6 @@ const VerticalScroller = ({
 }
 
 VerticalScroller.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   children: T.node.isRequired,
   height: T.string,
   width: T.string,
