@@ -106,6 +106,21 @@ const menu = [
         childMenu: [],
       },
       {
+        id: '4',
+        title: '实用 SaaS', // 建站工具，
+        icon: `${ICON_CMD}/navi_fire.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '建站工具', // wix / wordpress ...
+          },
+          {
+            id: '1',
+            title: '社区工具',
+          },
+        ],
+      },
+      {
         id: '11',
         title: 'web 开发',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -169,21 +184,6 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [],
       },
-      {
-        id: '4',
-        title: '实用 SaaS', // 建站工具，
-        icon: `${ICON_CMD}/navi_fire.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '建站工具', // wix / wordpress ...
-          },
-          {
-            id: '1',
-            title: '社区工具',
-          },
-        ],
-      },
       // {
       //   id: '5',
       //   title: '行业软件',
@@ -243,72 +243,57 @@ const menu = [
           },
         ],
       },
-    ],
-  },
-  {
-    id: '102',
-    title: '基础设施', // 操作系统，数据库，网络协议，编程语言，重要算法。等等
-    icon: `${ICON_CMD}/navi_china.svg`,
-    childMenu: [
       {
-        id: '0',
-        title: '操作系统',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '1',
-        title: '数据库',
+        id: '102',
+        title: '基础设施', // 操作系统，数据库，网络协议，编程语言，重要算法。等等
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
             id: '0',
-            title: '全部',
+            title: '操作系统',
+            icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
             id: '1',
-            title: '关系型数据库',
+            title: '数据库',
+            icon: `${ICON_CMD}/navi_china.svg`,
+            filters: [
+              {
+                id: '0',
+                title: '全部',
+              },
+              {
+                id: '1',
+                title: '关系型数据库',
+              },
+              {
+                id: '2',
+                title: '时序数据库',
+              },
+              {
+                id: '3',
+                title: '文档数据库',
+              },
+              {
+                id: '4',
+                title: '内存数据库',
+              },
+            ],
           },
           {
             id: '2',
-            title: '时序数据库',
+            title: '编程语言',
+            icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
             id: '3',
-            title: '文档数据库',
+            title: '云服务', // CDN, 云主机， 等等
+            icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
-            id: '4',
-            title: '内存数据库',
-          },
-        ],
-      },
-      {
-        id: '2',
-        title: '编程语言',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '3',
-        title: '云服务', // CDN, 云主机， 等等
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '5',
-        title: '区块链',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '4',
-        title: '基础软件',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '浏览器',
-          },
-          {
-            id: '1',
-            title: '办公软件',
+            id: '5',
+            title: '区块链',
+            icon: `${ICON_CMD}/navi_china.svg`,
           },
         ],
       },
@@ -450,46 +435,6 @@ const menu = [
     title: '酷团队',
     icon: `${ICON_CMD}/navi_group.svg`,
     childMenu: [],
-  },
-  {
-    id: '121',
-    title: '新世界', // 非工具类的社区等
-    icon: `${ICON_CMD}/navi_group.svg`,
-    childMenu: [
-      {
-        id: '0',
-        title: '酷硬件',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '00',
-        title: '建筑设计',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '1',
-        title: '行业软件',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '模型仿真',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-          {
-            id: '1',
-            title: 'CAD制作',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-        ],
-      },
-      // 各种未归类
-      {
-        id: '999',
-        title: '奇奇怪怪',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-    ],
   },
   {
     id: '2',
@@ -645,6 +590,46 @@ const menu = [
     title: '影剧 / Talks',
     icon: `${ICON_CMD}/navi_movie.svg`,
     childMenu: [],
+  },
+  {
+    id: '121',
+    title: '新世界', // 非工具类的社区等
+    icon: `${ICON_CMD}/navi_group.svg`,
+    childMenu: [
+      {
+        id: '0',
+        title: '酷硬件',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '00',
+        title: '建筑设计',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '1',
+        title: '行业软件',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '模型仿真',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+          {
+            id: '1',
+            title: 'CAD制作',
+            icon: `${ICON_CMD}/navi_china.svg`,
+          },
+        ],
+      },
+      // 各种未归类
+      {
+        id: '999',
+        title: '奇奇怪怪',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+    ],
   },
   {
     id: '18',
