@@ -307,8 +307,18 @@ const menu = [
     childMenu: [
       {
         id: '0',
-        title: '科幻 UI',
+        title: '科幻迷',
         icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '交互界面',
+          },
+          {
+            id: 'n',
+            title: '奇奇怪怪',
+          },
+        ],
       },
       {
         id: '333',
@@ -368,11 +378,6 @@ const menu = [
         ],
       },
       {
-        id: '2334b',
-        title: '网站 / App',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
         id: '1',
         title: 'LOGO / 图腾',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -404,6 +409,11 @@ const menu = [
       {
         id: '2',
         title: '地图控',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '2334b',
+        title: '网站 / App',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
@@ -581,6 +591,11 @@ const menu = [
       {
         id: '5',
         title: '微信公众号',
+        icon: `${ICON_CMD}/navi_subscribe.svg`,
+      },
+      {
+        id: '6',
+        title: '科技媒体',
         icon: `${ICON_CMD}/navi_subscribe.svg`,
       },
     ],
