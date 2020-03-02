@@ -8,6 +8,8 @@
 
 const componentExists = require('../../component_exists.js')
 
+const TARGET_DIR = '../../../src/components'
+
 module.exports = {
   description: 'Add an unconnected component',
   prompts: [
@@ -63,13 +65,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/index.js',
+        path: `${TARGET_DIR}/{{properCase name}}/index.js`,
         templateFile: componentTemplate,
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../../components/{{properCase name}}/tests/index.test.js',
+        path: `${TARGET_DIR}/{{properCase name}}/tests/index.test.js`,
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
@@ -79,7 +81,7 @@ module.exports = {
     if (data.wantI18n) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/lang.js',
+        path: `${TARGET_DIR}/{{properCase name}}/lang.js`,
         templateFile: './component/lang.js.hbs',
         abortOnFail: true,
       })
@@ -88,7 +90,7 @@ module.exports = {
     if (data.wantStyle) {
       actions.push({
         type: 'add',
-        path: '../../../components/{{properCase name}}/styles/index.js',
+        path: `${TARGET_DIR}/{{properCase name}}/styles/index.js`,
         templateFile: './component/styles.js.hbs',
         abortOnFail: true,
       })
