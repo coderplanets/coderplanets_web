@@ -5,6 +5,8 @@ import { limit, length } from 'stringz'
 import { TAG_COLOR_ORDER } from '@config'
 import { EVENT } from '@constant'
 
+import { isString } from './validator'
+
 /* eslint-disable */
 // TODO: document ?
 export const Global = typeof window !== 'undefined' ? window : global
@@ -51,6 +53,7 @@ export const Rlog = (arg = 'Rlog: ') => R.tap(log(arg))
  * @param {*number} len 需要显示多少个汉字，两个英文字母相当于一个汉字
  */
 export const cutFrom = (str, len = 20) => {
+  if (!str || !isString(str)) return '??...'
   return len >= length(str) ? str : `${limit(str, len, '')}...`
 }
 

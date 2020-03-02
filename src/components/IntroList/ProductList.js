@@ -6,11 +6,14 @@
 
 import React from 'react'
 import T from 'prop-types'
+import R from 'ramda'
 
 import { ICON_CMD } from '@config'
 import { buildLog, cutFrom } from '@utils'
 
 import { ArrowButton } from '@components/FancyButtons'
+
+import InlineTags from './InlineTags'
 
 import {
   Wrapper,
@@ -38,7 +41,8 @@ const tmpItems = [
     id: '0',
     addr: 'coderplanets.com',
     title: 'javascript',
-    desc: '最性感的开发者社区',
+    // desc: '最性感的开发者社区',
+    tags: ['最性感', '开发者', '更好运'],
     icon:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
@@ -46,7 +50,8 @@ const tmpItems = [
     id: '1',
     addr: 'elixir.com',
     title: 'elixir',
-    desc: '最性感的开发者社区',
+    // desc: '最性感的开发者社区',
+    tags: ['最性感', '开发者', '更好运', '最性感', '开发者', '更好运'],
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
   {
@@ -140,7 +145,11 @@ const ProductList = ({ items }) => {
               <Title>{item.title}</Title>
             </IntroHead>
           </Header>
-          <Desc>{cutFrom(item.desc, 50)}</Desc>
+
+          {item.desc && <Desc>{cutFrom(item.desc, 50)}</Desc>}
+          {!item.desc && !R.isEmpty(item.tags) && (
+            <InlineTags items={item.tags} />
+          )}
 
           <Footer>
             <UpvoteInfo>
