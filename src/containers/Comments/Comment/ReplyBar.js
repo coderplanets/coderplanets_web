@@ -11,4 +11,4 @@ const CommentReplyBar = ({ data }) => (
   </ReplyBar>
 )
 
-export default CommentReplyBar
+export default React.memo(CommentReplyBar)

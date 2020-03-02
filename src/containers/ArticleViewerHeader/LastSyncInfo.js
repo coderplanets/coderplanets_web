@@ -54,4 +54,4 @@ LastSyncInfo.defaultProps = {
   show: true,
 }
 
-export default LastSyncInfo
+export default React.memo(LastSyncInfo)

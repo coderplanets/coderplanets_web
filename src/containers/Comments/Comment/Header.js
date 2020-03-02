@@ -52,4 +52,4 @@ const CommentHeader = ({ data }) => (
   </Wrapper>
 )
 
-export default CommentHeader
+export default React.memo(CommentHeader)

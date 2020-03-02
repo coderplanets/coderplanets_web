@@ -13,10 +13,10 @@ import { THREAD, ROUTE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+import { PublishButton } from '@components/FancyButtons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
-import PublishLabel from '@components/PublishLabel'
 import ConstructingThread from '@components/ConstructingThread'
 import StrategicPartners from '@components/StrategicPartners'
 
@@ -27,7 +27,7 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  PublishBtn,
+  PublisherWrapper,
 } from './styles'
 
 import {
@@ -138,9 +138,12 @@ const PostsThreadContainer = ({ postsThread }) => {
 
           <RightPart>
             <React.Fragment>
-              <PublishBtn type="primary" onClick={onContentCreate}>
-                <PublishLabel text={LabelText[subPath] || '发布帖子'} />
-              </PublishBtn>
+              <PublisherWrapper>
+                <PublishButton
+                  label={LabelText[subPath] || '发布帖子'}
+                  onPublish={onContentCreate}
+                />
+              </PublisherWrapper>
 
               <Affix offsetTop={50}>
                 <TagsBar

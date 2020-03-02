@@ -34,4 +34,4 @@ const Footer = () => (
   </Wrapper>
 )
 
-export default Footer
+export default React.memo(Footer)

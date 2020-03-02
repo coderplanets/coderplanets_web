@@ -39,4 +39,4 @@ Img.defaultProps = {
   loading: null,
 }
 
-export default Img
+export default React.memo(Img)

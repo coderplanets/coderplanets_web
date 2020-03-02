@@ -5,39 +5,79 @@
  */
 
 import React from 'react'
+import R from 'ramda'
+import { Affix } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
 
-import Pagi from '@components/Pagi'
-import CommunityCards from './CommunityCards'
+import FiltersMenu from '@components/FiltersMenu'
+import PagiFooter from '@components/PagiFooter'
 
-import { Wrapper } from './styles'
-import { useInit, pageOnChange } from './logic'
+import Banner from './Banner'
+import CommunityList from './CommunityList'
+import NotFound from './NotFound'
+
+import {
+  Wrapper,
+  ContentWrapper,
+  InnerWrapper,
+  FiltersWrapper,
+  ContentsWrapper, // move out
+} from './styles'
+import { useInit, pageOnChange, menuOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CommunitiesContent')
 
 const CommunitiesContentContainer = ({ communitiesContent }) => {
   useInit(communitiesContent)
-  const { pagedCommunitiesData } = communitiesContent
+  const {
+    searchStatus,
+    pagedCommunitiesData,
+    pagedCategoriesData,
+    activeMenuId,
+    pagiInfo,
+    showFilterSidebar,
+  } = communitiesContent
+
+  const { isSearchMode, searchValue } = searchStatus
 
   return (
     <Wrapper>
-      {pagedCommunitiesData && (
-        <React.Fragment>
-          <CommunityCards
-            entries={pagedCommunitiesData.entries}
-            restProps={{ ...communitiesContent }}
-          />
-          <Pagi
-            left="-10px"
-            pageNumber={pagedCommunitiesData.pageNumber}
-            pageSize={pagedCommunitiesData.pageSize}
-            totalCount={pagedCommunitiesData.totalCount}
-            onChange={pageOnChange}
-          />
-        </React.Fragment>
-      )}
+      <Banner searchStatus={searchStatus} />
+      <ContentWrapper center={isSearchMode}>
+        <InnerWrapper>
+          <FiltersWrapper show={showFilterSidebar}>
+            <Affix offsetTop={60}>
+              <FiltersMenu
+                items={pagedCategoriesData}
+                onItemClick={menuOnChange}
+                activeId={activeMenuId}
+                noFilter
+              />
+            </Affix>
+          </FiltersWrapper>
+          <ContentsWrapper center={isSearchMode}>
+            {!R.isEmpty(pagedCommunitiesData.entries) ? (
+              <React.Fragment>
+                <CommunityList
+                  entries={pagedCommunitiesData.entries}
+                  restProps={{ ...communitiesContent }}
+                />
+                <PagiFooter
+                  {...pagiInfo}
+                  onChange={pageOnChange}
+                  margin={{ bottom: '60px' }}
+                >
+                  <div>社区行动指南</div>
+                </PagiFooter>
+              </React.Fragment>
+            ) : (
+              <NotFound searchValue={searchValue} />
+            )}
+          </ContentsWrapper>
+        </InnerWrapper>
+      </ContentWrapper>
     </Wrapper>
   )
 }

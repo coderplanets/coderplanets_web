@@ -46,4 +46,4 @@ const SocialIcons = ({ user }) => (
   </Wrapper>
 )
 
-export default SocialIcons
+export default React.memo(SocialIcons)

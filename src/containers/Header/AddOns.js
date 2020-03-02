@@ -20,4 +20,4 @@ const AddOns = () => (
   </Wrapper>
 )
 
-export default AddOns
+export default React.memo(AddOns)

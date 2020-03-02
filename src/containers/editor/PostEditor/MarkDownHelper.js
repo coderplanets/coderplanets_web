@@ -137,4 +137,4 @@ class MarkDownHelper extends React.Component {
   }
 }
 
-export default MarkDownHelper
+export default React.memo(MarkDownHelper)

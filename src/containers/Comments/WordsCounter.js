@@ -18,4 +18,4 @@ const WordsCounter = ({ countCurrent }) => (
   </Wrapper>
 )
 
-export default WordsCounter
+export default React.memo(WordsCounter)

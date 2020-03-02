@@ -12,10 +12,10 @@ import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
+import TagsBar from '@containers/TagsBar'
+import { PublishButton } from '@components/FancyButtons'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
-import PublishLabel from '@components/PublishLabel'
-import TagsBar from '@containers/TagsBar'
 import Maybe from '@components/Maybe'
 
 import {
@@ -23,7 +23,7 @@ import {
   LeftPart,
   RightPart,
   FilterWrapper,
-  PublishBtn,
+  PublisherWrapper,
 } from './styles'
 
 import {
@@ -88,9 +88,13 @@ const ReposThreadContainer = ({ reposThread }) => {
       </LeftPart>
 
       <RightPart>
-        <PublishBtn type="primary" onClick={onContentCreate}>
-          <PublishLabel text="发布项目" iconSrc={`${ICON_CMD}/github.svg`} />
-        </PublishBtn>
+        <PublisherWrapper>
+          <PublishButton
+            label="发布项目"
+            labelIconSrc={`${ICON_CMD}/github.svg`}
+            onPublish={onContentCreate}
+          />
+        </PublisherWrapper>
 
         <Affix offsetTop={50}>
           <TagsBar

@@ -19,4 +19,4 @@ const UpInfo = ({ data }) => (
   </Wrapper>
 )
 
-export default UpInfo
+export default React.memo(UpInfo)

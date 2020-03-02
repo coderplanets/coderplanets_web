@@ -31,4 +31,4 @@ const Componet = ({
   }
 }
 
-export default Componet
+export default React.memo(Componet)

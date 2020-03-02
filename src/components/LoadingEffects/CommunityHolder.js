@@ -35,4 +35,4 @@ CommunityHolder.defaultProps = {
   place: 'banner',
 }
 
-export default CommunityHolder
+export default React.memo(CommunityHolder)

@@ -52,4 +52,4 @@ const CardSelector = ({ curTheme, changeTheme }) => (
   </Wrapper>
 )
 
-export default CardSelector
+export default React.memo(CardSelector)

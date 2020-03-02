@@ -103,4 +103,4 @@ BuyMeChuanChuan.defaultProps = {
   onPay: log,
 }
 
-export default BuyMeChuanChuan
+export default React.memo(BuyMeChuanChuan)

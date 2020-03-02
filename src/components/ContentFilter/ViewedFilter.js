@@ -44,4 +44,4 @@ const ViewedFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default ViewedFilter
+export default React.memo(ViewedFilter)

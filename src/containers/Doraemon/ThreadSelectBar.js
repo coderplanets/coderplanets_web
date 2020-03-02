@@ -52,4 +52,4 @@ const ThreadSelectBar = ({ active }) => (
   </Wrapper>
 )
 
-export default ThreadSelectBar
+export default React.memo(ThreadSelectBar)

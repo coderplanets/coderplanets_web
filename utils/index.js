@@ -9,10 +9,12 @@ export { buildLog } from './logger'
 export { default as uid } from './uid'
 
 export {
+  Global,
+  o2s,
+  s2o,
   send,
   mapKeys,
   getRandomInt,
-  Global,
   cutFrom,
   prettyNum,
   numberWithCommas,
@@ -94,6 +96,7 @@ export {
   scrollIntoEle,
   scrollToHeader,
   scrollToTabber,
+  scrollToTop,
   holdPage,
   unholdPage,
   focusDoraemonBar,

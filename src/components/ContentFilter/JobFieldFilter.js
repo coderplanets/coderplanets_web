@@ -35,4 +35,4 @@ const JobFieldFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default JobFieldFilter
+export default React.memo(JobFieldFilter)

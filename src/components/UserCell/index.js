@@ -36,4 +36,4 @@ UserCell.propTypes = {
 
 UserCell.defaultProps = {}
 
-export default UserCell
+export default React.memo(UserCell)

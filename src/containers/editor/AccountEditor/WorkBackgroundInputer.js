@@ -87,4 +87,4 @@ const WorkBackgroundInputer = ({ user, ratKey, data }) => (
   </Wrapper>
 )
 
-export default WorkBackgroundInputer
+export default React.memo(WorkBackgroundInputer)

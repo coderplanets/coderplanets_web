@@ -48,4 +48,4 @@ const Breadcrumbs = ({
   </Wrapper>
 )
 
-export default Breadcrumbs
+export default React.memo(Breadcrumbs)

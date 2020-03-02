@@ -9,4 +9,4 @@ const NotificationList = ({ data }) => {
   return <h3>NotificationList</h3>
 }
 
-export default NotificationList
+export default React.memo(NotificationList)

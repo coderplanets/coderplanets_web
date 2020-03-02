@@ -45,4 +45,4 @@ const VideoSourceFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default VideoSourceFilter
+export default React.memo(VideoSourceFilter)

@@ -53,4 +53,4 @@ const Header = ({ entry, onPreview }) => (
   </Wrapper>
 )
 
-export default Header
+export default React.memo(Header)

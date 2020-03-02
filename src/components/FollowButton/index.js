@@ -86,4 +86,4 @@ FollowButton.defaultProps = {
   hasFollowed: false,
 }
 
-export default FollowButton
+export default React.memo(FollowButton)

@@ -108,4 +108,4 @@ GithubRepoPage.defaultProps = {
   readOnly: false,
 }
 
-export default GithubRepoPage
+export default React.memo(GithubRepoPage)

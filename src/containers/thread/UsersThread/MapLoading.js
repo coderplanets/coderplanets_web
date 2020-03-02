@@ -11,4 +11,4 @@ const MapLoading = () => (
   </Wrapper>
 )
 
-export default MapLoading
+export default React.memo(MapLoading)

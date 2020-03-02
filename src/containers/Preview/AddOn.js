@@ -25,4 +25,4 @@ const AddOn = ({ type, imageUploading }) => (
   </Wrapper>
 )
 
-export default AddOn
+export default React.memo(AddOn)

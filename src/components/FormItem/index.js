@@ -139,4 +139,4 @@ FormItem.defaultProps = {
   autoFocus: false,
 }
 
-export default FormItem
+export default React.memo(FormItem)

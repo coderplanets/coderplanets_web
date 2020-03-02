@@ -135,4 +135,4 @@ VideoItem.defaultProps = {
   },
 }
 
-export default VideoItem
+export default React.memo(VideoItem)

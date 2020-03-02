@@ -60,4 +60,4 @@ const NumDashboard = ({ total, geoData, expand }) => {
   )
 }
 
-export default NumDashboard
+export default React.memo(NumDashboard)

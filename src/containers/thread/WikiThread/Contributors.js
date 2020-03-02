@@ -67,4 +67,4 @@ const Contributors = ({ isLogin, users, views, lastSync, communityRaw }) => (
   </Wrapper>
 )
 
-export default Contributors
+export default React.memo(Contributors)

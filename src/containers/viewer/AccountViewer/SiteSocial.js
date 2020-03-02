@@ -53,4 +53,4 @@ const SiteSocial = ({ user }) => (
   </Wrapper>
 )
 
-export default SiteSocial
+export default React.memo(SiteSocial)

@@ -52,4 +52,4 @@ Navigator.defaultProps = {
   layout: C11N.DIGEST,
 }
 
-export default Navigator
+export default React.memo(Navigator)

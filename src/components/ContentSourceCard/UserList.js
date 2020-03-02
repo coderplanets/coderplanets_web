@@ -20,4 +20,4 @@ const UserList = ({ items }) => (
   </Wrapper>
 )
 
-export default UserList
+export default React.memo(UserList)

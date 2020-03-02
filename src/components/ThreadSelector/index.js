@@ -73,4 +73,4 @@ ThreadSelector.defaultProps = {
   lookLike: 'text',
 }
 
-export default ThreadSelector
+export default React.memo(ThreadSelector)

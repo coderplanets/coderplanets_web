@@ -28,7 +28,6 @@ export { default as FavoritesCatsStore } from '@containers/FavoritesCats/store'
 
 // pages banners store
 export { default as CommunityBannerStore } from '@containers/banner/CommunityBanner/store'
-export { default as CommunitiesBannerStore } from '@containers/banner/CommunitiesBanner/store'
 export { default as UserBannerStore } from '@containers/banner/UserBanner/store'
 
 export { default as ArticleBannerStore } from '@containers/banner/ArticleBanner/store'
@@ -37,6 +36,7 @@ export { default as ArticleBannerStore } from '@containers/banner/ArticleBanner/
 export { default as CommunityContentStore } from '@containers/content/CommunityContent/store'
 
 export { default as CommunitiesContentStore } from '@containers/content/CommunitiesContent/store'
+export { default as NewCommunityContentStore } from '@containers/content/NewCommunityContent/store'
 export { default as CheatSheetContentStore } from '@containers/content/CheatSheetContent/store'
 export { default as PostContentStore } from '@containers/content/PostContent/store'
 export { default as JobContentStore } from '@containers/content/JobContent/store'
@@ -80,6 +80,13 @@ export { default as ArticleViewerHeader } from '@containers/ArticleViewerHeader/
 export { default as ArticleBodyHeaderStore } from '@containers/ArticleBodyHeader/store'
 
 export { default as AccountViewerStore } from '@containers/viewer/AccountViewer/store'
+
+// activities page
+export { default as MeetupsContentStore } from '@containers/content/MeetupsContent/store'
+// have a drink page
+export { default as HaveADrinkContentStore } from '@containers/content/HaveADrinkContent/store'
+// cool guide page
+export { default as CoolGuideContentStore } from '@containers/content/CoolGuideContent/store'
 
 // user page
 export { default as UserPublishedStore } from '@containers/user/UserPublished/store'

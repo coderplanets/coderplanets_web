@@ -23,4 +23,4 @@ const Holder = () => (
   </Wrapper>
 )
 
-export default Holder
+export default React.memo(Holder)

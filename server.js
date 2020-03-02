@@ -68,6 +68,18 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/sentry', req.query)
   )
 
+  server.get('/meetups', (req, res) =>
+    renderAndCache(req, res, '/meetups', req.query)
+  )
+
+  server.get('/have-a-drink', (req, res) =>
+    renderAndCache(req, res, '/have-a-drink', req.query)
+  )
+
+  server.get('/cool-guide', (req, res) =>
+    renderAndCache(req, res, '/cool-guide', req.query)
+  )
+
   server.get('/service-worker.js', (req, res) =>
     res.sendFile(`${__dirname}/.next/service-worker.js`)
   )
@@ -94,6 +106,9 @@ app.prepare().then(() => {
   )
 
   server.get('/communities', (req, res) => res.redirect('/communities/pl'))
+  server.get('/communities/new', (req, res) =>
+    renderAndCache(req, res, '/communities/new', req.query)
+  )
 
   server.get('/communities/:category', (req, res) =>
     renderAndCache(req, res, '/communities', req.query)

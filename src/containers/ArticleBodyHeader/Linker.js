@@ -15,4 +15,4 @@ const Linker = ({ addr }) => (
   </React.Fragment>
 )
 
-export default Linker
+export default React.memo(Linker)

@@ -73,4 +73,4 @@ const Setter = ({ show, entries, selectedId }) => (
   </Wrapper>
 )
 
-export default Setter
+export default React.memo(Setter)

@@ -28,5 +28,4 @@ export const Wrapper = styled.aside.attrs(props => ({
   }
   ${cs.media.tablet`display: none`};
 `
-
 export const holder = 1

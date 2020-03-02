@@ -17,4 +17,4 @@ const MailLists = ({ activeRaw, pagedMentions }) => {
   }
 }
 
-export default MailLists
+export default React.memo(MailLists)

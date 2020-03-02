@@ -83,4 +83,4 @@ const DigestView = ({ community, activeThread, layout }) => (
   </Wrapper>
 )
 
-export default DigestView
+export default React.memo(DigestView)

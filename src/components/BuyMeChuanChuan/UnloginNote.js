@@ -11,4 +11,4 @@ const UnloginNote = ({ onLogin }) => (
   </Wrapper>
 )
 
-export default UnloginNote
+export default React.memo(UnloginNote)

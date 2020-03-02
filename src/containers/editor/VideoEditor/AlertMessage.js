@@ -38,4 +38,4 @@ const AlertMessage = () => (
   </Wrapper>
 )
 
-export default AlertMessage
+export default React.memo(AlertMessage)

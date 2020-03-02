@@ -16,4 +16,4 @@ const SideCards = ({ data }) => (
   </Wrapper>
 )
 
-export default SideCards
+export default React.memo(SideCards)

@@ -39,4 +39,4 @@ const DigestView = ({ user, toggleDetail }) => (
   </React.Fragment>
 )
 
-export default DigestView
+export default React.memo(DigestView)

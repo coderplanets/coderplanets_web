@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Button } from 'antd'
 
 // import Img from '@components/Img'
 import { cs } from '@utils'
@@ -19,9 +18,7 @@ export const RightPart = styled.div`
   padding-top: 5px;
   ${cs.media.tablet`display: none;`};
 `
-/* fill: ${theme('shell.searchIcon')}; */
-// TODO: rename to PublishButn
-export const PublishBtn = styled(Button)`
+export const PublisherWrapper = styled.div`
   width: 100%;
   max-width: 180px;
   margin-left: 8%;

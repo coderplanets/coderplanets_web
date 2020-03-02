@@ -81,4 +81,4 @@ const UserAccount = ({ isLogin, accountInfo }) => (
   </React.Fragment>
 )
 
-export default UserAccount
+export default React.memo(UserAccount)

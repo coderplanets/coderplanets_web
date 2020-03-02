@@ -38,4 +38,4 @@ SexInputer.defaultProps = {
   label: '性别:',
 }
 
-export default SexInputer
+export default React.memo(SexInputer)

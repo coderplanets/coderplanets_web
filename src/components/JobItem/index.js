@@ -114,4 +114,4 @@ JobItem.defaultProps = {
   },
 }
 
-export default JobItem
+export default React.memo(JobItem)

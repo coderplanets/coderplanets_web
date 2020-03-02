@@ -83,4 +83,4 @@ ContentSourceCard.defaultProps = {
   },
 }
 
-export default ContentSourceCard
+export default React.memo(ContentSourceCard)

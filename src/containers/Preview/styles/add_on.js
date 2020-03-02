@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TYPE } from '@constant'
 import { theme, animate, cs } from '@utils'
 
-import Img from '@components/Img'
+import Img from '@Img'
 
 export const Wrapper = styled.div`
   width: 10%;

@@ -53,4 +53,4 @@ const Editor = ({ thread, isEdit, editData, mentionList }) => {
   )
 }
 
-export default Editor
+export default React.memo(Editor)

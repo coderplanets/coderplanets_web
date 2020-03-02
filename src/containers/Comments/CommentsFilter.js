@@ -82,4 +82,4 @@ const CommentsFilter = ({ filterType, show }) => (
   </FilterWraper>
 )
 
-export default CommentsFilter
+export default React.memo(CommentsFilter)

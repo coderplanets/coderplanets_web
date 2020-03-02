@@ -11,4 +11,4 @@ const PinButton = ({ pin }) => (
   </Wrapper>
 )
 
-export default PinButton
+export default React.memo(PinButton)

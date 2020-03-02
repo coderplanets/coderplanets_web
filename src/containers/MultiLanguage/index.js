@@ -22,4 +22,4 @@ const IntlObserver = observerHoc(selector, ({ children, locale, messages }) => {
   )
 })
 
-export default IntlObserver
+export default React.memo(IntlObserver)

@@ -1,23 +1,31 @@
 import React from 'react'
+import Link from 'next/link'
 
-import { ICON_CMD } from '@config'
-import Popover from '@components/Popover'
+// import { ICON_CMD } from '@config'
+// import Popover from '@components/Popover'
 
 import {
   Breadcrumbs,
   Logo,
-  LogoText,
-  BetaLogo,
-  ShortAddr,
-  ShortDesc,
+  LogoLink,
+  DotDivider,
+  // LogoText,
+  // BetaLogo,
+  // ShortAddr,
+  // ShortDesc,
 } from './styles'
 
 import MainEntries from './MainEntries'
 
 const DigestView = ({ curRoute }) => (
   <Breadcrumbs>
-    <Logo />
-    <Popover
+    <Link href="/home/posts" passHref>
+      <LogoLink href="/home/posts">
+        <Logo />
+      </LogoLink>
+    </Link>
+    <DotDivider />
+    {/* <Popover
       placement="bottom"
       trigger="hover"
       content={
@@ -29,10 +37,10 @@ const DigestView = ({ curRoute }) => (
       }
     >
       <LogoText href="/home/posts">coderplanets</LogoText>
-    </Popover>
-    <BetaLogo src={`${ICON_CMD}/beta.svg`} />
+    </Popover> */}
+    {/* <BetaLogo src={`${ICON_CMD}/beta.svg`} /> */}
     <MainEntries curRoute={curRoute} />
   </Breadcrumbs>
 )
 
-export default DigestView
+export default React.memo(DigestView)

@@ -6,6 +6,4 @@ export const Wrapper = styled.div`
   height: 100%;
   transition: left 0.2s;
 `
-export const ScrollWrapper = styled.div`
-  height: 85vh;
-`
+export const holder = 1

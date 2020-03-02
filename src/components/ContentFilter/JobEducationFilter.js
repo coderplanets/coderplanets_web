@@ -33,4 +33,4 @@ const JobEducationFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default JobEducationFilter
+export default React.memo(JobEducationFilter)

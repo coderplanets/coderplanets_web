@@ -18,4 +18,4 @@ NumSection.propTypes = {
 
 NumSection.defaultProps = {}
 
-export default NumSection
+export default React.memo(NumSection)

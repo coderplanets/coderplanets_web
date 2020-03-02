@@ -39,7 +39,6 @@ import {
   // banners
   ArticleBannerStore,
   CommunityBannerStore,
-  CommunitiesBannerStore,
   UserBannerStore,
   // content
   CommunityContentStore,
@@ -48,6 +47,7 @@ import {
   VideoContentStore,
   RepoContentStore,
   CommunitiesContentStore,
+  NewCommunityContentStore,
   CheatSheetContentStore,
   UserContentStore,
   // footer
@@ -92,6 +92,10 @@ import {
   UserFavoritedStore,
   UserStaredStore,
   FavoritesCatsStore,
+  //
+  MeetupsContentStore,
+  HaveADrinkContentStore,
+  CoolGuideContentStore,
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -137,13 +141,13 @@ const rootStore = t
     // banners
     articleBanner: t.optional(ArticleBannerStore, {}),
     communityBanner: t.optional(CommunityBannerStore, {}),
-    communitiesBanner: t.optional(CommunitiesBannerStore, {}),
     userBanner: t.optional(UserBannerStore, {}),
 
     // content
     communityContent: t.optional(CommunityContentStore, {}),
 
     communitiesContent: t.optional(CommunitiesContentStore, {}),
+    newCommunityContent: t.optional(NewCommunityContentStore, {}),
     cheatSheatContent: t.optional(CheatSheetContentStore, {}),
     postContent: t.optional(PostContentStore, {}),
     jobContent: t.optional(JobContentStore, {}),
@@ -189,6 +193,11 @@ const rootStore = t
     userStared: t.optional(UserStaredStore, {}),
     userFavorited: t.optional(UserFavoritedStore, {}),
     favoritesCats: t.optional(FavoritesCatsStore, {}),
+
+    // have a drink
+    meetupsContent: t.optional(MeetupsContentStore, {}),
+    haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
+    coolGuideContent: t.optional(CoolGuideContentStore, {}),
   })
   .views(self => ({
     get isOnline() {

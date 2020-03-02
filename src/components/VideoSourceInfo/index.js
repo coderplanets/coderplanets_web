@@ -43,4 +43,4 @@ VideoSourceInfo.propTypes = {
 
 VideoSourceInfo.defaultProps = {}
 
-export default VideoSourceInfo
+export default React.memo(VideoSourceInfo)

@@ -1,16 +1,15 @@
 import React from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 
+import { VerticalScroller } from '@components/CustomScroller'
 import SuggestIcon from './SuggestIcon'
 import {
-  InfoBar,
   Wrapper,
-  SuggestionWrapper,
+  InfoBar,
   ContentWraper,
   Title,
   Desc,
@@ -30,12 +29,10 @@ const HintIcon = ({ index, active, cur, length }) => {
   return null
 }
 
-const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
-  <OverlayScrollbarsComponent
-    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-  >
-    <Wrapper>
-      <SuggestionWrapper empty={suggestions.length === 0}>
+const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
+  return (
+    <VerticalScroller height="400px">
+      <Wrapper empty={suggestions.length === 0}>
         {suggestions.map((suggestion, i) => (
           <InfoBar
             active={activeRaw === suggestion.raw}
@@ -69,9 +66,9 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => (
             />
           </InfoBar>
         ))}
-      </SuggestionWrapper>
-    </Wrapper>
-  </OverlayScrollbarsComponent>
-)
+      </Wrapper>
+    </VerticalScroller>
+  )
+}
 
-export default ResultsList
+export default React.memo(ResultsList)

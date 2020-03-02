@@ -45,4 +45,4 @@ const CommentBodyEditor = ({
   </div>
 )
 
-export default CommentBodyEditor
+export default React.memo(CommentBodyEditor)

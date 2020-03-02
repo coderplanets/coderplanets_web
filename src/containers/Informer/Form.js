@@ -60,4 +60,4 @@ const Form = ({ message, type }) => (
   </Wrapper>
 )
 
-export default Form
+export default React.memo(Form)

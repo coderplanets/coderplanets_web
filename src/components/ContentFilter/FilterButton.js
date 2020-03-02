@@ -32,4 +32,4 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => (
   </Wrapper>
 )
 
-export default FilterButton
+export default React.memo(FilterButton)

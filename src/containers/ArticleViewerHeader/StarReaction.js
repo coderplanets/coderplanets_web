@@ -64,4 +64,4 @@ StarReaction.defaultProps = {
   loading: false,
 }
 
-export default StarReaction
+export default React.memo(StarReaction)

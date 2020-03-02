@@ -109,4 +109,4 @@ const SocialInputer = ({ show, user }) => (
   </Wrapper>
 )
 
-export default SocialInputer
+export default React.memo(SocialInputer)

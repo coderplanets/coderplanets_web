@@ -34,4 +34,4 @@ const ChuanSelector = ({ active, onSelect }) => (
   </SelectBox>
 )
 
-export default ChuanSelector
+export default React.memo(ChuanSelector)

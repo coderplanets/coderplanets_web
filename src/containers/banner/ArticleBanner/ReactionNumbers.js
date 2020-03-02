@@ -35,4 +35,4 @@ const ReactionNumbers = ({ data, starLoading, favoriteLoading, showStar }) => {
   )
 }
 
-export default ReactionNumbers
+export default React.memo(ReactionNumbers)

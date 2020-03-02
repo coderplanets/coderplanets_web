@@ -151,6 +151,17 @@ const AntUIOverWrite = createGlobalStyle`
     background: ${theme('form.inputBg')};
   }
 
+  .navi-radio {
+    .ant-radio-group {
+      ${cs.flexColumn('align-end')};
+    }
+    span.ant-radio + * {
+      padding-right: 0;
+      min-width: 50px;
+      text-align: right;
+    }
+  }
+
   // pagination overides
   .ant-pagination-item:focus,
   .ant-pagination-item:hover {
@@ -386,6 +397,7 @@ const AntUIOverWrite = createGlobalStyle`
     border: 1px solid;
     border-color: ${theme('popover.borderColor')} !important;
     z-index: ${cs.zIndex.popover};
+    box-shadow: ${theme('popover.boxShadow')}; 
   }
   .ant-popover-arrow {
     background-color: ${theme('popover.borderColor')} !important;
@@ -393,7 +405,7 @@ const AntUIOverWrite = createGlobalStyle`
     z-index: ${cs.zIndex.popover - 1};
   }
   .ant-popover-inner-content {
-    padding: 5px;
+    padding: 0;
   }
 `
 

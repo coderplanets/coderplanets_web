@@ -36,4 +36,4 @@ const BadgeInfo = ({ user: { achievement } }) => {
   )
 }
 
-export default BadgeInfo
+export default React.memo(BadgeInfo)

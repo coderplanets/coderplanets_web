@@ -41,4 +41,4 @@ const ReactionNumbers = ({ data: { views, favoritedCount, starredCount } }) => (
   </NumbersInfo>
 )
 
-export default ReactionNumbers
+export default React.memo(ReactionNumbers)

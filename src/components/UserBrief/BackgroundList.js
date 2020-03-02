@@ -74,4 +74,4 @@ const BackgroundList = ({ type, user, first }) => {
   }
 }
 
-export default BackgroundList
+export default React.memo(BackgroundList)

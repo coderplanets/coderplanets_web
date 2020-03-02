@@ -46,4 +46,4 @@ TagListLoading.defaultProps = {
   num: 1,
 }
 
-export default TagListLoading
+export default React.memo(TagListLoading)

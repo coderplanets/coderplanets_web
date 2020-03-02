@@ -18,4 +18,4 @@ const MiddleInfo = ({ thread, data }) => {
   }
 }
 
-export default MiddleInfo
+export default React.memo(MiddleInfo)

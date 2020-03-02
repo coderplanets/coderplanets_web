@@ -89,4 +89,4 @@ const Header = ({ isEdit, curView, referUsers }) => {
   }
 }
 
-export default Header
+export default React.memo(Header)

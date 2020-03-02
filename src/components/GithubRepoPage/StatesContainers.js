@@ -116,4 +116,4 @@ const StatesContainers = ({ repo }) => (
   </Wrapper>
 )
 
-export default StatesContainers
+export default React.memo(StatesContainers)

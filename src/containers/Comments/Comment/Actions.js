@@ -22,4 +22,4 @@ const Actions = ({ data, accountInfo }) => {
   )
 }
 
-export default Actions
+export default React.memo(Actions)

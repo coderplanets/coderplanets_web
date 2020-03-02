@@ -36,4 +36,4 @@ const JobFinaceFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default JobFinaceFilter
+export default React.memo(JobFinaceFilter)

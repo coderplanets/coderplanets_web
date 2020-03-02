@@ -32,4 +32,4 @@ const ThreadsNav = ({ activeInfo: { community, activeThread } }) => (
   </Wrapper>
 )
 
-export default ThreadsNav
+export default React.memo(ThreadsNav)

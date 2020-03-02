@@ -96,4 +96,4 @@ const PaymentSidebar = ({
   )
 }
 
-export default PaymentSidebar
+export default React.memo(PaymentSidebar)

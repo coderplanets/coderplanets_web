@@ -15,4 +15,4 @@ const UserInfo = ({ author, insertedAt }) => (
   </Wrapper>
 )
 
-export default UserInfo
+export default React.memo(UserInfo)

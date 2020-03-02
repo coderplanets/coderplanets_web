@@ -62,4 +62,4 @@ const CommentEditor = props => {
   )
 }
 
-export default CommentEditor
+export default React.memo(CommentEditor)

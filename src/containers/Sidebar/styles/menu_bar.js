@@ -50,11 +50,6 @@ export const MenuItemBar = styled.div`
   width: 100%;
   box-sizing: border-box;
   color: ${theme('sidebar.menuLink')};
-
-  box-shadow: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.headerShadow') : 'none'};
-  border-bottom: ${({ dropShadow }) =>
-    dropShadow ? theme('sidebar.headerShadowBorderBottom') : ''};
 `
 export const MenuRow = styled.div`
   ${cs.flex()};

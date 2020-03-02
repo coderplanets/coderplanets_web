@@ -60,4 +60,4 @@ const CompanyInfoEditor = ({
   </Wrapper>
 )
 
-export default CompanyInfoEditor
+export default React.memo(CompanyInfoEditor)

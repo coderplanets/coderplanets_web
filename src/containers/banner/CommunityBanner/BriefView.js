@@ -27,4 +27,4 @@ const BriefView = ({ community, activeThread, layout }) => (
   </Wrapper>
 )
 
-export default BriefView
+export default React.memo(BriefView)

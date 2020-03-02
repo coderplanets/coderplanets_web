@@ -10,11 +10,7 @@ export const Wrapper = styled.footer`
 export const InnerWrapper = styled.div`
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  padding: 0 4vw;
-
-  ${cs.media.desktop`
-    padding: 0 5vw;
-  `};
+  padding: 0 6vw;
 `
 export const MainInfos = styled.div`
   ${cs.flex('justify-start')};

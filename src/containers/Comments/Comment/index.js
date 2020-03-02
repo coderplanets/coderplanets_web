@@ -44,4 +44,4 @@ const Comment = ({ data, tobeDeleteId, accountInfo }) => (
   </Wrapper>
 )
 
-export default Comment
+export default React.memo(Comment)

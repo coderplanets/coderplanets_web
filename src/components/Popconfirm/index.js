@@ -108,4 +108,4 @@ Popconfirm.defaultProps = {
   onConfirm: log,
 }
 
-export default Popconfirm
+export default React.memo(Popconfirm)

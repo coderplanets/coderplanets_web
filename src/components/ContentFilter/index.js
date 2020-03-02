@@ -110,4 +110,4 @@ ContentFilter.defaultProps = {
   onC11NChange: log,
 }
 
-export default ContentFilter
+export default React.memo(ContentFilter)

@@ -77,4 +77,4 @@ CommunityList.defaultProps = {
   bottom: '0',
 }
 
-export default CommunityList
+export default React.memo(CommunityList)

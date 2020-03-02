@@ -78,4 +78,4 @@ const Selected = ({ items, readOnly }) => (
   </Maybe>
 )
 
-export default Selected
+export default React.memo(Selected)

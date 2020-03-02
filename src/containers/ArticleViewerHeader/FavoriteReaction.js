@@ -72,4 +72,4 @@ FavoriteReation.defaultProps = {
   loading: false,
 }
 
-export default FavoriteReation
+export default React.memo(FavoriteReation)

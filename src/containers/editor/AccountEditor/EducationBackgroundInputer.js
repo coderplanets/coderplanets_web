@@ -87,4 +87,4 @@ const EducationBackgroundInputer = ({ user, ratKey, data }) => (
   </Wrapper>
 )
 
-export default EducationBackgroundInputer
+export default React.memo(EducationBackgroundInputer)

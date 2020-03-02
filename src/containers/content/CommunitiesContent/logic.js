@@ -2,7 +2,13 @@ import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, pagedFilter, errRescue } from '@utils'
+import {
+  asyncSuit,
+  buildLog,
+  pagedFilter,
+  errRescue,
+  updateEditing,
+} from '@utils'
 
 import S from './schema'
 
@@ -11,12 +17,17 @@ const log = buildLog('L:CommunitiesContent')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.LOGOUT, EVENT.LOGIN, EVENT.REFRESH_COMMUNITIES],
+  recieve: [EVENT.LOGOUT, EVENT.LOGIN],
 })
 
 let store = null
 let sub$ = null
 
+/**
+ * load communities by page and cataglog type
+ * @param {page} number
+ * @ppublic
+ */
 export const loadCommunities = (page = 1) => {
   const { subPath } = store.curRoute
   const category = !R.isEmpty(subPath) ? subPath : 'pl'
@@ -31,14 +42,61 @@ export const loadCommunities = (page = 1) => {
   sr71$.query(S.pagedCommunities, args)
 }
 
-const searchCommunities = title => {
+export const loadCategories = () =>
+  sr71$.query(S.pagedCategories, { filter: {} })
+
+/**
+ * search communities by current searchValue in store
+ * @private
+ */
+const searchCommunities = () => {
+  const { searchValue: title } = store
   const args = { title, userHasLogin: store.isLogin }
 
   sr71$.query(S.searchCommunities, args)
 }
 
+/**
+ * change search status
+ * @ppublic
+ */
+export const changeSearchStatus = status => store.mark({ ...status })
+
+/**
+ * search for communities
+ * @param {e} htmlEvent
+ * @return {void}
+ */
+export const searchOnChange = e => {
+  updateEditing(store, 'searchValue', e)
+  searchCommunities()
+}
+
+/**
+ * sidebar menu on select
+ * @param {item} object
+ * @param {item.id} string
+ * @param {item.raw} string
+ * @public
+ */
+export const menuOnChange = ({ id, raw }) => {
+  store.markRoute({ subPath: raw })
+  loadCommunities()
+  store.mark({ activeCatalogId: id })
+}
+
+/**
+ * pagination on change
+ * @param {page} number
+ * @public
+ */
 export const pageOnChange = page => loadCommunities(page)
 
+/**
+ * subscrib / join a community
+ * @param {id} string
+ * @public
+ */
 export const subscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
@@ -49,6 +107,11 @@ export const subscribe = id => {
   })
 }
 
+/**
+ * unsubscrib/ / quit a community
+ * @param {id} string
+ * @public
+ */
 export const unSubscribe = id => {
   if (!store.isLogin) return store.authWarning()
 
@@ -72,6 +135,10 @@ const DataSolver = [
     action: ({ pagedCommunities }) => store.mark({ pagedCommunities }),
   },
   {
+    match: asyncRes('pagedCategories'),
+    action: ({ pagedCategories }) => store.mark({ pagedCategories }),
+  },
+  {
     match: asyncRes('searchCommunities'),
     action: ({ searchCommunities: pagedCommunities }) =>
       store.mark({ pagedCommunities, searching: false }),
@@ -88,17 +155,6 @@ const DataSolver = [
     action: ({ unsubscribeCommunity }) => {
       store.removeSubscribedCommunity(unsubscribeCommunity)
       store.mark({ subscribing: false })
-    },
-  },
-  {
-    match: asyncRes(EVENT.REFRESH_COMMUNITIES),
-    action: res => {
-      const payload = res[EVENT.REFRESH_COMMUNITIES]
-      if (payload.type === 'search' && !R.isEmpty(payload.data)) {
-        store.mark({ searchValue: payload.data, searching: true })
-        return searchCommunities(payload.data)
-      }
-      loadCommunities()
     },
   },
   {
@@ -138,6 +194,9 @@ const loadIfNeed = () => {
     store.pagedCommunitiesData.totalCount === 0
   ) {
     loadCommunities()
+  }
+  if (!store.pagedCategoriesData) {
+    loadCategories()
   }
 }
 

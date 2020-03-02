@@ -109,4 +109,4 @@ StatusBox.defaultProps = {
   msg: '',
 }
 
-export default StatusBox
+export default React.memo(StatusBox)

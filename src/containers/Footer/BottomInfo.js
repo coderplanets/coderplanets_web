@@ -20,4 +20,4 @@ const BottomInfo = () => (
   </Wrapper>
 )
 
-export default BottomInfo
+export default React.memo(BottomInfo)

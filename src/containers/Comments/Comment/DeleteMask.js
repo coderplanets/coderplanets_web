@@ -24,4 +24,4 @@ const DeleteMask = ({ show }) => (
   </DeleteOverlay>
 )
 
-export default DeleteMask
+export default React.memo(DeleteMask)

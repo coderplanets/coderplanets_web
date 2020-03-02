@@ -114,4 +114,4 @@ UserBrief.defaultProps = {
   onLogout: log,
 }
 
-export default UserBrief
+export default React.memo(UserBrief)

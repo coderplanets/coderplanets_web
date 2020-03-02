@@ -67,4 +67,4 @@ const PaymentContent = ({
 }
 // <Button type="primary">下一步</Button>
 
-export default PaymentContent
+export default React.memo(PaymentContent)

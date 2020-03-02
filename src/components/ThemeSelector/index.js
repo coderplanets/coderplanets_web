@@ -34,4 +34,4 @@ ThemeSelector.defaultProps = {
   displayStyle: 'default',
 }
 
-export default ThemeSelector
+export default React.memo(ThemeSelector)

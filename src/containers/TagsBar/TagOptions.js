@@ -26,4 +26,4 @@ const TagOptions = ({ onInclude }) => (
 )
 // <div>只看/不看</div>
 
-export default TagOptions
+export default React.memo(TagOptions)

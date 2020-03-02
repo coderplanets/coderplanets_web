@@ -53,7 +53,7 @@ const EditorFooter = ({ isEdit, editData }) => (
   </Wrapper>
 )
 
-export default EditorFooter
+export default React.memo(EditorFooter)
 
 /*
    <Item>

@@ -56,4 +56,4 @@ const ReposList = ({ props }) => {
   }
 }
 
-export default ReposList
+export default React.memo(ReposList)

@@ -20,4 +20,4 @@ const PublishNote = ({ show }) => (
   </Modal>
 )
 
-export default PublishNote
+export default React.memo(PublishNote)

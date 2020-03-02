@@ -64,4 +64,4 @@ const RepoSortFilter = ({ activeFilter, onSelect }) => (
   </ColumnWrapper>
 )
 
-export default RepoSortFilter
+export default React.memo(RepoSortFilter)

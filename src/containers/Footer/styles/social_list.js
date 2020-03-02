@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@components/Img'
+import Img from '@Img'
 import { theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -20,12 +20,6 @@ export const Icon = styled(Img)`
   display: block;
   margin-right: 8px;
 `
-
-export const PopInfo = styled.div`
-  color: ${theme('thread.articleTitle')};
-  padding: 5px 10px;
-`
-
 export const QRCodePic = styled(Img)`
   display: block;
   width: 300px;

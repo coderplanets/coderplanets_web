@@ -1,5 +1,4 @@
 import React from 'react'
-import { OverlayScrollbarsComponent } from 'overlayscrollbars-react'
 
 import { TYPE } from '@constant'
 
@@ -86,11 +85,7 @@ const renderViewer = (type, root, attachment, attUser) => {
 }
 
 const Viewer = ({ type, root, attachment, attUser }) => (
-  <OverlayScrollbarsComponent
-    options={{ scrollbars: { autoHide: 'scroll', autoHideDelay: 200 } }}
-  >
-    <Wrapper>{renderViewer(type, root, attachment, attUser)}</Wrapper>
-  </OverlayScrollbarsComponent>
+  <Wrapper>{renderViewer(type, root, attachment, attUser)}</Wrapper>
 )
 
-export default Viewer
+export default React.memo(Viewer)

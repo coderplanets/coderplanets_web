@@ -21,4 +21,4 @@ const RefinedLabel = ({ tags }) => {
   )
 }
 
-export default RefinedLabel
+export default React.memo(RefinedLabel)

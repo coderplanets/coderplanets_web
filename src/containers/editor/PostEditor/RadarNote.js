@@ -69,4 +69,4 @@ const RadarNote = () => (
   </Wrapper>
 )
 
-export default RadarNote
+export default React.memo(RadarNote)

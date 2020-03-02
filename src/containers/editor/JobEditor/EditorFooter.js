@@ -70,4 +70,4 @@ const EditorFooter = ({ isEdit, editData }) => (
   </div>
 )
 
-export default EditorFooter
+export default React.memo(EditorFooter)

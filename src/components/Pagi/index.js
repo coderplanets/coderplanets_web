@@ -113,4 +113,4 @@ Pagi.defaultProps = {
   bottom: '30px',
 }
 
-export default Pagi
+export default React.memo(Pagi)

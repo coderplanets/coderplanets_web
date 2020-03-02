@@ -40,4 +40,4 @@ const ContributorList = ({ items }) => (
   </Wrapper>
 )
 
-export default ContributorList
+export default React.memo(ContributorList)

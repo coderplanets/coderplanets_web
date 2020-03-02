@@ -31,4 +31,4 @@ JobMiddleInfo.propTypes = {
 
 JobMiddleInfo.defaultProps = {}
 
-export default JobMiddleInfo
+export default React.memo(JobMiddleInfo)

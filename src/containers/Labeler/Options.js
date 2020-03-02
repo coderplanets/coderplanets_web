@@ -59,4 +59,4 @@ const Options = ({ label, items, selected, onOptionSelect }) => (
   </React.Fragment>
 )
 
-export default Options
+export default React.memo(Options)

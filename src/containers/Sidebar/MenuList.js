@@ -2,7 +2,6 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import R from 'ramda'
 
-import MenuBar from './MenuBar'
 import NormalMenuList from './NormalMenuList'
 // import SortableMenuList from './SortableMenuList'
 
@@ -16,28 +15,11 @@ const DynamicSortableMenuList = dynamic({
   /* eslint-enable */
 })
 
-const MenuList = ({
-  items,
-  pin,
-  sortOptActive,
-  activeRaw,
-  forceRerender,
-  showHeaderShadow,
-}) => {
-  const pinedCommunities = R.filter(R.propEq('raw', 'home'), items)
+const MenuList = ({ items, pin, sortOptActive, activeRaw, forceRerender }) => {
   const sortableCommunities = R.reject(R.propEq('raw', 'home'), items)
 
   return (
     <Wrapper>
-      {pinedCommunities.map(item => (
-        <MenuBar
-          key={item.raw}
-          pin={pin}
-          item={item}
-          activeRaw={activeRaw}
-          dropShadow={showHeaderShadow}
-        />
-      ))}
       {!sortOptActive ? (
         <NormalMenuList
           communities={sortableCommunities}
@@ -59,4 +41,4 @@ const MenuList = ({
   )
 }
 
-export default MenuList
+export default React.memo(MenuList)

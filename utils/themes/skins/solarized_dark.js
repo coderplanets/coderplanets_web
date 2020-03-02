@@ -73,6 +73,7 @@ const solarizedDark = {
     numberDesc: descText,
     numberDivider: '#1b475d',
     numberHoverBg: '#0d475a',
+    linearGradient: 'linear-gradient(#043B49, #022A35)',
   },
   thread: {
     bg: contentBoxBg,
@@ -262,9 +263,9 @@ const solarizedDark = {
     hoverBg: lighten(0.05, bannerBg),
   },
   popover: {
-    bg: bannerBg,
-    borderColor: primaryColor,
-    boxShadoe: '0 1px 4px rgba(0, 0, 0, 0.15)',
+    bg: '#0a3442',
+    borderColor: darken(0.15, primaryColor),
+    boxShadow: '0px 7px 20px 10px rgba(0, 0, 0, 0.15)',
   },
   tags: {
     dotOpacity: 0.5,
@@ -333,6 +334,17 @@ const solarizedDark = {
   tooltip: {
     text: '#95C1DD',
     bg: '#075575',
+  },
+  dropdown: {
+    bg: '#0a4d61',
+  },
+  // pages
+  haveADrinkPage: {
+    bg: '#01313e',
+    sentence: '#6f8b96',
+    hint: '#577079',
+    divider: '#27424c',
+    dropdownBg: '#0a4d61',
   },
 }
 

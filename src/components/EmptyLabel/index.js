@@ -34,4 +34,4 @@ EmptyLabel.defaultProps = {
   size: 'default',
 }
 
-export default EmptyLabel
+export default React.memo(EmptyLabel)

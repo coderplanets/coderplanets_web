@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Button } from 'antd'
 
-import Img from '@components/Img'
+import Img from '@Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`

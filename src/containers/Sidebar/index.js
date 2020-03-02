@@ -5,11 +5,13 @@
  */
 
 import React from 'react'
+import R from 'ramda'
 
 import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
 import MenuList from './MenuList'
+import MenuBar from './MenuBar'
 import Footer from './Footer'
 
 import { Wrapper } from './styles'
@@ -25,8 +27,6 @@ const SidebarContainer = ({ sidebar }) => {
     curCommunity,
     pin,
     searchCommunityValue,
-    showHeaderShadow,
-    showFooterShadow,
     sortOptActive,
     communitiesData,
     forceRerender,
@@ -35,25 +35,27 @@ const SidebarContainer = ({ sidebar }) => {
   // onMouseLeave={logic.leaveSidebar}
   // onMouseLeave is not unreliable in chrome: https://github.com/facebook/react/issues/4492
   const activeRaw = curCommunity.raw
+  const homeCommunity = R.filter(R.propEq('raw', 'home'), communitiesData)[0]
 
   return (
     <Wrapper pin={pin} testid="sidebar">
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
+
+      {/*
+        move home community out of menulist to avoid rerender
+         */}
+      <MenuBar pin={pin} item={homeCommunity} activeRaw={activeRaw} />
+
       <MenuList
         items={communitiesData}
         pin={pin}
         sortOptActive={sortOptActive}
-        showHeaderShadow={showHeaderShadow}
         forceRerender={forceRerender}
         activeRaw={activeRaw}
         onSortEnd={onSortMenuEnd}
         distance={5}
       />
-      <Footer
-        pin={pin}
-        showFooterShadow={showFooterShadow}
-        sortOptActive={sortOptActive}
-      />
+      <Footer pin={pin} sortOptActive={sortOptActive} />
     </Wrapper>
   )
 }

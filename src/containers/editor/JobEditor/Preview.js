@@ -25,4 +25,4 @@ const Preview = ({ onBack, editData: { title, body }, contentDomId }) => (
 )
 /* eslint-enable react/no-danger */
 
-export default Preview
+export default React.memo(Preview)

@@ -22,4 +22,4 @@ const TagList = ({ items, selected, onOptionSelect }) => (
   </Wrapper>
 )
 
-export default TagList
+export default React.memo(TagList)

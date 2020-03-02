@@ -73,4 +73,4 @@ ReactionNumbers.propTypes = {
 
 ReactionNumbers.defaultProps = {}
 
-export default ReactionNumbers
+export default React.memo(ReactionNumbers)

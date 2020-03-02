@@ -75,4 +75,4 @@ const EditorFooter = ({
   </InputFooter>
 )
 
-export default EditorFooter
+export default React.memo(EditorFooter)
