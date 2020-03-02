@@ -98,6 +98,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  RoadmapThreadStore,
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -202,6 +203,7 @@ const rootStore = t
     coolGuideContent: t.optional(CoolGuideContentStore, {}),
 
     // GEN: PLUG SUBSTORE TO ROOTSTORE
+    roadmapThread: t.optional(RoadmapThreadStore, {}),
   })
   .views(self => ({
     get isOnline() {
