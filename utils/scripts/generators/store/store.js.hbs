@@ -12,16 +12,16 @@ const log = buildLog('S:{{ properCase name }}')
 
 
 const {{ properCase name }} = t
-.model('{{ properCase name }}', {})
-.views(self => ({
-get root() {
-return getParent(self)
-},
-}))
-.actions(self => ({
-mark(sobj) {
-markStates(sobj, self)
-},
-}))
+  .model('{{ properCase name }}', {})
+  .views(self => ({
+    get root() {
+      return getParent(self)
+    },
+  }))
+  .actions(self => ({
+    markState(sobj) {
+      markStates(sobj, self)
+    },
+  }))
 
 export default {{ properCase name }}

@@ -95,3 +95,5 @@ export { default as UserStaredStore } from '@containers/user/UserStared/store'
 export { default as UserBillingStore } from '@containers/user/UserBilling/store'
 export { default as UserSettingsStore } from '@containers/user/UserSettings/store'
 export { default as UserFavoritedStore } from '@containers/user/UserFavorited/store'
+
+// GEN: EXPORT CONTAINERS STORE HERE

@@ -31,13 +31,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../src/stores/{{properCase name}}/index.js',
+        path: '../../../stores/{{properCase name}}/index.js',
         templateFile: './store/store.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../src/stores/{{properCase name}}/test/index.test.js',
+        path: '../../../stores/{{properCase name}}/test/index.test.js',
         templateFile: './store/store.test.js.hbs',
         abortOnFail: true,
       },

@@ -1,12 +1,9 @@
+import { useEffect } from 'react'
 // import R from 'ramda'
 
-import { buildLog, $solver, asyncErr, ERR, errRescue } from '@utils'
+import { buildLog } from '@utils'
+// import S from './service'
 
-import SR71 from '@utils/async/sr71'
-// import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
@@ -14,48 +11,14 @@ const log = buildLog('L:{{ properCase name }}')
 
 export const someMethod = () => {}
 
-// const const cancleLoading = () => {}
-
 // ###############################
-// Data & Error handlers
+// init & uninit handlers
 // ###############################
 
-const DataSolver = []
-const ErrSolver = [
-  {
-    match: asyncErr(ERR.GRAPHQL),
-    action: () => {
-      // cancleLoading()
-    },
-  },
-  {
-    match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      // cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, details, path: '{{ properCase name }}' })
-    },
-  },
-  {
-    match: asyncErr(ERR.NETWORK),
-    action: () => {
-      // cancleLoading()
-      errRescue({ type: ERR.NETWORK, path: '{{ properCase name }}' })
-    },
-  },
-]
-
-export const init = (_store) => {
-  store = _store
-
-  log(store)
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
-}
-
-export const uninit = () => {
-  if (!sub$) return false
-  log('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
+export const useInit = _store => {
+  useEffect(() => {
+    store = _store
+    log('useInit: ', store)
+    // return () => store.reset()
+  }, [])
 }

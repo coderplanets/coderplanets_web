@@ -10,8 +10,6 @@ import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:{{ properCase name }}')
 
-
-// NOTE: add me to stores/index && stores/RootStore/index
 const {{ properCase name }} = t
   .model('{{ properCase name }}', {})
   .views(self => ({
@@ -20,7 +18,7 @@ const {{ properCase name }} = t
     },
   }))
   .actions(self => ({
-    mark(sobj) {
+    markState(sobj) {
       markStates(sobj, self)
     },
   }))

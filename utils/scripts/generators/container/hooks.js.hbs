@@ -1,0 +1,37 @@
+//
+
+/*
+*
+* {{ properCase name }}
+*
+*/
+
+import React from 'react'
+
+import { connectStore, buildLog } from '@utils'
+{{#if wantMessages}}
+  import { FormattedMessage } from 'react-intl'
+  import messages from './messages'
+{{/if}}
+
+import { Wrapper } from './styles'
+import { useInit } from './logic'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:{{ properCase name }}')
+
+const {{ properCase name }}Container = ({{preCurly ""}} {{ camelCase name}} {{afterCurly ""}}) => {
+  useInit({{ camelCase name }})
+
+  return (
+    <Wrapper testid='{{ camelCase name}}'>
+      <h2>{{ properCase name }} hooks container!</h2>
+      <div>impress me!</div>
+      {{#if wantMessages}}
+        <FormattedMessage {...messages.header} />
+      {{/if}}
+    </Wrapper>
+  )
+}
+
+export default connectStore({{ properCase name }}Container)

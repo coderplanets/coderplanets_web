@@ -96,6 +96,8 @@ import {
   MeetupsContentStore,
   HaveADrinkContentStore,
   CoolGuideContentStore,
+
+  // GEN: IMPORT SUBSTORE
 } from '../index'
 
 /* eslint-disable-next-line */
@@ -198,6 +200,8 @@ const rootStore = t
     meetupsContent: t.optional(MeetupsContentStore, {}),
     haveADrinkContent: t.optional(HaveADrinkContentStore, {}),
     coolGuideContent: t.optional(CoolGuideContentStore, {}),
+
+    // GEN: PLUG SUBSTORE TO ROOTSTORE
   })
   .views(self => ({
     get isOnline() {

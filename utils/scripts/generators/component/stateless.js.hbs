@@ -1,41 +1,48 @@
 /*
- *
- * {{ properCase name }}
- *
+*
+* {{ properCase name }}
+*
 */
 
 import React from 'react'
-import T from 'prop-types'
+// import PropTypes from 'prop-types'
+
+import { buildLog } from '@utils'
 
 {{#if wantStyle}}
 import { Wrapper } from './styles'
 {{/if}}
 {{#if wantI18n}}
-import { FormattedMessage as I18n } from 'react-intl'
-import lang from './lang'
+  import { FormattedMessage as I18n } from 'react-intl'
+  import lang from './lang'
 {{/if}}
-
-import { buildLog } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:{{ properCase name }}:index')
 
-
-const {{ properCase name }} = (props) => {
-  return (
-   <div>
-    {{ properCase name }} component
-    {{#if wantI18n}}
-      <I18n {...lang.header} />
-    {{/if}}
+const {{ properCase name }} = () => (
+{{#if wantStyle}}
+  <Wrapper testid="{{ camelCase name}}">
+{{/if}}
+    <div>
+      <h2>{{ properCase name }} component</h2>
+      {{#if wantI18n}}
+        <I18n {...lang.header} />
+      {{/if}}
+      <p>impress me</p>
     </div>
-  )
-}
+{{#if wantStyle}}
+  </Wrapper>
+{{/if}}
+)
 
 {{ properCase name }}.propTypes = {
   // https://www.npmjs.com/package/prop-types
+  // attr: PropTypes.string,
 }
 
-{{ properCase name }}.defaultProps = {}
+{{ properCase name }}.defaultProps = {
+  // attr: '{{ camelCase name }}',
+}
 
 export default React.memo({{ properCase name }})
