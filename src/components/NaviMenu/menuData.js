@@ -315,6 +315,10 @@ const menu = [
             title: '交互界面',
           },
           {
+            id: '1',
+            title: '外星人',
+          },
+          {
             id: 'n',
             title: '奇奇怪怪',
           },
@@ -330,12 +334,68 @@ const menu = [
             title: '宗教建筑',
           },
           {
+            id: '00',
+            title: '城市地标',
+          },
+          {
             id: '2',
             title: '竞技场',
           },
           {
+            id: '2oo',
+            title: '博物馆',
+          },
+          {
+            id: '...',
+            title: '火车站',
+          },
+          {
+            id: '222',
+            title: '桥梁',
+          },
+          // {
+          //   id: '222bbb',
+          //   title: '机场 / 车站',
+          // },
+          {
+            id: '2die2',
+            title: '未来主义',
+          },
+          {
             id: '03ji',
             title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
+        id: '.em',
+        title: '大空间',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            // https://www.zhihu.com/search?type=content&q=%E5%9B%BE%E4%B9%A6%E9%A6%86%20%E5%86%85%E9%83%A8%E8%AE%BE%E8%AE%A1
+            title: '图书馆',
+          },
+          {
+            id: '1',
+            title: '餐厅', // 酒店内，游艇内，等等, google、亚马逊，微软 办公室等等
+          },
+          {
+            id: '122',
+            title: '办公室', // google、亚马逊，微软 办公室等等
+          },
+          {
+            id: '1272',
+            title: '会展中心?',
+          },
+          {
+            id: '1222',
+            title: '超级工厂',
+          },
+          {
+            id: '2',
+            title: '飞机场',
           },
         ],
       },
@@ -390,14 +450,65 @@ const menu = [
         childMenu: [
           {
             id: '13i',
-            title: '汽车',
+            title: '汽车', // 工程车，特种车，F1...
           },
           {
             id: '1',
             title: '摩托',
           },
           {
+            id: '1',
+            title: '航天器', // 月球车
+          },
+          {
+            id: '1',
+            title: '战斗机',
+          },
+          {
+            id: '122',
+            title: '发动机',
+          },
+          {
             id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
+        id: 'ooo',
+        title: 'Pattens',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '地毯',
+          },
+          {
+            id: '1',
+            title: '彩色玻璃',
+          },
+          {
+            id: '2',
+            title: '背景图案',
+          },
+          {
+            id: '3',
+            title: '涂鸦',
+          },
+          {
+            id: '4',
+            title: '滑雪 | 冲浪板',
+          },
+          {
+            id: '5',
+            title: '足球',
+          },
+          {
+            id: '6',
+            title: '迷彩',
+          },
+          {
+            id: '7',
             title: '奇奇怪怪',
           },
         ],
