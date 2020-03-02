@@ -42,7 +42,6 @@ const ChildrenItems = ({ activeMenuId, parentId, items, onSelect }) => {
             onClick={handleSelect}
           >
             {item.id === '101' && <ActiveDot />}
-
             <SpaceGrow />
             {item.title}
           </Item>

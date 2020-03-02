@@ -18,9 +18,8 @@ export const Item = styled.div`
   align-items: center;
   color: ${({ active }) =>
     active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
-  font-size: 13px;
-  padding: 8px 6px;
-  padding-left: 10px;
+  font-size: 14px;
+  padding: 8px 10px;
 
   &:hover {
     color: ${theme('thread.articleTitle')};

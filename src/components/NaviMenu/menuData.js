@@ -327,15 +327,11 @@ const menu = [
         childMenu: [
           {
             id: '0',
-            title: '宗教',
-          },
-          {
-            id: '1',
-            title: '大学',
+            title: '宗教建筑',
           },
           {
             id: '2',
-            title: '体育场馆',
+            title: '竞技场',
           },
           {
             id: '03ji',
@@ -448,7 +444,7 @@ const menu = [
   },
   {
     id: '2',
-    title: 'Podcast(播客)',
+    title: '播客集',
     icon: `${ICON_CMD}/navi_podcast.svg`,
     childMenu: [
       {
@@ -479,15 +475,15 @@ const menu = [
       },
     ],
   },
-  {
-    id: '41',
-    title: 'IT 博物馆',
-    icon: `${ICON_CMD}/navi_translate.svg`,
-    childMenu: [],
-  },
+  // {
+  //   id: '41',
+  //   title: 'IT 博物馆',
+  //   icon: `${ICON_CMD}/navi_translate.svg`,
+  //   childMenu: [],
+  // },
   {
     id: '6',
-    title: '计算机名人堂',
+    title: 'IT 名人堂',
     icon: `${ICON_CMD}/navi_famous.svg`,
     childMenu: [
       {
