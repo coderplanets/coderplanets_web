@@ -318,7 +318,7 @@ const menu = [
         childMenu: [
           {
             id: '0',
-            title: '交互界面',
+            title: '人机交互',
           },
           {
             id: '1',
@@ -440,7 +440,30 @@ const menu = [
         ],
       },
       {
-        id: '1',
+        id: '2u',
+        title: '文字控 / 排版',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '文章排版',
+          },
+          {
+            id: '1',
+            title: '店铺招牌',
+          },
+          {
+            id: '2',
+            title: '标语条幅', // 脱欧大巴等等
+          },
+          {
+            id: '3',
+            title: '车机系统',
+          },
+        ],
+      },
+      {
+        id: '1x',
         title: 'LOGO / 图腾',
         icon: `${ICON_CMD}/navi_china.svg`,
       },
@@ -514,37 +537,19 @@ const menu = [
             title: '迷彩',
           },
           {
+            id: '8',
+            title: '雪花',
+          },
+          {
             id: '7',
             title: '奇奇怪怪',
           },
         ],
       },
       {
-        id: '2',
-        title: '地图控',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
         id: '2334b',
         title: '网站 / App',
         icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '4',
-        title: '操控面板',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '车机系统',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-          {
-            id: '1',
-            title: '智能家居',
-            icon: `${ICON_CMD}/navi_china.svg`,
-          },
-        ],
       },
       {
         id: '5',
