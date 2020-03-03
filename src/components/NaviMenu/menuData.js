@@ -173,6 +173,17 @@ const menu = [
         ],
       },
       {
+        id: '1222222',
+        title: '机器学习',
+        icon: `${ICON_CMD}/navi_group.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '公共数据 ',
+          },
+        ],
+      },
+      {
         id: '12',
         title: '区块链', // or move to 基础设施 ?
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -201,11 +212,6 @@ const menu = [
       //     },
       //   ],
       // },
-      {
-        id: '1222222',
-        title: '公共数据',
-        icon: `${ICON_CMD}/navi_group.svg`,
-      },
       // {
       //   id: '103',
       //   title: '创投服务',
