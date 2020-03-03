@@ -9,7 +9,7 @@ import React from 'react'
 import { NAVI } from '@constant'
 
 import PagiFooter from '@components/PagiFooter'
-import { ProductList, FamePeopleList } from '@components/IntroList'
+import { ProductGallery, FamePeopleGallery } from '@components/GalleryHub'
 
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
@@ -33,7 +33,7 @@ const Content = ({ displayType }) => {
     case NAVI.FAME_PEOPLE: {
       DisplayContent = (
         <NormalListWrapper>
-          <FamePeopleList />
+          <FamePeopleGallery />
           <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />
@@ -45,7 +45,7 @@ const Content = ({ displayType }) => {
     default: {
       DisplayContent = (
         <NormalListWrapper>
-          <ProductList />
+          <ProductGallery />
           <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />

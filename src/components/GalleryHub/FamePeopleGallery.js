@@ -32,10 +32,10 @@ import {
   UpVoteIcon,
   ViewIcon,
   Number,
-} from './styles/fame_people_list'
+} from './styles/fame_people_gallery'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:ProductIntroList:index')
+const log = buildLog('c:ProductGallery:index')
 
 const tmpItems = [
   {
