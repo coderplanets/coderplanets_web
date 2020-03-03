@@ -5,6 +5,7 @@ import { cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
+  margin-right: 5px;
   justify-content: flex-end;
   height: 30px;
   border-radius: 5px;

@@ -393,7 +393,7 @@ const menu = [
           },
           {
             id: '1272',
-            title: '会展中心?',
+            title: '会展中心',
           },
           {
             id: '1222',
@@ -417,25 +417,6 @@ const menu = [
           {
             id: '0',
             title: '古罗马',
-          },
-        ],
-      },
-      {
-        id: '333fji',
-        title: '工业设计',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '日用品',
-          },
-          {
-            id: '0',
-            title: '球鞋',
-          },
-          {
-            id: '03ji',
-            title: '奇奇怪怪',
           },
         ],
       },
@@ -464,44 +445,8 @@ const menu = [
       },
       {
         id: '1x',
-        title: 'LOGO / 图腾',
+        title: 'LOGO',
         icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: '1111',
-        title: '创意广告',
-        icon: `${ICON_CMD}/navi_china.svg`,
-      },
-      {
-        id: 'fei',
-        title: '机械之美',
-        icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '13i',
-            title: '汽车', // 工程车，特种车，F1...
-          },
-          {
-            id: '1',
-            title: '摩托',
-          },
-          {
-            id: '1',
-            title: '航天器', // 月球车
-          },
-          {
-            id: '1',
-            title: '战斗机',
-          },
-          {
-            id: '122',
-            title: '发动机',
-          },
-          {
-            id: '03ji',
-            title: '奇奇怪怪',
-          },
-        ],
       },
       {
         id: 'ooo',
@@ -547,6 +492,61 @@ const menu = [
         ],
       },
       {
+        id: '1111',
+        title: '创意广告',
+        icon: `${ICON_CMD}/navi_china.svg`,
+      },
+      {
+        id: '333fji',
+        title: '工业设计',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '日用品',
+          },
+          {
+            id: '0',
+            title: '球鞋',
+          },
+          {
+            id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
+        id: 'fei',
+        title: '机械之美',
+        icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '13i',
+            title: '汽车', // 工程车，特种车，F1...
+          },
+          {
+            id: '1',
+            title: '摩托',
+          },
+          {
+            id: '1',
+            title: '航天器', // 月球车
+          },
+          {
+            id: '1',
+            title: '战斗机',
+          },
+          {
+            id: '122',
+            title: '发动机',
+          },
+          {
+            id: '03ji',
+            title: '奇奇怪怪',
+          },
+        ],
+      },
+      {
         id: '2334b',
         title: '网站 / App',
         icon: `${ICON_CMD}/navi_china.svg`,
@@ -555,6 +555,12 @@ const menu = [
         id: '5',
         title: '奇奇怪怪',
         icon: `${ICON_CMD}/navi_china.svg`,
+        childMenu: [
+          {
+            id: '0',
+            title: '地图控',
+          },
+        ],
       },
     ],
   },
