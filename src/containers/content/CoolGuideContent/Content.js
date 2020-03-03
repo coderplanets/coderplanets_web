@@ -12,9 +12,9 @@ import PagiFooter from '@components/PagiFooter'
 import { ProductList, FamePeopleList } from '@components/IntroList'
 
 // tmp
-import RoadmapThread from '@containers/thread/RoadmapThread'
+// import RoadmapThread from '@containers/thread/RoadmapThread'
 
-// import NewsBoard from './NewsBoard'
+import NewsBoard from './NewsBoard'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 
@@ -25,8 +25,8 @@ const Content = ({ displayType }) => {
 
   switch (displayType) {
     case NAVI.NEWS_FEED: {
-      // DisplayContent = <NewsBoard />
-      DisplayContent = <RoadmapThread />
+      DisplayContent = <NewsBoard />
+      // DisplayContent = <RoadmapThread />
       break
     }
 
