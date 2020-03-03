@@ -313,22 +313,22 @@ const menu = [
     childMenu: [
       {
         id: '0',
-        title: '科幻迷',
+        title: '科幻界面',
         icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: '0',
-            title: '人机交互',
-          },
-          {
-            id: '1',
-            title: '外星人',
-          },
-          {
-            id: 'n',
-            title: '奇奇怪怪',
-          },
-        ],
+        // childMenu: [
+        //   {
+        //     id: '0',
+        //     title: '人机交互',
+        //   },
+        // {
+        //   id: '1',
+        //   title: '外星人',
+        // },
+        // {
+        //   id: 'n',
+        //   title: '奇奇怪怪',
+        // },
+        // ],
       },
       {
         id: '333',
@@ -467,8 +467,12 @@ const menu = [
           },
           {
             id: '3',
-            title: '涂鸦',
+            title: '微生物',
           },
+          // {
+          //   id: '3',
+          //   title: '涂鸦',
+          // },
           {
             id: '4',
             title: '滑雪 | 冲浪板',
@@ -517,7 +521,7 @@ const menu = [
       },
       {
         id: 'fei',
-        title: '机械之美',
+        title: '机械迷',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
@@ -559,6 +563,14 @@ const menu = [
           {
             id: '0',
             title: '地图控',
+          },
+          {
+            id: '1',
+            title: '涂鸦',
+          },
+          {
+            id: '2',
+            title: '井盖',
           },
         ],
       },
