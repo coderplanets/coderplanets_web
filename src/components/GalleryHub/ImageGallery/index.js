@@ -4,14 +4,19 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
 
+import PagiFooter from '@components/PagiFooter'
+
 import OneColumnGallery from './OneColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'
 import ThreeColumnGallery from './ThreeColumnGallery'
+import ColumnStyleSwitcher from './ColumnStyleSwitcher'
+
+import { Wrapper } from '../styles/image_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ImageGallery:index')
@@ -24,7 +29,6 @@ const tmpItems = [
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
-    tags: ['最性感', '开发者', '更好运'],
     icon:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
@@ -34,7 +38,6 @@ const tmpItems = [
     title: '威尼斯总督府',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
     // desc: '最性感的开发者社区',
-    tags: ['最性感', '开发者', '更好运', '最性感', '开发者', '更好运'],
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
   {
@@ -44,7 +47,6 @@ const tmpItems = [
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
-    tags: ['最性感', '开发者', '更好运'],
     icon:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
@@ -54,23 +56,41 @@ const tmpItems = [
     title: '威尼斯总督府',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
     // desc: '最性感的开发者社区',
-    tags: ['最性感', '开发者', '更好运', '最性感', '开发者', '更好运'],
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
 ]
 
 const ImageGallery = ({ items, column }) => {
-  switch (column) {
+  const [activeColumn, setActiveColumn] = useState(column)
+
+  let GalleryContent
+
+  switch (activeColumn) {
     case 2: {
-      return <TwoColumnGallery items={items} />
+      GalleryContent = <TwoColumnGallery items={items} />
+      break
     }
     case 3: {
-      return <ThreeColumnGallery items={items} />
+      GalleryContent = <ThreeColumnGallery items={items} />
+      break
     }
     default: {
-      return <OneColumnGallery items={items} />
+      GalleryContent = <OneColumnGallery items={items} />
+      break
     }
   }
+
+  return (
+    <Wrapper>
+      {GalleryContent}
+      <PagiFooter margin={{ top: '60px', bottom: '80px' }}>
+        <ColumnStyleSwitcher
+          activeColumn={activeColumn}
+          onSelect={setActiveColumn}
+        />
+      </PagiFooter>
+    </Wrapper>
+  )
 }
 
 ImageGallery.propTypes = {
@@ -80,7 +100,7 @@ ImageGallery.propTypes = {
 
 ImageGallery.defaultProps = {
   items: tmpItems,
-  column: 2,
+  column: 3,
 }
 
 export default React.memo(ImageGallery)

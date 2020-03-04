@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import Img from '@Img'
 import { cs, theme } from '@utils'
 
+export const Wrapper = styled.div`
+  width: 100%;
+`
+// GalleryWrapper base
 export const WrapperBase = styled.div`
   ${cs.flex()};
   flex-wrap: wrap;
