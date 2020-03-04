@@ -3,56 +3,34 @@ import styled from 'styled-components'
 import Img from '@Img'
 import { cs, theme } from '@utils'
 
-export const WrapperBase = styled.div`
-  ${cs.flex()};
-  flex-wrap: wrap;
-  color: ${theme('thread.articleDigest')};
-  width: 100%;
-`
-export const BlockBase = styled.div`
-  ${cs.flexColumn('justify-between')};
-  width: 50%;
-  height: auto;
-  border: 1px solid;
-  border-top: ${({ borderTop }) => (borderTop ? '1px solid' : 'none')};
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid;
-  border-color: #0d4353;
-  padding: 5px;
+import { WrapperBase, BlockBase, ImageBase } from './index'
 
-  :last-child {
-    border-right: none;
-  }
-  &:hover {
-    background: #04313e;
-    border-color: #074c61;
-  }
-  transition: all 0.25s;
+export const Wrapper = styled(WrapperBase)``
+
+export const Block = styled(BlockBase)`
+  width: 50%;
 `
 export const ImageWrapper = styled.div`
   height: 240px;
 `
-export const ImageBase = styled(Img)`
-  height: 100%;
-  width: 100%;
-  object-position: center;
-  object-fit: cover;
-`
+export const Image = styled(ImageBase)``
+
 export const Intro = styled.div`
   ${cs.flexColumn()};
   padding: 10px;
   padding-left: 0;
 `
 export const IntroHead = styled.div`
+  width: 100%;
   ${cs.flex('align-center')};
+  justify-content: space-between;
   &:hover {
     cursor: pointer;
   }
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 `
 export const Desc = styled.div`
@@ -63,7 +41,7 @@ export const Desc = styled.div`
   opacity: 0.9;
   cursor: pointer;
 
-  ${BlockBase}:hover & {
+  ${Block}:hover & {
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
@@ -77,24 +55,25 @@ export const Footer = styled.div`
     cursor: pointer;
   }
 `
-export const UpvoteInfoBase = styled.div`
-  ${cs.flex('align-center')};
+export const FlagIcon = styled(Img)`
+  width: 15px;
+  display: block;
 `
-export const ViewInfoBase = styled(UpvoteInfoBase)`
-  opacity: 0.8;
 
-  ${BlockBase}:hover & {
-    opacity: 1;
-  }
-`
 const FooterIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: 16px;
   height: 16px;
   display: block;
 `
-export const UpVoteIcon = styled(FooterIcon)`
-  margin-top: -1px;
+// TODO:  extract
+export const ViewInfo = styled.div`
+  ${cs.flex('align-center')};
+  opacity: 0.8;
+
+  ${Block}:hover & {
+    opacity: 1;
+  }
 `
 export const ViewIcon = styled(FooterIcon)`
   margin-top: -2px;

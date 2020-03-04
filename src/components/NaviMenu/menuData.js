@@ -490,6 +490,10 @@ const menu = [
             title: '雪花',
           },
           {
+            id: '88',
+            title: '宇宙空间',
+          },
+          {
             id: '7',
             title: '奇奇怪怪',
           },

@@ -3,47 +3,24 @@ import styled from 'styled-components'
 import Img from '@Img'
 import { cs, theme } from '@utils'
 
-export const WrapperBase = styled.div`
-  ${cs.flex()};
-  flex-wrap: wrap;
-  color: ${theme('thread.articleDigest')};
-  width: 100%;
-`
-export const BlockBase = styled.div`
-  ${cs.flexColumn('justify-between')};
-  width: 50%;
-  height: auto;
-  border: 1px solid;
-  border-top: ${({ borderTop }) => (borderTop ? '1px solid' : 'none')};
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid;
-  border-color: #0d4353;
-  padding: 5px;
+import { WrapperBase, BlockBase, ImageBase } from './index'
 
-  :last-child {
-    border-right: none;
-  }
-  &:hover {
-    background: #04313e;
-    border-color: #074c61;
-  }
-  transition: all 0.25s;
+export const Wrapper = styled(WrapperBase)``
+
+export const Block = styled(BlockBase)`
+  width: 33%;
 `
 export const ImageWrapper = styled.div`
-  height: 240px;
+  height: 200px;
 `
-export const ImageBase = styled(Img)`
-  height: 100%;
-  width: 100%;
-  object-position: center;
-  object-fit: cover;
-`
+export const Image = styled(ImageBase)``
+
 export const Intro = styled.div`
   ${cs.flexColumn()};
   padding: 10px;
   padding-left: 0;
 `
+
 export const IntroHead = styled.div`
   ${cs.flex('align-center')};
   &:hover {
@@ -63,7 +40,7 @@ export const Desc = styled.div`
   opacity: 0.9;
   cursor: pointer;
 
-  ${BlockBase}:hover & {
+  ${Block}:hover & {
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
@@ -77,13 +54,13 @@ export const Footer = styled.div`
     cursor: pointer;
   }
 `
-export const UpvoteInfoBase = styled.div`
+export const UpvoteInfo = styled.div`
   ${cs.flex('align-center')};
 `
-export const ViewInfoBase = styled(UpvoteInfoBase)`
+export const ViewInfo = styled(UpvoteInfo)`
   opacity: 0.8;
 
-  ${BlockBase}:hover & {
+  ${Block}:hover & {
     opacity: 1;
   }
 `
