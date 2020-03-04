@@ -7,8 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD, ASSETS_ENDPOINT } from '@config'
 import { buildLog } from '@utils'
+
+import IconText from '@components/IconText'
 
 import {
   Wrapper,
@@ -18,12 +20,8 @@ import {
   Image,
   IntroHead,
   Title,
+  FlagIcon,
   Footer,
-  UpvoteInfo,
-  ViewInfo,
-  UpVoteIcon,
-  ViewIcon,
-  Number,
 } from '../styles/image_gallery/three_column_gallery'
 
 /* eslint-disable-next-line */
@@ -44,16 +42,13 @@ const ThreeColumnGallery = ({ items }) => {
           <Intro>
             <IntroHead>
               <Title>{item.title}</Title>
+              <FlagIcon src={`${ASSETS_ENDPOINT}/navi/nation/american.png`} />
             </IntroHead>
             <Footer>
-              <UpvoteInfo>
-                <UpVoteIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
-                <Number>22</Number>
-              </UpvoteInfo>
-              <ViewInfo>
-                <ViewIcon src={`${ICON_CMD}/view-o.svg`} />
-                <Number>4743</Number>
-              </ViewInfo>
+              <IconText iconSrc={`${ICON_CMD}/history_clock.svg`}>
+                1233 - 1430
+              </IconText>
+              <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>4567</IconText>
             </Footer>
           </Intro>
         </Block>

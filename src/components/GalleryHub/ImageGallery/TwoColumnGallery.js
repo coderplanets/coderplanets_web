@@ -10,6 +10,8 @@ import T from 'prop-types'
 import { ICON_CMD, ASSETS_ENDPOINT } from '@config'
 import { buildLog } from '@utils'
 
+import IconText from '@components/IconText'
+
 import {
   Wrapper,
   Block,
@@ -20,9 +22,6 @@ import {
   FlagIcon,
   Title,
   Footer,
-  ViewInfo,
-  ViewIcon,
-  Number,
 } from '../styles/image_gallery/two_column_gallery'
 
 /* eslint-disable-next-line */
@@ -46,11 +45,10 @@ const TwoColumnGallery = ({ items }) => {
               <FlagIcon src={`${ASSETS_ENDPOINT}/navi/nation/american.png`} />
             </IntroHead>
             <Footer>
-              <div>1233 年 - 1430 年</div>
-              <ViewInfo>
-                <ViewIcon src={`${ICON_CMD}/view-o.svg`} />
-                <Number>4743</Number>
-              </ViewInfo>
+              <IconText iconSrc={`${ICON_CMD}/history_clock.svg`}>
+                1233 - 1430
+              </IconText>
+              <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>4567</IconText>
             </Footer>
           </Intro>
         </Block>

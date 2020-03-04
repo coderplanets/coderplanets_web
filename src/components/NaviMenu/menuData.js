@@ -720,7 +720,7 @@ const menu = [
       },
       {
         id: '2',
-        title: '独立播客',
+        title: '独立博客',
         icon: `${ICON_CMD}/navi_subscribe.svg`,
       },
       {
