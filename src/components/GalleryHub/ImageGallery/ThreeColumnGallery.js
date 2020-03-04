@@ -42,7 +42,9 @@ const ThreeColumnGallery = ({ items }) => {
           <Intro>
             <IntroHead>
               <Title>{item.title}</Title>
-              <FlagIcon src={`${ASSETS_ENDPOINT}/navi/nation/american.png`} />
+              <FlagIcon
+                src={`${ASSETS_ENDPOINT}/navi/nation/${item.nation}.png`}
+              />
             </IntroHead>
             <Footer>
               <IconText iconSrc={`${ICON_CMD}/history_clock.svg`}>

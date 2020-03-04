@@ -26,6 +26,7 @@ const tmpItems = [
     id: '0',
     addr: 'coderplanets.com',
     title: '圣百花大教堂',
+    nation: 'italy',
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
@@ -36,6 +37,7 @@ const tmpItems = [
     id: '1',
     addr: 'elixir.com',
     title: '威尼斯总督府',
+    nation: 'italy',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
     // desc: '最性感的开发者社区',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
@@ -44,6 +46,7 @@ const tmpItems = [
     id: '2',
     addr: 'coderplanets.com',
     title: '圣百花大教堂',
+    nation: 'italy',
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
@@ -54,6 +57,7 @@ const tmpItems = [
     id: '3',
     addr: 'elixir.com',
     title: '威尼斯总督府',
+    nation: 'italy',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
     // desc: '最性感的开发者社区',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
