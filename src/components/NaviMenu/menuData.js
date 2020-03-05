@@ -783,6 +783,19 @@ const menu = [
     childMenu: [],
   },
   {
+    id: '1633',
+    title: '应用数学',
+    icon: `${ICON_CMD}/navi_movie.svg`,
+    childMenu: [
+      {
+        id: '0',
+        title: '找龙哥咨询',
+        icon: `${ICON_CMD}/navi_movie.svg`,
+        childMenu: [],
+      },
+    ],
+  },
+  {
     id: '121',
     title: '新世界', // 非工具类的社区等
     icon: `${ICON_CMD}/navi_group.svg`,
