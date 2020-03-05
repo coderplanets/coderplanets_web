@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { VerticalScroller } from '@components/CustomScroller'
+import CustomScroller from '@components/CustomScroller'
 
 import UpVote from './UpVote'
 import PostInfo from './PostInfo'
@@ -81,14 +81,19 @@ const TodoList = ({ label }) => {
       <Header>
         <Label>{label}</Label>
       </Header>
-      <VerticalScroller height="calc(80vh - 40px)" withBorder>
+      <CustomScroller
+        direction="vertical"
+        height="calc(80vh - 40px)"
+        withBorder
+        autoHide
+      >
         {fakePosts.map(item => (
           <Item key={item.id}>
             <UpVote num={28} />
             <PostInfo post={item} />
           </Item>
         ))}
-      </VerticalScroller>
+      </CustomScroller>
     </Wrapper>
   )
 }

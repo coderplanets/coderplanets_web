@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HorizontalScroller } from '@components/CustomScroller'
+import CustomScroller from '@components/CustomScroller'
 import FeedsBar from '@components/FeedsBar'
 
 import Footer from './Footer'
@@ -10,7 +10,8 @@ import { Wrapper, ShadowBarHolder, FooterWrapper } from './styles/news_board'
 const NewsBoard = () => {
   return (
     <Wrapper>
-      <HorizontalScroller
+      <CustomScroller
+        direction="horizontal"
         height="90vh"
         innerHeight="89vh"
         shadowSize="large"
@@ -23,7 +24,7 @@ const NewsBoard = () => {
         <FeedsBar title="独立博客" numIndex={4} />
         <FeedsBar title="播客" numIndex={5} />
         <ShadowBarHolder />
-      </HorizontalScroller>
+      </CustomScroller>
 
       <FooterWrapper>
         <Footer />

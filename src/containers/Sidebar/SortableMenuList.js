@@ -1,8 +1,7 @@
 import React from 'react'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
-import { VerticalScroller } from '@components/CustomScroller'
-
+import CustomScroller from '@components/CustomScroller'
 import MenuBar from './MenuBar'
 
 const SortableMenuBar = SortableElement(
@@ -20,7 +19,7 @@ const SortableMenuBar = SortableElement(
 const SortableMenuList = SortableContainer(
   ({ communities, pin, sortOptActive, activeRaw, forceRerender }) => {
     return (
-      <VerticalScroller height="84vh" withBorder>
+      <CustomScroller direction="vertical" height="84vh" withBorder autoHide>
         {communities.map((item, index) => (
           <SortableMenuBar
             index={index}
@@ -32,7 +31,7 @@ const SortableMenuList = SortableContainer(
             forceRerender={forceRerender}
           />
         ))}
-      </VerticalScroller>
+      </CustomScroller>
     )
   }
 )

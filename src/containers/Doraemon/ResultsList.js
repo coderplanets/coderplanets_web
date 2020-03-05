@@ -5,7 +5,7 @@ import Highlighter from 'react-highlight-words'
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 
-import { VerticalScroller } from '@components/CustomScroller'
+import CustomScroller from '@components/CustomScroller'
 import SuggestIcon from './SuggestIcon'
 import {
   Wrapper,
@@ -31,7 +31,7 @@ const HintIcon = ({ index, active, cur, length }) => {
 
 const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
   return (
-    <VerticalScroller height="400px">
+    <CustomScroller direction="vertical" height="400px">
       <Wrapper empty={suggestions.length === 0}>
         {suggestions.map((suggestion, i) => (
           <InfoBar
@@ -67,7 +67,7 @@ const ResultsList = ({ searchValue, searchThread, suggestions, activeRaw }) => {
           </InfoBar>
         ))}
       </Wrapper>
-    </VerticalScroller>
+    </CustomScroller>
   )
 }
 

@@ -9,7 +9,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { VerticalScroller } from '@components/CustomScroller'
+import CustomScroller from '@components/CustomScroller'
 import { SpaceGrow } from '@components/BaseStyled'
 
 import {
@@ -184,9 +184,9 @@ const FakeList = () => {
 
 const List = () => {
   return (
-    <VerticalScroller height="75vh">
+    <CustomScroller direction="vertical" height="75vh" autoHide>
       <FakeList />
-    </VerticalScroller>
+    </CustomScroller>
   )
 }
 

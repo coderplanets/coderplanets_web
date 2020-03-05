@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { VerticalScroller } from '@components/CustomScroller'
+import CustomScroller from '@components/CustomScroller'
 import MenuBar from './MenuBar'
 
 const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
   return (
-    <VerticalScroller height="84vh" withBorder>
+    <CustomScroller direction="vertical" height="84vh" withBorder autoHide>
       {communities.map(item => (
         <MenuBar
           key={item.raw}
@@ -15,7 +15,7 @@ const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {
           forceRerender={forceRerender}
         />
       ))}
-    </VerticalScroller>
+    </CustomScroller>
   )
 }
 
