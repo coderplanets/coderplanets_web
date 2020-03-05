@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
   font-size: 13px;
   margin-bottom: 4px;
+  opacity: 0;
 
   &:before {
     content: '- ';
@@ -17,6 +18,12 @@ export const Title = styled.div`
   &:after {
     content: ' -';
   }
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+
+  transform: opacity 0.25s;
 `
 export const ListWrapper = styled.div`
   ${cs.flex('align-center')};
