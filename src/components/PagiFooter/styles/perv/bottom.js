@@ -6,14 +6,15 @@ import { CommonNavi, CommonHint, CommonBottomArrowIcon } from '../index'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-end')};
+  justify-content: flex-end;
   color: #196780;
 
   opacity: ${({ disabled }) => (disabled ? '0.6' : '1')};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  width: 90px;
 `
 export const ArrowWrapper = styled.div`
   position: relative;
-  margin-right: 15px;
 `
 export const Icon = styled(CommonBottomArrowIcon)`
   ${Wrapper}:hover & {
@@ -22,6 +23,13 @@ export const Icon = styled(CommonBottomArrowIcon)`
 `
 export const NaviInfo = styled.div`
   ${cs.flexColumn('align-start')};
+
+  margin-left: 8px;
+  ${Wrapper}:hover & {
+    margin-left: ${({ disabled }) => (disabled ? '8px' : '14px')};
+  }
+
+  transition: all 0.25s;
 `
 export const Navi = styled(CommonNavi)``
 export const Hint = styled(CommonHint)`

@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 
   opacity: ${({ disabled }) => (disabled ? '0.6' : '1')};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  width: 90px;
 `
 export const ArrowWrapper = styled.div`
   position: relative;
@@ -25,7 +26,7 @@ export const NaviInfo = styled.div`
   margin-right: 10px;
 
   ${Wrapper}:hover & {
-    margin-right: ${({ disabled }) => (disabled ? '10px' : '8px')};
+    margin-right: ${({ disabled }) => (disabled ? '8px' : '14px')};
   }
   transition: all 0.25s;
 `
