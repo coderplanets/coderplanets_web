@@ -615,7 +615,43 @@ const menu = [
     childMenu: [
       {
         id: '0',
+        title: '前端',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '1',
+        title: 'iOS',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '2',
+        title: 'Android',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '3',
+        title: '后端',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '4',
+        title: '设计',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '5',
+        title: '产品',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '10',
         title: '中文文档',
+        icon: `${ICON_CMD}/navi_translate.svg`,
+      },
+      {
+        id: '11',
+        title: '奇奇怪怪',
+        icon: `${ICON_CMD}/navi_translate.svg`,
       },
     ],
   },
