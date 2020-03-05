@@ -40,6 +40,7 @@ export const LinkHead = styled.div`
   margin-bottom: 5px;
 `
 export const LinkerWrapper = styled.div`
+  width: 70px;
   display: none;
 
   ${LinkHead}:hover & {
