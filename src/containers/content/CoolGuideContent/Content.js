@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { NAVI } from '@constant'
+import { GUIDE } from '@constant'
 
 import PagiFooter from '@components/PagiFooter'
 import {
@@ -18,7 +18,7 @@ import {
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
 
-// import NewsBoard from './NewsBoard'
+import NewsBoard from './NewsBoard'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 
@@ -28,14 +28,15 @@ const Content = ({ displayType }) => {
   let DisplayContent
 
   switch (displayType) {
-    case NAVI.NEWS_FEED: {
-      // DisplayContent = <NewsBoard />
-      DisplayContent = <ImageGallery />
-      // <RoadmapThread />
+    case GUIDE.NEWS_FEED: {
+      DisplayContent = <NewsBoard />
       break
     }
-
-    case NAVI.FAME_PEOPLE: {
+    case GUIDE.IMAGE: {
+      DisplayContent = <ImageGallery />
+      break
+    }
+    case GUIDE.FAME_PEOPLE: {
       DisplayContent = (
         <NormalListWrapper>
           <FamePeopleGallery />

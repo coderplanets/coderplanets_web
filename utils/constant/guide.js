@@ -1,7 +1,8 @@
-const NAVI = {
+const GUIDE = {
   DEFAULT: 'DEFAULT',
   FAME_PEOPLE: 'FAME_PEOPLE',
   NEWS_FEED: 'NEWS_FEED',
+  IMAGE: 'IMAGE',
 }
 
-export default NAVI
+export default GUIDE

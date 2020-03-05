@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { NAVI } from '@constant'
+import { GUIDE } from '@constant'
 import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:CoolGuideContent')
@@ -15,8 +15,13 @@ const CoolGuideContent = t
   .model('CoolGuideContent', {
     activeMenuId: t.maybeNull(t.string),
     displayType: t.optional(
-      t.enumeration([NAVI.NEWS_FEED, NAVI.FAME_PEOPLE, NAVI.DEFAULT]),
-      NAVI.NEWS_FEED
+      t.enumeration([
+        GUIDE.NEWS_FEED,
+        GUIDE.IMAGE,
+        GUIDE.FAME_PEOPLE,
+        GUIDE.DEFAULT,
+      ]),
+      GUIDE.NEWS_FEED
     ),
   })
   .views(self => ({
