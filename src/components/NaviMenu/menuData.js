@@ -341,6 +341,10 @@ const menu = [
             title: '宗教建筑',
           },
           {
+            id: '000',
+            title: '乡村',
+          },
+          {
             id: '00',
             title: '城市地标',
           },
@@ -393,6 +397,14 @@ const menu = [
             title: '办公室', // google、亚马逊，微软 办公室等等
           },
           {
+            id: '3',
+            title: '美剧布景',
+          },
+          {
+            id: '33',
+            title: '宫殿',
+          },
+          {
             id: '1272',
             title: '会展中心',
           },
@@ -408,7 +420,7 @@ const menu = [
       },
       {
         id: '3lie',
-        title: '复古服饰',
+        title: '服饰控',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
           {
@@ -416,8 +428,12 @@ const menu = [
             title: '中国风',
           },
           {
-            id: '0',
+            id: '1',
             title: '古罗马',
+          },
+          {
+            id: '2',
+            title: '军装',
           },
         ],
       },
@@ -664,7 +680,7 @@ const menu = [
   // },
   {
     id: '6',
-    title: 'IT 名人堂',
+    title: '计算机名人堂',
     icon: `${ICON_CMD}/navi_famous.svg`,
     childMenu: [
       {
@@ -676,6 +692,11 @@ const menu = [
       {
         id: '1',
         title: 'TopCoder',
+        icon: `${ICON_CMD}/navi_hammer.svg`,
+      },
+      {
+        id: '20',
+        title: '语言之父',
         icon: `${ICON_CMD}/navi_hammer.svg`,
       },
       {
