@@ -4,9 +4,8 @@ import styled from 'styled-components'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')}
-  justify-content: flex-end;
-  width: 40%;
+  ${cs.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
+  width: 40%;
 `
 export const holder = styled.div``

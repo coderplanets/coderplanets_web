@@ -5,7 +5,6 @@ import Img from '@Img'
 
 export const SelectBox = styled.div`
   ${cs.flex('align-center')};
-  justify-content: left;
 
   margin-top: 10px;
   border: 1px solid;

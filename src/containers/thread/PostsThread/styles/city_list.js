@@ -16,12 +16,10 @@ export const ListWrapper = styled.div`
   ${cs.media.tablet`width: 100%`};
 `
 export const LoadingWrapper = styled.div`
-  ${cs.flexColumn()};
+  ${cs.flexColumn('align-both')};
   margin-top: 15%;
   height: 100%;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 `
 export const LoadingIcon = styled(TabCitySVG)`
   fill: ${theme('thread.articleDigest')};

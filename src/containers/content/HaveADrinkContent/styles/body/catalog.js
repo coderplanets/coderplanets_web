@@ -9,8 +9,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 export const Block = styled.div`
-  ${cs.flexColumn('align-both')}
-  justify-content: space-between;
+  ${cs.flexColumn('align-center', 'justify-between')}
   color: #708b96;
   width: 240px;
   height: 120px;
@@ -32,8 +31,7 @@ export const Block = styled.div`
 `
 
 export const Header = styled.div`
-  ${cs.flex('align-center')}
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')}
   padding: 0 10px;
   height: 40px;
   width: 100%;

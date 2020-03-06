@@ -26,12 +26,8 @@ const circle = (width = '30px') => `
   border-radius: 100%;
 `
 
-/*
- * flex opts sort order:
- * [flex-direction][align-items][flex-grow]
- */
-const flexOpts = opt => {
-  switch (opt) {
+const flexExpand = rule => {
+  switch (rule) {
     case 'align-both':
       return 'align-items: center;justify-content: center;'
 
@@ -64,21 +60,28 @@ const flexOpts = opt => {
     }
   }
 }
+/*
+ * flex opts sort order:
+ * [flex-direction][align-items][flex-grow]
+ */
+const flexOpts = (rule1, rule2) => {
+  return `${flexExpand(rule1)}${flexExpand(rule2)}`
+}
 
-const flex = opt => `
+const flex = (rule1, rule2 = '') => `
   display: flex;
-  ${flexOpts(opt)};
+  ${flexOpts(rule1, rule2)};
 `
-const flexGrow = opt => `
-  ${flex(opt)};
+const flexGrow = (rule1, rule2 = '') => `
+  ${flex(rule1, rule2)};
   flex-grow: 1;
 `
-const flexColumn = opt => `
-  ${flex(opt)};
+const flexColumn = (rule1, rule2 = '') => `
+  ${flex(rule1, rule2)};
   flex-direction: column;
 `
-const flexColumnGrow = opt => `
-  ${flexColumn(opt)};
+const flexColumnGrow = (rule1, rule2 = '') => `
+  ${flexColumn(rule1, rule2)};
   flex-grow: 1;
 `
 

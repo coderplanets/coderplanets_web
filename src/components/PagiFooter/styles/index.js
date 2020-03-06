@@ -4,9 +4,8 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-center', 'justify-between')};
   color: #196780;
-  justify-content: space-between;
   height: 60px;
   width: 100%;
   margin-top: ${({ margin: { top } }) => top};

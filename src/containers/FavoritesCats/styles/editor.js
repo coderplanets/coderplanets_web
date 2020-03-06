@@ -32,8 +32,7 @@ export const RadiosWrapper = styled.div`
   margin-top: 6px;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-end')};
-  justify-content: center;
+  ${cs.flex('align-end', 'justify-center')};
   margin-top: 30px;
   margin-bottom: 10px;
 `

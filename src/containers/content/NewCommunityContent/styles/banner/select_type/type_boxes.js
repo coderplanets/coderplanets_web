@@ -4,16 +4,13 @@ import { cs, theme } from '@utils'
 // import Img from '@Img'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-both')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   margin-top: 30px;
   height: 105px;
   width: 700px;
 `
 export const Box = styled.div`
-  ${cs.flexColumn()};
-  align-items: self-start;
-  justify-content: space-between;
+  ${cs.flexColumn('align-start', 'justify-between')};
   padding: 10px 12px;
   width: ${({ active }) => (active ? '160px' : '154px')};
   height: ${({ active }) => (active ? '105px' : '100px')};
@@ -34,9 +31,8 @@ export const Box = styled.div`
   transition: all 0.25s;
 `
 export const HeaderText = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-center', 'justify-between')};
   width: 100%;
-  justify-content: space-between;
   font-size: 13px;
   margin-bottom: 6px;
 `

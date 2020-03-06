@@ -4,9 +4,8 @@ import Img from '@Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-both')};
+  ${cs.flexColumn('align-center', 'justify-start')};
   color: ${theme('thread.articleTitle')};
-  justify-content: start;
   margin-right: 15px;
 `
 

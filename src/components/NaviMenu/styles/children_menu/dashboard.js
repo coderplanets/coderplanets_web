@@ -4,8 +4,7 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-end')};
-  justify-content: space-between;
+  ${cs.flexColumn('align-end', 'justify-between')};
   width: 140px;
   height: 70px;
   color: #7c8f90;

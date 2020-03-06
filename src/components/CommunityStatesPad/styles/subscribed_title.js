@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  ${cs.flex('justify-center')}
 `
 export const PopoverInfo = styled.div`
   ${cs.flexColumn()};

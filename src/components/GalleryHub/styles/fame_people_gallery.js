@@ -34,8 +34,7 @@ export const Header = styled.div`
   ${cs.flexColumn()};
 `
 export const LinkHead = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   font-size: 12px;
   margin-bottom: 15px;
 `
@@ -108,8 +107,7 @@ export const ExpIcon = styled(Img)`
   }
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center')}
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }

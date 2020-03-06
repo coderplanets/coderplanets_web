@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: flex-end;
+  ${cs.flex('align-center', 'justify-end')};
   width: 100%;
   margin-bottom: 25px;
   color: ${theme('thread.articleDigest')};
@@ -84,15 +83,13 @@ export const DatesWrapper = styled.div`
   width: 100%;
 `
 export const WeekName = styled.div`
+  ${cs.flex('align-both')};
   width: 14px;
   height: 14px;
   font-size: 13px;
   background: #126682;
   border-radius: 100%;
-  display: flex;
-  justify-content: center;
   color: white;
-  align-items: center;
 `
 export const DateItem = styled.div`
   ${cs.flexColumn('justify-between')};

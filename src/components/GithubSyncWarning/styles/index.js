@@ -4,8 +4,7 @@ import Img from '@Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-center')};
-  justify-content: center;
+  ${cs.flexColumn('align-both')};
   padding: 30px;
 `
 export const Logo = styled(Img)`

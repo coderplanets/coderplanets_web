@@ -68,8 +68,7 @@ const moreTextSize = total => {
 }
 
 export const AvatarsMore = styled.span`
-  ${cs.flex('align-center')};
-  justify-content: center;
+  ${cs.flex('align-both')};
   font-size: ${({ total }) => moreTextSize(total)};
 
   border-color: ${theme('thread.articleHover')};

@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const InnerWrapper = styled.div`
-  ${cs.flexColumn('align-both')}
-  justify-content: space-between;
+  ${cs.flexColumn('align-center', 'justify-between')};
   padding: 15px 25px;
   width: 90%;
   height: 92%;

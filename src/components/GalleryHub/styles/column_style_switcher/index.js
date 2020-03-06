@@ -19,8 +19,7 @@ export const Hint = styled.div`
   transition: opacity 0.25s;
 `
 export const ContentWrapper = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   width: 70px;
 `
 export const SwitchWrapper = styled.div`

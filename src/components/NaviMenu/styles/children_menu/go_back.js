@@ -4,9 +4,8 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-center', 'justify-end')};
   margin-right: 5px;
-  justify-content: flex-end;
   height: 30px;
   border-radius: 5px;
   display: flex;

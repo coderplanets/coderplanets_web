@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
 /* header bg */
 export const Community = styled.div`
   position: relative;
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   height: 26px;
   background: #043b49;
   border: 1px solid;

@@ -50,9 +50,8 @@ export const StepHint = styled.div`
 `
 export const NextBtn = styled.div`
   position: absolute;
-  ${cs.flex('align-center')};
+  ${cs.flex('align-center', 'justify-around')};
   width: 200px;
-  justify-content: space-around;
   bottom: 5px;
   margin-left: -2px;
 `

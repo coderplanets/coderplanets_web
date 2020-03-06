@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: center;
+  ${cs.flex('align-both')};
   color: ${theme('thread.articleTitle')};
   font-size: 0.9rem;
 `

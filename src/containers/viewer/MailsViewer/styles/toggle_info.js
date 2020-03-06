@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 // import Img from '@Img'
-import { theme } from '@utils'
+import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${cs.flex('justify-between')};
 `
 export const Info = styled.div`
   color: ${theme('thread.articleDigest')};

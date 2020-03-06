@@ -12,9 +12,8 @@ export const Wrapper = styled.div`
   padding: 0 10px;
 `
 export const Thumbnil = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-both')};
   align-self: center;
-  justify-content: center;
 
   position: relative;
   height: 100px;

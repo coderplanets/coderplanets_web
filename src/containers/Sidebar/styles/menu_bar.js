@@ -52,9 +52,7 @@ export const MenuItemBar = styled.div`
   color: ${theme('sidebar.menuLink')};
 `
 export const MenuRow = styled.div`
-  ${cs.flex()};
-  justify-content: left;
-  align-items: center;
+  ${cs.flex('align-center')};
   font-size: 1rem;
   margin-left: ${({ sortOptActive }) => (sortOptActive ? '10px' : '0')};
 `
@@ -88,14 +86,13 @@ export const MenuItemTitle = styled.div`
     max-width: 50%;
   }
 `
-
 export const MiniChartWrapper = styled.div`
+  display: ${({ pin }) => (pin ? 'flex' : 'none')};
   width: 28%;
   justify-content: flex-end;
   align-items: center;
   position: relative;
 
-  display: ${({ pin }) => (pin ? 'flex' : 'none')};
   ${IndexWrapper}:hover & {
     display: flex;
   }

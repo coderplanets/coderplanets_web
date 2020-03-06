@@ -14,22 +14,17 @@ export const Wrapper = styled.div`
   border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
   margin-right: ${({ margin }) => (margin ? '25px' : '')};
 `
-
 export const WeekName = styled.div`
+  ${cs.flex('align-both')};
   width: 14px;
   height: 14px;
   font-size: 13px;
   background: #126682;
   border-radius: 100%;
-  display: flex;
-  justify-content: center;
   color: white;
-  align-items: center;
 `
-
 export const Head = styled.div`
-  ${cs.flex('justify-between')};
-  align-items: center;
+  ${cs.flex('align-center', 'justify-between')};
   padding-right: 3px;
 `
 export const DateText = styled.div`

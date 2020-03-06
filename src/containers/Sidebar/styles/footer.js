@@ -37,8 +37,7 @@ export const OptionWrapper = styled.div`
   margin-left: -8px;
 
   ${SidebarWrapper}:hover & {
-    display: flex;
-    justify-content: center;
+    ${cs.flex('justify-center')};
   }
 `
 export const OptionDivider = styled.div`

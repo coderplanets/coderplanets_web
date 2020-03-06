@@ -25,7 +25,6 @@ export const BuyChuanChuan = styled.div`
 `
 export const ChuanChuanDesc = styled.div`
   width: 50%;
-  justify-content: center;
 `
 
 // source: https://unsplash.com/photos/vzX2rgUbQXM

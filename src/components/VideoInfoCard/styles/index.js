@@ -59,8 +59,7 @@ export const OtherInfo = styled.div`
   ${cs.flexColumn('justify-between')};
 `
 export const Duration = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: flex-end;
+  ${cs.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
   min-width: 120px;
 `
@@ -76,9 +75,7 @@ export const DurationIcon = styled(Img)`
   margin-right: 5px;
 `
 export const Source = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: flex-end;
-
+  ${cs.flex('align-center', 'justify-end')};
   color: ${theme('thread.articleDigest')};
   font-size: 0.8rem;
   min-width: 120px;

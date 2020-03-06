@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexGrow('align-center')}
-  justify-content: center;
+  ${cs.flexGrow('align-both')}
   color: ${theme('thread.articleDigest')};
   opacity: 0;
   width: 40%;

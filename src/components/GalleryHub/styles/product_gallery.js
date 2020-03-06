@@ -34,8 +34,7 @@ export const Header = styled.div`
   ${cs.flexColumn()};
 `
 export const LinkHead = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   font-size: 12px;
   margin-bottom: 5px;
 `
@@ -77,8 +76,7 @@ export const Desc = styled.div`
   transition: all 0.25s;
 `
 export const Footer = styled.div`
-  ${cs.flex('align-center')}
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }

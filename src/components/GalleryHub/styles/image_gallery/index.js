@@ -58,8 +58,7 @@ export const IntroBase = styled.div`
   padding-left: 2px;
 `
 export const IntroHeadBase = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }
@@ -69,8 +68,7 @@ export const TitleBase = styled.div`
   cursor: pointer;
 `
 export const FooterBase = styled.div`
-  ${cs.flex('align-center')}
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   margin-top: 5px;
   &:hover {
     cursor: pointer;

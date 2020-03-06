@@ -27,8 +27,7 @@ export const ItemBtn = styled.div`
   padding: 0 4px;
 `
 export const BannerWrapper = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   padding-left: 6%;
   padding-right: 6%;
   background-color: ${theme('footer.bottomBg')};

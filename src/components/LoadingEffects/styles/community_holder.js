@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 
 export const BannerWrapper = styled.div`
-  ${cs.flex('align-center')};
-  justify-content: center;
+  ${cs.flex('align-both')};
   width: 60px;
   height: 60px;
   border-radius: 4px;
@@ -19,9 +18,8 @@ export const SidebarText = styled.div`
   margin-left: 5px;
 `
 export const CommunitiesText = styled.div`
-  ${cs.flex('align-center')};
+  ${cs.flex('align-both')};
   color: ${theme('banner.desc')};
-  justify-content: center;
   width: 54px;
   height: 54px;
   border-radius: 4px;

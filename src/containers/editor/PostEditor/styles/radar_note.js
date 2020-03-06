@@ -5,7 +5,6 @@ import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
-  // justify-content: center;
   padding: 20px;
   padding-top: 30px;
 `

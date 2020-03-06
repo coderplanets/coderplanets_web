@@ -18,9 +18,7 @@ const commonHoverAffix = `
 
 export const Wrapper = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${cs.flex('align-both')};
   width: 180px;
   height: 32px;
   background-color: #3680ad; /* 消失的时候背景色 */
@@ -54,7 +52,6 @@ export const Wrapper = styled.div`
   &:before {
     ${commonHoverAffix};
     width: 70%;
-
     left: 0;
     justify-content: flex-end;
     background-color: #3e8ebf;
@@ -63,15 +60,13 @@ export const Wrapper = styled.div`
   &:after {
     ${commonHoverAffix};
     width: 30%;
-
     right: 0;
     justify-content: flex-start;
     background-color: #327faf;
   }
 `
 export const Label = styled.span`
-  ${cs.flex('align-center')};
-  justify-content: space-between;
+  ${cs.flex('align-center', 'justify-between')};
   padding-left: 16px;
   padding-right: 16px;
   position: absolute;
@@ -95,9 +90,7 @@ export const LabelIcon = styled(Img)`
 `
 export const ActionLink = styled.a`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${cs.flex('align-both')};
   width: 25%;
   height: 100%;
   color: whitesmoke;

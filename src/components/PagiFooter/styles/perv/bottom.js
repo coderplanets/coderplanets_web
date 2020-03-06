@@ -5,8 +5,7 @@ import { cs } from '@utils'
 import { CommonNavi, CommonHint, CommonBottomArrowIcon } from '../index'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-end')};
-  justify-content: flex-end;
+  ${cs.flex('align-end', 'justify-end')};
   color: #196780;
 
   opacity: ${({ disabled }) => (disabled ? '0.6' : '1')};

@@ -5,8 +5,7 @@ import Img from '@Img'
 import PromptIcon from '@components/PromptIcon'
 
 export const Container = styled.div`
-  ${cs.flexColumn('align-center')};
-  justify-content: space-between;
+  ${cs.flexColumn('align-center', 'justify-between')};
 
   height: 100vh;
   background: ${theme('banner.bg')};
