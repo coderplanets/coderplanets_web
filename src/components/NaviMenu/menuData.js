@@ -315,6 +315,7 @@ const menu = [
         id: '0',
         title: '科幻界面',
         icon: `${ICON_CMD}/navi_china.svg`,
+        displayType: 'IMAGE',
         // childMenu: [
         //   {
         //     id: '0',
