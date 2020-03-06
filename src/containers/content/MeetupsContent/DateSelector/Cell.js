@@ -13,16 +13,11 @@ import {
 } from '../styles/date_selector/cell'
 
 const weekends = [5, 6, 18, 19, 27, 28]
-const sunday = [6, 19, 28]
 const activitiesDates = [3, 4, 19, 23, 24]
 
 const Cell = ({ item }) => {
   return (
-    <Wrapper
-      key={item.id}
-      active={R.contains(item.id, activitiesDates)}
-      margin={R.contains(item.id, sunday)}
-    >
+    <Wrapper key={item.id} active={R.contains(item.id, activitiesDates)}>
       <Head>
         <DateText active={item.id === 9}>{item.date}</DateText>
         {R.contains(item.id, weekends) && <WeekendHint>六</WeekendHint>}

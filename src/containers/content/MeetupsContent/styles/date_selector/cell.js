@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
   padding-left: 3px;
   background: ${({ active }) => (active ? '#003b4c' : '#04303c')};
   border-top-color: ${({ active }) => (active ? '#3680AD' : '#004354')};
-  margin-right: ${({ margin }) => (margin ? '25px' : '')};
 `
 export const WeekName = styled.div`
   ${cs.flex('align-both')};
