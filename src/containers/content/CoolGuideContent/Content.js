@@ -13,13 +13,12 @@ import {
   ProductGallery,
   FamePeopleGallery,
   ImageGallery,
-  MasonryGallery,
 } from '@components/GalleryHub'
 
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
 
-// import NewsBoard from './NewsBoard'
+import NewsBoard from './NewsBoard'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 
@@ -30,8 +29,7 @@ const Content = ({ displayType }) => {
 
   switch (displayType) {
     case GUIDE.NEWS_FEED: {
-      // DisplayContent = <NewsBoard />
-      DisplayContent = <MasonryGallery />
+      DisplayContent = <NewsBoard />
       break
     }
     case GUIDE.IMAGE: {

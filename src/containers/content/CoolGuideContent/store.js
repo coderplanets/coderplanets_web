@@ -21,7 +21,7 @@ const CoolGuideContent = t
         GUIDE.FAME_PEOPLE,
         GUIDE.DEFAULT,
       ]),
-      GUIDE.NEWS_FEED
+      GUIDE.IMAGE // NEWS_FEED
     ),
   })
   .views(self => ({

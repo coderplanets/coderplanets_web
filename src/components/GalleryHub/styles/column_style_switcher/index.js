@@ -20,18 +20,19 @@ export const Hint = styled.div`
 `
 export const ContentWrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};
-  width: 70px;
+  width: 100px;
 `
 export const SwitchWrapper = styled.div`
   ${cs.flexColumn('justify-between')};
   width: 20px;
   height: 16px;
   cursor: pointer;
-  transform: scale(0.75);
+  transform: scale(0.8);
 `
 export const SwitchBarBase = styled.div`
   height: 6px;
   background: ${({ active }) => (active ? '#3680ad' : '#196780')};
+  opacity: ${({ active }) => (active ? 1 : 0.8)};
   border-radius: 2px;
 
   ${SwitchWrapper}:hover & {

@@ -6,6 +6,7 @@ import { buildLog } from '@utils'
 import OneColumn from './OneColumn'
 import TwoColumn from './TwoColumn'
 import ThreeColumn from './ThreeColumn'
+import MasonryColumn from './MasonryColumn'
 
 import {
   Wrapper,
@@ -19,11 +20,12 @@ const log = buildLog('C:ColumnStyleSwitcher:index')
 const ColumnStyleSwitcher = ({ activeColumn, onSelect }) => {
   return (
     <Wrapper>
-      <Hint>显示设置</Hint>
+      <Hint>显示样式</Hint>
       <ContentWrapper>
         <OneColumn active={activeColumn === 1} onSelect={onSelect} />
         <TwoColumn active={activeColumn === 2} onSelect={onSelect} />
         <ThreeColumn active={activeColumn === 3} onSelect={onSelect} />
+        <MasonryColumn active={activeColumn === 4} onSelect={onSelect} />
       </ContentWrapper>
     </Wrapper>
   )

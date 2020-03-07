@@ -14,6 +14,8 @@ import PagiFooter from '@components/PagiFooter'
 import OneColumnGallery from './OneColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'
 import ThreeColumnGallery from './ThreeColumnGallery'
+import MasonryGallery from './MasonryGallery'
+
 import ColumnStyleSwitcher from './ColumnStyleSwitcher'
 
 import { Wrapper } from '../styles/image_gallery'
@@ -25,7 +27,7 @@ const tmpItems = [
   {
     id: '0',
     addr: 'coderplanets.com',
-    title: '圣百花大教堂',
+    title: '圣母百花大教堂',
     nation: 'italy',
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
@@ -45,7 +47,7 @@ const tmpItems = [
   {
     id: '2',
     addr: 'coderplanets.com',
-    title: '圣百花大教堂',
+    title: '圣母百花大教堂',
     nation: 'italy',
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
@@ -78,6 +80,10 @@ const ImageGallery = ({ items, column }) => {
       GalleryContent = <ThreeColumnGallery items={items} />
       break
     }
+    case 4: {
+      GalleryContent = <MasonryGallery items={items} />
+      break
+    }
     default: {
       GalleryContent = <OneColumnGallery items={items} />
       break
@@ -99,7 +105,7 @@ const ImageGallery = ({ items, column }) => {
 
 ImageGallery.propTypes = {
   items: T.arrayOf(T.object),
-  column: T.oneOf([1, 2, 3]),
+  column: T.oneOf([1, 2, 3, 4]),
 }
 
 ImageGallery.defaultProps = {

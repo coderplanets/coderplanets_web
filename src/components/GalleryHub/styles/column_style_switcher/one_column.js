@@ -4,6 +4,11 @@ import { SwitchWrapper, SwitchBarBase } from './index'
 
 export const Wrapper = styled(SwitchWrapper)``
 
-export const Bar = styled(SwitchBarBase)`
+export const TopBar = styled(SwitchBarBase)`
   width: 100%;
+  height: 8px;
+`
+export const BottomBar = styled(SwitchBarBase)`
+  width: 100%;
+  height: 3px;
 `

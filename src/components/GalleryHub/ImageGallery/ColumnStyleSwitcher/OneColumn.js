@@ -1,6 +1,10 @@
 import React, { useCallback } from 'react'
 
-import { Wrapper, Bar } from '../../styles/column_style_switcher/one_column'
+import {
+  Wrapper,
+  TopBar,
+  BottomBar,
+} from '../../styles/column_style_switcher/one_column'
 
 const OneColumn = ({ active, onSelect }) => {
   const handleSelect = useCallback(() => {
@@ -9,8 +13,8 @@ const OneColumn = ({ active, onSelect }) => {
 
   return (
     <Wrapper onClick={handleSelect}>
-      <Bar active={active} />
-      <Bar active={active} />
+      <TopBar active={active} />
+      <BottomBar active={active} />
     </Wrapper>
   )
 }
