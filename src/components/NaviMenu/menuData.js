@@ -313,7 +313,7 @@ const menu = [
     childMenu: [
       {
         id: '0',
-        title: '科幻界面',
+        title: '科幻 feel',
         icon: `${ICON_CMD}/navi_china.svg`,
         displayType: 'IMAGE',
         // childMenu: [
