@@ -12,6 +12,8 @@ import { buildLog } from '@utils'
 import CustomScroller from '@components/CustomScroller'
 import { SpaceGrow } from '@components/BaseStyled'
 
+import fakeSourceList from './fakeSourceList'
+
 import {
   ListItemWrapper,
   Header,
@@ -24,168 +26,29 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:FeedsBar:index')
 
-const FakeList = () => {
-  return (
-    <React.Fragment>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
-          hackernews
-          <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>Thank HN: You helped me get a new job</Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
-          techcrunch
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>
-          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
-        </Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          infoQ 中文站
-          <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
-          <SpaceGrow />
-          <Timestamp>2天前</Timestamp>
-        </Header>
-        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
-      </ListItemWrapper>
-
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
-          hackernews
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>Thank HN: You helped me get a new job</Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
-          techcrunch
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>
-          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
-        </Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          infoQ 中文站
-          <SpaceGrow />
-          <Timestamp>2天前</Timestamp>
-        </Header>
-        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
-      </ListItemWrapper>
-
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
-          hackernews
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>Thank HN: You helped me get a new job</Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
-          techcrunch
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>
-          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
-        </Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          infoQ 中文站
-          <SpaceGrow />
-          <Timestamp>2天前</Timestamp>
-        </Header>
-        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
-      </ListItemWrapper>
-
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
-          hackernews
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>Thank HN: You helped me get a new job</Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
-          techcrunch
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>
-          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
-        </Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          infoQ 中文站
-          <SpaceGrow />
-          <Timestamp>2天前</Timestamp>
-        </Header>
-        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
-      </ListItemWrapper>
-
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/hackernews.jpeg`} />
-          hackernews
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>Thank HN: You helped me get a new job</Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/techcrunch.png`} />
-          techcrunch
-          <SpaceGrow />
-          <Timestamp>3天前</Timestamp>
-        </Header>
-        <Title>
-          atch Critical Cryptographic Vulnerability in Microsoft Windows [pdf]
-        </Title>
-      </ListItemWrapper>
-      <ListItemWrapper>
-        <Header>
-          <Icon src={`${ICON_CMD}/hot/infoq.jpg`} />
-          Footer
-          <SpaceGrow />
-          <Timestamp>2天前</Timestamp>
-        </Header>
-        <Title>苹果走钢丝：为iPhone隐私大战FBI，还是屈服于特朗普？</Title>
-      </ListItemWrapper>
-    </React.Fragment>
-  )
-}
-
 const List = () => {
+  // list header(with lable) - 40px
+  // source select - 75px
+  const listHeadHeight = '115px'
+
   return (
-    <CustomScroller direction="vertical" height="75vh" autoHide>
-      <FakeList />
+    <CustomScroller
+      direction="vertical"
+      height={`calc(90vh - ${listHeadHeight})`}
+      autoHide
+    >
+      {fakeSourceList.map(item => (
+        <ListItemWrapper key={item.id}>
+          <Header>
+            <Icon src={item.icon} />
+            {item.source}
+            <InfoIcon src={`${ICON_CMD}/hot/info.svg`} />
+            <SpaceGrow />
+            <Timestamp>{item.createdAt}</Timestamp>
+          </Header>
+          <Title>{item.title}</Title>
+        </ListItemWrapper>
+      ))}
     </CustomScroller>
   )
 }
