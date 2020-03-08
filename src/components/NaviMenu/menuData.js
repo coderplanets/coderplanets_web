@@ -93,7 +93,7 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
-            id: '5',
+            id: '5-',
             title: '字体',
             icon: `${ICON_CMD}/navi_china.svg`,
           },
@@ -141,7 +141,7 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
-            id: '5',
+            id: 'e5',
             title: 'Web 动画',
             icon: `${ICON_CMD}/navi_china.svg`,
           },
@@ -166,7 +166,7 @@ const menu = [
             icon: `${ICON_CMD}/navi_china.svg`,
           },
           {
-            id: '5',
+            id: 'l5',
             title: '奇奇怪怪',
             icon: `${ICON_CMD}/navi_china.svg`,
           },
@@ -174,14 +174,31 @@ const menu = [
       },
       {
         id: '1222222',
-        title: '机器学习',
+        title: '人工智能',
         icon: `${ICON_CMD}/navi_group.svg`,
         childMenu: [
           {
             id: '0',
-            title: '公共数据 ',
+            title: '机器学习',
+          },
+          {
+            id: '1',
+            title: '自然语言处理',
+          },
+          {
+            id: '2',
+            title: '语音识别',
+          },
+          {
+            id: '3',
+            title: '信息检索与推荐',
           },
         ],
+      },
+      {
+        id: '1222b',
+        title: '公共数据',
+        icon: `${ICON_CMD}/navi_group.svg`,
       },
       {
         id: '12',
@@ -495,7 +512,7 @@ const menu = [
             title: '滑雪 | 冲浪板',
           },
           {
-            id: '5',
+            id: '52',
             title: '足球',
           },
           {
@@ -531,7 +548,7 @@ const menu = [
             title: '日用品',
           },
           {
-            id: '0',
+            id: '1',
             title: '球鞋',
           },
           {
@@ -554,11 +571,11 @@ const menu = [
             title: '摩托',
           },
           {
-            id: '1',
+            id: '2',
             title: '航天器', // 月球车
           },
           {
-            id: '1',
+            id: '3',
             title: '战斗机',
           },
           {
@@ -577,7 +594,7 @@ const menu = [
         icon: `${ICON_CMD}/navi_china.svg`,
       },
       {
-        id: '5',
+        id: '51',
         title: '奇奇怪怪',
         icon: `${ICON_CMD}/navi_china.svg`,
         childMenu: [
@@ -656,7 +673,7 @@ const menu = [
         icon: `${ICON_CMD}/navi_translate.svg`,
       },
       {
-        id: '5',
+        id: '59',
         title: '产品',
         icon: `${ICON_CMD}/navi_translate.svg`,
       },
@@ -787,7 +804,7 @@ const menu = [
         icon: `${ICON_CMD}/navi_subscribe.svg`,
       },
       {
-        id: '5',
+        id: '51',
         title: '微信公众号',
         icon: `${ICON_CMD}/navi_subscribe.svg`,
       },
