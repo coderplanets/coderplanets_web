@@ -14,10 +14,17 @@ const getDocument = () => (isBrowser() ? document : null)
  */
 export const scrollToTop = () => {
   const safeDocument = getDocument()
-  if (safeDocument) {
-    safeDocument.body.scrollTop = 0 // For Safari
-    safeDocument.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Oper
+  const c =
+    safeDocument.documentElement.scrollTop || safeDocument.body.scrollTop
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop)
+    window.scrollTo(0, c - c / 8)
   }
+
+  // if (safeDocument) {
+  //   safeDocument.body.scrollTop = 0 // For Safari
+  //   safeDocument.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Oper
+  // }
 }
 
 /**
