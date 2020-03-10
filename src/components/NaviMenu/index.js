@@ -34,29 +34,53 @@ const getMenuinfo = (menuItems, parentMenuId) => {
 
 const NaviMenu = ({ onSelect }) => {
   const [menuMode, setMenuMode] = useState('root')
+
   const [parentMenuId, setParentMenuId] = useState('')
+  const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
+
+  const [childMenuId, setChildMenuId] = useState('')
 
   const [parentMenuIndex, childMenuItems] = getMenuinfo(menuItems, parentMenuId)
 
   // handlers
   const handleGoback = useCallback(() => setMenuMode('root'), [])
-  const handleSelect = useCallback(
+
+  const handleRootSelect = useCallback(
     item => {
       setParentMenuId(item.id)
       setMenuMode('child')
 
-      nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
+      if (nilOrEmpty(item.childMenu)) {
+        setActiveParentMenuId(item.id)
+        onSelect(item.id, item.displayType)
+      }
     },
     [onSelect]
+  )
+
+  const handleChildSelect = useCallback(
+    item => {
+      setChildMenuId(item.id)
+      onSelect(item.id, item.displayType)
+      setActiveParentMenuId(parentMenuId)
+
+      nilOrEmpty(item.childMenu) && onSelect(item.id, item.displayType)
+    },
+    [onSelect, parentMenuId]
   )
 
   return (
     <Wrapper>
       {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
-        <RootMenu menuItems={menuItems} onSelect={handleSelect} />
+        <RootMenu
+          menuItems={menuItems}
+          onSelect={handleRootSelect}
+          activeParentMenuId={activeParentMenuId}
+        />
       ) : (
         <ChildrenMenu
-          onSelect={onSelect}
+          childMenuId={childMenuId}
+          onSelect={handleChildSelect}
           parentMenuItem={menuItems[parentMenuIndex]}
           menuItems={childMenuItems}
           goBack={handleGoback}

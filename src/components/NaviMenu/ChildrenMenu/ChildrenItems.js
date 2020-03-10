@@ -19,29 +19,35 @@ import {
 } from '../styles/children_menu/children_items'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:NaviMenu:index')
+const log = buildLog('c:NaviMenu:ChildrenItems')
 
-const ChildrenItems = ({ activeMenuId, parentId, items, onSelect }) => {
+const ChildrenItems = ({
+  childMenuId,
+  expandMenuId,
+  parentId,
+  items,
+  onSelect,
+}) => {
   const menuItems = items || []
 
   const handleSelect = useCallback(
     e => {
       const item = s2o(e.target.dataset.item)
-      onSelect(item.id, item.displayType)
+      onSelect(item, item.displayType)
     },
     [onSelect]
   )
 
   return (
-    <Wrapper active={activeMenuId === parentId}>
+    <Wrapper active={expandMenuId === parentId}>
       {menuItems.map(item => (
         <div key={item.id}>
           <Item
             data-item={o2s(item)}
-            active={item.id === '101'}
+            active={item.id === childMenuId}
             onClick={handleSelect}
           >
-            {item.id === '101' && <ActiveDot />}
+            {item.id === childMenuId && <ActiveDot />}
             <SpaceGrow />
             {item.title}
           </Item>
@@ -52,7 +58,8 @@ const ChildrenItems = ({ activeMenuId, parentId, items, onSelect }) => {
 }
 
 ChildrenItems.propTypes = {
-  activeMenuId: T.oneOfType([T.string, T.instanceOf(null)]),
+  childMenuId: T.string.isRequired,
+  expandMenuId: T.oneOfType([T.string, T.instanceOf(null)]),
   parentId: T.string.isRequired,
   // TODO:  more spec
   items: T.arrayOf(T.object).isRequired,
@@ -60,7 +67,7 @@ ChildrenItems.propTypes = {
 }
 
 ChildrenItems.defaultProps = {
-  activeMenuId: null,
+  expandMenuId: null,
 }
 
 export default React.memo(ChildrenItems)

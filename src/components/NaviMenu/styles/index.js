@@ -39,7 +39,6 @@ export const Icon = styled(Img)`
     display: block;
   }
 `
-
 export const ActiveDot = styled.div`
   background: ${theme('thread.articleTitle')};
   width: 5px;

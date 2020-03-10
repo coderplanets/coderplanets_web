@@ -21,7 +21,6 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-/* <ActiveDot /> */
 const Dashboard = ({ view, setView, parentMenuItem }) => {
   const handleViewChange = useCallback(
     e => {

@@ -10,22 +10,25 @@ import T from 'prop-types'
 import { buildLog } from '@utils'
 import { SpaceGrow } from '@components/BaseStyled'
 
-import { Item, Icon } from './styles'
+import { Item, Icon, ActiveDot } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-/* <ActiveDot /> */
-const RootMenu = ({ menuItems, onSelect }) => {
+const RootMenu = ({ menuItems, onSelect, activeParentMenuId }) => {
   return (
     <React.Fragment>
       {menuItems.map(item => (
         <Item
-          active={item.id === '0'}
           key={item.id}
+          active={item.id === activeParentMenuId}
           onClick={() => onSelect(item)}
         >
-          <Icon active={item.id === '0'} src={item.icon} />
+          {item.icon ? (
+            <Icon active={item.id === activeParentMenuId} src={item.icon} />
+          ) : (
+            <ActiveDot />
+          )}
           <SpaceGrow />
           {item.title}
         </Item>
@@ -37,6 +40,7 @@ const RootMenu = ({ menuItems, onSelect }) => {
 RootMenu.propTypes = {
   menuItems: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
+  activeParentMenuId: T.string.isRequired,
 }
 
 RootMenu.defaultProps = {}

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@utils'
 
-// border-right: 1px solid #003847;
-// border-left: 1px solid #003847;
+const activeColor = '#009C9E'
+
 export const Wrapper = styled.div`
   background: #042833;
   padding-top: ${({ active }) => (active ? '5px' : '0')};
@@ -17,12 +17,13 @@ export const Item = styled.div`
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : theme('thread.articleDigest')};
+    active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;
   padding: 8px 10px;
 
   &:hover {
-    color: ${theme('thread.articleTitle')};
+    color: ${({ active }) =>
+      active ? activeColor : theme('thread.articleTitle')};
     cursor: pointer;
   }
 
