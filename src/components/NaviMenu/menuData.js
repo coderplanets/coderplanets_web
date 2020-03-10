@@ -311,13 +311,7 @@ const menu = [
         id: uid.gen(),
         title: '科幻世界',
         icon: `${ICON_CMD}/navi_china.svg`,
-        childMenu: [
-          {
-            id: uid.gen(),
-            title: '人机交互',
-            displayType: 'IMAGE',
-          },
-        ],
+        displayType: 'IMAGE',
       },
       {
         id: uid.gen(),
@@ -833,7 +827,7 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: '足球',
+        title: '篮球',
         icon: `${ICON_CMD}/navi_sport.svg`,
       },
     ],

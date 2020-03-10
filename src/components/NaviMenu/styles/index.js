@@ -15,7 +15,7 @@ export const Item = styled.div`
   align-items: center;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
-  font-size: ${({ active }) => (active ? '15px' : '14px')};
+  font-size: 14px;
   border-bottom: 1px solid;
   border-bottom-color: #094354;
   padding: 8px 6px;

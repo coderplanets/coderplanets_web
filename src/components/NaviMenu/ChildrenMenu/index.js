@@ -21,7 +21,7 @@ import { Wrapper } from '../styles/children_menu'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Content = ({ view, menuItems, childMenuId, onSelect }) => {
+const Content = ({ view, ...restProps }) => {
   switch (view) {
     case 'filter': {
       return <ChildrenFilter />
@@ -30,24 +30,12 @@ const Content = ({ view, menuItems, childMenuId, onSelect }) => {
       return <MoreOptions />
     }
     default: {
-      return (
-        <Catalog
-          childMenuId={childMenuId}
-          menuItems={menuItems}
-          onSelect={onSelect}
-        />
-      )
+      return <Catalog {...restProps} />
     }
   }
 }
 
-const ChildrenMenu = ({
-  childMenuId,
-  menuItems,
-  parentMenuItem,
-  onSelect,
-  goBack,
-}) => {
+const ChildrenMenu = ({ goBack, parentMenuItem, ...restProps }) => {
   const [dashView, setDashView] = useState('catalog')
 
   return (
@@ -58,18 +46,15 @@ const ChildrenMenu = ({
         setView={setDashView}
         parentMenuItem={parentMenuItem}
       />
-      <Content
-        view={dashView}
-        childMenuId={childMenuId}
-        menuItems={menuItems}
-        onSelect={onSelect}
-      />
+      <Content view={dashView} {...restProps} />
     </Wrapper>
   )
 }
 
 ChildrenMenu.propTypes = {
   childMenuId: T.string.isRequired,
+  expandChildId: T.string.isRequired,
+  onExpand: T.func.isRequired,
   onSelect: T.func.isRequired,
   goBack: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,

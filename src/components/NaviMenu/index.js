@@ -37,6 +37,7 @@ const NaviMenu = ({ onSelect }) => {
 
   const [parentMenuId, setParentMenuId] = useState('')
   const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
+  const [expandChildId, setExpandChildId] = useState('')
 
   const [childMenuId, setChildMenuId] = useState('')
 
@@ -69,6 +70,10 @@ const NaviMenu = ({ onSelect }) => {
     [onSelect, parentMenuId]
   )
 
+  const handleMenuExpand = useCallback(item => {
+    setExpandChildId(item.id)
+  }, [])
+
   return (
     <Wrapper>
       {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
@@ -80,6 +85,8 @@ const NaviMenu = ({ onSelect }) => {
       ) : (
         <ChildrenMenu
           childMenuId={childMenuId}
+          expandChildId={expandChildId}
+          onExpand={handleMenuExpand}
           onSelect={handleChildSelect}
           parentMenuItem={menuItems[parentMenuIndex]}
           menuItems={childMenuItems}

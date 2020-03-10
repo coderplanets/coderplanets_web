@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
@@ -19,7 +19,7 @@ import { Wrapper, Item, Icon } from '../styles/children_menu/catalog'
 const log = buildLog('c:NaviMenu:index')
 
 // const activeIdCache = {}
-const isActiveId = (childMenuId, childMenu) => {
+const isChildItemActive = (childMenuId, childMenu) => {
   return R.findIndex(R.propEq('id', childMenuId), childMenu || []) >= 0
 }
 
@@ -30,12 +30,15 @@ const CataLogItem = ({
   handleSelect,
   onSelect,
 }) => {
-  const active = isActiveId(childMenuId, item.childMenu)
+  const isChildActive = isChildItemActive(childMenuId, item.childMenu)
+  const isActive = nilOrEmpty(item.childMenu)
+    ? childMenuId === item.id
+    : isChildActive
 
   return (
     <div>
-      <Item data-item={o2s(item)} active={active} onClick={handleSelect}>
-        <Icon active={active} src={item.icon} />
+      <Item data-item={o2s(item)} active={isActive} onClick={handleSelect}>
+        <Icon active={isActive} src={item.icon} />
         <SpaceGrow />
         {item.title}
       </Item>
@@ -52,19 +55,25 @@ const CataLogItem = ({
   )
 }
 
-const Catalog = ({ menuItems, childMenuId, onSelect }) => {
-  const [expandMenuId, setExpandMenuId] = useState(null)
-
+const Catalog = ({
+  menuItems,
+  childMenuId,
+  expandChildId,
+  onExpand,
+  onSelect,
+}) => {
+  // const [expandMenuId, setExpandMenuId] = useState(null)
   const handleSelect = useCallback(
     e => {
       const item = s2o(e.target.dataset.item)
-      setExpandMenuId(item.id)
+      // setExpandMenuId(item.id)
+      onExpand(item)
 
       if (nilOrEmpty(item.childMenu)) {
-        onSelect(item.id, item.displayType)
+        onSelect(item)
       }
     },
-    [onSelect]
+    [onExpand, onSelect]
   )
 
   return (
@@ -74,7 +83,7 @@ const Catalog = ({ menuItems, childMenuId, onSelect }) => {
           key={item.id}
           item={item}
           childMenuId={childMenuId}
-          expandMenuId={expandMenuId}
+          expandMenuId={expandChildId}
           handleSelect={handleSelect}
           onSelect={onSelect}
         />
@@ -85,6 +94,8 @@ const Catalog = ({ menuItems, childMenuId, onSelect }) => {
 
 Catalog.propTypes = {
   childMenuId: T.string.isRequired,
+  expandChildId: T.string.isRequired,
+  onExpand: T.func.isRequired,
   onSelect: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   // goBack: T.func.isRequired,
