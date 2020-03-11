@@ -1,4 +1,4 @@
-Styled-component has an elegant theme implementation that can contain our custom theme information in props. After a simple [function](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/themes/index.js#L25) wrapped, we can easily introduce the theme in each styles file. like: 
+Styled-component has an elegant theme implementation that can contain our custom theme information in props. After a simple [function](https://github.com/coderplanets/coderplanets_web/blob/dev/utils/themes/index.js#L25) wrapped, we can easily introduce the theme in each styles file. like:
 
 ```js
 Export const RespectText = styled.div`
@@ -6,6 +6,7 @@ Export const RespectText = styled.div`
   Display: block;
 `
 ```
+
 The key value of the theme can refer to utils/theme/skils/cyan.js
 
 ```js
@@ -45,9 +46,6 @@ Skins/
 ├── solarized_dark.js
 └── yellow.js
 ```
-
-
-
 
 ![image](https://user-images.githubusercontent.com/6184465/51738138-5fd7bc00-20c9-11e9-9242-4f730f42eab8.png)
 

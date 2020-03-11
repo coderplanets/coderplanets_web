@@ -737,6 +737,11 @@ const menu = [
       },
       {
         id: uid.gen(),
+        title: 'Medium',
+        icon: `${ICON_CMD}/navi_subscribe.svg`,
+      },
+      {
+        id: uid.gen(),
         title: 'Twitter',
         icon: `${ICON_CMD}/navi_subscribe.svg`,
       },

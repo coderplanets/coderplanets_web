@@ -36,7 +36,7 @@ const CataLogItem = ({
     : isChildActive
 
   return (
-    <div>
+    <React.Fragment>
       <Item data-item={o2s(item)} active={isActive} onClick={handleSelect}>
         <Icon active={isActive} src={item.icon} />
         <SpaceGrow />
@@ -51,7 +51,7 @@ const CataLogItem = ({
           onSelect={onSelect}
         />
       )}
-    </div>
+    </React.Fragment>
   )
 }
 

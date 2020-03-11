@@ -1,4 +1,3 @@
-
 本项目前端部分使用 [docker](https://github.com/coderplanets/coderplanets_web/blob/docs/deploy/production/Dockerfile) 部署在阿里云 swarm 集群。
 
 部署流程简化如下：

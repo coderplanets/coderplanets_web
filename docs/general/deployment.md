@@ -6,5 +6,4 @@ The deployment process is simplified as follows:
 2. If there is no problem, merge to master, push and automatically trigger Alibaba Cloud docker build
 3. Manually publish the image after the build is correct (the grayscale publishing strategy will be adopted later)
 
-
 ![](https://raw.githubusercontent.com/coderplanets/coderplanets_server/dev/docs/snapshots/deployment.png)

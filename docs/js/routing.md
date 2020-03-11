@@ -17,4 +17,4 @@ Simply put, the `directory structure is the route`. The files under the pages di
 └── video.js
 ```
 
-In addition, the request will go through the custom middle layer of the express server before reaching these pages. For details, please see [server.js] (https://github.com/coderplanets/coderplanets_web/blob/dev/server.js)
+In addition, the request will go through the custom middle layer of the express server before reaching these pages. For details, please see [server.js](https://github.com/coderplanets/coderplanets_web/blob/dev/server.js)

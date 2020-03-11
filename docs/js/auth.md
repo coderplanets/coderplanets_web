@@ -1,5 +1,4 @@
-This project uses a fine-grained based [CBAC](https://stackoverflow.com/questions/22814023/role-based-access-control-rbac-vs-claims-based-access-control-cbac-in-asp-n ) permission control scheme.
-
+This project uses a fine-grained based [CBAC](https://stackoverflow.com/questions/22814023/role-based-access-control-rbac-vs-claims-based-access-control-cbac-in-asp-n) permission control scheme.
 
 ### how to use
 
@@ -27,12 +26,13 @@ WithGuardian receives some permission-related parameters, the most important of 
 
 ```js
 <ContributorList
-  Passport="root"
-  fallbackProps="readOnly"
-  Users={contributors}
-  addContributor={addContributor}
+  Passport="root"
+  fallbackProps="readOnly"
+  Users={contributors}
+  addContributor={addContributor}
 />
 ```
+
 This component is not displayed if the permissions are not met. The fallbackProps parameter is optional, meaning that the component is used to display the component if the permission is not met.
 
 Permission-related content is worthy of a detailed discussion, I will take the time to complete the document.

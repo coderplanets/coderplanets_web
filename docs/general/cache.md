@@ -1,8 +1,6 @@
 The front-end cache is divided into two parts, `Page Cache` and `GraphQL Query Cache.
 
-
 #### Page Cache
-
 
 The page cache is based on the common LRU policy [lru-cache](https://github.com/isaacs/node-lru-cache), which is currently cached for 30 seconds.
 
@@ -16,7 +14,6 @@ Const ssrCache = new LRUCache({
 ```
 
 See [server.js](https://github.com/coderplanets/coderplanets_web/blob/dev/server.js) for details on caching related code.
-
 
 #### Graphql Query Cache
 

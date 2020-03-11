@@ -1,4 +1,3 @@
-
 本项目基于 [next.js](https://github.com/zeit/next.js) 构建而来，遵循基本的 next.js 的[route 规则](https://github.com/zeit/next.js#routing)。
 
 简单的讲就是 `目录结构即路由`, pages 目录的下的文件就是项目的所有路由，这些页面都支持服务端渲染：
