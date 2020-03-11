@@ -54,6 +54,9 @@ const NaviMenu = ({ onSelect }) => {
       if (nilOrEmpty(item.childMenu)) {
         setActiveParentMenuId(item.id)
         onSelect(item.id, item.displayType)
+      } else {
+        setChildMenuId('')
+        setExpandChildId('')
       }
     },
     [onSelect]
@@ -70,9 +73,7 @@ const NaviMenu = ({ onSelect }) => {
     [onSelect, parentMenuId]
   )
 
-  const handleMenuExpand = useCallback(item => {
-    setExpandChildId(item.id)
-  }, [])
+  const handleMenuExpand = useCallback(item => setExpandChildId(item.id), [])
 
   return (
     <Wrapper>
