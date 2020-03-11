@@ -54,7 +54,6 @@ const NaviMenu = ({ onSelect }) => {
       if (nilOrEmpty(item.childMenu)) {
         setActiveParentMenuId(item.id)
         onSelect(item.id, item.displayType)
-      } else {
         setChildMenuId('')
         setExpandChildId('')
       }

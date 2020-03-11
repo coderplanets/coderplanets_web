@@ -561,6 +561,10 @@ const menu = [
           },
           {
             id: uid.gen(),
+            title: '车机系统',
+          },
+          {
+            id: uid.gen(),
             title: '涂鸦',
           },
           {
