@@ -5,19 +5,19 @@ const menu = [
   {
     id: uid.gen(),
     title: '本周热议',
-    icon: `${ICON_CMD}/navi_fire.svg`,
+    icon: `${ICON_CMD}/navi/fire.svg`,
     displayType: 'NEWS_FEED',
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '酷工具 / 服务',
-    icon: `${ICON_CMD}/navi_china.svg`,
+    icon: `${ICON_CMD}/navi/tool.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '开发效率',
-        icon: `${ICON_CMD}/navi_fire.svg`,
+        icon: `${ICON_CMD}/navi/fire.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -48,7 +48,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '信息获取',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -71,45 +71,45 @@ const menu = [
       {
         id: uid.gen(),
         title: '设计工具 / 资源',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '原型设计',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '幻灯片制作',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '图标',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '配色',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '字体',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: 'Awesome-X',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '实用 SaaS', // 建站工具，
-        icon: `${ICON_CMD}/navi_fire.svg`,
+        icon: `${ICON_CMD}/navi/fire.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -124,59 +124,59 @@ const menu = [
       {
         id: uid.gen(),
         title: 'web 开发',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '开发语言',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'UI 框架',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'WebAssembly',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'Web 动画',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '数据可视化',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'VR / AR',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '富文本编辑器',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'Web 3.0',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '奇奇怪怪',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/others.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '人工智能',
-        icon: `${ICON_CMD}/navi_group.svg`,
+        icon: `${ICON_CMD}/navi/group.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -199,24 +199,24 @@ const menu = [
       {
         id: uid.gen(),
         title: '公共数据',
-        icon: `${ICON_CMD}/navi_group.svg`,
+        icon: `${ICON_CMD}/navi/group.svg`,
       },
       {
         id: uid.gen(),
         title: '区块链', // or move to 基础设施 ?
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '隐私 / 安全',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '运营分析',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -231,34 +231,34 @@ const menu = [
       {
         id: uid.gen(),
         title: '多媒体',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '视频',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '音频',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '基础设施', // 操作系统，数据库，网络协议，编程语言，重要算法。等等
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '操作系统',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '数据库',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
             filters: [
               {
                 id: uid.gen(),
@@ -285,17 +285,17 @@ const menu = [
           {
             id: uid.gen(),
             title: '编程语言',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '云服务', // CDN, 云主机， 等等
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '区块链',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
@@ -305,18 +305,18 @@ const menu = [
     // 非 IT，设计类的网站
     id: uid.gen(),
     title: '设计灵感',
-    icon: `${ICON_CMD}/navi_china.svg`,
+    icon: `${ICON_CMD}/navi/light.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '科幻世界',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/sci-fi.svg`,
         displayType: 'IMAGE',
       },
       {
         id: uid.gen(),
         title: '建筑之美',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/bricks.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -359,7 +359,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '公共空间',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/space_in.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -399,7 +399,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '服饰控',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/cloth.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -418,7 +418,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '文字与排版',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/text.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -441,12 +441,12 @@ const menu = [
       {
         id: uid.gen(),
         title: 'LOGO',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/logo.svg`,
       },
       {
         id: uid.gen(),
         title: 'Pattens',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/pattern.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -493,12 +493,12 @@ const menu = [
       {
         id: uid.gen(),
         title: '创意广告',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/ad.svg`,
       },
       {
         id: uid.gen(),
         title: '工业设计',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/industry_design.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -517,7 +517,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '机械迷',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/mechanical.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -548,12 +548,12 @@ const menu = [
       {
         id: uid.gen(),
         title: '网站 / App',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/webapp.svg`,
       },
       {
         id: uid.gen(),
         title: '奇奇怪怪',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/others.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -578,75 +578,75 @@ const menu = [
   {
     id: uid.gen(),
     title: '酷团队',
-    icon: `${ICON_CMD}/navi_group.svg`,
+    icon: `${ICON_CMD}/navi/group.svg`,
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '播客集',
-    icon: `${ICON_CMD}/navi_podcast.svg`,
+    icon: `${ICON_CMD}/navi/podcast.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '技术类',
-        icon: `${ICON_CMD}/navi_tips.svg`,
+        icon: `${ICON_CMD}/navi/tips.svg`,
       },
       {
         id: uid.gen(),
         title: '设计类',
-        icon: `${ICON_CMD}/navi_tips.svg`,
+        icon: `${ICON_CMD}/navi/tips.svg`,
       },
       {
         id: uid.gen(),
         title: '杂谈类',
-        icon: `${ICON_CMD}/navi_tips.svg`,
+        icon: `${ICON_CMD}/navi/tips.svg`,
       },
     ],
   },
   {
     id: uid.gen(),
     title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
-    icon: `${ICON_CMD}/navi_translate.svg`,
+    icon: `${ICON_CMD}/navi/translate.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '前端',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: 'iOS',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: 'Android',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: '后端',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: '设计',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: '产品',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: '中文文档',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/translate.svg`,
       },
       {
         id: uid.gen(),
         title: '奇奇怪怪',
-        icon: `${ICON_CMD}/navi_translate.svg`,
+        icon: `${ICON_CMD}/navi/others.svg`,
       },
     ],
   },
@@ -659,128 +659,128 @@ const menu = [
   {
     id: uid.gen(),
     title: '计算机名人堂',
-    icon: `${ICON_CMD}/navi_famous.svg`,
+    icon: `${ICON_CMD}/navi/famous.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '图灵奖',
         displayType: 'FAME_PEOPLE',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
       },
       {
         id: uid.gen(),
         title: 'TopCoder',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
       },
       {
         id: uid.gen(),
         title: '语言之父',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
       },
       {
         id: uid.gen(),
         title: '学界',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
       },
       {
         id: uid.gen(),
         title: '工业界',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '前端',
-            icon: `${ICON_CMD}/navi_hammer.svg`,
+            icon: `${ICON_CMD}/navi/hammer.svg`,
           },
           {
             id: uid.gen(),
             title: '后端',
-            icon: `${ICON_CMD}/navi_hammer.svg`,
+            icon: `${ICON_CMD}/navi/hammer.svg`,
           },
           {
             id: uid.gen(),
             title: 'xx端',
-            icon: `${ICON_CMD}/navi_hammer.svg`,
+            icon: `${ICON_CMD}/navi/hammer.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '黑客',
-        icon: `${ICON_CMD}/navi_hammer.svg`,
+        icon: `${ICON_CMD}/navi/hammer.svg`,
       },
     ],
   },
   {
     id: uid.gen(),
     title: '独立开发者',
-    icon: `${ICON_CMD}/navi_hammer.svg`,
+    icon: `${ICON_CMD}/navi/hammer.svg`,
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '命令行',
-    icon: `${ICON_CMD}/navi_shell.svg`,
+    icon: `${ICON_CMD}/navi/shell.svg`,
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '酷发明',
-    icon: `${ICON_CMD}/navi_community.svg`,
+    icon: `${ICON_CMD}/navi/experiment.svg`,
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '值得关注',
-    icon: `${ICON_CMD}/navi_subscribe.svg`,
+    icon: `${ICON_CMD}/navi/subscribe.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: 'NewsLetter',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/subscribe.svg`,
       },
       {
         id: uid.gen(),
         title: 'Medium',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/medium.svg`,
       },
       {
         id: uid.gen(),
         title: 'Twitter',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/twitter.svg`,
       },
       {
         id: uid.gen(),
         title: '知乎专栏',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/zhihu.svg`,
       },
       {
         id: uid.gen(),
         title: '独立博客',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/blog.svg`,
       },
       {
         id: uid.gen(),
         title: '泛科技媒体',
-        icon: `${ICON_CMD}/navi_subscribe.svg`,
+        icon: `${ICON_CMD}/navi/newspaper.svg`,
       },
     ],
   },
   {
     id: uid.gen(),
     title: '影剧 / Talks',
-    icon: `${ICON_CMD}/navi_movie.svg`,
+    icon: `${ICON_CMD}/navi/movie.svg`,
     childMenu: [],
   },
   {
     id: uid.gen(),
     title: '应用数学',
-    icon: `${ICON_CMD}/navi_movie.svg`,
+    icon: `${ICON_CMD}/navi/math.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '找龙哥咨询',
-        icon: `${ICON_CMD}/navi_movie.svg`,
+        icon: `${ICON_CMD}/navi/movie.svg`,
         childMenu: [],
       },
     ],
@@ -788,56 +788,56 @@ const menu = [
   {
     id: uid.gen(),
     title: '新世界', // 非工具类的社区等
-    icon: `${ICON_CMD}/navi_group.svg`,
+    icon: `${ICON_CMD}/navi/gate.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '酷硬件',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
       },
       {
         id: uid.gen(),
         title: '建筑设计',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
       },
       {
         id: uid.gen(),
         title: '行业软件',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/china.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '模型仿真',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'CAD制作',
-            icon: `${ICON_CMD}/navi_china.svg`,
+            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '奇奇怪怪',
-        icon: `${ICON_CMD}/navi_china.svg`,
+        icon: `${ICON_CMD}/navi/others.svg`,
       },
     ],
   },
   {
     id: uid.gen(),
     title: 'Sports Team',
-    icon: `${ICON_CMD}/navi_sport.svg`,
+    icon: `${ICON_CMD}/navi/sport.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '足球',
-        icon: `${ICON_CMD}/navi_sport.svg`,
+        icon: `${ICON_CMD}/navi/sport.svg`,
       },
       {
         id: uid.gen(),
         title: '篮球',
-        icon: `${ICON_CMD}/navi_sport.svg`,
+        icon: `${ICON_CMD}/navi/sport.svg`,
       },
     ],
   },
