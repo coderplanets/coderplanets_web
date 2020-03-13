@@ -34,7 +34,8 @@ export const Item = styled.div`
   transition: all 0.25s;
 `
 export const ActiveDot = styled.div`
-  background: ${theme('thread.articleTitle')};
+  background: ${({ active }) =>
+    active ? activeColor : theme('thread.articleTitle')};
   width: 5px;
   height: 5px;
   border-radius: 50%;

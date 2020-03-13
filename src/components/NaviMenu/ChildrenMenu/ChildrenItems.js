@@ -41,17 +41,18 @@ const ChildrenItems = ({
   return (
     <Wrapper active={expandMenuId === parentId}>
       {menuItems.map(item => (
-        <div key={item.id}>
-          <Item
-            data-item={o2s(item)}
-            active={item.id === childMenuId}
-            onClick={handleSelect}
-          >
-            {item.id === childMenuId && <ActiveDot />}
-            <SpaceGrow />
-            {item.title}
-          </Item>
-        </div>
+        <Item
+          key={item.id}
+          data-item={o2s(item)}
+          active={item.id === childMenuId}
+          onClick={handleSelect}
+        >
+          {item.id === childMenuId && (
+            <ActiveDot active={item.id === childMenuId} />
+          )}
+          <SpaceGrow />
+          {item.title}
+        </Item>
       ))}
     </Wrapper>
   )
