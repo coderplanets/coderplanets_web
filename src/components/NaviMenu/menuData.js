@@ -17,7 +17,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '开发效率',
-        icon: `${ICON_CMD}/navi/fire.svg`,
+        icon: `${ICON_CMD}/navi/timer.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -48,7 +48,7 @@ const menu = [
       {
         id: uid.gen(),
         title: '信息获取',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/grab_info.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -70,8 +70,8 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: '设计工具 / 资源',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        title: '设计 / 资源',
+        icon: `${ICON_CMD}/navi/ruler.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -102,14 +102,14 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: 'Awesome-X',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        title: 'AwesomeX',
+        icon: `${ICON_CMD}/navi/awesome.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '实用 SaaS', // 建站工具，
-        icon: `${ICON_CMD}/navi/fire.svg`,
+        icon: `${ICON_CMD}/navi/cloud.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -124,59 +124,50 @@ const menu = [
       {
         id: uid.gen(),
         title: 'web 开发',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/webapp.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '开发语言',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'UI 框架',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'WebAssembly',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'Web 动画',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '数据可视化',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'VR / AR',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '富文本编辑器',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: 'Web 3.0',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '奇奇怪怪',
-            icon: `${ICON_CMD}/navi/others.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '人工智能',
-        icon: `${ICON_CMD}/navi/group.svg`,
+        icon: `${ICON_CMD}/navi/ai.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -199,24 +190,24 @@ const menu = [
       {
         id: uid.gen(),
         title: '公共数据',
-        icon: `${ICON_CMD}/navi/group.svg`,
+        icon: `${ICON_CMD}/navi/data.svg`,
       },
       {
         id: uid.gen(),
         title: '区块链', // or move to 基础设施 ?
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/block-chain.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '隐私 / 安全',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/safe.svg`,
         childMenu: [],
       },
       {
         id: uid.gen(),
         title: '运营分析',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/monitor.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -231,71 +222,42 @@ const menu = [
       {
         id: uid.gen(),
         title: '多媒体',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/media.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '视频',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '音频',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
       {
         id: uid.gen(),
         title: '基础设施', // 操作系统，数据库，网络协议，编程语言，重要算法。等等
-        icon: `${ICON_CMD}/navi/china.svg`,
+        icon: `${ICON_CMD}/navi/infra.svg`,
         childMenu: [
           {
             id: uid.gen(),
             title: '操作系统',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '数据库',
-            icon: `${ICON_CMD}/navi/china.svg`,
-            filters: [
-              {
-                id: uid.gen(),
-                title: '全部',
-              },
-              {
-                id: uid.gen(),
-                title: '关系型数据库',
-              },
-              {
-                id: uid.gen(),
-                title: '时序数据库',
-              },
-              {
-                id: uid.gen(),
-                title: '文档数据库',
-              },
-              {
-                id: uid.gen(),
-                title: '内存数据库',
-              },
-            ],
           },
           {
             id: uid.gen(),
             title: '编程语言',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '云服务', // CDN, 云主机， 等等
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
           {
             id: uid.gen(),
             title: '区块链',
-            icon: `${ICON_CMD}/navi/china.svg`,
           },
         ],
       },
@@ -606,7 +568,7 @@ const menu = [
   {
     id: uid.gen(),
     title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
-    icon: `${ICON_CMD}/navi/translate.svg`,
+    icon: `${ICON_CMD}/navi/glasses.svg`,
     childMenu: [
       {
         id: uid.gen(),
@@ -792,8 +754,8 @@ const menu = [
     childMenu: [
       {
         id: uid.gen(),
-        title: '酷硬件',
-        icon: `${ICON_CMD}/navi/china.svg`,
+        title: '无人机',
+        icon: `${ICON_CMD}/navi/drone.svg`,
       },
       {
         id: uid.gen(),
