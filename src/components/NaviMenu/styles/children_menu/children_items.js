@@ -31,6 +31,7 @@ export const Item = styled.div`
   :last-child {
     border-bottom: none;
   }
+  transition: all 0.25s;
 `
 export const ActiveDot = styled.div`
   background: ${theme('thread.articleTitle')};

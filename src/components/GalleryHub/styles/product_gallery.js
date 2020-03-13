@@ -40,11 +40,12 @@ export const LinkHead = styled.div`
 `
 export const LinkerWrapper = styled.div`
   width: 70px;
-  display: none;
+  opacity: 0;
 
   ${LinkHead}:hover & {
-    display: block;
+    opacity: 1;
   }
+  transition: opacity 0.3s;
 `
 export const IntroHead = styled.div`
   ${cs.flex('align-center')};

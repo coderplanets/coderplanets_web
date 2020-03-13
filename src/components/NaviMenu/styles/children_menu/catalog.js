@@ -28,6 +28,7 @@ export const Item = styled.div`
   :last-child {
     border-bottom: none;
   }
+  transition: all 0.25s;
 `
 export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
