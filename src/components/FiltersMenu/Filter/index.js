@@ -6,26 +6,37 @@
 
 import React from 'react'
 
-import { Wrapper, Item, SmallRadio } from '../styles/filter'
-
-const RadioGroup = SmallRadio.Group
+import {
+  Wrapper,
+  Item,
+  RadioWrapper,
+  RadioItem,
+  ActiveDot,
+  RadioTitle,
+} from '../styles/filter'
 
 const Filter = ({ id, activeItemId, data }) => {
   return (
     <Wrapper className="navi-radio">
       <Item>
         {activeItemId === id && data ? (
-          <RadioGroup value={data.active}>
+          <RadioWrapper value={data.active}>
             {data.options.map(item => (
-              <SmallRadio key={item.id} value={item.title}>
-                {item.title}
-              </SmallRadio>
+              <RadioItem key={item.id}>
+                <ActiveDot active={data.active === item.title} />
+                <RadioTitle active={data.active === item.title}>
+                  {item.title}
+                </RadioTitle>
+              </RadioItem>
             ))}
-          </RadioGroup>
+          </RadioWrapper>
         ) : (
-          <RadioGroup value="a">
-            <SmallRadio value="a">全部</SmallRadio>
-          </RadioGroup>
+          <RadioWrapper value="">
+            <RadioItem>
+              <ActiveDot active />
+              <RadioTitle active>全部</RadioTitle>
+            </RadioItem>
+          </RadioWrapper>
         )}
       </Item>
     </Wrapper>

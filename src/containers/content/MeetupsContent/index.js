@@ -10,6 +10,7 @@ import { Affix, Button } from 'antd'
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
+import PagiFooter from '@components/PagiFooter'
 import DotDivider from '@components/DotDivider'
 import FiltersMenu from '@components/FiltersMenu'
 
@@ -229,6 +230,8 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
           {items.map(item => (
             <ActivityCard key={item.id} item={item} />
           ))}
+
+          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>
