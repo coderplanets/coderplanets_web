@@ -3,6 +3,7 @@ import styled from 'styled-components'
 // import Img from '@Img'
 import { cs, theme } from '@utils'
 
+const activeColor = '#009C9E'
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-end')};
   color: ${theme('thread.articleDigest')};
@@ -17,6 +18,7 @@ export const RadioWrapper = styled.div`
 export const RadioItem = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 8px;
+  letter-spacing: 2px;
   &:hover {
     cursor: pointer;
   }
@@ -35,7 +37,7 @@ export const ActiveDot = styled.div`
 export const RadioTitle = styled.div`
   font-size: 14px;
   color: ${({ active }) =>
-    active ? '#27908f' : theme('thread.articleDigest')};
+    active ? activeColor : theme('thread.articleDigest')};
   transition: opacity 0.25s;
 `
 export const Item = styled.div`

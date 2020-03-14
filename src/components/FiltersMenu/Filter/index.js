@@ -18,7 +18,7 @@ import {
 const Filter = ({ id, activeItemId, data }) => {
   return (
     <Wrapper className="navi-radio">
-      <Item>
+      <Item active>
         {activeItemId === id && data ? (
           <RadioWrapper value={data.active}>
             {data.options.map(item => (

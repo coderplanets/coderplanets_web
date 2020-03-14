@@ -26,10 +26,15 @@ export const Item = styled.div`
   padding: 8px 6px;
   padding-bottom: ${({ noFilter }) => (noFilter ? '10px' : '5px')};
 
+  background: ${({ active }) => (active ? '#0B323E' : 'transparent')};
+  border-radius: 6px;
+  margin-top: ${({ topMargin }) => (topMargin ? '10px' : '0')};
+
   &:hover {
     color: ${theme('thread.articleTitle')};
     cursor: pointer;
   }
+  transition: margin-top 0.25s;
 `
 export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};

@@ -26,6 +26,11 @@ export const ContentWrapper = styled.div`
   flex-wrap: wrap;
   max-width: calc(100% - 170px);
 `
+export const CardsWrapper = styled.div`
+  ${cs.flex('align-center')};
+  flex-wrap: wrap;
+  width: 100%;
+`
 export const NaviFooter = styled.div`
   ${cs.flexColumn('align-end')};
   border-top: 1px solid;
@@ -36,7 +41,6 @@ export const NaviFooter = styled.div`
   margin-left: 10px;
   margin-top: 50px;
 `
-
 export const Terms = styled.div`
   ${cs.flex('align-center')};
   margin-top: 12px;

@@ -10,9 +10,7 @@ import T from 'prop-types'
 import { buildLog } from '@utils'
 
 import { SpaceGrow } from '@components/BaseStyled'
-
 import Filter from './Filter'
-
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 
 /* eslint-disable-next-line */
@@ -22,9 +20,12 @@ const log = buildLog('c:FiltersMenu:index')
 const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
   const [activeItemId, setActiveItemId] = useState(null)
 
+  console.log('activeItemId -> ', activeItemId)
+  console.log('activeId -> ', activeId)
+
   return (
     <Wrapper>
-      {items.map(item => (
+      {items.map((item, index) => (
         <ItemWrapper
           key={item.id}
           onClick={() => {
@@ -34,8 +35,12 @@ const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
               : setActiveItemId(item.id)
           }}
         >
-          <Item active={item.id === activeId} noFilter={noFilter}>
-            <Icon active={item.id === activeId} src={item.icon} />
+          <Item
+            active={item.id === activeItemId}
+            noFilter={noFilter}
+            topMargin={item.id === activeItemId && index !== 0}
+          >
+            <Icon active={item.id === activeItemId} src={item.icon} />
             <SpaceGrow />
             {item.title}
           </Item>

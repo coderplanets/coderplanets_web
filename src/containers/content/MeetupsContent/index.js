@@ -5,7 +5,7 @@
  */
 
 import React from 'react'
-import { Affix, Button } from 'antd'
+import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
@@ -23,6 +23,7 @@ import {
   InnerWrapper,
   SidebarWrapper,
   ContentWrapper,
+  CardsWrapper,
   NaviFooter,
   Terms,
   TermItem,
@@ -131,7 +132,7 @@ const filtersItems = [
   {
     id: '0',
     title: '城 市',
-    icon: `${ICON_CMD}/navi_china.svg`,
+    icon: `${ICON_CMD}/navi/location.svg`,
 
     filter: {
       active: '全部',
@@ -166,38 +167,18 @@ const filtersItems = [
   {
     id: '101',
     title: '话 题',
-    icon: `${ICON_CMD}/navi_china.svg`,
-    filter: {
-      options: [
-        {
-          id: 10,
-          title: '全部',
-        },
-        {
-          id: 0,
-          title: '大前端',
-        },
-        {
-          id: 1,
-          title: '数据库',
-        },
-        {
-          id: 2,
-          title: '容器',
-        },
-      ],
-    },
+    icon: `${ICON_CMD}/navi/topic.svg`,
   },
   {
     id: '102',
     title: '费 用',
-    icon: `${ICON_CMD}/navi_china.svg`,
+    icon: `${ICON_CMD}/navi/money-yuan.svg`,
   },
   {
     // 非 IT，设计类的网站
     id: '103',
     title: '人 数',
-    icon: `${ICON_CMD}/navi_china.svg`,
+    icon: `${ICON_CMD}/navi/chair.svg`,
   },
 ]
 
@@ -210,27 +191,26 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
       <InnerWrapper>
         <SidebarWrapper>
           <CalendarCard />
-          <Affix offsetTop={20}>
-            <FiltersMenu items={filtersItems} />
-            <NaviFooter>
-              <Button type="primary" size="small" ghost>
-                + 发起活动
-              </Button>
+          <FiltersMenu items={filtersItems} />
+          <NaviFooter>
+            <Button type="primary" size="small" ghost>
+              + 发起活动
+            </Button>
 
-              <Terms>
-                <TermItem>关于</TermItem> <DotDivider radius="3px" />{' '}
-                <TermItem>建议</TermItem> <DotDivider radius="3px" />{' '}
-                <TermItem>举报</TermItem>
-              </Terms>
-            </NaviFooter>
-          </Affix>
+            <Terms>
+              <TermItem>关于</TermItem> <DotDivider radius="3px" />{' '}
+              <TermItem>建议</TermItem> <DotDivider radius="3px" />{' '}
+              <TermItem>举报</TermItem>
+            </Terms>
+          </NaviFooter>
         </SidebarWrapper>
         <ContentWrapper>
           <DateSelector />
-          {items.map(item => (
-            <ActivityCard key={item.id} item={item} />
-          ))}
-
+          <CardsWrapper>
+            {items.map(item => (
+              <ActivityCard key={item.id} item={item} />
+            ))}
+          </CardsWrapper>
           <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
         </ContentWrapper>
       </InnerWrapper>

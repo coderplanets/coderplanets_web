@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   margin-bottom: 18px;
   border-radius: 3px;
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     margin-right: 0;
   }
 
