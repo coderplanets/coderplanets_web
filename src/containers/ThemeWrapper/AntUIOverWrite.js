@@ -151,17 +151,6 @@ const AntUIOverWrite = createGlobalStyle`
     background: ${theme('form.inputBg')};
   }
 
-  .navi-radio {
-    .ant-radio-group {
-      ${cs.flexColumn('align-end')};
-    }
-    span.ant-radio + * {
-      padding-right: 0;
-      min-width: 50px;
-      text-align: right;
-    }
-  }
-
   // pagination overides
   .ant-pagination-item:focus,
   .ant-pagination-item:hover {

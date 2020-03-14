@@ -7,7 +7,6 @@
 import React from 'react'
 import { Button } from 'antd'
 
-import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
@@ -17,6 +16,9 @@ import FiltersMenu from '@components/FiltersMenu'
 import CalendarCard from './CalendarCard'
 import DateSelector from './DateSelector'
 import ActivityCard from './ActivityCard'
+
+import filtersItems from './fakeFiltersItems'
+import meetups from './fakeMeetups'
 
 import {
   Wrapper,
@@ -32,155 +34,6 @@ import { useInit } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:CoolGuideContent')
-
-const items = [
-  {
-    id: 1,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-  },
-  {
-    id: 2,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    type: '后端',
-  },
-  {
-    id: 3,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-  },
-  {
-    id: 4,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    type: '容器',
-  },
-  {
-    id: 5,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    type: '算法',
-  },
-  {
-    id: 6,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-  },
-  {
-    id: 7,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-  },
-  {
-    id: 8,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    finished: true,
-  },
-  {
-    id: 9,
-    date: '10 / 27',
-    week: '周二',
-    title: 'SOFAChannel#11：从一个例子开始体验轻量级类隔离容器 SOFAArk',
-    company: '腾讯',
-    finished: true,
-  },
-  {
-    id: 10,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    finished: true,
-  },
-  {
-    id: 11,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    finished: true,
-  },
-  {
-    id: 12,
-    date: '10 / 27',
-    week: '周二',
-    title: '技术沙龙：数据库异构升迁',
-    company: '腾讯',
-    finished: true,
-  },
-]
-
-const filtersItems = [
-  {
-    id: '0',
-    title: '城 市',
-    icon: `${ICON_CMD}/navi/location.svg`,
-
-    filter: {
-      active: '全部',
-      options: [
-        {
-          id: 0,
-          title: '全部',
-        },
-        {
-          id: 1,
-          title: '北京',
-        },
-        {
-          id: 2,
-          title: '上海',
-        },
-        {
-          id: 3,
-          title: '杭州',
-        },
-        {
-          id: 4,
-          title: '深圳',
-        },
-        {
-          id: 5,
-          title: '成都',
-        },
-      ],
-    },
-  },
-  {
-    id: '101',
-    title: '话 题',
-    icon: `${ICON_CMD}/navi/topic.svg`,
-  },
-  {
-    id: '102',
-    title: '费 用',
-    icon: `${ICON_CMD}/navi/money-yuan.svg`,
-  },
-  {
-    // 非 IT，设计类的网站
-    id: '103',
-    title: '人 数',
-    icon: `${ICON_CMD}/navi/chair.svg`,
-  },
-]
 
 const MeetupsContentContainer = ({ meetupsContent }) => {
   useInit(meetupsContent)
@@ -207,7 +60,7 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
         <ContentWrapper>
           <DateSelector />
           <CardsWrapper>
-            {items.map(item => (
+            {meetups.map(item => (
               <ActivityCard key={item.id} item={item} />
             ))}
           </CardsWrapper>

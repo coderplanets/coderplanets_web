@@ -6,6 +6,7 @@
 
 import React, { useState } from 'react'
 import T from 'prop-types'
+import R from 'ramda'
 
 import { buildLog } from '@utils'
 
@@ -16,12 +17,20 @@ import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:FiltersMenu:index')
 
-/* <ActiveDot /> */
-const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
-  const [activeItemId, setActiveItemId] = useState(null)
+const initActiveMap = items => {
+  const ret = {}
+  for (let index = 0; index < items.length; index += 1) {
+    const element = items[index]
 
-  console.log('activeItemId -> ', activeItemId)
-  console.log('activeId -> ', activeId)
+    ret[element.id] = { ...element.options[0] }
+  }
+
+  return ret
+}
+
+const FiltersMenu = ({ items, noFilter, onItemClick }) => {
+  const [expandMenuId, setExpandMenuId] = useState(null)
+  const [activeMap, setActiveMap] = useState(initActiveMap(items))
 
   return (
     <Wrapper>
@@ -30,25 +39,29 @@ const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
           key={item.id}
           onClick={() => {
             onItemClick(item)
-            item.id === activeItemId
-              ? setActiveItemId(null)
-              : setActiveItemId(item.id)
+            item.id === expandMenuId
+              ? setExpandMenuId(null)
+              : setExpandMenuId(item.id)
           }}
         >
           <Item
-            active={item.id === activeItemId}
+            active={item.id === expandMenuId}
             noFilter={noFilter}
-            topMargin={item.id === activeItemId && index !== 0}
+            topMargin={item.id === expandMenuId && index !== 0}
           >
-            <Icon active={item.id === activeItemId} src={item.icon} />
+            <Icon active={item.id === expandMenuId} src={item.icon} />
             <SpaceGrow />
             {item.title}
           </Item>
           {!noFilter && (
             <Filter
               id={item.id}
-              activeItemId={activeItemId}
-              data={item.filter}
+              expandMenuId={expandMenuId}
+              activeMap={activeMap}
+              options={item.options}
+              onSelect={(parentId, item) =>
+                setActiveMap(R.merge(activeMap, { [parentId]: item }))
+              }
             />
           )}
         </ItemWrapper>
@@ -58,17 +71,26 @@ const FiltersMenu = ({ items, noFilter, onItemClick, activeId }) => {
 }
 
 FiltersMenu.propTypes = {
-  // TODO:
-  items: T.arrayOf(T.object).isRequired,
+  items: T.arrayOf(
+    T.shape({
+      id: T.string,
+      title: T.string,
+      icon: T.string,
+      options: T.arrayOf(
+        T.shape({
+          id: T.string,
+          title: T.string,
+        })
+      ),
+    })
+  ).isRequired,
   noFilter: T.bool,
   onItemClick: T.func,
-  activeId: T.string,
 }
 
 FiltersMenu.defaultProps = {
   noFilter: false,
   onItemClick: log,
-  activeId: '0',
 }
 
 export default React.memo(FiltersMenu)
