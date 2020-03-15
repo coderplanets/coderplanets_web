@@ -18,7 +18,8 @@ export const RadioWrapper = styled.div`
 export const RadioItem = styled.div`
   ${cs.flex('align-center')};
   margin-bottom: 8px;
-  letter-spacing: 2px;
+  margin-right: -1px;
+  letter-spacing: 3px;
   &:hover {
     cursor: pointer;
   }
@@ -28,7 +29,7 @@ export const ActiveDot = styled.div`
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  margin-right: 16px;
+  margin-right: 12px;
   opacity: 0;
 
   opacity: ${({ active }) => (active ? 1 : 0)};
@@ -38,7 +39,13 @@ export const RadioTitle = styled.div`
   font-size: 14px;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
-  transition: opacity 0.25s;
+
+  &:hover {
+    color: ${({ active }) =>
+      active ? activeColor : theme('thread.articleTitle')};
+  }
+
+  transition: all 0.25s;
 `
 export const Item = styled.div`
   ${cs.flex('align-center', 'justify-end')};

@@ -37,13 +37,15 @@ export const Item = styled.div`
   transition: margin-top 0.25s;
 `
 export const Icon = styled(Img)`
-  display: ${({ active }) => (active ? 'block' : 'none')};
+  opacity: ${({ active }) => (active ? 1 : 0)};
   width: 15px;
   height: 15px;
+  display: block;
 
   ${Item}:hover & {
-    display: block;
+    opacity: 1;
   }
+  transition: opacity 0.25s;
 `
 
 export const ActiveDot = styled.div`
