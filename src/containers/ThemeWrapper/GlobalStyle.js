@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .global_blur {
-    filter: blur(5px);
+    filter: blur(2px);
   }
 
   .iziToast {

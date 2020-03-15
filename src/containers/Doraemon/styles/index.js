@@ -14,13 +14,14 @@ export const PageOverlay = styled.div`
 `
 // flex-grow example: http://zhoon.github.io/css3/2014/08/23/flex.html
 export const PanelContainer = styled.div`
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
+  box-shadow: 0px 4px 11px 8px rgba(0, 0, 0, 0.2),
+    0 25px 50px 0 rgba(0, 0, 0, 0.1);
   width: 45vw;
   max-width: 550px;
   position: fixed;
   top: 12vh;
   z-index: ${cs.zIndex.doraemon};
-  display: ${({ visible }) => (visible ? 'block' : 'none')};
   margin: auto;
   left: 0;
   right: 0;

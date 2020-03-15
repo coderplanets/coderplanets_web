@@ -4,9 +4,11 @@
  *
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
+import usePortal from 'react-useportal'
 
 import { connectStore, buildLog } from '@utils'
+import { TYPE } from '@constant'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
@@ -23,6 +25,7 @@ const log = buildLog('C:Doraemon')
 
 const DoraemonContainer = ({ doraemon }) => {
   useInit(doraemon)
+  const { Portal } = usePortal()
 
   const {
     inputValue,
@@ -39,26 +42,47 @@ const DoraemonContainer = ({ doraemon }) => {
     searchedTotalCount,
   } = doraemon
 
+  useEffect(() => {
+    const globalEl = document.getElementById(TYPE.GLOBAL_LAYOUT_ID)
+
+    if (visible) {
+      globalEl.classList.add('global_blur')
+    } else {
+      globalEl.classList.remove('global_blur')
+    }
+  }, [visible])
+
   // log('suggestion.raw: ', suggestions.toJSON())
 
   return (
     <React.Fragment>
-      <PageOverlay visible={visible} onClick={hidePanel} />
-      <PanelContainer visible={visible}>
-        <InputEditor value={inputValue} searching={searching} prefix={prefix} />
+      {visible && (
+        <Portal>
+          <PageOverlay visible={visible} onClick={hidePanel} />
+          <PanelContainer visible={visible}>
+            <InputEditor
+              value={inputValue}
+              searching={searching}
+              prefix={prefix}
+            />
 
-        {showThreadSelector && <ThreadSelectBar active={searchThread} />}
-        {showAlert && (
-          <AlertBar value={inputValue} searchThread={searchThread} />
-        )}
-        <ResultsList
-          searchValue={inputValueRaw}
-          suggestions={suggestions}
-          activeRaw={activeRaw}
-          searchThread={searchThread}
-        />
-        {showUtils && <UtilsBar total={searchedTotalCount} />}
-      </PanelContainer>
+            {showThreadSelector && <ThreadSelectBar active={searchThread} />}
+            {showAlert && (
+              <AlertBar value={inputValue} searchThread={searchThread} />
+            )}
+            {suggestions.length > 0 && (
+              <ResultsList
+                searchValue={inputValueRaw}
+                suggestions={suggestions}
+                activeRaw={activeRaw}
+                searchThread={searchThread}
+              />
+            )}
+
+            {showUtils && <UtilsBar total={searchedTotalCount} />}
+          </PanelContainer>
+        </Portal>
+      )}
     </React.Fragment>
   )
 }
