@@ -36,7 +36,15 @@ const DynamicBuyMeChuanChuan = dynamic({
 const FooterContainer = ({ footer }) => {
   useInit(footer)
 
-  const { showSponsor, showBusBanner, curView, accountInfo } = footer
+  const {
+    showSponsor,
+    showBusBanner,
+    curView,
+    accountInfo,
+    hasTopBorder,
+  } = footer
+
+  console.log('Footer hasTopBorder : ', hasTopBorder)
 
   return (
     <Wrapper data-testid="footer">
@@ -52,7 +60,11 @@ const FooterContainer = ({ footer }) => {
         onPay={onPay}
       />
 
-      {curView === 'DIGEST' ? <DigestView /> : <BriefView />}
+      {curView === 'DIGEST' ? (
+        <DigestView hasTopBorder={hasTopBorder} />
+      ) : (
+        <BriefView />
+      )}
     </Wrapper>
   )
 }

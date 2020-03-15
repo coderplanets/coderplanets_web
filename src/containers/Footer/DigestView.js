@@ -33,8 +33,8 @@ import {
   toggleSeniorHelper,
 } from './logic'
 
-const DigestView = () => (
-  <Wrapper>
+const DigestView = ({ hasTopBorder }) => (
+  <Wrapper hasTopBorder={hasTopBorder}>
     <InnerWrapper>
       <MainInfos>
         <MainColumn>
