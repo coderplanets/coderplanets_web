@@ -5,8 +5,9 @@ import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-both')}
-  width: 100%;
-  margin-top: -15px;
+  width: 80%;
+  margin-top: 4%;
+  margin-bottom: 3%;
 `
 export const Sentence = styled.div`
   color: ${theme('haveADrinkPage.sentence')};

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from '@Img'
-import { cs } from '@utils'
+import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-both')}
@@ -14,8 +14,8 @@ export const Block = styled.div`
   width: 240px;
   height: 120px;
   border-radius: 4px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 25px;
+  margin-bottom: 30px;
 
   border: ${({ active }) =>
     active ? '1px solid #327faf;' : '1px solid #31576f;'};
@@ -41,11 +41,11 @@ export const Intro = styled.div`
   ${cs.flex('align-center')};
 `
 export const Icon = styled(Img)`
+  fill: ${theme('thread.articleTitle')};
   width: 16px;
   height: 16px;
   display: block;
   margin-right: 8px;
-  filter: saturate(0.3);
 `
 export const Timestamp = styled.div``
 
@@ -56,7 +56,7 @@ export const Body = styled.div`
   padding: 0 14px;
 `
 export const Title = styled.div`
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
 `
 export const Desc = styled.div`

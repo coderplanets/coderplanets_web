@@ -6,14 +6,14 @@ import { theme, cs } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-both')}
   width: 100%;
-  height: 96vh;
 `
-
 export const InnerWrapper = styled.div`
   ${cs.flexColumn('align-center', 'justify-between')};
+  margin-top: 25px;
+  margin-bottom: 40px;
   padding: 15px 25px;
   width: 90%;
-  height: 92%;
+  min-height: 88vh;
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
   border-radius: 8px;
   background: ${theme('haveADrinkPage.bg')};
