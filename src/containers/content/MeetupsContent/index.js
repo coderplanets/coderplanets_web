@@ -38,7 +38,6 @@ const log = buildLog('C:CoolGuideContent')
 const MeetupsContentContainer = ({ meetupsContent }) => {
   useInit(meetupsContent)
 
-  // TODO:  只要一 scroll, 就把打开的 filter 都关掉
   return (
     <Wrapper>
       <InnerWrapper>

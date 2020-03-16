@@ -60,7 +60,7 @@ export const Title = styled.div`
 `
 export const TitleText = styled.div`
   text-indent: 35px;
-  font-size: 15px;
+  font-size: 16px;
 
   ${Wrapper}:hover & {
     font-weight: ${({ finished }) => (finished ? 'normal' : 'bold')};
@@ -79,7 +79,7 @@ export const Tag = styled.div`
 `
 export const BodyWrapper = styled.div`
   ${cs.flex('align-center')}
-  font-size: 13px;
+  font-size: 14px;
   color: ${theme('thread.articleDigest')};
 `
 export const Icon = styled(Img)`
