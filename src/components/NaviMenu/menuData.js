@@ -66,6 +66,10 @@ const menu = [
             id: uid.gen(),
             title: '搜索引擎',
           },
+          {
+            id: uid.gen(),
+            title: '翻译工具',
+          },
         ],
       },
       {
@@ -545,28 +549,6 @@ const menu = [
   },
   {
     id: uid.gen(),
-    title: '播客集',
-    icon: `${ICON_CMD}/navi/podcast.svg`,
-    childMenu: [
-      {
-        id: uid.gen(),
-        title: '技术类',
-        icon: `${ICON_CMD}/navi/tips.svg`,
-      },
-      {
-        id: uid.gen(),
-        title: '设计类',
-        icon: `${ICON_CMD}/navi/tips.svg`,
-      },
-      {
-        id: uid.gen(),
-        title: '杂谈类',
-        icon: `${ICON_CMD}/navi/tips.svg`,
-      },
-    ],
-  },
-  {
-    id: uid.gen(),
     title: '教程 / 翻译', // 技术书籍，中文文档, 翻译文章, 国外网校, 比如 https://web.stanford.edu/class/cs224n/
     icon: `${ICON_CMD}/navi/glasses.svg`,
     childMenu: [
@@ -693,13 +675,13 @@ const menu = [
   },
   {
     id: uid.gen(),
-    title: '值得关注',
+    title: '优质信息源',
     icon: `${ICON_CMD}/navi/subscribe.svg`,
     childMenu: [
       {
         id: uid.gen(),
-        title: 'NewsLetter',
-        icon: `${ICON_CMD}/navi/subscribe.svg`,
+        title: '周刊 / 月报',
+        icon: `${ICON_CMD}/navi/news-paper.svg`,
       },
       {
         id: uid.gen(),
@@ -713,8 +695,40 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: '知乎专栏',
-        icon: `${ICON_CMD}/navi/zhihu.svg`,
+        title: '专栏类',
+        icon: `${ICON_CMD}/navi/columns.svg`,
+        childMenu: [
+          {
+            id: uid.gen(),
+            title: '知乎',
+          },
+          {
+            id: uid.gen(),
+            title: '网易？',
+          },
+        ],
+      },
+      {
+        id: uid.gen(),
+        title: '播客类',
+        icon: `${ICON_CMD}/navi/podcast.svg`,
+        childMenu: [
+          {
+            id: uid.gen(),
+            title: '技术类',
+            icon: `${ICON_CMD}/navi/tips.svg`,
+          },
+          {
+            id: uid.gen(),
+            title: '设计类',
+            icon: `${ICON_CMD}/navi/tips.svg`,
+          },
+          {
+            id: uid.gen(),
+            title: '杂谈类',
+            icon: `${ICON_CMD}/navi/tips.svg`,
+          },
+        ],
       },
       {
         id: uid.gen(),
@@ -723,8 +737,40 @@ const menu = [
       },
       {
         id: uid.gen(),
+        title: '团队播客',
+        icon: `${ICON_CMD}/navi/team.svg`,
+        childMenu: [
+          {
+            id: uid.gen(),
+            title: '全部',
+          },
+          {
+            id: uid.gen(),
+            title: '大前端',
+          },
+          {
+            id: uid.gen(),
+            title: '设计师',
+          },
+          {
+            id: uid.gen(),
+            title: 'iOS',
+          },
+          {
+            id: uid.gen(),
+            title: 'Android',
+          },
+        ],
+      },
+      {
+        id: uid.gen(),
+        title: '微信公众号',
+        icon: `${ICON_CMD}/navi/weichat_gzh.svg`,
+      },
+      {
+        id: uid.gen(),
         title: '泛科技媒体',
-        icon: `${ICON_CMD}/navi/newspaper.svg`,
+        icon: `${ICON_CMD}/navi/macphone.svg`,
       },
     ],
   },
@@ -750,12 +796,17 @@ const menu = [
   {
     id: uid.gen(),
     title: '新世界', // 非工具类的社区等
-    icon: `${ICON_CMD}/navi/gate.svg`,
+    icon: `${ICON_CMD}/navi/door.svg`,
     childMenu: [
       {
         id: uid.gen(),
         title: '无人机',
         icon: `${ICON_CMD}/navi/drone.svg`,
+      },
+      {
+        id: uid.gen(),
+        title: '树莓派',
+        icon: `${ICON_CMD}/navi/raspberry-pie.svg`,
       },
       {
         id: uid.gen(),
