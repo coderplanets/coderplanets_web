@@ -46,7 +46,10 @@ export const scrollIntoEle = eleID => {
 export const scrollToHeader = () => scrollIntoEle(TYPE.APP_HEADER_ID)
 export const scrollToTabber = () => scrollIntoEle(TYPE.APP_TABBER_ID)
 
-export const holdPage = () => {
+/**
+ * froze page's body element
+ */
+export const lockPage = () => {
   const safeDocument = getDocument()
 
   if (safeDocument) {
@@ -56,7 +59,10 @@ export const holdPage = () => {
   }
 }
 
-export const unholdPage = () => {
+/**
+ * unfroze page's body element
+ */
+export const unlockPage = () => {
   const safeDocument = getDocument()
 
   if (safeDocument) {

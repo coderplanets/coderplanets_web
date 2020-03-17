@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 import { TYPE, EVENT } from '@constant'
-import { asyncSuit, buildLog, unholdPage, send, Global } from '@utils'
+import { asyncSuit, buildLog, unlockPage, send, Global } from '@utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:Preview')
@@ -20,7 +20,7 @@ let store = null
 let sub$ = null
 
 export const closePreview = () => {
-  unholdPage()
+  unlockPage()
   store.close()
   store.mark({ imageUploading: false, type: null })
 

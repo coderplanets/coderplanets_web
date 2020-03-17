@@ -59,7 +59,7 @@ const sr71$ = new SR71({
     match: asyncRes(EVENT.PREVIEW_OPEN),
     action: res => {
       const payload = res[EVENT.PREVIEW_OPEN]
-      holdPage()
+      lockPage()
 
       store.open(payload)
     },

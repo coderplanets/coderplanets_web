@@ -11,8 +11,8 @@ import {
   connectStore,
   buildLog,
   scrollToTop,
-  holdPage,
-  unholdPage,
+  lockPage,
+  unlockPage,
 } from '@utils'
 import { useShortcut } from '@hooks'
 
@@ -42,9 +42,9 @@ const HaveADrinkContentContainer = ({ haveADrinkContent }) => {
 
   useShortcut('space', () => {
     scrollToTop()
-    holdPage()
+    lockPage()
     refreshSentence()
-    setTimeout(() => unholdPage(), 1000)
+    setTimeout(() => unlockPage(), 1000)
   })
 
   const {

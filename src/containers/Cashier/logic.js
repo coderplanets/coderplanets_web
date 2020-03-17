@@ -6,7 +6,7 @@ import {
   asyncSuit,
   buildLog,
   Global,
-  holdPage,
+  lockPage,
   errorForHuman,
   send,
   errRescue,
@@ -70,7 +70,7 @@ const DataSolver = [
     match: asyncRes(EVENT.CALL_CASHIER),
     action: () => {
       store.mark({ show: true })
-      holdPage()
+      lockPage()
     },
   },
   {

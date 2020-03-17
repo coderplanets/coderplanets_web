@@ -59,7 +59,7 @@ Corresponding DataSolver:
     Match: asyncRes(EVENT.PREVIEW_OPEN),
     Action: res => {
       Const payload = res[EVENT.PREVIEW_OPEN]
-      holdPage()
+      lockPage()
 
       Store.open(payload)
     },

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 import { TYPE, EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, holdPage, unholdPage, errRescue } from '@utils'
+import { asyncSuit, buildLog, lockPage, unlockPage, errRescue } from '@utils'
 
 import S from './schema'
 
@@ -20,7 +20,7 @@ let store = null
 
 export const onClose = () => {
   store.mark({ show: false })
-  unholdPage()
+  unlockPage()
 }
 
 export const onFollow = userId => sr71$.mutate(S.follow, { userId })
@@ -105,7 +105,7 @@ const DataSolver = [
       const { type, data } = res.USER_LISTER_OPEN
       store.mark({ show: true, type, ...data })
       loadUsers(type, data)
-      holdPage()
+      lockPage()
     },
   },
   {
