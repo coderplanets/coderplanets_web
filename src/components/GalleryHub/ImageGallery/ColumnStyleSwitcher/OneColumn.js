@@ -2,8 +2,9 @@ import React, { useCallback } from 'react'
 
 import {
   Wrapper,
-  TopBar,
-  BottomBar,
+  MainBar,
+  SubbarWrapper,
+  SubBar,
 } from '../../styles/column_style_switcher/one_column'
 
 const OneColumn = ({ active, onSelect }) => {
@@ -13,8 +14,11 @@ const OneColumn = ({ active, onSelect }) => {
 
   return (
     <Wrapper onClick={handleSelect}>
-      <TopBar active={active} />
-      <BottomBar active={active} />
+      <MainBar active={active} />
+      <SubbarWrapper>
+        <SubBar active={active} />
+        <SubBar active={active} />
+      </SubbarWrapper>
     </Wrapper>
   )
 }

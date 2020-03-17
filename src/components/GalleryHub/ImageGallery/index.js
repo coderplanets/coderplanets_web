@@ -31,6 +31,9 @@ const tmpItems = [
     nation: 'italy',
     imgSrc:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
+    imgSrc2: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc3:
+      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
     icon:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
@@ -41,6 +44,9 @@ const tmpItems = [
     title: '威尼斯总督府',
     nation: 'italy',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc2: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc3:
+      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
@@ -50,6 +56,9 @@ const tmpItems = [
     title: '圣母百花大教堂',
     nation: 'italy',
     imgSrc:
+      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
+    imgSrc2: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc3:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
     icon:
@@ -61,6 +70,9 @@ const tmpItems = [
     title: '威尼斯总督府',
     nation: 'italy',
     imgSrc: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc2: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wns.jpg',
+    imgSrc3:
+      'https://cps-oss.oss-cn-shanghai.aliyuncs.com/navi/arch/wqsqpsngny.jpeg',
     // desc: '最性感的开发者社区',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
@@ -110,7 +122,7 @@ ImageGallery.propTypes = {
 
 ImageGallery.defaultProps = {
   items: tmpItems,
-  column: 3,
+  column: 1,
 }
 
 export default React.memo(ImageGallery)

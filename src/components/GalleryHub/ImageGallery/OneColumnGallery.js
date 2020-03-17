@@ -16,8 +16,10 @@ import {
   Wrapper,
   Block,
   ImageWrapper,
+  SubImageWrapper,
   Intro,
-  Image,
+  MainImage,
+  SubImage,
   IntroHead,
   Title,
   FlagIcon,
@@ -37,7 +39,11 @@ const OneColumnGallery = ({ items }) => {
           borderRight={(index + 1) % 3 !== 0}
         >
           <ImageWrapper>
-            <Image src={item.imgSrc} />
+            <MainImage src={item.imgSrc} />
+            <SubImageWrapper>
+              <SubImage src={item.imgSrc2} />
+              <SubImage src={item.imgSrc3} />
+            </SubImageWrapper>
           </ImageWrapper>
           <Intro>
             <IntroHead>
