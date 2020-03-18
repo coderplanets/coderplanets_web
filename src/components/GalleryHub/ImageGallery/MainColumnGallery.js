@@ -24,12 +24,12 @@ import {
   Title,
   FlagIcon,
   Footer,
-} from '../styles/image_gallery/one_column_gallery'
+} from '../styles/image_gallery/main_column_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ImageGallery:index')
 
-const OneColumnGallery = ({ items }) => {
+const MainColumnGallery = ({ items }) => {
   return (
     <Wrapper>
       {items.map((item, index) => (
@@ -67,10 +67,10 @@ const OneColumnGallery = ({ items }) => {
   )
 }
 
-OneColumnGallery.propTypes = {
+MainColumnGallery.propTypes = {
   items: T.arrayOf(T.object).isRequired,
 }
 
-OneColumnGallery.defaultProps = {}
+MainColumnGallery.defaultProps = {}
 
-export default React.memo(OneColumnGallery)
+export default React.memo(MainColumnGallery)

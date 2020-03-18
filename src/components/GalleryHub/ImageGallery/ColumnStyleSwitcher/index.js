@@ -3,7 +3,7 @@ import T from 'prop-types'
 
 import { buildLog } from '@utils'
 
-import OneColumn from './OneColumn'
+import MainColumn from './MainColumn'
 import TwoColumn from './TwoColumn'
 import ThreeColumn from './ThreeColumn'
 import MasonryColumn from './MasonryColumn'
@@ -22,7 +22,7 @@ const ColumnStyleSwitcher = ({ activeColumn, onSelect }) => {
     <Wrapper>
       <Hint>显示样式</Hint>
       <ContentWrapper>
-        <OneColumn active={activeColumn === 1} onSelect={onSelect} />
+        <MainColumn active={activeColumn === 1} onSelect={onSelect} />
         <TwoColumn active={activeColumn === 2} onSelect={onSelect} />
         <ThreeColumn active={activeColumn === 3} onSelect={onSelect} />
         <MasonryColumn active={activeColumn === 4} onSelect={onSelect} />

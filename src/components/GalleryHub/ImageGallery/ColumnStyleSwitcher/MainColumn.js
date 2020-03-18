@@ -5,9 +5,9 @@ import {
   MainBar,
   SubbarWrapper,
   SubBar,
-} from '../../styles/column_style_switcher/one_column'
+} from '../../styles/column_style_switcher/main_column'
 
-const OneColumn = ({ active, onSelect }) => {
+const MainColumn = ({ active, onSelect }) => {
   const handleSelect = useCallback(() => {
     onSelect(1)
   }, [onSelect])
@@ -25,4 +25,4 @@ const OneColumn = ({ active, onSelect }) => {
   )
 }
 
-export default React.memo(OneColumn)
+export default React.memo(MainColumn)

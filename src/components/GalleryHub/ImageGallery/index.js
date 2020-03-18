@@ -11,7 +11,7 @@ import { buildLog } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
 
-import OneColumnGallery from './OneColumnGallery'
+import MainColumnGallery from './MainColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'
 import ThreeColumnGallery from './ThreeColumnGallery'
 import MasonryGallery from './MasonryGallery'
@@ -97,7 +97,7 @@ const ImageGallery = ({ items, column }) => {
       break
     }
     default: {
-      GalleryContent = <OneColumnGallery items={items} />
+      GalleryContent = <MainColumnGallery items={items} />
       break
     }
   }
