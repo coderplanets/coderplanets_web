@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
 
+import { Button } from '@components/Buttons'
 import { Space } from '@components/BaseStyled'
 import DocUploader from '@containers/DocUploader'
 

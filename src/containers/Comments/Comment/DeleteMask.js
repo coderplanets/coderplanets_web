@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'antd'
+
+import { Button } from '@components/Buttons'
 
 import {
   DeleteOverlay,

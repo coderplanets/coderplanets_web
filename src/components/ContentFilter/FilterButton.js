@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
+
+import { Button } from '@components/Buttons'
 import Popover from '@components/Popover'
 
 import { Wrapper, InnerBtnWrapper, FilterIcon } from './styles/filter_button'

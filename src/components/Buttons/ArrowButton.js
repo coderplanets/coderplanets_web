@@ -34,7 +34,13 @@ const SISE_MAP = {
   },
 }
 
-const Buttons = ({ children, onClick, size, direction, transparentFirst }) => {
+const ArrowButton = ({
+  children,
+  onClick,
+  size,
+  direction,
+  transparentFirst,
+}) => {
   return (
     <Wrapper onClick={onClick} transparentFirst={transparentFirst}>
       {direction === 'left' ? (
@@ -58,7 +64,7 @@ const Buttons = ({ children, onClick, size, direction, transparentFirst }) => {
   )
 }
 
-Buttons.propTypes = {
+ArrowButton.propTypes = {
   children: T.oneOfType(T.string, T.node),
   size: T.oneOf(['tiny', 'small', 'medium', 'large']),
   direction: T.oneOf(['left', 'right']),
@@ -66,7 +72,7 @@ Buttons.propTypes = {
   onClick: T.func,
 }
 
-Buttons.defaultProps = {
+ArrowButton.defaultProps = {
   children: '下一步',
   size: 'small',
   direction: 'right',
@@ -74,4 +80,4 @@ Buttons.defaultProps = {
   onClick: log,
 }
 
-export default React.memo(Buttons)
+export default React.memo(ArrowButton)

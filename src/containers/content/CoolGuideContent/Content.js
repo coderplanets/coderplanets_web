@@ -6,9 +6,11 @@
 
 import React from 'react'
 
-import { GUIDE } from '@constant'
+import { Button } from '@components/Buttons'
 
+import { GUIDE } from '@constant'
 import PagiFooter from '@components/PagiFooter'
+
 import {
   ProductGallery,
   FamePeopleGallery,
@@ -29,7 +31,16 @@ const Content = ({ displayType }) => {
 
   switch (displayType) {
     case GUIDE.NEWS_FEED: {
-      DisplayContent = <NewsBoard />
+      // DisplayContent = <NewsBoard />
+      DisplayContent = (
+        <div>
+          <Button onClick={() => console.log('on click test')}>Button</Button>
+          <Button type="red">Button</Button>
+          <Button type="primary" ghost>
+            Button
+          </Button>
+        </div>
+      )
       break
     }
     case GUIDE.IMAGE: {

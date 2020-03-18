@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { Button } from 'antd'
 
-// import Img from '@Img'
 import { theme, cs, animate } from '@utils'
+import { Button } from '@components/Buttons'
 
 export const Wrapper = styled.div`
   animation: ${({ updating }) => (updating ? animate.updatingRule : '')};
