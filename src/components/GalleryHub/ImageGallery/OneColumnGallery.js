@@ -41,6 +41,8 @@ const OneColumnGallery = ({ items }) => {
           <ImageWrapper>
             <MainImage src={item.imgSrc} />
             <SubImageWrapper>
+              <SubImage src={item.imgSrc2} marginBottom />
+              <SubImage src={item.imgSrc3} marginBottom />
               <SubImage src={item.imgSrc2} />
               <SubImage src={item.imgSrc3} />
             </SubImageWrapper>

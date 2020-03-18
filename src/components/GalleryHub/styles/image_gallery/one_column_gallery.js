@@ -23,18 +23,20 @@ export const ImageWrapper = styled.div`
   height: auto;
 `
 export const MainImage = styled(ImageBase)`
-  width: calc(100% - 280px);
+  width: calc(100% - 450px);
   height: 420px;
   border-radius: 2px;
 `
 export const SubImageWrapper = styled.div`
-  ${cs.flexColumn('justify-between')};
+  ${cs.flex('justify-between')};
+  flex-wrap: wrap;
 `
 export const SubImage = styled(ImageBase)`
-  width: 276px;
+  width: 220px;
   height: 208px;
   margin-left: 5px;
   border-radius: 2px;
+  margin-bottom: ${({ marginBottom }) => (marginBottom ? '5px' : 'none')};
 `
 export const Intro = styled(IntroBase)`
   padding-top: 16px;
@@ -42,7 +44,7 @@ export const Intro = styled(IntroBase)`
 `
 export const IntroHead = styled(IntroHeadBase)``
 export const Title = styled(TitleBase)`
-  font-size: 18px;
+  font-size: 16px;
 `
 export const Footer = styled(FooterBase)``
 export const FlagIcon = styled(FlagIconBase)`

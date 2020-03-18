@@ -16,6 +16,8 @@ const OneColumn = ({ active, onSelect }) => {
     <Wrapper onClick={handleSelect}>
       <MainBar active={active} />
       <SubbarWrapper>
+        <SubBar active={active} marginBottom />
+        <SubBar active={active} marginBottom />
         <SubBar active={active} />
         <SubBar active={active} />
       </SubbarWrapper>
