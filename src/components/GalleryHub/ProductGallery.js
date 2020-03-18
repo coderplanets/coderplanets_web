@@ -11,7 +11,7 @@ import R from 'ramda'
 import { ICON_CMD } from '@config'
 import { buildLog, cutFrom } from '@utils'
 
-import { ArrowButton } from '@components/FancyButtons'
+import { ArrowButton } from '@components/Buttons'
 
 import InlineTags from './InlineTags'
 

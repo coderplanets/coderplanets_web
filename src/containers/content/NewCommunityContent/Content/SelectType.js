@@ -9,7 +9,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { ArrowButton } from '@components/FancyButtons'
+import { ArrowButton } from '@components/Buttons'
 import DemoCommunity from './DemoCommunity'
 
 import COMMUNITY_INTRO from './communityIntros'

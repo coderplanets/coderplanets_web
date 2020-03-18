@@ -11,7 +11,7 @@ import { TYPE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import EmptyThread from '@components/EmptyThread'
-import { PublishButton } from '@components/FancyButtons'
+import { PublishButton } from '@components/Buttons'
 import MarkDownRender from '@components/MarkDownRender'
 import { ArticleContentLoading } from '@components/LoadingEffects'
 import GithubSyncWarning from '@components/GithubSyncWarning'
