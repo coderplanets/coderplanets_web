@@ -8,6 +8,7 @@ import React from 'react'
 
 import { GUIDE } from '@constant'
 
+import Tabs from '@components/Tabs'
 import PagiFooter from '@components/PagiFooter'
 import {
   ProductGallery,
@@ -29,7 +30,8 @@ const Content = ({ displayType }) => {
 
   switch (displayType) {
     case GUIDE.NEWS_FEED: {
-      DisplayContent = <NewsBoard />
+      DisplayContent = <Tabs />
+      // DisplayContent = <NewsBoard />
       break
     }
     case GUIDE.IMAGE: {
