@@ -1,9 +1,9 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
-import { Button } from 'antd'
 
 import { COMMUNITY_WIKI } from '@config'
 
+import { Button } from '@components/Buttons'
 import DotDivider from '@components/DotDivider'
 import ContributorList from '@components/ContributorList'
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'antd'
+
+import { Button } from '@components/Buttons'
 
 // import { ICON_CMD } from '../../config'
 import {
@@ -34,7 +35,12 @@ const MobilePagination = ({ current, pageSize, total, onChange }) => (
       )}
 
       {current <= Math.floor(total / pageSize) && (
-        <Button type="primary" ghost onClick={onChange.bind(this, current + 1)}>
+        <Button
+          type="primary"
+          ghost
+          ghost
+          onClick={onChange.bind(this, current + 1)}
+        >
           下一页
         </Button>
       )}

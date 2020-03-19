@@ -10,6 +10,7 @@ import { GUIDE } from '@constant'
 
 import Tabs from '@components/Tabs'
 import PagiFooter from '@components/PagiFooter'
+
 import {
   ProductGallery,
   FamePeopleGallery,
@@ -19,7 +20,7 @@ import {
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
 
-import NewsBoard from './NewsBoard'
+// import NewsBoard from './NewsBoard'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 

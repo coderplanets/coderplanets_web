@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from 'antd'
 
 import { COMMUNITY_CHEATSHEET } from '@config'
 
+import { Button } from '@components/Buttons'
 import DotDivider from '@components/DotDivider'
 import ContributorList from '@components/ContributorList'
 

@@ -762,11 +762,11 @@ const menu = [
           },
         ],
       },
-      {
-        id: uid.gen(),
-        title: '微信公众号',
-        icon: `${ICON_CMD}/navi/weichat_gzh.svg`,
-      },
+      // {
+      //   id: uid.gen(),
+      //   title: '微信公众号',
+      //   icon: `${ICON_CMD}/navi/weichat_gzh.svg`,
+      // },
       {
         id: uid.gen(),
         title: '泛科技媒体',

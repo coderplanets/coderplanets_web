@@ -5,10 +5,10 @@
  */
 
 import React from 'react'
-import { Button } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
 
+import { Button } from '@components/Buttons'
 import PagiFooter from '@components/PagiFooter'
 import DotDivider from '@components/DotDivider'
 import FiltersMenu from '@components/FiltersMenu'

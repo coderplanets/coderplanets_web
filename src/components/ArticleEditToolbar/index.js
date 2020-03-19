@@ -6,13 +6,14 @@
 
 import React from 'react'
 import T from 'prop-types'
-import { Button } from 'antd'
 
 import { SITE_URL } from '@config'
 import { THREAD } from '@constant'
 import { buildLog } from '@utils'
 
 import Maybe from '@components/Maybe'
+import { Button } from '@components/Buttons'
+
 import CopyrightSelector from './CopyrightSelector'
 
 import {

@@ -3,8 +3,8 @@
  */
 
 import React from 'react'
-import { Button } from 'antd'
 
+import { Button } from '@components/Buttons'
 import MarkDownRender from '@components/MarkDownRender'
 import { Wrapper, Header, BackToEditBtn, PreviewHeader } from './styles/preview'
 

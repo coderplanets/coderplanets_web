@@ -13,7 +13,7 @@ import { THREAD, ROUTE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
-import { PublishButton } from '@components/FancyButtons'
+import { PublishButton } from '@components/Buttons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'

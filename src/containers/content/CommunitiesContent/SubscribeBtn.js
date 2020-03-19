@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button } from 'antd'
 
 import { ICON_CMD } from '@config'
 
+import { Button } from '@components/Buttons'
 import Tooltip from '@components/Tooltip'
 import Hinter from './Hinter'
 
