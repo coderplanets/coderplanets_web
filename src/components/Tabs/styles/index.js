@@ -28,6 +28,7 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   color: ${theme('thread.articleTitle')};
   position: relative;
+  height: 28px;
   z-index: 1;
   display: block;
   margin: 0;
@@ -37,21 +38,19 @@ export const Li = styled.li`
 `
 export const SlipBar = styled.span`
   position: absolute;
+  ${cs.flex('justify-center')};
   width: 20%;
-  bottom: 0;
+  bottom: 1px;
   left: 0;
   height: 2px;
 
   transform: ${({ active }) => `translate3d(${active}, 0, 0);`};
   transition: transform 0.3s;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: red;
-  }
+`
+export const RealBar = styled.span`
+  width: 46px;
+  height: 3px;
+  background: #327faf;
 `
 // transform: ${({ active }) =>
 //     active ? 'translate3d(0,0,0);' : 'translate3d(0, 150%, 0);'};

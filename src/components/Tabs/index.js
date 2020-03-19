@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 
 import { buildLog } from '@utils'
 
-import { Wrapper, Nav, Ul, Li, SlipBar } from './styles'
+import { Wrapper, Nav, Ul, Li, SlipBar, RealBar } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -38,7 +38,9 @@ const Tabs = () => {
           <Li onClick={() => setActive(4)}>
             <span>Settings</span>
           </Li>
-          <SlipBar active={`${active * 100}%`} />
+          <SlipBar active={`${active * 100}%`}>
+            <RealBar />
+          </SlipBar>
         </Ul>
       </Nav>
     </Wrapper>
