@@ -31,6 +31,8 @@ const Tabs = ({ onChange, items }) => {
 
   const handleItemClick = useCallback(
     (index, e) => {
+      e.preventDefault()
+      console.log('e: ', e.target)
       setSlipWidth(e.target.offsetWidth)
       setActive(index)
       onChange()
@@ -43,8 +45,8 @@ const Tabs = ({ onChange, items }) => {
       <Nav>
         <Ul>
           {items.map((item, index) => (
-            <Li key={uid.gen()} onClick={e => handleItemClick(index, e)}>
-              <span>{item}</span>
+            <Li key={uid.gen()}>
+              <span onClick={e => handleItemClick(index, e)}>{item}</span>
             </Li>
           ))}
           <SlipBar active={`${active * 100}%`} width={`${100 / items.length}%`}>
