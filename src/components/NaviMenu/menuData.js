@@ -346,6 +346,10 @@ const menu = [
           },
           {
             id: uid.gen(),
+            title: '酒店大堂',
+          },
+          {
+            id: uid.gen(),
             title: '宫殿',
           },
           {
@@ -732,12 +736,17 @@ const menu = [
       },
       {
         id: uid.gen(),
+        title: '视频类',
+        icon: `${ICON_CMD}/navi/twitter.svg`,
+      },
+      {
+        id: uid.gen(),
         title: '独立博客',
         icon: `${ICON_CMD}/navi/blog.svg`,
       },
       {
         id: uid.gen(),
-        title: '团队播客',
+        title: '团队博客',
         icon: `${ICON_CMD}/navi/team.svg`,
         childMenu: [
           {
@@ -806,6 +815,11 @@ const menu = [
       {
         id: uid.gen(),
         title: '树莓派',
+        icon: `${ICON_CMD}/navi/raspberry-pie.svg`,
+      },
+      {
+        id: uid.gen(),
+        title: 'arduino',
         icon: `${ICON_CMD}/navi/raspberry-pie.svg`,
       },
       {

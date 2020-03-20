@@ -4,42 +4,51 @@
  *
  */
 
-import React, { useState } from 'react'
-// import PropTypes from 'prop-types'
+import React, { useState, useCallback } from 'react'
+import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog, uid } from '@utils'
 
 import { Wrapper, Nav, Ul, Li, SlipBar, RealBar } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const Tabs = () => {
-  const [active, setActive] = useState(0)
+const defaultItems = [
+  'home',
+  'Archive and long',
+  'Analytics',
+  'Upload',
+  'Settings',
+]
 
-  console.log('offset: ', active)
+const Tabs = ({ onChange, items }) => {
+  const [active, setActive] = useState(0)
+  const [slipWidth, setSlipWidth] = useState(50)
+
+  // console.log('offset: ', active)
+  console.log('slipWidth -> ', slipWidth)
+
+  const handleItemClick = useCallback(
+    (index, e) => {
+      setSlipWidth(e.target.offsetWidth)
+      setActive(index)
+      onChange()
+    },
+    [setSlipWidth, setActive, onChange]
+  )
 
   return (
     <Wrapper testid="tabs">
       <Nav>
         <Ul>
-          <Li onClick={() => setActive(0)}>
-            <span>Home</span>
-          </Li>
-          <Li onClick={() => setActive(1)}>
-            <span>Archive</span>
-          </Li>
-          <Li onClick={() => setActive(2)}>
-            <span>Analytics</span>
-          </Li>
-          <Li onClick={() => setActive(3)}>
-            <span>Upload</span>
-          </Li>
-          <Li onClick={() => setActive(4)}>
-            <span>Settings</span>
-          </Li>
-          <SlipBar active={`${active * 100}%`}>
-            <RealBar />
+          {items.map((item, index) => (
+            <Li key={uid.gen()} onClick={e => handleItemClick(index, e)}>
+              <span>{item}</span>
+            </Li>
+          ))}
+          <SlipBar active={`${active * 100}%`} width={`${100 / items.length}%`}>
+            <RealBar width={`${slipWidth}px`} />
           </SlipBar>
         </Ul>
       </Nav>
@@ -48,12 +57,13 @@ const Tabs = () => {
 }
 
 Tabs.propTypes = {
-  // https://www.npmjs.com/package/prop-types
-  // attr: PropTypes.string,
+  items: T.arrayOf(T.any),
+  onChange: T.func,
 }
 
 Tabs.defaultProps = {
-  // attr: 'tabs',
+  items: defaultItems,
+  onChange: log,
 }
 
 export default React.memo(Tabs)
