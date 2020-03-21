@@ -613,27 +613,32 @@ const menu = [
         id: uid.gen(),
         title: '图灵奖',
         displayType: 'FAME_PEOPLE',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        icon: `${ICON_CMD}/navi/crown.svg`,
       },
       {
         id: uid.gen(),
         title: 'TopCoder',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        icon: `${ICON_CMD}/navi/top.svg`,
       },
       {
         id: uid.gen(),
         title: '语言之父',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        icon: `${ICON_CMD}/navi/founder.svg`,
       },
       {
         id: uid.gen(),
-        title: '学界',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        title: '商业领袖',
+        icon: `${ICON_CMD}/navi/leader.svg`,
+      },
+      {
+        id: uid.gen(),
+        title: '学术界',
+        icon: `${ICON_CMD}/navi/phd.svg`,
       },
       {
         id: uid.gen(),
         title: '工业界',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        icon: `${ICON_CMD}/navi/industry.svg`,
         childMenu: [
           {
             id: uid.gen(),
@@ -654,8 +659,8 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: '黑客',
-        icon: `${ICON_CMD}/navi/hammer.svg`,
+        title: '黑客列传',
+        icon: `${ICON_CMD}/navi/hacker.svg`,
       },
     ],
   },
