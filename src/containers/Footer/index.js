@@ -44,8 +44,6 @@ const FooterContainer = ({ footer }) => {
     hasTopBorder,
   } = footer
 
-  console.log('Footer hasTopBorder : ', hasTopBorder)
-
   return (
     <Wrapper data-testid="footer">
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>

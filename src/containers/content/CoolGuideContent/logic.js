@@ -60,7 +60,6 @@ const ErrSolver = [
 export const useInit = _store => {
   useEffect(() => {
     store = _store
-    log('effect init: ', store)
 
     sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
     return () => {
