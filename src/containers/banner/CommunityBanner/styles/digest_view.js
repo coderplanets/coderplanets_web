@@ -8,7 +8,7 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { BaseBanner, BaseTabber } from './index'
 
 export const Wrapper = styled(BaseBanner)`
-  min-height: 125px;
+  min-height: 150px;
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -20,7 +20,7 @@ export const BaseBannerContent = styled.div`
   width: 100%;
   padding: 0 6vw;
 
-  margin-top: -2%;
+  margin-top: -32px;
 
   ${cs.media.mobile`
     margin-left: 0;
@@ -38,7 +38,7 @@ export const BannerContainer = styled(BaseBanner)`
 export const TabberWrapper = styled(BaseTabber)``
 
 export const CommunityWrapper = styled.div`
-  ${cs.flexGrow()};
+  ${cs.flexGrow('align-center')};
   ${cs.media.mobile`
     margin-left: 5%;
 `};
@@ -46,20 +46,17 @@ export const CommunityWrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   position: relative;
-  width: 60px;
+  width: 55px;
+  margin-right: 5px;
   margin-top: ${({ raw }) => (raw === 'home' ? '-14px' : 0)};
   @media (max-height: 800px) {
-    width: 50px;
     margin-top: ${({ raw }) => (raw === 'home' ? '-8px' : 0)};
   }
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 60px;
-  height: 60px;
-  @media (max-height: 800px) {
-    width: 50px;
-    height: 50px;
-  }
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
 `
 export const CommunityInfo = styled.div`
   ${cs.flexColumn('justify-center')};
