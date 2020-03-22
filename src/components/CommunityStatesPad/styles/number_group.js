@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 export const SubNumberWrapper = styled.div`
   ${cs.flex('align-center')};
   color: ${theme('banner.number')};
-  font-size: 12px;
+  font-size: 13px;
   margin-right: 0.5px;
 `
 export const GreenDot = styled.div`
@@ -25,7 +25,7 @@ export const PlusSign = styled.div`
 `
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberItem = styled.div`
-  font-size: 15px;
+  font-size: 16px;
   color: ${theme('banner.number')};
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};

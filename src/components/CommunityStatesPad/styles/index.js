@@ -43,10 +43,11 @@ export const NumberTitle = styled.div`
 export const NumberDivider = styled.div`
   border: 1px solid;
   border-color: ${theme('banner.numberDivider')};
-  height: 36px;
+  height: 34px;
   align-self: flex-end;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 3px;
   ${cs.media.tablet`
     margin-left: 5px;
     margin-right: 5px;
