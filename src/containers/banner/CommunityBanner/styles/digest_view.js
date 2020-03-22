@@ -20,7 +20,7 @@ export const BaseBannerContent = styled.div`
   width: 100%;
   padding: 0 6vw;
 
-  margin-top: -2rem;
+  margin-top: -2%;
 
   ${cs.media.mobile`
     margin-left: 0;

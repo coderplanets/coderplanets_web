@@ -7,8 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, prettyNum } from '@utils'
+import { buildLog } from '@utils'
+
 import SubscribedTitle from './SubscribedTitle'
+import NumberGroup from './NumberGroup'
 
 import {
   Wrapper,
@@ -17,7 +19,6 @@ import {
   EditorSection,
   NumberDivider,
   NumberTitle,
-  NumberItem,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -49,21 +50,27 @@ const CommunityStatesPad = ({
           onSubscribe={onSubscribe}
           onUndoSubscribe={onUndoSubscribe}
         />
-        <NumberItem onClick={onShowSubscriberList}>
-          {prettyNum(subscribersCount)}
-        </NumberItem>
+        <NumberGroup
+          count={subscribersCount}
+          subCount={12}
+          onClick={onShowSubscriberList}
+          subPrefix="online"
+        />
       </NumberSection>
       <NumberDivider />
       <ContentSection readOnly>
         <NumberTitle readOnly>内容</NumberTitle>
-        <NumberItem readOnly>{prettyNum(contentsCount)}</NumberItem>
+        <NumberGroup
+          subPrefix="add"
+          count={contentsCount}
+          subCount={4}
+          readOnly
+        />
       </ContentSection>
       <NumberDivider />
       <EditorSection>
         <NumberTitle readOnly>编辑</NumberTitle>
-        <NumberItem onClick={onShowEditorList}>
-          {prettyNum(editorsCount)}
-        </NumberItem>
+        <NumberGroup onClick={onShowEditorList} count={editorsCount} />
       </EditorSection>
     </Wrapper>
   )
