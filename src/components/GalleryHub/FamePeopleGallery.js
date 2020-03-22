@@ -99,7 +99,11 @@ const FamePeopleList = ({ items }) => {
               </NationsWrapper>
             </LinkHead>
             <IntroHead>
-              <Icon src={item.icon} />
+              {/* this div is to avoid image collapse in y-axis for no reason .. */}
+              {/* 浏览器上图片有时会伸展不开，像被挤压了一样，加一个 div 包一层可以防止这个情况 .. */}
+              <div>
+                <Icon src={item.icon} />
+              </div>
               <BasicInfo>
                 <Title>{item.title}</Title>
                 <Birthday>{item.birthday}</Birthday>
