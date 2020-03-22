@@ -9,17 +9,16 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { buildLog, isString } from '@utils'
 
-import NavItem from './NavItem'
-
+import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
 // const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
-const defaultItems = [
+const temItems = [
   {
     title: '帖子',
     // icon: `${ICON_CMD}/navi/fire.svg`,
@@ -51,57 +50,62 @@ const defaultItems = [
  * @param {string} activeKey
  * @returns number
  */
-const getDefaultActiveIndex = (items, activeKey) => {
+const getDefaultActiveTabIndex = (items, activeKey) => {
   if (R.isEmpty(activeKey)) return 0
   const index = R.findIndex(item => {
-    return typeof item === 'string'
-      ? activeKey === item
-      : R.propEq('title', item) === activeKey
+    return isString(item) ? activeKey === item : activeKey === item.title
   }, items)
 
   return index >= 0 ? index : 0
 }
 
 const Tabs = ({ onChange, items, margin, activeKey }) => {
-  const defaultActiveIndx = getDefaultActiveIndex(items, activeKey)
-  const [active, setActive] = useState(defaultActiveIndx)
-  const [slipWidth, setSlipWidth] = useState(0)
+  const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
-  const [navWidthList, setNaviWidthList] = useState([])
+  const [active, setActive] = useState(defaultActiveTabIndex)
+  const [slipWidth, setSlipWidth] = useState(0)
+  const [tabWidthList, setTabWidthList] = useState([])
 
   const ref = useRef(null)
 
+  // set initial slipbar with of active item
+  // 给 slipbar 设置一个初始宽度
   useEffect(() => {
     if (ref.current) {
       const activeSlipWidth =
-        ref.current.childNodes[defaultActiveIndx].firstElementChild.offsetWidth
+        ref.current.childNodes[defaultActiveTabIndex].firstElementChild
+          .offsetWidth
       setSlipWidth(activeSlipWidth)
     }
-  }, [navWidthList, defaultActiveIndx])
+  }, [tabWidthList, defaultActiveTabIndex])
 
+  // set slipbar with for current nav item
+  // 为下面的滑动条设置当前 TabItem 的宽度
   const handleNaviItemWith = useCallback(
     (index, width) => {
-      navWidthList[index] = width
-      setNaviWidthList(navWidthList)
+      tabWidthList[index] = width
+      setTabWidthList(tabWidthList)
     },
-    [navWidthList]
+    [tabWidthList]
   )
 
   const handleItemClick = useCallback(
     (index, e) => {
+      const item = items[index]
+
       setSlipWidth(e.target.offsetWidth)
       setActive(index)
-      onChange()
+      onChange(isString(item) ? item : item.title)
     },
-    [setSlipWidth, setActive, onChange]
+    [setSlipWidth, setActive, onChange, items]
   )
 
   return (
     <Wrapper testid="tabs">
       <Nav ref={ref}>
         {items.map((item, index) => (
-          <NavItem
-            key={typeof item === 'string' ? item : item.title}
+          <TabItem
+            key={isString(item) ? item : item.title}
             item={item}
             index={index}
             setWidth={handleNaviItemWith}
@@ -110,9 +114,9 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
         ))}
 
         <SlipBar
-          active={`${navWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
+          active={`${tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
             margin * active}px`}
-          width={`${navWidthList[active]}px`}
+          width={`${tabWidthList[active]}px`}
         >
           <RealBar width={`${slipWidth}px`} />
         </SlipBar>
@@ -137,7 +141,7 @@ Tabs.propTypes = {
 }
 
 Tabs.defaultProps = {
-  items: defaultItems,
+  items: temItems,
   onChange: log,
   margin: 32,
   activeKey: '',
