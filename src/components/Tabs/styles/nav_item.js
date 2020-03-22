@@ -25,9 +25,12 @@ export const Nav = styled.nav`
 export const Label = styled.span`
   ${cs.flex('align-center')};
 `
+export const IconWrapper = styled.div``
 export const Icon = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  width: 14px;
-  height: 14px;
+  fill: ${({ active }) =>
+    active === 'true' ? theme('tabs.headerActive') : theme('tabs.header')};
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
   display: block;
 `

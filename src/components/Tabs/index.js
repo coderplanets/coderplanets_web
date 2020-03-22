@@ -8,7 +8,9 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
+import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
+
 import NavItem from './NavItem'
 
 import { Wrapper, Nav, SlipBar, RealBar } from './styles'
@@ -16,19 +18,46 @@ import { Wrapper, Nav, SlipBar, RealBar } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const defaultItems = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
+// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
+const defaultItems = [
+  {
+    title: '帖子',
+    // icon: `${ICON_CMD}/navi/fire.svg`,
+    localIcon: 'settings',
+  },
+  {
+    title: '开源项目',
+    icon: `${ICON_CMD}/navi/hammer.svg`,
+  },
+  {
+    title: 'Cheatsheet',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
+  {
+    title: '工作机会',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
+  {
+    title: '职场',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
+]
 
 /**
  * get default active key in tabs array
  * if not found, return 0 as first
  *
- * @param {*} items
+ * @param {array of string or object} items
  * @param {string} activeKey
  * @returns number
  */
 const getDefaultActiveIndex = (items, activeKey) => {
   if (R.isEmpty(activeKey)) return 0
-  const index = R.findIndex(item => item === activeKey, items)
+  const index = R.findIndex(item => {
+    return typeof item === 'string'
+      ? activeKey === item
+      : R.propEq('title', item) === activeKey
+  }, items)
 
   return index >= 0 ? index : 0
 }
@@ -98,7 +127,7 @@ Tabs.propTypes = {
     T.arrayOf(
       T.shape({
         title: T.string,
-        icon: T.string,
+        icon: T.oneOfType([T.string, T.node]),
       })
     )
   ),
