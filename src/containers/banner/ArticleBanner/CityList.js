@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { uid, Trans, nilOrEmpty } from '@utils'
+import { Trans, nilOrEmpty } from '@utils'
 import { Wrapper, Item, SlashDivider } from './styles/city_list'
 
 const CityList = ({ data }) => {
@@ -16,7 +16,7 @@ const CityList = ({ data }) => {
   return (
     <Wrapper>
       {items.slice(0, itemsLength - 1).map(item => (
-        <Item key={uid.gen()}>
+        <Item key={item}>
           {Trans(item)}
           <SlashDivider>/</SlashDivider>{' '}
         </Item>

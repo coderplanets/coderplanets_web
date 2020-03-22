@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import { uid } from '@utils'
 
 import {
   PkgItem,
@@ -21,7 +20,7 @@ const MarkIcon = ({ not }) => {
 const Support = ({ items, not }) => (
   <React.Fragment>
     {items.map(item => (
-      <PkgItem key={uid.gen()}>
+      <PkgItem key={item.title}>
         <MarkIcon not={not} />
         <PkgItemTitle not={not}>{item.title}</PkgItemTitle>
       </PkgItem>

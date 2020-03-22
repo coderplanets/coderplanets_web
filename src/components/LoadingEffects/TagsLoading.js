@@ -4,8 +4,6 @@ import T from 'prop-types'
 import styled from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { uid } from '@utils'
-
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
   width: 100%;
@@ -29,11 +27,9 @@ const LoadingItem = () => (
 )
 
 const TagListLoading = ({ num }) => {
-  const ukey = uid.gen()
-  const range = R.range(0, num)
-  return range.map(() => (
-    <LoadingWrapper key={ukey}>
-      <LoadingItem uniquekey={ukey} />
+  return R.range(0, num).map(item => (
+    <LoadingWrapper key={item}>
+      <LoadingItem />
     </LoadingWrapper>
   ))
 }

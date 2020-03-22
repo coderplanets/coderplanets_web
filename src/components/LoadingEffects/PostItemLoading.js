@@ -4,7 +4,7 @@ import T from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { uid, cs } from '@utils'
+import { cs } from '@utils'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`
@@ -37,9 +37,9 @@ const LoadingItem = ({ theme }) => (
 )
 
 const PostItemLoading = ({ num, theme }) =>
-  R.range(0, num).map(() => (
-    <LoadingWrapper key={uid.gen()}>
-      <LoadingItem uniquekey={uid.gen()} theme={theme} />
+  R.range(0, num).map(item => (
+    <LoadingWrapper key={item}>
+      <LoadingItem theme={theme} />
     </LoadingWrapper>
   ))
 

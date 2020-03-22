@@ -1,8 +1,6 @@
 import React from 'react'
 import R from 'ramda'
 
-import { uid } from '@utils'
-
 import {
   BackgroundItem,
   BackgroundDetailItem,
@@ -25,7 +23,7 @@ const WorkBackgroundList = ({ user: { workBackgrounds }, first }) => {
   return (
     <div>
       {workBackgrounds.map(bg => (
-        <BackgroundDetailItem key={uid.gen()}>
+        <BackgroundDetailItem key={bg.title + bg.company}>
           {bg.company}
           {bg.title && <BackgroundDivider />}
           {bg.title}
@@ -51,7 +49,7 @@ const EduBackgroundList = ({ user: { educationBackgrounds }, first }) => {
   return (
     <div>
       {educationBackgrounds.map(bg => (
-        <BackgroundDetailItem key={uid.gen()}>
+        <BackgroundDetailItem key={bg.school + bg.major}>
           {bg.school}
           {bg.major && <BackgroundDivider />}
           {bg.major}

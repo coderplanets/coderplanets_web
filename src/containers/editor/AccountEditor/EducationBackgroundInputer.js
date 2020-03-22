@@ -5,7 +5,6 @@ import Maybe from '@components/Maybe'
 import { Space } from '@components/BaseStyled'
 import { ICON_CMD } from '@config'
 
-import { uid } from '@utils'
 import {
   Wrapper,
   Adder,
@@ -55,7 +54,7 @@ const BackgroundList = ({ list }) => (
   <Maybe test={list}>
     <BackgroundsWrapper>
       {list.map(item => (
-        <BackgroundItem key={uid.gen()}>
+        <BackgroundItem key={item.school + item.major}>
           <BgTitle>{item.school}</BgTitle>
 
           <Maybe test={item.major}>

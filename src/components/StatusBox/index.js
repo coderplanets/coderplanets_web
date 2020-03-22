@@ -64,15 +64,6 @@ const ErrorMessages = ({ show, msg }) => {
   return (
     <ErrorArrayWrapper>
       <ErrorDetail>{msg}</ErrorDetail>
-
-      {/*
-           {msgArray.map(errObj => (
-           <ErrorMsg key={uid.gen()}>
-           <ErrorKey>{errObj.key}</ErrorKey>
-           <ErrorDetail>{errObj.detail}</ErrorDetail>
-           </ErrorMsg>
-           ))}
-         */}
     </ErrorArrayWrapper>
   )
 }
