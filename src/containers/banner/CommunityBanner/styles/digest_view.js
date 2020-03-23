@@ -72,23 +72,6 @@ export const Title = styled.div`
   font-size: 18px;
   color: ${theme('banner.title')};
 `
-export const VerifiedWrapper = styled.div`
-  ${cs.flex('align-center')};
-  margin-left: 14px;
-`
-export const VerifiedIcon = styled(Img)`
-  border-radius: 50%;
-  padding: 0;
-  margin-right: 4px;
-  display: block;
-  fill: ${theme('baseColor.green')};
-  width: 10px;
-  height: 10px;
-`
-export const VerifiedText = styled.div`
-  color: ${theme('baseColor.green')};
-  font-size: 10px;
-`
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-left: 8px;

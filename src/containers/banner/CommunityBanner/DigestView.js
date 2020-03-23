@@ -4,6 +4,7 @@ import R from 'ramda'
 import { ICON_CMD } from '@config'
 import { NON_FILL_COMMUNITY } from '@constant'
 
+import VerifiedSign from '@components/VerifiedSign'
 import Tabber from '@components/Tabber'
 import CommunityStatesPad from '@components/CommunityStatesPad'
 import { CommunityHolder } from '@components/LoadingEffects'
@@ -21,9 +22,6 @@ import {
   CommunityInfo,
   TitleWrapper,
   Title,
-  VerifiedWrapper,
-  VerifiedIcon,
-  VerifiedText,
   Desc,
   LogoHolder,
 } from './styles/digest_view'
@@ -56,10 +54,7 @@ const CommunityBrief = ({ content }) => (
       <TitleWrapper>
         <Title>
           <div>{content.title}</div>
-          <VerifiedWrapper>
-            <VerifiedIcon src={`${ICON_CMD}/verified.svg`} />
-            <VerifiedText>已认证</VerifiedText>
-          </VerifiedWrapper>
+          <VerifiedSign />
         </Title>
       </TitleWrapper>
       <Desc>{content.desc}</Desc>
