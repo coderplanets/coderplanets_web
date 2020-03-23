@@ -91,8 +91,10 @@ export const LabelIcon = styled(Img)`
 export const ActionLink = styled.a`
   position: relative;
   ${cs.flex('align-both')};
-  width: 25%;
-  height: 100%;
+  /* width: 25%; */
+  width: 45px;
+  /* height: 100%; */
+  height: 32px;
   color: whitesmoke;
   font-size: 24px;
   text-decoration: none;
