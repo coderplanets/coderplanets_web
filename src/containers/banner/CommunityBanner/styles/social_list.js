@@ -36,11 +36,3 @@ export const Icon = styled(Img)`
     fill: ${theme('banner.active')};
   }
 `
-export const VerifiedIcon = styled(Icon)`
-  fill: ${theme('baseColor.green')};
-  width: 12px;
-  height: 12px;
-`
-export const VerifiedText = styled.div`
-  color: ${theme('baseColor.green')};
-`

@@ -2,13 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 
-import {
-  Wrapper,
-  SocialWrapper,
-  Icon,
-  VerifiedIcon,
-  VerifiedText,
-} from './styles/social_list'
+import { Wrapper, SocialWrapper, Icon } from './styles/social_list'
 
 const SocialList = () => {
   return (
@@ -32,11 +26,6 @@ const SocialList = () => {
       <SocialWrapper>
         <Icon src={`${ICON_CMD}/drink/zhihu.svg`} />
         <div>mydearxym</div>
-      </SocialWrapper>
-
-      <SocialWrapper>
-        <VerifiedIcon src={`${ICON_CMD}/verified.svg`} />
-        <VerifiedText>已认证</VerifiedText>
       </SocialWrapper>
     </Wrapper>
   )

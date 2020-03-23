@@ -68,11 +68,26 @@ export const TitleWrapper = styled.div`
   ${cs.flex('align-center')};
 `
 export const Title = styled.div`
-  font-size: 1.3rem;
+  ${cs.flex('align-baseline')};
+  font-size: 18px;
   color: ${theme('banner.title')};
-  @media (max-height: 800px) {
-    font-size: 1.2rem;
-  }
+`
+export const VerifiedWrapper = styled.div`
+  ${cs.flex('align-center')};
+  margin-left: 14px;
+`
+export const VerifiedIcon = styled(Img)`
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 4px;
+  display: block;
+  fill: ${theme('baseColor.green')};
+  width: 10px;
+  height: 10px;
+`
+export const VerifiedText = styled.div`
+  color: ${theme('baseColor.green')};
+  font-size: 10px;
 `
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};

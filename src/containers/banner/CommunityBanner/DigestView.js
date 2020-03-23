@@ -21,6 +21,9 @@ import {
   CommunityInfo,
   TitleWrapper,
   Title,
+  VerifiedWrapper,
+  VerifiedIcon,
+  VerifiedText,
   Desc,
   LogoHolder,
 } from './styles/digest_view'
@@ -46,12 +49,18 @@ const CommunityBrief = ({ content }) => (
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (
-        <LogoHolder src={CommunityLogoHolder} />
+        <LogoHolder src={CommutyLogoHolder} />
       )}
     </LogoWrapper>
     <CommunityInfo>
       <TitleWrapper>
-        <Title>{content.title}</Title>
+        <Title>
+          <div>{content.title}</div>
+          <VerifiedWrapper>
+            <VerifiedIcon src={`${ICON_CMD}/verified.svg`} />
+            <VerifiedText>已认证</VerifiedText>
+          </VerifiedWrapper>
+        </Title>
       </TitleWrapper>
       <Desc>{content.desc}</Desc>
       <SocialList />

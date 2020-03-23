@@ -40,6 +40,9 @@ const flexExpand = rule => {
     case 'align-end':
       return 'align-items: flex-end;'
 
+    case 'align-baseline':
+      return 'align-items: baseline;'
+
     case 'justify-center':
       return 'justify-content: center;'
 
