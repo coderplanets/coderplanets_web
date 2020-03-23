@@ -4,68 +4,147 @@
  *
  */
 
-import React, { useState, useCallback } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
+import R from 'ramda'
 
-import { buildLog, uid } from '@utils'
+import { ICON_CMD } from '@config'
+import { buildLog, isString } from '@utils'
 
-import { Wrapper, Nav, Ul, Li, SlipBar, RealBar } from './styles'
+import TabItem from './TabItem'
+import { Wrapper, Nav, SlipBar, RealBar } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const defaultItems = [
-  'home',
-  'Archive and long',
-  'Analytics',
-  'Upload',
-  'Settings',
+// const defaultItems2 = ['帖子', '开源项目', 'Cheatsheet', '工作机会', '职场']
+const temItems = [
+  {
+    title: '帖子',
+    // icon: `${ICON_CMD}/navi/fire.svg`,
+    localIcon: 'settings',
+  },
+  {
+    title: '开源项目',
+    icon: `${ICON_CMD}/navi/hammer.svg`,
+  },
+  {
+    title: 'Cheatsheet',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
+  {
+    title: '工作机会',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
+  {
+    title: '职场',
+    icon: `${ICON_CMD}/navi/fire.svg`,
+  },
 ]
 
-const Tabs = ({ onChange, items }) => {
-  const [active, setActive] = useState(0)
-  const [slipWidth, setSlipWidth] = useState(50)
+/**
+ * get default active key in tabs array
+ * if not found, return 0 as first
+ *
+ * @param {array of string or object} items
+ * @param {string} activeKey
+ * @returns number
+ */
+const getDefaultActiveTabIndex = (items, activeKey) => {
+  if (R.isEmpty(activeKey)) return 0
+  const index = R.findIndex(item => {
+    return isString(item) ? activeKey === item : activeKey === item.title
+  }, items)
 
-  // console.log('offset: ', active)
-  console.log('slipWidth -> ', slipWidth)
+  return index >= 0 ? index : 0
+}
+
+const Tabs = ({ onChange, items, margin, activeKey }) => {
+  const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
+
+  const [active, setActive] = useState(defaultActiveTabIndex)
+  const [slipWidth, setSlipWidth] = useState(0)
+  const [tabWidthList, setTabWidthList] = useState([])
+
+  const ref = useRef(null)
+
+  // set initial slipbar with of active item
+  // 给 slipbar 设置一个初始宽度
+  useEffect(() => {
+    if (ref.current) {
+      const activeSlipWidth =
+        ref.current.childNodes[defaultActiveTabIndex].firstElementChild
+          .offsetWidth
+      setSlipWidth(activeSlipWidth)
+    }
+  }, [tabWidthList, defaultActiveTabIndex])
+
+  // set slipbar with for current nav item
+  // 为下面的滑动条设置当前 TabItem 的宽度
+  const handleNaviItemWith = useCallback(
+    (index, width) => {
+      tabWidthList[index] = width
+      setTabWidthList(tabWidthList)
+    },
+    [tabWidthList]
+  )
 
   const handleItemClick = useCallback(
     (index, e) => {
-      e.preventDefault()
-      console.log('e: ', e.target)
+      const item = items[index]
+
       setSlipWidth(e.target.offsetWidth)
       setActive(index)
-      onChange()
+      onChange(isString(item) ? item : item.title)
     },
-    [setSlipWidth, setActive, onChange]
+    [setSlipWidth, setActive, onChange, items]
   )
 
   return (
     <Wrapper testid="tabs">
-      <Nav>
-        <Ul>
-          {items.map((item, index) => (
-            <Li key={uid.gen()}>
-              <span onClick={e => handleItemClick(index, e)}>{item}</span>
-            </Li>
-          ))}
-          <SlipBar active={`${active * 100}%`} width={`${100 / items.length}%`}>
-            <RealBar width={`${slipWidth}px`} />
-          </SlipBar>
-        </Ul>
+      <Nav ref={ref}>
+        {items.map((item, index) => (
+          <TabItem
+            key={isString(item) ? item : item.title}
+            item={item}
+            index={index}
+            setWidth={handleNaviItemWith}
+            onClick={handleItemClick}
+          />
+        ))}
+
+        <SlipBar
+          active={`${tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
+            margin * active}px`}
+          width={`${tabWidthList[active]}px`}
+        >
+          <RealBar width={`${slipWidth}px`} />
+        </SlipBar>
       </Nav>
     </Wrapper>
   )
 }
 
 Tabs.propTypes = {
-  items: T.arrayOf(T.any),
+  items: T.oneOfType(
+    T.arrayOf(T.string),
+    T.arrayOf(
+      T.shape({
+        title: T.string,
+        icon: T.oneOfType([T.string, T.node]),
+      })
+    )
+  ),
   onChange: T.func,
+  margin: T.number,
+  activeKey: T.string,
 }
 
 Tabs.defaultProps = {
-  items: defaultItems,
+  items: temItems,
   onChange: log,
+  margin: 32,
+  activeKey: '',
 }
 
 export default React.memo(Tabs)

@@ -49,7 +49,7 @@ const CommunityBrief = ({ content }) => (
           loading={<CommunityHolder text={content.raw} />}
         />
       ) : (
-        <LogoHolder src={CommutyLogoHolder} />
+        <LogoHolder src={CommunityLogoHolder} />
       )}
     </LogoWrapper>
     <CommunityInfo>

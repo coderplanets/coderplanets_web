@@ -1,40 +1,21 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
-import { cs, theme } from '@utils'
+import { cs } from '@utils'
 
 export const Wrapper = styled.nav.attrs(props => ({
   'data-testid': props.testid,
 }))`
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
-  width: 100%;
-  font-weight: 300;
-  font-size: 1.25em;
+  width: auto;
+  font-size: 14px;
 `
 export const Nav = styled.nav`
-  text-align: center;
-`
-export const Ul = styled.ul`
   position: relative;
-  ${cs.flex('justify-center')};
+  ${cs.flex('align-center')};
   flex-flow: row wrap;
   margin: 0 auto;
   padding: 0;
-  max-width: 1200px;
-  list-style: none;
-`
-export const Li = styled.li`
-  color: ${theme('thread.articleTitle')};
-  position: relative;
-  height: 28px;
-  z-index: 1;
-  display: block;
-  margin: 0;
-  text-align: center;
-  flex: 1;
-  cursor: pointer;
 `
 export const SlipBar = styled.span`
   position: absolute;
