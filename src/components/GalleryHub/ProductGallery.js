@@ -51,7 +51,7 @@ const tmpItems = [
     addr: 'elixir.com',
     title: 'elixir',
     // desc: '最性感的开发者社区',
-    tags: ['最性感', '开发者', '更好运', '最性感', '开发者', '更好运'],
+    tags: ['最性感1', '开发者', '更好运1', '最性感2', '开发者2', '更好运2'],
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
   {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import { uid } from '@utils'
 
 import FormItem from '@components/FormItem'
 import Maybe from '@components/Maybe'
@@ -57,7 +56,7 @@ const BackgroundList = ({ list }) => (
   <Maybe test={list}>
     <BackgroundsWrapper>
       {list.map(item => (
-        <BackgroundItem key={uid.gen()}>
+        <BackgroundItem key={item.company + item.title}>
           <BgTitle>{item.company}</BgTitle>
           <Maybe test={item.title}>
             <React.Fragment>

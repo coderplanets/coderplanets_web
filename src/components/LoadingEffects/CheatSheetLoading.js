@@ -4,7 +4,7 @@ import R from 'ramda'
 import ContentLoader from 'react-content-loader'
 import { withTheme } from 'styled-components'
 
-import { buildLog, uid } from '@utils'
+import { buildLog } from '@utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */
@@ -34,8 +34,8 @@ const LoadingBlock = ({ theme }) => (
 
 const CheatSheetLoading = ({ column, theme }) => (
   <Wrapper>
-    {R.range(0, column).map(() => (
-      <LoadingBlock key={uid.gen()} theme={theme} />
+    {R.range(0, column).map(item => (
+      <LoadingBlock key={item} theme={theme} />
     ))}
   </Wrapper>
 )

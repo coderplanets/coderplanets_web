@@ -8,6 +8,8 @@ import Tabber from '@components/Tabber'
 import CommunityStatesPad from '@components/CommunityStatesPad'
 import { CommunityHolder } from '@components/LoadingEffects'
 
+import SocialList from './SocialList'
+
 import {
   Wrapper,
   InnerWrapper,
@@ -50,9 +52,9 @@ const CommunityBrief = ({ content }) => (
     <CommunityInfo>
       <TitleWrapper>
         <Title>{content.title}</Title>
-        {/* <GroupsIcon src={`${ICON_CMD}/online_groups.svg`} /> */}
       </TitleWrapper>
       <Desc>{content.desc}</Desc>
+      <SocialList />
     </CommunityInfo>
   </CommunityWrapper>
 )

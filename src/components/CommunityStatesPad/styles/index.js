@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 // import Img from '@Img'
-import { theme, cs, animate } from '@utils'
+import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
   text-align: center;
 `
 export const NumberSection = styled.div`
-  ${cs.flexColumn('justify-center')};
+  ${cs.flexColumn('align-end')};
   background-color: ${({ active }) =>
     active ? theme('banner.numberHoverBg') : ''};
 
@@ -32,35 +32,22 @@ export const EditorSection = styled(NumberSection)`
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
-  font-size: ${({ small }) => (small ? '0.7rem' : '0.8rem')};
+  font-size: ${({ small }) => (small ? '11px' : '12px')};
   margin-top: ${({ small }) => (small ? '4px' : '0')};
+  margin-bottom: 5px;
   &:hover {
     color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
-    animation: ${animate.pulseRule};
     cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
   }
-`
-// text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
-export const NumberItem = styled.div`
-  font-size: 1.5rem;
-  color: ${theme('banner.number')};
-  &:hover {
-    color: ${({ readOnly }) => (readOnly ? '' : theme('banner.active'))};
-    animation: ${animate.pulseRule};
-    cursor: ${({ readOnly }) => (readOnly ? '' : 'pointer')};
-  }
-
-  ${cs.media.tablet`font-size: 1.2rem;`};
-  ${cs.media.mobile`font-size: 1.2rem;`};
 `
 export const NumberDivider = styled.div`
   border: 1px solid;
   border-color: ${theme('banner.numberDivider')};
-  height: 70%;
-  min-height: 40px;
-  align-self: center;
+  height: 34px;
+  align-self: flex-end;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 3px;
   ${cs.media.tablet`
     margin-left: 5px;
     margin-right: 5px;

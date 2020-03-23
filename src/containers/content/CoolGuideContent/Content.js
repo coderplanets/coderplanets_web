@@ -8,7 +8,6 @@ import React from 'react'
 
 import { GUIDE } from '@constant'
 
-import Tabs from '@components/Tabs'
 import PagiFooter from '@components/PagiFooter'
 
 import {
@@ -20,7 +19,7 @@ import {
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
 
-// import NewsBoard from './NewsBoard'
+import NewsBoard from './NewsBoard'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 
@@ -31,8 +30,7 @@ const Content = ({ displayType }) => {
 
   switch (displayType) {
     case GUIDE.NEWS_FEED: {
-      DisplayContent = <Tabs />
-      // DisplayContent = <NewsBoard />
+      DisplayContent = <NewsBoard />
       break
     }
     case GUIDE.IMAGE: {
