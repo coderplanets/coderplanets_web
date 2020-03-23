@@ -333,7 +333,7 @@ const solarizedDark = {
   },
   tooltip: {
     text: '#95C1DD',
-    bg: '#075575',
+    bg: '#0a475f',
   },
   dropdown: {
     bg: '#0a4d61',

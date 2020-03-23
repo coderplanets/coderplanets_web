@@ -4,11 +4,11 @@
  *
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
-import { Wrapper } from './styles'
+import { Wrapper, ContentWrapper, TopArrow, BottomArrow } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')
@@ -19,22 +19,42 @@ const Tooltip = ({
   animation,
   arrow,
   delay,
+  trigger,
   duration,
   placement,
   onTrigger,
-}) => (
-  <Wrapper
-    content={content}
-    animation={animation}
-    arrow={arrow}
-    delay={[delay, 20]}
-    duration={duration}
-    placement={placement}
-    onTrigger={onTrigger}
-  >
-    {children}
-  </Wrapper>
-)
+  onHide,
+  onShow,
+}) => {
+  const [active, setActive] = useState(false)
+
+  return (
+    <Wrapper
+      content={content}
+      animation={animation}
+      arrow={arrow}
+      delay={[delay, 20]}
+      trigger={trigger}
+      duration={duration}
+      placement={placement}
+      onTrigger={onTrigger}
+      onHide={() => {
+        setActive(false)
+        onHide()
+      }}
+      onShow={() => {
+        setActive(true)
+        onShow()
+      }}
+    >
+      <ContentWrapper>
+        {active && placement === 'bottom' && <TopArrow />}
+        {active && placement === 'top' && <BottomArrow />}
+        {children}
+      </ContentWrapper>
+    </Wrapper>
+  )
+}
 
 Tooltip.propTypes = {
   children: T.node.isRequired,
@@ -66,7 +86,10 @@ Tooltip.propTypes = {
   ]),
   // hooks
   onTrigger: T.func,
+  trigger: T.oneOf(['mouseenter focus', 'click']),
   // more options see: https://atomiks.github.io/tippyjs/all-options/
+  onShow: T.func,
+  onHide: T.func,
 }
 
 Tooltip.defaultProps = {
@@ -77,6 +100,9 @@ Tooltip.defaultProps = {
   placement: 'top',
   // hooks
   onTrigger: log,
+  trigger: 'mouseenter focus',
+  onShow: log,
+  onHide: log,
 }
 
 export default React.memo(Tooltip)
