@@ -1,11 +1,11 @@
 /*
-*
-* {{ properCase name }}
-*
-*/
+ *
+ * {{ properCase name }}
+ *
+ */
 
 import React from 'react'
-// import PropTypes from 'prop-types'
+// import T from 'prop-types'
 
 import { buildLog } from '@utils'
 
@@ -13,28 +13,30 @@ import { buildLog } from '@utils'
 import { Wrapper } from './styles'
 {{/if}}
 {{#if wantI18n}}
-  import { FormattedMessage as I18n } from 'react-intl'
-  import lang from './lang'
+import { FormattedMessage as I18n } from 'react-intl'
+import lang from './lang'
 {{/if}}
 
 /* eslint-disable-next-line */
 const log = buildLog('c:{{ properCase name }}:index')
 
-const {{ properCase name }} = () => (
-{{#if wantStyle}}
-  <Wrapper testid="{{ camelCase name}}">
-{{/if}}
-    <div>
-      <h2>{{ properCase name }} component</h2>
-      {{#if wantI18n}}
-        <I18n {...lang.header} />
+const {{ properCase name }} = () => {
+  return (
+    {{#if wantStyle}}
+    <Wrapper testid="{{ camelCase name}}">
       {{/if}}
-      <p>impress me</p>
-    </div>
-{{#if wantStyle}}
-  </Wrapper>
-{{/if}}
-)
+      <div>
+        <h2>{{ properCase name }} component</h2>
+        {{#if wantI18n}}
+        <I18n {...lang.header} />
+        {{/if}}
+        <p>impress me</p>
+      </div>
+      {{#if wantStyle}}
+    </Wrapper>
+    {{/if}}
+  )
+}
 
 {{ properCase name }}.propTypes = {
   // https://www.npmjs.com/package/prop-types
