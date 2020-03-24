@@ -16,10 +16,10 @@ export const Wrapper = styled.button`
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 0 15px;
+  padding: ${({ size }) => (size === 'default' ? '4px 15px' : '0 7px')};
   font-size: 14px;
   border-radius: 4px;
-  height: 32px;
+  height: ${({ size }) => (size === 'default' ? '32px' : '24px')};
   user-select: none;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: relative;
@@ -34,21 +34,26 @@ export const Wrapper = styled.button`
   border-color: ${theme('button.primary')};
 
   &:hover {
-    color: ${theme('button.fg')};
+    /* color: ${theme('button.fg')}; */
+    color: ${({ ghost }) =>
+      !ghost ? theme('button.fg') : theme('button.primary')};
+
     border-color: ${theme('button.hoverBg')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
   }
 
   &:focus {
-    color: ${theme('button.fg')};
+    color: ${({ ghost }) =>
+      !ghost ? theme('button.fg') : theme('button.primary')};
     border-color: ${theme('button.hoverBg')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
   }
 
   &:active {
-    color: ${theme('button.fg')} !important;
+    color: ${({ ghost }) =>
+      !ghost ? theme('button.fg') : theme('button.primary')};
     background-color: ${({ ghost }) =>
       !ghost ? theme('button.hoverBg') : 'transparent'};
   }
