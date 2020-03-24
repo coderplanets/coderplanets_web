@@ -6,6 +6,7 @@ import { theme, cs } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flex()};
   align-items: flex-end;
+  margin-left: ${({ marginLeft }) => (marginLeft ? '8px' : 0)};
 `
 export const Tag = styled.div`
   ${cs.flex('align-center')};

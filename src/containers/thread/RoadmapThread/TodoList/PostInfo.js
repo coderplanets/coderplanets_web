@@ -25,7 +25,7 @@ const PostInfo = ({ post }) => {
       <Head>
         <Title>{post.title}</Title>
         <TagsWrapper>
-          <InlineTags data={tags} />
+          <InlineTags data={tags} marginLeft={false} />
         </TagsWrapper>
       </Head>
       <ExtraInfo>

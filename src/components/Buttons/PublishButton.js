@@ -36,22 +36,22 @@ const PublishButton = ({
         <div>{label}</div>
         <LabelIcon src={labelIconSrc} />
       </Label>
-      <Tooltip content="发布帖子" placement="bottom">
+      <Tooltip content="发布帖子" placement="bottom" duration={0}>
         <ActionLink onClick={onPublish}>
           <Icon src={`${ICON_CMD}/publish_write.svg`} />
         </ActionLink>
       </Tooltip>
-      <Tooltip content="发布投票" placement="bottom">
+      <Tooltip content="发布投票" placement="bottom" duration={0}>
         <ActionLink onClick={onVote}>
           <Icon src={`${ICON_CMD}/publish_vote.svg`} />
         </ActionLink>
       </Tooltip>
-      <Tooltip content="导入内容" placement="bottom">
+      <Tooltip content="导入内容" placement="bottom" duration={0}>
         <ActionLink onClick={onImport}>
           <Icon src={`${ICON_CMD}/publish_import.svg`} />
         </ActionLink>
       </Tooltip>
-      <Tooltip content="发帖礼仪" placement="bottom">
+      <Tooltip content="发帖礼仪" placement="bottom" duration={0}>
         <ActionLink onClick={onFAQ}>
           <Icon src={`${ICON_CMD}/publish_faq.svg`} />
         </ActionLink>

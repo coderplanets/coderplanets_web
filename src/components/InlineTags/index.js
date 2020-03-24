@@ -16,8 +16,8 @@ import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:InlineTags:index')
 
-const FullList = ({ data }) => (
-  <Wrapper>
+const FullList = ({ data, marginLeft }) => (
+  <Wrapper marginLeft={marginLeft}>
     {sortByColor(data).map(tag => (
       <Tag key={tag.title}>
         <Dot color={tag.color} />
@@ -27,7 +27,7 @@ const FullList = ({ data }) => (
   </Wrapper>
 )
 
-const InlineTags = ({ data, max }) => {
+const InlineTags = ({ data, max, marginLeft }) => {
   if (data.length > max) {
     return (
       <Tooltip
@@ -38,7 +38,7 @@ const InlineTags = ({ data, max }) => {
           </PopoverInfo>
         }
       >
-        <Wrapper>
+        <Wrapper marginLeft={marginLeft}>
           {sortByColor(data)
             .slice(0, max)
             .map(tag => (
@@ -55,13 +55,12 @@ const InlineTags = ({ data, max }) => {
 
   return (
     <Maybe test={data}>
-      <FullList data={data} />
+      <FullList data={data} marginLeft={marginLeft} />
     </Maybe>
   )
 }
 
 InlineTags.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   data: T.arrayOf(
     T.shape({
       title: T.string,
@@ -69,11 +68,13 @@ InlineTags.propTypes = {
     })
   ),
   max: T.number,
+  marginLeft: T.bool,
 }
 
 InlineTags.defaultProps = {
   data: [],
   max: 3,
+  marginLeft: true,
 }
 
 export default React.memo(InlineTags)

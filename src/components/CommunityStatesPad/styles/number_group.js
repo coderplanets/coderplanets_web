@@ -11,6 +11,7 @@ export const SubNumberWrapper = styled.div`
   color: ${theme('banner.number')};
   font-size: 13px;
   margin-right: 0.5px;
+  margin-top: -1px;
 `
 export const GreenDot = styled.div`
   background: ${theme('baseColor.green')};
