@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@utils'
-
+// import { cs } from '@utils'
 import { WrapperBase, ScrollWrapperBase, ShadowBarBase } from './index'
 import { getShadowBackground, getShadowSize, getScrollbarThin } from './helpers'
 
@@ -14,9 +13,7 @@ export const Wrapper = styled(WrapperBase)`
       `${getScrollbarThin(shadowSize, 'vertical')} !important`};
   }
 `
-export const ScrollWrapper = styled(ScrollWrapperBase)`
-  ${cs.flex()};
-`
+export const ScrollWrapper = styled(ScrollWrapperBase)``
 const ShadowBar = styled(ShadowBarBase)`
   left: 0px;
   height: ${({ shadowSize }) => getShadowSize(shadowSize)};

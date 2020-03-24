@@ -67,6 +67,7 @@ const VerticalScroller = ({
           onLeave={handleShowBottomShadow}
         />
       </ScrollWrapper>
+
       <BottomShadowBar
         show={showBottomShadow}
         height={height}
