@@ -16,7 +16,7 @@ const TagOptions = ({ onInclude }) => (
     <IncludeOption onClick={onInclude}>只看</IncludeOption>
     <MoreIcon src={`${ICON_CMD}/more.svg`} />
     <Tooltip
-      placement="bottomRight"
+      placement="bottom-start"
       trigger="click"
       content={<DiscussLinker title="不看" addr={`${ISSUE_ADDR}/322`} />}
     >

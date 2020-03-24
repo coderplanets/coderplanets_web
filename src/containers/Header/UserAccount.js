@@ -23,8 +23,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
   <React.Fragment>
     {isLogin ? (
       <Tooltip
-        placement="bottomLeft"
-        trigger="hover"
+        placement="bottom-start"
         content={
           <PopMenu>
             <LoginBadge>

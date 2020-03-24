@@ -32,7 +32,6 @@ const InlineTags = ({ data, max }) => {
     return (
       <Tooltip
         placement="bottom"
-        trigger="hover"
         content={
           <PopoverInfo>
             <FullList data={data} />

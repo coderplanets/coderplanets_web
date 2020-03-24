@@ -20,8 +20,7 @@ const LastSyncInfo = ({ show, data }) => {
   return (
     <Maybe test={show}>
       <Tooltip
-        placement="bottomLeft"
-        trigger="hover"
+        placement="bottom-start"
         content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
       >
         <Reaction>

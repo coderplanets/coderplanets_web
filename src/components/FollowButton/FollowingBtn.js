@@ -17,11 +17,7 @@ const FollowingBtn = ({ size, loading, onClick }) => {
           </BtnWrapper>
         </Button>
       ) : (
-        <Tooltip
-          placement="bottom"
-          trigger="hover"
-          content={<Popinfo>点击取消关注</Popinfo>}
-        >
+        <Tooltip placement="bottom" content={<Popinfo>点击取消关注</Popinfo>}>
           <Button size={size} type="primary" ghost onClick={onClick}>
             <BtnWrapper>
               <WatchedIcon src={`${ICON_CMD}/check2.svg`} />

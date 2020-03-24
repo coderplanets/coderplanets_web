@@ -27,7 +27,6 @@ const Footer = ({ pin, sortOptActive }) => (
         <OptionDivider />
         <Tooltip
           placement="top"
-          trigger="hover"
           content={<DiscussLinker title="分组" addr={`${ISSUE_ADDR}/597`} />}
         >
           <OptionItem>分组</OptionItem>

@@ -29,7 +29,6 @@ const ContributorList = ({ users, readOnly, addContributor }) => (
           </CardWrapper>
         }
         placement="bottom"
-        trigger="hover"
         key={user.avatar}
       >
         <AvatarLink href={user.htmlUrl} target="_blank">

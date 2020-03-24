@@ -17,7 +17,6 @@ const ContributorList = ({ items }) => (
     {items.map(user => (
       <Tooltip
         placement="bottom"
-        trigger="hover"
         key={user.htmlUrl}
         content={
           <PopoverInfo>

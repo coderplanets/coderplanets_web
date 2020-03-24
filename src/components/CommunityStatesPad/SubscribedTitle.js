@@ -18,7 +18,6 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
   return (
     <Tooltip
       placement="bottom"
-      trigger="hover"
       content={
         <PopoverInfo>
           <PopTitle>点击可退出</PopTitle>
@@ -40,7 +39,6 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
     ) : (
       <Tooltip
         placement="bottom"
-        trigger="hover"
         content={
           <PopoverInfo>
             <PopTitle>点击加入</PopTitle>

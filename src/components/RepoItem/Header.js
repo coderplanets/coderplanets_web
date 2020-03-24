@@ -28,7 +28,6 @@ const Header = ({ entry, onPreview }) => (
     <Title>
       <Tooltip
         placement="bottom"
-        trigger="hover"
         content={<PopoverInfo>{entry.primaryLanguage.name}</PopoverInfo>}
       >
         <LangDot color={entry.primaryLanguage.color} />

@@ -25,7 +25,6 @@ const TitlesInfo = ({ repo }) => (
     <Tooltip
       content={<LanguagePopover>{repo.primaryLanguage.name}</LanguagePopover>}
       placement="bottom"
-      trigger="hover"
     >
       <LanguageDot color={repo.primaryLanguage.color} />
     </Tooltip>

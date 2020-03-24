@@ -72,7 +72,6 @@ class LabelerContainer extends React.Component {
           <Tooltip
             content={<PopHint>{Trans[label]}</PopHint>}
             placement="bottom"
-            trigger="hover"
           >
             <LabelItem>
               <LabelIcon src={LABEL_POOL[label].iconSrc} />

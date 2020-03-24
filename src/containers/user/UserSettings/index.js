@@ -132,7 +132,6 @@ const UserSettingsContainer = ({ userSettings }) => {
           />
           <Tooltip
             placement="bottom"
-            trigger="hover"
             content={
               <DiscussLinker title="邮件订阅" addr={`${ISSUE_ADDR}/267`} />
             }

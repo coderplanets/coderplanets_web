@@ -24,8 +24,7 @@ const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 const BriefView = ({ community, curRoute }) => (
   <Wrapper>
     <Tooltip
-      placement="bottomLeft"
-      trigger="hover"
+      placement="bottom-start"
       content={<CardPopover community={community} />}
     >
       <CardWrapper>

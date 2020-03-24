@@ -9,7 +9,6 @@ const UserList = ({ items }) => (
       <Tooltip
         key={user.id}
         placement="bottom"
-        trigger="hover"
         content={<PopInfo>{user.nickname}</PopInfo>}
       >
         <div>

@@ -25,20 +25,6 @@ const DigestView = ({ curRoute }) => (
       </LogoLink>
     </Link>
     <DotDivider />
-    {/* <Tooltip
-      placement="bottom"
-      trigger="hover"
-      content={
-        <ShortAddr>
-          <ShortDesc>暗号: </ShortDesc>
-          cps.fun
-          <ShortDesc> (正在备案中)</ShortDesc>
-        </ShortAddr>
-      }
-    >
-      <LogoText href="/home/posts">coderplanets</LogoText>
-    </Tooltip> */}
-    {/* <BetaLogo src={`${ICON_CMD}/beta.svg`} /> */}
     <MainEntries curRoute={curRoute} />
   </Breadcrumbs>
 )

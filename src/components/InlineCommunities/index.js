@@ -29,7 +29,6 @@ const FullList = ({ data }) => (
       <Tooltip
         key={c.title}
         placement="bottom"
-        trigger="hover"
         content={
           <PopoverInfo>
             来自 <Linker href={`/${c.raw}/jobs`}>{c.title}</Linker> 社区
@@ -49,7 +48,6 @@ const InlineCommunities = ({ data, show, max }) => {
     return (
       <Tooltip
         placement="bottom"
-        trigger="hover"
         content={
           <PopoverInfo>
             <FullList data={data} />

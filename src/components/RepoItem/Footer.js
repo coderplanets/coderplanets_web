@@ -21,7 +21,6 @@ const Footer = ({ contributors, author, insertedAt }) => (
       {contributors.map(builder => (
         <Tooltip
           placement="bottom"
-          trigger="hover"
           key={builder.htmlUrl}
           content={
             <PopoverInfo>

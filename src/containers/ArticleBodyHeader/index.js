@@ -70,7 +70,6 @@ const ArticleBodyHeaderContainer = ({
             />
           }
           placement="bottomLeft"
-          trigger="hover"
         >
           <div>
             <MoreIcon src={`${ICON_CMD}/article_more.svg`} />

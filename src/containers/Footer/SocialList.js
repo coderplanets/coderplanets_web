@@ -15,7 +15,6 @@ const SocialList = () => (
 
     <Tooltip
       placement="top"
-      trigger="hover"
       content={<QRCodePic src={`${ICON_BASE}/cps_wechat_group.png`} />}
     >
       <Item>

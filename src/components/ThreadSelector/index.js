@@ -36,7 +36,6 @@ const ThreadSelector = ({
   <Wrapper>
     <Tooltip
       placement="right"
-      trigger="hover"
       content={<Panel options={options} active={active} onSelect={onSelect} />}
     >
       <div>

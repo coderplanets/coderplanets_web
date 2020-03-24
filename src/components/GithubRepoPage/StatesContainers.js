@@ -36,7 +36,6 @@ const BuilderList = ({ entries }) => (
           </PopInfo>
         }
         placement="bottom"
-        trigger="hover"
       >
         <Linker
           href={builder.htmlUrl}
