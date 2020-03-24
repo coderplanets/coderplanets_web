@@ -30,7 +30,7 @@ const FilterResult = ({ thread, totalCount, customization, onC11NChange }) => {
 
         <MoreDivider />
         <Tooltip
-          placement="bottom"
+          placement="bottom-end"
           trigger="click"
           content={
             <SettingMenu

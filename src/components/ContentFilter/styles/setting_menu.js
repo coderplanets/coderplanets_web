@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
   width: 110px;
   padding: 10px;
-  padding-right: 5px;
+  padding-right: 0;
 `
 export const Title = styled.div`
   font-size: 0.9rem;

@@ -45,6 +45,7 @@ const Tooltip = ({
   return !noDefaultPadding ? (
     <StyledTippy
       content={content}
+      placement={placement}
       onHide={() => {
         setActive(false)
         onHide()
@@ -60,6 +61,7 @@ const Tooltip = ({
   ) : (
     <NoPaddingStyledTippy
       content={content}
+      placement={placement}
       onHide={() => {
         setActive(false)
         onHide()
