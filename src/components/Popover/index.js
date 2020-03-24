@@ -1,18 +1,18 @@
 /*
  *
- * Popover
+ * Tooltip
  *
  */
 
 import React from 'react'
-import { Popover } from 'antd'
+import { Tooltip } from 'antd'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
 import { ContentContainer } from './styles'
 
 /* eslint-disable-next-line */
-const log = buildLog('c:Popover:index')
+const log = buildLog('c:Tooltip:index')
 
 const renderContent = content => {
   return <ContentContainer>{content}</ContentContainer>
@@ -38,7 +38,7 @@ class PopoverComponent extends React.Component {
     const { insideVisible } = this.state
 
     return (
-      <Popover
+      <Tooltip
         content={renderContent(content)}
         placement={placement}
         visible={visible || insideVisible}
@@ -47,7 +47,7 @@ class PopoverComponent extends React.Component {
         trigger={trigger}
       >
         {children}
-      </Popover>
+      </Tooltip>
     )
   }
 }

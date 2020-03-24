@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 // import { ICON_CMD } from '@config'
-// import Popover from '@components/Popover'
+// import Tooltip from '@components/Tooltip'
 
 import {
   Breadcrumbs,
@@ -25,7 +25,7 @@ const DigestView = ({ curRoute }) => (
       </LogoLink>
     </Link>
     <DotDivider />
-    {/* <Popover
+    {/* <Tooltip
       placement="bottom"
       trigger="hover"
       content={
@@ -37,7 +37,7 @@ const DigestView = ({ curRoute }) => (
       }
     >
       <LogoText href="/home/posts">coderplanets</LogoText>
-    </Popover> */}
+    </Tooltip> */}
     {/* <BetaLogo src={`${ICON_CMD}/beta.svg`} /> */}
     <MainEntries curRoute={curRoute} />
   </Breadcrumbs>

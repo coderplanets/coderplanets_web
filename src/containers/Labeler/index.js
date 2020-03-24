@@ -14,7 +14,7 @@ import { buildLog, storePlug, uid, Trans } from '@utils'
 import { withGuardian } from '@hoc'
 
 import Maybe from '@components/Maybe'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import Options from './Options'
 import Selected from './Selected'
@@ -75,7 +75,7 @@ class LabelerContainer extends React.Component {
     return (
       <Wrapper>
         <Maybe test={readOnly}>
-          <Popover
+          <Tooltip
             content={<PopHint>{Trans[label]}</PopHint>}
             placement="bottom"
             trigger="hover"
@@ -86,11 +86,11 @@ class LabelerContainer extends React.Component {
                 <Selected items={selected} readOnly={readOnly} />
               </Title>
             </LabelItem>
-          </Popover>
+          </Tooltip>
         </Maybe>
         <Maybe test={!readOnly}>
           {targetIndex >= 0 ? (
-            <Popover
+            <Tooltip
               content={
                 <Options
                   label={label}
@@ -111,7 +111,7 @@ class LabelerContainer extends React.Component {
                   <Selected items={selected} readOnly={readOnly} />
                 </Title>
               </LabelItem>
-            </Popover>
+            </Tooltip>
           ) : (
             <div />
           )}

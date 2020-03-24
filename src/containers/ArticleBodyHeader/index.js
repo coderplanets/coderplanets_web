@@ -14,7 +14,7 @@ import { connectStore, buildLog } from '@utils'
 
 import Labeler from '@containers/Labeler'
 import CommunitySetter from '@containers/CommunitySetter'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import ArticleActionsPanel from '@components/ArticleActionsPanel'
 
 import Linker from './Linker'
@@ -53,7 +53,7 @@ const ArticleBodyHeaderContainer = ({
   return (
     <Wrapper>
       <MoreWrapper>
-        <Popover
+        <Tooltip
           content={
             <ArticleActionsPanel
               communityRaw={communityRaw}
@@ -75,7 +75,7 @@ const ArticleBodyHeaderContainer = ({
           <div>
             <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
           </div>
-        </Popover>
+        </Tooltip>
       </MoreWrapper>
 
       <CommunitySetter />

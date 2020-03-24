@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD, ISSUE_ADDR } from '@config'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import DiscussLinker from '@components/DiscussLinker'
 
 import {
@@ -25,13 +25,13 @@ const Footer = ({ pin, sortOptActive }) => (
           排序
         </OptionItem>
         <OptionDivider />
-        <Popover
+        <Tooltip
           placement="top"
           trigger="hover"
           content={<DiscussLinker title="分组" addr={`${ISSUE_ADDR}/597`} />}
         >
           <OptionItem>分组</OptionItem>
-        </Popover>
+        </Tooltip>
       </OptionWrapper>
     </InnerWrapper>
   </Wrapper>

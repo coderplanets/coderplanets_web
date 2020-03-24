@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Wrapper,
@@ -23,7 +23,7 @@ const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
 const BriefView = ({ community, curRoute }) => (
   <Wrapper>
-    <Popover
+    <Tooltip
       placement="bottomLeft"
       trigger="hover"
       content={<CardPopover community={community} />}
@@ -41,7 +41,7 @@ const BriefView = ({ community, curRoute }) => (
           </CommunityInfo>
         </CommunityWrapper>
       </CardWrapper>
-    </Popover>
+    </Tooltip>
     <Breadcrumbs>
       <BetaLogo src={`${ICON_CMD}/beta.svg`} />
       <MainEntries curRoute={curRoute} />

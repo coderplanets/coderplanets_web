@@ -3,7 +3,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 
-// import Popover from '@components/Popover'
+// import Tooltip from '@components/Tooltip'
 // import DiscussLinker from '@components/DiscussLinker'
 
 // import { ROUTE } from '@constant'

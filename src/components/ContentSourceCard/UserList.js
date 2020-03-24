@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import { Wrapper, Avatar, PopInfo } from './styles/user_list'
 
 const UserList = ({ items }) => (
   <Wrapper>
     {items.map(user => (
-      <Popover
+      <Tooltip
         key={user.id}
         placement="bottom"
         trigger="hover"
@@ -15,7 +15,7 @@ const UserList = ({ items }) => (
         <div>
           <Avatar src={user.avatar} />
         </div>
-      </Popover>
+      </Tooltip>
     ))}
   </Wrapper>
 )

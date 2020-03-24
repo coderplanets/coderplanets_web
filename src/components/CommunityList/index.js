@@ -9,7 +9,7 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Wrapper,
@@ -33,10 +33,9 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
   return (
     <Wrapper>
       {items.map(community => (
-        <Popover
+        <Tooltip
           key={community.id}
           placement="bottom"
-          trigger="hover"
           content={
             <PopoverInfo>
               <PopCommunityLogo src={community.logo} />
@@ -50,7 +49,7 @@ const CommunityList = ({ items, size, bottom, emptyHint }) => {
           <Linker href={`/${community.raw}/posts`} bottom={bottom}>
             <Logo src={community.logo} size={size} />
           </Linker>
-        </Popover>
+        </Tooltip>
       ))}
     </Wrapper>
   )

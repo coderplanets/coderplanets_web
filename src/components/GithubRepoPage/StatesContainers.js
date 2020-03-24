@@ -3,7 +3,7 @@ import R from 'ramda'
 
 import { nilOrEmpty } from '@utils'
 import Maybe from '@components/Maybe'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Wrapper,
@@ -21,7 +21,7 @@ import {
 const BuilderList = ({ entries }) => (
   <BuilderWrapper>
     {entries.map(builder => (
-      <Popover
+      <Tooltip
         key={builder.htmlUrl}
         content={
           <PopInfo>
@@ -45,7 +45,7 @@ const BuilderList = ({ entries }) => (
         >
           <Avatar src={builder.avatar} />
         </Linker>
-      </Popover>
+      </Tooltip>
     ))}
   </BuilderWrapper>
 )

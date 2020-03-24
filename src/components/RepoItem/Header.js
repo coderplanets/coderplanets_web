@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 
 import { cutFrom, numberWithCommas } from '@utils'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import { Space } from '@components/BaseStyled'
 import InlineTags from '@components/InlineTags'
 
@@ -26,13 +26,13 @@ import {
 const Header = ({ entry, onPreview }) => (
   <Wrapper onClick={onPreview.bind(this, entry)}>
     <Title>
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         content={<PopoverInfo>{entry.primaryLanguage.name}</PopoverInfo>}
       >
         <LangDot color={entry.primaryLanguage.color} />
-      </Popover>
+      </Tooltip>
       <Owner>{entry.ownerName}</Owner>
       <RepoName> / {cutFrom(entry.title, 20)}</RepoName>
       <TagsWrapper>

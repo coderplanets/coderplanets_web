@@ -3,9 +3,6 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 
-// import Popover from '@components/Popover'
-// import DiscussLinker from '@components/DiscussLinker'
-
 // import { ROUTE } from '@constant'
 import Footer from './Footer'
 

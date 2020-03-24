@@ -11,7 +11,7 @@ import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { buildLog, Trans } from '@utils'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import Panel from './Panel'
 
 import {
@@ -34,7 +34,7 @@ const ThreadSelector = ({
   lookLike,
 }) => (
   <Wrapper>
-    <Popover
+    <Tooltip
       placement="right"
       trigger="hover"
       content={<Panel options={options} active={active} onSelect={onSelect} />}
@@ -52,7 +52,7 @@ const ThreadSelector = ({
           </BoxedLabel>
         )}
       </div>
-    </Popover>
+    </Tooltip>
     <LabelCount>结果共 {totalCount} 条</LabelCount>
   </Wrapper>
 )

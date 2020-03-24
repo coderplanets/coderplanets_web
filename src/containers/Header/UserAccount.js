@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import { onLogin, onLogout, previewAccount } from './logic'
 
@@ -22,7 +22,7 @@ import {
 const UserAccount = ({ isLogin, accountInfo }) => (
   <React.Fragment>
     {isLogin ? (
-      <Popover
+      <Tooltip
         placement="bottomLeft"
         trigger="hover"
         content={
@@ -72,7 +72,7 @@ const UserAccount = ({ isLogin, accountInfo }) => (
         <Wrapper>
           <AvatarIcon src={accountInfo.avatar} />
         </Wrapper>
-      </Popover>
+      </Tooltip>
     ) : (
       <Wrapper onClick={onLogin}>
         <DefaultUserIcon src={`${ICON_CMD}/default_user.svg`} />

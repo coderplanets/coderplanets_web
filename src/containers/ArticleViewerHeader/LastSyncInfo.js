@@ -3,7 +3,7 @@ import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
 import Maybe from '@components/Maybe'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Reaction,
@@ -19,7 +19,7 @@ const LastSyncInfo = ({ show, data }) => {
 
   return (
     <Maybe test={show}>
-      <Popover
+      <Tooltip
         placement="bottomLeft"
         trigger="hover"
         content={<PopInfo>上次与该 Github repo 同步的时间</PopInfo>}
@@ -37,7 +37,7 @@ const LastSyncInfo = ({ show, data }) => {
             )}
           </SyncTime>
         </Reaction>
-      </Popover>
+      </Tooltip>
     </Maybe>
   )
 }

@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import RunningTimer from './RunningTimer'
 import {
   Wrapper,
@@ -63,7 +63,7 @@ const SettingPanel = ({ timer, timerInterval }) => {
 const Timer = ({ timer, timerInterval }) => {
   return (
     <Wrapper>
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         content={<SettingPanel timer={timer} timerInterval={timerInterval} />}
@@ -75,7 +75,7 @@ const Timer = ({ timer, timerInterval }) => {
             <RunningTimer interval={timerInterval} />
           )}
         </IconWrapper>
-      </Popover>
+      </Tooltip>
     </Wrapper>
   )
 }

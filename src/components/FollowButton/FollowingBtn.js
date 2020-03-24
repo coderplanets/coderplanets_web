@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 import { Button } from '@components/Buttons'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import { BtnWrapper, WatchedIcon, Popinfo, LoadingIcon } from './styles'
 
@@ -17,7 +17,7 @@ const FollowingBtn = ({ size, loading, onClick }) => {
           </BtnWrapper>
         </Button>
       ) : (
-        <Popover
+        <Tooltip
           placement="bottom"
           trigger="hover"
           content={<Popinfo>点击取消关注</Popinfo>}
@@ -28,7 +28,7 @@ const FollowingBtn = ({ size, loading, onClick }) => {
               <div>已关注</div>
             </BtnWrapper>
           </Button>
-        </Popover>
+        </Tooltip>
       )}
     </React.Fragment>
   )

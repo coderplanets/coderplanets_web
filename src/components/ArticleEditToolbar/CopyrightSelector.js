@@ -5,7 +5,7 @@ import R from 'ramda'
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Wrapper,
@@ -66,24 +66,26 @@ const CopyrightContent = ({ active, thread, onCopyrightChange }) => (
   </Wrapper>
 )
 
-const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => (
-  <Popover
-    content={
-      <CopyrightContent
-        active={copyRight}
-        thread={thread}
-        onCopyrightChange={onCopyrightChange}
-      />
-    }
-    placement="right"
-    trigger="hover"
-  >
-    <ReprintWrapper>
-      <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />
-      <CopyRightText>{getCpTitle(copyRight)}</CopyRightText>
-      <MoreIcon src={`${ICON_CMD}/more.svg`} />
-    </ReprintWrapper>
-  </Popover>
-)
+const CopyrightSelector = ({ copyRight, thread, onCopyrightChange }) => {
+  return (
+    <Tooltip
+      content={
+        <CopyrightContent
+          active={copyRight}
+          thread={thread}
+          onCopyrightChange={onCopyrightChange}
+        />
+      }
+      placement="right"
+      trigger="click"
+    >
+      <ReprintWrapper>
+        <ReprintIcon src={`${ICON_CMD}/${copyRight}.svg`} />
+        <CopyRightText>{getCpTitle(copyRight)}</CopyRightText>
+        <MoreIcon src={`${ICON_CMD}/more.svg`} />
+      </ReprintWrapper>
+    </Tooltip>
+  )
+}
 
 export default React.memo(CopyrightSelector)

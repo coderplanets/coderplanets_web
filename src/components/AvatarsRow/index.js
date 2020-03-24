@@ -70,7 +70,7 @@ const AvatarsRow = ({
         <span />
       ) : (
         <MoreItem onClick={onTotalSelect.bind(this, { users, total })}>
-          <Tooltip content={`所有评论共 ${total} 条`}>
+          <Tooltip content={`所有评论共 ${total} 条`} duration={0}>
             <AvatarsMore total={total}>{prettyNum(total)}</AvatarsMore>
           </Tooltip>
         </MoreItem>
@@ -78,7 +78,7 @@ const AvatarsRow = ({
 
       {R.slice(0, limit, sortedUsers).map(user => (
         <AvatarsItem key={user.id}>
-          <Tooltip content={user.nickname} delay={200}>
+          <Tooltip content={user.nickname} duration={0}>
             <AvatarsImg
               src={user.avatar}
               data-user={o2s(user)}

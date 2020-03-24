@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { ICON_CMD } from '@config'
 // import { Wrapper } from './styles'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import { NumberTitle } from './styles'
 import { PopoverInfo, PopTitle, PopDesc } from './styles/subscribed_title'
 
@@ -16,7 +16,7 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
   }
 
   return (
-    <Popover
+    <Tooltip
       placement="bottom"
       trigger="hover"
       content={
@@ -29,7 +29,7 @@ const SubscribedBtn = ({ community, onUndoSubscribe }) => {
       <NumberTitle onClick={onUndoSubscribe.bind(this, community)} small>
         已加入
       </NumberTitle>
-    </Popover>
+    </Tooltip>
   )
 }
 
@@ -38,7 +38,7 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
     {community.viewerHasSubscribed ? (
       <SubscribedBtn community={community} onUndoSubscribe={onUndoSubscribe} />
     ) : (
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         content={
@@ -51,7 +51,7 @@ const SubscribedTitle = ({ community, onSubscribe, onUndoSubscribe }) => (
         <NumberTitle onClick={onSubscribe.bind(this, community)}>
           加入
         </NumberTitle>
-      </Popover>
+      </Tooltip>
     )}
   </React.Fragment>
 )

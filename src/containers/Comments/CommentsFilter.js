@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { TYPE } from '@constant'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import {
   FilterWraper,
   MenuWrapper,
@@ -73,12 +73,12 @@ const renderFilterIcon = filterType => {
 
 const CommentsFilter = ({ filterType, show }) => (
   <FilterWraper show={show}>
-    <Popover content={<Menus active={filterType} />}>
+    <Tooltip content={<Menus active={filterType} />}>
       <Header>
         {renderFilterIcon(filterType)}
         {filterDict[filterType]}
       </Header>
-    </Popover>
+    </Tooltip>
   </FilterWraper>
 )
 

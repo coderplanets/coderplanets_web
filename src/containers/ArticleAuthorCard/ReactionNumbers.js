@@ -4,7 +4,7 @@ import T from 'prop-types'
 import { ISSUE_ADDR } from '@config'
 import { TYPE } from '@constant'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import DiscussLinker from '@components/DiscussLinker'
 
 import {
@@ -25,13 +25,13 @@ const ReactionNumbers = ({ user }) => {
     <Wrapper>
       <ReactionNum>
         <NumDesc>声望</NumDesc>
-        <Popover
+        <Tooltip
           placement="bottom"
           trigger="click"
           content={<DiscussLinker title="声望" addr={`${ISSUE_ADDR}/327`} />}
         >
           <ReadOnlyNumber>{achievement.reputation}</ReadOnlyNumber>
-        </Popover>
+        </Tooltip>
       </ReactionNum>
       <ReactionNum>
         <NumDesc>关注者</NumDesc>

@@ -9,7 +9,7 @@ import T from 'prop-types'
 
 import { buildLog, sortByColor, Trans } from '@utils'
 import Maybe from '@components/Maybe'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import { Wrapper, Tag, Dot, Title, MoreText, PopoverInfo } from './styles'
 
@@ -30,7 +30,7 @@ const FullList = ({ data }) => (
 const InlineTags = ({ data, max }) => {
   if (data.length > max) {
     return (
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         content={
@@ -50,7 +50,7 @@ const InlineTags = ({ data, max }) => {
             ))}
           <MoreText>...</MoreText>
         </Wrapper>
-      </Popover>
+      </Tooltip>
     )
   }
 

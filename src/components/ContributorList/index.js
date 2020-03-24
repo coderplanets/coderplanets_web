@@ -11,7 +11,7 @@ import { buildLog } from '@utils'
 import { withGuardian } from '@hoc'
 
 import AvatarAdder from '@containers/AvatarAdder'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import GithubUserCard from '@components/GithubUserCard'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
@@ -22,7 +22,7 @@ const log = buildLog('c:ContributorList:index')
 const ContributorList = ({ users, readOnly, addContributor }) => (
   <Wrapper>
     {users.map(user => (
-      <Popover
+      <Tooltip
         content={
           <CardWrapper>
             <GithubUserCard user={user} />
@@ -35,7 +35,7 @@ const ContributorList = ({ users, readOnly, addContributor }) => (
         <AvatarLink href={user.htmlUrl} target="_blank">
           <Avatar src={user.avatar} />
         </AvatarLink>
-      </Popover>
+      </Tooltip>
     ))}
 
     {!readOnly && <AvatarAdder onConfirm={addContributor} />}

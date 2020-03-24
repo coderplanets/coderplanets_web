@@ -15,7 +15,7 @@ import { connectStore, buildLog, storePlug, uid } from '@utils'
 
 import { withGuardian } from '@hoc'
 import Maybe from '@components/Maybe'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import Options from './Options'
 import Selected from './Selected'
 

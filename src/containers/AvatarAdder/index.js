@@ -6,7 +6,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import { connectStore, buildLog } from '@utils'
 import AdderPanel from './AdderPanel'
@@ -28,7 +28,7 @@ const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
   } = avatarAdder
 
   return (
-    <Popover
+    <Tooltip
       visible={popoverVisiable}
       content={
         <AdderPanel
@@ -45,7 +45,7 @@ const AvatarAdderContainer = ({ avatarAdder, onConfirm }) => {
       <Wrapper>
         <AddText>+</AddText>
       </Wrapper>
-    </Popover>
+    </Tooltip>
   )
 }
 

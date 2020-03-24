@@ -3,8 +3,9 @@ import Link from 'next/link'
 
 import { ICON_CMD } from '@config'
 import { ROUTE } from '@constant'
-import Popover from '@components/Popover'
 
+// import Tooltip from '@components/Tooltip'
+import Tooltip from '@components/Tooltip'
 import MoreContent from './MoreContent'
 import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 
@@ -32,13 +33,13 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
     </Link>
     <DotDivider space={splitMargin} />
     <SiteLink>小周边</SiteLink>
-    {/* <Popover
+    {/* <Tooltip
       placement="bottom"
       trigger="click"
       content={<DiscussLinker title="专栏" addr={`${ISSUE_ADDR}/265`} />}
     >
       <SiteLink>专栏</SiteLink>
-    </Popover> */}
+    </Tooltip> */}
     <DotDivider space={splitMargin} />
     <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
       <SiteLink
@@ -58,11 +59,17 @@ const MainEntries = ({ curRoute: { mainPath } }) => (
       </SiteLink>
     </Link>
     <DotDivider space={splitMargin} />
-    <Popover content={<MoreContent />} placement="bottom" trigger="hover">
+
+    <Tooltip
+      content={<MoreContent />}
+      placement="bottom"
+      noDefaultPadding
+      trigger="click"
+    >
       <SiteLink>
         更多 <Icon src={`${ICON_CMD}/arrow_down.svg`} />
       </SiteLink>
-    </Popover>
+    </Tooltip>
   </Wrapper>
 )
 

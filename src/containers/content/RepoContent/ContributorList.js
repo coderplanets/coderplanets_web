@@ -1,7 +1,7 @@
 import React from 'react'
 
 // import { ICON_CMD } from '@config'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import {
   Wrapper,
@@ -15,7 +15,7 @@ import {
 const ContributorList = ({ items }) => (
   <Wrapper>
     {items.map(user => (
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         key={user.htmlUrl}
@@ -35,7 +35,7 @@ const ContributorList = ({ items }) => (
         <Builder>
           <Avatar src={user.avatar} />
         </Builder>
-      </Popover>
+      </Tooltip>
     ))}
   </Wrapper>
 )

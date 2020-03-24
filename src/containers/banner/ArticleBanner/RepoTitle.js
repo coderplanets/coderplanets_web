@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import { cutFrom } from '@utils'
 import {
@@ -13,13 +13,13 @@ import {
 
 const RepoTitle = ({ repo }) => (
   <Wrapper>
-    <Popover
+    <Tooltip
       content={<LanguagePopover>{repo.primaryLanguage.name}</LanguagePopover>}
       placement="bottom"
       trigger="hover"
     >
       <LanguageDot color={repo.primaryLanguage.color} />
-    </Popover>
+    </Tooltip>
     <TitleLink href={repo.ownerUrl} rel="noopener noreferrer" target="_blank">
       {repo.ownerName}
     </TitleLink>

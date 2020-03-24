@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import Popover from '../index'
+// import Tooltip from '../index'
 
-describe('TODO <Popover />', () => {
+describe('TODO <Tooltip />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

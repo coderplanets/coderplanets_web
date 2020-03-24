@@ -8,36 +8,43 @@ import React, { useState } from 'react'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
-import { Wrapper, ContentWrapper, TopArrow, BottomArrow } from './styles'
+
+import {
+  StyledTippy,
+  NoPaddingStyledTippy,
+  ContentWrapper,
+  TopArrow,
+  BottomArrow,
+  LeftArrow,
+} from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tooltip:index')
 
 const Tooltip = ({
   children,
-  content,
-  animation,
-  arrow,
-  delay,
-  trigger,
-  duration,
-  placement,
-  onTrigger,
+  noDefaultPadding,
   onHide,
   onShow,
+  placement,
+  content,
+  ...restProps
 }) => {
   const [active, setActive] = useState(false)
 
-  return (
-    <Wrapper
+  const ContentComp = (
+    <ContentWrapper>
+      {active && placement === 'bottom' && <TopArrow />}
+      {active && placement === 'top' && <BottomArrow />}
+      {active && placement === 'right' && <LeftArrow />}
+
+      {children}
+    </ContentWrapper>
+  )
+
+  return !noDefaultPadding ? (
+    <StyledTippy
       content={content}
-      animation={animation}
-      arrow={arrow}
-      delay={[delay, 20]}
-      trigger={trigger}
-      duration={duration}
-      placement={placement}
-      onTrigger={onTrigger}
       onHide={() => {
         setActive(false)
         onHide()
@@ -46,13 +53,25 @@ const Tooltip = ({
         setActive(true)
         onShow()
       }}
+      {...restProps}
     >
-      <ContentWrapper>
-        {active && placement === 'bottom' && <TopArrow />}
-        {active && placement === 'top' && <BottomArrow />}
-        {children}
-      </ContentWrapper>
-    </Wrapper>
+      {ContentComp}
+    </StyledTippy>
+  ) : (
+    <NoPaddingStyledTippy
+      content={content}
+      onHide={() => {
+        setActive(false)
+        onHide()
+      }}
+      onShow={() => {
+        setActive(true)
+        onShow()
+      }}
+      {...restProps}
+    >
+      {ContentComp}
+    </NoPaddingStyledTippy>
   )
 }
 
@@ -86,23 +105,29 @@ Tooltip.propTypes = {
   ]),
   // hooks
   onTrigger: T.func,
-  trigger: T.oneOf(['mouseenter focus', 'click']),
+  trigger: T.oneOf(['mouseenter focus', 'click', 'manual']),
+  hideOnClick: T.oneOf([true, false, 'toggle']),
+  maxWidth: T.oneOf([350, 'none']),
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   onShow: T.func,
   onHide: T.func,
+  noDefaultPadding: T.bool,
 }
 
 Tooltip.defaultProps = {
   animation: 'fade',
-  arrow: true,
+  arrow: false,
   delay: 0,
   duration: 100,
+  hideOnClick: true,
   placement: 'top',
   // hooks
   onTrigger: log,
   trigger: 'mouseenter focus',
   onShow: log,
   onHide: log,
+  noDefaultPadding: false,
+  maxWidth: 'none',
 }
 
 export default React.memo(Tooltip)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import { ICON_CMD, ICON_BASE, EMAIL_SUPPORT } from '@config'
 
 import { Wrapper, Item, Icon, QRCodePic } from './styles/social_list'
@@ -13,7 +13,7 @@ const SocialList = () => (
       </Item>
     </a>
 
-    <Popover
+    <Tooltip
       placement="top"
       trigger="hover"
       content={<QRCodePic src={`${ICON_BASE}/cps_wechat_group.png`} />}
@@ -21,7 +21,7 @@ const SocialList = () => (
       <Item>
         <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
       </Item>
-    </Popover>
+    </Tooltip>
 
     <a
       href="https://github.com/coderplanets/"

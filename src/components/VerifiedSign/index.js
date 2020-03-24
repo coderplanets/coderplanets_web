@@ -59,18 +59,18 @@ const VerifiedSign = ({ text, type, communityTitle }) => {
   const [active, setActive] = useState(false)
 
   return (
-    <Wrapper testid="verifiedSign" active={active}>
-      <Icon src={`${ICON_CMD}/verified.svg`} />
-      <Tooltip
-        content={<PopContent communityTitle={communityTitle} />}
-        placement="bottom"
-        trigger="click"
-        onHide={() => setActive(false)}
-        onShow={() => setActive(true)}
-      >
+    <Tooltip
+      content={<PopContent communityTitle={communityTitle} />}
+      placement="bottom"
+      trigger="click"
+      onHide={() => setActive(false)}
+      onShow={() => setActive(true)}
+    >
+      <Wrapper testid="verifiedSign" active={active}>
+        <Icon src={`${ICON_CMD}/verified.svg`} />
         <Text active={active}>{text}</Text>
-      </Tooltip>
-    </Wrapper>
+      </Wrapper>
+    </Tooltip>
   )
 }
 

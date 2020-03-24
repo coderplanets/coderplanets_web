@@ -7,7 +7,7 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 
 import MailsPanel from './MailsPanel'
 
@@ -23,7 +23,7 @@ const MailBoxContainer = ({ mailBox }) => {
   const { visible, activeRaw, mailStatusData, pagedMentionsData } = mailBox
 
   return (
-    <Popover
+    <Tooltip
       content={
         <MailsPanel
           activeRaw={activeRaw}
@@ -40,7 +40,7 @@ const MailBoxContainer = ({ mailBox }) => {
         <NofityDot active={mailStatusData.hasMail} />
         <HeaderMailIcon />
       </Wrapper>
-    </Popover>
+    </Tooltip>
   )
 }
 

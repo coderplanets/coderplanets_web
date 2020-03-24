@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { buildLog, Trans } from '@utils'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import Maybe from '@components/Maybe'
 
 import {
@@ -26,7 +26,7 @@ const log = buildLog('c:InlineCommunities:index')
 const FullList = ({ data }) => (
   <Wrapper>
     {data.map(c => (
-      <Popover
+      <Tooltip
         key={c.title}
         placement="bottom"
         trigger="hover"
@@ -39,7 +39,7 @@ const FullList = ({ data }) => (
         <CommunityWrapper>
           <CommunityLogo src={c.logo} />
         </CommunityWrapper>
-      </Popover>
+      </Tooltip>
     ))}
   </Wrapper>
 )
@@ -47,7 +47,7 @@ const FullList = ({ data }) => (
 const InlineCommunities = ({ data, show, max }) => {
   if (data.length > max) {
     return (
-      <Popover
+      <Tooltip
         placement="bottom"
         trigger="hover"
         content={
@@ -65,7 +65,7 @@ const InlineCommunities = ({ data, show, max }) => {
           ))}
           <MoreText>..</MoreText>
         </Wrapper>
-      </Popover>
+      </Tooltip>
     )
   }
 

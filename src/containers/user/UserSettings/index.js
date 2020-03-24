@@ -13,7 +13,7 @@ import { C11N } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import ThemeSelector from '@components/ThemeSelector'
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import SectionLabel from '@components/SectionLabel'
 import DiscussLinker from '@components/DiscussLinker'
 
@@ -109,9 +109,9 @@ const UserSettingsContainer = ({ userSettings }) => {
             iconSrc={`${ICON_CMD}/dashang.svg`}
             desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不显示打赏按钮。提现需提交申请，将在 3-5 个工作日内到达你的账户，不收取任何手续费用。"
           />
-          <Popover
+          <Tooltip
             placement="bottom"
-            trigger="hover"
+            trigger="click"
             content={
               <DiscussLinker title="打赏设置" addr={`${ISSUE_ADDR}/268`} />
             }
@@ -124,13 +124,13 @@ const UserSettingsContainer = ({ userSettings }) => {
                 </RadioGroup>
               </RadiosWrapper>
             </OptionsWrapper>
-          </Popover>
+          </Tooltip>
           <SectionLabel
             title="邮件订阅(wip)"
             iconSrc={`${ICON_CMD}/mail.svg`}
             desc="接收邮件提醒，订阅, 账单, 每周精选等等, 我们不会滥用你的信任，建议开启。"
           />
-          <Popover
+          <Tooltip
             placement="bottom"
             trigger="hover"
             content={
@@ -145,7 +145,7 @@ const UserSettingsContainer = ({ userSettings }) => {
                 </RadioGroup>
               </RadiosWrapper>
             </OptionsWrapper>
-          </Popover>
+          </Tooltip>
         </Wrapper>
       ) : (
         <ErrText>请登录后查看本人的设置信息</ErrText>

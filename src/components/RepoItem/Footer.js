@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import Popover from '@components/Popover'
+import Tooltip from '@components/Tooltip'
 import DotDivider from '@components/DotDivider'
 
 import {
@@ -19,7 +19,7 @@ const Footer = ({ contributors, author, insertedAt }) => (
   <Wrapper>
     <Contributors>
       {contributors.map(builder => (
-        <Popover
+        <Tooltip
           placement="bottom"
           trigger="hover"
           key={builder.htmlUrl}
@@ -39,7 +39,7 @@ const Footer = ({ contributors, author, insertedAt }) => (
           <Builder>
             <Avatar src={builder.avatar} />
           </Builder>
-        </Popover>
+        </Tooltip>
       ))}
     </Contributors>
     <PublishInfo>
