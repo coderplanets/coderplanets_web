@@ -53,7 +53,7 @@ const CommunityBrief = ({ content, descExpand }) => {
       </LogoWrapper>
       <CommunityInfo>
         <TitleWrapper>
-          <Title>
+          <Title descExpand={descExpand}>
             <div>{content.title}</div>
             <VerifiedSign />
           </Title>

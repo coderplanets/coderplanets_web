@@ -71,7 +71,7 @@ export const TitleWrapper = styled.div`
 `
 export const Title = styled.div`
   ${cs.flex('align-baseline')};
-  font-size: 18px;
+  font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};
 `
 export const GroupsIcon = styled(Img)`

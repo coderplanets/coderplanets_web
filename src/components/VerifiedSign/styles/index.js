@@ -7,7 +7,7 @@ export const Wrapper = styled.div.attrs(props => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('align-center')};
-  margin-left: 14px;
+  margin-left: 12px;
   cursor: pointer;
   background: ${({ active }) => (active ? '#044c5f' : 'transparent')};
   padding: ${({ active }) => (active ? '0 5px' : '0')};

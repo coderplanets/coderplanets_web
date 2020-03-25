@@ -21,7 +21,6 @@ export const GreenDot = styled.div`
   margin-right: 5px;
 `
 export const PlusSign = styled.div`
-  color: ${theme('baseColor.green')};
   margin-right: 2px;
 `
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
