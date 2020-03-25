@@ -48,6 +48,7 @@ export const UpWrapper = styled.div`
     color: ${theme('banner.title')};
     opacity: 1;
   }
+  transition: all 0.25s;
 `
 export const UpIcon = styled(Img)`
   fill: #2cb4aa;

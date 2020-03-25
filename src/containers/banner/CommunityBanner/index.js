@@ -26,7 +26,6 @@ const CommunityBannerContainer = ({ communityBanner }) => {
     viewing: { community, activeThread },
     descExpand,
   } = communityBanner
-  console.log('descExpand: ', descExpand)
 
   return (
     <div data-testid="community-banner">
