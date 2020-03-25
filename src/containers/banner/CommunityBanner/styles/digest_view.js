@@ -8,7 +8,8 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 import { BaseBanner, BaseTabber } from './index'
 
 export const Wrapper = styled(BaseBanner)`
-  min-height: 150px;
+  min-height: ${({ descExpand }) => (descExpand ? '300px' : '150px')};
+  transition: min-height 0.25s;
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -41,6 +42,7 @@ export const TabberWrapper = styled(BaseTabber)``
 
 export const CommunityWrapper = styled.div`
   ${cs.flexGrow('align-center')};
+  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
   ${cs.media.mobile`
     margin-left: 5%;
 `};

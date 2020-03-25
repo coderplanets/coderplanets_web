@@ -36,58 +36,62 @@ import {
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const CommunityBrief = ({ content, descExpand }) => (
-  <CommunityWrapper>
-    <LogoWrapper raw={content.raw}>
-      {content.logo ? (
-        <CommunityLogo
-          nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
-          src={content.logo}
-          raw={content.raw}
-          loading={<CommunityHolder text={content.raw} />}
-        />
-      ) : (
-        <LogoHolder src={CommunityLogoHolder} />
-      )}
-    </LogoWrapper>
-    <CommunityInfo>
-      <TitleWrapper>
-        <Title>
-          <div>{content.title}</div>
-          <VerifiedSign />
-        </Title>
-      </TitleWrapper>
-      {/* <Desc>{content.desc}</Desc> */}
-      <ExpandTexts descExpand={descExpand} />
-      <SocialList />
-    </CommunityInfo>
-  </CommunityWrapper>
-)
-
-const DigestView = ({ community, descExpand, activeThread, layout }) => (
-  <Wrapper>
-    <InnerWrapper>
-      <BannerContentWrapper descExpand={descExpand}>
-        <CommunityBrief content={community} descExpand={descExpand} />
-        <CommunityStatesPad
-          community={community}
-          onSubscribe={onSubscribe}
-          onUndoSubscribe={onUndoSubscribe}
-          onShowEditorList={onShowEditorList}
-          onShowSubscriberList={onShowSubscriberList}
-        />
-        <TabberWrapper>
-          <Tabber
-            source={community.threads}
-            onChange={tabberChange}
-            active={activeThread}
-            layout={layout}
-            communityRaw={community.raw}
+const CommunityBrief = ({ content, descExpand }) => {
+  return (
+    <CommunityWrapper descExpand={descExpand}>
+      <LogoWrapper raw={content.raw}>
+        {content.logo ? (
+          <CommunityLogo
+            nonFill={R.contains(content.raw, NON_FILL_COMMUNITY)}
+            src={content.logo}
+            raw={content.raw}
+            loading={<CommunityHolder text={content.raw} />}
           />
-        </TabberWrapper>
-      </BannerContentWrapper>
-    </InnerWrapper>
-  </Wrapper>
-)
+        ) : (
+          <LogoHolder src={CommunityLogoHolder} />
+        )}
+      </LogoWrapper>
+      <CommunityInfo>
+        <TitleWrapper>
+          <Title>
+            <div>{content.title}</div>
+            <VerifiedSign />
+          </Title>
+        </TitleWrapper>
+        {/* <Desc>{content.desc}</Desc> */}
+        <ExpandTexts descExpand={descExpand} />
+        <SocialList />
+      </CommunityInfo>
+    </CommunityWrapper>
+  )
+}
+
+const DigestView = ({ community, descExpand, activeThread, layout }) => {
+  return (
+    <Wrapper descExpand={descExpand}>
+      <InnerWrapper>
+        <BannerContentWrapper descExpand={descExpand}>
+          <CommunityBrief content={community} descExpand={descExpand} />
+          <CommunityStatesPad
+            community={community}
+            onSubscribe={onSubscribe}
+            onUndoSubscribe={onUndoSubscribe}
+            onShowEditorList={onShowEditorList}
+            onShowSubscriberList={onShowSubscriberList}
+          />
+          <TabberWrapper>
+            <Tabber
+              source={community.threads}
+              onChange={tabberChange}
+              active={activeThread}
+              layout={layout}
+              communityRaw={community.raw}
+            />
+          </TabberWrapper>
+        </BannerContentWrapper>
+      </InnerWrapper>
+    </Wrapper>
+  )
+}
 
 export default React.memo(DigestView)
