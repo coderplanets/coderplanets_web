@@ -80,6 +80,12 @@ export const onShowSubscriberList = () => {
   send(EVENT.USER_LISTER_OPEN, { type, data })
 }
 
+export const toggleDescExpand = () => {
+  const { descExpand } = store
+
+  store.mark({ descExpand: !descExpand })
+}
+
 const markLoading = (maybe = true) =>
   store.mark({ loading: maybe, subscribeLoading: maybe })
 

@@ -24,7 +24,9 @@ const CommunityBannerContainer = ({ communityBanner }) => {
       customization: { bannerLayout },
     },
     viewing: { community, activeThread },
+    descExpand,
   } = communityBanner
+  console.log('descExpand: ', descExpand)
 
   return (
     <div data-testid="community-banner">
@@ -33,6 +35,7 @@ const CommunityBannerContainer = ({ communityBanner }) => {
           community={community}
           activeThread={activeThread}
           layout={bannerLayout}
+          descExpand={descExpand}
         />
       ) : (
         <BriefView

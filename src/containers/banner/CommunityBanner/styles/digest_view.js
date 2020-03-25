@@ -30,7 +30,9 @@ export const BaseBannerContent = styled.div`
   `};
 `
 
-export const BannerContentWrapper = styled(BaseBannerContent)``
+export const BannerContentWrapper = styled(BaseBannerContent)`
+  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+`
 
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
@@ -88,23 +90,6 @@ export const GroupsIcon = styled(Img)`
     opacity: 1;
   }
   transition: opacity 0.2s;
-`
-export const Desc = styled.div`
-  font-size: 1rem;
-  color: ${theme('banner.desc')};
-  margin-top: -2px;
-  @media (max-height: 800px) {
-    font-size: 1rem;
-  }
-  ${cs.truncate('500px')};
-
-  ${cs.media.tablet`
-    ${cs.truncate('220px')};
-  `};
-
-  ${cs.media.mobile`
-    ${cs.truncate('180px')};
-  `};
 `
 export const LogoHolder = styled(Img)`
   fill: ${theme('banner.desc')};

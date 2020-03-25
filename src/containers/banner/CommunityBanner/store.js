@@ -14,6 +14,7 @@ const log = buildLog('S:CommunityBanner')
 const CommunityBanner = t
   .model('CommunityBanner', {
     loading: t.optional(t.boolean, false),
+    descExpand: t.optional(t.boolean, false),
     subscribeLoading: t.optional(t.boolean, false),
   })
   .views(self => ({

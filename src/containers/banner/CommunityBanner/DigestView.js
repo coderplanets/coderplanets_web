@@ -9,6 +9,7 @@ import Tabber from '@components/Tabber'
 import CommunityStatesPad from '@components/CommunityStatesPad'
 import { CommunityHolder } from '@components/LoadingEffects'
 
+import ExpandTexts from './ExpandTexts'
 import SocialList from './SocialList'
 
 import {
@@ -22,7 +23,6 @@ import {
   CommunityInfo,
   TitleWrapper,
   Title,
-  Desc,
   LogoHolder,
 } from './styles/digest_view'
 
@@ -36,7 +36,7 @@ import {
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const CommunityBrief = ({ content }) => (
+const CommunityBrief = ({ content, descExpand }) => (
   <CommunityWrapper>
     <LogoWrapper raw={content.raw}>
       {content.logo ? (
@@ -57,17 +57,18 @@ const CommunityBrief = ({ content }) => (
           <VerifiedSign />
         </Title>
       </TitleWrapper>
-      <Desc>{content.desc}</Desc>
+      {/* <Desc>{content.desc}</Desc> */}
+      <ExpandTexts descExpand={descExpand} />
       <SocialList />
     </CommunityInfo>
   </CommunityWrapper>
 )
 
-const DigestView = ({ community, activeThread, layout }) => (
+const DigestView = ({ community, descExpand, activeThread, layout }) => (
   <Wrapper>
     <InnerWrapper>
-      <BannerContentWrapper>
-        <CommunityBrief content={community} />
+      <BannerContentWrapper descExpand={descExpand}>
+        <CommunityBrief content={community} descExpand={descExpand} />
         <CommunityStatesPad
           community={community}
           onSubscribe={onSubscribe}
