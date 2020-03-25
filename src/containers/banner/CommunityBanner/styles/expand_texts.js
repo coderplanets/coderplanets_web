@@ -4,12 +4,15 @@ import Img from '@Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-start')};
+  ${cs.flex('align-center')};
+  align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
 `
 export const Normal = styled.div`
   color: ${theme('banner.desc')};
   font-size: 14px;
-  max-width: 500px;
+  max-width: 490px;
+  margin: ${({ margin }) => (margin ? '10px 0' : 0)};
+
 
   /* ${cs.media.tablet`
     ${cs.truncate('220px')};
@@ -20,18 +23,40 @@ export const Normal = styled.div`
   `}; */
 `
 export const MoreIcon = styled(Img)`
-  fill: ${theme('banner.title')};
-  width: 16px;
-  height: 16px;
+  fill: ${theme('banner.desc')};
+  width: 15px;
+  height: 15px;
   display: block;
   cursor: pointer;
-`
-export const MoreText = styled.div`
-  color: ${theme('banner.desc')};
-  font-size: 14px;
-  cursor: pointer;
+  opacity: 0.6;
+  margin-left: 5px;
 
   &:hover {
     color: ${theme('banner.title')};
+    opacity: 1;
   }
+  transition: all 0.25s;
+`
+export const UpWrapper = styled.div`
+  ${cs.flex('align-center')};
+  cursor: pointer;
+  margin-top: 12px;
+  opacity: 0.8;
+  margin-left: 10px;
+
+  &:hover {
+    color: ${theme('banner.title')};
+    opacity: 1;
+  }
+`
+export const UpIcon = styled(Img)`
+  fill: #2cb4aa;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin-right: 3px;
+`
+export const UpText = styled.div`
+  color: #2cb4aa;
+  font-size: 13px;
 `

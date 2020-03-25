@@ -9,7 +9,6 @@ import { BaseBanner, BaseTabber } from './index'
 
 export const Wrapper = styled(BaseBanner)`
   min-height: ${({ descExpand }) => (descExpand ? '300px' : '150px')};
-  transition: min-height 0.25s;
 `
 export const InnerWrapper = styled.div`
   ${cs.flex('justify-center')};
@@ -30,11 +29,9 @@ export const BaseBannerContent = styled.div`
     padding-right: 3%;
   `};
 `
-
 export const BannerContentWrapper = styled(BaseBannerContent)`
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
 `
-
 export const BannerContainer = styled(BaseBanner)`
   min-height: 125px;
 `
@@ -43,6 +40,7 @@ export const TabberWrapper = styled(BaseTabber)``
 export const CommunityWrapper = styled.div`
   ${cs.flexGrow('align-center')};
   align-items: ${({ descExpand }) => (descExpand ? 'flex-start' : 'center')};
+  transition: all 0.5s;
   ${cs.media.mobile`
     margin-left: 5%;
 `};
