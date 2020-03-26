@@ -3,7 +3,6 @@ import { css, keyframes } from 'styled-components'
 const shake = keyframes`
   from,
   to {
-    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
@@ -12,7 +11,6 @@ const shake = keyframes`
   50%,
   70%,
   90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
     transform: translate3d(-10px, 0, 0);
   }
 
@@ -20,7 +18,6 @@ const shake = keyframes`
   40%,
   60%,
   80% {
-    -webkit-transform: translate3d(10px, 0, 0);
     transform: translate3d(10px, 0, 0);
   }
 `

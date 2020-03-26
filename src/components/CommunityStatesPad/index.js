@@ -18,6 +18,7 @@ import {
   NumberSection,
   ContentSection,
   EditorSection,
+  ChargeSection,
   NumberDivider,
   NumberTitle,
 } from './styles'
@@ -74,10 +75,10 @@ const CommunityStatesPad = ({
         <NumberGroup onClick={onShowEditorList} count={editorsCount} />
       </EditorSection>
       <NumberDivider />
-      <EditorSection>
+      <ChargeSection>
         <NumberTitle>打赏</NumberTitle>
         <Charger />
-      </EditorSection>
+      </ChargeSection>
     </Wrapper>
   )
 }

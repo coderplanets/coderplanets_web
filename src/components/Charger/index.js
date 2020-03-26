@@ -7,9 +7,10 @@
 import React from 'react'
 // import T from 'prop-types'
 
+import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { Wrapper, Battery, Liquid } from './styles'
+import { Wrapper, Battery, Liquid, MoneySign } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Charger:index')
@@ -19,8 +20,10 @@ const log = buildLog('c:Charger:index')
 const Charger = () => {
   return (
     <Wrapper testid="charger">
-      <Battery />
-      <Liquid />
+      <Battery>
+        <Liquid />
+        <MoneySign src={`${ICON_CMD}/battery_heart.svg`} />
+      </Battery>
     </Wrapper>
   )
 }

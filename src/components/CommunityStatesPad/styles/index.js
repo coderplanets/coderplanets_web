@@ -20,15 +20,16 @@ export const NumberSection = styled.div`
       readOnly ? '' : theme('banner.numberHoverBg')};
   }
 `
-
 export const ContentSection = styled(NumberSection)`
   ${cs.media.mobile`display: none`};
 `
-
 export const EditorSection = styled(NumberSection)`
   ${cs.media.mobile`display: none`};
 `
-
+export const ChargeSection = styled(NumberSection)`
+  ${cs.flexColumn('align-center', 'justify-between')};
+  ${cs.media.mobile`display: none`};
+`
 // text-decoration: ${({ readOnly }) => (readOnly ? '' : 'underline')};
 export const NumberTitle = styled.div`
   color: ${theme('banner.numberDesc')};
