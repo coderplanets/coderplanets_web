@@ -9,6 +9,7 @@ import T from 'prop-types'
 
 import { buildLog } from '@utils'
 
+import Charger from '@components/Charger'
 import SubscribedTitle from './SubscribedTitle'
 import NumberGroup from './NumberGroup'
 
@@ -71,6 +72,11 @@ const CommunityStatesPad = ({
       <EditorSection>
         <NumberTitle readOnly>编辑</NumberTitle>
         <NumberGroup onClick={onShowEditorList} count={editorsCount} />
+      </EditorSection>
+      <NumberDivider />
+      <EditorSection>
+        <NumberTitle>打赏</NumberTitle>
+        <Charger />
       </EditorSection>
     </Wrapper>
   )
