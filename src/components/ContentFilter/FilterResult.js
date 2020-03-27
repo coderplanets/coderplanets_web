@@ -9,7 +9,7 @@ import {
   ResultText,
   ResultDivider,
   MoreOptionWrapper,
-  MoreDivider,
+  FaqText,
   SettingIcon,
 } from './styles/filter_result'
 
@@ -22,13 +22,12 @@ const FilterResult = ({ thread, totalCount, customization, onC11NChange }) => {
       <ResultDivider />
 
       <MoreOptionWrapper>
-        <Tooltip content="近期热门" placement="bottom">
-          <div>
-            <SettingIcon src={`${ICON_CMD}/header/more_data.svg`} />
-          </div>
+        <Tooltip content="常见问题" placement="bottom" delay={300}>
+          <FaqText active>FAQ</FaqText>
         </Tooltip>
 
-        <MoreDivider />
+        <ResultDivider />
+
         <Tooltip
           placement="bottom-end"
           trigger="click"

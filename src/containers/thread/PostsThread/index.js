@@ -15,6 +15,7 @@ import { connectStore, buildLog } from '@utils'
 import TagsBar from '@containers/TagsBar'
 import { PublishButton } from '@components/Buttons'
 import Maybe from '@components/Maybe'
+import FaqPeekList from '@components/FaqPeekList'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
 import ConstructingThread from '@components/ConstructingThread'
@@ -121,6 +122,7 @@ const PostsThreadContainer = ({ postsThread }) => {
               </FilterWrapper>
             </Maybe>
 
+            <FaqPeekList />
             <PagedContents
               data={pagedPostsData}
               cover={curThread === THREAD.RADAR ? 'source' : 'avatar'}

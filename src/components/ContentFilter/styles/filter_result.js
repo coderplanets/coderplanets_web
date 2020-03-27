@@ -7,19 +7,30 @@ export const Wrapper = styled.div`
   ${cs.flex('align-center')};
 `
 export const ResultText = styled.div`
-  margin-right: 4px;
   color: ${theme('thread.filterResultHint')};
   min-width: 75px;
 `
 export const ResultDivider = styled.div`
   width: 1px;
   height: 12px;
-  margin-left: 5px;
+  margin: 0 10px;
   background-color: ${theme('thread.filterResultHint')};
 `
 export const MoreOptionWrapper = styled.div`
   ${cs.flex('align-center')};
-  margin-left: 10px;
+`
+export const FaqText = styled.div`
+  background-color: ${({ active }) =>
+    active ? theme('button.primary') : '#104456'};
+  border-radius: 3px;
+  padding: 0 6px;
+  font-size: 12px;
+  color: ${({ active }) => (active ? theme('button.fg') : '#3e8dbf')};
+
+  &:hover {
+    color: ${({ active }) => (active ? theme('button.fg') : '#2cb4aa')};
+    cursor: pointer;
+  }
 `
 export const MoreDivider = styled.div`
   width: 4px;
