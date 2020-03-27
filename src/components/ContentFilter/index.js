@@ -27,6 +27,8 @@ const ContentFilter = ({
   accountInfo: { isLogin, customization },
   totalCount,
   onC11NChange,
+  onFaqChange,
+  faqActive,
 }) => (
   <Wrapper>
     <MainFilterWrapper>
@@ -44,6 +46,8 @@ const ContentFilter = ({
       totalCount={totalCount}
       customization={customization}
       onC11NChange={onC11NChange}
+      onFaqChange={onFaqChange}
+      faqActive={faqActive}
     />
   </Wrapper>
 )
@@ -77,6 +81,8 @@ ContentFilter.propTypes = {
   }),
   totalCount: T.number,
   onC11NChange: T.func,
+  onFaqChange: T.func,
+  faqActive: T.bool,
 }
 
 ContentFilter.defaultProps = {
@@ -108,6 +114,8 @@ ContentFilter.defaultProps = {
   },
   totalCount: 0,
   onC11NChange: log,
+  onFaqChange: log,
+  faqActive: false,
 }
 
 export default React.memo(ContentFilter)

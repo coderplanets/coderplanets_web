@@ -15,16 +15,31 @@ import {
 
 import SettingMenu from './SettingMenu'
 
-const FilterResult = ({ thread, totalCount, customization, onC11NChange }) => {
+const FilterResult = ({
+  thread,
+  totalCount,
+  customization,
+  onC11NChange,
+  onFaqChange,
+  faqActive,
+}) => {
   return (
     <Wrapper>
       <ResultText>结果共 {totalCount} 条</ResultText>
       <ResultDivider />
 
       <MoreOptionWrapper>
-        <Tooltip content="常见问题" placement="bottom" delay={300}>
-          <FaqText active>FAQ</FaqText>
-        </Tooltip>
+        {faqActive ? (
+          <FaqText active={faqActive} onClick={onFaqChange}>
+            FAQ
+          </FaqText>
+        ) : (
+          <Tooltip content="常见问题" placement="bottom" delay={300}>
+            <FaqText active={faqActive} onClick={onFaqChange}>
+              FAQ
+            </FaqText>
+          </Tooltip>
+        )}
 
         <ResultDivider />
 

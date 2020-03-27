@@ -40,6 +40,7 @@ import {
   onUserSelect,
   onPreview,
   onPageChange,
+  onFaqChange,
   onContentCreate,
   onTagSelect,
   onAdsClose,
@@ -82,6 +83,7 @@ const PostsThreadContainer = ({ postsThread }) => {
     curView,
     filtersData,
     activePost,
+    faqActive,
     curRoute,
     accountInfo,
     isLogin,
@@ -118,11 +120,13 @@ const PostsThreadContainer = ({ postsThread }) => {
                   accountInfo={accountInfo}
                   totalCount={totalCount}
                   onC11NChange={onC11NChange}
+                  faqActive={faqActive}
+                  onFaqChange={onFaqChange}
                 />
               </FilterWrapper>
             </Maybe>
 
-            <FaqPeekList />
+            <FaqPeekList active={faqActive} />
             <PagedContents
               data={pagedPostsData}
               cover={curThread === THREAD.RADAR ? 'source' : 'avatar'}

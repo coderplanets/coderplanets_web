@@ -35,6 +35,7 @@ const PostsThreadStore = t
       TYPE.RESULT
     ),
     pagedCityCommunities: t.optional(PagedCommunities, emptyPagiData),
+    faqActive: t.optional(t.boolean, false),
   })
   .views(self => ({
     get root() {

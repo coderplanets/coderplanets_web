@@ -158,6 +158,12 @@ export const onCommunitySelect = community => {
   send(EVENT.COMMUNITY_CHANGE)
 }
 
+// toggle FAQ active state
+export const onFaqChange = () => {
+  const { faqActive } = store
+  store.mark({ faqActive: !faqActive })
+}
+
 // ###############################
 // Data & Error handlers
 // ###############################

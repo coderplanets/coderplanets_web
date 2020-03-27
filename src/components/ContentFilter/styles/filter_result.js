@@ -28,7 +28,7 @@ export const FaqText = styled.div`
   color: ${({ active }) => (active ? theme('button.fg') : '#3e8dbf')};
 
   &:hover {
-    color: ${({ active }) => (active ? theme('button.fg') : '#2cb4aa')};
+    color: ${({ active }) => (active ? theme('button.fg') : '#3e8dbf')};
     cursor: pointer;
   }
 `
