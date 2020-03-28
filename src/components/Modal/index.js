@@ -9,8 +9,7 @@ import T from 'prop-types'
 import usePortal from 'react-useportal'
 
 import { ICON_CMD } from '@config'
-import { TYPE } from '@constant'
-import { buildLog } from '@utils'
+import { buildLog, toggleGlobalBlur } from '@utils'
 
 import Belt from './Belt'
 
@@ -32,15 +31,7 @@ const Modal = ({
 }) => {
   const { Portal } = usePortal()
 
-  useEffect(() => {
-    const globalEl = document.getElementById(TYPE.GLOBAL_LAYOUT_ID)
-
-    if (show) {
-      globalEl.classList.add('global_blur')
-    } else {
-      globalEl.classList.remove('global_blur')
-    }
-  }, [show])
+  useEffect(() => toggleGlobalBlur(show), [show])
 
   return (
     <React.Fragment>

@@ -1,3 +1,4 @@
+import R from 'ramda'
 import { TYPE } from '@constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
@@ -113,6 +114,24 @@ export const hideDoraemonBarRecover = () => {
     // onBlur will on focus the whole page, if not use this
     // openDoraemon will not work until you click the page
     document.getElementById('whereCallShowDoraemon').click()
+  }
+}
+
+/**
+ * toogle global blurable elements
+ * 注意不能全局 blur 根元素，会和 position: fixed 冲突
+ * see issue: https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
+ * @param {boolean} visible
+ */
+export const toggleGlobalBlur = visible => {
+  const blurableEls = document.querySelectorAll(`.${TYPE.GLOBAL_BLUR_CLASS}`)
+
+  if (blurableEls) {
+    R.forEach(el => {
+      visible
+        ? el.classList.add('global_blur')
+        : el.classList.remove('global_blur')
+    }, blurableEls)
   }
 }
 

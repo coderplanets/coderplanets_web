@@ -104,6 +104,7 @@ export {
   blurDoraemonBar,
   hideDoraemonBarRecover,
   isBrowser,
+  toggleGlobalBlur,
 } from './dom_operator'
 /*
  * theme related

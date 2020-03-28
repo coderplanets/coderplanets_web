@@ -7,6 +7,7 @@
 import React from 'react'
 import R from 'ramda'
 
+import { TYPE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import Header from './Header'
@@ -38,7 +39,7 @@ const SidebarContainer = ({ sidebar }) => {
   const homeCommunity = R.filter(R.propEq('raw', 'home'), communitiesData)[0]
 
   return (
-    <Wrapper pin={pin} testid="sidebar">
+    <Wrapper pin={pin} testid="sidebar" className={TYPE.GLOBAL_BLUR_CLASS}>
       <Header pin={pin} searchCommunityValue={searchCommunityValue} />
 
       {/*

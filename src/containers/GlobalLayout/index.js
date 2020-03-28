@@ -85,7 +85,7 @@ const GlobalLayoutContainer = ({
   return (
     <AnalysisService>
       <ThemeWrapper>
-        <Wrapper id={TYPE.GLOBAL_LAYOUT_ID}>
+        <Wrapper>
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
@@ -105,7 +105,10 @@ const GlobalLayoutContainer = ({
                 <Preview />
                 <Doraemon />
                 <ErrorBox />
-                <ContentPinWrapper offsetLeft={sidebarPin}>
+                <ContentPinWrapper
+                  offsetLeft={sidebarPin}
+                  className={TYPE.GLOBAL_BLUR_CLASS}
+                >
                   <ContentWrapper
                     offsetLeft={
                       !!(page === 'community' || page === 'communities')

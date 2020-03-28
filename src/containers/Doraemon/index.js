@@ -7,8 +7,7 @@
 import React, { useEffect } from 'react'
 import usePortal from 'react-useportal'
 
-import { connectStore, buildLog } from '@utils'
-import { TYPE } from '@constant'
+import { connectStore, buildLog, toggleGlobalBlur } from '@utils'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'
@@ -42,17 +41,7 @@ const DoraemonContainer = ({ doraemon }) => {
     searchedTotalCount,
   } = doraemon
 
-  useEffect(() => {
-    const globalEl = document.getElementById(TYPE.GLOBAL_LAYOUT_ID)
-
-    if (visible) {
-      globalEl.classList.add('global_blur')
-    } else {
-      globalEl.classList.remove('global_blur')
-    }
-  }, [visible])
-
-  // log('suggestion.raw: ', suggestions.toJSON())
+  useEffect(() => toggleGlobalBlur(visible), [visible])
 
   return (
     <React.Fragment>
