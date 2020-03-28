@@ -4,11 +4,11 @@ import T from 'prop-types'
 import LocalIcon from './LocalIcon'
 import { Wrapper, Icon } from './styles/tab_icon'
 
-const TabIcon = ({ item: { localIcon, icon }, clickableRef }) => {
+const TabIcon = ({ item: { localIcon, icon }, clickableRef, active }) => {
   const IconCmp = localIcon ? (
-    <LocalIcon raw={localIcon} />
+    <LocalIcon raw={localIcon} active={active} />
   ) : (
-    <Icon src={icon} />
+    <Icon src={icon} active={active} />
   )
 
   const handleClick = useCallback(
@@ -28,6 +28,7 @@ TabIcon.propTypes = {
     icon: T.string,
   }).isRequired,
   clickableRef: T.shape({ current: T.instanceOf(T.node) }).isRequired,
+  active: T.bool.isRequired,
 }
 
 TabIcon.defaultProps = {}

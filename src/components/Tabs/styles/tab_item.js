@@ -23,4 +23,11 @@ export const Nav = styled.nav`
 `
 export const Label = styled.span`
   ${cs.flex('align-center')};
+
+  color: ${({ active }) =>
+    active ? theme('tabs.headerActive') : theme('tabs.header')};
+
+  &:hover {
+    color: ${theme('tabs.headerActive')};
+  }
 `

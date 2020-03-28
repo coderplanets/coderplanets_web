@@ -1,26 +1,16 @@
 import React from 'react'
-import { Tabs } from 'antd'
 
-import { Trans, sortByIndex } from '@utils'
-import { LableWrapper } from './styles'
-import TabIcon from './TabIcon'
+import { sortByIndex } from '@utils'
+import Tabs from '@components/Tabs'
 
-const { TabPane } = Tabs
+// import TabIcon from './TabIcon'
 
-const NormalView = ({ source, active, onChange }) => (
-  <Tabs onChange={onChange} activeKey={active}>
-    {sortByIndex(source).map(item => (
-      <TabPane
-        tab={
-          <LableWrapper>
-            <TabIcon raw={item.raw} active={String(active === item.raw)} />
-            {item.alias ? item.alias : Trans(item.title)}
-          </LableWrapper>
-        }
-        key={item.raw}
-      />
-    ))}
-  </Tabs>
-)
+const NormalView = ({ source, active, onChange }) => {
+  const items = source.map(item => ({ ...item, localIcon: item.raw }))
+
+  return (
+    <Tabs items={sortByIndex(items)} activeKey={active} onChange={onChange} />
+  )
+}
 
 export default NormalView

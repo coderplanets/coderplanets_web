@@ -125,7 +125,6 @@ const PostsThreadContainer = ({ postsThread }) => {
                 />
               </FilterWrapper>
             </Maybe>
-
             <FaqPeekList active={faqActive} />
             <PagedContents
               data={pagedPostsData}

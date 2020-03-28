@@ -19,7 +19,7 @@ export const BaseTabber = styled.div`
   ${cs.flex()};
 
   position: absolute;
-  bottom: -16px;
+  bottom: 0;
   margin-left: -10px;
   width: 80vw;
   overflow-x: auto;

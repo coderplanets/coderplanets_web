@@ -95,7 +95,7 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
 
       setSlipWidth(e.target.offsetWidth)
       setActive(index)
-      onChange(isString(item) ? item : item.title)
+      onChange(isString(item) ? item : item.raw || item.title)
     },
     [setSlipWidth, setActive, onChange, items]
   )
@@ -105,9 +105,10 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
       <Nav ref={ref}>
         {items.map((item, index) => (
           <TabItem
-            key={isString(item) ? item : item.title}
-            item={item}
+            key={isString(item) ? item : item.raw || item.title}
+            activeKey={activeKey}
             index={index}
+            item={item}
             setWidth={handleNaviItemWith}
             onClick={handleItemClick}
           />
@@ -131,7 +132,10 @@ Tabs.propTypes = {
     T.arrayOf(
       T.shape({
         title: T.string,
+        raw: T.string,
+        alias: T.string,
         icon: T.oneOfType([T.string, T.node]),
+        localIcon: T.string,
       })
     )
   ),
