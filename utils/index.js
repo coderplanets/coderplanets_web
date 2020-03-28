@@ -22,6 +22,7 @@ export {
   sortByIndex,
   Rlog,
   countWords,
+  showSocialGroupModal,
   closePreviewer,
   errRescue,
   debounce,

@@ -47,6 +47,9 @@ const EVENT = {
 
   // set/unset community
   COMMUNITY_MIRROR: 'COMMUNITY_MIRROR',
+
+  // shortcut for social modal
+  SOCIAL_MODAL: 'SOCIAL_MODAL',
 }
 
 export default EVENT

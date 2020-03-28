@@ -6,7 +6,6 @@ import { theme } from '@utils'
 export const Wrapper = styled.div`
   display: flex;
 `
-
 export const Item = styled.div``
 
 export const Icon = styled(Img)`
@@ -19,9 +18,4 @@ export const Icon = styled(Img)`
   }
   display: block;
   margin-right: 8px;
-`
-export const QRCodePic = styled(Img)`
-  display: block;
-  width: 300px;
-  height: auto;
 `

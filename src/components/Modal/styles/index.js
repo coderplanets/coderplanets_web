@@ -46,10 +46,10 @@ export const CloseBtn = styled(Img)`
   fill: ${({ mode }) =>
     mode === 'default' ? theme('font') : theme('baseColor.error')};
   position: absolute;
+  top: 0;
+  right: -45px;
   width: 30px;
   height: 30px;
-  right: 15px;
-  top: 15px;
   display: ${({ show }) => (show ? 'block' : 'none')};
   z-index: ${cs.zIndex.modalCloseBtn};
 

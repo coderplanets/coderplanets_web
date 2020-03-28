@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Tooltip from '@components/Tooltip'
-import { ICON_CMD, ICON_BASE, EMAIL_SUPPORT } from '@config'
+import { ICON_CMD, EMAIL_SUPPORT } from '@config'
+import { showSocialGroupModal } from '@utils'
 
-import { Wrapper, Item, Icon, QRCodePic } from './styles/social_list'
+import { Wrapper, Item, Icon } from './styles/social_list'
 
 const SocialList = () => (
   <Wrapper>
@@ -13,14 +13,9 @@ const SocialList = () => (
       </Item>
     </a>
 
-    <Tooltip
-      placement="top"
-      content={<QRCodePic src={`${ICON_BASE}/cps_wechat_group.png`} />}
-    >
-      <Item>
-        <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
-      </Item>
-    </Tooltip>
+    <Item onClick={() => showSocialGroupModal()}>
+      <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
+    </Item>
 
     <a
       href="https://github.com/coderplanets/"

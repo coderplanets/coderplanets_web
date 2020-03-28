@@ -8,6 +8,7 @@ import VerifiedSign from '@components/VerifiedSign'
 import Tabber from '@components/Tabber'
 import CommunityStatesPad from '@components/CommunityStatesPad'
 import { CommunityHolder } from '@components/LoadingEffects'
+import SocialGroup from '@components/SocialGroup'
 
 import ExpandTexts from './ExpandTexts'
 import SocialList from './SocialList'
@@ -39,6 +40,7 @@ const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 const CommunityBrief = ({ content, descExpand }) => {
   return (
     <CommunityWrapper descExpand={descExpand}>
+      <SocialGroup />
       <LogoWrapper raw={content.raw}>
         {content.logo ? (
           <CommunityLogo

@@ -103,13 +103,28 @@ export const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
+/**
+ * publish event message
+ *
+ * @param {string} msg
+ * @param {object} [data={}]
+ */
 export const send = (msg, data = {}) => {
   // TODO: check the msg is valid
   // PubSub.publishSync(msg, data)
   PubSub.publish(msg, data)
 }
 
+// TODO:  move to eventShortCuts
+
+/**
+ * shortcut for close previewer
+ *
+ * @param {string} [type='']
+ */
 export const closePreviewer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
+
+export const showSocialGroupModal = data => send(EVENT.SOCIAL_MODAL, { data })
 
 export const errRescue = ({ type, operation, details, path }) =>
   send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })

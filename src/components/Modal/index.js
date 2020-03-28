@@ -22,6 +22,7 @@ const log = buildLog('c:Modal:index')
 const Modal = ({
   children,
   show,
+  showBelt,
   width,
   showCloseBtn,
   onClose,
@@ -46,7 +47,7 @@ const Modal = ({
       {show && (
         <Portal>
           <Mask show={show} onClick={onClose}>
-            <Belt />
+            {showBelt && <Belt />}
             <Wrapper
               width={width}
               mode={mode}
@@ -74,6 +75,7 @@ Modal.propTypes = {
   // https://www.npmjs.com/package/prop-types
   children: T.node.isRequired,
   show: T.bool,
+  showBelt: T.bool,
   onClose: T.func,
   width: T.string,
   showCloseBtn: T.bool,
@@ -84,6 +86,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   show: false,
+  showBelt: false,
   onClose: log,
   width: '600px',
   showCloseBtn: false,
