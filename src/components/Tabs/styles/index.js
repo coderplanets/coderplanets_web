@@ -23,7 +23,7 @@ export const SlipBar = styled.span`
   width: ${({ width }) => width};
   bottom: 1px;
   left: 0;
-  height: 2px;
+  height: ${({ slipHeight }) => slipHeight};
 
   transform: ${({ translateX }) => `translate3d(${translateX}, 0, 0);`};
   transition: transform 0.25s;

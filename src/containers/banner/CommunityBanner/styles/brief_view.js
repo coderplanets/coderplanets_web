@@ -14,13 +14,9 @@ export const BannerContainer = styled(BaseBanner)``
 export const TabberWrapper = styled.div`
   ${cs.flex()};
   max-width: ${cs.MAX_CONTENT_WIDTH};
-  margin-top: 4px;
   width: 100%;
-  padding: 0 15vw;
-
-  ${cs.media.desktop`
-    padding: 0 18vw;
-  `};
+  /* 150 is the breif card width */
+  padding-left: calc(155px + 6vw);
 
   ${cs.media.mobile`
     width: 55vw;

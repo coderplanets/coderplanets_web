@@ -3,8 +3,6 @@ import React from 'react'
 import { sortByIndex } from '@utils'
 import Tabs from '@components/Tabs'
 
-// import TabIcon from './TabIcon'
-
 const NormalView = ({ source, active, onChange }) => {
   const items = source.map(item => ({ ...item, localIcon: item.raw }))
 

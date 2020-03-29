@@ -62,7 +62,7 @@ const getDefaultActiveTabIndex = (items, activeKey) => {
   return index >= 0 ? index : 0
 }
 
-const Tabs = ({ size, onChange, items, activeKey }) => {
+const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)
@@ -124,7 +124,11 @@ const Tabs = ({ size, onChange, items, activeKey }) => {
           />
         ))}
 
-        <SlipBar translateX={translateX} width={`${tabWidthList[active]}px`}>
+        <SlipBar
+          translateX={translateX}
+          width={`${tabWidthList[active]}px`}
+          slipHeight={slipHeight}
+        >
           <RealBar width={`${slipWidth}px`} />
         </SlipBar>
       </Nav>
@@ -148,6 +152,7 @@ Tabs.propTypes = {
   onChange: T.func,
   activeKey: T.string,
   size: T.oneOf(['default', 'small']),
+  slipHeight: T.oneOf(['1px', '2px']),
 }
 
 Tabs.defaultProps = {
@@ -155,6 +160,7 @@ Tabs.defaultProps = {
   onChange: log,
   activeKey: '',
   size: 'default',
+  slipHeight: '2px',
 }
 
 // export default React.memo(Tabs)
