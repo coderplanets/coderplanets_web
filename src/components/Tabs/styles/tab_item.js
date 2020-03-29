@@ -29,5 +29,8 @@ export const Label = styled.span`
 
   &:hover {
     color: ${theme('tabs.headerActive')};
+    svg {
+      fill: ${theme('tabs.headerActive')};
+    }
   }
 `

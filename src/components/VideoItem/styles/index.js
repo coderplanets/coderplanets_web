@@ -17,6 +17,7 @@ export const Wrapper = styled.article`
   &:hover {
     background: ${({ hover }) => (hover ? theme('thread.articleHover') : '')};
   }
+  transition: all 0.25s;
 `
 export const PosterWrapper = styled.div`
   position: relative;
