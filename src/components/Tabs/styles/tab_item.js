@@ -2,14 +2,16 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@utils'
 
+import { getMarginRight, getPadding } from './metric'
+
 export const Wrapper = styled.div`
   ${cs.flex('justify-center')};
   color: ${theme('thread.articleTitle')};
   position: relative;
   height: 100%;
   z-index: 1;
-  margin-right: 32px;
-  padding: 12px 10px;
+  margin-right: ${({ size }) => getMarginRight(size)};
+  padding: ${({ size }) => getPadding(size)};
   text-align: center;
   /* flex: 1; */
   cursor: pointer;

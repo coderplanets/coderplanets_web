@@ -13,6 +13,7 @@ import { buildLog, isString } from '@utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from './styles'
+import { slipmargin } from './styles/metric'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
@@ -53,13 +54,15 @@ const temItems = [
 const getDefaultActiveTabIndex = (items, activeKey) => {
   if (R.isEmpty(activeKey)) return 0
   const index = R.findIndex(item => {
-    return isString(item) ? activeKey === item : activeKey === item.title
+    return isString(item)
+      ? activeKey === item
+      : activeKey === (item.raw || item.title)
   }, items)
 
   return index >= 0 ? index : 0
 }
 
-const Tabs = ({ onChange, items, margin, activeKey }) => {
+const Tabs = ({ size, onChange, items, activeKey }) => {
   const defaultActiveTabIndex = getDefaultActiveTabIndex(items, activeKey)
 
   const [active, setActive] = useState(defaultActiveTabIndex)
@@ -77,7 +80,8 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
           .offsetWidth
       setSlipWidth(activeSlipWidth)
     }
-  }, [tabWidthList, defaultActiveTabIndex])
+    setActive(defaultActiveTabIndex)
+  }, [defaultActiveTabIndex])
 
   // set slipbar with for current nav item
   // 为下面的滑动条设置当前 TabItem 的宽度
@@ -100,6 +104,11 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
     [setSlipWidth, setActive, onChange, items]
   )
 
+  const translateX = `${tabWidthList
+    .slice(0, active)
+    .reduce((a, b) => a + b, 0) +
+    slipmargin(size) * active}px`
+
   return (
     <Wrapper testid="tabs">
       <Nav ref={ref}>
@@ -109,16 +118,13 @@ const Tabs = ({ onChange, items, margin, activeKey }) => {
             activeKey={activeKey}
             index={index}
             item={item}
+            size={size}
             setWidth={handleNaviItemWith}
             onClick={handleItemClick}
           />
         ))}
 
-        <SlipBar
-          active={`${tabWidthList.slice(0, active).reduce((a, b) => a + b, 0) +
-            margin * active}px`}
-          width={`${tabWidthList[active]}px`}
-        >
+        <SlipBar translateX={translateX} width={`${tabWidthList[active]}px`}>
           <RealBar width={`${slipWidth}px`} />
         </SlipBar>
       </Nav>
@@ -140,15 +146,16 @@ Tabs.propTypes = {
     )
   ),
   onChange: T.func,
-  margin: T.number,
   activeKey: T.string,
+  size: T.oneOf(['default', 'small']),
 }
 
 Tabs.defaultProps = {
   items: temItems,
   onChange: log,
-  margin: 32,
   activeKey: '',
+  size: 'default',
 }
 
-export default React.memo(Tabs)
+// export default React.memo(Tabs)
+export default Tabs

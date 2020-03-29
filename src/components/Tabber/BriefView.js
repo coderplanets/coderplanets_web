@@ -19,4 +19,4 @@ const BriefView = ({ source, active, onChange }) => (
   </Wrapper>
 )
 
-export default BriefView
+export default React.memo(BriefView)

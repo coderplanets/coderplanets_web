@@ -21,16 +21,5 @@ export const MobileHint = styled.div`
   ${cs.media.mobile`display: flex`};
 `
 export const MiniTab = styled.div`
-  border-bottom: ${({ active }) => (active ? '3px solid' : '')};
-  border-bottom-color: ${({ active }) =>
-    active ? theme('thread.articleTitle') : ''};
-  padding-bottom: ${({ active }) => (active ? '2px' : '5px')};
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-right: 6px;
-  color: ${({ active }) =>
-    active ? theme('header.tabActive') : theme('header.tabOthers')};
-  cursor: pointer;
-
   ${cs.media.mobile`display: none`};
 `

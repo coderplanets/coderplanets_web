@@ -25,7 +25,7 @@ export const SlipBar = styled.span`
   left: 0;
   height: 2px;
 
-  transform: ${({ active }) => `translate3d(${active}, 0, 0);`};
+  transform: ${({ translateX }) => `translate3d(${translateX}, 0, 0);`};
   transition: transform 0.25s;
 `
 export const RealBar = styled.span`

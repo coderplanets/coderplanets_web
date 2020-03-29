@@ -15,18 +15,19 @@ import { Wrapper, Label } from './styles/tab_item'
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')
 
-const TabItem = ({ item, setWidth, index, onClick, activeKey }) => {
+const TabItem = ({ item, setWidth, index, size, onClick, activeKey }) => {
   const ref = useRef(null)
   const clickableRef = useRef(null)
 
   useEffect(() => {
     const width = ref.current ? ref.current.offsetWidth : 0
     setWidth(index, width)
+    // return () => setWidth(index, 0)
   }, [setWidth, index])
 
-  const handleWrapperClick = useCallback(() => clickableRef.current.click(), [
-    clickableRef,
-  ])
+  const handleWrapperClick = useCallback(() => {
+    clickableRef.current.click()
+  }, [clickableRef])
 
   const handleLabelClick = useCallback(
     e => {
@@ -37,13 +38,13 @@ const TabItem = ({ item, setWidth, index, onClick, activeKey }) => {
   )
 
   return (
-    <Wrapper ref={ref} onClick={handleWrapperClick}>
+    <Wrapper ref={ref} size={size} onClick={handleWrapperClick}>
       <Label
         ref={clickableRef}
         onClick={handleLabelClick}
         active={item.raw === activeKey}
       >
-        {!isString(item) && (
+        {!isString(item) && (item.icon || item.localIcon) && (
           <TabIcon
             item={item}
             clickableRef={clickableRef}
@@ -62,6 +63,7 @@ TabItem.propTypes = {
   setWidth: T.func.isRequired,
   onClick: T.func.isRequired,
   activeKey: T.string.isRequired,
+  size: T.oneOf(['default', 'small']).isRequired,
 }
 
 TabItem.defaultProps = {}

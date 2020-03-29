@@ -32,36 +32,26 @@ const HeaderContainer = ({ header, metric }) => {
     curCommunity,
   } = header
 
+  const props = {
+    metric,
+    isOnline,
+    fixed,
+    curRoute,
+    leftOffset,
+    accountInfo,
+    isLogin,
+    activeInfo,
+    curCommunity,
+  }
+
   return (
     <div id={TYPE.APP_HEADER_ID}>
       {fixed && (
         <Affix onChange={log}>
-          <Header
-            metric={metric}
-            isOnline={isOnline}
-            fixed={fixed}
-            curRoute={curRoute}
-            leftOffset={leftOffset}
-            accountInfo={accountInfo}
-            isLogin={isLogin}
-            activeInfo={activeInfo}
-            curCommunity={curCommunity}
-          />
+          <Header {...props} />
         </Affix>
       )}
-      {!fixed && (
-        <Header
-          metric={metric}
-          isOnline={isOnline}
-          fixed={fixed}
-          curRoute={curRoute}
-          leftOffset={leftOffset}
-          accountInfo={accountInfo}
-          isLogin={isLogin}
-          activeInfo={activeInfo}
-          curCommunity={curCommunity}
-        />
-      )}
+      {!fixed && <Header {...props} />}
     </div>
   )
 }

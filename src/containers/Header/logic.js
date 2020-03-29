@@ -38,8 +38,10 @@ export const previewAccount = () =>
 // to avoid page-cache in server
 export const checkSesstionState = () => sr71$.query(S.sessionState, {})
 
-export const onThreadChange = thread => {
-  const activeThread = thread.raw
+export const onThreadChange = activeThread => {
+  console.log('onThreadChange: ', activeThread)
+
+  // const activeThread = thread.raw
   const subPath = thread2Subpath(activeThread)
 
   scrollToHeader()

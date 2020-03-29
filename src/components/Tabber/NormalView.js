@@ -13,4 +13,4 @@ const NormalView = ({ source, active, onChange }) => {
   )
 }
 
-export default NormalView
+export default React.memo(NormalView)
