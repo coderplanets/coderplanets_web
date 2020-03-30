@@ -98,3 +98,4 @@ export { default as UserSettingsStore } from '@containers/user/UserSettings/stor
 export { default as UserFavoritedStore } from '@containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as C11NSettingPanelStore } from '@containers/C11NSettingPanel/store'

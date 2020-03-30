@@ -1,6 +1,8 @@
 import React from 'react'
 
+import { EVENT, TYPE } from '@constant'
 import { ICON_CMD } from '@config'
+import { send } from '@utils'
 
 import Tooltip from '@components/Tooltip'
 
@@ -13,16 +15,7 @@ import {
   SettingIcon,
 } from './styles/filter_result'
 
-import SettingMenu from './SettingMenu'
-
-const FilterResult = ({
-  thread,
-  totalCount,
-  customization,
-  onC11NChange,
-  onFaqChange,
-  faqActive,
-}) => {
+const FilterResult = ({ totalCount, onFaqChange, faqActive }) => {
   return (
     <Wrapper>
       <ResultText>结果共 {totalCount} 条</ResultText>
@@ -43,21 +36,13 @@ const FilterResult = ({
 
         <ResultDivider />
 
-        <Tooltip
-          placement="bottom-end"
-          trigger="click"
-          content={
-            <SettingMenu
-              thread={thread}
-              customization={customization}
-              onC11NChange={onC11NChange}
-            />
+        <div
+          onClick={() =>
+            send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_C11N_SETINGS })
           }
         >
-          <div>
-            <SettingIcon src={`${ICON_CMD}/view_setting.svg`} />
-          </div>
-        </Tooltip>
+          <SettingIcon src={`${ICON_CMD}/view_setting.svg`} />
+        </div>
       </MoreOptionWrapper>
     </Wrapper>
   )

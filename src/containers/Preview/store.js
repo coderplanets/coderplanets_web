@@ -70,6 +70,8 @@ const PreviewStore = t
         TYPE.PREVIEW_ACCOUNT_EDIT,
         // article types
         ...THREAD_CONTENT_CURD_TYPES,
+        //
+        TYPE.PREVIEW_C11N_SETINGS,
       ])
     ),
     attUser: t.maybeNull(User),

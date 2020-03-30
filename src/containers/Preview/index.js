@@ -52,33 +52,3 @@ const PreviewContainer = ({ preview }) => {
 }
 
 export default connectStore(PreviewContainer)
-
-/*
-
-{modalVisible && (
-  <ModalPreview visible={modalVisible}>
-    <Viewer
-      type={type}
-      root={root}
-      attachment={attachmentData}
-      attUser={attUserData}
-    />
-  </ModalPreview>
-)}
-
-{slideVisible && (
-  <SliderPreview
-    visible={slideVisible}
-    rightOffset={rightOffset}
-    type={type}
-    imageUploading={imageUploading}
-  >
-    <Viewer
-      type={type}
-      root={root}
-      attachment={attachmentData}
-      attUser={attUserData}
-    />
-  </SliderPreview>
-)}
- */

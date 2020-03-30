@@ -36,7 +36,7 @@ import {
   inAnchor,
   outAnchor,
   onFilterSelect,
-  onC11NChange,
+  // onC11NChange,
   onUserSelect,
   onPreview,
   onPageChange,
@@ -119,7 +119,7 @@ const PostsThreadContainer = ({ postsThread }) => {
                   isLogin={isLogin}
                   accountInfo={accountInfo}
                   totalCount={totalCount}
-                  onC11NChange={onC11NChange}
+                  // onC11NChange={onC11NChange}
                   faqActive={faqActive}
                   onFaqChange={onFaqChange}
                 />

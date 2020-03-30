@@ -1,0 +1,33 @@
+import { useEffect } from 'react'
+// import R from 'ramda'
+
+import { EVENT } from '@constant'
+import { buildLog, send } from '@utils'
+// import S from './service'
+
+let store = null
+
+/* eslint-disable-next-line */
+const log = buildLog('L:C11NSettingPanel')
+
+export const onC11NChange = option => {
+  send(EVENT.SET_C11N, { data: option })
+  store.updateC11N(option)
+
+  // TODO:  send mssage to reload the contents
+  // if (R.has('displayDensity', option)) {
+  //   loadPosts(store.pagedPosts.pageNumber)
+  // }
+}
+
+// ###############################
+// init & uninit handlers
+// ###############################
+
+export const useInit = _store => {
+  useEffect(() => {
+    store = _store
+    log('useInit: ', store)
+    // return () => store.reset()
+  }, [])
+}

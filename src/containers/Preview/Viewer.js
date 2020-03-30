@@ -2,6 +2,7 @@ import React from 'react'
 
 import { TYPE } from '@constant'
 
+import C11NSettingPanel from '@containers/C11NSettingPanel'
 import {
   DynamicAccountViewer,
   DynamicPostViewer,
@@ -78,6 +79,9 @@ const renderViewer = (type, root, attachment, attUser) => {
 
     case TYPE.PREVIEW_ROOT_STORE:
       return <DynamicStateTree json={root.toJSON()} />
+
+    case TYPE.PREVIEW_C11N_SETINGS:
+      return <C11NSettingPanel />
 
     default:
       return <DefaultViewer />

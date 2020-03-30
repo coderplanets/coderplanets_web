@@ -1,26 +1,38 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Img from '@Img'
+import Img from '@components/Img'
+import { cs, theme } from '@utils'
 
-export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start')};
-
-  width: 110px;
+export const Wrapper = styled.div.attrs(props => ({
+  'data-testid': props.testid,
+}))`
+  ${cs.flexColumn('align-start', 'justify-start')};
+  width: 400px;
+  height: 100%;
   padding: 10px;
-  padding-right: 0;
+  margin: 20px;
+  margin-top: 10px;
+  margin-left: 100px;
 `
-export const Title = styled.div`
-  font-size: 0.9rem;
-  margin-bottom: 2px;
+export const HeaderTitle = styled.h2`
   color: ${theme('thread.articleTitle')};
 `
+export const Title = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+`
+export const Desc = styled.div`
+  color: ${theme('thread.articleTitle')};
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  opacity: 0.5;
+`
 export const Didiver = styled.div`
-  border-bottom: 1px solid;
-  border-color: ${theme('thread.articleDigest')};
-  margin: 10px 0;
+  margin: 25px 0;
   width: 100%;
-  opacity: 0.6;
 `
 export const Option = styled.div`
   ${cs.flex('align-center')};
@@ -30,7 +42,7 @@ export const OptionIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: 18px;
   height: 18px;
-  margin-left: 5px;
+  margin-left: 15px;
   display: block;
   opacity: ${({ active }) => (active ? 1 : 0)};
 

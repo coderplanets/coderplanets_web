@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { THREAD, C11N } from '@constant'
+import { THREAD } from '@constant'
 import { buildLog } from '@utils'
 
 import FilterButton from './FilterButton'
@@ -24,9 +24,8 @@ const ContentFilter = ({
   thread,
   activeFilter,
   onSelect,
-  accountInfo: { isLogin, customization },
+  accountInfo: { isLogin },
   totalCount,
-  onC11NChange,
   onFaqChange,
   faqActive,
 }) => (
@@ -42,10 +41,7 @@ const ContentFilter = ({
       <SelectedTags onSelect={onSelect} activeFilter={activeFilter} />
     </MainFilterWrapper>
     <FilterResult
-      thread={thread}
       totalCount={totalCount}
-      customization={customization}
-      onC11NChange={onC11NChange}
       onFaqChange={onFaqChange}
       faqActive={faqActive}
     />
@@ -73,14 +69,8 @@ ContentFilter.propTypes = {
   thread: T.oneOf(R.values(THREAD)),
   accountInfo: T.shape({
     isLogin: T.bool,
-    customization: T.shape({
-      contentsLayout: T.oneOf([C11N.DIGEST, C11N.LIST]),
-      markViewed: T.bool,
-      displayDensity: T.oneOf(['20', '25', '30']),
-    }),
   }),
   totalCount: T.number,
-  onC11NChange: T.func,
   onFaqChange: T.func,
   faqActive: T.bool,
 }
@@ -106,14 +96,8 @@ ContentFilter.defaultProps = {
   thread: THREAD.POST,
   accountInfo: {
     isLogin: false,
-    customization: T.shape({
-      contentsLayout: C11N.DIGEST,
-      markViewed: true,
-      displayDensity: '20',
-    }),
   },
   totalCount: 0,
-  onC11NChange: log,
   onFaqChange: log,
   faqActive: false,
 }
