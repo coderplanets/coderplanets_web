@@ -7,7 +7,7 @@ import DotDividerBase from '@components/DotDivider'
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};
 
-  margin-left: 10px;
+  margin-left: ${({ type }) => (type === 'brief' ? '5px' : '10px')};
   font-size: 0.9rem;
   ${cs.media.tablet`display: none`};
 `

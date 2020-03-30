@@ -43,7 +43,6 @@ export const LogoText = styled.a`
     color: ${theme('logoText')};
   }
 `
-
 export const BetaLogo = styled(Img)`
   fill: #ef8145;
   height: 40px;
@@ -51,7 +50,6 @@ export const BetaLogo = styled(Img)`
   margin-top: 5px;
   margin-left: 3px;
 `
-
 export const UL = styled.ul`
   &:before {
     content: ' ';

@@ -6,7 +6,6 @@ import CommunityFaceLogo from '@components/CommunityFaceLogo'
 
 export const Wrapper = styled.div`
   ${cs.flex()};
-  position: relative;
 `
 export const CardWrapper = styled.div`
   position: absolute;
@@ -17,25 +16,17 @@ export const CardWrapper = styled.div`
   border: 1px solid;
   border-color: ${theme('header.cardBorder')};
   z-index: 1000;
-  top: 14px;
+  top: 6.5px;
 `
 export const CommunityWrapper = styled.div`
   ${cs.flex('align-both')};
   width: 100%;
   height: 100%;
-  margin-top: 2px;
 `
 export const CommunityLogo = styled(CommunityFaceLogo)`
-  width: 50px;
-  height: 50px;
-  margin-right: 7px;
-`
-export const BetaLogo = styled(Img)`
-  fill: #ef8145;
-  height: 40px;
-  width: 40px;
-  margin-top: 5px;
-  margin-left: 3px;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
 `
 export const CommunityInfo = styled.div`
   ${cs.flexColumn()};
@@ -59,7 +50,7 @@ export const CommunityTitle = styled.div`
   font-weight: bold;
   margin-top: -2px;
 
-  ${cs.truncate('80px')};
+  ${cs.truncate('90px')};
 `
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};

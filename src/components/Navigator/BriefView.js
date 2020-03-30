@@ -1,4 +1,5 @@
 import React from 'react'
+import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import Tooltip from '@components/Tooltip'
@@ -12,7 +13,6 @@ import {
   LogoText,
   CommunityTitle,
   Breadcrumbs,
-  BetaLogo,
   LogoHolder,
 } from './styles/brief_view'
 
@@ -21,12 +21,9 @@ import MainEntries from './MainEntries'
 
 const CommunityLogoHolder = `${ICON_CMD}/community_logo_holder.svg`
 
-const BriefView = ({ community, curRoute }) => (
-  <Wrapper>
-    <Tooltip
-      placement="bottom-start"
-      content={<CardPopover community={community} />}
-    >
+const BriefView = ({ community, curRoute }) => {
+  return (
+    <Wrapper>
       <CardWrapper>
         <CommunityWrapper>
           {community.logo ? (
@@ -34,18 +31,32 @@ const BriefView = ({ community, curRoute }) => (
           ) : (
             <LogoHolder src={CommunityLogoHolder} />
           )}
-          <CommunityInfo>
-            <LogoText href="/home/posts">coderplanets</LogoText>
-            <CommunityTitle>{community.title}</CommunityTitle>
-          </CommunityInfo>
+          <Tooltip
+            placement="bottom-start"
+            content={<CardPopover community={community} />}
+          >
+            <CommunityInfo>
+              <LogoText href="/home/posts">coderplanets</LogoText>
+              <CommunityTitle>{community.title}</CommunityTitle>
+            </CommunityInfo>
+          </Tooltip>
         </CommunityWrapper>
       </CardWrapper>
-    </Tooltip>
-    <Breadcrumbs>
-      <BetaLogo src={`${ICON_CMD}/beta.svg`} />
-      <MainEntries curRoute={curRoute} />
-    </Breadcrumbs>
-  </Wrapper>
-)
+      <Breadcrumbs>
+        <MainEntries curRoute={curRoute} type="brief" />
+      </Breadcrumbs>
+    </Wrapper>
+  )
+}
+
+BriefView.propTypes = {
+  community: T.object.isRequired,
+  curRoute: T.shape({
+    mainPath: T.string,
+    subPath: T.string,
+  }).isRequired,
+}
+
+BriefView.defaultProps = {}
 
 export default React.memo(BriefView)
