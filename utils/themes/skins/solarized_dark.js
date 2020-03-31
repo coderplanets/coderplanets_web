@@ -269,7 +269,7 @@ const solarizedDark = {
   },
   tags: {
     dotOpacity: 0.5,
-    text: '#196677',
+    text: '#69848a',
   },
   tagger: {
     text: '#a7bfbf',
