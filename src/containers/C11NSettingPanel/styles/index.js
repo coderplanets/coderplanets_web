@@ -7,7 +7,7 @@ export const Wrapper = styled.div.attrs(props => ({
   'data-testid': props.testid,
 }))`
   ${cs.flexColumn('align-start', 'justify-start')};
-  width: 400px;
+  width: auto;
   height: 100%;
   padding: 10px;
   margin: 20px;
@@ -37,6 +37,10 @@ export const Didiver = styled.div`
 export const Option = styled.div`
   ${cs.flex('align-center')};
   margin-top: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const OptionIcon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
@@ -56,6 +60,5 @@ export const OptionText = styled.div`
 
   ${Option}:hover & {
     color: ${theme('thread.articleTitle')};
-    cursor: pointer;
   }
 `
