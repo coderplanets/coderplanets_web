@@ -5,7 +5,7 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 45%;
 `
 export const Header = styled.div`
   ${cs.flex('justify-between', 'align-end')};

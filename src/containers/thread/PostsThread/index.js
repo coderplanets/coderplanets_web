@@ -148,7 +148,7 @@ const PostsThreadContainer = ({ postsThread }) => {
                 />
               </PublisherWrapper>
 
-              <Affix offsetTop={50}>
+              <Affix offsetTop={100}>
                 <TagsBar
                   thread={THREAD.POST}
                   topic={topic}
