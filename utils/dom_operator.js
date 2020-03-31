@@ -118,7 +118,7 @@ export const hideDoraemonBarRecover = () => {
 }
 
 /**
- * toogle global blurable elements
+ * toggle global blurable elements, and lock page
  * 注意不能全局 blur 根元素，会和 position: fixed 冲突
  * see issue: https://stackoverflow.com/questions/52937708/css-filter-on-parent-breaks-child-positioning
  * @param {boolean} visible
@@ -133,6 +133,7 @@ export const toggleGlobalBlur = visible => {
         : el.classList.remove('global_blur')
     }, blurableEls)
   }
+  visible ? lockPage() : unlockPage()
 }
 
 /* eslint-enable no-undef */
