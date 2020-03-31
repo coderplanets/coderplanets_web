@@ -1,28 +1,32 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
+import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  margin-left: 12%;
-  margin-top: 20px;
+  margin-left: 20px;
+  margin-top: 40px;
 `
 export const Header = styled.div`
-  ${cs.flex('justify-between')};
+  ${cs.flex('justify-between', 'align-end')};
   align-items: center;
   margin-bottom: 12px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleDigest')};
 `
-export const Closer = styled.div`
-  font-size: 0.7rem;
-  color: ${theme('thread.articleDigest')};
+export const AboutIcon = styled(Img)`
+  width: 14px;
+  height: 14px;
+  fill: ${theme('thread.articleDigest')};
+  display: block;
+  opacity: 0;
+  margin-top: 1px;
+
   &:hover {
-    color: ${theme('banner.title')};
+    fill: ${theme('banner.title')};
     cursor: pointer;
   }
-  opacity: 0;
 
   ${Wrapper}:hover & {
     opacity: 1;

@@ -7,38 +7,42 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 import PartnerBanner from './PartnerBanner'
 // import Holder from './Holder'
 
-import { Wrapper, Header, Title, Closer } from './styles'
+import { Wrapper, Header, Title, AboutIcon } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:StrategicPartners:index')
 
-const StrategicPartners = ({ show, onClose }) => (
-  <Wrapper>
-    {show && (
-      <React.Fragment>
-        <Header>
-          <Title>特别赞助:</Title>
-          <Closer onClick={onClose}>关闭</Closer>
-        </Header>
-        <PartnerBanner />
-      </React.Fragment>
-    )}
-  </Wrapper>
-)
+const StrategicPartners = ({ show, onAbout }) => {
+  return (
+    <Wrapper>
+      {show && (
+        <React.Fragment>
+          <Header>
+            <Title>产品推广</Title>
+            <div onClick={onAbout}>
+              <AboutIcon src={`${ICON_CMD}/sidebar_ads_about.svg`} />
+            </div>
+          </Header>
+          <PartnerBanner />
+        </React.Fragment>
+      )}
+    </Wrapper>
+  )
+}
 
 StrategicPartners.propTypes = {
-  // https://www.npmjs.com/package/prop-types
   show: T.bool,
-  onClose: T.func,
+  onAbout: T.func,
 }
 
 StrategicPartners.defaultProps = {
-  show: false,
-  onClose: log,
+  show: true,
+  onAbout: log,
 }
 
 export default React.memo(StrategicPartners)
