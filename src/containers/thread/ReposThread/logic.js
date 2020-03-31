@@ -11,7 +11,12 @@ const log = buildLog('L:ReposThread')
 
 const { SR71, $solver, asyncRes } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_REPOS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [
+    EVENT.REFRESH_REPOS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.TABBER_CHANGE,
+    EVENT.C11N_DENSITY_CHANGE,
+  ],
 })
 
 let sub$ = null
@@ -87,14 +92,6 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadRepos()
 }
-export const onC11NChange = option => {
-  send(EVENT.SET_C11N, { data: option })
-  store.updateC11N(option)
-
-  if (R.has('displayDensity', option)) {
-    loadRepos(store.pagedRepos.pageNumber)
-  }
-}
 
 // ###############################
 // Data & Error handlers
@@ -110,6 +107,13 @@ const DataSolver = [
         curView = TYPE.RESULT_EMPTY
       }
       store.mark({ curView, pagedRepos })
+    },
+  },
+  {
+    match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
+    action: res => {
+      const { type } = res[EVENT.C11N_DENSITY_CHANGE]
+      if (type === THREAD.REPO) loadRepos(store.pagedRepos.pageNumber)
     },
   },
   {

@@ -28,7 +28,6 @@ import {
 import {
   useInit,
   onFilterSelect,
-  onC11NChange,
   onPreview,
   onContentCreate,
   onTagSelect,
@@ -66,7 +65,6 @@ const VideosThreadContainer = ({ videosThread }) => {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onC11NChange={onC11NChange}
             />
           </FilterWrapper>
         </Maybe>

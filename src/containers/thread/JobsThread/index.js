@@ -33,7 +33,6 @@ import {
   inAnchor,
   outAnchor,
   onFilterSelect,
-  onC11NChange,
   onUserSelect,
   onPreview,
   onContentCreate,
@@ -73,7 +72,6 @@ const JobsThreadContainer = ({ jobsThread }) => {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onC11NChange={onC11NChange}
             />
           </FilterWrapper>
         </Maybe>

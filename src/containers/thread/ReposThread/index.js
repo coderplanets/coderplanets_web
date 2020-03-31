@@ -31,7 +31,6 @@ import {
   inAnchor,
   outAnchor,
   onFilterSelect,
-  onC11NChange,
   onPreview,
   onContentCreate,
   onTagSelect,
@@ -70,7 +69,6 @@ const ReposThreadContainer = ({ reposThread }) => {
               activeFilter={filtersData}
               accountInfo={accountInfo}
               totalCount={totalCount}
-              onC11NChange={onC11NChange}
             />
           </FilterWrapper>
         </Maybe>

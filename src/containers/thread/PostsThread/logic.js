@@ -32,6 +32,7 @@ const sr71$ = new SR71({
     EVENT.PREVIEW_CLOSED,
     EVENT.COMMUNITY_CHANGE,
     EVENT.TABBER_CHANGE,
+    EVENT.C11N_DENSITY_CHANGE,
   ],
 })
 
@@ -118,15 +119,6 @@ export const onContentCreate = () => {
   if (!store.isLogin) return store.authWarning()
 
   send(EVENT.PREVIEW_OPEN, { type: TYPE.PREVIEW_POST_CREATE })
-}
-
-export const onC11NChange = option => {
-  send(EVENT.SET_C11N, { data: option })
-  store.updateC11N(option)
-
-  if (R.has('displayDensity', option)) {
-    loadPosts(store.pagedPosts.pageNumber)
-  }
 }
 
 export const onAdsClose = () => {
@@ -217,6 +209,13 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.REFRESH_POSTS),
     action: () => loadPosts(),
+  },
+  {
+    match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
+    action: res => {
+      const { type } = res[EVENT.C11N_DENSITY_CHANGE]
+      if (type === THREAD.POST) loadPosts(store.pagedPosts.pageNumber)
+    },
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),

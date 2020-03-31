@@ -18,7 +18,12 @@ const log = buildLog('L:JobsThread')
 
 const { SR71, $solver, asyncRes, asyncErr } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.REFRESH_JOBS, EVENT.PREVIEW_CLOSED, EVENT.TABBER_CHANGE],
+  recieve: [
+    EVENT.REFRESH_JOBS,
+    EVENT.PREVIEW_CLOSED,
+    EVENT.TABBER_CHANGE,
+    EVENT.C11N_DENSITY_CHANGE,
+  ],
 })
 
 let store = null
@@ -101,14 +106,6 @@ export const onFilterSelect = option => {
   store.markRoute({ ...store.filtersData })
   loadJobs()
 }
-export const onC11NChange = option => {
-  send(EVENT.SET_C11N, { data: option })
-  store.updateC11N(option)
-
-  if (R.has('displayDensity', option)) {
-    loadJobs(store.pagedJobs.pageNumber)
-  }
-}
 
 export const onUserSelect = user =>
   send(EVENT.PREVIEW_OPEN, {
@@ -150,6 +147,13 @@ const DataSolver = [
   {
     match: asyncRes(EVENT.REFRESH_JOBS),
     action: () => loadJobs(),
+  },
+  {
+    match: asyncRes(EVENT.C11N_DENSITY_CHANGE),
+    action: res => {
+      const { type } = res[EVENT.C11N_DENSITY_CHANGE]
+      if (type === THREAD.JOB) loadJobs(store.pagedJobs.pageNumber)
+    },
   },
   {
     match: asyncRes(EVENT.PREVIEW_CLOSED),

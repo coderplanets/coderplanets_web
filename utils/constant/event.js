@@ -50,6 +50,8 @@ const EVENT = {
 
   // shortcut for social modal
   SOCIAL_MODAL: 'SOCIAL_MODAL',
+  //
+  C11N_DENSITY_CHANGE: 'C11N_DENSITY_CHANGE',
 }
 
 export default EVENT
