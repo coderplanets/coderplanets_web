@@ -30,11 +30,14 @@ export const LN = {
 }
 
 /**
- * change the main view type
+ * change the main view type, and stop timer
  *
  * @param {string} view, view type
  */
-export const setView = view => store.mark({ view })
+export const setView = view => {
+  store.mark({ view })
+  stopTimer()
+}
 
 /**
  * change the setting
