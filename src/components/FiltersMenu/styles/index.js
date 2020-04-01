@@ -26,7 +26,8 @@ export const Item = styled.div`
   padding: 8px 6px;
   padding-bottom: ${({ noFilter }) => (noFilter ? '10px' : '5px')};
 
-  background: ${({ active }) => (active ? '#0B323E' : 'transparent')};
+  background: ${({ active, itemBgHighlight }) =>
+    active && itemBgHighlight ? '#0B323E' : 'transparent'};
   border-radius: 6px;
   margin-top: ${({ topMargin }) => (topMargin ? '10px' : '0')};
 

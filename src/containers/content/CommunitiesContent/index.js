@@ -53,6 +53,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                 items={pagedCategoriesData}
                 onItemClick={menuOnChange}
                 activeId={activeMenuId}
+                itemBgHighlight={false}
                 noFilter
               />
             </Affix>

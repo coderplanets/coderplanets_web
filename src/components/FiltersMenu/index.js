@@ -18,18 +18,26 @@ import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 const log = buildLog('c:FiltersMenu:index')
 
 const initActiveMap = items => {
-  const ret = {}
+  const menuMap = {}
   for (let index = 0; index < items.length; index += 1) {
     const element = items[index]
 
-    ret[element.id] = { ...element.options[0] }
+    const content = element.options ? element.options[0] : element
+    menuMap[element.id] = { ...content }
   }
 
-  return ret
+  return menuMap
 }
 
-const FiltersMenu = ({ items, noFilter, onItemClick }) => {
-  const [expandMenuId, setExpandMenuId] = useState(null)
+const FiltersMenu = ({
+  items,
+  activeId,
+  noFilter,
+  onItemClick,
+  itemBgHighlight,
+}) => {
+  // const [expandMenuId, setExpandMenuId] = useState(null)
+  const [expandMenuId, setExpandMenuId] = useState(activeId)
   const [activeMap, setActiveMap] = useState(initActiveMap(items))
 
   return (
@@ -47,7 +55,10 @@ const FiltersMenu = ({ items, noFilter, onItemClick }) => {
           <Item
             active={item.id === expandMenuId}
             noFilter={noFilter}
-            topMargin={item.id === expandMenuId && index !== 0}
+            topMargin={
+              itemBgHighlight && item.id === expandMenuId && index !== 0
+            }
+            itemBgHighlight={itemBgHighlight}
           >
             <Icon active={item.id === expandMenuId} src={item.icon} />
             <SpaceGrow />
@@ -84,13 +95,17 @@ FiltersMenu.propTypes = {
       ),
     })
   ).isRequired,
+  activeId: T.oneOfType([T.string, T.instanceOf(null)]),
   noFilter: T.bool,
   onItemClick: T.func,
+  itemBgHighlight: T.bool,
 }
 
 FiltersMenu.defaultProps = {
+  activeId: null,
   noFilter: false,
   onItemClick: log,
+  itemBgHighlight: true,
 }
 
 export default React.memo(FiltersMenu)
