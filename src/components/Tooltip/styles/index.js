@@ -38,7 +38,7 @@ export const TopArrow = styled.div`
   width: 10px;
   background: #2d7eb1;
   top: calc(100% + 8px);
-  left: calc(50% - 3px);
+  left: calc(50% - 5px);
   z-index: 10000;
 `
 export const BottomArrow = styled.div`

@@ -65,6 +65,8 @@ const Timer = ({ timer, timerInterval }) => {
     <Wrapper>
       <Tooltip
         placement="bottom"
+        trigger="click"
+        hideOnClick={false}
         content={<SettingPanel timer={timer} timerInterval={timerInterval} />}
       >
         <IconWrapper>

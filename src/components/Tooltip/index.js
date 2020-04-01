@@ -4,10 +4,12 @@
  *
  */
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import T from 'prop-types'
+import { hideAll } from 'tippy.js'
 
 import { buildLog } from '@utils'
+import { useOutsideClick } from '@hooks'
 
 import {
   StyledTippy,
@@ -28,6 +30,7 @@ const Tooltip = ({
   onShow,
   placement,
   content,
+  hideOnClick,
   ...restProps
 }) => {
   const [active, setActive] = useState(false)
@@ -42,10 +45,18 @@ const Tooltip = ({
     </ContentWrapper>
   )
 
+  const ref = useRef()
+
+  useOutsideClick(ref, () => {
+    !hideOnClick && hideAll()
+  })
+
   return !noDefaultPadding ? (
     <StyledTippy
+      ref={ref}
       content={content}
       placement={placement}
+      hideOnClick={hideOnClick}
       onHide={() => {
         setActive(false)
         onHide()
@@ -62,6 +73,7 @@ const Tooltip = ({
     <NoPaddingStyledTippy
       content={content}
       placement={placement}
+      hideOnClick={hideOnClick}
       onHide={() => {
         setActive(false)
         onHide()
@@ -107,8 +119,8 @@ Tooltip.propTypes = {
   ]),
   // hooks
   onTrigger: T.func,
-  trigger: T.oneOf(['mouseenter focus', 'click', 'manual']),
-  hideOnClick: T.oneOf([true, false, 'toggle']),
+  trigger: T.oneOf(['mouseenter focus', 'click']),
+  hideOnClick: T.oneOf([true, false]),
   maxWidth: T.oneOf([350, 'none']),
   // more options see: https://atomiks.github.io/tippyjs/all-options/
   onShow: T.func,

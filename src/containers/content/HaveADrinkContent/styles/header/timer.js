@@ -12,8 +12,7 @@ export const IconWrapper = styled.div`
   position: relative;
 `
 export const SettingPanelWrapper = styled.div`
-  padding: 10px;
-  width: 140px;
+  width: 120px;
 `
 export const SettingItem = styled.div`
   ${cs.flex('align-center', 'justify-between')};
