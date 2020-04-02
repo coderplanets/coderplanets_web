@@ -19,19 +19,17 @@ export const InnerWrapper = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH};
-  padding-left: 4vw;
-  padding-right: 4vw;
+  padding-left: 2vw;
 `
-
 export const FiltersWrapper = styled.div`
   ${cs.flex('justify-end')}
   display: ${({ show }) => (show ? 'flex' : 'none')};
-  width: 10%;
-  margin-right: 2%;
+  width: 120px;
+  margin-right: 20px;
 `
 export const ContentsWrapper = styled.div`
   ${cs.flexColumn('justify-center')};
-  width: ${({ center }) => (center ? '100%' : '88%')};
+  width: ${({ center }) => (center ? '100%' : 'calc(100% - 140px)')};
   transition: all 0.25s;
 `
 export const SubscribedBox = styled.div`

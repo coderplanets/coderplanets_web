@@ -75,7 +75,7 @@ const Banner = ({
             或者，来为你
             <SlogenText />
             <Link href={`/${ROUTE.COMMUNITIES}/new`} passHref>
-              <CreateCommunityLink>建立一个新社区</CreateCommunityLink>
+              <CreateCommunityLink>建立一个社区</CreateCommunityLink>
             </Link>
             吧！
           </IntroDesc>
