@@ -62,12 +62,12 @@ const Tooltip = ({
       onHide={() => {
         setInstance(null)
         setActive(false)
-        onHide()
+        onHide && onHide()
       }}
       onShow={instance => {
         setInstance(instance)
         setActive(true)
-        onShow()
+        onShow && onShow()
       }}
       {...restProps}
     >
@@ -80,11 +80,11 @@ const Tooltip = ({
       hideOnClick={hideOnClick}
       onHide={() => {
         setActive(false)
-        onHide()
+        onHide && onHide()
       }}
       onShow={() => {
         setActive(true)
-        onShow()
+        onShow && onShow()
       }}
       {...restProps}
     >
@@ -122,13 +122,12 @@ Tooltip.propTypes = {
     'right-end',
   ]),
   // hooks
-  onTrigger: T.func,
   trigger: T.oneOf(['mouseenter focus', 'click']),
   hideOnClick: T.oneOf([true, false]),
   maxWidth: T.oneOf([350, 'none']),
   // more options see: https://atomiks.github.io/tippyjs/all-options/
-  onShow: T.func,
-  onHide: T.func,
+  onShow: T.oneOfType([T.func, T.instanceOf(null)]),
+  onHide: T.oneOfType([T.func, T.instanceOf(null)]),
   noDefaultPadding: T.bool,
 }
 
@@ -140,10 +139,9 @@ Tooltip.defaultProps = {
   hideOnClick: true,
   placement: 'top',
   // hooks
-  onTrigger: log,
   trigger: 'mouseenter focus',
-  onShow: log,
-  onHide: log,
+  onShow: null,
+  onHide: null,
   noDefaultPadding: false,
   maxWidth: 'none',
 }
