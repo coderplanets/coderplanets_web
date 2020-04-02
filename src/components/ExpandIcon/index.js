@@ -17,7 +17,7 @@ import { Wrapper, Icon, Text } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:ExpandIcon:index')
 
-const ExpandIcon = ({ icon, text, content, hideOnClick }) => {
+const ExpandIcon = ({ icon, text, content, hideOnClick, type, size }) => {
   const [active, setActive] = useState(false)
 
   return (
@@ -31,27 +31,31 @@ const ExpandIcon = ({ icon, text, content, hideOnClick }) => {
     >
       <Wrapper testid="ExpandIcon" active={active}>
         {isString(icon) ? (
-          <Icon src={icon} active={active} />
+          <Icon src={icon} active={active} type={type} size={size} />
         ) : (
           <span>{icon}</span>
         )}
-        <Text active={active}>{text}</Text>
+        <Text active={active} type={type} size={size}>
+          {text}
+        </Text>
       </Wrapper>
     </Tooltip>
   )
 }
 
 ExpandIcon.propTypes = {
-  content: T.node,
-  text: T.string,
+  content: T.node.isRequired,
+  text: T.string.isRequired,
   icon: T.oneOfType([T.string, T.node]).isRequired,
   hideOnClick: T.oneOf([true, false]),
+  type: T.oneOf(['default', 'green']),
+  size: T.oneOf(['small', 'medium']),
 }
 
 ExpandIcon.defaultProps = {
-  content: <h3>hello</h3>,
-  text: '定时器',
   hideOnClick: false,
+  type: 'default',
+  size: 'medium',
 }
 
 export default React.memo(ExpandIcon)

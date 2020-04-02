@@ -24,6 +24,7 @@ import {
   CommunityInfo,
   TitleWrapper,
   Title,
+  TitleText,
   LogoHolder,
 } from './styles/digest_view'
 
@@ -56,7 +57,7 @@ const CommunityBrief = ({ content, descExpand }) => {
       <CommunityInfo>
         <TitleWrapper>
           <Title descExpand={descExpand}>
-            <div>{content.title}</div>
+            <TitleText>{content.title}</TitleText>
             <VerifiedSign />
           </Title>
         </TitleWrapper>

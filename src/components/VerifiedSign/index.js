@@ -4,19 +4,16 @@
  *
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import T from 'prop-types'
 
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
+import ExpandIcon from '@components/ExpandIcon'
 import { ArrowButton } from '@components/Buttons'
-import Tooltip from '@components/Tooltip'
 
 import {
-  Wrapper,
-  Icon,
-  Text,
   PopContentWrapper,
   PopHeader,
   PopHeaderIcon,
@@ -56,21 +53,15 @@ const PopContent = ({ communityTitle }) => {
 
 const VerifiedSign = ({ text, type, communityTitle }) => {
   log('type: ', type)
-  const [active, setActive] = useState(false)
 
   return (
-    <Tooltip
+    <ExpandIcon
+      icon={`${ICON_CMD}/verified.svg`}
+      text={text}
       content={<PopContent communityTitle={communityTitle} />}
-      placement="bottom"
-      trigger="click"
-      onHide={() => setActive(false)}
-      onShow={() => setActive(true)}
-    >
-      <Wrapper testid="verifiedSign" active={active}>
-        <Icon src={`${ICON_CMD}/verified.svg`} />
-        <Text active={active}>{text}</Text>
-      </Wrapper>
-    </Tooltip>
+      type="green"
+      size="small"
+    />
   )
 }
 

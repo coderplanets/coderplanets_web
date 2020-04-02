@@ -74,6 +74,9 @@ export const Title = styled.div`
   font-size: ${({ descExpand }) => (descExpand ? '21px' : '18px')};
   color: ${theme('banner.title')};
 `
+export const TitleText = styled.span`
+  margin-right: 10px;
+`
 export const GroupsIcon = styled(Img)`
   fill: ${theme('banner.desc')};
   margin-left: 8px;
