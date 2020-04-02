@@ -6,7 +6,6 @@
 
 import React, { useState, useRef } from 'react'
 import T from 'prop-types'
-import { hideAll } from 'tippy.js'
 
 import { buildLog } from '@utils'
 import { useOutsideClick } from '@hooks'
@@ -33,6 +32,7 @@ const Tooltip = ({
   hideOnClick,
   ...restProps
 }) => {
+  const [instance, setInstance] = useState(null)
   const [active, setActive] = useState(false)
 
   const ContentComp = (
@@ -48,7 +48,9 @@ const Tooltip = ({
   const ref = useRef()
 
   useOutsideClick(ref, () => {
-    !hideOnClick && hideAll()
+    if (!hideOnClick && instance) {
+      instance.hide()
+    }
   })
 
   return !noDefaultPadding ? (
@@ -58,10 +60,12 @@ const Tooltip = ({
       placement={placement}
       hideOnClick={hideOnClick}
       onHide={() => {
+        setInstance(null)
         setActive(false)
         onHide()
       }}
-      onShow={() => {
+      onShow={instance => {
+        setInstance(instance)
         setActive(true)
         onShow()
       }}

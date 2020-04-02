@@ -8,9 +8,6 @@ export const Wrapper = styled.div`
   width: 20%;
   padding-left: 6px;
 `
-export const IconWrapper = styled.div`
-  position: relative;
-`
 export const SettingPanelWrapper = styled.div`
   width: 120px;
 `
@@ -45,15 +42,4 @@ export const SelectDot = styled.div`
   border-radius: 50%;
   margin-right: 5px;
   display: block;
-`
-export const Icon = styled(Img)`
-  fill: ${theme('thread.articleDigest')};
-  display: block;
-  width: 18px;
-  height: 18px;
-
-  &:hover {
-    fill: ${theme('thread.articleTitle')};
-    cursor: pointer;
-  }
 `

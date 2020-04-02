@@ -10,12 +10,10 @@ import T from 'prop-types'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import Tooltip from '@components/Tooltip'
+import ExpandIcon from '@components/ExpandIcon'
 import RunningTimer from './RunningTimer'
 import {
   Wrapper,
-  IconWrapper,
-  Icon,
   SettingPanelWrapper,
   SettingItem,
   SettingDivider,
@@ -63,20 +61,17 @@ const SettingPanel = ({ timer, timerInterval }) => {
 const Timer = ({ timer, timerInterval }) => {
   return (
     <Wrapper>
-      <Tooltip
-        placement="bottom"
-        trigger="click"
-        hideOnClick={false}
-        content={<SettingPanel timer={timer} timerInterval={timerInterval} />}
-      >
-        <IconWrapper>
-          {timer === null ? (
-            <Icon src={`${ICON_CMD}/timer.svg`} />
+      <ExpandIcon
+        icon={
+          timer === null ? (
+            `${ICON_CMD}/timer.svg`
           ) : (
             <RunningTimer interval={timerInterval} />
-          )}
-        </IconWrapper>
-      </Tooltip>
+          )
+        }
+        text="定时器"
+        content={<SettingPanel timer={timer} timerInterval={timerInterval} />}
+      />
     </Wrapper>
   )
 }

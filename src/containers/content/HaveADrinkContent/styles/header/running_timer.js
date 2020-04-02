@@ -44,6 +44,7 @@ export const Wrapper = styled.div`
   width: ${clickSize};
   height: ${clickSize};
   background: ${contentBg};
+  margin-right: 5px;
 
   &:before {
     content: '';
