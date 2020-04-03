@@ -51,7 +51,10 @@ const Tooltip = ({
     if (!hideOnClick && instance) {
       // NOTE:  this is a hack, svg will swallow events like click
       // and the pointer-events solution not work
-      if (e.target.nodeName !== 'svg') instance.hide()
+      const { nodeName } = e.target
+      if (nodeName === 'svg' || nodeName === 'path') return false
+
+      instance.hide()
     }
   })
 
