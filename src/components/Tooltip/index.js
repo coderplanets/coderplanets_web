@@ -47,9 +47,11 @@ const Tooltip = ({
 
   const ref = useRef()
 
-  useOutsideClick(ref, () => {
+  useOutsideClick(ref, e => {
     if (!hideOnClick && instance) {
-      instance.hide()
+      // NOTE:  this is a hack, svg will swallow events like click
+      // and the pointer-events solution not work
+      if (e.target.nodeName !== 'svg') instance.hide()
     }
   })
 
@@ -75,6 +77,7 @@ const Tooltip = ({
     </StyledTippy>
   ) : (
     <NoPaddingStyledTippy
+      ref={ref}
       content={content}
       placement={placement}
       hideOnClick={hideOnClick}
