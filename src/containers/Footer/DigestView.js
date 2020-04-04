@@ -44,11 +44,11 @@ const DigestView = ({ hasTopBorder }) => (
           </SiteInfo>
           <div>
             <SiteDesc
-              href="https://github.com/mastani-stack"
+              href="https://github.com/groupher"
               rel="noopener noreferrer"
               target="_blank"
             >
-              powered by mastani-stack
+              powered by groupher
             </SiteDesc>
             <SiteDesc
               href="http://www.miitbeian.gov.cn"

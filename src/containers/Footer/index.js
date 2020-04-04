@@ -9,7 +9,9 @@ import dynamic from 'next/dynamic'
 
 import { connectStore, buildLog } from '@utils'
 
+import SocialGroup from '@components/SocialGroup'
 import Modal from '@components/Modal'
+
 import BriefView from './BriefView'
 import DigestView from './DigestView'
 import BussinessNote from './BussinessNote'
@@ -49,6 +51,8 @@ const FooterContainer = ({ footer }) => {
       <Modal show={showBusBanner} showCloseBtn onClose={toggleBusBanner}>
         <BussinessNote />
       </Modal>
+
+      <SocialGroup />
 
       <DynamicBuyMeChuanChuan
         show={showSponsor}
