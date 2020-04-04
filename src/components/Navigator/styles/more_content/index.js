@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   width: 455px;
   min-height: 300px;
+  padding-right: 5px;
 `
 export const BodyWrapper = styled.div`
   ${cs.flex('align-center')};

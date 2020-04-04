@@ -29,27 +29,27 @@ const items = [
   {
     id: '0',
     icon: `${ICON_CMD}/drink/it-cold.svg`,
-    title: 'it冷知识',
+    title: 'it 冷知识',
     total: '224',
     lastMsg: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
     updatedAt: '3天前',
   },
   {
+    id: '00',
+    icon: `${ICON_CMD}/drink/image.svg`,
+    title: '程序员趣图',
+    total: '22',
+    lastMsg: '--',
+    updatedAt: '3天前',
+  },
+  {
     id: '1',
-    icon: `${ICON_CMD}/drink/chicken.svg`,
+    icon: `${ICON_CMD}/drink/number.svg`,
     title: '数据酷',
     total: '224',
     lastMsg: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
     updatedAt: '3天前',
     active: true,
-  },
-  {
-    id: '11',
-    icon: `${ICON_CMD}/drink/detail.svg`,
-    title: '神细节', // 分行业内，行业外
-    total: '224',
-    lastMsg: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
-    updatedAt: '3天前',
   },
   {
     id: '12',
@@ -97,7 +97,7 @@ const items = [
   {
     id: '4',
     icon: `${ICON_CMD}/drink/smile.svg`,
-    title: '一句笑话（语言可选）',
+    title: '神问答（语言可选）',
     total: '224',
     lastMsg: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
     updatedAt: '3天前',
@@ -116,6 +116,14 @@ const items = [
     title: '俚语迷宫',
     total: '224',
     lastMsg: '看见一个算命大师，我刚坐下他就问我，你算什么东西?',
+    updatedAt: '3天前',
+  },
+  {
+    id: '7',
+    icon: `${ICON_CMD}/drink/rap.svg`,
+    title: '灵魂 RAP',
+    total: '22',
+    lastMsg: '太阳不起我不起 老子就是了不起',
     updatedAt: '3天前',
   },
 ]

@@ -517,8 +517,14 @@ const menu = [
       },
       {
         id: uid.gen(),
-        title: '网站 / App',
-        icon: `${ICON_CMD}/navi/webapp.svg`,
+        title: '魔鬼细节',
+        icon: `${ICON_CMD}/navi/ghost.svg`,
+        childMenu: [
+          {
+            id: uid.gen(),
+            title: '网站 / App',
+          },
+        ],
       },
       {
         id: uid.gen(),

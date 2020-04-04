@@ -21,17 +21,19 @@ const MoreContent = () => (
   <Wrapper>
     <BodyWrapper>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_indie.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_shop.svg`} />
         <Intro>
-          <Title>独立开发者</Title>
-          <Desc>经验交流，开发者访谈，作品分享</Desc>
+          <Title>
+            小周边<Wip>开发中</Wip>
+          </Title>
+          <Desc>有趣的贴纸、冰箱贴以及各种奇奇怪怪。。</Desc>
         </Intro>
       </Entry>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_job.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_indie.svg`} />
         <Intro>
-          <Title>酷工作</Title>
-          <Desc>工作机会，职场交流，酷团队</Desc>
+          <Title>独立开发者</Title>
+          <Desc>经验交流，开发者访谈</Desc>
         </Intro>
       </Entry>
       <Entry>
