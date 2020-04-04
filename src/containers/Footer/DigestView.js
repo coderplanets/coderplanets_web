@@ -1,11 +1,6 @@
 import React from 'react'
 
-import {
-  GITHUB_WEB_ADDR,
-  GITHUB_SERVER_ADDR,
-  API_SERVER_ADDR,
-  ISSUE_ADDR,
-} from '@config'
+import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR } from '@config'
 
 import {
   Wrapper,
@@ -91,7 +86,6 @@ const DigestView = ({ hasTopBorder }) => (
             >
               使用指南
             </Item>
-            <Item onClick={toggleBusBanner}>商务合作</Item>
           </Body>
         </Column>
 
@@ -120,47 +114,16 @@ const DigestView = ({ hasTopBorder }) => (
             >
               Developer API
             </Item>
-            <Item
-              href={`${GITHUB_WEB_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Source Code(F)
+            <Item href={`${GITHUB}`} rel="noopener noreferrer" target="_blank">
+              Github
             </Item>
-            <Item
-              href={`${GITHUB_SERVER_ADDR}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Source Code(B)
-            </Item>
-            {/*
-              <Item offsetTop="-8px">
-              <GitSource
-              title="B:"
-              addr="https://ghbtns.com/github-btn.html?user=coderplanets&repo=coderplanets_server&type=star&count=true"
-              />
-              </Item>
-            */}
           </Body>
         </Column>
         <Column>
-          <Title>客户端</Title>
+          <Title>商务合作</Title>
           <Body>
-            <Item
-              href={`${ISSUE_ADDR}/269`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              APP
-            </Item>
-            <Item
-              href={`${ISSUE_ADDR}/270`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              小程序
-            </Item>
+            <Item onClick={toggleBusBanner}>赞助社区</Item>
+            <Item onClick={toggleBusBanner}>商务合作</Item>
           </Body>
         </Column>
       </MainInfos>

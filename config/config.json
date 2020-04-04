@@ -52,6 +52,7 @@
   "DEFAULT_USER_AVATAR": "https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/cmd/alien_user3.svg",
   "GRAPHQL_ENDPOINT": "https://api.coderplanets.com/graphiql",
   "SITE_URL": "https://coderplanets.com",
+  "GITHUB": "https://github.com/coderplanets",
   "GITHUB_WEB_ADDR": "https://github.com/coderplanets/coderplanets_web",
   "GITHUB_SERVER_ADDR": "https://github.com/coderplanets/coderplanets_server",
   "API_SERVER_ADDR": "http://api.coderplanets.com/graphiql",
