@@ -26,7 +26,7 @@ const MoreContent = () => (
           <Title>
             小周边<Wip>开发中</Wip>
           </Title>
-          <Desc>有趣的贴纸、冰箱贴以及各种奇奇怪怪。。</Desc>
+          <Desc>贴纸、冰箱贴以及各种奇奇怪怪。。</Desc>
         </Intro>
       </Entry>
       <Entry>
@@ -37,12 +37,10 @@ const MoreContent = () => (
         </Intro>
       </Entry>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_weekly.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_data.svg`} />
         <Intro>
-          <Title>
-            周刊订阅 <Wip>开发中</Wip>
-          </Title>
-          <Desc>社区 RSS 订阅，专题周刊等</Desc>
+          <Title>Trending</Title>
+          <Desc>各社区近期精华内容</Desc>
         </Intro>
       </Entry>
       <Entry>
@@ -53,10 +51,12 @@ const MoreContent = () => (
         </Intro>
       </Entry>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_data.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_weekly.svg`} />
         <Intro>
-          <Title>Trending</Title>
-          <Desc>各社区近期精华内容</Desc>
+          <Title>
+            周刊订阅 <Wip>开发中</Wip>
+          </Title>
+          <Desc>社区 RSS 订阅，专题周刊等</Desc>
         </Intro>
       </Entry>
       <Entry>
