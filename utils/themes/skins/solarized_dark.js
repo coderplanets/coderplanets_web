@@ -22,7 +22,7 @@ const solarizedDark = {
   cover: lighten(0.08, bannerBg),
   coverIndex: primaryMate,
   contrastFg: 'orange',
-  htmlBg: '#061b20',
+  htmlBg: '#002A34',
   spaceBg: '#062129',
   mobileTab: bannerBg,
   loading: {

@@ -19,6 +19,13 @@ export const InnerWrapper = styled.div`
   border-radius: 8px;
   background: ${theme('haveADrinkPage.bg')};
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
+
+  @media (max-width: 1400px) {
+    max-width: ${`calc(${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH})`};
+  }
+  @media (max-width: 1250px) {
+    max-width: ${`calc(${cs.ARTICLE_PAGE_MAX_CONTENT_WIDTH} - 100px)`};
+  }
 `
 
 export const LoadingSentence = styled.div`
