@@ -23,6 +23,7 @@ const ROUTE = {
   MEETUPS: 'meetups',
   HAVE_A_DRINK: 'have-a-drink',
   COOL_GUIDE: 'cool-guide',
+  WORKS: 'works',
 }
 
 export default ROUTE

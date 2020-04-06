@@ -68,16 +68,31 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/sentry', req.query)
   )
 
-  server.get('/meetups', (req, res) =>
+  server.get('/meetups/', (req, res) =>
     renderAndCache(req, res, '/meetups', req.query)
   )
-
-  server.get('/have-a-drink', (req, res) =>
+  server.get('/meetups/*', (req, res) =>
+    renderAndCache(req, res, '/meetups', req.query)
+  )
+  server.get('/have-a-drink/', (req, res) =>
+    renderAndCache(req, res, '/have-a-drink', req.query)
+  )
+  server.get('/have-a-drink/*', (req, res) =>
     renderAndCache(req, res, '/have-a-drink', req.query)
   )
 
-  server.get('/cool-guide', (req, res) =>
+  server.get('/cool-guide/', (req, res) =>
     renderAndCache(req, res, '/cool-guide', req.query)
+  )
+  server.get('/cool-guide/*', (req, res) =>
+    renderAndCache(req, res, '/cool-guide', req.query)
+  )
+
+  server.get('/works/', (req, res) =>
+    renderAndCache(req, res, '/works', req.query)
+  )
+  server.get('/works/*', (req, res) =>
+    renderAndCache(req, res, '/works', req.query)
   )
 
   server.get('/service-worker.js', (req, res) =>

@@ -42,7 +42,9 @@ const MainEntries = ({ curRoute: { mainPath }, type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <SiteLink>作品集市</SiteLink>
+      <Link href={`/${ROUTE.WORKS}`} passHref>
+        <SiteLink active={mainPath === ROUTE.WORKS}>作品集市</SiteLink>
+      </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.MEETUPS}`} passHref>
         <SiteLink active={mainPath === ROUTE.MEETUPS}>活动</SiteLink>

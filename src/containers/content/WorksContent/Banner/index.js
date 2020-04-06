@@ -1,0 +1,49 @@
+/*
+ *
+ * WorksContent
+ *
+ */
+
+import React from 'react'
+
+import { ASSETS_ENDPOINT } from '@config'
+import { buildLog } from '@utils'
+
+import { Button } from '@components/Buttons'
+
+import Recommendation from './Recommendation'
+
+import {
+  Wrapper,
+  IntroWrapper,
+  BrandWrapper,
+  Title,
+  Desc,
+  PubButton,
+  GradientMask,
+  CoverImg,
+} from '../styles/banner'
+
+/* eslint-disable-next-line */
+const log = buildLog('C:WorksContent')
+
+const Banner = () => {
+  return (
+    <Wrapper testid="worksContent">
+      <IntroWrapper>
+        <BrandWrapper>
+          <Title>作品集市</Title>
+          <Desc>有趣有爱的产品跳蚤集市，向世界分享你的创意吧！</Desc>
+          <PubButton>
+            <Button type="primary">展示作品</Button>
+          </PubButton>
+        </BrandWrapper>
+        <Recommendation />
+      </IntroWrapper>
+      <CoverImg src={`${ASSETS_ENDPOINT}/works/space-background.svg`} />
+      <GradientMask />
+    </Wrapper>
+  )
+}
+
+export default Banner
