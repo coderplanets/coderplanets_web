@@ -6,12 +6,16 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   ${cs.flexColumn('justify-between')};
   height: 160px;
-  width: 49%;
+  width: calc(50% - 10px);
   padding: 15px;
   background: #003743;
   margin-bottom: 14px;
-  margin-right: 10px;
+  margin-right: 15px;
   border-radius: 5px;
+
+  &:nth-child(even) {
+    margin-right: 0;
+  }
 `
 export const IntroWrapper = styled.div`
   ${cs.flex('align-center')};

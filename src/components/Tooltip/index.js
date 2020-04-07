@@ -141,7 +141,7 @@ Tooltip.defaultProps = {
   animation: 'fade',
   arrow: false,
   delay: 0,
-  duration: 100,
+  duration: 0,
   hideOnClick: true,
   placement: 'top',
   // hooks
