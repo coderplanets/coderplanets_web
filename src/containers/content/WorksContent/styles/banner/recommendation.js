@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const Card = styled.div`
   ${cs.flexColumn('justify-between')};
-  width: 400px;
+  width: 500px;
   height: 160px;
   background: #023744;
   padding: 14px 20px;

@@ -35,9 +35,12 @@ export const Desc = styled.div`
   ${cs.flex('align-center')};
   font-size: 14px;
   color: ${theme('thread.articleDigest')};
+  height: 32px;
 `
 export const UpInfo = styled.div`
   ${cs.flexColumn('justify-center')};
+  align-self: flex-start;
+  margin-top: 5px;
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
@@ -47,6 +50,7 @@ export const UpIcon = styled(Img)`
 `
 export const UpNumber = styled.div`
   color: ${theme('thread.articleDigest')};
+  font-size: 16px;
 `
 export const BodyText = styled.div`
   font-size: 14px;
@@ -56,4 +60,20 @@ export const BodyText = styled.div`
 export const FooterWrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
+`
+export const BuildWithWrapper = styled.div`
+  ${cs.flex('align-center')};
+`
+const BaseBuildIcon = styled(Img)`
+  width: 14px;
+  height: 14px;
+  display: block;
+`
+export const TechIcon = styled(BaseBuildIcon)`
+  margin-right: 5px;
+  filter: saturate(0.8);
+
+  ${Wrapper}:hover & {
+    filter: saturate(1);
+  }
 `

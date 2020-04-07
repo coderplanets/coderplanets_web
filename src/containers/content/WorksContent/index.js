@@ -9,11 +9,12 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 
 import NaviMenu from '@components/NaviMenu'
+import PagiFooter from '@components/PagiFooter'
 
 import Banner from './Banner'
 import List from './List'
 
-import { Wrapper, ContentWrapper } from './styles'
+import { Wrapper, ContentWrapper, InnerContent, NaviWrapper } from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -26,8 +27,13 @@ const WorksContentContainer = ({ worksContent }) => {
     <Wrapper testid="worksContent">
       <Banner />
       <ContentWrapper>
-        <NaviMenu />
-        <List />
+        <NaviWrapper>
+          <NaviMenu />
+        </NaviWrapper>
+        <InnerContent>
+          <List />
+          <PagiFooter margin={{ top: '60px', bottom: '80px' }} />
+        </InnerContent>
       </ContentWrapper>
     </Wrapper>
   )

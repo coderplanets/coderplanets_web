@@ -16,8 +16,10 @@ export const Wrapper = styled.div.attrs(props => ({
   ${cs.flex('align-center')};
   /* margin-left: 12px; */
   cursor: pointer;
-  background: ${({ active }) => (active ? '#0f3f4e' : 'transparent')};
-  padding: ${({ active }) => (active ? '0 5px' : '0')};
+  background: ${({ hideTextOnInit, active }) =>
+    !hideTextOnInit || active ? '#0f3f4e' : 'transparent'};
+  padding: ${({ hideTextOnInit, active }) =>
+    !hideTextOnInit || active ? '0 5px' : '0'};
   border-radius: ${({ active }) => (active ? '5px' : '0')};
 
   &:hover {
@@ -52,12 +54,15 @@ export const Text = styled.div`
   color: ${({ active, type }) =>
     active ? getActiveColor(type) : getNormalColor(type)};
   font-size: ${({ size }) => getNormalTextSize(size)};
-  opacity: ${({ active }) => (active ? 1 : 0)};
+  /* opacity: ${({ active }) => (active ? 1 : 0)}; */
+  display: ${({ active, hideTextOnInit }) =>
+    !hideTextOnInit || active ? 'block' : 'none'};
   outline: none;
 
   ${Wrapper}:hover & {
     color: ${({ type }) => getActiveColor(type)};
-    opacity: 1;
+    display: block;
+    /* opacity: 1; */
   }
 
   transition: all 0.25s;

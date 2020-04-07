@@ -1,8 +1,11 @@
 import React from 'react'
 
-import { ICON_CMD, ASSETS_ENDPOINT } from '@config'
+import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
 
+import ExpandIcon from '@components/ExpandIcon'
 import IconText from '@components/IconText'
+import { Space } from '@components/BaseStyled'
+
 import {
   Wrapper,
   IntroWrapper,
@@ -15,6 +18,8 @@ import {
   Desc,
   BodyText,
   FooterWrapper,
+  BuildWithWrapper,
+  TechIcon,
 } from '../styles/list/card'
 
 const Card = () => {
@@ -25,8 +30,29 @@ const Card = () => {
         <IntroBlock>
           <Title>coderplanets</Title>
           <Desc>
-            <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>.</IconText>
-            <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>.</IconText>
+            <ExpandIcon
+              icon={`${ICON_CMD}/works/website.svg`}
+              text="网站"
+              size="small"
+              hideTextOnInit={false}
+              content={<div>https://coderplanets.com</div>}
+            />
+            <Space right="8px" />
+            <ExpandIcon
+              icon={`${ICON_CMD}/works/android.svg`}
+              text="Android"
+              size="small"
+              hideTextOnInit={false}
+              content={<div>https://coderplanets.com</div>}
+            />
+            <Space right="8px" />
+            <ExpandIcon
+              icon={`${ICON_CMD}/works/apple.svg`}
+              text="iOS"
+              size="small"
+              hideTextOnInit={false}
+              content={<div>https://coderplanets.com</div>}
+            />
           </Desc>
         </IntroBlock>
 
@@ -37,8 +63,13 @@ const Card = () => {
       </IntroWrapper>
       <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
       <FooterWrapper>
-        <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>44</IconText>
-        <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>xx / xx / xx</IconText>
+        <BuildWithWrapper>
+          <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
+          <TechIcon src={`${ICON_BASE}/pl/java.svg`} />
+          <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
+          <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
+        </BuildWithWrapper>
+        <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
       </FooterWrapper>
     </Wrapper>
   )

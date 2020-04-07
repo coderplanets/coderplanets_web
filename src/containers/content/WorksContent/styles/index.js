@@ -12,3 +12,10 @@ export const ContentWrapper = styled.div`
   ${cs.flex()};
   padding: 0 5vw;
 `
+export const InnerContent = styled.div`
+  margin-bottom: 20px;
+`
+export const NaviWrapper = styled.div`
+  width: 140px;
+  margin-right: 25px;
+`

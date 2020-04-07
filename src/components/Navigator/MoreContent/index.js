@@ -26,14 +26,7 @@ const MoreContent = () => (
           <Title>
             小周边<Wip>开发中</Wip>
           </Title>
-          <Desc>贴纸、冰箱贴以及各种奇奇怪怪。。</Desc>
-        </Intro>
-      </Entry>
-      <Entry>
-        <Logo src={`${ICON_CMD}/header/more_indie.svg`} />
-        <Intro>
-          <Title>独立开发者</Title>
-          <Desc>经验交流，开发者访谈</Desc>
+          <Desc>贴纸/冰箱贴/各种奇奇怪怪。。</Desc>
         </Intro>
       </Entry>
       <Entry>
@@ -44,10 +37,10 @@ const MoreContent = () => (
         </Intro>
       </Entry>
       <Entry>
-        <Logo src={`${ICON_CMD}/header/more_chart.svg`} />
+        <Logo src={`${ICON_CMD}/header/more_indie.svg`} />
         <Intro>
-          <Title>社区统计</Title>
-          <Desc>各社区各项统计数据</Desc>
+          <Title>独立开发者</Title>
+          <Desc>经验交流，开发者访谈</Desc>
         </Intro>
       </Entry>
       <Entry>
@@ -59,6 +52,21 @@ const MoreContent = () => (
           <Desc>社区 RSS 订阅，专题周刊等</Desc>
         </Intro>
       </Entry>
+      <Entry>
+        <Logo src={`${ICON_CMD}/header/more_Interview.svg`} />
+        <Intro>
+          <Title>面试题库</Title>
+          <Desc>各门类面试题集锦</Desc>
+        </Intro>
+      </Entry>
+      <Entry>
+        <Logo src={`${ICON_CMD}/header/more_chart.svg`} />
+        <Intro>
+          <Title>社区统计</Title>
+          <Desc>各社区各项统计数据</Desc>
+        </Intro>
+      </Entry>
+
       <Entry>
         <Logo src={`${ICON_CMD}/header/more_vip.svg`} />
         <Intro>
