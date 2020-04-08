@@ -30,7 +30,11 @@ const Footer = t
     get hasTopBorder() {
       const { mainPath } = self.curRoute
 
-      return R.contains(mainPath, [ROUTE.MEETUPS, ROUTE.COOL_GUIDE])
+      return R.contains(mainPath, [
+        ROUTE.MEETUPS,
+        ROUTE.COOL_GUIDE,
+        ROUTE.WORKS,
+      ])
     },
     get accountInfo() {
       return self.root.accountInfo

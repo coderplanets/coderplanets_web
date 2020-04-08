@@ -7,6 +7,7 @@ export const Wrapper = styled.div.attrs(props => ({
 }))`
   ${cs.flexColumn()};
   min-height: 100vh;
+  margin-bottom: 100px;
 `
 export const ContentWrapper = styled.div`
   ${cs.flex()};
@@ -14,8 +15,4 @@ export const ContentWrapper = styled.div`
 `
 export const InnerContent = styled.div`
   margin-bottom: 20px;
-`
-export const NaviWrapper = styled.div`
-  width: 140px;
-  margin-right: 25px;
 `

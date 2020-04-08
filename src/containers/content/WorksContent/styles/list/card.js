@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('justify-between')};
   height: 160px;
   width: calc(50% - 10px);
-  padding: 15px;
+  padding: 14px 16px;
   background: #003743;
   margin-bottom: 14px;
   margin-right: 15px;
@@ -28,7 +28,7 @@ export const IntroImg = styled(Img)`
 `
 export const IntroBlock = styled.div`
   ${cs.flexColumnGrow('align-start')};
-  margin-left: 15px;
+  margin-left: 20px;
 `
 export const Title = styled.div`
   font-size: 16px;

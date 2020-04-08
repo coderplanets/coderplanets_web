@@ -16,6 +16,7 @@ export const Card = styled.div`
   height: 155px;
   background: #023744;
   padding: 14px 20px;
+  margin-top: -25px;
 `
 export const IntroWrapper = styled.div`
   ${cs.flex('align-center')};
@@ -28,7 +29,7 @@ export const IntroImg = styled(Img)`
 `
 export const IntroBlock = styled.div`
   ${cs.flexColumnGrow('align-start')};
-  margin-left: 15px;
+  margin-left: 20px;
 `
 export const Title = styled.div`
   font-size: 16px;

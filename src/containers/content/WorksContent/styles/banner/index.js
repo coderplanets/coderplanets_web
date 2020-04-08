@@ -7,14 +7,14 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 260px;
   overflow: hidden;
 `
 export const IntroWrapper = styled.div`
   ${cs.flex('justify-around', 'align-center')};
   position: absolute;
   width: 100%;
-  height: 300px;
+  height: 260px;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;
   padding-left: 10vw;
@@ -22,6 +22,7 @@ export const IntroWrapper = styled.div`
 export const BrandWrapper = styled.div`
   ${cs.flexColumn()};
   width: 45%;
+  margin-top: -30px;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
