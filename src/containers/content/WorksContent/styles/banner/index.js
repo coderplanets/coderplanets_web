@@ -20,8 +20,8 @@ export const IntroWrapper = styled.div`
   padding-left: 10vw;
 `
 export const BrandWrapper = styled.div`
-  ${cs.flexColumn()};
-  width: 45%;
+  ${cs.flexColumnGrow()};
+  /* width: 45%; */
   margin-top: -30px;
 `
 export const Title = styled.div`

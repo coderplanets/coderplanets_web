@@ -19,7 +19,7 @@ const FilterBar = () => {
       <FiltersMenu items={fakeFilterItems} />
       <br />
       <br />
-      <Title>分类筛选</Title>
+      <Title>类别筛选</Title>
       <NaviMenu />
     </Wrapper>
   )

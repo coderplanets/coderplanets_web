@@ -6,7 +6,7 @@ import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-start', 'justify-center')};
-  width: 40%;
+  width: 45%;
   height: 100%;
 `
 export const Card = styled.div`
