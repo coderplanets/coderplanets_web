@@ -16,7 +16,7 @@ const FilterBar = () => {
       </OrButton>
       <br />
       <Title>综合筛选</Title>
-      <FiltersMenu items={fakeFilterItems} />
+      <FiltersMenu items={fakeFilterItems} revert />
       <br />
       <br />
       <Title>类别筛选</Title>

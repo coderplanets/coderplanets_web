@@ -21,10 +21,10 @@ const isActive = (activeMap, expandMenuId, itemId) => {
   return activeMap[expandMenuId].id === itemId
 }
 
-const Filter = ({ id, expandMenuId, activeMap, options, onSelect }) => {
+const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
   return (
-    <Wrapper>
-      <Item>
+    <Wrapper revert={revert}>
+      <Item revert={revert}>
         {expandMenuId === id && options ? (
           <RadioWrapper>
             {options.map(item => (
@@ -32,22 +32,51 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect }) => {
                 key={item.id}
                 onClick={() => onSelect(expandMenuId, item)}
               >
-                <ActiveDot
-                  active={isActive(activeMap, expandMenuId, item.id)}
-                />
-                <RadioTitle active={isActive(activeMap, expandMenuId, item.id)}>
-                  {item.title}
-                </RadioTitle>
+                {!revert ? (
+                  <React.Fragment>
+                    <ActiveDot
+                      active={isActive(activeMap, expandMenuId, item.id)}
+                    />
+                    <RadioTitle
+                      active={isActive(activeMap, expandMenuId, item.id)}
+                    >
+                      {item.title}
+                    </RadioTitle>
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <RadioTitle
+                      active={isActive(activeMap, expandMenuId, item.id)}
+                      revert
+                    >
+                      {item.title}
+                    </RadioTitle>
+                    <ActiveDot
+                      active={isActive(activeMap, expandMenuId, item.id)}
+                    />
+                  </React.Fragment>
+                )}
               </RadioItem>
             ))}
           </RadioWrapper>
         ) : (
           <RadioWrapper value="">
             <RadioItem>
-              <ActiveDot active />
-              <RadioTitle active>
-                {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
-              </RadioTitle>
+              {!revert ? (
+                <React.Fragment>
+                  <ActiveDot active />
+                  <RadioTitle active>
+                    {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
+                  </RadioTitle>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <RadioTitle active revert>
+                    {activeMap[id] ? activeMap[id].title || '全部' : '全部'}
+                  </RadioTitle>
+                  <ActiveDot active />
+                </React.Fragment>
+              )}
             </RadioItem>
           </RadioWrapper>
         )}
@@ -69,7 +98,7 @@ Filter.propTypes = {
       title: T.string,
     })
   ).isRequired,
-
+  revert: T.bool.isRequired,
   onSelect: T.func.isRequired,
 }
 

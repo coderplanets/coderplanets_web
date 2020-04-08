@@ -35,6 +35,7 @@ const FiltersMenu = ({
   noFilter,
   onItemClick,
   itemBgHighlight,
+  revert,
 }) => {
   // const [expandMenuId, setExpandMenuId] = useState(null)
   const [expandMenuId, setExpandMenuId] = useState(activeId)
@@ -59,10 +60,21 @@ const FiltersMenu = ({
               itemBgHighlight && item.id === expandMenuId && index !== 0
             }
             itemBgHighlight={itemBgHighlight}
+            revert={revert}
           >
-            <Icon active={item.id === expandMenuId} src={item.icon} />
-            <SpaceGrow />
-            {item.title}
+            {!revert ? (
+              <React.Fragment>
+                <Icon active={item.id === expandMenuId} src={item.icon} />
+                <SpaceGrow />
+                {item.title}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {item.title}
+                <SpaceGrow />
+                <Icon active={item.id === expandMenuId} src={item.icon} />
+              </React.Fragment>
+            )}
           </Item>
           {!noFilter && (
             <Filter
@@ -70,6 +82,7 @@ const FiltersMenu = ({
               expandMenuId={expandMenuId}
               activeMap={activeMap}
               options={item.options}
+              revert={revert}
               onSelect={(parentId, item) =>
                 setActiveMap(R.merge(activeMap, { [parentId]: item }))
               }
@@ -99,6 +112,7 @@ FiltersMenu.propTypes = {
   noFilter: T.bool,
   onItemClick: T.func,
   itemBgHighlight: T.bool,
+  revert: T.bool,
 }
 
 FiltersMenu.defaultProps = {
@@ -106,6 +120,7 @@ FiltersMenu.defaultProps = {
   noFilter: false,
   onItemClick: log,
   itemBgHighlight: true,
+  revert: false,
 }
 
 export default React.memo(FiltersMenu)

@@ -17,7 +17,8 @@ export const ItemWrapper = styled.div`
   }
 `
 export const Item = styled.div`
-  ${cs.flex('justify-end')};
+  ${cs.flex()};
+  justify-content: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   fill: ${theme('thread.articleDigest')};
   align-items: center;
   color: ${({ active }) =>
