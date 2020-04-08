@@ -11,7 +11,7 @@ import { Wrapper, Title } from './styles/filter_bar'
 const FilterBar = () => {
   return (
     <Wrapper>
-      <OrButton size="default" type="primary">
+      <OrButton size="small" type="primary">
         列表 OR 里程碑
       </OrButton>
       <br />
