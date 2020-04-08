@@ -17,7 +17,7 @@ export const IntroWrapper = styled.div`
   height: 260px;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 5vw;
-  padding-left: 10vw;
+  padding-left: 8vw;
 `
 export const BrandWrapper = styled.div`
   ${cs.flexColumnGrow()};

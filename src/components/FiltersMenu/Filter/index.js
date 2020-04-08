@@ -26,7 +26,7 @@ const Filter = ({ id, expandMenuId, activeMap, options, onSelect, revert }) => {
     <Wrapper revert={revert}>
       <Item revert={revert}>
         {expandMenuId === id && options ? (
-          <RadioWrapper>
+          <RadioWrapper revert={revert}>
             {options.map(item => (
               <RadioItem
                 key={item.id}

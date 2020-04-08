@@ -13,7 +13,8 @@ export const Wrapper = styled.div`
   padding-top: 0;
 `
 export const RadioWrapper = styled.div`
-  ${cs.flexColumn('align-end')};
+  ${cs.flexColumn()};
+  align-items: ${({ revert }) => (revert ? 'flex-start' : 'flex-end')};
   margin-top: 5px;
 `
 export const RadioItem = styled.div`
