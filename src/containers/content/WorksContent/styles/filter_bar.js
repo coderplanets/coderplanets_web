@@ -11,7 +11,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-weight: bolder;
   margin-bottom: 15px;
-  text-align: right;
-  margin-right: 6px;
+  text-align: left;
+  margin-left: 6px;
   font-size: 16px;
 `

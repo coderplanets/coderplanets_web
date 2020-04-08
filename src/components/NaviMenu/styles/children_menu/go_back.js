@@ -4,7 +4,7 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flex('align-center', 'justify-end')};
+  ${cs.flex('align-center', 'justify-start')};
   margin-right: 5px;
   height: 30px;
   border-radius: 5px;
@@ -28,6 +28,7 @@ export const BackIcon = styled(Img)`
   height: 16px;
   display: block;
   opacity: 0.7;
+  margin-right: 8px;
 
   ${Wrapper}:hover & {
     opacity: 1;

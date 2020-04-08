@@ -47,11 +47,11 @@ const ChildrenItems = ({
           active={item.id === childMenuId}
           onClick={handleSelect}
         >
+          {item.title}
+          <SpaceGrow />
           {item.id === childMenuId && (
             <ActiveDot active={item.id === childMenuId} />
           )}
-          <SpaceGrow />
-          {item.title}
         </Item>
       ))}
     </Wrapper>

@@ -24,13 +24,13 @@ const RootMenu = ({ menuItems, onSelect, activeParentMenuId }) => {
           active={item.id === activeParentMenuId}
           onClick={() => onSelect(item)}
         >
+          {item.title}
+          <SpaceGrow />
           {item.icon ? (
             <Icon active={item.id === activeParentMenuId} src={item.icon} />
           ) : (
             <ActiveDot />
           )}
-          <SpaceGrow />
-          {item.title}
         </Item>
       ))}
     </React.Fragment>

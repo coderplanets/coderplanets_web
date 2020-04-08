@@ -13,6 +13,7 @@ import { buildLog } from '@utils'
 // import { SpaceGrow } from '@components/BaseStyled'
 import {
   Wrapper,
+  Title,
   Footer,
   FilterOption,
   OptionIcon,
@@ -32,7 +33,7 @@ const Dashboard = ({ view, setView, parentMenuItem }) => {
 
   return (
     <Wrapper>
-      {parentMenuItem.title}
+      <Title>{parentMenuItem.title}</Title>
       <Footer>
         <FilterOption
           data-view="catalog"

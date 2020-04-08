@@ -4,7 +4,7 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-end', 'justify-between')};
+  ${cs.flexColumn('align-start', 'justify-between')};
   width: 140px;
   height: 70px;
   color: #7c8f90;
@@ -17,6 +17,9 @@ export const Wrapper = styled.div`
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.42);
   border-radius: 4px;
 `
+export const Title = styled.div`
+  margin-left: 10px;
+`
 export const Footer = styled.div`
   ${cs.flex()};
 `
@@ -26,7 +29,6 @@ export const FilterOption = styled.div`
   margin-left: 8px;
   padding-bottom: 5px;
 `
-
 export const OptionIcon = styled(Img)`
   fill: #7c8f90;
   width: 16px;

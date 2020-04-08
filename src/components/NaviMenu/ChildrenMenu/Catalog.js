@@ -38,9 +38,9 @@ const CataLogItem = ({
   return (
     <React.Fragment>
       <Item data-item={o2s(item)} active={isActive} onClick={handleSelect}>
-        <Icon active={isActive} src={item.icon} />
-        <SpaceGrow />
         {item.title}
+        <SpaceGrow />
+        <Icon active={isActive} src={item.icon} />
       </Item>
       {item.childMenu && !R.isEmpty(item.childMenu) && (
         <ChildrenItems
