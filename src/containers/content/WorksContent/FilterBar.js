@@ -20,7 +20,7 @@ const FilterBar = () => {
       <br />
       <br />
       <Title>类别筛选</Title>
-      <NaviMenu />
+      <NaviMenu joinMode={false} />
     </Wrapper>
   )
 }

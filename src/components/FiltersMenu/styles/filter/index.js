@@ -38,10 +38,11 @@ export const ActiveDot = styled.div`
   transition: opacity 0.25s;
 `
 export const RadioTitle = styled.div`
-  font-size: 14px;
+  font-size: 13px;
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
   margin-right: ${({ revert }) => (revert ? '6px' : '0')};
+  margin-left: ${({ revert }) => (revert ? '1px' : '0')};
 
   &:hover {
     color: ${({ active }) =>

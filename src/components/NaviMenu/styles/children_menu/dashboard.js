@@ -4,21 +4,25 @@ import Img from '@Img'
 import { cs } from '@utils'
 
 export const Wrapper = styled.div`
-  ${cs.flexColumn('align-start', 'justify-between')};
+  ${cs.flexColumn('align-start')};
+  justify-content: ${({ joinMode }) => (joinMode ? 'space-between' : 'center')};
+
   width: 140px;
-  height: 70px;
+  height: ${({ joinMode }) => (joinMode ? '70px' : '35px')};
+  font-weight: ${({ joinMode }) => (joinMode ? 'normal' : 'bold')};
   color: #7c8f90;
   background: #003948;
   padding: 6px;
   padding-right: 10px;
   padding-bottom: 0;
+  padding-top: ${({ joinMode }) => (joinMode ? '6px' : '0')};
   margin-top: 5px;
   margin-bottom: 0;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.42);
   border-radius: 4px;
 `
 export const Title = styled.div`
-  margin-left: 10px;
+  margin-left: ${({ joinMode }) => (joinMode ? '10px' : '6px')};
 `
 export const Footer = styled.div`
   ${cs.flex()};

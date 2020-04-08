@@ -23,14 +23,15 @@ export const Wrapper = styled.div`
   transition: all 0.3s;
 `
 export const BackIcon = styled(Img)`
-  fill: #226fa0;
-  width: 16px;
-  height: 16px;
+  fill: #5c7679;
+  width: 14px;
+  height: 14px;
   display: block;
   opacity: 0.7;
   margin-right: 8px;
 
   ${Wrapper}:hover & {
+    fill: #226fa0;
     opacity: 1;
   }
 `

@@ -35,13 +35,14 @@ const Content = ({ view, ...restProps }) => {
   }
 }
 
-const ChildrenMenu = ({ goBack, parentMenuItem, ...restProps }) => {
+const ChildrenMenu = ({ goBack, parentMenuItem, joinMode, ...restProps }) => {
   const [dashView, setDashView] = useState('catalog')
 
   return (
     <Wrapper>
       <GoBack goBack={goBack} />
       <Dashboard
+        joinMode={joinMode}
         view={dashView}
         setView={setDashView}
         parentMenuItem={parentMenuItem}
@@ -59,6 +60,7 @@ ChildrenMenu.propTypes = {
   goBack: T.func.isRequired,
   menuItems: T.arrayOf(T.any).isRequired,
   parentMenuItem: T.any.isRequired, // TODO
+  joinMode: T.bool.isRequired,
 }
 
 ChildrenMenu.defaultProps = {}

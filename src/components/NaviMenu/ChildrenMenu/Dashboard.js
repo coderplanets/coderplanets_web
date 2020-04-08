@@ -22,7 +22,7 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const Dashboard = ({ view, setView, parentMenuItem }) => {
+const Dashboard = ({ view, setView, joinMode, parentMenuItem }) => {
   const handleViewChange = useCallback(
     e => {
       const { view } = e.target.dataset
@@ -32,34 +32,36 @@ const Dashboard = ({ view, setView, parentMenuItem }) => {
   )
 
   return (
-    <Wrapper>
-      <Title>{parentMenuItem.title}</Title>
-      <Footer>
-        <FilterOption
-          data-view="catalog"
-          onClick={handleViewChange}
-          active={view === 'catalog'}
-        >
-          <OptionIcon src={`${ICON_CMD}/navi/navi_list.svg`} />
-        </FilterOption>
-        <FilterOption
-          data-view="filter"
-          onClick={handleViewChange}
-          active={view === 'filter'}
-        >
-          <OptionIcon src={`${ICON_CMD}/navi/navi_filter.svg`} />
-        </FilterOption>
-        <FilterOption
-          data-view="more"
-          onClick={handleViewChange}
-          active={view === 'more'}
-        >
-          <OptionIcon src={`${ICON_CMD}/navi/navi_more.svg`} />
-        </FilterOption>
-        {/* 
-          info | add | 提交 bug 说明 
-        */}
-      </Footer>
+    <Wrapper joinMode={joinMode}>
+      <Title joinMode={joinMode}>{parentMenuItem.title}</Title>
+      {joinMode && (
+        <Footer>
+          <FilterOption
+            data-view="catalog"
+            onClick={handleViewChange}
+            active={view === 'catalog'}
+          >
+            <OptionIcon src={`${ICON_CMD}/navi/navi_list.svg`} />
+          </FilterOption>
+          <FilterOption
+            data-view="filter"
+            onClick={handleViewChange}
+            active={view === 'filter'}
+          >
+            <OptionIcon src={`${ICON_CMD}/navi/navi_filter.svg`} />
+          </FilterOption>
+          <FilterOption
+            data-view="more"
+            onClick={handleViewChange}
+            active={view === 'more'}
+          >
+            <OptionIcon src={`${ICON_CMD}/navi/navi_more.svg`} />
+          </FilterOption>
+          {/* 
+        info | add | 提交 bug 说明 
+      */}
+        </Footer>
+      )}
     </Wrapper>
   )
 }
@@ -68,6 +70,7 @@ Dashboard.propTypes = {
   view: T.oneOf(['catalog', 'filter', 'more']),
   setView: T.func.isRequired,
   parentMenuItem: T.any.isRequired, // TODO
+  joinMode: T.bool.isRequired,
 }
 
 Dashboard.defaultProps = {
