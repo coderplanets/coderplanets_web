@@ -3,18 +3,18 @@ import T from 'prop-types'
 
 import {
   Wrapper,
-  LeftButton,
+  UpButton,
   OrSign,
-  RightButton,
+  BottomButton,
 } from '../styles/or_button/vertical_button'
 
 // const OrButton = ({ children, onClick, size }) => {
 const VerticalButton = ({ onClick, size }) => {
   return (
     <Wrapper onClick={onClick} size={size}>
-      <LeftButton size={size}>站内</LeftButton>
+      <UpButton size={size}>站内</UpButton>
       <OrSign>or</OrSign>
-      <RightButton size={size}>站外</RightButton>
+      <BottomButton size={size}>站外</BottomButton>
     </Wrapper>
   )
 }

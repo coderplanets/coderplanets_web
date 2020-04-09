@@ -17,7 +17,7 @@ const FilterBar = () => {
       <br />
       <Title>综合筛选</Title>
       <FilterWrapper>
-        <FiltersMenu items={fakeFilterItems} withDivider={false} revert />
+        <FiltersMenu items={fakeFilterItems} withDivider revert />
       </FilterWrapper>
       <br />
       <br />

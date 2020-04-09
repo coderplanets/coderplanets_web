@@ -5,12 +5,13 @@ import styled from 'styled-components'
 import { cs } from '@utils'
 
 import { Wrapper as BaseWrapper } from '../button'
+import { OrSignBase } from './index'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-center')};
   position: relative;
 `
-export const LeftButton = styled(BaseWrapper)`
+export const UpButton = styled(BaseWrapper)`
   ${cs.flexColumn('align-both')};
   width: 32px;
   min-height: 70px;
@@ -18,21 +19,11 @@ export const LeftButton = styled(BaseWrapper)`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 `
-export const OrSign = styled.div`
-  ${cs.flex('align-both')};
-  position: absolute;
+export const OrSign = styled(OrSignBase)`
   top: calc(50% - 8.5px);
   left: 8.5px;
-  font-size: 10px;
-  font-weight: bold;
-  color: #99b9bf;
-  background: #002b35;
-  border-radius: 100%;
-  z-index: 1;
-  width: 16px;
-  height: 16px;
 `
-export const RightButton = styled(BaseWrapper)`
+export const BottomButton = styled(BaseWrapper)`
   ${cs.flexColumn('align-both')};
   width: 32px;
   min-height: 70px;

@@ -10,14 +10,18 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
   ${cs.flex()};
   padding: 10px 6vw;
+  padding-left: calc(6vw - 45px);
   margin-top: 12px;
   width: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px;
 `
-export const SwitchBtn = styled.div``
+export const SwitchBtn = styled.div`
+  margin-right: 15px;
+  margin-top: 38px;
+`
 export const ContentWrapper = styled.div`
   ${cs.flexColumnGrow()};
-  max-width: 100%;
+  max-width: calc(100% - 60px);
 `
