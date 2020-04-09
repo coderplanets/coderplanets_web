@@ -11,7 +11,7 @@ export const Wrapper = styled.div.attrs(props => ({
 `
 export const ContentWrapper = styled.div`
   ${cs.flex()};
-  padding: 0 5vw;
+  padding: 0 7vw;
 `
 export const InnerContent = styled.div`
   margin-bottom: 20px;

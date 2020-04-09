@@ -2,9 +2,9 @@ import React from 'react'
 
 import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
 
+import { SpaceGrow, Space } from '@components/BaseStyled'
 import ExpandIcon from '@components/ExpandIcon'
 import IconText from '@components/IconText'
-import { Space } from '@components/BaseStyled'
 
 import {
   Wrapper,
@@ -15,11 +15,14 @@ import {
   UpInfo,
   UpIcon,
   UpNumber,
-  Desc,
+  TypeTags,
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
+  PublishAt,
   TechIcon,
+  Divider,
+  GithubIcon,
 } from '../styles/list/card'
 
 const Card = () => {
@@ -29,7 +32,7 @@ const Card = () => {
         <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
         <IntroBlock>
           <Title>coderplanets</Title>
-          <Desc>
+          <TypeTags>
             <ExpandIcon
               icon={`${ICON_CMD}/works/website.svg`}
               text="网站"
@@ -53,7 +56,26 @@ const Card = () => {
               hideTextOnInit={false}
               content={<div>https://coderplanets.com</div>}
             />
-          </Desc>
+          </TypeTags>
+          <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
+          <FooterWrapper>
+            <IconText iconSrc={`${ICON_CMD}/works/author.svg`}>
+              mydearxym
+            </IconText>
+            <Divider />
+            <BuildWithWrapper>
+              <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
+              <TechIcon src={`${ICON_BASE}/pl/java.svg`} />
+              <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
+              <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
+            </BuildWithWrapper>
+            <Divider />
+            <PublishAt>发布于：3小时前</PublishAt>
+            <Divider />
+            <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
+            <SpaceGrow />
+            <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
+          </FooterWrapper>
         </IntroBlock>
 
         <UpInfo>
@@ -61,16 +83,6 @@ const Card = () => {
           <UpNumber>93</UpNumber>
         </UpInfo>
       </IntroWrapper>
-      <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
-      <FooterWrapper>
-        <BuildWithWrapper>
-          <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
-          <TechIcon src={`${ICON_BASE}/pl/java.svg`} />
-          <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
-          <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
-        </BuildWithWrapper>
-        <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
-      </FooterWrapper>
     </Wrapper>
   )
 }
