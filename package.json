@@ -67,7 +67,7 @@
     "chalk": "^2.4.1",
     "compatible-debug": "^1.0.0",
     "cookie-parser": "^1.4.4",
-    "core-js": "3.2.1",
+    "core-js": "3.6.5",
     "cross-env": "^6.0.0",
     "draft-js": "^0.10.5",
     "draft-js-linkify-plugin": "^2.0.1",
