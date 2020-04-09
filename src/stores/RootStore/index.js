@@ -98,6 +98,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  TrendingContentStore,
   WorksContentStore,
   C11NSettingPanelStore,
   RoadmapThreadStore,
@@ -205,6 +206,7 @@ const rootStore = t
     coolGuideContent: t.optional(CoolGuideContentStore, {}),
 
     // GEN: PLUG SUBSTORE TO ROOTSTORE
+    trendingContent: t.optional(TrendingContentStore, {}),
     worksContent: t.optional(WorksContentStore, {}),
     c11NSettingPanel: t.optional(C11NSettingPanelStore, {}),
     roadmapThread: t.optional(RoadmapThreadStore, {}),

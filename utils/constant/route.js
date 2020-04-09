@@ -24,6 +24,7 @@ const ROUTE = {
   HAVE_A_DRINK: 'have-a-drink',
   COOL_GUIDE: 'cool-guide',
   WORKS: 'works',
+  TRENDING: 'trending',
 }
 
 export default ROUTE
