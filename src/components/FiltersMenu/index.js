@@ -36,6 +36,7 @@ const FiltersMenu = ({
   onItemClick,
   itemBgHighlight,
   revert,
+  withDivider,
 }) => {
   // const [expandMenuId, setExpandMenuId] = useState(null)
   const [expandMenuId, setExpandMenuId] = useState(activeId)
@@ -46,6 +47,7 @@ const FiltersMenu = ({
       {items.map((item, index) => (
         <ItemWrapper
           key={item.id}
+          withDivider={withDivider}
           onClick={() => {
             onItemClick(item)
             item.id === expandMenuId
@@ -113,6 +115,7 @@ FiltersMenu.propTypes = {
   onItemClick: T.func,
   itemBgHighlight: T.bool,
   revert: T.bool,
+  withDivider: T.bool,
 }
 
 FiltersMenu.defaultProps = {
@@ -121,6 +124,7 @@ FiltersMenu.defaultProps = {
   onItemClick: log,
   itemBgHighlight: true,
   revert: false,
+  withDivider: true,
 }
 
 export default React.memo(FiltersMenu)

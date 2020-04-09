@@ -6,7 +6,7 @@ import NaviMenu from '@components/NaviMenu'
 
 import fakeFilterItems from './fakeFilterItems'
 
-import { Wrapper, Title } from './styles/filter_bar'
+import { Wrapper, Title, FilterWrapper } from './styles/filter_bar'
 
 const FilterBar = () => {
   return (
@@ -16,11 +16,15 @@ const FilterBar = () => {
       </OrButton>
       <br />
       <Title>综合筛选</Title>
-      <FiltersMenu items={fakeFilterItems} revert />
+      <FilterWrapper>
+        <FiltersMenu items={fakeFilterItems} withDivider={false} revert />
+      </FilterWrapper>
       <br />
       <br />
       <Title>类别筛选</Title>
-      <NaviMenu joinMode={false} />
+      <FilterWrapper>
+        <NaviMenu joinMode={false} withDivider={false} />
+      </FilterWrapper>
     </Wrapper>
   )
 }

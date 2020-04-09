@@ -9,8 +9,9 @@ export const Wrapper = styled.div`
 `
 export const ItemWrapper = styled.div`
   ${cs.flexColumn()};
-  border-bottom: 1px solid;
-  border-bottom-color: #094354;
+  border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
+  border-bottom-color: ${({ withDivider }) =>
+    withDivider ? '#094354' : 'none'};
 
   :last-child {
     border-bottom: none;

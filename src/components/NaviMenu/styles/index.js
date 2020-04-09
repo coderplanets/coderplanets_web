@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 `
 
 const activeColor = '#009C9E'
+
 export const Item = styled.div`
   ${cs.flex('justify-end')};
   fill: ${theme('thread.articleDigest')};
@@ -16,8 +17,10 @@ export const Item = styled.div`
   color: ${({ active }) =>
     active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;
-  border-bottom: 1px solid;
-  border-bottom-color: #094354;
+  border-bottom: ${({ withDivider }) => (withDivider ? '1px solid' : 'none')};
+  border-bottom-color: ${({ withDivider }) =>
+    withDivider ? '#094354' : 'none'};
+
   padding: 8px 6px;
 
   &:hover {

@@ -32,7 +32,7 @@ const getMenuinfo = (menuItems, parentMenuId) => {
   return [parentMenuIndex, childMenuItems]
 }
 
-const NaviMenu = ({ onSelect, joinMode }) => {
+const NaviMenu = ({ onSelect, joinMode, withDivider }) => {
   const [menuMode, setMenuMode] = useState('root')
 
   const [parentMenuId, setParentMenuId] = useState('')
@@ -80,6 +80,7 @@ const NaviMenu = ({ onSelect, joinMode }) => {
         <RootMenu
           menuItems={menuItems}
           onSelect={handleRootSelect}
+          withDivider={withDivider}
           activeParentMenuId={activeParentMenuId}
         />
       ) : (
@@ -101,11 +102,13 @@ const NaviMenu = ({ onSelect, joinMode }) => {
 NaviMenu.propTypes = {
   onSelect: T.func,
   joinMode: T.bool,
+  withDivider: T.bool,
 }
 
 NaviMenu.defaultProps = {
   onSelect: log,
   joinMode: true,
+  withDivider: true,
 }
 
 export default React.memo(NaviMenu)

@@ -15,13 +15,14 @@ import { Item, Icon, ActiveDot } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const RootMenu = ({ menuItems, onSelect, activeParentMenuId }) => {
+const RootMenu = ({ menuItems, onSelect, activeParentMenuId, withDivider }) => {
   return (
     <React.Fragment>
       {menuItems.map(item => (
         <Item
           key={item.id}
           active={item.id === activeParentMenuId}
+          withDivider={withDivider}
           onClick={() => onSelect(item)}
         >
           {item.title}
@@ -41,6 +42,7 @@ RootMenu.propTypes = {
   menuItems: T.arrayOf(T.object).isRequired,
   onSelect: T.func.isRequired,
   activeParentMenuId: T.string.isRequired,
+  withDivider: T.bool.isRequired,
 }
 
 RootMenu.defaultProps = {}
