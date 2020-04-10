@@ -23,7 +23,6 @@ import menuData from '@components/NaviMenu/menuData'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
-import { directoryOnChange } from './logic'
 
 const Content = ({ displayType }) => {
   let DisplayContent
@@ -37,7 +36,7 @@ const Content = ({ displayType }) => {
     case GUIDE.PREVIEW: {
       DisplayContent = (
         <NormalListWrapper>
-          <DirectoryGallery items={menuData} onSelect={directoryOnChange} />
+          <DirectoryGallery items={menuData} />
           <br />
           <Footer />
           <br />

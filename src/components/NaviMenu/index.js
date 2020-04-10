@@ -38,7 +38,8 @@ const NaviMenu = ({ onSelect, joinMode, withDivider, initActiveMenuId }) => {
   const [initDone, setInitDone] = useState(false)
 
   const [parentMenuId, setParentMenuId] = useState('')
-  const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
+  // const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
+  const [activeParentMenuId, setActiveParentMenuId] = useState('')
   const [expandChildId, setExpandChildId] = useState('')
 
   const [childMenuId, setChildMenuId] = useState('')

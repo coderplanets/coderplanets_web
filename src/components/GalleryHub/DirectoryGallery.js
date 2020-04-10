@@ -36,10 +36,11 @@ const DirectoryGallery = ({ items, onSelect }) => {
           key={item.id}
           borderTop={index <= 3}
           borderRight={(index + 1) % 4 !== 0}
-          onClick={() => onSelect(item)}
+          onClick={() => onSelect && onSelect(item)}
+          clickable={onSelect !== null}
         >
           <Header>
-            <IntroHead>
+            <IntroHead clickable={onSelect !== null}>
               <Icon src={item.icon} />
               <Title>{item.title}</Title>
             </IntroHead>
@@ -47,7 +48,7 @@ const DirectoryGallery = ({ items, onSelect }) => {
 
           <InlineTags items={R.pluck('title', item.childMenu.slice(0, 8))} />
 
-          <Footer>
+          <Footer clickable={onSelect !== null}>
             <UpdatedAt>最后更新：2天前</UpdatedAt>
             <IconText iconSrc={`${ICON_CMD}/navi/total.svg`}>22</IconText>
           </Footer>

@@ -26,13 +26,11 @@ const CoolGuideContentContainer = ({ coolGuideContent }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        {displayType !== GUIDE.PREVIEW && (
-          <FilterBar
-            topFilter={topFilter}
-            menuOnSelect={menuOnSelect}
-            initActiveMenuId={initActiveMenuId}
-          />
-        )}
+        <FilterBar
+          topFilter={topFilter}
+          menuOnSelect={menuOnSelect}
+          initActiveMenuId={initActiveMenuId}
+        />
         <ContentWrapper offset={displayType !== GUIDE.PREVIEW}>
           <Content displayType={displayType} />
         </ContentWrapper>

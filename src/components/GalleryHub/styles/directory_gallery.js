@@ -26,9 +26,9 @@ export const Block = styled.div`
     border-right: none;
   }
   &:hover {
-    background: #04313e;
-    border-color: #074c61;
-    cursor: pointer;
+    background: ${({ clickable }) => (clickable ? '#04313e' : 'none')};
+    border-color: ${({ clickable }) => (clickable ? '#074c61' : '#0d4353')};
+    cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }
   transition: all 0.25s;
 `
@@ -38,7 +38,7 @@ export const Header = styled.div`
 export const IntroHead = styled.div`
   ${cs.flex('align-center')};
   &:hover {
-    cursor: pointer;
+    cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }
 `
 export const Icon = styled(Img)`
@@ -50,12 +50,11 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 18px;
   margin-left: 12px;
-  cursor: pointer;
 `
 export const Footer = styled.div`
   ${cs.flex('align-center', 'justify-between')};
   &:hover {
-    cursor: pointer;
+    cursor: ${({ clickable }) => (clickable ? 'pointer' : 'normal')};
   }
 `
 export const UpdatedAt = styled.div`

@@ -25,18 +25,6 @@ export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
 }
 
 /**
- * directory view on select
- *
- * @param {string} topFilter
- */
-export const directoryOnChange = ({
-  id: initActiveMenuId,
-  displayType = 'DEFAULT',
-}) => {
-  store.mark({ initActiveMenuId, displayType })
-}
-
-/**
  * favorite or latestUpdated filter change
  *
  * @param {string} topFilter

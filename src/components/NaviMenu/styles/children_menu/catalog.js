@@ -18,6 +18,7 @@ export const Item = styled.div`
     active ? activeColor : theme('thread.articleDigest')};
   font-size: 14px;
   padding: 8px 10px;
+  padding-right: 6px;
 
   &:hover {
     color: ${({ active }) =>

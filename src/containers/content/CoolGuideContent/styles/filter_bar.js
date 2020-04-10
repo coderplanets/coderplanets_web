@@ -8,14 +8,14 @@ export const Wrapper = styled.div`
 `
 export const Divider = styled.div`
   height: 1px;
-  width: 80%;
   background: #004352;
+  width: calc(100% - 25px);
   margin-top: 15px;
   margin-bottom: 15px;
 `
 export const TopFilter = styled.div`
   color: ${theme('thread.articleDigest')};
-  width: 80%;
+  width: calc(100% - 25px);
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
