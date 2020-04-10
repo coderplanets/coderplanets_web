@@ -20,7 +20,7 @@ import { Wrapper /* ActiveDot */ } from './styles'
 const log = buildLog('c:NaviMenu:index')
 
 // get parrentMenuIndex and child menu items
-const getMenuinfo = (menuItems, parentMenuId) => {
+const getMenuInfo = (menuItems, parentMenuId) => {
   const parentMenuIndex = R.findIndex(
     item => item.id === parentMenuId,
     menuItems
@@ -32,20 +32,20 @@ const getMenuinfo = (menuItems, parentMenuId) => {
   return [parentMenuIndex, childMenuItems]
 }
 
-const NaviMenu = ({ onSelect, joinMode, withDivider }) => {
+const NaviMenu = ({ onSelect, joinMode, withDivider, initActiveMenuId }) => {
   const [menuMode, setMenuMode] = useState('root')
+  // select initial active menu item if need
+  const [initDone, setInitDone] = useState(false)
 
   const [parentMenuId, setParentMenuId] = useState('')
   const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
   const [expandChildId, setExpandChildId] = useState('')
 
   const [childMenuId, setChildMenuId] = useState('')
-
-  const [parentMenuIndex, childMenuItems] = getMenuinfo(menuItems, parentMenuId)
+  const [parentMenuIndex, childMenuItems] = getMenuInfo(menuItems, parentMenuId)
 
   // handlers
-  const handleGoback = useCallback(() => setMenuMode('root'), [])
-
+  const handleGoBack = useCallback(() => setMenuMode('root'), [])
   const handleRootSelect = useCallback(
     item => {
       setParentMenuId(item.id)
@@ -82,6 +82,9 @@ const NaviMenu = ({ onSelect, joinMode, withDivider }) => {
           onSelect={handleRootSelect}
           withDivider={withDivider}
           activeParentMenuId={activeParentMenuId}
+          initActiveMenuId={initActiveMenuId}
+          initDone={initDone}
+          setInitDone={setInitDone}
         />
       ) : (
         <ChildrenMenu
@@ -91,7 +94,7 @@ const NaviMenu = ({ onSelect, joinMode, withDivider }) => {
           onSelect={handleChildSelect}
           parentMenuItem={menuItems[parentMenuIndex]}
           menuItems={childMenuItems}
-          goBack={handleGoback}
+          goBack={handleGoBack}
           joinMode={joinMode}
         />
       )}
@@ -103,12 +106,14 @@ NaviMenu.propTypes = {
   onSelect: T.func,
   joinMode: T.bool,
   withDivider: T.bool,
+  initActiveMenuId: T.string,
 }
 
 NaviMenu.defaultProps = {
   onSelect: log,
   joinMode: true,
   withDivider: true,
+  initActiveMenuId: '',
 }
 
 export default React.memo(NaviMenu)

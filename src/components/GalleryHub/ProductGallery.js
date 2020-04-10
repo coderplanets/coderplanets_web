@@ -13,6 +13,7 @@ import { buildLog, cutFrom } from '@utils'
 
 import { ArrowButton } from '@components/Buttons'
 
+import IconText from '@components/IconText'
 import InlineTags from './InlineTags'
 
 import {
@@ -26,11 +27,6 @@ import {
   Title,
   Desc,
   Footer,
-  UpvoteInfo,
-  ViewInfo,
-  UpVoteIcon,
-  ViewIcon,
-  Number,
 } from './styles/product_gallery'
 
 /* eslint-disable-next-line */
@@ -152,14 +148,8 @@ const ProductGallery = ({ items }) => {
           )}
 
           <Footer>
-            <UpvoteInfo>
-              <UpVoteIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
-              <Number>22</Number>
-            </UpvoteInfo>
-            <ViewInfo>
-              <ViewIcon src={`${ICON_CMD}/view-o.svg`} />
-              <Number>4743</Number>
-            </ViewInfo>
+            <IconText iconSrc={`${ICON_CMD}/arrow-up-o.svg`}>22</IconText>
+            <IconText iconSrc={`${ICON_CMD}/view-o.svg`}>22</IconText>
           </Footer>
         </Block>
       ))}

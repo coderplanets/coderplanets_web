@@ -6,11 +6,12 @@
 
 import React from 'react'
 
+import { nilOrEmpty } from '@utils'
 import { GUIDE } from '@constant'
-
 import PagiFooter from '@components/PagiFooter'
 
 import {
+  DirectoryGallery,
   ProductGallery,
   FamePeopleGallery,
   ImageGallery,
@@ -18,19 +19,31 @@ import {
 
 // tmp
 // import RoadmapThread from '@containers/thread/RoadmapThread'
-
-import NewsBoard from './NewsBoard'
+import menuData from '@components/NaviMenu/menuData'
 import Footer from './Footer'
 // import NormalList from './NormalList'
-
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
+import { directoryOnSelect } from './logic'
 
 const Content = ({ displayType }) => {
   let DisplayContent
 
+  for (let index = 0; index < menuData.length; index += 1) {
+    const element = menuData[index]
+    if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
+  }
+
   switch (displayType) {
-    case GUIDE.NEWS_FEED: {
-      DisplayContent = <NewsBoard />
+    case GUIDE.PREVIEW: {
+      DisplayContent = (
+        <NormalListWrapper>
+          <DirectoryGallery items={menuData} onSelect={directoryOnSelect} />
+          <br />
+          <Footer />
+          <br />
+          <br />
+        </NormalListWrapper>
+      )
       break
     }
     case GUIDE.IMAGE: {

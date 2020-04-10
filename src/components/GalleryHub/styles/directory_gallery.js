@@ -11,15 +11,16 @@ export const Wrapper = styled.div`
 `
 export const Block = styled.div`
   ${cs.flexColumn('justify-between')};
-  width: 33%;
+  width: 25%;
   height: 230px;
+  padding: 15px;
+  padding-left: 24px;
+
   border: 1px solid;
   border-left: none;
   border-right: ${({ borderRight }) => (borderRight ? '1px solid' : 'none')};
   border-top: ${({ borderTop }) => (borderTop ? '1px solid' : 'none')};
   border-color: #0d4353;
-  padding: 15px;
-  padding-left: 24px;
 
   :last-child {
     border-right: none;
@@ -27,25 +28,12 @@ export const Block = styled.div`
   &:hover {
     background: #04313e;
     border-color: #074c61;
+    cursor: pointer;
   }
   transition: all 0.25s;
 `
 export const Header = styled.div`
   ${cs.flexColumn()};
-`
-export const LinkHead = styled.div`
-  ${cs.flex('align-center', 'justify-between')};
-  font-size: 12px;
-  margin-bottom: 5px;
-`
-export const LinkerWrapper = styled.div`
-  width: 70px;
-  opacity: 0;
-
-  ${LinkHead}:hover & {
-    opacity: 1;
-  }
-  transition: opacity 0.3s;
 `
 export const IntroHead = styled.div`
   ${cs.flex('align-center')};
@@ -54,31 +42,23 @@ export const IntroHead = styled.div`
   }
 `
 export const Icon = styled(Img)`
-  ${cs.circle('20px')};
+  fill: ${theme('thread.articleTitle')};
+  ${cs.circle('22px')};
+  display: block;
 `
 export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
-  font-size: 20px;
-  margin-left: 8px;
+  font-size: 18px;
+  margin-left: 12px;
   cursor: pointer;
-`
-export const Desc = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 14px;
-  margin-top: -15px;
-  height: 65px;
-  opacity: 0.9;
-  cursor: pointer;
-
-  ${Block}:hover & {
-    color: ${theme('thread.articleTitle')};
-    opacity: 1;
-  }
-  transition: all 0.25s;
 `
 export const Footer = styled.div`
   ${cs.flex('align-center', 'justify-between')};
   &:hover {
     cursor: pointer;
   }
+`
+export const UpdatedAt = styled.div`
+  font-size: 13px;
+  color: ${theme('thread.articleDigest')};
 `

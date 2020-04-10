@@ -19,5 +19,5 @@ export const InnerWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   ${cs.flexColumnGrow()};
-  max-width: calc(100% - 170px);
+  max-width: ${({ offset }) => (offset ? 'calc(100% - 170px)' : '100%')};
 `

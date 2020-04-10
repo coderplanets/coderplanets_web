@@ -5,22 +5,19 @@ import { cs } from '@utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center', 'justify-start')};
-  margin-right: 5px;
   height: 30px;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
   padding: 0 2px;
-  padding-left: 6px;
+  padding-left: 15px;
   color: #5c7679;
 
   &:hover {
     color: #226fa0;
     font-weight: bold;
     cursor: pointer;
-    padding-left: 2px;
+    padding-left: 12px;
   }
-  transition: all 0.3s;
+  transition: all 0.25s;
 `
 export const BackIcon = styled(Img)`
   fill: #5c7679;

@@ -4,13 +4,6 @@ import { uid } from '@utils'
 const menu = [
   {
     id: uid.gen(),
-    title: '本周热议',
-    icon: `${ICON_CMD}/navi/fire.svg`,
-    displayType: 'NEWS_FEED',
-    childMenu: [],
-  },
-  {
-    id: uid.gen(),
     title: '酷工具 / 服务',
     icon: `${ICON_CMD}/navi/tool.svg`,
     childMenu: [

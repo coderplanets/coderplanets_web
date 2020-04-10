@@ -14,14 +14,15 @@ const log = buildLog('S:CoolGuideContent')
 const CoolGuideContent = t
   .model('CoolGuideContent', {
     activeMenuId: t.maybeNull(t.string),
+    initActiveMenuId: t.optional(t.string, ''),
     displayType: t.optional(
       t.enumeration([
-        GUIDE.NEWS_FEED,
+        GUIDE.PREVIEW,
         GUIDE.IMAGE,
         GUIDE.FAME_PEOPLE,
         GUIDE.DEFAULT,
       ]),
-      GUIDE.NEWS_FEED
+      GUIDE.PREVIEW
     ),
   })
   .views(self => ({

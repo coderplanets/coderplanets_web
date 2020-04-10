@@ -24,6 +24,14 @@ export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
   store.mark({ activeMenuId, displayType })
 }
 
+export const directoryOnSelect = ({
+  id: initActiveMenuId,
+  displayType = 'DEFAULT',
+}) => {
+  // console.log('directoryOnSelect: ', displayType)
+  store.mark({ initActiveMenuId, displayType })
+}
+
 // const const cancleLoading = () => {}
 
 // ###############################
