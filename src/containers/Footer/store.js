@@ -34,6 +34,7 @@ const Footer = t
         ROUTE.MEETUPS,
         ROUTE.COOL_GUIDE,
         ROUTE.WORKS,
+        ROUTE.TRENDING,
       ])
     },
     get accountInfo() {

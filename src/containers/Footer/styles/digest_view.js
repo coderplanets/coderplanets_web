@@ -21,12 +21,12 @@ export const MainInfos = styled.div`
   margin-top: 20px;
   margin-bottom: 30px;
 
-  opacity: 0.7;
+  opacity: 0.9;
 
   &:hover {
     opacity: 1;
   }
-  transition: opacity 0.3s;
+  transition: opacity 0.25s;
 
   ${cs.media.tablet`display: none;`};
 `

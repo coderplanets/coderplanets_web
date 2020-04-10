@@ -99,7 +99,7 @@ export const TechIcon = styled(BaseBuildIcon)`
 `
 export const GithubIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   display: block;
 `

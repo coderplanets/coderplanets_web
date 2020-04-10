@@ -12,7 +12,7 @@ const FilterBar = () => {
   return (
     <Wrapper>
       <OrButton size="small" type="primary">
-        列表 OR 里程碑
+        作品 OR 里程碑
       </OrButton>
       <br />
       <Title>综合筛选</Title>

@@ -21,7 +21,7 @@ export const Item = styled.div`
   border-bottom-color: ${({ withDivider }) =>
     withDivider ? '#094354' : 'none'};
 
-  padding: 8px 6px;
+  padding: ${({ withDivider }) => (withDivider ? '8px 6px' : '6px')};
 
   &:hover {
     color: ${({ active }) =>

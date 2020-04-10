@@ -23,8 +23,8 @@ export const InnerWrapper = styled.div`
 `
 
 const ShadowBar = styled(ShadowBarBase)`
-  top: 0;
-  height: ${({ height }) => height};
+  top: 1%;
+  height: ${({ height }) => `calc(${height} - 2%)`};
   width: ${({ shadowSize }) => getShadowSize(shadowSize)};
   background: ${({ shadowSize }) =>
     getShadowBackground(shadowSize, 'horizontal')};

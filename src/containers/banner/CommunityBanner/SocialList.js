@@ -8,6 +8,10 @@ const SocialList = () => {
   return (
     <Wrapper>
       <SocialWrapper>
+        <Icon src={`${ICON_CMD}/navi/readme.svg`} />
+        <div>项目介绍</div>
+      </SocialWrapper>
+      <SocialWrapper>
         <Icon src={`${ICON_CMD}/navi/location.svg`} />
         <div>成都</div>
       </SocialWrapper>
