@@ -24,12 +24,25 @@ export const menuOnSelect = (activeMenuId, displayType = 'DEFAULT') => {
   store.mark({ activeMenuId, displayType })
 }
 
-export const directoryOnSelect = ({
+/**
+ * directory view on select
+ *
+ * @param {string} topFilter
+ */
+export const directoryOnChange = ({
   id: initActiveMenuId,
   displayType = 'DEFAULT',
 }) => {
-  // console.log('directoryOnSelect: ', displayType)
   store.mark({ initActiveMenuId, displayType })
+}
+
+/**
+ * favorite or latestUpdated filter change
+ *
+ * @param {string} topFilter
+ */
+export const topFilterOnChange = topFilter => {
+  store.mark({ topFilter })
 }
 
 // const const cancleLoading = () => {}

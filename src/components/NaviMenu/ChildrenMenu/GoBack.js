@@ -19,8 +19,8 @@ const log = buildLog('c:GoBack:index')
 const GoBack = ({ goBack }) => {
   return (
     <Wrapper onClick={goBack}>
-      <BackIcon src={`${ICON_CMD}/navi/circle_solid_back.svg`} />
-      <div>返回</div>
+      <BackIcon src={`${ICON_CMD}/navi/back-left.svg`} />
+      <div>返回全部</div>
     </Wrapper>
   )
 }

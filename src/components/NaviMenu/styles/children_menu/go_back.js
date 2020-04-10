@@ -8,14 +8,15 @@ export const Wrapper = styled.div`
   height: 30px;
   border-radius: 5px;
   padding: 0 2px;
-  padding-left: 15px;
+  padding-left: 2px;
   color: #5c7679;
+  font-size: 13px;
 
   &:hover {
     color: #226fa0;
     font-weight: bold;
     cursor: pointer;
-    padding-left: 12px;
+    padding-left: 0px;
   }
   transition: all 0.25s;
 `
@@ -25,10 +26,13 @@ export const BackIcon = styled(Img)`
   height: 14px;
   display: block;
   opacity: 0.7;
-  margin-right: 8px;
+  margin-right: 6px;
 
   ${Wrapper}:hover & {
     fill: #226fa0;
     opacity: 1;
+    margin-right: 4px;
   }
+
+  transition: all 0.25s;
 `

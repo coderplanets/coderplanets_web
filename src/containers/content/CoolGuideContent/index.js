@@ -9,7 +9,7 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 import { GUIDE } from '@constant'
 
-import NaviMenu from '@components/NaviMenu'
+import FilterBar from './FilterBar'
 import Content from './Content'
 
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
@@ -21,14 +21,15 @@ const log = buildLog('C:CoolGuideContent')
 const CoolGuideContentContainer = ({ coolGuideContent }) => {
   useInit(coolGuideContent)
 
-  const { initActiveMenuId, displayType } = coolGuideContent
+  const { initActiveMenuId, topFilter, displayType } = coolGuideContent
 
   return (
     <Wrapper>
       <InnerWrapper>
         {displayType !== GUIDE.PREVIEW && (
-          <NaviMenu
-            onSelect={(id, type) => menuOnSelect(id, type)}
+          <FilterBar
+            topFilter={topFilter}
+            menuOnSelect={menuOnSelect}
             initActiveMenuId={initActiveMenuId}
           />
         )}

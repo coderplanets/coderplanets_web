@@ -15,6 +15,7 @@ const CoolGuideContent = t
   .model('CoolGuideContent', {
     activeMenuId: t.maybeNull(t.string),
     initActiveMenuId: t.optional(t.string, ''),
+    topFilter: t.optional(t.string, 'all'),
     displayType: t.optional(
       t.enumeration([
         GUIDE.PREVIEW,
