@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
+import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -39,4 +39,21 @@ export const Option = styled.div`
   }
 
   transition: all 0.25s;
+`
+export const OptionItem = styled.div`
+  flex-grow: 1;
+`
+const OptionIconBase = styled(Img)`
+  width: 12px;
+  height: 12px;
+  display: block;
+  opacity: ${({ active }) => (active ? '1' : '0')};
+
+  transition: all 0.25s;
+`
+export const FavoriteIcon = styled(OptionIconBase)`
+  fill: ${theme('baseColor.error')};
+`
+export const ClockIcon = styled(OptionIconBase)`
+  fill: ${theme('thread.articleTitle')};
 `
