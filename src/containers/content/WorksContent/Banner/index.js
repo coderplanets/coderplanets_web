@@ -33,7 +33,9 @@ const Banner = () => {
       <IntroWrapper>
         <BrandWrapper>
           <Title>作品集市</Title>
-          <Desc>有趣有爱的作品跳蚤集市，来向世界分享你的创意吧！</Desc>
+          <Desc>
+            <div>有趣有爱的跳蚤集市，By makers, for makers.</div>
+          </Desc>
           <PubButton>
             <Button type="primary">发布作品</Button>
           </PubButton>
