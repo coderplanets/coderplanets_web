@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 15px 25px;
   border-bottom: 1px solid #0b4152;
-  margin-right: 15px;
   border-radius: 5px;
   &:hover {
     background: #0b333e;
@@ -64,7 +63,7 @@ export const UpNumber = styled.div`
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 14px;
-  ${cs.truncate('750px')};
+  ${cs.truncate('550px')};
   margin: 10px 0;
 `
 export const FooterWrapper = styled.div`

@@ -14,5 +14,6 @@ export const ContentWrapper = styled.div`
   padding: 0 7vw;
 `
 export const InnerContent = styled.div`
+  flex-grow: 1;
   margin-bottom: 20px;
 `

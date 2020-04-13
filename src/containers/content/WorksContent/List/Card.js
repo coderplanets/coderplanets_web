@@ -30,6 +30,7 @@ const Card = () => {
     <Wrapper>
       <IntroWrapper>
         <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+
         <IntroBlock>
           <Title>coderplanets</Title>
           <TypeTags>
@@ -58,6 +59,7 @@ const Card = () => {
             />
           </TypeTags>
           <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
+
           <FooterWrapper>
             <IconText iconSrc={`${ICON_CMD}/works/author.svg`}>
               mydearxym
@@ -77,7 +79,6 @@ const Card = () => {
             <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
           </FooterWrapper>
         </IntroBlock>
-
         <UpInfo>
           <UpIcon src={`${ICON_CMD}/arrow-up-o.svg`} />
           <UpNumber>93</UpNumber>
