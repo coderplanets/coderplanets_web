@@ -8,28 +8,47 @@ import {
   BottomButton,
 } from '../styles/or_button/vertical_button'
 
-// const OrButton = ({ children, onClick, size }) => {
-const VerticalButton = ({ onClick, size }) => {
+const VerticalButton = ({ onClick, size, activeKey, group }) => {
   return (
     <Wrapper onClick={onClick} size={size}>
-      <UpButton size={size}>站内</UpButton>
+      <UpButton size={size} active={group[0].key === activeKey}>
+        {group[0].title}
+      </UpButton>
       <OrSign>or</OrSign>
-      <BottomButton size={size}>站外</BottomButton>
+      <BottomButton size={size} active={group[1].key === activeKey}>
+        {group[1].title}
+      </BottomButton>
     </Wrapper>
   )
 }
 
 VerticalButton.propTypes = {
-  // children: T.oneOfType(T.string, T.node),
   size: T.oneOf(['default', 'small']),
   onClick: T.func,
+  activeKey: T.string,
+  group: T.arrayOf(
+    T.shape({
+      key: T.string,
+      title: T.string,
+    })
+  ),
 }
 
 VerticalButton.defaultProps = {
-  // children: 'Button',
   size: 'default',
   // eslint-disable-next-line no-console
   onClick: console.log,
+  activeKey: 'hello',
+  group: [
+    {
+      key: 'hello',
+      title: 'hello',
+    },
+    {
+      key: 'cps',
+      title: 'cps',
+    },
+  ],
 }
 
 export default VerticalButton

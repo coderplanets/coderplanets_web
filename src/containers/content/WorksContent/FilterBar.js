@@ -5,15 +5,26 @@ import FiltersMenu from '@components/FiltersMenu'
 import NaviMenu from '@components/NaviMenu'
 
 import fakeFilterItems from './fakeFilterItems'
-
 import { Wrapper, Title, FilterWrapper } from './styles/filter_bar'
 
 const FilterBar = () => {
   return (
     <Wrapper>
-      <OrButton size="small" type="primary">
-        作品 OR 里程碑
-      </OrButton>
+      <OrButton
+        size="small"
+        type="primary"
+        activeKey="works"
+        group={[
+          {
+            key: 'works',
+            title: '作品',
+          },
+          {
+            key: 'milestone',
+            title: '里程碑',
+          },
+        ]}
+      />
       <br />
       <Title>综合筛选</Title>
       <FilterWrapper>

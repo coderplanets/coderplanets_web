@@ -24,7 +24,21 @@ const TrendingContentContainer = ({ trendingContent }) => {
     <Wrapper testid="trendingContent">
       <InnerWrapper>
         <SwitchBtn>
-          <OrButton direction="vertical" />
+          <OrButton
+            direction="column"
+            type="primary"
+            activeKey="inside"
+            group={[
+              {
+                key: 'inside',
+                title: '站内',
+              },
+              {
+                key: 'outside',
+                title: '站外',
+              },
+            ]}
+          />
         </SwitchBtn>
         <ContentWrapper>
           <NewsBoard />

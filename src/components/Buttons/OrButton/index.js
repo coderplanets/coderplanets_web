@@ -17,6 +17,14 @@ OrButton.propTypes = {
   size: T.oneOf(['default', 'small']),
   onClick: T.func,
   direction: T.oneOf(['row', 'column']),
+
+  activeKey: T.string,
+  group: T.arrayOf(
+    T.shape({
+      key: T.string,
+      title: T.string,
+    })
+  ),
 }
 
 OrButton.defaultProps = {
@@ -25,6 +33,18 @@ OrButton.defaultProps = {
   // eslint-disable-next-line no-console
   onClick: console.log,
   direction: 'row',
+
+  activeKey: 'hello',
+  group: [
+    {
+      key: 'hello',
+      title: 'hello',
+    },
+    {
+      key: 'cps',
+      title: 'cps',
+    },
+  ],
 }
 
 export default OrButton
