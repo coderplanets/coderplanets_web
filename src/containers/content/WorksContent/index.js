@@ -13,6 +13,7 @@ import PagiFooter from '@components/PagiFooter'
 import Banner from './Banner'
 import FilterBar from './FilterBar'
 import List from './List'
+import MileStone from './MileStone'
 
 import { Wrapper, ContentWrapper, InnerContent } from './styles'
 import { useInit } from './logic'
@@ -23,13 +24,15 @@ const log = buildLog('C:WorksContent')
 const WorksContentContainer = ({ worksContent }) => {
   useInit(worksContent)
 
+  const { activeView } = worksContent
+
   return (
     <Wrapper testid="worksContent">
       <Banner />
       <ContentWrapper>
-        <FilterBar />
+        <FilterBar activeView={activeView} />
         <InnerContent>
-          <List />
+          {activeView === 'works' ? <List /> : <MileStone />}
           <PagiFooter margin={{ top: '60px', bottom: '80px' }} />
         </InnerContent>
       </ContentWrapper>

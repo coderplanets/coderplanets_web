@@ -7,13 +7,15 @@ import NaviMenu from '@components/NaviMenu'
 import fakeFilterItems from './fakeFilterItems'
 import { Wrapper, Title, FilterWrapper } from './styles/filter_bar'
 
-const FilterBar = () => {
+import { changeView } from './logic'
+
+const FilterBar = ({ activeView }) => {
   return (
     <Wrapper>
       <OrButton
         size="small"
         type="primary"
-        activeKey="works"
+        activeKey={activeView}
         group={[
           {
             key: 'works',
@@ -21,9 +23,10 @@ const FilterBar = () => {
           },
           {
             key: 'milestone',
-            title: '里程碑',
+            title: '动态',
           },
         ]}
+        onClick={changeView}
       />
       <br />
       <Title>综合筛选</Title>

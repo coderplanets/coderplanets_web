@@ -14,21 +14,23 @@ import { Wrapper, Icon, Text } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:IconText:index')
 
-const IconText = ({ iconSrc, children, size }) => (
+const IconText = ({ iconSrc, round, children, size }) => (
   <Wrapper testid="iconText">
-    {!nilOrEmpty(iconSrc) && <Icon src={iconSrc} size={size} />}
+    {!nilOrEmpty(iconSrc) && <Icon src={iconSrc} size={size} round={round} />}
     <Text size={size}>{children}</Text>
   </Wrapper>
 )
 
 IconText.propTypes = {
   iconSrc: T.string,
+  round: T.bool,
   children: T.oneOfType([T.node, T.string]).isRequired,
   size: T.oneOf(['small', 'medium', 'large']),
 }
 
 IconText.defaultProps = {
   iconSrc: '',
+  round: false,
   size: 'small',
 }
 

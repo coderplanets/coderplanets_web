@@ -11,14 +11,16 @@ import { markStates, buildLog } from '@utils'
 const log = buildLog('S:WorksContent')
 
 const WorksContent = t
-  .model('WorksContent', {})
+  .model('WorksContent', {
+    activeView: t.optional(t.enumeration(['works', 'milestone']), 'works'),
+  })
   .views(self => ({
     get root() {
       return getParent(self)
     },
   }))
   .actions(self => ({
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))

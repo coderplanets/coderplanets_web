@@ -10,12 +10,20 @@ import {
 
 const VerticalButton = ({ onClick, size, activeKey, group }) => {
   return (
-    <Wrapper onClick={onClick} size={size}>
-      <UpButton size={size} active={group[0].key === activeKey}>
+    <Wrapper size={size}>
+      <UpButton
+        size={size}
+        active={group[0].key === activeKey}
+        onClick={() => onClick(group[0].key)}
+      >
         {group[0].title}
       </UpButton>
       <OrSign>or</OrSign>
-      <BottomButton size={size} active={group[1].key === activeKey}>
+      <BottomButton
+        size={size}
+        active={group[1].key === activeKey}
+        onClick={() => onClick(group[1].key)}
+      >
         {group[1].title}
       </BottomButton>
     </Wrapper>

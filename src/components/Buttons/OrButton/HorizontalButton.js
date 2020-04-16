@@ -11,12 +11,20 @@ import {
 // const OrButton = ({ children, onClick, size }) => {
 const HorizontalButton = ({ onClick, size, activeKey, group }) => {
   return (
-    <Wrapper onClick={onClick} size={size}>
-      <LeftButton size={size} active={group[0].key === activeKey}>
+    <Wrapper size={size}>
+      <LeftButton
+        size={size}
+        active={group[0].key === activeKey}
+        onClick={() => onClick(group[0].key)}
+      >
         {group[0].title}
       </LeftButton>
       <OrSign>or</OrSign>
-      <RightButton size={size} active={group[1].key === activeKey}>
+      <RightButton
+        size={size}
+        active={group[1].key === activeKey}
+        onClick={() => onClick(group[1].key)}
+      >
         {group[1].title}
       </RightButton>
     </Wrapper>

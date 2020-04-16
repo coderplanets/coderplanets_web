@@ -36,6 +36,7 @@ export const Icon = styled(Img)`
   height: ${({ size }) => getIconSize(size)};
   margin-right: 4px;
   display: block;
+  border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
 export const Text = styled.div`
   color: ${theme('thread.articleDigest')};

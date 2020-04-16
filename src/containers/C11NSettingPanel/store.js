@@ -27,7 +27,7 @@ const C11NSettingPanel = t
     updateC11N(option) {
       self.root.updateC11N(option)
     },
-    markState(sobj) {
+    mark(sobj) {
       markStates(sobj, self)
     },
   }))
