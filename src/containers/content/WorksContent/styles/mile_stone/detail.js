@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Img from '@Img'
 import { cs, theme } from '@utils'
 
+import { Block } from './index'
+
 export const Wrapper = styled.div`
   ${cs.flex()};
   flex-grow: 1;
@@ -11,6 +13,11 @@ export const Wrapper = styled.div`
   padding-top: 10px;
   border-left: 1px solid #024250;
   border-bottom: 1px solid #024250;
+
+  ${Block}:hover & {
+    border-left: 1px solid #2d7eb1;
+  }
+  transition: all 0.25s;
 `
 export const Main = styled.div`
   ${cs.flexColumn()};
@@ -33,4 +40,5 @@ export const CoverImage = styled(Img)`
   height: 65px;
   display: block;
   border-radius: 3px;
+  margin-top: 8px;
 `

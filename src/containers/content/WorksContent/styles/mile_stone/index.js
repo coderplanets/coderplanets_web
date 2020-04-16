@@ -12,4 +12,9 @@ export const Block = styled.div`
   color: ${theme('thread.articleDigest')};
   height: auto;
   padding-bottom: 0;
+
+  &:hover {
+    /* background: #0b333e; */
+  }
+  transition: background 0.25s;
 `

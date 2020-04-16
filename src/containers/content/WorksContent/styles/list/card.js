@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid #0b4152;
   border-radius: 5px;
   &:hover {
-    background: #0b333e;
+    background: #0b2f3a;
   }
   transition: all 0.25s;
 `

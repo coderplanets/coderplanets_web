@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 // import Img from '@Img'
 import { cs, theme } from '@utils'
+import { Block } from './index'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-end', 'justify-between')};
@@ -28,4 +29,27 @@ export const More = styled.div`
   ${cs.flex('align-center')};
   padding-top: 6px;
   border-top: 1px solid #034250;
+  opacity: 0;
+
+  ${Block}:hover & {
+    opacity: 1;
+  }
+  transition: all 0.25s;
+`
+export const IntroBtn = styled.div`
+  color: ${theme('thread.articleDigest')};
+
+  &:hover {
+    color: #327ca1;
+    cursor: pointer;
+  }
+`
+export const LinkBtn = styled.a`
+  color: ${theme('thread.articleDigest')};
+
+  &:hover {
+    color: #327ca1;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `
