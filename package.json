@@ -116,7 +116,7 @@
     "react-masonry-component": "^6.0.1",
     "react-resize-detector": "4.2.1",
     "react-sortable-hoc": "1.7.1",
-    "react-svg": "8.0.0",
+    "react-svg": "11.0.19",
     "react-tooltip": "^3.4.0",
     "react-trend": "^1.2.4",
     "react-use": "^9.0.0",
