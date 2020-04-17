@@ -8,10 +8,20 @@
 import React from 'react'
 import T from 'prop-types'
 import ReactSVG from 'react-svg'
+import dynamic from 'next/dynamic'
 
-const NormalImg = ({ className, src, alt }) => (
-  <img className={className} src={src} alt={alt} />
-)
+import NormalImg from './NormalImg'
+
+// const NormalImg = ({ className, src, alt }) => (
+//   <img className={className} src={src} alt={alt} />
+// )
+
+const Fuck = dynamic({
+  loader: () => import('./NormalImg'),
+  // eslint-disable-next-line react/display-name
+  loading: () => <div>l</div>,
+  ssr: false,
+})
 
 const Img = ({ className, src, alt, loading }) => {
   if (/\.(svg)$/i.test(src)) {
@@ -23,7 +33,12 @@ const Img = ({ className, src, alt, loading }) => {
       />
     )
   }
-  return <NormalImg className={className} src={src} alt={alt} />
+  return (
+    <NormalImg className={className} src={src} alt={alt} />
+    // <Suspense fallback={<div>x</div>}>
+    //   <NormalImg className={className} src={src} alt={alt} />
+    // </Suspense>
+  )
 }
 
 Img.propTypes = {
