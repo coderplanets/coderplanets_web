@@ -3,8 +3,11 @@ import T from 'prop-types'
 
 import { Image } from './styles'
 
-// const NormalImg = ({ className, src, alt }) => {
-// const fallback = <Holder>x</Holder>
+/**
+ * normal image like .jpg .jpeg .png  etc
+ * the fallback is for the image offen block in china, like github avatars
+ * fallback 常被用于图片间歇性被墙的情况，比如 github 头像等
+ */
 const NormalImg = ({ className, src, alt, fallback }) => {
   const ref = useRef(null)
   const [loadCheck, setLoadCheck] = useState(true)
@@ -12,11 +15,9 @@ const NormalImg = ({ className, src, alt, fallback }) => {
 
   useEffect(() => {
     const image = ref.current
-    // if (image && image.complete && image.naturalWidth !== 0) {
     if (image && image.complete) {
       image.naturalWidth === 0 ? setLoadCheck(false) : setLoadCheck(true)
     }
-    /* eslint-disable-next-line */
   }, [ref, loadCheck, loadCheck2])
 
   const handleOnLoad = useCallback(() => setLoadCheck2(true), [])
