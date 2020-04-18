@@ -23,55 +23,55 @@ import {
 const TabIcon = ({ raw, active, small }) => {
   switch (raw) {
     case 'tech':
-      return <TabTechIcon active={active} small={small} />
+      return <TabTechIcon active={active ? 1 : 0} small={small} />
 
     case 'radar':
-      return <TabRadarIcon active={active} small={small} />
+      return <TabRadarIcon active={active ? 1 : 0} small={small} />
 
     case 'share':
-      return <TabShareIcon active={active} small={small} />
+      return <TabShareIcon active={active ? 1 : 0} small={small} />
 
     case 'user':
-      return <TabUserIcon active={active} small={small} />
+      return <TabUserIcon active={active ? 1 : 0} small={small} />
 
     case 'job':
-      return <TabJobIcon active={active} small={small} />
+      return <TabJobIcon active={active ? 1 : 0} small={small} />
 
     case 'city':
-      return <TabCityIcon active={active} small={small} />
+      return <TabCityIcon active={active ? 1 : 0} small={small} />
 
     case 'wiki':
-      return <TabWikiIcon active={active} small={small} />
+      return <TabWikiIcon active={active ? 1 : 0} small={small} />
 
     case 'video':
-      return <TabVideoIcon active={active} small={small} />
+      return <TabVideoIcon active={active ? 1 : 0} small={small} />
 
     case 'repo':
-      return <TabRepoIcon active={active} small={small} />
+      return <TabRepoIcon active={active ? 1 : 0} small={small} />
 
     case 'cheatsheet':
-      return <TabCheatsheetIcon active={active} small={small} />
+      return <TabCheatsheetIcon active={active ? 1 : 0} small={small} />
 
     case 'favorites':
-      return <TabFavoritesIcon active={active} small={small} />
+      return <TabFavoritesIcon active={active ? 1 : 0} small={small} />
 
     case 'likes':
-      return <TabLikesIcon active={active} small={small} />
+      return <TabLikesIcon active={active ? 1 : 0} small={small} />
 
     case 'publish':
-      return <TabPublishIcon active={active} small={small} />
+      return <TabPublishIcon active={active ? 1 : 0} small={small} />
 
     case 'billing':
-      return <TabBillingIcon active={active} small={small} />
+      return <TabBillingIcon active={active ? 1 : 0} small={small} />
 
     case 'comments':
-      return <TabCommentsIcon active={active} small={small} />
+      return <TabCommentsIcon active={active ? 1 : 0} small={small} />
 
     case 'settings':
-      return <TabSettingsIcon active={active} small={small} />
+      return <TabSettingsIcon active={active ? 1 : 0} small={small} />
 
     default:
-      return <TabPostIcon active={active} small={small} />
+      return <TabPostIcon active={active ? 1 : 0} small={small} />
   }
 }
 

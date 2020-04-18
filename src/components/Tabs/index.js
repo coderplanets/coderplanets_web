@@ -137,7 +137,7 @@ const Tabs = ({ size, onChange, items, activeKey, slipHeight }) => {
 }
 
 Tabs.propTypes = {
-  items: T.oneOfType(
+  items: T.oneOfType([
     T.arrayOf(T.string),
     T.arrayOf(
       T.shape({
@@ -147,8 +147,8 @@ Tabs.propTypes = {
         icon: T.oneOfType([T.string, T.node]),
         localIcon: T.string,
       })
-    )
-  ),
+    ),
+  ]),
   onChange: T.func,
   activeKey: T.string,
   size: T.oneOf(['default', 'small']),
