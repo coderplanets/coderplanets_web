@@ -10,6 +10,7 @@ import InlineTags from '@components/InlineTags'
 import {
   AvatarWrapper,
   Avatar,
+  AvatarFallback,
   TitleLink,
   LinkIcon,
   Main,
@@ -32,58 +33,65 @@ const DigestView = ({
   onPreview,
   onUserSelect,
   onAuthorSelect,
-}) => (
-  <React.Fragment>
-    {cover === 'avatar' ? (
-      <AvatarWrapper onClick={onAuthorSelect.bind(this, entry.author)}>
-        <Avatar src={entry.author.avatar} />
-      </AvatarWrapper>
-    ) : (
-      <Avatar
-        src={entry.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}
-      />
-    )}
-    <Main>
-      <TopHalf>
-        <Breif onClick={onPreview.bind(this, entry)}>
-          <Title>{entry.title}</Title>
-          {entry.linkAddr && (
-            <TitleLink>
-              <LinkIcon src={`${ICON_CMD}/link.svg`} />
-              <span style={{ marginLeft: 9 }}>
-                {parseDomain(entry.linkAddr)}
-              </span>
-            </TitleLink>
-          )}
-          <TagListWrapper>
-            <InlineTags data={entry.tags} />
-          </TagListWrapper>
-        </Breif>
-        <div>
-          <AvatarsRow
-            onUserSelect={onUserSelect}
-            users={entry.commentsParticipators}
-            total={entry.commentsCount}
+}) => {
+  return (
+    <React.Fragment>
+      {cover === 'avatar' ? (
+        <AvatarWrapper onClick={onAuthorSelect.bind(this, entry.author)}>
+          <Avatar
+            src={entry.author.avatar}
+            fallback={
+              <AvatarFallback>{entry.author.nickname[0]}</AvatarFallback>
+            }
           />
-        </div>
-      </TopHalf>
+        </AvatarWrapper>
+      ) : (
+        <Avatar
+          src={entry.linkIcon || `${ICON_BASE}/radar_source/default_radar.svg`}
+        />
+      )}
+      <Main>
+        <TopHalf>
+          <Breif onClick={onPreview.bind(this, entry)}>
+            <Title>{entry.title}</Title>
+            {entry.linkAddr && (
+              <TitleLink>
+                <LinkIcon src={`${ICON_CMD}/link.svg`} />
+                <span style={{ marginLeft: 9 }}>
+                  {parseDomain(entry.linkAddr)}
+                </span>
+              </TitleLink>
+            )}
+            <TagListWrapper>
+              <InlineTags data={entry.tags} />
+            </TagListWrapper>
+          </Breif>
+          <div>
+            <AvatarsRow
+              onUserSelect={onUserSelect}
+              users={entry.commentsParticipators}
+              total={entry.commentsCount}
+            />
+          </div>
+        </TopHalf>
 
-      <SecondHalf>
-        <Extra>
-          {entry.author.nickname}
-          {entry.copyRight === 'original' ? (
-            <PublishLable>&nbsp;发布于:</PublishLable>
-          ) : (
-            <PublishLable>&nbsp;搬运于:</PublishLable>
-          )}
-          <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
-          {entry.views}
-          <CommentsDiget>⁝ 评论: {entry.commentsCount}</CommentsDiget>
-        </Extra>
-        <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
-      </SecondHalf>
-    </Main>
-  </React.Fragment>
-)
+        <SecondHalf>
+          <Extra>
+            {entry.author.nickname}
+            {entry.copyRight === 'original' ? (
+              <PublishLable>&nbsp;发布于:</PublishLable>
+            ) : (
+              <PublishLable>&nbsp;搬运于:</PublishLable>
+            )}
+            <TimeAgo datetime={entry.insertedAt} locale="zh_CN" /> ⁝ 浏览:{' '}
+            {entry.views}
+            <CommentsDiget>⁝ 评论: {entry.commentsCount}</CommentsDiget>
+          </Extra>
+          <BodyDigest>{cutFrom(entry.digest, 90)}</BodyDigest>
+        </SecondHalf>
+      </Main>
+    </React.Fragment>
+  )
+}
 
 export default React.memo(DigestView)

@@ -8,22 +8,10 @@
 import React from 'react'
 import T from 'prop-types'
 import ReactSVG from 'react-svg'
-import dynamic from 'next/dynamic'
 
 import NormalImg from './NormalImg'
 
-// const NormalImg = ({ className, src, alt }) => (
-//   <img className={className} src={src} alt={alt} />
-// )
-
-const Fuck = dynamic({
-  loader: () => import('./NormalImg'),
-  // eslint-disable-next-line react/display-name
-  loading: () => <div>l</div>,
-  ssr: false,
-})
-
-const Img = ({ className, src, alt, loading }) => {
+const Img = ({ className, src, alt, loading, fallback }) => {
   if (/\.(svg)$/i.test(src)) {
     return (
       <ReactSVG
@@ -34,10 +22,7 @@ const Img = ({ className, src, alt, loading }) => {
     )
   }
   return (
-    <NormalImg className={className} src={src} alt={alt} />
-    // <Suspense fallback={<div>x</div>}>
-    //   <NormalImg className={className} src={src} alt={alt} />
-    // </Suspense>
+    <NormalImg className={className} src={src} alt={alt} fallback={fallback} />
   )
 }
 
@@ -46,12 +31,14 @@ Img.propTypes = {
   alt: T.string,
   className: T.string,
   loading: T.any,
+  fallback: T.oneOfType([T.node, T.instanceOf(null)]),
 }
 
 Img.defaultProps = {
-  alt: 'image',
+  alt: 'img',
   className: 'img-class',
   loading: null,
+  fallback: null,
 }
 
 export default React.memo(Img)

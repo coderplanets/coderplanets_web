@@ -18,6 +18,7 @@ import {
   AvatarsItem,
   MoreItem,
   AvatarsImg,
+  AvatarFallback,
   AvatarsMore,
 } from './styles'
 
@@ -83,6 +84,7 @@ const AvatarsRow = ({
               src={user.avatar}
               data-user={o2s(user)}
               onClick={handleUserSelect}
+              fallback={<AvatarFallback>{user.nickname[0]}</AvatarFallback>}
             />
           </Tooltip>
         </AvatarsItem>

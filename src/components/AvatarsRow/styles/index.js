@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Img from '@Img'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.ul`
@@ -46,7 +47,7 @@ export const MoreItem = styled(BaseAvatarItem)`
   ${cs.media.mobile`display: none`};
 `
 
-export const AvatarsImg = styled.img`
+export const AvatarsImg = styled(Img)`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};
   border-radius: 100px 100px 100px 100px;
@@ -80,4 +81,9 @@ export const AvatarsMore = styled.span`
   height: 30px;
   width: 30px;
   padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
+`
+export const AvatarFallback = styled(AvatarsMore)`
+  font-size: 14px;
+  background: #074857;
+  font-weight: bold;
 `

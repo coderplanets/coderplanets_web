@@ -45,6 +45,13 @@ export const Avatar = styled(Img)`
 
   ${cs.media.mobile`${cs.circle('34px')}`};
 `
+export const AvatarFallback = styled.div`
+  ${cs.flex('align-both')};
+  ${cs.circle('42px')};
+  font-size: 20px;
+  color: ${theme('thread.articleTitle')};
+  background-color: #164858; /*${theme('thread.articleHover')}; */
+`
 export const SmallAvatar = styled(Avatar)`
   width: 35px;
   height: 35px;
