@@ -17,3 +17,13 @@ export const InnerContent = styled.div`
   flex-grow: 1;
   margin-bottom: 20px;
 `
+export const PagiInfo = styled.div`
+  ${cs.flexColumn('align-both')};
+`
+export const PagiInfoTitle = styled.div`
+  font-size: 12px;
+  margin-top: -12px;
+  margin-left: -12px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+`
