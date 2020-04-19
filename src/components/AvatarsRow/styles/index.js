@@ -43,10 +43,6 @@ export const AvatarsItem = styled(BaseAvatarItem)`
   ${cs.media.mobile`display: none`};
 `
 
-export const MoreItem = styled(BaseAvatarItem)`
-  ${cs.media.mobile`display: none`};
-`
-
 export const AvatarsImg = styled(Img)`
   border: 2px solid;
   border-color: ${theme('thread.commentsUserBorder')};
@@ -81,6 +77,10 @@ export const AvatarsMore = styled.span`
   height: 30px;
   width: 30px;
   padding-left: ${({ total }) => (total >= 1000 ? '5px' : '3px')};
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const AvatarFallback = styled(AvatarsMore)`
   font-size: 14px;

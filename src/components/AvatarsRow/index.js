@@ -9,17 +9,18 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { ATATARS_LIST_LENGTH } from '@config'
-import { buildLog, prettyNum, o2s, s2o } from '@utils'
+import { buildLog, o2s, s2o } from '@utils'
 
 import Tooltip from '@components/Tooltip'
+import MoreItem from './MoreItem'
 
 import {
   Wrapper,
   AvatarsItem,
-  MoreItem,
+  // MoreItem,
   AvatarsImg,
   AvatarFallback,
-  AvatarsMore,
+  // AvatarsMore,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -48,6 +49,7 @@ const AvatarsRow = ({
   limit,
   onUserSelect,
   onTotalSelect,
+  showTotalNumber,
   reverse,
 }) => {
   const handleUserSelect = useCallback(
@@ -70,11 +72,12 @@ const AvatarsRow = ({
       {total <= 1 ? (
         <span />
       ) : (
-        <MoreItem onClick={onTotalSelect.bind(this, { users, total })}>
-          <Tooltip content={`所有评论共 ${total} 条`} duration={0}>
-            <AvatarsMore total={total}>{prettyNum(total)}</AvatarsMore>
-          </Tooltip>
-        </MoreItem>
+        <MoreItem
+          total={total}
+          users={users}
+          showTotalNumber={showTotalNumber}
+          onTotalSelect={onTotalSelect}
+        />
       )}
 
       {R.slice(0, limit, sortedUsers).map(user => (
@@ -107,6 +110,7 @@ AvatarsRow.propTypes = {
   limit: T.number,
   onUserSelect: T.func,
   onTotalSelect: T.func,
+  showTotalNumber: T.bool,
   reverse: T.bool,
 }
 
@@ -116,6 +120,7 @@ AvatarsRow.defaultProps = {
   limit: ATATARS_LIST_LENGTH.POSTS,
   onUserSelect: log,
   onTotalSelect: log,
+  showTotalNumber: false,
   reverse: true,
 }
 
