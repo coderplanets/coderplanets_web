@@ -20,5 +20,5 @@ export const useInit = _store => {
     store = _store
     log('useInit: ', store)
     // return () => store.reset()
-  }, [])
+  }, [_store])
 }

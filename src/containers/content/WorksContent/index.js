@@ -30,32 +30,32 @@ const log = buildLog('C:WorksContent')
 
 const tmpUsers = [
   {
-    id: 0,
+    id: '0',
     nickname: 'mydearxym',
     avatar: 'https://avatars0.githubusercontent.com/u/6166576?s=64&v=4',
   },
   {
-    id: 1,
+    id: '1',
     nickname: 'Huxpro',
     avatar: 'https://avatars2.githubusercontent.com/u/5563315?s=64&v=4',
   },
   {
-    id: 2,
+    id: '2',
     nickname: 'neSpecc',
     avatar: 'https://avatars2.githubusercontent.com/u/3684889?s=64&v=4',
   },
   {
-    id: 3,
+    id: '3',
     nickname: 'mydearxym',
     avatar: 'https://avatars0.githubusercontent.com/u/6166576?s=64&v=4',
   },
   {
-    id: 4,
+    id: '4',
     nickname: 'Huxpro',
     avatar: 'https://avatars2.githubusercontent.com/u/5563315?s=64&v=4',
   },
   {
-    id: 5,
+    id: '5',
     nickname: 'neSpecc',
     avatar: 'https://avatars2.githubusercontent.com/u/3684889?s=64&v=4',
   },

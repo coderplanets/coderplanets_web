@@ -1,9 +1,9 @@
 // import React from 'react'
 // import { shallow } from 'enzyme'
 
-// import SocialGroup from '../index'
+// import JoinModal from '../index'
 
-describe('TODO <SocialGroup />', () => {
+describe('TODO <JoinModal />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true)
   })

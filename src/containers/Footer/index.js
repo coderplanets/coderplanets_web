@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 
 import { connectStore, buildLog } from '@utils'
 
-import SocialGroup from '@components/SocialGroup'
+import JoinModal from '@containers/JoinModal'
 import Modal from '@components/Modal'
 
 import BriefView from './BriefView'
@@ -52,7 +52,7 @@ const FooterContainer = ({ footer }) => {
         <BussinessNote />
       </Modal>
 
-      <SocialGroup />
+      <JoinModal />
 
       <DynamicBuyMeChuanChuan
         show={showSponsor}

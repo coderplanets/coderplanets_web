@@ -98,6 +98,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  JoinModalStore,
   TrendingContentStore,
   WorksContentStore,
   C11NSettingPanelStore,
@@ -206,6 +207,7 @@ const rootStore = t
     coolGuideContent: t.optional(CoolGuideContentStore, {}),
 
     // GEN: PLUG SUBSTORE TO ROOTSTORE
+    joinModal: t.optional(JoinModalStore, {}),
     trendingContent: t.optional(TrendingContentStore, {}),
     worksContent: t.optional(WorksContentStore, {}),
     c11NSettingPanel: t.optional(C11NSettingPanelStore, {}),

@@ -1,5 +1,5 @@
 /*
- * {{ properCase name }} store
+ * JoinModal store
  *
  */
 
@@ -8,10 +8,12 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, buildLog } from '@utils'
 /* eslint-disable-next-line */
-const log = buildLog('S:{{ properCase name }}')
+const log = buildLog('S:JoinModal')
 
-const {{ properCase name }} = t
-  .model('{{ properCase name }}', {})
+const JoinModal = t
+  .model('JoinModal', {
+    show: t.optional(t.boolean, false),
+  })
   .views(self => ({
     get root() {
       return getParent(self)
@@ -23,4 +25,4 @@ const {{ properCase name }} = t
     },
   }))
 
-export default {{ properCase name }}
+export default JoinModal
