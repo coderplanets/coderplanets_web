@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD, EMAIL_SUPPORT } from '@config'
-import { showSocialGroupModal } from '@utils'
+import { joinUS } from '@utils'
 
 import { Wrapper, Item, Icon } from './styles/social_list'
 
@@ -13,7 +13,7 @@ const SocialList = () => (
       </Item>
     </a>
 
-    <Item onClick={() => showSocialGroupModal()}>
+    <Item onClick={() => joinUS()}>
       <Icon src={`${ICON_CMD}/footer_weixin.svg`} />
     </Item>
 

@@ -124,7 +124,13 @@ export const send = (msg, data = {}) => {
  */
 export const closePreviewer = (type = '') => send(EVENT.PREVIEW_CLOSE, { type })
 
-export const showSocialGroupModal = data => send(EVENT.SOCIAL_MODAL, { data })
+/**
+ * hepler for call the JoinModal Container to show wechatQRCode or mail scriscribe list etc ..
+ *
+ * @param {string} type
+ * @param {string} data
+ */
+export const joinUS = (type, data) => send(EVENT.JOIN_US, { type, data })
 
 export const errRescue = ({ type, operation, details, path }) =>
   send(EVENT.ERR_RESCUE, { type, data: { operation, details, path } })

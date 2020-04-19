@@ -6,7 +6,7 @@ import { asyncSuit, buildLog } from '@utils'
 
 const { SR71, asyncRes, $solver } = asyncSuit
 const sr71$ = new SR71({
-  recieve: [EVENT.SOCIAL_MODAL],
+  recieve: [EVENT.JOIN_US],
 })
 
 let store = null
@@ -22,9 +22,9 @@ export const onClose = () => store.mark({ show: false })
 
 const DataResolver = [
   {
-    match: asyncRes(EVENT.SOCIAL_MODAL),
+    match: asyncRes(EVENT.JOIN_US),
     action: data => {
-      console.log('--> EVENT.SOCIAL_MODAL: ', data)
+      console.log('--> EVENT.JOIN_US: ', data)
       store.mark({ show: true })
     },
   },

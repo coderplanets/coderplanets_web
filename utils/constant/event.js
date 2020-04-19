@@ -48,8 +48,7 @@ const EVENT = {
   // set/unset community
   COMMUNITY_MIRROR: 'COMMUNITY_MIRROR',
 
-  // shortcut for social modal
-  SOCIAL_MODAL: 'SOCIAL_MODAL',
+  JOIN_US: 'JOIN_US',
   //
   C11N_DENSITY_CHANGE: 'C11N_DENSITY_CHANGE',
 }
