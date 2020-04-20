@@ -6,7 +6,7 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   position: relative;
   ${cs.flexColumn('justify-between')};
-  height: 150px;
+  height: 125px;
   width: 100%;
   padding: 15px 25px;
   border-bottom: 1px solid #0b4152;
@@ -21,8 +21,8 @@ export const IntroWrapper = styled.div`
   height: 100%;
 `
 export const IntroImg = styled(Img)`
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   display: block;
   border-radius: 5px;
   margin-top: 5px;
@@ -48,23 +48,23 @@ export const UpInfo = styled.div`
   top: 15px;
   ${cs.flexColumn('justify-center')};
   align-self: flex-start;
-  margin-top: 5px;
 `
 export const UpIcon = styled(Img)`
   fill: ${theme('thread.articleTitle')};
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: block;
 `
 export const UpNumber = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 16px;
+  font-size: 15px;
 `
 export const BodyText = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 14px;
+  font-size: 13px;
   ${cs.truncate('550px')};
-  margin: 10px 0;
+  margin-top: 5px;
+  margin-bottom: 12px;
 `
 export const FooterWrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};
@@ -72,7 +72,7 @@ export const FooterWrapper = styled.div`
   width: 100%;
 `
 export const Divider = styled.div`
-  margin-right: 32px;
+  margin-right: 22px;
 `
 export const BuildWithWrapper = styled.div`
   ${cs.flex('align-center')};

@@ -2,8 +2,8 @@ import React from 'react'
 
 import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
 
-import { SpaceGrow, Space } from '@components/BaseStyled'
-import ExpandIcon from '@components/ExpandIcon'
+import { SpaceGrow } from '@components/BaseStyled'
+// import ExpandIcon from '@components/ExpandIcon'
 import IconText from '@components/IconText'
 
 import {
@@ -15,11 +15,11 @@ import {
   UpInfo,
   UpIcon,
   UpNumber,
-  TypeTags,
+  // TypeTags,
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
-  PublishAt,
+  // PublishAt,
   TechIcon,
   Divider,
   GithubIcon,
@@ -33,7 +33,7 @@ const Card = () => {
 
         <IntroBlock>
           <Title>coderplanets</Title>
-          <TypeTags>
+          {/* <TypeTags>
             <ExpandIcon
               icon={`${ICON_CMD}/works/website.svg`}
               text="网站"
@@ -57,13 +57,20 @@ const Card = () => {
               hideTextOnInit={false}
               content={<div>https://coderplanets.com</div>}
             />
-          </TypeTags>
+          </TypeTags> */}
           <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
 
           <FooterWrapper>
-            <IconText iconSrc={`${ICON_CMD}/works/author.svg`}>
-              mydearxym
-            </IconText>
+            <IconText iconSrc={`${ICON_CMD}/works/website.svg`}>网站</IconText>
+            {/* <ExpandIcon
+              icon={`${ICON_CMD}/works/website.svg`}
+              text="网站"
+              size="small"
+              hideTextOnInit={false}
+              content={<div>https://coderplanets.com</div>}
+            /> */}
+            <Divider />
+            <IconText iconSrc={`${ICON_CMD}/navi/topic.svg`}>协作工具</IconText>
             <Divider />
             <BuildWithWrapper>
               <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
@@ -71,8 +78,7 @@ const Card = () => {
               <TechIcon src={`${ICON_BASE}/pl/elixir.svg`} />
               <TechIcon src={`${ICON_BASE}/pl/ruby.svg`} />
             </BuildWithWrapper>
-            <Divider />
-            <PublishAt>发布于：3小时前</PublishAt>
+            {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
             <Divider />
             <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
             <SpaceGrow />
