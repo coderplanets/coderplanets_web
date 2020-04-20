@@ -25,7 +25,7 @@ IconText.propTypes = {
   iconSrc: T.string,
   round: T.bool,
   children: T.oneOfType([T.node, T.string]).isRequired,
-  size: T.oneOf(['small', 'medium', 'large']),
+  size: T.oneOf(['tiny', 'small', 'medium', 'large']),
 }
 
 IconText.defaultProps = {

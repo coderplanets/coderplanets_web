@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   ${cs.flexColumn('justify-between')};
   height: 125px;
   width: 100%;
-  padding: 15px 25px;
+  padding: 12px 24px;
+  padding-top: 0;
   border-bottom: 1px solid #0b4152;
   border-radius: 5px;
   &:hover {
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
   transition: all 0.25s;
 `
 export const IntroWrapper = styled.div`
-  ${cs.flex('align-start')};
+  ${cs.flex('align-center')};
   height: 100%;
 `
 export const IntroImg = styled(Img)`
@@ -25,7 +26,7 @@ export const IntroImg = styled(Img)`
   height: 65px;
   display: block;
   border-radius: 5px;
-  margin-top: 5px;
+  margin-top: -2px;
 `
 export const IntroBlock = styled.div`
   ${cs.flexColumnGrow('align-start', 'justify-between')};
@@ -64,7 +65,7 @@ export const BodyText = styled.div`
   font-size: 13px;
   ${cs.truncate('550px')};
   margin-top: 5px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 `
 export const FooterWrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};

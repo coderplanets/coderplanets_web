@@ -19,7 +19,7 @@ import {
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
-  // PublishAt,
+  PublishAt,
   TechIcon,
   Divider,
   GithubIcon,
@@ -61,16 +61,12 @@ const Card = () => {
           <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
 
           <FooterWrapper>
-            <IconText iconSrc={`${ICON_CMD}/works/website.svg`}>网站</IconText>
-            {/* <ExpandIcon
-              icon={`${ICON_CMD}/works/website.svg`}
-              text="网站"
-              size="small"
-              hideTextOnInit={false}
-              content={<div>https://coderplanets.com</div>}
-            /> */}
-            <Divider />
-            <IconText iconSrc={`${ICON_CMD}/navi/topic.svg`}>协作工具</IconText>
+            {/* <PublishAt>网站</PublishAt> */}
+            {/* <IconText iconSrc={`${ICON_CMD}/works/website.svg`}>网站</IconText> */}
+            {/* <Divider /> */}
+            <IconText iconSrc={`${ICON_CMD}/navi/topic.svg`} size="tiny">
+              协作工具 &nbsp;/ 网站
+            </IconText>
             <Divider />
             <BuildWithWrapper>
               <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
