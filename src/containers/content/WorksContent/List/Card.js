@@ -19,7 +19,7 @@ import {
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
-  PublishAt,
+  // PublishAt,
   TechIcon,
   Divider,
   GithubIcon,
@@ -76,7 +76,9 @@ const Card = () => {
             </BuildWithWrapper>
             {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
             <Divider />
-            <IconText iconSrc={`${ICON_CMD}/works/comment.svg`}>44</IconText>
+            <IconText iconSrc={`${ICON_CMD}/works/comment.svg`} size="tiny">
+              &nbsp;44 &nbsp;/ 178
+            </IconText>
             <SpaceGrow />
             <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
           </FooterWrapper>
