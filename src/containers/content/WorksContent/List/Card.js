@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
 
 import { SpaceGrow } from '@components/BaseStyled'
-// import ExpandIcon from '@components/ExpandIcon'
+import DotDivider from '@components/DotDivider'
 import IconText from '@components/IconText'
 
 import {
@@ -19,7 +19,8 @@ import {
   BodyText,
   FooterWrapper,
   BuildWithWrapper,
-  // PublishAt,
+  CommentSlash,
+  PublishAt,
   TechIcon,
   Divider,
   GithubIcon,
@@ -33,40 +34,17 @@ const Card = () => {
 
         <IntroBlock>
           <Title>coderplanets</Title>
-          {/* <TypeTags>
-            <ExpandIcon
-              icon={`${ICON_CMD}/works/website.svg`}
-              text="网站"
-              size="small"
-              hideTextOnInit={false}
-              content={<div>https://coderplanets.com</div>}
-            />
-            <Space right="8px" />
-            <ExpandIcon
-              icon={`${ICON_CMD}/works/android.svg`}
-              text="Android"
-              size="small"
-              hideTextOnInit={false}
-              content={<div>https://coderplanets.com</div>}
-            />
-            <Space right="8px" />
-            <ExpandIcon
-              icon={`${ICON_CMD}/works/apple.svg`}
-              text="iOS"
-              size="small"
-              hideTextOnInit={false}
-              content={<div>https://coderplanets.com</div>}
-            />
-          </TypeTags> */}
           <BodyText>可能是最性感的开发者社区，来为你心爱的作品建立...</BodyText>
 
           <FooterWrapper>
-            {/* <PublishAt>网站</PublishAt> */}
-            {/* <IconText iconSrc={`${ICON_CMD}/works/website.svg`}>网站</IconText> */}
-            {/* <Divider /> */}
-            <IconText iconSrc={`${ICON_CMD}/navi/topic.svg`} size="tiny">
-              协作工具 &nbsp;/ 网站
+            <IconText
+              iconSrc={`${ICON_CMD}/works/topic.svg`}
+              margin="1px"
+              size="tiny"
+            >
+              协作工具
             </IconText>
+            <DotDivider radius="4px" space="10px" /> 网站
             <Divider />
             <BuildWithWrapper>
               <TechIcon src={`${ICON_BASE}/pl/javascript.svg`} />
@@ -76,9 +54,15 @@ const Card = () => {
             </BuildWithWrapper>
             {/* <PublishAt>mydearxym / 3小时前</PublishAt> */}
             <Divider />
-            <IconText iconSrc={`${ICON_CMD}/works/comment.svg`} size="tiny">
-              &nbsp;44 &nbsp;/ 178
+            <IconText
+              iconSrc={`${ICON_CMD}/works/comment.svg`}
+              size="tiny"
+              margin="5px"
+            >
+              44 <CommentSlash>/</CommentSlash> 178
             </IconText>
+            <Divider />
+            <PublishAt>发布于 3小时前</PublishAt>
             <SpaceGrow />
             <GithubIcon src={`${ICON_CMD}/works/github.svg`} />
           </FooterWrapper>

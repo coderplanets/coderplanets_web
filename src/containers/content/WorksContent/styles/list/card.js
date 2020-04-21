@@ -71,6 +71,8 @@ export const FooterWrapper = styled.div`
   ${cs.flex('align-center', 'justify-between')};
   color: ${theme('thread.articleDigest')};
   width: 100%;
+  font-size: 12px;
+  margin-left: -3px;
 `
 export const Divider = styled.div`
   margin-right: 22px;
@@ -80,6 +82,11 @@ export const BuildWithWrapper = styled.div`
   padding: 2px 5px;
   background: linear-gradient(180deg, transparent 48%, rgb(13, 55, 70) 0);
   margin-top: -4px;
+`
+export const CommentSlash = styled.div`
+  font-size: 10px;
+  margin-left: 7px;
+  margin-right: 5px;
 `
 export const PublishAt = styled.div`
   font-size: 12px;

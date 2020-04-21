@@ -54,11 +54,12 @@ export const Icon = styled(Img)`
   fill: ${theme('thread.articleDigest')};
   width: ${({ size }) => getIconSize(size)};
   height: ${({ size }) => getIconSize(size)};
-  margin-right: ${({ size }) => getMargin(size)};
+  margin-right: ${({ size, margin }) => margin || getMargin(size)};
   display: block;
   border-radius: ${({ round }) => (round ? '100%' : '0')};
 `
 export const Text = styled.div`
+  ${cs.flex('align-center')};
   color: ${theme('thread.articleDigest')};
   font-size: ${({ size }) => getTextSize(size)};
 `
