@@ -14,22 +14,24 @@ import {
   Intro,
   Title,
   Desc,
+  Notice,
 } from '../styles/more_content/footer'
 
 const MoreContent = () => (
   <Wrapper>
     <Entry>
+      <Logo src={`${ICON_CMD}/header/more_sponsor.svg`} />
+      <Intro>
+        <Title>赞助与广告</Title>
+        <Desc>赞助社区，广告投放..</Desc>
+      </Intro>
+      <Notice>诚邀赞助</Notice>
+    </Entry>
+    <Entry>
       <Logo src={`${ICON_CMD}/header/more_support.svg`} />
       <Intro>
         <Title>社区支持</Title>
         <Desc>使用过程中遇到的任何问题和建议请来这里</Desc>
-      </Intro>
-    </Entry>
-    <Entry>
-      <Logo src={`${ICON_CMD}/header/more_files.svg`} />
-      <Intro>
-        <Title>开发文档</Title>
-        <Desc>文档概览，API 使用</Desc>
       </Intro>
     </Entry>
     <Entry>

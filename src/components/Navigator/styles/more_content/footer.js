@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { theme, cs } from '@utils'
 import Img from '@Img'
 
+import { Wip } from './index'
+
 export const Wrapper = styled.div`
   ${cs.flexColumn('align-start')};
   width: 100%;
@@ -42,4 +44,16 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   margin-left: 10px;
+`
+export const Notice = styled(Wip)`
+  background-color: #145b73;
+  color: #90b5b7;
+  border: none;
+  /* color: #007372;
+  border: 1px solid;
+  border-color: #007372;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0 1px;
+  border-radius: 4px; */
 `

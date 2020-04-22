@@ -81,13 +81,6 @@ const MoreContent = () => (
           <Desc>升级高级会员，获得更好体验</Desc>
         </Intro>
       </Entry>
-      <Entry>
-        <Logo src={`${ICON_CMD}/header/more_sponsor.svg`} />
-        <Intro>
-          <Title>赞助与广告</Title>
-          <Desc>赞助社区，广告投放..</Desc>
-        </Intro>
-      </Entry>
     </BodyWrapper>
     <Footer />
   </Wrapper>
