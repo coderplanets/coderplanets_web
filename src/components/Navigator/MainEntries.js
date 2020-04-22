@@ -33,6 +33,10 @@ const MainEntries = ({ curRoute: { mainPath }, type }) => {
         <SiteLink>专栏</SiteLink>
       </Tooltip> */}
       <DotDivider space={splitMargin} />
+      <Link href={`/${ROUTE.WORKS}`} passHref>
+        <SiteLink active={mainPath === ROUTE.WORKS}>作品集市</SiteLink>
+      </Link>
+      <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.COOL_GUIDE}`} passHref>
         <SiteLink
           active={mainPath === ROUTE.COOL_GUIDE}
@@ -42,14 +46,6 @@ const MainEntries = ({ curRoute: { mainPath }, type }) => {
         </SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
-      <Link href={`/${ROUTE.WORKS}`} passHref>
-        <SiteLink active={mainPath === ROUTE.WORKS}>作品集市</SiteLink>
-      </Link>
-      <DotDivider space={splitMargin} />
-      <Link href={`/${ROUTE.MEETUPS}`} passHref>
-        <SiteLink active={mainPath === ROUTE.MEETUPS}>活动</SiteLink>
-      </Link>
-      <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>
         <SiteLink
         // active={mainPath === ROUTE.HAVE_A_DRINK}
@@ -57,6 +53,10 @@ const MainEntries = ({ curRoute: { mainPath }, type }) => {
         >
           工作
         </SiteLink>
+      </Link>
+      <DotDivider space={splitMargin} />
+      <Link href={`/${ROUTE.MEETUPS}`} passHref>
+        <SiteLink active={mainPath === ROUTE.MEETUPS}>活动</SiteLink>
       </Link>
       <DotDivider space={splitMargin} />
       <Link href={`/${ROUTE.HAVE_A_DRINK}`} passHref>

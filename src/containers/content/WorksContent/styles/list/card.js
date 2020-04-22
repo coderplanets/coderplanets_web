@@ -22,11 +22,11 @@ export const IntroWrapper = styled.div`
   height: 100%;
 `
 export const IntroImg = styled(Img)`
-  width: 65px;
-  height: 65px;
+  width: 70px;
+  height: 70px;
   display: block;
   border-radius: 5px;
-  margin-top: -2px;
+  margin-top: 2px;
 `
 export const IntroBlock = styled.div`
   ${cs.flexColumnGrow('align-start', 'justify-between')};

@@ -44,6 +44,13 @@ const MoreContent = () => (
         </Intro>
       </Entry>
       <Entry>
+        <Logo src={`${ICON_CMD}/header/more_snippets.svg`} />
+        <Intro>
+          <Title>代码片段</Title>
+          <Desc>各语言实用 Snippets，小技巧</Desc>
+        </Intro>
+      </Entry>
+      <Entry>
         <Logo src={`${ICON_CMD}/header/more_weekly.svg`} />
         <Intro>
           <Title>
