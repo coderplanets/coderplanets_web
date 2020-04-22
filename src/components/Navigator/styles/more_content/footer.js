@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   padding-bottom: 20px;
 `
 export const Entry = styled.div`
-  ${cs.flex('align-end')};
+  ${cs.flex('align-center')};
   width: 100%;
   margin-bottom: 10px;
 `
@@ -44,16 +44,12 @@ export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
   font-size: 12px;
   margin-left: 10px;
+  align-self: flex-end;
 `
 export const Notice = styled(Wip)`
   background-color: #145b73;
   color: #90b5b7;
+  padding: 0 4px;
   border: none;
-  /* color: #007372;
-  border: 1px solid;
-  border-color: #007372;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0 1px;
-  border-radius: 4px; */
+  margin-top: 2px;
 `
