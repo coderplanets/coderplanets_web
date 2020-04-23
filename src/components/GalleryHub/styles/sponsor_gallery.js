@@ -13,12 +13,12 @@ export const Wrapper = styled.div`
 export const Block = styled.div`
   ${cs.flexColumn('justify-between')};
   width: ${({ column }) => (column === 3 ? '33%' : '25%')};
-  height: ${({ level }) => (level === 'gold' ? '300px' : '130px')};
+  height: ${({ level }) => (level === 'gold' ? '280px' : '130px')};
   border: none;
-  padding: ${({ level }) => (level === 'gold' ? '30px 25px' : '20px 25px')};
+  padding: ${({ level }) => (level === 'gold' ? '25px 25px' : '18px 25px')};
   border-radius: 2px;
   border: 1px solid transparent;
-  margin-bottom: ${({ level }) => (level === 'gold' ? '40px' : '10px')};
+  margin-bottom: ${({ level }) => (level === 'gold' ? '20px' : '10px')};
 
   :last-child {
     border-right: none;
@@ -31,6 +31,7 @@ export const Block = styled.div`
     padding-top: 12px;
   }
   transition: all 0.25s;
+  transition-delay: 0.2s;
 `
 export const Header = styled.div`
   ${cs.flexColumn()};
@@ -55,8 +56,10 @@ export const Title = styled.div`
 
   ${Block}:hover & {
     padding-top: 0;
-    border-top: none;
+    border-color: transparent;
   }
+  transition: all 0.25s;
+  transition-delay: 0.2s;
 `
 export const IntroImg = styled(Img)`
   width: 100%;
@@ -75,11 +78,14 @@ export const Desc = styled.div`
     color: ${theme('thread.articleTitle')};
     opacity: 1;
   }
-  transition: all 0.25s;
+  transition: all 0.3s;
+  transition-delay: 0.2s;
 `
 export const LinkWrapper = styled.div`
-  display: none;
+  opacity: 0;
   ${Block}:hover & {
-    display: block;
+    opacity: 1;
   }
+  transition: all 0.25s;
+  transition-delay: 0.2s;
 `
