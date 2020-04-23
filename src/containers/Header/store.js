@@ -6,6 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
+import { ROUTE } from '@constant'
 import { markStates, buildLog, stripMobx } from '@utils'
 
 /* eslint-disable-next-line */
@@ -58,6 +59,11 @@ const HeaderStore = t
 
       // isPin && !self.preSidebarPin && self.fixed
       return '180px'
+    },
+    get hasNoBottomBorder() {
+      const { mainPath } = self.curRoute
+
+      return R.contains(mainPath, [ROUTE.COMMUNITIES, ROUTE.SPONSOR])
     },
   }))
   .actions(self => ({

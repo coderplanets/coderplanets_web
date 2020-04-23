@@ -30,6 +30,7 @@ const HeaderContainer = ({ header, metric }) => {
     isLogin,
     activeInfo,
     curCommunity,
+    hasNoBottomBorder,
   } = header
 
   const props = {
@@ -42,6 +43,7 @@ const HeaderContainer = ({ header, metric }) => {
     isLogin,
     activeInfo,
     curCommunity,
+    hasNoBottomBorder,
   }
 
   return (

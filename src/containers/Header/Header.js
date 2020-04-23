@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { ROUTE } from '@constant'
 import { cs } from '@utils'
 
 import MailBox from '@containers/MailBox'
@@ -48,15 +47,14 @@ const Header = ({
   isLogin,
   accountInfo,
   curCommunity,
+  hasNoBottomBorder,
 }) => {
-  const { mainPath } = curRoute
-
   return (
     <Wrapper
       id="whereCallShowDoraemon"
       leftOffset={leftOffset}
       fixed={fixed}
-      noBorder={mainPath === ROUTE.COMMUNITIES}
+      noBorder={hasNoBottomBorder}
       testid="header"
     >
       <InnerWrapper metric={METRIC_MAP[metric]}>
