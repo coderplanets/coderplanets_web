@@ -15,7 +15,7 @@ import {
 import initRootStore from '@stores/init'
 
 import GlobalLayout from '@containers/GlobalLayout'
-import CoolGuideContent from '@containers/content/CoolGuideContent'
+import SponsorContent from '@containers/content/SponsorContent'
 
 import { P } from '@schemas'
 
@@ -44,7 +44,7 @@ async function fetchData(props, opt) {
   }
 }
 
-export default class CoolGuidePage extends React.Component {
+export default class SponsorPage extends React.Component {
   static async getInitialProps(props) {
     const { mainPath, subPath } = parseURL(props)
     let resp
@@ -70,7 +70,7 @@ export default class CoolGuidePage extends React.Component {
         isValidSession: sessionState.isValid,
         userSubscribedCommunities: subscribedCommunities,
       },
-      route: { mainPath, subPath: ROUTE.COOL_GUIDE },
+      route: { mainPath, subPath: ROUTE.SPONSOR },
     }
   }
 
@@ -102,7 +102,7 @@ export default class CoolGuidePage extends React.Component {
           errorCode={statusCode}
           errorPath={target}
         >
-          <CoolGuideContent />
+          <SponsorContent />
         </GlobalLayout>
       </Provider>
     )

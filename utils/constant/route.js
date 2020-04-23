@@ -25,6 +25,7 @@ const ROUTE = {
   COOL_GUIDE: 'cool-guide',
   WORKS: 'works',
   TRENDING: 'trending',
+  SPONSOR: 'sponsor',
 }
 
 export default ROUTE

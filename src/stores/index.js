@@ -98,6 +98,7 @@ export { default as UserSettingsStore } from '@containers/user/UserSettings/stor
 export { default as UserFavoritedStore } from '@containers/user/UserFavorited/store'
 
 // GEN: EXPORT CONTAINERS STORE HERE
+export { default as SponsorContentStore } from '@containers/content/SponsorContent/store'
 export { default as JoinModalStore } from '@containers/JoinModal/store'
 export { default as TrendingContentStore } from '@containers/content/TrendingContent/store'
 export { default as WorksContentStore } from '@containers/content/WorksContent/store'

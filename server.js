@@ -102,6 +102,13 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/trending', req.query)
   )
 
+  server.get('/sponsor/', (req, res) =>
+    renderAndCache(req, res, '/sponsor', req.query)
+  )
+  server.get('/sponsor/*', (req, res) =>
+    renderAndCache(req, res, '/sponsor', req.query)
+  )
+
   server.get('/service-worker.js', (req, res) =>
     res.sendFile(`${__dirname}/.next/service-worker.js`)
   )
