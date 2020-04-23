@@ -49,7 +49,7 @@ export const Title = styled.div`
   color: ${theme('thread.articleTitle')};
   border-top: 1px solid;
   border-color: ${theme('thread.articleTitle')};
-  font-size: 18px;
+  font-size: ${({ level }) => (level === 'gold' ? '18px' : '16px')};
   cursor: pointer;
   padding-top: 5px;
 
@@ -60,14 +60,14 @@ export const Title = styled.div`
 `
 export const IntroImg = styled(Img)`
   width: 100%;
-  height: 120px;
+  height: 100px;
   object-fit: cover;
   display: block;
   filter: saturate(0.5);
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
-  font-size: 14px;
+  font-size: ${({ level }) => (level === 'gold' ? '14px' : '13px')};
   cursor: pointer;
   height: 45px;
 

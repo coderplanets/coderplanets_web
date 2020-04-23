@@ -139,12 +139,12 @@ const SponsorContentContainer = ({ sponsorContent }) => {
         <br />
         <br />
         <Title>特别赞助</Title>
-        <Desc>感谢下列公司/团队对本站的支持</Desc>
+        <Desc>感谢以下公司（团队）对社区的支持</Desc>
         <br />
         <SponsorGallery items={goldItems} column={4} />
         <br />
         <Title>赞助商</Title>
-        <Desc>感谢下列公司/团队对本站的支持</Desc>
+        <Desc>感谢以下公司（团队）对社区的支持</Desc>
         <br />
         <br />
         <SponsorGallery items={items} column={4} />

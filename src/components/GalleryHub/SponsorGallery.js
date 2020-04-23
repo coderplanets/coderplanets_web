@@ -129,14 +129,16 @@ const SponsorGallery = ({ items, column }) => {
         >
           <Header>
             <IntroHead>
-              <Title>{item.title}</Title>
+              <Title level={item.level}>{item.title}</Title>
               <Icon src={item.icon} />
             </IntroHead>
           </Header>
           {item.level === 'gold' && (
             <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
           )}
-          {item.desc && <Desc>{cutFrom(item.desc, 30)}</Desc>}
+          {item.desc && (
+            <Desc level={item.level}>{cutFrom(item.desc, 30)}</Desc>
+          )}
           <LinkWrapper>
             <ArrowButton size="tiny">{item.addr}</ArrowButton>
           </LinkWrapper>
