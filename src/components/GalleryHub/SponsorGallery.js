@@ -10,6 +10,8 @@ import T from 'prop-types'
 import { ASSETS_ENDPOINT } from '@config'
 import { buildLog, cutFrom } from '@utils'
 
+import { ArrowButton } from '@components/Buttons'
+
 import {
   Wrapper,
   Block,
@@ -19,6 +21,7 @@ import {
   Title,
   IntroImg,
   Desc,
+  LinkWrapper,
 } from './styles/sponsor_gallery'
 
 /* eslint-disable-next-line */
@@ -30,6 +33,7 @@ const tmpItems = [
     addr: 'xxx.com',
     title: '坚果云',
     desc: '最性感的开发者社区',
+    level: 'gold',
     icon:
       'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/javascript.png',
   },
@@ -38,6 +42,7 @@ const tmpItems = [
     addr: 'elixir.com',
     title: 'elixir',
     desc: '最性感的开发者社区',
+    level: 'gold',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/elixir.png',
   },
   {
@@ -46,6 +51,7 @@ const tmpItems = [
     title: 'clojure',
     desc:
       '最性感的开发者社区少数派致力于更好地运用数字产品或科学方法,帮助用户提升工作效率和生活品质.',
+    level: 'gold',
     icon: 'https://cps-oss.oss-cn-shanghai.aliyuncs.com/icons/pl/clojure.png',
   },
   {
@@ -110,14 +116,16 @@ const tmpItems = [
   },
 ]
 
-const SponsorGallery = ({ items }) => {
+const SponsorGallery = ({ items, column }) => {
   return (
-    <Wrapper>
+    <Wrapper center={items.length < column}>
       {items.map((item, index) => (
         <Block
           key={item.id}
           borderTop={index <= 2}
           borderRight={(index + 1) % 3 !== 0}
+          level={item.level}
+          column={column}
         >
           <Header>
             <IntroHead>
@@ -125,8 +133,13 @@ const SponsorGallery = ({ items }) => {
               <Icon src={item.icon} />
             </IntroHead>
           </Header>
-          <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+          {item.level === 'gold' && (
+            <IntroImg src={`${ASSETS_ENDPOINT}/works/market1.jpeg`} />
+          )}
           {item.desc && <Desc>{cutFrom(item.desc, 30)}</Desc>}
+          <LinkWrapper>
+            <ArrowButton size="tiny">{item.addr}</ArrowButton>
+          </LinkWrapper>
         </Block>
       ))}
     </Wrapper>
@@ -135,10 +148,12 @@ const SponsorGallery = ({ items }) => {
 
 SponsorGallery.propTypes = {
   items: T.arrayOf(T.object),
+  column: T.oneOf([3, 4]),
 }
 
 SponsorGallery.defaultProps = {
   items: tmpItems,
+  column: 3,
 }
 
 export default React.memo(SponsorGallery)

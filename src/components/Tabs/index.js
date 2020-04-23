@@ -163,5 +163,4 @@ Tabs.defaultProps = {
   slipHeight: '2px',
 }
 
-// export default React.memo(Tabs)
-export default Tabs
+export default React.memo(Tabs)
