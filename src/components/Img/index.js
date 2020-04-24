@@ -10,6 +10,7 @@ import T from 'prop-types'
 import ReactSVG from 'react-svg'
 
 import NormalImg from './NormalImg'
+// import LazyLoadImg from './LazyLoadImg'
 
 const Img = ({ className, src, alt, loading, fallback }) => {
   if (/\.(svg)$/i.test(src)) {
@@ -23,6 +24,7 @@ const Img = ({ className, src, alt, loading, fallback }) => {
   }
   return (
     <NormalImg className={className} src={src} alt={alt} fallback={fallback} />
+    // <LazyLoadImg className={className} src={src} alt={alt} fallback={fallback} />
   )
 }
 
