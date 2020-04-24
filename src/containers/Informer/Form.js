@@ -3,7 +3,7 @@ import React from 'react'
 import { Input, Button } from 'antd'
 import 'antd/lib/input/style/index.css'
 
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import SectionLabel from '@components/SectionLabel'
 import { ICON_CMD } from '@config'
 

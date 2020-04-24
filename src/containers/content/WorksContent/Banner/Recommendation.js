@@ -11,7 +11,7 @@ import { buildLog } from '@utils'
 
 import ExpandIcon from '@components/ExpandIcon'
 import IconText from '@components/IconText'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 
 import {
   Wrapper,

@@ -16,7 +16,7 @@ import { connectStore, buildLog } from '@utils'
 import FavoritesCats from '@containers/FavoritesCats'
 import DotDivider from '@components/DotDivider'
 import Maybe from '@components/Maybe'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 
 import FloatHeader from './FloatHeader'
 import Title from './Title'

@@ -3,7 +3,7 @@ import { Button, Input, Radio } from 'antd'
 import 'antd/lib/input/style/index.css'
 import 'antd/lib/radio/style/index.css'
 
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import SectionLabel from '@components/SectionLabel'
 import { ICON_CMD } from '@config'
 

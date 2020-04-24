@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 import AvatarsRow from '@components/AvatarsRow'
 
 import WordsCounter from './WordsCounter'

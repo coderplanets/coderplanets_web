@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 import SourceSelector from './SourceSelector'
 import List from './List'
 

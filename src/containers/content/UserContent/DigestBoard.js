@@ -4,7 +4,7 @@ import TimeAgo from 'timeago-react'
 
 import DotDivider from '@components/DotDivider'
 import FollowButton from '@components/FollowButton'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import { ICON_CMD } from '@config'
 
 import AchieveCard from './AchieveCard'

@@ -2,7 +2,7 @@ import React from 'react'
 import { Alert } from 'antd'
 import 'antd/lib/alert/style/index.css'
 
-import { Margin } from '@components/BaseStyled'
+import { Br } from '@components/Common'
 import { ICON_CMD } from '@config'
 
 import {
@@ -21,7 +21,7 @@ const WarnMessage = () => (
         仅限发布公开视频链接，如果您发布的视频内容是需要付费才能观看的，请先获取授权。
       </WarnMsgText>
     </WarnMsgItem>
-    <Margin top="7px" />
+    <Br top="7px" />
     <WarnMsgItem>
       <WarnMsgIcon src={`${ICON_CMD}/warn.svg`} />
       <WarnMsgText>

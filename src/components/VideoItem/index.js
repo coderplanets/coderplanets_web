@@ -14,7 +14,7 @@ import { buildLog, cutFrom } from '@utils'
 
 import DotDivider from '@components/DotDivider'
 import VideoSourceInfo from '@components/VideoSourceInfo'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import InlineTags from '@components/InlineTags'
 import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
 

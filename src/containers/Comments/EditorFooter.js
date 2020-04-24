@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 
 import { Button } from '@components/Buttons'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import DocUploader from '@containers/DocUploader'
 
 import {

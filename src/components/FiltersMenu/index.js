@@ -10,7 +10,7 @@ import R from 'ramda'
 
 import { buildLog } from '@utils'
 
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 import Filter from './Filter'
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 

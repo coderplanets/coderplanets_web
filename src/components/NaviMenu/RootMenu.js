@@ -9,7 +9,7 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 
 import { Item, Icon, ActiveDot } from './styles'
 

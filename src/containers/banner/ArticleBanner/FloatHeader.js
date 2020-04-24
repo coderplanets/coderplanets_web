@@ -3,7 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 
 import DotDivider from '@components/DotDivider'
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 
 import {
   Wrapper,

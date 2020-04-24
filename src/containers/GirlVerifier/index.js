@@ -11,7 +11,7 @@ import 'antd/lib/input/style/index.css'
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import Modal from '@components/Modal'
 import SectionLabel from '@components/SectionLabel'
 

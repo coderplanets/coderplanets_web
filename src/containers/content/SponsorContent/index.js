@@ -11,7 +11,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
-import { Margin } from '@components/BaseStyled'
+import { Br } from '@components/Common'
 import Tabs from '@components/Tabs'
 import { SponsorGallery } from '@components/GalleryHub'
 import { Button } from '@components/Buttons'
@@ -146,21 +146,21 @@ const SponsorContentContainer = ({ sponsorContent }) => {
             slipHeight="1px"
           />
         </TabsWrapper>
-        <Margin top="50px" />
+        <Br top="50px" />
         <Title>特别赞助</Title>
         <Desc>感谢以下公司（团队）对社区的特别支持</Desc>
-        <Margin top="20px" />
+        <Br top="20px" />
         <SponsorGallery items={goldItems} column={4} />
         <Title>赞助商</Title>
         <Desc>感谢以下公司（团队）对社区的支持</Desc>
-        <Margin top="50px" />
+        <Br top="50px" />
         <SponsorGallery items={items} column={4} />
-        <Margin top="80px" />
+        <Br top="80px" />
         <Button type="primary" ghost>
           <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />
           成为本站赞助商
         </Button>
-        <Margin top="120px" />
+        <Br top="120px" />
       </InnerWrapper>
     </Wrapper>
   )

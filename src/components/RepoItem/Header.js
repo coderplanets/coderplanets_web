@@ -4,7 +4,7 @@ import { ICON_CMD } from '@config'
 
 import { cutFrom, numberWithCommas } from '@utils'
 import Tooltip from '@components/Tooltip'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import InlineTags from '@components/InlineTags'
 
 import {

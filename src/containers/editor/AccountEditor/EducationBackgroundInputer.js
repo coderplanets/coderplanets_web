@@ -2,7 +2,7 @@ import React from 'react'
 
 import FormItem from '@components/FormItem'
 import Maybe from '@components/Maybe'
-import { Space } from '@components/BaseStyled'
+import { Space } from '@components/Common'
 import { ICON_CMD } from '@config'
 
 import {

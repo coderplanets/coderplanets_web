@@ -4,7 +4,7 @@ import { withTheme } from 'styled-components'
 
 import { buildLog, uid, theme as themeHelper } from '@utils'
 
-import { Margin } from '@components/BaseStyled'
+import { Br } from '@components/Common'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper } from './styles'
@@ -168,7 +168,7 @@ class LocationMap extends React.Component {
           onResize={this.onResize.bind(this)}
         />
         <div id={this.chartId} />
-        <Margin bottom="10px" />
+        <Br bottom="10px" />
       </MapWrapper>
     )
   }

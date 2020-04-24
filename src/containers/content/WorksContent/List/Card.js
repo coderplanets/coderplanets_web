@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
 
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 import DotDivider from '@components/DotDivider'
 import IconText from '@components/IconText'
 

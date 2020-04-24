@@ -10,7 +10,7 @@ import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
 import CustomScroller from '@components/CustomScroller'
-import { SpaceGrow } from '@components/BaseStyled'
+import { SpaceGrow } from '@components/Common'
 
 import fakeSourceList from './fakeSourceList'
 
