@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `
 export const Icon = styled(Img)`
   fill: ${({ active }) =>
-    active === 'true' ? theme('tabs.headerActive') : theme('tabs.header')};
+    active === 1 ? theme('tabs.headerActive') : theme('tabs.header')};
   width: 15px;
   height: 15px;
   margin-right: 5px;

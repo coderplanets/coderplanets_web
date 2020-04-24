@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
+import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -26,7 +26,7 @@ export const ContentWrapper = styled.div`
 `
 export const TabsWrapper = styled.div`
   ${cs.flex('justify-center')};
-  width: 100%;
+  width: 45%;
   border-bottom: 1px solid;
   border-bottom-color: #094454;
 `
@@ -35,4 +35,11 @@ export const Title = styled.h2`
 `
 export const Desc = styled.div`
   color: ${theme('thread.articleDigest')};
+`
+export const HeartIcon = styled(Img)`
+  fill: ${theme('baseColor.error')};
+  width: 14px;
+  height: 14px;
+  display: block;
+  margin-right: 8px;
 `

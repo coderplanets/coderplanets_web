@@ -73,6 +73,7 @@ export const Desc = styled.div`
   font-size: ${({ level }) => (level === 'gold' ? '14px' : '13px')};
   cursor: pointer;
   height: 45px;
+  margin-top: ${({ level }) => (level === 'gold' ? '3px' : '5px')};
 
   ${Block}:hover & {
     color: ${theme('thread.articleTitle')};

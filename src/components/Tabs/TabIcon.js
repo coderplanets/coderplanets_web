@@ -8,7 +8,7 @@ const TabIcon = ({ item: { localIcon, icon }, clickableRef, active }) => {
   const IconCmp = localIcon ? (
     <LocalIcon raw={localIcon} active={active} />
   ) : (
-    <Icon src={icon} active={active} />
+    <Icon src={icon} active={active ? 1 : 0} />
   )
 
   const handleClick = useCallback(

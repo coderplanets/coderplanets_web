@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-import { theme } from '@utils'
+import { cs, theme } from '@utils'
 
 export const Wrapper = styled.button`
+  ${cs.flex('align-center')};
   -webkit-appearance: button;
   outline: none;
 
   line-height: 1.5;
-  display: inline-block;
   font-weight: 400;
   text-align: center;
   touch-action: manipulation;

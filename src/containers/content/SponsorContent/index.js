@@ -11,11 +11,19 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
+import { Margin } from '@components/BaseStyled'
 import Tabs from '@components/Tabs'
 import { SponsorGallery } from '@components/GalleryHub'
 import { Button } from '@components/Buttons'
 
-import { Wrapper, InnerWrapper, TabsWrapper, Title, Desc } from './styles'
+import {
+  Wrapper,
+  InnerWrapper,
+  TabsWrapper,
+  Title,
+  Desc,
+  HeartIcon,
+} from './styles'
 import { useInit } from './logic'
 
 /* eslint-disable-next-line */
@@ -124,36 +132,35 @@ const SponsorContentContainer = ({ sponsorContent }) => {
             items={[
               {
                 title: '赞助鸣谢',
-                icon: `${ICON_CMD}/navi/hammer.svg`,
+                icon: `${ICON_CMD}/header/more_sponsor.svg`,
+                raw: 'sponsor',
               },
               {
                 title: '广告投放',
-                icon: `${ICON_CMD}/navi/fire.svg`,
+                icon: `${ICON_CMD}/header/more_invest.svg`,
+                raw: 'ad',
               },
             ]}
-            // activeKey={active}
+            activeKey="sponsor"
             // onChange={onChange}
             slipHeight="1px"
           />
         </TabsWrapper>
-        <br />
-        <br />
+        <Margin top="50px" />
         <Title>特别赞助</Title>
-        <Desc>感谢以下公司（团队）对社区的支持</Desc>
-        <br />
+        <Desc>感谢以下公司（团队）对社区的特别支持</Desc>
+        <Margin top="20px" />
         <SponsorGallery items={goldItems} column={4} />
         <Title>赞助商</Title>
         <Desc>感谢以下公司（团队）对社区的支持</Desc>
-        <br />
-        <br />
+        <Margin top="50px" />
         <SponsorGallery items={items} column={4} />
-        <br />
-        <br />
+        <Margin top="80px" />
         <Button type="primary" ghost>
-          成为赞助商
+          <HeartIcon src={`${ICON_CMD}/navi/heart.svg`} />
+          成为本站赞助商
         </Button>
-        <br />
-        <br />
+        <Margin top="120px" />
       </InnerWrapper>
     </Wrapper>
   )
