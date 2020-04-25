@@ -11,10 +11,23 @@ import R from 'ramda'
 import { buildLog } from '@utils'
 import { SpaceGrow } from '@components/Common'
 
-import { Item, Icon, ActiveDot } from './styles'
+import { Item, FixedIcon, Icon, ActiveDot, TotalNum } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
+
+const renderRightIcon = (item, activeParentMenuId) => {
+  if (item.total) return <TotalNum>{item.total}</TotalNum>
+  return (
+    <React.Fragment>
+      {item.icon ? (
+        <Icon active={item.id === activeParentMenuId} src={item.icon} />
+      ) : (
+        <ActiveDot />
+      )}
+    </React.Fragment>
+  )
+}
 
 const RootMenu = ({
   menuItems,
@@ -47,13 +60,10 @@ const RootMenu = ({
           withDivider={withDivider}
           onClick={() => onSelect(item)}
         >
+          {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
           {item.title}
           <SpaceGrow />
-          {item.icon ? (
-            <Icon active={item.id === activeParentMenuId} src={item.icon} />
-          ) : (
-            <ActiveDot />
-          )}
+          {renderRightIcon(item, activeParentMenuId)}
         </Item>
       ))}
     </React.Fragment>

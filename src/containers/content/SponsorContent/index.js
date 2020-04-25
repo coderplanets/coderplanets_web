@@ -148,11 +148,11 @@ const SponsorContentContainer = ({ sponsorContent }) => {
         </TabsWrapper>
         <Br top="50px" />
         <Title>特别赞助</Title>
-        <Desc>感谢以下公司（团队）对社区的特别支持</Desc>
+        <Desc>感谢以下公司（团队）对本站的特别支持</Desc>
         <Br top="20px" />
         <SponsorGallery items={goldItems} column={4} />
         <Title>赞助商</Title>
-        <Desc>感谢以下公司（团队）对社区的支持</Desc>
+        <Desc>感谢以下公司（团队）对本站的倾情支持</Desc>
         <Br top="50px" />
         <SponsorGallery items={items} column={4} />
         <Br top="80px" />

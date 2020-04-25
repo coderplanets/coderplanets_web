@@ -33,6 +33,12 @@ export const Item = styled.div`
     border-bottom: none;
   }
 `
+export const FixedIcon = styled(Img)`
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+`
 export const Icon = styled(Img)`
   display: ${({ active }) => (active ? 'block' : 'none')};
   fill: ${({ active }) =>
@@ -49,4 +55,12 @@ export const ActiveDot = styled.div`
   width: 5px;
   height: 5px;
   border-radius: 50%;
+`
+export const TotalNum = styled.span`
+  color: ${theme('thread.articleDigest')};
+  font-size: 11px;
+
+  ${Item}:hover & {
+    color: ${theme('thread.articleTitle')};
+  }
 `

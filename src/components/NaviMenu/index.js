@@ -20,30 +20,32 @@ import { Wrapper /* ActiveDot */ } from './styles'
 const log = buildLog('c:NaviMenu:index')
 
 // get parrentMenuIndex and child menu items
-const getMenuInfo = (menuItems, parentMenuId) => {
-  const parentMenuIndex = R.findIndex(
-    item => item.id === parentMenuId,
-    menuItems
-  )
+const getMenuInfo = (items, parentMenuId) => {
+  const parentMenuIndex = R.findIndex(item => item.id === parentMenuId, items)
 
   const childMenuItems =
-    parentMenuIndex >= 0 ? menuItems[parentMenuIndex].childMenu : []
+    parentMenuIndex >= 0 ? items[parentMenuIndex].childMenu : []
 
   return [parentMenuIndex, childMenuItems]
 }
 
-const NaviMenu = ({ onSelect, joinMode, withDivider, initActiveMenuId }) => {
+const NaviMenu = ({
+  items,
+  onSelect,
+  joinMode,
+  withDivider,
+  initActiveMenuId,
+}) => {
   const [menuMode, setMenuMode] = useState('root')
   // select initial active menu item if need
   const [initDone, setInitDone] = useState(false)
 
   const [parentMenuId, setParentMenuId] = useState('')
-  // const [activeParentMenuId, setActiveParentMenuId] = useState(menuItems[0].id)
   const [activeParentMenuId, setActiveParentMenuId] = useState('')
   const [expandChildId, setExpandChildId] = useState('')
 
   const [childMenuId, setChildMenuId] = useState('')
-  const [parentMenuIndex, childMenuItems] = getMenuInfo(menuItems, parentMenuId)
+  const [parentMenuIndex, childMenuItems] = getMenuInfo(items, parentMenuId)
 
   // handlers
   const handleGoBack = useCallback(() => setMenuMode('root'), [])
@@ -79,7 +81,7 @@ const NaviMenu = ({ onSelect, joinMode, withDivider, initActiveMenuId }) => {
     <Wrapper>
       {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
         <RootMenu
-          menuItems={menuItems}
+          menuItems={items}
           onSelect={handleRootSelect}
           withDivider={withDivider}
           activeParentMenuId={activeParentMenuId}
@@ -93,7 +95,7 @@ const NaviMenu = ({ onSelect, joinMode, withDivider, initActiveMenuId }) => {
           expandChildId={expandChildId}
           onExpand={handleMenuExpand}
           onSelect={handleChildSelect}
-          parentMenuItem={menuItems[parentMenuIndex]}
+          parentMenuItem={items[parentMenuIndex]}
           menuItems={childMenuItems}
           goBack={handleGoBack}
           joinMode={joinMode}
@@ -108,9 +110,33 @@ NaviMenu.propTypes = {
   joinMode: T.bool,
   withDivider: T.bool,
   initActiveMenuId: T.string,
+  items: T.arrayOf(
+    T.shape({
+      id: T.string,
+      title: T.string,
+      icon: T.string,
+      displayType: T.string,
+      childMenu: T.arrayOf(
+        T.shape({
+          id: T.string,
+          title: T.string,
+          icon: T.string,
+          displayType: T.string,
+          childMenu: T.arrayOf(
+            T.shape({
+              id: T.string,
+              title: T.string,
+              displayType: T.string,
+            })
+          ),
+        })
+      ),
+    })
+  ),
 }
 
 NaviMenu.defaultProps = {
+  items: menuItems,
   onSelect: log,
   joinMode: true,
   withDivider: true,
