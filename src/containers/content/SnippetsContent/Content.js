@@ -12,7 +12,7 @@ import PagiFooter from '@components/PagiFooter'
 
 import {
   DirectoryGallery,
-  ProductGallery,
+  SnippetGallery,
   FamePeopleGallery,
   ImageGallery,
 } from '@components/GalleryHub'
@@ -64,7 +64,7 @@ const Content = ({ displayType }) => {
     default: {
       DisplayContent = (
         <NormalListWrapper>
-          <ProductGallery />
+          <SnippetGallery />
           <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />
