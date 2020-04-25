@@ -1,7 +1,9 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+
 import NaviMenu from '@components/NaviMenu'
+import SearchBox from './SearchBox'
 
 import tmpMenu from './tempData'
 
@@ -47,6 +49,7 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         </Option>
       </TopFilter>
       <Divider />
+      <SearchBox />
       <NaviMenu
         items={tmpMenu}
         onSelect={(id, type) => menuOnSelect(id, type)}
