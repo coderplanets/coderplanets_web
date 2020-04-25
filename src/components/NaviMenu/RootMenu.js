@@ -38,6 +38,7 @@ const RootMenu = ({
   initDone,
   setInitDone,
   showMoreItem,
+  onShowMore,
 }) => {
   // const [inited, setInited] = useState(false)
 
@@ -68,12 +69,12 @@ const RootMenu = ({
         </Item>
       ))}
       {showMoreItem && (
-        <MoreItem>
-          ...
-          <Space left="15px" />
+        <MoreItem onClick={() => onShowMore && onShowMore()}>
+          ~~
+          <Space left="10px" />
           查看更多
-          <Space right="15px" />
-          ...
+          <Space right="10px" />
+          ~~
         </MoreItem>
       )}
     </React.Fragment>
@@ -89,6 +90,7 @@ RootMenu.propTypes = {
   initDone: T.bool.isRequired,
   setInitDone: T.func.isRequired,
   showMoreItem: T.bool.isRequired,
+  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]).isRequired,
 }
 
 RootMenu.defaultProps = {

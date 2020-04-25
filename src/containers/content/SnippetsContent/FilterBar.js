@@ -56,6 +56,7 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         initActiveMenuId={initActiveMenuId}
         withDivider={false}
         showMoreItem
+        onShowMore={() => console.log('show more')}
       />
     </Wrapper>
   )

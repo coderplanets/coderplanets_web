@@ -36,6 +36,7 @@ const NaviMenu = ({
   withDivider,
   initActiveMenuId,
   showMoreItem,
+  onShowMore,
 }) => {
   const [menuMode, setMenuMode] = useState('root')
   // select initial active menu item if need
@@ -90,6 +91,7 @@ const NaviMenu = ({
           initDone={initDone}
           setInitDone={setInitDone}
           showMoreItem={showMoreItem}
+          onShowMore={onShowMore}
         />
       ) : (
         <ChildrenMenu
@@ -136,6 +138,7 @@ NaviMenu.propTypes = {
     })
   ),
   showMoreItem: T.bool,
+  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
 NaviMenu.defaultProps = {
@@ -145,6 +148,7 @@ NaviMenu.defaultProps = {
   withDivider: true,
   initActiveMenuId: '',
   showMoreItem: false,
+  onShowMore: null,
 }
 
 export default React.memo(NaviMenu)

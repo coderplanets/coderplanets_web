@@ -34,8 +34,10 @@ export const Item = styled.div`
   }
 `
 export const MoreItem = styled(Item)`
+  font-size: 13px;
   justify-content: center;
   padding-right: 10px;
+  margin-top: 8px;
 `
 export const FixedIcon = styled(Img)`
   display: block;
