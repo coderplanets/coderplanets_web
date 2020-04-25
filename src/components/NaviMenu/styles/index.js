@@ -33,6 +33,10 @@ export const Item = styled.div`
     border-bottom: none;
   }
 `
+export const MoreItem = styled(Item)`
+  justify-content: center;
+  padding-right: 10px;
+`
 export const FixedIcon = styled(Img)`
   display: block;
   width: 14px;

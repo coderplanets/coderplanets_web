@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const Block = styled.div`
   ${cs.flexColumn('justify-between')};
   width: 33%;
-  height: 230px;
+  height: 300px;
   border: 1px solid;
   border-left: none;
   border-right: ${({ borderRight }) => (borderRight ? '1px solid' : 'none')};

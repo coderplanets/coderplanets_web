@@ -9,9 +9,9 @@ import T from 'prop-types'
 import R from 'ramda'
 
 import { buildLog } from '@utils'
-import { SpaceGrow } from '@components/Common'
+import { SpaceGrow, Space } from '@components/Common'
 
-import { Item, FixedIcon, Icon, ActiveDot, TotalNum } from './styles'
+import { Item, MoreItem, FixedIcon, Icon, ActiveDot, TotalNum } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
@@ -37,6 +37,7 @@ const RootMenu = ({
   initActiveMenuId,
   initDone,
   setInitDone,
+  showMoreItem,
 }) => {
   // const [inited, setInited] = useState(false)
 
@@ -66,6 +67,15 @@ const RootMenu = ({
           {renderRightIcon(item, activeParentMenuId)}
         </Item>
       ))}
+      {showMoreItem && (
+        <MoreItem>
+          ...
+          <Space left="15px" />
+          查看更多
+          <Space right="15px" />
+          ...
+        </MoreItem>
+      )}
     </React.Fragment>
   )
 }
@@ -78,6 +88,7 @@ RootMenu.propTypes = {
   initActiveMenuId: T.string,
   initDone: T.bool.isRequired,
   setInitDone: T.func.isRequired,
+  showMoreItem: T.bool.isRequired,
 }
 
 RootMenu.defaultProps = {
