@@ -14,9 +14,8 @@ export const Wrapper = styled.div.attrs(props => ({
 export const Tabs = styled.div`
   ${cs.flex()};
   position: relative;
-  background-color: #fff;
   padding: 3px 5px;
-  border-radius: 10px;
+  border-radius: 6px;
   z-index: 2;
   border: 1px solid;
   border-color: transparent;
@@ -32,7 +31,6 @@ export const Label = styled.label`
   width: ${width};
   height: ${height};
   font-size: 15px;
-  border-radius: 10px;
   z-index: 2;
   transition: color 0.15s ease-in;
 
@@ -53,10 +51,14 @@ export const Slider = styled.span`
   position: absolute;
   width: ${width};
   height: ${height};
-  background-color: #0f3f52;
+  background-color: #0b3546;
   z-index: 1;
   border-radius: 6px;
-  transition: 0.25s ease-out;
 
+  ${Wrapper}:hover & {
+    background-color: #0f3f52;
+  }
+
+  transition: 0.25s ease-out;
   transform: ${({ index }) => `translateX(${index * 100}%)`};
 `

@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog, nilOrEmpty } from '@utils'
 
 import { Wrapper, Tabs, Icon, Label, Slider } from './styles/icon_selector'
 
@@ -27,7 +27,13 @@ const IconSelector = ({ items, activeKey, onChange }) => {
               onClick={() => onChange(item)}
               checked={activeKey === item.key}
             >
-              <Icon src={item.iconSrc} checked={activeKey === item.key} />
+              {!nilOrEmpty(item.localIcon) && (
+                <React.Fragment>{item.localIcon}</React.Fragment>
+              )}
+
+              {!nilOrEmpty(item.iconSrc) && (
+                <Icon src={item.iconSrc} checked={activeKey === item.key} />
+              )}
             </Label>
           </React.Fragment>
         ))}
@@ -41,6 +47,7 @@ IconSelector.propTypes = {
   items: T.arrayOf(
     T.shape({
       iconSrc: T.string,
+      localIcon: T.string,
       key: T.string,
     })
   ).isRequired,

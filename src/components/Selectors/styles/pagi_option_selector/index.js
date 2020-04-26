@@ -11,7 +11,6 @@ export const Title = styled.div`
   margin-top: -5px;
   margin-bottom: 4px;
   opacity: 0;
-
   ${Wrapper}:hover & {
     opacity: 1;
   }
