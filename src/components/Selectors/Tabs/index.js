@@ -12,8 +12,8 @@ import { ICON_CMD } from '@config'
 import { buildLog, isString } from '@utils'
 
 import TabItem from './TabItem'
-import { Wrapper, Nav, SlipBar, RealBar } from './styles'
-import { slipmargin } from './styles/metric'
+import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'
+import { slipmargin } from '../styles/metric/tabs'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')

@@ -12,7 +12,7 @@ import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 
 import { Br } from '@components/Common'
-import Tabs from '@components/Tabs'
+import { Tabs } from '@components/Selectors'
 import { SponsorGallery } from '@components/GalleryHub'
 import { Button } from '@components/Buttons'
 

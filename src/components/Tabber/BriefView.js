@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { sortByIndex } from '@utils'
-import Tabs from '@components/Tabs'
 
+import { Tabs } from '@components/Selectors'
 import { Wrapper } from './styles/brief_view'
 // import TabIcon from './TabIcon'
 

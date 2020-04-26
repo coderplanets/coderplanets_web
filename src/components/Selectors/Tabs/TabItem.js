@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { buildLog, isString, Trans } from '@utils'
 
 import TabIcon from './TabIcon'
-import { Wrapper, Label } from './styles/tab_item'
+import { Wrapper, Label } from '../styles/tabs/tab_item'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Tabs:index')

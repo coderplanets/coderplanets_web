@@ -36,6 +36,7 @@ const Footer = t
         ROUTE.WORKS,
         ROUTE.TRENDING,
         ROUTE.SPONSOR,
+        ROUTE.SNIPPETS,
       ])
     },
     get accountInfo() {

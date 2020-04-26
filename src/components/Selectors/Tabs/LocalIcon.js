@@ -18,7 +18,7 @@ import {
   TabCommentsIcon,
   TabSettingsIcon,
   TabFavoritesIcon,
-} from './styles/local_icon'
+} from '../styles/tabs/local_icon'
 
 const TabIcon = ({ raw, active, small }) => {
   switch (raw) {

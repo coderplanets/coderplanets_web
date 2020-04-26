@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { cs, theme } from '@utils'
 
-import { getMarginRight, getPadding } from './metric'
+import { getMarginRight, getPadding } from '../metric/tabs'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-center')};

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { sortByIndex } from '@utils'
-import Tabs from '@components/Tabs'
+import { Tabs } from '@components/Selectors'
 
 const NormalView = ({ source, active, onChange }) => {
   const items = source.map(item => ({ ...item, localIcon: item.raw }))

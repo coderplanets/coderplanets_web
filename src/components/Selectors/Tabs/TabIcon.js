@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 
 import LocalIcon from './LocalIcon'
-import { Wrapper, Icon } from './styles/tab_icon'
+import { Wrapper, Icon } from '../styles/tabs/tab_icon'
 
 const TabIcon = ({ item: { localIcon, icon }, clickableRef, active }) => {
   const IconCmp = localIcon ? (
