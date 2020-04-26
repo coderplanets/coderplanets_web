@@ -6,58 +6,49 @@
 
 import React from 'react'
 
+import { ICON_CMD } from '@config'
 import { nilOrEmpty } from '@utils'
-import { GUIDE } from '@constant'
+import { SNIPPET } from '@constant'
+
 import PagiFooter from '@components/PagiFooter'
+import { PagiOptionSelector } from '@components/Selectors'
 
-import {
-  DirectoryGallery,
-  SnippetGallery,
-  FamePeopleGallery,
-  ImageGallery,
-} from '@components/GalleryHub'
+import { SnippetGallery, ImageGallery } from '@components/GalleryHub'
 
-// tmp
-// import RoadmapThread from '@containers/thread/RoadmapThread'
 import menuData from './tempData'
 import Footer from './Footer'
-// import NormalList from './NormalList'
+
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
+import { displayTypeOnChange } from './logic'
+
+// tmp
+const tmpItems = [
+  {
+    iconSrc: `${ICON_CMD}/extra_tag.svg`,
+    key: SNIPPET.DEFAULT,
+  },
+  {
+    iconSrc: `${ICON_CMD}/city_map.svg`,
+    key: SNIPPET.LIST,
+  },
+  {
+    iconSrc: `${ICON_CMD}/money_yuan.svg`,
+    key: SNIPPET.MASONRY,
+  },
+]
 
 const Content = ({ displayType }) => {
   let DisplayContent
 
+  // TODO:  move this logic to NaviMenu itself
   for (let index = 0; index < menuData.length; index += 1) {
     const element = menuData[index]
     if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
   }
 
   switch (displayType) {
-    case GUIDE.PREVIEW: {
-      DisplayContent = (
-        <NormalListWrapper>
-          <DirectoryGallery items={menuData} />
-          <br />
-          <Footer />
-          <br />
-          <br />
-        </NormalListWrapper>
-      )
-      break
-    }
-    case GUIDE.IMAGE: {
+    case 'todo': {
       DisplayContent = <ImageGallery />
-      break
-    }
-    case GUIDE.FAME_PEOPLE: {
-      DisplayContent = (
-        <NormalListWrapper>
-          <FamePeopleGallery />
-          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
-          <Footer />
-          <br />
-        </NormalListWrapper>
-      )
       break
     }
 
@@ -65,7 +56,14 @@ const Content = ({ displayType }) => {
       DisplayContent = (
         <NormalListWrapper>
           <SnippetGallery />
-          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
+          <PagiFooter margin={{ top: '40px', bottom: '60px' }}>
+            <PagiOptionSelector
+              activeKey={displayType}
+              title="视图选择"
+              items={tmpItems}
+              onChange={displayTypeOnChange}
+            />
+          </PagiFooter>
           <Footer />
           <br />
         </NormalListWrapper>

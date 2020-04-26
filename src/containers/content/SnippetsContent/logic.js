@@ -11,6 +11,15 @@ const log = buildLog('L:SnippetsContent')
 
 export const topFilterOnChange = () => {}
 
+/**
+ * change the display type of current snippets
+ * @param {string} displayType
+ */
+export const displayTypeOnChange = ({ key: displayType }) => {
+  // const { key: displayType } = item
+  store.mark({ displayType })
+}
+
 // ###############################
 // init & uninit handlers
 // ###############################

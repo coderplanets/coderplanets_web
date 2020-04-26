@@ -1,0 +1,7 @@
+const SNIPPET = {
+  DEFAULT: 'DEFAULT',
+  LIST: 'SNIPPETS_LIST',
+  MASONRY: 'SNIPPETS_MASONRY',
+}
+
+export default SNIPPET
