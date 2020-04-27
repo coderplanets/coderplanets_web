@@ -6,6 +6,7 @@ import { OrButton } from '@components/Buttons'
 import NaviMenu from '@components/NaviMenu'
 
 import SearchBox from './SearchBox'
+import PinedList from './PinedList'
 import tmpMenu from './tempData'
 
 import {
@@ -70,6 +71,8 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         />
       </OrWrapper>
       <SearchBox />
+      <PinedList />
+      <Divider />
       <NaviMenu
         items={tmpMenu}
         onSelect={(id, type) => menuOnSelect(id, type)}
