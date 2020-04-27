@@ -7,6 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
+import { GALLERY } from '@constant'
 import { buildLog } from '@utils'
 
 import IconSelector from '../IconSelector'
@@ -24,16 +25,16 @@ const log = buildLog('c:PagiOptionSelector:index')
 const getLocalIcon = (item, activeKey) => {
   if (!item.localIcon) return ''
   switch (item.localIcon) {
-    case 'main_column': {
+    case GALLERY.MAIN_COLUMN: {
       return <MainColumn active={item.key === activeKey} />
     }
-    case 'masonry_column': {
+    case GALLERY.MASONRY_COLUMN: {
       return <MasonryColumn active={item.key === activeKey} />
     }
-    case 'two_column': {
+    case GALLERY.TWO_COLUMN: {
       return <TwoColumn active={item.key === activeKey} />
     }
-    case 'three_column': {
+    case GALLERY.THREE_COLUMN: {
       return <ThreeColumn active={item.key === activeKey} />
     }
     default:
