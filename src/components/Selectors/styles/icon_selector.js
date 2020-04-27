@@ -10,6 +10,14 @@ export const Wrapper = styled.div.attrs(props => ({
   'data-testid': props.testid,
 }))`
   ${cs.flex('align-center')};
+  position: relative;
+`
+export const AccessZone = styled.div`
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  top: -30px;
+  left: 0;
 `
 export const Tabs = styled.div`
   ${cs.flex()};
@@ -22,6 +30,9 @@ export const Tabs = styled.div`
   background-color: #002b35;
 
   ${Wrapper}:hover & {
+    border-color: #003b4a;
+  }
+  ${AccessZone}:hover & {
     border-color: #003b4a;
   }
   transition: all 0.25s;
@@ -56,6 +67,9 @@ export const Slider = styled.span`
   border-radius: 6px;
 
   ${Wrapper}:hover & {
+    background-color: #0f3f52;
+  }
+  ${AccessZone}:hover & {
     background-color: #0f3f52;
   }
 

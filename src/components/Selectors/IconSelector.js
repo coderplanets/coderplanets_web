@@ -10,7 +10,14 @@ import R from 'ramda'
 
 import { buildLog, nilOrEmpty } from '@utils'
 
-import { Wrapper, Tabs, Icon, Label, Slider } from './styles/icon_selector'
+import {
+  Wrapper,
+  AccessZone,
+  Tabs,
+  Icon,
+  Label,
+  Slider,
+} from './styles/icon_selector'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:IconSelector:index')
@@ -20,6 +27,7 @@ const IconSelector = ({ items, activeKey, onChange }) => {
 
   return (
     <Wrapper testid="selectors">
+      <AccessZone />
       <Tabs>
         {items.map(item => (
           <React.Fragment key={item.key}>
@@ -47,7 +55,7 @@ IconSelector.propTypes = {
   items: T.arrayOf(
     T.shape({
       iconSrc: T.string,
-      localIcon: T.string,
+      localIcon: T.oneOfType(T.string, T.node),
       key: T.string,
     })
   ).isRequired,
