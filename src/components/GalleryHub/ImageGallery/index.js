@@ -7,21 +7,40 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 
+import { GALLERY } from '@constant'
 import { buildLog } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
+import { PagiOptionSelector } from '@components/Selectors'
 
 import MainColumnGallery from './MainColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'
 import ThreeColumnGallery from './ThreeColumnGallery'
 import MasonryGallery from './MasonryGallery'
 
-import ColumnStyleSwitcher from './ColumnStyleSwitcher'
-
 import { Wrapper } from '../styles/image_gallery'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:ImageGallery:index')
+
+const GALLERY_TYPES = [
+  {
+    localIcon: GALLERY.MAIN_COLUMN,
+    key: GALLERY.MAIN_COLUMN,
+  },
+  {
+    localIcon: GALLERY.MASONRY_COLUMN,
+    key: GALLERY.MASONRY_COLUMN,
+  },
+  {
+    localIcon: GALLERY.TWO_COLUMN,
+    key: GALLERY.TWO_COLUMN,
+  },
+  {
+    localIcon: GALLERY.THREE_COLUMN,
+    key: GALLERY.THREE_COLUMN,
+  },
+]
 
 const tmpItems = [
   {
@@ -78,21 +97,21 @@ const tmpItems = [
   },
 ]
 
-const ImageGallery = ({ items, column }) => {
-  const [activeColumn, setActiveColumn] = useState(column)
+const ImageGallery = ({ items, galleryType }) => {
+  const [activeGalleryType, setActiveGalleryType] = useState(galleryType)
 
   let GalleryContent
 
-  switch (activeColumn) {
-    case 2: {
+  switch (activeGalleryType) {
+    case GALLERY.TWO_COLUMN: {
       GalleryContent = <TwoColumnGallery items={items} />
       break
     }
-    case 3: {
+    case GALLERY.THREE_COLUMN: {
       GalleryContent = <ThreeColumnGallery items={items} />
       break
     }
-    case 4: {
+    case GALLERY.MASONRY_COLUMN: {
       GalleryContent = <MasonryGallery items={items} />
       break
     }
@@ -106,9 +125,11 @@ const ImageGallery = ({ items, column }) => {
     <Wrapper>
       {GalleryContent}
       <PagiFooter margin={{ top: '60px', bottom: '80px' }}>
-        <ColumnStyleSwitcher
-          activeColumn={activeColumn}
-          onSelect={setActiveColumn}
+        <PagiOptionSelector
+          activeKey={activeGalleryType}
+          title="显示模式"
+          items={GALLERY_TYPES}
+          onChange={item => setActiveGalleryType(item.key)}
         />
       </PagiFooter>
     </Wrapper>
@@ -117,12 +138,17 @@ const ImageGallery = ({ items, column }) => {
 
 ImageGallery.propTypes = {
   items: T.arrayOf(T.object),
-  column: T.oneOf([1, 2, 3, 4]),
+  galleryType: T.oneOf([
+    GALLERY.MAIN_COLUMN,
+    GALLERY.MASONRY_COLUMN,
+    GALLERY.TWO_COLUMN,
+    GALLERY.THREE_COLUMN,
+  ]),
 }
 
 ImageGallery.defaultProps = {
   items: tmpItems,
-  column: 1,
+  galleryType: GALLERY.MAIN_COLUMN,
 }
 
 export default React.memo(ImageGallery)
