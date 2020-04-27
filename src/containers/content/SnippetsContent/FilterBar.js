@@ -2,9 +2,10 @@ import React from 'react'
 
 import { ICON_CMD } from '@config'
 
+import { OrButton } from '@components/Buttons'
 import NaviMenu from '@components/NaviMenu'
-import SearchBox from './SearchBox'
 
+import SearchBox from './SearchBox'
 import tmpMenu from './tempData'
 
 import {
@@ -16,6 +17,7 @@ import {
   OptionItem,
   FavoriteIcon,
   ClockIcon,
+  OrWrapper,
 } from './styles/filter_bar'
 import { topFilterOnChange } from './logic'
 
@@ -49,6 +51,24 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         </Option>
       </TopFilter>
       <Divider />
+      <OrWrapper>
+        <OrButton
+          size="small"
+          type="primary"
+          activeKey="snippets"
+          group={[
+            {
+              key: 'snippets',
+              title: '片段',
+            },
+            {
+              key: 'cheatsheet',
+              title: '速查表',
+            },
+          ]}
+          onClick={console.log}
+        />
+      </OrWrapper>
       <SearchBox />
       <NaviMenu
         items={tmpMenu}

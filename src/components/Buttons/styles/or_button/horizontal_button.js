@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   position: relative;
 `
 const BaseButton = styled(BaseBtnWrapper)`
+  ${cs.flex('align-both')};
   width: 50%;
   color: ${({ active }) => (active ? theme('button.fg') : '#99b9bf')};
   background: ${({ active }) => (active ? theme('button.primary') : '#024250')};

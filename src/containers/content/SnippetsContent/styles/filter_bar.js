@@ -57,3 +57,7 @@ export const FavoriteIcon = styled(OptionIconBase)`
 export const ClockIcon = styled(OptionIconBase)`
   fill: ${theme('thread.articleTitle')};
 `
+export const OrWrapper = styled.div`
+  margin-bottom: 20px;
+  width: 85%;
+`
