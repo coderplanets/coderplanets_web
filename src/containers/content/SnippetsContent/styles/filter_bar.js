@@ -4,6 +4,7 @@ import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
+  ${cs.flexColumn()};
   margin-top: 22px;
 `
 export const Divider = styled.div`
@@ -58,6 +59,7 @@ export const ClockIcon = styled(OptionIconBase)`
   fill: ${theme('thread.articleTitle')};
 `
 export const OrWrapper = styled.div`
+  margin-top: 10px;
   margin-bottom: 20px;
   width: 85%;
 `

@@ -6,9 +6,8 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
+import { GALLERY } from '@constant'
 import { nilOrEmpty } from '@utils'
-import { SNIPPET } from '@constant'
 
 import PagiFooter from '@components/PagiFooter'
 import { PagiOptionSelector } from '@components/Selectors'
@@ -19,28 +18,28 @@ import menuData from './tempData'
 import Footer from './Footer'
 
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
-import { displayTypeOnChange } from './logic'
+import { galleryTypeOnChange } from './logic'
 
 // tmp
 const tmpItems = [
   {
     // iconSrc: `${ICON_CMD}/extra_tag.svg`,
-    localIcon: 'main_column',
-    key: SNIPPET.DEFAULT,
+    localIcon: GALLERY.MAIN_COLUMN,
+    key: GALLERY.MAIN_COLUMN,
   },
   {
     // iconSrc: `${ICON_CMD}/city_map.svg`,
-    localIcon: 'masonry_column',
-    key: SNIPPET.LIST,
+    localIcon: GALLERY.MASONRY_COLUMN,
+    key: GALLERY.MASONRY_COLUMN,
   },
   {
     // iconSrc: `${ICON_CMD}/money_yuan.svg`,
-    localIcon: 'three_column',
-    key: SNIPPET.MASONRY,
+    localIcon: GALLERY.THREE_COLUMN,
+    key: GALLERY.THREE_COLUMN,
   },
 ]
 
-const Content = ({ displayType }) => {
+const Content = ({ galleryType }) => {
   let DisplayContent
 
   // TODO:  move this logic to NaviMenu itself
@@ -49,7 +48,7 @@ const Content = ({ displayType }) => {
     if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
   }
 
-  switch (displayType) {
+  switch (galleryType) {
     case 'todo': {
       DisplayContent = <ImageGallery />
       break
@@ -61,10 +60,10 @@ const Content = ({ displayType }) => {
           <SnippetGallery />
           <PagiFooter margin={{ top: '40px', bottom: '60px' }}>
             <PagiOptionSelector
-              activeKey={displayType}
+              activeKey={galleryType}
               title="显示模式"
               items={tmpItems}
-              onChange={displayTypeOnChange}
+              onChange={galleryTypeOnChange}
             />
           </PagiFooter>
           <Footer />

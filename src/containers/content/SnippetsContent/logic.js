@@ -15,9 +15,9 @@ export const topFilterOnChange = () => {}
  * change the display type of current snippets
  * @param {string} displayType
  */
-export const displayTypeOnChange = ({ key: displayType }) => {
+export const galleryTypeOnChange = ({ key: galleryType }) => {
   // const { key: displayType } = item
-  store.mark({ displayType })
+  store.mark({ galleryType })
 }
 
 // ###############################

@@ -22,7 +22,7 @@ const log = buildLog('C:SnippetsContent')
 const SnippetsContentContainer = ({ snippetsContent }) => {
   useInit(snippetsContent)
 
-  const { displayType } = snippetsContent
+  const { galleryType } = snippetsContent
 
   return (
     <Wrapper testid="snippetsContent">
@@ -33,7 +33,7 @@ const SnippetsContentContainer = ({ snippetsContent }) => {
         // initActiveMenuId={initActiveMenuId}
         />
         <ContentWrapper>
-          <Content displayType={displayType} />
+          <Content galleryType={galleryType} />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

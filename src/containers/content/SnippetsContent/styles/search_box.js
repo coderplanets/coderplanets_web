@@ -8,17 +8,17 @@ export const Wrapper = styled.div`
   position: relative;
   ${cs.flex('align-center')}
   width: 85%;
+  margin-bottom: 18px;
 `
 export const SearchInput = styled(Input)`
   width: 100%;
   border-color: ${theme('editor.border')};
-  margin-bottom: 10px;
   padding-left: 8px;
   ::placeholder {
     color: #4a6d77;
   }
 
-  height: 25px;
+  height: 26px;
   font-size: 13px;
   color: ${theme('editor.title')};
   background: ${theme('editor.headerBg')};
@@ -38,7 +38,7 @@ export const SearchInput = styled(Input)`
 export const SearchIcon = styled(Img)`
   fill: #4a6d77;
   position: absolute;
-  right: 5px;
+  right: 6px;
   top: 7px;
   width: 12px;
   height: 12px;
