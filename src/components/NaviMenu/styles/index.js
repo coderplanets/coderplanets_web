@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   width: 140px;
   margin-right: 25px;
 `
-
 const activeColor = '#009C9E'
 
 export const Item = styled.div`
@@ -61,12 +60,4 @@ export const ActiveDot = styled.div`
   width: 5px;
   height: 5px;
   border-radius: 50%;
-`
-export const TotalNum = styled.span`
-  color: ${theme('thread.articleDigest')};
-  font-size: 11px;
-
-  ${Item}:hover & {
-    color: ${theme('thread.articleTitle')};
-  }
 `

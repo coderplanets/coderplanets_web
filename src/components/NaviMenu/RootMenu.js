@@ -11,13 +11,19 @@ import R from 'ramda'
 import { buildLog } from '@utils'
 import { SpaceGrow, Space } from '@components/Common'
 
-import { Item, MoreItem, FixedIcon, Icon, ActiveDot, TotalNum } from './styles'
+import PinNumber from './PinNumber'
+
+import { Item, MoreItem, FixedIcon, Icon, ActiveDot } from './styles'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:NaviMenu:index')
 
-const renderRightIcon = (item, activeParentMenuId) => {
-  if (item.total) return <TotalNum>{item.total}</TotalNum>
+const renderRightIcon = (item, activeParentMenuId, pinNumberHoverType) => {
+  if (item.pinNumber)
+    return (
+      <PinNumber num={item.pinNumber} pinNumberHoverType={pinNumberHoverType} />
+    )
+
   return (
     <React.Fragment>
       {item.icon ? (
@@ -39,9 +45,8 @@ const RootMenu = ({
   setInitDone,
   showMoreItem,
   onShowMore,
+  pinNumberHoverType,
 }) => {
-  // const [inited, setInited] = useState(false)
-
   useEffect(() => {
     if (!initDone && !R.isEmpty(initActiveMenuId)) {
       const index = R.findIndex(R.propEq('id', initActiveMenuId), menuItems)
@@ -65,7 +70,7 @@ const RootMenu = ({
           {item.fixedIcon && <FixedIcon src={item.fixedIcon} />}
           {item.title}
           <SpaceGrow />
-          {renderRightIcon(item, activeParentMenuId)}
+          {renderRightIcon(item, activeParentMenuId, pinNumberHoverType)}
         </Item>
       ))}
       {showMoreItem && (

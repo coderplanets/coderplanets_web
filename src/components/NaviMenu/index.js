@@ -37,6 +37,7 @@ const NaviMenu = ({
   initActiveMenuId,
   showMoreItem,
   onShowMore,
+  pinNumberHoverType,
 }) => {
   const [menuMode, setMenuMode] = useState('root')
   // select initial active menu item if need
@@ -92,6 +93,7 @@ const NaviMenu = ({
           setInitDone={setInitDone}
           showMoreItem={showMoreItem}
           onShowMore={onShowMore}
+          pinNumberHoverType={pinNumberHoverType}
         />
       ) : (
         <ChildrenMenu
@@ -120,6 +122,8 @@ NaviMenu.propTypes = {
       title: T.string,
       icon: T.string,
       displayType: T.string,
+      fixedIcon: T.oneOfType(T.string, T.node),
+      pinNumber: T.number,
       childMenu: T.arrayOf(
         T.shape({
           id: T.string,
@@ -137,6 +141,7 @@ NaviMenu.propTypes = {
       ),
     })
   ),
+  pinNumberHoverType: T.oneOf(['pin', 'unpin']),
   showMoreItem: T.bool,
   onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
@@ -149,6 +154,7 @@ NaviMenu.defaultProps = {
   initActiveMenuId: '',
   showMoreItem: false,
   onShowMore: null,
+  pinNumberHoverType: 'pin',
 }
 
 export default React.memo(NaviMenu)

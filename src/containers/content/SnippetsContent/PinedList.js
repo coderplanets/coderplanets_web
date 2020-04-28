@@ -12,20 +12,20 @@ const menu = [
     id: uid.gen(),
     fixedIcon: `${ICON_BASE}/pl/javascript.png`,
     title: 'Java',
-    total: Math.floor(Math.random() * 100) + 1,
+    pinNumber: Math.floor(Math.random() * 100) + 1,
   },
   {
     // 非 IT，设计类的网站
     id: uid.gen(),
     fixedIcon: `${ICON_BASE}/pl/ruby.png`,
     title: 'Ruby',
-    total: Math.floor(Math.random() * 100) + 1,
+    pinNumber: Math.floor(Math.random() * 100) + 1,
   },
   {
     id: uid.gen(),
     fixedIcon: `${ICON_BASE}/pl/clojure.png`,
     title: 'Clojure',
-    total: Math.floor(Math.random() * 100) + 1,
+    pinNumber: Math.floor(Math.random() * 100) + 1,
   },
 ]
 
@@ -37,6 +37,7 @@ const PinedList = () => {
         // onSelect={(id, type) => menuOnSelect(id, type)}
         // initActiveMenuId={initActiveMenuId}
         withDivider={false}
+        pinNumberHoverType="unpin"
       />
     </Wrapper>
   )
