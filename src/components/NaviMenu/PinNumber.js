@@ -18,6 +18,7 @@ const PinNumber = ({ num, pinNumberHoverType }) => {
             content={<TooltipPopContent>置顶显示</TooltipPopContent>}
             placement="right"
             delay={1000}
+            showArrow={false}
             noDefaultPadding
           >
             <PinIcon src={`${ICON_CMD}/navi/pin.svg`} />
@@ -27,6 +28,7 @@ const PinNumber = ({ num, pinNumberHoverType }) => {
             content={<TooltipPopContent>取消置顶</TooltipPopContent>}
             placement="right"
             delay={1000}
+            showArrow={false}
             noDefaultPadding
           >
             <PinIcon src={`${ICON_CMD}/navi/unpin.svg`} />

@@ -30,12 +30,13 @@ const Tooltip = ({
   placement,
   content,
   hideOnClick,
+  showArrow,
   ...restProps
 }) => {
   const [instance, setInstance] = useState(null)
   const [active, setActive] = useState(false)
 
-  const ContentComp = (
+  const ContentComp = showArrow ? (
     <ContentWrapper>
       {active && placement === 'bottom' && <TopArrow />}
       {active && placement === 'top' && <BottomArrow />}
@@ -43,6 +44,8 @@ const Tooltip = ({
 
       {children}
     </ContentWrapper>
+  ) : (
+    <ContentWrapper>{children}</ContentWrapper>
   )
 
   const ref = useRef()
@@ -135,6 +138,7 @@ Tooltip.propTypes = {
   onShow: T.oneOfType([T.func, T.instanceOf(null)]),
   onHide: T.oneOfType([T.func, T.instanceOf(null)]),
   noDefaultPadding: T.bool,
+  showArrow: T.bool,
 }
 
 Tooltip.defaultProps = {
@@ -150,6 +154,7 @@ Tooltip.defaultProps = {
   onHide: null,
   noDefaultPadding: false,
   maxWidth: 'none',
+  showArrow: true,
 }
 
 export default React.memo(Tooltip)
