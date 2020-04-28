@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+import { SNIPPET } from '@constant'
 
 import { OrButton } from '@components/Buttons'
 import NaviMenu from '@components/NaviMenu'
@@ -20,9 +21,10 @@ import {
   ClockIcon,
   OrWrapper,
 } from './styles/filter_bar'
-import { topFilterOnChange } from './logic'
 
-const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
+import { topFilterOnChange, mainViewOnChange } from './logic'
+
+const FilterBar = ({ mainView, topFilter, menuOnSelect, initActiveMenuId }) => {
   return (
     <Wrapper>
       <TopFilter>
@@ -56,18 +58,18 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         <OrButton
           size="small"
           type="primary"
-          activeKey="snippets"
+          activeKey={mainView}
           group={[
             {
-              key: 'snippets',
+              key: SNIPPET.SNIPPETS_VIEW,
               title: '片段',
             },
             {
-              key: 'cheatsheet',
+              key: SNIPPET.CHEATSHEETS_VIEW,
               title: '速查表',
             },
           ]}
-          onClick={console.log}
+          onClick={mainViewOnChange}
         />
       </OrWrapper>
       <SearchBox />

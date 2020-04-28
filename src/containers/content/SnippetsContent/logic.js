@@ -10,6 +10,13 @@ let store = null
 const log = buildLog('L:SnippetsContent')
 
 export const topFilterOnChange = () => {}
+/**
+ * change main view (snippets or cheatsheet)
+ * @param {string} mainView
+ */
+export const mainViewOnChange = mainView => {
+  store.mark({ mainView })
+}
 
 /**
  * change the display type of current snippets

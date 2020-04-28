@@ -14,11 +14,11 @@ import { PagiOptionSelector } from '@components/Selectors'
 
 import { SnippetGallery, ImageGallery } from '@components/GalleryHub'
 
-import menuData from './tempData'
-import Footer from './Footer'
+import menuData from '../tempData'
+import Footer from '../Footer'
 
-import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
-import { galleryTypeOnChange } from './logic'
+import { Wrapper, InnerWrapper, NormalListWrapper } from '../styles/cheatsheets'
+import { galleryTypeOnChange } from '../logic'
 
 // tmp
 const tmpItems = [
@@ -39,7 +39,7 @@ const tmpItems = [
   },
 ]
 
-const Content = ({ galleryType }) => {
+const Cheatsheets = ({ galleryType }) => {
   let DisplayContent
 
   // TODO:  move this logic to NaviMenu itself
@@ -76,9 +76,10 @@ const Content = ({ galleryType }) => {
 
   return (
     <Wrapper>
+      <h2>Cheatsheets</h2>
       <InnerWrapper>{DisplayContent}</InnerWrapper>
     </Wrapper>
   )
 }
 
-export default React.memo(Content)
+export default React.memo(Cheatsheets)

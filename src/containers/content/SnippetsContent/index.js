@@ -9,8 +9,10 @@
 import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
+import { SNIPPET } from '@constant'
 
-import Content from './Content'
+import Snippets from './Snippets'
+import Cheatsheets from './Cheatsheets'
 import FilterBar from './FilterBar'
 
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
@@ -22,18 +24,23 @@ const log = buildLog('C:SnippetsContent')
 const SnippetsContentContainer = ({ snippetsContent }) => {
   useInit(snippetsContent)
 
-  const { galleryType } = snippetsContent
+  const { galleryType, mainView } = snippetsContent
 
   return (
     <Wrapper testid="snippetsContent">
       <InnerWrapper>
         <FilterBar
-        // topFilter={topFilter}
-        // menuOnSelect={menuOnSelect}
-        // initActiveMenuId={initActiveMenuId}
+          mainView={mainView}
+          // topFilter={topFilter}
+          // menuOnSelect={menuOnSelect}
+          // initActiveMenuId={initActiveMenuId}
         />
         <ContentWrapper>
-          <Content galleryType={galleryType} />
+          {mainView === SNIPPET.SNIPPETS_VIEW ? (
+            <Snippets galleryType={galleryType} />
+          ) : (
+            <Cheatsheets galleryType={galleryType} />
+          )}
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>
