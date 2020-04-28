@@ -11,7 +11,7 @@ import { GALLERY } from '@constant'
 import { buildLog } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
-import { PagiOptionSelector } from '@components/Selectors'
+import { PagiOptionSwitcher } from '@components/Switcher'
 
 import MainColumnGallery from './MainColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'
@@ -125,7 +125,7 @@ const ImageGallery = ({ items, galleryType }) => {
     <Wrapper>
       {GalleryContent}
       <PagiFooter margin={{ top: '60px', bottom: '80px' }}>
-        <PagiOptionSelector
+        <PagiOptionSwitcher
           activeKey={activeGalleryType}
           title="显示模式"
           items={GALLERY_TYPES}

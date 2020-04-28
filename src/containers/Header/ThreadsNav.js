@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Trans } from '@utils'
 
-import { Tabs } from '@components/Selectors'
+import { Tabs } from '@components/Switcher'
 import DotDivider from '@components/DotDivider'
 
 import {

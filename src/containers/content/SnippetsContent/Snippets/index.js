@@ -10,7 +10,7 @@ import { GALLERY } from '@constant'
 import { nilOrEmpty } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
-import { PagiOptionSelector } from '@components/Selectors'
+import { PagiOptionSwitcher } from '@components/Switcher'
 
 import { SnippetGallery, ImageGallery } from '@components/GalleryHub'
 
@@ -59,7 +59,7 @@ const Content = ({ galleryType }) => {
         <NormalListWrapper>
           <SnippetGallery />
           <PagiFooter margin={{ top: '40px', bottom: '60px' }}>
-            <PagiOptionSelector
+            <PagiOptionSwitcher
               activeKey={galleryType}
               title="显示模式"
               items={tmpItems}

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { sortByIndex } from '@utils'
 
-import { Tabs } from '@components/Selectors'
+import { Tabs } from '@components/Switcher'
 import { Wrapper } from './styles/brief_view'
 // import TabIcon from './TabIcon'
 
