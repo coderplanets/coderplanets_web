@@ -42,12 +42,6 @@ const tmpItems = [
 const Cheatsheets = ({ galleryType }) => {
   let DisplayContent
 
-  // TODO:  move this logic to NaviMenu itself
-  for (let index = 0; index < menuData.length; index += 1) {
-    const element = menuData[index]
-    if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
-  }
-
   switch (galleryType) {
     case 'todo': {
       DisplayContent = <ImageGallery />

@@ -24,7 +24,7 @@ import {
 
 import { topFilterOnChange, mainViewOnChange } from './logic'
 
-const FilterBar = ({ mainView, topFilter, menuOnSelect, initActiveMenuId }) => {
+const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
   return (
     <Wrapper>
       <TopFilter>
@@ -77,7 +77,7 @@ const FilterBar = ({ mainView, topFilter, menuOnSelect, initActiveMenuId }) => {
       <Divider />
       <NaviMenu
         items={tmpMenu}
-        onSelect={(id, type) => menuOnSelect(id, type)}
+        onSelect={(id, type) => console.log(id, type)}
         initActiveMenuId={initActiveMenuId}
         withDivider={false}
         showMoreItem

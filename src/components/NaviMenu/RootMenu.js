@@ -95,11 +95,12 @@ RootMenu.propTypes = {
   initDone: T.bool.isRequired,
   setInitDone: T.func.isRequired,
   showMoreItem: T.bool.isRequired,
-  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]).isRequired,
+  onShowMore: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
 RootMenu.defaultProps = {
   initActiveMenuId: '',
+  onShowMore: null,
 }
 
 export default React.memo(RootMenu)

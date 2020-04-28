@@ -82,7 +82,7 @@ const NaviMenu = ({
 
   return (
     <Wrapper>
-      {menuMode === 'root' || R.isEmpty(childMenuItems) ? (
+      {menuMode === 'root' || nilOrEmpty(childMenuItems) ? (
         <RootMenu
           menuItems={items}
           onSelect={handleRootSelect}

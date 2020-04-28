@@ -27,11 +27,6 @@ import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'
 const Content = ({ displayType }) => {
   let DisplayContent
 
-  for (let index = 0; index < menuData.length; index += 1) {
-    const element = menuData[index]
-    if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
-  }
-
   switch (displayType) {
     case GUIDE.PREVIEW: {
       DisplayContent = (

@@ -7,14 +7,12 @@
 import React from 'react'
 
 import { GALLERY } from '@constant'
-import { nilOrEmpty } from '@utils'
 
 import PagiFooter from '@components/PagiFooter'
 import { PagiOptionSwitcher } from '@components/Switcher'
 
 import { SnippetGallery, ImageGallery } from '@components/GalleryHub'
 
-import menuData from '../tempData'
 import Footer from '../Footer'
 
 import { Wrapper, InnerWrapper, NormalListWrapper } from '../styles/snippets'
@@ -41,12 +39,6 @@ const tmpItems = [
 
 const Content = ({ galleryType }) => {
   let DisplayContent
-
-  // TODO:  move this logic to NaviMenu itself
-  for (let index = 0; index < menuData.length; index += 1) {
-    const element = menuData[index]
-    if (nilOrEmpty(element.childMenu)) menuData[index].childMenu = []
-  }
 
   switch (galleryType) {
     case 'todo': {
