@@ -335,9 +335,9 @@ export default class StickyBox extends React.Component {
   }
 
   render() {
-    const { children, className, style } = this.props
+    const { children, className } = this.props
     return (
-      <div className={className} style={style} ref={this.registerContainerRef}>
+      <div className={className} ref={this.registerContainerRef}>
         {children}
       </div>
     )
@@ -345,10 +345,12 @@ export default class StickyBox extends React.Component {
 }
 
 StickyBox.propTypes = {
+  children: T.node.isRequired,
   onChangeMode: T.func,
   offsetTop: T.number,
   offsetBottom: T.number,
   bottom: T.bool,
+  className: T.string,
 }
 
 StickyBox.defaultProps = {
@@ -356,4 +358,5 @@ StickyBox.defaultProps = {
   offsetTop: 0,
   offsetBottom: 0,
   bottom: 0,
+  className: '',
 }
