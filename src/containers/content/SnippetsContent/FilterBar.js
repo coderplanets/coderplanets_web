@@ -1,4 +1,5 @@
 import React from 'react'
+import StickyBox from 'react-sticky-box'
 
 import { ICON_CMD } from '@config'
 import { SNIPPET } from '@constant'
@@ -72,17 +73,20 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           onClick={mainViewOnChange}
         />
       </OrWrapper>
-      <SearchBox />
-      <PinedList />
-      <Divider />
-      <NaviMenu
-        items={tmpMenu}
-        onSelect={(id, type) => console.log(id, type)}
-        initActiveMenuId={initActiveMenuId}
-        withDivider={false}
-        showMoreItem
-        onShowMore={() => console.log('show more')}
-      />
+
+      <StickyBox offsetTop={20}>
+        <SearchBox />
+        <PinedList />
+        <Divider />
+        <NaviMenu
+          items={tmpMenu}
+          onSelect={(id, type) => console.log(id, type)}
+          initActiveMenuId={initActiveMenuId}
+          withDivider={false}
+          showMoreItem
+          onShowMore={() => console.log('show more')}
+        />
+      </StickyBox>
     </Wrapper>
   )
 }
