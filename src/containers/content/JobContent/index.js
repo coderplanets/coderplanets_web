@@ -5,16 +5,16 @@
  */
 
 import React from 'react'
-import { Affix } from 'antd'
 
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'
+
+import Sticky from '@components/Sticky'
 import MarkDownRender from '@components/MarkDownRender'
 import Maybe from '@components/Maybe'
-
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
 import ContentSourceCard from '@components/ContentSourceCard'
 
@@ -74,9 +74,9 @@ const JobContentContainer = ({ jobContent }) => {
           </MainWrapper>
 
           <SidebarWrapper>
-            <Affix offsetTop={30}>
+            <Sticky offsetTop={30}>
               <SideCards data={viewingData} />
-            </Affix>
+            </Sticky>
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

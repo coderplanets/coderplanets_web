@@ -5,14 +5,14 @@
  */
 
 import React from 'react'
-import { Affix } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
 
 import Comments from '@containers/Comments'
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
-import ContentSourceCard from '@components/ContentSourceCard'
 
+import Sticky from '@components/Sticky'
+import ContentSourceCard from '@components/ContentSourceCard'
 import Maybe from '@components/Maybe'
 import MarkDownRender from '@components/MarkDownRender'
 
@@ -61,9 +61,9 @@ const RepoContentContainer = ({ repoContent }) => {
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <Affix offsetTop={30}>
+            <Sticky offsetTop={30}>
               <SideCards data={viewingData} />
-            </Affix>
+            </Sticky>
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

@@ -6,13 +6,14 @@
 
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
-import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+
+import Sticky from '@components/Sticky'
 import { PublishButton } from '@components/Buttons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
@@ -99,13 +100,13 @@ const JobsThreadContainer = ({ jobsThread }) => {
           />
         </PublisherWrapper>
 
-        <Affix offsetTop={50}>
+        <Sticky offsetTop={50}>
           <TagsBar
             thread={THREAD.JOB}
             active={activeTagData}
             onSelect={onTagSelect}
           />
-        </Affix>
+        </Sticky>
       </RightPart>
     </Wrapper>
   )

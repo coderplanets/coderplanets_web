@@ -6,13 +6,14 @@
 
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
-import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+
+import Sticky from '@components/Sticky'
 import { PublishButton } from '@components/Buttons'
 import PagedContents from '@components/PagedContents'
 import ContentFilter from '@components/ContentFilter'
@@ -94,13 +95,13 @@ const ReposThreadContainer = ({ reposThread }) => {
           />
         </PublisherWrapper>
 
-        <Affix offsetTop={50}>
+        <Sticky offsetTop={50}>
           <TagsBar
             thread={THREAD.REPO}
             active={activeTagData}
             onSelect={onTagSelect}
           />
-        </Affix>
+        </Sticky>
       </RightPart>
     </Wrapper>
   )

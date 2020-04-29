@@ -5,13 +5,14 @@
  */
 
 import React from 'react'
-import { Affix } from 'antd'
 
 import { ICON_CMD } from '@config'
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+
+import Sticky from '@components/Sticky'
 import { PublishButton } from '@components/Buttons'
 import Maybe from '@components/Maybe'
 import PagedContents from '@components/PagedContents'
@@ -91,13 +92,13 @@ const VideosThreadContainer = ({ videosThread }) => {
             />
           </PublisherWrapper>
 
-          <Affix offsetTop={50}>
+          <Sticky offsetTop={50}>
             <TagsBar
               thread={THREAD.VIDEO}
               active={activeTagData}
               onSelect={onTagSelect}
             />
-          </Affix>
+          </Sticky>
         </React.Fragment>
       </RightPart>
     </Wrapper>

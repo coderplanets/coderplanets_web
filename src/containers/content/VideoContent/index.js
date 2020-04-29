@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import { Affix } from 'antd'
 
 import { THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
@@ -14,9 +13,12 @@ import ArticleBodyHeader from '@containers/ArticleBodyHeader'
 import Comments from '@containers/Comments'
 import ArticleAuthorCard from '@containers/ArticleAuthorCard'
 import ContentSourceCard from '@components/ContentSourceCard'
+
+import Sticky from '@components/Sticky'
 import Maybe from '@components/Maybe'
 import VideoPoster from '@components/VideoPoster'
 import VideoInfoCard from '@components/VideoInfoCard'
+
 import SideCards from './SideCards'
 
 import {
@@ -76,9 +78,9 @@ const VideoContentContainer = ({ videoContent }) => {
             </CommentsWrapper>
           </MainWrapper>
           <SidebarWrapper>
-            <Affix offsetTop={30}>
+            <Sticky offsetTop={30}>
               <SideCards data={viewingData} />
-            </Affix>
+            </Sticky>
           </SidebarWrapper>
         </InnerWrapper>
       </Maybe>

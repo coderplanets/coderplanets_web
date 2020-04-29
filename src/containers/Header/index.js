@@ -7,11 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { Affix } from 'antd'
-
 import { TYPE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
+import Sticky from '@components/Sticky'
 import Header from './Header'
 import { useInit } from './logic'
 
@@ -49,9 +48,9 @@ const HeaderContainer = ({ header, metric }) => {
   return (
     <div id={TYPE.APP_HEADER_ID}>
       {fixed && (
-        <Affix onChange={log}>
+        <Sticky onChange={log}>
           <Header {...props} />
-        </Affix>
+        </Sticky>
       )}
       {!fixed && <Header {...props} />}
     </div>

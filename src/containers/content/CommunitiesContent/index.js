@@ -6,10 +6,10 @@
 
 import React from 'react'
 import R from 'ramda'
-import { Affix } from 'antd'
 
 import { connectStore, buildLog } from '@utils'
 
+import Sticky from '@components/Sticky'
 import FiltersMenu from '@components/FiltersMenu'
 import PagiFooter from '@components/PagiFooter'
 
@@ -48,7 +48,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
       <ContentWrapper center={isSearchMode}>
         <InnerWrapper>
           <FiltersWrapper show={showFilterSidebar}>
-            <Affix offsetTop={60}>
+            <Sticky offsetTop={60}>
               <FiltersMenu
                 items={pagedCategoriesData}
                 onItemClick={menuOnChange}
@@ -56,7 +56,7 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                 itemBgHighlight={false}
                 noFilter
               />
-            </Affix>
+            </Sticky>
           </FiltersWrapper>
           <ContentsWrapper center={isSearchMode}>
             {!R.isEmpty(pagedCommunitiesData.entries) ? (

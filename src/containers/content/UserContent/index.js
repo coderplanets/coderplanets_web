@@ -5,7 +5,6 @@
  */
 
 import React from 'react'
-import { Affix } from 'antd'
 
 import { USER_THREAD } from '@constant'
 import { connectStore, buildLog } from '@utils'
@@ -17,7 +16,9 @@ import UserSettings from '@containers/user/UserSettings'
 import UserStared from '@containers/user/UserStared'
 import UserFavorited from '@containers/user/UserFavorited'
 
+import Sticky from '@components/Sticky'
 import Tabber from '@components/Tabber'
+
 import DigestBoard from './DigestBoard'
 
 import {
@@ -119,13 +120,13 @@ const UserContentContainer = ({ userContent }) => {
         </MobileBottom>
       </MainWrapper>
       <SidebarWrapper>
-        <Affix offsetTop={30}>
+        <Sticky offsetTop={30}>
           <DigestBoard
             user={viewingUser}
             accountId={accountInfo.id}
             following={following}
           />
-        </Affix>
+        </Sticky>
       </SidebarWrapper>
     </Container>
   )

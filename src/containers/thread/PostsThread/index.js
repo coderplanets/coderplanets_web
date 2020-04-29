@@ -7,12 +7,13 @@
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
 import R from 'ramda'
-import { Affix } from 'antd'
 
 import { THREAD, ROUTE } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
 import TagsBar from '@containers/TagsBar'
+
+import Sticky from '@components/Sticky'
 import { PublishButton } from '@components/Buttons'
 import Maybe from '@components/Maybe'
 import FaqPeekList from '@components/FaqPeekList'
@@ -148,7 +149,7 @@ const PostsThreadContainer = ({ postsThread }) => {
                 />
               </PublisherWrapper>
 
-              <Affix offsetTop={100}>
+              <Sticky offsetTop={100}>
                 <TagsBar
                   thread={THREAD.POST}
                   topic={topic}
@@ -156,7 +157,7 @@ const PostsThreadContainer = ({ postsThread }) => {
                   active={activeTagData}
                 />
                 <StrategicPartners onClose={onAdsClose} />
-              </Affix>
+              </Sticky>
             </React.Fragment>
           </RightPart>
         </React.Fragment>
