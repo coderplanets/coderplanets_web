@@ -96,6 +96,7 @@
     "remarkable": "2.0.0",
     "remarkable-emoji": "^0.1.3",
     "remarkable-mentions": "^0.1.0",
+    "resize-observer-polyfill": "^1.5.1",
     "response-time": "^2.3.2",
     "rxjs": "6.2.2",
     "scroll-into-view-if-needed": "1.5.0",
