@@ -2,8 +2,6 @@ import React from 'react'
 import App from 'next/app'
 import { DefaultSeo } from 'next-seo'
 
-import { sentry } from '@services'
-
 /**
  * import default seo configuration
  * Using a custom _app.js with next-seo you can set default SEO
@@ -11,6 +9,8 @@ import { sentry } from '@services'
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
 import SEO from '@config/next_seo'
+import { sentry } from '@services'
+import CrashErrorHint from '@components/CrashErrorHint'
 
 const { Sentry, captureException } = sentry({
   release: process.env.SENTRY_RELEASE,
@@ -78,27 +78,11 @@ export default class AppPage extends App {
 
     /* eslint-disable */
     return hasError ? (
-      <section>
-        <h1>There was an error!</h1>
-        <p>
-          <a
-            href="#"
-            onClick={() => Sentry.showReportDialog({ eventId: errorEventId })}
-          >
-            📣 Report this error
-          </a>
-        </p>
-        <p>
-          <a
-            href="#"
-            onClick={() => {
-              window.location.reload(true)
-            }}
-          >
-            Or, try reloading the page
-          </a>
-        </p>
-      </section>
+      <CrashErrorHint
+        onReport={() => {
+          Sentry.showReportDialog({ eventId: errorEventId })
+        }}
+      />
     ) : (
       /* render normal next.js app */
       <React.Fragment>
