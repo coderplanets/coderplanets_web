@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
 
 import { theme, cs } from '@utils'
+import Input from '@components/Input'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};
@@ -19,9 +18,6 @@ export const TitleInput = styled(Input)`
   border-color: ${theme('editor.border')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('editor.borderNormal')};
-  ::placeholder {
-    color: ${theme('editor.placeholder')};
-  }
 
   text-align: center;
   height: 45px;

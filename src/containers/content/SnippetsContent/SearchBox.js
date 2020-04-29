@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+
 import { Wrapper, SearchInput, SearchIcon } from './styles/search_box'
 
 const SearchBox = () => {

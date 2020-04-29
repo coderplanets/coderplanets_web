@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
+
+import { theme, cs } from '@utils'
+import Input from '@components/Input'
 
 // import Img from '@Img'
-import { theme, cs } from '@utils'
-
-const { TextArea } = Input
 
 export const Inputer = styled(Input)`
   border-left: ${({ error }) =>
@@ -17,7 +15,8 @@ export const Inputer = styled(Input)`
   border-right-color: ${({ error }) =>
     error === 'true' ? theme('baseColor.error') : ''};
 `
-export const TextAreaer = styled(TextArea)`
+// TODO:  ANTD-CHECK
+export const TextAreaer = styled.textarea`
   border-left: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-right: ${({ error }) =>

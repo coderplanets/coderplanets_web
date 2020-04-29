@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
 
+import Input from '@components/Input'
 import { theme, cs } from '@utils'
 
 export const ViewerWrapper = styled.div`
@@ -17,7 +16,6 @@ export const Header = styled.div`
   padding-top: 15px;
   margin-bottom: 10px;
 `
-
 export const SourceLink = styled.div`
   ${cs.flex('justify-center')};
   width: 60%;
@@ -34,11 +32,6 @@ export const LinkInput = styled(Input)`
   padding-left: 2px;
   color: ${theme('editor.title')};
 
-  ::placeholder {
-    color: ${theme('editor.placeholder')};
-  }
-
-  text-align: left;
   &:hover {
     border-color: ${theme('editor.headerBg')};
     border-bottom: 1px solid;

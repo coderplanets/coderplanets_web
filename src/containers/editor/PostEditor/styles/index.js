@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
 
+import Input from '@components/Input'
 import { theme, cs } from '@utils'
 
 export const ViewerWrapper = styled.div`
@@ -34,24 +33,18 @@ export const LinkInput = styled(Input)`
   padding-left: 2px;
   color: ${theme('editor.title')};
 
-  ::placeholder {
-    color: ${theme('editor.placeholder')};
-  }
-
-  text-align: left;
   &:hover {
+    color: ${theme('editor.title')};
     border-color: ${theme('editor.headerBg')};
     border-bottom: 1px solid;
     border-bottom-color: ${theme('editor.border')};
-    color: ${theme('editor.title')};
   }
   &:focus {
+    color: ${theme('editor.title')};
     border-color: ${theme('editor.headerBg')};
     box-shadow: none;
     border-bottom: 1px solid;
     border-bottom-color: ${theme('editor.placeholder')};
-    color: ${theme('editor.title')};
-    text-align: left;
   }
 `
 export const LinkLabel = styled.div`

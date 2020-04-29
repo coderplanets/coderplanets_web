@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
+import Input from '@components/Input'
 
 import { theme, cs } from '@utils'
 
@@ -19,9 +18,6 @@ export const TitleInput = styled(Input)`
   border-color: ${theme('editor.border')};
   border-bottom: 1px solid;
   border-bottom-color: ${theme('editor.borderNormal')};
-  ::placeholder {
-    color: ${theme('editor.placeholder')};
-  }
 
   text-align: center;
   height: 45px;
@@ -31,12 +27,10 @@ export const TitleInput = styled(Input)`
   align-self: center;
   width: 85%;
   &:hover {
-    border-color: ${theme('editor.border')};
     border-bottom: 1px solid;
     border-bottom-color: ${theme('editor.borderActive')};
   }
   &:focus {
-    border-color: ${theme('editor.border')};
     box-shadow: none;
     border-bottom: 1px solid;
     border-bottom-color: ${theme('editor.borderActive')};

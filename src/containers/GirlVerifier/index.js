@@ -5,8 +5,9 @@
  */
 
 import React from 'react'
-import { Button, Input } from 'antd'
-import 'antd/lib/input/style/index.css'
+
+import Input from '@components/Input'
+import { Button } from '@components/Buttons'
 
 import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
@@ -20,8 +21,6 @@ import { useInit, toggleModal, onMessageChange, onConfirm } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:GirlVerifier')
-
-const { TextArea } = Input
 
 const GirlVerifierContainer = ({ girlVerifier }) => {
   useInit(girlVerifier)
@@ -40,11 +39,11 @@ const GirlVerifierContainer = ({ girlVerifier }) => {
         </Wrapper>
 
         <FormWrapper className="normal-form">
-          <TextArea
+          <Input
             value={message}
             onChange={onMessageChange}
             placeholder="比如但不限于: 微博 / 知乎 / QQ / Instagram / Facebook / Twitter ... 等等"
-            autosize={{ minRows: 4, maxRows: 5 }}
+            behavior="textarea"
           />
           <Footer>
             <Button type="primary" onClick={toggleModal} ghost>

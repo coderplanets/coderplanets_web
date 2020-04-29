@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Input, Button } from 'antd'
-import 'antd/lib/input/style/index.css'
+import Input from '@components/Input'
+import { Button } from '@components/Buttons'
 
 import { Space } from '@components/Common'
 import SectionLabel from '@components/SectionLabel'
@@ -10,8 +10,6 @@ import { ICON_CMD } from '@config'
 import { Wrapper, Footer, Back, Submit } from './styles/form'
 
 import { backToOverview, onMessageChange, onConfirm } from './logic'
-
-const { TextArea } = Input
 
 const CurLabel = ({ type }) => {
   switch (type) {
@@ -41,11 +39,11 @@ const CurLabel = ({ type }) => {
 const Form = ({ message, type }) => (
   <Wrapper className="normal-form">
     <CurLabel type={type} />
-    <TextArea
+    <Input
       value={message}
       onChange={onMessageChange}
       placeholder="详细信息"
-      autosize={{ minRows: 4, maxRows: 5 }}
+      behavior="textarea"
     />
     <Footer>
       <Button type="primary" onClick={backToOverview} ghost>

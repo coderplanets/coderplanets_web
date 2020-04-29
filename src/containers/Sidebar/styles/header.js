@@ -1,7 +1,8 @@
 import styled from 'styled-components'
-import { Input } from 'antd'
 
+import Input from '@components/Input'
 import Img from '@Img'
+
 import { theme, cs } from '@utils'
 import { Wrapper as IndexWrapper } from './index'
 

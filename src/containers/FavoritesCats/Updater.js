@@ -1,14 +1,18 @@
 import React from 'react'
-import { Button, Input, Radio } from 'antd'
-import 'antd/lib/input/style/index.css'
+
+import { ICON_CMD } from '@config'
+import { buildLog } from '@utils'
+
+import { Radio } from 'antd'
 import 'antd/lib/radio/style/index.css'
+
+import Input from '@components/Input'
+import { Button } from '@components/Buttons'
 
 import Popconfirm from '@components/Popconfirm'
 import { Space } from '@components/Common'
 import SectionLabel from '@components/SectionLabel'
-import { ICON_CMD } from '@config'
 
-import { buildLog } from '@utils'
 import {
   Wrapper,
   EditWrapper,
@@ -24,7 +28,6 @@ import { categoryOnChange, onCategoryUpdate, onCategoryDelete } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:Favorites:Updater')
 
-const { TextArea } = Input
 const RadioGroup = Radio.Group
 
 const Updater = ({ data, show, hasLockAuth }) => (
@@ -48,11 +51,11 @@ const Updater = ({ data, show, hasLockAuth }) => (
       <FormItemWrapper>
         <FormLable>描述</FormLable>
         <FormInput>
-          <TextArea
+          <Input
             value={data.desc}
             onChange={categoryOnChange('desc')}
             placeholder="收藏什么的？"
-            autosize={{ minRows: 2, maxRows: 3 }}
+            behavior="textarea"
           />
         </FormInput>
       </FormItemWrapper>

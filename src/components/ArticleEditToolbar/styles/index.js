@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
+import Input from '@components/Input'
 
 // import Img from '@Img'
 import { cs, theme } from '@utils'
@@ -22,8 +21,6 @@ export const SourceLink = styled.div`
   width: 60%;
 `
 export const LinkInput = styled(Input)`
-  border: 1px solid;
-  border-color: ${theme('editor.border')};
   height: 20px;
   line-height: 20px;
   width: 50%;
