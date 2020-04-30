@@ -1,7 +1,39 @@
 import styled from 'styled-components'
-// import Img from '@Img'
-import { theme } from '@utils'
 
+import Img from '@Img'
+import { cs, theme } from '@utils'
+
+export const Wrapper = styled.div`
+  position: relative;
+`
+const AddOn = styled.div`
+  position: absolute;
+  top: 0;
+  ${cs.flex('align-both')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  width: 30px;
+  height: 32px;
+  z-index: 1;
+`
+export const PrefixWrapper = styled(AddOn)`
+  left: 0;
+`
+export const SuffixWrapper = styled(AddOn)`
+  right: 0;
+`
+export const Icon = styled(Img)`
+  fill: ${({ active }) =>
+    active ? theme('button.primary') : theme('thread.articleDigest')};
+  width: 14px;
+  height: 14px;
+  display: block;
+  opacity: 0.8;
+
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
+  transition: opacity 0.25s;
+`
 const baseInput = `
   outline: none;
   color: #2a867f;
@@ -26,6 +58,8 @@ const baseInput = `
 `
 export const InputWrapper = styled.input`
   ${baseInput};
+  padding-left: ${({ prefix }) => (prefix ? '26px' : '8px')};
+  padding-right: ${({ suffix }) => (suffix ? '26px' : '8px')};
   background-color: #0e3444;
   border-color: ${theme('editor.border')};
   ::placeholder {

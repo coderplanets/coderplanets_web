@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 import Input from '@components/Input'
-
-import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
@@ -20,13 +18,4 @@ export const SearchInput = styled(Input)`
     color: ${theme('form.text')};
     opacity: 0.6;
   }
-`
-export const SearchIcon = styled(Img)`
-  fill: #4a6d77;
-  position: absolute;
-  right: 6px;
-  top: 9px;
-  width: 12px;
-  height: 12px;
-  display: block;
 `

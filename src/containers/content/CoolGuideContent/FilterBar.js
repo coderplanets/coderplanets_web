@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { ICON_CMD } from '@config'
+
+import Sticky from '@components/Sticky'
 import NaviMenu from '@components/NaviMenu'
 
 import {
@@ -45,12 +47,16 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
         </Option>
       </TopFilter>
       <Divider />
-      <Title>分类</Title>
-      <NaviMenu
-        onSelect={(id, type) => menuOnSelect(id, type)}
-        initActiveMenuId={initActiveMenuId}
-        withDivider={false}
-      />
+      <Sticky offsetTop={30}>
+        <React.Fragment>
+          <Title>分类</Title>
+          <NaviMenu
+            onSelect={(id, type) => menuOnSelect(id, type)}
+            initActiveMenuId={initActiveMenuId}
+            withDivider={false}
+          />
+        </React.Fragment>
+      </Sticky>
     </Wrapper>
   )
 }

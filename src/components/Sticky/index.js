@@ -357,6 +357,6 @@ StickyBox.defaultProps = {
   onChangeMode: () => {},
   offsetTop: 0,
   offsetBottom: 0,
-  bottom: 0,
+  bottom: false,
   className: '',
 }

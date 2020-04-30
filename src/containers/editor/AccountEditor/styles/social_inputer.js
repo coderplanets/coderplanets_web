@@ -39,20 +39,6 @@ export const SocialIcon = styled(Img)`
   transition: fill 0.3s;
   opacity: ${({ active }) => (active ? 1 : 0.8)};
 `
-
-export const AddOnIcon = styled(Img)`
-  fill: ${({ active }) =>
-    active ? theme('banner.title') : theme('banner.desc')};
-  margin-top: 3px;
-  width: 16px;
-  height: 16px;
-  opacity: ${({ active }) => (active ? 1 : 0.9)};
-`
-export const AddonAddr = styled.div`
-  font-size: 0.7rem;
-  color: ${theme('banner.desc')};
-`
-
 export const TogglerWrapper = styled.div`
   display: ${({ show }) => (show ? 'flex' : 'none')};
 `

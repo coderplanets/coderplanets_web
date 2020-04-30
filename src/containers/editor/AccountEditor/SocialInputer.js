@@ -1,9 +1,9 @@
 import React from 'react'
-import { Input } from 'antd'
-import 'antd/lib/input/style/index.css'
 
 import { ICON_CMD } from '@config'
 import { buildLog, nilOrEmpty, SOCIAL_LISTS } from '@utils'
+
+import Input from '@components/Input'
 
 import {
   Wrapper,
@@ -13,8 +13,6 @@ import {
   FormItemWrapper,
   FormLable,
   FormInput,
-  AddonAddr,
-  AddOnIcon,
   UpIcon,
   DownIcon,
   TogglerLabelWrapper,
@@ -29,21 +27,15 @@ import { toggleSocials, socialOnChange } from './logic'
 /* eslint-disable-next-line */
 const log = buildLog('C:AccountEditor')
 
-const SocialPrefix = ({ prefix }) => <AddonAddr>{prefix}</AddonAddr>
-
 const SocialItem = ({ label, prefix, value, icon, onChange }) => (
   <FormItemWrapper>
     <FormLable>{label}</FormLable>
 
     <FormInput>
       <Input
-        addonBefore={<SocialPrefix prefix={prefix} />}
-        addonAfter={
-          <AddOnIcon
-            src={`${ICON_CMD}/${icon}.svg`}
-            active={!nilOrEmpty(value)}
-          />
-        }
+        placeholder={prefix}
+        suffixIcon={`${ICON_CMD}/${icon}.svg`}
+        suffixActive={!nilOrEmpty(value)}
         onChange={onChange}
         value={value}
       />

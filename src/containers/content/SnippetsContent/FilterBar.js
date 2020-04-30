@@ -1,9 +1,9 @@
 import React from 'react'
-import Sticky from '@components/Sticky'
 
 import { ICON_CMD } from '@config'
 import { SNIPPET } from '@constant'
 
+import Sticky from '@components/Sticky'
 import { OrButton } from '@components/Buttons'
 import NaviMenu from '@components/NaviMenu'
 
