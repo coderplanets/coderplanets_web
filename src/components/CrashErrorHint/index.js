@@ -4,44 +4,100 @@
  *
  */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import T from 'prop-types'
+import R from 'ramda'
 
-import { buildLog } from '@utils'
+import dynamic from 'next/dynamic'
 
-import { SpaceGrow } from '@components/Common'
-import { Wrapper, Header, Title, UL, Li, Action, Footer } from './styles'
+import { ICON_BASE, DEFAULT_THEME } from '@config'
+import { TYPE } from '@constant'
+import { buildLog, BStore, themeSkins } from '@utils'
+
+import EXECUTES from './executes'
+
+import {
+  Wrapper,
+  Header,
+  HintIcon,
+  Title,
+  UL,
+  Li,
+  Action,
+  Footer,
+} from './styles'
+
+const DynamicHeader = dynamic({
+  loader: () => import('./Header'),
+  // eslint-disable-next-line react/display-name
+  loading: () => <div />,
+  ssr: false,
+})
 
 /* eslint-disable-next-line */
 const log = buildLog('c:CrashErrorHint:index')
 
+/**
+ * NOTE:  the default theme system is not valid when this Component rendered
+ * so to theme this component we should get the current theme name in localStorage
+ * then pass the values to the styles
+ *
+ */
 const CrashErrorHint = ({ onReport }) => {
+  const [themeName, setThemeName] = useState(DEFAULT_THEME)
+  const [executeIndex, setExecuteIndex] = useState(0)
+
+  useEffect(() => {
+    // init theme settings
+    const cusThemeName = BStore.get(TYPE.CUR_THEME)
+    if (cusThemeName && R.contains(cusThemeName, R.keys(themeSkins))) {
+      setThemeName(cusThemeName)
+    }
+
+    // init timer
+    const timer = setTimeout(() => setExecuteIndex(executeIndex + 1), 3000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setExecuteIndex(
+        executeIndex >= EXECUTES.length - 1 ? 0 : executeIndex + 1
+      )
+    }, 3000)
+
+    return () => clearInterval(timer)
+  }, [executeIndex])
+
+  console.log('switching ...', executeIndex)
+
   return (
-    <Wrapper testid="crashErrorHint">
+    <Wrapper testid="crashErrorHint" t={themeName}>
       <div />
       <div>
-        <Header>
-          <Title>心态崩了..</Title>
-          <SpaceGrow />
-        </Header>
-        <p>
+        <DynamicHeader index={executeIndex} themeName={themeName} />
+        <p t={themeName}>
           本次请求因为未知原因崩溃，请尝试重新刷新页面或通过以下渠道给我们反馈：
         </p>
-        <UL>
+        <UL t={themeName}>
           <Li>
-            重新<Action>刷新页面</Action>
+            重新<Action t={themeName}>刷新页面</Action>
           </Li>
           <Li onClick={onReport}>
-            在线<Action noUnderline>报告错误</Action>
+            在线
+            <Action t={themeName} noUnderline>
+              报告错误
+            </Action>
           </Li>
           <Li>
-            在 <Action>Github</Action>上提交 issue
+            在 <Action t={themeName}>Github</Action>上提交 issue
           </Li>
         </UL>
       </div>
-      <Footer>
-        sorry to see this, please try <Action>reload page</Action>,{' '}
-        <Action>report error</Action> or report issue on <Action>github</Action>
+      <Footer t={themeName}>
+        sorry to see this, please try <Action t={themeName}>reload page</Action>
+        , <Action t={themeName}>report error</Action> or report issue on{' '}
+        <Action t={themeName}>github</Action>
       </Footer>
     </Wrapper>
   )

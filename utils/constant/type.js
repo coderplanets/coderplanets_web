@@ -1,6 +1,7 @@
 // type
 
 const TYPE = {
+  CUR_THEME: 'cur_theme',
   GLOBAL_BLUR_CLASS: 'GLOBAL_BLUR_CLASS',
   APP_HEADER_ID: 'APP_HEADER_ID',
   APP_TABBER_ID: 'APP_TABBER_ID',
