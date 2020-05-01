@@ -15,6 +15,7 @@ const FilterButton = ({ thread, onSelect, isLogin, activeFilter }) => {
       <Tooltip
         placement="bottom-start"
         trigger="click"
+        hideOnClick={false}
         content={
           <FilterPanel
             thread={thread}
