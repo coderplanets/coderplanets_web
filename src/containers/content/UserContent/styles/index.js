@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const MainWrapper = styled.div`
   ${cs.flexColumn()};
   padding: 20px;
-  padding-top: 10px;
+  padding-top: 6px;
   min-height: 600px;
   background: ${theme('preview.articleBg')};
   margin-right: 35px;
@@ -29,6 +29,9 @@ export const MainWrapper = styled.div`
 export const TabberWrapper = styled.div`
   ${cs.flex()};
   width: 100%;
+  border-bottom: 1px solid;
+  border-bottom-color: #0a4859;
+  margin-bottom: 10px;
 `
 export const SidebarWrapper = styled.div`
   width: 24%;

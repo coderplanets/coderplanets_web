@@ -24,6 +24,7 @@ export const BoxWrapper = styled.div`
     border-bottom: 2px solid;
     border-color: ${theme('banner.desc')};
   }
+  transition: all 0.25s;
 `
 export const Header = styled.div`
   ${cs.flex('align-center')};
