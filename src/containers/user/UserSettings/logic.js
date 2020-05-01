@@ -1,4 +1,3 @@
-import R from 'ramda'
 import { useEffect } from 'react'
 
 import { EVENT } from '@constant'
@@ -18,9 +17,9 @@ export const changeTheme = theme => {
   send(EVENT.SET_C11N, { data: { theme } })
 }
 
-export const c11nOnChange = R.curry((part, e) => {
-  store.updateC11N({ [part]: e.target.value })
-})
+export const c11nOnChange = (part, value) => {
+  store.updateC11N({ [part]: value })
+}
 
 export const upgradeHepler = () => store.upgradeHepler()
 export const sponsorHepler = () => store.sponsorHepler()

@@ -5,25 +5,21 @@
  */
 
 import React from 'react'
-import { Radio } from 'antd'
-import 'antd/lib/radio/style/index.css'
 
-import { ICON_CMD, ISSUE_ADDR } from '@config'
+import { ICON_CMD } from '@config'
 import { C11N } from '@constant'
 import { connectStore, buildLog } from '@utils'
 
+import { Br } from '@components/Common'
+import { Radio } from '@components/Switcher'
 import ThemeSelector from '@components/ThemeSelector'
-import Tooltip from '@components/Tooltip'
 import SectionLabel from '@components/SectionLabel'
-import DiscussLinker from '@components/DiscussLinker'
 
-import { Wrapper, RadiosWrapper, OptionsWrapper, ErrText } from './styles'
+import { Wrapper, RadiosWrapper, Desc, ErrText } from './styles'
 import { useInit, changeTheme, c11nOnChange } from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:UserSettings')
-
-const RadioGroup = Radio.Group
 
 const UserSettingsContainer = ({ userSettings }) => {
   useInit(userSettings)
@@ -51,13 +47,20 @@ const UserSettingsContainer = ({ userSettings }) => {
             desc="浏览社区内容时，顶部社区信息摘要的显示方式。"
           />
           <RadiosWrapper>
-            <RadioGroup
-              onChange={c11nOnChange('bannerLayout')}
-              value={customization.bannerLayout}
-            >
-              <Radio value={C11N.DIGEST}>详细视图</Radio>
-              <Radio value={C11N.BRIEF}>简洁视图</Radio>
-            </RadioGroup>
+            <Radio
+              items={[
+                {
+                  value: '详细视图',
+                  key: C11N.DIGEST,
+                },
+                {
+                  value: '简洁视图',
+                  key: C11N.BRIEF,
+                },
+              ]}
+              activeKey={customization.bannerLayout}
+              onChange={item => c11nOnChange('bannerLayout', item.key)}
+            />
           </RadiosWrapper>
           <SectionLabel
             title="内容视图"
@@ -65,86 +68,127 @@ const UserSettingsContainer = ({ userSettings }) => {
             desc="浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图"
           />
           <RadiosWrapper>
-            <RadioGroup
-              onChange={c11nOnChange('contentsLayout')}
-              value={customization.contentsLayout}
-            >
-              <Radio value={C11N.LIST}>列表视图</Radio>
-              <Radio value={C11N.DIGEST}>摘要视图</Radio>
-            </RadioGroup>
+            <Radio
+              items={[
+                {
+                  value: '列表视图',
+                  key: C11N.LIST,
+                },
+                {
+                  value: '摘要视图',
+                  key: C11N.DIGEST,
+                },
+              ]}
+              activeKey={customization.contentsLayout}
+              onChange={item => c11nOnChange('contentsLayout', item.key)}
+            />
           </RadiosWrapper>
+
+          <RadiosWrapper>
+            <Desc>鼠标停留在帖子/文章时显示辅助背景。</Desc>
+            <Radio
+              items={[
+                {
+                  value: '悬停背景',
+                  key: true,
+                },
+                {
+                  value: '不显示',
+                  key: false,
+                  dimOnActive: true,
+                },
+              ]}
+              activeKey={customization.contentHover}
+              onChange={item => c11nOnChange('contentHover', item.key)}
+            />
+          </RadiosWrapper>
+
           <SectionLabel
             title="阅读提示"
             iconSrc={`${ICON_CMD}/setting_read.svg`}
-            desc="是否在阅读列表左侧显示已读标签, 以便突出未读内容？"
+            desc="鼠标停留在帖子/文章时显示辅助背景。"
           />
           <RadiosWrapper>
-            <RadioGroup
-              onChange={c11nOnChange('markViewed')}
-              value={customization.markViewed}
-            >
-              {/* eslint-disable react/jsx-boolean-value */}
-              <Radio value={true}>显示</Radio>
-              {/* eslint-enable react/jsx-boolean-value */}
-              <Radio value={false}>不显示</Radio>
-            </RadioGroup>
+            <Radio
+              items={[
+                {
+                  value: '已读标记',
+                  key: true,
+                },
+                {
+                  value: '不标记',
+                  key: false,
+                  dimOnActive: true,
+                },
+              ]}
+              activeKey={customization.markViewed}
+              onChange={item => c11nOnChange('markViewed', item.key)}
+            />
           </RadiosWrapper>
           <SectionLabel
             title="显示密度"
             iconSrc={`${ICON_CMD}/setting_number.svg`}
-            desc="浏览帖子/招聘/视频/开源项目等内容时， 每页显示的条数。"
+            desc="每页帖子的默认显示条数。"
           />
           <RadiosWrapper>
-            <RadioGroup
-              onChange={c11nOnChange('displayDensity')}
-              value={customization.displayDensity}
-            >
-              <Radio value="20">20条 / 每页</Radio>
-              <Radio value="25">25条 / 每页</Radio>
-              <Radio value="30">30条 / 每页</Radio>
-            </RadioGroup>
+            <Radio
+              items={[
+                {
+                  value: '20条',
+                  key: '20',
+                },
+                {
+                  value: '25条',
+                  key: '25',
+                },
+                {
+                  value: '30条',
+                  key: '30',
+                },
+              ]}
+              activeKey={customization.displayDensity}
+              onChange={item => c11nOnChange('displayDensity', item.key)}
+            />
           </RadiosWrapper>
           <SectionLabel
             title="打赏设置(wip)"
             iconSrc={`${ICON_CMD}/dashang.svg`}
-            desc="开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不显示打赏按钮。提现需提交申请，将在 3-5 个工作日内到达你的账户，不收取任何手续费用。"
+            desc="开发中：开启后赞赏按钮将出现在你的文章底部, 注意仅支持原创内容， 链接分享、转载等不显示打赏按钮。提现需提交申请，将在 3-5 个工作日内到达你的账户。"
           />
-          <Tooltip
-            placement="bottom"
-            trigger="click"
-            content={
-              <DiscussLinker title="打赏设置" addr={`${ISSUE_ADDR}/268`} />
-            }
-          >
-            <OptionsWrapper>
-              <RadiosWrapper>
-                <RadioGroup onChange={log} value={2}>
-                  <Radio value={1}>开启</Radio>
-                  <Radio value={2}>关闭</Radio>
-                </RadioGroup>
-              </RadiosWrapper>
-            </OptionsWrapper>
-          </Tooltip>
+          <Radio
+            items={[
+              {
+                value: '开启',
+                key: '1',
+              },
+              {
+                value: '关闭',
+                key: '2',
+                dimOnActive: true,
+              },
+            ]}
+            activeKey="2"
+          />
+          <Br bottom="40px" />
           <SectionLabel
             title="邮件订阅(wip)"
             iconSrc={`${ICON_CMD}/mail.svg`}
             desc="接收邮件提醒，订阅, 账单, 每周精选等等, 我们不会滥用你的信任，建议开启。"
           />
-          <Tooltip
-            placement="bottom"
-            content={
-              <DiscussLinker title="邮件订阅" addr={`${ISSUE_ADDR}/267`} />
-            }
-          >
-            <OptionsWrapper>
-              <RadiosWrapper>
-                <RadioGroup onChange={log} value={2}>
-                  <Radio value={1}>开启</Radio>
-                  <Radio value={2}>关闭</Radio>
-                </RadioGroup>
-              </RadiosWrapper>
-            </OptionsWrapper>
-          </Tooltip>
+          <Radio
+            items={[
+              {
+                value: '开启',
+                key: '1',
+              },
+              {
+                value: '关闭',
+                key: '2',
+                dimOnActive: true,
+              },
+            ]}
+            activeKey="2"
+          />
         </Wrapper>
       ) : (
         <ErrText>请登录后查看本人的设置信息</ErrText>

@@ -7,20 +7,13 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
 import { connectStore, buildLog } from '@utils'
 import { THREAD, C11N } from '@constant'
 
-import {
-  Wrapper,
-  HeaderTitle,
-  Title,
-  Desc,
-  Didiver,
-  Option,
-  OptionIcon,
-  OptionText,
-} from './styles'
+import { Br } from '@components/Common'
+import { Radio } from '@components/Switcher'
+
+import { Wrapper, HeaderTitle, Title, Desc, Didiver } from './styles'
 import { useInit, onC11NChange } from './logic'
 
 /* eslint-disable-next-line */
@@ -49,47 +42,53 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel }) => {
         <br />
         <Title>社区视图</Title>
         <Desc>社区摘要信息的显示模式。</Desc>
-        <Option
-          onClick={() =>
+        <Br top="10px" />
+        <Radio
+          items={[
+            {
+              value: '扩展模式',
+              key: C11N.DIGEST,
+            },
+            {
+              value: '简洁模式',
+              key: C11N.BRIEF,
+            },
+          ]}
+          activeKey={bannerLayout}
+          onChange={item =>
             onC11NChange({
-              bannerLayout:
-                bannerLayout === C11N.DIGEST ? C11N.BRIEF : C11N.DIGEST,
+              bannerLayout: item.key,
             })
           }
-        >
-          <OptionText active>扩展模式</OptionText>
-          <OptionIcon
-            src={
-              bannerLayout === C11N.BRIEF
-                ? `${ICON_CMD}/turn_on.svg`
-                : `${ICON_CMD}/turn_off.svg`
-            }
-            active
-          />
-        </Option>
+        />
         <Didiver />
 
         <Title>文章视图</Title>
-        <Desc>这里是视图显示的描述信息</Desc>
+        <Desc>
+          浏览内容时列表的显示方式, 部分板块(如视频，开源项目等)不支持列表视图。
+        </Desc>
 
         {!R.contains(curThread, [THREAD.VIDEO, THREAD.REPO]) ? (
           <React.Fragment>
-            <Option onClick={() => onC11NChange({ contentsLayout: C11N.LIST })}>
-              <OptionText>列表视图</OptionText>
-              <OptionIcon
-                src={`${ICON_CMD}/check2.svg`}
-                active={contentsLayout === C11N.LIST}
-              />
-            </Option>
-            <Option
-              onClick={() => onC11NChange({ contentsLayout: C11N.DIGEST })}
-            >
-              <OptionText active>摘要视图</OptionText>
-              <OptionIcon
-                src={`${ICON_CMD}/check2.svg`}
-                active={contentsLayout === C11N.DIGEST}
-              />
-            </Option>
+            <Br top="10px" />
+            <Radio
+              items={[
+                {
+                  value: '列表视图',
+                  key: C11N.LIST,
+                },
+                {
+                  value: '摘要视图',
+                  key: C11N.DIGEST,
+                },
+              ]}
+              activeKey={contentsLayout}
+              onChange={item =>
+                onC11NChange({
+                  contentsLayout: item.key,
+                })
+              }
+            />
             <Didiver />
           </React.Fragment>
         ) : (
@@ -98,50 +97,73 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel }) => {
       </React.Fragment>
 
       <Title>阅读辅助</Title>
-      <Desc>文章列表的阅读辅助类工具。</Desc>
-      <Option onClick={() => onC11NChange({ markViewed: !markViewed })}>
-        <OptionText>已读标记</OptionText>
-        <OptionIcon
-          src={
-            markViewed === true
-              ? `${ICON_CMD}/turn_on.svg`
-              : `${ICON_CMD}/turn_off.svg`
-          }
-          active
-        />
-      </Option>
+      <Br top="10px" />
+      <Desc>在帖子/文章头部显示“阅”标记。</Desc>
+      <Radio
+        items={[
+          {
+            value: '已读标记',
+            key: true,
+          },
+          {
+            value: '不标记',
+            key: false,
+            dimOnActive: true,
+          },
+        ]}
+        activeKey={markViewed}
+        onChange={item =>
+          onC11NChange({
+            markViewed: item.key,
+          })
+        }
+      />
 
-      <Option onClick={() => onC11NChange({ contentHover: !contentHover })}>
-        <OptionText>悬停背景</OptionText>
-        <OptionIcon
-          src={
-            contentHover === true
-              ? `${ICON_CMD}/turn_on.svg`
-              : `${ICON_CMD}/turn_off.svg`
-          }
-          active
-        />
-      </Option>
+      <Br top="25px" />
+      <Desc>鼠标停留在帖子/文章时显示辅助背景。</Desc>
+      <Radio
+        items={[
+          {
+            value: '悬停背景',
+            key: true,
+          },
+          {
+            value: '不显示',
+            key: false,
+            dimOnActive: true,
+          },
+        ]}
+        activeKey={contentHover}
+        onChange={item =>
+          onC11NChange({
+            contentHover: item.key,
+          })
+        }
+      />
 
       {R.contains(curThread, [THREAD.POST, THREAD.JOB]) ? (
         <React.Fragment>
-          <Option
-            onClick={() =>
+          <Br top="25px" />
+          <Desc>在帖子/文章下方显示辅助分割线。</Desc>
+          <Radio
+            items={[
+              {
+                value: '辅助分隔',
+                key: true,
+              },
+              {
+                value: '无分隔',
+                key: false,
+                dimOnActive: true,
+              },
+            ]}
+            activeKey={contentDivider}
+            onChange={item =>
               onC11NChange({
-                contentDivider: !contentDivider,
+                contentDivider: item.key,
               })
             }
-          >
-            <OptionText active>辅助分隔</OptionText>
-            <OptionIcon
-              src={
-                contentDivider === true
-                  ? `${ICON_CMD}/turn_on.svg`
-                  : `${ICON_CMD}/turn_off.svg`
-              }
-              active
-            />
-          </Option>
+          />
           <Didiver />
         </React.Fragment>
       ) : (
@@ -150,27 +172,29 @@ const C11NSettingPanelContainer = ({ c11NSettingPanel }) => {
 
       <Title>显示密度</Title>
       <Desc>每页帖子的默认显示条数。</Desc>
-      <Option onClick={() => onC11NChange({ displayDensity: '20' })}>
-        <OptionText>20条 / 页</OptionText>
-        <OptionIcon
-          src={`${ICON_CMD}/check2.svg`}
-          active={displayDensity === '20'}
-        />
-      </Option>
-      <Option onClick={() => onC11NChange({ displayDensity: '25' })}>
-        <OptionText>25条 / 页</OptionText>
-        <OptionIcon
-          src={`${ICON_CMD}/check2.svg`}
-          active={displayDensity === '25'}
-        />
-      </Option>
-      <Option onClick={() => onC11NChange({ displayDensity: '30' })}>
-        <OptionText>30条 / 页</OptionText>
-        <OptionIcon
-          src={`${ICON_CMD}/check2.svg`}
-          active={displayDensity === '30'}
-        />
-      </Option>
+      <Br top="10px" />
+      <Radio
+        items={[
+          {
+            value: '20条',
+            key: '20',
+          },
+          {
+            value: '25条',
+            key: '25',
+          },
+          {
+            value: '30条',
+            key: '30',
+          },
+        ]}
+        activeKey={displayDensity}
+        onChange={item =>
+          onC11NChange({
+            displayDensity: item.key,
+          })
+        }
+      />
     </Wrapper>
   )
 }

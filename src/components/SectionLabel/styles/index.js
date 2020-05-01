@@ -41,7 +41,7 @@ export const LabelIcon = styled(Img)`
 
 export const Desc = styled.div`
   color: ${theme('banner.desc')};
-  font-size: 0.8rem;
+  font-size: 14px;
   margin-bottom: 18px;
   margin-left: 3px;
 `

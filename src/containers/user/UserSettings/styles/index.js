@@ -6,14 +6,10 @@ export const Wrapper = styled.div`
   padding-left: 10px;
   margin-bottom: 30px;
 `
-export const OptionsWrapper = styled.div`
-  width: 300px;
-`
 export const RadiosWrapper = styled.div`
   margin-bottom: 40px;
   margin-left: 3px;
 `
-
 export const LabelDescWrapper = styled.div`
   display: flex;
   color: ${theme('banner.desc')};
@@ -21,7 +17,6 @@ export const LabelDescWrapper = styled.div`
   margin-bottom: 18px;
   margin-left: 3px;
 `
-
 export const LabelDescLink = styled.div`
   margin-left: 3px;
   margin-right: 3px;
@@ -35,7 +30,11 @@ export const LabelDescLink = styled.div`
     cursor: pointer;
   }
 `
-
+export const Desc = styled.div`
+  color: ${theme('banner.desc')};
+  font-size: 13px;
+  margin-bottom: 10px;
+`
 export const ErrText = styled.div`
   color: ${theme('baseColor.error')};
 `

@@ -7,7 +7,6 @@
 import React from 'react'
 
 import { GALLERY } from '@constant'
-
 import PagiFooter from '@components/PagiFooter'
 import { PagiOptionSwitcher } from '@components/Switcher'
 

@@ -3,9 +3,7 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 import { buildLog } from '@utils'
 
-import { Radio } from 'antd'
-import 'antd/lib/radio/style/index.css'
-
+import { Radio } from '@components/Switcher'
 import Input from '@components/Input'
 import { Button } from '@components/Buttons'
 
@@ -22,12 +20,15 @@ import {
   Footer,
 } from './styles/editor'
 
-import { categoryOnChange, onCategoryCreate, onModalClose } from './logic'
+import {
+  categoryOnChange,
+  privateOnChange,
+  onCategoryCreate,
+  onModalClose,
+} from './logic'
 
 /* eslint-disable-next-line */
 const log = buildLog('C:FavoritesCats:Creator')
-
-const RadioGroup = Radio.Group
 
 const Creator = ({ data, show, hasLockAuth }) => (
   <Wrapper show={show} className="normal-form">
@@ -60,13 +61,21 @@ const Creator = ({ data, show, hasLockAuth }) => (
         <FormItemWrapper>
           <FormLable>隐私</FormLable>
           <RadiosWrapper>
-            <RadioGroup
-              onChange={categoryOnChange('private')}
-              value={data.private}
-            >
-              <Radio value={false}>公开</Radio>
-              <Radio value>不公开</Radio>
-            </RadioGroup>
+            <Radio
+              items={[
+                {
+                  value: '公开',
+                  key: false,
+                },
+                {
+                  value: '不公开',
+                  key: true,
+                  dimOnActive: true,
+                },
+              ]}
+              activeKey={data.private}
+              onChange={privateOnChange}
+            />
           </RadiosWrapper>
         </FormItemWrapper>
       )}

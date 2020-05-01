@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { PAGE_SIZE } from '@config'
 import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, send, errRescue } from '@utils'
+import { asyncSuit, buildLog, send, errRescue, updateEditing } from '@utils'
 
 import S from './schema'
 
@@ -18,9 +18,22 @@ const sr71$ = new SR71({
 let sub$ = null
 let store = null
 
-export const categoryOnChange = R.curry((part, e) =>
-  store.updateEditing({ [part]: e.target.value })
+// export const categoryOnChange = (part, e) => updateEditing(store, part, e)
+export const categoryOnChange = R.curry(
+  (part, e) => updateEditing(store, part, e)
+  // store.updateEditing({ [part]: e.target.value })
 )
+
+export const privateOnChange = item => {
+  const { editCategoryData } = store
+
+  const editCategory = {
+    ...editCategoryData,
+    private: item.key,
+  }
+
+  store.mark({ editCategory })
+}
 
 export const onCategoryCreate = () => {
   if (!store.validator('publish')) return false
