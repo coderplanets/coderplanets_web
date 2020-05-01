@@ -16,7 +16,7 @@ export const Inputer = styled(Input)`
     error === 'true' ? theme('baseColor.error') : ''};
 `
 // TODO:  ANTD-CHECK
-export const TextAreaer = styled.textarea`
+export const TextAreaInput = styled(Input)`
   border-left: ${({ error }) =>
     error === 'true' ? '3px solid !important' : ''};
   border-right: ${({ error }) =>

@@ -17,7 +17,7 @@ import {
   FormInput,
   NodeWrapper,
   Inputer,
-  TextAreaer,
+  TextAreaInput,
 } from './styles'
 
 /* eslint-disable-next-line */
@@ -42,7 +42,7 @@ const FormContent = ({
     case 'textarea':
       return (
         <FormInput>
-          <TextAreaer
+          <TextAreaInput
             value={value}
             error={String(error)}
             placeholder={placeholder}
@@ -50,6 +50,7 @@ const FormContent = ({
             onChange={onChange}
             disabled={disabled}
             autoFocus={autoFocus}
+            behavior="textarea"
           />
         </FormInput>
       )

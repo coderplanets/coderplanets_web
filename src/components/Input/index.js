@@ -63,6 +63,8 @@ Input.propTypes = {
   prefixActive: T.bool,
   suffixIcon: T.oneOfType([T.string, T.instanceOf(null)]),
   suffixActive: T.bool,
+  disabled: T.bool,
+  autoFocus: T.bool,
 }
 
 Input.defaultProps = {
@@ -74,6 +76,8 @@ Input.defaultProps = {
   prefixActive: false,
   suffixIcon: null,
   suffixActive: false,
+  disabled: false,
+  autoFocus: false,
 }
 
 export default React.memo(Input)
