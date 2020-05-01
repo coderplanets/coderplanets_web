@@ -77,7 +77,7 @@ export default class AppPage extends App {
     const { Component, pageProps } = this.props
 
     /* eslint-disable */
-    return !hasError ? (
+    return hasError ? (
       <CrashErrorHint
         onReport={() => {
           Sentry.showReportDialog({ eventId: errorEventId })

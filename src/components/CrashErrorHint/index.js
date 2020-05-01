@@ -10,22 +10,13 @@ import R from 'ramda'
 
 import dynamic from 'next/dynamic'
 
-import { ICON_BASE, DEFAULT_THEME } from '@config'
+import { DEFAULT_THEME } from '@config'
 import { TYPE } from '@constant'
 import { buildLog, BStore, themeSkins } from '@utils'
 
 import EXECUTES from './executes'
 
-import {
-  Wrapper,
-  Header,
-  HintIcon,
-  Title,
-  UL,
-  Li,
-  Action,
-  Footer,
-} from './styles'
+import { Wrapper, Desc, UL, Li, Action, Footer } from './styles'
 
 const DynamicHeader = dynamic({
   loader: () => import('./Header'),
@@ -69,16 +60,14 @@ const CrashErrorHint = ({ onReport }) => {
     return () => clearInterval(timer)
   }, [executeIndex])
 
-  console.log('switching ...', executeIndex)
-
   return (
     <Wrapper testid="crashErrorHint" t={themeName}>
       <div />
       <div>
         <DynamicHeader index={executeIndex} themeName={themeName} />
-        <p t={themeName}>
+        <Desc t={themeName}>
           本次请求因为未知原因崩溃，请尝试重新刷新页面或通过以下渠道给我们反馈：
-        </p>
+        </Desc>
         <UL t={themeName}>
           <Li>
             重新<Action t={themeName}>刷新页面</Action>

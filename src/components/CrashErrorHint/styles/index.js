@@ -25,9 +25,11 @@ export const HintIcon = styled.img`
 `
 export const Title = styled.div`
   font-size: 30px;
+  color: ${({ t }) => themeSkins[t].thread.articleTitle};
+  padding-bottom: 12px;
+`
+export const Desc = styled.p`
   color: ${({ t }) => themeSkins[t].baseColor.error};
-  padding-bottom: 15px;
-  margin-bottom: 12px;
 `
 export const UL = styled.ul`
   margin-left: -22px;
