@@ -7,7 +7,7 @@ import { Radio } from '@components/Switcher'
 import Input from '@components/Input'
 import { Button } from '@components/Buttons'
 
-import Popconfirm from '@components/Popconfirm'
+import Tooltip from '@components/Tooltip'
 import { Space } from '@components/Common'
 import SectionLabel from '@components/SectionLabel'
 
@@ -85,12 +85,17 @@ const Updater = ({ data, show, hasLockAuth }) => (
       )}
     </EditWrapper>
     <Footer>
-      <Popconfirm
+      <Tooltip
         content="删除收藏夹及包含的内容，是否继续?"
+        trigger="click"
+        hideOnClick={false}
+        behavior="confirm"
         onConfirm={onCategoryDelete}
       >
-        <Button type="red">删除</Button>
-      </Popconfirm>
+        <Button type="red" ghost>
+          删除
+        </Button>
+      </Tooltip>
       <Space right="10px" />
       <Button type="primary" onClick={onCategoryUpdate}>
         保存

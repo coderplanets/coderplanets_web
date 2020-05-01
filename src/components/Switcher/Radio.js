@@ -36,7 +36,7 @@ Radio.propTypes = {
   items: T.arrayOf(
     T.shape({
       value: T.string,
-      key: T.string,
+      key: T.oneOfType([T.string, T.bool]),
       dimOnActive: T.oneOfType([T.bool, T.instanceOf(null)]),
     })
   ).isRequired,

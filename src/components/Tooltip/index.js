@@ -10,6 +10,9 @@ import T from 'prop-types'
 import { buildLog } from '@utils'
 import { useOutsideClick } from '@hooks'
 
+import ConfirmFooter from './ConfirmFooter'
+// import Content from './Content'
+
 import {
   StyledTippy,
   NoPaddingStyledTippy,
@@ -31,6 +34,8 @@ const Tooltip = ({
   content,
   hideOnClick,
   showArrow,
+  behavior,
+  onConfirm,
   ...restProps
 }) => {
   const [instance, setInstance] = useState(null)
@@ -42,10 +47,21 @@ const Tooltip = ({
       {active && placement === 'top' && <BottomArrow />}
       {active && placement === 'right' && <LeftArrow />}
 
-      {children}
+      <div>{children}</div>
     </ContentWrapper>
   ) : (
-    <ContentWrapper>{children}</ContentWrapper>
+    <ContentWrapper>
+      <div>{children}</div>
+    </ContentWrapper>
+  )
+
+  const PopoverContent = (
+    <React.Fragment>
+      {content}
+      {active && behavior === 'confirm' && (
+        <ConfirmFooter onConfirm={onConfirm} />
+      )}
+    </React.Fragment>
   )
 
   const ref = useRef()
@@ -64,7 +80,7 @@ const Tooltip = ({
   return !noDefaultPadding ? (
     <StyledTippy
       ref={ref}
-      content={content}
+      content={PopoverContent}
       placement={placement}
       hideOnClick={hideOnClick}
       onHide={() => {
@@ -84,7 +100,7 @@ const Tooltip = ({
   ) : (
     <NoPaddingStyledTippy
       ref={ref}
-      content={content}
+      content={PopoverContent}
       placement={placement}
       hideOnClick={hideOnClick}
       onHide={() => {
@@ -139,6 +155,8 @@ Tooltip.propTypes = {
   onHide: T.oneOfType([T.func, T.instanceOf(null)]),
   noDefaultPadding: T.bool,
   showArrow: T.bool,
+  behavior: T.oneOf(['default', 'confirm']),
+  onConfirm: T.oneOfType([T.func, T.instanceOf(null)]),
 }
 
 Tooltip.defaultProps = {
@@ -155,6 +173,8 @@ Tooltip.defaultProps = {
   noDefaultPadding: false,
   maxWidth: 'none',
   showArrow: true,
+  behavior: 'default',
+  onConfirm: null,
 }
 
 export default React.memo(Tooltip)

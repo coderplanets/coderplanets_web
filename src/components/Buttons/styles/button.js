@@ -59,23 +59,31 @@ export const Wrapper = styled.button`
   }
 `
 export const RedWrapper = styled(Wrapper)`
-  color: white;
-  background-color: ${theme('baseColor.error')};
+  color: ${({ ghost }) => (ghost ? theme('baseColor.error') : 'white')};
+  background-color: ${({ ghost }) =>
+    !ghost ? theme('baseColor.error') : 'transparent'};
   border-color: ${theme('baseColor.error')};
 
   &:hover {
-    background-color: ${lighten(0.1, 'tomato')};
+    border: 2px solid;
+    background-color: ${({ ghost }) =>
+      !ghost ? lighten(0.1, 'tomato') : 'transparent'};
     border-color: ${lighten(0.1, 'tomato')};
-    color: white;
+    font-weight: ${({ ghost }) => (ghost ? 'bold' : 'normal')};
   }
   &:focus {
-    background-color: ${lighten(0.1, 'tomato')};
+    border: 2px solid;
+    background-color: ${({ ghost }) =>
+      !ghost ? lighten(0.1, 'tomato') : 'transparent'};
     border-color: ${lighten(0.1, 'tomato')};
-    color: white;
+    font-weight: ${({ ghost }) => (ghost ? 'bold' : 'normal')};
   }
   &:active {
-    background-color: ${lighten(0.1, 'tomato')};
+    border: 2px solid;
+    background-color: ${({ ghost }) =>
+      !ghost ? lighten(0.1, 'tomato') : 'transparent'};
     border-color: ${lighten(0.1, 'tomato')};
-    color: white;
+    font-weight: ${({ ghost }) => (ghost ? 'bold' : 'normal')};
   }
+  transition: all 0.25s;
 `
