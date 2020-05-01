@@ -1,16 +1,13 @@
 import React from 'react'
-import { Alert } from 'antd'
-import 'antd/lib/alert/style/index.css'
+
+import AlertBar from '@components/AlertBar'
 
 const Message = () => (
-  <Alert
-    message={
-      <div>
-        点击社区可同步该内容到相应的社区，同步后该内容的管理与源社区是独立的，由目标社区管理员管理。
-      </div>
-    }
-    type="warning"
-  />
+  <AlertBar>
+    <div>
+      点击社区可同步该内容到相应的社区，同步后该内容的管理与源社区是独立的，由目标社区管理员管理。
+    </div>
+  </AlertBar>
 )
 
 export default React.memo(Message)

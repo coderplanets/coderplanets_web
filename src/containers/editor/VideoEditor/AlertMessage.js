@@ -1,7 +1,6 @@
 import React from 'react'
-import { Alert } from 'antd'
-import 'antd/lib/alert/style/index.css'
 
+import AlertBar from '@components/AlertBar'
 import { Br } from '@components/Common'
 import { ICON_CMD } from '@config'
 
@@ -34,7 +33,9 @@ const WarnMessage = () => (
 
 const AlertMessage = () => (
   <Wrapper>
-    <Alert message={<WarnMessage />} type="warning" />
+    <AlertBar>
+      <WarnMessage />
+    </AlertBar>
   </Wrapper>
 )
 
