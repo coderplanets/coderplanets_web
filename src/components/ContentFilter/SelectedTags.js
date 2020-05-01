@@ -1,8 +1,9 @@
 import React from 'react'
 import R from 'ramda'
-import { Tag } from 'antd'
 
 import { isEmptyValue } from '@utils'
+
+import Tag from '@components/Tag'
 import { Wrapper, TagWrapper } from './styles/selected_tags'
 
 const filterDict = {
@@ -26,14 +27,15 @@ const filterDict = {
   UNREAD: '只显未读',
 }
 
-const FilterTag = ({ onSelect, active, type }) =>
-  isEmptyValue(active) ? null : (
+const FilterTag = ({ onSelect, active, type }) => {
+  return isEmptyValue(active) ? null : (
     <TagWrapper>
-      <Tag closable onClose={onSelect.bind(this, { [type]: '' })}>
+      <Tag onClose={() => onSelect({ [type]: '' })}>
         {filterDict[active] || active}
       </Tag>
     </TagWrapper>
   )
+}
 
 const SelectedTags = ({ onSelect, activeFilter }) => (
   <Wrapper>
