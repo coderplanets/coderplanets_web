@@ -8,7 +8,7 @@ import React from 'react'
 
 import { nilOrEmpty } from '@utils'
 import { GUIDE } from '@constant'
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 
 import {
   DirectoryGallery,
@@ -48,7 +48,7 @@ const Content = ({ displayType }) => {
       DisplayContent = (
         <NormalListWrapper>
           <FamePeopleGallery />
-          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
+          <Pagi margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />
         </NormalListWrapper>
@@ -60,7 +60,7 @@ const Content = ({ displayType }) => {
       DisplayContent = (
         <NormalListWrapper>
           <ProductGallery />
-          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
+          <Pagi margin={{ top: '40px', bottom: '60px' }} />
           <Footer />
           <br />
         </NormalListWrapper>

@@ -11,7 +11,7 @@ import { connectStore, buildLog } from '@utils'
 
 import Sticky from '@components/Sticky'
 import FiltersMenu from '@components/FiltersMenu'
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 
 import Banner from './Banner'
 import CommunityList from './CommunityList'
@@ -65,13 +65,13 @@ const CommunitiesContentContainer = ({ communitiesContent }) => {
                   entries={pagedCommunitiesData.entries}
                   restProps={{ ...communitiesContent }}
                 />
-                <PagiFooter
+                <Pagi
                   {...pagiInfo}
                   onChange={pageOnChange}
                   margin={{ bottom: '60px' }}
                 >
                   <div>社区行动指南</div>
-                </PagiFooter>
+                </Pagi>
               </React.Fragment>
             ) : (
               <NotFound searchValue={searchValue} />

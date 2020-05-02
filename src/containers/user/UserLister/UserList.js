@@ -69,7 +69,7 @@ const UserList = ({
   <React.Fragment>
     <UsersTable entries={entries} accountId={accountInfo.id} />
     <Pagi
-      left="-15px"
+      margin={{ left: '-20px' }}
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Pagi from '@components/Pagi'
-
 import { CommentLoading } from '@components/LoadingEffects'
 import CommentsFilter from './CommentsFilter'
 import Comment from './Comment'
@@ -71,7 +70,6 @@ const CommentsList = ({
       )}
     </ListsContainer>
     <Pagi
-      left="-10px"
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}

@@ -5,34 +5,25 @@
  */
 
 import React from 'react'
-import { Pagination } from 'antd'
 import T from 'prop-types'
 
 import { buildLog } from '@utils'
+import Perv from './Perv'
+import Next from './Next'
 
-import MobilePagination from './MobilePagination'
-import {
-  PagiWrapper,
-  DesktopPagiWrapper,
-  MobilePagiWrapper,
-  CustomText,
-  BottomMsg,
-} from './styles'
-
+import { Wrapper, EmptyWrapper, BottomMsg } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:Pagi:index')
 
-const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
-
-export const PagiCustomRender = (current, type, originalElement) => {
-  /* eslint-disable */
-  if (type === 'prev') {
-    return <CustomText>上一页</CustomText>
-  } else if (type === 'next') {
-    return <CustomText>下一页</CustomText>
-  }
-  /* eslint-enable */
-  return originalElement
+/**
+ * @param num The number to round
+ * @param precision The number of decimal places to preserve
+ * see: https://stackoverflow.com/questions/5191088/how-to-round-up-a-number-in-javascript
+ */
+const roundUp = (num, precision = 0) => {
+  // eslint-disable-next-line no-restricted-properties
+  precision = Math.pow(10, precision)
+  return Math.ceil(num * precision) / precision
 }
 
 const BottomFooter = ({ show, msg }) => {
@@ -40,77 +31,89 @@ const BottomFooter = ({ show, msg }) => {
   return <div />
 }
 
+const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
+
 const Pagi = ({
+  children,
+  type,
   pageNumber,
   pageSize,
   totalCount,
+  margin,
+  onChange,
   showBottomMsg,
   emptyMsg,
   noMoreMsg,
-  left,
-  top,
-  bottom,
-  onChange,
 }) => {
   if (totalCount === 0) {
     return (
-      <PagiWrapper left={left} top={top} bottom={bottom}>
+      <EmptyWrapper margin={margin}>
         <BottomFooter show={showBottomMsg} msg={emptyMsg} />
-      </PagiWrapper>
+      </EmptyWrapper>
     )
   }
+
   return (
-    <PagiWrapper left={left} top={top} bottom={bottom}>
+    <React.Fragment>
       {hasExtraPage(totalCount, pageSize) ? (
-        <React.Fragment>
-          <DesktopPagiWrapper>
-            <Pagination
-              current={pageNumber}
-              pageSize={pageSize}
-              total={totalCount}
-              itemRender={PagiCustomRender}
-              onChange={onChange}
-            />
-          </DesktopPagiWrapper>
-          <MobilePagiWrapper>
-            <MobilePagination
-              current={pageNumber}
-              pageSize={pageSize}
-              total={totalCount}
-              itemRender={PagiCustomRender}
-              onChange={onChange}
-            />
-          </MobilePagiWrapper>
-        </React.Fragment>
+        <Wrapper margin={margin}>
+          <Perv
+            type={type}
+            onChange={onChange}
+            disabled={pageNumber === 1}
+            pageNumber={pageNumber}
+          />
+          <div>{children}</div>
+          <Next
+            type={type}
+            onChange={onChange}
+            disabled={pageNumber >= roundUp(totalCount / pageSize)}
+            pageNumber={pageNumber}
+          />
+        </Wrapper>
       ) : (
-        <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
+        <EmptyWrapper>
+          <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
+        </EmptyWrapper>
       )}
-    </PagiWrapper>
+    </React.Fragment>
   )
 }
 
 Pagi.propTypes = {
-  pageNumber: T.number.isRequired,
-  pageSize: T.number.isRequired,
-  totalCount: T.number.isRequired,
-  // showBottomMsg: T.bool,
+  children: T.node,
+  type: T.oneOf(['bottom', 'center']),
+  pageNumber: T.number,
+  pageSize: T.number,
+  totalCount: T.number,
+  margin: T.shape({
+    top: T.string,
+    bottom: T.string,
+    left: T.string,
+    right: T.string,
+  }),
   emptyMsg: T.string,
   noMoreMsg: T.string,
-  left: T.string,
-  top: T.string,
-  bottom: T.string,
   showBottomMsg: T.bool,
-
-  onChange: T.func.isRequired,
+  onChange: T.func,
 }
 
 Pagi.defaultProps = {
+  children: <div />,
+  type: 'bottom',
+  pageNumber: 0,
+  pageSize: 0,
+  totalCount: 0,
+  onChange: log,
+  margin: {
+    top: '0',
+    bottom: '0',
+    left: '0',
+    right: '0',
+  },
+  showBottomMsg: false,
   emptyMsg: '还没有评论',
   noMoreMsg: '没有更多评论了',
-  showBottomMsg: false,
-  left: '0px',
-  top: '30px',
-  bottom: '30px',
 }
 
 export default React.memo(Pagi)

@@ -9,7 +9,7 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 
 import { Button } from '@components/Buttons'
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 import DotDivider from '@components/DotDivider'
 import FiltersMenu from '@components/FiltersMenu'
 
@@ -63,7 +63,7 @@ const MeetupsContentContainer = ({ meetupsContent }) => {
               <ActivityCard key={item.id} item={item} />
             ))}
           </CardsWrapper>
-          <PagiFooter margin={{ top: '40px', bottom: '60px' }} />
+          <Pagi margin={{ top: '40px', bottom: '60px' }} />
         </ContentWrapper>
       </InnerWrapper>
     </Wrapper>

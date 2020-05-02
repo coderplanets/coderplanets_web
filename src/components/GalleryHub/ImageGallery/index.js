@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { GALLERY } from '@constant'
 import { buildLog } from '@utils'
 
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 import { PagiOptionSwitcher } from '@components/Switcher'
 
 import MainColumnGallery from './MainColumnGallery'
@@ -124,14 +124,14 @@ const ImageGallery = ({ items, galleryType }) => {
   return (
     <Wrapper>
       {GalleryContent}
-      <PagiFooter margin={{ top: '60px', bottom: '80px' }}>
+      <Pagi margin={{ top: '60px', bottom: '80px' }}>
         <PagiOptionSwitcher
           activeKey={activeGalleryType}
           title="显示模式"
           items={GALLERY_TYPES}
           onChange={item => setActiveGalleryType(item.key)}
         />
-      </PagiFooter>
+      </Pagi>
     </Wrapper>
   )
 }

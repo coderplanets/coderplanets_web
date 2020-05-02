@@ -8,7 +8,7 @@ import React from 'react'
 
 import { connectStore, buildLog } from '@utils'
 
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 import AvatarsRow from '@components/AvatarsRow'
 
 import Banner from './Banner'
@@ -73,7 +73,7 @@ const WorksContentContainer = ({ worksContent }) => {
         <FilterBar activeView={activeView} />
         <InnerContent>
           {activeView === 'works' ? <List /> : <MileStone />}
-          <PagiFooter margin={{ top: '60px', bottom: '80px' }}>
+          <Pagi margin={{ top: '60px', bottom: '80px' }}>
             <PagiInfo>
               <PagiInfoTitle>活跃用户</PagiInfoTitle>
               <AvatarsRow
@@ -83,7 +83,7 @@ const WorksContentContainer = ({ worksContent }) => {
                 showTotalNumber
               />
             </PagiInfo>
-          </PagiFooter>
+          </Pagi>
         </InnerContent>
       </ContentWrapper>
     </Wrapper>

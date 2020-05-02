@@ -54,7 +54,7 @@ const CategoryCardList = ({
     </CardListWrapper>
 
     <Pagi
-      left="-20px"
+      margin={{ left: '-20px' }}
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}

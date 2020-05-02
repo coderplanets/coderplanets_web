@@ -58,7 +58,7 @@ const CommentsToContent = ({ data, thread, curView }) => {
           ))}
 
           <Pagi
-            left="-20px"
+            margin={{ left: '-20px' }}
             pageNumber={data.pageNumber}
             pageSize={data.pageSize}
             totalCount={data.totalCount}

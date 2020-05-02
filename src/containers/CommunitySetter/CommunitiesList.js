@@ -1,7 +1,6 @@
 import React from 'react'
 import R from 'ramda'
 
-// import { ICON_CMD } from '@config'
 import Pagi from '@components/Pagi'
 import Community from './Community'
 
@@ -23,7 +22,7 @@ const CommunitiesList = ({
       ))}
     </EntriesWrapper>
     <Pagi
-      left="-20px"
+      margin={{ left: '-20px' }}
       pageNumber={pageNumber}
       pageSize={pageSize}
       totalCount={totalCount}

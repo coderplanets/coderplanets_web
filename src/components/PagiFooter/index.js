@@ -1,6 +1,6 @@
 /*
  *
- * PagiFooter
+ * Pagi
  *
  */
 
@@ -11,9 +11,9 @@ import { buildLog } from '@utils'
 import Perv from './Perv'
 import Next from './Next'
 
-import { Wrapper } from './styles'
+import { Wrapper, EmptyWrapper, BottomMsg } from './styles'
 /* eslint-disable-next-line */
-const log = buildLog('c:PagiFooter:index')
+const log = buildLog('c:Pagi:index')
 
 /**
  * @param num The number to round
@@ -26,7 +26,14 @@ const roundUp = (num, precision = 0) => {
   return Math.ceil(num * precision) / precision
 }
 
-const PagiFooter = ({
+const BottomFooter = ({ show, msg }) => {
+  if (show) return <BottomMsg>{msg}</BottomMsg>
+  return <div />
+}
+
+const hasExtraPage = (totalCount, pageSize) => totalCount > pageSize
+
+const Pagi = ({
   children,
   type,
   pageNumber,
@@ -34,27 +41,46 @@ const PagiFooter = ({
   totalCount,
   margin,
   onChange,
+  showBottomMsg,
+  emptyMsg,
+  noMoreMsg,
 }) => {
+  if (totalCount === 0) {
+    return (
+      <EmptyWrapper margin={margin}>
+        <BottomFooter show={showBottomMsg} msg={emptyMsg} />
+      </EmptyWrapper>
+    )
+  }
+
   return (
-    <Wrapper margin={margin}>
-      <Perv
-        type={type}
-        onChange={onChange}
-        disabled={pageNumber === 1}
-        pageNumber={pageNumber}
-      />
-      <div>{children}</div>
-      <Next
-        type={type}
-        onChange={onChange}
-        disabled={pageNumber >= roundUp(totalCount / pageSize)}
-        pageNumber={pageNumber}
-      />
-    </Wrapper>
+    <React.Fragment>
+      {hasExtraPage(totalCount, pageSize) ? (
+        <Wrapper margin={margin}>
+          <Perv
+            type={type}
+            onChange={onChange}
+            disabled={pageNumber === 1}
+            pageNumber={pageNumber}
+          />
+          <div>{children}</div>
+          <Next
+            type={type}
+            onChange={onChange}
+            disabled={pageNumber >= roundUp(totalCount / pageSize)}
+            pageNumber={pageNumber}
+          />
+        </Wrapper>
+      ) : (
+        <EmptyWrapper>
+          <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
+        </EmptyWrapper>
+      )}
+    </React.Fragment>
   )
 }
 
-PagiFooter.propTypes = {
+Pagi.propTypes = {
   children: T.node,
   type: T.oneOf(['bottom', 'center']),
   pageNumber: T.number,
@@ -66,10 +92,13 @@ PagiFooter.propTypes = {
     left: T.string,
     right: T.string,
   }),
+  emptyMsg: T.string,
+  noMoreMsg: T.string,
+  showBottomMsg: T.bool,
   onChange: T.func,
 }
 
-PagiFooter.defaultProps = {
+Pagi.defaultProps = {
   children: <div />,
   type: 'bottom',
   pageNumber: 0,
@@ -82,6 +111,9 @@ PagiFooter.defaultProps = {
     left: '0',
     right: '0',
   },
+  showBottomMsg: false,
+  emptyMsg: '还没有评论',
+  noMoreMsg: '没有更多评论了',
 }
 
-export default React.memo(PagiFooter)
+export default React.memo(Pagi)

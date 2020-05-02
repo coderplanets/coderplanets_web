@@ -10,7 +10,7 @@ import T from 'prop-types'
 import { TYPE, THREAD, C11N } from '@constant'
 import { buildLog } from '@utils'
 
-import PagiFooter from '@components/PagiFooter'
+import Pagi from '@components/Pagi'
 import ContentList from './ContentList'
 import CommunityRecommends from './CommunityRecommends'
 
@@ -53,13 +53,13 @@ const PagedContents = ({
         accountInfo={accountInfo}
       />
 
-      <PagiFooter
+      <Pagi
         {...pagiInfo}
         onChange={onPageChange}
         margin={{ bottom: '60px', top: '60px' }}
       >
         <CommunityRecommends />
-      </PagiFooter>
+      </Pagi>
     </React.Fragment>
   )
 }
