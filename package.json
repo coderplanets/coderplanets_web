@@ -146,7 +146,6 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^23.6.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "babel-plugin-import": "1.12.2",
     "babel-plugin-inline-dotenv": "^1.1.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-ramda": "2.0.0",
