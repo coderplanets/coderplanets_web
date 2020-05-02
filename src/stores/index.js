@@ -37,7 +37,6 @@ export { default as CommunityContentStore } from '@containers/content/CommunityC
 
 export { default as CommunitiesContentStore } from '@containers/content/CommunitiesContent/store'
 export { default as NewCommunityContentStore } from '@containers/content/NewCommunityContent/store'
-export { default as CheatSheetContentStore } from '@containers/content/CheatSheetContent/store'
 export { default as PostContentStore } from '@containers/content/PostContent/store'
 export { default as JobContentStore } from '@containers/content/JobContent/store'
 export { default as VideoContentStore } from '@containers/content/VideoContent/store'
