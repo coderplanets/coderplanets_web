@@ -41,12 +41,6 @@
         "messagesDir": "lang/.messages/"
       }
     ],
-    [
-      "import",
-      {
-        "libraryName": "antd"
-      }
-    ],
     "ramda",
     [
       "module-resolver",

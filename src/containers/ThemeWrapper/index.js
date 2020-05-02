@@ -13,7 +13,7 @@ import { usePlatform } from '@hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'
-import AntUIOverWrite from './AntUIOverWrite'
+import CustomOverWrite from './CustomOverWrite'
 import GlobalStyle from './GlobalStyle'
 import RichEditorStyle from './RichEditorStyle'
 
@@ -29,7 +29,7 @@ const ThemeContainer = ({ children, theme: { themeData } }) => {
         />
         <div>{children}</div>
         <CodeSyxHighlight />
-        <AntUIOverWrite />
+        <CustomOverWrite />
         <RichEditorStyle />
         <GlobalStyle showCustomScrollbar={showCustomScrollbar} />
       </React.Fragment>

@@ -48,7 +48,6 @@ export default class DocumentPage extends Document {
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
 
-          <link href="/antd-3.8.4-mini.css" rel="stylesheet" />
           <link
             href="https://fonts.googleapis.com/css?family=Orbitron"
             rel="stylesheet"

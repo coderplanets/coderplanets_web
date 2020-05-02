@@ -50,11 +50,6 @@ module.exports = {
         handler: 'CacheFirst',
       },
       {
-        // antd fonts
-        urlPattern: /^https:\/\/at\.alicdn\.com/,
-        handler: 'CacheFirst',
-      },
-      {
         // ali cdn
         urlPattern: /^https:\/\/gosspublic\.alicdn\.com/,
         handler: 'CacheFirst',
