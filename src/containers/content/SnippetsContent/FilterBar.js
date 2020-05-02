@@ -74,8 +74,8 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
         />
       </OrWrapper>
 
+      <SearchBox />
       <Sticky offsetTop={20}>
-        <SearchBox />
         <PinedList />
         <Divider />
         <NaviMenu

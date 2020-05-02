@@ -29,6 +29,7 @@ export const SiteLink = styled.a.attrs(props => ({
   border-bottom-color: ${({ active }) =>
     active ? theme('tabs.headerActive') : ''};
 
+  text-decoration: none;
   &:hover {
     cursor: pointer;
     text-decoration: none;

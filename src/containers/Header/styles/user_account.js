@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 export const PopMenu = styled.div`
   ${cs.flexColumn()};
 `
-
 export const MenuItem = styled.div`
   padding: 4px 13px;
   color: ${theme('thread.articleTitle')};
@@ -23,7 +22,6 @@ export const MenuItem = styled.div`
     cursor: pointer;
   }
 `
-
 export const MenuLink = styled.a`
   padding: 4px 13px;
   color: ${theme('thread.articleTitle')};
@@ -35,7 +33,6 @@ export const MenuLink = styled.a`
     text-decoration: underline;
   }
 `
-
 export const LoginBadge = styled.div`
   padding: 7px 13px;
 `
@@ -46,7 +43,6 @@ export const LoginName = styled.div`
   color: ${theme('thread.articleTitle')};
   font-weight: bold;
 `
-
 export const LogoutItem = styled.div`
   padding: 5px 13px;
   padding-bottom: 6px;
@@ -57,17 +53,16 @@ export const LogoutItem = styled.div`
     cursor: pointer;
   }
 `
-
 export const MenuDivider = styled.div`
   margin-top: 3px;
   margin-bottom: 3px;
   border-bottom: 2px solid;
   border-bottom-color: ${theme('banner.numberDivider')};
 `
-
 export const AvatarIcon = styled.img`
   width: 20px;
   height: 20px;
+  display: block;
   cursor: pointer;
   border-radius: 3px;
   opacity: ${theme('avatarOpacity')};
@@ -76,7 +71,7 @@ export const DefaultUserIcon = styled(Img)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
+  display: block;
   cursor: pointer;
   margin-right: 12px;
-  display: block;
 `

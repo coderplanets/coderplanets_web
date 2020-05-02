@@ -37,9 +37,9 @@ export const HeaderSearchIcon = styled(HeaderSearchSVG).attrs(props => ({
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
+  display: block;
   cursor: pointer;
   margin-right: 12px;
-  margin-top: ${({ offsettop }) => offsettop || '0'};
 `
 export const Operations = styled.div`
   ${cs.flex('align-center')};
@@ -48,7 +48,6 @@ export const Search = styled.div.attrs(props => ({
   'data-testid': props.testid,
 }))`
   color: ${theme('header.fg')};
-  padding-top: 8px;
 `
 export const AffixHeader = styled.div`
   display: ${({ fixed }) => (fixed ? 'block' : 'none')};

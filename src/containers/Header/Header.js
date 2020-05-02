@@ -73,7 +73,7 @@ const Header = ({
         <AddOns />
         <Operations>
           <Search onClick={openDoraemon} testid="header-search">
-            <HeaderSearchIcon offsettop="-1px" testid="header-search-icon" />
+            <HeaderSearchIcon testid="header-search-icon" />
           </Search>
 
           {isLogin && <MailBox />}

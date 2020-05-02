@@ -7,14 +7,12 @@
 import React from 'react'
 
 import { GALLERY } from '@constant'
-import { nilOrEmpty } from '@utils'
 
 import Pagi from '@components/Pagi'
 import { PagiOptionSwitcher } from '@components/Switcher'
 
 import { SnippetGallery, ImageGallery } from '@components/GalleryHub'
 
-import menuData from '../tempData'
 import Footer from '../Footer'
 
 import { Wrapper, InnerWrapper, NormalListWrapper } from '../styles/cheatsheets'

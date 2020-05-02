@@ -6,13 +6,13 @@ import { theme } from '@utils'
 export const Wrapper = styled.div.attrs(props => ({
   'data-testid': props.testid,
 }))`
-  padding-top: 8px;
   position: relative;
 `
 export const HeaderMailIcon = styled(HeaderMailSVG)`
   fill: ${theme('header.fg')};
   width: 20px;
   height: 20px;
+  display: block;
   cursor: pointer;
   margin-right: 12px;
 `
