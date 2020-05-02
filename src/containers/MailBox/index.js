@@ -31,7 +31,7 @@ const MailBoxContainer = ({ mailBox }) => {
           pagedMentions={pagedMentionsData}
         />
       }
-      placement="bottomLeft"
+      placement="bottom-start"
       trigger="click"
       visible={visible}
       onVisibleChange={visibleOnChange}

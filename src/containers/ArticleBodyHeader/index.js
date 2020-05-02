@@ -69,7 +69,7 @@ const ArticleBodyHeaderContainer = ({
               onCommunitySet={onCommunitySet}
             />
           }
-          placement="bottomLeft"
+          placement="bottom-start"
         >
           <div>
             <MoreIcon src={`${ICON_CMD}/article_more.svg`} />
