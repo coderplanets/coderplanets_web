@@ -13,10 +13,10 @@ export const FilterWrapper = styled.div`
   border-radius: 5px;
 `
 export const Title = styled.div`
-  font-size: 15px;
+  font-size: 14px;
   color: ${theme('thread.articleTitle')};
   font-weight: bolder;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-align: left;
   margin-left: 6px;
 `
