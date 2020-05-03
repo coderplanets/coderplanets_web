@@ -20,7 +20,7 @@ const log = buildLog('C:MailBox')
 const MailBoxContainer = ({ mailBox }) => {
   useInit(mailBox)
 
-  const { visible, activeRaw, mailStatusData, pagedMentionsData } = mailBox
+  const { activeRaw, mailStatusData, pagedMentionsData } = mailBox
 
   return (
     <Tooltip
@@ -31,10 +31,10 @@ const MailBoxContainer = ({ mailBox }) => {
           pagedMentions={pagedMentionsData}
         />
       }
+      hideOnClick={false}
       placement="bottom-start"
       trigger="click"
-      visible={visible}
-      onVisibleChange={visibleOnChange}
+      onShow={visibleOnChange}
     >
       <Wrapper testid="account-mailbox">
         <NofityDot active={mailStatusData.hasMail} />

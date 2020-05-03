@@ -7,14 +7,14 @@ import { cs, theme } from '@utils'
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 260px;
+  height: 240px;
   overflow: hidden;
 `
 export const IntroWrapper = styled.div`
   ${cs.flex('justify-around', 'align-center')};
   position: absolute;
   width: 100%;
-  height: 260px;
+  height: 100%;
   max-width: ${cs.MAX_CONTENT_WIDTH};
   padding: 0 8vw;
   padding-left: 7vw;

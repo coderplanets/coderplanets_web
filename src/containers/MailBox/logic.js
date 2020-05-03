@@ -36,7 +36,8 @@ const loadMentions = () => {
 }
 
 export const visibleOnChange = visible => {
-  if (visible) loadMentions()
+  loadMentions()
+  // if (visible) loadMentions()
 
   store.mark({ visible })
 }

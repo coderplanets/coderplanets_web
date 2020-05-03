@@ -10,6 +10,7 @@ export const StyledTippy = styled(Tippy)`
   border-color: ${theme('popover.borderColor')};
   color: ${theme('thread.articleDigest')};
   box-shadow: ${theme('popover.boxShadow')};
+  outline: none;
 
   /* margin-top: ${({ placement }) =>
     placement === 'bottom' ? '6px' : '0'}; */

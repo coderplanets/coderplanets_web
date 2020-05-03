@@ -14,7 +14,6 @@ const log = buildLog('S:MailBox')
 
 const MailBox = t
   .model('MailBox', {
-    visible: t.optional(t.boolean, false),
     panelVisiable: t.optional(t.boolean, false),
     mailStatus: t.optional(MailStatus, {}),
     pagedMentions: t.optional(PagedMentionMessages, emptyPagiData),
