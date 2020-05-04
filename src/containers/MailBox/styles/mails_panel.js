@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
   padding: 10px;
 `
 export const ContentWrapper = styled.div`
-  height: 300px;
-  overflow: scroll;
+  /* height: 300px; */
+  /* overflow: scroll; */
 `
 export const SeeAllMessages = styled.div`
   color: ${theme('banner.title')};

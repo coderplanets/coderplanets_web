@@ -35,11 +35,8 @@ const loadMentions = () => {
   sr71$.query(S.mentions, { filter: { page: 1, size: 10, read: false } })
 }
 
-export const visibleOnChange = visible => {
+export const visibleOnChange = () => {
   loadMentions()
-  // if (visible) loadMentions()
-
-  store.mark({ visible })
 }
 
 export const seeAll = () =>
@@ -63,8 +60,9 @@ const DataSolver = [
     match: asyncRes('mentions'),
     action: ({ mentions: pagedMentions }) => {
       markLoading(false)
+      console.log('pagedMentions: ', pagedMentions)
       store.mark({ pagedMentions })
-      loadMailboxStates()
+      // loadMailboxStates()
     },
   },
 ]

@@ -28,6 +28,7 @@ const HorizontalScroller = ({
   height,
   width,
   innerHeight,
+  showShadow,
   shadowSize,
   children,
   autoHide,
@@ -49,12 +50,15 @@ const HorizontalScroller = ({
 
   return (
     <Wrapper height={height} width={width} shadowSize={shadowSize}>
-      <LeftShadowBar
-        show={showLeftShadow}
-        height={height}
-        shadowSize={shadowSize}
-        withBorder={withBorder}
-      />
+      {showShadow && (
+        <LeftShadowBar
+          show={showLeftShadow}
+          height={height}
+          shadowSize={shadowSize}
+          withBorder={withBorder}
+        />
+      )}
+
       <ScrollWrapper ref={ref}>
         <InnerWrapper innerHeight={innerHeight}>
           <Waypoint
@@ -70,12 +74,14 @@ const HorizontalScroller = ({
           />
         </InnerWrapper>
       </ScrollWrapper>
-      <RightShadowBar
-        show={showRightShadow}
-        height={height}
-        shadowSize={shadowSize}
-        withBorder={withBorder}
-      />
+      {showShadow && (
+        <RightShadowBar
+          show={showRightShadow}
+          height={height}
+          shadowSize={shadowSize}
+          withBorder={withBorder}
+        />
+      )}
     </Wrapper>
   )
 }
@@ -84,6 +90,7 @@ HorizontalScroller.propTypes = {
   children: T.node.isRequired,
   height: T.string,
   width: T.string,
+  showShadow: T.bool,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   innerHeight: T.string,
@@ -94,6 +101,7 @@ HorizontalScroller.propTypes = {
 HorizontalScroller.defaultProps = {
   height: '100%',
   width: '100%',
+  showShadow: true,
   shadowSize: 'small',
   innerHeight: '100%',
   autoHide: false,

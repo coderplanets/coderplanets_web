@@ -26,6 +26,7 @@ const log = buildLog('c:CustomScroller:index')
 const VerticalScroller = ({
   height,
   width,
+  showShadow,
   shadowSize,
   children,
   autoHide,
@@ -53,12 +54,15 @@ const VerticalScroller = ({
 
   return (
     <Wrapper height={height} width={width} shadowSize={shadowSize}>
-      <TopShadowBar
-        show={showTopShadow}
-        height={height}
-        shadowSize={shadowSize}
-        withBorder={withBorder}
-      />
+      {showShadow && (
+        <TopShadowBar
+          show={showTopShadow}
+          height={height}
+          shadowSize={shadowSize}
+          withBorder={withBorder}
+        />
+      )}
+
       <ScrollWrapper ref={ref}>
         <Waypoint onEnter={handleHideTopShadow} onLeave={handleShowTopShadow} />
         {children}
@@ -68,12 +72,14 @@ const VerticalScroller = ({
         />
       </ScrollWrapper>
 
-      <BottomShadowBar
-        show={showBottomShadow}
-        height={height}
-        shadowSize={shadowSize}
-        withBorder={withBorder}
-      />
+      {showShadow && (
+        <BottomShadowBar
+          show={showBottomShadow}
+          height={height}
+          shadowSize={shadowSize}
+          withBorder={withBorder}
+        />
+      )}
     </Wrapper>
   )
 }
@@ -82,6 +88,7 @@ VerticalScroller.propTypes = {
   children: T.node.isRequired,
   height: T.string,
   width: T.string,
+  showShadow: T.bool,
   shadowSize: T.oneOf(['small', 'medium', 'large']),
   // hack for custom scrollbar
   autoHide: T.bool,
@@ -91,6 +98,7 @@ VerticalScroller.propTypes = {
 VerticalScroller.defaultProps = {
   height: '100%',
   width: '100%',
+  showShadow: true,
   shadowSize: 'small',
   autoHide: true,
   withBorder: false,
