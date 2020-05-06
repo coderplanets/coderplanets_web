@@ -173,7 +173,7 @@
     "react-test-renderer": "16.10.0",
     "regenerator-runtime": "^0.13.1",
     "shelljs": "0.8.2",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.0",
     "start-server-and-test": "1.10.1"
   }
 }
