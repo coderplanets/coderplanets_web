@@ -9,7 +9,11 @@ import {
   Wrapper,
   Divider,
   TopFilter,
+  LogoWrapper,
+  Logo,
   Title,
+  Digest,
+  Desc,
   Option,
   OptionItem,
   FavoriteIcon,
@@ -21,7 +25,13 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
   return (
     <Wrapper>
       <TopFilter>
-        <Title>酷导游</Title>
+        <LogoWrapper>
+          <Logo src={`${ICON_CMD}/navi/cool-guide-logo.svg`} />
+          <Digest>
+            <Title>酷导游</Title>
+            <Desc>the cool guide</Desc>
+          </Digest>
+        </LogoWrapper>
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}

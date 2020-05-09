@@ -606,7 +606,7 @@ const menu = [
   {
     id: uid.gen(),
     title: '计算机名人堂',
-    icon: `${ICON_CMD}/navi/famous.svg`,
+    icon: `${ICON_CMD}/navi/lighthouse.svg`,
     childMenu: [
       {
         id: uid.gen(),
@@ -857,7 +857,7 @@ const menu = [
   },
   {
     id: uid.gen(),
-    title: 'Sports Team',
+    title: '兴趣小组',
     icon: `${ICON_CMD}/navi/sport.svg`,
     childMenu: [
       {

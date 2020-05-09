@@ -36,7 +36,6 @@ export default class DocumentPage extends Document {
        const main = sheet.collectStyles(<Main />)
        const styleTags = sheet.getStyleElement()
      */
-
     return (
       <html {...this.helmetHtmlAttrComponents}>
         <Head>
@@ -71,7 +70,12 @@ export default class DocumentPage extends Document {
           />
           {this.props.styleTags}
         </Head>
-        <body id="body" {...this.helmetBodyAttrComponents}>
+        {/* if the site is crashed the style here is ensure to work */}
+        <body
+          id="body"
+          {...this.helmetBodyAttrComponents}
+          style={{ margin: 0 }}
+        >
           <Main />
           <NextScript />
         </body>
