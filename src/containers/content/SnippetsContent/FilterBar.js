@@ -6,6 +6,7 @@ import { SNIPPET } from '@constant'
 import Sticky from '@components/Sticky'
 import { OrButton } from '@components/Buttons'
 import NaviMenu from '@components/NaviMenu'
+import NaviIntro from '@components/NaviIntro'
 
 import SearchBox from './SearchBox'
 import PinedList from './PinedList'
@@ -15,7 +16,6 @@ import {
   Wrapper,
   Divider,
   TopFilter,
-  Title,
   Option,
   OptionItem,
   FavoriteIcon,
@@ -29,7 +29,11 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
   return (
     <Wrapper>
       <TopFilter>
-        <Title>代码片段</Title>
+        <NaviIntro
+          title="代码片段"
+          desc="useful snippets"
+          iconSrc={`${ICON_CMD}/header/more_snippets.svg`}
+        />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}

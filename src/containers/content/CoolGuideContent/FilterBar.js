@@ -3,17 +3,14 @@ import React from 'react'
 import { ICON_CMD } from '@config'
 
 import Sticky from '@components/Sticky'
+import NaviIntro from '@components/NaviIntro'
 import NaviMenu from '@components/NaviMenu'
 
 import {
   Wrapper,
   Divider,
   TopFilter,
-  LogoWrapper,
-  Logo,
-  Title,
-  Digest,
-  Desc,
+  CatTitle,
   Option,
   OptionItem,
   FavoriteIcon,
@@ -25,13 +22,11 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
   return (
     <Wrapper>
       <TopFilter>
-        <LogoWrapper>
-          <Logo src={`${ICON_CMD}/navi/cool-guide-logo.svg`} />
-          <Digest>
-            <Title>酷导游</Title>
-            <Desc>the cool guide</Desc>
-          </Digest>
-        </LogoWrapper>
+        <NaviIntro
+          title="酷导游"
+          desc="the cool guide"
+          iconSrc={`${ICON_CMD}/navi/cool-guide-logo.svg`}
+        />
         {topFilter !== 'all' && (
           <Option onClick={() => topFilterOnChange('all')}>全部</Option>
         )}
@@ -59,7 +54,7 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
       <Divider />
       <Sticky offsetTop={30}>
         <React.Fragment>
-          <Title>分类</Title>
+          <CatTitle>分类</CatTitle>
           <NaviMenu
             onSelect={(id, type) => menuOnSelect(id, type)}
             initActiveMenuId={initActiveMenuId}

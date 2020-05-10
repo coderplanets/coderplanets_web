@@ -4,7 +4,7 @@ import Img from '@Img'
 import { cs, theme } from '@utils'
 
 export const Wrapper = styled.div`
-  margin-top: 22px;
+  margin-top: 12px;
 `
 export const Divider = styled.div`
   height: 1px;
@@ -17,28 +17,12 @@ export const TopFilter = styled.div`
   color: ${theme('thread.articleDigest')};
   width: calc(100% - 25px);
 `
-export const LogoWrapper = styled.div`
-  ${cs.flex('align-center')};
-  margin-bottom: 15px;
-`
-export const Logo = styled(Img)`
-  fill: ${theme('thread.articleTitle')};
-  width: 30px;
-  height: 30px;
-  display: block;
-`
-export const Digest = styled.div`
-  ${cs.flexColumn('align-start')};
-  margin-left: 10px;
-`
-export const Title = styled.div`
+export const CatTitle = styled.div`
   color: ${theme('thread.articleTitle')};
   font-size: 14px;
   font-weight: bold;
-`
-export const Desc = styled.div`
-  color: ${theme('thread.articleDigest')};
-  font-size: 12px;
+  padding: 6px;
+  margin-bottom: 10px;
 `
 export const Option = styled.div`
   ${cs.flex('align-center')};
