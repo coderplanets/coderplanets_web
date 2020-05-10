@@ -24,6 +24,8 @@ const UserAccount = ({ isLogin, accountInfo }) => (
     {isLogin ? (
       <Tooltip
         placement="bottom-start"
+        trigger="click"
+        hideOnClick={false}
         content={
           <PopMenu>
             <LoginBadge>
