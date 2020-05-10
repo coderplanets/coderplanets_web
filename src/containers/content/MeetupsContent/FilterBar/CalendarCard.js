@@ -16,7 +16,7 @@ import {
   MonthWrapper,
   MonthVal,
   MonthUnit,
-} from './styles/calendar_card'
+} from '../styles/filter_bar/calendar_card'
 
 const CalendarCard = () => {
   return (
