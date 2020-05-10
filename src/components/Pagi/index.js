@@ -6,6 +6,7 @@
 
 import React from 'react'
 import T from 'prop-types'
+import R from 'ramda'
 
 import { buildLog } from '@utils'
 import Perv from './Perv'
@@ -14,6 +15,13 @@ import Next from './Next'
 import { Wrapper, EmptyWrapper, BottomMsg } from './styles'
 /* eslint-disable-next-line */
 const log = buildLog('c:Pagi:index')
+
+const defaultMargin = {
+  top: '0',
+  bottom: '0',
+  left: '0',
+  right: '0',
+}
 
 /**
  * @param num The number to round
@@ -39,12 +47,14 @@ const Pagi = ({
   pageNumber,
   pageSize,
   totalCount,
-  margin,
+  margin: marginProp,
   onChange,
   showBottomMsg,
   emptyMsg,
   noMoreMsg,
 }) => {
+  const margin = R.merge(defaultMargin, marginProp)
+
   if (totalCount === 0) {
     return (
       <EmptyWrapper margin={margin}>
@@ -72,7 +82,7 @@ const Pagi = ({
           />
         </Wrapper>
       ) : (
-        <EmptyWrapper>
+        <EmptyWrapper margin={margin}>
           <BottomFooter show={showBottomMsg} msg={noMoreMsg} />
         </EmptyWrapper>
       )}
