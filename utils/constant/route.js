@@ -27,6 +27,7 @@ const ROUTE = {
   TRENDING: 'trending',
   SPONSOR: 'sponsor',
   SNIPPETS: 'snippets',
+  INTERVIEW: 'interview',
 }
 
 export default ROUTE

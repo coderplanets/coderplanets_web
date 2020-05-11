@@ -97,6 +97,7 @@ import {
   CoolGuideContentStore,
 
   // GEN: IMPORT SUBSTORE
+  InterviewContentStore,
   SnippetsContentStore,
   SponsorContentStore,
   JoinModalStore,
@@ -207,6 +208,7 @@ const rootStore = t
     coolGuideContent: t.optional(CoolGuideContentStore, {}),
 
     // GEN: PLUG SUBSTORE TO ROOTSTORE
+    interviewContent: t.optional(InterviewContentStore, {}),
     snippetsContent: t.optional(SnippetsContentStore, {}),
     sponsorContent: t.optional(SponsorContentStore, {}),
     joinModal: t.optional(JoinModalStore, {}),

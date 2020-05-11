@@ -62,8 +62,8 @@ const MoreContent = () => (
       <Entry>
         <Logo src={`${ICON_CMD}/header/more_Interview.svg`} />
         <Intro>
-          <Title>面试题库</Title>
-          <Desc>各门类面试题集锦</Desc>
+          <Title>面经</Title>
+          <Desc>各门类面试题库，经验交流</Desc>
         </Intro>
       </Entry>
       <Entry>

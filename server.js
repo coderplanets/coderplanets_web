@@ -116,6 +116,13 @@ app.prepare().then(() => {
     renderAndCache(req, res, '/snippets', req.query)
   )
 
+  server.get('/interview/', (req, res) =>
+    renderAndCache(req, res, '/interview', req.query)
+  )
+  server.get('/interview/*', (req, res) =>
+    renderAndCache(req, res, '/interview', req.query)
+  )
+
   server.get('/service-worker.js', (req, res) =>
     res.sendFile(`${__dirname}/.next/service-worker.js`)
   )
