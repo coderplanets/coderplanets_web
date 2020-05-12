@@ -6,13 +6,23 @@ import {
   Copyrights,
   Thanks,
   ThxTitle,
+  BeianLink,
+  SiteDesc,
 } from './styles/bottom_info'
 import { toggleBusBanner } from './logic'
 
 const BottomInfo = () => (
   <Wrapper>
     <InnerWrapper>
-      <Copyrights>©2019 All Rights Reserved</Copyrights>
+      <Copyrights>
+        <BeianLink
+          href="http://www.miitbeian.gov.cn"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          蜀ICP备17043722号-4
+        </BeianLink>
+      </Copyrights>
       <Thanks onClick={toggleBusBanner}>
         <ThxTitle>特别鸣谢： (求赞助)</ThxTitle>
       </Thanks>

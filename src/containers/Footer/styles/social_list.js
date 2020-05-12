@@ -9,11 +9,11 @@ export const Wrapper = styled.div`
 export const Item = styled.div``
 
 export const Icon = styled(Img)`
-  width: 16px;
-  height: 16px;
-  fill: ${theme('thread.articleDigest')};
+  width: 15px;
+  height: 15px;
+  fill: ${theme('footer.text')};
   &:hover {
-    fill: ${theme('thread.articleTitle')};
+    fill: ${theme('footer.hover')};
     cursor: pointer;
   }
   display: block;

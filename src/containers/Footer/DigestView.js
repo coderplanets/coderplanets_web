@@ -2,6 +2,10 @@ import React from 'react'
 
 import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR } from '@config'
 
+import SocialList from './SocialList'
+import BottomInfo from './BottomInfo'
+import MobilBottomInfo from './MobilBottomInfo'
+
 import {
   Wrapper,
   InnerWrapper,
@@ -17,11 +21,6 @@ import {
   Item,
 } from './styles/digest_view'
 
-import SocialList from './SocialList'
-// import GitSource from './GitSource'
-import BottomInfo from './BottomInfo'
-import MobilBottomInfo from './MobilBottomInfo'
-
 import {
   toggleSponsorHelper,
   toggleBusBanner,
@@ -35,7 +34,7 @@ const DigestView = ({ hasTopBorder }) => (
         <MainColumn>
           <SiteInfo>
             <SiteLogo />
-            <SiteTitle>coderplanets</SiteTitle>
+            {/* <SiteTitle>coderplanets</SiteTitle> */}
           </SiteInfo>
           <div>
             <SiteDesc
@@ -43,21 +42,10 @@ const DigestView = ({ hasTopBorder }) => (
               rel="noopener noreferrer"
               target="_blank"
             >
-              powered by groupher
+              Power By @Groupher 2020
             </SiteDesc>
-            <SiteDesc
-              href="http://www.miitbeian.gov.cn"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              蜀ICP备17043722号-4
-            </SiteDesc>
+            <SocialList />
           </div>
-
-          <br />
-
-          <Title>contact us:</Title>
-          <SocialList />
         </MainColumn>
         <Column>
           <Title>About</Title>

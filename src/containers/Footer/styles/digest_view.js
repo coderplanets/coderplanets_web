@@ -37,6 +37,7 @@ export const Column = styled.div`
 `
 export const MainColumn = styled(Column)`
   min-width: 240px;
+  flex-grow: 1;
 `
 export const SiteInfo = styled.div`
   ${cs.flex()};
@@ -47,6 +48,7 @@ export const SiteDesc = styled.a`
   margin-bottom: 5px;
   color: ${theme('footer.text')};
   display: block;
+  text-decoration: none;
 
   font-size: 0.8rem;
   margin-bottom: 5px;
@@ -60,9 +62,11 @@ export const SiteDesc = styled.a`
 `
 
 export const SiteLogo = styled(CommunityFaceLogo)`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+  width: 34px;
+  height: 34px;
+  display: block;
+  margin-bottom: 18px;
+  margin-left: 3px;
 `
 export const SiteTitle = styled.div`
   color: ${theme('footer.title')};

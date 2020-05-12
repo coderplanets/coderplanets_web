@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { SiteDesc } from './digest_view'
 import { theme, cs } from '@utils'
 
 export const Wrapper = styled.div`
@@ -18,7 +19,7 @@ export const InnerWrapper = styled.div`
   padding: 0 5vw;
 `
 export const Copyrights = styled.div`
-  color: ${theme('thread.articleDigest')};
+  margin-left: 10px;
 `
 export const Thanks = styled.div`
   color: ${theme('thread.articleDigest')};
@@ -27,3 +28,5 @@ export const Thanks = styled.div`
   }
 `
 export const ThxTitle = styled.div``
+
+export const BeianLink = styled(SiteDesc)``
