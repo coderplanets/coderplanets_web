@@ -48,4 +48,4 @@ const FilterBar = ({ activeView }) => {
   )
 }
 
-export default FilterBar
+export default React.memo(FilterBar)

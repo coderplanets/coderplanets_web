@@ -11,7 +11,7 @@ import React from 'react'
 import { connectStore, buildLog } from '@utils'
 
 import FilterBar from './FilterBar'
-// import Content from './Content'
+import Content from './Content'
 
 import { Wrapper, InnerWrapper, ContentWrapper } from './styles'
 import { useInit } from './logic'
@@ -30,10 +30,9 @@ const InterviewContentContainer = ({ interviewContent }) => {
         // menuOnSelect={menuOnSelect}
         // initActiveMenuId={initActiveMenuId}
         />
-        <>
-          content
-          {/* <Content displayType={displayType} /> */}
-        </>
+        <ContentWrapper>
+          <Content />
+        </ContentWrapper>
       </InnerWrapper>
     </Wrapper>
   )

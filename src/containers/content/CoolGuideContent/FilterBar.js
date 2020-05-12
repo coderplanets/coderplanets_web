@@ -66,4 +66,4 @@ const FilterBar = ({ topFilter, menuOnSelect, initActiveMenuId }) => {
   )
 }
 
-export default FilterBar
+export default React.memo(FilterBar)
