@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.footer`
@@ -12,9 +14,17 @@ export const InnerWrapper = styled.div`
   padding: 0 5vw;
 `
 export const MainInfos = styled.footer`
-  ${cs.flexColumn()};
+  ${cs.flexColumn('align-center')};
   margin-bottom: 20px;
   ${cs.media.tablet`display: none;`};
+`
+export const SiteLogo = styled(CommunityFaceLogo)`
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: -2px;
 `
 const Link = styled.a`
   text-decoration: none;
@@ -45,6 +55,7 @@ export const Divider = styled.div`
   margin-left: 12px;
   margin-right: 12px;
   color: ${theme('footer.text')};
+  opacity: 0.6;
 `
 
 export const Item = styled(Link)``

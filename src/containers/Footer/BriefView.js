@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { ISSUE_ADDR, API_SERVER_ADDR } from '@/config'
+
 import BottomInfo from './BottomInfo'
 import MobilBottomInfo from './MobilBottomInfo'
 
@@ -12,6 +13,7 @@ import {
   Divider,
   Item,
   Support,
+  SiteLogo,
 } from './styles/brief_view'
 
 import { toggleSponsorHelper, toggleBusBanner } from './logic'
@@ -21,14 +23,6 @@ const BriefView = () => (
     <InnerWrapper>
       <MainInfos>
         <BaseInfo>
-          <Item
-            href="http://www.miitbeian.gov.cn"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            蜀ICP备17043722号-4
-          </Item>
-          <Divider>|</Divider>
           <Item href="/home/post/1" rel="noopener noreferrer" target="_blank">
             关于
           </Item>
@@ -48,7 +42,7 @@ const BriefView = () => (
           >
             反馈与建议
           </Item>
-          <Divider>|</Divider>
+          <SiteLogo />
           <Item
             href={`${API_SERVER_ADDR}`}
             rel="noopener noreferrer"

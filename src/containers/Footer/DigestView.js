@@ -14,7 +14,6 @@ import {
   SiteInfo,
   SiteDesc,
   SiteLogo,
-  SiteTitle,
   Column,
   Title,
   Body,
@@ -34,7 +33,6 @@ const DigestView = ({ hasTopBorder }) => (
         <MainColumn>
           <SiteInfo>
             <SiteLogo />
-            {/* <SiteTitle>coderplanets</SiteTitle> */}
           </SiteInfo>
           <div>
             <SiteDesc

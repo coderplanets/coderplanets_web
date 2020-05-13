@@ -60,19 +60,14 @@ export const SiteDesc = styled.a`
   }
   transition: color 0.2s;
 `
-
 export const SiteLogo = styled(CommunityFaceLogo)`
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   display: block;
+  margin-top: 10px;
   margin-bottom: 18px;
   margin-left: 3px;
 `
-export const SiteTitle = styled.div`
-  color: ${theme('footer.title')};
-  font-size: 1rem;
-`
-
 export const Title = styled.div`
   color: ${theme('footer.title')};
   margin-bottom: 12px;
