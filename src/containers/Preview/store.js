@@ -6,9 +6,16 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { TYPE, THREAD } from '@constant'
-import { markStates, stripMobx, lockPage, unlockPage, Global, cs } from '@utils'
-import { User, EmptyAchievement } from '@model'
+import { TYPE, THREAD } from '@/constant'
+import {
+  markStates,
+  stripMobx,
+  lockPage,
+  unlockPage,
+  Global,
+  cs,
+} from '@/utils'
+import { User, EmptyAchievement } from '@/model'
 
 const PREVIEWABLE_THREADS = [THREAD.POST, THREAD.JOB, THREAD.VIDEO, THREAD.REPO]
 const THREAD_CONTENT_CURD_TYPES = [

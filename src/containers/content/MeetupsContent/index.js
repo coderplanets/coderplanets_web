@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Pagi from '@components/Pagi'
+import Pagi from '@/components/Pagi'
 
 import FilterBar from './FilterBar'
 import DateSelector from './DateSelector'

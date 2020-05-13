@@ -12,8 +12,8 @@ import Editor from 'draft-js-plugins-editor'
 import createMentionPlugin from 'draft-js-mention-plugin'
 import createLinkifyPlugin from 'draft-js-linkify-plugin'
 
-import { EVENT } from '@constant'
-import { buildLog, BStore } from '@utils'
+import { EVENT } from '@/constant'
+import { buildLog, BStore } from '@/utils'
 
 import toRawString from './exportContent'
 import { Wrapper } from './styles'

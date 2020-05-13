@@ -7,11 +7,11 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import FavoritesCats from '@containers/FavoritesCats'
-import Maybe from '@components/Maybe'
+import FavoritesCats from '@/containers/FavoritesCats'
+import Maybe from '@/components/Maybe'
 
 import UserInfo from './UserInfo'
 import CompanyInfo from './CompanyInfo'

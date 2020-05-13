@@ -1,8 +1,8 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { SpaceGrow } from '@components/Common'
-import DotDivider from '@components/DotDivider'
+import { SpaceGrow } from '@/components/Common'
+import DotDivider from '@/components/DotDivider'
 
 import Actions from './Actions'
 

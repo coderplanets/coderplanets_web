@@ -7,12 +7,12 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import { withGuardian } from '@hoc'
+import { buildLog } from '@/utils'
+import { withGuardian } from '@/hoc'
 
-import AvatarAdder from '@containers/AvatarAdder'
-import Tooltip from '@components/Tooltip'
-import GithubUserCard from '@components/GithubUserCard'
+import AvatarAdder from '@/containers/AvatarAdder'
+import Tooltip from '@/components/Tooltip'
+import GithubUserCard from '@/components/GithubUserCard'
 
 import { Wrapper, AvatarLink, Avatar, CardWrapper } from './styles'
 

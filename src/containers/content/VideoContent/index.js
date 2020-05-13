@@ -6,18 +6,18 @@
 
 import React from 'react'
 
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import ArticleBodyHeader from '@containers/ArticleBodyHeader'
-import Comments from '@containers/Comments'
-import ArticleAuthorCard from '@containers/ArticleAuthorCard'
-import ContentSourceCard from '@components/ContentSourceCard'
+import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
+import Comments from '@/containers/Comments'
+import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
+import ContentSourceCard from '@/components/ContentSourceCard'
 
-import Sticky from '@components/Sticky'
-import Maybe from '@components/Maybe'
-import VideoPoster from '@components/VideoPoster'
-import VideoInfoCard from '@components/VideoInfoCard'
+import Sticky from '@/components/Sticky'
+import Maybe from '@/components/Maybe'
+import VideoPoster from '@/components/VideoPoster'
+import VideoInfoCard from '@/components/VideoInfoCard'
 
 import SideCards from './SideCards'
 

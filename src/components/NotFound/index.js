@@ -8,9 +8,9 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ICON_BASE, ISSUE_ADDR } from '@config'
+import { ICON_BASE, ISSUE_ADDR } from '@/config'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import {
   Icon404,
   Wrapper,

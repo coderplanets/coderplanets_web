@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
+import { theme, cs } from '@/utils'
 
-import Img from '@Img'
+import Img from '@/Img'
 
 export const BannerContainer = styled.div.attrs(props => ({
   'data-testid': props.testid,

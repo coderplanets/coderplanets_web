@@ -1,12 +1,12 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import ThemeWrapper from '@containers/ThemeWrapper'
+import ThemeWrapper from '@/containers/ThemeWrapper'
 
-import AnalysisService from '@services/Analysis'
-import OauthHinter from '@components/OauthHinter'
+import AnalysisService from '@/servicess/Analysis'
+import OauthHinter from '@/components/OauthHinter'
 
-import initRootStore from '@stores/init'
+import initRootStore from '@/stores/init'
 
 export default class Index extends React.Component {
   static getInitialProps() {

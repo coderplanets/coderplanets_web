@@ -1,6 +1,6 @@
 import React from 'react'
 
-// import { ICON_CMD } from '@config'
+// import { ICON_CMD } from '@/config'
 import { Wrapper, Logo, Title, Mark } from './styles/community'
 import { handleCommunityBelong } from './logic'
 

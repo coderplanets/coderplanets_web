@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { Button } from '@components/Buttons'
-import Tooltip from '@components/Tooltip'
+import { ICON_CMD } from '@/config'
+import { Button } from '@/components/Buttons'
+import Tooltip from '@/components/Tooltip'
 
 import { BtnWrapper, WatchedIcon, Popinfo, LoadingIcon } from './styles'
 

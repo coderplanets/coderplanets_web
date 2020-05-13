@@ -1,7 +1,7 @@
 import { types as t } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@config'
-import { C11N } from '@constant'
+import { PAGE_SIZE } from '@/config'
+import { C11N } from '@/constant'
 
 import { Community /* PagedCommunities */ } from './Community'
 

@@ -2,9 +2,9 @@ import React from 'react'
 import T from 'prop-types'
 import { withTheme } from 'styled-components'
 
-import { ICON_BASE } from '@config'
+import { ICON_BASE } from '@/config'
 
-import { getRandomInt } from '@utils'
+import { getRandomInt } from '@/utils'
 import { PlanetDriverIcon } from './styles'
 
 const getRandomAngle = () =>

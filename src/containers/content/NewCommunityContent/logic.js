@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
-import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue, updateEditing } from '@utils'
+import { EVENT, ERR } from '@/constant'
+import { asyncSuit, buildLog, errRescue, updateEditing } from '@/utils'
 
 import S from './schema'
 

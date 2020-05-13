@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { theme } from '@utils'
+import Img from '@/Img'
+import { theme } from '@/utils'
 
 import { Wrapper as IndexWrapper } from './index'
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Img from '@Img'
-import DotDividerBase from '@components/DotDivider'
+import { theme, cs } from '@/utils'
+import Img from '@/Img'
+import DotDividerBase from '@/components/DotDivider'
 
 export const Wrapper = styled.div`
   ${cs.flex('align-center')};

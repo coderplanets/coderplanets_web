@@ -6,12 +6,12 @@
 
 import React from 'react'
 
-import { TYPE } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { TYPE } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import EmptyThread from '@components/EmptyThread'
-import { CheatSheetLoading } from '@components/LoadingEffects'
-import GithubSyncWarning from '@components/GithubSyncWarning'
+import EmptyThread from '@/components/EmptyThread'
+import { CheatSheetLoading } from '@/components/LoadingEffects'
+import GithubSyncWarning from '@/components/GithubSyncWarning'
 
 import Cheatsheet from './Cheatsheet'
 import Note from './Note'

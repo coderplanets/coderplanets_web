@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@utils'
-import Img from '@Img'
+import { cs, theme } from '@/utils'
+import Img from '@/Img'
 
 const headerBg = '#053542'
 const taberBg = '#022A35'

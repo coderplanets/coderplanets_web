@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import R from 'ramda'
 
-import { EVENT } from '@constant'
-import { buildLog, send } from '@utils'
+import { EVENT } from '@/constant'
+import { buildLog, send } from '@/utils'
 // import S from './service'
 
 let store = null

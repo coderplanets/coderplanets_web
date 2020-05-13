@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { THREAD } from '@constant'
+import { THREAD } from '@/constant'
 import {
   markStates,
   focusDoraemonBar,
@@ -14,7 +14,7 @@ import {
   stripMobx,
   lockPage,
   unlockPage,
-} from '@utils'
+} from '@/utils'
 
 import cmds from './logic/defaultSuggestion'
 

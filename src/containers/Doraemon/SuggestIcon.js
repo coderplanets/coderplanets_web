@@ -6,9 +6,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { DEFAULT_ICON } from '@config'
-import { NON_FILL_COMMUNITY } from '@constant'
-import { themeCoverMap } from '@utils'
+import { DEFAULT_ICON } from '@/config'
+import { NON_FILL_COMMUNITY } from '@/constant'
+import { themeCoverMap } from '@/utils'
 
 import {
   Wrapper,

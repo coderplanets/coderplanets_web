@@ -2,7 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
 import Content from './Content'
 

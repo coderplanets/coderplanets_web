@@ -6,9 +6,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { DEFAULT_USER_AVATAR } from '@config'
+import { DEFAULT_USER_AVATAR } from '@/config'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import {
   Wrapper,
   AvatarWrapper,

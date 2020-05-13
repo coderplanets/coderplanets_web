@@ -10,7 +10,7 @@ import ReactJson from 'react-json-view'
 import { withTheme } from 'styled-components'
 
 /* import T from 'prop-types' */
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:StateTree:index')

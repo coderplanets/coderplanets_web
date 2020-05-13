@@ -7,11 +7,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import Pagi from '@components/Pagi'
-import FollowButton from '@components/FollowButton'
-import { ICON_CMD } from '@config'
+import Pagi from '@/components/Pagi'
+import FollowButton from '@/components/FollowButton'
+import { ICON_CMD } from '@/config'
 
-import { buildLog, cutFrom } from '@utils'
+import { buildLog, cutFrom } from '@/utils'
 import {
   TableWrapper,
   UserWrapper,

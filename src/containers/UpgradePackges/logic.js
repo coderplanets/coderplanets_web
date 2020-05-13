@@ -1,9 +1,9 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { SENIOR_AMOUNT_THRESHOLD } from '@config'
-import { PAYMENT_USAGE } from '@constant'
-import { asyncSuit, buildLog } from '@utils'
+import { SENIOR_AMOUNT_THRESHOLD } from '@/config'
+import { PAYMENT_USAGE } from '@/constant'
+import { asyncSuit, buildLog } from '@/utils'
 /* import S from './schema' */
 
 /* eslint-disable-next-line */

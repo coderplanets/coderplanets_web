@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR } from '@config'
+import { GITHUB, API_SERVER_ADDR, ISSUE_ADDR } from '@/config'
 
 import SocialList from './SocialList'
 import BottomInfo from './BottomInfo'

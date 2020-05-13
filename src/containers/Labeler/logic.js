@@ -1,6 +1,6 @@
 import R from 'ramda'
 
-import { buildLog, asyncSuit, makeGQClient } from '@utils'
+import { buildLog, asyncSuit, makeGQClient } from '@/utils'
 import S from './schema'
 
 /* eslint-disable-next-line */

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { cs, theme } from '@utils'
+import Img from '@/Img'
+import { cs, theme } from '@/utils'
 
 const bgColor = '#02303e'
 

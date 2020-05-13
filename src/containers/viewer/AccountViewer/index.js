@@ -7,11 +7,11 @@
 import React from 'react'
 import R from 'ramda'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Maybe from '@components/Maybe'
-import ThemeSelector from '@components/ThemeSelector'
-import UserBrief from '@components/UserBrief'
+import Maybe from '@/components/Maybe'
+import ThemeSelector from '@/components/ThemeSelector'
+import UserBrief from '@/components/UserBrief'
 
 import SiteSocial from './SiteSocial'
 import Planets from './Planets'

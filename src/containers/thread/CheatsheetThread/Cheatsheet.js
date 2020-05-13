@@ -3,8 +3,8 @@ import Masonry from 'react-masonry-component'
 import { Remarkable } from 'remarkable'
 // import Prism from 'mastani-codehighlight'
 
-import { COMMUNITY_CHEATSHEET } from '@config'
-import { uid } from '@utils'
+import { COMMUNITY_CHEATSHEET } from '@/config'
+import { uid } from '@/utils'
 
 import {
   Wrapper,

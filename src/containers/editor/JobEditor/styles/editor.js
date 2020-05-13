@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Input from '@components/Input'
+import { theme, cs } from '@/utils'
+import Input from '@/components/Input'
 
 export const Wrapper = styled.div`
   ${cs.flexColumn()};

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Input from '@components/Input'
+import { theme, cs } from '@/utils'
+import Input from '@/components/Input'
 
-// import Img from '@Img'
+// import Img from '@/Img'
 
 export const Inputer = styled(Input)`
   border-left: ${({ error }) =>

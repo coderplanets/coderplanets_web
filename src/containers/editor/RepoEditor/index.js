@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog, uid } from '@utils'
+import { connectStore, buildLog, uid } from '@/utils'
 
-import GithubRepoPage from '@components/GithubRepoPage'
+import GithubRepoPage from '@/components/GithubRepoPage'
 import SearchMan from './SearchMan'
 
 import { Wrapper } from './styles'

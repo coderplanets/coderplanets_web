@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import { Radio } from '@components/Switcher'
-import Input from '@components/Input'
-import { Button } from '@components/Buttons'
+import { Radio } from '@/components/Switcher'
+import Input from '@/components/Input'
+import { Button } from '@/components/Buttons'
 
-import { Space } from '@components/Common'
-import SectionLabel from '@components/SectionLabel'
+import { Space } from '@/components/Common'
+import SectionLabel from '@/components/SectionLabel'
 
 import {
   Wrapper,

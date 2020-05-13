@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Sticky from '@components/Sticky'
-import { OrButton } from '@components/Buttons'
-import FiltersMenu from '@components/FiltersMenu'
-import NaviMenu from '@components/NaviMenu'
+import Sticky from '@/components/Sticky'
+import { OrButton } from '@/components/Buttons'
+import FiltersMenu from '@/components/FiltersMenu'
+import NaviMenu from '@/components/NaviMenu'
 import SideFooter from './SideFooter'
 
 import fakeFilterItems from './fakeFilterItems'

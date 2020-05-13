@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import R from 'ramda'
 
-import { debounce } from '@utils'
+import { debounce } from '@/utils'
 
 const inialState = {
   direction: 'up', // 'down'

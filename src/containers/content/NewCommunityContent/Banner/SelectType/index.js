@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import { ArrowButton } from '@components/Buttons'
+import { ArrowButton } from '@/components/Buttons'
 
 import TypeBoxes from './TypeBoxes'
 

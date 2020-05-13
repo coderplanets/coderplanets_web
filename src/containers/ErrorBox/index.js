@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
-import { useShortcut } from '@hooks'
+import Modal from '@/components/Modal'
+import { useShortcut } from '@/hooks'
 
 import Header from './Header'
 import Details from './Details'

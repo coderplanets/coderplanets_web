@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog, nilOrEmpty, SOCIAL_LISTS } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog, nilOrEmpty, SOCIAL_LISTS } from '@/utils'
 
-import Input from '@components/Input'
+import Input from '@/components/Input'
 
 import {
   Wrapper,

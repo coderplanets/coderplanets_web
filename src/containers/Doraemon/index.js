@@ -7,7 +7,7 @@
 import React, { useEffect } from 'react'
 import usePortal from 'react-useportal'
 
-import { connectStore, buildLog, toggleGlobalBlur } from '@utils'
+import { connectStore, buildLog, toggleGlobalBlur } from '@/utils'
 
 import InputEditor from './InputEditor'
 import ResultsList from './ResultsList'

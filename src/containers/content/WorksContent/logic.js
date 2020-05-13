@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 // import S from './service'
 
 let store = null

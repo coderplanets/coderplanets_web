@@ -13,7 +13,7 @@ Take `containers/PostsThread/schema.js` as an example:
 
 ```js
 Import gql from 'graphql-tag'
-Import { P, F } from '@schemas'
+Import { P, F } from '@/schemas'
 
 Const pagedPosts = gql`
   ${P.pagedPosts}

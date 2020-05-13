@@ -1,9 +1,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
-import { withGuardian } from '@hoc'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+import { withGuardian } from '@/hoc'
 
 import { Option, OptionIcon, OptionTitle } from './styles'
 

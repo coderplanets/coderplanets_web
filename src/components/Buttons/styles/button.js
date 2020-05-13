@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-import { cs, theme } from '@utils'
+import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.button`
   ${cs.flex('align-center')};

@@ -7,10 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ASSETS_ENDPOINT } from '@config'
-import { buildLog, cutFrom } from '@utils'
+import { ASSETS_ENDPOINT } from '@/config'
+import { buildLog, cutFrom } from '@/utils'
 
-import { ArrowButton } from '@components/Buttons'
+import { ArrowButton } from '@/components/Buttons'
 
 import {
   Wrapper,

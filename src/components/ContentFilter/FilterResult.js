@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { EVENT, TYPE } from '@constant'
-import { ICON_CMD } from '@config'
-import { send } from '@utils'
+import { EVENT, TYPE } from '@/constant'
+import { ICON_CMD } from '@/config'
+import { send } from '@/utils'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import ThreadSelector from '@components/ThreadSelector'
+import ThreadSelector from '@/components/ThreadSelector'
 import CommentsToContent from './CommentsToContent'
 
 import { ThreadWrapper } from './styles'

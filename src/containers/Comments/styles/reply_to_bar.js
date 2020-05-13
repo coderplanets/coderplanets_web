@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
-// import { theme } from '@utils'
+// import Img from '@/Img'
+// import { theme } from '@/utils'
 import { ReplyBarBase, ReplyToBodyBase, ReplyToFloorBase } from './index'
 
 export const ReplyBar = styled(ReplyBarBase)`

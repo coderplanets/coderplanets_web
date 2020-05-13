@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme } from '@utils'
-import Img from '@Img'
+import { theme } from '@/utils'
+import Img from '@/Img'
 
 export const Logo = styled(Img)`
   fill: ${({ nonFill }) => (nonFill ? '' : theme('banner.desc'))};

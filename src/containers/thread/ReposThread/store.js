@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
-import { markStates, buildLog, stripMobx, nilOrEmpty } from '@utils'
-import { PagedRepos, Tag, ContentFilter, emptyPagiData } from '@model'
+import { TYPE } from '@/constant'
+import { markStates, buildLog, stripMobx, nilOrEmpty } from '@/utils'
+import { PagedRepos, Tag, ContentFilter, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:ReposThread')

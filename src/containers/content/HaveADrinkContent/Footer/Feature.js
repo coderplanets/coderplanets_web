@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import DotDivider from '@components/DotDivider'
+import DotDivider from '@/components/DotDivider'
 
 import { Wrapper, Icon } from '../styles/footer/feature'
 import { setView, LN } from '../logic'

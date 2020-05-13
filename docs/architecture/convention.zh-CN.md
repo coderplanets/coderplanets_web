@@ -49,10 +49,10 @@ Doramon 为网站提供类似于 [alfred](https://www.alfredapp.com/) 的功能,
 在项目中可以直接引用上述组件，比如：
 
 ```js
-import { ISSUE_WEB } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ISSUE_WEB } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@components/ArticleEditFooter'
+import ArticleEditFooter from '@/components/ArticleEditFooter'
 ...
 ```
 
@@ -68,14 +68,14 @@ import Waypoint from 'react-waypoint'
 import R from 'ramda'
 
 // 2. import utils
-import { connectStore, buildLog, ROUTE, THREAD } from '@utils'
+import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
 
 // 3. import global containers
-import TagsBar from '@containers/TagsBar'
+import TagsBar from '@/containers/TagsBar'
 // 4. import global components
-import Maybe from '@components/Maybe'
-import PagedContents from '@components/PagedContents'
-import ContentFilter from '@components/ContentFilter'
+import Maybe from '@/components/Maybe'
+import PagedContents from '@/components/PagedContents'
+import ContentFilter from '@/components/ContentFilter'
 
 // 5. import local components
 import CityList from './CityList'
@@ -108,10 +108,10 @@ import {
   TYPE,
   ROUTE,
   THREAD,
-} from '@utils'
+} from '@/utils'
 
 // 3. import aysnc mudule
-import SR71 from '@utils/async/sr71'
+import SR71 from '@/utils/async/sr71'
 // 4. import graphql schema
 import S from './schema'
 

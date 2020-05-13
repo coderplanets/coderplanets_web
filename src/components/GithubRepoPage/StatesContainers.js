@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { nilOrEmpty } from '@utils'
-import Maybe from '@components/Maybe'
-import Tooltip from '@components/Tooltip'
+import { nilOrEmpty } from '@/utils'
+import Maybe from '@/components/Maybe'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

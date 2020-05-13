@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
-import { useShortcut, useResize } from '@hooks'
+import { connectStore, buildLog } from '@/utils'
+import { useShortcut, useResize } from '@/hooks'
 
 import SliderPreview from './SliderPreview'
 import Viewer from './Viewer'

@@ -8,8 +8,8 @@ import React, { useEffect, useRef, useState, useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { buildLog, isString } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog, isString } from '@/utils'
 
 import TabItem from './TabItem'
 import { Wrapper, Nav, SlipBar, RealBar } from '../styles/tabs'

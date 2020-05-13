@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { PAYMENT_USAGE, PAYMENT_METHOD } from '@constant'
-import { markStates, buildLog } from '@utils'
+import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
+import { markStates, buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:Cashier')

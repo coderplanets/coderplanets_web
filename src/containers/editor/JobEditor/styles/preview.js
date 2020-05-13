@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 // BodyWrapper, BodyHeader, BackToEditBtn, PreviewHeader
-import { theme, cs } from '@utils'
+import { theme, cs } from '@/utils'
 
 export { Wrapper } from './editor'
 

@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import Maybe from '@components/Maybe'
-import MarkDownRender from '@components/MarkDownRender'
+import { buildLog } from '@/utils'
+import Maybe from '@/components/Maybe'
+import MarkDownRender from '@/components/MarkDownRender'
 
 import Header from './Header'
 import StatesContainers from './StatesContainers'

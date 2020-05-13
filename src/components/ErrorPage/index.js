@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import NotFoundMessage from './NotFoundMessage'
 import ErrorDesc from './ErrorDesc'
 

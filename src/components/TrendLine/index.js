@@ -9,7 +9,7 @@ import T from 'prop-types'
 import Trend from 'react-trend'
 import { withTheme } from 'styled-components'
 
-import { buildLog, theme as themeHelper } from '@utils'
+import { buildLog, theme as themeHelper } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:TrendLine:index')

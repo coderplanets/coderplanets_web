@@ -1,7 +1,7 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
 import { Wrapper, Title, Intro, Total, Update, LockIcon } from './styles/footer'
 

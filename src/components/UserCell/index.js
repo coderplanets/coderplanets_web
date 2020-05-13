@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import { UserCellWrapper, Avatar, UserInfo, NickName, Bio } from './styles'
 
 /* eslint-disable-next-line */

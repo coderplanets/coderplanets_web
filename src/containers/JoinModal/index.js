@@ -9,9 +9,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
+import Modal from '@/components/Modal'
 import FooterWechat from './FooterWechat'
 
 import { Wrapper } from './styles'

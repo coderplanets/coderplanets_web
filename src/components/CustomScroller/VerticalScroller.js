@@ -8,8 +8,8 @@ import React, { useState, useRef, useCallback } from 'react'
 import { Waypoint } from 'react-waypoint'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import { useCustomScroll } from '@hooks'
+import { buildLog } from '@/utils'
+import { useCustomScroll } from '@/hooks'
 
 import {
   Wrapper,

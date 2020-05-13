@@ -9,7 +9,7 @@ import React from 'react'
 import R from 'ramda'
 import T from 'prop-types'
 
-import { buildLog, BStore, nilOrEmpty } from '@utils'
+import { buildLog, BStore, nilOrEmpty } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:Guardian:index')

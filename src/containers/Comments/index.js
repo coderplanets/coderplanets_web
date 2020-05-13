@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
+import Modal from '@/components/Modal'
 import CommentEditor from './CommentEditor'
 import CommentsList from './CommentsList'
 import CommentReplyEditor from './CommentReplyEditor'

@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 import { Wrapper, RefinedIcon, RefinedText } from './styles/refined_label'
 
 const RefinedLabel = ({ tags }) => {

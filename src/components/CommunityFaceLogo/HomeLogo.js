@@ -1,7 +1,7 @@
 import React from 'react'
 import { withTheme } from 'styled-components'
 
-import { ICON_BASE } from '@config'
+import { ICON_BASE } from '@/config'
 
 import { Logo } from './styles'
 // import { Wrapper } from './styles'

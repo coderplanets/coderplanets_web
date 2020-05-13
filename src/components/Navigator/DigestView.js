@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 
-// import { ICON_CMD } from '@config'
-// import Tooltip from '@components/Tooltip'
+// import { ICON_CMD } from '@/config'
+// import Tooltip from '@/components/Tooltip'
 
 import {
   Breadcrumbs,

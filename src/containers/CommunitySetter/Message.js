@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AlertBar from '@components/AlertBar'
+import AlertBar from '@/components/AlertBar'
 
 const Message = () => (
   <AlertBar>

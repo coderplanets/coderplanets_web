@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { theme, cs } from '@utils'
+import Img from '@/Img'
+import { theme, cs } from '@/utils'
 
 export const CardWrapper = styled.div`
   background: ${theme('preview.articleBg')};

@@ -8,13 +8,13 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import { Br } from '@components/Common'
-import { Tabs } from '@components/Switcher'
-import { SponsorGallery } from '@components/GalleryHub'
-import { Button } from '@components/Buttons'
+import { Br } from '@/components/Common'
+import { Tabs } from '@/components/Switcher'
+import { SponsorGallery } from '@/components/GalleryHub'
+import { Button } from '@/components/Buttons'
 
 import {
   Wrapper,

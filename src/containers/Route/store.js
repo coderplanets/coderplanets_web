@@ -7,14 +7,14 @@ import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import Router from 'next/router'
 
-import { PAGE_SIZE } from '@config'
+import { PAGE_SIZE } from '@/config'
 import {
   Global,
   isClientSide,
   markStates,
   buildLog,
   serializeQuery,
-} from '@utils'
+} from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import R from 'ramda'
 
-import { Global } from '@utils'
+import { Global } from '@/utils'
 
 const inialPlatform = {
   isChrome: true,

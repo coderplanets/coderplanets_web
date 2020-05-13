@@ -8,9 +8,9 @@ import React, { useState } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
-import { SpaceGrow } from '@components/Common'
+import { SpaceGrow } from '@/components/Common'
 import Filter from './Filter'
 import { Wrapper, ItemWrapper, Item, Icon } from './styles'
 

@@ -1,7 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { asyncSuit, buildLog } from '@utils'
+import { asyncSuit, buildLog } from '@/utils'
 import S from './schema'
 
 /* eslint-disable-next-line */

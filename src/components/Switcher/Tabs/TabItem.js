@@ -7,7 +7,7 @@
 import React, { useEffect, useCallback, useRef } from 'react'
 import T from 'prop-types'
 
-import { buildLog, isString, Trans } from '@utils'
+import { buildLog, isString, Trans } from '@/utils'
 
 import TabIcon from './TabIcon'
 import { Wrapper, Label } from '../styles/tabs/tab_item'

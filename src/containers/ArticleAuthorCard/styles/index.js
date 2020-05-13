@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@utils'
+import { cs } from '@/utils'
 
 export const Wrapper = styled.div`
   min-height: 50px;

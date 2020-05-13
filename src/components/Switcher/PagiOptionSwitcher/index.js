@@ -7,8 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { GALLERY } from '@constant'
-import { buildLog } from '@utils'
+import { GALLERY } from '@/constant'
+import { buildLog } from '@/utils'
 
 import IconSwitcher from '../IconSwitcher'
 

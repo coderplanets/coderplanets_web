@@ -7,11 +7,11 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 
-import { GALLERY } from '@constant'
-import { buildLog } from '@utils'
+import { GALLERY } from '@/constant'
+import { buildLog } from '@/utils'
 
-import Pagi from '@components/Pagi'
-import { PagiOptionSwitcher } from '@components/Switcher'
+import Pagi from '@/components/Pagi'
+import { PagiOptionSwitcher } from '@/components/Switcher'
 
 import MainColumnGallery from './MainColumnGallery'
 import TwoColumnGallery from './TwoColumnGallery'

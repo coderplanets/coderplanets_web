@@ -7,10 +7,10 @@
 import React from 'react'
 // import T from 'prop-types'
 
-import { buildLog } from '@utils'
-// import { ICON_CMD } from '@config'
+import { buildLog } from '@/utils'
+// import { ICON_CMD } from '@/config'
 
-// import { SpaceGrow } from '@components/Common'
+// import { SpaceGrow } from '@/components/Common'
 
 import { Wrapper } from '../styles/children_filter'
 

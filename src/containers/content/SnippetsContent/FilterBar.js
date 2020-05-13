@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { SNIPPET } from '@constant'
+import { ICON_CMD } from '@/config'
+import { SNIPPET } from '@/constant'
 
-import Sticky from '@components/Sticky'
-import { OrButton } from '@components/Buttons'
-import NaviMenu from '@components/NaviMenu'
-import NaviIntro from '@components/NaviIntro'
+import Sticky from '@/components/Sticky'
+import { OrButton } from '@/components/Buttons'
+import NaviMenu from '@/components/NaviMenu'
+import NaviIntro from '@/components/NaviIntro'
 
 import SearchBox from './SearchBox'
 import PinedList from './PinedList'

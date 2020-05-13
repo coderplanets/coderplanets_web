@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { ERR } from '@constant'
-import { markStates, buildLog, stripMobx } from '@utils'
+import { ERR } from '@/constant'
+import { markStates, buildLog, stripMobx } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:RepoViewer')

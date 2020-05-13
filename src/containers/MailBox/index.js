@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
-import Tooltip from '@components/Tooltip'
+import { connectStore, buildLog } from '@/utils'
+import Tooltip from '@/components/Tooltip'
 
 import MailsPanel from './MailsPanel'
 

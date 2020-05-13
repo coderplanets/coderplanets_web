@@ -7,8 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_BASE, ISSUE_ADDR } from '@config'
-import { buildLog, Trans } from '@utils'
+import { ICON_BASE, ISSUE_ADDR } from '@/config'
+import { buildLog, Trans } from '@/utils'
 import {
   Wrapper,
   ConstructIcon,

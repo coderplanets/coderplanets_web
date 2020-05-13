@@ -6,11 +6,11 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import CustomScroller from '@components/CustomScroller'
-import { SpaceGrow } from '@components/Common'
+import CustomScroller from '@/components/CustomScroller'
+import { SpaceGrow } from '@/components/Common'
 
 import fakeSourceList from './fakeSourceList'
 

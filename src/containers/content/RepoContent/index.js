@@ -6,15 +6,15 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@containers/Comments'
-import ArticleAuthorCard from '@containers/ArticleAuthorCard'
+import Comments from '@/containers/Comments'
+import ArticleAuthorCard from '@/containers/ArticleAuthorCard'
 
-import Sticky from '@components/Sticky'
-import ContentSourceCard from '@components/ContentSourceCard'
-import Maybe from '@components/Maybe'
-import MarkDownRender from '@components/MarkDownRender'
+import Sticky from '@/components/Sticky'
+import ContentSourceCard from '@/components/ContentSourceCard'
+import Maybe from '@/components/Maybe'
+import MarkDownRender from '@/components/MarkDownRender'
 
 import SideCards from './SideCards'
 import RepoStatusCard from './RepoStatusCard'

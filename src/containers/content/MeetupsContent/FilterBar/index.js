@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Sticky from '@components/Sticky'
-import { Button } from '@components/Buttons'
-import FiltersMenu from '@components/FiltersMenu'
-import DotDivider from '@components/DotDivider'
+import Sticky from '@/components/Sticky'
+import { Button } from '@/components/Buttons'
+import FiltersMenu from '@/components/FiltersMenu'
+import DotDivider from '@/components/DotDivider'
 
 import CalendarCard from './CalendarCard'
 

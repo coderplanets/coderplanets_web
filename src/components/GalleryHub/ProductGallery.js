@@ -8,12 +8,12 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { buildLog, cutFrom } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog, cutFrom } from '@/utils'
 
-import { ArrowButton } from '@components/Buttons'
+import { ArrowButton } from '@/components/Buttons'
 
-import IconText from '@components/IconText'
+import IconText from '@/components/IconText'
 import InlineTags from './InlineTags'
 
 import {

@@ -1,9 +1,9 @@
 import React from 'react'
 // import Link from 'next/link'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-// import { ROUTE } from '@constant'
+// import { ROUTE } from '@/constant'
 import Footer from './Footer'
 
 import {

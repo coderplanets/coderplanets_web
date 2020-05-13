@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
-import { useScript } from '@hooks'
+import { connectStore, buildLog } from '@/utils'
+import { useScript } from '@/hooks'
 
 import { useInit } from './logic'
 // import * as logic from './logic'

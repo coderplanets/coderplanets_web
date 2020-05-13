@@ -6,15 +6,15 @@
 
 import React from 'react'
 
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@containers/Comments'
-import ArticleViewerHeader from '@containers/ArticleViewerHeader'
-import ArticleBodyHeader from '@containers/ArticleBodyHeader'
-import Maybe from '@components/Maybe'
-import MarkDownRender from '@components/MarkDownRender'
-import { ArticleContentLoading } from '@components/LoadingEffects'
+import Comments from '@/containers/Comments'
+import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
+import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
+import Maybe from '@/components/Maybe'
+import MarkDownRender from '@/components/MarkDownRender'
+import { ArticleContentLoading } from '@/components/LoadingEffects'
 
 import DigestBar from './DigestBar'
 

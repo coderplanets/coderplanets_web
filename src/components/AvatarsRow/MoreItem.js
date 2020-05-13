@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 
-import { prettyNum } from '@utils'
-import Tooltip from '@components/Tooltip'
+import { prettyNum } from '@/utils'
+import Tooltip from '@/components/Tooltip'
 
 import { Wrapper, NumbersMore, TextMore, DotText } from './styles/more_item'
 

@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { buildLog } from '@utils'
-// import Dropdown from '@components/Dropdown'
+import { buildLog } from '@/utils'
+// import Dropdown from '@/components/Dropdown'
 
 import {
   Wrapper,

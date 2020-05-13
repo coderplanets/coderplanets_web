@@ -6,15 +6,15 @@
 
 import React from 'react'
 
-import Input from '@components/Input'
-import { Button } from '@components/Buttons'
+import Input from '@/components/Input'
+import { Button } from '@/components/Buttons'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import { Space } from '@components/Common'
-import Modal from '@components/Modal'
-import SectionLabel from '@components/SectionLabel'
+import { Space } from '@/components/Common'
+import Modal from '@/components/Modal'
+import SectionLabel from '@/components/SectionLabel'
 
 import { Wrapper, FormWrapper, Footer, Submit, Back } from './styles'
 import { useInit, toggleModal, onMessageChange, onConfirm } from './logic'

@@ -1,5 +1,5 @@
-import { ICON_CMD } from '@config'
-import { uid } from '@utils'
+import { ICON_CMD } from '@/config'
+import { uid } from '@/utils'
 
 const menu = [
   {

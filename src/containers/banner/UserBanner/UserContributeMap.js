@@ -9,7 +9,7 @@ import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
 // import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import {
   Wrapper,
   /* TitleWrapper, */

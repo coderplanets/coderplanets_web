@@ -1,8 +1,8 @@
 import React from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { ICON_BASE } from '@config'
-import { SpaceGrow } from '@components/Common'
+import { ICON_BASE } from '@/config'
+import { SpaceGrow } from '@/components/Common'
 
 import EXECUTES from './executes'
 

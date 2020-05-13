@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import FormItem from '@components/FormItem'
-import Maybe from '@components/Maybe'
-import { Space } from '@components/Common'
+import FormItem from '@/components/FormItem'
+import Maybe from '@/components/Maybe'
+import { Space } from '@/components/Common'
 
 import {
   Wrapper,

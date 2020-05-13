@@ -7,10 +7,10 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 
-// import { ICON_CMD } from '@config'
-import { buildLog, isString } from '@utils'
+// import { ICON_CMD } from '@/config'
+import { buildLog, isString } from '@/utils'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
 import { Wrapper, Icon, Text } from './styles'
 

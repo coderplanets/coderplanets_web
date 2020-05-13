@@ -6,12 +6,12 @@
 
 import React from 'react'
 
-import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD, ICON_BASE, ASSETS_ENDPOINT } from '@/config'
+import { buildLog } from '@/utils'
 
-import ExpandIcon from '@components/ExpandIcon'
-import IconText from '@components/IconText'
-import { Space } from '@components/Common'
+import ExpandIcon from '@/components/ExpandIcon'
+import IconText from '@/components/IconText'
+import { Space } from '@/components/Common'
 
 import {
   Wrapper,

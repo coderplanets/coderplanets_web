@@ -1,4 +1,4 @@
-import { theme } from '@utils'
+import { theme } from '@/utils'
 
 export const getNormalColor = type => {
   switch (type) {

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { TYPE } from '@constant'
+import { TYPE } from '@/constant'
 
-import C11NSettingPanel from '@containers/C11NSettingPanel'
+import C11NSettingPanel from '@/containers/C11NSettingPanel'
 import {
   DynamicAccountViewer,
   DynamicPostViewer,

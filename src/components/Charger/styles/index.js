@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components'
 
-import Img from '@Img'
-import { theme } from '@utils'
+import Img from '@/Img'
+import { theme } from '@/utils'
 
 const DURATION = '2.5s'
 const load = keyframes`

@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import { buildLog, nilOrEmpty } from '@utils'
+import { buildLog, nilOrEmpty } from '@/utils'
 import {
   Wrapper,
   PopAvatarWrapper,

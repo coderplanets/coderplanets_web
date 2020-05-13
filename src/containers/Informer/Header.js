@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 import { Wrapper } from './styles/header'
 
 const Header = ({ data }) => (

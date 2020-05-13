@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { theme, cs } from '@utils'
+import Img from '@/Img'
+import { theme, cs } from '@/utils'
 
 const BaseCard = styled.div`
   ${cs.flexColumn('align-center')};

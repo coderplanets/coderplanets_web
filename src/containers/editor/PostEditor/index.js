@@ -8,11 +8,11 @@ import React from 'react'
 /* import T from 'prop-types' */
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@components/ArticleEditFooter'
-import { ArticleContentLoading } from '@components/LoadingEffects'
-import Modal from '@components/Modal'
+import ArticleEditFooter from '@/components/ArticleEditFooter'
+import { ArticleContentLoading } from '@/components/LoadingEffects'
+import Modal from '@/components/Modal'
 
 import Editor from './Editor'
 import Preview from './Preview'

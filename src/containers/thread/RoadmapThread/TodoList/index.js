@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomScroller from '@components/CustomScroller'
+import CustomScroller from '@/components/CustomScroller'
 
 import UpVote from './UpVote'
 import PostInfo from './PostInfo'

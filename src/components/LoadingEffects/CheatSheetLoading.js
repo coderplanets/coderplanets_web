@@ -4,7 +4,7 @@ import R from 'ramda'
 import ContentLoader from 'react-content-loader'
 import { withTheme } from 'styled-components'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import { Wrapper, CheatsheetCard } from './styles'
 
 /* eslint-disable-next-line */

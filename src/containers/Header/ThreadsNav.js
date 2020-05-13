@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Trans } from '@utils'
+import { Trans } from '@/utils'
 
-import { Tabs } from '@components/Switcher'
-import DotDivider from '@components/DotDivider'
+import { Tabs } from '@/components/Switcher'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

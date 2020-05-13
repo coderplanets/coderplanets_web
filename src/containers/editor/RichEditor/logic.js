@@ -8,8 +8,8 @@ import Checklist from '@editorjs/checklist'
 import Delimiter from '@editorjs/delimiter'
 import InlineCode from '@editorjs/inline-code'
 
-// import { TYPE, EVENT, ERR } from '@constant'
-import { buildLog } from '@utils'
+// import { TYPE, EVENT, ERR } from '@/constant'
+import { buildLog } from '@/utils'
 
 let store = null
 /* eslint-disable-next-line */

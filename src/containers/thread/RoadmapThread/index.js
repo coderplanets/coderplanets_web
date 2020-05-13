@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
 import TodoList from './TodoList'
 

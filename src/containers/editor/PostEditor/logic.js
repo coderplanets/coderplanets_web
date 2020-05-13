@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, ERR, THREAD } from '@constant'
+import { EVENT, ERR, THREAD } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -15,7 +15,7 @@ import {
   parseDomain,
   errRescue,
   BStore,
-} from '@utils'
+} from '@/utils'
 
 import { S, updatablePostFields } from './schema'
 

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from '@config'
+import { ISSUE_ADDR } from '@/config'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import SearchInputer from './SearchInputer'
 import TokenSetter from './TokenSetter'
 

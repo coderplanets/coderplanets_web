@@ -8,8 +8,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
 import Content from './Content'
 import Footer from './Footer'

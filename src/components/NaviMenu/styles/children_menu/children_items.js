@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@utils'
+import { cs, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 

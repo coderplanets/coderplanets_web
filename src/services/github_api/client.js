@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-import { BStore, makeGithubExplore } from '@utils'
+import { BStore, makeGithubExplore } from '@/utils'
 import { graphqlEndpoint } from './config'
 
 const token = BStore.get('github_token')

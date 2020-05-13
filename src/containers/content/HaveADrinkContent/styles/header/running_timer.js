@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 
-// import { cs, theme } from '@utils'
+// import { cs, theme } from '@/utils'
 // see example: https://codepen.io/HugoGiraudel/pen/BHEwo
 
 const rota = keyframes`

@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import AvatarsRow from '@components/AvatarsRow'
-import DotDivider from '@components/DotDivider'
+import AvatarsRow from '@/components/AvatarsRow'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

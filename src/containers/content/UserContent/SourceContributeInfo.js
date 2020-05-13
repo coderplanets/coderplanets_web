@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_CMD, GITHUB_WEB_ADDR, GITHUB_SERVER_ADDR } from '@config'
+import { ICON_CMD, GITHUB_WEB_ADDR, GITHUB_SERVER_ADDR } from '@/config'
 
 import { AttactWrapper, AttactIcon, AttactLink } from './styles/digest_board'
 import { Split } from './styles/source_contribute_info'

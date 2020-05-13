@@ -1,11 +1,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ISSUE_ADDR } from '@config'
-import { TYPE } from '@constant'
+import { ISSUE_ADDR } from '@/config'
+import { TYPE } from '@/constant'
 
-import Tooltip from '@components/Tooltip'
-import DiscussLinker from '@components/DiscussLinker'
+import Tooltip from '@/components/Tooltip'
+import DiscussLinker from '@/components/DiscussLinker'
 
 import {
   Wrapper,

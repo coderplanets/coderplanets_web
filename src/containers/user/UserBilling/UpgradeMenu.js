@@ -1,9 +1,9 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import SectionLabel from '@components/SectionLabel'
+import SectionLabel from '@/components/SectionLabel'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
 import SeniorPlan from './SeniorPlan'
 import SponsorPlan from './SponsorPlan'
@@ -13,7 +13,7 @@ import TipingDevsPlan from './TipingDevsPlan'
 import { PlanDivider } from './styles/upgrade_menu'
 
 const DynamicGirlVerifier = dynamic({
-  loader: () => import('@containers/GirlVerifier'),
+  loader: () => import('@/containers/GirlVerifier'),
 })
 
 const labelText = isSeniorMember => {

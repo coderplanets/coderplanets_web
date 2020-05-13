@@ -2,8 +2,8 @@ import R from 'ramda'
 import PubSub from 'pubsub-js'
 import { limit, length } from 'stringz'
 
-import { TAG_COLOR_ORDER } from '@config'
-import { EVENT } from '@constant'
+import { TAG_COLOR_ORDER } from '@/config'
+import { EVENT } from '@/constant'
 
 import { isString } from './validator'
 

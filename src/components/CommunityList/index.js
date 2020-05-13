@@ -8,8 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
-import Tooltip from '@components/Tooltip'
+import { buildLog } from '@/utils'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

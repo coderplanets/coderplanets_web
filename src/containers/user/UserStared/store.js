@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { TYPE, THREAD } from '@constant'
-import { markStates, buildLog, stripMobx } from '@utils'
-import { PagedPosts, PagedJobs, PagedVideos, emptyPagiData } from '@model'
+import { TYPE, THREAD } from '@/constant'
+import { markStates, buildLog, stripMobx } from '@/utils'
+import { PagedPosts, PagedJobs, PagedVideos, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:UserStared')

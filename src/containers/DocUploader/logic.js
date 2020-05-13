@@ -1,7 +1,7 @@
 // import R from 'ramda'
 
-import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, send, errRescue } from '@utils'
+import { EVENT, ERR } from '@/constant'
+import { asyncSuit, buildLog, send, errRescue } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:DocUploader')

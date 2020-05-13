@@ -6,20 +6,20 @@
 
 import React from 'react'
 
-import { nilOrEmpty } from '@utils'
-import { GUIDE } from '@constant'
-import Pagi from '@components/Pagi'
+import { nilOrEmpty } from '@/utils'
+import { GUIDE } from '@/constant'
+import Pagi from '@/components/Pagi'
 
 import {
   DirectoryGallery,
   ProductGallery,
   FamePeopleGallery,
   ImageGallery,
-} from '@components/GalleryHub'
+} from '@/components/GalleryHub'
 
 // tmp
-// import RoadmapThread from '@containers/thread/RoadmapThread'
-import menuData from '@components/NaviMenu/menuData'
+// import RoadmapThread from '@/containers/thread/RoadmapThread'
+import menuData from '@/components/NaviMenu/menuData'
 import Footer from './Footer'
 // import NormalList from './NormalList'
 import { Wrapper, InnerWrapper, NormalListWrapper } from './styles/content'

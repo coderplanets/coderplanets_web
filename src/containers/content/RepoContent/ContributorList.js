@@ -1,7 +1,7 @@
 import React from 'react'
 
-// import { ICON_CMD } from '@config'
-import Tooltip from '@components/Tooltip'
+// import { ICON_CMD } from '@/config'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import Pagi from '@components/Pagi'
+import Pagi from '@/components/Pagi'
 import Community from './Community'
 
 import { Wrapper, EntriesWrapper } from './styles/communities_list'

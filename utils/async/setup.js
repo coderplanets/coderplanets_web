@@ -8,8 +8,8 @@ import fetch from 'isomorphic-fetch'
 
 /* import { onError } from 'apollo-link-error' */
 
-import { GRAPHQL_ENDPOINT } from '@config'
-import { ERR } from '@constant'
+import { GRAPHQL_ENDPOINT } from '@/config'
+import { ERR } from '@/constant'
 
 import { errRescue } from '../functions'
 import { buildLog } from '../logger'

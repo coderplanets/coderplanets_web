@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { buildLog } from '@utils'
-import { githubAPI } from '@services'
+import { buildLog } from '@/utils'
+import { githubAPI } from '@/servicess'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:AvatarAdder')

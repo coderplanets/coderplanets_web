@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@utils'
+import { cs } from '@/utils'
 import { BaseBanner } from './index'
 
 export const Wrapper = styled(BaseBanner)`

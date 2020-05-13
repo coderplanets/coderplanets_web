@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import UserBrief from '@components/UserBrief'
+import UserBrief from '@/components/UserBrief'
 import UserContributeMap from './UserContributeMap'
 
 import {

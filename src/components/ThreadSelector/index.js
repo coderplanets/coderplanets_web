@@ -7,11 +7,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
-import { buildLog, Trans } from '@utils'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+import { buildLog, Trans } from '@/utils'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 import Panel from './Panel'
 
 import {

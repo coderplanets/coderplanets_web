@@ -13,8 +13,8 @@ import {
   scrollToTop,
   lockPage,
   unlockPage,
-} from '@utils'
-import { useShortcut } from '@hooks'
+} from '@/utils'
+import { useShortcut } from '@/hooks'
 
 import Header from './Header'
 import Footer from './Footer'

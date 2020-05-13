@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Input from '@components/Input'
-import { Button } from '@components/Buttons'
+import Input from '@/components/Input'
+import { Button } from '@/components/Buttons'
 
-import { Space } from '@components/Common'
-import SectionLabel from '@components/SectionLabel'
-import { ICON_CMD } from '@config'
+import { Space } from '@/components/Common'
+import SectionLabel from '@/components/SectionLabel'
+import { ICON_CMD } from '@/config'
 
 import { Wrapper, Footer, Back, Submit } from './styles/form'
 

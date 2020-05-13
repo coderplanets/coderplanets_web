@@ -5,8 +5,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { SITE_URL } from '@config'
-import { ROUTE, USER_THREAD } from '@constant'
+import { SITE_URL } from '@/config'
+import { ROUTE, USER_THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
@@ -16,14 +16,14 @@ import {
   pagedFilter,
   ssrAmbulance,
   parseTheme,
-} from '@utils'
-import initRootStore from '@stores/init'
+} from '@/utils'
+import initRootStore from '@/stores/init'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import UserBanner from '@containers/banner/UserBanner'
-import UserContent from '@containers/content/UserContent'
+import GlobalLayout from '@/containers/GlobalLayout'
+import UserBanner from '@/containers/banner/UserBanner'
+import UserContent from '@/containers/content/UserContent'
 
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

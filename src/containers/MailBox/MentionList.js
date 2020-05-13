@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import EmptyLabel from '@components/EmptyLabel'
+import EmptyLabel from '@/components/EmptyLabel'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 import {
   Wrapper,
   ListsWrapper,

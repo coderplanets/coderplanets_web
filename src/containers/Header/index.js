@@ -7,10 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { TYPE } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { TYPE } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import Sticky from '@components/Sticky'
+import Sticky from '@/components/Sticky'
 import Header from './Header'
 import { useInit } from './logic'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { prettyNum, numberWithCommas } from '@utils'
+import { prettyNum, numberWithCommas } from '@/utils'
 import {
   NumbersInfo,
   NumberSection,

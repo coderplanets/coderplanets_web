@@ -7,10 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
-import { Button } from '@components/Buttons'
-import { Space } from '@components/Common'
+import { Button } from '@/components/Buttons'
+import { Space } from '@/components/Common'
 
 import { Wrapper, RespectText, PublishBtns, Divider } from './styles'
 

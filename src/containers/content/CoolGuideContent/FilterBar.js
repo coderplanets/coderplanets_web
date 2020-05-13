@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import Sticky from '@components/Sticky'
-import NaviIntro from '@components/NaviIntro'
-import NaviMenu from '@components/NaviMenu'
+import Sticky from '@/components/Sticky'
+import NaviIntro from '@/components/NaviIntro'
+import NaviMenu from '@/components/NaviMenu'
 
 import {
   Wrapper,

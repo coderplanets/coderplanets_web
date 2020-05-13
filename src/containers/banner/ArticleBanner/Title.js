@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { THREAD } from '@constant'
+import { THREAD } from '@/constant'
 
 import RepoTitle from './RepoTitle'
 import { Wrapper } from './styles/title'

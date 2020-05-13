@@ -8,9 +8,9 @@ import React from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
-import { ICON_CMD } from '@config'
-import { ROUTE } from '@constant'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { ROUTE } from '@/constant'
+import { buildLog } from '@/utils'
 
 import SearchBox from './SearchBox'
 

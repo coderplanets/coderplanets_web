@@ -49,10 +49,10 @@ based on [babel-resolver][https://github.com/tleunen/babel-plugin-module-resolve
 we can easily import files like:
 
 ```js
-import { ISSUE_WEB } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ISSUE_WEB } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@components/ArticleEditFooter'
+import ArticleEditFooter from '@/components/ArticleEditFooter'
 ...
 ```
 
@@ -68,14 +68,14 @@ Import Waypoint from 'react-waypoint'
 Import R from 'ramda'
 
 // 2. import utils
-Import { connectStore, buildLog, ROUTE, THREAD } from '@utils'
+Import { connectStore, buildLog, ROUTE, THREAD } from '@/utils'
 
 // 3. import global containers
-Import TagsBar from '@containers/TagsBar'
+Import TagsBar from '@/containers/TagsBar'
 // 4. import global components
-Import Maybe from '@components/Maybe'
-Import PagedContents from '@components/PagedContents'
-Import ContentFilter from '@components/ContentFilter'
+Import Maybe from '@/components/Maybe'
+Import PagedContents from '@/components/PagedContents'
+Import ContentFilter from '@/components/ContentFilter'
 
 // 5. import local components
 Import CityList from './CityList'
@@ -108,10 +108,10 @@ Import {
   TYPE,
   ROUTE,
   THREAD,
-} from '@utils'
+} from '@/utils'
 
 // 3. import aysnc mudule
-Import SR71 from '@utils/async/sr71'
+Import SR71 from '@/utils/async/sr71'
 // 4. import graphql schema
 Import S from './schema'
 

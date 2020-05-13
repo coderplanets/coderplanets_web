@@ -8,8 +8,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
-import { SNIPPET } from '@constant'
+import { connectStore, buildLog } from '@/utils'
+import { SNIPPET } from '@/constant'
 
 import Snippets from './Snippets'
 import Cheatsheets from './Cheatsheets'

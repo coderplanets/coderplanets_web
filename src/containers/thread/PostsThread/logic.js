@@ -8,7 +8,7 @@ import {
   THREAD,
   ROUTE,
   COMMUNITY_SPEC_THREADS,
-} from '@constant'
+} from '@/constant'
 
 import {
   asyncSuit,
@@ -18,7 +18,7 @@ import {
   thread2Subpath,
   errRescue,
   scrollToTabber,
-} from '@utils'
+} from '@/utils'
 
 import S from './schema'
 

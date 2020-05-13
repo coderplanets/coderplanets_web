@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { THREAD } from '@constant'
+import { THREAD } from '@/constant'
 
 import JobMiddleInfo from './JobMiddleInfo'
 import RepoMiddleInfo from './RepoMiddleInfo'

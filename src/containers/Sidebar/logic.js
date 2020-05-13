@@ -2,7 +2,7 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import { arrayMove } from 'react-sortable-hoc'
 
-import { EVENT, ERR, THREAD, ROUTE } from '@constant'
+import { EVENT, ERR, THREAD, ROUTE } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -10,7 +10,7 @@ import {
   thread2Subpath,
   Global,
   errRescue,
-} from '@utils'
+} from '@/utils'
 
 import S from './schema'
 

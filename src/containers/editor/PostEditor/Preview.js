@@ -4,8 +4,8 @@
 
 import React from 'react'
 
-import { Button } from '@components/Buttons'
-import MarkDownRender from '@components/MarkDownRender'
+import { Button } from '@/components/Buttons'
+import MarkDownRender from '@/components/MarkDownRender'
 import { Wrapper, Header, BackToEditBtn, PreviewHeader } from './styles/preview'
 
 /* eslint-disable react/no-danger */

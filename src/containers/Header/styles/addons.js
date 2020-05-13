@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import HeaderStatesSVG from '@SvgIcons/HeaderStatesSVG'
-import { theme, cs } from '@utils'
+import HeaderStatesSVG from '@/SvgIcons/HeaderStatesSVG'
+import { theme, cs } from '@/utils'
 
 import { Wrapper as HeaderWrapper } from './header'
 

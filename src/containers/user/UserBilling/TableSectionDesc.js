@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EMAIL_CLUB } from '@config'
+import { EMAIL_CLUB } from '@/config'
 import { Wrapper, MailWrapper } from './styles/table_section_desc'
 
 const TableSectionDesc = ({ data: { totalCount } }) => {

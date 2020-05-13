@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
-import { GUIDE } from '@constant'
+import { connectStore, buildLog } from '@/utils'
+import { GUIDE } from '@/constant'
 
 import FilterBar from './FilterBar'
 import Content from './Content'

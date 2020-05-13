@@ -2,10 +2,10 @@ import React from 'react'
 import R from 'ramda'
 // import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

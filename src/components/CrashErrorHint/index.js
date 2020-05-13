@@ -10,9 +10,9 @@ import R from 'ramda'
 
 import dynamic from 'next/dynamic'
 
-import { DEFAULT_THEME } from '@config'
-import { TYPE } from '@constant'
-import { buildLog, BStore, themeSkins } from '@utils'
+import { DEFAULT_THEME } from '@/config'
+import { TYPE } from '@/constant'
+import { buildLog, BStore, themeSkins } from '@/utils'
 
 import EXECUTES from './executes'
 

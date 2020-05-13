@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
-import { EVENT } from '@constant'
-import { asyncSuit, buildLog, send } from '@utils'
+import { EVENT } from '@/constant'
+import { asyncSuit, buildLog, send } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:UserSettings')

@@ -1,8 +1,8 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue } from '@utils'
+import { ERR } from '@/constant'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:CommunityContent')

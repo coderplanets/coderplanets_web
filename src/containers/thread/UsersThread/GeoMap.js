@@ -2,9 +2,9 @@ import React from 'react'
 import ReactResizeDetector from 'react-resize-detector'
 import { withTheme } from 'styled-components'
 
-import { buildLog, uid, theme as themeHelper } from '@utils'
+import { buildLog, uid, theme as themeHelper } from '@/utils'
 
-import { Br } from '@components/Common'
+import { Br } from '@/components/Common'
 import fetchGeoData from './geo_data'
 
 import { MapWrapper } from './styles'

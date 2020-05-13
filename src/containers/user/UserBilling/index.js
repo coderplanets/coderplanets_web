@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import SectionLabel from '@components/SectionLabel'
+import SectionLabel from '@/components/SectionLabel'
 import UpgradeMenu from './UpgradeMenu'
 import BillsTable from './BillsTable'
 import TableSectionDesc from './TableSectionDesc'

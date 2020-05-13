@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
+import { theme, cs } from '@/utils'
 
 // min-height: 300px;
 export const ListsContainer = styled.div`

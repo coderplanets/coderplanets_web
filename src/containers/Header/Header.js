@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { cs } from '@utils'
+import { cs } from '@/utils'
 
-import MailBox from '@containers/MailBox'
-import UserLister from '@containers/user/UserLister'
-import Cashier from '@containers/Cashier'
-import UpgradePackges from '@containers/UpgradePackges'
-import Navigator from '@components/Navigator'
+import MailBox from '@/containers/MailBox'
+import UserLister from '@/containers/user/UserLister'
+import Cashier from '@/containers/Cashier'
+import UpgradePackges from '@/containers/UpgradePackges'
+import Navigator from '@/components/Navigator'
 
 import ThreadsNav from './ThreadsNav'
 import UserAccount from './UserAccount'

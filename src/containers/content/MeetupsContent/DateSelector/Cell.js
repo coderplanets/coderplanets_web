@@ -1,7 +1,7 @@
 import React from 'react'
 import R from 'ramda'
 
-import DotDivider from '@components/DotDivider'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

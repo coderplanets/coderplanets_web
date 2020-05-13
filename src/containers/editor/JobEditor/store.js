@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { THREAD } from '@constant'
-import { markStates, buildLog, stripMobx, changeset } from '@utils'
-import { Job } from '@model'
+import { THREAD } from '@/constant'
+import { markStates, buildLog, stripMobx, changeset } from '@/utils'
+import { Job } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:JobEditorStore')

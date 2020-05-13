@@ -1,8 +1,8 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue } from '@utils'
+import { ERR } from '@/constant'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 // import S from './schema'
 
 /* eslint-disable-next-line */

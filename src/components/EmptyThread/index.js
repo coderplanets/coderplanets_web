@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ISSUE_ADDR } from '@config'
+import { ISSUE_ADDR } from '@/config'
 
-import { buildLog, Trans } from '@utils'
+import { buildLog, Trans } from '@/utils'
 import {
   Icon404,
   Wrapper,

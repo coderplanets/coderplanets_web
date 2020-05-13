@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { markStates, buildLog, stripMobx, Trans } from '@utils'
-import { PagedCommunities, PagedCategories, emptyPagiData } from '@model'
+import { ICON_CMD } from '@/config'
+import { markStates, buildLog, stripMobx, Trans } from '@/utils'
+import { PagedCommunities, PagedCategories, emptyPagiData } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitiesContentStore')

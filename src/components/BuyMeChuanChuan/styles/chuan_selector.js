@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { animate, theme, cs } from '@utils'
-import Img from '@Img'
+import { animate, theme, cs } from '@/utils'
+import Img from '@/Img'
 
 export const SelectBox = styled.div`
   ${cs.flex('align-center')};

@@ -1,5 +1,5 @@
 import R from 'ramda'
-import { TYPE } from '@constant'
+import { TYPE } from '@/constant'
 // side effects, need refactor
 /* eslint-disable no-undef */
 const hasDocument = typeof document === 'object' && document !== null

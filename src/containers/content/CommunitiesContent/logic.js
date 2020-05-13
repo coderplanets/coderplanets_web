@@ -1,14 +1,14 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, ERR } from '@constant'
+import { EVENT, ERR } from '@/constant'
 import {
   asyncSuit,
   buildLog,
   pagedFilter,
   errRescue,
   updateEditing,
-} from '@utils'
+} from '@/utils'
 
 import S from './schema'
 

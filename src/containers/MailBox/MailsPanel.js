@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import CustomScroller from '@components/CustomScroller'
-import TabSelector from '@components/TabSelector'
+import CustomScroller from '@/components/CustomScroller'
+import TabSelector from '@/components/TabSelector'
 
 import { Wrapper, ContentWrapper, SeeAllMessages } from './styles/mails_panel'
 import MailLists from './MailLists'

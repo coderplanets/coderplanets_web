@@ -1,10 +1,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { TYPE } from '@constant'
+import { ICON_CMD } from '@/config'
+import { TYPE } from '@/constant'
 
-import Maybe from '@components/Maybe'
+import Maybe from '@/components/Maybe'
 import {
   Reaction,
   ReactionAction,

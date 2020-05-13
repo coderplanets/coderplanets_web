@@ -1,13 +1,13 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import { TYPE } from '@constant'
-import { Trans } from '@utils'
+import { TYPE } from '@/constant'
+import { Trans } from '@/utils'
 
-import Pagi from '@components/Pagi'
-import EmptyLabel from '@components/EmptyLabel'
-import MarkDownRender from '@components/MarkDownRender'
-import { CommentLoading } from '@components/LoadingEffects'
+import Pagi from '@/components/Pagi'
+import EmptyLabel from '@/components/EmptyLabel'
+import MarkDownRender from '@/components/MarkDownRender'
+import { CommentLoading } from '@/components/LoadingEffects'
 
 import Parent from './Parent'
 

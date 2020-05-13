@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
-import { cs } from '@utils'
+// import Img from '@/Img'
+import { cs } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-top: 10px;

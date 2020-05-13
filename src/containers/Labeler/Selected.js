@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import Maybe from '@components/Maybe'
-import { uid, Trans } from '@utils'
+import Maybe from '@/components/Maybe'
+import { uid, Trans } from '@/utils'
 import { Wrapper, Item, Hightlight } from './styles/selected'
 
 const renderItems = items => {

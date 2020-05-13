@@ -6,7 +6,7 @@
 import { types as t } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { EVENT } from '@constant'
+import { EVENT } from '@/constant'
 import {
   buildLog,
   markStates,
@@ -14,7 +14,7 @@ import {
   toastBarColor,
   themeSkins,
   send,
-} from '@utils'
+} from '@/utils'
 
 import {
   // domain

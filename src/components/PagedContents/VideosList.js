@@ -1,13 +1,13 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
-import { Trans } from '@utils'
-import { VideoItemLoading } from '@components/LoadingEffects'
-import VideoItem from '@components/VideoItem'
+import { TYPE } from '@/constant'
+import { Trans } from '@/utils'
+import { VideoItemLoading } from '@/components/LoadingEffects'
+import VideoItem from '@/components/VideoItem'
 
-import EmptyThread from '@components/EmptyThread'
-import EmptyLabel from '@components/EmptyLabel'
+import EmptyThread from '@/components/EmptyThread'
+import EmptyLabel from '@/components/EmptyLabel'
 
 const VideosList = ({ props }) => {
   const {

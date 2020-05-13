@@ -8,9 +8,9 @@ import React from 'react'
 
 import { withTheme } from 'styled-components'
 
-import { ICON_CMD, ISSUE_ADDR } from '@config'
+import { ICON_CMD, ISSUE_ADDR } from '@/config'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import {
   Container,
   HintWrapper,

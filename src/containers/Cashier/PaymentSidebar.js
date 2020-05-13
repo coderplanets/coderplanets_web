@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { PAYMENT_METHOD } from '@constant'
+import { ICON_CMD } from '@/config'
+import { PAYMENT_METHOD } from '@/constant'
 
 import {
   Wrapper,

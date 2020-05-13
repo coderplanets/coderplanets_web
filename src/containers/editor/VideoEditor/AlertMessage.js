@@ -1,8 +1,8 @@
 import React from 'react'
 
-import AlertBar from '@components/AlertBar'
-import { Br } from '@components/Common'
-import { ICON_CMD } from '@config'
+import AlertBar from '@/components/AlertBar'
+import { Br } from '@/components/Common'
+import { ICON_CMD } from '@/config'
 
 import {
   Wrapper,

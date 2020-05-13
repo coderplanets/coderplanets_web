@@ -1,8 +1,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { sortByIndex } from '@utils'
-import Tooltip from '@components/Tooltip'
+import { sortByIndex } from '@/utils'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Wrapper,

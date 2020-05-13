@@ -1,4 +1,4 @@
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
 const filtersItems = [
   {

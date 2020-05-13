@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Img from '@Img'
-import CommunityFaceLogo from '@components/CommunityFaceLogo'
+import { theme, cs } from '@/utils'
+import Img from '@/Img'
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`

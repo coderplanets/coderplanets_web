@@ -75,7 +75,7 @@ import React from 'react'
 import T from 'prop-types'
 
 import { Wrapper } from './styles'
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('c:DotDivider:index')
@@ -106,7 +106,7 @@ SubComponent -> styles/sub_component.js
 
 ```jsx
 import styled from 'styled-components'
-import { theme } from '@utils'
+import { theme } from '@/utils'
 
 export const Wrapper = styled.div`
   width: ${({ radius }) => radius};
@@ -159,7 +159,7 @@ import Editor from './Editor'
 
 import { Wrapper, ViewerWrapper } from './styles'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 import { useInit, changeView, onPublish, canclePublish } from './logic'
 
 const PostEditorContainer = ({ postEditor, attachment }) =>{
@@ -204,8 +204,8 @@ Store.js is similar to the M layer under the MVC architecture, based on [mobx-st
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { Post, Mention } from '@model'
-import { markStates, buildLog, stripMobx, changeset } from '@utils'
+import { Post, Mention } from '@/model'
+import { markStates, buildLog, stripMobx, changeset } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:PostEditorf')
@@ -262,10 +262,10 @@ Although it is OK, I think the logic does not belong to the `view` layer, and th
 ```js
 import R from 'ramda'
 
-import { asyncRes, asyncErr, $solver } from '@utils'
+import { asyncRes, asyncErr, $solver } from '@/utils'
 
 import { S, updatablePostFields } from './schema'
-import SR71 from '@utils/async/sr71'
+import SR71 from '@/utils/async/sr71'
 
 const sr71$ = new SR71()
 
@@ -331,7 +331,7 @@ The sys layer can make asynchronous requests using sr71\$.query(S.post, {...})
 
 ```js
 import gql from 'graphql-tag'
-import { F, P } from '@schemas'
+import { F, P } from '@/schemas'
 
 const post = gql`
   query post($id: ID!, $userHasLogin: Boolean!) {

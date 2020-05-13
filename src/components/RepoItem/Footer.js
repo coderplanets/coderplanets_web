@@ -1,8 +1,8 @@
 import React from 'react'
 import TimeAgo from 'timeago-react'
 
-import Tooltip from '@components/Tooltip'
-import DotDivider from '@components/DotDivider'
+import Tooltip from '@/components/Tooltip'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

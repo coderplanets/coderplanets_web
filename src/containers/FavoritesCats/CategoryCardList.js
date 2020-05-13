@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 
-import Folder from '@components/Folder'
-import Pagi from '@components/Pagi'
+import Folder from '@/components/Folder'
+import Pagi from '@/components/Pagi'
 
 import { Wrapper, CardListWrapper } from './styles/category_card_list'
 

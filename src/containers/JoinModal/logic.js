@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 // import R from 'ramda'
 
-import { EVENT } from '@constant'
-import { asyncSuit, buildLog } from '@utils'
+import { EVENT } from '@/constant'
+import { asyncSuit, buildLog } from '@/utils'
 
 const { SR71, asyncRes, $solver } = asyncSuit
 const sr71$ = new SR71({

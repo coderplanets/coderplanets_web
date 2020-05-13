@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { SITE_URL } from '@config'
-import { ROUTE } from '@constant'
+import { SITE_URL } from '@/config'
+import { ROUTE } from '@/constant'
 
 import {
   getJwtToken,
@@ -11,13 +11,13 @@ import {
   parseURL,
   ssrAmbulance,
   parseTheme,
-} from '@utils'
-import initRootStore from '@stores/init'
+} from '@/utils'
+import initRootStore from '@/stores/init'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import InterviewContent from '@containers/content/InterviewContent'
+import GlobalLayout from '@/containers/GlobalLayout'
+import InterviewContent from '@/containers/content/InterviewContent'
 
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

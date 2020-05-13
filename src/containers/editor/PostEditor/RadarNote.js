@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from '@config'
+import { ISSUE_ADDR } from '@/config'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 import {
   Wrapper,
   Title,

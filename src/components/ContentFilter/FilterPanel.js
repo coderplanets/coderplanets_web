@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { THREAD } from '@constant'
+import { THREAD } from '@/constant'
 
 import TimeFilter from './TimeFilter'
 import SortFilter from './SortFilter'

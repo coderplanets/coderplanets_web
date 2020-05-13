@@ -7,8 +7,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@utils'
-import { useScript } from '@hooks'
+import { connectStore, buildLog } from '@/utils'
+import { useScript } from '@/hooks'
 
 import NumDashboard from './NumDashboard'
 import MapLoading from './MapLoading'

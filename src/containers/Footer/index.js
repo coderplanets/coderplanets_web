@@ -7,10 +7,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import JoinModal from '@containers/JoinModal'
-import Modal from '@components/Modal'
+import JoinModal from '@/containers/JoinModal'
+import Modal from '@/components/Modal'
 
 import BriefView from './BriefView'
 import DigestView from './DigestView'
@@ -29,7 +29,7 @@ import {
 const log = buildLog('C:Footer')
 
 const DynamicBuyMeChuanChuan = dynamic({
-  loader: () => import('@components/BuyMeChuanChuan'),
+  loader: () => import('@/components/BuyMeChuanChuan'),
   /* eslint-disable */
   loading: () => <div />,
   /* eslint-enable */

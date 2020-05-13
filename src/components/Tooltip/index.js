@@ -7,8 +7,8 @@
 import React, { useState, useRef } from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import { useOutsideClick } from '@hooks'
+import { buildLog } from '@/utils'
+import { useOutsideClick } from '@/hooks'
 
 import ConfirmFooter from './ConfirmFooter'
 // import Content from './Content'

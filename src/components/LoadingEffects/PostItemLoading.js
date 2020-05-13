@@ -4,7 +4,7 @@ import T from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import ContentLoader from 'react-content-loader'
 
-import { cs } from '@utils'
+import { cs } from '@/utils'
 
 // Config-page: http://danilowoz.com/create-react-content-loader/
 const LoadingWrapper = styled.div`

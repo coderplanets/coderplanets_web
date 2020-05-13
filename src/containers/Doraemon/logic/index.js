@@ -2,8 +2,8 @@ import R from 'ramda'
 import { useEffect } from 'react'
 import Router from 'next/router'
 
-import { ISSUE_ADDR } from '@config'
-import { TYPE, EVENT, ERR, THREAD } from '@constant'
+import { ISSUE_ADDR } from '@/config'
+import { TYPE, EVENT, ERR, THREAD } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -12,7 +12,7 @@ import {
   prettyNum,
   cutFrom,
   errRescue,
-} from '@utils'
+} from '@/utils'
 
 // import S from '../schema'
 import { jumpToCommunity, jumpToContent, goToHelpPage } from './jumper'

@@ -6,9 +6,9 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { TOPIC } from '@constant'
-import { markStates, buildLog, stripMobx } from '@utils'
-import { Tag } from '@model'
+import { TOPIC } from '@/constant'
+import { markStates, buildLog, stripMobx } from '@/utils'
+import { Tag } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:TagsBar')

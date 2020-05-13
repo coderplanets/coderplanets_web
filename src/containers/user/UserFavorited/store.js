@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
-import { TYPE, THREAD } from '@constant'
-import { markStates, buildLog, stripMobx } from '@utils'
+import { TYPE, THREAD } from '@/constant'
+import { markStates, buildLog, stripMobx } from '@/utils'
 
 import {
   PagedPosts,
@@ -16,7 +16,7 @@ import {
   PagedRepos,
   emptyPagiData,
   FavoriteCategory,
-} from '@model'
+} from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:UserFavorited')

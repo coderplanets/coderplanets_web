@@ -7,17 +7,17 @@
 import React from 'react'
 import { Waypoint } from 'react-waypoint'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import TagsBar from '@containers/TagsBar'
+import TagsBar from '@/containers/TagsBar'
 
-import Sticky from '@components/Sticky'
-import { PublishButton } from '@components/Buttons'
-import PagedContents from '@components/PagedContents'
-import ContentFilter from '@components/ContentFilter'
-import Maybe from '@components/Maybe'
+import Sticky from '@/components/Sticky'
+import { PublishButton } from '@/components/Buttons'
+import PagedContents from '@/components/PagedContents'
+import ContentFilter from '@/components/ContentFilter'
+import Maybe from '@/components/Maybe'
 
 import {
   Wrapper,

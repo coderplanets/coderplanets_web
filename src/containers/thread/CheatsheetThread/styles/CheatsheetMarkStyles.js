@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from '@utils'
+import { theme } from '@/utils'
 
 const CheatSheetStyles = styled.div`
   margin-bottom: 15px;

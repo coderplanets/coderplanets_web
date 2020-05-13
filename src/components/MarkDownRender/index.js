@@ -12,10 +12,10 @@ import emojiPlugin from 'remarkable-emoji'
 import mentionsPlugin from 'remarkable-mentions'
 import Prism from 'mastani-codehighlight'
 
-import { MENTION_USER_ADDR } from '@config'
-import { buildLog } from '@utils'
+import { MENTION_USER_ADDR } from '@/config'
+import { buildLog } from '@/utils'
 
-import MarkDownStyle from '@containers/ThemeWrapper/MarkDownStyle'
+import MarkDownStyle from '@/containers/ThemeWrapper/MarkDownStyle'
 import { PreviewerContainer } from './styles'
 
 /* eslint-disable-next-line */

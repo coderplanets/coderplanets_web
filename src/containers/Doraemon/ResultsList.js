@@ -2,10 +2,10 @@ import React from 'react'
 import R from 'ramda'
 import Highlighter from 'react-highlight-words'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
 
-import CustomScroller from '@components/CustomScroller'
+import CustomScroller from '@/components/CustomScroller'
 import SuggestIcon from './SuggestIcon'
 import {
   Wrapper,

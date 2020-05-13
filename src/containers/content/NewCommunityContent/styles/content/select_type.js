@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@utils'
-import Img from '@Img'
+import { cs, theme } from '@/utils'
+import Img from '@/Img'
 
-// import Img from '@components/Img'
+// import Img from '@/components/Img'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-between')};

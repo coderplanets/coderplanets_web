@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Checker from '@components/Checker'
+import Checker from '@/components/Checker'
 import {
   Wrapper,
   Box,

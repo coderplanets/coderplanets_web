@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Pagi from '@components/Pagi'
-import { CommentLoading } from '@components/LoadingEffects'
+import Pagi from '@/components/Pagi'
+import { CommentLoading } from '@/components/LoadingEffects'
 import CommentsFilter from './CommentsFilter'
 import Comment from './Comment'
 

@@ -8,10 +8,10 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ATATARS_LIST_LENGTH } from '@config'
-import { buildLog, o2s, s2o } from '@utils'
+import { ATATARS_LIST_LENGTH } from '@/config'
+import { buildLog, o2s, s2o } from '@/utils'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 import MoreItem from './MoreItem'
 
 import {

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import DotDivider from '@components/DotDivider'
-// import { ASSETS_ENDPOINT } from '@config'
+import DotDivider from '@/components/DotDivider'
+// import { ASSETS_ENDPOINT } from '@/config'
 import {
   Wrapper,
   Main,

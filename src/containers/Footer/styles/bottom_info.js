@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { SiteDesc } from './digest_view'
-import { theme, cs } from '@utils'
+import { theme, cs } from '@/utils'
 
 export const Wrapper = styled.div`
   ${cs.flex('justify-center')};

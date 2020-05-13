@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ASSETS_ENDPOINT } from '@config'
-import IconText from '@components/IconText'
+import { ASSETS_ENDPOINT } from '@/config'
+import IconText from '@/components/IconText'
 
 import {
   Wrapper,

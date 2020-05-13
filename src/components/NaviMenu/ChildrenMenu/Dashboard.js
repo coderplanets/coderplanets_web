@@ -7,10 +7,10 @@
 import React, { useCallback } from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-// import { SpaceGrow } from '@components/Common'
+// import { SpaceGrow } from '@/components/Common'
 import {
   Wrapper,
   Title,

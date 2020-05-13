@@ -8,10 +8,10 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import IconText from '@components/IconText'
+import IconText from '@/components/IconText'
 import InlineTags from './InlineTags'
 
 import {

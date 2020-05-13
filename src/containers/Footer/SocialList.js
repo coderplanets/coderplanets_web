@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD, EMAIL_SUPPORT } from '@config'
-import { joinUS } from '@utils'
+import { ICON_CMD, EMAIL_SUPPORT } from '@/config'
+import { joinUS } from '@/utils'
 
 import { Wrapper, Item, Icon } from './styles/social_list'
 

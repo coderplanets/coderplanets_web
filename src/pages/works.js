@@ -5,18 +5,18 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { SITE_URL } from '@config'
-import { ROUTE } from '@constant'
+import { SITE_URL } from '@/config'
+import { ROUTE } from '@/constant'
 
-import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@utils'
+import { getJwtToken, makeGQClient, ssrAmbulance, parseTheme } from '@/utils'
 
-import initRootStore from '@stores/init'
-import GlobalLayout from '@containers/GlobalLayout'
-import WorksContent from '@containers/content/WorksContent'
+import initRootStore from '@/stores/init'
+import GlobalLayout from '@/containers/GlobalLayout'
+import WorksContent from '@/containers/content/WorksContent'
 
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
-/* import PostsThreadSchema from '@containers/PostsThread/schema' */
+/* import PostsThreadSchema from '@/containers/PostsThread/schema' */
 
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422

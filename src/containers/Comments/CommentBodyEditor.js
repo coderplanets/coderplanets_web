@@ -1,14 +1,14 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { debounce } from '@utils'
+import { debounce } from '@/utils'
 import { InputEditorWrapper } from './styles/comment_editor'
 import EditorFooter from './EditorFooter'
 
 import * as logic from './logic'
 
 const DynamicBodyEditor = dynamic({
-  loader: () => import('@components/MarkdownEditor'),
+  loader: () => import('@/components/MarkdownEditor'),
   /* eslint-disable */
   loading: () => <div>loading</div>,
   /* eslint-enable */

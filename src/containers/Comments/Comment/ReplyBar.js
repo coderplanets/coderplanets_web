@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 import { ReplyBar, ReplyToBody, ReplyToFloor } from './styles/reply_bar'
 
 const CommentReplyBar = ({ data }) => (

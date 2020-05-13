@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 import Contributor from './Contributor'
 import Feature from './Feature'

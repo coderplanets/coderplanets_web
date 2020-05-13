@@ -1,7 +1,7 @@
 import R from 'ramda'
-import { DEFAULT_THEME } from '@config'
-import { TYPE, THREAD } from '@constant'
-import { P } from '@schemas'
+import { DEFAULT_THEME } from '@/config'
+import { TYPE, THREAD } from '@/constant'
+import { P } from '@/schemas'
 
 import BStore from './bstore'
 

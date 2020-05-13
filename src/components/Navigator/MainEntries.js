@@ -2,11 +2,11 @@ import React from 'react'
 import T from 'prop-types'
 import Link from 'next/link'
 
-import { ICON_CMD } from '@config'
-import { ROUTE } from '@constant'
+import { ICON_CMD } from '@/config'
+import { ROUTE } from '@/constant'
 
-// import Tooltip from '@components/Tooltip'
-import Tooltip from '@components/Tooltip'
+// import Tooltip from '@/components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 import MoreContent from './MoreContent'
 import { Wrapper, DotDivider, SiteLink, Icon } from './styles/main_entries'
 

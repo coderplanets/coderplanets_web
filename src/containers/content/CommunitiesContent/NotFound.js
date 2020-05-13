@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 
 import {
   Wrapper,

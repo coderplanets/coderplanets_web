@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
+import Modal from '@/components/Modal'
 import Sidebar from './Sidebar'
 import Content from './Content'
 

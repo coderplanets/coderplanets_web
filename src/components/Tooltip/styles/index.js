@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Tippy from '@tippy.js/react'
 
-import { theme } from '@utils'
+import { theme } from '@/utils'
 
 export const StyledTippy = styled(Tippy)`
   position: relative;

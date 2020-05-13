@@ -87,7 +87,7 @@ module.exports = {
         path: `${STORE_TARGET_DIR}/index.js`,
         pattern: /(\/\/ GEN: EXPORT CONTAINERS STORE HERE)/g,
         template:
-          'export {{preCurly ""}} default as {{ properCase name}}Store {{afterCurly ""}} from "@containers/{{properCase name}}/store"',
+          'export {{preCurly ""}} default as {{ properCase name}}Store {{afterCurly ""}} from "@/containers/{{properCase name}}/store"',
       },
       {
         type: 'append',

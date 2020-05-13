@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, animate, cs } from '@utils'
+import { theme, animate, cs } from '@/utils'
 
 export const DeleteHintText = styled.div`
   color: ${theme('baseColor.error')};

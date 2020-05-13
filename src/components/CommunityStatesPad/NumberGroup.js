@@ -1,7 +1,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, prettyNum } from '@utils'
+import { buildLog, prettyNum } from '@/utils'
 
 import {
   Wrapper,

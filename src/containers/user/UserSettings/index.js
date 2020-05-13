@@ -6,14 +6,14 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { C11N } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { C11N } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import { Br } from '@components/Common'
-import { Radio } from '@components/Switcher'
-import ThemeSelector from '@components/ThemeSelector'
-import SectionLabel from '@components/SectionLabel'
+import { Br } from '@/components/Common'
+import { Radio } from '@/components/Switcher'
+import ThemeSelector from '@/components/ThemeSelector'
+import SectionLabel from '@/components/SectionLabel'
 
 import { Wrapper, RadiosWrapper, Desc, ErrText } from './styles'
 import { useInit, changeTheme, c11nOnChange } from './logic'

@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, ERR } from '@constant'
-import { asyncSuit, buildLog, isObject } from '@utils'
+import { EVENT, ERR } from '@/constant'
+import { asyncSuit, buildLog, isObject } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('L:ErrorBox')

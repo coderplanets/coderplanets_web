@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, ERR, THREAD, TOPIC } from '@constant'
-import { asyncSuit, buildLog, errRescue } from '@utils'
+import { EVENT, ERR, THREAD, TOPIC } from '@/constant'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
 import S from './schema'
 

@@ -1,9 +1,9 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { TYPE, EVENT, ERR, THREAD } from '@constant'
-import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@utils'
-import { githubAPI } from '@services'
+import { TYPE, EVENT, ERR, THREAD } from '@/constant'
+import { asyncSuit, buildLog, errRescue, BStore, nilOrEmpty } from '@/utils'
+import { githubAPI } from '@/servicess'
 
 import S from './schema'
 

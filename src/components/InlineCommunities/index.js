@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, Trans } from '@utils'
-import Tooltip from '@components/Tooltip'
-import Maybe from '@components/Maybe'
+import { buildLog, Trans } from '@/utils'
+import Tooltip from '@/components/Tooltip'
+import Maybe from '@/components/Maybe'
 
 import {
   Wrapper,

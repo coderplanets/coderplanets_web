@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@utils'
+import { cs, theme } from '@/utils'
 
 // const width = '28px'
 // const height = '25px'

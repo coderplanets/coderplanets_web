@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
 import UserInfo from './UserInfo'
 // import ReactionNumbers from './ReactionNumbers'

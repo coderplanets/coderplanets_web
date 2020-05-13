@@ -1,9 +1,9 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { PAGE_SIZE } from '@config'
-import { ERR } from '@constant'
-import { asyncSuit, buildLog, errRescue } from '@utils'
+import { PAGE_SIZE } from '@/config'
+import { ERR } from '@/constant'
+import { asyncSuit, buildLog, errRescue } from '@/utils'
 
 import S from './schema'
 

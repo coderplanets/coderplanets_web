@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import Input from '@components/Input'
-import Img from '@Img'
+import Input from '@/components/Input'
+import Img from '@/Img'
 
-import { theme, cs } from '@utils'
+import { theme, cs } from '@/utils'
 import { Wrapper as IndexWrapper } from './index'
 
 export const Wrapper = styled.div`

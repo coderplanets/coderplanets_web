@@ -7,7 +7,7 @@
 import React from 'react'
 import { AnimateOnChange } from 'react-animation'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 import Catalog from './Catalog'
 import Setting from './Setting'

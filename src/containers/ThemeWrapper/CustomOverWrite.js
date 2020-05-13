@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { theme } from '@utils'
+import { theme } from '@/utils'
 
 // move ant style to seperate file
 const CustomOverWrite = createGlobalStyle`

@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import FavoritesCats from '@containers/FavoritesCats'
-import PagedContents from '@components/PagedContents'
+import FavoritesCats from '@/containers/FavoritesCats'
+import PagedContents from '@/components/PagedContents'
 import Breadcrumbs from './Breadcrumbs'
 
 import {

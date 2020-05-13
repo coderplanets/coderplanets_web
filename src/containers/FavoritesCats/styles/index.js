@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { theme, animate, cs } from '@utils'
+import Img from '@/Img'
+import { theme, animate, cs } from '@/utils'
 
 export const AdderWrapper = styled.div`
   ${cs.flex('justify-end')};

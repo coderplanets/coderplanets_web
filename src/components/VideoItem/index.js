@@ -8,15 +8,15 @@ import React from 'react'
 import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import { ICON_CMD } from '@config'
-import { C11N } from '@constant'
-import { buildLog, cutFrom } from '@utils'
+import { ICON_CMD } from '@/config'
+import { C11N } from '@/constant'
+import { buildLog, cutFrom } from '@/utils'
 
-import DotDivider from '@components/DotDivider'
-import VideoSourceInfo from '@components/VideoSourceInfo'
-import { Space } from '@components/Common'
-import InlineTags from '@components/InlineTags'
-import ArticleItemPrefixLabel from '@components/ArticleItemPrefixLabel'
+import DotDivider from '@/components/DotDivider'
+import VideoSourceInfo from '@/components/VideoSourceInfo'
+import { Space } from '@/components/Common'
+import InlineTags from '@/components/InlineTags'
+import ArticleItemPrefixLabel from '@/components/ArticleItemPrefixLabel'
 
 import {
   Wrapper,

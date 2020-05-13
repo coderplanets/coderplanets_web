@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICON_BASE } from '@config'
+import { ICON_BASE } from '@/config'
 import { Wrapper, QRCodePic, Title, DescWrapper } from './styles/footer_wechat'
 
 const FooterWechat = () => {

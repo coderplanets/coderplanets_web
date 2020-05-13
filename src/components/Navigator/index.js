@@ -8,8 +8,8 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { ROUTE, C11N } from '@constant'
-import { buildLog } from '@utils'
+import { ROUTE, C11N } from '@/constant'
+import { buildLog } from '@/utils'
 
 import DigestView from './DigestView'
 import BriefView from './BriefView'

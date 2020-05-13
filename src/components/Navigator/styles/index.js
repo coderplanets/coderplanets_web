@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Img from '@Img'
-import DotDividerBase from '@components/DotDivider'
-import CommunityFaceLogo from '@components/CommunityFaceLogo'
+import { theme, cs } from '@/utils'
+import Img from '@/Img'
+import DotDividerBase from '@/components/DotDivider'
+import CommunityFaceLogo from '@/components/CommunityFaceLogo'
 
 export const Breadcrumbs = styled.div`
   ${cs.flex('align-center')};

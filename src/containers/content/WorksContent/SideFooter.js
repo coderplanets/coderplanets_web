@@ -1,6 +1,6 @@
 import React from 'react'
 
-import DotDivider from '@components/DotDivider'
+import DotDivider from '@/components/DotDivider'
 import { Wrapper, Item } from './styles/side_footer'
 
 const SideFooter = () => {

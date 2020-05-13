@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // import { lighten } from 'polished'
 
-import { cs, theme } from '@utils'
+import { cs, theme } from '@/utils'
 
 import { Wrapper as BaseBtnWrapper } from '../button'
 import { OrSignBase } from './index'

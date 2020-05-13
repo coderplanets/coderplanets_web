@@ -2,8 +2,8 @@ import React from 'react'
 import T from 'prop-types'
 import TimeAgo from 'timeago-react'
 
-import Maybe from '@components/Maybe'
-import Tooltip from '@components/Tooltip'
+import Maybe from '@/components/Maybe'
+import Tooltip from '@/components/Tooltip'
 
 import {
   Reaction,

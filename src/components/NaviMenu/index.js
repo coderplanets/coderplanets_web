@@ -8,7 +8,7 @@ import React, { useState, useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, nilOrEmpty } from '@utils'
+import { buildLog, nilOrEmpty } from '@/utils'
 
 import RootMenu from './RootMenu'
 import ChildrenMenu from './ChildrenMenu'

@@ -6,9 +6,9 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import { OrButton } from '@components/Buttons'
+import { OrButton } from '@/components/Buttons'
 import NewsBoard from './NewsBoard'
 
 import { Wrapper, InnerWrapper, SwitchBtn, ContentWrapper } from './styles'

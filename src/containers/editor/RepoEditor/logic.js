@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, ERR } from '@constant'
+import { EVENT, ERR } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -9,8 +9,8 @@ import {
   closePreviewer,
   BStore,
   errRescue,
-} from '@utils'
-import { githubAPI } from '@services'
+} from '@/utils'
+import { githubAPI } from '@/servicess'
 
 import S from './schema'
 

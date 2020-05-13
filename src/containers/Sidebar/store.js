@@ -5,7 +5,7 @@
 
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
-import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@utils'
+import { buildLog, markStates, stripMobx, sortByIndex, notEmpty } from '@/utils'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:SidebarStore')

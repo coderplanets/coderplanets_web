@@ -6,7 +6,7 @@
 
 import React from 'react'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 import { Wrapper } from '../styles/header/reaction'
 // import { useInit } from './logic'

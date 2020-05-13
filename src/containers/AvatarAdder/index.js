@@ -6,9 +6,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 import AdderPanel from './AdderPanel'
 
 import { Wrapper, AddText } from './styles'

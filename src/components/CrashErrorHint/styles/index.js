@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme, themeSkins } from '@utils'
+import { cs, theme, themeSkins } from '@/utils'
 
 export const Wrapper = styled.div.attrs(props => ({
   'data-testid': props.testid,
@@ -16,7 +16,7 @@ export const Wrapper = styled.div.attrs(props => ({
 export const Header = styled.div`
   ${cs.flex()};
 `
-// do not use common @Img, because the theme in Img may not work
+// do not use common @/Img, because the theme in Img may not work
 export const HintIcon = styled.img`
   width: 40px;
   height: 40px;

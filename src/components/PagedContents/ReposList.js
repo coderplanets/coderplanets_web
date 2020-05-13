@@ -1,13 +1,13 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
-import { Trans } from '@utils'
+import { TYPE } from '@/constant'
+import { Trans } from '@/utils'
 
-import { RepoItemLoading } from '@components/LoadingEffects'
-import RepoItem from '@components/RepoItem'
-import EmptyThread from '@components/EmptyThread'
-import EmptyLabel from '@components/EmptyLabel'
+import { RepoItemLoading } from '@/components/LoadingEffects'
+import RepoItem from '@/components/RepoItem'
+import EmptyThread from '@/components/EmptyThread'
+import EmptyLabel from '@/components/EmptyLabel'
 
 const ReposList = ({ props }) => {
   const {

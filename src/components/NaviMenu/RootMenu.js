@@ -8,8 +8,8 @@ import React, { useEffect } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
-import { SpaceGrow, Space } from '@components/Common'
+import { buildLog } from '@/utils'
+import { SpaceGrow, Space } from '@/components/Common'
 
 import PinNumber from './PinNumber'
 

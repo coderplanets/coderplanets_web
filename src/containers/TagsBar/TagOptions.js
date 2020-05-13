@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Tooltip from '@components/Tooltip'
-import DiscussLinker from '@components/DiscussLinker'
-import { ICON_CMD, ISSUE_ADDR } from '@config'
+import Tooltip from '@/components/Tooltip'
+import DiscussLinker from '@/components/DiscussLinker'
+import { ICON_CMD, ISSUE_ADDR } from '@/config'
 
 import {
   Wrapper,

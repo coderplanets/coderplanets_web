@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-// import Img from '@Img'
-import { cs, theme } from '@utils'
+// import Img from '@/Img'
+import { cs, theme } from '@/utils'
 
 const activeColor = '#009C9E'
 export const Wrapper = styled.div`

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
-import { cs, theme } from '@utils'
+import Img from '@/Img'
+import { cs, theme } from '@/utils'
 
 const width = '28px'
 const height = '25px'

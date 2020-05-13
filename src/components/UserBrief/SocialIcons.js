@@ -1,10 +1,10 @@
 import React from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { nilOrEmpty, SOCIAL_LISTS } from '@utils'
+import { ICON_CMD } from '@/config'
+import { nilOrEmpty, SOCIAL_LISTS } from '@/utils'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 import { Wrapper, Linker, SocialIcon } from './styles/social_icons'
 
 const DisplayIcon = ({ user, social }) => {

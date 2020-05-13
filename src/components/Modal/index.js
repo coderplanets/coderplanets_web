@@ -8,8 +8,8 @@ import React, { useEffect } from 'react'
 import T from 'prop-types'
 import usePortal from 'react-useportal'
 
-import { ICON_CMD } from '@config'
-import { buildLog, toggleGlobalBlur } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog, toggleGlobalBlur } from '@/utils'
 
 import Belt from './Belt'
 

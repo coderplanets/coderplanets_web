@@ -7,11 +7,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
-import SectionLabel from '@components/SectionLabel'
+import Modal from '@/components/Modal'
+import SectionLabel from '@/components/SectionLabel'
 
 import { AdderWrapper, AdderText, AdderIcon } from './styles'
 

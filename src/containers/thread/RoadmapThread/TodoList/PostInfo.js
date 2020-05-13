@@ -1,7 +1,7 @@
 import React from 'react'
 
-import InlineTags from '@components/InlineTags'
-import DotDivider from '@components/DotDivider'
+import InlineTags from '@/components/InlineTags'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

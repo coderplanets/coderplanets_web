@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { theme, cs } from '@utils'
-import Img from '@Img'
+import { theme, cs } from '@/utils'
+import Img from '@/Img'
 
 import { Wrapper as SidebarWrapper } from './index'
 

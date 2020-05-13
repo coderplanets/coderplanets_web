@@ -5,8 +5,8 @@
  */
 import React from 'react'
 
-import { C11N } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { C11N } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
 import DigestView from './DigestView'
 import BriefView from './BriefView'

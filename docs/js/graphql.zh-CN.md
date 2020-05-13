@@ -13,7 +13,7 @@ CPS 所有接口提供，并且只提供 GraphQL 接口。所有 GraphQL 请求�
 
 ```js
 import gql from 'graphql-tag'
-import { P, F } from '@schemas'
+import { P, F } from '@/schemas'
 
 const pagedPosts = gql`
   ${P.pagedPosts}

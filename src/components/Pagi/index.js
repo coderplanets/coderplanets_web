@@ -8,7 +8,7 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import Perv from './Perv'
 import Next from './Next'
 

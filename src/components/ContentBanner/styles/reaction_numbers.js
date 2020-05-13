@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme, cs, animate } from '@utils'
+import { theme, cs, animate } from '@/utils'
 
 export const NumbersWrapper = styled.div`
   ${cs.flex('align-center')};

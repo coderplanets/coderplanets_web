@@ -6,12 +6,12 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import { Button } from '@components/Buttons'
-import StatusBox from '@components/StatusBox'
-import FormItem from '@components/FormItem'
+import { Button } from '@/components/Buttons'
+import StatusBox from '@/components/StatusBox'
+import FormItem from '@/components/FormItem'
 import WorkBackgroundInputer from './WorkBackgroundInputer'
 import EducationBackgroundInputer from './EducationBackgroundInputer'
 import SocialInputer from './SocialInputer'

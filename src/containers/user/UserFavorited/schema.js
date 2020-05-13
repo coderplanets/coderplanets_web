@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { F } from '@schemas'
+import { F } from '@/schemas'
 
 const favoritedJobs = gql`
   query($userId: ID!, $categoryId: ID, $filter: PagedFilter!) {

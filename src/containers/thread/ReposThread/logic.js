@@ -1,8 +1,8 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { TYPE, EVENT, THREAD } from '@constant'
-import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@utils'
+import { TYPE, EVENT, THREAD } from '@/constant'
+import { asyncSuit, buildLog, send, scrollToTabber, notEmpty } from '@/utils'
 
 import S from './schema'
 

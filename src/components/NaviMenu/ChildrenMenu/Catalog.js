@@ -8,8 +8,8 @@ import React, { useCallback } from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { buildLog, nilOrEmpty, o2s, s2o } from '@utils'
-import { SpaceGrow } from '@components/Common'
+import { buildLog, nilOrEmpty, o2s, s2o } from '@/utils'
+import { SpaceGrow } from '@/components/Common'
 
 import ChildrenItems from './ChildrenItems'
 

@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { THREAD, TOPIC } from '@constant'
-import { buildLog, connectStore, sortByColor, Trans } from '@utils'
+import { ICON_CMD } from '@/config'
+import { THREAD, TOPIC } from '@/constant'
+import { buildLog, connectStore, sortByColor, Trans } from '@/utils'
 
 import TagOptions from './TagOptions'
 

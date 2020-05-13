@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Img from '@Img'
+import Img from '@/Img'
 import {
   IntroBase,
   IntroHeadBase,
@@ -8,7 +8,7 @@ import {
   FooterBase,
   FlagIconBase,
 } from './index'
-// import { cs, theme } from '@utils'
+// import { cs, theme } from '@/utils'
 
 export const Wrapper = styled.div`
   margin-left: auto;

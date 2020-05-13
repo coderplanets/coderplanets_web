@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
 // post
 const pinPost = gql`

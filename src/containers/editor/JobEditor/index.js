@@ -7,10 +7,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import ArticleEditFooter from '@components/ArticleEditFooter'
-import { ArticleContentLoading } from '@components/LoadingEffects'
+import ArticleEditFooter from '@/components/ArticleEditFooter'
+import { ArticleContentLoading } from '@/components/LoadingEffects'
 
 import Editor from './Editor'
 import Preview from './Preview'

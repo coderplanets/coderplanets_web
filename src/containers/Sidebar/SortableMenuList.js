@@ -1,7 +1,7 @@
 import React from 'react'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 
-import CustomScroller from '@components/CustomScroller'
+import CustomScroller from '@/components/CustomScroller'
 import MenuBar from './MenuBar'
 
 const SortableMenuBar = SortableElement(

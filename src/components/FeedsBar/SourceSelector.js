@@ -7,8 +7,8 @@
 import React from 'react'
 // import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import CustomScroller from '@components/CustomScroller'
+import { buildLog } from '@/utils'
+import CustomScroller from '@/components/CustomScroller'
 import { Wrapper, Icon, Block, Title } from './styles/source_selector'
 
 import sources from './fakeSources'

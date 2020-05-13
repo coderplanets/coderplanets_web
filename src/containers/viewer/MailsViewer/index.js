@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import TabSelector from '@components/TabSelector'
+import TabSelector from '@/components/TabSelector'
 import MailLists from './MailLists'
 
 import { Wrapper } from './styles'

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ICON_BASE } from '@config'
-import { uid } from '@utils'
+import { ICON_BASE } from '@/config'
+import { uid } from '@/utils'
 
-import NaviMenu from '@components/NaviMenu'
+import NaviMenu from '@/components/NaviMenu'
 
 import { Wrapper } from './styles/pined_list'
 

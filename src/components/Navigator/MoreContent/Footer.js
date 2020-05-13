@@ -1,12 +1,12 @@
 import React from 'react'
 // import Link from 'next/link'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-// import Tooltip from '@components/Tooltip'
-// import DiscussLinker from '@components/DiscussLinker'
+// import Tooltip from '@/components/Tooltip'
+// import DiscussLinker from '@/components/DiscussLinker'
 
-// import { ROUTE } from '@constant'
+// import { ROUTE } from '@/constant'
 import {
   Wrapper,
   Entry,

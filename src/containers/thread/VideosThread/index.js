@@ -6,17 +6,17 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import TagsBar from '@containers/TagsBar'
+import TagsBar from '@/containers/TagsBar'
 
-import Sticky from '@components/Sticky'
-import { PublishButton } from '@components/Buttons'
-import Maybe from '@components/Maybe'
-import PagedContents from '@components/PagedContents'
-import ContentFilter from '@components/ContentFilter'
+import Sticky from '@/components/Sticky'
+import { PublishButton } from '@/components/Buttons'
+import Maybe from '@/components/Maybe'
+import PagedContents from '@/components/PagedContents'
+import ContentFilter from '@/components/ContentFilter'
 
 import {
   Wrapper,

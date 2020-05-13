@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { TYPE } from '@constant'
+import { ICON_CMD } from '@/config'
+import { TYPE } from '@/constant'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 import {
   FilterWraper,
   MenuWrapper,

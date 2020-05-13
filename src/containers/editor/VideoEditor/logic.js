@@ -1,7 +1,7 @@
 import R from 'ramda'
 import { useEffect } from 'react'
 
-import { TYPE, EVENT, ERR } from '@constant'
+import { TYPE, EVENT, ERR } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -10,7 +10,7 @@ import {
   updateEditing,
   closePreviewer,
   errRescue,
-} from '@utils'
+} from '@/utils'
 
 import { S, updatableFields } from './schema'
 

@@ -7,9 +7,9 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
-import Charger from '@components/Charger'
+import Charger from '@/components/Charger'
 import SubscribedTitle from './SubscribedTitle'
 import NumberGroup from './NumberGroup'
 

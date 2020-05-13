@@ -7,10 +7,10 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import Maybe from '@components/Maybe'
+import Maybe from '@/components/Maybe'
 
 import {
   Wrapper,

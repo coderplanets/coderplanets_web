@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import LABEL_POOL from '@config/label_pool'
+import { ICON_CMD } from '@/config'
+import LABEL_POOL from '@/config/label_pool'
 
 import {
   ColumnWrapper,
@@ -13,7 +13,7 @@ import {
   SelectItem,
 } from './styles'
 
-// import { uid } from '@utils'
+// import { uid } from '@/utils'
 
 const JobSalaryFilter = ({ activeFilter, onSelect }) => (
   <ColumnWrapper>

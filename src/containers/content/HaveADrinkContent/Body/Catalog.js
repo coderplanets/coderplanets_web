@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { buildLog, cutFrom } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog, cutFrom } from '@/utils'
 
 import {
   Wrapper,

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
+import { ICON_CMD } from '@/config'
 
-import { numberWithCommas } from '@utils'
+import { numberWithCommas } from '@/utils'
 import {
   Wrapper,
   CountItem,

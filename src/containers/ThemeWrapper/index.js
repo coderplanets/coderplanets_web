@@ -8,8 +8,8 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { connectStore } from '@utils'
-import { usePlatform } from '@hooks'
+import { connectStore } from '@/utils'
+import { usePlatform } from '@/hooks'
 
 // import MarkDownStyle from './MarkDownStyle'
 import CodeSyxHighlight from './CodeSyxHighlight'

@@ -39,7 +39,7 @@ import { withRouter } from 'next/router'
 
 // import Link from 'next/link'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 import { useInit } from './logic'
 
 const RouteContainer = ({ route, router }) => {

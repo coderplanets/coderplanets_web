@@ -2,8 +2,8 @@
 import { useEffect } from 'react'
 
 // eslint-disable-next-line import/named
-import { CUR_VERION } from '@config'
-import { TYPE, EVENT, ERR } from '@constant'
+import { CUR_VERION } from '@/config'
+import { TYPE, EVENT, ERR } from '@/constant'
 
 import {
   asyncSuit,
@@ -14,7 +14,7 @@ import {
   scrollToHeader,
   errRescue,
   Global,
-} from '@utils'
+} from '@/utils'
 
 import S from './schema'
 

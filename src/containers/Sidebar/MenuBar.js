@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react'
 import R from 'ramda'
 
-import { ICON_CMD } from '@config'
-import { uid } from '@utils'
+import { ICON_CMD } from '@/config'
+import { uid } from '@/utils'
 
-import TrendLine from '@components/TrendLine'
+import TrendLine from '@/components/TrendLine'
 
 import {
   Wrapper,

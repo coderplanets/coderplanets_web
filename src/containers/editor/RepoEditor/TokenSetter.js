@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ISSUE_ADDR } from '@config'
+import { ISSUE_ADDR } from '@/config'
 
-import { Button } from '@components/Buttons'
-import FormItem from '@components/FormItem'
+import { Button } from '@/components/Buttons'
+import FormItem from '@/components/FormItem'
 
 import {
   TokeInputWrapper,

@@ -7,11 +7,11 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD, GITHUB_CPS_TEAM } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD, GITHUB_CPS_TEAM } from '@/config'
+import { buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
-import UserCell from '@components/UserCell'
+import Modal from '@/components/Modal'
+import UserCell from '@/components/UserCell'
 
 import UnloginNote from './UnloginNote'
 import ChuanSelector from './ChuanSelector'

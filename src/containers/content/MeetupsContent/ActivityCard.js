@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ICON_CMD } from '@config'
-import { cutFrom } from '@utils'
+import { ICON_CMD } from '@/config'
+import { cutFrom } from '@/utils'
 
-import DotDivider from '@components/DotDivider'
+import DotDivider from '@/components/DotDivider'
 
 import {
   Wrapper,

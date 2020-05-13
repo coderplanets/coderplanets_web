@@ -7,8 +7,8 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { TYPE } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
 import Header from './Header'
 import MenuList from './MenuList'

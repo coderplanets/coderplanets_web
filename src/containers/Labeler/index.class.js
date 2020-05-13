@@ -9,12 +9,12 @@ import T from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import R from 'ramda'
 
-import LABEL_POOL from '@config/label_pool'
-import { buildLog, storePlug, uid, Trans } from '@utils'
-import { withGuardian } from '@hoc'
+import LABEL_POOL from '@/config/label_pool'
+import { buildLog, storePlug, uid, Trans } from '@/utils'
+import { withGuardian } from '@/hoc'
 
-import Maybe from '@components/Maybe'
-import Tooltip from '@components/Tooltip'
+import Maybe from '@/components/Maybe'
+import Tooltip from '@/components/Tooltip'
 
 import Options from './Options'
 import Selected from './Selected'

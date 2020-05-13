@@ -6,18 +6,18 @@
 
 import React from 'react'
 
-import { USER_THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { USER_THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import UserPublished from '@containers/user/UserPublished'
-import UserPublishedComments from '@containers/user/UserPublishedComments'
-import UserBilling from '@containers/user/UserBilling'
-import UserSettings from '@containers/user/UserSettings'
-import UserStared from '@containers/user/UserStared'
-import UserFavorited from '@containers/user/UserFavorited'
+import UserPublished from '@/containers/user/UserPublished'
+import UserPublishedComments from '@/containers/user/UserPublishedComments'
+import UserBilling from '@/containers/user/UserBilling'
+import UserSettings from '@/containers/user/UserSettings'
+import UserStared from '@/containers/user/UserStared'
+import UserFavorited from '@/containers/user/UserFavorited'
 
-import Sticky from '@components/Sticky'
-import Tabber from '@components/Tabber'
+import Sticky from '@/components/Sticky'
+import Tabber from '@/components/Tabber'
 
 import DigestBoard from './DigestBoard'
 

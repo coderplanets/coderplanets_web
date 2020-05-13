@@ -8,17 +8,17 @@ import React from 'react'
 import T from 'prop-types'
 import R from 'ramda'
 
-import { THREAD } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { THREAD } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import Comments from '@containers/Comments'
-import Labeler from '@containers/Labeler'
-import ArticleViewerHeader from '@containers/ArticleViewerHeader'
-import ArticleBodyHeader from '@containers/ArticleBodyHeader'
+import Comments from '@/containers/Comments'
+import Labeler from '@/containers/Labeler'
+import ArticleViewerHeader from '@/containers/ArticleViewerHeader'
+import ArticleBodyHeader from '@/containers/ArticleBodyHeader'
 
-import Maybe from '@components/Maybe'
-import MarkDownRender from '@components/MarkDownRender'
-import { ArticleContentLoading } from '@components/LoadingEffects'
+import Maybe from '@/components/Maybe'
+import MarkDownRender from '@/components/MarkDownRender'
+import { ArticleContentLoading } from '@/components/LoadingEffects'
 
 import {
   BodyWrapper,

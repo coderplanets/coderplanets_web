@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog, nilOrEmpty } from '@utils'
+import { buildLog, nilOrEmpty } from '@/utils'
 
 import { Wrapper, Icon, Text } from './styles'
 

@@ -2,18 +2,18 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { SITE_URL } from '@config'
-import { ROUTE } from '@constant'
-import { buildLog, parseURL, isServerSide } from '@utils'
+import { SITE_URL } from '@/config'
+import { ROUTE } from '@/constant'
+import { buildLog, parseURL, isServerSide } from '@/utils'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import CommunityBanner from '@containers/banner/CommunityBanner'
-import CommunityContent from '@containers/content/CommunityContent'
-// import Banner from '@containers/Banner'
-// import Content from '@containers/Content'
+import GlobalLayout from '@/containers/GlobalLayout'
+import CommunityBanner from '@/containers/banner/CommunityBanner'
+import CommunityContent from '@/containers/content/CommunityContent'
+// import Banner from '@/containers/Banner'
+// import Content from '@/containers/Content'
 
-import initRootStore from '@stores/init'
-// import { AnalysisService, ErrorPage } from '@components'
+import initRootStore from '@/stores/init'
+// import { AnalysisService, ErrorPage } from '@/components'
 
 /* eslint-disable-next-line */
 const log = buildLog('page:community')

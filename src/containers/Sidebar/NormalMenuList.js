@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomScroller from '@components/CustomScroller'
+import CustomScroller from '@/components/CustomScroller'
 import MenuBar from './MenuBar'
 
 const NormalMenuList = ({ communities, pin, activeRaw, forceRerender }) => {

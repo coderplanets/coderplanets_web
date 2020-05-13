@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-import { ICON_BASE } from '@config'
-import { buildLog, Trans } from '@utils'
+import { ICON_BASE } from '@/config'
+import { buildLog, Trans } from '@/utils'
 
 // import SearchBox from './SearchBox'
 import {

@@ -1,8 +1,14 @@
 {
-  "presets": [["next/babel"]],
+  "presets": [
+    [
+      "next/babel"
+    ]
+  ],
   "env": {
     "development": {
-      "plugins": ["inline-dotenv"]
+      "plugins": [
+        "inline-dotenv"
+      ]
     },
     "production": {
       "presets": [
@@ -20,12 +26,19 @@
       ]
     },
     "test": {
-      "plugins": ["inline-dotenv"]
+      "plugins": [
+        "inline-dotenv"
+      ]
     }
   },
   "plugins": [
     "add-react-displayname",
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "transform-inline-environment-variables",
     [
       "babel-plugin-styled-components",
@@ -45,21 +58,23 @@
     [
       "module-resolver",
       {
-        "root": ["./"],
+        "root": [
+          "./"
+        ],
         "alias": {
-          "@containers": "./src/containers",
-          "@components": "./src/components",
-          "@services": "./src/services",
-          "@constant": "./utils/constant/",
-          "@hooks": "./src/hooks",
-          "@hoc": "./src/hoc",
-          "@config": "./config",
-          "@stores": "./src/stores",
-          "@model": "./src/stores/SharedModel",
-          "@utils": "./utils",
-          "@schemas": "./src/schemas",
-          "@Img": "./src/components/Img",
-          "@SvgIcons": "./src/components/SvgIcons"
+          "@/containers": "./src/containers",
+          "@/components": "./src/components",
+          "@/services": "./src/services",
+          "@/constant": "./utils/constant/",
+          "@/hooks": "./src/hooks",
+          "@/hoc": "./src/hoc",
+          "@/config": "./config",
+          "@/stores": "./src/stores",
+          "@/model": "./src/stores/SharedModel",
+          "@/utils": "./utils",
+          "@/schemas": "./src/schemas",
+          "@/Img": "./src/components/Img",
+          "@/SvgIcons": "./src/components/SvgIcons"
         }
       }
     ]

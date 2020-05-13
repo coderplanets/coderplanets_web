@@ -7,7 +7,7 @@
 import React, { useState } from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 
 import GoBack from './GoBack'
 import Dashboard from './Dashboard'

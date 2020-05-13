@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Pagi from '@components/Pagi'
-import AvatarsRow from '@components/AvatarsRow'
+import Pagi from '@/components/Pagi'
+import AvatarsRow from '@/components/AvatarsRow'
 
 import Banner from './Banner'
 import FilterBar from './FilterBar'

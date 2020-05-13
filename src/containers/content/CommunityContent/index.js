@@ -6,16 +6,16 @@
 
 import React from 'react'
 
-import { ROUTE } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { ROUTE } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import PostsThread from '@containers//thread/PostsThread'
-import VideosThread from '@containers/thread/VideosThread'
-import ReposThread from '@containers/thread/ReposThread'
-import WikiThread from '@containers/thread/WikiThread'
-import JobsThread from '@containers/thread/JobsThread'
-import UsersThread from '@containers/thread/UsersThread'
-import CheatsheetThread from '@containers/thread/CheatsheetThread'
+import PostsThread from '@/containers//thread/PostsThread'
+import VideosThread from '@/containers/thread/VideosThread'
+import ReposThread from '@/containers/thread/ReposThread'
+import WikiThread from '@/containers/thread/WikiThread'
+import JobsThread from '@/containers/thread/JobsThread'
+import UsersThread from '@/containers/thread/UsersThread'
+import CheatsheetThread from '@/containers/thread/CheatsheetThread'
 
 import { Wrapper, InnerWrapper } from './styles'
 import { useInit } from './logic'

@@ -6,7 +6,7 @@
 import React from 'react'
 import { IntlProvider } from 'react-intl'
 
-import { observerHoc } from '@utils'
+import { observerHoc } from '@/utils'
 
 const selector = ({ store }) => ({
   locale: store.locale,

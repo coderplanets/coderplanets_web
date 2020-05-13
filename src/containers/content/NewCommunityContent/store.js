@@ -6,7 +6,7 @@
 import { types as t, getParent } from 'mobx-state-tree'
 
 // stripMobx
-import { markStates, buildLog } from '@utils'
+import { markStates, buildLog } from '@/utils'
 
 import { LN } from './logic'
 /* eslint-disable-next-line */

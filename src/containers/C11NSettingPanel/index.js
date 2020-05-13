@@ -7,11 +7,11 @@
 import React from 'react'
 import R from 'ramda'
 
-import { connectStore, buildLog } from '@utils'
-import { THREAD, C11N } from '@constant'
+import { connectStore, buildLog } from '@/utils'
+import { THREAD, C11N } from '@/constant'
 
-import { Br } from '@components/Common'
-import { Radio } from '@components/Switcher'
+import { Br } from '@/components/Common'
+import { Radio } from '@/components/Switcher'
 
 import { Wrapper, HeaderTitle, Title, Desc, Didiver } from './styles'
 import { useInit, onC11NChange } from './logic'

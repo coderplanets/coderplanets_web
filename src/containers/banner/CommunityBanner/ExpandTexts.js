@@ -1,7 +1,7 @@
 import React from 'react'
 // import { length } from 'stringz'
-import { ICON_CMD } from '@config'
-import { cutFrom } from '@utils'
+import { ICON_CMD } from '@/config'
+import { cutFrom } from '@/utils'
 
 import {
   Wrapper,

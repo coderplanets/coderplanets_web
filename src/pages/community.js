@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@config'
-import initRootStore from '@stores/init'
+import { PAGE_SIZE, SITE_URL } from '@/config'
+import initRootStore from '@/stores/init'
 
 import {
   isServerSide,
@@ -22,13 +22,13 @@ import {
   ssrAmbulance,
   validCommunityFilters,
   parseTheme,
-} from '@utils'
+} from '@/utils'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import CommunityBanner from '@containers/banner/CommunityBanner'
-import CommunityContent from '@containers/content/CommunityContent'
+import GlobalLayout from '@/containers/GlobalLayout'
+import CommunityBanner from '@/containers/banner/CommunityBanner'
+import CommunityContent from '@/containers/content/CommunityContent'
 
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
 /* eslint-disable-next-line */
 const log = buildLog('page:community')

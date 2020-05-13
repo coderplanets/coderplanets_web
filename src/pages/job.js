@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import R from 'ramda'
 
-import { PAGE_SIZE, SITE_URL } from '@config'
-import { TYPE, ROUTE, THREAD } from '@constant'
+import { PAGE_SIZE, SITE_URL } from '@/config'
+import { TYPE, ROUTE, THREAD } from '@/constant'
 import {
   getJwtToken,
   makeGQClient,
@@ -11,16 +11,16 @@ import {
   nilOrEmpty,
   ssrAmbulance,
   parseTheme,
-} from '@utils'
-import initRootStore from '@stores/init'
+} from '@/utils'
+import initRootStore from '@/stores/init'
 
-import GlobalLayout from '@containers/GlobalLayout'
-import ArticleBanner from '@containers/banner/ArticleBanner'
-import JobContent from '@containers/content/JobContent'
+import GlobalLayout from '@/containers/GlobalLayout'
+import ArticleBanner from '@/containers/banner/ArticleBanner'
+import JobContent from '@/containers/content/JobContent'
 
-import { P } from '@schemas'
+import { P } from '@/schemas'
 
-// import { AnalysisService, ErrorPage } from '@components'
+// import { AnalysisService, ErrorPage } from '@/components'
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')

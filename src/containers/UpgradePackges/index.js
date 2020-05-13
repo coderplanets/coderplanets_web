@@ -6,12 +6,12 @@
 
 import React from 'react'
 
-import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@config'
-import { connectStore, buildLog } from '@utils'
+import { ICON_CMD, EMAIL_BUSINESS, SENIOR_AMOUNT_THRESHOLD } from '@/config'
+import { connectStore, buildLog } from '@/utils'
 
-import { Button } from '@components/Buttons'
-import Modal from '@components/Modal'
-import SectionLabel from '@components/SectionLabel'
+import { Button } from '@/components/Buttons'
+import Modal from '@/components/Modal'
+import SectionLabel from '@/components/SectionLabel'
 import Support from './Support'
 
 import {

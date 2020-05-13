@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Tooltip from '@components/Tooltip'
+import Tooltip from '@/components/Tooltip'
 
-import { cutFrom } from '@utils'
+import { cutFrom } from '@/utils'
 import {
   Wrapper,
   LanguageDot,

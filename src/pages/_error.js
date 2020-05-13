@@ -1,11 +1,11 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
 
-import AnalysisService from '@services/Analysis'
-import ThemeWrapper from '@containers/ThemeWrapper'
-import ErrorPage from '@components/ErrorPage'
+import AnalysisService from '@/servicess/Analysis'
+import ThemeWrapper from '@/containers/ThemeWrapper'
+import ErrorPage from '@/components/ErrorPage'
 
-import initRootStore from '@stores/init'
+import initRootStore from '@/stores/init'
 
 export default class TheErrorPage extends React.Component {
   static getInitialProps({ res, err }) {

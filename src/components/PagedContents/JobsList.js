@@ -1,13 +1,13 @@
 import React from 'react'
 import R from 'ramda'
 
-import { TYPE } from '@constant'
-import { Trans } from '@utils'
-import { JobItemLoading } from '@components/LoadingEffects'
+import { TYPE } from '@/constant'
+import { Trans } from '@/utils'
+import { JobItemLoading } from '@/components/LoadingEffects'
 
-import JobItem from '@components/JobItem'
-import EmptyThread from '@components/EmptyThread'
-import EmptyLabel from '@components/EmptyLabel'
+import JobItem from '@/components/JobItem'
+import EmptyThread from '@/components/EmptyThread'
+import EmptyLabel from '@/components/EmptyLabel'
 
 const JobsList = ({ props }) => {
   const {

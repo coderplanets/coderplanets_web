@@ -6,12 +6,12 @@
 
 import React from 'react'
 
-import { TYPE } from '@constant'
-import { connectStore, buildLog } from '@utils'
+import { TYPE } from '@/constant'
+import { connectStore, buildLog } from '@/utils'
 
-import EmptyLabel from '@components/EmptyLabel'
-import Modal from '@components/Modal'
-import SearchingLabel from '@components/SearchingLabel'
+import EmptyLabel from '@/components/EmptyLabel'
+import Modal from '@/components/Modal'
+import SearchingLabel from '@/components/SearchingLabel'
 
 import HeaderInfo from './HeaderInfo'
 import UserList from './UserList'

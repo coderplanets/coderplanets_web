@@ -1,9 +1,9 @@
 import React from 'react'
 import R from 'ramda'
 
-import { isEmptyValue } from '@utils'
+import { isEmptyValue } from '@/utils'
 
-import Tag from '@components/Tag'
+import Tag from '@/components/Tag'
 import { Wrapper, TagWrapper } from './styles/selected_tags'
 
 const filterDict = {

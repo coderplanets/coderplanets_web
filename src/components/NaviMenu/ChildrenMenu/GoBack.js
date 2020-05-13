@@ -7,8 +7,8 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
-import { ICON_CMD } from '@config'
+import { buildLog } from '@/utils'
+import { ICON_CMD } from '@/config'
 
 import { Wrapper, BackIcon } from '../styles/children_menu/go_back'
 

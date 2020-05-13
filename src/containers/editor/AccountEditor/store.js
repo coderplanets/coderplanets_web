@@ -6,8 +6,8 @@
 import { types as t, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
-import { markStates, buildLog, stripMobx, changeset, flashState } from '@utils'
-import { User, EduBackground, WorkBackground } from '@model'
+import { markStates, buildLog, stripMobx, changeset, flashState } from '@/utils'
+import { User, EduBackground, WorkBackground } from '@/model'
 
 /* eslint-disable-next-line */
 const log = buildLog('S:AccountEditorStore')

@@ -7,11 +7,11 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { ICON_CMD } from '@config'
-import { buildLog } from '@utils'
+import { ICON_CMD } from '@/config'
+import { buildLog } from '@/utils'
 
-import ExpandIcon from '@components/ExpandIcon'
-import { ArrowButton } from '@components/Buttons'
+import ExpandIcon from '@/components/ExpandIcon'
+import { ArrowButton } from '@/components/Buttons'
 
 import {
   PopContentWrapper,

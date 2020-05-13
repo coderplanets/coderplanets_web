@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { ASSETS_ENDPOINT } from '@config'
-import { buildLog } from '@utils'
+import { ASSETS_ENDPOINT } from '@/config'
+import { buildLog } from '@/utils'
 
-import { Button } from '@components/Buttons'
+import { Button } from '@/components/Buttons'
 
 import Recommendation from './Recommendation'
 

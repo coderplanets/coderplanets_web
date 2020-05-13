@@ -5,8 +5,8 @@
 import React from 'react'
 // import T from 'prop-types'
 
-import MarkdownEditor from '@components/MarkdownEditor'
-import ArticleEditToolbar from '@components/ArticleEditToolbar'
+import MarkdownEditor from '@/components/MarkdownEditor'
+import ArticleEditToolbar from '@/components/ArticleEditToolbar'
 import EditorFooter from './EditorFooter'
 
 import { Wrapper, TitleInput, FooterWrapper } from './styles/editor'

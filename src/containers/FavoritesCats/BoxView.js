@@ -1,6 +1,6 @@
 import React from 'react'
 
-import EmptyLabel from '@components/EmptyLabel'
+import EmptyLabel from '@/components/EmptyLabel'
 import CategoryCardList from './CategoryCardList'
 import { Wrapper, MsgWrapper } from './styles/box_view'
 

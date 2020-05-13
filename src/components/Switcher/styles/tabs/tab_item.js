@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs, theme } from '@utils'
+import { cs, theme } from '@/utils'
 
 import { getMarginRight, getPadding } from '../metric/tabs'
 

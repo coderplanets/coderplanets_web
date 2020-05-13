@@ -7,7 +7,7 @@
 import React from 'react'
 import T from 'prop-types'
 
-import { buildLog } from '@utils'
+import { buildLog } from '@/utils'
 import FollowingBtn from './FollowingBtn'
 import FollowBtn from './FollowBtn'
 

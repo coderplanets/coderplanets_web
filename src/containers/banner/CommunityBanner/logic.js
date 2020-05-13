@@ -1,7 +1,7 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { TYPE, EVENT, ERR } from '@constant'
+import { TYPE, EVENT, ERR } from '@/constant'
 import {
   asyncSuit,
   buildLog,
@@ -9,7 +9,7 @@ import {
   subPath2Thread,
   thread2Subpath,
   errRescue,
-} from '@utils'
+} from '@/utils'
 
 import S from './schema'
 

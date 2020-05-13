@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import Modal from '@components/Modal'
-import { ArticleContentLoading } from '@components/LoadingEffects'
+import Modal from '@/components/Modal'
+import { ArticleContentLoading } from '@/components/LoadingEffects'
 
 import SearchBar from './SearchBar'
 import Message from './Message'

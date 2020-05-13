@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cs } from '@utils'
+import { cs } from '@/utils'
 import { SwitchBarBase } from './gallery_base'
 
 export const Wrapper = styled.div`

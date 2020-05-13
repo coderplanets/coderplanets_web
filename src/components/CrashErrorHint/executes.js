@@ -1,4 +1,4 @@
-import { ICON_BASE } from '@config'
+import { ICON_BASE } from '@/config'
 
 const EXECUTES = [
   {

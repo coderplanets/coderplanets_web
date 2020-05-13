@@ -1,6 +1,6 @@
 import { types as t } from 'mobx-state-tree'
 
-import { PAGE_SIZE } from '@config'
+import { PAGE_SIZE } from '@/config'
 
 // avoid cicle import
 const SimpleUser = t.model('SimpleUser', {

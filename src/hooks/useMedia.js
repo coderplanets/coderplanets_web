@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import R from 'ramda'
 
-import { Global, cs, debounce } from '@utils'
+import { Global, cs, debounce } from '@/utils'
 
 const defaultMedia = {
   mobile: false,

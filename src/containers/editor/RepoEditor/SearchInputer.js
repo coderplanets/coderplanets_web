@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { GITHUB_WEB_ADDR } from '@config'
-import { Button } from '@components/Buttons'
-import FormItem from '@components/FormItem'
+import { GITHUB_WEB_ADDR } from '@/config'
+import { Button } from '@/components/Buttons'
+import FormItem from '@/components/FormItem'
 
 import { InputWrapper } from './styles/search_man'
 

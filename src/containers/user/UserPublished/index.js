@@ -6,10 +6,10 @@
 
 import React from 'react'
 
-import { connectStore, buildLog } from '@utils'
+import { connectStore, buildLog } from '@/utils'
 
-import PagedContents from '@components/PagedContents'
-import ThreadSelector from '@components/ThreadSelector'
+import PagedContents from '@/components/PagedContents'
+import ThreadSelector from '@/components/ThreadSelector'
 
 import { ThreadWrapper } from './styles'
 import { useInit, onThreadChange, onReload, onPreview } from './logic'

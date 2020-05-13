@@ -1,8 +1,8 @@
 // import R from 'ramda'
 import { useEffect } from 'react'
 
-import { EVENT, PAYMENT_USAGE } from '@constant'
-import { asyncSuit, buildLog, send } from '@utils'
+import { EVENT, PAYMENT_USAGE } from '@/constant'
+import { asyncSuit, buildLog, send } from '@/utils'
 // import S from './schema'
 
 /* eslint-disable-next-line */
