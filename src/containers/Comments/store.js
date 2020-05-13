@@ -151,14 +151,14 @@ const CommentsStore = t
       switch (type) {
         case 'create': {
           const result = changeset({ editContent: self.editContent })
-            .exsit({ editContent: '评论内容' }, self.changesetErr)
+            .exist({ editContent: '评论内容' }, self.changesetErr)
             .done()
 
           return result.passed
         }
         case 'reply': {
           const result = changeset({ replyContent: self.replyContent })
-            .exsit({ replyContent: '回复内容' }, self.changesetErr)
+            .exist({ replyContent: '回复内容' }, self.changesetErr)
             .done()
 
           return result.passed

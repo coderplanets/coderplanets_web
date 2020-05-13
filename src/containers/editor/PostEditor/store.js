@@ -87,9 +87,9 @@ const PostEditor = t
       switch (type) {
         case 'general': {
           const result = changeset(self.editData)
-            .exsit({ title: '文章标题或内容' }, self.changesetErr)
-            .exsit({ body: '文章标题或内容' }, self.changesetErr)
-            // .exsit({ linkAddr: '原链接地址' }, self.changesetErr)
+            .exist({ title: '文章标题或内容' }, self.changesetErr)
+            .exist({ body: '文章标题或内容' }, self.changesetErr)
+            // .exist({ linkAddr: '原链接地址' }, self.changesetErr)
             .startsWith(
               { linkAddr: '原链接地址' },
               'https://',

@@ -61,9 +61,9 @@ const AccountEditorStore = t
       switch (type) {
         case 'work': {
           const result = changeset(self.workBgData)
-            .exsit({ company: '公司名称' }, self.changesetErr)
+            .exist({ company: '公司名称' }, self.changesetErr)
             .min({ company: '公司名称' }, 2, self.changesetErr)
-            .alreadyExsits(
+            .alreadyExists(
               {
                 company: `${self.workBgData.company}, ${self.workBgData.title}`,
               },
@@ -79,9 +79,9 @@ const AccountEditorStore = t
         case 'education': {
           const { educationBgData } = self
           const result = changeset(educationBgData)
-            .exsit({ school: '学校名称' }, self.changesetErr)
+            .exist({ school: '学校名称' }, self.changesetErr)
             .min({ school: '学校名称' }, 2, self.changesetErr)
-            .alreadyExsits(
+            .alreadyExists(
               {
                 school: `${educationBgData.school}, ${educationBgData.major}`,
               },

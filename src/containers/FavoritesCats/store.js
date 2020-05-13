@@ -122,7 +122,7 @@ const FavoritesCats = t
         case 'publish': {
           const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
           const result = changeset(self.editCategoryData)
-            .exsit({ title: '收藏夹名称' }, self.changesetErr, opt)
+            .exist({ title: '收藏夹名称' }, self.changesetErr, opt)
             .done()
 
           return result.passed

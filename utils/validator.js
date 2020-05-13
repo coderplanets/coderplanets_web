@@ -46,7 +46,7 @@ const keyOf = R.compose(R.head, R.keys)
 const valueOf = R.compose(R.head, R.values)
 
 export const changeset = source => ({
-  exsit: (obj, cb, opt = { skip: false }) => {
+  exist: (obj, cb, opt = { skip: false }) => {
     if (source.__dirty__) return changeset(source)
     if (opt.skip) return changeset(source)
 
@@ -84,7 +84,7 @@ export const changeset = source => ({
     }
     return changeset(source)
   },
-  alreadyExsits: (obj, target, pools, cb) => {
+  alreadyExists: (obj, target, pools, cb) => {
     if (source.__dirty__) return changeset(source)
     const field = keyOf(obj)
     const trans = valueOf(obj)

@@ -28,7 +28,7 @@ export const onOptionSelect = (uniqId, item) => {
   const index = R.findIndex(R.propEq('uniqId', uniqId))(store.labelEntriesData)
   if (index < 0) return false
   // return false
-  // toggle item if exsit
+  // toggle item if exist
   if (R.contains(item, store.labelEntriesData[index].selected)) {
     return store.markUniqState(uniqId, {
       selected: R.reject(

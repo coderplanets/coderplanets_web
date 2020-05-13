@@ -50,25 +50,25 @@ const VideoEditor = t
           const opt = { msg: '不能为空 (请填写 #必填# 字段)' }
 
           const result = changeset(self.editVideoData)
-            .exsit({ thumbnil: '缩略图' }, self.changesetErr)
-            .exsit({ thumbnil: '视频封面' }, self.changesetErr)
-            .exsit({ title: '视频标题' }, self.changesetErr, opt)
+            .exist({ thumbnil: '缩略图' }, self.changesetErr)
+            .exist({ thumbnil: '视频封面' }, self.changesetErr)
+            .exist({ title: '视频标题' }, self.changesetErr, opt)
             .min({ title: '视频标题' }, 5, self.changesetErr, opt)
-            .exsit({ source: '视频来源' }, self.changesetErr, opt)
-            .exsit({ link: '视频链接' }, self.changesetErr, opt)
+            .exist({ source: '视频来源' }, self.changesetErr, opt)
+            .exist({ link: '视频链接' }, self.changesetErr, opt)
             .startsWith({ link: '视频链接' }, 'https://', self.changesetErr)
-            .exsit({ originalAuthor: '原作者昵称' }, self.changesetErr, opt)
-            .exsit({ originalAuthorLink: '原作者链接' }, self.changesetErr, opt)
+            .exist({ originalAuthor: '原作者昵称' }, self.changesetErr, opt)
+            .exist({ originalAuthorLink: '原作者链接' }, self.changesetErr, opt)
             .startsWith(
               { originalAuthorLink: '原作者链接' },
               'https://',
               self.changesetErr
             )
-            .exsit({ desc: '视频描述' }, self.changesetErr, opt)
+            .exist({ desc: '视频描述' }, self.changesetErr, opt)
             .min({ desc: '视频描述' }, 10, self.changesetErr, opt)
-            .exsit({ duration: '时长' }, self.changesetErr, opt)
+            .exist({ duration: '时长' }, self.changesetErr, opt)
             .durationFmt({ duration: '时长' }, self.changesetErr)
-            .exsit(
+            .exist(
               { publishAt: '发布日期' },
               self.changesetErr,
               R.merge(opt, { skip: self.isEdit })

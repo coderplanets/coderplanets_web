@@ -83,7 +83,7 @@ const RepoEditor = t
       switch (type) {
         case 'searchValue': {
           const result = changeset({ searchValue: self.searchValue })
-            .exsit({ searchValue: 'Github仓库地址' }, self.changesetErr)
+            .exist({ searchValue: 'Github仓库地址' }, self.changesetErr)
             .startsWith(
               { searchValue: 'Github仓库地址' },
               'https://github.com/',
@@ -108,7 +108,7 @@ const RepoEditor = t
         }
         case 'tokenValue': {
           const result = changeset({ tokenValue: self.tokenValue })
-            .exsit({ tokenValue: 'Github Token' }, self.changesetErr)
+            .exist({ tokenValue: 'Github Token' }, self.changesetErr)
             .done()
 
           return result.passed

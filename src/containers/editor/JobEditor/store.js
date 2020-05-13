@@ -91,8 +91,8 @@ const JobEditorStore = t
       switch (type) {
         case 'general': {
           const result = changeset(self.editData)
-            .exsit({ title: '文章标题或内容' }, self.changesetErr)
-            .exsit({ body: '文章标题或内容' }, self.changesetErr)
+            .exist({ title: '文章标题或内容' }, self.changesetErr)
+            .exist({ body: '文章标题或内容' }, self.changesetErr)
             .startsWith(
               { linkAddr: '原链接地址' },
               'https://',
@@ -105,22 +105,22 @@ const JobEditorStore = t
         }
         case `${THREAD.JOB}_LABELS`: {
           const result = changeset(self.labelsData)
-            .exsit({ tags: '所在城市' }, self.changesetErr)
-            .exsit({ salary: '月薪' }, self.changesetErr)
-            .exsit({ education: '学历要求' }, self.changesetErr)
-            .exsit({ exp: '工作经验' }, self.changesetErr)
-            .exsit({ field: '领域(主要业务)' }, self.changesetErr)
-            .exsit({ finance: '公司融资情况' }, self.changesetErr)
-            .exsit({ scale: '公司规模' }, self.changesetErr)
+            .exist({ tags: '所在城市' }, self.changesetErr)
+            .exist({ salary: '月薪' }, self.changesetErr)
+            .exist({ education: '学历要求' }, self.changesetErr)
+            .exist({ exp: '工作经验' }, self.changesetErr)
+            .exist({ field: '领域(主要业务)' }, self.changesetErr)
+            .exist({ finance: '公司融资情况' }, self.changesetErr)
+            .exist({ scale: '公司规模' }, self.changesetErr)
             .done()
 
           return result.passed
         }
         case 'companyInfo': {
           const result = changeset(self.editData)
-            .exsit({ company: '公司名称' }, self.changesetErr)
-            .exsit({ companyLogo: '公司Logo' }, self.changesetErr)
-            .exsit({ companyLink: '公司主页' }, self.changesetErr)
+            .exist({ company: '公司名称' }, self.changesetErr)
+            .exist({ companyLogo: '公司Logo' }, self.changesetErr)
+            .exist({ companyLink: '公司主页' }, self.changesetErr)
             .done()
 
           return result.passed

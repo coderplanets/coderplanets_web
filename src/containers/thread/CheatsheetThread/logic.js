@@ -21,7 +21,7 @@ let store = null
 
 const loadCheatsheet = () => {
   const community = store.curCommunity.raw
-  // const community = 'no-exsit'
+  // const community = 'no-exist'
   /* const community = 'elixir' */
 
   store.mark({ curView: TYPE.LOADING })
