@@ -9,7 +9,7 @@ import { DefaultSeo } from 'next-seo'
  * can be found here: https://github.com/garmeeh/next-seo#default-seo-configuration
  */
 import SEO from '@/config/next_seo'
-import { sentry } from '@/servicess'
+import { sentry } from '@/services'
 import CrashErrorHint from '@/components/CrashErrorHint'
 
 const { Sentry, captureException } = sentry({

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import { TYPE, EVENT, ERR } from '@/constant'
 import { asyncSuit, buildLog, errRescue } from '@/utils'
-import { githubAPI } from '@/servicess'
+import { githubAPI } from '@/services'
 
 import S from './schema'
 

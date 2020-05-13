@@ -10,7 +10,7 @@ import {
   BStore,
   errRescue,
 } from '@/utils'
-import { githubAPI } from '@/servicess'
+import { githubAPI } from '@/services'
 
 import S from './schema'
 

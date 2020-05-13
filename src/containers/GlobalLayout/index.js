@@ -18,7 +18,7 @@ import { TYPE } from '@/constant'
 import { connectStore } from '@/utils'
 import { useShortcut, useMedia, usePlatform, useResize } from '@/hooks'
 
-import AnalysisService from '@/servicess/Analysis'
+import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
 import MultiLanguage from '@/containers/MultiLanguage'
 
