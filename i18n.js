@@ -26,6 +26,9 @@ module.exports = new NextI18Next({
   localePath: 'public/locales',
   serverLanguageDetection: true,
   browserLanguageDetection: true,
+  // see https://www.i18next.com/overview/configuration-options#configuration-options
+  keySeparator: false,
+  nsSeparator: false,
   localeSubpaths: {
     // zh: 'none', // not not map default locale
     en: 'en',

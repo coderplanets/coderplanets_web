@@ -44,7 +44,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           active={topFilter === 'favorite'}
           onClick={() => topFilterOnChange('favorite')}
         >
-          <OptionItem>{t('my-favorite')}</OptionItem>
+          <OptionItem>{t('filter:myFavorite')}</OptionItem>
           <FavoriteIcon
             src={`${ICON_CMD}/navi/heart.svg`}
             active={topFilter === 'favorite'}
@@ -54,7 +54,7 @@ const FilterBar = ({ mainView, topFilter, initActiveMenuId }) => {
           active={topFilter === 'latest'}
           onClick={() => topFilterOnChange('latest')}
         >
-          <OptionItem>{t('latest-update')}</OptionItem>
+          <OptionItem>{t('filter:latestUpdate')}</OptionItem>
           <ClockIcon
             src={`${ICON_CMD}/navi/clock-solid.svg`}
             active={topFilter === 'latest'}
