@@ -12,6 +12,8 @@ import { PagiOptionSwitcher } from '@/components/Switcher'
 
 import { SnippetGallery, ImageGallery } from '@/components/GalleryHub'
 
+import { withTranslation } from '../../../../../i18n'
+
 import Footer from '../Footer'
 
 import { Wrapper, InnerWrapper, NormalListWrapper } from '../styles/snippets'
@@ -36,7 +38,7 @@ const tmpItems = [
   },
 ]
 
-const Content = ({ galleryType }) => {
+const Content = ({ t, galleryType }) => {
   let DisplayContent
 
   switch (galleryType) {
@@ -48,6 +50,7 @@ const Content = ({ galleryType }) => {
     default: {
       DisplayContent = (
         <NormalListWrapper>
+          <h2>{t('hello')}</h2>
           <SnippetGallery />
           <Pagi margin={{ top: '40px', bottom: '60px' }}>
             <PagiOptionSwitcher
@@ -72,4 +75,8 @@ const Content = ({ galleryType }) => {
   )
 }
 
-export default React.memo(Content)
+Content.getInitialProps = async () => ({
+  namespacesRequired: ['home'],
+})
+
+export default withTranslation('home')(Content)

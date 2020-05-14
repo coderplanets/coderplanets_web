@@ -12,8 +12,13 @@ const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
 const R = require('ramda')
+
 // inspect graphql model
 const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+
+// i18n staff
+const nextI18NextMiddleware = require('next-i18next/middleware').default
+const nextI18next = require('./i18n')
 
 const CONFIG = require('./config/config.json')
 
@@ -30,10 +35,15 @@ const ssrCache = new LRUCache({
   max: 1000, // cache item count
   // maxAge: 1000 * 60 * 60, // 1hour
   maxAge: 1000 * 30, // 30 ses
+  // eslint-disable-next-line prettier/prettier
 })
 
-app.prepare().then(() => {
+// eslint-disable-next-line prettier/prettier
+;(async () => {
+  await app.prepare()
   const server = express()
+
+  // const server = express()
   /* eslint-disable-next-line */
   const { Sentry } = require('./src/services/sentry')({ release: app.buildId })
 
@@ -51,6 +61,9 @@ app.prepare().then(() => {
     '/model-graphs',
     voyagerMiddleware({ endpointUrl: CONFIG.GRAPHQL_ENDPOINT })
   )
+
+  await nextI18next.initPromise
+  server.use(nextI18NextMiddleware(nextI18next))
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
@@ -176,11 +189,9 @@ app.prepare().then(() => {
 
   server.get('*', (req, res) => handle(req, res))
 
-  server.listen(SERVE_PORT, err => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${SERVE_PORT}`)
-  })
-})
+  await server.listen(SERVE_PORT)
+  console.log(`> Ready on http://localhost:${SERVE_PORT}`)
+})()
 
 // redirect all the www request to non-www addr
 const reDirectToNakedUrl = (req, res, next) => {
