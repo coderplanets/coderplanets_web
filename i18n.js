@@ -22,7 +22,7 @@ module.exports = new NextI18Next({
   otherLanguages: ['en', 'zh'],
   defaultLanguage: 'zh',
   // lng: 'zh',
-  defaultNS: 'home',
+  defaultNS: 'general',
   localePath: 'public/locales',
   serverLanguageDetection: true,
   browserLanguageDetection: true,

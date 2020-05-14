@@ -10,9 +10,9 @@ import { DefaultSeo } from 'next-seo'
  */
 import SEO from '@/config/next_seo'
 import { sentry } from '@/services'
-import CrashErrorHint from '@/components/CrashErrorHint'
+import { appWithTranslation } from '@/i18n'
 
-import { appWithTranslation } from '../../i18n'
+import CrashErrorHint from '@/components/CrashErrorHint'
 
 const { Sentry, captureException } = sentry({
   release: process.env.SENTRY_RELEASE,
