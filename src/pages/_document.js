@@ -46,11 +46,6 @@ export default class DocumentPage extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
-
-          <link
-            href="https://fonts.googleapis.com/css?family=Orbitron"
-            rel="stylesheet"
-          />
           <link rel="icon" href="/favicon.ico?v=7" />
 
           <script
@@ -80,6 +75,11 @@ export default class DocumentPage extends Document {
           <NextScript />
         </body>
 
+        {/* load OverlayScrollbars styles from CDN */}
+        <link
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.12.0/css/OverlayScrollbars.css"
+          rel="stylesheet"
+        />
         {/* load iziToast from CDN */}
         <script
           async

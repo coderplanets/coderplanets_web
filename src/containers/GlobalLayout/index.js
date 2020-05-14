@@ -9,10 +9,6 @@ import T from 'prop-types'
 
 import useNetwork from 'react-use/lib/useNetwork'
 
-// custom overlayscrollbars
-// see: https://github.com/KingSora/OverlayScrollbars/tree/master/packages/overlayscrollbars-react
-import 'overlayscrollbars/css/OverlayScrollbars.css'
-
 import { ICON_CMD } from '@/config'
 import { TYPE } from '@/constant'
 import { connectStore } from '@/utils'

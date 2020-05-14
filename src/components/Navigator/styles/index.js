@@ -31,7 +31,7 @@ export const DotDivider = styled(DotDividerBase)`
 // font-family: cursive; // not general
 export const LogoText = styled.a`
   color: ${theme('logoText')};
-  font-family: Orbitron, Cursive, Helvetica;
+  font-family: Cursive, Helvetica;
   font-weight: bolder;
   letter-spacing: 1.5px;
   font-size: 0.9rem;
