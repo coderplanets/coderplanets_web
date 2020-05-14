@@ -8,28 +8,28 @@ import React from 'react'
 // import T from 'prop-types'
 
 import { buildLog } from '@/utils'
+{{#if wantI18n}}
+import { useTrans } from '@/hooks'
+{{/if}}
 
 {{#if wantStyle}}
 import { Wrapper } from './styles'
-{{/if}}
-{{#if wantI18n}}
-import { FormattedMessage as I18n } from 'react-intl'
-import lang from './lang'
 {{/if}}
 
 /* eslint-disable-next-line */
 const log = buildLog('c:{{ properCase name }}:index')
 
 const {{ properCase name }} = () => {
+  {{#if wantI18n}}
+  const { t } = useTrans()
+  {{/if}}
+
   return (
     {{#if wantStyle}}
     <Wrapper testid="{{ camelCase name}}">
       {{/if}}
       <div>
         <h2>{{ properCase name }} component</h2>
-        {{#if wantI18n}}
-        <I18n {...lang.header} />
-        {{/if}}
         <p>impress me</p>
       </div>
       {{#if wantStyle}}

@@ -18,9 +18,6 @@ import initRootStore from '@/stores/init'
 /* eslint-disable-next-line */
 const log = buildLog('page:community')
 
-// try to fix safari bug
-// see https://github.com/yahoo/react-intl/issues/422
-global.Intl = require('intl')
 /*
    NOTE: in dev mode, this index page is always be required, even the server
    is not routing to this page, it's very confused, help needed

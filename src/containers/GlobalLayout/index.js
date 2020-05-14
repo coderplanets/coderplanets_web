@@ -16,7 +16,6 @@ import { useShortcut, useMedia, usePlatform, useResize } from '@/hooks'
 
 import AnalysisService from '@/services/Analysis'
 import ThemeWrapper from '@/containers/ThemeWrapper'
-import MultiLanguage from '@/containers/MultiLanguage'
 
 import Sidebar from '@/containers/Sidebar'
 import Preview from '@/containers/Preview'
@@ -85,7 +84,7 @@ const GlobalLayoutContainer = ({
           {errorCode ? (
             <ErrorPage errorCode={errorCode} page={page} target={errorPath} />
           ) : (
-            <MultiLanguage>
+            <div>
               <SubCommunitiesExpander onClick={queryDoraemon('/')}>
                 <ExpanderIcon src={`${ICON_CMD}/expander_more.svg`} />
               </SubCommunitiesExpander>
@@ -116,7 +115,7 @@ const GlobalLayoutContainer = ({
                   </ContentWrapper>
                 </ContentPinWrapper>
               </InnerWrapper>
-            </MultiLanguage>
+            </div>
           )}
         </Wrapper>
       </ThemeWrapper>

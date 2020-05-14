@@ -19,10 +19,6 @@ import HaveADrinkContent from '@/containers/content/HaveADrinkContent'
 
 import { P } from '@/schemas'
 
-// try to fix safari bug
-// see https://github.com/yahoo/react-intl/issues/422
-global.Intl = require('intl')
-
 async function fetchData(props, opt) {
   const { realname } = R.merge({ realname: true }, opt)
 

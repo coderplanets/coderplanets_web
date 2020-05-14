@@ -40,12 +40,6 @@
         "preprocess": false
       }
     ],
-    [
-      "react-intl",
-      {
-        "messagesDir": "lang/.messages/"
-      }
-    ],
     "ramda",
     [
       "module-resolver",

@@ -113,16 +113,6 @@ module.exports = {
       })
     }
 
-    // If they want a i18n messages file
-    if (data.wantI18n) {
-      actions.push({
-        type: 'add',
-        path: `${TARGET_DIR}/{{properCase name}}/lang.js`,
-        templateFile: './container/lang.js.hbs',
-        abortOnFail: true,
-      })
-    }
-
     return actions
   },
 }

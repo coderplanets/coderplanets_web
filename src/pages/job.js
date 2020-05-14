@@ -20,11 +20,6 @@ import JobContent from '@/containers/content/JobContent'
 
 import { P } from '@/schemas'
 
-// import { AnalysisService, ErrorPage } from '@/components'
-// try to fix safari bug
-// see https://github.com/yahoo/react-intl/issues/422
-global.Intl = require('intl')
-
 async function fetchData(props) {
   const token = getJwtToken(props)
   const gqClient = makeGQClient(token)
