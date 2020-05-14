@@ -8,7 +8,6 @@ require('dotenv').config()
 // next-plugins
 const withPlugins = require('next-compose-plugins')
 const withSourceMaps = require('@zeit/next-source-maps')()
-const withProgressBar = require('next-progressbar')
 const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -51,11 +50,6 @@ const nextConfig = {
 }
 
 module.exports = withPlugins(
-  [
-    withProgressBar,
-    withBundleAnalyzer,
-    withSourceMaps,
-    [withOffline, offlineConfig],
-  ],
+  [withBundleAnalyzer, withSourceMaps, [withOffline, offlineConfig]],
   nextConfig
 )
