@@ -45,7 +45,7 @@ app.prepare().then(() => {
 
   // redirect all the www request to non-www addr
   server.use(reDirectToNakedUrl)
-  server.use(express.static('static'))
+  server.use(express.static('public'))
   server.use(helmet())
   server.use(
     '/model-graphs',
