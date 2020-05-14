@@ -58,8 +58,8 @@ const baseInput = `
 `
 export const InputWrapper = styled.input`
   ${baseInput};
-  padding-left: ${({ prefix }) => (prefix ? '26px' : '8px')};
-  padding-right: ${({ suffix }) => (suffix ? '26px' : '8px')};
+  padding-left: ${({ hasPrefix }) => (hasPrefix ? '26px' : '8px')};
+  padding-right: ${({ hasSuffix }) => (hasSuffix ? '26px' : '8px')};
   background-color: #0e3444;
   border-color: ${theme('editor.border')};
   ::placeholder {

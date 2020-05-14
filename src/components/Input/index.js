@@ -37,16 +37,17 @@ const Input = ({
   return behavior === 'default' ? (
     <Wrapper>
       <PrefixWrapper show={!nilOrEmpty(prefixIcon)}>
-        <Icon src={prefixIcon} active={prefixActive} />
+        {prefixIcon && <Icon src={prefixIcon} active={prefixActive} />}
       </PrefixWrapper>
       <InputWrapper
         onChange={handleOnChange}
-        prefix={!nilOrEmpty(prefixIcon)}
-        suffix={!nilOrEmpty(suffixIcon)}
+        // prefix={false}
+        hasPrefix={!nilOrEmpty(prefixIcon)}
+        hasSuffix={!nilOrEmpty(suffixIcon)}
         {...validProps}
       />
       <SuffixWrapper show={!nilOrEmpty(suffixIcon)}>
-        <Icon src={suffixIcon} active={suffixActive} />
+        {suffixIcon && <Icon src={suffixIcon} active={suffixActive} />}
       </SuffixWrapper>
     </Wrapper>
   ) : (
