@@ -138,7 +138,7 @@
     "@groupher/eslint-config-web": "1.1.1",
     "@types/ramda": "^0.25.0",
     "babel-eslint": "^10.0.2",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^26.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-plugin-inline-dotenv": "^1.1.2",
     "babel-plugin-module-resolver": "^4.0.0",
