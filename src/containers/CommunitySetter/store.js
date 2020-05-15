@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -12,12 +12,11 @@ import { PagedCommunities } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:CommunitySetter')
 
-const CommunitySetter = t
-  .model('CommunitySetter', {
-    visible: t.optional(t.boolean, false),
-    searchValue: t.optional(t.string, ''),
-    pagedCommunities: t.maybeNull(PagedCommunities),
-  })
+const CommunitySetter = T.model('CommunitySetter', {
+  visible: T.optional(T.boolean, false),
+  searchValue: T.optional(T.string, ''),
+  pagedCommunities: T.maybeNull(PagedCommunities),
+})
   .views(self => ({
     get root() {
       return getParent(self)

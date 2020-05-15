@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { PAYMENT_USAGE, PAYMENT_METHOD } from '@/constant'
@@ -12,35 +12,34 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:Cashier')
 
-const Cashier = t
-  .model('Cashier', {
-    show: t.optional(t.boolean, false),
-    transferAccount: t.optional(t.string, ''),
-    sidebarView: t.optional(
-      t.enumeration('sideView', ['pay', 'question']),
-      'pay'
-    ),
-    contentView: t.optional(
-      t.enumeration('contentView', ['pay', 'question']),
-      'pay'
-    ),
-    subContentView: t.optional(
-      t.enumeration('subContentView', ['pay', 'confirm']),
-      'pay'
-    ),
-    paymentMethod: t.optional(
-      t.enumeration('paymentMethod', R.values(PAYMENT_METHOD)),
-      PAYMENT_METHOD.ALIPAY
-    ),
-    paymentUsage: t.optional(
-      t.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
-      PAYMENT_USAGE.SENIOR
-    ),
-    amount: t.optional(
-      t.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),
-      '10.24'
-    ),
-  })
+const Cashier = T.model('Cashier', {
+  show: T.optional(T.boolean, false),
+  transferAccount: T.optional(T.string, ''),
+  sidebarView: T.optional(
+    T.enumeration('sideView', ['pay', 'question']),
+    'pay'
+  ),
+  contentView: T.optional(
+    T.enumeration('contentView', ['pay', 'question']),
+    'pay'
+  ),
+  subContentView: T.optional(
+    T.enumeration('subContentView', ['pay', 'confirm']),
+    'pay'
+  ),
+  paymentMethod: T.optional(
+    T.enumeration('paymentMethod', R.values(PAYMENT_METHOD)),
+    PAYMENT_METHOD.ALIPAY
+  ),
+  paymentUsage: T.optional(
+    T.enumeration('paymentUsage', R.values(PAYMENT_USAGE)),
+    PAYMENT_USAGE.SENIOR
+  ),
+  amount: T.optional(
+    T.enumeration('amount', ['10.24', '51.2', '102.4', '512', '1024']),
+    '10.24'
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

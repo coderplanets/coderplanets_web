@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { ROUTE } from '@/constant'
@@ -12,11 +12,10 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:Footer')
 
-const Footer = t
-  .model('Footer', {
-    showSponsor: t.optional(t.boolean, false),
-    showBusBanner: t.optional(t.boolean, false),
-  })
+const Footer = T.model('Footer', {
+  showSponsor: T.optional(T.boolean, false),
+  showBusBanner: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

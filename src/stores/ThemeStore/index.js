@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { DEFAULT_THEME } from '@/config'
@@ -16,13 +16,12 @@ export const ThemeDefaults = {
   curTheme: DEFAULT_THEME,
 }
 
-export const ThemeStore = t
-  .model('ThemeStore', {
-    curTheme: t.optional(
-      t.enumeration('theme', R.keys(themeSkins)),
-      DEFAULT_THEME
-    ),
-  })
+export const ThemeStore = T.model('ThemeStore', {
+  curTheme: T.optional(
+    T.enumeration('theme', R.keys(themeSkins)),
+    DEFAULT_THEME
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

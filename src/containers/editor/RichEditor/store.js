@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog } from '@/utils'
@@ -11,8 +11,7 @@ import { markStates, buildLog } from '@/utils'
 const log = buildLog('S:RichEditor')
 
 // NOTE: add me to stores/index && stores/RootStore/index
-const RichEditor = t
-  .model('RichEditor', {})
+const RichEditor = T.model('RichEditor', {})
   .views(self => ({
     get root() {
       return getParent(self)

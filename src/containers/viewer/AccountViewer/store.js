@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -12,15 +12,14 @@ import { User, EmptyUser } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:AccountViewerStore')
 
-const AccountViewerStore = t
-  .model('AccountViewerStore', {
-    viewingUser: t.optional(User, EmptyUser),
-    viewingType: t.optional(
-      t.enumeration('viewingType', ['account', 'user']),
-      'account'
-    ),
-    loading: t.optional(t.boolean, false),
-  })
+const AccountViewerStore = T.model('AccountViewerStore', {
+  viewingUser: T.optional(User, EmptyUser),
+  viewingType: T.optional(
+    T.enumeration('viewingType', ['account', 'user']),
+    'account'
+  ),
+  loading: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

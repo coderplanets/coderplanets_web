@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -38,56 +38,55 @@ const THREAD_CONTENT_CURD_TYPES = [
   TYPE.PREVIEW_MAILS_VIEW,
 ]
 
-const Attachment = t.model('Attachment', {
-  id: t.string,
-  type: t.optional(
-    t.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
+const Attachment = T.model('Attachment', {
+  id: T.string,
+  type: T.optional(
+    T.enumeration('type', [...THREAD_CONTENT_CURD_TYPES]),
     TYPE.PREVIEW_POST_VIEW
   ),
-  /* type: t.maybeNull(t.string), // t.optional(t.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
-  title: t.string,
-  body: t.maybeNull(t.string),
-  digest: t.maybeNull(t.string),
-  author: t.maybeNull(User),
-  copyRight: t.optional(t.string, 'original'),
-  linkAddr: t.maybeNull(t.string),
+  /* type: T.maybeNull(T.string), // T.optional(T.enumeration('edittype', [TYPE.POST, TYPE.JOB]), TYPE.POST), */
+  title: T.string,
+  body: T.maybeNull(T.string),
+  digest: T.maybeNull(T.string),
+  author: T.maybeNull(User),
+  copyRight: T.optional(T.string, 'original'),
+  linkAddr: T.maybeNull(T.string),
 
   // video spec
-  poster: t.maybeNull(t.string),
-  thumbnil: t.maybeNull(t.string),
-  desc: t.maybeNull(t.string),
-  duration: t.maybeNull(t.string),
-  publishAt: t.maybeNull(t.string),
-  source: t.maybeNull(t.string),
-  link: t.maybeNull(t.string),
-  originalAuthor: t.maybeNull(t.string),
-  originalAuthorLink: t.maybeNull(t.string),
+  poster: T.maybeNull(T.string),
+  thumbnil: T.maybeNull(T.string),
+  desc: T.maybeNull(T.string),
+  duration: T.maybeNull(T.string),
+  publishAt: T.maybeNull(T.string),
+  source: T.maybeNull(T.string),
+  link: T.maybeNull(T.string),
+  originalAuthor: T.maybeNull(T.string),
+  originalAuthorLink: T.maybeNull(T.string),
 })
 
-const PreviewStore = t
-  .model('PreviewStore', {
-    visible: t.optional(t.boolean, false),
-    windowWidth: t.optional(t.number, 1520),
-    type: t.maybeNull(
-      t.enumeration('previewType', [
-        TYPE.PREVIEW_ROOT_STORE,
-        // account
-        TYPE.PREVIEW_ACCOUNT_VIEW,
-        TYPE.PREVIEW_USER_VIEW,
-        TYPE.PREVIEW_ACCOUNT_EDIT,
-        // article types
-        ...THREAD_CONTENT_CURD_TYPES,
-        //
-        TYPE.PREVIEW_C11N_SETINGS,
-      ])
-    ),
-    attUser: t.maybeNull(User),
-    attachment: t.maybeNull(Attachment),
+const PreviewStore = T.model('PreviewStore', {
+  visible: T.optional(T.boolean, false),
+  windowWidth: T.optional(T.number, 1520),
+  type: T.maybeNull(
+    T.enumeration('previewType', [
+      TYPE.PREVIEW_ROOT_STORE,
+      // account
+      TYPE.PREVIEW_ACCOUNT_VIEW,
+      TYPE.PREVIEW_USER_VIEW,
+      TYPE.PREVIEW_ACCOUNT_EDIT,
+      // article types
+      ...THREAD_CONTENT_CURD_TYPES,
+      //
+      TYPE.PREVIEW_C11N_SETINGS,
+    ])
+  ),
+  attUser: T.maybeNull(User),
+  attachment: T.maybeNull(Attachment),
 
-    imageUploading: t.optional(t.boolean, false),
-    // header:
-    // body:
-  })
+  imageUploading: T.optional(T.boolean, false),
+  // header:
+  // body:
+})
   .views(self => ({
     get root() {
       return getParent(self)

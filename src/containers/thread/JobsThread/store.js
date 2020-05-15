@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -13,25 +13,24 @@ import { PagedJobs, Tag, ContentFilter, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:JobsThreadStore')
 
-const JobsThreadStore = t
-  .model('JobsThreadStore', {
-    pagedJobs: t.optional(PagedJobs, emptyPagiData),
-    filters: t.optional(ContentFilter, {}),
-    activeTag: t.maybeNull(Tag),
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.RESULT
-    ),
-    showPublishNote: t.optional(t.boolean, false),
-    // runtime: ..
-    // data: ...
-    // TODO: rename to activeArticle
-  })
+const JobsThreadStore = T.model('JobsThreadStore', {
+  pagedJobs: T.optional(PagedJobs, emptyPagiData),
+  filters: T.optional(ContentFilter, {}),
+  activeTag: T.maybeNull(Tag),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.RESULT
+  ),
+  showPublishNote: T.optional(T.boolean, false),
+  // runtime: ..
+  // data: ...
+  // TODO: rename to activeArticle
+})
   .views(self => ({
     get root() {
       return getParent(self)

@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -19,33 +19,32 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('S:UserPublishedComments')
 
-const UserPublishedComments = t
-  .model('UserPublishedComments', {
-    curThread: t.optional(
-      t.enumeration('curThread', [
-        THREAD.POST,
-        THREAD.JOB,
-        THREAD.VIDEO,
-        THREAD.REPO,
-      ]),
-      THREAD.POST
-    ),
+const UserPublishedComments = T.model('UserPublishedComments', {
+  curThread: T.optional(
+    T.enumeration('curThread', [
+      THREAD.POST,
+      THREAD.JOB,
+      THREAD.VIDEO,
+      THREAD.REPO,
+    ]),
+    THREAD.POST
+  ),
 
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.LOADING
-    ),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.LOADING
+  ),
 
-    pagedPostComments: t.optional(PagedPostComments, emptyPagiData),
-    pagedJobComments: t.optional(PagedJobComments, emptyPagiData),
-    pagedVideoComments: t.optional(PagedVideoComments, emptyPagiData),
-    pagedRepoComments: t.optional(PagedRepoComments, emptyPagiData),
-  })
+  pagedPostComments: T.optional(PagedPostComments, emptyPagiData),
+  pagedJobComments: T.optional(PagedJobComments, emptyPagiData),
+  pagedVideoComments: T.optional(PagedVideoComments, emptyPagiData),
+  pagedRepoComments: T.optional(PagedRepoComments, emptyPagiData),
+})
   .views(self => ({
     get root() {
       return getParent(self)

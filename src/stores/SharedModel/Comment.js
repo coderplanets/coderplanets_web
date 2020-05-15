@@ -1,136 +1,136 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { PAGE_SIZE } from '@/config'
 import { User } from './User'
 import { Community } from './Community'
 
-const CommentBrief = t.model('CommentBrief', {
-  id: t.maybeNull(t.string),
-  body: t.maybeNull(t.string),
-  floor: t.maybeNull(t.number),
-  author: t.optional(User, {}),
+const CommentBrief = T.model('CommentBrief', {
+  id: T.maybeNull(T.string),
+  body: T.maybeNull(T.string),
+  floor: T.maybeNull(T.number),
+  author: T.optional(User, {}),
 })
 
 const CommentBase = {
-  id: t.maybeNull(t.string),
-  body: t.maybeNull(t.string),
-  author: t.optional(User, {}),
-  floor: t.number,
-  replyTo: t.maybeNull(CommentBrief),
-  replies: t.optional(t.array(CommentBrief), []),
-  repliesCount: t.optional(t.number, 0),
-  likesCount: t.optional(t.number, 0),
-  dislikesCount: t.optional(t.number, 0),
-  viewerHasLiked: t.maybeNull(t.boolean),
-  viewerHasDisliked: t.maybeNull(t.boolean),
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
+  id: T.maybeNull(T.string),
+  body: T.maybeNull(T.string),
+  author: T.optional(User, {}),
+  floor: T.number,
+  replyTo: T.maybeNull(CommentBrief),
+  replies: T.optional(T.array(CommentBrief), []),
+  repliesCount: T.optional(T.number, 0),
+  likesCount: T.optional(T.number, 0),
+  dislikesCount: T.optional(T.number, 0),
+  viewerHasLiked: T.maybeNull(T.boolean),
+  viewerHasDisliked: T.maybeNull(T.boolean),
+  insertedAt: T.optional(T.string, ''),
+  updatedAt: T.optional(T.string, ''),
 }
 
-export const Comment = t.model('Comment', {
+export const Comment = T.model('Comment', {
   ...CommentBase,
 })
 
-export const PagedComments = t.model('PagedComments', {
-  entries: t.optional(t.array(Comment), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedComments = T.model('PagedComments', {
+  entries: T.optional(T.array(Comment), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })
 
 // paged post comemnts
-const PostBrief = t.model('PostBrief', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  body: t.maybeNull(t.string),
-  digest: t.maybeNull(t.string),
-  // author: t.optional(User, {}),
-  author: t.maybeNull(User),
-  commentsCount: t.maybeNull(t.number),
-  communities: t.optional(t.array(Community), []),
-  origialCommunity: t.optional(Community, {}),
+const PostBrief = T.model('PostBrief', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  body: T.maybeNull(T.string),
+  digest: T.maybeNull(T.string),
+  // author: T.optional(User, {}),
+  author: T.maybeNull(User),
+  commentsCount: T.maybeNull(T.number),
+  communities: T.optional(T.array(Community), []),
+  origialCommunity: T.optional(Community, {}),
 })
 
-const PostComment = t.model('PostComment', {
+const PostComment = T.model('PostComment', {
   ...CommentBase,
-  post: t.optional(PostBrief, {}),
+  post: T.optional(PostBrief, {}),
 })
-export const PagedPostComments = t.model('PagedPostComment', {
-  entries: t.optional(t.array(PostComment), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedPostComments = T.model('PagedPostComment', {
+  entries: T.optional(T.array(PostComment), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })
 
 // paged jobs comemnts
-const JobBrief = t.model('JobBrief', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  body: t.maybeNull(t.string),
-  company: t.maybeNull(t.string),
-  // author: t.optional(User, {}),
-  author: t.maybeNull(User),
-  commentsCount: t.maybeNull(t.number),
-  communities: t.optional(t.array(Community), []),
-  origialCommunity: t.optional(Community, {}),
+const JobBrief = T.model('JobBrief', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  body: T.maybeNull(T.string),
+  company: T.maybeNull(T.string),
+  // author: T.optional(User, {}),
+  author: T.maybeNull(User),
+  commentsCount: T.maybeNull(T.number),
+  communities: T.optional(T.array(Community), []),
+  origialCommunity: T.optional(Community, {}),
 })
 
-const JobComment = t.model('JobComment', {
+const JobComment = T.model('JobComment', {
   ...CommentBase,
-  job: t.optional(JobBrief, {}),
+  job: T.optional(JobBrief, {}),
 })
-export const PagedJobComments = t.model('PagedJobComment', {
-  entries: t.optional(t.array(JobComment), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedJobComments = T.model('PagedJobComment', {
+  entries: T.optional(T.array(JobComment), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })
 
 // paged videos comemnts
-const VideoBrief = t.model('VideoBrief', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  author: t.maybeNull(User),
-  commentsCount: t.maybeNull(t.number),
-  communities: t.optional(t.array(Community), []),
-  origialCommunity: t.optional(Community, {}),
+const VideoBrief = T.model('VideoBrief', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  author: T.maybeNull(User),
+  commentsCount: T.maybeNull(T.number),
+  communities: T.optional(T.array(Community), []),
+  origialCommunity: T.optional(Community, {}),
 })
 
-const VideoComment = t.model('VideoComment', {
+const VideoComment = T.model('VideoComment', {
   ...CommentBase,
-  video: t.optional(VideoBrief, {}),
+  video: T.optional(VideoBrief, {}),
 })
-export const PagedVideoComments = t.model('PagedVideoComment', {
-  entries: t.optional(t.array(VideoComment), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedVideoComments = T.model('PagedVideoComment', {
+  entries: T.optional(T.array(VideoComment), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })
 
 // paged repos comemnts
-const RepoBrief = t.model('RepoBrief', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  ownerName: t.maybeNull(t.string),
-  ownerUrl: t.maybeNull(t.string),
-  repoUrl: t.maybeNull(t.string),
-  commentsCount: t.maybeNull(t.number),
-  communities: t.optional(t.array(Community), []),
-  origialCommunity: t.optional(Community, {}),
+const RepoBrief = T.model('RepoBrief', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  ownerName: T.maybeNull(T.string),
+  ownerUrl: T.maybeNull(T.string),
+  repoUrl: T.maybeNull(T.string),
+  commentsCount: T.maybeNull(T.number),
+  communities: T.optional(T.array(Community), []),
+  origialCommunity: T.optional(Community, {}),
 })
 
-const RepoComment = t.model('RepoComment', {
+const RepoComment = T.model('RepoComment', {
   ...CommentBase,
-  repo: t.optional(RepoBrief, {}),
+  repo: T.optional(RepoBrief, {}),
 })
-export const PagedRepoComments = t.model('PagedRepoComment', {
-  entries: t.optional(t.array(RepoComment), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedRepoComments = T.model('PagedRepoComment', {
+  entries: T.optional(T.array(RepoComment), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })

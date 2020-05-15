@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import Router from 'next/router'
 
@@ -19,22 +19,21 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('S:RouteStore')
 
-const Query = t.model('Query', {
-  page: t.optional(t.string, '1'),
-  size: t.optional(t.string, String(PAGE_SIZE.D)),
-  tab: t.maybeNull(t.string),
+const Query = T.model('Query', {
+  page: T.optional(T.string, '1'),
+  size: T.optional(T.string, String(PAGE_SIZE.D)),
+  tab: T.maybeNull(T.string),
   // sort .... [when, ...]
   // view ... [chart, list ...]
 })
 
-const RouteStore = t
-  .model('RouteStore', {
-    communityPath: t.optional(t.string, ''),
-    threadPath: t.optional(t.string, ''),
-    mainPath: t.optional(t.string, ''),
-    subPath: t.optional(t.string, ''),
-    query: t.optional(Query, {}),
-  })
+const RouteStore = T.model('RouteStore', {
+  communityPath: T.optional(T.string, ''),
+  threadPath: T.optional(T.string, ''),
+  mainPath: T.optional(T.string, ''),
+  subPath: T.optional(T.string, ''),
+  query: T.optional(Query, {}),
+})
   .views(self => ({
     get root() {
       return getParent(self)

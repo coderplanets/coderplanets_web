@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { ERR } from '@/constant'
@@ -12,37 +12,36 @@ import { markStates, buildLog, stripMobx } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ErrorBox')
 
-const Message = t.model('Message', {
-  message: t.string,
-  key: t.optional(t.string, ''),
-  code: t.optional(t.number, 0),
+const Message = T.model('Message', {
+  message: T.string,
+  key: T.optional(T.string, ''),
+  code: T.optional(T.number, 0),
 })
 
-const ChangesetError = t.model('ChangesetError', {
-  code: t.maybeNull(t.number),
-  message: t.array(Message),
+const ChangesetError = T.model('ChangesetError', {
+  code: T.maybeNull(T.number),
+  message: T.array(Message),
 })
 
-const ErrorBox = t
-  .model('ErrorBox', {
-    show: t.optional(t.boolean, false),
-    type: t.optional(
-      t.enumeration('type', [ERR.GRAPHQL, ERR.NETWORK, ERR.TIMEOUT]),
-      ERR.GRAPHQL
-    ),
-    operation: t.optional(t.string, '--'),
-    path: t.maybeNull(t.string),
+const ErrorBox = T.model('ErrorBox', {
+  show: T.optional(T.boolean, false),
+  type: T.optional(
+    T.enumeration('type', [ERR.GRAPHQL, ERR.NETWORK, ERR.TIMEOUT]),
+    ERR.GRAPHQL
+  ),
+  operation: T.optional(T.string, '--'),
+  path: T.maybeNull(T.string),
 
-    timeoutError: t.optional(t.string, '--'),
-    // spec type of ERR.GRAPHQL
-    graphqlType: t.optional(
-      t.enumeration('graphqlType', ['changeset', 'parse', 'custom']),
-      'changeset'
-    ),
-    customError: t.maybeNull(t.array(Message)),
-    parseError: t.maybeNull(t.array(Message)),
-    changesetError: t.maybeNull(t.array(ChangesetError)),
-  })
+  timeoutError: T.optional(T.string, '--'),
+  // spec type of ERR.GRAPHQL
+  graphqlType: T.optional(
+    T.enumeration('graphqlType', ['changeset', 'parse', 'custom']),
+    'changeset'
+  ),
+  customError: T.maybeNull(T.array(Message)),
+  parseError: T.maybeNull(T.array(Message)),
+  changesetError: T.maybeNull(T.array(ChangesetError)),
+})
   .views(self => ({
     get root() {
       return getParent(self)

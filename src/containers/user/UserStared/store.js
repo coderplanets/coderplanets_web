@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -13,30 +13,29 @@ import { PagedPosts, PagedJobs, PagedVideos, emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:UserStared')
 
-const UserStared = t
-  .model('UserStared', {
-    curThread: t.optional(
-      t.enumeration('curThread', [
-        THREAD.POST,
-        THREAD.JOB,
-        THREAD.VIDEO,
-        THREAD.REPO,
-      ]),
-      THREAD.POST
-    ),
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.LOADING
-    ),
-    pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    pagedJobs: t.optional(PagedJobs, emptyPagiData),
-    pagedVideos: t.optional(PagedVideos, emptyPagiData),
-  })
+const UserStared = T.model('UserStared', {
+  curThread: T.optional(
+    T.enumeration('curThread', [
+      THREAD.POST,
+      THREAD.JOB,
+      THREAD.VIDEO,
+      THREAD.REPO,
+    ]),
+    THREAD.POST
+  ),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.LOADING
+  ),
+  pagedPosts: T.optional(PagedPosts, emptyPagiData),
+  pagedJobs: T.optional(PagedJobs, emptyPagiData),
+  pagedVideos: T.optional(PagedVideos, emptyPagiData),
+})
   .views(self => ({
     get root() {
       return getParent(self)

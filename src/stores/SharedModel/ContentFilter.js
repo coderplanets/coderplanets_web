@@ -1,10 +1,10 @@
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { FILTER } from '@/constant'
 
-export const ContentFilter = t.model('ContentFilter', {
-  when: t.optional(
-    t.enumeration('when', [
+export const ContentFilter = T.model('ContentFilter', {
+  when: T.optional(
+    T.enumeration('when', [
       '',
       FILTER.TODAY,
       FILTER.THIS_WEEK,
@@ -14,8 +14,8 @@ export const ContentFilter = t.model('ContentFilter', {
     ''
   ),
 
-  sort: t.optional(
-    t.enumeration('sort', [
+  sort: T.optional(
+    T.enumeration('sort', [
       '',
       FILTER.MOST_VIEWS,
       FILTER.MOST_FAVORITES,
@@ -27,20 +27,20 @@ export const ContentFilter = t.model('ContentFilter', {
     ]),
     ''
   ),
-  length: t.optional(
-    t.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
+  length: T.optional(
+    T.enumeration('length', ['', FILTER.MOST_WORDS, FILTER.LEAST_WORDS]),
     ''
   ),
   // job
-  salary: t.optional(t.string, ''),
-  exp: t.optional(t.string, ''),
-  education: t.optional(t.string, ''),
-  field: t.optional(t.string, ''),
-  finance: t.optional(t.string, ''),
-  scale: t.optional(t.string, ''),
+  salary: T.optional(T.string, ''),
+  exp: T.optional(T.string, ''),
+  education: T.optional(T.string, ''),
+  field: T.optional(T.string, ''),
+  finance: T.optional(T.string, ''),
+  scale: T.optional(T.string, ''),
   // video
-  source: t.optional(t.string, ''),
-  read: t.optional(t.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
+  source: T.optional(T.string, ''),
+  read: T.optional(T.enumeration('read', ['', FILTER.READ, FILTER.UNREAD]), ''),
 })
 
 export const holder = 1

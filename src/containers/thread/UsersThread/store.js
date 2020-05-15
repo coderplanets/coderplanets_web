@@ -3,27 +3,26 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:UsersThread')
 
-const Geo = t.model('Thread', {
-  city: t.string,
-  value: t.number,
-  long: t.number,
-  lant: t.number,
+const Geo = T.model('Thread', {
+  city: T.string,
+  value: T.number,
+  long: T.number,
+  lant: T.number,
 })
 
-const UsersThread = t
-  .model('UsersThread', {
-    geoInfos: t.optional(t.array(Geo), []),
-    geoDataLoading: t.optional(t.boolean, false),
-    // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
-    showNums: t.optional(t.boolean, false),
-  })
+const UsersThread = T.model('UsersThread', {
+  geoInfos: T.optional(T.array(Geo), []),
+  geoDataLoading: T.optional(T.boolean, false),
+  // { city: '成都', value: 1, long: 104.06, lant: 30.67 }
+  showNums: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

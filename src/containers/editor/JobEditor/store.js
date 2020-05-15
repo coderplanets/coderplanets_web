@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { THREAD } from '@/constant'
@@ -13,36 +13,35 @@ import { Job } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:JobEditorStore')
 
-const Mention = t.model('Mention', {
-  id: t.string,
-  name: t.string,
-  avatar: t.string,
+const Mention = T.model('Mention', {
+  id: T.string,
+  name: T.string,
+  avatar: T.string,
 })
 
-const JobEditorStore = t
-  .model('JobEditorStore', {
-    editJob: t.optional(Job, {}),
+const JobEditorStore = T.model('JobEditorStore', {
+  editJob: T.optional(Job, {}),
 
-    mentionList: t.optional(t.array(Mention), []),
-    // current "@user" in valid array format
-    referUsers: t.optional(t.array(Mention), []),
-    // current "@user" in string list
-    extractMentions: t.optional(t.array(t.string), []),
+  mentionList: T.optional(T.array(Mention), []),
+  // current "@user" in valid array format
+  referUsers: T.optional(T.array(Mention), []),
+  // current "@user" in string list
+  extractMentions: T.optional(T.array(T.string), []),
 
-    curView: t.optional(
-      t.enumeration('curView', [
-        'MARKDOWN_HELP_VIEW',
-        'EDIT_VIEW',
-        'CREATE_VIEW',
-        'PREVIEW_VIEW',
-      ]),
-      'CREATE_VIEW'
-    ),
-    contentDomId: t.optional(t.string, 'job_editor_content_id'),
+  curView: T.optional(
+    T.enumeration('curView', [
+      'MARKDOWN_HELP_VIEW',
+      'EDIT_VIEW',
+      'CREATE_VIEW',
+      'PREVIEW_VIEW',
+    ]),
+    'CREATE_VIEW'
+  ),
+  contentDomId: T.optional(T.string, 'job_editor_content_id'),
 
-    publishing: t.optional(t.boolean, false),
-    isEdit: t.optional(t.boolean, false),
-  })
+  publishing: T.optional(T.boolean, false),
+  isEdit: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)

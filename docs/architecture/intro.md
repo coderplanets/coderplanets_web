@@ -201,7 +201,7 @@ Store.js is similar to the M layer under the MVC architecture, based on [mobx-st
 
 ```js
 ...
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { Post, Mention } from '@/model'
@@ -210,15 +210,15 @@ import { markStates, buildLog, stripMobx, changeset } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:PostEditorf')
 
-const PostEditor = t
+const PostEditor = T
   .model('PostEditor', {
-    editPost: t.optional(Post, {}),
+    editPost: T.optional(Post, {}),
 
-    mentionList: t.optional(t.array(Mention), []),
+    mentionList: T.optional(T.array(Mention), []),
     // current "@user" in valid array format
-    referUsers: t.optional(t.array(Mention), []),
-    publishing: t.optional(t.boolean, false),
-    isEdit: t.optional(t.boolean, false),
+    referUsers: T.optional(T.array(Mention), []),
+    publishing: T.optional(T.boolean, false),
+    isEdit: T.optional(T.boolean, false),
   })
   .views(self => ({
     get root() {

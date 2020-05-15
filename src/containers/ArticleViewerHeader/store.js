@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE } from '@/constant'
@@ -12,14 +12,13 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleViewerHeader')
 
-const ArticleViewerHeader = t
-  .model('ArticleViewerHeader', {
-    loading: t.optional(t.boolean, false),
-    action: t.optional(
-      t.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
-      TYPE.FAVORITE
-    ),
-  })
+const ArticleViewerHeader = T.model('ArticleViewerHeader', {
+  loading: T.optional(T.boolean, false),
+  action: T.optional(
+    T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
+    TYPE.FAVORITE
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

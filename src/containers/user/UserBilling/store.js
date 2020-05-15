@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { PAGE_SIZE } from '@/config'
@@ -13,29 +13,28 @@ import { emptyPagiData } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:UserBilling')
 
-const Bill = t.model('Bill', {
-  id: t.string,
-  hashId: t.string,
-  paymentMethod: t.string,
-  paymentUsage: t.string,
-  state: t.string,
-  amount: t.number,
-  note: t.optional(t.string, ''),
-  insertedAt: t.optional(t.string, ''),
+const Bill = T.model('Bill', {
+  id: T.string,
+  hashId: T.string,
+  paymentMethod: T.string,
+  paymentUsage: T.string,
+  state: T.string,
+  amount: T.number,
+  note: T.optional(T.string, ''),
+  insertedAt: T.optional(T.string, ''),
 })
 
-const PagedBillRecords = t.model('PagedBillRecords', {
-  entries: t.optional(t.array(Bill), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+const PagedBillRecords = T.model('PagedBillRecords', {
+  entries: T.optional(T.array(Bill), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })
 
-const UserBilling = t
-  .model('UserBilling', {
-    pagedBillRecords: t.optional(PagedBillRecords, emptyPagiData),
-  })
+const UserBilling = T.model('UserBilling', {
+  pagedBillRecords: T.optional(PagedBillRecords, emptyPagiData),
+})
   .views(self => ({
     get root() {
       return getParent(self)

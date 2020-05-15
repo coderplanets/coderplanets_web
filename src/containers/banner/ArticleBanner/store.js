@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { TYPE } from '@/constant'
@@ -12,19 +12,18 @@ import { markStates, buildLog } from '@/utils'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleBanner')
 
-const ArticleBanner = t
-  .model('ArticleBanner', {
-    loading: t.optional(t.boolean, false),
-    action: t.optional(
-      t.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
-      TYPE.FAVORITE
-    ),
-    headerFixed: t.optional(t.boolean, false),
-    scrollDirection: t.optional(
-      t.enumeration('scrollDirection', ['up', 'down']),
-      'down'
-    ),
-  })
+const ArticleBanner = T.model('ArticleBanner', {
+  loading: T.optional(T.boolean, false),
+  action: T.optional(
+    T.enumeration('action', [TYPE.FAVORITE, TYPE.STAR]),
+    TYPE.FAVORITE
+  ),
+  headerFixed: T.optional(T.boolean, false),
+  scrollDirection: T.optional(
+    T.enumeration('scrollDirection', ['up', 'down']),
+    'down'
+  ),
+})
   .views(self => ({
     get root() {
       return getParent(self)

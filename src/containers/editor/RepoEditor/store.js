@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 
 import { ERR } from '@/constant'
 import { markStates, buildLog, changeset, stripMobx } from '@/utils'
@@ -12,28 +12,24 @@ import { Repo } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:RepoEditor')
 
-const RepoEditor = t
-  .model('RepoEditor', {
-    editRepo: t.maybeNull(Repo),
-    curView: t.optional(t.enumeration('curView', ['search', 'show']), 'search'),
-    subView: t.optional(
-      t.enumeration('curView', ['search', 'token']),
-      'search'
-    ),
-    searchValue: t.optional(t.string, ''),
-    searching: t.optional(t.boolean, false),
-    publishing: t.optional(t.boolean, false),
-    // repo owner
-    owner: t.optional(t.string, ''),
-    // repo name
-    name: t.optional(t.string, ''),
+const RepoEditor = T.model('RepoEditor', {
+  editRepo: T.maybeNull(Repo),
+  curView: T.optional(T.enumeration('curView', ['search', 'show']), 'search'),
+  subView: T.optional(T.enumeration('curView', ['search', 'token']), 'search'),
+  searchValue: T.optional(T.string, ''),
+  searching: T.optional(T.boolean, false),
+  publishing: T.optional(T.boolean, false),
+  // repo owner
+  owner: T.optional(T.string, ''),
+  // repo name
+  name: T.optional(T.string, ''),
 
-    // github api token
-    tokenValue: t.optional(t.string, ''),
+  // github api token
+  tokenValue: T.optional(T.string, ''),
 
-    // errorType
-    errorType: t.maybeNull(t.string),
-  })
+  // errorType
+  errorType: T.maybeNull(T.string),
+})
   .views(self => ({
     get root() {
       return getParent(self)

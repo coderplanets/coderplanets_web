@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { markStates, buildLog, stripMobx } from '@/utils'
@@ -12,12 +12,11 @@ import { User } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:ArticleAuthorCard')
 
-const ArticleAuthorCard = t
-  .model('ArticleAuthorCard', {
-    hasFollowed: t.optional(t.boolean, false),
-    following: t.optional(t.boolean, false),
-    user: t.optional(User, {}),
-  })
+const ArticleAuthorCard = T.model('ArticleAuthorCard', {
+  hasFollowed: T.optional(T.boolean, false),
+  following: T.optional(T.boolean, false),
+  user: T.optional(User, {}),
+})
   .views(self => ({
     get root() {
       return getParent(self)

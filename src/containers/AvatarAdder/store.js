@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 // import R from 'ramda'
 
 import { ERR } from '@/constant'
@@ -13,16 +13,15 @@ import { GithubUser } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:AvatarAdder')
 
-const AvatarAdder = t
-  .model('AvatarAdder', {
-    githubUser: t.maybeNull(GithubUser),
-    searchValue: t.optional(t.string, ''),
-    popoverVisiable: t.optional(t.boolean, false),
-    searching: t.optional(t.boolean, false),
+const AvatarAdder = T.model('AvatarAdder', {
+  githubUser: T.maybeNull(GithubUser),
+  searchValue: T.optional(T.string, ''),
+  popoverVisiable: T.optional(T.boolean, false),
+  searching: T.optional(T.boolean, false),
 
-    errorType: t.maybeNull(t.string),
-    /* ERR_TYPE:  */
-  })
+  errorType: T.maybeNull(T.string),
+  /* ERR_TYPE:  */
+})
   .views(self => ({
     get root() {
       return getParent(self)

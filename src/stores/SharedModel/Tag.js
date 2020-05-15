@@ -1,32 +1,32 @@
 import R from 'ramda'
-import { types as t } from 'mobx-state-tree'
+import { types as T } from 'mobx-state-tree'
 
 import { TAG_COLORS, PAGE_SIZE } from '@/config'
 import { THREAD } from '@/constant'
 
 import { Community } from './Community'
 
-export const Topic = t.model('Topic', {
-  id: t.maybeNull(t.string),
-  raw: t.maybeNull(t.string),
+export const Topic = T.model('Topic', {
+  id: T.maybeNull(T.string),
+  raw: T.maybeNull(T.string),
 })
 
-export const Tag = t.model('Tag', {
-  id: t.maybeNull(t.string),
-  title: t.maybeNull(t.string),
-  color: t.optional(t.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
-  topic: t.maybeNull(Topic),
-  /* thread: t.optional(t.enumeration('thread', R.values(THREAD)), THREAD.POST), */
-  thread: t.optional(t.enumeration('thread', R.values(THREAD)), THREAD.POST),
-  community: t.maybeNull(Community),
-  insertedAt: t.optional(t.string, ''),
-  updatedAt: t.optional(t.string, ''),
+export const Tag = T.model('Tag', {
+  id: T.maybeNull(T.string),
+  title: T.maybeNull(T.string),
+  color: T.optional(T.enumeration('color', TAG_COLORS), TAG_COLORS[0]),
+  topic: T.maybeNull(Topic),
+  /* thread: T.optional(T.enumeration('thread', R.values(THREAD)), THREAD.POST), */
+  thread: T.optional(T.enumeration('thread', R.values(THREAD)), THREAD.POST),
+  community: T.maybeNull(Community),
+  insertedAt: T.optional(T.string, ''),
+  updatedAt: T.optional(T.string, ''),
 })
 
-export const PagedTags = t.model('PagedTags', {
-  entries: t.optional(t.array(Tag), []),
-  pageNumber: t.optional(t.number, 1),
-  pageSize: t.optional(t.number, PAGE_SIZE.D),
-  totalCount: t.optional(t.number, 0),
-  totalPages: t.optional(t.number, 0),
+export const PagedTags = T.model('PagedTags', {
+  entries: T.optional(T.array(Tag), []),
+  pageNumber: T.optional(T.number, 1),
+  pageSize: T.optional(T.number, PAGE_SIZE.D),
+  totalCount: T.optional(T.number, 0),
+  totalPages: T.optional(T.number, 0),
 })

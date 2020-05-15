@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 // import { PAGE_SIZE } from '@/config'
 
@@ -13,12 +13,11 @@ import { User, EmptyUser, PagedCommunities } from '@/model'
 /* eslint-disable-next-line */
 const log = buildLog('S:AccountStore')
 
-const AccountStore = t
-  .model('AccountStore', {
-    user: t.optional(User, {}),
-    isValidSession: t.optional(t.boolean, false),
-    userSubscribedCommunities: t.maybeNull(PagedCommunities),
-  })
+const AccountStore = T.model('AccountStore', {
+  user: T.optional(User, {}),
+  isValidSession: T.optional(T.boolean, false),
+  userSubscribedCommunities: T.maybeNull(PagedCommunities),
+})
   .views(self => ({
     get root() {
       return getParent(self)

@@ -3,7 +3,7 @@
  *
  */
 
-import { types as t, getParent } from 'mobx-state-tree'
+import { types as T, getParent } from 'mobx-state-tree'
 import R from 'ramda'
 
 import { TYPE, THREAD } from '@/constant'
@@ -20,23 +20,22 @@ import {
 /* eslint-disable-next-line */
 const log = buildLog('S:PostsThreadStore')
 
-const PostsThreadStore = t
-  .model('PostsThreadStore', {
-    pagedPosts: t.optional(PagedPosts, emptyPagiData),
-    filters: t.optional(ContentFilter, {}),
-    activeTag: t.maybeNull(Tag),
-    curView: t.optional(
-      t.enumeration('curView', [
-        TYPE.RESULT,
-        TYPE.LOADING,
-        TYPE.NOT_FOUND,
-        TYPE.RESULT_EMPTY,
-      ]),
-      TYPE.RESULT
-    ),
-    pagedCityCommunities: t.optional(PagedCommunities, emptyPagiData),
-    faqActive: t.optional(t.boolean, false),
-  })
+const PostsThreadStore = T.model('PostsThreadStore', {
+  pagedPosts: T.optional(PagedPosts, emptyPagiData),
+  filters: T.optional(ContentFilter, {}),
+  activeTag: T.maybeNull(Tag),
+  curView: T.optional(
+    T.enumeration('curView', [
+      TYPE.RESULT,
+      TYPE.LOADING,
+      TYPE.NOT_FOUND,
+      TYPE.RESULT_EMPTY,
+    ]),
+    TYPE.RESULT
+  ),
+  pagedCityCommunities: T.optional(PagedCommunities, emptyPagiData),
+  faqActive: T.optional(T.boolean, false),
+})
   .views(self => ({
     get root() {
       return getParent(self)
